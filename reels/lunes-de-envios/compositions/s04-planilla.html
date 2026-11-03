@@ -1,0 +1,167 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-planilla"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-planilla"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-planilla"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-planilla"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s04-planilla"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-planilla"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-planilla"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s04-planilla"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s04-planilla"] .relleno-navy { fill: #07111f; }
+    [data-composition-id="s04-planilla"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s04-planilla"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s04-planilla"] .lex-rojo { font-family: "Lexend", sans-serif; font-weight: 600; fill: #c0564b; }
+    [data-composition-id="s04-planilla"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s04-planilla"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s04-planilla"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s04-planilla"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #c0564b; }
+    [data-composition-id="s04-planilla"] .apagado { opacity: 0.45; }
+    [data-composition-id="s04-planilla"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-planilla"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s04-planilla" data-width="1080" data-height="1920" data-duration="7.45">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="7.45" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s04-pila"><g transform="translate(225 830) rotate(-8) scale(0.8)"><g class="apagado s04-pc">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1060</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Vero T.</text></g></g>
+        <g transform="translate(231 804) rotate(6) scale(0.8)"><g class="apagado s04-pc">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1061</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Juan P.</text></g></g>
+        <g transform="translate(237 778) rotate(-3) scale(0.8)"><g class="apagado s04-pc">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1062</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Caro B.</text></g></g></g>
+        <g transform="translate(230 880)"><g class="s04-ficha">
+          <rect class="ln" x="-150" y="-120" width="300" height="240" rx="18" />
+          <text class="mono" x="-124" y="-78" font-size="24">#1072 · TIENDA</text>
+          <text class="lex" x="-124" y="-22" font-size="28">Sofía R.</text>
+          <text class="lex" x="-124" y="30" font-size="26">Av. Rivera 2345</text>
+          <text class="lex" x="-124" y="82" font-size="26">099 ··· 218</text>
+          <line class="ln-ac s04-sub s04-sub0" x1="-124" y1="-10" x2="-10" y2="-10" />
+          <line class="ln-ac s04-sub s04-sub1" x1="-124" y1="42" x2="76" y2="42" />
+          <line class="ln-ac s04-sub s04-sub2" x1="-124" y1="94" x2="20" y2="94" />
+        </g></g>
+        <g class="s04-pla">
+          <rect class="ln s04-pd" x="430" y="640" width="560" height="440" rx="14" />
+          <line class="ln s04-pd" x1="430" y1="700" x2="990" y2="700" />
+          <line class="ln-fino s04-pd" x1="600" y1="640" x2="600" y2="1080" />
+          <line class="ln-fino s04-pd" x1="830" y1="640" x2="830" y2="1080" />
+          <line class="ln-fino s04-pd" x1="430" y1="776" x2="990" y2="776" /><line class="ln-fino s04-pd" x1="430" y1="852" x2="990" y2="852" />
+          <line class="ln-fino s04-pd" x1="430" y1="928" x2="990" y2="928" /><line class="ln-fino s04-pd" x1="430" y1="1004" x2="990" y2="1004" />
+          <text class="mono s04-hd" x="446" y="680" font-size="24">NOMBRE</text>
+          <text class="mono s04-hd" x="616" y="680" font-size="24">DIRECCIÓN</text>
+          <text class="mono s04-hd" x="846" y="680" font-size="24">TEL</text>
+        </g>
+        <text class="mono-rojo s04-cnt" x="990" y="622" font-size="28" text-anchor="end">0/32</text>
+        <g class="s04-f s04-f0"><text class="lex" x="446" y="750" font-size="24">Diego A.</text><text class="lex" x="616" y="750" font-size="24">Colonia 1290</text><text class="lex" x="846" y="750" font-size="24">098 ··· 554</text></g>
+        <g class="s04-f s04-f1"><text class="lex" x="446" y="826" font-size="24">Ana M.</text><text class="lex" x="616" y="826" font-size="24">Ellauri 610</text><text class="lex" x="846" y="826" font-size="24">091 ··· 307</text></g>
+        <g class="s04-f s04-f2"><text class="lex" x="446" y="902" font-size="24">Pablo S.</text><text class="lex" x="616" y="902" font-size="24">Rivera 4410</text><text class="lex" x="846" y="902" font-size="24">099 ··· 862</text></g>
+        <text class="lex s04-c4 s04-c40" x="446" y="978" font-size="24">Sofía R.</text>
+        <text class="lex s04-c4 s04-c41" x="616" y="978" font-size="24">Av. Rivera 2345</text>
+        <text class="lex s04-c4 s04-c42" x="846" y="978" font-size="24">099 ··· 218</text>
+        <rect class="ln-ac s04-celda" x="434" y="932" width="162" height="68" rx="6" />
+        <g transform="translate(400 1180)"><g class="s04-tc s04-tc0"><g class="s04-tcm0">
+  <rect class="ln " x="-100" y="-38" width="200" height="76" rx="14" />
+  <line class="ln-fino " x1="-86" y1="30" x2="86" y2="30" />
+  <text class="mono" x="0" y="10" font-size="28" text-anchor="middle">Ctrl C</text></g></g></g>
+        <g transform="translate(680 1180)"><g class="s04-tc s04-tc1"><g class="s04-tcm1">
+  <rect class="ln " x="-100" y="-38" width="200" height="76" rx="14" />
+  <line class="ln-fino " x1="-86" y1="30" x2="86" y2="30" />
+  <text class="mono" x="0" y="10" font-size="28" text-anchor="middle">Ctrl V</text></g></g></g>
+        <g class="s04-cur"><path d="M0 0 L0 44 L12 33 L21 54 L30 50 L21 30 L37 30 Z" fill="#07111f" stroke="#efeee5" stroke-width="4" stroke-linejoin="round" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">A mano</span><span class="s04-e2">Uno por uno</span><span class="s04-e3">Copiar y pegar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-planilla";
+      const DUR = 7.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // golpecito (latido)
+      const latir = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      // contador numérico
+      const contar = (el, t, d, a, b, fmt) => { const o = { v: a }; const pintar = () => { el.textContent = fmt ? fmt(Math.round(o.v)) : String(Math.round(o.v)); }; pintar(); tl.to(o, { v: b, duration: d, ease: "power1.inOut", onUpdate: pintar }, t); };
+
+      dibujar(qa(".s04-pd"), 0, 0.5, 0.5, 0.03);
+      tl.fromTo(qa(".s04-hd"), { opacity: 0 }, { opacity: 0.8, duration: 0.3 }, 0.1);
+      tl.fromTo(q(".s04-pila"), { opacity: 0.4, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo(q(".s04-cnt"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.3);
+      const cur = q(".s04-cur");
+      gsap.set(cur, { x: 250, y: 860, opacity: 0 });
+      tl.to(cur, { opacity: 1, duration: 0.2 }, 0.5);
+      const cnt = q(".s04-cnt");
+      const setCnt = (t, n) => { tl.call(() => {}, null, t); tl.set(cnt, { textContent: n + "/32" }, t); latir(cnt, t, 1.2); };
+      // filas 1-3: del montón a la planilla, cada vez una
+      [[1.0, 1.65], [1.95, 2.29], [2.5, 2.74]].forEach(([ida, llega], i) => {
+        tl.to(cur, { x: 250, y: 820, duration: 0.25, ease: "power2.inOut" }, ida - 0.3);
+        tl.to(q(".s04-pila"), { x: 6, duration: 0.08, yoyo: true, repeat: 1 }, ida - 0.05);
+        tl.to(cur, { x: 520, y: 735 + i * 76, duration: llega - ida, ease: "power2.inOut" }, ida);
+        tl.fromTo(q(".s04-f" + i), { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, llega);
+        setCnt(llega, i + 1);
+      });
+      // la ficha de Sofía sube al montón
+      tl.fromTo(q(".s04-ficha"), { opacity: 0, y: 40, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, 3.2);
+      tl.to(q(".s04-pila"), { opacity: 0.5, y: -40, duration: 0.35 }, 3.2);
+      tl.fromTo(qa(".s04-tc"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", stagger: 0.08 }, 3.4);
+      gsap.set(q(".s04-celda"), { opacity: 0 });
+      // copiar / pegar campo por campo
+      const CAMPOS = [[3.9, 4.35, 446, 230, 865], [4.49, 5.45, 616, 270, 917], [5.55, 6.85, 846, 230, 969]];
+      const FY = [858, 910, 962];
+      CAMPOS.forEach(([copiar, pegar, cx], k) => {
+        tl.to(cur, { x: 200, y: FY[k] - 10, duration: 0.22, ease: "power2.inOut" }, copiar - 0.2);
+        dibujar(q(".s04-sub" + k), copiar, 0.25);
+        tl.to(q(".s04-tcm0"), { y: 8, duration: 0.08, yoyo: true, repeat: 1 }, copiar + 0.05);
+        tl.to(cur, { x: cx + 60, y: 960, duration: Math.min(0.5, pegar - copiar - 0.15), ease: "power2.inOut" }, copiar + 0.2);
+        tl.to(q(".s04-celda"), { opacity: 1, x: [0, 170, 400][k], duration: 0.15 }, pegar - 0.25);
+        tl.to(q(".s04-tcm1"), { y: 8, duration: 0.08, yoyo: true, repeat: 1 }, pegar - 0.05);
+        tl.fromTo(q(".s04-c4" + k), { opacity: 0 }, { opacity: 1, duration: 0.15 }, pegar);
+        tl.to(q(".s04-sub" + k), { opacity: 0, duration: 0.2 }, pegar + 0.2);
+      });
+      tl.to(q(".s04-celda"), { opacity: 0, duration: 0.2 }, 7.0);
+      setCnt(6.9, 4);
+      // etiqueta mono
+      const ET = [0.3,1.65,3.9];
+      ET.forEach((t, i) => {
+        const el = q(".s04-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      tl.set({}, {}, DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

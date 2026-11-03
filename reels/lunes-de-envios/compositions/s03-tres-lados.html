@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-tres-lados"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-tres-lados"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-tres-lados"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tres-lados"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s03-tres-lados"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tres-lados"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-tres-lados"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s03-tres-lados"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s03-tres-lados"] .relleno-navy { fill: #07111f; }
+    [data-composition-id="s03-tres-lados"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s03-tres-lados"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s03-tres-lados"] .lex-rojo { font-family: "Lexend", sans-serif; font-weight: 600; fill: #c0564b; }
+    [data-composition-id="s03-tres-lados"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s03-tres-lados"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s03-tres-lados"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s03-tres-lados"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #c0564b; }
+    [data-composition-id="s03-tres-lados"] .apagado { opacity: 0.45; }
+    [data-composition-id="s03-tres-lados"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-tres-lados"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s03-tres-lados" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.02" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <g class="s03-ch s03-ch0" transform="translate(220 690)">
+  <rect class="ln s03-d0" x="-75" y="-55" width="150" height="110" rx="12" />
+  <line class="ln s03-d0" x1="-75" y1="-25" x2="75" y2="-25" />
+  <circle class="ln-fino s03-d0" cx="-55" cy="-40" r="4" /><circle class="ln-fino s03-d0" cx="-40" cy="-40" r="4" />
+  <rect class="ln-fino s03-d0" x="-55" y="-8" width="45" height="45" rx="6" /><rect class="ln-fino s03-d0" x="10" y="-8" width="45" height="45" rx="6" />
+          <text class="lex" x="0" y="105" font-size="30" text-anchor="middle">Tienda</text>
+          <text class="grande s03-n s03-n0" x="0" y="210" font-size="96" text-anchor="middle">12</text></g>
+        <g class="s03-ch s03-ch1" transform="translate(540 690)">
+  <rect class="ln s03-d1" x="-60" y="-60" width="120" height="120" rx="28" />
+  <rect class="ln-fino s03-d1" x="-38" y="-38" width="32" height="32" rx="4" /><rect class="ln-fino s03-d1" x="6" y="-38" width="32" height="32" rx="4" />
+  <rect class="ln-fino s03-d1" x="-38" y="6" width="32" height="32" rx="4" /><rect class="ln-fino s03-d1" x="6" y="6" width="32" height="32" rx="4" />
+          <text class="lex" x="0" y="105" font-size="30" text-anchor="middle">Instagram</text>
+          <text class="grande s03-n s03-n1" x="0" y="210" font-size="96" text-anchor="middle">14</text></g>
+        <g class="s03-ch s03-ch2" transform="translate(860 690)">
+  <path class="ln s03-d2" d="M-62 -48 Q-62 -60 -50 -60 H50 Q62 -60 62 -48 V22 Q62 34 50 34 H-18 L-46 58 V34 H-50 Q-62 34 -62 22 Z" />
+  <line class="ln-fino s03-d2" x1="-38" y1="-28" x2="38" y2="-28" /><line class="ln-fino s03-d2" x1="-38" y1="0" x2="18" y2="0" />
+          <text class="lex" x="0" y="105" font-size="30" text-anchor="middle">WhatsApp</text>
+          <text class="grande s03-n s03-n2" x="0" y="210" font-size="96" text-anchor="middle">6</text></g>
+        <g class="s03-c s03-c0"><g class="apagado" transform="rotate(-9) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1041</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">TIENDA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Sofía R.</text></g></g>
+        <g class="s03-c s03-c1"><g class="apagado" transform="rotate(7) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1042</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">TIENDA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Martín G.</text></g></g>
+        <g class="s03-c s03-c2"><g class="apagado" transform="rotate(-3) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1043</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">TIENDA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Lucía P.</text></g></g>
+        <g class="s03-c s03-c3"><g class="apagado" transform="rotate(12) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1044</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Diego A.</text></g></g>
+        <g class="s03-c s03-c4"><g class="apagado" transform="rotate(14) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1045</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Ana M.</text></g></g>
+        <g class="s03-c s03-c5"><g class="apagado" transform="rotate(-11) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1046</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Pablo S.</text></g></g>
+        <g class="s03-c s03-c6"><g class="apagado" transform="rotate(-5) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1047</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">INSTA</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Vero T.</text></g></g>
+        <g class="s03-c s03-c7"><g class="apagado" transform="rotate(6) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1048</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">WSP</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Juan P.</text></g></g>
+        <g class="s03-c s03-c8"><g class="apagado" transform="rotate(-14) scale(0.78)">
+  <rect class="ln " x="-150" y="-60" width="300" height="120" rx="16" />
+  <text data-layout-ignore class="mono" x="-124" y="-18" font-size="24">#1049</text>
+  <text data-layout-ignore class="mono" x="124" y="-18" font-size="20" text-anchor="end" opacity="0.8">WSP</text>
+  <text data-layout-ignore class="lex" x="-124" y="32" font-size="32">Caro B.</text></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Tres canales</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-tres-lados";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // golpecito (latido)
+      const latir = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      // contador numérico
+      const contar = (el, t, d, a, b, fmt) => { const o = { v: a }; const pintar = () => { el.textContent = fmt ? fmt(Math.round(o.v)) : String(Math.round(o.v)); }; pintar(); tl.to(o, { v: b, duration: d, ease: "power1.inOut", onUpdate: pintar }, t); };
+
+      const CH = [[220,0],[540,0.77],[860,1.87]];
+      CH.forEach(([x, t], i) => {
+        dibujar(qa(".s03-d" + i), i === 0 ? 0 : t - 0.15, 0.45, i === 0 ? 0.4 : 1, 0.03);
+        tl.fromTo(q(".s03-ch" + i + " .lex"), { opacity: 0 }, { opacity: 0.85, duration: 0.25 }, Math.max(0, t - 0.1));
+        tl.fromTo(q(".s03-n" + i), { opacity: 0, scale: 0.5, svgOrigin: x + " 870" }, { opacity: 1, scale: 1, svgOrigin: x + " 870", duration: 0.35, ease: "back.out(2)" }, t);
+      });
+      const T = [[0,0.1,380,1170,-9],[0,0.32,640,1190,7],[0,0.55,500,1120,-3],[1,0.85,720,1110,12],[1,1.1,330,1080,14],[1,1.35,560,1060,-11],[1,1.6,760,1200,-5],[2,1.95,430,1010,6],[2,2.2,680,1000,-14]];
+      T.forEach(([c, t, x, y, r], i) => {
+        const el = q(".s03-c" + i);
+        tl.fromTo(el, { opacity: 0, x: CH[c][0], y: 780 }, { opacity: 1, x: x, y: y, duration: 0.45, ease: "power2.in" }, t);
+        tl.to(el, { y: y - 10, duration: 0.08, yoyo: true, repeat: 1 }, t + 0.45);
+      });
+      // los números laten mientras caen
+      [0, 1, 2].forEach((i) => latir(q(".s03-ch" + i), 2.55 + i * 0.1, 1.05));
+      // etiqueta mono
+      const ET = [0.3];
+      ET.forEach((t, i) => {
+        const el = q(".s03-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      tl.set({}, {}, DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,24 @@
+[
+ {
+  "t": 0.05,
+  "sfx": "typing",
+  "vol": 0.2,
+  "max": 0.9
+ },
+ {
+  "t": 1.16,
+  "sfx": "chime",
+  "vol": 0.28
+ },
+ {
+  "t": 2.22,
+  "sfx": "notification",
+  "vol": 0.3
+ },
+ {
+  "t": 4.16,
+  "sfx": "sparkle",
+  "vol": 0.25,
+  "max": 0.8
+ }
+]

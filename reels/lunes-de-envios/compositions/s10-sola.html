@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-sola"] .s10-capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-sola"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-sola"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-sola"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s10-sola"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-sola"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s10-sola"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s10-sola"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s10-sola"] .relleno-navy { fill: #07111f; }
+    [data-composition-id="s10-sola"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s10-sola"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s10-sola"] .lex-rojo { font-family: "Lexend", sans-serif; font-weight: 600; fill: #c0564b; }
+    [data-composition-id="s10-sola"] .grande { font-family: "Lexend", sans-serif; font-weight: 700; fill: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s10-sola"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s10-sola"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #5ce611; }
+    [data-composition-id="s10-sola"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; fill: #c0564b; }
+    [data-composition-id="s10-sola"] .apagado { opacity: 0.45; }
+    [data-composition-id="s10-sola"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s10-sola"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s10-sola" data-width="1080" data-height="1920" data-duration="5.08">
+    <div id="s10-escena" class="s10-capa clip" data-start="0" data-duration="5.08" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+        <defs><clipPath id="s10-clip"><rect x="100" y="706" width="480" height="640" /></clipPath></defs>
+        <rect class="ln s10-imp" x="130" y="640" width="380" height="80" rx="18" />
+        <line class="ln s10-imp" x1="160" y1="704" x2="480" y2="704" />
+        <circle class="relleno-ac s10-led" cx="470" cy="668" r="8" />
+        <g clip-path="url(#s10-clip)"><g class="s10-lab">
+          <rect class="ln" x="170" y="700" width="300" height="410" rx="10" />
+          <text class="mono-ac" x="196" y="770" font-size="32">DAC</text>
+          <text class="mono" x="446" y="770" font-size="24" text-anchor="end" opacity="0.7">#1072</text>
+          <line class="ln-fino" x1="180" y1="792" x2="460" y2="792" />
+          <text class="lex" x="196" y="842" font-size="28">Para: Sofía R.</text>
+          <text class="lex" x="196" y="884" font-size="26">Av. Rivera 2345</text>
+          <text class="lex" x="196" y="922" font-size="26" opacity="0.8">Montevideo</text>
+          <line class="ln-fino" x1="200" y1="960" x2="200" y2="1050" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="206" y1="960" x2="206" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="210" y1="960" x2="210" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="218" y1="960" x2="218" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="222" y1="960" x2="222" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="230" y1="960" x2="230" y2="1050" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="236" y1="960" x2="236" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="240" y1="960" x2="240" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="248" y1="960" x2="248" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="254" y1="960" x2="254" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="258" y1="960" x2="258" y2="1050" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="266" y1="960" x2="266" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="272" y1="960" x2="272" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="276" y1="960" x2="276" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="284" y1="960" x2="284" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="290" y1="960" x2="290" y2="1050" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="296" y1="960" x2="296" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="302" y1="960" x2="302" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="308" y1="960" x2="308" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="314" y1="960" x2="314" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="320" y1="960" x2="320" y2="1050" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="328" y1="960" x2="328" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="334" y1="960" x2="334" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="340" y1="960" x2="340" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="346" y1="960" x2="346" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="352" y1="960" x2="352" y2="1050" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="360" y1="960" x2="360" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="366" y1="960" x2="366" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="372" y1="960" x2="372" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="378" y1="960" x2="378" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="386" y1="960" x2="386" y2="1050" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="392" y1="960" x2="392" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="398" y1="960" x2="398" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="404" y1="960" x2="404" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="410" y1="960" x2="410" y2="1040" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="418" y1="960" x2="418" y2="1050" style="opacity:0.9;stroke-width:2.5" /><line class="ln-fino" x1="424" y1="960" x2="424" y2="1040" style="opacity:0.9;stroke-width:5" /><line class="ln-fino" x1="430" y1="960" x2="430" y2="1040" style="opacity:0.9;stroke-width:2.5" />
+          <text class="mono" x="320" y="1086" font-size="24" text-anchor="middle">0042 0718</text>
+        </g></g>
+        <g class="s10-ok1"><circle class="relleno-navy" cx="470" cy="1110" r="36" /><circle class="ln-ac" cx="470" cy="1110" r="36" /><path class="ln-ac s10-t1" d="M452 1110 l12 12 l22 -24" /></g>
+        <rect class="ln s10-cel" x="590" y="650" width="360" height="560" rx="46" />
+        <line class="ln s10-cel" x1="730" y1="676" x2="810" y2="676" />
+        <line class="ln-fino s10-cel" x1="590" y1="750" x2="950" y2="750" />
+        <text class="lex s10-nom" x="620" y="724" font-size="28">Sofía R.</text>
+        <g class="s10-bur">
+          <rect class="ln-ac" x="612" y="790" width="316" height="190" rx="22" />
+          <text class="lex" x="636" y="840" font-size="28">Tu pedido salió.</text>
+          <text class="lex" x="636" y="884" font-size="28" opacity="0.85">Seguimiento:</text>
+          <text class="mono-ac" x="636" y="932" font-size="30">DAC 0042</text>
+        </g>
+        <g class="s10-ok2"><path class="ln-ac s10-t2" d="M640 1030 l12 12 l22 -24" /><text class="mono-ac" x="690" y="1042" font-size="28">ENVIADO</text></g>
+      </svg>
+      <div class="etiqueta"><span class="s10-e1">Etiqueta sola</span><span class="s10-e2">Aviso solo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-sola";
+      const DUR = 5.08;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? 1 : 0 });
+          if (t0 > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { opacity: 1, clipPath: "inset(-20% 100% -20% 0)" }, { opacity: 1, clipPath: "inset(-20% 0% -20% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      // golpecito (latido)
+      const latir = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      // contador numérico
+      const contar = (el, t, d, a, b, fmt) => { const o = { v: a }; const pintar = () => { el.textContent = fmt ? fmt(Math.round(o.v)) : String(Math.round(o.v)); }; pintar(); tl.to(o, { v: b, duration: d, ease: "power1.inOut", onUpdate: pintar }, t); };
+
+      dibujar(qa(".s10-imp"), 0, 0.4, 0.4, 0.05);
+      tl.fromTo(q(".s10-led"), { opacity: 0.3 }, { opacity: 1, duration: 0.15, yoyo: true, repeat: 5 }, 0);
+      tl.fromTo(q(".s10-lab"), { y: -400 }, { y: 0, duration: 1.0, ease: "power2.out" }, 0.05);
+      gsap.set(q(".s10-ok1"), { opacity: 0 });
+      tl.fromTo(q(".s10-ok1"), { opacity: 0, scale: 0.5, svgOrigin: "470 1110" }, { opacity: 1, scale: 1, svgOrigin: "470 1110", duration: 0.35, ease: "back.out(2.2)" }, 1.12);
+      dibujar(q(".s10-t1"), 1.2, 0.3);
+      dibujar(qa(".s10-cel"), 1.7, 0.45, 1, 0.05);
+      tl.fromTo(q(".s10-nom"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.95);
+      tl.fromTo(q(".s10-bur"), { opacity: 0, y: 30, scale: 0.9, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 2.2);
+      latir(q(".s10-bur"), 2.66, 1.04);
+      tl.fromTo(q(".s10-ok2"), { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, 4.1);
+      dibujar(q(".s10-t2"), 4.12, 0.3);
+      tl.to(q(".s10-lab"), { y: 10, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.4);
+      // etiqueta mono
+      const ET = [0.3,2.22];
+      ET.forEach((t, i) => {
+        const el = q(".s10-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      // salida
+      tl.to(q("#s10-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      tl.set({}, {}, DUR);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

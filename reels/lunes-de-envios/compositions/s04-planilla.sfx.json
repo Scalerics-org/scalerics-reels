@@ -1,0 +1,42 @@
+[
+ {
+  "t": 1.65,
+  "sfx": "click",
+  "vol": 0.25
+ },
+ {
+  "t": 2.29,
+  "sfx": "click",
+  "vol": 0.25
+ },
+ {
+  "t": 2.74,
+  "sfx": "click",
+  "vol": 0.25
+ },
+ {
+  "t": 3.95,
+  "sfx": "key-press",
+  "vol": 0.3
+ },
+ {
+  "t": 4.32,
+  "sfx": "key-press",
+  "vol": 0.3
+ },
+ {
+  "t": 4.54,
+  "sfx": "key-press",
+  "vol": 0.3
+ },
+ {
+  "t": 5.42,
+  "sfx": "key-press",
+  "vol": 0.3
+ },
+ {
+  "t": 6.82,
+  "sfx": "key-press",
+  "vol": 0.3
+ }
+]
