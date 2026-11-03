@@ -68,6 +68,26 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    mirando." (reportes).
    Por tanda de 5, **al menos 2 con este formato** (uno de ellos "Dos negocios").
 
+7. **Más fuerza visual (Juan, 03-11, revisando la tanda del 03-11: "dale perfecto arreglá eso").**
+   La tanda del 03-11 estuvo bien en contenido y marca, pero en el celular se ve floja. Desde ahora:
+   - **Llenar la pantalla.** El dibujo o la interfaz ocupa al menos el 60-70 % del ancho y del alto
+     de la zona de dibujo (y 580-1330), nada de un dibujito chico en el medio de un fondo negro. Si
+     una escena tiene un solo objeto, que sea GRANDE; si tiene dos, que se repartan la pantalla.
+   - **El primer cuadro es la portada en movimiento.** En el segundo 0 ya se ve el gancho entero en
+     letras grandes (Lexend 800-900, 110-150 px, la palabra clave en verde) y el dibujo principal,
+     no una frase cortada en chiquito. Los subtítulos karaoke arrancan recién después.
+   - **Trazos más gruesos.** Líneas de 6-8 px (no 3-4) y textos de interfaz de 28 px para arriba:
+     tiene que leerse en un celular sin agrandar.
+   - **Que no sean todos iguales en el feed.** Cada reel de la tanda con un fondo distinto dentro de
+     la marca, rotando: navy oscuro `#0b1220` (el de siempre), navy claro `#16243d`, crema
+     `#efeee5` con líneas navy y verde, verde de marca `#5ce611` de fondo con líneas navy (solo para
+     escenas cortas o el cierre), y pantalla de celular a pantalla completa. Y alterná el recurso
+     principal: dibujos de líneas, interfaz recreada, tipografía gigante. Anotá el fondo en el
+     corchete de "Hechos" para que la próxima tanda no repita la misma combinación.
+   - Ejemplos que ya andan así: `reels/te-buscaron` (todo en el celular, interfaz grande) y
+     `reels/las-resenas` (tipografía gigante con ritmo). Mirá también `reels/dos-cafeterias` como
+     ejemplo de lo que hay que AGRANDAR: buena historia, dibujos demasiado chicos.
+
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
 está vacía, el reel más nuevo que no se publicó ni se descartó. O sea: lo que sube la rutina sale
