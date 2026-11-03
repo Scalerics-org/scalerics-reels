@@ -291,7 +291,7 @@ if (hayIG) {
 const form = (o) => new URLSearchParams({ ...o, access_token: tk });
 const cont = await pedir(`${igBase}/${uid}/media`, {
   method: "POST",
-  body: form({ media_type: "REELS", video_url: videoUrl, caption, share_to_feed: "true", ...(portadaUrl ? { cover_url: portadaUrl } : {}) }),
+  body: form({ media_type: "REELS", video_url: videoUrl, caption, share_to_feed: "true", is_ai_generated: "true", ...(portadaUrl ? { cover_url: portadaUrl } : {}) }),
 });
 let st;
 for (let i = 0; i < 60; i++) {
