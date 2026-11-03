@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-fino { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-rojo { fill: none; stroke: #c0564b; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-tenue { fill: none; stroke: #efeee5; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.18; }
+    [data-composition-id="s12-cta"] .punteada { fill: none; stroke: #efeee5; stroke-width: 3.5; stroke-linecap: round; stroke-dasharray: 2 14; opacity: 0.5; }
+    [data-composition-id="s12-cta"] .relleno-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .relleno-rojo { fill: #c0564b; }
+    [data-composition-id="s12-cta"] .relleno-navy { fill: #07111f; }
+    [data-composition-id="s12-cta"] .relleno-crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .lex-b { font-family: "Lexend", sans-serif; font-weight: 700; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .lex-ac { font-family: "Lexend", sans-serif; font-weight: 600; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .lex-rojo { font-family: "Lexend", sans-serif; font-weight: 600; fill: #c0564b; }
+    [data-composition-id="s12-cta"] .lex-navy { font-family: "Lexend", sans-serif; font-weight: 600; fill: #07111f; }
+    [data-composition-id="s12-cta"] .lex-blanco { font-family: "Lexend", sans-serif; font-weight: 700; fill: #ffffff; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .apagado { opacity: 0.45; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="10.33">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="10.33" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s12-marca">
+          <text class="lex-blanco s12-sc" x="540" y="650" text-anchor="middle" font-size="96">Scalerics</text>
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="540" y2="785" opacity="0.6" />
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="791" y2="885" opacity="0.6" />
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="791" y2="1085" opacity="0.6" />
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="540" y2="1185" opacity="0.6" />
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="289" y2="1085" opacity="0.6" />
+          <line class="ln-ac s12-rayo" x1="540" y1="985" x2="289" y2="885" opacity="0.6" />
+          <g class="s12-nucleo"><rect class="relleno-navy" x="430" y="930" width="220" height="110" rx="18" /><rect class="ln-ac" x="430" y="930" width="220" height="110" rx="18" /><text class="mono-ac" x="540" y="995" text-anchor="middle" font-size="30">PRECIOS</text></g>
+          <g transform="translate(540 785)"><g class="s12-ic s12-ic0"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d0"  x="-120" y="-85" width="240" height="170" rx="10" /><rect class="ln-fino s12-d0"  x="-102" y="-67" width="204" height="134" rx="4" /><path class="ln-fino s12-d0"  d="M-78 -32 q18 -14 36 0 t36 0 t36 0" /><path class="ln-fino s12-d0"  d="M-78 16 h70" /><path class="ln-fino s12-d0"  d="M-78 40 h40" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+          <g transform="translate(791 885)"><g class="s12-ic s12-ic1"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d1"  x="-120" y="-85" width="240" height="170" rx="10" /><line class="ln s12-d1"  x1="-120" y1="-45" x2="120" y2="-45" /><line class="ln-fino s12-d1"  x1="-40" y1="-85" x2="-40" y2="85" /><line class="ln-fino s12-d1"  x1="40" y1="-85" x2="40" y2="85" /><line class="ln-fino s12-d1"  x1="-120" y1="-2" x2="120" y2="-2" /><line class="ln-fino s12-d1"  x1="-120" y1="42" x2="120" y2="42" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+          <g transform="translate(791 1085)"><g class="s12-ic s12-ic2"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d2"  x="-120" y="-85" width="240" height="170" rx="12" /><line class="ln s12-d2"  x1="-120" y1="-52" x2="120" y2="-52" /><circle class="ln-fino s12-d2"  cx="-100" cy="-68" r="5" /><circle class="ln-fino s12-d2"  cx="-82" cy="-68" r="5" /><circle class="ln-fino s12-d2"  cx="-64" cy="-68" r="5" /><rect class="ln-fino s12-d2"  x="-100" y="-34" width="82" height="100" rx="8" /><path class="ln-fino s12-d2"  d="M-74 50 V-2 Q-74 -14 -62 -14 H-44 Q-36 -14 -36 -2 V50 Z" /><line class="ln-fino s12-d2"  x1="0" y1="-22" x2="96" y2="-22" /><line class="ln-fino s12-d2"  x1="0" y1="2" x2="66" y2="2" /><rect class="ln-fino s12-d2"  x="0" y="30" width="96" height="32" rx="16" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+          <g transform="translate(540 1185)"><g class="s12-ic s12-ic3"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d3"  x="-62" y="-100" width="124" height="200" rx="20" /><line class="ln s12-d3"  x1="-14" y1="-86" x2="14" y2="-86" /><rect class="ln-fino s12-d3"  x="-46" y="-66" width="92" height="84" rx="10" /><path class="ln-fino s12-d3"  d="M-16 8 V-30 Q-16 -40 -6 -40 H8 Q16 -40 16 -30 V8 Z" /><rect class="ln-fino s12-d3"  x="-46" y="32" width="66" height="26" rx="13" /><rect class="ln-fino s12-d3"  x="-20" y="66" width="66" height="22" rx="11" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+          <g transform="translate(289 1085)"><g class="s12-ic s12-ic4"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d4"  x="-80" y="-92" width="160" height="184" rx="10" /><rect class="ln s12-d4"  x="-32" y="-104" width="64" height="26" rx="8" /><line class="ln-fino s12-d4"  x1="-55" y1="-46" x2="30" y2="-46" /><line class="ln-fino s12-d4"  x1="-55" y1="-14" x2="55" y2="-14" /><line class="ln-fino s12-d4"  x1="-55" y1="18" x2="40" y2="18" /><line class="ln-fino s12-d4"  x1="-55" y1="50" x2="55" y2="50" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+          <g transform="translate(289 885)"><g class="s12-ic s12-ic5"><rect class="relleno-navy" x="-80" y="-60" width="160" height="120" rx="12" /><g transform="scale(0.42)"><rect class="ln s12-d5"  x="-120" y="30" width="240" height="20" rx="4" /><path class="ln s12-d5"  d="M-100 30 V-40 Q-100 -54 -86 -54 H-44 Q-32 -54 -32 -40 V30" /><rect class="ln-fino s12-d5"  x="-82" y="-74" width="24" height="20" rx="4" /><path class="ln s12-d5"  d="M32 30 V-40 Q32 -54 46 -54 H88 Q100 -54 100 -40 V30" /><rect class="ln-fino s12-d5"  x="50" y="-74" width="24" height="20" rx="4" /><rect class="ln-fino s12-d5"  x="-46" y="56" width="92" height="40" rx="6" /><line class="ln-fino s12-d5"  x1="-30" y1="76" x2="30" y2="76" /></g><g transform="translate(62 -44) scale(0.8)"><circle class="ln-ac" cx="0" cy="0" r="20" /><path class="ln-ac" d="M-9 1 L-2 8 L10 -6" /></g></g></g>
+        </g>
+        <g class="s12-preg">
+          <text class="lex s12-q1" x="540" y="720" text-anchor="middle" font-size="62">¿En cuántos lugares</text>
+          <text class="lex s12-q2" x="540" y="800" text-anchor="middle" font-size="62">tenés tus <tspan fill="#5ce611" style="fill:#5ce611">precios</tspan> hoy?</text>
+          <g transform="translate(240 945)"><g class="s12-f s12-f0"><circle class="ln s12-fc0" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl0" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft0" x="0" y="15" text-anchor="middle" font-size="42">1</text></g></g>
+          <g transform="translate(360 945)"><g class="s12-f s12-f1"><circle class="ln s12-fc1" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl1" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft1" x="0" y="15" text-anchor="middle" font-size="42">2</text></g></g>
+          <g transform="translate(480 945)"><g class="s12-f s12-f2"><circle class="ln s12-fc2" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl2" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft2" x="0" y="15" text-anchor="middle" font-size="42">3</text></g></g>
+          <g transform="translate(600 945)"><g class="s12-f s12-f3"><circle class="ln s12-fc3" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl3" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft3" x="0" y="15" text-anchor="middle" font-size="42">4</text></g></g>
+          <g transform="translate(720 945)"><g class="s12-f s12-f4"><circle class="ln s12-fc4" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl4" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft4" x="0" y="15" text-anchor="middle" font-size="42">5</text></g></g>
+          <g transform="translate(840 945)"><g class="s12-f s12-f5"><circle class="ln s12-fc5" cx="0" cy="0" r="46" /><circle class="relleno-ac s12-fl5" cx="0" cy="0" r="46" opacity="0" /><text class="lex s12-ft5" x="0" y="15" text-anchor="middle" font-size="42">6+</text></g></g>
+          <g class="s12-pill"><rect class="relleno-crema" x="190" y="1060" width="700" height="100" rx="50" /><text class="lex-navy" x="540" y="1124" text-anchor="middle" font-size="40">Dejalo en los comentarios</text></g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s12-e1">Automatizaciones para pymes</span><span class="s12-e2">Contalos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 10.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      // dibuja trazos (stroke-dashoffset); opacity 0 hasta que arrancan (sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.04);
+          const o = Number(getComputedStyle(el).opacity) || 1;
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0 ? o : 0 });
+          if (t0 > 0) tl.to(el, { opacity: o, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      // aparece entero con golpe
+      const pop = (el, t, o) => tl.fromTo(el, { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: o ?? 1, scale: 1, duration: 0.35, ease: "back.out(1.6)" }, t);
+      // aparece suave desde abajo
+      const sube = (el, t, o) => tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: o ?? 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      const fuera = (el, t, d) => tl.to(el, { opacity: 0, duration: d ?? 0.25, ease: "power2.in" }, t);
+      // texto que se escribe de izquierda a derecha
+      const escribir = (el, t, d) => tl.fromTo(el, { clipPath: "inset(-30% 100% -30% 0)" }, { clipPath: "inset(-30% 0% -30% 0)", duration: d ?? 0.5, ease: "power1.inOut" }, t);
+      const latir = (el, t, n, s) => tl.fromTo(el, { scale: 1, transformOrigin: "50% 50%" }, { scale: s ?? 1.25, transformOrigin: "50% 50%", duration: 0.28, ease: "sine.inOut", yoyo: true, repeat: (n ?? 2) * 2 - 1 }, t);
+
+      pop(q(".s12-sc"), 0.13);
+      gsap.set(qa(".s12-rayo"), { opacity: 0.6 });
+      dibujar(qa(".s12-rayo"), 0.3, 0.4, 1, 0.06);
+      pop(q(".s12-nucleo"), 0.2);
+      qa(".s12-ic").forEach((g, i) => pop(g, 0.5 + i * 0.12));
+      tl.fromTo(q(".s12-nucleo"), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.06, transformOrigin: "50% 50%", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.4);
+      tl.to(q(".s12-marca"), { opacity: 0, y: -30, duration: 0.3, ease: "power2.in" }, 3.2);
+      gsap.set(q(".s12-preg"), { opacity: 0 });
+      tl.set(q(".s12-preg"), { opacity: 1 }, 3.3);
+      sube(q(".s12-q1"), 3.36); sube(q(".s12-q2"), 3.6);
+      qa(".s12-f").forEach((f, i) => pop(f, 4.0 + i * 0.08));
+      // contando: se van poniendo verdes
+      for (let i = 0; i < 6; i++) {
+        const t = 4.93 + i * 0.18;
+        tl.to(q(".s12-fl" + i), { opacity: 1, duration: 0.12 }, t);
+        tl.to(q(".s12-ft" + i), { fill: "#07111f", duration: 0.12 }, t);
+        tl.fromTo(q(".s12-f" + i), { scale: 1, transformOrigin: "50% 50%" }, { scale: 1.15, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1 }, t);
+      }
+      pop(q(".s12-pill"), 6.07);
+      latir(q(".s12-pill"), 7.4, 2, 1.04);
+      // etiqueta mono
+      const ET = [0.13,3.36];
+      ET.forEach((t, i) => {
+        const el = q(".s12-e" + (i + 1));
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+        if (i + 1 < ET.length) tl.to(el, { opacity: 0, y: -8, duration: 0.2 }, ET[i + 1] - 0.15);
+      });
+      tl.to({}, { duration: 0.01 }, DUR - 0.01);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

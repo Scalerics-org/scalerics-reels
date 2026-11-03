@@ -1,0 +1,143 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .apagado { opacity: 0.45; }
+    [data-composition-id="s12-cta"] .verde { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .rojo { fill: #b8574e; }
+    [data-composition-id="s12-cta"] .osc { fill: #07111f; }
+    [data-composition-id="s12-cta"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .t-osc { fill: #07111f; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s12-cta"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s12-cta"] .marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 76px; fill: #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="12.11">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="12.11" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s12-a">
+          <g class="s12-caja">
+            <rect class="ln s12-caja-r" x="290" y="610" width="500" height="150" rx="32" />
+            <text class="marca" x="540" y="694" text-anchor="middle">Scalerics</text>
+            <text class="mono t-ac" x="540" y="738" font-size="26" text-anchor="middle" style="letter-spacing:0.3em">AGENTES DE IA</text>
+          </g>
+          <g class="s12-agente"><g class="s12-ag-in">
+            <path class="ln" d="M0 -300 V-326" /><circle class="verde s12-antena" cx="0" cy="-336" r="10" />
+            <rect class="ln" x="-85" y="-300" width="170" height="140" rx="44" />
+            <g class="s12-ojos"><rect class="verde" x="-42" y="-258" width="18" height="34" rx="9" /><rect class="verde" x="24" y="-258" width="18" height="34" rx="9" /></g>
+            <path class="ln4" d="M-20 -200 Q0 -188 20 -200" />
+            <path class="ln" d="M0 -160 V-148" /><rect class="ln" x="-66" y="-148" width="132" height="118" rx="30" />
+            <text class="ia" x="0" y="-74" text-anchor="middle">IA</text>
+            <path class="ln" d="M-28 -30 V0 M28 -30 V0 M-28 0 H-46 M28 0 H46" />
+            <g class="s12-bi"><path class="ln" d="M-66 -130 Q-100 -100 -104 -64" /></g>
+            <g class="s12-bd"><path class="ln" d="M66 -130 Q100 -100 104 -64" /></g>
+          </g></g>
+          <g class="s12-chapa"><rect class="ln-ac" x="640" y="930" width="300" height="58" rx="14" /><text class="mono t-ac" x="790" y="969" font-size="24" text-anchor="middle">UN EMPLEADO MÁS</text></g>
+          <g class="s12-reloj">
+            <circle class="ln" cx="300" cy="960" r="56" />
+            <path class="ln4" d="M300 912 V922 M300 998 V1008 M252 960 H262 M338 960 H348" />
+            <line class="ln-ac s12-aguja" x1="300" y1="960" x2="300" y2="924" />
+            <text class="mono t-ac" x="300" y="1056" font-size="26" text-anchor="middle">24 H</text>
+          </g>
+        </g>
+        <g class="s12-b">
+          <text class="mono t-cr s12-com" x="160" y="668" font-size="24" fill-opacity="0.6">COMENTARIOS</text>
+          <g class="s12-preg"><rect class="ln-ac" x="140" y="690" width="800" height="140" rx="26" />
+            <text class="lex t-cr" x="176" y="748" font-size="36">¿Cuál es el "lo pienso" más</text>
+            <text class="lex t-cr" x="176" y="796" font-size="36">creativo que te dijeron?</text></g>
+          <g class="s12-campo">
+            <circle class="ln4" cx="186" cy="922" r="30" /><text class="lex t-ac" x="186" y="932" font-size="28" text-anchor="middle">@</text>
+            <rect class="ln s12-campo-r" x="236" y="870" width="704" height="104" rx="24" />
+            <text class="lex t-cr s12-tipeo" x="264" y="934" font-size="30"></text>
+            <rect class="verde s12-cursor" x="264" y="904" width="3" height="38" />
+            <g class="s12-ok"><circle class="verde" cx="900" cy="922" r="24" /><path class="ln" stroke="#07111f" stroke-width="5" d="M888 922 l8 8 l16 -16" /></g>
+          </g>
+          <g class="s12-mas">
+            <rect class="ln4 apagado" x="236" y="1004" width="600" height="72" rx="20" /><path class="ln4 apagado" d="M266 1040 H600" />
+            <rect class="ln4 apagado" x="236" y="1096" width="520" height="72" rx="20" /><path class="ln4 apagado" d="M266 1132 H520" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s12-e1">Agentes de IA</span><span class="s12-e2">Un empleado más</span><span class="s12-e3">Sin horario</span><span class="s12-e4">Contanos el tuyo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 12.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s12-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s12-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const SCAL = 0.05, EMPLEADO = 3.15, SIN = 4.0, CONTANOS = 4.65, CREATIVO = 7.65;
+      // A: marca + agente
+      dibujar([q(".s12-caja-r")], 0, 0.5, 0.4);
+      tl.fromTo(qa(".s12-caja text"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.1 }, SCAL);
+      gsap.set(q(".s12-agente"), { x: 540, y: 1200 });
+      tl.fromTo(q(".s12-ag-in"), { opacity: 0, scale: 0.7, svgOrigin: "0 0" }, { opacity: 1, scale: 0.85, svgOrigin: "0 0", duration: 0.45, ease: "back.out(2)" }, 0.9);
+      tl.to(q(".s12-ojos"), { scaleY: 0.15, svgOrigin: "0 -241", duration: 0.08, yoyo: true, repeat: 1 }, 2.2);
+      gsap.set(qa(".s12-chapa, .s12-reloj, .s12-b, .s12-ok"), { opacity: 0 });
+      pop(q(".s12-chapa"), EMPLEADO, 0.6);
+      pop(q(".s12-reloj"), SIN - 0.05, 0.6);
+      tl.fromTo(q(".s12-aguja"), { rotation: 0, svgOrigin: "300 960" }, { rotation: 720, svgOrigin: "300 960", duration: 0.8, ease: "power2.inOut" }, SIN + 0.1);
+      etq(1, 0.9); etq(2, EMPLEADO); etq(3, SIN);
+      // B: el comentario
+      tl.to(q(".s12-a"), { opacity: 0, y: -60, duration: 0.35, ease: "power2.in" }, CONTANOS - 0.1);
+      tl.to(q(".s12-b"), { opacity: 1, duration: 0.05 }, CONTANOS + 0.2);
+      tl.fromTo(q(".s12-com"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, CONTANOS + 0.2);
+      pop(q(".s12-preg"), CONTANOS + 0.25, 0.85);
+      tl.fromTo(q(".s12-campo"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CONTANOS + 0.5);
+      tl.fromTo(q(".s12-mas"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, CONTANOS + 0.8);
+      const TXT = "Lo consulto con mi perro y te aviso.";
+      const tip = q(".s12-tipeo"), cur = q(".s12-cursor");
+      const est = { n: 0 };
+      const pintar = () => {
+        const s = TXT.slice(0, Math.round(est.n));
+        if (tip.textContent !== s) tip.textContent = s;
+        gsap.set(cur, { x: s.length ? tip.getComputedTextLength() + 4 : 0 });
+      };
+      tl.fromTo(est, { n: 0 }, { n: TXT.length, duration: 2.0, ease: "none", onUpdate: pintar }, CONTANOS + 0.9);
+      tl.to(cur, { opacity: 0, duration: 0.05 }, CREATIVO);
+      pop(q(".s12-ok"), CREATIVO, 0.5);
+      tl.to(q(".s12-campo-r"), { stroke: "#5ce611", duration: 0.25 }, CREATIVO);
+      tl.to(q(".s12-campo"), { scale: 1.03, transformOrigin: "50% 50%", duration: 0.6, yoyo: true, repeat: 5, ease: "sine.inOut" }, CREATIVO + 0.5);
+      tl.to(q(".s12-preg"), { y: -6, duration: 0.8, yoyo: true, repeat: 3, ease: "sine.inOut" }, CREATIVO + 0.4);
+      etq(4, CONTANOS + 0.2);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

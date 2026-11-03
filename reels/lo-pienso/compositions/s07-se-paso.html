@@ -1,0 +1,116 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-se-paso"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-se-paso"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-se-paso"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-se-paso"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-se-paso"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-se-paso"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-se-paso"] .apagado { opacity: 0.45; }
+    [data-composition-id="s07-se-paso"] .verde { fill: #5ce611; }
+    [data-composition-id="s07-se-paso"] .crema { fill: #efeee5; }
+    [data-composition-id="s07-se-paso"] .rojo { fill: #b8574e; }
+    [data-composition-id="s07-se-paso"] .osc { fill: #07111f; }
+    [data-composition-id="s07-se-paso"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s07-se-paso"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s07-se-paso"] .t-osc { fill: #07111f; }
+    [data-composition-id="s07-se-paso"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s07-se-paso"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s07-se-paso"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s07-se-paso"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s07-se-paso"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-se-paso"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s07-se-paso" data-width="1080" data-height="1920" data-duration="5.59">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.59" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s07-gente"></g>
+        <g class="s07-andrea">
+          <g transform="translate(540 1110) scale(0.8)">
+            <circle class="ln" cx="0" cy="-290" r="44" />
+            <path class="ln" d="M-46 -286 Q-50 -342 0 -340 Q50 -342 46 -286 M-44 -300 Q-10 -312 20 -330" />
+            <circle class="ln4" cx="0" cy="-354" r="16" />
+            <circle class="crema" cx="-15" cy="-290" r="5" /><circle class="crema" cx="15" cy="-290" r="5" />
+            <path class="ln4" d="M-14 -268 Q0 -258 14 -268" />
+            <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+            <rect class="ln-ac" x="-62" y="-176" width="124" height="40" rx="9" style="stroke-width:4" />
+            <text class="chapa" x="0" y="-147" text-anchor="middle">ANDREA</text>
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">No se fueron</span><span class="s07-e2">Se les pasó</span><span class="s07-e3">Semana llena</span><span class="s07-e4">Le pasa a cualquiera</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-se-paso";
+      const DUR = 5.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s07-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s07-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const FUERON = 1.05, PASO = 2.0, LLENA = 3.31, CUAL = 4.61;
+      const ICON = {
+        S: '<path class="ln4" d="M-34 14 V-2 Q-34 -10 -26 -10 H26 Q34 -10 34 -2 V14 M-34 4 H34 M-24 -10 V-20 Q-24 -26 -18 -26 H18 Q24 -26 24 -20 V-10" />',
+        M: '<path class="ln4" d="M-36 -10 H36 M-28 -10 V20 M28 -10 V20 M-36 -16 H36" />',
+        G: '<path class="ln4" d="M-36 16 V-12 M-36 4 H36 V16 M-36 -4 H36 V4 M-30 -4 V-12 H-6 V-4" />',
+        P: '<path class="ln4" d="M-38 -6 H38 V18 H-38 Z M0 -6 V18 M-24 -30 H24 V-12 H-24 Z" />',
+      };
+      const gente = q(".s07-gente");
+      const P = [["S", 180], ["M", 360], ["G", 720], ["P", 900]];
+      const pers = P.map(([ini, x], i) => {
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML =
+          '<g class="s07-nube"><path class="ln4" d="M-58 -16 Q-62 -52 -26 -54 Q-12 -80 18 -68 Q52 -74 58 -40 Q78 -12 50 6 Q34 24 0 16 Q-30 26 -46 8 Q-70 4 -58 -16 Z" /><circle class="ln4" cx="-22" cy="34" r="6" /><circle class="ln4" cx="-12" cy="52" r="4" /><g transform="translate(0 -24) scale(0.9)">' + ICON[ini] + "</g></g>" +
+          '<g class="s07-p" transform="translate(0 190)"><circle class="ln" cx="0" cy="0" r="34" /><circle class="crema" cx="-11" cy="-2" r="4" /><circle class="crema" cx="11" cy="-2" r="4" /><path class="ln4" d="M-10 14 Q0 20 10 14" />' +
+          '<path class="ln" d="M-56 110 V74 Q-56 46 -26 46 H26 Q56 46 56 74 V110" /><text class="lex t-cr" x="0" y="96" font-size="26" text-anchor="middle">' + ini + "</text></g>" +
+          '<g class="s07-ag" transform="translate(0 330)"><rect class="ln4" x="-62" y="-6" width="124" height="130" rx="14" /><path class="ln4" d="M-62 22 H62" />' +
+          '<path class="ln4 apagado s07-raya" d="M-46 44 H46 M-46 66 H30 M-46 88 H46 M-46 108 H20" /></g>';
+        gente.appendChild(g);
+        gsap.set(g, { x, y: 700 });
+        return g;
+      });
+      pers.forEach((g, i) => {
+        tl.fromTo(g.querySelector(".s07-p"), { opacity: 0.6, y: 210 }, { opacity: 1, y: 190, duration: 0.35, ease: "back.out(1.6)" }, i * 0.08);
+        pop(g.querySelector(".s07-nube"), 0.25 + i * 0.1, 0.6);
+        tl.to(g.querySelector(".s07-nube"), { opacity: 0.45, duration: 0.12, yoyo: true, repeat: 3 }, FUERON + i * 0.06);
+        tl.to(g.querySelector(".s07-nube"), { y: -8, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.6 + i * 0.1);
+        gsap.set(g.querySelector(".s07-ag"), { opacity: 0 });
+        tl.fromTo(g.querySelector(".s07-ag"), { opacity: 0, y: 360 }, { opacity: 1, y: 330, duration: 0.35, ease: "power3.out" }, PASO + i * 0.1);
+        tl.fromTo(g.querySelectorAll(".s07-raya"), { opacity: 0 }, { opacity: 0.6, duration: 0.3 }, PASO + 0.3 + i * 0.1);
+      });
+      gsap.set(q(".s07-andrea"), { opacity: 0 });
+      pop(q(".s07-andrea"), LLENA - 0.1, 0.7, 0.45);
+      // al final todos tranquilos: un saludo de cabeza en fila
+      pers.forEach((g, i) => tl.to(g.querySelector(".s07-p"), { y: 182, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, CUAL + Math.abs(i - 1.5) * 0.1));
+      tl.to(q(".s07-andrea"), { y: -8, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, CUAL);
+      etq(1, FUERON); etq(2, PASO); etq(3, LLENA); etq(4, CUAL - 0.2);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

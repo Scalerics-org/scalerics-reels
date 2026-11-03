@@ -1,0 +1,135 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-agente"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-agente"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-agente"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-agente"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-agente"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-agente"] .apagado { opacity: 0.45; }
+    [data-composition-id="s08-agente"] .verde { fill: #5ce611; }
+    [data-composition-id="s08-agente"] .crema { fill: #efeee5; }
+    [data-composition-id="s08-agente"] .rojo { fill: #b8574e; }
+    [data-composition-id="s08-agente"] .osc { fill: #07111f; }
+    [data-composition-id="s08-agente"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-agente"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-agente"] .t-osc { fill: #07111f; }
+    [data-composition-id="s08-agente"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-agente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s08-agente"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s08-agente"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s08-agente"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-agente"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s08-agente" data-width="1080" data-height="1920" data-duration="6.39">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="6.39" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s08-rew">
+          <path class="ln-ac" d="M250 640 L210 676 L250 712 Z M300 640 L260 676 L300 712 Z" />
+        </g>
+        <g class="s08-dias"><rect class="ln-ac" x="130" y="640" width="240" height="76" rx="20" />
+          <text class="lex t-ac" x="250" y="692" font-size="38" text-anchor="middle">+2 DÍAS</text></g>
+        <g class="s08-agente"><g class="s08-ag-in">
+            <path class="ln" d="M0 -300 V-326" /><circle class="verde s08-antena" cx="0" cy="-336" r="10" />
+            <rect class="ln" x="-85" y="-300" width="170" height="140" rx="44" />
+            <g class="s08-ojos"><rect class="verde" x="-42" y="-258" width="18" height="34" rx="9" /><rect class="verde" x="24" y="-258" width="18" height="34" rx="9" /></g>
+            <path class="ln4" d="M-20 -200 Q0 -188 20 -200" />
+            <path class="ln" d="M0 -160 V-148" /><rect class="ln" x="-66" y="-148" width="132" height="118" rx="30" />
+            <text class="ia" x="0" y="-74" text-anchor="middle">IA</text>
+            <path class="ln" d="M-28 -30 V0 M28 -30 V0 M-28 0 H-46 M28 0 H46" />
+            <g class="s08-bi"><path class="ln" d="M-66 -130 Q-100 -100 -104 -64" /></g>
+            <g class="s08-bd"><path class="ln" d="M66 -130 Q100 -100 104 -64" /></g>
+        </g></g>
+        <g class="s08-lineas"></g>
+        <g class="s08-torre"></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Misma semana</span><span class="s08-e2">Agente de IA</span><span class="s08-e3">A los 2 días</span><span class="s08-e4">Con lo que preguntó</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-agente";
+      const DUR = 6.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s08-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s08-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const MISMA = 0.92, AGENTE = 1.92, DOS = 3.22, ESCRIBE = 4.02, PREG = 5.32;
+      const torre = q(".s08-torre"), lineas = q(".s08-lineas");
+      const C = [["V", "¿Hacen envío?", "ENVÍO · SÍ"], ["P", "¿Me lo guardás?", "RACK DE TV"], ["G", "Lo hablo con mi marido.", "SOMMIER 2 PLAZAS"],
+        ["A", "Lo veo el finde.", "BIBLIOTECA"], ["M", "Después te confirmo.", "MESA EXTENSIBLE"], ["S", "Lo pienso.", "SOFÁ 3 CUERPOS"]];
+      C.forEach(([ini, fr, pr], i) => {
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML = '<rect class="ln osc s08-r" x="-210" y="-36" width="420" height="72" rx="20" /><rect class="ln-ac s08-rv" x="-210" y="-36" width="420" height="72" rx="20" />' +
+          '<circle class="ln4" cx="-174" cy="0" r="20" /><text class="lex t-cr" x="-174" y="8" font-size="22" text-anchor="middle">' + ini + "</text>" +
+          '<text class="lex t-cr s08-fr" x="-142" y="9" font-size="26">' + fr + '</text><text class="mono t-ac s08-pr" x="-142" y="9" font-size="24">' + pr + "</text>" +
+          '<circle class="rojo s08-pto" cx="186" cy="-14" r="6" /><path class="ln-ac s08-env" stroke-width="4" d="M168 2 L196 -10 L184 18 L180 4 Z" />';
+        torre.appendChild(g);
+        const y = 760 + i * 78;
+        gsap.set(g, { x: 710, y, rotation: (i % 2 ? 1.5 : -1.5) });
+        gsap.set(g.querySelectorAll(".s08-rv, .s08-pr, .s08-env"), { opacity: 0 });
+        tl.fromTo(g, { opacity: 0.3 }, { opacity: 0.45, duration: 0.3 }, 0);
+        // la línea verde del agente a cada tarjeta
+        const l = document.createElementNS(NS, "path");
+        l.setAttribute("class", "ln-ac");
+        l.setAttribute("stroke-width", "3");
+        l.setAttribute("d", "M360 1010 C 420 1010, 440 " + y + ", 500 " + y);
+        lineas.appendChild(l);
+        const t = ESCRIBE + i * 0.16;
+        dibujar([l], t, 0.3);
+        tl.to(l, { opacity: 0.25, duration: 0.3 }, t + 0.5);
+        tl.to(g, { opacity: 1, duration: 0.2 }, t + 0.25);
+        tl.to(g.querySelector(".s08-rv"), { opacity: 1, duration: 0.2 }, t + 0.25);
+        tl.to(g.querySelector(".s08-pto"), { opacity: 0, duration: 0.15 }, t + 0.25);
+        tl.to(g.querySelector(".s08-env"), { opacity: 1, duration: 0.15 }, t + 0.3);
+        punch(g, t + 0.25, 1.04);
+        // con lo que preguntó: aparece el producto
+        const tp = PREG + i * 0.08;
+        tl.to(g.querySelector(".s08-fr"), { opacity: 0, y: -10, duration: 0.18 }, tp);
+        tl.fromTo(g.querySelector(".s08-pr"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.25 }, tp + 0.1);
+      });
+      // rebobinar: la torre vuelve y se achica
+      tl.fromTo(torre, { x: 60 }, { x: 0, duration: 0.6, ease: "power3.out" }, 0);
+      gsap.set(qa(".s08-rew, .s08-dias"), { opacity: 0 });
+      pop(q(".s08-rew"), MISMA - 0.2, 0.6);
+      tl.fromTo(q(".s08-rew path"), { x: 20 }, { x: -20, duration: 0.5, ease: "power2.inOut", yoyo: true, repeat: 1 }, MISMA);
+      tl.to(q(".s08-rew"), { opacity: 0, duration: 0.2 }, DOS - 0.25);
+      // el agente
+      gsap.set(q(".s08-agente"), { x: 250, y: 1200, opacity: 0 });
+      tl.to(q(".s08-agente"), { opacity: 1, duration: 0.05 }, AGENTE - 0.1);
+      tl.fromTo(q(".s08-ag-in"), { scale: 0.5, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 0.45, ease: "back.out(2)" }, AGENTE - 0.1);
+      tl.to(q(".s08-ojos"), { scaleY: 0.15, svgOrigin: "0 -241", duration: 0.08, yoyo: true, repeat: 1 }, AGENTE + 0.5);
+      tl.to(q(".s08-antena"), { scale: 1.5, svgOrigin: "0 -336", duration: 0.15, yoyo: true, repeat: 1 }, AGENTE + 0.3);
+      pop(q(".s08-dias"), DOS - 0.05, 0.6);
+      tl.to(q(".s08-dias"), { opacity: 0.5, duration: 0.3 }, ESCRIBE + 0.8);
+      tl.to(q(".s08-bd"), { rotation: -50, svgOrigin: "66 -130", duration: 0.3, ease: "back.out(2)" }, ESCRIBE - 0.2);
+      etq(1, MISMA); etq(2, AGENTE); etq(3, DOS); etq(4, PREG - 0.1);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

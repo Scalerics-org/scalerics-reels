@@ -1,0 +1,133 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-aviso"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-aviso"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-aviso"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-aviso"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-aviso"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-aviso"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-aviso"] .apagado { opacity: 0.45; }
+    [data-composition-id="s01-aviso"] .verde { fill: #5ce611; }
+    [data-composition-id="s01-aviso"] .crema { fill: #efeee5; }
+    [data-composition-id="s01-aviso"] .rojo { fill: #b8574e; }
+    [data-composition-id="s01-aviso"] .osc { fill: #07111f; }
+    [data-composition-id="s01-aviso"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s01-aviso"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s01-aviso"] .t-osc { fill: #07111f; }
+    [data-composition-id="s01-aviso"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s01-aviso"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s01-aviso"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s01-aviso"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s01-aviso"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-aviso"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s01-aviso" data-width="1080" data-height="1920" data-duration="4.74">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="4.74" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s01-todo">
+          <g class="s01-cel">
+            <rect class="ln s01-dib-cel" x="330" y="596" width="420" height="620" rx="52" />
+            <path class="ln4 s01-dib-cel" d="M500 628 H580" />
+            <!-- respuesta del local (ya contestó) -->
+            <g class="s01-loc">
+              <rect class="ln4" x="456" y="672" width="266" height="104" rx="22" />
+              <text class="lex t-cr" x="478" y="714" font-size="26">Sí, lo tenemos</text>
+              <text class="lex t-cr" x="478" y="750" font-size="26">en gris y azul</text>
+              <path class="ln-ac" stroke-width="4" d="M648 762 l7 7 l14 -14 M662 762 l7 7 l14 -14" />
+            </g>
+            <!-- la clienta -->
+            <g class="s01-cli">
+              <circle class="ln4" cx="380" cy="886" r="24" />
+              <text class="lex t-cr" x="380" y="896" font-size="26" text-anchor="middle">S</text>
+              <rect class="ln" x="418" y="810" width="306" height="140" rx="26" />
+              <text class="lex t-cr" x="442" y="868" font-size="36">Lo pienso y</text>
+              <text class="lex t-cr" x="442" y="918" font-size="36">te aviso.</text>
+            </g>
+            <!-- escribiendo... -->
+            <g class="s01-esc">
+              <rect class="ln4 apagado" x="418" y="990" width="140" height="64" rx="22" />
+              <circle class="crema s01-p" cx="456" cy="1022" r="8" />
+              <circle class="crema s01-p" cx="488" cy="1022" r="8" />
+              <circle class="crema s01-p" cx="520" cy="1022" r="8" />
+            </g>
+            <text class="mono t-cr s01-visto" x="440" y="1110" font-size="24" fill-opacity="0.5">VISTO · LUN 11:42</text>
+          </g>
+          <!-- precio: una venta -->
+          <g class="s01-tag">
+            <path class="ln" d="M770 760 L860 760 L900 800 L860 840 L770 840 Q756 840 756 826 V774 Q756 760 770 760 Z" />
+            <circle class="ln4" cx="866" cy="800" r="9" />
+            <text class="lex t-cr" x="804" y="816" font-size="44" text-anchor="middle">$</text>
+          </g>
+          <text class="lex t-cr s01-preg" x="830" y="940" font-size="110" text-anchor="middle" fill-opacity="0.8">?</text>
+          <!-- reloj de arena -->
+          <g class="s01-arena">
+            <path class="ln" d="M786 1010 H874 M786 1150 H874 M796 1010 Q796 1060 830 1080 Q864 1060 864 1010 M796 1150 Q796 1100 830 1080 Q864 1100 864 1150" />
+            <path class="crema s01-arena-a" d="M812 1030 H848 Q842 1056 830 1066 Q818 1056 812 1030 Z" opacity="0.5" />
+            <path class="crema s01-arena-b" d="M808 1142 H852 Q846 1120 830 1112 Q814 1120 808 1142 Z" opacity="0.5" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Lo pienso y te aviso</span><span class="s01-e2">¿Cuántas ventas?</span><span class="s01-e3">Esperando</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-aviso";
+      const DUR = 4.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s01-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s01-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const PIENSO = 0.1, CUANTAS = 1.72, ESPERANDO = 2.7, RESP = 3.4;
+      dibujar(qa(".s01-dib-cel"), 0, 0.45, 0.35);
+      tl.fromTo(q(".s01-loc"), { opacity: 0.6, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0);
+      tl.to(q(".s01-loc"), { opacity: 0.55, duration: 0.4 }, 0.9);
+      gsap.set(qa(".s01-esc, .s01-visto, .s01-tag, .s01-preg, .s01-arena"), { opacity: 0 });
+      pop(q(".s01-cli"), PIENSO, 0.7, 0.45);
+      punch(q(".s01-cli rect"), 0.85, 1.04);
+      etq(1, 0.15);
+      // ¿cuántas ventas?
+      tl.to(q(".s01-cel"), { x: -150, duration: 0.55, ease: "power3.inOut" }, CUANTAS - 0.15);
+      pop(q(".s01-tag"), CUANTAS + 0.2, 0.6);
+      tl.fromTo(q(".s01-tag"), { rotation: -14, svgOrigin: "830 800" }, { rotation: 4, svgOrigin: "830 800", duration: 0.6, ease: "back.out(2)" }, CUANTAS + 0.2);
+      pop(q(".s01-preg"), 2.25, 0.5);
+      tl.to(q(".s01-preg"), { y: -10, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" }, 2.6);
+      etq(2, CUANTAS);
+      // esperando: escribiendo... que se apaga
+      aparecer(q(".s01-esc"), ESPERANDO - 0.1, 0.2);
+      qa(".s01-p").forEach((p, i) => tl.fromTo(p, { opacity: 0.25 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, ESPERANDO + i * 0.12));
+      pop(q(".s01-arena"), ESPERANDO, 0.7);
+      tl.to(q(".s01-arena"), { rotation: 180, svgOrigin: "830 1080", duration: 0.6, ease: "power2.inOut" }, ESPERANDO + 0.7);
+      etq(3, ESPERANDO);
+      tl.to(q(".s01-esc"), { opacity: 0.15, duration: 0.4 }, RESP + 0.2);
+      aparecer(q(".s01-visto"), RESP + 0.3, 0.3);
+      tl.to(q(".s01-cli"), { opacity: 0.55, duration: 0.6 }, RESP + 0.4);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

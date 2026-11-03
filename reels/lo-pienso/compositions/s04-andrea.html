@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-andrea"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-andrea"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-andrea"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-andrea"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-andrea"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-andrea"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-andrea"] .apagado { opacity: 0.45; }
+    [data-composition-id="s04-andrea"] .verde { fill: #5ce611; }
+    [data-composition-id="s04-andrea"] .crema { fill: #efeee5; }
+    [data-composition-id="s04-andrea"] .rojo { fill: #b8574e; }
+    [data-composition-id="s04-andrea"] .osc { fill: #07111f; }
+    [data-composition-id="s04-andrea"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s04-andrea"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s04-andrea"] .t-osc { fill: #07111f; }
+    [data-composition-id="s04-andrea"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-andrea"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s04-andrea"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s04-andrea"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s04-andrea"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-andrea"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s04-andrea" data-width="1080" data-height="1920" data-duration="3.01">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="3.01" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s04-andrea"><g class="s04-and-in">
+            <circle class="ln" cx="0" cy="-290" r="44" />
+            <path class="ln" d="M-46 -286 Q-50 -342 0 -340 Q50 -342 46 -286 M-44 -300 Q-10 -312 20 -330" />
+            <circle class="ln4" cx="0" cy="-354" r="16" />
+            <path class="ln4" d="M38 -330 L66 -306" />
+            <circle class="crema" cx="-15" cy="-290" r="4.5" /><circle class="crema" cx="15" cy="-290" r="4.5" />
+            <path class="ln4 s04-boca" d="M-14 -268 Q0 -258 14 -268" />
+            <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+            <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+            <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+            <g class="s04-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+            <g class="s04-bd"><path class="ln" d="M72 -210 Q112 -180 96 -140" /><rect class="ln4" x="70" y="-176" width="46" height="74" rx="10" /></g>
+            <rect class="ln-ac" x="-62" y="-176" width="124" height="40" rx="9" style="stroke-width:4" />
+            <text class="chapa" x="0" y="-147" text-anchor="middle">ANDREA</text>
+        </g></g>
+        <g class="s04-torre"></g>
+        <g class="s04-resp"></g>
+        <g class="s04-ok"><circle class="ln-ac" cx="740" cy="760" r="44" /><path class="ln-ac" stroke-width="7" d="M718 760 l16 16 l30 -32" /></g>
+        <g class="s04-destello">
+          <path class="ln-ac s04-ray" d="M300 830 V800" /><path class="ln-ac s04-ray" d="M366 846 L388 826" /><path class="ln-ac s04-ray" d="M234 846 L212 826" />
+          <path class="ln-ac s04-ray" d="M380 900 H410" /><path class="ln-ac s04-ray" d="M220 900 H190" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Contestó todo</span><span class="s04-e2">Con buena onda</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-andrea";
+      const DUR = 3.01;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s04-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s04-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const CONT = 0.31, TODO = 1.09, ONDA = 2.61;
+      const torre = q(".s04-torre"), resp = q(".s04-resp");
+      const C = [["P", "¿Me lo guardás?"], ["G", "Lo hablo con mi marido."], ["M", "Después te confirmo."], ["S", "Lo pienso."]];
+      C.forEach(([ini, fr], i) => {
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML = '<rect class="ln osc" x="-210" y="-40" width="420" height="80" rx="22" /><circle class="ln4" cx="-170" cy="0" r="22" />' +
+          '<text class="lex t-cr" x="-170" y="9" font-size="24" text-anchor="middle">' + ini + '</text><text class="lex t-cr" x="-134" y="10" font-size="26">' + fr + "</text>" +
+          '<path class="ln-ac s04-chk" stroke-width="4" d="M150 26 l7 7 l14 -14 M164 26 l7 7 l14 -14" />';
+        torre.appendChild(g);
+        const y = 880 + i * 96;
+        gsap.set(g, { x: 740, y, rotation: i % 2 ? 1.5 : -1.5 });
+        tl.fromTo(g, { opacity: 0.4, x: 770 }, { opacity: 1, x: 740, duration: 0.3, ease: "power3.out" }, i * 0.05);
+        // la respuesta vuela del celular de Andrea a la tarjeta
+        const b = document.createElementNS(NS, "g");
+        b.innerHTML = '<rect class="ln-ac" x="-44" y="-22" width="88" height="44" rx="16" style="stroke-width:4" /><path class="ln-ac" stroke-width="4" d="M-22 0 H22 M-14 -2 v0" />';
+        resp.appendChild(b);
+        const t = CONT + i * 0.17;
+        tl.fromTo(b, { x: 395, y: 1060, opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { x: 930, y: y - 30, opacity: 1, scale: 1, duration: 0.42, ease: "power2.inOut" }, t);
+        tl.to(b, { opacity: 0, scale: 0.5, duration: 0.15 }, t + 0.42);
+        gsap.set(g.querySelector(".s04-chk"), { opacity: 0 });
+        tl.to(g.querySelector(".s04-chk"), { opacity: 1, duration: 0.12 }, t + 0.45);
+        punch(g, t + 0.45, 1.04);
+      });
+      gsap.set(q(".s04-andrea"), { x: 300, y: 1200 });
+      tl.fromTo(q(".s04-and-in"), { scale: 0.94, svgOrigin: "0 0", opacity: 0.6 }, { scale: 1, svgOrigin: "0 0", opacity: 1, duration: 0.4, ease: "back.out(2)" }, 0);
+      tl.to(q(".s04-bd"), { rotation: -12, svgOrigin: "72 -210", duration: 0.18, yoyo: true, repeat: 5, ease: "sine.inOut" }, CONT);
+      gsap.set(q(".s04-ok"), { opacity: 0 });
+      pop(q(".s04-ok"), TODO, 0.5, 0.45);
+      etq(1, CONT);
+      tl.to(q(".s04-boca"), { attr: { d: "M-18 -270 Q0 -250 18 -270" }, duration: 0.25 }, ONDA - 0.3);
+      dibujar(qa(".s04-ray"), ONDA - 0.25, 0.25);
+      tl.to(q(".s04-and-in"), { y: -14, duration: 0.18, yoyo: true, repeat: 1, ease: "power2.out" }, ONDA - 0.2);
+      etq(2, ONDA - 0.3);
+      tl.to(q(".s04-torre"), { y: -6, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.5);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

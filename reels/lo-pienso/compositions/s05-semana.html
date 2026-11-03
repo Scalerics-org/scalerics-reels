@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-semana"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-semana"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-semana"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-semana"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-semana"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-semana"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-semana"] .apagado { opacity: 0.45; }
+    [data-composition-id="s05-semana"] .verde { fill: #5ce611; }
+    [data-composition-id="s05-semana"] .crema { fill: #efeee5; }
+    [data-composition-id="s05-semana"] .rojo { fill: #b8574e; }
+    [data-composition-id="s05-semana"] .osc { fill: #07111f; }
+    [data-composition-id="s05-semana"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s05-semana"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s05-semana"] .t-osc { fill: #07111f; }
+    [data-composition-id="s05-semana"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s05-semana"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s05-semana"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s05-semana"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s05-semana"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-semana"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s05-semana" data-width="1080" data-height="1920" data-duration="8.05">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="8.05" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s05-andrea"><g class="s05-and-in">
+            <circle class="ln" cx="0" cy="-290" r="44" />
+            <path class="ln" d="M-46 -286 Q-50 -342 0 -340 Q50 -342 46 -286 M-44 -300 Q-10 -312 20 -330" />
+            <circle class="ln4" cx="0" cy="-354" r="16" />
+            <path class="ln4" d="M38 -330 L66 -306" />
+            <circle class="crema" cx="-15" cy="-290" r="4.5" /><circle class="crema" cx="15" cy="-290" r="4.5" />
+            <path class="ln4 s05-boca" d="M-14 -268 Q0 -258 14 -268" />
+            <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+            <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+            <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+            <g class="s05-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+            <g class="s05-bd"><path class="ln" d="M72 -210 Q112 -180 96 -140" /><rect class="ln4" x="70" y="-176" width="46" height="74" rx="10" /></g>
+            <rect class="ln-ac" x="-62" y="-176" width="124" height="40" rx="9" style="stroke-width:4" />
+            <text class="chapa" x="0" y="-147" text-anchor="middle">ANDREA</text>
+        </g></g>
+        <!-- el local: mostrador con un cliente -->
+        <g class="s05-local">
+          <path class="ln s05-d1" d="M140 1060 H360 V1200 H140 Z M140 1100 H360" />
+          <circle class="ln4 s05-d1" cx="210" cy="930" r="30" />
+          <path class="ln4 s05-d1" d="M164 1056 V1010 Q164 978 196 978 H224 Q256 978 256 1010 V1056" />
+          <text class="mono t-cr s05-t1" x="250" y="1240" font-size="22" text-anchor="middle" fill-opacity="0.7">EL LOCAL</text>
+        </g>
+        <!-- proveedores: caja con remito -->
+        <g class="s05-prov">
+          <path class="ln s05-d2" d="M760 700 H900 V800 H760 Z M760 700 L790 670 H930 L900 700 M930 670 V770 L900 800" />
+          <path class="ln4 s05-d2" d="M800 730 H860 M800 754 H840" />
+          <text class="mono t-cr s05-t2" x="830" y="846" font-size="22" text-anchor="middle" fill-opacity="0.7">PROVEEDORES</text>
+        </g>
+        <!-- entrega: camioncito -->
+        <g class="s05-cam">
+          <path class="ln" d="M720 1080 H870 V1170 H720 Z M870 1110 H920 L950 1140 V1170 H870" />
+          <circle class="ln" cx="760" cy="1180" r="18" /><circle class="ln" cx="910" cy="1180" r="18" />
+          <text class="mono t-cr" x="795" y="1136" font-size="26" text-anchor="middle">SÁB</text>
+        </g>
+        <!-- post-it: escribirles -->
+        <g class="s05-post">
+          <path class="ln s05-pd" d="M210 640 H450 V820 L420 850 H210 Z M420 850 V820 H450" />
+          <text class="lex t-cr" x="230" y="684" font-size="26">Escribirles:</text>
+          <text class="lex t-cr" x="230" y="728" font-size="26" fill-opacity="0.75">S · M · G · P</text>
+          <path class="ln4 apagado" d="M230 770 H370 M230 800 H330" />
+        </g>
+        <g class="s05-flecha">
+          <path class="ln" d="M470 740 H570 M546 716 L570 740 L546 764" />
+          <text class="mono t-cr" x="586" y="750" font-size="28">MAÑANA</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">El local</span><span class="s05-e2">Proveedores</span><span class="s05-e3">Entregas</span><span class="s05-e4">Volver a escribir</span><span class="s05-e5">Queda para mañana</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-semana";
+      const DUR = 8.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s05-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s05-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const LOCAL = 1.7, PROV = 2.7, ENTREGA = 3.5, VOLVER = 4.8, MANANA = 7.0;
+      gsap.set(q(".s05-andrea"), { x: 540, y: 1200 });
+      tl.fromTo(q(".s05-and-in"), { scale: 0.9, svgOrigin: "0 0", opacity: 0.5 }, { scale: 1, svgOrigin: "0 0", opacity: 1, duration: 0.45, ease: "back.out(2)" }, 0);
+      tl.to(q(".s05-and-in"), { y: -6, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.5);
+      // el local
+      gsap.set(qa(".s05-t1, .s05-t2, .s05-cam, .s05-post, .s05-flecha"), { opacity: 0 });
+      dibujar(qa(".s05-d1"), LOCAL - 0.2, 0.5);
+      aparecer(q(".s05-t1"), LOCAL + 0.2);
+      tl.to(q(".s05-and-in"), { x: -30, rotation: -4, svgOrigin: "0 0", duration: 0.35, ease: "power2.out" }, LOCAL);
+      tl.to(q(".s05-bi"), { rotation: 30, svgOrigin: "-72 -210", duration: 0.3, yoyo: true, repeat: 1 }, LOCAL + 0.2);
+      etq(1, LOCAL);
+      // proveedores
+      dibujar(qa(".s05-d2"), PROV - 0.2, 0.5);
+      aparecer(q(".s05-t2"), PROV + 0.2);
+      tl.to(q(".s05-and-in"), { x: 30, rotation: 4, svgOrigin: "0 0", duration: 0.35, ease: "power2.out" }, PROV);
+      tl.to(q(".s05-prov"), { y: -10, duration: 0.2, yoyo: true, repeat: 3 }, PROV + 0.4);
+      etq(2, PROV);
+      // entrega del sábado
+      tl.fromTo(q(".s05-cam"), { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, ENTREGA - 0.25);
+      tl.to(q(".s05-cam"), { y: -5, duration: 0.12, yoyo: true, repeat: 5 }, ENTREGA + 0.35);
+      tl.to(q(".s05-and-in"), { x: 10, rotation: 2, svgOrigin: "0 0", duration: 0.3 }, ENTREGA);
+      etq(3, ENTREGA);
+      // volver a escribirle: el post-it
+      tl.to(qa(".s05-local, .s05-prov, .s05-cam"), { opacity: 0.4, duration: 0.4 }, VOLVER);
+      tl.to(q(".s05-and-in"), { x: 0, rotation: 0, svgOrigin: "0 0", duration: 0.3 }, VOLVER);
+      tl.to(q(".s05-post"), { opacity: 1, duration: 0.05 }, VOLVER - 0.05);
+      dibujar(qa(".s05-pd"), VOLVER - 0.05, 0.45);
+      tl.fromTo(qa(".s05-post text, .s05-post .apagado"), { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, VOLVER + 0.3);
+      tl.fromTo(q(".s05-post"), { rotation: -6, svgOrigin: "315 640" }, { rotation: 3, svgOrigin: "315 640", duration: 0.8, ease: "elastic.out(1, 0.5)" }, VOLVER);
+      tl.to(q(".s05-post"), { rotation: -2, svgOrigin: "315 640", duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, VOLVER + 0.9);
+      etq(4, VOLVER);
+      // queda para mañana
+      tl.fromTo(q(".s05-flecha"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, MANANA - 0.6);
+      tl.to(q(".s05-post"), { x: 280, y: -50, rotation: 10, svgOrigin: "315 640", opacity: 0, duration: 0.4, ease: "power2.in" }, MANANA);
+      tl.to(q(".s05-flecha"), { opacity: 0, x: 40, duration: 0.2 }, MANANA - 0.05);
+      tl.to(q(".s05-boca"), { attr: { d: "M-14 -264 Q0 -268 14 -264" }, duration: 0.25 }, MANANA);
+      etq(5, MANANA - 0.2);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

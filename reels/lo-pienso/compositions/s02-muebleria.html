@@ -1,0 +1,104 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-muebleria"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-muebleria"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-muebleria"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-muebleria"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-muebleria"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-muebleria"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-muebleria"] .apagado { opacity: 0.45; }
+    [data-composition-id="s02-muebleria"] .verde { fill: #5ce611; }
+    [data-composition-id="s02-muebleria"] .crema { fill: #efeee5; }
+    [data-composition-id="s02-muebleria"] .rojo { fill: #b8574e; }
+    [data-composition-id="s02-muebleria"] .osc { fill: #07111f; }
+    [data-composition-id="s02-muebleria"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s02-muebleria"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s02-muebleria"] .t-osc { fill: #07111f; }
+    [data-composition-id="s02-muebleria"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-muebleria"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s02-muebleria"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s02-muebleria"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s02-muebleria"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-muebleria"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s02-muebleria" data-width="1080" data-height="1920" data-duration="3.14">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.14" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s02-local">
+          <rect class="ln s02-d" x="380" y="604" width="320" height="64" rx="14" />
+          <text class="mono t-cr s02-cartel" x="540" y="648" font-size="30" text-anchor="middle">MUEBLERÍA</text>
+          <path class="ln s02-d" d="M250 690 H830 L800 760 H280 Z" />
+          <path class="ln4 s02-d" d="M280 760 Q309 790 338 760 Q367 790 396 760 Q425 790 454 760 Q483 790 512 760 Q541 790 570 760 Q599 790 628 760 Q657 790 686 760 Q715 790 744 760 Q773 790 802 760" />
+          <path class="ln4 s02-d" d="M366 690 L352 760 M482 690 L476 760 M598 690 L604 760 M714 690 L728 760" />
+          <path class="ln s02-d" d="M290 790 V1140 M790 790 V1140 M250 1140 H830" />
+          <rect class="ln s02-d" x="320" y="820" width="300" height="250" rx="10" />
+          <rect class="ln s02-d" x="650" y="840" width="110" height="300" rx="8" />
+          <circle class="crema s02-pomo" cx="736" cy="1000" r="7" />
+          <!-- sofá en la vidriera -->
+          <path class="ln s02-sofa" d="M350 1050 V990 Q350 970 370 970 H570 Q590 970 590 990 V1050 M350 1010 H590 M370 970 V940 Q370 920 390 920 H550 Q570 920 570 940 V970 M370 1050 V1064 M570 1050 V1064" />
+          <!-- lámpara -->
+          <path class="ln4 s02-lampara" d="M440 820 V850 M410 880 L425 850 H455 L470 880 Z" />
+        </g>
+        <g class="s02-sem"></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Mueblería de barrio</span><span class="s02-e2">Una semana</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-muebleria";
+      const DUR = 3.14;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s02-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s02-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const MUEB = 0.16, SEMANA = 1.66;
+      dibujar(qa(".s02-d"), 0, 0.6, 0.45);
+      tl.fromTo(q(".s02-cartel"), { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0.1);
+      tl.fromTo(q(".s02-pomo"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.5);
+      dibujar([q(".s02-sofa")], MUEB + 0.2, 0.7);
+      dibujar([q(".s02-lampara")], MUEB + 0.5, 0.4);
+      tl.to(q(".s02-lampara"), { rotation: 6, svgOrigin: "440 820", duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.0);
+      etq(1, MUEB);
+      // la semana
+      const sem = q(".s02-sem");
+      ["LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"].forEach((d, i) => {
+        const g = document.createElementNS(NS, "g");
+        const x = 240 + i * 104;
+        g.innerHTML = '<rect class="' + (i === 0 ? "ln-ac" : "ln4 apagado") + '" x="' + x + '" y="1176" width="92" height="56" rx="12" style="stroke-width:4" />' +
+          '<text class="mono ' + (i === 0 ? "t-ac" : "t-cr") + '" x="' + (x + 46) + '" y="1213" font-size="24" text-anchor="middle"' + (i === 0 ? "" : ' fill-opacity="0.55"') + ">" + d + "</text>";
+        sem.appendChild(g);
+        pop(g, SEMANA + i * 0.06, 0.6);
+      });
+      punch(sem.children[0], SEMANA + 0.6, 1.12);
+      etq(2, SEMANA);
+      tl.to(q(".s02-local"), { y: -14, duration: 1.2, ease: "sine.inOut" }, 1.8);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

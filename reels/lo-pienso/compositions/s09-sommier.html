@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-sommier"] .s09-capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-sommier"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-sommier"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sommier"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sommier"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sommier"] .ln-ro { fill: none; stroke: #b8574e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s09-sommier"] .apagado { opacity: 0.45; }
+    [data-composition-id="s09-sommier"] .verde { fill: #5ce611; }
+    [data-composition-id="s09-sommier"] .crema { fill: #efeee5; }
+    [data-composition-id="s09-sommier"] .rojo { fill: #b8574e; }
+    [data-composition-id="s09-sommier"] .osc { fill: #07111f; }
+    [data-composition-id="s09-sommier"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s09-sommier"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s09-sommier"] .t-osc { fill: #07111f; }
+    [data-composition-id="s09-sommier"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s09-sommier"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.1em; }
+    [data-composition-id="s09-sommier"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s09-sommier"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s09-sommier"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s09-sommier"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    
+  </style>
+  <div id="root" data-composition-id="s09-sommier" data-width="1080" data-height="1920" data-duration="6.74">
+    <div id="s09-escena" class="s09-capa clip" data-start="0" data-duration="6.74" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+<g class="s09-cel">
+          <rect class="ln s09-dc" x="290" y="592" width="500" height="636" rx="52" />
+          <path class="ln4 s09-dc" d="M500 622 H580" />
+          <circle class="ln4 s09-dc" cx="350" cy="676" r="26" />
+          <text class="lex t-cr s09-h" x="350" y="686" font-size="26" text-anchor="middle">G</text>
+          <text class="lex t-cr s09-h" x="392" y="672" font-size="30">Gabriela</text>
+          <text class="mono t-cr s09-h" x="392" y="702" font-size="20" fill-opacity="0.6" data-layout-ignore>SOMMIER 2 PLAZAS</text>
+          <path class="ln4 apagado s09-dc" d="M320 724 H760" />
+        </g>
+        <g class="s09-b1">
+          <text class="mono t-ac" x="756" y="758" font-size="20" text-anchor="end" data-layout-ignore>AGENTE DE IA · MIÉ 10:15</text>
+          <rect class="ln-ac" x="380" y="770" width="380" height="112" rx="24" />
+          <text class="lex t-cr s09-l1" x="404" y="816" font-size="30">¿Pudiste ver el</text>
+          <text class="lex t-cr s09-l2" x="404" y="856" font-size="30">sommier de 2 plazas?</text>
+        </g>
+        <g class="s09-b2">
+          <rect class="ln-ac" x="420" y="898" width="340" height="150" rx="24" />
+          <text class="lex t-cr" x="444" y="944" font-size="30">Quedan en gris</text>
+          <text class="lex t-cr" x="444" y="984" font-size="30">y en azul.</text>
+          <g class="s09-gris"><circle cx="624" cy="1012" r="20" fill="#efeee5" fill-opacity="0.45" /><circle class="ln4" cx="624" cy="1012" r="20" /></g>
+          <g class="s09-azul"><circle cx="680" cy="1012" r="20" fill="#2b4a78" /><circle class="ln4" cx="680" cy="1012" r="20" /></g>
+        </g>
+        <g class="s09-b3">
+          <rect class="ln" x="320" y="1068" width="350" height="124" rx="24" />
+          <text class="lex t-cr" x="344" y="1118" font-size="32">¡Sí! ¿El gris llega</text>
+          <text class="lex t-cr s09-l4" x="344" y="1162" font-size="32">para el sábado?</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s09-e1">Seguimiento</span><span class="s09-e2">¡Sí!</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-sommier";
+      const DUR = 6.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t) + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0, d) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: d ?? 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s09-e" + (k - 1)), { opacity: 0, y: -10, duration: 0.18 }, t - 0.12);
+        tl.fromTo(q(".s09-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+const QUEDAN = 2.24, GRIS = 2.53, AZUL = 3.13, SI = 4.01, SAB = 5.93;
+      dibujar(qa(".s09-dc"), 0, 0.45, 0.4);
+      tl.fromTo(qa(".s09-h"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.05);
+      gsap.set(qa(".s09-b2, .s09-b3, .s09-gris, .s09-azul"), { opacity: 0 });
+      pop(q(".s09-b1"), 0.1, 0.8);
+      tl.fromTo(q(".s09-l1"), { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: 0.25 }, 0.15);
+      tl.fromTo(q(".s09-l2"), { opacity: 0, x: -8 }, { opacity: 1, x: 0, duration: 0.25 }, 0.6);
+      etq(1, 0.1);
+      pop(q(".s09-b2"), QUEDAN - 0.05, 0.8);
+      pop(q(".s09-gris"), GRIS, 0.4);
+      pop(q(".s09-azul"), AZUL, 0.4);
+      // la respuesta de ella
+      tl.fromTo(q(".s09-b3"), { opacity: 0, y: 30, scale: 0.85, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "0% 100%", duration: 0.35, ease: "back.out(2)" }, SI - 0.08);
+      tl.to(q(".s09-b3"), { y: -12, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, SI + 0.35);
+      tl.fromTo(q(".s09-l4"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, SI + 1.3);
+      tl.to(qa(".s09-b1, .s09-b2"), { y: -6, duration: 0.3 }, SI);
+      punch(q(".s09-gris"), 5.1, 1.25);
+      punch(q(".s09-b3 rect"), SAB, 1.03);
+      etq(2, SI);
+
+      tl.to(q("#s09-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
