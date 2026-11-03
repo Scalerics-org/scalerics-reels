@@ -59,6 +59,13 @@ Cada afirmación del guion, con una fuente de la empresa o de los protagonistas 
   También Engadget: https://www.engadget.com/2010-09-23-blockbuster-files-for-chapter-11.html
   Del lado de los protagonistas: Hastings, "By 2010, Blockbuster had declared bankruptcy" (CBS).
 
+## "Diez años después, quebró" (guion corto del 03-11)
+- La oferta fue en el 2000 ("early in 2000", Hastings; "año 2000", Randolph: ver arriba) y la quiebra
+  (Chapter 11) fue el 23-09-2010 (Bloomberg y Engadget, arriba): unos diez años. Hastings lo cuenta
+  así en el mismo extracto de CBS: la oferta de 2000 y "By 2010, Blockbuster had declared bankruptcy".
+  "Pudo comprar Netflix por cincuenta millones" = la oferta de los 50 millones que contaron los dos
+  fundadores (Antioco lo cuenta distinto, ver "La otra versión").
+
 ## La lección
 - **"Perdió porque el cliente quería otra forma de comprar: desde su casa, sin ir al local. Y no
   se adaptó."**: la cobertura de la quiebra lo atribuye a no haber adaptado su modelo de locales a

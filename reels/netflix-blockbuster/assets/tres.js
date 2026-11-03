@@ -1,8 +1,7 @@
-// Capa 3D de netflix-blockbuster (Three.js r170 local). Todo se dibuja desde el tiempo del
-// timeline (hf-seek): renderAt(t) es una función pura de t. Los objetos son genéricos, sin logos
-// ni colores de Netflix o Blockbuster: año en 3D, disco, sobre, multa, ciudad de locales,
-// etiqueta de precio, televisor, local con persiana, cajas de película, casa, celular,
-// mostrador, caja de envío y tarjeta.
+// Capa 3D de netflix-blockbuster, versión corta del 03-11 (Three.js r170 local). Todo se dibuja
+// desde el tiempo del timeline (hf-seek): renderAt(t) es una función pura de t. Objetos genéricos,
+// sin logos ni colores de Netflix o Blockbuster: etiqueta US$50M, año 2000 → 2010, local con
+// persiana, casa, cajas de película, multa y tilde, sobre, celular, caja de envío y tarjeta.
 import * as THREE from "./vendor/three/three.module.js";
 import { RoundedBoxGeometry } from "./vendor/three/RoundedBoxGeometry.js";
 import { TextGeometry } from "./vendor/three/TextGeometry.js";
@@ -66,6 +65,7 @@ const M = {
   g: mat(C.g, 0.5), gd: mat(C.gd, 0.55), cr: mat(C.cr, 0.6), cr2: mat(C.cr2, 0.62), cr3: mat(C.cr3, 0.65),
   navy: mat(C.navy, 0.5), navy2: mat(C.navy2, 0.5), navy3: mat(C.navy3, 0.52), edge: mat(C.edge, 0.5),
   red: mat(C.red, 0.58), white: mat(C.white, 0.5), gris: mat(C.gris, 0.62),
+  anio: mat(C.g, 0.5),
 };
 const rbox = (w, h, d, r = 0.06, seg = 3) => new RoundedBoxGeometry(w, h, d, seg, Math.min(r, w / 2 - 0.001, h / 2 - 0.001, d / 2 - 0.001));
 const mesh = (g, m, x = 0, y = 0, z = 0) => { const o = new THREE.Mesh(g, m); o.position.set(x, y, z); return o; };
@@ -105,11 +105,12 @@ const anio = new THREE.Group(); scene.add(anio);
 const PASO = 0.74;
 const casillas = [0, 1, 2, 3].map((i) => {
   const g = new THREE.Group(); g.position.x = (i - 1.5) * PASO; anio.add(g);
-  const ms = DIG.map((geo) => { const m = new THREE.Mesh(geo, M.g); m.visible = false; g.add(m); return m; });
+  const ms = DIG.map((geo) => { const m = new THREE.Mesh(geo, M.anio); m.visible = false; g.add(m); return m; });
   return ms;
 });
 const anioSombra = sombra(3.6, 0.9); scene.add(anioSombra);
-const ANIOS = [[-1, 2000], [W[20] - 0.05, 1998], [W[38] - 0.05, 1999], [S["s06-dallas"] + 0.05, 2000], [W[66] - 0.05, 2007], [W[78] - 0.05, 2010]];
+// "diez años después": 2000 rueda de a dos hasta 2010
+const ANIOS = [[-1, 2000], ...[2002, 2004, 2006, 2008, 2010].map((a, k) => [W[12] + 0.15 + k * 0.2, a])];
 const dig = (y, i) => Number(String(y)[i]);
 function ponerAnio(t, x, y, z, s, ry) {
   anio.visible = s > 0.002;
@@ -122,25 +123,11 @@ function ponerAnio(t, x, y, z, s, ry) {
     const cur = dig(ANIOS[k][1], i);
     let kc = k; while (kc > 0 && dig(ANIOS[kc - 1][1], i) === dig(ANIOS[kc][1], i)) kc--;
     const ms = casillas[i]; ms.forEach((m) => (m.visible = false));
-    const p = kc > 0 ? eio(sg(t, ANIOS[kc][0] + i * 0.05, ANIOS[kc][0] + i * 0.05 + 0.5)) : 1;
+    const p = kc > 0 ? eio(sg(t, ANIOS[kc][0], ANIOS[kc][0] + 0.18)) : 1;
     const nuevo = ms[cur]; nuevo.visible = true; nuevo.rotation.x = (1 - p) * (Math.PI / 2); nuevo.position.y = (1 - p) * 0.35;
     if (p < 1) { const viejo = ms[dig(ANIOS[kc - 1][1], i)]; viejo.visible = true; viejo.rotation.x = -p * (Math.PI / 2); viejo.position.y = -p * 0.35; }
   }
 }
-
-// --- disco de DVD ---
-const disco = (() => {
-  const sh = new THREE.Shape(); sh.absarc(0, 0, 1, 0, Math.PI * 2, false);
-  const h = new THREE.Path(); h.absarc(0, 0, 0.17, 0, Math.PI * 2, true); sh.holes.push(h);
-  const g = new THREE.ExtrudeGeometry(sh, { depth: 0.035, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.012, bevelSegments: 2, curveSegments: 64 });
-  g.translate(0, 0, -0.0175);
-  const cara = new THREE.MeshPhysicalMaterial({ color: 0xe6ebf1, metalness: 0.2, roughness: 0.45, clearcoat: 0.5 });
-  const d = mesh(g, cara);
-  const ring = new THREE.Mesh(new THREE.RingGeometry(0.2, 0.46, 64), mat(C.g, 0.5, { side: THREE.DoubleSide })); ring.position.z = 0.036;
-  const ring2 = new THREE.Mesh(new THREE.RingGeometry(0.62, 0.66, 64), mat(C.cr, 0.6, { side: THREE.DoubleSide })); ring2.position.z = 0.036;
-  return grupo(d, ring, ring2);
-})();
-scene.add(disco);
 
 // --- sobre (genérico: crema con franja verde y etiqueta) ---
 const sobre = (() => {
@@ -178,29 +165,6 @@ const tilde = (() => {
 })();
 scene.add(tilde);
 
-// --- ciudad de locales (instanciada) ---
-const N = 15, LADO = 0.62;
-const ciudad = new THREE.Group(); scene.add(ciudad);
-const iCuerpo = new THREE.InstancedMesh(rbox(0.44, 0.34, 0.36, 0.03, 2), M.cr2, N * N);
-const iToldo = new THREE.InstancedMesh(rbox(0.48, 0.07, 0.42, 0.02, 2), M.navy3, N * N);
-const iVid = new THREE.InstancedMesh(new THREE.PlaneGeometry(0.3, 0.15), new THREE.MeshStandardMaterial({ color: 0x0f1a2e, emissive: 0x9cc4ff, emissiveIntensity: 0.55, roughness: 0.4 }), N * N);
-ciudad.add(iCuerpo, iToldo, iVid);
-const piso = mesh(new THREE.PlaneGeometry(N * LADO + 1.2, N * LADO + 1.2), mat(C.navy2, 0.8)); piso.rotation.x = -Math.PI / 2; piso.position.y = -0.01; ciudad.add(piso);
-const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _p = new THREE.Vector3(), _s = new THREE.Vector3();
-function ponerCiudad(t, p0) {
-  for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
-    const k = i * N + j, x = (i - (N - 1) / 2) * LADO, z = (j - (N - 1) / 2) * LADO;
-    const dist = Math.hypot(i - (N - 1) / 2, j - (N - 1) / 2) / ((N - 1) * 0.7);
-    const s = bk(sg(t, p0 + dist * 1.0, p0 + dist * 1.0 + 0.4));
-    const sc = Math.max(0.0001, s);
-    _q.identity();
-    _p.set(x, 0.17 * sc, z); _s.set(sc, sc, sc); _m.compose(_p, _q, _s); iCuerpo.setMatrixAt(k, _m);
-    _p.set(x, 0.37 * sc, z + 0.02); _m.compose(_p, _q, _s); iToldo.setMatrixAt(k, _m);
-    _p.set(x, 0.14 * sc, z + 0.185 * sc); _m.compose(_p, _q, _s); iVid.setMatrixAt(k, _m);
-  }
-  iCuerpo.instanceMatrix.needsUpdate = iToldo.instanceMatrix.needsUpdate = iVid.instanceMatrix.needsUpdate = true;
-}
-
 // --- etiqueta de precio US$50M ---
 const etiqueta = (() => {
   const w = 2.9, h = 1.35, r = 0.16, pt = 0.55;
@@ -212,26 +176,11 @@ const etiqueta = (() => {
   g.translate(0, 0, -0.06);
   const base = new THREE.MeshStandardMaterial({ color: C.cr, roughness: 0.55 });
   const cuerpo = mesh(g, base);
-  const txt = texto3d("US$50M", 0.56, 0.1, M.navy); txt.position.set(0.3, 0, 0.12);
+  const txt = texto3d("US$50M", 0.47, 0.1, M.navy); txt.position.set(0.24, 0, 0.12);
   const gr = grupo(cuerpo, txt); gr.userData.base = base; return gr;
 })();
 scene.add(etiqueta);
 const etiquetaSombra = sombra(3.4, 0.9); scene.add(etiquetaSombra);
-
-// --- televisor con play ---
-const tvPantallaMat = new THREE.MeshStandardMaterial({ color: 0x0c1526, emissive: 0x1f3254, emissiveIntensity: 1, roughness: 0.35 });
-const tv = (() => {
-  const marco = mesh(rbox(3.1, 2.05, 0.26, 0.1), M.navy);
-  const borde = mesh(rbox(3.16, 2.11, 0.2, 0.1), M.edge, 0, 0, -0.04);
-  const pant = mesh(new THREE.PlaneGeometry(2.8, 1.74), tvPantallaMat, 0, 0, 0.132);
-  const tri = new THREE.Shape(); tri.moveTo(-0.32, -0.42); tri.lineTo(0.5, 0); tri.lineTo(-0.32, 0.42); tri.closePath();
-  const play = mesh(new THREE.ExtrudeGeometry(tri, { depth: 0.12, bevelEnabled: true, bevelThickness: 0.05, bevelSize: 0.05, bevelSegments: 3 }), M.g, 0.05, 0, 0.14);
-  const pie = mesh(rbox(0.36, 0.42, 0.2, 0.05), M.navy3, 0, -1.2, -0.05);
-  const base = mesh(rbox(1.4, 0.1, 0.6, 0.04), M.navy3, 0, -1.43, 0);
-  const g = grupo(borde, marco, pant, play, pie, base); g.userData.play = play; return g;
-})();
-scene.add(tv);
-const tvSombra = sombra(3.2, 1.1); scene.add(tvSombra);
 
 // --- local con persiana ---
 const vidrioMat = new THREE.MeshStandardMaterial({ color: 0x0c1526, emissive: 0x1f3254, emissiveIntensity: 1, roughness: 0.35 });
@@ -305,20 +254,6 @@ const cel = (() => {
 scene.add(cel);
 const celSombra = sombra(2.2, 0.9); scene.add(celSombra);
 
-// --- mostrador (gris: es lo de antes) ---
-const mostrador = (() => {
-  const g = new THREE.Group();
-  g.add(mesh(rbox(2.8, 1.25, 1.0, 0.05), M.gris, 0, 0.62, 0));
-  g.add(mesh(rbox(3.0, 0.14, 1.15, 0.04), M.cr3, 0, 1.3, 0));
-  g.add(mesh(rbox(0.8, 0.5, 0.6, 0.05), M.navy3, 0.7, 1.62, 0));
-  g.add(mesh(rbox(0.6, 0.06, 0.3, 0.02), M.cr3, 0.7, 1.9, 0.1));
-  const campana = mesh(new THREE.SphereGeometry(0.2, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), M.cr2, -0.7, 1.37, 0.1);
-  g.add(campana);
-  return g;
-})();
-scene.add(mostrador);
-const mostradorSombra = sombra(3.8, 1.6); scene.add(mostradorSombra);
-
 // --- caja de envío y tarjeta ---
 const paquete = (() => {
   const g = new THREE.Group();
@@ -379,38 +314,61 @@ async function dibujarPantallas() {
   celMat.map = pantallas.noche; celMat.emissiveMap = pantallas.noche; celMat.needsUpdate = true;
 }
 
+// 4) "¿tu negocio está ahí?": la búsqueda que no te encuentra
+async function pantallaVacia() {
+  const F = (w, s) => `${w} ${s}px "Lexend", sans-serif`;
+  pantallas.vacio = lienzo((x) => {
+    x.fillStyle = "#0f1a2e"; x.fillRect(0, 0, 720, 1458);
+    x.fillStyle = "#efeee5"; x.font = F(600, 34); x.fillText("23:41", 48, 66); x.fillRect(600, 44, 64, 26);
+    x.fillStyle = "#efeee5"; rr(x, 48, 130, 624, 120, 60);
+    x.strokeStyle = "#0b1220"; x.lineWidth = 9; x.beginPath(); x.arc(122, 184, 24, 0, Math.PI * 2); x.stroke();
+    x.beginPath(); x.moveTo(140, 202); x.lineTo(158, 220); x.stroke();
+    x.fillStyle = "#0b1220"; x.font = F(600, 42); x.fillText("tu negocio", 186, 204);
+    x.fillStyle = "#1f3254"; rr(x, 48, 330, 624, 520, 40);
+    x.strokeStyle = "#7d8597"; x.lineWidth = 14; x.lineCap = "round";
+    x.beginPath(); x.arc(360, 560, 110, 0, Math.PI * 2); x.stroke();
+    x.beginPath(); x.moveTo(300, 500); x.lineTo(420, 620); x.moveTo(420, 500); x.lineTo(300, 620); x.stroke();
+    x.fillStyle = "#efeee5"; x.font = F(800, 62); x.textAlign = "center"; x.fillText("Sin resultados", 360, 970);
+    x.fillStyle = "#8ea0bf"; x.font = F(500, 38); x.fillText("No encontramos tu tienda", 360, 1040); x.textAlign = "left";
+    x.fillStyle = "#1f3254"; rr(x, 48, 1130, 624, 110, 30); rr(x, 48, 1270, 624, 110, 30);
+  });
+}
+
 // ================= CÁMARA =================
-// claves [t, x, y, z, mirarX, mirarY, mirarZ]; entre claves, curva suave
-const LEJOS = 14.5;
+// claves [t, x, y, z, mirarX, mirarY, mirarZ]; dos claves pegadas = corte seco
 const CAM = [
-  [0, 0, 1.2, 13.2, 0, 0.0, 0],
-  [S["s02-dvd"] - 0.01, 0, 1.0, 11.6, 0, 0.1, 0],
-  [S["s02-dvd"] + 0.7, 0, 1.5, 12.6, 0, 0.15, 0],
-  [S["s03-correo"], 0, 1.4, 12.0, 0, 0.0, 0],
-  [W[33], 0.2, 1.0, 10.6, 0.1, -0.1, 0],
-  [S["s04-multas"] + 0.6, 0, 1.6, 12.8, 0, 0.2, 0],
-  [S["s05-locales"] - 0.05, 0, 1.6, 12.6, 0, 0.2, 0],
-  [S["s05-locales"] + 0.2, 0, 7.5, 8.5, 0, -0.6, 0],
-  [S["s06-dallas"] - 0.05, 0, 9.0, 11.5, 0, -0.8, 0],
-  [S["s06-dallas"] + 0.6, 0, 1.4, 12.8, 0, 0.1, 0],
-  [S["s07-streaming"], 0, 1.2, 11.2, 0, 0.0, 0],
-  [W[73], 0, 1.0, 11.0, 0, -0.2, 0],
-  [S["s08-quiebra"] - 0.04, 0, -0.58, 1.05, 0, -0.62, 0],
-  [S["s08-quiebra"] + 0.02, 0, -0.58, 1.25, 0, -0.62, 0],
-  [S["s08-quiebra"] + 1.0, 0, 1.3, 13.6, 0, 0.0, 0],
-  [S["s09-mismas"], 0, 1.4, 14.0, 0, 0.0, 0],
-  [S["s09-mismas"] + 0.5, 0, 1.0, 11.5, 0, -0.1, 0],
-  [S["s10-forma"], 0, 1.2, 11.0, 0, -0.1, 0],
-  [S["s10-forma"] + 0.6, 0, 2.6, 14.5, 0, 0.0, 0],
-  [S["s11-celular"], 0, 2.2, 13.5, 0, 0.0, 0],
-  [S["s11-celular"] + 0.7, 0, 0.6, 10.3, 0, -0.05, 0],
-  [W[126], 0, 0.6, 10.8, 0, -0.05, 0],
-  [W[126] + 0.6, 0, 1.4, 13.6, 0, 0.0, 0],
-  [S["s12-tienda"], 0, 1.4, 13.4, 0, 0.0, 0],
-  [S["s12-tienda"] + 0.7, 0, 0.6, 10.8, 0, -0.1, 0],
-  [S["s13-cta"], 0, 0.4, 10.0, 0, 0.0, 0],
-  [S["s13-cta"] + 0.8, 0, 1.4, 12.5, 0, 0.6, 0],
-  [DUR, 0, 1.2, 11.5, 0, 0.6, 0],
+  [0, 0, 0, 12.6, 0, 0, 0],
+  [W[5], 0, 0, 12.1, 0, 0, 0],
+  [W[5] + 0.3, 0, 0, 11.5, 0, 0, 0],
+  [S["s02-no"] - 0.01, 0, 0, 11.3, 0, 0, 0],
+  [S["s02-no"], 0, 0, 11.6, 0, 0, 0],
+  [W[11] + 0.05, 0, 0, 11.6, 0, 0, 0],
+  [W[11] + 0.2, 0, -0.08, 11.2, 0, -0.08, 0], // el golpe del sello
+  [S["s03-quiebra"] - 0.01, 0, 0, 11.1, 0, 0, 0],
+  [S["s03-quiebra"], 0, 0.2, 12.8, 0, 0.2, 0],
+  [S["s04-porque"] - 0.01, 0, 0.2, 11.8, 0, 0.2, 0],
+  [S["s04-porque"], 0, 0.2, 11.8, 0, 0.2, 0],
+  [S["s04-porque"] + 0.14, 0, -0.45, 7.6, 0, -0.45, 0], // zoom de golpe a la persiana
+  [S["s05-casa"] - 0.01, 0, -0.45, 7.2, 0, -0.45, 0],
+  [S["s05-casa"], 0, 0, 12.8, 0, 0, 0],
+  [S["s06-sin"] - 0.01, 0, 0, 11.8, 0, 0, 0],
+  [S["s06-sin"], 0, 0.2, 12.4, 0, 0.2, 0],
+  [W[31] - 0.01, 0, 0.2, 11.9, 0, 0.2, 0],
+  [W[31], 0, 0, 11.6, 0, 0, 0],
+  [S["s07-mismas"] - 0.01, 0, 0, 11.0, 0, 0, 0],
+  [S["s07-mismas"], 0, 0, 12.6, 0, 0, 0],
+  [S["s08-forma"] - 0.01, 0, 0, 11.9, 0, 0, 0],
+  [S["s08-forma"], 0, 0, 12.2, 0, 0, 0],
+  [S["s09-celular"] - 0.01, 0, 0, 11.5, 0, 0, 0],
+  [S["s09-celular"], 0, 0, 11.8, 0, 0, 0],
+  [S["s09-celular"] + 0.6, 0, 0, 10.7, 0, 0, 0],
+  [S["s10-ahi"] - 0.01, 0, 0, 10.4, 0, 0, 0],
+  [S["s10-ahi"], 0, 0, 10.2, 0, 0, 0],
+  [S["s11-tienda"] - 0.01, 0, 0, 10.0, 0, 0, 0],
+  [S["s11-tienda"], 0, 0, 10.8, 0, 0, 0],
+  [S["s12-llamada"] - 0.01, 0, 0, 10.3, 0, 0, 0],
+  [S["s12-llamada"], 0, 0, 10.6, 0, 0, 0],
+  [DUR, 0, 0, 10.4, 0, 0, 0],
 ];
 const _mira = new THREE.Vector3();
 function ponerCamara(t) {
@@ -419,198 +377,146 @@ function ponerCamara(t) {
   const x = eio(sg(t, a[0], b[0]));
   camera.position.set(lerp(a[1], b[1], x), lerp(a[2], b[2], x), lerp(a[3], b[3], x));
   _mira.set(lerp(a[4], b[4], x), lerp(a[5], b[5], x), lerp(a[6], b[6], x));
-  // respiración leve de cámara para que nunca quede quieta
-  camera.position.x += Math.sin(t * 0.7) * 0.12; camera.position.y += Math.sin(t * 0.53) * 0.06;
+  camera.position.x += Math.sin(t * 0.7) * 0.06; camera.position.y += Math.sin(t * 0.53) * 0.03;
   camera.lookAt(_mira);
 }
 
 // ================= ESCENA EN EL TIEMPO =================
-const PISO = -1.55; // piso visual de los objetos
+const PISO = -1.55;
 function ocultar(o, s) { o.visible = s > 0.002; if (o.visible) o.scale.setScalar(s); }
-function apoyar(som, x, z, s, op = 1) { som.visible = s > 0.002; if (!som.visible) return; som.position.set(x, PISO + 0.005, z); som.scale.setScalar(Math.max(0.001, s)); som.material.opacity = op * cl(s); }
+function apoyar(som, x, z, s, op = 1, y = PISO) { som.visible = s > 0.002; if (!som.visible) return; som.position.set(x, y + 0.005, z); som.scale.setScalar(Math.max(0.001, s)); som.material.opacity = op * cl(s); }
+const en = (t, a, b) => t >= a && t < b; // dentro de la escena [a, b)
+const AZUL = new THREE.Color(C.g), ROJO = new THREE.Color(C.red);
 
 function renderAt(t) {
   scene.environmentRotation.y = t * 0.12;
   ponerCamara(t);
 
-  // ---- año ----
+  // ---- etiqueta US$50M: gancho (cuadro 0 ya entera) y el NO ----
   {
-    let s = 0, y = 0.55, x = 0, ry = Math.sin(t * 0.6) * 0.12;
-    if (t < S["s05-locales"] + 0.3) {
-      const up = eio(sg(t, S["s02-dvd"], S["s02-dvd"] + 0.6));
-      s = lerp(1.12, 0.62, up); y = lerp(0.52, 1.2, up);
-      s *= 1 - eio(sg(t, S["s05-locales"], S["s05-locales"] + 0.3));
-    } else if (t >= S["s06-dallas"] - 0.1 && t < S["s09-mismas"] + 0.3) {
-      s = 0.62 * bk(sg(t, S["s06-dallas"] - 0.1, S["s06-dallas"] + 0.35)) * (1 - eio(sg(t, S["s09-mismas"], S["s09-mismas"] + 0.3)));
-      y = t >= S["s08-quiebra"] ? 1.45 : 1.2;
-      if (t >= S["s08-quiebra"] - 0.1 && t < S["s08-quiebra"] + 0.9) s *= sg(t, S["s08-quiebra"] + 0.3, S["s08-quiebra"] + 0.9); // durante la zambullida no
+    let s = 0, y = -0.42, rz = Math.sin(t * 1.1) * 0.03, gris = 0;
+    if (t < S["s03-quiebra"]) {
+      s = 1.05 * (1 + 0.1 * Math.sin(Math.PI * sg(t, W[5], W[5] + 0.35)));
+      const d = Math.max(0, t - W[5]); if (t > W[5]) rz += Math.sin(d * 3.2) * 0.1 * Math.exp(-d * 1.4);
+      gris = eio(sg(t, W[11] + 0.1, W[11] + 0.45));
+      rz += -0.26 * gris; y -= 0.28 * gris;
     }
-    ponerAnio(t, x, y, 0, s, ry);
-    anioSombra.position.y = PISO + 0.005; anioSombra.material.opacity = 0.5 * cl(s) * (y < 1 ? 1 : 0);
-  }
-
-  // ---- etiqueta de precio (gancho y Dallas) ----
-  {
-    let s = 0, x = 0, y = -1.0, rz = 0, gris = 0;
-    const g1 = t < S["s02-dvd"] + 0.4 ? 1 - eio(sg(t, S["s02-dvd"] - 0.1, S["s02-dvd"] + 0.25)) : 0;
-    const g2 = vida(t, W[55], S["s07-streaming"] - 0.15, 0.5, 0.35);
-    s = Math.max(g1, g2) * 0.95;
-    if (g1 > 0) { const d = Math.max(0, t - W[11]); rz = t > W[11] ? Math.sin(d * 3.2) * 0.12 * Math.exp(-d * 1.2) : Math.sin(t * 1.1) * 0.03; s *= 1 + 0.1 * Math.sin(Math.PI * sg(t, W[11], W[11] + 0.35)); gris = eio(sg(t, W[18], W[18] + 0.4)); rz += -0.22 * gris; y = -1.15 - 0.2 * gris; }
-    if (g2 > 0) { y = -0.25; rz = Math.sin((t - W[55]) * 3.2) * 0.14 * Math.exp(-(t - W[55]) * 1.2); gris = eio(sg(t, W[63], W[63] + 0.4)); rz += -0.3 * gris; y -= 0.35 * gris; s *= lerp(1.05, 1.0, gris); }
-    ocultar(etiqueta, s); etiqueta.position.set(x, y, 0.2); etiqueta.rotation.set(0.1, Math.sin(t * 0.8) * 0.18, rz);
+    ocultar(etiqueta, s); etiqueta.position.set(0, y, 0.2); etiqueta.rotation.set(0.1, Math.sin(t * 0.8) * 0.16, rz);
     etiqueta.userData.base.color.set(C.cr).lerp(new THREE.Color(C.gris), gris * 0.75);
-    apoyar(etiquetaSombra, x, 0.2, s, 0.8);
+    apoyar(etiquetaSombra, 0, 0.2, s, 0.8, -1.4);
   }
 
-  // ---- disco ----
+  // ---- el año: 2000 rueda hasta 2010 y se pone rojo ----
   {
-    const s = vida(t, S["s02-dvd"] + 0.35, S["s04-multas"] + 0.2, 0.55, 0.4) * 0.95;
-    ocultar(disco, s);
-    // aparece girando, baja y entra al sobre
-    const entra = eio(sg(t, W[29], W[31] + 0.15));
-    disco.position.set(0, lerp(lerp(-0.55, -0.35, sg(t, W[21], W[25])), 0.0, entra) + lerp(0, 0, entra), lerp(0.35, -0.08, entra));
-    disco.rotation.set(lerp(-0.35, 0, entra), Math.sin(t * 0.9) * 0.25 * (1 - entra), t * 1.4);
-    if (entra > 0) disco.position.y = lerp(-0.12, -0.4, entra);
-    if (t > W[26] && entra === 0) { const u = eio(sg(t, W[26], W[26] + 0.6)); disco.position.y = lerp(-0.35, -0.12, u); disco.position.z = lerp(0.35, -0.08, u); disco.scale.setScalar(Math.max(0.001, s * lerp(1, 0.82, u))); }
-    if (!sobre.visible || entra < 0.01) {} // nada
+    let s = 0;
+    if (en(t, S["s03-quiebra"], S["s04-porque"] + 0.12)) s = 0.9 * bk(sg(t, S["s03-quiebra"], S["s03-quiebra"] + 0.3)) * (1 - sg(t, S["s04-porque"], S["s04-porque"] + 0.12));
+    ponerAnio(t, 0, 1.27, 0, s, Math.sin(t * 0.6) * 0.12);
+    M.anio.color.copy(AZUL).lerp(ROJO, eio(sg(t, W[13], W[15] + 0.2)));
+    anioSombra.visible = false;
   }
 
-  // ---- sobre ----
+  // ---- local con persiana: quiebra, ¿por qué? y "sin ir al local" ----
   {
-    const sIn = bk(sg(t, W[26] - 0.05, W[26] + 0.45));
-    const sOut = 1 - eio(sg(t, S["s07-streaming"] + 0.2, S["s07-streaming"] + 0.8));
-    let s = t < W[26] - 0.05 ? 0 : sIn * sOut;
-    let x = 0, y = -0.88, rz = 0, ry = Math.sin(t * 0.7) * 0.15;
-    // la solapa: abierta al llegar, se cierra después de que entra el disco
-    const cierra = eio(sg(t, W[33] - 0.1, W[33] + 0.35));
-    let abre2 = eio(sg(t, S["s07-streaming"] + 0.05, S["s07-streaming"] + 0.45));
-    sobre.userData.bis.rotation.x = -Math.PI * 0.92 * (1 - cierra) - Math.PI * 0.92 * abre2;
-    // viaja: "te llegaba por correo"
-    const viaje = sg(t, W[33], W[36] + 0.3);
-    x = Math.sin(viaje * Math.PI) * 0.4; rz = Math.sin(viaje * Math.PI * 2) * 0.08;
-    // en multas se corre arriba a la izquierda y achica
-    const corre = eio(sg(t, W[38] + 0.4, W[38] + 1.0));
-    y = lerp(y, -2.4, corre); s *= lerp(1, 0.0, corre);
-    // se va en locales
-    s *= 1 - eio(sg(t, S["s05-locales"], S["s05-locales"] + 0.3));
-    // vuelve en streaming para abrirse y dejar salir el tele
-    if (t >= S["s07-streaming"] - 0.3) { s = bk(sg(t, S["s07-streaming"] - 0.3, S["s07-streaming"] + 0.1)) * sOut; x = 0; y = -0.9; rz = 0; ry = 0; }
-    s *= 0.86; ocultar(sobre, s); sobre.position.set(x, y, 0); sobre.rotation.set(-0.08, ry, rz);
-    apoyar(sobreSombra, x, 0, s * (corre > 0.5 ? 0 : 1), 0.7);
-    // el disco viaja adentro del sobre
-    if (t > W[31] + 0.15 && disco.visible) { disco.position.x = x; disco.position.y = y + 0.05; disco.scale.setScalar(s * 0.8); }
-  }
-
-  // ---- multa y tilde ----
-  {
-    const s = vida(t, W[38] + 0.55, W[43] + 0.05, 0.45, 0.35);
-    const cae = eio(sg(t, W[43], W[43] + 0.45));
-    ocultar(multa, s * 1.0); multa.position.set(0.2, -0.45 - cae * 1.2, 0.4); multa.rotation.set(0.15 + cae * 1.2, Math.sin(t) * 0.15, -0.12 + cae * 0.9);
-    const st = vida(t, W[44] - 0.05, S["s05-locales"] - 0.2, 0.5, 0.3) * 1.25;
-    ocultar(tilde, st); tilde.position.set(0.25, -0.4, 0.5); tilde.rotation.set(0.1, Math.sin(t * 1.2) * 0.3, 0);
-  }
-
-  // ---- ciudad ----
-  {
-    const on = t >= S["s05-locales"] && t < S["s06-dallas"] + 0.5;
-    ciudad.visible = on;
-    if (on) {
-      ponerCiudad(t, S["s05-locales"] + 0.05);
-      const f = 1 - eio(sg(t, S["s06-dallas"] - 0.05, S["s06-dallas"] + 0.45));
-      ciudad.scale.setScalar(Math.max(0.001, f));
-      ciudad.position.set(0, -1.6, 0); ciudad.rotation.y = 0.35 + (t - S["s05-locales"]) * 0.12;
-    }
-  }
-
-  // ---- televisor ----
-  {
-    const sale = bk(sg(t, S["s07-streaming"] + 0.3, S["s07-streaming"] + 1.05));
-    let s = t < S["s07-streaming"] + 0.3 || t >= S["s08-quiebra"] ? 0 : sale;
-    s *= 0.85; ocultar(tv, s); const y = lerp(-1.4, -0.6, eio(sg(t, S["s07-streaming"] + 0.3, S["s07-streaming"] + 1.05)));
-    tv.position.set(0, y, 0); tv.rotation.set(0, lerp(-0.7, 0, eo(sg(t, S["s07-streaming"] + 0.3, S["s07-streaming"] + 1.2))) + Math.sin(t * 0.6) * 0.08 * (1 - sg(t, W[73], W[73] + 0.4)), 0);
-    const play = tv.userData.play; play.scale.setScalar(Math.max(0.001, bk(sg(t, W[70] - 0.1, W[70] + 0.4)) * (1 + 0.06 * Math.sin(t * 5)) * (1 - eio(sg(t, W[73], W[73] + 0.35)))));
-    tvPantallaMat.emissiveIntensity = 1 + 1.6 * eio(sg(t, W[72], W[72] + 0.4));
-    apoyar(tvSombra, 0, 0, s * (y > -0.5 ? 1 : 0), 0.8);
-    tvSombra.position.y = y - 1.48 * s + 0.005;
-  }
-
-  // ---- local con persiana ----
-  {
-    const on = t >= S["s08-quiebra"] && t < S["s10-forma"] + 6;
-    let s = on ? 1 : 0, x = 0, y = 0, sc = 1, gris = 0;
-    // en "forma": vuelve chiquito a la derecha, cerrado
-    if (t >= S["s09-mismas"]) {
-      s = 0;
-      if (t >= W[107] - 0.1) { s = 0.52 * bk(sg(t, W[107] - 0.1, W[107] + 0.35)); x = 1.08; y = -0.62; }
-      const hunde = eio(sg(t, W[112], W[114] + 0.5));
-      y -= hunde * 0.35; s *= 1 - eio(sg(t, S["s11-celular"] - 0.1, S["s11-celular"] + 0.25));
-      gris = 0.5 + 0.5 * hunde;
-    } else {
-      s *= 1 - eio(sg(t, S["s09-mismas"] - 0.25, S["s09-mismas"]));
-      y = -0.6 + 0.3 * 0.78; s *= 0.78;
-    }
-    ocultar(local, s); local.position.set(x, y + 0.0, 0); local.rotation.set(0, (x ? -0.25 : Math.sin(t * 0.5) * 0.05), 0);
-    // la persiana baja con "Blockbuster se declaró en quiebra"
-    const baja = t >= S["s09-mismas"] ? 1 : eio(sg(t, W[79], W[83] + 0.2));
+    let s = 0, baja = 1;
+    if (en(t, S["s03-quiebra"], S["s05-casa"])) { s = 0.8 * bk(sg(t, S["s03-quiebra"] - 0.05, S["s03-quiebra"] + 0.3)); baja = eio(sg(t, W[12] + 0.25, W[15] + 0.25)); }
+    if (en(t, S["s06-sin"], W[31] - 0.03)) { s = 0.8 * bk(sg(t, S["s06-sin"] - 0.05, S["s06-sin"] + 0.3)); baja = 1; }
+    const y = -0.55;
+    ocultar(local, s); local.position.set(0, y, 0); local.rotation.set(0, Math.sin(t * 0.5) * 0.06, 0);
     const tab = local.userData.tab;
     tab.forEach((m, i) => { const vis = baja * tab.length - i; m.visible = vis > 0; m.scale.y = cl(vis); m.position.y = 0.5 - i * 0.155 + (1 - cl(vis)) * 0.1; });
-    vidrioMat.emissiveIntensity = lerp(2.6, 0.15, eio(sg(t, S["s08-quiebra"], W[83] + 0.3)));
-    apoyar(localSombra, x, 0, s, 0.9);
-    localSombra.position.y = y - 1.6 * Math.max(s, 0.001) + 0.005;
+    vidrioMat.emissiveIntensity = t < S["s04-porque"] ? lerp(2.6, 0.15, eio(sg(t, S["s03-quiebra"], W[15] + 0.3))) : 0.15;
+    apoyar(localSombra, 0, 0, s, 0.9, y - 1.6 * Math.max(s, 0.001));
   }
 
-  // ---- cajas de película ----
+  // ---- casa + la película que entra por la ventana ----
   {
-    const s = vida(t, S["s09-mismas"] + 0.05, S["s10-forma"] + 0.6, 0.5, 0.35) * 1.0;
-    const abre = eio(sg(t, W[89] - 0.1, W[89] + 0.45));
-    const gira = Math.sin(t * 0.9) * 0.35;
-    ocultar(peliA, s); ocultar(peliB, s * abre);
-    peliA.position.set(lerp(0, -0.86, abre), -0.35, 0); peliB.position.set(lerp(0, 0.86, abre), -0.35, 0);
-    peliA.rotation.set(-0.05, gira, 0); peliB.rotation.set(-0.05, gira, 0);
-    apoyar(peliSombraA, peliA.position.x, 0, s * 0.9, 0.8); apoyar(peliSombraB, peliB.position.x, 0, s * abre * 0.9, 0.8);
-    // en "forma" se juntan y dan paso a la casa
-    if (t > S["s10-forma"]) { const j = eio(sg(t, S["s10-forma"], S["s10-forma"] + 0.5)); peliA.position.x = lerp(-0.86, 0, j); peliB.position.x = lerp(0.86, 0, j); }
+    const on = en(t, S["s05-casa"], S["s06-sin"]);
+    const s = on ? 0.98 * bk(sg(t, S["s05-casa"] - 0.05, S["s05-casa"] + 0.4)) : 0;
+    ocultar(casa, s); casa.position.set(0, -1.75, 0); casa.rotation.set(0, 0.42 + Math.sin(t * 0.6) * 0.1, 0);
+    apoyar(casaSombra, 0, 0, s, 0.8, -1.75);
   }
 
-  // ---- casa ----
+  // ---- cajas de película: casa, "las mismas", y la que se va en el sobre ----
   {
-    let s = vida(t, S["s10-forma"] + 0.35, S["s11-celular"] - 0.2, 0.55, 0.35);
-    const mueve = eio(sg(t, W[107] - 0.2, W[107] + 0.4));
-    const x = lerp(0, -1.0, mueve); s *= lerp(1.2, 0.72, mueve);
-    ocultar(casa, s); casa.position.set(x, -1.5, 0); casa.rotation.set(0, 0.45 + Math.sin(t * 0.6) * 0.12, 0);
-    apoyar(casaSombra, x, 0, s, 0.8);
+    let sA = 0, sB = 0, xA = 0, xB = 0, yA = -0.55, zA = 0, ryA = Math.sin(t * 0.9) * 0.35;
+    if (en(t, W[21] - 0.1, S["s06-sin"])) {
+      // "elegir la película": aparece arriba a la derecha y entra a la casa con "desde tu casa"
+      const entra = eio(sg(t, W[24], W[26] + 0.25));
+      sA = 0.6 * bk(sg(t, W[21] - 0.1, W[21] + 0.3)) * (1 - entra * 0.9);
+      xA = lerp(0.78, 0.4, entra); yA = lerp(1.0, -0.85, entra); zA = 1.0; ryA = lerp(Math.sin(t * 1.6) * 0.5, 0, entra);
+    }
+    if (en(t, S["s07-mismas"], S["s08-forma"])) {
+      const abre = eio(sg(t, S["s07-mismas"], S["s07-mismas"] + 0.4));
+      sA = 1.05 * bk(sg(t, S["s07-mismas"] - 0.05, S["s07-mismas"] + 0.3)); sB = sA * cl(abre * 1.4);
+      xA = lerp(0, -0.9, abre); xB = lerp(0, 0.9, abre);
+    }
+    if (en(t, S["s08-forma"], W[41] + 0.1)) {
+      // se juntan, una sola, y baja adentro del sobre
+      const j = eio(sg(t, S["s08-forma"], S["s08-forma"] + 0.3));
+      const baja = eio(sg(t, W[40] - 0.1, W[41] + 0.1));
+      sA = lerp(1.05, 0.62, j) * (1 - baja); sB = (1 - j) * 1.05;
+      xA = lerp(-0.9, 0, j); xB = lerp(0.9, 0, j); yA = lerp(lerp(-0.55, 0.55, j), -0.6, baja); zA = 0.3 * j;
+    }
+    ocultar(peliA, sA); ocultar(peliB, sB);
+    peliA.position.set(xA, yA, zA); peliB.position.set(xB, -0.55, 0);
+    peliA.rotation.set(-0.05, ryA, 0); peliB.rotation.set(-0.05, Math.sin(t * 0.9) * 0.35, 0);
+    const conPiso = en(t, S["s07-mismas"], S["s08-forma"]);
+    apoyar(peliSombraA, xA, 0, conPiso ? sA * 0.9 : 0, 0.8); apoyar(peliSombraB, xB, 0, conPiso ? sB * 0.9 : 0, 0.8);
   }
 
-  // ---- celular ----
+  // ---- sobre: la nueva forma de comprar llega a tu casa ----
   {
-    const s1 = vida(t, S["s11-celular"] - 0.05, DUR + 5, 0.6, 0.3);
-    let s = s1, x = 0, y = -0.1, ry = Math.sin(t * 0.7) * 0.16, rx = -0.04;
-    // "¿tu negocio está ahí?": se corre a la izquierda para mostrar el mostrador
-    const lado = eio(sg(t, W[130] - 0.2, W[130] + 0.4)) * (1 - eio(sg(t, S["s12-tienda"], S["s12-tienda"] + 0.5)));
-    x = lerp(0, -0.95, lado); s *= lerp(1, 0.7, lado); ry += lado * 0.35;
-    // cta: baja y se achica, de frente
-    const cta = eio(sg(t, S["s13-cta"] + 0.1, S["s13-cta"] + 0.8));
-    y = lerp(y, -0.6, cta); s *= lerp(1, 0.66, cta); ry *= 1 - cta * 0.7;
-    ocultar(cel, s); cel.position.set(x, y, 0.3); cel.rotation.set(rx, ry, 0);
-    const tex = t >= S["s13-cta"] + 0.45 ? pantallas.llamada : t >= S["s12-tienda"] + 0.25 ? pantallas.tienda : pantallas.noche;
+    let s = 0, x = 0, y = -0.6, rz = 0, ry = Math.sin(t * 0.7) * 0.12;
+    if (en(t, S["s08-forma"], S["s09-celular"])) {
+      s = bk(sg(t, S["s08-forma"] + 0.05, S["s08-forma"] + 0.45));
+      const cierra = eio(sg(t, W[41], W[42] + 0.15));
+      sobre.userData.bis.rotation.x = -Math.PI * 0.92 * (1 - cierra);
+      const vuela = eio(sg(t, W[42] + 0.3, S["s09-celular"]));
+      x = lerp(0, 3.2, vuela); y = lerp(-0.6, 0.3, vuela); rz = lerp(0, 0.35, vuela);
+    }
+    ocultar(sobre, s); sobre.position.set(x, y, 0); sobre.rotation.set(-0.08, ry, rz);
+    apoyar(sobreSombra, x, 0, s * (x < 0.5 ? 1 : 0), 0.7);
+  }
+
+  // ---- multa (cae) y tilde ----
+  {
+    const on = en(t, W[31] - 0.03, S["s07-mismas"]);
+    const cae = eio(sg(t, W[32] + 0.1, W[32] + 0.5));
+    const s = on ? 1.3 * bk(sg(t, W[31] - 0.03, W[31] + 0.3)) * (1 - cae * 0.4) : 0;
+    ocultar(multa, cae >= 1 ? 0 : s); multa.position.set(0, -0.3 - cae * 2.4, 0.4); multa.rotation.set(0.15 + cae * 1.4, Math.sin(t) * 0.15, -0.12 + cae * 1.0);
+    const st = on ? 1.12 * bk(sg(t, W[32] + 0.25, W[32] + 0.7)) : 0;
+    ocultar(tilde, st); tilde.position.set(0, -0.2, 0.5); tilde.rotation.set(0.1, Math.sin(t * 1.2) * 0.3, 0);
+  }
+
+  // ---- celular: llena la pantalla del 17,8 al final ----
+  {
+    let s = 0, y = -0.48, ry = Math.sin(t * 0.7) * 0.12;
+    if (t >= S["s09-celular"]) {
+      const sube = eio(sg(t, S["s09-celular"], S["s09-celular"] + 0.45));
+      s = 1.02 * bk(sg(t, S["s09-celular"], S["s09-celular"] + 0.45));
+      y = lerp(-2.6, -0.48, sube); ry += lerp(0.7, 0, sube);
+      // "¿tu negocio está ahí?": golpe
+      s *= 1 + 0.05 * Math.sin(Math.PI * sg(t, S["s10-ahi"], S["s10-ahi"] + 0.25));
+      // tienda: da una vuelta y cambia la pantalla
+      ry += Math.PI * 2 * eio(sg(t, S["s11-tienda"], S["s11-tienda"] + 0.6));
+      // cierre: un poco más abajo para dejar lugar al texto
+      const cta = eio(sg(t, S["s12-llamada"], S["s12-llamada"] + 0.4));
+      y = lerp(y, -0.64, cta); s *= lerp(1, 0.97, cta);
+    }
+    ocultar(cel, s); cel.position.set(0, y, 0.3); cel.rotation.set(-0.04, ry, 0);
+    const tex = t >= S["s12-llamada"] ? pantallas.llamada : t >= S["s11-tienda"] + 0.3 ? pantallas.tienda : t >= S["s10-ahi"] ? pantallas.vacio : pantallas.noche;
     if (tex && celMat.map !== tex) { celMat.map = tex; celMat.emissiveMap = tex; celMat.needsUpdate = true; }
     celMat.emissiveIntensity = 0.75;
-    apoyar(celSombra, x, 0.3, s * (cta > 0.5 ? 0 : 1), 0.7);
+    apoyar(celSombra, 0, 0.3, s, 0.6, y - 1.62 * s);
   }
 
-  // ---- mostrador ----
+  // ---- paquete y tarjeta a los costados de la tienda ----
   {
-    const s = vida(t, W[131] - 0.1, S["s12-tienda"] + 0.05, 0.5, 0.4) * 0.6;
-    ocultar(mostrador, s); mostrador.position.set(0.95, -1.4, -0.4); mostrador.rotation.set(0, -0.5 + Math.sin(t * 0.5) * 0.08, 0);
-    apoyar(mostradorSombra, 0.95, -0.4, s, 0.8);
-  }
-
-  // ---- paquete y tarjeta ----
-  {
-    const sp = vida(t, W[143] - 0.1, S["s13-cta"] - 0.05, 0.5, 0.35) * 0.95;
-    ocultar(paquete, sp); paquete.position.set(1.05, -1.35, 0.6); paquete.scale.multiplyScalar(0.72); paquete.rotation.set(0.2, -0.6 + Math.sin(t) * 0.2, 0.05);
-    const st = vida(t, W[145] - 0.1, S["s13-cta"] - 0.05, 0.5, 0.35) * 0.95;
-    ocultar(tarjeta, st); tarjeta.position.set(-0.9, -1.2, 0.6); tarjeta.scale.multiplyScalar(0.7); tarjeta.rotation.set(0.1, 0.22 + Math.sin(t * 1.1) * 0.2, -0.15);
+    const on = en(t, S["s11-tienda"], S["s12-llamada"]);
+    const sp = on ? 0.5 * bk(sg(t, W[58] - 0.05, W[58] + 0.4)) : 0;
+    ocultar(paquete, sp); paquete.position.set(1.0, -1.62, 0.9); paquete.rotation.set(0.2, -0.6 + Math.sin(t) * 0.2, 0.05);
+    const st = on ? 0.5 * bk(sg(t, W[58] + 0.1, W[58] + 0.55)) : 0;
+    ocultar(tarjeta, st); tarjeta.position.set(-0.95, -1.5, 0.9); tarjeta.rotation.set(0.1, 0.25 + Math.sin(t * 1.1) * 0.2, -0.15);
   }
 
   renderer.render(scene, camera);
@@ -618,7 +524,7 @@ function renderAt(t) {
 
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
-dibujarPantallas().then(() => {
+dibujarPantallas().then(pantallaVacia).then(() => {
   renderAt(window.__hfThreeTime || 0);
   if (window.__tresListo) window.__tresListo();
 });

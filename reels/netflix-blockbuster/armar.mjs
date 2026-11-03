@@ -1,5 +1,5 @@
 // Arma index.html, compositions/subtitulos.html y tiempos.md desde reel.json y la locución.
-// Versión de netflix-blockbuster (copiada de caso-dominos; capa 3D real con Three.js en assets/tres.js debajo de las escenas HTML): subtítulos arriba al centro, de 1 a 3
+// Versión corta de netflix-blockbuster (03-11, ~30 s; reel.json acepta sinSub) (copiada de caso-dominos; capa 3D real con Three.js en assets/tres.js debajo de las escenas HTML): subtítulos arriba al centro, de 1 a 3
 // palabras, Lexend 700 grande, y la palabra clave dentro de un recuadro verde de selección.
 // Fondo navy liso con un brillo radial suave y estrellitas tenues.
 //
@@ -19,7 +19,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 3.2);
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 2.2);
 
 const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
 const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
@@ -38,7 +38,11 @@ let CORTES = reel.cortes;
 if (CORTES === "auto") {
   CORTES = [];
   let n = 0, chars = 0;
+  // sinSub: [[desde, hasta), ...] frases que ya tienen texto grande en la escena
+  const SIN = reel.sinSub ?? [];
+  const fuera = (i) => SIN.some(([a, b]) => i >= a && i < b);
   for (let i = DESDE; i < HASTA; i++) {
+    if (fuera(i)) { n = 0; chars = 0; continue; }
     if (n === 0) CORTES.push(i);
     n++; chars += palabras[i].text.length + 1;
     const sig = palabras[i + 1]?.text ?? "";
@@ -57,11 +61,13 @@ fs.writeFileSync(
 // ---------- subtítulos ----------
 let grupos = "";
 let anim = "";
+const SINS = reel.sinSub ?? [];
 CORTES.forEach((desde, g) => {
-  const hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
+  let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
+  for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
   const ini = r2(Math.max(0, ws[0].start - 0.08));
-  const proximo = g + 1 < CORTES.length ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.5);
+  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35);
   const fin = r2(Math.min(proximo, DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
@@ -197,4 +203,4 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
 `;
 fs.writeFileSync("index.html", index);
 console.log(`index: ${ESCENAS.length} escenas, ${sfx.length} efectos; subtítulos: ${CORTES.length} grupos`);
-console.log(CORTES.map((c, g) => palabras.slice(c, g + 1 < CORTES.length ? CORTES[g + 1] : HASTA).map((w) => w.text).join(" ")).join(" | "));
+console.log(CORTES.map((c, g) => palabras.slice(c, Math.min(g + 1 < CORTES.length ? CORTES[g + 1] : HASTA, ...SINS.map(([a]) => (a > c ? a : 1e9)))).map((w) => w.text).join(" ")).join(" | "));

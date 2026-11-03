@@ -1,6 +1,6 @@
 # Reels de Scalerics
 
-Reels verticales (1080x1920, ~50-60 s) para el Instagram de Scalerics, la software factory de
+Reels verticales (1080x1920, ~25-35 s) para el Instagram de Scalerics, la software factory de
 Montevideo que vende a comercios: **agentes de IA** (el producto estrella), Scalerics Puntos
 (fidelización), tiendas online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
@@ -92,6 +92,10 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
         La marca se NOMBRA, pero no se dibuja su logo, su tipografía ni sus colores: objetos
         genéricos (una caja de pizza, un vaso de café). Siempre en positivo: es un ejemplo a imitar,
         no se ataca a nadie.
+        Ejemplo aprobado de caso de éxito: `reels/netflix-blockbuster` (30 s, 3D real con Three.js
+        en `assets/tres.js`): "Blockbuster pudo comprar Netflix por cincuenta millones. Dijo que no.
+        Diez años después, quebró. ¿Por qué?…". Desenlace en los primeros 5 s, "¿Por qué?" como
+        bisagra, 1-3 s por escena, 1-2 rótulos por escena.
    - **CONTENIDO EDUCATIVO REAL, VERIFICADO (Juan, 03-11: "quiero que sean ejemplos reales, tipo
      contenido educativo real").** Vale para las dos series y para cualquier dato de cualquier reel:
      1. **Antes de escribir el guion, verificá cada afirmación con la herramienta WebSearch**: qué
@@ -302,8 +306,11 @@ Lo que se vende (no prometer nada fuera de esto):
   cabeza, en post-its o en cinco chats. Ángulos: el cliente que te pidió presupuesto y nunca
   llamaste, "¿quién era este?", la venta que se perdió en el chat.
 
-Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 130-175 palabras
-(con Orus son ~45-58 s; con diálogos y personajes se acepta hasta ~190 y ~70 s); frases cortas;
+Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); **60-90 palabras
+(con Orus son ~25-35 s)**. Juan, 03-11, sobre un caso de éxito de 62 s: "muy largo y no muy
+atrapante"; la versión de 30 s "me gustó más". Con diálogos y personajes, hasta ~120 palabras
+y ~45 s. **El desenlace va primero** (la consecuencia en la primera frase, la explicación
+después), nunca una cronología de años en fila: un año o dos, si suman; frases cortas;
 sin cifras ni estadísticas inventadas; con gancho pero SIN agresividad (02-11: nada de pinchar al
 dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo deja bien parado: nunca insultos de verdad,
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
