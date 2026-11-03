@@ -170,6 +170,11 @@
 - 03-11 · `lunes-nueve` · Agente de IA interno · "Lunes, 9 de la mañana: 14 pedidos, 3 proveedores, un solo encargado." Diego, el encargado, es un crack y sostiene todo solo (WhatsApp, mail, teléfono, servilleta, el cliente de la puerta) y a las 9:30 el café está frío; "mismo lunes, misma hora" con un agente de IA puertas adentro: junta los pedidos, arma los tres pedidos a proveedores, avisa lo que falta y le deja la lista del día; Diego revisa y decide con el café caliente. Cierre: "Etiquetá al encargado que sostiene todo los lunes." [motion caos a control · rutina, líneas de marca]
 
 ## En curso
+- 03-11 (tanda 2) · `dos-tiendas` · Tienda online · "Dos tiendas iguales a las 23:40: una cerró, la otra está vendiendo." · motion Dos negocios en secuencia
+- 03-11 (tanda 2) · `te-buscaron` · Sitio web · "Te buscaron en Google. ¿Qué encontraron?" · celular a pantalla completa
+- 03-11 (tanda 2) · `se-te-acaba` · Automatizaciones (stock) · "El producto que más vendés es justo el que se te acaba." · motion rutina + dato en vivo
+- 03-11 (tanda 2) · `no-entra` · Sistema a medida · "Tu negocio no entra en un software genérico." · motion de piezas geométricas
+- 03-11 (tanda 2) · `despues-del-presupuesto` · Consejo pyme + CRM · "Lo que hacen las pymes que crecen el día después de mandar un presupuesto." · consejo en 3 hábitos, estudio sobrio
 
 
 
