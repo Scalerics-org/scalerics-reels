@@ -68,6 +68,37 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    mirando." (reportes).
    Por tanda de 5, **al menos 2 con este formato** (uno de ellos "Dos negocios").
 
+9. **EL FORMATO ESTRELLA desde el 03-11: el explicador estilo @resultaaquee** (Juan: "bien,
+   perfecto este nuevo formato de videos, más atrapante igual"). Ejemplo aprobado:
+   `reels/por-que-la-tarjeta` (miralo entero, y su `gen.mjs`, que arma todas las escenas desde un
+   solo lugar: copiá esa forma). **Por tanda de 5, al menos 3 en este formato.**
+   - **Visual:** UN objeto grande protagonista por escena (la mitad de la pantalla o más), relleno
+     con color y volumen (sombreado, luz, sombra en el piso), de marca (navy, verde `#5ce611`,
+     crema, blanco; rojo apagado solo para el problema). El objeto **se transforma** en el siguiente
+     (tarjeta → ticket → calendario → ficha del cliente), con push-ins de cámara, en vez de cortar.
+     Etiquetas chicas con línea guía, contadores, sliders, tildes. Subtítulos arriba al centro, 1 a 3
+     palabras, ~86 px, la palabra clave en un recuadro verde tipo selección.
+   - **Dos series:**
+     a. **"¿Por qué…?"**: una curiosidad de negocio que todos vieron y nadie se preguntó ("¿Por qué
+        el súper te pregunta si tenés la tarjeta?", "¿Por qué la leche está al fondo?", "¿Por qué la
+        app de delivery te muestra dónde está el repartidor?") y la respuesta es una lección que se
+        aplica a una pyme.
+     b. **"Caso de éxito"** (Juan, 03-11: "un caso de éxito de una empresa exitosa conocida, de cómo
+        hizo para pasar de esto a lo otro, y que nosotros lo podemos implementar"): cómo una empresa
+        conocida pasó de un problema a una solución, contado como antes → qué hizo → después, y el
+        giro "lo mismo, a tu escala, lo hacemos nosotros". Ej.: Domino's y el seguimiento del pedido
+        (pasar de "¿dónde está mi pizza?" a ver cada paso), Starbucks y pedir desde la app, Zara y
+        reponer según lo que se vende, Amazon y "los que compraron esto también compraron".
+        **Hechos reales y conocidos, nada inventado:** solo lo que es de conocimiento público y estás
+        seguro; si no estás seguro de un dato (año, cifra), no lo digas o decilo en general ("hace
+        unos años"). Cero cifras inventadas. La marca se NOMBRA, pero no se dibuja su logo, su tipografía
+        ni sus colores: objetos genéricos (una caja de pizza, un vaso de café). Siempre en positivo:
+        es un ejemplo a imitar, no se ataca a nadie.
+   - **Más atrapante:** el gancho en el cuadro 0 es una pregunta o una promesa que abre un hueco
+     ("¿Por qué…?", "Domino's casi quiebra por esto. Lo arregló con una pantallita."); a la mitad, un
+     giro que cambia lo que el que mira creía; algo cambia en pantalla cada 1,5-2,5 s (transformación,
+     etiqueta, contador, push-in); frases cortas; nada de introducción. Cierre: la videollamada (punto 8).
+
 8. **El cierre de TODOS los reels: la videollamada gratis (Juan, 03-11).** El reel termina
    ofreciendo una videollamada gratis con Scalerics para ver el caso del que mira. Una sola
    acción, siempre la misma, para poder medir cuántos llegan:
