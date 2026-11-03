@@ -165,6 +165,11 @@
 - 02-11 · `el-conde` · Tienda online · "Hace cuatrocientos años que quiero comprarte algo. Y vos cerrás a las siete." Película de vampiros de clase B en technicolor: el Conde vive en un castillo en Tacuarembó y solo sale de noche; quiere una capa de lana forrada de la Tienda del Centro, que abre de 9 a 19 ("¿de la mañana?"); por Instagram a las 3:12 le contestan "pasá por el local" ("¿¡a qué hora!?"); sale el sol y vuelve al ataúd sin capa ("mi primo Drácula se va a reír"); giro del ayudante jorobado: mucha gente compra así, de noche, en pijama, desde el celular y desde el interior, "¿son todos vampiros?" "no, amo: trabajan hasta las siete"; la tienda online de Scalerics vende sola a cualquier hora con Mercado Pago y envío por DAC o Correo hasta el castillo; el paquete llega al atardecer · Etiquetá al que compra en pijama a las tres de la mañana [formato P película de vampiros · estilo castillo gótico en technicolor violeta profundo/luna amarilla/rojo capa/verde lima de antorchas con murciélagos, niebla y títulos de afiche, cuatro voces]
 
 ## En curso
+- 03-11 · `dos-cafeterias` · Puntos · "Dos cafeterías en la misma cuadra. Una sabe quién volvió esta semana." [motion Dos negocios · líneas de marca, pantalla partida]
+- 03-11 · `se-juntan` · CRM · "Cuaderno, Excel, WhatsApp y una pila de post-its. Mirá lo que pasa cuando se juntan." [motion convergencia · líneas de marca]
+- 03-11 · `el-contador` · Automatizaciones · "Este contador suma las horas que tu equipo pasa copiando datos de un lado a otro." [motion contador en vivo · líneas de marca]
+- 03-11 · `lunes-nueve` · Agente de IA interno · "Lunes, 9 de la mañana: 14 pedidos, 3 proveedores, un solo encargado." [motion caos a control · rutina]
+- 03-11 · `cuanto-vendiste` · Sistema a medida (reportes) · "¿Cuánto vendiste ayer? Si tenés que calcularlo, seguí mirando." [tipografía cinética de marca]
 
 
 
