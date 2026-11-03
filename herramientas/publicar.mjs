@@ -105,11 +105,14 @@ const igOn = !!process.env.IG_TOKEN || !!(await estadoJson("ig.json"));
 // (privacidad, interacciones) la eligió y la aceptó una persona ahí.
 const autoTT = (await estadoJson("tiktok-auto.json")) || {};
 const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1" && !!autoTT.activo;
+// Con TikTok en pausa igual tiene sus horarios: en cada uno manda un reel a la bandeja de la app, para
+// publicarlo a mano desde el celular (Juan, 03-11: 10 por día en TikTok, 3 en Instagram).
+const ttInbox = !!accesoTT && !ttOn;
 // En la corrida de cada hora, el workflow manda en REDES_HORA a qué redes les toca ahora (según
 // horarios.json, que se edita en el CRM). A mano, sin REDES_HORA, van todas.
 const deHora = (process.env.REDES_HORA || "").split(",").filter(Boolean);
 const toca = (r) => !deHora.length || deHora.includes(r);
-const redes = [...(ttOn && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
+const redes = [...((ttOn || ttInbox) && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
 // El horario se anota como atendido ANTES de publicar: si algo falla se pierde ese turno, pero
 // nunca sale dos veces el mismo (la próxima corrida de la hora vería el turno pendiente).
 if (deHora.length && !PRUEBA) {
@@ -224,9 +227,10 @@ let estado = await leerEstado();
 if (!estado?.token && process.env.IG_TOKEN) estado = { token: process.env.IG_TOKEN, renovado: 0 };
 const hayIG = !!estado?.token && falta(slug).includes("instagram");
 const hacerTT = ttOn && falta(slug).includes("tiktok");
+const inboxTT = ttInbox && falta(slug).includes("tiktok");
 const hechoEn = [];
-if (!hayIG) console.log("instagram: sin IG_TOKEN todavía, se saltea");
-if (!hayIG && !hacerTT) { console.log(`nada que hacer: ninguna red activa para ${slug}`); process.exit(0); }
+if (!estado?.token) console.log("instagram: sin IG_TOKEN todavía, se saltea");
+if (!hayIG && !hacerTT && !inboxTT) { console.log(`nada que hacer: ninguna red activa para ${slug}`); process.exit(0); }
 let tk, igBase, uid;
 if (hayIG) {
   tk = estado.token;
@@ -270,7 +274,7 @@ if (hayIG) {
   console.log(`instagram: @${cuenta.username}`);
 }
 if (hacerTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
-console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok"].filter(Boolean).join(", ")}`);
+console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok", inboxTT && "bandeja de tiktok"].filter(Boolean).join(", ")}`);
 if (PRUEBA) {
   console.log("PRUEBA: no publico ni muevo nada.");
   process.exit(0);
@@ -308,8 +312,8 @@ if (hacerTT) {
 
 // Mientras TikTok está en pausa (la app sin auditar), lo que sale en Instagram va también a la bandeja
 // de la app de TikTok, para publicarlo a mano desde el celular. Se anota en tiktok_inbox.
-const yaEnTikTok = (pub.tiktok || []).includes(slug) || (pub.tiktok_inbox || []).includes(slug);
-if (accesoTT && !ttOn && hechoEn.includes("instagram") && !yaEnTikTok) {
+// En una hora solo de TikTok va igual (sin Instagram de por medio).
+if (inboxTT && (hechoEn.includes("instagram") || !hayIG)) {
   try {
     console.log("TIKTOK: " + (await mandarAlInboxTikTok(accesoTT, bytes)));
     pub.tiktok_inbox = [...(pub.tiktok_inbox || []), slug];
