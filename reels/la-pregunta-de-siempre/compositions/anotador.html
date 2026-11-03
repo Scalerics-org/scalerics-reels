@@ -1,0 +1,236 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="anotador"] .anotador-capa { position: absolute; inset: 0; }
+    [data-composition-id="anotador"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="anotador"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="anotador"] .ln-f { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="anotador"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="anotador"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="anotador"] .ln-rojo { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="anotador"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="anotador"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="anotador"] .rel-fondo { fill: #07111f; }
+    [data-composition-id="anotador"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="anotador"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="anotador"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c0625a; }
+    [data-composition-id="anotador"] .tx-ap { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: rgba(239, 238, 229, 0.45); }
+    [data-composition-id="anotador"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="anotador"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="anotador"] .mono-ap { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="anotador"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c0625a; }
+    [data-composition-id="anotador"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="anotador"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="anotador"] .etiqueta .rojo { color: #c0625a; }
+    [data-composition-id="anotador"] .etiqueta .crema { color: #efeee5; }
+
+  </style>
+  <div id="root" data-composition-id="anotador" data-width="1080" data-height="1920" data-duration="23.59">
+    <div id="anotador-escena" class="anotador-capa clip" data-start="0" data-duration="23.59" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+<g class="an-mov"><g class="an-hoja">
+<rect class="ln an-d" x="130" y="588" width="820" height="490" rx="18" />
+<circle class="ln-f an-d" cx="190" cy="588" r="10" /><circle class="ln-f an-d" cx="290" cy="588" r="10" /><circle class="ln-f an-d" cx="390" cy="588" r="10" /><circle class="ln-f an-d" cx="490" cy="588" r="10" /><circle class="ln-f an-d" cx="590" cy="588" r="10" /><circle class="ln-f an-d" cx="690" cy="588" r="10" /><circle class="ln-f an-d" cx="790" cy="588" r="10" /><circle class="ln-f an-d" cx="890" cy="588" r="10" />
+<line class="ln-ap an-d" x1="130" y1="660" x2="950" y2="660" />
+<line class="ln-ap an-d" x1="150" y1="728" x2="930" y2="728" /><line class="ln-ap an-d" x1="150" y1="796" x2="930" y2="796" /><line class="ln-ap an-d" x1="150" y1="864" x2="930" y2="864" /><line class="ln-ap an-d" x1="150" y1="932" x2="930" y2="932" /><line class="ln-ap an-d" x1="150" y1="1000" x2="930" y2="1000" />
+<line class="ln-ap an-d" x1="560" y1="660" x2="560" y2="1068" />
+<text data-layout-ignore class="mono-ap an-tit" x="168" y="634" style="font-size:22px">PREGUNTAS DE LA SEMANA</text>
+<circle class="ln-ac an-ring an-ring0" cx="618" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia0" x="618" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">LUN</text><circle class="ln-ac an-ring an-ring1" cx="676" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia1" x="676" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">MAR</text><circle class="ln-ac an-ring an-ring2" cx="734" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia2" x="734" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">MIÉ</text><circle class="ln-ac an-ring an-ring3" cx="792" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia3" x="792" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">JUE</text><circle class="ln-ac an-ring an-ring4" cx="850" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia4" x="850" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">VIE</text><circle class="ln-ac an-ring an-ring5" cx="908" cy="626" r="25" /><text data-layout-ignore class="mono an-dia an-dia5" x="908" y="634" text-anchor="middle" style="font-size:20px;letter-spacing:0.04em">SÁB</text>
+<text class="tx an-lbl an-lbl0" x="170" y="704" style="font-size:27px">¿Cuánto le cobro?</text><text class="tx an-lbl an-lbl1" x="170" y="772" style="font-size:27px">¿Ya se pagó?</text><text class="tx an-lbl an-lbl2" x="170" y="840" style="font-size:27px">¿Dónde está el pedido?</text><text class="tx an-lbl an-lbl3" x="170" y="908" style="font-size:27px">¿Hay en el depósito?</text><text class="tx an-lbl an-lbl4" x="170" y="976" style="font-size:27px">¿Me cambiás el turno?</text><text class="tx an-lbl an-lbl5" x="170" y="1044" style="font-size:27px">¿Viene el técnico?</text>
+<path class="ln-f an-m an-r0 an-m0-0" d="M585 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-1" d="M597 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-2" d="M609 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-3" d="M621 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-4" d="M577 708 L631 680" />
+<path class="ln-f an-m an-r0 an-m0-5" d="M649 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-6" d="M661 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-7" d="M673 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-8" d="M685 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-9" d="M641 708 L695 680" />
+<path class="ln-f an-m an-r0 an-m0-10" d="M713 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-11" d="M725 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-12" d="M737 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-13" d="M749 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-14" d="M705 708 L759 680" />
+<path class="ln-f an-m an-r0 an-m0-15" d="M777 674 V714" />
+<path class="ln-f an-m an-r0 an-m0-16" d="M789 674 V714" />
+<path class="ln-f an-m an-r1 an-m1-0" d="M585 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-1" d="M597 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-2" d="M609 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-3" d="M621 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-4" d="M577 776 L631 748" />
+<path class="ln-f an-m an-r1 an-m1-5" d="M649 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-6" d="M661 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-7" d="M673 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-8" d="M685 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-9" d="M641 776 L695 748" />
+<path class="ln-f an-m an-r1 an-m1-10" d="M713 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-11" d="M725 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-12" d="M737 742 V782" />
+<path class="ln-f an-m an-r1 an-m1-13" d="M749 742 V782" />
+<path class="ln-f an-m an-r2 an-m2-0" d="M585 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-1" d="M597 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-2" d="M609 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-3" d="M621 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-4" d="M577 844 L631 816" />
+<path class="ln-f an-m an-r2 an-m2-5" d="M649 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-6" d="M661 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-7" d="M673 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-8" d="M685 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-9" d="M641 844 L695 816" />
+<path class="ln-f an-m an-r2 an-m2-10" d="M713 810 V850" />
+<path class="ln-f an-m an-r2 an-m2-11" d="M725 810 V850" />
+<path class="ln-f an-m an-r3 an-m3-0" d="M585 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-1" d="M597 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-2" d="M609 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-3" d="M621 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-4" d="M577 912 L631 884" />
+<path class="ln-f an-m an-r3 an-m3-5" d="M649 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-6" d="M661 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-7" d="M673 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-8" d="M685 878 V918" />
+<path class="ln-f an-m an-r3 an-m3-9" d="M641 912 L695 884" />
+<path class="ln-f an-m an-r3 an-m3-10" d="M713 878 V918" />
+<path class="ln-f an-m an-r4 an-m4-0" d="M585 946 V986" />
+<path class="ln-f an-m an-r4 an-m4-1" d="M597 946 V986" />
+<path class="ln-f an-m an-r5 an-m5-0" d="M585 1014 V1054" />
+<rect class="ln-ac an-recuadro" x="144" y="664" width="792" height="264" rx="14" />
+<g class="an-lapiz"><g class="an-lapiz-in">
+<path class="ln-f" d="M0 0 L6 -24 L70 -88 L88 -70 L24 -6 Z" />
+<path class="ln-f" d="M6 -24 L24 -6 M62 -96 L96 -62" />
+</g></g>
+</g></g>
+      </svg>
+      
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "anotador";
+      const DUR = 23.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0.001 ? 1 : 0 });
+          if (t0 > 0.001) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      // globo que vuela desde (sx,sy) a su lugar (x,y): x/y en el g de afuera, escala en el de adentro
+      const volar = (g, x, y, sx, sy, t, dur) => {
+        const inn = g.querySelector(".gin");
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { x: sx - x, y: sy - y, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: dur ?? 0.45, ease: "power3.out" }, t);
+        tl.fromTo(inn, { scale: 0.3, svgOrigin: x + " " + y }, { scale: 1, svgOrigin: x + " " + y, duration: dur ?? 0.45, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".anotador-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+
+      const T0 = 4.65;
+      const G = (t) => t - T0;
+      const yc = (i) => 660 + 68 * i + 34;
+      // la hoja se dibuja en "Probá"
+      dibujar(qa(".an-d"), 0, 0.6, 1, 0.02);
+      pop(qa(".an-dia"), G(5.75), 0.06);
+      tl.fromTo(q(".an-tit"), { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 0.4);
+      qa(".an-ring").forEach((r) => gsap.set(r, { opacity: 0 }));
+      qa(".an-lbl").forEach((r) => gsap.set(r, { opacity: 0 }));
+      gsap.set(q(".an-recuadro"), { opacity: 0 });
+      latir(q(".an-hoja"), G(9.8), 1.03);
+      // días: el que corre en verde, los anteriores apagados
+      const DIAS = [10.87, 14.94, 15.9, 22.15, 22.55, 22.96];
+      DIAS.forEach((t, i) => {
+        pop(q(".an-ring" + i), G(t));
+        tl.to(q(".an-dia" + i), { fill: "#5ce611", duration: 0.2 }, G(t));
+        if (i) tl.to(q(".an-ring" + (i - 1)), { opacity: 0, duration: 0.25 }, G(t));
+      });
+      // las preguntas se escriben cuando alguien las dice
+      const LBL = [11.8, 13.31, 18.75, 20.73, 22.35, 23.55];
+      LBL.forEach((t, i) => tl.fromTo(q(".an-lbl" + i), { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, G(t)));
+      // palotes: [renglón, tiempo global]
+      const M = [];
+      const add = (r, ts) => ts.forEach((t) => M.push([r, t]));
+      add(0, [12.55, 12.9, 15.1, 15.35, 16.1, 17.2, 17.5, 17.8, 22.2, 22.38, 22.62]);
+      add(1, [13.95, 15.55, 16.3, 16.5, 17.35, 17.65, 22.28, 22.47]);
+      add(2, [19.35, 19.65, 19.95, 22.52, 22.72]);
+      add(3, [21.6, 21.85, 22.1, 22.66, 22.82]);
+      add(4, [22.88]);
+      // ráfaga del sábado
+      const TOT = [17, 14, 12, 11, 2, 1];
+      const cuenta = [0, 0, 0, 0, 0, 0];
+      M.forEach(([r]) => cuenta[r]++);
+      let tb = 23.15, falta = true;
+      while (falta) {
+        falta = false;
+        for (const r of [0, 1, 2, 3, 0, 4, 1, 2, 5, 3]) {
+          if (cuenta[r] < TOT[r]) { M.push([r, tb]); cuenta[r]++; tb += 0.05; falta = true; }
+        }
+      }
+      M.sort((a, b) => a[1] - b[1]);
+      const hechos = [0, 0, 0, 0, 0, 0];
+      const t0Fin = G(24.7);
+      const lapiz = q(".an-lapiz");
+      gsap.set(lapiz, { x: 900, y: 1010, opacity: 0 });
+      tl.to(lapiz, { opacity: 1, duration: 0.25 }, G(8.9));
+      tl.fromTo(q(".an-lapiz-in"), { rotation: -12, svgOrigin: "0 0" }, { rotation: 8, svgOrigin: "0 0", duration: 0.2, yoyo: true, repeat: 3, ease: "sine.inOut" }, G(8.95));
+      let tAnt = G(9.8);
+      M.forEach(([r, tg], j) => {
+        const tSig = j + 1 < M.length ? G(M[j + 1][1]) : t0Fin;
+        const k = hechos[r]++;
+        const el = q(".an-m" + r + "-" + k);
+        const t = G(tg);
+        const b = el.getBBox();
+        const dd = Math.min(0.16, Math.max(0.02, t - tAnt - 0.005));
+        tl.to(lapiz, { x: b.x + b.width, y: b.y + 2, duration: dd, ease: "power2.out" }, t - dd);
+        dibujar([el], t, k % 5 === 4 ? 0.14 : 0.1, 1);
+        const pr = Math.max(0.02, Math.min(0.1, tSig - t - 0.06));
+        tl.to(lapiz, { y: b.y + b.height, duration: pr, ease: "power1.in" }, t);
+        tAnt = t + pr;
+      });
+      tl.to(lapiz, { x: 960, y: 1060, opacity: 0, duration: 0.4, ease: "power2.in" }, Math.max(tAnt + 0.1, G(24.7)));
+      // "sábado": la hoja baja y crece
+      tl.to(q(".an-mov"), { y: 60, duration: 0.6, ease: "power3.inOut" }, G(22.96));
+      tl.to(q(".an-hoja"), { scale: 1.1, svgOrigin: "540 833", duration: 0.6, ease: "power3.inOut" }, G(22.96));
+      // "amontonan": los poco repetidos se apagan
+      tl.to(qa(".an-r4, .an-r5, .an-lbl4, .an-lbl5"), { opacity: 0.28, duration: 0.4 }, G(25.4));
+      // "pocas": recuadro verde
+      tl.set(q(".an-recuadro"), { opacity: 1 }, G(26.55));
+      dibujar([q(".an-recuadro")], G(26.6), 0.6, 1);
+      tl.to(qa(".an-lbl0, .an-lbl1, .an-lbl2, .an-lbl3"), { fill: "#5ce611", duration: 0.3, stagger: 0.08 }, G(26.9));
+      latir(q(".an-hoja"), G(27.4), 1.02);
+
+
+      tl.to(q("#anotador-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

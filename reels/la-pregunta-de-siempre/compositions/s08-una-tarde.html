@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-una-tarde"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-una-tarde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-una-tarde"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-una-tarde"] .ln-f { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-una-tarde"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-una-tarde"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-una-tarde"] .ln-rojo { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-una-tarde"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s08-una-tarde"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s08-una-tarde"] .rel-fondo { fill: #07111f; }
+    [data-composition-id="s08-una-tarde"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s08-una-tarde"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s08-una-tarde"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c0625a; }
+    [data-composition-id="s08-una-tarde"] .tx-ap { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: rgba(239, 238, 229, 0.45); }
+    [data-composition-id="s08-una-tarde"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s08-una-tarde"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s08-una-tarde"] .mono-ap { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s08-una-tarde"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c0625a; }
+    [data-composition-id="s08-una-tarde"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-una-tarde"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s08-una-tarde"] .etiqueta .rojo { color: #c0625a; }
+    [data-composition-id="s08-una-tarde"] .etiqueta .crema { color: #efeee5; }
+
+  </style>
+  <div id="root" data-composition-id="s08-una-tarde" data-width="1080" data-height="1920" data-duration="3.47">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="3.47" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+<line class="ln s08-d" x1="140" y1="1240" x2="940" y2="1240" />
+<rect class="ln s08-d" x="760" y="830" width="150" height="410" rx="6" />
+<circle class="ln s08-d" cx="782" cy="1050" r="7" />
+<path class="ln-ap s08-d" d="M800 830 L835 790 L870 830" />
+<rect class="ln-ac s08-d" x="776" y="870" width="118" height="44" rx="8" />
+<text class="mono-ac s08-cartel" x="835" y="900" text-anchor="middle" style="font-size:24px">SALIDA</text>
+<g class="s08-due"><g transform="translate(430 1120)"><circle class="ln s08-d" cx="0" cy="-130" r="24" />
+<path class="ln s08-d" d="M-24 -136 Q-22 -160 0 -158 Q22 -160 24 -136" />
+<path class="ln s08-d" d="M-11 -117 Q0 -111 11 -117" />
+<path class="ln s08-d" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" />
+<path class="ln s08-d" d="M-13 -98 L0 -82 L13 -98" />
+<path class="ln s08-d" d="M-48 0 H48 M-22 0 L-28 118 M22 0 L28 118" />
+<path class="ln s08-d" d="M30 -96 Q74 -88 70 -20 L58 -16 Q60 -74 30 -86" />
+</g></g>
+<g class="s08-g s08-g0"><g class="gin">
+<circle class="ln-rojo" cx="230" cy="860" r="30" />
+<path class="ln-rojo" d="M240.5 888.2 L255.5 905 L254 878.6" />
+<text class="tx-rojo" x="230" y="872" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<g class="s08-g s08-g1"><g class="gin">
+<circle class="ln-rojo" cx="180" cy="990" r="30" />
+<path class="ln-rojo" d="M190.5 1018.2 L205.5 1035 L204 1008.6" />
+<text class="tx-rojo" x="180" y="1002" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<g class="s08-g s08-g2"><g class="gin">
+<circle class="ln-rojo" cx="250" cy="1110" r="30" />
+<path class="ln-rojo" d="M260.5 1138.2 L275.5 1155 L274 1128.6" />
+<text class="tx-rojo" x="250" y="1122" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<path class="ln-rojo s08-hilo s08-h0" d="M262 880 Q420 920 562 1050" style="stroke-width:3" />
+<path class="ln-rojo s08-hilo s08-h1" d="M212 1000 Q420 1040 562 1050" style="stroke-width:3" />
+<path class="ln-rojo s08-hilo s08-h2" d="M282 1105 Q420 1145 562 1050" style="stroke-width:3" />
+      </svg>
+      <div class="etiqueta"><span class="s08-e1 rojo">Una tarde libre</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-una-tarde";
+      const DUR = 3.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0.001 ? 1 : 0 });
+          if (t0 > 0.001) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      // globo que vuela desde (sx,sy) a su lugar (x,y): x/y en el g de afuera, escala en el de adentro
+      const volar = (g, x, y, sx, sy, t, dur) => {
+        const inn = g.querySelector(".gin");
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { x: sx - x, y: sy - y, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: dur ?? 0.45, ease: "power3.out" }, t);
+        tl.fromTo(inn, { scale: 0.3, svgOrigin: x + " " + y }, { scale: 1, svgOrigin: x + " " + y, duration: dur ?? 0.45, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s08-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+
+      dibujar(qa(".s08-d"), 0, 0.5, 0.45, 0);
+      tl.to(q(".s08-due"), { x: 180, duration: 1.0, ease: "power1.inOut" }, 0.7);
+      tl.to(q(".s08-due"), { y: -8, duration: 0.13, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.7);
+      pop(qa(".s08-g"), 1.73, 0.12);
+      dibujar(qa(".s08-hilo"), 1.8, 0.4, 1, 0.1);
+      tl.to(q(".s08-due"), { x: 90, duration: 0.35, ease: "back.out(2)" }, 2.25);
+      tl.to(qa(".s08-hilo"), { x: -90, duration: 0.35, ease: "back.out(2)" }, 2.25);
+      tl.to(q(".s08-due"), { rotation: -5, svgOrigin: "430 1240", duration: 0.15, yoyo: true, repeat: 1 }, 2.3);
+      qa(".s08-g").forEach((g, i) => latir(g, 2.4 + i * 0.08, 1.12));
+      etq(1, 0.5);
+
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

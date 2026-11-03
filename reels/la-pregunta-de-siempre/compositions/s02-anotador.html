@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-anotador"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-anotador"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-anotador"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-anotador"] .ln-f { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-anotador"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-anotador"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-anotador"] .ln-rojo { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-anotador"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s02-anotador"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s02-anotador"] .rel-fondo { fill: #07111f; }
+    [data-composition-id="s02-anotador"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s02-anotador"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s02-anotador"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c0625a; }
+    [data-composition-id="s02-anotador"] .tx-ap { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: rgba(239, 238, 229, 0.45); }
+    [data-composition-id="s02-anotador"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s02-anotador"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s02-anotador"] .mono-ap { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s02-anotador"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c0625a; }
+    [data-composition-id="s02-anotador"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-anotador"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s02-anotador"] .etiqueta .rojo { color: #c0625a; }
+    [data-composition-id="s02-anotador"] .etiqueta .crema { color: #efeee5; }
+
+  </style>
+  <div id="root" data-composition-id="s02-anotador" data-width="1080" data-height="1920" data-duration="6.22">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="6.22" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+<g transform="translate(300 1245) scale(0.8)"><g class="s02-caj"><circle class="ln s02-bd" cx="0" cy="-130" r="24" />
+<path class="ln s02-bd" d="M-24 -132 Q-26 -162 0 -160 Q26 -162 24 -132" />
+<path class="ln s02-bd" d="M22 -140 Q46 -130 38 -104" />
+<path class="ln s02-bd" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" /></g></g>
+<g transform="translate(780 1245) scale(0.8)"><g class="s02-dep"><circle class="ln s02-bd" cx="0" cy="-130" r="24" />
+<path class="ln s02-bd" d="M-26 -136 Q-24 -164 0 -164 Q24 -164 26 -136 Z" />
+<path class="ln s02-bd" d="M24 -138 H54" />
+<path class="ln s02-bd" d="M-48 0 Q-48 -96 0 -100 Q48 -96 48 0" /></g></g>
+<g class="s02-g s02-g0"><g class="gin">
+<circle class="ln-f" cx="222" cy="1108" r="26" />
+<path class="ln-f" d="M231.1 1132.44 L244.1 1147 L242.8 1124.12" />
+<text class="tx" x="222" y="1118.4" text-anchor="middle" style="font-size:29px">?</text>
+</g></g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1 crema">Una semana</span><span class="s02-e2">Un palote por pregunta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-anotador";
+      const DUR = 6.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0.001 ? 1 : 0 });
+          if (t0 > 0.001) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      // globo que vuela desde (sx,sy) a su lugar (x,y): x/y en el g de afuera, escala en el de adentro
+      const volar = (g, x, y, sx, sy, t, dur) => {
+        const inn = g.querySelector(".gin");
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { x: sx - x, y: sy - y, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: dur ?? 0.45, ease: "power3.out" }, t);
+        tl.fromTo(inn, { scale: 0.3, svgOrigin: x + " " + y }, { scale: 1, svgOrigin: x + " " + y, duration: dur ?? 0.45, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s02-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+
+      const preguntar = (i, w, t, hasta, vuela) => {
+        const g = q(".s02-g" + i);
+        const inn = g.querySelector(".gin");
+        const o = [[222,1108,1],[702,1108,1]][w];
+        gsap.set(g, { opacity: 0 });
+        tl.to(g, { opacity: 1, duration: 0.1 }, t);
+        tl.fromTo(inn, { scale: 0.3, svgOrigin: o[0] + " " + o[1] }, { scale: 1, svgOrigin: o[0] + " " + o[1], duration: 0.35, ease: "back.out(1.8)" }, t);
+        tl.to(q(w ? ".s02-dep" : ".s02-caj"), { y: -12, duration: 0.14, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+        if (vuela) tl.to(g, { x: vuela[0] - o[0], y: vuela[1] - o[1], opacity: 0, duration: 0.5, ease: "power2.in" }, hasta);
+        else tl.to(g, { opacity: 0, y: -10, duration: 0.3, ease: "power2.in" }, hasta);
+      };
+      pop(qa(".s02-caj, .s02-dep"), 2.5, 0.12);
+      tl.to(qa(".s02-caj, .s02-dep"), { rotation: 3, svgOrigin: "0 0", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut", stagger: 0.25 }, 2.9);
+      preguntar(0, 0, 3.05, 4.15, [640, 700]);
+      etq(1, 1.15);
+      etq(2, 4.25);
+
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

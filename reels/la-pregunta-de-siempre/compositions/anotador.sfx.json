@@ -1,0 +1,10 @@
+[
+  {"t":0,"sfx":"whoosh","vol":0.2,"max":0.6},
+  {"t":4.25,"sfx":"click-soft","vol":0.25},
+  {"t":7.9,"sfx":"key-press","vol":0.25},
+  {"t":8.25,"sfx":"key-press","vol":0.22},
+  {"t":12.5,"sfx":"typing","vol":0.18,"max":0.9},
+  {"t":17.5,"sfx":"typing","vol":0.18,"max":0.8},
+  {"t":18.5,"sfx":"typing","vol":0.22,"max":1.4},
+  {"t":21.95,"sfx":"sparkle","vol":0.28,"max":0.9}
+]

@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-en-vos"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-en-vos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-en-vos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-vos"] .ln-f { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-vos"] .ln-ap { fill: none; stroke: rgba(239, 238, 229, 0.4); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-vos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-vos"] .ln-rojo { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-en-vos"] .rel-ac { fill: #5ce611; }
+    [data-composition-id="s07-en-vos"] .rel-cr { fill: #efeee5; }
+    [data-composition-id="s07-en-vos"] .rel-fondo { fill: #07111f; }
+    [data-composition-id="s07-en-vos"] .tx { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #efeee5; }
+    [data-composition-id="s07-en-vos"] .tx-ac { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #5ce611; }
+    [data-composition-id="s07-en-vos"] .tx-rojo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: #c0625a; }
+    [data-composition-id="s07-en-vos"] .tx-ap { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 28px; fill: rgba(239, 238, 229, 0.45); }
+    [data-composition-id="s07-en-vos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #efeee5; }
+    [data-composition-id="s07-en-vos"] .mono-ac { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #5ce611; }
+    [data-composition-id="s07-en-vos"] .mono-ap { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s07-en-vos"] .mono-rojo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.14em; fill: #c0625a; }
+    [data-composition-id="s07-en-vos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-en-vos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+    [data-composition-id="s07-en-vos"] .etiqueta .rojo { color: #c0625a; }
+    [data-composition-id="s07-en-vos"] .etiqueta .crema { color: #efeee5; }
+
+  </style>
+  <div id="root" data-composition-id="s07-en-vos" data-width="1080" data-height="1920" data-duration="5.05">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="5.05" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+
+<circle class="ln s07-d" cx="540" cy="900" r="200" />
+<path class="ln s07-d" d="M352 840 Q360 690 540 680 Q720 690 728 840" />
+<path class="ln s07-d" d="M340 880 Q316 900 340 940 M740 880 Q764 900 740 940" />
+<path class="ln s07-d" d="M500 1040 Q540 1056 580 1040" />
+<g class="s07-ic"><path class="ln-rojo" d="M430 820 H500 L522 846 L500 872 H430 Z" /><circle class="ln-rojo" cx="446" cy="846" r="6" /></g>
+<g class="s07-ic"><path class="ln-rojo" d="M570 812 H640 V884 L628 876 L616 884 L604 876 L592 884 L580 876 L570 884 Z" /><path class="ln-rojo" d="M584 832 H626 M584 852 H612" style="stroke-width:4" /></g>
+<g class="s07-ic"><path class="ln-rojo" d="M430 922 H510 V990 H430 Z M430 944 H510 M470 922 V944" /></g>
+<g class="s07-ic"><path class="ln-rojo" d="M576 918 V994 M650 918 V994 M576 944 H650 M576 970 H650" /><path class="ln-rojo" d="M590 932 H604 M616 958 H636" style="stroke-width:4" /></g>
+<g class="s07-g s07-g0"><g class="gin">
+<circle class="ln-f" cx="160" cy="700" r="30" />
+<path class="ln-f" d="M170.5 728.2 L185.5 745 L184 718.6" />
+<text class="tx" x="160" y="712" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<g class="s07-g s07-g1"><g class="gin">
+<circle class="ln-f" cx="920" cy="720" r="30" />
+<path class="ln-f" d="M909.5 748.2 L894.5 765 L896 738.6" />
+<text class="tx" x="920" y="732" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<g class="s07-g s07-g2"><g class="gin">
+<circle class="ln-f" cx="160" cy="1130" r="30" />
+<path class="ln-f" d="M170.5 1158.2 L185.5 1175 L184 1148.6" />
+<text class="tx" x="160" y="1142" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<g class="s07-g s07-g3"><g class="gin">
+<circle class="ln-f" cx="920" cy="1120" r="30" />
+<path class="ln-f" d="M909.5 1148.2 L894.5 1165 L896 1138.6" />
+<text class="tx" x="920" y="1132" text-anchor="middle" style="font-size:33px">?</text>
+</g></g>
+<circle class="ln-rojo s07-aro" cx="540" cy="900" r="246" />
+      </svg>
+      <div class="etiqueta"><span class="s07-e1 crema">La respuesta</span><span class="s07-e2 rojo">Vive en vos</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-en-vos";
+      const DUR = 5.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      // trazos que se dibujan (opacity 0 hasta que arrancan: sin puntitos de los caps)
+      const dibujar = (els, t, dur, desde, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const L = el.getTotalLength();
+          const t0 = t + i * (paso ?? 0.03);
+          gsap.set(el, { strokeDasharray: L + 1, strokeDashoffset: (L + 1) * (desde ?? 1), opacity: t0 <= 0.001 ? 1 : 0 });
+          if (t0 > 0.001) tl.to(el, { opacity: 1, duration: 0.04 }, t0);
+          tl.fromTo(el, { strokeDashoffset: (L + 1) * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t0);
+        });
+      };
+      const centro = (el) => { const b = el.getBBox(); return (b.x + b.width / 2) + " " + (b.y + b.height / 2); };
+      // aparece entero con golpe
+      const pop = (els, t, paso) => {
+        (Array.isArray(els) ? els : [els]).forEach((el, i) => {
+          const o = centro(el);
+          gsap.set(el, { opacity: 0 });
+          tl.fromTo(el, { opacity: 0, scale: 0.85, svgOrigin: o }, { opacity: 1, scale: 1, svgOrigin: o, duration: 0.35, ease: "back.out(1.6)" }, t + i * (paso ?? 0.08));
+        });
+      };
+      // globo que vuela desde (sx,sy) a su lugar (x,y): x/y en el g de afuera, escala en el de adentro
+      const volar = (g, x, y, sx, sy, t, dur) => {
+        const inn = g.querySelector(".gin");
+        gsap.set(g, { opacity: 0 });
+        tl.fromTo(g, { x: sx - x, y: sy - y, opacity: 0 }, { x: 0, y: 0, opacity: 1, duration: dur ?? 0.45, ease: "power3.out" }, t);
+        tl.fromTo(inn, { scale: 0.3, svgOrigin: x + " " + y }, { scale: 1, svgOrigin: x + " " + y, duration: dur ?? 0.45, ease: "back.out(1.6)" }, t);
+      };
+      const latir = (el, t, s) => { const o = centro(el); tl.to(el, { scale: s ?? 1.08, svgOrigin: o, duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out" }, t); };
+      // etiqueta: muestra la i (1..n) en t y saca la anterior
+      let etAnt = null;
+      const etq = (i, t) => {
+        const el = q(".s07-e" + i);
+        if (etAnt) tl.to(etAnt, { opacity: 0, duration: 0.2 }, t - 0.2);
+        tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+        etAnt = el;
+      };
+
+
+      dibujar(qa(".s07-d"), 0, 0.6, 0.45, 0);
+      pop(qa(".s07-ic"), 1.8, 0.1);
+      const G = [[160,700,1],[920,720,-1],[160,1130,1],[920,1120,-1]], D = [[370,790],[710,790],[370,1010],[710,1010]];
+      G.forEach(([x, y], i) => {
+        const g = q(".s07-g" + i);
+        pop(g, 0.5 + i * 0.12);
+        tl.to(g, { x: D[i][0] - x, y: D[i][1] - y, opacity: 0, duration: 0.55, ease: "power2.in" }, 2.0 + i * 0.1);
+      });
+      qa(".s07-ic").forEach((el, i) => latir(el, 2.55 + i * 0.1, 1.15));
+      dibujar(q(".s07-aro"), 3.9, 0.6, 1);
+      latir(q(".s07-aro"), 4.6, 1.04);
+      etq(1, 1.8);
+      etq(2, 3.6);
+
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

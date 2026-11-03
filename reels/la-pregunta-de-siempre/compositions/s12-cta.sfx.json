@@ -1,0 +1,7 @@
+[
+  {"t":0.1,"sfx":"pop","vol":0.25},
+  {"t":1,"sfx":"notification","vol":0.28},
+  {"t":1.9,"sfx":"key-press","vol":0.22},
+  {"t":2.86,"sfx":"key-press","vol":0.22},
+  {"t":3.3,"sfx":"chime","vol":0.25,"max":0.9}
+]
