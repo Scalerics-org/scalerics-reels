@@ -89,11 +89,26 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
         giro "lo mismo, a tu escala, lo hacemos nosotros". Ej.: Domino's y el seguimiento del pedido
         (pasar de "¿dónde está mi pizza?" a ver cada paso), Starbucks y pedir desde la app, Zara y
         reponer según lo que se vende, Amazon y "los que compraron esto también compraron".
-        **Hechos reales y conocidos, nada inventado:** solo lo que es de conocimiento público y estás
-        seguro; si no estás seguro de un dato (año, cifra), no lo digas o decilo en general ("hace
-        unos años"). Cero cifras inventadas. La marca se NOMBRA, pero no se dibuja su logo, su tipografía
-        ni sus colores: objetos genéricos (una caja de pizza, un vaso de café). Siempre en positivo:
-        es un ejemplo a imitar, no se ataca a nadie.
+        La marca se NOMBRA, pero no se dibuja su logo, su tipografía ni sus colores: objetos
+        genéricos (una caja de pizza, un vaso de café). Siempre en positivo: es un ejemplo a imitar,
+        no se ataca a nadie.
+   - **CONTENIDO EDUCATIVO REAL, VERIFICADO (Juan, 03-11: "quiero que sean ejemplos reales, tipo
+     contenido educativo real").** Vale para las dos series y para cualquier dato de cualquier reel:
+     1. **Antes de escribir el guion, verificá cada afirmación con la herramienta WebSearch**: qué
+        hizo la empresa, cuándo (si lo vas a decir) y el porqué. Preferí la fuente de la propia
+        empresa (comunicado, sitio oficial, informe anual) y una segunda independiente (prensa
+        económica o especializada). Ojo con los mitos que circulan como verdad: si la explicación
+        popular no está confirmada (p. ej. "la leche está al fondo para que recorras el súper" es en
+        parte mito; también pesa dónde están las cámaras de frío), no la cuentes como hecho.
+     2. **Anotá las fuentes** en `reels/<slug>/fuentes.md`: cada afirmación del guion con su link.
+        Sin fuente para una afirmación, se saca del guion. Sin fuentes para el tema, se elige otro.
+     3. **Cero cifras, años o resultados que no estén en una fuente.** Si la fuente es de la empresa
+        ("según Domino's"), decilo así o decilo en general; no lo presentes como dato independiente.
+     4. **No exageres para que pique:** "fue de los primeros" solo si una fuente lo respalda; nunca
+        "el primero del mundo", "casi quiebra", "triplicó las ventas" sin fuente.
+     5. Si no podés usar WebSearch en la corrida (la nube lo bloquea), hacé solo temas que ya tengan
+        `fuentes.md` en el repo o "¿Por qué…?" de lógica simple sin datos, y anotalo en la
+        notificación.
    - **Más atrapante:** el gancho en el cuadro 0 es una pregunta o una promesa que abre un hueco
      ("¿Por qué…?", "¿Por qué Domino's te muestra en qué paso está tu pizza?"); a la mitad, un
      giro que cambia lo que el que mira creía; algo cambia en pantalla cada 1,5-2,5 s (transformación,
