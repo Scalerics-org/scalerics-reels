@@ -80,7 +80,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      palabras, ~86 px, la palabra clave en un recuadro verde tipo selección.
    - **Dos series:**
      a. **"¿Por qué…?"**: una curiosidad de negocio que todos vieron y nadie se preguntó ("¿Por qué
-        el súper te pregunta si tenés la tarjeta?", "¿Por qué la leche está al fondo?", "¿Por qué la
+        el súper te pregunta si tenés la tarjeta?", "¿Por qué la
         app de delivery te muestra dónde está el repartidor?") y la respuesta es una lección que se
         aplica a una pyme.
      b. **"Caso de éxito"** (Juan, 03-11: "un caso de éxito de una empresa exitosa conocida, de cómo
