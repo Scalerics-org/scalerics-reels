@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-proveedores"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-proveedores"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-proveedores"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-proveedores"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-proveedores"] .ln-ac4 { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-proveedores"] .ln3 { fill: none; stroke: rgba(239, 238, 229, 0.75); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-proveedores"] .verde { fill: #5ce611; }
+    [data-composition-id="s08-proveedores"] .navy { fill: #07111f; }
+    [data-composition-id="s08-proveedores"] .cab { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s08-proveedores"] .hoja-t { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.12em; fill: #efeee5; }
+    [data-composition-id="s08-proveedores"] .sello { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 34px; letter-spacing: 0.08em; fill: #5ce611; }
+    [data-composition-id="s08-proveedores"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-proveedores"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-proveedores" data-width="1080" data-height="1920" data-duration="4.51">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.51" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect class="ln-ac s08-borde" x="200" y="740" width="680" height="460" rx="28" />
+        <g class="s08-cols">
+          <text class="cab s08-cab" x="316" y="800" text-anchor="middle">LÁCTEOS</text>
+          <text class="cab s08-cab" x="540" y="800" text-anchor="middle">HARINAS</text>
+          <text class="cab s08-cab" x="764" y="800" text-anchor="middle">LIMPIEZA</text>
+          <path class="ln3 s08-cab" d="M428 780 V1170 M652 780 V1170" />
+        </g>
+        <g class="s08-filas"></g>
+        <g class="s08-hojas"></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Por proveedor</span><span class="s08-e2">3 pedidos armados</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-proveedores";
+      const DUR = 4.51;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      const AGRUPA = 0.0, PROVEEDOR = 0.65, DEJA = 1.5, CHECKS = [1.88, 2.07, 2.35], LISTOS = 3.23;
+      const COLS = [316, 540, 764];
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      tl.fromTo(q(".s08-borde"), { opacity: 0.6 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(qa(".s08-cab"), { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.08, ease: "power3.out" }, PROVEEDOR - 0.25);
+
+      // 14 filas: arrancan en dos columnas (como quedó s07) y se reparten en tres proveedores
+      const filas = q(".s08-filas");
+      const conteo = [0, 0, 0];
+      for (let i = 0; i < 14; i++) {
+        const prov = [0, 1, 2, 0, 1, 0, 2, 1, 0, 1, 2, 0, 1, 2][i];
+        const k = conteo[prov]++;
+        const x0 = 236 + (i % 2) * 316, y0 = 828 + Math.floor(i / 2) * 50;
+        const x1 = COLS[prov] - 90, y1 = 830 + k * 50;
+        const f = document.createElementNS(NS, "g");
+        f.innerHTML = '<rect class="ln3" x="0" y="0" width="180" height="34" rx="8" /><path class="ln3" d="M16 17 H110" /><circle class="verde" cx="158" cy="17" r="7" />';
+        filas.appendChild(f);
+        gsap.set(f, { x: x0, y: y0 });
+        tl.to(f, { x: x1, y: y1, duration: 0.5, ease: "power3.inOut" }, AGRUPA + 0.05 + i * 0.035);
+        // "deja": se juntan en la hoja de pedido
+        tl.to(f, { y: 880, x: COLS[prov] - 90, scale: 0.6, opacity: 0, duration: 0.3, ease: "power2.in" }, DEJA - 0.1 + k * 0.03);
+      }
+      etiqueta(".s08-e1", 0.05);
+
+      // tres hojas de pedido
+      const hojas = q(".s08-hojas");
+      COLS.forEach((c, j) => {
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML =
+          '<path class="ln" d="M' + (c - 90) + ' 850 H' + (c + 54) + ' L' + (c + 90) + ' 886 V1150 H' + (c - 90) + ' Z" />' +
+          '<path class="ln3" d="M' + (c + 54) + ' 850 V886 H' + (c + 90) + '" />' +
+          '<text class="hoja-t" x="' + c + '" y="910" text-anchor="middle">PEDIDO</text>' +
+          '<path class="ln3" d="M' + (c - 60) + ' 950 H' + (c + 60) + ' M' + (c - 60) + ' 985 H' + (c + 40) + ' M' + (c - 60) + ' 1020 H' + (c + 60) + ' M' + (c - 60) + ' 1055 H' + (c + 20) + '" />' +
+          '<g class="s08-tilde"><circle class="verde" cx="' + (c + 74) + '" cy="850" r="26" /><path d="M' + (c + 62) + ' 851 L' + (c + 71) + ' 860 L' + (c + 87) + ' 841" style="fill:none;stroke:#07111f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round" /></g>' +
+          '<g class="s08-sello" transform="rotate(-8 ' + c + ' 1100)"><rect class="ln-ac4" x="' + (c - 76) + '" y="1074" width="152" height="54" rx="10" /><text class="sello" x="' + c + '" y="1114" text-anchor="middle">LISTO</text></g>';
+        hojas.appendChild(g);
+        tl.fromTo(g, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, DEJA + j * 0.08);
+        const ti = g.querySelector(".s08-tilde");
+        tl.fromTo(ti, { opacity: 0, scale: 0.3, svgOrigin: (c + 74) + " 850" }, { opacity: 1, scale: 1, svgOrigin: (c + 74) + " 850", duration: 0.3, ease: "back.out(2.5)" }, CHECKS[j]);
+        const se = g.querySelector(".s08-sello");
+        tl.fromTo(se, { opacity: 0, scale: 1.6, svgOrigin: c + " 1100" }, { opacity: 1, scale: 1, svgOrigin: c + " 1100", duration: 0.25, ease: "power3.in" }, LISTOS + j * 0.1);
+      });
+      etiqueta(".s08-e2", CHECKS[0], ".s08-e1");
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,68 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="ambiente"] .amb-capa { position: absolute; inset: 0; }
+    [data-composition-id="ambiente"] .amb-mono { position: absolute; top: 128px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; white-space: nowrap; }
+    [data-composition-id="ambiente"] .amb-modo { left: 104px; }
+    [data-composition-id="ambiente"] .amb-modo span { position: absolute; left: 0; top: 0; }
+    [data-composition-id="ambiente"] .amb-sin { color: rgba(239, 238, 229, 0.5); }
+    [data-composition-id="ambiente"] .amb-con { color: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-punto { position: absolute; left: 72px; top: 137px; width: 14px; height: 14px; border-radius: 50%; }
+    [data-composition-id="ambiente"] .amb-p-sin { background: #b8574e; opacity: 0.9; }
+    [data-composition-id="ambiente"] .amb-p-con { background: #5ce611; opacity: 0; }
+    [data-composition-id="ambiente"] .amb-reloj { right: 72px; color: #efeee5; text-align: right; }
+    [data-composition-id="ambiente"] .amb-linea { position: absolute; left: 72px; right: 72px; top: 186px; height: 2px; background: rgba(239, 238, 229, 0.12); transform-origin: 0 50%; }
+  </style>
+  <div id="root" data-composition-id="ambiente" data-width="1080" data-height="1920" data-duration="62.47">
+    <div id="amb-escena" class="amb-capa clip" data-start="0" data-duration="62.47" data-track-index="0">
+      <div class="amb-punto amb-p-sin"></div>
+      <div class="amb-punto amb-p-con"></div>
+      <div class="amb-mono amb-modo"><span class="amb-sin">SIN AGENTE</span><span class="amb-con">CON AGENTE DE IA</span></div>
+      <div class="amb-mono amb-reloj">LUN 09:00</div>
+      <div class="amb-linea"></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "ambiente";
+      const DUR = 62.47;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      // el reloj de la historia: minutos después de las 9 según el segundo del reel
+      const TRAMOS = [[0, 0], [19.53, 30], [25.92, 30], [26.6, 0], [49.33, 30], [DUR, 30]];
+      const minutos = (t) => {
+        for (let i = 1; i < TRAMOS.length; i++) {
+          const [t0, m0] = TRAMOS[i - 1], [t1, m1] = TRAMOS[i];
+          if (t <= t1) return Math.round(m0 + (m1 - m0) * Math.max(0, (t - t0) / (t1 - t0)));
+        }
+        return 30;
+      };
+      const reloj = q(".amb-reloj");
+      const pintar = () => {
+        const m = minutos(tl.time());
+        reloj.textContent = "LUN 09:" + String(m).padStart(2, "0");
+      };
+      tl.to({ v: 0 }, { v: 1, duration: DUR, ease: "none", onUpdate: pintar }, 0);
+
+      tl.fromTo(q(".amb-linea"), { scaleX: 0.3, opacity: 0.6 }, { scaleX: 1, opacity: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(root.querySelectorAll(".amb-mono, .amb-p-sin"), { opacity: 0.5, y: -4 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0);
+      // el rebobinado: el reloj titila
+      tl.to(reloj, { opacity: 0.35, duration: 0.12, yoyo: true, repeat: 3 }, 25.95);
+      // "Ahora": cambia el modo
+      const AHORA = 27.86;
+      tl.to(q(".amb-sin"), { opacity: 0, y: -10, duration: 0.25 }, AHORA);
+      tl.to(q(".amb-p-sin"), { opacity: 0, duration: 0.2 }, AHORA);
+      tl.fromTo(q(".amb-con"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, AHORA + 0.1);
+      tl.fromTo(q(".amb-p-con"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, AHORA + 0.1);
+      tl.to(q(".amb-linea"), { backgroundColor: "rgba(92, 230, 17, 0.35)", duration: 0.4 }, AHORA + 0.1);
+      tl.to(reloj, { color: "#5ce611", duration: 0.3 }, 49.33);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

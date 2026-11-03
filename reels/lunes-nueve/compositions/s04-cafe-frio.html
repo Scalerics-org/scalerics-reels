@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-cafe-frio"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-cafe-frio"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-cafe-frio"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cafe-frio"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cafe-frio"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-cafe-frio"] .apagado { opacity: 0.5; }
+    [data-composition-id="s04-cafe-frio"] .rojo { fill: #b8574e; }
+    [data-composition-id="s04-cafe-frio"] .crema { fill: #efeee5; }
+    [data-composition-id="s04-cafe-frio"] .frio { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.24em; fill: rgba(239, 238, 229, 0.6); }
+    [data-composition-id="s04-cafe-frio"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-cafe-frio"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-cafe-frio" data-width="1080" data-height="1920" data-duration="4.89">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="4.89" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- reloj chico -->
+        <g class="s04-reloj">
+          <circle class="ln" cx="200" cy="690" r="62" />
+          <path class="ln4" d="M200 636 V646 M200 734 V744 M146 690 H156 M244 690 H254" />
+          <line class="ln s04-hora" x1="200" y1="690" x2="170" y2="690" />
+          <line class="ln-ac s04-min" x1="200" y1="690" x2="200" y2="642" />
+          <circle class="crema" cx="200" cy="690" r="6" />
+        </g>
+        <!-- todo a la vez: lo que gira alrededor -->
+        <g class="s04-orbita"></g>
+        <!-- la taza -->
+        <g class="s04-taza">
+          <path class="ln s04-dib" d="M410 900 H670 V1070 Q670 1150 590 1150 H490 Q410 1150 410 1070 Z" />
+          <path class="ln s04-dib" d="M670 940 Q745 940 745 1005 Q745 1066 670 1066" />
+          <path class="ln s04-dib" d="M350 1185 H730" />
+          <text class="frio s04-frio" x="540" y="1040" text-anchor="middle">FRÍO</text>
+        </g>
+        <g class="s04-vapor">
+          <path class="ln s04-v" d="M480 870 Q458 840 480 810 Q502 780 480 750" />
+          <path class="ln s04-v" d="M540 870 Q518 838 540 806 Q562 774 540 740" />
+          <path class="ln s04-v" d="M600 870 Q578 840 600 810 Q622 780 600 750" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">Todo a la vez</span><span class="s04-e2">9:30 · café frío</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-cafe-frio";
+      const DUR = 4.89;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      const CAFE = 0.96, NUEVE = 2.47, MEDIA = 2.78, FRIO = 3.79;
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // la taza arranca medio dibujada
+      qa(".s04-dib").forEach((el, i) => {
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L * 0.5 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, i * 0.05);
+      });
+      gsap.set(q(".s04-frio"), { opacity: 0 });
+      tl.fromTo(q(".s04-reloj"), { opacity: 0, scale: 0.7, svgOrigin: "200 690" }, { opacity: 1, scale: 1, svgOrigin: "200 690", duration: 0.35, ease: "back.out(2)" }, 0.1);
+
+      // vapor que sube (hasta "frío")
+      qa(".s04-v").forEach((v, i) => {
+        const L = v.getTotalLength();
+        gsap.set(v, { strokeDasharray: L * 0.45 + " " + L });
+        tl.fromTo(v, { strokeDashoffset: L * 0.45 }, { strokeDashoffset: -L, duration: 1.1, ease: "none", repeat: 2 }, 0.1 + i * 0.25);
+      });
+      tl.to(qa(".s04-v"), { opacity: 0, y: -30, duration: 0.5, ease: "power2.in" }, FRIO - 0.1);
+
+      // todo a la vez: tarjetas y aparatos girando rápido alrededor
+      const ORB = q(".s04-orbita");
+      const FORMAS = [
+        '<rect class="ln4 apagado" x="-40" y="-26" width="80" height="52" rx="9" /><circle class="rojo" cx="28" cy="-14" r="5" />',
+        '<rect class="ln4" x="-22" y="-36" width="44" height="72" rx="9" />',
+        '<rect class="ln4 apagado" x="-40" y="-26" width="80" height="52" rx="9" /><circle class="rojo" cx="28" cy="-14" r="5" />',
+        '<rect class="ln4" x="-30" y="-24" width="60" height="48" rx="6" /><path class="ln4" d="M-28 -20 L0 2 L28 -20" />',
+        '<rect class="ln4 apagado" x="-40" y="-26" width="80" height="52" rx="9" /><circle class="rojo" cx="28" cy="-14" r="5" />',
+        '<rect class="ln4" x="-26" y="-34" width="52" height="68" rx="6" /><path class="ln4" d="M-12 -14 H14 M-12 2 H14 M-12 18 H4" />',
+      ];
+      const CX = 540, CY = 990, R = 250, GIRO = 300;
+      tl.fromTo(ORB, { rotation: 0, svgOrigin: CX + " " + CY }, { rotation: GIRO, svgOrigin: CX + " " + CY, duration: 2.6, ease: "power1.inOut" }, 0);
+      FORMAS.forEach((f, i) => {
+        const a = (i / FORMAS.length) * Math.PI * 2 - Math.PI / 2;
+        const g = document.createElementNS(NS, "g");
+        g.setAttribute("transform", "translate(" + (CX + R * Math.cos(a)) + " " + (CY + R * Math.sin(a)) + ")");
+        const inn = document.createElementNS(NS, "g");
+        inn.innerHTML = f;
+        g.appendChild(inn);
+        ORB.appendChild(g);
+        tl.fromTo(inn, { rotation: 0, scale: 0.4, opacity: 0, svgOrigin: "0 0" }, { rotation: -GIRO, scale: 1, opacity: 1, svgOrigin: "0 0", duration: 2.6, ease: "power1.inOut" }, 0);
+      });
+      tl.to(ORB, { opacity: 0, duration: 0.35 }, 2.3);
+      etiqueta(".s04-e1", 0.05);
+
+      // "café": la taza hace pop
+      tl.to(q(".s04-taza"), { scale: 1.07, svgOrigin: "540 1040", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1 }, CAFE);
+
+      // "nueve y media": el minutero da media vuelta
+      tl.to(q(".s04-min"), { rotation: 180, svgOrigin: "200 690", duration: 0.5, ease: "power2.inOut" }, NUEVE);
+      tl.to(q(".s04-hora"), { rotation: 15, svgOrigin: "200 690", duration: 0.5, ease: "power2.inOut" }, NUEVE);
+      tl.to(q(".s04-reloj"), { scale: 1.1, svgOrigin: "200 690", duration: 0.12, yoyo: true, repeat: 1 }, MEDIA);
+      etiqueta(".s04-e2", NUEVE, ".s04-e1");
+
+      // "frío": se apaga
+      tl.to(qa(".s04-dib"), { opacity: 0.4, duration: 0.4 }, FRIO);
+      tl.fromTo(q(".s04-frio"), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, FRIO + 0.05);
+      tl.to(q(".s04-taza"), { x: -4, duration: 0.06, yoyo: true, repeat: 5 }, FRIO + 0.1);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

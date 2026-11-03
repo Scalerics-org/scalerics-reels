@@ -1,0 +1,150 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-malabares"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-malabares"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-malabares"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-malabares"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-malabares"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-malabares"] .tenue { fill: none; stroke: rgba(239, 238, 229, 0.18); stroke-width: 3; stroke-dasharray: 4 14; stroke-linecap: round; }
+    [data-composition-id="s03-malabares"] .crema { fill: #efeee5; }
+    [data-composition-id="s03-malabares"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s03-malabares"] .globo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.08em; fill: #efeee5; }
+    [data-composition-id="s03-malabares"] .preg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #efeee5; }
+    [data-composition-id="s03-malabares"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-malabares"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-malabares" data-width="1080" data-height="1920" data-duration="4.53">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="4.53" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <circle class="tenue s03-ruta" cx="540" cy="715" r="125" />
+        <!-- órbita de malabares -->
+        <g class="s03-orbita">
+          <g class="s03-it" data-a="-90">
+            <g class="s03-pop">
+              <rect class="ln" x="-36" y="-46" width="72" height="92" rx="8" />
+              <path class="ln4" d="M-36 -30 H-46 M-36 -10 H-46 M-36 10 H-46 M-36 30 H-46 M-18 -20 H22 M-18 0 H22 M-18 20 H8" />
+            </g>
+          </g>
+          <g class="s03-it" data-a="30">
+            <g class="s03-pop">
+              <rect class="ln" x="-36" y="-48" width="72" height="96" rx="10" />
+              <rect class="ln4" x="-22" y="-34" width="44" height="22" rx="4" />
+              <path class="ln4" d="M-18 6 H-14 M-2 6 H2 M14 6 H18 M-18 22 H-14 M-2 22 H2 M14 22 H18 M-18 36 H-14 M-2 36 H2 M14 36 H18" />
+            </g>
+          </g>
+          <g class="s03-it" data-a="150">
+            <g class="s03-pop">
+              <rect class="ln" x="-28" y="-50" width="56" height="100" rx="12" />
+              <path class="ln4" d="M-8 -38 H8 M-6 38 H6" />
+              <path class="ln-ac s03-onda" d="M38 -26 Q50 -14 38 -2 M50 -38 Q70 -14 50 10" />
+            </g>
+          </g>
+        </g>
+        <!-- globo de la llamada -->
+        <g class="s03-globo">
+          <rect class="ln4" x="150" y="880" width="190" height="62" rx="20" />
+          <path class="ln4" d="M322 942 L390 980 L300 942" />
+          <text class="globo" x="245" y="921" text-anchor="middle">¿LÁCTEOS?</text>
+        </g>
+        <!-- la puerta con un cliente -->
+        <g class="s03-puerta">
+          <path class="ln s03-dib-p" d="M790 1210 V930 H950 V1210" />
+          <path class="ln4 s03-dib-p" d="M790 1210 L760 1210" />
+          <g class="s03-cli">
+            <circle class="ln" cx="870" cy="1062" r="26" />
+            <path class="ln" d="M870 1088 V1150 M870 1104 L846 1130 M870 1104 L894 1130 M870 1150 L852 1206 M870 1150 L888 1206" />
+          </g>
+          <text class="preg s03-q" x="910" y="1030">?</text>
+        </g>
+        <!-- Diego -->
+        <g class="s03-diego"><g transform="translate(540 1210) scale(0.9)">
+          <circle class="ln" cx="0" cy="-290" r="44" />
+          <path class="ln" d="M-44 -296 Q-42 -344 0 -340 Q40 -344 44 -298" />
+          <g class="s03-cara">
+            <circle class="crema" cx="-15" cy="-292" r="4.5" />
+            <circle class="crema" cx="15" cy="-292" r="4.5" />
+            <path class="ln4" d="M-14 -270 Q0 -260 14 -270" />
+          </g>
+          <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+          <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+          <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+          <g class="s03-bi"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+          <g class="s03-bd"><path class="ln" d="M72 -210 Q108 -166 112 -116" /></g>
+          <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" />
+          <text class="chapa" x="0" y="-147" text-anchor="middle">DIEGO</text>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">Anota</span><span class="s03-e2">Suma</span><span class="s03-e3">Llama</span><span class="s03-e4">Atiende</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-malabares";
+      const DUR = 4.53;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const ANOTA = 0.3, SUMA = 0.92, LLAMA = 1.66, ATIENDE = 3.04;
+      const CX = 540, CY = 715, R = 125;
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // Diego ya está (viene de s01): entra con un golpecito
+
+      tl.fromTo(q(".s03-diego"), { opacity: 0.6, y: 8 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s03-ruta"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0);
+
+      // órbita: el grupo gira y cada objeto contra-gira para quedar derecho
+      const GIRO = 400;
+      tl.fromTo(q(".s03-orbita"), { rotation: 0, svgOrigin: CX + " " + CY }, { rotation: GIRO, svgOrigin: CX + " " + CY, duration: DUR, ease: "none" }, 0);
+      const tiempos = [ANOTA, SUMA, LLAMA];
+      qa(".s03-it").forEach((it, i) => {
+        const a = (Number(it.dataset.a) * Math.PI) / 180;
+        const x = CX + R * Math.cos(a), y = CY + R * Math.sin(a);
+        it.setAttribute("transform", "translate(" + x + " " + y + ")");
+        const pop = it.querySelector(".s03-pop");
+        tl.fromTo(pop, { rotation: 0, svgOrigin: "0 0" }, { rotation: -GIRO, svgOrigin: "0 0", duration: DUR, ease: "none" }, 0);
+        gsap.set(it, { opacity: 0 });
+        tl.to(it, { opacity: 1, duration: 0.1 }, tiempos[i] - 0.1);
+        tl.fromTo(pop, { scale: 0.4 }, { scale: 1, duration: 0.35, ease: "back.out(2)" }, tiempos[i] - 0.1);
+      });
+      tl.fromTo(q(".s03-onda"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 7 }, LLAMA);
+
+      // brazos que alternan (malabares)
+      tl.fromTo(q(".s03-bi"), { rotation: 0, svgOrigin: "-72 -210" }, { rotation: 55, svgOrigin: "-72 -210", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 13 }, 0);
+      tl.fromTo(q(".s03-bd"), { rotation: -55, svgOrigin: "72 -210" }, { rotation: 0, svgOrigin: "72 -210", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 13 }, 0);
+
+      etiqueta(".s03-e1", ANOTA);
+      etiqueta(".s03-e2", SUMA, ".s03-e1");
+      etiqueta(".s03-e3", LLAMA, ".s03-e2");
+      etiqueta(".s03-e4", ATIENDE, ".s03-e3");
+
+      // "llama al de los lácteos"
+      tl.fromTo(q(".s03-globo"), { opacity: 0, scale: 0.7, transformOrigin: "90% 100%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, LLAMA + 0.3);
+      tl.to(q(".s03-globo"), { opacity: 0, duration: 0.25 }, ATIENDE - 0.1);
+
+      // "atiende al de la puerta"
+      qa(".s03-dib-p").forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, ATIENDE - 0.2);
+        tl.to(el, { strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, ATIENDE - 0.2);
+      });
+      tl.fromTo(q(".s03-cli"), { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, ATIENDE + 0.1);
+      tl.fromTo(q(".s03-q"), { opacity: 0, scale: 0.5, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, ATIENDE + 0.45);
+      tl.to(q(".s03-cara"), { x: 12, duration: 0.2, ease: "power2.out" }, ATIENDE + 0.3);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

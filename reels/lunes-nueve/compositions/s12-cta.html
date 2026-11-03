@@ -1,0 +1,203 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .verde { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .crema { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .marca { font-family: "Lexend", sans-serif; font-weight: 700; font-size: 66px; letter-spacing: -0.01em; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .bajada { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.24em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .equipo { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.3em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .chapa { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.1em; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .ia { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 40px; fill: #5ce611; }
+    [data-composition-id="s12-cta"] .tipeo { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 46px; fill: #efeee5; }
+    [data-composition-id="s12-cta"] .tipeo .arroba { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .ph { font-family: "Lexend", sans-serif; font-weight: 500; font-size: 36px; fill: rgba(239, 238, 229, 0.4); }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="10.93">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="10.93" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- A: marca + puertas adentro -->
+        <g class="s12-a">
+          <g class="s12-caja">
+            <rect class="ln s12-caja-r" x="290" y="640" width="500" height="150" rx="32" />
+            <text class="marca" x="540" y="722" text-anchor="middle">Scalerics</text>
+            <text class="bajada" x="540" y="766" text-anchor="middle">AGENTES DE IA</text>
+          </g>
+          <path class="ln s12-puerta" d="M290 1210 V880 Q290 850 320 850 H760 Q790 850 790 880 V1210" />
+          <g class="s12-equipo">
+            <path class="ln-ac s12-llave" d="M370 960 V930 H710 V960" />
+            <text class="equipo s12-eq-t" x="540" y="912" text-anchor="middle">EQUIPO</text>
+          </g>
+          <g class="s12-diego-a"><g transform="translate(430 1200) scale(0.68)">
+            <circle class="ln" cx="0" cy="-290" r="44" />
+            <path class="ln" d="M-44 -296 Q-42 -344 0 -340 Q40 -344 44 -298" />
+            <circle class="crema" cx="-15" cy="-292" r="5" /><circle class="crema" cx="15" cy="-292" r="5" />
+            <path class="ln" d="M-14 -270 Q0 -260 14 -270" />
+            <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+            <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+            <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+            <path class="ln" d="M-72 -210 Q-108 -166 -112 -116" />
+            <path class="ln" d="M72 -210 Q108 -166 112 -116" />
+            <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" />
+            <text class="chapa" x="0" y="-147" text-anchor="middle">DIEGO</text>
+          </g></g>
+          <g class="s12-ag-a"><g transform="translate(650 1200) scale(0.68)">
+            <path class="ln" d="M0 -300 V-326" /><circle class="verde" cx="0" cy="-336" r="10" />
+            <rect class="ln" x="-85" y="-300" width="170" height="140" rx="44" />
+            <rect class="verde" x="-42" y="-258" width="18" height="34" rx="9" /><rect class="verde" x="24" y="-258" width="18" height="34" rx="9" />
+            <path class="ln4" d="M-20 -200 Q0 -188 20 -200" />
+            <path class="ln" d="M0 -160 V-148" /><rect class="ln" x="-66" y="-148" width="132" height="118" rx="30" />
+            <text class="ia" x="0" y="-74" text-anchor="middle">IA</text>
+            <path class="ln" d="M-28 -30 V0 M28 -30 V0 M-28 0 H-46 M28 0 H46" />
+            <path class="ln" d="M-66 -130 Q-100 -100 -104 -64" /><path class="ln" d="M66 -130 Q100 -100 104 -64" />
+          </g></g>
+        </g>
+
+        <!-- B: etiquetalo -->
+        <g class="s12-b">
+          <g class="s12-diego-b"><g transform="translate(430 930) scale(0.66)">
+            <circle class="ln" cx="0" cy="-290" r="44" />
+            <path class="ln" d="M-44 -296 Q-42 -344 0 -340 Q40 -344 44 -298" />
+            <circle class="crema" cx="-15" cy="-292" r="5" /><circle class="crema" cx="15" cy="-292" r="5" />
+            <path class="ln" d="M-16 -272 Q0 -256 16 -272" />
+            <path class="ln" d="M-72 -110 V-196 Q-72 -234 -32 -234 H32 Q72 -234 72 -196 V-110" />
+            <path class="ln" d="M-60 -206 H60 V-74 Q0 -64 -60 -74 Z" />
+            <path class="ln" d="M-30 -70 V0 M30 -70 V0 M-30 0 H-50 M30 0 H50" />
+            <g class="s12-saludo"><path class="ln" d="M-72 -210 Q-108 -166 -112 -116" /></g>
+            <path class="ln" d="M72 -210 Q130 -190 150 -150" />
+            <rect class="ln-ac" x="-50" y="-176" width="100" height="40" rx="9" />
+            <text class="chapa" x="0" y="-147" text-anchor="middle">DIEGO</text>
+          </g></g>
+          <!-- su café, caliente -->
+          <g class="s12-taza">
+            <path class="ln" d="M520 812 H600 V858 Q600 882 576 882 H544 Q520 882 520 858 Z" />
+            <path class="ln4" d="M600 824 Q626 824 626 842 Q626 860 600 860" />
+            <path class="ln-ac s12-v" d="M546 796 Q536 780 546 764 Q556 748 546 732" />
+            <path class="ln-ac s12-v" d="M574 796 Q564 780 574 764 Q584 748 574 732" />
+          </g>
+          <!-- campo de comentario -->
+          <rect class="ln s12-campo" x="110" y="990" width="860" height="116" rx="58" />
+          <text class="ph s12-ph" x="170" y="1060">Agregá un comentario...</text>
+          <text class="tipeo s12-txt" x="170" y="1064"></text>
+          <rect class="s12-caret verde" x="0" y="1018" width="4" height="60" />
+          <g class="s12-enviar">
+            <circle class="verde" cx="906" cy="1048" r="38" />
+            <path class="s12-flecha" d="M888 1048 H922 M908 1034 L922 1048 L908 1062" style="fill:none;stroke:#07111f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round" />
+            <path class="s12-ok" d="M890 1049 L901 1060 L922 1036" style="fill:none;stroke:#07111f;stroke-width:6;stroke-linecap:round;stroke-linejoin:round" />
+          </g>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s12-e1">Puertas adentro</span><span class="s12-e2">Etiquetalo</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 10.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const SCALERICS = 0.35, PUERTAS = 2.99, EQUIPO = 4.31, ETIQUETA = 5.05, LUNES = 7.23;
+      const dibujar = (el, t, dur, desde) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L * (desde ?? 1), opacity: t <= 0 ? 1 : 0 });
+        if (t > 0) tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, Math.max(0, t));
+      };
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // ---- A: caja de marca (arranca a medio dibujar)
+      dibujar(q(".s12-caja-r"), 0, 0.6, 0.5);
+      tl.fromTo(q(".marca"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, SCALERICS - 0.15);
+      tl.fromTo(q(".bajada"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, SCALERICS + 0.9);
+      tl.to(q(".s12-caja"), { scale: 1.04, svgOrigin: "540 715", duration: 0.15, yoyo: true, repeat: 1 }, SCALERICS + 0.9);
+      tl.to(q(".s12-caja-r"), { stroke: "#5ce611", duration: 0.3 }, SCALERICS + 0.9);
+
+      // puertas adentro: el local con Diego y el agente
+      dibujar(q(".s12-puerta"), PUERTAS - 0.3, 0.6);
+      tl.fromTo(q(".s12-diego-a"), { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, PUERTAS + 0.1);
+      tl.fromTo(q(".s12-ag-a"), { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, PUERTAS + 0.25);
+      etiqueta(".s12-e1", PUERTAS);
+      // con tu equipo
+      dibujar(q(".s12-llave"), EQUIPO - 0.2, 0.45);
+      tl.fromTo(q(".s12-eq-t"), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.3 }, EQUIPO);
+      tl.to(q(".s12-diego-a"), { x: 14, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, EQUIPO + 0.1);
+      tl.to(q(".s12-ag-a"), { x: -14, duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, EQUIPO + 0.1);
+
+      // ---- transición a B
+      tl.to(q(".s12-a"), { opacity: 0, y: -40, duration: 0.35, ease: "power2.in" }, ETIQUETA - 0.3);
+      gsap.set(q(".s12-b"), { opacity: 0 });
+      tl.to(q(".s12-b"), { opacity: 1, duration: 0.3 }, ETIQUETA);
+      tl.fromTo(q(".s12-campo"), { scaleX: 0.85, svgOrigin: "540 1048" }, { scaleX: 1, svgOrigin: "540 1048", duration: 0.45, ease: "back.out(1.6)" }, ETIQUETA);
+      tl.fromTo(q(".s12-diego-b"), { y: 30 }, { y: 0, duration: 0.45, ease: "back.out(1.6)" }, ETIQUETA);
+      tl.to(q(".s12-saludo"), { rotation: 100, svgOrigin: "-72 -210", duration: 0.3, ease: "back.out(2)" }, ETIQUETA + 0.3);
+      tl.to(q(".s12-saludo"), { rotation: 80, svgOrigin: "-72 -210", duration: 0.22, yoyo: true, repeat: 3, ease: "sine.inOut" }, ETIQUETA + 0.6);
+      etiqueta(".s12-e2", ETIQUETA, ".s12-e1");
+
+      // vapor verde hasta el final
+      qa(".s12-v").forEach((v, i) => {
+        const L = v.getTotalLength();
+        gsap.set(v, { strokeDasharray: L * 0.6 + " " + L });
+        tl.fromTo(v, { strokeDashoffset: L * 0.6 }, { strokeDashoffset: -L, duration: 1.0, ease: "none", repeat: 6 }, ETIQUETA + i * 0.45);
+      });
+
+      // tipeo de la mención
+      const TXT = "@el_encargado";
+      const txt = q(".s12-txt");
+      const NS = "http://www.w3.org/2000/svg";
+      const spans = TXT.split("").map((ch, i) => {
+        const s = document.createElementNS(NS, "tspan");
+        s.textContent = ch;
+        if (i === 0) s.setAttribute("class", "arroba");
+        txt.appendChild(s);
+        return s;
+      });
+      const X0 = 170;
+      const caret = q(".s12-caret");
+      gsap.set(spans, { opacity: 0 });
+      caret.setAttribute("x", X0);
+      gsap.set(caret, { opacity: 0 });
+      tl.set(caret, { opacity: 1 }, ETIQUETA + 0.35);
+      const T0 = ETIQUETA + 0.6, PASO = 0.1;
+      tl.set(q(".s12-ph"), { opacity: 0 }, T0);
+      spans.forEach((s, i) => tl.set(s, { opacity: 1 }, T0 + i * PASO));
+      // el cursor de texto sigue a lo tipeado (se mide al renderizar, con la fuente ya cargada)
+      tl.to({ v: 0 }, { v: 1, duration: DUR, ease: "none", onUpdate: () => {
+        const n = Math.max(0, Math.min(TXT.length, Math.floor((tl.time() - T0) / PASO + 1e-6) + 1));
+        let w = 0;
+        if (n > 0) { try { w = txt.getSubStringLength(0, n); } catch (e) { w = n * 27; } }
+        caret.setAttribute("x", X0 + w + (n > 0 ? 6 : 0));
+      } }, 0);
+      // titila el cursor de texto antes y después de tipear
+      tl.to(caret, { opacity: 0, duration: 0.01, yoyo: true, repeat: 1, repeatDelay: 0.25 }, ETIQUETA + 0.4);
+      // "lunes": se manda
+      gsap.set(q(".s12-ok"), { opacity: 0 });
+      tl.to(q(".s12-enviar"), { scale: 0.85, svgOrigin: "906 1048", duration: 0.08, yoyo: true, repeat: 1 }, LUNES);
+      tl.to(q(".s12-flecha"), { opacity: 0, x: 20, duration: 0.15 }, LUNES + 0.05);
+      tl.fromTo(q(".s12-ok"), { scale: 0.3, svgOrigin: "906 1048" }, { scale: 1, svgOrigin: "906 1048", duration: 0.3, ease: "back.out(2.5)", immediateRender: false }, LUNES + 0.15);
+      tl.set(q(".s12-ok"), { opacity: 1 }, LUNES + 0.15);
+      tl.to(q(".s12-campo"), { stroke: "#5ce611", duration: 0.3 }, LUNES + 0.1);
+      tl.to(caret, { opacity: 0, duration: 0.1 }, LUNES + 0.1);
+      // y queda vivo: el campo late suave
+      tl.to(q(".s12-campo"), { scale: 1.02, svgOrigin: "540 1048", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, LUNES + 0.6);
+      tl.to(q(".s12-diego-b"), { y: -6, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, LUNES + 0.4);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

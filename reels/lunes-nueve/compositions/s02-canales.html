@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-canales"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-canales"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-canales"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-canales"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-canales"] .apagado { opacity: 0.5; }
+    [data-composition-id="s02-canales"] .rojo { fill: #b8574e; }
+    [data-composition-id="s02-canales"] .crema { fill: #efeee5; }
+    [data-composition-id="s02-canales"] .cont { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 120px; fill: #efeee5; }
+    [data-composition-id="s02-canales"] .pend { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.2em; fill: rgba(239, 238, 229, 0.55); }
+    [data-composition-id="s02-canales"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-canales"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-canales" data-width="1080" data-height="1920" data-duration="4.4">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="4.4" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <!-- mostrador -->
+        <path class="ln s02-mostrador" d="M150 1190 H930 M190 1190 V1230 M890 1190 V1230" />
+        <!-- canales -->
+        <g class="s02-ic s02-chat" data-x="210">
+          <path class="ln" d="M-55 -40 H55 Q70 -40 70 -25 V25 Q70 40 55 40 H-20 L-45 62 V40 H-55 Q-70 40 -70 25 V-25 Q-70 -40 -55 -40 Z" />
+          <circle class="crema" cx="-26" cy="0" r="6" /><circle class="crema" cx="0" cy="0" r="6" /><circle class="crema" cx="26" cy="0" r="6" />
+        </g>
+        <g class="s02-ic s02-mail" data-x="420">
+          <rect class="ln" x="-70" y="-45" width="140" height="90" rx="10" />
+          <path class="ln" d="M-66 -40 L0 12 L66 -40" />
+        </g>
+        <g class="s02-ic s02-tel" data-x="640">
+          <path class="ln" d="M-36 -56 L-14 -36 Q-6 -28 -14 -18 L-24 -6 Q-8 22 18 38 L30 26 Q40 18 48 26 L66 46 Q72 54 62 62 L48 72 Q30 82 -4 60 Q-46 30 -64 -12 Q-74 -40 -56 -56 Q-46 -64 -36 -56 Z" />
+          <path class="ln4 s02-ring" d="M24 -50 Q52 -46 60 -20 M30 -74 Q76 -68 86 -26" />
+        </g>
+        <g class="s02-ic s02-serv" data-x="860">
+          <g class="s02-serv-in">
+            <path class="ln" d="M-60 -55 Q-30 -62 0 -55 Q30 -48 60 -55 L56 55 Q26 48 -4 55 Q-34 62 -60 55 Z" />
+            <path class="ln4" d="M-36 -18 Q-26 -32 -14 -18 Q-2 -4 10 -18 Q22 -32 34 -18 M-36 14 H24" />
+          </g>
+        </g>
+        <!-- pila de pedidos -->
+        <g class="s02-pila"></g>
+        <!-- contador -->
+        <g class="s02-contador">
+          <text class="cont s02-num" x="800" y="1110" text-anchor="middle">0</text>
+          <text class="pend" x="800" y="1158" text-anchor="middle">PENDIENTES</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">WhatsApp</span><span class="s02-e2">Mail</span><span class="s02-e3">Teléfono</span><span class="s02-e4">Y una servilleta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-canales";
+      const DUR = 4.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      const WHATSAPP = 0.55, MAIL = 1.49, TELEFONO = 2.06, SERVILLETA = 3.1;
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // mostrador ya dibujado a medias en el cuadro 0
+      const m = q(".s02-mostrador"), L = m.getTotalLength();
+      tl.fromTo(m, { strokeDasharray: L, strokeDashoffset: L * 0.5 }, { strokeDashoffset: 0, duration: 0.5, ease: "power2.out" }, 0);
+      tl.fromTo(q(".s02-contador"), { opacity: 0.4 }, { opacity: 1, duration: 0.3 }, 0);
+
+      const icono = (sel, t) => {
+        const g = q(sel);
+        gsap.set(g, { x: Number(g.dataset.x), y: 720 });
+        tl.fromTo(g, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", transformOrigin: "50% 50%" }, t - 0.12);
+      };
+      icono(".s02-chat", WHATSAPP);
+      icono(".s02-mail", MAIL);
+      icono(".s02-tel", TELEFONO);
+      tl.fromTo(q(".s02-ring"), { opacity: 0 }, { opacity: 1, duration: 0.1, yoyo: true, repeat: 5 }, TELEFONO);
+      tl.to(q(".s02-tel"), { rotation: 8, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 5 }, TELEFONO);
+      etiqueta(".s02-e1", WHATSAPP);
+      etiqueta(".s02-e2", MAIL, ".s02-e1");
+      etiqueta(".s02-e3", TELEFONO, ".s02-e2");
+      etiqueta(".s02-e4", SERVILLETA, ".s02-e3");
+
+      // tarjetas que vuelan de cada canal a la pila: 6 + 4 + 3
+      const pila = q(".s02-pila");
+      const llegadas = [];
+      const tanda = (x0, t0, n, k0) => {
+        for (let k = 0; k < n; k++) {
+          const i = k0 + k;
+          const px = 300 + ((i * 53) % 260), py = 1150 - Math.floor(i / 3) * 28 - ((i * 17) % 20), r = ((i * 37) % 30) - 15;
+          const g = document.createElementNS(NS, "g");
+          g.innerHTML = '<rect class="ln4 apagado" x="-60" y="-38" width="120" height="76" rx="12" /><path class="ln4 apagado" d="M-40 -10 H30 M-40 12 H8" /><circle class="rojo" cx="44" cy="-22" r="7" />';
+          pila.appendChild(g);
+          const t = t0 + k * 0.12;
+          gsap.set(g, { opacity: 0 });
+          tl.set(g, { opacity: 1 }, t);
+          tl.fromTo(g, { x: x0, rotation: 0, scale: 0.6 }, { x: px, rotation: r, scale: 1, duration: 0.45, ease: "power1.out" }, t);
+          tl.fromTo(g, { y: 780 }, { y: py, duration: 0.45, ease: "power2.in" }, t);
+          llegadas.push(t + 0.45);
+        }
+      };
+      tanda(210, WHATSAPP + 0.1, 6, 0);
+      tanda(420, MAIL + 0.1, 4, 6);
+      tanda(640, TELEFONO + 0.15, 3, 10);
+
+      // la servilleta cae entera, balanceándose, arriba de todo
+      const SV = q(".s02-serv");
+      gsap.set(SV, { x: 860, y: 720 });
+      tl.fromTo(SV, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", transformOrigin: "50% 50%" }, SERVILLETA - 0.15);
+      tl.to(SV, { x: 470, duration: 0.85, ease: "sine.inOut" }, SERVILLETA + 0.2);
+      tl.to(SV, { y: 1040, duration: 0.85, ease: "power1.in" }, SERVILLETA + 0.2);
+      tl.fromTo(q(".s02-serv-in"), { rotation: -14 }, { rotation: 14, duration: 0.28, ease: "sine.inOut", yoyo: true, repeat: 2, svgOrigin: "0 0" }, SERVILLETA + 0.2);
+      llegadas.push(SERVILLETA + 1.05);
+
+      // contador de pendientes según lo que ya llegó
+      const num = q(".s02-num");
+      tl.to({ v: 0 }, { v: 1, duration: DUR, ease: "none", onUpdate: () => {
+        const t = tl.time();
+        num.textContent = String(llegadas.filter((x) => x <= t).length);
+      } }, 0);
+      llegadas.forEach((t) => tl.fromTo(num, { scale: 1.12, transformOrigin: "50% 60%" }, { scale: 1, duration: 0.15 }, t));
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

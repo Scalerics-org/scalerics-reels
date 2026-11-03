@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-cabeza"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-cabeza"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-cabeza"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cabeza"] .ln4 { fill: none; stroke: #efeee5; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cabeza"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-cabeza"] .guia { fill: none; stroke: rgba(239, 238, 229, 0.25); stroke-width: 3; stroke-dasharray: 6 12; stroke-linecap: round; }
+    [data-composition-id="s05-cabeza"] .apagado { opacity: 0.55; }
+    [data-composition-id="s05-cabeza"] .rojo { fill: #b8574e; }
+    [data-composition-id="s05-cabeza"] .crema { fill: #efeee5; }
+    [data-composition-id="s05-cabeza"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-cabeza"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-cabeza" data-width="1080" data-height="1920" data-duration="3.97">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="3.97" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s05-guias"></g>
+        <g class="s05-cabeza">
+          <path class="ln s05-dib" d="M480 1200 V1120 Q410 1070 405 960 Q402 770 570 740 Q700 730 710 860 L738 930 Q742 942 722 946 L714 948 Q722 972 710 982 Q718 1000 700 1010 Q690 1045 650 1050 L622 1054 V1200" />
+          <path class="ln s05-dib" d="M405 940 Q420 770 570 752 Q640 748 676 790" style="opacity:0" />
+          <path class="ln4 s05-dib" d="M486 920 Q462 940 484 972" />
+          <circle class="crema s05-ojo" cx="660" cy="880" r="6" />
+          <path class="ln4 s05-dib" d="M640 852 Q660 846 676 856" />
+          <g class="s05-adentro"></g>
+        </g>
+        <!-- tildes: hace todo bien -->
+        <g class="s05-tilde" data-y="780"><circle class="ln-ac" cx="0" cy="0" r="30" /><path class="ln-ac" d="M-13 1 L-3 11 L15 -10" /></g>
+        <g class="s05-tilde" data-y="880"><circle class="ln-ac" cx="0" cy="0" r="30" /><path class="ln-ac" d="M-13 1 L-3 11 L15 -10" /></g>
+        <g class="s05-tilde" data-y="980"><circle class="ln-ac" cx="0" cy="0" r="30" /><path class="ln-ac" d="M-13 1 L-3 11 L15 -10" /></g>
+        <g class="s05-viajeros"></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Todo bien</span><span class="s05-e2">Todo pasa por él</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-cabeza";
+      const DUR = 3.97;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const NS = "http://www.w3.org/2000/svg";
+
+      const HACE = 0.22, BIEN = 0.6, PERO = 1.61, PASA = 2.2, CABEZA = 2.77;
+      const etiqueta = (sel, t, antes) => {
+        if (antes) tl.to(q(antes), { opacity: 0, y: -10, duration: 0.18 }, t - 0.05);
+        tl.fromTo(q(sel), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t);
+      };
+
+      // la cabeza se dibuja (arranca a medias)
+      qa(".s05-dib").forEach((el, i) => {
+        if (el.style.opacity === "0") return;
+        const L = el.getTotalLength();
+        tl.fromTo(el, { strokeDasharray: L, strokeDashoffset: L * 0.55 }, { strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, i * 0.06);
+      });
+      tl.fromTo(q(".s05-ojo"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.3);
+
+      // tres tildes verdes a la izquierda: hace todo bien
+      qa(".s05-tilde").forEach((g, i) => {
+        gsap.set(g, { x: 230, y: Number(g.dataset.y) });
+        tl.fromTo(g, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2.2)" }, HACE + i * 0.16);
+      });
+      etiqueta(".s05-e1", HACE);
+      tl.to(qa(".s05-tilde"), { opacity: 0.35, duration: 0.3 }, PERO);
+
+      // pero todo pasa por su cabeza: de todos lados entran cosas y se amontonan adentro
+      const ORIG = [[60, 640], [1020, 640], [1030, 860], [1020, 1120], [60, 1150], [300, 600], [800, 600], [60, 880], [1030, 1000], [200, 1220]];
+      const DEST = [[520, 860], [560, 830], [600, 880], [540, 920], [480, 900], [520, 960], [580, 950], [500, 820], [560, 990], [470, 980]];
+      const guias = q(".s05-guias"), via = q(".s05-viajeros"), adentro = q(".s05-adentro");
+      ORIG.forEach(([x0, y0], i) => {
+        const [x1, y1] = DEST[i];
+        const t0 = PERO + 0.1 + i * 0.09;
+        const ln = document.createElementNS(NS, "path");
+        ln.setAttribute("class", "guia");
+        ln.setAttribute("d", "M" + x0 + " " + y0 + " L" + x1 + " " + y1);
+        guias.appendChild(ln);
+        tl.fromTo(ln, { opacity: 0 }, { opacity: 1, duration: 0.2 }, t0);
+        tl.to(ln, { opacity: 0, duration: 0.3 }, CABEZA + 0.3);
+        const g = document.createElementNS(NS, "g");
+        g.innerHTML = i % 3 === 0
+          ? '<rect class="ln4" x="-22" y="-34" width="44" height="68" rx="8" />'
+          : '<rect class="ln4 apagado" x="-40" y="-26" width="80" height="52" rx="9" /><circle class="rojo" cx="28" cy="-14" r="5" />';
+        via.appendChild(g);
+        gsap.set(g, { opacity: 0 });
+        gsap.set(g, { x: x0, y: y0 });
+        tl.set(g, { opacity: 1 }, t0);
+        tl.fromTo(g, { x: x0, y: y0, scale: 1 }, { x: x1, y: y1, scale: 0.25, duration: 0.6, ease: "power2.in", immediateRender: false }, t0);
+        tl.to(g, { opacity: 0, duration: 0.05 }, t0 + 0.6);
+        const d = document.createElementNS(NS, "circle");
+        d.setAttribute("cx", x1); d.setAttribute("cy", y1); d.setAttribute("r", 10);
+        d.setAttribute("class", i % 2 ? "rojo" : "crema");
+        adentro.appendChild(d);
+        tl.fromTo(d, { opacity: 0, scale: 0.3, svgOrigin: x1 + " " + y1 }, { opacity: i % 2 ? 0.9 : 0.55, scale: 1, svgOrigin: x1 + " " + y1, duration: 0.2, ease: "back.out(2)" }, t0 + 0.58);
+      });
+      etiqueta(".s05-e2", PASA, ".s05-e1");
+      // la cabeza se carga: tiembla
+      tl.to(q(".s05-cabeza"), { x: 5, duration: 0.05, ease: "none", yoyo: true, repeat: 9 }, CABEZA);
+      tl.to(q(".s05-cabeza"), { scale: 1.03, svgOrigin: "560 1000", duration: 0.4, ease: "power2.out" }, CABEZA);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
