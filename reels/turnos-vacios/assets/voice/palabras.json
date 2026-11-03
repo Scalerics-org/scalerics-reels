@@ -1,0 +1,1034 @@
+[
+ {
+  "id": 0,
+  "text": "Tu",
+  "start": 0.231,
+  "end": 0.3
+ },
+ {
+  "id": 1,
+  "text": "agenda",
+  "start": 0.3,
+  "end": 0.4
+ },
+ {
+  "id": 2,
+  "text": "del",
+  "start": 0.4,
+  "end": 0.8
+ },
+ {
+  "id": 3,
+  "text": "martes",
+  "start": 0.8,
+  "end": 1.2
+ },
+ {
+  "id": 4,
+  "text": "estaba",
+  "start": 1.2,
+  "end": 1.8
+ },
+ {
+  "id": 5,
+  "text": "llena.",
+  "start": 1.8,
+  "end": 2.1
+ },
+ {
+  "id": 6,
+  "text": "Y",
+  "start": 2.1,
+  "end": 2.6
+ },
+ {
+  "id": 7,
+  "text": "la",
+  "start": 2.6,
+  "end": 2.7
+ },
+ {
+  "id": 8,
+  "text": "silla",
+  "start": 2.7,
+  "end": 3.1
+ },
+ {
+  "id": 9,
+  "text": "quedó",
+  "start": 3.496,
+  "end": 3.6
+ },
+ {
+  "id": 10,
+  "text": "vacía",
+  "start": 3.6,
+  "end": 4
+ },
+ {
+  "id": 11,
+  "text": "tres",
+  "start": 4.223,
+  "end": 4.4
+ },
+ {
+  "id": 12,
+  "text": "veces.",
+  "start": 4.4,
+  "end": 4.7
+ },
+ {
+  "id": 13,
+  "text": "Una",
+  "start": 5.474,
+  "end": 5.6
+ },
+ {
+  "id": 14,
+  "text": "peluquería",
+  "start": 5.6,
+  "end": 6.2
+ },
+ {
+  "id": 15,
+  "text": "de",
+  "start": 6.2,
+  "end": 6.2
+ },
+ {
+  "id": 16,
+  "text": "barrio.",
+  "start": 6.2,
+  "end": 6.5
+ },
+ {
+  "id": 17,
+  "text": "Carla",
+  "start": 7.23,
+  "end": 7.5
+ },
+ {
+  "id": 18,
+  "text": "abre",
+  "start": 7.5,
+  "end": 7.8
+ },
+ {
+  "id": 19,
+  "text": "a",
+  "start": 7.8,
+  "end": 7.9
+ },
+ {
+  "id": 20,
+  "text": "las",
+  "start": 7.9,
+  "end": 8
+ },
+ {
+  "id": 21,
+  "text": "nueve",
+  "start": 8,
+  "end": 8.606
+ },
+ {
+  "id": 22,
+  "text": "con",
+  "start": 8.606,
+  "end": 8.7
+ },
+ {
+  "id": 23,
+  "text": "todos",
+  "start": 8.7,
+  "end": 9
+ },
+ {
+  "id": 24,
+  "text": "los",
+  "start": 9,
+  "end": 9.1
+ },
+ {
+  "id": 25,
+  "text": "turnos",
+  "start": 9.1,
+  "end": 9.3
+ },
+ {
+  "id": 26,
+  "text": "tomados.",
+  "start": 9.3,
+  "end": 9.8
+ },
+ {
+  "id": 27,
+  "text": "A",
+  "start": 9.8,
+  "end": 10
+ },
+ {
+  "id": 28,
+  "text": "las",
+  "start": 10.443,
+  "end": 10.7
+ },
+ {
+  "id": 29,
+  "text": "once,",
+  "start": 10.7,
+  "end": 11.4
+ },
+ {
+  "id": 30,
+  "text": "no",
+  "start": 11.4,
+  "end": 11.5
+ },
+ {
+  "id": 31,
+  "text": "vino",
+  "start": 11.5,
+  "end": 11.7
+ },
+ {
+  "id": 32,
+  "text": "el",
+  "start": 11.7,
+  "end": 11.8
+ },
+ {
+  "id": 33,
+  "text": "corte",
+  "start": 11.8,
+  "end": 12.1
+ },
+ {
+  "id": 34,
+  "text": "de",
+  "start": 12.1,
+  "end": 12.2
+ },
+ {
+  "id": 35,
+  "text": "Gonzalo.",
+  "start": 12.2,
+  "end": 12.6
+ },
+ {
+  "id": 36,
+  "text": "A",
+  "start": 13.125,
+  "end": 13.3
+ },
+ {
+  "id": 37,
+  "text": "las",
+  "start": 13.3,
+  "end": 13.4
+ },
+ {
+  "id": 38,
+  "text": "tres,",
+  "start": 13.4,
+  "end": 14.096
+ },
+ {
+  "id": 39,
+  "text": "tampoco",
+  "start": 14.096,
+  "end": 14.3
+ },
+ {
+  "id": 40,
+  "text": "llegó",
+  "start": 14.3,
+  "end": 14.7
+ },
+ {
+  "id": 41,
+  "text": "la",
+  "start": 14.7,
+  "end": 14.8
+ },
+ {
+  "id": 42,
+  "text": "tintura",
+  "start": 14.8,
+  "end": 15.2
+ },
+ {
+  "id": 43,
+  "text": "de",
+  "start": 15.2,
+  "end": 15.3
+ },
+ {
+  "id": 44,
+  "text": "Ana.",
+  "start": 15.3,
+  "end": 15.5
+ },
+ {
+  "id": 45,
+  "text": "A",
+  "start": 15.5,
+  "end": 15.6
+ },
+ {
+  "id": 46,
+  "text": "las",
+  "start": 15.992,
+  "end": 16.2
+ },
+ {
+  "id": 47,
+  "text": "cuatro",
+  "start": 16.2,
+  "end": 16.523
+ },
+ {
+  "id": 48,
+  "text": "y",
+  "start": 16.523,
+  "end": 16.846
+ },
+ {
+  "id": 49,
+  "text": "media,",
+  "start": 16.846,
+  "end": 17.169
+ },
+ {
+  "id": 50,
+  "text": "otro",
+  "start": 17.169,
+  "end": 17.4
+ },
+ {
+  "id": 51,
+  "text": "hueco.",
+  "start": 17.4,
+  "end": 17.6
+ },
+ {
+  "id": 52,
+  "text": "La",
+  "start": 18.231,
+  "end": 18.3
+ },
+ {
+  "id": 53,
+  "text": "tijera,",
+  "start": 18.3,
+  "end": 18.6
+ },
+ {
+  "id": 54,
+  "text": "quieta.",
+  "start": 18.6,
+  "end": 19
+ },
+ {
+  "id": 55,
+  "text": "Nadie",
+  "start": 19.557,
+  "end": 19.8
+ },
+ {
+  "id": 56,
+  "text": "lo",
+  "start": 19.8,
+  "end": 19.9
+ },
+ {
+  "id": 57,
+  "text": "hizo",
+  "start": 19.9,
+  "end": 20.1
+ },
+ {
+  "id": 58,
+  "text": "de",
+  "start": 20.1,
+  "end": 20.3
+ },
+ {
+  "id": 59,
+  "text": "mala.",
+  "start": 20.3,
+  "end": 20.4
+ },
+ {
+  "id": 60,
+  "text": "La",
+  "start": 21.042,
+  "end": 21.1
+ },
+ {
+  "id": 61,
+  "text": "gente",
+  "start": 21.1,
+  "end": 21.2
+ },
+ {
+  "id": 62,
+  "text": "se",
+  "start": 21.2,
+  "end": 21.5
+ },
+ {
+  "id": 63,
+  "text": "olvida,",
+  "start": 21.5,
+  "end": 21.9
+ },
+ {
+  "id": 64,
+  "text": "y",
+  "start": 22.309,
+  "end": 22.4
+ },
+ {
+  "id": 65,
+  "text": "te",
+  "start": 22.4,
+  "end": 22.4
+ },
+ {
+  "id": 66,
+  "text": "enterás",
+  "start": 22.4,
+  "end": 22.8
+ },
+ {
+  "id": 67,
+  "text": "cuando",
+  "start": 22.8,
+  "end": 22.9
+ },
+ {
+  "id": 68,
+  "text": "ya",
+  "start": 22.9,
+  "end": 23.1
+ },
+ {
+  "id": 69,
+  "text": "es",
+  "start": 23.1,
+  "end": 23.2
+ },
+ {
+  "id": 70,
+  "text": "tarde.",
+  "start": 23.2,
+  "end": 23.3
+ },
+ {
+  "id": 71,
+  "text": "Ahora,",
+  "start": 23.847,
+  "end": 24.2
+ },
+ {
+  "id": 72,
+  "text": "el",
+  "start": 24.2,
+  "end": 24.6
+ },
+ {
+  "id": 73,
+  "text": "mismo",
+  "start": 24.6,
+  "end": 24.8
+ },
+ {
+  "id": 74,
+  "text": "martes",
+  "start": 24.8,
+  "end": 25.2
+ },
+ {
+  "id": 75,
+  "text": "con",
+  "start": 25.742,
+  "end": 25.8
+ },
+ {
+  "id": 76,
+  "text": "un",
+  "start": 25.8,
+  "end": 25.9
+ },
+ {
+  "id": 77,
+  "text": "agente",
+  "start": 25.9,
+  "end": 26.1
+ },
+ {
+  "id": 78,
+  "text": "de",
+  "start": 26.1,
+  "end": 26.3
+ },
+ {
+  "id": 79,
+  "text": "IA.",
+  "start": 26.3,
+  "end": 27.23
+ },
+ {
+  "id": 80,
+  "text": "El",
+  "start": 27.23,
+  "end": 27.4
+ },
+ {
+  "id": 81,
+  "text": "lunes",
+  "start": 27.4,
+  "end": 27.4
+ },
+ {
+  "id": 82,
+  "text": "a",
+  "start": 27.4,
+  "end": 27.7
+ },
+ {
+  "id": 83,
+  "text": "la",
+  "start": 27.7,
+  "end": 27.8
+ },
+ {
+  "id": 84,
+  "text": "tarde,",
+  "start": 27.8,
+  "end": 27.9
+ },
+ {
+  "id": 85,
+  "text": "le",
+  "start": 27.9,
+  "end": 28.5
+ },
+ {
+  "id": 86,
+  "text": "escribe",
+  "start": 28.5,
+  "end": 28.9
+ },
+ {
+  "id": 87,
+  "text": "a",
+  "start": 28.9,
+  "end": 28.9
+ },
+ {
+  "id": 88,
+  "text": "cada",
+  "start": 28.9,
+  "end": 29.1
+ },
+ {
+  "id": 89,
+  "text": "uno",
+  "start": 29.1,
+  "end": 29.4
+ },
+ {
+  "id": 90,
+  "text": "por",
+  "start": 29.4,
+  "end": 29.6
+ },
+ {
+  "id": 91,
+  "text": "WhatsApp:",
+  "start": 29.6,
+  "end": 30.2
+ },
+ {
+  "id": 92,
+  "text": "¿te",
+  "start": 30.3,
+  "end": 30.54
+ },
+ {
+  "id": 93,
+  "text": "confirmo",
+  "start": 30.54,
+  "end": 31
+ },
+ {
+  "id": 94,
+  "text": "mañana",
+  "start": 31,
+  "end": 31.1
+ },
+ {
+  "id": 95,
+  "text": "a",
+  "start": 31.1,
+  "end": 31.4
+ },
+ {
+  "id": 96,
+  "text": "las",
+  "start": 31.4,
+  "end": 31.4
+ },
+ {
+  "id": 97,
+  "text": "once?",
+  "start": 31.4,
+  "end": 32.15
+ },
+ {
+  "id": 98,
+  "text": "Gonzalo",
+  "start": 32.15,
+  "end": 32.9
+ },
+ {
+  "id": 99,
+  "text": "contesta:",
+  "start": 32.9,
+  "end": 33.2
+ },
+ {
+  "id": 100,
+  "text": "mañana",
+  "start": 33.678,
+  "end": 33.8
+ },
+ {
+  "id": 101,
+  "text": "no",
+  "start": 33.8,
+  "end": 34
+ },
+ {
+  "id": 102,
+  "text": "puedo.",
+  "start": 34,
+  "end": 34.3
+ },
+ {
+  "id": 103,
+  "text": "El",
+  "start": 34.3,
+  "end": 34.8
+ },
+ {
+  "id": 104,
+  "text": "agente",
+  "start": 34.8,
+  "end": 35.3
+ },
+ {
+  "id": 105,
+  "text": "le",
+  "start": 35.3,
+  "end": 35.4
+ },
+ {
+  "id": 106,
+  "text": "ofrece",
+  "start": 35.4,
+  "end": 35.7
+ },
+ {
+  "id": 107,
+  "text": "el",
+  "start": 35.7,
+  "end": 35.8
+ },
+ {
+  "id": 108,
+  "text": "jueves,",
+  "start": 35.8,
+  "end": 36.2
+ },
+ {
+  "id": 109,
+  "text": "y",
+  "start": 36.456,
+  "end": 36.6
+ },
+ {
+  "id": 110,
+  "text": "él",
+  "start": 36.6,
+  "end": 36.7
+ },
+ {
+  "id": 111,
+  "text": "lo",
+  "start": 36.7,
+  "end": 36.8
+ },
+ {
+  "id": 112,
+  "text": "toma.",
+  "start": 36.8,
+  "end": 37.1
+ },
+ {
+  "id": 113,
+  "text": "El",
+  "start": 37.1,
+  "end": 37.7
+ },
+ {
+  "id": 114,
+  "text": "hueco",
+  "start": 37.7,
+  "end": 38
+ },
+ {
+  "id": 115,
+  "text": "de",
+  "start": 38,
+  "end": 38.1
+ },
+ {
+  "id": 116,
+  "text": "las",
+  "start": 38.1,
+  "end": 38.3
+ },
+ {
+  "id": 117,
+  "text": "once",
+  "start": 38.3,
+  "end": 39.022
+ },
+ {
+  "id": 118,
+  "text": "se",
+  "start": 39.022,
+  "end": 39.1
+ },
+ {
+  "id": 119,
+  "text": "lo",
+  "start": 39.1,
+  "end": 39.2
+ },
+ {
+  "id": 120,
+  "text": "pasa",
+  "start": 39.2,
+  "end": 39.5
+ },
+ {
+  "id": 121,
+  "text": "a",
+  "start": 39.5,
+  "end": 39.5
+ },
+ {
+  "id": 122,
+  "text": "quien",
+  "start": 39.5,
+  "end": 39.7
+ },
+ {
+  "id": 123,
+  "text": "estaba",
+  "start": 39.7,
+  "end": 40
+ },
+ {
+  "id": 124,
+  "text": "en",
+  "start": 40,
+  "end": 40
+ },
+ {
+  "id": 125,
+  "text": "espera.",
+  "start": 40,
+  "end": 40.3
+ },
+ {
+  "id": 126,
+  "text": "Confirmado.",
+  "start": 40.956,
+  "end": 41.5
+ },
+ {
+  "id": 127,
+  "text": "A",
+  "start": 41.771,
+  "end": 42
+ },
+ {
+  "id": 128,
+  "text": "la",
+  "start": 42,
+  "end": 42.1
+ },
+ {
+  "id": 129,
+  "text": "medianoche,",
+  "start": 42.1,
+  "end": 42.5
+ },
+ {
+  "id": 130,
+  "text": "alguien",
+  "start": 42.5,
+  "end": 43.2
+ },
+ {
+  "id": 131,
+  "text": "pide",
+  "start": 43.2,
+  "end": 43.4
+ },
+ {
+  "id": 132,
+  "text": "turno",
+  "start": 43.4,
+  "end": 43.5
+ },
+ {
+  "id": 133,
+  "text": "para",
+  "start": 43.5,
+  "end": 43.7
+ },
+ {
+  "id": 134,
+  "text": "el",
+  "start": 43.7,
+  "end": 43.9
+ },
+ {
+  "id": 135,
+  "text": "viernes.",
+  "start": 43.9,
+  "end": 44.1
+ },
+ {
+  "id": 136,
+  "text": "El",
+  "start": 44.1,
+  "end": 44.6
+ },
+ {
+  "id": 137,
+  "text": "agente",
+  "start": 44.6,
+  "end": 45.1
+ },
+ {
+  "id": 138,
+  "text": "lo",
+  "start": 45.1,
+  "end": 45.2
+ },
+ {
+  "id": 139,
+  "text": "agenda",
+  "start": 45.2,
+  "end": 45.5
+ },
+ {
+  "id": 140,
+  "text": "mientras",
+  "start": 45.5,
+  "end": 45.8
+ },
+ {
+  "id": 141,
+  "text": "dormís.",
+  "start": 45.8,
+  "end": 46.1
+ },
+ {
+  "id": 142,
+  "text": "El",
+  "start": 46.1,
+  "end": 46.7
+ },
+ {
+  "id": 143,
+  "text": "martes,",
+  "start": 46.7,
+  "end": 47.2
+ },
+ {
+  "id": 144,
+  "text": "la",
+  "start": 47.579,
+  "end": 47.7
+ },
+ {
+  "id": 145,
+  "text": "agenda",
+  "start": 47.7,
+  "end": 47.7
+ },
+ {
+  "id": 146,
+  "text": "se",
+  "start": 47.7,
+  "end": 48
+ },
+ {
+  "id": 147,
+  "text": "cumple",
+  "start": 48,
+  "end": 48.3
+ },
+ {
+  "id": 148,
+  "text": "entera.",
+  "start": 48.3,
+  "end": 49.292
+ },
+ {
+  "id": 149,
+  "text": "En",
+  "start": 49.292,
+  "end": 49.4
+ },
+ {
+  "id": 150,
+  "text": "Scalerics",
+  "start": 49.4,
+  "end": 50.272
+ },
+ {
+  "id": 151,
+  "text": "hacemos",
+  "start": 50.272,
+  "end": 50.6
+ },
+ {
+  "id": 152,
+  "text": "agentes",
+  "start": 50.6,
+  "end": 50.9
+ },
+ {
+  "id": 153,
+  "text": "de",
+  "start": 50.9,
+  "end": 51
+ },
+ {
+  "id": 154,
+  "text": "IA",
+  "start": 51,
+  "end": 51.2
+ },
+ {
+  "id": 155,
+  "text": "que",
+  "start": 51.641,
+  "end": 51.7
+ },
+ {
+  "id": 156,
+  "text": "cuidan",
+  "start": 51.7,
+  "end": 52
+ },
+ {
+  "id": 157,
+  "text": "tu",
+  "start": 52,
+  "end": 52.1
+ },
+ {
+  "id": 158,
+  "text": "agenda",
+  "start": 52.1,
+  "end": 52.4
+ },
+ {
+  "id": 159,
+  "text": "como",
+  "start": 52.4,
+  "end": 52.7
+ },
+ {
+  "id": 160,
+  "text": "un",
+  "start": 52.7,
+  "end": 52.9
+ },
+ {
+  "id": 161,
+  "text": "empleado",
+  "start": 52.9,
+  "end": 53.3
+ },
+ {
+  "id": 162,
+  "text": "más.",
+  "start": 53.3,
+  "end": 53.4
+ },
+ {
+  "id": 163,
+  "text": "Etiquetá",
+  "start": 53.9,
+  "end": 54.4
+ },
+ {
+  "id": 164,
+  "text": "a",
+  "start": 54.4,
+  "end": 54.5
+ },
+ {
+  "id": 165,
+  "text": "la",
+  "start": 54.5,
+  "end": 54.6
+ },
+ {
+  "id": 166,
+  "text": "peluquera",
+  "start": 54.6,
+  "end": 55
+ },
+ {
+  "id": 167,
+  "text": "que",
+  "start": 55,
+  "end": 55.4
+ },
+ {
+  "id": 168,
+  "text": "vive",
+  "start": 55.4,
+  "end": 55.7
+ },
+ {
+  "id": 169,
+  "text": "mirando",
+  "start": 55.7,
+  "end": 56.1
+ },
+ {
+  "id": 170,
+  "text": "la",
+  "start": 56.1,
+  "end": 56.2
+ },
+ {
+  "id": 171,
+  "text": "agenda.",
+  "start": 56.2,
+  "end": 56.5
+ }
+]

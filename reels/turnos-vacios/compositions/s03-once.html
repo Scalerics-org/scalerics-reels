@@ -1,0 +1,105 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-once"] .s03-capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-once"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-once"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-once"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-once"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s03-once"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s03-once"] .relleno { fill: #5ce611; }
+    [data-composition-id="s03-once"] .osc { fill: #0a1628; }
+    [data-composition-id="s03-once"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s03-once"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s03-once"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s03-once"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s03-once"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s03-once"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-once"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-once" data-width="1080" data-height="1920" data-duration="3.33">
+    <div id="s03-escena" class="s03-capa clip" data-start="0" data-duration="3.33" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s03-suelo" stroke-opacity="0.5" d="M80 1200 H1000" />
+        <g class="s03-turno"><rect class="ln" stroke-width="4" x="150" y="606" width="500" height="56" rx="12" /><rect class="ln-ro s03-tr" stroke-width="4" stroke-dasharray="12 10" x="150" y="606" width="500" height="56" rx="12" />
+          <text class="lex t-cr s03-tn" x="174" y="643" font-size="27">11:00 · Gonzalo · corte</text><text class="mono t-ro s03-nv" x="634" y="642" font-size="22" text-anchor="end">NO VINO</text></g>
+        <rect class="ln s03-esp" x="285" y="720" width="250" height="215" rx="20" />
+        <path class="ln s03-esp" stroke-opacity="0.4" d="M330 760 l40 -25 M330 800 l80 -50" />
+        <g class="s03-fant"><circle class="ln-punt" cx="410" cy="905" r="36" /><path class="ln-punt" d="M350 1035 Q352 965 410 958 Q468 965 470 1035" /></g>
+        <g class="s03-silla"><rect class="ln s03-s" x="352" y="945" width="116" height="92" rx="16" /><path class="ln s03-s" d="M325 1040 H495 V1074 H325 Z M310 1020 H352 M468 1020 H510 M410 1074 V1165 M380 1132 H440 M345 1194 H475" /></g>
+        <g class="s03-reloj"><circle class="ln" cx="820" cy="700" r="62" /><path class="ln" stroke-width="3" stroke-opacity="0.5" d="M820 646 v10 M874 700 h-10 M820 754 v-10 M766 700 h10" /><path class="ln s03-hh" d="M820 700 L792 684" /><path class="ln-ac s03-mm" stroke-width="5" d="M820 700 V652" /></g>
+        <g class="s03-carla">
+          <g class="s03-cab"><circle class="ln s03-c" cx="790" cy="905" r="38" /><circle class="ln s03-c" cx="790" cy="852" r="17" /></g>
+          <path class="ln s03-c" d="M790 943 V962 M740 1100 L750 985 Q790 960 830 985 L840 1100 Z" />
+          <path class="ln s03-c" d="M765 1000 H815 V1075 H765 Z" />
+          <path class="ln s03-c" d="M760 1100 V1198 M820 1100 V1198" />
+          <path class="ln s03-c" d="M748 990 L712 1060 L730 1075 M832 990 L870 1050 L860 1060" />
+        </g>
+        <g class="s03-tij"><circle class="ln" stroke-width="4" cx="860" cy="1072" r="9" /><circle class="ln" stroke-width="4" cx="880" cy="1068" r="9" /><path class="ln" stroke-width="4" d="M864 1063 L900 1020 M876 1060 L892 1018" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s03-e1">11:00</span><span class="s03-e2">No vino</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-once";
+      const DUR = 3.33;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s03-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s03-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+
+      const ONCE = 0.90, NO = 1.60, CORTE = 2.0, GONZ = 2.40;
+      dibujar(qa(".s03-esp, .s03-s"), 0, 0.6, 0.5);
+      dibujar(qa(".s03-c"), 0.1, 0.55, 0.6);
+      tl.fromTo(q(".s03-suelo"), { scaleX: 0.4, svgOrigin: "540 1200" }, { scaleX: 1, svgOrigin: "540 1200", duration: 0.7, ease: "power3.out" }, 0);
+      pop(q(".s03-tij"), 0.3, 0.6);
+      gsap.set(qa(".s03-fant, .s03-tr, .s03-nv"), { opacity: 0 });
+      // el reloj de pared marca las 11
+      pop(q(".s03-reloj"), 0.35, 0.6);
+      tl.fromTo(q(".s03-mm"), { rotation: -120, svgOrigin: "820 700" }, { rotation: 0, svgOrigin: "820 700", duration: 0.6, ease: "power2.out" }, ONCE - 0.45);
+      punch(q(".s03-reloj"), ONCE + 0.1, 1.08);
+      // la tarjeta del turno
+      pop(q(".s03-turno"), ONCE - 0.1, 0.8);
+      tl.fromTo(q(".s03-fant"), { opacity: 0 }, { opacity: 0.9, duration: 0.3 }, ONCE + 0.1);
+      // no vino: el fantasma se va, la silla queda vacía
+      tl.to(q(".s03-fant"), { opacity: 0, y: -20, duration: 0.5, ease: "power2.in" }, NO);
+      tl.to(q(".s03-silla"), { opacity: 0.45, duration: 0.4 }, NO + 0.3);
+      tl.to(q(".s03-turno rect"), { opacity: 0, duration: 0.25 }, NO);
+      tl.to(q(".s03-tr"), { opacity: 1, duration: 0.25 }, NO);
+      tl.to(q(".s03-tn"), { fillOpacity: 0.4, duration: 0.3 }, NO);
+      tl.fromTo(q(".s03-nv"), { opacity: 0, x: 14 }, { opacity: 1, x: 0, duration: 0.3 }, NO + 0.15);
+      tl.to(q(".s03-turno"), { x: 8, duration: 0.06, yoyo: true, repeat: 3 }, NO);
+      // Carla mira el reloj y espera
+      tl.to(q(".s03-cab"), { rotation: -10, svgOrigin: "790 940", duration: 0.35, ease: "power2.out" }, CORTE);
+      tl.to(q(".s03-cab"), { rotation: 4, svgOrigin: "790 940", duration: 0.4, ease: "sine.inOut" }, GONZ + 0.4);
+      tl.to(q(".s03-tij"), { rotation: -8, svgOrigin: "870 1068", duration: 0.25, yoyo: true, repeat: 1 }, CORTE + 0.2);
+      tl.to(q(".s03-mm"), { rotation: 40, svgOrigin: "820 700", duration: 1.6, ease: "none" }, NO);
+      etq(1, 0.25); etq(2, NO);
+
+      tl.to(q("#s03-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

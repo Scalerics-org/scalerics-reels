@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-olvida"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-olvida"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-olvida"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-olvida"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-olvida"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-olvida"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s05-olvida"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-olvida"] .osc { fill: #0a1628; }
+    [data-composition-id="s05-olvida"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s05-olvida"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s05-olvida"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s05-olvida"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s05-olvida"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s05-olvida"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-olvida"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-olvida" data-width="1080" data-height="1920" data-duration="4.29">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="4.29" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s05-suelo" stroke-opacity="0.5" d="M80 1200 H1000" />
+        <g class="s05-gon"><g class="s05-cuerpo">
+          <circle class="ln s05-c" cx="310" cy="900" r="38" />
+          <path class="ln s05-c" d="M276 885 Q290 852 330 862 Q346 868 348 888" />
+          <path class="ln s05-c" d="M310 938 V958 M268 1100 L276 975 Q310 955 344 975 L352 1100 Z" />
+          <path class="ln s05-c" d="M276 985 L246 1060 M344 985 L380 1040 L398 1030" />
+          <rect class="ln s05-c" x="226" y="1010" width="34" height="80" rx="6" />
+        </g>
+          <path class="ln s05-p1" d="M290 1100 L262 1198" /><path class="ln s05-p2" d="M330 1100 L362 1198" />
+        </g>
+        <g class="s05-nube">
+          <rect class="ln" x="150" y="690" width="380" height="96" rx="48" />
+          <circle class="ln" cx="305" cy="818" r="11" /><circle class="ln" cx="318" cy="846" r="6" />
+          <text class="lex t-cr s05-nt" x="340" y="750" font-size="30" text-anchor="middle">11:00 · peluquería</text>
+          <g class="s05-pts" fill="#efeee5"><circle cx="230" cy="740" r="6" /><circle cx="285" cy="740" r="6" /><circle cx="340" cy="740" r="6" /><circle cx="395" cy="740" r="6" /><circle cx="450" cy="740" r="6" /></g>
+        </g>
+        <g class="s05-cel">
+          <rect class="ln" x="630" y="700" width="290" height="500" rx="40" />
+          <path class="ln" stroke-width="4" d="M745 728 H805" />
+          <text class="lex t-cr" x="775" y="790" font-size="34" text-anchor="middle">11:40</text>
+          <path class="ln" stroke-opacity="0.4" d="M660 815 H890" />
+          <g class="s05-msg"><rect class="ln" stroke-width="4" x="655" y="860" width="240" height="120" rx="22" />
+            <text class="lex t-cr" x="675" y="907" font-size="26">¡Perdón!</text><text class="lex t-cr" x="675" y="950" font-size="26">Me re olvidé</text></g>
+          <text class="mono t-cr s05-de" x="660" y="846" font-size="20" fill-opacity="0.6" data-layout-ignore>GONZALO</text>
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Nadie de mala</span><span class="s05-e2">La gente se olvida</span><span class="s05-e3">Te enterás tarde</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-olvida";
+      const DUR = 4.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s05-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s05-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+
+      const MALA = 0.74, GENTE = 1.54, OLVIDA = 1.94, ENTERAS = 2.84, TARDE = 3.64;
+      dibujar(qa(".s05-c, .s05-p1, .s05-p2"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s05-suelo"), { scaleX: 0.4, svgOrigin: "540 1200" }, { scaleX: 1, svgOrigin: "540 1200", duration: 0.7, ease: "power3.out" }, 0);
+      // camina apurado: piernas que alternan y el cuerpo que rebota
+      for (let k = 0; k < 7; k++) {
+        const t = 0.15 + k * 0.32;
+        tl.to(q(".s05-p1"), { rotation: k % 2 ? 14 : -14, svgOrigin: "290 1100", duration: 0.3, ease: "sine.inOut" }, t);
+        tl.to(q(".s05-p2"), { rotation: k % 2 ? -14 : 14, svgOrigin: "330 1100", duration: 0.3, ease: "sine.inOut" }, t);
+        tl.to(q(".s05-cuerpo"), { y: k % 2 ? 0 : -6, duration: 0.3, ease: "sine.inOut" }, t);
+      }
+      tl.fromTo(q(".s05-gon"), { x: -40 }, { x: 20, duration: 2.6, ease: "none" }, 0);
+      // lo tenía en la cabeza... y se le fue
+      gsap.set(qa(".s05-pts, .s05-cel"), { opacity: 0 });
+      pop(q(".s05-nube"), 0.25, 0.7);
+      tl.to(q(".s05-nt"), { opacity: 0, filter: "blur(6px)", duration: 0.35 }, OLVIDA);
+      tl.to(q(".s05-pts"), { opacity: 1, duration: 0.2 }, OLVIDA + 0.15);
+      tl.to(qa(".s05-pts circle"), { y: -30, opacity: 0, duration: 0.6, stagger: 0.07, ease: "power2.in" }, OLVIDA + 0.4);
+      tl.to(q(".s05-nube"), { opacity: 0.25, duration: 0.4 }, OLVIDA + 0.6);
+      // y te enterás tarde
+      tl.fromTo(q(".s05-cel"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, ENTERAS - 0.35);
+      tl.fromTo(q(".s05-msg"), { opacity: 0, scale: 0.8, svgOrigin: "655 980" }, { opacity: 1, scale: 1, svgOrigin: "655 980", duration: 0.35, ease: "back.out(1.6)" }, ENTERAS + 0.1);
+      tl.fromTo(q(".s05-de"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, ENTERAS + 0.3);
+      punch(q(".s05-cel"), TARDE, 1.04);
+      etq(1, 0.2); etq(2, GENTE); etq(3, ENTERAS);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

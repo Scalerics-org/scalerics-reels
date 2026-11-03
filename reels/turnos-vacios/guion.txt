@@ -1,0 +1,15 @@
+Tu agenda del martes estaba llena. Y la silla quedó vacía tres veces.
+Una peluquería de barrio. Carla abre a las nueve con todos los turnos tomados.
+A las once, no vino el corte de Gonzalo.
+A las tres, tampoco llegó la tintura de Ana.
+A las cuatro y media, otro hueco. La tijera, quieta.
+Nadie lo hizo de mala. La gente se olvida, y te enterás cuando ya es tarde.
+Ahora, el mismo martes con un agente de IA.
+El lunes a la tarde, le escribe a cada uno por WhatsApp: ¿te confirmo mañana a las once?
+Gonzalo contesta: mañana no puedo.
+El agente le ofrece el jueves, y él lo toma.
+El hueco de las once se lo pasa a quien estaba en espera. Confirmado.
+A la medianoche, alguien pide turno para el viernes. El agente lo agenda mientras dormís.
+El martes, la agenda se cumple entera.
+En Scalerics hacemos agentes de IA que cuidan tu agenda como un empleado más.
+Etiquetá a la peluquera que vive mirando la agenda.

@@ -1,0 +1,102 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-whatsapp"] .s07-capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-whatsapp"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-whatsapp"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-whatsapp"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-whatsapp"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s07-whatsapp"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s07-whatsapp"] .relleno { fill: #5ce611; }
+    [data-composition-id="s07-whatsapp"] .osc { fill: #0a1628; }
+    [data-composition-id="s07-whatsapp"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s07-whatsapp"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s07-whatsapp"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s07-whatsapp"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s07-whatsapp"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s07-whatsapp"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s07-whatsapp"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-whatsapp" data-width="1080" data-height="1920" data-duration="9.87">
+    <div id="s07-escena" class="s07-capa clip" data-start="0" data-duration="9.87" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s07-cel"><rect class="ln" x="300" y="590" width="480" height="650" rx="52" />
+          <path class="ln" stroke-width="4" d="M510 614 H570" />
+          <path class="ln" stroke-opacity="0.4" d="M300 700 H780" />
+        </g>
+        <g transform="translate(362 656) scale(0.42)"><g class="s07-ag"><circle class="ln-ac" cx="0" cy="0" r="56" style="fill:#0a1628" /><text class="lex t-ac" x="0" y="15" font-size="44" text-anchor="middle">IA</text><path class="ln-ac s07-ag-st" stroke-width="4" d="M50 -62 v24 M38 -50 h24" /></g></g>
+        <text class="lex t-cr s07-hd" x="410" y="655" font-size="28">Peluquería Carla</text>
+        <text class="mono t-ac s07-hd" x="410" y="684" font-size="18" data-layout-ignore>AGENTE DE IA</text>
+        <g class="s07-ch1"><rect class="ln" stroke-width="3" stroke-opacity="0.6" x="440" y="712" width="200" height="34" rx="17" /><text class="mono t-cr" x="540" y="736" font-size="20" text-anchor="middle" fill-opacity="0.8" data-layout-ignore>LUNES 18:00</text></g>
+        <g class="s07-ch2"><rect class="ln-ac" stroke-width="3" x="370" y="754" width="340" height="34" rx="17" /><text class="mono t-ac" x="552" y="778" font-size="20" text-anchor="middle" data-layout-ignore>A TODOS LOS DE MAÑANA</text><path class="ln-ac" stroke-width="3" d="M384 771 l6 6 l12 -12" /></g>
+        <g class="s07-esc"><rect class="ln-ac" stroke-width="4" x="640" y="815" width="120" height="56" rx="22" /><circle class="relleno s07-d" cx="675" cy="843" r="7" /><circle class="relleno s07-d" cx="700" cy="843" r="7" /><circle class="relleno s07-d" cx="725" cy="843" r="7" /></g>
+        <g class="s07-b1"><rect class="ln-ac" stroke-width="4" x="410" y="805" width="350" height="100" rx="22" /><text class="lex t-cr" x="432" y="847" font-size="26">¿Te confirmo mañana</text><text class="lex t-cr" x="432" y="884" font-size="26">a las 11:00?</text></g>
+        <g class="s07-b2"><rect class="ln" stroke-width="4" x="320" y="925" width="270" height="62" rx="22" /><text class="lex t-cr" x="342" y="966" font-size="26">Mañana no puedo</text></g>
+        <g class="s07-b3"><rect class="ln-ac" stroke-width="4" x="410" y="1007" width="350" height="100" rx="22" /><text class="lex t-cr" x="432" y="1049" font-size="26">¿Te sirve el jueves</text><text class="lex t-cr" x="432" y="1086" font-size="26">a las 11:00?</text></g>
+        <g class="s07-b4"><rect class="ln" stroke-width="4" x="320" y="1127" width="250" height="62" rx="22" /><text class="lex t-cr" x="342" y="1168" font-size="26">Dale, el jueves</text></g>
+        <g class="s07-ok"><circle class="ln-ac" cx="612" cy="1158" r="22" /><path class="ln-ac s07-okp" d="M601 1158 l8 8 l14 -15" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s07-e1">Un día antes</span><span class="s07-e2">¿Confirmás?</span><span class="s07-e3">Otro día, mismo cliente</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-whatsapp";
+      const DUR = 9.87;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s07-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s07-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+
+      const LUNES = 0.17, CADA = 1.67, CONFIRMO = 3.31, GONZ = 4.92, MANANA = 6.45, OFRECE = 8.17, JUEVES = 8.57, TOMA = 9.57;
+      const globo = (s, t) => tl.fromTo(q(s), { opacity: 0, y: 24, scale: 0.92, transformOrigin: "50% 100%" }, { opacity: 1, y: 0, scale: 1, transformOrigin: "50% 100%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      dibujar(qa(".s07-cel path, .s07-cel rect"), 0, 0.6, 0.45);
+      gsap.set(qa(".s07-ch1, .s07-ch2, .s07-b1, .s07-b2, .s07-b3, .s07-b4, .s07-ok, .s07-ag-st"), { opacity: 0 });
+      pop(q(".s07-ag"), 0.1, 0.5);
+      tl.fromTo(qa(".s07-hd"), { opacity: 0, x: -12 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.1 }, 0.15);
+      pop(q(".s07-ch1"), LUNES + 0.05, 0.6);
+      pop(q(".s07-ch2"), CADA - 0.1, 0.6);
+      tl.to(q(".s07-ch2"), { x: 5, duration: 0.08, yoyo: true, repeat: 3 }, CADA + 0.4);
+      // la conversación (el agente escribe)
+      gsap.set(q(".s07-esc"), { opacity: 0 });
+      pop(q(".s07-esc"), CADA + 0.5, 0.6);
+      for (let k = 0; k < 3; k++) tl.to(qa(".s07-d"), { y: -7, duration: 0.15, stagger: 0.08, yoyo: true, repeat: 1, ease: "sine.inOut" }, CADA + 0.8 + k * 0.4);
+      tl.to(q(".s07-esc"), { opacity: 0, duration: 0.12 }, CONFIRMO - 0.27);
+      globo(".s07-b1", CONFIRMO - 0.25);
+      tl.to(q(".s07-ag"), { scale: 1.12, svgOrigin: "0 0", duration: 0.13, yoyo: true, repeat: 1 }, CONFIRMO - 0.25);
+      globo(".s07-b2", GONZ + 0.4);
+      punch(q(".s07-b2"), MANANA + 0.3, 1.05);
+      globo(".s07-b3", OFRECE - 0.1);
+      tl.to(q(".s07-ag"), { scale: 1.12, svgOrigin: "0 0", duration: 0.13, yoyo: true, repeat: 1 }, OFRECE - 0.1);
+      punch(q(".s07-b3"), JUEVES + 0.05, 1.04);
+      globo(".s07-b4", TOMA - 0.45);
+      pop(q(".s07-ok"), TOMA - 0.15, 0.4);
+      dibujar([q(".s07-okp")], TOMA - 0.1, 0.25);
+      etq(1, 0.2); etq(2, CONFIRMO - 0.2); etq(3, MANANA + 0.4);
+
+      tl.to(q("#s07-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

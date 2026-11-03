@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-espera"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-espera"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-espera"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-espera"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-espera"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-espera"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s08-espera"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-espera"] .osc { fill: #0a1628; }
+    [data-composition-id="s08-espera"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-espera"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-espera"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s08-espera"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-espera"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s08-espera"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-espera"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-espera" data-width="1080" data-height="1920" data-duration="4.67">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.67" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s08-esp"><rect class="ln" x="150" y="600" width="780" height="130" rx="22" />
+          <text class="mono t-cr" x="180" y="642" font-size="24" fill-opacity="0.6">EN ESPERA</text>
+          <circle class="ln" stroke-width="4" cx="880" cy="634" r="20" /><path class="ln" stroke-width="4" d="M880 622 V634 L889 640" /></g>
+        <g class="s08-chip"><rect class="ln" stroke-width="4" x="180" y="660" width="380" height="56" rx="12" /><text class="lex t-cr" x="204" y="699" font-size="28">Camila · corte</text></g>
+        <g class="s08-f s08-f1"><text class="mono t-cr s08-h" x="160" y="832" font-size="30" fill-opacity="0.7">10:00</text><rect class="ln s08-r" x="300" y="780" width="620" height="80" rx="14" /><text class="lex t-cr" x="330" y="832" font-size="34">Lucía · color</text></g>
+        <text class="mono t-cr s08-h2" x="160" y="942" font-size="30" fill-opacity="0.7">11:00</text>
+        <rect class="ln s08-hueco" stroke-dasharray="14 12" stroke-opacity="0.6" x="300" y="890" width="620" height="80" rx="14" />
+        <g class="s08-gon"><rect class="ln" x="300" y="890" width="620" height="80" rx="14" /><text class="lex t-cr" x="330" y="942" font-size="34">Gonzalo · corte</text></g>
+        <g class="s08-cam"><rect class="ln s08-camr" x="300" y="890" width="620" height="80" rx="14" /><rect class="ln-ac s08-camv" x="300" y="890" width="620" height="80" rx="14" /><text class="lex t-cr" x="330" y="942" font-size="34">Camila · corte</text>
+          <path class="ln-ac s08-ok" d="M862 928 l10 10 l22 -22" /></g>
+        <g class="s08-f s08-f3"><text class="mono t-cr s08-h" x="160" y="1052" font-size="30" fill-opacity="0.7">12:00</text><rect class="ln s08-r" x="300" y="1000" width="620" height="80" rx="14" /><text class="lex t-cr" x="330" y="1052" font-size="34">Sofía · corte</text></g>
+        <text class="mono t-ac s08-jue" x="540" y="1150" font-size="26" text-anchor="middle">GONZALO → JUEVES 11:00</text>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">11:00 · libre</span><span class="s08-e2">Lista de espera</span><span class="s08-e3">Confirmado</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-espera";
+      const DUR = 4.67;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s08-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s08-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+
+      const HUECO = 0.60, PASA = 2.10, ESPERA = 2.90, CONF = 3.86;
+      dibujar(qa(".s08-esp rect, .s08-esp circle, .s08-esp path, .s08-r, .s08-gon rect"), 0, 0.5, 0.4);
+      tl.fromTo(qa(".s08-f text, .s08-gon text, .s08-h2, .s08-esp text"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.05);
+      gsap.set(qa(".s08-hueco, .s08-cam, .s08-camv, .s08-jue, .s08-chip"), { opacity: 0 });
+      pop(q(".s08-chip"), 0.2, 0.7);
+      // el hueco: Gonzalo se pasa al jueves
+      tl.to(q(".s08-gon"), { x: 160, opacity: 0, duration: 0.5, ease: "power2.in" }, HUECO + 0.1);
+      tl.to(q(".s08-hueco"), { opacity: 1, duration: 0.3 }, HUECO + 0.35);
+      tl.fromTo(q(".s08-jue"), { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35 }, HUECO + 0.4);
+      tl.to(q(".s08-hueco"), { opacity: 0.35, duration: 0.2, yoyo: true, repeat: 3 }, HUECO + 0.8);
+      // se lo pasa a quien estaba en espera
+      punch(q(".s08-chip"), PASA - 0.3, 1.06);
+      tl.to(q(".s08-chip"), { x: 120, y: 230, duration: 0.6, ease: "power3.inOut" }, PASA);
+      tl.to(q(".s08-chip"), { opacity: 0, duration: 0.15 }, PASA + 0.55);
+      tl.to(q(".s08-cam"), { opacity: 1, duration: 0.15 }, PASA + 0.5);
+      tl.to(q(".s08-hueco"), { opacity: 0, duration: 0.15 }, PASA + 0.55);
+      tl.fromTo(q(".s08-esp"), { opacity: 1 }, { opacity: 0.4, duration: 0.3 }, ESPERA);
+      // confirmado
+      tl.to(q(".s08-camr"), { opacity: 0, duration: 0.2 }, CONF - 0.1);
+      tl.to(q(".s08-camv"), { opacity: 1, duration: 0.2 }, CONF - 0.1);
+      dibujar([q(".s08-ok")], CONF, 0.3);
+      punch(q(".s08-cam"), CONF, 1.05);
+      tl.to(q(".s08-h2"), { fill: "#5ce611", fillOpacity: 1, duration: 0.2 }, CONF);
+      etq(1, HUECO); etq(2, PASA); etq(3, CONF - 0.1);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-agente"] .s06-capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-agente"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-agente"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-agente"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-agente"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s06-agente"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s06-agente"] .relleno { fill: #5ce611; }
+    [data-composition-id="s06-agente"] .osc { fill: #0a1628; }
+    [data-composition-id="s06-agente"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s06-agente"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s06-agente"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s06-agente"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s06-agente"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s06-agente"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s06-agente"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-agente" data-width="1080" data-height="1920" data-duration="3.38">
+    <div id="s06-escena" class="s06-capa clip" data-start="0" data-duration="3.38" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s06-agd"></g>
+        <rect class="ln-ac s06-borde" x="150" y="596" width="780" height="652" rx="26" />
+        <path class="ln-ac s06-rew" stroke-width="5" d="M392 622 a16 16 0 1 0 14 8 M392 612 l2 11 l-11 2" />
+        <g transform="translate(860 610) scale(0.62)"><g class="s06-ag"><circle class="ln-ac" cx="0" cy="0" r="56" style="fill:#0a1628" /><text class="lex t-ac" x="0" y="15" font-size="44" text-anchor="middle">IA</text><path class="ln-ac s06-ag-st" stroke-width="4" d="M50 -62 v24 M38 -50 h24" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s06-e1">El mismo martes</span><span class="s06-e2">Con un agente de IA</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-agente";
+      const DUR = 3.38;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s06-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s06-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      // ---- la agenda del día (idéntica en todas las escenas que la usan) ----
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; parent.appendChild(e); return e; };
+      const TURNOS = [["09:00", "Marta · brushing"], ["10:00", "Lucía · color"], ["11:00", "Gonzalo · corte"], ["12:00", "Sofía · corte"], ["13:00", "Pedro · barba"], ["14:00", "Valentina · peinado"], ["15:00", "Ana · tintura"], ["16:30", "Diego · corte"], ["17:30", "Laura · alisado"], ["18:30", "Nico · corte"]];
+      const agenda = (g, P, nombres) => {
+        const A = { filas: [] };
+        A.card = mk("rect", { class: "ln", x: 150, y: 596, width: 780, height: 652, rx: 26 }, g);
+        A.dia = mk("text", { class: "lex t-cr", x: 190, y: 648, "font-size": 34 }, g, "MARTES");
+        A.local = mk("text", { class: "mono t-cr", x: 890, y: 645, "font-size": 22, "text-anchor": "end", "fill-opacity": 0.5 }, g, "PELUQUERÍA CARLA");
+        A.sep = mk("path", { class: "ln", "stroke-opacity": 0.4, d: "M150 668 H930" }, g);
+        TURNOS.forEach(([h, n], i) => {
+          if (nombres && nombres[i]) n = nombres[i];
+          const y0 = 676 + 56 * i;
+          const f = { g: mk("g", { class: P + "-fila" }, g) };
+          f.hora = mk("text", { class: "mono t-cr", x: 180, y: y0 + 36, "font-size": 24, "fill-opacity": 0.78 }, f.g, h);
+          f.blk = mk("rect", { class: "ln", "stroke-width": 4, x: 300, y: y0 + 6, width: 600, height: 44, rx: 10 }, f.g);
+          f.blkR = mk("rect", { class: "ln-ro", "stroke-width": 4, "stroke-dasharray": "12 10", x: 300, y: y0 + 6, width: 600, height: 44, rx: 10, opacity: 0 }, f.g);
+          f.blkV = mk("rect", { class: "ln-ac", "stroke-width": 5, x: 300, y: y0 + 6, width: 600, height: 44, rx: 10, opacity: 0 }, f.g);
+          f.nom = mk("text", { class: "lex t-cr", x: 324, y: y0 + 37, "font-size": 26 }, f.g, n);
+          f.raya = mk("path", { class: "ln", "stroke-width": 3, d: "M318 " + (y0 + 28) + " h" + Math.round(n.length * 14.5 + 10), opacity: 0 }, f.g);
+          f.nv = mk("text", { class: "mono t-ro", x: 880, y: y0 + 36, "font-size": 22, "text-anchor": "end", opacity: 0 }, f.g, "NO VINO");
+          f.ok = mk("path", { class: "ln-ac", d: "M852 " + (y0 + 28) + " l9 9 l19 -19", opacity: 0 }, f.g);
+          f.y0 = y0;
+          A.filas.push(f);
+        });
+        return A;
+      };
+      // un turno que se pierde: borde rojo apagado punteado, nombre tachado, "NO VINO"
+      const faltar = (f, t, txt) => {
+        if (txt) f.nv.textContent = txt;
+        tl.to(f.blk, { opacity: 0, duration: 0.25 }, t);
+        tl.fromTo(f.blkR, { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+        tl.to(f.nom, { fillOpacity: 0.35, duration: 0.3 }, t);
+        tl.to(f.hora, { fill: "#c0625a", fillOpacity: 1, duration: 0.3 }, t);
+        const L = f.raya.getTotalLength();
+        gsap.set(f.raya, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(f.raya, { opacity: 0.6, duration: 0.05 }, t + 0.1);
+        tl.to(f.raya, { strokeDashoffset: 0, duration: 0.35, ease: "power2.inOut" }, t + 0.1);
+        tl.fromTo(f.nv, { opacity: 0, x: 14 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t + 0.15);
+        tl.fromTo(f.g, { x: 0 }, { x: 8, duration: 0.06, yoyo: true, repeat: 3, ease: "sine.inOut" }, t);
+      };
+      // un turno que se cumple: borde verde y tilde
+      const cumplir = (f, t) => {
+        tl.to(f.blk, { opacity: 0, duration: 0.2 }, t);
+        tl.fromTo(f.blkV, { opacity: 0 }, { opacity: 1, duration: 0.2 }, t);
+        const L = f.ok.getTotalLength();
+        gsap.set(f.ok, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(f.ok, { opacity: 1, duration: 0.04 }, t + 0.05);
+        tl.to(f.ok, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, t + 0.05);
+        tl.fromTo(f.g, { scale: 1 }, { scale: 1.03, svgOrigin: "600 " + (f.y0 + 28), duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+
+
+      const A = agenda(q(".s06-agd"), "s06");
+      const MISMO = 0.75, AGENTE = 2.05, IA = 2.45;
+      dibujar([A.card, A.sep], 0, 0.6, 0.4);
+      A.filas.forEach((f, i) => {
+        dibujar([f.blk], 0.05 + i * 0.07, 0.35);
+        tl.fromTo([f.hora, f.nom], { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0.1 + i * 0.07);
+      });
+      tl.fromTo(A.dia, { opacity: 0.3 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.fromTo(A.local, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.2);
+      // "el mismo martes": rebobinar
+      gsap.set(qa(".s06-ag-st"), { opacity: 0 });
+      dibujar(qa(".s06-rew"), MISMO - 0.1, 0.4);
+      tl.fromTo(q(".s06-rew"), { rotation: 0, svgOrigin: "392 638" }, { rotation: -360, svgOrigin: "392 638", duration: 0.8, ease: "power2.inOut" }, MISMO);
+      punch(A.dia, MISMO + 0.25, 1.1);
+      // entra el agente
+      tl.to(A.local, { opacity: 0, duration: 0.2 }, AGENTE - 0.25);
+      pop(q(".s06-ag"), AGENTE - 0.05, 0.4);
+      tl.fromTo(q(".s06-ag-st"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, IA);
+      dibujar([q(".s06-borde")], AGENTE + 0.1, 0.9);
+      tl.to(q(".s06-ag"), { rotation: 8, svgOrigin: "0 0", duration: 0.2, yoyo: true, repeat: 1 }, IA + 0.4);
+      etq(1, 0.2); etq(2, AGENTE);
+
+      tl.to(q("#s06-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

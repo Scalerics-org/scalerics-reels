@@ -1,0 +1,97 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-cta"] .s12-capa { position: absolute; inset: 0; }
+    [data-composition-id="s12-cta"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-cta"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s12-cta"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s12-cta"] .relleno { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .osc { fill: #0a1628; }
+    [data-composition-id="s12-cta"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s12-cta"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s12-cta"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s12-cta"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s12-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s12-cta"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s12-cta"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s12-cta" data-width="1080" data-height="1920" data-duration="5.93">
+    <div id="s12-escena" class="s12-capa clip" data-start="0" data-duration="5.93" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="ln s12-suelo" stroke-opacity="0.5" d="M120 1200 H960" />
+        <g class="s12-carla">
+          <g class="s12-cab"><circle class="ln s12-c" cx="400" cy="905" r="38" /><circle class="ln s12-c" cx="400" cy="852" r="17" /></g>
+          <path class="ln s12-c" d="M400 943 V962 M350 1100 L360 985 Q400 960 440 985 L450 1100 Z" />
+          <path class="ln s12-c" d="M375 1000 H425 V1075 H375 Z" />
+          <path class="ln s12-c" d="M370 1100 V1198 M430 1100 V1198" />
+          <path class="ln s12-c" d="M358 990 L322 1060 L340 1075 M442 990 L480 1050 L470 1060" />
+        </g>
+        <g class="s12-cel"><rect class="ln" stroke-width="4" x="296" y="1015" width="46" height="78" rx="8" transform="rotate(-18 319 1054)" /></g>
+        <g class="s12-tij"><circle class="ln" stroke-width="4" cx="470" cy="1072" r="9" /><circle class="ln" stroke-width="4" cx="490" cy="1068" r="9" /><path class="ln" stroke-width="4" d="M474 1063 L510 1020 M486 1060 L502 1018" /></g>
+        <text class="lex t-ac s12-arr" x="770" y="740" font-size="150" text-anchor="middle">@</text>
+        <g class="s12-tag"><path class="ln-ac" stroke-width="5" d="M570 810 H900 Q920 810 920 830 V870 Q920 890 900 890 H600 L470 905 L572 870 V830 Q572 810 590 810" style="fill:#0a1628" />
+          <text class="lex t-ac" x="745" y="862" font-size="34" text-anchor="middle">@tu peluquera</text></g>
+        <g class="s12-mini"><rect class="ln" x="620" y="960" width="280" height="220" rx="18" />
+          <text class="mono t-cr" x="644" y="996" font-size="20" fill-opacity="0.6" data-layout-ignore>MARTES</text>
+          <path class="ln-ac s12-r" stroke-width="10" d="M644 1024 H876" /><path class="ln-ac s12-r" stroke-width="10" d="M644 1050 H876" /><path class="ln-ac s12-r" stroke-width="10" d="M644 1076 H876" /><path class="ln-ac s12-r" stroke-width="10" d="M644 1102 H876" /><path class="ln-ac s12-r" stroke-width="10" d="M644 1128 H876" /><path class="ln-ac s12-r" stroke-width="10" d="M644 1154 H876" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s12-e1">Etiquetala</span><span class="s12-e2">La que mira la agenda</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-cta";
+      const DUR = 5.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s12-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s12-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+
+      const PELU = 0.70, VIVE = 1.50, MIRANDO = 1.80, AGENDA = 2.30;
+      dibujar(qa(".s12-c"), 0, 0.5, 0.5);
+      tl.fromTo(q(".s12-suelo"), { scaleX: 0.4, svgOrigin: "540 1200" }, { scaleX: 1, svgOrigin: "540 1200", duration: 0.7, ease: "power3.out" }, 0);
+      gsap.set(qa(".s12-tag, .s12-mini"), { opacity: 0 });
+      pop(q(".s12-cel"), 0.2, 0.5);
+      pop(q(".s12-tij"), 0.3, 0.5);
+      // etiquetá: el @ y la etiqueta sobre ella
+      tl.fromTo(q(".s12-arr"), { opacity: 0, scale: 0.4, rotation: -30, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, transformOrigin: "50% 50%", duration: 0.5, ease: "back.out(1.8)" }, 0.05);
+      tl.to(q(".s12-arr"), { opacity: 0, scale: 0.6, transformOrigin: "50% 50%", duration: 0.25, ease: "power2.in" }, PELU - 0.15);
+      tl.fromTo(q(".s12-tag"), { opacity: 0, scale: 0.7, svgOrigin: "470 905" }, { opacity: 1, scale: 1, svgOrigin: "470 905", duration: 0.4, ease: "back.out(1.7)" }, PELU);
+      // mira la agenda del celular
+      tl.to(q(".s12-cab"), { rotation: -14, svgOrigin: "400 940", duration: 0.35, ease: "power2.out" }, MIRANDO - 0.1);
+      punch(q(".s12-cel"), MIRANDO + 0.1, 1.2);
+      pop(q(".s12-mini"), AGENDA - 0.15, 0.6);
+      qa(".s12-r").forEach((r, i) => dibujar([r], AGENDA + i * 0.08, 0.25));
+      // late suave hasta el final
+      tl.to(q(".s12-tag"), { scale: 1.04, svgOrigin: "470 905", duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 5 }, AGENDA + 0.6);
+      tl.to(q(".s12-cab"), { rotation: -6, svgOrigin: "400 940", duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 3 }, AGENDA + 0.8);
+      etq(1, 0.15); etq(2, VIVE);
+
+      tl.to(q("#s12-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

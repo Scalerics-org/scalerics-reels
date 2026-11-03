@@ -1,0 +1,149 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-tarde"] .s04-capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-tarde"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-tarde"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tarde"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tarde"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s04-tarde"] .ln-punt { fill: none; stroke: #efeee5; stroke-opacity: 0.5; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s04-tarde"] .relleno { fill: #5ce611; }
+    [data-composition-id="s04-tarde"] .osc { fill: #0a1628; }
+    [data-composition-id="s04-tarde"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s04-tarde"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s04-tarde"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s04-tarde"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s04-tarde"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.12em; }
+    [data-composition-id="s04-tarde"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-tarde"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-tarde" data-width="1080" data-height="1920" data-duration="6.43">
+    <div id="s04-escena" class="s04-capa clip" data-start="0" data-duration="6.43" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s04-ag"></g>
+        <g class="s04-tij">
+          <circle class="ln s04-t" cx="482" cy="1100" r="42" /><circle class="ln s04-t" cx="598" cy="1100" r="42" />
+          <path class="ln s04-t" d="M500 1062 L554 905 L556 730" /><path class="ln s04-t" d="M580 1062 L526 905 L524 730" />
+          <circle class="relleno s04-piv" cx="540" cy="930" r="8" />
+          <circle class="ln-punt s04-halo" cx="540" cy="930" r="250" />
+        </g>
+      </svg>
+      <div class="etiqueta"><span class="s04-e1">15:00 · tampoco</span><span class="s04-e2">16:30 · otro hueco</span><span class="s04-e3">La tijera, quieta</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-tarde";
+      const DUR = 6.43;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s04-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s04-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      // ---- la agenda del día (idéntica en todas las escenas que la usan) ----
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; parent.appendChild(e); return e; };
+      const TURNOS = [["09:00", "Marta · brushing"], ["10:00", "Lucía · color"], ["11:00", "Gonzalo · corte"], ["12:00", "Sofía · corte"], ["13:00", "Pedro · barba"], ["14:00", "Valentina · peinado"], ["15:00", "Ana · tintura"], ["16:30", "Diego · corte"], ["17:30", "Laura · alisado"], ["18:30", "Nico · corte"]];
+      const agenda = (g, P, nombres) => {
+        const A = { filas: [] };
+        A.card = mk("rect", { class: "ln", x: 150, y: 596, width: 780, height: 652, rx: 26 }, g);
+        A.dia = mk("text", { class: "lex t-cr", x: 190, y: 648, "font-size": 34 }, g, "MARTES");
+        A.local = mk("text", { class: "mono t-cr", x: 890, y: 645, "font-size": 22, "text-anchor": "end", "fill-opacity": 0.5 }, g, "PELUQUERÍA CARLA");
+        A.sep = mk("path", { class: "ln", "stroke-opacity": 0.4, d: "M150 668 H930" }, g);
+        TURNOS.forEach(([h, n], i) => {
+          if (nombres && nombres[i]) n = nombres[i];
+          const y0 = 676 + 56 * i;
+          const f = { g: mk("g", { class: P + "-fila" }, g) };
+          f.hora = mk("text", { class: "mono t-cr", x: 180, y: y0 + 36, "font-size": 24, "fill-opacity": 0.78 }, f.g, h);
+          f.blk = mk("rect", { class: "ln", "stroke-width": 4, x: 300, y: y0 + 6, width: 600, height: 44, rx: 10 }, f.g);
+          f.blkR = mk("rect", { class: "ln-ro", "stroke-width": 4, "stroke-dasharray": "12 10", x: 300, y: y0 + 6, width: 600, height: 44, rx: 10, opacity: 0 }, f.g);
+          f.blkV = mk("rect", { class: "ln-ac", "stroke-width": 5, x: 300, y: y0 + 6, width: 600, height: 44, rx: 10, opacity: 0 }, f.g);
+          f.nom = mk("text", { class: "lex t-cr", x: 324, y: y0 + 37, "font-size": 26 }, f.g, n);
+          f.raya = mk("path", { class: "ln", "stroke-width": 3, d: "M318 " + (y0 + 28) + " h" + Math.round(n.length * 14.5 + 10), opacity: 0 }, f.g);
+          f.nv = mk("text", { class: "mono t-ro", x: 880, y: y0 + 36, "font-size": 22, "text-anchor": "end", opacity: 0 }, f.g, "NO VINO");
+          f.ok = mk("path", { class: "ln-ac", d: "M852 " + (y0 + 28) + " l9 9 l19 -19", opacity: 0 }, f.g);
+          f.y0 = y0;
+          A.filas.push(f);
+        });
+        return A;
+      };
+      // un turno que se pierde: borde rojo apagado punteado, nombre tachado, "NO VINO"
+      const faltar = (f, t, txt) => {
+        if (txt) f.nv.textContent = txt;
+        tl.to(f.blk, { opacity: 0, duration: 0.25 }, t);
+        tl.fromTo(f.blkR, { opacity: 0 }, { opacity: 1, duration: 0.25 }, t);
+        tl.to(f.nom, { fillOpacity: 0.35, duration: 0.3 }, t);
+        tl.to(f.hora, { fill: "#c0625a", fillOpacity: 1, duration: 0.3 }, t);
+        const L = f.raya.getTotalLength();
+        gsap.set(f.raya, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(f.raya, { opacity: 0.6, duration: 0.05 }, t + 0.1);
+        tl.to(f.raya, { strokeDashoffset: 0, duration: 0.35, ease: "power2.inOut" }, t + 0.1);
+        tl.fromTo(f.nv, { opacity: 0, x: 14 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t + 0.15);
+        tl.fromTo(f.g, { x: 0 }, { x: 8, duration: 0.06, yoyo: true, repeat: 3, ease: "sine.inOut" }, t);
+      };
+      // un turno que se cumple: borde verde y tilde
+      const cumplir = (f, t) => {
+        tl.to(f.blk, { opacity: 0, duration: 0.2 }, t);
+        tl.fromTo(f.blkV, { opacity: 0 }, { opacity: 1, duration: 0.2 }, t);
+        const L = f.ok.getTotalLength();
+        gsap.set(f.ok, { strokeDasharray: L, strokeDashoffset: L });
+        tl.to(f.ok, { opacity: 1, duration: 0.04 }, t + 0.05);
+        tl.to(f.ok, { strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, t + 0.05);
+        tl.fromTo(f.g, { scale: 1 }, { scale: 1.03, svgOrigin: "600 " + (f.y0 + 28), duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, t);
+      };
+
+
+      const A = agenda(q(".s04-ag"), "s04");
+      const TRES = 0.27, TAMPOCO = 0.97, CUATRO = 3.07, MEDIA = 3.72, HUECO = 4.27, TIJERA = 5.17, QUIETA = 5.47;
+      // entra la agenda (ya con el hueco de las 11)
+      dibujar([A.card], 0, 0.5, 0.3);
+      A.filas.forEach((f) => dibujar([f.blk], 0, 0.4, 0.3));
+      gsap.set(A.filas[2].blk, { opacity: 0 });
+      gsap.set([A.filas[2].blkR, A.filas[2].nv, A.filas[2].raya], { opacity: 1 });
+      gsap.set(A.filas[2].raya, { opacity: 0.6 });
+      gsap.set(A.filas[2].nom, { fillOpacity: 0.35 });
+      gsap.set(A.filas[2].hora, { fill: "#c0625a", fillOpacity: 1 });
+      // las 15
+      punch(A.filas[6].g, TRES + 0.05, 1.04);
+      faltar(A.filas[6], TAMPOCO);
+      // las 16:30
+      punch(A.filas[7].g, CUATRO, 1.04);
+      faltar(A.filas[7], MEDIA - 0.1);
+      // los tres huecos laten
+      [2, 6, 7].forEach((k) => tl.to(A.filas[k].blkR, { opacity: 0.3, duration: 0.18, yoyo: true, repeat: 3 }, HUECO));
+      tl.to(A.dia, { fill: "#c0625a", duration: 0.3 }, HUECO);
+      // la tijera, quieta
+      tl.to(q(".s04-ag"), { opacity: 0, scale: 0.92, svgOrigin: "540 920", filter: "blur(6px)", duration: 0.4, ease: "power2.in" }, TIJERA - 0.45);
+      gsap.set(qa(".s04-piv, .s04-halo"), { opacity: 0 });
+      dibujar(qa(".s04-t"), TIJERA - 0.1, 0.5);
+      pop(q(".s04-piv"), TIJERA + 0.25, 0.4);
+      tl.fromTo(q(".s04-tij"), { rotation: -14, svgOrigin: "540 930" }, { rotation: 0, svgOrigin: "540 930", duration: 0.7, ease: "elastic.out(1, 0.5)" }, TIJERA);
+      tl.fromTo(q(".s04-halo"), { opacity: 0, scale: 1.1, svgOrigin: "540 930" }, { opacity: 0.8, scale: 1, svgOrigin: "540 930", duration: 0.4 }, QUIETA);
+      tl.to(q(".s04-halo"), { opacity: 0.2, duration: 0.6 }, QUIETA + 0.4);
+      etq(1, TRES); etq(2, CUATRO); etq(3, TIJERA);
+
+      tl.to(q("#s04-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
