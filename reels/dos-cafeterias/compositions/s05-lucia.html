@@ -1,0 +1,101 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-lucia"] .s05-capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-lucia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-lucia"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lucia"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lucia"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s05-lucia"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s05-lucia"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s05-lucia"] .relleno { fill: #5ce611; }
+    [data-composition-id="s05-lucia"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s05-lucia"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s05-lucia"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s05-lucia"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s05-lucia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s05-lucia"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s05-lucia"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s05-lucia"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s05-lucia"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-lucia" data-width="1080" data-height="1920" data-duration="5.31">
+    <div id="s05-escena" class="s05-capa clip" data-start="0" data-duration="5.31" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln-div s05-div" x1="540" y1="630" x2="540" y2="1220" />
+        <g class="s05-head-a">
+          <text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">ANDRÉS</text>
+          <text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text>
+        </g>
+        <g class="s05-head-b">
+          <text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SOFÍA</text>
+          <text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">CON PUNTOS</text>
+        </g>
+        <path class="ln s05-suelo" d="M60 1080 H480 M600 1080 H1020" />
+        <path class="ln s05-puerta" d="M330 1080 V950 H400 V1080" /><path class="ln s05-puerta" d="M870 1080 V950 H940 V1080" />
+        <g transform="translate(250 1080)"><g class="s05-la"><circle class="ln" cx="0" cy="-104" r="16" /><circle class="ln" cx="12" cy="-122" r="7" /><path class="ln s05-la-cu" d="M0 -88 V-44 M0 -76 L-19 -56 M0 -76 L19 -56 M0 -44 L-15 0 M0 -44 L15 0 M-19 -56 v14 h-14 v-14 z" /></g></g>
+        <g transform="translate(790 1080)"><g class="s05-lb"><circle class="ln" cx="0" cy="-104" r="16" /><circle class="ln" cx="12" cy="-122" r="7" /><path class="ln s05-lb-cu" d="M0 -88 V-44 M0 -76 L-19 -56 M0 -76 L19 -56 M0 -44 L-15 0 M0 -44 L15 0 M-19 -56 v14 h-14 v-14 z" /></g></g>
+        <g class="s05-pa" transform="translate(250 1080)"><circle class="ln-punt" stroke="#efeee5" stroke-opacity="0.5" cx="0" cy="-104" r="16" /><path class="ln-punt" stroke="#efeee5" stroke-opacity="0.5" d="M0 -88 V-44 M0 -76 L-19 -56 M0 -76 L19 -56 M0 -44 L-15 0 M0 -44 L15 0" /></g><g class="s05-pb" transform="translate(790 1080)"><circle class="ln-punt" stroke="#efeee5" stroke-opacity="0.5" cx="0" cy="-104" r="16" /><path class="ln-punt" stroke="#efeee5" stroke-opacity="0.5" d="M0 -88 V-44 M0 -76 L-19 -56 M0 -76 L19 -56 M0 -44 L-15 0 M0 -44 L15 0" /></g>
+        <text class="mono t-cr s05-sa-l" x="170" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">L</text><path class="ln-ac s05-sa-tk" d="M160 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sa-l" x="220" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">M</text><path class="ln-ac s05-sa-tk" d="M210 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sa-l" x="270" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">M</text><path class="ln-ac s05-sa-tk" d="M260 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sa-l" x="320" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">J</text><path class="ln-ac s05-sa-tk" d="M310 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sa-l" x="370" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">V</text><path class="ln-ac s05-sa-tk" d="M360 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sb-l" x="710" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">L</text><path class="ln-ac s05-sb-tk" d="M700 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sb-l" x="760" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">M</text><path class="ln-ac s05-sb-tk" d="M750 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sb-l" x="810" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">M</text><path class="ln-ac s05-sb-tk" d="M800 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sb-l" x="860" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">J</text><path class="ln-ac s05-sb-tk" d="M850 1160 l7 8 l14 -16" /><text class="mono t-cr s05-sb-l" x="910" y="1130" font-size="24" text-anchor="middle" fill-opacity="0.7">V</text><path class="ln-ac s05-sb-tk" d="M900 1160 l7 8 l14 -16" />
+        <g class="s05-ca"><rect class="ln" x="190" y="760" width="160" height="130" rx="12" /><path class="ln" d="M190 790 H350 M230 748 v24 M310 748 v24" /><path class="ln-ro s05-ca-x" d="M208 812 H332" /><path class="ln-ro s05-ca-x" d="M208 838 H332" /><path class="ln-ro s05-ca-x" d="M208 864 H332" /></g><g class="s05-cb"><rect class="ln" x="730" y="760" width="160" height="130" rx="12" /><path class="ln" d="M730 790 H890 M770 748 v24 M850 748 v24" /><path class="ln-ro s05-cb-x" d="M748 812 H872" /><path class="ln-ro s05-cb-x" d="M748 838 H872" /><path class="ln-ro s05-cb-x" d="M748 864 H872" /></g>
+      </svg>
+      <div class="etiqueta"><span class="s05-e1">Clienta de siempre</span><span class="s05-e2">Tres semanas sin venir</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-lucia";
+      const DUR = 5.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s05-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s05-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      const DOS = 0.3, LUCIA = 0.87, MANANAS = 1.8, TRES = 3.2, APARECE = 4.0;
+      tl.fromTo(qa(".s05-div, .s05-head-a, .s05-head-b"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0);
+      tl.set(q(".s05-head-a"), { opacity: 1 }, 0.3);
+      dibujar(qa(".s05-suelo, .s05-puerta"), 0, 0.6, 0.4);
+      gsap.set(qa(".s05-pa, .s05-pb"), { opacity: 0 });
+      // Lucía en las dos puertas
+      ["a", "b"].forEach((k, i) => {
+        const L = q(".s05-l" + k);
+        tl.fromTo(L, { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.45, ease: "power2.out" }, LUCIA - 0.1 + i * 0.12);
+        tl.fromTo(q(".s05-l" + k + "-cu"), { rotation: -4, svgOrigin: "0 -44" }, { rotation: 4, svgOrigin: "0 -44", duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 3 }, LUCIA - 0.1);
+      });
+      // todas las mañanas: la semana entera con tildes
+      qa(".s05-sa-l, .s05-sb-l").forEach((el, i) => tl.fromTo(el, { opacity: 0 }, { opacity: 0.7, duration: 0.2 }, MANANAS - 0.5 + (i % 5) * 0.06));
+      ["a", "b"].forEach((k) => qa(".s05-s" + k + "-tk").forEach((el, i) => dibujar([el], MANANAS + i * 0.12, 0.2)));
+      // tres semanas: se borra y quedan los contornos; el calendario tacha
+      tl.to(qa(".s05-la, .s05-lb"), { opacity: 0, duration: 0.35 }, TRES - 0.1);
+      tl.to(qa(".s05-pa, .s05-pb"), { opacity: 1, duration: 0.35 }, TRES);
+      tl.to(qa(".s05-sa-tk, .s05-sb-tk, .s05-sa-l, .s05-sb-l"), { opacity: 0.18, duration: 0.3 }, TRES);
+      dibujar(qa(".s05-ca rect, .s05-ca path.ln, .s05-cb rect, .s05-cb path.ln"), TRES - 0.3, 0.35);
+      ["a", "b"].forEach((k) => qa(".s05-c" + k + "-x").forEach((el, i) => dibujar([el], TRES + 0.15 + i * 0.3, 0.25)));
+      tl.to(qa(".s05-ca, .s05-cb"), { rotation: -3, transformOrigin: "50% 0%", duration: 0.2, ease: "sine.inOut", yoyo: true, repeat: 3 }, APARECE);
+      etq(1, LUCIA); etq(2, TRES);
+
+      tl.to(q("#s05-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

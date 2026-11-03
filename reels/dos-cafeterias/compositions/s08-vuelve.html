@@ -1,0 +1,113 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-vuelve"] .s08-capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-vuelve"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-vuelve"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-vuelve"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-vuelve"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s08-vuelve"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s08-vuelve"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s08-vuelve"] .relleno { fill: #5ce611; }
+    [data-composition-id="s08-vuelve"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s08-vuelve"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s08-vuelve"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s08-vuelve"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s08-vuelve"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s08-vuelve"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s08-vuelve"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s08-vuelve"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s08-vuelve"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-vuelve" data-width="1080" data-height="1920" data-duration="4.0">
+    <div id="s08-escena" class="s08-capa clip" data-start="0" data-duration="4.0" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln-div s08-div" x1="540" y1="630" x2="540" y2="1220" />
+        <g class="s08-head-a">
+          <text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">ANDRÉS</text>
+          <text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text>
+        </g>
+        <g class="s08-head-b">
+          <text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SOFÍA</text>
+          <text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">CON PUNTOS</text>
+        </g>
+        <g class="s08-otro" opacity="0.28" transform="translate(270 1150)"><g class="s08-f"><path class="ln" d="M-120 0 V-180 H120 V0" /><path class="ln" d="M-140 -180 H140 L122 -232 H-122 Z" /><path class="ln" d="M-140 -180 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" /><rect class="ln" x="-74" y="-300" width="148" height="52" rx="10" /><rect class="ln" x="-102" y="-128" width="72" height="62" rx="6" /><path class="ln" d="M36 -128 h66 M36 -128 v128 M102 -128 v128" /></g></g>
+        <path class="ln s08-suelo" d="M590 1150 H1040" />
+        <g class="s08-loc" transform="translate(810 1150)"><g class="s08-f2"><path class="ln" d="M-120 0 V-180 H120 V0" /><path class="ln" d="M-140 -180 H140 L122 -232 H-122 Z" /><path class="ln" d="M-140 -180 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" /><rect class="ln" x="-74" y="-300" width="148" height="52" rx="10" /><rect class="ln" x="-102" y="-128" width="72" height="62" rx="6" /><path class="ln" d="M36 -128 h66 M36 -128 v128 M102 -128 v128" /></g></g>
+        <g class="s08-jue"><rect class="ln-ac" x="740" y="740" width="140" height="48" rx="24" /><text class="mono t-ac" x="810" y="773" font-size="24" text-anchor="middle">JUEVES</text></g>
+        <g class="s08-luc"><g class="s08-l"><circle class="ln" cx="0" cy="-104" r="16" /><circle class="ln" cx="12" cy="-122" r="7" /><path class="ln s08-l-cu" d="M0 -88 V-44 M0 -76 L-19 -56 M0 -76 L19 -56 M0 -44 L-15 0 M0 -44 L15 0 M-19 -56 v14 h-14 v-14 z" /></g></g>
+        <g class="s08-tel"><g class="s08-tel-in">
+          <rect x="680" y="800" width="260" height="330" rx="34" fill="#0a1628" stroke="#efeee5" stroke-width="5" />
+          <circle class="ln-ac s08-ck-c" cx="810" cy="930" r="56" /><path class="ln-ac s08-ck" d="M782 930 L802 951 L840 908" />
+          <text class="mono t-ac" x="810" y="1036" font-size="24" text-anchor="middle">PREMIO</text>
+          <text class="mono t-ac" x="810" y="1070" font-size="24" text-anchor="middle">CANJEADO</text>
+        </g></g>
+        <g class="s08-mesa">
+          <path class="ln" d="M700 1060 H920 M810 1060 V1150 M770 1150 H850" />
+          <path class="ln" d="M740 1012 h52 v22 a26 26 0 0 1 -52 0 Z M792 1020 a10 10 0 0 1 0 20" />
+          <path class="ln-ac" d="M830 1050 q30 -44 70 0 q-34 -16 -70 0 Z" />
+          <path class="ln s08-vap" d="M756 996 q-8 -12 0 -24 q8 -12 0 -24 M776 996 q-8 -12 0 -24 q8 -12 0 -24" />
+        </g>
+        <g transform="translate(650 1150)"><g class="s08-sent"><circle class="ln" cx="0" cy="-150" r="16" /><circle class="ln" cx="12" cy="-168" r="7" /><path class="ln" d="M0 -134 V-80 H40 V0 M0 -118 L40 -96 M-20 -80 V0 M-30 -80 H20" /></g></g>
+      </svg>
+      <div class="etiqueta"><span class="s08-e1">Volvió</span><span class="s08-e2">Premio canjeado</span><span class="s08-e3">Se queda a desayunar</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-vuelve";
+      const DUR = 4.0;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s08-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s08-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      const JUEVES = 0.1, VUELVE = 0.5, CANJEA = 1.07, PREMIO = 1.7, QUEDA = 2.5, DESAY = 2.8;
+      tl.fromTo(qa(".s08-div, .s08-head-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, 0);
+      tl.fromTo(q(".s08-head-a"), { opacity: 0 }, { opacity: 0.3, duration: 0.25 }, 0);
+      tl.fromTo(q(".s08-otro"), { opacity: 0 }, { opacity: 0.28, duration: 0.25 }, 0);
+      dibujar(qa(".s08-loc path, .s08-loc rect, .s08-suelo"), 0, 0.5, 0.3);
+      pop(q(".s08-jue"), JUEVES);
+      // Lucía vuelve
+      const L = q(".s08-luc");
+      tl.fromTo(L, { x: 1050, y: 1150, opacity: 0 }, { x: 1000, opacity: 1, duration: 0.15, ease: "none" }, VUELVE - 0.4);
+      tl.to(L, { x: 890, duration: 0.7, ease: "none" }, VUELVE - 0.25);
+      tl.fromTo(q(".s08-l-cu"), { rotation: -4, svgOrigin: "0 -44" }, { rotation: 4, svgOrigin: "0 -44", duration: 0.15, ease: "sine.inOut", yoyo: true, repeat: 4 }, VUELVE - 0.4);
+      // canjea su premio
+      gsap.set(qa(".s08-tel, .s08-mesa, .s08-sent"), { opacity: 0 });
+      tl.to(qa(".s08-loc, .s08-luc, .s08-suelo, .s08-jue"), { opacity: 0, duration: 0.25 }, CANJEA - 0.1);
+      pop(q(".s08-tel"), CANJEA, 0.7);
+      dibujar([q(".s08-ck-c")], CANJEA + 0.15, 0.35);
+      dibujar([q(".s08-ck")], PREMIO - 0.1, 0.3);
+      punch(q(".s08-tel-in"), PREMIO + 0.2, 1.06);
+      // se queda a desayunar
+      tl.to(q(".s08-tel"), { opacity: 0, scale: 0.9, transformOrigin: "50% 50%", duration: 0.25 }, QUEDA - 0.3);
+      tl.fromTo(qa(".s08-mesa, .s08-sent"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, QUEDA - 0.1);
+      tl.fromTo(q(".s08-vap"), { y: 6 }, { y: -10, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, DESAY);
+      etq(1, VUELVE); etq(2, CANJEA); etq(3, QUEDA);
+
+      tl.to(q("#s08-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

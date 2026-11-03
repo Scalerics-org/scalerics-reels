@@ -1,0 +1,95 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-diferencia"] .s02-capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-diferencia"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-diferencia"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s02-diferencia"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s02-diferencia"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s02-diferencia"] .relleno { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s02-diferencia"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s02-diferencia"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s02-diferencia"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s02-diferencia"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s02-diferencia"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s02-diferencia"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s02-diferencia"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-diferencia"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-diferencia" data-width="1080" data-height="1920" data-duration="3.8">
+    <div id="s02-escena" class="s02-capa clip" data-start="0" data-duration="3.8" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s02-heads">
+          <text class="nom" x="300" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">ANDRÉS</text>
+          <text class="nom" x="780" y="668" text-anchor="middle" fill="#5ce611">SOFÍA</text>
+        </g>
+        <g transform="translate(300 790)"><g class="s02-r1a" ><path class="ln" d="M-44 -34 h88 v40 a44 44 0 0 1 -88 0 Z" /><path class="ln" d="M44 -22 a20 20 0 0 1 0 40" /><path class="ln" d="M-66 52 h132" /></g></g>
+        <g transform="translate(780 790)"><g class="s02-r1b" ><path class="ln" d="M-44 -34 h88 v40 a44 44 0 0 1 -88 0 Z" /><path class="ln" d="M44 -22 a20 20 0 0 1 0 40" /><path class="ln" d="M-66 52 h132" /></g></g>
+        <text class="lex t-cr s02-eq1" x="540" y="815" font-size="80" text-anchor="middle" fill-opacity="0.7">=</text>
+        <g transform="translate(300 960)"><g class="s02-r2a"><path class="ln" d="M0 70 V-20" /><rect class="ln" x="-84" y="-70" width="168" height="54" rx="8" /><text class="mono t-cr" x="0" y="-34" font-size="24" text-anchor="middle">CALLE</text></g></g>
+        <g transform="translate(780 960)"><g class="s02-r2b"><path class="ln" d="M0 70 V-20" /><rect class="ln" x="-84" y="-70" width="168" height="54" rx="8" /><text class="mono t-cr" x="0" y="-34" font-size="24" text-anchor="middle">CALLE</text></g></g>
+        <text class="lex t-cr s02-eq2" x="540" y="975" font-size="80" text-anchor="middle" fill-opacity="0.7">=</text>
+        <g class="s02-r3a" opacity="0.5"><rect class="ln" x="210" y="1080" width="180" height="104" rx="10" />
+          <circle class="ln" cx="255" cy="1116" r="13" /><circle class="ln" cx="300" cy="1116" r="13" /><circle class="ln" cx="345" cy="1116" r="13" />
+          <circle class="ln" cx="255" cy="1152" r="13" /><circle class="ln" cx="300" cy="1152" r="13" /><circle class="ln" cx="345" cy="1152" r="13" /></g>
+        <g class="s02-r3b"><rect class="ln" x="730" y="1050" width="100" height="168" rx="20" /><path class="ln" d="M766 1066 h28" />
+          <circle class="ln-ac" cx="780" cy="1140" r="28" /><path class="ln-ac s02-tk" d="M766 1140 L776 1151 L795 1128" /></g>
+        <text class="lex t-ac s02-neq" x="540" y="1170" font-size="120" text-anchor="middle">≠</text>
+      </svg>
+      <div class="etiqueta"><span class="s02-e1">Dos negocios</span><span class="s02-e2">Una sola diferencia</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-diferencia";
+      const DUR = 3.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s02-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s02-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      const RUBRO = 0.2, CALLE = 0.9, UNA = 1.81, DIF = 2.4;
+      aparecer(q(".s02-heads"), 0, 0.25);
+      dibujar(qa(".s02-r1a path, .s02-r1b path"), 0, 0.5, 0.4);
+      pop(q(".s02-eq1"), RUBRO + 0.1);
+      tl.to(qa(".s02-r1a, .s02-r1b"), { y: -8, duration: 0.18, ease: "power2.out", yoyo: true, repeat: 1 }, RUBRO + 0.15);
+      dibujar(qa(".s02-r2a path, .s02-r2a rect, .s02-r2b path, .s02-r2b rect"), CALLE - 0.25, 0.45);
+      aparecer(qa(".s02-r2a text, .s02-r2b text"), CALLE + 0.1, 0.25);
+      pop(q(".s02-eq2"), CALLE + 0.2);
+      tl.fromTo(q(".s02-r3a"), { opacity: 0, x: -30 }, { opacity: 0.5, x: 0, duration: 0.35, ease: "power3.out" }, UNA - 0.1);
+      pop(q(".s02-r3b"), UNA + 0.1);
+      dibujar([q(".s02-tk")], UNA + 0.35, 0.3);
+      pop(q(".s02-neq"), DIF, 0.4);
+      punch(q(".s02-neq"), DIF + 0.5, 1.15);
+      tl.to(qa(".s02-r1a, .s02-r1b, .s02-r2a, .s02-r2b, .s02-eq1, .s02-eq2"), { opacity: 0.35, duration: 0.4 }, DIF + 0.1);
+      tl.to(q(".s02-r3b"), { y: -10, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1 }, DIF + 0.6);
+      etq(1, 0.1); etq(2, DIF);
+
+      tl.to(q("#s02-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

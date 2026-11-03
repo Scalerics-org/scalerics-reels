@@ -1,0 +1,147 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-dos-cafes"] .s01-capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-dos-cafes"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-dos-cafes"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-cafes"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s01-dos-cafes"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s01-dos-cafes"] .vidrio { fill: #5ce611; }
+    [data-composition-id="s01-dos-cafes"] .cartel { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 26px; letter-spacing: 0.2em; fill: #efeee5; }
+    [data-composition-id="s01-dos-cafes"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s01-dos-cafes"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s01-dos-cafes"] .preg { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 84px; fill: #efeee5; fill-opacity: 0.45; }
+    [data-composition-id="s01-dos-cafes"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-dos-cafes"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-dos-cafes" data-width="1080" data-height="1920" data-duration="5.4">
+    <div id="s01-escena" class="s01-capa clip" data-start="0" data-duration="5.4" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <line class="ln s01-suelo" x1="40" y1="1150" x2="1040" y2="1150" />
+        <line class="ln-div s01-div" x1="540" y1="630" x2="540" y2="1220" />
+        <!-- encabezados -->
+        <g class="s01-head-a">
+          <text class="nom" x="270" y="668" text-anchor="middle" fill="#efeee5" fill-opacity="0.55">ANDRÉS</text>
+          <text class="sub" x="270" y="708" text-anchor="middle" fill="#efeee5" fill-opacity="0.4">SIN SISTEMA</text>
+        </g>
+        <g class="s01-head-b">
+          <text class="nom" x="810" y="668" text-anchor="middle" fill="#5ce611">SOFÍA</text>
+          <text class="sub" x="810" y="708" text-anchor="middle" fill="#5ce611" fill-opacity="0.8">CON PUNTOS</text>
+        </g>
+        <!-- café de Andrés (izquierda) -->
+        <g class="s01-a">
+          <g class="s01-a-in">
+            <path class="ln s01-dib-a" d="M-120 0 V-180 H120 V0" />
+            <path class="ln s01-dib-a" d="M-140 -180 H140 L122 -232 H-122 Z" />
+            <path class="ln s01-dib-a" d="M-140 -180 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-a" x="-74" y="-300" width="148" height="52" rx="10" />
+            <text class="cartel s01-txt-a" x="0" y="-265" text-anchor="middle">CAFÉ</text>
+            <rect class="ln s01-dib-a" x="-102" y="-128" width="72" height="62" rx="6" />
+            <rect class="vidrio s01-luz-a" x="-94" y="-120" width="56" height="46" rx="3" />
+            <path class="ln s01-dib-a" d="M36 -128 h66 M36 -128 v128 M102 -128 v128" />
+          </g>
+        </g>
+        <!-- café de Sofía (derecha) -->
+        <g class="s01-b">
+          <g class="s01-b-in">
+            <path class="ln s01-dib-b" d="M-120 0 V-180 H120 V0" />
+            <path class="ln s01-dib-b" d="M-140 -180 H140 L122 -232 H-122 Z" />
+            <path class="ln s01-dib-b" d="M-140 -180 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0 q17.5 28 35 0" />
+            <rect class="ln s01-dib-b" x="-74" y="-300" width="148" height="52" rx="10" />
+            <text class="cartel s01-txt-b" x="0" y="-265" text-anchor="middle">CAFÉ</text>
+            <rect class="ln s01-dib-b" x="-102" y="-128" width="72" height="62" rx="6" />
+            <rect class="vidrio s01-luz-b" x="-94" y="-120" width="56" height="46" rx="3" />
+            <path class="ln s01-dib-b" d="M36 -128 h66 M36 -128 v128 M102 -128 v128" />
+          </g>
+        </g>
+        <!-- clienta que vuelve a lo de Sofía -->
+        <g class="s01-p"><circle class="ln" cx="0" cy="-100" r="15" /><path class="ln s01-p-cu" d="M0 -85 V-42 M0 -72 L-18 -54 M0 -72 L18 -54 M0 -42 L-14 0 M0 -42 L14 0" /></g>
+        <!-- tilde y pregunta -->
+        <g class="s01-tick-g">
+          <circle class="ln-ac s01-tick-c" cx="810" cy="790" r="34" />
+          <path class="ln-ac s01-tick" d="M794 790 L806 803 L828 776" />
+        </g>
+        <text class="preg s01-preg" x="270" y="820" text-anchor="middle">?</text>
+      </svg>
+      <div class="etiqueta"><span class="s01-e1">Misma cuadra</span><span class="s01-e2">Una sabe quién vuelve</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-dos-cafes";
+      const DUR = 5.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+
+      const CAFETERIAS = 0.5;
+      const CUADRA = 1.8;
+      const UNA = 2.77;
+      const QUIEN = 3.5;
+      const VOLVIO = 3.8;
+
+      const SUELO = 1150;
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+
+      gsap.set(q(".s01-a"), { x: 270, y: SUELO });
+      gsap.set(q(".s01-b"), { x: 810, y: SUELO });
+
+      // cuadro 0: la izquierda ya medio dibujada
+      dibujar(qa(".s01-dib-a"), 0, 0.6, 0.35);
+      tl.fromTo(q(".s01-txt-a"), { opacity: 0.4 }, { opacity: 1, duration: 0.25 }, 0.1);
+      gsap.set(qa(".s01-luz-a, .s01-luz-b"), { opacity: 0 });
+      tl.to(qa(".s01-luz-a"), { opacity: 0.35, duration: 0.25 }, 0.4);
+      tl.fromTo(q(".s01-suelo"), { scaleX: 0.5, svgOrigin: "540 1150" }, { scaleX: 1, svgOrigin: "540 1150", duration: 0.7, ease: "power3.out" }, 0);
+
+      // "cafeterías": la segunda, idéntica
+      dibujar(qa(".s01-dib-b"), CAFETERIAS - 0.05, 0.55);
+      tl.fromTo(q(".s01-txt-b"), { opacity: 0 }, { opacity: 1, duration: 0.25 }, CAFETERIAS + 0.35);
+      tl.to(qa(".s01-luz-b"), { opacity: 0.35, duration: 0.25 }, CAFETERIAS + 0.5);
+      tl.fromTo(q(".s01-b-in"), { scale: 1.08, svgOrigin: "0 -120" }, { scale: 1, svgOrigin: "0 -120", duration: 0.4, ease: "power3.out" }, CAFETERIAS);
+
+      // "cuadra": divisoria y encabezados
+      tl.fromTo(q(".s01-div"), { scaleY: 0, svgOrigin: "540 630" }, { scaleY: 1, svgOrigin: "540 630", duration: 0.5, ease: "power2.out" }, CUADRA - 0.1);
+      tl.fromTo(q(".s01-head-a"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUADRA);
+      tl.fromTo(q(".s01-head-b"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, CUADRA + 0.12);
+      tl.fromTo(q(".s01-e1"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 0.3);
+
+      // "Una": la de Sofía se prende, la de Andrés baja
+      tl.to(qa(".s01-luz-b"), { opacity: 0.9, duration: 0.2 }, UNA);
+      tl.to(q(".s01-b-in"), { scale: 1.06, svgOrigin: "0 -120", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1 }, UNA);
+      tl.to(qa(".s01-a-in, .s01-head-a"), { opacity: 0.5, duration: 0.4 }, UNA + 0.1);
+      tl.to(q(".s01-e1"), { opacity: 0, duration: 0.2 }, UNA - 0.1);
+      tl.fromTo(q(".s01-e2"), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, UNA + 0.05);
+
+      // "quién volvió": una clienta entra en lo de Sofía; tilde verde; "?" en lo de Andrés
+      const p = q(".s01-p");
+      tl.fromTo(p, { x: 1010, y: SUELO, opacity: 0 }, { x: 960, opacity: 1, duration: 0.2, ease: "none" }, QUIEN - 0.6);
+      tl.to(p, { x: 878, duration: 0.8, ease: "none" }, QUIEN - 0.4);
+      tl.to(p, { opacity: 0, duration: 0.2 }, QUIEN + 0.4);
+      tl.fromTo(q(".s01-p-cu"), { rotation: -4, svgOrigin: "0 -42" }, { rotation: 4, svgOrigin: "0 -42", duration: 0.16, ease: "sine.inOut", yoyo: true, repeat: 5 }, QUIEN - 0.6);
+      dibujar([q(".s01-tick-c")], VOLVIO, 0.35);
+      dibujar([q(".s01-tick")], VOLVIO + 0.2, 0.3);
+      tl.fromTo(q(".s01-tick-g"), { scale: 0.8, svgOrigin: "810 790" }, { scale: 1, svgOrigin: "810 790", duration: 0.4, ease: "back.out(2)" }, VOLVIO);
+      pop(q(".s01-preg"), VOLVIO + 0.35, 0.6);
+      tl.to(q(".s01-preg"), { rotation: -8, svgOrigin: "270 790", duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, VOLVIO + 0.75);
+      tl.to(q(".s01-tick-g"), { y: -8, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1 }, VOLVIO + 0.7);
+
+      tl.to(q("#s01-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

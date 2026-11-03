@@ -1,0 +1,37 @@
+[
+ {
+  "t": 0.85,
+  "sfx": "pop",
+  "vol": 0.22
+ },
+ {
+  "t": 1.8,
+  "sfx": "click-soft",
+  "vol": 0.22
+ },
+ {
+  "t": 2.1,
+  "sfx": "click-soft",
+  "vol": 0.2
+ },
+ {
+  "t": 3.2,
+  "sfx": "whoosh-short",
+  "vol": 0.2
+ },
+ {
+  "t": 3.4,
+  "sfx": "key-press",
+  "vol": 0.25
+ },
+ {
+  "t": 3.7,
+  "sfx": "key-press",
+  "vol": 0.25
+ },
+ {
+  "t": 4.0,
+  "sfx": "key-press",
+  "vol": 0.25
+ }
+]

@@ -1,0 +1,87 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-puntos"] .s11-capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-puntos"] svg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-puntos"] .ln { fill: none; stroke: #efeee5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-puntos"] .ln-ac { fill: none; stroke: #5ce611; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-puntos"] .ln-ro { fill: none; stroke: #c0625a; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    [data-composition-id="s11-puntos"] .ln-div { fill: none; stroke: #efeee5; stroke-opacity: 0.3; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 2 16; }
+    [data-composition-id="s11-puntos"] .ln-punt { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 3 13; }
+    [data-composition-id="s11-puntos"] .relleno { fill: #5ce611; }
+    [data-composition-id="s11-puntos"] .t-cr { fill: #efeee5; }
+    [data-composition-id="s11-puntos"] .t-ac { fill: #5ce611; }
+    [data-composition-id="s11-puntos"] .t-ro { fill: #c0625a; }
+    [data-composition-id="s11-puntos"] .lex { font-family: "Lexend", sans-serif; font-weight: 600; }
+    [data-composition-id="s11-puntos"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; letter-spacing: 0.16em; }
+    [data-composition-id="s11-puntos"] .nom { font-family: "Lexend", sans-serif; font-weight: 600; font-size: 36px; }
+    [data-composition-id="s11-puntos"] .sub { font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 24px; letter-spacing: 0.22em; }
+    [data-composition-id="s11-puntos"] .etiqueta { position: absolute; left: 0; right: 0; top: 1268px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 28px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s11-puntos"] .etiqueta span { position: absolute; left: 0; right: 0; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-puntos" data-width="1080" data-height="1920" data-duration="3.56">
+    <div id="s11-escena" class="s11-capa clip" data-start="0" data-duration="3.56" data-track-index="0">
+      <svg viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="s11-loc">
+          <rect class="ln" x="390" y="582" width="300" height="60" rx="12" />
+          <path class="ln" d="M230 720 H850 L820 664 H260 Z" />
+          <path class="ln" d="M230 720 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0 q19.375 30 38.75 0" />
+          <path class="ln" d="M260 740 V1200 M820 740 V1200 M200 1200 H880" />
+        </g>
+        <text class="mono t-cr s11-tl" x="540" y="624" font-size="26" text-anchor="middle">TU LOCAL</text>
+        <g class="s11-tel"><g class="s11-tel-in">
+          <rect x="390" y="770" width="300" height="420" rx="40" fill="#0a1628" stroke="#efeee5" stroke-width="5" />
+          <path class="ln" d="M510 794 h60" />
+          <text class="mono t-ac" x="540" y="846" font-size="24" text-anchor="middle" style="letter-spacing:0.06em">SCALERICS PUNTOS</text>
+          <circle class="ln" cx="470" cy="900" r="28" /><circle class="ln" cx="540" cy="900" r="28" /><circle class="ln" cx="610" cy="900" r="28" /><circle class="ln" cx="470" cy="974" r="28" /><circle class="ln" cx="540" cy="974" r="28" /><circle class="ln" cx="610" cy="974" r="28" /><circle class="relleno s11-r" cx="470" cy="900" r="20" /><circle class="relleno s11-r" cx="540" cy="900" r="20" /><circle class="relleno s11-r" cx="610" cy="900" r="20" /><circle class="relleno s11-r" cx="470" cy="974" r="20" /><circle class="relleno s11-r" cx="540" cy="974" r="20" /><circle class="relleno s11-r" cx="610" cy="974" r="20" />
+          <text class="lex t-ac s11-premio" x="540" y="1110" font-size="40" text-anchor="middle">¡Premio!</text>
+        </g></g>
+      </svg>
+      <div class="etiqueta"><span class="s11-e1">Scalerics Puntos</span><span class="s11-e2">Andando en tu local</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-puntos";
+      const DUR = 3.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const dibujar = (els, t, dur, desde) => {
+        els.forEach((el, i) => {
+          const L = el.getTotalLength();
+          gsap.set(el, { strokeDasharray: L, strokeDashoffset: L });
+          gsap.set(el, { opacity: t <= 0 ? 1 : 0 });
+          if (t > 0) tl.to(el, { opacity: 1, duration: 0.04 }, t + i * 0.04);
+          tl.fromTo(el, { strokeDashoffset: L * (desde ?? 1) }, { strokeDashoffset: 0, duration: dur, ease: "power2.inOut" }, t + i * 0.04);
+        });
+      };
+      const pop = (el, t, s0) => tl.fromTo(el, { opacity: 0, scale: s0 ?? 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.35, ease: "back.out(1.6)" }, t);
+      const punch = (el, t, s) => tl.to(el, { scale: s ?? 1.08, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1 }, t);
+      const etq = (k, t) => {
+        if (k > 1) tl.to(q(".s11-e" + (k - 1)), { opacity: 0, duration: 0.2 }, t - 0.15);
+        tl.fromTo(q(".s11-e" + k), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, t);
+      };
+      const aparecer = (el, t, d) => tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: d ?? 0.3 }, t);
+
+      const SCAL = 0.65, PUNTOS = 1.15, DEJAMOS = 2.15, LOCAL = 3.05;
+      gsap.set(qa(".s11-r, .s11-premio, .s11-tl"), { opacity: 0 });
+      tl.fromTo(q(".s11-tel"), { opacity: 0.4, scale: 0.9, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(1.6)" }, 0);
+      punch(q(".s11-tel-in"), SCAL, 1.05);
+      qa(".s11-r").forEach((r, i) => tl.fromTo(r, { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, transformOrigin: "50% 50%", duration: 0.22, ease: "back.out(2.5)" }, PUNTOS + i * 0.1));
+      pop(q(".s11-premio"), PUNTOS + 0.7, 0.6);
+      dibujar(qa(".s11-loc rect, .s11-loc path"), DEJAMOS - 0.1, 0.6);
+      tl.to(q(".s11-tl"), { opacity: 1, duration: 0.3 }, LOCAL - 0.3);
+      punch(q(".s11-tel-in"), LOCAL, 1.04);
+      etq(1, SCAL); etq(2, DEJAMOS);
+
+      tl.to(q("#s11-escena"), { opacity: 0, filter: "blur(6px)", duration: 0.3, ease: "power2.in" }, DUR - 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
