@@ -186,6 +186,11 @@
 
 ## En curso
 
+- 03-11 · `dos-panaderias` · Sistema a medida (ventas por día y producción) · "Dos panaderías en la misma cuadra. Una sabe cuántas medialunas hornear el domingo." [Dos negocios] · tanda 4 del 03-11
+- 03-11 · `lunes-de-envios` · Automatizaciones (envíos y avisos de la tienda) · "Vendiste todo el fin de semana. Ahora alguien tiene que armar los envíos." [caos → control] · tanda 4 del 03-11
+- 03-11 · `lo-de-siempre` · Agente de IA (pedidos de reposición) · "Tus clientes te piden lo mismo todas las semanas. ¿Y si se lo ofrecieras antes?" [rutina + punto de dolor] · tanda 4 del 03-11
+- 03-11 · `las-resenas` · Consejo pyme (reseñas en Google) + automatización · "Tus clientes contentos no dejan reseñas. Hay que pedírselas." [tipografía gigante] · tanda 4 del 03-11
+- 03-11 · `primer-dia` · Consejo pyme (procesos escritos) + sistema a medida · "Tu empleado nuevo empieza el lunes. ¿Dónde está escrito cómo se hace todo?" [documental sobrio por horas] · tanda 4 del 03-11
 
 
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
