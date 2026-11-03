@@ -175,6 +175,11 @@
 - 03-11 · `no-entra` · Sistema a medida · "Tu negocio no entra en un software genérico." Metáfora de piezas: tu negocio es una pieza verde con puntas propias (yerba suelta por kilo, precio especial del cliente de siempre, dos locales, el proveedor que te fía a treinta días) y el software genérico es un molde cuadrado gris "talle único"; a presión se cortan las puntas y cada una termina en una planilla aparte, de memoria, en otro sistema o en el cuaderno: trabajo a mano; giro: lo raro de tu negocio no es un defecto, es por qué te eligen; sistema a medida de Scalerics con la forma de la pieza. Cierre: "Mandáselo al colega que todavía recorta su negocio para que entre en el sistema." [motion metáfora pieza vs molde · formas geométricas de marca]
 
 ## En curso
+- 03-11 · `dos-talleres` · Automatizaciones (avisos y recordatorios) · Dos negocios: dos talleres mecánicos en la misma calle; uno te avisa cuando el auto está listo y te recuerda el service; el otro espera que llames · tanda 03-11 (2)
+- 03-11 · `el-segundo-local` · Sistema a medida (varios locales) · "Abrir el segundo local es fácil. Lo difícil es estar en los dos a la vez." · motion caos a control sobre un plano de la ciudad · tanda 03-11 (2)
+- 03-11 · `la-pregunta-de-siempre` · Consejo pyme (delegar) + sistema · anotá una semana las preguntas que te hace tu equipo: las que se repiten son lo que solo está en tu cabeza · consejo con palotes · tanda 03-11 (2)
+- 03-11 · `turnos-vacios` · Agente de IA (turnos) · la agenda llena a la mañana y huecos a la tarde porque nadie avisó que no venía; el agente confirma y ofrece el hueco · motion rutina + punto de dolor sobre agenda · tanda 03-11 (2)
+- 03-11 · `tres-clientes` · CRM · "¿Cuál de estos tres clientes te deja más plata?" pregunta al que mira y revelación · tanda 03-11 (2)
 
 
 
