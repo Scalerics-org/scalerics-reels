@@ -1,0 +1,12 @@
+{
+  "escenas": [
+    ["s01-gancho", 0], ["s02-dvd", 19], ["s03-correo", 26], ["s04-multas", 37],
+    ["s05-locales", 45], ["s06-dallas", 51], ["s07-streaming", 65], ["s08-quiebra", 77],
+    ["s09-mismas", 84], ["s10-forma", 95], ["s11-celular", 115], ["s12-tienda", 136], ["s13-cta", 147]
+  ],
+  "subDesde": 19,
+  "subHasta": 147,
+  "cortes": "auto",
+  "acento": [20, 23, 33, 36, 38, 48, 49, 55, 66, 70, 76, 89, 94, 103, 106, 110, 121, 123, 140, 141, 143, 146],
+  "malo": [41, 63, 64, 83, 114, 135]
+}
