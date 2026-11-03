@@ -53,9 +53,12 @@ jobs:
           fi
       - if: steps.toca.outputs.si == 'true'
         uses: actions/checkout@v4
-      # las ramas reel/* tienen los mp4: la cola automática los saca de ahí
+        with:
+          filter: blob:none
+      # las ramas reel/* tienen los mp4: la cola automática los saca de ahí. Sin los archivos (blob:none):
+      # bajar los videos de todas las ramas tardaba 15 min; el git show del que toca baja solo ese.
       - if: steps.toca.outputs.si == 'true'
-        run: git fetch --no-tags --depth=1 origin "+refs/heads/reel/*:refs/remotes/origin/reel/*"
+        run: git fetch --no-tags --depth=1 --filter=blob:none origin "+refs/heads/reel/*:refs/remotes/origin/reel/*"
       - if: steps.toca.outputs.si == 'true'
         uses: actions/setup-node@v4
         with:
