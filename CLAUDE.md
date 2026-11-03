@@ -5,6 +5,44 @@ Montevideo que vende a comercios: **agentes de IA** (el producto estrella), Scal
 (fidelización), tiendas online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
+## LO PRIMERO: la línea de Juan del 02-11 (MANDA SOBRE TODO LO DE ABAJO)
+
+Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy infantiles", otros
+"como de jueguitos" y otros "para más maduros". Desde ahora:
+1. **Público: pymes.** Dueños y encargados de pymes y comercios uruguayos que quieren crecer.
+   Todo reel tiene que hablarles a ellos, con temas de su día a día (clientes, ventas, equipo,
+   tiempo, orden, crecer), en tono adulto y profesional, con humor inteligente.
+2. **Una sola línea, con la marca de Scalerics.** Paleta de marca: azul navy de fondo y verde
+   `#5ce611` de acento, con crema `#efeee5` y blanco (ver "El estilo de base"). Tipografías de
+   marca (Lexend, mono) y logo. Que el feed se vea de la misma empresa. **Nada de jueguitos**:
+   ni videojuego retro, ni cómic, ni piratas, ni lucha libre, ni dibujos infantiles, ni paletas
+   que no sean las de la marca. Las variantes son de formato y de tema DENTRO de la marca, no de
+   identidad visual (los estilos de la lista de abajo valen solo si se hacen con la paleta de
+   marca y un look sobrio: estudio de TV, noticiero, entrevista, pantalla de celular, documental,
+   tipografía gigante en azul/verde/crema).
+3. **Variantes sí, pero no todo es agente de IA o "chatbot"** ("ya estamos aburriendo"). Por
+   tanda de 5: **como mucho 1 de agentes de IA**; los otros de automatizaciones, sistemas a
+   medida, CRM, tienda online, sitio web, Scalerics Puntos, y también consejos de gestión o
+   crecimiento para pymes donde Scalerics aparece solo al final.
+   **Y no todo es "el comerciante que no contesta los mensajes"** (Juan, 02-11): ese dolor (dejar
+   en visto, no contestar de noche, el WhatsApp lleno) va como mucho en 1 reel por tanda. Otros
+   dolores de pyme: el tiempo que se va en tareas a mano, el Excel y el cuaderno, no saber qué se
+   vende ni a quién, el stock, los presupuestos que nadie sigue, el cliente que no vuelve, crecer
+   sin desordenarse, delegar, abrir otro local, vender online, que te encuentren en Google.
+4. **Gancho y viralidad sí, agresividad no.** Nada de insultar, acusar ni burlarse del
+   comerciante o de sus clientes ("son unos vagos", "ojalá te fundas", "te voy a robar los
+   clientes", "tu cliente te está siendo infiel" quedan como ejemplos de lo que YA NO va). El
+   gancho pica por curiosidad, identificación o sorpresa ("esto le pasa a todas las pymes", "el
+   error que más plata te cuesta", "lo que hacen los que crecen"), y el dueño siempre queda bien
+   parado: se lo trata con respeto, como a un colega.
+5. Los reels de abajo marcados como ejemplos (vagos, ojala-te-fundas, el-golpe, el-juicio, infiel,
+   negocio-zombi) sirven solo por el ritmo y la edición, NO por el tono ni por el estilo visual.
+
+**Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
+olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
+está vacía, el reel más nuevo que no se publicó ni se descartó. O sea: lo que sube la rutina sale
+publicado. Por eso cada reel tiene que estar listo para salir: revisalo vos como si fueras Juan.
+
 Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo):
 - **LO QUE MÁS LE GUSTÓ (28-10, "me encantaron", "muy buenos", "pa me encantó"): polémicos de
   verdad, con personajes, referencias y edición cargada.** Copiá el NIVEL de estos:
@@ -28,7 +66,7 @@ Ejemplos aprobados por Juan (mirarlos antes de hacer uno nuevo):
 - Todos los cargados cambian su `armar.mjs` local (fondo, color de acento de los subtítulos y la
   capa `compositions/ambiente.html`): copiá esa forma de hacerlo.
 
-## LA REGLA NÚMERO UNO: polémico, con personajes, y que no sean todos iguales
+## Lo de antes (28-10), que vale solo si no choca con "LO PRIMERO": polémico, con personajes, y que no sean todos iguales
 
 Juan, 28-10: los 25 reels de la primera noche salieron "todos iguales, hablando de lo mismo y mismo
 formato". Después pidió, una y otra vez, **"mucho más polémico"**, "bien viral", "gancho fuerte",
@@ -151,8 +189,8 @@ Lo que se vende (no prometer nada fuera de esto):
 
 Reglas: voseo uruguayo; Scalerics habla en plural ("hacemos", "te contamos"); 130-175 palabras
 (con Orus son ~45-58 s; con diálogos y personajes se acepta hasta ~190 y ~70 s); frases cortas;
-sin cifras ni estadísticas inventadas; polémico y filoso (se puede pinchar al dueño en la cara,
-como `vagos`), pero con humor y con un giro que lo deja bien parado: nunca insultos de verdad,
+sin cifras ni estadísticas inventadas; con gancho pero SIN agresividad (02-11: nada de pinchar al
+dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo deja bien parado: nunca insultos de verdad,
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
@@ -162,9 +200,9 @@ Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el c
 
 1. Elegí los 5 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 5 juntos en `ideas.md`, en un
    solo commit y push a `main`. **Productos** (Juan, 29-10: "que cubra más temas: automatizaciones,
-   sistemas, CRM"): por tanda de 5, **2 de agentes de IA** (ángulos distintos), **1 de
-   automatizaciones**, **1 de sistema a medida o CRM** (alternalos entre noches) y **1 de tienda
-   online o sitio web**. **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de
+   sistemas, CRM"): por tanda de 5, **como mucho 1 de agentes de IA**, y el resto
+   repartido entre automatizaciones, sistema a medida, CRM, tienda online o sitio web, Puntos y
+   consejos de gestión para pymes (ver "LO PRIMERO", 02-11). **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de
    los puntos en todos los videos cansa"), en lugar de uno de los otros. Mirá las últimas tandas en
    "Hechos" para no repetir ángulos ni temas.
 2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la

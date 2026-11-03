@@ -148,9 +148,13 @@ if (video) {
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
   const hechos = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- \d\d-\d\d · `([a-z0-9-]+)`/gm)].map((m) => m[1]);
   const lugar = (s) => (Number.isFinite(revision[s].orden) ? revision[s].orden : Infinity);
-  const pendientes = hechos
+  const aprobados = hechos
     .filter((h) => revision[h]?.estado === "en_cola" && falta(h).length && !veto.includes(h))
     .sort((a, b) => lugar(a) - lugar(b) || String(revision[a].fecha || "").localeCompare(String(revision[b].fecha || "")));
+  // Sin aprobados, sale solo el más nuevo que nadie revisó (Juan, 02-11: "no esperes a que yo te
+  // los apruebe"). Los descartados en el panel no salen nunca.
+  const sinRevisar = hechos.filter((h) => !revision[h] && falta(h).length && !veto.includes(h)).reverse();
+  const pendientes = [...aprobados, ...sinRevisar];
   for (const s2 of pendientes) {
     try {
       bytesRepo = execFileSync("git", ["show", `origin/reel/${s2}:reels/${s2}/renders/${s2}-final.mp4`], { maxBuffer: 200e6 });
@@ -161,10 +165,10 @@ if (video) {
     break;
   }
   if (!slug) {
-    console.log("nada para publicar: ni la carpeta de Drive ni la cola de aprobados tienen reels pendientes");
+    console.log("nada para publicar: ni la carpeta de Drive, ni la cola de aprobados, ni los reels sin revisar tienen pendientes");
     process.exit(0);
   }
-  console.log(`toca (repo): ${slug} (quedan ${pendientes.length - 1} pendientes)`);
+  console.log(`toca (repo): ${slug}${aprobados.includes(slug) ? "" : " (sin revisar: sale solo)"} (quedan ${pendientes.length - 1} pendientes)`);
 }
 
 // 2. La descripción
