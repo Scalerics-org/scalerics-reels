@@ -95,7 +95,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
         ni sus colores: objetos genéricos (una caja de pizza, un vaso de café). Siempre en positivo:
         es un ejemplo a imitar, no se ataca a nadie.
    - **Más atrapante:** el gancho en el cuadro 0 es una pregunta o una promesa que abre un hueco
-     ("¿Por qué…?", "Domino's casi quiebra por esto. Lo arregló con una pantallita."); a la mitad, un
+     ("¿Por qué…?", "¿Por qué Domino's te muestra en qué paso está tu pizza?"); a la mitad, un
      giro que cambia lo que el que mira creía; algo cambia en pantalla cada 1,5-2,5 s (transformación,
      etiqueta, contador, push-in); frases cortas; nada de introducción. Cierre: la videollamada (punto 8).
 
