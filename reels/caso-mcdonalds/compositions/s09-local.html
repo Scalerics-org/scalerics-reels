@@ -1,0 +1,117 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-local"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-local"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-local"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-local"] .hbw { position: absolute; left: 40px; top: 620px; width: 1000px; height: 775px; }
+    [data-composition-id="s09-local"] .h-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s09-local"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-local"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s09-local"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s09-local"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s09-local"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s09-local"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s09-local"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s09-local"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s09-local"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s09-local"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s09-local"] .tab { position: absolute; left: 60px; top: 640px; width: 960px; height: 650px; }
+    [data-composition-id="s09-local"] .tab-lado { position: absolute; left: 16px; top: 16px; width: 960px; height: 650px; border-radius: 54px; background: #a9a798; }
+    [data-composition-id="s09-local"] .tab-cuerpo { position: absolute; left: 0; top: 0; width: 960px; height: 650px; border-radius: 54px; background: #efeee5; }
+    [data-composition-id="s09-local"] .tab-pan { position: absolute; left: 22px; top: 22px; width: 916px; height: 606px; border-radius: 36px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s09-local"] .tab-tit { position: absolute; left: 40px; top: 30px; font: 800 54px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; padding: 6px 14px 10px; }
+    [data-composition-id="s09-local"] .tab-chip { position: absolute; right: 36px; top: 36px; padding: 12px 22px; border-radius: 16px; background: #5ce611; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: #0b1220; }
+    [data-composition-id="s09-local"] .col { position: absolute; top: 124px; width: 276px; height: 456px; border-radius: 26px; background: #1f3254; }
+    [data-composition-id="s09-local"] .col h4 { position: absolute; left: 0; right: 0; top: 24px; margin: 0; text-align: center; font: 500 29px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: #5ce611; }
+    [data-composition-id="s09-local"] .tk { position: absolute; width: 240px; height: 176px; border-radius: 22px; background: #efeee5; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s09-local"] .tk b { position: absolute; left: 22px; top: 22px; font: 800 46px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s09-local"] .tk span { position: absolute; left: 22px; top: 80px; font: 600 30px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s09-local"] .tk i { position: absolute; left: 22px; top: 130px; width: 150px; height: 18px; border-radius: 9px; background: rgba(11,18,32,0.22); }
+
+    [data-composition-id="s09-local"] .mov1, [data-composition-id="s09-local"] .mov2 { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s09-local" data-width="1080" data-height="1920" data-duration="3.93">
+    <div id="s09-local-esc" class="esc clip" data-start="0" data-duration="3.93" data-track-index="0">
+
+      <svg class="full mov1" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="ta">
+    <ellipse cx="285" cy="1278" rx="252.00000000000003" ry="18" fill="rgba(3,6,12,0.5)"/>
+    <rect x="74" y="894" width="422" height="376" fill="#16243d" stroke="#efeee5" stroke-width="7"/>
+    <rect x="105" y="1006.8" width="198" height="157.92" rx="8" fill="#1f3254" stroke="#efeee5" stroke-width="7"/>
+    <path d="M105 1085.76 H303" stroke="#efeee5" stroke-width="6"/>
+    <rect x="123" y="1044.4" width="36" height="38.36" fill="#5ce611"/><rect x="177" y="1055.68" width="27" height="27.080000000000002" fill="#efeee5"/><rect x="231" y="1119.6" width="45" height="42.12" fill="#efeee5"/>
+    <rect x="339" y="976.72" width="117" height="293.28000000000003" fill="#1f3254" stroke="#efeee5" stroke-width="7"/>
+    <circle cx="357" cy="1127.12" r="9" fill="#5ce611"/>
+    <rect x="60" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="97.5" cy="894" r="37.5" fill="#5ce611"/><rect x="135" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="172.5" cy="894" r="37.5" fill="#efeee5"/><rect x="210" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="247.5" cy="894" r="37.5" fill="#5ce611"/><rect x="285" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="322.5" cy="894" r="37.5" fill="#efeee5"/><rect x="360" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="397.5" cy="894" r="37.5" fill="#5ce611"/><rect x="435" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="472.5" cy="894" r="37.5" fill="#efeee5"/>
+    <rect x="50" y="774" width="470" height="30" rx="8" fill="#efeee5"/>
+    <text x="204" y="983.1" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="33" letter-spacing="4" fill="#efeee5">LOCAL 1</text>
+  </g>
+        <g class="pa"><circle cx="185" cy="700" r="26" fill="#5ce611"/><text x="185" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">1</text><path d="M219 700 H251" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/><circle cx="285" cy="700" r="26" fill="#5ce611"/><text x="285" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">2</text><path d="M319 700 H351" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/><circle cx="385" cy="700" r="26" fill="#5ce611"/><text x="385" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">3</text></g>
+        <g class="ga0"><g transform="translate(138 1148) scale(0.8857142857142857)"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#0b1220"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#0b1220"/></g></g><g class="ga1 nuevo"><g transform="translate(266 1166) scale(0.7714285714285715)"><circle cx="70" cy="70" r="70" fill="#d6d4c6"/><circle cx="70" cy="56" r="26" fill="#2c4268"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#2c4268"/></g></g><g class="ga2 nuevo"><g transform="translate(382 1178) scale(0.6857142857142857)"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></g></g>
+        <g class="oka"><g transform="translate(436 756) scale(1.5454545454545454)"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+      </svg>
+      <svg class="full mov2" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="tb">
+    <ellipse cx="795" cy="1278" rx="252.00000000000003" ry="18" fill="rgba(3,6,12,0.5)"/>
+    <rect x="584" y="894" width="422" height="376" fill="#16243d" stroke="#efeee5" stroke-width="7"/>
+    <rect x="615" y="1006.8" width="198" height="157.92" rx="8" fill="#1f3254" stroke="#efeee5" stroke-width="7"/>
+    <path d="M615 1085.76 H813" stroke="#efeee5" stroke-width="6"/>
+    <rect x="633" y="1044.4" width="36" height="38.36" fill="#5ce611"/><rect x="687" y="1055.68" width="27" height="27.080000000000002" fill="#efeee5"/><rect x="741" y="1119.6" width="45" height="42.12" fill="#efeee5"/>
+    <rect x="849" y="976.72" width="117" height="293.28000000000003" fill="#1f3254" stroke="#efeee5" stroke-width="7"/>
+    <circle cx="867" cy="1127.12" r="9" fill="#5ce611"/>
+    <rect x="570" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="607.5" cy="894" r="37.5" fill="#5ce611"/><rect x="645" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="682.5" cy="894" r="37.5" fill="#efeee5"/><rect x="720" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="757.5" cy="894" r="37.5" fill="#5ce611"/><rect x="795" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="832.5" cy="894" r="37.5" fill="#efeee5"/><rect x="870" y="800" width="75.5" height="94" fill="#5ce611"/><circle cx="907.5" cy="894" r="37.5" fill="#5ce611"/><rect x="945" y="800" width="75.5" height="94" fill="#efeee5"/><circle cx="982.5" cy="894" r="37.5" fill="#efeee5"/>
+    <rect x="560" y="774" width="470" height="30" rx="8" fill="#efeee5"/>
+    <text x="714" y="983.1" text-anchor="middle" font-family="IBM Plex Mono" font-weight="500" font-size="33" letter-spacing="4" fill="#efeee5">LOCAL 2</text>
+  </g>
+        <g class="pb"><circle cx="695" cy="700" r="26" fill="#5ce611"/><text x="695" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">1</text><path d="M729 700 H761" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/><circle cx="795" cy="700" r="26" fill="#5ce611"/><text x="795" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">2</text><path d="M829 700 H861" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/><circle cx="895" cy="700" r="26" fill="#5ce611"/><text x="895" y="710" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#0b1220">3</text></g>
+        <g class="gb0"><g transform="translate(648 1148) scale(0.8857142857142857)"><circle cx="70" cy="70" r="70" fill="#d6d4c6"/><circle cx="70" cy="56" r="26" fill="#0b1220"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#0b1220"/></g></g><g class="gb1"><g transform="translate(776 1166) scale(0.7714285714285715)"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#2c4268"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#2c4268"/></g></g>
+        <g class="okb"><g transform="translate(946 756) scale(1.5454545454545454)"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+      </svg>
+      <div class="pill lleno n1" style="left:540px;top:1400px">Mismos pasos</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-local";
+      const DUR = 3.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const cinta = (t, d) => qa(".cinta").forEach((c) => tl.fromTo(c, { strokeDashoffset: 0 }, { strokeDashoffset: -70 * d * 2, duration: d, ease: "none" }, t));
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const M1 = q(".mov1"), M2 = q(".mov2");
+      // el local de la escena anterior, centrado y grande, se corre a la izquierda
+      tl.fromTo(M1, { opacity: 0, x: 255, scale: 1.15, transformOrigin: "285px 1270px" }, { opacity: 1, x: 255, scale: 1.15, duration: 0.25 }, 0);
+      pop(".pa", 0.3, 0.3, 0.5);
+      pop(".ga0", 0.2, 0.3, 0.5);
+      // "sumás gente"
+      qa(".nuevo").forEach((g, i) => tl.fromTo(g, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)" }, 0.28 + i * 0.14));
+      // "abrís otro local": se corre y entra el segundo, con los mismos pasos
+      tl.to(M1, { x: 0, scale: 1, duration: 0.5, ease: "power3.inOut" }, 0.98);
+      tl.fromTo(M2, { opacity: 0, x: 500 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 1.08);
+      tl.fromTo(q(".pb"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 1.48);
+      // "sin desordenarte"
+      pop(".oka", 2.37, 0.28, 0.3);
+      pop(".okb", 2.49, 0.28, 0.3);
+      pop(".n1", 2.68);
+      tl.to(qa(".pa circle, .pb circle"), { scale: 1.15, transformOrigin: "50% 50%", duration: 0.15, yoyo: true, repeat: 1, stagger: 0.05, immediateRender: false }, 2.58);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

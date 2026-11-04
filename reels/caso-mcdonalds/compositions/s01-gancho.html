@@ -1,0 +1,112 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .hbw { position: absolute; left: 40px; top: 620px; width: 1000px; height: 775px; }
+    [data-composition-id="s01-gancho"] .h-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s01-gancho"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s01-gancho"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s01-gancho"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s01-gancho"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s01-gancho"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s01-gancho"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s01-gancho"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s01-gancho"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s01-gancho"] .tab { position: absolute; left: 60px; top: 640px; width: 960px; height: 650px; }
+    [data-composition-id="s01-gancho"] .tab-lado { position: absolute; left: 16px; top: 16px; width: 960px; height: 650px; border-radius: 54px; background: #a9a798; }
+    [data-composition-id="s01-gancho"] .tab-cuerpo { position: absolute; left: 0; top: 0; width: 960px; height: 650px; border-radius: 54px; background: #efeee5; }
+    [data-composition-id="s01-gancho"] .tab-pan { position: absolute; left: 22px; top: 22px; width: 916px; height: 606px; border-radius: 36px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .tab-tit { position: absolute; left: 40px; top: 30px; font: 800 54px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; padding: 6px 14px 10px; }
+    [data-composition-id="s01-gancho"] .tab-chip { position: absolute; right: 36px; top: 36px; padding: 12px 22px; border-radius: 16px; background: #5ce611; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .col { position: absolute; top: 124px; width: 276px; height: 456px; border-radius: 26px; background: #1f3254; }
+    [data-composition-id="s01-gancho"] .col h4 { position: absolute; left: 0; right: 0; top: 24px; margin: 0; text-align: center; font: 500 29px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .tk { position: absolute; width: 240px; height: 176px; border-radius: 22px; background: #efeee5; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s01-gancho"] .tk b { position: absolute; left: 22px; top: 22px; font: 800 46px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .tk span { position: absolute; left: 22px; top: 80px; font: 600 30px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s01-gancho"] .tk i { position: absolute; left: 22px; top: 130px; width: 150px; height: 18px; border-radius: 9px; background: rgba(11,18,32,0.22); }
+
+    [data-composition-id="s01-gancho"] .tit { position: absolute; left: 0; right: 0; top: 96px; text-align: center; font: 800 104px/1.02 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; }
+    [data-composition-id="s01-gancho"] .tit .gr { font-size: 148px; line-height: 1.0; }
+    [data-composition-id="s01-gancho"] .tit .v { color: #5ce611; }
+    [data-composition-id="s01-gancho"] .hb1, [data-composition-id="s01-gancho"] .hb2 { opacity: 0; }
+    [data-composition-id="s01-gancho"] .lc { position: absolute; top: 1170px; width: 300px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #efeee5; opacity: 0; }
+    [data-composition-id="s01-gancho"] .ig { position: absolute; top: 980px; width: 80px; text-align: center; font: 800 96px/1 "Lexend", sans-serif; color: #5ce611; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.9">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.9" data-track-index="0">
+
+      <div class="hbw hb1"><svg class="h-svg " viewBox="0 0 800 620" aria-hidden="true">
+  <ellipse class="h-sh" cx="400" cy="592" rx="330" ry="26" fill="rgba(3,6,12,0.55)"/>
+  <g class="h-base"><path d="M100 470 H700 V500 Q700 560 630 560 H170 Q100 560 100 500 Z" fill="#efeee5"/><path d="M520 470 H700 V500 Q700 560 630 560 H470 Z" fill="#b9b7a8"/></g>
+  <g class="h-carne"><rect x="80" y="378" width="640" height="100" rx="50" fill="#1f3254"/><rect x="120" y="392" width="420" height="20" rx="10" fill="#2c4268"/><path d="M540 378 H670 A50 50 0 0 1 670 478 H470 Z" fill="#17263f"/></g>
+  <g class="h-queso"><path d="M90 368 H710 L690 392 H640 L612 440 L584 392 H330 L298 452 L266 392 H112 Z" fill="#ffffff"/></g>
+  <g class="h-lech"><path d="M70 360 Q110 326 150 360 T230 360 T310 360 T390 360 T470 360 T550 360 T630 360 T710 360 L730 384 H70 Z" fill="#5ce611"/><path d="M70 372 H730 L730 384 H70 Z" fill="#3fa60a"/></g>
+  <g class="h-top"><path d="M100 350 Q100 120 400 110 Q700 120 700 350 Z" fill="#efeee5"/><path d="M520 126 Q700 172 700 350 L590 350 Z" fill="#b9b7a8"/><ellipse cx="270" cy="200" rx="60" ry="26" transform="rotate(-24 270 200)" fill="rgba(255,255,255,0.6)"/><ellipse cx="300" cy="200" rx="15" ry="8" transform="rotate(-25 300 200)" fill="#b9b7a8"/><ellipse cx="380" cy="165" rx="15" ry="8" transform="rotate(0 380 165)" fill="#b9b7a8"/><ellipse cx="465" cy="190" rx="15" ry="8" transform="rotate(25 465 190)" fill="#b9b7a8"/><ellipse cx="250" cy="270" rx="15" ry="8" transform="rotate(-25 250 270)" fill="#b9b7a8"/><ellipse cx="420" cy="248" rx="15" ry="8" transform="rotate(0 420 248)" fill="#b9b7a8"/><ellipse cx="545" cy="238" rx="15" ry="8" transform="rotate(25 545 238)" fill="#b9b7a8"/><ellipse cx="335" cy="305" rx="15" ry="8" transform="rotate(-25 335 305)" fill="#b9b7a8"/><ellipse cx="610" cy="300" rx="15" ry="8" transform="rotate(0 610 300)" fill="#b9b7a8"/></g></svg></div>
+      <div class="hbw hb2"><svg class="h-svg " viewBox="0 0 800 620" aria-hidden="true">
+  <ellipse class="h-sh" cx="400" cy="592" rx="330" ry="26" fill="rgba(3,6,12,0.55)"/>
+  <g class="h-base"><path d="M100 470 H700 V500 Q700 560 630 560 H170 Q100 560 100 500 Z" fill="#efeee5"/><path d="M520 470 H700 V500 Q700 560 630 560 H470 Z" fill="#b9b7a8"/></g>
+  <g class="h-carne"><rect x="80" y="378" width="640" height="100" rx="50" fill="#1f3254"/><rect x="120" y="392" width="420" height="20" rx="10" fill="#2c4268"/><path d="M540 378 H670 A50 50 0 0 1 670 478 H470 Z" fill="#17263f"/></g>
+  <g class="h-queso"><path d="M90 368 H710 L690 392 H640 L612 440 L584 392 H330 L298 452 L266 392 H112 Z" fill="#ffffff"/></g>
+  <g class="h-lech"><path d="M70 360 Q110 326 150 360 T230 360 T310 360 T390 360 T470 360 T550 360 T630 360 T710 360 L730 384 H70 Z" fill="#5ce611"/><path d="M70 372 H730 L730 384 H70 Z" fill="#3fa60a"/></g>
+  <g class="h-top"><path d="M100 350 Q100 120 400 110 Q700 120 700 350 Z" fill="#efeee5"/><path d="M520 126 Q700 172 700 350 L590 350 Z" fill="#b9b7a8"/><ellipse cx="270" cy="200" rx="60" ry="26" transform="rotate(-24 270 200)" fill="rgba(255,255,255,0.6)"/><ellipse cx="300" cy="200" rx="15" ry="8" transform="rotate(-25 300 200)" fill="#b9b7a8"/><ellipse cx="380" cy="165" rx="15" ry="8" transform="rotate(0 380 165)" fill="#b9b7a8"/><ellipse cx="465" cy="190" rx="15" ry="8" transform="rotate(25 465 190)" fill="#b9b7a8"/><ellipse cx="250" cy="270" rx="15" ry="8" transform="rotate(-25 250 270)" fill="#b9b7a8"/><ellipse cx="420" cy="248" rx="15" ry="8" transform="rotate(0 420 248)" fill="#b9b7a8"/><ellipse cx="545" cy="238" rx="15" ry="8" transform="rotate(25 545 238)" fill="#b9b7a8"/><ellipse cx="335" cy="305" rx="15" ry="8" transform="rotate(-25 335 305)" fill="#b9b7a8"/><ellipse cx="610" cy="300" rx="15" ry="8" transform="rotate(0 610 300)" fill="#b9b7a8"/></g></svg></div>
+      <div class="hbw hb0"><svg class="h-svg " viewBox="0 0 800 620" aria-hidden="true">
+  <ellipse class="h-sh" cx="400" cy="592" rx="330" ry="26" fill="rgba(3,6,12,0.55)"/>
+  <g class="h-base"><path d="M100 470 H700 V500 Q700 560 630 560 H170 Q100 560 100 500 Z" fill="#efeee5"/><path d="M520 470 H700 V500 Q700 560 630 560 H470 Z" fill="#b9b7a8"/></g>
+  <g class="h-carne"><rect x="80" y="378" width="640" height="100" rx="50" fill="#1f3254"/><rect x="120" y="392" width="420" height="20" rx="10" fill="#2c4268"/><path d="M540 378 H670 A50 50 0 0 1 670 478 H470 Z" fill="#17263f"/></g>
+  <g class="h-queso"><path d="M90 368 H710 L690 392 H640 L612 440 L584 392 H330 L298 452 L266 392 H112 Z" fill="#ffffff"/></g>
+  <g class="h-lech"><path d="M70 360 Q110 326 150 360 T230 360 T310 360 T390 360 T470 360 T550 360 T630 360 T710 360 L730 384 H70 Z" fill="#5ce611"/><path d="M70 372 H730 L730 384 H70 Z" fill="#3fa60a"/></g>
+  <g class="h-top"><path d="M100 350 Q100 120 400 110 Q700 120 700 350 Z" fill="#efeee5"/><path d="M520 126 Q700 172 700 350 L590 350 Z" fill="#b9b7a8"/><ellipse cx="270" cy="200" rx="60" ry="26" transform="rotate(-24 270 200)" fill="rgba(255,255,255,0.6)"/><ellipse cx="300" cy="200" rx="15" ry="8" transform="rotate(-25 300 200)" fill="#b9b7a8"/><ellipse cx="380" cy="165" rx="15" ry="8" transform="rotate(0 380 165)" fill="#b9b7a8"/><ellipse cx="465" cy="190" rx="15" ry="8" transform="rotate(25 465 190)" fill="#b9b7a8"/><ellipse cx="250" cy="270" rx="15" ry="8" transform="rotate(-25 250 270)" fill="#b9b7a8"/><ellipse cx="420" cy="248" rx="15" ry="8" transform="rotate(0 420 248)" fill="#b9b7a8"/><ellipse cx="545" cy="238" rx="15" ry="8" transform="rotate(25 545 238)" fill="#b9b7a8"/><ellipse cx="335" cy="305" rx="15" ry="8" transform="rotate(-25 335 305)" fill="#b9b7a8"/><ellipse cx="610" cy="300" rx="15" ry="8" transform="rotate(0 610 300)" fill="#b9b7a8"/></g></svg></div>
+      <div class="lc" style="left:60px">LOCAL 1</div><div class="lc" style="left:390px">LOCAL 2</div><div class="lc" style="left:720px">LOCAL 3</div>
+      <div class="tit"><div>¿Por qué</div><div class="gr">McDonald's</div><div class="gr">sale <span class="v">igual</span></div><div>en cada local?</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 3.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const cinta = (t, d) => qa(".cinta").forEach((c) => tl.fromTo(c, { strokeDashoffset: 0 }, { strokeDashoffset: -70 * d * 2, duration: d, ease: "none" }, t));
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const O = "500px 420px";
+      // cuadro 0: el gancho entero y la hamburguesa ya grande
+      tl.fromTo(q(".tit"), { scale: 1.05, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".hb0"), { y: 40, scale: 0.96, transformOrigin: O }, { y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 0);
+      tl.to(q(".hb0 .h-top"), { y: -14, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.9);
+      // "igual": la hamburguesa se achica y aparecen dos idénticas al lado
+      tl.to(q(".hb0"), { scale: 0.4, y: -40, duration: 0.4, ease: "power3.inOut" }, 1.85);
+      tl.fromTo(q(".hb1"), { opacity: 0, scale: 0.4, x: 0, y: -40, transformOrigin: O }, { opacity: 1, x: -330, duration: 0.4, ease: "back.out(1.4)" }, 2.1);
+      tl.fromTo(q(".hb2"), { opacity: 0, scale: 0.4, x: 0, y: -40, transformOrigin: O }, { opacity: 1, x: 330, duration: 0.4, ease: "back.out(1.4)" }, 2.15);
+      qa(".lc").forEach((l, i) => tl.fromTo(l, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 2.5 + i * 0.08));
+      tl.fromTo(qa(".tit .v"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 0.18, yoyo: true, repeat: 1, immediateRender: false }, 2.2);
+      // vuelve a ser una sola, grande (match con s02)
+      const V = 3.35;
+      tl.to(qa(".lc"), { opacity: 0, duration: 0.2 }, V);
+      tl.to(q(".hb1"), { x: 0, opacity: 0, duration: 0.35, ease: "power2.in" }, V);
+      tl.to(q(".hb2"), { x: 0, opacity: 0, duration: 0.35, ease: "power2.in" }, V);
+      tl.to(q(".hb0"), { scale: 1, y: 0, duration: 0.5, ease: "power3.inOut" }, V);
+      tl.to(q(".tit"), { opacity: 0, y: -60, duration: 0.3, ease: "power2.in" }, V);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
