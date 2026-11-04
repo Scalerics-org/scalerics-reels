@@ -1,0 +1,96 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-diciembre"] .esc, [data-composition-id="s01-diciembre"] .capa, [data-composition-id="s01-diciembre"] .pila { position: absolute; inset: 0; }
+    [data-composition-id="s01-diciembre"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s01-diciembre"] .pie { position: absolute; left: 360px; top: 1718px; width: 360px; height: 96px; border-radius: 48px; background: #0b1220; }
+    [data-composition-id="s01-diciembre"] .L { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s01-diciembre"] .L.cr { color: #efeee5; }
+    [data-composition-id="s01-diciembre"] .L.g { color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .L.n { color: #0b1220; }
+    [data-composition-id="s01-diciembre"] .L.x9 { font-weight: 900; }
+    [data-composition-id="s01-diciembre"] .sel { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #5ce611; color: #0b1220; }
+    [data-composition-id="s01-diciembre"] .seln { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #0b1220; color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .gw { color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s01-diciembre"] .etq { position: absolute; left: 0; right: 0; top: 340px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .etq.n { color: #0b1220; }
+    [data-composition-id="s01-diciembre"] .hoja { position: absolute; width: 260px; height: 164px; border-radius: 14px; background: #ffffff; border: 6px solid #0b1220; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s01-diciembre"] .hoja b { position: absolute; left: 22px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0b1220; }
+    [data-composition-id="s01-diciembre"] .hoja i { position: absolute; left: 22px; width: 190px; height: 8px; border-radius: 4px; background: #7c8698; top: 74px; }
+    [data-composition-id="s01-diciembre"] .hoja i + i { top: 100px; width: 150px; }
+    [data-composition-id="s01-diciembre"] .hoja i.c { top: 126px; width: 170px; }
+    [data-composition-id="s01-diciembre"] .tk { position: absolute; width: 240px; height: 300px; background: #ffffff; border: 6px solid #0b1220; border-radius: 10px 10px 0 0; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s01-diciembre"] .tk b { position: absolute; left: 0; right: 0; top: 20px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s01-diciembre"] .tk i { position: absolute; left: 26px; width: 176px; height: 8px; border-radius: 4px; background: #7c8698; top: 82px; }
+    [data-composition-id="s01-diciembre"] .tk i + i { top: 110px; width: 130px; }
+    [data-composition-id="s01-diciembre"] .tk i.c { top: 138px; width: 150px; }
+    [data-composition-id="s01-diciembre"] .tk span { position: absolute; left: 70px; top: 168px; width: 88px; height: 88px; border-radius: 50%; background: #c7655b; color: #ffffff; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 88px; text-align: center; }
+
+    [data-composition-id="s01-diciembre"] .l1 { top: 395px; font-size: 112px; }
+    [data-composition-id="s01-diciembre"] .l2 { top: 515px; font-size: 112px; color: #efeee5; }
+    [data-composition-id="s01-diciembre"] .l3 { top: 640px; font-size: 158px; font-weight: 900; color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .l4 { top: 800px; font-size: 158px; font-weight: 900; color: #5ce611; }
+    [data-composition-id="s01-diciembre"] .graf { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s01-diciembre"] .bar { position: absolute; width: 104px; border-radius: 14px; }
+    [data-composition-id="s01-diciembre"] .mes { position: absolute; top: 1516px; width: 144px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 32px; }
+    [data-composition-id="s01-diciembre"] .flecha { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <div id="root" data-composition-id="s01-diciembre" data-width="1080" data-height="1920" data-duration="2.4">
+    
+    <div id="s01-diciembre-escena" class="esc clip" data-start="0" data-duration="2.4" data-track-index="2">
+
+      <div class="L l1">En diciembre</div>
+      <div class="L l2">vas a vender</div>
+      <div class="L l3">más que</div>
+      <div class="L l4">nunca.</div>
+      <svg class="graf" viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect x="90" y="1490" width="900" height="10" rx="5" fill="#efeee5" opacity="0.5"/>
+      </svg>
+      <div class="bar b0" style="left:120px;top:1320px;height:170px;background:#efeee5;box-shadow:inset -28px 0 0 #c9c8bd"></div><div class="mes" style="left:100px;color:#efeee5">JUL</div><div class="bar b1" style="left:260px;top:1280px;height:210px;background:#efeee5;box-shadow:inset -28px 0 0 #c9c8bd"></div><div class="mes" style="left:240px;color:#efeee5">AGO</div><div class="bar b2" style="left:400px;top:1300px;height:190px;background:#efeee5;box-shadow:inset -28px 0 0 #c9c8bd"></div><div class="mes" style="left:380px;color:#efeee5">SET</div><div class="bar b3" style="left:540px;top:1240px;height:250px;background:#efeee5;box-shadow:inset -28px 0 0 #c9c8bd"></div><div class="mes" style="left:520px;color:#efeee5">OCT</div><div class="bar b4" style="left:680px;top:1190px;height:300px;background:#efeee5;box-shadow:inset -28px 0 0 #c9c8bd"></div><div class="mes" style="left:660px;color:#efeee5">NOV</div><div class="bar b5" style="left:820px;top:1020px;height:470px;background:#5ce611;box-shadow:inset -28px 0 0 #3fa60a"></div><div class="mes" style="left:800px;color:#5ce611">DIC</div>
+      <svg class="flecha" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="fl" d="M190 1280 C 420 1250, 640 1200, 830 1050" fill="none" stroke="#5ce611" stroke-width="16" stroke-linecap="round"/>
+        <path class="fp" d="M766 1052 L 842 1036 L 836 1114" fill="none" stroke="#5ce611" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-diciembre";
+      const DUR = 2.4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => (typeof s === "string" ? Array.from(root.querySelectorAll(s)) : [s]);
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta
+      const golpe = (s, t, desde = 1.45, d = 0.2) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "power4.out", immediateRender: false }, t); };
+      const sube = (s, t, y = 90, d = 0.32) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.7)", immediateRender: false }, t); };
+      const pop = (s, t, desde = 0.4, d = 0.34) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const cae = (s, t, y = -260, d = 0.3) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t); };
+      const dibujar = (s, t, d = 0.4) => qa(s).forEach((el) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const sacude = (s, t, n = 3, a = 8) => { for (let i = 0; i < n; i++) tl.to(q(s), { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.045); tl.to(q(s), { x: 0, duration: 0.05 }, t + n * 0.045); };
+
+      // cuadro 0: el texto ya está entero, solo se asienta
+      tl.fromTo(qa(".L"), { scale: 1.08, opacity: 0.92 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out", stagger: 0.05 }, 0);
+      gsap.set(qa(".bar"), { transformOrigin: "50% 100%" });
+      // las barras ya están a medio crecer y terminan de subir; diciembre se dispara en "más"
+      for (let k = 0; k < 5; k++) tl.fromTo(q(".b" + k), { scaleY: 0.55 }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.5, ease: "power3.out" }, k * 0.06);
+      tl.fromTo(q(".b5"), { scaleY: 0.3 }, { scaleY: 1, transformOrigin: "50% 100%", duration: 0.45, ease: "back.out(1.6)" }, 1.1 - 0.1);
+      dibujar(".fl", 1.1 + 0.05, 0.4);
+      dibujar(".fp", 1.1 + 0.4, 0.15);
+      tl.to(q(".l4"), { scale: 1.07, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut" }, 1.7);
+      tl.to(q(".esc"), { scale: 1.1, opacity: 0, filter: "blur(8px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+
+    })();
+  </script>
+</template>

@@ -1,0 +1,10 @@
+{
+  "subtitulos": false,
+  "escenas": [
+    ["s01-diciembre", 0], ["s02-aguanta", 8], ["s03-cuaderno", 13], ["s04-pago", 21],
+    ["s05-stock-caja", 28], ["s06-crecer", 37], ["s07-a-medida", 49], ["s08-panel", 57],
+    ["s09-doble", 65], ["s10-noviembre", 72], ["s11-cta", 80]
+  ],
+  "cortes": [0, 8, 13, 21, 28, 32, 37, 40, 49, 57, 65, 72, 80, 85],
+  "acento": [5, 6, 7, 12, 14, 20, 24, 27, 31, 36, 37, 48, 53, 58, 63, 67, 69, 74, 77, 87, 88, 90]
+}

@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-pago"] .esc, [data-composition-id="s04-pago"] .capa, [data-composition-id="s04-pago"] .pila { position: absolute; inset: 0; }
+    [data-composition-id="s04-pago"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s04-pago"] .pie { position: absolute; left: 360px; top: 1718px; width: 360px; height: 96px; border-radius: 48px; background: #0b1220; }
+    [data-composition-id="s04-pago"] .L { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s04-pago"] .L.cr { color: #efeee5; }
+    [data-composition-id="s04-pago"] .L.g { color: #5ce611; }
+    [data-composition-id="s04-pago"] .L.n { color: #0b1220; }
+    [data-composition-id="s04-pago"] .L.x9 { font-weight: 900; }
+    [data-composition-id="s04-pago"] .sel { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #5ce611; color: #0b1220; }
+    [data-composition-id="s04-pago"] .seln { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #0b1220; color: #5ce611; }
+    [data-composition-id="s04-pago"] .gw { color: #5ce611; }
+    [data-composition-id="s04-pago"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s04-pago"] .etq { position: absolute; left: 0; right: 0; top: 340px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-pago"] .etq.n { color: #0b1220; }
+    [data-composition-id="s04-pago"] .hoja { position: absolute; width: 260px; height: 164px; border-radius: 14px; background: #ffffff; border: 6px solid #0b1220; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s04-pago"] .hoja b { position: absolute; left: 22px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0b1220; }
+    [data-composition-id="s04-pago"] .hoja i { position: absolute; left: 22px; width: 190px; height: 8px; border-radius: 4px; background: #7c8698; top: 74px; }
+    [data-composition-id="s04-pago"] .hoja i + i { top: 100px; width: 150px; }
+    [data-composition-id="s04-pago"] .hoja i.c { top: 126px; width: 170px; }
+    [data-composition-id="s04-pago"] .tk { position: absolute; width: 240px; height: 300px; background: #ffffff; border: 6px solid #0b1220; border-radius: 10px 10px 0 0; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s04-pago"] .tk b { position: absolute; left: 0; right: 0; top: 20px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s04-pago"] .tk i { position: absolute; left: 26px; width: 176px; height: 8px; border-radius: 4px; background: #7c8698; top: 82px; }
+    [data-composition-id="s04-pago"] .tk i + i { top: 110px; width: 130px; }
+    [data-composition-id="s04-pago"] .tk i.c { top: 138px; width: 150px; }
+    [data-composition-id="s04-pago"] .tk span { position: absolute; left: 70px; top: 168px; width: 88px; height: 88px; border-radius: 50%; background: #c7655b; color: #ffffff; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 88px; text-align: center; }
+
+    [data-composition-id="s04-pago"] .l1 { top: 390px; font-size: 120px; color: #efeee5; }
+    [data-composition-id="s04-pago"] .glob { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s04-pago"] .gt { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; text-transform: uppercase; font-size: 140px; line-height: 1; color: #0b1220; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s04-pago"] .gt1 { top: 640px; }
+    [data-composition-id="s04-pago"] .gt2 { top: 790px; }
+    [data-composition-id="s04-pago"] .tks { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-pago" data-width="1080" data-height="1920" data-duration="1.92">
+    
+    <div id="s04-pago-escena" class="esc clip" data-start="0" data-duration="1.92" data-track-index="2">
+
+      <div class="L l1">El <span class="gw">doble</span> de</div>
+      <div class="glob">
+        <svg viewBox="0 0 1080 1920" width="1080" height="1920" aria-hidden="true" style="position:absolute;left:0;top:0">
+          <path d="M120 590 Q120 560 150 560 L930 560 Q960 560 960 590 L960 950 Q960 980 930 980 L420 980 L300 1080 L320 980 L150 980 Q120 980 120 950 Z" fill="rgba(3,6,12,0.5)" transform="translate(14 16)"/>
+          <path d="M120 590 Q120 560 150 560 L930 560 Q960 560 960 590 L960 950 Q960 980 930 980 L420 980 L300 1080 L320 980 L150 980 Q120 980 120 950 Z" fill="#efeee5" stroke="#0b1220" stroke-width="8" stroke-linejoin="round"/>
+        </svg>
+        <div class="gt gt1">¿Esto ya</div>
+        <div class="gt gt2">se pagó?</div>
+      </div>
+      <div class="tks"><div class="tk t0" style="left:110px;top:1160px;transform:rotate(-9deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div><div class="tk t1" style="left:320px;top:1210px;transform:rotate(5deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div><div class="tk t2" style="left:530px;top:1150px;transform:rotate(-4deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div><div class="tk t3" style="left:740px;top:1200px;transform:rotate(10deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div><div class="tk t4" style="left:210px;top:1270px;transform:rotate(8deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div><div class="tk t5" style="left:640px;top:1290px;transform:rotate(-7deg)"><b>TICKET</b><i></i><i></i><i class="c"></i><span>?</span></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-pago";
+      const DUR = 1.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => (typeof s === "string" ? Array.from(root.querySelectorAll(s)) : [s]);
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta
+      const golpe = (s, t, desde = 1.45, d = 0.2) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "power4.out", immediateRender: false }, t); };
+      const sube = (s, t, y = 90, d = 0.32) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.7)", immediateRender: false }, t); };
+      const pop = (s, t, desde = 0.4, d = 0.34) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const cae = (s, t, y = -260, d = 0.3) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t); };
+      const dibujar = (s, t, d = 0.4) => qa(s).forEach((el) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const sacude = (s, t, n = 3, a = 8) => { for (let i = 0; i < n; i++) tl.to(q(s), { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.045); tl.to(q(s), { x: 0, duration: 0.05 }, t + n * 0.045); };
+
+      golpe(".l1", 0, 1.3);
+      gsap.set(q(".glob"), { opacity: 0 });
+      tl.fromTo(q(".glob"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, transformOrigin: "300px 1080px", duration: 0.32, ease: "back.out(1.8)", immediateRender: false }, 0.73 - 0.12);
+      gsap.set(qa(".gt"), { opacity: 0 });
+      tl.to(q(".gt1"), { opacity: 1, duration: 0.1 }, 0.73);
+      tl.to(q(".gt2"), { opacity: 1, duration: 0.1 }, 0.99);
+      for (let k = 0; k < 6; k++) cae(".t" + k, 0.12 + k * 0.13, -300, 0.3);
+      tl.to(q(".glob"), { rotation: 2, transformOrigin: "300px 1080px", duration: 0.12, yoyo: true, repeat: 3, ease: "sine.inOut" }, 1.19 + 0.1);
+      tl.to(q(".esc"), { scale: 1.1, opacity: 0, filter: "blur(8px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+
+    })();
+  </script>
+</template>

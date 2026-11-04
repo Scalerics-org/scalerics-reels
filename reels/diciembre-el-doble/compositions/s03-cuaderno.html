@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-cuaderno"] .esc, [data-composition-id="s03-cuaderno"] .capa, [data-composition-id="s03-cuaderno"] .pila { position: absolute; inset: 0; }
+    [data-composition-id="s03-cuaderno"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s03-cuaderno"] .pie { position: absolute; left: 360px; top: 1718px; width: 360px; height: 96px; border-radius: 48px; background: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .L { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.02em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s03-cuaderno"] .L.cr { color: #efeee5; }
+    [data-composition-id="s03-cuaderno"] .L.g { color: #5ce611; }
+    [data-composition-id="s03-cuaderno"] .L.n { color: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .L.x9 { font-weight: 900; }
+    [data-composition-id="s03-cuaderno"] .sel { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #5ce611; color: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .seln { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #0b1220; color: #5ce611; }
+    [data-composition-id="s03-cuaderno"] .gw { color: #5ce611; }
+    [data-composition-id="s03-cuaderno"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+    [data-composition-id="s03-cuaderno"] .etq { position: absolute; left: 0; right: 0; top: 340px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.3em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s03-cuaderno"] .etq.n { color: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .hoja { position: absolute; width: 260px; height: 164px; border-radius: 14px; background: #ffffff; border: 6px solid #0b1220; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s03-cuaderno"] .hoja b { position: absolute; left: 22px; top: 16px; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .hoja i { position: absolute; left: 22px; width: 190px; height: 8px; border-radius: 4px; background: #7c8698; top: 74px; }
+    [data-composition-id="s03-cuaderno"] .hoja i + i { top: 100px; width: 150px; }
+    [data-composition-id="s03-cuaderno"] .hoja i.c { top: 126px; width: 170px; }
+    [data-composition-id="s03-cuaderno"] .tk { position: absolute; width: 240px; height: 300px; background: #ffffff; border: 6px solid #0b1220; border-radius: 10px 10px 0 0; box-shadow: 10px 12px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s03-cuaderno"] .tk b { position: absolute; left: 0; right: 0; top: 20px; text-align: center; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s03-cuaderno"] .tk i { position: absolute; left: 26px; width: 176px; height: 8px; border-radius: 4px; background: #7c8698; top: 82px; }
+    [data-composition-id="s03-cuaderno"] .tk i + i { top: 110px; width: 130px; }
+    [data-composition-id="s03-cuaderno"] .tk i.c { top: 138px; width: 150px; }
+    [data-composition-id="s03-cuaderno"] .tk span { position: absolute; left: 70px; top: 168px; width: 88px; height: 88px; border-radius: 50%; background: #c7655b; color: #ffffff; font-family: "Lexend", sans-serif; font-weight: 900; font-size: 64px; line-height: 88px; text-align: center; }
+
+    [data-composition-id="s03-cuaderno"] .l1 { top: 390px; font-size: 150px; font-weight: 900; }
+    [data-composition-id="s03-cuaderno"] .l2 { top: 545px; font-size: 104px; color: #efeee5; }
+    [data-composition-id="s03-cuaderno"] .l3 { top: 1400px; font-size: 64px; color: #efeee5; font-weight: 700; }
+    [data-composition-id="s03-cuaderno"] .l4 { top: 1475px; font-size: 118px; }
+    [data-composition-id="s03-cuaderno"] .cuad { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s03-cuaderno"] .pila { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-cuaderno" data-width="1080" data-height="1920" data-duration="2.16">
+    
+    <div id="s03-cuaderno-escena" class="esc clip" data-start="0" data-duration="2.16" data-track-index="2">
+
+      <div class="L l1">El <span class="gw">doble</span></div>
+      <div class="L l2">de pedidos</div>
+      <svg class="cuad" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g class="libro">
+          <ellipse cx="560" cy="1372" rx="420" ry="26" fill="rgba(3,6,12,0.55)"/>
+          <rect x="150" y="704" width="800" height="640" rx="26" fill="#1f3254"/>
+          <rect x="130" y="690" width="800" height="640" rx="26" fill="#ffffff" stroke="#0b1220" stroke-width="6"/>
+          <rect x="130" y="690" width="800" height="70" rx="26" fill="#c7655b"/>
+          <rect x="130" y="730" width="800" height="30" fill="#c7655b"/>
+          <rect x="166" y="770" width="7" height="550" fill="#c7655b" opacity="0.6"/>
+          <rect x="190" y="790" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="844" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="898" width="380" height="8" rx="4" fill="#7c8698"/><rect x="190" y="952" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="1006" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="1060" width="380" height="8" rx="4" fill="#7c8698"/><rect x="190" y="1114" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="1168" width="560" height="8" rx="4" fill="#7c8698"/><rect x="190" y="1222" width="380" height="8" rx="4" fill="#7c8698"/>
+          <rect x="170" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="250" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="330" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="410" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="490" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="570" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="650" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="730" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/><rect x="810" y="672" width="22" height="64" rx="11" fill="#efeee5" stroke="#0b1220" stroke-width="6"/>
+        </g>
+      </svg>
+      <div class="pila"><div class="hoja h0" style="left:170px;top:778px;transform:rotate(-12deg)"><b>PEDIDO 31</b><i></i><i></i><i class="c"></i></div><div class="hoja h1" style="left:630px;top:738px;transform:rotate(9deg)"><b>PEDIDO 32</b><i></i><i></i><i class="c"></i></div><div class="hoja h2" style="left:390px;top:898px;transform:rotate(-4deg)"><b>PEDIDO 33</b><i></i><i></i><i class="c"></i></div><div class="hoja h3" style="left:160px;top:1068px;transform:rotate(7deg)"><b>PEDIDO 34</b><i></i><i></i><i class="c"></i></div><div class="hoja h4" style="left:660px;top:1028px;transform:rotate(-10deg)"><b>PEDIDO 35</b><i></i><i></i><i class="c"></i></div><div class="hoja h5" style="left:410px;top:1148px;transform:rotate(12deg)"><b>PEDIDO 36</b><i></i><i></i><i class="c"></i></div><div class="hoja h6" style="left:250px;top:678px;transform:rotate(15deg)"><b>PEDIDO 37</b><i></i><i></i><i class="c"></i></div><div class="hoja h7" style="left:570px;top:878px;transform:rotate(-14deg)"><b>PEDIDO 38</b><i></i><i></i><i class="c"></i></div><div class="hoja h8" style="left:330px;top:1018px;transform:rotate(-8deg)"><b>PEDIDO 39</b><i></i><i></i><i class="c"></i></div><div class="hoja h9" style="left:510px;top:708px;transform:rotate(6deg)"><b>PEDIDO 40</b><i></i><i></i><i class="c"></i></div><div class="hoja h10" style="left:690px;top:1188px;transform:rotate(4deg)"><b>PEDIDO 41</b><i></i><i></i><i class="c"></i></div><div class="hoja h11" style="left:120px;top:1208px;transform:rotate(-6deg)"><b>PEDIDO 42</b><i></i><i></i><i class="c"></i></div></div>
+      <div class="L l3">en el mismo</div>
+      <div class="L l4">cuaderno.</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-cuaderno";
+      const DUR = 2.16;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => (typeof s === "string" ? Array.from(root.querySelectorAll(s)) : [s]);
+      const tl = gsap.timeline({ paused: true });
+      // golpe: entra grande y se asienta
+      const golpe = (s, t, desde = 1.45, d = 0.2) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "power4.out", immediateRender: false }, t); };
+      const sube = (s, t, y = 90, d = 0.32) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.7)", immediateRender: false }, t); };
+      const pop = (s, t, desde = 0.4, d = 0.34) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const cae = (s, t, y = -260, d = 0.3) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "bounce.out", immediateRender: false }, t); };
+      const dibujar = (s, t, d = 0.4) => qa(s).forEach((el) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const sacude = (s, t, n = 3, a = 8) => { for (let i = 0; i < n; i++) tl.to(q(s), { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.045); tl.to(q(s), { x: 0, duration: 0.05 }, t + n * 0.045); };
+
+      golpe(".l1", 0, 1.4);
+      sube(".l2", 0.35 - 0.1, 60);
+      gsap.set(q(".libro"), { opacity: 0 });
+      tl.fromTo(q(".libro"), { opacity: 0, y: 140 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: false }, 0.02);
+      // las hojas caen una tras otra: la pila crece
+      for (let k = 0; k < 12; k++) cae(".h" + k, 0.35 + k * 0.11, -200 - (k % 3) * 60, 0.28);
+      sube(".l3", 0.85 - 0.05, 40, 0.25);
+      golpe(".l4", 1.15 - 0.05, 1.3);
+      tl.to(q(".esc"), { scale: 1.1, opacity: 0, filter: "blur(8px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+
+    })();
+  </script>
+</template>
