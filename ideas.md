@@ -197,6 +197,11 @@
 - 04-11 · `la-misma-pregunta` · Agente de IA · "Este contador suma cuántas veces por día te preguntan lo mismo." Contador en vivo en el celular de Alma Ropa, de 9:14 a 17:46: ¿abren hoy?, ¿hacen envíos?, ¿cuánto sale?, ¿hay talle M?; el dueño contesta bien cada una y el día se le va en lo mismo; giro: la gente no pregunta de más, son preguntas con siempre la misma respuesta; el agente de IA contesta al instante con precios, stock y horarios y le pasa al dueño el pedido grande ("esta es para vos") · Videollamada gratis en scalerics.com [formato contador en vivo (motion TikTok) · celular a pantalla completa, interfaz recreada]
 
 ## En curso
+- 04-11 (2ª tanda) · `por-que-el-carrito` · Automatizaciones · explicador ¿Por qué? · celular a pantalla completa
+- 04-11 (2ª tanda) · `caso-starbucks` · Tienda online (pedir antes de llegar) · caso de éxito · fondo crema
+- 04-11 (2ª tanda) · `caso-spotify` · Scalerics Puntos · caso de éxito (resumen del año) · fondo navy oscuro
+- 04-11 (2ª tanda) · `dos-gimnasios` · CRM · Dos negocios · fondo navy claro
+- 04-11 (2ª tanda) · `diciembre-el-doble` · Sistema a medida · tipografía cinética / caos a control · navy oscuro + verde de marca
 
 
 
