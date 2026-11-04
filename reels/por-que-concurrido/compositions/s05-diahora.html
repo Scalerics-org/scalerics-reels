@@ -1,0 +1,118 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-diahora"] * { box-sizing: border-box; }
+    [data-composition-id="s05-diahora"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-diahora"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-diahora"] .card-sh { position: absolute; left: 78px; top: 562px; width: 960px; height: 1140px; border-radius: 52px; background: #070c16; }
+    [data-composition-id="s05-diahora"] .card { position: absolute; left: 60px; top: 540px; width: 960px; height: 1140px; border-radius: 52px; background: #efeee5; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s05-diahora"] .cin { position: absolute; left: -8px; top: -8px; width: 960px; height: 1140px; }
+    [data-composition-id="s05-diahora"] .mapa-svg { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s05-diahora"] .pin { position: absolute; left: 410px; top: 390px; transform-origin: 50% 100%; }
+    [data-composition-id="s05-diahora"] .hl { position: absolute; text-align: center; font: 600 32px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s05-diahora"] .bp { position: absolute; border-radius: 14px 14px 6px 6px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s05-diahora"] .bp.pk { background: #5ce611; border: 6px solid #0b1220; }
+    [data-composition-id="s05-diahora"] .bv { position: absolute; border-radius: 18px 18px 8px 8px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s05-diahora"] .p-tit { position: absolute; left: 44px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s05-diahora"] .chip { position: absolute; top: 130px; width: 108px; height: 84px; border-radius: 26px; background: #ffffff; border: 6px solid #9aa1ad; font: 800 40px/72px "Lexend", sans-serif; text-align: center; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s05-diahora"] .chip.on { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s05-diahora"] .p-linea { position: absolute; left: 44px; top: 700px; width: 872px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s05-diahora"] .p-eq { position: absolute; left: 46px; top: 774px; font: 600 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s05-diahora"] .pe { position: absolute; width: 76px; height: 88px; }
+    [data-composition-id="s05-diahora"] .pe svg { display: block; }
+    /* notas */
+    [data-composition-id="s05-diahora"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s05-diahora"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s05-diahora"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s05-diahora"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s05-diahora"] .pill.cr { background: #efeee5; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s05-diahora"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s05-diahora"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s05-diahora"] .lead.g { stroke: #5ce611; } [data-composition-id="s05-diahora"] .lead.r { stroke: #c7655b; } [data-composition-id="s05-diahora"] .lead.n { stroke: #0b1220; }
+    [data-composition-id="s05-diahora"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s05-diahora"] .dot.g { fill: #5ce611; } [data-composition-id="s05-diahora"] .dot.r { fill: #c7655b; } [data-composition-id="s05-diahora"] .dot.n { fill: #0b1220; }
+    [data-composition-id="s05-diahora"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s05-diahora"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s05-diahora"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s05-diahora"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s05-diahora"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s05-diahora"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s05-diahora"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s05-diahora"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s05-diahora"] .caja { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; background: #efeee5; }
+    [data-composition-id="s05-diahora"] .c-tit { position: absolute; left: 40px; top: 40px; font: 800 64px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s05-diahora"] .c-s { position: absolute; left: 42px; top: 124px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s05-diahora"] .vf { position: absolute; left: 36px; width: 888px; height: 96px; border-radius: 28px; background: #ffffff; border: 6px solid #0b1220; }
+    [data-composition-id="s05-diahora"] .vf b { position: absolute; left: 28px; top: 0; font: 600 44px/84px "IBM Plex Mono", monospace; color: #0b1220; }
+    [data-composition-id="s05-diahora"] .vf span { position: absolute; left: 220px; top: 0; font: 600 42px/84px "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-diahora"] .vf .ok { position: absolute; right: 22px; top: 18px; }[data-composition-id="s05-diahora"] .pan { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; background: #efeee5; } 
+  </style>
+  <div id="root" data-composition-id="s05-diahora" data-width="1080" data-height="1920" data-duration="2.39">
+    <div id="s05-diahora-esc" class="esc clip" data-start="0" data-duration="2.39" data-track-index="0">
+<div class="card-sh"></div><div class="card "><div class="cin"><div class="pan">
+      <div class="p-tit">Ventas por hora</div>
+      <div class="chip ch0" style="left:48px">L</div><div class="chip ch1" style="left:174px">M</div><div class="chip ch2" style="left:300px">M</div><div class="chip ch3" style="left:426px">J</div><div class="chip ch4" style="left:552px">V</div><div class="chip ch5" style="left:678px">S</div><div class="chip ch6" style="left:804px">D</div>
+      <div class="p-linea"></div>
+      <div class="bv bv0" style="left:60px;top:260px;width:110px;height:440px"></div><div class="bv bv1" style="left:206px;top:260px;width:110px;height:440px"></div><div class="bv bv2" style="left:352px;top:260px;width:110px;height:440px"></div><div class="bv bv3" style="left:498px;top:260px;width:110px;height:440px"></div><div class="bv bv4" style="left:644px;top:260px;width:110px;height:440px"></div><div class="bv bv5" style="left:790px;top:260px;width:110px;height:440px"></div><div class="hl" style="left:40px;top:716px;width:150px">9 h</div><div class="hl" style="left:186px;top:716px;width:150px">11 h</div><div class="hl" style="left:332px;top:716px;width:150px">13 h</div><div class="hl" style="left:478px;top:716px;width:150px">15 h</div><div class="hl" style="left:624px;top:716px;width:150px">17 h</div><div class="hl" style="left:770px;top:716px;width:150px">19 h</div>
+      <div class="p-eq">EQUIPO EN CAJA</div>
+      <div class="pe base b0" style="left:77px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div><div class="pe base b1" style="left:223px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div><div class="pe base b2" style="left:369px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div><div class="pe base b3" style="left:515px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div><div class="pe base b4" style="left:661px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div><div class="pe base b5" style="left:807px;top:818px"><svg width="76" height="88" viewBox="0 0 60 70" aria-hidden="true"><circle cx="30" cy="16" r="14" fill="#0b1220"/><path d="M6 70 Q6 34 30 34 Q54 34 54 70 Z" fill="#0b1220"/></svg></div>
+      </div><div class="vf v0" style="top:200px"><b style="color:#3fa60a">09:40</b><span>Café con leche</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v1" style="top:312px"><b style="color:#3fa60a">11:15</b><span>Medialunas x 6</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v2" style="top:424px"><b style="color:#3fa60a">12:05</b><span>Tostado y jugo</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v3" style="top:536px"><b style="color:#3fa60a">12:20</b><span>Dos cafés</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v4" style="top:648px"><b style="color:#3fa60a">12:48</b><span>Almuerzo</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v5" style="top:760px"><b style="color:#3fa60a">13:10</b><span>Torta en porción</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v6" style="top:872px"><b style="color:#3fa60a">13:35</b><span>Café y medialuna</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div></div>
+      <div class="selbox sb-d" style="left:724px;top:656px;width:136px;height:112px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="pill lleno n1" style="left:410px;top:760px">Sábado</div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead n l2" d="M760 930 L590 930"/><circle class="dot n d2" cx="590" cy="930" r="12"/></svg>
+      <div class="pill lleno n2" style="left:840px;top:930px">Hora pico</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-diahora";
+      const DUR = 2.39;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const CARD = q(".card"), SH = q(".card-sh");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      // barras: alturas como fracción (scaleY) de su alto completo
+      const alto = (s, v, t, d) => tl.to(q(s), { scaleY: v, duration: d ?? 0.4, ease: "back.out(1.4)" }, t);
+
+
+      gsap.set(qa(".bv"), { scaleY: 0 });
+      gsap.set(qa(".pe, .p-eq"), { opacity: 0 });
+      // las ventas caen en las barras
+      qa(".vf").forEach((v, i) => {
+        const col = [0, 1, 2, 2, 2, 3, 3][i];
+        tl.to(v, { x: 60 + col * 146 - 36 - 380, y: 640 - (200 + i * 112), scale: 0.22, opacity: 0, duration: 0.4, ease: "power2.in" }, 0.02 + i * 0.04);
+      });
+      // "Qué día": el sábado
+      qa(".chip").forEach((c, i) => pop(c, 0.05 + i * 0.03, 0.25));
+      tl.to(q(".ch5"), { backgroundColor: "#5ce611", borderColor: "#0b1220", color: "#0b1220", duration: 0.12 }, 0 + 0.05);
+      caja(".sb-d", 0 + 0.05);
+      nota(1, 0.06);
+      // "a qué hora": crecen las barras
+      sinNota(1, 0.76 - 0.2);
+      [30,62,100,74,52,40].forEach((v, i) => alto(".bv" + i, v / 100, 0.46 + i * 0.06, 0.45));
+      // "vendés más": la barra pico en verde
+      tl.to(q(".bv2"), { backgroundColor: "#5ce611", duration: 0.15 }, 1.16);
+      latido(".bv2", 1.16, 1.06);
+      nota(2, 1.46 - 0.1);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

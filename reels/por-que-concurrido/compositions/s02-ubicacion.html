@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-ubicacion"] * { box-sizing: border-box; }
+    [data-composition-id="s02-ubicacion"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-ubicacion"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-ubicacion"] .card-sh { position: absolute; left: 78px; top: 562px; width: 960px; height: 1140px; border-radius: 52px; background: #070c16; }
+    [data-composition-id="s02-ubicacion"] .card { position: absolute; left: 60px; top: 540px; width: 960px; height: 1140px; border-radius: 52px; background: #efeee5; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s02-ubicacion"] .cin { position: absolute; left: -8px; top: -8px; width: 960px; height: 1140px; }
+    [data-composition-id="s02-ubicacion"] .mapa-svg { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s02-ubicacion"] .pin { position: absolute; left: 410px; top: 390px; transform-origin: 50% 100%; }
+    [data-composition-id="s02-ubicacion"] .hl { position: absolute; text-align: center; font: 600 32px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s02-ubicacion"] .bp { position: absolute; border-radius: 14px 14px 6px 6px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s02-ubicacion"] .bp.pk { background: #5ce611; border: 6px solid #0b1220; }
+    [data-composition-id="s02-ubicacion"] .bv { position: absolute; border-radius: 18px 18px 8px 8px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s02-ubicacion"] .p-tit { position: absolute; left: 44px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s02-ubicacion"] .chip { position: absolute; top: 130px; width: 108px; height: 84px; border-radius: 26px; background: #ffffff; border: 6px solid #9aa1ad; font: 800 40px/72px "Lexend", sans-serif; text-align: center; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s02-ubicacion"] .chip.on { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s02-ubicacion"] .p-linea { position: absolute; left: 44px; top: 700px; width: 872px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s02-ubicacion"] .p-eq { position: absolute; left: 46px; top: 774px; font: 600 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s02-ubicacion"] .pe { position: absolute; width: 76px; height: 88px; }
+    [data-composition-id="s02-ubicacion"] .pe svg { display: block; }
+    /* notas */
+    [data-composition-id="s02-ubicacion"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s02-ubicacion"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s02-ubicacion"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s02-ubicacion"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s02-ubicacion"] .pill.cr { background: #efeee5; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s02-ubicacion"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s02-ubicacion"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s02-ubicacion"] .lead.g { stroke: #5ce611; } [data-composition-id="s02-ubicacion"] .lead.r { stroke: #c7655b; } [data-composition-id="s02-ubicacion"] .lead.n { stroke: #0b1220; }
+    [data-composition-id="s02-ubicacion"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s02-ubicacion"] .dot.g { fill: #5ce611; } [data-composition-id="s02-ubicacion"] .dot.r { fill: #c7655b; } [data-composition-id="s02-ubicacion"] .dot.n { fill: #0b1220; }
+    [data-composition-id="s02-ubicacion"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s02-ubicacion"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s02-ubicacion"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s02-ubicacion"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s02-ubicacion"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s02-ubicacion"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s02-ubicacion"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s02-ubicacion"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    
+    [data-composition-id="s02-ubicacion"] .hoja { position: absolute; left: 60px; top: 1080px; width: 960px; height: 600px; border-radius: 52px; background: #ffffff; border: 8px solid #0b1220; box-shadow: 0 -14px 0 rgba(11,18,32,0.25); }
+    [data-composition-id="s02-ubicacion"] .h-n { position: absolute; left: 40px; top: 36px; font: 800 56px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s02-ubicacion"] .h-s { position: absolute; left: 42px; top: 112px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s02-ubicacion"] .h-chip { position: absolute; right: 34px; top: 26px; height: 80px; padding: 0 30px; border-radius: 40px; background: #c7655b; border: 6px solid #0b1220; font: 800 42px/68px "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s02-ubicacion"] .hoja .hl { font-size: 30px; }
+    [data-composition-id="s02-ubicacion"] .pp { position: absolute; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #0b1220; border: 9px solid #ffffff; }
+    [data-composition-id="s02-ubicacion"] .pp i { position: absolute; left: 13px; top: 13px; width: 32px; height: 32px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s02-ubicacion"] .ub { position: absolute; left: 110px; top: 1430px; width: 860px; height: 200px; border-radius: 44px; background: #ffffff; border: 8px solid #0b1220; box-shadow: 0 14px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s02-ubicacion"] .ub-t { position: absolute; left: 40px; top: 38px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-ubicacion"] .ub-s { position: absolute; left: 42px; top: 112px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s02-ubicacion"] .sw { position: absolute; left: 640px; top: 52px; width: 172px; height: 92px; border-radius: 46px; background: #9aa1ad; border: 6px solid #0b1220; }
+    [data-composition-id="s02-ubicacion"] .sw-on { position: absolute; inset: -6px; border-radius: 46px; background: #5ce611; border: 6px solid #0b1220; opacity: 0; }
+    [data-composition-id="s02-ubicacion"] .sw-k { position: absolute; left: 6px; top: 6px; width: 68px; height: 68px; border-radius: 34px; background: #ffffff; border: 6px solid #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s02-ubicacion" data-width="1080" data-height="1920" data-duration="2.34">
+    <div id="s02-ubicacion-esc" class="esc clip" data-start="0" data-duration="2.34" data-track-index="0">
+<div class="card-sh"></div><div class="card "><div class="cin">
+  <svg class="mapa-svg" width="960" height="1140" viewBox="0 0 960 1140" aria-hidden="true">
+    <rect width="960" height="1140" fill="#d9d7ca"/>
+    <rect x="290" y="360" width="390" height="400" rx="18" fill="#cfccbd"/>
+    <rect x="-20" y="-20" width="240" height="310" rx="18" fill="#cfccbd"/>
+    <rect x="290" y="-20" width="390" height="310" rx="18" fill="#cfccbd"/>
+    <rect x="-20" y="360" width="240" height="400" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="360" width="210" height="400" rx="18" fill="#c9e7b2"/>
+    <rect x="-20" y="850" width="240" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="290" y="850" width="390" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="850" width="210" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="-20" width="210" height="310" rx="18" fill="#cfccbd"/>
+    <path d="M-20 325 H980 M-20 805 H980 M255 -20 V1160 M725 -20 V1160" stroke="#ffffff" stroke-width="58" fill="none"/>
+    <g transform="translate(480 630)">
+      <rect x="-110" y="-60" width="220" height="130" rx="12" fill="#1f3254"/>
+      <path d="M-124 -60 H124 L110 -22 H-110 Z" fill="#5ce611"/>
+      <rect x="-30" y="0" width="60" height="70" rx="6" fill="#efeee5"/>
+    </g>
+  </svg><div class="pp p0" style="left:255px;top:1140px"><i></i></div><div class="pp p1" style="left:-30px;top:325px"><i></i></div><div class="pp p2" style="left:990px;top:325px"><i></i></div><div class="pp p3" style="left:725px;top:-30px"><i></i></div><div class="pp p4" style="left:255px;top:-30px"><i></i></div><div class="pp p5" style="left:990px;top:805px"><i></i></div><div class="pp p6" style="left:-30px;top:805px"><i></i></div><div class="pp p7" style="left:725px;top:1170px"><i></i></div><svg class="pin" width="140" height="170" viewBox="-70 -170 140 170" aria-hidden="true"><path d="M0 0 Q-62 -76 -62 -110 Q-62 -166 0 -166 Q62 -166 62 -110 Q62 -76 0 0 Z" fill="#5ce611" stroke="#0b1220" stroke-width="8"/><circle cx="0" cy="-110" r="22" fill="#0b1220"/></svg></div></div>
+      
+      <div class="hoja">
+        <div class="h-n">Café de la esquina</div>
+        <div class="h-s">HORARIOS CONCURRIDOS</div>
+        <div class="h-chip">Lleno</div>
+        <div class="bp bp0" style="left:42px;top:446px;width:50px;height:54px"></div><div class="bp bp1" style="left:112px;top:416px;width:50px;height:84px"></div><div class="bp bp2" style="left:182px;top:374px;width:50px;height:126px"></div><div class="bp bp3" style="left:252px;top:320px;width:50px;height:180px"></div><div class="bp bp4" style="left:322px;top:236px;width:50px;height:264px"></div><div class="bp bp5 pk" style="left:392px;top:200px;width:50px;height:300px"></div><div class="bp bp6" style="left:462px;top:254px;width:50px;height:246px"></div><div class="bp bp7" style="left:532px;top:335px;width:50px;height:165px"></div><div class="bp bp8" style="left:602px;top:356px;width:50px;height:144px"></div><div class="bp bp9" style="left:672px;top:314px;width:50px;height:186px"></div><div class="bp bp10" style="left:742px;top:278px;width:50px;height:222px"></div><div class="bp bp11" style="left:812px;top:326px;width:50px;height:174px"></div><div class="bp bp12" style="left:882px;top:410px;width:50px;height:90px"></div><div class="hl" style="left:12px;top:518px;width:110px">8 h</div><div class="hl" style="left:292px;top:518px;width:110px">12 h</div><div class="hl" style="left:572px;top:518px;width:110px">16 h</div><div class="hl" style="left:812px;top:518px;width:120px;text-align:right">20 h</div>
+      </div>
+      <div class="ub"><div class="ub-t">Ubicación</div><div class="ub-s">SOLO SI LA PERSONA QUIERE</div><div class="sw"><div class="sw-on"></div><div class="sw-k"></div></div></div>
+      <div class="pill lleno n1" style="left:540px;top:1400px">Si lo permite</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-ubicacion";
+      const DUR = 2.34;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const CARD = q(".card"), SH = q(".card-sh");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      // barras: alturas como fracción (scaleY) de su alto completo
+      const alto = (s, v, t, d) => tl.to(q(s), { scaleY: v, duration: d ?? 0.4, ease: "back.out(1.4)" }, t);
+
+
+      gsap.set(q(".cin"), { y: -250, scale: 1.06, transformOrigin: "480px 560px" });
+      // la hoja baja y el mapa ocupa toda la tarjeta (push-in al local)
+      tl.to(q(".hoja"), { y: 900, opacity: 0, duration: 0.5, ease: "power2.in" }, 0);
+      tl.to(q(".cin"), { y: 0, scale: 1, duration: 0.7, ease: "power3.inOut" }, 0.05);
+      // "ubicación": la gente camina por las calles hacia el local
+      [[255,1140,330,640],[-30,325,360,470],[990,325,610,460],[725,-30,640,560],[255,-30,330,520],[990,805,620,680],[-30,805,380,700],[725,1170,520,720]].forEach(([x0, y0, x1, y1], k) => {
+        const el = q(".p" + k);
+        tl.to(el, { x: x1 - x0, y: y1 - y0, duration: 1.5, ease: "power1.inOut" }, 0.22 - 0.1 + k * 0.08);
+      });
+      // "la gente que lo permite": el interruptor
+      tl.fromTo(q(".ub"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.57);
+      tl.to(q(".sw-k"), { x: 80, duration: 0.22, ease: "power2.out" }, 1.42);
+      tl.to(q(".sw-on"), { opacity: 1, duration: 0.15 }, 1.42);
+      tl.fromTo(qa(".pp i"), { scale: 1 }, { scale: 1.3, transformOrigin: "50% 50%", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 1.42);
+      nota(1, 1.52);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

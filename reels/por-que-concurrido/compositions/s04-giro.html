@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-giro"] * { box-sizing: border-box; }
+    [data-composition-id="s04-giro"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-giro"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-giro"] .card-sh { position: absolute; left: 78px; top: 562px; width: 960px; height: 1140px; border-radius: 52px; background: #070c16; }
+    [data-composition-id="s04-giro"] .card { position: absolute; left: 60px; top: 540px; width: 960px; height: 1140px; border-radius: 52px; background: #efeee5; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s04-giro"] .cin { position: absolute; left: -8px; top: -8px; width: 960px; height: 1140px; }
+    [data-composition-id="s04-giro"] .mapa-svg { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s04-giro"] .pin { position: absolute; left: 410px; top: 390px; transform-origin: 50% 100%; }
+    [data-composition-id="s04-giro"] .hl { position: absolute; text-align: center; font: 600 32px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s04-giro"] .bp { position: absolute; border-radius: 14px 14px 6px 6px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s04-giro"] .bp.pk { background: #5ce611; border: 6px solid #0b1220; }
+    [data-composition-id="s04-giro"] .bv { position: absolute; border-radius: 18px 18px 8px 8px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s04-giro"] .p-tit { position: absolute; left: 44px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s04-giro"] .chip { position: absolute; top: 130px; width: 108px; height: 84px; border-radius: 26px; background: #ffffff; border: 6px solid #9aa1ad; font: 800 40px/72px "Lexend", sans-serif; text-align: center; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s04-giro"] .chip.on { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s04-giro"] .p-linea { position: absolute; left: 44px; top: 700px; width: 872px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s04-giro"] .p-eq { position: absolute; left: 46px; top: 774px; font: 600 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s04-giro"] .pe { position: absolute; width: 76px; height: 88px; }
+    [data-composition-id="s04-giro"] .pe svg { display: block; }
+    /* notas */
+    [data-composition-id="s04-giro"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s04-giro"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s04-giro"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s04-giro"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s04-giro"] .pill.cr { background: #efeee5; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s04-giro"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s04-giro"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s04-giro"] .lead.g { stroke: #5ce611; } [data-composition-id="s04-giro"] .lead.r { stroke: #c7655b; } [data-composition-id="s04-giro"] .lead.n { stroke: #0b1220; }
+    [data-composition-id="s04-giro"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s04-giro"] .dot.g { fill: #5ce611; } [data-composition-id="s04-giro"] .dot.r { fill: #c7655b; } [data-composition-id="s04-giro"] .dot.n { fill: #0b1220; }
+    [data-composition-id="s04-giro"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s04-giro"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s04-giro"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s04-giro"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s04-giro"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s04-giro"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s04-giro"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s04-giro"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s04-giro"] .graf { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; background: #efeee5; }
+    [data-composition-id="s04-giro"] .g-tit { position: absolute; left: 36px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s04-giro"] .g-s { position: absolute; left: 38px; top: 120px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s04-giro"] .g-linea { position: absolute; left: 30px; top: 1010px; width: 900px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s04-giro"] .caja { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; background: #efeee5; }
+    [data-composition-id="s04-giro"] .c-tit { position: absolute; left: 40px; top: 40px; font: 800 64px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s04-giro"] .c-s { position: absolute; left: 42px; top: 124px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s04-giro"] .vf { position: absolute; left: 36px; width: 888px; height: 96px; border-radius: 28px; background: #ffffff; border: 6px solid #0b1220; }
+    [data-composition-id="s04-giro"] .vf b { position: absolute; left: 28px; top: 0; font: 600 44px/84px "IBM Plex Mono", monospace; color: #0b1220; }
+    [data-composition-id="s04-giro"] .vf span { position: absolute; left: 220px; top: 0; font: 600 42px/84px "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-giro"] .vf .ok { position: absolute; right: 22px; top: 18px; }
+  </style>
+  <div id="root" data-composition-id="s04-giro" data-width="1080" data-height="1920" data-duration="2.98">
+    <div id="s04-giro-esc" class="esc clip" data-start="0" data-duration="2.98" data-track-index="0">
+<div class="card-sh"></div><div class="card "><div class="cin"><div class="graf"><div class="g-tit">Horarios concurridos</div><div class="g-s">SÁBADO · PROMEDIO DE SEMANAS</div><div class="bp bp0" style="left:34px;top:894.8px;width:52px;height:115.2px"></div><div class="bp bp1" style="left:104px;top:830.8px;width:52px;height:179.2px"></div><div class="bp bp2" style="left:174px;top:741.2px;width:52px;height:268.8px"></div><div class="bp bp3" style="left:244px;top:626px;width:52px;height:384px"></div><div class="bp bp4" style="left:314px;top:446.79999999999995px;width:52px;height:563.2px"></div><div class="bp bp5 pk" style="left:384px;top:370px;width:52px;height:640px"></div><div class="bp bp6" style="left:454px;top:485.20000000000005px;width:52px;height:524.8px"></div><div class="bp bp7" style="left:524px;top:658px;width:52px;height:352px"></div><div class="bp bp8" style="left:594px;top:702.8px;width:52px;height:307.2px"></div><div class="bp bp9" style="left:664px;top:613.2px;width:52px;height:396.8px"></div><div class="bp bp10" style="left:734px;top:536.4px;width:52px;height:473.6px"></div><div class="bp bp11" style="left:804px;top:638.8px;width:52px;height:371.2px"></div><div class="bp bp12" style="left:874px;top:818px;width:52px;height:192px"></div><div class="hl" style="left:4px;top:1028px;width:112px">8 h</div><div class="hl" style="left:284px;top:1028px;width:112px">12 h</div><div class="hl" style="left:564px;top:1028px;width:112px">16 h</div><div class="hl" style="left:806px;top:1028px;width:120px;text-align:right">20 h</div><div class="g-linea"></div></div><div class="caja"><div class="c-tit">Tu local</div><div class="c-s">CAJA · VENTAS DE HOY</div><div class="vf v0" style="top:200px"><b>09:40</b><span>Café con leche</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v1" style="top:312px"><b>11:15</b><span>Medialunas x 6</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v2" style="top:424px"><b>12:05</b><span>Tostado y jugo</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v3" style="top:536px"><b>12:20</b><span>Dos cafés</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v4" style="top:648px"><b>12:48</b><span>Almuerzo</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v5" style="top:760px"><b>13:10</b><span>Torta en porción</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="vf v6" style="top:872px"><b>13:35</b><span>Café y medialuna</span><div class="ok"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div></div></div></div>
+      <div class="selbox sb-h" style="left:92px;top:734px;width:200px;height:800px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="pill lleno n1" style="left:540px;top:1630px">Un dato mejor</div>
+      <div class="pill cr n2" style="left:650px;top:1630px">Cada venta, con su hora</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-giro";
+      const DUR = 2.98;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const CARD = q(".card"), SH = q(".card-sh");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      // barras: alturas como fracción (scaleY) de su alto completo
+      const alto = (s, v, t, d) => tl.to(q(s), { scaleY: v, duration: d ?? 0.4, ease: "back.out(1.4)" }, t);
+
+
+      gsap.set(q(".caja"), { opacity: 0 });
+      // "Pero": la tarjeta se da vuelta
+      const t0 = 0 + 0.05;
+      tl.to([CARD, SH], { scaleX: 0, duration: 0.2, ease: "power2.in", transformOrigin: "50% 50%" }, t0);
+      tl.set(q(".caja"), { opacity: 1 }, t0 + 0.2);
+      tl.set(q(".graf"), { opacity: 0 }, t0 + 0.2);
+      tl.to([CARD, SH], { scaleX: 1, duration: 0.3, ease: "back.out(1.6)" }, t0 + 0.2);
+      qa(".vf").forEach((v, i) => tl.fromTo(v, { opacity: 0, y: -40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.8)" }, t0 + 0.35 + i * 0.09));
+      // "un dato mejor"
+      nota(1, 0.84);
+      latido(".c-tit", 0.84 + 0.1, 1.1);
+      // "Tus ventas": cada venta tiene su hora
+      sinNota(1, 1.89 - 0.15);
+      caja(".sb-h", 2.04);
+      qa(".vf b").forEach((b, i) => tl.to(b, { color: "#3fa60a", duration: 0.1 }, 2.04 + 0.05 + i * 0.04));
+      nota(2, 2.04 + 0.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

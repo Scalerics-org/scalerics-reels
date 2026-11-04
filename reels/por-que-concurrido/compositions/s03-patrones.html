@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-patrones"] * { box-sizing: border-box; }
+    [data-composition-id="s03-patrones"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-patrones"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-patrones"] .card-sh { position: absolute; left: 78px; top: 562px; width: 960px; height: 1140px; border-radius: 52px; background: #070c16; }
+    [data-composition-id="s03-patrones"] .card { position: absolute; left: 60px; top: 540px; width: 960px; height: 1140px; border-radius: 52px; background: #efeee5; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s03-patrones"] .cin { position: absolute; left: -8px; top: -8px; width: 960px; height: 1140px; }
+    [data-composition-id="s03-patrones"] .mapa-svg { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s03-patrones"] .pin { position: absolute; left: 410px; top: 390px; transform-origin: 50% 100%; }
+    [data-composition-id="s03-patrones"] .hl { position: absolute; text-align: center; font: 600 32px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s03-patrones"] .bp { position: absolute; border-radius: 14px 14px 6px 6px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s03-patrones"] .bp.pk { background: #5ce611; border: 6px solid #0b1220; }
+    [data-composition-id="s03-patrones"] .bv { position: absolute; border-radius: 18px 18px 8px 8px; background: #1f3254; transform-origin: 50% 100%; }
+    [data-composition-id="s03-patrones"] .p-tit { position: absolute; left: 44px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s03-patrones"] .chip { position: absolute; top: 130px; width: 108px; height: 84px; border-radius: 26px; background: #ffffff; border: 6px solid #9aa1ad; font: 800 40px/72px "Lexend", sans-serif; text-align: center; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s03-patrones"] .chip.on { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s03-patrones"] .p-linea { position: absolute; left: 44px; top: 700px; width: 872px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s03-patrones"] .p-eq { position: absolute; left: 46px; top: 774px; font: 600 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s03-patrones"] .pe { position: absolute; width: 76px; height: 88px; }
+    [data-composition-id="s03-patrones"] .pe svg { display: block; }
+    /* notas */
+    [data-composition-id="s03-patrones"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s03-patrones"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-patrones"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s03-patrones"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s03-patrones"] .pill.cr { background: #efeee5; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s03-patrones"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s03-patrones"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s03-patrones"] .lead.g { stroke: #5ce611; } [data-composition-id="s03-patrones"] .lead.r { stroke: #c7655b; } [data-composition-id="s03-patrones"] .lead.n { stroke: #0b1220; }
+    [data-composition-id="s03-patrones"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s03-patrones"] .dot.g { fill: #5ce611; } [data-composition-id="s03-patrones"] .dot.r { fill: #c7655b; } [data-composition-id="s03-patrones"] .dot.n { fill: #0b1220; }
+    [data-composition-id="s03-patrones"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s03-patrones"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s03-patrones"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-patrones"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-patrones"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s03-patrones"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s03-patrones"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s03-patrones"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s03-patrones"] .pp { position: absolute; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; background: #0b1220; border: 9px solid #ffffff; }
+    [data-composition-id="s03-patrones"] .pp i { position: absolute; left: 13px; top: 13px; width: 32px; height: 32px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s03-patrones"] .av { position: absolute; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; opacity: 0; }
+    [data-composition-id="s03-patrones"] .av .cara, [data-composition-id="s03-patrones"] .av .anon { position: absolute; inset: 0; }
+    [data-composition-id="s03-patrones"] .av .anon { opacity: 0; border-radius: 50%; background: #9aa1ad; border: 7px solid #0b1220; }
+    [data-composition-id="s03-patrones"] .graf { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; background: #efeee5; opacity: 0; }
+    [data-composition-id="s03-patrones"] .g-tit { position: absolute; left: 36px; top: 40px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s03-patrones"] .g-s { position: absolute; left: 38px; top: 120px; font: 600 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.62); }
+    [data-composition-id="s03-patrones"] .g-linea { position: absolute; left: 30px; top: 1010px; width: 900px; height: 6px; border-radius: 3px; background: #0b1220; }
+    [data-composition-id="s03-patrones"] .sem { position: absolute; left: 0; top: 0; width: 960px; height: 1140px; overflow: visible; }
+    [data-composition-id="s03-patrones"] .sem rect { fill: none; stroke: #0b1220; stroke-width: 6; stroke-dasharray: 14 10; opacity: 0; }
+    [data-composition-id="s03-patrones"] .adiv { position: absolute; left: 680px; top: 590px; width: 260px; height: 260px; border-radius: 50%; background: #ffffff; border: 9px solid #0b1220; font: 800 170px/240px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s03-patrones"] .adiv svg { position: absolute; left: -8px; top: -8px; }
+  </style>
+  <div id="root" data-composition-id="s03-patrones" data-width="1080" data-height="1920" data-duration="3.74">
+    <div id="s03-patrones-esc" class="esc clip" data-start="0" data-duration="3.74" data-track-index="0">
+<div class="card-sh"></div><div class="card "><div class="cin">
+  <svg class="mapa-svg" width="960" height="1140" viewBox="0 0 960 1140" aria-hidden="true">
+    <rect width="960" height="1140" fill="#d9d7ca"/>
+    <rect x="290" y="360" width="390" height="400" rx="18" fill="#cfccbd"/>
+    <rect x="-20" y="-20" width="240" height="310" rx="18" fill="#cfccbd"/>
+    <rect x="290" y="-20" width="390" height="310" rx="18" fill="#cfccbd"/>
+    <rect x="-20" y="360" width="240" height="400" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="360" width="210" height="400" rx="18" fill="#c9e7b2"/>
+    <rect x="-20" y="850" width="240" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="290" y="850" width="390" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="850" width="210" height="320" rx="18" fill="#cfccbd"/>
+    <rect x="770" y="-20" width="210" height="310" rx="18" fill="#cfccbd"/>
+    <path d="M-20 325 H980 M-20 805 H980 M255 -20 V1160 M725 -20 V1160" stroke="#ffffff" stroke-width="58" fill="none"/>
+    <g transform="translate(480 630)">
+      <rect x="-110" y="-60" width="220" height="130" rx="12" fill="#1f3254"/>
+      <path d="M-124 -60 H124 L110 -22 H-110 Z" fill="#5ce611"/>
+      <rect x="-30" y="0" width="60" height="70" rx="6" fill="#efeee5"/>
+    </g>
+  </svg><svg class="pin" width="140" height="170" viewBox="-70 -170 140 170" aria-hidden="true"><path d="M0 0 Q-62 -76 -62 -110 Q-62 -166 0 -166 Q62 -166 62 -110 Q62 -76 0 0 Z" fill="#5ce611" stroke="#0b1220" stroke-width="8"/><circle cx="0" cy="-110" r="22" fill="#0b1220"/></svg><div class="pp p0" style="left:330px;top:640px"><i></i></div><div class="pp p1" style="left:360px;top:470px"><i></i></div><div class="pp p2" style="left:610px;top:460px"><i></i></div><div class="pp p3" style="left:640px;top:560px"><i></i></div><div class="pp p4" style="left:330px;top:520px"><i></i></div><div class="pp p5" style="left:620px;top:680px"><i></i></div><div class="pp p6" style="left:380px;top:700px"><i></i></div><div class="pp p7" style="left:520px;top:720px"><i></i></div><div class="graf">
+        <div class="g-tit">Horarios concurridos</div>
+        <div class="g-s">SÁBADO · PROMEDIO DE SEMANAS</div>
+        <svg class="sem" viewBox="0 0 960 1140" aria-hidden="true"><rect class="s0" x="34" y="912.08" width="52" height="97.92" rx="10"/><rect class="s0" x="104" y="816.4639999999999" width="52" height="193.53600000000003" rx="10"/><rect class="s0" x="174" y="768.08" width="52" height="241.92" rx="10"/><rect class="s0" x="244" y="587.6" width="52" height="422.4" rx="10"/><rect class="s0" x="314" y="474.96000000000004" width="52" height="535.04" rx="10"/><rect class="s0" x="384" y="370" width="52" height="640" rx="10"/><rect class="s0" x="454" y="537.6800000000001" width="52" height="472.32" rx="10"/><rect class="s0" x="524" y="622.8" width="52" height="387.2" rx="10"/><rect class="s0" x="594" y="748.88" width="52" height="261.12" rx="10"/><rect class="s0" x="664" y="593.36" width="52" height="416.64" rx="10"/><rect class="s0" x="734" y="574.288" width="52" height="435.71200000000005" rx="10"/><rect class="s0" x="804" y="601.6800000000001" width="52" height="408.32" rx="10"/><rect class="s0" x="874" y="837.2" width="52" height="172.8" rx="10"/><rect class="s1" x="34" y="880.976" width="52" height="129.024" rx="10"/><rect class="s1" x="104" y="848.72" width="52" height="161.28" rx="10"/><rect class="s1" x="174" y="714.3199999999999" width="52" height="295.68000000000006" rx="10"/><rect class="s1" x="244" y="656.72" width="52" height="353.28" rx="10"/><rect class="s1" x="314" y="413.0079999999999" width="52" height="596.9920000000001" rx="10"/><rect class="s1" x="384" y="395.6" width="52" height="614.4" rx="10"/><rect class="s1" x="454" y="432.7199999999999" width="52" height="577.2800000000001" rx="10"/><rect class="s1" x="524" y="693.2" width="52" height="316.8" rx="10"/><rect class="s1" x="594" y="665.9359999999999" width="52" height="344.064" rx="10"/><rect class="s1" x="664" y="637.008" width="52" height="372.99199999999996" rx="10"/><rect class="s1" x="734" y="498.51199999999994" width="52" height="511.48800000000006" rx="10"/><rect class="s1" x="804" y="675.9200000000001" width="52" height="334.08" rx="10"/><rect class="s1" x="874" y="798.8" width="52" height="211.2" rx="10"/></svg>
+        <div class="bp bp0" style="left:34px;top:894.8px;width:52px;height:115.2px"></div><div class="bp bp1" style="left:104px;top:830.8px;width:52px;height:179.2px"></div><div class="bp bp2" style="left:174px;top:741.2px;width:52px;height:268.8px"></div><div class="bp bp3" style="left:244px;top:626px;width:52px;height:384px"></div><div class="bp bp4" style="left:314px;top:446.79999999999995px;width:52px;height:563.2px"></div><div class="bp bp5 pk" style="left:384px;top:370px;width:52px;height:640px"></div><div class="bp bp6" style="left:454px;top:485.20000000000005px;width:52px;height:524.8px"></div><div class="bp bp7" style="left:524px;top:658px;width:52px;height:352px"></div><div class="bp bp8" style="left:594px;top:702.8px;width:52px;height:307.2px"></div><div class="bp bp9" style="left:664px;top:613.2px;width:52px;height:396.8px"></div><div class="bp bp10" style="left:734px;top:536.4px;width:52px;height:473.6px"></div><div class="bp bp11" style="left:804px;top:638.8px;width:52px;height:371.2px"></div><div class="bp bp12" style="left:874px;top:818px;width:52px;height:192px"></div><div class="hl" style="left:4px;top:1028px;width:112px">8 h</div><div class="hl" style="left:284px;top:1028px;width:112px">12 h</div><div class="hl" style="left:564px;top:1028px;width:112px">16 h</div><div class="hl" style="left:806px;top:1028px;width:120px;text-align:right">20 h</div>
+        <div class="g-linea"></div>
+      </div><div class="av a0" style="left:330px;top:640px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a1" style="left:360px;top:470px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a2" style="left:610px;top:460px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a3" style="left:640px;top:560px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a4" style="left:330px;top:520px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a5" style="left:620px;top:680px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a6" style="left:380px;top:700px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div><div class="av a7" style="left:520px;top:720px"><div class="cara"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><div class="anon"></div></div></div></div>
+      <div class="adiv">?<svg width="260" height="260" viewBox="0 0 260 260" aria-hidden="true"><path class="tacha" d="M44 216 L216 44" stroke="#c7655b" stroke-width="16" stroke-linecap="round" fill="none"/></svg></div>
+      <div class="pill cr n1" style="left:300px;top:1450px">Juntos</div>
+      <div class="pill lleno n2" style="left:720px;top:1450px">Anónimos</div>
+      <div class="pill lleno n3" style="left:540px;top:800px">Mira patrones</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-patrones";
+      const DUR = 3.74;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const CARD = q(".card"), SH = q(".card-sh");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      // barras: alturas como fracción (scaleY) de su alto completo
+      const alto = (s, v, t, d) => tl.to(q(s), { scaleY: v, duration: d ?? 0.4, ease: "back.out(1.4)" }, t);
+
+
+      // los puntos se vuelven personas
+      qa(".pp").forEach((p, k) => { tl.to(p, { scale: 0.3, opacity: 0, duration: 0.2, ease: "power2.in" }, 0.02 + k * 0.03); });
+      qa(".av").forEach((a, k) => pop(a, 0.08 + k * 0.03, 0.3, 0.4));
+      // "Juntos": se juntan en el local
+      const G0 = [[330,640],[360,470],[610,460],[640,560],[330,520],[620,680],[380,700],[520,720]];
+      qa(".av").forEach((a, k) => {
+        const tx = 300 + (k % 4) * 120, ty = 520 + Math.floor(k / 4) * 130;
+        tl.to(a, { x: tx - G0[k][0], y: ty - G0[k][1], duration: 0.4, ease: "power3.inOut" }, 0.15 + k * 0.02);
+      });
+      nota(1, 0.2);
+      // "anónimos": las caras se apagan
+      qa(".av .anon").forEach((a, k) => tl.to(a, { opacity: 1, duration: 0.14 }, 0.58 + k * 0.03));
+      qa(".av .cara").forEach((a, k) => tl.to(a, { opacity: 0, duration: 0.14 }, 0.58 + k * 0.03));
+      nota(2, 0.58);
+      // "No adivina": el signo de pregunta tachado
+      pop(".adiv", 1.61 - 0.05, 0.3);
+      dibujar(".tacha", 1.68 + 0.15, 0.25);
+      sinNota(1, 1.61); sinNota(2, 1.61);
+      fuera(".adiv", 2.48);
+      // "mira patrones": entra el gráfico, las semanas punteadas y el promedio
+      tl.to(q(".graf"), { opacity: 1, duration: 0.25 }, 2.48 - 0.2);
+      qa(".av").forEach((a, k) => {
+        const i = [2, 4, 5, 6, 9, 10, 3, 11][k];
+        tl.to(a, { x: "+=0", y: "+=0", scale: 0.4, opacity: 0, duration: 0.28, ease: "power2.in" }, 2.48 - 0.2 + k * 0.02);
+      });
+      tl.to(qa(".sem .s0"), { opacity: 0.45, duration: 0.15, stagger: 0.012 }, 2.48);
+      tl.to(qa(".sem .s1"), { opacity: 0.45, duration: 0.15, stagger: 0.012 }, 2.48 + 0.18);
+      qa(".graf .bp").forEach((b, i) => tl.fromTo(b, { scaleY: 0 }, { scaleY: 1, duration: 0.45, ease: "back.out(1.4)" }, 2.48 + 0.35 + i * 0.03));
+      nota(3, 2.58 + 0.1);
+      latido(".graf .bp.pk", 2.58 + 0.75, 1.1);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
