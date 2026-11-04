@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-giro"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-giro"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-giro"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.6); }
+    [data-composition-id="s09-giro"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-giro"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s09-giro"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s09-giro"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s09-giro"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 800; }
+    [data-composition-id="s09-giro"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s09-giro"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s09-giro"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s09-giro"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s09-giro"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s09-giro"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s09-giro"] .bw { position: absolute; max-width: 720px; opacity: 0; }
+    [data-composition-id="s09-giro"] .bw.sale { display: flex; flex-direction: column; align-items: flex-end; }
+    [data-composition-id="s09-giro"] .quien { display: flex; align-items: center; gap: 16px; margin: 0 0 12px 6px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); white-space: nowrap; }
+    [data-composition-id="s09-giro"] .av { display: inline-block; width: 56px; height: 56px; border-radius: 50%; background: #1f3254; border: 4px solid #2c4268; font: 800 28px/48px "Lexend", sans-serif; text-align: center; color: #efeee5; letter-spacing: 0; }
+    [data-composition-id="s09-giro"] .av.c { background: #efeee5; border-color: #efeee5; color: #0b1220; }
+    [data-composition-id="s09-giro"] .b { display: inline-block; padding: 24px 36px 26px; font: 600 50px/1.2 "Lexend", sans-serif; border-radius: 40px; box-shadow: 0 12px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s09-giro"] .b.in { background: #efeee5; color: #0b1220; border-bottom-left-radius: 10px; }
+    [data-composition-id="s09-giro"] .b.out { background: #5ce611; color: #0b1220; border-bottom-right-radius: 10px; }
+    [data-composition-id="s09-giro"] .tel { position: absolute; left: 90px; top: 510px; width: 900px; height: 1190px; border-radius: 72px; background: #16243d; border: 8px solid #2c4268; box-shadow: 0 20px 0 rgba(3,6,12,0.6); overflow: hidden; }
+    [data-composition-id="s09-giro"] .tel-hd { position: absolute; left: 0; right: 0; top: 0; height: 160px; background: #1f3254; border-bottom: 6px solid #2c4268; }
+    [data-composition-id="s09-giro"] .tel-av { position: absolute; left: 34px; top: 30px; width: 100px; height: 100px; border-radius: 50%; background: #0b1220; border: 5px solid #2c4268; overflow: hidden; }
+    [data-composition-id="s09-giro"] .tel-av .chis { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s09-giro"] .tel-n { position: absolute; left: 162px; top: 32px; font: 800 52px/1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s09-giro"] .tel-s { position: absolute; left: 164px; top: 100px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); white-space: nowrap; }
+    [data-composition-id="s09-giro"] .tel-b { position: absolute; right: 40px; top: 38px; min-width: 84px; height: 84px; padding: 0 18px; border-radius: 42px; background: #c7655b; font: 900 50px/84px "Lexend", sans-serif; text-align: center; color: #fff; }
+
+    [data-composition-id="s09-giro"] .cd { position: absolute; top: 540px; width: 470px; height: 760px; border-radius: 48px; background: #16243d; border: 8px solid #c7655b; box-shadow: 0 18px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s09-giro"] .cd-t { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s09-giro"] .cd-v { position: absolute; left: 0; right: 0; bottom: 44px; text-align: center; font: 800 50px/1.1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s09-giro"] .izq { left: 50px; } [data-composition-id="s09-giro"] .der { left: 560px; }
+    [data-composition-id="s09-giro"] .izq .ic { position: absolute; left: 160px; top: 160px; }
+    [data-composition-id="s09-giro"] .der .ic { position: absolute; left: 85px; top: 150px; width: 300px; height: 300px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s09-giro"] .der .ic svg { position: absolute; left: 50px; top: 50px; }
+    [data-composition-id="s09-giro"] .izq .ic2 { position: absolute; left: 70px; top: 300px; }
+    [data-composition-id="s09-giro"] .ok { position: absolute; left: 345px; top: 100px; opacity: 0; }
+    [data-composition-id="s09-giro"] .vs { position: absolute; left: 430px; top: 810px; width: 220px; height: 220px; border-radius: 50%; background: #c7655b; border: 12px solid #0b1220; font: 900 96px/196px "Lexend", sans-serif; text-align: center; color: #fff; }
+    [data-composition-id="s09-giro"] .mas { position: absolute; left: 430px; top: 810px; width: 220px; height: 220px; border-radius: 50%; background: #5ce611; border: 12px solid #0b1220; opacity: 0; }
+    [data-composition-id="s09-giro"] .mas svg { position: absolute; left: 40px; top: 40px; }
+    [data-composition-id="s09-giro"] .fin { position: absolute; left: 540px; top: 1400px; }
+  </style>
+  <div id="root" data-composition-id="s09-giro" data-width="1080" data-height="1920" data-duration="2.78">
+    <div id="s09-giro-esc" class="esc clip" data-start="0" data-duration="2.78" data-track-index="0" data-layout-allow-overlap>
+
+      <div class="cd izq"><div class="cd-t">ENFRENTE</div><div class="ic2"><svg width="150" height="250" viewBox="0 0 150 250" aria-hidden="true">
+  <circle cx="75" cy="58" r="50" fill="#d6d4c6"/>
+  <path d="M6 250 Q6 124 75 120 Q144 124 144 250 Z" fill="#2c4268"/>
+</svg></div><div class="ic" style="left:170px;top:170px"><svg width="150" height="250" viewBox="0 0 150 250" aria-hidden="true">
+  <path d="M34 26 Q75 -8 116 26 L112 40 H38 Z" fill="#ffffff"/>
+  <circle cx="75" cy="66" r="46" fill="#efeee5"/>
+  <path d="M6 250 Q6 128 75 122 Q144 128 144 250 Z" fill="#1f3254"/>
+  <path d="M40 150 H110 V250 H40 Z" fill="#5ce611"/><path d="M40 150 Q75 132 110 150" fill="none" stroke="#5ce611" stroke-width="8"/>
+</svg></div>
+        <div class="ok"><svg width="88" height="88" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="cd-v">Vos</div></div>
+      <div class="cd der"><div class="cd-t">WHATSAPP</div><div class="ic"><svg width="200" height="200" viewBox="-48 -48 96 96"><path transform="scale(1.3)" d="M0 -30 Q4 -4 30 0 Q4 4 0 30 Q-4 4 -30 0 Q-4 -4 0 -30 Z" fill="#0b1220"/></svg></div>
+        <div class="ok"><svg width="88" height="88" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="cd-v">Agente de IA</div></div>
+      <div class="vs">VS</div>
+      <div class="mas"><svg width="116" height="116" viewBox="0 0 116 116"><path d="M58 14 V102 M14 58 H102" stroke="#0b1220" stroke-width="20" stroke-linecap="round"/></svg></div>
+      <div class="pill lleno fin" style="left:540px;top:1400px">Cada uno, atendido</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-giro";
+      const DUR = 2.78;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const entra = (s, t, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, y: desde ?? 60, scale: 0.92, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, t);
+      const sale = (s, t) => tl.fromTo(q(s), { opacity: 0, y: 50, scale: 0.85, transformOrigin: "100% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const latir = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.1, transformOrigin: "50% 50%", duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const temblar = (s, t, n, dx) => tl.to(q(s), { x: dx ?? 8, duration: 0.05, yoyo: true, repeat: n ?? 5, ease: "none" }, t);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const cuenta = (s, v0, pasos, fmt) => {
+        const el = q(s); const o = { v: v0 }; const f = fmt ?? ((v) => Math.round(v));
+        el.textContent = f(v0);
+        pasos.forEach(([t, v, d]) => {
+          tl.to(o, { v, duration: d ?? 0.08, ease: "none", onUpdate: () => { el.textContent = f(o.v); } }, t);
+        });
+      };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.03, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".fin"), { xPercent: -50 });
+      tl.fromTo(q(".izq"), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".der"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.3, ease: "back.out(1.5)" }, 0.05);
+      tl.fromTo(q(".vs"), { opacity: 0, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.12);
+      temblar(".vs", 0.4, 3, 8);
+      // ya no compite: el VS se da vuelta y queda un "+"
+      tl.to(q(".vs"), { scaleX: 0, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.in" }, 0.7);
+      tl.fromTo(q(".mas"), { opacity: 1, scaleX: 0, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 0.84);
+      tl.to(qa(".cd"), { borderColor: "#5ce611", duration: 0.2 }, 0.84);
+      pop(".der .ok", 0.95, 0.3, 0.4);
+      // con el que tenés enfrente
+      pop(".izq .ok", 1.85, 0.3, 0.4);
+      latir(".izq", 1.88, 1.04);
+      pop(".fin", 1.95);
+      salida(2.56);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

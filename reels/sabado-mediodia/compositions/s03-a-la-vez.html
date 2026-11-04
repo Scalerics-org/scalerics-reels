@@ -1,0 +1,146 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-a-la-vez"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-a-la-vez"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-a-la-vez"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.6); }
+    [data-composition-id="s03-a-la-vez"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s03-a-la-vez"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-a-la-vez"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-a-la-vez"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s03-a-la-vez"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 800; }
+    [data-composition-id="s03-a-la-vez"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s03-a-la-vez"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-a-la-vez"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s03-a-la-vez"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s03-a-la-vez"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s03-a-la-vez"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s03-a-la-vez"] .bw { position: absolute; max-width: 720px; opacity: 0; }
+    [data-composition-id="s03-a-la-vez"] .bw.sale { display: flex; flex-direction: column; align-items: flex-end; }
+    [data-composition-id="s03-a-la-vez"] .quien { display: flex; align-items: center; gap: 16px; margin: 0 0 12px 6px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); white-space: nowrap; }
+    [data-composition-id="s03-a-la-vez"] .av { display: inline-block; width: 56px; height: 56px; border-radius: 50%; background: #1f3254; border: 4px solid #2c4268; font: 800 28px/48px "Lexend", sans-serif; text-align: center; color: #efeee5; letter-spacing: 0; }
+    [data-composition-id="s03-a-la-vez"] .av.c { background: #efeee5; border-color: #efeee5; color: #0b1220; }
+    [data-composition-id="s03-a-la-vez"] .b { display: inline-block; padding: 24px 36px 26px; font: 600 50px/1.2 "Lexend", sans-serif; border-radius: 40px; box-shadow: 0 12px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s03-a-la-vez"] .b.in { background: #efeee5; color: #0b1220; border-bottom-left-radius: 10px; }
+    [data-composition-id="s03-a-la-vez"] .b.out { background: #5ce611; color: #0b1220; border-bottom-right-radius: 10px; }
+    [data-composition-id="s03-a-la-vez"] .tel { position: absolute; left: 90px; top: 510px; width: 900px; height: 1190px; border-radius: 72px; background: #16243d; border: 8px solid #2c4268; box-shadow: 0 20px 0 rgba(3,6,12,0.6); overflow: hidden; }
+    [data-composition-id="s03-a-la-vez"] .tel-hd { position: absolute; left: 0; right: 0; top: 0; height: 160px; background: #1f3254; border-bottom: 6px solid #2c4268; }
+    [data-composition-id="s03-a-la-vez"] .tel-av { position: absolute; left: 34px; top: 30px; width: 100px; height: 100px; border-radius: 50%; background: #0b1220; border: 5px solid #2c4268; overflow: hidden; }
+    [data-composition-id="s03-a-la-vez"] .tel-av .chis { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s03-a-la-vez"] .tel-n { position: absolute; left: 162px; top: 32px; font: 800 52px/1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s03-a-la-vez"] .tel-s { position: absolute; left: 164px; top: 100px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); white-space: nowrap; }
+    [data-composition-id="s03-a-la-vez"] .tel-b { position: absolute; right: 40px; top: 38px; min-width: 84px; height: 84px; padding: 0 18px; border-radius: 42px; background: #c7655b; font: 900 50px/84px "Lexend", sans-serif; text-align: center; color: #fff; }
+
+    [data-composition-id="s03-a-la-vez"] .cd { position: absolute; top: 530px; width: 470px; height: 780px; border-radius: 48px; background: #16243d; border: 8px solid #2c4268; box-shadow: 0 18px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s03-a-la-vez"] .cd-t { position: absolute; left: 0; right: 0; top: 40px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s03-a-la-vez"] .cd-v { position: absolute; left: 0; right: 0; bottom: 44px; text-align: center; font: 800 52px/1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s03-a-la-vez"] .izq { left: 50px; } [data-composition-id="s03-a-la-vez"] .der { left: 560px; }
+    [data-composition-id="s03-a-la-vez"] .izq .ic { position: absolute; left: 115px; top: 140px; }
+    [data-composition-id="s03-a-la-vez"] .der .ic { position: absolute; left: 55px; top: 120px; }
+    [data-composition-id="s03-a-la-vez"] .ok { position: absolute; left: 330px; top: 110px; opacity: 0; }
+    [data-composition-id="s03-a-la-vez"] .bdg { position: absolute; left: 0; right: 0; top: 560px; text-align: center; opacity: 0; }
+    [data-composition-id="s03-a-la-vez"] .bdg span { display: inline-block; padding: 12px 28px; border-radius: 999px; background: #5ce611; font: 800 38px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-a-la-vez"] .der .bdg span { background: #c7655b; color: #fff; }
+    [data-composition-id="s03-a-la-vez"] .yo { position: absolute; left: 465px; top: 1330px; width: 150px; height: 250px; }
+    [data-composition-id="s03-a-la-vez"] .flecha { fill: none; stroke: #efeee5; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
+    [data-composition-id="s03-a-la-vez"] .cruz { position: absolute; left: 0; right: 0; top: 1610px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="s03-a-la-vez" data-width="1080" data-height="1920" data-duration="4">
+    <div id="s03-a-la-vez-esc" class="esc clip" data-start="0" data-duration="4" data-track-index="0" data-layout-allow-overlap>
+
+      <div class="cd izq"><div class="cd-t">MOSTRADOR</div><div class="ic"><svg width="240" height="288" viewBox="0 0 200 240" aria-hidden="true">
+  <path d="M62 52 Q62 8 100 8 Q138 8 138 52" fill="none" stroke="#1f3254" stroke-width="12" stroke-linecap="round"/>
+  <path d="M24 52 H176 L188 232 H12 Z" fill="#efeee5"/>
+  <path d="M140 52 H176 L188 232 H150 Z" fill="#d6d4c6"/>
+  <rect x="18" y="112" width="164" height="54" fill="#5ce611"/><rect x="146" y="112" width="38" height="54" fill="#3fa60a"/>
+  <path d="M24 52 L34 74 L46 52 L58 74 L70 52 L82 74 L94 52 L106 74 L118 52 L130 74 L142 52 L154 74 L166 52 L176 52" fill="none" stroke="#d6d4c6" stroke-width="6" stroke-linejoin="round"/>
+</svg></div>
+        <div class="ok"><svg width="88" height="88" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="bdg"><span>Atendido</span></div><div class="cd-v">Despachar</div></div>
+      <div class="cd der"><div class="cd-t">WHATSAPP</div><div class="ic"><svg width="360" height="560" viewBox="0 0 360 560" aria-hidden="true">
+  <rect x="10" y="14" width="340" height="540" rx="56" fill="#060b14"/>
+  <rect x="0" y="0" width="340" height="540" rx="56" fill="#1f3254"/>
+  <rect x="18" y="18" width="304" height="504" rx="42" fill="#16243d"/>
+  <rect x="120" y="32" width="100" height="26" rx="13" fill="#060b14"/>
+  <rect x="40" y="96" width="220" height="64" rx="24" fill="#efeee5"/>
+  <rect x="40" y="184" width="180" height="64" rx="24" fill="#efeee5"/>
+  <rect x="40" y="272" width="240" height="64" rx="24" fill="#efeee5"/>
+  <rect x="40" y="360" width="160" height="64" rx="24" fill="#efeee5" opacity="0.5"/>
+  <circle cx="306" cy="34" r="54" fill="#c7655b" stroke="#0b1220" stroke-width="10"/>
+  <text x="306" y="56" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="62" fill="#ffffff" class="celu-n">4</text>
+</svg></div>
+        <div class="bdg"><span>Sin contestar</span></div><div class="cd-v">Escribir</div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="flecha fl" d="M440 1420 H330 M360 1390 L330 1420 L360 1450"/>
+        <path class="flecha fr" d="M640 1420 H750 M720 1390 L750 1420 L720 1450"/>
+      </svg>
+      <div class="yo"><svg width="150" height="250" viewBox="0 0 150 250" aria-hidden="true">
+  <path d="M34 26 Q75 -8 116 26 L112 40 H38 Z" fill="#ffffff"/>
+  <circle cx="75" cy="66" r="46" fill="#efeee5"/>
+  <path d="M6 250 Q6 128 75 122 Q144 128 144 250 Z" fill="#1f3254"/>
+  <path d="M40 150 H110 V250 H40 Z" fill="#5ce611"/><path d="M40 150 Q75 132 110 150" fill="none" stroke="#5ce611" stroke-width="8"/>
+</svg></div>
+      <div class="pill r dos" style="left:540px;top:1600px">Dos lugares · una persona</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-a-la-vez";
+      const DUR = 4;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const entra = (s, t, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, y: desde ?? 60, scale: 0.92, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, t);
+      const sale = (s, t) => tl.fromTo(q(s), { opacity: 0, y: 50, scale: 0.85, transformOrigin: "100% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const latir = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.1, transformOrigin: "50% 50%", duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const temblar = (s, t, n, dx) => tl.to(q(s), { x: dx ?? 8, duration: 0.05, yoyo: true, repeat: n ?? 5, ease: "none" }, t);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const cuenta = (s, v0, pasos, fmt) => {
+        const el = q(s); const o = { v: v0 }; const f = fmt ?? ((v) => Math.round(v));
+        el.textContent = f(v0);
+        pasos.forEach(([t, v, d]) => {
+          tl.to(o, { v, duration: d ?? 0.08, ease: "none", onUpdate: () => { el.textContent = f(o.v); } }, t);
+        });
+      };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.03, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".dos"), { xPercent: -50 });
+      tl.fromTo(q(".izq"), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.5)" }, 0);
+      tl.fromTo(q(".der"), { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.35, ease: "back.out(1.5)" }, 0.08);
+      tl.fromTo(q(".yo"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 0.15);
+      // hacés todo bien: tilde verde en el mostrador
+      tl.to(q(".izq"), { borderColor: "#5ce611", duration: 0.2 }, 0.55);
+      pop(".izq .ok", 0.6, 0.3, 0.4);
+      pop(".izq .bdg", 0.75, 0.3);
+      // pero: el WhatsApp acumula, en rojo apagado
+      tl.to(q(".der"), { borderColor: "#c7655b", duration: 0.2 }, 1.4);
+      pop(".der .bdg", 1.5, 0.3);
+      cuenta(".celu-n", 4, [[1.55, 5], [1.95, 6]]);
+      // despachar / escribir: el dueño va de un lado al otro
+      tl.to(q(".yo"), { x: -300, duration: 0.3, ease: "power3.inOut" }, 2.0);
+      latir(".izq", 2.15, 1.04);
+      tl.fromTo(q(".fl"), { opacity: 0 }, { opacity: 0.8, duration: 0.15 }, 2.0);
+      tl.to(q(".yo"), { x: 300, duration: 0.34, ease: "power3.inOut" }, 2.5);
+      latir(".der", 2.7, 1.04);
+      tl.fromTo(q(".fr"), { opacity: 0 }, { opacity: 0.8, duration: 0.15 }, 2.5);
+      // a la vez: no se puede
+      tl.to(q(".yo"), { x: 0, duration: 0.25, ease: "power3.out" }, 2.95);
+      temblar(".yo", 3.2, 5, 10);
+      tl.to(qa(".fl, .fr"), { stroke: "#c7655b", opacity: 1, duration: 0.15 }, 3.1);
+      pop(".dos", 3.15);
+      salida(3.76);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
