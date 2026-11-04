@@ -72,6 +72,15 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    perfecto este nuevo formato de videos, más atrapante igual"). Ejemplo aprobado:
    `reels/por-que-la-tarjeta` (miralo entero, y su `gen.mjs`, que arma todas las escenas desde un
    solo lugar: copiá esa forma). **Por tanda de 5, al menos 3 en este formato.**
+   **Marcas reales: como mucho 3 de los ~10 reels de la noche** (Juan, 04-11: "tampoco quiero que
+   todos los videos sean hablando de marcas"; la tanda del 04-11 tuvo 14 de 25 con una marca). Antes de
+   elegir, contá en "Hechos" cuántos reels de la noche ya nombran una empresa. El resto, sin marcas:
+   "¿Por qué…?" de situaciones de todos los días que nadie se preguntó ("¿por qué el súper te
+   pregunta si tenés la tarjeta?", "¿por qué el mecánico te avisa del service?"), el día a día del
+   dueño (el sábado al mediodía, el cierre a las 23:00, el cuaderno de pedidos), humor que un dueño
+   reconoce y le manda a otro ("¿abren hoy?" con el horario pegado en la puerta), una opinión firme
+   pero respetuosa, o un negocio uruguayo genérico e inventado (la rotisería, la ferretería) contado
+   como historia. Mismo 3D y misma vara (8b y 8c).
    - **Visual (en 3D real, punto 8b):** UN objeto grande protagonista por escena (la mitad de la pantalla o más), relleno
      con color y volumen (sombreado, luz, sombra en el piso), de marca (navy, verde `#5ce611`,
      crema, blanco; rojo apagado solo para el problema). El objeto **se transforma** en el siguiente
