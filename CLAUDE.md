@@ -72,7 +72,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    perfecto este nuevo formato de videos, más atrapante igual"). Ejemplo aprobado:
    `reels/por-que-la-tarjeta` (miralo entero, y su `gen.mjs`, que arma todas las escenas desde un
    solo lugar: copiá esa forma). **Por tanda de 5, al menos 3 en este formato.**
-   - **Visual:** UN objeto grande protagonista por escena (la mitad de la pantalla o más), relleno
+   - **Visual (en 3D real, punto 8b):** UN objeto grande protagonista por escena (la mitad de la pantalla o más), relleno
      con color y volumen (sombreado, luz, sombra en el piso), de marca (navy, verde `#5ce611`,
      crema, blanco; rojo apagado solo para el problema). El objeto **se transforma** en el siguiente
      (tarjeta → ticket → calendario → ficha del cliente), con push-ins de cámara, en vez de cortar.
@@ -156,6 +156,34 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    - Ejemplos que ya andan así: `reels/te-buscaron` (todo en el celular, interfaz grande) y
      `reels/las-resenas` (tipografía gigante con ritmo). Mirá también `reels/dos-cafeterias` como
      ejemplo de lo que hay que AGRANDAR: buena historia, dibujos demasiado chicos.
+
+
+8b. **3D REAL EN TODOS LOS REELS desde el 04-11** (Juan: "quiero que se vea como ellos real 3D",
+   por @resultaaquee; y al ver la tanda del 04-11, toda en dibujo plano: "lo de 3D no lo habías
+   implementado ya? REAL 3D"). El dibujo plano en SVG/CSS ya no va como recurso principal.
+   - **Base: `reels/netflix-blockbuster`.** Copiá su `assets/tres.js`, `assets/vendor/three/`
+     (Three.js r170 local, RoundedBoxGeometry, TextGeometry, Lexend 800 en `lexend800.js`), el
+     `#capa3d` con `<canvas id="tres">` de su `index.html` y el `buildReady["tres"]`, y cómo
+     `armar.mjs` escribe `assets/tiempos3d.js` (inicios de escena y de cada palabra). Leé el
+     archivo entero antes de escribir el tuyo.
+   - **Cómo es:** UNA escena Three.js para todo el reel, debajo de las escenas HTML. `renderAt(t)`
+     es una función pura del tiempo del timeline: nada de `requestAnimationFrame`, `Date.now()`
+     ni azar sin semilla. Los objetos protagonistas son 3D de verdad (RoundedBox, extrusiones,
+     TextGeometry para números y años), con material físico, luz principal + contraluz + entorno
+     PMREM, sombra suave en el piso, y la cámara se mueve (push-in, órbita corta, travelling de
+     un objeto al siguiente). Un objeto se transforma o la cámara viaja al siguiente en vez de
+     cortar. Las escenas HTML quedan SOLO como capa plana de arriba: gancho en grande,
+     subtítulos, 1-2 rótulos con línea guía, sellos, la tarjeta de cierre.
+   - Colores de marca en los materiales (navy, verde `#5ce611`, crema, rojo apagado solo para el
+     problema). Marcas reales: se nombran en texto, nunca su logo, tipografía ni colores.
+   - **Mirá los cuadros** (`snapshot`) de cada escena: que el objeto llene la pantalla, que no se
+     corte en el borde, que no haya pantallas lisas sin objeto (en netflix-blockbuster v1 la
+     cámara entraba a la TV y quedaba medio segundo de azul liso) y que los números 3D no pisen
+     otros objetos.
+   - **Render en la nube sin placa de video:** WebGL corre por software (SwiftShader) y es más
+     lento. Anotá en el reporte cuánto tardó cada render. Si WebGL no arranca (canvas en negro o
+     error de contexto en `check`/`snapshot`), ese reel va en el estilo plano del punto 7 y lo
+     anotás en "Hechos" con "(sin 3D: <motivo>)"; no frenes la tanda por eso.
 
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
