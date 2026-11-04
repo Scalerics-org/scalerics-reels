@@ -1,0 +1,11 @@
+{
+  "escenas": [
+    ["s01-gancho", 0], ["s02-martes", 11], ["s03-preguntas", 16], ["s04-contestas", 25], ["s05-tarde", 29],
+    ["s06-giro", 40], ["s07-agente", 53], ["s08-vos", 67], ["s09-tiempo", 76], ["s10-cta", 81]
+  ],
+  "subDesde": 11,
+  "subHasta": 81,
+  "cortes": "auto",
+  "acento": [15, 26, 32, 45, 51, 56, 58, 60, 63, 64, 66, 71, 75, 78],
+  "malo": [36]
+}

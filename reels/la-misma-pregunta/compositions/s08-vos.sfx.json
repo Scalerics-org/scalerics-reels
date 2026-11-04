@@ -1,0 +1,4 @@
+[{"t":0,"sfx":"notification","vol":0.22},
+ {"t":0.5,"sfx":"ping","vol":0.26},
+ {"t":0.95,"sfx":"notification","vol":0.36},
+ {"t":1.4,"sfx":"pop","vol":0.26}]

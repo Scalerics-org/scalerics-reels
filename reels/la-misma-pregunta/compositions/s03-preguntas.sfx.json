@@ -1,0 +1,6 @@
+[{"t":0.05,"sfx":"notification","vol":0.26},
+ {"t":0.99,"sfx":"notification","vol":0.26},
+ {"t":2.19,"sfx":"notification","vol":0.26},
+ {"t":3.18,"sfx":"notification","vol":0.26},
+ {"t":3.6,"sfx":"key-press","vol":0.25},
+ {"t":3.95,"sfx":"key-press","vol":0.25}]

@@ -1,0 +1,114 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-contestas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-contestas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-contestas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-contestas"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.6); }
+    [data-composition-id="s04-contestas"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s04-contestas"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s04-contestas"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s04-contestas"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s04-contestas"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 800; }
+    [data-composition-id="s04-contestas"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s04-contestas"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s04-contestas"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s04-contestas"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s04-contestas"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s04-contestas"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s04-contestas"] .bw { position: absolute; max-width: 860px; opacity: 0; }
+    [data-composition-id="s04-contestas"] .bw.sale { display: flex; flex-direction: column; align-items: flex-end; }
+    [data-composition-id="s04-contestas"] .quien { display: flex; align-items: center; gap: 16px; margin: 0 0 12px 6px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); white-space: nowrap; }
+    [data-composition-id="s04-contestas"] .av { display: inline-block; width: 56px; height: 56px; border-radius: 50%; background: #1f3254; border: 4px solid #2c4268; font: 800 28px/48px "Lexend", sans-serif; text-align: center; color: #efeee5; letter-spacing: 0; }
+    [data-composition-id="s04-contestas"] .av.g { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s04-contestas"] .av.c { background: #efeee5; border-color: #efeee5; color: #0b1220; }
+    [data-composition-id="s04-contestas"] .b { display: inline-block; padding: 24px 36px 26px; font: 600 46px/1.2 "Lexend", sans-serif; border-radius: 40px; box-shadow: 0 12px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s04-contestas"] .b.in { background: #efeee5; color: #0b1220; border-bottom-left-radius: 10px; }
+    [data-composition-id="s04-contestas"] .b.out { background: #5ce611; color: #0b1220; border-bottom-right-radius: 10px; }
+    [data-composition-id="s04-contestas"] .cc { position: absolute; width: 460px; height: 440px; border-radius: 40px; background: #16243d; border: 6px solid #2c4268; box-shadow: 0 16px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s04-contestas"] .cc-q { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s04-contestas"] .cc-n { position: absolute; left: 0; right: 0; top: 96px; text-align: center; font: 900 196px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.04em; }
+    [data-composition-id="s04-contestas"] .cc-l { position: absolute; left: 0; right: 0; top: 318px; text-align: center; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.24em; color: rgba(239,238,229,0.6); }
+    [data-composition-id="s04-contestas"] .cc-r { position: absolute; left: 22px; right: 22px; top: 318px; height: 82px; border-radius: 26px; background: #5ce611; display: flex; align-items: center; justify-content: center; gap: 14px; font: 700 34px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s04-contestas"] .cc-r svg circle { fill: #0b1220; } [data-composition-id="s04-contestas"] .cc-r svg path { stroke: #5ce611; }
+
+    [data-composition-id="s04-contestas"] .cc { border-color: #5ce611; }
+    [data-composition-id="s04-contestas"] .bw { left: 60px; top: 1500px; }
+  </style>
+  <div id="root" data-composition-id="s04-contestas" data-width="1080" data-height="1920" data-duration="1.92">
+    <div id="s04-contestas-esc" class="esc clip" data-start="0" data-duration="1.92" data-track-index="0" data-layout-allow-overlap>
+
+      
+      <div class="cc c0" style="left:60px;top:540px">
+        <div class="cc-q">¿Abren hoy?</div>
+        <div class="cc-n n0">5</div>
+        <div class="cc-l l0">VECES HOY</div>
+        <div class="cc-r r0" style="opacity:0"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>De 10 a 19 h</span></div>
+      </div>
+      <div class="cc c1" style="left:560px;top:540px">
+        <div class="cc-q">¿Hacen envíos?</div>
+        <div class="cc-n n1">3</div>
+        <div class="cc-l l1">VECES HOY</div>
+        <div class="cc-r r1" style="opacity:0"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A todo el país</span></div>
+      </div>
+      <div class="cc c2" style="left:60px;top:1010px">
+        <div class="cc-q">¿Cuánto sale?</div>
+        <div class="cc-n n2">3</div>
+        <div class="cc-l l2">VECES HOY</div>
+        <div class="cc-r r2" style="opacity:0"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>$ 1.890</span></div>
+      </div>
+      <div class="cc c3" style="left:560px;top:1010px">
+        <div class="cc-q">¿Hay talle M?</div>
+        <div class="cc-n n3">2</div>
+        <div class="cc-l l3">VECES HOY</div>
+        <div class="cc-r r3" style="opacity:0"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Sí, quedan 3</span></div>
+      </div>
+      <div class="bw b9" style="left:60px;top:1500px"><div class="quien"><span class="av ">P</span>PABLO</div><div class="b in">¿Abren hoy?</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-contestas";
+      const DUR = 1.92;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const entra = (s, t, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, y: desde ?? 60, scale: 0.92, transformOrigin: "0% 100%" }, { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "back.out(1.6)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const latir = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.1, transformOrigin: "50% 50%", duration: 0.13, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      // contador: un solo objeto por número, varios pasos [t, valor, duración]
+      const cuenta = (s, v0, pasos, salto) => {
+        const el = q(s); const o = { v: v0 }; el.textContent = v0;
+        pasos.forEach(([t, v, d]) => {
+          tl.to(o, { v, duration: d ?? 0.08, ease: "none", onUpdate: () => { el.textContent = Math.round(o.v); } }, t);
+          if (salto !== false) tl.fromTo(el, { scale: 1.16 }, { scale: 1, transformOrigin: "50% 60%", duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, t + (d ?? 0.08));
+        });
+      };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.03, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(qa(".cc-r"), { opacity: 0 });
+      [0.0, 0.3, 0.64, 0.98].forEach((t, k) => {
+        tl.to(q(".l" + k), { opacity: 0, duration: 0.12 }, t);
+        tl.fromTo(q(".r" + k), { opacity: 0, y: 30, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.8)" }, t + 0.04);
+      });
+      // y enseguida, otra vez la misma
+      entra(".b9", 1.22);
+      tl.to(q(".c0"), { x: -8, duration: 0.05, yoyo: true, repeat: 3 }, 1.4);
+      cuenta(".n0", 5, [[1.4, 6]]);
+      salida(1.7);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
