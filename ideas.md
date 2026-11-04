@@ -202,6 +202,11 @@
 - 04-11 · `caso-spotify` · Scalerics Puntos · "¿Por qué Spotify te regala el resumen de lo que escuchaste en el año?" Caso de éxito real (Wrapped, ver fuentes.md): cada diciembre la gente lo comparte sola; Spotify ya tenía tus datos y te los devolvió como un regalo, y un regalo así se muestra; giro: vos también sabés cosas de tus clientes; con Scalerics Puntos en diciembre cada uno recibe su resumen ("viniste treinta y una veces, tu favorito: el cortado") y un premio · Videollamada gratis en scalerics.com [formato caso de éxito (explicador) · objetos llenos (regalo, auriculares, celular) que se transforman, fondo navy oscuro #0b1220]
 
 ## En curso
+- 04-11 (3ª tanda) · `caso-mcdonalds` · Sistema a medida (procesos para crecer) · caso de éxito: por qué una hamburguesa sale igual en cualquier local (Speedee Service System) · fondo navy oscuro
+- 04-11 (3ª tanda) · `caso-duolingo` · Automatizaciones (recordatorios) · caso de éxito: por qué Duolingo te recuerda practicar · fondo crema
+- 04-11 (3ª tanda) · `por-que-el-precio` · Sitio web (precios a la vista) · ¿Por qué Uber te dice el precio antes de pedir el auto? · celular a pantalla completa
+- 04-11 (3ª tanda) · `dos-inmobiliarias` · Agente de IA · Dos negocios: domingo, consultas del portal; una ya agendó las visitas · fondo navy claro
+- 04-11 (3ª tanda) · `black-friday-caos` · Tienda online · caos → control: Black Friday con pedidos a mano vs. tienda que descuenta stock sola · tipografía gigante navy/verde
 
 
 
