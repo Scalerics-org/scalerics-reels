@@ -1,0 +1,124 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-carrito"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-carrito"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s04-carrito"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-carrito"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s04-carrito"] .carr { position: absolute; left: 120px; top: 640px; width: 800px; height: 720px; }
+    [data-composition-id="s04-carrito"] .carr svg { width: 800px; height: 720px; overflow: visible; }
+    [data-composition-id="s04-carrito"] .badge { position: absolute; left: 700px; top: 70px; width: 110px; height: 110px; border-radius: 50%; background: #5ce611; border: 8px solid #0b1220; font: 800 58px/94px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s04-carrito"] .tile { position: absolute; width: 300px; height: 300px; }
+    [data-composition-id="s04-carrito"] .tile-lado { position: absolute; left: 14px; top: 16px; width: 100%; height: 100%; border-radius: 40px; background: #dcdacb; }
+    [data-composition-id="s04-carrito"] .tile-cara { position: absolute; inset: 0; border-radius: 40px; background: #ffffff; border: 7px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s04-carrito"] .tile .ico { position: absolute; left: 10%; top: 8%; width: 80%; height: 60%; }
+    [data-composition-id="s04-carrito"] .tile .tn { position: absolute; left: 0; right: 0; bottom: 9%; text-align: center; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s04-carrito"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s04-carrito"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s04-carrito"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s04-carrito"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s04-carrito"] .lead.g { stroke: #3fa60a; } [data-composition-id="s04-carrito"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s04-carrito"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s04-carrito"] .dot.g { fill: #3fa60a; } [data-composition-id="s04-carrito"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s04-carrito"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s04-carrito"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s04-carrito"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s04-carrito"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s04-carrito"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s04-carrito"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s04-carrito"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s04-carrito"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s04-carrito"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s04-carrito"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s04-carrito"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s04-carrito"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s04-carrito"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-top { position: absolute; left: 36px; right: 36px; top: 76px; height: 60px; display: flex; justify-content: space-between; align-items: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s04-carrito"] .ti-cart { position: relative; width: 56px; height: 50px; }
+    [data-composition-id="s04-carrito"] .ti-badge { position: absolute; right: -20px; top: -18px; width: 40px; height: 40px; border-radius: 50%; background: #5ce611; border: 4px solid #0b1220; font: 800 22px/32px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-img { position: absolute; left: 24px; top: 156px; width: 556px; height: 330px; border-radius: 34px; background: #efeee5; }
+    [data-composition-id="s04-carrito"] .ti-img .ico { position: absolute; left: 118px; top: 20px; width: 320px; height: 290px; }
+    [data-composition-id="s04-carrito"] .ti-nom { position: absolute; left: 30px; top: 512px; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-btn { position: absolute; left: 24px; top: 586px; width: 556px; height: 94px; border-radius: 47px; background: #5ce611; display: flex; justify-content: center; align-items: center; gap: 16px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-btn svg circle { fill: #0b1220; } [data-composition-id="s04-carrito"] .ti-btn svg path { stroke: #5ce611; }
+    [data-composition-id="s04-carrito"] .ti-sec { position: absolute; left: 30px; top: 718px; padding: 6px 10px; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-t { position: absolute; top: 786px; width: 172px; height: 226px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s04-carrito"] .ti-t .ico { position: absolute; left: 14px; top: 14px; width: 144px; height: 120px; }
+    [data-composition-id="s04-carrito"] .ti-tn { position: absolute; left: 0; right: 0; top: 146px; text-align: center; font: 700 30px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-carrito"] .ti-mas, [data-composition-id="s04-carrito"] .ti-ok { position: absolute; left: 60px; top: 184px; width: 52px; height: 52px; }
+    [data-composition-id="s04-carrito"] .ti-ok { opacity: 0; }
+
+    [data-composition-id="s04-carrito"] .carr { left: 20px; top: 640px; transform-origin: 400px 600px; }
+    [data-composition-id="s04-carrito"] .tile { left: 650px; top: 1180px; width: 380px; height: 380px; }
+    [data-composition-id="s04-carrito"] .tile .tn { font-size: 46px; }
+    [data-composition-id="s04-carrito"] .sup { position: absolute; left: 0; right: 0; top: 20px; text-align: center; font: 600 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(11,18,32,0.6); }
+  </style>
+  <div id="root" data-composition-id="s04-carrito" data-width="1080" data-height="1920" data-duration="2.78">
+    <div id="s04-carrito-esc" class="esc clip" data-start="0" data-duration="2.78" data-track-index="0">
+
+      
+<div class="carr"><svg viewBox="0 0 800 720" aria-hidden="true">
+  <ellipse cx="440" cy="690" rx="340" ry="26" fill="rgba(11,18,32,0.16)"/>
+  <g class="dentro"><g class="carpa-in"><g transform="translate(172 -92) scale(2.4)"><polygon points="20,176 120,24 220,176" fill="#5ce611"/><polygon points="120,24 220,176 120,176" fill="#3fa60a"/><polygon points="92,176 120,92 148,176" fill="#0b1220"/><path d="M120 24 L120 8" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/><rect x="8" y="172" width="224" height="12" rx="6" fill="#0b1220"/></g></g></g>
+  <path d="M120 70 L212 476 L238 560 L700 560" fill="none" stroke="#0b1220" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="150,150 780,150 712,476 212,476" fill="#16243d"/>
+  <polygon points="560,150 780,150 712,476 520,476" fill="#0b1220"/>
+  <path d="M255 166 L295.3333333333333 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M360 166 L378.66666666666663 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M465 166 L462 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M570 166 L545.3333333333333 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M675 166 L628.6666666666667 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M176 262 L752 262 M200 370 L730 370" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/>
+  <rect x="134" y="128" width="664" height="40" rx="20" fill="#1f3254"/>
+  <rect x="22" y="44" width="124" height="52" rx="26" fill="#5ce611"/>
+  <rect x="22" y="70" width="124" height="26" rx="13" fill="#3fa60a"/>
+  <circle cx="290" cy="626" r="48" fill="#0b1220"/><circle cx="290" cy="626" r="18" fill="#efeee5"/>
+  <circle cx="650" cy="626" r="48" fill="#0b1220"/><circle cx="650" cy="626" r="18" fill="#efeee5"/>
+</svg><div class="badge">0</div></div>
+      <div class="tile ta"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><polygon points="160,62 236,30 236,170 160,138" fill="rgba(92,230,17,0.35)"/><rect x="16" y="76" width="112" height="48" rx="14" fill="#16243d"/><rect x="16" y="104" width="112" height="20" rx="10" fill="#0b1220"/><polygon points="122,70 166,52 166,148 122,130" fill="#5ce611"/><polygon points="122,104 166,104 166,148 122,130" fill="#3fa60a"/><rect x="58" y="66" width="30" height="14" rx="6" fill="#5ce611"/></svg><div class="tn">Linterna</div></div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M840 1110 L700 940"/><circle class="dot g d1" cx="700" cy="940" r="12"/></svg>
+      <div class="pill lleno n1" style="left:840px;top:1110px">También la llevaron</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-carrito";
+      const DUR = 2.78;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t) => { const el = q(s); el.textContent = a; tl.set(el, { textContent: b }, t); tl.fromTo(el, { scale: 1 }, { scale: 1.25, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      const C = q(".carr");
+      q(".ta .tile-cara").insertAdjacentHTML("afterbegin", '<div class="sup">TAMBIÉN COMPRARON</div>');
+      gsap.set(C, { scale: 0.86 });
+      tl.fromTo(C, { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.35, ease: "power3.out" }, 0);
+      // cae la carpa
+      tl.fromTo(q(".carpa-in"), { y: -520, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "bounce.out" }, 0.2);
+      pop(".carr .badge", 0.7, 0.25, 0.3);
+      contar(".carr .badge", 0, 1, 0.72);
+      // aparece la linterna
+      tl.fromTo(q(".ta"), { opacity: 0, scale: 0.4, x: -160, y: -200, rotation: -12 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 4, duration: 0.5, ease: "back.out(1.5)" }, 1.3);
+      tl.fromTo(q(".ta .ico polygon"), { opacity: 0.35 }, { opacity: 1, duration: 0.12, yoyo: true, repeat: 3, immediateRender: false }, 1.9);
+      nota(1, 1.75);
+      tl.to(q(".ta"), { y: -10, rotation: 2, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.0);
+      sinNota(1, 2.53);
+      tl.to(C, { opacity: 0, x: -200, duration: 0.25, ease: "power2.in" }, 2.53);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

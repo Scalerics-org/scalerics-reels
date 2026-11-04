@@ -1,0 +1,126 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-momento"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-momento"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-momento"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-momento"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s02-momento"] .carr { position: absolute; left: 120px; top: 640px; width: 800px; height: 720px; }
+    [data-composition-id="s02-momento"] .carr svg { width: 800px; height: 720px; overflow: visible; }
+    [data-composition-id="s02-momento"] .badge { position: absolute; left: 700px; top: 70px; width: 110px; height: 110px; border-radius: 50%; background: #5ce611; border: 8px solid #0b1220; font: 800 58px/94px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-momento"] .tile { position: absolute; width: 300px; height: 300px; }
+    [data-composition-id="s02-momento"] .tile-lado { position: absolute; left: 14px; top: 16px; width: 100%; height: 100%; border-radius: 40px; background: #dcdacb; }
+    [data-composition-id="s02-momento"] .tile-cara { position: absolute; inset: 0; border-radius: 40px; background: #ffffff; border: 7px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s02-momento"] .tile .ico { position: absolute; left: 10%; top: 8%; width: 80%; height: 60%; }
+    [data-composition-id="s02-momento"] .tile .tn { position: absolute; left: 0; right: 0; bottom: 9%; text-align: center; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-momento"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s02-momento"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s02-momento"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s02-momento"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s02-momento"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s02-momento"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s02-momento"] .lead.g { stroke: #3fa60a; } [data-composition-id="s02-momento"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s02-momento"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s02-momento"] .dot.g { fill: #3fa60a; } [data-composition-id="s02-momento"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s02-momento"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s02-momento"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s02-momento"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s02-momento"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s02-momento"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s02-momento"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s02-momento"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s02-momento"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s02-momento"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s02-momento"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s02-momento"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s02-momento"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s02-momento"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-top { position: absolute; left: 36px; right: 36px; top: 76px; height: 60px; display: flex; justify-content: space-between; align-items: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s02-momento"] .ti-cart { position: relative; width: 56px; height: 50px; }
+    [data-composition-id="s02-momento"] .ti-badge { position: absolute; right: -20px; top: -18px; width: 40px; height: 40px; border-radius: 50%; background: #5ce611; border: 4px solid #0b1220; font: 800 22px/32px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-img { position: absolute; left: 24px; top: 156px; width: 556px; height: 330px; border-radius: 34px; background: #efeee5; }
+    [data-composition-id="s02-momento"] .ti-img .ico { position: absolute; left: 118px; top: 20px; width: 320px; height: 290px; }
+    [data-composition-id="s02-momento"] .ti-nom { position: absolute; left: 30px; top: 512px; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-btn { position: absolute; left: 24px; top: 586px; width: 556px; height: 94px; border-radius: 47px; background: #5ce611; display: flex; justify-content: center; align-items: center; gap: 16px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-btn svg circle { fill: #0b1220; } [data-composition-id="s02-momento"] .ti-btn svg path { stroke: #5ce611; }
+    [data-composition-id="s02-momento"] .ti-sec { position: absolute; left: 30px; top: 718px; padding: 6px 10px; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-t { position: absolute; top: 786px; width: 172px; height: 226px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s02-momento"] .ti-t .ico { position: absolute; left: 14px; top: 14px; width: 144px; height: 120px; }
+    [data-composition-id="s02-momento"] .ti-tn { position: absolute; left: 0; right: 0; top: 146px; text-align: center; font: 700 30px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s02-momento"] .ti-mas, [data-composition-id="s02-momento"] .ti-ok { position: absolute; left: 60px; top: 184px; width: 52px; height: 52px; }
+    [data-composition-id="s02-momento"] .ti-ok { opacity: 0; }
+
+    [data-composition-id="s02-momento"] .carr { top: 600px; }
+    [data-composition-id="s02-momento"] .btn { position: absolute; left: 140px; top: 1400px; width: 800px; height: 150px; border-radius: 75px; background: #5ce611; font: 800 56px/150px "Lexend", sans-serif; text-align: center; color: #0b1220; box-shadow: 0 14px 0 #3fa60a; opacity: 0; }
+    [data-composition-id="s02-momento"] .cursor { position: absolute; left: 0; top: 0; width: 120px; height: 140px; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-momento" data-width="1080" data-height="1920" data-duration="3.66">
+    <div id="s02-momento-esc" class="esc clip" data-start="0" data-duration="3.66" data-track-index="0">
+
+      
+<div class="carr"><svg viewBox="0 0 800 720" aria-hidden="true">
+  <ellipse cx="440" cy="690" rx="340" ry="26" fill="rgba(11,18,32,0.16)"/>
+  <g class="dentro"><g class="carpa-in"><g transform="translate(172 -92) scale(2.4)"><polygon points="20,176 120,24 220,176" fill="#5ce611"/><polygon points="120,24 220,176 120,176" fill="#3fa60a"/><polygon points="92,176 120,92 148,176" fill="#0b1220"/><path d="M120 24 L120 8" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/><rect x="8" y="172" width="224" height="12" rx="6" fill="#0b1220"/></g></g></g>
+  <path d="M120 70 L212 476 L238 560 L700 560" fill="none" stroke="#0b1220" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="150,150 780,150 712,476 212,476" fill="#16243d"/>
+  <polygon points="560,150 780,150 712,476 520,476" fill="#0b1220"/>
+  <path d="M255 166 L295.3333333333333 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M360 166 L378.66666666666663 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M465 166 L462 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M570 166 L545.3333333333333 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/><path d="M675 166 L628.6666666666667 462" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M176 262 L752 262 M200 370 L730 370" stroke="rgba(239,238,229,0.55)" stroke-width="8" stroke-linecap="round"/>
+  <rect x="134" y="128" width="664" height="40" rx="20" fill="#1f3254"/>
+  <rect x="22" y="44" width="124" height="52" rx="26" fill="#5ce611"/>
+  <rect x="22" y="70" width="124" height="26" rx="13" fill="#3fa60a"/>
+  <circle cx="290" cy="626" r="48" fill="#0b1220"/><circle cx="290" cy="626" r="18" fill="#efeee5"/>
+  <circle cx="650" cy="626" r="48" fill="#0b1220"/><circle cx="650" cy="626" r="18" fill="#efeee5"/>
+</svg><div class="badge">0</div></div>
+      <div class="btn">Agregar al carrito</div>
+      <svg class="cursor" viewBox="0 0 120 140" aria-hidden="true"><path d="M14 8 L14 112 L40 88 L60 132 L82 122 L62 80 L100 80 Z" fill="#0b1220" stroke="#ffffff" stroke-width="8" stroke-linejoin="round"/></svg>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M300 600 L330 760"/><circle class="dot  d1" cx="330" cy="760" r="12"/></svg>
+      <div class="pill navy n1" style="left:300px;top:570px">El mejor momento</div>
+      <div class="pill lleno n2" style="left:540px;top:1640px">Ya está comprando</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-momento";
+      const DUR = 3.66;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t) => { const el = q(s); el.textContent = a; tl.set(el, { textContent: b }, t); tl.fromTo(el, { scale: 1 }, { scale: 1.25, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      const C = q(".carr");
+      gsap.set(C, { y: 100 });
+      tl.to(C, { y: -20, duration: 0.6, ease: "power3.inOut" }, 0);
+      tl.fromTo(q(".btn"), { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 0.2);
+      nota(1, 0.4);
+      // el cursor va al botón y hace clic en "comprando"
+      tl.fromTo(q(".cursor"), { opacity: 0, x: 900, y: 1780 }, { opacity: 1, x: 640, y: 1450, duration: 0.7, ease: "power2.out" }, 1.4);
+      tl.to(q(".cursor"), { scale: 0.85, transformOrigin: "14px 8px", duration: 0.1, yoyo: true, repeat: 1 }, 2.6);
+      tl.to(q(".btn"), { y: 10, boxShadow: "0 4px 0 #3fa60a", duration: 0.1, yoyo: true, repeat: 1 }, 2.6);
+      pop(".carr .badge", 2.7, 0.3, 0.3);
+      contar(".carr .badge", 0, 1, 2.72);
+      tl.to(q(".dentro"), { y: -24, duration: 0.15, yoyo: true, repeat: 1 }, 2.7);
+      pop(".n2", 2.85);
+      sinNota(1, 3.36);
+      fuera(".n2, .btn, .cursor", 3.36);
+      tl.to(C, { scale: 0.7, y: 40, opacity: 0, duration: 0.3, ease: "power2.in", transformOrigin: "50% 50%" }, 3.36);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

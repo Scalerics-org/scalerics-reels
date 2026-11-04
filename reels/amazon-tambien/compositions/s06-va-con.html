@@ -1,0 +1,110 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-va-con"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-va-con"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-va-con"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-va-con"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s06-va-con"] .carr { position: absolute; left: 120px; top: 640px; width: 800px; height: 720px; }
+    [data-composition-id="s06-va-con"] .carr svg { width: 800px; height: 720px; overflow: visible; }
+    [data-composition-id="s06-va-con"] .badge { position: absolute; left: 700px; top: 70px; width: 110px; height: 110px; border-radius: 50%; background: #5ce611; border: 8px solid #0b1220; font: 800 58px/94px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s06-va-con"] .tile { position: absolute; width: 300px; height: 300px; }
+    [data-composition-id="s06-va-con"] .tile-lado { position: absolute; left: 14px; top: 16px; width: 100%; height: 100%; border-radius: 40px; background: #dcdacb; }
+    [data-composition-id="s06-va-con"] .tile-cara { position: absolute; inset: 0; border-radius: 40px; background: #ffffff; border: 7px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s06-va-con"] .tile .ico { position: absolute; left: 10%; top: 8%; width: 80%; height: 60%; }
+    [data-composition-id="s06-va-con"] .tile .tn { position: absolute; left: 0; right: 0; bottom: 9%; text-align: center; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s06-va-con"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s06-va-con"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s06-va-con"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s06-va-con"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s06-va-con"] .lead.g { stroke: #3fa60a; } [data-composition-id="s06-va-con"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s06-va-con"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s06-va-con"] .dot.g { fill: #3fa60a; } [data-composition-id="s06-va-con"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s06-va-con"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s06-va-con"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s06-va-con"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s06-va-con"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s06-va-con"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s06-va-con"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s06-va-con"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s06-va-con"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s06-va-con"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s06-va-con"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s06-va-con"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s06-va-con"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s06-va-con"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-top { position: absolute; left: 36px; right: 36px; top: 76px; height: 60px; display: flex; justify-content: space-between; align-items: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s06-va-con"] .ti-cart { position: relative; width: 56px; height: 50px; }
+    [data-composition-id="s06-va-con"] .ti-badge { position: absolute; right: -20px; top: -18px; width: 40px; height: 40px; border-radius: 50%; background: #5ce611; border: 4px solid #0b1220; font: 800 22px/32px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-img { position: absolute; left: 24px; top: 156px; width: 556px; height: 330px; border-radius: 34px; background: #efeee5; }
+    [data-composition-id="s06-va-con"] .ti-img .ico { position: absolute; left: 118px; top: 20px; width: 320px; height: 290px; }
+    [data-composition-id="s06-va-con"] .ti-nom { position: absolute; left: 30px; top: 512px; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-btn { position: absolute; left: 24px; top: 586px; width: 556px; height: 94px; border-radius: 47px; background: #5ce611; display: flex; justify-content: center; align-items: center; gap: 16px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-btn svg circle { fill: #0b1220; } [data-composition-id="s06-va-con"] .ti-btn svg path { stroke: #5ce611; }
+    [data-composition-id="s06-va-con"] .ti-sec { position: absolute; left: 30px; top: 718px; padding: 6px 10px; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-t { position: absolute; top: 786px; width: 172px; height: 226px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s06-va-con"] .ti-t .ico { position: absolute; left: 14px; top: 14px; width: 144px; height: 120px; }
+    [data-composition-id="s06-va-con"] .ti-tn { position: absolute; left: 0; right: 0; top: 146px; text-align: center; font: 700 30px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-va-con"] .ti-mas, [data-composition-id="s06-va-con"] .ti-ok { position: absolute; left: 60px; top: 184px; width: 52px; height: 52px; }
+    [data-composition-id="s06-va-con"] .ti-ok { opacity: 0; }
+
+    [data-composition-id="s06-va-con"] .tile.tc { left: 260px; top: 590px; width: 560px; height: 520px; }
+    [data-composition-id="s06-va-con"] .tile.tc .tn { font-size: 60px; }
+    [data-composition-id="s06-va-con"] .tile.tc .tile-cara { border-color: #3fa60a; border-width: 10px; }
+    [data-composition-id="s06-va-con"] .tile.ta { left: 40px; top: 1230px; width: 400px; height: 360px; }
+    [data-composition-id="s06-va-con"] .tile.tb { left: 640px; top: 1230px; width: 400px; height: 360px; }
+    [data-composition-id="s06-va-con"] .tile .tn { font-size: 44px; }
+    [data-composition-id="s06-va-con"] .link { fill: none; stroke: #3fa60a; stroke-width: 12; stroke-linecap: round; }
+    [data-composition-id="s06-va-con"] .lab { position: absolute; left: 290px; top: 616px; padding: 8px 18px; border-radius: 14px; background: #0b1220; font: 600 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #efeee5; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-va-con" data-width="1080" data-height="1920" data-duration="2">
+    <div id="s06-va-con-esc" class="esc clip" data-start="0" data-duration="2" data-track-index="0">
+
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="link lk1" d="M420 1110 L260 1236"/><path class="link lk2" d="M660 1110 L820 1236"/></svg>
+      <div class="tile tc"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><polygon points="20,176 120,24 220,176" fill="#5ce611"/><polygon points="120,24 220,176 120,176" fill="#3fa60a"/><polygon points="92,176 120,92 148,176" fill="#0b1220"/><path d="M120 24 L120 8" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/><rect x="8" y="172" width="224" height="12" rx="6" fill="#0b1220"/></svg><div class="tn">Tu carpa</div></div></div>
+      <div class="tile ta"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><polygon points="160,62 236,30 236,170 160,138" fill="rgba(92,230,17,0.35)"/><rect x="16" y="76" width="112" height="48" rx="14" fill="#16243d"/><rect x="16" y="104" width="112" height="20" rx="10" fill="#0b1220"/><polygon points="122,70 166,52 166,148 122,130" fill="#5ce611"/><polygon points="122,104 166,104 166,148 122,130" fill="#3fa60a"/><rect x="58" y="66" width="30" height="14" rx="6" fill="#5ce611"/></svg><div class="tn">Linterna</div></div></div><div class="tile tb"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><rect x="20" y="58" width="168" height="104" rx="22" fill="#5ce611"/><rect x="20" y="118" width="168" height="44" rx="20" fill="#3fa60a"/><ellipse cx="188" cy="110" rx="34" ry="52" fill="#3fa60a"/><ellipse cx="188" cy="110" rx="20" ry="32" fill="#16243d"/><ellipse cx="188" cy="110" rx="8" ry="13" fill="#5ce611"/><rect x="62" y="52" width="16" height="116" rx="6" fill="#0b1220"/><rect x="128" y="52" width="16" height="116" rx="6" fill="#0b1220"/></svg><div class="tn">Bolsa de dormir</div></div></div>
+      <div class="lab">LO TUYO</div>
+      <div class="selbox sb" style="left:238px;top:568px;width:604px;height:564px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="pill lleno n1" style="left:540px;top:1180px">Va con lo tuyo</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-va-con";
+      const DUR = 2;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t) => { const el = q(s); el.textContent = a; tl.set(el, { textContent: b }, t); tl.fromTo(el, { scale: 1 }, { scale: 1.25, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      tl.fromTo(q(".tc"), { opacity: 0, scale: 0.7, y: 60 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.5)" }, 0);
+      pop(".lab", 0.3, 0.25);
+      caja(".sb", 0.45);
+      dibujar(".lk1", 0.65, 0.25); dibujar(".lk2", 0.75, 0.25);
+      tl.fromTo(q(".ta"), { opacity: 0, scale: 0.5, x: 120, y: -120 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: -4, duration: 0.4, ease: "back.out(1.5)" }, 0.75);
+      tl.fromTo(q(".tb"), { opacity: 0, scale: 0.5, x: -120, y: -120 }, { opacity: 1, scale: 1, x: 0, y: 0, rotation: 4, duration: 0.4, ease: "back.out(1.5)" }, 0.9);
+      pop(".n1", 1.15);
+      tl.fromTo(qa(".tile"), { y: 0 }, { y: -12, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.08, immediateRender: false }, 1.4);
+      salida(1.74);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

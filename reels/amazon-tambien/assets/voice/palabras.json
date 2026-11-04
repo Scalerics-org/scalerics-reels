@@ -1,0 +1,542 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.2
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.2,
+  "end": 0.4
+ },
+ {
+  "id": 2,
+  "text": "Amazon",
+  "start": 0.4,
+  "end": 0.8
+ },
+ {
+  "id": 3,
+  "text": "te",
+  "start": 0.8,
+  "end": 1
+ },
+ {
+  "id": 4,
+  "text": "muestra",
+  "start": 1,
+  "end": 1.4
+ },
+ {
+  "id": 5,
+  "text": "lo",
+  "start": 1.4,
+  "end": 1.5
+ },
+ {
+  "id": 6,
+  "text": "que",
+  "start": 1.5,
+  "end": 1.5
+ },
+ {
+  "id": 7,
+  "text": "compraron",
+  "start": 1.5,
+  "end": 2
+ },
+ {
+  "id": 8,
+  "text": "los",
+  "start": 2,
+  "end": 2.1
+ },
+ {
+  "id": 9,
+  "text": "demás?",
+  "start": 2.1,
+  "end": 2.5
+ },
+ {
+  "id": 10,
+  "text": "Porque",
+  "start": 3.085,
+  "end": 3.3
+ },
+ {
+  "id": 11,
+  "text": "el",
+  "start": 3.3,
+  "end": 3.4
+ },
+ {
+  "id": 12,
+  "text": "mejor",
+  "start": 3.4,
+  "end": 3.6
+ },
+ {
+  "id": 13,
+  "text": "momento",
+  "start": 3.6,
+  "end": 3.8
+ },
+ {
+  "id": 14,
+  "text": "para",
+  "start": 3.8,
+  "end": 4.2
+ },
+ {
+  "id": 15,
+  "text": "venderte",
+  "start": 4.2,
+  "end": 4.7
+ },
+ {
+  "id": 16,
+  "text": "es",
+  "start": 4.7,
+  "end": 5.1
+ },
+ {
+  "id": 17,
+  "text": "cuando",
+  "start": 5.1,
+  "end": 5.4
+ },
+ {
+  "id": 18,
+  "text": "ya",
+  "start": 5.4,
+  "end": 5.6
+ },
+ {
+  "id": 19,
+  "text": "estás",
+  "start": 5.6,
+  "end": 5.9
+ },
+ {
+  "id": 20,
+  "text": "comprando.",
+  "start": 5.9,
+  "end": 6.2
+ },
+ {
+  "id": 21,
+  "text": "Amazon",
+  "start": 6.747,
+  "end": 7.1
+ },
+ {
+  "id": 22,
+  "text": "no",
+  "start": 7.1,
+  "end": 7.5
+ },
+ {
+  "id": 23,
+  "text": "compara",
+  "start": 7.5,
+  "end": 8
+ },
+ {
+  "id": 24,
+  "text": "clientes.",
+  "start": 8,
+  "end": 8.6
+ },
+ {
+  "id": 25,
+  "text": "Compara",
+  "start": 8.92,
+  "end": 9.3
+ },
+ {
+  "id": 26,
+  "text": "productos.",
+  "start": 9.3,
+  "end": 9.85
+ },
+ {
+  "id": 27,
+  "text": "Ponés",
+  "start": 10.265,
+  "end": 10.4
+ },
+ {
+  "id": 28,
+  "text": "una",
+  "start": 10.4,
+  "end": 10.6
+ },
+ {
+  "id": 29,
+  "text": "carpa",
+  "start": 10.6,
+  "end": 10.9
+ },
+ {
+  "id": 30,
+  "text": "en",
+  "start": 10.9,
+  "end": 10.9
+ },
+ {
+  "id": 31,
+  "text": "el",
+  "start": 10.9,
+  "end": 11
+ },
+ {
+  "id": 32,
+  "text": "carrito,",
+  "start": 11,
+  "end": 11.4
+ },
+ {
+  "id": 33,
+  "text": "y",
+  "start": 11.4,
+  "end": 11.6
+ },
+ {
+  "id": 34,
+  "text": "aparece",
+  "start": 11.6,
+  "end": 12.1
+ },
+ {
+  "id": 35,
+  "text": "la",
+  "start": 12.1,
+  "end": 12.2
+ },
+ {
+  "id": 36,
+  "text": "linterna.",
+  "start": 12.2,
+  "end": 12.7
+ },
+ {
+  "id": 37,
+  "text": "Pero",
+  "start": 13.05,
+  "end": 13.25
+ },
+ {
+  "id": 38,
+  "text": "ojo:",
+  "start": 13.25,
+  "end": 13.5
+ },
+ {
+  "id": 39,
+  "text": "no",
+  "start": 13.808,
+  "end": 13.9
+ },
+ {
+  "id": 40,
+  "text": "te",
+  "start": 13.9,
+  "end": 14
+ },
+ {
+  "id": 41,
+  "text": "muestra",
+  "start": 14,
+  "end": 14.4
+ },
+ {
+  "id": 42,
+  "text": "lo",
+  "start": 14.4,
+  "end": 14.5
+ },
+ {
+  "id": 43,
+  "text": "más",
+  "start": 14.5,
+  "end": 14.7
+ },
+ {
+  "id": 44,
+  "text": "vendido.",
+  "start": 14.7,
+  "end": 15
+ },
+ {
+  "id": 45,
+  "text": "Te",
+  "start": 15.348,
+  "end": 15.5
+ },
+ {
+  "id": 46,
+  "text": "muestra",
+  "start": 15.5,
+  "end": 15.8
+ },
+ {
+  "id": 47,
+  "text": "lo",
+  "start": 15.8,
+  "end": 16
+ },
+ {
+  "id": 48,
+  "text": "que",
+  "start": 16,
+  "end": 16
+ },
+ {
+  "id": 49,
+  "text": "va",
+  "start": 16,
+  "end": 16.2
+ },
+ {
+  "id": 50,
+  "text": "con",
+  "start": 16.2,
+  "end": 16.4
+ },
+ {
+  "id": 51,
+  "text": "lo",
+  "start": 16.4,
+  "end": 16.5
+ },
+ {
+  "id": 52,
+  "text": "tuyo.",
+  "start": 16.5,
+  "end": 16.7
+ },
+ {
+  "id": 53,
+  "text": "Vos,",
+  "start": 17.346,
+  "end": 17.5
+ },
+ {
+  "id": 54,
+  "text": "¿qué",
+  "start": 17.5,
+  "end": 17.7
+ },
+ {
+  "id": 55,
+  "text": "le",
+  "start": 17.7,
+  "end": 17.8
+ },
+ {
+  "id": 56,
+  "text": "ofrecés",
+  "start": 17.8,
+  "end": 18.3
+ },
+ {
+  "id": 57,
+  "text": "al",
+  "start": 18.3,
+  "end": 18.4
+ },
+ {
+  "id": 58,
+  "text": "que",
+  "start": 18.4,
+  "end": 18.5
+ },
+ {
+  "id": 59,
+  "text": "ya",
+  "start": 18.5,
+  "end": 18.7
+ },
+ {
+  "id": 60,
+  "text": "está",
+  "start": 18.7,
+  "end": 18.9
+ },
+ {
+  "id": 61,
+  "text": "pagando?",
+  "start": 18.9,
+  "end": 19.2
+ },
+ {
+  "id": 62,
+  "text": "En",
+  "start": 19.833,
+  "end": 19.9
+ },
+ {
+  "id": 63,
+  "text": "Scalerics",
+  "start": 19.9,
+  "end": 20.4
+ },
+ {
+  "id": 64,
+  "text": "lo",
+  "start": 20.4,
+  "end": 20.7
+ },
+ {
+  "id": 65,
+  "text": "hacemos",
+  "start": 20.7,
+  "end": 20.9
+ },
+ {
+  "id": 66,
+  "text": "a",
+  "start": 20.9,
+  "end": 21.1
+ },
+ {
+  "id": 67,
+  "text": "tu",
+  "start": 21.1,
+  "end": 21.2
+ },
+ {
+  "id": 68,
+  "text": "escala.",
+  "start": 21.2,
+  "end": 21.6
+ },
+ {
+  "id": 69,
+  "text": "Tu",
+  "start": 21.6,
+  "end": 22
+ },
+ {
+  "id": 70,
+  "text": "tienda",
+  "start": 22,
+  "end": 22.4
+ },
+ {
+  "id": 71,
+  "text": "online,",
+  "start": 22.4,
+  "end": 22.5
+ },
+ {
+  "id": 72,
+  "text": "con",
+  "start": 23.136,
+  "end": 23.2
+ },
+ {
+  "id": 73,
+  "text": "un",
+  "start": 23.2,
+  "end": 23.3
+ },
+ {
+  "id": 74,
+  "text": "\"llevá",
+  "start": 23.3,
+  "end": 23.7
+ },
+ {
+  "id": 75,
+  "text": "también\"",
+  "start": 23.7,
+  "end": 23.9
+ },
+ {
+  "id": 76,
+  "text": "en",
+  "start": 23.9,
+  "end": 24.4
+ },
+ {
+  "id": 77,
+  "text": "cada",
+  "start": 24.4,
+  "end": 24.7
+ },
+ {
+  "id": 78,
+  "text": "producto.",
+  "start": 24.7,
+  "end": 25.3
+ },
+ {
+  "id": 79,
+  "text": "¿Querés",
+  "start": 25.67,
+  "end": 25.9
+ },
+ {
+  "id": 80,
+  "text": "verlo",
+  "start": 25.95,
+  "end": 26.1
+ },
+ {
+  "id": 81,
+  "text": "con",
+  "start": 26.1,
+  "end": 26.3
+ },
+ {
+  "id": 82,
+  "text": "tus",
+  "start": 26.3,
+  "end": 26.4
+ },
+ {
+  "id": 83,
+  "text": "productos?",
+  "start": 26.4,
+  "end": 26.9
+ },
+ {
+  "id": 84,
+  "text": "Agendá",
+  "start": 27.234,
+  "end": 27.6
+ },
+ {
+  "id": 85,
+  "text": "una",
+  "start": 27.6,
+  "end": 27.8
+ },
+ {
+  "id": 86,
+  "text": "videollamada",
+  "start": 27.8,
+  "end": 28
+ },
+ {
+  "id": 87,
+  "text": "gratis",
+  "start": 28,
+  "end": 28.5
+ },
+ {
+  "id": 88,
+  "text": "en",
+  "start": 28.5,
+  "end": 28.9
+ },
+ {
+  "id": 89,
+  "text": "scalerics.com.",
+  "start": 28.9,
+  "end": 29.25
+ }
+]

@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-compara"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-compara"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-compara"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-compara"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s03-compara"] .carr { position: absolute; left: 120px; top: 640px; width: 800px; height: 720px; }
+    [data-composition-id="s03-compara"] .carr svg { width: 800px; height: 720px; overflow: visible; }
+    [data-composition-id="s03-compara"] .badge { position: absolute; left: 700px; top: 70px; width: 110px; height: 110px; border-radius: 50%; background: #5ce611; border: 8px solid #0b1220; font: 800 58px/94px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s03-compara"] .tile { position: absolute; width: 300px; height: 300px; }
+    [data-composition-id="s03-compara"] .tile-lado { position: absolute; left: 14px; top: 16px; width: 100%; height: 100%; border-radius: 40px; background: #dcdacb; }
+    [data-composition-id="s03-compara"] .tile-cara { position: absolute; inset: 0; border-radius: 40px; background: #ffffff; border: 7px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s03-compara"] .tile .ico { position: absolute; left: 10%; top: 8%; width: 80%; height: 60%; }
+    [data-composition-id="s03-compara"] .tile .tn { position: absolute; left: 0; right: 0; bottom: 9%; text-align: center; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-compara"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s03-compara"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s03-compara"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s03-compara"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-compara"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s03-compara"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s03-compara"] .lead.g { stroke: #3fa60a; } [data-composition-id="s03-compara"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s03-compara"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s03-compara"] .dot.g { fill: #3fa60a; } [data-composition-id="s03-compara"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s03-compara"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s03-compara"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-compara"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-compara"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-compara"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s03-compara"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s03-compara"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s03-compara"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s03-compara"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s03-compara"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s03-compara"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s03-compara"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s03-compara"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-top { position: absolute; left: 36px; right: 36px; top: 76px; height: 60px; display: flex; justify-content: space-between; align-items: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s03-compara"] .ti-cart { position: relative; width: 56px; height: 50px; }
+    [data-composition-id="s03-compara"] .ti-badge { position: absolute; right: -20px; top: -18px; width: 40px; height: 40px; border-radius: 50%; background: #5ce611; border: 4px solid #0b1220; font: 800 22px/32px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-img { position: absolute; left: 24px; top: 156px; width: 556px; height: 330px; border-radius: 34px; background: #efeee5; }
+    [data-composition-id="s03-compara"] .ti-img .ico { position: absolute; left: 118px; top: 20px; width: 320px; height: 290px; }
+    [data-composition-id="s03-compara"] .ti-nom { position: absolute; left: 30px; top: 512px; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-btn { position: absolute; left: 24px; top: 586px; width: 556px; height: 94px; border-radius: 47px; background: #5ce611; display: flex; justify-content: center; align-items: center; gap: 16px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-btn svg circle { fill: #0b1220; } [data-composition-id="s03-compara"] .ti-btn svg path { stroke: #5ce611; }
+    [data-composition-id="s03-compara"] .ti-sec { position: absolute; left: 30px; top: 718px; padding: 6px 10px; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-t { position: absolute; top: 786px; width: 172px; height: 226px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s03-compara"] .ti-t .ico { position: absolute; left: 14px; top: 14px; width: 144px; height: 120px; }
+    [data-composition-id="s03-compara"] .ti-tn { position: absolute; left: 0; right: 0; top: 146px; text-align: center; font: 700 30px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-compara"] .ti-mas, [data-composition-id="s03-compara"] .ti-ok { position: absolute; left: 60px; top: 184px; width: 52px; height: 52px; }
+    [data-composition-id="s03-compara"] .ti-ok { opacity: 0; }
+
+    [data-composition-id="s03-compara"] .av { position: absolute; top: 700px; width: 380px; height: 380px; }
+    [data-composition-id="s03-compara"] .av.a { left: 70px; } [data-composition-id="s03-compara"] .av.b { left: 630px; }
+    [data-composition-id="s03-compara"] .igual { position: absolute; left: 450px; top: 790px; width: 180px; height: 180px; font: 800 170px/180px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s03-compara"] .tile { top: 740px; width: 380px; height: 380px; }
+    [data-composition-id="s03-compara"] .tile.ta { left: 50px; } [data-composition-id="s03-compara"] .tile.tb { left: 650px; }
+    [data-composition-id="s03-compara"] .tile .tn { font-size: 46px; }
+    [data-composition-id="s03-compara"] .link { fill: none; stroke: #3fa60a; stroke-width: 12; stroke-linecap: round; }
+    [data-composition-id="s03-compara"] .tach { fill: none; stroke: #c7655b; stroke-width: 14; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="s03-compara" data-width="1080" data-height="1920" data-duration="3.52">
+    <div id="s03-compara-esc" class="esc clip" data-start="0" data-duration="3.52" data-track-index="0">
+
+      <div class="sombra sh1" style="left:90px;top:1180px;width:340px;height:40px"></div><div class="sombra sh2" style="left:650px;top:1180px;width:340px;height:40px"></div>
+      <div class="av a"><svg width="380" height="380" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#16243d"/><circle cx="70" cy="56" r="26" fill="#efeee5"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#efeee5"/></svg></div><div class="av b"><svg width="380" height="380" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#1f3254"/><circle cx="70" cy="56" r="26" fill="#efeee5"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#efeee5"/></svg></div>
+      <div class="igual">=</div>
+      <div class="tile ta"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><polygon points="20,176 120,24 220,176" fill="#5ce611"/><polygon points="120,24 220,176 120,176" fill="#3fa60a"/><polygon points="92,176 120,92 148,176" fill="#0b1220"/><path d="M120 24 L120 8" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/><rect x="8" y="172" width="224" height="12" rx="6" fill="#0b1220"/></svg><div class="tn">Carpa</div></div></div><div class="tile tb"><div class="tile-lado"></div><div class="tile-cara"><svg class="ico" viewBox="0 0 240 200" aria-hidden="true"><polygon points="160,62 236,30 236,170 160,138" fill="rgba(92,230,17,0.35)"/><rect x="16" y="76" width="112" height="48" rx="14" fill="#16243d"/><rect x="16" y="104" width="112" height="20" rx="10" fill="#0b1220"/><polygon points="122,70 166,52 166,148 122,130" fill="#5ce611"/><polygon points="122,104 166,104 166,148 122,130" fill="#3fa60a"/><rect x="58" y="66" width="30" height="14" rx="6" fill="#5ce611"/></svg><div class="tn">Linterna</div></div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="tach" d="M90 1300 L990 640"/>
+        <path class="link" d="M440 930 C 500 860, 580 860, 640 930"/>
+      </svg>
+      <div class="pill r n1" style="left:540px;top:1340px">Cliente con cliente</div>
+      <div class="pill lleno n2" style="left:540px;top:1340px">Producto con producto</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-compara";
+      const DUR = 3.52;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t) => { const el = q(s); el.textContent = a; tl.set(el, { textContent: b }, t); tl.fromTo(el, { scale: 1 }, { scale: 1.25, transformOrigin: "50% 50%", duration: 0.14, yoyo: true, repeat: 1, immediateRender: false }, t); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      const [A, B] = qa(".av");
+      tl.fromTo([A, B], { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)", stagger: 0.1 }, 0);
+      pop(".igual", 0.35, 0.3, 0.3);
+      nota(1, 0.6);
+      dibujar(".tach", 1.0, 0.3);
+      tl.to(qa(".av, .igual"), { opacity: 0.35, duration: 0.2 }, 1.2);
+      // los clientes se dan vuelta y son productos
+      fuera(".n1, .tach, .igual", 1.95, 0.18);
+      tl.to([A, B], { scaleX: 0, opacity: 1, duration: 0.18, ease: "power2.in" }, 1.95);
+      tl.fromTo(qa(".tile"), { scaleX: 0, opacity: 1 }, { scaleX: 1, duration: 0.24, ease: "back.out(1.6)", stagger: 0.06 }, 2.13);
+      dibujar(".link", 2.5, 0.35);
+      nota(2, 2.6);
+      tl.fromTo(qa(".tile"), { y: 0 }, { y: -14, duration: 0.25, yoyo: true, repeat: 1, stagger: 0.1, immediateRender: false }, 2.9);
+      salida(3.24);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
