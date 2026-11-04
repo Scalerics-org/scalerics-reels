@@ -1,0 +1,8 @@
+¿Por qué Toyota pone una tarjetita en cada caja de piezas?
+Esa tarjeta se llama kanban.
+Cuando la caja se vacía, la tarjeta vuelve y pide reponer justo eso.
+Ojo: la tarjeta no cuenta lo que hay. Avisa lo que se usó.
+¿Y en tu local, quién se da cuenta de que falta algo?
+El que ve el estante vacío.
+Lo resolvemos con una automatización: cuando un producto baja del mínimo, el pedido al proveedor queda armado solo.
+¿Lo vemos con tu stock? Agendá una videollamada gratis en scalerics.com.

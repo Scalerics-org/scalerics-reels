@@ -1,0 +1,80 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-pedido"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-pedido"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-pedido"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-pedido"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s08-pedido"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s08-pedido"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s08-pedido"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s08-pedido"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s08-pedido"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s08-pedido"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s08-pedido"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s08-pedido"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s08-pedido"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s08-pedido"] .rot { position: absolute; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s08-pedido"] .rot.g { color: #5ce611; }
+
+    [data-composition-id="s08-pedido"] .ped { position: absolute; left: 90px; top: 640px; width: 900px; height: 690px; }
+    [data-composition-id="s08-pedido"] .ped-lado { position: absolute; left: 18px; top: 18px; width: 900px; height: 690px; border-radius: 50px; background: #a9a798; }
+    [data-composition-id="s08-pedido"] .ped-cuerpo { position: absolute; left: 0; top: 0; width: 900px; height: 690px; border-radius: 50px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s08-pedido"] .ped-ban { position: absolute; left: 0; top: 0; width: 900px; height: 130px; background: #0b1220; }
+    [data-composition-id="s08-pedido"] .ped-ban b { position: absolute; left: 56px; top: 44px; font: 600 40px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #5ce611; }
+    [data-composition-id="s08-pedido"] .ped-prov { position: absolute; left: 56px; top: 170px; font: 800 54px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s08-pedido"] .fila { position: absolute; left: 40px; width: 820px; height: 110px; border-radius: 24px; background: rgba(11,18,32,0.08); opacity: 0; }
+    [data-composition-id="s08-pedido"] .fila span { position: absolute; left: 30px; top: 35px; font: 600 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s08-pedido"] .fila em { position: absolute; right: 110px; top: 33px; font: 800 44px/1 "Lexend", sans-serif; font-style: normal; color: #0b1220; }
+    [data-composition-id="s08-pedido"] .fila .ok { position: absolute; right: 26px; top: 27px; opacity: 0; }
+    [data-composition-id="s08-pedido"] .btn { position: absolute; left: 40px; top: 560px; width: 820px; height: 96px; border-radius: 26px; background: #5ce611; font: 700 44px/96px "Lexend", sans-serif; color: #0b1220; text-align: center; opacity: 0; }
+    [data-composition-id="s08-pedido"] .ped-in { position: absolute; inset: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-pedido" data-width="1080" data-height="1920" data-duration="3.05">
+    <div id="s08-pedido-esc" class="esc clip" data-start="0" data-duration="3.05" data-track-index="0">
+
+      <div class="ped"><div class="ped-lado"></div><div class="ped-cuerpo">
+        <div class="ped-ban"><b>PEDIDO AL PROVEEDOR</b></div>
+        <div class="ped-prov">Distribuidora Norte</div>
+        <div class="fila f0" style="top:266px"><span>Pintura blanca 4 L</span><em>× 12</em><span class="ok" style="left:auto"><svg width="56" height="56" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div><div class="fila f1" style="top:402px"><span>Rodillo 23 cm</span><em>× 6</em><span class="ok" style="left:auto"><svg width="56" height="56" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+        <div class="btn">Listo para enviar</div>
+      </div></div>
+      <div class="pill lleno n1" style="left:540px;top:1440px">Armado solo</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-pedido";
+      const DUR = 3.05;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      // el panel de stock gira y queda el pedido
+      tl.fromTo(q(".ped"), { opacity: 0, rotationY: -70, scale: 0.9, transformOrigin: "50% 50%", transformPerspective: 1400 }, { opacity: 1, rotationY: 0, scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".ped-prov"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25 }, 0.47);
+      qa(".fila").forEach((f, i) => tl.fromTo(f, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.7)" }, 0.99 + i * 0.18));
+      qa(".fila .ok").forEach((o, i) => pop(o, 1.58 + i * 0.14, 0.25, 0.3));
+      tl.fromTo(q(".btn"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.7)" }, 1.68);
+      pop(".n1", 1.96);
+      tl.to(q(".btn"), { scale: 1.04, transformOrigin: "50% 50%", duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.26);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
