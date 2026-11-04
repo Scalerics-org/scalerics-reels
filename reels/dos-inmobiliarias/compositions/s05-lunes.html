@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-lunes"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-lunes"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-lunes"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-lunes"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s05-lunes"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s05-lunes"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s05-lunes"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s05-lunes"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s05-lunes"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s05-lunes"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s05-lunes"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s05-lunes"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s05-lunes"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s05-lunes"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s05-lunes"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s05-lunes"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s05-lunes"] .lado { position: absolute; top: 520px; left: 0; width: 1080px; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; }
+    [data-composition-id="s05-lunes"] .lado.izq { color: #c7655b; } [data-composition-id="s05-lunes"] .lado.der { color: #5ce611; }
+    [data-composition-id="s05-lunes"] .telw { position: absolute; }
+    [data-composition-id="s05-lunes"] .tel-lado { position: absolute; left: 16px; top: 16px; right: -16px; bottom: -16px; border-radius: 70px; background: #0a1120; }
+    [data-composition-id="s05-lunes"] .tel { position: absolute; inset: 0; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s05-lunes"] .telw.gr .tel { background: #8a96ab; }
+    [data-composition-id="s05-lunes"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 56px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s05-lunes"] .tel-notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 28px; margin-left: -60px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s05-lunes"] .telw.gr .tel-notch { background: #8a96ab; }
+    [data-composition-id="s05-lunes"] .ch-head { position: absolute; left: 0; top: 0; right: 0; height: 176px; background: #5ce611; }
+    [data-composition-id="s05-lunes"] .ch-head.gr { background: #22365a; }
+    [data-composition-id="s05-lunes"] .ch-av { position: absolute; left: 30px; top: 72px; width: 84px; height: 84px; border-radius: 50%; background: #efeee5; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s05-lunes"] .ch-head.gr .ch-av { background: #0f1a2e; }
+    [data-composition-id="s05-lunes"] .ch-nom { position: absolute; left: 134px; top: 78px; font: 800 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-lunes"] .ch-sub { position: absolute; left: 136px; top: 126px; font: 500 28px/1 "IBM Plex Mono", monospace; color: #0b1220; letter-spacing: 0.04em; }
+    [data-composition-id="s05-lunes"] .ch-head.gr .ch-nom { color: #efeee5; } [data-composition-id="s05-lunes"] .ch-head.gr .ch-sub { color: #8a96ab; }
+    [data-composition-id="s05-lunes"] .bur { position: absolute; padding: 24px 30px 26px; border-radius: 34px; font: 600 42px/1.22 "Lexend", sans-serif; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .bur.in { left: 28px; background: #2e4672; color: #efeee5; border-bottom-left-radius: 8px; }
+    [data-composition-id="s05-lunes"] .bur.out { right: 28px; background: #efeee5; color: #0b1220; border-bottom-right-radius: 8px; }
+    [data-composition-id="s05-lunes"] .bur.ia { right: 28px; background: #5ce611; color: #0b1220; border-bottom-right-radius: 8px; font-weight: 700; }
+    [data-composition-id="s05-lunes"] .bur small { display: block; margin-top: 10px; font: 500 28px/1 "IBM Plex Mono", monospace; opacity: 0.75; text-align: right; }
+    [data-composition-id="s05-lunes"] .bur.gr { background: #4a5873; color: #8a96ab; }
+
+    [data-composition-id="s05-lunes"] .hd { position: absolute; left: 70px; top: 590px; width: 940px; height: 210px; border-radius: 36px; background: #0b1220; border: 6px solid #8a96ab; display: flex; align-items: center; justify-content: center; gap: 36px; }
+    [data-composition-id="s05-lunes"] .hd .a { font: 800 90px/1 "Lexend", sans-serif; color: #8a96ab; letter-spacing: 0.02em; }
+    [data-composition-id="s05-lunes"] .hd .b { font: 900 120px/1 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; }
+    [data-composition-id="s05-lunes"] .lst { position: absolute; left: 70px; top: 840px; width: 940px; height: 780px; border-radius: 36px; background: #0b1220; border: 6px solid #4a5873; overflow: hidden; }
+    [data-composition-id="s05-lunes"] .fila { position: absolute; left: 0; width: 928px; height: 250px; border-bottom: 5px solid #4a5873; }
+    [data-composition-id="s05-lunes"] .fila .av { position: absolute; left: 36px; top: 46px; }
+    [data-composition-id="s05-lunes"] .fila .nm { position: absolute; left: 190px; top: 46px; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s05-lunes"] .fila .yo { position: absolute; left: 190px; top: 112px; font: 600 34px/1 "Lexend", sans-serif; color: #8a96ab; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .fila .yo b { color: #5ce611; font-weight: 600; }
+    [data-composition-id="s05-lunes"] .fila .ellos { position: absolute; left: 172px; top: 160px; padding: 14px 22px; border-radius: 20px; background: rgba(199,101,91,0.18); border: 5px solid #c7655b; font: 700 34px/1 "Lexend", sans-serif; color: #fff; opacity: 0; white-space: nowrap; }
+    [data-composition-id="s05-lunes"] .fila .x { position: absolute; right: 40px; top: 88px; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-lunes" data-width="1080" data-height="1920" data-duration="2.96">
+    <div id="s05-lunes-esc" class="esc clip" data-start="0" data-duration="2.96" data-track-index="0">
+
+      <div class="lado izq">RODRÍGUEZ · LUNES</div>
+      <div class="hd"><span class="a">LUNES</span><span class="b">10:00</span></div>
+      <div class="lst">
+        <div class="fila f0" style="top:0px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#f0b26a"/><circle cx="70" cy="56" r="26" fill="#0b1220"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#0b1220"/></svg></div><div class="nm">Laura</div><div class="yo">Vos: <b>¡Hola! Sí, sigue.</b></div><div class="ellos">Gracias, ya vimos otro.</div><div class="x"><svg width="72" height="72" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#c7655b"/><path d="M14 14 L30 30 M30 14 L14 30" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg></div></div><div class="fila f1" style="top:258px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#2e4672"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#2e4672"/></svg></div><div class="nm">Martín</div><div class="yo">Vos: <b>¡Hola! Sí, sigue.</b></div></div><div class="fila f2" style="top:516px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#9fd3f0"/><circle cx="70" cy="56" r="26" fill="#0b1220"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#0b1220"/></svg></div><div class="nm">Paula</div><div class="yo">Vos: <b>¡Hola! Sí, sigue.</b></div><div class="ellos">Gracias, ya vimos otro.</div><div class="x"><svg width="72" height="72" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#c7655b"/><path d="M14 14 L30 30 M30 14 L14 30" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg></div></div>
+      </div>
+      <div class="pill rl n1" style="left:540px;top:1700px">Dos ya vieron otro</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-lunes";
+      const DUR = 2.96;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const burbuja = (s, t, origen) => tl.fromTo(q(s), { opacity: 0, scale: 0.7, y: 30, transformOrigin: origen ?? "0% 100%" }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(1.8)" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(qa(".lado, .yo"), { opacity: 0 });
+      tl.to(q(".lado"), { opacity: 1, duration: 0.25 }, 0.1);
+      tl.fromTo(q(".hd"), { y: -200, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".lst"), { y: 900 }, { y: 0, duration: 0.45, ease: "power3.out" }, 0.1);
+      latido(".hd .b", 0.8, 1.08);
+      // "contestan": las respuestas salen recién ahora
+      qa(".yo").forEach((y, i) => tl.fromTo(y, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, ease: "power2.out" }, 1.0 + i * 0.14));
+      // "dos ya vieron otro"
+      tl.fromTo(qa(".ellos"), { opacity: 0, y: 20, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.25, ease: "back.out(1.8)", stagger: 0.18 }, 1.85);
+      tl.fromTo(qa(".x"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.2)", stagger: 0.18 }, 2.0);
+      tl.to(qa(".f0 .av, .f2 .av"), { opacity: 0.4, duration: 0.3 }, 2.1);
+      pop(".n1", 2.35);
+      salida(2.82);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
