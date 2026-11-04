@@ -1,0 +1,1 @@
+{ "t": 4.75, "chica": "Nació en Montevideo.", "grande": "Hoy: 15 países", "sello": "Caso real", "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.3, "foco": "100%", "velo": "11,18,32", "fondo": "#0b1220", "nota": "el fondo es el cuadro 4.75 s renderizado aparte SIN el texto del gancho, subtítulos ni logo (si se corre portada.mjs directo sobre el render, asoma el texto)" }
