@@ -1,0 +1,91 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-repone"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-repone"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-repone"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-repone"] .pz { position: absolute; }
+    [data-composition-id="s02-repone"] .pz svg { display: block; overflow: visible; }
+    [data-composition-id="s02-repone"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s02-repone"] .barra { position: absolute; left: 60px; width: 960px; height: 26px; border-radius: 13px; background: #1f3254; border: 5px solid #2c4268; }
+    [data-composition-id="s02-repone"] .barra-luz { position: absolute; left: 80px; width: 920px; height: 7px; margin-top: 6px; border-radius: 4px; background: rgba(239,238,229,0.25); }
+    [data-composition-id="s02-repone"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s02-repone"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s02-repone"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s02-repone"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s02-repone"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s02-repone"] .pill.grande { font-size: 50px; padding: 18px 40px 20px; }
+    [data-composition-id="s02-repone"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s02-repone"] .lead.g { stroke: #5ce611; } [data-composition-id="s02-repone"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s02-repone"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s02-repone"] .dot.g { fill: #5ce611; } [data-composition-id="s02-repone"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s02-repone"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s02-repone"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s02-repone"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s02-repone"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s02-repone"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s02-repone"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s02-repone"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s02-repone"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s02-repone"] .ic { position: absolute; opacity: 0; }
+    [data-composition-id="s02-repone"] .ic svg { display: block; }
+    [data-composition-id="s02-repone"] .tachar { fill: none; stroke: #c7655b; stroke-width: 12; stroke-linecap: round; }
+[data-composition-id="s02-repone"] .ic.vend { left: 470px; top: 930px; } [data-composition-id="s02-repone"] .ic.vend svg { width: 140px; height: 140px; }
+  </style>
+  <div id="root" data-composition-id="s02-repone" data-width="1080" data-height="1920" data-duration="1.9">
+    <div id="s02-repone-esc" class="esc clip" data-start="0" data-duration="1.9" data-track-index="0">
+
+      <div class="barra" style="top:596px"></div><div class="barra-luz" style="top:596px"></div>
+      <div class="pz percha p0" style="left:210px;top:600px;width:660px;height:200px"><svg viewBox="0 0 660 200" width="660" height="200" aria-hidden="true"><path d="M330 92 L330 46 Q330 10 360 10 Q390 10 390 38" fill="none" stroke="#efeee5" stroke-width="14" stroke-linecap="round"/><path d="M330 92 L78 170 Q52 182 80 186 L580 186 Q608 182 582 170 Z" fill="none" stroke="#efeee5" stroke-width="14" stroke-linejoin="round"/></svg></div>
+      <div class="pz remera r0" style="left:210px;top:676px;width:660px;height:690px"><svg viewBox="0 0 660 690" width="660" height="690" aria-hidden="true"><defs><clipPath id="zr8"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr8)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div>
+      <div class="pz remera r1" style="left:210px;top:676px;width:660px;height:690px"><svg viewBox="0 0 660 690" width="660" height="690" aria-hidden="true"><defs><clipPath id="zr9"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr9)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div>
+      <div class="selbox sb" style="left:196px;top:664px;width:688px;height:724px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="ic vend"><svg width="140" height="140" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="pill lleno grande n1" style="left:540px;top:1500px">Se vendió</div>
+      <div class="pill g grande n2" style="left:540px;top:1500px">Repone</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-repone";
+      const DUR = 1.9;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const marco = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const hamaca = (s, t, a, d) => tl.fromTo(q(s), { rotation: a }, { rotation: 0, duration: d ?? 1.2, ease: "elastic.out(1, 0.35)", transformOrigin: "50% 0%", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".r1"), { opacity: 0 });
+      // mira qué se vende
+      marco(".sb", 0.3);
+      pop(".vend", 0.42, 0.3, 0.4);
+      pop(".n1", 0.5);
+      // se la llevan: sale para arriba
+      tl.to(qa(".r0, .sb, .vend"), { y: -420, opacity: 0, duration: 0.4, ease: "power3.in" }, 0.78);
+      tl.fromTo(q(".p0"), { rotation: 0 }, { rotation: -6, transformOrigin: "50% 0%", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 0.9);
+      fuera(".n1", 0.95);
+      // y repone eso: cae otra igual en la percha
+      tl.fromTo(q(".r1"), { opacity: 0, y: -520 }, { opacity: 1, y: 0, duration: 0.42, ease: "back.out(1.3)" }, 1.08);
+      hamaca(".r1", 1.45, 5, 0.9);
+      pop(".n2", 1.2);
+      fuera(".n2", 1.72);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

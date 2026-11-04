@@ -1,0 +1,98 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-colgada"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-colgada"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-colgada"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-colgada"] .pz { position: absolute; }
+    [data-composition-id="s03-colgada"] .pz svg { display: block; overflow: visible; }
+    [data-composition-id="s03-colgada"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s03-colgada"] .barra { position: absolute; left: 60px; width: 960px; height: 26px; border-radius: 13px; background: #1f3254; border: 5px solid #2c4268; }
+    [data-composition-id="s03-colgada"] .barra-luz { position: absolute; left: 80px; width: 920px; height: 7px; margin-top: 6px; border-radius: 4px; background: rgba(239,238,229,0.25); }
+    [data-composition-id="s03-colgada"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s03-colgada"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-colgada"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-colgada"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s03-colgada"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s03-colgada"] .pill.grande { font-size: 50px; padding: 18px 40px 20px; }
+    [data-composition-id="s03-colgada"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s03-colgada"] .lead.g { stroke: #5ce611; } [data-composition-id="s03-colgada"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s03-colgada"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s03-colgada"] .dot.g { fill: #5ce611; } [data-composition-id="s03-colgada"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s03-colgada"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s03-colgada"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-colgada"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-colgada"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-colgada"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s03-colgada"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s03-colgada"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s03-colgada"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s03-colgada"] .ic { position: absolute; opacity: 0; }
+    [data-composition-id="s03-colgada"] .ic svg { display: block; }
+    [data-composition-id="s03-colgada"] .tachar { fill: none; stroke: #c7655b; stroke-width: 12; stroke-linecap: round; }
+
+  </style>
+  <div id="root" data-composition-id="s03-colgada" data-width="1080" data-height="1920" data-duration="3.17">
+    <div id="s03-colgada-esc" class="esc clip" data-start="0" data-duration="3.17" data-track-index="0">
+
+      <div class="barra" style="top:596px"></div><div class="barra-luz" style="top:596px"></div>
+      <div class="pz percha p0" style="left:210px;top:600px;width:660px;height:200px"><svg viewBox="0 0 660 200" width="660" height="200" aria-hidden="true"><path d="M330 92 L330 46 Q330 10 360 10 Q390 10 390 38" fill="none" stroke="#efeee5" stroke-width="14" stroke-linecap="round"/><path d="M330 92 L78 170 Q52 182 80 186 L580 186 Q608 182 582 170 Z" fill="none" stroke="#efeee5" stroke-width="14" stroke-linejoin="round"/></svg></div>
+      <div class="pz bill bl" style="left:230px;top:790px;width:620px;height:329.38px"><svg viewBox="0 0 640 340" width="620" height="329.38" aria-hidden="true"><rect x="0" y="0" width="640" height="340" rx="26" fill="#5ce611"/><polygon points="470,0 640,0 640,340 380,340" fill="#3fa60a"/><rect x="34" y="34" width="572" height="272" rx="16" fill="none" stroke="#0b1220" stroke-width="10"/><circle cx="320" cy="170" r="92" fill="#0b1220"/><text x="320" y="222" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="150" fill="#5ce611">$</text><circle cx="110" cy="170" r="24" fill="#0b1220"/><circle cx="530" cy="170" r="24" fill="#0b1220"/></svg></div>
+      <div class="pz remera r0" style="left:210px;top:676px;width:660px;height:690px"><svg viewBox="0 0 660 690" width="660" height="690" aria-hidden="true"><defs><clipPath id="zr10"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr10)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div>
+      <div class="pz etq et" style="left:720px;top:606px;width:300px;height:420px"><svg viewBox="0 0 300 420" width="300" height="420" aria-hidden="true"><path d="M150 0 L150 70" stroke="#efeee5" stroke-width="8"/><path d="M40 110 L150 60 L260 110 L260 400 Q260 418 242 418 L58 418 Q40 418 40 400 Z" fill="#efeee5"/><polygon points="200,82 260,110 260,418 200,418" fill="rgba(11,18,32,0.12)"/><circle cx="150" cy="104" r="16" fill="#0b1220"/><text x="150" y="330" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="190" fill="#0b1220">?</text></svg></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l2" d="M540 1420 L540 1200"/><circle class="dot r d2" cx="540" cy="1200" r="11"/></svg>
+      <div class="pill r grande n1" style="left:540px;top:1480px">No se vendió</div>
+      <div class="pill rl grande n2" style="left:540px;top:1480px">Plata colgada</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-colgada";
+      const DUR = 3.17;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const marco = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const hamaca = (s, t, a, d) => tl.fromTo(q(s), { rotation: a }, { rotation: 0, duration: d ?? 1.2, ease: "elastic.out(1, 0.35)", transformOrigin: "50% 0%", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".bl"), { opacity: 0 });
+      // ¿por qué?: entra la etiqueta con el signo
+      tl.fromTo(q(".et"), { opacity: 0, y: -260 }, { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.4)" }, 0.0);
+      hamaca(".et", 0.32, 16, 1.0);
+      tl.fromTo(q(".et"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 20%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, 0.56);
+      tl.to(q(".et"), { opacity: 0, y: -80, duration: 0.25, ease: "power2.in" }, 1.08);
+      // lo que no se vende: la remera se apaga
+      tl.to(qa(".r0 .tela"), { attr: { fill: "#8d939f" }, duration: 0.35 }, 1.25);
+      tl.to(qa(".r0 .osc"), { attr: { fill: "#6b7180" }, duration: 0.35 }, 1.25);
+      tl.to(q(".r0"), { y: 24, duration: 0.6, ease: "power2.out" }, 1.25);
+      pop(".n1", 1.4);
+      // es plata colgada: la remera se vuelve un billete colgado de la percha
+      fuera(".n1", 1.9);
+      tl.to(q(".r0"), { opacity: 0, scale: 0.7, transformOrigin: "50% 30%", duration: 0.3, ease: "power2.in" }, 1.92);
+      tl.fromTo(q(".bl"), { opacity: 0, scale: 0.6, transformOrigin: "50% 0%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 2.02);
+      hamaca(".bl", 2.3, 9, 1.0);
+      nota(2, 2.3);
+      // el billete cae (se vuelve la caja de s04)
+      sinNota(2, 2.85);
+      tl.to(q(".bl"), { y: 300, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.85);
+      tl.to(qa(".p0, .barra, .barra-luz"), { opacity: 0, duration: 0.25 }, 2.9);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

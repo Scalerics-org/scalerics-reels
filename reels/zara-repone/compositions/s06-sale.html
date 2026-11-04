@@ -1,0 +1,103 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-sale"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-sale"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-sale"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-sale"] .pz { position: absolute; }
+    [data-composition-id="s06-sale"] .pz svg { display: block; overflow: visible; }
+    [data-composition-id="s06-sale"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s06-sale"] .barra { position: absolute; left: 60px; width: 960px; height: 26px; border-radius: 13px; background: #1f3254; border: 5px solid #2c4268; }
+    [data-composition-id="s06-sale"] .barra-luz { position: absolute; left: 80px; width: 920px; height: 7px; margin-top: 6px; border-radius: 4px; background: rgba(239,238,229,0.25); }
+    [data-composition-id="s06-sale"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s06-sale"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s06-sale"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s06-sale"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s06-sale"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s06-sale"] .pill.grande { font-size: 50px; padding: 18px 40px 20px; }
+    [data-composition-id="s06-sale"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s06-sale"] .lead.g { stroke: #5ce611; } [data-composition-id="s06-sale"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s06-sale"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s06-sale"] .dot.g { fill: #5ce611; } [data-composition-id="s06-sale"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s06-sale"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s06-sale"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s06-sale"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s06-sale"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s06-sale"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s06-sale"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s06-sale"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s06-sale"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s06-sale"] .ic { position: absolute; opacity: 0; }
+    [data-composition-id="s06-sale"] .ic svg { display: block; }
+    [data-composition-id="s06-sale"] .tachar { fill: none; stroke: #c7655b; stroke-width: 12; stroke-linecap: round; }
+
+    [data-composition-id="s06-sale"] .ic.vuel { left: 195px; top: 1110px; } [data-composition-id="s06-sale"] .ic.vuel svg { width: 150px; height: 150px; }
+    [data-composition-id="s06-sale"] .ic.nox { left: 735px; top: 1110px; } [data-composition-id="s06-sale"] .ic.nox svg { width: 150px; height: 150px; }
+    [data-composition-id="s06-sale"] .hueco { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-sale" data-width="1080" data-height="1920" data-duration="3.83">
+    <div id="s06-sale-esc" class="esc clip" data-start="0" data-duration="3.83" data-track-index="0">
+
+      <div class="barra" style="top:596px"></div><div class="barra-luz" style="top:596px"></div>
+      <div class="pz percha pa" style="left:40px;top:600px;width:470px;height:142.42px"><svg viewBox="0 0 660 200" width="470" height="142.42" aria-hidden="true"><path d="M330 92 L330 46 Q330 10 360 10 Q390 10 390 38" fill="none" stroke="#efeee5" stroke-width="14" stroke-linecap="round"/><path d="M330 92 L78 170 Q52 182 80 186 L580 186 Q608 182 582 170 Z" fill="none" stroke="#efeee5" stroke-width="14" stroke-linejoin="round"/></svg></div><div class="pz percha pb" style="left:570px;top:600px;width:470px;height:142.42px"><svg viewBox="0 0 660 200" width="470" height="142.42" aria-hidden="true"><path d="M330 92 L330 46 Q330 10 360 10 Q390 10 390 38" fill="none" stroke="#efeee5" stroke-width="14" stroke-linecap="round"/><path d="M330 92 L78 170 Q52 182 80 186 L580 186 Q608 182 582 170 Z" fill="none" stroke="#efeee5" stroke-width="14" stroke-linejoin="round"/></svg></div>
+      <div class="pz hueco" style="left:570px;top:654px;width:470px;height:491.36px"><svg viewBox="0 0 660 690" width="470" height="491.36" aria-hidden="true"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="none" stroke="#c7655b" stroke-width="10" stroke-dasharray="26 18"/></svg></div>
+      <div class="pz remera a2" style="left:40px;top:654px;width:470px;height:491.36px"><svg viewBox="0 0 660 690" width="470" height="491.36" aria-hidden="true"><defs><clipPath id="zr11"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr11)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div><div class="pz remera a1" style="left:40px;top:654px;width:470px;height:491.36px"><svg viewBox="0 0 660 690" width="470" height="491.36" aria-hidden="true"><defs><clipPath id="zr12"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr12)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div><div class="pz remera a0" style="left:40px;top:654px;width:470px;height:491.36px"><svg viewBox="0 0 660 690" width="470" height="491.36" aria-hidden="true"><defs><clipPath id="zr13"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#5ce611"/><g clip-path="url(#zr13)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#3fa60a"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#3fa60a" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#3fa60a"/></svg></div>
+      <div class="pz remera b0" style="left:570px;top:654px;width:470px;height:491.36px"><svg viewBox="0 0 660 690" width="470" height="491.36" aria-hidden="true"><defs><clipPath id="zr14"><path d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z"/></clipPath></defs><path class="tela" d="M222 12 Q330 84 438 12 L610 84 L656 262 L542 292 L530 226 L530 684 L130 684 L130 226 L118 292 L4 262 L50 84 Z" fill="#efeee5"/><g clip-path="url(#zr14)"><polygon class="osc" points="452,0 660,0 660,690 452,690" fill="#b9b7a8"/><rect class="osc" x="0" y="640" width="660" height="50" fill="#b9b7a8" opacity="0.7"/><polygon points="0,0 250,0 96,690 0,690" fill="rgba(255,255,255,0.16)"/></g><path class="osc" d="M222 12 Q330 84 438 12 Q330 132 222 12 Z" fill="#b9b7a8"/></svg></div>
+      <div class="selbox sba" style="left:30px;top:642px;width:490px;height:516px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="ic vuel"><svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="75" fill="#5ce611"/><path d="M110 75 A35 35 0 1 1 96 47" fill="none" stroke="#0b1220" stroke-width="12" stroke-linecap="round"/><path d="M84 30 L104 44 L86 62" fill="none" stroke="#0b1220" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="ic nox"><svg width="150" height="150" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#c7655b"/><path d="M14 14 L30 30 M30 14 L14 30" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/></svg></div>
+      <div class="pill lleno grande n1" style="left:275px;top:1360px">Sale</div>
+      <div class="pill rl grande n2" style="left:805px;top:1360px">No sale</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-sale";
+      const DUR = 3.83;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const marco = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const hamaca = (s, t, a, d) => tl.fromTo(q(s), { rotation: a }, { rotation: 0, duration: d ?? 1.2, ease: "elastic.out(1, 0.35)", transformOrigin: "50% 0%", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(qa(".a1, .a2"), { opacity: 0 });
+      tl.fromTo(qa(".pa, .a0"), { x: 220, opacity: 0 }, { x: 0, opacity: 1, duration: 0.36, ease: "power3.out" }, 0);
+      tl.fromTo(qa(".pb, .b0"), { x: -220, opacity: 0 }, { x: 0, opacity: 1, duration: 0.36, ease: "power3.out" }, 0);
+      // lo que sale
+      marco(".sba", 0.48);
+      pop(".n1", 0.55);
+      // vuelve: entran más iguales atrás
+      pop(".vuel", 1.1, 0.34, 0.4);
+      tl.fromTo(q(".vuel svg"), { rotation: -120 }, { rotation: 0, transformOrigin: "50% 50%", duration: 0.5, ease: "back.out(1.4)" }, 1.1);
+      tl.fromTo(q(".a1"), { opacity: 0, x: 0, y: 0 }, { opacity: 0.8, x: -22, y: -20, duration: 0.3, ease: "back.out(1.6)" }, 1.2);
+      tl.fromTo(q(".a2"), { opacity: 0, x: 0, y: 0 }, { opacity: 0.6, x: -44, y: -40, duration: 0.3, ease: "back.out(1.6)" }, 1.3);
+      // lo que no: la otra se apaga
+      tl.to(qa(".b0 .tela"), { attr: { fill: "#c7655b" }, duration: 0.3 }, 1.85);
+      tl.to(qa(".b0 .osc"), { attr: { fill: "#9e4c44" }, duration: 0.3 }, 1.85);
+      pop(".n2", 1.95);
+      tl.to(qa(".sba"), { opacity: 0.35, duration: 0.2 }, 1.9);
+      // no se repite: se cae y queda el hueco
+      tl.to(q(".b0"), { y: 420, rotation: 14, opacity: 0, duration: 0.5, ease: "power2.in" }, 2.6);
+      tl.fromTo(q(".hueco"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, 2.85);
+      pop(".nox", 2.85, 0.32, 0.4);
+      salida(3.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
