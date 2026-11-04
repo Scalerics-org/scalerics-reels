@@ -161,7 +161,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
 8b. **3D REAL EN TODOS LOS REELS desde el 04-11** (Juan: "quiero que se vea como ellos real 3D",
    por @resultaaquee; y al ver la tanda del 04-11, toda en dibujo plano: "lo de 3D no lo habías
    implementado ya? REAL 3D"). El dibujo plano en SVG/CSS ya no va como recurso principal.
-   - **Base: `reels/netflix-blockbuster`.** Copiá su `assets/tres.js`, `assets/vendor/three/`
+   - **Base: `reels/caso-pedidosya`** (la vara de calidad, punto 8c; `reels/netflix-blockbuster` es la versión anterior). Copiá su `assets/tres.js`, `assets/vendor/three/`
      (Three.js r170 local, RoundedBoxGeometry, TextGeometry, Lexend 800 en `lexend800.js`), el
      `#capa3d` con `<canvas id="tres">` de su `index.html` y el `buildReady["tres"]`, y cómo
      `armar.mjs` escribe `assets/tiempos3d.js` (inicios de escena y de cada palabra). Leé el
@@ -184,6 +184,47 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      lento. Anotá en el reporte cuánto tardó cada render. Si WebGL no arranca (canvas en negro o
      error de contexto en `check`/`snapshot`), ese reel va en el estilo plano del punto 7 y lo
      anotás en "Hechos" con "(sin 3D: <motivo>)"; no frenes la tanda por eso.
+
+
+8c. **LA VARA DE CALIDAD: `reels/caso-pedidosya`** (Juan, 04-11: "actualizá la rutina para que
+   salgan en esta calidad los videos"; antes, sobre ese mismo reel: "tiene que quedar perfecto").
+   Miralo entero antes de empezar (render en la rama `reel/caso-pedidosya`) y leé su `SPEC.md`,
+   `tres.js`, `gen.mjs` y `armar.mjs`. Cada reel tiene que estar a esa altura. Lo que lo hace bueno:
+   - **Cámara continua.** Una curva (Catmull-Rom) que viaja de objeto en objeto: grúa, zambullida,
+     órbita, push-in. Casi sin cortes secos. En las transiciones grandes SIEMPRE hay un objeto
+     protagonista grande en cuadro (el celular de la ciudad crece con la distancia hasta que el mapa
+     ya se lee): nunca la escena chiquita en el medio ni la pantalla lisa.
+   - **Objetos específicos y reconocibles.** No "una hamburguesa" cuando es un chivito: sus capas
+     (churrasco, jamón, muzzarella que gotea, panceta, huevo con la yema de frente, palillo con
+     aceituna). Preguntate "¿alguien lo confunde con otra cosa?". Lo local (Montevideo low-poly con
+     rambla, chivito) pega más que lo genérico.
+   - **Cada objeto entra grande** (llenando el ancho, con pop) y **no se repite igual**: si un
+     objeto vuelve, hace algo distinto (el auricular que se cae y rebota, el teléfono que se inclina).
+   - **Años y números 3D arriba y limpios**, sin pisar objetos; el objeto va debajo.
+   - **Un solo objeto por escena en las bisagras** ("¿Por qué?", "¿La lección?"): un "?" 3D verde
+     grande y centrado, título dentro del 80 % seguro.
+   - **El cierre se conecta con la historia (callback).** Juan, 04-11: "es como medio random la
+     conclusión con el video". La lección retoma el objeto o el problema del caso ("te pasa lo
+     mismo que con aquel chivito": vuelve el teléfono, el chat desordenado, el pedido equivocado) y
+     el producto lo resuelve en pantalla (elige ✓, paga ✓, el pedido vuela al local y el local se
+     prende). Nunca un salto genérico a "tu tienda online" sin puente.
+   - **Tarjeta de cierre de 2,5-3 s**, que arranca sobre "videollamada".
+   - **Sonido de verdad.** SFX en cada acción visible (whoosh en la cámara, pop en cada objeto,
+     ring, el motor de la moto). Si hace falta un sonido que no está en `assets/sfx`, uno real con
+     licencia CC0 (anotá autor, sitio y licencia en `fuentes.md`), nunca sintetizado con ffmpeg.
+     Techo por efecto de -31 LUFS (`TECHO` en su `armar.mjs`) y voz siempre al menos 6 LU por
+     encima de música + SFX mientras habla: medilo por tramos de 0,5 s con ffmpeg (ebur128/astats).
+     Final en -14 LUFS, pico -1,5 dBFS, sin clipping.
+   - **Revisión de director de arte, no un vistazo.** `snapshot` cada 0,5 s del render final y
+     mirá cuadro por cuadro: algo cortado en el borde, pisado, chico, vacío, texto que no se lee,
+     subtítulo gris o mal cortado, un objeto que tiembla o atraviesa otro. Corregí y volvé a mirar;
+     **mínimo dos pasadas completas**, hasta que una pasada no encuentre nada. Anotá en el reporte qué
+     corregiste en cada pasada.
+   - **Portada desde un cuadro limpio**: renderizá el fondo sin gancho, subtítulos ni logo (como
+     hizo caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
+   - Si un reel no llega a esta vara en el tiempo de la corrida, es mejor entregar menos reels
+     buenos que cinco flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
+     una nota de qué falta.
 
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
