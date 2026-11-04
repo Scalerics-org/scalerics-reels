@@ -1,0 +1,249 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-precios"] * { box-sizing: border-box; }
+    [data-composition-id="s07-precios"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-precios"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-precios"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s07-precios"] .tel-sh { position: absolute; left: 62px; top: 614px; width: 720px; height: 1130px; border-radius: 100px; background: #03060c; }
+    [data-composition-id="s07-precios"] .tel { position: absolute; left: 40px; top: 590px; width: 720px; height: 1130px; border-radius: 100px; background: #1f3254; border: 10px solid #efeee5; }
+    [data-composition-id="s07-precios"] .pan { position: absolute; left: 16px; top: 16px; width: 668px; height: 1078px; border-radius: 76px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s07-precios"] .notch { position: absolute; left: 264px; top: 22px; width: 140px; height: 38px; border-radius: 19px; background: #0b1220; }
+    [data-composition-id="s07-precios"] .scr { position: absolute; left: 0; top: 0; width: 668px; height: 1078px; }
+    [data-composition-id="s07-precios"] .hora { position: absolute; left: 70px; top: 24px; font: 600 30px/1 "Lexend", sans-serif; }
+    /* etiqueta */
+    [data-composition-id="s07-precios"] .tag { position: absolute; left: 716px; top: 700px; width: 310px; height: 200px; }
+    [data-composition-id="s07-precios"] .tag-in { position: absolute; left: 0; top: 0; width: 310px; height: 200px; transform: rotate(8deg); transform-origin: 50px 100px; }
+    [data-composition-id="s07-precios"] .tag-svg { position: absolute; left: -60px; top: 0; overflow: visible; }
+    [data-composition-id="s07-precios"] .tt { position: absolute; left: 70px; top: 0; width: 230px; height: 200px; display: flex; align-items: center; justify-content: center; font: 800 76px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s07-precios"] .tt-q { font-size: 140px; }
+    [data-composition-id="s07-precios"] .tt-c { font-size: 40px; letter-spacing: -0.01em; color: #0b1220; }
+    [data-composition-id="s07-precios"] .tt-n { font-size: 60px; } [data-composition-id="s07-precios"] .tt-n b { font-weight: 800; }
+    [data-composition-id="s07-precios"] .tt-ok { position: absolute; left: 262px; top: -28px; opacity: 0; }
+    /* app */
+    [data-composition-id="s07-precios"] .app { background: #d9d7ca; }
+    [data-composition-id="s07-precios"] .mapa { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s07-precios"] .auto-m { position: absolute; left: 92px; top: 420px; }
+    [data-composition-id="s07-precios"] .hoja { position: absolute; left: 0; top: 560px; width: 668px; height: 540px; border-radius: 48px 48px 0 0; background: #ffffff; border-top: 7px solid #0b1220; }
+    [data-composition-id="s07-precios"] .dest { position: absolute; left: 44px; top: 34px; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-precios"] .dest i { display: inline-block; width: 26px; height: 26px; border-radius: 13px; background: #5ce611; border: 6px solid #0b1220; margin-right: 16px; vertical-align: -2px; }
+    [data-composition-id="s07-precios"] .opc { position: absolute; left: 30px; top: 108px; width: 608px; height: 190px; border-radius: 38px; background: #efeee5; border: 7px solid #0b1220; }
+    [data-composition-id="s07-precios"] .opc-ic { position: absolute; left: 22px; top: 50px; }
+    [data-composition-id="s07-precios"] .opc-n { position: absolute; left: 168px; top: 40px; font: 800 50px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-precios"] .opc-s { position: absolute; left: 170px; top: 108px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: rgba(11,18,32,0.65); }
+    [data-composition-id="s07-precios"] .precio { position: absolute; right: 30px; top: 52px; font: 800 72px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s07-precios"] .btn { position: absolute; left: 30px; top: 330px; width: 608px; height: 116px; border-radius: 58px; background: #5ce611; border: 7px solid #0b1220; font: 800 46px/102px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s07-precios"] .btn span { position: absolute; left: 0; right: 0; top: 0; }
+    [data-composition-id="s07-precios"] .btn .b2 { opacity: 0; color: #5ce611; } [data-composition-id="s07-precios"] .btn .b2 svg { vertical-align: -6px; margin-left: 8px; }
+    /* taxi */
+    [data-composition-id="s07-precios"] .taxi { background: #101a2c; }
+    [data-composition-id="s07-precios"] .tx-t { position: absolute; left: 0; right: 0; top: 120px; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.24em; color: rgba(239,238,229,0.7); }
+    [data-composition-id="s07-precios"] .tx-pan { position: absolute; left: 36px; top: 190px; width: 596px; height: 340px; border-radius: 38px; background: #03060c; border: 8px solid #1f3254; }
+    [data-composition-id="s07-precios"] .tx-l { position: absolute; left: 40px; top: 34px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #c7655b; }
+    [data-composition-id="s07-precios"] .tx-num { position: absolute; right: 40px; top: 110px; font: 600 160px/1 "IBM Plex Mono", monospace; color: #c7655b; letter-spacing: -0.04em; }
+    [data-composition-id="s07-precios"] .tx-num b { font-weight: 600; }
+    [data-composition-id="s07-precios"] .tx-row { position: absolute; left: 48px; width: 572px; height: 90px; display: flex; justify-content: space-between; align-items: center; border-top: 5px solid rgba(239,238,229,0.18); }
+    [data-composition-id="s07-precios"] .tx-row span { font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: rgba(239,238,229,0.6); }
+    [data-composition-id="s07-precios"] .tx-row b { font: 600 62px/1 "IBM Plex Mono", monospace; color: #efeee5; }
+    [data-composition-id="s07-precios"] .tx-oc { position: absolute; left: 36px; top: 850px; width: 596px; height: 150px; border-radius: 38px; background: #c7655b; border: 7px solid #03060c; font: 800 64px/136px "Lexend", sans-serif; color: #fff; text-align: center; letter-spacing: 0.04em; }
+    /* web */
+    [data-composition-id="s07-precios"] .web { background: #efeee5; }
+    [data-composition-id="s07-precios"] .url { position: absolute; left: 30px; top: 78px; width: 608px; height: 84px; border-radius: 42px; background: #ffffff; border: 6px solid #0b1220; font: 500 32px/72px "IBM Plex Mono", monospace; color: #0b1220; padding-left: 82px; }
+    [data-composition-id="s07-precios"] .url i { position: absolute; left: 30px; top: 20px; width: 30px; height: 32px; border-radius: 8px; background: #5ce611; border: 5px solid #0b1220; }
+    [data-composition-id="s07-precios"] .w-t { position: absolute; left: 40px; top: 198px; font: 800 66px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s07-precios"] .w-s { position: absolute; left: 42px; top: 276px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s07-precios"] .card { position: absolute; left: 30px; width: 608px; height: 330px; border-radius: 42px; background: #ffffff; border: 7px solid #0b1220; }
+    [data-composition-id="s07-precios"] .cd-img { position: absolute; left: 20px; top: 54px; }
+    [data-composition-id="s07-precios"] .cd-n { position: absolute; left: 260px; top: 46px; font: 800 54px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-precios"] .cd-s { position: absolute; left: 262px; top: 112px; font: 600 34px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s07-precios"] .cd-p { position: absolute; left: 250px; top: 190px; width: 330px; height: 96px; }
+    [data-composition-id="s07-precios"] .pc, [data-composition-id="s07-precios"] .pv { position: absolute; left: 0; top: 0; height: 96px; padding: 0 28px; border-radius: 48px; font: 800 48px/84px "Lexend", sans-serif; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s07-precios"] .pc { background: #e3e2d8; border: 6px solid #9aa1ad; color: #7b8290; }
+    [data-composition-id="s07-precios"] .pv { background: #5ce611; border: 6px solid #0b1220; color: #0b1220; }
+    /* cotizador */
+    [data-composition-id="s07-precios"] .cz { position: absolute; left: 0; top: 322px; width: 668px; height: 800px; border-radius: 48px 48px 0 0; background: #ffffff; border-top: 7px solid #0b1220; box-shadow: 0 -16px 0 rgba(11,18,32,0.18); }
+    [data-composition-id="s07-precios"] .cz-t { position: absolute; left: 40px; top: 40px; font: 800 58px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s07-precios"] .cz-l { position: absolute; left: 42px; font: 700 40px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.75); }
+    [data-composition-id="s07-precios"] .cz-n { position: absolute; right: 40px; top: 112px; font: 800 60px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-precios"] .cz-tr { position: absolute; left: 42px; top: 200px; width: 584px; height: 22px; border-radius: 11px; background: #d9d7ca; }
+    [data-composition-id="s07-precios"] .cz-f { position: absolute; left: 42px; top: 200px; width: 584px; height: 22px; border-radius: 11px; background: #5ce611; border: 4px solid #0b1220; transform-origin: 0 50%; transform: scaleX(0.35); }
+    [data-composition-id="s07-precios"] .cz-k { position: absolute; left: 216px; top: 176px; width: 70px; height: 70px; border-radius: 35px; background: #5ce611; border: 7px solid #0b1220; }
+    [data-composition-id="s07-precios"] .chip { position: absolute; top: 330px; height: 90px; padding: 0 30px; border-radius: 45px; font: 700 38px/76px "Lexend", sans-serif; color: rgba(11,18,32,0.55); border: 7px solid #9aa1ad; background: #ffffff; white-space: nowrap; }
+    [data-composition-id="s07-precios"] .chip.on { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s07-precios"] .cz-tot { position: absolute; left: 30px; top: 470px; width: 608px; height: 120px; border-radius: 34px; background: #efeee5; border: 7px solid #0b1220; display: flex; justify-content: space-between; align-items: center; padding: 0 34px; }
+    [data-composition-id="s07-precios"] .cz-tot span { font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-precios"] .cz-tot b { font: 800 70px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s07-precios"] .cz-tot i { font-style: normal; }
+    [data-composition-id="s07-precios"] .cz-ok { position: absolute; left: 590px; top: 444px; opacity: 0; }
+    [data-composition-id="s07-precios"] .cz-btn { position: absolute; left: 30px; top: 624px; width: 608px; height: 116px; border-radius: 58px; background: #5ce611; border: 7px solid #0b1220; font: 800 42px/102px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s07-precios"] .cz-btn svg { vertical-align: -12px; margin-right: 16px; }
+    /* notas */
+    [data-composition-id="s07-precios"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 44px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s07-precios"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s07-precios"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s07-precios"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s07-precios"] .pill.cr { background: #efeee5; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s07-precios"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s07-precios"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s07-precios"] .lead.g { stroke: #5ce611; } [data-composition-id="s07-precios"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s07-precios"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s07-precios"] .dot.g { fill: #5ce611; } [data-composition-id="s07-precios"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s07-precios"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s07-precios"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s07-precios"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s07-precios"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s07-precios"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s07-precios"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s07-precios"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s07-precios"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s07-precios"] .dedo { position: absolute; opacity: 0; }
+
+  </style>
+  <div id="root" data-composition-id="s07-precios" data-width="1080" data-height="1920" data-duration="3.29">
+    <div id="s07-precios-esc" class="esc clip" data-start="0" data-duration="3.29" data-track-index="0">
+
+      <div class="telw"><div class="tel-sh"></div><div class="tel"><div class="pan">
+        <div class="scr web"><div class="hora" style="color:#0b1220">10:15</div>
+          <div class="url"><i></i><span>tunegocio.com.uy</span></div>
+          <div class="w-t">Pastelería</div><div class="w-s">TORTAS POR ENCARGO</div>
+          
+          <div class="card c1" style="top:340px">
+            <div class="cd-img">
+<svg width="200" height="200" viewBox="0 0 220 220" aria-hidden="true">
+  <ellipse cx="110" cy="196" rx="100" ry="16" fill="#1f3254"/>
+  <rect x="26" y="112" width="168" height="82" rx="18" fill="#ffffff"/>
+  <rect x="26" y="150" width="168" height="44" rx="14" fill="#efeee5"/>
+  <path d="M26 128 Q26 112 44 112 H176 Q194 112 194 128 V136 Q180 150 168 136 Q154 152 140 136 Q124 152 110 136 Q96 152 80 136 Q66 152 52 136 Q38 150 26 136 Z" fill="#5ce611"/>
+  <rect x="58" y="56" width="104" height="60" rx="16" fill="#ffffff"/>
+  <path d="M58 70 Q58 56 72 56 H148 Q162 56 162 70 V76 Q152 88 142 76 Q130 88 118 76 Q106 88 94 76 Q82 88 70 76 Q62 86 58 78 Z" fill="#3fa60a"/>
+  <path d="M110 40 Q112 26 124 20" fill="none" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="108" cy="44" r="14" fill="#c7655b"/>
+</svg></div>
+            <div class="cd-n">Torta</div><div class="cd-s">20 porciones</div>
+            <div class="cd-p"><span class="pc pc1">Consultar</span><span class="pv pv1">$ 1.450</span></div>
+          </div>
+          <div class="card c2" style="top:700px">
+            <div class="cd-img">
+<svg width="200" height="200" viewBox="0 0 220 220" aria-hidden="true">
+  <ellipse cx="110" cy="196" rx="100" ry="16" fill="#1f3254"/>
+  <rect x="26" y="112" width="168" height="82" rx="18" fill="#ffffff"/>
+  <rect x="26" y="150" width="168" height="44" rx="14" fill="#efeee5"/>
+  <path d="M26 128 Q26 112 44 112 H176 Q194 112 194 128 V136 Q180 150 168 136 Q154 152 140 136 Q124 152 110 136 Q96 152 80 136 Q66 152 52 136 Q38 150 26 136 Z" fill="#5ce611"/>
+  <rect x="58" y="56" width="104" height="60" rx="16" fill="#ffffff"/>
+  <path d="M58 70 Q58 56 72 56 H148 Q162 56 162 70 V76 Q152 88 142 76 Q130 88 118 76 Q106 88 94 76 Q82 88 70 76 Q62 86 58 78 Z" fill="#3fa60a"/>
+  <path d="M110 40 Q112 26 124 20" fill="none" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="108" cy="44" r="14" fill="#c7655b"/>
+</svg></div>
+            <div class="cd-n">Torta</div><div class="cd-s">30 porciones</div>
+            <div class="cd-p"><span class="pc pc2">Consultar</span><span class="pv pv2">$ 1.990</span></div>
+          </div>
+        </div>
+        <div class="cz">
+          <div class="cz-t">Armá tu torta</div>
+          <div class="cz-l" style="top:124px">Porciones</div><div class="cz-n">20</div>
+          <div class="cz-tr"></div><div class="cz-f"></div><div class="cz-k"></div>
+          <div class="cz-l" style="top:270px">Relleno</div>
+          <div class="chip on" style="left:36px">Dulce de leche</div><div class="chip" style="left:404px">Frutilla</div>
+          <div class="cz-tot"><span>Total</span><b>$ <i class="cz-v">1.450</i></b></div>
+          <div class="cz-ok"><svg width="52" height="52" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="cz-btn"><svg width="54" height="54" viewBox="0 0 54 54" aria-hidden="true"><path d="M27 4 Q50 4 50 25 Q50 46 27 46 Q20 46 14 44 L4 50 L8 39 Q4 33 4 25 Q4 4 27 4 Z" fill="#0b1220"/></svg><span>Pedir por WhatsApp</span></div>
+        </div><div class="notch"></div></div></div>
+      <div class="tag"><div class="tag-in">
+        <svg class="tag-svg" width="370" height="220" viewBox="-60 0 370 220" aria-hidden="true">
+          <path d="M-60 40 Q-10 60 40 100" fill="none" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/>
+          <path d="M60 8 H292 Q304 8 304 20 V180 Q304 192 292 192 H60 L8 100 Z" fill="#03060c" transform="translate(10 14)"/>
+          <path class="tf tf-cr" d="M60 8 H292 Q304 8 304 20 V180 Q304 192 292 192 H60 L8 100 Z" fill="#efeee5" stroke="#0b1220" stroke-width="6"/>
+          <path class="tf tf-gr" d="M60 8 H292 Q304 8 304 20 V180 Q304 192 292 192 H60 L8 100 Z" fill="#9aa1ad" stroke="#0b1220" stroke-width="6" opacity="0"/>
+          <path class="tf tf-g" d="M60 8 H292 Q304 8 304 20 V180 Q304 192 292 192 H60 L8 100 Z" fill="#5ce611" stroke="#0b1220" stroke-width="6" opacity="0"/>
+          <path d="M60 8 H292 Q304 8 304 20 V40 H44 Z" fill="rgba(255,255,255,0.35)"/>
+          <circle cx="50" cy="100" r="16" fill="#0b1220"/>
+          <path d="M-60 40 Q-10 60 46 98" fill="none" stroke="#efeee5" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="tt tt-q">?</div>
+        <div class="tt tt-p">$ 420</div>
+        <div class="tt tt-c">consultar</div>
+        <div class="tt tt-n">$&nbsp;<b class="tt-v">1.450</b></div>
+        <div class="tt-ok"><svg width="64" height="64" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div></div></div>
+      <div class="selbox sb" style="left:330px;top:1124px;width:400px;height:130px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-precios";
+      const DUR = 3.29;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const TEL = q(".telw");
+      const TAG = q(".tag");
+      const vibrar = (t, n) => tl.fromTo(TEL, { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 5, immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.inOut", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const miles = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      // la etiqueta: estado inicial (fondo y texto), cambio con giro y balanceo
+      const FONDOS = { cr: ".tf-cr", gr: ".tf-gr", g: ".tf-g" };
+      const tagEstado = (fondo, texto) => {
+        for (const [k, s] of Object.entries(FONDOS)) gsap.set(q(s), { opacity: k === fondo ? 1 : 0 });
+        gsap.set(qa(".tt"), { opacity: 0 });
+        if (texto) gsap.set(q(texto), { opacity: 1 });
+      };
+      const tagCambio = (fondo, texto, t) => {
+        const tin = q(".tag-in");
+        tl.to(tin, { scaleX: 0.06, duration: 0.13, ease: "power2.in", transformOrigin: "155px 100px" }, t);
+        for (const [k, s] of Object.entries(FONDOS)) tl.set(q(s), { opacity: k === fondo ? 1 : 0 }, t + 0.13);
+        tl.set(qa(".tt"), { opacity: 0 }, t + 0.13);
+        if (texto) tl.set(q(texto), { opacity: 1 }, t + 0.13);
+        tl.to(tin, { scaleX: 1, duration: 0.2, ease: "back.out(2)" }, t + 0.13);
+        balanceo(t + 0.15);
+      };
+      const balanceo = (t, k) => tl.fromTo(q(".tag-in"), { rotation: 8 }, { keyframes: [{ rotation: 8 + (k ?? 9), duration: 0.18 }, { rotation: 8 - (k ?? 9) * 0.6, duration: 0.22 }, { rotation: 8, duration: 0.24 }], ease: "sine.inOut", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      tagEstado("gr", ".tt-c");
+      gsap.set(TAG, { y: 400 });
+      gsap.set(qa(".pc"), { opacity: 1 });
+      gsap.set(TEL, { scale: 1.06, transformOrigin: "400px 1150px" });
+      // "precios": los grises se dan vuelta y quedan los precios verdes
+      tl.to(TEL, { scale: 1, duration: 0.5, ease: "power2.inOut" }, 0);
+      for (const [k, t] of [[1, 0.05], [2, 0.30000000000000004]]) {
+        tl.to(q(".pc" + k), { opacity: 0, rotationX: 90, duration: 0.12, ease: "power2.in" }, t);
+        tl.fromTo(q(".pv" + k), { opacity: 0, rotationX: -90 }, { opacity: 1, rotationX: 0, duration: 0.24, ease: "back.out(2)" }, t + 0.12);
+      }
+      caja(".sb", 0.2);
+      q(".tt-v").textContent = "1.450";
+      tagCambio("g", ".tt-n", 0.6);
+      // "cotizador": sube la hoja "Armá tu torta"
+      tl.to(q(".sb"), { opacity: 0, duration: 0.15 }, 1.19);
+      gsap.set(q(".cz"), { opacity: 0 });
+      tl.set(q(".cz"), { opacity: 1 }, 1.29);
+      tl.fromTo(q(".cz"), { yPercent: 105 }, { yPercent: 0, duration: 0.42, ease: "power3.out" }, 1.29);
+      tl.set(qa(".card"), { opacity: 0 }, 1.73);
+      tl.to(TAG, { y: 650, duration: 0.5, ease: "power3.inOut" }, 1.3900000000000001);
+      // "calcula": slider de 20 a 30 porciones y el total se recalcula
+      const dc = 0.99;
+      tl.to(q(".cz-k"), { x: 196, duration: dc, ease: "power2.inOut" }, 2.1);
+      tl.to(q(".cz-f"), { scaleX: 0.69, duration: dc, ease: "power2.inOut" }, 2.1);
+      contar(".cz-n", 20, 30, 2.1, dc, (n) => n);
+      contar(".cz-v", 1450, 1990, 2.1, dc, (n) => miles(Math.round(n / 10) * 10));
+      contar(".tt-v", 1450, 1990, 2.1, dc, (n) => miles(Math.round(n / 10) * 10));
+      balanceo(2.4, 7);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
