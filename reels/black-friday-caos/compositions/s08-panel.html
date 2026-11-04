@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-panel"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-panel"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-panel"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-panel"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s08-panel"] .pie { position: absolute; left: 380px; top: 1730px; width: 320px; height: 100px; border-radius: 50px; background: #0b1220; }
+    [data-composition-id="s08-panel"] .gig { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.035em; line-height: 1; color: #fff; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s08-panel"] .gig .v, [data-composition-id="s08-panel"] .gig.v { color: #5ce611; }
+    [data-composition-id="s08-panel"] .hl { position: relative; display: inline-block; padding: 0 22px 8px; }
+    [data-composition-id="s08-panel"] .hl > b { position: absolute; inset: 0; border: 7px solid #5ce611; background: rgba(92,230,17,0.16); }
+    [data-composition-id="s08-panel"] .hl.r > b { border-color: #c7655b; background: rgba(199,101,91,0.2); }
+    [data-composition-id="s08-panel"] .hl.n > b { border-color: #0b1220; background: #0b1220; }
+    [data-composition-id="s08-panel"] .hl > b i { position: absolute; width: 24px; height: 24px; background: #fff; border: 6px solid #5ce611; }
+    [data-composition-id="s08-panel"] .hl.r > b i { border-color: #c7655b; } [data-composition-id="s08-panel"] .hl.n > b i { border-color: #0b1220; }
+    [data-composition-id="s08-panel"] .hl > b .k1 { left: -15px; top: -15px; } [data-composition-id="s08-panel"] .hl > b .k2 { right: -15px; top: -15px; } [data-composition-id="s08-panel"] .hl > b .k3 { left: -15px; bottom: -15px; } [data-composition-id="s08-panel"] .hl > b .k4 { right: -15px; bottom: -15px; }
+    [data-composition-id="s08-panel"] .hl > em { position: relative; font-style: normal; }
+    [data-composition-id="s08-panel"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s08-panel"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s08-panel"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s08-panel"] .pill.gris { border-color: #7c8698; color: #efeee5; background: #1f3254; font-size: 56px; padding: 16px 34px; }
+    [data-composition-id="s08-panel"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s08-panel"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s08-panel"] .ped { position: absolute; width: 450px; height: 176px; border-radius: 26px; background: #efeee5; border: 6px solid #0b1220; box-shadow: 0 14px 0 rgba(3,6,12,0.55); transform: rotate(var(--r)); }
+    [data-composition-id="s08-panel"] .ped-chip { position: absolute; left: 20px; top: 20px; height: 54px; padding: 0 20px 0 10px; border-radius: 16px; background: #0b1220; display: flex; align-items: center; gap: 10px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: #efeee5; }
+    [data-composition-id="s08-panel"] .ped-tit { position: absolute; left: 24px; top: 88px; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s08-panel"] .ped-sub { position: absolute; right: 22px; top: 32px; font: 500 28px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s08-panel"] .ped.ok { border-color: #5ce611; }
+    [data-composition-id="s08-panel"] .tel-lado { position: absolute; left: 98px; top: 578px; width: 560px; height: 1100px; border-radius: 78px; background: #050a12; }
+    [data-composition-id="s08-panel"] .tel { position: absolute; left: 80px; top: 560px; width: 560px; height: 1100px; border-radius: 78px; background: #efeee5; }
+    [data-composition-id="s08-panel"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s08-panel"] .tel-notch { position: absolute; left: 210px; top: 30px; width: 140px; height: 34px; border-radius: 17px; background: #0b1220; }
+
+    [data-composition-id="s08-panel"] .pan { position: absolute; left: 60px; top: 560px; width: 960px; height: 1080px; border-radius: 48px; background: #16243d; border: 8px solid #efeee5; box-shadow: 0 22px 0 #050a12; overflow: hidden; }
+    [data-composition-id="s08-panel"] .pan-h { position: absolute; left: 0; right: 0; top: 0; height: 180px; background: #1f3254; }
+    [data-composition-id="s08-panel"] .pan-h .h1 { position: absolute; left: 50px; top: 40px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s08-panel"] .pan-h .h2 { position: absolute; left: 50px; top: 88px; font: 800 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s08-panel"] .pan-h .hr { position: absolute; right: 50px; top: 58px; height: 74px; padding: 0 24px; border-radius: 20px; background: #0b1220; font: 800 50px/74px "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s08-panel"] .verdeh { position: absolute; left: 0; right: 0; top: 0; height: 180px; background: #5ce611; opacity: 0; }
+    [data-composition-id="s08-panel"] .verdeh .h2 { position: absolute; left: 50px; top: 52px; font: 900 80px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s08-panel"] .zz { position: absolute; right: 54px; top: 46px; font: 800 64px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s08-panel"] .fila { position: absolute; left: 40px; right: 40px; height: 180px; border-radius: 30px; background: #0b1220; border: 6px solid #1f3254; }
+    [data-composition-id="s08-panel"] .fila .fn { position: absolute; left: 40px; top: 62px; font: 700 52px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s08-panel"] .fila .fv { position: absolute; right: 150px; top: 58px; font: 800 58px/1 "Lexend", sans-serif; color: #5ce611; }
+    [data-composition-id="s08-panel"] .fila .ft { position: absolute; right: 34px; top: 42px; width: 96px; height: 96px; opacity: 0; }
+    [data-composition-id="s08-panel"] .fila .ft svg { width: 96px; height: 96px; }
+  </style>
+  <div id="root" data-composition-id="s08-panel" data-width="1080" data-height="1920" data-duration="1.8">
+    <div id="s08-panel-esc" class="esc clip" data-start="0" data-duration="1.8" data-track-index="0">
+
+      <div class="pan">
+        <div class="pan-h"><div class="h1">BLACK FRIDAY · CIERRE</div><div class="h2">Tu tienda</div><div class="hr">01:00</div></div>
+        <div class="verdeh"><div class="h2">Todo al día</div><div class="zz">Zzz</div></div>
+        <div class="fila f0" style="top:220px"><div class="fn">Pedidos</div><div class="fv">87</div><div class="ft"><svg width="96" height="96" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="fila f1" style="top:426px"><div class="fn">Stock</div><div class="fv">al día</div><div class="ft"><svg width="96" height="96" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="fila f2" style="top:632px"><div class="fn">Cobrado</div><div class="fv">todo</div><div class="ft"><svg width="96" height="96" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div><div class="fila f3" style="top:838px"><div class="fn">Envíos</div><div class="fv">listos</div><div class="ft"><svg width="96" height="96" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-panel";
+      const DUR = 1.8;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const golpe = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const temblar = (s, t, n) => tl.fromTo(q(s), { x: 0 }, { x: 10, duration: 0.05, yoyo: true, repeat: (n ?? 5) * 2 - 1, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const lineaIn = (s, t, d) => tl.fromTo(q(s), { opacity: 0, y: 46, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: d ?? 0.28, ease: "back.out(1.9)" }, t);
+      if (qa(".ped").length) gsap.set(qa(".ped"), { rotation: (i, el) => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0 });
+
+
+      tl.fromTo(q(".pan"), { scale: 0.9, y: 60, opacity: 0.3 }, { scale: 1, y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      [0, 1, 2, 3].forEach((i) => {
+        const t0 = 0.12 + i * 0.22;
+        tl.fromTo(q(".f" + i), { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.22, ease: "power3.out" }, t0);
+        pop(".f" + i + " .ft", t0 + 0.12, 0.26, 0.3);
+        tl.to(q(".f" + i), { borderColor: "#5ce611", duration: 0.15 }, t0 + 0.12);
+      });
+      // "durmiendo": el encabezado se pone verde
+      tl.fromTo(q(".verdeh"), { opacity: 0, scaleX: 0, transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power3.out" }, 1.12);
+      tl.to(q(".pan"), { borderColor: "#5ce611", duration: 0.2 }, 1.12);
+      tl.fromTo(q(".zz"), { y: 20, opacity: 0 }, { y: -6, opacity: 1, duration: 0.3, ease: "sine.out" }, 1.25);
+      tl.to(q(".pan"), { scale: 1.03, transformOrigin: "50% 40%", duration: 0.5, ease: "sine.inOut" }, 1.3);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

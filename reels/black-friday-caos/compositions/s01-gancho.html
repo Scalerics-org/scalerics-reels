@@ -1,0 +1,166 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s01-gancho"] .pie { position: absolute; left: 380px; top: 1730px; width: 320px; height: 100px; border-radius: 50px; background: #0b1220; }
+    [data-composition-id="s01-gancho"] .gig { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.035em; line-height: 1; color: #fff; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .gig .v, [data-composition-id="s01-gancho"] .gig.v { color: #5ce611; }
+    [data-composition-id="s01-gancho"] .hl { position: relative; display: inline-block; padding: 0 22px 8px; }
+    [data-composition-id="s01-gancho"] .hl > b { position: absolute; inset: 0; border: 7px solid #5ce611; background: rgba(92,230,17,0.16); }
+    [data-composition-id="s01-gancho"] .hl.r > b { border-color: #c7655b; background: rgba(199,101,91,0.2); }
+    [data-composition-id="s01-gancho"] .hl.n > b { border-color: #0b1220; background: #0b1220; }
+    [data-composition-id="s01-gancho"] .hl > b i { position: absolute; width: 24px; height: 24px; background: #fff; border: 6px solid #5ce611; }
+    [data-composition-id="s01-gancho"] .hl.r > b i { border-color: #c7655b; } [data-composition-id="s01-gancho"] .hl.n > b i { border-color: #0b1220; }
+    [data-composition-id="s01-gancho"] .hl > b .k1 { left: -15px; top: -15px; } [data-composition-id="s01-gancho"] .hl > b .k2 { right: -15px; top: -15px; } [data-composition-id="s01-gancho"] .hl > b .k3 { left: -15px; bottom: -15px; } [data-composition-id="s01-gancho"] .hl > b .k4 { right: -15px; bottom: -15px; }
+    [data-composition-id="s01-gancho"] .hl > em { position: relative; font-style: normal; }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s01-gancho"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s01-gancho"] .pill.gris { border-color: #7c8698; color: #efeee5; background: #1f3254; font-size: 56px; padding: 16px 34px; }
+    [data-composition-id="s01-gancho"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s01-gancho"] .ped { position: absolute; width: 450px; height: 176px; border-radius: 26px; background: #efeee5; border: 6px solid #0b1220; box-shadow: 0 14px 0 rgba(3,6,12,0.55); transform: rotate(var(--r)); }
+    [data-composition-id="s01-gancho"] .ped-chip { position: absolute; left: 20px; top: 20px; height: 54px; padding: 0 20px 0 10px; border-radius: 16px; background: #0b1220; display: flex; align-items: center; gap: 10px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: #efeee5; }
+    [data-composition-id="s01-gancho"] .ped-tit { position: absolute; left: 24px; top: 88px; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .ped-sub { position: absolute; right: 22px; top: 32px; font: 500 28px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s01-gancho"] .ped.ok { border-color: #5ce611; }
+    [data-composition-id="s01-gancho"] .tel-lado { position: absolute; left: 98px; top: 578px; width: 560px; height: 1100px; border-radius: 78px; background: #050a12; }
+    [data-composition-id="s01-gancho"] .tel { position: absolute; left: 80px; top: 560px; width: 560px; height: 1100px; border-radius: 78px; background: #efeee5; }
+    [data-composition-id="s01-gancho"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .tel-notch { position: absolute; left: 210px; top: 30px; width: 140px; height: 34px; border-radius: 17px; background: #0b1220; }
+
+    [data-composition-id="s01-gancho"] .ta, [data-composition-id="s01-gancho"] .tb { position: absolute; left: 0; right: 0; top: 96px; height: 440px; }
+    [data-composition-id="s01-gancho"] .l1 { top: 0; font-size: 116px; } [data-composition-id="s01-gancho"] .l2 { top: 146px; font-size: 104px; } [data-composition-id="s01-gancho"] .l3 { top: 284px; font-size: 112px; }
+    [data-composition-id="s01-gancho"] .panel { position: absolute; left: 70px; top: 600px; width: 940px; height: 1040px; border-radius: 46px; background: #16243d; border: 8px solid #efeee5; box-shadow: 0 22px 0 #050a12; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .p-lbl { position: absolute; left: 50px; top: 46px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.7); }
+    [data-composition-id="s01-gancho"] .p-num { position: absolute; left: 46px; top: 100px; font: 800 132px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: #5ce611; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .p-num.rojo { color: #c7655b; }
+    [data-composition-id="s01-gancho"] .p-svg { position: absolute; left: 0; top: 0; width: 940px; height: 1040px; }
+    [data-composition-id="s01-gancho"] .bar { fill: #5ce611; } [data-composition-id="s01-gancho"] .eje { stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s01-gancho"] .hora { font: 500 30px/1 "IBM Plex Mono", monospace; fill: rgba(239,238,229,0.7); }
+    [data-composition-id="s01-gancho"] .luna { position: absolute; right: 50px; top: 40px; width: 96px; height: 96px; }
+    [data-composition-id="s01-gancho"] .lluvia { clip-path: inset(850px 0 0 0); }
+    [data-composition-id="s01-gancho"] .lluvia .ped { width: 420px; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="4.62">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="4.62" data-track-index="0">
+
+      <div class="panel" data-layout-allow-overlap>
+        <div class="p-lbl pl-a">VENTAS · VIERNES</div><div class="p-lbl pl-b" style="opacity:0;color:#c7655b">PEDIDOS SIN ANOTAR</div>
+        <div class="p-num pn-a">$ 0</div><div class="p-num rojo pn-b" style="opacity:0">0</div>
+        <svg class="luna" viewBox="0 0 96 96" aria-hidden="true"><path d="M62 8 A40 40 0 1 0 88 62 A32 32 0 1 1 62 8 Z" fill="#efeee5"/></svg>
+        <svg class="p-svg" viewBox="0 0 940 1040" aria-hidden="true">
+          <rect class="bar b0" x="92" y="810" width="96" height="120" rx="14"/><rect class="bar b1" x="228" y="750" width="96" height="180" rx="14"/><rect class="bar b2" x="364" y="680" width="96" height="250" rx="14"/><rect class="bar b3" x="500" y="620" width="96" height="310" rx="14"/><rect class="bar b4" x="636" y="560" width="96" height="370" rx="14"/><rect class="bar b5" x="772" y="510" width="96" height="420" rx="14"/>
+          <path class="eje" d="M60 934 H880"/>
+          <text class="hora" x="140" y="990" text-anchor="middle">20h</text><text class="hora" x="276" y="990" text-anchor="middle">21h</text><text class="hora" x="412" y="990" text-anchor="middle">22h</text><text class="hora" x="548" y="990" text-anchor="middle">23h</text><text class="hora" x="684" y="990" text-anchor="middle">00h</text><text class="hora" x="820" y="990" text-anchor="middle">01h</text>
+        </svg>
+      </div>
+      <div class="capa lluvia" data-layout-allow-overlap>
+        
+  <div class="ped  c1" style="left:70px;top:880px;--r:-7deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="5" width="30" height="30" rx="9" fill="none" stroke="#efeee5" stroke-width="4.5"/><circle cx="20" cy="20" r="7" fill="none" stroke="#efeee5" stroke-width="4.5"/></svg><span>INSTAGRAM</span></div>
+    <div class="ped-tit">Campera M</div><div class="ped-sub">#0412</div>
+  </div>
+        
+  <div class="ped  c2" style="left:540px;top:910px;--r:6deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5 C11 5 5 11 5 19 C5 23 6.5 26 9 28.5 L7 35 L14 32.5 C16 33.5 18 34 20 34 C29 34 35 27.5 35 19.5 C35 11 29 5 20 5 Z" fill="none" stroke="#efeee5" stroke-width="4.5" stroke-linejoin="round"/></svg><span>WHATSAPP</span></div>
+    <div class="ped-tit">Buzo L</div><div class="ped-sub">#0413</div>
+  </div>
+        
+  <div class="ped  c3" style="left:130px;top:1070px;--r:4deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 15 L9 6 H31 L35 15 Z" fill="#efeee5"/><rect x="8" y="15" width="24" height="19" fill="none" stroke="#efeee5" stroke-width="4.5"/><rect x="17" y="22" width="7" height="12" fill="#efeee5"/></svg><span>MOSTRADOR</span></div>
+    <div class="ped-tit">Gorro</div><div class="ped-sub">#0414</div>
+  </div>
+        
+  <div class="ped  c4" style="left:560px;top:1130px;--r:-5deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="5" width="30" height="30" rx="9" fill="none" stroke="#efeee5" stroke-width="4.5"/><circle cx="20" cy="20" r="7" fill="none" stroke="#efeee5" stroke-width="4.5"/></svg><span>INSTAGRAM</span></div>
+    <div class="ped-tit">Campera S</div><div class="ped-sub">#0415</div>
+  </div>
+        
+  <div class="ped  c5" style="left:90px;top:1260px;--r:-3deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5 C11 5 5 11 5 19 C5 23 6.5 26 9 28.5 L7 35 L14 32.5 C16 33.5 18 34 20 34 C29 34 35 27.5 35 19.5 C35 11 29 5 20 5 Z" fill="none" stroke="#efeee5" stroke-width="4.5" stroke-linejoin="round"/></svg><span>WHATSAPP</span></div>
+    <div class="ped-tit">Remera XL</div><div class="ped-sub">#0416</div>
+  </div>
+        
+  <div class="ped  c6" style="left:520px;top:1320px;--r:7deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 15 L9 6 H31 L35 15 Z" fill="#efeee5"/><rect x="8" y="15" width="24" height="19" fill="none" stroke="#efeee5" stroke-width="4.5"/><rect x="17" y="22" width="7" height="12" fill="#efeee5"/></svg><span>MOSTRADOR</span></div>
+    <div class="ped-tit">Campera M</div><div class="ped-sub">#0417</div>
+  </div>
+        
+  <div class="ped  c7" style="left:300px;top:1450px;--r:-4deg">
+    <div class="ped-chip"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="5" width="30" height="30" rx="9" fill="none" stroke="#efeee5" stroke-width="4.5"/><circle cx="20" cy="20" r="7" fill="none" stroke="#efeee5" stroke-width="4.5"/></svg><span>INSTAGRAM</span></div>
+    <div class="ped-tit">Jean 42</div><div class="ped-sub">#0418</div>
+  </div>
+      </div>
+      <div class="ta">
+        <div class="gig l1 v">Black Friday:</div>
+        <div class="gig l2">Tu mejor noche</div>
+        <div class="gig l3">de <span class="hl "><b><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>ventas.</em></span></div>
+      </div>
+      <div class="tb" style="opacity:0">
+        <div class="gig l1">Y tu peor</div>
+        <div class="gig l2">noche de</div>
+        <div class="gig l3"><span class="hl r"><b><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>pedidos.</em></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 4.62;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const golpe = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const temblar = (s, t, n) => tl.fromTo(q(s), { x: 0 }, { x: 10, duration: 0.05, yoyo: true, repeat: (n ?? 5) * 2 - 1, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const lineaIn = (s, t, d) => tl.fromTo(q(s), { opacity: 0, y: 46, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: d ?? 0.28, ease: "back.out(1.9)" }, t);
+      if (qa(".ped").length) gsap.set(qa(".ped"), { rotation: (i, el) => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0 });
+
+
+      // cuadro 0: barras a medio crecer, el número ya corriendo
+      qa(".bar").forEach((b, i) => tl.fromTo(b, { scaleY: 0.45 + i * 0.04 }, { scaleY: 1, svgOrigin: (140 + i * 136) + " 930", duration: 1.6, ease: "power2.out" }, 0.05 + i * 0.06));
+      contar(".pn-a", 41, 186, 0, 1.95, (v) => "$ " + v + ".500");
+      tl.fromTo(q(".ta"), { scale: 1.05, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(q(".panel"), { y: 30 }, { y: 0, duration: 0.7, ease: "power3.out" }, 0);
+      golpe(".ta .hl", 1.92, 1.07);
+      // "Y tu peor noche de pedidos."
+      tl.to(q(".ta"), { opacity: 0, y: -50, duration: 0.2, ease: "power2.in" }, 2.66);
+      tl.fromTo(q(".tb"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.26, ease: "power3.out" }, 2.8);
+      tl.to(qa(".bar"), { fill: "#7c8698", duration: 0.3 }, 2.8);
+      tl.to(qa(".pl-a, .pn-a"), { opacity: 0, duration: 0.15 }, 2.9);
+      tl.to(qa(".pl-b, .pn-b"), { opacity: 1, duration: 0.15 }, 3.0);
+      contar(".pn-b", 0, 23, 3.0, 1.0, (v) => String(v));
+      qa(".lluvia .ped").forEach((el, i) => {
+        const t0 = 2.95 + i * 0.13;
+        tl.fromTo(el, { opacity: 0, y: -900 }, { opacity: 1, y: 0, duration: 0.32, ease: "power2.in" }, t0);
+        tl.fromTo(el, { scaleY: 1 }, { scaleY: 0.92, transformOrigin: "50% 100%", duration: 0.07, yoyo: true, repeat: 1, immediateRender: false }, t0 + 0.32);
+      });
+      caja(".tb .hl > b", 3.72);
+      temblar(".panel", 3.75, 3);
+      salida(4.36);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

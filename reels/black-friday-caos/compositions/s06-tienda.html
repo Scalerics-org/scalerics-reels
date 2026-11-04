@@ -1,0 +1,154 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-tienda"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-tienda"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-tienda"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-tienda"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s06-tienda"] .pie { position: absolute; left: 380px; top: 1730px; width: 320px; height: 100px; border-radius: 50px; background: #0b1220; }
+    [data-composition-id="s06-tienda"] .gig { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.035em; line-height: 1; color: #fff; text-transform: uppercase; white-space: nowrap; }
+    [data-composition-id="s06-tienda"] .gig .v, [data-composition-id="s06-tienda"] .gig.v { color: #5ce611; }
+    [data-composition-id="s06-tienda"] .hl { position: relative; display: inline-block; padding: 0 22px 8px; }
+    [data-composition-id="s06-tienda"] .hl > b { position: absolute; inset: 0; border: 7px solid #5ce611; background: rgba(92,230,17,0.16); }
+    [data-composition-id="s06-tienda"] .hl.r > b { border-color: #c7655b; background: rgba(199,101,91,0.2); }
+    [data-composition-id="s06-tienda"] .hl.n > b { border-color: #0b1220; background: #0b1220; }
+    [data-composition-id="s06-tienda"] .hl > b i { position: absolute; width: 24px; height: 24px; background: #fff; border: 6px solid #5ce611; }
+    [data-composition-id="s06-tienda"] .hl.r > b i { border-color: #c7655b; } [data-composition-id="s06-tienda"] .hl.n > b i { border-color: #0b1220; }
+    [data-composition-id="s06-tienda"] .hl > b .k1 { left: -15px; top: -15px; } [data-composition-id="s06-tienda"] .hl > b .k2 { right: -15px; top: -15px; } [data-composition-id="s06-tienda"] .hl > b .k3 { left: -15px; bottom: -15px; } [data-composition-id="s06-tienda"] .hl > b .k4 { right: -15px; bottom: -15px; }
+    [data-composition-id="s06-tienda"] .hl > em { position: relative; font-style: normal; }
+    [data-composition-id="s06-tienda"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s06-tienda"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s06-tienda"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s06-tienda"] .pill.gris { border-color: #7c8698; color: #efeee5; background: #1f3254; font-size: 56px; padding: 16px 34px; }
+    [data-composition-id="s06-tienda"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s06-tienda"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s06-tienda"] .ped { position: absolute; width: 450px; height: 176px; border-radius: 26px; background: #efeee5; border: 6px solid #0b1220; box-shadow: 0 14px 0 rgba(3,6,12,0.55); transform: rotate(var(--r)); }
+    [data-composition-id="s06-tienda"] .ped-chip { position: absolute; left: 20px; top: 20px; height: 54px; padding: 0 20px 0 10px; border-radius: 16px; background: #0b1220; display: flex; align-items: center; gap: 10px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: #efeee5; }
+    [data-composition-id="s06-tienda"] .ped-tit { position: absolute; left: 24px; top: 88px; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s06-tienda"] .ped-sub { position: absolute; right: 22px; top: 32px; font: 500 28px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s06-tienda"] .ped.ok { border-color: #5ce611; }
+    [data-composition-id="s06-tienda"] .tel-lado { position: absolute; left: 98px; top: 578px; width: 560px; height: 1100px; border-radius: 78px; background: #050a12; }
+    [data-composition-id="s06-tienda"] .tel { position: absolute; left: 80px; top: 560px; width: 560px; height: 1100px; border-radius: 78px; background: #efeee5; }
+    [data-composition-id="s06-tienda"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s06-tienda"] .tel-notch { position: absolute; left: 210px; top: 30px; width: 140px; height: 34px; border-radius: 17px; background: #0b1220; }
+
+    [data-composition-id="s06-tienda"] .ti-bar { position: absolute; left: 0; right: 0; top: 0; height: 120px; background: #0b1220; }
+    [data-composition-id="s06-tienda"] .ti-bar span { position: absolute; left: 0; right: 0; top: 66px; text-align: center; font: 500 30px/1 "IBM Plex Mono", monospace; color: #efeee5; }
+    [data-composition-id="s06-tienda"] .ti-foto { position: absolute; left: 40px; top: 150px; width: 448px; height: 440px; border-radius: 34px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s06-tienda"] .ti-foto svg { position: absolute; left: 64px; top: 20px; width: 320px; height: 400px; overflow: visible; }
+    [data-composition-id="s06-tienda"] .ti-nom { position: absolute; left: 40px; top: 620px; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s06-tienda"] .ti-pre { position: absolute; left: 40px; top: 686px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-tienda"] .ti-st { position: absolute; left: 40px; top: 772px; width: 448px; height: 110px; border-radius: 24px; background: #efeee5; border: 6px solid #0b1220; }
+    [data-composition-id="s06-tienda"] .ti-stl { position: absolute; left: 28px; top: 38px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #0b1220; }
+    [data-composition-id="s06-tienda"] .ti-stn { position: absolute; right: 30px; top: 14px; font: 900 76px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s06-tienda"] .ti-btn { position: absolute; left: 40px; top: 910px; width: 448px; height: 116px; border-radius: 58px; background: #5ce611; font: 800 46px/116px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s06-tienda"] .flash { position: absolute; left: 122px; top: 1334px; width: 476px; height: 138px; border-radius: 34px; border: 10px solid #5ce611; opacity: 0; }
+    [data-composition-id="s06-tienda"] .toast { position: absolute; left: 540px; top: 600px; width: 490px; height: 170px; border-radius: 30px; background: #fff; border: 7px solid #5ce611; box-shadow: 0 14px 0 rgba(3,6,12,0.55); opacity: 0; }
+    [data-composition-id="s06-tienda"] .toast .tk { position: absolute; left: 24px; top: 40px; }
+    [data-composition-id="s06-tienda"] .toast .t1 { position: absolute; left: 132px; top: 34px; font: 700 40px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s06-tienda"] .toast .t2 { position: absolute; left: 132px; top: 96px; font: 500 30px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.6); white-space: nowrap; }
+    [data-composition-id="s06-tienda"] .stk { position: absolute; left: 670px; top: 810px; width: 370px; height: 440px; border-radius: 40px; background: #16243d; border: 8px solid #efeee5; box-shadow: 0 16px 0 #050a12; }
+    [data-composition-id="s06-tienda"] .stk.on { border-color: #5ce611; }
+    [data-composition-id="s06-tienda"] .stk-l { position: absolute; left: 0; right: 0; top: 34px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.18em; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s06-tienda"] .stk-p { position: absolute; left: 0; right: 0; top: 82px; text-align: center; font: 700 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s06-tienda"] .stk-n { position: absolute; left: 0; right: 0; top: 136px; text-align: center; font: 900 210px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #5ce611; }
+    [data-composition-id="s06-tienda"] .stk-a { position: absolute; left: 34px; right: 34px; top: 350px; height: 60px; border-radius: 30px; background: #5ce611; font: 700 32px/60px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+    [data-composition-id="s06-tienda"] .menos { position: absolute; left: 860px; top: 980px; font: 900 120px/1 "Lexend", sans-serif; color: #fff; opacity: 0; }
+    [data-composition-id="s06-tienda"] .caja-reg { position: absolute; left: 670px; top: 1350px; width: 370px; height: 320px; opacity: 0; }
+    [data-composition-id="s06-tienda"] .link { fill: none; stroke: #5ce611; stroke-width: 10; stroke-linecap: round; }
+  </style>
+  <div id="root" data-composition-id="s06-tienda" data-width="1080" data-height="1920" data-duration="4.44">
+    <div id="s06-tienda-esc" class="esc clip" data-start="0" data-duration="4.44" data-track-index="0">
+
+      
+  <div class="tel-lado "></div>
+  <div class="tel "><div class="tel-pan">
+  <div class="ti-bar"><span>tutienda.uy</span></div>
+  <div class="ti-foto"><svg viewBox="-50 -60 700 816" aria-hidden="true">
+  <path d="M300 92 L300 44 Q300 8 334 8 Q366 8 366 38" fill="none" stroke="#efeee5" stroke-width="10" stroke-linecap="round"/>
+  <path d="M300 92 L118 150 L482 150 Z" fill="none" stroke="#efeee5" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M196 120 L244 104 Q300 150 356 104 L404 120 L548 214 L592 556 L506 576 L478 360 L478 690 L122 690 L122 360 L94 576 L8 556 L52 214 Z" fill="#5ce611" stroke="#0b1220" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M300 136 L300 690 L478 690 L478 360 L506 576 L592 556 L548 214 L404 120 L356 104 Q330 128 300 136 Z" fill="#3fa60a"/>
+  <path d="M196 120 L244 104 Q300 150 356 104 L404 120 L548 214 L592 556 L506 576 L478 360 L478 690 L122 690 L122 360 L94 576 L8 556 L52 214 Z" fill="none" stroke="#0b1220" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M244 104 Q300 196 356 104" fill="none" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/>
+  <path d="M300 160 L300 690" stroke="#0b1220" stroke-width="8"/>
+  <path d="M160 470 L250 470 M350 470 L440 470" stroke="#0b1220" stroke-width="8" stroke-linecap="round"/>
+  <path d="M122 640 L478 640" stroke="#0b1220" stroke-width="6" opacity="0.35"/>
+  </svg></div>
+  <div class="ti-nom">Campera · Talle M</div>
+  <div class="ti-pre">$ 2.490</div>
+  <div class="ti-st"><span class="ti-stl">STOCK</span><span class="ti-stn"><span class="sn">3</span></span></div>
+  <div class="ti-btn">Comprar</div></div><div class="tel-notch"></div></div>
+      <div class="flash"></div>
+      <div class="stk" data-layout-allow-overlap><div class="stk-l">STOCK</div><div class="stk-p">Campera M</div><div class="stk-n">3</div><div class="stk-a">Automático</div></div>
+      <div class="menos m1">-1</div>
+      <div class="toast to1"><div class="tk"><svg width="88" height="88" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="t1">Venta online</div><div class="t2">#0431 · Campera M</div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="link lk" d="M690 1480 Q640 1500 600 1420"/><path class="link lk2" d="M855 1350 V1262"/></svg>
+      <svg class="caja-reg" viewBox="0 0 380 330" aria-hidden="true">
+        <rect x="40" y="10" width="300" height="110" rx="18" fill="#1f3254" stroke="#efeee5" stroke-width="8"/>
+        <text x="190" y="82" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="56" fill="#5ce611">LOCAL</text>
+        <path d="M20 150 H360 L340 320 H40 Z" fill="#efeee5" stroke="#0b1220" stroke-width="8" stroke-linejoin="round"/>
+        <rect x="70" y="180" width="46" height="26" rx="6" fill="#1f3254"/><rect x="134" y="180" width="46" height="26" rx="6" fill="#1f3254"/><rect x="198" y="180" width="46" height="26" rx="6" fill="#1f3254"/><rect x="262" y="180" width="46" height="26" rx="6" fill="#1f3254"/><rect x="70" y="220" width="46" height="26" rx="6" fill="#1f3254"/><rect x="134" y="220" width="46" height="26" rx="6" fill="#1f3254"/><rect x="198" y="220" width="46" height="26" rx="6" fill="#1f3254"/><rect x="262" y="220" width="46" height="26" rx="6" fill="#1f3254"/><rect x="70" y="260" width="46" height="26" rx="6" fill="#1f3254"/><rect x="134" y="260" width="46" height="26" rx="6" fill="#1f3254"/><rect x="198" y="260" width="46" height="26" rx="6" fill="#1f3254"/><rect x="262" y="260" width="46" height="26" rx="6" fill="#1f3254"/>
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-tienda";
+      const DUR = 4.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const golpe = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+      const temblar = (s, t, n) => tl.fromTo(q(s), { x: 0 }, { x: 10, duration: 0.05, yoyo: true, repeat: (n ?? 5) * 2 - 1, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const lineaIn = (s, t, d) => tl.fromTo(q(s), { opacity: 0, y: 46, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: d ?? 0.28, ease: "back.out(1.9)" }, t);
+      if (qa(".ped").length) gsap.set(qa(".ped"), { rotation: (i, el) => parseFloat(getComputedStyle(el).getPropertyValue("--r")) || 0 });
+
+
+      const TELS = qa(".tel, .tel-lado");
+      const sn = q(".sn"), big = q(".stk-n");
+      tl.fromTo(TELS, { y: 120, opacity: 0.2 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".stk"), { x: 420 }, { x: 0, duration: 0.42, ease: "power3.out" }, 0.08);
+      tl.fromTo(q(".ti-foto svg"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 0.1);
+      // "cada venta": entra la venta online
+      tl.fromTo(q(".to1"), { opacity: 0, x: 300 }, { opacity: 1, x: 0, duration: 0.32, ease: "back.out(1.5)" }, 0.6);
+      // "descuenta el stock": 3 -> 2
+      tl.fromTo(q(".m1"), { opacity: 0, y: -160 }, { opacity: 1, y: 0, duration: 0.28, ease: "power2.out" }, 1.5);
+      tl.to(q(".m1"), { y: 60, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.84);
+      tl.set([sn, big], { textContent: "2" }, 1.98);
+      tl.fromTo(q(".flash"), { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 1.98);
+      golpe(".ti-st", 1.98, 1.08); golpe(".stk-n", 1.98, 1.15);
+      tl.to(q(".stk"), { borderColor: "#5ce611", duration: 0.15 }, 1.98);
+      pop(".stk-a", 2.5);
+      // "También la del local.": la caja del mostrador, 2 -> 1
+      tl.to(q(".to1"), { opacity: 0, y: -40, duration: 0.2 }, 3.0);
+      tl.to(q(".flash"), { opacity: 0, duration: 0.15 }, 3.0);
+      tl.fromTo(q(".caja-reg"), { opacity: 0, y: 300 }, { opacity: 1, y: 0, duration: 0.34, ease: "back.out(1.5)" }, 3.2);
+      dibujar(".lk", 3.6, 0.2); dibujar(".lk2", 3.6, 0.2);
+      tl.set([sn, big], { textContent: "1" }, 3.8);
+      tl.fromTo(q(".flash"), { opacity: 0, scale: 1.1 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 3.8);
+      golpe(".ti-st", 3.8, 1.08); golpe(".stk-n", 3.8, 1.15);
+      tl.to(qa(".caja-reg, .lk, .lk2, .flash, .stk"), { opacity: 0, duration: 0.2 }, 4.22);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
