@@ -1,0 +1,111 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-planilla"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-planilla"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-planilla"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-planilla"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s03-planilla"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-planilla"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-planilla"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s03-planilla"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s03-planilla"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s03-planilla"] .lead.g { stroke: #5ce611; } [data-composition-id="s03-planilla"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s03-planilla"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s03-planilla"] .dot.g { fill: #5ce611; } [data-composition-id="s03-planilla"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s03-planilla"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s03-planilla"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-planilla"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-planilla"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-planilla"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s03-planilla"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s03-planilla"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s03-planilla"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s03-planilla"] .lado { position: absolute; top: 528px; left: 0; width: 1080px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; }
+    [data-composition-id="s03-planilla"] .lado.izq { color: #c7655b; } [data-composition-id="s03-planilla"] .lado.der { color: #5ce611; }
+    [data-composition-id="s03-planilla"] .telw { position: absolute; }
+    [data-composition-id="s03-planilla"] .tel-lado { position: absolute; left: 16px; top: 16px; right: -16px; bottom: -16px; border-radius: 70px; background: #0a1120; }
+    [data-composition-id="s03-planilla"] .tel { position: absolute; inset: 0; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s03-planilla"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 56px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s03-planilla"] .tel-notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 28px; margin-left: -60px; border-radius: 14px; background: #efeee5; }
+
+    [data-composition-id="s03-planilla"] .pl { position: absolute; left: 50px; top: 600px; width: 980px; height: 880px; border-radius: 30px; background: #0b1220; border: 6px solid #8a96ab; overflow: hidden; }
+    [data-composition-id="s03-planilla"] .pl-bar { position: absolute; left: 0; top: 0; right: 0; height: 76px; background: #22365a; display: flex; align-items: center; gap: 14px; padding-left: 30px; }
+    [data-composition-id="s03-planilla"] .pl-bar i { width: 20px; height: 20px; border-radius: 50%; background: #4a5873; }
+    [data-composition-id="s03-planilla"] .pl-bar span { margin-left: 16px; font: 500 30px/1 "IBM Plex Mono", monospace; color: #efeee5; }
+    [data-composition-id="s03-planilla"] .pl-head, [data-composition-id="s03-planilla"] .pl-f { position: absolute; left: 0; width: 980px; display: flex; align-items: center; }
+    [data-composition-id="s03-planilla"] .pl-head { top: 76px; height: 70px; background: #0f1a2e; border-bottom: 5px solid #4a5873; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #8a96ab; }
+    [data-composition-id="s03-planilla"] .pl-vent { position: absolute; left: 0; top: 151px; width: 980px; height: 723px; overflow: hidden; }
+    [data-composition-id="s03-planilla"] .pl-filas { position: absolute; left: 0; top: 0; width: 980px; }
+    [data-composition-id="s03-planilla"] .pl-f { position: relative; height: 84px; border-bottom: 4px solid #1c2a44; font: 500 34px/1 "Lexend", sans-serif; color: #8a96ab; }
+    [data-composition-id="s03-planilla"] .c0 { width: 80px; text-align: center; font: 500 28px/1 "IBM Plex Mono", monospace; color: #4a5873; border-right: 4px solid #1c2a44; align-self: stretch; display: flex; align-items: center; justify-content: center; }
+    [data-composition-id="s03-planilla"] .c1 { width: 430px; padding-left: 28px; } [data-composition-id="s03-planilla"] .c2 { width: 230px; padding-left: 24px; } [data-composition-id="s03-planilla"] .c3 { width: 240px; padding-left: 24px; }
+    [data-composition-id="s03-planilla"] .pl-f .c1 { color: #efeee5; }
+    [data-composition-id="s03-planilla"] .pl-f.sofia .c1 { color: #fff; font-weight: 700; }
+    [data-composition-id="s03-planilla"] .venc { color: #c7655b; font-weight: 700; }
+    [data-composition-id="s03-planilla"] .pl-f.sofia .venc { color: #8a96ab; }
+    [data-composition-id="s03-planilla"] .sbF { left: 62px; }
+  </style>
+  <div id="root" data-composition-id="s03-planilla" data-width="1080" data-height="1920" data-duration="3.69">
+    <div id="s03-planilla-esc" class="esc clip" data-start="0" data-duration="3.69" data-track-index="0">
+
+      <div class="lado izq">FUERZA · SIN CRM</div>
+      
+  <div class="pl">
+    <div class="pl-bar"><i></i><i></i><i></i><span>socios.xlsx</span></div>
+    <div class="pl-head"><span class="c0"></span><span class="c1">SOCIO</span><span class="c2">ALTA</span><span class="c3">CUOTA</span></div>
+    <div class="pl-vent"><div class="pl-filas">
+      <div class="pl-f "><span class="c0">2</span><span class="c1">Martín R.</span><span class="c2">marzo</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">3</span><span class="c1">Lucía P.</span><span class="c2">febrero</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">4</span><span class="c1">Diego S.</span><span class="c2">enero</span><span class="c3 ">al día</span></div><div class="pl-f sofia"><span class="c0">5</span><span class="c1">Sofía M.</span><span class="c2">enero</span><span class="c3 venc">vencida</span></div><div class="pl-f "><span class="c0">6</span><span class="c1">Ana G.</span><span class="c2">abril</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">7</span><span class="c1">Pablo T.</span><span class="c2">marzo</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">8</span><span class="c1">Carla V.</span><span class="c2">enero</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">9</span><span class="c1">Nicolás B.</span><span class="c2">mayo</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">10</span><span class="c1">Valentina C.</span><span class="c2">febrero</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">11</span><span class="c1">Jorge L.</span><span class="c2">abril</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">12</span><span class="c1">Inés F.</span><span class="c2">junio</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">13</span><span class="c1">Rodrigo A.</span><span class="c2">marzo</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">14</span><span class="c1">Paula D.</span><span class="c2">mayo</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">15</span><span class="c1">Gonzalo E.</span><span class="c2">junio</span><span class="c3 ">al día</span></div><div class="pl-f "><span class="c0">16</span><span class="c1">Florencia H.</span><span class="c2">abril</span><span class="c3 ">al día</span></div>
+    </div></div>
+  </div>
+      <div class="selbox r sbF" style="left:62px;top:1001px;width:956px;height:88px"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div>
+      <div class="pill r n1" style="left:540px;top:1590px">Una fila más</div>
+      <div class="pill rl n2" style="left:540px;top:1590px">Nadie lo nota</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-planilla";
+      const DUR = 3.69;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const toque = (s, t) => tl.fromTo(q(s), { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.9, duration: 0.5, ease: "power2.out", immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".lado"), { opacity: 0 });
+      tl.fromTo(q(".pl"), { x: -1000, rotation: -3 }, { x: 0, rotation: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.to(q(".lado"), { opacity: 1, duration: 0.3 }, 0.3);
+      qa(".pl-f").forEach((f, i) => tl.fromTo(f, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.2, ease: "power2.out" }, 0.25 + i * 0.03));
+      // "su ficha"
+      caja(".sbF", 1.1);
+      tl.to(q(".pl-f.sofia .venc"), { color: "#c7655b", duration: 0.2 }, 1.5);
+      latido(".pl-f.sofia .venc", 1.55, 1.15);
+      // "en una planilla": una fila más entre muchas
+      pop(".n1", 1.85);
+      // "Nadie lo nota": la lista sigue, Sofía se va para arriba y se pierde
+      tl.to(q(".sbF"), { opacity: 0, duration: 0.15 }, 2.5);
+      tl.to(q(".n1"), { opacity: 0, duration: 0.15 }, 2.55);
+      tl.to(q(".pl-filas"), { y: -504, duration: 0.9, ease: "power2.inOut" }, 2.55);
+      tl.to(q(".pl-f.sofia"), { opacity: 0.35, duration: 0.5 }, 2.6);
+      pop(".n2", 2.7);
+      salida(3.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

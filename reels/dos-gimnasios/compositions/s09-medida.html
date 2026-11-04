@@ -1,0 +1,99 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-medida"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-medida"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-medida"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-medida"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-medida"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s09-medida"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s09-medida"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s09-medida"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s09-medida"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s09-medida"] .lead.g { stroke: #5ce611; } [data-composition-id="s09-medida"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s09-medida"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s09-medida"] .dot.g { fill: #5ce611; } [data-composition-id="s09-medida"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s09-medida"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s09-medida"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s09-medida"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s09-medida"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s09-medida"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s09-medida"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s09-medida"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s09-medida"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s09-medida"] .lado { position: absolute; top: 528px; left: 0; width: 1080px; text-align: center; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; }
+    [data-composition-id="s09-medida"] .lado.izq { color: #c7655b; } [data-composition-id="s09-medida"] .lado.der { color: #5ce611; }
+    [data-composition-id="s09-medida"] .telw { position: absolute; }
+    [data-composition-id="s09-medida"] .tel-lado { position: absolute; left: 16px; top: 16px; right: -16px; bottom: -16px; border-radius: 70px; background: #0a1120; }
+    [data-composition-id="s09-medida"] .tel { position: absolute; inset: 0; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s09-medida"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 56px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s09-medida"] .tel-notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 28px; margin-left: -60px; border-radius: 14px; background: #efeee5; }
+
+    [data-composition-id="s09-medida"] .lap { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s09-medida"] .lap-s { position: absolute; left: 90px; top: 620px; width: 900px; height: 580px; border-radius: 34px; background: #efeee5; }
+    [data-composition-id="s09-medida"] .lap-p { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 20px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s09-medida"] .lp-h { position: absolute; left: 0; top: 0; right: 0; height: 96px; background: #5ce611; padding-left: 36px; font: 800 44px/96px "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+    [data-composition-id="s09-medida"] .lp-f { position: absolute; left: 30px; right: 30px; height: 84px; border-bottom: 4px solid #1c2a44; display: flex; align-items: center; justify-content: space-between; }
+    [data-composition-id="s09-medida"] .lp-n { font: 700 40px/1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s09-medida"] .lp-e { padding: 10px 18px; border: 4px solid; border-radius: 16px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; }
+    [data-composition-id="s09-medida"] .lap-b { position: absolute; left: 30px; top: 1200px; width: 1020px; height: 54px; border-radius: 0 0 30px 30px; background: #efeee5; }
+    [data-composition-id="s09-medida"] .lap-b::after { content: ""; position: absolute; left: 430px; top: 0; width: 160px; height: 14px; border-radius: 0 0 10px 10px; background: #b9b7a8; }
+    [data-composition-id="s09-medida"] .cinta { position: absolute; left: 70px; top: 1316px; width: 940px; height: 110px; border-radius: 16px; background: #5ce611; transform-origin: 0 50%; }
+    [data-composition-id="s09-medida"] svg.reg { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  </style>
+  <div id="root" data-composition-id="s09-medida" data-width="1080" data-height="1920" data-duration="2.72">
+    <div id="s09-medida-esc" class="esc clip" data-start="0" data-duration="2.72" data-track-index="0">
+
+      
+  <div class="lap l9">
+    <div class="lap-s"><div class="lap-p">
+      <div class="lp-h">TU GIMNASIO · CRM</div>
+      <div class="lp-f" style="top:120px"><span class="lp-n">Sofía</span><span class="lp-e" style="color:#5ce611;border-color:#5ce611">VOLVIÓ</span></div><div class="lp-f" style="top:220px"><span class="lp-n">Martín</span><span class="lp-e" style="color:#5ce611;border-color:#5ce611">VIENE SEGUIDO</span></div><div class="lp-f" style="top:320px"><span class="lp-n">Carla</span><span class="lp-e" style="color:#c7655b;border-color:#c7655b">VIENE MENOS</span></div><div class="lp-f" style="top:420px"><span class="lp-n">Nico</span><span class="lp-e" style="color:#efeee5;border-color:#efeee5">NUEVO</span></div>
+    </div></div>
+    <div class="lap-b"></div>
+  </div>
+      <div class="cinta"></div>
+      <svg class="reg" viewBox="0 0 1080 1920" aria-hidden="true"><path class="mk" d="M90 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M120 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M150 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M180 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M210 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M240 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M270 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M300 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M330 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M360 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M390 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M420 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M450 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M480 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M510 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M540 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M570 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M600 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M630 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M660 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M690 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M720 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M750 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M780 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M810 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M840 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M870 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M900 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M930 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M960 1330 V1358" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="mk" d="M990 1330 V1380" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><path class="flecha" d="M120 1470 H960 M120 1470 l26 -20 M120 1470 l26 20 M960 1470 l-26 -20 M960 1470 l-26 20" fill="none" stroke="#5ce611" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="pill lleno n1" style="left:540px;top:1560px">A tu medida</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-medida";
+      const DUR = 2.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const toque = (s, t) => tl.fromTo(q(s), { opacity: 0.9, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 0, scale: 1.9, duration: 0.5, ease: "power2.out", immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(qa(".lp-f"), { opacity: 0 });
+      tl.fromTo(qa(".lap-s, .lap-b"), { y: 400, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out", stagger: 0.05 }, 0);
+      tl.fromTo(q(".lp-h"), { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, 0.25);
+      qa(".lp-f").forEach((f, i) => tl.fromTo(f, { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.22, ease: "power2.out" }, 0.55 + i * 0.12));
+      // "lo armamos a tu medida": la cinta de medir
+      tl.fromTo(q(".cinta"), { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power3.out" }, 1.2);
+      qa(".mk").forEach((m, i) => { gsap.set(m, { opacity: 0 }); tl.set(m, { opacity: 1 }, 1.25 + i * 0.013); });
+      dibujar(".flecha", 1.7, 0.35);
+      pop(".n1", 1.85);
+      latido(".lap-s", 1.85, 1.02);
+      salida(2.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
