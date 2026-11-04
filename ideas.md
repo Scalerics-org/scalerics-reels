@@ -212,6 +212,11 @@
 - 04-11 · `por-que-concurrido` · Sistema a medida (ventas por hora y turnos del equipo) · "¿Por qué Google Maps sabe a qué hora está lleno un local?" Explicador: los horarios concurridos salen de la ubicación anónima y agregada de la gente que lo permite, Google mira patrones (ayuda oficial y blog de Google, ver fuentes.md); giro: vos tenés un dato mejor, tus ventas por día y hora; con eso ponés más gente en la hora pico y no tenés tres parados un martes a las tres; panel de ventas por hora y turnos del equipo · Videollamada gratis en scalerics.com [formato explicador ¿Por qué? · celular a pantalla completa con interfaz recreada (mapa genérico, barras, turnos), marco navy claro #16243d]
 
 ## En curso
+- 04-11 · `caso-shopify` · Sistema a medida · caso de éxito (explicador): querían vender tablas de snowboard online, ningún software les servía y se hicieron el suyo · fondo crema #efeee5, objetos llenos · tanda 04-11 5ª
+- 04-11 · `por-que-el-check-in` · Sitio web (reservas y turnos online) · "¿Por qué la aerolínea quiere que hagas el check-in desde tu casa?" (explicador ¿Por qué?) · celular a pantalla completa, interfaz recreada · tanda 04-11 5ª
+- 04-11 · `caso-ritz` · CRM (preferencias del cliente) · caso de éxito: ¿por qué el Ritz-Carlton se acuerda de cómo te gusta la habitación? · navy oscuro #0b1220, objetos llenos · tanda 04-11 5ª
+- 04-11 · `dos-jugueterias` · Tienda online (envíos a todo el país) · "Dos jugueterías en la misma cuadra. Una le vende solo al barrio. La otra, a todo el país." · Dos negocios, líneas grandes, navy claro #16243d · tanda 04-11 5ª
+- 04-11 · `tres-horas` · Automatizaciones · rutina + reloj: lo que el dueño hace a mano después de cerrar · tipografía gigante + reloj, navy oscuro con cierre verde · tanda 04-11 5ª
 
 
 
