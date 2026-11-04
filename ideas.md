@@ -192,6 +192,11 @@
 - 03-11 · `caso-dominos` · Automatizaciones · "¿Por qué Domino's te muestra en qué paso está tu pizza?" Caso de éxito real (Pizza Tracker, ver fuentes.md): antes llamabas a preguntar, Domino's mostró cada paso; giro: no hizo la pizza más rápido, hizo que la espera se viera; para vos: avisos solos por WhatsApp cuando cambia el pedido · Videollamada gratis en scalerics.com [formato caso de éxito (explicador) · objetos llenos de marca que se transforman, navy claro]
 
 ## En curso
+- 04-11 · `zara-repone` · caso de éxito (explicador resultaaquee) · Zara y reponer según lo que se vende · producto: sistema a medida (stock y ventas) · fondo navy oscuro, objetos llenos
+- 04-11 · `amazon-tambien` · caso de éxito (explicador resultaaquee) · Amazon y "los que compraron esto también compraron" · producto: tienda online · fondo crema, objetos llenos
+- 04-11 · `por-que-el-service` · explicador ¿Por qué…? · ¿Por qué la concesionaria sabe cuándo te toca el service? · producto: CRM · fondo navy claro, objetos llenos
+- 04-11 · `dos-restaurantes` · Dos negocios (motion TikTok) · dos restaurantes en la misma esquina, uno te muestra la carta y el horario antes de llegar · producto: sitio web · fondo navy oscuro, pantalla partida con líneas
+- 04-11 · `la-misma-pregunta` · contador en vivo (motion TikTok) · cuántas veces por día te preguntan lo mismo · producto: agente de IA · celular a pantalla completa
 
 
 
