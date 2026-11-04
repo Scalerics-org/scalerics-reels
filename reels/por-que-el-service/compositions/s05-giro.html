@@ -1,0 +1,119 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-giro"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-giro"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-giro"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-giro"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.5); }
+    [data-composition-id="s05-giro"] .autow { position: absolute; left: 90px; top: 800px; width: 900px; height: 400px; }
+    [data-composition-id="s05-giro"] .auto-svg { position: absolute; left: 0; top: 0; width: 900px; height: 400px; overflow: visible; }
+    [data-composition-id="s05-giro"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s05-giro"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s05-giro"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s05-giro"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s05-giro"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s05-giro"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s05-giro"] .lead.g { stroke: #5ce611; } [data-composition-id="s05-giro"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s05-giro"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s05-giro"] .dot.g { fill: #5ce611; } [data-composition-id="s05-giro"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s05-giro"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s05-giro"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s05-giro"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s05-giro"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s05-giro"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s05-giro"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s05-giro"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s05-giro"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s05-giro"] .fi { position: absolute; left: 90px; top: 590px; width: 900px; border-radius: 44px; background: #efeee5; overflow: hidden; box-shadow: 18px 18px 0 #0b1220; }
+    [data-composition-id="s05-giro"] .fi-head { position: absolute; left: 0; top: 0; right: 0; height: 128px; background: #5ce611; }
+    [data-composition-id="s05-giro"] .fi-head span { position: absolute; left: 48px; top: 0; font: 800 54px/128px "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s05-giro"] .fi-head i { position: absolute; right: 48px; top: 40px; width: 48px; height: 48px; border-radius: 50%; background: #0b1220; }
+    [data-composition-id="s05-giro"] .fi-foto { position: absolute; left: 40px; top: 160px; width: 820px; height: 320px; border-radius: 30px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s05-giro"] .fi-fila { position: absolute; left: 48px; right: 48px; height: 104px; border-bottom: 4px solid rgba(11,18,32,0.12); }
+    [data-composition-id="s05-giro"] .fi-lbl { position: absolute; left: 0; top: 14px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s05-giro"] .fi-val { position: absolute; left: 0; top: 50px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s05-giro"] .fi-ok { position: absolute; right: 0; top: 26px; width: 52px; height: 52px; opacity: 0; }
+    [data-composition-id="s05-giro"] .fi-ok svg { width: 52px; height: 52px; }
+    [data-composition-id="s05-giro"] .fi-luz { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(11,18,32,0) 64%, rgba(11,18,32,0.05) 64%); pointer-events: none; }
+    [data-composition-id="s05-giro"] .tel-lado { position: absolute; left: 288px; top: 578px; width: 540px; height: 1000px; border-radius: 80px; background: #0b1220; }
+    [data-composition-id="s05-giro"] .tel { position: absolute; left: 270px; top: 560px; width: 540px; height: 1000px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s05-giro"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s05-giro"] .tel-notch { position: absolute; left: 200px; top: 30px; width: 140px; height: 32px; border-radius: 16px; background: #efeee5; }
+    [data-composition-id="s05-giro"] .noti { position: absolute; left: 70px; width: 940px; height: 230px; border-radius: 44px; background: #ffffff; box-shadow: 0 18px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s05-giro"] .noti .ic { position: absolute; left: 34px; top: 50px; width: 130px; height: 130px; border-radius: 32px; background: #5ce611; }
+    [data-composition-id="s05-giro"] .noti .ic svg { position: absolute; left: 20px; top: 20px; }
+    [data-composition-id="s05-giro"] .noti .t0 { position: absolute; left: 196px; top: 40px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s05-giro"] .noti .t1 { position: absolute; left: 196px; top: 86px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-giro"] .noti .t2 { position: absolute; left: 196px; top: 156px; font: 500 36px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+[data-composition-id="s05-giro"] .mini-noti { position: absolute; left: 70px; top: 640px; width: 940px; height: 230px; border-radius: 44px; background: #fff; }
+  </style>
+  <div id="root" data-composition-id="s05-giro" data-width="1080" data-height="1920" data-duration="2.46">
+    <div id="s05-giro-esc" class="esc clip" data-start="0" data-duration="2.46" data-track-index="0">
+
+      <div class="mini-noti"></div>
+      <div class="capa local">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+  <ellipse cx="560" cy="1352" rx="470" ry="34" fill="rgba(3,6,12,0.45)"/>
+  <polygon points="930,700 1000,740 1000,1336 930,1336" fill="#0b1220"/>
+  <rect x="150" y="700" width="780" height="636" fill="#1f3254"/>
+  <rect x="130" y="680" width="820" height="40" rx="8" fill="#0b1220"/>
+  <g class="aw"><path d="M150 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#5ce611"/><path d="M247.5 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#efeee5"/><path d="M345 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#5ce611"/><path d="M442.5 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#efeee5"/><path d="M540 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#5ce611"/><path d="M637.5 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#efeee5"/><path d="M735 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#5ce611"/><path d="M832.5 720 h97.5 v110 q-48.75 34 -97.5 0 z" fill="#efeee5"/>
+  <rect x="150" y="720" width="780" height="18" fill="rgba(11,18,32,0.22)"/></g>
+  <rect class="cartel" x="250" y="588" width="580" height="96" rx="14" fill="#efeee5"/>
+  <text class="cartel-txt" x="540" y="653" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="54" fill="#0b1220">TU NEGOCIO</text>
+  <rect x="200" y="890" width="370" height="360" rx="10" fill="#0b1220" stroke="#efeee5" stroke-width="10"/>
+  <polygon points="250,1240 330,900 400,900 320,1240" fill="rgba(239,238,229,0.13)"/>
+  <rect x="620" y="890" width="250" height="446" rx="10" fill="#0b1220" stroke="#efeee5" stroke-width="10"/>
+  <rect x="826" y="1100" width="14" height="70" rx="7" fill="#5ce611"/>
+  <g class="p p0"><circle cx="250" cy="1446" r="38" fill="#efeee5"/><path d="M176 1604 Q176 1496 250 1494 Q324 1496 324 1604 Z" fill="#efeee5"/><path d="M270 1604 Q312 1520 324 1580 L324 1604 Z" fill="rgba(11,18,32,0.14)"/></g><g class="rl rl0"><circle cx="334" cy="1470" r="40" fill="#5ce611"/><circle cx="334" cy="1470" r="26" fill="none" stroke="#0b1220" stroke-width="7"/><path d="M334 1456 L334 1470 L345 1477" fill="none" stroke="#0b1220" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g class="p p1"><circle cx="540" cy="1446" r="38" fill="#efeee5"/><path d="M466 1604 Q466 1496 540 1494 Q614 1496 614 1604 Z" fill="#efeee5"/><path d="M560 1604 Q602 1520 614 1580 L614 1604 Z" fill="rgba(11,18,32,0.14)"/></g><g class="rl rl1"><circle cx="624" cy="1470" r="40" fill="#5ce611"/><circle cx="624" cy="1470" r="26" fill="none" stroke="#0b1220" stroke-width="7"/><path d="M624 1456 L624 1470 L635 1477" fill="none" stroke="#0b1220" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g class="p p2"><circle cx="830" cy="1446" r="38" fill="#efeee5"/><path d="M756 1604 Q756 1496 830 1494 Q904 1496 904 1604 Z" fill="#efeee5"/><path d="M850 1604 Q892 1520 904 1580 L904 1604 Z" fill="rgba(11,18,32,0.14)"/></g><g class="rl rl2"><circle cx="914" cy="1470" r="40" fill="#5ce611"/><circle cx="914" cy="1470" r="26" fill="none" stroke="#0b1220" stroke-width="7"/><path d="M914 1456 L914 1470 L925 1477" fill="none" stroke="#0b1220" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg></div>
+      <div class="pill lleno n1" style="left:540px;top:1690px">Clientes con service</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-giro";
+      const DUR = 2.46;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const miles = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const ruedas = (t, d, vueltas) => qa(".rueda").forEach((r) => { const b = r.getBBox(); tl.to(r, { rotation: 360 * vueltas, svgOrigin: (b.x + b.width / 2) + " " + (b.y + b.height / 2), duration: d, ease: "none" }, t); });
+      const fila = (k, t) => { const f = q(".f" + k); tl.fromTo(f, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t); pop(".f" + k + " .fi-ok", t + 0.2, 0.28, 0.3); };
+
+
+      const L = q(".local");
+      // la notificación se aplana y es el cartel del negocio
+      tl.to(q(".mini-noti"), { scaleX: 0.617, scaleY: 0.417, y: -119, transformOrigin: "50% 50%", backgroundColor: "#efeee5", duration: 0.35, ease: "power3.inOut" }, 0);
+      tl.to(q(".mini-noti"), { opacity: 0, duration: 0.05 }, 0.34);
+      tl.fromTo(L, { opacity: 0, scale: 0.92, transformOrigin: "540px 640px" }, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, 0.25);
+      tl.fromTo(q(".cartel"), { scale: 1 }, { scale: 1.08, svgOrigin: "540 636", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 0.5);
+      tl.fromTo(q(".cartel-txt"), { scale: 1 }, { scale: 1.08, svgOrigin: "540 636", duration: 0.2, yoyo: true, repeat: 1, immediateRender: false }, 0.5);
+      // clientes
+      qa(".p").forEach((p, i) => tl.fromTo(p, { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.6)" }, 1.15 + i * 0.1));
+      // con service: el relojito arriba de cada uno
+      tl.fromTo(q(".rl0"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, svgOrigin: "334 1470", duration: 0.3, ease: "back.out(2)" }, 1.85);
+      tl.fromTo(q(".rl1"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, svgOrigin: "624 1470", duration: 0.3, ease: "back.out(2)" }, 1.95);
+      tl.fromTo(q(".rl2"), { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, svgOrigin: "914 1470", duration: 0.3, ease: "back.out(2)" }, 2.05);
+      nota(1, 1.5);
+      tl.to(L, { scale: 1.05, transformOrigin: "540px 1100px", duration: 0.6, ease: "power1.inOut" }, 1.85);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

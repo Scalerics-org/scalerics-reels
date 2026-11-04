@@ -1,0 +1,94 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-pregunta"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-pregunta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-pregunta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-pregunta"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.5); }
+    [data-composition-id="s07-pregunta"] .autow { position: absolute; left: 90px; top: 800px; width: 900px; height: 400px; }
+    [data-composition-id="s07-pregunta"] .auto-svg { position: absolute; left: 0; top: 0; width: 900px; height: 400px; overflow: visible; }
+    [data-composition-id="s07-pregunta"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s07-pregunta"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s07-pregunta"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s07-pregunta"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s07-pregunta"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s07-pregunta"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s07-pregunta"] .lead.g { stroke: #5ce611; } [data-composition-id="s07-pregunta"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s07-pregunta"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s07-pregunta"] .dot.g { fill: #5ce611; } [data-composition-id="s07-pregunta"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s07-pregunta"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s07-pregunta"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s07-pregunta"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s07-pregunta"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s07-pregunta"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s07-pregunta"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s07-pregunta"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s07-pregunta"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s07-pregunta"] .fi { position: absolute; left: 90px; top: 590px; width: 900px; border-radius: 44px; background: #efeee5; overflow: hidden; box-shadow: 18px 18px 0 #0b1220; }
+    [data-composition-id="s07-pregunta"] .fi-head { position: absolute; left: 0; top: 0; right: 0; height: 128px; background: #5ce611; }
+    [data-composition-id="s07-pregunta"] .fi-head span { position: absolute; left: 48px; top: 0; font: 800 54px/128px "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s07-pregunta"] .fi-head i { position: absolute; right: 48px; top: 40px; width: 48px; height: 48px; border-radius: 50%; background: #0b1220; }
+    [data-composition-id="s07-pregunta"] .fi-foto { position: absolute; left: 40px; top: 160px; width: 820px; height: 320px; border-radius: 30px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s07-pregunta"] .fi-fila { position: absolute; left: 48px; right: 48px; height: 104px; border-bottom: 4px solid rgba(11,18,32,0.12); }
+    [data-composition-id="s07-pregunta"] .fi-lbl { position: absolute; left: 0; top: 14px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s07-pregunta"] .fi-val { position: absolute; left: 0; top: 50px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s07-pregunta"] .fi-ok { position: absolute; right: 0; top: 26px; width: 52px; height: 52px; opacity: 0; }
+    [data-composition-id="s07-pregunta"] .fi-ok svg { width: 52px; height: 52px; }
+    [data-composition-id="s07-pregunta"] .fi-luz { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(11,18,32,0) 64%, rgba(11,18,32,0.05) 64%); pointer-events: none; }
+    [data-composition-id="s07-pregunta"] .tel-lado { position: absolute; left: 288px; top: 578px; width: 540px; height: 1000px; border-radius: 80px; background: #0b1220; }
+    [data-composition-id="s07-pregunta"] .tel { position: absolute; left: 270px; top: 560px; width: 540px; height: 1000px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s07-pregunta"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s07-pregunta"] .tel-notch { position: absolute; left: 200px; top: 30px; width: 140px; height: 32px; border-radius: 16px; background: #efeee5; }
+    [data-composition-id="s07-pregunta"] .noti { position: absolute; left: 70px; width: 940px; height: 230px; border-radius: 44px; background: #ffffff; box-shadow: 0 18px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s07-pregunta"] .noti .ic { position: absolute; left: 34px; top: 50px; width: 130px; height: 130px; border-radius: 32px; background: #5ce611; }
+    [data-composition-id="s07-pregunta"] .noti .ic svg { position: absolute; left: 20px; top: 20px; }
+    [data-composition-id="s07-pregunta"] .noti .t0 { position: absolute; left: 196px; top: 40px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s07-pregunta"] .noti .t1 { position: absolute; left: 196px; top: 86px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-pregunta"] .noti .t2 { position: absolute; left: 196px; top: 156px; font: 500 36px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+
+    [data-composition-id="s07-pregunta"] .cl { position: absolute; width: 440px; height: 300px; border-radius: 36px; background: #0b1220; border: 6px solid #1f3254; opacity: 0; }
+    [data-composition-id="s07-pregunta"] .cl .av { position: absolute; left: 36px; top: 40px; }
+    [data-composition-id="s07-pregunta"] .cl i { position: absolute; left: 36px; height: 24px; border-radius: 12px; background: rgba(239,238,229,0.3); }
+    [data-composition-id="s07-pregunta"] .cl .qq { position: absolute; right: 30px; top: 30px; width: 120px; height: 120px; border-radius: 50%; background: #c7655b; font: 800 84px/120px "Lexend", sans-serif; text-align: center; color: #fff; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-pregunta" data-width="1080" data-height="1920" data-duration="1.76">
+    <div id="s07-pregunta-esc" class="esc clip" data-start="0" data-duration="1.76" data-track-index="0">
+<div class="cl c0" style="left:90px;top:590px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div><div class="cl c1" style="left:550px;top:590px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div><div class="cl c2" style="left:90px;top:920px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div><div class="cl c3" style="left:550px;top:920px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div><div class="cl c4" style="left:90px;top:1250px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div><div class="cl c5" style="left:550px;top:1250px"><div class="av"><svg width="120" height="120" viewBox="0 0 140 140" aria-hidden="true"><circle cx="70" cy="70" r="70" fill="#efeee5"/><circle cx="70" cy="56" r="26" fill="#1f3254"/><path d="M26 122 Q30 86 70 86 Q110 86 114 122 Q94 138 70 138 Q46 138 26 122 Z" fill="#1f3254"/></svg></div><i style="top:196px;width:300px"></i><i style="top:240px;width:200px"></i><div class="qq">?</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-pregunta";
+      const DUR = 1.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const miles = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const ruedas = (t, d, vueltas) => qa(".rueda").forEach((r) => { const b = r.getBBox(); tl.to(r, { rotation: 360 * vueltas, svgOrigin: (b.x + b.width / 2) + " " + (b.y + b.height / 2), duration: d, ease: "none" }, t); });
+      const fila = (k, t) => { const f = q(".f" + k); tl.fromTo(f, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t); pop(".f" + k + " .fi-ok", t + 0.2, 0.28, 0.3); };
+
+
+      qa(".cl").forEach((c, i) => tl.fromTo(c, { opacity: 0, scale: 0.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, i * 0.06));
+      qa(".qq").forEach((c, i) => pop(c, 0.55 + i * 0.08, 0.26, 0.3));
+      // se juntan en una sola ficha (s08)
+      tl.to(qa(".cl"), { x: (i, el) => 315 - el.offsetLeft, y: (i, el) => 790 - el.offsetTop, opacity: 0, scale: 0.7, duration: 0.3, ease: "power2.in", stagger: 0.02 }, 1.42);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

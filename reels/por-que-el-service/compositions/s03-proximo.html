@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-proximo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-proximo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-proximo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-proximo"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.5); }
+    [data-composition-id="s03-proximo"] .autow { position: absolute; left: 90px; top: 800px; width: 900px; height: 400px; }
+    [data-composition-id="s03-proximo"] .auto-svg { position: absolute; left: 0; top: 0; width: 900px; height: 400px; overflow: visible; }
+    [data-composition-id="s03-proximo"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s03-proximo"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-proximo"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-proximo"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s03-proximo"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s03-proximo"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s03-proximo"] .lead.g { stroke: #5ce611; } [data-composition-id="s03-proximo"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s03-proximo"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s03-proximo"] .dot.g { fill: #5ce611; } [data-composition-id="s03-proximo"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s03-proximo"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s03-proximo"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-proximo"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-proximo"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-proximo"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s03-proximo"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s03-proximo"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s03-proximo"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s03-proximo"] .fi { position: absolute; left: 90px; top: 590px; width: 900px; border-radius: 44px; background: #efeee5; overflow: hidden; box-shadow: 18px 18px 0 #0b1220; }
+    [data-composition-id="s03-proximo"] .fi-head { position: absolute; left: 0; top: 0; right: 0; height: 128px; background: #5ce611; }
+    [data-composition-id="s03-proximo"] .fi-head span { position: absolute; left: 48px; top: 0; font: 800 54px/128px "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s03-proximo"] .fi-head i { position: absolute; right: 48px; top: 40px; width: 48px; height: 48px; border-radius: 50%; background: #0b1220; }
+    [data-composition-id="s03-proximo"] .fi-foto { position: absolute; left: 40px; top: 160px; width: 820px; height: 320px; border-radius: 30px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s03-proximo"] .fi-fila { position: absolute; left: 48px; right: 48px; height: 104px; border-bottom: 4px solid rgba(11,18,32,0.12); }
+    [data-composition-id="s03-proximo"] .fi-lbl { position: absolute; left: 0; top: 14px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s03-proximo"] .fi-val { position: absolute; left: 0; top: 50px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s03-proximo"] .fi-ok { position: absolute; right: 0; top: 26px; width: 52px; height: 52px; opacity: 0; }
+    [data-composition-id="s03-proximo"] .fi-ok svg { width: 52px; height: 52px; }
+    [data-composition-id="s03-proximo"] .fi-luz { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(11,18,32,0) 64%, rgba(11,18,32,0.05) 64%); pointer-events: none; }
+    [data-composition-id="s03-proximo"] .tel-lado { position: absolute; left: 288px; top: 578px; width: 540px; height: 1000px; border-radius: 80px; background: #0b1220; }
+    [data-composition-id="s03-proximo"] .tel { position: absolute; left: 270px; top: 560px; width: 540px; height: 1000px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s03-proximo"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 64px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s03-proximo"] .tel-notch { position: absolute; left: 200px; top: 30px; width: 140px; height: 32px; border-radius: 16px; background: #efeee5; }
+    [data-composition-id="s03-proximo"] .noti { position: absolute; left: 70px; width: 940px; height: 230px; border-radius: 44px; background: #ffffff; box-shadow: 0 18px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s03-proximo"] .noti .ic { position: absolute; left: 34px; top: 50px; width: 130px; height: 130px; border-radius: 32px; background: #5ce611; }
+    [data-composition-id="s03-proximo"] .noti .ic svg { position: absolute; left: 20px; top: 20px; }
+    [data-composition-id="s03-proximo"] .noti .t0 { position: absolute; left: 196px; top: 40px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s03-proximo"] .noti .t1 { position: absolute; left: 196px; top: 86px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-proximo"] .noti .t2 { position: absolute; left: 196px; top: 156px; font: 500 36px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+
+    [data-composition-id="s03-proximo"] .odo { position: absolute; left: 90px; top: 590px; width: 900px; height: 400px; border-radius: 44px; background: #0b1220; border: 8px solid #efeee5; box-shadow: 18px 18px 0 rgba(3,6,12,0.45); }
+    [data-composition-id="s03-proximo"] .odo-lbl { position: absolute; left: 50px; top: 38px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.18em; color: rgba(239,238,229,0.65); }
+    [data-composition-id="s03-proximo"] .odo-num { position: absolute; left: 0; right: 0; top: 96px; text-align: center; font: 800 150px/1 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+    [data-composition-id="s03-proximo"] .odo-km { color: #5ce611; font-size: 80px; letter-spacing: 0; }
+    [data-composition-id="s03-proximo"] .bar { position: absolute; left: 50px; top: 300px; width: 784px; height: 40px; border-radius: 20px; background: #1f3254; }
+    [data-composition-id="s03-proximo"] .bar-f { position: absolute; left: 50px; top: 300px; width: 784px; height: 40px; border-radius: 20px; background: #5ce611; }
+    [data-composition-id="s03-proximo"] .bar-m { position: absolute; left: 812px; top: 280px; width: 14px; height: 80px; border-radius: 7px; background: #efeee5; }
+    [data-composition-id="s03-proximo"] .cal { position: absolute; left: 90px; top: 1060px; width: 900px; height: 330px; border-radius: 44px; background: #efeee5; box-shadow: 18px 18px 0 rgba(3,6,12,0.45); overflow: hidden; }
+    [data-composition-id="s03-proximo"] .cal-head { position: absolute; left: 0; right: 0; top: 0; height: 96px; background: #5ce611; font: 800 50px/96px "Lexend", sans-serif; color: #0b1220; padding-left: 48px; }
+    [data-composition-id="s03-proximo"] .mes { position: absolute; top: 150px; width: 66px; text-align: center; font: 500 28px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s03-proximo"] .mes-p { position: absolute; top: 196px; width: 26px; height: 26px; border-radius: 50%; background: rgba(11,18,32,0.18); }
+    [data-composition-id="s03-proximo"] .cal-f { position: absolute; left: 60px; top: 250px; width: 780px; height: 24px; border-radius: 12px; background: #5ce611; }
+    [data-composition-id="s03-proximo"] .cal-t { position: absolute; left: 60px; top: 250px; width: 780px; height: 24px; border-radius: 12px; background: rgba(11,18,32,0.12); }
+    [data-composition-id="s03-proximo"] .o { position: absolute; left: 540px; top: 970px; width: 110px; height: 110px; margin-left: -55px; border-radius: 55px; background: #5ce611; border: 6px solid #16243d; font: 800 60px/92px "Lexend", sans-serif; text-align: center; color: #0b1220; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-proximo" data-width="1080" data-height="1920" data-duration="3.44">
+    <div id="s03-proximo-esc" class="esc clip" data-start="0" data-duration="3.44" data-track-index="0">
+
+      <div class="odo"><div class="odo-lbl">KILÓMETROS</div><div class="odo-num"><span class="v">18.200</span> <span class="odo-km">km</span></div>
+        <div class="bar"></div><div class="bar-f"></div><div class="bar-m"></div></div>
+      <div class="cal"><div class="cal-head">Tiempo</div>
+        <div class="mes" style="left:40px">MAR</div><div class="mes-p" style="left:47px"></div><div class="mes" style="left:100px">ABR</div><div class="mes-p" style="left:107px"></div><div class="mes" style="left:160px">MAY</div><div class="mes-p" style="left:167px"></div><div class="mes" style="left:220px">JUN</div><div class="mes-p" style="left:227px"></div><div class="mes" style="left:280px">JUL</div><div class="mes-p" style="left:287px"></div><div class="mes" style="left:340px">AGO</div><div class="mes-p" style="left:347px"></div><div class="mes" style="left:400px">SEP</div><div class="mes-p" style="left:407px"></div><div class="mes" style="left:460px">OCT</div><div class="mes-p" style="left:467px"></div><div class="mes" style="left:520px">NOV</div><div class="mes-p" style="left:527px"></div><div class="mes" style="left:580px">DIC</div><div class="mes-p" style="left:587px"></div><div class="mes" style="left:640px">ENE</div><div class="mes-p" style="left:647px"></div><div class="mes" style="left:700px">FEB</div><div class="mes-p" style="left:707px"></div><div class="mes" style="left:760px">MAR</div><div class="mes-p" style="left:767px"></div>
+        <div class="cal-t"></div><div class="cal-f"></div></div>
+      <div class="o">o</div>
+      <div class="pill lleno n1" style="left:760px;top:600px">Próximo: 20.000</div>
+      <div class="pill lleno n2" style="left:780px;top:1070px">Próximo: 03/2027</div>
+      <div class="pill g n3" style="left:540px;top:1500px">Lo que llegue primero</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-proximo";
+      const DUR = 3.44;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const miles = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const ruedas = (t, d, vueltas) => qa(".rueda").forEach((r) => { const b = r.getBBox(); tl.to(r, { rotation: 360 * vueltas, svgOrigin: (b.x + b.width / 2) + " " + (b.y + b.height / 2), duration: d, ease: "none" }, t); });
+      const fila = (k, t) => { const f = q(".f" + k); tl.fromTo(f, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.3, ease: "power3.out" }, t); pop(".f" + k + " .fi-ok", t + 0.2, 0.28, 0.3); };
+
+
+      gsap.set(q(".bar-f"), { scaleX: 0.55, transformOrigin: "0% 50%" });
+      gsap.set(q(".cal-f"), { scaleX: 0.05, transformOrigin: "0% 50%" });
+      // sale de la fila de kilómetros: entra el odómetro con push-in inverso
+      tl.fromTo(q(".odo"), { opacity: 0, scale: 1.4, y: 160 }, { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0);
+      tl.fromTo(q(".cal"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.25);
+      // por kilómetros: cuenta hacia el próximo
+      nota(1, 0.9);
+      contar(".odo-num .v", 18200, 19650, 1.3, 1.0, (v) => miles(v));
+      tl.to(q(".bar-f"), { scaleX: 0.92, duration: 1.0, ease: "power1.out" }, 1.3);
+      // o por tiempo
+      pop(".o", 1.95, 0.3, 0.4);
+      nota(2, 2.3);
+      tl.to(q(".cal-f"), { scaleX: 0.86, duration: 0.8, ease: "power1.out" }, 2.4);
+      nota(3, 2.5);
+      fuera(".n1, .n2, .n3, .o", 3.22, 0.2);
+      // los dos se juntan hacia el centro: se vuelven el celular
+      tl.to(q(".odo"), { y: 260, scale: 0.6, opacity: 0, duration: 0.3, ease: "power2.in" }, 3.14);
+      tl.to(q(".cal"), { y: -260, scale: 0.6, opacity: 0, duration: 0.3, ease: "power2.in" }, 3.14);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
