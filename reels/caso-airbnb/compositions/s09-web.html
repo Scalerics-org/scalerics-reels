@@ -1,0 +1,125 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-web"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-web"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-web"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-web"] .camw { position: absolute; left: 60px; top: 640px; width: 960px; height: 696px; }
+    [data-composition-id="s09-web"] .cam-svg, [data-composition-id="s09-web"] .cu-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s09-web"] .cu-svg { overflow: hidden; }
+    [data-composition-id="s09-web"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-web"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s09-web"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s09-web"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s09-web"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s09-web"] .pill.mono { font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; }
+    [data-composition-id="s09-web"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.10); opacity: 0; }
+    [data-composition-id="s09-web"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.12); }
+    [data-composition-id="s09-web"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s09-web"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s09-web"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s09-web"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s09-web"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s09-web"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s09-web"] .card { position: absolute; left: 90px; top: 600px; width: 900px; height: 730px; }
+    [data-composition-id="s09-web"] .card-lado { position: absolute; left: 18px; top: 18px; width: 900px; height: 730px; border-radius: 48px; background: #a9a798; }
+    [data-composition-id="s09-web"] .card-cuerpo { position: absolute; left: 0; top: 0; width: 900px; height: 730px; border-radius: 48px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s09-web"] .card-foto { position: absolute; left: 26px; top: 26px; width: 848px; height: 500px; border-radius: 30px; overflow: hidden; background: #060a12; }
+    [data-composition-id="s09-web"] .card-tit { position: absolute; left: 44px; top: 558px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+    [data-composition-id="s09-web"] .card-l1 { position: absolute; left: 44px; top: 630px; width: 380px; height: 26px; border-radius: 13px; background: rgba(11,18,32,0.2); }
+    [data-composition-id="s09-web"] .card-l2 { position: absolute; left: 44px; top: 676px; width: 250px; height: 26px; border-radius: 13px; background: rgba(11,18,32,0.14); }
+    [data-composition-id="s09-web"] .card-chip { position: absolute; right: 40px; top: 628px; padding: 14px 22px; border-radius: 16px; background: #1f3254; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: #efeee5; }
+
+    [data-composition-id="s09-web"] .cel { position: absolute; left: 290px; top: 580px; width: 500px; height: 770px; }
+    [data-composition-id="s09-web"] .cel-lado { position: absolute; left: 14px; top: 16px; width: 500px; height: 770px; border-radius: 70px; background: #a9a798; }
+    [data-composition-id="s09-web"] .cel-cuerpo { position: absolute; left: 0; top: 0; width: 500px; height: 770px; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s09-web"] .cel-pan { position: absolute; left: 20px; top: 20px; width: 460px; height: 730px; border-radius: 52px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s09-web"] .w-top { position: absolute; left: 0; top: 0; width: 460px; height: 110px; background: #0b1220; }
+    [data-composition-id="s09-web"] .w-top b { position: absolute; left: 34px; top: 40px; width: 36px; height: 36px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s09-web"] .w-top span { position: absolute; left: 86px; top: 38px; font: 700 38px/1 "Lexend", sans-serif; color: #fff; }
+    [data-composition-id="s09-web"] .w-foto { position: absolute; left: 24px; top: 132px; width: 412px; height: 330px; border-radius: 26px; background: #dff6cf; overflow: hidden; }
+    [data-composition-id="s09-web"] .w-foto svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    [data-composition-id="s09-web"] .w-nom { position: absolute; left: 30px; top: 488px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s09-web"] .w-pre { position: absolute; left: 30px; top: 540px; font: 900 58px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s09-web"] .w-btn { position: absolute; left: 24px; top: 628px; width: 412px; height: 82px; border-radius: 41px; background: #5ce611; font: 700 34px/82px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s09-web"] .w-tap { position: absolute; left: 300px; top: 640px; width: 60px; height: 60px; border-radius: 50%; border: 7px solid #0b1220; box-sizing: border-box; opacity: 0; }
+    [data-composition-id="s09-web"] .lb { position: absolute; padding: 12px 22px; border-radius: 14px; background: #5ce611; font: 700 38px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-web"] .chip { position: absolute; left: 540px; top: 1450px; padding: 12px 24px; border-radius: 16px; background: #1f3254; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #efeee5; white-space: nowrap; opacity: 0; transform: translateX(-50%); }
+  </style>
+  <div id="root" data-composition-id="s09-web" data-width="1080" data-height="1920" data-duration="4.11">
+    <div id="s09-web-esc" class="esc clip" data-start="0" data-duration="4.11" data-track-index="0">
+
+      <div class="cel" data-layout-allow-overlap><div class="cel-lado"></div><div class="cel-cuerpo"></div><div class="cel-pan">
+        <div class="w-top"><b></b><span>Tu negocio</span></div>
+        <div class="w-foto"><svg viewBox="0 0 412 330" aria-hidden="true">
+          <path d="M0 230 H412 V330 H0 Z" fill="#b9b7a8"/>
+          <path d="M120 80 L330 40 L330 120 L120 160 Z" fill="rgba(255,255,255,0.55)"/>
+          <ellipse cx="206" cy="268" rx="160" ry="30" fill="#ffffff"/><ellipse cx="206" cy="262" rx="150" ry="24" fill="#efeee5"/>
+          <rect x="76" y="140" width="260" height="122" rx="16" fill="#1f3254"/>
+          <rect x="76" y="186" width="260" height="22" fill="#efeee5"/>
+          <path d="M76 140 H336 V156 Q316 176 296 156 Q276 176 256 156 Q236 176 216 156 Q196 176 176 156 Q156 176 136 156 Q116 176 96 156 Q86 166 76 156 Z" fill="#ffffff"/>
+          <rect x="236" y="140" width="100" height="122" fill="rgba(3,6,12,0.18)"/>
+          <circle cx="160" cy="118" r="22" fill="#5ce611"/><circle cx="206" cy="110" r="22" fill="#3fa60a"/><circle cx="252" cy="118" r="22" fill="#5ce611"/>
+          <path d="M206 88 Q210 64 226 56" stroke="#3fa60a" stroke-width="8" fill="none" stroke-linecap="round"/>
+        </svg></div>
+        <div class="w-nom">Torta de la casa</div>
+        <div class="w-pre">$ 690</div>
+        <div class="w-btn">Pedir por WhatsApp</div><div class="w-tap"></div>
+      </div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><g class="g1"><circle class="gp" cx="360" cy="820" r="14" fill="#5ce611"/><path class="gl" d="M360 820 L150 720" stroke="#5ce611" stroke-width="7" stroke-linecap="round" fill="none"/></g><g class="g2"><circle class="gp" cx="560" cy="1150" r="14" fill="#5ce611"/><path class="gl" d="M560 1150 L900 1050" stroke="#5ce611" stroke-width="7" stroke-linecap="round" fill="none"/></g><g class="g3"><circle class="gp" cx="360" cy="1250" r="14" fill="#5ce611"/><path class="gl" d="M360 1250 L150 1330" stroke="#5ce611" stroke-width="7" stroke-linecap="round" fill="none"/></g></svg>
+      <div class="lb l1" style="left:60px;top:640px">Fotos claras</div>
+      <div class="lb l2" style="left:770px;top:970px">Precios</div>
+      <div class="lb l3" style="left:50px;top:1350px">WhatsApp</div>
+      <div class="chip">SITIO WEB · LO HACEMOS</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-web";
+      const DUR = 4.11;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const etiqueta = (g, lbl, t) => {
+        tl.fromTo(q(g + " .gp"), { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, svgOrigin: q(g + " .gp").getAttribute("cx") + " " + q(g + " .gp").getAttribute("cy"), duration: 0.2, ease: "back.out(2)" }, t);
+        dibujar(g + " .gl", t + 0.08, 0.22);
+        pop(lbl, t + 0.22, 0.28, 0.6);
+      };
+      const flash = (t) => { tl.fromTo(q(".blanco"), { opacity: 0 }, { opacity: 0.85, duration: 0.05, ease: "none" }, t); tl.to(q(".blanco"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.05); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const CEL = q(".cel");
+      // la pantallita de la pupila llega como el celular grande
+      tl.fromTo(CEL, { opacity: 0, scale: 0.55, y: 60, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0);
+      qa(".w-top, .w-foto, .w-nom, .w-pre, .w-btn").forEach((e, i) => tl.fromTo(e, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, 0.25 + i * 0.07));
+      tl.fromTo(q(".chip"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 0.47);
+      // "fotos claras"
+      etiqueta(".g1", ".l1", 1.14);
+      tl.fromTo(q(".w-foto svg"), { scale: 1.15, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 1.24);
+      // "precios"
+      etiqueta(".g2", ".l2", 2.05);
+      tl.fromTo(q(".w-pre"), { scale: 1 }, { scale: 1.12, transformOrigin: "0% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, 2.25);
+      // "botón a WhatsApp": etiqueta, toque y pulso
+      etiqueta(".g3", ".l3", 2.87);
+      tl.fromTo(q(".w-tap"), { opacity: 0, scale: 1.6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "power3.out" }, 3.27);
+      tl.to(q(".w-btn"), { scale: 0.95, transformOrigin: "50% 50%", duration: 0.08, yoyo: true, repeat: 1 }, 3.45);
+      tl.to(q(".w-tap"), { opacity: 0, scale: 1.8, duration: 0.3 }, 3.57);
+      tl.to(CEL, { y: -10, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.47);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

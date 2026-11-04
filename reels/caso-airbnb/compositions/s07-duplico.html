@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-duplico"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-duplico"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-duplico"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-duplico"] .camw { position: absolute; left: 60px; top: 640px; width: 960px; height: 696px; }
+    [data-composition-id="s07-duplico"] .cam-svg, [data-composition-id="s07-duplico"] .cu-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s07-duplico"] .cu-svg { overflow: hidden; }
+    [data-composition-id="s07-duplico"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s07-duplico"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s07-duplico"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s07-duplico"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s07-duplico"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s07-duplico"] .pill.mono { font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; }
+    [data-composition-id="s07-duplico"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.10); opacity: 0; }
+    [data-composition-id="s07-duplico"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.12); }
+    [data-composition-id="s07-duplico"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s07-duplico"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s07-duplico"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s07-duplico"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s07-duplico"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s07-duplico"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s07-duplico"] .card { position: absolute; left: 90px; top: 600px; width: 900px; height: 730px; }
+    [data-composition-id="s07-duplico"] .card-lado { position: absolute; left: 18px; top: 18px; width: 900px; height: 730px; border-radius: 48px; background: #a9a798; }
+    [data-composition-id="s07-duplico"] .card-cuerpo { position: absolute; left: 0; top: 0; width: 900px; height: 730px; border-radius: 48px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s07-duplico"] .card-foto { position: absolute; left: 26px; top: 26px; width: 848px; height: 500px; border-radius: 30px; overflow: hidden; background: #060a12; }
+    [data-composition-id="s07-duplico"] .card-tit { position: absolute; left: 44px; top: 558px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+    [data-composition-id="s07-duplico"] .card-l1 { position: absolute; left: 44px; top: 630px; width: 380px; height: 26px; border-radius: 13px; background: rgba(11,18,32,0.2); }
+    [data-composition-id="s07-duplico"] .card-l2 { position: absolute; left: 44px; top: 676px; width: 250px; height: 26px; border-radius: 13px; background: rgba(11,18,32,0.14); }
+    [data-composition-id="s07-duplico"] .card-chip { position: absolute; right: 40px; top: 628px; padding: 14px 22px; border-radius: 16px; background: #1f3254; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: #efeee5; }
+
+    [data-composition-id="s07-duplico"] .base { position: absolute; left: 120px; top: 1290px; width: 840px; height: 14px; border-radius: 7px; background: #b9b7a8; opacity: 0; }
+    [data-composition-id="s07-duplico"] .bar { position: absolute; bottom: 630px; width: 300px; border-radius: 30px 30px 0 0; transform-origin: 50% 100%; }
+    [data-composition-id="s07-duplico"] .bar.b0 { left: 170px; height: 260px; background: #5d6676; }
+    [data-composition-id="s07-duplico"] .bar.b1 { left: 610px; height: 520px; background: #5ce611; }
+    [data-composition-id="s07-duplico"] .bar.b1:after { content: ""; position: absolute; right: 0; top: 0; width: 70px; height: 100%; border-radius: 0 30px 0 0; background: #3fa60a; }
+    [data-composition-id="s07-duplico"] .bar.b0:after { content: ""; position: absolute; right: 0; top: 0; width: 70px; height: 100%; border-radius: 0 30px 0 0; background: #4a5262; }
+    [data-composition-id="s07-duplico"] .bl { position: absolute; top: 1320px; width: 300px; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #efeee5; opacity: 0; }
+    [data-composition-id="s07-duplico"] .x2 { position: absolute; left: 610px; top: 615px; width: 300px; text-align: center; font: 900 150px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.04em; opacity: 0; }
+    [data-composition-id="s07-duplico"] .x1 { position: absolute; left: 170px; top: 920px; width: 300px; text-align: center; font: 800 96px/1 "Lexend", sans-serif; color: #efeee5; opacity: 0; }
+    [data-composition-id="s07-duplico"] .sem { position: absolute; left: 0; right: 0; top: 1408px; text-align: center; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s07-duplico" data-width="1080" data-height="1920" data-duration="3.65">
+    <div id="s07-duplico-esc" class="esc clip" data-start="0" data-duration="3.65" data-track-index="0">
+
+      <div class="bar b0"></div><div class="bar b1"></div><div class="base"></div>
+      <div class="x1">x1</div><div class="x2">x2</div>
+      <div class="bl" style="left:170px">ANTES</div><div class="bl" style="left:610px">DESPUÉS</div>
+      <div class="pill mono n1" style="left:540px;top:1490px">SEGÚN SUS FUNDADORES</div>
+      <div class="sem">Facturación por semana</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-duplico";
+      const DUR = 3.65;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const etiqueta = (g, lbl, t) => {
+        tl.fromTo(q(g + " .gp"), { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, svgOrigin: q(g + " .gp").getAttribute("cx") + " " + q(g + " .gp").getAttribute("cy"), duration: 0.2, ease: "back.out(2)" }, t);
+        dibujar(g + " .gl", t + 0.08, 0.22);
+        pop(lbl, t + 0.22, 0.28, 0.6);
+      };
+      const flash = (t) => { tl.fromTo(q(".blanco"), { opacity: 0 }, { opacity: 0.85, duration: 0.05, ease: "none" }, t); tl.to(q(".blanco"), { opacity: 0, duration: 0.3, ease: "power2.out" }, t + 0.05); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      pop(".n1", 0.05, 0.3, 0.6);
+      tl.fromTo(q(".base"), { opacity: 0, scaleX: 0.3 }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power3.out" }, 0.1);
+      // "lo que facturaban": la barra de antes
+      tl.fromTo(q(".b0"), { scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power3.out" }, 0.3);
+      tl.fromTo(qa(".bl")[0], { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.4);
+      pop(".x1", 0.6, 0.25, 0.5);
+      // "por semana"
+      tl.fromTo(q(".sem"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 1.67);
+      // "se duplicó": crece la de después hasta el doble, x2
+      tl.fromTo(q(".b1"), { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power3.out" }, 2.27);
+      tl.fromTo(qa(".bl")[1], { opacity: 0 }, { opacity: 1, duration: 0.2 }, 2.47);
+      pop(".x2", 2.67, 0.35, 0.4);
+      tl.to(q(".x2"), { scale: 1.08, transformOrigin: "50% 50%", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut" }, 3.07);
+      salida(3.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
