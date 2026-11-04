@@ -1,0 +1,108 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-compra"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-compra"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-compra"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s07-compra"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 42px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; box-shadow: 8px 8px 0 #0b1220; }
+    [data-composition-id="s07-compra"] .pill.lleno { background: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s07-compra"] .pill.r { border-color: #c7655b; color: #a9473d; box-shadow: 8px 8px 0 #c7655b; }
+    [data-composition-id="s07-compra"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #ffffff; box-shadow: 8px 8px 0 #0b1220; }
+    [data-composition-id="s07-compra"] .pill.gris { background: #d9d6c8; border-color: #8d8a7c; color: #16243d; box-shadow: none; }
+    [data-composition-id="s07-compra"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s07-compra"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s07-compra"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s07-compra"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s07-compra"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s07-compra"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s07-compra"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s07-compra"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s07-compra"] .lado { position: absolute; top: 500px; left: 50%; padding: 12px 26px; border-radius: 14px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; white-space: nowrap; transform: translateX(-50%); }
+    [data-composition-id="s07-compra"] .lado.izq { background: #c7655b; color: #ffffff; } [data-composition-id="s07-compra"] .lado.der { background: #5ce611; color: #0b1220; }
+    [data-composition-id="s07-compra"] .telw { position: absolute; }
+    [data-composition-id="s07-compra"] .tel-lado { position: absolute; left: 18px; top: 18px; right: -18px; bottom: -18px; border-radius: 72px; background: #16243d; opacity: 0.35; }
+    [data-composition-id="s07-compra"] .tel { position: absolute; inset: 0; border-radius: 72px; background: #0b1220; }
+    [data-composition-id="s07-compra"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 58px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s07-compra"] .tel-notch { position: absolute; left: 50%; top: 28px; width: 120px; height: 30px; margin-left: -60px; border-radius: 15px; background: #0b1220; }
+    [data-composition-id="s07-compra"] .hoja { position: absolute; height: auto; padding: 34px 36px 32px; background: #ffffff; border: 7px solid #0b1220; border-radius: 18px; box-shadow: 14px 14px 0 #0b1220; }
+    [data-composition-id="s07-compra"] .hj-t { font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #2e4672; }
+    [data-composition-id="s07-compra"] .hj-n { margin-top: 14px; font: 800 46px/1.05 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+    [data-composition-id="s07-compra"] .hj-l { margin-top: 26px; display: flex; flex-direction: column; gap: 18px; }
+    [data-composition-id="s07-compra"] .hj-l i { display: block; height: 14px; border-radius: 7px; background: #d9d6c8; }
+    [data-composition-id="s07-compra"] .hj-tot { margin-top: 28px; padding-top: 22px; border-top: 6px solid #0b1220; display: flex; align-items: center; justify-content: space-between; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #0b1220; }
+    [data-composition-id="s07-compra"] .hj-tot b { width: 40%; height: 30px; border-radius: 8px; background: #0b1220; }
+    [data-composition-id="s07-compra"] .ch-head { position: absolute; left: 0; top: 0; right: 0; height: 176px; background: #0b1220; }
+    [data-composition-id="s07-compra"] .ch-av { position: absolute; left: 34px; top: 76px; width: 80px; height: 80px; border-radius: 50%; background: #5ce611; font: 800 32px/80px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s07-compra"] .ch-nom { position: absolute; left: 134px; top: 80px; font: 700 38px/1 "Lexend", sans-serif; color: #ffffff; white-space: nowrap; }
+    [data-composition-id="s07-compra"] .ch-sub { position: absolute; left: 136px; top: 128px; font: 500 28px/1 "IBM Plex Mono", monospace; color: #5ce611; }
+    [data-composition-id="s07-compra"] .bur { position: absolute; padding: 26px 32px; border-radius: 34px; font: 600 44px/1.24 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-compra"] .bur.ellos { background: #e7e5da; border-bottom-left-radius: 8px; }
+    [data-composition-id="s07-compra"] .bur.yo { background: #5ce611; border-bottom-right-radius: 8px; font-weight: 700; }
+
+    [data-composition-id="s07-compra"] .hoja .hj-n { font-size: 52px; } [data-composition-id="s07-compra"] .hoja .hj-l { gap: 24px; }
+    [data-composition-id="s07-compra"] .hoja.a { opacity: 0.55; background: #d9d6c8; border-color: #8d8a7c; box-shadow: 10px 10px 0 #8d8a7c; }
+    [data-composition-id="s07-compra"] .hoja.a .hj-n, [data-composition-id="s07-compra"] .hoja.a .hj-tot { color: #2e4672; } [data-composition-id="s07-compra"] .hoja.a .hj-tot { border-color: #8d8a7c; } [data-composition-id="s07-compra"] .hoja.a .hj-tot b { background: #8d8a7c; } [data-composition-id="s07-compra"] .hoja.a .hj-l i { background: #ffffff; }
+    [data-composition-id="s07-compra"] .est { margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px 10px 10px; border-radius: 999px; font: 700 30px/1 "Lexend", sans-serif; }
+    [data-composition-id="s07-compra"] .hoja.a .est { background: #ffffff; color: #a9473d; }
+    [data-composition-id="s07-compra"] .hoja.b .est { background: #5ce611; color: #0b1220; }
+    [data-composition-id="s07-compra"] .sello { position: absolute; left: 560px; top: 1150px; padding: 18px 30px; border: 9px solid #0b1220; border-radius: 22px; background: #5ce611; font: 900 76px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: 0.02em; opacity: 0; box-shadow: 10px 10px 0 #0b1220; }
+    [data-composition-id="s07-compra"] .nombre { position: absolute; top: 1420px; width: 470px; text-align: center; font: 800 44px/1 "Lexend", sans-serif; }
+    [data-composition-id="s07-compra"] .nombre.a { left: 50px; color: #8d8a7c; } [data-composition-id="s07-compra"] .nombre.b { left: 560px; color: #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s07-compra" data-width="1080" data-height="1920" data-duration="2.13">
+    <div id="s07-compra-esc" class="esc clip" data-start="0" data-duration="2.13" data-track-index="0">
+
+      
+  <div class="hoja a" style="left:60px;top:620px;width:420px">
+    <div class="hj-t">PRESUPUESTO</div><div class="hj-n">Baño · Martín</div>
+    <div class="hj-l"><i style="width:78%"></i><i style="width:62%"></i><i style="width:70%"></i><i style="width:48%"></i><i style="width:74%"></i><i style="width:56%"></i></div>
+    <div class="hj-tot"><span>TOTAL</span><b></b></div><div class="est"><svg width="36" height="36" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#c7655b"/><path d="M14 14 L30 30 M30 14 L14 30" fill="none" stroke="#ffffff" stroke-width="5.5" stroke-linecap="round"/></svg>Sin noticias</div>
+  </div>
+      
+  <div class="hoja b" style="left:560px;top:620px;width:460px">
+    <div class="hj-t">PRESUPUESTO</div><div class="hj-n">Baño · Martín</div>
+    <div class="hj-l"><i style="width:78%"></i><i style="width:62%"></i><i style="width:70%"></i><i style="width:48%"></i><i style="width:74%"></i><i style="width:56%"></i></div>
+    <div class="hj-tot"><span>TOTAL</span><b></b></div><div class="est"><svg width="36" height="36" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendido</div>
+  </div>
+      <div class="sello">VENDIDO</div>
+      <div class="nombre a">El Tornillo</div><div class="nombre b">La Tuerca</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-compra";
+      const DUR = 2.13;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".hoja.b .est"), { opacity: 0 });
+      tl.fromTo(q(".hoja.a"), { x: -500, rotation: -4 }, { x: 0, rotation: -3, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".hoja.b"), { x: 600, rotation: 4 }, { x: 0, rotation: 2, duration: 0.4, ease: "power3.out" }, 0.05);
+      tl.fromTo(qa(".nombre"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.08 }, 0.3);
+      // "compra en la segunda": cae el sello
+      tl.fromTo(q(".sello"), { opacity: 0, scale: 2.2, rotation: -16, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -8, duration: 0.25, ease: "power4.in" }, 0.9);
+      temblor(".hoja.b", 1.15);
+      tl.fromTo(q(".hoja.b .est"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)" }, 1.2);
+      tl.to(q(".hoja.a"), { opacity: 0.35, y: 30, duration: 0.5 }, 1.2);
+      salida(1.95);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

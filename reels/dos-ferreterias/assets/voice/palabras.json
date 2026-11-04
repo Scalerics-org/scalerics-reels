@@ -1,0 +1,554 @@
+[
+ {
+  "id": 0,
+  "text": "Dos",
+  "start": 0,
+  "end": 0.2
+ },
+ {
+  "id": 1,
+  "text": "ferreterías",
+  "start": 0.2,
+  "end": 0.4
+ },
+ {
+  "id": 2,
+  "text": "en",
+  "start": 0.4,
+  "end": 0.9
+ },
+ {
+  "id": 3,
+  "text": "la",
+  "start": 0.9,
+  "end": 1
+ },
+ {
+  "id": 4,
+  "text": "misma",
+  "start": 1,
+  "end": 1.2
+ },
+ {
+  "id": 5,
+  "text": "cuadra.",
+  "start": 1.2,
+  "end": 1.5
+ },
+ {
+  "id": 6,
+  "text": "Las",
+  "start": 2.086,
+  "end": 2.3
+ },
+ {
+  "id": 7,
+  "text": "dos",
+  "start": 2.3,
+  "end": 2.5
+ },
+ {
+  "id": 8,
+  "text": "mandaron",
+  "start": 2.5,
+  "end": 2.8
+ },
+ {
+  "id": 9,
+  "text": "el",
+  "start": 2.8,
+  "end": 3
+ },
+ {
+  "id": 10,
+  "text": "presupuesto.",
+  "start": 3,
+  "end": 3.5
+ },
+ {
+  "id": 11,
+  "text": "Una",
+  "start": 4.089,
+  "end": 4.3
+ },
+ {
+  "id": 12,
+  "text": "sola",
+  "start": 4.3,
+  "end": 4.6
+ },
+ {
+  "id": 13,
+  "text": "lo",
+  "start": 4.903,
+  "end": 5
+ },
+ {
+  "id": 14,
+  "text": "siguió.",
+  "start": 5,
+  "end": 5.3
+ },
+ {
+  "id": 15,
+  "text": "Martín",
+  "start": 5.964,
+  "end": 6.4
+ },
+ {
+  "id": 16,
+  "text": "reforma",
+  "start": 6.4,
+  "end": 6.8
+ },
+ {
+  "id": 17,
+  "text": "el",
+  "start": 6.8,
+  "end": 6.9
+ },
+ {
+  "id": 18,
+  "text": "baño.",
+  "start": 6.9,
+  "end": 7.25
+ },
+ {
+  "id": 19,
+  "text": "El",
+  "start": 7.67,
+  "end": 7.7
+ },
+ {
+  "id": 20,
+  "text": "lunes",
+  "start": 7.8,
+  "end": 8
+ },
+ {
+  "id": 21,
+  "text": "pide",
+  "start": 8,
+  "end": 8.3
+ },
+ {
+  "id": 22,
+  "text": "presupuesto",
+  "start": 8.3,
+  "end": 8.8
+ },
+ {
+  "id": 23,
+  "text": "en",
+  "start": 8.8,
+  "end": 8.9
+ },
+ {
+  "id": 24,
+  "text": "las",
+  "start": 8.9,
+  "end": 9
+ },
+ {
+  "id": 25,
+  "text": "dos.",
+  "start": 9,
+  "end": 9.3
+ },
+ {
+  "id": 26,
+  "text": "A",
+  "start": 9.59,
+  "end": 9.6
+ },
+ {
+  "id": 27,
+  "text": "la",
+  "start": 9.65,
+  "end": 9.7
+ },
+ {
+  "id": 28,
+  "text": "izquierda,",
+  "start": 9.75,
+  "end": 9.8
+ },
+ {
+  "id": 29,
+  "text": "queda",
+  "start": 10.609,
+  "end": 10.7
+ },
+ {
+  "id": 30,
+  "text": "en",
+  "start": 10.7,
+  "end": 10.8
+ },
+ {
+  "id": 31,
+  "text": "el",
+  "start": 10.8,
+  "end": 10.9
+ },
+ {
+  "id": 32,
+  "text": "chat",
+  "start": 10.9,
+  "end": 11.2
+ },
+ {
+  "id": 33,
+  "text": "y",
+  "start": 11.2,
+  "end": 11.4
+ },
+ {
+  "id": 34,
+  "text": "en",
+  "start": 11.4,
+  "end": 11.5
+ },
+ {
+  "id": 35,
+  "text": "la",
+  "start": 11.5,
+  "end": 11.6
+ },
+ {
+  "id": 36,
+  "text": "cabeza",
+  "start": 11.6,
+  "end": 11.7
+ },
+ {
+  "id": 37,
+  "text": "del",
+  "start": 11.7,
+  "end": 12
+ },
+ {
+  "id": 38,
+  "text": "dueño.",
+  "start": 12,
+  "end": 12.35
+ },
+ {
+  "id": 39,
+  "text": "A",
+  "start": 12.71,
+  "end": 12.790000000000001
+ },
+ {
+  "id": 40,
+  "text": "la",
+  "start": 12.78,
+  "end": 12.8
+ },
+ {
+  "id": 41,
+  "text": "derecha,",
+  "start": 12.86,
+  "end": 13.1
+ },
+ {
+  "id": 42,
+  "text": "el",
+  "start": 13.49,
+  "end": 13.6
+ },
+ {
+  "id": 43,
+  "text": "CRM",
+  "start": 13.6,
+  "end": 14.1
+ },
+ {
+  "id": 44,
+  "text": "lo",
+  "start": 14.1,
+  "end": 14.3
+ },
+ {
+  "id": 45,
+  "text": "anota",
+  "start": 14.3,
+  "end": 14.6
+ },
+ {
+  "id": 46,
+  "text": "y",
+  "start": 14.6,
+  "end": 15
+ },
+ {
+  "id": 47,
+  "text": "el",
+  "start": 15,
+  "end": 15.1
+ },
+ {
+  "id": 48,
+  "text": "miércoles",
+  "start": 15.1,
+  "end": 15.3
+ },
+ {
+  "id": 49,
+  "text": "le",
+  "start": 15.3,
+  "end": 15.6
+ },
+ {
+  "id": 50,
+  "text": "avisa",
+  "start": 15.6,
+  "end": 15.9
+ },
+ {
+  "id": 51,
+  "text": "al",
+  "start": 15.9,
+  "end": 16
+ },
+ {
+  "id": 52,
+  "text": "vendedor.",
+  "start": 16,
+  "end": 16.2
+ },
+ {
+  "id": 53,
+  "text": "Le",
+  "start": 16.727,
+  "end": 16.8
+ },
+ {
+  "id": 54,
+  "text": "escribe:",
+  "start": 16.8,
+  "end": 17.1
+ },
+ {
+  "id": 55,
+  "text": "Martín,",
+  "start": 17.655,
+  "end": 17.8
+ },
+ {
+  "id": 56,
+  "text": "¿pudiste",
+  "start": 17.8,
+  "end": 18.4
+ },
+ {
+  "id": 57,
+  "text": "verlo?",
+  "start": 18.4,
+  "end": 18.5
+ },
+ {
+  "id": 58,
+  "text": "Te",
+  "start": 18.5,
+  "end": 18.6
+ },
+ {
+  "id": 59,
+  "text": "lo",
+  "start": 18.6,
+  "end": 18.7
+ },
+ {
+  "id": 60,
+  "text": "guardamos",
+  "start": 19.2,
+  "end": 19.6
+ },
+ {
+  "id": 61,
+  "text": "hasta",
+  "start": 19.6,
+  "end": 19.7
+ },
+ {
+  "id": 62,
+  "text": "el",
+  "start": 19.7,
+  "end": 19.8
+ },
+ {
+  "id": 63,
+  "text": "viernes.",
+  "start": 19.8,
+  "end": 20.1
+ },
+ {
+  "id": 64,
+  "text": "Martín",
+  "start": 20.666,
+  "end": 21
+ },
+ {
+  "id": 65,
+  "text": "compra",
+  "start": 21.374,
+  "end": 21.6
+ },
+ {
+  "id": 66,
+  "text": "en",
+  "start": 21.6,
+  "end": 21.7
+ },
+ {
+  "id": 67,
+  "text": "la",
+  "start": 21.7,
+  "end": 21.8
+ },
+ {
+  "id": 68,
+  "text": "segunda.",
+  "start": 21.8,
+  "end": 22.2
+ },
+ {
+  "id": 69,
+  "text": "Las",
+  "start": 22.803,
+  "end": 22.9
+ },
+ {
+  "id": 70,
+  "text": "dos",
+  "start": 22.9,
+  "end": 23.1
+ },
+ {
+  "id": 71,
+  "text": "tenían",
+  "start": 23.1,
+  "end": 23.4
+ },
+ {
+  "id": 72,
+  "text": "buen",
+  "start": 23.4,
+  "end": 23.5
+ },
+ {
+  "id": 73,
+  "text": "precio.",
+  "start": 23.5,
+  "end": 23.9
+ },
+ {
+  "id": 74,
+  "text": "Una",
+  "start": 24.209,
+  "end": 24.4
+ },
+ {
+  "id": 75,
+  "text": "sola",
+  "start": 24.4,
+  "end": 24.7
+ },
+ {
+  "id": 76,
+  "text": "volvió",
+  "start": 24.7,
+  "end": 24.9
+ },
+ {
+  "id": 77,
+  "text": "a",
+  "start": 24.9,
+  "end": 24.979999999999997
+ },
+ {
+  "id": 78,
+  "text": "escribir.",
+  "start": 24.9,
+  "end": 25.35
+ },
+ {
+  "id": 79,
+  "text": "Ese",
+  "start": 25.74,
+  "end": 25.939
+ },
+ {
+  "id": 80,
+  "text": "CRM",
+  "start": 25.939,
+  "end": 26.778
+ },
+ {
+  "id": 81,
+  "text": "lo",
+  "start": 26.778,
+  "end": 26.9
+ },
+ {
+  "id": 82,
+  "text": "armamos",
+  "start": 26.9,
+  "end": 27.1
+ },
+ {
+  "id": 83,
+  "text": "a",
+  "start": 27.1,
+  "end": 27.2
+ },
+ {
+  "id": 84,
+  "text": "tu",
+  "start": 27.2,
+  "end": 27.4
+ },
+ {
+  "id": 85,
+  "text": "medida.",
+  "start": 27.4,
+  "end": 27.8
+ },
+ {
+  "id": 86,
+  "text": "Agendá",
+  "start": 28.292,
+  "end": 28.6
+ },
+ {
+  "id": 87,
+  "text": "una",
+  "start": 28.6,
+  "end": 28.7
+ },
+ {
+  "id": 88,
+  "text": "videollamada",
+  "start": 28.7,
+  "end": 29
+ },
+ {
+  "id": 89,
+  "text": "gratis",
+  "start": 29,
+  "end": 29.5
+ },
+ {
+  "id": 90,
+  "text": "en",
+  "start": 29.5,
+  "end": 29.9
+ },
+ {
+  "id": 91,
+  "text": "scalerics.com.",
+  "start": 29.9,
+  "end": 30.25
+ }
+]

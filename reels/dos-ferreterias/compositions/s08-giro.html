@@ -1,0 +1,139 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-giro"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-giro"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-giro"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-giro"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 42px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; box-shadow: 8px 8px 0 #0b1220; }
+    [data-composition-id="s08-giro"] .pill.lleno { background: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s08-giro"] .pill.r { border-color: #c7655b; color: #a9473d; box-shadow: 8px 8px 0 #c7655b; }
+    [data-composition-id="s08-giro"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #ffffff; box-shadow: 8px 8px 0 #0b1220; }
+    [data-composition-id="s08-giro"] .pill.gris { background: #d9d6c8; border-color: #8d8a7c; color: #16243d; box-shadow: none; }
+    [data-composition-id="s08-giro"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s08-giro"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s08-giro"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s08-giro"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s08-giro"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s08-giro"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s08-giro"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s08-giro"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s08-giro"] .lado { position: absolute; top: 500px; left: 50%; padding: 12px 26px; border-radius: 14px; font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; white-space: nowrap; transform: translateX(-50%); }
+    [data-composition-id="s08-giro"] .lado.izq { background: #c7655b; color: #ffffff; } [data-composition-id="s08-giro"] .lado.der { background: #5ce611; color: #0b1220; }
+    [data-composition-id="s08-giro"] .telw { position: absolute; }
+    [data-composition-id="s08-giro"] .tel-lado { position: absolute; left: 18px; top: 18px; right: -18px; bottom: -18px; border-radius: 72px; background: #16243d; opacity: 0.35; }
+    [data-composition-id="s08-giro"] .tel { position: absolute; inset: 0; border-radius: 72px; background: #0b1220; }
+    [data-composition-id="s08-giro"] .tel-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 58px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s08-giro"] .tel-notch { position: absolute; left: 50%; top: 28px; width: 120px; height: 30px; margin-left: -60px; border-radius: 15px; background: #0b1220; }
+    [data-composition-id="s08-giro"] .hoja { position: absolute; height: auto; padding: 34px 36px 32px; background: #ffffff; border: 7px solid #0b1220; border-radius: 18px; box-shadow: 14px 14px 0 #0b1220; }
+    [data-composition-id="s08-giro"] .hj-t { font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #2e4672; }
+    [data-composition-id="s08-giro"] .hj-n { margin-top: 14px; font: 800 46px/1.05 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+    [data-composition-id="s08-giro"] .hj-l { margin-top: 26px; display: flex; flex-direction: column; gap: 18px; }
+    [data-composition-id="s08-giro"] .hj-l i { display: block; height: 14px; border-radius: 7px; background: #d9d6c8; }
+    [data-composition-id="s08-giro"] .hj-tot { margin-top: 28px; padding-top: 22px; border-top: 6px solid #0b1220; display: flex; align-items: center; justify-content: space-between; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #0b1220; }
+    [data-composition-id="s08-giro"] .hj-tot b { width: 40%; height: 30px; border-radius: 8px; background: #0b1220; }
+    [data-composition-id="s08-giro"] .ch-head { position: absolute; left: 0; top: 0; right: 0; height: 176px; background: #0b1220; }
+    [data-composition-id="s08-giro"] .ch-av { position: absolute; left: 34px; top: 76px; width: 80px; height: 80px; border-radius: 50%; background: #5ce611; font: 800 32px/80px "Lexend", sans-serif; text-align: center; color: #0b1220; }
+    [data-composition-id="s08-giro"] .ch-nom { position: absolute; left: 134px; top: 80px; font: 700 38px/1 "Lexend", sans-serif; color: #ffffff; white-space: nowrap; }
+    [data-composition-id="s08-giro"] .ch-sub { position: absolute; left: 136px; top: 128px; font: 500 28px/1 "IBM Plex Mono", monospace; color: #5ce611; }
+    [data-composition-id="s08-giro"] .bur { position: absolute; padding: 26px 32px; border-radius: 34px; font: 600 44px/1.24 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s08-giro"] .bur.ellos { background: #e7e5da; border-bottom-left-radius: 8px; }
+    [data-composition-id="s08-giro"] .bur.yo { background: #5ce611; border-bottom-right-radius: 8px; font-weight: 700; }
+
+    [data-composition-id="s08-giro"] .igual { position: absolute; left: 470px; top: 1100px; width: 140px; height: 140px; border-radius: 50%; background: #0b1220; font: 900 110px/128px "Lexend", sans-serif; text-align: center; color: #ffffff; opacity: 0; }
+    [data-composition-id="s08-giro"] .ok { position: absolute; top: 1550px; width: 540px; display: flex; justify-content: center; opacity: 0; }
+    [data-composition-id="s08-giro"] .ok span { display: inline-flex; align-items: center; gap: 14px; font: 700 42px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s08-giro"] .ok.a { left: 0; } [data-composition-id="s08-giro"] .ok.b { left: 540px; }
+    [data-composition-id="s08-giro"] .glob { position: absolute; top: 590px; width: 420px; padding: 26px 30px; border-radius: 34px; font: 800 46px/1.15 "Lexend", sans-serif; opacity: 0; }
+    [data-composition-id="s08-giro"] .glob.b { left: 600px; width: 440px; background: #5ce611; border: 7px solid #0b1220; color: #0b1220; border-bottom-left-radius: 8px; box-shadow: 10px 10px 0 #0b1220; }
+    [data-composition-id="s08-giro"] .glob.a { left: 60px; width: 380px; height: 150px; border: 7px dashed #c7655b; background: transparent; border-bottom-right-radius: 8px; }
+  </style>
+  <div id="root" data-composition-id="s08-giro" data-width="1080" data-height="1920" data-duration="2.94">
+    <div id="s08-giro-esc" class="esc clip" data-start="0" data-duration="2.94" data-track-index="0">
+
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="div" d="M540 840 V1500" stroke="#0b1220" stroke-width="6" stroke-dasharray="2 20" stroke-linecap="round" opacity="0.5"/><path class="piso" d="M20 1500 H1060" stroke="#0b1220" stroke-width="7" stroke-linecap="round"/>
+        <g class="fzL">
+    <rect x="68" y="958" width="440" height="560" fill="#0b1220"/>
+    <rect x="50" y="940" width="440" height="560" fill="#ffffff" stroke="#0b1220" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M140 906 V940 M400 906 V940" stroke="#0b1220" stroke-width="7" stroke-linecap="round"/>
+    <rect class="cartel" x="60" y="800" width="420" height="108" rx="18" fill="#0b1220"/>
+    <text x="270" y="870" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="50" fill="#ffffff" letter-spacing="1">EL TORNILLO</text>
+    <g class="toldo"><rect x="50" y="940" width="55" height="74" fill="#2e4672"/><rect x="105" y="940" width="55" height="74" fill="#ffffff"/><rect x="160" y="940" width="55" height="74" fill="#2e4672"/><rect x="215" y="940" width="55" height="74" fill="#ffffff"/><rect x="270" y="940" width="55" height="74" fill="#2e4672"/><rect x="325" y="940" width="55" height="74" fill="#ffffff"/><rect x="380" y="940" width="55" height="74" fill="#2e4672"/><rect x="435" y="940" width="55" height="74" fill="#ffffff"/><path d="M50 1014 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0" fill="#ffffff" stroke="#0b1220" stroke-width="7" stroke-linejoin="round"/>
+    <rect x="50" y="940" width="440" height="74" fill="none" stroke="#0b1220" stroke-width="7"/></g>
+    <rect class="vid" x="76" y="1080" width="250" height="320" rx="12" fill="#efeee5" stroke="#0b1220" stroke-width="7"/>
+    <g class="herr">
+    <g transform="translate(154 1200) rotate(-28)"><rect x="-11" y="-6" width="22" height="150" rx="9" fill="#2e4672"/><rect x="-52" y="-40" width="104" height="44" rx="10" fill="#0b1220"/></g>
+    <polygon points="310,1172 287,1211.84 241,1211.84 218,1172 241,1132.16 287,1132.16" fill="#0b1220"/><circle cx="264" cy="1172" r="18" fill="#ffffff"/>
+    <rect x="104" y="1316" width="94" height="42" rx="16" fill="#2e4672"/><path d="M200 1337 H302" stroke="#0b1220" stroke-width="11" stroke-linecap="round"/>
+    <path d="M236 1250 V1294" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/></g>
+    <rect x="350" y="1100" width="116" height="400" rx="8" fill="#16243d" stroke="#0b1220" stroke-width="7"/>
+    <rect x="368" y="1128" width="80" height="150" rx="6" fill="#efeee5"/>
+    <circle cx="446" cy="1320" r="9" fill="#efeee5"/>
+  </g>
+        <g class="fzR">
+    <rect x="608" y="958" width="440" height="560" fill="#0b1220"/>
+    <rect x="590" y="940" width="440" height="560" fill="#ffffff" stroke="#0b1220" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M680 906 V940 M940 906 V940" stroke="#0b1220" stroke-width="7" stroke-linecap="round"/>
+    <rect class="cartel" x="600" y="800" width="420" height="108" rx="18" fill="#0b1220"/>
+    <text x="810" y="870" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="50" fill="#ffffff" letter-spacing="1">LA TUERCA</text>
+    <g class="toldo"><rect x="590" y="940" width="55" height="74" fill="#5ce611"/><rect x="645" y="940" width="55" height="74" fill="#ffffff"/><rect x="700" y="940" width="55" height="74" fill="#5ce611"/><rect x="755" y="940" width="55" height="74" fill="#ffffff"/><rect x="810" y="940" width="55" height="74" fill="#5ce611"/><rect x="865" y="940" width="55" height="74" fill="#ffffff"/><rect x="920" y="940" width="55" height="74" fill="#5ce611"/><rect x="975" y="940" width="55" height="74" fill="#ffffff"/><path d="M590 1014 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0 q27.5 30 55 0" fill="#ffffff" stroke="#0b1220" stroke-width="7" stroke-linejoin="round"/>
+    <rect x="590" y="940" width="440" height="74" fill="none" stroke="#0b1220" stroke-width="7"/></g>
+    <rect class="vid" x="616" y="1080" width="250" height="320" rx="12" fill="#efeee5" stroke="#0b1220" stroke-width="7"/>
+    <g class="herr">
+    <g transform="translate(694 1200) rotate(-28)"><rect x="-11" y="-6" width="22" height="150" rx="9" fill="#2e4672"/><rect x="-52" y="-40" width="104" height="44" rx="10" fill="#0b1220"/></g>
+    <polygon points="850,1172 827,1211.84 781,1211.84 758,1172 781,1132.16 827,1132.16" fill="#5ce611"/><circle cx="804" cy="1172" r="18" fill="#ffffff"/>
+    <rect x="644" y="1316" width="94" height="42" rx="16" fill="#5ce611"/><path d="M740 1337 H842" stroke="#0b1220" stroke-width="11" stroke-linecap="round"/>
+    <path d="M776 1250 V1294" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/></g>
+    <rect x="890" y="1100" width="116" height="400" rx="8" fill="#16243d" stroke="#0b1220" stroke-width="7"/>
+    <rect x="908" y="1128" width="80" height="150" rx="6" fill="#efeee5"/>
+    <circle cx="986" cy="1320" r="9" fill="#efeee5"/>
+  </g>
+      </svg>
+      <div class="glob a"></div><div class="glob b">Martín, ¿pudiste verlo?</div>
+      <div class="igual">=</div>
+      <div class="ok a"><span><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Buen precio</span></div><div class="ok b"><span><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Buen precio</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-giro";
+      const DUR = 2.94;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      tl.fromTo(q(".fzL"), { x: -560 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0);
+      tl.fromTo(q(".fzR"), { x: 560 }, { x: 0, duration: 0.4, ease: "power3.out" }, 0.05);
+      dibujar(".div", 0.25, 0.4);
+      // "buen precio" en las dos
+      pop(".ok", 0.6, 0.3);
+      tl.fromTo(q(".igual"), { opacity: 0, scale: 0.3, rotation: -90, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: 0, duration: 0.35, ease: "back.out(2)" }, 0.75);
+      // "Una sola volvió a escribir"
+      tl.to(q(".igual"), { opacity: 0, scale: 0.5, duration: 0.2 }, 1.4);
+      tl.to(q(".fzL"), { opacity: 0.4, duration: 0.35 }, 1.45);
+      tl.to(q(".ok.a"), { opacity: 0.4, duration: 0.35 }, 1.45);
+      tl.fromTo(q(".glob.a"), { opacity: 0, scale: 0.8, transformOrigin: "100% 100%" }, { opacity: 0.8, scale: 1, duration: 0.3 }, 1.5);
+      tl.fromTo(q(".glob.b"), { opacity: 0, scale: 0.5, transformOrigin: "0% 100%" }, { opacity: 1, scale: 1, duration: 0.32, ease: "back.out(2)" }, 1.88);
+      latido(".fzR", 2.0, 1.03);
+      latido(".glob.b", 2.3, 1.06);
+      salida(2.76);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
