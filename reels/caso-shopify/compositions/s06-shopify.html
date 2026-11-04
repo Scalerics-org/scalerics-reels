@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-shopify"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-shopify"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s06-shopify"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s06-shopify"] .obj { position: absolute; }
+    [data-composition-id="s06-shopify"] .obj svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    [data-composition-id="s06-shopify"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s06-shopify"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s06-shopify"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s06-shopify"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s06-shopify"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s06-shopify"] .tag { position: absolute; left: 0; right: 0; text-align: center; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s06-shopify"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s06-shopify"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s06-shopify"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s06-shopify"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s06-shopify"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s06-shopify"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s06-shopify"] .tn { position: absolute; }
+    [data-composition-id="s06-shopify"] .tn-lado { position: absolute; left: 16px; top: 18px; width: 100%; height: 100%; border-radius: 44px; background: #dcdacb; }
+    [data-composition-id="s06-shopify"] .tn-cara { position: absolute; inset: 0; border-radius: 44px; background: #ffffff; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s06-shopify"] .tn-bar { position: absolute; left: 0; top: 0; right: 0; height: 64px; background: #0b1220; }
+    [data-composition-id="s06-shopify"] .tn-bar i { position: absolute; top: 20px; width: 22px; height: 22px; border-radius: 50%; background: #efeee5; }
+    [data-composition-id="s06-shopify"] .tn-bar i:nth-child(1) { left: 26px; } [data-composition-id="s06-shopify"] .tn-bar i:nth-child(2) { left: 60px; } [data-composition-id="s06-shopify"] .tn-bar i:nth-child(3) { left: 94px; background: #5ce611; }
+    [data-composition-id="s06-shopify"] .tn-img { position: absolute; left: 22px; right: 22px; top: 84px; bottom: 112px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s06-shopify"] .tn-img svg { position: absolute; left: 50%; top: 50%; width: 92%; height: 92%; transform: translate(-50%, -50%); overflow: visible; }
+    [data-composition-id="s06-shopify"] .tn-btn { position: absolute; left: 22px; right: 22px; bottom: 20px; height: 76px; border-radius: 38px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s06-shopify"] .tn-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 12px; font: 700 36px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s06-shopify"] .tn-btn .b { background: #5ce611; color: #0b1220; opacity: 0; }
+    [data-composition-id="s06-shopify"] .pan { position: absolute; left: 70px; top: 580px; width: 940px; height: 780px; }
+    [data-composition-id="s06-shopify"] .pan-lado { position: absolute; left: 18px; top: 20px; width: 100%; height: 100%; border-radius: 60px; background: #dcdacb; }
+    [data-composition-id="s06-shopify"] .pan-cara { position: absolute; inset: 0; border-radius: 60px; background: #ffffff; border: 8px solid #0b1220; }
+    [data-composition-id="s06-shopify"] .pan-rot { position: absolute; left: 0; right: 0; bottom: 34px; height: 60px; text-align: center; }
+    [data-composition-id="s06-shopify"] .pan-rot.arriba { bottom: auto; top: 34px; }
+    [data-composition-id="s06-shopify"] .pan-rot span { position: absolute; left: 50%; top: 0; transform: translateX(-50%); padding: 12px 26px; border-radius: 16px; white-space: nowrap; font: 600 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; }
+    [data-composition-id="s06-shopify"] .pan-rot .r1 { background: #dcdacb; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s06-shopify"] .pan-rot .r2 { background: #5ce611; color: #0b1220; opacity: 0; }
+
+    [data-composition-id="s06-shopify"] .cubo { position: absolute; left: 330px; top: 690px; width: 420px; height: 420px; }
+    [data-composition-id="s06-shopify"] .cubo-lado { position: absolute; left: 20px; top: 24px; width: 100%; height: 100%; border-radius: 70px; background: #0b1220; }
+    [data-composition-id="s06-shopify"] .cubo-cara { position: absolute; inset: 0; border-radius: 70px; background: #16243d; text-align: center; font: 800 150px/420px "IBM Plex Mono", monospace; color: #5ce611; letter-spacing: -0.06em; }
+    [data-composition-id="s06-shopify"] .mini { position: absolute; width: 130px; height: 130px; margin: -65px 0 0 -65px; border-radius: 28px; background: #ffffff; border: 7px solid #0b1220; opacity: 0; }
+    [data-composition-id="s06-shopify"] .mini i { position: absolute; left: 0; right: 0; top: 0; height: 26px; background: #0b1220; }
+    [data-composition-id="s06-shopify"] .mini b { position: absolute; left: 16px; right: 16px; bottom: 16px; height: 30px; border-radius: 15px; background: #5ce611; }
+    [data-composition-id="s06-shopify"] .mini u { position: absolute; left: 30px; right: 30px; top: 40px; height: 32px; border-radius: 10px; background: #dcdacb; }
+    [data-composition-id="s06-shopify"] .nom { position: absolute; left: 0; right: 0; top: 1350px; text-align: center; opacity: 0; }
+    [data-composition-id="s06-shopify"] .nom span { position: relative; display: inline-block; padding: 6px 34px 18px; font: 900 150px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; }
+    [data-composition-id="s06-shopify"] .nom .selbox { left: 0; top: 0; right: 0; bottom: 0; }
+  </style>
+  <div id="root" data-composition-id="s06-shopify" data-width="1080" data-height="1920" data-duration="2.56">
+    <div id="s06-shopify-esc" class="esc clip" data-start="0" data-duration="2.56" data-track-index="0">
+
+      
+  <div class="tn g0" style="left:70px;top:620px;width:450px;height:450px">
+    <div class="tn-lado"></div>
+    <div class="tn-cara"><div class="tn-bar"><i></i><i></i><i></i></div>
+      <div class="tn-img"><svg viewBox="0 0 200 200" aria-hidden="true"><g transform="translate(100 100) rotate(-35) scale(0.27)">
+  <rect x="-410" y="-92" width="820" height="220" rx="110" fill="#0b1220"/>
+  <rect x="-410" y="-110" width="820" height="220" rx="110" fill="#16243d"/>
+  <rect x="-262" y="-110" width="62" height="220" fill="#5ce611"/>
+  <rect x="200" y="-110" width="62" height="220" fill="#5ce611"/>
+  <rect x="-330" y="-90" width="660" height="18" rx="9" fill="rgba(255,255,255,0.16)"/>
+  <rect x="-160" y="-78" width="112" height="156" rx="34" fill="#efeee5" stroke="#0b1220" stroke-width="8"/>
+  <rect x="48" y="-78" width="112" height="156" rx="34" fill="#efeee5" stroke="#0b1220" stroke-width="8"/>
+  <rect x="-168" y="-30" width="128" height="22" rx="8" fill="#0b1220"/><rect x="-168" y="16" width="128" height="22" rx="8" fill="#0b1220"/>
+  <rect x="40" y="-30" width="128" height="22" rx="8" fill="#0b1220"/><rect x="40" y="16" width="128" height="22" rx="8" fill="#0b1220"/></g></svg></div>
+      <div class="tn-btn" data-layout-allow-overlap><span class="a">Comprar</span><span class="b"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#0b1220"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#5ce611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendido</span></div>
+    </div>
+  </div>
+  <div class="tn g1" style="left:560px;top:620px;width:450px;height:450px">
+    <div class="tn-lado"></div>
+    <div class="tn-cara"><div class="tn-bar"><i></i><i></i><i></i></div>
+      <div class="tn-img"><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="44" y="62" width="96" height="104" rx="18" fill="#5ce611"/><rect x="104" y="62" width="36" height="104" rx="14" fill="#3fa60a"/><path d="M140 88 Q178 88 178 116 Q178 144 140 144" fill="none" stroke="#16243d" stroke-width="14"/><rect x="36" y="52" width="112" height="22" rx="10" fill="#16243d"/></svg></div>
+      <div class="tn-btn" data-layout-allow-overlap><span class="a">Comprar</span><span class="b"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#0b1220"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#5ce611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendido</span></div>
+    </div>
+  </div>
+  <div class="tn g2" style="left:70px;top:1100px;width:450px;height:450px">
+    <div class="tn-lado"></div>
+    <div class="tn-cara"><div class="tn-bar"><i></i><i></i><i></i></div>
+      <div class="tn-img"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M62 40 L88 30 Q100 50 112 30 L138 40 L176 76 L150 100 L140 90 V172 H60 V90 L50 100 L24 76 Z" fill="#16243d"/><path d="M118 34 L138 40 L176 76 L150 100 L140 90 V172 H118 Z" fill="#0b1220"/><rect x="70" y="110" width="60" height="16" rx="8" fill="#5ce611"/></svg></div>
+      <div class="tn-btn" data-layout-allow-overlap><span class="a">Comprar</span><span class="b"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#0b1220"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#5ce611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendido</span></div>
+    </div>
+  </div>
+  <div class="tn g3" style="left:560px;top:1100px;width:450px;height:450px">
+    <div class="tn-lado"></div>
+    <div class="tn-cara"><div class="tn-bar"><i></i><i></i><i></i></div>
+      <div class="tn-img"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M100 104 Q60 60 70 30 Q100 50 100 104 Z" fill="#5ce611"/><path d="M100 104 Q140 60 136 34 Q104 52 100 104 Z" fill="#3fa60a"/><path d="M100 104 Q90 70 100 40" stroke="#3fa60a" stroke-width="8" fill="none"/><path d="M52 104 H148 L134 176 H66 Z" fill="#16243d"/><path d="M116 104 H148 L134 176 H112 Z" fill="#0b1220"/><rect x="44" y="96" width="112" height="24" rx="10" fill="#1f3254"/></svg></div>
+      <div class="tn-btn" data-layout-allow-overlap><span class="a">Comprar</span><span class="b"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#0b1220"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#5ce611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Vendido</span></div>
+    </div>
+  </div>
+      <div class="mini m0" style="left:540px;top:560px"><i></i><u></u><b></b></div><div class="mini m1" style="left:801.63px;top:659.58px"><i></i><u></u><b></b></div><div class="mini m2" style="left:910px;top:900px"><i></i><u></u><b></b></div><div class="mini m3" style="left:801.63px;top:1140.42px"><i></i><u></u><b></b></div><div class="mini m4" style="left:540px;top:1240px"><i></i><u></u><b></b></div><div class="mini m5" style="left:278.37px;top:1140.42px"><i></i><u></u><b></b></div><div class="mini m6" style="left:170px;top:900px"><i></i><u></u><b></b></div><div class="mini m7" style="left:278.37px;top:659.58px"><i></i><u></u><b></b></div>
+      <div class="cubo"><div class="cubo-lado"></div><div class="cubo-cara">&lt;/&gt;</div></div>
+      <div class="nom"><span><div class="selbox sb" style="left:0px;top:0px;width:0px;height:0px;width:auto;height:auto"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div><em style="position:relative;font-style:normal">Shopify</em></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-shopify";
+      const DUR = 2.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const late = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const sacude = (s, t) => tl.to(typeof s === "string" ? qa(s) : s, { keyframes: { x: [0, -22, 20, -14, 10, 0] }, duration: 0.36, ease: "none" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      gsap.set(qa(".tn-btn .b"), { opacity: 1 });
+      // "ese programa": las cuatro tiendas se juntan en el programa
+      qa(".tn").forEach((t, i) => tl.to(t, { x: [245, -245, 245, -245][i], y: [245, 245, -235, -235][i], scale: 0.3, opacity: 0, transformOrigin: "50% 50%", duration: 0.4, ease: "power3.in" }, 0.05 + i * 0.04));
+      tl.fromTo(q(".cubo"), { opacity: 0, scale: 0.3, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 0.35);
+      // "se volvió": salen tiendas para todos lados
+      qa(".mini").forEach((m, i) => tl.fromTo(m, { opacity: 0, x: 540 - [540,801.63,910,801.63,540,278.37,170,278.37][i], y: 900 - [560,659.58,900,1140.42,1240,1140.42,900,659.58][i], scale: 0.3 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.5)" }, 0.94 + i * 0.04));
+      // "Shopify"
+      tl.fromTo(q(".nom"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.27);
+      caja(".sb", 1.47);
+      late(".cubo", 1.47, 1.06);
+      salida(2.34);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

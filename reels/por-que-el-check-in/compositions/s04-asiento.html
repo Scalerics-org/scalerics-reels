@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-asiento"] * { box-sizing: border-box; }
+    [data-composition-id="s04-asiento"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-asiento"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s04-asiento"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s04-asiento"] .tel-sh { position: absolute; left: 212px; top: 584px; width: 700px; height: 1140px; border-radius: 100px; background: #03060c; }
+    [data-composition-id="s04-asiento"] .tel { position: absolute; left: 190px; top: 560px; width: 700px; height: 1140px; border-radius: 100px; background: #1f3254; border: 10px solid #efeee5; }
+    [data-composition-id="s04-asiento"] .pan { position: absolute; left: 16px; top: 16px; width: 648px; height: 1088px; border-radius: 76px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s04-asiento"] .notch { position: absolute; left: 254px; top: 22px; width: 140px; height: 38px; border-radius: 19px; background: #0b1220; }
+    [data-composition-id="s04-asiento"] .scr { position: absolute; left: 0; top: 0; width: 648px; height: 1088px; }
+    [data-composition-id="s04-asiento"] .hora { position: absolute; left: 64px; top: 24px; font: 600 30px/1 "Lexend", sans-serif; }
+    [data-composition-id="s04-asiento"] .checkin { background: #efeee5; }
+    [data-composition-id="s04-asiento"] .ci-head { position: absolute; left: 0; top: 0; width: 648px; height: 400px; background: #0b1220; }
+    [data-composition-id="s04-asiento"] .ci-k { position: absolute; left: 50px; top: 110px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #5ce611; }
+    [data-composition-id="s04-asiento"] .ci-a, [data-composition-id="s04-asiento"] .ci-b { position: absolute; top: 170px; font: 800 118px/1 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; }
+    [data-composition-id="s04-asiento"] .ci-a { left: 44px; } [data-composition-id="s04-asiento"] .ci-b { right: 44px; }
+    [data-composition-id="s04-asiento"] .ci-ln { position: absolute; left: 60px; top: 330px; width: 528px; height: 0; border-top: 6px dashed rgba(239,238,229,0.45); }
+    [data-composition-id="s04-asiento"] .ci-av { position: absolute; left: 259px; top: 300px; }
+    [data-composition-id="s04-asiento"] .ci-card { position: absolute; left: 36px; top: 440px; width: 576px; height: 330px; border-radius: 44px; background: #fff; border: 6px solid #0b1220; padding: 20px 36px; }
+    [data-composition-id="s04-asiento"] .ci-r { height: 96px; display: flex; justify-content: space-between; align-items: center; font: 500 36px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.6); border-bottom: 4px solid rgba(11,18,32,0.12); }
+    [data-composition-id="s04-asiento"] .ci-r:last-child { border-bottom: 0; }
+    [data-composition-id="s04-asiento"] .ci-r b { font-weight: 800; color: #0b1220; }
+    [data-composition-id="s04-asiento"] .ci-st { position: absolute; left: 36px; top: 800px; height: 70px; padding: 0 28px; border-radius: 35px; background: #0b1220; font: 500 30px/70px "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #5ce611; }
+    [data-composition-id="s04-asiento"] .ci-btn { position: absolute; left: 36px; top: 920px; width: 576px; height: 120px; border-radius: 60px; background: #5ce611; border: 6px solid #0b1220; font: 800 50px/108px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s04-asiento"] .pase { background: #16243d; }
+    [data-composition-id="s04-asiento"] .pa-card { position: absolute; left: 30px; top: 90px; width: 588px; height: 970px; border-radius: 44px; background: #fff; border: 6px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s04-asiento"] .pa-h { position: absolute; left: 0; top: 0; width: 100%; height: 96px; background: #5ce611; font: 500 30px/96px "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #0b1220; text-align: center; }
+    [data-composition-id="s04-asiento"] .pa-a, [data-composition-id="s04-asiento"] .pa-b { position: absolute; top: 130px; font: 800 96px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s04-asiento"] .pa-a { left: 34px; } [data-composition-id="s04-asiento"] .pa-b { right: 34px; }
+    [data-composition-id="s04-asiento"] .pa-av { position: absolute; left: 238px; top: 152px; }
+    [data-composition-id="s04-asiento"] .pa-f { position: absolute; left: 34px; top: 270px; width: 520px; display: flex; justify-content: space-between; }
+    [data-composition-id="s04-asiento"] .pa-f span { display: block; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s04-asiento"] .pa-f b { display: block; margin-top: 12px; font: 800 76px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s04-asiento"] .pa-f b.v { color: #0b1220; background: #5ce611; padding: 4px 14px; border-radius: 14px; margin-left: -14px; }
+    [data-composition-id="s04-asiento"] .pa-cut { position: absolute; left: 20px; top: 430px; width: 548px; border-top: 6px dashed rgba(11,18,32,0.3); }
+    [data-composition-id="s04-asiento"] .pa-qr { position: absolute; left: 123px; top: 490px; padding: 0; }
+    [data-composition-id="s04-asiento"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s04-asiento"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s04-asiento"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s04-asiento"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s04-asiento"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s04-asiento"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s04-asiento"] .pill svg.izq { margin-left: 0; margin-right: 12px; }
+    [data-composition-id="s04-asiento"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s04-asiento"] .lead.g { stroke: #5ce611; } [data-composition-id="s04-asiento"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s04-asiento"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s04-asiento"] .dot.g { fill: #5ce611; } [data-composition-id="s04-asiento"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s04-asiento"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s04-asiento"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s04-asiento"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s04-asiento"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s04-asiento"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s04-asiento"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s04-asiento"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s04-asiento"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s04-asiento"] .mapa { background: #efeee5; }
+    [data-composition-id="s04-asiento"] .ma-t { position: absolute; left: 50px; top: 100px; font: 800 62px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s04-asiento"] .ma-l { position: absolute; top: 210px; font: 500 30px/1 "IBM Plex Mono", monospace; color: rgba(11,18,32,0.55); width: 104px; text-align: center; }
+    [data-composition-id="s04-asiento"] .as { position: absolute; width: 104px; height: 110px; border-radius: 24px 24px 14px 14px; background: #fff; border: 6px solid #0b1220; font: 800 34px/98px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s04-asiento"] .as.oc { background: #b9b8ad; border-color: #8f8e86; }
+    [data-composition-id="s04-asiento"] .as-n { position: absolute; left: 302px; width: 44px; text-align: center; font: 600 32px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.5); }
+    [data-composition-id="s04-asiento"] .pase { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-asiento" data-width="1080" data-height="1920" data-duration="3.56">
+    <div id="s04-asiento-esc" class="esc clip" data-start="0" data-duration="3.56" data-track-index="0">
+
+      <div class="telw"><div class="tel-sh"></div><div class="tel"><div class="pan">
+        <div class="scr mapa"><div class="hora" style="color:#0b1220">23:10</div>
+          <div class="ma-t">Elegí tu asiento</div>
+          <div class="ma-l" style="left:70px">A</div><div class="ma-l" style="left:198px">B</div><div class="ma-l" style="left:366px">C</div><div class="ma-l" style="left:494px">D</div>
+          <div class="as oc " style="left:70px;top:300px"></div><div class="as  " style="left:198px;top:300px"></div><div class="as  " style="left:366px;top:300px"></div><div class="as oc " style="left:494px;top:300px"></div><div class="as-n" style="top:330px">12</div><div class="as  " style="left:70px;top:440px"></div><div class="as oc " style="left:198px;top:440px"></div><div class="as oc " style="left:366px;top:440px"></div><div class="as oc " style="left:494px;top:440px"></div><div class="as-n" style="top:470px">13</div><div class="as oc " style="left:70px;top:580px"></div><div class="as oc " style="left:198px;top:580px"></div><div class="as  " style="left:366px;top:580px"></div><div class="as  elegido" style="left:494px;top:580px">14D</div><div class="as-n" style="top:610px">14</div><div class="as oc " style="left:70px;top:720px"></div><div class="as  " style="left:198px;top:720px"></div><div class="as  " style="left:366px;top:720px"></div><div class="as oc " style="left:494px;top:720px"></div><div class="as-n" style="top:750px">15</div><div class="as oc " style="left:70px;top:860px"></div><div class="as  " style="left:198px;top:860px"></div><div class="as oc " style="left:366px;top:860px"></div><div class="as oc " style="left:494px;top:860px"></div><div class="as-n" style="top:890px">16</div>
+        </div>
+        <div class="scr pase"><div class="hora" style="color:#efeee5">23:10</div>
+          <div class="pa-card">
+            <div class="pa-h">TARJETA DE EMBARQUE</div>
+            <div class="pa-a">MVD</div><div class="pa-b">MAD</div><div class="pa-av"><svg width="110" height="52.8" viewBox="0 0 100 48" aria-hidden="true"><path d="M4 21 L18 21 L26 9 L33 9 L29 21 L58 21 L44 2 L54 2 L74 21 L90 21 Q99 24 90 27 L74 27 L54 46 L44 46 L58 27 L29 27 L33 39 L26 39 L18 27 L4 27 Z" fill="#0b1220"/></svg></div>
+            <div class="pa-f"><div><span>ASIENTO</span><b class="v">14D</b></div><div><span>EMBARQUE</span><b>07:50</b></div></div>
+            <div class="pa-cut"></div>
+            <div class="pa-qr"><svg class="qr" width="330" height="330" viewBox="0 0 330 330" aria-hidden="true"><g fill="#0b1220"><rect x="141.43" y="0" width="16.11" height="16.11"/><rect x="172.86" y="15.71" width="16.11" height="16.11"/><rect x="125.71" y="31.43" width="16.11" height="16.11"/><rect x="141.43" y="31.43" width="16.11" height="16.11"/><rect x="172.86" y="31.43" width="16.11" height="16.11"/><rect x="188.57" y="31.43" width="16.11" height="16.11"/><rect x="125.71" y="47.14" width="16.11" height="16.11"/><rect x="141.43" y="47.14" width="16.11" height="16.11"/><rect x="141.43" y="62.86" width="16.11" height="16.11"/><rect x="188.57" y="62.86" width="16.11" height="16.11"/><rect x="141.43" y="78.57" width="16.11" height="16.11"/><rect x="172.86" y="78.57" width="16.11" height="16.11"/><rect x="188.57" y="78.57" width="16.11" height="16.11"/><rect x="141.43" y="110" width="16.11" height="16.11"/><rect x="157.14" y="110" width="16.11" height="16.11"/><rect x="172.86" y="110" width="16.11" height="16.11"/><rect x="0" y="125.71" width="16.11" height="16.11"/><rect x="15.71" y="125.71" width="16.11" height="16.11"/><rect x="47.14" y="125.71" width="16.11" height="16.11"/><rect x="94.29" y="125.71" width="16.11" height="16.11"/><rect x="110" y="125.71" width="16.11" height="16.11"/><rect x="141.43" y="125.71" width="16.11" height="16.11"/><rect x="157.14" y="125.71" width="16.11" height="16.11"/><rect x="204.29" y="125.71" width="16.11" height="16.11"/><rect x="251.43" y="125.71" width="16.11" height="16.11"/><rect x="282.86" y="125.71" width="16.11" height="16.11"/><rect x="298.57" y="125.71" width="16.11" height="16.11"/><rect x="15.71" y="141.43" width="16.11" height="16.11"/><rect x="31.43" y="141.43" width="16.11" height="16.11"/><rect x="47.14" y="141.43" width="16.11" height="16.11"/><rect x="62.86" y="141.43" width="16.11" height="16.11"/><rect x="94.29" y="141.43" width="16.11" height="16.11"/><rect x="110" y="141.43" width="16.11" height="16.11"/><rect x="188.57" y="141.43" width="16.11" height="16.11"/><rect x="220" y="141.43" width="16.11" height="16.11"/><rect x="267.14" y="141.43" width="16.11" height="16.11"/><rect x="282.86" y="141.43" width="16.11" height="16.11"/><rect x="314.29" y="141.43" width="16.11" height="16.11"/><rect x="0" y="157.14" width="16.11" height="16.11"/><rect x="47.14" y="157.14" width="16.11" height="16.11"/><rect x="62.86" y="157.14" width="16.11" height="16.11"/><rect x="94.29" y="157.14" width="16.11" height="16.11"/><rect x="110" y="157.14" width="16.11" height="16.11"/><rect x="141.43" y="157.14" width="16.11" height="16.11"/><rect x="172.86" y="157.14" width="16.11" height="16.11"/><rect x="220" y="157.14" width="16.11" height="16.11"/><rect x="235.71" y="157.14" width="16.11" height="16.11"/><rect x="267.14" y="157.14" width="16.11" height="16.11"/><rect x="282.86" y="157.14" width="16.11" height="16.11"/><rect x="298.57" y="157.14" width="16.11" height="16.11"/><rect x="0" y="172.86" width="16.11" height="16.11"/><rect x="15.71" y="172.86" width="16.11" height="16.11"/><rect x="31.43" y="172.86" width="16.11" height="16.11"/><rect x="47.14" y="172.86" width="16.11" height="16.11"/><rect x="78.57" y="172.86" width="16.11" height="16.11"/><rect x="172.86" y="172.86" width="16.11" height="16.11"/><rect x="188.57" y="172.86" width="16.11" height="16.11"/><rect x="220" y="172.86" width="16.11" height="16.11"/><rect x="0" y="188.57" width="16.11" height="16.11"/><rect x="47.14" y="188.57" width="16.11" height="16.11"/><rect x="62.86" y="188.57" width="16.11" height="16.11"/><rect x="125.71" y="188.57" width="16.11" height="16.11"/><rect x="141.43" y="188.57" width="16.11" height="16.11"/><rect x="157.14" y="188.57" width="16.11" height="16.11"/><rect x="172.86" y="188.57" width="16.11" height="16.11"/><rect x="188.57" y="188.57" width="16.11" height="16.11"/><rect x="235.71" y="188.57" width="16.11" height="16.11"/><rect x="267.14" y="188.57" width="16.11" height="16.11"/><rect x="282.86" y="188.57" width="16.11" height="16.11"/><rect x="157.14" y="204.29" width="16.11" height="16.11"/><rect x="188.57" y="204.29" width="16.11" height="16.11"/><rect x="220" y="204.29" width="16.11" height="16.11"/><rect x="235.71" y="204.29" width="16.11" height="16.11"/><rect x="267.14" y="204.29" width="16.11" height="16.11"/><rect x="298.57" y="204.29" width="16.11" height="16.11"/><rect x="314.29" y="204.29" width="16.11" height="16.11"/><rect x="141.43" y="220" width="16.11" height="16.11"/><rect x="188.57" y="220" width="16.11" height="16.11"/><rect x="220" y="220" width="16.11" height="16.11"/><rect x="267.14" y="220" width="16.11" height="16.11"/><rect x="125.71" y="235.71" width="16.11" height="16.11"/><rect x="157.14" y="235.71" width="16.11" height="16.11"/><rect x="172.86" y="235.71" width="16.11" height="16.11"/><rect x="220" y="235.71" width="16.11" height="16.11"/><rect x="251.43" y="235.71" width="16.11" height="16.11"/><rect x="267.14" y="235.71" width="16.11" height="16.11"/><rect x="282.86" y="235.71" width="16.11" height="16.11"/><rect x="298.57" y="235.71" width="16.11" height="16.11"/><rect x="157.14" y="251.43" width="16.11" height="16.11"/><rect x="172.86" y="251.43" width="16.11" height="16.11"/><rect x="204.29" y="251.43" width="16.11" height="16.11"/><rect x="220" y="251.43" width="16.11" height="16.11"/><rect x="235.71" y="251.43" width="16.11" height="16.11"/><rect x="251.43" y="251.43" width="16.11" height="16.11"/><rect x="298.57" y="251.43" width="16.11" height="16.11"/><rect x="125.71" y="267.14" width="16.11" height="16.11"/><rect x="157.14" y="267.14" width="16.11" height="16.11"/><rect x="188.57" y="267.14" width="16.11" height="16.11"/><rect x="204.29" y="267.14" width="16.11" height="16.11"/><rect x="220" y="267.14" width="16.11" height="16.11"/><rect x="251.43" y="267.14" width="16.11" height="16.11"/><rect x="282.86" y="267.14" width="16.11" height="16.11"/><rect x="298.57" y="267.14" width="16.11" height="16.11"/><rect x="314.29" y="267.14" width="16.11" height="16.11"/><rect x="125.71" y="282.86" width="16.11" height="16.11"/><rect x="157.14" y="282.86" width="16.11" height="16.11"/><rect x="188.57" y="282.86" width="16.11" height="16.11"/><rect x="204.29" y="282.86" width="16.11" height="16.11"/><rect x="220" y="282.86" width="16.11" height="16.11"/><rect x="235.71" y="282.86" width="16.11" height="16.11"/><rect x="251.43" y="282.86" width="16.11" height="16.11"/><rect x="125.71" y="298.57" width="16.11" height="16.11"/><rect x="141.43" y="298.57" width="16.11" height="16.11"/><rect x="204.29" y="298.57" width="16.11" height="16.11"/><rect x="251.43" y="298.57" width="16.11" height="16.11"/><rect x="267.14" y="298.57" width="16.11" height="16.11"/><rect x="282.86" y="298.57" width="16.11" height="16.11"/><rect x="298.57" y="298.57" width="16.11" height="16.11"/><rect x="314.29" y="298.57" width="16.11" height="16.11"/><rect x="220" y="314.29" width="16.11" height="16.11"/><rect x="0" y="0" width="110" height="110"/><rect x="15.71" y="15.71" width="78.57" height="78.57" fill="#fff"/><rect x="31.43" y="31.43" width="47.14" height="47.14"/><rect x="220" y="0" width="110" height="110"/><rect x="235.71" y="15.71" width="78.57" height="78.57" fill="#fff"/><rect x="251.43" y="31.43" width="47.14" height="47.14"/><rect x="0" y="220" width="110" height="110"/><rect x="15.71" y="235.71" width="78.57" height="78.57" fill="#fff"/><rect x="31.43" y="251.43" width="47.14" height="47.14"/></g></svg></div>
+          </div>
+        </div><div class="notch"></div></div></div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M900 1100 L800 1176"/><circle class="dot g d1" cx="800" cy="1176" r="12"/></svg>
+      <div class="pill lleno n1" style="left:880px;top:1060px">Ventanilla <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="pill lleno n2" style="left:540px;top:1640px">En el celular <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-asiento";
+      const DUR = 3.56;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const TEL = q(".telw");
+      const vibrar = (t, n) => tl.fromTo(TEL, { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 5, immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+
+
+      tl.fromTo(q(".mapa"), { opacity: 0, scale: 1.08, transformOrigin: "50% 30%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      tl.fromTo(qa(".as"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", stagger: 0.012 }, 0.02);
+      // "asiento": el 14C se pinta de verde
+      tl.to(q(".elegido"), { backgroundColor: "#5ce611", duration: 0.15 }, 0.42);
+      latido(".elegido", 0.42, 1.25);
+      nota(1, 0.52);
+      // "tarjeta de embarque": el mapa se va y entra la tarjeta
+      tl.to(q(".mapa"), { opacity: 0, y: -200, duration: 0.3, ease: "power2.in" }, 1.07);
+      tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.15 }, 1.07);
+      tl.fromTo(q(".pase"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, 1.17);
+      tl.fromTo(q(".pa-card"), { y: 700, rotation: 8, transformOrigin: "50% 100%" }, { y: 0, rotation: 0, duration: 0.5, ease: "back.out(1.3)" }, 1.17);
+      tl.fromTo(q(".qr"), { scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.8)" }, 1.82);
+      // "queda en el celular": push-in al QR
+      latido(".qr", 2.62, 1.08);
+      nota(2, 2.5700000000000003);
+      tl.to(TEL, { scale: 1.05, transformOrigin: "540px 1300px", duration: 1.0, ease: "sine.inOut" }, 2.12);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,115 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s04-once"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s04-once"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s04-once"] .pie { position: absolute; left: 360px; top: 1718px; width: 360px; height: 96px; border-radius: 48px; background: #0b1220; }
+    [data-composition-id="s04-once"] .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s04-once"] .L { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.03em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s04-once"] .L.cr { color: #efeee5; }
+    [data-composition-id="s04-once"] .L.g { color: #5ce611; }
+    [data-composition-id="s04-once"] .L.n { color: #0b1220; }
+    [data-composition-id="s04-once"] .L.x9 { font-weight: 900; }
+    [data-composition-id="s04-once"] .sel { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #5ce611; color: #0b1220; }
+    [data-composition-id="s04-once"] .seln { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #0b1220; color: #5ce611; }
+    [data-composition-id="s04-once"] .rojo { color: #c7655b; }
+    [data-composition-id="s04-once"] .rel { position: absolute; border-radius: 40px; background: #16243d; border: 8px solid #2c4268; box-shadow: 0 18px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s04-once"] .rel .ana { position: absolute; overflow: visible; }
+    [data-composition-id="s04-once"] .rel .dig { position: absolute; top: -8px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+    [data-composition-id="s04-once"] .rel .dig span { position: absolute; left: 0; right: 0; top: 0; }
+    [data-composition-id="s04-once"] .bar { position: absolute; height: 22px; border-radius: 11px; background: #1f3254; overflow: hidden; }
+    [data-composition-id="s04-once"] .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 11px; background: #c7655b; transform-origin: 0% 50%; }
+    [data-composition-id="s04-once"] .barl { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #7c8698; letter-spacing: 0.08em; }
+    [data-composition-id="s04-once"] .fant { position: absolute; left: 70px; width: 940px; border-radius: 26px; border: 6px dashed #2c4268; }
+    [data-composition-id="s04-once"] .fila { position: absolute; left: 70px; width: 940px; border-radius: 26px; background: #3a2027; border: 6px solid #c7655b; box-shadow: 0 12px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s04-once"] .fila .chk { position: absolute; left: 30px; width: 56px; height: 56px; border-radius: 50%; border: 7px solid #c7655b; box-sizing: border-box; }
+    [data-composition-id="s04-once"] .fila .okt { position: absolute; left: 26px; width: 64px; height: 64px; }
+    [data-composition-id="s04-once"] .fila .txt { position: absolute; left: 116px; top: -2px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 48px; color: #ffffff; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s04-once"] .fila .tag { position: absolute; right: 24px; width: 150px; height: 58px; border-radius: 29px; border: 5px solid #c7655b; box-sizing: border-box; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; line-height: 48px; text-align: center; letter-spacing: 0.14em; color: #c7655b; }
+    [data-composition-id="s04-once"] .fila .tag.solo { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s04-once"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s04-once"] .l1 { top: 300px; font-size: 128px; color: #efeee5; }
+    [data-composition-id="s04-once"] .l2 { top: 440px; font-size: 150px; font-weight: 900; }
+    [data-composition-id="s04-once"] .l3 { top: 1170px; font-size: 130px; color: #efeee5; }
+    [data-composition-id="s04-once"] .l4 { top: 1320px; font-size: 150px; font-weight: 900; }
+    [data-composition-id="s04-once"] .bar { height: 30px; border-radius: 15px; }
+    [data-composition-id="s04-once"] .pila { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="s04-once" data-width="1080" data-height="1920" data-duration="3.21">
+    
+    <div id="s04-once-escena" class="esc clip" data-start="0" data-duration="3.21" data-track-index="2">
+
+      <div class="L l1">Once de</div>
+      <div class="L l2">la noche.</div>
+      
+      <div class="rel c4" style="left:50px;top:650px;width:980px;height:380px">
+        <svg class="ana" style="left:30px;top:57px;width:250px;height:250px" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="92" fill="#efeee5"/>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="#0b1220" stroke-width="8" opacity="0.15"/>
+          <line x1="100" y1="34" x2="100" y2="18" stroke="#0b1220" stroke-width="9" stroke-linecap="round"/><line x1="137" y1="35.91" x2="141" y2="28.99" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="164.09" y1="63" x2="171.01" y2="59" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="166" y1="100" x2="182" y2="100" stroke="#0b1220" stroke-width="9" stroke-linecap="round"/><line x1="164.09" y1="137" x2="171.01" y2="141" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="137" y1="164.09" x2="141" y2="171.01" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="100" y1="166" x2="100" y2="182" stroke="#0b1220" stroke-width="9" stroke-linecap="round"/><line x1="63" y1="164.09" x2="59" y2="171.01" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="35.91" y1="137" x2="28.99" y2="141" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="34" y1="100" x2="18" y2="100" stroke="#0b1220" stroke-width="9" stroke-linecap="round"/><line x1="35.91" y1="63" x2="28.99" y2="59" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/><line x1="63" y1="35.91" x2="59" y2="28.99" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/>
+          <path class="hh" d="M100 100 L100 56" stroke="#0b1220" stroke-width="13" stroke-linecap="round"/>
+          <path class="mm" d="M100 100 L100 30" stroke="#0b1220" stroke-width="9" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="11" fill="#c7655b"/>
+        </svg>
+        <div class="dig" data-layout-allow-overlap style="left:290px;width:670px;height:380px;font-size:222px;line-height:380px;color:#ffffff"><span class="h0">22:56</span><span class="h1">23:00</span></div>
+      </div>
+      
+      <div class="bar b4" style="left:60px;top:1070px;width:960px"><i></i></div>
+      
+      
+      <div class="L l3">Recién</div>
+      <div class="L l4 rojo">terminás.</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s04-once";
+      const DUR = 3.21;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => (typeof s === "string" ? Array.from(root.querySelectorAll(s)) : [s]);
+      const tl = gsap.timeline({ paused: true });
+      const golpe = (s, t, desde = 1.45, d = 0.2) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "power4.out", immediateRender: false }, t); };
+      const sube = (s, t, y = 90, d = 0.32) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.7)", immediateRender: false }, t); };
+      const pop = (s, t, desde = 0.4, d = 0.34) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const sale = (s, t, d = 0.16) => tl.to(qa(s), { opacity: 0, y: -60, filter: "blur(6px)", duration: d, ease: "power2.in" }, t);
+      const dibujar = (s, t, d = 0.4) => qa(s).forEach((el) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const sacude = (s, t, n = 3, a = 8) => { for (let i = 0; i < n; i++) tl.to(q(s), { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.045); tl.to(q(s), { x: 0, duration: 0.05 }, t + n * 0.045); };
+      // reloj: pasa de la hora i-1 a la i en el segundo ts[i-1] (la .h0 ya está)
+      const horas = (sel, ts) => {
+        qa(sel + " .dig span").forEach((e, i) => gsap.set(e, { opacity: i ? 0 : 1 }));
+        ts.forEach((t, k) => {
+          const i = k + 1;
+          tl.to(q(sel + " .h" + (i - 1)), { opacity: 0, y: -50, duration: 0.12, ease: "power2.in" }, t);
+          tl.fromTo(q(sel + " .h" + i), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t + 0.06);
+        });
+      };
+
+      gsap.set(q(".c4"), { borderColor: "#c7655b" }); gsap.set(q(".c4 .dig"), { color: "#c7655b" });
+      pop(".c4", 0, 0.75, 0.3);
+      horas(".c4", [0.12]);
+      tl.to(q(".c4 .mm"), { rotation: 30, svgOrigin: "100 100", duration: 0.4, ease: "power2.out" }, 0.05);
+      golpe(".l1", 0, 1.3);
+      golpe(".l2", 0.53 - 0.05, 1.4);
+      tl.fromTo(q(".b4 i"), { scaleX: 0.98 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, 0.1);
+      tl.to(q(".c4"), { scale: 1.06, duration: 0.14, yoyo: true, repeat: 1, ease: "sine.inOut" }, 0.63);
+      golpe(".l3", 1.44 - 0.05, 1.3);
+      golpe(".l4", 1.73 - 0.05, 1.45);
+      // push-in sobre el reloj
+      tl.to(q(".esc"), { scale: 1.05, transformOrigin: "50% 45%", duration: DUR - 0.3, ease: "sine.inOut" }, 0.1);
+      tl.to(q(".esc"), { scale: 1.1, opacity: 0, filter: "blur(8px)", transformOrigin: "50% 55%", duration: 0.2, ease: "power3.in" }, DUR - 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+
+    })();
+  </script>
+</template>

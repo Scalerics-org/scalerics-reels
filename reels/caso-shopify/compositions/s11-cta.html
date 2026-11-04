@@ -1,0 +1,141 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s11-cta"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s11-cta"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s11-cta"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s11-cta"] .obj { position: absolute; }
+    [data-composition-id="s11-cta"] .obj svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    [data-composition-id="s11-cta"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s11-cta"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s11-cta"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s11-cta"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s11-cta"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s11-cta"] .tag { position: absolute; left: 0; right: 0; text-align: center; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s11-cta"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s11-cta"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s11-cta"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s11-cta"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s11-cta"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s11-cta"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s11-cta"] .tn { position: absolute; }
+    [data-composition-id="s11-cta"] .tn-lado { position: absolute; left: 16px; top: 18px; width: 100%; height: 100%; border-radius: 44px; background: #dcdacb; }
+    [data-composition-id="s11-cta"] .tn-cara { position: absolute; inset: 0; border-radius: 44px; background: #ffffff; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s11-cta"] .tn-bar { position: absolute; left: 0; top: 0; right: 0; height: 64px; background: #0b1220; }
+    [data-composition-id="s11-cta"] .tn-bar i { position: absolute; top: 20px; width: 22px; height: 22px; border-radius: 50%; background: #efeee5; }
+    [data-composition-id="s11-cta"] .tn-bar i:nth-child(1) { left: 26px; } [data-composition-id="s11-cta"] .tn-bar i:nth-child(2) { left: 60px; } [data-composition-id="s11-cta"] .tn-bar i:nth-child(3) { left: 94px; background: #5ce611; }
+    [data-composition-id="s11-cta"] .tn-img { position: absolute; left: 22px; right: 22px; top: 84px; bottom: 112px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s11-cta"] .tn-img svg { position: absolute; left: 50%; top: 50%; width: 92%; height: 92%; transform: translate(-50%, -50%); overflow: visible; }
+    [data-composition-id="s11-cta"] .tn-btn { position: absolute; left: 22px; right: 22px; bottom: 20px; height: 76px; border-radius: 38px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s11-cta"] .tn-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 12px; font: 700 36px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s11-cta"] .tn-btn .b { background: #5ce611; color: #0b1220; opacity: 0; }
+    [data-composition-id="s11-cta"] .pan { position: absolute; left: 70px; top: 580px; width: 940px; height: 780px; }
+    [data-composition-id="s11-cta"] .pan-lado { position: absolute; left: 18px; top: 20px; width: 100%; height: 100%; border-radius: 60px; background: #dcdacb; }
+    [data-composition-id="s11-cta"] .pan-cara { position: absolute; inset: 0; border-radius: 60px; background: #ffffff; border: 8px solid #0b1220; }
+    [data-composition-id="s11-cta"] .pan-rot { position: absolute; left: 0; right: 0; bottom: 34px; height: 60px; text-align: center; }
+    [data-composition-id="s11-cta"] .pan-rot.arriba { bottom: auto; top: 34px; }
+    [data-composition-id="s11-cta"] .pan-rot span { position: absolute; left: 50%; top: 0; transform: translateX(-50%); padding: 12px 26px; border-radius: 16px; white-space: nowrap; font: 600 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; }
+    [data-composition-id="s11-cta"] .pan-rot .r1 { background: #dcdacb; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s11-cta"] .pan-rot .r2 { background: #5ce611; color: #0b1220; opacity: 0; }
+
+    [data-composition-id="s11-cta"] .preg { position: absolute; left: 0; right: 0; top: 210px; text-align: center; font: 800 104px/1.1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; opacity: 0; }
+    [data-composition-id="s11-cta"] .preg .v { display: inline-block; background: #5ce611; padding: 0 18px 6px; border-radius: 16px; }
+    [data-composition-id="s11-cta"] .vc { position: absolute; left: 79px; top: 580px; width: 922px; height: 480px; border-radius: 70px; background: #0b1220; opacity: 0; }
+    [data-composition-id="s11-cta"] .vc-lado { position: absolute; left: 95px; top: 598px; width: 922px; height: 480px; border-radius: 70px; background: #dcdacb; opacity: 0; }
+    [data-composition-id="s11-cta"] .vc-pan { position: absolute; left: 16px; top: 16px; right: 16px; bottom: 16px; border-radius: 56px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s11-cta"] .vc-a { position: absolute; left: 26px; top: 26px; width: 560px; height: 396px; border-radius: 34px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s11-cta"] .vc-a .lc { position: absolute; left: 150px; top: 40px; width: 260px; height: 242px; }
+    [data-composition-id="s11-cta"] .vc-a .lc svg { width: 100%; height: 100%; display: block; }
+    [data-composition-id="s11-cta"] .vc-a .lbl, [data-composition-id="s11-cta"] .vc-b .lbl { position: absolute; left: 22px; bottom: 20px; padding: 8px 16px; border-radius: 12px; background: #0b1220; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: #efeee5; }
+    [data-composition-id="s11-cta"] .vc-b { position: absolute; left: 606px; top: 26px; width: 268px; height: 220px; border-radius: 30px; background: #5ce611; }
+    [data-composition-id="s11-cta"] .vc-b .nm { position: absolute; left: 0; right: 0; top: 70px; text-align: center; font: 800 42px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s11-cta"] .vc-btn { position: absolute; left: 680px; top: 272px; width: 124px; height: 124px; border-radius: 50%; background: #5ce611; }
+    [data-composition-id="s11-cta"] .vc-btn svg { position: absolute; left: 28px; top: 36px; }
+    [data-composition-id="s11-cta"] .t1 { position: absolute; left: 0; right: 0; top: 1130px; text-align: center; font: 800 124px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s11-cta"] .t2w { position: absolute; left: 0; right: 0; top: 1276px; text-align: center; opacity: 0; }
+    [data-composition-id="s11-cta"] .t2 { position: relative; display: inline-block; padding: 4px 30px 14px; font: 800 124px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; }
+    [data-composition-id="s11-cta"] .t2 .selbox { left: 0; top: 0; right: 0; bottom: 0; }
+    [data-composition-id="s11-cta"] .t3 { position: absolute; left: 80px; right: 80px; top: 1472px; height: 170px; border-radius: 85px; background: #5ce611; border: 8px solid #0b1220; text-align: center; font: 800 104px/150px "Lexend", sans-serif; letter-spacing: -0.03em; color: #0b1220; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s11-cta" data-width="1080" data-height="1920" data-duration="8.15">
+    <div id="s11-cta-esc" class="esc clip" data-start="0" data-duration="8.15" data-track-index="0">
+
+      <div class="capa bz">
+  <div class="pan"><div class="pan-lado"></div><div class="pan-cara"></div>
+  <div class="pan-rot arriba"><span class="r1">A SU MEDIDA</span><span class="r2">A SU MEDIDA</span></div></div><div class="obj l0" style="left:305px;top:871.21px;width:470px;height:437.59px"><svg viewBox="-290 -270 580 540" aria-hidden="true">
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 V240 H-250 Z" transform="translate(14 18)" fill="#0b1220"/>
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 V240 H-250 Z" fill="#16243d"/>
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 Z" fill="#5ce611"/>
+  <circle cx="-225" cy="-110" r="25" fill="#5ce611"/><circle cx="-175" cy="-110" r="25" fill="#5ce611"/><circle cx="-125" cy="-110" r="25" fill="#5ce611"/><circle cx="-75" cy="-110" r="25" fill="#5ce611"/><circle cx="-25" cy="-110" r="25" fill="#5ce611"/><circle cx="25" cy="-110" r="25" fill="#5ce611"/><circle cx="75" cy="-110" r="25" fill="#5ce611"/><circle cx="125" cy="-110" r="25" fill="#5ce611"/><circle cx="175" cy="-110" r="25" fill="#5ce611"/><circle cx="225" cy="-110" r="25" fill="#5ce611"/>
+  <text x="0" y="-146" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="40" letter-spacing="5" fill="#0b1220">TU NEGOCIO</text>
+  <rect x="-200" y="10" width="200" height="140" rx="16" fill="#ffffff"/>
+  <rect x="-200" y="10" width="200" height="34" rx="10" fill="#dcdacb"/>
+  <rect x="50" y="30" width="140" height="210" rx="14" fill="#efeee5"/>
+  <circle cx="166" cy="140" r="10" fill="#0b1220"/></svg></div></div>
+      <div class="preg"><div>¿Lo vemos</div><div>con tu <span class="v">caso?</span></div></div>
+      <div class="vc-lado"></div>
+      <div class="vc"><div class="vc-pan">
+        <div class="vc-a"><div class="lc" data-layout-ignore><svg viewBox="-290 -270 580 540" aria-hidden="true">
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 V240 H-250 Z" transform="translate(14 18)" fill="#0b1220"/>
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 V240 H-250 Z" fill="#16243d"/>
+  <path d="M-250 -110 L-210 -220 H210 L250 -110 Z" fill="#5ce611"/>
+  <circle cx="-225" cy="-110" r="25" fill="#5ce611"/><circle cx="-175" cy="-110" r="25" fill="#5ce611"/><circle cx="-125" cy="-110" r="25" fill="#5ce611"/><circle cx="-75" cy="-110" r="25" fill="#5ce611"/><circle cx="-25" cy="-110" r="25" fill="#5ce611"/><circle cx="25" cy="-110" r="25" fill="#5ce611"/><circle cx="75" cy="-110" r="25" fill="#5ce611"/><circle cx="125" cy="-110" r="25" fill="#5ce611"/><circle cx="175" cy="-110" r="25" fill="#5ce611"/><circle cx="225" cy="-110" r="25" fill="#5ce611"/>
+  <text x="0" y="-146" text-anchor="middle" font-family="IBM Plex Mono" font-weight="600" font-size="40" letter-spacing="5" fill="#0b1220">TU NEGOCIO</text>
+  <rect x="-200" y="10" width="200" height="140" rx="16" fill="#ffffff"/>
+  <rect x="-200" y="10" width="200" height="34" rx="10" fill="#dcdacb"/>
+  <rect x="50" y="30" width="140" height="210" rx="14" fill="#efeee5"/>
+  <circle cx="166" cy="140" r="10" fill="#0b1220"/></svg></div><div class="lbl">TU NEGOCIO</div></div>
+        <div class="vc-b"><div class="nm">Scalerics</div><div class="lbl">EQUIPO</div></div>
+        <div class="vc-btn"><svg width="68" height="52" viewBox="0 0 68 52" aria-hidden="true"><rect x="0" y="4" width="46" height="44" rx="10" fill="#0b1220"/><path d="M48 18 L68 6 V46 L48 34 Z" fill="#0b1220"/></svg></div>
+      </div></div>
+      <div class="t1">Videollamada</div>
+      <div class="t2w"><span class="t2"><div class="selbox sb" style="left:0px;top:0px;width:0px;height:0px;width:auto;height:auto"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div><em style="position:relative;font-style:normal">gratis</em></span></div>
+      <div class="t3">scalerics.com</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s11-cta";
+      const DUR = 8.15;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const late = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const sacude = (s, t) => tl.to(typeof s === "string" ? qa(s) : s, { keyframes: { x: [0, -22, 20, -14, 10, 0] }, duration: 0.36, ease: "none" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      gsap.set(q(".pan-rot .r1"), { opacity: 0 }); gsap.set(q(".pan-rot .r2"), { opacity: 1 });
+      gsap.set(q(".pan-cara"), { borderColor: "#5ce611" });
+      const B = q(".bz");
+      tl.fromTo(q(".preg"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 0.05);
+      late(".preg .v", 1.3, 1.08);
+      // el tablero con tu local se achica y se vuelve la videollamada
+      tl.to(B, { scale: 0.5, y: -160, opacity: 0, transformOrigin: "540px 1000px", duration: 0.5, ease: "power3.inOut" }, 1.5);
+      tl.fromTo(qa(".vc, .vc-lado"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.5)" }, 1.8);
+      tl.fromTo(qa(".vc-a, .vc-b, .vc-btn"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(1.7)", stagger: 0.1 }, 1.95);
+      // Videollamada gratis · scalerics.com
+      tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.5);
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 2.8);
+      caja(".sb", 3);
+      tl.fromTo(q(".t3"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 3.65);
+      tl.fromTo(q(".vc-btn"), { scale: 1 }, { scale: 1.12, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 7, immediateRender: false }, 4.2);
+      tl.to(qa(".vc, .vc-lado"), { y: -14, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

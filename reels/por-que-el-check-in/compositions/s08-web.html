@@ -1,0 +1,134 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-web"] * { box-sizing: border-box; }
+    [data-composition-id="s08-web"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-web"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-web"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s08-web"] .tel-sh { position: absolute; left: 212px; top: 584px; width: 700px; height: 1140px; border-radius: 100px; background: #03060c; }
+    [data-composition-id="s08-web"] .tel { position: absolute; left: 190px; top: 560px; width: 700px; height: 1140px; border-radius: 100px; background: #1f3254; border: 10px solid #efeee5; }
+    [data-composition-id="s08-web"] .pan { position: absolute; left: 16px; top: 16px; width: 648px; height: 1088px; border-radius: 76px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s08-web"] .notch { position: absolute; left: 254px; top: 22px; width: 140px; height: 38px; border-radius: 19px; background: #0b1220; }
+    [data-composition-id="s08-web"] .scr { position: absolute; left: 0; top: 0; width: 648px; height: 1088px; }
+    [data-composition-id="s08-web"] .hora { position: absolute; left: 64px; top: 24px; font: 600 30px/1 "Lexend", sans-serif; }
+    [data-composition-id="s08-web"] .checkin { background: #efeee5; }
+    [data-composition-id="s08-web"] .ci-head { position: absolute; left: 0; top: 0; width: 648px; height: 400px; background: #0b1220; }
+    [data-composition-id="s08-web"] .ci-k { position: absolute; left: 50px; top: 110px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #5ce611; }
+    [data-composition-id="s08-web"] .ci-a, [data-composition-id="s08-web"] .ci-b { position: absolute; top: 170px; font: 800 118px/1 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; }
+    [data-composition-id="s08-web"] .ci-a { left: 44px; } [data-composition-id="s08-web"] .ci-b { right: 44px; }
+    [data-composition-id="s08-web"] .ci-ln { position: absolute; left: 60px; top: 330px; width: 528px; height: 0; border-top: 6px dashed rgba(239,238,229,0.45); }
+    [data-composition-id="s08-web"] .ci-av { position: absolute; left: 259px; top: 300px; }
+    [data-composition-id="s08-web"] .ci-card { position: absolute; left: 36px; top: 440px; width: 576px; height: 330px; border-radius: 44px; background: #fff; border: 6px solid #0b1220; padding: 20px 36px; }
+    [data-composition-id="s08-web"] .ci-r { height: 96px; display: flex; justify-content: space-between; align-items: center; font: 500 36px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.6); border-bottom: 4px solid rgba(11,18,32,0.12); }
+    [data-composition-id="s08-web"] .ci-r:last-child { border-bottom: 0; }
+    [data-composition-id="s08-web"] .ci-r b { font-weight: 800; color: #0b1220; }
+    [data-composition-id="s08-web"] .ci-st { position: absolute; left: 36px; top: 800px; height: 70px; padding: 0 28px; border-radius: 35px; background: #0b1220; font: 500 30px/70px "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: #5ce611; }
+    [data-composition-id="s08-web"] .ci-btn { position: absolute; left: 36px; top: 920px; width: 576px; height: 120px; border-radius: 60px; background: #5ce611; border: 6px solid #0b1220; font: 800 50px/108px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s08-web"] .pase { background: #16243d; }
+    [data-composition-id="s08-web"] .pa-card { position: absolute; left: 30px; top: 90px; width: 588px; height: 970px; border-radius: 44px; background: #fff; border: 6px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s08-web"] .pa-h { position: absolute; left: 0; top: 0; width: 100%; height: 96px; background: #5ce611; font: 500 30px/96px "IBM Plex Mono", monospace; letter-spacing: 0.14em; color: #0b1220; text-align: center; }
+    [data-composition-id="s08-web"] .pa-a, [data-composition-id="s08-web"] .pa-b { position: absolute; top: 130px; font: 800 96px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s08-web"] .pa-a { left: 34px; } [data-composition-id="s08-web"] .pa-b { right: 34px; }
+    [data-composition-id="s08-web"] .pa-av { position: absolute; left: 238px; top: 152px; }
+    [data-composition-id="s08-web"] .pa-f { position: absolute; left: 34px; top: 270px; width: 520px; display: flex; justify-content: space-between; }
+    [data-composition-id="s08-web"] .pa-f span { display: block; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s08-web"] .pa-f b { display: block; margin-top: 12px; font: 800 76px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s08-web"] .pa-f b.v { color: #0b1220; background: #5ce611; padding: 4px 14px; border-radius: 14px; margin-left: -14px; }
+    [data-composition-id="s08-web"] .pa-cut { position: absolute; left: 20px; top: 430px; width: 548px; border-top: 6px dashed rgba(11,18,32,0.3); }
+    [data-composition-id="s08-web"] .pa-qr { position: absolute; left: 123px; top: 490px; padding: 0; }
+    [data-composition-id="s08-web"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s08-web"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s08-web"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s08-web"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s08-web"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s08-web"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s08-web"] .pill svg.izq { margin-left: 0; margin-right: 12px; }
+    [data-composition-id="s08-web"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s08-web"] .lead.g { stroke: #5ce611; } [data-composition-id="s08-web"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s08-web"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s08-web"] .dot.g { fill: #5ce611; } [data-composition-id="s08-web"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s08-web"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s08-web"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s08-web"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s08-web"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s08-web"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s08-web"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s08-web"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s08-web"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s08-web"] .web { background: #efeee5; }
+    [data-composition-id="s08-web"] .url { position: absolute; left: 30px; top: 76px; width: 588px; height: 70px; border-radius: 35px; background: #fff; border: 5px solid rgba(11,18,32,0.2); font: 500 30px/60px "IBM Plex Mono", monospace; color: rgba(11,18,32,0.65); text-align: center; }
+    [data-composition-id="s08-web"] .w-head { position: absolute; left: 0; top: 170px; width: 648px; height: 150px; background: #0b1220; }
+    [data-composition-id="s08-web"] .w-t { position: absolute; left: 40px; top: 36px; font: 800 58px/1 "Lexend", sans-serif; color: #fff; letter-spacing: -0.03em; }
+    [data-composition-id="s08-web"] .w-t b { color: #5ce611; }
+    [data-composition-id="s08-web"] .w-s { position: absolute; left: 42px; top: 104px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(239,238,229,0.7); }
+    [data-composition-id="s08-web"] .dia { position: absolute; top: 350px; width: 88px; height: 110px; border-radius: 22px; background: #fff; border: 5px solid #0b1220; font: 800 34px/100px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s08-web"] .dia.sel { background: #0b1220; color: #5ce611; }
+    [data-composition-id="s08-web"] .hr { position: absolute; width: 276px; height: 108px; border-radius: 26px; background: #fff; border: 6px solid #0b1220; font: 800 46px/96px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s08-web"] .hr.oc { background: #b9b8ad; border-color: #8f8e86; color: rgba(11,18,32,0.4); text-decoration: line-through; }
+    [data-composition-id="s08-web"] .w-btn { position: absolute; left: 30px; top: 940px; width: 588px; height: 116px; border-radius: 58px; background: #5ce611; border: 6px solid #0b1220; font: 800 48px/104px "Lexend", sans-serif; color: #0b1220; text-align: center; opacity: 0.35; }
+    [data-composition-id="s08-web"] .tap { position: absolute; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 55px; background: rgba(11,18,32,0.25); border: 6px solid #0b1220; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s08-web" data-width="1080" data-height="1920" data-duration="2.59">
+    <div id="s08-web-esc" class="esc clip" data-start="0" data-duration="2.59" data-track-index="0">
+
+      <div class="telw"><div class="tel-sh"></div><div class="tel"><div class="pan">
+        <div class="scr web"><div class="hora" style="color:#0b1220">10:16</div>
+          <div class="url">tunegocio.com.uy</div>
+          <div class="w-head"><div class="w-t">Reservá tu <b>turno</b></div><div class="w-s">ONLINE · 24 HS</div></div>
+          <div class="dia  dd0" style="left:30px">LU</div><div class="dia  dd1" style="left:130px">MA</div><div class="dia  dd2" style="left:230px">MI</div><div class="dia sel dd3" style="left:330px">JU</div><div class="dia  dd4" style="left:430px">VI</div><div class="dia  dd5" style="left:530px">SÁ</div>
+          <div class="hr   hh0" style="left:30px;top:500px">10:00</div><div class="hr oc  hh1" style="left:342px;top:500px">11:30</div><div class="hr   hh2" style="left:30px;top:636px">14:00</div><div class="hr oc  hh3" style="left:342px;top:636px">16:30</div><div class="hr  elige hh4" style="left:30px;top:772px">18:00</div><div class="hr   hh5" style="left:342px;top:772px">19:30</div>
+          <div class="w-btn">Confirmar turno</div>
+          <div class="tap" style="left:480px;top:826px"></div>
+        </div><div class="notch"></div></div></div></div>
+      <div class="pill lleno n1" style="left:540px;top:1666px">Sin llamar</div>
+      <div class="pill lleno n2" style="left:540px;top:1666px">Solos <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-web";
+      const DUR = 2.59;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const TEL = q(".telw");
+      const vibrar = (t, n) => tl.fromTo(TEL, { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 5, immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+
+
+      // los mensajes se vuelven la web con reservas
+      tl.fromTo(q(".web"), { opacity: 0, scale: 1.1, transformOrigin: "50% 30%" }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out" }, 0);
+      // "reservas": entra el calendario
+      tl.fromTo(qa(".dia"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.25, ease: "back.out(1.6)", stagger: 0.04 }, 0.15);
+      tl.fromTo(qa(".hr"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(1.6)", stagger: 0.05 }, 0.4);
+      latido(".dd3", 1.05, 1.15);
+      // "lo sacan solos": toque en 18:00, se pinta de verde y se habilita el botón
+      tl.fromTo(q(".tap"), { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, 1.5499999999999998);
+      tl.to(q(".tap"), { opacity: 0, scale: 0.6, duration: 0.2, ease: "power2.in" }, 1.8499999999999999);
+      tl.to(q(".elige"), { backgroundColor: "#5ce611", duration: 0.12 }, 1.65);
+      latido(".elige", 1.65, 1.1);
+      tl.to(q(".w-btn"), { opacity: 1, duration: 0.15 }, 1.8499999999999999);
+      latido(".w-btn", 1.95, 1.06);
+      nota(1, 1.05);
+      tl.to(qa(".n1"), { opacity: 0, duration: 0.12 }, 1.8);
+      nota(2, 1.9);
+      tl.to(TEL, { scale: 1.05, transformOrigin: "540px 1300px", duration: 1.6, ease: "sine.inOut" }, 0.65);
+      fuera(".n2", 2.39, 0.15);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

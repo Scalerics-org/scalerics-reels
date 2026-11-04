@@ -1,0 +1,120 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-tablas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-tablas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s02-tablas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s02-tablas"] .obj { position: absolute; }
+    [data-composition-id="s02-tablas"] .obj svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    [data-composition-id="s02-tablas"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s02-tablas"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s02-tablas"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s02-tablas"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s02-tablas"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s02-tablas"] .tag { position: absolute; left: 0; right: 0; text-align: center; font: 600 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-tablas"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s02-tablas"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s02-tablas"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s02-tablas"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s02-tablas"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s02-tablas"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s02-tablas"] .tn { position: absolute; }
+    [data-composition-id="s02-tablas"] .tn-lado { position: absolute; left: 16px; top: 18px; width: 100%; height: 100%; border-radius: 44px; background: #dcdacb; }
+    [data-composition-id="s02-tablas"] .tn-cara { position: absolute; inset: 0; border-radius: 44px; background: #ffffff; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s02-tablas"] .tn-bar { position: absolute; left: 0; top: 0; right: 0; height: 64px; background: #0b1220; }
+    [data-composition-id="s02-tablas"] .tn-bar i { position: absolute; top: 20px; width: 22px; height: 22px; border-radius: 50%; background: #efeee5; }
+    [data-composition-id="s02-tablas"] .tn-bar i:nth-child(1) { left: 26px; } [data-composition-id="s02-tablas"] .tn-bar i:nth-child(2) { left: 60px; } [data-composition-id="s02-tablas"] .tn-bar i:nth-child(3) { left: 94px; background: #5ce611; }
+    [data-composition-id="s02-tablas"] .tn-img { position: absolute; left: 22px; right: 22px; top: 84px; bottom: 112px; border-radius: 28px; background: #efeee5; }
+    [data-composition-id="s02-tablas"] .tn-img svg { position: absolute; left: 50%; top: 50%; width: 92%; height: 92%; transform: translate(-50%, -50%); overflow: visible; }
+    [data-composition-id="s02-tablas"] .tn-btn { position: absolute; left: 22px; right: 22px; bottom: 20px; height: 76px; border-radius: 38px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s02-tablas"] .tn-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 12px; font: 700 36px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s02-tablas"] .tn-btn .b { background: #5ce611; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-tablas"] .pan { position: absolute; left: 70px; top: 580px; width: 940px; height: 780px; }
+    [data-composition-id="s02-tablas"] .pan-lado { position: absolute; left: 18px; top: 20px; width: 100%; height: 100%; border-radius: 60px; background: #dcdacb; }
+    [data-composition-id="s02-tablas"] .pan-cara { position: absolute; inset: 0; border-radius: 60px; background: #ffffff; border: 8px solid #0b1220; }
+    [data-composition-id="s02-tablas"] .pan-rot { position: absolute; left: 0; right: 0; bottom: 34px; height: 60px; text-align: center; }
+    [data-composition-id="s02-tablas"] .pan-rot.arriba { bottom: auto; top: 34px; }
+    [data-composition-id="s02-tablas"] .pan-rot span { position: absolute; left: 50%; top: 0; transform: translateX(-50%); padding: 12px 26px; border-radius: 16px; white-space: nowrap; font: 600 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; }
+    [data-composition-id="s02-tablas"] .pan-rot .r1 { background: #dcdacb; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s02-tablas"] .pan-rot .r2 { background: #5ce611; color: #0b1220; opacity: 0; }
+
+    [data-composition-id="s02-tablas"] .win { position: absolute; left: 70px; top: 600px; width: 940px; height: 800px; }
+    [data-composition-id="s02-tablas"] .win-lado { position: absolute; left: 18px; top: 20px; width: 100%; height: 100%; border-radius: 56px; background: #dcdacb; }
+    [data-composition-id="s02-tablas"] .win-cara { position: absolute; inset: 0; border-radius: 56px; background: #ffffff; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s02-tablas"] .win-bar { position: absolute; left: 0; top: 0; right: 0; height: 96px; background: #0b1220; }
+    [data-composition-id="s02-tablas"] .win-bar i { position: absolute; top: 34px; width: 28px; height: 28px; border-radius: 50%; background: #efeee5; }
+    [data-composition-id="s02-tablas"] .win-url { position: absolute; left: 170px; right: 40px; top: 24px; height: 48px; border-radius: 24px; background: #1f3254; }
+    [data-composition-id="s02-tablas"] .win-img { position: absolute; left: 36px; right: 36px; top: 124px; height: 380px; border-radius: 36px; background: #efeee5; }
+    [data-composition-id="s02-tablas"] .win-nom { position: absolute; left: 50px; top: 536px; font: 800 58px/1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-tablas"] .win-btn { position: absolute; left: 36px; right: 36px; top: 640px; height: 120px; border-radius: 60px; background: #0b1220; overflow: hidden; opacity: 0; }
+    [data-composition-id="s02-tablas"] .win-btn span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 16px; font: 800 52px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s02-tablas"] .win-btn .b { background: #5ce611; color: #0b1220; opacity: 0; }
+    [data-composition-id="s02-tablas"] .cur { position: absolute; left: 640px; top: 1300px; width: 110px; height: 110px; opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s02-tablas" data-width="1080" data-height="1920" data-duration="2.84">
+    <div id="s02-tablas-esc" class="esc clip" data-start="0" data-duration="2.84" data-track-index="0">
+
+      <div class="win"><div class="win-lado"></div><div class="win-cara">
+        <div class="win-bar"><i style="left:34px"></i><i style="left:76px"></i><i style="left:118px;background:#5ce611"></i><div class="win-url"></div></div>
+        <div class="win-img"></div>
+        <div class="win-nom">Tabla de snowboard</div>
+        <div class="win-btn" data-layout-allow-overlap><span class="a">Comprar</span><span class="b"><svg width="60" height="60" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#0b1220"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#5ce611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Comprado</span></div>
+      </div></div>
+      <div class="obj t0" style="left:180px;top:782.79px;width:720px;height:234.42px"><svg viewBox="-430 -130 860 280" style="transform:rotate(-8deg)" aria-hidden="true">
+  <rect x="-410" y="-92" width="820" height="220" rx="110" fill="#0b1220"/>
+  <rect x="-410" y="-110" width="820" height="220" rx="110" fill="#16243d"/>
+  <rect x="-262" y="-110" width="62" height="220" fill="#5ce611"/>
+  <rect x="200" y="-110" width="62" height="220" fill="#5ce611"/>
+  <rect x="-330" y="-90" width="660" height="18" rx="9" fill="rgba(255,255,255,0.16)"/>
+  <rect x="-160" y="-78" width="112" height="156" rx="34" fill="#efeee5" stroke="#0b1220" stroke-width="8"/>
+  <rect x="48" y="-78" width="112" height="156" rx="34" fill="#efeee5" stroke="#0b1220" stroke-width="8"/>
+  <rect x="-168" y="-30" width="128" height="22" rx="8" fill="#0b1220"/><rect x="-168" y="16" width="128" height="22" rx="8" fill="#0b1220"/>
+  <rect x="40" y="-30" width="128" height="22" rx="8" fill="#0b1220"/><rect x="40" y="16" width="128" height="22" rx="8" fill="#0b1220"/></svg></div>
+      <svg class="cur" viewBox="0 0 110 110" aria-hidden="true"><path d="M20 10 L20 92 L42 72 L58 104 L74 96 L58 66 L88 64 Z" fill="#0b1220" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-tablas";
+      const DUR = 2.84;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const late = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const sacude = (s, t) => tl.to(typeof s === "string" ? qa(s) : s, { keyframes: { x: [0, -22, 20, -14, 10, 0] }, duration: 0.36, ease: "none" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      // la tabla gigante de s01 entra a la tienda online
+      tl.fromTo(q(".t0"), { x: 0, y: 210, scale: 1.39, rotation: -8, transformOrigin: "50% 50%" }, { x: 0, y: 0, scale: 1, rotation: 0, duration: 0.55, ease: "power3.inOut" }, 0);
+      tl.fromTo(q(".win"), { opacity: 0, scale: 0.85, y: 80, transformOrigin: "50% 40%" }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.4)" }, 0.15);
+      // "vender": nombre y botón
+      tl.fromTo(q(".win-nom"), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25, ease: "power3.out" }, 1.06);
+      tl.fromTo(q(".win-btn"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.7)" }, 1.26);
+      // "internet": el cursor toca Comprar
+      tl.fromTo(q(".cur"), { opacity: 0, x: 140, y: 120 }, { opacity: 1, x: 0, y: 0, duration: 0.35, ease: "power3.out" }, 1.56);
+      tl.to(q(".cur"), { scale: 0.85, transformOrigin: "20% 10%", duration: 0.08, yoyo: true, repeat: 1 }, 2.06);
+      tl.to(q(".win-btn .b"), { opacity: 1, duration: 0.12 }, 2.12);
+      late(".win-btn", 2.12, 1.04);
+      tl.to(q(".t0"), { y: -16, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.16);
+      // salida: la ventana se va, la tabla sube a su lugar de s03
+      const V = 2.54;
+      tl.to(qa(".win, .cur"), { opacity: 0, y: 120, duration: 0.28, ease: "power2.in" }, V);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

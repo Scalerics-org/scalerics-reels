@@ -1,0 +1,123 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s08-todo-el-pais"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s08-todo-el-pais"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s08-todo-el-pais"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s08-todo-el-pais"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; display: flex; align-items: center; gap: 14px; }
+    [data-composition-id="s08-todo-el-pais"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s08-todo-el-pais"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s08-todo-el-pais"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s08-todo-el-pais"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s08-todo-el-pais"] .pill.big { font-size: 52px; padding: 18px 38px 20px; }
+    [data-composition-id="s08-todo-el-pais"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s08-todo-el-pais"] .lead.g { stroke: #5ce611; } [data-composition-id="s08-todo-el-pais"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s08-todo-el-pais"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s08-todo-el-pais"] .dot.g { fill: #5ce611; } [data-composition-id="s08-todo-el-pais"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s08-todo-el-pais"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s08-todo-el-pais"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s08-todo-el-pais"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s08-todo-el-pais"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s08-todo-el-pais"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s08-todo-el-pais"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s08-todo-el-pais"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s08-todo-el-pais"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s08-todo-el-pais"] .lado { position: absolute; top: 520px; left: 0; width: 1080px; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; }
+    [data-composition-id="s08-todo-el-pais"] .lado.izq { color: #c7655b; } [data-composition-id="s08-todo-el-pais"] .lado.der { color: #5ce611; }
+    [data-composition-id="s08-todo-el-pais"] .telw { position: absolute; }
+    [data-composition-id="s08-todo-el-pais"] .tel-lado { position: absolute; left: 16px; top: 16px; right: -16px; bottom: -16px; border-radius: 70px; background: #0a1120; }
+    [data-composition-id="s08-todo-el-pais"] .tel { position: absolute; inset: 0; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s08-todo-el-pais"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 56px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s08-todo-el-pais"] .tel-notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 28px; margin-left: -60px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s08-todo-el-pais"] .mapa-n { font-family: "IBM Plex Mono"; font-weight: 500; font-size: 32px; letter-spacing: 0.08em; }
+
+    [data-composition-id="s08-todo-el-pais"] .mapa { position: absolute; left: 0; top: 0; }
+    [data-composition-id="s08-todo-el-pais"] .abierto { position: absolute; left: 540px; top: 1530px; }
+  </style>
+  <div id="root" data-composition-id="s08-todo-el-pais" data-width="1080" data-height="1920" data-duration="2.22">
+    <div id="s08-todo-el-pais-esc" class="esc clip" data-start="0" data-duration="2.22" data-track-index="0">
+
+      <svg class="full mapa" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="uy" d="M278.86 590 L350.1 604.4 L414.61 620.4 L481.81 655.6 L555.73 703.6 L622.93 759.6 L683.41 807.6 L742.54 858.8 L790.93 903.6 L851.41 967.6 L864.85 1031.6 L831.25 1079.6 L837.97 1151.6 L823.18 1207.6 L784.21 1263.6 L742.54 1305.2 L683.41 1343.6 L636.37 1354.8 L589.33 1327.6 L508.69 1340.4 L468.37 1343.6 L414.61 1319.6 L333.97 1271.6 L246.61 1274.8 L199.57 1231.6 L170 1183.6 L170 1103.6 L186.13 1058.8 L206.29 991.6 L215.7 930.8 L206.29 855.6 L230.48 782 L246.61 695.6 L250.64 631.6 Z" fill="#22365a" stroke="#efeee5" stroke-width="7" stroke-linejoin="round"/>
+        <path class="uyv" d="M278.86 590 L350.1 604.4 L414.61 620.4 L481.81 655.6 L555.73 703.6 L622.93 759.6 L683.41 807.6 L742.54 858.8 L790.93 903.6 L851.41 967.6 L864.85 1031.6 L831.25 1079.6 L837.97 1151.6 L823.18 1207.6 L784.21 1263.6 L742.54 1305.2 L683.41 1343.6 L636.37 1354.8 L589.33 1327.6 L508.69 1340.4 L468.37 1343.6 L414.61 1319.6 L333.97 1271.6 L246.61 1274.8 L199.57 1231.6 L170 1183.6 L170 1103.6 L186.13 1058.8 L206.29 991.6 L215.7 930.8 L206.29 855.6 L230.48 782 L246.61 695.6 L250.64 631.6 Z" fill="#5ce611" opacity="0"/>
+        <path class="ray r0" d="M469.71 1334 L457.62 1282.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r1" d="M469.71 1334 L399.82 1254" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r2" d="M469.71 1334 L467.02 1215.6" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r3" d="M469.71 1334 L597.39 1258.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r4" d="M469.71 1334 L636.37 1340.4" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r5" d="M469.71 1334 L256.02 1270" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r6" d="M469.71 1334 L374.29 1122.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r7" d="M469.71 1334 L425.36 1100.4" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r8" d="M469.71 1334 L719.7 1276.4" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r9" d="M469.71 1334 L229.14 1079.6" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r10" d="M469.71 1334 L712.98 1076.4" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r11" d="M469.71 1334 L202.26 1058.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r12" d="M469.71 1334 L230.48 930.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r13" d="M469.71 1334 L737.17 938.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r14" d="M469.71 1334 L497.94 833.2" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r15" d="M469.71 1334 L245.26 782" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r16" d="M469.71 1334 L554.38 706.8" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/><path class="ray r17" d="M469.71 1334 L432.08 631.6" stroke="#5ce611" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+        <circle class="cap c0" cx="457.62" cy="1282.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c1" cx="399.82" cy="1254" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c2" cx="467.02" cy="1215.6" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c3" cx="597.39" cy="1258.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c4" cx="636.37" cy="1340.4" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c5" cx="256.02" cy="1270" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c6" cx="374.29" cy="1122.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c7" cx="425.36" cy="1100.4" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c8" cx="719.7" cy="1276.4" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c9" cx="229.14" cy="1079.6" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c10" cx="712.98" cy="1076.4" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c11" cx="202.26" cy="1058.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c12" cx="230.48" cy="930.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c13" cx="737.17" cy="938.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c14" cx="497.94" cy="833.2" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c15" cx="245.26" cy="782" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c16" cx="554.38" cy="706.8" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/><circle class="cap c17" cx="432.08" cy="631.6" r="17" fill="#5ce611" stroke="#0b1220" stroke-width="5"/>
+        <circle class="anillo" cx="469.71" cy="1334" r="40" fill="none" stroke="#5ce611" stroke-width="8" opacity="0"/>
+        <g class="tienda"><circle cx="469.71" cy="1334" r="34" fill="#5ce611" stroke="#0b1220" stroke-width="7"/><path d="M454.71 1330 H484.71 L480.71 1348 H458.71 Z" fill="#0b1220"/></g>
+      </svg>
+      <div class="pill lleno big n1" style="left:540px;top:1530px">Abierta en todo el país</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s08-todo-el-pais";
+      const DUR = 2.22;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      tl.fromTo(q(".mapa"), { opacity: 0, scale: 0.92, transformOrigin: "540px 1000px" }, { opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" }, 0);
+      pop(".tienda", 0.15, 0.3, 0.3);
+      // "abre": onda desde la tienda
+      tl.fromTo(q(".anillo"), { opacity: 0.9, scale: 1, svgOrigin: "469.71 1334" }, { opacity: 0, scale: 4, duration: 0.7, ease: "power2.out" }, 0.5);
+      // "en todo el país": rayos a cada capital
+      dibujar(".r0", 0.55, 0.28);
+      dibujar(".r1", 0.6, 0.28);
+      dibujar(".r2", 0.64, 0.28);
+      dibujar(".r3", 0.69, 0.28);
+      dibujar(".r4", 0.73, 0.28);
+      dibujar(".r5", 0.78, 0.28);
+      dibujar(".r6", 0.82, 0.28);
+      dibujar(".r7", 0.87, 0.28);
+      dibujar(".r8", 0.91, 0.28);
+      dibujar(".r9", 0.96, 0.28);
+      dibujar(".r10", 1, 0.28);
+      dibujar(".r11", 1.05, 0.28);
+      dibujar(".r12", 1.09, 0.28);
+      dibujar(".r13", 1.14, 0.28);
+      dibujar(".r14", 1.18, 0.28);
+      dibujar(".r15", 1.23, 0.28);
+      dibujar(".r16", 1.27, 0.28);
+      dibujar(".r17", 1.32, 0.28);
+      pop(".c0", 0.75, 0.24, 0.2);
+      pop(".c1", 0.8, 0.24, 0.2);
+      pop(".c2", 0.84, 0.24, 0.2);
+      pop(".c3", 0.89, 0.24, 0.2);
+      pop(".c4", 0.93, 0.24, 0.2);
+      pop(".c5", 0.98, 0.24, 0.2);
+      pop(".c6", 1.02, 0.24, 0.2);
+      pop(".c7", 1.07, 0.24, 0.2);
+      pop(".c8", 1.11, 0.24, 0.2);
+      pop(".c9", 1.16, 0.24, 0.2);
+      pop(".c10", 1.2, 0.24, 0.2);
+      pop(".c11", 1.25, 0.24, 0.2);
+      pop(".c12", 1.29, 0.24, 0.2);
+      pop(".c13", 1.34, 0.24, 0.2);
+      pop(".c14", 1.38, 0.24, 0.2);
+      pop(".c15", 1.42, 0.24, 0.2);
+      pop(".c16", 1.47, 0.24, 0.2);
+      pop(".c17", 1.52, 0.24, 0.2);
+      tl.to(q(".uyv"), { opacity: 0.18, duration: 0.4 }, 1.2);
+      pop(".n1", 1.05);
+      tl.fromTo(q(".mapa"), { scale: 1 }, { scale: 1.04, transformOrigin: "540px 1000px", duration: 1.6, ease: "sine.inOut", immediateRender: false }, 0.4);
+      salida(2.08);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

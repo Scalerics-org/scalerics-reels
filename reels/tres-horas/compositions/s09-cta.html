@@ -1,0 +1,106 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-cta"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-cta"] .verde { position: absolute; inset: 0; background: #5ce611; }
+    [data-composition-id="s09-cta"] .pie { position: absolute; left: 360px; top: 1718px; width: 360px; height: 96px; border-radius: 48px; background: #0b1220; }
+    [data-composition-id="s09-cta"] .full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s09-cta"] .L { position: absolute; left: 0; right: 0; text-align: center; font-family: "Lexend", sans-serif; text-transform: uppercase; line-height: 1; white-space: nowrap; letter-spacing: -0.03em; font-weight: 800; color: #ffffff; }
+    [data-composition-id="s09-cta"] .L.cr { color: #efeee5; }
+    [data-composition-id="s09-cta"] .L.g { color: #5ce611; }
+    [data-composition-id="s09-cta"] .L.n { color: #0b1220; }
+    [data-composition-id="s09-cta"] .L.x9 { font-weight: 900; }
+    [data-composition-id="s09-cta"] .sel { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #5ce611; color: #0b1220; }
+    [data-composition-id="s09-cta"] .seln { display: inline-block; padding: 0.04em 0.16em 0.08em; border-radius: 0.12em; background: #0b1220; color: #5ce611; }
+    [data-composition-id="s09-cta"] .rojo { color: #c7655b; }
+    [data-composition-id="s09-cta"] .rel { position: absolute; border-radius: 40px; background: #16243d; border: 8px solid #2c4268; box-shadow: 0 18px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s09-cta"] .rel .ana { position: absolute; overflow: visible; }
+    [data-composition-id="s09-cta"] .rel .dig { position: absolute; top: -8px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 900; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+    [data-composition-id="s09-cta"] .rel .dig span { position: absolute; left: 0; right: 0; top: 0; }
+    [data-composition-id="s09-cta"] .bar { position: absolute; height: 22px; border-radius: 11px; background: #1f3254; overflow: hidden; }
+    [data-composition-id="s09-cta"] .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; border-radius: 11px; background: #c7655b; transform-origin: 0% 50%; }
+    [data-composition-id="s09-cta"] .barl { position: absolute; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; color: #7c8698; letter-spacing: 0.08em; }
+    [data-composition-id="s09-cta"] .fant { position: absolute; left: 70px; width: 940px; border-radius: 26px; border: 6px dashed #2c4268; }
+    [data-composition-id="s09-cta"] .fila { position: absolute; left: 70px; width: 940px; border-radius: 26px; background: #3a2027; border: 6px solid #c7655b; box-shadow: 0 12px 0 rgba(3,6,12,0.55); }
+    [data-composition-id="s09-cta"] .fila .chk { position: absolute; left: 30px; width: 56px; height: 56px; border-radius: 50%; border: 7px solid #c7655b; box-sizing: border-box; }
+    [data-composition-id="s09-cta"] .fila .okt { position: absolute; left: 26px; width: 64px; height: 64px; }
+    [data-composition-id="s09-cta"] .fila .txt { position: absolute; left: 116px; top: -2px; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 48px; color: #ffffff; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s09-cta"] .fila .tag { position: absolute; right: 24px; width: 150px; height: 58px; border-radius: 29px; border: 5px solid #c7655b; box-sizing: border-box; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 30px; line-height: 48px; text-align: center; letter-spacing: 0.14em; color: #c7655b; }
+    [data-composition-id="s09-cta"] .fila .tag.solo { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s09-cta"] .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+    [data-composition-id="s09-cta"] .l1 { top: 380px; font-size: 110px; font-weight: 900; }
+    [data-composition-id="s09-cta"] .l2 { top: 500px; font-size: 92px; }
+    [data-composition-id="s09-cta"] .l3 { top: 1070px; font-size: 118px; font-weight: 900; }
+    [data-composition-id="s09-cta"] .l4 { top: 1190px; font-size: 200px; font-weight: 900; }
+    [data-composition-id="s09-cta"] .web { position: absolute; left: 70px; top: 1430px; width: 940px; height: 150px; border-radius: 75px; background: #0b1220; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 104px; line-height: 146px; color: #5ce611; letter-spacing: -0.02em; }
+  </style>
+  <div id="root" data-composition-id="s09-cta" data-width="1080" data-height="1920" data-duration="7.93">
+    <div id="s09-cta-fondo" class="verde clip" data-start="0" data-duration="7.93" data-track-index="0"></div><div id="s09-cta-pie" class="pie clip" data-start="0" data-duration="7.93" data-track-index="1"></div>
+    <div id="s09-cta-escena" class="esc clip" data-start="0" data-duration="7.93" data-track-index="2">
+
+      <div class="L n l1">¿Qué tarea</div>
+      <div class="L n l2">te sacás primero?</div>
+      <svg class="full vc" viewBox="0 0 1080 1920" aria-hidden="true">
+        <rect x="150" y="640" width="800" height="390" rx="34" fill="rgba(11,18,32,0.35)" transform="translate(14 16)"/>
+        <rect x="150" y="640" width="800" height="390" rx="34" fill="#0b1220"/>
+        <rect x="180" y="690" width="360" height="320" rx="20" fill="#1f3254"/>
+        <rect x="560" y="690" width="360" height="320" rx="20" fill="#1f3254"/>
+        <circle cx="360" cy="880" r="56" fill="#efeee5"/><path d="M250 1010 Q250 950 360 950 Q470 950 470 1010 Z" fill="#efeee5"/><circle cx="740" cy="880" r="56" fill="#5ce611"/><path d="M630 1010 Q630 950 740 950 Q850 950 850 1010 Z" fill="#5ce611"/>
+        <circle class="vivo" cx="196" cy="664" r="10" fill="#5ce611"/>
+        <rect x="216" y="656" width="120" height="16" rx="8" fill="#1f3254"/>
+      </svg>
+      <div class="L n l3">Videollamada</div>
+      <div class="L n l4">gratis</div>
+      <div class="web">scalerics.com</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-cta";
+      const DUR = 7.93;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => (typeof s === "string" ? Array.from(root.querySelectorAll(s)) : [s]);
+      const tl = gsap.timeline({ paused: true });
+      const golpe = (s, t, desde = 1.45, d = 0.2) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "power4.out", immediateRender: false }, t); };
+      const sube = (s, t, y = 90, d = 0.32) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, y }, { opacity: 1, y: 0, duration: d, ease: "back.out(1.7)", immediateRender: false }, t); };
+      const pop = (s, t, desde = 0.4, d = 0.34) => { const e = qa(s); gsap.set(e, { opacity: 0 }); tl.fromTo(e, { opacity: 0, scale: desde }, { opacity: 1, scale: 1, duration: d, ease: "back.out(2)", immediateRender: false }, t); };
+      const sale = (s, t, d = 0.16) => tl.to(qa(s), { opacity: 0, y: -60, filter: "blur(6px)", duration: d, ease: "power2.in" }, t);
+      const dibujar = (s, t, d = 0.4) => qa(s).forEach((el) => {
+        const L = el.getTotalLength ? el.getTotalLength() : 1000;
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: d, ease: "power2.inOut" }, t);
+      });
+      const sacude = (s, t, n = 3, a = 8) => { for (let i = 0; i < n; i++) tl.to(q(s), { x: i % 2 ? -a : a, duration: 0.04, ease: "none" }, t + i * 0.045); tl.to(q(s), { x: 0, duration: 0.05 }, t + n * 0.045); };
+      // reloj: pasa de la hora i-1 a la i en el segundo ts[i-1] (la .h0 ya está)
+      const horas = (sel, ts) => {
+        qa(sel + " .dig span").forEach((e, i) => gsap.set(e, { opacity: i ? 0 : 1 }));
+        ts.forEach((t, k) => {
+          const i = k + 1;
+          tl.to(q(sel + " .h" + (i - 1)), { opacity: 0, y: -50, duration: 0.12, ease: "power2.in" }, t);
+          tl.fromTo(q(sel + " .h" + i), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t + 0.06);
+        });
+      };
+
+      golpe(".l1", 0, 1.25);
+      sube(".l2", 0.36 - 0.05, 50, 0.26);
+      gsap.set(q(".vc"), { opacity: 0 });
+      tl.fromTo(q(".vc"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, transformOrigin: "540px 835px", duration: 0.36, ease: "back.out(1.7)", immediateRender: false }, 1.83 - 0.1);
+      golpe(".l3", 2.36 - 0.08, 1.4);
+      golpe(".l4", 2.66 - 0.08, 1.5);
+      gsap.set(q(".web"), { opacity: 0 });
+      tl.fromTo(q(".web"), { opacity: 0, y: 80, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.34, ease: "back.out(1.8)", immediateRender: false }, 3.66 - 0.1);
+      tl.to(q(".vivo"), { opacity: 0.25, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 0.6);
+      tl.to(q(".web"), { scale: 1.04, duration: 0.6, yoyo: true, repeat: 3, ease: "sine.inOut" }, 3.66 + 0.6);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+
+    })();
+  </script>
+</template>

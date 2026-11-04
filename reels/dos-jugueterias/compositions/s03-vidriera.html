@@ -1,0 +1,121 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-vidriera"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-vidriera"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-vidriera"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s03-vidriera"] .pill { position: absolute; padding: 14px 30px 15px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 40px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; display: flex; align-items: center; gap: 14px; }
+    [data-composition-id="s03-vidriera"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s03-vidriera"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-vidriera"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s03-vidriera"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; font-weight: 700; }
+    [data-composition-id="s03-vidriera"] .pill.big { font-size: 52px; padding: 18px 38px 20px; }
+    [data-composition-id="s03-vidriera"] .lead { fill: none; stroke: #efeee5; stroke-width: 6; stroke-linecap: round; }
+    [data-composition-id="s03-vidriera"] .lead.g { stroke: #5ce611; } [data-composition-id="s03-vidriera"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s03-vidriera"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s03-vidriera"] .dot.g { fill: #5ce611; } [data-composition-id="s03-vidriera"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s03-vidriera"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s03-vidriera"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-vidriera"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-vidriera"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-vidriera"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s03-vidriera"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s03-vidriera"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s03-vidriera"] .selbox .k4 { right: -13px; bottom: -13px; }
+    [data-composition-id="s03-vidriera"] .lado { position: absolute; top: 520px; left: 0; width: 1080px; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.22em; }
+    [data-composition-id="s03-vidriera"] .lado.izq { color: #c7655b; } [data-composition-id="s03-vidriera"] .lado.der { color: #5ce611; }
+    [data-composition-id="s03-vidriera"] .telw { position: absolute; }
+    [data-composition-id="s03-vidriera"] .tel-lado { position: absolute; left: 16px; top: 16px; right: -16px; bottom: -16px; border-radius: 70px; background: #0a1120; }
+    [data-composition-id="s03-vidriera"] .tel { position: absolute; inset: 0; border-radius: 70px; background: #efeee5; }
+    [data-composition-id="s03-vidriera"] .tel-pan { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 56px; background: #0b1220; overflow: hidden; }
+    [data-composition-id="s03-vidriera"] .tel-notch { position: absolute; left: 50%; top: 26px; width: 120px; height: 28px; margin-left: -60px; border-radius: 14px; background: #efeee5; }
+    [data-composition-id="s03-vidriera"] .mapa-n { font-family: "IBM Plex Mono"; font-weight: 500; font-size: 32px; letter-spacing: 0.08em; }
+
+    [data-composition-id="s03-vidriera"] .cartel { position: absolute; left: 528px; top: 1100px; width: 420px; padding: 26px 26px 30px; border-radius: 26px; background: #efeee5; border: 7px solid #c7655b; text-align: center; opacity: 0; box-shadow: 14px 14px 0 rgba(0,0,0,0.35); }
+    [data-composition-id="s03-vidriera"] .cartel b { display: block; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #c7655b; margin-bottom: 14px; }
+    [data-composition-id="s03-vidriera"] .cartel span { display: block; font: 800 50px/1.08 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s03-vidriera"] .hilo { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-vidriera" data-width="1080" data-height="1920" data-duration="4.72">
+    <div id="s03-vidriera-esc" class="esc clip" data-start="0" data-duration="4.72" data-track-index="0">
+
+      <div class="lado izq">TRENCITO · SIN TIENDA ONLINE</div>
+      <svg class="full fac" viewBox="0 0 1080 1920" aria-hidden="true">
+        <g transform="translate(162 -584) scale(1.4)"><g class="fz">
+    <rect x="55" y="960" width="430" height="600" fill="#0f1a2e" stroke="#8a96ab" stroke-width="7" stroke-linejoin="round"/>
+    <rect x="70" y="820" width="400" height="104" rx="18" fill="#22365a" stroke="#8a96ab" stroke-width="7"/>
+    <text x="270" y="891" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="56" fill="#8a96ab" letter-spacing="3">TRENCITO</text>
+    <path d="M150 924 V960 M390 924 V960" stroke="#8a96ab" stroke-width="7" stroke-linecap="round"/>
+    <g class="toldo"><path d="M55 960 H126.66666666666667 V1000 A35.833333333333336 27.564102564102566 0 0 1 55 1000 Z" fill="#4a5873"/><path d="M126.66666666666667 960 H198.33333333333334 V1000 A35.833333333333336 27.564102564102566 0 0 1 126.66666666666667 1000 Z" fill="#22365a"/><path d="M198.33333333333334 960 H270 V1000 A35.833333333333336 27.564102564102566 0 0 1 198.33333333333334 1000 Z" fill="#4a5873"/><path d="M270 960 H341.6666666666667 V1000 A35.833333333333336 27.564102564102566 0 0 1 270 1000 Z" fill="#22365a"/><path d="M341.6666666666667 960 H413.33333333333337 V1000 A35.833333333333336 27.564102564102566 0 0 1 341.6666666666667 1000 Z" fill="#4a5873"/><path d="M413.33333333333337 960 H485.00000000000006 V1000 A35.833333333333336 27.564102564102566 0 0 1 413.33333333333337 1000 Z" fill="#22365a"/><path d="M55 960 H485" stroke="#8a96ab" stroke-width="7" stroke-linecap="round"/></g>
+    <rect class="vid" x="78" y="1090" width="256" height="320" rx="12" fill="#0f1a2e" stroke="#8a96ab" stroke-width="7"/>
+    
+    <g class="jug">
+      <g transform="translate(142 1322) scale(0.95)">
+    <circle cx="-30" cy="-62" r="17" fill="#8a96ab"/><circle cx="30" cy="-62" r="17" fill="#8a96ab"/>
+    <ellipse cx="0" cy="22" rx="46" ry="48" fill="#8a96ab"/><circle cx="0" cy="-40" r="38" fill="#8a96ab"/>
+    <ellipse cx="0" cy="-30" rx="15" ry="11" fill="#0f1a2e" opacity="0.35"/>
+    <circle cx="-13" cy="-46" r="5.5" fill="#0f1a2e"/><circle cx="13" cy="-46" r="5.5" fill="#0f1a2e"/><circle cx="0" cy="-34" r="6" fill="#0f1a2e"/>
+    <ellipse cx="0" cy="30" rx="24" ry="22" fill="#0f1a2e" opacity="0.18"/></g>
+      <g><circle cx="274" cy="1354" r="44" fill="#8a96ab"/><path d="M230 1354 Q274 1329.8 318 1354 L318 1354.001 Q274 1378.2 230 1354 Z" fill="#4a5873"/><circle cx="258.6" cy="1336.4" r="7.92" fill="#fff" opacity="0.5"/></g>
+      <g><rect x="220" y="1140" width="70" height="70" rx="8" fill="#8a96ab"/><text x="255" y="1190.4" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="43.4" fill="#0b1220">A</text></g>
+      <g><rect x="120" y="1140" width="70" height="70" rx="8" fill="#4a5873"/><text x="155" y="1190.4" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="43.4" fill="#efeee5">B</text></g>
+      <path d="M84 1392 H330" stroke="#8a96ab" stroke-width="6"/>
+    </g>
+    <rect class="puerta" x="354" y="1110" width="116" height="450" rx="8" fill="#22365a" stroke="#8a96ab" stroke-width="7"/>
+    <rect x="372" y="1136" width="80" height="170" rx="6" fill="#0f1a2e" stroke="#8a96ab" stroke-width="5"/>
+    <circle cx="450" cy="1350" r="9" fill="#8a96ab"/>
+  </g></g>
+      </svg>
+      <svg class="full hilo" viewBox="0 0 1080 1920" aria-hidden="true">
+        <path class="hl" d="M640 1104 L738 1030 L836 1104" stroke="#c7655b" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="cartel"><b>AVISO</b><span>Se compra solo en el local</span></div>
+      <div class="pill  n1" style="left:290px;top:1690px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#efeee5"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Linda vidriera</div>
+      <div class="pill  n2" style="left:790px;top:1690px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#efeee5"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Buena atención</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-vidriera";
+      const DUR = 4.72;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+      const temblor = (s, t) => tl.fromTo(typeof s === "string" ? q(s) : s, { x: 0 }, { x: 12, duration: 0.05, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+
+
+      gsap.set(q(".lado"), { opacity: 0 });
+      tl.fromTo(q(".fac"), { opacity: 0, scale: 0.85, transformOrigin: "540px 1500px" }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      tl.to(q(".lado"), { opacity: 1, duration: 0.3 }, 0.2);
+      // "linda vidriera": se iluminan los juguetes
+      tl.fromTo(q(".fac .jug"), { y: 0 }, { y: -14, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut", immediateRender: false }, 1.0);
+      pop(".n1", 1.3);
+      // "buena atención"
+      pop(".n2", 2.25);
+      // push-in a la puerta
+      tl.to(q(".lado"), { opacity: 0, duration: 0.2 }, 2.6);
+      tl.to(q(".fac"), { scale: 1.08, transformOrigin: "760px 1300px", duration: 1.2, ease: "power2.inOut" }, 2.6);
+      // "Pero se compra solo en el local": el cartel cuelga de la puerta
+      dibujar(".hl", 3.2, 0.2);
+      tl.fromTo(q(".cartel"), { opacity: 0, y: -60, rotation: -8, transformOrigin: "50% 0%" }, { opacity: 1, y: 0, rotation: 0, duration: 0.45, ease: "back.out(2)" }, 3.3);
+      tl.fromTo(q(".cartel"), { rotation: 0 }, { rotation: 3, transformOrigin: "50% 0%", duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, 3.8);
+      tl.to(qa(".n1, .n2"), { opacity: 0.4, duration: 0.3 }, 3.5);
+      salida(4.5);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
