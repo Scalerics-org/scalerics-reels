@@ -385,12 +385,15 @@ dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo de
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
-## Cuántos por corrida: 2, en paralelo
+## Cuántos por corrida: 2 reels, con un equipo entero para cada uno
 
-Cada corrida de la rutina hace **2 reels** a la vara de `reels/caso-pedidosya` (punto 8c). Juan, 04-11:
-"mejor calidad que cantidad" (antes eran 5 por corrida, 25 por noche). Con las 5 corridas de la noche
-salen ~10. Las reglas que dicen "por tanda de 5" se cuentan **por noche**: mirá en "Hechos" lo que
-ya hicieron las corridas anteriores de la misma noche antes de elegir. Vos sos el coordinador:
+Cada corrida hace **2 reels** a la vara de `reels/caso-pedidosya` (punto 8c), **con el mismo esfuerzo
+que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
+mejor calidad: la idea es que use la misma cantidad de muchísimo esfuerzo que usaba para hacer 25
+videos, pero para hacer menos". O sea: **no ahorres agentes ni pasadas**, repartilos en menos reels.
+Con las 5 corridas de la noche salen ~10. Las reglas que dicen "por tanda de 5" se cuentan **por
+noche**: mirá en "Hechos" lo que ya hicieron las corridas anteriores de la misma noche. Vos sos el
+coordinador, y cada reel pasa por un equipo, no por un solo subagente:
 
 1. Elegí los 2 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 2 juntos en `ideas.md`, en un
    solo commit y push a `main`. **Productos** (Juan, 29-10: "que cubra más temas: automatizaciones,
@@ -399,18 +402,38 @@ ya hicieron las corridas anteriores de la misma noche antes de elegir. Vos sos e
    consejos de gestión para pymes (ver "LO PRIMERO", 02-11). **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de
    los puntos en todos los videos cansa"), en lugar de uno de los otros. Mirá las últimas tandas en
    "Hechos" para no repetir ángulos ni temas.
-2. Lanzá 2 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
-   vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
-   de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y
-   qué quedó flojo. Un subagente no puede lanzar otros: sus escenas las hace él, en orden.
-3. **Chrome es de a uno.** La máquina tiene 4 CPU y 15 GB: todo comando que abre Chrome
+2. **Guion e investigación (2 subagentes a la vez, uno por reel).** Cada uno verifica los hechos
+   con WebSearch (dos fuentes por dato, `fuentes.md`), escribe 3 ganchos distintos y elige el más
+   fuerte diciendo por qué, arma el guion (60-90 palabras, desenlace primero, cierre con callback al
+   caso, punto 8c) y la lista de objetos 3D por escena. Pasos 1-2 de "El proceso" y el SPEC (paso 5).
+3. **Construcción (2 subagentes a la vez, uno por reel).** Con el guion aprobado por vos: voz,
+   tiempos, `armar.mjs`, la escena 3D (`tres.js`, puntos 8b y 8c) y las capas HTML, `check` sin
+   errores y una primera pasada de snapshots. Pasos 3-9. Sin renderizar ni commitear.
+4. **Revisión independiente (6 subagentes a la vez: 3 por reel, ninguno es el que lo construyó).**
+   Cada uno arranca de cero, mira el reel y devuelve una lista de defectos con el segundo exacto;
+   no arreglan nada, solo informan:
+   - **Director de arte:** snapshots cada 0,5 s; cortado, pisado, chico, vacío, repetido, ilegible,
+     objeto que no se reconoce ("¿esto es un chivito o una hamburguesa?"), transición floja.
+   - **Sonido y ritmo:** mide la mezcla por tramos (voz ≥ 6 LU sobre el resto, -14 LUFS, sin
+     clipping), SFX que falten en acciones visibles, escenas de más de 3 s, cierre de más de 3 s,
+     subtítulos mal cortados o grises, que el "oyó:" coincida con el guion.
+   - **Guion y datos:** cada afirmación contra `fuentes.md`, que el cierre se conecte con la historia
+     y no sea "medio random", gancho en el cuadro 0, nada de logos ni colores de marcas, nada que
+     compare o se presente como competencia de una empresa real, voseo y plural.
+5. **Corrección.** Retomá al constructor de cada reel (SendMessage, conserva su contexto) con la
+   lista entera de los 3 revisores. Cuando termine, **otra ronda de revisión** (paso 4) y otra de
+   corrección, hasta que el director de arte no encuentre nada o hasta 3 rondas. Si después de 3
+   rondas sigue sin llegar a la vara, va a "En curso" con lo que falta, no se publica.
+6. **Chrome es de a uno.** La máquina tiene 4 CPU y 15 GB: todo comando que abre Chrome
    (`snapshot`, `check`, `render`) va con candado, y decíselo así a cada subagente:
    `flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 snapshot ...`
-   (lo mismo para `check`). La voz y los tiempos sí pueden ir en paralelo.
-4. Cuando vuelvan los 2, hacé vos el paso 10 (render, con el mismo candado) y el 11 de cada uno,
-   de a uno. Si un subagente no terminó, entregá lo que haya en su rama `reel/<slug>` y dejalo en
-   "En curso" con la nota de qué falta: la próxima corrida lo termina antes de arrancar nuevos.
-5. La notificación final lista los 2 ganchos y sus ramas.
+   (lo mismo para `check`). La voz, los tiempos, las búsquedas y la lectura de código sí pueden ir
+   en paralelo.
+7. Cuando los 2 pasen la revisión, hacé vos el paso 10 (render, con el mismo candado) y el 11 de cada
+   uno, de a uno. Revisor de arte una última vez sobre el render final (no sobre el preview). Si un
+   reel no terminó, entregá lo que haya en su rama `reel/<slug>` y dejalo en "En curso" con la nota
+   de qué falta: la próxima corrida lo termina antes de arrancar nuevos.
+8. La notificación final lista los 2 ganchos, sus ramas y cuántas rondas de revisión llevó cada uno.
 
 ## El proceso
 
