@@ -207,6 +207,11 @@
 - 04-11 · `black-friday-caos` · Tienda online · "Black Friday: tu mejor noche de ventas. Y tu peor noche de pedidos." Caos → control con fecha del calendario: tarjetas de pedido de Instagram, WhatsApp y mostrador que caen al cuaderno, la última campera talle M vendida dos veces, stock a ojo y la planilla a la una; giro en verde: vender mucho está bárbaro, el problema es anotarlo a mano; tienda online que descuenta stock sola (también la del local), cobra con Mercado Pago, arma el envío y deja el panel del día en verde: "a la una de la mañana estás durmiendo" · Videollamada gratis en scalerics.com [formato caos → control + H Black Friday · tipografía gigante + interfaz recreada, navy oscuro #0b1220 con verde de marca solo en giro y cierre]
 
 ## En curso
+- 04-11 · `caso-airbnb` · tanda 04-11 (4ª) · caso de éxito (explicador) · Sitio web / tienda (fotos que venden) · gancho: Airbnb no despegaba y los fundadores salieron con una cámara · fondo navy oscuro #0b1220
+- 04-11 · `caso-toyota` · tanda 04-11 (4ª) · caso de éxito (explicador) · Automatizaciones (pedido a proveedores con stock mínimo, kanban) · fondo navy claro #16243d
+- 04-11 · `por-que-concurrido` · tanda 04-11 (4ª) · explicador ¿Por qué? · Sistema a medida (ventas por hora, equipo en los horarios justos) · gancho: ¿Por qué Google Maps sabe a qué hora está lleno un local? · celular a pantalla completa
+- 04-11 · `dos-ferreterias` · tanda 04-11 (4ª) · Dos negocios · CRM (presupuestos que se siguen) · fondo crema #efeee5 con líneas navy y verde
+- 04-11 · `sabado-mediodia` · tanda 04-11 (4ª) · rutina + punto de dolor (motion) · Agente de IA (pedidos por WhatsApp de una rotisería directo a la cocina) · navy oscuro con cierre en verde de marca
 
 
 
