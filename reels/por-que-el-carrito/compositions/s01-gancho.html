@@ -1,0 +1,127 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] * { box-sizing: border-box; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s01-gancho"] .tel-sh { position: absolute; left: 212px; top: 584px; width: 700px; height: 1140px; border-radius: 100px; background: #03060c; }
+    [data-composition-id="s01-gancho"] .tel { position: absolute; left: 190px; top: 560px; width: 700px; height: 1140px; border-radius: 100px; background: #1f3254; border: 10px solid #efeee5; }
+    [data-composition-id="s01-gancho"] .pan { position: absolute; left: 16px; top: 16px; width: 648px; height: 1088px; border-radius: 76px; background: #efeee5; overflow: hidden; }
+    [data-composition-id="s01-gancho"] .notch { position: absolute; left: 254px; top: 22px; width: 140px; height: 38px; border-radius: 19px; background: #0b1220; }
+    [data-composition-id="s01-gancho"] .scr { position: absolute; left: 0; top: 0; width: 648px; height: 1088px; }
+    [data-composition-id="s01-gancho"] .hora { position: absolute; left: 64px; top: 24px; font: 600 30px/1 "Lexend", sans-serif; }
+    [data-composition-id="s01-gancho"] .ca-tit { position: absolute; left: 44px; top: 100px; font: 800 64px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.03em; }
+    [data-composition-id="s01-gancho"] .ca-ic { position: absolute; left: 500px; top: 86px; width: 100px; height: 100px; }
+    [data-composition-id="s01-gancho"] .ca-ic svg { position: absolute; left: 0; top: 4px; }
+    [data-composition-id="s01-gancho"] .ca-ic b { position: absolute; left: 62px; top: -6px; width: 46px; height: 46px; border-radius: 23px; background: #5ce611; border: 4px solid #0b1220; font: 800 26px/38px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s01-gancho"] .ca-card { position: absolute; left: 36px; top: 210px; width: 576px; height: 400px; border-radius: 44px; background: #ffffff; border: 6px solid #0b1220; }
+    [data-composition-id="s01-gancho"] .ca-zapa { position: absolute; left: 32px; top: 70px; }
+    [data-composition-id="s01-gancho"] .ca-nom { position: absolute; left: 44px; top: 640px; font: 700 46px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .ca-sub { position: absolute; left: 46px; top: 704px; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(11,18,32,0.6); }
+    [data-composition-id="s01-gancho"] .ca-row { position: absolute; left: 44px; width: 560px; height: 70px; display: flex; justify-content: space-between; align-items: center; font: 600 38px/1 "Lexend", sans-serif; color: #0b1220; border-top: 4px solid rgba(11,18,32,0.14); }
+    [data-composition-id="s01-gancho"] .ca-row.r1 { top: 762px; } [data-composition-id="s01-gancho"] .ca-row.r2 { top: 836px; }
+    [data-composition-id="s01-gancho"] .ca-btn { position: absolute; left: 36px; top: 940px; width: 576px; height: 112px; border-radius: 56px; background: #5ce611; border: 6px solid #0b1220; font: 800 46px/100px "Lexend", sans-serif; color: #0b1220; text-align: center; }
+    [data-composition-id="s01-gancho"] .noti { position: absolute; left: 24px; top: 82px; width: 600px; height: 250px; border-radius: 44px; background: #ffffff; border: 6px solid #0b1220; box-shadow: 0 14px 0 rgba(3,6,12,0.35); opacity: 0; }
+    [data-composition-id="s01-gancho"] .noti .ic { position: absolute; left: 26px; top: 64px; width: 120px; height: 120px; border-radius: 30px; background: #5ce611; }
+    [data-composition-id="s01-gancho"] .noti .ic svg { position: absolute; left: 24px; top: 24px; }
+    [data-composition-id="s01-gancho"] .noti .t0 { position: absolute; left: 172px; top: 32px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s01-gancho"] .noti .t1 { position: absolute; left: 172px; top: 72px; width: 400px; font: 800 44px/1.05 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s01-gancho"] .noti .t2 { position: absolute; left: 172px; top: 184px; font: 500 32px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; padding: 16px 34px 17px; border: 6px solid #efeee5; border-radius: 999px; background: #0b1220; font: 700 42px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 10px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s01-gancho"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s01-gancho"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s01-gancho"] .pill.rl { background: #c7655b; border-color: #0b1220; color: #fff; font-weight: 800; }
+    [data-composition-id="s01-gancho"] .pill svg { vertical-align: -6px; margin-left: 10px; }
+    [data-composition-id="s01-gancho"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s01-gancho"] .lead.g { stroke: #5ce611; } [data-composition-id="s01-gancho"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s01-gancho"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s01-gancho"] .dot.g { fill: #5ce611; } [data-composition-id="s01-gancho"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s01-gancho"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.14); opacity: 0; }
+    [data-composition-id="s01-gancho"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s01-gancho"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s01-gancho"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s01-gancho"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s01-gancho"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s01-gancho"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s01-gancho"] .selbox .k4 { right: -14px; bottom: -14px; }
+
+    [data-composition-id="s01-gancho"] .tit { position: absolute; left: 0; right: 0; top: 108px; text-align: center; font: 800 110px/1.0 "Lexend", sans-serif; color: #fff; letter-spacing: -0.04em; }
+    [data-composition-id="s01-gancho"] .tit .v { color: #5ce611; display: inline-block; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.49">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.49" data-track-index="0">
+
+      <div class="telw"><div class="tel-sh"></div><div class="tel"><div class="pan">
+        <div class="scr carrito"><div class="hora" style="color:#0b1220">21:40</div>
+          <div class="ca-tit">Tu carrito</div>
+          <div class="ca-ic"><svg width="84" height="84" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 18 H22 L34 64 H80 L90 30 H27" fill="none" stroke="#0b1220" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="82" r="8" fill="#0b1220"/><circle cx="74" cy="82" r="8" fill="#0b1220"/></svg><b>1</b></div>
+          <div class="ca-card"><div class="ca-zapa">
+<svg class="zapa" width="500" height="282.61" viewBox="0 0 460 260" aria-hidden="true">
+  <path d="M24 198 Q18 128 70 116 L168 90 Q194 46 236 56 Q264 62 278 96 L302 126 Q394 130 434 166 Q454 184 448 204 L24 204 Z" fill="#5ce611"/>
+  <path d="M302 126 Q394 130 434 166 Q454 184 448 204 L336 204 Q344 158 302 126 Z" fill="#3fa60a"/>
+  <path d="M24 198 Q18 140 52 122 L64 198 Z" fill="#3fa60a"/>
+  <path d="M74 156 Q160 140 236 176" stroke="#efeee5" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <path d="M186 86 L222 106 M204 72 L240 92 M172 104 L204 122" stroke="#efeee5" stroke-width="9" stroke-linecap="round"/>
+  <rect x="12" y="198" width="448" height="48" rx="22" fill="#0b1220"/>
+  <rect x="12" y="196" width="448" height="14" rx="7" fill="#efeee5"/>
+</svg></div></div>
+          <div class="ca-nom">Zapatillas urbanas</div>
+          <div class="ca-sub">TALLE 41 · VERDE</div>
+          <div class="ca-row r1"><span>Subtotal</span><span>$ 2.490</span></div>
+          <div class="ca-row r2"><span>Envío</span><span>$ 290</span></div>
+          <div class="ca-btn">Finalizar compra</div>
+        </div>
+        <div class="noti nt"><div class="ic"><svg width="70" height="70" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 18 H22 L34 64 H80 L90 30 H27" fill="none" stroke="#0b1220" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="82" r="8" fill="#0b1220"/><circle cx="74" cy="82" r="8" fill="#0b1220"/></svg></div><div class="t0">TIENDA · AHORA</div><div class="t1">¿Te olvidaste algo?</div><div class="t2">Tu carrito te espera</div></div><div class="notch"></div></div></div></div>
+      <div class="tit"><div>¿Por qué la</div><div>tienda online</div><div>te escribe si</div><div>dejás algo en</div><div>el <span class="v">carrito?</span></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 3.49;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.08, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: DUR - t, ease: "power2.in" }, t);
+      const TEL = q(".telw");
+      const vibrar = (t, n) => tl.fromTo(TEL, { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 5, immediateRender: false }, t);
+      const latido = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.08, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, t);
+
+
+      // el celular empieza chico y bajo (debajo del título) y al final hace push-in a tamaño completo
+      gsap.set(TEL, { scale: 0.8, y: 150, transformOrigin: "540px 560px" });
+      tl.fromTo(q(".tit"), { scale: 1.05, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(TEL, { rotation: -4 }, { rotation: 0, duration: 0.8, ease: "back.out(1.6)" }, 0);
+      tl.fromTo(q(".ca-zapa"), { scale: 0.9, rotation: -6, transformOrigin: "50% 60%" }, { scale: 1, rotation: 0, duration: 0.7, ease: "back.out(2)" }, 0);
+      // "te escribe": cae la notificación y vibra
+      tl.fromTo(q(".nt"), { opacity: 0, y: -240 }, { opacity: 1, y: 0, duration: 0.42, ease: "back.out(1.5)" }, 1.2999999999999998);
+      vibrar(1.5, 5);
+      tl.to(q(".ca-tit"), { opacity: 0, duration: 0.1 }, 1.5999999999999999);
+      // "carrito?": la palabra y el carrito laten
+      latido(".tit .v", 2.6, 1.08);
+      latido(".ca-ic", 2.6, 1.2);
+      // se va el título y el celular entra a tamaño completo
+      tl.to(q(".tit"), { opacity: 0, y: -80, duration: 0.3, ease: "power2.in" }, 2.94);
+      tl.to(q(".nt"), { opacity: 0, y: -60, duration: 0.25, ease: "power2.in" }, 2.94);
+      tl.to(TEL, { scale: 1, y: 0, duration: 0.5, ease: "power3.inOut" }, 2.99);
+      tl.to(q(".ca-tit"), { opacity: 1, duration: 0.2 }, 3.19);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

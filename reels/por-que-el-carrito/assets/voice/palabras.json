@@ -1,0 +1,530 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.25
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.25,
+  "end": 0.5
+ },
+ {
+  "id": 2,
+  "text": "la",
+  "start": 0.5,
+  "end": 0.6
+ },
+ {
+  "id": 3,
+  "text": "tienda",
+  "start": 0.6,
+  "end": 0.8
+ },
+ {
+  "id": 4,
+  "text": "online",
+  "start": 0.8,
+  "end": 1
+ },
+ {
+  "id": 5,
+  "text": "te",
+  "start": 1,
+  "end": 1.4
+ },
+ {
+  "id": 6,
+  "text": "escribe",
+  "start": 1.4,
+  "end": 1.7
+ },
+ {
+  "id": 7,
+  "text": "cuando",
+  "start": 1.7,
+  "end": 1.9
+ },
+ {
+  "id": 8,
+  "text": "dejás",
+  "start": 1.9,
+  "end": 2.2
+ },
+ {
+  "id": 9,
+  "text": "algo",
+  "start": 2.2,
+  "end": 2.4
+ },
+ {
+  "id": 10,
+  "text": "en",
+  "start": 2.4,
+  "end": 2.5
+ },
+ {
+  "id": 11,
+  "text": "el",
+  "start": 2.5,
+  "end": 2.6
+ },
+ {
+  "id": 12,
+  "text": "carrito?",
+  "start": 2.6,
+  "end": 2.9
+ },
+ {
+  "id": 13,
+  "text": "El",
+  "start": 3.488,
+  "end": 3.6
+ },
+ {
+  "id": 14,
+  "text": "que",
+  "start": 3.6,
+  "end": 3.7
+ },
+ {
+  "id": 15,
+  "text": "llega",
+  "start": 3.7,
+  "end": 3.85
+ },
+ {
+  "id": 16,
+  "text": "al",
+  "start": 3.85,
+  "end": 4
+ },
+ {
+  "id": 17,
+  "text": "carrito",
+  "start": 4,
+  "end": 4.2
+ },
+ {
+  "id": 18,
+  "text": "ya",
+  "start": 4.2,
+  "end": 4.7
+ },
+ {
+  "id": 19,
+  "text": "eligió.",
+  "start": 4.7,
+  "end": 5.1
+ },
+ {
+  "id": 20,
+  "text": "Algo",
+  "start": 5.556,
+  "end": 5.7
+ },
+ {
+  "id": 21,
+  "text": "lo",
+  "start": 5.7,
+  "end": 6.092
+ },
+ {
+  "id": 22,
+  "text": "frenó:",
+  "start": 6.092,
+  "end": 6.483
+ },
+ {
+  "id": 23,
+  "text": "el",
+  "start": 6.483,
+  "end": 6.6
+ },
+ {
+  "id": 24,
+  "text": "envío,",
+  "start": 6.6,
+  "end": 6.9
+ },
+ {
+  "id": 25,
+  "text": "una",
+  "start": 7.184,
+  "end": 7.3
+ },
+ {
+  "id": 26,
+  "text": "llamada,",
+  "start": 7.3,
+  "end": 7.5
+ },
+ {
+  "id": 27,
+  "text": "o",
+  "start": 7.5,
+  "end": 7.8
+ },
+ {
+  "id": 28,
+  "text": "lo",
+  "start": 7.8,
+  "end": 8
+ },
+ {
+  "id": 29,
+  "text": "dejó",
+  "start": 8,
+  "end": 8.2
+ },
+ {
+  "id": 30,
+  "text": "para",
+  "start": 8.2,
+  "end": 8.3
+ },
+ {
+  "id": 31,
+  "text": "después.",
+  "start": 8.3,
+  "end": 8.5
+ },
+ {
+  "id": 32,
+  "text": "No",
+  "start": 9.18,
+  "end": 9.36
+ },
+ {
+  "id": 33,
+  "text": "se",
+  "start": 9.36,
+  "end": 9.5
+ },
+ {
+  "id": 34,
+  "text": "fue:",
+  "start": 9.5,
+  "end": 9.7
+ },
+ {
+  "id": 35,
+  "text": "quedó",
+  "start": 10.12,
+  "end": 10.3
+ },
+ {
+  "id": 36,
+  "text": "a",
+  "start": 10.3,
+  "end": 10.4
+ },
+ {
+  "id": 37,
+  "text": "medio",
+  "start": 10.4,
+  "end": 10.7
+ },
+ {
+  "id": 38,
+  "text": "camino.",
+  "start": 10.7,
+  "end": 11
+ },
+ {
+  "id": 39,
+  "text": "La",
+  "start": 11.56,
+  "end": 11.7
+ },
+ {
+  "id": 40,
+  "text": "tienda",
+  "start": 11.7,
+  "end": 12.1
+ },
+ {
+  "id": 41,
+  "text": "le",
+  "start": 12.1,
+  "end": 12.2
+ },
+ {
+  "id": 42,
+  "text": "escribe",
+  "start": 12.2,
+  "end": 12.4
+ },
+ {
+  "id": 43,
+  "text": "sola,",
+  "start": 12.4,
+  "end": 12.7
+ },
+ {
+  "id": 44,
+  "text": "con",
+  "start": 12.7,
+  "end": 13
+ },
+ {
+  "id": 45,
+  "text": "el",
+  "start": 13,
+  "end": 13.1
+ },
+ {
+  "id": 46,
+  "text": "carrito",
+  "start": 13.1,
+  "end": 13.3
+ },
+ {
+  "id": 47,
+  "text": "guardado.",
+  "start": 13.3,
+  "end": 13.8
+ },
+ {
+  "id": 48,
+  "text": "En",
+  "start": 14.36,
+  "end": 14.48
+ },
+ {
+  "id": 49,
+  "text": "tu",
+  "start": 14.48,
+  "end": 14.6
+ },
+ {
+  "id": 50,
+  "text": "negocio",
+  "start": 14.6,
+  "end": 14.7
+ },
+ {
+  "id": 51,
+  "text": "pasa",
+  "start": 14.7,
+  "end": 15.4
+ },
+ {
+  "id": 52,
+  "text": "lo",
+  "start": 15.4,
+  "end": 15.5
+ },
+ {
+  "id": 53,
+  "text": "mismo.",
+  "start": 15.5,
+  "end": 15.6
+ },
+ {
+  "id": 54,
+  "text": "El",
+  "start": 16.228,
+  "end": 16.3
+ },
+ {
+  "id": 55,
+  "text": "que",
+  "start": 16.3,
+  "end": 16.4
+ },
+ {
+  "id": 56,
+  "text": "pidió",
+  "start": 16.4,
+  "end": 16.7
+ },
+ {
+  "id": 57,
+  "text": "presupuesto.",
+  "start": 16.7,
+  "end": 17.3
+ },
+ {
+  "id": 58,
+  "text": "El",
+  "start": 17.3,
+  "end": 17.6
+ },
+ {
+  "id": 59,
+  "text": "que",
+  "start": 17.6,
+  "end": 17.7
+ },
+ {
+  "id": 60,
+  "text": "encargó",
+  "start": 17.7,
+  "end": 18.1
+ },
+ {
+  "id": 61,
+  "text": "y",
+  "start": 18.1,
+  "end": 18.2
+ },
+ {
+  "id": 62,
+  "text": "no",
+  "start": 18.2,
+  "end": 18.4
+ },
+ {
+  "id": 63,
+  "text": "pasó",
+  "start": 18.4,
+  "end": 18.6
+ },
+ {
+  "id": 64,
+  "text": "a",
+  "start": 18.6,
+  "end": 18.7
+ },
+ {
+  "id": 65,
+  "text": "buscar.",
+  "start": 18.7,
+  "end": 19
+ },
+ {
+  "id": 66,
+  "text": "Ese",
+  "start": 19.508,
+  "end": 19.7
+ },
+ {
+  "id": 67,
+  "text": "aviso",
+  "start": 19.7,
+  "end": 20
+ },
+ {
+  "id": 68,
+  "text": "lo",
+  "start": 20,
+  "end": 20.1
+ },
+ {
+  "id": 69,
+  "text": "puede",
+  "start": 20.1,
+  "end": 20.3
+ },
+ {
+  "id": 70,
+  "text": "mandar",
+  "start": 20.3,
+  "end": 20.6
+ },
+ {
+  "id": 71,
+  "text": "una",
+  "start": 20.6,
+  "end": 20.8
+ },
+ {
+  "id": 72,
+  "text": "automatización,",
+  "start": 20.8,
+  "end": 21.2
+ },
+ {
+  "id": 73,
+  "text": "en",
+  "start": 21.2,
+  "end": 21.8
+ },
+ {
+  "id": 74,
+  "text": "el",
+  "start": 21.8,
+  "end": 21.9
+ },
+ {
+  "id": 75,
+  "text": "momento",
+  "start": 21.9,
+  "end": 22.3
+ },
+ {
+  "id": 76,
+  "text": "justo.",
+  "start": 22.3,
+  "end": 22.3
+ },
+ {
+  "id": 77,
+  "text": "¿Lo",
+  "start": 22.915,
+  "end": 23.1
+ },
+ {
+  "id": 78,
+  "text": "armamos",
+  "start": 23.1,
+  "end": 23.3
+ },
+ {
+  "id": 79,
+  "text": "en",
+  "start": 23.3,
+  "end": 23.5
+ },
+ {
+  "id": 80,
+  "text": "tu",
+  "start": 23.5,
+  "end": 23.6
+ },
+ {
+  "id": 81,
+  "text": "negocio?",
+  "start": 23.6,
+  "end": 23.8
+ },
+ {
+  "id": 82,
+  "text": "Agendá",
+  "start": 24.528,
+  "end": 24.8
+ },
+ {
+  "id": 83,
+  "text": "una",
+  "start": 24.8,
+  "end": 25
+ },
+ {
+  "id": 84,
+  "text": "videollamada",
+  "start": 25,
+  "end": 25.3
+ },
+ {
+  "id": 85,
+  "text": "gratis",
+  "start": 25.3,
+  "end": 25.7
+ },
+ {
+  "id": 86,
+  "text": "en",
+  "start": 25.7,
+  "end": 26
+ },
+ {
+  "id": 87,
+  "text": "scalerics.com.",
+  "start": 26,
+  "end": 26.35
+ }
+]
