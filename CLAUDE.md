@@ -223,7 +223,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    - **Portada desde un cuadro limpio**: renderizá el fondo sin gancho, subtítulos ni logo (como
      hizo caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
    - Si un reel no llega a esta vara en el tiempo de la corrida, es mejor entregar menos reels
-     buenos que cinco flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
+     buenos que muchos flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
      una nota de qué falta.
 
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
@@ -385,18 +385,21 @@ dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo de
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
-## Cuántos por corrida: 5, en paralelo
+## Cuántos por corrida: 2, en paralelo
 
-Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el coordinador:
+Cada corrida de la rutina hace **2 reels** a la vara de `reels/caso-pedidosya` (punto 8c). Juan, 04-11:
+"mejor calidad que cantidad" (antes eran 5 por corrida, 25 por noche). Con las 5 corridas de la noche
+salen ~10. Las reglas que dicen "por tanda de 5" se cuentan **por noche**: mirá en "Hechos" lo que
+ya hicieron las corridas anteriores de la misma noche antes de elegir. Vos sos el coordinador:
 
-1. Elegí los 5 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 5 juntos en `ideas.md`, en un
+1. Elegí los 2 temas (paso 1) distintos entre sí, **cada uno con un formato y un estilo distintos** (ver "La regla número uno"), y reservalos los 2 juntos en `ideas.md`, en un
    solo commit y push a `main`. **Productos** (Juan, 29-10: "que cubra más temas: automatizaciones,
    sistemas, CRM"): por tanda de 5, **como mucho 1 de agentes de IA**, y el resto
    repartido entre automatizaciones, sistema a medida, CRM, tienda online o sitio web, Puntos y
    consejos de gestión para pymes (ver "LO PRIMERO", 02-11). **Puntos: como mucho 1 por tanda y solo si el reel es de puntos** ("lo de
    los puntos en todos los videos cansa"), en lugar de uno de los otros. Mirá las últimas tandas en
    "Hechos" para no repetir ángulos ni temas.
-2. Lanzá 5 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
+2. Lanzá 2 subagentes con la herramienta Agent, **todos en el mismo mensaje** para que corran a la
    vez, uno por reel. A cada uno le pasás el `<slug>` y el tema, y le decís que haga los pasos 2 a 9
    de este archivo en `reels/<slug>/` (sin renderizar ni commitear) y que te devuelva el gancho y
    qué quedó flojo. Un subagente no puede lanzar otros: sus escenas las hace él, en orden.
@@ -404,10 +407,10 @@ Cada corrida de la rutina hace **5 reels** (pedido de Juan, 27-10). Vos sos el c
    (`snapshot`, `check`, `render`) va con candado, y decíselo así a cada subagente:
    `flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 snapshot ...`
    (lo mismo para `check`). La voz y los tiempos sí pueden ir en paralelo.
-4. Cuando vuelvan los 5, hacé vos el paso 10 (render, con el mismo candado) y el 11 de cada uno,
+4. Cuando vuelvan los 2, hacé vos el paso 10 (render, con el mismo candado) y el 11 de cada uno,
    de a uno. Si un subagente no terminó, entregá lo que haya en su rama `reel/<slug>` y dejalo en
    "En curso" con la nota de qué falta: la próxima corrida lo termina antes de arrancar nuevos.
-5. La notificación final lista los 5 ganchos y sus ramas.
+5. La notificación final lista los 2 ganchos y sus ramas.
 
 ## El proceso
 
