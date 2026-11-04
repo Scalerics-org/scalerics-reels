@@ -1,0 +1,524 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.19
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.19,
+  "end": 0.37
+ },
+ {
+  "id": 2,
+  "text": "Spotify",
+  "start": 0.37,
+  "end": 0.56
+ },
+ {
+  "id": 3,
+  "text": "te",
+  "start": 0.56,
+  "end": 1.03
+ },
+ {
+  "id": 4,
+  "text": "regala",
+  "start": 1.03,
+  "end": 1.4
+ },
+ {
+  "id": 5,
+  "text": "el",
+  "start": 1.4,
+  "end": 1.5
+ },
+ {
+  "id": 6,
+  "text": "resumen",
+  "start": 1.5,
+  "end": 1.96
+ },
+ {
+  "id": 7,
+  "text": "de",
+  "start": 1.96,
+  "end": 2.15
+ },
+ {
+  "id": 8,
+  "text": "lo",
+  "start": 2.15,
+  "end": 2.24
+ },
+ {
+  "id": 9,
+  "text": "que",
+  "start": 2.24,
+  "end": 2.34
+ },
+ {
+  "id": 10,
+  "text": "escuchaste",
+  "start": 2.34,
+  "end": 2.9
+ },
+ {
+  "id": 11,
+  "text": "en",
+  "start": 2.9,
+  "end": 2.9
+ },
+ {
+  "id": 12,
+  "text": "el",
+  "start": 2.9,
+  "end": 2.99
+ },
+ {
+  "id": 13,
+  "text": "año?",
+  "start": 2.99,
+  "end": 3.27
+ },
+ {
+  "id": 14,
+  "text": "Cada",
+  "start": 3.95,
+  "end": 4.11
+ },
+ {
+  "id": 15,
+  "text": "diciembre,",
+  "start": 4.11,
+  "end": 4.67
+ },
+ {
+  "id": 16,
+  "text": "la",
+  "start": 4.67,
+  "end": 4.95
+ },
+ {
+  "id": 17,
+  "text": "gente",
+  "start": 4.95,
+  "end": 5.23
+ },
+ {
+  "id": 18,
+  "text": "lo",
+  "start": 5.23,
+  "end": 5.42
+ },
+ {
+  "id": 19,
+  "text": "comparte",
+  "start": 5.42,
+  "end": 6.04
+ },
+ {
+  "id": 20,
+  "text": "sola.",
+  "start": 6.04,
+  "end": 6.67
+ },
+ {
+  "id": 21,
+  "text": "Spotify",
+  "start": 6.67,
+  "end": 7.29
+ },
+ {
+  "id": 22,
+  "text": "ya",
+  "start": 7.29,
+  "end": 7.48
+ },
+ {
+  "id": 23,
+  "text": "tenía",
+  "start": 7.48,
+  "end": 7.85
+ },
+ {
+  "id": 24,
+  "text": "tus",
+  "start": 7.85,
+  "end": 8.04
+ },
+ {
+  "id": 25,
+  "text": "datos:",
+  "start": 8.04,
+  "end": 8.32
+ },
+ {
+  "id": 26,
+  "text": "tus",
+  "start": 8.78,
+  "end": 8.88
+ },
+ {
+  "id": 27,
+  "text": "minutos,",
+  "start": 8.88,
+  "end": 9.07
+ },
+ {
+  "id": 28,
+  "text": "tus",
+  "start": 9.79,
+  "end": 9.91
+ },
+ {
+  "id": 29,
+  "text": "canciones,",
+  "start": 9.91,
+  "end": 10.47
+ },
+ {
+  "id": 30,
+  "text": "tu",
+  "start": 10.93,
+  "end": 11.03
+ },
+ {
+  "id": 31,
+  "text": "artista",
+  "start": 11.03,
+  "end": 11.21
+ },
+ {
+  "id": 32,
+  "text": "favorito.",
+  "start": 11.21,
+  "end": 11.87
+ },
+ {
+  "id": 33,
+  "text": "Te",
+  "start": 12.15,
+  "end": 12.43
+ },
+ {
+  "id": 34,
+  "text": "los",
+  "start": 12.43,
+  "end": 12.62
+ },
+ {
+  "id": 35,
+  "text": "devolvió",
+  "start": 12.62,
+  "end": 12.99
+ },
+ {
+  "id": 36,
+  "text": "como",
+  "start": 12.99,
+  "end": 13.36
+ },
+ {
+  "id": 37,
+  "text": "un",
+  "start": 13.36,
+  "end": 13.46
+ },
+ {
+  "id": 38,
+  "text": "regalo.",
+  "start": 13.46,
+  "end": 13.93
+ },
+ {
+  "id": 39,
+  "text": "Y",
+  "start": 13.93,
+  "end": 14.3
+ },
+ {
+  "id": 40,
+  "text": "un",
+  "start": 14.3,
+  "end": 14.39
+ },
+ {
+  "id": 41,
+  "text": "regalo",
+  "start": 14.39,
+  "end": 14.77
+ },
+ {
+  "id": 42,
+  "text": "así,",
+  "start": 14.77,
+  "end": 14.95
+ },
+ {
+  "id": 43,
+  "text": "se",
+  "start": 15.49,
+  "end": 15.61
+ },
+ {
+  "id": 44,
+  "text": "muestra.",
+  "start": 15.61,
+  "end": 15.89
+ },
+ {
+  "id": 45,
+  "text": "Vos",
+  "start": 16.79,
+  "end": 16.92
+ },
+ {
+  "id": 46,
+  "text": "también",
+  "start": 16.92,
+  "end": 17.2
+ },
+ {
+  "id": 47,
+  "text": "sabés",
+  "start": 17.2,
+  "end": 17.48
+ },
+ {
+  "id": 48,
+  "text": "cosas",
+  "start": 17.48,
+  "end": 17.76
+ },
+ {
+  "id": 49,
+  "text": "de",
+  "start": 17.76,
+  "end": 17.94
+ },
+ {
+  "id": 50,
+  "text": "tus",
+  "start": 17.94,
+  "end": 18.13
+ },
+ {
+  "id": 51,
+  "text": "clientes.",
+  "start": 18.13,
+  "end": 18.6
+ },
+ {
+  "id": 52,
+  "text": "Con",
+  "start": 18.64,
+  "end": 19.14
+ },
+ {
+  "id": 53,
+  "text": "Scalerics",
+  "start": 19.14,
+  "end": 19.72
+ },
+ {
+  "id": 54,
+  "text": "Puntos,",
+  "start": 19.72,
+  "end": 20.09
+ },
+ {
+  "id": 55,
+  "text": "en",
+  "start": 20.51,
+  "end": 20.56
+ },
+ {
+  "id": 56,
+  "text": "diciembre",
+  "start": 20.56,
+  "end": 21.12
+ },
+ {
+  "id": 57,
+  "text": "cada",
+  "start": 21.54,
+  "end": 21.68
+ },
+ {
+  "id": 58,
+  "text": "uno",
+  "start": 21.68,
+  "end": 21.96
+ },
+ {
+  "id": 59,
+  "text": "recibe",
+  "start": 21.96,
+  "end": 22.34
+ },
+ {
+  "id": 60,
+  "text": "su",
+  "start": 22.34,
+  "end": 22.43
+ },
+ {
+  "id": 61,
+  "text": "resumen:",
+  "start": 22.43,
+  "end": 22.8
+ },
+ {
+  "id": 62,
+  "text": "viniste",
+  "start": 23.36,
+  "end": 23.64
+ },
+ {
+  "id": 63,
+  "text": "treinta",
+  "start": 23.64,
+  "end": 23.83
+ },
+ {
+  "id": 64,
+  "text": "y",
+  "start": 23.83,
+  "end": 24.02
+ },
+ {
+  "id": 65,
+  "text": "una",
+  "start": 24.02,
+  "end": 24.21
+ },
+ {
+  "id": 66,
+  "text": "veces,",
+  "start": 24.21,
+  "end": 24.49
+ },
+ {
+  "id": 67,
+  "text": "tu",
+  "start": 25.07,
+  "end": 25.14
+ },
+ {
+  "id": 68,
+  "text": "favorito:",
+  "start": 25.14,
+  "end": 25.61
+ },
+ {
+  "id": 69,
+  "text": "el",
+  "start": 25.61,
+  "end": 25.98
+ },
+ {
+  "id": 70,
+  "text": "cortado.",
+  "start": 25.98,
+  "end": 26.54
+ },
+ {
+  "id": 71,
+  "text": "Y",
+  "start": 27.05,
+  "end": 27.1
+ },
+ {
+  "id": 72,
+  "text": "un",
+  "start": 27.1,
+  "end": 27.2
+ },
+ {
+  "id": 73,
+  "text": "premio.",
+  "start": 27.2,
+  "end": 27.48
+ },
+ {
+  "id": 74,
+  "text": "¿Querés",
+  "start": 28.34,
+  "end": 28.5
+ },
+ {
+  "id": 75,
+  "text": "ver",
+  "start": 28.5,
+  "end": 28.6
+ },
+ {
+  "id": 76,
+  "text": "cómo",
+  "start": 28.6,
+  "end": 28.88
+ },
+ {
+  "id": 77,
+  "text": "quedaría",
+  "start": 28.88,
+  "end": 29.16
+ },
+ {
+  "id": 78,
+  "text": "en",
+  "start": 29.16,
+  "end": 29.35
+ },
+ {
+  "id": 79,
+  "text": "tu",
+  "start": 29.35,
+  "end": 29.44
+ },
+ {
+  "id": 80,
+  "text": "local?",
+  "start": 29.44,
+  "end": 29.72
+ },
+ {
+  "id": 81,
+  "text": "Agendá",
+  "start": 30.3,
+  "end": 30.75
+ },
+ {
+  "id": 82,
+  "text": "una",
+  "start": 30.75,
+  "end": 30.93
+ },
+ {
+  "id": 83,
+  "text": "videollamada",
+  "start": 30.93,
+  "end": 31.21
+ },
+ {
+  "id": 84,
+  "text": "gratis",
+  "start": 31.21,
+  "end": 31.78
+ },
+ {
+  "id": 85,
+  "text": "en",
+  "start": 32.16,
+  "end": 32.24
+ },
+ {
+  "id": 86,
+  "text": "scalerics.com.",
+  "start": 32.24,
+  "end": 32.57
+ }
+]

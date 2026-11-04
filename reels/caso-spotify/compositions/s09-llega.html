@@ -1,0 +1,152 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s09-llega"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s09-llega"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s09-llega"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s09-llega"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s09-llega"] .rgw { position: absolute; left: 40px; top: 560px; width: 1000px; height: 1000px; }
+    [data-composition-id="s09-llega"] .rg-svg { position: absolute; inset: 0; width: 1000px; height: 1000px; overflow: visible; }
+    [data-composition-id="s09-llega"] .auw { position: absolute; left: 100px; top: 560px; width: 880px; height: 770px; }
+    [data-composition-id="s09-llega"] .au-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s09-llega"] .telw { position: absolute; inset: 0; }
+    [data-composition-id="s09-llega"] .tel-lado { position: absolute; left: 288px; top: 588px; width: 540px; height: 1060px; border-radius: 80px; background: #a9a798; }
+    [data-composition-id="s09-llega"] .tel { position: absolute; left: 270px; top: 570px; width: 540px; height: 1060px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s09-llega"] .tel-pan { position: absolute; left: 16px; top: 16px; width: 508px; height: 1028px; border-radius: 64px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s09-llega"] .tel-notch { position: absolute; left: 205px; top: 30px; width: 130px; height: 30px; border-radius: 15px; background: #efeee5; }
+    [data-composition-id="s09-llega"] .m-lbl { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font: 500 31px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s09-llega"] .m-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s09-llega"] .m-art .au-svg { position: absolute; left: 30px; top: 40px; width: 360px; height: 315px; }
+    [data-composition-id="s09-llega"] .m-luz { position: absolute; inset: 0; background: linear-gradient(128deg, rgba(11,18,32,0) 60%, rgba(11,18,32,0.1) 60%); }
+    [data-composition-id="s09-llega"] .m-tit { position: absolute; left: 0; right: 0; top: 596px; text-align: center; font: 800 84px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s09-llega"] .m-row { position: absolute; left: 70px; height: 44px; display: flex; align-items: center; gap: 24px; }
+    [data-composition-id="s09-llega"] .m-row b { font: 500 34px/1 "IBM Plex Mono", monospace; color: #5ce611; width: 30px; }
+    [data-composition-id="s09-llega"] .m-row i { display: block; height: 26px; border-radius: 13px; background: rgba(239,238,229,0.34); }
+    [data-composition-id="s09-llega"] .m-btn { position: absolute; left: 84px; top: 920px; width: 340px; height: 80px; border-radius: 40px; background: #5ce611; display: flex; align-items: center; justify-content: center; gap: 14px; font: 700 34px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s09-llega"] .p-card { position: absolute; left: 34px; top: 120px; width: 440px; height: 290px; border-radius: 34px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s09-llega"] .p-top { position: absolute; left: 32px; top: 30px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s09-llega"] .p-sub { position: absolute; left: 34px; top: 94px; font: 500 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.3em; color: #0b1220; }
+    [data-composition-id="s09-llega"] .p-sellos { position: absolute; left: 20px; top: 150px; width: 400px; height: 60px; }
+    [data-composition-id="s09-llega"] .p-num { position: absolute; left: 34px; top: 228px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s09-llega"] .p-lbl { position: absolute; left: 0; right: 0; top: 460px; text-align: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s09-llega"] .p-nom { position: absolute; left: 0; right: 0; top: 508px; text-align: center; font: 800 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s09-llega"] .p-fila { position: absolute; left: 60px; display: flex; align-items: center; gap: 22px; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s09-llega"] .r-a, [data-composition-id="s09-llega"] .r-b { position: absolute; inset: 0; }
+    [data-composition-id="s09-llega"] .r-num { position: absolute; left: 0; right: 0; top: 140px; text-align: center; font: 800 300px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.04em; }
+    [data-composition-id="s09-llega"] .r-sub { position: absolute; left: 0; right: 0; top: 446px; text-align: center; font: 700 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s09-llega"] .r-dots { position: absolute; left: 44px; top: 570px; width: 420px; height: 300px; }
+    [data-composition-id="s09-llega"] .r-dots .dt { fill: #5ce611; } [data-composition-id="s09-llega"] .r-dots .dv { fill: none; stroke: rgba(239,238,229,0.3); stroke-width: 5; }
+    [data-composition-id="s09-llega"] .f-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s09-llega"] .f-art .tz-svg { position: absolute; left: 20px; top: 30px; width: 380px; height: 380px; }
+    [data-composition-id="s09-llega"] .f-tit { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s09-llega"] .f-tit span { display: inline-block; position: relative; padding: 4px 22px 10px; font: 800 92px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s09-llega"] .f-sub { position: absolute; left: 0; right: 0; top: 730px; text-align: center; font: 500 36px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s09-llega"] .noti { position: absolute; left: 90px; top: 610px; width: 900px; height: 216px; border-radius: 42px; background: #ffffff; box-shadow: 0 16px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s09-llega"] .noti .ic { position: absolute; left: 32px; top: 46px; width: 124px; height: 124px; border-radius: 30px; background: #5ce611; }
+    [data-composition-id="s09-llega"] .noti .ic svg { position: absolute; left: 22px; top: 22px; }
+    [data-composition-id="s09-llega"] .noti .t0 { position: absolute; left: 186px; top: 36px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s09-llega"] .noti .t1 { position: absolute; left: 186px; top: 80px; font: 700 50px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s09-llega"] .noti .t2 { position: absolute; left: 186px; top: 146px; font: 500 34px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+    [data-composition-id="s09-llega"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s09-llega"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s09-llega"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s09-llega"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s09-llega"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s09-llega"] .lead.g { stroke: #5ce611; }
+    [data-composition-id="s09-llega"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s09-llega"] .dot.g { fill: #5ce611; }
+    [data-composition-id="s09-llega"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s09-llega"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s09-llega"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s09-llega"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s09-llega"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s09-llega"] .selbox .k4 { right: -13px; bottom: -13px; }
+
+    [data-composition-id="s09-llega"] .lado .tel-pan > * { opacity: 0.3; }
+    [data-composition-id="s09-llega"] .noti.chica { top: 1000px; width: 300px; height: 120px; border-radius: 28px; }
+    [data-composition-id="s09-llega"] .noti.nc1 { left: -40px; } [data-composition-id="s09-llega"] .noti.nc2 { left: 820px; }
+    [data-composition-id="s09-llega"] .noti.chica .ic { left: 20px; top: 20px; width: 80px; height: 80px; border-radius: 20px; }
+    [data-composition-id="s09-llega"] .noti.chica .ic svg { left: 6px; top: 6px; transform: scale(0.85); }
+    [data-composition-id="s09-llega"] .noti.chica .t1 { left: 116px; top: 38px; font-size: 36px; }
+    [data-composition-id="s09-llega"] .noti.chica .t0, [data-composition-id="s09-llega"] .noti.chica .t2 { display: none; }
+  </style>
+  <div id="root" data-composition-id="s09-llega" data-width="1080" data-height="1920" data-duration="1.82">
+    <div id="s09-llega-esc" class="esc clip" data-start="0" data-duration="1.82" data-track-index="0">
+
+      <div class="capa izq">
+<div class="telw lado" data-layout-allow-overlap><div class="tel-lado"></div>
+<div class="tel"><div class="tel-pan">
+  <div class="p-card"><div class="p-top">Scalerics</div><div class="p-sub">PUNTOS</div><svg class="p-sellos" viewBox="0 0 400 60" aria-hidden="true"><circle cx="25" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="75" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="125" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="175" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="225" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="275" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="325" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/><circle cx="375" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/></svg><div class="p-num">7 / 10</div><div class="m-luz"></div></div>
+  <div class="p-lbl">CAFÉ DE LA ESQUINA</div>
+  <div class="p-nom">Hola, Laura</div>
+  <div class="p-fila" style="top:620px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>+1 por compra</span></div>
+  <div class="p-fila" style="top:700px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Premio a los 10</span></div>
+  <div class="p-fila" style="top:780px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tu historial</span></div></div><div class="tel-notch"></div></div></div></div>
+      <div class="capa der">
+<div class="telw lado" data-layout-allow-overlap><div class="tel-lado"></div>
+<div class="tel"><div class="tel-pan">
+  <div class="p-card"><div class="p-top">Scalerics</div><div class="p-sub">PUNTOS</div><svg class="p-sellos" viewBox="0 0 400 60" aria-hidden="true"><circle cx="25" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="75" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="125" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="175" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="225" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="275" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="325" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/><circle cx="375" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/></svg><div class="p-num">7 / 10</div><div class="m-luz"></div></div>
+  <div class="p-lbl">CAFÉ DE LA ESQUINA</div>
+  <div class="p-nom">Hola, Laura</div>
+  <div class="p-fila" style="top:620px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>+1 por compra</span></div>
+  <div class="p-fila" style="top:700px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Premio a los 10</span></div>
+  <div class="p-fila" style="top:780px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tu historial</span></div></div><div class="tel-notch"></div></div></div></div>
+      <div class="capa cen">
+<div class="telw tp" data-layout-allow-overlap><div class="tel-lado"></div>
+<div class="tel"><div class="tel-pan">
+  <div class="p-card"><div class="p-top">Scalerics</div><div class="p-sub">PUNTOS</div><svg class="p-sellos" viewBox="0 0 400 60" aria-hidden="true"><circle cx="25" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="75" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="125" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="175" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="225" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="275" cy="30" r="20" fill="#0b1220" stroke="#0b1220" stroke-width="5"/><circle cx="325" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/><circle cx="375" cy="30" r="20" fill="none" stroke="#0b1220" stroke-width="5"/></svg><div class="p-num">7 / 10</div><div class="m-luz"></div></div>
+  <div class="p-lbl">CAFÉ DE LA ESQUINA</div>
+  <div class="p-nom">Hola, Laura</div>
+  <div class="p-fila" style="top:620px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>+1 por compra</span></div>
+  <div class="p-fila" style="top:700px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Premio a los 10</span></div>
+  <div class="p-fila" style="top:780px"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tu historial</span></div></div><div class="tel-notch"></div></div></div></div>
+      <div class="noti chica nc1" data-layout-allow-overlap><div class="ic"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true"><rect x="12" y="34" width="56" height="38" rx="5" fill="#0b1220"/><rect x="8" y="22" width="64" height="16" rx="4" fill="#0b1220"/><rect x="34" y="22" width="12" height="50" fill="#5ce611"/><path d="M40 22 C 30 6, 16 12, 24 20 Z M40 22 C 50 6, 64 12, 56 20 Z" fill="#0b1220"/></svg></div>
+  <div class="t0"></div><div class="t1">Tu año</div><div class="t2"></div></div>
+      <div class="noti chica nc2" data-layout-allow-overlap><div class="ic"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true"><rect x="12" y="34" width="56" height="38" rx="5" fill="#0b1220"/><rect x="8" y="22" width="64" height="16" rx="4" fill="#0b1220"/><rect x="34" y="22" width="12" height="50" fill="#5ce611"/><path d="M40 22 C 30 6, 16 12, 24 20 Z M40 22 C 50 6, 64 12, 56 20 Z" fill="#0b1220"/></svg></div>
+  <div class="t0"></div><div class="t1">Tu año</div><div class="t2"></div></div>
+      <div class="noti grande" data-layout-allow-overlap><div class="ic"><svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true"><rect x="12" y="34" width="56" height="38" rx="5" fill="#0b1220"/><rect x="8" y="22" width="64" height="16" rx="4" fill="#0b1220"/><rect x="34" y="22" width="12" height="50" fill="#5ce611"/><path d="M40 22 C 30 6, 16 12, 24 20 Z M40 22 C 50 6, 64 12, 56 20 Z" fill="#0b1220"/></svg></div>
+  <div class="t0">CAFÉ DE LA ESQUINA · AHORA</div><div class="t1">Tu año con nosotros</div><div class="t2">Tocá para ver tu resumen</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s09-llega";
+      const DUR = 1.82;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const ondas = (t, n) => { for (let k = 0; k < n; k++) qa(".onda").forEach((o, i) => tl.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: k === 0 }, t + k * 0.5 + (i % 2) * 0.12)); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const C = q(".cen .tp");
+      gsap.set(C, { x: -60 });
+      tl.fromTo(q(".izq"), { x: 0, scale: 1, opacity: 0 }, { x: -430, scale: 0.8, opacity: 1, transformOrigin: "540px 1100px", duration: 0.45, ease: "power3.out" }, 0);
+      tl.fromTo(q(".der"), { x: 0, scale: 1, opacity: 0 }, { x: 430, scale: 0.8, opacity: 1, transformOrigin: "540px 1100px", duration: 0.45, ease: "power3.out" }, 0);
+      tl.to(C, { x: 0, duration: 0.4, ease: "power2.out" }, 0);
+      // a cada uno le llega el aviso
+      tl.fromTo(q(".noti.grande"), { opacity: 0, y: -260 }, { opacity: 1, y: 0, duration: 0.45, ease: "back.out(1.5)" }, 0.42);
+      qa(".noti.chica").forEach((n, i) => tl.fromTo(n, { opacity: 0, y: -120 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(1.5)" }, 0.42 + 0.15 + i * 0.1));
+      tl.to(q(".noti.grande"), { y: 12, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0.89);
+      // push-in al del medio
+      tl.to(qa(".izq, .der"), { opacity: 0, duration: 0.25 }, 1.47);
+      tl.to(qa(".noti"), { opacity: 0, y: -60, duration: 0.25 }, 1.52);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

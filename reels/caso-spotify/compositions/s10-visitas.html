@@ -1,0 +1,138 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s10-visitas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-visitas"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s10-visitas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s10-visitas"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s10-visitas"] .rgw { position: absolute; left: 40px; top: 560px; width: 1000px; height: 1000px; }
+    [data-composition-id="s10-visitas"] .rg-svg { position: absolute; inset: 0; width: 1000px; height: 1000px; overflow: visible; }
+    [data-composition-id="s10-visitas"] .auw { position: absolute; left: 100px; top: 560px; width: 880px; height: 770px; }
+    [data-composition-id="s10-visitas"] .au-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s10-visitas"] .telw { position: absolute; inset: 0; }
+    [data-composition-id="s10-visitas"] .tel-lado { position: absolute; left: 288px; top: 588px; width: 540px; height: 1060px; border-radius: 80px; background: #a9a798; }
+    [data-composition-id="s10-visitas"] .tel { position: absolute; left: 270px; top: 570px; width: 540px; height: 1060px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s10-visitas"] .tel-pan { position: absolute; left: 16px; top: 16px; width: 508px; height: 1028px; border-radius: 64px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s10-visitas"] .tel-notch { position: absolute; left: 205px; top: 30px; width: 130px; height: 30px; border-radius: 15px; background: #efeee5; }
+    [data-composition-id="s10-visitas"] .m-lbl { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font: 500 31px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s10-visitas"] .m-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s10-visitas"] .m-art .au-svg { position: absolute; left: 30px; top: 40px; width: 360px; height: 315px; }
+    [data-composition-id="s10-visitas"] .m-luz { position: absolute; inset: 0; background: linear-gradient(128deg, rgba(11,18,32,0) 60%, rgba(11,18,32,0.1) 60%); }
+    [data-composition-id="s10-visitas"] .m-tit { position: absolute; left: 0; right: 0; top: 596px; text-align: center; font: 800 84px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s10-visitas"] .m-row { position: absolute; left: 70px; height: 44px; display: flex; align-items: center; gap: 24px; }
+    [data-composition-id="s10-visitas"] .m-row b { font: 500 34px/1 "IBM Plex Mono", monospace; color: #5ce611; width: 30px; }
+    [data-composition-id="s10-visitas"] .m-row i { display: block; height: 26px; border-radius: 13px; background: rgba(239,238,229,0.34); }
+    [data-composition-id="s10-visitas"] .m-btn { position: absolute; left: 84px; top: 920px; width: 340px; height: 80px; border-radius: 40px; background: #5ce611; display: flex; align-items: center; justify-content: center; gap: 14px; font: 700 34px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s10-visitas"] .p-card { position: absolute; left: 34px; top: 120px; width: 440px; height: 290px; border-radius: 34px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s10-visitas"] .p-top { position: absolute; left: 32px; top: 30px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s10-visitas"] .p-sub { position: absolute; left: 34px; top: 94px; font: 500 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.3em; color: #0b1220; }
+    [data-composition-id="s10-visitas"] .p-sellos { position: absolute; left: 20px; top: 150px; width: 400px; height: 60px; }
+    [data-composition-id="s10-visitas"] .p-num { position: absolute; left: 34px; top: 228px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s10-visitas"] .p-lbl { position: absolute; left: 0; right: 0; top: 460px; text-align: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s10-visitas"] .p-nom { position: absolute; left: 0; right: 0; top: 508px; text-align: center; font: 800 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s10-visitas"] .p-fila { position: absolute; left: 60px; display: flex; align-items: center; gap: 22px; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s10-visitas"] .r-a, [data-composition-id="s10-visitas"] .r-b { position: absolute; inset: 0; }
+    [data-composition-id="s10-visitas"] .r-num { position: absolute; left: 0; right: 0; top: 140px; text-align: center; font: 800 300px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.04em; }
+    [data-composition-id="s10-visitas"] .r-sub { position: absolute; left: 0; right: 0; top: 446px; text-align: center; font: 700 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s10-visitas"] .r-dots { position: absolute; left: 44px; top: 570px; width: 420px; height: 300px; }
+    [data-composition-id="s10-visitas"] .r-dots .dt { fill: #5ce611; } [data-composition-id="s10-visitas"] .r-dots .dv { fill: none; stroke: rgba(239,238,229,0.3); stroke-width: 5; }
+    [data-composition-id="s10-visitas"] .f-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s10-visitas"] .f-art .tz-svg { position: absolute; left: 20px; top: 30px; width: 380px; height: 380px; }
+    [data-composition-id="s10-visitas"] .f-tit { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s10-visitas"] .f-tit span { display: inline-block; position: relative; padding: 4px 22px 10px; font: 800 92px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s10-visitas"] .f-sub { position: absolute; left: 0; right: 0; top: 730px; text-align: center; font: 500 36px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s10-visitas"] .noti { position: absolute; left: 90px; top: 610px; width: 900px; height: 216px; border-radius: 42px; background: #ffffff; box-shadow: 0 16px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s10-visitas"] .noti .ic { position: absolute; left: 32px; top: 46px; width: 124px; height: 124px; border-radius: 30px; background: #5ce611; }
+    [data-composition-id="s10-visitas"] .noti .ic svg { position: absolute; left: 22px; top: 22px; }
+    [data-composition-id="s10-visitas"] .noti .t0 { position: absolute; left: 186px; top: 36px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s10-visitas"] .noti .t1 { position: absolute; left: 186px; top: 80px; font: 700 50px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s10-visitas"] .noti .t2 { position: absolute; left: 186px; top: 146px; font: 500 34px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+    [data-composition-id="s10-visitas"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s10-visitas"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s10-visitas"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s10-visitas"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s10-visitas"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s10-visitas"] .lead.g { stroke: #5ce611; }
+    [data-composition-id="s10-visitas"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s10-visitas"] .dot.g { fill: #5ce611; }
+    [data-composition-id="s10-visitas"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s10-visitas"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s10-visitas"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s10-visitas"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s10-visitas"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s10-visitas"] .selbox .k4 { right: -13px; bottom: -13px; }
+[data-composition-id="s10-visitas"] .r-b { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s10-visitas" data-width="1080" data-height="1920" data-duration="1.71">
+    <div id="s10-visitas-esc" class="esc clip" data-start="0" data-duration="1.71" data-track-index="0">
+
+      
+<div class="telw tr" data-layout-allow-overlap><div class="tel-lado"></div>
+<div class="tel"><div class="tel-pan">
+  <div class="r-a">
+    <div class="m-lbl">TU AÑO EN EL CAFÉ</div>
+    <div class="r-num">31</div>
+    <div class="r-sub">visitas</div>
+    <svg class="r-dots" viewBox="0 0 420 300" aria-hidden="true"><circle class="dt dt0" cx="30" cy="30" r="22"/><circle class="dt dt1" cx="90" cy="30" r="22"/><circle class="dt dt2" cx="150" cy="30" r="22"/><circle class="dt dt3" cx="210" cy="30" r="22"/><circle class="dt dt4" cx="270" cy="30" r="22"/><circle class="dt dt5" cx="330" cy="30" r="22"/><circle class="dt dt6" cx="390" cy="30" r="22"/><circle class="dt dt7" cx="30" cy="90" r="22"/><circle class="dt dt8" cx="90" cy="90" r="22"/><circle class="dt dt9" cx="150" cy="90" r="22"/><circle class="dt dt10" cx="210" cy="90" r="22"/><circle class="dt dt11" cx="270" cy="90" r="22"/><circle class="dt dt12" cx="330" cy="90" r="22"/><circle class="dt dt13" cx="390" cy="90" r="22"/><circle class="dt dt14" cx="30" cy="150" r="22"/><circle class="dt dt15" cx="90" cy="150" r="22"/><circle class="dt dt16" cx="150" cy="150" r="22"/><circle class="dt dt17" cx="210" cy="150" r="22"/><circle class="dt dt18" cx="270" cy="150" r="22"/><circle class="dt dt19" cx="330" cy="150" r="22"/><circle class="dt dt20" cx="390" cy="150" r="22"/><circle class="dt dt21" cx="30" cy="210" r="22"/><circle class="dt dt22" cx="90" cy="210" r="22"/><circle class="dt dt23" cx="150" cy="210" r="22"/><circle class="dt dt24" cx="210" cy="210" r="22"/><circle class="dt dt25" cx="270" cy="210" r="22"/><circle class="dt dt26" cx="330" cy="210" r="22"/><circle class="dt dt27" cx="390" cy="210" r="22"/><circle class="dt dt28" cx="30" cy="270" r="22"/><circle class="dt dt29" cx="90" cy="270" r="22"/><circle class="dt dt30" cx="150" cy="270" r="22"/><circle class="dv" cx="210" cy="270" r="22"/><circle class="dv" cx="270" cy="270" r="22"/><circle class="dv" cx="330" cy="270" r="22"/><circle class="dv" cx="390" cy="270" r="22"/></svg>
+  </div>
+  <div class="r-b">
+    <div class="m-lbl">TU FAVORITO</div>
+    <div class="f-art">
+<svg class="tz-svg" viewBox="0 0 420 420" aria-hidden="true">
+  <path class="vap v1" d="M160 120 C 140 90, 180 70, 160 36" fill="none" stroke="#0b1220" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  <path class="vap v2" d="M214 112 C 194 80, 234 60, 214 22" fill="none" stroke="#0b1220" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  <path class="vap v3" d="M268 120 C 248 90, 288 70, 268 36" fill="none" stroke="#0b1220" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+  <ellipse cx="210" cy="352" rx="186" ry="40" fill="#0d1628"/>
+  <ellipse cx="210" cy="340" rx="186" ry="40" fill="#1f3254"/>
+  <path d="M318 196 C 384 196, 384 290, 308 290" fill="none" stroke="#0b1220" stroke-width="22" stroke-linecap="round"/>
+  <path d="M96 160 L324 160 L300 318 Q210 350 120 318 Z" fill="#0b1220"/>
+  <path d="M262 160 L324 160 L300 318 Q282 326 256 332 Z" fill="rgba(11,18,32,0.14)"/>
+  <path d="M103 206 L317 206 L311 246 L109 246 Z" fill="#efeee5"/>
+  <ellipse cx="210" cy="160" rx="114" ry="26" fill="#0d1628"/>
+  <ellipse cx="210" cy="164" rx="98" ry="18" fill="#1f3254"/>
+</svg><div class="m-luz"></div></div>
+    <div class="f-tit"><span>Cortado</span></div>
+    <div class="f-sub">Tu pedido de siempre</div>
+  </div></div><div class="tel-notch"></div></div></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M150 1240 L300 1180"/><circle class="dot g d1" cx="300" cy="1180" r="11"/></svg>
+      <div class="pill g n1" style="left:160px;top:1290px">Visitas</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s10-visitas";
+      const DUR = 1.71;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const ondas = (t, n) => { for (let k = 0; k < n; k++) qa(".onda").forEach((o, i) => tl.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: k === 0 }, t + k * 0.5 + (i % 2) * 0.12)); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const TR = q(".tr");
+      tl.fromTo(q(".tr .tel-pan"), { opacity: 0.2 }, { opacity: 1, duration: 0.25 }, 0);
+      tl.fromTo(TR, { scale: 0.94, transformOrigin: "540px 1000px" }, { scale: 1.06, duration: 1.71, ease: "power1.inOut" }, 0);
+      gsap.set(qa(".dt"), { opacity: 0 });
+      contar(".r-num", 0, 31, 0.28, 0.57, (v) => String(v));
+      qa(".dt").forEach((d, i) => tl.to(d, { opacity: 1, duration: 0.05 }, 0.28 + i * 0.02));
+      tl.fromTo(q(".r-num"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, 0.85);
+      nota(1, 0.65);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

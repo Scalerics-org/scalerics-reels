@@ -1,0 +1,145 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-regalo"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-regalo"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s05-regalo"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-regalo"] .sombra { position: absolute; border-radius: 50%; background: rgba(3, 6, 12, 0.55); }
+    [data-composition-id="s05-regalo"] .rgw { position: absolute; left: 40px; top: 560px; width: 1000px; height: 1000px; }
+    [data-composition-id="s05-regalo"] .rg-svg { position: absolute; inset: 0; width: 1000px; height: 1000px; overflow: visible; }
+    [data-composition-id="s05-regalo"] .auw { position: absolute; left: 100px; top: 560px; width: 880px; height: 770px; }
+    [data-composition-id="s05-regalo"] .au-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    [data-composition-id="s05-regalo"] .telw { position: absolute; inset: 0; }
+    [data-composition-id="s05-regalo"] .tel-lado { position: absolute; left: 288px; top: 588px; width: 540px; height: 1060px; border-radius: 80px; background: #a9a798; }
+    [data-composition-id="s05-regalo"] .tel { position: absolute; left: 270px; top: 570px; width: 540px; height: 1060px; border-radius: 80px; background: #efeee5; }
+    [data-composition-id="s05-regalo"] .tel-pan { position: absolute; left: 16px; top: 16px; width: 508px; height: 1028px; border-radius: 64px; background: #16243d; overflow: hidden; }
+    [data-composition-id="s05-regalo"] .tel-notch { position: absolute; left: 205px; top: 30px; width: 130px; height: 30px; border-radius: 15px; background: #efeee5; }
+    [data-composition-id="s05-regalo"] .m-lbl { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font: 500 31px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s05-regalo"] .m-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s05-regalo"] .m-art .au-svg { position: absolute; left: 30px; top: 40px; width: 360px; height: 315px; }
+    [data-composition-id="s05-regalo"] .m-luz { position: absolute; inset: 0; background: linear-gradient(128deg, rgba(11,18,32,0) 60%, rgba(11,18,32,0.1) 60%); }
+    [data-composition-id="s05-regalo"] .m-tit { position: absolute; left: 0; right: 0; top: 596px; text-align: center; font: 800 84px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s05-regalo"] .m-row { position: absolute; left: 70px; height: 44px; display: flex; align-items: center; gap: 24px; }
+    [data-composition-id="s05-regalo"] .m-row b { font: 500 34px/1 "IBM Plex Mono", monospace; color: #5ce611; width: 30px; }
+    [data-composition-id="s05-regalo"] .m-row i { display: block; height: 26px; border-radius: 13px; background: rgba(239,238,229,0.34); }
+    [data-composition-id="s05-regalo"] .m-btn { position: absolute; left: 84px; top: 920px; width: 340px; height: 80px; border-radius: 40px; background: #5ce611; display: flex; align-items: center; justify-content: center; gap: 14px; font: 700 34px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-regalo"] .p-card { position: absolute; left: 34px; top: 120px; width: 440px; height: 290px; border-radius: 34px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s05-regalo"] .p-top { position: absolute; left: 32px; top: 30px; font: 800 52px/1 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.02em; }
+    [data-composition-id="s05-regalo"] .p-sub { position: absolute; left: 34px; top: 94px; font: 500 26px/1 "IBM Plex Mono", monospace; letter-spacing: 0.3em; color: #0b1220; }
+    [data-composition-id="s05-regalo"] .p-sellos { position: absolute; left: 20px; top: 150px; width: 400px; height: 60px; }
+    [data-composition-id="s05-regalo"] .p-num { position: absolute; left: 34px; top: 228px; font: 700 36px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-regalo"] .p-lbl { position: absolute; left: 0; right: 0; top: 460px; text-align: center; font: 500 30px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s05-regalo"] .p-nom { position: absolute; left: 0; right: 0; top: 508px; text-align: center; font: 800 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s05-regalo"] .p-fila { position: absolute; left: 60px; display: flex; align-items: center; gap: 22px; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s05-regalo"] .r-a, [data-composition-id="s05-regalo"] .r-b { position: absolute; inset: 0; }
+    [data-composition-id="s05-regalo"] .r-num { position: absolute; left: 0; right: 0; top: 140px; text-align: center; font: 800 300px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.04em; }
+    [data-composition-id="s05-regalo"] .r-sub { position: absolute; left: 0; right: 0; top: 446px; text-align: center; font: 700 64px/1 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="s05-regalo"] .r-dots { position: absolute; left: 44px; top: 570px; width: 420px; height: 300px; }
+    [data-composition-id="s05-regalo"] .r-dots .dt { fill: #5ce611; } [data-composition-id="s05-regalo"] .r-dots .dv { fill: none; stroke: rgba(239,238,229,0.3); stroke-width: 5; }
+    [data-composition-id="s05-regalo"] .f-art { position: absolute; left: 44px; top: 146px; width: 420px; height: 420px; border-radius: 40px; background: #5ce611; overflow: hidden; }
+    [data-composition-id="s05-regalo"] .f-art .tz-svg { position: absolute; left: 20px; top: 30px; width: 380px; height: 380px; }
+    [data-composition-id="s05-regalo"] .f-tit { position: absolute; left: 0; right: 0; top: 600px; text-align: center; }
+    [data-composition-id="s05-regalo"] .f-tit span { display: inline-block; position: relative; padding: 4px 22px 10px; font: 800 92px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="s05-regalo"] .f-sub { position: absolute; left: 0; right: 0; top: 730px; text-align: center; font: 500 36px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.72); }
+    [data-composition-id="s05-regalo"] .noti { position: absolute; left: 90px; top: 610px; width: 900px; height: 216px; border-radius: 42px; background: #ffffff; box-shadow: 0 16px 0 rgba(3,6,12,0.45); opacity: 0; }
+    [data-composition-id="s05-regalo"] .noti .ic { position: absolute; left: 32px; top: 46px; width: 124px; height: 124px; border-radius: 30px; background: #5ce611; }
+    [data-composition-id="s05-regalo"] .noti .ic svg { position: absolute; left: 22px; top: 22px; }
+    [data-composition-id="s05-regalo"] .noti .t0 { position: absolute; left: 186px; top: 36px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s05-regalo"] .noti .t1 { position: absolute; left: 186px; top: 80px; font: 700 50px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s05-regalo"] .noti .t2 { position: absolute; left: 186px; top: 146px; font: 500 34px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.72); }
+    [data-composition-id="s05-regalo"] .pill { position: absolute; padding: 14px 30px 15px; border: 5px solid #efeee5; border-radius: 999px; background: #0b1220; font: 600 38px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s05-regalo"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s05-regalo"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s05-regalo"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; font-weight: 700; }
+    [data-composition-id="s05-regalo"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s05-regalo"] .lead.g { stroke: #5ce611; }
+    [data-composition-id="s05-regalo"] .dot { fill: #efeee5; opacity: 0; } [data-composition-id="s05-regalo"] .dot.g { fill: #5ce611; }
+    [data-composition-id="s05-regalo"] .selbox { position: absolute; border: 6px solid #5ce611; background: rgba(92,230,17,0.12); opacity: 0; }
+    [data-composition-id="s05-regalo"] .selbox i { position: absolute; width: 20px; height: 20px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s05-regalo"] .selbox .k1 { left: -13px; top: -13px; } [data-composition-id="s05-regalo"] .selbox .k2 { right: -13px; top: -13px; } [data-composition-id="s05-regalo"] .selbox .k3 { left: -13px; bottom: -13px; } [data-composition-id="s05-regalo"] .selbox .k4 { right: -13px; bottom: -13px; }
+
+    [data-composition-id="s05-regalo"] .tile { position: absolute; left: 80px; width: 920px; height: 300px; border-radius: 42px; }
+    [data-composition-id="s05-regalo"] .t1 { top: 580px; background: #5ce611; } [data-composition-id="s05-regalo"] .t2 { top: 910px; background: #efeee5; } [data-composition-id="s05-regalo"] .t3 { top: 1240px; background: #1f3254; border: 7px solid #2c4268; }
+    [data-composition-id="s05-regalo"] .tile i { position: absolute; left: 50px; top: 50px; width: 300px; height: 40px; border-radius: 20px; background: rgba(11,18,32,0.35); }
+    [data-composition-id="s05-regalo"] .t3 i { background: rgba(239,238,229,0.35); }
+    [data-composition-id="s05-regalo"] .flecha { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="s05-regalo" data-width="1080" data-height="1920" data-duration="1.78">
+    <div id="s05-regalo-esc" class="esc clip" data-start="0" data-duration="1.78" data-track-index="0">
+
+      <div class="rgw rg">
+<svg class="rg-svg" viewBox="0 0 700 700" aria-hidden="true">
+  <ellipse class="rg-sh" cx="355" cy="640" rx="300" ry="30" fill="rgba(3,6,12,0.55)"/>
+  <g class="rg-cuerpo">
+    <polygon points="510,330 600,282 600,582 510,630" fill="#3fa60a"/>
+    <polygon points="510,442 600,394 600,446 510,494" fill="#0b1220"/>
+    <rect x="110" y="330" width="400" height="300" fill="#5ce611"/>
+    <polygon points="110,330 300,330 110,520" fill="rgba(255,255,255,0.13)"/>
+    <rect x="280" y="330" width="60" height="300" fill="#0b1220"/>
+    <rect x="110" y="330" width="400" height="22" fill="rgba(11,18,32,0.22)"/>
+  </g>
+  <g class="tapa">
+    <polygon points="90,270 180,222 620,222 530,270" fill="#9df26a"/>
+    <polygon points="280,270 370,222 430,222 340,270" fill="#16243d"/>
+    <polygon points="530,270 620,222 620,300 530,348" fill="#3fa60a"/>
+    <rect x="90" y="270" width="440" height="78" fill="#5ce611"/>
+    <rect x="280" y="270" width="60" height="78" fill="#0b1220"/>
+    <g class="mono">
+      <path d="M352 236 C 290 150, 200 170, 222 214 C 236 244, 300 248, 352 236 Z" fill="#0b1220"/>
+      <path d="M352 236 C 300 186, 252 192, 262 214 C 270 230, 310 236, 352 236 Z" fill="#1f3254"/>
+      <path d="M362 236 C 410 140, 520 150, 504 200 C 492 238, 420 248, 362 236 Z" fill="#0b1220"/>
+      <path d="M362 236 C 404 182, 462 182, 462 206 C 460 226, 410 236, 362 236 Z" fill="#1f3254"/>
+      <ellipse cx="357" cy="238" rx="34" ry="24" fill="#0b1220"/>
+    </g>
+  </g>
+</svg></div>
+      <div class="tile t1"><i></i></div><div class="tile t2"><i></i></div><div class="tile t3"><i></i></div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M860 700 L730 860"/><circle class="dot g d1" cx="730" cy="860" r="11"/></svg>
+      <div class="pill lleno n1" style="left:820px;top:640px">Para vos</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-regalo";
+      const DUR = 1.78;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.36, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.3); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.18 : 0)); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const contar = (s, a, b, t, d, fmt) => { const el = q(s); const o = { v: a }; el.textContent = fmt(a); tl.to(o, { v: b, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = fmt(Math.round(o.v)); } }, t); };
+      const ondas = (t, n) => { for (let k = 0; k < n; k++) qa(".onda").forEach((o, i) => tl.fromTo(o, { opacity: 0 }, { opacity: 1, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: k === 0 }, t + k * 0.5 + (i % 2) * 0.12)); };
+      const salida = (t) => tl.to(q(".esc"), { opacity: 0, filter: "blur(8px)", scale: 1.04, duration: Math.max(0.12, DUR - t), ease: "power2.in" }, t);
+
+
+      const R = q(".rg"), TP = q(".rg .tapa");
+      gsap.set(TP, { y: -150, x: 40, rotation: 14, svgOrigin: "560 300" });
+      tl.fromTo(R, { y: 600, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" }, 0);
+      // las fichas se achican y entran en la caja
+      qa(".tile").forEach((t, i) => tl.to(t, { x: 0, y: 1180 - [730, 1060, 1390][i], scale: 0.3, opacity: 0, transformOrigin: "50% 50%", duration: 0.32, ease: "power2.in" }, 0.04 + i * 0.09));
+      // se cierra la tapa y salta el moño
+      tl.to(TP, { y: 0, x: 0, rotation: 0, svgOrigin: "560 300", duration: 0.24, ease: "power3.in" }, 0.75);
+      tl.fromTo(R, { scaleY: 1 }, { scaleY: 0.93, transformOrigin: "50% 90%", duration: 0.08, yoyo: true, repeat: 1, immediateRender: false }, 0.99);
+      tl.fromTo(q(".rg .mono"), { scale: 0.4, svgOrigin: "357 238" }, { scale: 1, svgOrigin: "357 238", duration: 0.4, ease: "back.out(3)" }, 0.95);
+      nota(1, 0.74);
+      tl.to(R, { y: -30, duration: 0.25, ease: "power2.out", yoyo: true, repeat: 1 }, 1.31);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
