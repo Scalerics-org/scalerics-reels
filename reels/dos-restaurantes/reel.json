@@ -1,0 +1,11 @@
+{
+  "escenas": [
+    ["s01-gancho", 0], ["s02-viernes", 12], ["s03-izquierda", 21], ["s04-derecha", 34],
+    ["s05-mesa", 46], ["s06-giro", 50], ["s07-dejo-ver", 59], ["s08-sitio", 68], ["s09-cta", 81]
+  ],
+  "subDesde": 12,
+  "subHasta": 87,
+  "cortes": "auto",
+  "acento": [12, 15, 19, 37, 39, 43, 45, 47, 49, 56, 58, 62, 63, 70, 71, 74, 77, 80, 86],
+  "malo": [25, 27, 29, 31, 33]
+}
