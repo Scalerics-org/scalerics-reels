@@ -1,0 +1,87 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s07-lista"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s07-lista"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s07-lista"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s07-lista"] svg.llama, [data-composition-id="s07-lista"] svg.campana, [data-composition-id="s07-lista"] svg.candado { position: absolute; overflow: visible; }
+    [data-composition-id="s07-lista"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; display: flex; align-items: center; gap: 14px; }
+    [data-composition-id="s07-lista"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s07-lista"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s07-lista"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s07-lista"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s07-lista"] .tag { position: absolute; left: 0; right: 0; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s07-lista"] .tag b { display: inline-block; padding: 10px 20px; background: #0b1220; color: #efeee5; border-radius: 10px; font-weight: 500; }
+    [data-composition-id="s07-lista"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s07-lista"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s07-lista"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s07-lista"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s07-lista"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s07-lista"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s07-lista"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s07-lista"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s07-lista"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s07-lista"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s07-lista"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s07-lista"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s07-lista"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s07-lista"] .bl { position: absolute; inset: 0; background: #1f3254; }
+    [data-composition-id="s07-lista"] .bl-h { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font: 700 150px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: #efeee5; }
+    [data-composition-id="s07-lista"] .bl-d { position: absolute; left: 0; right: 0; top: 280px; text-align: center; font: 500 38px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s07-lista"] .nt { position: absolute; left: 18px; width: 568px; height: 186px; border-radius: 40px; background: #ffffff; box-shadow: 0 14px 0 rgba(11,18,32,0.35); }
+    [data-composition-id="s07-lista"] .nt-ic { position: absolute; left: 24px; top: 45px; width: 96px; height: 96px; }
+    [data-composition-id="s07-lista"] .nt-app { position: absolute; left: 140px; top: 30px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s07-lista"] .nt-t { position: absolute; left: 140px; top: 74px; font: 800 42px/1 "Lexend", sans-serif; letter-spacing: -0.015em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s07-lista"] .nt-b { position: absolute; left: 140px; top: 128px; font: 500 32px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); white-space: nowrap; }
+    [data-composition-id="s07-lista"] .ra { position: absolute; inset: 0; background: #ffffff; }
+    [data-composition-id="s07-lista"] svg.ra-ll { left: 162px; top: 110px; width: 280px; height: 355px; }
+    [data-composition-id="s07-lista"] .ra-n { position: absolute; left: 0; right: 0; top: 490px; text-align: center; font: 900 190px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; }
+    [data-composition-id="s07-lista"] .ra-s { position: absolute; left: 0; right: 0; top: 690px; text-align: center; font: 700 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s07-lista"] .ra-sem { position: absolute; left: 26px; right: 26px; top: 800px; display: flex; justify-content: space-between; }
+    [data-composition-id="s07-lista"] .ra-d { position: relative; width: 72px; height: 130px; }
+    [data-composition-id="s07-lista"] .ra-c { position: absolute; left: 2px; top: 0; width: 68px; height: 68px; border-radius: 50%; border: 7px solid #dcdacb; background: #efeee5; }
+    [data-composition-id="s07-lista"] .ra-ok { position: absolute; left: 2px; top: 0; opacity: 0; }
+    [data-composition-id="s07-lista"] .ra-d b { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font: 700 32px/1 "Lexend", sans-serif; color: #0b1220; }
+
+    [data-composition-id="s07-lista"] .c7 { position: absolute; left: 60px; width: 960px; height: 290px; }
+    [data-composition-id="s07-lista"] .c7-lado { position: absolute; left: 14px; top: 16px; width: 100%; height: 100%; border-radius: 46px; background: #dcdacb; }
+    [data-composition-id="s07-lista"] .c7-cara { position: absolute; inset: 0; border-radius: 46px; background: #ffffff; border: 8px solid #0b1220; overflow: hidden; }
+    [data-composition-id="s07-lista"] .c7-raya { position: absolute; left: 0; top: 0; bottom: 0; width: 26px; background: #5ce611; }
+    [data-composition-id="s07-lista"] .c7-ic { position: absolute; left: 60px; top: 46px; width: 180px; height: 180px; border-radius: 40px; background: #efeee5; }
+    [data-composition-id="s07-lista"] .c7-ic svg { width: 180px; height: 180px; }
+    [data-composition-id="s07-lista"] .c7-t { position: absolute; left: 280px; top: 62px; font: 800 92px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; }
+    [data-composition-id="s07-lista"] .c7-s { position: absolute; left: 282px; top: 178px; font: 500 40px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.65); }
+  </style>
+  <div id="root" data-composition-id="s07-lista" data-width="1080" data-height="1920" data-duration="2.31">
+    <div id="s07-lista-esc" class="esc clip" data-start="0" data-duration="2.31" data-track-index="0">
+
+      <div class="c7 k0" style="top:600px"><div class="c7-lado"></div><div class="c7-cara"><div class="c7-raya"></div><div class="c7-ic"><svg viewBox="0 0 180 180" aria-hidden="true"><rect x="22" y="36" width="136" height="124" rx="18" fill="#ffffff" stroke="#16243d" stroke-width="12"/><rect x="22" y="36" width="136" height="40" rx="14" fill="#16243d"/><rect x="52" y="18" width="14" height="36" rx="7" fill="#0b1220"/><rect x="114" y="18" width="14" height="36" rx="7" fill="#0b1220"/><rect x="56" y="96" width="30" height="26" rx="6" fill="#5ce611"/><rect x="96" y="96" width="30" height="26" rx="6" fill="#dcdacb"/><rect x="56" y="128" width="30" height="20" rx="6" fill="#dcdacb"/></svg></div><div class="c7-t">El turno</div><div class="c7-s">Mañana, 10:00</div></div></div><div class="c7 k1" style="top:930px"><div class="c7-lado"></div><div class="c7-cara"><div class="c7-raya"></div><div class="c7-ic"><svg viewBox="0 0 180 180" aria-hidden="true"><path d="M40 18 H140 V162 L124 150 L108 162 L90 150 L72 162 L56 150 L40 162 Z" fill="#ffffff" stroke="#16243d" stroke-width="10" stroke-linejoin="round"/><rect x="60" y="48" width="60" height="12" rx="6" fill="#16243d"/><rect x="60" y="74" width="40" height="12" rx="6" fill="#dcdacb"/><text x="90" y="134" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="44" fill="#3fa60a">$</text></svg></div><div class="c7-t">La cuota</div><div class="c7-s">Vence el viernes</div></div></div><div class="c7 k2" style="top:1260px"><div class="c7-lado"></div><div class="c7-cara"><div class="c7-raya"></div><div class="c7-ic"><svg viewBox="0 0 180 180" aria-hidden="true"><rect x="14" y="48" width="152" height="92" rx="16" fill="#5ce611"/><rect x="116" y="48" width="50" height="92" rx="16" fill="#3fa60a"/><rect x="116" y="48" width="20" height="92" fill="#3fa60a"/><circle cx="80" cy="94" r="28" fill="#0b1220"/><text x="80" y="108" text-anchor="middle" font-family="Lexend" font-weight="900" font-size="40" fill="#efeee5">$</text></svg></div><div class="c7-t">La seña</div><div class="c7-s">Falta confirmar</div></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s07-lista";
+      const DUR = 2.31;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const late = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const vibra = (s, t, n) => tl.fromTo(q(s), { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 7, immediateRender: false }, t);
+      const cuenta = (s, desde, hasta, t, d) => { const el = q(s); const o = { v: desde }; tl.to(o, { v: hasta, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = Math.round(o.v); } }, t); };
+
+
+      [0.1, 0.8, 1.46].forEach((t, i) => tl.fromTo(q(".k" + i), { opacity: 0, x: 900, rotation: 6 }, { opacity: 1, x: 0, rotation: 0, duration: 0.34, ease: "back.out(1.3)" }, t));
+      [0.36, 1.02, 1.66].forEach((t, i) => late(".k" + i + " .c7-ic", t, 1.15));
+      // las tres se meten en el celular de la escena siguiente
+      tl.to(qa(".c7"), { scale: 0.35, opacity: 0, y: (i) => 330 - i * 330, transformOrigin: "50% 50%", duration: 0.26, ease: "power3.in", stagger: 0.03 }, 2.02);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

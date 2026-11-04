@@ -1,0 +1,100 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-racha"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-racha"] .capa { position: absolute; inset: 0; }
+    [data-composition-id="s03-racha"] .sombra { position: absolute; border-radius: 50%; background: rgba(11,18,32,0.16); }
+    [data-composition-id="s03-racha"] svg.llama, [data-composition-id="s03-racha"] svg.campana, [data-composition-id="s03-racha"] svg.candado { position: absolute; overflow: visible; }
+    [data-composition-id="s03-racha"] .pill { position: absolute; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #ffffff; font: 700 44px/1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; display: flex; align-items: center; gap: 14px; }
+    [data-composition-id="s03-racha"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
+    [data-composition-id="s03-racha"] .pill.navy { background: #0b1220; border-color: #0b1220; color: #efeee5; }
+    [data-composition-id="s03-racha"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s03-racha"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s03-racha"] .tag { position: absolute; left: 0; right: 0; text-align: center; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.2em; color: #0b1220; opacity: 0; }
+    [data-composition-id="s03-racha"] .tag b { display: inline-block; padding: 10px 20px; background: #0b1220; color: #efeee5; border-radius: 10px; font-weight: 500; }
+    [data-composition-id="s03-racha"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.2); opacity: 0; }
+    [data-composition-id="s03-racha"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.14); }
+    [data-composition-id="s03-racha"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s03-racha"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s03-racha"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s03-racha"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s03-racha"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s03-racha"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s03-racha"] .telw { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+    [data-composition-id="s03-racha"] .tel-lado { position: absolute; left: 240px; top: 580px; width: 640px; height: 1080px; border-radius: 84px; background: #dcdacb; }
+    [data-composition-id="s03-racha"] .tel { position: absolute; left: 220px; top: 560px; width: 640px; height: 1080px; border-radius: 84px; background: #0b1220; }
+    [data-composition-id="s03-racha"] .tel-pan { position: absolute; left: 18px; top: 18px; right: 18px; bottom: 18px; border-radius: 66px; background: #ffffff; overflow: hidden; }
+    [data-composition-id="s03-racha"] .tel-notch { position: absolute; left: 250px; top: 32px; width: 140px; height: 32px; border-radius: 16px; background: #0b1220; }
+    [data-composition-id="s03-racha"] .bl { position: absolute; inset: 0; background: #1f3254; }
+    [data-composition-id="s03-racha"] .bl-h { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font: 700 150px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: #efeee5; }
+    [data-composition-id="s03-racha"] .bl-d { position: absolute; left: 0; right: 0; top: 280px; text-align: center; font: 500 38px/1 "Lexend", sans-serif; color: rgba(239,238,229,0.75); }
+    [data-composition-id="s03-racha"] .nt { position: absolute; left: 18px; width: 568px; height: 186px; border-radius: 40px; background: #ffffff; box-shadow: 0 14px 0 rgba(11,18,32,0.35); }
+    [data-composition-id="s03-racha"] .nt-ic { position: absolute; left: 24px; top: 45px; width: 96px; height: 96px; }
+    [data-composition-id="s03-racha"] .nt-app { position: absolute; left: 140px; top: 30px; font: 500 28px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: rgba(11,18,32,0.55); }
+    [data-composition-id="s03-racha"] .nt-t { position: absolute; left: 140px; top: 74px; font: 800 42px/1 "Lexend", sans-serif; letter-spacing: -0.015em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s03-racha"] .nt-b { position: absolute; left: 140px; top: 128px; font: 500 32px/1 "Lexend", sans-serif; color: rgba(11,18,32,0.7); white-space: nowrap; }
+    [data-composition-id="s03-racha"] .ra { position: absolute; inset: 0; background: #ffffff; }
+    [data-composition-id="s03-racha"] svg.ra-ll { left: 162px; top: 110px; width: 280px; height: 355px; }
+    [data-composition-id="s03-racha"] .ra-n { position: absolute; left: 0; right: 0; top: 490px; text-align: center; font: 900 190px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; }
+    [data-composition-id="s03-racha"] .ra-s { position: absolute; left: 0; right: 0; top: 690px; text-align: center; font: 700 48px/1 "Lexend", sans-serif; color: #0b1220; }
+    [data-composition-id="s03-racha"] .ra-sem { position: absolute; left: 26px; right: 26px; top: 800px; display: flex; justify-content: space-between; }
+    [data-composition-id="s03-racha"] .ra-d { position: relative; width: 72px; height: 130px; }
+    [data-composition-id="s03-racha"] .ra-c { position: absolute; left: 2px; top: 0; width: 68px; height: 68px; border-radius: 50%; border: 7px solid #dcdacb; background: #efeee5; }
+    [data-composition-id="s03-racha"] .ra-ok { position: absolute; left: 2px; top: 0; opacity: 0; }
+    [data-composition-id="s03-racha"] .ra-d b { position: absolute; left: 0; right: 0; top: 88px; text-align: center; font: 700 32px/1 "Lexend", sans-serif; color: #0b1220; }
+
+    [data-composition-id="s03-racha"] .scr { position: absolute; inset: 0; }
+    [data-composition-id="s03-racha"] .ra { opacity: 0; }
+  </style>
+  <div id="root" data-composition-id="s03-racha" data-width="1080" data-height="1920" data-duration="3.02">
+    <div id="s03-racha-esc" class="esc clip" data-start="0" data-duration="3.02" data-track-index="0">
+
+      <div class="sombra sh" style="left:240px;top:1640px;width:640px;height:40px"></div>
+      
+<div class="telw "><div class="tel-lado"></div><div class="tel"><div class="tel-pan"><div class="scr"><div class="bl"><div class="bl-h">19:30</div><div class="bl-d">martes</div><div class="nt a" style="top:380px"><div class="nt-ic"><svg width="96" height="96" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="26" fill="#5ce611"/><path d="M20 28 Q20 18 30 18 H70 Q80 18 80 28 V60 Q80 70 70 70 H44 L28 84 L31 70 H30 Q20 70 20 60 Z" fill="#0b1220"/><text x="50" y="56" text-anchor="middle" font-family="Lexend" font-weight="800" font-size="30" fill="#efeee5">Aa</text></svg></div><div class="nt-app">APP DE IDIOMAS · AHORA</div><div class="nt-t">¿Practicamos hoy?</div><div class="nt-b">Tu lección te espera</div></div></div></div><div class="ra"><svg class="llama ra-ll" viewBox="0 0 300 380" aria-hidden="true" data-layout-allow-overflow>
+  <path d="M150 10 C190 90 280 140 280 250 C280 330 220 375 150 375 C80 375 20 330 20 250 C20 190 60 150 90 110 C100 160 120 180 140 185 C130 120 140 60 150 10 Z" fill="#5ce611"/>
+  <path d="M150 10 C190 90 280 140 280 250 C280 330 220 375 150 375 C200 340 226 300 220 240 C214 170 170 120 150 10 Z" fill="#3fa60a"/>
+  <path d="M150 196 C176 238 212 262 212 304 C212 344 184 362 150 362 C116 362 88 344 88 304 C88 272 110 250 126 228 C131 258 141 266 152 268 C146 244 145 222 150 196 Z" fill="#efeee5"/></svg><div class="ra-n"><span class="ra-num">11</span></div><div class="ra-s">días seguidos</div>
+  <div class="ra-sem"><div class="ra-d d0"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>L</b></div><div class="ra-d d1"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>M</b></div><div class="ra-d d2"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>M</b></div><div class="ra-d d3"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>J</b></div><div class="ra-d d4"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>V</b></div><div class="ra-d d5"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>S</b></div><div class="ra-d d6"><div class="ra-c"></div><div class="ra-ok"><svg width="68" height="68" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><b>D</b></div></div></div></div><div class="tel-notch"></div></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-racha";
+      const DUR = 3.02;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)" }, t);
+      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const late = (s, t, k) => tl.fromTo(typeof s === "string" ? qa(s) : s, { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const vibra = (s, t, n) => tl.fromTo(q(s), { x: 0 }, { x: 10, duration: 0.05, ease: "none", yoyo: true, repeat: n ?? 7, immediateRender: false }, t);
+      const cuenta = (s, desde, hasta, t, d) => { const el = q(s); const o = { v: desde }; tl.to(o, { v: hasta, duration: d, ease: "power1.out", onUpdate: () => { el.textContent = Math.round(o.v); } }, t); };
+
+
+      tl.fromTo(q(".telw"), { opacity: 0, scale: 0.5, y: 80, transformOrigin: "540px 1100px" }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(1.3)" }, 0);
+      // "avisa": cae la notificación
+      tl.fromTo(q(".nt.a"), { opacity: 0, y: -200 }, { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.6)" }, 0.55);
+      vibra(".tel", 0.6, 5);
+      late(".nt.a", 1.15, 1.06);
+      // "muestra": se abre la pantalla de la racha
+      tl.fromTo(q(".ra"), { opacity: 0, y: 200 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.55);
+      tl.to(q(".scr"), { opacity: 0, duration: 0.2 }, 1.75);
+      tl.fromTo(q(".ra-ll"), { scale: 0.4, transformOrigin: "50% 100%" }, { scale: 1, duration: 0.4, ease: "back.out(1.8)" }, 1.6);
+      qa(".ra-ok").forEach((o, i) => { if (i < 6) tl.fromTo(o, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, 1.7 + i * 0.06); });
+      // "racha": el día de hoy se tilda, la llama late y el número sube
+      tl.fromTo(q(".d6 .ra-ok"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1.2, duration: 0.24, ease: "back.out(2.5)" }, 2.21);
+      cuenta(".ra-num", 11, 12, 2.21, 0.05);
+      late(".ra-n", 2.26, 1.15);
+      late(".ra-ll", 2.21, 1.1);
+      tl.to(q(".ra-ll"), { scaleY: 1.06, svgOrigin: "150 375", duration: 0.2, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.6);
+      tl.to(q(".telw"), { opacity: 0, scale: 0.8, duration: 0.2, ease: "power2.in" }, 2.82);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
