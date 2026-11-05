@@ -22,6 +22,12 @@ que coinciden; no se leyó el PDF entero en la corrida.
   con dos fuentes y no se muestra.
   - National Review, "The non-paradox of choice" (Jim Manzi): https://www.nationalreview.com/corner/non-paradox-choice-jim-manzi/amp/
 
+- Reparto por mesa (ronda 1, dos fuentes independientes del paper que coinciden): de los 145 que se acercaron a la
+  mesa de 24 compraron 4; de los 104 que se acercaron a la de 6 compraron 31. No se dice ni se muestra en el reel
+  (se usan solo "3 de cada 100" y "30"), queda como respaldo de "vendieron menos" también en cantidad.
+  - National Review, Jim Manzi: https://www.nationalreview.com/corner/non-paradox-choice-jim-manzi/amp/
+  - Jason Collins, "Not the jam study again": https://www.jasoncollins.blog/posts/not-the-jam-study-again
+
 ## "Un experimento famoso: la mesa grande atrajo más gente."
 - Con 24 frascos se paró cerca del 60 % de los que pasaban; con 6, cerca del 40 %.
   - Paper (link de arriba).
@@ -30,7 +36,7 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - "Famoso": es el estudio más citado sobre exceso de opciones (lo usan de ejemplo el meta-análisis de 2010 y la
   prensa; ver abajo). No se dice "el primero" ni "demostró".
 
-## "Pero compraron tres de cada cien. En la de seis, treinta."
+## "Pero compraron tres de cada cien. Con seis mermeladas, treinta."
 - Compraron cerca del 3 % de los que se acercaron a la mesa de 24 y cerca del 30 % de los que se acercaron a la de 6.
   El denominador es "los que se pararon en la mesa", no todos los que pasaban: por eso el guion dice "compraron tres
   de cada cien" justo después de "atrajo más gente" (los que se acercaron).
@@ -40,7 +46,7 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - No se dice "diez veces más" en la voz (el número sale de dividir 30 entre 3 y depende del redondeo). Se puede
   mostrar "3" y "30" en pantalla, nada más.
 
-## "No les faltaban ganas. No pudieron decidir y lo dejaron para después."
+## "No les faltaban ganas. La mayoría no pudo decidir y lo dejó para después."
 - Es la explicación de los autores (exceso de opciones que desmotiva / "choice overload"): ante muchas opciones la
   gente se interesa igual (más se acercaron) pero le cuesta elegir y no elige. ("En las dos mesas probaron ~1,5
   mermeladas en promedio" aparece en un solo resumen: no se dice ni se muestra.)
@@ -77,3 +83,15 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - "Diez veces más", "triplicó", "las ventas subieron X %": ninguna cifra de ventas de tiendas reales.
 - Que el efecto es una ley ("más opciones siempre venden menos"): los meta-análisis dicen que no siempre aparece.
 - Que los grupos fueron asignados al azar: la crítica de National Review señala que no; no se dice nada del diseño.
+
+## Sonidos
+- Voz: Gemini TTS, voz Orus (`herramientas/voz.mjs`). La frase "Con seis mermeladas, treinta." se regeneró aparte
+  (`partes/treinta2.wav`) y se pegó con ffmpeg; toda la voz va a atempo 1,04 y la última frase a ~1,10.
+- Música: `assets/bgm/bed.mp3`, la misma cama de caso-pedidosya (banco del repo); `bed-corte.mp3` es el recorte con
+  fundido final que arma `armar.mjs`.
+- SFX: solo el banco de `molde/assets/sfx` (chime, click, click-soft, glitch-1, impact-bass-1, impact-bass-2,
+  key-press, notification, ping, pop, sparkle, typing, whoosh, whoosh-short), copiados tal cual; es el banco con el
+  que se hicieron todos los reels del repo, origen no registrado en el repo (no hay archivo de fuentes del molde).
+  No se usan `ding` (sintetizado en reels/el-ascensor), `campanita`, `moneda` ni `murmullo` (origen no registrado;
+  la-murga tiene un sintetizador de murmullo), ni `whoosh-cinematic` (crescendo de 5,5 s que no se oye con max corto).
+  No se sintetizó ni se descargó ningún sonido.

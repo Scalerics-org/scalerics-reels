@@ -14,7 +14,7 @@ import { execSync } from "node:child_process";
 const largo = {};
 const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
 // techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
-const TECHO = -31;
+const TECHO = -33;
 const lufs = {};
 const lufsArchivo = (n) => {
   if (lufs[n] === undefined) {
@@ -177,7 +177,7 @@ for (const [id, a] of ESCENAS) {
 for (const [id, a] of ESCENAS.slice(1)) {
   const f = `compositions/${id}.sfx.json`;
   const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.15 && s.t >= -0.4);
-  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.16 });
+  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.1 });
 }
 for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);
@@ -214,7 +214,7 @@ ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.14"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};

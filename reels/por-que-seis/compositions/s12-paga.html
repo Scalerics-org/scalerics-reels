@@ -25,17 +25,18 @@
     [data-composition-id="s12-paga"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 [data-composition-id="s12-paga"] .pill.chico { font-size: 52px; padding: 16px 34px 18px; }
   </style>
-  <div id="root" data-composition-id="s12-paga" data-width="1080" data-height="1920" data-duration="2.24">
-    <div id="s12-paga-esc" class="esc clip" data-start="0" data-duration="2.24" data-track-index="0">
+  <div id="root" data-composition-id="s12-paga" data-width="1080" data-height="1920" data-duration="2.42">
+    <div id="s12-paga-esc" class="esc clip" data-start="0" data-duration="2.42" data-track-index="0">
 
-      <div class="pill lleno chico n1" style="left:290px;top:1660px"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Elige</div>
-      <div class="pill lleno chico n2" style="left:790px;top:1660px"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Paga</div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M880 560 L240 900"/><circle class="dot g d1" cx="240" cy="900" r="12"/><path class="lead g l2" d="M300 1560 L330 1420"/><circle class="dot g d2" cx="330" cy="1420" r="12"/></svg>
+      <div class="pill lleno chico n1" style="left:880px;top:520px"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Elige</div>
+      <div class="pill lleno chico n2" style="left:300px;top:1590px"><svg width="48" height="48" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Paga</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s12-paga";
-      const DUR = 2.24;
+      const DUR = 2.42;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -58,9 +59,9 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      nota(1, 0.7);
-      nota(2, 1.51);
-      fuera(".n1, .n2", 2.04, 0.18);
+      nota(1, 0.47);
+      nota(2, 1.31);
+      fuera(".n1, .n2, .l1, .l2, .d1, .d2", 2.22, 0.18);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

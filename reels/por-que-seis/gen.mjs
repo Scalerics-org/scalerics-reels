@@ -129,106 +129,103 @@ const CSS_MK = `
       <div class="h h3">que ${marca("6", "")}</div>`,
     js: `
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      late(".h2", ${r2(w(id, 8))}, 1.06);
-      late(".h3", ${r2(w(id, 11))}, 1.12);
-      tl.to(qa(".h"), { opacity: 0, y: -40, duration: 0.2, ease: "power2.in", stagger: 0.03 }, ${r2(ESC[id] - 0.24)});`,
+      tl.to(qa(".h"), { opacity: 0, y: -40, duration: 0.18, ease: "power2.in", stagger: 0.03 }, ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: 0, sfx: "whoosh-cinematic", vol: 0.24, max: 1.0 },
-      ...[0, 1, 2, 3, 4, 5].map((i) => ({ t: r2(0.05 + i * 0.11), sfx: "pop", vol: 0.12 })),
-      { t: w(id, 1) + 0.05, sfx: "campanita", vol: 0.14, max: 0.8 },
-      { t: w(id, 7) - 0.1, sfx: "whoosh", vol: 0.22, max: 0.8 }, { t: w(id, 7) + 0.05, sfx: "pop", vol: 0.16 },
-      { t: w(id, 8), sfx: "glitch-1", vol: 0.1 },
-      ...[0, 1, 2, 3, 4, 5].map((i) => ({ t: r2(w(id, 11) - 0.1 + i * 0.07), sfx: "pop", vol: 0.14 })),
-      { t: w(id, 11) + 0.1, sfx: "ding", vol: 0.16, max: 0.8 },
+      { t: 0, sfx: "whoosh", vol: 0.16, max: 0.7 },
+      ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(0.08 + i * 0.12), sfx: "pop", vol: 0.08 })),
     ],
   });
 }
 
-// ================= s02 · ¿Por qué? (la tapa vuela y se vuelve el "?") =================
+// ================= s02 · vendieron menos que con seis (aparece la mesa chica) =================
 {
-  const id = "s02-porque";
+  const id = "s02-seis";
+  escena(id, {
+    html: `<i></i>`,
+    js: ``,
+    sfx: [
+      { t: -0.1, sfx: "whoosh", vol: 0.16, max: 0.7 }, { t: 0.08, sfx: "pop", vol: 0.12 },
+      { t: w(id, 8) + 0.05, sfx: "glitch-1", vol: 0.05, max: 0.4 },
+      ...[0, 1, 2, 3, 4, 5].map((i) => ({ t: r2(w(id, 11) + 0.42 + i * 0.028), sfx: "pop", vol: 0.05 })),
+    ],
+  });
+}
+
+// ================= s03 · ¿Por qué? (las mesas se van, la tapa vuela y se vuelve el "?") =================
+{
+  const id = "s03-porque";
   escena(id, {
     css: `P .pq { position: absolute; left: 0; right: 0; top: 230px; text-align: center; ${TIT} font-size: 150px; }`,
     html: `<div class="pq">¿Por qué?</div>
-      ${mono(1, 540, 1630, "Estudio publicado en 2000")}`,
+      ${mono(1, 540, 1690, "Estudio publicado en 2000")}`,
     js: `
-      tl.fromTo(q(".pq"), { scale: 1.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.22, ease: "power4.out", immediateRender: true }, 0);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.16, ease: "power2.in" }, ${r2(w(id, 14) - 0.2)});
+      tl.fromTo(q(".pq"), { scale: 1.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.16, ease: "power4.out", immediateRender: true }, 0);
+      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(w(id, 14) - 0.18)});
       nota(1, ${r2(w(id, 15))});`,
     sfx: [
-      { t: -0.25, sfx: "whoosh-short", vol: 0.22 }, { t: 0.0, sfx: "impact-bass-1", vol: 0.26 }, { t: 0.08, sfx: "pop", vol: 0.18 },
-      { t: w(id, 14) - 0.05, sfx: "whoosh", vol: 0.2, max: 0.8 }, { t: w(id, 15) + 0.1, sfx: "key-press", vol: 0.16 },
+      { t: -0.3, sfx: "whoosh", vol: 0.1, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
+      { t: w(id, 14) - 0.1, sfx: "whoosh", vol: 0.12, max: 0.6 },
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 14) + 0.05 + i * 0.08), sfx: "pop", vol: 0.07 })),
+      { t: w(id, 15) + 0.1, sfx: "key-press", vol: 0.12 },
     ],
   });
 }
 
-// ================= s03 · la mesa grande atrajo más gente =================
+// ================= s04 · la mesa grande atrajo más gente =================
 {
-  const id = "s03-gente";
+  const id = "s04-gente";
   escena(id, {
-    html: `${pill(1, 540, 1640, "Más gente", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 21))}); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
+    css: `P .pill.medio { font-size: 52px; padding: 16px 34px 18px; }`,
+    html: `${leads(lead(1, 870, 560, 790, 640, "g"))}${pill(1, 870, 520, "Más gente", "lleno medio")}`,
+    js: `nota(1, ${r2(w(id, 21))}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
-      { t: 0.05, sfx: "whoosh-cinematic", vol: 0.2, max: 0.9 },
-      { t: w(id, 20) - 0.2, sfx: "murmullo", vol: 0.22, max: 1.6 },
-      ...[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ t: r2(w(id, 20) - 0.15 + i * 0.07), sfx: "click-soft", vol: 0.12 })),
-      { t: w(id, 21), sfx: "pop", vol: 0.18 },
+      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
+      ...[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.05), sfx: "click-soft", vol: 0.09 })),
+      { t: w(id, 21) + 0.15, sfx: "pop", vol: 0.12 },
     ],
   });
 }
 
-// ================= s04 · pero compraron tres de cada cien =================
+// ================= s05 · pero compraron tres de cada cien =================
 {
-  const id = "s04-tres";
+  const id = "s05-tres";
   escena(id, {
-    html: `${pill(1, 540, 1640, "Mesa de 24", "rl grande")}`,
+    html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}`,
     js: `nota(1, 0.35); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.22, max: 0.8 },
-      { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.2 }, { t: w(id, 25) + 0.37, sfx: "pop", vol: 0.2 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.2 },
-      { t: w(id, 25) + 0.56, sfx: "impact-bass-1", vol: 0.18 },
+      { t: -0.1, sfx: "whoosh", vol: 0.15, max: 0.7 }, { t: 0.05, sfx: "pop", vol: 0.1 },
+      { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.14 }, { t: w(id, 25) + 0.37, sfx: "pop", vol: 0.14 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.14 },
     ],
   });
 }
 
-// ================= s05 · en la de seis, treinta =================
+// ================= s06 · con seis mermeladas, treinta · no les faltaban ganas (la cucharita) =================
 {
-  const id = "s05-treinta";
+  const id = "s06-treinta";
   escena(id, {
-    html: `${pill(1, 540, 1640, "Mesa de 6", "lleno grande")}`,
-    js: `nota(1, 0.3); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
+    html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}`,
+    js: `nota(1, 0.3); fuera(".n1", ${r2(w(id, 33) - 0.25)}, 0.18);`,
     sfx: [
-      { t: -0.15, sfx: "whoosh", vol: 0.22, max: 0.8 },
-      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 30) + 0.1 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.12 : 0.15 })),
-      { t: w(id, 32), sfx: "chime", vol: 0.2, max: 1.2 },
+      { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
+      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 31) + 0.2 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.07 : 0.09 })),
+      { t: w(id, 32) + 0.35, sfx: "sparkle", vol: 0.06, max: 0.5 },
+      { t: w(id, 33) - 0.15, sfx: "whoosh-short", vol: 0.07 },
+      { t: w(id, 33) + 0.45, sfx: "click-soft", vol: 0.14 }, { t: w(id, 36) + 0.4, sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
 }
 
-// ================= s06 · no les faltaban ganas (la cucharita) =================
-{
-  const id = "s06-ganas";
-  escena(id, {
-    html: `${pill(1, 540, 1640, `${tick(24)}Probaron`, "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 36) - 0.1)});`,
-    sfx: [
-      { t: 0.0, sfx: "whoosh-short", vol: 0.2 }, { t: 0.05, sfx: "pop", vol: 0.16 },
-      { t: 0.45, sfx: "click-soft", vol: 0.2 }, { t: 0.6, sfx: "sparkle", vol: 0.18 },
-    ],
-  });
-}
-
-// ================= s07 · no pudieron decidir y lo dejaron para después =================
+// ================= s07 · la mayoría no pudo decidir y lo dejó para después =================
 {
   const id = "s07-despues";
   escena(id, {
     css: `P .mono.chico { font-size: 30px; letter-spacing: 0.1em; }`,
-    html: `${mono(1, 540, 1650, "Sobre todo si no sabés qué querés", "chico")}`,
+    html: `${mono(1, 540, 1690, "Sobre todo si no sabés qué querés", "chico")}`,
     js: `nota(1, 0.3);`,
     sfx: [
-      { t: 0.0, sfx: "whoosh-cinematic", vol: 0.2, max: 1.0 },
-      { t: w(id, 40), sfx: "click-soft", vol: 0.22 }, { t: w(id, 41), sfx: "click-soft", vol: 0.22 }, { t: w(id, 41) + 0.32, sfx: "click-soft", vol: 0.22 }, { t: w(id, 42), sfx: "click-soft", vol: 0.2 },
-      { t: w(id, 44) - 0.1, sfx: "whoosh-short", vol: 0.2 }, { t: w(id, 46), sfx: "glitch-1", vol: 0.08 },
+      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
+      { t: w(id, 40) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 41) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 41) + 0.44, sfx: "click-soft", vol: 0.16 }, { t: w(id, 43) + 0.1, sfx: "click-soft", vol: 0.14 },
+      { t: w(id, 44) - 0.05, sfx: "whoosh-short", vol: 0.12 },
     ],
   });
 }
@@ -237,12 +234,12 @@ const CSS_MK = `
 {
   const id = "s08-whatsapp";
   escena(id, {
-    html: `${pill(1, 540, 1690, "Tu catálogo", "grande")}`,
+    html: `${pill(1, 540, 1650, "Tu catálogo")}`,
     js: `nota(1, ${r2(w(id, 50))}); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.8 }, { t: 0.2, sfx: "pop", vol: 0.18 },
-      ...[0, 0.32, 0.58, 0.8, 0.98, 1.13, 1.26, 1.37].map((d) => ({ t: r2(w(id, 53) - 0.1 + d), sfx: "notification", vol: 0.12, max: 0.5 })),
-      { t: w(id, 50), sfx: "typing", vol: 0.1, max: 1.0 },
+      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.3, sfx: "pop", vol: 0.12 },
+      { t: w(id, 50), sfx: "typing", vol: 0.06, max: 0.8 },
+      ...[0, 0.3, 0.55, 0.75, 0.92, 1.06].map((d) => ({ t: r2(w(id, 53) + d), sfx: "notification", vol: 0.07, max: 0.4 })),
     ],
   });
 }
@@ -254,9 +251,9 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.22, max: 0.8 },
-      ...Array.from({ length: 8 }, (_, i) => ({ t: r2(0.28 + i * 0.07), sfx: "pop", vol: 0.12 })),
-      { t: w(id, 60) - 0.05, sfx: "impact-bass-2", vol: 0.22 },
+      { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
+      ...Array.from({ length: 8 }, (_, i) => ({ t: r2(0.32 + i * 0.07), sfx: "pop", vol: 0.08 })),
+      { t: w(id, 60) - 0.05, sfx: "impact-bass-2", vol: 0.09, max: 0.7 },
     ],
   });
 }
@@ -268,8 +265,8 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 62), sfx: "whoosh-cinematic", vol: 0.2, max: 0.9 },
-      { t: w(id, 63), sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 65), sfx: "sparkle", vol: 0.2 }, { t: w(id, 65) + 0.05, sfx: "pop", vol: 0.16 },
+      { t: w(id, 62), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 63), sfx: "pop", vol: 0.09 },
+      { t: w(id, 64), sfx: "whoosh", vol: 0.13, max: 0.6 }, { t: w(id, 66), sfx: "sparkle", vol: 0.08, max: 0.6 },
     ],
   });
 }
@@ -280,29 +277,28 @@ const CSS_MK = `
   escena(id, {
     html: `<i></i>`,
     js: ``,
-    sfx: [
-      { t: w(id, 69), sfx: "click", vol: 0.22 }, { t: w(id, 69) + 0.05, sfx: "sparkle", vol: 0.14 },
-      { t: w(id, 71), sfx: "click", vol: 0.2 }, { t: w(id, 72), sfx: "pop", vol: 0.16 },
-    ],
+    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.05 }, { t: w(id, 69), sfx: "click", vol: 0.12 }, { t: w(id, 71), sfx: "click", vol: 0.12 }, { t: w(id, 72) + 0.1, sfx: "pop", vol: 0.1 }],
   });
 }
 
-// ================= s12 · el cliente elige, y paga =================
+// ================= s12 · el cliente elige y paga =================
 {
   const id = "s12-paga";
   escena(id, {
     css: `P .pill.chico { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `
-      ${pill(1, 290, 1660, `${tick(24)}Elige`, "lleno chico")}
-      ${pill(2, 790, 1660, `${tick(24)}Paga`, "lleno chico")}`,
+      ${leads(lead(1, 880, 560, 240, 900, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
+      ${pill(1, 880, 520, `${tick(24)}Elige`, "lleno chico")}
+      ${pill(2, 300, 1590, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
       nota(1, ${r2(w(id, 75) - 0.05)});
       nota(2, ${r2(w(id, 77) - 0.05)});
-      fuera(".n1, .n2", ${r2(ESC[id] - 0.2)}, 0.18);`,
+      fuera(".n1, .n2, .l1, .l2, .d1, .d2", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
-      { t: w(id, 75), sfx: "click", vol: 0.24 }, { t: w(id, 75) + 0.05, sfx: "ping", vol: 0.18 },
-      { t: w(id, 77), sfx: "click", vol: 0.24 }, { t: w(id, 77) + 0.05, sfx: "moneda", vol: 0.18 },
-      { t: w(id, 77) + 0.2, sfx: "whoosh-short", vol: 0.16 }, { t: w(id, 77) + 0.72, sfx: "pop", vol: 0.2 }, { t: w(id, 77) + 0.95, sfx: "pop", vol: 0.18 },
+      { t: 0.1, sfx: "pop", vol: 0.14 },
+      { t: w(id, 75), sfx: "click", vol: 0.12 }, { t: w(id, 75) + 0.08, sfx: "ping", vol: 0.07 },
+      { t: w(id, 77), sfx: "click", vol: 0.12 },
+      { t: w(id, 77) + 0.72, sfx: "pop", vol: 0.09 }, { t: w(id, 77) + 0.98, sfx: "pop", vol: 0.08 },
     ],
   });
 }
@@ -314,8 +310,8 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.8 }, { t: 0.2, sfx: "pop", vol: 0.16 },
-      { t: w(id, 81), sfx: "notification", vol: 0.16, max: 0.8 }, { t: w(id, 84), sfx: "chime", vol: 0.2, max: 1.2 },
+      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.15, sfx: "pop", vol: 0.12 },
+      { t: w(id, 81), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 84) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
     ],
   });
 }
@@ -336,12 +332,12 @@ const CSS_MK = `
       <div class="t2w"><span class="t2"><div class="selbox sb">${esquinas}</div><em style="position:relative;font-style:normal">gratis</em></span></div>
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
-      tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(w(id, 88) - 0.35)});
-      caja(".sb", ${r2(w(id, 88) - 0.2)});
-      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 88) + 0.05)});
+      tl.fromTo(q(".t1"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0);
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.08);
+      caja(".sb", 0.12);
+      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0.16);
       tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 90) + 0.1)});`,
-    sfx: [{ t: 0.0, sfx: "whoosh-cinematic", vol: 0.2, max: 0.8 }, { t: w(id, 88), sfx: "click-soft", vol: 0.24 }, { t: w(id, 90) - 0.1, sfx: "chime", vol: 0.26, max: 1.4 }],
+    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.15, sfx: "click-soft", vol: 0.14 }, { t: w(id, 90) + 0.75, sfx: "chime", vol: 0.1, max: 1.0 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

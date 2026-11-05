@@ -182,3 +182,53 @@ SIN marcas: ni el supermercado ni la marca de las mermeladas, etiquetas genéric
 13. Canasta de s04 aparecía mientras la gente todavía estaba ahí → la gente se va antes.
 14. Cierre: "scalerics.com" entra con "gratis" (2 s en pantalla) y el celular baja para no tocarlo.
 Segunda mirada completa (cada 1 s desde 0,25): sin defectos nuevos fuera de transiciones de 0,2-0,3 s.
+
+## Construcción · ronda 1 (correcciones de arte, sonido y guion)
+**Guion y voz.** G1 "La mayoría no pudo decidir y lo dejó para después." · G2 "Con seis mermeladas, treinta." (la toma
+completa se comió "mermeladas": se regeneró solo esa frase, `partes/treinta2.wav`, y se pegó con ffmpeg; el STT ahora
+oye "con 6 mermeladas 30"). 91 palabras. Voz a atempo 1,04 y la última frase a ~1,10 (si no, el cierre duraba 3,4 s):
+34,0 s de voz, reel de 34,2 s. "les" en "No les faltaban": el STT oye "le" en las dos tomas; es la s aspirada del acento
+(antes de f), no un error de texto. Tiempos corregidos a mano otra vez (silencios + envolvente), cruda en
+`partes/locucion-cruda.wav`. G3 subtítulo "elige y paga." sin coma (texto de palabras.json). G4 sin pill en "ganas".
+G5 descripcion.txt. G6 fuentes.md (4 de 145 contra 31 de 104, sección Sonidos).
+
+**Escenas (inicio, s):** s01-gancho 0 · s02-seis 2,74 · s03-porque 4,50 · s04-gente 6,90 · s05-tres 8,77 ·
+s06-treinta 10,51 (treinta + ganas, 3,3 s con dos golpes) · s07-despues 13,80 · s08-whatsapp 16,62 · s09-mesa24 19,58 ·
+s10-tienda 21,53 · s11-pocas 23,64 · s12-paga 26,26 · s13-negocio 28,68 · s14-cta 31,19 (3,0 s, todo legible desde 31,4).
+
+**Sonido.** whoosh-cinematic afuera (whoosh / whoosh-short). Sin ding, campanita, moneda, murmullo (solo banco del
+molde). `armar.mjs`: no agrega el whoosh automático si la escena trae uno; mide el silencio inicial de cada SFX y
+adelanta el cue (chime 0,42, ping 0,31, typing 0,44…); topes por defecto glitch-1 0,6 s, impact-bass 0,8-0,9 s;
+techo por efecto -33 LUFS; música a 0,14 y recortada con fundido de 0,35 s (`bed-corte.mp3`). "seis" despejado (pops
+después de la palabra, a 0,05). Pop al entrar la canasta de s12. Medido: voz -15,0 LUFS, música+SFX -34,0; en toda
+ventana de 0,5 s con voz la voz queda ≥ 7,7 LU arriba; momentáneo (400 ms cada 0,1 s) mínimo 5,6 LU en 12,5 s, que es
+el arranque de "No" (ventana casi muda). Pico premezcla -2,2 dBFS. Cortes de subtítulos "Pensá en | tu catálogo",
+"armamos | tu tienda online:".
+
+**Arte.**
+- A1/A2/A11: canastas apartadas de las mesas (a la izquierda), cámara alta: fondo crema detrás de los subtítulos, las
+  dos canastas en cuadro durante el viaje, la segunda junto a la mesa chica (el viaje al macro nunca queda vacío).
+  Asas rígidas paradas sobre las paredes largas; frascos acomodados por capas sin atravesar paredes. "?" y números en
+  una capa 3D aparte que se dibuja encima (nunca los tapa un frasco).
+- A3: cucharita nueva (cuenco ovalado plano, mermelada brillante, gota con hilo) que sale por arriba del borde hacia
+  la cámara; la tapa sale volando y desaparece; carteles y platos ocultos en el macro; camino blanco sobre el mantel,
+  así debajo del frasco y del logo queda blanco.
+- A4/A17: anillo = elipse parada frente a la cámara (radios 1,22 × 1,5), frascos al 90 % con espacio, el frasco al que
+  apunta la cucharita se agranda, cucharita al doble; canasta vacía al centro que se va en "dejó"; el anillo se cierra
+  en el centro y de ahí crece el celular (mismo encuadre).
+- A5: celular acostado con el mismo 3/4 del cuadro 0, 24 frascos llenando el ancho; los 21 que sobran se hunden en
+  0,25 s; el celular primero gira en su lugar y después se para, chico, dentro del cuadro.
+- A6: sin velo degradé; cada subtítulo tiene su placa crema lisa.
+- A7/A8: en "¿Por qué?" las mesas desaparecen y queda solo el "?" (entra antes, sin cuadro vacío); el gancho se va
+  antes de que la cámara suba.
+- A9: gente apretada alrededor de la mesa grande (15) y 2 en la chica; pill "Más gente" con línea guía.
+- A10: rótulo del estudio a y 1690. A12: catálogo en forma de chat (fotos de distintos tamaños y torcidas, globitos de
+  texto, frascos reconocibles), pill "Tu catálogo" chica a 1650. A13: frasco dibujado con contorno y tela pegada a la
+  boca; "Pagar" navy con texto crema; recuadro de "Los más pedidos" adentro de la textura (sigue la perspectiva);
+  sin sombra del celular cuando flota.
+- A14: celular al 55-60 % del ancho, canasta a su derecha a media altura, pills "Elige" y "Paga" con línea guía a la
+  tarjeta y al botón; los frascos salen por el costado. A15: el local es el protagonista, celular chico adelante a
+  la izquierda, tarjeta que vuela y local que se prende. A16/A20: el mismo celular viaja al centro dándose vuelta y
+  del otro lado está la videollamada (pantalla compartida con el frasco y la canasta); los tres textos del cierre
+  entran en los primeros 0,2 s (legibles ~2,8 s). A18: mesa con margen a los costados y más abajo; el alejamiento
+  arranca en 1,6 s. A19: las palabras aparecen enteras de una (sin fundido gris).
