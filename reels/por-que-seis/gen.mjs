@@ -10,7 +10,7 @@ const pal = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const r2 = (n) => Math.round(n * 100) / 100;
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.55);
+const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.25);
 const ini = (i) => (i === 0 ? 0 : r2(pal[i].start));
 const INI = Object.fromEntries(reel.escenas.map(([id, i]) => [id, ini(i)]));
 const ESC = Object.fromEntries(reel.escenas.map(([id, i], k) => [id, r2((k + 1 < reel.escenas.length ? ini(reel.escenas[k + 1][1]) : DUR) - ini(i))]));
@@ -199,8 +199,8 @@ const CSS_MK = `
     js: `nota(1, 0.3); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
       { t: -0.15, sfx: "whoosh", vol: 0.22, max: 0.8 },
-      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 32) + 0.1 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.12 : 0.15 })),
-      { t: w(id, 33), sfx: "chime", vol: 0.2, max: 1.2 },
+      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 30) + 0.1 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.12 : 0.15 })),
+      { t: w(id, 32), sfx: "chime", vol: 0.2, max: 1.2 },
     ],
   });
 }
@@ -210,7 +210,7 @@ const CSS_MK = `
   const id = "s06-ganas";
   escena(id, {
     html: `${pill(1, 540, 1640, `${tick(24)}Probaron`, "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 37) - 0.1)});`,
+    js: `nota(1, ${r2(w(id, 36) - 0.1)});`,
     sfx: [
       { t: 0.0, sfx: "whoosh-short", vol: 0.2 }, { t: 0.05, sfx: "pop", vol: 0.16 },
       { t: 0.45, sfx: "click-soft", vol: 0.2 }, { t: 0.6, sfx: "sparkle", vol: 0.18 },
@@ -227,8 +227,8 @@ const CSS_MK = `
     js: `nota(1, 0.3);`,
     sfx: [
       { t: 0.0, sfx: "whoosh-cinematic", vol: 0.2, max: 1.0 },
-      { t: w(id, 39), sfx: "click-soft", vol: 0.22 }, { t: w(id, 40), sfx: "click-soft", vol: 0.22 }, { t: w(id, 40) + 0.32, sfx: "click-soft", vol: 0.22 }, { t: w(id, 41), sfx: "click-soft", vol: 0.2 },
-      { t: w(id, 43) - 0.1, sfx: "whoosh-short", vol: 0.2 }, { t: w(id, 45), sfx: "glitch-1", vol: 0.08 },
+      { t: w(id, 40), sfx: "click-soft", vol: 0.22 }, { t: w(id, 41), sfx: "click-soft", vol: 0.22 }, { t: w(id, 41) + 0.32, sfx: "click-soft", vol: 0.22 }, { t: w(id, 42), sfx: "click-soft", vol: 0.2 },
+      { t: w(id, 44) - 0.1, sfx: "whoosh-short", vol: 0.2 }, { t: w(id, 46), sfx: "glitch-1", vol: 0.08 },
     ],
   });
 }
@@ -238,11 +238,11 @@ const CSS_MK = `
   const id = "s08-whatsapp";
   escena(id, {
     html: `${pill(1, 540, 1690, "Tu catálogo", "grande")}`,
-    js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
+    js: `nota(1, ${r2(w(id, 50))}); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
       { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.8 }, { t: 0.2, sfx: "pop", vol: 0.18 },
-      ...[0, 0.32, 0.58, 0.8, 0.98, 1.13, 1.26, 1.37].map((d) => ({ t: r2(w(id, 52) - 0.1 + d), sfx: "notification", vol: 0.12, max: 0.5 })),
-      { t: w(id, 49), sfx: "typing", vol: 0.1, max: 1.0 },
+      ...[0, 0.32, 0.58, 0.8, 0.98, 1.13, 1.26, 1.37].map((d) => ({ t: r2(w(id, 53) - 0.1 + d), sfx: "notification", vol: 0.12, max: 0.5 })),
+      { t: w(id, 50), sfx: "typing", vol: 0.1, max: 1.0 },
     ],
   });
 }
@@ -256,7 +256,7 @@ const CSS_MK = `
     sfx: [
       { t: 0.0, sfx: "whoosh", vol: 0.22, max: 0.8 },
       ...Array.from({ length: 8 }, (_, i) => ({ t: r2(0.28 + i * 0.07), sfx: "pop", vol: 0.12 })),
-      { t: w(id, 59) - 0.05, sfx: "impact-bass-2", vol: 0.22 },
+      { t: w(id, 60) - 0.05, sfx: "impact-bass-2", vol: 0.22 },
     ],
   });
 }
@@ -268,8 +268,8 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 61), sfx: "whoosh-cinematic", vol: 0.2, max: 0.9 },
-      { t: w(id, 62), sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 64), sfx: "sparkle", vol: 0.2 }, { t: w(id, 64) + 0.05, sfx: "pop", vol: 0.16 },
+      { t: w(id, 62), sfx: "whoosh-cinematic", vol: 0.2, max: 0.9 },
+      { t: w(id, 63), sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 65), sfx: "sparkle", vol: 0.2 }, { t: w(id, 65) + 0.05, sfx: "pop", vol: 0.16 },
     ],
   });
 }
@@ -281,8 +281,8 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 68), sfx: "click", vol: 0.22 }, { t: w(id, 68) + 0.05, sfx: "sparkle", vol: 0.14 },
-      { t: w(id, 70), sfx: "click", vol: 0.2 }, { t: w(id, 71), sfx: "pop", vol: 0.16 },
+      { t: w(id, 69), sfx: "click", vol: 0.22 }, { t: w(id, 69) + 0.05, sfx: "sparkle", vol: 0.14 },
+      { t: w(id, 71), sfx: "click", vol: 0.2 }, { t: w(id, 72), sfx: "pop", vol: 0.16 },
     ],
   });
 }
@@ -296,13 +296,13 @@ const CSS_MK = `
       ${pill(1, 290, 1660, `${tick(24)}Elige`, "lleno chico")}
       ${pill(2, 790, 1660, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
-      nota(1, ${r2(w(id, 74) - 0.05)});
-      nota(2, ${r2(w(id, 76) - 0.05)});
+      nota(1, ${r2(w(id, 75) - 0.05)});
+      nota(2, ${r2(w(id, 77) - 0.05)});
       fuera(".n1, .n2", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
-      { t: w(id, 74), sfx: "click", vol: 0.24 }, { t: w(id, 74) + 0.05, sfx: "ping", vol: 0.18 },
-      { t: w(id, 76), sfx: "click", vol: 0.24 }, { t: w(id, 76) + 0.05, sfx: "moneda", vol: 0.18 },
-      { t: w(id, 76) + 0.2, sfx: "whoosh-short", vol: 0.16 }, { t: w(id, 76) + 0.72, sfx: "pop", vol: 0.2 }, { t: w(id, 76) + 0.95, sfx: "pop", vol: 0.18 },
+      { t: w(id, 75), sfx: "click", vol: 0.24 }, { t: w(id, 75) + 0.05, sfx: "ping", vol: 0.18 },
+      { t: w(id, 77), sfx: "click", vol: 0.24 }, { t: w(id, 77) + 0.05, sfx: "moneda", vol: 0.18 },
+      { t: w(id, 77) + 0.2, sfx: "whoosh-short", vol: 0.16 }, { t: w(id, 77) + 0.72, sfx: "pop", vol: 0.2 }, { t: w(id, 77) + 0.95, sfx: "pop", vol: 0.18 },
     ],
   });
 }
@@ -315,7 +315,7 @@ const CSS_MK = `
     js: ``,
     sfx: [
       { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.8 }, { t: 0.2, sfx: "pop", vol: 0.16 },
-      { t: w(id, 80), sfx: "notification", vol: 0.16, max: 0.8 }, { t: w(id, 83), sfx: "chime", vol: 0.2, max: 1.2 },
+      { t: w(id, 81), sfx: "notification", vol: 0.16, max: 0.8 }, { t: w(id, 84), sfx: "chime", vol: 0.2, max: 1.2 },
     ],
   });
 }
@@ -337,11 +337,11 @@ const CSS_MK = `
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
       tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(w(id, 87) - 0.35)});
-      caja(".sb", ${r2(w(id, 87) - 0.2)});
-      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 87) + 0.05)});
-      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) + 0.1)});`,
-    sfx: [{ t: 0.0, sfx: "whoosh-cinematic", vol: 0.2, max: 0.8 }, { t: w(id, 87), sfx: "click-soft", vol: 0.24 }, { t: w(id, 89) - 0.1, sfx: "chime", vol: 0.26, max: 1.4 }],
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(w(id, 88) - 0.35)});
+      caja(".sb", ${r2(w(id, 88) - 0.2)});
+      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 88) + 0.05)});
+      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 90) + 0.1)});`,
+    sfx: [{ t: 0.0, sfx: "whoosh-cinematic", vol: 0.2, max: 0.8 }, { t: w(id, 88), sfx: "click-soft", vol: 0.24 }, { t: w(id, 90) - 0.1, sfx: "chime", vol: 0.26, max: 1.4 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

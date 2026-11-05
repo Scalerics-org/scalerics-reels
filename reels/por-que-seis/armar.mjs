@@ -24,6 +24,18 @@ const lufsArchivo = (n) => {
   }
   return lufs[n];
 };
+// silencio inicial de cada SFX: se adelanta el cue para que el sonido arranque en el tiempo pedido
+const lead = {};
+const leadArchivo = (n) => {
+  if (lead[n] === undefined) {
+    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af silencedetect=n=-45dB:d=0.02 -f null - 2>&1`).toString();
+    const m = txt.match(/silence_start: (-?[\d.]+)[\s\S]*?silence_end: ([\d.]+)/);
+    lead[n] = m && Number(m[1]) <= 0.01 ? Math.min(0.6, Number(m[2])) : 0;
+  }
+  return lead[n];
+};
+// colas largas: estos SFX se cortan (con max) aunque la escena no lo pida
+const MAXDEF = { "glitch-1": 0.6, "impact-bass-1": 0.8, "impact-bass-2": 0.9, riser: 1.2 };
 const conTecho = (n, v) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n)) / 20)) * 1000) / 1000;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -31,7 +43,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.55);
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.25);
 
 const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
 const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
@@ -100,7 +112,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; background: #efeee5; padding: 4px 30px 10px; border-radius: 26px; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 14px; }
@@ -125,11 +137,11 @@ ${anim}      ];
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.fromTo(w, { opacity: 0, y: 18, scale: 0.86 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out" }, ini + Math.min(0.04, Number(w.dataset.t)) );
+          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10, scale: 0.94 }, { y: 0, scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
-          if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
+          if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out" }, t + 0.02);
         }
-        tl.to(el.querySelector("p"), { opacity: 0, duration: 0.03, ease: "none" }, ini + dur - 0.03);
+        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.01);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
@@ -149,6 +161,8 @@ for (let i = 0; i < 0; i++) {
   estrellas += `<circle class="estr" cx="${x}" cy="${y}" r="${r}" fill="#efeee5" opacity="${o}" />`;
 }
 
+// música recortada a la duración del reel, con fundido de 0,35 s al final
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -t ${DUR} -af afade=t=out:st=${r2(DUR - 0.35)}:d=0.35 assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -159,10 +173,16 @@ for (const [id, a] of ESCENAS) {
   if (!fs.existsSync(f)) continue;
   for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max });
 }
-for (const [, a] of ESCENAS.slice(1)) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.16 });
+// whoosh automático en cada cambio de escena, salvo que la escena ya traiga uno (whoosh y whoosh-short son el mismo archivo)
+for (const [id, a] of ESCENAS.slice(1)) {
+  const f = `compositions/${id}.sfx.json`;
+  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.15 && s.t >= -0.4);
+  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.16 });
+}
+for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
-  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
+  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min((s.max ?? 99) + (s.cut ?? 0), durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
   .join("\n");
 
 const index = `<!doctype html>
@@ -190,12 +210,11 @@ const index = `<!doctype html>
     <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
       <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"><svg id="estrellas" viewBox="0 0 1080 1920" aria-hidden="true">${estrellas}</svg></div>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-      <div id="velo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="4"></div>
 ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};
