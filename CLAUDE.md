@@ -195,7 +195,11 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      anotás en "Hechos" con "(sin 3D: <motivo>)"; no frenes la tanda por eso.
 
 
-8c. **LA VARA DE CALIDAD: `reels/caso-pedidosya`** (Juan, 04-11: "actualizá la rutina para que
+8c. **LA VARA DE CALIDAD: `reels/caso-pedidosya` y `reels/abren-hoy-completo`.** Juan, 05-11: "quiero que
+   todos los videos sean de esta calidad o mejor". Esa es la vara MÍNIMA para cualquier reel, de
+   cualquier línea: si un reel no se ve al menos así de pulido (personajes expresivos, cortes y planos
+   pensados, sonido real, nada cortado ni vacío), no se entrega. Más detalle abajo, sacado de
+   `reels/caso-pedidosya` (Juan, 04-11: "actualizá la rutina para que
    salgan en esta calidad los videos"; antes, sobre ese mismo reel: "tiene que quedar perfecto").
    Miralo entero antes de empezar (render en la rama `reel/caso-pedidosya`) y leé su `SPEC.md`,
    `tres.js`, `gen.mjs` y `armar.mjs`. Cada reel tiene que estar a esa altura. Lo que lo hace bueno:
