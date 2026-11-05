@@ -221,6 +221,8 @@
 
 - 05-11 · `por-que-la-lista` · Sistema a medida (procesos del equipo, delegar) · "¿Por qué el piloto repasa una lista antes de despegar, si sabe volar?" · explicador ¿Por qué? 3D, fondo navy claro #16243d · reservado (corrida 1 del 05-11)
 - 05-11 · `caso-tu-nombre` · Automatizaciones (mensajes con el nombre del cliente) · caso de éxito: la campaña de las botellas con nombres (Coca-Cola, "Share a Coke") · 3D, fondo crema #efeee5 · reservado (corrida 1 del 05-11)
+- 05-11 · `por-que-dos-sellos` · Scalerics Puntos · "¿Por qué algunas tarjetas de sellos ya vienen con dos sellos puestos?" (efecto del progreso regalado, estudio del lavadero de autos, sin marcas) · explicador ¿Por qué? 3D, fondo navy oscuro #0b1220 · reservado (corrida 2 del 05-11)
+- 05-11 · `dos-repuestos` · Agente de IA (consulta de stock y reserva de la pieza) · Dos negocios en 3D: dos casas de repuestos en la misma avenida, el mismo mensaje a las diez de la noche · pantalla partida gris apagado / navy claro con verde · reservado (corrida 2 del 05-11)
 
 
 
