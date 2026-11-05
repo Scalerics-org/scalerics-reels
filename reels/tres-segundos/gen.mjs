@@ -114,10 +114,14 @@ const W = (i) => r2(pal[i].start);
 const rel = (id, t) => r2(t - INI[id]);
 const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55);`;
 
+// Viajes grandes de cámara (tres.js, tramos "e"): el whoosh-cine es el golpe recortado del whoosh-cinematic
+// real (1,9-3,4 s del archivo), con el golpe ~0,3-1,2 s después de su arranque.
+const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizzeria: INI["s06-avisa"] - 0.25, vuelta: INI["s10-abre"] - 0.2 };
+
 // ================= s01 · gancho (cuadro 0 = portada): el cronómetro gigante ya corriendo =================
 {
   const id = "s01-gancho";
-  // el 3D: la aguja pasa el 1, el 2 y el 3 en 0,5 / 1,0 / 1,5 s (tres.js: MARCAS1)
+  // el 3D: la aguja pasa el 1, el 2 y el 3 parejo hasta "tres" (tres.js: MARCAS1); un tic (click) por marca
   const T1 = r2(W(6) / 3), T2 = r2((2 * W(6)) / 3), T3 = W(6);
   escena(id, {
     css: `
@@ -132,10 +136,11 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
       tl.to(q(".a"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, ${r2(rel(id, W(10)) - 0.1)});
       tl.to(q(".v"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, ${r2(rel(id, W(10)) - 0.02)});`,
     sfx: [
-      { t: 0, sfx: "impact-bass-2", vol: 0.22 },
-      { t: T1, sfx: "tic", vol: 0.5 }, { t: T2, sfx: "tic", vol: 0.5 }, { t: T3, sfx: "tic", vol: 0.55 },
-      { t: T3 + 0.02, sfx: "click", vol: 0.22 }, { t: T3 + 0.06, sfx: "glitch-1", vol: 0.12, max: 0.35 },
-      { t: rel(id, W(10)) - 0.1, sfx: "whoosh", vol: 0.22, max: 0.8 }, { t: rel(id, W(10)) + 0.35, sfx: "pop", vol: 0.18 },
+      { t: 0, sfx: "impact-bass-2", vol: 0.022, max: 0.35 },
+      { t: T1, sfx: "click", vol: 0.2 }, { t: T2, sfx: "click", vol: 0.28 }, { t: T3, sfx: "click", vol: 0.34 },
+      { t: T3 + 0.08, sfx: "glitch-1", vol: 0.1, max: 0.3 },
+      { t: rel(id, W(10)) - 0.1, sfx: "whoosh", vol: 0.24, max: 0.8 },
+      { t: rel(id, W(10)) + 0.05, sfx: "pop", vol: 0.3 }, { t: rel(id, W(10)) + 0.25, sfx: "pop", vol: 0.26 }, { t: rel(id, W(10)) + 0.42, sfx: "pop", vol: 0.26 },
     ],
   });
 }
@@ -144,21 +149,22 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
 {
   const id = "s02-mitad";
   escena(id, {
-    css: `P .pill.f { font-size: 44px; }`,
+    css: `
+    P .pill.f { font-size: 44px; }
+    P .dato { position: absolute; left: 0; right: 0; top: 806px; text-align: center; font: 700 46px/1.15 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; text-shadow: 0 4px 0 rgba(3,6,12,0.6); opacity: 0; }`,
     html: `
-      ${pill(1, 540, 1645, "Visitas desde el celular", "")}
-      ${pill(2, 540, 1640, "Fuente: Google", "f")}`,
+      <div class="dato">de las visitas desde el celular se va</div>
+      ${pill(2, 540, 1645, "Fuente: Google", "f")}`,
     js: `
-      nota(1, 0.15);
-      fuera(".n1", ${r2(rel(id, W(19)) - 0.25)}, 0.2);
-      nota(2, ${r2(rel(id, W(21)) - 0.08)});
-      fuera(".n2", ${r2(ESC[id] - 0.22)}, 0.18);`,
+      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) + 0.12)});
+      nota(2, ${r2(rel(id, W(15)) + 0.2)});
+      fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.52)}, 0.16);`,
     sfx: [
-      { t: 0.05, sfx: "pop", vol: 0.14 }, { t: 0.2, sfx: "pop", vol: 0.12 }, { t: 0.35, sfx: "pop", vol: 0.14 },
-      { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.18 }, { t: rel(id, W(14)) + 0.28, sfx: "click-soft", vol: 0.16 },
-      { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.2, max: 0.7 },
-      { t: rel(id, W(19)) - 0.05, sfx: "impact-bass-1", vol: 0.22 }, { t: rel(id, W(19)) + 0.0, sfx: "pop", vol: 0.16 },
-      { t: rel(id, W(21)) - 0.05, sfx: "click-soft", vol: 0.2 },
+      { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click", vol: 0.3 }, { t: rel(id, W(14)) + 0.28, sfx: "click", vol: 0.26 },
+      { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
+      { t: rel(id, W(15)) - 0.08, sfx: "impact-bass-1", vol: 0.025, max: 0.4 }, { t: rel(id, W(15)) - 0.05, sfx: "pop", vol: 0.12 },
+      { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
+      { t: rel(id, VIAJE.parada) - 0.15, sfx: "whoosh-cine", vol: 1 },
     ],
   });
 }
@@ -170,42 +176,54 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.1, sfx: "whoosh-cinematic", vol: 0.24, max: 0.9 }, { t: 0.32, sfx: "pop", vol: 0.16 },
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(rel(id, W(24)) + i * 0.13), sfx: "key-press", vol: 0.2 })),
-      { t: rel(id, W(28)) - 0.05, sfx: "pop", vol: 0.2 },
+      { t: 0.22, sfx: "pop", vol: 0.3 },
+      { t: rel(id, W(24)), sfx: "tecleo", vol: 0.5 },
+      { t: rel(id, W(28)) - 0.05, sfx: "pop", vol: 0.32 },
+      { t: rel(id, VIAJE.zambullida) - 0.25, sfx: "whoosh-cine", vol: 0.08 },
     ],
   });
 }
 
-// ================= s04 · pantalla en blanco · uno, dos, tres =================
+// ================= s04 · pantalla en blanco · uno =================
 {
   const id = "s04-blanco";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.12, sfx: "whoosh-cinematic", vol: 0.24, max: 0.8 }, { t: 0.45, sfx: "pop", vol: 0.16 },
-      { t: rel(id, W(32)), sfx: "tic", vol: 0.6 }, { t: rel(id, W(33)), sfx: "tic", vol: 0.6 }, { t: rel(id, W(34)), sfx: "tic", vol: 0.65 },
-      { t: rel(id, W(32)) + 0.02, sfx: "pop", vol: 0.12 }, { t: rel(id, W(33)) + 0.02, sfx: "pop", vol: 0.12 },
-      { t: rel(id, W(34)) + 0.04, sfx: "glitch-1", vol: 0.14, max: 0.4 },
+      { t: 0.45, sfx: "pop", vol: 0.18 },
+      { t: rel(id, W(32)), sfx: "click", vol: 0.6 }, { t: rel(id, W(32)) + 0.02, sfx: "pop", vol: 0.2 },
+    ],
+  });
+}
+// ================= s04b · dos, tres =================
+{
+  const id = "s04b-cuenta";
+  escena(id, {
+    html: `<i></i>`,
+    js: ``,
+    sfx: [
+      { t: rel(id, W(33)), sfx: "click", vol: 0.6 }, { t: rel(id, W(33)) + 0.02, sfx: "pop", vol: 0.2 },
+      { t: rel(id, W(34)), sfx: "click", vol: 0.65 }, { t: rel(id, W(34)) + 0.06, sfx: "glitch-1", vol: 0.12, max: 0.35 },
     ],
   });
 }
 
-// ================= s05 · vuelve atrás, elige otro =================
+// ================= s05 · toca atrás y elige otro =================
 {
   const id = "s05-atras";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.05, sfx: "click", vol: 0.26 }, { t: 0.14, sfx: "whoosh-short", vol: 0.2 },
-      { t: rel(id, W(37)) + 0.08, sfx: "click-soft", vol: 0.24 }, { t: rel(id, W(38)), sfx: "whoosh", vol: 0.14, max: 0.6 },
+      { t: rel(id, W(35)) + 0.12, sfx: "click", vol: 0.5 }, { t: rel(id, W(35)) + 0.22, sfx: "whoosh-short", vol: 0.2 },
+      { t: rel(id, W(38)) + 0.12, sfx: "click", vol: 0.45 }, { t: rel(id, W(39)), sfx: "whoosh", vol: 0.14, max: 0.6 },
+      { t: rel(id, VIAJE.pizzeria) - 0.2, sfx: "whoosh-cine", vol: 1 },
     ],
   });
 }
 
-// ================= s06 · y nunca te avisa que se fue (tu local, la campanita que no suena) =================
+// ================= s06 · y nunca te avisa que se fue (tu local, el timbre que no suena) =================
 {
   const id = "s06-avisa";
   escena(id, {
@@ -213,28 +231,29 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
       ${leads(lead(1, 800, 1560, 800, 1150, ""))}
       ${pill(1, 800, 1610, "0 avisos", "")}`,
     js: `
-      nota(1, ${r2(rel(id, W(43)) - 0.05)});
-      fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+      nota(1, ${r2(rel(id, W(44)) - 0.05)});
+      fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.3)}, 0.14);`,
     sfx: [
-      { t: -0.15, sfx: "whoosh-cinematic", vol: 0.24, max: 1.0 }, { t: 0.42, sfx: "pop", vol: 0.16 }, { t: 0.62, sfx: "pop", vol: 0.14 },
-      { t: rel(id, W(43)) - 0.02, sfx: "ping", vol: 0.08, max: 0.18 },
+      { t: 0.4, sfx: "pop", vol: 0.3 }, { t: 0.6, sfx: "pop", vol: 0.28 },
+      { t: rel(id, W(44)) - 0.02, sfx: "ping", vol: 0.4, max: 0.5 },
     ],
   });
 }
 
-// ================= s07 · perdiste la venta antes de mostrar nada (la caja de pizza que no se abre) =================
+// ================= s07 · esa venta se fue antes de mostrar nada (la caja de pizza que no se abre) =================
 {
   const id = "s07-venta";
+  const finNada = r2(pal[54].end);
   escena(id, {
-    css: `P .sello { left: 540px; top: 1560px; font-size: 92px; }`,
+    css: `P .sello { left: 540px; top: 1560px; font-size: 84px; }`,
     html: `<div class="sello sx">VENTA PERDIDA</div>`,
     js: `
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
-      sello(".sx", ${r2(rel(id, W(52)) - 0.05)}, -6);`,
+      tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.2, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(54)))});`,
     sfx: [
-      { t: 0.15, sfx: "pop", vol: 0.18 }, { t: 0.38, sfx: "impact-bass-2", vol: 0.16 },
-      { t: rel(id, W(49)) + 0.02, sfx: "click-soft", vol: 0.22 }, { t: rel(id, W(49)) + 0.5, sfx: "impact-bass-2", vol: 0.2 },
-      { t: rel(id, W(52)) - 0.05, sfx: "glitch-1", vol: 0.07, max: 0.35 }, { t: rel(id, W(52)) + 0.1, sfx: "impact-bass-1", vol: 0.035, max: 0.6 },
+      { t: 0.12, sfx: "pop", vol: 0.3 }, { t: 0.3, sfx: "impact-bass-2", vol: 0.03, max: 0.5 },
+      { t: rel(id, W(51)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(51)) + 0.5, sfx: "impact-bass-2", vol: 0.022, max: 0.5 },
+      { t: rel(id, finNada) + 0.02, sfx: "glitch-1", vol: 0.07, max: 0.25 }, { t: rel(id, finNada) + 0.06, sfx: "impact-bass-1", vol: 0.025, max: 0.4 },
     ],
   });
 }
@@ -243,16 +262,17 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
 {
   const id = "s08-pesadas";
   // marcos que caen (tres.js: CAIDAS)
-  const caidas = [0, 1, 2, 3].map((k) => r2(W(57) + 0.05 + k * 0.2));
+  const caidas = [0, 1, 2, 3].map((k) => r2(W(59) + 0.05 + k * 0.2));
   escena(id, {
     html: `
       ${leads(lead(1, 790, 1560, 690, 1330, "r"))}
       ${pill(1, 790, 1610, "Fotos pesadas", "r")}`,
     js: `
-      nota(1, ${r2(rel(id, W(58)) + 0.05)});
+      nota(1, ${r2(rel(id, W(60)) + 0.05)});
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: rel(id, W(55)) + 0.05, sfx: "glitch-2", vol: 0.1, max: 0.3 },
+      { t: -0.3, sfx: "whoosh", vol: 0.07, max: 0.5 },
+      { t: rel(id, W(58)) + 0.05, sfx: "glitch-2", vol: 0.1, max: 0.3 },
       ...caidas.map((c, k) => ({ t: rel(id, c + 0.16), sfx: "impact-bass-2", vol: 0.018 + k * 0.004, max: k < 3 ? 0.35 : 0.5 })),
     ],
   });
@@ -263,28 +283,29 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
   const id = "s09-rapida";
   escena(id, {
     css: `P .pill.s { font-size: 52px; }`,
-    html: `${pill(1, 540, 1640, "Scalerics", "lleno s")}`,
+    html: `${pill(1, 540, 1712, "Scalerics", "lleno s")}`,
     js: `
       nota(1, 0.9);
       fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: 0.08, sfx: "scan", vol: 1.0, max: 0.8 }, { t: 0.5, sfx: "pop", vol: 0.14 }, { t: 0.65, sfx: "pop", vol: 0.14 }, { t: 0.8, sfx: "pop", vol: 0.14 },
+      { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "pop", vol: 0.28 }, { t: 0.65, sfx: "pop", vol: 0.28 }, { t: 0.8, sfx: "pop", vol: 0.28 },
       { t: 0.95, sfx: "whoosh-short", vol: 0.18 },
-      { t: rel(id, W(64)), sfx: "sparkle", vol: 0.24 }, { t: rel(id, W(64)) + 0.05, sfx: "pop", vol: 0.18 },
+      { t: rel(id, W(66)), sfx: "sparkle", vol: 0.3 }, { t: rel(id, W(66)) + 0.05, sfx: "pop", vol: 0.3 },
+      { t: rel(id, VIAJE.vuelta) - 0.15, sfx: "whoosh-cine", vol: 1 },
     ],
   });
 }
 
-// ================= s10 · misma parada: abre al toque (el cronómetro frena en verde) =================
+// ================= s10 · misma parada: abre al toque (el cronómetro frena en verde, antes del 3) =================
 {
   const id = "s10-abre";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.12, sfx: "whoosh-cinematic", vol: 0.24, max: 0.9 }, { t: 0.4, sfx: "pop", vol: 0.16 }, { t: 0.55, sfx: "pop", vol: 0.14 },
-      { t: rel(id, W(70)), sfx: "click", vol: 0.24 }, { t: rel(id, W(70)) + 0.22, sfx: "click", vol: 0.26 }, { t: rel(id, W(70)) + 0.26, sfx: "chime", vol: 0.2, max: 0.9 },
-      { t: rel(id, W(72)), sfx: "whoosh", vol: 0.18, max: 0.7 },
+      { t: 0.55, sfx: "pop", vol: 0.3 },
+      { t: rel(id, W(72)), sfx: "click", vol: 0.45 }, { t: rel(id, W(72)) + 0.36, sfx: "click", vol: 0.55 }, { t: rel(id, W(72)) + 0.4, sfx: "chime", vol: 0.5, max: 0.9 },
+      { t: rel(id, W(74)), sfx: "whoosh", vol: 0.2, max: 0.7 },
     ],
   });
 }
@@ -296,10 +317,10 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: rel(id, W(74)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(74)) + 0.05, sfx: "click-soft", vol: 0.16 },
-      { t: rel(id, W(75)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(75)) + 0.05, sfx: "click-soft", vol: 0.16 },
-      { t: rel(id, W(77)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(77)) + 0.05, sfx: "ping", vol: 0.2 },
-      { t: rel(id, W(77)) + 0.42, sfx: "sparkle", vol: 0.2 },
+      { t: rel(id, W(76)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(76)) + 0.05, sfx: "click", vol: 0.3 },
+      { t: rel(id, W(77)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(77)) + 0.05, sfx: "click", vol: 0.3 },
+      { t: rel(id, W(79)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(79)) + 0.05, sfx: "ping", vol: 0.28, max: 0.4 },
+      { t: rel(id, W(79)) + 0.42, sfx: "sparkle", vol: 0.07, max: 0.5 },
     ],
   });
 }
@@ -314,11 +335,11 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
     html: `<div class="pq"><div>¿Cuánto tarda</div><div><em>la tuya?</em></div></div>`,
     js: `
       tl.fromTo(q(".pq"), { scale: 1.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.out", immediateRender: true }, 0);
-      late(".pq em", ${r2(rel(id, W(81)))}, 1.08);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.18, ease: "power2.in" }, ${r2(rel(id, W(82)) - 0.12)});`,
+      late(".pq em", ${r2(rel(id, W(83)))}, 1.08);
+      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.16, ease: "power2.in" }, ${r2(ESC[id] - 0.18)});`,
     sfx: [
-      { t: -0.08, sfx: "whoosh-short", vol: 0.2 }, { t: 0.12, sfx: "pop", vol: 0.18 },
-      { t: 0.55, sfx: "tic", vol: 0.3 }, { t: 1.25, sfx: "tic", vol: 0.25 },
+      { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.12, sfx: "pop", vol: 0.26 },
+      { t: 0.6, sfx: "click", vol: 0.4 }, { t: 1.4, sfx: "click", vol: 0.36 },
     ],
   });
 }
@@ -339,10 +360,10 @@ const TIT = `font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spac
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
       tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0.02);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(85)) - 0.1)});
-      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(rel(id, W(86)) - 0.15)});
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(87)) + 0.35)});`,
-    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.35, sfx: "pop", vol: 0.16 }, { t: rel(id, W(85)), sfx: "click-soft", vol: 0.24 }, { t: rel(id, W(86)) - 0.15, sfx: "chime", vol: 0.3, max: 1.4 }],
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(86)) + 0.3)});
+      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(rel(id, W(86)) + 0.55)});
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(89)) + 0.2)});`,
+    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.35, sfx: "pop", vol: 0.3 }, { t: rel(id, W(86)) + 0.32, sfx: "click", vol: 0.4 }, { t: rel(id, W(86)) + 0.55, sfx: "chime", vol: 0.5, max: 1.4 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

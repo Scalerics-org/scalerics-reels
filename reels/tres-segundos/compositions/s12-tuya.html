@@ -27,15 +27,15 @@
     [data-composition-id="s12-tuya"] .pq { position: absolute; left: 0; right: 0; top: 190px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 118px; }
     [data-composition-id="s12-tuya"] .pq em { font-style: normal; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s12-tuya" data-width="1080" data-height="1920" data-duration="1.93">
-    <div id="s12-tuya-esc" class="esc clip" data-start="0" data-duration="1.93" data-track-index="0">
+  <div id="root" data-composition-id="s12-tuya" data-width="1080" data-height="1920" data-duration="2.02">
+    <div id="s12-tuya-esc" class="esc clip" data-start="0" data-duration="2.02" data-track-index="0">
 <div class="pq"><div>¿Cuánto tarda</div><div><em>la tuya?</em></div></div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s12-tuya";
-      const DUR = 1.93;
+      const DUR = 2.02;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -59,8 +59,8 @@
 
 
       tl.fromTo(q(".pq"), { scale: 1.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.out", immediateRender: true }, 0);
-      late(".pq em", 0.63, 1.08);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.18, ease: "power2.in" }, 1.37);
+      late(".pq em", 0.72, 1.08);
+      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.16, ease: "power2.in" }, 1.84);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

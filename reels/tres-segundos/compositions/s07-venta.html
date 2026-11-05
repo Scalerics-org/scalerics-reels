@@ -23,17 +23,17 @@
     [data-composition-id="s07-venta"] .selbox.r i { border-color: #c7655b; }
     [data-composition-id="s07-venta"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s07-venta"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s07-venta"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s07-venta"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s07-venta"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
-[data-composition-id="s07-venta"] .sello { left: 540px; top: 1560px; font-size: 92px; }
+[data-composition-id="s07-venta"] .sello { left: 540px; top: 1560px; font-size: 84px; }
   </style>
-  <div id="root" data-composition-id="s07-venta" data-width="1080" data-height="1920" data-duration="2.69">
-    <div id="s07-venta-esc" class="esc clip" data-start="0" data-duration="2.69" data-track-index="0">
+  <div id="root" data-composition-id="s07-venta" data-width="1080" data-height="1920" data-duration="2.18">
+    <div id="s07-venta-esc" class="esc clip" data-start="0" data-duration="2.18" data-track-index="0">
 <div class="sello sx">VENTA PERDIDA</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s07-venta";
-      const DUR = 2.69;
+      const DUR = 2.18;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -57,7 +57,7 @@
 
 
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
-      sello(".sx", 1.83, -6);
+      tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.2, ease: "power4.in", immediateRender: true }, 1.48);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

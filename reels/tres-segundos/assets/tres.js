@@ -211,12 +211,16 @@ const tilde = grupo(mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.16, 40).rotate
 scene.add(tilde);
 
 // ================= VISITAS (siluetas low-poly) =================
-function persona(m) {
+const ojoGeo = new THREE.SphereGeometry(0.028, 10, 8), peloMat = mat(C.navy3, 0.7, { flatShading: true });
+function persona(m, gorra = null) {
   const g = new THREE.Group();
   const cuerpo = mesh(new THREE.CylinderGeometry(0.2, 0.3, 0.86, 7), m, 0, 0.5, 0);
   const hombros = mesh(new THREE.SphereGeometry(0.21, 7, 5), m, 0, 0.9, 0); hombros.scale.set(1.25, 0.5, 1);
   const cabeza = mesh(new THREE.IcosahedronGeometry(0.2, 1), m, 0, 1.15, 0);
-  const ojos = mesh(rbox(0.22, 0.055, 0.05, 0.02), M.navy, 0, 1.17, 0.17);
+  const ojos = grupo(mesh(ojoGeo, M.navy, -0.07, 1.16, 0.18), mesh(ojoGeo, M.navy, 0.07, 1.16, 0.18));
+  const pelo = mesh(new THREE.SphereGeometry(0.215, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2), gorra ?? peloMat, 0, 1.17, -0.02); pelo.rotation.x = -0.25;
+  g.add(pelo);
+  if (gorra) { const visera = mesh(rbox(0.3, 0.035, 0.2, 0.015), gorra, 0, 1.2, 0.2); visera.rotation.x = 0.12; g.add(visera); }
   const brazoI = mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.62, 6), m, -0.3, 0.6, 0); brazoI.rotation.z = 0.12;
   const brazoD = new THREE.Group(); brazoD.position.set(0.3, 0.88, 0);
   brazoD.add(mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.62, 6), m, 0, -0.3, 0));
@@ -226,7 +230,7 @@ function persona(m) {
 }
 const VIS = [];
 {
-  const filas = [[-1.38, 1.7], [-0.7, 1.75], [0.0, 1.8], [0.7, 1.75], [1.38, 1.7], [-1.05, 0.95], [-0.35, 1.0], [0.35, 1.0], [1.05, 0.95], [1.62, 0.9]];
+  const filas = [[-1.12, 1.7], [-0.56, 1.75], [0.0, 1.8], [0.56, 1.75], [1.12, 1.7], [-0.86, 0.95], [-0.28, 1.0], [0.28, 1.0], [0.86, 0.95], [1.3, 0.9]];
   filas.forEach(([x, z], i) => {
     const m = mat(C.cr, 0.6, { flatShading: true });
     const p = persona(m); scene.add(p);
@@ -237,10 +241,11 @@ const VIS = [];
 // ================= 53 % =================
 const pct = new THREE.Group(); scene.add(pct);
 {
-  pct.add(mesh(DIG[5], M.num, -1.05, 0, 0)); pct.add(mesh(DIG[3], M.num, -0.27, 0, 0));
+  const M53 = mat(C.cr, 0.45, { emissive: C.cr, emissiveIntensity: 0.12 });
+  pct.add(mesh(DIG[5], M53, -1.05, 0, 0)); pct.add(mesh(DIG[3], M53, -0.27, 0, 0));
   const aro = new THREE.TorusGeometry(0.15, 0.065, 12, 24);
-  pct.add(mesh(aro, M.num, 0.52, 0.28, 0)); pct.add(mesh(aro, M.num, 0.96, -0.28, 0));
-  const barra = mesh(rbox(0.12, 1.05, 0.14, 0.05), M.num, 0.74, 0, 0); barra.rotation.z = -0.5; pct.add(barra);
+  pct.add(mesh(aro, M53, 0.52, 0.28, 0)); pct.add(mesh(aro, M53, 0.96, -0.28, 0));
+  const barra = mesh(rbox(0.12, 1.05, 0.14, 0.05), M53, 0.74, 0, 0); barra.rotation.z = -0.5; pct.add(barra);
 }
 // los números 1, 2, 3 de "uno, dos, tres"
 const cuenta = [1, 2, 3].map((d) => { const m = new THREE.Mesh(DIG[d], d === 3 ? mat(C.red, 0.45, { emissive: C.red, emissiveIntensity: 0.2 }) : M.num); scene.add(m); return m; });
@@ -266,8 +271,8 @@ const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
   parada.add(mesh(rbox(2.3, 0.1, 0.42, 0.04), M.cr, 0, PISO + 0.58, -0.45));
   [-0.95, 0.95].forEach((x) => parada.add(mesh(rbox(0.08, 0.55, 0.3, 0.03), M.cr3, x, PISO + 0.28, -0.45)));
   // cartel de parada: poste y chapa crema con franja verde y un ómnibus dibujado
-  parada.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.3, 12), M.cr3, 2.05, PISO + 1.65, 0.6));
-  const chapa = new THREE.Group(); chapa.position.set(2.05, PISO + 3.0, 0.62); parada.add(chapa);
+  parada.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.3, 12), M.cr3, 1.95, PISO + 1.65, 0.6));
+  const chapa = new THREE.Group(); chapa.position.set(1.95, PISO + 3.0, 0.62); parada.add(chapa);
   chapa.add(mesh(rbox(0.86, 1.0, 0.07, 0.06), M.cr, 0, 0, 0));
   chapa.add(mesh(rbox(0.86, 0.2, 0.08, 0.04), M.g, 0, 0.38, 0.005));
   chapa.add(mesh(rbox(0.56, 0.32, 0.05, 0.06), M.navy3, 0, -0.08, 0.05));
@@ -275,7 +280,7 @@ const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
   [-0.16, 0.16].forEach((x) => chapa.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.05, 14).rotateX(Math.PI / 2), M.navy, x, -0.26, 0.07)));
 }
 // la persona de la parada (más grande) con el brazo levantado
-const yo = persona(mat(C.cr, 0.6, { flatShading: true }));
+const yo = persona(mat(C.cr, 0.6, { flatShading: true }), mat(C.g, 0.55));
 yo.scale.setScalar(1.75); yo.position.set(PAR.x + 0.55, PISO, PAR.z + 0.35); yo.rotation.y = -0.15; scene.add(yo);
 yo.userData.brazo.rotation.set(-1.2, 0, 0.35);
 const MANO_LOCAL = new THREE.Vector3(0.36, 0.93, 0.62); // donde agarra el celular (en coordenadas de la persona)
@@ -283,8 +288,8 @@ const MANO_LOCAL = new THREE.Vector3(0.36, 0.93, 0.62); // donde agarra el celul
 const globo = new THREE.Group(); scene.add(globo);
 {
   const nube = mesh(new THREE.SphereGeometry(0.62, 28, 18), M.white, 0, 0, 0); nube.scale.set(1.25, 0.95, 0.42); globo.add(nube);
-  globo.add(mesh(new THREE.SphereGeometry(0.13, 14, 10), M.white, -0.56, -0.74, 0));
-  globo.add(mesh(new THREE.SphereGeometry(0.08, 12, 8), M.white, -0.74, -0.98, 0));
+  globo.add(mesh(new THREE.SphereGeometry(0.12, 14, 10), M.white, -0.36, -0.72, 0));
+  globo.add(mesh(new THREE.SphereGeometry(0.07, 12, 8), M.white, -0.42, -0.9, 0));
 }
 const porcion = new THREE.Group();
 {
@@ -329,15 +334,21 @@ const toldo = [mat(C.g, 0.55), mat(C.cr, 0.6)];
   g.add(mesh(rbox(2.4, 0.14, 0.72, 0.04), M.cr, -0.55, PISO + 1.06, 0.3)); // mostrador de la ventanilla
   g.add(mesh(rbox(2.3, 0.9, 0.1, 0.04), M.cr3, -0.55, PISO + 0.55, 0.05));
   // la pizza en la ventanilla (adentro, iluminada)
-  g.add(mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.06, 32), mat(0xf1d896, 0.5), -0.95, PISO + 1.4, -0.25));
+  {
+    const pz = new THREE.Group(); pz.position.set(-1.15, PISO + 1.86, 0.06); pz.rotation.x = Math.PI / 2; pz.scale.setScalar(0.85); g.add(pz);
+    pz.add(mesh(new THREE.CylinderGeometry(0.46, 0.46, 0.06, 36), mat(0xf1d896, 0.5)));
+    pz.add(mesh(new THREE.TorusGeometry(0.46, 0.06, 10, 36).rotateX(Math.PI / 2), mat(0xc99a5e, 0.6), 0, 0.02, 0));
+    const ac = new THREE.TorusGeometry(0.05, 0.03, 8, 14).rotateX(Math.PI / 2);
+    [[0.15, 0.1], [-0.2, 0.15], [0.05, -0.22], [-0.12, -0.08], [0.25, -0.15]].forEach(([x, z]) => pz.add(mesh(ac, mat(0x2b3122, 0.35), x, 0.05, z)));
+  }
 }
 const campana = new THREE.Group(); scene.add(campana);
 const campMat = mat(C.cr, 0.3, { metalness: 0.35 });
 {
   campana.add(mesh(new THREE.CylinderGeometry(0.36, 0.38, 0.1, 32), M.navy3, 0, 0.05, 0));
-  const dom = mesh(new THREE.SphereGeometry(0.31, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), campMat, 0, 0.1, 0); campana.add(dom);
-  campana.add(mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.14, 10), M.cr3, 0, 0.46, 0));
-  campana.add(mesh(new THREE.SphereGeometry(0.07, 14, 10), M.cr3, 0, 0.54, 0));
+  const dom = mesh(new THREE.SphereGeometry(0.31, 32, 16, 0, Math.PI * 2, 0, Math.PI / 2), campMat, 0, 0.1, 0); dom.scale.y = 0.55; campana.add(dom);
+  campana.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.08, 10), M.cr3, 0, 0.3, 0));
+  campana.add(mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 20), M.navy3, 0, 0.35, 0)); // el botón
 }
 const cajaPizza = new THREE.Group(); scene.add(cajaPizza);
 const tapaPizza = new THREE.Group();
@@ -351,7 +362,7 @@ const cartonMat = mat(0xe3d3b0, 0.7), cartonTapa = mat(0xece0c2, 0.7);
   const ace = new THREE.TorusGeometry(0.08, 0.045, 8, 16).rotateX(Math.PI / 2);
   for (let i = 0; i < 7; i++) { const a = i * 0.9 + 0.3, r = 0.25 + (i % 3) * 0.17; cajaPizza.add(mesh(ace, mat(0x2b3122, 0.35), Math.cos(a) * r, 0.145, Math.sin(a) * r)); }
   const t = mesh(rbox(1.92, 0.07, 1.92, 0.03), cartonTapa, 0, 0.035, 0.96); tapaPizza.add(t);
-  tapaPizza.add(mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.02, 32), M.g, 0, 0.075, 0.96));
+  tapaPizza.add(mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.02, 32), M.navy3, 0, 0.075, 0.96));
   tapaPizza.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.025, 32), M.cr, 0, 0.08, 0.96));
   tapaPizza.position.set(0, 0.38, -0.96); cajaPizza.add(tapaPizza);
 }
@@ -386,7 +397,7 @@ async function dibujarPantallas() {
     x.fillStyle = "#0b1220"; x.fillRect(0, 0, 720, 420);
     x.fillStyle = "#efeee5"; x.font = F(600, 34); x.textAlign = "left"; x.fillText("21:40", 48, 70); x.fillRect(600, 46, 64, 26);
     x.fillStyle = "#1f3254"; rr(x, 36, 300, 648, 92, 46);
-    x.fillStyle = "#8ea0bf"; x.font = F(500, 36); x.fillText(url, 84, 360);
+    x.fillStyle = "#a9b8d3"; x.font = F(600, 40); x.fillText(url, 84, 362);
     if (cargando) { x.fillStyle = "#b5544a"; x.fillRect(0, 412, 150, 8); }
     x.fillStyle = "#0b1220"; x.fillRect(0, 1318, 720, 140);
   };
@@ -411,12 +422,12 @@ async function dibujarPantallas() {
   // la página rápida: horario, foto y WhatsApp (en texto, sin el ícono de la app); con tildes de a una
   const rapida = (n) => {
     const c = hoja(), x = c.getContext("2d");
-    x.fillStyle = "#efeee5"; x.fillRect(0, 0, 720, 1458); nav(x, "tupizzeria.com.uy", false);
-    x.fillStyle = "#0b1220"; x.font = F(800, 64); x.fillText("Tu pizzería", 44, 510);
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, 720, 1458); nav(x, "tu página", false);
+    x.fillStyle = "#0b1220"; x.font = F(800, 66); x.fillText("Tu pizzería", 44, 512);
     // horario
     x.fillStyle = "#ffffff"; rr(x, 36, 548, 648, 150, 30);
     x.strokeStyle = "#0b1220"; x.lineWidth = 8; x.beginPath(); x.arc(110, 623, 34, 0, Math.PI * 2); x.stroke(); x.beginPath(); x.moveTo(110, 623); x.lineTo(110, 603); x.moveTo(110, 623); x.lineTo(126, 632); x.stroke();
-    x.fillStyle = "#0b1220"; x.font = F(700, 40); x.fillText("Abierto hoy", 168, 610); x.fillStyle = "#59627a"; x.font = F(500, 32); x.fillText("de 19 a 24 h", 168, 656);
+    x.fillStyle = "#0b1220"; x.font = F(700, 44); x.fillText("Abierto hoy", 168, 612); x.fillStyle = "#3d475e"; x.font = F(600, 38); x.fillText("de 19 a 24 h", 168, 664);
     // foto
     x.fillStyle = "#16243d"; rr(x, 36, 724, 648, 400, 30); pizzaDib(x, 360, 924, 170);
     // WhatsApp
@@ -463,25 +474,25 @@ const CAM = [
   [0, -14, 6, 16.0, 0, 1.2, 0],
   [W[6], -7, 5, 15.4, 0, 1.15, 0],
   [W[10] - 0.05, -2, 6, 14.8, 0, 0.95, 0],
-  [S["s02-mitad"] + 0.2, -9, 13, 14.2, 0, 0.35, 0.3],
-  [W[18], 4, 14, 14.6, 0, 0.45, 0.3],
-  [W[21] + 0.3, 11, 12, 14.4, 0, 0.6, 0.2, "e"],
-  [S["s03-parada"] + 0.6, 6, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [W[28], -3, 7, 14.4, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  [S["s02-mitad"] - 0.25, -9, 13, 10.8, 0, 0.9, 0.3],
+  [W[18], 4, 14, 11.2, 0, 0.9, 0.3],
+  [W[21] + 0.55, 9, 12, 11.4, 0, 0.9, 0.2, "e"],
+  [S["s03-parada"] + 0.6, 6, 7, 15.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  [W[28], -3, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s04-blanco"] + 0.1, -6, 7, 13.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s05-atras"], -10, 6, 13.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s06-avisa"] - 0.25, -12, 7, 13.6, PAR.x + 0.4, 0.3, PAR.z + 0.3, "e"],
   [S["s06-avisa"] + 0.5, -14, 9, 13.5, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.15, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] + 0.4, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
+  [S["s07-venta"] - 0.14, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
+  [S["s07-venta"] + 0.2, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
   [S["s08-pesadas"] - 0.3, 6, 24, 6.2, PIZ.x - 0.5, -0.2, PIZ.z + 0.5, "e"],
-  [S["s08-pesadas"] + 0.35, 4, 32, 9.0, EST2.x, -0.8, EST2.z + 0.2],
-  [W[58], -4, 34, 8.6, EST2.x, -0.95, EST2.z + 0.2],
-  [S["s09-rapida"] + 0.6, -6, 20, 11.2, EST2.x, 0.3, EST2.z + 0.2],
-  [W[64], 6, 10, 12.2, EST2.x, 0.4, EST2.z + 0.1],
-  [S["s10-abre"] - 0.2, 8, 8, 12.4, EST2.x, 0.4, EST2.z + 0.1, "e"],
-  [S["s10-abre"] + 0.5, 10, 8, 15.6, PAR.x + 0.3, 0.35, PAR.z + 0.3],
-  [W[72], 2, 7, 14.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  [S["s08-pesadas"] + 0.35, 4, 32, 7.9, EST2.x, -0.62, EST2.z + 0.2],
+  [W[60], -4, 34, 7.7, EST2.x, -0.72, EST2.z + 0.2],
+  [S["s09-rapida"] + 0.6, -6, 18, 9.6, EST2.x, 0.45, EST2.z + 0.2],
+  [W[66], 6, 9, 9.2, EST2.x, 0.5, EST2.z + 0.1],
+  [S["s10-abre"] - 0.2, 8, 8, 9.4, EST2.x, 0.5, EST2.z + 0.1, "e"],
+  [S["s10-abre"] + 0.5, 10, 8, 15.8, PAR.x + 0.3, 0.35, PAR.z + 0.3],
+  [W[74], 2, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s11-pagina"] + 0.3, -4, 6, 14.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s12-tuya"] - 0.3, -8, 6, 14.0, PAR.x + 0.4, 0.3, PAR.z + 0.3, "e"],
   [S["s12-tuya"] + 0.3, -10, 6, 15.0, 0, 0.55, 0],
@@ -549,17 +560,17 @@ function renderAt(t) {
   };
   if (t < S3 + 0.65) {
     // s01 → s02: el celular-vidriera crece desde el centro del cronómetro; s03: viaja a la mano
-    const nace = bk(sg(t, W[10] + 0.15, W[10] + 0.6));
+    const nace = bk(sg(t, W[10] - 0.05, W[10] + 0.4));
     if (nace > 0.002) {
       celOn = true;
       let x = 0, y = 0.55, z = 0, s = 0.95 * nace, ry = Math.sin(t * 0.8) * 0.12;
       // "se va": retrocede un poco y baja para dejar lugar al 53 %
-      const baja = eio(sg(t, W[18] - 0.05, W[18] + 0.45));
+      const baja = eio(sg(t, W[15] - 0.45, W[15] + 0.05));
       y = lerp(y, -0.35, baja); s *= lerp(1, 0.8, baja);
       // la visita que se queda: el celular viaja a la mano (travelling a la parada)
-      const va = eio(sg(t, W[21] + 0.3, S3 + 0.6));
+      const va = eio(sg(t, W[21] + 0.55, S3 + 0.6));
       cel.position.set(x, y, z); cel.rotation.set(0, ry, 0);
-      if (va > 0) { const p0 = cel.position.clone(); enMano(); cel.position.lerpVectors(p0, mano, va); cel.rotation.set(lerp(0, MANO_R[0], va), lerp(ry, MANO_R[1], va), 0); s = lerp(s, MANO_S, va); }
+      if (va > 0) { const p0 = cel.position.clone(); enMano(); cel.position.lerpVectors(p0, mano, va); cel.rotation.set(lerp(0, MANO_R[0], va), lerp(ry, MANO_R[1], va), 0); s = lerp(s * lerp(1, 1.35, eio(sg(va, 0, 0.35))), MANO_S, eio(sg(va, 0.5, 1))); }
       celS = s; celSombraOn = va < 0.4;
       if (va > 0.5) pagina("busca"); else { pagina("blanco"); ruedita.visible = true; }
     }
@@ -570,7 +581,7 @@ function renderAt(t) {
       // s04 · zambullida: pantalla en blanco a pantalla completa
       const u = eio(sg(t, S4 - 0.08, S4 + 0.5));
       // s05 · "otro": se inclina a la izquierda; s06: sale de cuadro hacia la izquierda y se achica
-      const rz = 0.1 * eio(sg(t, W[38] - 0.05, W[38] + 0.35)) + 0.25 * eio(sg(t, S6 + 0.05, S6 + 0.55));
+      const rz = 0.1 * eio(sg(t, W[39] - 0.05, W[39] + 0.35)) + 0.25 * eio(sg(t, S6 + 0.05, S6 + 0.55));
       celS = zambullida(u, rz, Math.sin(t * 0.9) * 0.03);
       const sale = eio(sg(t, S6 + 0.05, S6 + 0.55));
       if (sale > 0) { const off = new THREE.Vector3(-2.4 * sale, 0.6 * sale, -5 * sale).applyQuaternion(camera.quaternion); cel.position.add(off); celS *= 1 - 0.45 * sale; }
@@ -587,7 +598,7 @@ function renderAt(t) {
     const para = eio(sg(t, S9 + 0.35, S9 + 1.0));
     let x = EST2.x, y = lerp(-0.9, 0.4, para), z = EST2.z + 0.2, rx = lerp(-1.05, 0, para), ry = lerp(0.1, Math.sin(t * 0.8) * 0.1, para), rz = 0;
     // hundimiento con cada marco, rebote al final
-    const CAIDAS = [0, 1, 2, 3].map((k) => W[57] + 0.05 + k * 0.2);
+    const CAIDAS = [0, 1, 2, 3].map((k) => W[59] + 0.05 + k * 0.2);
     let hunde = 0; CAIDAS.forEach((c, k) => { hunde += 0.07 * eio(sg(t, c + 0.12, c + 0.24)); });
     const rebote = Math.sin(Math.PI * sg(t, CAIDAS[3] + 0.24, CAIDAS[3] + 0.6)) * 0.12;
     y -= (hunde - rebote) * (1 - para);
@@ -596,15 +607,15 @@ function renderAt(t) {
     celSombraOn = true;
     // página: vieja → (fotos que entran) → rápida
     const entra = sg(t, S9 + 0.3, S9 + 0.9);
-    if (entra >= 1) { paginaRap(0); bordeMat.emissiveIntensity = 0.9 * eio(sg(t, W[64] - 0.1, W[64] + 0.3)); }
+    if (entra >= 1) { paginaRap(0); bordeMat.emissiveIntensity = 0.9 * eio(sg(t, W[66] - 0.1, W[66] + 0.3)); }
     else pagina("vieja");
     // marcos: caen uno por uno (en coordenadas del celular: z es la normal de la pantalla)
     marcos.forEach((m, k) => {
       const c = CAIDAS[k];
       if (t < c) return;
       const u = sg(t, c, c + 0.24); const caida = u * u;
-      const POS = [[-0.1, 0.55], [0.15, -0.35], [-0.2, -0.95], [0.1, 0.95]][k];
-      let zx = POS[0], zy = POS[1], zz = lerp(2.6, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
+      const POS = [[-0.1, 0.15], [0.15, -0.45], [-0.2, -0.95], [0.1, 0.4]][k];
+      let zx = POS[0], zy = POS[1], zz = lerp(0.9, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
       // s09 · se comprimen y entran a la pantalla como tarjetas
       const comp = eio(sg(t, S9 + 0.05 + k * 0.08, S9 + 0.75 + k * 0.05));
       if (comp > 0) { s = lerp(1, 0.3, comp); zx = lerp(zx, 0, comp); zy = lerp(zy, -0.1, comp); zz = lerp(zz, 0.1, comp); rr2 = lerp(rr2, 0, comp); }
@@ -612,13 +623,13 @@ function renderAt(t) {
     });
     // s10 · vuelve a la parada: el celular viaja del estudio a la mano
     const va = eio(sg(t, S10 - 0.2, S10 + 0.5));
-    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, va); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, va); celSombraOn = va < 0.3; }
+    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, va); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, eio(sg(va, 0.45, 1))); celSombraOn = va < 0.3; }
   } else if (en(t, S10 + 0.9, S12 + 0.06)) {
     celOn = true;
     // s10 · "al toque": zambullida a pantalla completa; s11 · la página entera con tildes
-    const u = eio(sg(t, W[72] - 0.05, W[72] + 0.45));
+    const u = eio(sg(t, W[74] - 0.05, W[74] + 0.45));
     celS = zambullida(u, 0, Math.sin(t * 0.9) * 0.03);
-    const n = t >= W[77] ? 3 : t >= W[75] ? 2 : t >= W[74] ? 1 : 0;
+    const n = t >= W[79] ? 3 : t >= W[77] ? 2 : t >= W[76] ? 1 : 0;
     paginaRap(n);
     bordeMat.emissiveIntensity = 0.6;
     // s12 · se va hacia abajo
@@ -647,8 +658,9 @@ function renderAt(t) {
       pulsa = Math.sin(Math.PI * sg(t, W[6] - 0.05, W[6] + 0.15));
       crono.position.set(0, -0.15, 0); crono.rotation.set(0.04, -0.12 + Math.sin(t * 0.9) * 0.08, 0);
       // "celular": se achica y se mete en el celular (se vuelve la ruedita)
-      const va = eio(sg(t, W[10] - 0.05, W[10] + 0.55));
-      if (va > 0) { crono.position.lerp(new THREE.Vector3(0, 0.6, 0.3), va); s = lerp(1, 0.12, va); crono.rotation.z = -va * 2; }
+      const va = eio(sg(t, W[10] - 0.05, W[10] + 0.35));
+      if (va > 0) { crono.position.lerp(new THREE.Vector3(0, 0.55 + 0.42 * 0.95, 0.3), va); s = lerp(1, 0.1, va); crono.rotation.z = -va * 2; }
+      if (va > 0.7) s = 0;
       s *= 1 + 0.04 * Math.sin(Math.PI * sg(t, W[6] - 0.05, W[6] + 0.25));
       apoyar(cronoSombra, crono.position.x, 0.2, s * (1 - va), 0.75);
     } else if (en(t, S4 + 0.2, S5 + 0.45)) {
@@ -661,14 +673,13 @@ function renderAt(t) {
       pegar(crono, 0, -0.82, DP - 0.6, 0.05, Math.sin(t * 1.1) * 0.12, 0);
       crono.position.add(new THREE.Vector3(0, -2.5 * eio(sg(t, S5 + 0.05, S5 + 0.4)), 0).applyQuaternion(camera.quaternion));
       cronoSombra.visible = false;
-    } else if (en(t, S10 + 0.2, W[72] + 0.2)) {
+    } else if (en(t, S10 + 0.2, W[74] + 0.2)) {
       // s10 · misma parada: arranca en "abre" y frena EN VERDE mucho antes del 1
-      s = 0.46 * bk(sg(t, S10 + 0.45, S10 + 0.8)) * (1 - eio(sg(t, W[72] - 0.1, W[72] + 0.2)));
-      m = 0.32 * eo(sg(t, W[70], W[70] + 0.22));
+      s = 0.46 * bk(sg(t, S10 + 0.45, S10 + 0.8)) * (1 - eio(sg(t, W[74] - 0.1, W[74] + 0.2)));
+      m = 1.85 * eo(sg(t, W[72], W[72] + 0.36));
       colorEst = C.g;
-      pulsa = Math.sin(Math.PI * sg(t, W[70] + 0.2, W[70] + 0.4));
-      crono.position.set(PAR.x - 0.45, 0.55, PAR.z + 1.9); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
-      if (t >= W[70] + 0.22) numsCr[0].material = M.g;
+      pulsa = Math.sin(Math.PI * sg(t, W[72] + 0.32, W[72] + 0.5));
+      crono.position.set(PAR.x - 0.55, 0.45, PAR.z + 1.6); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
@@ -687,13 +698,13 @@ function renderAt(t) {
     estela.visible = estela.visible && !preg;
     zonaMat.emissiveIntensity = 0.55 * zona;
     biselMat.color.set(C.navy3).lerp(new THREE.Color(C.red), zona * 0.85);
-    if (colorEst === C.g && t >= W[70] + 0.2) biselMat.color.set(C.g);
+    if (colorEst === C.g && t >= W[72] + 0.34) biselMat.color.set(C.g);
     botonCr.position.y = R_CR + 0.58 - 0.1 * pulsa;
   }
 
   // ---------------- VISITAS ----------------
   VIS.forEach((v, i) => {
-    const ti = S2 - 0.2 + i * 0.022;
+    const ti = W[10] - 0.05 + i * 0.02;
     let s = 0.95 * bk(sg(t, ti, ti + 0.3));
     let x = v.x, z = v.z, ry = Math.PI; // de espaldas a la cámara, mirando el celular
     if (v.sale) {
@@ -706,7 +717,7 @@ function renderAt(t) {
       s *= 1 - sg(camina, 0.85, 1);
     } else v.m.color.set(C.cr);
     // las que se quedan: se achican con el travelling a la parada
-    s *= 1 - eio(sg(t, W[21] + 0.35, S3 + 0.3));
+    s *= 1 - eio(sg(t, W[21] + 0.75, W[21] + 1.0));
     const bob = v.sale ? Math.abs(Math.sin(t * 9 + i)) * 0.06 * cl((t - W[18]) * 4) : 0;
     ocultar(v.p, s); v.p.position.set(x, PISO + bob, z); v.p.rotation.set(0, ry, 0);
     apoyar(v.s, x, z, s, 0.6);
@@ -714,9 +725,9 @@ function renderAt(t) {
 
   // ---------------- 53 % ----------------
   {
-    const sp = en(t, W[19] - 0.1, S3 + 0.4) ? 0.95 * bk(sg(t, W[19] - 0.1, W[19] + 0.25)) * (1 - eio(sg(t, W[21] + 0.25, W[21] + 0.55))) : 0;
-    ocultar(pct, sp); pct.position.set(0.05, 2.0 + eio(sg(t, W[21] + 0.25, W[21] + 0.55)) * 1.2, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
-    if (pct.visible) pct.scale.multiplyScalar(1 + 0.06 * Math.sin(Math.PI * sg(t, W[21], W[21] + 0.3)));
+    const sp = en(t, W[15] - 0.1, S3 + 0.4) ? 0.95 * bk(sg(t, W[15] - 0.1, W[15] + 0.25)) * (1 - eio(sg(t, W[21] + 0.5, W[21] + 0.72))) : 0;
+    ocultar(pct, sp); pct.position.set(0.05, 2.0 + eio(sg(t, W[21] + 0.5, W[21] + 0.72)) * 1.2, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
+    if (pct.visible) pct.scale.multiplyScalar(1 + 0.06 * Math.sin(Math.PI * sg(t, W[19], W[19] + 0.3)));
   }
   // ---------------- 1 · 2 · 3 ----------------
   cuenta.forEach((m, k) => {
@@ -727,9 +738,9 @@ function renderAt(t) {
 
   // ---------------- PARADA y la persona ----------------
   {
-    const on1 = en(t, W[21] + 0.35, S6 + 0.6), on2 = en(t, S10 - 0.3, S12 + 0.4);
+    const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10 - 0.3, S12 + 0.4);
     let s = 0;
-    if (on1) s = bk(sg(t, W[21] + 0.35, W[21] + 0.75));
+    if (on1) s = bk(sg(t, W[21] + 0.6, W[21] + 0.95));
     if (on2) s = bk(sg(t, S10 - 0.3, S10 + 0.25));
     parada.visible = s > 0.002; if (parada.visible) parada.scale.set(1, Math.max(0.001, s), 1);
     ocultar(yo, s * 1.75);
@@ -738,7 +749,7 @@ function renderAt(t) {
     const g1 = en(t, W[28] - 0.1, S5) ? bk(sg(t, W[28] - 0.1, W[28] + 0.25)) : 0;
     const g2 = en(t, S10 + 0.3, S11) ? bk(sg(t, S10 + 0.3, S10 + 0.6)) : 0;
     const gs = Math.max(g1, g2);
-    ocultar(globo, gs); globo.position.set(PAR.x + 1.45, 1.45 + Math.sin(t * 2) * 0.05, PAR.z + 0.6); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
+    ocultar(globo, gs); globo.position.set(PAR.x + 0.95, 1.55 + Math.sin(t * 2) * 0.05, PAR.z + 0.6); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
   }
 
@@ -750,10 +761,10 @@ function renderAt(t) {
       s = 1;
       // entra desde abajo a la derecha, toca "atrás" (abajo a la izquierda), toca la otra página y se va
       const P0 = [1.6, -3.4], P1 = [-0.5, -1.36 + 0.02], P2 = [0.15, 0.2], P3 = [1.8, -3.6];
-      const a = eio(sg(t, S5 - 0.25, W[35] + 0.08)), b = eio(sg(t, W[35] + 0.3, W[37] + 0.1)), c = eio(sg(t, W[38] + 0.15, S6 + 0.05));
+      const a = eio(sg(t, S5 - 0.25, W[35] + 0.08)), b = eio(sg(t, W[35] + 0.3, W[38] + 0.1)), c = eio(sg(t, W[39] + 0.15, S6 + 0.05));
       let x = lerp(P0[0], P1[0], a), y = lerp(P0[1], P1[1], a);
       x = lerp(x, P2[0], b); y = lerp(y, P2[1], b); x = lerp(x, P3[0], c); y = lerp(y, P3[1], c);
-      const toque = Math.max(Math.sin(Math.PI * sg(t, W[35] + 0.0, W[35] + 0.2)), Math.sin(Math.PI * sg(t, W[37] + 0.05, W[37] + 0.25)));
+      const toque = Math.max(Math.sin(Math.PI * sg(t, W[35] + 0.0, W[35] + 0.2)), Math.sin(Math.PI * sg(t, W[38] + 0.05, W[38] + 0.25)));
       const p = enPantalla(x, y, 0.32 - toque * 0.12);
       pulgar.position.copy(p);
       _q.setFromEuler(_e.set(0.35, 0, 0.45)); pulgar.quaternion.copy(camera.quaternion).multiply(_q);
@@ -771,25 +782,27 @@ function renderAt(t) {
     // la campanita: grande sobre el mostrador; en "avisa" se apaga a gris y no suena
     const cs = on ? 1.45 * bk(sg(t, S6 + 0.25, S6 + 0.55)) : 0;
     ocultar(campana, cs); campana.position.set(PIZ.x + 0.42, PISO + 1.13, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
-    campMat.color.set(C.cr).lerp(new THREE.Color(C.gris), eio(sg(t, W[42], W[43] + 0.1)));
-    campMat.metalness = lerp(0.35, 0.0, sg(t, W[42], W[43]));
+    campMat.color.set(C.cr).lerp(new THREE.Color(C.gris), eio(sg(t, W[43], W[44] + 0.1)));
+    campMat.metalness = lerp(0.35, 0.0, sg(t, W[43], W[44]));
     apoyar(campSombra, campana.position.x, campana.position.z, cs * 0.6, 0.6, PISO + 1.135);
-    vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[42], W[43] + 0.2)));
+    vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[43], W[44] + 0.2)));
+    // en el push-in a la caja el cartel se apaga (pasa por detrás del subtítulo: nada de texto sobre texto)
+    { const k = eio(sg(t, S7 - 0.2, S7 + 0.05)); cartelMat.color.setScalar(lerp(1, 0.12, k)); cartelMat.emissiveIntensity = lerp(0.35, 0, k); }
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
     const ks = en(t, S7 - 0.05, S8 + 0.2) ? 0.64 * (1 - eio(sg(t, S8 - 0.25, S8 + 0.05))) : 0;
-    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.66, PISO + 1.13 + (1 - bk(cae)) * 2.2, PIZ.z + 0.5); cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
-    const abre = Math.sin(Math.PI * sg(t, W[49], W[49] + 0.55));
+    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.66, PISO + 1.13 + (1 - bk(cae)) * 0.8, PIZ.z + 0.5); cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
+    const abre = Math.sin(Math.PI * sg(t, W[51], W[51] + 0.55));
     tapaPizza.rotation.x = -abre * 0.55;
-    const gris = eio(sg(t, W[49] + 0.5, W[52]));
+    const gris = eio(sg(t, W[51] + 0.5, W[54]));
     cartonMat.color.set(0xe3d3b0).lerp(new THREE.Color(C.gris), gris); cartonTapa.color.set(0xece0c2).lerp(new THREE.Color(0x868d9c), gris);
     apoyar(cajaSombra, cajaPizza.position.x, cajaPizza.position.z, ks * cae, 0.7, PISO + 1.135);
     // s11 · callback: la caja vuelve ABIERTA, con la pizza, delante de la página
-    if (en(t, W[77] + 0.3, S12 - 0.15)) {
-      const e = bk(sg(t, W[77] + 0.3, W[77] + 0.65)) * (1 - eio(sg(t, S12 - 0.4, S12 - 0.15)));
-      ocultar(cajaPizza, 0.33 * e);
-      pegar(cajaPizza, 0.0, -0.5, DP - 0.9, 1.1, -0.15 + Math.sin(t * 1.2) * 0.1, 0);
-      tapaPizza.rotation.x = -2.0;
+    if (en(t, W[79] + 0.3, S12 - 0.15)) {
+      const e = bk(sg(t, W[79] + 0.3, W[79] + 0.65)) * (1 - eio(sg(t, S12 - 0.4, S12 - 0.15)));
+      ocultar(cajaPizza, 0.25 * e);
+      pegar(cajaPizza, 0.26, -0.62, DP - 0.9, 1.1, -0.15 + Math.sin(t * 1.2) * 0.1, 0);
+      tapaPizza.rotation.x = -1.75;
       cartonMat.color.set(0xe3d3b0); cartonTapa.color.set(0xece0c2);
       cajaSombra.visible = false;
     }
@@ -797,8 +810,16 @@ function renderAt(t) {
 
   // ---------------- tilde de "rápida" ----------------
   {
-    const s = en(t, W[64] - 0.05, S10) ? 0.85 * bk(sg(t, W[64] - 0.05, W[64] + 0.28)) * (1 - eio(sg(t, S10 - 0.35, S10 - 0.05))) : 0;
-    ocultar(tilde, s); tilde.position.set(EST2.x + 1.05, 1.75, EST2.z + 0.9); tilde.rotation.set(0, -0.2 + Math.sin(t * 1.3) * 0.2, 0.0);
+    let s = 0;
+    if (en(t, W[66] - 0.05, S10 - 0.1)) {
+      s = 0.5 * bk(sg(t, W[66] - 0.05, W[66] + 0.28)) * (1 - eio(sg(t, S10 - 0.4, S10 - 0.15)));
+      cel.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(0.8, 0.95, 0.3).applyMatrix4(cel.matrixWorld)); tilde.quaternion.copy(cel.quaternion);
+      tilde.rotateY(Math.sin(t * 1.3) * 0.25);
+    } else if (en(t, W[72] + 0.34, W[74] + 0.2)) {
+      s = 0.32 * bk(sg(t, W[72] + 0.34, W[72] + 0.6)) * (1 - eio(sg(t, W[74] - 0.1, W[74] + 0.2)));
+      crono.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(1.25, -1.25, 0.6).applyMatrix4(crono.matrixWorld)); tilde.rotation.set(0, Math.sin(t * 1.3) * 0.25, 0);
+    }
+    ocultar(tilde, s);
   }
 
   renderer.render(scene, camera);

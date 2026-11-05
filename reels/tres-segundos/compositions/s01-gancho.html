@@ -27,8 +27,8 @@
     [data-composition-id="s01-gancho"] .a { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 106px; }
     [data-composition-id="s01-gancho"] .v { position: absolute; left: 0; right: 0; top: 392px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 150px; font-weight: 900; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.31">
-    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.31" data-track-index="0">
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.8">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.8" data-track-index="0">
 
       <div class="a"><div>Si tu página tarda</div><div>más de</div></div>
       <div class="v">3 segundos</div>
@@ -37,7 +37,7 @@
   <script>
     (function () {
       const ID = "s01-gancho";
-      const DUR = 3.31;
+      const DUR = 2.8;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -61,9 +61,9 @@
 
 
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
-      late(".v", 1.48, 1.1);
-      tl.to(q(".a"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.4);
-      tl.to(q(".v"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.48);
+      late(".v", 1.34, 1.1);
+      tl.to(q(".a"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.02);
+      tl.to(q(".v"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.1);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

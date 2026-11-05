@@ -25,15 +25,15 @@
     [data-composition-id="s09-rapida"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
 [data-composition-id="s09-rapida"] .pill.s { font-size: 52px; }
   </style>
-  <div id="root" data-composition-id="s09-rapida" data-width="1080" data-height="1920" data-duration="3.22">
-    <div id="s09-rapida-esc" class="esc clip" data-start="0" data-duration="3.22" data-track-index="0">
-<div class="pill lleno s n1" style="left:540px;top:1640px">Scalerics</div>
+  <div id="root" data-composition-id="s09-rapida" data-width="1080" data-height="1920" data-duration="3.1">
+    <div id="s09-rapida-esc" class="esc clip" data-start="0" data-duration="3.1" data-track-index="0">
+<div class="pill lleno s n1" style="left:540px;top:1712px">Scalerics</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-rapida";
-      const DUR = 3.22;
+      const DUR = 3.1;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -57,7 +57,7 @@
 
 
       nota(1, 0.9);
-      fuera(".n1", 3, 0.18);
+      fuera(".n1", 2.88, 0.18);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

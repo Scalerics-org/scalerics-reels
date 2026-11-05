@@ -1,40 +1,43 @@
-### s01-gancho — dura 3.31 s (inicio global 0.00)
-Palabras (segundos relativos a la escena): Si 0.25 · tu 0.40 · página 0.50 · tarda 0.90 · más 1.30 · de 1.50 · tres 1.50 · segundos 1.80 · en 2.10 · el 2.40 · celular, 2.50
+### s01-gancho — dura 2.80 s (inicio global 0.00)
+Palabras (segundos relativos a la escena): Si 0.18 · tu 0.30 · página 0.44 · tarda 0.82 · más 1.06 · de 1.22 · tres 1.36 · segundos 1.58 · en 1.92 · el 2.00 · celular, 2.12
 
-### s02-mitad — dura 3.40 s (inicio global 3.31)
-Palabras (segundos relativos a la escena): más 0.00 · de 0.19 · la 0.29 · mitad 0.39 · de 0.59 · las 0.79 · visitas 0.89 · se 1.39 · va. 1.59 · Según 2.20 · Google. 2.49
+### s02-mitad — dura 3.06 s (inicio global 2.80)
+Palabras (segundos relativos a la escena): más 0.00 · de 0.18 · la 0.26 · mitad 0.34 · de 0.62 · las 0.70 · visitas 0.82 · se 1.26 · va. 1.38 · Según 1.88 · Google. 2.16
 
-### s03-parada — dura 2.21 s (inicio global 6.71)
-Palabras (segundos relativos a la escena): Te 0.00 · buscan 0.14 · desde 0.39 · la 0.59 · parada, 0.69 · con 1.34 · hambre. 1.49
+### s03-parada — dura 2.20 s (inicio global 5.86)
+Palabras (segundos relativos a la escena): Te 0.00 · buscan 0.18 · desde 0.44 · la 0.58 · parada, 0.66 · con 1.32 · hambre. 1.50
 
-### s04-blanco — dura 3.36 s (inicio global 8.92)
-Palabras (segundos relativos a la escena): Pantalla 0.00 · en 0.38 · blanco. 0.48 · Uno, 1.30 · dos, 1.84 · tres. 2.69 · Vuelve 3.36
+### s04-blanco — dura 2.04 s (inicio global 8.06)
+Palabras (segundos relativos a la escena): Pantalla 0.00 · en 0.39 · blanco. 0.49 · Uno, 1.14
 
-### s05-atras — dura 1.90 s (inicio global 12.28)
-Palabras (segundos relativos a la escena): Vuelve -0.00 · atrás. 0.22 · Elige 0.80 · otro. 1.12
+### s04b-cuenta — dura 1.82 s (inicio global 10.10)
+Palabras (segundos relativos a la escena): dos, 0.00 · tres. 1.04
 
-### s06-avisa — dura 1.84 s (inicio global 14.18)
-Palabras (segundos relativos a la escena): Y 0.00 · nunca 0.10 · te 0.22 · avisa 0.52 · que 0.82 · se 0.92 · fue. 1.02
+### s05-atras — dura 1.80 s (inicio global 11.92)
+Palabras (segundos relativos a la escena): Toca 0.00 · atrás 0.20 · y 0.68 · elige 0.76 · otro. 1.16
 
-### s07-venta — dura 2.69 s (inicio global 16.02)
-Palabras (segundos relativos a la escena): Perdiste 0.00 · la 0.38 · venta 0.48 · antes 0.88 · de 1.38 · mostrar 1.48 · nada. 1.88
+### s06-avisa — dura 1.66 s (inicio global 13.72)
+Palabras (segundos relativos a la escena): Y 0.00 · nunca 0.08 · te 0.46 · avisa 0.58 · que 0.78 · se 0.88 · fue. 1.02
 
-### s08-pesadas — dura 2.20 s (inicio global 18.71)
-Palabras (segundos relativos a la escena): Pasa 0.00 · con 0.29 · páginas 0.39 · viejas 0.79 · o 0.99 · pesadas. 1.29
+### s07-venta — dura 2.18 s (inicio global 15.38)
+Palabras (segundos relativos a la escena): Esa 0.00 · venta 0.16 · se 0.46 · fue 0.60 · antes 0.74 · de 1.04 · mostrar 1.12 · nada. 1.48
 
-### s09-rapida — dura 3.22 s (inicio global 20.91)
-Palabras (segundos relativos a la escena): En 0.00 · Scalerics 0.09 · hacemos 0.59 · tu 1.09 · página 1.19 · rápida 1.59 · en 2.19 · el 2.19 · celular. 2.39 · Misma 3.22
+### s08-pesadas — dura 2.00 s (inicio global 17.56)
+Palabras (segundos relativos a la escena): Pasa 0.00 · con 0.20 · páginas 0.36 · viejas 0.78 · o 1.06 · pesadas. 1.18
 
-### s10-abre — dura 2.00 s (inicio global 24.13)
-Palabras (segundos relativos a la escena): Misma -0.00 · parada: 0.17 · abre 1.03 · al 1.27 · toque, 1.37 · con 2.00
+### s09-rapida — dura 3.10 s (inicio global 19.56)
+Palabras (segundos relativos a la escena): En 0.00 · Scalerics 0.10 · hacemos 0.72 · tu 1.18 · página 1.30 · rápida 1.66 · en 1.99 · el 2.09 · celular. 2.16
 
-### s11-pagina — dura 2.54 s (inicio global 26.13)
-Palabras (segundos relativos a la escena): con -0.00 · horario, 0.07 · fotos 0.77 · y 1.07 · WhatsApp. 1.37 · ¿Cuánto 2.54
+### s10-abre — dura 1.98 s (inicio global 22.66)
+Palabras (segundos relativos a la escena): Misma 0.00 · parada: 0.34 · abre 1.00 · al 1.24 · toque, 1.40
 
-### s12-tuya — dura 1.93 s (inicio global 28.67)
-Palabras (segundos relativos a la escena): ¿Cuánto -0.00 · tarda 0.23 · la 0.53 · tuya? 0.63 · Agendá 1.49 · una 1.83
+### s11-pagina — dura 2.20 s (inicio global 24.64)
+Palabras (segundos relativos a la escena): con 0.00 · horario, 0.16 · fotos 0.74 · y 1.22 · WhatsApp. 1.32
 
-### s13-llamada — dura 2.99 s (inicio global 30.60)
-Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.40 · en 1.00 · scalerics.com. 1.40
+### s12-tuya — dura 2.02 s (inicio global 26.84)
+Palabras (segundos relativos a la escena): ¿Cuánto 0.00 · tarda 0.30 · la 0.60 · tuya? 0.72 · Agendá 1.42 · una 1.88
 
-Duración total 33.59 (la voz termina en 33.29).
+### s13-llamada — dura 2.81 s (inicio global 28.86)
+Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 1.02 · en 1.48 · scalerics.com. 1.62
+
+Duración total 31.67 (la voz termina en 31.37).

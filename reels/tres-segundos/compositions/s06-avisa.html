@@ -25,8 +25,8 @@
     [data-composition-id="s06-avisa"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s06-avisa" data-width="1080" data-height="1920" data-duration="1.84">
-    <div id="s06-avisa-esc" class="esc clip" data-start="0" data-duration="1.84" data-track-index="0">
+  <div id="root" data-composition-id="s06-avisa" data-width="1080" data-height="1920" data-duration="1.66">
+    <div id="s06-avisa-esc" class="esc clip" data-start="0" data-duration="1.66" data-track-index="0">
 
       <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M800 1560 L800 1150"/><circle class="dot  d1" cx="800" cy="1150" r="12"/></svg>
       <div class="pill  n1" style="left:800px;top:1610px">0 avisos</div>
@@ -35,7 +35,7 @@
   <script>
     (function () {
       const ID = "s06-avisa";
-      const DUR = 1.84;
+      const DUR = 1.66;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -58,8 +58,8 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      nota(1, 0.77);
-      fuera(".n1, .l1, .d1", 1.62, 0.18);
+      nota(1, 0.73);
+      fuera(".n1, .l1, .d1", 1.36, 0.14);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

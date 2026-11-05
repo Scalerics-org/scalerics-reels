@@ -125,11 +125,11 @@ ${anim}      ];
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.fromTo(w, { opacity: 0, y: 18, scale: 0.86 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out" }, ini + Math.min(0.04, Number(w.dataset.t)) );
+          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 14, scale: 0.9 }, { y: 0, scale: 1, duration: 0.08, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
         }
-        tl.to(el.querySelector("p"), { opacity: 0, duration: 0.03, ease: "none" }, ini + dur - 0.03);
+        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.01);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
@@ -151,7 +151,13 @@ for (const [id, a] of ESCENAS) {
   if (!fs.existsSync(f)) continue;
   for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max });
 }
-for (const [, a] of ESCENAS.slice(1)) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.12 });
+// whoosh automático en cada corte, salvo que la escena ya traiga un whoosh propio cerca del corte (no duplicar)
+for (const [id, a] of ESCENAS.slice(1)) {
+  const f = `compositions/${id}.sfx.json`;
+  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t >= -0.6 && s.t <= 0.3);
+  const previo = sfx.some((s) => /^whoosh/.test(s.name) && Math.abs(s.t - (a - 0.15)) < 0.45);
+  if (!propio && !previo) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.12 });
+}
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
   .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
@@ -159,6 +165,10 @@ const sfxTags = sfx
 
 // cierre en verde (desde la escena de la videollamada) y tramos sin velo: reel.sinVelo = [[palabra, palabra], ...]
 const VERDE = r2(inicio(reel.escenas.at(-1)[1]) - 0.05);
+const FIRMA = (reel.sinFirma ?? []).map(([a, b]) => {
+  const ta = r2(inicio(a) - 0.12), tb = b < palabras.length ? r2(inicio(b) - 0.1) : null;
+  return `      tl.to("#firma", { opacity: 0, duration: 0.15, ease: "power2.inOut" }, ${ta});` + (tb !== null ? `\n      tl.to("#firma", { opacity: 0.85, duration: 0.2, ease: "power2.inOut" }, ${tb});` : "");
+}).join("\n");
 const VELO = (reel.sinVelo ?? []).map(([a, b]) => {
   const ta = r2(inicio(a) - 0.1), tb = b < palabras.length ? r2(inicio(b) - 0.1) : null;
   return `      tl.to("#velo", { opacity: 0, duration: 0.25, ease: "power2.inOut" }, ${ta});` + (tb !== null ? `\n      tl.to("#velo", { opacity: 1, duration: 0.25, ease: "power2.inOut" }, ${tb});` : "");
@@ -192,7 +202,7 @@ ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.16"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.12" data-fade-out="0.35"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -207,7 +217,8 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // se apaga donde el celular llena la pantalla (su barra navy de arriba ya da el contraste) y en el cierre.
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.3, ease: "power2.inOut", immediateRender: false }, ${VERDE});
-${VELO}      window.__timelines["main"] = tl;
+${VELO}
+${FIRMA}      window.__timelines["main"] = tl;
     </script>
   </body>
 </html>
