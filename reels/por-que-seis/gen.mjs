@@ -10,7 +10,7 @@ const pal = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const r2 = (n) => Math.round(n * 100) / 100;
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.25);
+const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.12);
 const ini = (i) => (i === 0 ? 0 : r2(pal[i].start));
 const INI = Object.fromEntries(reel.escenas.map(([id, i]) => [id, ini(i)]));
 const ESC = Object.fromEntries(reel.escenas.map(([id, i], k) => [id, r2((k + 1 < reel.escenas.length ? ini(reel.escenas[k + 1][1]) : DUR) - ini(i))]));
