@@ -113,8 +113,7 @@ const pregGeo = (() => {
   return new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 48, 0.085, 12, false);
 })();
 const puntoGeo = new THREE.SphereGeometry(0.1, 16, 12);
-// tilde (tubo) para los checks 3D
-const tildeGeo = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([[-0.32, 0.0], [-0.1, -0.22], [-0.08, -0.22], [0.34, 0.24]].map(([x, y]) => new THREE.Vector3(x, y, 0)), "centripetal"), 40, 0.075, 10, false);
+
 
 // ================= CRONÓMETRO DE MANO =================
 // cara hacia +z; la aguja marca 0 arriba, 1 a la derecha, 2 abajo, 3 a la izquierda (una vuelta = 4 marcas);
@@ -786,8 +785,8 @@ function renderAt(t) {
     cartonMat.color.set(0xe3d3b0).lerp(new THREE.Color(C.gris), gris); cartonTapa.color.set(0xece0c2).lerp(new THREE.Color(0x868d9c), gris);
     apoyar(cajaSombra, cajaPizza.position.x, cajaPizza.position.z, ks * cae, 0.7, PISO + 1.135);
     // s11 · callback: la caja vuelve ABIERTA, con la pizza, delante de la página
-    if (en(t, W[77] + 0.3, S12 + 0.2)) {
-      const e = bk(sg(t, W[77] + 0.3, W[77] + 0.65)) * (1 - eio(sg(t, S12 - 0.15, S12 + 0.15)));
+    if (en(t, W[77] + 0.3, S12 - 0.15)) {
+      const e = bk(sg(t, W[77] + 0.3, W[77] + 0.65)) * (1 - eio(sg(t, S12 - 0.4, S12 - 0.15)));
       ocultar(cajaPizza, 0.33 * e);
       pegar(cajaPizza, 0.0, -0.5, DP - 0.9, 1.1, -0.15 + Math.sin(t * 1.2) * 0.1, 0);
       tapaPizza.rotation.x = -2.0;

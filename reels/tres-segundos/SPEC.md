@@ -144,3 +144,64 @@ audio 0,35 s. SFX: whoosh, chime al aparecer "scalerics.com".
 - Ningún número de tiempo inventado (ni "0,8 s", ni "MB"); el 53 % es la única cifra.
 - Sin logos ni colores de Google ni de WhatsApp. La otra página (s06) es genérica, sin nombre.
 - La parada y la pizzería son genéricas uruguayas inventadas (sin número de línea de ómnibus real).
+
+## Construcción (05-11, constructor)
+- Voz Orus de 33,29 s (el "oyó" coincide con el guion palabra por palabra). Duración total 33,59 s.
+  Tiempos corregidos a mano con los silencios medidos (ffmpeg silencedetect) donde la voz interpoló:
+  "Google." (5,80), "Te" (6,71), "blanco." (9,40), "Uno" 10,22 · "dos" 10,76 · "tres" 11,61, "Y nunca" (14,18),
+  "scalerics.com." (32,0-33,17).
+- 13 escenas (s02 junta "más de la mitad… se va. Según Google." porque "se va" sola duraba 1,4 s; "Misma parada:
+  abre al toque" y "con horario, fotos y WhatsApp" quedaron separadas en s10-abre y s11-pagina):
+  s01-gancho 0,00 · s02-mitad 3,31 · s03-parada 6,71 · s04-blanco 8,92 · s05-atras 12,28 · s06-avisa 14,18 ·
+  s07-venta 16,02 · s08-pesadas 18,71 · s09-rapida 20,91 · s10-abre 24,13 · s11-pagina 26,13 · s12-tuya 28,67 ·
+  s13-llamada 30,60 (2,99 s, arranca en "videollamada").
+- `assets/tres.js`: una escena Three.js con tres lugares (estudio en 0,0,0; la PARADA a la izquierda; la PIZZERÍA a
+  la derecha, con el celular de las fotos pesadas delante). Cámara Catmull-Rom; los viajes largos (estudio→parada,
+  parada→pizzería, pizzería→celular, celular→parada, parada→estudio) son tramos "e" con ease propio y tangentes
+  planas en los vecinos, para que no se pasen de largo. Cuando el celular llena la pantalla queda pegado a la
+  cámara (`pegar`, distancia DP = 6,25: bordes a la vista). La pantalla es un canvas dinámico (la página que se
+  desliza al tocar "atrás" se pinta cuadro a cuadro de forma determinista).
+- Cambios respecto del SPEC: el cronómetro no queda como contador chico en la esquina durante s02-s03 (chocaba con
+  los subtítulos y el 53 %): en el gancho se achica y se mete en el celular (se vuelve la ruedita) y vuelve sobre la
+  pantalla en blanco para contar uno, dos, tres. El "3" 3D del gancho se sacó (el gancho ya dice "3 segundos" en
+  verde). La flecha "atrás" está en la barra de abajo del navegador (donde la alcanza el pulgar), no arriba (ahí van
+  los subtítulos). El globito no se transforma en la caja: la caja ABIERTA con la pizza vuelve sobre la página en
+  "WhatsApp" (callback de la caja cerrada y gris de s07). Sin rótulo "Te busca" ni "Elige otro" (lo dice el
+  subtítulo); rótulos: "Visitas desde el celular", "Fuente: Google", "0 avisos", "Fotos pesadas", pill "Scalerics",
+  sello "VENTA PERDIDA".
+- Fondo navy liso #0b1220 sin estrellas ni degradé; el velo de arriba se apaga donde el celular llena la pantalla
+  (`reel.sinVelo`) y el fondo pasa a verde #5ce611 en el cierre (timeline de `index.html`, desde `armar.mjs`).
+- Mezcla: `armar.mjs` mide el LUFS de cada SFX con 1 s de relleno (antes el `tic`, de 0,1 s, daba -70 y se
+  salteaba el techo de -31). Música a 0,16 y whoosh de transición a 0,12. Medido con ffmpeg ebur128 (momentáneo,
+  cada 0,1 s) voz sola contra música+SFX reconstruidos desde el index: con la voz hablando (M > -24 LUFS) queda al
+  menos 6,3 LU arriba; voz -15,7 LUFS integrada; pico de la premezcla -2,1 dBFS. El final a -14 LUFS / -1,5 dBTP lo
+  hace el loudnorm del paso 10.
+
+### Pasada 1 de director de arte (snapshots de cada escena y de las transiciones)
+- Estela de la aguja navy oscurecía el dial como una torta: pasó a gris claro (verde en el callback).
+- Cronómetro del gancho pegado a "3 segundos": cámara más arriba, queda entre y 560 y 1560.
+- Viajes de cámara que se pasaban de largo (parada→pizzería mostraba la pizzería cortada y después vacío):
+  tramos "e". El celular sale hacia atrás (antes iba hacia la cámara) y la pizzería aparece antes de entrar a cuadro.
+- Cuadro vacío en el viaje pizzería→estudio (18,8 s): el celular de s08-s09 se mudó delante de la pizzería.
+- Caja de pizza maciza (la pizza quedaba enterrada y las aceitunas atravesaban la tapa): caja hueca con paredes.
+- Campanita flotando junto a la puerta y la línea de "0 avisos" apuntando a la puerta: campana sobre el
+  mostrador, caja a la izquierda, línea a la base de la campana.
+- Ruedita de carga detrás del aro del cronómetro en s04: ruedita arriba, cronómetro más abajo y más chico.
+- Chevrones dibujados en la barra del navegador pisaban el logo: fuera (la flecha atrás es 3D).
+- Tilde 3D se veía como un lazo (tubo Catmull-Rom): ahora dos barras.
+- Parada chica y abajo con el cartel cortado: cámara a 14-15 u, cartel más adentro.
+- Cronómetro del callback (s10) cortado a la izquierda y pisando "Misma parada:": más abajo y a la derecha.
+- 53 % cortado al arrancar el viaje: el viaje arranca 0,3 s después y el 53 % sube y se va antes.
+- Pill "Fuente: Google" y "Scalerics" sobre el celular: abajo (y 1640) y "Scalerics" recién cuando el celular
+  está parado.
+- Caja abierta del callback tapaba el botón de WhatsApp: más chica, sobre la foto; tilde del botón a la derecha.
+
+### Pasada 2 (cuadros cada 0,5 s, 0,25-33,25 s)
+- El "3" rojo seguía arriba cuando entraba "Vuelve atrás.": sale 0,2 s antes.
+- Un marco de foto caía casi contra la cámara tapando el subtítulo: cae desde más bajo.
+- Cruce s11→s12: el celular bajaba lento y la caja seguía pegada a la cámara sobre la parada: el celular baja
+  antes, la caja se va antes y el cronómetro aparece al llegar.
+- El cronómetro cruzaba "Videollamada" al irse y "Agendá una" asomaba sobre el verde: se achica en su lugar y el
+  subtítulo corta antes del cierre (sinSub 84-88).
+- Las siluetas aparecían de a una (una sola chiquita a 3,25 s): entran casi juntas.
+- El cartel PIZZERÍA quedaba bajo el subtítulo en el push-in: push-in más rápido.

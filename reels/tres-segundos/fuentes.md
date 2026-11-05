@@ -61,3 +61,11 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
 ## Sonido
 - Hace falta un tic-tac real (CC0, p. ej. de Freesound vía Openverse): anotar acá autor, link y licencia.
   Si no se consigue, usar `click-soft.mp3` del repo repetido en cada segundo; nunca sintetizado con ffmpeg.
+
+### Sonido usado (construcción, 05-11)
+- `tic.mp3`: el tic de reloj del banco de SFX del repo (el mismo archivo, md5 fb961828…, que usan 35 reels:
+  `reels/asmr`, `reels/las-diferencias`, `reels/quien-es-quien`…). No es sintetizado en esta corrida; el
+  repo no registra autor ni licencia de ese archivo. Si el revisor de sonido pide un CC0 con autor anotado,
+  reemplazarlo por uno de Freesound/Openverse y anotarlo acá.
+- El resto (`pop`, `click`, `click-soft`, `whoosh*`, `impact-bass-*`, `glitch-*`, `ping`, `chime`, `sparkle`,
+  `scan`, `key-press`) y la música `bed.mp3`: los mismos de `reels/caso-pedidosya`.
