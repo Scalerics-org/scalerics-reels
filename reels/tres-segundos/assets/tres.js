@@ -633,7 +633,7 @@ function renderAt(t) {
     paginaRap(n);
     bordeMat.emissiveIntensity = 0.6;
     // s12 · se va hacia abajo
-    const sale = eio(sg(t, S12 - 0.3, S12 + 0.05));
+    const sale = eio(sg(t, S12 - 0.18, S12 + 0.08));
     if (sale > 0) { cel.position.add(new THREE.Vector3(0, -4.2 * sale, -1 * sale).applyQuaternion(camera.quaternion)); }
   } else if (t >= S13 + 0.1) {
     // cierre: el celular con la videollamada
@@ -798,8 +798,8 @@ function renderAt(t) {
     cartonMat.color.set(0xe3d3b0).lerp(new THREE.Color(C.gris), gris); cartonTapa.color.set(0xece0c2).lerp(new THREE.Color(0x868d9c), gris);
     apoyar(cajaSombra, cajaPizza.position.x, cajaPizza.position.z, ks * cae, 0.7, PISO + 1.135);
     // s11 · callback: la caja vuelve ABIERTA, con la pizza, delante de la página
-    if (en(t, W[79] + 0.3, S12 - 0.15)) {
-      const e = bk(sg(t, W[79] + 0.3, W[79] + 0.65)) * (1 - eio(sg(t, S12 - 0.4, S12 - 0.15)));
+    if (en(t, W[79] + 0.05, S12 + 0.02)) {
+      const e = bk(sg(t, W[79] + 0.05, W[79] + 0.38)) * (1 - eio(sg(t, S12 - 0.2, S12)));
       ocultar(cajaPizza, 0.25 * e);
       pegar(cajaPizza, 0.26, -0.62, DP - 0.9, 1.1, -0.15 + Math.sin(t * 1.2) * 0.1, 0);
       tapaPizza.rotation.x = -1.75;

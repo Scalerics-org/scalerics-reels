@@ -320,7 +320,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: rel(id, W(76)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(76)) + 0.05, sfx: "click", vol: 0.3 },
       { t: rel(id, W(77)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(77)) + 0.05, sfx: "click", vol: 0.3 },
       { t: rel(id, W(79)), sfx: "pop", vol: 0.3 }, { t: rel(id, W(79)) + 0.05, sfx: "ping", vol: 0.28, max: 0.4 },
-      { t: rel(id, W(79)) + 0.42, sfx: "sparkle", vol: 0.07, max: 0.5 },
+      { t: rel(id, W(79)) + 0.12, sfx: "sparkle", vol: 0.07, max: 0.5 },
     ],
   });
 }
