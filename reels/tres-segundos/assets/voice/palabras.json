@@ -1,0 +1,530 @@
+[
+ {
+  "id": 0,
+  "text": "Si",
+  "start": 0.254,
+  "end": 0.4
+ },
+ {
+  "id": 1,
+  "text": "tu",
+  "start": 0.4,
+  "end": 0.5
+ },
+ {
+  "id": 2,
+  "text": "página",
+  "start": 0.5,
+  "end": 0.9
+ },
+ {
+  "id": 3,
+  "text": "tarda",
+  "start": 0.9,
+  "end": 1.3
+ },
+ {
+  "id": 4,
+  "text": "más",
+  "start": 1.3,
+  "end": 1.5
+ },
+ {
+  "id": 5,
+  "text": "de",
+  "start": 1.5,
+  "end": 1.5
+ },
+ {
+  "id": 6,
+  "text": "tres",
+  "start": 1.5,
+  "end": 1.8
+ },
+ {
+  "id": 7,
+  "text": "segundos",
+  "start": 1.8,
+  "end": 2.1
+ },
+ {
+  "id": 8,
+  "text": "en",
+  "start": 2.1,
+  "end": 2.4
+ },
+ {
+  "id": 9,
+  "text": "el",
+  "start": 2.4,
+  "end": 2.5
+ },
+ {
+  "id": 10,
+  "text": "celular,",
+  "start": 2.5,
+  "end": 3
+ },
+ {
+  "id": 11,
+  "text": "más",
+  "start": 3.311,
+  "end": 3.5
+ },
+ {
+  "id": 12,
+  "text": "de",
+  "start": 3.5,
+  "end": 3.6
+ },
+ {
+  "id": 13,
+  "text": "la",
+  "start": 3.6,
+  "end": 3.7
+ },
+ {
+  "id": 14,
+  "text": "mitad",
+  "start": 3.7,
+  "end": 3.9
+ },
+ {
+  "id": 15,
+  "text": "de",
+  "start": 3.9,
+  "end": 4.1
+ },
+ {
+  "id": 16,
+  "text": "las",
+  "start": 4.1,
+  "end": 4.2
+ },
+ {
+  "id": 17,
+  "text": "visitas",
+  "start": 4.2,
+  "end": 4.7
+ },
+ {
+  "id": 18,
+  "text": "se",
+  "start": 4.7,
+  "end": 4.9
+ },
+ {
+  "id": 19,
+  "text": "va.",
+  "start": 4.9,
+  "end": 5
+ },
+ {
+  "id": 20,
+  "text": "Según",
+  "start": 5.511,
+  "end": 5.8
+ },
+ {
+  "id": 21,
+  "text": "Google.",
+  "start": 5.8,
+  "end": 6.26
+ },
+ {
+  "id": 22,
+  "text": "Te",
+  "start": 6.71,
+  "end": 6.85
+ },
+ {
+  "id": 23,
+  "text": "buscan",
+  "start": 6.85,
+  "end": 7.1
+ },
+ {
+  "id": 24,
+  "text": "desde",
+  "start": 7.1,
+  "end": 7.3
+ },
+ {
+  "id": 25,
+  "text": "la",
+  "start": 7.3,
+  "end": 7.4
+ },
+ {
+  "id": 26,
+  "text": "parada,",
+  "start": 7.4,
+  "end": 7.7
+ },
+ {
+  "id": 27,
+  "text": "con",
+  "start": 8.047,
+  "end": 8.2
+ },
+ {
+  "id": 28,
+  "text": "hambre.",
+  "start": 8.2,
+  "end": 8.5
+ },
+ {
+  "id": 29,
+  "text": "Pantalla",
+  "start": 8.921,
+  "end": 9.3
+ },
+ {
+  "id": 30,
+  "text": "en",
+  "start": 9.3,
+  "end": 9.4
+ },
+ {
+  "id": 31,
+  "text": "blanco.",
+  "start": 9.4,
+  "end": 9.9
+ },
+ {
+  "id": 32,
+  "text": "Uno,",
+  "start": 10.22,
+  "end": 10.62
+ },
+ {
+  "id": 33,
+  "text": "dos,",
+  "start": 10.76,
+  "end": 11.28
+ },
+ {
+  "id": 34,
+  "text": "tres.",
+  "start": 11.61,
+  "end": 11.93
+ },
+ {
+  "id": 35,
+  "text": "Vuelve",
+  "start": 12.275,
+  "end": 12.5
+ },
+ {
+  "id": 36,
+  "text": "atrás.",
+  "start": 12.5,
+  "end": 12.8
+ },
+ {
+  "id": 37,
+  "text": "Elige",
+  "start": 13.081,
+  "end": 13.4
+ },
+ {
+  "id": 38,
+  "text": "otro.",
+  "start": 13.4,
+  "end": 13.7
+ },
+ {
+  "id": 39,
+  "text": "Y",
+  "start": 14.18,
+  "end": 14.28
+ },
+ {
+  "id": 40,
+  "text": "nunca",
+  "start": 14.28,
+  "end": 14.5
+ },
+ {
+  "id": 41,
+  "text": "te",
+  "start": 14.4,
+  "end": 14.7
+ },
+ {
+  "id": 42,
+  "text": "avisa",
+  "start": 14.7,
+  "end": 15
+ },
+ {
+  "id": 43,
+  "text": "que",
+  "start": 15,
+  "end": 15.1
+ },
+ {
+  "id": 44,
+  "text": "se",
+  "start": 15.1,
+  "end": 15.2
+ },
+ {
+  "id": 45,
+  "text": "fue.",
+  "start": 15.2,
+  "end": 15.5
+ },
+ {
+  "id": 46,
+  "text": "Perdiste",
+  "start": 16.02,
+  "end": 16.4
+ },
+ {
+  "id": 47,
+  "text": "la",
+  "start": 16.4,
+  "end": 16.5
+ },
+ {
+  "id": 48,
+  "text": "venta",
+  "start": 16.5,
+  "end": 16.9
+ },
+ {
+  "id": 49,
+  "text": "antes",
+  "start": 16.9,
+  "end": 17.4
+ },
+ {
+  "id": 50,
+  "text": "de",
+  "start": 17.4,
+  "end": 17.5
+ },
+ {
+  "id": 51,
+  "text": "mostrar",
+  "start": 17.5,
+  "end": 17.9
+ },
+ {
+  "id": 52,
+  "text": "nada.",
+  "start": 17.9,
+  "end": 18.1
+ },
+ {
+  "id": 53,
+  "text": "Pasa",
+  "start": 18.71,
+  "end": 19
+ },
+ {
+  "id": 54,
+  "text": "con",
+  "start": 19,
+  "end": 19.1
+ },
+ {
+  "id": 55,
+  "text": "páginas",
+  "start": 19.1,
+  "end": 19.5
+ },
+ {
+  "id": 56,
+  "text": "viejas",
+  "start": 19.5,
+  "end": 19.7
+ },
+ {
+  "id": 57,
+  "text": "o",
+  "start": 19.7,
+  "end": 20
+ },
+ {
+  "id": 58,
+  "text": "pesadas.",
+  "start": 20,
+  "end": 20.5
+ },
+ {
+  "id": 59,
+  "text": "En",
+  "start": 20.91,
+  "end": 21
+ },
+ {
+  "id": 60,
+  "text": "Scalerics",
+  "start": 21,
+  "end": 21.5
+ },
+ {
+  "id": 61,
+  "text": "hacemos",
+  "start": 21.5,
+  "end": 22
+ },
+ {
+  "id": 62,
+  "text": "tu",
+  "start": 22,
+  "end": 22.1
+ },
+ {
+  "id": 63,
+  "text": "página",
+  "start": 22.1,
+  "end": 22.5
+ },
+ {
+  "id": 64,
+  "text": "rápida",
+  "start": 22.5,
+  "end": 23.1
+ },
+ {
+  "id": 65,
+  "text": "en",
+  "start": 23.1,
+  "end": 23.1
+ },
+ {
+  "id": 66,
+  "text": "el",
+  "start": 23.1,
+  "end": 23.3
+ },
+ {
+  "id": 67,
+  "text": "celular.",
+  "start": 23.3,
+  "end": 23.6
+ },
+ {
+  "id": 68,
+  "text": "Misma",
+  "start": 24.127,
+  "end": 24.3
+ },
+ {
+  "id": 69,
+  "text": "parada:",
+  "start": 24.3,
+  "end": 24.6
+ },
+ {
+  "id": 70,
+  "text": "abre",
+  "start": 25.158,
+  "end": 25.4
+ },
+ {
+  "id": 71,
+  "text": "al",
+  "start": 25.4,
+  "end": 25.5
+ },
+ {
+  "id": 72,
+  "text": "toque,",
+  "start": 25.5,
+  "end": 25.8
+ },
+ {
+  "id": 73,
+  "text": "con",
+  "start": 26.127,
+  "end": 26.2
+ },
+ {
+  "id": 74,
+  "text": "horario,",
+  "start": 26.2,
+  "end": 26.6
+ },
+ {
+  "id": 75,
+  "text": "fotos",
+  "start": 26.896,
+  "end": 27.2
+ },
+ {
+  "id": 76,
+  "text": "y",
+  "start": 27.2,
+  "end": 27.5
+ },
+ {
+  "id": 77,
+  "text": "WhatsApp.",
+  "start": 27.5,
+  "end": 28
+ },
+ {
+  "id": 78,
+  "text": "¿Cuánto",
+  "start": 28.667,
+  "end": 28.9
+ },
+ {
+  "id": 79,
+  "text": "tarda",
+  "start": 28.9,
+  "end": 29.2
+ },
+ {
+  "id": 80,
+  "text": "la",
+  "start": 29.2,
+  "end": 29.3
+ },
+ {
+  "id": 81,
+  "text": "tuya?",
+  "start": 29.3,
+  "end": 29.6
+ },
+ {
+  "id": 82,
+  "text": "Agendá",
+  "start": 30.158,
+  "end": 30.5
+ },
+ {
+  "id": 83,
+  "text": "una",
+  "start": 30.5,
+  "end": 30.6
+ },
+ {
+  "id": 84,
+  "text": "videollamada",
+  "start": 30.6,
+  "end": 31
+ },
+ {
+  "id": 85,
+  "text": "gratis",
+  "start": 31,
+  "end": 31.6
+ },
+ {
+  "id": 86,
+  "text": "en",
+  "start": 31.6,
+  "end": 32
+ },
+ {
+  "id": 87,
+  "text": "scalerics.com.",
+  "start": 32,
+  "end": 33.17
+ }
+]
