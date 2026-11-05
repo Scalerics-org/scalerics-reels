@@ -219,6 +219,9 @@
 
 ## En curso
 
+- 05-11 · `por-que-la-lista` · Sistema a medida (procesos del equipo, delegar) · "¿Por qué el piloto repasa una lista antes de despegar, si sabe volar?" · explicador ¿Por qué? 3D, fondo navy claro #16243d · reservado (corrida 1 del 05-11)
+- 05-11 · `caso-tu-nombre` · Automatizaciones (mensajes con el nombre del cliente) · caso de éxito: la campaña de las botellas con nombres (Coca-Cola, "Share a Coke") · 3D, fondo crema #efeee5 · reservado (corrida 1 del 05-11)
+
 
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online
