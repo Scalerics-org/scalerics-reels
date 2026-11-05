@@ -14,7 +14,7 @@ import { execSync } from "node:child_process";
 const largo = {};
 const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
 // techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
-const TECHO = -33;
+const TECHO = -31;
 const lufs = {};
 const lufsArchivo = (n) => {
   if (lufs[n] === undefined) {
@@ -112,7 +112,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; background: #efeee5; padding: 4px 30px 10px; border-radius: 26px; }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 4px 0px 0 #efeee5, -4px 0px 0 #efeee5, 0px 4px 0 #efeee5, 0px -4px 0 #efeee5, 3px 3px 0 #efeee5, -3px 3px 0 #efeee5, 3px -3px 0 #efeee5, -3px -3px 0 #efeee5, 5px 2px 0 #efeee5, -5px 2px 0 #efeee5, 2px 5px 0 #efeee5, -2px 5px 0 #efeee5, 5px -2px 0 #efeee5, -5px -2px 0 #efeee5, 2px -5px 0 #efeee5, -2px -5px 0 #efeee5, 0 0 14px rgba(239,238,229,0.9); }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 14px; }
@@ -214,7 +214,7 @@ ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.14"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};
