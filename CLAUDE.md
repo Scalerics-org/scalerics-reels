@@ -235,6 +235,44 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      buenos que muchos flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
      una nota de qué falta.
 
+
+8d. **LÍNEA "PARA MANDAR": 3 de los ~10 reels de cada noche** (Juan, 05-11, al ver `reels/abren-hoy`:
+   "jajajaja muy bueno"). Los explicadores se GUARDAN; estos se COMPARTEN: un dueño se lo manda a otro
+   con "jaja este sos vos". Son los que traen alcance de dueños de comercio (y no de chicos); el
+   perfil con los explicadores es el que después convence.
+   - **Base: `reels/abren-hoy`**, `reels/abren-hoy-2` y `reels/abren-hoy-completo`. Personajes 3D
+     recurrentes en `reels/abren-hoy/assets/personajes.js`: Rubén el almacenero, Graciela la clienta,
+     Nico el empleado, Marta la de la cafetería. Usá SIEMPRE estos (se pueden sumar nuevos al módulo,
+     con el mismo estilo): que la gente los reconozca y espere el próximo.
+   - **10-16 s, una sola situación** que todo comerciante vivió, con timing de comedia: arranque ya en
+     situación (cuadro 0 = la escena), una pausa antes del remate, remate fuerte, y si hay, un
+     "remate del remate" (el contador que pasa a 48). Se entiende **sin sonido** (burbujas y carteles
+     grandes); con sonido es mejor (ambiente, pops, golpe, música que se corta seca).
+   - **No es una lección ni un aviso.** Nada de "¿La lección?" ni desenlace primero (eso es de los
+     explicadores). El producto aparece SOLO en la última línea chica ("Un agente de IA contesta esto
+     por vos · scalerics.com", ~1,5 s) y en `descripcion.txt`, que sí explica el servicio en 1-2
+     líneas + la línea de videollamada. Acá NO va la tarjeta de videollamada del punto 8.
+   - Voz: ninguna o una sola línea de un personaje, con su voz de siempre (Rubén = Gemini Algenib,
+     grave y cansado). Nunca Orus narrando.
+   - **Formato completo (el preferido, Juan 05-11):** problema + cartel + solución en UN reel de ~30 s,
+     como `reels/abren-hoy-completo`: la parte 1 termina en el remate, entra un cartel estilo "time card"
+     de dibujito ("Un agente de IA más tarde…", narrador caricaturesco con voz Gemini Rasalgethi,
+     fondo verde de marca con manchas y burbujas, letras que rebotan) y la parte 2 muestra lo mismo
+     resuelto en chiste (el celular contesta solo mientras Rubén toma mate; el contador de 48 pasa a 0).
+     El cartel NUNCA dice "Scalerics" (Juan: "algo que suene menos publicidad"): nombra la solución
+     ("Un agente de IA más tarde…", "Una tienda online más tarde…", "Un sistema más tarde…").
+     Nada de Bob Esponja (ni su tipografía, ni sus fondos, ni su audio): es el meme hecho de cero.
+     También vale la parte 1 sola (14 s, solo el problema) para alternar y medir cuál se comparte más.
+   - Situaciones para arrancar (inventá más): "¿abren hoy?" con el cartel en la puerta; "lo mismo
+     que la otra vez" sin decir qué; el audio de 4 minutos para preguntar un precio; "pasame precio"
+     sin decir de qué; el que pide descuento en algo de $200; "¿hacen envíos?" del vecino de enfrente;
+     el que llega 19:59; "te lo paso a buscar mañana" y nunca viene; "¿me lo guardás?"; el
+     presupuesto que pidió y no contesta nunca más.
+   - Misma vara (8b 3D real, 8c revisión) y mismo equipo por reel. El revisor de "guion y datos"
+     acá se pregunta: **¿un dueño se lo mandaría a otro? ¿el remate pega?** Si la respuesta es
+     "más o menos", se reescribe el chiste antes de construir.
+   - Marcas reales: ninguna (chat genérico, mate y termo genéricos).
+
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
 está vacía, el reel más nuevo que no se publicó ni se descartó. O sea: lo que sube la rutina sale

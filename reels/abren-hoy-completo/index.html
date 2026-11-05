@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #5ce611; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #5ce611; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="3.2" data-width="1080" data-height="1920">
+      <div id="el-cartel" class="scene" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="0" data-duration="3.2" data-track-index="1" data-track-kind="graphics"></div>
+      <audio id="mezcla" src="assets/audio/cartel.wav" data-start="0" data-duration="3.2" data-track-index="30" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#root", { opacity: 1, duration: 3.2 }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
