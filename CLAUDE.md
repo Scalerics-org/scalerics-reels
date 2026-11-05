@@ -170,7 +170,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
 8b. **3D REAL EN TODOS LOS REELS desde el 04-11** (Juan: "quiero que se vea como ellos real 3D",
    por @resultaaquee; y al ver la tanda del 04-11, toda en dibujo plano: "lo de 3D no lo habías
    implementado ya? REAL 3D"). El dibujo plano en SVG/CSS ya no va como recurso principal.
-   - **Base: `reels/caso-pedidosya`** (la vara de calidad, punto 8c; `reels/netflix-blockbuster` es la versión anterior). Copiá su `assets/tres.js`, `assets/vendor/three/`
+   - **Base: `reels/abren-hoy`** (el ejemplar, punto 8c; personajes en `assets/personajes.js`). Para cámara que viaja entre objetos, mirá también `reels/caso-pedidosya`. Copiá su `assets/tres.js`, `assets/vendor/three/`
      (Three.js r170 local, RoundedBoxGeometry, TextGeometry, Lexend 800 en `lexend800.js`), el
      `#capa3d` con `<canvas id="tres">` de su `index.html` y el `buildReady["tres"]`, y cómo
      `armar.mjs` escribe `assets/tiempos3d.js` (inicios de escena y de cada palabra). Leé el
@@ -195,14 +195,15 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      anotás en "Hechos" con "(sin 3D: <motivo>)"; no frenes la tanda por eso.
 
 
-8c. **LA VARA DE CALIDAD: `reels/caso-pedidosya` y `reels/abren-hoy-completo`.** Juan, 05-11: "quiero que
-   todos los videos sean de esta calidad o mejor". Esa es la vara MÍNIMA para cualquier reel, de
-   cualquier línea: si un reel no se ve al menos así de pulido (personajes expresivos, cortes y planos
-   pensados, sonido real, nada cortado ni vacío), no se entrega. Más detalle abajo, sacado de
-   `reels/caso-pedidosya` (Juan, 04-11: "actualizá la rutina para que
-   salgan en esta calidad los videos"; antes, sobre ese mismo reel: "tiene que quedar perfecto").
-   Miralo entero antes de empezar (render en la rama `reel/caso-pedidosya`) y leé su `SPEC.md`,
-   `tres.js`, `gen.mjs` y `armar.mjs`. Cada reel tiene que estar a esa altura. Lo que lo hace bueno:
+8c. **EL EJEMPLAR: `reels/abren-hoy-completo`** (Juan, 05-11: "quiero que todos los videos sean de
+   esta calidad o mejor"; y sobre cuál es la referencia: "pedidos ya no, abren hoy como ejemplar").
+   Es la vara MÍNIMA para cualquier reel, de cualquier línea, explicadores incluidos: personajes 3D
+   expresivos, planos y cortes pensados (general, contraplano, primer plano, push-in), timing (pausa
+   antes del remate), sonido real, nada cortado ni vacío. Si un reel no se ve al menos así, no se
+   entrega. Antes de empezar, mirá su render (rama `reel/abren-hoy-completo`) y leé `SPEC.md`,
+   `tres.js`, `gen.mjs`, `armar.mjs` y `assets/personajes.js` de `reels/abren-hoy` y
+   `reels/abren-hoy-completo`. `reels/caso-pedidosya` queda solo como referencia técnica de cámara
+   continua y de explicador con datos; no es el ejemplar. Lo que vale para todos:
    - **Cámara continua.** Una curva (Catmull-Rom) que viaja de objeto en objeto: grúa, zambullida,
      órbita, push-in. Casi sin cortes secos. En las transiciones grandes SIEMPRE hay un objeto
      protagonista grande en cuadro (el celular de la ciudad crece con la distancia hasta que el mapa
@@ -234,7 +235,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      **mínimo dos pasadas completas**, hasta que una pasada no encuentre nada. Anotá en el reporte qué
      corregiste en cada pasada.
    - **Portada desde un cuadro limpio**: renderizá el fondo sin gancho, subtítulos ni logo (como
-     hizo caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
+     hicieron abren-hoy y caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
    - Si un reel no llega a esta vara en el tiempo de la corrida, es mejor entregar menos reels
      buenos que muchos flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
      una nota de qué falta.
@@ -438,7 +439,7 @@ Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), qu
 
 ## Cuántos por corrida: 2 reels, con un equipo entero para cada uno
 
-Cada corrida hace **2 reels** a la vara de `reels/caso-pedidosya` (punto 8c), **con el mismo esfuerzo
+Cada corrida hace **2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
 que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
 mejor calidad: la idea es que use la misma cantidad de muchísimo esfuerzo que usaba para hacer 25
 videos, pero para hacer menos". O sea: **no ahorres agentes ni pasadas**, repartilos en menos reels.
