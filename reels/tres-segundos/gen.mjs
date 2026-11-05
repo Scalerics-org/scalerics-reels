@@ -156,13 +156,13 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="dato">de las visitas desde el celular se va</div>
       ${pill(2, 540, 1645, "Fuente: Google", "f")}`,
     js: `
-      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) + 0.12)});
+      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.12)});
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
       fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.52)}, 0.16);`,
     sfx: [
       { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click", vol: 0.3 }, { t: rel(id, W(14)) + 0.28, sfx: "click", vol: 0.26 },
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
-      { t: rel(id, W(15)) - 0.08, sfx: "impact-bass-1", vol: 0.025, max: 0.4 }, { t: rel(id, W(15)) - 0.05, sfx: "pop", vol: 0.12 },
+      { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.025, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "pop", vol: 0.12 },
       { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
       { t: rel(id, VIAJE.parada) - 0.15, sfx: "whoosh-cine", vol: 1 },
     ],

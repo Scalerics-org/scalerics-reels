@@ -565,7 +565,7 @@ function renderAt(t) {
       celOn = true;
       let x = 0, y = 0.55, z = 0, s = 0.95 * nace, ry = Math.sin(t * 0.8) * 0.12;
       // "se va": retrocede un poco y baja para dejar lugar al 53 %
-      const baja = eio(sg(t, W[15] - 0.45, W[15] + 0.05));
+      const baja = eio(sg(t, W[15] - 0.6, W[15] - 0.1));
       y = lerp(y, -0.35, baja); s *= lerp(1, 0.8, baja);
       // la visita que se queda: el celular viaja a la mano (travelling a la parada)
       const va = eio(sg(t, W[21] + 0.55, S3 + 0.6));
@@ -725,7 +725,7 @@ function renderAt(t) {
 
   // ---------------- 53 % ----------------
   {
-    const sp = en(t, W[15] - 0.1, S3 + 0.4) ? 0.95 * bk(sg(t, W[15] - 0.1, W[15] + 0.25)) * (1 - eio(sg(t, W[21] + 0.5, W[21] + 0.72))) : 0;
+    const sp = en(t, W[15] - 0.3, S3 + 0.4) ? 0.95 * bk(sg(t, W[15] - 0.3, W[15] + 0.05)) * (1 - eio(sg(t, W[21] + 0.5, W[21] + 0.72))) : 0;
     ocultar(pct, sp); pct.position.set(0.05, 2.0 + eio(sg(t, W[21] + 0.5, W[21] + 0.72)) * 1.2, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
     if (pct.visible) pct.scale.multiplyScalar(1 + 0.06 * Math.sin(Math.PI * sg(t, W[19], W[19] + 0.3)));
   }

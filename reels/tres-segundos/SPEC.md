@@ -205,3 +205,44 @@ audio 0,35 s. SFX: whoosh, chime al aparecer "scalerics.com".
   subtítulo corta antes del cierre (sinSub 84-88).
 - Las siluetas aparecían de a una (una sola chiquita a 3,25 s): entran casi juntas.
 - El cartel PIZZERÍA quedaba bajo el subtítulo en el push-in: push-in más rápido.
+
+## Construcción · ronda 1 (05-11, correcciones de los 3 revisores)
+**Guion y voz (G3).** "Vuelve atrás. Elige otro." → "Toca atrás y elige otro."; "Perdiste la venta antes de mostrar
+nada." → "Esa venta se fue antes de mostrar nada." Voz Orus entera regenerada (31,37 s, el "oyó" coincide).
+Tiempos de las 90 palabras a mano con la envolvente cada 20 ms (caídas de energía de las oclusivas y pausas);
+STT venía 0,1-0,2 s adelantado. Duración total 31,67 s. Índices de palabra remapeados en `tres.js`, `gen.mjs` y
+`reel.json` (+1 desde "y", +2 desde "antes").
+Escenas (14): s01-gancho 0,00 · s02-mitad 2,80 · s03-parada 5,86 · s04-blanco 8,06 · s04b-cuenta 10,10 (s04 partida en
+"dos": pasaba 3,9 s) · s05-atras 11,92 · s06-avisa 13,72 · s07-venta 15,38 · s08-pesadas 17,56 · s09-rapida 19,56
+(3,10 s, cambia algo cada ≤1 s) · s10-abre 22,66 · s11-pagina 24,64 · s12-tuya 26,84 · s13-llamada 28,86 (2,81 s).
+**Datos.** G1: el cronómetro del callback frena en ~1,85 (antes del 3, sin cifra), ningún número del dial se pinta;
+se ponen verdes el bisel y la estela y aparece un tilde 3D al lado. G2: el 53 % entra en "de las visitas" con el
+texto "de las visitas desde el celular se va" debajo y la pill "Fuente: Google" a la vez (2,2 s en pantalla). G4: la
+barra de la página dice "tu página" (sin dominio). G5: descripción y fuentes.md.
+**Sonido.** S1: `whoosh-cine.mp3` (recorte con el golpe del whoosh-cinematic real) en los 4 viajes. S2: tic → click
+(la red bloquea todas las fuentes CC0). S3: scan → `riser-corto`, key-press → `tecleo` (recortes de archivos del
+banco sin el tramo mudo), pop/click/ping/chime más arriba; música a 0,12 para que los SFX (techo -31) queden
+encima. S4: impact-bass recortados y bajados; glitch/impacto del sello después de "nada.". S5: tiempos medidos.
+S6: `armar.mjs` no pone el whoosh automático si la escena trae uno en [-0,6; 0,3] s o ya hay uno a < 0,45 s.
+S7: cortes "Esa venta | se fue | antes | de mostrar nada.", "Pasa | con páginas viejas | o pesadas.", y "Agendá
+una" sin subtítulo (sinSub 80-86, la pregunta grande queda hasta el cierre). S8: segundo tic de s12 en +1,40.
+S9: `data-fade-out="0.35"` en la música. Mezcla medida (ebur128 momentáneo cada 0,1 s, voz sola contra música+SFX
+reconstruidos desde el index): con voz > -24 LUFS, al menos 6,6 LU arriba; premezcla pico -2,7 dBFS.
+**Arte.** A1: el cronómetro del gancho se mete en la ruedita con push-in (cámara a 10,8 u en s02, celular ~55 %
+del ancho) y las siluetas ya están cuando nace el celular; en los viajes estudio→parada y celular→parada el
+celular conserva el tamaño (crece un poco) y recién se achica a la mano en la segunda mitad del viaje; s08 y s09 más
+cerca (celular ~60 %); tilde montado en el borde del celular. A2: push-in a la caja corto (0,35 s) y el cartel
+PIZZERÍA se apaga mientras pasa por detrás del subtítulo; la caja cae desde 0,8 u (ya no aparece sobre el toldo).
+A3: caja abierta del callback más chica, abajo a la derecha sobre la foto, 0,8 s en pantalla. A4: caras lisas con
+dos puntitos y pelo navy; la persona de la parada con gorra verde. A5: aro de la tapa navy; sello desde 1,25× sin
+salirse del margen, en "nada". A6: 53 % en crema. A7: los marcos caen desde 0,9 u y sobre la mitad baja del
+celular (no cruzan los subtítulos). A8-A10: `reel.sinFirma` oculta el logo del pie en s02, con el celular a pantalla
+completa, en s08-s09 (pill "Scalerics" movida a y 1712), en s11 y en el cierre verde. A11: las palabras del
+subtítulo entran ya en blanco y el grupo se corta seco (sin cuadros grises). A12: pizza de la vidriera con borde y
+aceitunas (de frente, en el vidrio); timbre de mostrador chato con botón. A13: globito y cartel más adentro,
+cámara de la parada a 15-16 u, cronómetro del callback lejos de la cabeza. A14: el tilde viaja pegado al celular y
+se achica antes del viaje. A15: letra de la página más grande (URL 40 px, "de 19 a 24 h" 38 px de canvas).
+A16 (opcional): no se hizo.
+**Revisión.** Pasada completa cada 0,5 s (0,25-31,25 s) más dos tandas sobre las zonas tocadas; `check` ok, cero
+errores (queda solo el aviso de lint del canvas dentro de #capa3d y "canvas toca el borde", que es el celular a
+pantalla completa).

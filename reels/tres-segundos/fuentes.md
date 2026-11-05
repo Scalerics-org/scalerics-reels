@@ -62,10 +62,20 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
 - Hace falta un tic-tac real (CC0, p. ej. de Freesound vía Openverse): anotar acá autor, link y licencia.
   Si no se consigue, usar `click-soft.mp3` del repo repetido en cada segundo; nunca sintetizado con ffmpeg.
 
-### Sonido usado (construcción, 05-11)
-- `tic.mp3`: el tic de reloj del banco de SFX del repo (el mismo archivo, md5 fb961828…, que usan 35 reels:
-  `reels/asmr`, `reels/las-diferencias`, `reels/quien-es-quien`…). No es sintetizado en esta corrida; el
-  repo no registra autor ni licencia de ese archivo. Si el revisor de sonido pide un CC0 con autor anotado,
-  reemplazarlo por uno de Freesound/Openverse y anotarlo acá.
-- El resto (`pop`, `click`, `click-soft`, `whoosh*`, `impact-bass-*`, `glitch-*`, `ping`, `chime`, `sparkle`,
-  `scan`, `key-press`) y la música `bed.mp3`: los mismos de `reels/caso-pedidosya`.
+### Sonido usado (construcción, 05-11; ronda 1)
+- Tic del cronómetro: `click.mp3` del banco del repo (el mismo de `molde/assets/sfx`). El `tic.mp3` anterior
+  se sacó: parecía sintetizado (dos tonos puros) y no tenía autor ni licencia. Se intentó bajar un tic real CC0
+  (Openverse, Freesound, Pixabay, Wikimedia Commons, archive.org, OpenGameArt): la red de la nube los bloquea a
+  todos (CONNECT 403 / sin conexión), así que se usó `click.mp3` como pidió el coordinador.
+- `whoosh-cine.mp3`: recorte (1,9-3,4 s, con fundidos de 40 y 300 ms) del `whoosh-cinematic.mp3` real del banco,
+  para que el golpe caiga en el viaje de cámara. `tecleo.mp3`: recorte (0,42-1,04 s) de `typing.mp3` del banco
+  (el original arranca con 0,44 s mudos). `riser-corto.mp3`: recorte (3,9-4,7 s) de `riser.mp3` del banco.
+  Son recortes de archivos reales, no sonidos sintetizados.
+- El resto (`pop`, `click`, `click-soft`, `whoosh`, `whoosh-short`, `impact-bass-*`, `glitch-*`, `ping`, `chime`,
+  `sparkle`) y la música `bed.mp3`: los mismos de `reels/caso-pedidosya`.
+
+## "Pasa con páginas viejas o pesadas" (ronda 1)
+- "Viejas" va como lógica simple, sin cifra: una página hecha antes de pensar en el celular (texto chico, fotos
+  sin adaptar al tamaño de la pantalla) carga más de lo que hace falta. El respaldo técnico es el de arriba
+  (Core Web Vitals / LCP y las imágenes sin optimizar como causa común). En la descripción quedó "páginas con
+  fotos pesadas o que no se pensaron para el celular".
