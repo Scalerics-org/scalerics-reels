@@ -138,3 +138,47 @@ SIN marcas: ni el supermercado ni la marca de las mermeladas, etiquetas genéric
 - Fondo: cuadro limpio de s01 (mesa de 24 a pantalla llena) renderizado sin gancho ni subtítulos.
 - `chica`: "24 mermeladas." · `grande`: "Vendieron menos" · `sello`: "¿Por qué?". Acento y sello en verde
   `#5ce611`; "menos" puede ir en rojo apagado. Todo entre y 285 y 1635.
+
+## Construcción (constructor, 05-11)
+- Voz Orus de una sola toma: 34,33 s, el "oyó:" coincide con el guion (sin frases salteadas). Los tiempos de STT se
+  corrieron hasta 0,6 s en varios tramos ("¿Por qué?", "tres de cada cien", "En la de seis, treinta", "En Scalerics",
+  "videollamada"): se corrigieron a mano en `assets/voice/palabras.json` mirando silencedetect y la envolvente RMS
+  (la salida cruda de STT quedó en `palabras.stt.json`). Duración total 34,88 s (cola de 0,55 s para que el cierre dure 2,9 s).
+- Escenas (inicio, s): s01-gancho 0 · s02-porque 4,53 · s03-gente 7,03 · s04-tres 9,37 · s05-treinta 11,39 ·
+  s06-ganas 13,01 · s07-despues 14,38 · s08-whatsapp 17,12 · s09-mesa24 20,55 · s10-tienda 22,32 · s11-pocas 24,99 ·
+  s12-paga 27,62 · s13-negocio 29,86 · s14-cta 31,97 (2,91 s, arranca en "videollamada").
+- Base: caso-pedidosya (tres.js reescrito, gen.mjs, armar.mjs con TECHO -31 LUFS). Sobre crema: `armar.mjs` pone fondo
+  #efeee5 liso, velo crema arriba (0-640 px), subtítulos navy con recuadro verde al 55 % (rojo apagado al 30 % para
+  "tres", "después", "doscientas", "veinticuatro") y logo oscuro. Pills navy o verde lleno con texto navy.
+- 3D: frasco = vidrio (lathe físico transparente con clearcoat) + mermelada (lathe del color de la fruta, con aire
+  arriba) + tapa de tela cuadrillé navy/crema o verde/crema con faldón ondulado + hilo con moño + etiqueta crema con
+  la frutita dibujada. Números 24/3/30/24 y el "?" pegados a la cámara (siempre arriba, nunca pisan objetos).
+  Cambios de guion visual respecto del SPEC: en s01 no hay "24"/"6" 3D (el gancho ya los dice en texto grande y
+  se pisaban); el "?" no cae sobre la mesa, se achica; el mantel es navy con ribete verde (el blanco no se leía
+  sobre crema); en s07 la canasta vacía flota en el centro del anillo y se va a la derecha en "dejaron".
+- Mezcla medida (pistas rearmadas desde index.html con ffmpeg): voz -15,3 LUFS, música+SFX -29,5 LUFS; en ventanas
+  de 0,5 s con voz, la voz queda al menos 6,8 LU arriba (la más justa es el whoosh del cuadro 0). Pico premezcla
+  -1,9 dBFS. SFX: los de caso-pedidosya más murmullo, campanita, ding y moneda copiados de otros reels del repo
+  (no hay tintineo de vidrio en el repo: se usó `ding`/`campanita` bajos).
+
+### Pasada 1 de director de arte (snapshots cada 0,5 s y puntos sueltos)
+1. Gancho: la línea "24 mermeladas" se salía de cuadro → 118 px / 104 px; la mesa cortaba los costados y pisaba
+   "que 6" → cámara más alta y más lejos (el, d, mira). El "24" y "6" 3D pisaban el gancho → afuera.
+2. "?" gigante con el punto sobre el logo → escala 1,25 y más arriba.
+3. Plano general de "famoso": mesas chicas → cámara más cerca.
+4. Números 3 / 30 / 24 sobre los subtítulos → más chicos (0,6) y más abajo.
+5. Asas de la canasta atravesaban los frascos → asas plegadas hacia afuera.
+6. Canastas: la mesa grande ocupaba medio cuadro detrás → cámara de costado y más alta; los frascos caen de menos altura.
+7. Macro "ganas": cuchara gigante en una esquina, frascos cortados, cartel en primer plano → cámara a 4,2 u, cartel y
+   plato de la mesa chica ocultos en el macro, mermelada de la cuchara del color del frasco (arándano).
+8. Anillo de s07 visto de canto (parecía una fila) → cámara a 45°; canasta vacía al centro del anillo.
+9. Celular del catálogo pisaba subtítulos y logo → más abajo y más chico; el "200" en la cabecera; miniaturas
+   redibujadas como frascos (vidrio, etiqueta, tela con ondas).
+10. Celular acostado (mesa de 24) cortado → cámara más lejos; los 21 frascos que sobran ahora se hunden en la
+    pantalla (antes volaban y quedaban puntitos sueltos); la tienda aparece cuando el celular empieza a pararse.
+11. Tienda chica → más cerca; se sacó la pill "Tu tienda online" que tapaba "Pagar".
+12. s12-s13: celular pisaba subtítulos → más abajo y cámara más lejos; local cortado a la derecha y canasta contra el
+    borde → reencuadre. Subtítulo "Agendá una" se superponía con "Videollamada" → `sinSub` [86, 90].
+13. Canasta de s04 aparecía mientras la gente todavía estaba ahí → la gente se va antes.
+14. Cierre: "scalerics.com" entra con "gratis" (2 s en pantalla) y el celular baja para no tocarlo.
+Segunda mirada completa (cada 1 s desde 0,25): sin defectos nuevos fuera de transiciones de 0,2-0,3 s.
