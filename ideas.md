@@ -223,6 +223,8 @@
 - 05-11 · `caso-tu-nombre` · Automatizaciones (mensajes con el nombre del cliente) · caso de éxito: la campaña de las botellas con nombres (Coca-Cola, "Share a Coke") · 3D, fondo crema #efeee5 · reservado (corrida 1 del 05-11)
 - 05-11 · `por-que-dos-sellos` · Scalerics Puntos · "¿Por qué algunas tarjetas de sellos ya vienen con dos sellos puestos?" (efecto del progreso regalado, estudio del lavadero de autos, sin marcas) · explicador ¿Por qué? 3D, fondo navy oscuro #0b1220 · reservado (corrida 2 del 05-11)
 - 05-11 · `dos-repuestos` · Agente de IA (consulta de stock y reserva de la pieza) · Dos negocios en 3D: dos casas de repuestos en la misma avenida, el mismo mensaje a las diez de la noche · pantalla partida gris apagado / navy claro con verde · reservado (corrida 2 del 05-11)
+- 05-11 · `por-que-seis` · Tienda online (catálogo ordenado, los más pedidos primero) · "Pusieron veinticuatro mermeladas en una mesa y vendieron menos que con seis. ¿Por qué?" (el experimento de las mermeladas, Iyengar y Lepper, sin marcas) · explicador ¿Por qué? 3D (frascos), fondo crema #efeee5 · reservado (corrida 3 del 05-11)
+- 05-11 · `tres-segundos` · Sitio web (rápido en el celular) · "Si tu página tarda más de tres segundos en abrir, más de la mitad ya se fue. Según Google." · contador en vivo 3D (cronómetro + celular gigante), fondo pantalla de celular / navy con cierre verde #5ce611 · reservado (corrida 3 del 05-11)
 
 
 
