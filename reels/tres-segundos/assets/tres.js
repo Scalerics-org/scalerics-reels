@@ -421,10 +421,10 @@ async function dibujarPantallas() {
     // foto
     x.fillStyle = "#16243d"; rr(x, 36, 724, 648, 400, 30); pizzaDib(x, 360, 924, 170);
     // WhatsApp
-    x.fillStyle = "#5ce611"; rr(x, 36, 1152, 648, 136, 40); x.fillStyle = "#0b1220"; x.font = F(800, 42); x.textAlign = "center"; x.fillText("Escribinos por WhatsApp", 336, 1234); x.textAlign = "left";
+    x.fillStyle = "#5ce611"; rr(x, 36, 1152, 648, 136, 40); x.fillStyle = "#0b1220"; x.font = F(800, 42); x.textAlign = "center"; x.fillText("Escribinos por WhatsApp", 318, 1234); x.textAlign = "left";
     if (n >= 1) tickDib(x, 630, 623, 34);
     if (n >= 2) tickDib(x, 630, 776, 34);
-    if (n >= 3) tickDib(x, 640, 1220, 30, "#0b1220", "#5ce611");
+    if (n >= 3) tickDib(x, 648, 1220, 26, "#0b1220", "#5ce611");
     return c;
   };
   P.rap = [0, 1, 2, 3].map(rapida);
@@ -474,7 +474,7 @@ const CAM = [
   [S["s06-avisa"] - 0.25, -12, 7, 13.6, PAR.x + 0.4, 0.3, PAR.z + 0.3, "e"],
   [S["s06-avisa"] + 0.5, -14, 9, 13.5, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.15, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] + 0.55, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
+  [S["s07-venta"] + 0.4, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
   [S["s08-pesadas"] - 0.3, 6, 24, 6.2, PIZ.x - 0.5, -0.2, PIZ.z + 0.5, "e"],
   [S["s08-pesadas"] + 0.35, 4, 32, 9.0, EST2.x, -0.8, EST2.z + 0.2],
   [W[58], -4, 34, 8.6, EST2.x, -0.95, EST2.z + 0.2],
@@ -605,7 +605,7 @@ function renderAt(t) {
       if (t < c) return;
       const u = sg(t, c, c + 0.24); const caida = u * u;
       const POS = [[-0.1, 0.55], [0.15, -0.35], [-0.2, -0.95], [0.1, 0.95]][k];
-      let zx = POS[0], zy = POS[1], zz = lerp(4.5, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
+      let zx = POS[0], zy = POS[1], zz = lerp(2.6, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
       // s09 · se comprimen y entran a la pantalla como tarjetas
       const comp = eio(sg(t, S9 + 0.05 + k * 0.08, S9 + 0.75 + k * 0.05));
       if (comp > 0) { s = lerp(1, 0.3, comp); zx = lerp(zx, 0, comp); zy = lerp(zy, -0.1, comp); zz = lerp(zz, 0.1, comp); rr2 = lerp(rr2, 0, comp); }
@@ -614,7 +614,7 @@ function renderAt(t) {
     // s10 · vuelve a la parada: el celular viaja del estudio a la mano
     const va = eio(sg(t, S10 - 0.2, S10 + 0.5));
     if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, va); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, va); celSombraOn = va < 0.3; }
-  } else if (en(t, S10 + 0.9, S12 + 0.4)) {
+  } else if (en(t, S10 + 0.9, S12 + 0.06)) {
     celOn = true;
     // s10 · "al toque": zambullida a pantalla completa; s11 · la página entera con tildes
     const u = eio(sg(t, W[72] - 0.05, W[72] + 0.45));
@@ -623,8 +623,8 @@ function renderAt(t) {
     paginaRap(n);
     bordeMat.emissiveIntensity = 0.6;
     // s12 · se va hacia abajo
-    const sale = eio(sg(t, S12 - 0.15, S12 + 0.35));
-    if (sale > 0) { cel.position.add(new THREE.Vector3(0, -4 * sale, 2 * sale).applyQuaternion(camera.quaternion)); }
+    const sale = eio(sg(t, S12 - 0.3, S12 + 0.05));
+    if (sale > 0) { cel.position.add(new THREE.Vector3(0, -4.2 * sale, -1 * sale).applyQuaternion(camera.quaternion)); }
   } else if (t >= S13 + 0.1) {
     // cierre: el celular con la videollamada
     celOn = true;
@@ -671,15 +671,15 @@ function renderAt(t) {
       crono.position.set(PAR.x - 0.45, 0.55, PAR.z + 1.9); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
       if (t >= W[70] + 0.22) numsCr[0].material = M.g;
       cronoSombra.visible = false;
-    } else if (en(t, S12 - 0.1, S13 + 0.5)) {
+    } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
-      s = 0.95 * bk(sg(t, S12 - 0.1, S12 + 0.3));
+      s = 0.95 * bk(sg(t, S12 + 0.0, S12 + 0.35));
       preg = true;
       crono.position.set(0, -0.25, 0); crono.rotation.set(0.04, Math.sin(t * 1.2) * 0.22, 0);
       pulsa = Math.max(Math.sin(Math.PI * sg(t, S12 + 0.5, S12 + 0.7)), Math.sin(Math.PI * sg(t, S12 + 1.35, S12 + 1.55)));
       // cierre: sale hacia arriba
-      const sale = eio(sg(t, S13 - 0.05, S13 + 0.4));
-      crono.position.y += sale * 6; s *= 1 - 0.3 * sale;
+      const sale = eio(sg(t, S13 - 0.2, S13 + 0.15));
+      crono.position.y += sale * 1.2; s *= 1 - sale;
       apoyar(cronoSombra, 0, 0.2, s * (1 - sale), 0.75);
     } else cronoSombra.visible = false;
     ocultar(crono, s);
@@ -694,7 +694,7 @@ function renderAt(t) {
 
   // ---------------- VISITAS ----------------
   VIS.forEach((v, i) => {
-    const ti = S2 - 0.1 + i * 0.04;
+    const ti = S2 - 0.2 + i * 0.022;
     let s = 0.95 * bk(sg(t, ti, ti + 0.3));
     let x = v.x, z = v.z, ry = Math.PI; // de espaldas a la cámara, mirando el celular
     if (v.sale) {
@@ -721,7 +721,7 @@ function renderAt(t) {
   }
   // ---------------- 1 · 2 · 3 ----------------
   cuenta.forEach((m, k) => {
-    const w = [W[32], W[33], W[34]][k], fin = k < 2 ? [W[33], W[34]][k] : S5 + 0.15;
+    const w = [W[32], W[33], W[34]][k], fin = k < 2 ? [W[33], W[34]][k] : S5 - 0.2;
     const s = en(t, w - 0.05, fin + 0.1) ? 0.62 * bk(sg(t, w - 0.05, w + 0.2)) * (1 - eio(sg(t, fin - 0.04, fin + 0.08))) : 0;
     ocultar(m, s); if (m.visible) pegar(m, 0, 1.08, DP - 0.8, 0, Math.sin(t * 1.4) * 0.25, 0);
   });
