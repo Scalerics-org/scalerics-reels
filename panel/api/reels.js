@@ -40,6 +40,8 @@ export default async function handler(req, res) {
       h.revisado = r ? { fecha: r.fecha, quien: r.quien || "", orden: Number.isFinite(r.orden) ? r.orden : null } : null;
       // Lo que ya salió figura como publicado aunque después lo hayan descartado
       if (h.enInstagram && h.enTikTok) h.estado = "publicado";
+      // La bandeja de TikTok no lo saca de la cola: mientras falte Instagram, sigue en cola
+      else if (r?.estado === "en_cola" && !h.enInstagram) h.estado = "en_cola";
       // Ya salió en alguna red: sale de la cola aunque falte la otra
       else if (h.enInstagram || h.enTikTok) h.estado = "publicado_parcial";
       else if (veto.includes(h.slug) || r?.estado === "descartado") h.estado = "descartado";
