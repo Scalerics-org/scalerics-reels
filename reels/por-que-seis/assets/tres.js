@@ -490,11 +490,11 @@ async function dibujarPantallas() {
     x.fillStyle = "#0b1220"; x.font = F(800, 76); x.fillText("Tu tienda", 44, 180);
     // pocas categorías: dos, grandes (se leen en el celular)
     const cats = ["Mermeladas", "Regalos"];
-    let X = 30; x.font = F(800, 58);
+    let X = 26; x.font = F(800, 54);
     cats.forEach((c, i) => {
-      const w = x.measureText(c).width + 52;
-      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 222, w, 84, 42); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 26, 282); }
-      X += w + 16;
+      const w = x.measureText(c).width + 44;
+      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 222, w, 84, 42); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 22, 282); }
+      X += w + 12;
     });
     if (paso >= 1) {
       x.strokeStyle = "#5ce611"; x.lineWidth = 9; x.strokeRect(36, 346, 648, 520);
@@ -698,7 +698,7 @@ function renderAt(t) {
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
         const rr = 1 - 0.45 * eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] + 0.05));
         const ent8 = eo(sg(t, S["s08-despues"] + 0.02, S["s08-despues"] + 0.7)); const rb = rr * lerp(0.62, 1, ent8); // nace más chico, crece mientras llega la cámara
-        x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25 - (1 - ent8) * 0.75; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
+        x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25 - (1 - ent8) * 1.0; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
         ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (t < S["s09-whatsapp"] - 0.04 ? 1 : 0);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
