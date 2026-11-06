@@ -209,21 +209,23 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   });
 }
 
-// ================= s05 · toca atrás y elige otro =================
+// ================= s05 · se cansa y elige otro (primer plano de Nico) =================
 {
   const id = "s05-atras";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: rel(id, W(35)) + 0.12, sfx: "click", vol: 0.5 }, { t: rel(id, W(35)) + 0.22, sfx: "whoosh-short", vol: 0.2 },
-      { t: rel(id, W(38)) + 0.12, sfx: "click", vol: 0.45 }, { t: rel(id, W(39)), sfx: "whoosh", vol: 0.14, max: 0.6 },
+      // la cámara sale del celular al primer plano de Nico; dos toques (atrás, otro resultado) y el deslizar de cada página
+      { t: -0.04, sfx: "whoosh-short", vol: 0.2 },
+      { t: rel(id, W(36)) + 0.1, sfx: "click", vol: 0.5 }, { t: rel(id, W(36)) + 0.16, sfx: "whoosh-short", vol: 0.12 },
+      { t: rel(id, W(38)) + 0.08, sfx: "click", vol: 0.45 }, { t: rel(id, W(38)) + 0.14, sfx: "whoosh-short", vol: 0.12 },
       { t: rel(id, VIAJE.pizzeria) - 0.2, sfx: "whoosh-cine", vol: 1 },
     ],
   });
 }
 
-// ================= s06 · y nunca te avisa que se fue (tu local, el timbre que no suena) =================
+// ================= s06 · y nunca te enterás de que entró (tu local, el timbre que no suena) =================
 {
   const id = "s06-avisa";
   escena(id, {
@@ -232,7 +234,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       ${pill(1, 800, 1610, "0 avisos", "")}`,
     js: `
       nota(1, ${r2(rel(id, W(44)) - 0.05)});
-      fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.3)}, 0.14);`,
+      fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.52)}, 0.14);`,
     sfx: [
       { t: 0.4, sfx: "pop", vol: 0.3 }, { t: 0.6, sfx: "pop", vol: 0.28 },
       { t: rel(id, W(44)) - 0.02, sfx: "ping", vol: 0.4, max: 0.5 },
@@ -359,7 +361,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="t2w"><span class="t2">gratis</span></div>
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
-      tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0.02);
+      tl.fromTo(q(".t1"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0.04);
       tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(86)) + 0.3)});
       tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(rel(id, W(86)) + 0.55)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(89)) + 0.2)});`,

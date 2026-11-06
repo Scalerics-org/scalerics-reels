@@ -100,7 +100,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); -webkit-text-stroke: 12px #0b1220; paint-order: stroke fill; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 14px; }
@@ -216,7 +216,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // fondo navy liso; en el cierre pasa a verde de marca. El velo (legibilidad del texto sobre el 3D)
       // se apaga donde el celular llena la pantalla (su barra navy de arriba ya da el contraste) y en el cierre.
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.3, ease: "power2.inOut", immediateRender: false }, ${VERDE});
+      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.12, ease: "power2.inOut", immediateRender: false }, ${VERDE});
 ${VELO}
 ${FIRMA}      window.__timelines["main"] = tl;
     </script>

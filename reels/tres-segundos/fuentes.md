@@ -23,11 +23,11 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   exacta de la fuente) con la pill "Fuente: Google". Es un dato de 2016-2017: no se presenta como
   medición nueva ni como ley; no se dice el año en el guion.
 
-## "Te buscan desde la parada, con hambre. Pantalla en blanco. Uno, dos, tres. Vuelve atrás. Elige otro."
+## "Te buscan desde la parada, con hambre. Pantalla en blanco. Uno, dos, tres. Se cansa y elige otro."
 - Escena ilustrativa (un caso inventado que muestra el dato), no una afirmación con cifra. No se dice
   que el otro local abre más rápido "según" nadie.
 
-## "Y nunca te avisa que se fue. Perdiste la venta antes de mostrar nada."
+## "Y nunca te enterás de que entró. Esa venta se fue antes de mostrar nada."
 - Lógica simple: quien abandona la carga no ve el contenido y no deja aviso. Sin cifras.
 
 ## "Pasa con páginas viejas o pesadas."
@@ -79,3 +79,9 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   sin adaptar al tamaño de la pantalla) carga más de lo que hace falta. El respaldo técnico es el de arriba
   (Core Web Vitals / LCP y las imágenes sin optimizar como causa común). En la descripción quedó "páginas con
   fotos pesadas o que no se pensaron para el celular".
+
+### Voz (06-11)
+- El guion de la ronda 2 cambió dos frases ("Se cansa y elige otro." / "Y nunca te enterás de que entró.") pero la voz
+  seguía diciendo las viejas. Se regeneró la voz Orus entera y se pegó SOLO ese tramo (11,84-15,06 s) sobre la locución
+  anterior (mismo número de palabras, -1,5 dB para igualar el nivel); el resto de la voz y sus tiempos quedan iguales
+  (+0,11 s desde "Esa"). Sin datos nuevos: es lógica simple (quien abandona la carga no deja aviso).

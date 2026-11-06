@@ -16,6 +16,7 @@ import { TextGeometry } from "./vendor/three/TextGeometry.js";
 import { FontLoader } from "./vendor/three/FontLoader.js";
 import LEXEND from "./vendor/three/lexend800.js";
 import { E, W, DUR } from "./tiempos3d.js";
+import { crearPersonaje, ELENCO, PIEL, PELO, MARCA, poseEn, mezclar, CARA } from "./personajes.js";
 
 // ---------- utilidades de tiempo ----------
 const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
@@ -210,33 +211,33 @@ const tilde = grupo(mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.16, 40).rotate
   const b = mesh(rbox(0.66, 0.15, 0.1, 0.05), M.navy, 0.1, 0.03, 0.1); b.rotation.z = 0.9; tilde.add(b); }
 scene.add(tilde);
 
-// ================= VISITAS (siluetas low-poly) =================
-const ojoGeo = new THREE.SphereGeometry(0.028, 10, 8), peloMat = mat(C.navy3, 0.7, { flatShading: true });
-function persona(m, gorra = null) {
-  const g = new THREE.Group();
-  const cuerpo = mesh(new THREE.CylinderGeometry(0.2, 0.3, 0.86, 7), m, 0, 0.5, 0);
-  const hombros = mesh(new THREE.SphereGeometry(0.21, 7, 5), m, 0, 0.9, 0); hombros.scale.set(1.25, 0.5, 1);
-  const cabeza = mesh(new THREE.IcosahedronGeometry(0.2, 1), m, 0, 1.15, 0);
-  const ojos = grupo(mesh(ojoGeo, M.navy, -0.07, 1.16, 0.18), mesh(ojoGeo, M.navy, 0.07, 1.16, 0.18));
-  const pelo = mesh(new THREE.SphereGeometry(0.215, 8, 6, 0, Math.PI * 2, 0, Math.PI / 2), gorra ?? peloMat, 0, 1.17, -0.02); pelo.rotation.x = -0.25;
-  g.add(pelo);
-  if (gorra) { const visera = mesh(rbox(0.3, 0.035, 0.2, 0.015), gorra, 0, 1.2, 0.2); visera.rotation.x = 0.12; g.add(visera); }
-  const brazoI = mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.62, 6), m, -0.3, 0.6, 0); brazoI.rotation.z = 0.12;
-  const brazoD = new THREE.Group(); brazoD.position.set(0.3, 0.88, 0);
-  brazoD.add(mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.62, 6), m, 0, -0.3, 0));
-  g.add(cuerpo, hombros, cabeza, ojos, brazoI, brazoD);
-  g.userData.brazo = brazoD;
-  return g;
-}
+// ================= VISITAS (gente del mismo estilo que el elenco, más chica) =================
+// Del mismo módulo de personajes (reels/abren-hoy/assets/personajes.js). Miran el celular de espaldas; las que se
+// van giran hacia la cámara con cara de fastidio, se ponen grises y salen caminando de costado.
+const VIS_CFG = [
+  { piel: PIEL.clara, pelo: PELO.castaño, peinado: "coleta", camisa: MARCA.navy3, pantalon: MARCA.navy2, labios: 0xb5555a },
+  { piel: PIEL.trigueña, pelo: PELO.negro, peinado: "corto", camisa: MARCA.cr, pantalon: 0x3a3f4a },
+  { piel: PIEL.morena, pelo: PELO.negro, peinado: "rodete", camisa: MARCA.g, pollera: MARCA.navy3, pantalon: null, labios: 0x8e3f3c },
+  { piel: PIEL.media, pelo: PELO.canoso, peinado: "pelado", bigote: PELO.gris, camisa: MARCA.cr2, pantalon: MARCA.navy2, panza: 1.12 },
+  { piel: PIEL.clara, pelo: PELO.rubio, peinado: "mediaCola", camisa: MARCA.navy2, pantalon: MARCA.navy3, labios: 0xc0505a },
+  { piel: PIEL.media, pelo: PELO.castaño, peinado: "jopo", camisa: MARCA.g, pantalon: MARCA.navy2 },
+  { piel: PIEL.trigueña, pelo: PELO.negro, peinado: "rulos", camisa: MARCA.cr, pollera: MARCA.navy2, pantalon: null, lentes: MARCA.navy2 },
+  { piel: PIEL.clara, pelo: PELO.gris, peinado: "corto", camisa: MARCA.navy3, pantalon: 0x3a3f4a, lentes: MARCA.navy2 },
+  { piel: PIEL.morena, pelo: PELO.negro, peinado: "texturado", camisa: MARCA.cr2, pantalon: MARCA.navy3 },
+  { piel: PIEL.media, pelo: PELO.castaño, peinado: "coletaAlta", camisa: MARCA.g, pantalon: MARCA.navy2 },
+];
 const VIS = [];
+const GRIS_C = new THREE.Color(C.gris);
 {
   const filas = [[-1.12, 1.7], [-0.56, 1.75], [0.0, 1.8], [0.56, 1.75], [1.12, 1.7], [-0.86, 0.95], [-0.28, 1.0], [0.28, 1.0], [0.86, 0.95], [1.3, 0.9]];
   filas.forEach(([x, z], i) => {
-    const m = mat(C.cr, 0.6, { flatShading: true });
-    const p = persona(m); scene.add(p);
-    VIS.push({ p, m, x, z, sale: [0, 2, 4, 5, 7, 9].includes(i), s: sombra(0.9, 0.6) });
+    const pj = crearPersonaje({ nombre: "Visita" + i, ...VIS_CFG[i] }); scene.add(pj.raiz);
+    const mats = []; pj.raiz.traverse((o) => { if (o.isMesh && !mats.includes(o.material)) mats.push(o.material); });
+    mats.forEach((m) => (m.userData.base = m.color.clone()));
+    VIS.push({ pj, mats, x, z, sale: [0, 2, 4, 5, 7, 9].includes(i), s: sombra(0.9, 0.6), gris: -1 });
   });
 }
+const visGris = (v, k) => { if (Math.abs(k - v.gris) < 0.004) return; v.gris = k; v.mats.forEach((m) => m.color.copy(m.userData.base).lerp(GRIS_C, k * 0.75)); };
 
 // ================= 53 % =================
 const pct = new THREE.Group(); scene.add(pct);
@@ -251,7 +252,7 @@ const pct = new THREE.Group(); scene.add(pct);
 const cuenta = [1, 2, 3].map((d) => { const m = new THREE.Mesh(DIG[d], d === 3 ? mat(C.red, 0.45, { emissive: C.red, emissiveIntensity: 0.2 }) : M.num); scene.add(m); return m; });
 
 // ================= LA PARADA (genérica, sin número de línea) =================
-const PAR = new THREE.Vector3(-9, 0, -3);
+const PAR = new THREE.Vector3(-4.6, 0, -3);
 const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
 {
   parada.add(mesh(rbox(6.2, 0.16, 3.0, 0.05), M.piso, 0.2, PISO - 0.08, 0.2)); // vereda
@@ -267,6 +268,14 @@ const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
   sh.closePath();
   const tg = new THREE.ExtrudeGeometry(sh, { depth: 3.6, bevelEnabled: false }); tg.translate(0, 0, -1.8); tg.rotateY(Math.PI / 2);
   const techo = mesh(tg, M.g, 0, PISO + 2.75 - 2.45, -0.35); parada.add(techo);
+  // cielorraso navy debajo del techo (desde abajo no se ve verde: en el primer plano el subtítulo queda sobre oscuro)
+  { const sh2 = new THREE.Shape(); const r0 = 2.34, r1 = 2.395;
+    sh2.moveTo(Math.sin(a0) * r0, Math.cos(a0) * r0);
+    for (let a = a0; a <= a1 + 1e-6; a += 0.05) sh2.lineTo(Math.sin(a) * r0, Math.cos(a) * r0);
+    for (let a = a1; a >= a0 - 1e-6; a -= 0.05) sh2.lineTo(Math.sin(a) * r1, Math.cos(a) * r1);
+    sh2.closePath();
+    const cg = new THREE.ExtrudeGeometry(sh2, { depth: 3.56, bevelEnabled: false }); cg.translate(0, 0, -1.78); cg.rotateY(Math.PI / 2);
+    parada.add(mesh(cg, M.navy3, 0, PISO + 2.75 - 2.45, -0.35)); }
   // banco
   parada.add(mesh(rbox(2.3, 0.1, 0.42, 0.04), M.cr, 0, PISO + 0.58, -0.45));
   [-0.95, 0.95].forEach((x) => parada.add(mesh(rbox(0.08, 0.55, 0.3, 0.03), M.cr3, x, PISO + 0.28, -0.45)));
@@ -279,11 +288,11 @@ const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
   chapa.add(mesh(rbox(0.42, 0.1, 0.05, 0.02), M.cr2, 0, -0.02, 0.07));
   [-0.16, 0.16].forEach((x) => chapa.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.05, 14).rotateX(Math.PI / 2), M.navy, x, -0.26, 0.07)));
 }
-// la persona de la parada (más grande) con el brazo levantado
-const yo = persona(mat(C.cr, 0.6, { flatShading: true }), mat(C.g, 0.55));
-yo.scale.setScalar(1.75); yo.position.set(PAR.x + 0.55, PISO, PAR.z + 0.35); yo.rotation.y = -0.15; scene.add(yo);
-yo.userData.brazo.rotation.set(-1.2, 0, 0.35);
-const MANO_LOCAL = new THREE.Vector3(0.36, 0.93, 0.62); // donde agarra el celular (en coordenadas de la persona)
+// la persona de la parada: Nico (el empleado del elenco, de civil: misma cara, mismo pelo) con el celular en la mano izquierda
+const YO_S = 1.42;
+const nico = crearPersonaje({ ...ELENCO.empleado, camisa: MARCA.g }); nico.raiz.scale.setScalar(YO_S); scene.add(nico.raiz);
+const yo = nico.raiz;
+const _mw = new THREE.Vector3();
 // globito con hambre: una porción de pizza de muzzarella con aceitunas
 const globo = new THREE.Group(); scene.add(globo);
 {
@@ -303,6 +312,26 @@ const porcion = new THREE.Group();
   porcion.scale.setScalar(0.5); porcion.position.set(0.02, 0.0, 0.3); globo.add(porcion);
 }
 
+// ================= LA CUADRA entre la parada y la pizzería (vereda, faroles, un árbol) =================
+// Solo se ve en los viajes de cámara entre los dos lugares: que la cámara nunca pase por un cuadro vacío.
+const cuadra = new THREE.Group(); scene.add(cuadra);
+{
+  cuadra.add(mesh(rbox(9.6, 0.14, 2.6, 0.05), M.piso, 0, PISO - 0.09, PAR.z + 0.5));
+  cuadra.add(mesh(rbox(9.6, 0.2, 0.22, 0.04), M.cr3, 0, PISO - 0.02, PAR.z + 1.9));
+  const farol = (x) => {
+    const g = new THREE.Group(); g.position.set(x, 0, PAR.z + 1.45); cuadra.add(g);
+    g.add(mesh(new THREE.CylinderGeometry(0.07, 0.09, 3.6, 10), M.cr3, 0, PISO + 1.8, 0));
+    g.add(mesh(rbox(0.56, 0.1, 0.1, 0.03), M.cr3, 0.2, PISO + 3.58, 0));
+    g.add(mesh(new THREE.SphereGeometry(0.17, 16, 10), M.luz, 0.42, PISO + 3.45, 0));
+  };
+  // (los faroles se sacaron: la lámpara quedaba como una bola suelta en el borde de cuadro)
+  const arbol = new THREE.Group(); arbol.position.set(-0.9, 0, PAR.z + 0.7); cuadra.add(arbol);
+  arbol.add(mesh(new THREE.CylinderGeometry(0.12, 0.16, 2.2, 8), mat(0x6b4a33, 0.8, { flatShading: true }), 0, PISO + 1.1, 0));
+  const copa = mat(C.gd, 0.7, { flatShading: true });
+  [[0, 2.6, 0, 0.95], [-0.55, 2.2, 0.1, 0.65], [0.55, 2.3, -0.1, 0.7]].forEach(([x, y, z, r]) => arbol.add(mesh(new THREE.IcosahedronGeometry(r, 0), copa, x, PISO + y, z)));
+  arbol.add(mesh(rbox(0.9, 0.1, 0.9, 0.03), M.cr3, 0, PISO + 0.0, 0));
+}
+
 // ================= PULGAR (low-poly) =================
 const pulgar = new THREE.Group(); scene.add(pulgar);
 {
@@ -315,7 +344,7 @@ const pulgar = new THREE.Group(); scene.add(pulgar);
 }
 
 // ================= PIZZERÍA (genérica) con la campanita y la caja =================
-const PIZ = new THREE.Vector3(9, 0, -3);
+const PIZ = new THREE.Vector3(4.6, 0, -3);
 const EST2 = new THREE.Vector3(PIZ.x - 0.6, 0, PIZ.z + 3.2); // el celular de las fotos pesadas, delante de la pizzería
 const vidrioMat = new THREE.MeshStandardMaterial({ color: 0x0c1526, emissive: 0xffe2a8, emissiveIntensity: 0.9, roughness: 0.35 });
 const cartelMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.5, emissive: 0xffffff, emissiveIntensity: 0.35 });
@@ -480,11 +509,12 @@ const CAM = [
   [S["s03-parada"] + 0.6, 6, 7, 15.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [W[28], -3, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s04-blanco"] + 0.1, -6, 7, 13.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [S["s05-atras"], -10, 6, 13.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [S["s06-avisa"] - 0.25, -12, 7, 13.6, PAR.x + 0.4, 0.3, PAR.z + 0.3, "e"],
-  [S["s06-avisa"] + 0.5, -14, 9, 13.5, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.14, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] + 0.2, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
+  [S["s05-atras"], -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  [S["s05-atras"] + 0.45, -12, 2, 5.4, PAR.x + 0.75, 0.5, PAR.z + 1.25],
+  [S["s06-avisa"] - 0.42, -16, 2, 5.0, PAR.x + 0.75, 0.52, PAR.z + 1.25, "e"],
+  [S["s06-avisa"] + 0.26, -14, 9, 13.5, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
+  [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
+  [S["s07-venta"] - 0.08, -4, 22, 6.6, PIZ.x - 0.5, -0.2, PIZ.z + 0.5],
   [S["s08-pesadas"] - 0.3, 6, 24, 6.2, PIZ.x - 0.5, -0.2, PIZ.z + 0.5, "e"],
   [S["s08-pesadas"] + 0.35, 4, 32, 7.9, EST2.x, -0.62, EST2.z + 0.2],
   [W[60], -4, 34, 7.7, EST2.x, -0.72, EST2.z + 0.2],
@@ -534,6 +564,58 @@ function pegar(o, x, y, z, rx = 0, ry = 0, rz = 0) {
 // coordenadas de pantalla del celular a pantalla completa (x, y en unidades del celular) → mundo
 const enPantalla = (x, y, z) => frente(x, y, DP - z);
 
+// ================= NICO EN LA PARADA =================
+// pose en el tiempo (claves de poseEn) y la mano izquierda (con el celular) en coordenadas del mundo
+const SOSTIENE = { manoI: [0.25, 0.2, 0.34], codoI: [0.7, -0.7, -0.3], dedoI: 0 };
+const MIRA_CEL = { cabeza: { giro: 0.42, asiente: 0.3, ladea: 0.06 }, ojos: { abiertos: 0.9, x: 0.7, y: -0.8 } };
+const BRAZO_D = { manoD: [-0.29, -0.06, 0.06], codoD: null, dedoD: 0 };
+let NK = null;
+function clavesNico() {
+  const S3 = S["s03-parada"], S4 = S["s04-blanco"], S5 = S["s05-atras"], S6 = S["s06-avisa"], S10 = S["s10-abre"];
+  const tipea = { manoD: [0.17, 0.28, 0.42], codoD: [-0.7, -0.7, -0.2], dedoD: 1 };
+  const panza = { manoD: [-0.02, 0.14, 0.27], codoD: [-0.8, -0.5, 0.1], dedoD: 0 };
+  const cerca = { manoI: [0.27, 0.36, 0.38], codoI: [0.8, -0.6, -0.2] };
+  return [
+    [0, { ...SOSTIENE, ...BRAZO_D, ...CARA.concentrada, ...MIRA_CEL }],
+    [W[23] + 0.1, { ...tipea }, 0.25],
+    [W[26], { ...BRAZO_D }, 0.3],
+    [W[27] + 0.05, { ...panza, ...CARA.esperanza, cabeza: { giro: 0.12, asiente: 0.05, ladea: -0.12 }, ojos: { abiertos: 1, x: 0.2, y: 0.3 }, cejas: { alto: 0.7, ang: 0.8 }, boca: { sonrisa: -0.25, abierta: 0.15, ancho: 0.8 } }, 0.3],
+    [S4 - 0.05, { ...BRAZO_D, ...CARA.concentrada, ...MIRA_CEL }, 0.3],
+    // s05 · "se cansa": primer plano, fastidio; toca "atrás" y después otro resultado
+    [S5 + 0.3, { ...cerca, ...CARA.fastidio, cabeza: { giro: 0.4, asiente: 0.22, ladea: 0.12 }, ojos: { abiertos: 0.45, tension: -0.25, x: 0.7, y: -0.7 }, inclina: -0.05 }, 0.35],
+    [W[36] + 0.05, { manoD: [0.2, 0.44, 0.5], codoD: [-0.7, -0.6, -0.2], dedoD: 1 }, 0.25],
+    [W[38] - 0.05, { manoD: [0.21, 0.4, 0.5] }, 0.25],
+    [W[39], { ...CARA.sonrisa, cabeza: { giro: 0.4, asiente: 0.22, ladea: -0.08 }, ojos: { abiertos: 0.85, feliz: 0.3, x: 0.7, y: -0.7 } }, 0.3],
+    [S6 + 0.5, { ...BRAZO_D, ...SOSTIENE }, 0.4],
+    // s10 · misma parada: sostiene el celular; en "abre" sorpresa y en "al toque" feliz
+    [S10 + 0.2, { ...SOSTIENE, ...BRAZO_D, ...CARA.concentrada, ...MIRA_CEL }, 0.05],
+    [W[72] + 0.1, { ...CARA.sorpresa, cabeza: { giro: 0.3, asiente: 0.1, ladea: 0 }, ojos: { abiertos: 1, x: 0.6, y: -0.5 } }, 0.2],
+    [W[73] + 0.1, { ...CARA.feliz, cabeza: { giro: 0.22, asiente: 0.05, ladea: -0.1 }, ojos: { abiertos: 0.9, feliz: 0.55, x: 0.5, y: -0.4 }, panza: 0 }, 0.25],
+  ];
+}
+function ponerNico(t) {
+  if (!NK) NK = clavesNico();
+  const S5 = S["s05-atras"], S6 = S["s06-avisa"], S10 = S["s10-abre"], S12 = S["s12-tuya"];
+  const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10 - 0.3, S12 + 0.16);
+  let s = 0;
+  if (on1) s = bk(sg(t, W[21] + 0.6, W[21] + 0.95));
+  if (on2) s = bk(sg(t, S10 - 0.3, S10 + 0.25));
+  const p = poseEn(t, NK);
+  // los toques del índice en la pantalla
+  const toque = Math.max(Math.sin(Math.PI * sg(t, W[36] + 0.05, W[36] + 0.25)), Math.sin(Math.PI * sg(t, W[38] + 0.0, W[38] + 0.2)));
+  if (toque > 0) p.manoD = [p.manoD[0], p.manoD[1], p.manoD[2] - 0.04 * toque];
+  // el tipeo: el índice salta
+  if (en(t, W[23] + 0.1, W[26] - 0.2)) p.manoD = [p.manoD[0], p.manoD[1] + Math.sin(t * 34) * 0.012, p.manoD[2]];
+  // la mano en la panza: frota
+  if (en(t, W[27] + 0.05, S["s04-blanco"] - 0.3)) p.manoD = [p.manoD[0] + Math.sin(t * 9) * 0.02, p.manoD[1], p.manoD[2]];
+  p.x = PAR.x + 0.55; p.y = PISO; p.z = PAR.z + 1.1; p.giro = -0.15 + Math.sin(t * 0.7) * 0.04;
+  nico.poner(p);
+  yo.visible = s > 0.002; yo.scale.setScalar(Math.max(0.001, s) * YO_S);
+  yo.updateMatrixWorld(true);
+  nico.mano("I").getWorldPosition(_mw);
+  return _mw.clone().add(new THREE.Vector3(0.0, 0.13, 0.05));
+}
+
 // ================= ESCENA EN EL TIEMPO =================
 const MARCAS1 = [W[6] / 3, (2 * W[6]) / 3, W[6]]; // la aguja del gancho pasa el 1, el 2 y el 3
 function renderAt(t) {
@@ -547,9 +629,10 @@ function renderAt(t) {
   bordeMat.emissiveIntensity = 0;
   cel.quaternion.identity();
   // posición de la mano de la persona de la parada (el celular en la mano)
-  yo.updateMatrixWorld();
-  const mano = MANO_LOCAL.clone().applyMatrix4(yo.matrixWorld);
-  const MANO_S = 0.2, MANO_R = [0.15, 0.25, 0];
+  const mano = ponerNico(t);
+  // en el primer plano de s05 el celular crece un poco en la mano (que se lea la pantalla)
+  const cercaCel = eio(sg(t, S5 - 0.02, S5 + 0.42)) * (1 - eio(sg(t, S6 - 0.3, S6 + 0.1)));
+  const MANO_S = 0.15 + 0.05 * cercaCel, MANO_R = [0.12, -0.42 + 0.1 * cercaCel, 0];
   const enMano = () => { cel.position.copy(mano); cel.rotation.set(...MANO_R); };
   // a pantalla completa (fs = 0..1 entre la mano y la pantalla completa)
   const zambullida = (u, rz = 0, ry = 0) => {
@@ -578,18 +661,18 @@ function renderAt(t) {
     celOn = true;
     if (t < S4 - 0.08) { enMano(); celS = MANO_S; pagina("busca"); }
     else {
-      // s04 · zambullida: pantalla en blanco a pantalla completa
-      const u = eio(sg(t, S4 - 0.08, S4 + 0.5));
-      // s05 · "otro": se inclina a la izquierda; s06: sale de cuadro hacia la izquierda y se achica
-      const rz = 0.1 * eio(sg(t, W[39] - 0.05, W[39] + 0.35)) + 0.25 * eio(sg(t, S6 + 0.05, S6 + 0.55));
-      celS = zambullida(u, rz, Math.sin(t * 0.9) * 0.03);
-      const sale = eio(sg(t, S6 + 0.05, S6 + 0.55));
-      if (sale > 0) { const off = new THREE.Vector3(-2.4 * sale, 0.6 * sale, -5 * sale).applyQuaternion(camera.quaternion); cel.position.add(off); celS *= 1 - 0.45 * sale; }
-      // páginas: blanco con la ruedita → toca "atrás" → la otra página se desliza desde la izquierda
-      const desliza = eio(sg(t, W[35] + 0.12, W[35] + 0.45));
-      if (desliza <= 0) { pagina("blanco"); ruedita.visible = u > 0.3; flecha.visible = u > 0.3; }
-      else if (desliza < 1) { const k = Math.round(desliza * 40); pantalla("desliza" + k, (x) => { x.drawImage(P.blanco, (k / 40) * 720, 0); x.drawImage(P.otra, (k / 40) * 720 - 720, 0); }); flecha.visible = true; }
-      else { pagina("otra"); flecha.visible = t < S6; }
+      // s04 · zambullida: pantalla en blanco a pantalla completa; s05 · "se cansa": vuelve a la mano (primer plano de Nico)
+      const u = eio(sg(t, S4 - 0.08, S4 + 0.5)) * (1 - eio(sg(t, S5 - 0.02, S5 + 0.42)));
+      celS = zambullida(u, 0, Math.sin(t * 0.9) * 0.03 * u);
+      celSombraOn = false;
+      // páginas: blanco con la ruedita → toca "atrás" (vuelven los resultados) → toca otro resultado (otra página)
+      const T1 = W[36] + 0.12, T2 = W[38] + 0.1;
+      const d1 = eio(sg(t, T1, T1 + 0.28)), d2 = eio(sg(t, T2, T2 + 0.28));
+      if (d1 <= 0) { pagina("blanco"); ruedita.visible = u > 0.3 || t >= S5; flecha.visible = true; }
+      else if (d1 < 1) { const k = Math.round(d1 * 40); pantalla("desliza" + k, (x) => { x.drawImage(P.blanco, (k / 40) * 720, 0); x.drawImage(P.busca, (k / 40) * 720 - 720, 0); }); }
+      else if (d2 <= 0) pagina("busca");
+      else if (d2 < 1) { const k = Math.round(d2 * 40); pantalla("entra" + k, (x) => { x.drawImage(P.busca, -(k / 40) * 720, 0); x.drawImage(P.otra, 720 - (k / 40) * 720, 0); }); }
+      else pagina("otra");
     }
   } else if (en(t, S8 - 0.35, S10 + 0.9)) {
     // s08 · acostado en el estudio, le caen los marcos; s09 · se levanta y las fotos entran comprimidas
@@ -635,10 +718,10 @@ function renderAt(t) {
     // s12 · se va hacia abajo
     const sale = eio(sg(t, S12 - 0.18, S12 + 0.08));
     if (sale > 0) { cel.position.add(new THREE.Vector3(0, -4.2 * sale, -1 * sale).applyQuaternion(camera.quaternion)); }
-  } else if (t >= S13 + 0.1) {
+  } else if (t >= S13 - 0.1) {
     // cierre: el celular con la videollamada
     celOn = true;
-    const e = bk(sg(t, S13 + 0.1, S13 + 0.45));
+    const e = bk(sg(t, S13 - 0.1, S13 + 0.24));
     cel.position.set(0, 0.0, 0.4); cel.rotation.set(-0.05, Math.sin(t * 0.8) * 0.12, 0); celS = 0.86 * e;
     pagina("llamada"); celSombraOn = true;
   }
@@ -679,7 +762,7 @@ function renderAt(t) {
       m = 1.85 * eo(sg(t, W[72], W[72] + 0.36));
       colorEst = C.g;
       pulsa = Math.sin(Math.PI * sg(t, W[72] + 0.32, W[72] + 0.5));
-      crono.position.set(PAR.x - 0.55, 0.45, PAR.z + 1.6); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
+      crono.position.set(PAR.x - 0.6, 0.45, PAR.z + 2.2); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
@@ -688,8 +771,8 @@ function renderAt(t) {
       crono.position.set(0, -0.25, 0); crono.rotation.set(0.04, Math.sin(t * 1.2) * 0.22, 0);
       pulsa = Math.max(Math.sin(Math.PI * sg(t, S12 + 0.5, S12 + 0.7)), Math.sin(Math.PI * sg(t, S12 + 1.35, S12 + 1.55)));
       // cierre: sale hacia arriba
-      const sale = eio(sg(t, S13 - 0.2, S13 + 0.15));
-      crono.position.y += sale * 1.2; s *= 1 - sale;
+      const sale = eio(sg(t, S13 - 0.16, S13 + 0.02));
+      crono.rotation.z = -sale * 1.2; s *= 1 - sale;
       apoyar(cronoSombra, 0, 0.2, s * (1 - sale), 0.75);
     } else cronoSombra.visible = false;
     ocultar(crono, s);
@@ -705,22 +788,29 @@ function renderAt(t) {
   // ---------------- VISITAS ----------------
   VIS.forEach((v, i) => {
     const ti = W[10] - 0.05 + i * 0.02;
-    let s = 0.95 * bk(sg(t, ti, ti + 0.3));
-    let x = v.x, z = v.z, ry = Math.PI; // de espaldas a la cámara, mirando el celular
+    let s = 0.82 * bk(sg(t, ti, ti + 0.3));
+    let x = v.x, z = v.z, giro = Math.PI, paso = 0, gris = 0; // de espaldas a la cámara, mirando el celular
+    let cara = { ...CARA.neutra, cabeza: { giro: 0, asiente: -0.12, ladea: 0 }, ojos: { abiertos: 1, y: 0.4 } };
     if (v.sale) {
       const gira = eio(sg(t, W[14] + (i % 3) * 0.07, W[14] + 0.35 + (i % 3) * 0.07));
-      ry = Math.PI - Math.PI * gira * (x < 0 ? -1 : 1);
-      v.m.color.set(C.cr).lerp(new THREE.Color(C.gris), gira);
+      const lado = x < 0 ? -1 : 1;
+      giro = Math.PI - Math.PI * gira * lado;
+      gris = gira;
+      cara = mezclar(cara, { ...CARA.fastidio, cabeza: { giro: 0.25 * lado, asiente: 0.05, ladea: -0.1 * lado }, ojos: { abiertos: 0.5, tension: -0.3, x: 0.5 * lado } }, gira);
       const camina = sg(t, W[18] + (i % 3) * 0.06, W[18] + 0.9 + (i % 3) * 0.06);
-      x += (x < 0 ? -1 : 1) * 4.2 * camina * camina;
-      if (camina > 0) ry = x < 0 ? -Math.PI / 2 : Math.PI / 2;
+      x += lado * 4.2 * camina * camina;
+      if (camina > 0) { giro = lerp(giro, lado * Math.PI / 2, eio(sg(camina, 0, 0.25))); paso = 1; }
       s *= 1 - sg(camina, 0.85, 1);
-    } else v.m.color.set(C.cr);
+    }
+    visGris(v, gris);
     // las que se quedan: se achican con el travelling a la parada
     s *= 1 - eio(sg(t, W[21] + 0.75, W[21] + 1.0));
-    const bob = v.sale ? Math.abs(Math.sin(t * 9 + i)) * 0.06 * cl((t - W[18]) * 4) : 0;
-    ocultar(v.p, s); v.p.position.set(x, PISO + bob, z); v.p.rotation.set(0, ry, 0);
-    apoyar(v.s, x, z, s, 0.6);
+    v.pj.raiz.visible = s > 0.002;
+    if (v.pj.raiz.visible) {
+      v.pj.raiz.scale.setScalar(s);
+      v.pj.poner({ x, y: PISO, z, giro, paso, t: t + i * 0.37, ...cara, manoI: [0.29, -0.08, 0.04], manoD: [-0.29, -0.08, 0.04] });
+    }
+    apoyar(v.s, x, z, s / 0.82 * 0.95, 0.6);
   });
 
   // ---------------- 53 % ----------------
@@ -738,24 +828,28 @@ function renderAt(t) {
 
   // ---------------- PARADA y la persona ----------------
   {
-    const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10 - 0.3, S12 + 0.4);
+    const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10 - 0.3, S12 + 0.16);
     let s = 0;
     if (on1) s = bk(sg(t, W[21] + 0.6, W[21] + 0.95));
     if (on2) s = bk(sg(t, S10 - 0.3, S10 + 0.25));
     parada.visible = s > 0.002; if (parada.visible) parada.scale.set(1, Math.max(0.001, s), 1);
-    ocultar(yo, s * 1.75);
-    yo.position.set(PAR.x + 0.55, PISO, PAR.z + 0.35); yo.rotation.y = -0.15 + Math.sin(t * 0.7) * 0.04;
     // globito de hambre (s03, y vuelve en s10)
     const g1 = en(t, W[28] - 0.1, S5) ? bk(sg(t, W[28] - 0.1, W[28] + 0.25)) : 0;
     const g2 = en(t, S10 + 0.3, S11) ? bk(sg(t, S10 + 0.3, S10 + 0.6)) : 0;
     const gs = Math.max(g1, g2);
-    ocultar(globo, gs); globo.position.set(PAR.x + 0.95, 1.55 + Math.sin(t * 2) * 0.05, PAR.z + 0.6); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
+    ocultar(globo, gs); globo.position.set(PAR.x + 0.95, 1.55 + Math.sin(t * 2) * 0.05, PAR.z + 1.35); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
+  }
+
+  // ---------------- la cuadra (solo en los viajes entre lugares) ----------------
+  {
+    const S6v = S["s06-avisa"], S10v = S["s10-abre"], S12v = S["s12-tuya"];
+    cuadra.visible = en(t, S6v - 0.4, S6v + 0.9) || en(t, S10v - 0.45, S10v + 0.7) || en(t, S12v - 0.4, S12v + 0.05);
   }
 
   // ---------------- PULGAR (s05) ----------------
   {
-    const on = en(t, S5 - 0.25, S6 + 0.1);
+    const on = false; // el pulgar suelto se reemplazó por la mano de Nico
     let s = 0;
     if (on) {
       s = 1;
@@ -775,8 +869,8 @@ function renderAt(t) {
 
   // ---------------- PIZZERÍA, campanita y la caja ----------------
   {
-    const on = en(t, S6 - 0.1, S8 + 0.2);
-    const s = on ? bk(sg(t, S6 - 0.3, S6 + 0.1)) : 0;
+    const on = en(t, S6 - 0.48, S8 + 0.2);
+    const s = on ? bk(sg(t, S6 - 0.48, S6 - 0.1)) : 0;
     const baja = 1 - eio(sg(t, S8 - 0.1, S8 + 0.35));
     pizzeria.visible = s * baja > 0.002; if (pizzeria.visible) pizzeria.scale.set(1, Math.max(0.001, s * baja), 1);
     // la campanita: grande sobre el mostrador; en "avisa" se apaga a gris y no suena
@@ -787,7 +881,8 @@ function renderAt(t) {
     apoyar(campSombra, campana.position.x, campana.position.z, cs * 0.6, 0.6, PISO + 1.135);
     vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[43], W[44] + 0.2)));
     // en el push-in a la caja el cartel se apaga (pasa por detrás del subtítulo: nada de texto sobre texto)
-    { const k = eio(sg(t, S7 - 0.2, S7 + 0.05)); cartelMat.color.setScalar(lerp(1, 0.12, k)); cartelMat.emissiveIntensity = lerp(0.35, 0, k); }
+    // en el push-in a la caja las letras del cartel se funden en su chapa navy (pasan por detrás del subtítulo: nada de texto sobre texto)
+    { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; }
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
     const ks = en(t, S7 - 0.05, S8 + 0.2) ? 0.64 * (1 - eio(sg(t, S8 - 0.25, S8 + 0.05))) : 0;
