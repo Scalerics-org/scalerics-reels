@@ -62,8 +62,8 @@ const HELP = `
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
-      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
-      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const fuera = (s, t, d) => tl.set(typeof s === "string" ? qa(s) : s, { opacity: 0 }, t + (d ?? 0.2));
       const dibujar = (s, t, dur) => qa(s).forEach((el) => {
         const L = el.getTotalLength();
         gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
@@ -130,10 +130,10 @@ const CSS_MK = `
       <div class="h h3">que con ${marca("6", "")}</div>`,
     js: `
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      tl.to(qa(".h"), { opacity: 0, y: -30, duration: 0.09, ease: "power2.in", stagger: 0.02 }, ${r2(ESC[id] - 0.24)});`,
+      tl.set(qa(".h"), { opacity: 0 }, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0, sfx: "whoosh-cine-corto", vol: 0.12, max: 0.9 },
-      ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 2) + 0.06 + i * 0.07), sfx: "pop", vol: 0.07 })),
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 2) + 0.06 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.07 })),
     ],
   });
 }
@@ -145,9 +145,9 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.16, max: 0.7 }, { t: 0.08, sfx: "pop", vol: 0.12 },
+      { t: -0.1, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: -0.05, sfx: "burbuja", vol: 0.1 },
       { t: w(id, 8) + 0.05, sfx: "glitch-1", vol: 0.05, max: 0.4 },
-      ...[0, 1, 2, 3, 4, 5].map((i) => ({ t: r2(w(id, 11) + 0.42 + i * 0.028), sfx: "pop", vol: 0.05 })),
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 11) - 0.08 + i * 0.12), sfx: i % 2 ? "key-press" : "pop", vol: 0.06 })),
     ],
   });
 }
@@ -160,13 +160,13 @@ const CSS_MK = `
     html: `<div class="pq">¿Por qué?</div>
       ${pill(1, 540, 1640, "Estudio publicado en 2000", "lleno")}`,
     js: `
-      tl.fromTo(q(".pq"), { scale: 1.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.16, ease: "power4.out", immediateRender: true }, 0);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, ${r2(w(id, 14) - 0.3)});
+      tl.fromTo(q(".pq"), { scale: 1.2, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.16, ease: "power4.out", immediateRender: true }, 0);
+      tl.set(q(".pq"), { opacity: 0 }, ${r2(w(id, 14) - 0.2)});
       nota(1, ${r2(w(id, 15))});`,
     sfx: [
       { t: -0.3, sfx: "whoosh", vol: 0.05, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
       { t: w(id, 14) - 0.1, sfx: "whoosh", vol: 0.12, max: 0.6 },
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 14) + 0.05 + i * 0.08), sfx: "pop", vol: 0.07 })),
+      { t: r2(w(id, 14) + 0.03), sfx: "burbuja", vol: 0.08 }, { t: r2(w(id, 14) + 0.1), sfx: "pop", vol: 0.06 },
       { t: w(id, 15) + 0.1, sfx: "key-press", vol: 0.12 },
     ],
   });
@@ -181,8 +181,8 @@ const CSS_MK = `
     js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.48)}, 0.14);`,
     sfx: [
       { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
-      ...[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.05), sfx: "click-soft", vol: 0.09 })),
-      { t: w(id, 21) + 0.15, sfx: "pop", vol: 0.12 },
+      ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.09), sfx: i % 2 ? "key-press" : "click-soft", vol: 0.08 })),
+      { t: r2(w(id, 20) - 0.12), sfx: "burbuja", vol: 0.1 },
       { t: r2(ESC[id] - 0.5), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
     ],
   });
@@ -195,9 +195,9 @@ const CSS_MK = `
     html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}`,
     js: `nota(1, 0.35); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.16);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.12, max: 0.7 }, { t: 0.0, sfx: "pop", vol: 0.1 },
+      { t: -0.1, sfx: "whoosh", vol: 0.12, max: 0.7 }, { t: -0.06, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
       { t: w(id, 25) - 0.05, sfx: "impact-bass-1", vol: 0.07, max: 0.5 }, { t: w(id, 25) - 0.04, sfx: "pop", vol: 0.1 },
-      { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.14 }, { t: w(id, 25) + 0.37, sfx: "pop", vol: 0.14 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.14 },
+      { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.12 }, { t: w(id, 25) + 0.37, sfx: "burbuja", vol: 0.12 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.12 },
     ],
   });
 }
@@ -209,9 +209,9 @@ const CSS_MK = `
     html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}`,
     js: `nota(1, 0.1); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
-      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 31) + 0.2 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.045 : 0.06 })),
-      { t: w(id, 32) - 0.08, sfx: "pop", vol: 0.1 },
+      { t: -0.08, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.1, sfx: "key-press", vol: 0.12 },
+      ...Array.from({ length: 5 }, (_, i) => ({ t: r2(w(id, 31) + 0.0 + i * 0.13), sfx: ["pop", "burbuja", "key-press"][i % 3], vol: 0.05 })),
+      { t: w(id, 32) - 0.08, sfx: "ping", vol: 0.06, max: 0.6 }, { t: w(id, 32) - 0.07, sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
     ],
   });
 }
@@ -223,8 +223,8 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.04, sfx: "whoosh-short", vol: 0.05 },
-      { t: 0.45, sfx: "click-soft", vol: 0.14 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
+      { t: -0.26, sfx: "whoosh-cine-corto", vol: 0.07, max: 0.6 },
+      { t: 0.32, sfx: "click-soft", vol: 0.12 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
 }
@@ -237,8 +237,8 @@ const CSS_MK = `
     html: `${pill(1, 540, 1650, "Sobre todo si no sabés qué querés", "m44")}`,
     js: `nota(1, 0.4);`,
     sfx: [
-      { t: -0.25, sfx: "whoosh-cine-corto", vol: 0.09, max: 0.7 },
-      ...Array.from({ length: 6 }, (_, i) => ({ t: r2(0.0 + i * 0.055), sfx: "pop", vol: 0.06 })),
+      { t: -0.6, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.7 },
+      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(0.03 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
       { t: w(id, 39) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.44, sfx: "key-press", vol: 0.14 },
     ],
   });
@@ -254,7 +254,7 @@ const CSS_MK = `
     sfx: [
       { t: w(id, 42) + 0.1, sfx: "key-press", vol: 0.13 },
       { t: w(id, 43) - 0.05, sfx: "whoosh-short", vol: 0.1 },
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 45) + 0.15 + i * 0.15), sfx: "pop", vol: 0.04 })),
+      { t: r2(ESC[id] - 0.42), sfx: "whoosh-short", vol: 0.06, max: 0.5 },
     ],
   });
 }
@@ -266,7 +266,7 @@ const CSS_MK = `
     html: `${pill(1, 540, 1650, "Tu catálogo")}`,
     js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.3, sfx: "pop", vol: 0.12 },
+      { t: -0.3, sfx: "burbuja", vol: 0.11 },
       { t: w(id, 49), sfx: "typing", vol: 0.06, max: 0.8 },
       ...[0, 0.3, 0.55, 0.75, 0.92, 1.06].map((d) => ({ t: r2(w(id, 52) + d), sfx: "notification", vol: 0.07, max: 0.4 })),
     ],
@@ -281,7 +281,7 @@ const CSS_MK = `
     js: ``,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.09, max: 0.6 },
-      ...Array.from({ length: 8 }, (_, i) => ({ t: r2(0.22 + i * 0.05), sfx: "pop", vol: 0.07 })),
+      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(0.22 + i * 0.1), sfx: i % 2 ? "burbuja" : "pop", vol: 0.06 })),
       { t: w(id, 59) - 0.05, sfx: "impact-bass-2", vol: 0.08, max: 0.5 },
     ],
   });
@@ -296,7 +296,7 @@ const CSS_MK = `
     sfx: [
       { t: -0.12, sfx: "whoosh-short", vol: 0.06 },
       { t: w(id, 61), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 62), sfx: "pop", vol: 0.09 },
-      { t: w(id, 63), sfx: "whoosh", vol: 0.13, max: 0.6 }, { t: w(id, 65), sfx: "sparkle", vol: 0.05, max: 0.5 },
+      { t: w(id, 62) + 0.15, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.6 },
     ],
   });
 }
@@ -307,7 +307,7 @@ const CSS_MK = `
   escena(id, {
     html: `<i></i>`,
     js: ``,
-    sfx: [{ t: w(id, 68), sfx: "click", vol: 0.12 }, { t: w(id, 70), sfx: "click", vol: 0.12 }, { t: w(id, 71) + 0.1, sfx: "pop", vol: 0.1 }],
+    sfx: [{ t: w(id, 68), sfx: "click", vol: 0.12 }, { t: w(id, 70), sfx: "click", vol: 0.12 }],
   });
 }
 
@@ -328,7 +328,7 @@ const CSS_MK = `
       { t: 0.42, sfx: "pop", vol: 0.12 },
       { t: w(id, 74), sfx: "key-press", vol: 0.13 }, { t: w(id, 74) + 0.08, sfx: "ping", vol: 0.07 },
       { t: w(id, 76), sfx: "click", vol: 0.12 },
-      { t: w(id, 76) + 0.72, sfx: "pop", vol: 0.055 }, { t: w(id, 76) + 0.98, sfx: "pop", vol: 0.05 },
+      { t: w(id, 76) + 0.65, sfx: "pop", vol: 0.055 }, { t: w(id, 76) + 1.05, sfx: "burbuja", vol: 0.05 },
     ],
   });
 }
@@ -340,7 +340,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.2, sfx: "whoosh", vol: 0.11, max: 0.7 },
+      { t: -0.2, sfx: "whoosh", vol: 0.11, max: 0.7 }, { t: 0.05, sfx: "burbuja", vol: 0.1 },
       { t: w(id, 80), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 83) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
     ],
   });
@@ -366,8 +366,9 @@ const CSS_MK = `
       tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".sb"), { scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
-      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) + 0.1)});`,
-    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: 0.18, sfx: "click-soft", vol: 0.12 }, { t: w(id, 89) + 0.08, sfx: "chime", vol: 0.09, max: 0.85 }],
+      tl.fromTo(q(".t2w"), { scale: 1 }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.02)});
+      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) - 0.03)});`,
+    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 0.8 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

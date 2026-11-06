@@ -91,7 +91,7 @@ CORTES.forEach((desde, g) => {
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
   const ini = r2(Math.max(0, ws[0].start - 0.08));
-  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
+  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start + 0.03 : DUR);
   const fin = r2(Math.min(proximo, DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
@@ -162,7 +162,7 @@ for (let i = 0; i < 0; i++) {
 
 // música recortada a la duración del reel, con fundido de 0,35 s al final
 // la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
-execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350:makeup=1[d];[d]afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.02:ratio=2.5:attack=30:release=450:makeup=1[d];[d]afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -182,7 +182,12 @@ for (const [id, a] of ESCENAS.slice(1)) {
 for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
-  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min((s.max ?? 99) + (s.cut ?? 0), durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
+  .map((s, i) => {
+    // duración: la pedida, sin pasar el final del archivo ni el final del reel; si se corta antes del final, fundido de salida
+    const full = durArchivo(s.name), d = r2(Math.min((s.max ?? 99) + (s.cut ?? 0), full, DUR - 0.02 - s.t) - 0.01);
+    const fade = d < full - 0.03 ? ` data-fade-out="${r2(Math.min(0.08, d * 0.2))}"` : "";
+    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`;
+  })
   .join("\n");
 
 // LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
@@ -216,7 +221,7 @@ ${LIMPIO ? "" : hosts}
 ${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.38"></audio>\n` : ""}${sfxTags}`}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.55"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};

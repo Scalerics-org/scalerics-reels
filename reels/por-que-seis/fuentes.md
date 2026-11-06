@@ -78,7 +78,7 @@ que coinciden; no se leyó el PDF entero en la corrida.
 ## "Pensá en tu catálogo de WhatsApp: doscientas fotos sueltas. Es la mesa de veinticuatro."
 - Hipotético dirigido al que mira ("pensá en"), no un dato. El "doscientas" es un ejemplo, no una estadística.
 
-## "En Scalerics armamos tu tienda online: lo más pedido primero, pocas categorías. El cliente elige, y paga."
+## "En Scalerics armamos tu tienda online: lo más pedido primero, pocas categorías. El cliente elige y paga."
 - Producto de Scalerics (CLAUDE.md, "Lo que se vende": tienda online con Mercado Pago y envíos). Ordenar el catálogo
   (destacados, categorías, filtros) es parte de armar la tienda. No se promete un aumento de ventas.
 
@@ -100,6 +100,8 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - SFX: solo el banco de `molde/assets/sfx` (chime, click, click-soft, glitch-1, impact-bass-1, impact-bass-2,
   key-press, notification, ping, pop, sparkle, typing, whoosh, whoosh-short), copiados tal cual; es el banco con el
   que se hicieron todos los reels del repo, origen no registrado en el repo (no hay archivo de fuentes del molde).
+  Ronda 2: `burbuja.mp3` (pop de burbuja, Mafon2, CC0 1.0, heredado de reels/abren-hoy y abren-hoy-2: ver sus fuentes.md) y
+  `whoosh-cine-corto2.mp3` (copia del recorte real de whoosh-cinematic de reels/por-que-la-lista, ver su fuentes.md).
   Ronda 1 de revisión: se sumó `whoosh-cine-corto.mp3`, copiado de reels/caso-tu-nombre (tramo recortado del
   `whoosh-cinematic.mp3` real del banco, ver el fuentes.md de ese reel); no es sintetizado.
   No se usan `ding` (sintetizado en reels/el-ascensor), `campanita`, `moneda` ni `murmullo` (origen no registrado;

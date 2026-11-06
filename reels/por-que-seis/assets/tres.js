@@ -643,7 +643,7 @@ function renderAt(t) {
   // las mesas se van antes de que nazca el "?" y vuelven con pop cuando el "?" ya se fue
   const vis = t < w(14) + 0.02 ? pout(t, w(12) - 0.32, w(12) - 0.14) : pin(t, w(14) + 0.02, w(14) + 0.32);
   // macro de la cucharita: carteles y platos afuera
-  const macro = en(t, w(33) - 0.3, S["s08-despues"] + 0.3);
+  const macro = en(t, w(33) - 0.75, S["s08-despues"] + 0.3);
   cartA.g.visible = !macro; cartB.g.visible = !macro; if (platoB) platoB.visible = !macro;
 
   // ---- colores: la mesa grande se apaga en "menos" y vuelve en "experimento" ----
@@ -673,7 +673,7 @@ function renderAt(t) {
         let s = 0.76 * pin(t, S["s10-mesa24"] + 0.2 + idx * 0.015, S["s10-mesa24"] + 0.5 + idx * 0.015);
         let x = -1.33 + col * 0.38, y = 1.19, z = CEL.z + (fila - 1) * 0.46;
         const quedan = [9, 12, 14], q = quedan.indexOf(idx);
-        if (q < 0) { const t0 = w(61) + (idx % 6) * 0.03, u = eio(sg(t, t0, t0 + 0.18)); y -= u * 0.2; s *= pout(t, t0, t0 + 0.18); }
+        if (q < 0) { const t0 = w(61) + (idx % 6) * 0.03, u = eio(sg(t, t0, t0 + 0.16)); y -= u * 0.35; s *= 1 - u; }
         else { const e = eio(sg(t, w(61) + 0.1, w(62))); x = lerp(x, (q - 1) * 0.8, e); z = lerp(z, CEL.z, e); s *= (1 + 0.6 * e) * pout(t, w(62), w(62) + 0.2); }
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
@@ -686,11 +686,15 @@ function renderAt(t) {
       y += Math.sin(Math.PI * sg(t, w(2) + (idx % 8) * 0.04, w(2) + (idx % 8) * 0.04 + 0.3)) * 0.1;
       if (t >= S["s08-despues"] - 0.02) {
         // el anillo nace del centro: cada frasco sale con pop hacia su lugar
-        const ai = eo(sg(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012));
+        const a0 = ANG(t) + (idx / 24) * Math.PI * 2;
+        const arriba = Math.abs((((a0 - Math.PI) % (Math.PI * 2)) + Math.PI * 3) % (Math.PI * 2) - Math.PI) / Math.PI; // 0 abajo, 1 arriba
+        const tn = S["s08-despues"] + 0.02 + arriba * 0.3;
+        const ai = eo(sg(t, tn, tn + 0.25));
         const [px, py, pz, a] = enAnillo(idx, t);
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
-        x = px; y = py + (1 - ai) * 0.25; z = pz;
-        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * pin(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012) * pout(t, S["s09-whatsapp"] - 0.42 + idx * 0.012, S["s09-whatsapp"] - 0.28 + idx * 0.012);
+        const rr = 1 - 0.45 * eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] + 0.05));
+        x = RING.x + (px - RING.x) * rr; y = RING.y - 0.45 + (py - RING.y + 0.45) * rr - (1 - ai) * 0.25; z = RING.z - (1 - rr) * 1.2 + (pz - RING.z) * rr;
+        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (t < S["s09-whatsapp"] + 0.05 ? 1 : 0);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
         
@@ -806,7 +810,7 @@ function renderAt(t) {
       const j = frascosB[2], base = j.position.clone();
       const baja = 1;
       const sube = eio(sg(t, w(33) + 0.35, w(36) + 0.1));
-      s = 1.45 * bk(sg(t, w(33) + 0.0, w(33) + 0.3));
+      s = 1.45 * pin(t, w(33) + 0.05, w(33) + 0.3) * pout(t, S["s08-despues"] - 0.3, S["s08-despues"] - 0.14);
       x = base.x + sube * 0.03; y = base.y + 0.45 + sube * 0.4; z = base.z + sube * 0.45;
       rx = -sube * 0.85; rz = lerp(0.45, 0.0, baja);
       carga = sg(t, w(33) + 0.3, w(33) + 0.35);
@@ -838,7 +842,7 @@ function renderAt(t) {
   {
     let s = 0, x = CEL.x, y = CEL.y, z = CEL.z, rxO = 0, ryO = 0, rzIn = 0, tex = pantallas.chat, sombraOn = false, escala = 1;
     if (t >= S["s09-whatsapp"] - 0.05) {
-      s = lerp(0.6, 1, bk(sg(t, S["s09-whatsapp"] - 0.05, S["s09-whatsapp"] + 0.3)));
+      s = lerp(0.6, 1, bk(sg(t, S["s09-whatsapp"] - 0.3, S["s09-whatsapp"] + 0.15)));
       ryO = Math.sin(t * 0.7) * 0.08 - 0.08;
       const vib = en(t, w(52), w(54) + 0.3) ? 1 : 0;
       rzIn = vib * Math.sin(t * 40) * 0.012;
@@ -859,8 +863,9 @@ function renderAt(t) {
       const p13 = eio(sg(t, S["s14-negocio"] - 0.25, S["s14-negocio"] + 0.3));
       x = lerp(x, -1.12, p13); y = lerp(y, 1.15, p13); z = lerp(z, 2.2, p13); escala = lerp(escala, 0.52, p13); ryO = lerp(ryO, 0.35, p13);
       // cierre: viaja al centro dándose vuelta; del otro lado está la videollamada
-      const cta = eo(sg(t, S["s15-cta"] - 0.6, S["s15-cta"] + 0.05)); // crece de frente hacia el centro, sin darse vuelta
-      x = lerp(x, 0, cta); y = lerp(y, 0.42, cta); z = lerp(z, 0.6, cta); escala = lerp(escala, 1.1, cta) * (1 - 0.06 * Math.sin(Math.PI * sg(t, S["s15-cta"] - 0.06, S["s15-cta"] + 0.14)));
+      const cta = eo(sg(t, S["s15-cta"] - 0.6, S["s15-cta"] - 0.12)); // crece de frente hacia el centro, sin darse vuelta
+      const cta2 = eio(sg(t, S["s15-cta"] - 0.06, S["s15-cta"] + 0.22)); // baja y deja lugar a los textos
+      x = lerp(x, 0, cta); y = lerp(lerp(y, 1.05, cta), 0.3, cta2); z = lerp(z, 0.6, cta); escala = lerp(lerp(escala, 1.32, cta), 1.16, cta2);
       ryO = lerp(ryO, Math.sin(t * 0.7) * 0.06, cta);
       if (t >= S["s15-cta"] + 0.04) tex = pantallas.llamada;
       s *= escala;
@@ -880,14 +885,15 @@ function renderAt(t) {
   // ---- s12: la canasta entra a la derecha; dos frascos salen por el costado del celular y caen adentro ----
   {
     const sCan = en(t, S["s13-paga"] + 0.4, S["s14-negocio"]) ? pin(t, S["s13-paga"] + 0.4, S["s13-paga"] + 0.7) * pout(t, S["s14-negocio"] - 0.3, S["s14-negocio"] - 0.12) : 0;
-    if (!canAenUso) { ocultar(canastaA, sCan); canastaA.position.set(0.92, 0.55, 1.25); canastaA.rotation.set(0.12, -0.35, 0); }
+    ocultar(canastaC, sCan); canastaC.position.set(0.92, 0.55, 1.25); canastaC.rotation.set(0.12, -0.35, 0);
     if (sCan > 0.01) {
-      [[0, w(76) + 0.12, -0.15], [1, w(76) + 0.38, 0.17]].forEach(([n, t0, lx]) => {
-        const j = sueltos[n], u = sg(t, t0, t0 + 0.6);
+      // dos frascos con caminos separados (uno alto y adelante, otro bajo y atrás) y escalonados: no se cruzan
+      [[0, w(76) + 0.1, -0.2, 0.42, 2.25, 1.45], [1, w(76) + 0.5, 0.2, 0.5, 1.75, 1.05]].forEach(([n, t0, lx, ax, ay, az]) => {
+        const j = sueltos[n], u = sg(t, t0, t0 + 0.55);
         if (u <= 0) return;
-        _p.set(lx, 0.06, 0.0); canastaA.localToWorld(_p); const B = _p.clone();
-        const A = new THREE.Vector3(0.45, 2.0, 1.25);
-        j.visible = true; j.scale.setScalar(0.9 * sCan * bk(sg(t, t0, t0 + 0.25)));
+        _p.set(lx, 0.06, n ? -0.12 : 0.12); canastaC.localToWorld(_p); const B = _p.clone();
+        const A = new THREE.Vector3(ax, ay, az);
+        j.visible = true; j.scale.setScalar(0.8 * sCan * pin(t, t0, t0 + 0.25));
         j.position.set(lerp(A.x, B.x, eo(u)), lerp(A.y, B.y, u * u) + Math.sin(Math.PI * u) * 0.6, lerp(A.z, B.z, eo(u)));
         j.rotation.set(0, 0.5 + u * 2, 0.3 * Math.sin(Math.PI * u));
       });
@@ -899,7 +905,7 @@ function renderAt(t) {
     const on = en(t, S["s14-negocio"] - 0.1, S["s15-cta"] + 0.3);
     const s = on ? 0.78 * bk(sg(t, S["s14-negocio"] - 0.05, S["s14-negocio"] + 0.4)) * (1 - eio(sg(t, S["s15-cta"] - 0.22, S["s15-cta"] + 0.02))) : 0;
     const sale = eio(sg(t, S["s15-cta"] - 0.55, S["s15-cta"] - 0.15)), llegaL = 1 - eo(sg(t, S["s14-negocio"] - 0.15, S["s14-negocio"] + 0.35));
-    ocultar(local, on && sale < 0.999 ? 0.78 : 0); local.position.set(0.75 + llegaL * 5 + sale * 6, 0, -0.9); local.rotation.set(0, -0.22 + Math.sin(t * 0.5) * 0.04, 0);
+    ocultar(local, on && sale < 0.999 ? 0.78 * pin(t, S["s14-negocio"] + 0.05, S["s14-negocio"] + 0.35) : 0); local.position.set(0.75 + sale * 6, 0, -0.9); void llegaL; local.rotation.set(0, -0.22 + Math.sin(t * 0.5) * 0.04, 0);
     const luz = eio(sg(t, w(83) - 0.05, w(83) + 0.3));
     if (local.visible) local.scale.multiplyScalar(1 + 0.05 * Math.sin(Math.PI * sg(t, w(83) - 0.05, w(83) + 0.25)));
     vidrieraMat.emissiveIntensity = lerp(0.05, 1.1, luz);
