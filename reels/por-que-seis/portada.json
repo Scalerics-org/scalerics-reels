@@ -1,0 +1,13 @@
+{
+ "t": 1.6,
+ "chica": "24 mermeladas.",
+ "grande": "Vendieron menos",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.3,
+ "foco": "62%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "velo navy a propósito: portada.html escribe en blanco (--texto no se configura) y sobre crema no se leería; el cuadro crema queda en el medio. Fondo: cuadro limpio de 1,6 s (solo la capa 3D: mesa de 24, sin gancho, subtítulos ni logo). Se genera con `LIMPIO=1 node armar.mjs` + `snapshot --at 1.6` (queda en renders/portada-fondo.png); después volver a correr `node armar.mjs`. Para portada.mjs: armar un mp4 corto con ese PNG (ffmpeg -loop 1 -t 3) y ponerlo un momento como renders/por-que-seis-final.mp4, o usar t=1.6 del render limpio."
+}

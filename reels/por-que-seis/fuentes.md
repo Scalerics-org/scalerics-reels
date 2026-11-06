@@ -46,14 +46,17 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - No se dice "diez veces más" en la voz (el número sale de dividir 30 entre 3 y depende del redondeo). Se puede
   mostrar "3" y "30" en pantalla, nada más.
 
-## "No les faltaban ganas. La mayoría no pudo decidir y lo dejó para después."
+## "No les faltaban ganas. Con tantas, costaba elegir. Y se iban sin comprar."
+- (ronda 2: el guion pasó de "La mayoría no pudo decidir y lo dejó para después" a esta forma; mismas fuentes.) "Se iban
+  sin comprar" es la otra cara del 3 %: en la mesa de 24, cerca de 97 de cada 100 de los que se acercaron no compraron
+  (paper y NPR, arriba). "Costaba elegir" es la explicación de los autores (exceso de opciones que desmotiva).
 - Es la explicación de los autores (exceso de opciones que desmotiva / "choice overload"): ante muchas opciones la
   gente se interesa igual (más se acercaron) pero le cuesta elegir y no elige. ("En las dos mesas probaron ~1,5
   mermeladas en promedio" aparece en un solo resumen: no se dice ni se muestra.)
   - Paper (título y conclusiones: "when choice is demotivating").
   - Stanford Daily (la mesa de 6 vendió más; "choice paralysis"): https://stanforddaily.com/2020/02/03/choice-paralysis-and-the-fear-of-growing-up/
   - ESCP, "When choice overload makes it too hard to choose": https://escp.eu/thechoice/news/when-choice-overload-makes-it-too-hard-to-choose/
-- Se cuenta como lo que pasó en ESE experimento (verbos en pasado, "pudieron"), no como ley universal.
+- Se cuenta como lo que pasó en ESE experimento (verbos en pasado: "costaba", "se iban"), no como ley universal.
 
 ## Rótulo opcional "Sobre todo si no sabés qué querés"
 - El efecto NO aparece siempre. Meta-análisis de Scheibehenne, Greifeneder y Todd (2010, Journal of Consumer Research

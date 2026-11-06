@@ -176,7 +176,7 @@ for (const [id, a] of ESCENAS) {
 // whoosh automático en cada cambio de escena, salvo que la escena ya traiga uno (whoosh y whoosh-short son el mismo archivo)
 for (const [id, a] of ESCENAS.slice(1)) {
   const f = `compositions/${id}.sfx.json`;
-  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.15 && s.t >= -0.4);
+  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.3 && s.t >= -0.4);
   if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.1 });
 }
 for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
@@ -185,6 +185,8 @@ const sfxTags = sfx
   .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min((s.max ?? 99) + (s.cut ?? 0), durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
   .join("\n");
 
+// LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
+const LIMPIO = process.env.LIMPIO === "1";
 const index = `<!doctype html>
 <html lang="es">
   <head>
@@ -210,11 +212,11 @@ const index = `<!doctype html>
     <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
       <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"><svg id="estrellas" viewBox="0 0 1080 1920" aria-hidden="true">${estrellas}</svg></div>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-${hosts}
-      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
+${LIMPIO ? "" : hosts}
+${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};

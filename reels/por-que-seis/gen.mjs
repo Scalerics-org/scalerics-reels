@@ -160,10 +160,10 @@ const CSS_MK = `
       ${mono(1, 540, 1690, "Estudio publicado en 2000")}`,
     js: `
       tl.fromTo(q(".pq"), { scale: 1.3, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.16, ease: "power4.out", immediateRender: true }, 0);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(w(id, 14) - 0.18)});
+      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, ${r2(w(id, 14) - 0.3)});
       nota(1, ${r2(w(id, 15))});`,
     sfx: [
-      { t: -0.3, sfx: "whoosh", vol: 0.1, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
+      { t: -0.3, sfx: "whoosh", vol: 0.06, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
       { t: w(id, 14) - 0.1, sfx: "whoosh", vol: 0.12, max: 0.6 },
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 14) + 0.05 + i * 0.08), sfx: "pop", vol: 0.07 })),
       { t: w(id, 15) + 0.1, sfx: "key-press", vol: 0.12 },
@@ -199,91 +199,117 @@ const CSS_MK = `
   });
 }
 
-// ================= s06 · con seis mermeladas, treinta · no les faltaban ganas (la cucharita) =================
+// ================= s06 · con seis mermeladas, treinta (la canasta de la mesa chica se llena) =================
 {
   const id = "s06-treinta";
   escena(id, {
     html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}`,
-    js: `nota(1, 0.3); fuera(".n1", ${r2(w(id, 33) - 0.25)}, 0.18);`,
+    js: `nota(1, 0.3); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
       ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 31) + 0.2 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.07 : 0.09 })),
       { t: w(id, 32) + 0.35, sfx: "sparkle", vol: 0.06, max: 0.5 },
-      { t: w(id, 33) - 0.15, sfx: "whoosh-short", vol: 0.07 },
-      { t: w(id, 33) + 0.45, sfx: "click-soft", vol: 0.14 }, { t: w(id, 36) + 0.4, sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
 }
 
-// ================= s07 · la mayoría no pudo decidir y lo dejó para después =================
+// ================= s07 · no les faltaban ganas (la cucharita sale cargada) =================
 {
-  const id = "s07-despues";
+  const id = "s07-ganas";
   escena(id, {
-    css: `P .mono.chico { font-size: 30px; letter-spacing: 0.1em; }`,
+    html: `<i></i>`,
+    js: ``,
+    sfx: [
+      { t: -0.15, sfx: "whoosh-short", vol: 0.08 },
+      { t: 0.45, sfx: "click-soft", vol: 0.14 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
+    ],
+  });
+}
+
+// ================= s08 · con tantas, costaba elegir · y se iban sin comprar =================
+{
+  const id = "s08-despues";
+  escena(id, {
+    css: `P .mono.chico { font-size: 36px; letter-spacing: 0.08em; }`,
     html: `${mono(1, 540, 1690, "Sobre todo si no sabés qué querés", "chico")}`,
-    js: `nota(1, 0.3);`,
+    js: `nota(1, 0.4);`,
     sfx: [
       { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
-      { t: w(id, 40) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 41) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 41) + 0.44, sfx: "click-soft", vol: 0.16 }, { t: w(id, 43) + 0.1, sfx: "click-soft", vol: 0.14 },
-      { t: w(id, 44) - 0.05, sfx: "whoosh-short", vol: 0.12 },
+      ...Array.from({ length: 6 }, (_, i) => ({ t: r2(0.02 + i * 0.07), sfx: "pop", vol: 0.06 })),
+      { t: w(id, 39) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 40) + 0.1, sfx: "click-soft", vol: 0.16 }, { t: w(id, 40) + 0.44, sfx: "click-soft", vol: 0.16 },
     ],
   });
 }
 
-// ================= s08 · tu catálogo de WhatsApp: doscientas fotos sueltas =================
+// ================= s08b · y se iban sin comprar (la canasta vacía se va) =================
 {
-  const id = "s08-whatsapp";
+  const id = "s08b-sin";
+  escena(id, {
+    css: `P .mono.chico { font-size: 36px; letter-spacing: 0.08em; opacity: 1; }`,
+    html: `${mono(1, 540, 1690, "Sobre todo si no sabés qué querés", "chico")}`,
+    js: `fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+    sfx: [
+      { t: w(id, 42) + 0.1, sfx: "click-soft", vol: 0.14 },
+      { t: w(id, 43) - 0.05, sfx: "whoosh-short", vol: 0.12 },
+    ],
+  });
+}
+
+// ================= s09 · tu catálogo de WhatsApp: doscientas fotos sueltas =================
+{
+  const id = "s09-whatsapp";
   escena(id, {
     html: `${pill(1, 540, 1650, "Tu catálogo")}`,
-    js: `nota(1, ${r2(w(id, 50))}); fuera(".n1", ${r2(ESC[id] - 0.2)}, 0.18);`,
+    js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.3, sfx: "pop", vol: 0.12 },
-      { t: w(id, 50), sfx: "typing", vol: 0.06, max: 0.8 },
-      ...[0, 0.3, 0.55, 0.75, 0.92, 1.06].map((d) => ({ t: r2(w(id, 53) + d), sfx: "notification", vol: 0.07, max: 0.4 })),
+      { t: w(id, 49), sfx: "typing", vol: 0.06, max: 0.8 },
+      ...[0, 0.3, 0.55, 0.75, 0.92, 1.06].map((d) => ({ t: r2(w(id, 52) + d), sfx: "notification", vol: 0.07, max: 0.4 })),
     ],
   });
 }
 
-// ================= s09 · es la mesa de veinticuatro (el celular acostado) =================
+// ================= s10 · es la mesa de veinticuatro (el celular acostado) =================
 {
-  const id = "s09-mesa24";
+  const id = "s10-mesa24";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
       ...Array.from({ length: 8 }, (_, i) => ({ t: r2(0.32 + i * 0.07), sfx: "pop", vol: 0.08 })),
-      { t: w(id, 60) - 0.05, sfx: "impact-bass-2", vol: 0.09, max: 0.7 },
+      { t: w(id, 59) - 0.05, sfx: "impact-bass-2", vol: 0.09, max: 0.7 },
     ],
   });
 }
 
-// ================= s10 · en Scalerics armamos tu tienda online =================
+// ================= s11 · en Scalerics armamos tu tienda online =================
 {
-  const id = "s10-tienda";
+  const id = "s11-tienda";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 62), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 63), sfx: "pop", vol: 0.09 },
-      { t: w(id, 64), sfx: "whoosh", vol: 0.13, max: 0.6 }, { t: w(id, 66), sfx: "sparkle", vol: 0.08, max: 0.6 },
+      { t: -0.12, sfx: "whoosh-short", vol: 0.06 },
+      { t: w(id, 61), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 62), sfx: "pop", vol: 0.09 },
+      { t: w(id, 63), sfx: "whoosh", vol: 0.13, max: 0.6 }, { t: w(id, 65), sfx: "sparkle", vol: 0.08, max: 0.6 },
     ],
   });
 }
 
-// ================= s11 · lo más pedido primero, pocas categorías =================
+// ================= s12 · lo más pedido primero, pocas categorías =================
 {
-  const id = "s11-pocas";
+  const id = "s12-pocas";
   escena(id, {
     html: `<i></i>`,
     js: ``,
-    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.05 }, { t: w(id, 69), sfx: "click", vol: 0.12 }, { t: w(id, 71), sfx: "click", vol: 0.12 }, { t: w(id, 72) + 0.1, sfx: "pop", vol: 0.1 }],
+    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.05 }, { t: w(id, 68), sfx: "click", vol: 0.12 }, { t: w(id, 70), sfx: "click", vol: 0.12 }, { t: w(id, 71) + 0.1, sfx: "pop", vol: 0.1 }],
   });
 }
 
-// ================= s12 · el cliente elige y paga =================
+// ================= s13 · el cliente elige y paga =================
 {
-  const id = "s12-paga";
+  const id = "s13-paga";
   escena(id, {
     css: `P .pill.chico { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `
@@ -291,34 +317,34 @@ const CSS_MK = `
       ${pill(1, 880, 520, `${tick(24)}Elige`, "lleno chico")}
       ${pill(2, 300, 1590, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
-      nota(1, ${r2(w(id, 75) - 0.05)});
-      nota(2, ${r2(w(id, 77) - 0.05)});
+      nota(1, ${r2(w(id, 74) - 0.05)});
+      nota(2, ${r2(w(id, 76) - 0.05)});
       fuera(".n1, .n2, .l1, .l2, .d1, .d2", ${r2(ESC[id] - 0.2)}, 0.18);`,
     sfx: [
       { t: 0.1, sfx: "pop", vol: 0.14 },
-      { t: w(id, 75), sfx: "click", vol: 0.12 }, { t: w(id, 75) + 0.08, sfx: "ping", vol: 0.07 },
-      { t: w(id, 77), sfx: "click", vol: 0.12 },
-      { t: w(id, 77) + 0.72, sfx: "pop", vol: 0.09 }, { t: w(id, 77) + 0.98, sfx: "pop", vol: 0.08 },
+      { t: w(id, 74), sfx: "click", vol: 0.12 }, { t: w(id, 74) + 0.08, sfx: "ping", vol: 0.07 },
+      { t: w(id, 76), sfx: "click", vol: 0.12 },
+      { t: w(id, 76) + 0.72, sfx: "pop", vol: 0.055 }, { t: w(id, 76) + 0.98, sfx: "pop", vol: 0.05 },
     ],
   });
 }
 
-// ================= s13 · ¿querés ver cómo quedaría en tu negocio? =================
+// ================= s14 · ¿querés ver cómo quedaría en tu negocio? =================
 {
-  const id = "s13-negocio";
+  const id = "s14-negocio";
   escena(id, {
     html: `<i></i>`,
     js: ``,
     sfx: [
       { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.15, sfx: "pop", vol: 0.12 },
-      { t: w(id, 81), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 84) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
+      { t: w(id, 80), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 83) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
     ],
   });
 }
 
-// ================= s14 · cierre: videollamada gratis en scalerics.com =================
+// ================= s15 · cierre: videollamada gratis en scalerics.com =================
 {
-  const id = "s14-cta";
+  const id = "s15-cta";
   escena(id, {
     css: `
     P .t1 { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 900 124px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: ${NAVY}; }
@@ -336,8 +362,8 @@ const CSS_MK = `
       tl.fromTo(q(".t2w"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.08);
       caja(".sb", 0.12);
       tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0.16);
-      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 90) + 0.1)});`,
-    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.15, sfx: "click-soft", vol: 0.14 }, { t: w(id, 90) + 0.75, sfx: "chime", vol: 0.1, max: 1.0 }],
+      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) + 0.1)});`,
+    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 }, { t: 0.15, sfx: "click-soft", vol: 0.14 }, { t: w(id, 89) + 0.6, sfx: "chime", vol: 0.1, max: 0.85 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

@@ -232,3 +232,28 @@ el arranque de "No" (ventana casi muda). Pico premezcla -2,2 dBFS. Cortes de sub
   del otro lado está la videollamada (pantalla compartida con el frasco y la canasta); los tres textos del cierre
   entran en los primeros 0,2 s (legibles ~2,8 s). A18: mesa con margen a los costados y más abajo; el alejamiento
   arranca en 1,6 s. A19: las palabras aparecen enteras de una (sin fundido gris).
+
+## Construcción · ronda 2 (06-11, retomado del 05-11)
+**Estado que había:** guion nuevo ("Con tantas, costaba elegir. Y se iban sin comprar.") con su voz y `palabras.json` (90
+palabras) y `tres.js` ya con los índices nuevos, pero `reel.json` nombraba 15 escenas que no tenían composición
+(s07-ganas … s15-cta) y `gen.mjs` seguía con los índices viejos (91 palabras) y los ids viejos: armar.mjs metía solo 6
+escenas y `tiempos3d.js` tenía los inicios viejos, así que la cámara y los objetos iban desfasados de la voz.
+**Escenas (inicio, s):** s01-gancho 0 · s02-seis 2,74 · s03-porque 4,50 · s04-gente 6,90 · s05-tres 8,77 ·
+s06-treinta 10,51 · s07-ganas 12,66 · s08-despues 14,09 · s08b-sin 15,80 · s09-whatsapp 17,31 · s10-mesa24 20,27 ·
+s11-tienda 22,22 · s12-pocas 24,34 · s13-paga 26,95 · s14-negocio 29,38 · s15-cta 31,87 (2,89 s, arranca en
+"videollamada"). Duración 34,76 s. s08 se partió en dos (s08b-sin en "Y se iban") para que ninguna pase de 3 s; el rótulo
+"Sobre todo si no sabés qué querés" sigue de una escena a la otra sin volver a entrar (2,7 s en pantalla).
+**Cambios de 3D (tres.js):** la mesa grande se encoge cuando llega la canasta (s05) y no vuelve; canastas a la izquierda
+(A donde estaba la mesa grande, B al costado de la mesa chica) para que la mesa navy no quede cortada en el borde; la
+canasta A se va cuando la cámara llega a la B; el anillo de s08 aparece frasco por frasco en su lugar (barrido con pop)
+mientras la cámara sale del macro (antes los frascos venían de la mesa y pasaban por pantallas casi vacías); la tapa que
+se vuelve "?" muestra la tela a cámara y se encoge justo donde nace el "?"; números 3D se esconden por debajo de 0,07 de
+escala (sin motas); plano general de s04 más cerca; celular de s09 más chico (no pisa el logo); s11 sin el salto de
+escala que lo sacaba por abajo; canasta de s13 más adentro del cuadro; local de s14 sale deslizándose a la derecha en el
+cierre; el celular del cierre llega antes al centro.
+**Sonido:** sfx de cada escena nueva (pops del anillo, clicks de la cucharita, whoosh de la canasta que se va);
+armar.mjs no agrega el whoosh automático si la escena ya trae uno hasta 0,3 s. Medido (pistas rearmadas desde index.html):
+voz -15,1 LUFS, música+SFX -32,3; en toda ventana de 0,5 s donde la voz habla (RMS > -25 dB) la voz queda ≥ 6,6 dB
+arriba; las dos ventanas más justas (4,0 y 28,5 s) son silencios entre frases. Pico premezcla -2,2 dBFS.
+**Portada:** `LIMPIO=1 node armar.mjs` arma un index solo con la capa 3D (sin escenas, subtítulos, logo ni audio) para
+sacar el cuadro limpio (`renders/portada-fondo.png`, 1,6 s); después `node armar.mjs` deja el index normal.
