@@ -63,7 +63,7 @@
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".v", 1.34, 1.1);
       // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
-      tl.to(qa(".a, .v"), { y: -110, opacity: 0, duration: 0.16, ease: "power2.in" }, 2.04);
+      tl.to(qa(".a, .v"), { opacity: 0, duration: 0.04 }, 1.8); // "en el celular" va de subtítulo
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

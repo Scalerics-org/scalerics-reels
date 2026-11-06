@@ -58,7 +58,7 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      tl.fromTo(q(".pq"), { scale: 1.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.out", immediateRender: true }, 0);
+      tl.set(q(".pq"), { opacity: 1 }, 0); tl.fromTo(q(".pq"), { scale: 1.12, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.out", immediateRender: true }, 0);
       late(".pq em", 0.72, 1.08);
       tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, 1.26); // deja lugar al subtítulo "Agendá una"
       window.__timelines = window.__timelines || {};

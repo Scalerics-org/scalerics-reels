@@ -103,8 +103,8 @@ const subtitulos = `<template>
     ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); -webkit-text-stroke: 12px #0b1220; paint-order: stroke fill; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
-    ${C} .w.ac { margin: 0 14px; }
-    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.16); }
+    ${C} .w.ac { margin: 0 2px; }
+    ${C} .caja { position: absolute; left: -10px; right: -10px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.16); }
     ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.18); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }
     ${C} .malo .caja i { border-color: #c7655b; }
@@ -129,7 +129,7 @@ ${anim}      ];
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
         }
-        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.01);
+        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
@@ -160,7 +160,7 @@ for (const [id, a] of ESCENAS.slice(1)) {
 }
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
-  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`)
+  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"${s.max && s.max < durArchivo(s.name) - 0.02 ? ` data-fade-out="${/chime|ping|sparkle/.test(s.name) ? 0.28 : Math.min(0.08, r2(s.max / 3))}"` : ""}></audio>`)
   .join("\n");
 
 // cierre en verde (desde la escena de la videollamada) y tramos sin velo: reel.sinVelo = [[palabra, palabra], ...]

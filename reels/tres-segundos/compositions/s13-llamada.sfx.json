@@ -1,1 +1,1 @@
-[{"t":-0.05,"sfx":"whoosh","vol":0.2,"max":0.6},{"t":0.1,"sfx":"burbuja","vol":0.35},{"t":0.32,"sfx":"click","vol":0.4},{"t":0.55,"sfx":"chime","vol":0.5,"max":1.4}]
+[{"t":-0.05,"sfx":"whoosh-c","vol":0.2,"max":0.6},{"t":0,"sfx":"burbuja","vol":0.42},{"t":0.18,"sfx":"click","vol":0.4},{"t":0.55,"sfx":"chime-c","vol":0.45}]

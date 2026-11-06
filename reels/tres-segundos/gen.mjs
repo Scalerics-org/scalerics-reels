@@ -134,12 +134,12 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".v", ${r2(T3 - 0.02)}, 1.1);
       // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
-      tl.to(qa(".a, .v"), { y: -110, opacity: 0, duration: 0.16, ease: "power2.in" }, ${r2(rel(id, W(10)) - 0.08)});`,
+      tl.to(qa(".a, .v"), { opacity: 0, duration: 0.04 }, ${r2(rel(id, W(8)) - 0.12)}); // "en el celular" va de subtítulo`,
     sfx: [
-      { t: 0, sfx: "impact-bass-2", vol: 0.022, max: 0.35 },
+      { t: 0, sfx: "impact-bass-1", vol: 0.03, max: 0.6 },
       { t: T1, sfx: "tic-real", vol: 0.45 }, { t: T2, sfx: "tac-real", vol: 0.5 }, { t: T3, sfx: "tic-real", vol: 0.5 },
       { t: T3 + 0.08, sfx: "glitch-1", vol: 0.1, max: 0.3 },
-      { t: rel(id, W(10)) - 0.1, sfx: "whoosh", vol: 0.24, max: 0.8 },
+      { t: rel(id, W(10)) - 0.1, sfx: "whoosh-c", vol: 0.3, max: 0.8 },
       { t: rel(id, W(10)) + 0.02, sfx: "burbuja", vol: 0.5 }, { t: rel(id, W(10)) + 0.3, sfx: "pop", vol: 0.18 },
     ],
   });
@@ -158,7 +158,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: `
       tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.26)});
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
-      fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.3)}, 0.12);`,
+      tl.set(qa(".dato, .n2"), { opacity: 0 }, ${r2(rel(id, W(21)) + 0.36)}); // sale junto con el 53 % 3D, corte seco`,
     sfx: [
       { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-press", vol: 0.25 },
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
@@ -169,7 +169,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   });
 }
 
-// ================= s03 · te buscan desde la parada, con hambre =================
+// ================= s03 · alguien te busca desde la parada, con hambre =================
 {
   const id = "s03-parada";
   escena(id, {
@@ -217,10 +217,10 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       // la cámara sale del celular al primer plano de Nico; dos toques (atrás, otro resultado) y el deslizar de cada página
-      { t: -0.04, sfx: "whoosh-short", vol: 0.2 },
-      { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "whoosh-short", vol: 0.12 },
-      { t: rel(id, W(39)) + 0.08, sfx: "key-press", vol: 0.4 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.12 },
-      { t: ESC[id] - 0.12, sfx: "whoosh-short", vol: 0.16 }, // corte limpio a la pizzería
+      { t: -0.04, sfx: "whoosh-c", vol: 0.22 },
+      { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "papel", vol: 0.28 },
+      { t: rel(id, W(39)) + 0.08, sfx: "key-press", vol: 0.4 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.08 },
+      { t: ESC[id] - 0.1, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería
     ],
   });
 }
@@ -251,11 +251,11 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<div class="sello sx">VENTA PERDIDA</div>`,
     js: `
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
-      tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.2, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(55)))});`,
+      tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.1, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(55)))});`,
     sfx: [
-      { t: 0.0, sfx: "burbuja", vol: 0.4 }, { t: 0.3, sfx: "impact-bass-2", vol: 0.03, max: 0.5 },
-      { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.5, sfx: "impact-bass-2", vol: 0.022, max: 0.5 },
-      { t: rel(id, W(55)) - 0.02, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)), sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
+      { t: 0.0, sfx: "burbuja", vol: 0.22 }, { t: 0.3, sfx: "impact-bass-1", vol: 0.025, max: 0.6 },
+      { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.5, sfx: "papel", vol: 0.25 },
+      { t: rel(id, W(55)) + 0.08, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)) + 0.1, sfx: "impact-bass-1", vol: 0.05, max: 0.6 },
     ],
   });
 }
@@ -270,12 +270,12 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       ${leads(lead(1, 300, 1690, 360, 1530, "r"))}
       ${pill(1, 300, 1745, "Fotos pesadas", "r")}`,
     js: `
-      nota(1, ${r2(rel(id, W(61)) + 0.05)});
+      dibujar(".l1", ${r2(rel(id, W(61)) + 0.05)}, 0.22); pop(".d1", ${r2(rel(id, W(61)) + 0.05)}, 0.2); pop(".n1", ${r2(rel(id, W(61)) + 0.05)});
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: -0.3, sfx: "whoosh", vol: 0.07, max: 0.5 },
+      { t: -0.06, sfx: "whoosh-short", vol: 0.1 }, // corte limpio al celular
       { t: rel(id, W(59)) + 0.05, sfx: "glitch-2", vol: 0.1, max: 0.3 },
-      ...caidas.map((c, k) => ({ t: rel(id, c + 0.16), sfx: "impact-bass-2", vol: 0.018 + k * 0.004, max: k < 3 ? 0.35 : 0.5 })),
+      { t: rel(id, caidas[0] + 0.16), sfx: "impact-bass-1", vol: 0.02, max: 0.6 }, { t: rel(id, caidas[1] + 0.16), sfx: "papel", vol: 0.3 }, { t: rel(id, caidas[2] + 0.16), sfx: "key-press", vol: 0.35 }, { t: rel(id, caidas[3] + 0.16), sfx: "impact-bass-1", vol: 0.03, max: 0.8 },
     ],
   });
 }
@@ -285,15 +285,15 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   const id = "s09-rapida";
   escena(id, {
     css: `P .pill.s { font-size: 52px; }`,
-    html: `${pill(1, 540, 1712, "Scalerics", "lleno s")}`,
+    html: `${pill(1, 540, 1800, "Scalerics", "lleno s")}`,
     js: `
       nota(1, 0.9);
       fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.4 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
+      { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.32 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
       { t: 0.95, sfx: "whoosh-short", vol: 0.18 },
       { t: rel(id, W(67)), sfx: "sparkle", vol: 0.3 }, { t: rel(id, W(67)) + 0.05, sfx: "pop", vol: 0.3 },
-      { t: rel(id, VIAJE.vuelta) - 0.15, sfx: "whoosh-cine", vol: 1 },
+      { t: ESC[id] - 0.08, sfx: "whoosh-c", vol: 0.2 }, // corte limpio a la parada
     ],
   });
 }
@@ -305,8 +305,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.55, sfx: "burbuja", vol: 0.4 },
-      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.4, sfx: "chime", vol: 0.5, max: 0.9 },
+      { t: 0.55, sfx: "burbuja", vol: 0.24 },
+      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.38, sfx: "chime-c", vol: 0.45, max: 0.7 },
       { t: rel(id, W(75)), sfx: "whoosh", vol: 0.2, max: 0.7 },
     ],
   });
@@ -320,9 +320,9 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: rel(id, W(77)), sfx: "click-soft", vol: 0.24 },
-      { t: rel(id, W(78)), sfx: "burbuja", vol: 0.3 },
-      { t: rel(id, W(80)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(80)) + 0.05, sfx: "ping", vol: 0.22, max: 0.4 },
-      { t: rel(id, W(80)) + 0.12, sfx: "sparkle", vol: 0.07, max: 0.5 },
+      { t: rel(id, W(78)), sfx: "burbuja", vol: 0.38 },
+      { t: rel(id, W(80)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(80)) + 0.02, sfx: "ping-c", vol: 0.22 },
+      
     ],
   });
 }
@@ -336,12 +336,12 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     P .pq em { font-style: normal; color: ${G}; }`,
     html: `<div class="pq"><div>¿Cuánto tarda</div><div><em>la tuya?</em></div></div>`,
     js: `
-      tl.fromTo(q(".pq"), { scale: 1.2, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.24, ease: "power4.out", immediateRender: true }, 0);
+      tl.set(q(".pq"), { opacity: 1 }, 0); tl.fromTo(q(".pq"), { scale: 1.12, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.out", immediateRender: true }, 0);
       late(".pq em", ${r2(rel(id, W(84)))}, 1.08);
       tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.16)}); // deja lugar al subtítulo "Agendá una"`,
     sfx: [
-      { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.35 },
-      { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.4, sfx: "tac-real", vol: 0.5 },
+      { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.2 },
+      { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.42, sfx: "tac-real", vol: 0.45 },
     ],
   });
 }
@@ -361,11 +361,11 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="t2w"><span class="t2">gratis</span></div>
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
-      tl.fromTo(q(".t1"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0.04);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(87)) + 0.3)});
-      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(rel(id, W(87)) + 0.55)});
+      tl.set(q(".t1"), { opacity: 0 }, 0); tl.set(q(".t1"), { opacity: 1 }, 0.04); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: false }, 0.04);
+      tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.18)}); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(87)) + 0.18)});
+      tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.55)}); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, ${r2(rel(id, W(87)) + 0.55)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.2)});`,
-    sfx: [{ t: -0.05, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.1, sfx: "burbuja", vol: 0.35 }, { t: rel(id, W(87)) + 0.32, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime", vol: 0.5, max: 1.4 }],
+    sfx: [{ t: -0.05, sfx: "whoosh-c", vol: 0.2, max: 0.6 }, { t: 0.0, sfx: "burbuja", vol: 0.42 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

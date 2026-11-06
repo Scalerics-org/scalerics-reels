@@ -62,7 +62,7 @@
 
       tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, 0.36);
       nota(2, 0.82);
-      fuera(".dato, .n2", 2.46, 0.12);
+      tl.set(qa(".dato, .n2"), { opacity: 0 }, 2.52); // sale junto con el 53 % 3D, corte seco
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
