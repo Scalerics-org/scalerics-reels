@@ -441,7 +441,7 @@ async function dibujarPantallas() {
   }
   P.otra = hoja(); {
     const x = P.otra.getContext("2d"); x.fillStyle = "#efeee5"; x.fillRect(0, 0, 720, 1458); nav(x, "otra página", false);
-    x.fillStyle = "#1f3254"; rr(x, 36, 456, 648, 330, 34);
+    x.fillStyle = "#1f3254"; rr(x, 36, 456, 648, 330, 34); pizzaDib(x, 360, 621, 135); // otra pizzería, con su foto
     x.fillStyle = "#16243d"; rr(x, 36, 820, 648, 64, 20); x.fillStyle = "#b4b2a3"; rr(x, 36, 910, 520, 34, 12); rr(x, 36, 962, 440, 34, 12);
     x.fillStyle = "#16243d"; rr(x, 36, 1030, 310, 250, 30); rr(x, 374, 1030, 310, 250, 30);
   }
@@ -509,11 +509,12 @@ const CAM = [
   [W[10] - 0.05, -2, 6, 14.8, 0, 0.95, 0],
   [S["s02-mitad"] - 0.25, -9, 13, 10.8, 0, 0.9, 0.3],
   [W[18], 4, 14, 11.2, 0, 0.9, 0.3],
+  [W[21] + 0.3, 7, 12, 10.6, 0, 0.6, 0.2],
   // corte limpio en "Alguien": de las visitas a la parada (el celular ya está en la mano de Nico)
-  [S["s03-parada"] - 0.005, 9, 12, 11.4, 0, 0.9, 0.2, "c"],
-  [S["s03-parada"], 6, 7, 15.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [W[29], -3, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [S["s04-blanco"] + 0.1, -6, 7, 13.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  [S["s03-parada"] - 0.005, 8, 9, 7.0, 0, -0.25, 0.1, "c"],
+  [S["s03-parada"], 6, 5, 14.6, PAR.x + 0.3, 0.75, PAR.z + 0.5],
+  [W[29], -3, 5, 14.2, PAR.x + 0.3, 0.75, PAR.z + 0.5],
+  [S["s04-blanco"] + 0.1, -6, 5, 13.2, PAR.x + 0.35, 0.7, PAR.z + 0.5],
   // corte limpio en "Se cansa": de la pantalla completa al primer plano de Nico (el celular ya en la mano)
   [S["s05-atras"] - 0.005, -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3, "c"],
   [S["s05-atras"], -11, 2, 5.6, PAR.x + 0.75, 0.5, PAR.z + 1.25],
@@ -523,20 +524,20 @@ const CAM = [
   [S["s06-avisa"], -16, 8, 12.4, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s06-avisa"] + 0.9, -13, 9, 12.8, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.08, -2, 16, 8.4, PIZ.x - 0.06, -0.3, PIZ.z + 0.45],
+  [S["s07-venta"] - 0.08, -2, 24, 6.6, PIZ.x - 0.08, -0.2, PIZ.z + 0.45],
   // corte limpio en "Pasa": de la caja al celular acostado
-  [S["s08-pesadas"] - 0.005, 3, 20, 8.9, PIZ.x - 0.06, -0.3, PIZ.z + 0.45, "c"],
+  [S["s08-pesadas"] - 0.005, 3, 26, 6.3, PIZ.x - 0.08, -0.2, PIZ.z + 0.45, "c"],
   [S["s08-pesadas"], 4, 32, 8.3, EST2.x, -0.62, EST2.z + 0.2],
   [W[61], -4, 34, 8.3, EST2.x, -0.66, EST2.z + 0.2],
   [S["s09-rapida"] + 0.32, -6, 16, 9.4, EST2.x, 0.3, EST2.z + 0.2],
   [W[67], 6, 8, 8.8, EST2.x, 0.6, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
   [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.6, EST2.z + 0.1, "c"],
-  [S["s10-abre"], 6, 7, 14.2, PAR.x + 0.33, 0.62, PAR.z + 0.9],
-  [W[75], 2, 6, 13.8, PAR.x + 0.33, 0.62, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 13.6, PAR.x + 0.33, 0.62, PAR.z + 0.95],
+  [S["s10-abre"], 6, 6, 12.6, PAR.x + 0.74, 1.03, PAR.z + 0.9],
+  [W[75], 2, 6, 12.0, PAR.x + 0.74, 1.03, PAR.z + 0.95],
+  [S["s11-pagina"] + 0.3, -4, 6, 12.0, PAR.x + 0.74, 1.03, PAR.z + 0.95],
   // corte limpio en "¿Cuánto": de la página a pantalla completa al cronómetro gigante
-  [S["s12-tuya"] - 0.005, -8, 6, 13.6, PAR.x + 0.33, 0.62, PAR.z + 0.95, "c"],
+  [S["s12-tuya"] - 0.005, -8, 6, 12.0, PAR.x + 0.72, 0.62, PAR.z + 0.95, "c"],
   [S["s12-tuya"], -10, 6, 14.2, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
@@ -626,7 +627,7 @@ function ponerNico(t) {
   yo.visible = s > 0.002; yo.scale.setScalar(Math.max(0.001, s) * YO_S);
   yo.updateMatrixWorld(true);
   nico.mano("I").getWorldPosition(_mw);
-  return _mw.clone().add(new THREE.Vector3(0.0, 0.13, 0.05));
+  return _mw.clone().add(new THREE.Vector3(0.0, 0.0, 0.0));
 }
 
 // ================= ESCENA EN EL TIEMPO =================
@@ -634,6 +635,7 @@ const MARCAS1 = [W[6] / 3, (2 * W[6]) / 3, W[6]]; // la aguja del gancho pasa el
 function renderAt(t) {
   scene.environmentRotation.y = t * 0.12;
   ponerCamara(t);
+  { const S6 = S["s06-avisa"], S8 = S["s08-pesadas"]; const k = en(t, S6, S8) ? 1 : 0; key.intensity = 2.6 + 1.1 * k; scene.environmentIntensity = 0.55 + 0.25 * k; } // la pizzería con más luz
   const S2 = S["s02-mitad"], S3 = S["s03-parada"], S4 = S["s04-blanco"], S5 = S["s05-atras"], S6 = S["s06-avisa"], S7 = S["s07-venta"], S8 = S["s08-pesadas"], S9 = S["s09-rapida"], S10 = S["s10-abre"], S11 = S["s11-pagina"], S12 = S["s12-tuya"], S13 = S["s13-llamada"];
 
   // ---------------- CELULAR ----------------
@@ -647,7 +649,8 @@ function renderAt(t) {
   // en el primer plano de s05 el celular crece un poco en la mano (que se lea la pantalla)
   const cercaCel = (t >= S5 ? 1 : 0) * (1 - eio(sg(t, S6 - 0.3, S6 + 0.1)));
   const MANO_S = 0.15 + 0.05 * cercaCel, MANO_R = [0.12, -0.42 + 0.1 * cercaCel, 0];
-  const enMano = () => { cel.position.copy(mano); cel.rotation.set(...MANO_R); };
+  // la mano agarra el borde de abajo del celular (antes la mano quedaba delante de la pantalla, como una mancha)
+  const enMano = () => { cel.rotation.set(...MANO_R); cel.position.copy(mano).add(new THREE.Vector3(0, PH * MANO_S * 0.42, -0.035).applyEuler(cel.rotation)); };
   // viaje de un lugar a otro: el celular pasa por el centro del cuadro (siempre entero y grande) y recién al final baja a la mano
   // (pegado a la cámara mientras la cámara gira: así no se va de cuadro ni pasa un cuadro vacío)
   const porCentro = (p0, va, d0 = 8.4, y0 = 0) => {
@@ -720,7 +723,7 @@ function renderAt(t) {
       if (t < c) return;
       const u = sg(t, c, c + 0.24); const caida = u * u;
       const POS = [[-0.1, 0.15], [0.05, -0.45], [-0.12, -0.95], [0.05, 0.4]][k];
-      let zx = POS[0], zy = POS[1], zz = lerp(0.9, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
+      let zx = POS[0], zy = POS[1], zz = lerp(2.4, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
       // s09 · se comprimen y entran a la pantalla como tarjetas
       const comp = eio(sg(t, S9 + 0.05 + k * 0.08, S9 + 0.75 + k * 0.05));
       if (comp > 0) { s = lerp(1, 0.3, comp); zx = lerp(zx, 0, comp); zy = lerp(zy, -0.1, comp); zz = lerp(zz, 0.1, comp); rr2 = lerp(rr2, 0, comp); }
@@ -740,10 +743,10 @@ function renderAt(t) {
     bordeMat.emissiveIntensity = 0.6;
     // s12 · se va hacia abajo
     // sigue a pantalla completa hasta el corte de s12
-  } else if (t >= S13 - 0.08) {
+  } else if (t >= S13) {
     // cierre: el celular con la videollamada
     celOn = true;
-    const e = lerp(0.6, 1, bk(sg(t, S13 - 0.08, S13 + 0.2)));
+    const e = lerp(0.9, 1, bk(sg(t, S13, S13 + 0.2)));
     cel.position.set(0, -0.02, 0.4); cel.rotation.set(-0.05, Math.sin(t * 0.8) * 0.1, 0); celS = 0.98 * e;
     pagina("llamada"); celSombraOn = true;
   }
@@ -755,6 +758,7 @@ function renderAt(t) {
   {
     let s = 0, m = 0, colorEst = 0xc9d3e6, preg = false, zona = 0.0, pulsa = 0;
     numsCr.forEach((n) => n.material = M.navy);
+    numsCr.forEach((n) => (n.visible = !(t >= S12))); // con el "?" no se ven los números del dial
     if (t < W[10] + 0.6) {
       // gancho: gigante, la aguja ya corriendo; pasa el 1, el 2 y el 3 y entra en la zona roja
       s = 1;
@@ -775,16 +779,18 @@ function renderAt(t) {
       m = t < W[33] ? lerp(0, 1, eio(sg(t, A, W[33]))) : t < W[34] ? 1 + eio(sg(t, W[33] + 0.08, W[34])) : t < W[35] ? 2 + eio(sg(t, W[34] + 0.08, W[35])) : 3 + 0.6 * eo(sg(t, W[35] + 0.05, S5 + 0.3));
       zona = eo(sg(t, W[35], W[35] + 0.25));
       pulsa = [W[33], W[34], W[35]].reduce((a, w) => Math.max(a, Math.sin(Math.PI * sg(t, w - 0.03, w + 0.15))), 0);
-      pegar(crono, 0, -0.82, DP - 0.6, 0.05, Math.sin(t * 1.1) * 0.12, 0);
+      pegar(crono, 0.2, -0.8, DP - 0.6, 0.05, Math.sin(t * 1.1) * 0.12, 0);
       // (se achica en su lugar: antes bajaba y quedaba cortado por el borde de abajo)
       cronoSombra.visible = false;
-    } else if (en(t, S10 + 0.2, W[75] + 0.2)) {
+    } else if (en(t, S10 + 0.2, W[75] + 0.45)) {
       // s10 · misma parada: arranca en "abre" y frena EN VERDE mucho antes del 1
-      s = (t < S10 + 0.45 || t >= W[75] + 0.06 ? 0 : 0.33 * lerp(0.6, 1, bk(sg(t, S10 + 0.45, S10 + 0.7)))) * lerp(1, 0.55, eio(sg(t, W[75] - 0.1, W[75] + 0.06)));
+      // reemplaza al globito arriba de Nico, el doble de grande; se va recién cuando el celular ya tapa la pantalla
+      const CA = W[73] - 0.15;
+      s = t < CA || t >= W[75] + 0.4 ? 0 : 0.38 * lerp(0.6, 1, bk(sg(t, CA, CA + 0.22)));
       m = 1.85 * eo(sg(t, W[73], W[73] + 0.36));
       colorEst = C.g;
       pulsa = Math.sin(Math.PI * sg(t, W[73] + 0.32, W[73] + 0.5));
-      crono.position.set(PAR.x - 0.5, 0.32, PAR.z + 2.3); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
+      crono.position.set(PAR.x + 0.62, 1.66, PAR.z + 1.4); crono.rotation.set(0.05, -0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
@@ -793,8 +799,7 @@ function renderAt(t) {
       crono.position.set(0, -0.25, 0); crono.rotation.set(0.04, Math.sin(t * 1.2) * 0.22, 0);
       pulsa = Math.max(Math.sin(Math.PI * sg(t, S12 + 0.58, S12 + 0.78)), Math.sin(Math.PI * sg(t, S12 + 1.4, S12 + 1.6)));
       // cierre: sale hacia arriba
-      const sale = eio(sg(t, S13 - 0.22, S13 - 0.08));
-      crono.rotation.z = -sale * 0.6; s *= lerp(1, 0.55, sale); if (t >= S13 - 0.08) s = 0;
+      if (t >= S13) s = 0; const sale = 0; // corte limpio a la tarjeta verde
       apoyar(cronoSombra, 0, 0.2, s * (1 - sale), 0.75);
     } else cronoSombra.visible = false;
     ocultar(crono, s);
@@ -845,8 +850,8 @@ function renderAt(t) {
   // ---------------- 1 · 2 · 3 ----------------
   cuenta.forEach((m, k) => {
     const w = [W[33], W[34], W[35]][k], fin = k < 2 ? [W[34], W[35]][k] : S5 - 0.2;
-    const s = en(t, w - 0.05, fin) ? 0.56 * lerp(0.6, 1, bk(sg(t, w - 0.05, w + 0.2))) : 0;
-    ocultar(m, s); if (m.visible) pegar(m, 0, 1.2, DP - 0.8, 0, Math.sin(t * 1.4) * 0.25, 0);
+    const s = en(t, w - 0.05, fin) ? 0.46 * lerp(0.6, 1, bk(sg(t, w - 0.05, w + 0.2))) : 0;
+    ocultar(m, s); if (m.visible) pegar(m, 0, 1.1, DP - 0.8, 0, Math.sin(t * 1.4) * 0.25, 0);
   });
 
   // ---------------- PARADA y la persona ----------------
@@ -858,7 +863,7 @@ function renderAt(t) {
     parada.visible = s > 0.002; if (parada.visible) parada.scale.set(1, Math.max(0.001, s), 1);
     // globito de hambre (s03, y vuelve en s10)
     const g1 = en(t, W[29] - 0.1, S5) ? lerp(0.6, 1, bk(sg(t, W[29] - 0.1, W[29] + 0.2))) : 0;
-    const g2 = en(t, S10 + 0.3, S11) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) : 0;
+    const g2 = en(t, S10 + 0.3, W[73] - 0.15) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) : 0; // en "abre" lo reemplaza el cronómetro
     const gs = Math.max(g1, g2);
     ocultar(globo, gs); globo.position.set(PAR.x + 0.4, 1.62 + Math.sin(t * 2) * 0.05, PAR.z + 1.35); globo.scale.multiplyScalar(1.15); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
@@ -937,9 +942,9 @@ function renderAt(t) {
       s = t >= S10 - 0.2 ? 0 : 0.5 * lerp(0.6, 1, bk(sg(t, W[67] - 0.05, W[67] + 0.25))) * lerp(1, 0.55, eio(sg(t, S10 - 0.4, S10 - 0.2)));
       cel.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(0.8, 0.95, 0.3).applyMatrix4(cel.matrixWorld)); tilde.quaternion.copy(cel.quaternion);
       tilde.rotateY(Math.sin(t * 1.3) * 0.25);
-    } else if (en(t, W[73] + 0.34, W[75] + 0.2)) {
-      s = t >= W[75] + 0.06 ? 0 : 0.32 * lerp(0.6, 1, bk(sg(t, W[73] + 0.34, W[73] + 0.58))) * lerp(1, 0.55, eio(sg(t, W[75] - 0.1, W[75] + 0.06)));
-      crono.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(1.25, -1.25, 0.6).applyMatrix4(crono.matrixWorld)); tilde.rotation.set(0, Math.sin(t * 1.3) * 0.25, 0);
+    } else if (en(t, W[73] + 0.34, W[75] + 0.45)) {
+      s = t >= W[75] + 0.4 ? 0 : 0.5 * lerp(0.6, 1, bk(sg(t, W[73] + 0.34, W[73] + 0.56)));
+      crono.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(1.3, -1.2, 0.6).applyMatrix4(crono.matrixWorld)); tilde.rotation.set(0, Math.sin(t * 1.3) * 0.25, 0);
     }
     ocultar(tilde, s);
   }

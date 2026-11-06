@@ -78,7 +78,8 @@ CORTES.forEach((desde, g) => {
   let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
-  const ini = r2(Math.max(0, ws[0].start - 0.08));
+  const enCorte = reel.escenas.some(([, w]) => w === desde);
+  const ini = r2(Math.max(0, enCorte ? inicio(desde) : ws[0].start - 0.08));
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
   const fin = r2(Math.min(proximo, DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
@@ -173,7 +174,7 @@ const FIRMA = (reel.sinFirma ?? []).map(([a, b]) => {
 }).join("\n");
 const VELO = (reel.sinVelo ?? []).map(([a, b]) => {
   const ta = r2(inicio(a) - 0.1), tb = b < palabras.length ? r2(inicio(b) - 0.1) : null;
-  return `      tl.to("#velo", { opacity: 0, duration: 0.25, ease: "power2.inOut" }, ${ta});` + (tb !== null ? `\n      tl.to("#velo", { opacity: 1, duration: 0.25, ease: "power2.inOut" }, ${tb});` : "");
+  return `      tl.to("#velo", { opacity: 0, duration: ${tb === null ? 0.001 : 0.25}, ease: "power2.inOut" }, ${tb === null ? r2(inicio(a) - 0.03) : ta});` + (tb !== null ? `\n      tl.to("#velo", { opacity: 1, duration: 0.25, ease: "power2.inOut" }, ${tb});` : "");
 }).join("\n");
 const index = `<!doctype html>
 <html lang="es">
@@ -218,7 +219,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // fondo navy liso; en el cierre pasa a verde de marca. El velo (legibilidad del texto sobre el 3D)
       // se apaga donde el celular llena la pantalla (su barra navy de arriba ya da el contraste) y en el cierre.
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.04, ease: "none", immediateRender: false }, ${r2(VERDE + 0.02)});
+      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.001, ease: "none", immediateRender: false }, ${r2(VERDE + 0.03)});
 ${VELO}
 ${FIRMA}      window.__timelines["main"] = tl;
     </script>

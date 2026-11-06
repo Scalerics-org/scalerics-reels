@@ -338,7 +338,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: `
       tl.set(q(".pq"), { opacity: 1 }, 0); tl.fromTo(q(".pq"), { scale: 1.12, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.out", immediateRender: true }, 0);
       late(".pq em", ${r2(rel(id, W(84)))}, 1.08);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.16)}); // deja lugar al subtítulo "Agendá una"`,
+      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.26)}); // deja lugar al subtítulo "Agendá una"`,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.25 },
       { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.42, sfx: "tac-real", vol: 0.45 },
