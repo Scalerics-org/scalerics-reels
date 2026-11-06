@@ -1,0 +1,45 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s03-rotulos"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s03-rotulos"] .rot { position: absolute; white-space: nowrap; }
+    [data-composition-id="s03-rotulos"] .rot .in { opacity: 0; }
+    [data-composition-id="s03-rotulos"] .in { display: inline-flex; align-items: center; gap: 16px; padding: 18px 32px 20px 22px; border-radius: 22px; background: #5ce611; color: #0b1220; font: 800 54px/1 "Lexend", sans-serif; letter-spacing: -0.02em; border: 5px solid #0b1220; box-shadow: 0 9px 0 rgba(3,6,12,0.55); opacity: 0; }
+    [data-composition-id="s03-rotulos"] .ico { width: 54px; height: 54px; display: inline-block; }
+    [data-composition-id="s03-rotulos"] .ico svg { width: 54px; height: 54px; display: block; }
+  </style>
+  <div id="root" data-composition-id="s03-rotulos" data-width="1080" data-height="1920" data-duration="51.19">
+    <div id="s03-rotulos-esc" class="esc clip" data-start="0" data-duration="51.19" data-track-index="0">
+      <div class="rot r0" style="top:455px;left:60px"><span class="in"><span class="ico"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15" fill="none" stroke="#0b1220" stroke-width="5"/><path d="M20 11 V20 L27 24" fill="none" stroke="#0b1220" stroke-width="5" stroke-linecap="round"/></svg></span>30 min · gratis</span></div>
+      <div class="rot r1" style="top:570px;left:60px"><span class="in"><span class="ico"><svg viewBox="0 0 40 40"><path d="M20 36 C 10 24, 8 19, 8 15 A12 12 0 0 1 32 15 C 32 19, 30 24, 20 36 Z" fill="#0b1220"/><circle cx="20" cy="15" r="5" fill="#5ce611"/></svg></span>online o presencial</span></div>
+      <div class="rot r2" style="top:1405px;left:50%;transform:translateX(-50%)"><span class="in"><span class="ico"><svg viewBox="0 0 40 40"><circle cx="17" cy="17" r="11" fill="none" stroke="#0b1220" stroke-width="5"/><path d="M25 25 L35 35" stroke="#0b1220" stroke-width="6" stroke-linecap="round"/></svg></span>Sin letra chica</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s03-rotulos";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.set(q(".r0 .in"), { opacity: 1 }, 15);
+      tl.fromTo(q(".r0 .in"), { scale: 0.01, y: 30 }, { scale: 1, y: 0, duration: 0.32, ease: "back.out(2.2)", immediateRender: true }, 15);
+      tl.to(q(".r0 .in"), { scale: 0.01, duration: 0.16, ease: "power2.in" }, 17.29);
+      tl.set(q(".r0 .in"), { opacity: 0 }, 17.45);
+      tl.set(q(".r1 .in"), { opacity: 1 }, 16.09);
+      tl.fromTo(q(".r1 .in"), { scale: 0.01, y: 30 }, { scale: 1, y: 0, duration: 0.32, ease: "back.out(2.2)", immediateRender: true }, 16.09);
+      tl.to(q(".r1 .in"), { scale: 0.01, duration: 0.16, ease: "power2.in" }, 17.29);
+      tl.set(q(".r1 .in"), { opacity: 0 }, 17.45);
+      tl.set(q(".r2 .in"), { opacity: 1 }, 32.54);
+      tl.fromTo(q(".r2 .in"), { scale: 0.01, y: 30 }, { scale: 1, y: 0, duration: 0.32, ease: "back.out(2.2)", immediateRender: true }, 32.54);
+      tl.to(q(".r2 .in"), { scale: 0.01, duration: 0.16, ease: "power2.in" }, 32.9);
+      tl.set(q(".r2 .in"), { opacity: 0 }, 33.06);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

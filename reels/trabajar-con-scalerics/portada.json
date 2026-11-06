@@ -1,0 +1,13 @@
+{
+ "t": 0.5,
+ "chica": "Cómo es trabajar",
+ "grande": "con nosotros",
+ "sello": "En 4 pasos",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro limpio con PORTADA=1 LIMPIO=1 node gen.mjs + snapshot a los 16,5 s (cámara fija sobre la notebook con Sofi, sin Rubén ni capa plana), en renders/portada-fondo.png. Para regenerar: poné portada-fondo.mp4 como renders/trabajar-con-scalerics-final.mp4 un momento, corré portada.mjs y devolvé el final."
+}
