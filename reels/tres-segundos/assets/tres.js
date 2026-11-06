@@ -517,11 +517,11 @@ const CAM = [
   [S["s06-avisa"], -16, 8, 12.4, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s06-avisa"] + 0.9, -13, 9, 12.8, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.08, -2, 18, 10.4, PIZ.x - 0.12, 0.2, PIZ.z + 0.45],
-  [S["s08-pesadas"] - 0.3, 3, 20, 10.0, PIZ.x - 0.12, 0.2, PIZ.z + 0.45, "e"],
+  [S["s07-venta"] - 0.08, -2, 18, 9.2, PIZ.x - 0.12, 0.02, PIZ.z + 0.45],
+  [S["s08-pesadas"] - 0.3, 3, 20, 8.9, PIZ.x - 0.12, 0.02, PIZ.z + 0.45, "e"],
   [S["s08-pesadas"] + 0.35, 4, 32, 7.9, EST2.x, -0.62, EST2.z + 0.2],
   [W[61], -4, 34, 7.7, EST2.x, -0.72, EST2.z + 0.2],
-  [S["s09-rapida"] + 0.45, -6, 14, 8.4, EST2.x, 0.62, EST2.z + 0.2],
+  [S["s09-rapida"] + 0.32, -6, 14, 8.4, EST2.x, 0.62, EST2.z + 0.2],
   [W[67], 6, 8, 8.2, EST2.x, 0.66, EST2.z + 0.1],
   [S["s10-abre"] - 0.2, 8, 8, 8.4, EST2.x, 0.66, EST2.z + 0.1, "e"],
   [S["s10-abre"] + 0.4, 8, 7, 12.0, PAR.x + 0.4, 0.62, PAR.z + 0.9],
@@ -683,7 +683,7 @@ function renderAt(t) {
     // s08 · acostado en el estudio, le caen los marcos; s09 · se levanta y las fotos entran comprimidas
     celOn = true;
     const llega = eio(sg(t, S8 - 0.35, S8 + 0.3));
-    const para = eio(sg(t, S9 + 0.0, S9 + 0.6));
+    const para = eio(sg(t, S9 - 0.05, S9 + 0.42));
     let x = EST2.x, y = lerp(-0.9, 0.4, para), z = EST2.z + 0.2, rx = lerp(-1.05, 0, para), ry = lerp(0.1, Math.sin(t * 0.8) * 0.1, para), rz = 0;
     // hundimiento con cada marco, rebote al final
     const CAIDAS = [0, 1, 2, 3].map((k) => W[60] + 0.05 + k * 0.2);
@@ -711,7 +711,7 @@ function renderAt(t) {
     });
     // s10 · vuelve a la parada: el celular viaja del estudio a la mano
     const va = eio(sg(t, S10 - 0.2, S10 + 0.5));
-    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, eio(sg(va, 0, 0.72))); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, eio(sg(va, 0.45, 1))); celSombraOn = va < 0.3; }
+    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, eio(sg(va, 0, 0.72))); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, eio(sg(va, 0.1, 0.7))); celSombraOn = va < 0.3; }
   } else if (en(t, S10 + 0.9, S12 + 0.06)) {
     celOn = true;
     // s10 · "al toque": zambullida a pantalla completa; s11 · la página entera con tildes
@@ -763,11 +763,11 @@ function renderAt(t) {
       cronoSombra.visible = false;
     } else if (en(t, S10 + 0.2, W[75] + 0.2)) {
       // s10 · misma parada: arranca en "abre" y frena EN VERDE mucho antes del 1
-      s = (t < S10 + 0.45 ? 0 : 0.46 * lerp(0.6, 1, bk(sg(t, S10 + 0.45, S10 + 0.7)))) * (1 - eio(sg(t, W[75] - 0.1, W[75] + 0.2)));
+      s = (t < S10 + 0.45 ? 0 : 0.4 * lerp(0.6, 1, bk(sg(t, S10 + 0.45, S10 + 0.7)))) * (1 - eio(sg(t, W[75] - 0.1, W[75] + 0.2)));
       m = 1.85 * eo(sg(t, W[73], W[73] + 0.36));
       colorEst = C.g;
       pulsa = Math.sin(Math.PI * sg(t, W[73] + 0.32, W[73] + 0.5));
-      crono.position.set(PAR.x - 0.3, 0.3, PAR.z + 2.5); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
+      crono.position.set(PAR.x - 0.62, 0.3, PAR.z + 2.3); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
@@ -842,7 +842,7 @@ function renderAt(t) {
     const g1 = en(t, W[29] - 0.1, S5) ? bk(sg(t, W[29] - 0.1, W[29] + 0.25)) : 0;
     const g2 = en(t, S10 + 0.3, S11) ? bk(sg(t, S10 + 0.3, S10 + 0.6)) : 0;
     const gs = Math.max(g1, g2);
-    ocultar(globo, gs); globo.position.set(PAR.x + 0.25, 1.62 + Math.sin(t * 2) * 0.05, PAR.z + 1.35); globo.scale.multiplyScalar(1.15); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
+    ocultar(globo, gs); globo.position.set(PAR.x + 0.4, 1.62 + Math.sin(t * 2) * 0.05, PAR.z + 1.35); globo.scale.multiplyScalar(1.15); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
   }
 
