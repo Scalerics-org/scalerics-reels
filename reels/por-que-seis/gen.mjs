@@ -70,7 +70,7 @@ const HELP = `
         tl.set(el, { opacity: 1 }, t);
         tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
       });
-      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.16 : 0)); };
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
       const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
@@ -122,9 +122,10 @@ const CSS_MK = `
   escena(id, {
     css: `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} }
-    P .h1 { top: 150px; font-size: 104px; letter-spacing: -0.05em; } P .h2 { top: 285px; font-size: 112px; } P .h3 { top: 412px; font-size: 112px; }`,
+    P .h0 { top: 130px; font-size: 120px; } P .h1 { top: 262px; font-size: 112px; } P .h2 { top: 384px; font-size: 112px; } P .h3 { top: 506px; font-size: 112px; }`,
     html: `
-      <div class="h h1">Con ${marca("24", "")} mermeladas</div>
+      <div class="h h0">Con ${marca("24", "")}</div>
+      <div class="h h1">mermeladas</div>
       <div class="h h2">se vendió ${marca("menos", "r")}</div>
       <div class="h h3">que con ${marca("6", "")}</div>`,
     js: `
@@ -177,7 +178,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.medio { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `${leads(lead(1, 870, 560, 790, 640, "g"))}${pill(1, 870, 520, "Más gente", "lleno medio")}`,
-    js: `nota(1, ${r2(w(id, 21))}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.48)}, 0.14);`,
+    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.48)}, 0.14);`,
     sfx: [
       { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
       ...[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.05), sfx: "click-soft", vol: 0.09 })),
@@ -209,9 +210,8 @@ const CSS_MK = `
     js: `nota(1, 0.1); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.14, max: 0.7 },
-      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 31) + 0.2 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.07 : 0.09 })),
-      { t: w(id, 32) - 0.08, sfx: "pop", vol: 0.12 }, { t: w(id, 32) - 0.07, sfx: "impact-bass-1", vol: 0.06, max: 0.45 },
-      { t: w(id, 32) + 0.35, sfx: "sparkle", vol: 0.04, max: 0.5 },
+      ...Array.from({ length: 11 }, (_, i) => ({ t: r2(w(id, 31) + 0.2 + i * 0.075), sfx: "pop", vol: i % 2 ? 0.045 : 0.06 })),
+      { t: w(id, 32) - 0.08, sfx: "pop", vol: 0.1 },
     ],
   });
 }
@@ -223,7 +223,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.11, sfx: "whoosh-short", vol: 0.06 },
+      { t: -0.04, sfx: "whoosh-short", vol: 0.05 },
       { t: 0.45, sfx: "click-soft", vol: 0.14 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
@@ -359,13 +359,13 @@ const CSS_MK = `
     P .t3 { display: inline-block; padding: 14px 44px 24px; border-radius: 30px; background: ${G}; font: 900 104px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; }`,
     html: `
       <div class="t1">Videollamada</div>
-      <div class="t2w"><span class="t2"><div class="selbox sb">${esquinas}</div><em style="position:relative;font-style:normal">gratis</em></span></div>
+      <div class="t2w"><span class="t2"><div class="selbox sb" style="opacity:1">${esquinas}</div><em style="position:relative;font-style:normal">gratis</em></span></div>
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
-      tl.fromTo(q(".t1"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.08);
-      caja(".sb", 0.12);
-      tl.fromTo(q(".t3w"), { opacity: 0, scale: 0.85, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0.16);
+      // entra todo de una (sin fundidos grises): solo un pequeño rebote de escala
+      tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
+      tl.fromTo(q(".sb"), { scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
+      tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
       tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.05, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) + 0.1)});`,
     sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: 0.18, sfx: "click-soft", vol: 0.12 }, { t: w(id, 89) + 0.08, sfx: "chime", vol: 0.09, max: 0.85 }],
   });

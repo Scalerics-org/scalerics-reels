@@ -28,12 +28,13 @@
     [data-composition-id="s01-gancho"] .mk .selbox { position: absolute; left: 0; right: 0; top: 10px; bottom: 2px; }
     [data-composition-id="s01-gancho"] .mk em { position: relative; font-style: normal; }
     [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 132px/1.04 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.04em; }
-    [data-composition-id="s01-gancho"] .h1 { top: 150px; font-size: 104px; letter-spacing: -0.05em; } [data-composition-id="s01-gancho"] .h2 { top: 285px; font-size: 112px; } [data-composition-id="s01-gancho"] .h3 { top: 412px; font-size: 112px; }
+    [data-composition-id="s01-gancho"] .h0 { top: 130px; font-size: 120px; } [data-composition-id="s01-gancho"] .h1 { top: 262px; font-size: 112px; } [data-composition-id="s01-gancho"] .h2 { top: 384px; font-size: 112px; } [data-composition-id="s01-gancho"] .h3 { top: 506px; font-size: 112px; }
   </style>
   <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.74">
     <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.74" data-track-index="0">
 
-      <div class="h h1">Con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>24</em></span> mermeladas</div>
+      <div class="h h0">Con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>24</em></span></div>
+      <div class="h h1">mermeladas</div>
       <div class="h h2">se vendió <span class="mk r"><b class="selbox r" style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>menos</em></span></div>
       <div class="h h3">que con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>6</em></span></div>
     </div>
@@ -56,7 +57,7 @@
         tl.set(el, { opacity: 1 }, t);
         tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
       });
-      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t, 0.2); } pop(".n" + k, t + (q(".l" + k) ? 0.16 : 0)); };
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
       const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);

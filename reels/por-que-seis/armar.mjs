@@ -35,7 +35,7 @@ const leadArchivo = (n) => {
   return lead[n];
 };
 // colas largas: estos SFX se cortan (con max) aunque la escena no lo pida
-const MAXDEF = { "glitch-1": 0.6, "impact-bass-1": 0.8, "impact-bass-2": 0.9, riser: 1.2 };
+const MAXDEF = { pop: 0.35, "glitch-1": 0.6, "impact-bass-1": 0.8, "impact-bass-2": 0.9, riser: 1.2 };
 const conTecho = (n, v) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n)) / 20)) * 1000) / 1000;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -161,7 +161,8 @@ for (let i = 0; i < 0; i++) {
 }
 
 // música recortada a la duración del reel, con fundido de 0,35 s al final
-execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -t ${DUR} -af afade=t=out:st=${r2(DUR - 0.35)}:d=0.35 assets/bgm/bed-corte.mp3`);
+// la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.015:ratio=6:attack=15:release=350:makeup=1[d];[d]afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -215,7 +216,7 @@ ${LIMPIO ? "" : hosts}
 ${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.28"></audio>\n` : ""}${sfxTags}`}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.38"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};

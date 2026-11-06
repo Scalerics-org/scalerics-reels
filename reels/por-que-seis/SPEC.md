@@ -257,3 +257,14 @@ voz -15,1 LUFS, música+SFX -32,3; en toda ventana de 0,5 s donde la voz habla (
 arriba; las dos ventanas más justas (4,0 y 28,5 s) son silencios entre frases. Pico premezcla -2,2 dBFS.
 **Portada:** `LIMPIO=1 node armar.mjs` arma un index solo con la capa 3D (sin escenas, subtítulos, logo ni audio) para
 sacar el cuadro limpio (`renders/portada-fondo.png`, 1,6 s); después `node armar.mjs` deja el index normal.
+
+## Corrección · ronda 1 de revisión (06-11)
+Gancho nuevo "Con 24 / mermeladas / se vendió menos / que con 6". Entradas y salidas desde/hasta el 60 % (`pin`/`pout` en
+tres.js, sin motas). Mesas se van antes de que nazca el "?" y vuelven con push-in; la mesa grande se vuelve la canasta A
+(mismo lugar), la canasta B queda delante de la mesa chica; asas plegadas (los frascos no las atraviesan); cucharita salta
+por el anillo; canasta del anillo más grande, sale por la derecha por delante; anillo entra y sale en barrido;
+celular del cierre crece de frente (sin darse vuelta) y cambia de pantalla en "videollamada"; local entra y sale
+deslizando. Tienda con 2 categorías y textos más grandes. Rótulos en pill de 44-46 px. Logo con placa crema.
+Subtítulos: sin el apagado anticipado del grupo (huecos en el render), recuadro verde recién en su palabra, "Agendá una"
+completo. Sonido: cama con sidechain bajo la voz (0,38), pops cortados a 0,35 s, `whoosh-cine-corto` para los viajes
+grandes, pops en el "3" y el "30", chime en "scalerics.com"; voz con fundido de 70 ms y 0,22 s de cola (34,98 s).

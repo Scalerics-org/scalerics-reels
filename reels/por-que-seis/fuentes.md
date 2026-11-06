@@ -37,6 +37,11 @@ que coinciden; no se leyó el PDF entero en la corrida.
   prensa; ver abajo). No se dice "el primero" ni "demostró".
 
 ## "Pero compraron tres de cada cien. Con seis mermeladas, treinta."
+- Qué se mide (ronda 1 de revisión, 06-11): el 3 % y el 30 % son los que, después de probar, usaron el cupón de descuento
+  que les dieron en la mesa para comprar mermelada de esa marca en la semana siguiente (no lo que se vendió en la mesa
+  misma). El guion dice "compraron", que es correcto; no se agrega el detalle del cupón.
+  - Tim Harford, "Given the choice, how much choice would you like?": https://timharford.com/2009/11/given-the-choice-how-much-choice-would-you-like/
+  - AcaWiki, resumen de Iyengar y Lepper (2000): https://acawiki.org/When_choice_is_demotivating:_Can_one_desire_too_much_of_a_good_thing%3F
 - Compraron cerca del 3 % de los que se acercaron a la mesa de 24 y cerca del 30 % de los que se acercaron a la de 6.
   El denominador es "los que se pararon en la mesa", no todos los que pasaban: por eso el guion dice "compraron tres
   de cada cien" justo después de "atrajo más gente" (los que se acercaron).
@@ -95,6 +100,8 @@ que coinciden; no se leyó el PDF entero en la corrida.
 - SFX: solo el banco de `molde/assets/sfx` (chime, click, click-soft, glitch-1, impact-bass-1, impact-bass-2,
   key-press, notification, ping, pop, sparkle, typing, whoosh, whoosh-short), copiados tal cual; es el banco con el
   que se hicieron todos los reels del repo, origen no registrado en el repo (no hay archivo de fuentes del molde).
+  Ronda 1 de revisión: se sumó `whoosh-cine-corto.mp3`, copiado de reels/caso-tu-nombre (tramo recortado del
+  `whoosh-cinematic.mp3` real del banco, ver el fuentes.md de ese reel); no es sintetizado.
   No se usan `ding` (sintetizado en reels/el-ascensor), `campanita`, `moneda` ni `murmullo` (origen no registrado;
   la-murga tiene un sintetizador de murmullo), ni `whoosh-cinematic` (crescendo de 5,5 s que no se oye con max corto).
   No se sintetizó ni se descargó ningún sonido.
