@@ -698,8 +698,8 @@ function renderAt(t) {
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
         const rr = 1 - 0.45 * eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] + 0.05));
         const ent8 = eo(sg(t, S["s08-despues"] + 0.02, S["s08-despues"] + 0.7)); const rb = rr * lerp(0.62, 1, ent8); // nace más chico, crece mientras llega la cámara
-        x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25 - (1 - ent8) * 0.45; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
-        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (t < S["s09-whatsapp"] + 0.05 ? 1 : 0);
+        x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25 - (1 - ent8) * 0.75; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
+        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (t < S["s09-whatsapp"] - 0.04 ? 1 : 0);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
         
@@ -849,8 +849,8 @@ function renderAt(t) {
   // ---- celular: nace del anillo, catálogo, se acuesta (mesa de 24), tienda, local, videollamada ----
   {
     let s = 0, x = CEL.x, y = CEL.y, z = CEL.z, rxO = 0, ryO = 0, rzIn = 0, tex = pantallas.chat, sombraOn = false, escala = 1;
-    if (t >= S["s09-whatsapp"] - 0.12) {
-      s = lerp(0.6, 1, bk(sg(t, S["s09-whatsapp"] - 0.12, S["s09-whatsapp"] + 0.25)));
+    if (t >= S["s09-whatsapp"] - 0.22) {
+      s = lerp(0.6, 1, bk(sg(t, S["s09-whatsapp"] - 0.22, S["s09-whatsapp"] + 0.2)));
       ryO = Math.sin(t * 0.7) * 0.08 - 0.08;
       const vib = en(t, w(52), w(54) + 0.3) ? 1 : 0;
       rzIn = vib * Math.sin(t * 40) * 0.012;

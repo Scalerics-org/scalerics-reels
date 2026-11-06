@@ -315,8 +315,8 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.chico { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `
-      ${leads(lead(1, 880, 560, 230, 990, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
-      ${pill(1, 880, 520, `${tick(24)}Elige`, "lleno chico")}
+      ${leads(lead(1, 728, 1010, 238, 1010, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
+      ${pill(1, 860, 1010, `${tick(24)}Elige`, "lleno chico")}
       ${pill(2, 300, 1590, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
       nota(1, ${r2(w(id, 74) - 0.05)});
