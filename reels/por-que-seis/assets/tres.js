@@ -584,9 +584,10 @@ const CAM = [
   [w(43), 3, 6, 10.0, RING.x, RING.y - 0.1, RING.z],
   [S["s09-whatsapp"] + 0.45, 2, 4, 8.5, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] - 0.05, -3, 4, 8.3, CEL.x, 2.42, CEL.z],
-  [S["s10-mesa24"] + 0.24, -6, 58, 10.5, 0, 1.3, CEL.z],
+  [S["s10-mesa24"] + 0.1, -5, 30, 10.6, 0, 1.9, CEL.z],
+  [S["s10-mesa24"] + 0.3, -6, 58, 10.5, 0, 1.3, CEL.z],
   [w(60), -2, 57, 10.2, 0, 1.3, CEL.z],
-  [w(62) + 0.2, -1, 30, 10.5, 0, 1.9, CEL.z],
+  [w(62) + 0.2, -1, 30, 11.2, 0, 1.9, CEL.z],
   [w(63) + 0.3, -2, 10, 8.0, 0, 2.3, CEL.z],
   [w(66), -4, 5, 7.9, 0, 2.48, CEL.z],
   [w(71), 5, 5, 7.9, 0, 2.48, CEL.z],
@@ -658,8 +659,8 @@ function renderAt(t) {
   {
     const anillo = eio(sg(t, S["s08-despues"] - 0.1, S["s08-despues"] + 0.5));
     const cierra = eio(sg(t, S["s09-whatsapp"] - 0.1, S["s09-whatsapp"] + 0.35));
-    const mesaFuera = 0; const slideA = eio(sg(t, S["s05-tres"] - 0.45, S["s05-tres"] - 0.05)) * 7; // la mesa grande se va cuando llega la canasta
-    const onMesa = t < S["s05-tres"] - 0.05;
+    const mesaFuera = 0; const slideA = eio(sg(t, S["s05-tres"] - 0.38, S["s05-tres"] - 0.08)) * 7; // la mesa grande se va cuando llega la canasta
+    const onMesa = t < S["s05-tres"] - 0.08;
     mA.g.visible = onMesa && vis > 0.01; sombraA.visible = mA.g.visible;
     const visA = vis * (1 - mesaFuera);
     mA.g.visible = mA.g.visible && visA > 0.01; sombraA.visible = mA.g.visible;
@@ -680,7 +681,7 @@ function renderAt(t) {
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
       }
-      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] - 0.05 && t < S["s08-despues"] + 0.02)) { j.visible = false; return; }
+      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] - 0.08 && t < S["s08-despues"] + 0.02)) { j.visible = false; return; }
       const vA = vis * (1 - mesaFuera);
       let x = MESA_A.x + slideA + (h.x - MESA_A.x) * vA, y = h.y * vA, z = MESA_A.z + (h.z - MESA_A.z) * vA, ry = Math.sin(t * 0.8 + idx) * 0.05, s = vA, rz = 0;
       const ti = (idx % 8) * 0.03 + Math.floor(idx / 8) * 0.07;
@@ -695,7 +696,8 @@ function renderAt(t) {
         const [px, py, pz, a] = enAnillo(idx, t);
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
         const rr = 1 - 0.45 * eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] + 0.05));
-        x = RING.x + (px - RING.x) * rr; y = RING.y - 0.45 + (py - RING.y + 0.45) * rr - (1 - ai) * 0.25; z = RING.z - (1 - rr) * 1.2 + (pz - RING.z) * rr;
+        const rb = rr * lerp(0.62, 1, eo(sg(t, S["s08-despues"] + 0.02, S["s08-despues"] + 0.6))); // nace más chico, crece mientras llega la cámara
+        x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
         ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (t < S["s09-whatsapp"] + 0.05 ? 1 : 0);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
@@ -712,7 +714,7 @@ function renderAt(t) {
     const kB = t < S["s05-tres"] - 0.45 ? 1 : t < w(33) - 0.7 ? (t < S["s05-tres"] - 0.2 ? 1 : 0) : pin(t, w(33) - 0.7, w(33) - 0.45);
     const slideB = t < w(33) - 0.7 ? -7 * eio(sg(t, S["s05-tres"] - 0.62, S["s05-tres"] - 0.2)) : 0; // la mesa chica sale por la izquierda
     const MBX = t >= w(33) - 0.7 ? MB2.x : MESA_B.x + slideB, MBZ = t >= w(33) - 0.7 ? MB2.z : MESA_B.z;
-    const s = entra * kB * pout(t, S["s08-despues"] + 0.5, S["s08-despues"] + 0.62) * vis;
+    const s = entra * kB * pout(t, S["s08-despues"] + 0.3, S["s08-despues"] + 0.42) * vis;
     mB.g.visible = s > 0.002; sombraB.visible = mB.g.visible;
     if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MBX, 0, MBZ); sombraB.position.set(MBX, 0.005, MBZ); sombraB.scale.setScalar(s); }
     frascosB.forEach((j, i) => {
@@ -773,7 +775,7 @@ function renderAt(t) {
   sueltos.forEach((j) => { j.visible = false; resetTapa(j); });
   let canAenUso = false;
   {
-    const sA = en(t, S["s05-tres"] - 0.25, w(33) + 0.3) ? pin(t, S["s05-tres"] - 0.25, S["s05-tres"] + 0.05) * pout(t, w(33) - 0.1, w(33) + 0.05) : 0;
+    const sA = en(t, S["s05-tres"] - 0.28, w(33) + 0.3) ? lerp(1.35, 1, eio(sg(t, S["s05-tres"] - 0.28, S["s05-tres"] + 0.1))) * pin(t, S["s05-tres"] - 0.28, S["s05-tres"] + 0.02) * pout(t, w(33) - 0.1, w(33) + 0.05) : 0;
     if (sA <= 0.002) ocultar(canastaA, 0);
     if (sA > 0.002) {
       canAenUso = true;
@@ -814,7 +816,7 @@ function renderAt(t) {
       const j = frascosB[2], base = j.position.clone();
       const baja = 1;
       const sube = eio(sg(t, w(33) + 0.35, w(36) + 0.1));
-      s = 1.15 * pin(t, w(33) + 0.05, w(33) + 0.3) * (t < S["s08-despues"] - 0.12 ? 1 : 0);
+      s = 1.15 * pin(t, w(33) + 0.05, w(33) + 0.3) * (t < S["s08-despues"] - 0.22 ? 1 : 0);
       const dip = eio(sg(t, S["s08-despues"] - 0.42, S["s08-despues"] - 0.14)); // vuelve a meterse en el frasco
       x = base.x + sube * 0.03; y = base.y + 0.45 + sube * 0.22 - dip * 0.7; z = base.z + sube * 0.5 * (1 - dip);
       rx = -sube * 1.0; rz = lerp(0.45, 0.0, baja);
@@ -870,7 +872,7 @@ function renderAt(t) {
       // cierre: viaja al centro dándose vuelta; del otro lado está la videollamada
       const cta = eo(sg(t, S["s15-cta"] - 0.6, S["s15-cta"] - 0.12)); // crece de frente hacia el centro, sin darse vuelta
       const cta2 = eio(sg(t, S["s15-cta"] - 0.3, S["s15-cta"] - 0.02)); // baja y deja lugar a los textos
-      x = lerp(x, 0, cta); y = lerp(lerp(y, 1.05, cta), 0.36, cta2); z = lerp(z, 0.6, cta); escala = lerp(lerp(escala, 1.32, cta), 1.08, cta2);
+      x = lerp(x, 0, cta); y = lerp(lerp(y, 1.05, cta), 0.44, cta2); z = lerp(z, 0.6, cta); escala = lerp(lerp(escala, 1.32, cta), 1.03, cta2);
       ryO = lerp(ryO, Math.sin(t * 0.7) * 0.06, cta);
       if (t >= S["s15-cta"] + 0.04) tex = pantallas.llamada;
       s *= escala;

@@ -268,3 +268,13 @@ deslizando. Tienda con 2 categorías y textos más grandes. Rótulos en pill de 
 Subtítulos: sin el apagado anticipado del grupo (huecos en el render), recuadro verde recién en su palabra, "Agendá una"
 completo. Sonido: cama con sidechain bajo la voz (0,38), pops cortados a 0,35 s, `whoosh-cine-corto` para los viajes
 grandes, pops en el "3" y el "30", chime en "scalerics.com"; voz con fundido de 70 ms y 0,22 s de cola (34,98 s).
+
+## Corrección · ronda 2 de revisión (06-11)
+Transiciones: canastas A (gris, mesa de 24) y B (verde) una al lado de la otra, travelling lateral; la mesa grande sale
+deslizando a la derecha y la chica a la izquierda (sin encogerse); el macro de "ganas" pasa a una mesa chica a la derecha
+de la canasta B (otro travelling), frasco ya abierto, cucharita que sale del frasco y vuelve a meterse; el anillo entra
+en barrido desde la derecha mientras la cámara sale del macro y se cierra detrás del celular, que crece desde el 60 %.
+Frascos de s13 en caminos separados, canasta verde propia; etiqueta pegada al vidrio; local aparece en su lugar.
+Textos de interfaz ≥52 px de canvas, sin hora. Pills y textos aparecen/desaparecen secos (sin grises). Cierre 3,0 s.
+Sonido: sidechain ratio 2,5 y cama 0,55; data-fade-out en todo SFX cortado; `burbuja` (CC0) y `whoosh-cine-corto2`
+alternados con pop/key-press; ping+impact en el "30"; key-press en "gratis" y chime en "scalerics.com".

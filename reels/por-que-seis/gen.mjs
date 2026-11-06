@@ -178,7 +178,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.medio { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `${leads(lead(1, 870, 560, 790, 640, "g"))}${pill(1, 870, 520, "Más gente", "lleno medio")}`,
-    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.48)}, 0.14);`,
+    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.42)}, 0.14);`,
     sfx: [
       { t: -0.1, sfx: "whoosh-cine-corto2", vol: 0.1, max: 0.7 },
       ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.09), sfx: i % 2 ? "key-press" : "click-soft", vol: 0.08 })),
