@@ -249,6 +249,13 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      recurrentes en `reels/abren-hoy/assets/personajes.js`: Rubén el almacenero, Graciela la clienta,
      Nico el empleado, Marta la de la cafetería. Usá SIEMPRE estos (se pueden sumar nuevos al módulo,
      con el mismo estilo): que la gente los reconozca y espere el próximo.
+   - **RUBÉN ES LA ESTRELLA** (Juan, 05-11: "amo el personaje de Rubén"; "que en la rutina haya varios
+     Rubén"). Cada noche, **varios reels con Rubén**: protagonista en al menos 2 de los 3 "para mandar",
+     y además puede aparecer en los explicadores como el dueño que se hace la pregunta ("¿por qué el
+     súper me pregunta si tengo la tarjeta?") o que prueba la solución en su almacén. Mismo Rubén
+     siempre: el módulo de personajes, voz Gemini Algenib (grave, cansado, uruguayo), su almacén, su
+     mate, su "Hoy: N veces". Variá las situaciones y los compañeros (Graciela, Nico el empleado,
+     Marta de la cafetería de al lado, Sofi de Scalerics) para que no sea siempre el mismo chiste.
    - **10-16 s, una sola situación** que todo comerciante vivió, con timing de comedia: arranque ya en
      situación (cuadro 0 = la escena), una pausa antes del remate, remate fuerte, y si hay, un
      "remate del remate" (el contador que pasa a 48). Se entiende **sin sonido** (burbujas y carteles
