@@ -75,6 +75,11 @@ El guion NO nombra a los autores ni el año (no hace falta para la historia); va
 - "Thinking, Fast and Slow" cuenta este experimento ("cold-hand"), pero no pude leer el texto del libro: no se cita.
 
 ## Sonido
-- `splash.mp3` está en varios reels del repo (p. ej. `reels/la-orquesta/assets/sfx/`), pero no encontré su origen
-  anotado en ningún `fuentes.md`. El constructor tiene que confirmar que no es sintetizado; si no tiene origen,
-  usar uno real CC0 (Freesound, licencia CC0) y anotar autor, sitio y licencia acá.
+- `splash.mp3` del repo NO se usa (sin origen anotado; puede ser sintetizado). Tampoco se pudo bajar un splash CC0:
+  la nube rechaza freesound.org, openverse y pixabay (403 del proxy, 06-11). El agua suena con burbujas y whoosh suaves.
+- Gotas y salpicadura (`assets/sfx/burbuja.mp3`): "Bubble Pop", Mafon2, Freesound, CC0 1.0 (copiado de reels/abren-hoy).
+  https://freesound.org/people/Mafon2/sounds/253956/
+- Vibración del celular (`assets/sfx/vibra.mp3`, primeros 1,2 s de `vibra.wav`): "Cell phone vibrate, on table hard
+  surface.wav", SpliceSound, Freesound, CC0 1.0 (de reels/abren-hoy). https://freesound.org/people/SpliceSound/sounds/369839/
+- El resto: los efectos de siempre del repo (HyperFrames: whoosh, pop, tic, click, ding, chime, ping, impact-bass,
+  riser-corto, sparkle, notification, golpe) y la música `bgm/bed.mp3`, como en reels/por-que-la-lista.
