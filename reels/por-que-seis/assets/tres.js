@@ -20,6 +20,9 @@ const eo = (x) => 1 - Math.pow(1 - x, 3);
 const eio = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 const bk = (x) => { const c1 = 1.7, c3 = c1 + 1; return x <= 0 ? 0 : x >= 1 ? 1 : 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
 const lerp = (a, b, x) => a + (b - a) * x;
+// entradas y salidas sin motas: entra desde el 60 % con rebote, sale hasta el 60 % y desaparece
+const pin = (t, a, b) => (t < a ? 0 : 0.6 + 0.4 * bk(sg(t, a, b)));
+const pout = (t, a, b) => (t >= b ? 0 : 1 - 0.4 * eio(sg(t, a, b)));
 const en = (t, a, b) => t >= a && t < b;
 const S = E;
 const D2R = Math.PI / 180;
@@ -306,8 +309,8 @@ function canasta() {
   g.add(mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), M.gd, 0, H2, D2 / 2), mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), M.gd, 0, H2, -D2 / 2));
   g.add(mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), M.gd, W2 / 2, H2, 0), mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), M.gd, -W2 / 2, H2, 0));
   const asaGeo = new THREE.TorusGeometry(W2 / 2 - 0.02, 0.032, 10, 40, Math.PI);
-  const asa1 = mesh(asaGeo, M.navy, 0, H2, D2 / 2); asa1.rotation.x = 0.3; g.add(asa1);
-  const asa2 = mesh(asaGeo, M.navy, 0, H2, -D2 / 2); asa2.rotation.x = -0.3; g.add(asa2);
+  const asa1 = mesh(asaGeo, M.navy, 0, H2, D2 / 2); asa1.rotation.x = 1.25; g.add(asa1);
+  const asa2 = mesh(asaGeo, M.navy, 0, H2, -D2 / 2); asa2.rotation.x = -1.25; g.add(asa2);
   const s = sombra(1.8, 1.4, g); s.position.y = 0.005;
   scene.add(g); return g;
 }
@@ -553,12 +556,12 @@ const w = (i) => W[i];
 const RING = { x: 0, y: 2.15, z: 1.0 };
 const CEL = { x: 0, y: 2.15, z: 1.0 };
 const CAM = [
-  [0, -6, 33, 12.9, 0, 1.7, 0.3],
-  [1.6, -3, 32, 12.75, 0, 1.7, 0.3],
+  [0, -8, 34, 12.9, 0, 2.15, 0.3],
+  [2.4, -1, 30, 12.6, 0, 2.1, 0.3],
   [w(7) + 0.35, 4, 27, 13.4, 0.05, 1.75, 2.6],
   [w(11), 7, 28, 13.6, 0.05, 1.75, 2.7],
   [S["s03-porque"] + 0.3, 9, 27, 13.6, 0.1, 1.6, 3.0],
-  [w(14), 4, 30, 12.8, 0.05, 1.3, 2.3],
+  [w(14), 0, 36, 18.5, 0.15, 1.3, 2.0],
   [S["s04-gente"] + 0.3, 0, 40, 16.6, 0.15, 1.35, 2.0],
   [w(22), -2, 40, 16.9, 0.15, 1.3, 2.0],
   [S["s05-tres"] + 0.45, -6, 50, 7.4, CAN_A.x, 0.35, CAN_A.z - 0.75],
@@ -568,12 +571,12 @@ const CAM = [
   [w(33) + 0.0, -4, 46, 6.6, CAN_B.x + 0.2, 0.4, CAN_B.z - 1.0],
   [w(33) + 0.3, 4, 40, 2.9, -0.07, 1.6, 4.63],
   [w(33) + 0.5, 3, 39, 2.8, -0.07, 1.62, 4.63],
-  [w(36) + 0.18, 0, 38, 2.6, -0.07, 1.65, 4.63],
-  [S["s08-despues"] + 0.45, -3, 6, 10.2, RING.x, RING.y - 0.1, RING.z],
+  [w(36) + 0.05, 0, 38, 2.6, -0.07, 1.65, 4.63],
+  [S["s08-despues"] + 0.32, -3, 6, 10.2, RING.x, RING.y - 0.1, RING.z],
   [w(43), 3, 6, 10.0, RING.x, RING.y - 0.1, RING.z],
   [S["s09-whatsapp"] + 0.45, 2, 4, 8.5, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] - 0.05, -3, 4, 8.3, CEL.x, 2.42, CEL.z],
-  [S["s10-mesa24"] + 0.5, -6, 34, 12.0, 0, 1.75, CEL.z],
+  [S["s10-mesa24"] + 0.32, -6, 34, 12.0, 0, 1.75, CEL.z],
   [w(60), -2, 33, 11.8, 0, 1.75, CEL.z],
   [w(62) + 0.2, -1, 28, 10.2, 0, 1.85, CEL.z],
   [w(63) + 0.3, -2, 10, 8.6, 0, 2.2, CEL.z],
@@ -630,8 +633,8 @@ function renderAt(t) {
   ponerCamara(t);
 
   // bisagra "¿Por qué?": las mesas se van y queda solo el "?"
-  const vis0 = 1 - eio(sg(t, w(12) - 0.12, w(12) + 0.05)) * (1 - eio(sg(t, w(14) - 0.1, w(14) + 0.25)));
-  const vis = vis0 < 0.3 ? 0 : vis0;
+  // las mesas se van antes de que nazca el "?" y vuelven con pop cuando el "?" ya se fue
+  const vis = t < w(14) + 0.02 ? pout(t, w(12) - 0.32, w(12) - 0.14) : pin(t, w(14) + 0.02, w(14) + 0.32);
   // macro de la cucharita: carteles y platos afuera
   const macro = en(t, w(33) - 0.3, S["s08-despues"] + 0.3);
   cartA.g.visible = !macro; cartB.g.visible = !macro; if (platoB) platoB.visible = !macro;
@@ -646,8 +649,8 @@ function renderAt(t) {
   {
     const anillo = eio(sg(t, S["s08-despues"] - 0.1, S["s08-despues"] + 0.5));
     const cierra = eio(sg(t, S["s09-whatsapp"] - 0.1, S["s09-whatsapp"] + 0.35));
-    const mesaFuera = eio(sg(t, S["s05-tres"] + 0.05, S["s05-tres"] + 0.4)); // la mesa grande se va cuando llega la canasta
-    const onMesa = t < S["s05-tres"] + 0.4;
+    const mesaFuera = 1 - pout(t, S["s05-tres"] - 0.45, S["s05-tres"] - 0.25); // la mesa grande se va cuando llega la canasta
+    const onMesa = t < S["s05-tres"] - 0.25;
     mA.g.visible = onMesa && vis > 0.01; sombraA.visible = mA.g.visible;
     const visA = vis * (1 - mesaFuera);
     mA.g.visible = mA.g.visible && visA > 0.01; sombraA.visible = mA.g.visible;
@@ -660,30 +663,30 @@ function renderAt(t) {
       if (pantallaMesa) {
         // s09: la pantalla del celular acostado es la mesa de 24
         const fila = Math.floor(idx / 8), col = idx % 8;
-        let s = 0.76 * bk(sg(t, S["s10-mesa24"] + 0.25 + idx * 0.02, S["s10-mesa24"] + 0.55 + idx * 0.02));
+        let s = 0.76 * pin(t, S["s10-mesa24"] + 0.2 + idx * 0.015, S["s10-mesa24"] + 0.5 + idx * 0.015);
         let x = -1.33 + col * 0.38, y = 1.19, z = CEL.z + (fila - 1) * 0.46;
         const quedan = [9, 12, 14], q = quedan.indexOf(idx);
-        if (q < 0) { const u = eio(sg(t, w(61) + (idx % 6) * 0.03, w(61) + (idx % 6) * 0.03 + 0.25)); y -= u * 0.3; s *= 1 - u; }
-        else { const e = eio(sg(t, w(61) + 0.1, w(62))); x = lerp(x, (q - 1) * 0.8, e); z = lerp(z, CEL.z, e); s *= (1 + 0.6 * e) * (1 - eio(sg(t, w(62), w(62) + 0.3))); }
+        if (q < 0) { const t0 = w(61) + (idx % 6) * 0.03, u = eio(sg(t, t0, t0 + 0.18)); y -= u * 0.2; s *= pout(t, t0, t0 + 0.18); }
+        else { const e = eio(sg(t, w(61) + 0.1, w(62))); x = lerp(x, (q - 1) * 0.8, e); z = lerp(z, CEL.z, e); s *= (1 + 0.6 * e) * pout(t, w(62), w(62) + 0.2); }
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
       }
-      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] + 0.4 && t < S["s08-despues"] - 0.12)) { j.visible = false; return; }
+      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] - 0.25 && t < S["s08-despues"] - 0.02)) { j.visible = false; return; }
       const vA = vis * (1 - mesaFuera);
       let x = MESA_A.x + (h.x - MESA_A.x) * vA, y = h.y * vA, z = MESA_A.z + (h.z - MESA_A.z) * vA, ry = Math.sin(t * 0.8 + idx) * 0.05, s = vA, rz = 0;
       const ti = (idx % 8) * 0.03 + Math.floor(idx / 8) * 0.07;
       y += (1 - bk(sg(t, ti - 0.1, ti + 0.35))) * 0.25;
-      y += Math.sin(Math.PI * sg(t, w(1) + (idx % 8) * 0.04, w(1) + (idx % 8) * 0.04 + 0.3)) * 0.06;
-      if (t >= S["s08-despues"] - 0.12) {
+      y += Math.sin(Math.PI * sg(t, w(2) + (idx % 8) * 0.04, w(2) + (idx % 8) * 0.04 + 0.3)) * 0.1;
+      if (t >= S["s08-despues"] - 0.02) {
         // el anillo nace del centro: cada frasco sale con pop hacia su lugar
-        const ai = eo(sg(t, S["s08-despues"] - 0.12 + idx * 0.015, S["s08-despues"] + 0.18 + idx * 0.015));
+        const ai = eo(sg(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012));
         const [px, py, pz, a] = enAnillo(idx, t);
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
         x = px; y = py + (1 - ai) * 0.25; z = pz;
-        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * bk(sg(t, S["s08-despues"] - 0.12 + idx * 0.015, S["s08-despues"] + 0.18 + idx * 0.015));
+        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * pin(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012) * pout(t, w(45) + 0.12 + idx * 0.028, w(45) + 0.26 + idx * 0.028);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
-        x = lerp(x, CEL.x, cierra); y = lerp(y, CEL.y, cierra); z = lerp(z, CEL.z + 0.1, cierra); s *= 1 - cierra;
+        
       }
       ocultar(j, s);
       if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, ry, rz); }
@@ -692,8 +695,9 @@ function renderAt(t) {
 
   // ---- mesa chica (6): entra con pop en "vendieron", se prende en "seis" ----
   {
-    const entra = bk(sg(t, w(7) - 0.05, w(7) + 0.35));
-    const s = entra * (1 - eio(sg(t, S["s08-despues"] + 0.0, S["s08-despues"] + 0.25))) * vis;
+    const entra = pin(t, w(7) - 0.05, w(7) + 0.35);
+    const kB = t < S["s05-tres"] - 0.45 ? 1 : t < w(33) - 0.4 ? pout(t, S["s05-tres"] - 0.45, S["s05-tres"] - 0.25) : pin(t, w(33) - 0.4, w(33) - 0.1);
+    const s = entra * kB * pout(t, S["s08-despues"] + 0.0, S["s08-despues"] + 0.2) * vis;
     mB.g.visible = s > 0.002; sombraB.visible = mB.g.visible;
     if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MESA_B.x, 0, MESA_B.z); sombraB.position.set(MESA_B.x, 0.005, MESA_B.z); sombraB.scale.setScalar(s); }
     frascosB.forEach((j, i) => {
@@ -713,7 +717,7 @@ function renderAt(t) {
       }
       if (i === 3) {
         // la tapa del frasco 4 sube en arco hacia la cámara y se vuelve el "?"
-        const u = sg(t, w(12) - 0.6, w(12) - 0.08);
+        const u = sg(t, w(12) - 0.7, w(12) - 0.16);
         if (u > 0 && u < 1) {
           const e = eio(u);
           const dest = enCamara(0, -0.1, -4.5);
@@ -728,23 +732,23 @@ function renderAt(t) {
 
   // ---- "?" grande (capa de arriba) ----
   {
-    const s = en(t, w(12) - 0.12, w(14) + 0.2) ? 1.35 * bk(sg(t, w(12) - 0.12, w(12) + 0.2)) * (1 - eio(sg(t, w(14) - 0.12, w(14) + 0.15))) : 0;
+    const s = en(t, w(12) - 0.16, w(14) + 0.02) ? 1.2 * pin(t, w(12) - 0.16, w(12) + 0.16) * pout(t, w(14) - 0.15, w(14) + 0.02) : 0;
     ocultar(pregunta, s);
-    pregunta.position.set(0, -0.05, -4.5);
+    pregunta.position.set(0, -0.24, -4.5);
     pregunta.rotation.set(0, Math.sin(t * 1.6) * 0.5 + (1 - eo(sg(t, w(12) + 0.05, w(12) + 0.5))) * 3, 0);
   }
 
   // ---- la gente: muchos en la grande, dos en la chica ----
   {
     const llega = (d0) => bk(sg(t, w(20) - 0.25 + d0, w(20) + 0.1 + d0));
-    const se = eio(sg(t, S["s05-tres"] - 0.35, S["s05-tres"] - 0.05));
+    const se = eio(sg(t, S["s05-tres"] - 0.5, S["s05-tres"] - 0.3));
     genteA.forEach(({ o, p, d }, i) => {
-      const k = llega(i * 0.035) * (1 - se);
+      const k0 = llega(i * 0.035) * (1 - se), k = k0 < 0.55 ? 0 : k0;
       ocultar(o, k);
       if (o.visible) { const [px, pz] = p; const dir = Math.atan2(MESA_A.x - px, MESA_A.z - pz); o.position.set(px, 0, pz); o.rotation.y = dir; o.scale.setScalar(k * (0.9 + d * 0.15)); }
     });
     genteB.forEach(({ o, p }, i) => {
-      const k = llega(0.35 + i * 0.2) * (1 - se);
+      const k0 = llega(0.35 + i * 0.2) * (1 - se), k = k0 < 0.55 ? 0 : k0;
       ocultar(o, k);
       if (o.visible) { o.position.set(p[0], 0, p[1]); o.rotation.y = Math.atan2(MESA_B.x - p[0], MESA_B.z - p[1]); }
     });
@@ -754,7 +758,7 @@ function renderAt(t) {
   sueltos.forEach((j) => { j.visible = false; resetTapa(j); });
   let canAenUso = false;
   {
-    const sA = en(t, S["s05-tres"] - 0.1, w(33) + 0.3) ? bk(sg(t, S["s05-tres"] - 0.1, S["s05-tres"] + 0.25)) * (1 - eio(sg(t, w(31) - 0.1, w(31) + 0.2))) : 0;
+    const sA = en(t, S["s05-tres"] - 0.1, w(33) + 0.3) ? pin(t, S["s05-tres"] - 0.1, S["s05-tres"] + 0.25) * pout(t, w(30) + 0.05, w(30) + 0.2) : 0;
     if (sA > 0.002) {
       canAenUso = true;
       ocultar(canastaA, sA); canastaA.position.set(CAN_A.x, 0, CAN_A.z); canastaA.rotation.set(0, 0.25, 0);
@@ -768,12 +772,13 @@ function renderAt(t) {
       }
     }
     const vacia = en(t, S["s08-despues"] + 0.05, S["s09-whatsapp"]);
-    const sB = en(t, S["s05-tres"] + 0.2, w(33) + 0.3) ? bk(sg(t, S["s05-tres"] + 0.2, S["s05-tres"] + 0.55)) * (1 - eio(sg(t, w(33) + 0.1, w(33) + 0.3))) : 0;
+    const sB = en(t, S["s05-tres"] + 0.2, w(33) + 0.3) ? pin(t, S["s05-tres"] + 0.2, S["s05-tres"] + 0.55) * pout(t, w(33) - 0.08, w(33) + 0.08) : 0;
     if (vacia) {
       // la canasta vacía en el medio del anillo; en "dejó" se va "para después"
-      const ent = bk(sg(t, S["s08-despues"] + 0.55, S["s08-despues"] + 0.9));
-      const va = eio(sg(t, w(43) - 0.1, w(45) + 0.25));
-      ocultar(canastaB, ent * 0.85 * (1 - va * 0.3)); canastaB.position.set(RING.x + va * 4.2, RING.y - 0.72, RING.z + 0.1); canastaB.rotation.set(0.25, 0.15 - va * 0.5, -va * 0.15);
+      const ent = pin(t, S["s08-despues"] + 0.45, S["s08-despues"] + 0.8);
+      const va = eio(sg(t, w(43) - 0.1, w(44) + 0.2));
+      // "se iban sin comprar": la canasta vacía cae hacia adelante y sale por abajo (por delante del anillo, sin cruzarlo)
+      ocultar(canastaB, va >= 0.999 ? 0 : ent * 1.2); canastaB.position.set(RING.x + va * 0.3, RING.y - 0.72 - va * 2.8, RING.z + 0.1 + va * 2.0); canastaB.rotation.set(0.25 + va * 0.6, 0.15, -va * 0.2);
     } else {
       ocultar(canastaB, sB); canastaB.position.set(CAN_B.x, 0, CAN_B.z); canastaB.rotation.set(0, -0.2, 0);
       if (sB > 0.002) for (let k = 0; k < 11; k++) {
@@ -803,7 +808,9 @@ function renderAt(t) {
       let k = 0; while (k + 1 < sal.length && sal[k + 1][0] <= t) k++;
       const u = eio(sg(t, sal[k][0], sal[k][0] + 0.25));
       const A = enAnillo(sal[Math.max(0, k - 1)][1], t), B = enAnillo(sal[k][1], t);
-      x = lerp(A[0], B[0], u); y = lerp(A[1], B[1], u) + 0.62 + Math.sin(Math.PI * u) * 0.35; z = lerp(A[2], B[2], u) + 0.3;
+      let dA = B[3] - A[3]; dA = ((dA % (Math.PI * 2)) + Math.PI * 3) % (Math.PI * 2) - Math.PI;
+      const aa = A[3] + dA * u;
+      x = RING.x + Math.sin(aa) * 1.22; y = RING.y + Math.cos(aa) * 1.5 - 0.45 + 0.62 + Math.sin(Math.PI * u) * 0.35; z = RING.z + Math.cos(aa) * 0.6 + 0.3;
       s = 2.1 * bk(sg(t, S["s08-despues"] + 0.05, S["s08-despues"] + 0.4)) * (1 - eio(sg(t, w(43), w(45))));
       y += eio(sg(t, w(43), w(45))) * 1.2;
       rz = 0.25 * Math.sin(t * 3); rx = -0.25; carga = 1;
@@ -828,9 +835,9 @@ function renderAt(t) {
       const vib = en(t, w(52), w(54) + 0.3) ? 1 : 0;
       rzIn = vib * Math.sin(t * 40) * 0.012;
       // s09: se acuesta (pantalla para arriba, apaisado, un poco más grande) y es la mesa de 24
-      const acuesta = eio(sg(t, S["s10-mesa24"] - 0.05, S["s10-mesa24"] + 0.45));
+      const acuesta = eio(sg(t, S["s10-mesa24"] - 0.05, S["s10-mesa24"] + 0.3));
       const gira = eio(sg(t, w(62) - 0.05, w(62) + 0.35));
-      const para = eio(sg(t, w(63), w(65) + 0.05));
+      const para = eio(sg(t, w(62) + 0.15, w(63) + 0.4));
       rxO = -Math.PI / 2 * acuesta * (1 - para);
       rzIn += (Math.PI / 2) * acuesta * (1 - gira);
       y = lerp(CEL.y, 1.1, acuesta * (1 - para)); ryO *= 1 - acuesta * (1 - para);
@@ -841,13 +848,13 @@ function renderAt(t) {
       const p12 = eio(sg(t, S["s13-paga"] - 0.1, S["s13-paga"] + 0.5));
       x = lerp(x, -0.35, p12); y = lerp(y, 2.05, p12); escala = lerp(escala, 0.88, p12);
       // s13: adelante a la izquierda y más chico; el local es el protagonista
-      const p13 = eio(sg(t, S["s14-negocio"] - 0.1, S["s14-negocio"] + 0.6));
+      const p13 = eio(sg(t, S["s14-negocio"] - 0.25, S["s14-negocio"] + 0.3));
       x = lerp(x, -1.12, p13); y = lerp(y, 1.15, p13); z = lerp(z, 2.2, p13); escala = lerp(escala, 0.52, p13); ryO = lerp(ryO, 0.35, p13);
       // cierre: viaja al centro dándose vuelta; del otro lado está la videollamada
-      const cta = eio(sg(t, S["s15-cta"] - 0.18, S["s15-cta"] + 0.38));
-      x = lerp(x, 0, cta); y = lerp(y, 0.5, cta); z = lerp(z, 0.6, cta); escala = lerp(escala, 1.13, cta);
-      ryO = lerp(ryO, Math.sin(t * 0.7) * 0.08, cta) + Math.PI * 2 * cta;
-      if (cta > 0.5) tex = pantallas.llamada;
+      const cta = eio(sg(t, S["s15-cta"] - 0.55, S["s15-cta"] + 0.05)); // crece de frente hacia el centro, sin darse vuelta
+      x = lerp(x, 0, cta); y = lerp(y, 0.42, cta); z = lerp(z, 0.6, cta); escala = lerp(escala, 1.1, cta) * (1 - 0.06 * Math.sin(Math.PI * sg(t, S["s15-cta"] - 0.06, S["s15-cta"] + 0.14)));
+      ryO = lerp(ryO, Math.sin(t * 0.7) * 0.06, cta);
+      if (t >= S["s15-cta"] + 0.04) tex = pantallas.llamada;
       s *= escala;
       sombraOn = acuesta * (1 - para) > 0.5 || t >= S["s14-negocio"];
       grilla.visible = t < S["s10-mesa24"] + 0.5;
@@ -864,7 +871,7 @@ function renderAt(t) {
 
   // ---- s12: la canasta entra a la derecha; dos frascos salen por el costado del celular y caen adentro ----
   {
-    const sCan = en(t, S["s13-paga"] + 0.05, S["s14-negocio"] + 0.35) ? bk(sg(t, S["s13-paga"] + 0.05, S["s13-paga"] + 0.4)) * (1 - eio(sg(t, S["s14-negocio"] - 0.25, S["s14-negocio"] + 0.05))) : 0;
+    const sCan = en(t, S["s13-paga"] + 0.4, S["s14-negocio"]) ? pin(t, S["s13-paga"] + 0.4, S["s13-paga"] + 0.7) * pout(t, S["s14-negocio"] - 0.3, S["s14-negocio"] - 0.12) : 0;
     if (!canAenUso) { ocultar(canastaA, sCan); canastaA.position.set(0.92, 0.55, 1.25); canastaA.rotation.set(0.12, -0.35, 0); }
     if (sCan > 0.01) {
       [[0, w(76) + 0.12, -0.15], [1, w(76) + 0.38, 0.17]].forEach(([n, t0, lx]) => {
@@ -883,8 +890,8 @@ function renderAt(t) {
   {
     const on = en(t, S["s14-negocio"] - 0.1, S["s15-cta"] + 0.3);
     const s = on ? 0.78 * bk(sg(t, S["s14-negocio"] - 0.05, S["s14-negocio"] + 0.4)) * (1 - eio(sg(t, S["s15-cta"] - 0.22, S["s15-cta"] + 0.02))) : 0;
-    const sale = eio(sg(t, S["s15-cta"] - 0.3, S["s15-cta"] + 0.05));
-    ocultar(local, on ? 0.78 * bk(sg(t, S["s14-negocio"] - 0.05, S["s14-negocio"] + 0.4)) : 0); local.position.set(0.75 + sale * 6, 0, -0.9); local.rotation.set(0, -0.22 + Math.sin(t * 0.5) * 0.04, 0);
+    const sale = eio(sg(t, S["s15-cta"] - 0.55, S["s15-cta"] - 0.15)), llegaL = 1 - eo(sg(t, S["s14-negocio"] - 0.15, S["s14-negocio"] + 0.35));
+    ocultar(local, on && sale < 0.999 ? 0.78 : 0); local.position.set(0.75 + llegaL * 5 + sale * 6, 0, -0.9); local.rotation.set(0, -0.22 + Math.sin(t * 0.5) * 0.04, 0);
     const luz = eio(sg(t, w(83) - 0.05, w(83) + 0.3));
     if (local.visible) local.scale.multiplyScalar(1 + 0.05 * Math.sin(Math.PI * sg(t, w(83) - 0.05, w(83) + 0.25)));
     vidrieraMat.emissiveIntensity = lerp(0.05, 1.1, luz);
@@ -900,9 +907,9 @@ function renderAt(t) {
   // ---- números 3D (capa de arriba) ----
   {
     const Z = -6;
-    const pop = (a, b, sMax) => (en(t, a, b + 0.3) ? sMax * bk(sg(t, a, a + 0.3)) * (1 - eio(sg(t, b, b + 0.22))) : 0);
+    const pop = (a, b, sMax) => (en(t, a, b + 0.3) ? sMax * pin(t, a, a + 0.3) * pout(t, b, b + 0.15) : 0);
     ponerNumero(N.n3, pop(w(25) - 0.05, w(29) - 0.12, 0.5), 0, 0.78, Z, Math.sin(t * 0.9) * 0.2);
-    ponerNumero(N.n30, pop(w(32) - 0.08, w(33) - 0.1, 0.5) * (1 + 0.08 * Math.sin(Math.PI * sg(t, w(32) + 0.15, w(32) + 0.45))), 0, 0.78, Z, Math.sin(t * 0.9) * 0.2);
+    ponerNumero(N.n30, pop(w(32) - 0.08, w(33) - 0.3, 0.5) * (1 + 0.08 * Math.sin(Math.PI * sg(t, w(32) + 0.15, w(32) + 0.45))), 0, 0.78, Z, Math.sin(t * 0.9) * 0.2);
     ponerNumero(N.n24b, pop(w(59) - 0.08, S["s11-tienda"] - 0.1, 0.5), 0, 0.78, Z, Math.sin(t * 0.9) * 0.2);
   }
 
