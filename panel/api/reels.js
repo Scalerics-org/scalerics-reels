@@ -1,14 +1,20 @@
-// Los reels terminados (los que tienen su mp4 en una rama reel/*), del más nuevo al más viejo,
+// Los reels terminados (en "Hechos" y con su rama reel/*), del más nuevo al más viejo,
 // con su descripción y en qué redes ya salieron.
 import { REPO, exigirSesion, gh, ghTexto, leerEstado } from "./_lib.js";
+
+// Solo la sección "## Hechos" de ideas.md. Los de "En curso" pueden tener ya su rama reel/<slug>
+// (la rutina deja ahí lo que va armando) sin el mp4, y en el panel salían con el video roto.
+export function reelsHechos(ideas) {
+  const seccion = (ideas.split(/^## Hechos[^\n]*\n/m)[1] || "").split(/^## /m)[0];
+  return [...seccion.matchAll(/^- (\d\d-\d\d) · `([a-z0-9-]+)` · ([^·]+)· (.+)$/gm)].map((m) => ({
+    fecha: m[1], slug: m[2], producto: m[3].trim(), gancho: m[4].replace(/\s*\[[^\]]*\]\s*$/, "").trim(),
+  }));
+}
 
 export default async function handler(req, res) {
   if (!exigirSesion(req, res)) return;
   try {
-    const ideas = await ghTexto("ideas.md");
-    const hechos = [...ideas.matchAll(/^- (\d\d-\d\d) · `([a-z0-9-]+)` · ([^·]+)· (.+)$/gm)].map((m) => ({
-      fecha: m[1], slug: m[2], producto: m[3].trim(), gancho: m[4].replace(/\s*\[[^\]]*\]\s*$/, "").trim(),
-    }));
+    const hechos = reelsHechos(await ghTexto("ideas.md"));
     const ramas = [];
     for (let pag = 1; pag <= 3; pag++) {
       const r = await (await gh(`/repos/${REPO}/branches?per_page=100&page=${pag}`)).json();
