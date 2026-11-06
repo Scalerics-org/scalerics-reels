@@ -62,8 +62,8 @@
 
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".v", 1.34, 1.1);
-      tl.to(q(".a"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.02);
-      tl.to(q(".v"), { y: -90, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.1);
+      // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
+      tl.to(qa(".a, .v"), { y: -110, opacity: 0, duration: 0.16, ease: "power2.in" }, 2.04);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
