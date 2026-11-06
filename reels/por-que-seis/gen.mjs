@@ -164,8 +164,8 @@ const CSS_MK = `
       tl.set(q(".pq"), { opacity: 0 }, ${r2(w(id, 14) - 0.2)});
       nota(1, ${r2(w(id, 15))});`,
     sfx: [
-      { t: -0.3, sfx: "whoosh", vol: 0.05, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
-      { t: w(id, 14) - 0.1, sfx: "whoosh", vol: 0.12, max: 0.6 },
+      { t: -0.3, sfx: "whoosh-short", vol: 0.05, max: 0.5 }, { t: 0.05, sfx: "impact-bass-1", vol: 0.1 },
+      { t: w(id, 14) - 0.1, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 },
       { t: r2(w(id, 14) + 0.03), sfx: "burbuja", vol: 0.08 }, { t: r2(w(id, 14) + 0.1), sfx: "pop", vol: 0.06 },
       { t: w(id, 15) + 0.1, sfx: "key-press", vol: 0.12 },
     ],
@@ -180,7 +180,7 @@ const CSS_MK = `
     html: `${leads(lead(1, 870, 560, 790, 640, "g"))}${pill(1, 870, 520, "Más gente", "lleno medio")}`,
     js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.48)}, 0.14);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.14, max: 0.7 },
+      { t: -0.1, sfx: "whoosh-cine-corto2", vol: 0.1, max: 0.7 },
       ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.09), sfx: i % 2 ? "key-press" : "click-soft", vol: 0.08 })),
       { t: r2(w(id, 20) - 0.12), sfx: "burbuja", vol: 0.1 },
       { t: r2(ESC[id] - 0.5), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
@@ -195,7 +195,7 @@ const CSS_MK = `
     html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}`,
     js: `nota(1, 0.35); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.16);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh", vol: 0.12, max: 0.7 }, { t: -0.06, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
+      { t: -0.1, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.7 }, { t: 0.04, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
       { t: w(id, 25) - 0.05, sfx: "impact-bass-1", vol: 0.07, max: 0.5 }, { t: w(id, 25) - 0.04, sfx: "pop", vol: 0.1 },
       { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.12 }, { t: w(id, 25) + 0.37, sfx: "burbuja", vol: 0.12 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.12 },
     ],
@@ -238,7 +238,7 @@ const CSS_MK = `
     js: `nota(1, 0.4);`,
     sfx: [
       { t: -0.6, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.7 },
-      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(0.03 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
+      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(-0.25 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
       { t: w(id, 39) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.44, sfx: "key-press", vol: 0.14 },
     ],
   });
@@ -280,7 +280,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.05, sfx: "whoosh", vol: 0.09, max: 0.6 },
+      { t: -0.05, sfx: "whoosh-short", vol: 0.09, max: 0.6 },
       ...Array.from({ length: 4 }, (_, i) => ({ t: r2(0.22 + i * 0.1), sfx: i % 2 ? "burbuja" : "pop", vol: 0.06 })),
       { t: w(id, 59) - 0.05, sfx: "impact-bass-2", vol: 0.08, max: 0.5 },
     ],
@@ -307,7 +307,7 @@ const CSS_MK = `
   escena(id, {
     html: `<i></i>`,
     js: ``,
-    sfx: [{ t: w(id, 68), sfx: "click", vol: 0.12 }, { t: w(id, 70), sfx: "click", vol: 0.12 }],
+    sfx: [{ t: w(id, 68), sfx: "key-press", vol: 0.12 }, { t: w(id, 70), sfx: "click", vol: 0.12 }],
   });
 }
 
@@ -340,7 +340,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.2, sfx: "whoosh", vol: 0.11, max: 0.7 }, { t: 0.05, sfx: "burbuja", vol: 0.1 },
+      { t: -0.2, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.05, sfx: "burbuja", vol: 0.1 },
       { t: w(id, 80), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 83) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
     ],
   });

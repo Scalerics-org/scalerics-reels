@@ -427,7 +427,7 @@ async function dibujarPantallas() {
   await document.fonts.load('500 40px "IBM Plex Mono"');
   const F = (w, s) => `${w} ${s}px "Lexend", sans-serif`;
   const hex = (n) => "#" + n.toString(16).padStart(6, "0");
-  const barra = (x, hora, c = "#efeee5") => { x.fillStyle = c; x.font = F(600, 34); x.textAlign = "left"; x.fillText(hora, 48, 66); x.fillRect(600, 44, 64, 26); };
+  const barra = (x, hora, c = "#efeee5") => { void hora; x.fillStyle = c; x.fillRect(600, 44, 64, 26); }; // sin la hora (texto de relleno que no se leía)
   const tick = (x, cx, cy, r, fondo = "#5ce611", trazo = "#0b1220") => { x.fillStyle = fondo; x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); x.fill(); x.strokeStyle = trazo; x.lineWidth = r * 0.28; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(cx - r * 0.45, cy + r * 0.02); x.lineTo(cx - r * 0.1, cy + r * 0.38); x.lineTo(cx + r * 0.5, cy - r * 0.36); x.stroke(); };
   // frasco dibujado: vidrio con contorno navy, mermelada, etiqueta, y la tela cuadrillé pegada a la boca, atada
   const frascoDib = (x, cx, cy, s, f, tela = 0) => {
@@ -454,7 +454,7 @@ async function dibujarPantallas() {
     x.fillStyle = "#e9e7dc"; x.fillRect(0, 0, 720, 1458);
     x.fillStyle = "#1f3254"; x.fillRect(0, 0, 720, 200); barra(x, "20:14");
     x.fillStyle = "#7d8597"; x.beginPath(); x.arc(84, 146, 36, 0, Math.PI * 2); x.fill();
-    x.fillStyle = "#efeee5"; x.font = F(700, 44); x.fillText("Catálogo", 140, 162);
+    x.fillStyle = "#efeee5"; x.font = F(800, 62); x.fillText("Catálogo", 140, 168);
   });
   {
     const c = document.createElement("canvas"); c.width = 720; c.height = 2600; const x = c.getContext("2d");
@@ -487,20 +487,20 @@ async function dibujarPantallas() {
   // 2) la tienda: lo más pedido primero, pocas categorías; elige y paga
   const tienda = (paso) => lienzo((x) => {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, 720, 1458); barra(x, "20:16", "#0b1220");
-    x.fillStyle = "#0b1220"; x.font = F(800, 66); x.fillText("Tu tienda", 48, 186);
+    x.fillStyle = "#0b1220"; x.font = F(800, 76); x.fillText("Tu tienda", 44, 180);
     // pocas categorías: dos, grandes (se leen en el celular)
     const cats = ["Mermeladas", "Regalos"];
-    let X = 44; x.font = F(700, 46);
+    let X = 40; x.font = F(800, 52);
     cats.forEach((c, i) => {
       const w = x.measureText(c).width + 52;
-      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 226, w, 80, 40); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 26, 282); }
+      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 222, w, 84, 42); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 26, 282); }
       X += w + 16;
     });
     if (paso >= 1) {
       x.strokeStyle = "#5ce611"; x.lineWidth = 9; x.strokeRect(36, 346, 648, 520);
       [[36, 346], [684, 346], [36, 866], [684, 866]].forEach(([a, b]) => { x.fillStyle = "#ffffff"; x.fillRect(a - 11, b - 11, 22, 22); x.strokeStyle = "#5ce611"; x.lineWidth = 5; x.strokeRect(a - 11, b - 11, 22, 22); });
     }
-    x.fillStyle = "#0b1220"; x.font = F(800, 50); x.fillText("Los más pedidos", 56, 414);
+    x.fillStyle = "#0b1220"; x.font = F(800, 58); x.fillText("Los más pedidos", 54, 418);
     [[0, 0], [1, 1], [3, 0]].forEach(([f, tl], i) => {
       const cx = 144 + i * 216;
       const elegido = paso >= 3 && i === 0;
@@ -510,7 +510,7 @@ async function dibujarPantallas() {
       x.fillStyle = "#5ce611"; rr(x, cx - 70, 768, 100, 48, 14);
       if (elegido) tick(x, cx + 62, 472, 34);
     });
-    x.fillStyle = "#0b1220"; x.font = F(700, 46); x.fillText("Mermeladas", 52, 946);
+    x.fillStyle = "#0b1220"; x.font = F(800, 56); x.fillText("Mermeladas", 50, 950);
     for (let i = 0; i < 4; i++) { x.fillStyle = "#ffffff"; rr(x, 48 + i * 160, 970, 144, 160, 20); frascoDib(x, 120 + i * 160, 1062, 0.55, (i + 2) % 6, i % 2); }
     x.fillStyle = "#0b1220"; rr(x, 48, 1220, 624, 170, 46);
     if (paso >= 4) { tick(x, 150, 1305, 46); x.fillStyle = "#5ce611"; x.font = F(800, 60); x.fillText("Pagado", 222, 1326); }
@@ -521,7 +521,7 @@ async function dibujarPantallas() {
   pantallas.llamada = lienzo((x) => {
     x.fillStyle = "#0b1220"; x.fillRect(0, 0, 720, 1458); barra(x, "10:00");
     x.fillStyle = "#efeee5"; rr(x, 36, 110, 648, 760, 40);
-    x.fillStyle = "#0b1220"; x.font = F(800, 58); x.fillText("Tu tienda", 76, 196);
+    x.fillStyle = "#0b1220"; x.font = F(800, 80); x.fillText("Tu tienda", 70, 210);
     frascoDib(x, 250, 520, 2.0, 0, 0);
     // canasta verde
     x.fillStyle = "#5ce611"; x.beginPath(); x.moveTo(400, 560); x.lineTo(640, 560); x.lineTo(612, 740); x.lineTo(428, 740); x.closePath(); x.fill();
@@ -575,16 +575,16 @@ const CAM = [
   [(w(29) + w(31)) / 2, 0, 46, 9.8, 0, 0.35, CAN_A.z - 0.75],
   [w(31), 2, 48, 7.2, CAN_B.x, 0.35, CAN_B.z - 0.75],
   [w(33) - 0.25, 2, 46, 7.0, CAN_B.x, 0.35, CAN_B.z - 0.75],
-  [w(33) + 0.25, 4, 40, 2.9, JAR.x, 1.6, JAR.z],
-  [w(33) + 0.5, 3, 39, 2.8, JAR.x, 1.62, JAR.z],
-  [w(36) + 0.05, 0, 38, 2.6, JAR.x, 1.65, JAR.z],
+  [w(33) + 0.25, 4, 40, 2.9, JAR.x, 1.74, JAR.z],
+  [w(33) + 0.5, 3, 39, 2.8, JAR.x, 1.76, JAR.z],
+  [w(36) + 0.05, 0, 38, 2.7, JAR.x, 1.78, JAR.z],
   [S["s08-despues"] + 0.32, -3, 6, 10.2, RING.x, RING.y - 0.1, RING.z],
   [w(43), 3, 6, 10.0, RING.x, RING.y - 0.1, RING.z],
   [S["s09-whatsapp"] + 0.45, 2, 4, 8.5, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] - 0.05, -3, 4, 8.3, CEL.x, 2.42, CEL.z],
-  [S["s10-mesa24"] + 0.24, -6, 46, 10.6, 0, 1.4, CEL.z],
-  [w(60), -2, 45, 10.4, 0, 1.4, CEL.z],
-  [w(62) + 0.2, -1, 28, 9.2, 0, 1.9, CEL.z],
+  [S["s10-mesa24"] + 0.24, -6, 58, 9.8, 0, 1.3, CEL.z],
+  [w(60), -2, 57, 9.6, 0, 1.3, CEL.z],
+  [w(62) + 0.2, -1, 30, 9.9, 0, 1.9, CEL.z],
   [w(63) + 0.3, -2, 10, 8.0, 0, 2.3, CEL.z],
   [w(66), -4, 5, 7.9, 0, 2.48, CEL.z],
   [w(71), 5, 5, 7.9, 0, 2.48, CEL.z],
@@ -641,7 +641,7 @@ function renderAt(t) {
 
   // bisagra "¿Por qué?": las mesas se van y queda solo el "?"
   // las mesas se van antes de que nazca el "?" y vuelven con pop cuando el "?" ya se fue
-  const vis = t < w(14) + 0.02 ? pout(t, w(12) - 0.32, w(12) - 0.14) : pin(t, w(14) + 0.02, w(14) + 0.32);
+  const vis = t < w(14) - 0.04 ? pout(t, w(12) - 0.32, w(12) - 0.14) : 0.8 + 0.2 * bk(sg(t, w(14) - 0.04, w(14) + 0.22));
   // macro de la cucharita: carteles y platos afuera
   const macro = en(t, w(33) - 0.75, S["s08-despues"] + 0.3);
   cartA.g.visible = !macro; cartB.g.visible = !macro; if (platoB) platoB.visible = !macro;
@@ -678,17 +678,17 @@ function renderAt(t) {
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
       }
-      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] + 0.04 && t < S["s08-despues"] - 0.02)) { j.visible = false; return; }
+      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] + 0.04 && t < S["s08-despues"] - 0.25)) { j.visible = false; return; }
       const vA = vis * (1 - mesaFuera);
       let x = MESA_A.x + (h.x - MESA_A.x) * vA, y = h.y * vA, z = MESA_A.z + (h.z - MESA_A.z) * vA, ry = Math.sin(t * 0.8 + idx) * 0.05, s = vA, rz = 0;
       const ti = (idx % 8) * 0.03 + Math.floor(idx / 8) * 0.07;
       y += (1 - bk(sg(t, ti - 0.1, ti + 0.35))) * 0.25;
       y += Math.sin(Math.PI * sg(t, w(2) + (idx % 8) * 0.04, w(2) + (idx % 8) * 0.04 + 0.3)) * 0.1;
-      if (t >= S["s08-despues"] - 0.02) {
+      if (t >= S["s08-despues"] - 0.25) {
         // el anillo nace del centro: cada frasco sale con pop hacia su lugar
         const a0 = ANG(t) + (idx / 24) * Math.PI * 2;
-        const arriba = Math.abs((((a0 - Math.PI) % (Math.PI * 2)) + Math.PI * 3) % (Math.PI * 2) - Math.PI) / Math.PI; // 0 abajo, 1 arriba
-        const tn = S["s08-despues"] + 0.02 + arriba * 0.3;
+        const lado = (1 - Math.sin(a0)) / 2; // 0 a la derecha (de donde viene la cámara), 1 a la izquierda
+        const tn = S["s08-despues"] - 0.25 + lado * 0.32;
         const ai = eo(sg(t, tn, tn + 0.25));
         const [px, py, pz, a] = enAnillo(idx, t);
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
@@ -706,10 +706,10 @@ function renderAt(t) {
 
   // ---- mesa chica (6): entra con pop en "vendieron", se prende en "seis" ----
   {
-    const entra = pin(t, w(7) - 0.05, w(7) + 0.35);
+    const entra = pin(t, w(7) + 0.1, w(7) + 0.4);
     const kB = t < S["s05-tres"] - 0.45 ? 1 : t < w(33) - 0.7 ? pout(t, S["s05-tres"] - 0.58, S["s05-tres"] - 0.42) : pin(t, w(33) - 0.7, w(33) - 0.45);
     const MBX = t >= w(33) - 0.7 ? MB2.x : MESA_B.x, MBZ = t >= w(33) - 0.7 ? MB2.z : MESA_B.z;
-    const s = entra * kB * pout(t, S["s08-despues"] - 0.3, S["s08-despues"] - 0.12) * vis;
+    const s = entra * kB * pout(t, S["s08-despues"] + 0.25, S["s08-despues"] + 0.4) * vis;
     mB.g.visible = s > 0.002; sombraB.visible = mB.g.visible;
     if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MBX, 0, MBZ); sombraB.position.set(MBX, 0.005, MBZ); sombraB.scale.setScalar(s); }
     frascosB.forEach((j, i) => {
@@ -770,7 +770,8 @@ function renderAt(t) {
   sueltos.forEach((j) => { j.visible = false; resetTapa(j); });
   let canAenUso = false;
   {
-    const sA = en(t, S["s05-tres"] - 0.06, w(33) + 0.3) ? pin(t, S["s05-tres"] - 0.06, S["s05-tres"] + 0.26) * pout(t, w(33) - 0.1, w(33) + 0.05) : 0;
+    const sA = en(t, S["s05-tres"] + 0.04, w(33) + 0.3) ? pin(t, S["s05-tres"] + 0.04, S["s05-tres"] + 0.34) * pout(t, w(33) - 0.1, w(33) + 0.05) : 0;
+    if (sA <= 0.002) ocultar(canastaA, 0);
     if (sA > 0.002) {
       canAenUso = true;
       ocultar(canastaA, sA); canastaA.position.set(CAN_A.x, 0, CAN_A.z); canastaA.rotation.set(0, 0.15, 0);
@@ -798,7 +799,7 @@ function renderAt(t) {
         if (u <= 0) continue;
         const j = sueltos[3 + k]; j.visible = true; j.scale.setScalar(0.92 * sB);
         const [lx, ly, lz] = ADENTRO[k];
-        _p.set(lx, ly + (1 - u * u) * 1.3, lz); canastaB.localToWorld(_p); j.position.copy(_p); j.rotation.set(0, k * 0.9, 0);
+        _p.set(lx, ly + (1 - u * u) * 0.95, lz); canastaB.localToWorld(_p); j.position.copy(_p); j.rotation.set(0, k * 0.9, 0);
       }
     }
   }
@@ -810,7 +811,7 @@ function renderAt(t) {
       const j = frascosB[2], base = j.position.clone();
       const baja = 1;
       const sube = eio(sg(t, w(33) + 0.35, w(36) + 0.1));
-      s = 1.45 * pin(t, w(33) + 0.05, w(33) + 0.3) * pout(t, S["s08-despues"] - 0.3, S["s08-despues"] - 0.14);
+      s = 1.15 * pin(t, w(33) + 0.05, w(33) + 0.3) * pout(t, S["s08-despues"] - 0.2, S["s08-despues"] - 0.04);
       x = base.x + sube * 0.03; y = base.y + 0.45 + sube * 0.4; z = base.z + sube * 0.45;
       rx = -sube * 0.85; rz = lerp(0.45, 0.0, baja);
       carga = sg(t, w(33) + 0.3, w(33) + 0.35);
@@ -864,7 +865,7 @@ function renderAt(t) {
       x = lerp(x, -1.12, p13); y = lerp(y, 1.15, p13); z = lerp(z, 2.2, p13); escala = lerp(escala, 0.52, p13); ryO = lerp(ryO, 0.35, p13);
       // cierre: viaja al centro dándose vuelta; del otro lado está la videollamada
       const cta = eo(sg(t, S["s15-cta"] - 0.6, S["s15-cta"] - 0.12)); // crece de frente hacia el centro, sin darse vuelta
-      const cta2 = eio(sg(t, S["s15-cta"] - 0.06, S["s15-cta"] + 0.22)); // baja y deja lugar a los textos
+      const cta2 = eio(sg(t, S["s15-cta"] - 0.22, S["s15-cta"] + 0.08)); // baja y deja lugar a los textos
       x = lerp(x, 0, cta); y = lerp(lerp(y, 1.05, cta), 0.3, cta2); z = lerp(z, 0.6, cta); escala = lerp(lerp(escala, 1.32, cta), 1.16, cta2);
       ryO = lerp(ryO, Math.sin(t * 0.7) * 0.06, cta);
       if (t >= S["s15-cta"] + 0.04) tex = pantallas.llamada;
