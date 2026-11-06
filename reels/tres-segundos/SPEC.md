@@ -272,3 +272,21 @@ y el techo verde. Velo de vuelta en s05 (primer plano). Firma oculta también en
 **Sonido.** s05: whoosh corto al salir del celular, click en cada toque y whoosh corto en cada deslizar; ping de "0 avisos"
 en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos de 0,5 s): con la voz hablando, al menos
 6,6 LU arriba de música+SFX; premezcla voz -17,4 LUFS, todo -17,3 LUFS, pico -2,8 dBFS (el loudnorm del paso 10 la lleva a -14).
+
+## Revisión 1 (06-11): correcciones de los 3 revisores
+- **Guion/voz:** G3 "Alguien te busca desde la parada, con hambre." (regenerada y pegada solo esa frase, +1 palabra:
+  índices corridos desde 23 en reel.json, tres.js y gen.mjs). S2: los dos tramos pegados ecualizados (lowshelf 250 Hz)
+  y nivelados; medido por banda: graves <250 Hz a ±1,5 LU del resto. G4 no se hizo (no se regeneró esa frase). Cola 0,5 s
+  (DUR 32,33; cierre 3,01 s desde "videollamada").
+- **Arte:** caja abierta del callback sacada (A1); corte limpio Nico→pizzería en "Y nunca" (A2) y página→cronómetro en
+  "¿Cuánto" (A3), con claves de cámara "c" (corte) en `CAM`; el cronómetro se achica en su lugar (sin cortarse abajo);
+  en los viajes estudio↔parada el celular va pegado a la cámara por el centro y recién al final baja a la mano (nunca
+  dos celulares ni cuadros vacíos); al volver a la mano en s05 baja por debajo de la cara. s07 reencuadrado (pizza,
+  caja y campana enteras, sin tercio vacío). Gancho sale entero en 0,16 s; siluetas nacen a tamaño; 53 % verde de marca
+  y el rótulo se va con él; fila de siluetas más angosta. Interfaz con letra más grande (URL 56, hora 50, "Abierto hoy"
+  54, botón "Pedí por WhatsApp" 54 px de canvas); "0 avisos" en pill grande; "Fotos pesadas" abajo a la izquierda, fuera
+  de los marcos. Callback "Misma parada" más cerca, globo arriba de Nico, cronómetro sin nacer de cero. Celular de la
+  videollamada ~44 % del ancho. Aceitunas verdes enteras (muzzarella uruguaya), interior de la tapa de cartón.
+- **Sonido:** sin ping en "0 avisos"; pops/clicks variados (burbuja, key-press, click-soft) y menos; tic-tac real CC0
+  (olver, Freesound 130388); sello real CC0 (kermite607) en el cuadro del sello; "rápida en el celular" un solo grupo;
+  "Agendá una" con subtítulo y la pregunta se va antes; push-in en s12 y botón del cronómetro que se aprieta más.

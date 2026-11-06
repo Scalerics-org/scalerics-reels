@@ -137,7 +137,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.to(qa(".a, .v"), { y: -110, opacity: 0, duration: 0.16, ease: "power2.in" }, ${r2(rel(id, W(10)) - 0.08)});`,
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.022, max: 0.35 },
-      { t: T1, sfx: "tic-real", vol: 0.8 }, { t: T2, sfx: "tac-real", vol: 0.9 }, { t: T3, sfx: "tic-real", vol: 1 },
+      { t: T1, sfx: "tic-real", vol: 0.45 }, { t: T2, sfx: "tac-real", vol: 0.5 }, { t: T3, sfx: "tic-real", vol: 0.5 },
       { t: T3 + 0.08, sfx: "glitch-1", vol: 0.1, max: 0.3 },
       { t: rel(id, W(10)) - 0.1, sfx: "whoosh", vol: 0.24, max: 0.8 },
       { t: rel(id, W(10)) + 0.02, sfx: "burbuja", vol: 0.5 }, { t: rel(id, W(10)) + 0.3, sfx: "pop", vol: 0.18 },
@@ -156,7 +156,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="dato">de las visitas desde el celular se va<br>si tarda más de 3 s</div>
       ${pill(2, 540, 1645, "Fuente: Google", "f")}`,
     js: `
-      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.12)});
+      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.26)});
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
       fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.3)}, 0.12);`,
     sfx: [
@@ -192,7 +192,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: 0.45, sfx: "pop", vol: 0.18 },
-      { t: rel(id, W(33)), sfx: "tic-real", vol: 1 }, { t: rel(id, W(33)) + 0.02, sfx: "pop", vol: 0.14 },
+      { t: rel(id, W(33)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(33)) + 0.02, sfx: "pop", vol: 0.14 },
     ],
   });
 }
@@ -203,8 +203,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: rel(id, W(34)), sfx: "tac-real", vol: 1 }, { t: rel(id, W(34)) + 0.02, sfx: "burbuja", vol: 0.3 },
-      { t: rel(id, W(35)), sfx: "tic-real", vol: 1 }, { t: rel(id, W(35)) + 0.06, sfx: "glitch-1", vol: 0.12, max: 0.35 },
+      { t: rel(id, W(34)), sfx: "tac-real", vol: 0.5 }, { t: rel(id, W(34)) + 0.02, sfx: "burbuja", vol: 0.3 },
+      { t: rel(id, W(35)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(35)) + 0.06, sfx: "glitch-1", vol: 0.12, max: 0.35 },
     ],
   });
 }
@@ -255,7 +255,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     sfx: [
       { t: 0.0, sfx: "burbuja", vol: 0.4 }, { t: 0.3, sfx: "impact-bass-2", vol: 0.03, max: 0.5 },
       { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.5, sfx: "impact-bass-2", vol: 0.022, max: 0.5 },
-      { t: rel(id, W(55)) - 0.02, sfx: "sello", vol: 1 }, { t: rel(id, W(55)), sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
+      { t: rel(id, W(55)) - 0.02, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)), sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
     ],
   });
 }
@@ -306,7 +306,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: 0.55, sfx: "burbuja", vol: 0.4 },
-      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.9 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.4, sfx: "chime", vol: 0.5, max: 0.9 },
+      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.4, sfx: "chime", vol: 0.5, max: 0.9 },
       { t: rel(id, W(75)), sfx: "whoosh", vol: 0.2, max: 0.7 },
     ],
   });
@@ -341,7 +341,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.16)}); // deja lugar al subtítulo "Agendá una"`,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.35 },
-      { t: 0.6, sfx: "tic-real", vol: 0.9 }, { t: 1.4, sfx: "tac-real", vol: 0.9 },
+      { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.4, sfx: "tac-real", vol: 0.5 },
     ],
   });
 }
