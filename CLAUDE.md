@@ -464,8 +464,23 @@ coordinador, y cada reel pasa por un equipo, no por un solo subagente:
 4. **Revisión independiente (6 subagentes a la vez: 3 por reel, ninguno es el que lo construyó).**
    Cada uno arranca de cero, mira el reel y devuelve una lista de defectos con el segundo exacto;
    no arreglan nada, solo informan:
-   - **Director de arte:** snapshots cada 0,5 s; cortado, pisado, chico, vacío, repetido, ilegible,
-     objeto que no se reconoce ("¿esto es un chivito o una hamburguesa?"), transición floja.
+   - **Director de arte (QA visual, sobre el MP4 renderizado, no el preview):** cuadros con ffmpeg
+     cada 0,25 s, y cuadro por cuadro (30 fps) alrededor de CADA corte y transición, que es donde
+     aparecen los bugs de un instante. Juan, 05-11, sobre un reel que ya había pasado tres revisiones
+     del que lo construyó: "hay muchos errores visuales, tiene que quedar perfecto sin ningún bug"; un
+     QA independiente encontró 45. Lo que más se escapa, buscalo a propósito:
+     geometría que atraviesa personajes (números 3D que nacen dentro de una cabeza, manos o bombilla
+     que atraviesan la cara, dedos en la boca); ojos cerrados o párpados como bultos de piel cuando
+     el personaje habla; personajes que se ven mal o raros (proporciones, pelo tipo casquete);
+     etiquetas con el nombre del personaje equivocado o encima de una cara; carteles que cambian de
+     aspecto entre cortes o quedan semitransparentes o vacíos; texto fantasma (subtítulo o tarjeta que
+     asoma antes de tiempo); texturas negras o marrones sin contenido (pantallas vacías, burbujas con
+     textura de madera); objetos despegados de su soporte al girar; motas o astillas sueltas; pop de
+     objetos y saltos de continuidad entre planos (aparece un termo, desaparece la laptop); texto
+     blanco sobre fondo claro; texto chico (menos de ~36 px en un 1080x1920 no se lee en el celular);
+     algo tocando o cortado por el borde; franjas vacías (la inferior); transiciones que arrancan como
+     un agujero negro en una cara; ortografía de burbujas y carteles. Devuelve la lista con el segundo
+     y la ruta del cuadro. Un reel con un solo defecto de gravedad alta no se entrega.
    - **Sonido y ritmo:** mide la mezcla por tramos (voz ≥ 6 LU sobre el resto, -14 LUFS, sin
      clipping), SFX que falten en acciones visibles, escenas de más de 3 s, cierre de más de 3 s,
      subtítulos mal cortados o grises, que el "oyó:" coincida con el guion.
