@@ -532,11 +532,11 @@ const CAM = [
   [W[67], 6, 8, 8.8, EST2.x, 0.6, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
   [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.6, EST2.z + 0.1, "c"],
-  [S["s10-abre"], 6, 7, 13.6, PAR.x + 0.45, 0.62, PAR.z + 0.9],
-  [W[75], 2, 6, 13.2, PAR.x + 0.45, 0.62, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 13.0, PAR.x + 0.45, 0.62, PAR.z + 0.95],
+  [S["s10-abre"], 6, 7, 14.2, PAR.x + 0.25, 0.62, PAR.z + 0.9],
+  [W[75], 2, 6, 13.8, PAR.x + 0.25, 0.62, PAR.z + 0.95],
+  [S["s11-pagina"] + 0.3, -4, 6, 13.6, PAR.x + 0.25, 0.62, PAR.z + 0.95],
   // corte limpio en "¿Cuánto": de la página a pantalla completa al cronómetro gigante
-  [S["s12-tuya"] - 0.005, -8, 6, 13.0, PAR.x + 0.45, 0.62, PAR.z + 0.95, "c"],
+  [S["s12-tuya"] - 0.005, -8, 6, 13.6, PAR.x + 0.25, 0.62, PAR.z + 0.95, "c"],
   [S["s12-tuya"], -10, 6, 14.2, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
@@ -780,11 +780,11 @@ function renderAt(t) {
       cronoSombra.visible = false;
     } else if (en(t, S10 + 0.2, W[75] + 0.2)) {
       // s10 · misma parada: arranca en "abre" y frena EN VERDE mucho antes del 1
-      s = (t < S10 + 0.45 || t >= W[75] + 0.06 ? 0 : 0.4 * lerp(0.6, 1, bk(sg(t, S10 + 0.45, S10 + 0.7)))) * lerp(1, 0.55, eio(sg(t, W[75] - 0.1, W[75] + 0.06)));
+      s = (t < S10 + 0.45 || t >= W[75] + 0.06 ? 0 : 0.33 * lerp(0.6, 1, bk(sg(t, S10 + 0.45, S10 + 0.7)))) * lerp(1, 0.55, eio(sg(t, W[75] - 0.1, W[75] + 0.06)));
       m = 1.85 * eo(sg(t, W[73], W[73] + 0.36));
       colorEst = C.g;
       pulsa = Math.sin(Math.PI * sg(t, W[73] + 0.32, W[73] + 0.5));
-      crono.position.set(PAR.x - 0.42, 0.3, PAR.z + 2.3); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
+      crono.position.set(PAR.x - 0.5, 0.32, PAR.z + 2.3); crono.rotation.set(0.05, 0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
