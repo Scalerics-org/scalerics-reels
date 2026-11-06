@@ -143,7 +143,7 @@ const faldonGeo = (() => {
 })();
 const hiloGeo = new THREE.TorusGeometry(0.188, 0.008, 6, 40).rotateX(Math.PI / 2);
 const monoGeo = new THREE.TorusGeometry(0.035, 0.008, 6, 14);
-const etiquetaGeo = new THREE.CylinderGeometry(0.203, 0.203, 0.19, 28, 1, true, -1.05, 2.1);
+const etiquetaGeo = new THREE.CylinderGeometry(0.2015, 0.2015, 0.19, 28, 1, true, -1.05, 2.1);
 const vidrioMat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.06, metalness: 0, transparent: true, opacity: 0.3, clearcoat: 1, clearcoatRoughness: 0.04, envMapIntensity: 2.2, depthWrite: false, side: THREE.FrontSide });
 const vidrioBordeMat = new THREE.MeshPhysicalMaterial({ color: 0xf6fbff, roughness: 0.1, transparent: true, opacity: 0.75, clearcoat: 1, envMapIntensity: 2 });
 const hiloMat = mat(0xd8c49a, 0.85);
@@ -277,7 +277,8 @@ const sueltos = Array.from({ length: 14 }, (_, i) => { const j = frasco(i % 6, i
 // ================= GENTE (siluetas sin cara) =================
 const cuerpoGeo = new THREE.CapsuleGeometry(0.21, 0.78, 4, 14); cuerpoGeo.translate(0, 0.62, 0);
 const cabezaGeo = new THREE.SphereGeometry(0.17, 18, 12);
-const GENTE_A = [[-2.45, -0.75], [-2.6, 0.25], [-2.4, 1.2], [-1.55, 1.75], [-0.5, 1.85], [0.5, 1.8], [1.5, 1.75], [2.4, 1.2], [2.6, 0.25], [2.45, -0.75], [-1.1, -1.6], [0.9, -1.65], [-2.0, 2.35], [0.0, 2.45], [2.0, 2.35]];
+const GENTE_A0 = [[-2.45, -0.75], [-2.6, 0.25], [-2.4, 1.2], [-1.55, 1.75], [-0.5, 1.85], [0.5, 1.8], [1.5, 1.75], [2.4, 1.2], [2.6, 0.25], [2.45, -0.75], [-1.1, -1.6], [0.9, -1.65], [-2.0, 2.35], [0.0, 2.45], [2.0, 2.35]];
+const GENTE_A = GENTE_A0.map(([x, z]) => [x * 0.86, z]);
 const GENTE_B = [[-1.9, 5.15]];
 const persona = (i) => {
   const m = i % 3 === 0 ? M.navy3 : i % 3 === 1 ? M.navy2 : M.edge;
@@ -296,26 +297,30 @@ const agujerosTex = (() => {
   x.globalCompositeOperation = "source-over";
   const t = new THREE.CanvasTexture(c); return t;
 })();
-const paredMat = new THREE.MeshStandardMaterial({ color: C.g, roughness: 0.45, alphaMap: agujerosTex, alphaTest: 0.5, side: THREE.DoubleSide });
-function canasta() {
+const paredMatDe = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.45, alphaMap: agujerosTex, alphaTest: 0.5, side: THREE.DoubleSide });
+function canasta(cP = C.g, cB = C.gd) {
+  const paredMat = paredMatDe(cP), bordeM = mat(cB, 0.5);
   const g = new THREE.Group();
   const W2 = 1.15, H2 = 0.56, D2 = 0.78;
-  g.add(mesh(rbox(W2 - 0.1, 0.05, D2 - 0.1, 0.02), M.gd, 0, 0.025, 0));
+  g.add(mesh(rbox(W2 - 0.1, 0.05, D2 - 0.1, 0.02), bordeM, 0, 0.025, 0));
   const pf = new THREE.PlaneGeometry(W2, H2), pl = new THREE.PlaneGeometry(D2, H2);
   const a = mesh(pf, paredMat, 0, H2 / 2, D2 / 2); a.rotation.x = -0.06; g.add(a);
   const b = mesh(pf, paredMat, 0, H2 / 2, -D2 / 2); b.rotation.x = 0.06; g.add(b);
   const c = mesh(pl, paredMat, W2 / 2, H2 / 2, 0); c.rotation.y = Math.PI / 2; g.add(c);
   const d = mesh(pl, paredMat, -W2 / 2, H2 / 2, 0); d.rotation.y = Math.PI / 2; g.add(d);
-  g.add(mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), M.gd, 0, H2, D2 / 2), mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), M.gd, 0, H2, -D2 / 2));
-  g.add(mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), M.gd, W2 / 2, H2, 0), mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), M.gd, -W2 / 2, H2, 0));
+  g.add(mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), bordeM, 0, H2, D2 / 2), mesh(rbox(W2 + 0.06, 0.06, 0.06, 0.025), bordeM, 0, H2, -D2 / 2));
+  g.add(mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), bordeM, W2 / 2, H2, 0), mesh(rbox(0.06, 0.06, D2 + 0.06, 0.025), bordeM, -W2 / 2, H2, 0));
   const asaGeo = new THREE.TorusGeometry(W2 / 2 - 0.02, 0.032, 10, 40, Math.PI);
   const asa1 = mesh(asaGeo, M.navy, 0, H2, D2 / 2); asa1.rotation.x = 1.25; g.add(asa1);
   const asa2 = mesh(asaGeo, M.navy, 0, H2, -D2 / 2); asa2.rotation.x = -1.25; g.add(asa2);
   const s = sombra(1.8, 1.4, g); s.position.y = 0.005;
   scene.add(g); return g;
 }
-const canastaA = canasta(), canastaB = canasta();
-const CAN_A = { x: 0, z: 0.4 }, CAN_B = { x: -0.2, z: 6.5 }; // A nace donde estaba la mesa grande; B delante de la mesa chica
+const canastaA = canasta(0xa9a79d, 0x8a887f), canastaB = canasta(), canastaC = canasta(); // A (mesa de 24, el problema) gris; B y la de la tienda (C) verdes
+// las dos canastas una al lado de la otra: travelling lateral de A a B con las dos en cuadro
+const CAN_A = { x: -1.0, z: 0.6 }, CAN_B = { x: 1.0, z: 0.6 };
+// para el macro de "ganas" la mesa chica reaparece a la derecha de la canasta B (otro travelling lateral)
+const MB2 = { x: CAN_B.x + 2.9, z: CAN_B.z - 0.13 }, JAR = { x: MB2.x - 0.22, y: 1.6, z: CAN_B.z };
 // posiciones de los frascos dentro de una canasta (local), en capas
 const ADENTRO = [];
 for (const z of [-0.17, 0.17]) for (const x of [-0.3, 0, 0.3]) ADENTRO.push([x, 0.06, z]);
@@ -562,31 +567,32 @@ const CAM = [
   [w(7) + 0.35, 4, 27, 13.4, 0.05, 1.75, 2.6],
   [w(11), 7, 28, 13.6, 0.05, 1.75, 2.7],
   [S["s03-porque"] + 0.3, 9, 27, 13.6, 0.1, 1.6, 3.0],
-  [w(14), 0, 38, 15.6, 0.15, 1.3, 2.0],
-  [S["s04-gente"] + 0.3, 0, 40, 15.1, 0.15, 1.35, 2.0],
-  [w(22), -2, 40, 14.8, 0.15, 1.3, 2.0],
-  [S["s05-tres"] + 0.05, -6, 50, 7.4, CAN_A.x, 0.35, CAN_A.z - 0.75],
-  [w(29) - 0.1, 0, 48, 7.0, CAN_A.x, 0.35, CAN_A.z - 0.75],
-  [(w(29) + w(31)) / 2, -5, 50, 9.0, CAN_B.x, 0.3, CAN_B.z - 2.2],
-  [w(31), -8, 48, 7.2, CAN_B.x, 0.35, CAN_B.z - 0.8],
-  [w(33) + 0.0, -4, 46, 6.6, CAN_B.x + 0.2, 0.4, CAN_B.z - 1.0],
-  [w(33) + 0.3, 4, 40, 2.9, -0.07, 1.6, 4.63],
-  [w(33) + 0.5, 3, 39, 2.8, -0.07, 1.62, 4.63],
-  [w(36) + 0.05, 0, 38, 2.6, -0.07, 1.65, 4.63],
+  [w(14), 0, 38, 15.0, 0.15, 1.3, 2.0],
+  [S["s04-gente"] + 0.3, 0, 40, 14.9, 0.15, 1.35, 2.0],
+  [w(22), -2, 40, 14.6, 0.15, 1.3, 2.0],
+  [S["s05-tres"] + 0.05, -4, 50, 7.4, CAN_A.x, 0.35, CAN_A.z - 0.75],
+  [w(29) - 0.1, -2, 48, 7.2, CAN_A.x, 0.35, CAN_A.z - 0.75],
+  [(w(29) + w(31)) / 2, 0, 46, 9.8, 0, 0.35, CAN_A.z - 0.75],
+  [w(31), 2, 48, 7.2, CAN_B.x, 0.35, CAN_B.z - 0.75],
+  [w(33) - 0.25, 2, 46, 7.0, CAN_B.x, 0.35, CAN_B.z - 0.75],
+  [w(33) + 0.25, 4, 40, 2.9, JAR.x, 1.6, JAR.z],
+  [w(33) + 0.5, 3, 39, 2.8, JAR.x, 1.62, JAR.z],
+  [w(36) + 0.05, 0, 38, 2.6, JAR.x, 1.65, JAR.z],
   [S["s08-despues"] + 0.32, -3, 6, 10.2, RING.x, RING.y - 0.1, RING.z],
   [w(43), 3, 6, 10.0, RING.x, RING.y - 0.1, RING.z],
   [S["s09-whatsapp"] + 0.45, 2, 4, 8.5, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] - 0.05, -3, 4, 8.3, CEL.x, 2.42, CEL.z],
-  [S["s10-mesa24"] + 0.24, -6, 34, 12.0, 0, 1.75, CEL.z],
-  [w(60), -2, 33, 11.8, 0, 1.75, CEL.z],
-  [w(62) + 0.2, -1, 28, 10.2, 0, 1.85, CEL.z],
-  [w(63) + 0.3, -2, 10, 8.6, 0, 2.2, CEL.z],
+  [S["s10-mesa24"] + 0.24, -6, 46, 10.6, 0, 1.4, CEL.z],
+  [w(60), -2, 45, 10.4, 0, 1.4, CEL.z],
+  [w(62) + 0.2, -1, 28, 9.2, 0, 1.9, CEL.z],
+  [w(63) + 0.3, -2, 10, 8.0, 0, 2.3, CEL.z],
   [w(66), -4, 5, 7.9, 0, 2.48, CEL.z],
   [w(71), 5, 5, 7.9, 0, 2.48, CEL.z],
   [S["s13-paga"] + 0.4, 2, 7, 9.2, 0.38, 2.2, 1.2],
   [w(76) + 0.4, -2, 7, 9.4, 0.38, 2.2, 1.2],
   [S["s14-negocio"] + 0.7, -10, 10, 12.6, 0.2, 1.55, -0.2],
   [w(83), -12, 10, 13.0, 0.1, 1.55, -0.2],
+  [S["s15-cta"] - 0.1, -4, 6, 10.4, 0, 1.25, 0.6],
   [S["s15-cta"] + 0.5, -4, 6, 10.4, 0, 1.25, 0.6],
   [DUR, 0, 5, 9.9, 0, 1.25, 0.6],
 ];
@@ -650,8 +656,8 @@ function renderAt(t) {
   {
     const anillo = eio(sg(t, S["s08-despues"] - 0.1, S["s08-despues"] + 0.5));
     const cierra = eio(sg(t, S["s09-whatsapp"] - 0.1, S["s09-whatsapp"] + 0.35));
-    const mesaFuera = 1 - pout(t, S["s05-tres"] - 0.45, S["s05-tres"] - 0.25); // la mesa grande se va cuando llega la canasta
-    const onMesa = t < S["s05-tres"] - 0.25;
+    const mesaFuera = 1 - pout(t, S["s05-tres"] - 0.12, S["s05-tres"] + 0.04); // la mesa grande se va cuando llega la canasta
+    const onMesa = t < S["s05-tres"] + 0.04;
     mA.g.visible = onMesa && vis > 0.01; sombraA.visible = mA.g.visible;
     const visA = vis * (1 - mesaFuera);
     mA.g.visible = mA.g.visible && visA > 0.01; sombraA.visible = mA.g.visible;
@@ -672,7 +678,7 @@ function renderAt(t) {
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
       }
-      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] - 0.25 && t < S["s08-despues"] - 0.02)) { j.visible = false; return; }
+      if (t >= S["s09-whatsapp"] + 0.4 || (t >= S["s05-tres"] + 0.04 && t < S["s08-despues"] - 0.02)) { j.visible = false; return; }
       const vA = vis * (1 - mesaFuera);
       let x = MESA_A.x + (h.x - MESA_A.x) * vA, y = h.y * vA, z = MESA_A.z + (h.z - MESA_A.z) * vA, ry = Math.sin(t * 0.8 + idx) * 0.05, s = vA, rz = 0;
       const ti = (idx % 8) * 0.03 + Math.floor(idx / 8) * 0.07;
@@ -697,24 +703,25 @@ function renderAt(t) {
   // ---- mesa chica (6): entra con pop en "vendieron", se prende en "seis" ----
   {
     const entra = pin(t, w(7) - 0.05, w(7) + 0.35);
-    const kB = t < S["s05-tres"] - 0.45 ? 1 : t < w(33) - 0.08 ? pout(t, S["s05-tres"] - 0.45, S["s05-tres"] - 0.25) : pin(t, w(33) - 0.08, w(33) + 0.15);
-    const s = entra * kB * pout(t, S["s08-despues"] + 0.0, S["s08-despues"] + 0.2) * vis;
+    const kB = t < S["s05-tres"] - 0.45 ? 1 : t < w(33) - 0.7 ? pout(t, S["s05-tres"] - 0.58, S["s05-tres"] - 0.42) : pin(t, w(33) - 0.7, w(33) - 0.45);
+    const MBX = t >= w(33) - 0.7 ? MB2.x : MESA_B.x, MBZ = t >= w(33) - 0.7 ? MB2.z : MESA_B.z;
+    const s = entra * kB * pout(t, S["s08-despues"] - 0.3, S["s08-despues"] - 0.12) * vis;
     mB.g.visible = s > 0.002; sombraB.visible = mB.g.visible;
-    if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MESA_B.x, 0, MESA_B.z); sombraB.position.set(MESA_B.x, 0.005, MESA_B.z); sombraB.scale.setScalar(s); }
+    if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MBX, 0, MBZ); sombraB.position.set(MBX, 0.005, MBZ); sombraB.scale.setScalar(s); }
     frascosB.forEach((j, i) => {
       const ti = w(11) - 0.1 + i * 0.07;
       const sj = s * (1 + 0.18 * Math.sin(Math.PI * sg(t, ti, ti + 0.3)));
       ocultar(j, mB.g.visible ? sj : 0);
       if (!j.visible) return;
       const h = j.userData.home;
-      j.position.set(MESA_B.x + (h.x - MESA_B.x) * s, h.y * s, MESA_B.z + (h.z - MESA_B.z) * s);
+      j.position.set(MBX + (h.x - MESA_B.x) * s, h.y * s, MBZ + (h.z - MESA_B.z) * s);
       j.rotation.set(0, Math.sin(t * 0.8 + i) * 0.06, 0);
       resetTapa(j);
       const tapa = j.userData.tapa;
       if (i === 2) {
         // "No les faltaban ganas": la tapa de tela sale para arriba y se va; entra la cucharita
-        const u = eio(sg(t, w(33) - 0.05, w(33) + 0.4));
-        tapa.position.set(u * 0.5, u * 1.1, -u * 0.2); tapa.rotation.set(u * 0.6, 0, u * 1.2); tapa.scale.setScalar(1 - u); tapa.visible = u < 0.99;
+        // el frasco que se prueba ya está abierto cuando llega la cámara
+        tapa.visible = t < w(33) - 0.7;
       }
       if (i === 3) {
         // la tapa del frasco 4 sube en arco hacia la cámara y se vuelve el "?"
@@ -759,10 +766,10 @@ function renderAt(t) {
   sueltos.forEach((j) => { j.visible = false; resetTapa(j); });
   let canAenUso = false;
   {
-    const sA = en(t, S["s05-tres"] - 0.25, w(33) + 0.3) ? pin(t, S["s05-tres"] - 0.25, S["s05-tres"] + 0.1) * pout(t, w(29) - 0.05, w(29) + 0.1) : 0;
+    const sA = en(t, S["s05-tres"] - 0.06, w(33) + 0.3) ? pin(t, S["s05-tres"] - 0.06, S["s05-tres"] + 0.26) * pout(t, w(33) - 0.1, w(33) + 0.05) : 0;
     if (sA > 0.002) {
       canAenUso = true;
-      ocultar(canastaA, sA); canastaA.position.set(CAN_A.x, 0, CAN_A.z); canastaA.rotation.set(0, 0.25, 0);
+      ocultar(canastaA, sA); canastaA.position.set(CAN_A.x, 0, CAN_A.z); canastaA.rotation.set(0, 0.15, 0);
       for (let k = 0; k < 3; k++) {
         const ti = w(25) - 0.1 + k * 0.17, u = sg(t, ti, ti + 0.3);
         if (u <= 0) continue;
@@ -773,7 +780,7 @@ function renderAt(t) {
       }
     }
     const vacia = en(t, S["s08-despues"] + 0.05, S["s09-whatsapp"]);
-    const sB = en(t, S["s05-tres"] + 0.2, w(33) + 0.3) ? pin(t, S["s05-tres"] + 0.2, S["s05-tres"] + 0.55) * pout(t, w(33) - 0.08, w(33) + 0.08) : 0;
+    const sB = en(t, S["s05-tres"] + 0.2, w(33) + 0.5) ? pin(t, S["s05-tres"] + 0.2, S["s05-tres"] + 0.55) * pout(t, w(33) + 0.3, w(33) + 0.45) : 0;
     if (vacia) {
       // la canasta vacía en el medio del anillo; en "dejó" se va "para después"
       const ent = pin(t, S["s08-despues"] + 0.45, S["s08-despues"] + 0.8);
@@ -781,13 +788,13 @@ function renderAt(t) {
       // "se iban sin comprar": la canasta vacía se adelanta y sale por la derecha, por delante del anillo (sin cruzarlo)
       ocultar(canastaB, va >= 0.999 ? 0 : ent * 1.2); canastaB.position.set(RING.x + va * 4.2, RING.y - 0.72 - va * 0.4, RING.z + 0.1 + eo(va) * 1.5); canastaB.rotation.set(0.25, 0.15 - va * 0.5, -va * 0.15);
     } else {
-      ocultar(canastaB, sB); canastaB.position.set(CAN_B.x, 0, CAN_B.z); canastaB.rotation.set(0, -0.2, 0);
+      ocultar(canastaB, sB); canastaB.position.set(CAN_B.x, 0, CAN_B.z); canastaB.rotation.set(0, -0.15, 0);
       if (sB > 0.002) for (let k = 0; k < 11; k++) {
         const ti = w(31) - 0.05 + [0, 0.06, 0.15, 0.2, 0.29, 0.37, 0.41, 0.5, 0.6, 0.66, 0.78][k], u = sg(t, ti, ti + 0.3);
         if (u <= 0) continue;
         const j = sueltos[3 + k]; j.visible = true; j.scale.setScalar(0.92 * sB);
         const [lx, ly, lz] = ADENTRO[k];
-        _p.set(lx + (1 - eo(u)) * 1.9, ly + (1 - u * u) * 0.8, lz); canastaB.localToWorld(_p); j.position.copy(_p); j.rotation.set(0, k * 0.9, 0);
+        _p.set(lx, ly + (1 - u * u) * 1.3, lz); canastaB.localToWorld(_p); j.position.copy(_p); j.rotation.set(0, k * 0.9, 0);
       }
     }
   }
@@ -797,12 +804,12 @@ function renderAt(t) {
     let s = 0, x = 0, y = 0, z = 0, rx = 0, rz = 0, carga = 0, gotea = 0;
     if (en(t, w(33), S["s08-despues"] + 0.05)) {
       const j = frascosB[2], base = j.position.clone();
-      const baja = eio(sg(t, w(33) + 0.05, w(33) + 0.45));
-      const sube = eio(sg(t, w(33) + 0.5, w(36) + 0.1));
+      const baja = 1;
+      const sube = eio(sg(t, w(33) + 0.35, w(36) + 0.1));
       s = 1.45 * bk(sg(t, w(33) + 0.0, w(33) + 0.3));
-      x = base.x + lerp(0.35, 0, baja) + sube * 0.04; y = base.y + lerp(1.15, 0.5, baja) + sube * 0.75; z = base.z + sube * 0.6;
+      x = base.x + sube * 0.03; y = base.y + 0.45 + sube * 0.4; z = base.z + sube * 0.45;
       rx = -sube * 0.85; rz = lerp(0.45, 0.0, baja);
-      carga = sg(t, w(33) + 0.45, w(33) + 0.5);
+      carga = sg(t, w(33) + 0.3, w(33) + 0.35);
       gotea = sg(t, w(33) + 0.75, S["s08-despues"]);
     } else if (en(t, S["s08-despues"] + 0.05, w(45) + 0.3)) {
       const sal = SALTOS();
