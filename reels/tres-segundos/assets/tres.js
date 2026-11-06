@@ -382,6 +382,7 @@ const campMat = mat(C.cr, 0.3, { metalness: 0.35 });
   campana.add(mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.04, 20), M.navy3, 0, 0.35, 0)); // el botón
 }
 const cajaPizza = new THREE.Group(); scene.add(cajaPizza);
+const CAJA_S = 0.56;
 const tapaPizza = new THREE.Group();
 const cartonMat = mat(0xe3d3b0, 0.7), cartonTapa = mat(0xece0c2, 0.7, { emissive: 0xece0c2, emissiveIntensity: 0.22 }); // el interior de la tapa no queda negro
 {
@@ -517,17 +518,17 @@ const CAM = [
   [S["s06-avisa"], -16, 8, 12.4, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s06-avisa"] + 0.9, -13, 9, 12.8, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.08, -2, 18, 9.2, PIZ.x - 0.12, 0.02, PIZ.z + 0.45],
-  [S["s08-pesadas"] - 0.3, 3, 20, 8.9, PIZ.x - 0.12, 0.02, PIZ.z + 0.45, "e"],
+  [S["s07-venta"] - 0.08, -2, 18, 9.2, PIZ.x - 0.06, 0.02, PIZ.z + 0.45],
+  [S["s08-pesadas"] - 0.3, 3, 20, 8.9, PIZ.x - 0.06, 0.02, PIZ.z + 0.45, "e"],
   [S["s08-pesadas"] + 0.35, 4, 32, 7.9, EST2.x, -0.62, EST2.z + 0.2],
   [W[61], -4, 34, 7.7, EST2.x, -0.72, EST2.z + 0.2],
-  [S["s09-rapida"] + 0.32, -6, 14, 8.4, EST2.x, 0.62, EST2.z + 0.2],
+  [S["s09-rapida"] + 0.32, -6, 16, 9.4, EST2.x, 0.3, EST2.z + 0.2],
   [W[67], 6, 8, 8.2, EST2.x, 0.66, EST2.z + 0.1],
   [S["s10-abre"] - 0.2, 8, 8, 8.4, EST2.x, 0.66, EST2.z + 0.1, "e"],
-  [S["s10-abre"] + 0.4, 8, 7, 12.0, PAR.x + 0.4, 0.62, PAR.z + 0.9],
-  [W[75], 2, 6, 11.4, PAR.x + 0.4, 0.62, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 11.2, PAR.x + 0.4, 0.62, PAR.z + 0.95],
-  [S["s12-tuya"] - 0.35, -8, 6, 11.2, PAR.x + 0.4, 0.62, PAR.z + 0.95, "e"],
+  [S["s10-abre"] + 0.4, 8, 7, 12.8, PAR.x + 0.22, 0.62, PAR.z + 0.9],
+  [W[75], 2, 6, 12.4, PAR.x + 0.22, 0.62, PAR.z + 0.95],
+  [S["s11-pagina"] + 0.3, -4, 6, 12.2, PAR.x + 0.22, 0.62, PAR.z + 0.95],
+  [S["s12-tuya"] - 0.35, -8, 6, 12.2, PAR.x + 0.22, 0.62, PAR.z + 0.95, "e"],
   [S["s12-tuya"] + 0.12, -10, 6, 15.0, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
@@ -638,6 +639,8 @@ function renderAt(t) {
   const cercaCel = eio(sg(t, S5 - 0.02, S5 + 0.42)) * (1 - eio(sg(t, S6 - 0.3, S6 + 0.1)));
   const MANO_S = 0.15 + 0.05 * cercaCel, MANO_R = [0.12, -0.42 + 0.1 * cercaCel, 0];
   const enMano = () => { cel.position.copy(mano); cel.rotation.set(...MANO_R); };
+  // viaje de un lugar a otro: el celular pasa por el centro del cuadro (siempre entero y grande) y recién al final baja a la mano
+  const porCentro = (p0, va) => { const C = frente(0, -0.1, 7.5); if (va < 0.55) cel.position.lerpVectors(p0, C, eio(va / 0.55)); else cel.position.lerpVectors(C, mano, eio((va - 0.55) / 0.45)); };
   // a pantalla completa (fs = 0..1 entre la mano y la pantalla completa)
   const zambullida = (u, rz = 0, ry = 0) => {
     enMano(); const p0 = cel.position.clone(), q0 = cel.quaternion.clone();
@@ -657,7 +660,7 @@ function renderAt(t) {
       // la visita que se queda: el celular viaja a la mano (travelling a la parada)
       const va = eio(sg(t, W[21] + 0.55, S3 + 0.2));
       cel.position.set(x, y, z); cel.rotation.set(0, ry, 0);
-      if (va > 0) { const p0 = cel.position.clone(); enMano(); cel.position.lerpVectors(p0, mano, eio(sg(va, 0, 0.72))); cel.rotation.set(lerp(0, MANO_R[0], va), lerp(ry, MANO_R[1], va), 0); s = lerp(s * lerp(1, 1.2, eio(sg(va, 0, 0.25))), MANO_S, eio(sg(va, 0.25, 0.8))); }
+      if (va > 0) { const p0 = cel.position.clone(); enMano(); porCentro(p0, va); cel.rotation.set(lerp(0, MANO_R[0], va), lerp(ry, MANO_R[1], va), 0); s = lerp(lerp(s, 0.62, eio(sg(va, 0, 0.4))), MANO_S, eio(sg(va, 0.5, 1))); }
       celS = s; celSombraOn = va < 0.4;
       if (va > 0.5) pagina("busca"); else { pagina("blanco"); ruedita.visible = true; }
     }
@@ -711,7 +714,7 @@ function renderAt(t) {
     });
     // s10 · vuelve a la parada: el celular viaja del estudio a la mano
     const va = eio(sg(t, S10 - 0.2, S10 + 0.5));
-    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); cel.position.lerpVectors(p0, mano, eio(sg(va, 0, 0.72))); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(1, MANO_S, eio(sg(va, 0.1, 0.7))); celSombraOn = va < 0.3; }
+    if (va > 0) { const p0 = cel.position.clone(), q0 = cel.quaternion.clone(); enMano(); const q1 = cel.quaternion.clone(); porCentro(p0, va); cel.quaternion.slerpQuaternions(q0, q1, va); celS = lerp(lerp(1, 0.62, eio(sg(va, 0, 0.4))), MANO_S, eio(sg(va, 0.5, 1))); celSombraOn = va < 0.3; }
   } else if (en(t, S10 + 0.9, S12 + 0.06)) {
     celOn = true;
     // s10 · "al toque": zambullida a pantalla completa; s11 · la página entera con tildes
@@ -880,7 +883,7 @@ function renderAt(t) {
     pizzeria.visible = s * baja > 0.002; if (pizzeria.visible) pizzeria.scale.set(1, Math.max(0.001, s * baja), 1);
     // la campanita: grande sobre el mostrador; en "avisa" se apaga a gris y no suena
     const cs = on ? 1.45 * bk(sg(t, S6 + 0.25, S6 + 0.55)) : 0;
-    ocultar(campana, cs); campana.position.set(PIZ.x + 0.42, (PISO + 1.13) * baja, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
+    ocultar(campana, cs); campana.position.set(PIZ.x + 0.5, (PISO + 1.13) * baja, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
     if (campana.visible) campana.scale.y *= Math.max(0.001, baja);
     if (baja < 0.02) campana.visible = false; // se aplasta con la pizzería (nada de pop al salir)
     campMat.color.set(C.cr).lerp(new THREE.Color(C.gris), eio(sg(t, W[44], W[45] + 0.1)));
@@ -892,8 +895,8 @@ function renderAt(t) {
     { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; }
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
-    const ks = en(t, S7 - 0.05, S8 + 0.36) ? 0.64 * lerp(0.55, 1, bk(sg(t, S7 - 0.05, S7 + 0.1))) : 0;
-    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.66, (PISO + 1.13 + (1 - bk(cae)) * 0.8) * baja, PIZ.z + 0.5);
+    const ks = en(t, S7 - 0.05, S8 + 0.36) ? CAJA_S * lerp(0.55, 1, bk(sg(t, S7 - 0.05, S7 + 0.1))) : 0;
+    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.6, (PISO + 1.13 + (1 - bk(cae)) * 0.8) * baja, PIZ.z + 0.5);
     if (cajaPizza.visible) cajaPizza.scale.y *= Math.max(0.001, baja);
     if (baja < 0.02 && t < S10) cajaPizza.visible = false; cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
     const abre = Math.sin(Math.PI * sg(t, W[52], W[52] + 0.55));
