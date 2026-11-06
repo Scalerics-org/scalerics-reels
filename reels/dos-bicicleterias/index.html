@@ -160,6 +160,7 @@
         tl.to(s, { opacity: 0.08, duration: 1.4 + (i % 5) * 0.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(34.41 / 2.6) }, (i % 7) * 0.4);
       });
       tl.to("#fondo", { opacity: 1, duration: 34.41 }, 0);
+      tl.to("#velo", { opacity: 0, duration: 0.25, ease: "power1.out" }, 31.3);
       tl.set("#firma", { opacity: 0 }, 0);
       tl.to("#firma", { opacity: 0.9, duration: 0.25, ease: "power1.out" }, 26.4);
 

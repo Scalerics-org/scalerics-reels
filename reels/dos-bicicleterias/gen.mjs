@@ -175,9 +175,9 @@ const GANCHO_HTML = `
 {
   const id = "s05-escribe";
   escena(id, {
-    css: `P .tk { position: absolute; left: 880px; top: 560px; opacity: 0; } P .n9 { opacity: 1; }`,
-    html: `<div class="tk">${tick(48)}</div>${pill(9, 540, 1640, `${tick(26)}quedan 3`, "g grande")}`,
-    js: `pop(".tk", ${r2(w(id, 35))}, 0.3, 0.4); tl.set(q(".n9"), { opacity: 1 }, 0); fuera(".n9", 0.08, 0.14);`,
+    css: `P .tk { position: absolute; left: 880px; top: 560px; opacity: 0; }`,
+    html: `<div class="tk">${tick(48)}</div>`,
+    js: `pop(".tk", ${r2(w(id, 35))}, 0.3, 0.4);`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.18 }, { t: 0.42, sfx: "pop", vol: 0.16 },
       ...[0, 1, 2, 3, 4, 5, 6].map((i) => ({ t: r2(w(id, 33) - 0.3 + i * 0.09), sfx: "tic", vol: 0.22 })),
@@ -216,7 +216,7 @@ const GANCHO_HTML = `
 {
   const id = "s08-su-nombre";
   escena(id, {
-    css: `P .sello { left: 300px; top: 1730px; }`,
+    css: `P .sello { left: 800px; top: 640px; }`,
     html: `<div class="sello sx">vuelve</div>`,
     js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 59) + 0.05)}, -6);`,
     sfx: [
@@ -258,7 +258,7 @@ const GANCHO_HTML = `
 {
   const id = "s11-scalerics";
   escena(id, {
-    html: `${leads(lead(1, 540, 1590, 540, 1430))}${pill(1, 540, 1640, `CRM · <span style="color:${G}">Scalerics</span>`, "grande")}`,
+    html: `${leads(lead(1, 540, 1590, 540, 1300))}${pill(1, 540, 1640, `CRM · <span style="color:${G}">Scalerics</span>`, "grande")}`,
     js: `nota(1, ${r2(w(id, 72) + 0.1)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.18 },

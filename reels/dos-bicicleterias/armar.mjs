@@ -216,7 +216,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
         tl.to(s, { opacity: 0.08, duration: 1.4 + (i % 5) * 0.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(${DUR} / 2.6) }, (i % 7) * 0.4);
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-${reel.logoDesde ? `      tl.set("#firma", { opacity: 0 }, 0);\n      tl.to("#firma", { opacity: 0.9, duration: 0.25, ease: "power1.out" }, ${reel.logoDesde});\n` : ""}${(reel.sinLogo ?? []).map(([x, y]) => `      tl.to("#firma", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, ${r2(x - 0.2)});\n      tl.to("#firma", { opacity: 0.9, duration: 0.2, ease: "power1.inOut" }, ${y});`).join("\n")}
+${reel.veloHasta ? `      tl.to("#velo", { opacity: 0, duration: 0.25, ease: "power1.out" }, ${reel.veloHasta});\n` : ""}${reel.logoDesde ? `      tl.set("#firma", { opacity: 0 }, 0);\n      tl.to("#firma", { opacity: 0.9, duration: 0.25, ease: "power1.out" }, ${reel.logoDesde});\n` : ""}${(reel.sinLogo ?? []).map(([x, y]) => `      tl.to("#firma", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, ${r2(x - 0.2)});\n      tl.to("#firma", { opacity: 0.9, duration: 0.2, ease: "power1.inOut" }, ${y});`).join("\n")}
       window.__timelines["main"] = tl;
     </script>
   </body>

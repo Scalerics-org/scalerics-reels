@@ -15,6 +15,14 @@ ni persona real y en pantalla no llevan nombre propio ni marca.
 - Los cascos y la bicicleta son objetos genéricos, sin marca.
 
 ## Sonido
-- (A completar por el constructor: cualquier SFX que no esté en `assets/sfx`, uno real con licencia CC0, con
-  autor, sitio y licencia anotados acá. Candidatos: timbre de bicicleta, rueda libre girando / cadena, clic de
-  cierre de casco.)
+- Sin descargas nuevas: la API de Openverse (CC0) está bloqueada por el proxy en esta corrida (403), así que no se
+  bajó ningún timbre de bici ni rueda libre nuevos. Nada sintetizado con ffmpeg (solo se pasaron .wav a .mp3).
+- Del repo (HyperFrames, los mismos de por-que-la-lista): whoosh-short, whoosh-cine-corto, pop, click, click-soft,
+  ding, ping, chime, sparkle, tic (rueda libre / pasos), typing, notification, golpe, impact-bass-2 y la música `bed.mp3`.
+- `timbre.mp3` (timbre de la bici en "bicicleterías", dos golpes): `campanita.mp3` de reels/la-orquesta (del repo).
+- `flash.mp3` (la foto en "foto"): de reels/la-orquesta (del repo).
+- CC0 1.0 ya anotados en reels/trabajar-con-scalerics/fuentes.md y reels/abren-hoy/fuentes.md (encontrados con Openverse):
+  - Campanita de la puerta (`campanita.mp3`): "Shop door bell.wav", 775noise. https://freesound.org/people/775noise/sounds/494565/
+  - Puerta que se abre (`puerta.mp3`): "glass-door.wav", krissyeliot. https://freesound.org/people/krissyeliot/sounds/125529/
+  - Mensaje enviado (`respuesta.mp3`): "Message sound.wav", Sunart1. https://freesound.org/people/Sunart1/sounds/592772/
+  - Vibración del celular (`vibra.mp3`): "Cell phone vibrate, on table hard surface.wav", SpliceSound. https://freesound.org/people/SpliceSound/sounds/369839/

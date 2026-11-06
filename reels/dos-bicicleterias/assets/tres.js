@@ -600,8 +600,8 @@ function texturas() {
 const MON1 = V(1.45, 1.95, 1.1); // el monitor afuera, delante de la vidriera de la derecha
 const FICHA1 = V(1.45, 2.1, 2.3);
 const CEL1 = V(2.25, 1.75, 2.9);
-const PAULA0 = V(1.02, 0, 3.0);
-const BICI_PARK = V(1.8, 0, 2.0);
+const PAULA0 = V(1.02, 0, 2.6);
+const BICI_PARK = V(1.8, 0, 3.3);
 const FICHA2 = V(1.45, 2.0, 2.4);
 const CIELO = V(1.6, 6.4, 1.5);
 const CAM = [
@@ -627,8 +627,8 @@ const CAM = [
   [W[56], 0, 6, 8.2, 1.52, 1.6, 2.8],
   [W[57] + 0.6, 8, 7, 8.4, 2.3, 1.5, 1.9],
   [S["s09-mismos"] - 0.1, 10, 7, 9.0, 2.5, 1.6, 1.5],
-  [S["s09-mismos"] + 0.8, 2, 6, 19.6, 0.62, 2.45, 0.4],
-  [W[64] + 0.1, 0, 6, 20.0, 0.6, 2.4, 0.4],
+  [S["s09-mismos"] + 0.8, 2, 6, 20.6, 0.85, 2.45, 0.4],
+  [W[64] + 0.1, 0, 6, 20.8, 0.85, 2.4, 0.4],
   [W[67], 7, 6, 9.6, 1.3, 1.75, 1.0],
   [S["s11-scalerics"] - 0.05, 8, 6, 8.9, 1.35, 1.8, 1.0],
   [S["s11-scalerics"] + 0.6, 0, 4, 6.4, FICHA2.x, FICHA2.y, FICHA2.z],
@@ -720,9 +720,10 @@ function renderAt(t) {
       if (t >= W[73] + 0.2) { pos = fichaTop(t).add(V(0.36, 0.035, -0.12)); s = 0.46 * (1 + 0.1 * pulso(t, W[73] + 0.18, 0.25)); ry = Math.PI - 0.35; rx = 0; }
       // s13: reaparece en el cielo, girando
       if (t >= S["s12-tu-local"] + 0.45) {
-        const t0 = W[83] + 0.05, e = eio(sg(t, t0, S["s13-llamada"] + 0.6));
+        const t0 = W[83] - 0.1, e = eio(sg(t, t0, S["s13-llamada"] + 0.2));
         vis = t >= t0 ? 1 : 0;
-        pos = lerpV(V(der.ped.x, 1.35, der.ped.z), CIELO, e); pos.z += Math.sin(Math.PI * e) * 0.6; s = lerp(0.55, 1.05, e) * bk(sg(t, t0, t0 + 0.35)) * (1 + 0.04 * Math.sin(t * 2.2));
+        const P1 = V(der.ped.x, 2.0, 1.4);
+        pos = e < 0.4 ? lerpV(V(der.ped.x, 1.35, der.ped.z), P1, eo(e / 0.4)) : lerpV(P1, _mira.clone().add(V(0.02, 0.45, 0)), eio((e - 0.4) / 0.6)); s = lerp(0.55, 1.05, e) * bk(sg(t, t0, t0 + 0.35)) * (1 + 0.04 * Math.sin(t * 2.2));
         ry = t * 0.9 + 0.6; rx = 0.18 + Math.sin(t * 1.3) * 0.05;
       }
     }
@@ -818,7 +819,7 @@ function renderAt(t) {
       ficha.position.copy(lerpV(pos, V(3.6, 3.6, 1.6), sale));
       const sx = lerp(0.5 / FW_, 1, u), sy = lerp(0.66 / FH_, 1, u);
       ficha.scale.set(sx * (1 - sale * 0.6), sy * (1 - sale * 0.6), 1 - sale * 0.6);
-      ficha.rotation.set(0, Math.PI * 2 * (1 - u) + sale * -0.6, sale * -0.3);
+      ficha.rotation.set(0, Math.sin(Math.PI * u) * 0.35 + sale * -0.6, sale * -0.3);
       ficha.scale.multiplyScalar(1 + 0.05 * pulso(t, W[73] + 0.15, 0.25));
       vis = sale < 0.98;
       const est = t >= W[73] + 0.02 ? 2 : t >= W[72] + 0.3 ? 1 : 0;
@@ -851,7 +852,7 @@ function renderAt(t) {
     } else if (t >= S["s07-vio"] - 0.2) {
       const u = eo(sg(t, S["s07-vio"] - 0.2, S["s07-vio"] + 0.6));
       const empuja = eio(sg(t, W[57] + 0.36, W[59] + 0.65));
-      x = lerp(-0.9, BICI_PARK.x, u) + 0.5 * empuja; z = BICI_PARK.z; ry = 0; vis = true;
+      x = lerp(-0.9, BICI_PARK.x, u) + 0.75 * empuja; z = BICI_PARK.z; ry = 0; vis = true;
       giro = -(x + 0.9) / biciP.R;
     }
     biciP.g.visible = vis;
@@ -874,10 +875,10 @@ function renderAt(t) {
         [W[51] + 0.1, { cabeza: { giro: 0.08 } }, 0.25],
         [W[55] + 0.1, { cabeza: { asiente: 0.08, giro: -0.15, ladea: 0.1 }, ojos: { y: -0.15, x: -0.3, feliz: 0.2 }, cejas: { alto: 0.75, ang: 0.3 }, boca: { sonrisa: 1, abierta: 0.32, ancho: 1.15 } }, 0.25],
         [W[56] + 0.1, { boca: { sonrisa: 0.9, abierta: 0.08 }, cabeza: { ladea: -0.06, asiente: 0.12 } }, 0.25],
-        [W[57] + 0.36, { x: 1.62, z: 2.66, giro: Math.PI / 2, paso: 1, cabeza: { asiente: 0.0, giro: 0, ladea: 0 }, ojos: { y: 0, x: 0, feliz: 0.1 }, manoD: [-0.29, -0.06, 0.06], codoD: null, codoI: null, boca: { sonrisa: 0.7, abierta: 0 } }, 0.36],
-        [W[59] + 0.65, { x: 2.12, paso: 1 }, 0.8, (u) => u],
+        [W[57] + 0.36, { x: 1.62, z: 2.72, giro: Math.PI / 2, paso: 1, cabeza: { asiente: 0.0, giro: 0, ladea: 0 }, ojos: { y: 0, x: 0, feliz: 0.1 }, manoI: [0.29, -0.06, 0.06], codoD: null, codoI: null, boca: { sonrisa: 0.7, abierta: 0 } }, 0.36],
+        [W[59] + 0.65, { x: 2.37, paso: 1 }, 0.8, (u) => u],
         [W[59] + 0.85, { paso: 0, cabeza: { giro: -0.75, asiente: 0.04 }, ojos: { x: -0.3 }, boca: { sonrisa: 1, abierta: 0.2 }, cejas: { alto: 0.4 } }, 0.25],
-        [S["s09-mismos"] + 0.75, { giro: Math.PI * 0.8, cabeza: { giro: 0 }, x: 2.6, z: 1.5, paso: 1, manoI: [0.29, -0.06, 0.06] }, 0.5],
+        [S["s09-mismos"] + 0.75, { giro: Math.PI * 0.95, cabeza: { giro: 0 }, x: 2.7, z: 1.5, paso: 1, manoD: [-0.29, -0.06, 0.06] }, 0.5],
         [S["s09-mismos"] + 1.7, { x: 2.82, z: -0.95, paso: 1 }, 0.95, (u) => u],
         [S["s09-mismos"] + 1.95, { paso: 0, giro: Math.PI * 0.72 }, 0.25],
       ];
@@ -886,11 +887,11 @@ function renderAt(t) {
       // empuja la bici: la mano izquierda va al puño del manubrio
       if (caminaBici > 0 && t < S["s09-mismos"] + 0.4) {
         paula.raiz.updateMatrixWorld(true); biciP.g.updateMatrixWorld(true);
-        const puno = biciP.g.localToWorld(V(0.13, 1.05, 0.31));
+        const puno = biciP.g.localToWorld(V(0.13, 1.05, -0.31));
         const loc = paula.cuerpo.worldToLocal(puno);
         const k = eio(sg(caminaBici, 0, 0.3)) * (1 - eio(sg(t, S["s09-mismos"] + 0.2, S["s09-mismos"] + 0.4)));
-        p.manoI = [lerp(p.manoI[0], loc.x, k), lerp(p.manoI[1], loc.y, k), lerp(p.manoI[2], loc.z, k)];
-        p.codoI = [0.8, -0.6, -0.2];
+        p.manoD = [lerp(p.manoD[0], loc.x, k), lerp(p.manoD[1], loc.y, k), lerp(p.manoD[2], loc.z, k)];
+        p.codoD = [-0.8, -0.6, -0.2];
         paula.poner(p);
       }
       const guarda = eio(sg(t, W[57] - 0.02, W[57] + 0.3));
@@ -956,7 +957,7 @@ function renderAt(t) {
 
   // ---- las tarjetas de los clientes, los "?" grises y lo que se llevó cada uno ----
   {
-    const fin = S["s12-tu-local"] + 0.02;
+    const fin = S["s11-scalerics"] + 0.15;
     tarjetas.forEach((tj) => {
       const t0 = W[63] - 0.1 + tj.i * 0.06;
       let s = vida(t, t0, fin, 0.4, 0.3);
