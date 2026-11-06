@@ -7,14 +7,14 @@
     [data-composition-id="subtitulos"] .w { display: inline-block; position: relative; opacity: 0; }
     [data-composition-id="subtitulos"] .w em { font-style: normal; position: relative; }
     [data-composition-id="subtitulos"] .w.ac { margin: 0 14px; }
-    [data-composition-id="subtitulos"] .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.55); }
+    [data-composition-id="subtitulos"] .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.55); opacity: 0; }
     [data-composition-id="subtitulos"] .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.30); }
     [data-composition-id="subtitulos"] .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }
     [data-composition-id="subtitulos"] .malo .caja i { border-color: #c7655b; }
     [data-composition-id="subtitulos"] .caja .c1 { left: -12px; top: -12px; } [data-composition-id="subtitulos"] .caja .c2 { right: -12px; top: -12px; }
     [data-composition-id="subtitulos"] .caja .c3 { left: -12px; bottom: -12px; } [data-composition-id="subtitulos"] .caja .c4 { right: -12px; bottom: -12px; }
   </style>
-  <div id="root" data-composition-id="subtitulos" data-width="1080" data-height="1920" data-duration="34.76">
+  <div id="root" data-composition-id="subtitulos" data-width="1080" data-height="1920" data-duration="34.98">
     <div id="sub-g01" class="grupo clip" data-start="2.66" data-duration="0.82" data-track-index="0"><p><span class="w" data-t="0.08"><em>vendieron</em></span> <span class="w ac malo" data-t="0.51"><b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b><em>menos</em></span></p></div>
     <div id="sub-g02" class="grupo clip" data-start="3.48" data-duration="0.92" data-track-index="0"><p><span class="w" data-t="0.08"><em>que</em></span> <span class="w" data-t="0.22"><em>con</em></span> <span class="w ac" data-t="0.37"><b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b><em>seis.</em></span></p></div>
     <div id="sub-g03" class="grupo clip" data-start="5.23" data-duration="0.75" data-track-index="0"><p><span class="w" data-t="0.08"><em>Un</em></span> <span class="w ac" data-t="0.17"><b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b><em>experimento</em></span></p></div>
@@ -50,7 +50,7 @@
     <div id="sub-g33" class="grupo clip" data-start="29.3" data-duration="0.45" data-track-index="0"><p><span class="w" data-t="0.07"><em>¿Querés</em></span> <span class="w" data-t="0.38"><em>ver</em></span></p></div>
     <div id="sub-g34" class="grupo clip" data-start="29.75" data-duration="0.53" data-track-index="0"><p><span class="w" data-t="0.08"><em>cómo</em></span> <span class="w" data-t="0.27"><em>quedaría</em></span></p></div>
     <div id="sub-g35" class="grupo clip" data-start="30.28" data-duration="0.98" data-track-index="0"><p><span class="w" data-t="0.08"><em>en</em></span> <span class="w" data-t="0.17"><em>tu</em></span> <span class="w ac" data-t="0.27"><b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b><em>negocio?</em></span></p></div>
-    <div id="sub-g36" class="grupo clip" data-start="31.26" data-duration="0.32" data-track-index="0"><p><span class="w" data-t="0.08"><em>Agendá</em></span></p></div>
+    <div id="sub-g36" class="grupo clip" data-start="31.26" data-duration="0.51" data-track-index="0"><p><span class="w" data-t="0.08"><em>Agendá</em></span> <span class="w" data-t="0.42"><em>una</em></span></p></div>
   </div>
   <script>
     (function () {
@@ -93,7 +93,7 @@
       ["sub-g33", 29.3, 0.45],
       ["sub-g34", 29.75, 0.53],
       ["sub-g35", 30.28, 0.98],
-      ["sub-g36", 31.26, 0.32],
+      ["sub-g36", 31.26, 0.51],
       ];
       for (const [id, ini, dur] of GRUPOS) {
         const el = root.querySelector("#" + id);
@@ -102,9 +102,8 @@
           const t = ini + Number(w.dataset.t);
           tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10, scale: 0.94 }, { y: 0, scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
-          if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out" }, t + 0.02);
+          if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out", immediateRender: false }, t + 0.02);
         }
-        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.01);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;

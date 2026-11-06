@@ -28,14 +28,14 @@
     [data-composition-id="s01-gancho"] .mk .selbox { position: absolute; left: 0; right: 0; top: 10px; bottom: 2px; }
     [data-composition-id="s01-gancho"] .mk em { position: relative; font-style: normal; }
     [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 132px/1.04 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.04em; }
-    [data-composition-id="s01-gancho"] .h1 { top: 150px; font-size: 118px; } [data-composition-id="s01-gancho"] .h2 { top: 290px; font-size: 104px; } [data-composition-id="s01-gancho"] .h3 { top: 410px; font-size: 104px; }
+    [data-composition-id="s01-gancho"] .h1 { top: 150px; font-size: 104px; letter-spacing: -0.05em; } [data-composition-id="s01-gancho"] .h2 { top: 285px; font-size: 112px; } [data-composition-id="s01-gancho"] .h3 { top: 412px; font-size: 112px; }
   </style>
   <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.74">
     <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.74" data-track-index="0">
 
-      <div class="h h1"><span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>24</em></span> mermeladas</div>
-      <div class="h h2">vendieron <span class="mk r"><b class="selbox r" style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>menos</em></span></div>
-      <div class="h h3">que <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>6</em></span></div>
+      <div class="h h1">Con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>24</em></span> mermeladas</div>
+      <div class="h h2">se vendió <span class="mk r"><b class="selbox r" style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>menos</em></span></div>
+      <div class="h h3">que con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>6</em></span></div>
     </div>
   </div>
   <script>
@@ -65,7 +65,7 @@
 
 
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      tl.to(qa(".h"), { opacity: 0, y: -40, duration: 0.18, ease: "power2.in", stagger: 0.03 }, 2.44);
+      tl.to(qa(".h"), { opacity: 0, y: -30, duration: 0.09, ease: "power2.in", stagger: 0.02 }, 2.5);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -43,7 +43,7 @@ Palabras (segundos relativos a la escena): El 0.00 · cliente 0.11 · elige 0.52
 ### s14-negocio — dura 2.49 s (inicio global 29.38)
 Palabras (segundos relativos a la escena): ¿Querés -0.00 · ver 0.30 · cómo 0.45 · quedaría 0.64 · en 0.98 · tu 1.07 · negocio? 1.17 · Agendá 1.96 · una 2.30
 
-### s15-cta — dura 2.89 s (inicio global 31.87)
+### s15-cta — dura 3.11 s (inicio global 31.87)
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.84 · en 1.16 · scalerics.com. 1.22
 
-Duración total 34.76 (la voz termina en 34.64).
+Duración total 34.98 (la voz termina en 34.86).

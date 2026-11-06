@@ -683,7 +683,7 @@ function renderAt(t) {
         const [px, py, pz, a] = enAnillo(idx, t);
         // cada frasco aparece en su lugar del anillo con pop, uno tras otro (barrido), mientras la cámara se aleja
         x = px; y = py + (1 - ai) * 0.25; z = pz;
-        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * pin(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012) * pout(t, w(45) + 0.12 + idx * 0.028, w(45) + 0.26 + idx * 0.028);
+        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * pin(t, S["s08-despues"] - 0.02 + idx * 0.012, S["s08-despues"] + 0.25 + idx * 0.012) * pout(t, w(45) + 0.1 + idx * 0.024, w(45) + 0.24 + idx * 0.024);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
         
