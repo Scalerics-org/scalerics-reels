@@ -60,7 +60,7 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, 0.36);
+      tl.set(q(".dato"), { opacity: 1 }, 0.36); tl.fromTo(q(".dato"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 0.36);
       nota(2, 0.82);
       tl.set(qa(".dato, .n2"), { opacity: 0 }, 2.52); // sale junto con el 53 % 3D, corte seco
       window.__timelines = window.__timelines || {};

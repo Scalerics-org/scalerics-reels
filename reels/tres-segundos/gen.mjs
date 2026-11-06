@@ -156,7 +156,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="dato">de las visitas desde el celular se va<br>si tarda más de 3 s</div>
       ${pill(2, 540, 1645, "Fuente: Google", "f")}`,
     js: `
-      tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.26)});
+      tl.set(q(".dato"), { opacity: 1 }, ${r2(rel(id, W(15)) - 0.26)}); tl.fromTo(q(".dato"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(15)) - 0.26)});
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
       tl.set(qa(".dato, .n2"), { opacity: 0 }, ${r2(rel(id, W(21)) + 0.36)}); // sale junto con el 53 % 3D, corte seco`,
     sfx: [
@@ -164,7 +164,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
       { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.016, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "burbuja", vol: 0.3 },
       { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
-      { t: rel(id, VIAJE.parada) - 0.15, sfx: "whoosh-cine", vol: 1 },
+      { t: ESC[id] - 0.08, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada
     ],
   });
 }

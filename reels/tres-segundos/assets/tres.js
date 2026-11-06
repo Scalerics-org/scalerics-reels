@@ -509,8 +509,9 @@ const CAM = [
   [W[10] - 0.05, -2, 6, 14.8, 0, 0.95, 0],
   [S["s02-mitad"] - 0.25, -9, 13, 10.8, 0, 0.9, 0.3],
   [W[18], 4, 14, 11.2, 0, 0.9, 0.3],
-  [W[21] + 0.62, 9, 12, 11.4, 0, 0.9, 0.2, "e"],
-  [S["s03-parada"] + 0.1, 6, 7, 15.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  // corte limpio en "Alguien": de las visitas a la parada (el celular ya está en la mano de Nico)
+  [S["s03-parada"] - 0.005, 9, 12, 11.4, 0, 0.9, 0.2, "c"],
+  [S["s03-parada"], 6, 7, 15.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [W[29], -3, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s04-blanco"] + 0.1, -6, 7, 13.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s05-atras"], -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
@@ -606,9 +607,9 @@ function clavesNico() {
 function ponerNico(t) {
   if (!NK) NK = clavesNico();
   const S5 = S["s05-atras"], S6 = S["s06-avisa"], S10 = S["s10-abre"], S12 = S["s12-tuya"];
-  const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10, S12);
+  const on1 = en(t, S3, S6 + 0.6), on2 = en(t, S10, S12);
   let s = 0;
-  if (on1) s = bk(sg(t, W[21] + 0.6, W[21] + 0.95));
+  if (on1) s = 1;
   if (on2) s = 1; // corte limpio: la parada ya está
   const p = poseEn(t, NK);
   // los toques del índice en la pantalla
@@ -669,8 +670,7 @@ function renderAt(t) {
       const baja = eio(sg(t, W[15] - 0.6, W[15] - 0.1));
       y = lerp(y, -0.35, baja); s *= lerp(1, 0.8, baja);
       // la visita que se queda: el celular viaja a la mano (travelling a la parada)
-      const va = eio(sg(t, W[21] + 0.62, S3 + 0.1));
-      if (va > 0.02 && va < 0.98) ESTADO = false;
+      const va = t >= S3 ? 1 : 0; // corte limpio
       cel.position.set(x, y, z); cel.rotation.set(0, ry, 0);
       if (va > 0) { const p0 = cel.position.clone(); enMano(); porCentro(p0, va, 11.0, -1.0); cel.rotation.set(lerp(0, MANO_R[0], va), lerp(ry, MANO_R[1], va), 0); s = lerp(lerp(s, 0.62, eio(sg(va, 0, 0.4))), MANO_S, eio(sg(va, 0.5, 1))); }
       celS = s; celSombraOn = va < 0.4;
@@ -831,7 +831,7 @@ function renderAt(t) {
     }
     visGris(v, gris);
     // las que se quedan: se achican con el travelling a la parada
-    if (t > W[21] + 0.78) s = 0; // sin achicarse a motas: se van de cuadro con el viaje
+    if (t >= S3) s = 0; // sin achicarse a motas: se van de cuadro con el viaje
     v.pj.raiz.visible = s > 0.002;
     if (v.pj.raiz.visible) {
       v.pj.raiz.scale.setScalar(s);
@@ -842,7 +842,7 @@ function renderAt(t) {
 
   // ---------------- 53 % ----------------
   {
-    const sp = en(t, W[15] - 0.3, W[21] + 0.36) ? 0.95 * lerp(0.6, 1, bk(sg(t, W[15] - 0.3, W[15] + 0.05))) : 0; // sale con corte seco, junto con su rótulo
+    const sp = en(t, W[15] - 0.3, Math.min(W[21] + 0.36, S3)) ? 0.95 * lerp(0.6, 1, bk(sg(t, W[15] - 0.3, W[15] + 0.05))) : 0; // sale con corte seco, junto con su rótulo
     ocultar(pct, sp); pct.position.set(0.05, 2.0 + eio(sg(t, W[21] + 0.3, W[21] + 0.42)) * 0.4, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
     if (pct.visible) pct.scale.multiplyScalar(1 + 0.06 * Math.sin(Math.PI * sg(t, W[19], W[19] + 0.3)));
   }
@@ -855,9 +855,9 @@ function renderAt(t) {
 
   // ---------------- PARADA y la persona ----------------
   {
-    const on1 = en(t, W[21] + 0.6, S6 + 0.6), on2 = en(t, S10, S12);
+    const on1 = en(t, S3, S6 + 0.6), on2 = en(t, S10, S12);
     let s = 0;
-    if (on1) s = bk(sg(t, W[21] + 0.6, W[21] + 0.95));
+    if (on1) s = 1;
     if (on2) s = 1; // corte limpio: la parada ya está
     parada.visible = s > 0.002; if (parada.visible) parada.scale.set(1, Math.max(0.001, s), 1);
     // globito de hambre (s03, y vuelve en s10)
