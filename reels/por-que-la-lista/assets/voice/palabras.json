@@ -1,0 +1,512 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.25
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.25,
+  "end": 0.5
+ },
+ {
+  "id": 2,
+  "text": "el",
+  "start": 0.5,
+  "end": 0.5
+ },
+ {
+  "id": 3,
+  "text": "piloto",
+  "start": 0.5,
+  "end": 0.7
+ },
+ {
+  "id": 4,
+  "text": "repasa",
+  "start": 0.7,
+  "end": 1.3
+ },
+ {
+  "id": 5,
+  "text": "una",
+  "start": 1.3,
+  "end": 1.5
+ },
+ {
+  "id": 6,
+  "text": "lista,",
+  "start": 1.5,
+  "end": 1.8
+ },
+ {
+  "id": 7,
+  "text": "si",
+  "start": 1.8,
+  "end": 2.1
+ },
+ {
+  "id": 8,
+  "text": "sabe",
+  "start": 2.1,
+  "end": 2.4
+ },
+ {
+  "id": 9,
+  "text": "volar?",
+  "start": 2.4,
+  "end": 2.7
+ },
+ {
+  "id": 10,
+  "text": "En",
+  "start": 3.27,
+  "end": 3.42
+ },
+ {
+  "id": 11,
+  "text": "1935,",
+  "start": 3.42,
+  "end": 4.88
+ },
+ {
+  "id": 12,
+  "text": "un",
+  "start": 4.95,
+  "end": 5.1
+ },
+ {
+  "id": 13,
+  "text": "avión",
+  "start": 5.1,
+  "end": 5.4
+ },
+ {
+  "id": 14,
+  "text": "nuevo",
+  "start": 5.4,
+  "end": 5.7
+ },
+ {
+  "id": 15,
+  "text": "se",
+  "start": 5.7,
+  "end": 5.8
+ },
+ {
+  "id": 16,
+  "text": "estrelló",
+  "start": 5.8,
+  "end": 6.2
+ },
+ {
+  "id": 17,
+  "text": "en",
+  "start": 6.2,
+  "end": 6.2
+ },
+ {
+  "id": 18,
+  "text": "una",
+  "start": 6.2,
+  "end": 6.4
+ },
+ {
+  "id": 19,
+  "text": "prueba.",
+  "start": 6.4,
+  "end": 6.6
+ },
+ {
+  "id": 20,
+  "text": "Pilotos",
+  "start": 7.037,
+  "end": 7.4
+ },
+ {
+  "id": 21,
+  "text": "expertos,",
+  "start": 7.4,
+  "end": 7.8
+ },
+ {
+  "id": 22,
+  "text": "avión",
+  "start": 8.168,
+  "end": 8.5
+ },
+ {
+  "id": 23,
+  "text": "sano.",
+  "start": 8.5,
+  "end": 8.88
+ },
+ {
+  "id": 24,
+  "text": "Despegaron",
+  "start": 9.27,
+  "end": 9.65
+ },
+ {
+  "id": 25,
+  "text": "con",
+  "start": 9.65,
+  "end": 9.82
+ },
+ {
+  "id": 26,
+  "text": "los",
+  "start": 9.82,
+  "end": 9.97
+ },
+ {
+  "id": 27,
+  "text": "controles",
+  "start": 10.02,
+  "end": 10.42
+ },
+ {
+  "id": 28,
+  "text": "trabados:",
+  "start": 10.47,
+  "end": 10.99
+ },
+ {
+  "id": 29,
+  "text": "un",
+  "start": 11.17,
+  "end": 11.3
+ },
+ {
+  "id": 30,
+  "text": "paso",
+  "start": 11.3,
+  "end": 11.7
+ },
+ {
+  "id": 31,
+  "text": "olvidado.",
+  "start": 11.7,
+  "end": 12.2
+ },
+ {
+  "id": 32,
+  "text": "En",
+  "start": 12.62,
+  "end": 12.8
+ },
+ {
+  "id": 33,
+  "text": "vez",
+  "start": 12.8,
+  "end": 12.9
+ },
+ {
+  "id": 34,
+  "text": "de",
+  "start": 12.9,
+  "end": 13
+ },
+ {
+  "id": 35,
+  "text": "más",
+  "start": 13,
+  "end": 13.2
+ },
+ {
+  "id": 36,
+  "text": "entrenamiento,",
+  "start": 13.2,
+  "end": 13.9
+ },
+ {
+  "id": 37,
+  "text": "una",
+  "start": 14.278,
+  "end": 14.4
+ },
+ {
+  "id": 38,
+  "text": "lista",
+  "start": 14.4,
+  "end": 14.7
+ },
+ {
+  "id": 39,
+  "text": "corta.",
+  "start": 14.7,
+  "end": 15
+ },
+ {
+  "id": 40,
+  "text": "Hoy,",
+  "start": 15.509,
+  "end": 15.6
+ },
+ {
+  "id": 41,
+  "text": "todo",
+  "start": 16.053,
+  "end": 16.2
+ },
+ {
+  "id": 42,
+  "text": "piloto",
+  "start": 16.2,
+  "end": 16.6
+ },
+ {
+  "id": 43,
+  "text": "la",
+  "start": 16.6,
+  "end": 16.7
+ },
+ {
+  "id": 44,
+  "text": "repasa.",
+  "start": 16.7,
+  "end": 17.2
+ },
+ {
+  "id": 45,
+  "text": "Tu",
+  "start": 17.574,
+  "end": 17.7
+ },
+ {
+  "id": 46,
+  "text": "local",
+  "start": 17.7,
+  "end": 18
+ },
+ {
+  "id": 47,
+  "text": "también",
+  "start": 18.407,
+  "end": 18.6
+ },
+ {
+  "id": 48,
+  "text": "despega:",
+  "start": 18.6,
+  "end": 19.1
+ },
+ {
+  "id": 49,
+  "text": "abrir,",
+  "start": 19.432,
+  "end": 19.8
+ },
+ {
+  "id": 50,
+  "text": "cerrar,",
+  "start": 19.8,
+  "end": 20.3
+ },
+ {
+  "id": 51,
+  "text": "el",
+  "start": 20.3,
+  "end": 20.6
+ },
+ {
+  "id": 52,
+  "text": "pedido",
+  "start": 20.6,
+  "end": 20.8
+ },
+ {
+  "id": 53,
+  "text": "al",
+  "start": 20.8,
+  "end": 21
+ },
+ {
+  "id": 54,
+  "text": "proveedor.",
+  "start": 21,
+  "end": 21.46
+ },
+ {
+  "id": 55,
+  "text": "¿Y",
+  "start": 21.78,
+  "end": 21.8
+ },
+ {
+  "id": 56,
+  "text": "si",
+  "start": 21.8,
+  "end": 22
+ },
+ {
+  "id": 57,
+  "text": "eso",
+  "start": 22,
+  "end": 22.1
+ },
+ {
+  "id": 58,
+  "text": "lo",
+  "start": 22.1,
+  "end": 22.3
+ },
+ {
+  "id": 59,
+  "text": "sabe",
+  "start": 22.3,
+  "end": 22.5
+ },
+ {
+  "id": 60,
+  "text": "solo",
+  "start": 22.5,
+  "end": 22.8
+ },
+ {
+  "id": 61,
+  "text": "Marta?",
+  "start": 22.8,
+  "end": 23.29
+ },
+ {
+  "id": 62,
+  "text": "En",
+  "start": 23.78,
+  "end": 24.05
+ },
+ {
+  "id": 63,
+  "text": "Scalerics",
+  "start": 24.05,
+  "end": 24.69
+ },
+ {
+  "id": 64,
+  "text": "armamos",
+  "start": 24.69,
+  "end": 25
+ },
+ {
+  "id": 65,
+  "text": "tu",
+  "start": 25,
+  "end": 25.1
+ },
+ {
+  "id": 66,
+  "text": "sistema",
+  "start": 25.1,
+  "end": 25.5
+ },
+ {
+  "id": 67,
+  "text": "a",
+  "start": 25.5,
+  "end": 25.6
+ },
+ {
+  "id": 68,
+  "text": "medida:",
+  "start": 25.6,
+  "end": 25.7
+ },
+ {
+  "id": 69,
+  "text": "cada",
+  "start": 26.311,
+  "end": 26.5
+ },
+ {
+  "id": 70,
+  "text": "tarea",
+  "start": 26.5,
+  "end": 26.8
+ },
+ {
+  "id": 71,
+  "text": "con",
+  "start": 26.8,
+  "end": 27
+ },
+ {
+  "id": 72,
+  "text": "su",
+  "start": 27,
+  "end": 27.2
+ },
+ {
+  "id": 73,
+  "text": "lista.",
+  "start": 27.2,
+  "end": 27.4
+ },
+ {
+  "id": 74,
+  "text": "¿Querés",
+  "start": 27.898,
+  "end": 28.1
+ },
+ {
+  "id": 75,
+  "text": "verlo",
+  "start": 28.1,
+  "end": 28.3
+ },
+ {
+  "id": 76,
+  "text": "en",
+  "start": 28.3,
+  "end": 28.4
+ },
+ {
+  "id": 77,
+  "text": "tu",
+  "start": 28.4,
+  "end": 28.5
+ },
+ {
+  "id": 78,
+  "text": "local?",
+  "start": 28.5,
+  "end": 28.8
+ },
+ {
+  "id": 79,
+  "text": "Agendá",
+  "start": 29.05,
+  "end": 29.4
+ },
+ {
+  "id": 80,
+  "text": "una",
+  "start": 29.4,
+  "end": 29.58
+ },
+ {
+  "id": 81,
+  "text": "videollamada",
+  "start": 29.6,
+  "end": 30.08
+ },
+ {
+  "id": 82,
+  "text": "gratis",
+  "start": 30.1,
+  "end": 30.58
+ },
+ {
+  "id": 83,
+  "text": "en",
+  "start": 30.65,
+  "end": 30.84
+ },
+ {
+  "id": 84,
+  "text": "scalerics.com.",
+  "start": 30.92,
+  "end": 31.89
+ }
+]

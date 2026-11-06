@@ -1,0 +1,51 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 600; font-display: block; src: url("assets/fonts/IBMPlexMono-600.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s02-pasos"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s02-pasos"] .cab { position: absolute; left: 330px; right: 50px; top: 172px; opacity: 0; }
+    [data-composition-id="s02-pasos"] .kicker { font: 600 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.16em; color: #5ce611; text-shadow: 0 3px 0 rgba(3,6,12,0.8); }
+    [data-composition-id="s02-pasos"] .tit { margin-top: 12px; font: 800 60px/1.04 "Lexend", sans-serif; letter-spacing: -0.025em; color: #fff; text-shadow: 0 5px 0 rgba(3,6,12,0.7), 0 0 24px rgba(3,6,12,0.6); }
+    [data-composition-id="s02-pasos"] .barra { display: flex; gap: 10px; margin-top: 18px; }
+    [data-composition-id="s02-pasos"] .barra i { display: block; width: 74px; height: 12px; border-radius: 6px; background: rgba(239,238,229,0.35); box-shadow: 0 3px 0 rgba(3,6,12,0.5); }
+    [data-composition-id="s02-pasos"] .barra i.on { background: #5ce611; }
+  </style>
+  <div id="root" data-composition-id="s02-pasos" data-width="1080" data-height="1920" data-duration="38.05">
+    <div id="s02-pasos-esc" class="esc clip" data-start="0" data-duration="38.05" data-track-index="0">
+      <div class="cab c0"><div class="kicker">PASO 1 DE 4</div><div class="tit">Reunión inicial gratis</div><div class="barra"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div></div>
+      <div class="cab c1"><div class="kicker">PASO 2 DE 4</div><div class="tit">Propuesta en 48 h</div><div class="barra"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div></div>
+      <div class="cab c2"><div class="kicker">PASO 3 DE 4</div><div class="tit">Desarrollo con revisiones</div><div class="barra"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div></div>
+      <div class="cab c3"><div class="kicker">PASO 4 DE 4</div><div class="tit">Entrega y soporte</div><div class="barra"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s02-pasos";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.set(q(".c0"), { opacity: 1 }, 0.8);
+      tl.fromTo(q(".c0"), { x: 40 }, { x: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 0.8);
+      tl.fromTo(q(".c0 .barra i:nth-child(1)"), { scaleX: 0.2 }, { scaleX: 1, duration: 0.35, ease: "back.out(2)", transformOrigin: "0% 50%", immediateRender: true }, 0.95);
+      tl.set(q(".c0"), { opacity: 0 }, 12.19);
+      tl.set(q(".c1"), { opacity: 1 }, 13.07);
+      tl.fromTo(q(".c1"), { x: 40 }, { x: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 13.07);
+      tl.fromTo(q(".c1 .barra i:nth-child(2)"), { scaleX: 0.2 }, { scaleX: 1, duration: 0.35, ease: "back.out(2)", transformOrigin: "0% 50%", immediateRender: true }, 13.22);
+      tl.set(q(".c1"), { opacity: 0 }, 20.08);
+      tl.set(q(".c2"), { opacity: 1 }, 20.96);
+      tl.fromTo(q(".c2"), { x: 40 }, { x: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 20.96);
+      tl.fromTo(q(".c2 .barra i:nth-child(3)"), { scaleX: 0.2 }, { scaleX: 1, duration: 0.35, ease: "back.out(2)", transformOrigin: "0% 50%", immediateRender: true }, 21.11);
+      tl.set(q(".c2"), { opacity: 0 }, 28.35);
+      tl.set(q(".c3"), { opacity: 1 }, 29.23);
+      tl.fromTo(q(".c3"), { x: 40 }, { x: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 29.23);
+      tl.fromTo(q(".c3 .barra i:nth-child(4)"), { scaleX: 0.2 }, { scaleX: 1, duration: 0.35, ease: "back.out(2)", transformOrigin: "0% 50%", immediateRender: true }, 29.38);
+      tl.set(q(".c3"), { opacity: 0 }, 37.95);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
+      #fondo { position: absolute; inset: 0; background: #16243d; }
+      #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+      #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #firma { position: absolute; left: 50%; top: 1790px; height: 36px; width: auto; transform: translateX(-50%); opacity: 0.8; z-index: 50; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="54.19" data-width="1080" data-height="1920">
+      <div id="fondo" class="clip" data-start="0" data-duration="54.19" data-track-index="0"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="54.19" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="el-s01-gancho" class="scene" data-composition-id="s01-gancho" data-composition-src="compositions/s01-gancho.html" data-start="0" data-duration="3.15" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s02-pasos" class="scene" data-composition-id="s02-pasos" data-composition-src="compositions/s02-pasos.html" data-start="13.2" data-duration="38.05" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s03-rotulos" class="scene" data-composition-id="s03-rotulos" data-composition-src="compositions/s03-rotulos.html" data-start="0" data-duration="51.19" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s04-subs" class="scene" data-composition-id="s04-subs" data-composition-src="compositions/s04-subs.html" data-start="0" data-duration="51.19" data-track-index="5" data-track-kind="graphics"></div>
+      <div id="el-s05-cierre" class="scene" data-composition-id="s05-cierre" data-composition-src="compositions/s05-cierre.html" data-start="51.01" data-duration="3.18" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s06-llamada" class="scene" data-composition-id="s06-llamada" data-composition-src="compositions/s06-llamada.html" data-start="0" data-duration="51.19" data-track-index="7" data-track-kind="graphics"></div>
+      <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="13.1" data-track-index="9" />
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="54.19" data-track-index="30" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__hf = window.__hf || {};
+      window.__limpio = false;
+      window.__portada = false;
+      window.__sofitest = false;
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady["tres"] = new Promise((ok) => { window.__tresListo = ok; });
+    </script>
+    <script type="module" src="assets/tres.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#fondo", { opacity: 1, duration: 54.19 }, 0);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

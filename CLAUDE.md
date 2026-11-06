@@ -170,7 +170,7 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
 8b. **3D REAL EN TODOS LOS REELS desde el 04-11** (Juan: "quiero que se vea como ellos real 3D",
    por @resultaaquee; y al ver la tanda del 04-11, toda en dibujo plano: "lo de 3D no lo habías
    implementado ya? REAL 3D"). El dibujo plano en SVG/CSS ya no va como recurso principal.
-   - **Base: `reels/caso-pedidosya`** (la vara de calidad, punto 8c; `reels/netflix-blockbuster` es la versión anterior). Copiá su `assets/tres.js`, `assets/vendor/three/`
+   - **Base: `reels/abren-hoy`** (el ejemplar, punto 8c; personajes en `assets/personajes.js`). Para cámara que viaja entre objetos, mirá también `reels/caso-pedidosya`. Copiá su `assets/tres.js`, `assets/vendor/three/`
      (Three.js r170 local, RoundedBoxGeometry, TextGeometry, Lexend 800 en `lexend800.js`), el
      `#capa3d` con `<canvas id="tres">` de su `index.html` y el `buildReady["tres"]`, y cómo
      `armar.mjs` escribe `assets/tiempos3d.js` (inicios de escena y de cada palabra). Leé el
@@ -195,10 +195,15 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      anotás en "Hechos" con "(sin 3D: <motivo>)"; no frenes la tanda por eso.
 
 
-8c. **LA VARA DE CALIDAD: `reels/caso-pedidosya`** (Juan, 04-11: "actualizá la rutina para que
-   salgan en esta calidad los videos"; antes, sobre ese mismo reel: "tiene que quedar perfecto").
-   Miralo entero antes de empezar (render en la rama `reel/caso-pedidosya`) y leé su `SPEC.md`,
-   `tres.js`, `gen.mjs` y `armar.mjs`. Cada reel tiene que estar a esa altura. Lo que lo hace bueno:
+8c. **EL EJEMPLAR: `reels/abren-hoy-completo`** (Juan, 05-11: "quiero que todos los videos sean de
+   esta calidad o mejor"; y sobre cuál es la referencia: "pedidos ya no, abren hoy como ejemplar").
+   Es la vara MÍNIMA para cualquier reel, de cualquier línea, explicadores incluidos: personajes 3D
+   expresivos, planos y cortes pensados (general, contraplano, primer plano, push-in), timing (pausa
+   antes del remate), sonido real, nada cortado ni vacío. Si un reel no se ve al menos así, no se
+   entrega. Antes de empezar, mirá su render (rama `reel/abren-hoy-completo`) y leé `SPEC.md`,
+   `tres.js`, `gen.mjs`, `armar.mjs` y `assets/personajes.js` de `reels/abren-hoy` y
+   `reels/abren-hoy-completo`. `reels/caso-pedidosya` queda solo como referencia técnica de cámara
+   continua y de explicador con datos; no es el ejemplar. Lo que vale para todos:
    - **Cámara continua.** Una curva (Catmull-Rom) que viaja de objeto en objeto: grúa, zambullida,
      órbita, push-in. Casi sin cortes secos. En las transiciones grandes SIEMPRE hay un objeto
      protagonista grande en cuadro (el celular de la ciudad crece con la distancia hasta que el mapa
@@ -230,10 +235,55 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      **mínimo dos pasadas completas**, hasta que una pasada no encuentre nada. Anotá en el reporte qué
      corregiste en cada pasada.
    - **Portada desde un cuadro limpio**: renderizá el fondo sin gancho, subtítulos ni logo (como
-     hizo caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
+     hicieron abren-hoy y caso-pedidosya), y el texto de la portada encima. Nada del texto del video asomando tenue.
    - Si un reel no llega a esta vara en el tiempo de la corrida, es mejor entregar menos reels
      buenos que muchos flojos: terminá los que estén a la altura y dejá el resto en "En curso" con
      una nota de qué falta.
+
+
+8d. **LÍNEA "PARA MANDAR": 3 de los ~10 reels de cada noche** (Juan, 05-11, al ver `reels/abren-hoy`:
+   "jajajaja muy bueno"). Los explicadores se GUARDAN; estos se COMPARTEN: un dueño se lo manda a otro
+   con "jaja este sos vos". Son los que traen alcance de dueños de comercio (y no de chicos); el
+   perfil con los explicadores es el que después convence.
+   - **Base: `reels/abren-hoy`**, `reels/abren-hoy-2` y `reels/abren-hoy-completo`. Personajes 3D
+     recurrentes en `reels/abren-hoy/assets/personajes.js`: Rubén el almacenero, Graciela la clienta,
+     Nico el empleado, Marta la de la cafetería. Usá SIEMPRE estos (se pueden sumar nuevos al módulo,
+     con el mismo estilo): que la gente los reconozca y espere el próximo.
+   - **RUBÉN ES LA ESTRELLA** (Juan, 05-11: "amo el personaje de Rubén"; "que en la rutina haya varios
+     Rubén"). Cada noche, **varios reels con Rubén**: protagonista en al menos 2 de los 3 "para mandar",
+     y además puede aparecer en los explicadores como el dueño que se hace la pregunta ("¿por qué el
+     súper me pregunta si tengo la tarjeta?") o que prueba la solución en su almacén. Mismo Rubén
+     siempre: el módulo de personajes, voz Gemini Algenib (grave, cansado, uruguayo), su almacén, su
+     mate, su "Hoy: N veces". Variá las situaciones y los compañeros (Graciela, Nico el empleado,
+     Marta de la cafetería de al lado, Sofi de Scalerics) para que no sea siempre el mismo chiste.
+   - **10-16 s, una sola situación** que todo comerciante vivió, con timing de comedia: arranque ya en
+     situación (cuadro 0 = la escena), una pausa antes del remate, remate fuerte, y si hay, un
+     "remate del remate" (el contador que pasa a 48). Se entiende **sin sonido** (burbujas y carteles
+     grandes); con sonido es mejor (ambiente, pops, golpe, música que se corta seca).
+   - **No es una lección ni un aviso.** Nada de "¿La lección?" ni desenlace primero (eso es de los
+     explicadores). El producto aparece SOLO en la última línea chica ("Un agente de IA contesta esto
+     por vos · scalerics.com", ~1,5 s) y en `descripcion.txt`, que sí explica el servicio en 1-2
+     líneas + la línea de videollamada. Acá NO va la tarjeta de videollamada del punto 8.
+   - Voz: ninguna o una sola línea de un personaje, con su voz de siempre (Rubén = Gemini Algenib,
+     grave y cansado). Nunca Orus narrando.
+   - **Formato completo (el preferido, Juan 05-11):** problema + cartel + solución en UN reel de ~30 s,
+     como `reels/abren-hoy-completo`: la parte 1 termina en el remate, entra un cartel estilo "time card"
+     de dibujito ("Un agente de IA más tarde…", narrador caricaturesco con voz Gemini Rasalgethi,
+     fondo verde de marca con manchas y burbujas, letras que rebotan) y la parte 2 muestra lo mismo
+     resuelto en chiste (el celular contesta solo mientras Rubén toma mate; el contador de 48 pasa a 0).
+     El cartel NUNCA dice "Scalerics" (Juan: "algo que suene menos publicidad"): nombra la solución
+     ("Un agente de IA más tarde…", "Una tienda online más tarde…", "Un sistema más tarde…").
+     Nada de Bob Esponja (ni su tipografía, ni sus fondos, ni su audio): es el meme hecho de cero.
+     También vale la parte 1 sola (14 s, solo el problema) para alternar y medir cuál se comparte más.
+   - Situaciones para arrancar (inventá más): "¿abren hoy?" con el cartel en la puerta; "lo mismo
+     que la otra vez" sin decir qué; el audio de 4 minutos para preguntar un precio; "pasame precio"
+     sin decir de qué; el que pide descuento en algo de $200; "¿hacen envíos?" del vecino de enfrente;
+     el que llega 19:59; "te lo paso a buscar mañana" y nunca viene; "¿me lo guardás?"; el
+     presupuesto que pidió y no contesta nunca más.
+   - Misma vara (8b 3D real, 8c revisión) y mismo equipo por reel. El revisor de "guion y datos"
+     acá se pregunta: **¿un dueño se lo mandaría a otro? ¿el remate pega?** Si la respuesta es
+     "más o menos", se reescribe el chiste antes de construir.
+   - Marcas reales: ninguna (chat genérico, mate y termo genéricos).
 
 **Publicación:** Juan no aprueba a mano (02-11: "no esperes a que yo te los apruebe, nos
 olvidamos"). El publicador (`herramientas/publicar.mjs`) toma primero la cola de aprobados y, si
@@ -396,7 +446,7 @@ Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), qu
 
 ## Cuántos por corrida: 2 reels, con un equipo entero para cada uno
 
-Cada corrida hace **2 reels** a la vara de `reels/caso-pedidosya` (punto 8c), **con el mismo esfuerzo
+Cada corrida hace **2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
 que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
 mejor calidad: la idea es que use la misma cantidad de muchísimo esfuerzo que usaba para hacer 25
 videos, pero para hacer menos". O sea: **no ahorres agentes ni pasadas**, repartilos en menos reels.
@@ -421,8 +471,23 @@ coordinador, y cada reel pasa por un equipo, no por un solo subagente:
 4. **Revisión independiente (6 subagentes a la vez: 3 por reel, ninguno es el que lo construyó).**
    Cada uno arranca de cero, mira el reel y devuelve una lista de defectos con el segundo exacto;
    no arreglan nada, solo informan:
-   - **Director de arte:** snapshots cada 0,5 s; cortado, pisado, chico, vacío, repetido, ilegible,
-     objeto que no se reconoce ("¿esto es un chivito o una hamburguesa?"), transición floja.
+   - **Director de arte (QA visual, sobre el MP4 renderizado, no el preview):** cuadros con ffmpeg
+     cada 0,25 s, y cuadro por cuadro (30 fps) alrededor de CADA corte y transición, que es donde
+     aparecen los bugs de un instante. Juan, 05-11, sobre un reel que ya había pasado tres revisiones
+     del que lo construyó: "hay muchos errores visuales, tiene que quedar perfecto sin ningún bug"; un
+     QA independiente encontró 45. Lo que más se escapa, buscalo a propósito:
+     geometría que atraviesa personajes (números 3D que nacen dentro de una cabeza, manos o bombilla
+     que atraviesan la cara, dedos en la boca); ojos cerrados o párpados como bultos de piel cuando
+     el personaje habla; personajes que se ven mal o raros (proporciones, pelo tipo casquete);
+     etiquetas con el nombre del personaje equivocado o encima de una cara; carteles que cambian de
+     aspecto entre cortes o quedan semitransparentes o vacíos; texto fantasma (subtítulo o tarjeta que
+     asoma antes de tiempo); texturas negras o marrones sin contenido (pantallas vacías, burbujas con
+     textura de madera); objetos despegados de su soporte al girar; motas o astillas sueltas; pop de
+     objetos y saltos de continuidad entre planos (aparece un termo, desaparece la laptop); texto
+     blanco sobre fondo claro; texto chico (menos de ~36 px en un 1080x1920 no se lee en el celular);
+     algo tocando o cortado por el borde; franjas vacías (la inferior); transiciones que arrancan como
+     un agujero negro en una cara; ortografía de burbujas y carteles. Devuelve la lista con el segundo
+     y la ruta del cuadro. Un reel con un solo defecto de gravedad alta no se entrega.
    - **Sonido y ritmo:** mide la mezcla por tramos (voz ≥ 6 LU sobre el resto, -14 LUFS, sin
      clipping), SFX que falten en acciones visibles, escenas de más de 3 s, cierre de más de 3 s,
      subtítulos mal cortados o grises, que el "oyó:" coincida con el guion.
