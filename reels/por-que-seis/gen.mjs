@@ -130,7 +130,7 @@ const CSS_MK = `
       <div class="h h3">que con ${marca("6", "")}</div>`,
     js: `
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      tl.set(qa(".h"), { opacity: 0 }, ${r2(ESC[id] - 0.12)});`,
+      tl.set(qa(".h"), { opacity: 0 }, ${r2(ESC[id] - 0.06)});`,
     sfx: [
       { t: 0, sfx: "whoosh-cine-corto", vol: 0.12, max: 0.9 },
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 2) + 0.06 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.07 })),
@@ -195,7 +195,7 @@ const CSS_MK = `
     html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}`,
     js: `nota(1, 0.35); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.16);`,
     sfx: [
-      { t: -0.1, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.7 }, { t: 0.04, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
+      { t: 0.04, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
       { t: w(id, 25) - 0.05, sfx: "impact-bass-1", vol: 0.07, max: 0.5 }, { t: w(id, 25) - 0.04, sfx: "pop", vol: 0.1 },
       { t: w(id, 25) + 0.2, sfx: "pop", vol: 0.12 }, { t: w(id, 25) + 0.37, sfx: "burbuja", vol: 0.12 }, { t: w(id, 25) + 0.54, sfx: "pop", vol: 0.12 },
     ],
@@ -250,11 +250,10 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.m44 { font-size: 44px; padding: 14px 30px 16px; opacity: 1; }`,
     html: `${pill(1, 540, 1650, "Sobre todo si no sabés qué querés", "m44")}`,
-    js: `fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+    js: `fuera(".n1", ${r2(ESC[id] - 0.4)}, 0.1);`,
     sfx: [
       { t: w(id, 42) + 0.1, sfx: "key-press", vol: 0.13 },
-      { t: w(id, 43) - 0.05, sfx: "whoosh-short", vol: 0.1 },
-      { t: r2(ESC[id] - 0.42), sfx: "whoosh-short", vol: 0.06, max: 0.5 },
+      { t: w(id, 43) + 0.2, sfx: "whoosh-short", vol: 0.1 },
     ],
   });
 }
@@ -267,8 +266,8 @@ const CSS_MK = `
     js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: -0.3, sfx: "burbuja", vol: 0.11 },
-      { t: w(id, 49), sfx: "typing", vol: 0.06, max: 0.8 },
-      ...[0, 0.3, 0.55, 0.75, 0.92, 1.06].map((d) => ({ t: r2(w(id, 52) + d), sfx: "notification", vol: 0.07, max: 0.4 })),
+      { t: w(id, 49), sfx: "whoosh-short", vol: 0.05, max: 0.5 },
+      ...[[0, 0.04], [0.4, 0.055], [0.7, 0.07], [0.92, 0.085]].map(([d, v]) => ({ t: r2(w(id, 52) + d), sfx: "notification", vol: v, max: 0.4 })),
     ],
   });
 }
@@ -294,7 +293,6 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.12, sfx: "whoosh-short", vol: 0.06 },
       { t: w(id, 61), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 62), sfx: "pop", vol: 0.09 },
       { t: w(id, 62) + 0.15, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.6 },
     ],
@@ -317,7 +315,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.chico { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `
-      ${leads(lead(1, 880, 560, 240, 900, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
+      ${leads(lead(1, 880, 560, 230, 990, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
       ${pill(1, 880, 520, `${tick(24)}Elige`, "lleno chico")}
       ${pill(2, 300, 1590, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
@@ -368,7 +366,7 @@ const CSS_MK = `
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
       tl.fromTo(q(".t2w"), { scale: 1 }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.02)});
       tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) - 0.03)});`,
-    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 0.8 }],
+    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 1.8 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);
