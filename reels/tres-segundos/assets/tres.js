@@ -677,7 +677,12 @@ function renderAt(t) {
       // s04 · zambullida: pantalla en blanco a pantalla completa; s05 · "se cansa": vuelve a la mano (primer plano de Nico)
       const u = eio(sg(t, S4 - 0.08, S4 + 0.5)) * (1 - eio(sg(t, S5 - 0.02, S5 + 0.42)));
       celS = zambullida(u, 0, Math.sin(t * 0.9) * 0.03 * u);
-      if (t >= S5 - 0.02) celS = lerp(MANO_S, 1.0, Math.pow(u, 3)); // al volver a la mano se achica antes de cruzar la cara
+      if (t >= S5 - 0.02) {
+        celS = lerp(MANO_S, 1.0, Math.pow(u, 3)); // al volver a la mano se achica antes de cruzar la cara
+        // y baja por debajo de la cara (curva hacia abajo y a la derecha), nunca por delante de ella
+        const arco = Math.sin(Math.PI * u) * (u < 0.98 ? 1 : 0);
+        cel.position.add(new THREE.Vector3(0.3 * arco, -0.85 * arco, 0).applyQuaternion(camera.quaternion));
+      }
       celSombraOn = false;
       // páginas: blanco con la ruedita → toca "atrás" (vuelven los resultados) → toca otro resultado (otra página)
       const T1 = W[37] + 0.12, T2 = W[39] + 0.1;
