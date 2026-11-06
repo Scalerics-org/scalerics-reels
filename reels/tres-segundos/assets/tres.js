@@ -514,7 +514,9 @@ const CAM = [
   [S["s03-parada"], 6, 7, 15.6, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [W[29], -3, 7, 15.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
   [S["s04-blanco"] + 0.1, -6, 7, 13.8, PAR.x + 0.4, 0.3, PAR.z + 0.3],
-  [S["s05-atras"], -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3],
+  // corte limpio en "Se cansa": de la pantalla completa al primer plano de Nico (el celular ya en la mano)
+  [S["s05-atras"] - 0.005, -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3, "c"],
+  [S["s05-atras"], -11, 2, 5.6, PAR.x + 0.75, 0.5, PAR.z + 1.25],
   [S["s05-atras"] + 0.45, -12, 2, 5.4, PAR.x + 0.75, 0.5, PAR.z + 1.25],
   // corte limpio en "Y nunca": del primer plano de Nico a la pizzería (antes el viaje pasaba por cuadros sin protagonista)
   [S["s06-avisa"] - 0.005, -16, 2, 5.0, PAR.x + 0.75, 0.52, PAR.z + 1.25, "c"],
@@ -530,11 +532,11 @@ const CAM = [
   [W[67], 6, 8, 8.8, EST2.x, 0.6, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
   [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.6, EST2.z + 0.1, "c"],
-  [S["s10-abre"], 6, 7, 13.0, PAR.x + 0.05, 0.62, PAR.z + 0.9],
-  [W[75], 2, 6, 12.6, PAR.x + 0.05, 0.62, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 12.4, PAR.x + 0.05, 0.62, PAR.z + 0.95],
+  [S["s10-abre"], 6, 7, 13.6, PAR.x + 0.45, 0.62, PAR.z + 0.9],
+  [W[75], 2, 6, 13.2, PAR.x + 0.45, 0.62, PAR.z + 0.95],
+  [S["s11-pagina"] + 0.3, -4, 6, 13.0, PAR.x + 0.45, 0.62, PAR.z + 0.95],
   // corte limpio en "¿Cuánto": de la página a pantalla completa al cronómetro gigante
-  [S["s12-tuya"] - 0.005, -8, 6, 12.4, PAR.x + 0.05, 0.62, PAR.z + 0.95, "c"],
+  [S["s12-tuya"] - 0.005, -8, 6, 13.0, PAR.x + 0.45, 0.62, PAR.z + 0.95, "c"],
   [S["s12-tuya"], -10, 6, 14.2, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
@@ -643,7 +645,7 @@ function renderAt(t) {
   // posición de la mano de la persona de la parada (el celular en la mano)
   const mano = ponerNico(t);
   // en el primer plano de s05 el celular crece un poco en la mano (que se lea la pantalla)
-  const cercaCel = eio(sg(t, S5 - 0.02, S5 + 0.42)) * (1 - eio(sg(t, S6 - 0.3, S6 + 0.1)));
+  const cercaCel = (t >= S5 ? 1 : 0) * (1 - eio(sg(t, S6 - 0.3, S6 + 0.1)));
   const MANO_S = 0.15 + 0.05 * cercaCel, MANO_R = [0.12, -0.42 + 0.1 * cercaCel, 0];
   const enMano = () => { cel.position.copy(mano); cel.rotation.set(...MANO_R); };
   // viaje de un lugar a otro: el celular pasa por el centro del cuadro (siempre entero y grande) y recién al final baja a la mano
@@ -681,15 +683,9 @@ function renderAt(t) {
     if (t < S4 - 0.08) { enMano(); celS = MANO_S; pagina("busca"); }
     else {
       // s04 · zambullida: pantalla en blanco a pantalla completa; s05 · "se cansa": vuelve a la mano (primer plano de Nico)
-      const u = eio(sg(t, S4 - 0.08, S4 + 0.5)) * (1 - eio(sg(t, S5 - 0.02, S5 + 0.42)));
+      const u = t >= S5 ? 0 : eio(sg(t, S4 - 0.08, S4 + 0.5)); // corte en "Se cansa": vuelve a la mano de golpe
       celS = zambullida(u, 0, Math.sin(t * 0.9) * 0.03 * u);
       if (u > 0.02 && u < 0.985) ESTADO = false;
-      if (t >= S5 - 0.02) {
-        celS = lerp(MANO_S, 1.0, Math.pow(u, 3)); // al volver a la mano se achica antes de cruzar la cara
-        // y baja por debajo de la cara (curva hacia abajo y a la derecha), nunca por delante de ella
-        const arco = Math.sin(Math.PI * u) * (u < 0.98 ? 1 : 0);
-        cel.position.add(new THREE.Vector3(0.3 * arco, -0.85 * arco, 0).applyQuaternion(camera.quaternion));
-      }
       celSombraOn = false;
       // páginas: blanco con la ruedita → toca "atrás" (vuelven los resultados) → toca otro resultado (otra página)
       const T1 = W[37] + 0.12, T2 = W[39] + 0.1;
@@ -744,10 +740,10 @@ function renderAt(t) {
     bordeMat.emissiveIntensity = 0.6;
     // s12 · se va hacia abajo
     // sigue a pantalla completa hasta el corte de s12
-  } else if (t >= S13 - 0.06) {
+  } else if (t >= S13 - 0.08) {
     // cierre: el celular con la videollamada
     celOn = true;
-    const e = lerp(0.6, 1, bk(sg(t, S13 - 0.06, S13 + 0.22)));
+    const e = lerp(0.6, 1, bk(sg(t, S13 - 0.08, S13 + 0.2)));
     cel.position.set(0, -0.02, 0.4); cel.rotation.set(-0.05, Math.sin(t * 0.8) * 0.1, 0); celS = 0.98 * e;
     pagina("llamada"); celSombraOn = true;
   }
@@ -774,7 +770,7 @@ function renderAt(t) {
       apoyar(cronoSombra, crono.position.x, 0.2, s * (1 - va), 0.75);
     } else if (en(t, S4 + 0.2, S5 + 0.45)) {
       // s04 · sobre la pantalla en blanco: cuenta uno, dos, tres
-      s = t < S4 + 0.2 || t >= S5 + 0.02 ? 0 : 0.25 * lerp(0.6, 1, bk(sg(t, S4 + 0.2, S4 + 0.5))) * lerp(1, 0.55, eio(sg(t, S5 - 0.12, S5 + 0.02)));
+      s = t < S4 + 0.2 || t >= S5 ? 0 : 0.25 * lerp(0.6, 1, bk(sg(t, S4 + 0.2, S4 + 0.5)));
       const A = S4 + 0.55;
       m = t < W[33] ? lerp(0, 1, eio(sg(t, A, W[33]))) : t < W[34] ? 1 + eio(sg(t, W[33] + 0.08, W[34])) : t < W[35] ? 2 + eio(sg(t, W[34] + 0.08, W[35])) : 3 + 0.6 * eo(sg(t, W[35] + 0.05, S5 + 0.3));
       zona = eo(sg(t, W[35], W[35] + 0.25));

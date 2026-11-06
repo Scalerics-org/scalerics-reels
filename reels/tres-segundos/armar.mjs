@@ -216,7 +216,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // fondo navy liso; en el cierre pasa a verde de marca. El velo (legibilidad del texto sobre el 3D)
       // se apaga donde el celular llena la pantalla (su barra navy de arriba ya da el contraste) y en el cierre.
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.12, ease: "power2.inOut", immediateRender: false }, ${VERDE});
+      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.04, ease: "none", immediateRender: false }, ${r2(VERDE + 0.02)});
 ${VELO}
 ${FIRMA}      window.__timelines["main"] = tl;
     </script>

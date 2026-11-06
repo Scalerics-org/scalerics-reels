@@ -46,7 +46,27 @@ Reglas técnicas de `SPEC-base.md` (del molde) para las composiciones; lo visual
 ```
 (El brief por escena de abajo es el original; los cambios están en las secciones de construcción del final.)
 
-## Escenas (13)
+## Escenas actuales (14, índices y tiempos de la versión final)
+
+- **s01-gancho** (palabra 0 "Si", 0.00 s) · Cuadro 0 = portada: gancho grande "Si tu página tarda / más de / 3 segundos" sobre el cronómetro 3D gigante que corre; en "tres" entra en la zona roja. Se va el gancho y "en el celular" va de subtítulo; el cronómetro se mete en el celular.
+- **s02-mitad** (palabra 11 "más", 2.80 s) · Celular con la ruedita y 10 visitas (personajes del módulo) que suben desde abajo; en "mitad" 6 giran con fastidio, se ponen grises y se van. 53 % 3D verde + rótulo "…si tarda más de 3 s" + pill "Fuente: Google" (salen juntos con corte seco).
+- **s03-parada** (palabra 22 "Alguien", 5.86 s) · Corte limpio a la parada: Nico (ELENCO.empleado) con el celular en la mano, tipea; en "hambre" globito con la porción de muzzarella.
+- **s04-blanco** (palabra 30 "Pantalla", 8.44 s) · Zambullida a pantalla completa: pantalla en blanco con ruedita y el cronómetro chico encima; en "Uno" número 3D 1.
+- **s04b-cuenta** (palabra 34 "dos,", 10.48 s) · "dos", "tres": números 3D 2 y 3 (rojo), la corona se pone roja.
+- **s05-atras** (palabra 36 "Se", 12.22 s) · Corte limpio al primer plano de Nico con fastidio: toca atrás (vuelven los resultados), toca otro resultado ("otra página") y sonríe.
+- **s06-avisa** (palabra 41 "Y", 14.04 s) · Corte limpio a la pizzería: timbre de mostrador que no suena (se apaga a gris), pill "0 avisos".
+- **s07-venta** (palabra 48 "Esa", 15.87 s) · Push-in a la caja de pizza: la tapa intenta abrirse y se cierra, se pone gris; sello "VENTA PERDIDA".
+- **s08-pesadas** (palabra 56 "Pasa", 18.05 s) · Corte limpio al celular acostado con la página vieja; le caen 4 marcos de foto; pill "Fotos pesadas".
+- **s09-rapida** (palabra 62 "En", 20.05 s) · Las fotos se comprimen y entran a la pantalla; el celular se para, borde verde, página rápida; tilde 3D en "rápida"; pill "Scalerics".
+- **s10-abre** (palabra 71 "Misma", 23.15 s) · Corte limpio a la misma parada (callback): el cronómetro frena en verde antes del 3 con tilde; en "al toque" zambullida.
+- **s11-pagina** (palabra 76 "con", 25.13 s) · Página rápida a pantalla completa: tildes en horario, foto y "Pedí por WhatsApp".
+- **s12-tuya** (palabra 81 "¿Cuánto", 27.33 s) · Corte limpio al cronómetro gigante con "?" que late con el tic y el tac; "¿Cuánto tarda la tuya?" y después subtítulo "Agendá una".
+- **s13-llamada** (palabra 87 "videollamada", 29.35 s) · Cierre verde: "Videollamada / gratis", celular 3D con la videollamada, "scalerics.com".
+
+(El brief original y los apuntes de construcción de abajo son historial: tienen índices y tiempos viejos.)
+
+## Brief original (historial)
+
 
 **s01-gancho** (palabra 0) · Cronómetro 3D gigante (70 % del ancho, centro y 1000), ya en el cuadro 0
 con la aguja arrancando desde 0. Gancho entero en el cuadro 0: "Más de **3 segundos**" (Lexend 900,

@@ -140,7 +140,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: T1, sfx: "tic-real", vol: 0.45 }, { t: T2, sfx: "tac-real", vol: 0.5 }, { t: T3, sfx: "tic-real", vol: 0.5 },
       { t: T3 + 0.08, sfx: "glitch-1", vol: 0.1, max: 0.3 },
       { t: rel(id, W(10)) - 0.1, sfx: "whoosh-c", vol: 0.3, max: 0.8 },
-      { t: rel(id, W(10)) + 0.02, sfx: "burbuja", vol: 0.5 }, { t: rel(id, W(10)) + 0.3, sfx: "pop", vol: 0.18 },
+      { t: rel(id, W(10)) + 0.02, sfx: "burbuja", vol: 0.29 }, { t: rel(id, W(10)) + 0.3, sfx: "pop", vol: 0.18 },
     ],
   });
 }
@@ -162,7 +162,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     sfx: [
       { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-press", vol: 0.25 },
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
-      { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.016, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "burbuja", vol: 0.3 },
+      { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.016, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "burbuja", vol: 0.17 },
       { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
       { t: ESC[id] - 0.08, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada
     ],
@@ -203,7 +203,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: rel(id, W(34)), sfx: "tac-real", vol: 0.5 }, { t: rel(id, W(34)) + 0.02, sfx: "burbuja", vol: 0.3 },
+      { t: rel(id, W(34)), sfx: "tac-real", vol: 0.5 }, { t: rel(id, W(34)) + 0.02, sfx: "burbuja", vol: 0.23 },
       { t: rel(id, W(35)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(35)) + 0.06, sfx: "glitch-1", vol: 0.12, max: 0.35 },
     ],
   });
@@ -253,7 +253,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
       tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.1, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(55)))});`,
     sfx: [
-      { t: 0.0, sfx: "burbuja", vol: 0.22 }, { t: 0.3, sfx: "impact-bass-1", vol: 0.025, max: 0.6 },
+      { t: 0.0, sfx: "burbuja", vol: 0.13 }, { t: 0.3, sfx: "impact-bass-1", vol: 0.025, max: 0.6 },
       { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.5, sfx: "papel", vol: 0.25 },
       { t: rel(id, W(55)) + 0.08, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)) + 0.1, sfx: "impact-bass-1", vol: 0.05, max: 0.6 },
     ],
@@ -290,7 +290,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       nota(1, 0.9);
       fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.32 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
+      { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.27 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
       { t: 0.95, sfx: "whoosh-short", vol: 0.18 },
       { t: rel(id, W(67)), sfx: "sparkle", vol: 0.3 }, { t: rel(id, W(67)) + 0.05, sfx: "pop", vol: 0.3 },
       { t: ESC[id] - 0.08, sfx: "whoosh-c", vol: 0.2 }, // corte limpio a la parada
@@ -305,9 +305,9 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.55, sfx: "burbuja", vol: 0.24 },
-      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.38, sfx: "chime-c", vol: 0.45, max: 0.7 },
-      { t: rel(id, W(75)), sfx: "whoosh", vol: 0.2, max: 0.7 },
+      { t: 0.55, sfx: "burbuja", vol: 0.19 },
+      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.38, sfx: "chime-c", vol: 0.32, max: 0.7 },
+      { t: rel(id, W(75)), sfx: "whoosh-c", vol: 0.1, max: 0.7 },
     ],
   });
 }
@@ -320,7 +320,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: rel(id, W(77)), sfx: "click-soft", vol: 0.24 },
-      { t: rel(id, W(78)), sfx: "burbuja", vol: 0.38 },
+      { t: rel(id, W(78)), sfx: "burbuja", vol: 0.15 },
       { t: rel(id, W(80)), sfx: "pop", vol: 0.2 }, { t: rel(id, W(80)) + 0.02, sfx: "ping-c", vol: 0.22 },
       
     ],
@@ -340,7 +340,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       late(".pq em", ${r2(rel(id, W(84)))}, 1.08);
       tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.14, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.16)}); // deja lugar al subtítulo "Agendá una"`,
     sfx: [
-      { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.2 },
+      { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.25 },
       { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.42, sfx: "tac-real", vol: 0.45 },
     ],
   });
@@ -365,7 +365,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.18)}); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(87)) + 0.18)});
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.55)}); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, ${r2(rel(id, W(87)) + 0.55)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.2)});`,
-    sfx: [{ t: -0.05, sfx: "whoosh-c", vol: 0.2, max: 0.6 }, { t: 0.0, sfx: "burbuja", vol: 0.42 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
+    sfx: [{ t: -0.05, sfx: "whoosh-c", vol: 0.2, max: 0.6 }, { t: 0.0, sfx: "burbuja", vol: 0.21 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);
