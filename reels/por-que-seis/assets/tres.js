@@ -483,18 +483,19 @@ async function dibujarPantallas() {
   const tienda = (paso) => lienzo((x) => {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, 720, 1458); barra(x, "20:16", "#0b1220");
     x.fillStyle = "#0b1220"; x.font = F(800, 66); x.fillText("Tu tienda", 48, 186);
-    const cats = ["Mermeladas", "Dulces", "Regalos"];
-    let X = 48; x.font = F(700, 36);
+    // pocas categorías: dos, grandes (se leen en el celular)
+    const cats = ["Mermeladas", "Regalos"];
+    let X = 44; x.font = F(700, 46);
     cats.forEach((c, i) => {
-      const w = x.measureText(c).width + 56;
-      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 232, w, 70, 35); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 28, 279); }
-      X += w + 14;
+      const w = x.measureText(c).width + 52;
+      if (paso >= 2) { x.fillStyle = i === 0 ? "#0b1220" : "#ffffff"; rr(x, X, 226, w, 80, 40); x.fillStyle = i === 0 ? "#5ce611" : "#0b1220"; x.fillText(c, X + 26, 282); }
+      X += w + 16;
     });
     if (paso >= 1) {
       x.strokeStyle = "#5ce611"; x.lineWidth = 9; x.strokeRect(36, 346, 648, 520);
       [[36, 346], [684, 346], [36, 866], [684, 866]].forEach(([a, b]) => { x.fillStyle = "#ffffff"; x.fillRect(a - 11, b - 11, 22, 22); x.strokeStyle = "#5ce611"; x.lineWidth = 5; x.strokeRect(a - 11, b - 11, 22, 22); });
     }
-    x.fillStyle = "#0b1220"; x.font = F(800, 46); x.fillText("Los más pedidos", 60, 410);
+    x.fillStyle = "#0b1220"; x.font = F(800, 50); x.fillText("Los más pedidos", 56, 414);
     [[0, 0], [1, 1], [3, 0]].forEach(([f, tl], i) => {
       const cx = 144 + i * 216;
       const elegido = paso >= 3 && i === 0;
@@ -504,7 +505,7 @@ async function dibujarPantallas() {
       x.fillStyle = "#5ce611"; rr(x, cx - 70, 768, 100, 48, 14);
       if (elegido) tick(x, cx + 62, 472, 34);
     });
-    x.fillStyle = "#0b1220"; x.font = F(700, 40); x.fillText("Mermeladas", 56, 944);
+    x.fillStyle = "#0b1220"; x.font = F(700, 46); x.fillText("Mermeladas", 52, 946);
     for (let i = 0; i < 4; i++) { x.fillStyle = "#ffffff"; rr(x, 48 + i * 160, 970, 144, 160, 20); frascoDib(x, 120 + i * 160, 1062, 0.55, (i + 2) % 6, i % 2); }
     x.fillStyle = "#0b1220"; rr(x, 48, 1220, 624, 170, 46);
     if (paso >= 4) { tick(x, 150, 1305, 46); x.fillStyle = "#5ce611"; x.font = F(800, 60); x.fillText("Pagado", 222, 1326); }
