@@ -452,103 +452,97 @@
  {
   "id": 75,
   "text": "Ese",
-  "start": 27.893,
+  "start": 27.82,
   "end": 28
  },
  {
   "id": 76,
   "text": "grado",
   "start": 28,
-  "end": 28.3
+  "end": 28.4
  },
  {
   "id": 77,
-  "text": "de",
-  "start": 28.3,
-  "end": 28.5
+  "text": "mejor",
+  "start": 28.4,
+  "end": 28.9
  },
  {
   "id": 78,
-  "text": "más",
-  "start": 28.5,
-  "end": 28.81
+  "text": "lo",
+  "start": 28.9,
+  "end": 29
  },
  {
   "id": 79,
-  "text": "lo",
-  "start": 29.08,
-  "end": 29.16
- },
- {
-  "id": 80,
   "text": "automatizamos.",
-  "start": 29.25,
-  "end": 30.11
+  "start": 29,
+  "end": 29.93
  },
  {
   "id": 81,
   "text": "¿Lo",
-  "start": 30.62,
-  "end": 30.7
+  "start": 30.45,
+  "end": 30.53
  },
  {
   "id": 82,
   "text": "vemos",
-  "start": 30.7,
-  "end": 30.8
+  "start": 30.53,
+  "end": 30.63
  },
  {
   "id": 83,
   "text": "en",
-  "start": 30.8,
-  "end": 31
+  "start": 30.63,
+  "end": 30.83
  },
  {
   "id": 84,
   "text": "tu",
-  "start": 31,
-  "end": 31.1
+  "start": 30.83,
+  "end": 30.93
  },
  {
   "id": 85,
   "text": "local?",
-  "start": 31.1,
-  "end": 31.4
+  "start": 30.93,
+  "end": 31.23
  },
  {
   "id": 86,
   "text": "Agendá",
-  "start": 31.74,
-  "end": 32.2
+  "start": 31.57,
+  "end": 32.03
  },
  {
   "id": 87,
   "text": "una",
-  "start": 32.2,
-  "end": 32.3
+  "start": 32.03,
+  "end": 32.13
  },
  {
   "id": 88,
   "text": "videollamada",
-  "start": 32.3,
-  "end": 32.7
+  "start": 32.13,
+  "end": 32.53
  },
  {
   "id": 89,
   "text": "gratis",
-  "start": 32.7,
-  "end": 33.2
+  "start": 32.53,
+  "end": 33.03
  },
  {
   "id": 90,
   "text": "en",
-  "start": 33.2,
-  "end": 33.6
+  "start": 33.03,
+  "end": 33.43
  },
  {
   "id": 91,
   "text": "scalerics.com.",
-  "start": 33.6,
-  "end": 34.75
+  "start": 33.43,
+  "end": 34.58
  }
 ]

@@ -28,16 +28,16 @@ Palabras (segundos relativos a la escena): Y 0.00 · ahí, 0.11 · muchos 0.68 �
 ### s10-sale-solo — dura 3.00 s (inicio global 22.73)
 Palabras (segundos relativos a la escena): Sale 0.00 · solo: 0.17 · Ana, 1.10 · tu 1.54 · pedido 1.65 · va 1.87 · en 1.97 · camino. 2.07 · Al 3.00
 
-### s11-llego-bien — dura 2.16 s (inicio global 25.73)
+### s11-llego-bien — dura 2.09 s (inicio global 25.73)
 Palabras (segundos relativos a la escena): Al -0.00 · otro 0.07 · día: 0.27 · ¿llegó 1.00 · bien? 1.27
 
-### s11b-grado-de-mas — dura 2.73 s (inicio global 27.89)
-Palabras (segundos relativos a la escena): Ese 0.00 · grado 0.11 · de 0.41 · más 0.61 · lo 1.19 · automatizamos. 1.36
+### s11b-grado-mejor — dura 2.63 s (inicio global 27.82)
+Palabras (segundos relativos a la escena): Ese 0.00 · grado 0.18 · mejor 0.58 · lo 1.08 · automatizamos. 1.18
 
-### s12-tu-local — dura 1.68 s (inicio global 30.62)
+### s12-tu-local — dura 1.68 s (inicio global 30.45)
 Palabras (segundos relativos a la escena): ¿Lo 0.00 · vemos 0.08 · en 0.18 · tu 0.38 · local? 0.48 · Agendá 1.12 · una 1.58
 
-### s13-llamada — dura 2.89 s (inicio global 32.30)
+### s13-llamada — dura 2.89 s (inicio global 32.13)
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.40 · en 0.90 · scalerics.com. 1.30
 
-Duración total 35.19 (la voz termina en 34.89).
+Duración total 35.02 (la voz termina en 34.72).

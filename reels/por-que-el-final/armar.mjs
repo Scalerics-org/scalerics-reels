@@ -14,7 +14,7 @@ import { execSync } from "node:child_process";
 const largo = {};
 const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
 // techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
-const TECHO = -31.3;
+const TECHO = -33.5;
 const lufs = {};
 // se mide el TRAMO que suena (atrim hasta max) con apad, así un efecto corto o recortado se mide de verdad
 const lufsArchivo = (n, max) => {
@@ -27,7 +27,9 @@ const lufsArchivo = (n, max) => {
   }
   return lufs[k];
 };
-const conTecho = (n, v, max) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n, max)) / 20)) * 1000) / 1000;
+// los que tienen picos cortos pasaban -31 en momentánea: un recorte extra por efecto
+const PICO = { sparkle: 0.7, notification: 0.75, "riser-corto": 0.8, "whoosh-cine-corto": 0.85 };
+const conTecho = (n, v, max) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n, max)) / 20)) * (PICO[n] ?? 1) * 1000) / 1000;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
 
@@ -129,11 +131,10 @@ ${anim}      ];
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.fromTo(w, { opacity: 0, y: 18, scale: 0.86 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out" }, ini + Math.min(0.04, Number(w.dataset.t)) );
+          tl.set(w, { opacity: 1 }, ini);
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
         }
-        tl.to(el.querySelector("p"), { opacity: 0, duration: 0.03, ease: "none" }, ini + dur - 0.03);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
@@ -200,7 +201,7 @@ ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.2" data-fade-out="0.5"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};

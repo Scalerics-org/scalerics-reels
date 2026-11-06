@@ -58,7 +58,7 @@ El guion NO nombra a los autores ni el año (no hace falta para la historia); va
   https://en.wikipedia.org/wiki/Duration_neglect
 - Se dice "más" (sobre todo), no "solo": el paper habla de que dominan, no de que sean lo único.
 
-## "Al vender, el final es después de cobrar. Y ahí, muchos se callan. Sale solo: Ana, tu pedido va en camino. Al otro día: ¿llegó bien? Ese grado lo automatizamos."
+## "Al vender, el final es después de cobrar. Y ahí, muchos se callan. Sale solo: Ana, tu pedido va en camino. Al otro día: ¿llegó bien? Ese grado mejor lo automatizamos."
 - No son datos: es la aplicación a la pyme (automatizaciones de Scalerics, ver CLAUDE.md, "Lo que se vende":
   avisar que un pedido está listo, recordar, escribirle al cliente). Ana es un ejemplo inventado, sin apellido.
   "Muchos se callan" es una observación general, sin cifra ni culpa a nadie. No se promete ningún resultado

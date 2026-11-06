@@ -1,10 +1,12 @@
-# por-que-el-final · "¿Por qué…?" (3D real), 35,2 s
+# por-que-el-final · "¿Por qué…?" (3D real), 35,0 s
 
 Serie "¿Por qué…?" (CLAUDE.md, puntos 9a + 8b + 8c), sin marcas. Experimento real verificado en `fuentes.md`
 (Kahneman y otros, 1993: una mano 60 s a 14 °C, la otra 60 s a 14 °C + 30 s subiendo a 15 °C; para repetir, la
 mayoría eligió la larga). Gancho en el cuadro 0: "Agua fría, dos veces. La mayoría eligió **la más larga**. ¿Por qué?".
-Producto: automatizaciones (el mensaje después de cobrar: "va en camino" y "¿llegó bien?" salen solos). Cierre con
-callback: el mismo termómetro sube UN grado cuando sale el mensaje. Videollamada gratis en scalerics.com.
+Producto: automatizaciones (el mensaje después de cobrar: "va en camino" y "¿llegó bien?" salen solos). Remate
+(ronda 1): "Ese grado mejor lo automatizamos." (frase regenerada con Orus y pegada en la locución). Cierre con
+callback: el mismo termómetro sube UN grado al lado del celular de Ana; en "¿Lo vemos en tu local?" el celular y el
+termómetro quedan delante de un local genérico que entra grande. Videollamada gratis en scalerics.com.
 
 ## Cómo está armado
 - Base técnica: reels/por-que-la-lista. Una sola escena Three.js (`assets/tres.js`), `renderAt(t)` puro, azar con
@@ -25,11 +27,17 @@ callback: el mismo termómetro sube UN grado cuando sale el mensaje. Videollamad
   cierran, cinta navy, etiqueta, ticket "PAGADO"; celular con chat genérico (sin logos ni colores de apps): callado →
   "Ana, tu pedido va en camino" → "Al otro día" + "¿Llegó bien, Ana?" + "¡Perfecto, gracias!"; calendario LUN → MAR;
   segundo termómetro al lado del celular (14° → 15°); frente de local genérico (toldo navy con borde verde).
-- La mano con el celular: queda detrás del teléfono (sin pulgar delante: se veía como un bulto sobre la pantalla);
-  se ve la muñeca y el puño debajo del celular.
+- Ronda 1 (revisión de arte): el laboratorio nunca se achica en el aire: sube y baja entero (`labY`). El "?", el
+  termómetro gigante y el cronómetro viven en `QX`, delante del laboratorio, y se pasan la posta con un giro de
+  tarjeta (scale.x) que se solapa: siempre hay un objeto grande. El cronómetro marca 60 s con un anillo crema
+  (una vuelta) y los 30 s de más con un arco verde. El paquete nace grande en el final de la curva; el celular
+  entra delante del paquete (que baja por detrás). Sin mano con el celular (se leía como pedestal). Los números
+  14°→15° cambian sin encimarse (el viejo se va del todo y recién entra el nuevo).
+- Subtítulos con cambio seco (sin fundido ni hueco). Música con fundido de 0,5 s al final. TECHO -33,5 y recorte
+  extra para sparkle, notification, riser-corto y whoosh-cine-corto (picos momentáneos).
 - Cámara: claves [t, azimut, elevación, distancia, mira], cúbica monótona (Fritsch-Carlson) continua, sin cortes.
 - Números "14°"/"15°": al costado del tubo (no arriba: pisaban los subtítulos); en el cierre, arriba del tubo.
-- `reel.json` `sinLogo`: 10,6-15,7 s (el bulbo queda abajo) y 22,75-30,6 s (el brazo debajo del celular y los sellos).
+- `reel.json` `sinLogo`: 5,85-18,75 s (termómetro, cronómetro, cubeta abajo) y 20,8-32,25 s (celular, sellos, local).
 - Sonido: SFX del repo (HyperFrames) + CC0 de abren-hoy (burbuja = gotas/salpicadura, vibra). Sin splash real
   (la nube bloquea Freesound/Openverse): el agua suena con burbuja + whoosh suaves, nada sintetizado. TECHO -31 LUFS.
 - Portada: `portada-fondo.png` = cuadro 0,6 s renderizado sin capas HTML.
@@ -65,16 +73,16 @@ Palabras (segundos relativos a la escena): Y 0.00 · ahí, 0.11 · muchos 0.68 �
 ### s10-sale-solo — dura 3.00 s (inicio global 22.73)
 Palabras (segundos relativos a la escena): Sale 0.00 · solo: 0.17 · Ana, 1.10 · tu 1.54 · pedido 1.65 · va 1.87 · en 1.97 · camino. 2.07 · Al 3.00
 
-### s11-llego-bien — dura 2.16 s (inicio global 25.73)
+### s11-llego-bien — dura 2.09 s (inicio global 25.73)
 Palabras (segundos relativos a la escena): Al -0.00 · otro 0.07 · día: 0.27 · ¿llegó 1.00 · bien? 1.27
 
-### s11b-grado-de-mas — dura 2.73 s (inicio global 27.89)
-Palabras (segundos relativos a la escena): Ese 0.00 · grado 0.11 · de 0.41 · más 0.61 · lo 1.19 · automatizamos. 1.36
+### s11b-grado-mejor — dura 2.63 s (inicio global 27.82)
+Palabras (segundos relativos a la escena): Ese 0.00 · grado 0.18 · mejor 0.58 · lo 1.08 · automatizamos. 1.18
 
-### s12-tu-local — dura 1.68 s (inicio global 30.62)
+### s12-tu-local — dura 1.68 s (inicio global 30.45)
 Palabras (segundos relativos a la escena): ¿Lo 0.00 · vemos 0.08 · en 0.18 · tu 0.38 · local? 0.48 · Agendá 1.12 · una 1.58
 
-### s13-llamada — dura 2.89 s (inicio global 32.30)
+### s13-llamada — dura 2.89 s (inicio global 32.13)
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.40 · en 0.90 · scalerics.com. 1.30
 
-Duración total 35.19 (la voz termina en 34.89).
+Duración total 35.02 (la voz termina en 34.72).

@@ -27,7 +27,7 @@
   </style>
   <div id="root" data-composition-id="s03-por-que" data-width="1080" data-height="1920" data-duration="2.87">
     <div id="s03-por-que-esc" class="esc clip" data-start="0" data-duration="2.87" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M300 1560 L470 1420"/><circle class="dot r d1" cx="470" cy="1420" r="12"/></svg><div class="pill r n1" style="left:300px;top:1600px">60 s</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M640 1690 L470 1620"/><circle class="dot r d1" cx="470" cy="1620" r="12"/></svg><div class="pill r grande n1" style="left:760px;top:1690px">60 s</div>
     </div>
   </div>
   <script>
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.15);
+nota(1, 1.15); sinNota(1, 2.55);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

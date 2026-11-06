@@ -23,11 +23,11 @@
     [data-composition-id="s02-mayoria"] .selbox.r i { border-color: #c7655b; }
     [data-composition-id="s02-mayoria"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s02-mayoria"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s02-mayoria"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s02-mayoria"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s02-mayoria"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
-
+[data-composition-id="s02-mayoria"] .exp { left: 540px; top: 500px; font-size: 40px; color: #efeee5; }
   </style>
   <div id="root" data-composition-id="s02-mayoria" data-width="1080" data-height="1920" data-duration="2.88">
     <div id="s02-mayoria-esc" class="esc clip" data-start="0" data-duration="2.88" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M780 1570 L950 1200"/><circle class="dot g d1" cx="950" cy="1200" r="12"/></svg><div class="pill g n1" style="left:780px;top:1610px">La mayoría</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M780 1570 L950 1200"/><circle class="dot g d1" cx="950" cy="1200" r="12"/></svg><div class="pill g grande n1" style="left:780px;top:1610px">La mayoría</div><div class="mono exp n2" style="left:540px;top:500px">Experimento de psicología · 1993</div>
     </div>
   </div>
   <script>
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.28);
+nota(1, 1.28); tl.fromTo(q(".n2"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: true }, 0.05); fuera(".n2", 2.63, 0.2);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
