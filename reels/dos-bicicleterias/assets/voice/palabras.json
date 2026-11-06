@@ -1,0 +1,536 @@
+[
+ {
+  "id": 0,
+  "text": "Dos",
+  "start": 0.24,
+  "end": 0.5
+ },
+ {
+  "id": 1,
+  "text": "bicicleterías,",
+  "start": 0.45,
+  "end": 1.1
+ },
+ {
+  "id": 2,
+  "text": "los",
+  "start": 1.1,
+  "end": 1.5
+ },
+ {
+  "id": 3,
+  "text": "mismos",
+  "start": 1.5,
+  "end": 1.8
+ },
+ {
+  "id": 4,
+  "text": "cascos.",
+  "start": 1.8,
+  "end": 2.3
+ },
+ {
+  "id": 5,
+  "text": "Una",
+  "start": 2.584,
+  "end": 2.7
+ },
+ {
+  "id": 6,
+  "text": "sabe",
+  "start": 2.7,
+  "end": 3.1
+ },
+ {
+  "id": 7,
+  "text": "a",
+  "start": 3.1,
+  "end": 3.3
+ },
+ {
+  "id": 8,
+  "text": "quién",
+  "start": 3.3,
+  "end": 3.6
+ },
+ {
+  "id": 9,
+  "text": "avisarle.",
+  "start": 3.6,
+  "end": 4.18
+ },
+ {
+  "id": 10,
+  "text": "A",
+  "start": 4.58,
+  "end": 4.66
+ },
+ {
+  "id": 11,
+  "text": "la",
+  "start": 4.66,
+  "end": 4.75
+ },
+ {
+  "id": 12,
+  "text": "izquierda,",
+  "start": 4.7,
+  "end": 5.1
+ },
+ {
+  "id": 13,
+  "text": "una",
+  "start": 5.1,
+  "end": 5.5
+ },
+ {
+  "id": 14,
+  "text": "foto",
+  "start": 5.5,
+  "end": 5.7
+ },
+ {
+  "id": 15,
+  "text": "en",
+  "start": 5.7,
+  "end": 5.8
+ },
+ {
+  "id": 16,
+  "text": "las",
+  "start": 5.8,
+  "end": 5.9
+ },
+ {
+  "id": 17,
+  "text": "redes:",
+  "start": 5.9,
+  "end": 5.9
+ },
+ {
+  "id": 18,
+  "text": "llegaron",
+  "start": 6.503,
+  "end": 6.9
+ },
+ {
+  "id": 19,
+  "text": "cascos.",
+  "start": 6.9,
+  "end": 7.42
+ },
+ {
+  "id": 20,
+  "text": "A",
+  "start": 7.75,
+  "end": 7.82
+ },
+ {
+  "id": 21,
+  "text": "la",
+  "start": 7.82,
+  "end": 7.92
+ },
+ {
+  "id": 22,
+  "text": "derecha,",
+  "start": 7.9,
+  "end": 8.2
+ },
+ {
+  "id": 23,
+  "text": "el",
+  "start": 8.2,
+  "end": 8.6
+ },
+ {
+  "id": 24,
+  "text": "CRM",
+  "start": 8.6,
+  "end": 9.2
+ },
+ {
+  "id": 25,
+  "text": "sabe",
+  "start": 9.559,
+  "end": 9.8
+ },
+ {
+  "id": 26,
+  "text": "quién",
+  "start": 9.8,
+  "end": 10.1
+ },
+ {
+  "id": 27,
+  "text": "compró",
+  "start": 10.1,
+  "end": 10.4
+ },
+ {
+  "id": 28,
+  "text": "bici",
+  "start": 10.4,
+  "end": 10.7
+ },
+ {
+  "id": 29,
+  "text": "sin",
+  "start": 10.7,
+  "end": 10.9
+ },
+ {
+  "id": 30,
+  "text": "casco.",
+  "start": 10.9,
+  "end": 11.3
+ },
+ {
+  "id": 31,
+  "text": "Le",
+  "start": 11.679,
+  "end": 11.8
+ },
+ {
+  "id": 32,
+  "text": "escribe",
+  "start": 11.8,
+  "end": 12.1
+ },
+ {
+  "id": 33,
+  "text": "a",
+  "start": 12.1,
+  "end": 12.2
+ },
+ {
+  "id": 34,
+  "text": "esos",
+  "start": 12.2,
+  "end": 12.4
+ },
+ {
+  "id": 35,
+  "text": "pocos:",
+  "start": 12.4,
+  "end": 12.8
+ },
+ {
+  "id": 36,
+  "text": "Paula,",
+  "start": 13.298,
+  "end": 13.6
+ },
+ {
+  "id": 37,
+  "text": "llegaron",
+  "start": 13.938,
+  "end": 14.3
+ },
+ {
+  "id": 38,
+  "text": "cascos",
+  "start": 14.3,
+  "end": 14.6
+ },
+ {
+  "id": 39,
+  "text": "para",
+  "start": 14.6,
+  "end": 14.8
+ },
+ {
+  "id": 40,
+  "text": "tu",
+  "start": 14.8,
+  "end": 14.9
+ },
+ {
+  "id": 41,
+  "text": "bici",
+  "start": 14.9,
+  "end": 15.1
+ },
+ {
+  "id": 42,
+  "text": "de",
+  "start": 15.1,
+  "end": 15.2
+ },
+ {
+  "id": 43,
+  "text": "marzo.",
+  "start": 15.2,
+  "end": 15.6
+ },
+ {
+  "id": 44,
+  "text": "Paula",
+  "start": 16.116,
+  "end": 16.3
+ },
+ {
+  "id": 45,
+  "text": "vio",
+  "start": 16.3,
+  "end": 16.5
+ },
+ {
+  "id": 46,
+  "text": "las",
+  "start": 16.5,
+  "end": 16.6
+ },
+ {
+  "id": 47,
+  "text": "dos.",
+  "start": 16.6,
+  "end": 16.8
+ },
+ {
+  "id": 48,
+  "text": "La",
+  "start": 17.399,
+  "end": 17.5
+ },
+ {
+  "id": 49,
+  "text": "foto",
+  "start": 17.5,
+  "end": 17.7
+ },
+ {
+  "id": 50,
+  "text": "la",
+  "start": 17.7,
+  "end": 17.8
+ },
+ {
+  "id": 51,
+  "text": "pasó",
+  "start": 17.8,
+  "end": 18.1
+ },
+ {
+  "id": 52,
+  "text": "de",
+  "start": 18.1,
+  "end": 18.2
+ },
+ {
+  "id": 53,
+  "text": "largo.",
+  "start": 18.2,
+  "end": 18.4
+ },
+ {
+  "id": 54,
+  "text": "Su",
+  "start": 18.852,
+  "end": 19
+ },
+ {
+  "id": 55,
+  "text": "nombre,",
+  "start": 19,
+  "end": 19
+ },
+ {
+  "id": 56,
+  "text": "no.",
+  "start": 19.686,
+  "end": 19.8
+ },
+ {
+  "id": 57,
+  "text": "Esa",
+  "start": 20.389,
+  "end": 20.5
+ },
+ {
+  "id": 58,
+  "text": "tarde,",
+  "start": 20.5,
+  "end": 20.9
+ },
+ {
+  "id": 59,
+  "text": "vuelve.",
+  "start": 20.9,
+  "end": 21.5
+ },
+ {
+  "id": 60,
+  "text": "Mismos",
+  "start": 21.884,
+  "end": 22.2
+ },
+ {
+  "id": 61,
+  "text": "cascos,",
+  "start": 22.2,
+  "end": 22.6
+ },
+ {
+  "id": 62,
+  "text": "mismos",
+  "start": 22.6,
+  "end": 23.1
+ },
+ {
+  "id": 63,
+  "text": "clientes.",
+  "start": 23.1,
+  "end": 23.3
+ },
+ {
+  "id": 64,
+  "text": "Una",
+  "start": 23.92,
+  "end": 24.2
+ },
+ {
+  "id": 65,
+  "text": "sabía",
+  "start": 24.2,
+  "end": 24.6
+ },
+ {
+  "id": 66,
+  "text": "qué",
+  "start": 24.6,
+  "end": 24.8
+ },
+ {
+  "id": 67,
+  "text": "se",
+  "start": 24.8,
+  "end": 25
+ },
+ {
+  "id": 68,
+  "text": "llevó",
+  "start": 25,
+  "end": 25.3
+ },
+ {
+  "id": 69,
+  "text": "cada",
+  "start": 25.3,
+  "end": 25.5
+ },
+ {
+  "id": 70,
+  "text": "uno.",
+  "start": 25.5,
+  "end": 25.8
+ },
+ {
+  "id": 71,
+  "text": "En",
+  "start": 26.32,
+  "end": 26.4
+ },
+ {
+  "id": 72,
+  "text": "Scalerics",
+  "start": 26.4,
+  "end": 27.251
+ },
+ {
+  "id": 73,
+  "text": "armamos",
+  "start": 27.251,
+  "end": 27.6
+ },
+ {
+  "id": 74,
+  "text": "ese",
+  "start": 27.6,
+  "end": 28.232
+ },
+ {
+  "id": 75,
+  "text": "CRM.",
+  "start": 28.232,
+  "end": 28.865
+ },
+ {
+  "id": 76,
+  "text": "¿Vemos",
+  "start": 28.865,
+  "end": 29.1
+ },
+ {
+  "id": 77,
+  "text": "a",
+  "start": 29.1,
+  "end": 29.2
+ },
+ {
+  "id": 78,
+  "text": "quién",
+  "start": 29.2,
+  "end": 29.4
+ },
+ {
+  "id": 79,
+  "text": "avisarle",
+  "start": 29.4,
+  "end": 29.9
+ },
+ {
+  "id": 80,
+  "text": "en",
+  "start": 29.9,
+  "end": 30
+ },
+ {
+  "id": 81,
+  "text": "tu",
+  "start": 30,
+  "end": 30.1
+ },
+ {
+  "id": 82,
+  "text": "local?",
+  "start": 30.1,
+  "end": 30.4
+ },
+ {
+  "id": 83,
+  "text": "Agendá",
+  "start": 30.91,
+  "end": 31.3
+ },
+ {
+  "id": 84,
+  "text": "una",
+  "start": 31.3,
+  "end": 31.4
+ },
+ {
+  "id": 85,
+  "text": "videollamada",
+  "start": 31.4,
+  "end": 31.7
+ },
+ {
+  "id": 86,
+  "text": "gratis",
+  "start": 31.7,
+  "end": 32.3
+ },
+ {
+  "id": 87,
+  "text": "en",
+  "start": 32.3,
+  "end": 32.7
+ },
+ {
+  "id": 88,
+  "text": "scalerics.com.",
+  "start": 32.7,
+  "end": 33.05
+ }
+]
