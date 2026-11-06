@@ -310,3 +310,17 @@ en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos d
 - **Sonido:** sin ping en "0 avisos"; pops/clicks variados (burbuja, key-press, click-soft) y menos; tic-tac real CC0
   (olver, Freesound 130388); sello real CC0 (kermite607) en el cuadro del sello; "rápida en el celular" un solo grupo;
   "Agendá una" con subtítulo y la pregunta se va antes; push-in en s12 y botón del cronómetro que se aprieta más.
+
+## Revisión 2 → ronda 3 (06-11)
+- Cortes limpios (claves "c") en "Alguien", "Se cansa", "Pasa" y "Misma parada" (además de "Y nunca" y "¿Cuánto"): sin
+  viajes con objetos cortados, sin dos celulares ni árboles a medias. La parada y la pizzería aparecen/desaparecen en el corte.
+- Barra de estado del celular tapada mientras cruza la franja de subtítulos (`ESTADO` en tres.js). Nada escala por debajo
+  del ~55 %: salidas con corte seco (53 % y su rótulo juntos, números 1-2-3, cronómetros, tilde) y entradas desde el 60 %
+  (globito, timbre, caja, cronómetro). Las visitas suben desde abajo de cuadro. Timbre de mostrador con botón.
+- Subtítulos: "en el celular," del gancho como subtítulo; grupos más largos (sin destellos <0,4 s); recuadro sin doble
+  espacio; el grupo se apaga en el último cuadro (sin cuadros vacíos entre grupos).
+- Sonido: fundido (data-fade-out) en todo SFX recortado; ping y chime recortados sin su tramo mudo (`ping-c`, `chime-c`);
+  impact-bass-2 reemplazado por impact-bass-1/papel/key-press (sin peine en las fotos que caen); whooshes variados
+  (`whoosh-c` = whoosh-cine-corto real de por-que-la-lista, `papel` = Kingofgamers_cz, Freesound 352914, CC0); burbujas con
+  volúmenes distintos; sello sonando en el cuadro en que queda firme; el "?" late con el tic y el tac; tramo "Alguien te
+  busca…" con highshelf (+10 dB @3,5 kHz) para igualar agudos (medido: >4 kHz -27,4 LUFS vs -27,5 del tramo vecino).

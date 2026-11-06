@@ -95,3 +95,6 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   (https://freesound.org/people/olver/sounds/130388/, CC0 1.0), el mismo archivo que usa `reels/trabajar-con-scalerics`.
 - `sello.mp3`: "Stamp" de kermite607 (https://freesound.org/people/kermite607/sounds/362624/, CC0 1.0), de
   `reels/trabajar-con-scalerics`. `burbuja.mp3` (Mafon2, CC0) y `key-press.mp3`: de `reels/abren-hoy`.
+- `papel.mp3`: "Paper slide", Kingofgamers_cz (https://freesound.org/people/Kingofgamers_cz/sounds/352914/, CC0 1.0), de
+  `reels/trabajar-con-scalerics`. `whoosh-c.mp3`: el `whoosh-cine-corto.mp3` de `reels/por-que-la-lista` (recorte del
+  whoosh-cinematic real del banco). `ping-c.mp3` y `chime-c.mp3`: los mismos ping y chime del banco sin su tramo mudo inicial.

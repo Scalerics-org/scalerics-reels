@@ -532,11 +532,11 @@ const CAM = [
   [W[67], 6, 8, 8.8, EST2.x, 0.6, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
   [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.6, EST2.z + 0.1, "c"],
-  [S["s10-abre"], 6, 7, 14.2, PAR.x + 0.25, 0.62, PAR.z + 0.9],
-  [W[75], 2, 6, 13.8, PAR.x + 0.25, 0.62, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 13.6, PAR.x + 0.25, 0.62, PAR.z + 0.95],
+  [S["s10-abre"], 6, 7, 14.2, PAR.x + 0.33, 0.62, PAR.z + 0.9],
+  [W[75], 2, 6, 13.8, PAR.x + 0.33, 0.62, PAR.z + 0.95],
+  [S["s11-pagina"] + 0.3, -4, 6, 13.6, PAR.x + 0.33, 0.62, PAR.z + 0.95],
   // corte limpio en "¿Cuánto": de la página a pantalla completa al cronómetro gigante
-  [S["s12-tuya"] - 0.005, -8, 6, 13.6, PAR.x + 0.25, 0.62, PAR.z + 0.95, "c"],
+  [S["s12-tuya"] - 0.005, -8, 6, 13.6, PAR.x + 0.33, 0.62, PAR.z + 0.95, "c"],
   [S["s12-tuya"], -10, 6, 14.2, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
