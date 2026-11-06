@@ -27,24 +27,24 @@ Las escenas HTML son solo capa plana: gancho, subtítulos (1-3 palabras, ~86 px,
 clave en recuadro verde), 1-2 rótulos con línea guía, pill de fuente, tarjeta de cierre.
 Reglas técnicas de `SPEC-base.md` (del molde) para las composiciones; lo visual lo manda este SPEC.
 
-## Guion (88 palabras, índices de palabra para `reel.json`)
+## Guion (91 palabras, actual; índices de palabra para `reel.json`)
 ```
  0 Si tu página tarda más de tres segundos en el celular,   (0-10)
-11 más de la mitad de las visitas                            (11-17)
-18 se va. Según Google.                                      (18-21)
-22 Te buscan desde la parada, con hambre.                    (22-28)
-29 Pantalla en blanco. Uno, dos, tres.                       (29-34)
-35 Vuelve atrás. Elige otro.                                 (35-38)
-39 Y nunca te avisa que se fue.                              (39-45)
-46 Perdiste la venta antes de mostrar nada.                  (46-52)
-53 Pasa con páginas viejas o pesadas.                        (53-58)
-59 En Scalerics hacemos tu página rápida en el celular.     (59-67)
-68 Misma parada: abre al toque, con horario, fotos y WhatsApp. (68-77)
-78 ¿Cuánto tarda la tuya? Agendá una                         (78-83)
-84 videollamada gratis en scalerics.com.                     (84-87)
+11 más de la mitad de las visitas se va.                    (11-19)
+20 Según Google.                                            (20-21)
+22 Alguien te busca desde la parada, con hambre.            (22-29)
+30 Pantalla en blanco.                                      (30-32)
+33 Uno, dos, tres.                                          (33-35)
+36 Se cansa y elige otro.                                   (36-40)
+41 Y nunca te enterás de que entró.                         (41-47)
+48 Esa venta se fue antes de mostrar nada.                  (48-55)
+56 Pasa con páginas viejas o pesadas.                       (56-61)
+62 En Scalerics hacemos tu página rápida en el celular.     (62-70)
+71 Misma parada: abre al toque, con horario, fotos y WhatsApp. (71-80)
+81 ¿Cuánto tarda la tuya? Agendá una                        (81-86)
+87 videollamada gratis en scalerics.com.                    (87-90)
 ```
-Acentos sugeridos: tres segundos · mitad · Google · parada · blanco · atrás · nunca · antes · pesadas ·
-rápida · al toque · WhatsApp · tuya · videollamada.
+(El brief por escena de abajo es el original; los cambios están en las secciones de construcción del final.)
 
 ## Escenas (13)
 

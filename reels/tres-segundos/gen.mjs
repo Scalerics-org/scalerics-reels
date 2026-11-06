@@ -158,7 +158,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: `
       tl.fromTo(q(".dato"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power3.out", immediateRender: true }, ${r2(rel(id, W(15)) - 0.12)});
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
-      fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.4)}, 0.12);`,
+      fuera(".dato, .n2", ${r2(rel(id, W(21)) + 0.3)}, 0.12);`,
     sfx: [
       { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-press", vol: 0.25 },
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },

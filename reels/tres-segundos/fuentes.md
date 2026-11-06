@@ -23,7 +23,7 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   exacta de la fuente) con la pill "Fuente: Google". Es un dato de 2016-2017: no se presenta como
   medición nueva ni como ley; no se dice el año en el guion.
 
-## "Te buscan desde la parada, con hambre. Pantalla en blanco. Uno, dos, tres. Se cansa y elige otro."
+## "Alguien te busca desde la parada, con hambre. Pantalla en blanco. Uno, dos, tres. Se cansa y elige otro."
 - Escena ilustrativa (un caso inventado que muestra el dato), no una afirmación con cifra. No se dice
   que el otro local abre más rápido "según" nadie.
 
@@ -52,8 +52,9 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   quién). Se saca del guion y de los rótulos.
 - "El promedio de una página móvil tarda 22 segundos" (2017) o "19 segundos en 3G" (2016): son de Google
   pero la cifra cambió entre informes y está vieja; no se usa.
-- "113 % más rebote a los 7 segundos", "90 % a los 5 segundos", "123 % a los 10": circulan sin fuente
-  primaria clara; no se usan.
+- "Al pasar de 1 a 7 segundos, la probabilidad de rebote sube 113 %" (y "90 % a los 5 s", "123 % a los 10 s"): están
+  en la misma página de benchmarks de Think with Google (2017, link de arriba). No se usan para no cargar el reel con
+  más cifras: la única cifra del reel es el 53 %.
 - Que Google baje en los resultados a las páginas lentas: Search Central lo matiza (la experiencia de
   página es una señal entre muchas); no se dice.
 - Google solo se nombra como fuente, en texto: nada de su logo, sus colores ni su tipografía.
@@ -85,3 +86,12 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
   seguía diciendo las viejas. Se regeneró la voz Orus entera y se pegó SOLO ese tramo (11,84-15,06 s) sobre la locución
   anterior (mismo número de palabras, -1,5 dB para igualar el nivel); el resto de la voz y sus tiempos quedan iguales
   (+0,11 s desde "Esa"). Sin datos nuevos: es lógica simple (quien abandona la carga no deja aviso).
+
+### Voz y sonido (06-11, ronda de revisión 1)
+- "Alguien te busca desde la parada, con hambre." (antes "Te buscan…", concordancia con "Se cansa"): voz Orus regenerada y
+  pegada solo esa frase (5,84-8,08 s); +1 palabra, índices corridos en reel.json, tres.js y gen.mjs. Los dos tramos pegados
+  ecualizados (lowshelf 250 Hz -1,3 / -4 dB) para igualar graves y nivel con el resto (medido con ebur128 por banda).
+- Tic del cronómetro: `tic-real.mp3` y `tac-real.mp3`, recortes de "Clock ticking" de olver
+  (https://freesound.org/people/olver/sounds/130388/, CC0 1.0), el mismo archivo que usa `reels/trabajar-con-scalerics`.
+- `sello.mp3`: "Stamp" de kermite607 (https://freesound.org/people/kermite607/sounds/362624/, CC0 1.0), de
+  `reels/trabajar-con-scalerics`. `burbuja.mp3` (Mafon2, CC0) y `key-press.mp3`: de `reels/abren-hoy`.
