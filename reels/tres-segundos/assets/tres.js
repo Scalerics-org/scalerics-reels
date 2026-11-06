@@ -788,7 +788,7 @@ function renderAt(t) {
   // ---------------- VISITAS ----------------
   VIS.forEach((v, i) => {
     const ti = W[10] - 0.05 + i * 0.02;
-    let s = 0.82 * bk(sg(t, ti, ti + 0.3));
+    let s = 0.82 * bk(sg(t, ti, ti + 0.2));
     let x = v.x, z = v.z, giro = Math.PI, paso = 0, gris = 0; // de espaldas a la cámara, mirando el celular
     let cara = { ...CARA.neutra, cabeza: { giro: 0, asiente: -0.12, ladea: 0 }, ojos: { abiertos: 1, y: 0.4 } };
     if (v.sale) {
@@ -869,29 +869,31 @@ function renderAt(t) {
 
   // ---------------- PIZZERÍA, campanita y la caja ----------------
   {
-    const on = en(t, S6 - 0.48, S8 + 0.2);
+    const on = en(t, S6 - 0.48, S8 + 0.36);
     const s = on ? bk(sg(t, S6 - 0.48, S6 - 0.1)) : 0;
     const baja = 1 - eio(sg(t, S8 - 0.1, S8 + 0.35));
     pizzeria.visible = s * baja > 0.002; if (pizzeria.visible) pizzeria.scale.set(1, Math.max(0.001, s * baja), 1);
     // la campanita: grande sobre el mostrador; en "avisa" se apaga a gris y no suena
     const cs = on ? 1.45 * bk(sg(t, S6 + 0.25, S6 + 0.55)) : 0;
-    ocultar(campana, cs); campana.position.set(PIZ.x + 0.42, PISO + 1.13, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
+    ocultar(campana, cs); campana.position.set(PIZ.x + 0.42, (PISO + 1.13) * baja, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
+    if (campana.visible) campana.scale.y *= Math.max(0.001, baja); // se aplasta con la pizzería (nada de pop al salir)
     campMat.color.set(C.cr).lerp(new THREE.Color(C.gris), eio(sg(t, W[43], W[44] + 0.1)));
     campMat.metalness = lerp(0.35, 0.0, sg(t, W[43], W[44]));
-    apoyar(campSombra, campana.position.x, campana.position.z, cs * 0.6, 0.6, PISO + 1.135);
+    apoyar(campSombra, campana.position.x, campana.position.z, cs * 0.6 * (baja > 0.9 ? 1 : 0), 0.6, (PISO + 1.135) * baja);
     vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[43], W[44] + 0.2)));
     // en el push-in a la caja el cartel se apaga (pasa por detrás del subtítulo: nada de texto sobre texto)
     // en el push-in a la caja las letras del cartel se funden en su chapa navy (pasan por detrás del subtítulo: nada de texto sobre texto)
     { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; }
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
-    const ks = en(t, S7 - 0.05, S8 + 0.2) ? 0.64 * (1 - eio(sg(t, S8 - 0.25, S8 + 0.05))) : 0;
-    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.66, PISO + 1.13 + (1 - bk(cae)) * 0.8, PIZ.z + 0.5); cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
+    const ks = en(t, S7 - 0.05, S8 + 0.36) ? 0.64 : 0;
+    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.66, (PISO + 1.13 + (1 - bk(cae)) * 0.8) * baja, PIZ.z + 0.5);
+    if (cajaPizza.visible) cajaPizza.scale.y *= Math.max(0.001, baja); cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
     const abre = Math.sin(Math.PI * sg(t, W[51], W[51] + 0.55));
     tapaPizza.rotation.x = -abre * 0.55;
     const gris = eio(sg(t, W[51] + 0.5, W[54]));
     cartonMat.color.set(0xe3d3b0).lerp(new THREE.Color(C.gris), gris); cartonTapa.color.set(0xece0c2).lerp(new THREE.Color(0x868d9c), gris);
-    apoyar(cajaSombra, cajaPizza.position.x, cajaPizza.position.z, ks * cae, 0.7, PISO + 1.135);
+    apoyar(cajaSombra, cajaPizza.position.x, cajaPizza.position.z, ks * cae * (baja > 0.9 ? 1 : 0), 0.7, (PISO + 1.135) * baja);
     // s11 · callback: la caja vuelve ABIERTA, con la pizza, delante de la página
     if (en(t, W[79] + 0.05, S12 + 0.02)) {
       const e = bk(sg(t, W[79] + 0.05, W[79] + 0.38)) * (1 - eio(sg(t, S12 - 0.2, S12)));
