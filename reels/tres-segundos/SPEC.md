@@ -246,3 +246,29 @@ A16 (opcional): no se hizo.
 **Revisión.** Pasada completa cada 0,5 s (0,25-31,25 s) más dos tandas sobre las zonas tocadas; `check` ok, cero
 errores (queda solo el aviso de lint del canvas dentro de #capa3d y "canvas toca el borde", que es el celular a
 pantalla completa).
+
+## Construcción · ronda 3 (06-11, constructor)
+**Voz.** El guion ya decía "Se cansa y elige otro." / "Y nunca te enterás de que entró." pero la locución seguía con
+"Toca atrás…" / "…te avisa que se fue." (lo que se veía en los subtítulos). Se regeneró la voz Orus y se pegó solo ese
+tramo (11,84-15,06) sobre la locución anterior (mismo número de palabras: los índices no cambian; -1,5 dB para igualar).
+Tiempos a mano con la envolvente; desde "Esa" +0,11 s. Duración total 31,78 s (voz 31,48).
+**Personajes del módulo** (`assets/personajes.js`, copia exacta del de `reels/abren-hoy`):
+- La persona de la parada es **Nico** (ELENCO.empleado, remera verde de marca), escala 1,42, parado en el cordón
+  delante del refugio, con el celular en la mano izquierda (IK del módulo). Mira el celular y tipea en "buscan", se
+  frota la panza con cara de esperanza en "hambre", y en "abre al toque" pasa de sorpresa a feliz.
+- s05 nuevo: en "Se cansa" la cámara sale de la pantalla al **primer plano de Nico** (fastidio, ojos a media asta); toca
+  "atrás" (vuelven los resultados) y en "elige otro" toca otro resultado (entra "otra página") y sonríe. El pulgar
+  suelto se sacó. Cielorraso navy debajo del techo de la parada (en el primer plano el subtítulo queda sobre oscuro).
+- Las 10 visitas de s02 son gente del mismo estilo (variantes de piel, pelo, peinado y ropa de marca): miran el celular
+  de espaldas; las que se van giran hacia la cámara con fastidio, se ponen grises y salen caminando.
+**Cámara y lugares.** Parada y pizzería más cerca (x ±4,6) y entre las dos una cuadra (vereda, cordón, un árbol
+low-poly) que solo se ve en los viajes: la cámara nunca pasa por un cuadro vacío. Parada→pizzería es un solo viaje
+(S6-0,42 → S6+0,26) y el push-in a la caja arranca en S7-0,5. Las letras del cartel PIZZERÍA se funden en su chapa navy
+antes de pasar por detrás del subtítulo. La caja y la campana se aplastan con la pizzería (antes la caja se achicaba
+hasta una mota). Cierre: el cronómetro se achica mientras crece el celular de la videollamada en el mismo lugar; el
+fondo pasa a verde en 0,12 s.
+**Capa plana.** Subtítulos con contorno navy de 12 px (`paint-order: stroke fill`): se leen sobre el toldo, la vidriera
+y el techo verde. Velo de vuelta en s05 (primer plano). Firma oculta también en [10,22] y [74,80].
+**Sonido.** s05: whoosh corto al salir del celular, click en cada toque y whoosh corto en cada deslizar; ping de "0 avisos"
+en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos de 0,5 s): con la voz hablando, al menos
+6,6 LU arriba de música+SFX; premezcla voz -17,4 LUFS, todo -17,3 LUFS, pico -2,8 dBFS (el loudnorm del paso 10 la lleva a -14).

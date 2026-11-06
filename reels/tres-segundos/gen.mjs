@@ -233,11 +233,11 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       ${leads(lead(1, 800, 1560, 800, 1150, ""))}
       ${pill(1, 800, 1610, "0 avisos", "")}`,
     js: `
-      nota(1, ${r2(rel(id, W(44)) - 0.05)});
+      nota(1, ${r2(rel(id, W(43)))});
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.52)}, 0.14);`,
     sfx: [
       { t: 0.4, sfx: "pop", vol: 0.3 }, { t: 0.6, sfx: "pop", vol: 0.28 },
-      { t: rel(id, W(44)) - 0.02, sfx: "ping", vol: 0.4, max: 0.5 },
+      { t: rel(id, W(43)) + 0.03, sfx: "ping", vol: 0.4, max: 0.5 },
     ],
   });
 }
