@@ -152,15 +152,17 @@ for (const [id, a] of ESCENAS) {
   for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max });
 }
 // whoosh automático en cada corte, salvo que la escena ya traiga un whoosh propio cerca del corte (no duplicar)
+const SIN_WHOOSH = new Set(["s02-mitad", "s04b-cuenta", "s09-rapida", "s11-pagina"]); // escenas que no arrancan con un corte visual
 for (const [id, a] of ESCENAS.slice(1)) {
+  if (SIN_WHOOSH.has(id)) continue;
   const f = `compositions/${id}.sfx.json`;
-  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t >= -0.6 && s.t <= 0.3);
-  const previo = sfx.some((s) => /^whoosh/.test(s.name) && Math.abs(s.t - (a - 0.15)) < 0.45);
+  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t >= -0.8 && s.t <= 0.3);
+  const previo = sfx.some((s) => /^whoosh/.test(s.name) && Math.abs(s.t - (a - 0.15)) < 0.75);
   if (!propio && !previo) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.12 });
 }
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
-  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"${s.max && s.max < durArchivo(s.name) - 0.02 ? ` data-fade-out="${/chime|ping|sparkle/.test(s.name) ? 0.28 : Math.min(0.08, r2(s.max / 3))}"` : ""}></audio>`)
+  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"${s.max && s.max < durArchivo(s.name) - 0.02 ? ` data-fade-out="${/chime|ping|sparkle/.test(s.name) ? 0.28 : Math.max(0.2, Math.min(0.3, r2(s.max / 2)))}"` : ""}></audio>`)
   .join("\n");
 
 // cierre en verde (desde la escena de la videollamada) y tramos sin velo: reel.sinVelo = [[palabra, palabra], ...]

@@ -138,8 +138,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     sfx: [
       { t: 0, sfx: "impact-bass-1", vol: 0.03, max: 0.6 },
       { t: T1, sfx: "tic-real", vol: 0.45 }, { t: T2, sfx: "tac-real", vol: 0.5 }, { t: T3, sfx: "tic-real", vol: 0.5 },
-      { t: T3 + 0.08, sfx: "glitch-1", vol: 0.1, max: 0.3 },
-      { t: rel(id, W(10)) - 0.1, sfx: "whoosh-c", vol: 0.3, max: 0.8 },
+      { t: T3 + 0.04, sfx: "glitch-1", vol: 0.08, max: 0.6 },
+      { t: rel(id, W(10)) - 0.4, sfx: "whoosh-c2", vol: 0.3 },
       { t: rel(id, W(10)) + 0.02, sfx: "burbuja", vol: 0.29 }, { t: rel(id, W(10)) + 0.3, sfx: "pop", vol: 0.18 },
     ],
   });
@@ -160,11 +160,11 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       nota(2, ${r2(rel(id, W(15)) + 0.2)});
       tl.set(qa(".dato, .n2"), { opacity: 0 }, ${r2(rel(id, W(21)) + 0.36)}); // sale junto con el 53 % 3D, corte seco`,
     sfx: [
-      { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-press", vol: 0.25 },
+      { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-c", vol: 0.6 },
       { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
       { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.016, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "burbuja", vol: 0.17 },
       { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
-      { t: ESC[id] - 0.08, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada
+      { t: ESC[id] - 0.62, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada (pico en el corte)
     ],
   });
 }
@@ -179,7 +179,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: 0.22, sfx: "pop", vol: 0.3 },
       { t: rel(id, W(25)), sfx: "tecleo", vol: 0.5 },
       { t: rel(id, W(29)) - 0.05, sfx: "pop", vol: 0.32 },
-      { t: rel(id, VIAJE.zambullida) - 0.25, sfx: "whoosh-cine", vol: 0.08 },
+      { t: rel(id, VIAJE.zambullida) - 0.4, sfx: "whoosh-c2", vol: 0.1 },
     ],
   });
 }
@@ -192,7 +192,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: 0.45, sfx: "pop", vol: 0.18 },
-      { t: rel(id, W(33)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(33)) + 0.02, sfx: "pop", vol: 0.14 },
+      { t: rel(id, W(33)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(33)) + 0.02, sfx: "key-c", vol: 0.35 },
     ],
   });
 }
@@ -217,10 +217,10 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       // la cámara sale del celular al primer plano de Nico; dos toques (atrás, otro resultado) y el deslizar de cada página
-      { t: -0.04, sfx: "whoosh-c", vol: 0.22 },
-      { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "papel", vol: 0.28 },
-      { t: rel(id, W(39)) + 0.08, sfx: "key-press", vol: 0.4 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.08 },
-      { t: ESC[id] - 0.1, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería
+      { t: -0.45, sfx: "whoosh-c2", vol: 0.22 },
+      { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "papel-c", vol: 0.5 },
+      { t: rel(id, W(39)) + 0.08, sfx: "key-c", vol: 0.7 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.08 },
+      { t: ESC[id] - 0.62, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería (pico en el corte)
     ],
   });
 }
@@ -253,8 +253,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
       tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.1, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(55)))});`,
     sfx: [
-      { t: 0.0, sfx: "burbuja", vol: 0.13 }, { t: 0.3, sfx: "impact-bass-1", vol: 0.025, max: 0.6 },
-      { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.5, sfx: "papel", vol: 0.25 },
+      { t: 0.0, sfx: "burbuja", vol: 0.13 }, 
+      { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.44, sfx: "papel-c", vol: 0.6 },
       { t: rel(id, W(55)) + 0.08, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)) + 0.1, sfx: "impact-bass-1", vol: 0.05, max: 0.6 },
     ],
   });
@@ -274,8 +274,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: -0.06, sfx: "whoosh-short", vol: 0.1 }, // corte limpio al celular
-      { t: rel(id, W(59)) + 0.05, sfx: "glitch-2", vol: 0.1, max: 0.3 },
-      { t: rel(id, caidas[0] + 0.16), sfx: "impact-bass-1", vol: 0.02, max: 0.6 }, { t: rel(id, caidas[1] + 0.16), sfx: "papel", vol: 0.3 }, { t: rel(id, caidas[2] + 0.16), sfx: "key-press", vol: 0.35 }, { t: rel(id, caidas[3] + 0.16), sfx: "impact-bass-1", vol: 0.03, max: 0.8 },
+      { t: rel(id, caidas[0] + 0.1), sfx: "glitch-2", vol: 0.08, max: 0.4 },
+      { t: rel(id, caidas[0] + 0.16), sfx: "impact-bass-1", vol: 0.02, max: 0.6 }, { t: rel(id, caidas[1] + 0.16), sfx: "papel-c", vol: 0.6 }, { t: rel(id, caidas[2] + 0.16), sfx: "key-c", vol: 0.7 },
     ],
   });
 }
@@ -293,7 +293,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.27 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
       { t: 0.95, sfx: "whoosh-short", vol: 0.18 },
       { t: rel(id, W(67)), sfx: "sparkle", vol: 0.3 }, { t: rel(id, W(67)) + 0.05, sfx: "pop", vol: 0.3 },
-      { t: ESC[id] - 0.08, sfx: "whoosh-c", vol: 0.2 }, // corte limpio a la parada
+      { t: ESC[id] - 0.45, sfx: "whoosh-c2", vol: 0.2 }, // corte limpio a la parada (pico en el corte)
     ],
   });
 }
@@ -306,8 +306,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       { t: 0.55, sfx: "burbuja", vol: 0.19 },
-      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "click", vol: 0.45 }, { t: rel(id, W(73)) + 0.38, sfx: "chime-c", vol: 0.32, max: 0.7 },
-      { t: rel(id, W(75)), sfx: "whoosh-c", vol: 0.1, max: 0.7 },
+      { t: rel(id, W(73)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(73)) + 0.36, sfx: "key-c", vol: 0.6 }, { t: rel(id, W(73)) + 0.38, sfx: "chime-c", vol: 0.32, max: 0.7 },
+      { t: rel(id, W(75)) - 0.3, sfx: "whoosh-c2", vol: 0.1 },
     ],
   });
 }
@@ -365,7 +365,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.18)}); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(87)) + 0.18)});
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.55)}); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, ${r2(rel(id, W(87)) + 0.55)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.2)});`,
-    sfx: [{ t: -0.05, sfx: "whoosh-c", vol: 0.2, max: 0.6 }, { t: 0.0, sfx: "burbuja", vol: 0.21 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
+    sfx: [{ t: -0.45, sfx: "whoosh-c2", vol: 0.16 }, { t: 0.0, sfx: "burbuja", vol: 0.21 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);
