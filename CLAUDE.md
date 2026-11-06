@@ -446,6 +446,23 @@ Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), qu
 
 ## Cuántos por corrida: 2 reels, con un equipo entero para cada uno
 
+**PRIMERO TERMINAR, DESPUÉS EMPEZAR (regla desde el 06-11).** La noche del 05 al 06-11 las corridas se
+pisaron: cada una retomó o reservó 2 reels nuevos mientras la anterior seguía trabajando, el límite de
+uso del plan se agotó a mitad de camino y **no se terminó ninguno** (8 reels a medias en sus ramas,
+0 mp4). Por eso, antes que nada:
+1. **Una sola corrida trabajando a la vez.** Al arrancar, mirá en `ideas.md` la línea
+   `<!-- corrida-activa: AAAA-MM-DDTHH:MM -->` (justo debajo de "## En curso"). Si tiene menos de
+   100 minutos, otra corrida está trabajando: terminá ya sin hacer nada (respondé "otra corrida
+   activa"). Si no está o es más vieja, escribí la tuya con la hora UTC actual, commit y push a main,
+   y al terminar borrala (commit y push).
+2. **Mientras haya reels En curso, no se reserva ninguno nuevo.** Tomá el que esté más avanzado
+   (mirá el último commit "wip:" de su rama `reel/<slug>`) y llevalo hasta el final: render, QA y
+   entrega. Si sobra tiempo, el siguiente más avanzado. Recién con "En curso" vacío se eligen temas
+   nuevos.
+3. **Guardá el avance seguido** en la rama `reel/<slug>` (commit "wip: <slug> (<en qué paso
+   quedó>)" después de cada etapa: guion, voz, escenas, cada ronda de QA), para que si el límite de
+   uso corta la corrida, la próxima siga desde ahí y no desde cero.
+
 Cada corrida hace **2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
 que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
 mejor calidad: la idea es que use la misma cantidad de muchísimo esfuerzo que usaba para hacer 25
