@@ -4,7 +4,7 @@ NARRADOR: Les escribe a las dos.
 NARRADOR: En lo de Néstor, queda para mañana.
 NARRADOR: En lo de Daniel contesta un agente de IA, y se la reserva.
 RUBÉN: ¿Me contestaron a esta hora?
-NARRADOR: Los dos dueños abrieron a las ocho. Ahora, cenan.
+NARRADOR: Los dos dueños trabajan desde las ocho de la mañana.
 NARRADOR: Una sola diferencia: uno dejó a alguien atendiendo.
 NARRADOR: A las ocho, Rubén ya tiene su batería.
 NARRADOR: ¿Querés ver cómo atendería tu local a las diez?
