@@ -607,7 +607,7 @@ function clavesNico() {
 function ponerNico(t) {
   if (!NK) NK = clavesNico();
   const S5 = S["s05-atras"], S6 = S["s06-avisa"], S10 = S["s10-abre"], S12 = S["s12-tuya"];
-  const on1 = en(t, S3, S6 + 0.6), on2 = en(t, S10, S12);
+  const on1 = en(t, S["s03-parada"], S6 + 0.6), on2 = en(t, S10, S12);
   let s = 0;
   if (on1) s = 1;
   if (on2) s = 1; // corte limpio: la parada ya está
