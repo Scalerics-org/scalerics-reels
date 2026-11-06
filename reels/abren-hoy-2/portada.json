@@ -1,0 +1,13 @@
+{
+ "t": 0.5,
+ "chica": "Parte 2:",
+ "grande": "Contestó el celular",
+ "sello": "Hoy: 0 veces",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.04,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro 9,05 s de renders/limpio.mp4 (LIMPIO=1 node gen.mjs y render: sin hora, línea, cierre ni logo), recortado desde y=330 con navy abajo (renders/portada-fondo.mp4). Para regenerar: poné portada-fondo.mp4 como renders/abren-hoy-2-final.mp4 un momento, corré portada.mjs y devolvé el final."
+}
