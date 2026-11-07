@@ -31,7 +31,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.5);
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.25);
 
 const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
 const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
@@ -126,7 +126,7 @@ ${anim}      ];
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 14, scale: 0.9 }, { y: 0, scale: 1, duration: 0.08, ease: "power2.out", immediateRender: false }, ini);
+          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 14 }, { y: 0, duration: 0.08, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
         }
@@ -219,7 +219,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // fondo navy liso; en el cierre pasa a verde de marca. El velo (legibilidad del texto sobre el 3D)
       // se apaga donde el celular llena la pantalla (su barra navy de arriba ya da el contraste) y en el cierre.
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.001, ease: "none", immediateRender: false }, ${r2(VERDE + 0.03)});
+      tl.fromTo("#fondo", { backgroundColor: "#0b1220" }, { backgroundColor: "#5ce611", duration: 0.001, ease: "none", immediateRender: false }, ${r2(VERDE + 0.05)}); // justo en el corte: nunca fondo verde con el cronómetro todavía en cuadro
 ${VELO}
 ${FIRMA}      window.__timelines["main"] = tl;
     </script>

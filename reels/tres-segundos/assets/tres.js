@@ -133,7 +133,7 @@ const botonCr = new THREE.Group();
 const numsCr = [];
 const pregCr = grupo(new THREE.Mesh(pregGeo, M.g), mesh(puntoGeo, M.g, 0, -0.36, 0));
 {
-  crono.add(mesh(new THREE.CylinderGeometry(R_CR, R_CR, 0.5, 72).rotateX(Math.PI / 2), M.cr, 0, 0, 0));
+  crono.add(mesh(new THREE.CylinderGeometry(R_CR, R_CR, 0.5, 72).rotateX(Math.PI / 2), M.navy3, 0, 0, 0)); // cuerpo navy: de costado no asoma crema fuera del aro
   crono.add(mesh(new THREE.TorusGeometry(R_CR, 0.15, 20, 96), biselMat, 0, 0, 0.25));
   crono.add(mesh(new THREE.CylinderGeometry(R_CR - 0.1, R_CR - 0.1, 0.04, 72).rotateX(Math.PI / 2), dialMat, 0, 0, 0.26));
   const zona = new THREE.Mesh(new THREE.RingGeometry(0.98, 1.3, 40, 1, Math.PI / 2, Math.PI / 2), zonaMat); zona.position.z = 0.285; crono.add(zona);
@@ -189,7 +189,7 @@ const ruedita = new THREE.Group();
 {
   const arco = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.055, 12, 48, Math.PI * 1.5), mat(C.red, 0.45, { emissive: C.red, emissiveIntensity: 0.25 }));
   const pista = new THREE.Mesh(new THREE.TorusGeometry(0.24, 0.03, 8, 48), mat(0xe4e2d6, 0.6));
-  ruedita.add(pista, arco); ruedita.position.set(0, 0.42, 0.13); cel.add(ruedita);
+  ruedita.add(pista, arco); ruedita.position.set(0, 0.3, 0.13); cel.add(ruedita); // dentro de la pantalla blanca, debajo de la barra
 }
 const flecha = new THREE.Group();
 {
@@ -281,8 +281,8 @@ const parada = new THREE.Group(); parada.position.copy(PAR); scene.add(parada);
   parada.add(mesh(rbox(2.3, 0.1, 0.42, 0.04), M.cr, 0, PISO + 0.58, -0.45));
   [-0.95, 0.95].forEach((x) => parada.add(mesh(rbox(0.08, 0.55, 0.3, 0.03), M.cr3, x, PISO + 0.28, -0.45)));
   // cartel de parada: poste y chapa crema con franja verde y un ómnibus dibujado
-  parada.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.3, 12), M.cr3, 1.95, PISO + 1.65, 0.6));
-  const chapa = new THREE.Group(); chapa.position.set(1.95, PISO + 3.0, 0.62); parada.add(chapa);
+  parada.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.0, 12), M.cr3, 1.25, PISO + 1.5, 0.9)); // más cerca de Nico: entra entera en el plano medio
+  const chapa = new THREE.Group(); chapa.position.set(1.25, PISO + 2.78, 0.92); parada.add(chapa); // delante del borde del techo y más baja: no entra en la franja de subtítulos
   chapa.add(mesh(rbox(0.86, 1.0, 0.07, 0.06), M.cr, 0, 0, 0));
   chapa.add(mesh(rbox(0.86, 0.2, 0.08, 0.04), M.g, 0, 0.38, 0.005));
   chapa.add(mesh(rbox(0.56, 0.32, 0.05, 0.06), M.navy3, 0, -0.08, 0.05));
@@ -298,8 +298,8 @@ const _mw = new THREE.Vector3();
 const globo = new THREE.Group(); scene.add(globo);
 {
   const nube = mesh(new THREE.SphereGeometry(0.62, 28, 18), M.white, 0, 0, 0); nube.scale.set(1.25, 0.95, 0.42); globo.add(nube);
-  globo.add(mesh(new THREE.SphereGeometry(0.12, 14, 10), M.white, -0.36, -0.72, 0));
-  globo.add(mesh(new THREE.SphereGeometry(0.07, 12, 8), M.white, -0.42, -0.9, 0));
+  globo.add(mesh(new THREE.SphereGeometry(0.11, 14, 10), M.white, 0.36, -0.68, 0)); // la colita apunta a la cabeza de Nico (abajo a la derecha)
+  globo.add(mesh(new THREE.SphereGeometry(0.065, 12, 8), M.white, 0.5, -0.86, 0));
 }
 const porcion = new THREE.Group();
 {
@@ -360,10 +360,10 @@ const toldo = [mat(C.g, 0.55), mat(C.cr, 0.6)];
   g.add(mesh(new THREE.PlaneGeometry(2.6, 0.46), cartelMat, 0, PISO + 3.3, 0.105));
   for (let i = 0; i < 9; i++) { const r = mesh(rbox(0.4, 0.1, 0.8, 0.03), toldo[i % 2], (i - 4) * 0.4, PISO + 2.72, 0.28); r.rotation.x = 0.42; g.add(r); }
   g.add(mesh(new THREE.PlaneGeometry(2.0, 1.25), vidrioMat, -0.55, PISO + 1.75, 0.012)); // ventanilla
-  g.add(mesh(rbox(0.85, 2.1, 0.08, 0.04), M.navy3, 1.2, PISO + 1.05, 0.02)); // puerta
-  g.add(mesh(new THREE.SphereGeometry(0.05, 10, 8), M.cr, 0.92, PISO + 1.05, 0.08));
-  g.add(mesh(rbox(2.4, 0.14, 0.72, 0.04), M.cr, -0.55, PISO + 1.06, 0.3)); // mostrador de la ventanilla
-  g.add(mesh(rbox(2.3, 0.9, 0.1, 0.04), M.cr3, -0.55, PISO + 0.55, 0.05));
+  g.add(mesh(rbox(0.85, 2.1, 0.08, 0.04), M.navy3, 1.35, PISO + 1.05, 0.02)); // puerta
+  g.add(mesh(new THREE.SphereGeometry(0.05, 10, 8), M.cr, 1.07, PISO + 1.05, 0.08));
+  g.add(mesh(rbox(2.8, 0.14, 1.2, 0.04), M.cr, -0.55, PISO + 1.06, 0.5)); // mostrador de la ventanilla (ancho y hondo: el timbre y la caja apoyan enteros)
+  g.add(mesh(rbox(2.7, 0.9, 0.1, 0.04), M.cr3, -0.55, PISO + 0.55, 1.02));
   // la pizza en la ventanilla (adentro, iluminada)
   {
     const pz = new THREE.Group(); pz.position.set(-0.8, PISO + 1.9, 0.06); pz.rotation.x = Math.PI / 2; pz.scale.setScalar(0.85); g.add(pz);
@@ -482,7 +482,7 @@ async function dibujarPantallas() {
   // la videollamada (cierre)
   P.llamada = hoja(); {
     const x = P.llamada.getContext("2d"); x.fillStyle = "#0b1220"; x.fillRect(0, 0, 720, 1458);
-    x.fillStyle = "#efeee5"; x.font = F(600, 34); x.fillText("10:00", 48, 70); x.fillRect(600, 46, 64, 26);
+    x.fillStyle = "#efeee5"; x.font = F(700, 50); x.fillText("21:40", 44, 80); x.fillRect(600, 46, 64, 26);
     x.fillStyle = "#16243d"; rr(x, 36, 110, 648, 760, 40);
     if (logo) { const w = 420, h = (logo.height / logo.width) * w; x.drawImage(logo, 360 - w / 2, 490 - h / 2, w, h); }
     x.fillStyle = "#1f3254"; rr(x, 36, 900, 648, 360, 40);
@@ -512,9 +512,9 @@ const CAM = [
   [W[21] + 0.3, 7, 12, 10.6, 0, 0.6, 0.2],
   // corte limpio en "Alguien": de las visitas a la parada (el celular ya está en la mano de Nico)
   [S["s03-parada"] - 0.005, 8, 9, 7.0, 0, -0.25, 0.1, "c"],
-  [S["s03-parada"], 6, 5, 14.6, PAR.x + 0.3, 0.75, PAR.z + 0.5],
-  [W[29], -3, 5, 14.2, PAR.x + 0.3, 0.75, PAR.z + 0.5],
-  [S["s04-blanco"] + 0.1, -6, 5, 13.2, PAR.x + 0.35, 0.7, PAR.z + 0.5],
+  [S["s03-parada"], 4, 5, 9.6, PAR.x + 0.45, 0.57, PAR.z + 0.85],
+  [W[29], -2, 5, 9.4, PAR.x + 0.45, 0.57, PAR.z + 0.85],
+  [S["s04-blanco"] + 0.1, -4, 5, 9.0, PAR.x + 0.47, 0.5, PAR.z + 0.85],
   // corte limpio en "Se cansa": de la pantalla completa al primer plano de Nico (el celular ya en la mano)
   [S["s05-atras"] - 0.005, -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3, "c"],
   [S["s05-atras"], -11, 2, 5.6, PAR.x + 0.75, 0.5, PAR.z + 1.25],
@@ -524,20 +524,21 @@ const CAM = [
   [S["s06-avisa"], -16, 8, 12.4, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s06-avisa"] + 0.9, -13, 9, 12.8, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.08, -2, 24, 6.6, PIZ.x - 0.08, -0.2, PIZ.z + 0.45],
+  [S["s07-venta"] - 0.08, -3, 28, 6.3, PIZ.x - 1.05, -0.26, PIZ.z + 0.55],
   // corte limpio en "Pasa": de la caja al celular acostado
-  [S["s08-pesadas"] - 0.005, 3, 26, 6.3, PIZ.x - 0.08, -0.2, PIZ.z + 0.45, "c"],
-  [S["s08-pesadas"], 4, 32, 8.3, EST2.x, -0.62, EST2.z + 0.2],
-  [W[61], -4, 34, 8.3, EST2.x, -0.66, EST2.z + 0.2],
-  [S["s09-rapida"] + 0.32, -6, 16, 9.4, EST2.x, 0.3, EST2.z + 0.2],
-  [W[67], 6, 8, 8.8, EST2.x, 0.6, EST2.z + 0.1],
+  [S["s08-pesadas"] - 0.005, 2, 29, 6.0, PIZ.x - 1.05, -0.28, PIZ.z + 0.55, "c"],
+  [S["s08-pesadas"], 2, 57, 8.4, EST2.x, -0.86, EST2.z + 0.2],
+  [W[61], -2, 58, 8.2, EST2.x, -0.9, EST2.z + 0.2],
+  [S["s09-rapida"] - 0.05, -3, 58, 8.2, EST2.x, -0.92, EST2.z + 0.2, "e"],
+  [S["s09-rapida"] + 0.42, -5, 10, 9.2, EST2.x, 0.62, EST2.z + 0.2],
+  [W[67], 6, 8, 8.8, EST2.x, 0.72, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
-  [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.6, EST2.z + 0.1, "c"],
-  [S["s10-abre"], 6, 6, 12.6, PAR.x + 0.74, 1.03, PAR.z + 0.9],
-  [W[75], 2, 6, 12.0, PAR.x + 0.74, 1.03, PAR.z + 0.95],
-  [S["s11-pagina"] + 0.3, -4, 6, 12.0, PAR.x + 0.74, 1.03, PAR.z + 0.95],
+  [S["s10-abre"] - 0.005, 8, 8, 9.0, EST2.x, 0.72, EST2.z + 0.1, "c"],
+  [S["s10-abre"], 4, 6, 9.6, PAR.x + 0.45, 0.57, PAR.z + 0.85],
+  [W[75], 1, 6, 9.3, PAR.x + 0.45, 0.55, PAR.z + 0.85],
+  [S["s11-pagina"] + 0.3, -3, 6, 9.3, PAR.x + 0.45, 0.55, PAR.z + 0.85],
   // corte limpio en "¿Cuánto": de la página a pantalla completa al cronómetro gigante
-  [S["s12-tuya"] - 0.005, -8, 6, 12.0, PAR.x + 0.72, 0.62, PAR.z + 0.95, "c"],
+  [S["s12-tuya"] - 0.005, -4, 6, 9.3, PAR.x + 0.45, 0.55, PAR.z + 0.85, "c"],
   [S["s12-tuya"], -10, 6, 14.2, 0, 0.55, 0],
   [S["s13-llamada"] - 0.2, 4, 5, 12.6, 0, 0.78, 0],
   [S["s13-llamada"] + 0.6, 2, 5, 13.0, 0, 0.15, 0],
@@ -597,8 +598,8 @@ function clavesNico() {
     [S4 - 0.05, { ...BRAZO_D, ...CARA.concentrada, ...MIRA_CEL }, 0.3],
     // s05 · "se cansa": primer plano, fastidio; toca "atrás" y después otro resultado
     [S5 + 0.3, { ...cerca, ...CARA.fastidio, cabeza: { giro: 0.4, asiente: 0.22, ladea: 0.12 }, ojos: { abiertos: 0.45, tension: -0.25, x: 0.7, y: -0.7 }, inclina: -0.05 }, 0.35],
-    [W[37] + 0.05, { manoD: [0.2, 0.44, 0.44], codoD: [-0.7, -0.6, -0.2], dedoD: 1 }, 0.25],
-    [W[39] - 0.05, { manoD: [0.21, 0.4, 0.44] }, 0.25],
+    [W[37] + 0.05, { manoD: [0.17, 0.36, 0.52], codoD: [-0.35, -0.9, 0.25], dedoD: 1 }, 0.25],
+    [W[39] - 0.05, { manoD: [0.19, 0.33, 0.52] }, 0.25],
     [W[40], { ...CARA.sonrisa, cabeza: { giro: 0.4, asiente: 0.22, ladea: -0.08 }, ojos: { abiertos: 0.85, feliz: 0.3, x: 0.7, y: -0.7 } }, 0.3],
     [S6 + 0.5, { ...BRAZO_D, ...SOSTIENE }, 0.4],
     // s10 · misma parada: sostiene el celular; en "abre" sorpresa y en "al toque" feliz
@@ -673,7 +674,7 @@ function renderAt(t) {
       let x = 0, y = 0.55, z = 0, s = 0.95 * nace, ry = Math.sin(t * 0.8) * 0.12;
       // "se va": retrocede un poco y baja para dejar lugar al 53 %
       const baja = eio(sg(t, W[15] - 0.6, W[15] - 0.1));
-      y = lerp(y, -0.35, baja); s *= lerp(1, 0.8, baja);
+      y = lerp(y, -0.85, baja); s *= lerp(1, 0.8, baja);
       // la visita que se queda: el celular viaja a la mano (travelling a la parada)
       const va = t >= S3 ? 1 : 0; // corte limpio
       cel.position.set(x, y, z); cel.rotation.set(0, ry, 0);
@@ -723,10 +724,10 @@ function renderAt(t) {
       if (t < c) return;
       const u = sg(t, c, c + 0.24); const caida = u * u;
       const POS = [[-0.1, 0.15], [0.05, -0.45], [-0.12, -0.95], [0.05, 0.4]][k];
-      let zx = POS[0], zy = POS[1], zz = lerp(2.4, 0.25 + k * 0.27, caida), s = 1, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
+      let zx = POS[0], zy = POS[1], zz = lerp(2.0, 0.22 + k * 0.14, caida), s = 0.74, rr2 = [0.4, -0.3, 0.25, -0.15][k] * (1 - caida) + [0.08, -0.1, 0.05, -0.06][k];
       // s09 · se comprimen y entran a la pantalla como tarjetas
       const comp = eio(sg(t, S9 + 0.05 + k * 0.08, S9 + 0.75 + k * 0.05));
-      if (comp > 0) { s = lerp(1, 0.3, comp); zx = lerp(zx, 0, comp); zy = lerp(zy, -0.1, comp); zz = lerp(zz, 0.1, comp); rr2 = lerp(rr2, 0, comp); }
+      if (comp > 0) { s = lerp(0.74, 0.24, comp); zx = lerp(zx, 0, comp); zy = lerp(zy, -0.1, comp); zz = lerp(zz, 0.1, comp); rr2 = lerp(rr2, 0, comp); }
       m.visible = comp < 0.98; m.position.set(zx, zy, zz); m.rotation.set(0, 0, rr2); m.scale.setScalar(s);
     });
     // s10 · vuelve a la parada: el celular viaja del estudio a la mano
@@ -747,7 +748,7 @@ function renderAt(t) {
     // cierre: el celular con la videollamada
     celOn = true;
     const e = lerp(0.9, 1, bk(sg(t, S13, S13 + 0.2)));
-    cel.position.set(0, -0.02, 0.4); cel.rotation.set(-0.05, Math.sin(t * 0.8) * 0.1, 0); celS = 0.98 * e;
+    cel.position.set(0, 0.22, 0.4); cel.rotation.set(-0.05, Math.sin(t * 0.8) * 0.1, 0); celS = 0.9 * e;
     pagina("llamada"); celSombraOn = true;
   }
   ocultar(cel, celOn ? celS : 0);
@@ -768,29 +769,30 @@ function renderAt(t) {
       crono.position.set(0, -0.15, 0); crono.rotation.set(0.04, -0.12 + Math.sin(t * 0.9) * 0.08, 0);
       // "celular": se achica y se mete en el celular (se vuelve la ruedita)
       const va = eio(sg(t, W[10] - 0.05, W[10] + 0.35));
-      if (va > 0) { crono.position.lerp(new THREE.Vector3(0, 0.55 + 0.42 * 0.95, 0.3), va); s = lerp(1, 0.1, va); }
+      if (va > 0) { crono.position.lerp(new THREE.Vector3(0, 0.55 + 0.3 * 0.95, 0.3), va); s = lerp(1, 0.1, va); } // se mete en la ruedita
       if (va > 0.55) s = 0;
       s *= 1 + 0.04 * Math.sin(Math.PI * sg(t, W[6] - 0.05, W[6] + 0.25));
       apoyar(cronoSombra, crono.position.x, 0.2, s * (1 - va), 0.75);
     } else if (en(t, S4 + 0.2, S5 + 0.45)) {
       // s04 · sobre la pantalla en blanco: cuenta uno, dos, tres
-      s = t < S4 + 0.2 || t >= S5 ? 0 : 0.25 * lerp(0.6, 1, bk(sg(t, S4 + 0.2, S4 + 0.5)));
+      s = t < S4 + 0.2 || t >= S5 ? 0 : 0.21 * lerp(0.6, 1, bk(sg(t, S4 + 0.2, S4 + 0.5)));
       const A = S4 + 0.55;
       m = t < W[33] ? lerp(0, 1, eio(sg(t, A, W[33]))) : t < W[34] ? 1 + eio(sg(t, W[33] + 0.08, W[34])) : t < W[35] ? 2 + eio(sg(t, W[34] + 0.08, W[35])) : 3 + 0.6 * eo(sg(t, W[35] + 0.05, S5 + 0.3));
       zona = eo(sg(t, W[35], W[35] + 0.25));
       pulsa = [W[33], W[34], W[35]].reduce((a, w) => Math.max(a, Math.sin(Math.PI * sg(t, w - 0.03, w + 0.15))), 0);
-      pegar(crono, 0.2, -0.8, DP - 0.6, 0.05, Math.sin(t * 1.1) * 0.12, 0);
+      pegar(crono, 0, -0.68, DP - 0.6, 0.05, Math.sin(t * 1.1) * 0.12, 0); // entero dentro de la pantalla blanca, lejos del "<"
       // (se achica en su lugar: antes bajaba y quedaba cortado por el borde de abajo)
       cronoSombra.visible = false;
     } else if (en(t, S10 + 0.2, W[75] + 0.45)) {
-      // s10 · misma parada: arranca en "abre" y frena EN VERDE mucho antes del 1
+      // s10 · misma parada: arranca en "abre" y frena EN VERDE entre la marca del 1 y la del 2 (bien antes del 3 y por
+      // debajo de 2,5 s, el umbral "bueno" de LCP de Core Web Vitals: fuentes.md). Sin cifra en pantalla ni en la voz.
       // reemplaza al globito arriba de Nico, el doble de grande; se va recién cuando el celular ya tapa la pantalla
       const CA = W[73] - 0.15;
-      s = t < CA || t >= W[75] + 0.4 ? 0 : 0.38 * lerp(0.6, 1, bk(sg(t, CA, CA + 0.22)));
-      m = 1.85 * eo(sg(t, W[73], W[73] + 0.36));
+      s = t < CA || t >= W[75] + 0.4 ? 0 : 0.28 * lerp(0.6, 1, bk(sg(t, CA, CA + 0.22)));
+      m = 1.55 * eo(sg(t, W[73], W[73] + 0.36));
       colorEst = C.g;
       pulsa = Math.sin(Math.PI * sg(t, W[73] + 0.32, W[73] + 0.5));
-      crono.position.set(PAR.x + 0.62, 1.66, PAR.z + 1.4); crono.rotation.set(0.05, -0.1 + Math.sin(t * 0.9) * 0.08, 0);
+      crono.position.set(PAR.x - 0.2, 1.2, PAR.z + 1.4); crono.rotation.set(0.05, -0.1 + Math.sin(t * 0.9) * 0.08, 0);
       cronoSombra.visible = false;
     } else if (en(t, S12, S13 + 0.2)) {
       // s12 · "¿cuánto tarda la tuya?": gigante otra vez, con un "?" verde en lugar de la aguja
@@ -815,8 +817,9 @@ function renderAt(t) {
   // ---------------- VISITAS ----------------
   VIS.forEach((v, i) => {
     const ti = W[10] + 0.1 + (i % 5) * 0.025;
-    let s = t >= ti ? 0.82 : 0; // a su tamaño; suben desde abajo de cuadro cuando el cronómetro ya se metió en el celular
-    const sube = (1 - eo(sg(t, ti, ti + 0.3))) * 2.2;
+    const ti2 = W[10] + 0.05 + i * 0.045;
+    let s = t >= ti2 ? 0.82 * lerp(0.5, 1, bk(sg(t, ti2, ti2 + 0.26))) : 0; // pop en su lugar (antes subían desde abajo y entraban cortadas)
+    const sube = 0;
     let x = v.x, z = v.z, giro = Math.PI, paso = 0, gris = 0; // de espaldas a la cámara, mirando el celular
     let cara = { ...CARA.neutra, cabeza: { giro: 0, asiente: -0.12, ladea: 0 }, ojos: { abiertos: 1, y: 0.4 } };
     if (v.sale) {
@@ -844,7 +847,7 @@ function renderAt(t) {
   // ---------------- 53 % ----------------
   {
     const sp = en(t, W[15] - 0.3, Math.min(W[21] + 0.36, S3)) ? 0.95 * lerp(0.6, 1, bk(sg(t, W[15] - 0.3, W[15] + 0.05))) : 0; // sale con corte seco, junto con su rótulo
-    ocultar(pct, sp); pct.position.set(0.05, 2.0 + eio(sg(t, W[21] + 0.3, W[21] + 0.42)) * 0.4, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
+    ocultar(pct, sp); pct.position.set(0.05, 1.78 + eio(sg(t, W[21] + 0.3, W[21] + 0.42)) * 0.4, 0.3); pct.rotation.set(0, Math.sin(t * 0.9) * 0.18, 0);
     if (pct.visible) pct.scale.multiplyScalar(1 + 0.06 * Math.sin(Math.PI * sg(t, W[19], W[19] + 0.3)));
   }
   // ---------------- 1 · 2 · 3 ----------------
@@ -865,7 +868,7 @@ function renderAt(t) {
     const g1 = en(t, W[29] - 0.1, S5) ? lerp(0.6, 1, bk(sg(t, W[29] - 0.1, W[29] + 0.2))) : 0;
     const g2 = en(t, S10 + 0.3, W[73] - 0.15) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) : 0; // en "abre" lo reemplaza el cronómetro
     const gs = Math.max(g1, g2);
-    ocultar(globo, gs); globo.position.set(PAR.x + 0.4, 1.62 + Math.sin(t * 2) * 0.05, PAR.z + 1.35); globo.scale.multiplyScalar(1.15); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
+    ocultar(globo, gs); globo.position.set(PAR.x - 0.18, 1.45 + Math.sin(t * 2) * 0.04, PAR.z + 1.35); globo.scale.multiplyScalar(0.9); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
   }
 
@@ -902,8 +905,8 @@ function renderAt(t) {
     const baja = t >= S8 ? 0 : 1; // corte limpio en "Pasa": la pizzería deja de verse
     pizzeria.visible = s * baja > 0.002; if (pizzeria.visible) pizzeria.scale.set(1, Math.max(0.001, s * baja), 1);
     // la campanita: grande sobre el mostrador; en "avisa" se apaga a gris y no suena
-    const cs = on && t >= S6 + 0.25 ? 1.45 * lerp(0.6, 1, bk(sg(t, S6 + 0.25, S6 + 0.5))) : 0;
-    ocultar(campana, cs); campana.position.set(PIZ.x + 0.5, (PISO + 1.13) * baja, PIZ.z + 0.42); campana.rotation.set(0.1, 0, 0);
+    const cs = on ? 1.25 * s : 0; // ya está sobre el mostrador desde el corte (nada de aparecer de golpe)
+    ocultar(campana, cs); campana.position.set(PIZ.x + 0.35, (PISO + 1.13) * baja, PIZ.z + 0.55); campana.rotation.set(0.1, 0, 0);
     if (campana.visible) campana.scale.y *= Math.max(0.001, baja);
     if (baja < 0.02) campana.visible = false; // se aplasta con la pizzería (nada de pop al salir)
     campMat.color.set(C.cr).lerp(new THREE.Color(C.gris), eio(sg(t, W[44], W[45] + 0.1)));
@@ -912,13 +915,13 @@ function renderAt(t) {
     vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[44], W[45] + 0.2)));
     // en el push-in a la caja el cartel se apaga (pasa por detrás del subtítulo: nada de texto sobre texto)
     // en el push-in a la caja las letras del cartel se funden en su chapa navy (pasan por detrás del subtítulo: nada de texto sobre texto)
-    { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; }
+    { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; } // las letras se funden en la chapa navy mientras cruzan el subtítulo (nada de texto sobre texto)
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
     const ks = en(t, S7 - 0.05, S8 + 0.36) ? CAJA_S * lerp(0.55, 1, bk(sg(t, S7 - 0.05, S7 + 0.1))) : 0;
-    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 0.6, (PISO + 1.13 + (1 - bk(cae)) * 0.8) * baja, PIZ.z + 0.5);
+    ocultar(cajaPizza, ks); cajaPizza.position.set(PIZ.x - 1.0, (PISO + 1.13 + (1 - bk(cae)) * 0.8) * baja, PIZ.z + 0.55);
     if (cajaPizza.visible) cajaPizza.scale.y *= Math.max(0.001, baja);
-    if (baja < 0.02 && t < S10) cajaPizza.visible = false; cajaPizza.rotation.set(0, -0.25 + Math.sin(t * 0.8) * 0.04, 0);
+    if (baja < 0.02 && t < S10) cajaPizza.visible = false; cajaPizza.rotation.set(0, -0.12 + Math.sin(t * 0.8) * 0.03, 0);
     const abre = Math.sin(Math.PI * sg(t, W[52], W[52] + 0.55));
     tapaPizza.rotation.x = -abre * 0.55;
     const gris = eio(sg(t, W[52] + 0.5, W[55]));
@@ -943,8 +946,8 @@ function renderAt(t) {
       cel.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(0.8, 0.95, 0.3).applyMatrix4(cel.matrixWorld)); tilde.quaternion.copy(cel.quaternion);
       tilde.rotateY(Math.sin(t * 1.3) * 0.25);
     } else if (en(t, W[73] + 0.34, W[75] + 0.45)) {
-      s = t >= W[75] + 0.4 ? 0 : 0.5 * lerp(0.6, 1, bk(sg(t, W[73] + 0.34, W[73] + 0.56)));
-      crono.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(1.3, -1.2, 0.6).applyMatrix4(crono.matrixWorld)); tilde.rotation.set(0, Math.sin(t * 1.3) * 0.25, 0);
+      s = t >= W[75] + 0.4 ? 0 : 0.42 * lerp(0.6, 1, bk(sg(t, W[73] + 0.34, W[73] + 0.56)));
+      crono.updateMatrixWorld(); tilde.position.copy(new THREE.Vector3(-1.05, -1.05, 0.7).applyMatrix4(crono.matrixWorld)); tilde.rotation.set(0, Math.sin(t * 1.3) * 0.25, 0); // sello abajo a la izquierda del cronómetro: lejos de la cabeza y del borde
     }
     ocultar(tilde, s);
   }

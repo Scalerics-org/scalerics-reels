@@ -42,8 +42,9 @@ confirmaron por los extractos de los buscadores (mismas frases en varias fuentes
 
 ## "En Scalerics hacemos tu página rápida en el celular. Misma parada: abre al toque, con horario, fotos y WhatsApp."
 - Es lo que vende Scalerics (sitio web rápido en el celular, con horarios, ubicación y botón a WhatsApp,
-  CLAUDE.md). El cronómetro del cierre frena en verde bien antes de la marca de 3 s, sin mostrar ni decir
-  una cifra de tiempo: no se promete un número.
+  CLAUDE.md). El cronómetro del callback (s10) frena en verde ENTRE la marca del 1 y la del 2 (aguja en ~1,55),
+  o sea bien antes del 3 y por debajo de 2,5 s, el umbral "bueno" de LCP de Core Web Vitals (link de arriba).
+  No se muestra ni se dice una cifra, y no se insinúa "menos de 1 segundo" (eso no tiene fuente).
 
 ## Lo que NO va (no confirmado o no aplica)
 - "Al pasar de 1 a 3 segundos, la probabilidad de rebote sube 32 %": está en Think with Google

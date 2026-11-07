@@ -58,7 +58,7 @@ Reglas técnicas de `SPEC-base.md` (del molde) para las composiciones; lo visual
 - **s07-venta** (palabra 48 "Esa", 15.87 s) · Push-in a la caja de pizza: la tapa intenta abrirse y se cierra, se pone gris; sello "VENTA PERDIDA".
 - **s08-pesadas** (palabra 56 "Pasa", 18.05 s) · Corte limpio al celular acostado con la página vieja; le caen 4 marcos de foto; pill "Fotos pesadas".
 - **s09-rapida** (palabra 62 "En", 20.05 s) · Las fotos se comprimen y entran a la pantalla; el celular se para, borde verde, página rápida; tilde 3D en "rápida"; pill "Scalerics".
-- **s10-abre** (palabra 71 "Misma", 23.15 s) · Corte limpio a la misma parada (callback): el cronómetro frena en verde antes del 3 con tilde; en "al toque" zambullida.
+- **s10-abre** (palabra 71 "Misma", 23.15 s) · Corte limpio a la misma parada (callback): el cronómetro frena en verde entre el 1 y el 2 (por debajo de 2,5 s, LCP) con tilde; en "al toque" zambullida.
 - **s11-pagina** (palabra 76 "con", 25.13 s) · Página rápida a pantalla completa: tildes en horario, foto y "Pedí por WhatsApp".
 - **s12-tuya** (palabra 81 "¿Cuánto", 27.33 s) · Corte limpio al cronómetro gigante con "?" que late con el tic y el tac; "¿Cuánto tarda la tuya?" y después subtítulo "Agendá una".
 - **s13-llamada** (palabra 87 "videollamada", 29.35 s) · Cierre verde: "Videollamada / gratis", celular 3D con la videollamada, "scalerics.com".
@@ -324,3 +324,12 @@ en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos d
   (`whoosh-c` = whoosh-cine-corto real de por-que-la-lista, `papel` = Kingofgamers_cz, Freesound 352914, CC0); burbujas con
   volúmenes distintos; sello sonando en el cuadro en que queda firme; el "?" late con el tic y el tac; tramo "Alguien te
   busca…" con highshelf (+10 dB @3,5 kHz) para igualar agudos (medido: >4 kHz -27,4 LUFS vs -27,5 del tramo vecino).
+
+## Ronda 1 de revisión independiente (corregida)
+- Gancho entero en el cuadro 0: "Si tu página tarda / más de 3 segundos / se va más de la mitad" (consecuencia en recuadro verde).
+- Cronómetro del callback: frena en ~1,55 (entre el 1 y el 2; < 2,5 s LCP), tilde abajo a la izquierda del cronómetro.
+- Parada en plano medio (Nico ~50 % del alto), chapa de la parada delante del techo y entera; globo a la izquierda.
+- s07: mostrador ancho y hondo, timbre y caja apoyados enteros; push-in centrado en la caja (el timbre queda fuera).
+- s08/s09: cámara desde arriba (los marcos caen hacia la cámara, nunca cruzan los subtítulos), marcos más chicos;
+  la cámara se endereza junto con el celular. "Fotos pesadas" sale seco.
+- Cierre: celular más arriba (21:40), DUR = voz + 0,25 s; fondo verde justo en el corte.

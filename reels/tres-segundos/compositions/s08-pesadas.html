@@ -59,7 +59,7 @@
 
 
       dibujar(".l1", 1.23, 0.22); pop(".d1", 1.23, 0.2); pop(".n1", 1.23);
-      fuera(".n1, .l1, .d1", 1.78, 0.18);
+      tl.set(qa(".n1, .l1, .d1"), { opacity: 0 }, 1.88); // sale seco antes de que se pare el celular (nada de rótulo a medio fundir)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -37,7 +37,7 @@ Palabras (segundos relativos a la escena): con 0.00 · horario, 0.16 · fotos 0.
 ### s12-tuya — dura 2.02 s (inicio global 27.33)
 Palabras (segundos relativos a la escena): ¿Cuánto 0.00 · tarda 0.30 · la 0.60 · tuya? 0.72 · Agendá 1.42 · una 1.88
 
-### s13-llamada — dura 3.01 s (inicio global 29.35)
-Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 1.02 · en 1.48 · scalerics.com. 1.62
+### s13-llamada — dura 2.76 s (inicio global 29.35)
+Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 1.02 · en 1.32 · scalerics.com. 1.40
 
-Duración total 32.36 (la voz termina en 31.86).
+Duración total 32.11 (la voz termina en 31.86).

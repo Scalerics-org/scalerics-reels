@@ -24,14 +24,18 @@
     [data-composition-id="s01-gancho"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s01-gancho"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s01-gancho"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s01-gancho"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s01-gancho"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
 
-    [data-composition-id="s01-gancho"] .a { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 106px; }
-    [data-composition-id="s01-gancho"] .v { position: absolute; left: 0; right: 0; top: 392px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 150px; font-weight: 900; color: #5ce611; }
+    [data-composition-id="s01-gancho"] .a { position: absolute; left: 0; right: 0; top: 132px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 100px; }
+    [data-composition-id="s01-gancho"] .b { position: absolute; left: 0; right: 0; top: 252px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 76px; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .v { display: inline-block; font-size: 122px; font-weight: 900; color: #5ce611; letter-spacing: -0.04em; margin-left: 14px; }
+    [data-composition-id="s01-gancho"] .c { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font: 800 104px/1.06 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 86px; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .c em { position: relative; display: inline-block; font-style: normal; padding: 0 14px; margin-left: 6px; border: 6px solid #5ce611; background: rgba(92,230,17,0.16); }
   </style>
   <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.8">
     <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.8" data-track-index="0">
 
-      <div class="a"><div>Si tu página tarda</div><div>más de</div></div>
-      <div class="v">3 segundos</div>
+      <div class="a">Si tu página tarda</div>
+      <div class="b">más de<span class="v">3 segundos</span></div>
+      <div class="c">se va <em>más de la mitad</em></div>
     </div>
   </div>
   <script>
@@ -60,10 +64,11 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      // cuadro 0 = portada: el gancho ENTERO (la condición y la consecuencia) sobre el cronómetro que ya corre
+      tl.fromTo(qa(".a, .b, .c"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".v", 1.34, 1.1);
       // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
-      tl.to(qa(".a, .v"), { opacity: 0, duration: 0.04 }, 1.8); // "en el celular" va de subtítulo
+      tl.to(qa(".a, .b, .c"), { opacity: 0, duration: 0.04 }, 1.8); // "en el celular" va de subtítulo
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

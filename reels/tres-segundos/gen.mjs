@@ -10,7 +10,7 @@ const pal = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const r2 = (n) => Math.round(n * 100) / 100;
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.5);
+const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.25);
 const ini = (i) => (i === 0 ? 0 : r2(pal[i].start));
 const INI = Object.fromEntries(reel.escenas.map(([id, i]) => [id, ini(i)]));
 const ESC = Object.fromEntries(reel.escenas.map(([id, i], k) => [id, r2((k + 1 < reel.escenas.length ? ini(reel.escenas[k + 1][1]) : DUR) - ini(i))]));
@@ -125,16 +125,21 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   const T1 = r2(W(6) / 3), T2 = r2((2 * W(6)) / 3), T3 = W(6);
   escena(id, {
     css: `
-    P .a { position: absolute; left: 0; right: 0; top: 150px; text-align: center; ${TIT} font-size: 106px; }
-    P .v { position: absolute; left: 0; right: 0; top: 392px; text-align: center; ${TIT} font-size: 150px; font-weight: 900; color: ${G}; }`,
+    P .a { position: absolute; left: 0; right: 0; top: 132px; text-align: center; ${TIT} font-size: 100px; }
+    P .b { position: absolute; left: 0; right: 0; top: 252px; text-align: center; ${TIT} font-size: 76px; white-space: nowrap; }
+    P .v { display: inline-block; font-size: 122px; font-weight: 900; color: ${G}; letter-spacing: -0.04em; margin-left: 14px; }
+    P .c { position: absolute; left: 0; right: 0; top: 420px; text-align: center; ${TIT} font-size: 86px; white-space: nowrap; }
+    P .c em { position: relative; display: inline-block; font-style: normal; padding: 0 14px; margin-left: 6px; border: 6px solid ${G}; background: rgba(92,230,17,0.16); }`,
     html: `
-      <div class="a"><div>Si tu página tarda</div><div>más de</div></div>
-      <div class="v">3 segundos</div>`,
+      <div class="a">Si tu página tarda</div>
+      <div class="b">más de<span class="v">3 segundos</span></div>
+      <div class="c">se va <em>más de la mitad</em></div>`,
     js: `
-      tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
+      // cuadro 0 = portada: el gancho ENTERO (la condición y la consecuencia) sobre el cronómetro que ya corre
+      tl.fromTo(qa(".a, .b, .c"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".v", ${r2(T3 - 0.02)}, 1.1);
       // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
-      tl.to(qa(".a, .v"), { opacity: 0, duration: 0.04 }, ${r2(rel(id, W(8)) - 0.12)}); // "en el celular" va de subtítulo`,
+      tl.to(qa(".a, .b, .c"), { opacity: 0, duration: 0.04 }, ${r2(rel(id, W(8)) - 0.12)}); // "en el celular" va de subtítulo`,
     sfx: [
       { t: 0, sfx: "impact-bass-1", vol: 0.03, max: 0.6 },
       { t: T1, sfx: "tic-real", vol: 0.45 }, { t: T2, sfx: "tac-real", vol: 0.5 }, { t: T3, sfx: "tic-real", vol: 0.5 },
@@ -161,10 +166,10 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(qa(".dato, .n2"), { opacity: 0 }, ${r2(rel(id, W(21)) + 0.36)}); // sale junto con el 53 % 3D, corte seco`,
     sfx: [
       { t: rel(id, W(14)) + 0.02, sfx: "whoosh-short", vol: 0.18 }, { t: rel(id, W(14)) + 0.12, sfx: "click-soft", vol: 0.3 }, { t: rel(id, W(14)) + 0.3, sfx: "key-c", vol: 0.6 },
-      { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 },
+      { t: rel(id, W(18)) - 0.02, sfx: "whoosh", vol: 0.09, max: 0.5 }, { t: rel(id, W(18)) + 0.12, sfx: "whoosh-short", vol: 0.15 }, // la gente que se va
       { t: rel(id, W(15)) - 0.3, sfx: "impact-bass-1", vol: 0.016, max: 0.4 }, { t: rel(id, W(15)) - 0.28, sfx: "burbuja", vol: 0.17 },
-      { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.12 },
-      { t: ESC[id] - 0.62, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada (pico en el corte)
+      { t: rel(id, W(15)) + 0.2, sfx: "click", vol: 0.3 }, // "Fuente: Google"
+      { t: ESC[id] - 1.0, sfx: "whoosh-cine", vol: 0.14 }, // corte limpio a la parada (el golpe del whoosh-cine cae ~1 s después de su arranque: en el corte)
     ],
   });
 }
@@ -220,7 +225,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       { t: -0.45, sfx: "whoosh-c2", vol: 0.22 },
       { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "papel-c", vol: 0.5 },
       { t: rel(id, W(39)) + 0.08, sfx: "key-c", vol: 0.7 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.08 },
-      { t: ESC[id] - 0.62, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería (pico en el corte)
+      { t: ESC[id] - 1.0, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería (golpe en el corte)
     ],
   });
 }
@@ -230,14 +235,14 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   const id = "s06-avisa";
   escena(id, {
     html: `
-      ${leads(lead(1, 800, 1560, 800, 1150, ""))}
-      ${pill(1, 800, 1610, "0 avisos", "grande")}`,
+      ${leads(lead(1, 760, 1560, 760, 1170, ""))}
+      ${pill(1, 760, 1610, "0 avisos", "grande")}`,
     js: `
       nota(1, ${r2(rel(id, W(44)))});
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.52)}, 0.14);`,
     sfx: [
-      { t: 0.4, sfx: "pop", vol: 0.24 },
-      // sin ping en "0 avisos": el silencio es el chiste
+      // el timbre ya está sobre el mostrador desde el corte (nada de pop de golpe); sin ping en "0 avisos": el silencio es el chiste
+      { t: rel(id, W(44)) + 0.16, sfx: "click-soft", vol: 0.3 }, // aparece "0 avisos"
     ],
   });
 }
@@ -271,7 +276,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       ${pill(1, 300, 1745, "Fotos pesadas", "r")}`,
     js: `
       dibujar(".l1", ${r2(rel(id, W(61)) + 0.05)}, 0.22); pop(".d1", ${r2(rel(id, W(61)) + 0.05)}, 0.2); pop(".n1", ${r2(rel(id, W(61)) + 0.05)});
-      fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+      tl.set(qa(".n1, .l1, .d1"), { opacity: 0 }, ${r2(ESC[id] - 0.12)}); // sale seco antes de que se pare el celular (nada de rótulo a medio fundir)`,
     sfx: [
       { t: -0.06, sfx: "whoosh-short", vol: 0.1 }, // corte limpio al celular
       { t: rel(id, caidas[0] + 0.1), sfx: "glitch-2", vol: 0.08, max: 0.4 },

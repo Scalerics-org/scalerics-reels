@@ -30,8 +30,8 @@
     [data-composition-id="s13-llamada"] .t3w { position: absolute; left: 0; right: 0; top: 1470px; text-align: center; }
     [data-composition-id="s13-llamada"] .t3 { display: inline-block; padding: 26px 50px 32px; border-radius: 34px; background: #0b1220; font: 800 112px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: #5ce611; box-shadow: 0 12px 0 rgba(11,18,32,0.25); }
   </style>
-  <div id="root" data-composition-id="s13-llamada" data-width="1080" data-height="1920" data-duration="3.01">
-    <div id="s13-llamada-esc" class="esc clip" data-start="0" data-duration="3.01" data-track-index="0">
+  <div id="root" data-composition-id="s13-llamada" data-width="1080" data-height="1920" data-duration="2.76">
+    <div id="s13-llamada-esc" class="esc clip" data-start="0" data-duration="2.76" data-track-index="0">
 
       <div class="t1">Videollamada</div>
       <div class="t2w"><span class="t2">gratis</span></div>
@@ -41,7 +41,7 @@
   <script>
     (function () {
       const ID = "s13-llamada";
-      const DUR = 3.01;
+      const DUR = 2.76;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -67,7 +67,7 @@
       tl.set(q(".t1"), { opacity: 0 }, 0); tl.set(q(".t1"), { opacity: 1 }, 0.04); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: false }, 0.04);
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, 0.18); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 0.18);
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, 0.55); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, 0.55);
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.82);
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.6);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

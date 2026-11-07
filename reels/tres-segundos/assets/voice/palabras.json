@@ -56,7 +56,7 @@
  {
   "id": 9,
   "text": "el",
-  "start": 2.0,
+  "start": 2,
   "end": 2.1
  },
  {
@@ -230,7 +230,7 @@
  {
   "text": "y",
   "start": 12.92,
-  "end": 13.0,
+  "end": 13,
   "id": 38
  },
  {
@@ -530,18 +530,18 @@
  {
   "text": "gratis",
   "start": 30.37,
-  "end": 30.81,
+  "end": 30.6,
   "id": 88
  },
  {
   "text": "en",
-  "start": 30.83,
-  "end": 30.95,
+  "start": 30.67,
+  "end": 30.75,
   "id": 89
  },
  {
   "text": "scalerics.com.",
-  "start": 30.97,
+  "start": 30.75,
   "end": 31.83,
   "id": 90
  }
