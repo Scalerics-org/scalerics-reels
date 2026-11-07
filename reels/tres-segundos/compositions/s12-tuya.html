@@ -60,7 +60,7 @@
 
       tl.set(q(".pq"), { opacity: 1 }, 0); tl.fromTo(q(".pq"), { scale: 1.12, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.out", immediateRender: true }, 0);
       late(".pq em", 0.72, 1.08);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, 1.16); // deja lugar al subtítulo "Agendá una"
+      // la pregunta queda hasta el corte (sin subtítulo "Agendá una": lo completa la tarjeta)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

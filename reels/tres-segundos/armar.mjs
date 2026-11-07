@@ -91,7 +91,8 @@ CORTES.forEach((desde, g) => {
       return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(w.text)}</em></span>`;
     })
     .join(" ");
-  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p>${spans}</p></div>\n`;
+  const largoTxt = ws.map((w) => w.text).join(" ").length;
+  grupos += `    <div id="${id}" class="grupo clip${largoTxt > 19 ? " largo" : ""}" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
 });
 
@@ -103,6 +104,7 @@ const subtitulos = `<template>
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
     ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); -webkit-text-stroke: 12px #0b1220; paint-order: stroke fill; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
+    ${C} .largo p { font-size: 74px; } /* que "Pasa con páginas viejas" entre en un renglón */
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 2px; }
     ${C} .caja { position: absolute; left: -10px; right: -10px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.16); }
@@ -169,7 +171,7 @@ const sfxTags = sfx
 // cierre en verde (desde la escena de la videollamada) y tramos sin velo: reel.sinVelo = [[palabra, palabra], ...]
 const VERDE = r2(inicio(reel.escenas.at(-1)[1]) - 0.05);
 const FIRMA = (reel.sinFirma ?? []).map(([a, b]) => {
-  const ta = r2(inicio(a) - 0.12), tb = b < palabras.length ? r2(inicio(b) - 0.1) : null;
+  const ta = r2(inicio(a) - 0.12), tb = b < palabras.length ? r2(inicio(b) + 0.02) : null; // vuelve recién después del corte (nada de logo tenue antes)
   return `      tl.to("#firma", { opacity: 0, duration: 0.15, ease: "power2.inOut" }, ${ta});` + (tb !== null ? `\n      tl.to("#firma", { opacity: 0.85, duration: 0.2, ease: "power2.inOut" }, ${tb});` : "");
 }).join("\n");
 const VELO = (reel.sinVelo ?? []).map(([a, b]) => {

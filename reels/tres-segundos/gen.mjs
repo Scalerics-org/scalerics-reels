@@ -126,18 +126,18 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   escena(id, {
     css: `
     P .a { position: absolute; left: 0; right: 0; top: 132px; text-align: center; ${TIT} font-size: 100px; }
-    P .b { position: absolute; left: 0; right: 0; top: 252px; text-align: center; ${TIT} font-size: 76px; white-space: nowrap; }
-    P .v { display: inline-block; font-size: 122px; font-weight: 900; color: ${G}; letter-spacing: -0.04em; margin-left: 14px; }
+    P .b { position: absolute; left: 0; right: 0; top: 252px; text-align: center; ${TIT} font-size: 70px; white-space: nowrap; }
+    P .v { display: inline-block; font-size: 114px; font-weight: 900; color: ${G}; letter-spacing: -0.04em; margin-left: 28px; transform-origin: 0% 60%; }
     P .c { position: absolute; left: 0; right: 0; top: 420px; text-align: center; ${TIT} font-size: 86px; white-space: nowrap; }
     P .c em { position: relative; display: inline-block; font-style: normal; padding: 0 14px; margin-left: 6px; border: 6px solid ${G}; background: rgba(92,230,17,0.16); }`,
     html: `
       <div class="a">Si tu página tarda</div>
-      <div class="b">más de<span class="v">3 segundos</span></div>
+      <div class="b">más de<span class="v">3 segundos</span>:</div>
       <div class="c">se va <em>más de la mitad</em></div>`,
     js: `
       // cuadro 0 = portada: el gancho ENTERO (la condición y la consecuencia) sobre el cronómetro que ya corre
       tl.fromTo(qa(".a, .b, .c"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
-      late(".v", ${r2(T3 - 0.02)}, 1.1);
+      late(".v", ${r2(T3 - 0.02)}, 1.06);
       // el gancho sale entero y rápido (nada de "3 segundos" solo y tenue sobre el plano siguiente)
       tl.to(qa(".a, .b, .c"), { opacity: 0, duration: 0.04 }, ${r2(rel(id, W(8)) - 0.12)}); // "en el celular" va de subtítulo`,
     sfx: [
@@ -222,10 +222,10 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: ``,
     sfx: [
       // la cámara sale del celular al primer plano de Nico; dos toques (atrás, otro resultado) y el deslizar de cada página
-      { t: -0.45, sfx: "whoosh-c2", vol: 0.22 },
+      { t: -0.55, sfx: "whoosh-c2", vol: 0.08 }, // suave: no pisa "Se cansa"
       { t: rel(id, W(37)) + 0.1, sfx: "click", vol: 0.36 }, { t: rel(id, W(37)) + 0.16, sfx: "papel-c", vol: 0.5 },
       { t: rel(id, W(39)) + 0.08, sfx: "key-c", vol: 0.7 }, { t: rel(id, W(39)) + 0.14, sfx: "whoosh-short", vol: 0.08 },
-      { t: ESC[id] - 1.0, sfx: "whoosh-cine", vol: 0.1 }, // corte limpio a la pizzería (golpe en el corte)
+      { t: ESC[id] - 0.64, sfx: "whoosh-cine", vol: 0.1 }, { t: ESC[id] - 0.1, sfx: "whoosh-short", vol: 0.1 }, // golpe del whoosh-cine en el corte a la pizzería (medido en la ronda 2)
     ],
   });
 }
@@ -234,9 +234,10 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
 {
   const id = "s06-avisa";
   escena(id, {
+    css: `P .pill.avisos { font-size: 80px; padding: 22px 50px 26px; }`,
     html: `
       ${leads(lead(1, 760, 1560, 760, 1170, ""))}
-      ${pill(1, 760, 1610, "0 avisos", "grande")}`,
+      ${pill(1, 760, 1610, "0 avisos", "grande avisos")}`,
     js: `
       nota(1, ${r2(rel(id, W(44)))});
       fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.52)}, 0.14);`,
@@ -275,7 +276,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       ${leads(lead(1, 300, 1690, 360, 1530, "r"))}
       ${pill(1, 300, 1745, "Fotos pesadas", "r")}`,
     js: `
-      dibujar(".l1", ${r2(rel(id, W(61)) + 0.05)}, 0.22); pop(".d1", ${r2(rel(id, W(61)) + 0.05)}, 0.2); pop(".n1", ${r2(rel(id, W(61)) + 0.05)});
+      dibujar(".l1", ${r2(rel(id, W(61)) + 0.15)}, 0.22); pop(".d1", ${r2(rel(id, W(61)) + 0.15)}, 0.2); pop(".n1", ${r2(rel(id, W(61)) + 0.15)});
       tl.set(qa(".n1, .l1, .d1"), { opacity: 0 }, ${r2(ESC[id] - 0.12)}); // sale seco antes de que se pare el celular (nada de rótulo a medio fundir)`,
     sfx: [
       { t: -0.06, sfx: "whoosh-short", vol: 0.1 }, // corte limpio al celular
@@ -343,7 +344,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     js: `
       tl.set(q(".pq"), { opacity: 1 }, 0); tl.fromTo(q(".pq"), { scale: 1.12, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power4.out", immediateRender: true }, 0);
       late(".pq em", ${r2(rel(id, W(84)))}, 1.08);
-      tl.to(q(".pq"), { opacity: 0, y: -40, duration: 0.12, ease: "power2.in" }, ${r2(rel(id, W(85)) - 0.26)}); // deja lugar al subtítulo "Agendá una"`,
+      // la pregunta queda hasta el corte (sin subtítulo "Agendá una": lo completa la tarjeta)`,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.1 }, { t: 0.14, sfx: "burbuja", vol: 0.25 },
       { t: 0.6, sfx: "tic-real", vol: 0.5 }, { t: 1.42, sfx: "tac-real", vol: 0.45 },
@@ -369,8 +370,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".t1"), { opacity: 0 }, 0); tl.set(q(".t1"), { opacity: 1 }, 0.04); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: false }, 0.04);
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.18)}); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(87)) + 0.18)});
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.55)}); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, ${r2(rel(id, W(87)) + 0.55)});
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.05, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.2)});`,
-    sfx: [{ t: -0.45, sfx: "whoosh-c2", vol: 0.16 }, { t: 0.0, sfx: "burbuja", vol: 0.21 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }],
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.07, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.05)});`,
+    sfx: [{ t: -0.45, sfx: "whoosh-c2", vol: 0.16 }, { t: 0.0, sfx: "burbuja", vol: 0.21 }, { t: rel(id, W(87)) + 0.18, sfx: "click", vol: 0.4 }, { t: rel(id, W(87)) + 0.55, sfx: "chime-c", vol: 0.45 }, { t: rel(id, W(90)) + 0.08, sfx: "click-soft", vol: 0.15 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);
