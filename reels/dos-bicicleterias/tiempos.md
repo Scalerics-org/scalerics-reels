@@ -8,7 +8,7 @@ Palabras (segundos relativos a la escena): Una 0.00 · sabe 0.12 · a 0.52 · qu
 Palabras (segundos relativos a la escena): A 0.00 · la 0.08 · izquierda, 0.12 · una 0.52 · foto 0.92 · en 1.12 · las 1.22 · redes: 1.32 · llegaron 1.92 · cascos. 2.32
 
 ### s03-derecha — dura 2.05 s (inicio global 7.75)
-Palabras (segundos relativos a la escena): A 0.00 · la 0.07 · derecha, 0.15 · el 0.45 · CRM 0.85 · sabe 1.81
+Palabras (segundos relativos a la escena): A 0.00 · la 0.07 · derecha, 0.15 · el 0.82 · CRM 0.95 · sabe 1.81
 
 ### s04-filtro — dura 1.88 s (inicio global 9.80)
 Palabras (segundos relativos a la escena): quién 0.00 · compró 0.30 · bici 0.60 · sin 0.90 · casco. 1.10 · Le 1.88

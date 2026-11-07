@@ -113,7 +113,6 @@ const GANCHO_HTML = `
     js: `tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);`,
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.22, max: 1.0 },
-      { t: w(id, 1), sfx: "timbre", vol: 0.32, max: 0.7 }, { t: w(id, 1) + 0.28, sfx: "timbre", vol: 0.26, max: 0.9 },
       { t: w(id, 4) - 0.06, sfx: "pop", vol: 0.2 }, { t: w(id, 4) + 0.02, sfx: "pop", vol: 0.16 },
     ],
   });
@@ -193,7 +192,7 @@ const GANCHO_HTML = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0, sfx: "whoosh-short", vol: 0.16 }, { t: 0.05, sfx: "respuesta", vol: 0.3 },
+      { t: 0, sfx: "whoosh-short", vol: 0.16 }, { t: 0.05, sfx: "respuesta", vol: 0.3 }, { t: 0.28, sfx: "whoosh-short", vol: 0.14 },
       { t: w(id, 37) + 0.2, sfx: "vibra", vol: 0.3, max: 0.5 }, { t: w(id, 37) + 0.22, sfx: "notification", vol: 0.22 },
 
     ],
@@ -204,7 +203,7 @@ const GANCHO_HTML = `
   const id = "s07-vio";
   escena(id, {
     html: `${leads(lead(1, 560, 650, 740, 700, "r"))}${pill(1, 330, 640, "la pasó de largo", "r")}`,
-    js: `nota(1, ${r2(w(id, 49) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.12)});`,
+    js: `nota(1, ${r2(w(id, 49) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.32)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-cine-corto", vol: 0.2, max: 1.0 }, { t: 0.5, sfx: "pop", vol: 0.12 },
       ...[0, 1, 2, 3, 4, 5, 6].map((i) => ({ t: r2(-0.1 + i * 0.1), sfx: "tic", vol: 0.18 })),
@@ -217,15 +216,14 @@ const GANCHO_HTML = `
 {
   const id = "s08-su-nombre";
   escena(id, {
-    css: `P .sello { left: 820px; top: 760px; }`,
-    html: `<div class="sello sx">vuelve</div>`,
-    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 59) + 0.05)}, -6);
-      tl.to(q(".sx"), { opacity: 0, scale: 0.9, y: -30, duration: 0.22, ease: "power2.in" }, ${r2(ESC[id] - 0.3)});`,
+    html: `<i></i>`,
+    js: ``,
     sfx: [
       { t: -0.12, sfx: "whoosh-short", vol: 0.08 }, { t: w(id, 55), sfx: "ding", vol: 0.14, max: 0.8 },
-      ...[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ t: r2(w(id, 57) + 0.38 + i * 0.1), sfx: "tic", vol: 0.18 })),
-      { t: w(id, 59) + 0.22, sfx: "puerta", vol: 0.22, max: 0.9 }, { t: w(id, 59) + 0.3, sfx: "campanita", vol: 0.3 },
-      { t: w(id, 59) + 0.05, sfx: "golpe", vol: 0.12, max: 0.4 },
+      // CUT2 (w57 + 0,33): corte a la bicicletería verde; pasos mientras entra empujando la bici
+      { t: r2(w(id, 57) + 0.29), sfx: "whoosh-short", vol: 0.14 },
+      ...Array.from({ length: 12 }, (_, i) => ({ t: r2(w(id, 57) + 0.4 + i * 0.11), sfx: "tic", vol: 0.16 })),
+      { t: w(id, 59) + 0.3, sfx: "puerta", vol: 0.22, max: 0.9 }, { t: w(id, 59) + 0.35, sfx: "campanita", vol: 0.3 },
     ],
   });
 }
@@ -247,7 +245,7 @@ const GANCHO_HTML = `
 {
   const id = "s10-sabia";
   escena(id, {
-    html: `${leads(lead(1, 560, 1600, 540, 1215))}${pill(1, 560, 1640, "qué se llevó cada uno")}`,
+    html: `${leads(lead(1, 540, 1600, 540, 1215))}${pill(1, 540, 1640, "lo que compró cada uno")}`,
     js: `nota(1, ${r2(w(id, 66) + 0.05)});`,
     sfx: [
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 64) - 0.1 + i * 0.05), sfx: "tic", vol: 0.18 })),

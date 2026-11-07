@@ -18,11 +18,11 @@
     [data-composition-id="s08-su-nombre"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #0b1220; }
     [data-composition-id="s08-su-nombre"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s08-su-nombre"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s08-su-nombre"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s08-su-nombre"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s08-su-nombre"] .sello { position: absolute; padding: 12px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 96px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; }
-[data-composition-id="s08-su-nombre"] .sello { left: 820px; top: 760px; }
+
   </style>
   <div id="root" data-composition-id="s08-su-nombre" data-width="1080" data-height="1920" data-duration="3.03">
     <div id="s08-su-nombre-esc" class="esc clip" data-start="0" data-duration="3.03" data-track-index="0">
-<div class="sello sx">vuelve</div>
+<i></i>
     </div>
   </div>
   <script>
@@ -49,8 +49,7 @@
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", 2.1, -6);
-      tl.to(q(".sx"), { opacity: 0, scale: 0.9, y: -30, duration: 0.22, ease: "power2.in" }, 2.73);
+
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
