@@ -27,7 +27,7 @@
   </style>
   <div id="root" data-composition-id="s11b-grado-mejor" data-width="1080" data-height="1920" data-duration="2.63">
     <div id="s11b-grado-mejor-esc" class="esc clip" data-start="0" data-duration="2.63" data-track-index="0">
-<div class="pill g grande n1" style="left:640px;top:1830px">+1 °C</div><div class="sello sx">AUTOMÁTICO</div>
+<div class="sello sx">AUTOMÁTICO</div>
     </div>
   </div>
   <script>
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); nota(1, 0.58); sinNota(1, 1.13); sello(".sx", 1.28, -4); fuera(".sx", 2.13, 0.2);
+tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", 1.28, -4); fuera(".sx", 2.13, 0.2);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

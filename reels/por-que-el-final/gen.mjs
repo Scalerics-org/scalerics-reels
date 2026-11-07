@@ -130,7 +130,7 @@ const SEL = `
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".kw", ${r2(w(id, 6))}, 1.08);
       // cambio seco al subtítulo (sin fundido ni hueco)
-      tl.set([q(".a"), q(".n1")], { opacity: 0 }, ${r2(ESC[id] - 0.09)});`,
+      tl.set(q(".a"), { opacity: 0 }, ${r2(ESC[id] - 0.09)}); // el rótulo sigue fijo y lo continúa s02`,
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.22, max: 1.2 }, { t: 0.15, sfx: "burbuja", vol: 0.3 },
       { t: w(id, 6), sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 7) + 0.3, sfx: "burbuja", vol: 0.32 }, { t: w(id, 7) + 0.36, sfx: "burbuja", vol: 0.22 },
@@ -145,7 +145,7 @@ const SEL = `
   escena(id, {
     css: `P .exp { left: 540px; top: 500px; font-size: 44px; color: ${CR}; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }`,
     html: `${leads(lead(1, 780, 1570, 950, 1200, "g"))}${pill(1, 780, 1610, "La mayoría", "g grande")}${mono(2, 540, 500, "Experimento de psicología · 1993", "exp")}`,
-    js: `nota(1, ${r2(w(id, 11) + 0.25)}); tl.fromTo(q(".n2"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: true }, 0.05); fuera(".n2", ${r2(ESC[id] - 0.25)}, 0.2);`,
+    js: `nota(1, ${r2(w(id, 11) + 0.25)}); sinNota(1, ${r2(ESC[id] - 0.32)}); tl.set(q(".n2"), { opacity: 1 }, 0); tl.fromTo(q(".n2"), { y: 290 }, { y: 0, duration: 0.28, ease: "power3.inOut", immediateRender: true }, 0); fuera(".n2", ${r2(ESC[id] - 0.25)}, 0.2);`,
     sfx: [
       { t: 0.1, sfx: "pop", vol: 0.16 }, { t: 0.3, sfx: "pop", vol: 0.14 },
       ...Array.from({ length: 11 }, (_, k) => ({ t: r2(w(id, 11) - 0.25 + k * 0.075 + 0.28), sfx: "click-soft", vol: 0.16 })),
@@ -162,7 +162,7 @@ const SEL = `
     html: `${leads(lead(1, 640, 1690, 470, 1620, "r"))}${pill(1, 760, 1690, "60 s", "r grande")}`,
     js: `nota(1, ${r2(w(id, 18))}); sinNota(1, ${r2(ESC[id] - 0.5)});`,
     sfx: [
-      { t: 0.02, sfx: "impact-bass-1", vol: 0.24, max: 1.2 }, { t: 0.1, sfx: "pop", vol: 0.18 },
+      { t: 0.02, sfx: "impact-bass-1", vol: 0.24, max: 1.2 }, { t: -0.06, sfx: "pop", vol: 0.18 },
       { t: w(id, 17) - 0.15, sfx: "riser-corto", vol: 0.14, max: 0.9 },
       { t: w(id, 20) - 0.05, sfx: "tic", vol: 0.3 }, { t: w(id, 20) + 0.12, sfx: "tic", vol: 0.3 },
     ],
@@ -174,9 +174,9 @@ const SEL = `
   const id = "s04-minuto-y-medio";
   escena(id, {
     html: `${leads(lead(1, 800, 1560, 700, 1120, "g"))}${pill(1, 800, 1600, "+30 s", "g grande")}${pill(2, 290, 1600, "60 s", "grande")}`,
-    js: `nota(2, 0.2); nota(1, ${r2(w(id, 26) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.45)}); sinNota(2, ${r2(ESC[id] - 0.45)});`,
+    js: `nota(2, 0.2); nota(1, ${r2(w(id, 26) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.62)}); sinNota(2, ${r2(ESC[id] - 0.62)});`,
     sfx: [
-      { t: -0.1, sfx: "whoosh-short", vol: 0.16 }, { t: 0.0, sfx: "pop", vol: 0.18 },
+      { t: -0.42, sfx: "whoosh-short", vol: 0.16 }, { t: -0.32, sfx: "pop", vol: 0.18 }, // el cronómetro entra con pop a S-0,32
       ...Array.from({ length: 9 }, (_, k) => ({ t: r2(0.15 + k * 0.13), sfx: "tic", vol: 0.24 })),
       { t: w(id, 26) + 0.35, sfx: "click", vol: 0.26 },
     ],
@@ -200,7 +200,7 @@ const SEL = `
 {
   const id = "s06-un-grado";
   escena(id, {
-    html: `${pill(1, 290, 1600, "+30 s")}
+    html: `${pill(1, 300, 1600, "+30 s", "grande")}
       ${pill(2, 300, 1690, `${tick(26)}Mejor final`, "lleno")}`,
     js: `nota(1, ${r2(w(id, 36) - 0.05)}); tl.to(q(".n1"), { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }, ${r2(w(id, 39) - 0.2)}); nota(2, ${r2(w(id, 41))}); tl.to(q(".n2"), { opacity: 0, duration: 0.2 }, ${r2(ESC[id] - 0.22)});`,
     sfx: [
@@ -231,7 +231,7 @@ const SEL = `
     html: `${leads(lead(1, 540, 1580, 540, 1350, "g"))}${pill(1, 540, 1620, "Después de cobrar", "g grande")}`,
     js: `nota(1, ${r2(w(id, 54) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: -0.22, sfx: "pop", vol: 0.2 }, { t: w(id, 50), sfx: "whoosh-short", vol: 0.14 },
+      { t: -0.16, sfx: "pop", vol: 0.2 }, { t: w(id, 50), sfx: "whoosh-short", vol: 0.14 },
       { t: w(id, 54) - 0.12, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 54) + 0.04, sfx: "pop", vol: 0.18 }, { t: w(id, 54) + 0.21, sfx: "click", vol: 0.24 }, { t: w(id, 56) + 0.15, sfx: "pop", vol: 0.2 },
     ],
   });
@@ -267,7 +267,7 @@ const SEL = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.0, sfx: "pop", vol: 0.16 }, { t: w(id, 72) - 0.1, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 72) + 0.2, sfx: "click-soft", vol: 0.2 },
+      { t: 0.0, sfx: "pop", vol: 0.16 }, { t: w(id, 72) - 0.1, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 72) - 0.07, sfx: "click-soft", vol: 0.2 },
       { t: w(id, 73) - 0.1, sfx: "vibra", vol: 1.0, max: 0.5 }, { t: w(id, 73) - 0.05, sfx: "notification", vol: 0.22 },
       { t: w(id, 72) + 0.36, sfx: "whoosh-short", vol: 0.13 }, // el calendario sale volando
       { t: w(id, 74) + 0.45, sfx: "ping", vol: 0.14 },
@@ -280,8 +280,8 @@ const SEL = `
   const id = "s11b-grado-mejor";
   escena(id, {
     css: `P .sello { left: 400px; top: 1745px; border-color: ${G}; color: ${NAVY}; background: ${G}; font-size: 72px; }`,
-    html: `${pill(1, 640, 1830, "+1 °C", "g grande")}<div class="sello sx">AUTOMÁTICO</div>`,
-    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); nota(1, ${r2(w(id, 77))}); sinNota(1, ${r2(w(id, 79) - 0.05)}); sello(".sx", ${r2(w(id, 79) + 0.1)}, -4); fuera(".sx", ${r2(ESC[id] - 0.5)}, 0.2);`,
+    html: `<div class="sello sx">AUTOMÁTICO</div>`,
+    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 79) + 0.1)}, -4); fuera(".sx", ${r2(ESC[id] - 0.5)}, 0.2);`,
     sfx: [
       { t: -0.05, sfx: "pop", vol: 0.16 }, { t: w(id, 76), sfx: "riser-corto", vol: 0.12, max: 0.8 }, { t: w(id, 77) + 0.05, sfx: "ding", vol: 0.1, max: 0.6 },
       { t: w(id, 79) + 0.1, sfx: "impact-bass-1", vol: 0.06, max: 0.6 }, { t: w(id, 79) + 0.15, sfx: "click", vol: 0.12 },

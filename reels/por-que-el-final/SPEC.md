@@ -51,6 +51,15 @@ termómetro quedan delante de un local genérico que entra grande. Videollamada 
   de tiempo y sale volando a la derecha; sin sello "SALE SOLO". Cierre: el celular y el termómetro se corren a los
   lados y el local entra entero detrás, con su toldo. Tarjeta final con corte seco. Gancho con el rótulo
   "Experimento de psicología · 1993" (44 px) desde el cuadro 0 y salida seca al primer subtítulo.
+- Ronda 3: cubetas lado a lado (sin superponerse) y chapas encima de su cubeta; una ficha crema caída junto a la
+  corta (no se lee "todos"). El rótulo del experimento no desaparece en el corte: sube de 790 a 500 px. El "?" nace
+  a 5,79 s, delante del laboratorio, y queda quieto hasta ~6,8 s. El termómetro gigante sale hacia abajo detrás del
+  cronómetro; el cronómetro gira y se va antes de que suba el laboratorio, y la cámara baja enseguida a la cubeta
+  (encuadre más abierto: cubeta y 15° enteros). La mano de "Más rato" sale por el costado izquierdo antes de
+  15,4 s (no cruza los subtítulos) y la curva nace a 15,37 s mientras la cámara sube. Chat callado sin el chip
+  "Sin mensajes". El calendario tapa entero el encabezado del celular. Sin la píldora "+1 °C" (estaba pegada al
+  borde de abajo; el 15° y el tramo verde ya lo dicen). "+30 s" en píldora grande. Cierre: el celular (60 %) y
+  el termómetro (75 %) a los costados del local, que se ve entero con su toldo.
 - Sonido: SFX del repo (HyperFrames) + CC0 de abren-hoy (burbuja = gotas/salpicadura, vibra). Sin splash real
   (la nube bloquea Freesound/Openverse): el agua suena con burbuja + whoosh suaves, nada sintetizado. TECHO -31 LUFS.
 - Portada: `portada-fondo.png` = cuadro 0,6 s renderizado sin capas HTML.
