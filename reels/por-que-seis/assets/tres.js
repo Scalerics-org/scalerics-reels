@@ -239,7 +239,7 @@ const cartA = cartelito("Degustación"); cartA.g.position.set(0.15, 1.03, 0.92);
   // plato con galletitas
   const plato = grupo(mesh(new THREE.CylinderGeometry(0.33, 0.27, 0.04, 32), M.white));
   for (let i = 0; i < 6; i++) { const a = i * 1.05; const gg = mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.025, 16), M.galle, Math.cos(a) * 0.18, 0.035 + (i % 2) * 0.012, Math.sin(a) * 0.18); gg.rotation.z = 0.1 * (i % 3); plato.add(gg); }
-  plato.position.set(-1.35, 1.05, 0.88); mA.g.add(plato);
+  plato.position.set(-1.4, 1.05, 0.76); mA.g.add(plato);
   // vasito con cucharitas
   const vaso = grupo(mesh(new THREE.CylinderGeometry(0.11, 0.09, 0.22, 20), M.cr2, 0, 0.11, 0));
   [[-0.03, 0.2], [0.04, -0.15], [0.0, 0.05]].forEach(([x, rz], i) => { const c = cucharita(); c.position.set(x, 0.05, (i - 1) * 0.03); c.rotation.set(0.1 * (i - 1), 0, rz); vaso.add(c); });
@@ -326,12 +326,12 @@ const CAN_A = { x: -1.0, z: 0.6 }, CAN_B = { x: 1.0, z: 0.6 };
 const MB2 = { x: CAN_B.x + 2.9, z: CAN_B.z - 0.13 }, JAR = { x: MB2.x - 0.22, y: 1.6, z: CAN_B.z };
 // posiciones de los frascos dentro de una canasta (local), en capas
 // frasco a escala 0.72 (diámetro de la tela 0.35): 3 x 2 abajo, 2 x 2 encima (sobre las telas), 1 arriba
-const JS = 0.72;
+const JS = 0.68;
 const ADENTRO = [];
 for (const z of [-0.185, 0.185]) for (const x of [-0.37, 0, 0.37]) ADENTRO.push([x, 0.06, z]);
-for (const z of [-0.185, 0.185]) for (const x of [-0.185, 0.185]) ADENTRO.push([x, 0.48, z]);
-ADENTRO.push([0, 0.9, 0]);
-const CAIDA_B = [0, 0.06, 0.15, 0.2, 0.29, 0.37, 0.41, 0.5, 0.6, 0.66, 0.78]; // gen.mjs usa los mismos tiempos para los golpes
+// segundo piso: cada frasco apoyado justo encima de uno de abajo (fila de atrás + el del medio adelante)
+for (const [x, z] of [[-0.37, -0.185], [0, -0.185], [0.37, -0.185], [0, 0.185]]) ADENTRO.push([x, 0.06 + 0.585 * JS, z]);
+const CAIDA_B = [0, 0.06, 0.15, 0.2, 0.29, 0.37, 0.41, 0.5, 0.6, 0.66]; // gen.mjs usa los mismos tiempos para los golpes
 
 // ================= CUCHARITA PROTAGONISTA (cuenco ovalado plano, mermelada brillante y una gota) =================
 const cuchara = new THREE.Group();
@@ -375,7 +375,7 @@ const N200 = CUENTA.map((v) => { const m = numero(String(v), M.cr, M.cr2, 1, 0.2
 const PW = 1.56, PH = 2.95;
 const pantallas = {};
 function lienzo(dibujar, h = 1458) { const t = tex2d(720, h, dibujar); return t; }
-const celMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, emissive: 0xffffff, emissiveIntensity: 0.62 });
+const celMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 1, metalness: 0, envMapIntensity: 0, emissive: 0xffffff, emissiveIntensity: 0.62 });
 const cel = new THREE.Group(); // pivote exterior (acostar) → interior (apaisar)
 const celIn = new THREE.Group(); cel.add(celIn);
 const pantalla = mesh(new THREE.PlaneGeometry(PW - 0.06, PH - 0.06), celMat, 0, 0, 0.082);
@@ -386,7 +386,7 @@ const pantalla = mesh(new THREE.PlaneGeometry(PW - 0.06, PH - 0.06), celMat, 0, 
   celIn.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.03, 16).rotateX(Math.PI / 2), M.oscuro, 0, PH / 2 - 0.12, 0.085));
 }
 // grilla del catálogo que sube (otra malla con la textura larga, recortada por la pantalla)
-const grillaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4, emissive: 0xffffff, emissiveIntensity: 0.62 });
+const grillaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 1, metalness: 0, envMapIntensity: 0, emissive: 0xffffff, emissiveIntensity: 0.62, transparent: true });
 const CAB = (200 / 1458) * (PH - 0.06);
 const GRILLA_H = PH - 0.06 - CAB;
 const grilla = mesh(new THREE.PlaneGeometry(PW - 0.06, GRILLA_H), grillaMat, 0, -CAB / 2, 0.084);
@@ -552,7 +552,7 @@ async function dibujarPantallas() {
       x.fillStyle = "#ffffff"; x.fillRect(0, 0, 640, 232);
       tick(x, 100, 116, 62);
       x.fillStyle = "#0b1220"; x.font = F(800, 62); x.fillText("Pedido nuevo", 186, 100);
-      x.fillStyle = "#0b1220"; x.font = F(600, 52); x.fillText("Mermelada x 2", 186, 172);
+      x.fillStyle = "#0b1220"; x.font = F(700, 58); x.fillText("Mermelada x 2", 186, 176);
     });
     tarjetaMat.map = t; tarjetaMat.emissiveMap = t; tarjetaMat.needsUpdate = true;
   }
@@ -585,8 +585,8 @@ const CAM = [
   [w(14), 0, 38, 15.0, 0.15, 1.3, 2.0],
   [S["s04-gente"] + 0.3, 0, 40, 14.9, 0.15, 1.35, 2.0],
   [w(22), -2, 40, 14.6, 0.15, 1.3, 2.0],
-  [S["s05-tres"] - 0.15, -4, 46, 9.6, CAN_A.x, 0.35, CAN_A.z - 0.75],
-  [S["s05-tres"] + 0.25, -4, 50, 7.4, CAN_A.x, 0.35, CAN_A.z - 0.75],
+  [S["s05-tres"] + 0.05, -4, 46, 8.6, CAN_A.x, 0.35, CAN_A.z - 0.75],
+  [S["s05-tres"] + 0.4, -4, 50, 7.4, CAN_A.x, 0.35, CAN_A.z - 0.75],
   [w(29) - 0.1, -2, 48, 7.2, CAN_A.x, 0.35, CAN_A.z - 0.75],
   [(w(29) + w(31)) / 2, 0, 46, 9.8, 0, 0.35, CAN_A.z - 0.75],
   [w(31), 2, 48, 7.2, CAN_B.x, 0.35, CAN_B.z - 0.75],
@@ -600,8 +600,8 @@ const CAM = [
   [S["s09-whatsapp"] + 0.45, 2, 4, 8.5, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] - 0.05, -3, 4, 8.3, CEL.x, 2.42, CEL.z],
   [S["s10-mesa24"] + 0.1, -4, 32, 10.0, 0, 2.0, CEL.z],
-  [S["s10-mesa24"] + 0.3, -3, 60, 10.6, 0, 1.2, CEL.z - 0.9],
-  [w(60), -1, 61, 10.4, 0, 1.2, CEL.z - 0.9],
+  [S["s10-mesa24"] + 0.3, -3, 60, 10.6, 0, 1.2, CEL.z - 0.8],
+  [w(60), -1, 61, 10.4, 0, 1.2, CEL.z - 0.8],
   [w(61) + 0.45, 0, 44, 8.6, 0, 1.5, CEL.z - 0.2],
   [w(62) + 0.3, -2, 12, 8.0, 0, 2.3, CEL.z],
   [w(63) + 0.3, -2, 10, 8.0, 0, 2.3, CEL.z],
@@ -609,8 +609,8 @@ const CAM = [
   [w(71), 5, 5, 7.9, 0, 2.48, CEL.z],
   [S["s13-paga"] + 0.4, 0, 7, 9.9, 0.32, 2.15, 1.2, "H"],
   [S["s14-negocio"] - 0.02, 0, 7, 9.9, 0.32, 2.15, 1.2],
-  [S["s14-negocio"] + 0.7, -5, 10, 12.8, -0.2, 1.55, -0.2],
-  [w(83), -8, 10, 13.1, -0.15, 1.55, -0.2],
+  [S["s14-negocio"] + 0.7, -5, 10, 14.0, -0.15, 1.55, -0.2],
+  [w(83), -7, 10, 14.2, -0.1, 1.55, -0.2],
   [S["s15-cta"] - 0.1, -4, 6, 10.4, 0, 1.25, 0.6],
   [S["s15-cta"] + 0.5, -4, 6, 10.4, 0, 1.25, 0.6],
   [DUR, 0, 5, 9.9, 0, 1.25, 0.6],
@@ -644,8 +644,8 @@ function ponerNumero(m, s, x, y, z, ry = 0) { ocultar(m, s < 0.07 ? 0 : s); if (
 const TAPA_SRC = frascosB[3].userData.home.clone().add(new THREE.Vector3(0, 0.53, 0));
 const resetTapa = (j) => { const tp = j.userData.tapa; tp.visible = true; tp.position.set(0, 0, 0); tp.rotation.set(0, 0, 0); tp.scale.setScalar(1); };
 // posición de un frasco del anillo (elipse parada frente a la cámara, girando)
-const ESC_L = 1.15;
-const TARJ = [-0.95, 2.75, 2.2, -0.3, 3.6, 1.2, 0.3, 1.25, -0.4, 1.2]; // aviso: inicio, control, fin, escala
+const ESC_L = 1.1;
+const TARJ = [-0.85, 2.4, 2.2, -0.45, 2.55, 1.4, 0.3, 1.45, 0.35, 1.2]; // aviso: inicio, control, fin, escala
 const CAN_SAL = [0.45, 1.3, 1.5, 0.5, 1.1, 1.3]; // de dónde salen los dos frascos (costado derecho del celular) // escala del celular acostado
 const ANG = (t) => (t - S["s08-despues"]) * 0.55;
 function enAnillo(idx, t) {
@@ -663,8 +663,8 @@ function renderAt(t) {
   scene.environmentRotation.y = t * 0.1;
   ponerCamara(t);
   // "Pero compraron…": las dos mesas (con su gente) salen juntas por la izquierda mientras la canasta entra por la derecha
-  const SLIDE = -8 * eio(sg(t, S["s05-tres"] - 0.62, S["s05-tres"] - 0.12));
-  const FUERA_MESAS = S["s05-tres"] - 0.12;
+  const SLIDE = -8 * eio(sg(t, S["s05-tres"] - 0.4, S["s05-tres"] + 0.1));
+  const FUERA_MESAS = S["s05-tres"] + 0.1;
 
   // bisagra "¿Por qué?": las mesas se van y queda solo el "?"
   // las mesas se van antes de que nazca el "?" y vuelven con pop cuando el "?" ya se fue
@@ -687,7 +687,7 @@ function renderAt(t) {
     const onMesa = t < FUERA_MESAS;
     mA.g.visible = onMesa && vis > 0.01; sombraA.visible = mA.g.visible;
     const visA = vis * (1 - mesaFuera);
-    mA.g.visible = mA.g.visible && visA > 0.01; sombraA.visible = mA.g.visible;
+    mA.g.visible = mA.g.visible && visA > 0.15; sombraA.visible = mA.g.visible; // sin mota bajo el "?"
     if (mA.g.visible) { mA.g.scale.set(visA, visA, visA); mA.g.position.set(MESA_A.x + slideA, 0, MESA_A.z); sombraA.position.set(MESA_A.x + slideA, 0.005, MESA_A.z); sombraA.scale.setScalar(visA); sombraA.material.opacity = 1; }
     const pantallaMesa = en(t, S["s10-mesa24"] + 0.2, w(61) + 0.5);
     const salto = SALTOS();
@@ -698,26 +698,28 @@ function renderAt(t) {
         // s09: la pantalla del celular acostado (vertical, como se usa) es la mesa de 24: 4 columnas x 6 filas,
         // todas dentro de la pantalla, debajo de la barra "Catálogo"
         const fila = Math.floor(idx / 4), col = idx % 4;
-        const lx = (col - 1.5) * 0.36, ly = -0.185 + (2.5 - fila) * 0.41;
+        const lx = (col - 1.5) * 0.36, ly = -0.3 + (2.5 - fila) * 0.39;
         const tIn = S["s10-mesa24"] + 0.2 + fila * 0.05 + col * 0.02;
         let s = 0.62 * pin(t, tIn, tIn + 0.25);
         let x = CEL.x + lx * ESC_L, y = 1.2 + (1 - eo(sg(t, tIn, tIn + 0.25))) * 0.3, z = CEL.z - ly * ESC_L;
         const quedan = [9, 10, 14], q = quedan.indexOf(idx);
         if (q < 0) {
           // "pocas": las demás se hunden en la pantalla, en ola
-          const t0 = w(61) - 0.05 + fila * 0.025 + col * 0.015;
-          const f = 1 - eio(sg(t, t0, t0 + 0.18)); s *= f < 0.5 ? 0 : f; // sin motas
+          const t0 = w(61) - 0.22 + fila * 0.015 + col * 0.01;
+          const f = 1 - eio(sg(t, t0, t0 + 0.14)); s *= f < 0.5 ? 0 : f; // sin motas
         } else {
           // las tres que quedan suben, se ordenan y se meten en "Los más pedidos" de la tienda
-          const e = eio(sg(t, w(61) + 0.0, w(61) + 0.24));
-          x = lerp(x, CEL.x + (q - 1) * 0.45 * ESC_L, e); z = lerp(z, CEL.z - 0.24 * ESC_L, e); y += Math.sin(Math.PI * e) * 0.35;
-          const f = 1 - eio(sg(t, w(61) + 0.22, w(61) + 0.38)); s *= (1 + 0.25 * Math.sin(Math.PI * e)) * (f < 0.3 ? 0 : f);
+          const e = eio(sg(t, w(61) - 0.14, w(61) + 0.1));
+          x = lerp(x, CEL.x + (q - 1) * 0.45 * ESC_L, e); z = lerp(z, CEL.z - 0.24 * ESC_L, e); y += Math.sin(Math.PI * e) * 0.3;
+          // se aplastan dentro de su tarjeta dibujada (misma posición) apenas aparece la tienda
+          const f = 1 - eio(sg(t, w(61) + 0.1, w(61) + 0.22)); s *= (1 + 0.25 * Math.sin(Math.PI * e)) * (f < 0.45 ? 0 : f);
         }
         ocultar(j, s); if (j.visible) { j.position.set(x, y, z); j.rotation.set(0, Math.sin(t + idx) * 0.08, 0); }
         return;
       }
       if (t >= S["s09-whatsapp"] + 0.4 || (t >= FUERA_MESAS && t < S["s08-despues"] + 0.02)) { j.visible = false; return; }
       const vA = vis * (1 - mesaFuera);
+      if (t < S["s08-despues"] && vA <= 0.15) { j.visible = false; return; }
       let x = MESA_A.x + slideA + (h.x - MESA_A.x) * vA, y = h.y * vA, z = MESA_A.z + (h.z - MESA_A.z) * vA, ry = Math.sin(t * 0.8 + idx) * 0.05, s = vA, rz = 0;
       const ti = (idx % 8) * 0.03 + Math.floor(idx / 8) * 0.07;
       y += (1 - bk(sg(t, ti - 0.1, ti + 0.35))) * 0.25;
@@ -733,7 +735,7 @@ function renderAt(t) {
         const rr = 1 - 0.45 * eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] + 0.05));
         const ent8 = eo(sg(t, S["s08-despues"] + 0.02, S["s08-despues"] + 0.7)); const rb = rr * lerp(0.62, 1, ent8); // nace más chico, crece mientras llega la cámara
         x = RING.x + (px - RING.x) * rb; y = RING.y - 0.45 + (py - RING.y + 0.45) * rb - (1 - ai) * 0.25 - (1 - ent8) * 1.0; z = RING.z - (1 - rr) * 2.6 + (pz - RING.z) * rb;
-        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; s = 0.9 * rr * pin(t, tn, tn + 0.25) * (1 - eio(sg(t, S["s09-whatsapp"] - 0.4, S["s09-whatsapp"] - 0.04))) * (t < S["s09-whatsapp"] - 0.04 ? 1 : 0);
+        ry = Math.sin(a) * 0.5; rz = Math.sin(a * 3 + t * 2) * 0.08; const fA = 1 - eio(sg(t, S["s09-whatsapp"] - 0.3, S["s09-whatsapp"] + 0.05)); s = 0.9 * rr * pin(t, tn, tn + 0.25) * (fA < 0.45 ? 0 : fA);
         // el frasco al que apunta la cucharita se agranda
         for (const [ts, k] of salto) if (k === idx) s *= 1 + 0.2 * Math.sin(Math.PI * sg(t, ts + 0.1, ts + 0.5));
         
@@ -751,7 +753,7 @@ function renderAt(t) {
     const slideB = t < w(33) - 0.7 ? SLIDE : 0; // la mesa chica sale por la izquierda junto con la grande
     const MBX = t >= w(33) - 0.7 ? MB2.x : MESA_B.x + slideB, MBZ = t >= w(33) - 0.7 ? MB2.z : MESA_B.z;
     const s = entra * kB * pout(t, S["s08-despues"] + 0.3, S["s08-despues"] + 0.42) * vis;
-    mB.g.visible = s > 0.002; sombraB.visible = mB.g.visible;
+    mB.g.visible = s > 0.002 && (vis > 0.15 || t > w(14)); sombraB.visible = mB.g.visible;
     if (mB.g.visible) { mB.g.scale.setScalar(s); mB.g.position.set(MBX, subeB, MBZ); sombraB.position.set(MBX, 0.005, MBZ); sombraB.scale.setScalar(s); sombraB.material.opacity = 1 - sg(-subeB, 0, 1.2); }
     frascosB.forEach((j, i) => {
       const ti = w(11) - 0.1 + i * 0.07;
@@ -818,13 +820,13 @@ function renderAt(t) {
   sueltos.forEach((j) => { j.visible = false; resetTapa(j); });
   let canAenUso = false;
   {
-    const sA = en(t, S["s05-tres"] - 0.4, w(33) + 0.05) ? 1 - eio(sg(t, w(33) - 0.25, w(33) + 0.05)) : 0;
-    const inA = 0; const subeA = -3 * (1 - eo(sg(t, S["s05-tres"] - 0.4, S["s05-tres"] + 0.02))); // sube desde abajo mientras las mesas se van
+    const sA = en(t, S["s05-tres"] - 0.2, w(33) + 0.05) ? 1 - eio(sg(t, w(33) - 0.25, w(33) + 0.05)) : 0;
+    const inA = 0; const subeA = -3 * (1 - eo(sg(t, S["s05-tres"] - 0.2, S["s05-tres"] + 0.25))); // sube desde abajo mientras las mesas se van
     if (sA <= 0.002) ocultar(canastaA, 0);
     if (sA > 0.002) {
       canAenUso = true;
       ocultar(canastaA, sA); canastaA.position.set(CAN_A.x + inA, subeA, CAN_A.z); canastaA.rotation.set(0, 0.15, 0);
-      [0, 2, 4].forEach((a, k) => {
+      [0, 1, 2].forEach((a, k) => {
         const ti = w(25) - 0.1 + k * 0.17, u = sg(t, ti, ti + 0.3);
         if (u <= 0) return;
         const j = sueltos[k]; j.visible = true; j.scale.setScalar(JS * sA * pin(t, ti - 0.04, ti + 0.12));
@@ -833,17 +835,19 @@ function renderAt(t) {
         _p.set(lx, ly + (1 - u * u) * 0.8 + reb, lz); canastaA.localToWorld(_p); j.position.copy(_p); j.rotation.set(0, 0.25 + k * 0.6, 0);
       });
     }
-    const vacia = en(t, S["s08-despues"] + 0.05, S["s09-whatsapp"]);
+    const vacia = en(t, S["s08-despues"] + 0.05, S["s09-whatsapp"] + 0.2);
     const sB = en(t, S["s05-tres"] + 0.2, w(33) + 0.5) ? pin(t, S["s05-tres"] + 0.2, S["s05-tres"] + 0.55) * pout(t, w(33) + 0.3, w(33) + 0.45) : 0;
     if (vacia) {
       // la canasta vacía en el medio del anillo; en "dejó" se va "para después"
-      const ent = pin(t, S["s08-despues"] + 0.45, S["s08-despues"] + 0.8);
-      const va = eio(sg(t, w(44), w(45) + 0.4));
-      // "se iban sin comprar": la canasta vacía se aleja hacia el fondo por el hueco del anillo (no lo cruza)
-      ocultar(canastaB, va >= 0.999 ? 0 : ent * 1.2 * (1 - 0.55 * eio(sg(va, 0.5, 1)))); canastaB.position.set(RING.x, RING.y - 0.72 + va * 0.35, RING.z + 0.1 - va * 9); canastaB.rotation.set(0.25 - va * 0.1, 0.15 + va * 0.7, 0);
+      // la canasta vacía (gris: es el problema) crece desde cero en el medio del anillo
+      const ent = bk(sg(t, S["s08-despues"] + 0.4, S["s08-despues"] + 0.68));
+      const va = eio(sg(t, w(44), w(46) + 0.1));
+      // "se iban sin comprar": se aleja hacia el fondo por el hueco del anillo hasta "Pensá" (no lo cruza)
+      ocultar(canastaB, 0);
+      if (!canAenUso) { ocultar(canastaA, va >= 0.999 ? 0 : ent * 1.2 * (1 - 0.55 * eio(sg(va, 0.5, 1)))); canastaA.position.set(RING.x, RING.y - 0.72 + va * 0.35, RING.z + 0.1 - va * 9); canastaA.rotation.set(0.25 - va * 0.1, 0.15 + va * 0.7, 0); }
     } else {
       ocultar(canastaB, sB); canastaB.position.set(CAN_B.x, 0, CAN_B.z); canastaB.rotation.set(0, -0.15, 0);
-      if (sB > 0.002) for (let k = 0; k < 11; k++) {
+      if (sB > 0.002) for (let k = 0; k < ADENTRO.length; k++) {
         const ti = w(31) - 0.05 + CAIDA_B[k], u = sg(t, ti, ti + 0.3);
         if (u <= 0) continue;
         const j = sueltos[3 + k]; j.visible = true; j.scale.setScalar(JS * sB * pin(t, ti - 0.04, ti + 0.12));
@@ -865,7 +869,7 @@ function renderAt(t) {
       x = base.x + sube * 0.03; y = base.y + 0.45 + sube * 0.22 - dip * 0.7; z = base.z + sube * 0.5 * (1 - dip);
       rx = -sube * 1.0; rz = lerp(0.45, 0.0, baja);
       carga = sg(t, w(33) + 0.3, w(33) + 0.35);
-      gotea = sg(t, w(33) + 0.75, S["s08-despues"]);
+      gotea = t < S["s08-despues"] - 0.45 ? sg(t, w(33) + 0.75, S["s08-despues"]) : 0; // la gota no queda suelta cuando la cuchara vuelve al frasco
     }
     ocultar(cuchara, s); cuchara.position.set(x, y, z); cuchara.rotation.set(rx, 0, rz);
     bocado.visible = carga > 0; gota.visible = gotea > 0; hilo.visible = gotea > 0.05;
@@ -881,9 +885,9 @@ function renderAt(t) {
   // ---- celular: nace del anillo, catálogo, se acuesta (mesa de 24), tienda, local, videollamada ----
   {
     let s = 0, x = CEL.x, y = CEL.y, z = CEL.z, rxO = 0, ryO = 0, rzIn = 0, tex = pantallas.chat, sombraOn = false, escala = 1;
-    const T_CEL = w(45) + 0.15;
+    const T_CEL = w(46) - 0.12;
     if (t >= T_CEL) {
-      s = lerp(0.2, 1, eio(sg(t, T_CEL, S["s09-whatsapp"] + 0.4)));
+      s = lerp(0.62, 1, bk(sg(t, T_CEL, T_CEL + 0.35)));
       ryO = Math.sin(t * 0.7) * 0.08 - 0.08;
       const vib = en(t, w(52), w(54) + 0.3) ? 1 : 0;
       rzIn = vib * Math.sin(t * 40) * 0.012;
@@ -895,24 +899,24 @@ function renderAt(t) {
       void gira; // ya no se apaisa: queda vertical, como se usa
       y = lerp(CEL.y, 1.1, acuesta * (1 - para)); ryO *= 1 - acuesta * (1 - para);
       escala = lerp(1, ESC_L, acuesta * (1 - para)) * (1 + 0.05 * Math.sin(Math.PI * sg(t, w(64) - 0.1, w(65) + 0.2)));
-      if (t >= w(61) + 0.34) tex = t >= w(76) ? pantallas.t4 : t >= w(74) ? pantallas.t3 : t >= w(70) ? pantallas.t2 : t >= w(68) ? pantallas.t1 : pantallas.t0;
+      if (t >= w(61) - 0.02) tex = t >= w(76) ? pantallas.t4 : t >= w(74) ? pantallas.t3 : t >= w(70) ? pantallas.t2 : t >= w(68) ? pantallas.t1 : pantallas.t0;
       s *= 1 - 0.035 * Math.sin(Math.PI * sg(t, w(74), w(74) + 0.2)) - 0.035 * Math.sin(Math.PI * sg(t, w(76), w(76) + 0.2));
       // s12: se corre un poco a la izquierda y baja (la canasta entra a la derecha)
       const p12 = eio(sg(t, S["s13-paga"] - 0.1, S["s13-paga"] + 0.5));
       x = lerp(x, -0.2, p12); y = lerp(y, 2.1, p12); escala = lerp(escala, 0.97, p12);
       // s13: adelante a la izquierda y más chico; el local es el protagonista
-      const p13 = eio(sg(t, S["s14-negocio"] - 0.25, S["s14-negocio"] + 0.3));
-      x = lerp(x, -0.85, p13); y = lerp(y, 1.15, p13); z = lerp(z, 2.2, p13); escala = lerp(escala, 0.52, p13); ryO = lerp(ryO, 0.35, p13);
+      const p13 = eio(sg(t, S["s14-negocio"] - 0.2, S["s14-negocio"] + 0.55));
+      x = lerp(x, -0.85, p13); y = lerp(y, 1.15, p13); z = lerp(z, 2.2, p13); escala = lerp(escala, 0.52, p13); ryO = lerp(ryO, 0.35, p13); escala *= 1 - 0.6 * Math.sin(Math.PI * p13); // se achica, cambia de pantalla y vuelve a crecer
       // cierre: viaja al centro dándose vuelta; del otro lado está la videollamada
       const cta = eo(sg(t, S["s15-cta"] - 0.6, S["s15-cta"] - 0.12)); // crece de frente hacia el centro, sin darse vuelta
       const cta2 = eio(sg(t, S["s15-cta"] - 0.3, S["s15-cta"] - 0.02)); // baja y deja lugar a los textos
       x = lerp(x, 0, cta); y = lerp(lerp(y, 1.05, cta), 0.44, cta2); z = lerp(z, 0.6, cta); escala = lerp(lerp(escala, 1.32, cta), 1.03, cta2);
       ryO = lerp(ryO, Math.sin(t * 0.7) * 0.06, cta);
-      if (p13 > 0.4) tex = pantallas.ok; // chico, delante del local: solo el tilde y "Pagado", grandes
+      if (p13 > 0.5) tex = pantallas.ok; // en el punto más chico // chico, delante del local: solo el tilde y "Pagado", grandes
       if (t >= S["s15-cta"] + 0.04) tex = pantallas.llamada;
       s *= escala;
-      sombraOn = acuesta * (1 - para) > 0.5 || t >= S["s14-negocio"];
-      grilla.visible = t < S["s10-mesa24"] + 0.3;
+      sombraOn = acuesta * (1 - para) > 0.5 || (t >= S["s14-negocio"] && t < S["s15-cta"] - 0.6);
+      grilla.visible = t < S["s10-mesa24"] + 0.36; grillaMat.opacity = 1 - sg(t, S["s10-mesa24"] + 0.2, S["s10-mesa24"] + 0.36);
       if (grilla.visible && pantallas.grilla) pantallas.grilla.offset.y = 1 - pantallas.grilla.repeat.y - eio(sg(t, S["s09-whatsapp"] + 0.3, w(54) + 0.5)) * 0.42;
     }
     ocultar(cel, s); cel.position.set(x, y, z); cel.rotation.set(rxO, ryO, 0); celIn.rotation.set(0, 0, rzIn);
@@ -926,8 +930,9 @@ function renderAt(t) {
 
   // ---- s12: la canasta entra a la derecha; dos frascos salen por el costado del celular y caen adentro ----
   {
-    const sCan = en(t, S["s13-paga"] + 0.4, S["s14-negocio"] + 0.1) ? pin(t, S["s13-paga"] + 0.4, S["s13-paga"] + 0.7) * (1 - eio(sg(t, S["s14-negocio"] - 0.22, S["s14-negocio"] + 0.1))) : 0; // se va achicándose, sin salto
-    ocultar(canastaC, sCan); canastaC.position.set(0.92, 0.55, 1.25); canastaC.rotation.set(0.12, -0.35, 0);
+    const sCan = en(t, S["s13-paga"] + 0.4, S["s14-negocio"] + 0.5) ? pin(t, S["s13-paga"] + 0.4, S["s13-paga"] + 0.7) : 0;
+    const vaC = eio(sg(t, S["s14-negocio"] - 0.15, S["s14-negocio"] + 0.45)); // sale de cuadro por la derecha
+    ocultar(canastaC, sCan); canastaC.position.set(1.08 + vaC * 4.5, 0.55, 1.25); canastaC.rotation.set(0.12, -0.35, 0);
     if (sCan > 0.01) {
       // dos frascos con caminos separados (uno alto y adelante, otro bajo y atrás) y escalonados: no se cruzan
       [[0, w(76) - 0.15, -0.2, CAN_SAL[0], CAN_SAL[1], CAN_SAL[2]], [1, w(76) + 0.15, 0.2, CAN_SAL[3], CAN_SAL[4], CAN_SAL[5]]].forEach(([n, t0, lx, ax, ay, az]) => {
@@ -955,10 +960,11 @@ function renderAt(t) {
     toldoA.color.set(C.gris).lerp(new THREE.Color(C.g), lerp(0.25, 1, luz));
     toldoB.color.set(C.cr3).lerp(new THREE.Color(C.cr), lerp(0.25, 1, luz));
     const u = sg(t, w(80), w(83) + 0.05);
-    const ts = en(t, w(80), w(83) + 0.35) ? TARJ[9] * bk(sg(t, w(80), w(80) + 0.3)) * (1 - 0.75 * eio(sg(t, w(83) - 0.1, w(83) + 0.3))) * (t < w(83) + 0.3 ? 1 : 0) : 0;
+    // el aviso sale del celular, vuela por delante (sin pasar por el cartel) y aterriza grande frente a la vidriera
+    const ts = en(t, w(80), S["s15-cta"] - 0.25) ? TARJ[9] * bk(sg(t, w(80), w(80) + 0.3)) * (1 - eio(sg(t, S["s15-cta"] - 0.55, S["s15-cta"] - 0.25))) : 0;
     ocultar(tarjeta, ts);
     if (tarjeta.visible) {
-      // curva: sale de arriba del celular, pasa por encima y entra en la vidriera
+      // curva: de arriba del celular a la vidriera
       const e = eio(u), a = (1 - e) * (1 - e), b = 2 * e * (1 - e), c = e * e;
       tarjeta.position.set(a * TARJ[0] + b * TARJ[3] + c * TARJ[6], a * TARJ[1] + b * TARJ[4] + c * TARJ[7], a * TARJ[2] + b * TARJ[5] + c * TARJ[8]);
       tarjeta.rotation.set(0, -0.15 + e * 0.1, 0.1 - e * 0.2);

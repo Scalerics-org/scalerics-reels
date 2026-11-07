@@ -125,7 +125,7 @@ const CSS_MK = `
   escena(id, {
     css: `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} }
-    P .h0 { top: 130px; font-size: 120px; } P .h1 { top: 262px; font-size: 112px; } P .h2 { top: 384px; font-size: 112px; } P .h3 { top: 506px; font-size: 112px; }`,
+    P .h0 { top: 130px; font-size: 120px; } P .h1 { top: 262px; font-size: 112px; } P .h2 { top: 384px; font-size: 104px; } P .h3 { top: 506px; font-size: 112px; }`,
     html: `
       <div class="h h0">Con ${marca("24", "")}</div>
       <div class="h h1">mermeladas</div>
@@ -183,12 +183,12 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.medio { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `${leads(lead(1, GENTE_LEAD[0], GENTE_LEAD[1], GENTE_LEAD[2], GENTE_LEAD[3], "g"))}${pill(1, GENTE_LEAD[0], GENTE_LEAD[1] - 40, "Más gente", "lleno medio")}`,
-    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.86)}, 0.12);`,
+    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.6)}, 0.12);`,
     sfx: [
       { t: -0.1, sfx: "whoosh-cine-corto2", vol: 0.1, max: 0.7 },
       ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.09), sfx: i % 2 ? "key-press" : "click-soft", vol: 0.08 })),
       { t: r2(w(id, 20) - 0.12), sfx: "burbuja", vol: 0.1 },
-      { t: r2(ESC[id] - 0.62), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
+      { t: r2(ESC[id] - 0.36), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
     ],
   });
 }
@@ -218,7 +218,7 @@ const CSS_MK = `
     sfx: [
       { t: -0.08, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.1, sfx: "key-press", vol: 0.12 },
       // un golpe por cada frasco que aterriza en la canasta (los mismos tiempos que tres.js: CAIDA_B)
-      ...[0, 0.15, 0.29, 0.41, 0.6, 0.78].map((d, i) => ({ t: r2(w(id, 31) - 0.05 + d + 0.3), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
+      ...[0, 0.15, 0.29, 0.41, 0.5, 0.66].map((d, i) => ({ t: r2(w(id, 31) - 0.05 + d + 0.3), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
       { t: w(id, 32) - 0.08, sfx: "ping", vol: 0.06, max: 0.6 }, { t: w(id, 32) - 0.07, sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
     ],
   });
@@ -232,7 +232,7 @@ const CSS_MK = `
     js: ``,
     sfx: [
       { t: -0.26, sfx: "whoosh-cine-corto", vol: 0.07, max: 0.6 },
-      { t: 0.32, sfx: "click-soft", vol: 0.12 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
+      { t: 0.32, sfx: "click-soft", vol: 0.12 }, { t: 0.76, sfx: "burbuja", vol: 0.05 }, { t: w(id, 36) + 0.3, sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
 }
@@ -303,7 +303,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 61), sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 62), sfx: "pop", vol: 0.09 },
+      { t: w(id, 61) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 61) + 0.2, sfx: "pop", vol: 0.09 },
       { t: w(id, 62) + 0.15, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.6 },
     ],
   });
@@ -331,7 +331,7 @@ const CSS_MK = `
     js: `
       nota(1, ${r2(w(id, 74) - 0.05)});
       nota(2, ${r2(w(id, 76) - 0.05)});
-      fuera(".n1, .n2, .l1, .l2, .d1, .d2", ${r2(ESC[id] - 0.2)}, 0.18);`,
+      tl.to(qa(".n1, .n2, .l1, .l2, .d1, .d2"), { opacity: 0, duration: 0.2, ease: "power1.in" }, ${r2(ESC[id] - 0.24)});`,
     sfx: [
       { t: 0.42, sfx: "pop", vol: 0.12 },
       { t: w(id, 74), sfx: "key-press", vol: 0.13 }, { t: w(id, 74) + 0.08, sfx: "ping", vol: 0.07 },

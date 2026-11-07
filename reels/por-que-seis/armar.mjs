@@ -193,6 +193,7 @@ const sfxTags = sfx
 
 // LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
 const LIMPIO = process.env.LIMPIO === "1";
+const FONDO_LIMPIO = process.env.FONDO || "#efeee5";
 const index = `<!doctype html>
 <html lang="es">
   <head>
@@ -203,9 +204,9 @@ const index = `<!doctype html>
       @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
       @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #efeee5; }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #efeee5; }
-      #fondo { position: absolute; inset: 0; background: #efeee5; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
       #estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(239,238,229,0.88) 0%, rgba(239,238,229,0.7) 50%, rgba(239,238,229,0) 100%); }
@@ -239,7 +240,8 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // el logo se esconde cuando la mesa navy pasa por debajo (se veía la placa encima de la mesa)
       tl.set("#firma", { opacity: 0 }, ${r2(palabras[7].start - 0.08)}); tl.set("#firma", { opacity: 1 }, ${r2(palabras[7].start + 0.42)});
-      tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] - 0.66)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] - 0.05)});
+      tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] - 0.4)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] + 0.15)});
+      tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s10-mesa24")[1] + 0.05)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s11-tienda")[1] + 1.1)});
       tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s07-ganas")[1] - 0.2)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s08-despues")[1] + 0.05)});
       window.__timelines["main"] = tl;
     </script>

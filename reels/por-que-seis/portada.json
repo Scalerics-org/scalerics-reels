@@ -1,7 +1,7 @@
 {
  "t": 1.0,
  "chica": "24 mermeladas",
- "grande": "venden menos que 6",
+ "grande": "vendieron menos que 6",
  "sello": "¿Por qué?",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
@@ -9,5 +9,5 @@
  "foco": "40%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "nota": "Fondo: cuadro limpio de 3,4 s (solo la capa 3D: mesa de 24 apagada y mesa de 6, sin gancho, subtítulos ni logo), con `LIMPIO=1 node armar.mjs` + `snapshot --at 3.4`; se recorta y=560-1740, se achica al 65 % y se apoya sobre crema en x=259, y=335 (así no queda franja crema vacía ni frascos cortados), se arma un mp4 de 3 s con ese PNG en renders/por-que-seis-final.mp4 solo para portada.mjs (t=1) y después se vuelve a poner el render. Velo navy a propósito: portada.html escribe en blanco."
+ "nota": "Fondo liso navy: cuadro limpio de 3,15 s (mesa de 24 todavía con color y mesa de 6) hecho con `FONDO=#0b1220 LIMPIO=1 node armar.mjs` + `snapshot --at 3.15`; se recorta y=590-1690, se achica al 55 % y se apoya sobre navy liso en x=360, y=395 (no toca el sello); se arma un mp4 de 3 s con ese PNG en renders/por-que-seis-final.mp4 solo para portada.mjs (t=1) y después se vuelve a poner el render. Después correr `node armar.mjs` sin LIMPIO."
 }

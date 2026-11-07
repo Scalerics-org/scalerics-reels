@@ -25,15 +25,15 @@
     [data-composition-id="s08b-sin"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 [data-composition-id="s08b-sin"] .pill.m44 { font-size: 44px; padding: 14px 30px 16px; opacity: 1; }
   </style>
-  <div id="root" data-composition-id="s08b-sin" data-width="1080" data-height="1920" data-duration="1.5">
-    <div id="s08b-sin-esc" class="esc clip" data-start="0" data-duration="1.5" data-track-index="0">
+  <div id="root" data-composition-id="s08b-sin" data-width="1080" data-height="1920" data-duration="1.37">
+    <div id="s08b-sin-esc" class="esc clip" data-start="0" data-duration="1.37" data-track-index="0">
 <div class="pill m44 n1" style="left:540px;top:1650px">Pesa más si no sabés qué querés</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s08b-sin";
-      const DUR = 1.5;
+      const DUR = 1.37;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -55,7 +55,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-fuera(".n1", 1.1, 0.1);
+fuera(".n1", 0.97, 0.1);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
