@@ -222,7 +222,7 @@
 - 05-11 · `trabajar-con-scalerics` · Todos los servicios · "¿Cómo es trabajar con Scalerics? Te lo cuenta Rubén." Los 4 pasos reales de scalerics.com (reunión gratis 30 min, propuesta en 48 h con precio fijo, desarrollo por etapas con revisiones, entrega y soporte) contados por Rubén con Gonzalo de Scalerics; tienda + stock + agente de IA · Videollamada gratis · REEL FIJADO DEL PERFIL [formato proceso · 3D real con personajes recurrentes (Rubén, Gonzalo)] (hecho en la sesión de Juan)
 
 ## En curso
-<!-- corrida-activa: 2026-11-07T11:54 -->
+<!-- corrida-activa: 2026-11-07T12:24 -->
 
 - 06-11 · `lo-mismo-que-la-otra-vez` · CRM (qué compró cada cliente) · Para mandar completo: Graciela le pide a Rubén "lo mismo que la otra vez" sin decir qué; Rubén adivina de una pila; cartel "Un CRM más tarde…" y la ficha ya lo sabe · 3D real con personajes recurrentes, almacén, fondo navy claro #16243d · reservado (corrida 4 del 06-11)
 - 06-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido para retirar) · Para mandar completo: Rubén baja la cortina y a las 19:59 entra el cliente con una lista larga; cartel "Una tienda online más tarde…" y la bolsa ya está armada · 3D real con personajes recurrentes, almacén de noche, fondo navy oscuro #0b1220 · reservado (corrida 4 del 06-11)
