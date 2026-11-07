@@ -17,12 +17,15 @@ const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_
 // techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
 const TECHO = -31.3;
 const lufs = {};
+// el render pone un efecto mono en los dos canales a nivel pleno (+3 LU): se mide igual que como va a sonar
+const canales = {};
+const mono = (n) => (canales[n] ??= Number(execSync(`ffprobe -v error -select_streams a:0 -show_entries stream=channels -of csv=p=0 assets/sfx/${n}.mp3`).toString())) === 1;
 // se mide el TRAMO que suena (atrim hasta max) con apad, así un efecto corto o recortado se mide de verdad
 const lufsArchivo = (n, max) => {
   const k = n + "@" + (max ?? "todo");
   if (lufs[k] === undefined) {
     const corte = max ? `atrim=0:${max},` : "";
-    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af ${corte}apad=pad_dur=1,ebur128 -f null - 2>&1`).toString();
+    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af "${corte}apad=pad_dur=1,${mono(n) ? "pan=stereo|c0=c0|c1=c0," : ""}ebur128" -f null - 2>&1`).toString();
     const m = [...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1);
     lufs[k] = m && Number(m[1]) > -69 ? Number(m[1]) : -30;
   }
@@ -35,7 +38,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.6);
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.55);
 
 const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
 const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
@@ -105,12 +108,13 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 0 4px 0 rgba(255, 255, 255, 0.75); }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: -5px -5px 0 #efeee5, 5px -5px 0 #efeee5, -5px 5px 0 #efeee5, 5px 5px 0 #efeee5, 0 -7px 0 #efeee5, 0 7px 0 #efeee5, -7px 0 0 #efeee5, 7px 0 0 #efeee5, 0 11px 0 rgba(11, 18, 32, 0.16); }
+    ${C} .w.ac em { text-shadow: none; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 6px; }
     ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #0b1220; background: #5ce611; border-radius: 6px; }
-    ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.35); }
+    ${C} .malo .caja { border-color: #c7655b; background: #f5dcd8; }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #0b1220; }
     ${C} .malo .caja i { border-color: #c7655b; }
     ${C} .caja .c1 { left: -12px; top: -12px; } ${C} .caja .c2 { right: -12px; top: -12px; }
@@ -127,14 +131,18 @@ ${grupos}  </div>
 ${anim}      ];
       for (const [id, ini, dur] of GRUPOS) {
         const el = root.querySelector("#" + id);
-        tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
+        tl.fromTo(el.querySelector("p"), { scale: 0.94, opacity: 1, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.fromTo(w, { opacity: 0, y: 18, scale: 0.86 }, { opacity: 1, y: 0, scale: 1, duration: 0.06, ease: "power2.out" }, ini + Math.min(0.04, Number(w.dataset.t)) );
           const caja = w.querySelector(".caja");
-          if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
+          // entra entera (sin fundido gris): aparece y rebota un poco en escala
+          // las palabras con recuadro entran recién cuando se dicen (junto con su recuadro): nunca navy sin fondo
+          const tw = caja ? t : ini;
+          tl.set(w, { opacity: 1 }, tw);
+          tl.fromTo(w, { y: 14, scale: 0.9 }, { y: 0, scale: 1, duration: 0.14, ease: "back.out(2)", immediateRender: false }, tw);
+          if (caja) { tl.set(caja, { opacity: 1 }, t); tl.fromTo(caja, { scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.16, ease: "power3.out", immediateRender: false }, t); }
         }
-        tl.to(el.querySelector("p"), { opacity: 0, duration: 0.03, ease: "none" }, ini + dur - 0.03);
+        tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.001);
       }
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
@@ -186,7 +194,6 @@ const index = `<!doctype html>
       #fondo { position: absolute; inset: 0; background: #efeee5; }
       #estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
-      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 860px; background: linear-gradient(180deg, rgba(239,238,229,0.9) 0%, rgba(239,238,229,0.62) 50%, rgba(239,238,229,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
       #firma { position: absolute; left: 50%; top: 1760px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.9; z-index: 50; }
@@ -196,7 +203,6 @@ const index = `<!doctype html>
     <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
       <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"></div>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-      <div id="velo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="4"></div>
 ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
@@ -216,7 +222,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
         tl.to(s, { opacity: 0.08, duration: 1.4 + (i % 5) * 0.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(${DUR} / 2.6) }, (i % 7) * 0.4);
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-${reel.veloHasta ? `      tl.to("#velo", { opacity: 0, duration: 0.25, ease: "power1.out" }, ${reel.veloHasta});\n` : ""}${reel.logoDesde ? `      tl.set("#firma", { opacity: 0 }, 0);\n      tl.to("#firma", { opacity: 0.9, duration: 0.25, ease: "power1.out" }, ${reel.logoDesde});\n` : ""}${(reel.sinLogo ?? []).map(([x, y]) => `      tl.to("#firma", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, ${r2(x - 0.2)});\n      tl.to("#firma", { opacity: 0.9, duration: 0.2, ease: "power1.inOut" }, ${y});`).join("\n")}
+${reel.logoDesde ? `      tl.set("#firma", { opacity: 0 }, 0);\n      tl.to("#firma", { opacity: 0.9, duration: 0.25, ease: "power1.out" }, ${reel.logoDesde});\n` : ""}${(reel.sinLogo ?? []).map(([x, y]) => `      tl.to("#firma", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, ${r2(x - 0.2)});\n      tl.to("#firma", { opacity: 0.9, duration: 0.2, ease: "power1.inOut" }, ${y});`).join("\n")}
       window.__timelines["main"] = tl;
     </script>
   </body>

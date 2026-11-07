@@ -2,7 +2,7 @@
 // renderAt(t) es una función pura del tiempo del timeline (hf-seek): nada de rAF, Date.now ni azar sin semilla.
 // Serie "Dos negocios": una calle low-poly con DOS bicicleterías iguales lado a lado, separadas por un pilar navy
 // en x = 0 (la pantalla partida). Izquierda: toldo gris, luz baja. Derecha: en "Una" se prende (toldo verde, luz
-// cálida). El mismo casco de bici en cada vidriera. Paula (personaje del módulo) y su bici verde; Dani en la puerta.
+// cálida). El mismo casco de bici en cada vidriera. Paula (personaje del módulo) y su bici verde; Nico (el empleado del elenco) en la puerta.
 // Fondo crema #efeee5 (lo pone el HTML; el canvas es transparente). Sin marcas ni redes dibujadas: feed genérico.
 import * as THREE from "./vendor/three/three.module.js";
 import { RoundedBoxGeometry } from "./vendor/three/RoundedBoxGeometry.js";
@@ -159,15 +159,16 @@ function crearCasco() {
   foam.scale.set(KR.x, KR.y, KR.z); g.add(foam);
   const borde = new THREE.Mesh(new THREE.TorusGeometry(1, 0.05, 10, 72), M.navy); borde.rotation.x = Math.PI / 2; borde.scale.set(KR.x, KR.z, 0.8); borde.position.y = 0.01; g.add(borde);
   // franja crema al medio, de la visera a la nuca
-  const fr = []; for (let i = 0; i <= 20; i++) fr.push(supCasco(0, 0.12 + (i / 20) * (Math.PI - 0.24), 0.985));
-  g.add(curva(fr, 0.042, M.cr, 40));
+  const fr = []; for (let i = 0; i <= 20; i++) fr.push(supCasco(0, 0.2 + (i / 20) * (Math.PI - 0.4), 0.975));
+  g.add(curva(fr, 0.04, M.cr, 40));
+  for (const p of [fr[0], fr[20]]) g.add(mesh(new THREE.SphereGeometry(0.04, 12, 8), M.cr, p.x, p.y, p.z));
   // ranuras (6): siguen la cúpula de adelante hacia atrás
-  for (const [q, a0, a1] of [[0.3, 0.38, 2.55], [-0.3, 0.38, 2.55], [0.6, 0.55, 2.35], [-0.6, 0.55, 2.35], [0.84, 0.95, 2.0], [-0.84, 0.95, 2.0]]) {
-    const pts = []; for (let i = 0; i <= 16; i++) pts.push(supCasco(q, a0 + (i / 16) * (a1 - a0), 0.975));
-    const r = mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 32, 0.04, 8), M.espuma); r.scale.set(1, 1, 1); g.add(r);
+  for (const [q, a0, a1] of [[0.3, 0.42, 2.5], [-0.3, 0.38, 2.55], [0.6, 0.55, 2.35], [-0.6, 0.55, 2.35], [0.84, 0.95, 2.0], [-0.84, 0.95, 2.0]]) {
+    const pts = []; for (let i = 0; i <= 16; i++) pts.push(supCasco(q, a0 + (i / 16) * (a1 - a0), 0.965));
+    const r = mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 32, 0.036, 8), M.espuma); g.add(r);
+    for (const p of [pts[0], pts[16]]) g.add(mesh(new THREE.SphereGeometry(0.036, 10, 8), M.espuma, p.x, p.y, p.z));
   }
   // visera corta adelante
-  const vis = mesh(rbox(0.52, 0.03, 0.13, 0.012), M.navy3, 0, 0.07, KR.z * 0.96); vis.rotation.x = 0.28; g.add(vis);
   // correas y hebilla (cuelgan debajo del borde)
   const correas = new THREE.Group(); g.add(correas);
   for (const sx of [-1, 1]) {
@@ -335,10 +336,10 @@ function crearLocal(s) {
   const vol = new THREE.Group(); vol.position.set(0, 0, 1.0); vol.rotation.x = -0.42; L.toldo.add(vol);
   for (let i = 0; i < 8; i++) vol.add(mesh(rbox(0.4, 0.18, 0.03, 0.01), i % 2 ? M.cr : L.toldoM, (i - 3.5) * 0.4, -0.09, 0));
   // cartel con el pictograma de bici (sin nombre)
-  caja(2.3, 0.62, 0.08, M.cr, 1.2, 3.95, 0.17, 0.04);
-  L.cartel = add(plano(2.2, 0.54, null)); L.cartel.position.set(X(s, 1.2), 3.95, 0.215); L.cartel.material.transparent = false;
+  caja(2.0, 0.62, 0.08, M.cr, 1.2, 3.95, 0.17, 0.04);
+  L.cartel = add(plano(1.9, 0.54, null)); L.cartel.position.set(X(s, 1.2), 3.95, 0.215); L.cartel.material.transparent = false;
   L.cartelFilete = new THREE.Group(); add(L.cartelFilete);
-  for (const [w, h, du, dy] of [[2.36, 0.05, 0, 0.32], [2.36, 0.05, 0, -0.32], [0.05, 0.68, -1.16, 0], [0.05, 0.68, 1.16, 0]]) L.cartelFilete.add(mesh(rbox(w, h, 0.05, 0.015), M.g, X(s, 1.2) + s * du, 3.95 + dy, 0.22));
+  for (const [w, h, du, dy] of [[2.06, 0.05, 0, 0.32], [2.06, 0.05, 0, -0.32], [0.05, 0.68, -1.01, 0], [0.05, 0.68, 1.01, 0]]) L.cartelFilete.add(mesh(rbox(w, h, 0.05, 0.015), M.g, X(s, 1.2) + s * du, 3.95 + dy, 0.22));
   locales.push(L);
   return L;
 }
@@ -403,16 +404,16 @@ globo.add(mesh(rbox(0.66, 0.42, 0.05, 0.08), M.g));
 const globoP = plano(0.62, 0.38, null); globoP.position.z = 0.027; globo.add(globoP);
 const cola = mesh(new THREE.ConeGeometry(0.06, 0.14, 4), M.g, -0.27, -0.24, 0); cola.rotation.z = -0.6; globo.add(cola);
 
-// el celular de Paula (grande, la "ampliación"), su celular chico en la mano y los puntitos que los unen
+// el celular de Paula (grande: su pantalla en primer plano) y su celular chico en la mano
 const lienzoCel = document.createElement("canvas"); lienzoCel.width = 600; lienzoCel.height = 1192;
 const texCel = new THREE.CanvasTexture(lienzoCel); texCel.colorSpace = THREE.SRGBColorSpace; texCel.anisotropy = 8;
 const celP = crearCelular(texCel); scene.add(celP);
-const puntos = [0, 1, 2].map(() => { const m = mesh(new THREE.SphereGeometry(0.032, 14, 10), M.g); m.castShadow = false; scene.add(m); return m; });
 
-// Paula y Dani
-const paula = crearPersonaje(ELENCO.paula); scene.add(paula.raiz);
-const dani = crearPersonaje(ELENCO.bicicletero); scene.add(dani.raiz);
-for (const p of [paula, dani]) p.raiz.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+// Paula y Nico (el empleado del elenco; acá atiende la bicicletería de la derecha), con pelo con volumen
+// sin la franja verde del pecho en este reel: al empujar la bici verde se leía como un caño que la atravesaba
+const paula = crearPersonaje({ ...ELENCO.paula, franja: null }); scene.add(paula.raiz);
+const nico = crearPersonaje({ ...ELENCO.empleado, peinado: "texturado", texturaAlto: 1.1 }); scene.add(nico.raiz);
+for (const p of [paula, nico]) p.raiz.traverse((o) => { if (o.isMesh) o.castShadow = true; });
 const celChico = new THREE.Group(); paula.cuerpo.add(celChico);
 celChico.add(mesh(rbox(0.09, 0.17, 0.014, 0.012), M.navy));
 { const s = mesh(new THREE.PlaneGeometry(0.078, 0.152), new THREE.MeshBasicMaterial({ color: 0x9fe86a, toneMapped: false }), 0, 0, -0.008); s.rotation.y = Math.PI; celChico.add(s); }
@@ -422,37 +423,48 @@ celChico.position.set(0, 0.36, 0.3); celChico.rotation.x = -0.6;
 const igualM = mat(C.g, 0.4, { emissive: C.g, emissiveIntensity: 0.2 });
 const igual = grupo(mesh(rbox(0.62, 0.15, 0.18, 0.06), igualM, 0, 0.13, 0), mesh(rbox(0.62, 0.15, 0.18, 0.06), igualM, 0, -0.13, 0)); scene.add(igual);
 
-// las fichas chicas de los clientes (4 por local, los mismos clientes) y lo que se llevó cada uno
-const CLIENTES = ["Paula", "Jorge", "Carla", "Martín"];
-const CU = [0.39, 0.93, 1.47, 2.01];
+// las fichas chicas de los clientes: los MISMOS 3 en cada local, con nombres de la lista del CRM, y lo que se llevó
+// cada uno según el CRM (Paula: bici urbana; Jorge: luz delantera; Carla: inflador), apoyado en un estante arriba
+const CLIENTES = ["Paula", "Jorge", "Carla"];
+const CU = [0.5, 1.17, 1.84];
+const TJ_W = 0.6, TJ_H = 0.78, TJ_Y = 1.72;
 const tarjetas = [];
-const TARJ_P = V(X(1, 0.39), 1.25, 1.0); // la tarjeta chica de Paula (derecha)
+const TARJ_P = V(X(1, CU[0]), TJ_Y, 1.0); // la tarjeta chica de Paula (derecha)
 for (const L of locales) CLIENTES.forEach((n, i) => {
   const g = new THREE.Group(); scene.add(g);
-  g.add(mesh(rbox(0.5, 0.66, 0.05, 0.04), M.navy));
-  const p = plano(0.46, 0.62, null); p.position.z = 0.027; p.material.transparent = false; g.add(p);
-  g.position.set(X(L.s, CU[i]), 1.25, 1.0);
+  g.add(mesh(rbox(TJ_W, TJ_H, 0.05, 0.04), M.navy));
+  const p = plano(TJ_W - 0.04, TJ_H - 0.04, null); p.position.z = 0.027; p.material.transparent = false; g.add(p);
+  if (L.s > 0) g.add(mesh(rbox(TJ_W - 0.04, 0.035, 0.26, 0.012), M.cr, 0, TJ_H / 2 + 0.017, 0.06)); // estante
+  g.position.set(X(L.s, CU[i]), TJ_Y, 1.0);
   tarjetas.push({ L, i, n, g, p });
 });
+const ESTANTE_Y = TJ_Y + TJ_H / 2 + 0.035;
 const preguntaGris = mat(0x8f95a0, 0.5);
-const preguntas = CLIENTES.map((_, i) => { const m = pregunta(preguntaGris, 0.32); scene.add(m); m.userData.pos = V(X(-1, CU[i]), 1.9, 1.0); return m; });
-// mini objetos (lo que se llevó cada uno): bici verde, luz, inflador, candado
-const miniBici = crearBici(C.g, true); miniBici.g.scale.setScalar(0.24); scene.add(miniBici.g);
-const luzMini = (() => { const g = new THREE.Group(); g.add(mesh(new THREE.CylinderGeometry(0.1, 0.11, 0.22, 24).rotateX(Math.PI / 2), M.navy3)); const l = mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.02, 24).rotateX(Math.PI / 2), mat(0xfff6d0, 0.3, { emissive: 0xfff2b8, emissiveIntensity: 0.9 }), 0, 0, 0.115); g.add(l); g.add(mesh(rbox(0.05, 0.14, 0.06, 0.01), M.g, 0, -0.14, -0.02)); g.add(mesh(rbox(0.16, 0.03, 0.03, 0.01), M.g, 0, 0.115, 0.02)); return g; })();
-const infladorMini = (() => { const g = new THREE.Group(); g.add(mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.34, 20), M.g, 0, 0.17, 0)); g.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.12, 8), M.alu, 0, 0.39, 0)); g.add(mesh(rbox(0.22, 0.035, 0.04, 0.015), M.navy, 0, 0.45, 0)); g.add(mesh(rbox(0.24, 0.025, 0.1, 0.01), M.navy, 0, 0.0, 0)); g.add(curva([V(0.04, 0.3, 0), V(0.14, 0.24, 0.05), V(0.12, 0.08, 0.06)], 0.012, M.negro, 10)); g.position.y = -0.2; return grupo(g); })();
-const candadoMini = (() => { const g = new THREE.Group(); const arco = mesh(new THREE.TorusGeometry(0.11, 0.024, 10, 28, Math.PI), M.navy3, 0, 0.0, 0); g.add(arco); g.add(mesh(rbox(0.32, 0.08, 0.08, 0.03), M.g, 0, -0.01, 0)); g.add(mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.01, 12).rotateX(Math.PI / 2), M.navy, 0.1, -0.01, 0.042)); return g; })();
-const items = [miniBici.g, luzMini, infladorMini, candadoMini];
-scene.add(luzMini, infladorMini, candadoMini);
+const preguntas = CLIENTES.map((_, i) => { const m = pregunta(preguntaGris, 0.3); scene.add(m); m.userData.pos = V(X(-1, CU[i]), ESTANTE_Y + 0.22, 1.0); return m; });
+// mini objetos (lo que se llevó cada uno): bici verde, luz delantera, inflador
+const miniBici = crearBici(C.g, true); miniBici.g.scale.setScalar(0.26); scene.add(miniBici.g);
+const luzMini = (() => { const g = new THREE.Group(); g.add(mesh(new THREE.CylinderGeometry(0.1, 0.11, 0.22, 24).rotateX(Math.PI / 2), M.navy3)); const l = mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.02, 24).rotateX(Math.PI / 2), mat(0xfff6d0, 0.3, { emissive: 0xfff2b8, emissiveIntensity: 0.9 }), 0, 0, 0.115); g.add(l); g.add(mesh(rbox(0.05, 0.14, 0.06, 0.01), M.g, 0, -0.14, -0.02)); g.add(mesh(rbox(0.16, 0.03, 0.12, 0.01), M.g, 0, -0.215, -0.02)); return grupo(g); })();
+const infladorMini = (() => { const g = new THREE.Group(); g.add(mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.34, 20), M.g, 0, 0.17, 0)); g.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.12, 8), M.alu, 0, 0.39, 0)); g.add(mesh(rbox(0.22, 0.035, 0.04, 0.015), M.navy, 0, 0.45, 0)); g.add(mesh(rbox(0.24, 0.025, 0.1, 0.01), M.navy, 0, 0.0, 0)); g.add(curva([V(0.04, 0.3, 0), V(0.14, 0.24, 0.05), V(0.12, 0.08, 0.06)], 0.012, M.negro, 10)); return grupo(g); })();
+const items = [miniBici.g, luzMini, infladorMini];
+const ITEM_K = [0.26, 0.95, 0.8];
+// cuánto baja cada objeto por debajo de su origen (para apoyarlo justo en el estante)
+const itemBase = items.map((it) => { it.updateMatrixWorld(true); const s0 = it.scale.x; it.scale.setScalar(1); it.updateMatrixWorld(true); const b = new THREE.Box3().setFromObject(it); it.scale.setScalar(s0); return -b.min.y; });
+scene.add(luzMini, infladorMini);
 
-// la caja de mercadería nueva (s12) con el "?" y los tres mensajes
-const caja = new THREE.Group(); scene.add(caja);
-caja.add(mesh(rbox(0.72, 0.5, 0.56, 0.03), M.carton, 0, 0.25, 0));
-caja.add(mesh(rbox(0.74, 0.08, 0.03, 0.01), M.cinta, 0, 0.36, 0.28));
-caja.add(mesh(rbox(0.25, 0.16, 0.01, 0.01), M.white, 0.2, 0.2, 0.282));
-const solapas = [-1, 1].map((sx) => { const piv = new THREE.Group(); piv.position.set(sx * 0.36, 0.5, 0); caja.add(piv); const sol = mesh(rbox(0.36, 0.02, 0.56, 0.01), M.carton, -sx * 0.18, 0.01, 0); piv.add(sol); return piv; });
-const preguntaVerde = pregunta(mat(C.g, 0.4, { emissive: C.g, emissiveIntensity: 0.22 }), 0.62); scene.add(preguntaVerde);
-const msjs = ["Inés, ya llegó", "Pablo, ya llegó", "Sara, ya llegó"].map((txt) => { const g = new THREE.Group(); scene.add(g); g.add(mesh(rbox(0.92, 0.25, 0.05, 0.07), M.g)); const p = plano(0.88, 0.22, null); p.position.z = 0.027; g.add(p); const c2 = mesh(new THREE.ConeGeometry(0.045, 0.1, 4), M.g, -0.4, -0.13, 0); c2.rotation.z = -0.6; g.add(c2); g.userData.txt = txt; g.userData.p = p; return g; });
-
+// s12: la ficha de Paula se multiplica en las fichas de TUS clientes (cada uno con lo que se llevó y lo que le sirve)
+const OTROS = [
+  { n: "Inés", c: "Bici de ruta", f: "Luz", a: "luz" },
+  { n: "Pablo", c: "Bici eléctrica", f: "Candado", a: "candado" },
+  { n: "Sara", c: "Bici de paseo", f: "Inflador", a: "inflador" },
+];
+const GRID = V(1.45, 1.95, 2.4), GK = 0.6;
+const SLOT = [V(-0.49, 0.37, 0), V(0.49, 0.37, 0), V(-0.49, -0.37, 0), V(0.49, -0.37, 0)];
+const otras = OTROS.map((o) => {
+  const g = new THREE.Group(); scene.add(g);
+  g.add(mesh(rbox(FW_, FH_, 0.12, 0.06), M.navy));
+  const p = plano(FW_ - 0.06, FH_ - 0.06, null); p.position.z = 0.062; p.material.transparent = false; g.add(p);
+  return { ...o, g, p, tex: [] };
+});
 // ================= TEXTURAS =================
 function dibujarPost(x, X0, Y0, W0, k = 1, gris = 0) {
   // un post genérico: cabecera con avatar y renglones grises (sin nombre ni logo de ninguna red), la foto del casco
@@ -489,28 +501,41 @@ function dibujarMensaje(x, X0, Y0, W0, resalta = 0, grande = 1) {
   return H0;
 }
 let celClave = "";
-function pintarCel(modo, scroll, resalta, llego) {
-  const clave = `${modo}|${Math.round(scroll * 40)}|${Math.round(resalta * 10)}|${llego ? 1 : 0}`;
+// pantalla del celular de Paula (lienzo 600x1192). "chat": el chat con la bicicletería (arriba la compra de marzo,
+// abajo "Hoy" y el mensaje nuevo, que llega cuando aterriza el globo; abajo la barra para escribir: nunca queda
+// vacía). "feed": arriba la foto para todos (se apaga en gris cuando "la pasó de largo") y abajo su mensaje.
+const MSJ_Y = 742, MSJ_G = 0.9; // dónde cae el mensaje nuevo en el chat (para que el globo aterrice ahí)
+function pintarCel(modo, gris, resalta, llego) {
+  const clave = `${modo}|${Math.round(gris * 20)}|${Math.round(resalta * 10)}|${llego ? 1 : 0}`;
   if (clave === celClave) return;
   celClave = clave;
   const x = lienzoCel.getContext("2d"), Wc = 600, Hc = 1192;
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, Wc, Hc);
+  const pastilla = (txt, y) => { x.font = F(700, 38); const w = x.measureText(txt).width + 56; x.fillStyle = "#dcdacb"; rr(x, (Wc - w) / 2, y, w, 58, 29); x.fillStyle = "#16243d"; x.textAlign = "center"; x.fillText(txt, Wc / 2, y + 43); x.textAlign = "left"; };
   if (modo === "chat") {
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, Wc, 170);
-    x.fillStyle = "#5ce611"; x.beginPath(); x.arc(84, 98, 46, 0, Math.PI * 2); x.fill(); biciIcono(x, 84, 98, 32, "#0b1220", 8);
-    x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText("Bicicletería", 150, 116);
-    x.fillStyle = "#dcdacb"; rr(x, 230, 214, 140, 54, 27); x.fillStyle = "#16243d"; x.font = F(700, 34); x.textAlign = "center"; x.fillText("Hoy", 300, 253); x.textAlign = "left";
-    if (llego) dibujarMensaje(x, 46, 330, 508, resalta, 1);
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, Wc, 150);
+    x.fillStyle = "#5ce611"; x.beginPath(); x.arc(80, 82, 44, 0, Math.PI * 2); x.fill(); biciIcono(x, 80, 82, 30, "#0b1220", 8);
+    x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText("Bicicletería", 146, 100);
+    pastilla("Marzo", 172);
+    // la compra de marzo: foto de su bici verde + "¡Que la disfrutes!"
+    x.fillStyle = "#ffffff"; rr(x, 30, 252, 430, 318, 30);
+    x.fillStyle = "#dcdacb"; rr(x, 46, 268, 398, 196, 20);
+    biciIcono(x, 245, 372, 92, "#3fa60a", 16);
+    x.fillStyle = "#0b1220"; x.font = F(700, 40); x.fillText("¡Que la disfrutes!", 50, 530);
+    // su respuesta
+    x.fillStyle = "#cfe9bd"; rr(x, 330, 590, 240, 76, 30); x.fillStyle = "#0b1220"; x.font = F(700, 40); x.fillText("¡Gracias!", 352, 642);
+    pastilla("Hoy", 676);
+    if (llego) dibujarMensaje(x, 46, MSJ_Y, 508, resalta, MSJ_G);
+    // barra para escribir
+    x.fillStyle = "#ffffff"; rr(x, 24, 1100, 470, 76, 38); x.fillStyle = "#9aa0a8"; x.font = F(600, 38); x.fillText("Mensaje", 60, 1150);
+    x.fillStyle = "#16243d"; x.beginPath(); x.arc(540, 1138, 38, 0, Math.PI * 2); x.fill();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(524, 1120); x.lineTo(560, 1138); x.lineTo(524, 1156); x.closePath(); x.fill();
   } else {
-    // el feed: arriba la foto para todos, abajo su mensaje; scroll empuja la foto para arriba
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, Wc, 70);
-    const yPost = 100 - scroll * 760;
-    dibujarPost(x, 30, yPost, 540, 1, sg(scroll, 0.05, 0.5));
-    const yMsj = lerp(780, 230, eio(scroll));
-    dibujarMensaje(x, 46, yMsj, 508, resalta, 1);
-    // más abajo, otras cosas del feed (genéricas, grises): la pantalla nunca queda vacía
-    for (let k = 0; k < 2; k++) { const yy = yMsj + 430 + k * 330; x.fillStyle = "#ffffff"; rr(x, 30, yy, 540, 290, 28); x.fillStyle = "#dcdacb"; x.fillRect(30, yy + 100, 540, 190); x.fillStyle = "#c9c7b8"; x.beginPath(); x.arc(90, yy + 52, 30, 0, Math.PI * 2); x.fill(); rr(x, 140, yy + 38, 200, 20, 10); }
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, Wc, 70);
+    // el feed: arriba la foto para todos (que se apaga), abajo su mensaje con su nombre
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, Wc, 64);
+    dibujarPost(x, 30, 84, 540, 0.95, gris);
+    dibujarMensaje(x, 46, 726, 508, resalta, MSJ_G);
+    x.fillStyle = "#ffffff"; rr(x, 30, 1098, 540, 200, 28); x.fillStyle = "#c9c7b8"; x.beginPath(); x.arc(90, 1146, 28, 0, Math.PI * 2); x.fill(); rr(x, 136, 1134, 200, 22, 11);
   }
   texCel.needsUpdate = true;
 }
@@ -525,10 +550,10 @@ function texturas() {
   celIzq.userData.pant.material.map = texPost.v;
   for (const c of cascada) c.userData.pant.material.map = texPost.v;
   // cartel de las fachadas: pictograma de bici
-  const cartel = (verde) => lienzo(880, 216, (x) => {
-    x.fillStyle = "#efeee5"; x.fillRect(0, 0, 880, 216);
-    biciIcono(x, 200, 100, 70, verde ? "#3fa60a" : "#16243d", 14);
-    x.fillStyle = "#16243d"; x.font = F(900, 92); x.fillText("BICIS", 340, 142);
+  const cartel = (verde) => lienzo(760, 216, (x) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, 760, 216);
+    biciIcono(x, 150, 100, 70, verde ? "#3fa60a" : "#16243d", 14);
+    x.fillStyle = "#16243d"; x.font = F(900, 92); x.fillText("BICIS", 290, 142);
   });
   izq.cartel.material.map = cartel(false); der.cartel.material.map = cartel(false); der.cartelVerde = cartel(true);
   // CRM: encabezado, pantalla, filas, chips
@@ -542,8 +567,8 @@ function texturas() {
     x.fillStyle = "#ffffff"; x.fillRect(0, 0, 1400, 112);
     x.fillStyle = f.ok && k ? "#5ce611" : "#16243d"; x.beginPath(); x.arc(70, 56, 40, 0, Math.PI * 2); x.fill();
     x.fillStyle = f.ok && k ? "#0b1220" : "#efeee5"; x.font = F(800, 46); x.textAlign = "center"; x.fillText(f.n[0], 70, 72); x.textAlign = "left";
-    x.fillStyle = "#0b1220"; x.font = F(800, 58); x.fillText(f.n, 132, 76);
-    x.fillStyle = "#4b5468"; x.font = F(600, 46); x.fillText(f.d, 470, 74);
+    x.fillStyle = "#0b1220"; x.font = F(800, 74); x.fillText(f.n, 132, 82);
+    x.fillStyle = "#3d4558"; x.font = F(600, 62); x.fillText(f.d, 440, 80);
   });
   for (const f of filas) { f.tex0 = filaTex(f, 0); f.tex1 = filaTex(f, 1); f.p.material.map = f.tex0; }
   const chipTex = (txt, rojo) => lienzo(500, 110, (x) => {
@@ -560,14 +585,15 @@ function texturas() {
     x.fillStyle = "#0b1220"; x.font = F(900, 150); x.fillText("Paula", 270, 205);
     x.fillStyle = "#dcdacb"; x.fillRect(60, 300, 1320, 6);
     x.fillStyle = "#4b5468"; x.font = F(600, 84); x.fillText("Compró:", 60, 430);
-    x.fillStyle = "#0b1220"; x.font = F(800, 84); x.fillText("bici urbana · marzo", 420, 430);
+    const wc = x.measureText("Compró: ").width;
+    x.fillStyle = "#0b1220"; x.font = F(800, 84); x.fillText("bici urbana · marzo", 60 + wc + 8, 430);
     x.fillStyle = "#4b5468"; x.font = F(600, 84); x.fillText("Casco:", 60, 700);
     if (estado === 2) {
-      x.fillStyle = "#5ce611"; rr(x, 340, 580, 420, 170, 85); x.fillStyle = "#0b1220"; x.font = F(900, 110); x.fillText("sí", 400, 705); tickC(x, 660, 665, 58, "#0b1220", "#5ce611");
+      x.fillStyle = "#5ce611"; rr(x, 390, 580, 420, 170, 85); x.fillStyle = "#0b1220"; x.font = F(900, 110); x.fillText("sí", 450, 705); tickC(x, 710, 665, 58, "#0b1220", "#5ce611");
     } else {
-      x.fillStyle = "#f5dcd8"; rr(x, 340, 580, 300, 170, 85); x.strokeStyle = "#c7655b"; x.lineWidth = 10; rrS(x, 340, 580, 300, 170, 85);
-      x.fillStyle = "#a8463d"; x.font = F(900, 110); x.fillText("no", 420, 705);
-      if (estado === 1) { x.strokeStyle = "#a8463d"; x.lineWidth = 16; x.lineCap = "round"; x.beginPath(); x.moveTo(370, 672); x.lineTo(612, 656); x.stroke(); }
+      x.fillStyle = "#f5dcd8"; rr(x, 390, 580, 300, 170, 85); x.strokeStyle = "#c7655b"; x.lineWidth = 10; rrS(x, 390, 580, 300, 170, 85);
+      x.fillStyle = "#a8463d"; x.font = F(900, 110); x.fillText("no", 470, 705);
+      if (estado === 1) { x.strokeStyle = "#a8463d"; x.lineWidth = 16; x.lineCap = "round"; x.beginPath(); x.moveTo(420, 672); x.lineTo(662, 656); x.stroke(); }
     }
   });
   fichaTex[0] = fichaDib(0); fichaTex[1] = fichaDib(1); fichaTex[2] = fichaDib(2);
@@ -578,20 +604,29 @@ function texturas() {
     x.font = F(600, 54); x.fillText("llegaron cascos", 32, 164); x.fillText("para tu bici", 32, 234); x.fillText("de marzo.", 32, 304);
     cascoIcono(x, 530, 300, 40, "#0b1220", "#5ce611");
   });
-  for (const tj of tarjetas) tj.p.material.map = lienzo(920, 1240, (x) => {
-    x.fillStyle = "#ffffff"; x.fillRect(0, 0, 920, 1240);
-    x.fillStyle = tj.L.s > 0 ? "#5ce611" : "#9aa0a8"; x.beginPath(); x.arc(460, 400, 230, 0, Math.PI * 2); x.fill();
-    x.fillStyle = tj.L.s > 0 ? "#0b1220" : "#efeee5"; x.font = F(900, 240); x.textAlign = "center"; x.fillText(tj.n[0], 460, 485);
-    x.fillStyle = "#0b1220"; x.font = F(900, 180); x.fillText(tj.n, 460, 900);
+  for (const tj of tarjetas) tj.p.material.map = lienzo(920, 1216, (x) => {
+    x.fillStyle = "#ffffff"; x.fillRect(0, 0, 920, 1216);
+    x.fillStyle = tj.L.s > 0 ? "#5ce611" : "#9aa0a8"; x.beginPath(); x.arc(460, 390, 230, 0, Math.PI * 2); x.fill();
+    x.fillStyle = tj.L.s > 0 ? "#0b1220" : "#efeee5"; x.font = F(900, 240); x.textAlign = "center"; x.fillText(tj.n[0], 460, 475);
+    x.fillStyle = "#0b1220"; x.font = F(900, 190); x.fillText(tj.n, 460, 900);
     x.fillStyle = "#c9c7b8"; rr(x, 230, 990, 460, 40, 20); rr(x, 300, 1070, 320, 36, 18);
   });
-  for (const m of msjs) m.userData.p.material.map = lienzo(880, 220, (x) => {
-    x.fillStyle = "#5ce611"; x.fillRect(0, 0, 880, 220);
-    const [n, r] = m.userData.txt.split(",");
-    x.fillStyle = "#0b1220"; x.font = F(900, 92); x.fillText(n + ",", 40, 140);
-    const w = x.measureText(n + ", ").width; x.font = F(600, 92); x.fillText(r.trim(), 40 + w, 140);
+  // fichas compactas para la grilla de s12 (letra grande: se leen a 0,6 de escala)
+  const compacta = (n, compro, chip, verde, tick) => lienzo(1440, 890, (x) => {
+    x.fillStyle = "#ffffff"; x.fillRect(0, 0, 1440, 890);
+    x.fillStyle = verde || n === "Paula" ? "#5ce611" : "#16243d"; x.beginPath(); x.arc(130, 140, 96, 0, Math.PI * 2); x.fill();
+    x.fillStyle = verde || n === "Paula" ? "#0b1220" : "#efeee5"; x.font = F(900, 120); x.textAlign = "center"; x.fillText(n[0], 130, 182); x.textAlign = "left";
+    x.fillStyle = "#0b1220"; x.font = F(900, 200); x.fillText(n, 270, 212);
+    x.fillStyle = "#3d4558"; x.font = F(700, 140); x.fillText(compro, 50, 452);
+    x.font = F(900, 124); const wt = Math.min(1360, x.measureText(chip).width + (tick ? 170 : 0) + 110);
+    if (verde) { x.fillStyle = "#5ce611"; rr(x, 40, 560, wt, 230, 115); }
+    else { x.fillStyle = "#f5dcd8"; rr(x, 40, 560, wt, 230, 115); x.strokeStyle = "#c7655b"; x.lineWidth = 12; rrS(x, 40, 560, wt, 230, 115); }
+    x.fillStyle = verde ? "#0b1220" : "#a8463d"; x.fillText(chip, 95, 718);
+    if (tick) tickC(x, 40 + wt - 125, 675, 72, "#0b1220", "#5ce611");
   });
-  [izq.cartel, der.cartel, encabezado, pantallaOn, fichaP, globoP, ...filas.map((f) => f.p), ...chips.map((c) => c.userData.p), ...tarjetas.map((tj) => tj.p), ...msjs.map((m) => m.userData.p)].forEach((p) => (p.material.needsUpdate = true));
+  fichaTex[3] = compacta("Paula", "Bici urbana", "Casco: sí", true, true);
+  for (const o of otras) { o.tex[0] = compacta(o.n, o.c, `${o.f}: no`, false, false); o.tex[1] = compacta(o.n, o.c, `Avisarle: ${o.a}`, true, false); o.p.material.map = o.tex[0]; }
+  [izq.cartel, der.cartel, encabezado, pantallaOn, fichaP, globoP, ...filas.map((f) => f.p), ...chips.map((c) => c.userData.p), ...tarjetas.map((tj) => tj.p), ...otras.map((o) => o.p)].forEach((p) => (p.material.needsUpdate = true));
   pintarCel("chat", 0, 0, false);
 }
 
@@ -599,15 +634,19 @@ function texturas() {
 // claves [t, azimut°, elevación°, distancia, mirarX, mirarY, mirarZ]; cúbica monótona continua (Fritsch-Carlson).
 const MON1 = V(1.45, 1.95, 1.1); // el monitor afuera, delante de la vidriera de la derecha
 const FICHA1 = V(1.45, 2.1, 2.3);
-const CEL1 = V(2.25, 1.75, 2.9);
-const PAULA0 = V(1.02, 0, 2.6);
-const BICI_PARK = V(1.8, 0, 3.3);
+// Paula NO está en la bicicletería cuando le llega el mensaje: está en la vereda de al lado, contra la pared lisa del
+// vecino (x 3,45-6,65), con su bici estacionada. En "Esa tarde, vuelve" camina con la bici hasta la puerta verde.
+const PAULA0 = V(4.35, 0, 3.25);         // Paula adelante (lado cámara); la bici detrás, entre ella y la pared
+const BICI0 = V(4.55, 0, 2.55);           // la bici estacionada (mira a -x)
+const PAULA_LLEGA = 1.8;                  // x donde frena, al lado de la puerta verde (2,52-3,27)
+const CEL_A = V(4.35, 1.75, 4.05);        // su pantalla en primer plano (tapa a Paula, que está detrás)
+const CEL_B = V(5.6, 1.85, 3.8);          // la pantalla al lado de Paula, a su derecha
 const FICHA2 = V(1.45, 2.0, 2.4);
-const CIELO = V(1.6, 6.4, 1.5);
+const CIELO = V(1.6, 8.0, 1.5);
 const CAM = [
-  [0, 0, 4, 17.2, 0, 3.12, 0],
-  [S["s01b-una"], 0, 4, 16.6, 0, 3.08, 0],
-  [S["s02-izquierda"] - 0.1, 1, 4, 15.0, -0.2, 2.8, 0],
+  [0, 0, 4, 18.2, 0, 3.12, 0],
+  [S["s01b-una"], 0, 4, 16.6, 0, 3.06, 0],
+  [S["s02-izquierda"] - 0.1, 1, 4, 14.9, -0.2, 2.82, 0],
   [S["s02-izquierda"] + 0.75, -8, 5, 7.2, -1.5, 1.55, 0],
   [W[14] + 0.35, -4, 3, 5.0, -1.45, 1.82, 1.3],
   [W[18] + 0.15, -2, 5, 7.6, -1.45, 2.3, 1.0],
@@ -618,25 +657,24 @@ const CAM = [
   [S["s04-filtro"] + 0.55, 0, 2, 6.1, MON1.x, MON1.y + 0.02, MON1.z],
   [S["s05-escribe"] - 0.05, 0, 2, 5.9, MON1.x, MON1.y, MON1.z + 0.1],
   [S["s05-escribe"] + 0.6, -3, 4, 6.7, 1.45, 1.45, 2.3],
-  [S["s06-mensaje"] - 0.05, -2, 4, 6.8, 1.6, 1.45, 2.3],
-  [S["s06-mensaje"] + 0.55, 4, 3, 6.0, 2.0, 1.8, 2.6],
-  [W[38], 6, 2, 4.6, CEL1.x, CEL1.y + 0.02, CEL1.z],
-  [S["s07-vio"] - 0.05, 6, 2, 4.4, CEL1.x, CEL1.y + 0.02, CEL1.z],
-  [S["s07-vio"] + 0.5, -4, 6, 8.4, 1.58, 1.6, 2.8],
-  [S["s08-su-nombre"] - 0.05, -2, 6, 8.3, 1.52, 1.6, 2.8],
-  [W[56], 0, 6, 8.2, 1.52, 1.6, 2.8],
-  [W[57] + 0.6, 8, 7, 8.4, 2.3, 1.5, 1.9],
-  [S["s09-mismos"] - 0.1, 10, 7, 9.0, 2.5, 1.6, 1.5],
-  [S["s09-mismos"] + 0.8, 2, 6, 20.6, 0.85, 2.45, 0.4],
-  [W[64] + 0.1, 0, 6, 20.8, 0.85, 2.4, 0.4],
-  [W[67], 7, 6, 9.6, 1.3, 1.75, 1.0],
-  [S["s11-scalerics"] - 0.05, 8, 6, 8.9, 1.35, 1.8, 1.0],
+  [S["s06-mensaje"] - 0.05, -2, 4, 6.8, 1.6, 1.5, 2.4],
+  [S["s06-mensaje"] + 0.35, 3, 3, 5.8, 2.9, 1.6, 3.1],
+  [W[37] + 0.1, 0, 0, 3.6, CEL_A.x, CEL_A.y + 0.16, CEL_A.z],
+  [S["s07-vio"] - 0.05, 0, 0, 3.5, CEL_A.x, CEL_A.y + 0.14, CEL_A.z],
+  [S["s07-vio"] + 0.6, -3, 6, 9.2, 4.9, 1.55, 3.05],
+  [S["s08-su-nombre"] - 0.05, -2, 6, 9.1, 4.9, 1.55, 3.05],
+  [W[56], -1, 7, 8.9, 4.9, 1.55, 3.05],
+  [W[57] + 0.25, 0, 12, 8.8, 4.3, 1.4, 3.0],
+  [S["s09-mismos"] - 0.1, -2, 16, 9.0, 2.35, 1.3, 2.9],
+  [S["s09-mismos"] + 0.8, 0, 6, 20.8, 0.65, 2.3, 0.8],
+  [W[64] + 0.1, 0, 6, 20.6, 0.65, 2.3, 0.8],
+  [W[67], 6, 6, 8.6, 1.25, 1.95, 1.0],
+  [S["s11-scalerics"] - 0.05, 7, 6, 8.2, 1.3, 1.95, 1.0],
   [S["s11-scalerics"] + 0.6, 0, 4, 6.4, FICHA2.x, FICHA2.y, FICHA2.z],
   [S["s12-tu-local"] - 0.05, -2, 4, 6.2, FICHA2.x, FICHA2.y, FICHA2.z],
-  [S["s12-tu-local"] + 0.7, -12, 6, 5.6, der.ped.x, 1.75, -0.3],
-  [W[82] + 0.4, 6, 5, 5.0, der.ped.x, 1.85, 0],
-  [S["s13-llamada"] - 0.05, 8, 4, 6.0, 1.58, 3.3, 0.5],
-  [S["s13-llamada"] + 0.65, 4, 0, 6.6, CIELO.x, CIELO.y - 0.45, CIELO.z],
+  [S["s12-tu-local"] + 0.5, 0, 3, 7.3, GRID.x, GRID.y, GRID.z],
+  [W[83] - 0.05, 2, 3, 7.4, GRID.x, GRID.y, GRID.z],
+  [S["s13-llamada"] - 0.02, 3, 0, 6.6, CIELO.x, CIELO.y - 0.45, CIELO.z],
   [DUR, 2, 0, 6.3, CIELO.x, CIELO.y - 0.45, CIELO.z],
 ];
 const _mira = new THREE.Vector3();
@@ -699,54 +737,62 @@ function renderAt(t) {
   for (const L of locales) {
     const c = L.casco;
     let pos = L.cascoBase.clone(), ry = L.cascoRy, s = 1.1, rx = 0;
-    // "cascos": pop y una vuelta sincronizada
+    // "cascos": saltan, crecen y dan una vuelta sincronizada (se ve aunque el casco sea simétrico)
     const vuelta = eio(sg(t, W[4] - 0.05, W[4] + 0.65));
-    s *= 1 + 0.12 * pulso(t, W[4] - 0.08, 0.4);
-    ry += vuelta * Math.PI * 2;
-    // "Mismos cascos": se elevan y giran en espejo
-    const sube = eio(sg(t, W[61] - 0.08, W[61] + 0.45)) * (1 - eio(sg(t, W[64], W[64] + 0.5)));
+    s *= 1 + 0.24 * pulso(t, W[4] - 0.08, 0.42);
+    pos.y += 0.22 * pulso(t, W[4] - 0.08, 0.5);
+    ry += vuelta * Math.PI * 2; rx += 0.25 * pulso(t, W[4] - 0.02, 0.45);
+    // "Mismos cascos": se elevan y giran en espejo; bajan antes de que entren las tarjetas
+    const sube = eio(sg(t, W[61] - 0.08, W[61] + 0.45)) * (1 - eio(sg(t, W[63] - 0.2, W[63] + 0.25)));
     pos.y += 0.32 * sube + Math.sin(t * 1.6 + L.s) * 0.025 * sube;
     ry += L.s * sube * Math.PI * 2;
     s *= 1 + 0.12 * pulso(t, W[61] - 0.1, 0.38);
     let vis = 1;
     if (L.s > 0) {
-      // callback: vuela de la vidriera a la ficha de Paula
+      // callback: vuela de la vidriera a la ficha de Paula y viaja con ella
       const vuela = eio(sg(t, W[73] - 0.4, W[73] + 0.2));
+      const fp = fichaPose(t);
+      const encima = (k) => fichaTop(t).add(V(0.36 * k, 0.035 * k, -0.12 * k));
       if (vuela > 0) {
-        const dest = fichaTop(t).add(V(0.36, 0.035, -0.12));
+        const dest = encima(fp.k);
         pos = lerpV(pos, dest, vuela); pos.y += Math.sin(Math.PI * vuela) * 0.75;
-        s = lerp(s, 0.46, vuela); ry = lerp(ry % (Math.PI * 2), Math.PI - 0.35, vuela); rx = Math.sin(Math.PI * vuela) * 0.4;
+        s = lerp(s, 0.46 * fp.k, vuela); ry = lerp(ry % (Math.PI * 2), Math.PI - 0.35, vuela); rx = Math.sin(Math.PI * vuela) * 0.4;
       }
-      if (t >= W[73] + 0.2) { pos = fichaTop(t).add(V(0.36, 0.035, -0.12)); s = 0.46 * (1 + 0.1 * pulso(t, W[73] + 0.18, 0.25)); ry = Math.PI - 0.35; rx = 0; }
-      // s13: reaparece en el cielo, girando
-      if (t >= S["s12-tu-local"] + 0.45) {
-        const t0 = W[83] - 0.1, e = eio(sg(t, t0, S["s13-llamada"] + 0.2));
-        vis = t >= t0 ? 1 : 0;
-        const P1 = V(der.ped.x, 2.0, 1.4);
-        pos = e < 0.4 ? lerpV(V(der.ped.x, 1.35, der.ped.z), P1, eo(e / 0.4)) : lerpV(P1, _mira.clone().add(V(0.02, 0.45, 0)), eio((e - 0.4) / 0.6)); s = lerp(0.55, 1.05, e) * bk(sg(t, t0, t0 + 0.35)) * (1 + 0.04 * Math.sin(t * 2.2));
-        ry = t * 0.9 + 0.6; rx = 0.18 + Math.sin(t * 1.3) * 0.05;
+      if (t >= W[73] + 0.2) { pos = encima(fp.k); s = 0.46 * fp.k * (1 + 0.1 * pulso(t, W[73] + 0.18, 0.25)); ry = Math.PI - 0.35; rx = 0; }
+      // "Agendá": se despega de la ficha y sube al cielo con la cámara (queda solo, para la tarjeta de cierre)
+      const t0 = W[83] - 0.12;
+      if (t >= t0) {
+        const e = eio(sg(t, t0, S["s13-llamada"] + 0.15));
+        const arriba = _mira.clone().add(V(0.02, 0.45, 0));
+        const p0 = pos.clone();
+        pos = lerpV(p0, arriba, e); pos.z += Math.sin(Math.PI * e) * 0.6;
+        s = lerp(s, 1.05, eo(e)) * (1 + 0.04 * Math.sin(t * 2.2) * e);
+        ry = lerp(Math.PI - 0.35, t * 0.9 + 0.6, e); rx = lerp(0, 0.18 + Math.sin(t * 1.3) * 0.05, e);
       }
     }
     c.visible = vis > 0 && s > 0.01; c.position.copy(pos); c.scale.setScalar(s); c.rotation.set(rx, ry, 0);
-    // el soporte se esconde cuando entra la caja
-    L.soporte.visible = !(L.s > 0 && t > S["s12-tu-local"] + 0.3);
+    // el soporte de exhibición se hunde en el pedestal cuando el casco se va (nunca queda la "cabeza" pelada)
+    const hunde = L.s > 0 ? eio(sg(t, W[73] - 0.4, W[73] + 0.05)) : 0;
+    L.soporte.position.y = 1.02 - 0.75 * hunde; L.soporte.scale.setScalar(1 - 0.5 * hunde); L.soporte.visible = hunde < 0.98;
   }
 
-  // ---- el celular de la izquierda: la foto en las redes y su cascada ----
+  // ---- el celular de la izquierda: la foto en las redes y su cascada (se van ANTES del travelling) ----
   {
-    const s = vida(t, W[14] - 0.15, S["s03-derecha"] + 0.35, 0.45, 0.3);
+    const fin = S["s03-derecha"] - 0.3;
+    const s = vida(t, W[14] - 0.15, fin, 0.45, 0.3);
     const sube = eo(sg(t, W[14] - 0.15, W[14] + 0.35));
+    const baja = eio(sg(t, fin, fin + 0.3));
     ocultar(celIzq, s);
-    celIzq.position.set(-1.45, lerp(-0.8, 1.85, sube), 1.35); celIzq.rotation.set(-0.06, 0.12, lerp(0.15, 0, sube));
+    celIzq.position.set(-1.45, lerp(-0.8, 1.85, sube) - 1.2 * baja, 1.35); celIzq.rotation.set(-0.06, 0.12, lerp(0.15, 0, sube));
     celIzq.scale.multiplyScalar(1 + 0.04 * pulso(t, W[14] - 0.02, 0.2));
     cascada.forEach((c, i) => {
       const t0 = W[18] - 0.05 + i * 0.07;
       const u = eo(sg(t, t0, t0 + 0.55));
-      const sc = (t < t0 ? 0 : 1) * lerp(0.9, 0.4, u) * (1 - eio(sg(t, S["s03-derecha"] + 0.05, S["s03-derecha"] + 0.4)));
+      const sc = (t < t0 ? 0 : 1) * lerp(0.9, 0.4, u) * (1 - eio(sg(t, fin - 0.1, fin + 0.2)));
       ocultar(c, sc);
       // abanico alrededor del celular: el mismo post, para todos igual
       const ang = Math.PI * (0.12 + 0.76 * (i / 6)), rad = (1.0 + 0.12 * (i % 3)) * u;
-      c.position.set(-1.45 + Math.cos(ang) * rad * 1.05, 1.85 + Math.sin(ang) * rad * 0.95, 1.3 - u * 0.35);
+      c.position.set(-1.45 + Math.cos(ang) * rad * 1.05, 1.85 + Math.sin(ang) * rad * 0.8, 1.45 + u * 0.3);
       c.rotation.set(-0.05, 0.1 * Math.cos(ang), (Math.cos(ang)) * -0.15 * u);
     });
   }
@@ -769,9 +815,9 @@ function renderAt(t) {
       f.g.visible = on;
       const apaga = f.f === 1 ? f1 : f.f === 2 ? f2 : 0;
       const slot = f.ok ? okOrden.indexOf(f.i) : 3 + noOrden.indexOf(f.i);
-      const y = lerp(FY[f.i], FY[slot], junta);
+      const y = FY[f.i];
       // la de Paula se va con la ficha en "Le escribe"
-      const sePaula = f.i === 0 ? sg(t, S["s05-escribe"] - 0.02, S["s05-escribe"] + 0.05) : 0;
+      const sePaula = f.i === 0 ? eio(sg(t, S["s05-escribe"] - 0.02, S["s05-escribe"] + 0.22)) : 0;
       f.g.position.set(0, y, 0.05 + (f.ok ? 0.05 * junta : 0));
       f.g.scale.setScalar((f.ok ? 1 + 0.03 * junta : 1 - 0.05 * apaga) * (1 - sePaula));
       f.g.visible = on && sePaula < 1;
@@ -784,8 +830,8 @@ function renderAt(t) {
       const t0 = i ? W[29] - 0.08 : W[27] - 0.08;
       const cae = sg(t, t0, t0 + 0.3);
       c.visible = on && t >= t0;
-      c.position.copy(CHIP_POS[i]); c.position.y += (1 - cae * cae) * 0.9 + Math.sin(Math.PI * sg(t, t0 + 0.3, t0 + 0.45)) * 0.03;
-      c.position.z += (1 - cae) * 0.3;
+      c.position.copy(CHIP_POS[i]); c.position.y += (1 - cae * cae) * 0.3 + Math.sin(Math.PI * sg(t, t0 + 0.3, t0 + 0.45)) * 0.03;
+      c.position.z += (1 - cae) * 0.6;
       c.rotation.set(0, 0, (1 - cae) * (i ? -0.25 : 0.25));
       c.scale.setScalar(1 + 0.08 * pulso(t, t0 + 0.28, 0.2));
     });
@@ -794,7 +840,7 @@ function renderAt(t) {
   // ---- la ficha de Paula ----
   {
     let vis = false;
-    // s05: sale de la fila, crece y viene hacia la cámara
+    // s05: sale de la fila (escala pareja, sin aplastar el texto), crece y viene hacia la cámara
     if (t >= S["s05-escribe"] - 0.02 && t < S["s07-vio"]) {
       const u = eio(sg(t, S["s05-escribe"] - 0.02, S["s05-escribe"] + 0.5));
       der.mon.updateMatrixWorld(true);
@@ -802,58 +848,55 @@ function renderAt(t) {
       const ret = eio(sg(t, W[37] + 0.1, W[37] + 0.6));
       const pos = lerpV(fila, FICHA1, u); pos.z += Math.sin(Math.PI * u) * 0.4;
       ficha.position.copy(lerpV(pos, V(0.9, 1.4, -1.6), ret));
-      const sx = lerp(1.42 / FW_, 1, u), sy = lerp(0.118 / FH_, 1, u);
-      const k = 1 - ret;
-      ficha.scale.set(Math.max(0.001, sx * k), Math.max(0.001, sy * k), Math.max(0.001, k));
+      const k = (1 - ret) * lerp(0.3, 1, u);
+      ficha.scale.setScalar(Math.max(0.001, k));
       ficha.rotation.set(0, Math.sin(Math.PI * u) * -0.3, 0);
       ficha.scale.multiplyScalar(1 + 0.04 * pulso(t, W[36] - 0.05, 0.25));
       vis = k > 0.02;
       if (fichaP.material.map !== fichaTex[0]) { fichaP.material.map = fichaTex[0]; fichaP.material.needsUpdate = true; }
     }
-    // s11: vuelve desde la tarjeta chica de Paula (con un giro que cambia la cara) y se tilda
-    if (t >= S["s11-scalerics"] - 0.02) {
-      const u = eio(sg(t, S["s11-scalerics"] - 0.02, S["s11-scalerics"] + 0.6));
-      const tj = tarjetas.find((x) => x.L.s > 0 && x.i === 0);
-      const sale = eio(sg(t, S["s12-tu-local"] - 0.02, S["s12-tu-local"] + 0.45));
-      const pos = lerpV(TARJ_P, FICHA2, u); pos.y += Math.sin(Math.PI * u) * 0.35;
-      ficha.position.copy(lerpV(pos, V(3.6, 3.6, 1.6), sale));
-      const sx = lerp(0.5 / FW_, 1, u), sy = lerp(0.66 / FH_, 1, u);
-      ficha.scale.set(sx * (1 - sale * 0.6), sy * (1 - sale * 0.6), 1 - sale * 0.6);
-      ficha.rotation.set(0, Math.sin(Math.PI * u) * 0.35 + sale * -0.6, sale * -0.3);
-      ficha.scale.multiplyScalar(1 + 0.05 * pulso(t, W[73] + 0.15, 0.25));
-      vis = sale < 0.98;
-      const est = t >= W[73] + 0.02 ? 2 : t >= W[72] + 0.3 ? 1 : 0;
+    // s11: vuelve desde la tarjeta chica de Paula y se tilda; s12: se achica a la grilla de tus clientes
+    if (t >= S["s11-scalerics"] - 0.02 && t < S["s13-llamada"] + 0.3) {
+      const fp = fichaPose(t);
+      ficha.position.copy(fp.pos);
+      ficha.scale.set(fp.sx, fp.sy, fp.k);
+      ficha.rotation.set(0, fp.ry, 0);
+      vis = true;
+      const est = fp.g > 0.5 ? 3 : t >= W[73] + 0.02 ? 2 : t >= W[72] + 0.3 ? 1 : 0;
       if (fichaP.material.map !== fichaTex[est]) { fichaP.material.map = fichaTex[est]; fichaP.material.needsUpdate = true; }
     }
     ficha.visible = vis;
   }
 
-  // ---- el globo del mensaje: de la ficha al celular ----
+  // ---- el globo del mensaje: de la ficha al celular, y aterriza ADENTRO de la pantalla, donde aparece el mensaje ----
   {
-    const t0 = W[36] - 0.1, t1 = W[37] + 0.25;
+    const t0 = W[36] - 0.1, t1 = W[37] + 0.04;
     const u = eio(sg(t, t0, t1));
-    const vis = t >= t0 && t < t1 + 0.02;
+    const vis = t >= t0 && t < t1;
     globo.visible = vis;
     if (vis) {
-      const a = FICHA1.clone().add(V(0.5, 0.25, 0.15)), b = CEL1.clone().add(V(0.0, 0.22, 0.06));
-      const p = lerpV(a, b, u); p.y += Math.sin(Math.PI * u) * 0.35; p.z += Math.sin(Math.PI * u) * 0.25;
-      globo.position.copy(p); globo.scale.setScalar(bk(sg(t, t0, t0 + 0.25)) * lerp(1, 0.78, u)); globo.rotation.set(0, lerp(-0.2, 0, u), Math.sin(Math.PI * u) * 0.15);
+      celP.updateMatrixWorld(true);
+      const a = FICHA1.clone().add(V(0.5, 0.25, 0.15));
+      const b = celP.localToWorld(V(0, 0.735 - ((MSJ_Y + 162) / 1192) * 1.47, 0.07));
+      const p = lerpV(a, b, u); p.y += Math.sin(Math.PI * u) * 0.12; p.z += Math.sin(Math.PI * u) * 0.3;
+      globo.position.copy(p); globo.scale.setScalar(bk(sg(t, t0, t0 + 0.25)) * lerp(1, 0.92, u)); globo.rotation.set(0, lerp(-0.2, -0.12, u), Math.sin(Math.PI * u) * 0.12);
     }
   }
 
   // ---- la bici de Paula ----
   {
     let x = 0, z = 2.6, ry = Math.PI, vis = false, giro = 0;
-    if (t >= W[33] - 0.35 && t < S["s06-mensaje"] + 0.5) {
+    const BICI_SALE = S["s06-mensaje"] + 0.22;
+    if (t >= W[33] - 0.35 && t < BICI_SALE) {
       const u = eo(sg(t, W[33] - 0.35, W[35] + 0.2));
-      const sal = Math.pow(sg(t, S["s06-mensaje"], S["s06-mensaje"] + 0.5), 2);
-      x = lerp(3.8, 1.45, u) - sal * 2.1; vis = true; ry = Math.PI; z = 2.6;
+      const sal = Math.pow(sg(t, S["s06-mensaje"], BICI_SALE), 2);
+      x = lerp(3.8, 1.45, u) - sal * 2.6; vis = true; ry = Math.PI; z = 2.6;
       giro = (3.8 - x) / biciP.R;
-    } else if (t >= S["s07-vio"] - 0.2) {
-      const u = eo(sg(t, S["s07-vio"] - 0.2, S["s07-vio"] + 0.6));
-      const empuja = eio(sg(t, W[57] + 0.36, W[59] + 0.65));
-      x = lerp(-0.9, BICI_PARK.x, u) + 0.75 * empuja; z = BICI_PARK.z; ry = 0; vis = true;
-      giro = -(x + 0.9) / biciP.R;
+    } else if (t >= BICI_SALE) {
+      // estacionada al lado de Paula; en "Esa tarde" la empuja hasta la bicicletería verde
+      const xP = paulaX(t);
+      x = Math.min(BICI0.x, xP + 0.2); z = BICI0.z; ry = Math.PI; vis = true;
+      giro = (BICI0.x - x) / biciP.R;
     }
     biciP.g.visible = vis;
     biciP.g.position.set(x, 0, z); biciP.g.rotation.set(0, ry, 0);
@@ -863,89 +906,90 @@ function renderAt(t) {
 
   // ---- Paula ----
   {
-    const vis = t >= S["s06-mensaje"] + 1.6 && t < W[64] + 0.1;
+    const vis = t >= S["s06-mensaje"] + 0.22 && t < S["s13-llamada"];
     paula.raiz.visible = vis;
     if (vis) {
       const CEL = { manoI: [0.075, 0.33, 0.3], manoD: [-0.075, 0.33, 0.3], codoI: [0.6, -0.8, -0.3], codoD: [-0.6, -0.8, -0.3] };
-      const caminaBici = sg(t, W[57] + 0.36, W[59] + 0.65);
+      const camina = W[57] + 0.2;
       const claves = [
-        [0, { x: PAULA0.x, z: PAULA0.z, giro: 0.25, ...CEL, cabeza: { asiente: 0.32, giro: 0.05 }, ojos: { y: -0.75, x: 0.1 }, boca: { sonrisa: 0.1 } }],
-        [W[46] + 0.15, { cejas: { alto: 0.35, ang: 0.15 }, cabeza: { asiente: 0.3, giro: 0.12 } }, 0.25],
-        [W[49] + 0.1, { cejas: { alto: -0.1, ang: 0 }, boca: { sonrisa: -0.15 }, cabeza: { giro: -0.12, asiente: 0.34 } }, 0.25],
-        [W[51] + 0.1, { cabeza: { giro: 0.08 } }, 0.25],
-        [W[55] + 0.1, { cabeza: { asiente: 0.08, giro: -0.15, ladea: 0.1 }, ojos: { y: -0.15, x: -0.3, feliz: 0.2 }, cejas: { alto: 0.75, ang: 0.3 }, boca: { sonrisa: 1, abierta: 0.32, ancho: 1.15 } }, 0.25],
+        [0, { x: PAULA0.x, z: PAULA0.z, giro: 0.22, ...CEL, cabeza: { asiente: 0.32, giro: 0.12 }, ojos: { y: -0.75, x: 0.15 }, boca: { sonrisa: 0.1 } }],
+        [W[46] + 0.15, { cejas: { alto: 0.35, ang: 0.15 }, cabeza: { asiente: 0.3, giro: 0.16 } }, 0.25],
+        [W[49] + 0.1, { cejas: { alto: -0.1, ang: 0 }, boca: { sonrisa: -0.15 }, cabeza: { giro: 0.05, asiente: 0.34 } }, 0.25],
+        [W[51] + 0.1, { cabeza: { giro: 0.14 } }, 0.25],
+        [W[55] + 0.1, { cabeza: { asiente: 0.08, giro: 0.2, ladea: 0.1 }, ojos: { y: -0.15, x: 0.3, feliz: 0.2 }, cejas: { alto: 0.75, ang: 0.3 }, boca: { sonrisa: 1, abierta: 0.32, ancho: 1.15 } }, 0.25],
         [W[56] + 0.1, { boca: { sonrisa: 0.9, abierta: 0.08 }, cabeza: { ladea: -0.06, asiente: 0.12 } }, 0.25],
-        [W[57] + 0.36, { x: 1.62, z: 2.72, giro: Math.PI / 2, paso: 1, cabeza: { asiente: 0.0, giro: 0, ladea: 0 }, ojos: { y: 0, x: 0, feliz: 0.1 }, manoI: [0.29, -0.06, 0.06], codoD: null, codoI: null, boca: { sonrisa: 0.7, abierta: 0 } }, 0.36],
-        [W[59] + 0.65, { x: 2.37, paso: 1 }, 0.8, (u) => u],
-        [W[59] + 0.85, { paso: 0, cabeza: { giro: -0.75, asiente: 0.04 }, ojos: { x: -0.3 }, boca: { sonrisa: 1, abierta: 0.2 }, cejas: { alto: 0.4 } }, 0.25],
-        [S["s09-mismos"] + 0.75, { giro: Math.PI * 0.95, cabeza: { giro: 0 }, x: 2.7, z: 1.5, paso: 1, manoD: [-0.29, -0.06, 0.06] }, 0.5],
-        [S["s09-mismos"] + 1.7, { x: 2.82, z: -0.95, paso: 1 }, 0.95, (u) => u],
-        [S["s09-mismos"] + 1.95, { paso: 0, giro: Math.PI * 0.72 }, 0.25],
+        // guarda el celular y gira hacia la izquierda (hacia la bicicletería), mano derecha (la del lado de la bici) al manubrio
+        [camina, { giro: -Math.PI / 2, cabeza: { asiente: 0.0, giro: -0.35, ladea: 0 }, ojos: { y: 0, x: -0.2, feliz: 0.1 }, manoI: [0.29, -0.06, 0.06], codoI: null, boca: { sonrisa: 0.7, abierta: 0 } }, 0.5],
+        [S["s09-mismos"] + 0.05, { x: PAULA_LLEGA, paso: 0, cabeza: { giro: -0.5, asiente: 0.04 }, ojos: { x: -0.3 }, boca: { sonrisa: 1, abierta: 0.2 }, cejas: { alto: 0.4 } }, 0.3],
+        // deja la bici, la rodea por atrás (la puerta queda detrás de la rueda trasera) y entra al local
+        [S["s09-mismos"] + 0.5, { giro: -4.46, cabeza: { giro: 0 }, paso: 1, manoD: [-0.29, -0.06, 0.06], codoD: null }, 0.4],
+        [S["s09-mismos"] + 1.2, { x: 3.1, z: 2.95, paso: 1 }, 0.7, (u) => u],
+        [S["s09-mismos"] + 1.45, { giro: -2.94 }, 0.3],
+        [S["s09-mismos"] + 2.2, { x: 3.0, z: 1.2, paso: 1 }, 1.0, (u) => u],
+        [S["s09-mismos"] + 2.6, { x: 2.85, z: 0.1, giro: -3.0 }, 0.4, (u) => u],
+        [S["s09-mismos"] + 3.15, { x: 2.35, z: -1.15, giro: -2.76 }, 0.55, (u) => u],
+        [S["s09-mismos"] + 3.4, { paso: 0, giro: -2.32 }, 0.25],
       ];
       const p = poseEn(t, claves);
+      p.x = t < S["s09-mismos"] + 0.1 ? paulaX(t) : p.x;
+      if (t > camina - 0.5 && t < S["s09-mismos"] + 0.05) p.paso = sg(t, camina - 0.1, camina + 0.15) * (1 - sg(t, S["s09-mismos"] - 0.15, S["s09-mismos"] + 0.05));
       paula.poner(p);
-      // empuja la bici: la mano izquierda va al puño del manubrio
-      if (caminaBici > 0 && t < S["s09-mismos"] + 0.4) {
+      // empuja la bici: la mano derecha (la del lado de la bici) va al puño del manubrio
+      const agarra = eio(sg(t, camina - 0.2, camina + 0.15)) * (1 - eio(sg(t, S["s09-mismos"] + 0.15, S["s09-mismos"] + 0.45)));
+      if (agarra > 0) {
         paula.raiz.updateMatrixWorld(true); biciP.g.updateMatrixWorld(true);
         const puno = biciP.g.localToWorld(V(0.13, 1.05, -0.31));
         const loc = paula.cuerpo.worldToLocal(puno);
-        const k = eio(sg(caminaBici, 0, 0.3)) * (1 - eio(sg(t, S["s09-mismos"] + 0.2, S["s09-mismos"] + 0.4)));
-        p.manoD = [lerp(p.manoD[0], loc.x, k), lerp(p.manoD[1], loc.y, k), lerp(p.manoD[2], loc.z, k)];
+        const base = p.manoD;
+        p.manoD = [lerp(base[0], loc.x, agarra), lerp(base[1], loc.y, agarra), lerp(base[2], loc.z, agarra)];
         p.codoD = [-0.8, -0.6, -0.2];
         paula.poner(p);
       }
-      const guarda = eio(sg(t, W[57] - 0.02, W[57] + 0.3));
+      const guarda = eio(sg(t, W[57] - 0.15, W[57] + 0.3));
       celChico.visible = guarda < 0.98; celChico.scale.setScalar(1 - guarda);
     }
   }
 
-  // ---- el celular grande de Paula (la ampliación de su pantalla) ----
+  // ---- el celular grande de Paula (su pantalla) ----
   {
-    const entra = eo(sg(t, S["s06-mensaje"] + 0.0, S["s06-mensaje"] + 0.5));
-    const guarda = eio(sg(t, W[57] - 0.02, W[57] + 0.3));
+    const entra = eo(sg(t, S["s06-mensaje"] + 0.05, S["s06-mensaje"] + 0.5));
+    const guarda = eio(sg(t, W[57] - 0.15, W[57] + 0.3));
     const vis = t >= S["s06-mensaje"] && guarda < 0.99;
     celP.visible = vis;
     if (vis) {
       paula.raiz.updateMatrixWorld(true);
       const mano = celChico.getWorldPosition(new THREE.Vector3());
-      const base = V(CEL1.x, lerp(-0.9, CEL1.y, entra), CEL1.z);
-      const pos = lerpV(base, mano, guarda);
-      const vib = en(t, W[37] + 0.2, W[37] + 0.55) ? Math.sin(t * 70) * 0.012 : 0;
+      // s07: se corre de adelante de Paula (la destapa) a su derecha
+      const corre = eio(sg(t, S["s07-vio"], S["s07-vio"] + 0.6));
+      const base = V(lerp(CEL_A.x, CEL_B.x, corre), lerp(lerp(-0.9, CEL_A.y, entra), CEL_B.y, corre), lerp(CEL_A.z, CEL_B.z, eio(sg(t, S["s07-vio"] + 0.25, S["s07-vio"] + 0.6))));
+      const pos = lerpV(base, mano, guarda); pos.y += Math.sin(Math.PI * guarda) * 0.3;
+      const vib = en(t, W[37] + 0.05, W[37] + 0.4) ? Math.sin(t * 70) * 0.012 : 0;
       celP.position.set(pos.x + vib, pos.y, pos.z);
-      celP.rotation.set(0, lerp(-0.12, -0.6, guarda), lerp(0.12, 0, entra) + vib * 2);
-      const crece = eio(sg(t, S["s07-vio"], S["s07-vio"] + 0.6));
-      celP.position.y += 0.06 * crece * (1 - guarda);
-      celP.scale.setScalar(lerp(lerp(1, 1.14, crece), 0.08, guarda) * (1 + 0.04 * pulso(t, W[46] - 0.1, 0.25)));
+      celP.rotation.set(0, lerp(lerp(0, -0.14, corre), -0.6, guarda), lerp(0.12, 0, entra) + vib * 2);
+      celP.scale.setScalar(lerp(lerp(1, 1.14, corre), 0.06, guarda) * (1 + 0.04 * pulso(t, W[46] - 0.1, 0.25)));
     }
-    const llego = t >= W[37] + 0.22;
+    const llego = t >= W[37] + 0.04;
     const modo = t >= W[46] - 0.02 ? "feed" : "chat";
-    const scroll = eio(sg(t, W[49] - 0.05, W[49] + 0.45));
+    const gris = eio(sg(t, W[49] - 0.05, W[49] + 0.3));
     const resalta = eio(sg(t, W[55] - 0.05, W[55] + 0.25));
-    pintarCel(modo, scroll, resalta, llego);
+    pintarCel(modo, gris, resalta, llego);
   }
 
-  // ---- los puntitos que unen el celular chico con la ampliación ----
+  // ---- Nico en la puerta ----
   {
-    const s = vida(t, S["s07-vio"] + 0.45, W[57] - 0.1, 0.3, 0.2);
-    paula.raiz.updateMatrixWorld(true);
-    const a = celChico.getWorldPosition(new THREE.Vector3());
-    const b = celP.localToWorld(V(-CW / 2, -0.25, 0));
-    puntos.forEach((p, i) => { const k = (i + 1) / 4; p.position.copy(lerpV(a, b, k)); ocultar(p, s * bk(sg(t, S["s07-vio"] + 0.45 + i * 0.08, S["s07-vio"] + 0.75 + i * 0.08))); });
-  }
-
-  // ---- Dani en la puerta ----
-  {
-    const vis = t >= W[59] + 0.3 && t < W[64] + 0.1;
-    dani.raiz.visible = vis;
+    const vis = t >= S["s08-su-nombre"] && t < S["s13-llamada"];
+    nico.raiz.visible = vis;
     if (vis) {
       const claves = [
-        [0, { x: 2.85, z: -0.75, giro: -0.1, cabeza: { giro: 0.2 }, boca: { sonrisa: 0.9, abierta: 0.25 }, cejas: { alto: 0.45 }, ojos: { x: -0.2 } }],
-        [S["s09-mismos"] + 0.9, { x: 2.45, z: -1.35, giro: 0.6, cabeza: { giro: 0.2 }, boca: { sonrisa: 0.8, abierta: 0.1 }, paso: 1 }, 0.6],
-        [S["s09-mismos"] + 1.2, { paso: 0 }, 0.2],
+        [0, { x: 2.85, z: -0.75, giro: -0.1, cabeza: { giro: 0.25 }, boca: { sonrisa: 0.9, abierta: 0.25 }, cejas: { alto: 0.45 }, ojos: { x: 0.2 } }],
+        [S["s09-mismos"] + 2.55, { x: 1.7, z: -1.75, giro: 0.82, cabeza: { giro: 0.2 }, boca: { sonrisa: 0.8, abierta: 0.1 }, paso: 1 }, 0.7, (u) => u],
+        [S["s09-mismos"] + 2.8, { paso: 0 }, 0.25],
       ];
       const p = poseEn(t, claves);
-      const sal = t < S["s09-mismos"] + 0.6 ? saludo(t, "D", 1) : {};
-      dani.poner({ ...p, ...sal });
+      // saluda y baja el brazo de a poco (sin saltos)
+      const ks = 1 - eio(sg(t, S["s09-mismos"] + 1.4, S["s09-mismos"] + 1.8));
+      if (ks > 0) { const sal = saludo(t, "D", 1); p.manoD = p.manoD.map((v, i) => lerp(v, sal.manoD[i], ks)); if (ks > 0.4) p.codoD = sal.codoD; p.dedoD = 0; }
+      nico.poner(p);
     }
   }
 
@@ -955,14 +999,14 @@ function renderAt(t) {
     ocultar(igual, s * 1.0); igual.position.set(0, 1.75 + Math.sin(t * 2) * 0.03, 0.75); igual.rotation.set(0, Math.sin(t * 1.4) * 0.25, 0);
   }
 
-  // ---- las tarjetas de los clientes, los "?" grises y lo que se llevó cada uno ----
+  // ---- las tarjetas de los clientes, los "?" grises y lo que se llevó cada uno (apoyado en su estante) ----
   {
     const fin = S["s11-scalerics"] + 0.15;
     tarjetas.forEach((tj) => {
       const t0 = W[63] - 0.1 + tj.i * 0.06;
       let s = vida(t, t0, fin, 0.4, 0.3);
       if (tj.L.s > 0 && tj.i === 0) s *= t < S["s11-scalerics"] - 0.02 ? 1 : 0;
-      ocultar(tj.g, s); tj.g.position.set(X(tj.L.s, CU[tj.i]), 1.25 + Math.sin(t * 1.5 + tj.i) * 0.015, 1.0); tj.g.rotation.set(0, -tj.L.s * 0.04, 0);
+      ocultar(tj.g, s); tj.g.position.set(X(tj.L.s, CU[tj.i]), TJ_Y, 1.0); tj.g.rotation.set(0, -tj.L.s * 0.04, 0);
     });
     preguntas.forEach((q, i) => {
       const s = vida(t, W[64] - 0.1 + i * 0.05, fin, 0.35, 0.3);
@@ -970,53 +1014,66 @@ function renderAt(t) {
     });
     items.forEach((it, i) => {
       const t0 = W[66 + i] - 0.08;
-      let s = vida(t, t0, fin, 0.4, 0.3);
-      let pos = V(X(1, CU[i]), 1.92 + Math.sin(t * 2 + i) * 0.03, 1.05);
-      let ry = t * 0.9 + i;
+      let s = vida(t, t0, fin, 0.4, 0.3) * ITEM_K[i];
+      let pos = V(X(1, CU[i]), ESTANTE_Y + itemBase[i] * s + 0.08 * (1 - bk(sg(t, t0, t0 + 0.4))), 1.06);
+      let ry = i === 0 ? -0.3 + Math.sin(t * 1.3) * 0.25 : 0.5 + Math.sin(t * 1.1 + i) * 0.5;
       if (i === 0) {
         // la bici chica de Paula se va con la ficha
+        s = t < t0 ? 0 : bk(sg(t, t0, t0 + 0.4)) * ITEM_K[0];
+        const fp = fichaPose(t);
         const u = eio(sg(t, S["s11-scalerics"] - 0.02, S["s11-scalerics"] + 0.6));
-        s = t < t0 ? 0 : bk(sg(t, t0, t0 + 0.4));
-        pos.y = 1.68 + Math.sin(t * 2) * 0.02; ry = -0.35 + Math.sin(t * 1.3) * 0.35;
-        if (u > 0) { pos = lerpV(pos, fichaTop(t).add(V(-0.38, 0, 0.0)), u); ry = lerp(ry, -0.35, u); }
-        if (t >= S["s11-scalerics"] + 0.6) { pos = fichaTop(t).add(V(-0.38, 0, 0)); ry = -0.35; }
-        const sale = eio(sg(t, S["s12-tu-local"] - 0.02, S["s12-tu-local"] + 0.45));
-        s *= 1 - sale;
-        it.scale.setScalar(Math.max(0.001, s) * lerp(0.3, 0.3, u));
-        it.visible = s > 0.002;
-      } else ocultar(it, s * 1.45);
+        const sobre = () => fichaTop(t).add(V(-0.38 * fp.k, 0, 0));
+        if (u > 0) { pos = lerpV(pos, sobre(), u); ry = lerp(ry, -0.35, u); }
+        if (t >= S["s11-scalerics"] + 0.6) { pos = sobre(); ry = -0.35; }
+        const k = t >= S["s11-scalerics"] - 0.02 ? lerp(1, fp.k, 1) : 1;
+        // en "Agendá" se cae de la ficha junto con la grilla (sale de cuadro con la cámara que sube)
+        s *= k * (1 - eio(sg(t, S["s13-llamada"] + 0.1, S["s13-llamada"] + 0.3)));
+      }
+      it.scale.setScalar(Math.max(0.001, s)); it.visible = s > 0.002;
       it.position.copy(pos); it.rotation.set(0, ry, 0);
     });
   }
 
-  // ---- s12: la caja nueva en la vidriera, el "?" y los tres mensajes con nombre ----
-  {
-    const s = vida(t, S["s12-tu-local"] + 0.2, DUR + 5, 0.45);
-    ocultar(caja, s * 1.0); caja.position.set(der.ped.x, 1.02, der.ped.z); caja.rotation.set(0, -0.25, 0);
-    const abre = eio(sg(t, W[82] - 0.05, W[82] + 0.3));
-    solapas.forEach((p, i) => (p.rotation.z = (i ? -1 : 1) * abre * 2.1));
-    const q = vida(t, W[78] - 0.12, W[82] - 0.05, 0.4, 0.25);
-    ocultar(preguntaVerde, q * 1.0); preguntaVerde.position.set(der.ped.x, 2.12 + Math.sin(t * 2.2) * 0.04, der.ped.z + 0.1); preguntaVerde.rotation.y = Math.sin(t * 1.5) * 0.35;
-    msjs.forEach((m, i) => {
-      const t0 = W[82] + 0.05 + i * 0.16;
-      const u = eo(sg(t, t0, t0 + 0.5));
-      ocultar(m, (t < t0 ? 0 : bk(sg(t, t0, t0 + 0.35))) * (1 - eio(sg(t, S["s13-llamada"] + 0.05, S["s13-llamada"] + 0.4))));
-      const dest = V(der.ped.x + [0.0, 0.1, -0.04][i], [2.2, 1.9, 1.6][i], 0.85);
-      const p = lerpV(V(der.ped.x, 1.45, der.ped.z), dest, u); p.y += Math.sin(Math.PI * u) * 0.2;
-      m.position.copy(p); m.position.y += Math.sin(t * 2 + i) * 0.015; m.scale.multiplyScalar(0.82); m.rotation.set(0, 0.1, [0.04, -0.03, 0.02][i] * u);
-    });
-  }
+  // ---- s12: la ficha de Paula se multiplica en las fichas de tus clientes ----
+  otras.forEach((o, i) => {
+    const t0 = W[78] - 0.08 + i * 0.1;
+    const u = eio(sg(t, t0, t0 + 0.45));
+    const vis = t >= t0 && t < S["s13-llamada"] + 0.3;
+    o.g.visible = vis;
+    if (!vis) return;
+    const desde = GRID.clone().add(SLOT[0]).add(V(0, 0, -0.08));
+    const hasta = GRID.clone().add(SLOT[i + 1]);
+    // salen de DETRÁS de la ficha de Paula (nunca le pasan por encima) y recién al llegar vienen al frente
+    const p = lerpV(desde, hasta, u); p.z = GRID.z - 0.22 * (1 - eio(sg(u, 0.55, 1)));
+    o.g.position.copy(p);
+    const avisa = t >= W[82] + i * 0.1;
+    o.g.scale.setScalar(GK * lerp(0.85, 1, u) * (1 + 0.07 * pulso(t, W[82] + i * 0.1 - 0.02, 0.26)));
+    o.g.rotation.set(0, Math.sin(Math.PI * u) * 0.25, 0);
+    const m = avisa ? o.tex[1] : o.tex[0]; if (o.p.material.map !== m) { o.p.material.map = m; o.p.material.needsUpdate = true; }
+  });
 
   renderer.render(scene, camera);
 }
+// dónde está la ficha de Paula en s11-s12 (y cuánto mide): crece desde su tarjeta chica, y en s12 se achica a la
+// primera casilla de la grilla de tus clientes
+function fichaPose(t) {
+  const u = eio(sg(t, S["s11-scalerics"] - 0.02, S["s11-scalerics"] + 0.6));
+  const g = eio(sg(t, S["s12-tu-local"] - 0.02, S["s12-tu-local"] + 0.42));
+  const pos = lerpV(TARJ_P, FICHA2, u); pos.y += Math.sin(Math.PI * u) * 0.35;
+  const p = lerpV(pos, GRID.clone().add(SLOT[0]), g);
+  const sx0 = lerp(TJ_W / FW_, 1, u), sy0 = sx0; // escala pareja: el texto de la ficha nunca se aplasta
+  const k = lerp(1, GK, g);
+  const pul = 1 + 0.05 * pulso(t, W[73] + 0.05, 0.25);
+  return { pos: p, sx: lerp(sx0, GK, g) * pul, sy: lerp(sy0, GK, g) * pul, k: lerp(u < 1 ? 1 : 1, GK, g) * pul, kf: k, ry: Math.sin(Math.PI * u) * 0.35 * (1 - g), g };
+}
 // el borde de arriba de la ficha (donde se apoyan el casco y la bici chica)
 function fichaTop(t) {
-  const u = eio(sg(t, S["s11-scalerics"] - 0.02, S["s11-scalerics"] + 0.6));
-  const sale = eio(sg(t, S["s12-tu-local"] - 0.02, S["s12-tu-local"] + 0.45));
-  const tj = tarjetas.find((x) => x.L.s > 0 && x.i === 0);
-  const pos = lerpV(TARJ_P, FICHA2, u); pos.y += Math.sin(Math.PI * u) * 0.35;
-  const p = lerpV(pos, V(3.6, 3.6, 1.6), sale);
-  return p.add(V(0, (FH_ / 2) * lerp(0.66 / FH_, 1, u) * (1 - sale * 0.6), 0));
+  const fp = fichaPose(t);
+  return fp.pos.clone().add(V(0, (FH_ / 2) * fp.sy, 0));
+}
+// x de Paula: quieta contra la pared del vecino; en "Esa tarde" camina con la bici hasta la puerta verde
+function paulaX(t) {
+  return lerp(PAULA0.x, PAULA_LLEGA, eio(sg(t, W[57] + 0.2, S["s09-mismos"] + 0.02)));
 }
 function en(t, a, b) { return t >= a && t < b; }
 

@@ -32,12 +32,12 @@ Palabras (segundos relativos a la escena): Mismos 0.00 · cascos, 0.32 · mismos
 Palabras (segundos relativos a la escena): Una 0.00 · sabía 0.28 · qué 0.68 · se 0.88 · llevó 1.08 · cada 1.38 · uno. 1.58
 
 ### s11-scalerics — dura 2.55 s (inicio global 26.32)
-Palabras (segundos relativos a la escena): En 0.00 · Scalerics 0.08 · armamos 0.93 · ese 1.28 · CRM. 1.91 · ¿Vemos 2.54
+Palabras (segundos relativos a la escena): En 0.00 · Scalerics 0.08 · armamos 0.93 · ese 1.30 · CRM. 1.58 · ¿Vemos 2.54
 
 ### s12-tu-local — dura 2.53 s (inicio global 28.87)
 Palabras (segundos relativos a la escena): ¿Vemos -0.01 · a 0.23 · quién 0.33 · avisarle 0.53 · en 1.03 · tu 1.13 · local? 1.23 · Agendá 2.04 · una 2.43
 
-### s13-llamada — dura 3.01 s (inicio global 31.40)
+### s13-llamada — dura 2.96 s (inicio global 31.40)
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.30 · en 0.90 · scalerics.com. 1.30
 
-Duración total 34.41 (la voz termina en 33.81).
+Duración total 34.36 (la voz termina en 33.81).

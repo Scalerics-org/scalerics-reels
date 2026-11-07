@@ -26,8 +26,8 @@
     [data-composition-id="s13-llamada"] .t2 .selbox { left: 0; top: 0; right: 0; bottom: 0; }
     [data-composition-id="s13-llamada"] .banda { position: absolute; left: 70px; right: 70px; top: 1400px; height: 170px; border-radius: 28px; background: #0b1220; display: flex; align-items: center; justify-content: center; font: 800 112px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s13-llamada" data-width="1080" data-height="1920" data-duration="3.01">
-    <div id="s13-llamada-esc" class="esc clip" data-start="0" data-duration="3.01" data-track-index="0">
+  <div id="root" data-composition-id="s13-llamada" data-width="1080" data-height="1920" data-duration="2.96">
+    <div id="s13-llamada-esc" class="esc clip" data-start="0" data-duration="2.96" data-track-index="0">
 
       <div class="panel"></div>
       <div class="t1">Videollamada</div>
@@ -38,7 +38,7 @@
   <script>
     (function () {
       const ID = "s13-llamada";
-      const DUR = 3.01;
+      const DUR = 2.96;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -61,11 +61,11 @@
 
 
       tl.fromTo(q(".panel"), { y: 140 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0.02);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0.15);
+      tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.02);
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.15);
       caja(".sb", 0.3);
       tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, 0.6);
-      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.04, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.7);
+      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.07, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.24);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

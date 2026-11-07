@@ -3,18 +3,23 @@
 **Serie "Dos negocios" · CRM · 3D real (Three.js r170 local, `assets/tres.js`) · fondo crema #efeee5 liso.**
 Dos bicicleterías iguales lado a lado (pantalla partida por el pilar navy en x = 0), el mismo casco de bici en
 cada vidriera. Llegan cascos: la de la izquierda sube una foto para todos; la de la derecha mira en su CRM quién
-compró bici sin casco y le escribe a esos pocos. Paula (personaje nuevo del módulo, `ELENCO.paula`) vio las dos:
-la foto la pasó de largo, su nombre no; esa tarde vuelve (Dani, `ELENCO.bicicletero`, la recibe en la puerta).
-Callback: la ficha de Paula en el CRM pasa de "Casco: no" a "Casco: sí ✓" y el casco de la vidriera se apoya
-encima. Cierre: el casco sube al cielo crema y la tarjeta "Videollamada gratis · scalerics.com".
+compró bici sin casco y le escribe a esos pocos. Paula (personaje nuevo del módulo, `ELENCO.paula`) NO está en la
+bicicletería cuando le llega el mensaje: está en la vereda de al lado, contra la pared lisa del vecino, con su bici
+estacionada. Vio las dos: la foto la pasó de largo (queda arriba en gris), su nombre no; "Esa tarde, vuelve": guarda
+el celular y camina empujando la bici hasta la puerta verde, donde Nico (`ELENCO.empleado`, con pelo con volumen) la
+saluda, y entra. Callback: la ficha de Paula en el CRM pasa de "Casco: no" a "Casco: sí ✓" y el casco de la vidriera
+se apoya encima. Cierre: la ficha se multiplica en las fichas de TUS clientes (Inés, Pablo, Sara: "Luz: no" →
+"Avisarle: luz"), el casco sube al cielo crema y entra la tarjeta "Videollamada gratis · scalerics.com".
 
-Voz Orus (33,8 s), 89 palabras, duración 34,41 s. Todo el 3D vive en `assets/tres.js` (una escena, cámara
-continua con cúbica monótona entre claves); las escenas HTML (`gen.mjs` las escribe todas) son solo la capa de
-arriba: gancho, rótulos con línea guía, sello, tarjeta de cierre. `armar.mjs`: subtítulos navy arriba al centro,
-clave en recuadro verde con letra navy, velo crema arriba (se apaga en el cierre), logo oscuro desde 26,4 s.
+Voz Orus (33,8 s), 89 palabras, duración 34,36 s (fin de voz + 0,55). Todo el 3D vive en `assets/tres.js` (una
+escena, cámara continua con cúbica monótona entre claves); las escenas HTML (`gen.mjs` las escribe todas) son solo la
+capa de arriba: gancho, rótulos con línea guía, sello, tarjeta de cierre. `armar.mjs`: subtítulos navy arriba al
+centro con contorno crema propio (sin velo encima del 3D), clave en recuadro verde con letra navy, palabras que entran
+y salen enteras (sin fundidos grises), logo oscuro solo en la tarjeta de cierre (31,4 s), para que nunca pise objetos.
 
 Paleta: crema #efeee5 (fondo) · vereda #dcd9c8 · fachadas navy #16243d · navy #0b1220 / #1f3254 · verde #5ce611 ·
-gris de la izquierda #9aa0a8 · rojo apagado #c7655b solo para "Casco: no", "sin" y "se pasó de largo".
+gris de la izquierda #9aa0a8 · rojo apagado #c7655b solo para "Casco: no", "sin", "la pasó de largo" y los "no" de
+las fichas de s12.
 
 ## El lenguaje visual (de la referencia)
 - Fondo transparente: la escena no pinta fondo, el index ya lo tiene.
@@ -71,38 +76,40 @@ gris de la izquierda #9aa0a8 · rojo apagado #c7655b solo para "Casco: no", "sin
 > crema y los textos son navy.
 
 ## Escenas (inicio global · qué pasa · en qué palabra)
-1. **s01-gancho** 0,00 (2,58 s): las dos fachadas grises e iguales, el mismo casco en cada vidriera; gancho entero
-   en el cuadro 0 (Lexend 900 106 px, "a quién avisarle." en recuadro verde) y sello mono abajo. "cascos" (1,8): los
-   dos cascos hacen pop y dan una vuelta sincronizados. SFX: impacto, timbre de bici en "bicicleterías", pops.
-2. **s01b-una** 2,58 (2,00 s): en "Una" se prende la derecha (toldo verde, marco crema con filete verde, luz
-   cálida, cartel con bici verde). El gancho sigue; "a quién" late; sale con whoosh.
-3. **s02-izquierda** 4,58 (3,17 s): travelling a la vidriera izquierda (casco grande); "foto" (5,5): sube un celular
-   con un post genérico "LLEGARON CASCOS" (flash); "llegaron" (6,5): siete copias del mismo post se abren en
-   abanico alrededor. Rótulo "para todos igual".
-4. **s03-derecha** 7,75 (2,05 s): travelling por el pilar a la derecha; el monitor del mostrador se prende, sube y
-   sale por la vidriera (lista de clientes del CRM). Rótulo "CRM" con línea guía.
-5. **s04-filtro** 9,80 (1,88 s): caen los chips "Compró: bici" (10,1) y "Casco: no" (10,7); se apagan Jorge y Carla,
-   después Lucía; quedan Paula, Ana y Diego con barra verde. Pill "quedan 3" + ding.
-6. **s05-escribe** 11,68 (1,62 s): la fila de Paula se vuelve su ficha (Paula · Compró: bici urbana · marzo ·
-   Casco: no) y viene hacia cámara; su bici verde entra rodando y frena abajo. Tilde verde en "pocos".
-7. **s06-mensaje** 13,30 (2,82 s): de la ficha sale el globo verde del mensaje y vuela al celular grande que entra
-   por abajo (chat genérico "Bicicletería · Hoy"); llega con vibración + notificación.
-8. **s07-vio** 16,12 (2,73 s): la cámara se aleja: Paula en la vereda detrás de su bici, el celular grande al lado
-   (la ampliación de su pantalla, unida por tres puntitos verdes a su celular chico). "las dos" (16,5): el feed
-   muestra el post arriba y su mensaje abajo; "La foto" (17,5): scroll, el post se va gris; rótulo rojo
-   "se pasó de largo".
-9. **s08-su-nombre** 18,85 (3,03 s): "nombre" (19,0): "Paula," se resalta y Paula sonríe. "Esa tarde" (20,4): el
-   celular se guarda, Paula empuja la bici hasta la puerta de la derecha; "vuelve" (20,9): se abre la puerta
-   (campanita), Dani saluda. Sello verde "vuelve".
-10. **s09-mismos** 21,88 (2,04 s): grúa atrás a las dos fachadas; "cascos": los dos cascos suben y giran en espejo;
-    "=" verde en el pilar; "clientes": 4 tarjetas iguales (Paula, Jorge, Carla, Martín) frente a cada vidriera.
-    Paula entra al local.
-11. **s10-sabia** 23,92 (2,40 s): "?" grises sobre las tarjetas de la izquierda; push-in a la derecha: arriba de
-    cada tarjeta lo que se llevó (bici verde, luz, inflador, candado). Rótulo "qué se llevó cada uno".
+1. **s01-gancho** 0,00 (2,58 s): las dos fachadas grises e iguales, push-in lento; gancho entero en el cuadro 0
+   (Lexend 900 106 px, "a quién avisarle." en recuadro verde) y sello mono de 50 px abajo. "cascos" (1,8): los dos
+   cascos saltan, crecen y dan una vuelta sincronizados (pops ahí). SFX: impacto, timbre de bici.
+2. **s01b-una** 2,58 (2,00 s): en "Una" se prende la derecha (toldo verde, marco crema con filete verde, luz cálida,
+   cartel con bici verde; whoosh en el cambio). "a quién" late.
+3. **s02-izquierda** 4,58 (3,17 s): travelling a la vidriera izquierda; "foto": sube un celular con un post genérico
+   "LLEGARON CASCOS" (flash); "llegaron": siete copias en abanico. Rótulo "para todos igual"; celular, copias y rótulo
+   se van antes del travelling.
+4. **s03-derecha** 7,75 (2,05 s): travelling por el pilar a la derecha; el monitor sale por la vidriera (lista del
+   CRM, letra de 62-74 px de lienzo). Rótulo "CRM".
+5. **s04-filtro** 9,80 (1,88 s): caen los chips "Compró: bici" y "Casco: no"; se apagan Jorge y Carla, después Lucía,
+   en su lugar (las filas no se mueven ni se cruzan); quedan Paula, Ana y Diego con barra verde. "quedan 3" + ding.
+6. **s05-escribe** 11,68 (1,62 s): de la fila de Paula nace su ficha (escala pareja) y viene a cámara; su bici verde
+   entra rodando. Tilde verde en "pocos".
+7. **s06-mensaje** 13,30 (2,82 s): el globo verde sale de la ficha y la cámara lo sigue hasta el celular de Paula en
+   primer plano (chat: compra de marzo con la foto de la bici, "¡Gracias!", "Hoy", barra para escribir); el globo
+   aterriza adentro, donde aparece el mensaje (vibración + notificación).
+8. **s07-vio** 16,12 (2,73 s): la cámara se aleja y el celular se corre a la derecha: detrás estaba Paula, en la
+   vereda del vecino con su bici. "las dos": la pantalla muestra arriba el post y abajo su mensaje; "La foto": el post
+   se apaga en gris; rótulo rojo "la pasó de largo" con la línea al post.
+9. **s08-su-nombre** 18,85 (3,03 s): "nombre": "Paula," se resalta y Paula sonríe. "Esa tarde": el celular grande
+   vuelve a su mano y se guarda, Paula gira y empuja la bici (mano en el puño) hasta la puerta verde; "vuelve": se abre
+   la puerta (campanita) y Nico saluda. Sello verde "vuelve" (sale antes del corte).
+10. **s09-mismos** 21,88 (2,04 s): grúa atrás a las dos fachadas enteras (carteles y fichas sin cortar); "cascos": los
+    dos cascos suben y giran en espejo; "=" verde en el pilar; "clientes": 3 tarjetas iguales (Paula, Jorge, Carla,
+    nombres de la lista del CRM) frente a cada vidriera. Paula deja la bici y entra al local.
+11. **s10-sabia** 23,92 (2,40 s): "?" grises sobre las tarjetas de la izquierda; push-in a la derecha: en el estante
+    de cada tarjeta lo que se llevó según el CRM (bici verde, luz delantera, inflador). Rótulo "qué se llevó cada uno".
 12. **s11-scalerics** 26,32 (2,55 s): CALLBACK: la tarjeta de Paula crece y es su ficha; "Scalerics": "no" se tacha;
-    "armamos/ese": el casco de la vidriera vuela y se apoya arriba de la ficha, "Casco: sí ✓". Rótulo
-    "CRM · Scalerics", logo desde acá.
-13. **s12-tu-local** 28,87 (2,53 s): la ficha se va; órbita a la vidriera: en el pedestal una caja nueva con "?"
-    verde; "local" (30,1): se abre y salen tres mensajes con nombre (Inés, Pablo, Sara: "ya llegó").
-14. **s13-llamada** 31,40 (3,01 s): el casco sale de la caja y sube; la cámara lo sigue al cielo crema. Tarjeta:
-    "Videollamada" + "gratis" (recuadro verde) + banda navy "scalerics.com" en verde.
+    "armamos": el casco de la vidriera vuela y se apoya arriba de la ficha (el soporte se hunde en el pedestal),
+    "Casco: sí ✓" con click + ding. Rótulo "CRM · Scalerics".
+13. **s12-tu-local** 28,87 (2,53 s): la ficha de Paula se achica a la primera casilla de una grilla 2x2 y salen de
+    ella las fichas de tus clientes (Inés · Bici de ruta · "Luz: no"; Pablo · Bici eléctrica · "Candado: no"; Sara ·
+    Bici de paseo · "Inflador: no"); "local?": los chips pasan a verde "Avisarle: luz/candado/inflador" (pings).
+    "Agendá": el casco se despega de la ficha de Paula y sube con la cámara al cielo crema.
+14. **s13-llamada** 31,40 (2,96 s): el casco solo, girando en el cielo crema (sin nada del 3D debajo). Tarjeta:
+    "Videollamada" + "gratis" (recuadro verde) + banda navy "scalerics.com" en verde, que late con el chime.

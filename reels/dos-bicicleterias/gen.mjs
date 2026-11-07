@@ -9,7 +9,7 @@ const pal = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const r2 = (n) => Math.round(n * 100) / 100;
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.6);
+const DUR = r2(Math.max(VOZ, pal.at(-1).end) + 0.55);
 const ini = (i) => (i === 0 ? 0 : r2(pal[i].start));
 const INI = Object.fromEntries(reel.escenas.map(([id, i]) => [id, ini(i)]));
 const ESC = Object.fromEntries(reel.escenas.map(([id, i], k) => [id, r2((k + 1 < reel.escenas.length ? ini(reel.escenas[k + 1][1]) : DUR) - ini(i))]));
@@ -95,12 +95,13 @@ ${js}
 
 // ================= s01 · el gancho entero en el cuadro 0, sobre las dos fachadas =================
 const GANCHO_CSS = `
-    P .a { position: absolute; left: 0; right: 0; top: 112px; text-align: center; font: 900 106px/1.08 "Lexend", sans-serif; letter-spacing: -0.045em; color: ${NAVY}; text-shadow: 0 5px 0 rgba(255,255,255,0.7); }
+    P .a { position: absolute; left: 0; right: 0; top: 112px; text-align: center; font: 900 106px/1.08 "Lexend", sans-serif; letter-spacing: -0.045em; color: ${NAVY}; text-shadow: -5px -5px 0 #efeee5, 5px -5px 0 #efeee5, -5px 5px 0 #efeee5, 5px 5px 0 #efeee5, 0 -7px 0 #efeee5, 0 7px 0 #efeee5, -7px 0 0 #efeee5, 7px 0 0 #efeee5, 0 11px 0 rgba(11,18,32,0.16); }
+    P .a .kw em { text-shadow: none; }
     P .a .l { display: block; }
     P .kw { position: relative; display: inline-block; padding: 2px 26px 14px; margin-top: 10px; }
     P .kw .selbox { left: 0; top: 4px; right: 0; bottom: 0; }
     P .kw em { position: relative; font-style: normal; }
-    P .mono { left: 540px; top: 1668px; }`;
+    P .mono { left: 540px; top: 1640px; font-size: 50px; letter-spacing: 0.04em; text-shadow: -5px -5px 0 #efeee5, 5px -5px 0 #efeee5, -5px 5px 0 #efeee5, 5px 5px 0 #efeee5, 0 -7px 0 #efeee5, 0 7px 0 #efeee5, -7px 0 0 #efeee5, 7px 0 0 #efeee5, 0 11px 0 rgba(11,18,32,0.16); }`;
 const GANCHO_HTML = `
       <div class="a"><span class="l">Dos bicicleterías,</span><span class="l">los mismos cascos.</span><span class="l">Una sabe</span><span class="l"><span class="kw"><div class="selbox sb">${esquinas}</div><em>a quién avisarle.</em></span></span></div>
       <div class="mono">Mismo rubro · misma calle<br>una sola diferencia</div>`;
@@ -113,7 +114,7 @@ const GANCHO_HTML = `
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.22, max: 1.0 },
       { t: w(id, 1), sfx: "timbre", vol: 0.32, max: 0.7 }, { t: w(id, 1) + 0.28, sfx: "timbre", vol: 0.26, max: 0.9 },
-      { t: w(id, 4) - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 4) - 0.02, sfx: "pop", vol: 0.16 }, { t: w(id, 4) + 0.12, sfx: "whoosh-short", vol: 0.12 },
+      { t: w(id, 4) - 0.06, sfx: "pop", vol: 0.2 }, { t: w(id, 4) + 0.02, sfx: "pop", vol: 0.16 },
     ],
   });
 }
@@ -125,8 +126,8 @@ const GANCHO_HTML = `
     html: GANCHO_HTML,
     js: `
       late(".kw", ${r2(w(id, 7))}, 1.08);
-      tl.to(q(".mono"), { opacity: 0, duration: 0.2 }, ${r2(ESC[id] - 0.3)});
-      tl.to(q(".a"), { y: -60, opacity: 0, duration: 0.22, ease: "power2.in" }, ${r2(ESC[id] - 0.24)});`,
+      tl.to(q(".mono"), { opacity: 0, duration: 0.2 }, ${r2(ESC[id] - 0.44)});
+      tl.to(q(".a"), { y: -60, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(ESC[id] - 0.44)});`,
     sfx: [
       { t: 0, sfx: "click", vol: 0.26 }, { t: 0.08, sfx: "sparkle", vol: 0.12, max: 1.0 },
       { t: w(id, 7), sfx: "pop", vol: 0.14 }, { t: ESC[id] - 0.4, sfx: "whoosh-cine-corto", vol: 0.26, max: 1.1 },
@@ -138,7 +139,7 @@ const GANCHO_HTML = `
   const id = "s02-izquierda";
   escena(id, {
     html: `${leads(lead(1, 720, 1580, 560, 1300))}${pill(1, 720, 1620, "para todos igual")}`,
-    js: `nota(1, ${r2(w(id, 18) - 0.1)});`,
+    js: `nota(1, ${r2(w(id, 14) + 0.4)}); sinNota(1, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: w(id, 14) - 0.2, sfx: "whoosh-short", vol: 0.16 }, { t: w(id, 14) - 0.02, sfx: "flash", vol: 0.32 },
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 18) - 0.05 + i * 0.14), sfx: "whoosh-short", vol: 0.09 })),
@@ -202,7 +203,7 @@ const GANCHO_HTML = `
 {
   const id = "s07-vio";
   escena(id, {
-    html: `${leads(lead(1, 520, 640, 760, 430, "r"))}${pill(1, 330, 640, "se pasó de largo", "r")}`,
+    html: `${leads(lead(1, 560, 650, 740, 700, "r"))}${pill(1, 330, 640, "la pasó de largo", "r")}`,
     js: `nota(1, ${r2(w(id, 49) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-cine-corto", vol: 0.2, max: 1.0 }, { t: 0.5, sfx: "pop", vol: 0.12 },
@@ -216,9 +217,10 @@ const GANCHO_HTML = `
 {
   const id = "s08-su-nombre";
   escena(id, {
-    css: `P .sello { left: 800px; top: 640px; }`,
+    css: `P .sello { left: 820px; top: 760px; }`,
     html: `<div class="sello sx">vuelve</div>`,
-    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 59) + 0.05)}, -6);`,
+    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 59) + 0.05)}, -6);
+      tl.to(q(".sx"), { opacity: 0, scale: 0.9, y: -30, duration: 0.22, ease: "power2.in" }, ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.12, sfx: "whoosh-short", vol: 0.08 }, { t: w(id, 55), sfx: "ding", vol: 0.14, max: 0.8 },
       ...[0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ t: r2(w(id, 57) + 0.38 + i * 0.1), sfx: "tic", vol: 0.18 })),
@@ -245,7 +247,7 @@ const GANCHO_HTML = `
 {
   const id = "s10-sabia";
   escena(id, {
-    html: `${leads(lead(1, 620, 1600, 640, 960))}${pill(1, 620, 1640, "qué se llevó cada uno")}`,
+    html: `${leads(lead(1, 560, 1600, 540, 1215))}${pill(1, 560, 1640, "qué se llevó cada uno")}`,
     js: `nota(1, ${r2(w(id, 66) + 0.05)});`,
     sfx: [
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 64) - 0.1 + i * 0.05), sfx: "tic", vol: 0.18 })),
@@ -263,7 +265,7 @@ const GANCHO_HTML = `
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.18 },
       { t: w(id, 72) + 0.3, sfx: "click-soft", vol: 0.24 },
-      { t: w(id, 73) - 0.4, sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 73) + 0.18, sfx: "click", vol: 0.28 }, { t: w(id, 73) + 0.24, sfx: "ding", vol: 0.14, max: 0.8 },
+      { t: w(id, 73) - 0.4, sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 73) + 0.02, sfx: "click", vol: 0.28 }, { t: w(id, 73) + 0.03, sfx: "ding", vol: 0.14, max: 0.8 },
     ],
   });
 }
@@ -274,9 +276,10 @@ const GANCHO_HTML = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.1, sfx: "whoosh-cine-corto", vol: 0.22, max: 1.0 }, { t: 0.25, sfx: "pop", vol: 0.18 },
-      { t: w(id, 78) - 0.1, sfx: "pop", vol: 0.14 }, { t: w(id, 82) - 0.03, sfx: "golpe", vol: 0.12, max: 0.4 },
-      ...[0, 1, 2].map((i) => ({ t: r2(w(id, 82) + 0.08 + i * 0.16), sfx: "ping", vol: 0.13 })),
+      { t: -0.05, sfx: "whoosh-short", vol: 0.16 },
+      ...[0, 1, 2].map((i) => ({ t: r2(w(id, 78) - 0.06 + i * 0.1), sfx: "pop", vol: 0.15 })),
+      ...[0, 1, 2].map((i) => ({ t: r2(w(id, 82) + i * 0.1), sfx: "ping", vol: 0.13 })),
+      { t: w(id, 83) - 0.15, sfx: "whoosh-cine-corto", vol: 0.24, max: 1.0 },
     ],
   });
 }
@@ -298,11 +301,11 @@ const GANCHO_HTML = `
       <div class="banda">scalerics.com</div>`,
     js: `
       tl.fromTo(q(".panel"), { y: 140 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t1"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0.02);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(w(id, 86) - 0.15)});
+      tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.02);
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, ${r2(w(id, 86) - 0.15)});
       caja(".sb", ${r2(w(id, 86))});
       tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 86) + 0.3)});
-      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.04, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 88) + 0.4)});`,
+      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.07, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 88) - 0.06)});`,
     sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.18 }, { t: w(id, 86), sfx: "click-soft", vol: 0.26 }, { t: w(id, 86) + 0.32, sfx: "pop", vol: 0.16 }, { t: w(id, 88) - 0.06, sfx: "chime", vol: 0.3, max: 1.3 }],
   });
 }
