@@ -1,8 +1,7 @@
-// Generador de las escenas HTML de reels/por-que-seis (base: caso-pedidosya) (correr desde la carpeta del reel, después de
+// Generador de las escenas HTML de reels/por-que-seis (correr desde la carpeta del reel, después de
 // `node armar.mjs`). Base: reels/netflix-blockbuster. Los objetos son 3D de verdad y viven en
 // assets/tres.js (una sola escena Three.js, la cámara viaja sin cortes); estas escenas son SOLO la
 // capa plana de arriba: el gancho en grande, 1-2 rótulos con línea guía, sellos y el cierre.
-// PedidosYa se nombra en texto: ni logo, ni su rojo, ni su tipografía.
 import fs from "node:fs";
 import { execSync } from "node:child_process";
 
@@ -214,7 +213,7 @@ const CSS_MK = `
   escena(id, {
     html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}${pill(2, 540, CADA100_Y, "de cada 100", "g medio")}`,
     css: `P .pill.medio { font-size: 50px; padding: 14px 32px 16px; background: #efeee5; border-color: ${GD}; color: ${GD}; }`,
-    js: `nota(1, 0.1); nota(2, ${r2(w(id, 32) + 0.05)}); fuera(".n1, .n2", ${r2(ESC[id] - 0.62)}, 0.12);`,
+    js: `nota(1, 0.1); nota(2, ${r2(w(id, 32) - 0.08)}); fuera(".n1, .n2", ${r2(ESC[id] - 0.42)}, 0.12);`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.1, sfx: "key-press", vol: 0.12 },
       // un golpe por cada frasco que aterriza en la canasta (los mismos tiempos que tres.js: CAIDA_B)
@@ -260,7 +259,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.m44 { font-size: 44px; padding: 14px 30px 16px; opacity: 1; }`,
     html: `${pill(1, 540, 1650, "Pesa más si no sabés qué querés", "m44")}`,
-    js: `fuera(".n1", ${r2(ESC[id] - 0.4)}, 0.1);`,
+    js: `tl.to(q(".n1"), { opacity: 0, duration: 0.14, ease: "power1.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: w(id, 42) + 0.1, sfx: "key-press", vol: 0.13 },
       { t: w(id, 44) + 0.05, sfx: "whoosh-short", vol: 0.1 },
@@ -273,7 +272,7 @@ const CSS_MK = `
   const id = "s09-whatsapp";
   escena(id, {
     html: `${pill(1, 540, 1650, "Tu catálogo")}`,
-    js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+    js: `nota(1, ${r2(w(id, 49))}); tl.to(q(".n1"), { opacity: 0, duration: 0.14, ease: "power1.in" }, ${r2(ESC[id] - 0.2)});`,
     sfx: [
       { t: -0.55, sfx: "burbuja", vol: 0.11 },
       { t: w(id, 49), sfx: "whoosh-short", vol: 0.05, max: 0.5 },
@@ -303,7 +302,7 @@ const CSS_MK = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: w(id, 61) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 61) + 0.2, sfx: "pop", vol: 0.09 },
+      { t: w(id, 61) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: r2(w(id, 61) - 0.02), sfx: "pop", vol: 0.09 },
       { t: w(id, 62) + 0.15, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.6 },
     ],
   });
@@ -325,7 +324,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pill.chico { font-size: 52px; padding: 16px 34px 18px; }`,
     html: `
-      ${leads(lead(1, 728, 1010, 238, 1010, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
+      ${leads(lead(1, 728, 1010, 578, 1010, "g"), lead(2, 300, 1560, 330, 1420, "g"))}
       ${pill(1, 860, 1010, `${tick(24)}Elige`, "lleno chico")}
       ${pill(2, 300, 1590, `${tick(24)}Paga`, "lleno chico")}`,
     js: `
@@ -381,7 +380,7 @@ const CSS_MK = `
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.18, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) - 0.03)});
       // push-in lento de toda la tarjeta (movimiento mínimo hasta el final)
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.035, transformOrigin: "50% 20%", duration: ${r2(ESC["s15-cta"] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
-    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 1.8 }],
+    sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 1.8 }, { t: w(id, 89) - 0.03, sfx: "click-soft", vol: 0.08 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);
