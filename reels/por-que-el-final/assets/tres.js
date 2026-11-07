@@ -284,7 +284,7 @@ const fichas = [];
 const N_DER = 11, N_IZQ = 1;
 for (let i = 0; i < N_DER + N_IZQ; i++) {
   const der = i < N_DER;
-  const g = grupo(mesh(fichaGeo, der ? M.g : M.cr), mesh(fichaAro, der ? M.white : M.cr3));
+  const g = grupo(mesh(fichaGeo, der ? M.g : M.cr), mesh(fichaAro, der ? M.gd : M.cr3));
   g.userData = { der, k: der ? i : i - N_DER, rot: azar() * 0.6, dx: (azar() - 0.5) * 0.03, dz: (azar() - 0.5) * 0.03 };
   scene.add(g); fichas.push(g);
 }
@@ -384,7 +384,8 @@ const pantallas = {};
 // el calendario (hoja que se da vuelta: el día cambia)
 const calendario = new THREE.Group(); scene.add(calendario);
 const hojaPiv = new THREE.Group();
-const hojaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.6, emissive: 0xffffff, emissiveIntensity: 0.2, side: THREE.DoubleSide });
+const hojaMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.6, emissive: 0xffffff, emissiveIntensity: 0.2, side: THREE.FrontSide });
+const hojaDorsoMat = new THREE.MeshStandardMaterial({ color: 0xefeee5, roughness: 0.7, emissive: 0xefeee5, emissiveIntensity: 0.35, side: THREE.FrontSide });
 const hojaAtrasMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.6, emissive: 0xffffff, emissiveIntensity: 0.2 });
 {
   calendario.add(mesh(rbox(0.82, 0.92, 0.16, 0.05), M.cr2, 0, -0.04, -0.05));
@@ -393,6 +394,7 @@ const hojaAtrasMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness
   calendario.add(mesh(new THREE.PlaneGeometry(0.74, 0.62), hojaAtrasMat, 0, -0.14, 0.035));
   hojaPiv.position.set(0, 0.17, 0.045); calendario.add(hojaPiv);
   const h = mesh(new THREE.PlaneGeometry(0.74, 0.62), hojaMat, 0, -0.31, 0); hojaPiv.add(h);
+  const dorso = mesh(new THREE.PlaneGeometry(0.74, 0.62), hojaDorsoMat, 0, -0.31, -0.002); dorso.rotation.y = Math.PI; hojaPiv.add(dorso);
 }
 // un segundo termómetro (el callback): el borde del celular sube un grado
 const termo2 = hacerTermo(); scene.add(termo2.g);
@@ -511,7 +513,7 @@ const TERMO_CIERRE = LOCAL_P.clone().add(V(1.24, 0.12, 0.55));
 // (ronda 2) baja en "¿Por qué?" cuando las manos ya salieron, sube en "final" con la mano adentro y baja
 // otra vez en "Recordamos…" llevándose la mano y el termómetro mientras nace la curva
 function labY(t) {
-  if (t < S["s05-quince"] - 0.45) return -4.5 * eio(sg(t, S["s03-por-que"] - 0.12, S["s03-por-que"] + 0.18));
+  if (t < S["s05-quince"] - 0.45) return -4.5 * eio(sg(t, S["s03-por-que"] - 0.32, S["s03-por-que"] - 0.05));
   return -4.5 * (1 - eo(sg(t, S["s05-quince"] - 0.42, S["s05-quince"] + 0.02))) - 4.5 * eio(sg(t, S["s07-pico-final"] - 0.12, S["s07-pico-final"] + 0.3));
 }
 
@@ -534,7 +536,8 @@ function poseMano(t) {
   // después de "la larga": las dos manos salen hacia arriba y atrás, rápido y antes de que bajen las chapas
   const g0 = sg(t, W[14] + 0.48, W[14] + 0.8), guarda = g0 * g0;
   if (t < S["s05-quince"] - 0.45) {
-    d.pos.y += 6.5 * guarda; i.pos.y += 6.5 * guarda; d.pos.z -= 2.2 * guarda; i.pos.z -= 2.2 * guarda;
+    // (ronda 4) salen a los costados, por debajo de los subtítulos: la izquierda a la izquierda, la derecha a la derecha
+    d.pos.x += 4.6 * guarda; i.pos.x -= 4.6 * guarda; d.pos.y += 0.9 * guarda; i.pos.y += 0.9 * guarda; d.pos.z -= 1.0 * guarda; i.pos.z -= 1.0 * guarda;
     if (g0 >= 1) { d.vis = 0; i.vis = 0; }
     return { d, i };
   }
@@ -548,7 +551,7 @@ function poseMano(t) {
   d.pos.y += 1.15 * subeT; d.rx = lerp(d.rx, BRAZO_INC.rx * 0.7, subeT);
   // antes de "Recordamos…": sale por el costado izquierdo con su brazo (no cruza los subtítulos)
   const e0 = sg(t, S["s07-pico-final"] - 0.62, S["s07-pico-final"] - 0.32), ex = e0 * e0;
-  d.pos.x -= 4.8 * ex; d.pos.y += 0.3 * ex;
+  d.pos.x -= 3.4 * ex; d.pos.y += 2.6 * ex;
   if (e0 >= 1) d.vis = 0;
   return { d, i };
 }
@@ -592,11 +595,11 @@ const CAM = [
   [S["s10-sale-solo"] + 1.0, -8, 4, 6.1, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
   [S["s11-llego-bien"], 4, 4, 5.95, PH_POS.x, PH_POS.y + 0.37, PH_POS.z],
   [S["s11b-grado-mejor"] - 0.05, 6, 4, 6.4, PH_POS.x + 0.02, PH_POS.y + 0.34, PH_POS.z],
-  [S["s11b-grado-mejor"] + 0.45, 4, 4, 7.3, PH_POS.x + 0.1, PH_POS.y + 0.3, PH_POS.z],
-  [S["s12-tu-local"] - 0.1, 2, 4, 7.4, PH_POS.x + 0.1, PH_POS.y + 0.3, PH_POS.z],
-  [S["s12-tu-local"] + 0.55, -2, 5, 12.0, LOCAL_P.x - 0.1, LOCAL_P.y + 1.25, LOCAL_P.z + 0.3],
-  [S["s13-llamada"] - 0.05, -2.5, 5, 11.8, LOCAL_P.x - 0.1, LOCAL_P.y + 1.25, LOCAL_P.z + 0.3],
-  [DUR, -3, 5, 11.6, LOCAL_P.x - 0.1, LOCAL_P.y + 1.25, LOCAL_P.z + 0.3],
+  [S["s11b-grado-mejor"] + 0.45, 4, 4, 8.3, PH_POS.x + 0.1, PH_POS.y + 0.05, PH_POS.z],
+  [S["s12-tu-local"] - 0.3, 2, 4, 8.4, PH_POS.x + 0.1, PH_POS.y + 0.05, PH_POS.z],
+  [S["s12-tu-local"] + 0.55, -2, 9, 11.5, LOCAL_P.x - 0.1, LOCAL_P.y + 1.0, LOCAL_P.z + 0.3],
+  [S["s13-llamada"] - 0.05, -2.5, 9, 11.4, LOCAL_P.x - 0.1, LOCAL_P.y + 1.0, LOCAL_P.z + 0.3],
+  [DUR, -3, 9, 11.3, LOCAL_P.x - 0.1, LOCAL_P.y + 1.0, LOCAL_P.z + 0.3],
 ];
 const _mira = new THREE.Vector3();
 const val = (k) => [k[1], k[2], Math.log(k[3]), k[4], k[5], k[6]];
@@ -642,7 +645,7 @@ function celPose(t, az) {
   const t0 = S["s09-callan"] + 0.02;
   const gira = eio(sg(t, S["s10-sale-solo"] - 0.1, S["s10-sale-solo"] + 0.55));
   const corre = eo(sg(t, S["s11b-grado-mejor"] - 0.1, S["s11b-grado-mejor"] + 0.35)); // le hace lugar al termómetro
-  const aparte = eio(sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.45)); // se corre a la izquierda: entra el local
+  const aparte = eio(sg(t, S["s12-tu-local"] - 0.3, S["s12-tu-local"] + 0.2)); // se corre a la izquierda: entra el local
   const pos = lerpV(PH_POS.clone().add(V(-0.38 * corre, -(1 - eo(sg(t, t0, t0 + 0.4))) * 0.5 + Math.sin(t * 1.1) * 0.02, 0)), CEL_CIERRE, aparte);
   if (en(t, S["s10-sale-solo"] + 0.25, S["s10-sale-solo"] + 0.6) || en(t, W[73] - 0.1, W[73] + 0.2)) pos.x += Math.sin(t * 90) * 0.012;
   const ry = lerp(az * D2R * 0.3 + Math.sin(Math.PI * gira) * 0.45 - 0.12 + Math.sin(t * 0.9) * 0.03, az * D2R + 0.12, aparte);
@@ -733,7 +736,7 @@ function renderAt(t) {
     if (t < S["s03-por-que"] + 0.4) { s = labOn ? 1 : 0; }
     else if (t < S["s05-quince"] - 0.45) {
       gigante = true;
-      const baja = sg(t, S["s04-minuto-y-medio"] - 0.34, S["s04-minuto-y-medio"] - 0.12);
+      const baja = sg(t, S["s04-minuto-y-medio"] - 0.34, S["s04-minuto-y-medio"] - 0.22);
       s = t >= ti && baja < 1 ? 1.5 : 0; // baja y sale por abajo, detrás del cronómetro, que ya entró grande
       flipX = Math.max(0.02, eio(sg(t, ti, ti + 0.17)));
       pos = V(QX.x - 0.5, 0.2 - 6 * baja * baja, QX.z);
@@ -803,12 +806,12 @@ function renderAt(t) {
   // ---- el "?" verde: sube grande en "¿Por qué?" y se encoge en su punto justo antes del termómetro ----
   {
     // nace delante de todo (más cerca de la cámara que las cubetas y la torre), con pop desde mediano
-    const pt = S["s03-por-que"] - 0.06;
+    const pt = S["s03-por-que"] - 0.13; // nace mientras el laboratorio termina de hundirse (sin cuadros vacíos ni cruces)
     const sube = bk(sg(t, pt, pt + 0.22));
     const va = eio(sg(t, W[17] - 0.2, W[17] - 0.06));
     const s = t < pt || t >= W[17] - 0.04 ? 0 : 1.3 * lerp(0.72, 1, sube);
     ocultar(pregunta, s);
-    pregunta.position.set(QX.x - 0.4, 1.95, QX.z + 0.3);
+    pregunta.position.set(QX.x - 0.4, 1.95, QX.z + 0.6);
     pregunta.rotation.set(0, cam.az * D2R + Math.sin(t * 1.3) * 0.16, 0);
     if (pregunta.visible) { pregunta.scale.multiplyScalar(1 + 0.05 * Math.sin(Math.PI * sg(t, W[16], W[16] + 0.3))); pregunta.scale.x *= Math.max(0.02, 1 - va); pregunta.scale.z *= Math.max(0.02, 1 - va); }
     void PREG_H;
@@ -838,8 +841,8 @@ function renderAt(t) {
     const t0 = S["s07-pico-final"] - 0.35; // la curva nace mientras la cámara sube (nunca media pantalla vacía)
     const dib = eio(sg(t, t0, t0 + 0.95));
     // se retira ANTES de que nazca el paquete (no lo atraviesa)
-    const va = eio(sg(t, S["s08-cobrar"] - 0.36, S["s08-cobrar"] - 0.15));
-    const on = t >= t0 && t < S["s08-cobrar"] - 0.14;
+    const va = eio(sg(t, S["s08-cobrar"] - 0.3, S["s08-cobrar"] - 0.08));
+    const on = t >= t0 && t < S["s08-cobrar"] - 0.07;
     curvaMesh.visible = on && dib > 0.01;
     curvaGeo.setDrawRange(0, Math.floor((curvaGeo.index.count * dib) / 6) * 6);
     curvaMat.opacity = 1 - va; // (transparent fijo desde el inicio: cambiarlo en caliente no recompila y no se fundía)
@@ -861,10 +864,10 @@ function renderAt(t) {
 
   // ---- el paquete: el pin verde del final ES el paquete (entra grande); el ticket "pagado" se le pega ----
   {
-    const t0 = S["s08-cobrar"] - 0.18; // nace mientras la curva termina de fundirse, debajo de ella (no la cruza ni deja hueco)
+    const t0 = S["s08-cobrar"] - 0.2; // nace mientras la curva termina de fundirse, debajo de ella (no la cruza ni deja hueco)
     const s = t < t0 ? 0 : lerp(0.9, 1, bk(sg(t, t0, t0 + 0.3)));
     // "Y ahí": el celular entra delante y el paquete baja y se va por detrás
-    const baja = eio(sg(t, S["s09-callan"] - 0.12, S["s09-callan"] + 0.15));
+    const baja = eio(sg(t, S["s09-callan"] + 0.0, S["s09-callan"] + 0.25)); // baja recién cuando entra el celular (sin cuadros vacíos)
     const P0 = PAQ.clone();
     ocultar(paquete, baja > 0.99 ? 0 : s);
     paquete.position.copy(P0).add(V(0, -3.5 * baja, 0));
@@ -877,7 +880,7 @@ function renderAt(t) {
     // el ticket entra desde la izquierda y se pega al frente del paquete
     const tt = W[54] - 0.1;
     const llega = eo(sg(t, tt, tt + 0.4));
-    ticket.visible = t >= tt && t < S["s09-callan"] + 0.05;
+    ticket.visible = t >= tt && t < S["s09-callan"] + 0.3;
     if (ticket.visible) {
       const ang = cam.az * D2R - 0.35;
       const frente = V(Math.sin(ang), 0, Math.cos(ang));
@@ -917,8 +920,9 @@ function renderAt(t) {
     ocultar(calendario, sale > 0.99 ? 0 : pop * 1.28);
     calendario.position.copy(PH_POS).add(V(0.0 + 2.6 * sale, 0.55 + 0.3 * sale, 0.3));
     calendario.rotation.set(0, cam.az * D2R + 0.08, 0.04 - 0.35 * sale);
-    hojaPiv.rotation.x = eio(sg(t, W[72] - 0.15, W[72] + 0.3)) * Math.PI * 0.98;
-    hojaPiv.visible = hojaPiv.rotation.x < Math.PI * 0.5;
+    // la hoja de LUN gira hacia la cámara (se ve venir) y desaparece de canto; detrás queda MAR
+    hojaPiv.rotation.x = -Math.pow(sg(t, W[72] - 0.2, W[72] + 0.2), 1.6) * Math.PI * 0.5;
+    hojaPiv.visible = hojaPiv.rotation.x > -Math.PI * 0.49;
   }
 
   // ---- el termómetro del callback: entra desde la derecha al lado del celular y sube UN grado ----
@@ -927,7 +931,7 @@ function renderAt(t) {
     const llega = eo(sg(t, t0, t0 + 0.4));
     const sc = t < t0 ? 0 : 0.95;
     ocultar(termo2.g, sc);
-    const aparte = eio(sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.45));
+    const aparte = eio(sg(t, S["s12-tu-local"] - 0.3, S["s12-tu-local"] + 0.2));
     termo2.g.position.copy(lerpV(PH_POS.clone().add(V(lerp(2.6, 0.72, llega), -1.32, 0.15)), TERMO_CIERRE, aparte));
     if (termo2.g.visible) termo2.g.scale.multiplyScalar(lerp(1, 0.75, aparte));
     termo2.g.rotation.set(0, cam.az * D2R, 0);
@@ -938,13 +942,15 @@ function renderAt(t) {
     const entra = bk(sg(t, t0 + 0.15, t0 + 0.45));
     ponerNum(num14b, sc > 0 ? entra : 0, ch.viejo, 0.8); num14b.position.copy(tope); deCara(num14b, cam.az);
     // el 15° se funde en "¿Lo vemos en tu local?" (si no, tapa el cartel del local)
-    ponerNum(num15b, sc > 0 ? ch.nuevo : 0, 1 - sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.25), 0.8); num15b.position.copy(tope); deCara(num15b, cam.az);
+    ponerNum(num15b, sc > 0 ? ch.nuevo : 0, 1 - sg(t, S["s12-tu-local"] - 0.32, S["s12-tu-local"] - 0.08), 0.8); num15b.position.copy(tope); deCara(num15b, cam.az);
     if (num15b.visible) num15b.scale.multiplyScalar(1 + 0.1 * Math.sin(Math.PI * sg(t, W[77] + 0.35, W[77] + 0.65)));
   }
 
   // ---- el local: entra grande detrás del celular en "¿Lo vemos en tu local?" ----
   {
-    const s = t < S["s12-tu-local"] ? 0 : lerp(0.6, 1, bk(sg(t, S["s12-tu-local"], S["s12-tu-local"] + 0.4)));
+    const s = t < S["s12-tu-local"] - 0.02 ? 0 : lerp(0.7, 1, bk(sg(t, S["s12-tu-local"] - 0.02, S["s12-tu-local"] + 0.35)));
+    // S1: la vidriera se prende con el brillo (~31,0 s)
+    vidrieraMat.emissiveIntensity = 0.55 + 0.7 * Math.sin(Math.PI * sg(t, S["s12-tu-local"] + 0.5, S["s12-tu-local"] + 0.95));
     ocultar(local, s * 1.0); local.position.copy(LOCAL_P); local.rotation.set(0, cam.az * D2R * 0.5 - 0.12, 0);
     localSombra.visible = false;
   }

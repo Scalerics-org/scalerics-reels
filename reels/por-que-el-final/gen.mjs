@@ -279,7 +279,7 @@ const SEL = `
 {
   const id = "s11b-grado-mejor";
   escena(id, {
-    css: `P .sello { left: 400px; top: 1745px; border-color: ${G}; color: ${NAVY}; background: ${G}; font-size: 72px; }`,
+    css: `P .sello { left: 370px; top: 1545px; border-color: ${G}; color: ${NAVY}; background: ${G}; font-size: 72px; }`,
     html: `<div class="sello sx">AUTOMÁTICO</div>`,
     js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 79) + 0.1)}, -4); fuera(".sx", ${r2(ESC[id] - 0.5)}, 0.2);`,
     sfx: [
