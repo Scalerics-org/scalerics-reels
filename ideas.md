@@ -225,7 +225,7 @@
 - 07-11 · `por-que-el-final` · Automatizaciones (mensaje de después de la compra) · "Agua fría, dos veces. La mayoría eligió la más larga. ¿Por qué?" Explicador sin marcas (Kahneman y otros 1993, ver fuentes.md): 60 s a 14° contra 90 s que al final subía a 15°; recordamos más lo peor y el final; al vender, el final es después de cobrar y muchos se callan; callback: el "grado mejor" automático (va en camino, ¿llegó bien?) con el termómetro a 15° y el local · Videollamada gratis [formato explicador ¿Por qué? · 3D real (cubetas con agua, termómetro, cronómetro, curva del recuerdo, caja, chat), fondo navy oscuro #0b1220] (empezado 05-11, terminado en la corrida del 07-11 13:09 tras 3 rondas de revisión)
 
 ## En curso
-<!-- corrida-activa: 2026-11-07T13:09 -->
+<!-- corrida-activa: 2026-11-07T16:23 -->
 
 - 06-11 · `lo-mismo-que-la-otra-vez` · CRM (qué compró cada cliente) · Para mandar completo: Graciela le pide a Rubén "lo mismo que la otra vez" sin decir qué; Rubén adivina de una pila; cartel "Un CRM más tarde…" y la ficha ya lo sabe · 3D real con personajes recurrentes, almacén, fondo navy claro #16243d · reservado (corrida 4 del 06-11)
 - 06-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido para retirar) · Para mandar completo: Rubén baja la cortina y a las 19:59 entra el cliente con una lista larga; cartel "Una tienda online más tarde…" y la bolsa ya está armada · 3D real con personajes recurrentes, almacén de noche, fondo navy oscuro #0b1220 · reservado (corrida 4 del 06-11)
