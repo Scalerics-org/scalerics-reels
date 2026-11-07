@@ -340,3 +340,9 @@ en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos d
   a pantalla completa el celular un 5 % más lejos y sin la parada detrás; porción que gira y crece en la 2.ª parada;
   subtítulos largos a 74 px en un renglón; sin subtítulo "Agendá una" (queda la pregunta); pulso + click en scalerics.com.
 - Portada: portada.png desde renders/portada-fondo-limpio.png (ver nota en portada.json).
+
+## Ronda 3 (final)
+- Cartel "PIZZERÍA" verde de marca con letras navy, siempre prendido: el subtítulo "de que entró." corta en 15,58
+  (reel.finSub) y el push-in a la caja (15,56-15,79) lo saca de cuadro antes de "Esa venta se fue".
+- Rótulo del 53 % solo "si tarda más de 3 s" (58 px); subtítulos con halo navy; "Scalerics" de s09 en "Scalerics" y más abajo;
+  la burbuja de la 2.ª parada se mece y se achica mientras entra el cronómetro; portada con el cronómetro arriba del texto.

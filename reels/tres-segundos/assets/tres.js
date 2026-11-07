@@ -496,7 +496,7 @@ async function dibujarPantallas() {
   // cartel de la pizzería
   {
     const c = document.createElement("canvas"); c.width = 1024; c.height = 180; const x = c.getContext("2d");
-    x.fillStyle = "#0b1220"; x.fillRect(0, 0, 1024, 180); x.fillStyle = "#ffffff"; x.font = F(800, 124); x.textAlign = "center"; x.fillText("PIZZERÍA", 512, 135);
+    x.fillStyle = "#5ce611"; x.fillRect(0, 0, 1024, 180); x.fillStyle = "#0b1220"; x.font = F(800, 124); x.textAlign = "center"; x.fillText("PIZZERÍA", 512, 135);
     const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; cartelMat.map = t; cartelMat.emissiveMap = t; cartelMat.needsUpdate = true;
   }
 }
@@ -526,13 +526,13 @@ const CAM = [
   [S["s06-avisa"] - 0.005, -16, 2, 5.0, PAR.x + 0.75, 0.52, PAR.z + 1.25, "c"],
   [S["s06-avisa"], -16, 8, 12.4, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s06-avisa"] + 0.9, -13, 9, 12.8, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
-  [S["s07-venta"] - 0.5, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
+  [S["s07-venta"] - 0.31, -10, 10, 13.0, PIZ.x - 0.1, 0.25, PIZ.z + 0.4],
   [S["s07-venta"] - 0.08, -3, 28, 6.3, PIZ.x - 1.05, -0.26, PIZ.z + 0.55],
   // corte limpio en "Pasa": de la caja al celular acostado
   [S["s08-pesadas"] - 0.005, 2, 29, 6.0, PIZ.x - 1.05, -0.28, PIZ.z + 0.55, "c"],
-  [S["s08-pesadas"], 2, 57, 8.6, EST2.x, -0.6, EST2.z + 0.2],
-  [W[61], -2, 58, 8.4, EST2.x, -0.62, EST2.z + 0.2],
-  [S["s09-rapida"] - 0.05, -3, 58, 8.4, EST2.x, -0.64, EST2.z + 0.2, "e"],
+  [S["s08-pesadas"], 2, 57, 8.6, EST2.x, -0.5, EST2.z + 0.2],
+  [W[61], -2, 58, 8.4, EST2.x, -0.52, EST2.z + 0.2],
+  [S["s09-rapida"] - 0.05, -3, 58, 8.4, EST2.x, -0.54, EST2.z + 0.2, "e"],
   [S["s09-rapida"] + 0.42, -5, 10, 9.2, EST2.x, 0.62, EST2.z + 0.2],
   [W[67], 6, 8, 8.8, EST2.x, 0.72, EST2.z + 0.1],
   // corte limpio en "Misma parada": del celular de s09 a la parada (antes el viaje cortaba a Nico y al árbol)
@@ -881,12 +881,12 @@ function renderAt(t) {
     parada.visible = s > 0.002; if (parada.visible) parada.scale.set(1, Math.max(0.001, s), 1);
     // globito de hambre (s03, y vuelve en s10)
     const g1 = en(t, W[29] - 0.1, S5) ? lerp(0.6, 1, bk(sg(t, W[29] - 0.1, W[29] + 0.2))) : 0;
-    const g2 = en(t, S10 + 0.3, W[73] - 0.15) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) : 0; // en "abre" lo reemplaza el cronómetro
+    const g2 = en(t, S10 + 0.3, W[73] - 0.02) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) * (1 - eio(sg(t, W[73] - 0.2, W[73] - 0.02))) : 0; // en "abre" lo reemplaza el cronómetro
     const gs = LLENO ? 0 : Math.max(g1, g2);
     ocultar(globo, gs); globo.position.set(PAR.x - 0.1, 1.45 + Math.sin(t * 2) * 0.04, PAR.z + 1.35); globo.scale.multiplyScalar(0.82); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
     // segunda vez (s10): la porción da una vuelta entera y crece, contenta (no vuelve idéntica)
-    if (g2 > 0) { const v = eio(sg(t, S["s10-abre"] + 0.35, S["s10-abre"] + 0.95)); porcion.rotation.y = v * Math.PI * 2; porcion.scale.setScalar(0.5 * (1 + 0.22 * Math.sin(Math.PI * v))); } else porcion.scale.setScalar(0.5);
+    if (g2 > 0) { const v = sg(t, S["s10-abre"] + 0.35, S["s10-abre"] + 0.95); porcion.rotation.z = Math.sin(v * Math.PI * 3) * 0.3; porcion.scale.setScalar(0.5 * (1 + 0.14 * Math.sin(Math.PI * eio(v)))); } else porcion.scale.setScalar(0.5);
   }
 
   // ---------------- la cuadra (solo en los viajes entre lugares) ----------------
@@ -932,7 +932,7 @@ function renderAt(t) {
     vidrioMat.emissiveIntensity = lerp(0.9, 0.45, eio(sg(t, W[44], W[45] + 0.2)));
     // en el push-in a la caja el cartel se apaga (pasa por detrás del subtítulo: nada de texto sobre texto)
     // en el push-in a la caja las letras del cartel se funden en su chapa navy (pasan por detrás del subtítulo: nada de texto sobre texto)
-    { const k = eio(sg(t, S7 - 0.64, S7 - 0.4)); cartelMat.transparent = true; cartelMat.opacity = 1 - k; cartelMat.depthWrite = k < 0.5; } // las letras se funden en la chapa navy mientras cruzan el subtítulo (nada de texto sobre texto)
+    // el cartel queda siempre prendido: el push-in arranca recién cuando ya no hay subtítulo ("de que entró." termina en 15,58) y lo saca de cuadro antes de "Esa venta"
     // la caja: cae sobre el mostrador; en "antes" la tapa intenta abrir y se cierra; se pone gris
     const cae = sg(t, S7 - 0.05, S7 + 0.3);
     const ks = en(t, S7 - 0.05, S8 + 0.36) ? CAJA_S * lerp(0.55, 1, bk(sg(t, S7 - 0.05, S7 + 0.1))) : 0;

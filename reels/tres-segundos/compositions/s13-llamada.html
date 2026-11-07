@@ -64,7 +64,7 @@
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
 
-      tl.set(q(".t1"), { opacity: 0 }, 0); tl.set(q(".t1"), { opacity: 1 }, 0.04); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: false }, 0.04);
+      tl.set(q(".t1"), { opacity: 1 }, 0); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0);
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, 0.18); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, 0.18);
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, 0.55); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, 0.55);
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.07, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.45);

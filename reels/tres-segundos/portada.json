@@ -1,3 +1,13 @@
-{ "t": 1.0, "chica": "Más de 3 segundos:", "grande": "se va el 53 %", "sello": "Visitas · según Google",
-  "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.0, "foco": "50%", "velo": "11,18,32", "fondo": "#0b1220",
-  "nota": "fondo: renders/portada-fondo-limpio.png = snapshot LIMPIO del 1,5 s (LIMPIO=1 node armar.mjs: sin escenas HTML, subtítulos, velo ni logo; cronómetro gigante con la aguja en la zona roja), achicado a 950 px de ancho y subido 230 px para que la aguja quede arriba de y 1150. Para regenerar: ffmpeg -loop 1 -t 3 -i renders/portada-fondo-limpio.png -c:v libx264 -pix_fmt yuv420p renders/tres-segundos-final.mp4 (guardando antes el final), node herramientas/portada.mjs tres-segundos desde la raíz, y devolver el mp4 final; t = 1.0 es un segundo de ese clip." }
+{
+ "t": 1.0,
+ "chica": "Más de 3 segundos:",
+ "grande": "se va el 53 %",
+ "sello": "Según Google",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "50%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: renders/portada-fondo-limpio.png = snapshot LIMPIO del 1,5 s (LIMPIO=1 node armar.mjs: sin escenas HTML, subtítulos, velo ni logo) achicado a 721 px de ancho (renders/limpio-1.5.png escalado 0,668) y puesto en x 180, y -71: el cronómetro entero queda entre y 300 y 1040, arriba del texto (sin el '2' del dial asomando). Para regenerar: guardar renders/tres-segundos-final.mp4, ffmpeg -loop 1 -t 3 -i renders/portada-fondo-limpio.png -c:v libx264 -pix_fmt yuv420p -r 30 renders/tres-segundos-final.mp4, desde la raíz flock /tmp/hyperframes.lock node herramientas/portada.mjs tres-segundos, y devolver el mp4 final; t = 1.0 es un segundo de ese clip."
+}

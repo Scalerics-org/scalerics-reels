@@ -81,7 +81,7 @@ CORTES.forEach((desde, g) => {
   const enCorte = reel.escenas.some(([, w]) => w === desde);
   const ini = r2(Math.max(0, enCorte ? inicio(desde) : ws[0].start - 0.08));
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
-  const fin = r2(Math.min(proximo, DUR));
+  const fin = r2(Math.min(proximo, DUR, reel.finSub?.[desde] ?? DUR)); // finSub: { "palabra de inicio del grupo": segundo } corta antes un grupo
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
     .map((w, k) => {
@@ -102,7 +102,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); -webkit-text-stroke: 12px #0b1220; paint-order: stroke fill; }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55), 0 0 22px rgba(11, 18, 32, 0.85); -webkit-text-stroke: 12px #0b1220; paint-order: stroke fill; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .largo p { font-size: 74px; } /* que "Pasa con páginas viejas" entre en un renglón */
     ${C} .w em { font-style: normal; position: relative; }

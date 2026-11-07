@@ -127,12 +127,12 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     css: `
     P .a { position: absolute; left: 0; right: 0; top: 132px; text-align: center; ${TIT} font-size: 100px; }
     P .b { position: absolute; left: 0; right: 0; top: 252px; text-align: center; ${TIT} font-size: 70px; white-space: nowrap; }
-    P .v { display: inline-block; font-size: 114px; font-weight: 900; color: ${G}; letter-spacing: -0.04em; margin-left: 28px; transform-origin: 0% 60%; }
+    P .v { display: inline-block; font-size: 114px; font-weight: 900; color: ${G}; letter-spacing: -0.04em; margin-left: 28px; transform-origin: 0% 60%; } P .v i { font-style: normal; color: #fff; }
     P .c { position: absolute; left: 0; right: 0; top: 420px; text-align: center; ${TIT} font-size: 86px; white-space: nowrap; }
     P .c em { position: relative; display: inline-block; font-style: normal; padding: 0 14px; margin-left: 6px; border: 6px solid ${G}; background: rgba(92,230,17,0.16); }`,
     html: `
       <div class="a">Si tu página tarda</div>
-      <div class="b">más de<span class="v">3 segundos</span>:</div>
+      <div class="b">más de<span class="v">3 segundos<i>:</i></span></div>
       <div class="c">se va <em>más de la mitad</em></div>`,
     js: `
       // cuadro 0 = portada: el gancho ENTERO (la condición y la consecuencia) sobre el cronómetro que ya corre
@@ -156,9 +156,9 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   escena(id, {
     css: `
     P .pill.f { font-size: 44px; }
-    P .dato { position: absolute; left: 0; right: 0; top: 806px; text-align: center; font: 700 46px/1.15 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; text-shadow: 0 4px 0 rgba(3,6,12,0.6); opacity: 0; }`,
+    P .dato { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font: 700 58px/1.15 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; text-shadow: 0 4px 0 rgba(3,6,12,0.6); opacity: 0; }`,
     html: `
-      <div class="dato">de las visitas desde el celular se va<br>si tarda más de 3 s</div>
+      <div class="dato">si tarda más de 3 s</div>
       ${pill(2, 540, 1645, "Fuente: Google", "f")}`,
     js: `
       tl.set(q(".dato"), { opacity: 1 }, ${r2(rel(id, W(15)) - 0.26)}); tl.fromTo(q(".dato"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(15)) - 0.26)});
@@ -181,7 +181,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.22, sfx: "pop", vol: 0.3 },
+      { t: 0.44, sfx: "pop", vol: 0.3 }, // el celular arriba
       { t: rel(id, W(25)), sfx: "tecleo", vol: 0.5 },
       { t: rel(id, W(29)) - 0.05, sfx: "pop", vol: 0.32 },
       { t: rel(id, VIAJE.zambullida) - 0.4, sfx: "whoosh-c2", vol: 0.1 },
@@ -196,7 +196,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: 0.45, sfx: "pop", vol: 0.18 },
+      { t: 0.21, sfx: "pop", vol: 0.18 },
       { t: rel(id, W(33)), sfx: "tic-real", vol: 0.5 }, { t: rel(id, W(33)) + 0.02, sfx: "key-c", vol: 0.35 },
     ],
   });
@@ -236,7 +236,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   escena(id, {
     css: `P .pill.avisos { font-size: 80px; padding: 22px 50px 26px; }`,
     html: `
-      ${leads(lead(1, 760, 1560, 760, 1170, ""))}
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead l1" d="M760 1170 L760 1560"/><circle class="dot d1" cx="760" cy="1170" r="12"/></svg>
       ${pill(1, 760, 1610, "0 avisos", "grande avisos")}`,
     js: `
       nota(1, ${r2(rel(id, W(44)))});
@@ -259,7 +259,8 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0);
       tl.fromTo(q(".sx"), { opacity: 0, scale: 1.25, rotation: -6, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: -6, duration: 0.1, ease: "power4.in", immediateRender: true }, ${r2(rel(id, W(55)))});`,
     sfx: [
-      { t: 0.0, sfx: "burbuja", vol: 0.13 }, 
+      { t: -0.3, sfx: "whoosh-short", vol: 0.12 }, // push-in a la caja
+      { t: 0.0, sfx: "burbuja", vol: 0.13 },
       { t: rel(id, W(52)) + 0.02, sfx: "click", vol: 0.4 }, { t: rel(id, W(52)) + 0.44, sfx: "papel-c", vol: 0.6 },
       { t: rel(id, W(55)) + 0.08, sfx: "sello", vol: 0.4 }, { t: rel(id, W(55)) + 0.1, sfx: "impact-bass-1", vol: 0.05, max: 0.6 },
     ],
@@ -291,9 +292,9 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
   const id = "s09-rapida";
   escena(id, {
     css: `P .pill.s { font-size: 52px; }`,
-    html: `${pill(1, 540, 1800, "Scalerics", "lleno s")}`,
+    html: `${pill(1, 540, 1832, "Scalerics", "lleno s")}`,
     js: `
-      nota(1, 0.9);
+      nota(1, 0.12);
       fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
       { t: 0.08, sfx: "riser-corto", vol: 0.4 }, { t: 0.5, sfx: "burbuja", vol: 0.27 }, { t: 0.68, sfx: "click-soft", vol: 0.3 }, { t: 0.86, sfx: "pop", vol: 0.18 },
@@ -367,7 +368,7 @@ const VIAJE = { parada: W(21) + 0.55, zambullida: INI["s04-blanco"] - 0.08, pizz
       <div class="t2w"><span class="t2">gratis</span></div>
       <div class="t3w"><span class="t3">scalerics.com</span></div>`,
     js: `
-      tl.set(q(".t1"), { opacity: 0 }, 0); tl.set(q(".t1"), { opacity: 1 }, 0.04); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: false }, 0.04);
+      tl.set(q(".t1"), { opacity: 1 }, 0); tl.fromTo(q(".t1"), { scale: 0.85, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "back.out(1.7)", immediateRender: true }, 0);
       tl.set(q(".t2w"), { opacity: 0 }, 0); tl.set(q(".t2w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.18)}); tl.fromTo(q(".t2w"), { y: 40 }, { y: 0, duration: 0.24, ease: "power3.out", immediateRender: false }, ${r2(rel(id, W(87)) + 0.18)});
       tl.set(q(".t3w"), { opacity: 0 }, 0); tl.set(q(".t3w"), { opacity: 1 }, ${r2(rel(id, W(87)) + 0.55)}); tl.fromTo(q(".t3w"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(1.7)", immediateRender: false }, ${r2(rel(id, W(87)) + 0.55)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.07, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(rel(id, W(90)) + 0.05)});`,
