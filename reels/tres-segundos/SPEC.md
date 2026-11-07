@@ -333,3 +333,10 @@ en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos d
 - s08/s09: cámara desde arriba (los marcos caen hacia la cámara, nunca cruzan los subtítulos), marcos más chicos;
   la cámara se endereza junto con el celular. "Fotos pesadas" sale seco.
 - Cierre: celular más arriba (21:40), DUR = voz + 0,25 s; fondo verde justo en el corte.
+
+## Ronda 2 (corregida)
+- Sombra del cronómetro debajo del aro (no más costura), 53 % más arriba, una sola carcasa del celular (navy claro),
+  celular viejo más abajo; toques con el pulgar (anillo verde en la pantalla, la mano derecha ya no cruza);
+  a pantalla completa el celular un 5 % más lejos y sin la parada detrás; porción que gira y crece en la 2.ª parada;
+  subtítulos largos a 74 px en un renglón; sin subtítulo "Agendá una" (queda la pregunta); pulso + click en scalerics.com.
+- Portada: portada.png desde renders/portada-fondo-limpio.png (ver nota en portada.json).
