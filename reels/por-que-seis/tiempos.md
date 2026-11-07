@@ -22,28 +22,28 @@ Palabras (segundos relativos a la escena): No 0.00 · les 0.12 · faltaban 0.26 
 ### s08-despues — dura 1.71 s (inicio global 14.09)
 Palabras (segundos relativos a la escena): Con -0.00 · tantas, 0.12 · costaba 0.71 · elegir. 1.03 · Y 1.71
 
-### s08b-sin — dura 1.51 s (inicio global 15.80)
-Palabras (segundos relativos a la escena): Y -0.00 · se 0.08 · iban 0.23 · sin 0.47 · comprar. 0.68 · Pensá 1.51
+### s08b-sin — dura 1.50 s (inicio global 15.80)
+Palabras (segundos relativos a la escena): Y -0.00 · se 0.08 · iban 0.23 · sin 0.47 · comprar. 0.68
 
-### s09-whatsapp — dura 2.96 s (inicio global 17.31)
-Palabras (segundos relativos a la escena): Pensá -0.00 · en 0.30 · tu 0.38 · catálogo 0.48 · de 0.88 · WhatsApp: 0.98 · doscientas 1.51 · fotos 2.04 · sueltas. 2.23 · Es 2.96
+### s09-whatsapp — dura 3.22 s (inicio global 17.30)
+Palabras (segundos relativos a la escena): Pensá 0.00 · en 0.35 · tu 0.44 · catálogo 0.55 · de 1.01 · WhatsApp: 1.12 · doscientas 1.77 · fotos 2.30 · sueltas. 2.49 · Es 3.22
 
-### s10-mesa24 — dura 1.95 s (inicio global 20.27)
+### s10-mesa24 — dura 1.95 s (inicio global 20.52)
 Palabras (segundos relativos a la escena): Es -0.00 · la 0.09 · mesa 0.18 · de 0.47 · veinticuatro. 0.62
 
-### s11-tienda — dura 2.12 s (inicio global 22.22)
+### s11-tienda — dura 2.12 s (inicio global 22.47)
 Palabras (segundos relativos a la escena): En 0.00 · Scalerics 0.09 · armamos 0.64 · tu 1.05 · tienda 1.18 · online: 1.50 · lo 2.12
 
-### s12-pocas — dura 2.61 s (inicio global 24.34)
+### s12-pocas — dura 2.61 s (inicio global 24.59)
 Palabras (segundos relativos a la escena): lo -0.00 · más 0.10 · pedido 0.38 · primero, 0.73 · pocas 1.39 · categorías. 1.69
 
-### s13-paga — dura 2.43 s (inicio global 26.95)
-Palabras (segundos relativos a la escena): El 0.00 · cliente 0.11 · elige 0.52 · y 1.19 · paga. 1.37 · ¿Querés 2.43
+### s13-paga — dura 2.17 s (inicio global 27.20)
+Palabras (segundos relativos a la escena): El 0.00 · cliente 0.11 · elige 0.52 · y 1.19 · paga. 1.37 · ¿Querés 2.17
 
-### s14-negocio — dura 2.49 s (inicio global 29.38)
-Palabras (segundos relativos a la escena): ¿Querés -0.00 · ver 0.30 · cómo 0.45 · quedaría 0.64 · en 0.98 · tu 1.07 · negocio? 1.17 · Agendá 1.96 · una 2.30
+### s14-negocio — dura 2.50 s (inicio global 29.37)
+Palabras (segundos relativos a la escena): ¿Querés -0.00 · ver 0.31 · cómo 0.45 · quedaría 0.64 · en 0.98 · tu 1.08 · negocio? 1.17 · Agendá 1.96 · una 2.31 · videollamada 2.50
 
 ### s15-cta — dura 3.00 s (inicio global 31.87)
-Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.84 · en 1.16 · scalerics.com. 1.22
+Palabras (segundos relativos a la escena): videollamada -0.00 · gratis 0.83 · en 1.16 · scalerics.com. 1.22
 
 Duración total 34.87 (la voz termina en 34.75).

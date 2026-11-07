@@ -63,7 +63,7 @@ que coinciden; no se leyó el PDF entero en la corrida.
   - ESCP, "When choice overload makes it too hard to choose": https://escp.eu/thechoice/news/when-choice-overload-makes-it-too-hard-to-choose/
 - Se cuenta como lo que pasó en ESE experimento (verbos en pasado: "costaba", "se iban"), no como ley universal.
 
-## Rótulo opcional "Sobre todo si no sabés qué querés"
+## Rótulo "Pesa más si no sabés qué querés" (antes "Sobre todo si no sabés qué querés")
 - El efecto NO aparece siempre. Meta-análisis de Scheibehenne, Greifeneder y Todd (2010, Journal of Consumer Research
   37(3), 409-425): 63 condiciones de 50 experimentos, efecto promedio casi cero, con mucha variación entre estudios.
   - https://ideas.repec.org/a/oup/jconrs/v37y2010i3p409-425.html
@@ -81,6 +81,12 @@ que coinciden; no se leyó el PDF entero en la corrida.
 ## "En Scalerics armamos tu tienda online: lo más pedido primero, pocas categorías. El cliente elige y paga."
 - Producto de Scalerics (CLAUDE.md, "Lo que se vende": tienda online con Mercado Pago y envíos). Ordenar el catálogo
   (destacados, categorías, filtros) es parte de armar la tienda. No se promete un aumento de ventas.
+- Puente "lo más pedido primero, pocas categorías" (por qué ordenar ayuda, sin prometer resultados): el meta-análisis
+  de Chernev, Böckenholt y Goodman (2015, Journal of Consumer Psychology 25(2), 333-358) encuentra que la sobrecarga
+  de opciones crece con la complejidad del surtido y la dificultad de la decisión, y baja cuando el surtido es fácil
+  de recorrer y hay una opción que se destaca; o sea: menos categorías y lo más elegido arriba facilitan elegir.
+  - Kellogg (Northwestern), ficha del artículo: https://www.kellogg.northwestern.edu/faculty/research/detail/2015/when-product-assortment-leads-to-choice-overload-a-conceptual
+  - DOI: https://doi.org/10.1016/j.jcps.2014.08.002
 
 ## Lo que NO va (no confirmado o no aplica)
 - El nombre del supermercado ni de la marca de mermeladas (el reel va sin marcas; tampoco se dibujan sus etiquetas).

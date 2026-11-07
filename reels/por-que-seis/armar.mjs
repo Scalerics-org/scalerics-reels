@@ -238,8 +238,9 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // el logo se esconde cuando la mesa navy pasa por debajo (se veía la placa encima de la mesa)
-      tl.set("#firma", { opacity: 0 }, 2.84); tl.set("#firma", { opacity: 1 }, 3.0);
-      tl.set("#firma", { opacity: 0 }, 12.86); tl.set("#firma", { opacity: 1 }, 13.84);
+      tl.set("#firma", { opacity: 0 }, ${r2(palabras[7].start - 0.08)}); tl.set("#firma", { opacity: 1 }, ${r2(palabras[7].start + 0.42)});
+      tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] - 0.66)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s05-tres")[1] - 0.05)});
+      tl.set("#firma", { opacity: 0 }, ${r2(TODAS.find(([id]) => id === "s07-ganas")[1] - 0.2)}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s08-despues")[1] + 0.05)});
       window.__timelines["main"] = tl;
     </script>
   </body>

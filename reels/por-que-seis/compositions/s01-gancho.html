@@ -35,7 +35,7 @@
 
       <div class="h h0">Con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>24</em></span></div>
       <div class="h h1">mermeladas</div>
-      <div class="h h2">se vendió <span class="mk r"><b class="selbox r" style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>menos</em></span></div>
+      <div class="h h2">vendieron <span class="mk r"><b class="selbox r" style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>menos</em></span></div>
       <div class="h h3">que con <span class="mk "><b class="selbox " style="opacity:1"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></b><em>6</em></span></div>
     </div>
   </div>
@@ -66,7 +66,9 @@
 
 
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      tl.set(qa(".h"), { opacity: 0 }, 2.68);
+      late(".h0 .mk", 0.67, 1.16);
+      // el gancho se funde (4-5 cuadros) y termina antes de que entre el primer subtítulo
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.42);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

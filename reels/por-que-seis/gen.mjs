@@ -17,6 +17,9 @@ const ESC = Object.fromEntries(reel.escenas.map(([id, i], k) => [id, r2((k + 1 <
 // tiempo de la palabra i, relativo al inicio de la escena id
 const w = (id, i) => r2(pal[i].start - INI[id]);
 
+const PILL_ESTUDIO_Y = 1140;
+const CADA100_Y = 700;
+const GENTE_LEAD = [780, 1190, 745, 985];
 const NAVY = "#0b1220", NAVY2 = "#16243d", NAVY3 = "#1f3254", CR = "#efeee5", G = "#5ce611", GD = "#3fa60a", RED = "#c7655b";
 
 // ---------- piezas ----------
@@ -126,13 +129,15 @@ const CSS_MK = `
     html: `
       <div class="h h0">Con ${marca("24", "")}</div>
       <div class="h h1">mermeladas</div>
-      <div class="h h2">se vendió ${marca("menos", "r")}</div>
+      <div class="h h2">vendieron ${marca("menos", "r")}</div>
       <div class="h h3">que con ${marca("6", "")}</div>`,
     js: `
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      tl.set(qa(".h"), { opacity: 0 }, ${r2(ESC[id] - 0.06)});`,
+      late(".h0 .mk", ${r2(w(id, 1))}, 1.16);
+      // el gancho se funde (4-5 cuadros) y termina antes de que entre el primer subtítulo
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.32)});`,
     sfx: [
-      { t: 0, sfx: "whoosh-cine-corto", vol: 0.12, max: 0.9 },
+      { t: 0, sfx: "whoosh-cine-corto", vol: 0.12, max: 0.9 }, { t: w(id, 1), sfx: "pop", vol: 0.09 },
       ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 2) + 0.06 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.07 })),
     ],
   });
@@ -158,7 +163,7 @@ const CSS_MK = `
   escena(id, {
     css: `P .pq { position: absolute; left: 0; right: 0; top: 230px; text-align: center; ${TIT} font-size: 150px; }`,
     html: `<div class="pq">¿Por qué?</div>
-      ${pill(1, 540, 1640, "Estudio publicado en 2000", "lleno")}`,
+      ${pill(1, 540, PILL_ESTUDIO_Y, "Estudio publicado en 2000", "lleno")}`,
     js: `
       tl.fromTo(q(".pq"), { scale: 1.2, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.16, ease: "power4.out", immediateRender: true }, 0);
       tl.set(q(".pq"), { opacity: 0 }, ${r2(w(id, 14) - 0.2)});
@@ -177,13 +182,13 @@ const CSS_MK = `
   const id = "s04-gente";
   escena(id, {
     css: `P .pill.medio { font-size: 52px; padding: 16px 34px 18px; }`,
-    html: `${leads(lead(1, 870, 560, 790, 640, "g"))}${pill(1, 870, 520, "Más gente", "lleno medio")}`,
-    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.42)}, 0.14);`,
+    html: `${leads(lead(1, GENTE_LEAD[0], GENTE_LEAD[1], GENTE_LEAD[2], GENTE_LEAD[3], "g"))}${pill(1, GENTE_LEAD[0], GENTE_LEAD[1] - 40, "Más gente", "lleno medio")}`,
+    js: `nota(1, ${r2(w(id, 20) - 0.12)}); fuera(".n1, .l1, .d1", ${r2(ESC[id] - 0.86)}, 0.12);`,
     sfx: [
       { t: -0.1, sfx: "whoosh-cine-corto2", vol: 0.1, max: 0.7 },
       ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 20) - 0.2 + i * 0.09), sfx: i % 2 ? "key-press" : "click-soft", vol: 0.08 })),
       { t: r2(w(id, 20) - 0.12), sfx: "burbuja", vol: 0.1 },
-      { t: r2(ESC[id] - 0.5), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
+      { t: r2(ESC[id] - 0.62), sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
     ],
   });
 }
@@ -192,8 +197,9 @@ const CSS_MK = `
 {
   const id = "s05-tres";
   escena(id, {
-    html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}`,
-    js: `nota(1, 0.35); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.16);`,
+    html: `${pill(1, 540, 1690, "Mesa de 24", "rl")}${pill(2, 540, CADA100_Y, "de cada 100", "r medio")}`,
+    css: `P .pill.medio { font-size: 50px; padding: 14px 32px 16px; background: #efeee5; }`,
+    js: `nota(1, 0.35); nota(2, ${r2(w(id, 25) + 0.12)}); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.16); fuera(".n2", ${r2(ESC[id] - 0.36)}, 0.12);`,
     sfx: [
       { t: 0.04, sfx: "burbuja", vol: 0.1 }, { t: 0.35, sfx: "key-press", vol: 0.12 },
       { t: w(id, 25) - 0.05, sfx: "impact-bass-1", vol: 0.07, max: 0.5 }, { t: w(id, 25) - 0.04, sfx: "pop", vol: 0.1 },
@@ -206,11 +212,13 @@ const CSS_MK = `
 {
   const id = "s06-treinta";
   escena(id, {
-    html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}`,
-    js: `nota(1, 0.1); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
+    html: `${pill(1, 540, 1690, "Mesa de 6", "lleno")}${pill(2, 540, CADA100_Y, "de cada 100", "g medio")}`,
+    css: `P .pill.medio { font-size: 50px; padding: 14px 32px 16px; background: #efeee5; border-color: ${GD}; color: ${GD}; }`,
+    js: `nota(1, 0.1); nota(2, ${r2(w(id, 32) + 0.05)}); fuera(".n1, .n2", ${r2(ESC[id] - 0.62)}, 0.12);`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.1, sfx: "key-press", vol: 0.12 },
-      ...Array.from({ length: 5 }, (_, i) => ({ t: r2(w(id, 31) + 0.0 + i * 0.13), sfx: ["pop", "burbuja", "key-press"][i % 3], vol: 0.05 })),
+      // un golpe por cada frasco que aterriza en la canasta (los mismos tiempos que tres.js: CAIDA_B)
+      ...[0, 0.15, 0.29, 0.41, 0.6, 0.78].map((d, i) => ({ t: r2(w(id, 31) - 0.05 + d + 0.3), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
       { t: w(id, 32) - 0.08, sfx: "ping", vol: 0.06, max: 0.6 }, { t: w(id, 32) - 0.07, sfx: "impact-bass-1", vol: 0.05, max: 0.4 },
     ],
   });
@@ -234,12 +242,14 @@ const CSS_MK = `
   const id = "s08-despues";
   escena(id, {
     css: `P .pill.m44 { font-size: 44px; padding: 14px 30px 16px; }`,
-    html: `${pill(1, 540, 1650, "Sobre todo si no sabés qué querés", "m44")}`,
+    html: `${pill(1, 540, 1650, "Pesa más si no sabés qué querés", "m44")}`,
     js: `nota(1, 0.4);`,
     sfx: [
-      { t: -0.6, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.7 },
-      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(-0.25 + i * 0.09), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
-      { t: w(id, 39) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.1, sfx: "key-press", vol: 0.14 }, { t: w(id, 40) + 0.44, sfx: "key-press", vol: 0.14 },
+      // la mesa se abre en el anillo: whoosh, barrido de pops, la canasta y el rótulo
+      { t: 0.08, sfx: "whoosh-cine-corto2", vol: 0.08, max: 0.7 },
+      ...Array.from({ length: 4 }, (_, i) => ({ t: r2(0.12 + i * 0.08), sfx: i % 2 ? "burbuja" : "pop", vol: 0.055 })),
+      { t: 0.4, sfx: "click-soft", vol: 0.1 }, { t: 0.5, sfx: "pop", vol: 0.1 },
+      { t: w(id, 39) + 0.1, sfx: "key-press", vol: 0.12 },
     ],
   });
 }
@@ -249,11 +259,11 @@ const CSS_MK = `
   const id = "s08b-sin";
   escena(id, {
     css: `P .pill.m44 { font-size: 44px; padding: 14px 30px 16px; opacity: 1; }`,
-    html: `${pill(1, 540, 1650, "Sobre todo si no sabés qué querés", "m44")}`,
+    html: `${pill(1, 540, 1650, "Pesa más si no sabés qué querés", "m44")}`,
     js: `fuera(".n1", ${r2(ESC[id] - 0.4)}, 0.1);`,
     sfx: [
       { t: w(id, 42) + 0.1, sfx: "key-press", vol: 0.13 },
-      { t: w(id, 43) + 0.2, sfx: "whoosh-short", vol: 0.1 },
+      { t: w(id, 44) + 0.05, sfx: "whoosh-short", vol: 0.1 },
     ],
   });
 }
@@ -265,7 +275,7 @@ const CSS_MK = `
     html: `${pill(1, 540, 1650, "Tu catálogo")}`,
     js: `nota(1, ${r2(w(id, 49))}); fuera(".n1", ${r2(ESC[id] - 0.22)}, 0.18);`,
     sfx: [
-      { t: -0.3, sfx: "burbuja", vol: 0.11 },
+      { t: -0.55, sfx: "burbuja", vol: 0.11 },
       { t: w(id, 49), sfx: "whoosh-short", vol: 0.05, max: 0.5 },
       ...[[0, 0.04], [0.4, 0.055], [0.7, 0.07], [0.92, 0.085]].map(([d, v]) => ({ t: r2(w(id, 52) + d), sfx: "notification", vol: v, max: 0.4 })),
     ],
@@ -326,7 +336,9 @@ const CSS_MK = `
       { t: 0.42, sfx: "pop", vol: 0.12 },
       { t: w(id, 74), sfx: "key-press", vol: 0.13 }, { t: w(id, 74) + 0.08, sfx: "ping", vol: 0.07 },
       { t: w(id, 76), sfx: "click", vol: 0.12 },
-      { t: w(id, 76) + 0.65, sfx: "pop", vol: 0.055 }, { t: w(id, 76) + 1.05, sfx: "burbuja", vol: 0.05 },
+      // los dos frascos vuelan a la canasta (tres.js: salen en paga-0,15 y paga+0,15, tardan 0,5 s)
+      { t: w(id, 76) - 0.12, sfx: "whoosh-short", vol: 0.05, max: 0.4 },
+      { t: w(id, 76) + 0.35, sfx: "pop", vol: 0.09 }, { t: w(id, 76) + 0.65, sfx: "pop", vol: 0.09 },
     ],
   });
 }
@@ -339,7 +351,8 @@ const CSS_MK = `
     js: ``,
     sfx: [
       { t: -0.2, sfx: "whoosh-cine-corto2", vol: 0.09, max: 0.7 }, { t: 0.05, sfx: "burbuja", vol: 0.1 },
-      { t: w(id, 80), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 83) + 0.1, sfx: "chime", vol: 0.1, max: 0.9 },
+      { t: w(id, 80), sfx: "notification", vol: 0.08, max: 0.6 }, { t: w(id, 80) + 0.22, sfx: "whoosh-short", vol: 0.07, max: 0.5 },
+      { t: w(id, 83) + 0.06, sfx: "chime", vol: 0.1, max: 0.9 },
     ],
   });
 }
@@ -364,8 +377,10 @@ const CSS_MK = `
       tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".sb"), { scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
-      tl.fromTo(q(".t2w"), { scale: 1 }, { scale: 1.08, transformOrigin: "50% 50%", duration: 0.14, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.02)});
-      tl.fromTo(q(".t3w"), { scale: 1 }, { scale: 1.1, transformOrigin: "50% 50%", duration: 0.16, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) - 0.03)});`,
+      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.16, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.02)});
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.18, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 89) - 0.03)});
+      // push-in lento de toda la tarjeta (movimiento mínimo hasta el final)
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.035, transformOrigin: "50% 20%", duration: ${r2(ESC["s15-cta"] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [{ t: -0.5, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 87) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 89) - 0.03, sfx: "chime", vol: 0.09, max: 1.8 }],
   });
 }

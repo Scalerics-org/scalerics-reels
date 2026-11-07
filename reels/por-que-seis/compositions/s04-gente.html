@@ -27,7 +27,7 @@
   </style>
   <div id="root" data-composition-id="s04-gente" data-width="1080" data-height="1920" data-duration="1.87">
     <div id="s04-gente-esc" class="esc clip" data-start="0" data-duration="1.87" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M870 560 L790 640"/><circle class="dot g d1" cx="790" cy="640" r="12"/></svg><div class="pill lleno medio n1" style="left:870px;top:520px">Más gente</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M780 1190 L745 985"/><circle class="dot g d1" cx="745" cy="985" r="12"/></svg><div class="pill lleno medio n1" style="left:780px;top:1150px">Más gente</div>
     </div>
   </div>
   <script>
@@ -55,7 +55,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 0.67); fuera(".n1, .l1, .d1", 1.45, 0.14);
+nota(1, 0.67); fuera(".n1, .l1, .d1", 1.01, 0.12);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

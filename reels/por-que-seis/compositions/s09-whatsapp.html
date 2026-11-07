@@ -25,15 +25,15 @@
     [data-composition-id="s09-whatsapp"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s09-whatsapp" data-width="1080" data-height="1920" data-duration="2.96">
-    <div id="s09-whatsapp-esc" class="esc clip" data-start="0" data-duration="2.96" data-track-index="0">
+  <div id="root" data-composition-id="s09-whatsapp" data-width="1080" data-height="1920" data-duration="3.22">
+    <div id="s09-whatsapp-esc" class="esc clip" data-start="0" data-duration="3.22" data-track-index="0">
 <div class="pill  n1" style="left:540px;top:1650px">Tu catálogo</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-whatsapp";
-      const DUR = 2.96;
+      const DUR = 3.22;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -55,7 +55,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 0.48); fuera(".n1", 2.74, 0.18);
+nota(1, 0.55); fuera(".n1", 3, 0.18);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -93,7 +93,7 @@ SIN marcas: ni el supermercado ni la marca de las mermeladas, etiquetas genéric
 - La cámara se aleja y orbita: los **24 frascos se despegan de la mesa y giran en anillo** alrededor de la cámara
   (mareo controlado); la cucharita va de un frasco al otro sin decidirse (3 saltos). "lo dejaron para después":
   la canasta se queda vacía y se desliza hacia afuera del cuadro; los frascos vuelven a su lugar.
-- Rótulo chico (opcional, de fuentes.md): "Sobre todo si no sabés qué querés" (mono 30 px, navy al 70 %).
+- Rótulo chico (opcional, de fuentes.md): "Pesa más si no sabés qué querés" (mono 30 px, navy al 70 %).
 - SFX: `click-soft` en cada salto de la cucharita, `whoosh-short` en la órbita, `glitch-1` muy bajo en "después".
 
 ### s08-whatsapp (46 "Pensá en tu catálogo" → "sueltas")
@@ -242,7 +242,7 @@ escenas y `tiempos3d.js` tenía los inicios viejos, así que la cámara y los ob
 s06-treinta 10,51 · s07-ganas 12,66 · s08-despues 14,09 · s08b-sin 15,80 · s09-whatsapp 17,31 · s10-mesa24 20,27 ·
 s11-tienda 22,22 · s12-pocas 24,34 · s13-paga 26,95 · s14-negocio 29,38 · s15-cta 31,87 (2,89 s, arranca en
 "videollamada"). Duración 34,76 s. s08 se partió en dos (s08b-sin en "Y se iban") para que ninguna pase de 3 s; el rótulo
-"Sobre todo si no sabés qué querés" sigue de una escena a la otra sin volver a entrar (2,7 s en pantalla).
+"Pesa más si no sabés qué querés" sigue de una escena a la otra sin volver a entrar (2,7 s en pantalla).
 **Cambios de 3D (tres.js):** la mesa grande se encoge cuando llega la canasta (s05) y no vuelve; canastas a la izquierda
 (A donde estaba la mesa grande, B al costado de la mesa chica) para que la mesa navy no quede cortada en el borde; la
 canasta A se va cuando la cámara llega a la B; el anillo de s08 aparece frasco por frasco en su lugar (barrido con pop)

@@ -23,11 +23,11 @@
     [data-composition-id="s05-tres"] .selbox.r i { border-color: #c7655b; }
     [data-composition-id="s05-tres"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s05-tres"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s05-tres"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s05-tres"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s05-tres"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
-
+[data-composition-id="s05-tres"] .pill.medio { font-size: 50px; padding: 14px 32px 16px; background: #efeee5; }
   </style>
   <div id="root" data-composition-id="s05-tres" data-width="1080" data-height="1920" data-duration="1.74">
     <div id="s05-tres-esc" class="esc clip" data-start="0" data-duration="1.74" data-track-index="0">
-<div class="pill rl n1" style="left:540px;top:1690px">Mesa de 24</div>
+<div class="pill rl n1" style="left:540px;top:1690px">Mesa de 24</div><div class="pill r medio n2" style="left:540px;top:700px">de cada 100</div>
     </div>
   </div>
   <script>
@@ -55,7 +55,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 0.35); fuera(".n1", 1.44, 0.16);
+nota(1, 0.35); nota(2, 0.7); fuera(".n1", 1.44, 0.16); fuera(".n2", 1.38, 0.12);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
