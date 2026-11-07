@@ -4,17 +4,17 @@ Palabras (segundos relativos a la escena): Metieron 0.17 · la 0.50 · mano 0.60
 ### s02-mayoria — dura 2.88 s (inicio global 2.97)
 Palabras (segundos relativos a la escena): Para 0.00 · repetir, 0.13 · la 0.98 · mayoría 1.03 · eligió 1.53 · la 1.93 · larga. 2.03
 
-### s03-por-que — dura 2.87 s (inicio global 5.85)
+### s03-por-que — dura 3.05 s (inicio global 5.85)
 Palabras (segundos relativos a la escena): ¿Por 0.00 · qué? 0.23 · Un 1.01 · minuto 1.15 · a 1.55 · catorce 1.65 · grados. 2.15
 
-### s04-minuto-y-medio — dura 1.80 s (inicio global 8.72)
-Palabras (segundos relativos a la escena): O 0.00 · un 0.11 · minuto 0.38 · y 0.58 · medio, 0.78 · y 1.58 · al 1.68
+### s04-minuto-y-medio — dura 1.62 s (inicio global 8.90)
+Palabras (segundos relativos a la escena): O 0.00 · un 0.10 · minuto 0.20 · y 0.40 · medio, 0.60 · y 1.40 · al 1.50
 
 ### s05-quince — dura 2.29 s (inicio global 10.52)
 Palabras (segundos relativos a la escena): final 0.00 · el 0.23 · agua 0.48 · subía 0.58 · a 0.98 · quince. 1.08
 
 ### s06-un-grado — dura 2.91 s (inicio global 12.81)
-Palabras (segundos relativos a la escena): Más 0.00 · rato, 0.19 · pero 0.78 · terminaba 0.79 · un 1.29 · grado 1.59 · mejor. 1.89 · Recordamos 2.91
+Palabras (segundos relativos a la escena): Más 0.00 · rato, 0.19 · pero 0.77 · terminaba 0.94 · un 1.29 · grado 1.59 · mejor. 1.89 · Recordamos 2.91
 
 ### s07-pico-final — dura 2.67 s (inicio global 15.72)
 Palabras (segundos relativos a la escena): Recordamos -0.00 · más 0.48 · lo 0.58 · peor 0.68 · y 1.34 · el 1.48 · final. 1.58 · Al 2.67

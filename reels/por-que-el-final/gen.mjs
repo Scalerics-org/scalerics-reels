@@ -122,13 +122,15 @@ const SEL = `
     css: `
     P .a { position: absolute; left: 0; right: 0; top: 110px; text-align: center; ${TIT} font-size: 118px; }
     P .a .l { display: block; }
-    P .a .chica { font-size: 80px; font-weight: 800; color: #efeee5; margin-bottom: 18px; }${SEL}`,
+    P .a .chica { font-size: 80px; font-weight: 800; color: #efeee5; margin-bottom: 18px; }
+    P .exp { left: 540px; top: 790px; font-size: 44px; color: ${CR}; opacity: 1; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }${SEL}`,
     html: `
-      <div class="a"><span class="l chica">Agua fría, dos veces.</span><span class="l">La mayoría</span><span class="l">eligió <span class="kw"><div class="selbox sb">${esquinas}</div><em>la más larga</em></span>.</span><span class="l">¿Por qué?</span></div>`,
+      <div class="a"><span class="l chica">Agua fría, dos veces.</span><span class="l">La mayoría</span><span class="l">eligió <span class="kw"><div class="selbox sb">${esquinas}</div><em>la más larga</em></span>.</span><span class="l">¿Por qué?</span></div>${mono(1, 540, 790, "Experimento de psicología · 1993", "exp")}`,
     js: `
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".kw", ${r2(w(id, 6))}, 1.08);
-      tl.to(q(".a"), { y: -60, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(ESC[id] - 0.32)});`,
+      // cambio seco al subtítulo (sin fundido ni hueco)
+      tl.set([q(".a"), q(".n1")], { opacity: 0 }, ${r2(ESC[id] - 0.09)});`,
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.22, max: 1.2 }, { t: 0.15, sfx: "burbuja", vol: 0.3 },
       { t: w(id, 6), sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 7) + 0.3, sfx: "burbuja", vol: 0.32 }, { t: w(id, 7) + 0.36, sfx: "burbuja", vol: 0.22 },
@@ -141,13 +143,14 @@ const SEL = `
 {
   const id = "s02-mayoria";
   escena(id, {
-    css: `P .exp { left: 540px; top: 500px; font-size: 40px; color: ${CR}; }`,
+    css: `P .exp { left: 540px; top: 500px; font-size: 44px; color: ${CR}; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }`,
     html: `${leads(lead(1, 780, 1570, 950, 1200, "g"))}${pill(1, 780, 1610, "La mayoría", "g grande")}${mono(2, 540, 500, "Experimento de psicología · 1993", "exp")}`,
     js: `nota(1, ${r2(w(id, 11) + 0.25)}); tl.fromTo(q(".n2"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.3, ease: "power2.out", immediateRender: true }, 0.05); fuera(".n2", ${r2(ESC[id] - 0.25)}, 0.2);`,
     sfx: [
       { t: 0.1, sfx: "pop", vol: 0.16 }, { t: 0.3, sfx: "pop", vol: 0.14 },
       ...Array.from({ length: 11 }, (_, k) => ({ t: r2(w(id, 11) - 0.25 + k * 0.075 + 0.28), sfx: "click-soft", vol: 0.16 })),
       { t: w(id, 14), sfx: "pop", vol: 0.2 }, { t: w(id, 14) + 0.08, sfx: "ding", vol: 0.1, max: 0.8 },
+      { t: w(id, 14) + 0.33, sfx: "whoosh-short", vol: 0.13 }, // chapas a los costados y manos arriba
     ],
   });
 }
@@ -157,7 +160,7 @@ const SEL = `
   const id = "s03-por-que";
   escena(id, {
     html: `${leads(lead(1, 640, 1690, 470, 1620, "r"))}${pill(1, 760, 1690, "60 s", "r grande")}`,
-    js: `nota(1, ${r2(w(id, 18))}); sinNota(1, ${r2(ESC[id] - 0.32)});`,
+    js: `nota(1, ${r2(w(id, 18))}); sinNota(1, ${r2(ESC[id] - 0.5)});`,
     sfx: [
       { t: 0.02, sfx: "impact-bass-1", vol: 0.24, max: 1.2 }, { t: 0.1, sfx: "pop", vol: 0.18 },
       { t: w(id, 17) - 0.15, sfx: "riser-corto", vol: 0.14, max: 0.9 },
@@ -171,7 +174,7 @@ const SEL = `
   const id = "s04-minuto-y-medio";
   escena(id, {
     html: `${leads(lead(1, 800, 1560, 700, 1120, "g"))}${pill(1, 800, 1600, "+30 s", "g grande")}${pill(2, 290, 1600, "60 s", "grande")}`,
-    js: `nota(2, 0.2); nota(1, ${r2(w(id, 26) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.25)}); sinNota(2, ${r2(ESC[id] - 0.25)});`,
+    js: `nota(2, 0.2); nota(1, ${r2(w(id, 26) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.45)}); sinNota(2, ${r2(ESC[id] - 0.45)});`,
     sfx: [
       { t: -0.1, sfx: "whoosh-short", vol: 0.16 }, { t: 0.0, sfx: "pop", vol: 0.18 },
       ...Array.from({ length: 9 }, (_, k) => ({ t: r2(0.15 + k * 0.13), sfx: "tic", vol: 0.24 })),
@@ -203,6 +206,7 @@ const SEL = `
     sfx: [
       { t: 0.25, sfx: "burbuja", vol: 0.3 }, { t: 0.65, sfx: "burbuja", vol: 0.2 }, { t: 1.07, sfx: "burbuja", vol: 0.18 }, { t: 1.49, sfx: "burbuja", vol: 0.16 }, { t: 1.91, sfx: "burbuja", vol: 0.14 },
       { t: w(id, 36) - 0.05, sfx: "pop", vol: 0.12 }, { t: w(id, 41), sfx: "pop", vol: 0.18 }, { t: w(id, 41) + 0.1, sfx: "sparkle", vol: 0.1, max: 1.0 },
+      { t: ESC[id] - 0.45, sfx: "whoosh-short", vol: 0.13 }, // la mano sale por arriba
     ],
   });
 }
@@ -212,7 +216,7 @@ const SEL = `
   const id = "s07-pico-final";
   escena(id, {
     html: `${leads(lead(1, 300, 1560, 450, 760, "r"), lead(2, 790, 1560, 975, 1020, "g"))}${pill(1, 290, 1600, "Lo peor", "r grande")}${pill(2, 800, 1600, "El final", "g grande")}`,
-    js: `nota(1, ${r2(w(id, 45) + 0.1)}); nota(2, ${r2(w(id, 48) + 0.1)});`,
+    js: `nota(1, ${r2(w(id, 45) + 0.1)}); nota(2, ${r2(w(id, 48) + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.48)}); sinNota(2, ${r2(ESC[id] - 0.48)});`,
     sfx: [
       { t: 0.05, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.9 }, { t: 0.2, sfx: "burbuja", vol: 0.2 },
       { t: w(id, 45) + 0.2, sfx: "golpe", vol: 0.16, max: 0.42 }, { t: w(id, 48) + 0.2, sfx: "ding", vol: 0.14, max: 1.0 },
@@ -225,10 +229,10 @@ const SEL = `
   const id = "s08-cobrar";
   escena(id, {
     html: `${leads(lead(1, 540, 1580, 540, 1350, "g"))}${pill(1, 540, 1620, "Después de cobrar", "g grande")}`,
-    js: `nota(1, ${r2(w(id, 54) + 0.05)});`,
+    js: `nota(1, ${r2(w(id, 54) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: w(id, 50), sfx: "whoosh-short", vol: 0.16 }, { t: w(id, 52), sfx: "pop", vol: 0.2 },
-      { t: w(id, 54) - 0.05, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 56) - 0.1, sfx: "click", vol: 0.24 }, { t: w(id, 56) + 0.15, sfx: "pop", vol: 0.2 },
+      { t: -0.22, sfx: "pop", vol: 0.2 }, { t: w(id, 50), sfx: "whoosh-short", vol: 0.14 },
+      { t: w(id, 54) - 0.12, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 54) + 0.04, sfx: "pop", vol: 0.18 }, { t: w(id, 54) + 0.21, sfx: "click", vol: 0.24 }, { t: w(id, 56) + 0.15, sfx: "pop", vol: 0.2 },
     ],
   });
 }
@@ -247,13 +251,11 @@ const SEL = `
 {
   const id = "s10-sale-solo";
   escena(id, {
-    css: `P .sello { left: 540px; top: 1470px; border-color: ${G}; color: ${G}; font-size: 84px; }`,
-    html: `<div class="sello sx">SALE SOLO</div>`,
-    js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", ${r2(w(id, 63))}, -5); fuera(".sx", ${r2(ESC[id] - 0.3)}, 0.2);`,
+    html: `<i></i>`,
+    js: ``,
     sfx: [
       { t: -0.1, sfx: "whoosh-cine-corto", vol: 0.2, max: 1.0 }, { t: 0.25, sfx: "vibra", vol: 1.0, max: 0.6 }, { t: 0.3, sfx: "notification", vol: 0.22 },
-      { t: w(id, 63) + 0.25, sfx: "impact-bass-1", vol: 0.12, max: 0.6 },
-      { t: w(id, 66), sfx: "whoosh-short", vol: 0.16 },
+      { t: w(id, 64) - 0.05, sfx: "pop", vol: 0.12 },
     ],
   });
 }
@@ -267,6 +269,7 @@ const SEL = `
     sfx: [
       { t: 0.0, sfx: "pop", vol: 0.16 }, { t: w(id, 72) - 0.1, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 72) + 0.2, sfx: "click-soft", vol: 0.2 },
       { t: w(id, 73) - 0.1, sfx: "vibra", vol: 1.0, max: 0.5 }, { t: w(id, 73) - 0.05, sfx: "notification", vol: 0.22 },
+      { t: w(id, 72) + 0.36, sfx: "whoosh-short", vol: 0.13 }, // el calendario sale volando
       { t: w(id, 74) + 0.45, sfx: "ping", vol: 0.14 },
     ],
   });
@@ -276,8 +279,8 @@ const SEL = `
 {
   const id = "s11b-grado-mejor";
   escena(id, {
-    css: `P .sello { left: 430px; top: 1740px; border-color: ${G}; color: ${NAVY}; background: ${G}; font-size: 72px; }`,
-    html: `${pill(1, 790, 1800, "+1 °C", "g grande")}<div class="sello sx">AUTOMÁTICO</div>`,
+    css: `P .sello { left: 400px; top: 1745px; border-color: ${G}; color: ${NAVY}; background: ${G}; font-size: 72px; }`,
+    html: `${pill(1, 640, 1830, "+1 °C", "g grande")}<div class="sello sx">AUTOMÁTICO</div>`,
     js: `tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); nota(1, ${r2(w(id, 77))}); sinNota(1, ${r2(w(id, 79) - 0.05)}); sello(".sx", ${r2(w(id, 79) + 0.1)}, -4); fuera(".sx", ${r2(ESC[id] - 0.5)}, 0.2);`,
     sfx: [
       { t: -0.05, sfx: "pop", vol: 0.16 }, { t: w(id, 76), sfx: "riser-corto", vol: 0.12, max: 0.8 }, { t: w(id, 77) + 0.05, sfx: "ding", vol: 0.1, max: 0.6 },
@@ -313,8 +316,8 @@ const SEL = `
       <div class="t2w"><span class="t2"><div class="selbox sb">${esquinas}</div><em style="position:relative;font-style:normal">gratis</em></span></div>
       <div class="t3">scalerics.com</div>`,
     js: `
-      tl.fromTo(q(".fondo"), { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "power2.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t1"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.22, ease: "power3.out", immediateRender: true }, 0.1);
+      tl.set(q(".fondo"), { opacity: 1 }, 0);
+      tl.set(q(".t1"), { opacity: 1 }, 0); tl.fromTo(q(".t1"), { y: 40 }, { y: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, ${r2(w(id, 88) - 0.15)});
       caja(".sb", ${r2(w(id, 88))});
       tl.fromTo(q(".t3"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 90) - 0.08)});

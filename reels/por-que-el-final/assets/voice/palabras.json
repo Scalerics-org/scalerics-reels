@@ -134,13 +134,13 @@
  {
   "id": 22,
   "text": "O",
-  "start": 8.72,
-  "end": 8.8
+  "start": 8.9,
+  "end": 9.0
  },
  {
   "id": 23,
   "text": "un",
-  "start": 8.827,
+  "start": 9.0,
   "end": 9.1
  },
  {
@@ -224,13 +224,13 @@
  {
   "id": 37,
   "text": "pero",
-  "start": 13.59,
-  "end": 13.6
+  "start": 13.58,
+  "end": 13.72
  },
  {
   "id": 38,
   "text": "terminaba",
-  "start": 13.6,
+  "start": 13.75,
   "end": 14.1
  },
  {

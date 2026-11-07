@@ -24,6 +24,9 @@ const lufsArchivo = (n, max) => {
     const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af ${corte}apad=pad_dur=1,ebur128 -f null - 2>&1`).toString();
     const m = [...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1);
     lufs[k] = m && Number(m[1]) > -69 ? Number(m[1]) : -30;
+    // el render duplica los SFX mono a estéreo (+3 LU): se miden como suenan
+    const canales = Number(execSync(`ffprobe -v error -select_streams a:0 -show_entries stream=channels -of csv=p=0 assets/sfx/${n}.mp3`).toString());
+    if (canales === 1) lufs[k] += 3;
   }
   return lufs[k];
 };
@@ -109,7 +112,7 @@ const subtitulos = `<template>
     ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
-    ${C} .w.ac { margin: 0 6px; }
+    ${C} .w.ac { margin: 0 2px; }
     ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.16); }
     ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.18); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }

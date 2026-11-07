@@ -23,11 +23,11 @@
     [data-composition-id="s10-sale-solo"] .selbox.r i { border-color: #c7655b; }
     [data-composition-id="s10-sale-solo"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s10-sale-solo"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s10-sale-solo"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s10-sale-solo"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s10-sale-solo"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
-[data-composition-id="s10-sale-solo"] .sello { left: 540px; top: 1470px; border-color: #5ce611; color: #5ce611; font-size: 84px; }
+
   </style>
   <div id="root" data-composition-id="s10-sale-solo" data-width="1080" data-height="1920" data-duration="3">
     <div id="s10-sale-solo-esc" class="esc clip" data-start="0" data-duration="3" data-track-index="0">
-<div class="sello sx">SALE SOLO</div>
+<i></i>
     </div>
   </div>
   <script>
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-tl.set(q(".sx"), { xPercent: -50, yPercent: -50 }, 0); sello(".sx", 0.17, -5); fuera(".sx", 2.7, 0.2);
+
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

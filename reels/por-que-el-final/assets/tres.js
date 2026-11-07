@@ -159,7 +159,7 @@ function hacerCubeta() {
 }
 const cubB = hacerCubeta(); scene.add(cubB.g); // la larga (derecha)
 const cubA = hacerCubeta(); scene.add(cubA.g); // la corta (izquierda)
-const POS_B = V(0, 0, 0), POS_A = V(-1.15, 0, -1.95);
+const POS_B = V(0, 0, 0), POS_A = V(-1.75, 0, -1.9);
 const sombraB = sombra(2.6, 2.0), sombraA = sombra(2.6, 2.0);
 // anillos de onda (alrededor de la muñeca y donde caen las gotas)
 const anilloGeo = new THREE.RingGeometry(0.8, 1.0, 40); anilloGeo.rotateX(-Math.PI / 2);
@@ -226,6 +226,8 @@ function hacerTermo() {
   const colMat = mat(C.red, 0.4, { emissive: C.red, emissiveIntensity: 0.25 });
   const bulbo = mesh(new THREE.SphereGeometry(0.15, 28, 20), colMat, 0, 0, 0); g.add(bulbo);
   const col = mesh(new THREE.CylinderGeometry(0.052, 0.052, 1, 18), colMat, 0, 0.5, 0); g.add(col);
+  const colGMat = mat(C.g, 0.4, { emissive: C.g, emissiveIntensity: 0.3 });
+  const colG = mesh(new THREE.CylinderGeometry(0.054, 0.054, 1, 18), colGMat, 0, 0.5, 0); colG.visible = false; g.add(colG);
   const vid = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.05, metalness: 0.1, transparent: true, opacity: 0.28, depthWrite: false });
   g.add(mesh(new THREE.SphereGeometry(0.2, 28, 20), vid, 0, 0, 0));
   g.add(mesh(new THREE.CylinderGeometry(0.105, 0.105, TL - 0.1, 24, 1, true), vid, 0, (TL - 0.1) / 2 + 0.06, 0));
@@ -240,17 +242,29 @@ function hacerTermo() {
   // anillo verde que marca el 15
   const marca15 = mesh(rbox(0.38, 0.04, 0.04, 0.015), M.g, 0, yTemp(15), -0.1); g.add(marca15);
   g.add(mesh(new THREE.CylinderGeometry(0.115, 0.115, 0.08, 20), M.navy3, 0, TL + 0.02, 0));
-  return { g, col, colMat, bulbo, marca15 };
+  return { g, col, colMat, colG, colGMat, bulbo, marca15 };
 }
 const termo = hacerTermo(); scene.add(termo.g);
 const termoSombra = sombra(1.2, 1.2);
+// la columna sigue roja hasta 14; solo el grado de más (14 -> 15) se pone verde
 function ponerTemp(T, c, verde) {
-  const h = yTemp(c);
-  T.col.scale.y = h; T.col.position.y = h / 2;
-  T.colMat.color.set(C.red).lerp(new THREE.Color(C.g), verde); T.colMat.emissive.copy(T.colMat.color); T.colMat.emissiveIntensity = lerp(0.25, 0.32, verde);
+  const h = yTemp(c), h14 = yTemp(14);
+  const hr = Math.min(h, h14); void verde;
+  T.col.scale.y = hr; T.col.position.y = hr / 2;
+  T.colMat.color.set(C.red); T.colMat.emissive.copy(T.colMat.color); T.colMat.emissiveIntensity = 0.25;
+  const hg = h - h14;
+  T.colG.visible = hg > 0.005;
+  if (T.colG.visible) { T.colG.scale.y = hg; T.colG.position.y = h14 + hg / 2; }
 }
-const num14 = new THREE.Mesh(textoGeo("14°", 0.42, 0.13), M.numCr); scene.add(num14);
-const num15 = new THREE.Mesh(textoGeo("15°", 0.42, 0.13), M.numG); scene.add(num15);
+const numMat = (m) => { const c = m.clone(); c.transparent = true; return c; };
+const num14 = new THREE.Mesh(textoGeo("14°", 0.42, 0.13), numMat(M.numCr)); scene.add(num14);
+const num15 = new THREE.Mesh(textoGeo("15°", 0.42, 0.13), numMat(M.numG)); scene.add(num15);
+// pop = escala de entrada (bk), op = opacidad de salida: nunca queda un punto suelto
+function ponerNum(o, pop, op, k) {
+  o.visible = pop > 0.002 && op > 0.01;
+  if (!o.visible) return;
+  o.scale.setScalar(k * pop); o.material.opacity = op; o.material.depthWrite = op > 0.99;
+}
 
 // ================= EL "?" VERDE (la bisagra) =================
 const pregunta = new THREE.Mesh(textoGeo("?", 2.3, 0.55), M.g); scene.add(pregunta);
@@ -267,7 +281,7 @@ const tick90 = mesh(tickGeo, M.tick); scene.add(tick90);
 const fichaGeo = new THREE.CylinderGeometry(0.21, 0.21, 0.075, 30);
 const fichaAro = new THREE.TorusGeometry(0.205, 0.014, 8, 30).rotateX(Math.PI / 2);
 const fichas = [];
-const N_DER = 11, N_IZQ = 3;
+const N_DER = 11, N_IZQ = 0;
 for (let i = 0; i < N_DER + N_IZQ; i++) {
   const der = i < N_DER;
   const g = grupo(mesh(fichaGeo, der ? M.g : M.cr), mesh(fichaAro, der ? M.white : M.cr3));
@@ -318,12 +332,15 @@ const CURVA_C = V(0.05, 2.9, 0.9);
 const curvaPts = [[-1.85, -0.75], [-1.35, -0.55], [-0.85, 0.15], [-0.45, 0.62], [-0.05, 0.4], [0.45, 0.32], [0.9, 0.15], [1.35, -0.25], [1.85, -0.45]].map(([x, y]) => V(x * 0.72, y, 0).add(CURVA_C));
 const curva = new THREE.CatmullRomCurve3(curvaPts, false, "centripetal");
 const curvaGeo = new THREE.TubeGeometry(curva, 160, 0.075, 14, false);
-const curvaMat = mat(C.cr, 0.5, { emissive: C.cr, emissiveIntensity: 0.1 });
+const curvaMat = mat(C.cr, 0.5, { emissive: C.cr, emissiveIntensity: 0.1, transparent: true });
 const curvaMesh = mesh(curvaGeo, curvaMat); scene.add(curvaMesh);
 // el tramo del medio se olvida: un tubo encima, translúcido (se superpone cuando "se olvida")
 const curvaMedio = new THREE.CatmullRomCurve3(curvaPts.slice(3, 8), false, "centripetal");
 const medioMat = new THREE.MeshStandardMaterial({ color: 0x3a4560, roughness: 0.6, transparent: true, opacity: 0 });
 const medioMesh = mesh(new THREE.TubeGeometry(curvaMedio, 80, 0.085, 14, false), medioMat); scene.add(medioMesh);
+// la curva entera, tenue, desde el primer cuadro de s07 (la gota la repasa): nunca hay pantalla vacía
+const guiaMat = new THREE.MeshStandardMaterial({ color: C.cr, roughness: 0.6, transparent: true, opacity: 0, depthWrite: false });
+const guiaMesh = mesh(new THREE.TubeGeometry(curva, 160, 0.075, 14, false), guiaMat); guiaMesh.renderOrder = -0.5; scene.add(guiaMesh);
 const ejeMesh = mesh(rbox(2.85, 0.03, 0.03, 0.01), M.edge, CURVA_C.x, CURVA_C.y - 0.95, CURVA_C.z); scene.add(ejeMesh);
 const PICO = curva.getPoint(0.43), FIN = curvaPts[8].clone();
 // los dos pines: cabeza esférica + aguja
@@ -379,8 +396,8 @@ const hojaAtrasMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness
 }
 // un segundo termómetro (el callback): el borde del celular sube un grado
 const termo2 = hacerTermo(); scene.add(termo2.g);
-const num15b = new THREE.Mesh(textoGeo("15°", 0.42, 0.13), M.numG); scene.add(num15b);
-const num14b = new THREE.Mesh(textoGeo("14°", 0.42, 0.13), M.numCr); scene.add(num14b);
+const num15b = new THREE.Mesh(textoGeo("15°", 0.42, 0.13), numMat(M.numG)); scene.add(num15b);
+const num14b = new THREE.Mesh(textoGeo("14°", 0.42, 0.13), numMat(M.numCr)); scene.add(num14b);
 
 // ================= EL FRENTE DEL LOCAL (genérico, sin nombre) =================
 const local = new THREE.Group(); scene.add(local);
@@ -430,52 +447,52 @@ async function dibujar() {
     x.fillStyle = "#16243d"; x.font = F(800, 50); x.textAlign = "center"; x.fillText("A", 92, 130);
     x.textAlign = "left"; x.fillStyle = "#efeee5"; x.font = F(800, 64); x.fillText("Ana", 162, 136);
   };
+  // (ronda 2) los globos del comercio, todos del mismo ancho y contra el borde derecho; los de Ana, blancos con
+  // borde (se leen sobre el fondo crema); el chip de fecha con letra grande
   const globo = (x, y, txt, lado, color, tcolor, ticks) => {
     x.font = F(600, 58);
+    const max = lado === "der" ? 440 : 470;
     const lineas = []; let l = "";
-    for (const p of txt.split(" ")) { const p2 = l ? l + " " + p : p; if (x.measureText(p2).width > 470) { lineas.push(l); l = p; } else l = p2; }
+    for (const p of txt.split(" ")) { const p2 = l ? l + " " + p : p; if (x.measureText(p2).width > max) { lineas.push(l); l = p; } else l = p2; }
     lineas.push(l);
-    const w = Math.max(...lineas.map((s) => x.measureText(s).width)) + 64 + (ticks ? 70 : 0), h = lineas.length * 72 + 46;
-    const X = lado === "der" ? PW - 36 - w : 36;
+    const w = lado === "der" ? 548 : Math.max(...lineas.map((s) => x.measureText(s).width)) + 64, h = lineas.length * 72 + 46;
+    const X = lado === "der" ? PW - 32 - w : 32;
     x.fillStyle = color; rr(x, X, y, w, h, 34);
-    x.fillStyle = tcolor; lineas.forEach((s, i) => x.fillText(s, X + 32, y + 78 + i * 72));
+    if (lado !== "der") { x.strokeStyle = "#b9b7aa"; x.lineWidth = 5; x.beginPath(); x.roundRect(X, y, w, h, 34); x.stroke(); }
+    x.fillStyle = tcolor; x.textAlign = "left"; lineas.forEach((s, i) => x.fillText(s, X + 32, y + 78 + i * 72));
     if (ticks) { x.strokeStyle = tcolor; x.lineWidth = 7; x.lineCap = "round"; x.lineJoin = "round"; [0, 20].forEach((dx) => { x.beginPath(); x.moveTo(X + w - 78 + dx, y + h - 34); x.lineTo(X + w - 66 + dx, y + h - 22); x.lineTo(X + w - 44 + dx, y + h - 48); x.stroke(); }); }
     return y + h;
   };
-  const base = (x) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, PW, PH); cab(x); };
+  const chip = (x, y, txt) => {
+    x.font = F(700, 56); const w = x.measureText(txt).width + 64;
+    x.fillStyle = "#cfcdc0"; rr(x, (PW - w) / 2, y, w, 84, 42);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.fillText(txt, PW / 2, y + 62); x.textAlign = "left";
+    return y + 84;
+  };
+  const base = (x) => { x.fillStyle = "#e9e7db"; x.fillRect(0, 0, PW, PH); cab(x); };
+  const GRIS = "#d6d4c7";
+  // "se callan": el comercio cobró, dijo gracias y después nada
   pantallas.callado = tex(PW, PH, (x) => {
     base(x);
-    globo(x, 250, "¿Me lo mandás hoy?", "izq", "#ffffff", "#0b1220");
-    globo(x, 430, "Gracias por tu compra", "der", "#d9d7c9", "#0b1220");
-    // y después: nada. Los tres puntitos apagados, la pantalla gris con un borde rojo apagado
-    x.fillStyle = "#c9c7bb"; rr(x, 36, 680, 170, 84, 42);
-    x.fillStyle = "#9b998d"; [80, 122, 164].forEach((cx) => { x.beginPath(); x.arc(cx, 722, 12, 0, Math.PI * 2); x.fill(); });
-    x.fillStyle = "rgba(60,64,72,0.28)"; x.fillRect(0, 190, PW, PH - 190);
+    globo(x, 250, "Gracias por tu compra", "der", GRIS, "#0b1220", true);
+    chip(x, 760, "Sin mensajes");
+    x.fillStyle = "rgba(60,64,72,0.24)"; x.fillRect(0, 190, PW, PH - 190);
     x.strokeStyle = "#c7655b"; x.lineWidth = 16; x.strokeRect(8, 8, PW - 16, PH - 16);
   });
   pantallas.camino = tex(PW, PH, (x) => {
     base(x);
-    globo(x, 250, "¿Me lo mandás hoy?", "izq", "#ffffff", "#0b1220");
-    const y = globo(x, 430, "Gracias por tu compra", "der", "#d9d7c9", "#0b1220");
-    globo(x, y + 36, "Ana, tu pedido va en camino", "der", "#5ce611", "#0b1220", true);
+    const y = globo(x, 250, "Gracias por tu compra", "der", GRIS, "#0b1220", true);
+    globo(x, y + 30, "Ana, tu pedido va en camino", "der", "#5ce611", "#0b1220", true);
   });
-  pantallas.llego = tex(PW, PH, (x) => {
+  const hastaLlego = (x) => {
     base(x);
-    let y = globo(x, 250, "Gracias por tu compra", "der", "#d9d7c9", "#0b1220");
-    y = globo(x, y + 28, "Ana, tu pedido va en camino", "der", "#5ce611", "#0b1220", true);
-    x.fillStyle = "#d9d7c9"; rr(x, 150, y + 26, 340, 72, 36); x.fillStyle = "#0b1220"; x.font = F(700, 48); x.textAlign = "center"; x.fillText("Al otro día", 320, y + 78); x.textAlign = "left";
-    pantallas._yLlego = y + 110;
-    y = globo(x, y + 110, "¿Llegó bien, Ana?", "der", "#5ce611", "#0b1220", true);
-    pantallas._yResp = y + 28;
-  });
-  pantallas.respuesta = tex(PW, PH, (x) => {
-    base(x);
-    let y = globo(x, 250, "Gracias por tu compra", "der", "#d9d7c9", "#0b1220");
-    y = globo(x, y + 28, "Ana, tu pedido va en camino", "der", "#5ce611", "#0b1220", true);
-    x.fillStyle = "#d9d7c9"; rr(x, 150, y + 26, 340, 72, 36); x.fillStyle = "#0b1220"; x.font = F(700, 48); x.textAlign = "center"; x.fillText("Al otro día", 320, y + 78); x.textAlign = "left";
-    y = globo(x, y + 110, "¿Llegó bien, Ana?", "der", "#5ce611", "#0b1220", true);
-    globo(x, y + 28, "¡Perfecto, gracias!", "izq", "#ffffff", "#0b1220");
-  });
+    let y = globo(x, 250, "Gracias por tu compra", "der", GRIS, "#0b1220", true);
+    y = globo(x, y + 30, "Ana, tu pedido va en camino", "der", "#5ce611", "#0b1220", true);
+    y = chip(x, y + 30, "Al otro día");
+    return globo(x, y + 30, "¿Llegó bien, Ana?", "der", "#5ce611", "#0b1220", true);
+  };
+  pantallas.llego = tex(PW, PH, (x) => { hastaLlego(x); });
+  pantallas.respuesta = tex(PW, PH, (x) => { const y = hastaLlego(x); globo(x, y + 30, "¡Perfecto, gracias!", "izq", "#ffffff", "#0b1220"); });
   pantallaMat.map = pantallas.callado; pantallaMat.emissiveMap = pantallas.callado; pantallaMat.needsUpdate = true;
 }
 
@@ -484,12 +501,16 @@ async function dibujar() {
 const QX = V(0.35, 0, 2.6);
 const TERMO_LAB = V(0.55, 0.06, 0.25); // el termómetro dentro de la larga
 const PH_POS = V(FIN.x - 0.6, FIN.y + 0.45, FIN.z + 2.2); // el celular, delante del paquete
-const LOCAL_P = PH_POS.clone().add(V(0.25, -3.05, -2.7)); // el local, detrás del celular (cierre)
+// el paquete nace debajo y a la izquierda del final de la curva (no la cruza mientras se funde)
+const PAQ = FIN.clone().add(V(-0.8, -0.95, 0.2));
+const LOCAL_P = PH_POS.clone().add(V(0.12, -2.15, -2.6)); // el local, detrás del celular (cierre), entero en cuadro
 
 // el laboratorio sube y baja entero (nunca se achica en el aire): 0 = en su lugar, -4,5 = guardado abajo
+// (ronda 2) baja en "¿Por qué?" cuando las manos ya salieron, sube en "final" con la mano adentro y baja
+// otra vez en "Recordamos…" llevándose la mano y el termómetro mientras nace la curva
 function labY(t) {
-  if (t < S["s05-quince"] - 0.3) return -4.5 * eio(sg(t, S["s03-por-que"] - 0.05, S["s03-por-que"] + 0.35));
-  return -4.5 * (1 - eo(sg(t, S["s05-quince"] - 0.3, S["s05-quince"] + 0.25))) - 4.5 * eio(sg(t, S["s08-cobrar"] - 0.1, S["s08-cobrar"] + 0.3));
+  if (t < S["s05-quince"] - 0.35) return -4.5 * eio(sg(t, S["s03-por-que"] - 0.2, S["s03-por-que"] + 0.2));
+  return -4.5 * (1 - eo(sg(t, S["s05-quince"] - 0.32, S["s05-quince"] + 0.25))) - 4.5 * eio(sg(t, S["s07-pico-final"] - 0.12, S["s07-pico-final"] + 0.3));
 }
 
 // ================= LA MANO EN EL TIEMPO =================
@@ -508,24 +529,25 @@ function poseMano(t) {
   const ti = W[7] + 0.05;
   i.vis = t >= ti - 0.3 ? 1 : 0;
   i.pos.y += 1.1 * (1 - eo(sg(t, ti - 0.3, ti + 0.35)));
-  // "¿Por qué?": las dos manos salen hacia arriba, rápido
-  const guarda = eio(sg(t, S["s03-por-que"] - 0.12, S["s03-por-que"] + 0.12));
-  if (t < S["s05-quince"] - 0.3) {
-    d.pos.y += 5.0 * guarda; i.pos.y += 5.0 * guarda;
-    if (guarda > 0.99) { d.vis = 0; i.vis = 0; }
+  // después de "la larga": las dos manos salen hacia arriba y atrás, rápido y antes de que bajen las chapas
+  const g0 = sg(t, W[14] + 0.48, W[14] + 0.8), guarda = g0 * g0;
+  if (t < S["s05-quince"] - 0.35) {
+    d.pos.y += 6.5 * guarda; i.pos.y += 6.5 * guarda; d.pos.z -= 2.2 * guarda; i.pos.z -= 2.2 * guarda;
+    if (g0 >= 1) { d.vis = 0; i.vis = 0; }
     return { d, i };
   }
   i.vis = 0;
-  // "final": la derecha vuelve a entrar desde arriba, mientras sube el laboratorio
-  d.pos.y += 4.6 * (1 - eo(sg(t, S["s05-quince"] + 0.05, S["s05-quince"] + 0.6)));
-  if (t < S["s05-quince"] + 0.05) d.vis = 0;
+  // "final": la derecha ya está adentro de la larga y sube con el laboratorio (y baja con él en "Recordamos")
+  const ly = labY(t);
+  d.pos.y += ly;
+  if (ly < -4.45) d.vis = 0;
   // "Más rato…": sale del agua despacio y los dedos se relajan
   const subeT = eio(sg(t, S["s06-un-grado"] + 0.1, W[41] - 0.1));
   d.pos.y += 1.15 * subeT; d.rx = lerp(d.rx, BRAZO_INC.rx * 0.7, subeT);
-  // "Recordamos…": se va hacia arriba y atrás (antes de que nazca la curva)
-  const vaT = eio(sg(t, S["s07-pico-final"] - 0.2, S["s07-pico-final"] + 0.25));
-  d.pos.y += 3.5 * vaT; d.pos.z -= 2.5 * vaT;
-  if (vaT > 0.99) d.vis = 0;
+  // antes de "Recordamos…": sale con su brazo por arriba y atrás, rápido, mientras la cámara sigue en la cubeta
+  const e0 = sg(t, S["s07-pico-final"] - 0.45, S["s07-pico-final"] - 0.1), ex = e0 * e0;
+  d.pos.y += 6.5 * ex; d.pos.z -= 2.2 * ex;
+  if (e0 >= 1) d.vis = 0;
   return { d, i };
 }
 function ponerMano(H, p, espejo) {
@@ -540,11 +562,11 @@ function ponerMano(H, p, espejo) {
 // claves [t, azimut°, elevación°, distancia, mirarX, mirarY, mirarZ]; cúbica monótona continua entre claves.
 const CAM = [
   [0, 22, 15, 8.6, 0.12, 1.4, 0.05],
-  [W[6], 16, 15, 8.4, 0.05, 1.4, 0.0],
-  [S["s02-mayoria"] - 0.1, 10, 19, 9.8, -0.35, 1.05, -0.5],
-  [S["s02-mayoria"] + 0.7, 6, 21, 10.6, -0.45, 1.0, -0.75],
-  [S["s03-por-que"] - 0.08, 2, 21, 10.4, -0.45, 1.05, -0.75],
-  [S["s03-por-que"] + 0.4, 0, 6, 8.8, QX.x - 0.15, 1.85, QX.z],
+  [W[6], 14, 16, 9.4, -0.45, 1.6, -0.4],
+  [S["s02-mayoria"] - 0.1, 8, 19, 12.2, -0.75, 1.05, -0.65],
+  [S["s02-mayoria"] + 0.7, 5, 21, 12.9, -0.8, 1.0, -0.75],
+  [S["s03-por-que"] - 0.25, 2, 21, 12.8, -0.8, 1.05, -0.75],
+  [S["s03-por-que"] + 0.22, 0, 6, 8.8, QX.x - 0.15, 1.85, QX.z],
   [W[17] + 0.1, 2, 5, 8.8, QX.x - 0.05, 1.95, QX.z],
   [W[20], 4, 5, 8.9, QX.x, 2.0, QX.z],
   [S["s04-minuto-y-medio"] - 0.1, 4, 5, 8.9, QX.x, 2.0, QX.z],
@@ -555,23 +577,23 @@ const CAM = [
   [S["s06-un-grado"] + 0.2, 12, 8, 7.4, 0.6, 1.45, 0.15],
   [W[41], 8, 11, 8.4, 0.42, 1.75, 0.1],
   [S["s07-pico-final"], 4, 8, 9.5, 0.08, 2.45, 0.6],
-  [S["s07-pico-final"] + 0.6, 0, 7, 9.7, CURVA_C.x + 0.02, CURVA_C.y - 0.05, CURVA_C.z],
+  [S["s07-pico-final"] + 0.35, 0, 7, 9.7, CURVA_C.x + 0.02, CURVA_C.y - 0.05, CURVA_C.z],
   [W[45] + 0.3, -2, 7, 9.7, CURVA_C.x - 0.02, CURVA_C.y - 0.05, CURVA_C.z],
   [W[48] + 0.3, 2, 7, 9.7, CURVA_C.x + 0.05, CURVA_C.y - 0.05, CURVA_C.z],
-  [S["s08-cobrar"] + 0.05, 4, 7, 9.2, CURVA_C.x + 0.3, CURVA_C.y - 0.1, CURVA_C.z],
-  [S["s08-cobrar"] + 0.5, 10, 8, 6.8, FIN.x - 0.65, FIN.y - 0.05, FIN.z + 0.2],
-  [W[56], 12, 8, 6.6, FIN.x - 0.65, FIN.y - 0.05, FIN.z + 0.2],
+  [S["s08-cobrar"] - 0.3, 2, 7, 9.7, CURVA_C.x + 0.05, CURVA_C.y - 0.05, CURVA_C.z],
+  [S["s08-cobrar"] + 0.3, 10, 8, 7.6, PAQ.x - 0.22, PAQ.y + 0.4, PAQ.z],
+  [W[56], 12, 8, 7.5, PAQ.x - 0.32, PAQ.y + 0.4, PAQ.z],
   [S["s09-callan"] - 0.05, 12, 8, 6.6, FIN.x - 0.65, FIN.y, FIN.z + 0.2],
-  [S["s09-callan"] + 0.3, 2, 4, 7.3, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
-  [S["s10-sale-solo"] - 0.05, -2, 3, 7.3, PH_POS.x, PH_POS.y + 0.38, PH_POS.z],
-  [S["s10-sale-solo"] + 1.0, -8, 4, 7.3, PH_POS.x, PH_POS.y + 0.38, PH_POS.z],
-  [S["s11-llego-bien"], 4, 4, 7.3, PH_POS.x, PH_POS.y + 0.38, PH_POS.z],
-  [S["s11b-grado-mejor"] - 0.05, 6, 4, 7.4, PH_POS.x + 0.05, PH_POS.y + 0.32, PH_POS.z],
-  [S["s11b-grado-mejor"] + 0.45, 4, 4, 7.7, PH_POS.x + 0.12, PH_POS.y + 0.28, PH_POS.z],
-  [S["s12-tu-local"] - 0.1, 2, 4, 7.7, PH_POS.x + 0.12, PH_POS.y + 0.28, PH_POS.z],
-  [S["s12-tu-local"] + 0.55, -2, 6, 9.4, PH_POS.x + 0.25, PH_POS.y - 0.2, PH_POS.z - 0.8],
-  [S["s13-llamada"] - 0.05, -5, 6, 9.0, PH_POS.x + 0.25, PH_POS.y - 0.2, PH_POS.z - 0.8],
-  [DUR, -7, 6, 8.6, PH_POS.x + 0.25, PH_POS.y - 0.2, PH_POS.z - 0.8],
+  [S["s09-callan"] + 0.3, 2, 4, 6.1, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
+  [S["s10-sale-solo"] - 0.05, -2, 3, 6.1, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
+  [S["s10-sale-solo"] + 1.0, -8, 4, 6.1, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
+  [S["s11-llego-bien"], 4, 4, 6.1, PH_POS.x, PH_POS.y + 0.36, PH_POS.z],
+  [S["s11b-grado-mejor"] - 0.05, 6, 4, 6.4, PH_POS.x + 0.02, PH_POS.y + 0.34, PH_POS.z],
+  [S["s11b-grado-mejor"] + 0.45, 4, 4, 7.3, PH_POS.x + 0.1, PH_POS.y + 0.3, PH_POS.z],
+  [S["s12-tu-local"] - 0.1, 2, 4, 7.4, PH_POS.x + 0.1, PH_POS.y + 0.3, PH_POS.z],
+  [S["s12-tu-local"] + 0.55, -2, 6, 9.8, PH_POS.x + 0.1, PH_POS.y - 0.6, PH_POS.z - 1.2],
+  [S["s13-llamada"] - 0.05, -2.8, 6, 9.55, PH_POS.x + 0.1, PH_POS.y - 0.6, PH_POS.z - 1.2],
+  [DUR, -3.2, 6, 9.4, PH_POS.x + 0.1, PH_POS.y - 0.6, PH_POS.z - 1.2],
 ];
 const _mira = new THREE.Vector3();
 const val = (k) => [k[1], k[2], Math.log(k[3]), k[4], k[5], k[6]];
@@ -617,10 +639,11 @@ function celPose(t, az) {
   const t0 = S["s09-callan"] + 0.02;
   const gira = eio(sg(t, S["s10-sale-solo"] - 0.1, S["s10-sale-solo"] + 0.55));
   const corre = eo(sg(t, S["s11b-grado-mejor"] - 0.1, S["s11b-grado-mejor"] + 0.35)); // le hace lugar al termómetro
-  const pos = PH_POS.clone().add(V(-0.38 * corre, -(1 - eo(sg(t, t0, t0 + 0.4))) * 0.5 + Math.sin(t * 1.1) * 0.02, 0));
+  const aparte = eio(sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.45)); // se corre a la izquierda: entra el local
+  const pos = PH_POS.clone().add(V(-0.38 * corre - 0.17 * aparte, -(1 - eo(sg(t, t0, t0 + 0.4))) * 0.5 + Math.sin(t * 1.1) * 0.02 - 0.3 * aparte, 0.1 * aparte));
   if (en(t, S["s10-sale-solo"] + 0.25, S["s10-sale-solo"] + 0.6) || en(t, W[73] - 0.1, W[73] + 0.2)) pos.x += Math.sin(t * 90) * 0.012;
-  const ry = az * D2R * 0.3 + Math.sin(Math.PI * gira) * 0.45 - 0.12 + Math.sin(t * 0.9) * 0.03;
-  return { pos, ry };
+  const ry = az * D2R * 0.3 + Math.sin(Math.PI * gira) * 0.45 - 0.12 + Math.sin(t * 0.9) * 0.03 + 0.22 * aparte;
+  return { pos, ry, k: lerp(1, 0.8, aparte) };
 }
 
 // ================= ESCENA EN EL TIEMPO =================
@@ -683,7 +706,6 @@ function renderAt(t) {
     const anillo = (x, z, u, r0 = 0.05) => { if (ai >= anillos.length || u < 0 || u > 0.7) return; const a = anillos[ai++]; a.visible = LY > -0.01; a.position.set(x, NIVEL + 0.012 + LY, z); const r = r0 + u * 0.45; a.scale.set(r, 1, r); a.material.opacity = 0.55 * (1 - u / 0.7); };
     anillo(MUN_B.x, MUN_B.z, t - (W[7] + 0.3), 0.12);
     anillo(MUN_A.x, MUN_A.z, t - (W[7] + 0.33), 0.12);
-    anillo(MUN_B.x, MUN_B.z, t - (S["s05-quince"] + 0.3), 0.12);
     anillo(MUN_B.x, MUN_B.z, t - (S["s06-un-grado"] + 0.25), 0.12);
     const dedosX = [-0.16, -0.05, 0.06, 0.17];
     for (let k = 0; k < 5; k++) {
@@ -704,25 +726,25 @@ function renderAt(t) {
   {
     const ti = W[17] - 0.2; // el "?" gira de canto y del otro lado aparece el termómetro: nace el termómetro (primero el bulbo, después el tubo)
     let s = 0, crece = 1, pos = TERMO_LAB.clone().add(V(0, LY, 0)), temp = 14, verde = 0, gigante = false;
-    let n14 = 0, n15 = 0, flipX = 1;
+    let n14 = 0, n15 = 0, o14 = 1, o15 = 1, flipX = 1;
     if (t < S["s03-por-que"] + 0.4) { s = labOn ? 1 : 0; }
     else if (t < S["s05-quince"] - 0.3) {
       gigante = true;
-      s = t >= ti && t < S["s04-minuto-y-medio"] - 0.1 ? 1.5 : 0; // sale girando mientras entra el cronómetro
-      flipX = Math.max(0.02, eio(sg(t, ti, ti + 0.17)) * (1 - eio(sg(t, S["s04-minuto-y-medio"] - 0.28, S["s04-minuto-y-medio"] - 0.1))));
+      s = t >= ti && t < S["s04-minuto-y-medio"] - 0.18 ? 1.5 : 0; // sale girando detrás del cronómetro, que ya entró grande
+      flipX = Math.max(0.02, eio(sg(t, ti, ti + 0.17)) * (1 - eio(sg(t, S["s04-minuto-y-medio"] - 0.32, S["s04-minuto-y-medio"] - 0.18))));
       pos = V(QX.x - 0.5, 0.2, QX.z);
       temp = lerp(12, 14, eo(sg(t, ti + 0.4, W[20] + 0.2)));
-      n14 = s > 0.02 ? bk(sg(t, W[20] - 0.05, W[20] + 0.3)) * (1 - eio(sg(t, S["s04-minuto-y-medio"] - 0.4, S["s04-minuto-y-medio"] - 0.25))) : 0;
+      n14 = s > 0.02 ? bk(sg(t, W[20] - 0.05, W[20] + 0.3)) : 0;
+      o14 = 1 - sg(t, S["s04-minuto-y-medio"] - 0.45, S["s04-minuto-y-medio"] - 0.3);
     } else if (labOn && t < S["s08-cobrar"] + 0.6) {
       s = 1;
       temp = lerp(14, 15, eio(sg(t, W[32] - 0.05, W[34] + 0.15)));
       verde = sg(t, W[34] - 0.2, W[34] + 0.15);
       const ch = cambio(sg(t, W[34] - 0.2, W[34] + 0.3));
       const entra = bk(sg(t, S["s05-quince"] + 0.15, S["s05-quince"] + 0.5));
-      n14 = entra * ch.viejo; n15 = ch.nuevo;
-      // en s07 (la curva) el número ya no hace falta
-      const sale = 1 - eio(sg(t, S["s07-pico-final"] - 0.1, S["s07-pico-final"] + 0.2));
-      n14 *= sale; n15 *= sale;
+      n14 = entra; o14 = ch.viejo; n15 = ch.nuevo;
+      // en s07 baja con el laboratorio y se funde (no se encoge)
+      o15 = 1 - sg(t, S["s07-pico-final"] + 0.0, S["s07-pico-final"] + 0.2);
     }
     ocultar(termo.g, s);
     if (termo.g.visible) { termo.g.scale.y *= Math.max(0.02, crece); termo.g.scale.x *= flipX; termo.g.scale.z *= flipX; }
@@ -733,8 +755,8 @@ function renderAt(t) {
     const der = V(Math.cos(cam.az * D2R), 0, -Math.sin(cam.az * D2R));
     const tope = gigante ? pos.clone().add(V(0, 1.3 * 1.5, 0)).addScaledVector(der, 1.25) : pos.clone().add(V(0, 1.5, 0)).addScaledVector(der, 0.64);
     const k = gigante ? 1.45 : 0.72;
-    ocultar(num14, n14 * k); num14.position.copy(tope); deCara(num14, cam.az, Math.sin(t * 0.8) * 0.05);
-    ocultar(num15, n15 * k); num15.position.copy(tope); deCara(num15, cam.az, Math.sin(t * 0.8) * 0.05);
+    ponerNum(num14, n14, o14, k); num14.position.copy(tope); deCara(num14, cam.az, Math.sin(t * 0.8) * 0.05);
+    ponerNum(num15, n15, o15, k); num15.position.copy(tope); deCara(num15, cam.az, Math.sin(t * 0.8) * 0.05);
     if (num15.visible) num15.scale.multiplyScalar(1 + 0.1 * Math.sin(Math.PI * sg(t, W[34] + 0.3, W[34] + 0.6)));
     termoSombra.visible = false;
   }
@@ -743,15 +765,19 @@ function renderAt(t) {
   {
     const CHA = POS_A.clone().add(V(-0.35, 1.6, 0.6)), CHB = V(POS_B.x + 0.1, 1.9, 0.62);
     const fueraY = (o) => o.add(V(0, LY, 0));
-    const sA2 = vida(t, S["s02-mayoria"] + 0.05, S["s03-por-que"] - 0.12, 0.4, 0.2);
-    const sB2 = vida(t, S["s02-mayoria"] + 0.2, S["s03-por-que"] - 0.12, 0.4, 0.2);
-    ocultar(chapa60, sA2 * 0.95); chapa60.position.copy(fueraY(CHA.clone())); deCara(chapa60, cam.az * 0.5);
-    ocultar(chapa90, sB2 * 0.95); chapa90.position.copy(fueraY(CHB.clone())); deCara(chapa90, cam.az * 0.5);
+    // (ronda 2) se van ANTES de que suban las manos (la mano no las atraviesa)
+    const sA2 = vida(t, S["s02-mayoria"] + 0.05, W[14] + 0.33, 0.4, 0.18);
+    const sB2 = vida(t, S["s02-mayoria"] + 0.2, W[14] + 0.33, 0.4, 0.18);
+    // salen volando a los costados, fuera de cuadro (no se encogen hasta una mota ni cruzan los subtítulos)
+    const vuela = sg(t, W[14] + 0.33, W[14] + 0.51), vv = vuela * vuela, up = V(4.5 * vv, 0.6 * vv, 0), upI = V(-4.5 * vv, 0.6 * vv, 0);
+    const sal = (x) => (vuela >= 1 ? 0 : t > W[14] + 0.33 ? 0.95 : x * 0.95);
+    ocultar(chapa60, sal(sA2)); chapa60.position.copy(fueraY(CHA.clone())).add(upI); deCara(chapa60, cam.az * 0.5);
+    ocultar(chapa90, sal(sB2)); chapa90.position.copy(fueraY(CHB.clone())).add(up); deCara(chapa90, cam.az * 0.5);
     const gris = sg(t, W[14], W[14] + 0.3);
     chapa60Mat.color.set(C.cr).lerp(new THREE.Color(C.gris), gris); chapa60Mat.emissiveIntensity = lerp(0.12, 0, gris);
     if (chapa90.visible) chapa90.scale.multiplyScalar(1 + 0.1 * Math.sin(Math.PI * sg(t, W[14], W[14] + 0.35)));
-    const st = vida(t, W[14] + 0.05, S["s03-por-que"] - 0.12, 0.35, 0.2);
-    ocultar(tick90, st * 0.42); tick90.position.copy(CHB).add(V(0.0, 0.52, 0.05)); deCara(tick90, cam.az * 0.5, Math.sin(t * 2) * 0.15);
+    const st = vida(t, W[14] + 0.05, W[14] + 0.33, 0.35, 0.18);
+    ocultar(tick90, vuela >= 1 ? 0 : t > W[14] + 0.33 ? 0.42 : st * 0.42); tick90.position.copy(CHB).add(V(0.0, 0.52 + LY, 0.05)).add(up); deCara(tick90, cam.az * 0.5, Math.sin(t * 2) * 0.15);
     // fichas: caen en "la mayoría"; torre verde delante de la larga, pila crema delante de la corta
     const BD = V(POS_B.x + 0.55, 0, 1.0), BI = POS_A.clone().add(V(-0.5, 0, 0.9));
     fichas.forEach((f) => {
@@ -766,16 +792,18 @@ function renderAt(t) {
     });
     const hay = t > W[11] - 0.2 && t < S["s05-quince"] - 0.3 && labOn ? 1 : 0;
     apoyar(fichasSombraD, BD.x, LY, BD.z, hay, 0.7);
-    apoyar(fichasSombraI, BI.x, LY, BI.z, hay, 0.7);
+    apoyar(fichasSombraI, BI.x, LY, BI.z, N_IZQ ? hay : 0, 0.7);
   }
 
   // ---- el "?" verde: sube grande en "¿Por qué?" y se encoge en su punto justo antes del termómetro ----
   {
-    const sube = bk(sg(t, S["s03-por-que"] - 0.02, S["s03-por-que"] + 0.35));
+    // nace delante de todo (más cerca de la cámara que las cubetas y la torre), con pop desde mediano
+    const pt = S["s03-por-que"] + 0.02;
+    const sube = bk(sg(t, pt, pt + 0.32));
     const va = eio(sg(t, W[17] - 0.34, W[17] - 0.18));
-    const s = t < S["s03-por-que"] - 0.02 || t >= W[17] - 0.15 ? 0 : 1.3 * sube;
+    const s = t < pt || t >= W[17] - 0.15 ? 0 : 1.3 * lerp(0.45, 1, sube);
     ocultar(pregunta, s);
-    pregunta.position.set(QX.x - 0.4, 1.95 - (1 - sube) * 0.9, QX.z);
+    pregunta.position.set(QX.x - 0.4, 1.95, QX.z + 0.3);
     pregunta.rotation.set(0, cam.az * D2R + Math.sin(t * 1.3) * 0.16, 0);
     if (pregunta.visible) { pregunta.scale.multiplyScalar(1 + 0.05 * Math.sin(Math.PI * sg(t, W[16], W[16] + 0.3))); pregunta.scale.x *= Math.max(0.02, 1 - va); pregunta.scale.z *= Math.max(0.02, 1 - va); }
     void PREG_H;
@@ -784,14 +812,15 @@ function renderAt(t) {
 
   // ---- el cronómetro: una vuelta (60 s, anillo crema) y media vuelta más (+30 s, arco verde) ----
   {
-    const t0 = S["s04-minuto-y-medio"] - 0.19;
-    const s = t < t0 ? 0 : 1;
-    const va = eio(sg(t, S["s05-quince"] - 0.2, S["s05-quince"] + 0.3));
-    ocultar(crono, t > S["s05-quince"] + 0.35 ? 0 : s);
-    const P0 = V(QX.x, 1.95, QX.z), P1 = V(QX.x - 3.6, 2.2, QX.z - 1.2);
-    crono.position.copy(lerpV(P0, P1, va));
-    crono.rotation.set(0, cam.az * D2R + va * 0.6, 0);
-    if (crono.visible) { const fx = Math.max(0.02, eio(sg(t, t0, t0 + 0.18))); crono.scale.x *= fx; crono.scale.z *= fx; }
+    // entra grande con pop DELANTE del termómetro (que gira y se va detrás); sale girando de tarjeta en su
+    // lugar mientras sube el laboratorio (no cruza la cubeta)
+    const t0 = S["s04-minuto-y-medio"] - 0.32;
+    const sale = eio(sg(t, S["s05-quince"] - 0.32, S["s05-quince"] - 0.1));
+    const s = t < t0 || sale > 0.97 ? 0 : lerp(0.55, 1, bk(sg(t, t0, t0 + 0.3)));
+    ocultar(crono, s);
+    crono.position.set(QX.x, 1.95, QX.z + 0.5);
+    crono.rotation.set(0, cam.az * D2R, 0);
+    if (crono.visible) { crono.scale.x *= 1 - sale; crono.scale.z *= Math.max(0.05, 1 - sale); }
     const v1 = eio(sg(t, t0 + 0.15, W[24] + 0.3));
     const v2 = eio(sg(t, W[25] - 0.05, W[26] + 0.35));
     aguja.rotation.z = -Math.PI * 2 * (v1 + 0.5 * v2);
@@ -801,36 +830,37 @@ function renderAt(t) {
 
   // ---- la curva del recuerdo: la dibuja una gota; pin rojo en lo peor, verde en el final ----
   {
-    const t0 = S["s07-pico-final"] - 0.02;
-    const dib = eio(sg(t, t0, t0 + 0.85));
-    const va = eio(sg(t, S["s08-cobrar"] - 0.05, S["s08-cobrar"] + 0.3));
-    const on = t >= t0 && t < S["s08-cobrar"] + 0.32;
+    const t0 = S["s07-pico-final"] - 0.05;
+    const dib = eio(sg(t, t0, t0 + 0.7));
+    // se retira ANTES de que nazca el paquete (no lo atraviesa)
+    const va = eio(sg(t, S["s08-cobrar"] - 0.36, S["s08-cobrar"] - 0.15));
+    const on = t >= t0 && t < S["s08-cobrar"] - 0.14;
     curvaMesh.visible = on && dib > 0.01;
-    const n = curvaGeo.index.count;
-    curvaGeo.setDrawRange(0, Math.floor((n * dib) / 6) * 6);
-    curvaMat.opacity = 1 - va; curvaMat.transparent = va > 0;
-    ejeMesh.visible = curvaMesh.visible; ejeMesh.scale.set(Math.max(0.001, dib * (1 - va)), 1, 1);
-    ejeMesh.position.x = CURVA_C.x - 1.42 * (1 - dib);
+    curvaGeo.setDrawRange(0, Math.floor((curvaGeo.index.count * dib) / 6) * 6);
+    curvaMat.opacity = 1 - va; // (transparent fijo desde el inicio: cambiarlo en caliente no recompila y no se fundía)
+    guiaMesh.visible = on; guiaMat.opacity = 0.28 * sg(t, t0, t0 + 0.12) * (1 - va);
+    ejeMesh.visible = on; ejeMesh.scale.set(Math.max(0.001, bk(sg(t, t0, t0 + 0.3)) * (1 - va)), 1, 1);
+    ejeMesh.position.x = CURVA_C.x;
     const pg = curva.getPoint(Math.min(0.999, dib));
     gotaGuia.visible = on && dib > 0.01 && dib < 0.995;
-    if (gotaGuia.visible) { gotaGuia.position.copy(pg); gotaGuia.scale.setScalar(0.12); }
+    if (gotaGuia.visible) { gotaGuia.position.copy(pg); gotaGuia.scale.setScalar(0.16); }
     const olvido = sg(t, W[46], W[48] + 0.2) * (1 - va);
     medioMesh.visible = on && olvido > 0.01; medioMat.opacity = 0.92 * olvido;
     // pines: se clavan desde muy cerca (no cruzan los subtítulos)
     const clava = (ti) => { const u = sg(t, ti, ti + 0.25); return { y: (1 - u * u) * 0.35, s: t < ti ? 0 : bk(sg(t, ti, ti + 0.25)) }; };
     const r = clava(W[45] - 0.05);
-    ocultar(pinRojo, r.s * (1 - va)); pinRojo.position.copy(PICO).add(V(0, 0.04 + r.y, 0));
+    ocultar(pinRojo, va > 0.4 ? 0 : r.s); pinRojo.position.copy(PICO).add(V(0, 0.04 + r.y, 0));
     const g = clava(W[48] - 0.05);
-    ocultar(pinVerde, t > S["s08-cobrar"] + 0.08 ? 0 : g.s); pinVerde.position.copy(FIN).add(V(0, 0.04 + g.y, 0));
+    ocultar(pinVerde, va > 0.6 ? 0 : g.s); pinVerde.position.copy(FIN).add(V(0, 0.04 + g.y, 0));
   }
 
   // ---- el paquete: el pin verde del final ES el paquete (entra grande); el ticket "pagado" se le pega ----
   {
-    const t0 = S["s08-cobrar"] + 0.02;
-    const s = t < t0 ? 0 : bk(sg(t, t0, t0 + 0.35));
+    const t0 = S["s08-cobrar"] - 0.24; // nace mientras la curva termina de fundirse, debajo de ella (no la cruza ni deja hueco)
+    const s = t < t0 ? 0 : lerp(0.72, 1, bk(sg(t, t0, t0 + 0.3)));
     // "Y ahí": el celular entra delante y el paquete baja y se va por detrás
     const baja = eio(sg(t, S["s09-callan"] - 0.12, S["s09-callan"] + 0.15));
-    const P0 = FIN.clone().add(V(-0.55, -0.45, 0.2));
+    const P0 = PAQ.clone();
     ocultar(paquete, baja > 0.99 ? 0 : s);
     paquete.position.copy(P0).add(V(0, -3.5 * baja, 0));
     paquete.rotation.set(0, cam.az * D2R - 0.35, 0);
@@ -867,15 +897,20 @@ function renderAt(t) {
     if (t >= W[74] + 0.45) tx = pantallas.respuesta;
     pantallaMat.emissiveIntensity = t < S["s10-sale-solo"] + 0.25 ? lerp(0.85, 0.6, sg(t, W[61] - 0.2, W[61] + 0.3)) : 0.85;
     if (tx && pantallaMat.map !== tx) { pantallaMat.map = tx; pantallaMat.emissiveMap = tx; pantallaMat.needsUpdate = true; }
+    if (cel.visible) cel.scale.multiplyScalar(CP.k);
     if (cel.visible) cel.scale.multiplyScalar(1 + 0.04 * Math.sin(Math.PI * sg(t, W[64] - 0.05, W[64] + 0.25)) + 0.04 * Math.sin(Math.PI * sg(t, W[73] - 0.1, W[73] + 0.2)));
   }
 
   // ---- el calendario: "Al otro día" (se va con un encogido suave antes del termómetro) ----
   {
-    const s = vida(t, S["s11-llego-bien"] - 0.05, S["s11b-grado-mejor"] - 0.45, 0.4, 0.3);
-    ocultar(calendario, s * 0.55);
-    calendario.position.copy(PH_POS).add(V(0.62, 1.05, 0.5));
-    calendario.rotation.set(0, cam.az * D2R + 0.25, 0.06);
+    // (ronda 2) entra GRANDE delante del celular como cartel de tiempo, da vuelta la hoja y sale volando a la
+    // derecha antes de que llegue "¿Llegó bien?" (ya no tapa la esquina del celular)
+    const ci = S["s11-llego-bien"] - 0.05, co = W[72] + 0.36;
+    const pop = t < ci ? 0 : lerp(0.5, 1, bk(sg(t, ci, ci + 0.3)));
+    const sale = eio(sg(t, co, co + 0.26));
+    ocultar(calendario, sale > 0.99 ? 0 : pop * 1.25);
+    calendario.position.copy(PH_POS).add(V(0.05 + 2.4 * sale, 0.32 + 0.3 * sale, 0.8));
+    calendario.rotation.set(0, cam.az * D2R + 0.08, 0.04 - 0.35 * sale);
     hojaPiv.rotation.x = eio(sg(t, W[72] - 0.15, W[72] + 0.3)) * Math.PI * 0.98;
     hojaPiv.visible = hojaPiv.rotation.x < Math.PI * 0.5;
   }
@@ -886,22 +921,24 @@ function renderAt(t) {
     const llega = eo(sg(t, t0, t0 + 0.4));
     const sc = t < t0 ? 0 : 0.95;
     ocultar(termo2.g, sc);
-    termo2.g.position.copy(PH_POS).add(V(lerp(2.6, 0.72, llega), -1.32, 0.15));
+    const aparte = eio(sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.45));
+    termo2.g.position.copy(PH_POS).add(V(lerp(2.6, 0.72, llega) + 0.12 * aparte, -1.32 - 0.25 * aparte, 0.15 + 0.1 * aparte));
     termo2.g.rotation.set(0, cam.az * D2R, 0);
     const temp = lerp(14, 15, eio(sg(t, W[76] - 0.05, W[77] + 0.1)));
     ponerTemp(termo2, temp, sg(t, W[77] - 0.15, W[77] + 0.1));
     const tope = termo2.g.position.clone().add(V(-0.2, (TL + 0.38) * sc, 0));
     const ch = cambio(sg(t, W[77] - 0.05, W[77] + 0.35));
     const entra = bk(sg(t, t0 + 0.15, t0 + 0.45));
-    ocultar(num14b, sc > 0 ? entra * ch.viejo * 0.8 : 0); num14b.position.copy(tope); deCara(num14b, cam.az);
-    ocultar(num15b, sc > 0 ? ch.nuevo * 0.8 : 0); num15b.position.copy(tope); deCara(num15b, cam.az);
+    ponerNum(num14b, sc > 0 ? entra : 0, ch.viejo, 0.8); num14b.position.copy(tope); deCara(num14b, cam.az);
+    // el 15° se funde en "¿Lo vemos en tu local?" (si no, tapa el cartel del local)
+    ponerNum(num15b, sc > 0 ? ch.nuevo : 0, 1 - sg(t, S["s12-tu-local"] - 0.05, S["s12-tu-local"] + 0.25), 0.8); num15b.position.copy(tope); deCara(num15b, cam.az);
     if (num15b.visible) num15b.scale.multiplyScalar(1 + 0.1 * Math.sin(Math.PI * sg(t, W[77] + 0.35, W[77] + 0.65)));
   }
 
   // ---- el local: entra grande detrás del celular en "¿Lo vemos en tu local?" ----
   {
-    const s = t < S["s12-tu-local"] ? 0 : bk(sg(t, S["s12-tu-local"], S["s12-tu-local"] + 0.4));
-    ocultar(local, s * 1.35); local.position.copy(LOCAL_P); local.rotation.set(0, cam.az * D2R * 0.5 - 0.12, 0);
+    const s = t < S["s12-tu-local"] ? 0 : lerp(0.6, 1, bk(sg(t, S["s12-tu-local"], S["s12-tu-local"] + 0.4)));
+    ocultar(local, s * 1.2); local.position.copy(LOCAL_P); local.rotation.set(0, cam.az * D2R * 0.5 - 0.12, 0);
     localSombra.visible = false;
   }
 

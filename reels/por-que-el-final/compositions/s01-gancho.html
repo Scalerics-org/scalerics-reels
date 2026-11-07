@@ -27,6 +27,7 @@
     [data-composition-id="s01-gancho"] .a { position: absolute; left: 0; right: 0; top: 110px; text-align: center; font: 900 108px/1.04 "Lexend", sans-serif; color: #fff; letter-spacing: -0.035em; text-shadow: 0 6px 0 rgba(3,6,12,0.55); font-size: 118px; }
     [data-composition-id="s01-gancho"] .a .l { display: block; }
     [data-composition-id="s01-gancho"] .a .chica { font-size: 80px; font-weight: 800; color: #efeee5; margin-bottom: 18px; }
+    [data-composition-id="s01-gancho"] .exp { left: 540px; top: 790px; font-size: 44px; color: #efeee5; opacity: 1; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }
     [data-composition-id="s01-gancho"] .kw { position: relative; display: inline-block; padding: 0 18px 8px; color: #fff; }
     [data-composition-id="s01-gancho"] .kw .selbox { left: 0; top: 6px; right: 0; bottom: -2px; opacity: 1; }
     [data-composition-id="s01-gancho"] .kw em { position: relative; font-style: normal; }
@@ -34,7 +35,7 @@
   <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.97">
     <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.97" data-track-index="0">
 
-      <div class="a"><span class="l chica">Agua fría, dos veces.</span><span class="l">La mayoría</span><span class="l">eligió <span class="kw"><div class="selbox sb"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div><em>la más larga</em></span>.</span><span class="l">¿Por qué?</span></div>
+      <div class="a"><span class="l chica">Agua fría, dos veces.</span><span class="l">La mayoría</span><span class="l">eligió <span class="kw"><div class="selbox sb"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div><em>la más larga</em></span>.</span><span class="l">¿Por qué?</span></div><div class="mono exp n1" style="left:540px;top:790px">Experimento de psicología · 1993</div>
     </div>
   </div>
   <script>
@@ -66,7 +67,8 @@
 
       tl.fromTo(q(".a"), { scale: 1.03, transformOrigin: "50% 0%" }, { scale: 1, duration: 0.5, ease: "power3.out" }, 0);
       late(".kw", 1.72, 1.08);
-      tl.to(q(".a"), { y: -60, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.65);
+      // cambio seco al subtítulo (sin fundido ni hueco)
+      tl.set([q(".a"), q(".n1")], { opacity: 0 }, 2.88);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
