@@ -1,0 +1,348 @@
+# tres-segundos · Contador en vivo (3D real), ~31 s
+
+Formato "contador o dato en vivo" del motion persuasivo (CLAUDE.md, punto 6), en 3D real (8b) a la vara de
+`reels/caso-pedidosya` (8c). Producto: **sitio web** de Scalerics (rápido en el celular, con horario, fotos y
+botón a WhatsApp). Dato verificado en `fuentes.md`: "53 % de las visitas desde el celular se abandonan si la
+página tarda más de 3 segundos" (Google, 2016-2017). Google se nombra solo en texto (pill "Fuente: Google"):
+nada de su logo, colores ni tipografía.
+
+**Recurso central:** dos objetos que vuelven al final cambiados (callback): un **cronómetro de mano 3D**
+(caja redonda crema, bisel navy, botón arriba, aguja verde, la zona después del 3 en rojo apagado) y un
+**celular 3D gigante** (RoundedBox navy, pantalla crema) en una **parada de ómnibus** low-poly montevideana.
+Al principio la página no carga (ruedita, pantalla en blanco) y la gente se va; al final, misma parada, mismo
+celular, el cronómetro frena en verde mucho antes del 3 y la página abre entera.
+
+**Fondo:** navy oscuro `#0b1220` liso (sin degradé; piso navy apenas más claro para recibir la sombra).
+s04-s05 casi a pantalla completa de celular (el celular llena el cuadro). Cierre en verde de marca
+`#5ce611` con letras navy. **Paleta de materiales:** navy `#0b1220`/`#16243d`, verde `#5ce611`, crema
+`#efeee5`, blanco; rojo apagado `#b5544a` solo para el problema (zona de más de 3 s, ruedita, siluetas que se
+van) y gris `#6b7385` para lo perdido.
+
+**Base técnica:** copiar de `reels/caso-pedidosya` `assets/tres.js` (estructura), `assets/vendor/three/`,
+`#capa3d` + `<canvas id="tres">`, `buildReady["tres"]`, `gen.mjs` y cómo `armar.mjs` escribe
+`assets/tiempos3d.js`. `renderAt(t)` puro, azar con semilla. Cámara en una curva Catmull-Rom continua.
+La fuente 3D (`lexend800.js`) solo trae dígitos y "$.,MUSNOno": el "%" y el "?" son geometría propia (como
+en caso-pedidosya); la "s" de "3 s" va en HTML junto al número 3D o se usa la "S" del set.
+Las escenas HTML son solo capa plana: gancho, subtítulos (1-3 palabras, ~86 px, arriba al centro, palabra
+clave en recuadro verde), 1-2 rótulos con línea guía, pill de fuente, tarjeta de cierre.
+Reglas técnicas de `SPEC-base.md` (del molde) para las composiciones; lo visual lo manda este SPEC.
+
+## Guion (91 palabras, actual; índices de palabra para `reel.json`)
+```
+ 0 Si tu página tarda más de tres segundos en el celular,   (0-10)
+11 más de la mitad de las visitas se va.                    (11-19)
+20 Según Google.                                            (20-21)
+22 Alguien te busca desde la parada, con hambre.            (22-29)
+30 Pantalla en blanco.                                      (30-32)
+33 Uno, dos, tres.                                          (33-35)
+36 Se cansa y elige otro.                                   (36-40)
+41 Y nunca te enterás de que entró.                         (41-47)
+48 Esa venta se fue antes de mostrar nada.                  (48-55)
+56 Pasa con páginas viejas o pesadas.                       (56-61)
+62 En Scalerics hacemos tu página rápida en el celular.     (62-70)
+71 Misma parada: abre al toque, con horario, fotos y WhatsApp. (71-80)
+81 ¿Cuánto tarda la tuya? Agendá una                        (81-86)
+87 videollamada gratis en scalerics.com.                    (87-90)
+```
+(El brief por escena de abajo es el original; los cambios están en las secciones de construcción del final.)
+
+## Escenas actuales (14, índices y tiempos de la versión final)
+
+- **s01-gancho** (palabra 0 "Si", 0.00 s) · Cuadro 0 = portada: gancho grande "Si tu página tarda / más de / 3 segundos" sobre el cronómetro 3D gigante que corre; en "tres" entra en la zona roja. Se va el gancho y "en el celular" va de subtítulo; el cronómetro se mete en el celular.
+- **s02-mitad** (palabra 11 "más", 2.80 s) · Celular con la ruedita y 10 visitas (personajes del módulo) que suben desde abajo; en "mitad" 6 giran con fastidio, se ponen grises y se van. 53 % 3D verde + rótulo "…si tarda más de 3 s" + pill "Fuente: Google" (salen juntos con corte seco).
+- **s03-parada** (palabra 22 "Alguien", 5.86 s) · Corte limpio a la parada: Nico (ELENCO.empleado) con el celular en la mano, tipea; en "hambre" globito con la porción de muzzarella.
+- **s04-blanco** (palabra 30 "Pantalla", 8.44 s) · Zambullida a pantalla completa: pantalla en blanco con ruedita y el cronómetro chico encima; en "Uno" número 3D 1.
+- **s04b-cuenta** (palabra 34 "dos,", 10.48 s) · "dos", "tres": números 3D 2 y 3 (rojo), la corona se pone roja.
+- **s05-atras** (palabra 36 "Se", 12.22 s) · Corte limpio al primer plano de Nico con fastidio: toca atrás (vuelven los resultados), toca otro resultado ("otra página") y sonríe.
+- **s06-avisa** (palabra 41 "Y", 14.04 s) · Corte limpio a la pizzería: timbre de mostrador que no suena (se apaga a gris), pill "0 avisos".
+- **s07-venta** (palabra 48 "Esa", 15.87 s) · Push-in a la caja de pizza: la tapa intenta abrirse y se cierra, se pone gris; sello "VENTA PERDIDA".
+- **s08-pesadas** (palabra 56 "Pasa", 18.05 s) · Corte limpio al celular acostado con la página vieja; le caen 4 marcos de foto; pill "Fotos pesadas".
+- **s09-rapida** (palabra 62 "En", 20.05 s) · Las fotos se comprimen y entran a la pantalla; el celular se para, borde verde, página rápida; tilde 3D en "rápida"; pill "Scalerics".
+- **s10-abre** (palabra 71 "Misma", 23.15 s) · Corte limpio a la misma parada (callback): el cronómetro frena en verde entre el 1 y el 2 (por debajo de 2,5 s, LCP) con tilde; en "al toque" zambullida.
+- **s11-pagina** (palabra 76 "con", 25.13 s) · Página rápida a pantalla completa: tildes en horario, foto y "Pedí por WhatsApp".
+- **s12-tuya** (palabra 81 "¿Cuánto", 27.33 s) · Corte limpio al cronómetro gigante con "?" que late con el tic y el tac; "¿Cuánto tarda la tuya?" y después subtítulo "Agendá una".
+- **s13-llamada** (palabra 87 "videollamada", 29.35 s) · Cierre verde: "Videollamada / gratis", celular 3D con la videollamada, "scalerics.com".
+
+(El brief original y los apuntes de construcción de abajo son historial: tienen índices y tiempos viejos.)
+
+## Brief original (historial)
+
+
+**s01-gancho** (palabra 0) · Cronómetro 3D gigante (70 % del ancho, centro y 1000), ya en el cuadro 0
+con la aguja arrancando desde 0. Gancho entero en el cuadro 0: "Más de **3 segundos**" (Lexend 900,
+~130 px, "3 segundos" en verde) arriba; los subtítulos karaoke arrancan recién después del gancho
+(~"celular"). La aguja corre en tiempo real (1 vuelta = 4 s marcados 0-1-2-3, más allá del 3 la corona en
+rojo apagado). En "tres" (6) el botón de arriba baja (pop) y un "3" 3D grande sube arriba del dial; en
+"celular" (10) la cámara arranca un travelling hacia atrás y el cronómetro se achica a la esquina
+superior derecha (queda chico, siguiendo el reel como contador en vivo hasta s05). SFX: tic-tac en cada
+segundo de la aguja, click en el botón, whoosh-short en el travelling.
+
+**s02-mitad** (palabra 11) · Fila de 10 siluetas low-poly de clientes (cápsula + cabeza, crema, mate)
+frente a un celular-vidriera 3D grande con la ruedita girando (el celular ocupa el centro, las siluetas
+en semicírculo delante, tamaño de pantalla llena de lado a lado). Cámara: órbita corta de 20°. En "mitad"
+(14) 6 siluetas se ponen grises y giran 180° (de espaldas). Rótulo HTML con línea guía: "Visitas desde el
+celular". SFX: pop por silueta que gira (escalonados), whoosh suave.
+
+**s03-se-va** (palabra 18) · Las 6 siluetas grises caminan fuera de cuadro (izquierda y derecha, sin
+atravesarse); arriba, número 3D verde "53" + "%" geométrico (grande, arriba y limpio, sin pisar el
+celular). En "Google" (21) aparece la pill HTML crema "Fuente: Google" bajo el número. SFX: whoosh doble
+(los que se van), impact-bass-1 suave al aterrizar el 53 %.
+
+**s04-parada** (palabra 22) · Travelling continuo: el celular-vidriera viaja a la mano de una silueta
+(crema) parada en un refugio de ómnibus low-poly (techo curvo, cartel de parada genérico verde/crema sin
+número de línea real). El refugio llena el ancho; en "hambre" (28) un globito 3D crema con un tenedor y
+cuchillo (o una porción de pizza low-poly, de muzzarella: queso crema-amarillento, aceitunas) sobre la
+cabeza. Rótulo: "Te busca". SFX: whoosh-cinematic en el travelling, pop del globito, ruido de tecleo
+(key-press) cuando busca.
+
+**s05-blanco** (palabra 29) · Zambullida al celular: la pantalla llena el cuadro (celular a pantalla
+completa, bordes navy visibles para que se lea el objeto). Pantalla blanca con una ruedita de carga 3D roja
+apagada que gira. El cronómetro de la esquina vuelve a crecer (40 % del ancho) sobre la pantalla. En
+"Uno" (32), "dos" (33), "tres" (34) la aguja pasa cada marca y un número 3D grande ("1", "2", "3") hace
+pop arriba; en "tres" la corona se pone roja apagada. SFX: tic-tac fuerte por número, glitch-1 corto en el 3.
+
+**s06-atras** (palabra 35) · Un pulgar 3D low-poly (crema, grande, entra desde abajo a la derecha) toca
+la flecha "atrás" 3D (verde no: gris) arriba a la izquierda del celular; la pantalla blanca se desliza a
+la derecha y entra otra página genérica ya cargada (crema con bloques navy, sin marca ni nombre). En
+"otro" (38) la cámara se inclina a la izquierda. Rótulo: "Elige otro". SFX: click en el toque, whoosh-short
+del deslizamiento.
+
+**s07-avisa** (palabra 39) · La cámara sale del celular y vuela (Catmull-Rom, sin corte) a "tu local":
+fachada low-poly de una pizzería genérica (toldo verde/crema, vidriera con pizza en la mesada, persiana
+arriba), con un mostrador y una campanita 3D sobre él. Nadie entra; la campanita no suena (queda quieta,
+se apaga a gris en "nunca" 40). Rótulo con línea guía a la campana: "0 avisos". Sin culpa al dueño: el
+dueño no está en cuadro. SFX: whoosh-cinematic (viaje), silencio corto antes de "nunca", un ping muy bajo
+que se corta.
+
+**s08-venta** (palabra 46) · Push-in a la vidriera: una caja de pizza 3D (cartón crema, tapa) sobre la
+mesada; en "antes" (49) la tapa intenta abrirse y vuelve a cerrar, y la caja se pone gris (venta perdida).
+Rótulo: "Sin mostrar nada". Objeto llena el 70 % del ancho. SFX: pop de la caja, un "thud" suave
+(impact-bass-2 bajo) al cerrarse.
+
+**s09-pesadas** (palabra 53) · Giro a favor del dueño: el celular vuelve grande; encima le caen 4-5
+marcos de foto 3D enormes (crema, con imagen plana de pizza/local, gruesos como bloques) que lo aplastan
+y hunden en el piso; en "viejas" (56) el celular muestra una página antigua (bloques grises, letra chica);
+en "pesadas" (58) el último marco cae y el celular rebota. Rótulo: "Fotos pesadas". Sin cifras de MB. SFX:
+impact-bass por marco (bajo, escalonados), rebote.
+
+**s10-rapida** (palabra 59) · Las fotos se comprimen (escala a 30 %) y encajan como tarjetas dentro de la
+pantalla; el celular se endereza y se ilumina en verde por el borde. En "Scalerics" (60) pill HTML chica
+"Scalerics". En "rápida" (64) un tilde verde 3D grande. Rótulo: "Rápida en el celular". SFX: scan
+(compresión), sparkle en el tilde, whoosh-short al enderezarse.
+
+**s11-abre** (palabra 68) · CALLBACK: travelling de vuelta a la misma parada de s04, misma silueta, mismo
+celular, mismo cronómetro en la esquina. En "abre" (70) el cronómetro arranca y frena con un click EN
+VERDE muy antes del 1 (la aguja apenas se mueve; sin número de tiempo en pantalla ni en la voz). La
+pantalla abre entera (zambullida corta): tarjetas de la página de la pizzería con tildes verdes en
+"horario" (74: tarjeta con horario genérico), "fotos" (75: foto de la pizza) y "WhatsApp" (77: botón verde
+grande "Escribinos por WhatsApp", sin el logo de WhatsApp). El globito de hambre se transforma en la caja de
+pizza abierta (callback de s08). Escena de ~3,2 s con un cambio cada ~0,8 s. SFX: click del botón del
+cronómetro, chime, pop por tilde, ping.
+
+**s12-tuya** (palabra 78) · El cronómetro vuelve al centro, gigante (como en s01), con un "?" 3D verde en el
+dial en lugar de la aguja; push-in. Texto HTML grande "¿Cuánto tarda la tuya?" dentro del 80 % seguro.
+SFX: tic-tac lento (2 golpes), whoosh-short.
+
+**s13-llamada** (palabra 84, "videollamada") · Cierre de 2,6-3 s sobre fondo verde `#5ce611`: el
+cronómetro sale de cuadro y entra la tarjeta navy/crema "Videollamada gratis" y abajo, grande, en navy
+sobre verde (o verde sobre navy en la tarjeta), "scalerics.com". Logo de Scalerics. Cola 0,3 s, fundido de
+audio 0,35 s. SFX: whoosh, chime al aparecer "scalerics.com".
+
+## Sonido
+- Tic-tac: hace falta un SFX real CC0 (no está en `assets/sfx`); anotar autor, sitio y licencia en
+  `fuentes.md`. Si no se consigue, `click-soft.mp3` por segundo. Nunca sintetizado con ffmpeg.
+- Techo por efecto -31 LUFS (`TECHO` de caso-pedidosya), voz ≥ 6 LU arriba de música + SFX, final -14 LUFS,
+  pico -1,5 dBFS.
+
+## Portada (para `portada.json`)
+- Fondo: cuadro limpio de s05 (celular en blanco con la ruedita roja y el cronómetro pasando el 3) sin
+  subtítulos ni gancho. `chica`: "Tu página tarda" · `grande`: "3 segundos" o "¿Más de 3 segundos?" ·
+  `sello`: "Según Google" · acento verde.
+
+## Ojo en la revisión
+- El dato dice "visitas", no "clientes" ni "usuarios": así en voz y rótulos.
+- Ningún número de tiempo inventado (ni "0,8 s", ni "MB"); el 53 % es la única cifra.
+- Sin logos ni colores de Google ni de WhatsApp. La otra página (s06) es genérica, sin nombre.
+- La parada y la pizzería son genéricas uruguayas inventadas (sin número de línea de ómnibus real).
+
+## Construcción (05-11, constructor)
+- Voz Orus de 33,29 s (el "oyó" coincide con el guion palabra por palabra). Duración total 33,59 s.
+  Tiempos corregidos a mano con los silencios medidos (ffmpeg silencedetect) donde la voz interpoló:
+  "Google." (5,80), "Te" (6,71), "blanco." (9,40), "Uno" 10,22 · "dos" 10,76 · "tres" 11,61, "Y nunca" (14,18),
+  "scalerics.com." (32,0-33,17).
+- 13 escenas (s02 junta "más de la mitad… se va. Según Google." porque "se va" sola duraba 1,4 s; "Misma parada:
+  abre al toque" y "con horario, fotos y WhatsApp" quedaron separadas en s10-abre y s11-pagina):
+  s01-gancho 0,00 · s02-mitad 3,31 · s03-parada 6,71 · s04-blanco 8,92 · s05-atras 12,28 · s06-avisa 14,18 ·
+  s07-venta 16,02 · s08-pesadas 18,71 · s09-rapida 20,91 · s10-abre 24,13 · s11-pagina 26,13 · s12-tuya 28,67 ·
+  s13-llamada 30,60 (2,99 s, arranca en "videollamada").
+- `assets/tres.js`: una escena Three.js con tres lugares (estudio en 0,0,0; la PARADA a la izquierda; la PIZZERÍA a
+  la derecha, con el celular de las fotos pesadas delante). Cámara Catmull-Rom; los viajes largos (estudio→parada,
+  parada→pizzería, pizzería→celular, celular→parada, parada→estudio) son tramos "e" con ease propio y tangentes
+  planas en los vecinos, para que no se pasen de largo. Cuando el celular llena la pantalla queda pegado a la
+  cámara (`pegar`, distancia DP = 6,25: bordes a la vista). La pantalla es un canvas dinámico (la página que se
+  desliza al tocar "atrás" se pinta cuadro a cuadro de forma determinista).
+- Cambios respecto del SPEC: el cronómetro no queda como contador chico en la esquina durante s02-s03 (chocaba con
+  los subtítulos y el 53 %): en el gancho se achica y se mete en el celular (se vuelve la ruedita) y vuelve sobre la
+  pantalla en blanco para contar uno, dos, tres. El "3" 3D del gancho se sacó (el gancho ya dice "3 segundos" en
+  verde). La flecha "atrás" está en la barra de abajo del navegador (donde la alcanza el pulgar), no arriba (ahí van
+  los subtítulos). El globito no se transforma en la caja: la caja ABIERTA con la pizza vuelve sobre la página en
+  "WhatsApp" (callback de la caja cerrada y gris de s07). Sin rótulo "Te busca" ni "Elige otro" (lo dice el
+  subtítulo); rótulos: "Visitas desde el celular", "Fuente: Google", "0 avisos", "Fotos pesadas", pill "Scalerics",
+  sello "VENTA PERDIDA".
+- Fondo navy liso #0b1220 sin estrellas ni degradé; el velo de arriba se apaga donde el celular llena la pantalla
+  (`reel.sinVelo`) y el fondo pasa a verde #5ce611 en el cierre (timeline de `index.html`, desde `armar.mjs`).
+- Mezcla: `armar.mjs` mide el LUFS de cada SFX con 1 s de relleno (antes el `tic`, de 0,1 s, daba -70 y se
+  salteaba el techo de -31). Música a 0,16 y whoosh de transición a 0,12. Medido con ffmpeg ebur128 (momentáneo,
+  cada 0,1 s) voz sola contra música+SFX reconstruidos desde el index: con la voz hablando (M > -24 LUFS) queda al
+  menos 6,3 LU arriba; voz -15,7 LUFS integrada; pico de la premezcla -2,1 dBFS. El final a -14 LUFS / -1,5 dBTP lo
+  hace el loudnorm del paso 10.
+
+### Pasada 1 de director de arte (snapshots de cada escena y de las transiciones)
+- Estela de la aguja navy oscurecía el dial como una torta: pasó a gris claro (verde en el callback).
+- Cronómetro del gancho pegado a "3 segundos": cámara más arriba, queda entre y 560 y 1560.
+- Viajes de cámara que se pasaban de largo (parada→pizzería mostraba la pizzería cortada y después vacío):
+  tramos "e". El celular sale hacia atrás (antes iba hacia la cámara) y la pizzería aparece antes de entrar a cuadro.
+- Cuadro vacío en el viaje pizzería→estudio (18,8 s): el celular de s08-s09 se mudó delante de la pizzería.
+- Caja de pizza maciza (la pizza quedaba enterrada y las aceitunas atravesaban la tapa): caja hueca con paredes.
+- Campanita flotando junto a la puerta y la línea de "0 avisos" apuntando a la puerta: campana sobre el
+  mostrador, caja a la izquierda, línea a la base de la campana.
+- Ruedita de carga detrás del aro del cronómetro en s04: ruedita arriba, cronómetro más abajo y más chico.
+- Chevrones dibujados en la barra del navegador pisaban el logo: fuera (la flecha atrás es 3D).
+- Tilde 3D se veía como un lazo (tubo Catmull-Rom): ahora dos barras.
+- Parada chica y abajo con el cartel cortado: cámara a 14-15 u, cartel más adentro.
+- Cronómetro del callback (s10) cortado a la izquierda y pisando "Misma parada:": más abajo y a la derecha.
+- 53 % cortado al arrancar el viaje: el viaje arranca 0,3 s después y el 53 % sube y se va antes.
+- Pill "Fuente: Google" y "Scalerics" sobre el celular: abajo (y 1640) y "Scalerics" recién cuando el celular
+  está parado.
+- Caja abierta del callback tapaba el botón de WhatsApp: más chica, sobre la foto; tilde del botón a la derecha.
+
+### Pasada 2 (cuadros cada 0,5 s, 0,25-33,25 s)
+- El "3" rojo seguía arriba cuando entraba "Vuelve atrás.": sale 0,2 s antes.
+- Un marco de foto caía casi contra la cámara tapando el subtítulo: cae desde más bajo.
+- Cruce s11→s12: el celular bajaba lento y la caja seguía pegada a la cámara sobre la parada: el celular baja
+  antes, la caja se va antes y el cronómetro aparece al llegar.
+- El cronómetro cruzaba "Videollamada" al irse y "Agendá una" asomaba sobre el verde: se achica en su lugar y el
+  subtítulo corta antes del cierre (sinSub 84-88).
+- Las siluetas aparecían de a una (una sola chiquita a 3,25 s): entran casi juntas.
+- El cartel PIZZERÍA quedaba bajo el subtítulo en el push-in: push-in más rápido.
+
+## Construcción · ronda 1 (05-11, correcciones de los 3 revisores)
+**Guion y voz (G3).** "Vuelve atrás. Elige otro." → "Toca atrás y elige otro."; "Perdiste la venta antes de mostrar
+nada." → "Esa venta se fue antes de mostrar nada." Voz Orus entera regenerada (31,37 s, el "oyó" coincide).
+Tiempos de las 90 palabras a mano con la envolvente cada 20 ms (caídas de energía de las oclusivas y pausas);
+STT venía 0,1-0,2 s adelantado. Duración total 31,67 s. Índices de palabra remapeados en `tres.js`, `gen.mjs` y
+`reel.json` (+1 desde "y", +2 desde "antes").
+Escenas (14): s01-gancho 0,00 · s02-mitad 2,80 · s03-parada 5,86 · s04-blanco 8,06 · s04b-cuenta 10,10 (s04 partida en
+"dos": pasaba 3,9 s) · s05-atras 11,92 · s06-avisa 13,72 · s07-venta 15,38 · s08-pesadas 17,56 · s09-rapida 19,56
+(3,10 s, cambia algo cada ≤1 s) · s10-abre 22,66 · s11-pagina 24,64 · s12-tuya 26,84 · s13-llamada 28,86 (2,81 s).
+**Datos.** G1: el cronómetro del callback frena en ~1,85 (antes del 3, sin cifra), ningún número del dial se pinta;
+se ponen verdes el bisel y la estela y aparece un tilde 3D al lado. G2: el 53 % entra en "de las visitas" con el
+texto "de las visitas desde el celular se va" debajo y la pill "Fuente: Google" a la vez (2,2 s en pantalla). G4: la
+barra de la página dice "tu página" (sin dominio). G5: descripción y fuentes.md.
+**Sonido.** S1: `whoosh-cine.mp3` (recorte con el golpe del whoosh-cinematic real) en los 4 viajes. S2: tic → click
+(la red bloquea todas las fuentes CC0). S3: scan → `riser-corto`, key-press → `tecleo` (recortes de archivos del
+banco sin el tramo mudo), pop/click/ping/chime más arriba; música a 0,12 para que los SFX (techo -31) queden
+encima. S4: impact-bass recortados y bajados; glitch/impacto del sello después de "nada.". S5: tiempos medidos.
+S6: `armar.mjs` no pone el whoosh automático si la escena trae uno en [-0,6; 0,3] s o ya hay uno a < 0,45 s.
+S7: cortes "Esa venta | se fue | antes | de mostrar nada.", "Pasa | con páginas viejas | o pesadas.", y "Agendá
+una" sin subtítulo (sinSub 80-86, la pregunta grande queda hasta el cierre). S8: segundo tic de s12 en +1,40.
+S9: `data-fade-out="0.35"` en la música. Mezcla medida (ebur128 momentáneo cada 0,1 s, voz sola contra música+SFX
+reconstruidos desde el index): con voz > -24 LUFS, al menos 6,6 LU arriba; premezcla pico -2,7 dBFS.
+**Arte.** A1: el cronómetro del gancho se mete en la ruedita con push-in (cámara a 10,8 u en s02, celular ~55 %
+del ancho) y las siluetas ya están cuando nace el celular; en los viajes estudio→parada y celular→parada el
+celular conserva el tamaño (crece un poco) y recién se achica a la mano en la segunda mitad del viaje; s08 y s09 más
+cerca (celular ~60 %); tilde montado en el borde del celular. A2: push-in a la caja corto (0,35 s) y el cartel
+PIZZERÍA se apaga mientras pasa por detrás del subtítulo; la caja cae desde 0,8 u (ya no aparece sobre el toldo).
+A3: caja abierta del callback más chica, abajo a la derecha sobre la foto, 0,8 s en pantalla. A4: caras lisas con
+dos puntitos y pelo navy; la persona de la parada con gorra verde. A5: aro de la tapa navy; sello desde 1,25× sin
+salirse del margen, en "nada". A6: 53 % en crema. A7: los marcos caen desde 0,9 u y sobre la mitad baja del
+celular (no cruzan los subtítulos). A8-A10: `reel.sinFirma` oculta el logo del pie en s02, con el celular a pantalla
+completa, en s08-s09 (pill "Scalerics" movida a y 1712), en s11 y en el cierre verde. A11: las palabras del
+subtítulo entran ya en blanco y el grupo se corta seco (sin cuadros grises). A12: pizza de la vidriera con borde y
+aceitunas (de frente, en el vidrio); timbre de mostrador chato con botón. A13: globito y cartel más adentro,
+cámara de la parada a 15-16 u, cronómetro del callback lejos de la cabeza. A14: el tilde viaja pegado al celular y
+se achica antes del viaje. A15: letra de la página más grande (URL 40 px, "de 19 a 24 h" 38 px de canvas).
+A16 (opcional): no se hizo.
+**Revisión.** Pasada completa cada 0,5 s (0,25-31,25 s) más dos tandas sobre las zonas tocadas; `check` ok, cero
+errores (queda solo el aviso de lint del canvas dentro de #capa3d y "canvas toca el borde", que es el celular a
+pantalla completa).
+
+## Construcción · ronda 3 (06-11, constructor)
+**Voz.** El guion ya decía "Se cansa y elige otro." / "Y nunca te enterás de que entró." pero la locución seguía con
+"Toca atrás…" / "…te avisa que se fue." (lo que se veía en los subtítulos). Se regeneró la voz Orus y se pegó solo ese
+tramo (11,84-15,06) sobre la locución anterior (mismo número de palabras: los índices no cambian; -1,5 dB para igualar).
+Tiempos a mano con la envolvente; desde "Esa" +0,11 s. Duración total 31,78 s (voz 31,48).
+**Personajes del módulo** (`assets/personajes.js`, copia exacta del de `reels/abren-hoy`):
+- La persona de la parada es **Nico** (ELENCO.empleado, remera verde de marca), escala 1,42, parado en el cordón
+  delante del refugio, con el celular en la mano izquierda (IK del módulo). Mira el celular y tipea en "buscan", se
+  frota la panza con cara de esperanza en "hambre", y en "abre al toque" pasa de sorpresa a feliz.
+- s05 nuevo: en "Se cansa" la cámara sale de la pantalla al **primer plano de Nico** (fastidio, ojos a media asta); toca
+  "atrás" (vuelven los resultados) y en "elige otro" toca otro resultado (entra "otra página") y sonríe. El pulgar
+  suelto se sacó. Cielorraso navy debajo del techo de la parada (en el primer plano el subtítulo queda sobre oscuro).
+- Las 10 visitas de s02 son gente del mismo estilo (variantes de piel, pelo, peinado y ropa de marca): miran el celular
+  de espaldas; las que se van giran hacia la cámara con fastidio, se ponen grises y salen caminando.
+**Cámara y lugares.** Parada y pizzería más cerca (x ±4,6) y entre las dos una cuadra (vereda, cordón, un árbol
+low-poly) que solo se ve en los viajes: la cámara nunca pasa por un cuadro vacío. Parada→pizzería es un solo viaje
+(S6-0,42 → S6+0,26) y el push-in a la caja arranca en S7-0,5. Las letras del cartel PIZZERÍA se funden en su chapa navy
+antes de pasar por detrás del subtítulo. La caja y la campana se aplastan con la pizzería (antes la caja se achicaba
+hasta una mota). Cierre: el cronómetro se achica mientras crece el celular de la videollamada en el mismo lugar; el
+fondo pasa a verde en 0,12 s.
+**Capa plana.** Subtítulos con contorno navy de 12 px (`paint-order: stroke fill`): se leen sobre el toldo, la vidriera
+y el techo verde. Velo de vuelta en s05 (primer plano). Firma oculta también en [10,22] y [74,80].
+**Sonido.** s05: whoosh corto al salir del celular, click en cada toque y whoosh corto en cada deslizar; ping de "0 avisos"
+en "enterás". Mezcla reconstruida desde el index (ebur128 momentáneo, tramos de 0,5 s): con la voz hablando, al menos
+6,6 LU arriba de música+SFX; premezcla voz -17,4 LUFS, todo -17,3 LUFS, pico -2,8 dBFS (el loudnorm del paso 10 la lleva a -14).
+
+## Revisión 1 (06-11): correcciones de los 3 revisores
+- **Guion/voz:** G3 "Alguien te busca desde la parada, con hambre." (regenerada y pegada solo esa frase, +1 palabra:
+  índices corridos desde 23 en reel.json, tres.js y gen.mjs). S2: los dos tramos pegados ecualizados (lowshelf 250 Hz)
+  y nivelados; medido por banda: graves <250 Hz a ±1,5 LU del resto. G4 no se hizo (no se regeneró esa frase). Cola 0,5 s
+  (DUR 32,33; cierre 3,01 s desde "videollamada").
+- **Arte:** caja abierta del callback sacada (A1); corte limpio Nico→pizzería en "Y nunca" (A2) y página→cronómetro en
+  "¿Cuánto" (A3), con claves de cámara "c" (corte) en `CAM`; el cronómetro se achica en su lugar (sin cortarse abajo);
+  en los viajes estudio↔parada el celular va pegado a la cámara por el centro y recién al final baja a la mano (nunca
+  dos celulares ni cuadros vacíos); al volver a la mano en s05 baja por debajo de la cara. s07 reencuadrado (pizza,
+  caja y campana enteras, sin tercio vacío). Gancho sale entero en 0,16 s; siluetas nacen a tamaño; 53 % verde de marca
+  y el rótulo se va con él; fila de siluetas más angosta. Interfaz con letra más grande (URL 56, hora 50, "Abierto hoy"
+  54, botón "Pedí por WhatsApp" 54 px de canvas); "0 avisos" en pill grande; "Fotos pesadas" abajo a la izquierda, fuera
+  de los marcos. Callback "Misma parada" más cerca, globo arriba de Nico, cronómetro sin nacer de cero. Celular de la
+  videollamada ~44 % del ancho. Aceitunas verdes enteras (muzzarella uruguaya), interior de la tapa de cartón.
+- **Sonido:** sin ping en "0 avisos"; pops/clicks variados (burbuja, key-press, click-soft) y menos; tic-tac real CC0
+  (olver, Freesound 130388); sello real CC0 (kermite607) en el cuadro del sello; "rápida en el celular" un solo grupo;
+  "Agendá una" con subtítulo y la pregunta se va antes; push-in en s12 y botón del cronómetro que se aprieta más.
+
+## Revisión 2 → ronda 3 (06-11)
+- Cortes limpios (claves "c") en "Alguien", "Se cansa", "Pasa" y "Misma parada" (además de "Y nunca" y "¿Cuánto"): sin
+  viajes con objetos cortados, sin dos celulares ni árboles a medias. La parada y la pizzería aparecen/desaparecen en el corte.
+- Barra de estado del celular tapada mientras cruza la franja de subtítulos (`ESTADO` en tres.js). Nada escala por debajo
+  del ~55 %: salidas con corte seco (53 % y su rótulo juntos, números 1-2-3, cronómetros, tilde) y entradas desde el 60 %
+  (globito, timbre, caja, cronómetro). Las visitas suben desde abajo de cuadro. Timbre de mostrador con botón.
+- Subtítulos: "en el celular," del gancho como subtítulo; grupos más largos (sin destellos <0,4 s); recuadro sin doble
+  espacio; el grupo se apaga en el último cuadro (sin cuadros vacíos entre grupos).
+- Sonido: fundido (data-fade-out) en todo SFX recortado; ping y chime recortados sin su tramo mudo (`ping-c`, `chime-c`);
+  impact-bass-2 reemplazado por impact-bass-1/papel/key-press (sin peine en las fotos que caen); whooshes variados
+  (`whoosh-c` = whoosh-cine-corto real de por-que-la-lista, `papel` = Kingofgamers_cz, Freesound 352914, CC0); burbujas con
+  volúmenes distintos; sello sonando en el cuadro en que queda firme; el "?" late con el tic y el tac; tramo "Alguien te
+  busca…" con highshelf (+10 dB @3,5 kHz) para igualar agudos (medido: >4 kHz -27,4 LUFS vs -27,5 del tramo vecino).
+
+## Ronda 1 de revisión independiente (corregida)
+- Gancho entero en el cuadro 0: "Si tu página tarda / más de 3 segundos / se va más de la mitad" (consecuencia en recuadro verde).
+- Cronómetro del callback: frena en ~1,55 (entre el 1 y el 2; < 2,5 s LCP), tilde abajo a la izquierda del cronómetro.
+- Parada en plano medio (Nico ~50 % del alto), chapa de la parada delante del techo y entera; globo a la izquierda.
+- s07: mostrador ancho y hondo, timbre y caja apoyados enteros; push-in centrado en la caja (el timbre queda fuera).
+- s08/s09: cámara desde arriba (los marcos caen hacia la cámara, nunca cruzan los subtítulos), marcos más chicos;
+  la cámara se endereza junto con el celular. "Fotos pesadas" sale seco.
+- Cierre: celular más arriba (21:40), DUR = voz + 0,25 s; fondo verde justo en el corte.
+
+## Ronda 2 (corregida)
+- Sombra del cronómetro debajo del aro (no más costura), 53 % más arriba, una sola carcasa del celular (navy claro),
+  celular viejo más abajo; toques con el pulgar (anillo verde en la pantalla, la mano derecha ya no cruza);
+  a pantalla completa el celular un 5 % más lejos y sin la parada detrás; porción que gira y crece en la 2.ª parada;
+  subtítulos largos a 74 px en un renglón; sin subtítulo "Agendá una" (queda la pregunta); pulso + click en scalerics.com.
+- Portada: portada.png desde renders/portada-fondo-limpio.png (ver nota en portada.json).
+
+## Ronda 3 (final)
+- Cartel "PIZZERÍA" verde de marca con letras navy, siempre prendido: el subtítulo "de que entró." corta en 15,58
+  (reel.finSub) y el push-in a la caja (15,56-15,79) lo saca de cuadro antes de "Esa venta se fue".
+- Rótulo del 53 % solo "si tarda más de 3 s" (58 px); subtítulos con halo navy; "Scalerics" de s09 en "Scalerics" y más abajo;
+  la burbuja de la 2.ª parada se mece y se achica mientras entra el cronómetro; portada con el cronómetro arriba del texto.
