@@ -10,7 +10,7 @@ dos: la foto la pasó de largo (queda arriba en gris), su nombre no. "Esa tarde"
 a la bicicletería verde con luz cálida de tarde: entra desde fuera de cuadro por la derecha empujando la bici (mano en
 el puño, pie de apoyo arriba), "vuelve": Nico (`ELENCO.empleado`, pelo con volumen) abre la puerta y la saluda; ella
 deja la bici y entra. Callback: la ficha de Paula en el CRM pasa de "Casco: no" a "Casco: sí ✓" y el casco de la vidriera
-se apoya encima. Cierre: la ficha se multiplica en las fichas de TUS clientes (Inés, Pablo, Sara: "Luz: no" →
+se apoya encima. Cierre: la ficha se multiplica en las fichas de TUS clientes (Diego, Ana, Jorge, de la tabla del CRM: "Luz: no" →
 "Avisarle: luz"), el casco sube al cielo crema y entra la tarjeta "Videollamada gratis · scalerics.com".
 
 Voz Orus (33,8 s), 89 palabras, duración 34,36 s (fin de voz + 0,55). Todo el 3D vive en `assets/tres.js` (una
@@ -112,8 +112,8 @@ las fichas de s12.
     "armamos": el casco de la vidriera vuela y se apoya arriba de la ficha (el soporte se hunde en el pedestal),
     "Casco: sí ✓" con click + ding. Rótulo "CRM · Scalerics".
 13. **s12-tu-local** 28,87 (2,53 s): la ficha de Paula se achica a la primera casilla de una grilla 2x2 y, ya chica,
-    aparecen en sus casillas las fichas de tus clientes (Inés · Bici de ruta · "Luz: no"; Pablo · Bici eléctrica · "Candado: no"; Sara ·
-    Bici de paseo · "Inflador: no"); "local?": los chips pasan a verde "Avisarle: luz/candado/inflador" (pings).
+    aparecen en sus casillas las fichas de tus clientes (clientes de la tabla del CRM: Diego · Bici de montaña · "Luz: no"; Ana · Bici de paseo · "Canasto: no"; Jorge ·
+    Luz delantera · "Candado: no"); "local?": los chips pasan a verde "Avisarle: luz/canasto/candado" (pings).
     "Agendá": el casco da un saltito y CORTE (CUT3) al cielo crema, con el subtítulo "Agendá una".
 14. **s13-llamada** 31,40 (2,96 s): el casco solo, girando en el cielo crema (sin nada del 3D debajo). Tarjeta:
     "Videollamada" + "gratis" (recuadro verde) + banda navy "scalerics.com" en verde, que late con el chime.

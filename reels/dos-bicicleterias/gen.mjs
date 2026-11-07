@@ -206,7 +206,6 @@ const GANCHO_HTML = `
     js: `nota(1, ${r2(w(id, 49) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.32)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-cine-corto", vol: 0.2, max: 1.0 }, { t: 0.5, sfx: "pop", vol: 0.12 },
-      ...[0, 1, 2, 3, 4, 5, 6].map((i) => ({ t: r2(-0.1 + i * 0.1), sfx: "tic", vol: 0.18 })),
       { t: w(id, 46) - 0.08, sfx: "pop", vol: 0.16 }, { t: w(id, 49) - 0.05, sfx: "whoosh-short", vol: 0.2 },
       { t: w(id, 49) + 0.05, sfx: "pop", vol: 0.14 },
     ],
@@ -222,8 +221,9 @@ const GANCHO_HTML = `
       { t: -0.12, sfx: "whoosh-short", vol: 0.08 }, { t: w(id, 55), sfx: "ding", vol: 0.14, max: 0.8 },
       // CUT2 (w57 + 0,33): corte a la bicicletería verde; pasos mientras entra empujando la bici
       { t: r2(w(id, 57) + 0.29), sfx: "whoosh-short", vol: 0.14 },
-      ...Array.from({ length: 12 }, (_, i) => ({ t: r2(w(id, 57) + 0.4 + i * 0.11), sfx: "tic", vol: 0.16 })),
-      { t: w(id, 59) + 0.3, sfx: "puerta", vol: 0.22, max: 0.9 }, { t: w(id, 59) + 0.35, sfx: "campanita", vol: 0.3 },
+      // pisadas en los apoyos visibles de Paula (21,10 · 21,42 · 21,75 · 22,00)
+      ...[21.1, 21.42, 21.75, 22.0].map((g) => ({ t: r2(g - INI[id]), sfx: "golpe", vol: 0.1, max: 0.18 })),
+      { t: w(id, 59) + 0.3, sfx: "puerta", vol: 1.0, max: 0.9 }, { t: w(id, 59) + 0.35, sfx: "campanita", vol: 0.3 },
     ],
   });
 }
@@ -299,7 +299,7 @@ const GANCHO_HTML = `
       <div class="banda">scalerics.com</div>`,
     js: `
       tl.fromTo(q(".panel"), { y: 140 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, 0.02);
+      tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.1, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.14, ease: "power3.out", immediateRender: true }, ${r2(w(id, 86) - 0.15)});
       caja(".sb", ${r2(w(id, 86))});
       tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 86) + 0.3)});
