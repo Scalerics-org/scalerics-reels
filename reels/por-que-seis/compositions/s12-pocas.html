@@ -1,0 +1,63 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s12-pocas"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s12-pocas"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s12-pocas"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 16px 32px 17px; border: 6px solid #0b1220; border-radius: 999px; background: #0b1220; font: 700 46px/1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.18); }
+    [data-composition-id="s12-pocas"] .pill.g { border-color: #5ce611; color: #5ce611; }
+    [data-composition-id="s12-pocas"] .pill.r { border-color: #c7655b; color: #c7655b; }
+    [data-composition-id="s12-pocas"] .pill.lleno { background: #5ce611; border-color: #5ce611; color: #0b1220; }
+    [data-composition-id="s12-pocas"] .pill.rl { background: #c7655b; border-color: #c7655b; color: #fff; }
+    [data-composition-id="s12-pocas"] .pill.grande { font-size: 64px; padding: 20px 44px 22px; }
+    [data-composition-id="s12-pocas"] .mono { position: absolute; transform: translateX(-50%); font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: #0b1220; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s12-pocas"] .mono.g { color: #5ce611; }
+    [data-composition-id="s12-pocas"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s12-pocas"] .lead.g { stroke: #5ce611; } [data-composition-id="s12-pocas"] .lead.r { stroke: #c7655b; }
+    [data-composition-id="s12-pocas"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s12-pocas"] .dot.g { fill: #5ce611; } [data-composition-id="s12-pocas"] .dot.r { fill: #c7655b; }
+    [data-composition-id="s12-pocas"] .selbox { position: absolute; border: 7px solid #5ce611; background: rgba(92,230,17,0.5); opacity: 0; }
+    [data-composition-id="s12-pocas"] .selbox.r { border-color: #c7655b; background: rgba(199,101,91,0.16); }
+    [data-composition-id="s12-pocas"] .selbox i { position: absolute; width: 22px; height: 22px; background: #fff; border: 5px solid #5ce611; }
+    [data-composition-id="s12-pocas"] .selbox.r i { border-color: #c7655b; }
+    [data-composition-id="s12-pocas"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s12-pocas"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s12-pocas"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s12-pocas"] .selbox .k4 { right: -14px; bottom: -14px; }
+    [data-composition-id="s12-pocas"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
+
+  </style>
+  <div id="root" data-composition-id="s12-pocas" data-width="1080" data-height="1920" data-duration="2.61">
+    <div id="s12-pocas-esc" class="esc clip" data-start="0" data-duration="2.61" data-track-index="0">
+<i></i>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s12-pocas";
+      const DUR = 2.61;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const fuera = (s, t, d) => tl.set(typeof s === "string" ? qa(s) : s, { opacity: 0 }, t + (d ?? 0.2));
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
+      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+      const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
+
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,14 @@
+{
+ "t": 1.0,
+ "chica": "24 mermeladas",
+ "grande": "vendieron menos que 6",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "40%",
+ "velo": "239,238,229",
+ "fondo": "#efeee5",
+ "nota": "Fondo liso crema (sin halo: brillo_y fuera de cuadro): cuadro limpio de 3,15 s (mesa de 24 con color y mesa de 6) con `LIMPIO=1 node armar.mjs` + `snapshot --at 3.15`; se recorta x=90-990, y=590-1690, se achica al 66 % y se centra en x=243, y=392 (debajo del sello, arriba del título); mp4 de 3 s con ese PNG en renders/por-que-seis-final.mp4 solo para portada.mjs (t=1), después se vuelve a poner el render y se corre `node armar.mjs`.",
+ "brillo_y": "-80%"
+}
