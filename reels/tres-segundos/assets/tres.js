@@ -298,8 +298,8 @@ const _mw = new THREE.Vector3();
 const globo = new THREE.Group(); scene.add(globo);
 {
   const nube = mesh(new THREE.SphereGeometry(0.62, 28, 18), M.white, 0, 0, 0); nube.scale.set(1.25, 0.95, 0.42); globo.add(nube);
-  globo.add(mesh(new THREE.SphereGeometry(0.11, 14, 10), M.white, 0.36, -0.68, 0)); // la colita apunta a la cabeza de Nico (abajo a la derecha)
-  globo.add(mesh(new THREE.SphereGeometry(0.065, 12, 8), M.white, 0.5, -0.86, 0));
+  globo.add(mesh(new THREE.SphereGeometry(0.1, 14, 10), M.white, 0.42, -0.66, 0)); // la colita apunta a la cabeza de Nico (abajo a la derecha)
+  // (la bolita chica se sacó: quedaba apoyada en el pelo de Nico)
 }
 const porcion = new THREE.Group();
 {
@@ -514,7 +514,7 @@ const CAM = [
   [S["s03-parada"] - 0.005, 8, 9, 7.0, 0, -0.25, 0.1, "c"],
   [S["s03-parada"], 4, 5, 9.6, PAR.x + 0.45, 0.57, PAR.z + 0.85],
   [W[29], -2, 5, 9.4, PAR.x + 0.45, 0.57, PAR.z + 0.85],
-  [S["s04-blanco"] + 0.1, -4, 5, 9.0, PAR.x + 0.47, 0.5, PAR.z + 0.85],
+  [S["s04-blanco"] + 0.1, -2, 5, 9.5, PAR.x + 0.4, 0.55, PAR.z + 0.85], // el globo no se corta a la izquierda al arrancar la zambullida
   // corte limpio en "Se cansa": de la pantalla completa al primer plano de Nico (el celular ya en la mano)
   [S["s05-atras"] - 0.005, -9, 6, 13.2, PAR.x + 0.4, 0.3, PAR.z + 0.3, "c"],
   [S["s05-atras"], -11, 2, 5.6, PAR.x + 0.75, 0.5, PAR.z + 1.25],
@@ -868,7 +868,7 @@ function renderAt(t) {
     const g1 = en(t, W[29] - 0.1, S5) ? lerp(0.6, 1, bk(sg(t, W[29] - 0.1, W[29] + 0.2))) : 0;
     const g2 = en(t, S10 + 0.3, W[73] - 0.15) ? lerp(0.6, 1, bk(sg(t, S10 + 0.3, S10 + 0.55))) : 0; // en "abre" lo reemplaza el cronómetro
     const gs = Math.max(g1, g2);
-    ocultar(globo, gs); globo.position.set(PAR.x - 0.18, 1.45 + Math.sin(t * 2) * 0.04, PAR.z + 1.35); globo.scale.multiplyScalar(0.9); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
+    ocultar(globo, gs); globo.position.set(PAR.x - 0.1, 1.45 + Math.sin(t * 2) * 0.04, PAR.z + 1.35); globo.scale.multiplyScalar(0.82); globo.rotation.set(0, -0.2 + Math.sin(t * 1.1) * 0.08, 0);
     porcion.rotation.set(0, 0, Math.sin(t * 2.2) * 0.12);
   }
 

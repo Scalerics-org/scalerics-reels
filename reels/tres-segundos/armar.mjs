@@ -193,7 +193,7 @@ const index = `<!doctype html>
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 860px; background: linear-gradient(180deg, rgba(11,18,32,0.82) 0%, rgba(11,18,32,0.55) 55%, rgba(11,18,32,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #firma { position: absolute; left: 50%; top: 1760px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.85; z-index: 50; }
+${process.env.LIMPIO ? "      .scene, #el-subtitulos, #firma, #velo { display: none !important; } /* LIMPIO=1: solo el 3D, para el fondo de la portada */\n" : ""}      #firma { position: absolute; left: 50%; top: 1760px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.85; z-index: 50; }
     </style>
   </head>
   <body>

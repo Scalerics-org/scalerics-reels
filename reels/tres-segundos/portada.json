@@ -1,2 +1,3 @@
-{ "t": 11.75, "chica": "Más de 3 s cargando:", "grande": "se va el 53 %", "sello": "Visitas · según Google",
-  "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.25, "foco": "52%" }
+{ "t": 1.5, "chica": "Más de 3 s cargando:", "grande": "se va el 53 %", "sello": "Visitas · según Google",
+  "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.2, "foco": "45%", "velo": "11,18,32", "fondo": "#0b1220",
+  "nota": "fondo: cuadro 1,5 s SIN gancho, subtítulos ni logo (el cronómetro gigante con la aguja ya en la zona roja). Armarlo con LIMPIO=1 node armar.mjs (oculta escenas HTML, subtítulos, velo y logo) y render o snapshot en 1,5; después node armar.mjs normal. Ya está en renders/portada-fondo-limpio.png (snapshot LIMPIO del 1,5 s). Si se corre portada.mjs sobre el render final, asoma el gancho." }
