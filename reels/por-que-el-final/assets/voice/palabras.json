@@ -1,0 +1,548 @@
+[
+ {
+  "id": 0,
+  "text": "Metieron",
+  "start": 0.174,
+  "end": 0.5
+ },
+ {
+  "id": 1,
+  "text": "la",
+  "start": 0.5,
+  "end": 0.6
+ },
+ {
+  "id": 2,
+  "text": "mano",
+  "start": 0.6,
+  "end": 0.7
+ },
+ {
+  "id": 3,
+  "text": "en",
+  "start": 0.7,
+  "end": 0.9
+ },
+ {
+  "id": 4,
+  "text": "agua",
+  "start": 0.9,
+  "end": 1
+ },
+ {
+  "id": 5,
+  "text": "fría,",
+  "start": 1,
+  "end": 1.2
+ },
+ {
+  "id": 6,
+  "text": "dos",
+  "start": 1.722,
+  "end": 1.9
+ },
+ {
+  "id": 7,
+  "text": "veces.",
+  "start": 1.9,
+  "end": 2.42
+ },
+ {
+  "id": 8,
+  "text": "Para",
+  "start": 2.97,
+  "end": 3.1
+ },
+ {
+  "id": 9,
+  "text": "repetir,",
+  "start": 3.1,
+  "end": 3.69
+ },
+ {
+  "id": 10,
+  "text": "la",
+  "start": 3.95,
+  "end": 4
+ },
+ {
+  "id": 11,
+  "text": "mayoría",
+  "start": 4,
+  "end": 4.5
+ },
+ {
+  "id": 12,
+  "text": "eligió",
+  "start": 4.5,
+  "end": 4.9
+ },
+ {
+  "id": 13,
+  "text": "la",
+  "start": 4.9,
+  "end": 5
+ },
+ {
+  "id": 14,
+  "text": "larga.",
+  "start": 5,
+  "end": 5.54
+ },
+ {
+  "id": 15,
+  "text": "¿Por",
+  "start": 5.85,
+  "end": 6.08
+ },
+ {
+  "id": 16,
+  "text": "qué?",
+  "start": 6.08,
+  "end": 6.3
+ },
+ {
+  "id": 17,
+  "text": "Un",
+  "start": 6.859,
+  "end": 7
+ },
+ {
+  "id": 18,
+  "text": "minuto",
+  "start": 7,
+  "end": 7.4
+ },
+ {
+  "id": 19,
+  "text": "a",
+  "start": 7.4,
+  "end": 7.5
+ },
+ {
+  "id": 20,
+  "text": "catorce",
+  "start": 7.5,
+  "end": 8
+ },
+ {
+  "id": 21,
+  "text": "grados.",
+  "start": 8,
+  "end": 8.53
+ },
+ {
+  "id": 22,
+  "text": "O",
+  "start": 8.9,
+  "end": 9.0
+ },
+ {
+  "id": 23,
+  "text": "un",
+  "start": 9.0,
+  "end": 9.1
+ },
+ {
+  "id": 24,
+  "text": "minuto",
+  "start": 9.1,
+  "end": 9.3
+ },
+ {
+  "id": 25,
+  "text": "y",
+  "start": 9.3,
+  "end": 9.5
+ },
+ {
+  "id": 26,
+  "text": "medio,",
+  "start": 9.5,
+  "end": 10.17
+ },
+ {
+  "id": 27,
+  "text": "y",
+  "start": 10.3,
+  "end": 10.38
+ },
+ {
+  "id": 28,
+  "text": "al",
+  "start": 10.4,
+  "end": 10.48
+ },
+ {
+  "id": 29,
+  "text": "final",
+  "start": 10.52,
+  "end": 10.7
+ },
+ {
+  "id": 30,
+  "text": "el",
+  "start": 10.75,
+  "end": 11
+ },
+ {
+  "id": 31,
+  "text": "agua",
+  "start": 11,
+  "end": 11.1
+ },
+ {
+  "id": 32,
+  "text": "subía",
+  "start": 11.1,
+  "end": 11.5
+ },
+ {
+  "id": 33,
+  "text": "a",
+  "start": 11.5,
+  "end": 11.6
+ },
+ {
+  "id": 34,
+  "text": "quince.",
+  "start": 11.6,
+  "end": 12.4
+ },
+ {
+  "id": 35,
+  "text": "Más",
+  "start": 12.813,
+  "end": 13
+ },
+ {
+  "id": 36,
+  "text": "rato,",
+  "start": 13,
+  "end": 13.44
+ },
+ {
+  "id": 37,
+  "text": "pero",
+  "start": 13.58,
+  "end": 13.72
+ },
+ {
+  "id": 38,
+  "text": "terminaba",
+  "start": 13.75,
+  "end": 14.1
+ },
+ {
+  "id": 39,
+  "text": "un",
+  "start": 14.1,
+  "end": 14.4
+ },
+ {
+  "id": 40,
+  "text": "grado",
+  "start": 14.4,
+  "end": 14.7
+ },
+ {
+  "id": 41,
+  "text": "mejor.",
+  "start": 14.7,
+  "end": 15.2
+ },
+ {
+  "id": 42,
+  "text": "Recordamos",
+  "start": 15.718,
+  "end": 16.2
+ },
+ {
+  "id": 43,
+  "text": "más",
+  "start": 16.2,
+  "end": 16.3
+ },
+ {
+  "id": 44,
+  "text": "lo",
+  "start": 16.3,
+  "end": 16.4
+ },
+ {
+  "id": 45,
+  "text": "peor",
+  "start": 16.4,
+  "end": 16.91
+ },
+ {
+  "id": 46,
+  "text": "y",
+  "start": 17.06,
+  "end": 17.14
+ },
+ {
+  "id": 47,
+  "text": "el",
+  "start": 17.2,
+  "end": 17.28
+ },
+ {
+  "id": 48,
+  "text": "final.",
+  "start": 17.3,
+  "end": 17.69
+ },
+ {
+  "id": 49,
+  "text": "Al",
+  "start": 18.388,
+  "end": 18.5
+ },
+ {
+  "id": 50,
+  "text": "vender,",
+  "start": 18.5,
+  "end": 18.9
+ },
+ {
+  "id": 51,
+  "text": "el",
+  "start": 18.9,
+  "end": 19.1
+ },
+ {
+  "id": 52,
+  "text": "final",
+  "start": 19.1,
+  "end": 19.5
+ },
+ {
+  "id": 53,
+  "text": "es",
+  "start": 19.5,
+  "end": 19.6
+ },
+ {
+  "id": 54,
+  "text": "después",
+  "start": 19.6,
+  "end": 19.9
+ },
+ {
+  "id": 55,
+  "text": "de",
+  "start": 19.9,
+  "end": 20
+ },
+ {
+  "id": 56,
+  "text": "cobrar.",
+  "start": 20,
+  "end": 20.74
+ },
+ {
+  "id": 57,
+  "text": "Y",
+  "start": 20.89,
+  "end": 20.97
+ },
+ {
+  "id": 58,
+  "text": "ahí,",
+  "start": 21,
+  "end": 21.31
+ },
+ {
+  "id": 59,
+  "text": "muchos",
+  "start": 21.567,
+  "end": 21.8
+ },
+ {
+  "id": 60,
+  "text": "se",
+  "start": 21.8,
+  "end": 21.95
+ },
+ {
+  "id": 61,
+  "text": "callan.",
+  "start": 21.95,
+  "end": 22.44
+ },
+ {
+  "id": 62,
+  "text": "Sale",
+  "start": 22.734,
+  "end": 22.9
+ },
+ {
+  "id": 63,
+  "text": "solo:",
+  "start": 22.9,
+  "end": 23.37
+ },
+ {
+  "id": 64,
+  "text": "Ana,",
+  "start": 23.83,
+  "end": 24.14
+ },
+ {
+  "id": 65,
+  "text": "tu",
+  "start": 24.27,
+  "end": 24.35
+ },
+ {
+  "id": 66,
+  "text": "pedido",
+  "start": 24.38,
+  "end": 24.6
+ },
+ {
+  "id": 67,
+  "text": "va",
+  "start": 24.6,
+  "end": 24.7
+ },
+ {
+  "id": 68,
+  "text": "en",
+  "start": 24.7,
+  "end": 24.8
+ },
+ {
+  "id": 69,
+  "text": "camino.",
+  "start": 24.8,
+  "end": 25.21
+ },
+ {
+  "id": 70,
+  "text": "Al",
+  "start": 25.726,
+  "end": 25.8
+ },
+ {
+  "id": 71,
+  "text": "otro",
+  "start": 25.8,
+  "end": 26
+ },
+ {
+  "id": 72,
+  "text": "día:",
+  "start": 26,
+  "end": 26.32
+ },
+ {
+  "id": 73,
+  "text": "¿llegó",
+  "start": 26.725,
+  "end": 27
+ },
+ {
+  "id": 74,
+  "text": "bien?",
+  "start": 27,
+  "end": 27.46
+ },
+ {
+  "id": 75,
+  "text": "Ese",
+  "start": 27.82,
+  "end": 28
+ },
+ {
+  "id": 76,
+  "text": "grado",
+  "start": 28,
+  "end": 28.4
+ },
+ {
+  "id": 77,
+  "text": "mejor",
+  "start": 28.4,
+  "end": 28.9
+ },
+ {
+  "id": 78,
+  "text": "lo",
+  "start": 28.9,
+  "end": 29
+ },
+ {
+  "id": 79,
+  "text": "automatizamos.",
+  "start": 29,
+  "end": 29.93
+ },
+ {
+  "id": 81,
+  "text": "¿Lo",
+  "start": 30.45,
+  "end": 30.53
+ },
+ {
+  "id": 82,
+  "text": "vemos",
+  "start": 30.53,
+  "end": 30.63
+ },
+ {
+  "id": 83,
+  "text": "en",
+  "start": 30.63,
+  "end": 30.83
+ },
+ {
+  "id": 84,
+  "text": "tu",
+  "start": 30.83,
+  "end": 30.93
+ },
+ {
+  "id": 85,
+  "text": "local?",
+  "start": 30.93,
+  "end": 31.23
+ },
+ {
+  "id": 86,
+  "text": "Agendá",
+  "start": 31.57,
+  "end": 32.03
+ },
+ {
+  "id": 87,
+  "text": "una",
+  "start": 32.03,
+  "end": 32.13
+ },
+ {
+  "id": 88,
+  "text": "videollamada",
+  "start": 32.13,
+  "end": 32.53
+ },
+ {
+  "id": 89,
+  "text": "gratis",
+  "start": 32.53,
+  "end": 33.03
+ },
+ {
+  "id": 90,
+  "text": "en",
+  "start": 33.03,
+  "end": 33.43
+ },
+ {
+  "id": 91,
+  "text": "scalerics.com.",
+  "start": 33.43,
+  "end": 34.58
+ }
+]

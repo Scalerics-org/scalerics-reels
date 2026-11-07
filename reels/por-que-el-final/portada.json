@@ -1,0 +1,13 @@
+{
+ "t": 0.2,
+ "chica": "La mayoría",
+ "grande": "eligió sufrir más",
+ "sello": "Experimento real",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.1,
+ "foco": "92%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo = portada-fondo.png (cuadro 0,6 s renderizado sin gancho, subtítulos ni logo: la mano en el agua a 14°), pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
+}
