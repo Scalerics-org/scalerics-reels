@@ -1,1 +1,13 @@
-{"t": 3.4, "chica": "Dos bicicleterías.", "grande": "¿A quién avisarle?", "sello": "Dos negocios", "acento": "#5ce611", "sello_color": "#5ce611", "zoom": 1.35, "foco": "55%", "velo": "239,238,229", "fondo": "#efeee5", "nota": "t=3,4 s del reel: las dos fachadas enteras, la derecha recién prendida (toldo verde, luz cálida), sin personajes. Para el fondo limpio (portada-fondo.png) renderizar ese cuadro sin gancho, subtítulos ni logo (ocultar .scene, #el-subtitulos y #firma). Fondo crema de marca: el reel entero es crema."}
+{
+ "t": 0.2,
+ "chica": "Dos bicicleterías.",
+ "grande": "¿A quién avisarle?",
+ "sello": "Dos negocios",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "60%",
+ "velo": "239,238,229",
+ "fondo": "#efeee5",
+ "nota": "fondo = portada-fondo.png (cuadro 3,4 s renderizado sin gancho, subtítulos ni logo: las dos fachadas, la derecha prendida en verde), pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
+}
