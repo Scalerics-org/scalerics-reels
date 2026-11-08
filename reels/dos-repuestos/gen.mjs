@@ -122,9 +122,8 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
       late(".kw", ${r2(w(id, 10))}, 1.1);
       tl.to(qa(".a, .b"), { opacity: 0, y: -40, duration: 0.25, ease: "power2.in" }, ${r2(ESC[id] - 0.32)});`,
     sfx: [
-      { t: 0, sfx: "calle", vol: 0.5, max: 15 },
+      { t: 0, sfx: "calle", vol: 0.32, max: 15 },
       { t: 0, sfx: "impact-bass-2", vol: 0.22, max: 1.0 },
-      { t: w(id, 1) + 0.02, sfx: "click-soft", vol: 0.2 }, { t: w(id, 1) + 0.2, sfx: "click-soft", vol: 0.18 },
       { t: w(id, 5) - 0.1, sfx: "pop", vol: 0.16 }, { t: w(id, 5) + 0.02, sfx: "pop", vol: 0.14 },
       { t: w(id, 10) - 0.4, sfx: "whoosh-short", vol: 0.1 },
       { t: w(id, 10) - 0.05, sfx: "impact-bass-1", vol: 0.18, max: 0.9 }, { t: w(id, 10), sfx: "pop", vol: 0.16 },
@@ -167,9 +166,9 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
     js: `nota(1, ${r2(w(id, 31))}); sinNota(1, ${r2(ESC[id] - 0.25)});`,
     sfx: [
       { t: -0.1, sfx: "whoosh-short", vol: 0.12 },
-      { t: w(id, 30) + 0.18, sfx: "vibra2", vol: 0.3, max: 0.6 }, { t: w(id, 30) + 0.2, sfx: "ping", vol: 0.08 },
+      { t: w(id, 30) + 0.15, sfx: "vibra2", vol: 0.9, max: 0.6 }, { t: w(id, 30) + 0.17, sfx: "notification", vol: 0.2, max: 0.8 },
       { t: w(id, 31), sfx: "pop", vol: 0.14 },
-      { t: w(id, 33) - 0.05, sfx: "tic", vol: 0.3 }, { t: w(id, 33) + 0.25, sfx: "tac-real", vol: 0.32 },
+      { t: w(id, 33) - 0.05, sfx: "tic", vol: 0.3 },
     ],
   });
 }
@@ -193,8 +192,8 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
     sfx: [
       { t: 0.12, sfx: "respuesta", vol: 0.3 },
       { t: w(id, 46) - 0.05, sfx: "whoosh-short", vol: 0.18 },
-      { t: w(id, 46) + 0.12, sfx: "pop", vol: 0.24 }, { t: w(id, 46) + 0.45, sfx: "click-soft", vol: 0.24 },
-      { t: w(id, 46) + 0.6, sfx: "chime", vol: 0.28, max: 1.0 },
+      { t: w(id, 46) + 0.37, sfx: "pop", vol: 0.24 }, { t: w(id, 46) + 0.45, sfx: "click-soft", vol: 0.24 },
+      { t: w(id, 46) + 0.18, sfx: "chime", vol: 0.28, max: 1.4 },
     ],
   });
 }
@@ -203,7 +202,7 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
   const id = "s06-ruben";
   escena(id, {
     html: `<i></i>`, js: ``,
-    sfx: [{ t: -0.36, sfx: "whoosh-short", vol: 0.06 }, { t: -0.34, sfx: "vibra2", vol: 0.12, max: 0.25 }],
+    sfx: [{ t: -0.36, sfx: "whoosh-short", vol: 0.06 }, { t: -0.33, sfx: "vibra2", vol: 0.8, max: 0.35 }, { t: -0.32, sfx: "notification", vol: 0.3, max: 0.6 }],
   });
 }
 // ================= s07 · la batería estaba en los dos estantes =================
@@ -224,9 +223,9 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
   const id = "s08-diferencia";
   escena(id, {
     css: `P .sb { border-color: ${G}; border-width: 9px; }`,
-    html: `${SB("sb", 730, 720, 240, 420)}${pill(1, 765, 1660, `<span style="color:${G}">●</span> Atendiendo`, "grande")}${leads(lead(2, 300, 1330, 330, 1080, "r"))}${pill(2, 300, 1380, `${reloj()}Sin leer`, "r")}`,
+    html: `${SB("sb", 730, 720, 240, 420)}${pill(1, 765, 1800, `<span style="color:${G}">●</span> Atendiendo`, "grande")}${leads(lead(2, 300, 1330, 330, 1080, "r"))}${pill(2, 300, 1380, `${reloj()}Sin leer`, "r")}`,
     js: `caja(".sb", ${r2(w(id, 60) + 0.7)}); nota(2, ${r2(w(id, 60) + 0.8)}); nota(1, ${r2(w(id, 65) - 0.05)}); late(".n1", ${r2(w(id, 65) + 0.3)}, 1.08);
-      tl.to(qa(".sb, .n2, .l2, .d2"), { opacity: 0, duration: 0.2 }, ${r2(w(id, 65) + 0.1)});`,
+      tl.to(qa(".sb, .n2, .l2, .d2"), { opacity: 0, duration: 0.15 }, ${r2(w(id, 65) - 0.4)});`,
     sfx: [
       { t: -0.1, sfx: "whoosh-short", vol: 0.16 },
       { t: w(id, 60) + 0.7, sfx: "click", vol: 0.26 }, { t: w(id, 60) + 0.8, sfx: "pop", vol: 0.14 },
@@ -241,13 +240,13 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
   escena(id, {
     html: `<i></i>`, js: ``,
     sfx: [
-      { t: -0.1, sfx: "whoosh-cinematic", vol: 0.2, max: 1.2 }, { t: 0.1, sfx: "calle", vol: 0.45, max: 6.5 },
+      { t: -0.1, sfx: "whoosh-cinematic", vol: 0.2, max: 1.2 }, { t: 0.1, sfx: "calle", vol: 0.7, max: 6.5 },
       { t: 0.25, sfx: "click", vol: 0.22 }, { t: 0.3, sfx: "campanita", vol: 0.2 },
-      { t: 0.95, sfx: "puerta", vol: 0.55, max: 0.8 },
-      ...[0, 1, 2, 3, 4, 5, 6].map((i) => ({ t: r2(w(id, 73) - 0.35 + i * 0.1), sfx: "tac-real", vol: i < 4 ? 0.08 : 0.18 })),
-      { t: r2(w(id, 73) + 0.42), sfx: "golpe", vol: 0.14 },
-      { t: rem + 0.33, sfx: "vibra2", vol: 0.3, max: 0.5 }, { t: rem + 0.35, sfx: "pop", vol: 0.24 },
-      { t: rem + 1.2, sfx: "whoosh-short", vol: 0.14 }, { t: rem + 1.3, sfx: "sparkle", vol: 0.12, max: 0.8 },
+      // la cortina de Néstor sube en 1 s desde w73 - 0,75 (traqueteo de lamas) y golpea arriba
+      ...[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ t: r2(w(id, 73) - 0.75 + i * 0.11), sfx: "tac-real", vol: 0.18 })),
+      { t: r2(w(id, 73) + 0.25), sfx: "golpe", vol: 0.3 },
+      { t: rem + 0.33, sfx: "vibra2", vol: 0.9, max: 0.5 }, { t: rem + 0.35, sfx: "pop", vol: 0.32 },
+      { t: rem + 1.25, sfx: "whoosh-short", vol: 0.2 }, { t: rem + 1.35, sfx: "sparkle", vol: 0.18, max: 0.8 },
     ],
   });
 }
@@ -259,7 +258,6 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
     sfx: [
       { t: -0.05, sfx: "golpe", vol: 0.14 }, { t: 0.2, sfx: "click", vol: 0.2 },
       { t: w(id, 78) - 0.1, sfx: "whoosh-short", vol: 0.2 }, { t: w(id, 78) + 0.4, sfx: "pop", vol: 0.24 }, { t: w(id, 78) + 0.45, sfx: "ding", vol: 0.14, max: 0.8 },
-      { t: ESC[id] - 0.2, sfx: "whoosh-short", vol: 0.18 },
     ],
   });
 }
@@ -280,13 +278,13 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
       <div class="banda">scalerics.com</div>
       <img class="logo" src="assets/logo-oscuro.png" alt="Scalerics" />`,
     js: `
-      tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 0);
+      tl.fromTo(q(".t1"), { opacity: 1, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.16, ease: "power3.out", immediateRender: true }, ${r2(Math.max(0.15, w(id, 86)))});
       caja(".sb", ${r2(Math.max(0.15, w(id, 86)))});
       tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, ${r2(w(id, 86) + 0.12)});
       tl.fromTo(q(".logo"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: true }, ${r2(w(id, 86) + 0.5)});
       tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.07, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 88) - 0.06)});`,
-    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.18 }, { t: 0.02, sfx: "click-soft", vol: 0.26 }, { t: w(id, 86) + 0.14, sfx: "pop", vol: 0.16 }, { t: w(id, 88) - 0.06, sfx: "chime", vol: 0.3, max: 1.3 }],
+    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.18 }, { t: 0.02, sfx: "click-soft", vol: 0.26 }, { t: w(id, 86) + 0.14, sfx: "pop", vol: 0.16 }, { t: w(id, 88) - 0.48, sfx: "chime", vol: 0.3, max: 1.6 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR, LIMPIO ? "(LIMPIO)" : "");

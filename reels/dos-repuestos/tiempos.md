@@ -1,8 +1,8 @@
-### s01-gancho — dura 4.88 s (inicio global 0.00)
+### s01-gancho — dura 5.18 s (inicio global 0.00)
 Palabras (segundos relativos a la escena): Dos 0.00 · casas 0.30 · de 0.60 · repuestos. 0.70 · El 1.50 · mismo 1.60 · mensaje. 1.90 · Solo 2.88 · una 3.10 · le 3.40 · guardó 3.60 · la 3.80 · batería. 3.90
 
-### s02-bateria — dura 3.12 s (inicio global 4.88)
-Palabras (segundos relativos a la escena): Diez 0.00 · de 0.30 · la 0.40 · noche: 0.50 · a 1.41 · Rubén 1.48 · se 1.82 · le 1.92 · murió 2.02 · la 2.32 · batería, 2.32 · y 2.62
+### s02-bateria — dura 2.82 s (inicio global 5.18)
+Palabras (segundos relativos a la escena): Diez 0.00 · de 0.27 · la 0.34 · noche: 0.42 · a 1.11 · Rubén 1.18 · se 1.52 · le 1.62 · murió 1.72 · la 2.02 · batería, 2.02 · y 2.32
 
 ### s03-escribe — dura 1.81 s (inicio global 8.00)
 Palabras (segundos relativos a la escena): mañana 0.00 · reparte. 0.50 · En 1.80

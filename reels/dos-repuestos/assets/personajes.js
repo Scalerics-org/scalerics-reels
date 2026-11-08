@@ -79,7 +79,7 @@ export const ELENCO = {
     panza: 1.08, nariz: 0.06, mejillas: 0xd98a78, alto: 1.02 },
   // Néstor, el de la casa de repuestos de la izquierda (dos-repuestos, 08-11): 60 años, pelo canoso corto, lentes,
   // camisa de trabajo gris con bolsillo y parche crema con su nombre. Bueno en lo suyo: abre a las 8 y contesta enseguida.
-  nestor: { nombre: "Néstor", piel: PIEL.clara, pelo: PELO.canoso, peinado: "corto", cejasColor: 0x8d8a86, lentes: MARCA.navy2,
+  nestor: { nombre: "Néstor", piel: PIEL.clara, pelo: 0xc4c1bb, peinado: "texturado", texturaAlto: 0.8, cejasColor: 0x8d8a86, lentes: MARCA.navy2, lentesDist: 1.09,
     camisa: 0x7c828c, mangas: "largas", cuello: 0x6b717b, pantalon: 0x2f3440, zapatos: 0x2a2220, parche: MARCA.cr, bolsillo: 0x6b717b,
     panza: 1.12, nariz: 0.064, mejillas: 0xe39a8a, alto: 1.0 },
   // Daniel, el de la casa de repuestos de la derecha (dos-repuestos): 50 años, barba entrecana corta, camisa de trabajo
@@ -92,7 +92,7 @@ export const ELENCO = {
 // valores neutros para lo que un personaje no define (sin bigote, sin lentes, sin delantal...)
 export const DEFECTO = { nombre: "Alguien", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2f2a,
   camisa: MARCA.cr, mangas: "cortas", pantalon: 0x3a3f4a, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, mejillas: 0xe08a7a, alto: 1.0,
-  bigote: null, lentes: null, delantal: null, delantalBorde: null, pollera: null, cuello: null, labios: null, aros: null, auriculares: null,
+  bigote: null, lentes: null, lentesDist: null, delantal: null, delantalBorde: null, pollera: null, cuello: null, labios: null, aros: null, auriculares: null,
   pestanas: null, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, parche: null, bolsillo: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
 
 export const POSE_BASE = {
@@ -406,8 +406,9 @@ export function crearPersonaje(cfg) {
   if (c.lentes) {
     const lm = mat(c.lentes, 0.35);
     const aro = new THREE.TorusGeometry(0.088, 0.013, 8, 28);
-    for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); }
-    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
+    const LD = c.lentesDist ?? 1.13; // lentesDist < 1.13: los aros más pegados a la cara (no sobresalen al girar)
+    for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, LD); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, LD - 0.08); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); }
+    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, LD - 0.02); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
     // reflejo de una pantalla en los vidrios (pose.reflejo 0..1): un rectángulo de luz fría con renglones
     const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
     const gr = x.createRadialGradient(64, 64, 4, 64, 64, 64); gr.addColorStop(0, "rgba(190,225,255,0.55)"); gr.addColorStop(1, "rgba(190,225,255,0.12)");
@@ -416,7 +417,7 @@ export function crearPersonaje(cfg) {
     x.fillStyle = "rgba(60,90,140,0.9)"; for (const [yy, w] of [[38, 40], [52, 30], [66, 44], [80, 24]]) x.fillRect(42, yy, w, 7);
     x.fillStyle = "rgba(92,230,17,0.95)"; x.fillRect(42, 90, 28, 7);
     const rt = new THREE.CanvasTexture(cv); rt.colorSpace = THREE.SRGBColorSpace;
-    for (const s of [-1, 1]) { const r = new THREE.Mesh(new THREE.CircleGeometry(0.082, 28), new THREE.MeshBasicMaterial({ map: rt, transparent: true, opacity: 0, depthWrite: false })); sobre(r, s * 0.34, 0.06, 1.135); r.visible = false; cabeza.add(r); reflejos.push(r); }
+    for (const s of [-1, 1]) { const r = new THREE.Mesh(new THREE.CircleGeometry(0.082, 28), new THREE.MeshBasicMaterial({ map: rt, transparent: true, opacity: 0, depthWrite: false })); sobre(r, s * 0.34, 0.06, (c.lentesDist ?? 1.13) + 0.005); r.visible = false; cabeza.add(r); reflejos.push(r); }
   }
   if (c.auriculares && c.auricularFino) {
     const am = mat(MARCA.navy, 0.35), ag = mat(c.auriculares, 0.45);
