@@ -25,3 +25,19 @@ sintetizados con ffmpeg):
 - Cortina metálica de local que sube (Néstor abriendo a las 8).
 - Ambiente de noche en la calle (grillos lejanos o tránsito suave), para 22:00.
 - Cubiertos y plato, muy bajito (la cena de los dos dueños).
+
+## Sonido usado (08-11, constructor)
+freesound.org, api.openverse.org, Wikimedia Commons y cdn.freesound.org devuelven 403 desde el proxy de la nube, así
+que los cuatro sonidos específicos de arriba NO se bajaron. En su lugar, solo sonidos reales que ya estaban en el repo
+(nada sintetizado con ffmpeg):
+- Arranque fallido: 4 `tac-real.mp3` + 3 `click.mp3` en ráfaga (`tac-real` es un recorte de "Clock ticking", olver,
+  https://freesound.org/people/olver/sounds/130388/, como en reels/tres-segundos).
+- Cortina metálica que sube: ráfaga de 7 `tac-real.mp3` (traqueteo de lamas) + `golpe.mp3` al tope.
+- Noche y mañana: `calle.mp3` = primeros 15 s de `calle.wav` de reels/abren-hoy ("Small quiet street ambience", Oper8,
+  CC0, https://freesound.org/people/Oper8/sounds/241135/), más bajo de noche.
+- Vibración: `vibra2.mp3` = `vibra.wav` de reels/abren-hoy ("Cell phone vibrate, on table hard surface.wav",
+  SpliceSound, CC0, https://freesound.org/people/SpliceSound/sounds/369839/).
+- Tipeo: `tipeo.mp3` de reels/abren-hoy ("Typing on an iPhone.mp3", Caitlin_100, CC0,
+  https://freesound.org/people/Caitlin_100/sounds/365543/).
+- Cubiertos de la cena: sin sonido propio (dos `tic.mp3` muy bajos cuando levantan el tenedor).
+Si una corrida con acceso a freesound puede, conviene reemplazar arranque y cortina por grabaciones CC0 reales.
