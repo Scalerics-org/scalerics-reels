@@ -227,7 +227,7 @@
 - 08-11 · `por-que-dos-sellos` · Scalerics Puntos (tarjeta en el celular que arranca con sellos de regalo, aviso al que deja de venir) · "¿Por qué algunas tarjetas vienen con dos sellos puestos?" Explicador sin marcas (Nunes y Drèze 2006, ver fuentes.md): en un lavadero, tarjeta de 8 vacía contra 10 con 2 de regalo, mismos ocho lavados, 19 % contra 34 % llegó al premio; vacía es arrancar de cero, con dos ya estás en camino, y anda mejor con una excusa ("por estrenarla"); callback: Rubén le regala dos a Graciela con Scalerics Puntos, ella deja de venir, le llega el aviso y vuelve · Videollamada gratis [formato explicador ¿Por qué? · 3D real (tarjetas de sellos, sello de goma, lavadero, barras, "?", almacén con Rubén y Graciela, celular), fondo navy claro #16243d con cierre verde] (empezado 05-11, terminado en la corrida del 08-11 05:09 tras 3 rondas de revisión + revisión final; render 10 min)
 
 ## En curso
-<!-- corrida-activa: 2026-11-08T08:13 -->
+<!-- corrida-activa: 2026-11-08T08:28 -->
 
 - 06-11 · `lo-mismo-que-la-otra-vez` · CRM (qué compró cada cliente) · Para mandar completo: Graciela le pide a Rubén "lo mismo que la otra vez" sin decir qué; Rubén adivina de una pila; cartel "Un CRM más tarde…" y la ficha ya lo sabe · 3D real con personajes recurrentes, almacén, fondo navy claro #16243d · reservado (corrida 4 del 06-11)
 - 06-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido para retirar) · Para mandar completo: Rubén baja la cortina y a las 19:59 entra el cliente con una lista larga; cartel "Una tienda online más tarde…" y la bolsa ya está armada · 3D real con personajes recurrentes, almacén de noche, fondo navy oscuro #0b1220 · reservado (corrida 4 del 06-11)
