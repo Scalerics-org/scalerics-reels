@@ -245,12 +245,12 @@ if (P1) {
 }
 // parte 2: tablet en su atril, mate en la mano de Rubén, termo, la bolsa con la compra de la otra vez
 const tabletTex = lienzo(1024, 704, () => {});
-const tablet = crearTablet(tabletTex, 0.27 * 1.6, 0.185 * 1.6);
+const tablet = crearTablet(tabletTex, 0.27 * 1.6, 0.185 * 1.6, 1.2); // casi acostada: el inserto cenital la ve de frente
 const TABLET = { x: -0.2, z: MOSTRADOR.z - 0.1 };
 tablet.position.set(TABLET.x, MOSTRADOR.y, TABLET.z); tablet.rotation.y = Math.PI - 0.25; // la pantalla mira a Rubén
 const mate = crearMate(); mate.scale.setScalar(1.25);
 const termo = crearTermo(); termo.scale.setScalar(1.35);
-const bolsa = crearBolsaPapel(); bolsa.scale.setScalar(1.55);
+const bolsa = crearBolsaPapel(); bolsa.scale.setScalar(1.3);
 const jabones = [crearJabonPan(), crearJabonPan()], lavandina = crearLavandina(), esponjas = [crearEsponja(), crearEsponja(), crearEsponja()];
 if (P2) {
   scene.add(tablet); ruben.cuerpo.add(mate);
@@ -468,13 +468,13 @@ else PLANOS = [
   // Q1 · general 3/4, el mismo encuadre que P1
   [0, [[0, 0.15, 1.52, 2.75, 0.1, 1.3, -1.0, 46], [1.3, 0.15, 1.52, 2.55, 0.1, 1.31, -1.0, 46]]],
   // Q2 · inserto casi cenital de la tablet (desde atrás del mostrador, del lado de Rubén)
-  [1.3, [[1.3, TABLET.x + 0.02, 1.62, TABLET.z - 0.52, TABLET.x, MOSTRADOR.y + 0.1, TABLET.z + 0.02, 36], [3.1, TABLET.x + 0.02, 1.58, TABLET.z - 0.48, TABLET.x, MOSTRADOR.y + 0.1, TABLET.z + 0.02, 36]]],
+  [1.3, [[1.3, -0.11, 2.29, -1.58, -0.234, 0.974, -1.086, 33], [3.1, -0.12, 2.2, -1.55, -0.234, 0.974, -1.086, 33]]],
   // Q3 · plano medio frontal (el de P3: callback de la pila)
   [3.1, [[3.1, -0.36, 1.62, 1.25, 0.42, 1.25, -1.2, 46], [4.6, -0.37, 1.63, 1.35, 0.42, 1.26, -1.2, 46]]],
   // Q4 · primer plano de Graciela (desde atrás del mostrador)
-  [4.6, [[4.6, 0.36, 1.25, -2.3, -0.42, 1.42, -0.52, 38], [6.0, 0.34, 1.25, -2.2, -0.42, 1.43, -0.52, 37]]],
+  [4.6, [[4.6, -0.6, 1.62, -2.3, -0.42, 1.4, -0.52, 36], [6.0, -0.58, 1.61, -2.2, -0.42, 1.41, -0.52, 35]]],
   // Q5 · primer plano de Rubén, push-in lento
-  [6.0, [[6.0, 0.15, 1.5, 0.55, 0.12, 1.4, -1.68, 32], [9.4, 0.15, 1.48, 0.15, 0.12, 1.4, -1.68, 32]]],
+  [6.0, [[6.0, 0.3, 1.5, 1.1, 0.12, 1.36, -1.68, 27], [9.4, 0.3, 1.48, 0.7, 0.12, 1.36, -1.68, 27]]],
   // Q6 · general que se abre
   [9.4, [[9.4, 0.12, 1.5, 2.2, 0.08, 1.2, -1.0, 46], [11.6, 0.12, 1.55, 2.9, 0.0, 1.22, -1.0, 48]]],
 ];
@@ -510,6 +510,8 @@ function ponerCamara(t) {
   // cámara en mano, muy suave
   camera.position.set(v[0] + Math.sin(t * 0.9) * 0.008, v[1] + Math.sin(t * 0.67) * 0.006, v[2]);
   camera.fov = v[6];
+  // inserto cenital de la tablet: la cámara mira hacia abajo con el 'arriba' de la pantalla
+  if (P2 && planoActual === 1) camera.up.set(-0.23, 0.36, 0.9).normalize(); else camera.up.set(0, 1, 0);
   camera.updateProjectionMatrix();
   _m.set(v[3], v[4], v[5]);
   camera.lookAt(_m);
@@ -561,7 +563,7 @@ if (P1) {
 } else {
   const conMate = { manoI: [0.16, 0.36, 0.36], codoI: [0.9, -0.6, -0.3] };
   const contento = { ojos: { abiertos: 0.6, tension: 0.2, feliz: 0.35, x: -0.4, y: 0 }, cejas: { alto: 0.1, ang: 0.25 }, boca: { sonrisa: 0.45, ancho: 0.9 } };
-  const sorbo = { manoI: [0.02, 0.46, 0.33], codoI: [0.9, -0.5, 0.1], cabeza: { giro: 0, asiente: 0.14, ladea: 0.04 }, ojos: { abiertos: 0.04 }, cejas: { alto: 0.35, ang: 0.3 } };
+  const sorbo = { manoI: [0.03, 0.38, 0.36], codoI: [0.9, -0.5, 0.1], cabeza: { giro: 0, asiente: 0.14, ladea: 0.04 }, ojos: { abiertos: 0.04 }, cejas: { alto: 0.35, ang: 0.3 } };
   // dónde está la tablet en el espacio de Rubén (para el toque)
   const toque = { manoD: [-0.3, 0.37, 0.46], codoD: [-0.6, -0.8, 0.1], dedoD: 1, inclina: 0.08 };
   GK = [
@@ -572,7 +574,7 @@ if (P1) {
     [T.bolsa[0] + 0.1, { ...CARA.sorpresa, ...mirarR, ojos: { abiertos: 1, x: 0.65, y: -0.2 }, boca: { sonrisa: 0, abierta: 0.55, ancho: 0.75 } }, 0.15],
     // Q4: sorpresa → feliz; saca el jabón de la bolsa
     [T.feliz, { ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.5, x: 0.4, y: -0.3 }, cejas: { alto: 0.7, ang: 0.15 }, boca: { sonrisa: 1, abierta: 0.4, ancho: 1.15 }, reflejo: 0 }, 0.25],
-    [T.saca[1], { manoI: [0.2, 0.55, 0.36], codoI: [1, -0.6, 0], dedoI: 0, reflejo: 0.9 }, 0.3],
+    [T.saca[1], { manoI: [0.2, 0.66, 0.34], codoI: [1, -0.6, 0], dedoI: 0, reflejo: 0.9 }, 0.3],
     [T.eso + 0.6, { boca: { sonrisa: 0.9, abierta: 0.1 } }, 0.2],
     // se va contenta: baja la mano con la bolsa y gira
     [T.sale[0] + 0.25, { manoI: [0.3, 0.02, 0.1], codoI: null, ...CARA.sonrisa, reflejo: 0, cabeza: { giro: 0, asiente: 0, ladea: 0 } }, 0.3],
@@ -582,7 +584,9 @@ if (P1) {
     // toca la tablet sin mirar
     [T.toca, { ...toque }, 0.25],
     [T.tapG - 0.05, { ...toque, manoD: [-0.3, 0.33, 0.47] }, 0.12],
-    [T.tapG + 0.25, { ...toque, manoD: [-0.3, 0.4, 0.44] }, 0.15],
+    [T.tapG + 0.22, { ...toque, manoD: [-0.3, 0.42, 0.42] }, 0.15],
+    // saca la mano de la pantalla (que se lea la ficha)
+    [T.ficha + 0.05, { manoD: [-0.32, 0.3, 0.3], codoD: null, dedoD: 0, inclina: 0 }, 0.3],
     // pone las cosas en la bolsa (Q3) y la empuja hacia ella con la mano derecha
     [T.bolsa[0] - 0.05, { manoD: [-0.1, 0.4, 0.5], codoD: [-0.7, -0.8, 0], dedoD: 0, inclina: 0.06, ...contento, ojos: { abiertos: 0.6, x: -0.5, y: -0.4, feliz: 0.3 } }, 0.2],
     [T.empuja, { manoD: [0.2, 0.33, 0.5], codoD: [-0.5, -0.8, -0.2], inclina: 0.1, torso: 0.15 }, 0.2],
@@ -592,7 +596,7 @@ if (P1) {
     [T.sorbo[0] + 0.25, sorbo, 0.25],
     [T.baja, { ...conMate, cabeza: { giro: 0.12, asiente: 0.02, ladea: 0.1 }, ojos: { abiertos: 0.62, x: 0.25, y: 0.05, feliz: 0.35, tension: 0 }, cejas: { alto: 0.3, ang: -0.1, asim: 0.6 }, boca: { sonrisa: 0.6, abierta: 0, ancho: 1 } }, 0.25],
     // guiño + sonrisa, levanta apenas el mate (brindis)
-    [T.guino, { manoI: [0.16, 0.5, 0.42], codoI: [1, -0.4, 0], ojos: { abiertos: 0.85, guiño: 1, feliz: 0.5, x: 0.1 }, cejas: { alto: 0.45, ang: 0.1, asim: 0.6 }, boca: { sonrisa: 1, abierta: 0.12, ancho: 1.15 } }, 0.2],
+    [T.guino, { manoI: [0.26, 0.42, 0.42], codoI: [1, -0.4, 0], ojos: { abiertos: 0.85, guiño: 1, feliz: 0.5, x: 0.1 }, cejas: { alto: 0.45, ang: 0.1, asim: 0.6 }, boca: { sonrisa: 1, abierta: 0.12, ancho: 1.15 } }, 0.2],
     [T.guino + 0.7, { ojos: { guiño: 0, abiertos: 0.8 } }, 0.15],
     [T.sale[0] + 0.4, { ...conMate, ...contento, ojos: { abiertos: 0.65, x: -0.3, feliz: 0.35 } }, 0.3],
   ];
@@ -618,7 +622,7 @@ function ponerPersonajes(t) {
     pg.x = G0.x - d * 0.75; pg.z = G0.z + d * 0.65;
     pg.paso = u > 0.12 ? 1 : 0;
   }
-  if (P1 ? planoActual === 3 || planoActual === 3.5 : planoActual === 3 && t < T.sale[0]) { pg.giro = G_CONTRA; pg.cabeza.giro *= 0.3; }
+  if (P1 ? planoActual === 3 || planoActual === 3.5 : planoActual === 3 && t < T.sale[0]) { pg.giro = P1 ? G_CONTRA : Math.PI + 0.08; pg.cabeza.giro *= 0.3; }
   // en el plano de la pila (P3 / Q3) se la ve de atrás: hombro y rulos al borde del cuadro
   if (planoActual === 2) { pg.giro = Math.PI - 0.35; pg.cabeza.giro = 0; }
   graciela.poner(pg);
@@ -708,9 +712,9 @@ function ponerBolsa(t) {
   const s = bk(sg(t, T.bolsa[0] - 0.12, T.bolsa[0] + 0.12));
   bolsa.visible = s > 0.003 && t < T.sale[0] + 0.3 || (t >= T.sale[0] && t < DUR);
   const em = eio(sg(t, T.empuja, T.empuja + 0.55));
-  const p = BOLSA0.clone(); p.x += em * -0.62; p.z += em * 0.22;
+  const p = BOLSA0.clone(); p.x += em * -0.6; p.z += em * 0.24;
   bolsa.rotation.set(0, 0.25 - em * 0.35, 0);
-  let sc = 1.55 * s;
+  let sc = 1.3 * s;
   if (t >= T.sale[0]) {
     // en la mano de Graciela
     graciela.brazos[0].mano.getWorldPosition(_a);
@@ -720,7 +724,7 @@ function ponerBolsa(t) {
   }
   bolsa.position.copy(p); bolsa.scale.setScalar(sc);
   // la compra: entra de a una por arriba de la bolsa (asoma)
-  const items = [[jabones[0], 0, [-0.03, 0.2, 0.0], [0.3, 0.2, 0.1]], [jabones[1], 0, [0.04, 0.17, -0.02], [-0.2, -0.3, 0.05]], [lavandina, 1, [0.06, 0.06, 0.0], [0, 0.4, 0.06]], [esponjas[0], 2, [-0.07, 0.22, 0.03], [0.5, 0, 0.2]], [esponjas[1], 2, [-0.06, 0.19, -0.03], [0.2, 0.6, -0.2]], [esponjas[2], 2, [0.0, 0.23, 0.03], [-0.4, 0.2, 0.3]]];
+  const items = [[jabones[0], 0, [-0.04, 0.27, 0.02], [0.35, 0.2, 0.15]], [jabones[1], 0, [0.05, 0.25, -0.02], [-0.25, -0.3, 0.1]], [lavandina, 1, [0.06, 0.06, 0.0], [0, 0.4, 0.06]], [esponjas[0], 2, [-0.07, 0.27, 0.04], [0.6, 0, 0.25]], [esponjas[1], 2, [-0.06, 0.25, -0.04], [0.3, 0.6, -0.3]], [esponjas[2], 2, [0.0, 0.28, 0.05], [-0.5, 0.2, 0.35]]];
   items.forEach(([o, k, pos, rot], j) => {
     const t0 = T.bolsa[k];
     const u = sg(t, t0 - 0.02, t0 + 0.22);
@@ -756,7 +760,7 @@ function escena(t) {
   graciela.raiz.visible = !(P1 && planoActual === 4);
   ruben.raiz.visible = planoActual !== 3; // en el contraplano de Graciela la cámara está donde él
   if (P1) { ponerProductos(t); if (planoActual === 5) for (const p of PROD) p.o.visible = false; } // en el primer plano de Rubén la pila taparía la cara
-  if (P2) { dibujarTablet(t); ponerBolsa(t); }
+  if (P2) { dibujarTablet(t); ponerBolsa(t); tablet.visible = planoActual !== 3; } // en el contraplano de Graciela la tablet taparía el primer plano
   ponerGlobos(t);
   if (P1) {
     // contador: P5 (rueda de 1 a 37) y P7 (vuelve, tachado, "verde clarito")
@@ -819,7 +823,7 @@ function ponerGlobos(t) {
     // el globo que se escribe y queda cortado (Q1 a Q3)
     if (t >= T.tipea[0] - 0.08 && planoActual <= 2) {
       escribirGlobo(t);
-      const pos = planoActual === 0 ? [350, 470] : planoActual === 1 ? [540, 330] : [330, 330];
+      const pos = planoActual === 0 ? [420, 470] : planoActual === 1 ? [540, 330] : [420, 330];
       const obj = planoActual === 1 ? [140, 120] : hG();
       ponerGlobo(GL.otraVez, pos[0], pos[1], bk(sg(t, T.tipea[0] - 0.08, T.tipea[0] + 0.12)), obj, 2);
     }

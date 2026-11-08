@@ -812,16 +812,17 @@ export function crearBolsaPapel() {
 
 // Tablet en un atril: marco navy oscuro con bordes redondeados y la pantalla con la textura que se le pase
 // (un CanvasTexture que la escena redibuja). La pantalla mira a +z y el atril la inclina hacia atrás.
-export function crearTablet(textura, W = 0.26, H = 0.18) {
+export function crearTablet(textura, W = 0.26, H = 0.18, incl = 0.42) {
   const g = new THREE.Group();
   const marco = mat(0x0b1220, 0.35);
-  const pivote = new THREE.Group(); pivote.position.set(0, 0.03, 0); pivote.rotation.x = -0.42; g.add(pivote);
+  const pivote = new THREE.Group(); pivote.position.set(0, 0.03, 0); pivote.rotation.x = -incl; g.add(pivote);
   const cuerpo = new THREE.Mesh(rbox(W, H, 0.012, 0.014, 3), marco); cuerpo.position.y = H / 2; pivote.add(cuerpo);
   const pant = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.92, H * 0.88), new THREE.MeshStandardMaterial({ map: textura, emissive: 0xffffff, emissiveMap: textura, emissiveIntensity: 0.55, roughness: 0.25 }));
   pant.position.set(0, H / 2, 0.0065); pivote.add(pant);
   const atril = mat(0x2c4268, 0.5);
   const pata = new THREE.Mesh(rbox(W * 0.5, 0.012, 0.16, 0.005, 1), atril); pata.position.set(0, 0.006, -0.02); g.add(pata);
-  const apoyo = new THREE.Mesh(rbox(W * 0.4, 0.14, 0.012, 0.005, 1), atril); apoyo.position.set(0, 0.07, -0.07); apoyo.rotation.x = -0.5; g.add(apoyo);
+  // el apoyo de atrás sostiene la tablet a la inclinación pedida (incl en rad desde la vertical)
+  const ha = Math.max(0.03, H * 0.55 * Math.cos(incl)), apoyo = new THREE.Mesh(rbox(W * 0.4, ha, 0.012, 0.005, 1), atril); apoyo.position.set(0, ha / 2, -H * 0.55 * Math.sin(incl) + 0.01); apoyo.rotation.x = -0.15; g.add(apoyo);
   const tope = new THREE.Mesh(rbox(W * 0.9, 0.02, 0.025, 0.006, 1), atril); tope.position.set(0, 0.012, 0.02); g.add(tope);
   g.userData.pantalla = pant; g.userData.pivote = pivote; g.userData.tam = [W, H];
   return sombra(g);
