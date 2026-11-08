@@ -243,7 +243,7 @@ const agujaH = new THREE.Group(), agujaM = new THREE.Group();
   g.add(mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.03, 12).rotateX(Math.PI / 2), M.red, 0, 0, 0.048));
 }
 // el perchero de pie (detrás del mostrador, a la derecha de Rubén): poste de madera, base y tres ganchos
-const PERCHERO = V3(1.28, 0, -2.4);
+const PERCHERO = V3(1.22, 0, -2.4);
 const ganchoPerchero = V3(PERCHERO.x + 0.0, 1.78, PERCHERO.z + 0.12);
 {
   const g = new THREE.Group(); g.position.copy(PERCHERO); interior.add(g);
@@ -627,7 +627,7 @@ const PLANOS = [
   [T.pAtras, "hoja"],
   [T.p8, [[T.p8, RI.x - 0.05, 1.5, 0.7, RI.x, 1.42, RI.z, 34], [T.pushIn[0], RI.x - 0.05, 1.5, 0.55, RI.x, 1.42, RI.z, 34, "e"], [T.pushIn[1], RI.x, 1.49, -0.45, RI.x, 1.43, RI.z, 34], [T.cuelga, RI.x, 1.49, -0.5, RI.x, 1.43, RI.z, 34]]],
   // 8b · ya sin campera, la cuelga en el perchero y le habla a Walter (a cámara)
-  [T.cuelga, [[T.cuelga, 1.0, 1.42, -0.15, 1.0, 1.28, RI.z - 0.2, 38], [T.remate, 1.0, 1.42, -0.35, 1.0, 1.3, RI.z - 0.2, 38]]],
+  [T.cuelga, [[T.cuelga, 0.94, 1.45, -0.12, 0.96, 1.25, RI.z - 0.2, 47], [T.remate, 0.94, 1.45, -0.25, 0.96, 1.27, RI.z - 0.2, 47]]],
   // 9 · remate del remate: general interior, Walter se sienta en el cajón, Rubén apoya termo y mate
   [T.remate, [[T.remate, 0.42, 1.78, 2.4, 0.56, 0.85, -1.4, 40], [P1, 0.42, 1.74, 2.15, 0.56, 0.85, -1.4, 40]]],
   // ---- parte 2 ----
@@ -726,7 +726,7 @@ const RK = [
   [T.p8 - 0.001, { x: RI.x, z: RI.z, giro: 0, paso: 0, ...BRAZOS.apoyado, ...aC(0.02, 0.0), ojos: { x: 0, y: 0.04, abiertos: 0.42, tension: 0.35 }, cejas: { alto: 0.15, ang: 0.55, asim: 0 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.95 } }, 0.001],
   [T.solapas[0] + 0.25, { manoI: [0.1, 0.42, 0.28], manoD: [-0.1, 0.42, 0.28], codoI: [1, -0.5, 0], codoD: [-1, -0.5, 0] }, 0.25],
   // 8b: ya sin campera; la cuelga con la derecha y mira a cámara
-  [T.cuelga - 0.001, { x: 0.82, giro: -0.12, ...BRAZOS.costado, ...aC(0.12, 0.02), ...CARA.resignado, ojos: { x: 0.15, y: 0.05, abiertos: 0.4, tension: 0.55 } }, 0.001],
+  [T.cuelga - 0.001, { x: 0.86, giro: -0.12, ...BRAZOS.costado, ...aC(0.12, 0.02), ...CARA.resignado, ojos: { x: 0.15, y: 0.05, abiertos: 0.4, tension: 0.55 } }, 0.001],
   [T.cuelga + 0.45, { manoI: [0.28, -0.06, 0.06], codoI: null }, 0.3],
   [T.voz1 + 2.25, { cabeza: { giro: 0.25, asiente: 0.05, ladea: 0.1 }, ojos: { x: 0.35, y: 0.0 }, cejas: { alto: 0.35, ang: 0.6 } }, 0.25],
   // remate: apoya termo y mate en el mostrador (está para rato)
