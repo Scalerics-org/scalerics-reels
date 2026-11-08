@@ -23,7 +23,7 @@
     [data-composition-id="s02-lavadero"] .selbox.r i { border-color: #c7655b; }
     [data-composition-id="s02-lavadero"] .selbox .k1 { left: -14px; top: -14px; } [data-composition-id="s02-lavadero"] .selbox .k2 { right: -14px; top: -14px; } [data-composition-id="s02-lavadero"] .selbox .k3 { left: -14px; bottom: -14px; } [data-composition-id="s02-lavadero"] .selbox .k4 { right: -14px; bottom: -14px; }
     [data-composition-id="s02-lavadero"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(11,18,32,0.78); opacity: 0; white-space: nowrap; }
-[data-composition-id="s02-lavadero"] .cred { left: 540px; top: 1640px; font-size: 34px; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }
+[data-composition-id="s02-lavadero"] .cred { left: 540px; top: 1640px; font-size: 38px; padding: 10px 20px 12px; border-radius: 14px; background: rgba(11,18,32,0.82); }
   </style>
   <div id="root" data-composition-id="s02-lavadero" data-width="1080" data-height="1920" data-duration="3.3">
     <div id="s02-lavadero-esc" class="esc clip" data-start="0" data-duration="3.3" data-track-index="0">
@@ -40,8 +40,9 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
-      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
-      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      // entradas y salidas con escala (sin fundidos: nada queda semitransparente)
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 0 }, 0); tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.6, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (s, t, d) => { const el = typeof s === "string" ? qa(s) : s; tl.to(el, { scale: 0.6, duration: Math.min(d ?? 0.14, 0.14), ease: "power2.in" }, t); tl.set(el, { opacity: 0 }, t + Math.min(d ?? 0.14, 0.14)); };
       const dibujar = (s, t, dur) => qa(s).forEach((el) => {
         const L = el.getTotalLength();
         gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
@@ -56,7 +57,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 0.2); sinNota(1, 1.17); pop(".n2", 1.8); fuera(".n2", 3, 0.2);
+nota(1, 0.6); sinNota(1, 1.22); pop(".n2", 1.8); fuera(".n2", 3, 0.2);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

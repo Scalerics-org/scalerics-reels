@@ -132,3 +132,21 @@ Duración total 31.55 (la voz termina en 31.25).
   un corte de escena. Tarjeta de cierre con pop (sin fundido gris).
 - Sonido: sellos de s04 y s07 sincronizados con el toque; puerta y campanita cuando Graciela entra; notification cortada a
   1 s; ding de las barras más corto. Medido: voz ≥ 6,1 LU sobre el resto en todo tramo de 0,5 s con voz.
+
+## Corrección · ronda 2 de revisión (08-11)
+- Celular: "Tarjeta nueva" (en vez de "Primera visita · sumando…"), "Scalerics Puntos" en 52 px. Crédito "Nunes y Drèze ·
+  2006" en 38 px.
+- Gancho: tampón más grande, caja crema y tinta navy (el sello verde contrasta); el sello se va volando hacia cámara en
+  2,6-3,0 s con whoosh; el tampón sale por la izquierda; el lavadero recién aparece cuando la tarjeta despega.
+- La tarjeta vuela con arco corto (no sale de cuadro ni pisa subtítulos) y queda delante del parabrisas; sin espuma
+  sobre el parabrisas; cámara del auto centrada.
+- Barras: cámara más cerca, barras más anchas y ya altas en el corte; mini tarjetas sin texto (banda navy y casilleros).
+- Rótulos HTML: entran y salen con escala (sin fundidos). "0 de 8" y "2 de 10" sin línea guía, abajo de la tarjeta
+  ("2 de 10" entra en "regalo"). Números 3D, "=", barra de progreso: entran desde 50 % y salen achicándose a 60 % (sin
+  motas). "=" de dos barras con ranura. Leyenda de la tarjeta en 0,18 u.
+- s04: el sello entra recién 0,5 s antes del primer golpe. Apilado sin cruce (primero en y, después en x).
+- s03: tarjeta de 8 más grande y centrada (d 11). Graciela: el cristal lejano de los anteojos se esconde solo cuando la
+  cara está a más de ~50° de la cámara. Entra desde más lejos (sin zapato suelto); cámara de s12 corrida a la derecha.
+  Cartel ALMACÉN más a la derecha y más abajo.
+- Sonido: sellos de s07 en el toque (0,22 / 0,42 con caída corta); chime adelantado 0,4 s (s09 y s13); sello del cierre
+  en 1,0; sin puerta (campanita en 27,56); golpe de s03 con "0 de 8" (7,78).

@@ -27,7 +27,7 @@
   </style>
   <div id="root" data-composition-id="s03-ocho" data-width="1080" data-height="1920" data-duration="2.44">
     <div id="s03-ocho-esc" class="esc clip" data-start="0" data-duration="2.44" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M300 1440 L290 1185"/><circle class="dot r d1" cx="290" cy="1185" r="12"/></svg><div class="pill r grande n1" style="left:300px;top:1480px">0 de 8</div>
+<div class="pill r grande n1" style="left:300px;top:1560px">0 de 8</div>
     </div>
   </div>
   <script>
@@ -40,8 +40,9 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
-      const pop = (s, t, d, desde) => tl.fromTo(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: d ?? 0.34, ease: "back.out(1.8)", immediateRender: true }, t);
-      const fuera = (s, t, d) => tl.to(typeof s === "string" ? qa(s) : s, { opacity: 0, scale: 0.92, duration: d ?? 0.22, ease: "power2.in" }, t);
+      // entradas y salidas con escala (sin fundidos: nada queda semitransparente)
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 0 }, 0); tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.6, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(2)", immediateRender: false }, t); };
+      const fuera = (s, t, d) => { const el = typeof s === "string" ? qa(s) : s; tl.to(el, { scale: 0.6, duration: Math.min(d ?? 0.14, 0.14), ease: "power2.in" }, t); tl.set(el, { opacity: 0 }, t + Math.min(d ?? 0.14, 0.14)); };
       const dibujar = (s, t, dur) => qa(s).forEach((el) => {
         const L = el.getTotalLength();
         gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
