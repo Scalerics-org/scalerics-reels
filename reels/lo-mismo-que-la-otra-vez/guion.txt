@@ -1,0 +1,8 @@
+[sin narrador Orus: el chiste va en globos de diálogo; una línea de voz de Rubén por parte (Gemini Algenib) y el narrador del cartel (Gemini Rasalgethi). Para la voz usar partes/*.txt, una toma por archivo]
+[parte 1 · globos: Graciela "Lo mismo que la otra vez." · Rubén "¿Yerba?" · Graciela "No." · Rubén "¿Galletitas?" · Graciela "No." · Rubén "¿Dulce de leche?" · Graciela "No." · Rubén "¿Fideos?" · Graciela "No." · Rubén "¿Huevos?" · Graciela niega con la cabeza · Graciela "¡Era verde!" · contador "Cosas verdes: 37"]
+Todo es verde, Graciela.
+[parte 1 · remate del remate: Graciela "Verde clarito." · contador "Cosas verde clarito: 37"]
+[cartel · texto: "Un sistema de clientes más tarde…"; voz Rasalgethi: "Un sistema de clientes más tarde."]
+[parte 2 · globo de Graciela que se corta: "Lo mismo que la ot…" · ficha en la tablet: "Graciela" · "Última compra: sáb 17/10" · "2 jabones en pan (verdes)" · "1 lavandina 2 L" · "3 esponjas" · Graciela "¡Eso! ¿Cómo supiste?"]
+Era verde.
+[línea chica final: "Un sistema que se acuerda de lo que compra cada cliente" · "scalerics.com"]
