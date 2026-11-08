@@ -1,5 +1,6 @@
-{"escenas": [["s01-gancho", 0], ["s02-bateria", 14], ["s03-escribe", 25], ["s04-nestor", 30], ["s05-daniel", 37], ["s05b-reserva", 46], ["s06-ruben", 50], ["s07-cena", 55], ["s08-diferencia", 65], ["s09-manana", 73], ["s10-tu-local", 81], ["s11-llamada", 92]],
- "subDesde": 14, "subHasta": 92, "cortes": [14, 16, 19, 21, 23, 24, 25, 27, 30, 34, 36, 37, 41, 42, 44, 46, 49, 50, 52, 54, 55, 58, 59, 62, 65, 67, 68, 70, 72, 73, 76, 77, 79, 81, 83, 84, 85, 87, 90],
- "acento": [20, 23, 29, 33, 43, 45, 49, 54, 57, 67, 72, 80, 86],
- "malo": [36],
- "rubenDesde": 50, "rubenHasta": 55}
+{"escenas": [["s01-gancho", 0], ["s02-bateria", 13], ["s03-escribe", 25], ["s04-nestor", 27], ["s05-daniel", 34], ["s05b-reserva", 43], ["s06-ruben", 47], ["s07-estantes", 52], ["s08-diferencia", 59], ["s09-manana", 66], ["s10-tu-local", 74], ["s11-llamada", 85]],
+ "subDesde": 13, "subHasta": 85,
+ "cortes": [13, 17, 19, 22, 24, 26, 27, 31, 33, 34, 38, 39, 41, 43, 46, 47, 49, 51, 52, 54, 56, 58, 59, 61, 63, 66, 69, 70, 72, 74, 76, 77, 78, 80, 83],
+ "acento": [23, 30, 40, 42, 46, 51, 53, 57, 60, 65, 73, 79],
+ "malo": [33],
+ "rubenDesde": 47, "rubenHasta": 52, "bgmVol": 0.1}

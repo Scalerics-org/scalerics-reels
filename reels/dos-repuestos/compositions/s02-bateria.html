@@ -20,15 +20,15 @@
     [data-composition-id="s02-bateria"] .sello { position: absolute; padding: 12px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 96px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s02-bateria" data-width="1080" data-height="1920" data-duration="3.73">
-    <div id="s02-bateria-esc" class="esc clip" data-start="0" data-duration="3.73" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M300 1560 L470 1250"/><circle class="dot r d1" cx="470" cy="1250" r="12"/></svg><div class="pill r n1" style="left:300px;top:1610px">sin arranque</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M760 1560 L640 1240"/><circle class="dot  d2" cx="640" cy="1240" r="12"/></svg><div class="pill  n2" style="left:760px;top:1610px"><span style="color:#5ce611">mañana</span> · reparto</div>
+  <div id="root" data-composition-id="s02-bateria" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s02-bateria-esc" class="esc clip" data-start="0" data-duration="3.12" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M300 1560 L470 1250"/><circle class="dot r d1" cx="470" cy="1250" r="12"/></svg><div class="pill r n1" style="left:300px;top:1610px">Sin arranque</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s02-bateria";
-      const DUR = 3.73;
+      const DUR = 3.12;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -49,7 +49,7 @@
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1.28); sinNota(1, 2.03); nota(2, 2.68); sinNota(2, 3.43);
+nota(1, 2.42); sinNota(1, 2.9);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

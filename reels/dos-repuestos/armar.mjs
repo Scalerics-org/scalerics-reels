@@ -101,7 +101,7 @@ CORTES.forEach((desde, g) => {
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
   let fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.05 : DUR));
   // si después viene una pausa larga (el remate en silencio), el subtítulo se va al terminar la frase
-  if (fin - ws.at(-1).end > 0.9) fin = r2(ws.at(-1).end + 0.4);
+  if (fin - ws.at(-1).end > 0.5) fin = r2(ws.at(-1).end + 0.3);
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
     .map((w, k) => {
@@ -224,7 +224,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
     <script>
       window.__hf = window.__hf || {};
       window.__hf.buildReady = window.__hf.buildReady || {};
-      window.__hf.buildReady["tres"] = new Promise((ok) => { window.__tresListo = ok; });
+      window.__hf.buildReady["tres"] = new Promise((ok) => { window.__tresListo = ok; });${process.env.LIMPIO ? "\n      window.__limpio = true; // fondo de la portada: sin el reloj 3D" : ""}
     </script>
     <script type="module" src="assets/tres.js"></script>
     <script>

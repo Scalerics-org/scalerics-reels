@@ -26,8 +26,8 @@
     [data-composition-id="s11-llamada"] .banda { position: absolute; left: 60px; right: 60px; top: 1400px; height: 180px; border-radius: 30px; background: #0b1220; display: flex; align-items: center; justify-content: center; font: 900 116px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #5ce611; }
     [data-composition-id="s11-llamada"] .logo { position: absolute; left: 50%; top: 1680px; height: 62px; transform: translateX(-50%); }
   </style>
-  <div id="root" data-composition-id="s11-llamada" data-width="1080" data-height="1920" data-duration="2.98">
-    <div id="s11-llamada-esc" class="esc clip" data-start="0" data-duration="2.98" data-track-index="0">
+  <div id="root" data-composition-id="s11-llamada" data-width="1080" data-height="1920" data-duration="2.59">
+    <div id="s11-llamada-esc" class="esc clip" data-start="0" data-duration="2.59" data-track-index="0">
 
       <div class="t1">Videollamada</div>
       <div class="t2w"><span class="t2"><div class="selbox sb"><i class="k1"></i><i class="k2"></i><i class="k3"></i><i class="k4"></i></div><em style="position:relative;font-style:normal">gratis</em></span></div>
@@ -38,7 +38,7 @@
   <script>
     (function () {
       const ID = "s11-llamada";
-      const DUR = 2.98;
+      const DUR = 2.59;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -61,11 +61,11 @@
 
 
       tl.fromTo(q(".t1"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.18, ease: "power3.out", immediateRender: true }, 0);
-      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.16, ease: "power3.out", immediateRender: true }, 0.45);
-      caja(".sb", 0.45);
-      tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, 0.75);
-      tl.fromTo(q(".logo"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: true }, 0.95);
-      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.07, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.39);
+      tl.fromTo(q(".t2w"), { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.16, ease: "power3.out", immediateRender: true }, 0.3);
+      caja(".sb", 0.3);
+      tl.fromTo(q(".banda"), { opacity: 0, scale: 0.8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)", immediateRender: true }, 0.42);
+      tl.fromTo(q(".logo"), { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: true }, 0.8);
+      tl.fromTo(q(".banda"), { scale: 1 }, { scale: 1.07, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 1.14);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -20,15 +20,15 @@
     [data-composition-id="s03-escribe"] .sello { position: absolute; padding: 12px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 96px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s03-escribe" data-width="1080" data-height="1920" data-duration="1.47">
-    <div id="s03-escribe-esc" class="esc clip" data-start="0" data-duration="1.47" data-track-index="0">
-<i></i>
+  <div id="root" data-composition-id="s03-escribe" data-width="1080" data-height="1920" data-duration="1.81">
+    <div id="s03-escribe-esc" class="esc clip" data-start="0" data-duration="1.81" data-track-index="0">
+<div class="pill  n1" style="left:540px;top:1700px"><span style="color:#5ce611">Mañana</span> · reparto</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s03-escribe";
-      const DUR = 1.47;
+      const DUR = 1.81;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -49,7 +49,7 @@
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-
+nota(1, 0.1); sinNota(1, 0.55);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -1,31 +1,27 @@
-# SPEC · dos-repuestos
+# SPEC · dos-repuestos (ronda 1: guion nuevo)
 
 **Serie "Dos negocios" · agente de IA · 3D real (Three.js r170 local, `assets/tres.js`) · noche navy liso, mañana
 crema liso, cierre verde liso (el canvas 3D pinta el fondo).**
-Dos casas de repuestos PEGADAS en la misma vereda; la medianera (pilar crema en x = 0, muro de ladrillo por dentro) es
-la pantalla partida. Izquierda, lo de Néstor: gris apagado. Derecha, lo de Daniel: navy claro con filete verde. Arriba
-de cada local, la casa del dueño (ventana con el comedor iluminado). A las 22:00 las dos cortinas están bajas; a Rubén
-(su camioneta del reparto en la avenida, capó abierto, batería con testigo rojo) se le murió la batería y les escribe a
-las dos. Las cortinas bajan al piso (corte de casa de muñecas): en lo de Néstor el celular se prende, "1 mensaje
-nuevo", y se apaga (Sin leer, el reloj de pared marca 22:01); en lo de Daniel el agente de IA contesta en su celular
-(chat de marca hecho de cero) y reserva: una batería se adelanta del estante con la etiqueta "RESERVADA · RUBÉN · 8:00".
-Primer plano de Rubén: "¿Me contestaron a esta hora?". Los dos dueños cenan iguales en sus ventanas (levantan el
-tenedor a la vez). Zambullida a los dos mostradores: recuadro verde sobre el celular de Daniel, que "saluda".
-8:00 (reloj 3D 22:00 → 8:00, cielo crema, mismo encuadre del cuadro 0): Rubén sale de lo de Daniel con su batería;
-REMATE en silencio (1,4 s): la cortina de Néstor sube, le llega "¡Buen día! ¿Qué necesitabas?", Rubén levanta la
-batería y Néstor se ríe (nadie queda mal). Callback: vuelve la noche (corte), el reloj vuelve a 22:00 y el cartel
-"REPUESTOS DANIEL" da la vuelta: "TU LOCAL". Cierre: tarjeta verde "Videollamada gratis / scalerics.com" con el
-celular del agente con el chat resuelto y un tilde.
+Dos casas de repuestos PEGADAS; la medianera (pilar crema en x = 0, ladrillo por dentro) es la pantalla partida.
+Izquierda lo de Néstor (gris apagado), derecha lo de Daniel (navy claro + verde). Gancho: "Dos casas de repuestos. El
+mismo mensaje. Solo una le guardó la batería." con reloj 3D 22:00 y las dos fachadas cerradas; el mismo mensaje cae en
+las dos (burbujitas), y en "guardó" la reja de Daniel se prende verde con un tilde. "Diez de la noche": Rubén con la
+batería muerta (inserto "12 V" con testigo rojo), escribe "Hola, ¿tienen batería 12 V de 75 amperes?…" y la burbuja vuela a
+los dos locales. En lo de Néstor queda "Sin leer" (relojito); en lo de Daniel el agente contesta con la medida y
+reserva. Rubén: "¿Me contestaron a esta hora?". **"La batería estaba en los dos estantes"**: casa de muñecas con los dos
+estantes iguales, la misma batería en los dos (Néstor: etiqueta gris quieta "12 V · 75 A"; Daniel: "RESERVADA · RUBÉN ·
+8:00"). "La diferencia": los dos mostradores, recuadro al celular del agente. 8:00: Rubén sale con la suya; remate en
+silencio (1,6 s): sube la cortina de Néstor y llega "¡Buen día, Rubén! Sí, tenemos. ¿Pasás?"; Rubén levanta la batería,
+Néstor se ríe. Callback de noche: el cartel gira a "TU LOCAL". Tarjeta de cierre.
 
-Voz: Orus (narrador) + Rubén (Gemini Algenib) en `partes/` (01c y 03 de Orus con atempo 1,06; 02 de Algenib), pegadas
-con 0,6 / 0,55 s, ganancia pareja por tramo (Rubén +4 dB, segundo tramo +2,6 dB, todo -3 dB de margen). Dos pausas
-insertadas a mano: 1,4 s después de "su batería" (el remate). `palabras.json` corregido a mano en "En" (Néstor),
-"y se la", "Agendá una videollamada" y "batería." (fin) contra silencedetect y un segundo STT por tramo.
-Duración 37,23 s (voz 37,08 + 0,15). 96 palabras.
+Voz: partes/01a y 03a (Orus, atempo 1,04) + partes/02 (Rubén, Algenib, la de la ronda 0), pegadas con 0,6 / 0,55 s,
+cada tramo llevado a -17 LUFS; pausa de 1,6 s insertada después de "la suya". Las tomas de la ronda 0 quedan en
+partes/v1/. 89 palabras, 33,99 s (voz 33,84 + 0,15). `palabras.json` corregido a mano contra silencedetect.
+`LIMPIO=1 node gen.mjs && LIMPIO=1 node armar.mjs` arma el fondo de la portada (sin texto ni reloj 3D).
 
-Todo el 3D vive en `assets/tres.js` (una escena; cámara por claves con cúbica monótona; cortes secos solo en: el
-plano de Rubén escribiendo (s03), el primer plano de Rubén (s06, por timing), la vuelta a la noche (s10) y la tarjeta
-(s11)). Las escenas HTML (`node gen.mjs` las escribe todas; `LIMPIO=1 node gen.mjs` las deja sin texto para el fondo
+Todo el 3D vive en `assets/tres.js` (una escena; cámara por claves con cúbica monótona; cortes secos en: la camioneta (s02),
+el inserto de la batería, Rubén escribiendo (s03), la vuelta a las fachadas detrás de la burbuja, el primer plano de
+Rubén (s06), los estantes (s07), la vuelta a la noche (s10) y la tarjeta (s11); el resto es cámara continua). Las escenas HTML (`node gen.mjs` las escribe todas; `LIMPIO=1 node gen.mjs` las deja sin texto para el fondo
 de la portada) son solo la capa de arriba: gancho, rótulos con línea guía, recuadro de selección y tarjeta.
 `node armar.mjs` escribe index.html, subtítulos (crema con contorno navy, clave en recuadro verde, "mañana." de Néstor
 en recuadro rojo apagado), tiempos.md y `assets/tiempos3d.js` (inicios de escena, palabras y la envolvente de la voz de
@@ -41,28 +37,23 @@ cortina #6b7280 · fachada Daniel #1f3254, cortina #3a5582 · rojo apagado #c062
 "sin arranque" y "mañana." de Néstor.
 
 ## Escenas (inicio global · qué pasa)
-- s01-gancho 0,00 · general frontal de las dos fachadas cerradas, gancho entero en el cuadro 0 ("Diez de la noche. Las
-  dos cerradas." / "Una **vende** igual."), sello mono "Mismo rubro · misma calle / una sola diferencia". "Dos": los
-  carteles laten; "cerradas": las cortinas rebotan (golpe); "vende": la reja de Daniel se prende verde + tilde 3D.
-- s02-bateria 5,92 · látigo a la camioneta: Rubén con la linterna, fastidio; "batería": primer plano de la batería
-  "12 V" con testigo rojo titilando (clic-clic-clic) · rótulo "sin arranque"; "temprano": la caja con los cajones y la
-  puerta "ALMACÉN RUBÉN" · rótulo "mañana · reparto".
-- s03-escribe 9,65 · Rubén tipea de frente (luz de pantalla); en "dos" la burbuja sale, se duplica y la cámara la sigue
-  a las fachadas.
-- s04-nestor 11,12 · las cortinas bajan al piso; la burbuja entra al celular de Néstor: "22:01 · Rubén · 1 mensaje
-  nuevo" y se apaga · rótulo "Sin leer"; reloj de pared 22:01.
-- s05-daniel 13,54 · cortinilla por la medianera; push-in al celular de Daniel: el agente contesta (4 burbujas).
-- s05b-reserva 16,27 · la batería se adelanta del estante, etiqueta "RESERVADA · RUBÉN · 8:00" y tilde (chime).
-- s06-ruben 17,89 (corte en 17,57) · primer plano; pausa, cejas arriba, mira a cámara: "¿Me contestaron a esta hora?"
-  (boca con la envolvente de su voz).
-- s07-cena 20,94 · grúa a las dos ventanas: Néstor y Daniel cenan milanesa con puré · rótulos "Néstor" / "Daniel";
-  en "mañana" levantan el tenedor a la vez.
-- s08-diferencia 24,03 · zambullida a los mostradores (pantalla partida): recuadro verde al celular de Daniel, "Sin
-  leer" al de Néstor; "atendiendo": el celular saluda · rótulo "● Atendiendo"; push-in.
-- s09-manana 27,32 · reloj 22:00 → 8:00, cielo crema, el encuadre del cuadro 0; Rubén sale con la batería; la cortina
-  de Néstor sube; burbuja "Néstor · 8:02 ¡Buen día! ¿Qué necesitabas?"; Rubén levanta la batería, Néstor se ríe.
-- s10-tu-local 31,37 · corte a la noche: fachada de Daniel, reloj 8:00 → 22:00; "tu local": el cartel da la vuelta.
-- s11-llamada 34,25 · tarjeta de cierre (3,0 s, arranca sobre "videollamada").
+- s01-gancho 0,00 · general de las dos fachadas cerradas; gancho entero; reloj 22:00 abajo; "casas": los carteles
+  laten; "mensaje": una burbujita en cada local; "guardó": la reja de Daniel verde + tilde.
+- s02-bateria 4,88 · corte a la camioneta (Rubén con linterna, fastidio, mira a cámara); "murió": corte al inserto de
+  la batería · rótulo "Sin arranque".
+- s03-escribe 8,00 · Rubén tipea de frente · rótulo "Mañana · reparto"; en "reparte" sale la burbuja (legible, al costado
+  de su cara) y corte a las fachadas: las dos copias entran por las rejas.
+- s04-nestor 9,80 · cortinas al piso; "1 mensaje nuevo" y se apaga · "Sin leer" con relojito; reloj de pared 22:01.
+- s05-daniel 12,03 · se abre a los dos mostradores y entra al chat del agente (4 burbujas, con la medida).
+- s05b-reserva 14,87 · la batería se adelanta del estante con "RESERVADA · RUBÉN · 8:00" + tilde.
+- s06-ruben 16,46 (corte en 16,14) · primer plano: "¿Me contestaron a esta hora?".
+- s07-estantes 19,50 · corte a la casa de muñecas: los dos estantes, la misma batería en los dos; en "dos" laten a la
+  vez · rótulos "Lo de Néstor" / "Lo de Daniel".
+- s08-diferencia 21,38 · los dos mostradores: recuadro verde al celular de Daniel, "Sin leer" al de Néstor;
+  "atendiendo": el celular saluda · "● Atendiendo"; push-in.
+- s09-manana 24,40 · reloj 22:00 → 8:00, cielo crema; Rubén sale con la batería; remate en silencio (26,4-28,4).
+- s10-tu-local 28,48 · corte a la noche, reloj → 22:00; "tu local": el cartel gira.
+- s11-llamada 31,40 · tarjeta de cierre (2,6 s, arranca sobre "videollamada").
 
 ## Sonido
 Del repo: calle (Oper8, CC0) de ambiente bajo de noche y un poco más alto a la mañana, whoosh en cada travelling,

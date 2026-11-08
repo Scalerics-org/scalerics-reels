@@ -1,578 +1,536 @@
 [
  {
   "id": 0,
-  "text": "Diez",
+  "text": "Dos",
   "start": 0,
   "end": 0.3
  },
  {
   "id": 1,
-  "text": "de",
+  "text": "casas",
   "start": 0.3,
-  "end": 0.4
+  "end": 0.6
  },
  {
   "id": 2,
-  "text": "la",
-  "start": 0.4,
-  "end": 0.5
- },
- {
-  "id": 3,
-  "text": "noche.",
-  "start": 0.5,
+  "text": "de",
+  "start": 0.6,
   "end": 0.7
  },
  {
+  "id": 3,
+  "text": "repuestos.",
+  "start": 0.7,
+  "end": 1.2
+ },
+ {
   "id": 4,
-  "text": "Dos",
-  "start": 1.145,
-  "end": 1.4
+  "text": "El",
+  "start": 1.502,
+  "end": 1.6
  },
  {
   "id": 5,
-  "text": "casas",
-  "start": 1.578,
+  "text": "mismo",
+  "start": 1.6,
   "end": 1.9
  },
  {
   "id": 6,
-  "text": "de",
+  "text": "mensaje.",
   "start": 1.9,
-  "end": 1.9
+  "end": 2.2
  },
  {
   "id": 7,
-  "text": "repuestos,",
-  "start": 1.9,
-  "end": 2.5
+  "text": "Solo",
+  "start": 2.881,
+  "end": 3.1
  },
  {
   "id": 8,
-  "text": "las",
-  "start": 2.808,
-  "end": 3
+  "text": "una",
+  "start": 3.1,
+  "end": 3.4
  },
  {
   "id": 9,
-  "text": "dos",
-  "start": 3,
-  "end": 3.2
- },
- {
-  "id": 10,
-  "text": "cerradas.",
-  "start": 3.2,
+  "text": "le",
+  "start": 3.4,
   "end": 3.6
  },
  {
+  "id": 10,
+  "text": "guardó",
+  "start": 3.6,
+  "end": 3.8
+ },
+ {
   "id": 11,
-  "text": "Una",
-  "start": 4.239,
-  "end": 4.4
+  "text": "la",
+  "start": 3.8,
+  "end": 3.9
  },
  {
   "id": 12,
-  "text": "vende",
-  "start": 4.4,
-  "end": 4.9
+  "text": "batería.",
+  "start": 3.9,
+  "end": 4.56
  },
  {
   "id": 13,
-  "text": "igual.",
-  "start": 4.9,
-  "end": 5.2
+  "text": "Diez",
+  "start": 4.88,
+  "end": 5.18
  },
  {
   "id": 14,
-  "text": "A",
-  "start": 5.924,
-  "end": 6
+  "text": "de",
+  "start": 5.18,
+  "end": 5.28
  },
  {
   "id": 15,
-  "text": "Rubén",
-  "start": 6,
-  "end": 6.2
+  "text": "la",
+  "start": 5.28,
+  "end": 5.38
  },
  {
   "id": 16,
-  "text": "se",
-  "start": 6.2,
-  "end": 6.4
+  "text": "noche:",
+  "start": 5.38,
+  "end": 6.1
  },
  {
   "id": 17,
-  "text": "le",
-  "start": 6.4,
-  "end": 6.5
+  "text": "a",
+  "start": 6.29,
+  "end": 6.36
  },
  {
   "id": 18,
-  "text": "murió",
-  "start": 6.5,
-  "end": 6.8
+  "text": "Rubén",
+  "start": 6.36,
+  "end": 6.7
  },
  {
   "id": 19,
-  "text": "la",
-  "start": 6.8,
+  "text": "se",
+  "start": 6.7,
   "end": 6.8
  },
  {
   "id": 20,
-  "text": "batería,",
+  "text": "le",
   "start": 6.8,
-  "end": 7
+  "end": 6.9
  },
  {
   "id": 21,
-  "text": "y",
-  "start": 7.606,
-  "end": 7.7
+  "text": "murió",
+  "start": 6.9,
+  "end": 7.2
  },
  {
   "id": 22,
-  "text": "mañana",
-  "start": 7.7,
-  "end": 8.1
+  "text": "la",
+  "start": 7.2,
+  "end": 7.2
  },
  {
   "id": 23,
-  "text": "temprano",
-  "start": 8.1,
-  "end": 8.6
+  "text": "batería,",
+  "start": 7.2,
+  "end": 7.5
  },
  {
   "id": 24,
-  "text": "reparte.",
-  "start": 8.6,
-  "end": 9.1
+  "text": "y",
+  "start": 7.5,
+  "end": 8
  },
  {
   "id": 25,
-  "text": "Les",
-  "start": 9.655,
-  "end": 9.8
+  "text": "mañana",
+  "start": 8,
+  "end": 8.5
  },
  {
   "id": 26,
-  "text": "escribe",
-  "start": 9.8,
-  "end": 10.2
+  "text": "reparte.",
+  "start": 8.5,
+  "end": 9.1
  },
  {
   "id": 27,
-  "text": "a",
-  "start": 10.2,
-  "end": 10.3
+  "text": "En",
+  "start": 9.805,
+  "end": 9.9
  },
  {
   "id": 28,
-  "text": "las",
-  "start": 10.3,
-  "end": 10.4
+  "text": "lo",
+  "start": 9.9,
+  "end": 10
  },
  {
   "id": 29,
-  "text": "dos.",
-  "start": 10.4,
-  "end": 10.76
+  "text": "de",
+  "start": 10,
+  "end": 10.1
  },
  {
   "id": 30,
-  "text": "En",
-  "start": 11.12,
-  "end": 11.3
+  "text": "Néstor,",
+  "start": 10.1,
+  "end": 10.6
  },
  {
   "id": 31,
-  "text": "lo",
-  "start": 11.3,
-  "end": 11.4
+  "text": "queda",
+  "start": 10.922,
+  "end": 11
  },
  {
   "id": 32,
-  "text": "de",
-  "start": 11.4,
-  "end": 11.5
+  "text": "para",
+  "start": 11,
+  "end": 11.3
  },
  {
   "id": 33,
-  "text": "Néstor,",
-  "start": 11.5,
-  "end": 12
+  "text": "mañana.",
+  "start": 11.3,
+  "end": 11.8
  },
  {
   "id": 34,
-  "text": "queda",
-  "start": 12.244,
-  "end": 12.4
+  "text": "En",
+  "start": 12.03,
+  "end": 12.12
  },
  {
   "id": 35,
-  "text": "para",
-  "start": 12.4,
-  "end": 12.6
+  "text": "lo",
+  "start": 12.12,
+  "end": 12.22
  },
  {
   "id": 36,
-  "text": "mañana.",
-  "start": 12.6,
-  "end": 12.8
+  "text": "de",
+  "start": 12.22,
+  "end": 12.3
  },
  {
   "id": 37,
-  "text": "En",
-  "start": 13.541,
-  "end": 13.6
+  "text": "Daniel",
+  "start": 12.3,
+  "end": 12.7
  },
  {
   "id": 38,
-  "text": "lo",
-  "start": 13.6,
+  "text": "contesta",
+  "start": 12.7,
   "end": 13.7
  },
  {
   "id": 39,
-  "text": "de",
+  "text": "un",
   "start": 13.7,
-  "end": 13.8
+  "end": 13.95
  },
  {
   "id": 40,
-  "text": "Daniel",
-  "start": 13.8,
-  "end": 14
+  "text": "agente",
+  "start": 13.95,
+  "end": 14.2
  },
  {
   "id": 41,
-  "text": "contesta",
-  "start": 14,
-  "end": 14.9
+  "text": "de",
+  "start": 14.2,
+  "end": 14.3
  },
  {
   "id": 42,
-  "text": "un",
-  "start": 14.9,
-  "end": 15.2
+  "text": "IA,",
+  "start": 14.3,
+  "end": 14.533
  },
  {
   "id": 43,
-  "text": "agente",
-  "start": 15.2,
-  "end": 15.5
+  "text": "y",
+  "start": 14.87,
+  "end": 14.95
  },
  {
   "id": 44,
-  "text": "de",
-  "start": 15.5,
-  "end": 15.6
+  "text": "se",
+  "start": 14.95,
+  "end": 15.05
  },
  {
   "id": 45,
-  "text": "IA,",
-  "start": 15.6,
-  "end": 16.07
+  "text": "la",
+  "start": 15.05,
+  "end": 15.2
  },
  {
   "id": 46,
-  "text": "y",
-  "start": 16.27,
-  "end": 16.36
+  "text": "reserva.",
+  "start": 15.2,
+  "end": 15.78
  },
  {
   "id": 47,
-  "text": "se",
-  "start": 16.36,
-  "end": 16.46
+  "text": "¿Me",
+  "start": 16.46,
+  "end": 16.66
  },
  {
   "id": 48,
-  "text": "la",
-  "start": 16.46,
-  "end": 16.58
+  "text": "contestaron",
+  "start": 17.22,
+  "end": 17.46
  },
  {
   "id": 49,
-  "text": "reserva.",
-  "start": 16.58,
-  "end": 17.1
+  "text": "a",
+  "start": 17.46,
+  "end": 17.6
  },
  {
   "id": 50,
-  "text": "¿Me",
-  "start": 17.891,
+  "text": "esta",
+  "start": 17.66,
   "end": 18
  },
  {
   "id": 51,
-  "text": "contestaron",
-  "start": 18.655,
-  "end": 18.9
+  "text": "hora?",
+  "start": 18.06,
+  "end": 18.85
  },
  {
   "id": 52,
-  "text": "a",
-  "start": 18.9,
-  "end": 19.1
+  "text": "La",
+  "start": 19.503,
+  "end": 19.6
  },
  {
   "id": 53,
-  "text": "esta",
-  "start": 19.1,
-  "end": 19.5
+  "text": "batería",
+  "start": 19.6,
+  "end": 20
  },
  {
   "id": 54,
-  "text": "hora?",
-  "start": 19.5,
-  "end": 19.9
+  "text": "estaba",
+  "start": 20,
+  "end": 20.2
  },
  {
   "id": 55,
-  "text": "Los",
-  "start": 20.939,
-  "end": 21.1
+  "text": "en",
+  "start": 20.2,
+  "end": 20.3
  },
  {
   "id": 56,
-  "text": "dos",
-  "start": 21.1,
-  "end": 21.3
+  "text": "los",
+  "start": 20.3,
+  "end": 20.4
  },
  {
   "id": 57,
-  "text": "dueños",
-  "start": 21.3,
-  "end": 21.5
+  "text": "dos",
+  "start": 20.4,
+  "end": 20.6
  },
  {
   "id": 58,
-  "text": "trabajan",
-  "start": 21.5,
-  "end": 22.3
+  "text": "estantes.",
+  "start": 20.6,
+  "end": 21.18
  },
  {
   "id": 59,
-  "text": "desde",
-  "start": 22.3,
-  "end": 22.5
+  "text": "La",
+  "start": 21.38,
+  "end": 21.5
  },
  {
   "id": 60,
-  "text": "las",
-  "start": 22.5,
-  "end": 22.7
+  "text": "diferencia:",
+  "start": 21.5,
+  "end": 22
  },
  {
   "id": 61,
-  "text": "ocho",
-  "start": 22.7,
-  "end": 23.1
+  "text": "uno",
+  "start": 22.487,
+  "end": 22.6
  },
  {
   "id": 62,
-  "text": "de",
-  "start": 23.1,
-  "end": 23.2
+  "text": "dejó",
+  "start": 22.6,
+  "end": 22.9
  },
  {
   "id": 63,
-  "text": "la",
-  "start": 23.2,
-  "end": 23.3
+  "text": "a",
+  "start": 22.9,
+  "end": 23
  },
  {
   "id": 64,
-  "text": "mañana.",
-  "start": 23.3,
-  "end": 23.5
+  "text": "alguien",
+  "start": 23,
+  "end": 23.2
  },
  {
   "id": 65,
-  "text": "Una",
-  "start": 24.032,
-  "end": 24.2
+  "text": "atendiendo.",
+  "start": 23.2,
+  "end": 23.89
  },
  {
   "id": 66,
-  "text": "sola",
-  "start": 24.2,
-  "end": 24.4
+  "text": "A",
+  "start": 24.4,
+  "end": 24.48
  },
  {
   "id": 67,
-  "text": "diferencia:",
-  "start": 24.4,
-  "end": 25
+  "text": "las",
+  "start": 24.48,
+  "end": 24.6
  },
  {
   "id": 68,
-  "text": "uno",
-  "start": 25.41,
-  "end": 25.6
+  "text": "ocho,",
+  "start": 24.6,
+  "end": 25.222
  },
  {
   "id": 69,
-  "text": "dejó",
+  "text": "Rubén",
+  "start": 25.222,
+  "end": 25.5
+ },
+ {
+  "id": 70,
+  "text": "ya",
+  "start": 25.5,
+  "end": 25.6
+ },
+ {
+  "id": 71,
+  "text": "tiene",
   "start": 25.6,
   "end": 25.9
  },
  {
-  "id": 70,
-  "text": "a",
-  "start": 25.9,
-  "end": 25.9
- },
- {
-  "id": 71,
-  "text": "alguien",
-  "start": 25.9,
-  "end": 26.2
- },
- {
   "id": 72,
-  "text": "atendiendo.",
-  "start": 26.2,
-  "end": 26.5
+  "text": "la",
+  "start": 25.9,
+  "end": 26
  },
  {
   "id": 73,
-  "text": "A",
-  "start": 27.316,
-  "end": 27.4
+  "text": "suya.",
+  "start": 26,
+  "end": 26.4
  },
  {
   "id": 74,
-  "text": "las",
-  "start": 27.4,
-  "end": 27.5
- },
- {
-  "id": 75,
-  "text": "ocho,",
-  "start": 27.5,
-  "end": 27.8
- },
- {
-  "id": 76,
-  "text": "Rubén",
-  "start": 27.8,
-  "end": 28.3
- },
- {
-  "id": 77,
-  "text": "ya",
-  "start": 28.3,
-  "end": 28.4
- },
- {
-  "id": 78,
-  "text": "tiene",
-  "start": 28.4,
+  "text": "¿Querés",
+  "start": 28.486,
   "end": 28.7
  },
  {
-  "id": 79,
-  "text": "su",
+  "id": 75,
+  "text": "ver",
   "start": 28.7,
   "end": 28.8
  },
  {
-  "id": 80,
-  "text": "batería.",
+  "id": 76,
+  "text": "cómo",
   "start": 28.8,
-  "end": 29.4
+  "end": 29.1
+ },
+ {
+  "id": 77,
+  "text": "atendería",
+  "start": 29.1,
+  "end": 29.5
+ },
+ {
+  "id": 78,
+  "text": "tu",
+  "start": 29.5,
+  "end": 29.6
+ },
+ {
+  "id": 79,
+  "text": "local",
+  "start": 29.6,
+  "end": 30
+ },
+ {
+  "id": 80,
+  "text": "a",
+  "start": 30,
+  "end": 30
  },
  {
   "id": 81,
-  "text": "¿Querés",
-  "start": 31.37,
-  "end": 31.6
+  "text": "las",
+  "start": 30,
+  "end": 30.2
  },
  {
   "id": 82,
-  "text": "ver",
-  "start": 31.6,
-  "end": 31.7
+  "text": "diez?",
+  "start": 30.2,
+  "end": 30.52
  },
  {
   "id": 83,
-  "text": "cómo",
-  "start": 31.7,
-  "end": 31.9
+  "text": "Agendá",
+  "start": 30.908,
+  "end": 31.1
  },
  {
   "id": 84,
-  "text": "atendería",
-  "start": 31.9,
-  "end": 32.4
+  "text": "una",
+  "start": 31.1,
+  "end": 31.4
  },
  {
   "id": 85,
-  "text": "tu",
-  "start": 32.4,
-  "end": 32.5
+  "text": "videollamada",
+  "start": 31.4,
+  "end": 31.7
  },
  {
   "id": 86,
-  "text": "local",
-  "start": 32.5,
-  "end": 32.8
+  "text": "gratis",
+  "start": 31.7,
+  "end": 32.1
  },
  {
   "id": 87,
-  "text": "a",
-  "start": 32.8,
-  "end": 32.9
+  "text": "en",
+  "start": 32.494,
+  "end": 32.6
  },
  {
   "id": 88,
-  "text": "las",
-  "start": 32.9,
-  "end": 33
- },
- {
-  "id": 89,
-  "text": "diez?",
-  "start": 33,
-  "end": 33.37
- },
- {
-  "id": 90,
-  "text": "Agendá",
-  "start": 33.68,
-  "end": 34
- },
- {
-  "id": 91,
-  "text": "una",
-  "start": 34.1,
-  "end": 34.25
- },
- {
-  "id": 92,
-  "text": "videollamada",
-  "start": 34.25,
-  "end": 34.7
- },
- {
-  "id": 93,
-  "text": "gratis",
-  "start": 34.7,
-  "end": 35.3
- },
- {
-  "id": 94,
-  "text": "en",
-  "start": 35.3,
-  "end": 35.7
- },
- {
-  "id": 95,
   "text": "scalerics.com.",
-  "start": 35.7,
-  "end": 37
+  "start": 32.6,
+  "end": 33.75
  }
 ]

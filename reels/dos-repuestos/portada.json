@@ -1,13 +1,13 @@
 {
  "t": 0.2,
- "chica": "Las dos cerradas.",
- "grande": "Una vende igual",
- "sello": "Dos negocios",
+ "chica": "El mismo mensaje.",
+ "grande": "Solo una le guardó la batería",
+ "sello": "Dos negocios · 22:00",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.0,
  "foco": "62%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "nota": "fondo = portada-fondo.png (cuadro 4,9 s renderizado con LIMPIO=1 node gen.mjs: sin gancho, subtítulos ni logo; las dos fachadas cerradas, la reja de Daniel prendida en verde y el tilde), pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
+ "nota": "fondo = portada-fondo.png (cuadro 4,35 s renderizado con LIMPIO=1 node gen.mjs y LIMPIO=1 node armar.mjs (sin reloj 3D): sin gancho, subtítulos ni logo; las dos fachadas cerradas de noche, la reja de Daniel prendida en verde y el tilde), pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
 }
