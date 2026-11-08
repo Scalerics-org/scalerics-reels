@@ -273,8 +273,21 @@ export function crearPersonaje(cfg) {
     // flequillo: puntas cortas que caen hacia la frente
     for (const [az, el, rz] of [[-0.5, 0.66, 0.4], [-0.25, 0.7, 0.15], [0.02, 0.71, -0.05], [0.28, 0.7, -0.2], [0.52, 0.65, -0.4]]) mecha(az, el, 0.06, 0.04, 0.024, 1.025, rz, 0.55);
   } else if (c.peinado === "pelado") {
-    const corona = mesh(new THREE.SphereGeometry(1, 32, 16, Math.PI * 0.93, Math.PI * 1.14, Math.PI * 0.34, Math.PI * 0.3), M.pelo, 0, CC, 0, R * 1.035, R * 1.0, R * 0.985);
+    // la corona es una cáscara abierta: con las dos caras (si no, de atrás o de arriba se veía como un parche plano y transparente)
+    const coronaM = M.pelo.clone(); coronaM.side = THREE.DoubleSide;
+    const corona = mesh(new THREE.SphereGeometry(1, 32, 16, Math.PI * 0.93, Math.PI * 1.14, Math.PI * 0.34, Math.PI * 0.3), coronaM, 0, CC, 0, R * 1.035, R * 1.0, R * 0.985);
     cabeza.add(corona);
+    // mechones con volumen sobre la corona (de costado o de atrás la cáscara sola se leía como un parche plano)
+    // (opcional, cfg.mechones: los reels de antes quedan iguales) en vez de la cáscara, una herradura de pelo con volumen
+    // alrededor de la nuca, con las puntas redondeadas: de costado o de atrás ya no se lee como un parche plano
+    if (c.mechones) {
+      corona.visible = false;
+      const pelo = mat(c.pelo, 0.8);
+      const herr = new THREE.Group(); herr.position.set(0, CC - 0.015, -0.005); herr.rotation.y = -0.12; herr.scale.set(1, 1.75, 0.95); cabeza.add(herr);
+      const arco = Math.PI + 0.24, rr = R * 0.975, tubo = 0.046;
+      const anillo = mesh(new THREE.TorusGeometry(rr, tubo, 12, 48, arco), pelo); anillo.rotation.x = -Math.PI / 2; herr.add(anillo);
+      for (const th of [0, arco]) { const pt = mesh(G.esfera, pelo, rr * Math.cos(th), 0, -rr * Math.sin(th), tubo); herr.add(pt); }
+    }
     craneo.material = M.piel.clone(); craneo.material.roughness = 0.38; // brillo de pelado
   } else if (c.peinado === "rulos") {
     let s = 11;
@@ -382,7 +395,7 @@ export function crearPersonaje(cfg) {
     const lm = mat(c.lentes, 0.35);
     const aro = new THREE.TorusGeometry(0.088, 0.013, 8, 28);
     for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); }
-    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
+    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x -= 0.035; cabeza.add(puente); // centrado entre los dos aros (antes cruzaba el ojo izquierdo: lo-mismo-que-la-otra-vez, 08-11)
     // reflejo de una pantalla en los vidrios (pose.reflejo 0..1): un rectángulo de luz fría con renglones
     const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
     const gr = x.createRadialGradient(64, 64, 4, 64, 64, 64); gr.addColorStop(0, "rgba(190,225,255,0.55)"); gr.addColorStop(1, "rgba(190,225,255,0.12)");
@@ -424,7 +437,8 @@ export function crearPersonaje(cfg) {
     const mano = new THREE.Group(); cuerpo.add(mano);
     mano.add(mesh(G.esfera, M.piel, 0, -0.045, 0, 0.068, 0.078, 0.05));
     const pulgar = mesh(G.esferaLow, M.piel, s * -0.05, -0.03, 0.03, 0.026, 0.04, 0.026); mano.add(pulgar);
-    const dedo = new THREE.Group(); dedo.position.set(0, -0.1, 0.01); mano.add(dedo);
+    // con dedos: el índice sale del lado del pulgar (centrado, sobre los nudillos, se leía como otro dedo)
+    const dedo = new THREE.Group(); dedo.position.set(c.dedos ? s * -0.032 : 0, -0.1, 0.01); mano.add(dedo);
     dedo.add(mesh(G.cil, M.piel, 0, 0, 0, 0.024, 0.12, 0.024));
     dedo.add(mesh(G.esferaLow, M.piel, 0, -0.12, 0, 0.024));
     // dedos: nudillos de los dedos doblados en el borde de la palma (la mano deja de ser una bola)
@@ -477,6 +491,8 @@ export function crearPersonaje(cfg) {
     for (const o of ojos) {
       const ab = cl(p.ojos.abiertos * (1 - parp) * (1 - cl(p.ojos.guiño * o.s)));
       o.pup.position.set(p.ojos.x * 0.024, p.ojos.y * 0.026, 0);
+      // con el ojo más que medio cerrado el brillo (y después la pupila) asomaban por arriba del párpado
+      o.pup.children[1].visible = ab > 0.6; o.pup.children[0].visible = ab > 0.3;
       o.lidPivote.rotation.set(lerp(Math.PI * 0.5, -Math.PI * 0.62, ab), 0, o.s * p.ojos.tension * 0.45);
       o.lidLow.rotation.set(lerp(Math.PI * 0.62, 0.3, cl(p.ojos.feliz)), 0, 0);
       o.blanco.scale.y = 0.076 * (1 - p.ojos.feliz * 0.15);
@@ -592,12 +608,12 @@ export const SOFI_VARIANTES = {
 
 // ---------- lo-mismo-que-la-otra-vez (08-11): poses nuevas ----------
 // pensar: la mano derecha al mentón con el índice apoyado debajo (sin entrar en la cara)
-BRAZOS.piensa = { manoD: [-0.04, 0.56, 0.31], codoD: [-0.5, -1, 0.1], dedoD: 0.35 };
+BRAZOS.piensa = { manoD: [-0.03, 0.53, 0.33], codoD: [-0.5, -1, 0.1], dedoD: 0 }; // el puño bajo el mentón (con dedos: true se ven los nudillos)
 // ofrecer: las dos manos adelante, a la altura del pecho, sosteniendo algo de `ancho` (el objeto va entre las manos:
 // en la escena se pone en el punto medio de las dos manos, en espacio mundo)
 BRAZOS.ofrece = (ancho = 0.3, alto = 0.4, adelante = 0.44) => ({ manoI: [ancho / 2 + 0.03, alto, adelante], manoD: [-ancho / 2 - 0.03, alto, adelante], codoI: [0.8, -0.8, -0.2], codoD: [-0.8, -0.8, -0.2], dedoI: 0, dedoD: 0 });
 // el índice izquierdo arriba ("¡ya sé!"): con dedos: false se usa el dedo de señalar del módulo
-export const INDICE = { manoI: [0.36, 0.78, 0.22], codoI: [1, -0.5, -0.1], dedoI: 1 };
+export const INDICE = { manoI: [0.42, 0.72, 0.3], codoI: [1, -0.5, -0.1], dedoI: 1 };
 // la frente contra algo que está adelante (la pila): se inclina fuerte, baja la cabeza, manos en el mostrador
 export const FRENTE = { inclina: 0.3, cabeza: { giro: 0, asiente: 0.3, ladea: 0.06 }, manoI: [0.34, 0.16, 0.34], manoD: [-0.34, 0.16, 0.34], codoI: [1, -0.4, -0.4], codoD: [-1, -0.4, -0.4], dedoI: 0, dedoD: 0 };
 // niega con la cabeza: cuánto sumar a cabeza.giro en t (2 ciclos de ±amp entre t0 y t1, con entrada y salida suaves)

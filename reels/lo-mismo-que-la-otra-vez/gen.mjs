@@ -13,6 +13,8 @@ import fs from "node:fs";
 import { execSync, execFileSync } from "node:child_process";
 
 const r2 = (n) => Math.round(n * 100) / 100;
+// la misma ganancia para las tres piezas (parte 1, cartel, parte 2): así las voces quedan parejas entre sí
+const GANANCIA = 9;
 const MODO = process.argv[2] || "1";
 const ff = (args) => execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...args], { maxBuffer: 1e9 });
 const dur = (f) => Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString());
@@ -33,7 +35,7 @@ if (MODO === "cartel") {
   const DUR = 3.4;
   const SON = [
     ["sfx/whoosh.mp3", 0.0, -31],        // el giro de la parte 1 que se va
-    ["sfx/stinger.wav", 0.05, -27],      // vibráfono (CC0), 8 LU por debajo del narrador
+    ["sfx/stinger.wav", 0.05, -29],      // vibráfono (CC0), unos 7 LU por debajo del narrador
     ["voice/narrador.wav", 0.38, -18],   // Gemini Rasalgethi: "Un sistema de clientes más tarde."
     ["sfx/whoosh-short.mp3", 2.94, -31], // el iris que abre la parte 2
   ];
@@ -82,7 +84,7 @@ if (PARTE === 1) {
     niega: [5.55, 6.1], tambalea: 5.92, globosSalen: 6.15,
     piensa: 6.2, verde: 6.85, latigo: [7.4, 7.65], contador: 7.75, cuenta37: 8.9,
     gira: 9.2, corte: 9.25, voz: 9.8,
-    clarito: 12.35, contador2: 12.8, tacha: 12.9, frente: 13.05, cae: 13.3,
+    clarito: 12.35, contador2: 12.8, tacha: 12.9, frente: 13.05, cae: 13.3, caeGolpe: 13.84, // caeGolpe: llega al piso (misma física que tres.js)
   };
   VOZ = "assets/voice/ruben1.wav";
   LINEA = [["Todo", 0.03], ["es", 0.33], ["verde,", 0.6], ["Graciela.", 1.02]];
@@ -204,9 +206,9 @@ if (PARTE === 2) {
   escena(id, d, {
     css: `
     P .caja { position: absolute; left: 60px; right: 60px; top: 1470px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.92); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 46px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .a { font: 700 50px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Tu sistema se acuerda de lo que<br>compra cada cliente</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Un sistema que se acuerda de lo<br>que compra cada cliente</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.03);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.28);`,
   });
@@ -233,37 +235,38 @@ if (PARTE === 1) {
     ]),
     ["sfx/papel.wav", T.tambalea, -33, { dur: 0.6, fin: 0.2 }],                    // la pila que cruje y se tambalea
     ["sfx/burbuja.mp3", T.verde - 0.02, -33],
-    ["sfx/chime.mp3", T.verde + 0.02, -38, { dur: 0.6, fin: 0.3 }],
+    ["sfx/chime.mp3", T.verde + 0.02, -36, { desde: 0.37, dur: 0.45, fin: 0.25 }],   // chime.mp3 tiene 0,37 s mudos al principio
     ["sfx/whoosh.mp3", T.latigo[0] - 0.06, -31],
     ["sfx/pop.mp3", T.contador, -35],
     ...RODILLO.filter((t, i) => i === 0 || t - RODILLO[i - 1] > 0.035).map((t) => ["sfx/key-press.mp3", t, -40, { dur: 0.12, fin: 0.04 }]),
-    ["sfx/chime.mp3", T.cuenta37 + 0.02, -35, { dur: 0.7, fin: 0.35 }],
+    ["sfx/chime.mp3", T.cuenta37 + 0.02, -35, { desde: 0.37, dur: 0.3, fin: 0.12 }],   // termina antes del silencio del chiste (9,25)
     ["voice/ruben1.wav", T.voz, -18],
     ["sfx/burbuja.mp3", T.clarito - 0.02, -33],
     ["sfx/pop.mp3", T.contador2, -35],
     ["sfx/key-press.mp3", T.tacha, -34],
-    ["sfx/tuba.mp3", T.tacha + 0.04, -31],
+    ["sfx/tuba.mp3", T.tacha + 0.04, -31, { desde: 0.15 }],
     ["sfx/golpe.mp3", T.frente + 0.1, -32],
     ["sfx/papel.wav", T.cae + 0.02, -35, { dur: 0.35, fin: 0.12 }],
-    ["sfx/sello.mp3", T.cae + 0.42, -34, { vel: 0.8 }],
+    ["sfx/sello.mp3", T.caeGolpe, -33, { vel: 0.8 }],
   ];
 } else {
   SON = [
-    ["sfx/calle.wav", 0, -40, { dur: DUR, fin: 0.5, lp: 900 }],
-    ["bgm/pizzicato.wav", 0, -27, { dur: DUR, fin: 1.0, baja: [[T.voz - 0.12, T.voz + 1.35, -9]] }], // todo anda: la música sigue
+    ["sfx/calle.wav", 0, -40, { dur: DUR, fin: 0.5, lp: 900, ini: 0.05 }],
+    ["bgm/pizzicato.wav", 0, -27, { dur: DUR, fin: 1.0, ini: 0.05, baja: [[T.voz - 0.12, T.voz + 1.35, -9]] }], // todo anda: la música sigue (entra con un fundido corto después del cartel)
     ["sfx/campanita.wav", T.campanita, -32, { dur: 0.7, fin: 0.3 }],
     ["sfx/burbuja.mp3", T.tipea[0] - 0.02, -35],
+    ...[0, 1, 2, 3, 4].map((k) => ["sfx/key-press.mp3", r2(T.tipea[0] + (k * (T.tipea[1] - T.tipea[0])) / 5), -34, { dur: 0.12, fin: 0.04 }]),   // tecleo de cada tramo del globo
     ["sfx/click-soft.mp3", T.toca, -34],
     ["sfx/click-soft.mp3", T.tapG, -33],
     ["sfx/whoosh-short.mp3", T.ficha - 0.08, -38],
-    ...T.tildes.flatMap((t) => [["sfx/key-press.mp3", t, -36, { dur: 0.15, fin: 0.05 }], ["sfx/chime.mp3", t + 0.02, -39, { dur: 0.35, fin: 0.2 }]]),
+    ...T.tildes.flatMap((t) => [["sfx/key-press.mp3", t, -36, { dur: 0.15, fin: 0.05 }], ["sfx/chime.mp3", t + 0.02, -37, { desde: 0.37, dur: 0.35, fin: 0.2 }]]),
     ...T.bolsa.map((t, i) => ["sfx/pop.mp3", t, -34 - i * 0.5]),
     ["sfx/papel.wav", T.empuja, -32, { dur: 0.55, fin: 0.15 }],                    // la bolsa de papel que se arrastra
     ["sfx/papel.wav", T.saca[0], -36, { desde: 0.3, dur: 0.4, fin: 0.12 }],
     ["sfx/burbuja.mp3", T.eso - 0.02, -33],
     ["sfx/sorbo.wav", T.sorbo[0] + 0.3, -32],
     ["voice/ruben2.wav", T.voz, -18],
-    ["sfx/cero.mp3", T.guino, -36, { dur: 0.6, fin: 0.3 }],
+    ["sfx/cero.mp3", T.guino, -31, { dur: 0.7, fin: 0.3 }],
     ["sfx/campanita.wav", T.campanita2, -37, { dur: 0.6, fin: 0.3 }],
   ];
 }
@@ -290,7 +293,7 @@ fs.writeFileSync("index.html", `<!doctype html>
       #tres, #barrido { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       #barrido { visibility: hidden; }
       .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #firma { position: absolute; left: 50%; top: 1800px; height: 36px; width: auto; transform: translateX(-50%); opacity: 0.85; z-index: 50; }
+      #firma { position: absolute; left: 50%; top: 1800px; height: 38px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 50; filter: drop-shadow(0 0 6px rgba(11,18,32,0.95)) drop-shadow(0 2px 2px rgba(11,18,32,0.9)); }
     </style>
   </head>
   <body>
@@ -333,6 +336,7 @@ function cadena(i, [f, ini, obj, o = {}], cache) {
   if (o.vel && o.vel !== 1) c += `,asetrate=${Math.round(48000 * o.vel)},aresample=48000`;
   if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
   if (o.lp) c += `,lowpass=f=${o.lp}`;
+  if (o.ini) c += `,afade=t=in:st=0:d=${o.ini}`;
   if (o.fin && o.dur) c += `,afade=t=out:st=${r2(Math.max(0, o.dur - o.fin))}:d=${o.fin}`;
   c += `,volume=${gan}dB`;
   for (const [a, b, db] of o.baja ?? []) c += `,volume=enable='between(t,${r2(a - ini)},${r2(b - ini)})':volume=${db}dB`;
@@ -354,7 +358,6 @@ function mezclar(lista, D, nombre) {
     una(lista.filter((s) => s[0].startsWith("voice/")), `assets/audio/stem-voz-${nombre}.wav`);
     una(lista.filter((s) => !s[0].startsWith("voice/")), `assets/audio/stem-resto-${nombre}.wav`);
   }
-  // nivel: -14 LUFS con limitador (el paso 10 casi no toca nada y el AAC no clipea); la misma ganancia para las tres
-  // piezas sale de un loudnorm por pieza, como en abren-hoy-completo
-  ff(["-i", `assets/audio/cruda-${nombre}.wav`, "-af", "loudnorm=I=-14:TP=-3:LRA=11,alimiter=limit=0.6:level=false", "-ar", "48000", `assets/audio/mezcla-${nombre}.wav`]);
+  // nivel: ganancia fija común + limitador (la parte 1 queda cerca de -14 LUFS; el paso 10 hace el resto)
+  ff(["-i", `assets/audio/cruda-${nombre}.wav`, "-af", `volume=${GANANCIA}dB,alimiter=limit=0.6:level=false`, "-ar", "48000", `assets/audio/mezcla-${nombre}.wav`]);
 }
