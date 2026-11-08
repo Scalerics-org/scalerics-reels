@@ -133,7 +133,7 @@ const tickGeo = (() => {
 
 // ================= LA TARJETA DE SELLOS =================
 // local: cara impresa hacia +z, centro en el origen. Casilleros de r 0,2 cada 0,56; 2 filas de n/2.
-const CIR_R = 0.2, PASO = 0.56, CARD_H = 1.95, CARD_D = 0.05;
+const CIR_R = 0.2, PASO = 0.56, CARD_H = 2.25, CARD_D = 0.05;
 const selloGeo = new THREE.CylinderGeometry(0.19, 0.19, 0.04, 36).rotateX(Math.PI / 2);
 const aroGeo = new THREE.TorusGeometry(0.215, 0.04, 10, 40);
 function hacerSello() {
@@ -161,13 +161,16 @@ function hacerTarjeta(n, { rojo = false, sellados = 0 } = {}) {
     pos.forEach((p, i) => {
       const cx = (p.x + W / 2) * px, cy = (CARD_H / 2 - p.y) * px;
       x.beginPath(); x.arc(cx, cy, CIR_R * px, 0, Math.PI * 2); x.stroke();
-      if (i === pos.length - 1) {
-        // el premio: una estrella navy en el último casillero
-        x.fillStyle = "#16243d"; x.beginPath();
-        for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 5, rr2 = (k % 2 ? 0.055 : 0.13) * px; x.lineTo(cx + Math.cos(a) * rr2, cy + Math.sin(a) * rr2); }
-        x.closePath(); x.fill();
-      }
     });
+    // el premio, fuera de la grilla: "★ 10 sellos = lavado gratis"
+    const fy = 1.98 * px, sx = 0.25 * px + 0.1 * px;
+    x.fillStyle = "#16243d"; x.beginPath();
+    for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 5, rr2 = (k % 2 ? 0.045 : 0.105) * px; x.lineTo(sx + Math.cos(a) * rr2, fy - 0.055 * px + Math.sin(a) * rr2); }
+    x.closePath(); x.fill();
+    let tf = 0.15 * px; x.font = F(700, tf);
+    const pie = `${n} sellos = lavado gratis`;
+    while (x.measureText(pie).width > TW - 0.75 * px) { tf -= 1; x.font = F(700, tf); }
+    x.fillText(pie, sx + 0.17 * px, fy);
   });
   const front = new THREE.MeshStandardMaterial({ map: t, roughness: 0.62, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.08 });
   const canto = mat(C.cr2, 0.65);
@@ -184,7 +187,7 @@ function hacerTarjeta(n, { rojo = false, sellados = 0 } = {}) {
 }
 // pone un sello con "golpe": cae desde z alto, se aplasta y rebota (u = tiempo desde que toca)
 function golpeSello(s, t, ti, desde = 0.9) {
-  s.visible = t >= ti - 0.18;
+  s.visible = desde > 0 ? t >= ti - 0.18 : t >= ti;
   if (!s.visible) return;
   const baja = sg(t, ti - 0.18, ti);
   const z = CARD_D / 2 + 0.02 + (1 - baja * baja) * desde;
@@ -207,6 +210,18 @@ const selloGoma = new THREE.Group();
   inner.add(mesh(new THREE.LatheGeometry(perfil, 28), M.madera, 0, 0.42, 0));
 }
 scene.add(selloGoma);
+// el tampón: caja navy con la almohadilla de tinta verde (donde descansa el sello en el gancho)
+const tampon = new THREE.Group();
+{
+  tampon.add(mesh(rbox(1.25, 0.82, 0.16, 0.06), M.navy3));
+  tampon.add(mesh(rbox(1.3, 0.87, 0.06, 0.05), M.edge, 0, 0, -0.06));
+  tampon.add(mesh(rbox(1.02, 0.6, 0.05, 0.04), mat(C.gd, 0.8), 0, 0, 0.07));
+}
+scene.add(tampon);
+const HP = V(0, 1.6, 0);
+const qH = new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.3, 0, 0));
+const TAMPON_L = V(0.95, -CARD_H / 2 - 0.68, 0.12); // en el espacio de la tarjeta del gancho (sin el balanceo)
+const tamponW = TAMPON_L.clone().applyQuaternion(qH).add(HP);
 
 // ================= EL LAVADERO =================
 const CARP = V(0, 0, -7);
@@ -257,10 +272,10 @@ const autoSombra = sombra(5.4, 2.8);
 
 // ================= BARRAS 19 % / 34 % =================
 const barras = new THREE.Group(); scene.add(barras);
-const B19 = mesh(rbox(1.15, 1, 1.0, 0.08), M.cr3), B34 = mesh(rbox(1.15, 1, 1.0, 0.08), M.g);
+const B19 = mesh(rbox(1.15, 1, 1.0, 0.08), mat(0xa7acb8, 0.55, { emissive: 0xa7acb8, emissiveIntensity: 0.08 })), B34 = mesh(rbox(1.15, 1, 1.0, 0.08), M.g);
 barras.add(B19, B34);
 const n19 = numMesh("19 %", 0.52, M.numCr), n34 = numMesh("34 %", 0.52, M.numG);
-const BARX = 0.82, BARZ = CARP.z + 0.6;
+const BARX = 0.82, BARZ = CARP.z + 0.6, BX0 = -6.4;
 const mini8 = hacerTarjeta(8, { rojo: true }), mini10 = hacerTarjeta(10, { sellados: 2 });
 
 // ================= LAS DOS TARJETAS GRANDES Y LOS NÚMEROS =================
@@ -268,9 +283,9 @@ const H = hacerTarjeta(10, { sellados: 2 }); // la del gancho (y del cierre)
 const C8 = hacerTarjeta(8, { rojo: true });
 const C10 = hacerTarjeta(10);
 const n8 = numMesh("8", 0.62, M.numCr), n10 = numMesh("10", 0.62, M.numG);
-const igual = numMesh("=", 0.95, M.numG);
+const igual = numMesh("=", 1.3, M.numG);
 const pregunta = new THREE.Mesh(textoGeo("?", 2.7, 0.65), M.g); scene.add(pregunta);
-const n0 = numMesh("0 %", 0.5, M.numR), n20 = numMesh("20 %", 0.5, M.numG);
+const n0 = numMesh("0 de 8", 0.46, M.numR), n20 = numMesh("2 de 10", 0.46, M.numG);
 const C8S = V(-2.2, 1.7, -5.8), C10S = V(2.2, 1.7, -5.8), X0 = V(0, 1.7, -5.8);
 // sellos sueltos que vuelan a formar el "?"
 const sueltos = [hacerSello(), hacerSello()]; sueltos.forEach((s) => scene.add(s));
@@ -341,8 +356,8 @@ const MOSTRADOR = { y: 0.88, z: -1.12 };
   almacen.add(mesh(rbox(0.4, 0.025, 0.32, 0.01), mat(0xb9c0c8, 0.3), 1.05, MOSTRADOR.y + 0.1, MOSTRADOR.z + 0.08));
   const termo = crearTermo(); termo.position.set(-0.35, MOSTRADOR.y + 0.01, MOSTRADOR.z - 0.05); almacen.add(termo);
 }
-const ruben = crearPersonaje(ELENCO.almacenero); scene.add(ruben.raiz);
-const graciela = crearPersonaje(ELENCO.clienta); scene.add(graciela.raiz);
+const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 1e6, dedos: true }); scene.add(ruben.raiz);
+const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 1e6 }); scene.add(graciela.raiz);
 for (const p of [ruben, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const mate = crearMate(); scene.add(mate);
 // el celular chico en las manos de Graciela
@@ -386,17 +401,36 @@ const pantallas = {};
     x.fillStyle = "#efeee5"; x.font = F(800, 58); x.textAlign = "center";
     x.fillText(`${n} de 10`, TW / 2, 820);
   };
-  pantallas.cero = tex(TW, TH, (x) => tarjetaPuntos(x, 0));
+  const premio = (x) => {
+    x.strokeStyle = "#5ce611"; x.lineWidth = 6; x.beginPath(); x.roundRect(32, 1170, TW - 64, 100, 30); x.stroke();
+    x.fillStyle = "#5ce611"; x.beginPath();
+    for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 5, r = k % 2 ? 11 : 26; x.lineTo(92 + Math.cos(a) * r, 1220 + Math.sin(a) * r); }
+    x.closePath(); x.fill();
+    x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(700, 44); x.fillText("Premio: 10 sellos", 136, 1236);
+  };
+  pantallas.cero = tex(TW, TH, (x) => {
+    tarjetaPuntos(x, 0);
+    x.strokeStyle = "#2c4268"; x.lineWidth = 6; x.setLineDash([18, 14]); x.beginPath(); x.roundRect(32, 890, TW - 64, 250, 34); x.stroke(); x.setLineDash([]);
+    x.fillStyle = "#8fa0bd"; x.textAlign = "center"; x.font = F(700, 48); x.fillText("Primera visita", TW / 2, 1000); x.font = F(600, 44); x.fillText("sumando…", TW / 2, 1064);
+    premio(x);
+  });
   pantallas.dos = tex(TW, TH, (x) => {
     tarjetaPuntos(x, 2);
     x.fillStyle = "#5ce611"; rr(x, 32, 890, TW - 64, 250, 34);
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 58); x.fillText("¡Bienvenida!", TW / 2, 980);
-    x.font = F(700, 50); x.fillText("2 de regalo", TW / 2, 1050); x.font = F(600, 42); x.fillText("por estrenarla", TW / 2, 1108);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 56); x.fillText("¡Bienvenida!", TW / 2, 970);
+    x.font = F(700, 48); x.fillText("Rubén te regaló 2", TW / 2, 1036); x.font = F(600, 44); x.fillText("por estrenarla", TW / 2, 1096);
+    premio(x);
   });
   const bloqueo = (x) => {
     x.fillStyle = "#16243d"; x.fillRect(0, 0, TW, TH);
     x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(600, 44); x.fillText("martes", TW / 2, 200);
     x.font = F(800, 170); x.fillText("19:40", TW / 2, 380);
+    // linterna y cámara abajo, y la barrita de deslizar
+    for (const cx of [110, TW - 110]) { x.fillStyle = "#2c4268"; x.beginPath(); x.arc(cx, 1150, 56, 0, 7); x.fill(); }
+    x.strokeStyle = "#efeee5"; x.lineWidth = 7; x.lineJoin = "round";
+    x.beginPath(); x.moveTo(98, 1122); x.lineTo(122, 1122); x.lineTo(116, 1150); x.lineTo(116, 1178); x.lineTo(104, 1178); x.lineTo(104, 1150); x.closePath(); x.stroke();
+    x.beginPath(); x.roundRect(TW - 142, 1130, 64, 44, 8); x.stroke(); x.beginPath(); x.arc(TW - 110, 1152, 12, 0, 7); x.stroke();
+    x.fillStyle = "#efeee5"; rr(x, TW / 2 - 110, 1250, 220, 12, 6);
   };
   pantallas.bloqueo = tex(TW, TH, bloqueo);
   pantallas.aviso = tex(TW, TH, (x) => {
@@ -415,23 +449,25 @@ const pantallas = {};
 // Dentro de un plano, cúbica monótona (Fritsch-Carlson) continua; entre planos, corte seco con whoosh.
 const PLANOS = [
   [0, [
-    [0, 9, 13, 13.6, 0, 1.98, 0, 30],
-    [W[8], 3, 12, 12.9, 0, 1.96, 0, 30],
-    [S["s02-lavadero"] - 0.15, -2, 11, 12.5, 0, 1.95, 0, 30],
+    [0, 9, 13, 14.2, 0.05, 1.72, 0, 30],
+    [W[8], 3, 12, 13.1, 0.05, 1.7, 0, 30],
+    [S["s02-lavadero"] - 0.15, -2, 11, 12.6, 0.05, 1.7, 0, 30],
     [W[14] + 0.1, 60, 13, 15.6, 0.95, 1.1, CARP.z, 30],
-    [W[15] - 0.1, 55, 12, 15.3, 1.0, 1.1, CARP.z, 30],
-    [W[15] + 0.38, 3, 8, 13.0, 0, 1.68, BARZ, 30],
-    [S["s03-ocho"] - 0.12, 0, 8, 12.7, 0, 1.68, BARZ, 30],
+    [W[15] - 0.03, 55, 12, 15.3, 1.0, 1.1, CARP.z, 30],
+    [W[15], 3, 8, 13.2, BX0, 1.85, BARZ, 30],
+    [S["s03-ocho"] - 0.12, 0, 8, 12.7, BX0, 1.85, BARZ, 30],
     [S["s03-ocho"] + 0.4, -1, 6, 12.0, C8S.x, 2.05, C8S.z, 30],
-    [S["s04-diez"] - 0.15, 1, 6, 11.6, C8S.x, 2.05, C8S.z, 30],
-    [S["s04-diez"] + 0.45, -1, 15, 13.0, C10S.x, 2.0, C10S.z, 30],
+    [S["s04-diez"] - 0.04, 1, 6, 11.6, C8S.x, 2.05, C8S.z, 30],
+    [S["s04-diez"] + 0.24, -1, 15, 13.0, C10S.x, 2.0, C10S.z, 30],
     [S["s05-mismos"] - 0.12, 1, 15, 12.6, C10S.x, 2.0, C10S.z, 30],
-    [S["s05-mismos"] + 0.4, 0, 6, 14.2, 0, 2.15, X0.z, 30],
-    [S["s06-por-que"] - 0.1, 2, 6, 13.8, 0, 2.15, X0.z, 30],
+    [S["s05-mismos"] + 0.4, 0, 6, 15.6, 0, 2.2, X0.z, 30],
+    [S["s06-por-que"] - 0.1, 2, 6, 15.2, 0, 2.2, X0.z, 30],
     [S["s06-por-que"] + 0.35, 0, 5, 12.0, 0, 1.95, X0.z, 30],
     [W[43], -2, 5, 12.4, 0, 1.95, X0.z, 30],
     [S["s07-camino"], 2, 6, 12.6, 0, 1.95, X0.z, 30],
-    [S["s08-excusa"] + 0.3, -1, 6, 13.6, 0, 1.85, X0.z, 30],
+    [S["s08-excusa"] + 0.5, -1, 6, 12.3, 0, 2.12, X0.z, 30],
+    [W[61] - 0.35, 0, 6, 12.6, 0, 2.05, X0.z, 30],
+    [W[61] + 0.2, 1, 6, 13.8, 0, 1.85, X0.z, 30],
     [S["s09-ruben"], 2, 7, 13.3, 0, 1.85, X0.z, 30],
   ]],
   // almacén, plano general de 3/4: Rubén detrás del mostrador con el mate, Graciela del lado de acá
@@ -493,16 +529,16 @@ function ponerCamara(t) {
 
 // ================= POSES DE LA ZONA B =================
 const R0 = { x: OB.x + 0.72, z: -1.72, giro: 0.6 };
-const G0 = { x: OB.x + 1.78, z: -1.05, giro: -1.2 };
+const G0 = { x: OB.x + 1.78, z: -1.0, giro: -0.8 };
 const conCel = { ...BRAZOS.celular };
 const mirarCel = { cabeza: { giro: 0, asiente: 0.4, ladea: 0.05 }, ojos: { x: 0, y: -0.9 } };
-const mirarRuben = { torso: -0.1, cabeza: { giro: -0.5, asiente: -0.12, ladea: 0 }, ojos: { x: -0.6, y: 0.15 } };
+const mirarRuben = { torso: -0.12, cabeza: { giro: -0.35, asiente: -0.1, ladea: 0 }, ojos: { x: -0.8, y: 0.15 } };
 const mateMano = { manoD: [-0.24, 0.3, 0.3], codoD: [-0.8, -0.6, 0], dedoD: 0 };
 const mirarG = { cabeza: { giro: 0.4, asiente: 0.02, ladea: 0.04 }, ojos: { x: 0.5, y: -0.1 } };
 const RK = [
   [0, { ...R0, ...BRAZOS.apoyado, ...mateMano, ...mirarG, ...CARA.sonrisa }],
   [W[64], { cejas: { alto: 0.5, ang: 0.1 }, boca: { sonrisa: 0.9, abierta: 0.1, ancho: 1.15 } }, 0.25],
-  [W[67] + 0.1, { manoI: [0.4, 0.55, 0.42], codoI: [1, -0.5, -0.2], dedoI: 1, cabeza: { giro: 0.42, asiente: 0.12 }, ojos: { x: 0.6, y: -0.4 } }, 0.3],
+  [W[67] + 0.1, { manoI: [0.36, 0.3, 0.42], codoI: [1, -0.6, -0.1], dedoI: 1, cabeza: { giro: 0.42, asiente: 0.18 }, ojos: { x: 0.6, y: -0.6 } }, 0.3],
   [S["s10-graciela"] + 0.4, { ...BRAZOS.apoyado, ...mateMano, ...mirarG, ...CARA.feliz }, 0.35],
   [S["s11-aviso"] + 0.5, { cabeza: { giro: 0.75, asiente: 0.0 }, ojos: { x: 0.9, y: 0 }, ...CARA.esperanza }, 0.4],
   [W[78], { cabeza: { giro: -0.35, asiente: 0.08, ladea: -0.08 }, ...CARA.resignado, ojos: { abiertos: 0.5, tension: 0.4, x: -0.4 } }, 0.4],
@@ -513,12 +549,12 @@ const RK = [
 ];
 const GK = [
   [0, { ...G0, ...conCel, ...mirarCel, ...CARA.concentrada, boca: { sonrisa: 0.3 } }],
-  [W[64] + 0.1, { ...mirarRuben, ...CARA.sonrisa }, 0.35],
+  [W[64] + 0.55, { ...mirarRuben, ...CARA.sonrisa }, 0.7],
   [S["s10-graciela"], { ...mirarCel, ...CARA.esperanza }, 0.3],
   [W[72] + 0.05, { ...CARA.feliz, inclina: -0.03 }, 0.2],
-  [S["s11-aviso"] + 0.12, { giro: Math.PI / 2 - 0.15, ...BRAZOS.costado, cabeza: { giro: 0, asiente: 0 }, ojos: { x: 0, y: 0 }, ...CARA.neutra }, 0.25],
-  [S["s12-tu-local"] - 0.05, { giro: -Math.PI / 2 - 0.2 }, 0.05],
-  [S["s12-tu-local"] + 0.75, { giro: G0.giro, ...mirarRuben, ...CARA.feliz }, 0.3],
+  [S["s11-aviso"] + 0.12, { giro: 1.2, ...BRAZOS.costado, cabeza: { giro: -0.6, asiente: 0 }, ojos: { x: -0.3, y: 0 }, ...CARA.neutra }, 0.25],
+  [S["s12-tu-local"] - 0.05, { giro: -1.15, cabeza: { giro: 0.55, asiente: 0 }, ojos: { x: 0.3, y: 0 } }, 0.05],
+  [S["s12-tu-local"] + 0.85, { giro: -0.55, torso: 0, cabeza: { giro: 0.2, asiente: -0.05, ladea: 0.06 }, ojos: { x: 0.1, y: 0.05 }, ...CARA.feliz }, 0.35],
 ];
 const salida = () => S["s11-aviso"] + 0.15, entrada = () => S["s12-tu-local"] - 0.02;
 function ponerPersonajes(t) {
@@ -530,8 +566,8 @@ function ponerPersonajes(t) {
   const va = eio(sg(t, salida(), salida() + 0.85));
   const vuelve = eo(sg(t, entrada(), entrada() + 0.8));
   let gx = G0.x, gz = G0.z;
-  if (t < entrada()) { gx = lerp(G0.x, G0.x + 2.9, va); gz = lerp(G0.z, G0.z + 0.35, va); }
-  else { gx = lerp(G0.x + 2.9, G0.x, vuelve); gz = lerp(G0.z + 0.35, G0.z, vuelve); }
+  if (t < entrada()) { gx = lerp(G0.x, G0.x + 2.9, va); gz = lerp(G0.z, G0.z + 1.1, va); }
+  else { gx = lerp(G0.x + 2.6, G0.x, vuelve); gz = lerp(G0.z - 1.0, G0.z, vuelve); }
   const caminando = (t > salida() && t < salida() + 0.85) || (t > entrada() && t < entrada() + 0.8);
   pg.x = gx; pg.z = gz; pg.paso = caminando ? 1 : 0;
   graciela.poner(pg);
@@ -576,16 +612,15 @@ function renderAt(t) {
 
   // ---- el lavadero (s02): el auto bajo el arco, espuma, cepillos; sale por la derecha en "casi" ----
   const sale = eio(sg(t, W[15] - 0.25, W[15] + 0.35));
-  const lavOn = zonaA && t > S["s02-lavadero"] - 0.05 && t < S["s03-ocho"];
+  const lavOn = zonaA && t > S["s02-lavadero"] - 0.05 && t < W[15] - 0.02;
   {
-    const baja = eio(sg(t, W[15] - 0.1, W[15] + 0.3)); // el arco y el piso se hunden cuando sale el auto
-    lavadero.visible = lavOn && baja < 0.99;
-    lavadero.position.set(CARP.x, -4.5 * baja, CARP.z);
-    auto.position.set(9.5 * sale, 4.5 * baja, 0); // el auto no se hunde: se va por la derecha
-    auto.position.y = 4.5 * baja;
+    const baja = 0; // el lavadero queda en su lugar: la cámara se va a las barras, a la izquierda
+    lavadero.visible = lavOn;
+    lavadero.position.set(CARP.x, 0, CARP.z);
+    auto.position.set(9.5 * sale, 0, 0); // el auto se va por la derecha con su espuma
     const lav = lavOn ? 1 : 0;
     brochas.forEach((b, i) => { b.rotation.y = t * (i ? -7 : 7); });
-    espuma.forEach((e) => { const r = e.userData.r * (1 + 0.12 * Math.sin(t * 5 + e.userData.f * 9)) * (1 - sg(t, W[15] - 0.3, W[15] + 0.05)); ocultar(e, r * lav); });
+    espuma.forEach((e) => { const r = e.userData.r * (1 + 0.12 * Math.sin(t * 5 + e.userData.f * 9)); ocultar(e, r * lav); });
     gotasAgua.forEach((g) => { const f = (t * 1.6 + g.userData.f) % 1; g.position.set(g.userData.x, 2.75 - f * 2.6, g.userData.z); g.visible = lav > 0 && Math.abs(g.userData.z) > 1.0; });
     autoSombra.visible = lavadero.visible && sale < 0.6;
     autoSombra.position.set(CARP.x + 9.5 * sale, 0.01 - 4.5 * baja, CARP.z); autoSombra.material.opacity = 0.7;
@@ -598,7 +633,6 @@ function renderAt(t) {
     const vis = (t < W[15] + 0.6 && zonaA) || enCierre;
     H.visible = vis;
     if (vis && !enCierre) {
-      const HP = V(0, 1.6, 0);
       const q0 = qCard(-0.3 + Math.sin(t * 0.9) * 0.03, Math.sin(t * 0.7) * 0.06);
       lavadero.updateMatrixWorld(true);
       const tgt = V(0.86, 1.28, 0).add(V(0.72, 0.69, 0).normalize().multiplyScalar(0.03));
@@ -624,28 +658,33 @@ function renderAt(t) {
     let s = 0;
     const gancho = t < S["s02-lavadero"] - 0.05;
     const p4a = W[35] - 0.02, p4b = W[37] - 0.02;
-    const enS4 = t > S["s04-diez"] + 0.3 && t < S["s05-mismos"] - 0.15;
+    const enS4 = t > S["s04-diez"] + 0.3 && t < p4b + 0.6;
     if (gancho && zonaA) {
-      const vuelaS = eio(sg(t, S["s02-lavadero"] - 0.4, S["s02-lavadero"] - 0.05)); // se va volando por arriba a la derecha
+      const vuelaS = eio(sg(t, S["s02-lavadero"] - 0.45, S["s02-lavadero"] - 0.05)); // se va volando por la derecha
       s = 1;
-      const sube = eo(sg(t, 0, 0.6)) + vuelaS * 6;
-      const Wc = H.userData.W;
-      const lp = V(Wc / 2 - 0.62 + 0.15 * (1 - sube), CARD_H / 2 + 0.02 + 0.1 * sube + Math.sin(t * 2.4) * 0.04, 0.45 + 0.35 * sube);
-      H.updateMatrixWorld(true);
-      selloGoma.position.copy(H.localToWorld(lp.clone()));
-      selloGoma.quaternion.copy(H.quaternion).multiply(qDir(V(0.55, 0.62, 0.56), Math.sin(t * 1.7) * 0.08));
+      // baja y apoya en el tampón (0,08 s, con squash), se levanta en "sellos" y queda flotando, inclinado
+      const cae = sg(t, 0, 0.08), u = t - 0.08;
+      const sq = u > 0 ? Math.exp(-u * 10) * Math.sin(u * 32) * 0.05 : 0;
+      const sube = eio(sg(t, W[5] - 0.1, W[5] + 0.35));
+      const dir = V(0.4 + 0.15 * sube, 0.55 + 0.05 * sube, 0.73 - 0.15 * sube).normalize();
+      const lp = TAMPON_L.clone().add(V(0.1 * sube, 0, 0.11 + (1 - cae * cae) * 0.35 + sq + 0.55 * sube + Math.sin(t * 2.4) * 0.03 * sube));
+      lp.add(V(5.5 * vuelaS, 2.0 * vuelaS, 0.5 * vuelaS));
+      selloGoma.position.copy(lp.applyQuaternion(qH).add(HP));
+      selloGoma.quaternion.copy(qH).multiply(qDir(dir, Math.sin(t * 1.7) * 0.06 * sube));
     } else if (enS4) {
-      s = bk(sg(t, S["s04-diez"] + 0.3, S["s04-diez"] + 0.6)) * (1 - sg(t, S["s05-mismos"] - 0.4, S["s05-mismos"] - 0.15));
+      const entra = 1 - eo(sg(t, S["s04-diez"] + 0.3, S["s04-diez"] + 0.65));
+      const vase = eio(sg(t, p4b + 0.22, p4b + 0.6));
+      s = vase >= 1 ? 0 : 1;
       const pos = C10.userData.pos;
       // va del primer casillero al segundo; baja en p4a y en p4b
       const ir = eio(sg(t, p4a + 0.08, p4b - 0.12));
       const base = lerpV(pos[0], pos[1], ir);
       const golpe = (ti) => { const u = t - ti; if (u < -0.16 || u > 0.22) return 1; return u < 0 ? 1 - (u + 0.16) / 0.16 : eo(u / 0.22); };
       const alto = Math.min(golpe(p4a), golpe(p4b));
-      const lejos = t < p4a - 0.16 ? 1 : t > p4b + 0.22 ? lerp(1, 2.2, sg(t, p4b + 0.22, p4b + 0.6)) : 1;
-      const dir = V(0.55, 0.1, 0.83).normalize();
-      const lp = base.clone().addScaledVector(dir, CARD_D / 2 + 0.04 + 0.95 * alto * lejos);
+      const dir = V(0.45, -0.15, 0.88).normalize();
+      const lp = base.clone().addScaledVector(dir, CARD_D / 2 + 0.04 + 0.85 * alto);
       lp.z = Math.max(lp.z, CARD_D / 2 + 0.04);
+      lp.add(V(4.0 * entra + 3.0 * vase, 1.2 * entra + 0.6 * vase, 0.6 * entra + 4.5 * vase));
       C10.updateMatrixWorld(true);
       selloGoma.position.copy(C10.localToWorld(lp.clone()));
       selloGoma.quaternion.copy(C10.quaternion).multiply(qDir(dir, 0));
@@ -653,38 +692,42 @@ function renderAt(t) {
     ocultar(selloGoma, s);
   }
 
+  tampon.visible = zonaA && t < S["s02-lavadero"] + 0.1;
+  tampon.position.copy(tamponW); tampon.quaternion.copy(qH);
+
   // ---- barras 19 % / 34 % con sus mini tarjetas (s02, tiempo B) ----
   {
-    const on = zonaA && t > W[15] && t < S["s03-ocho"] + 0.35;
-    const cae = eio(sg(t, S["s03-ocho"] - 0.15, S["s03-ocho"] + 0.2)); // se aplastan y nacen las tarjetas grandes
-    const h19 = 1.62 * eo(sg(t, W[15] + 0.05, W[17] + 0.1)) * (1 - cae);
-    const h34 = 2.9 * eo(sg(t, W[15] + 0.1, W[20] + 0.05)) * (1 - cae);
+    const on = zonaA && t > W[15] - 0.15 && t < S["s03-ocho"] + 0.6;
+    const cae = 0; // quedan en su lugar: la cámara se va a la tarjeta de ocho
+    const nb = bk(sg(t, W[15] - 0.15, W[15] + 0.15));
+    const h19 = lerp(0.95, 1.62, eo(sg(t, W[15] + 0.05, W[17] + 0.1))) * nb * (1 - cae);
+    const h34 = lerp(0.95, 2.9, eo(sg(t, W[15] + 0.1, W[20] + 0.05))) * nb * (1 - cae);
     barras.visible = on;
-    B19.visible = h19 > 0.02; B19.scale.set(1, Math.max(0.001, h19), 1); B19.position.set(-BARX, h19 / 2, BARZ);
-    B34.visible = h34 > 0.02; B34.scale.set(1, Math.max(0.001, h34), 1); B34.position.set(BARX, h34 / 2, BARZ);
+    B19.visible = h19 > 0.02; B19.scale.set(1, Math.max(0.001, h19), 1); B19.position.set(BX0 - BARX, h19 / 2, BARZ);
+    B34.visible = h34 > 0.02; B34.scale.set(1, Math.max(0.001, h34), 1); B34.position.set(BX0 + BARX, h34 / 2, BARZ);
     B34.scale.x = 1 + 0.06 * pulso(t, W[20] + 0.02, 0.3);
-    ponerNum(n19, on ? bk(sg(t, W[17], W[17] + 0.3)) : 0, 1 - sg(t, S["s03-ocho"] - 0.32, S["s03-ocho"] - 0.12), 1); n19.position.set(-BARX, h19 + 0.38, BARZ); n19.rotation.set(0, cam.az * D2R * 0.6, 0);
-    ponerNum(n34, on ? bk(sg(t, W[20] - 0.05, W[20] + 0.28)) : 0, 1 - sg(t, S["s03-ocho"] - 0.32, S["s03-ocho"] - 0.12), 1); n34.position.set(BARX, h34 + 0.38, BARZ); n34.rotation.set(0, cam.az * D2R * 0.6, 0);
+    ponerNum(n19, on ? bk(sg(t, W[17], W[17] + 0.3)) : 0, 1, 1); n19.position.set(BX0 - BARX, Math.max(h19, 0.95) + 0.38, BARZ); n19.rotation.set(0, cam.az * D2R * 0.6, 0);
+    ponerNum(n34, on ? bk(sg(t, W[20] - 0.05, W[20] + 0.28)) : 0, 1, 1); n34.position.set(BX0 + BARX, Math.max(h34, 0.95) + 0.38, BARZ); n34.rotation.set(0, cam.az * D2R * 0.6, 0);
     if (n34.visible) n34.scale.multiplyScalar(1 + 0.12 * pulso(t, W[20] + 0.25, 0.3));
-    const mm = on ? bk(sg(t, W[15] + 0.15, W[15] + 0.5)) * (1 - cae) : 0;
-    ocultar(mini8, mm * 0.36); mini8.position.set(-BARX, 0.42, BARZ + 0.72); mini8.rotation.set(-0.25, 0, 0);
-    ocultar(mini10, mm * 0.36); mini10.position.set(BARX, 0.42, BARZ + 0.72); mini10.rotation.set(-0.25, 0, 0);
+    const mm = on ? lerp(0.6, 1, bk(sg(t, W[15] - 0.15, W[15] + 0.2))) : 0;
+    ocultar(mini8, mm * 0.38); mini8.position.set(BX0 - BARX, 0.46, BARZ + 0.72); mini8.rotation.set(-0.25, 0, 0);
+    ocultar(mini10, mm * 0.38); mini10.position.set(BX0 + BARX, 0.46, BARZ + 0.72); mini10.rotation.set(-0.25, 0, 0);
   }
 
   // ---- las dos tarjetas grandes (s03-s08) ----
   // C8: nace en "A unos" a la izquierda; en "Mismos" sube al lugar de arriba; sale en "¿Por qué?"; vuelve de frente
   // en "Vacía" (en el lugar del "?"); en "Con dos sellos" se da vuelta y del otro lado está la de diez.
   {
-    const STK8 = V(0, 3.02, X0.z), STK10 = V(0, 0.42, X0.z), CEN = V(0, 1.72, X0.z);
+    const STK8 = V(0, 3.22, X0.z), STK10 = V(0, 0.2, X0.z), CEN = V(0, 1.72, X0.z);
     const stack = eio(sg(t, S["s05-mismos"] - 0.05, S["s05-mismos"] + 0.4));
-    const fuera = eio(sg(t, S["s06-por-que"] - 0.2, S["s06-por-que"] + 0.12));
+    const fuera = eio(sg(t, S["s06-por-que"] - 0.28, S["s06-por-que"] + 0.02));
     const ti8 = W[43] - 0.12; // vuelve de frente
     const flip7 = S["s07-camino"] - 0.14; // se da vuelta
     // C8
     let s8 = 0, sx8 = 1, p8 = C8S.clone(), q8 = qCard(-0.1 + Math.sin(t * 0.8) * 0.03, Math.sin(t * 0.6) * 0.05);
-    if (zonaA && t < S["s06-por-que"] + 0.15 && t > S["s03-ocho"]) {
+    if (zonaA && t < S["s06-por-que"] + 0.03 && t > S["s03-ocho"]) {
       s8 = lerp(0.6, 1, bk(sg(t, S["s03-ocho"], S["s03-ocho"] + 0.3)));
-      p8 = lerpV(C8S, STK8, stack).add(V(-5 * fuera, 4 * fuera, 0));
+      p8 = lerpV(C8S, STK8, stack).add(V(-6 * fuera, 0, 0));
       // en s04 queda atrás, más chica y gris (la cámara viaja a la de diez)
     } else if (zonaA && t >= ti8 && t < flip7 + 0.16) {
       s8 = 1; sx8 = eio(sg(t, ti8, ti8 + 0.2)) * (1 - eio(sg(t, flip7, flip7 + 0.15)));
@@ -695,9 +738,9 @@ function renderAt(t) {
     let s10 = 0, sx10 = 1, p10 = C10S.clone(), q10 = qCard(-0.1 + Math.sin(t * 0.8 + 1) * 0.03, Math.sin(t * 0.6 + 1) * 0.05);
     const nace10 = S["s04-diez"] - 0.1;
     const fin8 = S["s09-ruben"];
-    if (zonaA && t > nace10 && t < S["s06-por-que"] + 0.15) {
+    if (zonaA && t > nace10 && t < S["s06-por-que"] + 0.03) {
       s10 = lerp(0.6, 1, bk(sg(t, nace10, nace10 + 0.35)));
-      p10 = lerpV(C10S, STK10, stack).add(V(5 * fuera, -4 * fuera, 0));
+      p10 = lerpV(C10S, STK10, stack).add(V(6 * fuera, 0, 0));
     } else if (zonaA && t >= flip7 + 0.15 && t < fin8) {
       s10 = 1; sx10 = eio(sg(t, flip7 + 0.15, flip7 + 0.32));
       // en "excusa" sube un poco para que entre la etiqueta abajo
@@ -707,25 +750,25 @@ function renderAt(t) {
     // sellos de C10: pum pum en s04; se van a formar el "?" en s06; caen de nuevo en s07
     const sl = C10.userData.sellos;
     sl.forEach((s, i) => { s.visible = false; s.scale.setScalar(1); s.position.z = CARD_D / 2 + 0.02; });
-    if (t < S["s06-por-que"] - 0.22) { golpeSello(sl[0], t, W[35] - 0.02, 0.0); golpeSello(sl[1], t, W[37] - 0.02, 0.0); }
-    else if (t >= flip7 + 0.15) { golpeSello(sl[0], t, W[49] + 0.02, 1.1); golpeSello(sl[1], t, W[50] + 0.02, 1.1); }
+    if (t < S["s06-por-que"] + 0.05) { golpeSello(sl[0], t, W[35] - 0.02, 0.0); golpeSello(sl[1], t, W[37] - 0.02, 0.0); }
+    else if (t >= flip7 + 0.15) { golpeSello(sl[0], t, S["s07-camino"] + 0.32, 1.1); golpeSello(sl[1], t, S["s07-camino"] + 0.52, 1.1); }
     // aros verdes: "mismos ocho" (los 8 casilleros por llenar de cada una se prenden en fila)
     const aroOn = zonaA && t > S["s05-mismos"] + 0.05 && t < S["s06-por-que"] - 0.05;
     C8.userData.aros.forEach((a, i) => { const ti = S["s05-mismos"] + 0.15 + i * 0.075; ocultar(a, aroOn && t > ti ? lerp(0.5, 1, bk(sg(t, ti, ti + 0.16))) : 0); });
     C10.userData.aros.forEach((a, i) => { const k = i - 2; const ti = S["s05-mismos"] + 0.15 + k * 0.075; ocultar(a, aroOn && k >= 0 && t > ti ? lerp(0.5, 1, bk(sg(t, ti, ti + 0.16))) : 0); });
     // números "8" y "10" arriba de cada tarjeta
     const n8on = zonaA && t < S["s05-mismos"] + 0.1;
-    ponerNum(n8, n8on ? bk(sg(t, W[27] - 0.05, W[27] + 0.25)) : 0, 1 - sg(t, S["s05-mismos"] - 0.15, S["s05-mismos"] + 0.05), 1);
-    n8.position.copy(C8S).add(V(0, 1.42, 0)); n8.rotation.set(0, cam.az * D2R * 0.5, 0);
-    ponerNum(n10, n8on ? bk(sg(t, W[33] - 0.05, W[33] + 0.25)) : 0, 1 - sg(t, S["s05-mismos"] - 0.15, S["s05-mismos"] + 0.05), 1);
-    n10.position.copy(C10S).add(V(0, 1.42, 0)); n10.rotation.set(0, cam.az * D2R * 0.5, 0);
+    ponerNum(n8, n8on ? bk(sg(t, W[27] - 0.05, W[27] + 0.25)) * (1 - eio(sg(t, S["s05-mismos"] - 0.2, S["s05-mismos"] - 0.02))) : 0, 1, 1);
+    n8.position.copy(C8S).add(V(0, 1.62, 0)); n8.rotation.set(0, cam.az * D2R * 0.5, 0);
+    ponerNum(n10, n8on ? bk(sg(t, W[33] - 0.05, W[33] + 0.25)) * (1 - eio(sg(t, S["s05-mismos"] - 0.2, S["s05-mismos"] - 0.02))) : 0, 1, 1);
+    n10.position.copy(C10S).add(V(0, 1.62, 0)); n10.rotation.set(0, cam.az * D2R * 0.5, 0);
     // "=" entre las dos, en "Mismos"
-    ponerNum(igual, zonaA && t < S["s06-por-que"] ? bk(sg(t, S["s05-mismos"] + 0.25, S["s05-mismos"] + 0.5)) : 0, 1 - sg(t, S["s06-por-que"] - 0.25, S["s06-por-que"] - 0.1), 1);
+    ponerNum(igual, zonaA && t < S["s06-por-que"] ? bk(sg(t, S["s05-mismos"] + 0.25, S["s05-mismos"] + 0.5)) * (1 - eio(sg(t, S["s06-por-que"] - 0.34, S["s06-por-que"] - 0.2))) : 0, 1, 1);
     igual.position.set(0, (STK8.y + STK10.y) / 2 + 0.02, X0.z + 0.2); igual.rotation.set(0, Math.sin(t * 1.2) * 0.06, 0);
     // sellos sueltos: de la de diez al centro, donde nace el "?"
     const vu = sg(t, S["s06-por-que"] - 0.22, S["s06-por-que"] + 0.1);
     sueltos.forEach((s, i) => {
-      const on = zonaA && vu > 0 && vu < 0.72;
+      const on = false; void vu;
       const p0 = C10.userData.pos[i].clone().add(STK10);
       const p1 = V(0, 1.9, X0.z + 0.6);
       ocultar(s, on ? lerp(1.0, 0.5, vu) : 0);
@@ -733,8 +776,8 @@ function renderAt(t) {
       s.rotation.set(0, 0, vu * Math.PI * 2 * (i ? 1 : -1));
     });
     // el "?": nace donde se juntan los sellos y gira de canto en "Vacía" (del otro lado está la tarjeta de ocho)
-    const pt = S["s06-por-que"] - 0.08;
-    const sp = zonaA && t > pt && t < ti8 + 0.12 ? lerp(0.5, 1, bk(sg(t, pt, pt + 0.3))) : 0;
+    const pt = S["s06-por-que"] - 0.12;
+    const sp = zonaA && t > pt && t < ti8 + 0.12 ? lerp(0.75, 1, bk(sg(t, pt, pt + 0.25))) : 0;
     ocultar(pregunta, sp);
     pregunta.position.set(0, 1.92, X0.z + 0.6);
     pregunta.rotation.set(0, Math.sin(t * 1.4) * 0.18, 0);
@@ -743,24 +786,24 @@ function renderAt(t) {
     const pOn = zonaA && t > ti8 + 0.1 && t < S["s08-excusa"] + 0.3;
     const pS = pOn ? bk(sg(t, ti8 + 0.1, ti8 + 0.4)) * (1 - eio(sg(t, S["s08-excusa"] - 0.1, S["s08-excusa"] + 0.25))) : 0;
     ocultar(progreso, pS > 0.5 ? pS : 0);
-    progreso.position.set(0, CEN.y - 1.38, X0.z + 0.1); progreso.rotation.set(-0.1, 0, 0);
-    const fr = 0.2 * eio(sg(t, W[50], W[51] + 0.3));
+    progreso.position.set(0, CEN.y - 1.55, X0.z + 0.1); progreso.rotation.set(-0.1, 0, 0);
+    const fr = 0.2 * eio(sg(t, S["s07-camino"] + 0.35, S["s07-camino"] + 0.95));
     relleno.visible = fr > 0.01; relleno.scale.set(Math.max(0.001, PW * fr), 1, 1); relleno.position.x = -PW / 2 + (PW * fr) / 2;
     flecha.visible = fr > 0.02; flecha.position.set(-PW / 2 + PW * fr + 0.04 + 0.05 * Math.sin(t * 9) * (fr >= 0.199 ? 1 : 0), 0, 0.04);
     // "0 %" en "cero" (cae y rebota) → "20 %" en "camino"
     const cayo = sg(t, W[47] - 0.1, W[47] + 0.2);
-    const ch = sg(t, W[50] - 0.1, W[50] + 0.35);
-    const numY = CEN.y + 1.4;
-    ponerNum(n0, pOn && t > W[47] - 0.1 ? bk(sg(t, W[47] - 0.1, W[47] + 0.15)) : 0, (1 - eio(sg(ch, 0, 0.45))) * (1 - sg(t, S["s08-excusa"] - 0.1, S["s08-excusa"] + 0.15)), 1);
-    n0.position.set(0, numY + (1 - cayo * cayo) * 0.45 + Math.max(0, Math.sin((t - W[47] - 0.2) * 14)) * 0.12 * Math.exp(-Math.max(0, t - W[47] - 0.2) * 6) * (t > W[47] + 0.2 ? 1 : 0), X0.z + 0.1);
-    ponerNum(n20, pOn ? bk(sg(ch, 0.5, 1)) : 0, 1 - sg(t, S["s08-excusa"] - 0.2, S["s08-excusa"] + 0.0), 1);
+    const ch = sg(t, S["s07-camino"] + 0.38, S["s07-camino"] + 0.8);
+    const numY = CEN.y + 1.58;
+    ponerNum(n0, pOn && t > W[47] - 0.1 && t < flip7 ? lerp(0.5, 1, bk(sg(t, W[47] - 0.1, W[47] + 0.15))) : 0, 1 - sg(t, flip7 - 0.12, flip7), 1);
+    n0.position.set(0, numY + (1 - cayo * cayo) * 0.2 + Math.max(0, Math.sin((t - W[47] - 0.2) * 14)) * 0.12 * Math.exp(-Math.max(0, t - W[47] - 0.2) * 6) * (t > W[47] + 0.2 ? 1 : 0), X0.z + 0.1);
+    ponerNum(n20, pOn && ch > 0.5 ? lerp(0.5, 1, bk(sg(ch, 0.5, 1))) * (1 - eio(sg(t, S["s08-excusa"] - 0.2, S["s08-excusa"] - 0.04))) : 0, 1, 1);
     n20.position.set(0, numY, X0.z + 0.1); n0.rotation.set(0, Math.sin(t) * 0.1, 0); n20.rotation.set(0, Math.sin(t) * 0.1, 0);
     // el moño (en "excusa") sobre los dos sellos y la etiqueta que se hamaca (en "por estrenarla")
     const mOn = zonaA && t > W[60] - 0.25 && t < fin8;
-    const ms = mOn ? bk(sg(t, W[60] - 0.25, W[60] + 0.1)) : 0;
+    const ms = mOn ? lerp(0.5, 1, bk(sg(t, W[60] - 0.25, W[60] + 0.1))) : 0;
     C10.updateMatrixWorld(true);
-    const pm = C10.localToWorld(V(C10.userData.W / 2 - 0.5, CARD_H / 2 + 0.12, 0.14));
-    ocultar(mono, ms * 1.1); mono.position.copy(pm).add(V(0, (1 - sg(t, W[60] - 0.25, W[60])) * 0.4, 0)); mono.quaternion.copy(C10.quaternion);
+    const pm = C10.localToWorld(V(C10.userData.W / 2 - 0.5, CARD_H / 2 + 0.36, 0.14));
+    ocultar(mono, ms * 1.1); mono.position.copy(pm).add(V(0, (1 - sg(t, W[60] - 0.25, W[60])) * 0.2, 0)); mono.quaternion.copy(C10.quaternion);
     if (mono.visible) mono.scale.multiplyScalar(1 + 0.15 * pulso(t, W[60] + 0.05, 0.3));
     const eOn = zonaA && t > W[61] - 0.3 && t < fin8;
     const es = eOn ? lerp(0.4, 1, bk(sg(t, W[61] - 0.3, W[61] + 0.05))) : 0;
@@ -778,21 +821,25 @@ function renderAt(t) {
   ponerPersonajes(t);
   {
     // sube en "Graciela arranca con dos" (la tarjeta de puntos) y otra vez en "le llega un aviso" (pantalla bloqueada)
-    const sube1 = eo(sg(t, S["s10-graciela"] - 0.08, S["s10-graciela"] + 0.25)) * (1 - eio(sg(t, S["s11-aviso"] - 0.12, S["s11-aviso"] + 0.12)));
-    const sube2 = eo(sg(t, W[77] - 0.2, W[77] + 0.12)) * (1 - eio(sg(t, S["s12-tu-local"] - 0.15, S["s12-tu-local"] + 0.1)));
-    const u = Math.max(sube1, sube2);
+    // entra desde abajo y sale por la derecha (al bajar, el texto pasaba por debajo del logo)
+    const e1 = eo(sg(t, S["s10-graciela"] - 0.08, S["s10-graciela"] + 0.25)), x1 = eio(sg(t, S["s11-aviso"] - 0.12, S["s11-aviso"] + 0.14));
+    const e2 = eo(sg(t, W[77] - 0.2, W[77] + 0.12)), x2 = eio(sg(t, S["s12-tu-local"] - 0.14, S["s12-tu-local"] + 0.12));
+    const segundo = t > (S["s11-aviso"] + W[77]) / 2;
+    const ent = segundo ? e2 : e1, sal = segundo ? x2 : x1;
+    const u = sal >= 1 ? 0 : ent;
     telefono.visible = !zonaA && u > 0.002;
     const kf = Math.tan((camera.fov * D2R) / 2) / Math.tan(17 * D2R);
     let jx = 0;
-    if (en(t, W[78] - 0.05, W[80] + 0.25)) jx = Math.sin(t * 95) * 0.004;
-    telefono.position.set((0.0 + jx) * kf, (-0.028 - (1 - u) * 0.62) * kf, -1);
-    telefono.rotation.set(-0.06, Math.sin(t * 0.8) * 0.08, Math.sin(t * 0.6) * 0.015 + (1 - u) * 0.2);
-    const pop = 1 + 0.05 * pulso(t, W[72] - 0.02, 0.26) + 0.04 * pulso(t, W[80] - 0.1, 0.25);
+    let jr = 0;
+    if (en(t, W[78] - 0.05, W[78] + 0.55)) { jx = Math.sin(t * 95) * 0.012; jr = Math.sin(t * 80) * 0.05; }
+    telefono.position.set((0.0 + jx + sal * 0.75 - (1 - ent) * 0.75) * kf, -0.028 * kf, -1);
+    telefono.rotation.set(-0.06, Math.sin(t * 0.8) * 0.08 - sal * 0.4, Math.sin(t * 0.6) * 0.015 + (1 - ent) * 0.25 - sal * 0.25 + jr);
+    const pop = 1 + 0.05 * pulso(t, W[72] - 0.02, 0.26) + 0.04 * pulso(t, W[78] + 0.05, 0.25);
     telefono.scale.setScalar(0.145 * kf * pop);
     let tx = pantallas.cero;
     if (t >= W[72] - 0.02) tx = pantallas.dos;
     if (t >= S["s11-aviso"]) tx = pantallas.bloqueo;
-    if (t >= W[80] - 0.12) tx = pantallas.aviso;
+    if (t >= W[78] + 0.05) tx = pantallas.aviso;
     if (pantallaMat.map !== tx) { pantallaMat.map = tx; pantallaMat.needsUpdate = true; }
     telefono.traverse((o) => { if (o.isMesh && o.material.map !== undefined && o.userData.orden === 2 && o.material.map !== tx) { o.material.map = tx; o.material.needsUpdate = true; } });
   }

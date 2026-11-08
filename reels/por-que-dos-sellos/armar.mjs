@@ -88,7 +88,8 @@ CORTES.forEach((desde, g) => {
   let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
-  const ini = r2(Math.max(0, ws[0].start - 0.08));
+  // si el grupo arranca justo en un corte de escena, no se adelanta (no asoma antes del corte)
+  const ini = reel.escenas.some(([, i]) => i === desde) ? r2(palabras[desde].start) : r2(Math.max(0, ws[0].start - 0.08));
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
   const fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.05 : DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
@@ -194,6 +195,8 @@ const index = `<!doctype html>
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 600px; background: linear-gradient(180deg, rgba(22,36,61,0.88) 0%, rgba(22,36,61,0.6) 55%, rgba(22,36,61,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
+      #velo2 { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(11,18,32,0.82) 0%, rgba(11,18,32,0.62) 55%, rgba(11,18,32,0) 100%); }
+      #firmaFondo { position: absolute; left: 50%; top: 1742px; width: 300px; height: 76px; transform: translateX(-50%); border-radius: 38px; background: rgba(11,18,32,0.82); z-index: 49; }
       #firma { position: absolute; left: 50%; top: 1760px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.85; z-index: 50; }
     </style>
   </head>
@@ -203,7 +206,7 @@ const index = `<!doctype html>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       ${LIMPIO ? "" : `<div id="velo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="4"></div>`}
 ${LIMPIO ? "" : hosts}
-${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
+${LIMPIO || !reel.veloFuerte ? "" : (() => { const a = TODAS.find(([id]) => id === reel.veloFuerte[0])[1], b = TODAS.find(([id]) => id === reel.veloFuerte[1])[1]; return `      <div id="velo2" class="clip" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="6"></div>\n      <div id="firmaFondo" class="clip" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="8"></div>\n`; })()}${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
 ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.16" data-fade-out="0.5"></audio>\n` : ""}${sfxTags}`}

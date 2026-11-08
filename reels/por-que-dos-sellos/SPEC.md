@@ -109,3 +109,26 @@ Palabras (segundos relativos a la escena): ¿Lo 0.00 · vemos 0.16 · en 0.36 ·
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.30 · en 0.70 · scalerics.com. 1.07
 
 Duración total 31.55 (la voz termina en 31.25).
+
+## Corrección · ronda 1 de revisión (08-11)
+- Gancho en pantalla: "¿Por qué algunas / tarjetas vienen / con **dos sellos** / puestos?". Tarjeta más alta (2,25) con el
+  premio FUERA de la grilla: "★ N sellos = lavado gratis". Tampón (almohadilla de tinta) debajo de la tarjeta del gancho:
+  el sello aterriza en 0,08 s, se levanta en "sellos" y se va volando por la derecha (llena el tercio de abajo).
+- Barras: ahora a la izquierda del lavadero (BX0 = -6,4) y entran con un corte seco en "casi" (whoosh): el arco ya no se
+  hunde ni cruza el logo; las mini tarjetas y las barras nacen juntas; 19 % en gris apagado; números sin fundido.
+- s04: el sello entra por la derecha, estampa en "dos" y en "regalo" (el sello aparece recién cuando toca) y sale hacia
+  cámara; ya no se achica ni sigue a los casilleros 3-4. Viaje de 8 → 10 en 0,28 s. "8"/"10" salen con escala.
+- s06: las tarjetas salen de costado; sin sellos sueltos; el "=" sale con escala; el "?" nace en el centro.
+- "0 %"/"20 %" → "0 de 8" / "2 de 10" (fuente 3D regenerada con "d" y "e"). En s07 los dos sellos caen de a uno con la
+  tarjeta ya de frente (16,47 / 16,67) y el número cambia con el segundo.
+- s08: push-in sobre la tarjeta; moño más arriba y adentro (no tapa la "S"); "Aunque sea floja".
+- Almacén: sin parpadeo automático (los párpados se veían como bolas de piel), Rubén con dedos, señala el celular (no la
+  cara); Graciela de 3/4 de frente, se va y vuelve mirando a cámara, en "Volvió" de frente y feliz; giro de cabeza de 0,7 s.
+  Velo navy más fuerte arriba y píldora navy detrás del logo mientras dura el almacén.
+- Celular: entra por la izquierda y sale por la derecha (nunca pasa por el logo); pantallas llenas ("Primera visita",
+  "Premio: 10 sellos", "Rubén te regaló 2 · por estrenarla"; pantalla bloqueada con linterna, cámara y barrita); el aviso
+  llega en "llega" con vibración visible.
+- Subtítulos: "A unos les dieron", "con Scalerics Puntos:" juntos; sin "Agendá una" colgando; ningún grupo asoma antes de
+  un corte de escena. Tarjeta de cierre con pop (sin fundido gris).
+- Sonido: sellos de s04 y s07 sincronizados con el toque; puerta y campanita cuando Graciela entra; notification cortada a
+  1 s; ding de las barras más corto. Medido: voz ≥ 6,1 LU sobre el resto en todo tramo de 0,5 s con voz.
