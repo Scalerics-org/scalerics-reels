@@ -223,6 +223,9 @@ const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 3.4, dedos: t
 for (const p of [ruben, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 // los lentes de Graciela (aros, patillas, puente y reflejos): de espaldas solo asomaba la patilla como una raya negra
 const LENTES = []; graciela.cabeza.traverse((o) => { if (o.isMesh && ((o.material.color && o.material.color.getHex() === 0x16243d) || (o.material.isMeshBasicMaterial && o.geometry.type === "CircleGeometry"))) LENTES.push(o); });
+// armazón más pegado a la cara (1,13 → 1,04 del radio) y patillas cortas que mueren dentro de la cabeza
+{ const CCg = 0.3 * 0.92; for (const l of LENTES) { l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.scale.y = 0.13; } }
+const _fw = new THREE.Vector3(), _hc = new THREE.Vector3(), _tc = new THREE.Vector3();
 
 // ================= UTILERÍA =================
 const S = 1.9; // los productos, a escala de los personajes (cabezas grandes)
@@ -438,7 +441,7 @@ const G_CONTRA = 2.55; // en el contraplano (P4 / Q4) Graciela mira al mostrador
 let PLANOS;
 if (P1) PLANOS = [
   // P1 · general 3/4 desde el lado de la clienta, a la altura del pecho; push-in lento (los dos llenan el cuadro)
-  [0, [[0, -0.14, 1.47, 2.3, -0.21, 1.27, -1.0, 44], [1.7, -0.14, 1.47, 2.08, -0.21, 1.28, -1.0, 44]]],
+  [0, [[0, -0.27, 1.47, 2.3, -0.34, 1.27, -1.0, 44], [1.7, -0.27, 1.47, 2.08, -0.34, 1.28, -1.0, 44]]],
   // P2 · primer plano de Rubén
   [1.7, [[1.7, 0.02, 1.6, 0.2, 0.12, 1.38, -1.68, 31], [2.6, 0.02, 1.6, 0.1, 0.12, 1.39, -1.68, 31]]],
   // P3 · plano medio frontal del mostrador, desde atrás de Graciela (hombro y rulos al borde); se aleja con la pila
@@ -454,7 +457,7 @@ if (P1) PLANOS = [
 ];
 else PLANOS = [
   // Q1 · general 3/4, el mismo encuadre que P1
-  [0, [[0, -0.14, 1.47, 2.3, -0.21, 1.27, -1.0, 44], [1.3, -0.14, 1.47, 2.15, -0.21, 1.28, -1.0, 44]]],
+  [0, [[0, -0.27, 1.47, 2.3, -0.34, 1.27, -1.0, 44], [1.3, -0.27, 1.47, 2.15, -0.34, 1.28, -1.0, 44]]],
   // Q2 · inserto casi cenital de la tablet (desde atrás del mostrador, del lado de Rubén)
   [1.3, [[1.3, -0.11, 2.29, -1.58, -0.234, 0.974, -1.086, 32], [3.1, -0.12, 2.24, -1.57, -0.234, 0.974, -1.086, 32]]],
   // Q3 · plano medio frontal (callback del plano de la pila)
@@ -506,7 +509,7 @@ function ponerCamara(t) {
 }
 
 // ================= POSES =================
-const mirarR = { cabeza: { giro: 0.25, asiente: -0.06, ladea: -0.04 }, ojos: { x: 0.75, y: 0.1 } };       // Graciela mira a Rubén
+const mirarR = { cabeza: { giro: 0.02, asiente: -0.06, ladea: -0.04 }, ojos: { x: 0.85, y: 0.1 } }; // la cara más hacia cámara (3/4): el lente de atrás no sale de la silueta       // Graciela mira a Rubén
 const mirarG = { cabeza: { giro: -0.35, asiente: 0.02, ladea: 0.03 }, ojos: { x: -0.65, y: -0.05 } };    // Rubén mira a Graciela
 const MANO_S = 1.45; // en la mano el producto entra más grande (exagerado de dibujito) y se achica al ir a la pila
 const ofreceA = (i) => { const p = PROD[i]; return { ...BRAZOS.ofrece(p.ancho * MANO_S, 0.56, 0.5), inclina: 0.08 }; };
@@ -617,7 +620,12 @@ function ponerPersonajes(t) {
   // en el plano de la pila (P3 / Q3) se la ve de atrás: hombro y rulos al borde del cuadro
   if (planoActual === 2) { pg.giro = Math.PI + 0.2; pg.cabeza.giro = 0; }
   graciela.poner(pg);
-  for (const l of LENTES) if (!l.material.isMeshBasicMaterial) l.visible = planoActual !== 2;
+  // de espaldas (la cara apunta a más de ~100° de la cámara) los lentes no se dibujan: la patilla asomaba como una raya
+  graciela.raiz.updateMatrixWorld(true);
+  graciela.cabeza.getWorldPosition(_hc); _fw.set(0, 0, 1).transformDirection(graciela.cabeza.matrixWorld);
+  _tc.copy(camera.position).sub(_hc).setY(0).normalize(); _fw.setY(0).normalize();
+  const deFrente = _fw.dot(_tc) > Math.cos(80 * D2R);
+  for (const l of LENTES) if (!l.material.isMeshBasicMaterial) l.visible = planoActual !== 2 && deFrente;
   // ---- Rubén ----
   const pr = poseEn(t, RK);
   if (P1) {

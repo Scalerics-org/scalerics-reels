@@ -46,6 +46,7 @@ if (MODO === "cartel") {
     ["sfx/stinger.wav", 0.05, -31],      // vibráfono (CC0), unos 7 LU por debajo del narrador
     ["voice/narrador.wav", 0.38, -18],   // Gemini Rasalgethi: "Un sistema de clientes más tarde."
     ["sfx/whoosh-short.mp3", 2.94, -31], // el iris que abre la parte 2
+    ["sfx/calle.wav", 3.2, -40, { dur: 0.2, ini: 0.1, lp: 900 }], // el ambiente de la parte 2 asoma en el iris (sin hueco mudo)
   ];
   for (const x of SON) if (["sfx/whoosh.mp3", "sfx/whoosh-short.mp3"].includes(x[0])) x[3] = { desde: 0.06 };
   mezclar(SON, DUR, "cartel");

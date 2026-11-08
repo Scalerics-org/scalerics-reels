@@ -61,7 +61,7 @@
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 3.4, ease: "none", immediateRender: true }, 0));
       // las letras: entran rebotando una por una y después bailan (cada una con su fase)
       // cada palabra entra cuando el narrador la dice (un poco antes): Un · sistema · de · clientes · más tarde…
-      const PALABRA = [0.3, 0.92, 1.47, 1.92, 2.45];
+      const PALABRA = [0.3, 0.55, 1.22, 1.48, 2.22];
       const letras = qa(".l");
       const palabraDe = [];
       { let w = 0; qa(".linea").forEach((ln, li) => { if (li > 0) w++; Array.from(ln.children).forEach((ch) => { if (ch.classList.contains("esp")) w++; else palabraDe.push(Math.min(w, PALABRA.length - 1)); }); }); }
