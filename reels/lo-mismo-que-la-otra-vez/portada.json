@@ -1,0 +1,13 @@
+{
+ "t": 0.2,
+ "chica": "Te pide lo mismo que",
+ "grande": "la otra vez",
+ "sello": "Era verde",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.06,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo = portada-fondo.png (cuadro 0,6 s de la parte 1 con LIMPIO=1 node gen.mjs 1: sin globo, pill ni logo; Graciela y Rubén en el general). Para regenerar: pasalo a un mp4 de 1 s, ponelo un momento como renders/lo-mismo-que-la-otra-vez-final.mp4, corré portada.mjs desde la raíz y devolvé el final (verificá el md5)."
+}
