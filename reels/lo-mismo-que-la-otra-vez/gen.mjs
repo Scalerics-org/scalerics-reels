@@ -21,10 +21,18 @@ const dur = (f) => Number(execSync(`ffprobe -v error -show_entries format=durati
 
 // ================= UNIR =================
 if (MODO === "unir") {
+  // video de los renders; audio directo de las mezclas (así un cambio de mezcla no obliga a renderizar de nuevo)
   const P = ["renders/parte1.mp4", "renders/cartel.mp4", "renders/parte2.mp4"];
-  const ins = P.flatMap((p) => ["-i", p]);
-  const norm = P.map((_, i) => `[${i}:v]fps=30,format=yuv420p,setsar=1[v${i}];[${i}:a]aresample=48000,aformat=channel_layouts=stereo[a${i}]`).join(";");
-  ff([...ins, "-filter_complex", `${norm};[v0][a0][v1][a1][v2][a2]concat=n=3:v=1:a=1[v][a]`, "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "12", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "256k", "renders/lo-mismo-que-la-otra-vez.mp4"]);
+  const A = ["assets/audio/mezcla-1.wav", "assets/audio/mezcla-cartel.wav", "assets/audio/mezcla-2.wav"];
+  const ins = [...P.flatMap((p) => ["-i", p]), ...A.flatMap((a) => ["-i", a])];
+  const norm = P.map((_, i) => `[${i}:v]fps=30,format=yuv420p,setsar=1[v${i}];[${i + 3}:a]aresample=48000,aformat=channel_layouts=stereo,apad,atrim=duration=${[14, 3.4, 11.6][i]}[a${i}]`).join(";");
+  ff([...ins, "-filter_complex", `${norm};[v0][a0][v1][a1][v2][a2]concat=n=3:v=1:a=1[v][a]`, "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-crf", "12", "-preset", "medium", "-pix_fmt", "yuv420p", "-c:a", "pcm_s16le", "renders/unido.mkv"]);
+  // el audio sale ya en -14 LUFS con los picos limitados a -4,4 dBFS: el paso 10 (loudnorm de una pasada + AAC) casi no
+  // tiene que subir nada y no pasa de -1,5 dBTP. La ganancia se busca midiendo (dos vueltas: el limitador baja un poco)
+  const ILUFS = (f, af = "") => Number(/I:\s+(-?[\d.]+) LUFS/.exec([...execSync(`ffmpeg -hide_banner -i ${f} -af "${af}${af ? "," : ""}ebur128" -f null - 2>&1`).toString().matchAll(/I:\s+-?[\d.]+ LUFS/g)].at(-1)[0])[1]);
+  let g = -14 - ILUFS("renders/unido.mkv");
+  for (let k = 0; k < 2; k++) g += -14 - ILUFS("renders/unido.mkv", `lowpass=f=15000:poles=2,volume=${g.toFixed(2)}dB,alimiter=limit=0.45:level=false:attack=1:release=50`);
+  ff(["-i", "renders/unido.mkv", "-c:v", "copy", "-af", `lowpass=f=15000:poles=2,volume=${g.toFixed(2)}dB,alimiter=limit=0.45:level=false:attack=1:release=50`, "-ar", "48000", "-c:a", "aac", "-b:a", "256k", "renders/lo-mismo-que-la-otra-vez.mp4"]);
   ff(["-i", "renders/lo-mismo-que-la-otra-vez.mp4", "-vf", "fps=1/1.5,scale=240:-1,tile=7x3", "-frames:v", "1", "renders/hoja.png"]);
   console.log(`listo: renders/lo-mismo-que-la-otra-vez.mp4 (${r2(dur("renders/lo-mismo-que-la-otra-vez.mp4"))} s) y renders/hoja.png`);
   process.exit(0);
@@ -224,9 +232,9 @@ let SON;
 if (PARTE === 1) {
   const o = T.ofertas;
   SON = [
-    ["sfx/calle.wav", 0, -40, { dur: DUR, fin: 0.4, lp: 900 }],                    // la calle de afuera, apagada por la pared (ambiente interior)
-    ["bgm/pizzicato.wav", 0, -27, { dur: T.corte + 0.03, fin: 0.03, baja: [[T.piensa, T.verde - 0.05, -8]] }], // se corta seco en la mirada
-    ["sfx/burbuja.mp3", T.globo0 - 0.02, -33],
+    ["sfx/calle.wav", 0, -40, { dur: DUR, fin: 0.4, lp: 900, ini: 0.12 }],                    // la calle de afuera, apagada por la pared (ambiente interior)
+    ["bgm/pizzicato.wav", 0, -27, { dur: T.corte + 0.03, fin: 0.03, ini: 0.12, baja: [[T.piensa, T.verde - 0.05, -8]] }], // se corta seco en la mirada
+    ["sfx/burbuja.mp3", T.globo0 - 0.02, -37],   // el primer pop, más bajo (el paso 10 arranca con ganancia alta)
     ...o.flatMap(([a, no, deja], i) => [
       ["sfx/pop.mp3", a, -34],
       ["sfx/burbuja.mp3", a + 0.02, -35],
@@ -273,7 +281,7 @@ if (PARTE === 1) {
 }
 // tramos mudos al principio de algunos efectos (pop 0,09 s, whoosh 0,06 s, chime 0,37 s, tuba 0,15 s)
 const MUDO = { "sfx/pop.mp3": 0.09, "sfx/whoosh.mp3": 0.06, "sfx/whoosh-short.mp3": 0.06 };
-const recortar = (L) => { for (const x of L) if (MUDO[x[0]] && !(x[3] && x[3].desde)) { x[3] = { ...(x[3] || {}), desde: MUDO[x[0]] }; } };
+const recortar = (L) => { for (const x of L) { if (MUDO[x[0]] && !(x[3] && x[3].desde)) x[3] = { ...(x[3] || {}), desde: MUDO[x[0]] }; if (x[0] === "sfx/pop.mp3" || x[0] === "sfx/burbuja.mp3") { x[2] -= 3; x[3] = { ...(x[3] || {}), lp: 7000 }; } } }; // pop y burbuja: el clic de agudos hacía que el AAC pasara el pico // pop y burbuja: picos muy filosos (el AAC los pasaba de -1,5 dBTP)
 recortar(SON);
 for (const s of SON) if (!s[0].startsWith("voice/") && !s[0].startsWith("bgm/") && s[0] !== "sfx/calle.wav") s[2] = Math.min(s[2], TECHO);
 mezclar(SON, DUR, String(PARTE));
@@ -364,6 +372,7 @@ function mezclar(lista, D, nombre) {
     una(lista.filter((s) => s[0].startsWith("voice/")), `assets/audio/stem-voz-${nombre}.wav`);
     una(lista.filter((s) => !s[0].startsWith("voice/")), `assets/audio/stem-resto-${nombre}.wav`);
   }
-  // nivel: ganancia fija común + limitador (la parte 1 queda cerca de -14 LUFS; el paso 10 hace el resto)
-  ff(["-i", `assets/audio/cruda-${nombre}.wav`, "-af", `volume=${GANANCIA}dB,alimiter=limit=0.6:level=false`, "-ar", "48000", `assets/audio/mezcla-${nombre}.wav`]);
+  // nivel: ganancia fija común + limitador a -6,9 dBFS: el pico queda a menos de 11,5 dB de la sonoridad, así el paso 10
+  // (loudnorm de una pasada + AAC) no pasa de -1,5 dBTP
+  ff(["-i", `assets/audio/cruda-${nombre}.wav`, "-af", `volume=${GANANCIA}dB,alimiter=limit=0.6:level=false:attack=1:release=60`, "-ar", "48000", `assets/audio/mezcla-${nombre}.wav`]);
 }
