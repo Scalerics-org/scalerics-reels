@@ -226,7 +226,7 @@ const S = 1.9; // los productos, a escala de los personajes (cabezas grandes)
 // envuelve un objeto con origen en la base para que su origen quede en el centro
 function centrar(o) { const g = new THREE.Group(); o.position.y = -o.userData.tam[1] / 2; g.add(o); g.userData.tam = o.userData.tam; return g; }
 const pila = new THREE.Group(); scene.add(pila);
-pila.position.set(0.7, MOSTRADOR.y, MOSTRADOR.z - 0.09);
+pila.position.set(0.88, MOSTRADOR.y, MOSTRADOR.z - 0.09);
 // [objeto, rotación en la mano, posición y rotación en la pila (relativas a la base de la pila), ancho entre manos]
 const PROD = [];
 if (P1) {
@@ -236,10 +236,10 @@ if (P1) {
   // galletitas al costado de la pila, en el mostrador (son las que se caen al final)
   PROD.push(
     { o: yer, mano: [0, 0, Math.PI / 2], ancho: yer.userData.tam[1] * S, pila: [0, hY / 2, 0], rot: [0, 0.1, Math.PI / 2 - 0.05] },
-    { o: gal, mano: [0, 0, 0], ancho: gal.userData.tam[0] * S, pila: [0.46, gal.userData.tam[1] * S / 2, 0.16], rot: [0, 0.3, 0] },
+    { o: gal, mano: [0, 0, 0], ancho: gal.userData.tam[0] * S, pila: [0.3, gal.userData.tam[1] * S / 2, 0.22], rot: [0, 0.3, 0] },
     { o: dul, mano: [0, 0, 0], ancho: dul.userData.tam[0] * S, pila: [0.04, hY + hD / 2, 0.02], rot: [0, -0.4, 0.06] },
-    { o: fid, mano: [0, 0, Math.PI / 2], ancho: fid.userData.tam[1] * S, pila: [-0.02, hY + hD + hF / 2, 0.0], rot: [0, 0.15, Math.PI / 2 + 0.07] },
-    { o: map, mano: [0.45, 0, 0], ancho: map.userData.tam[0] * S, pila: [0.03, hY + hD + hF + hM / 2 - 0.005, 0.0], rot: [0.08, 0.22, -0.12] },
+    { o: fid, mano: [0, 0, -Math.PI / 2], ancho: fid.userData.tam[1] * S, pila: [-0.02, hY + hD + hF / 2, 0.0], rot: [0, 0.15, -Math.PI / 2 + 0.07] },
+    { o: map, mano: [0.45, 0, 0], ancho: map.userData.tam[0] * S, pila: [0.03, hY + hD + hF + hM / 2 - 0.012, 0.0], rot: [0.06, 0.22, -0.06] },
   );
   for (const p of PROD) { p.o.scale.setScalar(S); scene.add(p.o); }
 }
@@ -454,15 +454,15 @@ if (P1) PLANOS = [
   // P2 · primer plano de Rubén, por arriba del hombro de Graciela
   [1.7, [[1.7, 0.02, 1.6, 0.2, 0.12, 1.38, -1.68, 31], [2.6, 0.02, 1.6, 0.1, 0.12, 1.39, -1.68, 31]]],
   // P3 · plano medio frontal del mostrador, desde atrás de Graciela; se aleja a medida que crece la pila
-  [2.6, [[2.6, -0.36, 1.62, 1.25, 0.52, 1.25, -1.2, 46], [4.4, -0.38, 1.64, 1.5, 0.54, 1.27, -1.2, 46], [6.2, -0.4, 1.67, 1.8, 0.56, 1.3, -1.2, 46]]],
+  [2.6, [[2.6, -0.3, 1.62, 1.25, 0.55, 1.25, -1.2, 46], [4.4, -0.26, 1.64, 1.5, 0.56, 1.27, -1.2, 46], [6.2, -0.2, 1.67, 1.8, 0.57, 1.3, -1.2, 46]]],
   // P4 · contraplano bajo de Graciela (desde atrás del mostrador)
   [6.2, [[6.2, 0.36, 1.2, -2.3, -0.42, 1.44, -0.52, 40], [7.4, 0.33, 1.2, -2.2, -0.42, 1.45, -0.52, 38]]],
   // P5 · la estantería verde (pared izquierda): travelling lateral lento
-  [7.65, [[7.65, -0.25, 1.32, -2.2, -1.95, 1.32, -2.0, 54], [9.2, -0.28, 1.34, -1.35, -1.95, 1.34, -1.2, 54]]],
+  [7.65, [[7.65, -0.25, 1.32, -2.45, -1.95, 1.32, -2.25, 54], [9.2, -0.28, 1.34, -1.65, -1.95, 1.34, -1.5, 54]]],
   // P6 · primer plano de Rubén con la estantería verde atrás (cámara a su derecha, mira hacia la pared izquierda)
   [9.2, [[9.2, 1.95, 1.52, -0.88, 0.12, 1.38, -1.68, 40], [12.3, 1.85, 1.5, -0.92, 0.12, 1.38, -1.68, 37]]],
   // P7 · general (el de P1 más abierto: entra la pila entera)
-  [12.3, [[12.3, 0.32, 1.55, 3.05, 0.3, 1.32, -1.0, 45], [14.0, 0.32, 1.55, 2.9, 0.3, 1.33, -1.0, 45]]],
+  [12.3, [[12.3, 0.36, 1.55, 3.05, 0.36, 1.32, -1.0, 46], [14.0, 0.36, 1.55, 2.9, 0.36, 1.33, -1.0, 46]]],
 ];
 else PLANOS = [
   // Q1 · general 3/4, el mismo encuadre que P1
@@ -671,7 +671,7 @@ function ponerProductos(t) {
     if (t < deja) { pos = enMano; rx = rotMano.x; ry = rotMano.y; rz = rotMano.z; }
     else {
       const u = eio(vuelo);
-      pos = enMano.clone().lerp(reposo, u); pos.y += Math.sin(u * Math.PI) * 0.12;
+      pos = enMano.clone().lerp(reposo, u); pos.y += Math.sin(u * Math.PI) * (i === 1 ? 0.4 : 0.28);
       rx = lerp(rotMano.x, p.rot[0], u); ry = lerp(rotMano.y, p.rot[1], u); rz = lerp(rotMano.z, p.rot[2], u);
       // rebotito al caer
       const tb = t - (deja + 0.2);

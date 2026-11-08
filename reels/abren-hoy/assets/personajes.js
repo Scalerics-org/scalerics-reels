@@ -592,14 +592,14 @@ export const SOFI_VARIANTES = {
 
 // ---------- lo-mismo-que-la-otra-vez (08-11): poses nuevas ----------
 // pensar: la mano derecha al mentón con el índice apoyado debajo (sin entrar en la cara)
-BRAZOS.piensa = { manoD: [-0.04, 0.5, 0.36], codoD: [-0.5, -1, 0.1], dedoD: 0.5 };
+BRAZOS.piensa = { manoD: [-0.04, 0.56, 0.31], codoD: [-0.5, -1, 0.1], dedoD: 0.35 };
 // ofrecer: las dos manos adelante, a la altura del pecho, sosteniendo algo de `ancho` (el objeto va entre las manos:
 // en la escena se pone en el punto medio de las dos manos, en espacio mundo)
 BRAZOS.ofrece = (ancho = 0.3, alto = 0.4, adelante = 0.44) => ({ manoI: [ancho / 2 + 0.03, alto, adelante], manoD: [-ancho / 2 - 0.03, alto, adelante], codoI: [0.8, -0.8, -0.2], codoD: [-0.8, -0.8, -0.2], dedoI: 0, dedoD: 0 });
 // el índice izquierdo arriba ("¡ya sé!"): con dedos: false se usa el dedo de señalar del módulo
-export const INDICE = { manoI: [0.44, 0.7, 0.16], codoI: [1, -0.5, -0.1], dedoI: 1 };
+export const INDICE = { manoI: [0.36, 0.78, 0.22], codoI: [1, -0.5, -0.1], dedoI: 1 };
 // la frente contra algo que está adelante (la pila): se inclina fuerte, baja la cabeza, manos en el mostrador
-export const FRENTE = { inclina: 0.33, cabeza: { giro: 0, asiente: 0.3, ladea: 0.06 }, manoI: [0.34, 0.16, 0.34], manoD: [-0.34, 0.16, 0.34], codoI: [1, -0.4, -0.4], codoD: [-1, -0.4, -0.4], dedoI: 0, dedoD: 0 };
+export const FRENTE = { inclina: 0.3, cabeza: { giro: 0, asiente: 0.3, ladea: 0.06 }, manoI: [0.34, 0.16, 0.34], manoD: [-0.34, 0.16, 0.34], codoI: [1, -0.4, -0.4], codoD: [-1, -0.4, -0.4], dedoI: 0, dedoD: 0 };
 // niega con la cabeza: cuánto sumar a cabeza.giro en t (2 ciclos de ±amp entre t0 y t1, con entrada y salida suaves)
 export const niega = (t, t0, t1, amp = 0.35, ciclos = 2) => {
   if (t <= t0 || t >= t1) return 0;
@@ -660,11 +660,14 @@ export function crearGalletitas() {
   pts.push(new THREE.Vector2(0.0001, L0 / 2));
   const tubo = new THREE.Mesh(new THREE.LatheGeometry(pts, 32), celo); tubo.rotation.z = Math.PI / 2; g.add(tubo);
   // banda roja con el nombre (cilindro abierto un poco más grande, solo al frente)
-  const banda = etiquetaTex(1024, 256, (x, w, h) => {
+  // el texto corre a lo largo del tubo (eje v de la textura del cilindro)
+  const banda = etiquetaTex(512, 1024, (x, w, h) => {
     x.fillStyle = "#c7655b"; x.fillRect(0, 0, w, h);
+    x.save(); x.translate(w / 2, h / 2); x.rotate(Math.PI / 2);
     x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle";
-    ajustar(x, "GALLETITAS", 900, 120, w * 0.9); x.fillText("GALLETITAS", w / 2, 92);
-    ajustar(x, "DE AGUA", 800, 80, w * 0.6); x.fillText("DE AGUA", w / 2, 190);
+    ajustar(x, "GALLETITAS", 900, 150, h * 0.86); x.fillText("GALLETITAS", 0, -60);
+    ajustar(x, "DE AGUA", 800, 100, h * 0.6); x.fillText("DE AGUA", 0, 80);
+    x.restore();
   });
   const bm = new THREE.MeshStandardMaterial({ map: banda, roughness: 0.45 });
   const b = new THREE.Mesh(new THREE.CylinderGeometry(R * 1.02, R * 1.02, L0 * 0.52, 32, 1, true, -1.25, 2.5), bm);

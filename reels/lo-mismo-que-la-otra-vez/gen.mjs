@@ -180,7 +180,7 @@ const ESC = [];
   const spans = LINEA.map(([w, s]) => { const ac = /^verde/.test(w); return `<span class="w${ac ? " ac" : ""}" data-t="${r2(T.voz + s - ini)}">${ac ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : ""}<em>${w}</em></span>`; }).join(" ");
   escena(id, d, {
     css: `
-    P .linea { position: absolute; left: 40px; right: 40px; top: ${PARTE === 1 ? 1440 : 1440}px; text-align: center; font: 700 88px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
+    P .linea { position: absolute; left: 40px; right: 40px; top: ${PARTE === 1 ? 1500 : 1480}px; text-align: center; font: 700 88px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
     P .w { display: inline-block; position: relative; opacity: 0; }
     P .w em { font-style: normal; position: relative; }
     P .w.ac { margin: 0 14px; }
