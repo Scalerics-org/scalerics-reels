@@ -1,0 +1,554 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0.277,
+  "end": 0.4
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.4,
+  "end": 0.5
+ },
+ {
+  "id": 2,
+  "text": "algunas",
+  "start": 0.5,
+  "end": 0.9
+ },
+ {
+  "id": 3,
+  "text": "tarjetas",
+  "start": 0.9,
+  "end": 1.2
+ },
+ {
+  "id": 4,
+  "text": "de",
+  "start": 1.2,
+  "end": 1.3
+ },
+ {
+  "id": 5,
+  "text": "sellos",
+  "start": 1.3,
+  "end": 1.8
+ },
+ {
+  "id": 6,
+  "text": "vienen",
+  "start": 1.8,
+  "end": 2.2
+ },
+ {
+  "id": 7,
+  "text": "con",
+  "start": 2.2,
+  "end": 2.3
+ },
+ {
+  "id": 8,
+  "text": "dos",
+  "start": 2.3,
+  "end": 2.5
+ },
+ {
+  "id": 9,
+  "text": "puestos?",
+  "start": 2.5,
+  "end": 2.9
+ },
+ {
+  "id": 10,
+  "text": "En",
+  "start": 3.401,
+  "end": 3.5
+ },
+ {
+  "id": 11,
+  "text": "un",
+  "start": 3.5,
+  "end": 3.6
+ },
+ {
+  "id": 12,
+  "text": "lavadero",
+  "start": 3.6,
+  "end": 3.9
+ },
+ {
+  "id": 13,
+  "text": "de",
+  "start": 3.9,
+  "end": 4.1
+ },
+ {
+  "id": 14,
+  "text": "autos,",
+  "start": 4.1,
+  "end": 4.66
+ },
+ {
+  "id": 15,
+  "text": "casi",
+  "start": 4.868,
+  "end": 5.1
+ },
+ {
+  "id": 16,
+  "text": "el",
+  "start": 5.1,
+  "end": 5.2
+ },
+ {
+  "id": 17,
+  "text": "doble",
+  "start": 5.2,
+  "end": 5.5
+ },
+ {
+  "id": 18,
+  "text": "llegó",
+  "start": 5.5,
+  "end": 5.8
+ },
+ {
+  "id": 19,
+  "text": "al",
+  "start": 5.8,
+  "end": 5.9
+ },
+ {
+  "id": 20,
+  "text": "premio.",
+  "start": 5.9,
+  "end": 6.33
+ },
+ {
+  "id": 21,
+  "text": "A",
+  "start": 6.702,
+  "end": 6.8
+ },
+ {
+  "id": 22,
+  "text": "unos",
+  "start": 6.8,
+  "end": 6.95
+ },
+ {
+  "id": 23,
+  "text": "les",
+  "start": 6.95,
+  "end": 7.1
+ },
+ {
+  "id": 24,
+  "text": "dieron",
+  "start": 7.1,
+  "end": 7.3
+ },
+ {
+  "id": 25,
+  "text": "una",
+  "start": 7.3,
+  "end": 7.5
+ },
+ {
+  "id": 26,
+  "text": "de",
+  "start": 7.5,
+  "end": 7.7
+ },
+ {
+  "id": 27,
+  "text": "ocho,",
+  "start": 7.7,
+  "end": 8.04
+ },
+ {
+  "id": 28,
+  "text": "vacía.",
+  "start": 8.232,
+  "end": 8.74
+ },
+ {
+  "id": 29,
+  "text": "A",
+  "start": 9.139,
+  "end": 9.2
+ },
+ {
+  "id": 30,
+  "text": "otros,",
+  "start": 9.2,
+  "end": 9.63
+ },
+ {
+  "id": 31,
+  "text": "una",
+  "start": 9.838,
+  "end": 10
+ },
+ {
+  "id": 32,
+  "text": "de",
+  "start": 10,
+  "end": 10.1
+ },
+ {
+  "id": 33,
+  "text": "diez",
+  "start": 10.1,
+  "end": 10.4
+ },
+ {
+  "id": 34,
+  "text": "con",
+  "start": 10.4,
+  "end": 10.6
+ },
+ {
+  "id": 35,
+  "text": "dos",
+  "start": 10.6,
+  "end": 10.8
+ },
+ {
+  "id": 36,
+  "text": "de",
+  "start": 10.8,
+  "end": 10.9
+ },
+ {
+  "id": 37,
+  "text": "regalo.",
+  "start": 10.9,
+  "end": 11.35
+ },
+ {
+  "id": 38,
+  "text": "Mismos",
+  "start": 11.765,
+  "end": 12.2
+ },
+ {
+  "id": 39,
+  "text": "ocho",
+  "start": 12.2,
+  "end": 12.5
+ },
+ {
+  "id": 40,
+  "text": "lavados.",
+  "start": 12.5,
+  "end": 13.03
+ },
+ {
+  "id": 41,
+  "text": "¿Por",
+  "start": 13.41,
+  "end": 13.58
+ },
+ {
+  "id": 42,
+  "text": "qué?",
+  "start": 13.58,
+  "end": 13.76
+ },
+ {
+  "id": 43,
+  "text": "Vacía,",
+  "start": 14.23,
+  "end": 14.74
+ },
+ {
+  "id": 44,
+  "text": "es",
+  "start": 14.877,
+  "end": 15
+ },
+ {
+  "id": 45,
+  "text": "arrancar",
+  "start": 15,
+  "end": 15.3
+ },
+ {
+  "id": 46,
+  "text": "de",
+  "start": 15.32,
+  "end": 15.5
+ },
+ {
+  "id": 47,
+  "text": "cero.",
+  "start": 15.5,
+  "end": 15.82
+ },
+ {
+  "id": 48,
+  "text": "Con",
+  "start": 16.15,
+  "end": 16.2
+ },
+ {
+  "id": 49,
+  "text": "dos",
+  "start": 16.2,
+  "end": 16.4
+ },
+ {
+  "id": 50,
+  "text": "sellos,",
+  "start": 16.4,
+  "end": 16.7
+ },
+ {
+  "id": 51,
+  "text": "ya",
+  "start": 16.7,
+  "end": 17.1
+ },
+ {
+  "id": 52,
+  "text": "estás",
+  "start": 17.1,
+  "end": 17.3
+ },
+ {
+  "id": 53,
+  "text": "en",
+  "start": 17.3,
+  "end": 17.4
+ },
+ {
+  "id": 54,
+  "text": "camino.",
+  "start": 17.4,
+  "end": 17.87
+ },
+ {
+  "id": 55,
+  "text": "Y",
+  "start": 18.07,
+  "end": 18.19
+ },
+ {
+  "id": 56,
+  "text": "anda",
+  "start": 18.32,
+  "end": 18.6
+ },
+ {
+  "id": 57,
+  "text": "mejor",
+  "start": 18.6,
+  "end": 18.9
+ },
+ {
+  "id": 58,
+  "text": "con",
+  "start": 18.9,
+  "end": 19.1
+ },
+ {
+  "id": 59,
+  "text": "una",
+  "start": 19.1,
+  "end": 19.2
+ },
+ {
+  "id": 60,
+  "text": "excusa:",
+  "start": 19.2,
+  "end": 19.72
+ },
+ {
+  "id": 61,
+  "text": "por",
+  "start": 20.01,
+  "end": 20.1
+ },
+ {
+  "id": 62,
+  "text": "estrenarla.",
+  "start": 20.1,
+  "end": 20.72
+ },
+ {
+  "id": 63,
+  "text": "Rubén",
+  "start": 20.91,
+  "end": 21.3
+ },
+ {
+  "id": 64,
+  "text": "lo",
+  "start": 21.35,
+  "end": 21.5
+ },
+ {
+  "id": 65,
+  "text": "hace",
+  "start": 21.6,
+  "end": 21.8
+ },
+ {
+  "id": 66,
+  "text": "con",
+  "start": 21.8,
+  "end": 22
+ },
+ {
+  "id": 67,
+  "text": "Scalerics",
+  "start": 22,
+  "end": 22.4
+ },
+ {
+  "id": 68,
+  "text": "Puntos:",
+  "start": 22.4,
+  "end": 23.01
+ },
+ {
+  "id": 69,
+  "text": "Graciela",
+  "start": 23.264,
+  "end": 23.7
+ },
+ {
+  "id": 70,
+  "text": "arranca",
+  "start": 23.7,
+  "end": 24.3
+ },
+ {
+  "id": 71,
+  "text": "con",
+  "start": 24.3,
+  "end": 24.5
+ },
+ {
+  "id": 72,
+  "text": "dos.",
+  "start": 24.5,
+  "end": 24.79
+ },
+ {
+  "id": 73,
+  "text": "Si",
+  "start": 25.05,
+  "end": 25.2
+ },
+ {
+  "id": 74,
+  "text": "deja",
+  "start": 25.1,
+  "end": 25.4
+ },
+ {
+  "id": 75,
+  "text": "de",
+  "start": 25.4,
+  "end": 25.5
+ },
+ {
+  "id": 76,
+  "text": "venir,",
+  "start": 25.5,
+  "end": 25.7
+ },
+ {
+  "id": 77,
+  "text": "le",
+  "start": 25.7,
+  "end": 26
+ },
+ {
+  "id": 78,
+  "text": "llega",
+  "start": 26,
+  "end": 26.3
+ },
+ {
+  "id": 79,
+  "text": "un",
+  "start": 26.3,
+  "end": 26.4
+ },
+ {
+  "id": 80,
+  "text": "aviso.",
+  "start": 26.4,
+  "end": 26.82
+ },
+ {
+  "id": 81,
+  "text": "¿Lo",
+  "start": 27.143,
+  "end": 27.3
+ },
+ {
+  "id": 82,
+  "text": "vemos",
+  "start": 27.3,
+  "end": 27.5
+ },
+ {
+  "id": 83,
+  "text": "en",
+  "start": 27.5,
+  "end": 27.7
+ },
+ {
+  "id": 84,
+  "text": "tu",
+  "start": 27.7,
+  "end": 27.8
+ },
+ {
+  "id": 85,
+  "text": "local?",
+  "start": 27.8,
+  "end": 28.21
+ },
+ {
+  "id": 86,
+  "text": "Agendá",
+  "start": 28.57,
+  "end": 28.8
+ },
+ {
+  "id": 87,
+  "text": "una",
+  "start": 28.8,
+  "end": 29
+ },
+ {
+  "id": 88,
+  "text": "videollamada",
+  "start": 29,
+  "end": 29.3
+ },
+ {
+  "id": 89,
+  "text": "gratis",
+  "start": 29.3,
+  "end": 29.7
+ },
+ {
+  "id": 90,
+  "text": "en",
+  "start": 29.7,
+  "end": 30.1
+ },
+ {
+  "id": 91,
+  "text": "scalerics.com.",
+  "start": 30.07,
+  "end": 31.2
+ }
+]
