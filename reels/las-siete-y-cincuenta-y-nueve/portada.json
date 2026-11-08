@@ -1,0 +1,13 @@
+{
+ "t": 0.5,
+ "chica": "Cerrás a las 20.",
+ "grande": "Entra a las 19:59",
+ "sello": "Una cosita nomás",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 7,72 s: el final de la grúa, el almacén con la lista cruzando la calle), guardado en portada-src/fondo-limpio-7.72.png. Para regenerar: hacé con ese png un mp4 de 1 s recortado desde y=130 (crop=1080:1790:0:130,pad=1080:1920 navy; el letrero queda arriba del sello) en renders/portada-fondo.mp4, ponelo un momento como renders/las-siete-y-cincuenta-y-nueve-final.mp4, corré portada.mjs y devolvé el final (verificá el md5)."
+}

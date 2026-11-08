@@ -1,0 +1,11 @@
+{
+  "name": "las-siete-y-cincuenta-y-nueve",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.206 preview",
+    "check": "npx --yes hyperframes@0.8.206 check",
+    "render": "npx --yes hyperframes@0.8.206 render",
+    "publish": "npx --yes hyperframes@0.8.206 publish"
+  }
+}
