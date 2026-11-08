@@ -741,7 +741,7 @@ const RK = [
   [T.pD - 0.001, { ...aC(-0.45, 0.04), ojos: { x: -0.6, y: 0.0, abiertos: 0.55, tension: 0.1 }, cejas: { alto: 0.25, ang: 0.1 }, boca: { sonrisa: 0.2 } }, 0.001],
   [T.voz2 + 2.1, { ...CARA.sonrisa, ojos: { x: -0.6, feliz: 0.45, abiertos: 0.65 } }, 0.3],
   // E: baja la cortina de un tirón con la derecha, se acomoda, sorbo, mira a cámara y guiña
-  [T.pE - 0.001, { x: RB.x - 0.1, z: RB.z - 0.1, giro: -0.6, ...aC(-0.3, 0.2), codoD: [-0.8, -0.5, 0] }, 0.001],
+  [T.pE - 0.001, { x: RB.x - 0.2, z: RB.z - 0.12, giro: -0.6, ...aC(-0.3, 0.2), codoD: [-0.8, -0.5, 0] }, 0.001],
   [T.tiron[1] + 0.35, { codoD: null, giro: -0.2 }, 0.3],
   [T.sorboE - 0.05, { manoI: [0.06, 0.66, 0.24], codoI: [1, -0.4, 0.1], ojos: { abiertos: 0, feliz: 0.6 }, cabeza: { giro: -0.05, asiente: -0.1 } }, 0.25],
   [T.aCamara, { manoI: [0.2, 0.18, 0.24], codoI: [1, -0.4, -0.4], ...aC(0.12, 0.02), ojos: { x: 0.15, y: 0.05, abiertos: 0.8, feliz: 0.35 }, ...CARA.sonrisa, boca: { sonrisa: 0.8 } }, 0.3],
@@ -755,7 +755,7 @@ const WK = [
   [T.frena, { x: WB.x, giro: 1.1, paso: 0, inclina: 0.05, ...aC(0.2, -0.05), ojos: { x: 0.4 }, ...CARA.esperanza, boca: { sonrisa: 0.1, abierta: 0.5, ancho: 0.8 } }, 0.15],
   [T.b1 + 0.5, { boca: { sonrisa: 0.4, abierta: 0, ancho: 1 } }, 0.2],
   // plano 3: sonrisa de perdón, manos juntas, después el papelito entre dos dedos
-  [T.p3 - 0.001, { giro: 1.0, manoI: [0.07, 0.3, 0.3], manoD: [-0.07, 0.3, 0.3], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], ...aC(0.55, -0.02), ojos: { x: 0.65, y: 0 }, ...CARA.esperanza, cejas: { alto: 0.7, ang: 0.75 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1.05 } }, 0.001],
+  [T.p3 - 0.001, { giro: 1.0, manoI: [0.07, 0.3, 0.3], manoD: [-0.07, 0.3, 0.3], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], ...aC(0.15, -0.02), ojos: { x: 0.25, y: 0 }, ...CARA.esperanza, cejas: { alto: 0.7, ang: 0.75 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1.05 } }, 0.001],
   [T.b2 + 0.1, { boca: { sonrisa: 0.4, abierta: 0.3, ancho: 0.9 } }, 0.12],
   [T.b2 + 0.4, { boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 } }, 0.15],
   [T.papelito, { manoD: [-0.16, 0.52, 0.42], codoD: [-0.8, -0.5, 0] }, 0.25],
@@ -838,9 +838,9 @@ function ponerPersonajes(t, gap) {
   } else if (t >= T.pE && t < T.tiron[1] + 0.3) {
     // E: la baja de un tirón con la mano, hasta la rodilla; el resto cae sola (clanc)
     gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize());
-    const y = Math.max(gap, 0.5), suelta = sg(t, T.tiron[1], T.tiron[1] + 0.3);
-    pr.inclina = lerp(0.05, 0.45, sg(y, 1.0, 0.5)) * (1 - suelta);
-    const p2 = manoA(ruben, { ...pr }, "D", V3(0.55, y + 0.02, 0.15));
+    const y = Math.max(gap, 0.92), suelta = sg(t, T.tiron[0] + 0.12, T.tiron[1] + 0.3);
+    pr.inclina = 0.12 * (1 - suelta);
+    const p2 = manoA(ruben, { ...pr }, "D", V3(0.62, y + 0.02, 0.15));
     pr.manoD = p2.manoD.map((v, i) => lerp(v, [-0.3, -0.06, 0.05][i], eio(suelta)));
   } else if (t >= T.pC) { gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize()); }
   else gancho.visible = false;
@@ -1012,11 +1012,11 @@ function renderAt(tIn) {
         it.visible = true;
         const u = sg(t, t0, t0 + 0.3);
         const desde = V3(MOSTRADOR.x + 0.05 + (i % 4) * 0.08, MOSTRADOR.y + 0.0, MOSTRADOR.z + 0.12 - Math.floor(i / 4) * 0.12);
-        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.06, MOSTRADOR.y + 0.08 + (i % 2) * 0.04, bolsa.position.z);
+        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.4, bolsa.position.z);
         it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.22;
         it.rotation.set(0, i, u * (i % 2 ? 2 : -2));
-        const sc = u >= 1 ? 0.6 : 1 - 0.4 * u; it.scale.setScalar(sc);
-        it.visible = u < 1 || i === 3; // el pan flauta asoma de la bolsa
+        const sc = 1 - 0.55 * u; it.scale.setScalar(sc);
+        it.visible = u < 0.96 || i === 3; // entran por arriba de la bolsa; el pan flauta queda asomando
         if (i === 3 && u >= 1) { it.position.set(bolsa.position.x + 0.04, MOSTRADOR.y + 0.36, bolsa.position.z); it.rotation.set(0, 0.3, 1.25); it.scale.setScalar(0.8); }
       } else if (i === 3 && bolsa.visible) {
         // el pan flauta asomando de la bolsa (afuera)
@@ -1062,8 +1062,8 @@ function renderAt(tIn) {
   // ---- burbujas (en el espacio de la cámara, debajo del chip) ----
   const kf = Math.tan((camera.fov * D2R) / 2) / Math.tan(19 * D2R);
   const ponerB = (b, ti, tf, x, y) => {
-    const e = bk(sg(t, ti, ti + 0.3)), sale = eio(sg(t, tf - 0.15, tf));
-    b.visible = e > 0.002 && sale < 1 && t < tf;
+    const e = bk(sg(t, ti, ti + 0.3)), sale = eio(sg(t, tf - 0.1, tf));
+    b.visible = e > 0.002 && sale < 0.5 && t < tf;
     if (!b.visible) return;
     b.position.set(x * kf, (y + (1 - eo(sg(t, ti, ti + 0.3))) * -0.03 + sale * 0.05) * kf, -1.0);
     b.rotation.set(0.08, Math.sin((t - ti) * 1.7) * 0.05, Math.sin((t - ti) * 2.2) * 0.02);
