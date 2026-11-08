@@ -79,7 +79,7 @@ export const ELENCO = {
     panza: 1.08, nariz: 0.06, mejillas: 0xd98a78, alto: 1.02 },
   // Néstor, el de la casa de repuestos de la izquierda (dos-repuestos, 08-11): 60 años, pelo canoso corto, lentes,
   // camisa de trabajo gris con bolsillo y parche crema con su nombre. Bueno en lo suyo: abre a las 8 y contesta enseguida.
-  nestor: { nombre: "Néstor", piel: PIEL.clara, pelo: 0xc4c1bb, peinado: "texturado", texturaAlto: 0.8, cejasColor: 0x8d8a86, lentes: MARCA.navy2, lentesDist: 1.09,
+  nestor: { nombre: "Néstor", piel: PIEL.clara, pelo: 0xc4c1bb, peinado: "alCostado", cejasColor: 0x8d8a86, lentes: MARCA.navy2, lentesDist: 1.09,
     camisa: 0x7c828c, mangas: "largas", cuello: 0x6b717b, pantalon: 0x2f3440, zapatos: 0x2a2220, parche: MARCA.cr, bolsillo: 0x6b717b,
     panza: 1.12, nariz: 0.064, mejillas: 0xe39a8a, alto: 1.0 },
   // Daniel, el de la casa de repuestos de la derecha (dos-repuestos): 50 años, barba entrecana corta, camisa de trabajo
@@ -297,6 +297,19 @@ export function crearPersonaje(cfg) {
     }
     // flequillo: puntas cortas que caen hacia la frente
     for (const [az, el, rz] of [[-0.5, 0.66, 0.4], [-0.25, 0.7, 0.15], [0.02, 0.71, -0.05], [0.28, 0.7, -0.2], [0.52, 0.65, -0.4]]) mecha(az, el, 0.06, 0.04, 0.024, 1.025, rz, 0.55);
+  } else if (c.peinado === "alCostado") {
+    // varón mayor: canoso, corto y peinado al costado (raya a la izquierda). Casquete liso y bajo + mechones largos y planos
+    // que barren hacia la derecha (líneas de peine, no bultos) + una onda sobre la frente; costados rebajados.
+    const mecha = (az, el, sx, sy, sz, k = 1.0, rz = 0, rx = 0) => { const m = mesh(G.esfera, M.pelo, 0, 0, 0, sx, sy, sz); sobre(m, az, el, k); m.rotation.z += rz; m.rotation.x += rx; cabeza.add(m); return m; };
+    { const cap = mesh(new THREE.SphereGeometry(1, 40, 18, 0, Math.PI * 2, 0, Math.PI * 0.41), M.pelo, 0, CC + 0.004, -0.012, R * 1.035, R * 1.03, R * 1.035); cap.rotation.x = -0.24; cabeza.add(cap); }
+    for (const sg of [-1, 1]) { mecha(sg * 1.5, 0.46, 0.11, 0.08, 0.018, 1.0, 0); mecha(sg * 1.34, 0.2, 0.024, 0.065, 0.014, 1.0, sg * 0.05); }
+    // raya: del lado izquierdo el pelo sube apenas (un borde marcado)
+    mecha(-0.62, 0.86, 0.035, 0.15, 0.022, 1.03, 0.0, -0.2);
+    // barridos: largos, finos, en filas, inclinados hacia la derecha
+    for (const [az, el, sx] of [[-0.3, 0.82, 0.17], [0.05, 0.8, 0.2], [0.42, 0.76, 0.17], [-0.25, 1.0, 0.18], [0.12, 0.98, 0.21], [0.5, 0.92, 0.16], [-0.1, 1.18, 0.2], [0.3, 1.14, 0.18]])
+      mecha(az, el, sx, 0.03, 0.02, 1.03, -0.28, 0.05);
+    // la onda sobre la frente, hacia la derecha
+    mecha(0.18, 0.7, 0.2, 0.045, 0.035, 1.03, -0.32, 0.35);
   } else if (c.peinado === "pelado") {
     const corona = mesh(new THREE.SphereGeometry(1, 32, 16, Math.PI * 0.93, Math.PI * 1.14, Math.PI * 0.34, Math.PI * 0.3), M.pelo, 0, CC, 0, R * 1.035, R * 1.0, R * 0.985);
     cabeza.add(corona);

@@ -123,11 +123,10 @@ const subtitulos = `<template>
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
     ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: -5px -5px 0 #0b1220, 5px -5px 0 #0b1220, -5px 5px 0 #0b1220, 5px 5px 0 #0b1220, 0 -7px 0 #0b1220, 0 7px 0 #0b1220, -7px 0 0 #0b1220, 7px 0 0 #0b1220, 0 12px 0 rgba(11, 18, 32, 0.45); }
-    ${C} .w.ac em { text-shadow: none; color: #0b1220; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 6px; }
-    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #0b1220; background: #5ce611; border-radius: 6px; }
+    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #0b1220; background: #5ce611; border-radius: 6px; opacity: 0; }
     ${C} .malo .caja { border-color: #0b1220; background: #d9877e; }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #0b1220; }
     
@@ -150,11 +149,12 @@ ${anim}      ];
           const t = ini + Number(w.dataset.t);
           const caja = w.querySelector(".caja");
           // entra entera (sin fundido gris): aparece y rebota un poco en escala
-          // las palabras con recuadro entran recién cuando se dicen (junto con su recuadro): nunca navy sin fondo
-          const tw = caja ? t : ini;
+          // todas las palabras están desde el principio del grupo (sin huecos); la del recuadro arranca blanca con borde
+          // y pasa a navy recién cuando entra su recuadro verde (nunca navy sin fondo)
+          const tw = ini;
           tl.set(w, { opacity: 1 }, tw);
           tl.fromTo(w, { y: 14, scale: 0.9 }, { y: 0, scale: 1, duration: 0.14, ease: "back.out(2)", immediateRender: false }, tw);
-          if (caja) { tl.set(caja, { opacity: 1 }, t); tl.fromTo(caja, { scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.16, ease: "power3.out", immediateRender: false }, t); }
+          if (caja) { tl.set(w.querySelector("em"), { color: "#0b1220", textShadow: "none" }, t); tl.set(caja, { opacity: 1 }, t); tl.fromTo(caja, { scaleX: 1.08, scaleY: 1.25, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.16, ease: "power3.out", immediateRender: false }, t); }
         }
         tl.set(el.querySelector("p"), { opacity: 0 }, ini + dur - 0.001);
       }

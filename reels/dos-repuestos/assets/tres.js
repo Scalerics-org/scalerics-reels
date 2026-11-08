@@ -37,7 +37,7 @@ const T = {
   rubenM: W[69], bateriaM: W[73], s10: S["s10-tu-local"], tuLocal: W[78], diez: W[82], s11: S["s11-llamada"],
 };
 T.remate = WF[73] + 0.1;            // pausa en silencio: la cortina de Néstor sube y llega su mensaje
-T.cortinaN = T.bateriaM - 0.75;     // la cortina de Néstor arranca a subir (tarda 1 s)
+T.cortinaN = T.bateriaM - 0.75; T.subeD = T.s09 + 0.3;     // la cortina de Néstor arranca a subir (tarda 1 s)
 T.msjN = T.remate + 0.35;           // "¡Buen día, Rubén! Sí, tenemos. ¿Pasás?"
 T.levanta = T.msjN + 0.95;          // Rubén levanta la batería; Néstor se ríe
 
@@ -447,10 +447,16 @@ const texBurbuja = lienzo(820, 420, (x) => {
   x.fillStyle = "#0b1220"; x.font = F(700, 64);
   ["Hola, ¿tienen batería", "12 V de 75 amperes?", "La necesito mañana", "temprano."].forEach((l, i) => x.fillText(l, 50, 100 + i * 82));
 });
+const texBurbujaG = lienzo(820, 420, (x) => {
+  x.fillStyle = "#efeee5"; rr(x, 0, 0, 820, 420, 60);
+  x.fillStyle = "#0b1220"; x.font = F(800, 116); x.fillText("¿Tienen", 56, 172); x.fillText("batería?", 56, 320);
+  x.fillStyle = "#5ce611"; x.beginPath(); x.arc(700, 110, 50, 0, 7); x.fill();
+  x.fillStyle = "#0b1220"; x.font = F(800, 64); x.textAlign = "center"; x.fillText("1", 700, 133);
+});
 const burbujas = [0, 1].map(() => {
   const g = new THREE.Group(); scene.add(g);
   g.add(mesh(rbox(0.82, 0.42, 0.06, 0.08), M.cr));
-  const p = plano(0.8, 0.41, texBurbuja); p.position.z = 0.032; g.add(p);
+  const p = plano(0.8, 0.41, texBurbuja); p.position.z = 0.032; g.add(p); g.userData.p = p;
   const cola = mesh(new THREE.ConeGeometry(0.05, 0.12, 4), M.cr, -0.32, -0.24, 0); cola.rotation.z = 0.6; g.add(cola);
   return g;
 });
@@ -514,6 +520,7 @@ function armarHora(g, h) {
 }
 armarHora(hora22, "22"); armarHora(hora8, "8");
 pegarACamara(relojG, camera, 40);
+const relojMats = []; relojG.traverse((o) => { if (o.isMesh) relojMats.push(o.material); });
 // la burbuja de Néstor a la mañana (pegada a la cámara, grande)
 const texBNes = lienzo(900, 380, (x) => {
   x.fillStyle = "#ffffff"; rr(x, 0, 0, 900, 380, 60);
@@ -677,9 +684,9 @@ const CAM = [
   [T.dos + 0.3, RGIRO_OTS / D2R + 10, 8, 3.9, RUB.x + Math.cos(RGIRO_OTS) * 0.24, 1.42, RUB.z - Math.sin(RGIRO_OTS) * 0.24],
   // corte a las dos fachadas enteras: las dos copias entran grandes y vuelan a las rejas
   [T.dos + 0.32, 0, 4, 15.6, 0, 2.3, 0, true],
-  [T.s04 - 0.05, 0, 4, 14.8, 0, 2.25, 0],
-  [T.s04 + 0.3, 2, 6, 7.4, -0.4, 2.6, -0.4],
-  [T.nestor + 0.3, -6, 34, 1.4, NP.x, NP.y + 0.03, NP.z],
+  [T.s04 + 0.33, 0, 4, 14.6, 0, 2.25, 0],
+  [T.s04 + 0.33, -3, 16, 3.2, NP.x, 1.25, NP.z + 0.1, true],
+  [T.nestor + 0.55, -6, 34, 1.4, NP.x, NP.y + 0.03, NP.z],
   [T.manana + 0.3, -8, 38, 1.3, NP.x, NP.y + 0.02, NP.z],
   [T.s05 - 0.35, -6, 32, 1.5, NP.x, NP.y + 0.05, NP.z],
   // de Néstor a Daniel: se abre a los dos mostradores (la medianera queda finita en el medio) y entra a lo de Daniel
@@ -699,10 +706,11 @@ const CAM = [
   // push-in al celular del agente (de frente y bajo: el estante de atrás queda fuera de cuadro)
   [T.s09 - 0.001, -6, 16, 1.25, DP.x, 1.27, DP.z],
   // corte a la mañana: el plano del cuadro 0; la cortina de Néstor sube; push-in al remate
-  [T.s09, 0, 3, 16.6, 0, 4.15, 0, true],
-  [T.cortinaN + 1.0, 0, 3, 15.6, 0, 3.9, 0.1],
-  [T.remate + 0.2, 0, 3, 9.6, 0.2, 2.15, 0.6],
-  [T.s10 - 0.001, 0, 3, 9.3, 0.2, 2.15, 0.65],
+  [T.s09, 0, 3, 16.6, 0, 3.5, 0, true],
+  [T.cortinaN + 1.0, 0, 3, 15.6, 0, 3.35, 0.1],
+  [T.remate - 0.001, 0, 3, 15.3, 0, 3.32, 0.1],
+  [T.remate, 0, 6, 8.4, 0.2, 0.98, 0.6, true],
+  [T.s10 - 0.001, 0, 6, 8.1, 0.2, 0.98, 0.65],
   [T.s10, 4, 3, 10.6, X(1, 1.2), 2.9, 0, true],
   [T.s11 - 0.001, 3, 3, 9.6, X(1, 1.2), 3.0, 0],
   [T.s11, 0, 0, 3.4, CARD.x, CARD.y - 0.24, CARD.z, true],
@@ -752,12 +760,12 @@ const cKeyN = new THREE.Color(0xbcd0ff), cKeyD = new THREE.Color(0xfff1de), cSky
 const cBrilloOff = new THREE.Color(0x10151f), cBrilloG = new THREE.Color(0x5ce611), cBrilloDia = new THREE.Color(0x8a8f9c);
 const _v = new THREE.Vector3(), _q = new THREE.Quaternion();
 // día: 0 noche, 1 mañana
-function dia(t) { return t >= T.s10 ? 0 : eio(sg(t, T.s09 + 0.05, T.s09 + 0.6)); }
+function dia(t) { return t >= T.s10 ? 0 : eio(sg(t, T.s09 + 0.28, T.s09 + 0.75)); } // aclara recién con el reloj ya en 8:00
 // cortinas: 1 = abajo (cerrada), 0 = sin cortina (corte de casa de muñecas o levantada)
 function cortina(L, t) {
   const corte = (a, b) => eio(sg(t, a, a + 0.5)) * (1 - eio(sg(t, b, b + 0.5)));
   let baja = Math.max(corte(T.s04 - 0.15, T.ruben + 0.02), corte(T.s07 - 0.7, L.s < 0 ? T.s09 - 0.6 : T.s09 + 0.15));
-  if (L.s > 0 && t >= T.s09 && t < T.s10) baja = 1; // la de Daniel, a la mañana ya está arriba (abierto)
+  if (t >= T.s09 && t < T.s10) baja = 0; // a la mañana las dos arrancan bajas: la de Daniel sube a las 8 en punto, la de Néstor después
   return 1 - baja;
 }
 function renderAt(t) {
@@ -780,7 +788,7 @@ function renderAt(t) {
   for (const L of locales) {
     const k = cortina(L, t);
     // la cortina se hunde en la vereda (corte) o, a la mañana, se enrolla en el tambor
-    const sube = L.s < 0 ? eio(sg(t, T.cortinaN, T.cortinaN + 1.0)) * (t < T.s10 ? 1 : 0) : 0;
+    const sube = (L.s < 0 ? eio(sg(t, T.cortinaN, T.cortinaN + 1.0)) : eio(sg(t, T.subeD, T.subeD + 0.45))) * (t >= T.s09 && t < T.s10 ? 1 : 0);
     L.cortina.position.y = -(1 - k) * 2.95;
     L.cortina.scale.y = Math.max(0.02, 1 - sube * 0.98); L.cortina.position.y += sube * (ABRE.alto - 0.06);
     L.cortina.visible = k > 0.005 && sube < 0.99;
@@ -814,7 +822,7 @@ function renderAt(t) {
     g.position.set(X(s0, 1.19), 3.0 - 0.45 * baja + Math.sin(t * 3 + s0) * 0.03, 0.7); g.rotation.set(0, 0, Math.sin(t * 2 + s0) * 0.05);
   });
   // ---- "los dos estantes": las dos baterías iguales laten a la vez ----
-  { const k = 1 + 0.16 * pulso(t, T.losDos - 0.08, 0.4); batN.scale.setScalar(k); const g8 = t < T.s09 ? 1 - eo(sg(t, T.s08 + 0.05, T.s08 + 0.4)) : 1; etiqN.scale.setScalar(Math.max(0.001, k * g8) * (t >= T.s07 - 0.5 && t < T.s08 + 0.1 ? 1.35 : 1.0)); etiqN.visible = g8 >= 0.002; }
+  { const k = 1 + 0.22 * pulso(t, T.losDos - 0.08, 0.4); batN.scale.setScalar(k); const g8 = t < T.s09 ? 1 - eo(sg(t, T.s08 + 0.05, T.s08 + 0.4)) : 1; etiqN.scale.setScalar(Math.max(0.001, k * g8) * (t >= T.s07 - 0.5 && t < T.s08 + 0.1 ? 1.35 : 1.0)); etiqN.visible = g8 >= 0.002 && t >= T.s07 - 0.001; { const m = t >= T.s07 - 0.001 ? texBat : texBatS; const et = batN.userData.et; if (et.material.map !== m) { et.material.map = m; et.material.needsUpdate = true; } } }
   // ---- la batería muerta: su testigo rojo titila ----
   { const on = t >= T.bateria - 0.1 && t < T.s03 ? (Math.sin(t * 14) > 0 ? 1 : 0.25) : 0.25; batMuerta.userData.testigo.color.setRGB(0.42 + 0.40 * on, 0.11 + 0.11 * on, 0.10 + 0.10 * on, THREE.SRGBColorSpace); }
 
@@ -940,7 +948,7 @@ function duenosEn(t, d) {
       // a la mañana: Daniel detrás de su mostrador, saluda a Rubén; Néstor en su puerta con el mate y el celular
       if (s > 0) {
         const claves = [
-          [0, { x: X(1, 0.98), z: -1.55, giro: -0.3, ...CARA.sonrisa, cabeza: { giro: -0.2 }, manoI: [0.3, 0.32, 0.36], manoD: [-0.3, 0.32, 0.36] }],
+          [0, { x: X(1, 1.2), z: -1.55, giro: -0.3, ...CARA.sonrisa, cabeza: { giro: -0.2 }, manoI: [0.3, 0.32, 0.36], manoD: [-0.3, 0.32, 0.36] }],
           [T.s09 + 0.9, { manoI: [0.4, 0.86, 0.12], codoI: [1, -0.6, -0.2] }, 0.3],
           [T.s09 + 1.8, { manoI: [0.3, 0.32, 0.36], codoI: null }, 0.35],
         ];
@@ -949,7 +957,7 @@ function duenosEn(t, d) {
         P.poner(p);
       } else {
         const claves = [
-          [0, { x: X(-1, 0.75), z: -0.15, giro: 0.1, ...CARA.neutra, cabeza: { asiente: 0.3 }, ojos: { y: -0.8 }, manoI: [0.22, 0.25, 0.25], manoD: [-0.075, 0.33, 0.3], codoD: [-0.6, -0.8, -0.3] }],
+          [0, { x: X(-1, 0.75), z: -0.5, giro: 0.1, ...CARA.neutra, cabeza: { asiente: 0.3 }, ojos: { y: -0.8 }, manoI: [0.22, 0.25, 0.25], manoD: [-0.075, 0.33, 0.3], codoD: [-0.6, -0.8, -0.3] }],
           [T.msjN - 0.05, { cabeza: { asiente: 0.3 } }, 0.2],
           // levanta la vista: lo ve a Rubén con la batería; se ríe y le hace "la próxima" con la mano
           [T.levanta + 0.15, { giro: 0.7, cabeza: { asiente: 0.0, giro: 0.15 }, ojos: { y: 0.05, x: 0.4, feliz: 0.5 }, ...CARA.feliz, manoD: [-0.28, 0.42, 0.34], codoD: [-1, -0.5, -0.2] }, 0.3],
@@ -992,8 +1000,8 @@ function celularesEn(t, d) {
   {
     celFin.visible = t >= T.s11;
     if (celFin.visible) { celFin.position.copy(CARD).add(V(0, 0.1, 0)); celFin.rotation.set(-0.05, Math.sin(t * 1.1) * 0.12 - 0.15, 0.04); celFin.scale.setScalar(0.6 * lerp(0.8, 1, bk(sg(t, T.s11, T.s11 + 0.3)))); }
-    const s = t >= T.s11 ? 0.45 * bk(sg(t, T.s11 + 0.25, T.s11 + 0.6)) : 0; ocultar(tickFin, s);
-    tickFin.position.copy(CARD).add(V(0.33, 0.04, 0.12)); tickFin.rotation.set(0, Math.sin(t * 1.4) * 0.3, 0);
+    const s = t >= T.s11 ? 0.36 * bk(sg(t, T.s11 + 0.25, T.s11 + 0.6)) : 0; ocultar(tickFin, s);
+    tickFin.position.copy(CARD).add(V(0.29, 0.02, 0.12)); tickFin.rotation.set(0, Math.sin(t * 1.4) * 0.3, 0);
   }
   // Rubén: escribe, envía, y en el primer plano le llega la respuesta del agente
   {
@@ -1026,7 +1034,7 @@ function burbujasEn(t) {
       const E = V(s * 0.62, 2.75, 5.6);
       const u1 = eio(sg(t, corte, T.s04 + 0.1));
       p = lerpV(E, parar, u1); p.y += Math.sin(Math.PI * u1) * 0.35;
-      k = 1.15 * (1 - 0.15 * u1);
+      k = 1.5 * (1 - 0.1 * u1);
     }
     // espera en la puerta y entra al celular de su local
     const ent0 = s < 0 ? T.nestor - 0.2 : T.s05 - 0.25;
@@ -1034,6 +1042,7 @@ function burbujasEn(t) {
     p = lerpV(p, destino, u2); k *= 1 - 0.85 * u2;
     b.position.copy(p); b.scale.setScalar(k);
     b.lookAt(camera.position);
+    { const m = t < corte ? texBurbuja : texBurbujaG; const pm = b.userData.p.material; if (pm.map !== m) { pm.map = m; pm.needsUpdate = true; } }
   });
 }
 // ---------- la batería reservada ----------
@@ -1047,7 +1056,7 @@ function reservadaEn(t) {
   if (batRes.visible) {
     batRes.position.copy(RES0).add(V(0, 0.12 * Math.sin(Math.PI * sg(t, a, a + 0.45)), 0.42 * u));
     batRes.rotation.set(0, -0.15 * u, 0);
-    batRes.scale.setScalar((1 + 0.15 * pulso(t, a + 0.2, 0.3)) * (1 + 0.16 * pulso(t, T.losDos - 0.08, 0.4)));
+    batRes.scale.setScalar((1 + 0.15 * pulso(t, a + 0.2, 0.3)) * (1 + 0.22 * pulso(t, T.losDos + 0.04, 0.4)));
     const e = eo(sg(t, a + 0.35, a + 0.65));
     if (e > 0) {
       const g8 = t < T.s09 ? 1 - eo(sg(t, T.s08 + 0.05, T.s08 + 0.4)) : 1; /* en s08 los carteles se van: el foco es el celular y no pisan los subtítulos */
@@ -1079,25 +1088,31 @@ function pegadosEn(t) {
   // el reloj: en la transición a la mañana gira "22:00" -> "8:00"; en el callback vuelve a "22:00"
   const vis0 = t < T.s02;
   const vis1 = t >= T.s09 && t < W[71] + 0.3;
-  const vis2 = t >= T.s10 - 0.05 && t < T.tuLocal - 0.15;
+  const vis2 = t >= T.s10 && t < T.tuLocal - 0.2;
   relojG.visible = (vis0 || vis1 || vis2) && !window.__limpio;
   if (relojG.visible) {
     const D = 6, hF = 2 * D * tanFov;
     relojG.position.set(0, hF * (0.5 - (vis0 ? 0.865 : vis1 ? 0.36 : 0.6)), -D);
-    const s = (vis0 ? 0.78 : vis1 ? vida(t, T.s09 - 0.01, W[71], 0.06, 0.25) : vida(t, T.s10 - 0.05, T.tuLocal - 0.45, 0.35, 0.25)) * 0.36;
-    relojG.scale.setScalar(Math.max(0.001, s));
-    const f = vis0 ? 0 : vis1 ? eio(sg(t, T.s09 + 0.35, T.s09 + 0.75)) : 1 - eio(sg(t, T.s10 + 0.1, T.s10 + 0.5));
+    // entra con un pop corto y sale con fundido + leve achique (nunca queda un punto)
+    const ent = vis0 ? 1 : vis1 ? sg(t, T.s09 - 0.01, T.s09 + 0.05) : sg(t, T.s10, T.s10 + 0.25);
+    const sal = vis0 ? 0 : vis1 ? eio(sg(t, W[71], W[71] + 0.25)) : eio(sg(t, T.tuLocal - 0.45, T.tuLocal - 0.2));
+    const alfa = cl(Math.min(vis1 ? 1 : ent * 1.6, 1 - sal));
+    const s = (vis0 ? 0.78 : (vis1 ? 1 : lerp(0.82, 1, bk(ent))) * (1 - 0.18 * sal)) * 0.36;
+    relojG.scale.setScalar(s);
+    for (const m of relojMats) m.opacity = alfa;
+    relojG.visible = alfa > 0.01;
+    const f = vis0 ? 0 : vis1 ? eio(sg(t, T.s09 + 0.04, T.s09 + 0.3)) : 1 - eio(sg(t, T.s10 + 0.1, T.s10 + 0.5));
     // cambio de hora: la vieja se aplasta y la nueva crece (sin cruzar dígitos)
     const a = cl(f / 0.6), b = cl((f - 0.4) / 0.6);
     hora22.scale.set(1, Math.max(0.001, 1 - eio(a)), 1); hora22.visible = a < 0.999;
     hora8.scale.set(1, Math.max(0.001, bk(b)), 1); hora8.visible = b > 0.001;
   }
   // la burbuja de Néstor
-  const sb = vida(t, T.msjN, T.s10 - 0.25, 0.4, 0.25);
+  const sb = vida(t, T.msjN, T.s10 - 0.15, 0.4, 0.12);
   burNes.visible = sb > 0.002;
   if (burNes.visible) {
     const D = 6, hF = 2 * D * tanFov;
-    burNes.position.set(-0.05, hF * (0.5 - 0.3), -D);
+    burNes.position.set(-0.05, hF * (0.5 - 0.21), -D); // arriba: en el remate no hay subtítulos y no tapa caras
     burNes.scale.setScalar(sb * 0.75 * (1 + 0.04 * pulso(t, T.msjN + 0.3, 0.25)));
     burNes.rotation.set(0, 0, Math.sin(t * 2) * 0.02);
   }
