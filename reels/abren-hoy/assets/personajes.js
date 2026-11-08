@@ -589,3 +589,240 @@ export const SOFI_VARIANTES = {
   B: ELENCO.sofi,
   C: { ...ELENCO.sofi, peinado: "mediaCola", camisa: MARCA.cr, cuello: MARCA.g, franja: MARCA.g, pelo: 0x2e2220 },
 };
+
+// ---------- lo-mismo-que-la-otra-vez (08-11): poses nuevas ----------
+// pensar: la mano derecha al mentón con el índice apoyado debajo (sin entrar en la cara)
+BRAZOS.piensa = { manoD: [-0.04, 0.5, 0.36], codoD: [-0.5, -1, 0.1], dedoD: 0.5 };
+// ofrecer: las dos manos adelante, a la altura del pecho, sosteniendo algo de `ancho` (el objeto va entre las manos:
+// en la escena se pone en el punto medio de las dos manos, en espacio mundo)
+BRAZOS.ofrece = (ancho = 0.3, alto = 0.4, adelante = 0.44) => ({ manoI: [ancho / 2 + 0.03, alto, adelante], manoD: [-ancho / 2 - 0.03, alto, adelante], codoI: [0.8, -0.8, -0.2], codoD: [-0.8, -0.8, -0.2], dedoI: 0, dedoD: 0 });
+// el índice izquierdo arriba ("¡ya sé!"): con dedos: false se usa el dedo de señalar del módulo
+export const INDICE = { manoI: [0.44, 0.7, 0.16], codoI: [1, -0.5, -0.1], dedoI: 1 };
+// la frente contra algo que está adelante (la pila): se inclina fuerte, baja la cabeza, manos en el mostrador
+export const FRENTE = { inclina: 0.33, cabeza: { giro: 0, asiente: 0.3, ladea: 0.06 }, manoI: [0.34, 0.16, 0.34], manoD: [-0.34, 0.16, 0.34], codoI: [1, -0.4, -0.4], codoD: [-1, -0.4, -0.4], dedoI: 0, dedoD: 0 };
+// niega con la cabeza: cuánto sumar a cabeza.giro en t (2 ciclos de ±amp entre t0 y t1, con entrada y salida suaves)
+export const niega = (t, t0, t1, amp = 0.35, ciclos = 2) => {
+  if (t <= t0 || t >= t1) return 0;
+  const u = (t - t0) / (t1 - t0);
+  return Math.sin(u * Math.PI * 2 * ciclos) * amp * Math.sin(u * Math.PI);
+};
+
+// ---------- utilería del almacén (genérica, sin marcas; rótulos en Lexend). Origen en la base, medidas reales en m ----------
+const etiquetaTex = (w, h, dibujo) => {
+  const cv = document.createElement("canvas"); cv.width = w; cv.height = h; const x = cv.getContext("2d");
+  dibujo(x, w, h);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; return t;
+};
+const LX = (peso, px) => `${peso} ${px}px "Lexend", sans-serif`;
+const ajustar = (x, txt, peso, px, ancho) => { let s = px; x.font = LX(peso, s); while (x.measureText(txt).width > ancho && s > 10) { s -= 2; x.font = LX(peso, s); } return s; };
+const sombra = (g) => { g.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); return g; };
+const caras = (lado, frente, atras = lado) => [lado, lado, lado, lado, frente, atras]; // RoundedBox: [+x, -x, +y, -y, +z, -z]
+
+// Paquete de yerba de 1 kg: ladrillo de papel vertical con el fuelle de arriba doblado hacia adelante.
+export function crearYerba() {
+  const g = new THREE.Group();
+  const W = 0.16, H = 0.26, D = 0.09;
+  const papel = mat(0xefeee5, 0.92);
+  const frente = etiquetaTex(512, 832, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+    x.fillStyle = "#c7655b"; x.fillRect(0, 0, w, 150); x.fillRect(0, h - 90, w, 90);
+    // hoja de yerba
+    x.save(); x.translate(w / 2, 400); x.rotate(-0.5); x.fillStyle = "#4f7a2a"; x.beginPath(); x.ellipse(0, 0, 70, 150, 0, 0, Math.PI * 2); x.fill();
+    x.strokeStyle = "#efeee5"; x.lineWidth = 9; x.beginPath(); x.moveTo(0, -140); x.lineTo(0, 150); x.stroke();
+    for (const k of [-90, -40, 10, 60]) { x.beginPath(); x.moveTo(0, k); x.lineTo(48, k - 40); x.moveTo(0, k); x.lineTo(-48, k - 40); x.stroke(); }
+    x.restore();
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle";
+    ajustar(x, "YERBA", 900, 150, w - 50); x.fillText("YERBA", w / 2, 620);
+    ajustar(x, "MATE", 900, 120, w - 80); x.fillText("MATE", w / 2, 730);
+    x.fillStyle = "#efeee5"; x.font = LX(800, 70); x.fillText("1 kg", w / 2, 80);
+  });
+  const fm = new THREE.MeshStandardMaterial({ map: frente, roughness: 0.9 });
+  const cuerpo = new THREE.Mesh(rbox(W, H, D, 0.008, 2), caras(papel, fm, fm)); cuerpo.position.y = H / 2; g.add(cuerpo);
+  // fuelle: la parte de arriba aplastada y doblada hacia adelante
+  const pliegue = new THREE.Mesh(rbox(W * 0.98, 0.07, 0.02, 0.006, 2), [papel, papel, papel, papel, new THREE.MeshStandardMaterial({ color: 0xc7655b, roughness: 0.9 }), papel]);
+  pliegue.position.set(0, H + 0.006, D * 0.18); pliegue.rotation.x = 1.25; g.add(pliegue);
+  const borde = new THREE.Mesh(rbox(W * 0.98, 0.012, D * 0.7, 0.004, 1), papel); borde.position.set(0, H + 0.004, -D * 0.12); g.add(borde);
+  g.userData.tam = [W, H + 0.03, D];
+  return sombra(g);
+}
+
+// Galletitas de agua: paquete tubular de celofán crema, acostado (eje x), las galletitas se marcan en anillos,
+// los extremos plisados y retorcidos, banda roja con el nombre.
+export function crearGalletitas() {
+  const g = new THREE.Group();
+  const L = 0.3, R = 0.055;
+  const celo = new THREE.MeshPhysicalMaterial({ color: 0xe9e3cf, roughness: 0.32, clearcoat: 0.8, clearcoatRoughness: 0.25, metalness: 0 });
+  // perfil con un anillo por galletita
+  const pts = [];
+  const N = 22, L0 = L * 0.86;
+  pts.push(new THREE.Vector2(0.0001, -L0 / 2));
+  for (let i = 0; i <= N * 4; i++) { const u = i / (N * 4); pts.push(new THREE.Vector2(R * (0.965 + 0.035 * Math.cos(u * N * Math.PI * 2)), -L0 / 2 + u * L0)); }
+  pts.push(new THREE.Vector2(0.0001, L0 / 2));
+  const tubo = new THREE.Mesh(new THREE.LatheGeometry(pts, 32), celo); tubo.rotation.z = Math.PI / 2; g.add(tubo);
+  // banda roja con el nombre (cilindro abierto un poco más grande, solo al frente)
+  const banda = etiquetaTex(1024, 256, (x, w, h) => {
+    x.fillStyle = "#c7655b"; x.fillRect(0, 0, w, h);
+    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle";
+    ajustar(x, "GALLETITAS", 900, 120, w * 0.9); x.fillText("GALLETITAS", w / 2, 92);
+    ajustar(x, "DE AGUA", 800, 80, w * 0.6); x.fillText("DE AGUA", w / 2, 190);
+  });
+  const bm = new THREE.MeshStandardMaterial({ map: banda, roughness: 0.45 });
+  const b = new THREE.Mesh(new THREE.CylinderGeometry(R * 1.02, R * 1.02, L0 * 0.52, 32, 1, true, -1.25, 2.5), bm);
+  b.rotation.set(0, 0, Math.PI / 2); b.rotation.y = 0; g.add(b);
+  // la banda mira a +z: CylinderGeometry arranca en +z con thetaStart 0 → con el giro en z queda hacia +z
+  // extremos plisados y retorcidos
+  for (const s of [-1, 1]) {
+    const c = new THREE.Mesh(new THREE.ConeGeometry(R * 0.95, 0.05, 10, 1, true), celo); c.rotation.z = -s * Math.PI / 2; c.position.x = s * (L0 / 2 + 0.022); g.add(c);
+    const nudo = new THREE.Mesh(new THREE.CylinderGeometry(0.008, 0.012, 0.03, 8), celo); nudo.rotation.z = Math.PI / 2; nudo.position.x = s * (L0 / 2 + 0.055); g.add(nudo);
+  }
+  g.position.y = 0; g.children.forEach((o) => (o.position.y += R));
+  g.userData.tam = [L, 2 * R, 2 * R];
+  return sombra(g);
+}
+
+// Dulce de leche: pote de plástico blanco levemente cónico, tapa navy, etiqueta mostaza.
+export function crearDulceDeLeche() {
+  const g = new THREE.Group();
+  const H = 0.1, R0 = 0.05, R1 = 0.058;
+  const blanco = mat(0xf6f5ef, 0.35);
+  const pote = new THREE.Mesh(new THREE.CylinderGeometry(R1, R0, H, 32), blanco); pote.position.y = H / 2; g.add(pote);
+  const tex = etiquetaTex(1024, 256, (x, w, h) => {
+    x.fillStyle = "#d9a441"; x.fillRect(0, 0, w, h);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle";
+    ajustar(x, "DULCE DE LECHE", 900, 110, w * 0.48); x.fillText("DULCE DE LECHE", w / 2, h / 2 + 4);
+  });
+  const et = new THREE.Mesh(new THREE.CylinderGeometry(R1 * 0.995 + 0.002, R0 * 1.0 + 0.002 + (R1 - R0) * 0.15, H * 0.62, 32, 1, true), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.5 }));
+  et.position.y = H * 0.48; et.rotation.y = -Math.PI / 2; g.add(et);
+  const tapa = new THREE.Mesh(new THREE.CylinderGeometry(R1 + 0.005, R1 + 0.005, 0.018, 32), mat(0x16243d, 0.4)); tapa.position.y = H + 0.008; g.add(tapa);
+  const aro = new THREE.Mesh(new THREE.TorusGeometry(R1 + 0.005, 0.004, 6, 32), mat(0x0b1220, 0.4)); aro.rotation.x = Math.PI / 2; aro.position.y = H + 0.002; g.add(aro);
+  g.userData.tam = [2 * R1, H + 0.02, 2 * R1];
+  return sombra(g);
+}
+
+// Fideos: paquete largo de spaghetti de plástico transparente, los fideos mostaza adentro, etiqueta crema/navy.
+export function crearFideos() {
+  const g = new THREE.Group();
+  const W = 0.08, H = 0.3, D = 0.035;
+  const fideosTex = etiquetaTex(128, 512, (x, w, h) => {
+    x.fillStyle = "#d9a441"; x.fillRect(0, 0, w, h);
+    for (let i = 0; i < 26; i++) { const xx = 3 + i * 4.8; x.fillStyle = i % 2 ? "#e8bb5c" : "#c08b2e"; x.fillRect(xx, 0, 2.2, h); }
+  });
+  const haz = new THREE.Mesh(rbox(W * 0.9, H * 0.94, D * 0.75, 0.01, 2), new THREE.MeshStandardMaterial({ map: fideosTex, roughness: 0.45 })); haz.position.y = H / 2; g.add(haz);
+  const plast = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.12, transparent: true, opacity: 0.28, clearcoat: 1, depthWrite: false });
+  const bolsa = new THREE.Mesh(rbox(W, H, D, 0.012, 2), plast); bolsa.position.y = H / 2; bolsa.renderOrder = 2; g.add(bolsa);
+  const tex = etiquetaTex(256, 640, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120); x.fillRect(0, h - 70, w, 70);
+    x.save(); x.translate(w / 2, h / 2 + 30); x.rotate(-Math.PI / 2); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle";
+    ajustar(x, "SPAGHETTI", 900, 150, h * 0.62); x.fillText("SPAGHETTI", 0, 0); x.restore();
+    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = LX(800, 54); x.fillText("500 g", w / 2, 80);
+  });
+  const et = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.92, H * 0.55), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6 }));
+  et.position.set(0, H * 0.52, D / 2 + 0.002); g.add(et);
+  const cierre = new THREE.Mesh(rbox(W * 1.02, 0.014, D * 0.5, 0.004, 1), mat(0xdedcd2, 0.4)); cierre.position.y = H - 0.005; g.add(cierre);
+  g.userData.tam = [W, H, D];
+  return sombra(g);
+}
+
+// Maple de huevos: maple de cartón gris crema de 12 (3 x 4) con sus cúpulas y 12 huevos crema marrón claro.
+export function crearMaple() {
+  const g = new THREE.Group();
+  const carton = mat(0xbdb6a3, 0.95), huevo = mat(0xe7cfa8, 0.55);
+  const P = 0.058, NX = 4, NZ = 3;
+  const W = NX * P + 0.02, D = NZ * P + 0.02;
+  const base = new THREE.Mesh(rbox(W, 0.03, D, 0.008, 2), carton); base.position.y = 0.015; g.add(base);
+  const copa = new THREE.SphereGeometry(0.028, 14, 8, 0, Math.PI * 2, Math.PI * 0.45, Math.PI * 0.55);
+  const ovo = new THREE.SphereGeometry(1, 18, 14);
+  for (let i = 0; i < NX; i++) for (let k = 0; k < NZ; k++) {
+    const x = (i - (NX - 1) / 2) * P, z = (k - (NZ - 1) / 2) * P;
+    const c = new THREE.Mesh(copa, carton); c.position.set(x, 0.05, z); c.scale.set(1, 1.2, 1); g.add(c);
+    const h = new THREE.Mesh(ovo, huevo); h.scale.set(0.022, 0.03, 0.022); h.position.set(x, 0.058, z); g.add(h);
+  }
+  // los conitos del medio (separadores) de cartón
+  for (let i = 0; i < NX - 1; i++) for (let k = 0; k < NZ - 1; k++) { const s = new THREE.Mesh(new THREE.ConeGeometry(0.012, 0.05, 8), carton); s.position.set((i - (NX - 2) / 2) * P, 0.05, (k - (NZ - 2) / 2) * P); g.add(s); }
+  g.userData.tam = [W, 0.09, D];
+  return sombra(g);
+}
+
+// Jabón en pan verde, translúcido y brillante, con un envoltorio de papel crema a medio abrir.
+export function crearJabonPan() {
+  const g = new THREE.Group();
+  const W = 0.1, H = 0.05, D = 0.06;
+  const jab = new THREE.MeshPhysicalMaterial({ color: 0x5ce611, roughness: 0.18, clearcoat: 1, clearcoatRoughness: 0.1, emissive: 0x2c7a06, emissiveIntensity: 0.25, transparent: true, opacity: 0.93 });
+  const b = new THREE.Mesh(rbox(W, H, D, 0.012, 3), jab); b.position.y = H / 2; g.add(b);
+  // envoltorio: cubre la mitad izquierda, con la solapa levantada
+  const pap = mat(0xefeee5, 0.85);
+  const env = new THREE.Mesh(rbox(W * 0.52, H * 1.06, D * 1.06, 0.006, 2), pap); env.position.set(-W * 0.26, H / 2, 0); g.add(env);
+  const sol = new THREE.Mesh(new THREE.BoxGeometry(W * 0.3, 0.003, D * 1.05), pap); sol.position.set(0.006, H * 1.06 + 0.012, 0); sol.rotation.z = 0.5; g.add(sol);
+  const tex = etiquetaTex(256, 128, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#3fa60a"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "JABÓN", 900, 70, w * 0.85); x.fillText("JABÓN", w / 2, h / 2); });
+  const et = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.48, H * 0.7), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.8 })); et.position.set(-W * 0.26, H / 2, D * 0.535); g.add(et);
+  g.userData.tam = [W, H, D];
+  return sombra(g);
+}
+
+// Lavandina: botella blanca de 2 L con manija, tapa roja apagada y etiqueta.
+export function crearLavandina() {
+  const g = new THREE.Group();
+  const blanco = mat(0xf7f7f2, 0.32);
+  const perfil = [[0, 0], [0.055, 0.002], [0.062, 0.02], [0.062, 0.2], [0.055, 0.24], [0.03, 0.27], [0.02, 0.285], [0, 0.285]].map(([r, y]) => new THREE.Vector2(r, y));
+  const cuerpo = new THREE.Mesh(new THREE.LatheGeometry(perfil, 28), blanco); cuerpo.scale.z = 0.72; g.add(cuerpo);
+  const manija = new THREE.Mesh(new THREE.TorusGeometry(0.038, 0.012, 8, 18, Math.PI * 1.1), blanco); manija.position.set(-0.046, 0.215, 0); manija.rotation.z = Math.PI * 0.35; g.add(manija);
+  const tapa = new THREE.Mesh(new THREE.CylinderGeometry(0.024, 0.024, 0.03, 18), mat(0xc7655b, 0.45)); tapa.position.y = 0.298; g.add(tapa);
+  const tex = etiquetaTex(512, 384, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 70); x.fillRect(0, h - 50, w, 50);
+    x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "LAVANDINA", 900, 110, w * 0.88); x.fillText("LAVANDINA", w / 2, h / 2 - 10);
+    x.font = LX(800, 70); x.fillText("2 L", w / 2, h / 2 + 90);
+  });
+  const et = new THREE.Mesh(new THREE.CylinderGeometry(0.0635, 0.0635, 0.12, 28, 1, true, -0.9, 1.8), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.5 }));
+  et.scale.z = 0.72; et.position.y = 0.11; g.add(et);
+  g.userData.tam = [0.124, 0.31, 0.09];
+  return sombra(g);
+}
+
+// Esponja: bloque mostaza con la cara de fibra verde oscura arriba.
+export function crearEsponja() {
+  const g = new THREE.Group();
+  const W = 0.1, H = 0.035, D = 0.068;
+  const am = mat(0xd9a441, 0.95), fib = mat(0x2f5a22, 1);
+  const a = new THREE.Mesh(rbox(W, H, D, 0.008, 2), am); a.position.y = H / 2; g.add(a);
+  const f = new THREE.Mesh(rbox(W, 0.012, D, 0.004, 1), fib); f.position.y = H + 0.006; g.add(f);
+  g.userData.tam = [W, H + 0.012, D];
+  return sombra(g);
+}
+
+// Bolsa de papel madera abierta arriba, con la boca doblada hacia afuera (las cosas asoman).
+export function crearBolsaPapel() {
+  const g = new THREE.Group();
+  const W = 0.24, H = 0.28, D = 0.15, e = 0.006;
+  const kraft = mat(0xc49a63, 0.95), kraftIn = mat(0x9c7442, 0.95, { side: THREE.DoubleSide });
+  const pared = (w, h, d, x, y, z) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), kraft); m.position.set(x, y, z); g.add(m); return m; };
+  pared(W, e, D, 0, e / 2, 0);
+  pared(W, H, e, 0, H / 2, D / 2); pared(W, H, e, 0, H / 2, -D / 2);
+  pared(e, H, D, W / 2, H / 2, 0); pared(e, H, D, -W / 2, H / 2, 0);
+  const inside = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.01, H - 0.02), kraftIn); inside.position.set(0, H / 2, -D / 2 + 0.005); g.add(inside);
+  // la boca doblada: un marco un poco más ancho
+  for (const [w, d, x, z] of [[W + 0.012, 0.012, 0, D / 2 + 0.004], [W + 0.012, 0.012, 0, -D / 2 - 0.004], [0.012, D + 0.02, W / 2 + 0.004, 0], [0.012, D + 0.02, -W / 2 - 0.004, 0]]) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(w, 0.04, d), kraft); m.position.set(x, H - 0.02, z); g.add(m);
+  }
+  // pliegues verticales del frente (líneas más oscuras)
+  for (const s of [-1, 1]) { const l = new THREE.Mesh(new THREE.BoxGeometry(0.004, H * 0.9, 0.002), mat(0xa27a46, 0.95)); l.position.set(s * W * 0.32, H * 0.47, D / 2 + 0.004); g.add(l); }
+  g.userData.tam = [W, H, D];
+  return sombra(g);
+}
+
+// Tablet en un atril: marco navy oscuro con bordes redondeados y la pantalla con la textura que se le pase
+// (un CanvasTexture que la escena redibuja). La pantalla mira a +z y el atril la inclina hacia atrás.
+export function crearTablet(textura, W = 0.26, H = 0.18) {
+  const g = new THREE.Group();
+  const marco = mat(0x0b1220, 0.35);
+  const pivote = new THREE.Group(); pivote.position.set(0, 0.03, 0); pivote.rotation.x = -0.42; g.add(pivote);
+  const cuerpo = new THREE.Mesh(rbox(W, H, 0.012, 0.014, 3), marco); cuerpo.position.y = H / 2; pivote.add(cuerpo);
+  const pant = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.92, H * 0.88), new THREE.MeshStandardMaterial({ map: textura, emissive: 0xffffff, emissiveMap: textura, emissiveIntensity: 0.55, roughness: 0.25 }));
+  pant.position.set(0, H / 2, 0.0065); pivote.add(pant);
+  const atril = mat(0x2c4268, 0.5);
+  const pata = new THREE.Mesh(rbox(W * 0.5, 0.012, 0.16, 0.005, 1), atril); pata.position.set(0, 0.006, -0.02); g.add(pata);
+  const apoyo = new THREE.Mesh(rbox(W * 0.4, 0.14, 0.012, 0.005, 1), atril); apoyo.position.set(0, 0.07, -0.07); apoyo.rotation.x = -0.5; g.add(apoyo);
+  const tope = new THREE.Mesh(rbox(W * 0.9, 0.02, 0.025, 0.006, 1), atril); tope.position.set(0, 0.012, 0.02); g.add(tope);
+  g.userData.pantalla = pant; g.userData.pivote = pivote; g.userData.tam = [W, H];
+  return sombra(g);
+}
