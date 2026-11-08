@@ -226,7 +226,7 @@
 - 07-11 · `dos-bicicleterias` · CRM (saber qué compró cada cliente y avisarle al que le sirve) · "Dos bicicleterías, los mismos cascos. Una sabe a quién avisarle." Dos negocios inventado: la izquierda sube la misma foto para todos; la derecha filtra en el CRM a los que compraron bici sin casco y le escribe a Paula por su nombre; Paula ve las dos en su casa, la foto la pasa de largo, su nombre no, y esa tarde vuelve; callback: la ficha de Paula pasa a "Casco: sí" y se multiplica en Diego, Ana y Jorge con lo que le sirve a cada uno · Videollamada gratis (ojo: 4º "le escribe por su nombre y vuelve" después de dos-gimnasios, dos-ferreterias y caso-tu-nombre: no repetir ese remate) [formato Dos negocios · 3D real con personajes (Paula, Nico), fondo crema #efeee5] (empezado 05-11, terminado en la corrida del 07-11 13:09 tras 3 rondas de revisión)
 
 ## En curso
-<!-- corrida-activa: 2026-11-08T05:49 -->
+<!-- corrida-activa: 2026-11-08T06:39 -->
 
 - 06-11 · `lo-mismo-que-la-otra-vez` · CRM (qué compró cada cliente) · Para mandar completo: Graciela le pide a Rubén "lo mismo que la otra vez" sin decir qué; Rubén adivina de una pila; cartel "Un CRM más tarde…" y la ficha ya lo sabe · 3D real con personajes recurrentes, almacén, fondo navy claro #16243d · reservado (corrida 4 del 06-11)
 - 06-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido para retirar) · Para mandar completo: Rubén baja la cortina y a las 19:59 entra el cliente con una lista larga; cartel "Una tienda online más tarde…" y la bolsa ya está armada · 3D real con personajes recurrentes, almacén de noche, fondo navy oscuro #0b1220 · reservado (corrida 4 del 06-11)
