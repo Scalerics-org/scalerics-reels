@@ -1,0 +1,13 @@
+{
+ "t": 0.2,
+ "chica": "¿Por qué vienen",
+ "grande": "con dos sellos puestos?",
+ "sello": "Experimento real",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.15,
+ "foco": "55%",
+ "velo": "22,36,61",
+ "fondo": "#16243d",
+ "nota": "fondo = portada-fondo.png (cuadro 1,2 s renderizado con LIMPIO=1 node armar.mjs: solo la capa 3D, sin gancho, subtítulos ni logo; la tarjeta con dos sellos y el sello de goma), pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
+}

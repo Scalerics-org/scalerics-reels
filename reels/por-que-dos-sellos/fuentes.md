@@ -80,3 +80,19 @@ pantalla solo como crédito ("Nunes y Drèze, 2006") si el constructor quiere. N
 - **Universidades de los autores, "Harvard"**: no se dicen (algunos blogs lo atribuyen mal). Afuera.
 - **"Nunes & Drèze (2006) en Journal of Marketing Research"**: confusión de algunos blogs con otro paper de 2004 de
   los mismos autores. La revista correcta es Journal of Consumer Research.
+
+## Sonido (constructor, 08-11)
+- Sin descargas nuevas: todo sale de otros reels del repo, con su origen ya anotado.
+- Sello de goma (`assets/sfx/sello.mp3`): "Stamp", kermite607, Freesound, CC0 1.0
+  (https://freesound.org/people/kermite607/sounds/362624/), de reels/tres-segundos (y trabajar-con-scalerics).
+- Papel de la etiqueta y de la tarjeta que vuela (`papel.mp3`): "Paper slide", Kingofgamers_cz, CC0 1.0
+  (https://freesound.org/people/Kingofgamers_cz/sounds/352914/), de reels/tres-segundos.
+- Campanita de la puerta del almacén (`campanita.mp3`): "Shop door bell.wav", 775noise, CC0 1.0
+  (https://freesound.org/people/775noise/sounds/494565/); puerta (`puerta.mp3`): "glass-door.wav", krissyeliot, CC0 1.0
+  (https://freesound.org/people/krissyeliot/sounds/125529/); vibración (`vibra.mp3`): SpliceSound, CC0 1.0
+  (https://freesound.org/people/SpliceSound/sounds/369839/). Los tres de reels/dos-bicicleterias.
+- Gotas/espuma del lavadero (`burbuja.mp3`): "Bubble Pop", Mafon2, CC0 1.0 (https://freesound.org/people/Mafon2/sounds/253956/).
+- El resto: los efectos de siempre del repo (HyperFrames: whoosh, whoosh-short, whoosh-cine-corto, pop, tic, click-soft,
+  ding, chime, sparkle, notification, golpe, impact-bass, riser-corto) y la música `bgm/bed.mp3` (la de por-que-el-final).
+- No hay sonido real de agua a presión ni de cepillos (la nube bloquea Freesound/Openverse): el lavadero suena con
+  burbujas + papel + whoosh, nada sintetizado.
