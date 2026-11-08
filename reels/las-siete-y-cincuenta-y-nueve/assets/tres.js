@@ -643,7 +643,7 @@ const PLANOS = [
   // B · el mostrador a la tarde: el aviso, el mate, la bolsa que se llena; push-in a la bolsa
   // B0 · inserto: el aviso del pedido en el celular de Rubén, de frente (la cámara la pone camCelu)
   [T.pB, "celu"],
-  [T.pBgen, [[T.pBgen, 0.62, 1.35, 0.3, 0.22, 1.3, -1.7, 40], [T.abrocha, 0.4, 1.33, -0.25, 0.1, 1.18, -1.45, 40], [T.pC, 0.3, 1.3, -0.45, 0.04, 1.15, -1.4, 40]]],
+  [T.pBgen, [[T.pBgen, 0.62, 1.35, 0.3, 0.22, 1.3, -1.7, 40], [T.abrocha, 0.2, 1.33, -0.25, -0.1, 1.18, -1.45, 40], [T.pC, 0.12, 1.32, -0.35, -0.08, 1.17, -1.42, 40]]],
   // C · callback del plano 1: misma vereda, mismo encuadre
   [T.pC, PLAN1.map((k, i) => [i ? T.pD : T.pC, ...k.slice(1)])],
   // D · primer plano de Rubén con el mate
@@ -755,8 +755,10 @@ const RK = [
   [T.da, { inclina: 0.05, manoD: [-0.22, 0.25, 0.5], codoD: [-0.8, -0.5, 0], ...aC(0.1, 0.05), ojos: { x: 0.25, abiertos: 0.6 } }, 0.25],
   [T.b3, { manoD: [-0.3, -0.06, 0.05], codoD: null, ...CARA.sonrisa, ojos: { x: 0.25, feliz: 0.3, abiertos: 0.65 } }, 0.3],
   // D: "Está en la bolsa, Walter." sin dejarlo terminar, con parsimonia
-  [T.pD - 0.001, { ...aC(-0.45, 0.04), ojos: { x: -0.6, y: 0.0, abiertos: 0.55, tension: 0.1 }, cejas: { alto: 0.25, ang: 0.1 }, boca: { sonrisa: 0.2 } }, 0.001],
-  [T.voz2 + 2.1, { ...CARA.sonrisa, ojos: { x: -0.6, feliz: 0.45, abiertos: 0.65 } }, 0.3],
+  // primer plano D: ojos abiertos, párpado arriba y mirada casi al frente (con el párpado bajo y la pupila corrida al costado
+  // la pupila y el brillo atravesaban el párpado); la mirada hacia Walter la da el giro de la cabeza
+  [T.pD - 0.001, { ...aC(-0.45, 0.04), ojos: { x: -0.2, y: 0.0, abiertos: 1, tension: 0, feliz: 0 }, cejas: { alto: 0.25, ang: 0.1 }, boca: { sonrisa: 0.2 } }, 0.001],
+  [T.voz2 + 2.1, { ...CARA.sonrisa, ojos: { x: -0.15, feliz: 0, abiertos: 1 } }, 0.3],
   // E: baja la cortina de un tirón con la derecha, se acomoda, sorbo, mira a cámara y guiña
   [T.pE - 0.001, { x: RB.x - 0.3, z: RB.z - 0.15, giro: -0.75, ...aC(-0.3, 0.2), codoD: [-0.8, -0.5, 0] }, 0.001],
   [T.tiron[1] + 0.35, { codoD: null, giro: -0.2 }, 0.3],
@@ -1006,7 +1008,7 @@ function renderAt(tIn) {
       hoja.rotation.order = "YXZ";
       hoja.rotation.set(-0.15, walter.raiz.rotation.y + giroV, 0);
       if (t < T.p7) hoja.rotation.set(-1.94, walter.raiz.rotation.y, 0);
-      tiraHoja.visible = t >= T.p7; hoja.scale.setScalar(t >= T.p7 ? 1.45 : 1);
+      tiraHoja.visible = t >= T.p7 && t < T.vuelta; // dada vuelta mostraba el texto del frente espejado hoja.scale.setScalar(t >= T.p7 ? 1.45 : 1);
       if (camHoja) {
         // inserto: el dorso llena el cuadro (la cámara del lado del dorso, con un push-in suave)
         hoja.updateMatrixWorld(true);
@@ -1046,10 +1048,10 @@ function renderAt(tIn) {
       if (enB) {
         it.visible = true;
         const u = sg(t, t0, t0 + 0.3);
-        const desde = V3(MOSTRADOR.x + 0.05 + (i % 4) * 0.08, MOSTRADOR.y + 0.0, MOSTRADOR.z + 0.12 - Math.floor(i / 4) * 0.12);
+        const desde = V3(MOSTRADOR.x - 0.95 + (i % 4) * 0.08, MOSTRADOR.y + 0.0, MOSTRADOR.z + 0.12 - Math.floor(i / 4) * 0.12); // entran desde la izquierda (lejos de la cara de Rubén)
         const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.42, bolsa.position.z); // caen por la boca de la bolsa
-        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.05;
-        it.rotation.set(0, i, u * (i % 2 ? 2 : -2));
+        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.18; // arco por arriba de la bolsa (vienen de la izquierda, lejos de la cara)
+        it.rotation.set(0, i, i === 3 ? 0 : u * (i % 2 ? 2 : -2)); // el pan vuela acostado (no barre la cara)
         const sc = 1 - 0.55 * u; it.scale.setScalar(sc);
         it.visible = u < 0.96 || i === 3; // entran por arriba de la bolsa; el pan flauta queda asomando
         if (i === 3 && u >= 0.96) { bolsa.updateMatrixWorld(true); it.position.copy(V3(0.11, 0.34, -0.055)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(-0.22, bolsa.rotation.y, 1.42); it.scale.setScalar(0.8); }
