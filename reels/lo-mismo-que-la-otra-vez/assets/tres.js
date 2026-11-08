@@ -218,7 +218,8 @@ const JABONES_ESTANTE = [];
 
 // ================= LOS PERSONAJES =================
 const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeosExtra: [] }); scene.add(ruben.raiz);
-const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 3.4 }); // que no parpadee justo en un corte (4,6 s de la parte 2) scene.add(graciela.raiz);
+// parpadeo cada 3,4 s: que no parpadee justo en un corte (4,6 s de la parte 2)
+const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 3.4 }); scene.add(graciela.raiz);
 for (const p of [ruben, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 
 // ================= UTILERÍA =================
