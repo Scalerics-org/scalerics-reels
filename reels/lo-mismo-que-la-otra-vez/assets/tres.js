@@ -218,7 +218,7 @@ const JABONES_ESTANTE = [];
 
 // ================= LOS PERSONAJES =================
 const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeosExtra: [] }); scene.add(ruben.raiz);
-const graciela = crearPersonaje(ELENCO.clienta); scene.add(graciela.raiz);
+const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 3.4 }); // que no parpadee justo en un corte (4,6 s de la parte 2) scene.add(graciela.raiz);
 for (const p of [ruben, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 
 // ================= UTILERÍA =================
@@ -588,7 +588,7 @@ if (P1) {
     // saca la mano de la pantalla (que se lea la ficha)
     [T.ficha + 0.05, { manoD: [-0.32, 0.3, 0.3], codoD: null, dedoD: 0, inclina: 0 }, 0.3],
     // pone las cosas en la bolsa (Q3) y la empuja hacia ella con la mano derecha
-    [T.bolsa[0] - 0.05, { manoD: [-0.1, 0.4, 0.5], codoD: [-0.7, -0.8, 0], dedoD: 0, inclina: 0.06, ...contento, ojos: { abiertos: 0.6, x: -0.5, y: -0.4, feliz: 0.3 } }, 0.2],
+    [T.bolsa[0] - 0.02, { manoD: [-0.1, 0.4, 0.5], codoD: [-0.7, -0.8, 0], dedoD: 0, inclina: 0.06, ...contento, ojos: { abiertos: 0.6, x: -0.5, y: -0.4, feliz: 0.3 } }, 0.1],
     [T.empuja, { manoD: [0.2, 0.33, 0.5], codoD: [-0.5, -0.8, -0.2], inclina: 0.1, torso: 0.15 }, 0.2],
     [T.empuja + 0.4, { manoD: [-0.05, 0.33, 0.62], inclina: 0.18, torso: -0.1 }, 0.4],
     [T.planos[4] - 0.01, { manoD: [-0.3, 0.32, 0.36], codoD: null, inclina: 0, torso: 0, ...conMate, ...contento }, 0.01],
