@@ -254,7 +254,7 @@ const ganchoPerchero = V3(PERCHERO.x + 0.0, 1.78, PERCHERO.z + 0.12);
 }
 const camperaColgada = crearCamperaColgada({ color: C.navy3, cuello: C.navy3, cierre: C.g }); scene.add(camperaColgada);
 // el cajón de verduras (dado vuelta: Walter se sienta)
-const CAJON = V3(0.98, 0, -0.66);
+const CAJON = V3(0.72, 0, -0.62);
 {
   const g = new THREE.Group(); g.position.copy(CAJON); g.rotation.y = 0.25; interior.add(g);
   for (const y of [0.05, 0.16, 0.27]) for (const s of [-1, 1]) { g.add(mesh(rbox(0.52, 0.07, 0.02, 0.005), M.madera, 0, y, s * 0.17)); g.add(mesh(rbox(0.02, 0.07, 0.34, 0.005), M.madera, s * 0.25, y, 0)); }
@@ -298,25 +298,32 @@ const lapicera = crearLapicera(); scene.add(lapicera);
 const camperaW = crearCamperaColgada({ color: C.cr2, cuello: C.navy, cierre: C.navy }); scene.add(camperaW);
 
 // ================= LA LISTA =================
+const LISTA_ROLLO = ["Yerba", "Fideos moñita", "2 leches", "Pan flauta", "Queso rallado", "Papas 1 kg", "Arroz", "Galletitas", "Dulce de leche", "Huevos (maple)", "Papel higiénico", "Zapallo", "Aceite", "Fósforos", "Tomates", "Harina", "Café", "Jabón", "Lentejas", "Mayonesa", "Polenta", "Azúcar", "Sal fina", "Detergente", "Cebollas", "Boniatos", "Manzanas", "Bananas", "Jamón", "Queso de sándwich", "Pan de molde", "Mermelada", "Cocoa", "Leche en polvo", "Garbanzos", "Puré de tomate", "Orégano", "Pimentón", "Caldo", "Ravioles", "Salchichas", "Refresco", "Agua 2 L", "Vino", "Hielo", "Shampoo", "Pasta de dientes", "Alfajores", "Bizcochos", "Limones"];
 const LISTA = ["Yerba", "Fideos moñita", "2 leches", "Pan flauta", "Queso rallado", "Papas 1 kg", "Arroz", "Galletitas", "Dulce de leche", "Huevos (maple)", "Papel higiénico", "Zapallo", "Aceite", "Fósforos", "Tomates", "Harina", "Café", "Jabón", "Lentejas", "Mayonesa", "Polenta", "Azúcar", "Sal fina", "Detergente"];
 // textura del rollo: 16 cm de ancho = 512 px; 1 m = 3200 px (se repite cada metro, con renglones que cambian)
 const ANCHO_LISTA = 0.17;
-const ATRAS = ["Detergente", "Pilas", "Polenta", "Carbón", "Lavandina", "Esponjas", "Sal gruesa", "Vinagre", "Velas", "Fideos tirabuzón", "Bolsas de residuo", "Té"];
-function dibujarLista(x, w, h, desde, tachado, atras) {
+const ATRAS = ["Pilas", "Carbón", "Lavandina", "Esponjas", "Sal gruesa", "Vinagre", "Velas", "Fideos tirabuzón", "Bolsas de residuo", "Té", "Pan rallado", "Manteca", "Atún", "Choclo", "Servilletas", "Arvejas"];
+function dibujarLista(x, w, h, desde, tachado, atras, rollo = false) {
   x.fillStyle = "#fbfaf4"; x.fillRect(0, 0, w, h);
   x.strokeStyle = "rgba(120,150,200,0.45)"; x.lineWidth = 3;
   const paso = 128;
   for (let y = paso * 0.75; y < h; y += paso) { x.beginPath(); x.moveTo(0, y); x.lineTo(w, y); x.stroke(); }
   x.fillStyle = "#16243d"; x.textBaseline = "alphabetic"; x.font = FC(92, 700);
   let y0 = paso * 0.7, i = desde;
-  if (atras) { x.font = F(900, 128); x.fillText("ATRÁS", 34, 140); x.fillRect(30, 162, 430, 14); y0 = 262; x.font = FC(88, 700); }
+  if (atras) {
+    x.font = F(900, 128); x.fillText("ATRÁS", 34, 140); x.fillRect(30, 162, 430, 14);
+    // la carilla entera llena: renglones más juntos, que siguen más allá del borde
+    x.strokeStyle = "rgba(120,150,200,0.45)"; x.lineWidth = 3; x.font = FC(54, 700); x.fillStyle = "#16243d";
+    for (let k = 0, y = 236; y < h + 40; k++, y += 52) { x.fillText("· " + ATRAS[k % ATRAS.length], 30, y); }
+    return;
+  }
   for (let y = y0; y < h - 10; y += paso, i++) {
-    const s = atras ? ATRAS[(i - desde) % ATRAS.length] : LISTA[i % LISTA.length];
+    const s = rollo ? LISTA_ROLLO[i % LISTA_ROLLO.length] : LISTA[i % LISTA.length];
     x.fillText("· " + s, 28, y);
     if (tachado) { x.strokeStyle = "#16243d"; x.lineWidth = 9; x.beginPath(); x.moveTo(24, y - 26); x.lineTo(40 + x.measureText("· " + s).width, y - 34); x.stroke(); }
   }
 }
-const listaTex = lienzo(512, 3200, (x, w, h) => dibujarLista(x, w, h, 0, false, false));
+const listaTex = lienzo(512, 6400, (x, w, h) => dibujarLista(x, w, h, 0, false, false, true)); // 2 m de rollo sin renglones repetidos
 listaTex.wrapT = THREE.RepeatWrapping;
 const listaMat = new THREE.MeshStandardMaterial({ map: listaTex, roughness: 0.75, side: THREE.DoubleSide, emissive: 0xffffff, emissiveMap: listaTex, emissiveIntensity: 0.3 });
 // el camino del rollo: mostrador → borde → cae → piso → puerta → vereda → cordón → calle
@@ -332,7 +339,7 @@ const listaGeo = new THREE.BufferGeometry();
   for (let i = 0; i <= NSEG; i++) {
     const p = ptsC[i];
     pos.set([p.x - ANCHO_LISTA / 2, p.y, p.z, p.x + ANCHO_LISTA / 2, p.y, p.z], i * 6);
-    const v = 1 - ((i / NSEG) * LARGO) / 1.0;
+    const v = 1 - ((i / NSEG) * LARGO) / 2.0;
     uv.set([0, v, 1, v], i * 4);
     if (i < NSEG) idx.push(i * 2, i * 2 + 1, i * 2 + 2, i * 2 + 1, i * 2 + 3, i * 2 + 2);
   }
@@ -437,7 +444,7 @@ const ticket = new THREE.Group(); bolsa.add(ticket);
     x.fillStyle = "#ffffff"; x.fillRect(0, 0, 256, 320);
     x.fillStyle = "#16243d"; x.textAlign = "center"; x.font = F(900, 54); x.fillText("WALTER", 128, 110);
     x.fillStyle = "#5ce611"; rr(x, 22, 150, 212, 92, 18); x.fillStyle = "#0b1220"; x.font = F(900, 46); x.fillText("PAGADO ✓", 128, 212);
-    x.fillStyle = "#16243d"; x.font = F(700, 28); x.fillText("RETIRA HOY", 128, 290);
+    x.fillStyle = "#16243d"; x.font = F(800, 38); x.fillText("RETIRA HOY", 128, 292);
   });
   const p = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.163), new THREE.MeshStandardMaterial({ map: t, roughness: 0.7, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.18 }));
   ticket.add(p);
@@ -487,7 +494,7 @@ function dibujarTienda(t) {
   x.fillStyle = "#5ce611"; x.beginPath(); x.arc(70, 100, 34, 0, 7); x.fill();
   x.fillStyle = "#0b1220"; x.font = F(900, 36); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("R", 70, 102);
   x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(800, 40); x.fillText("Almacén de Rubén", 122, 86);
-  x.font = F(600, 26); x.fillStyle = "#b4b2a3"; x.fillText("Tu pedido", 124, 128);
+  x.font = F(700, 36); x.fillStyle = "#d9d7c9"; x.fillText("Tu pedido", 124, 132);
   // pie: botón Pagar → Pagado ✓ y el retiro
   x.fillStyle = "#efeee5"; x.fillRect(0, 830, W, 270);
   const pg = t >= T.pagado;
@@ -576,25 +583,25 @@ const placaOtra = mesh(rbox(CHIP_W, CHIP_H, 0.12, 0.12, 4), [M.navy, M.navy, M.n
 chip.add(placaNoche, placaTarde, placaOtra);
 const matDig = { g: new THREE.MeshStandardMaterial({ color: C.g, roughness: 0.4, emissive: C.g, emissiveIntensity: 0.3 }), red: new THREE.MeshStandardMaterial({ color: 0xe0786d, roughness: 0.45, emissive: C.red, emissiveIntensity: 0.35 }), navy: new THREE.MeshStandardMaterial({ color: C.navy2, roughness: 0.4 }) };
 const HORAS = {};
-for (const [k, txt, m] of [["1959", "19:59", "g"], ["2000", "20:00", "g"], ["2007", "20:07", "red"], ["2023", "20:23", "red"], ["2041", "20:41", "red"], ["1612", "16:12", "navy"], ["2000b", "20:00", "g"]]) {
+for (const [k, txt, m] of [["1959", "19:59", "g"], ["2000", "20:00", "g"], ["2007", "20:07", "red"], ["2023", "20:23", "red"], ["2041", "20:41", "red"], ["1612", "16:12", "navy"], ["1730", "17:30", "navy"], ["2000b", "20:00", "g"]]) {
   // la fuente 3D no trae ":": dos pares de dígitos y los dos puntos hechos con cajitas
   const g = new THREE.Group(); const [hh, mm] = txt.split(":");
   const a = mesh(textoGeo(hh, 0.3, 0.1), matDig[m]), b = mesh(textoGeo(mm, 0.3, 0.1), matDig[m]);
   a.geometry.computeBoundingBox(); const wa = a.geometry.boundingBox.max.x - a.geometry.boundingBox.min.x;
   a.position.x = -0.07 - wa / 2; b.position.x = 0.07 + wa / 2; g.add(a, b);
   for (const y of [0.075, -0.075]) g.add(mesh(rbox(0.055, 0.055, 0.1, 0.015), matDig[m], 0, y - 0.01, 0));
-  g.position.set(k === "2000b" ? 0.56 : 0.72, 0, 0.09); chip.add(g); HORAS[k] = g;
+  g.position.set(k === "2000b" ? 0.66 : 0.72, 0, 0.09); chip.add(g); HORAS[k] = g;
 }
 // el tilde del 20:00 ✓ (parte 2)
 const tildeChip = new THREE.Group(); chip.add(tildeChip);
 {
   const s = new THREE.Shape(); s.moveTo(-0.12, 0.0); s.lineTo(-0.04, -0.09); s.lineTo(0.13, 0.1); s.lineTo(0.09, 0.14); s.lineTo(-0.04, -0.01); s.lineTo(-0.08, 0.04); s.closePath();
   tildeChip.add(mesh(new THREE.ExtrudeGeometry(s, { depth: 0.08, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.01, bevelSegments: 2 }), matDig.g));
-  tildeChip.position.set(1.2, 0.0, 0.06); tildeChip.scale.setScalar(0.85);
+  tildeChip.position.set(1.27, 0.0, 0.06); tildeChip.scale.setScalar(0.85);
 }
 chip.traverse((o) => { if (o.isMesh) { o.layers.set(1); o.material = Array.isArray(o.material) ? o.material.map((m) => m.clone()) : o.material.clone(); (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => { m.depthTest = false; m.transparent = true; }); o.renderOrder = o === placaNoche || o === placaTarde || o === placaOtra ? 20 : 21; o.castShadow = false; } });
 // la secuencia de horas: [desde, clave]
-const SEC_HORA = [[0, "1959"], [T.h2000, "2000"], [T.h2007, "2007"], [T.h2023, "2023"], [T.h2041, "2041"], [P2, "1612"], [T.pC, "1959"], [T.h2000b, "2000b"]];
+const SEC_HORA = [[0, "1959"], [T.h2000, "2000"], [T.h2007, "2007"], [T.h2023, "2023"], [T.h2041, "2041"], [P2, "1612"], [T.pB, "1730"], [T.pC, "1959"], [T.h2000b, "2000b"]];
 
 // ================= CÁMARA =================
 // PLANOS: [desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov, modo]. Entre planos hay corte seco;
@@ -604,7 +611,7 @@ const RB = { x: 0.95, z: 0.45 };  // Rubén en la vereda
 const WB = { x: -0.2, z: 0.68 };  // Walter en la vereda
 const RI = { x: 0.55, z: -2.0 };  // Rubén detrás del mostrador
 const WI = { x: -0.18, z: -0.78 }; // Walter frente al mostrador
-const PLAN1 = [[0, 0.32, 1.72, 6.5, 0.3, 1.74, 0.2, 33], [2.0, 0.3, 1.71, 6.38, 0.3, 1.73, 0.2, 33]];
+const PLAN1 = [[0, 0.5, 1.7, 6.5, 0.48, 1.7, 0.2, 35], [2.0, 0.48, 1.7, 6.38, 0.46, 1.7, 0.2, 35]];
 const PLANOS = [
   // 1 · general de la vereda de noche (portada en movimiento)
   [0, PLAN1],
@@ -629,12 +636,14 @@ const PLANOS = [
   // 8b · ya sin campera, la cuelga en el perchero y le habla a Walter (a cámara)
   [T.cuelga, [[T.cuelga, 0.94, 1.45, -0.12, 0.96, 1.25, RI.z - 0.2, 47], [T.remate, 0.94, 1.45, -0.25, 0.96, 1.27, RI.z - 0.2, 47]]],
   // 9 · remate del remate: general interior, Walter se sienta en el cajón, Rubén apoya termo y mate
-  [T.remate, [[T.remate, 0.42, 1.78, 2.4, 0.56, 0.85, -1.4, 40], [P1, 0.42, 1.74, 2.15, 0.56, 0.85, -1.4, 40]]],
+  [T.remate, [[T.remate, 0.46, 1.74, 2.25, 0.54, 0.92, -1.4, 40], [P1, 0.46, 1.72, 2.05, 0.54, 0.94, -1.4, 40]]],
   // ---- parte 2 ----
   // A · el celular de Walter en grande (la oficina atrás)
   [T.pA, [[T.pA, OF.x + 0.02, 1.08, -0.02, OF.x, 1.03, -0.34, 40], [T.pB, OF.x + 0.0, 1.075, -0.04, OF.x, 1.03, -0.34, 40]]],
   // B · el mostrador a la tarde: el aviso, el mate, la bolsa que se llena; push-in a la bolsa
-  [T.pB, [[T.pB, 0.74, 1.35, 0.3, 0.36, 1.3, -1.7, 40], [T.abrocha, 0.6, 1.33, -0.25, 0.32, 1.18, -1.45, 40], [T.pC, 0.55, 1.3, -0.45, 0.3, 1.15, -1.4, 40]]],
+  // B0 · inserto: el aviso del pedido en el celular de Rubén, de frente (la cámara la pone camCelu)
+  [T.pB, "celu"],
+  [T.pBgen, [[T.pBgen, 0.74, 1.35, 0.3, 0.36, 1.3, -1.7, 40], [T.abrocha, 0.6, 1.33, -0.25, 0.32, 1.18, -1.45, 40], [T.pC, 0.55, 1.3, -0.45, 0.3, 1.15, -1.4, 40]]],
   // C · callback del plano 1: misma vereda, mismo encuadre
   [T.pC, PLAN1.map((k, i) => [i ? T.pD : T.pC, ...k.slice(1)])],
   // D · primer plano de Rubén con el mate
@@ -642,10 +651,10 @@ const PLANOS = [
   // inserto · Walter mira adentro de la bolsa: el pan flauta asoma
   [T.pIns, [[T.pIns, WB.x - 0.6, 1.32, WB.z + 2.7, WB.x, 1.08, WB.z, 32], [T.pE, WB.x - 0.55, 1.32, WB.z + 2.55, WB.x, 1.1, WB.z, 32]]],
   // E · general de la vereda: la cortina baja a las 20:00 en punto; Rubén guiña; push-in lento
-  [T.pE, [[T.pE, 0.32, 1.72, 6.5, 0.3, 1.74, 0.2, 33], [T.aCamara, 0.45, 1.55, 4.6, 0.6, 1.45, 0.3, 38], [DUR, 0.72, 1.52, 3.2, 0.82, 1.4, 0.35, 38]]],
+  [T.pE, [[T.pE, 0.5, 1.7, 6.5, 0.48, 1.7, 0.2, 35], [T.aCamara, 0.45, 1.55, 4.6, 0.6, 1.45, 0.3, 38], [DUR, 0.72, 1.52, 3.2, 0.82, 1.4, 0.35, 38]]],
 ];
 const _m = new THREE.Vector3();
-let planoActual = 0, camHoja = false;
+let planoActual = 0, camHoja = false, camCelu = false;
 function catmull(CAM, t) {
   let i = 0; while (i + 1 < CAM.length - 1 && CAM[i + 1][0] <= t) i++;
   const a = CAM[i], b = CAM[i + 1];
@@ -670,7 +679,7 @@ function camLista(t) {
   let v = cerca.map((q, j) => lerp(q, raso[j], k));
   if (u < 1) { const ini = [LX + 0.35, MOSTRADOR.y + 0.55, MOSTRADOR.z + 0.5, LX, MOSTRADOR.y, MOSTRADOR.z - 0.05]; v = ini.map((q, j) => lerp(q, v[j], eio(u))); }
   const g = eio(sg(t, T.grua[0], T.grua[1]));
-  const alto = [1.9, 4.4, 12.0, 0.15, 0.7, 1.2];
+  const alto = [1.0, 3.1, 8.6, 0.25, 1.05, 0.0];
   v = v.map((q, j) => lerp(q, alto[j], g));
   return [...v, lerp(44, 40, g)];
 }
@@ -678,7 +687,8 @@ function ponerCamara(t) {
   let pi = 0; while (pi + 1 < PLANOS.length && PLANOS[pi + 1][0] <= t) pi++;
   planoActual = pi;
   let v;
-  if (PLANOS[pi][1] === "hoja") { camHoja = true; return; }
+  camCelu = PLANOS[pi][1] === "celu";
+  if (PLANOS[pi][1] === "hoja" || camCelu) { camHoja = PLANOS[pi][1] === "hoja"; return; }
   camHoja = false;
   if (PLANOS[pi][1] === null) { const c = camLista(t); v = [c[0], c[1], c[2], c[3], c[4], c[5], c[6]]; }
   else v = catmull(PLANOS[pi][1], t);
@@ -796,7 +806,7 @@ const WK = [
   [T.pIns - 0.001, { x: WB.x, giro: 0.0, manoD: [-0.12, 0.26, 0.36], codoD: [-0.8, -0.5, 0], ...aC(-0.1, 0.5), ojos: { y: -0.9 }, ...CARA.sorpresa, boca: { sonrisa: 0.5, abierta: 0.2 } }, 0.001],
   [T.pIns + 0.3, { ...CARA.feliz, ...aC(-0.1, 0.45), ojos: { y: -0.8 } }, 0.15],
   [T.saluda, { ...aC(0.6, -0.05), ojos: { x: 0.7, y: 0 } }, 0.2],
-  [T.pE - 0.001, { x: WB.x - 0.6, giro: -1.35, paso: 1, ...BRAZOS.costado }, 0.001],
+  [T.pE - 0.001, { x: WB.x - 0.1, giro: -1.35, paso: 1, ...BRAZOS.costado }, 0.001],
 ];
 
 // ---------- helpers de mano en coordenadas del mundo ----------
@@ -844,18 +854,19 @@ function ponerPersonajes(t, gap) {
     }
   } else if (t >= T.pE && t < T.tiron[1] + 0.3) {
     // E: la baja de un tirón con la mano, hasta la rodilla; el resto cae sola (clanc)
-    gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize());
+    gancho.visible = false;
     const y = Math.max(gap, 0.92), suelta = sg(t, T.tiron[0] + 0.12, T.tiron[1] + 0.3);
     pr.inclina = 0.12 * (1 - suelta);
-    const p2 = manoA(ruben, { ...pr }, "D", V3(0.34, y - 0.05, 0.13));
+    const p2 = manoA(ruben, { ...pr }, "D", V3(0.3, y - 0.045, 0.13));
     pr.manoD = p2.manoD.map((v, i) => lerp(v, [-0.3, -0.06, 0.05][i], eio(suelta)));
-  } else if (t >= T.pC) { gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize()); }
+  } else if (t >= T.pC) gancho.visible = false;
   else gancho.visible = false;
   // montaje: va a los estantes y vuelve con cada cosa
   if (en(t, T.p6, T.p7)) {
     // ciclos de 0,5 s: gira de costado hacia un estante (0,2 s), agarra, vuelve al mostrador (0,2 s); un lado y el otro
-    const k = Math.floor((t - T.p6) / 0.5), u = (t - T.p6) / 0.5 - k, amp = k % 2 ? 0.75 : 1.15;
-    const va = eio(sg(u, 0.0, 0.4)) * (1 - eio(sg(u, 0.6, 1.0)));
+    const k = Math.floor((t - T.p6) / 0.5), u = (t - T.p6) / 0.5 - k, amp = k % 2 ? 0.6 : 0.9;
+    const ss = (x) => x * x * (3 - 2 * x); // giro suave: ~7 cuadros para ir y otros tantos para volver
+    const va = ss(sg(u, 0.0, 0.5)) * (1 - ss(sg(u, 0.52, 1.0)));
     // siempre hacia el lado de la cámara (de perfil, nunca de espaldas)
     pr.giro = lerp(-0.08, -amp, va); pr.x = RI.x - 0.15 * va; pr.paso = va > 0.03 && va < 0.97 ? 1 : 0;
     pr = mezclar(pr, { ...pr, ...BRAZOS.costado }, Math.min(1, va * 1.6));
@@ -881,7 +892,7 @@ function ponerPersonajes(t, gap) {
   if (en(t, T.pC, T.llega[1])) pw.x = lerp(WB.x - 2.4, WB.x, sg(t, T.llega[0], T.llega[1]));
   if (en(t, T.seVa + 0.25, T.frenaVuelta - 0.05)) pw.x = WB.x - (t - T.seVa - 0.25) * 0.8;
   else if (en(t, T.frenaVuelta - 0.05, T.pE)) pw.x = WB.x - (T.frenaVuelta - 0.3 - T.seVa) * 0.8;
-  if (t >= T.pE) pw.x = WB.x - 0.6 - (t - T.pE) * 1.3;
+  if (t >= T.pE) pw.x = WB.x - 0.1 - (t - T.pE) * 1.1;
   // la mano en la cortina cuando la frena
   if (en(t, T.frena - 0.1, T.p3)) { const u = eio(sg(t, T.frena - 0.1, T.frena + 0.1)); pw = mezclar(pw, { ...pw, manoI: [0.26, 0.48, 0.4], manoD: [-0.22, 0.46, 0.42], codoI: [1, -0.4, -0.3], codoD: [-1, -0.4, -0.3] }, u); const sac = Math.sin(t * 26) * 0.03 * (t < T.b1 + 0.6 ? 1 : 0); pw.manoI[1] += sac; pw.manoD[1] -= sac; }
   // tachar: la lapicera se mueve sobre la lista
@@ -936,6 +947,7 @@ function renderAt(tIn) {
   luces(s, t);
   const gap = ponerCortina(gapEn(t));
   ponerPersonajes(t, gap);
+  for (const per of [ruben, walter]) per.ojoLejano(camera.position);
 
   // ---- termo y mate de Rubén ----
   {
@@ -951,7 +963,7 @@ function renderAt(tIn) {
     } else termoR.visible = false;
     // mate: en la mano izquierda en la parte 2 (vereda y tarde); en el remate lo apoya en el mostrador
     const mateEnMano = (s === "vereda" && t >= T.pC) || s === "tarde";
-    if (mateEnMano) { const p = manoMundo(ruben, "I", _a); mateR.position.copy(p).add(V3(0, -0.07, 0.02)); mateR.rotation.set(0, 0.5, 0); mateR.visible = true; }
+    if (mateEnMano) { const p = manoMundo(ruben, "I", _a); mateR.position.copy(p).add(V3(0, -0.07, 0.02)); mateR.rotation.set(0, ruben.raiz.rotation.y + Math.PI / 2, 0); mateR.visible = true; }
     else if (parte1 && t >= T.remate) { mateR.position.set(MOSTRADOR.x - 0.12, MOSTRADOR.y, MOSTRADOR.z + 0.2); mateR.rotation.set(0, 0, 0); mateR.visible = true; mateR.scale.setScalar(1 + 0.15 * pulso(t, T.remate + 0.35, 0.25)); }
     else mateR.visible = false;
     void conCampera;
@@ -964,7 +976,7 @@ function renderAt(tIn) {
     camperaColgada.rotation.set(0, -0.3, Math.sin((t - T.cuelga) * 7) * 0.12 * Math.exp(-(t - T.cuelga) * 2.5));
   }
   camperaW.visible = t >= T.remate + 0.3 && t < P1;
-  if (camperaW.visible) { camperaW.position.set(CAJON.x + 0.12, 0.42, CAJON.z + 0.12); camperaW.rotation.set(-1.35, -0.6, 0.1); camperaW.scale.setScalar(0.85 * Math.max(0.01, bk(sg(t, T.remate + 0.3, T.remate + 0.55)))); }
+  if (camperaW.visible) { camperaW.position.set(CAJON.x - 0.24, 0.42, CAJON.z + 0.1); camperaW.rotation.set(0.05, 0.6, -0.12); camperaW.scale.setScalar(0.64 * Math.max(0.01, bk(sg(t, T.remate + 0.3, T.remate + 0.55)))); }
 
   // ---- el papelito / la lista / la hoja ----
   {
@@ -1035,16 +1047,16 @@ function renderAt(tIn) {
         it.visible = true;
         const u = sg(t, t0, t0 + 0.3);
         const desde = V3(MOSTRADOR.x + 0.05 + (i % 4) * 0.08, MOSTRADOR.y + 0.0, MOSTRADOR.z + 0.12 - Math.floor(i / 4) * 0.12);
-        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.38, bolsa.position.z);
-        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.1;
+        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.42, bolsa.position.z); // caen por la boca de la bolsa
+        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.05;
         it.rotation.set(0, i, u * (i % 2 ? 2 : -2));
         const sc = 1 - 0.55 * u; it.scale.setScalar(sc);
         it.visible = u < 0.96 || i === 3; // entran por arriba de la bolsa; el pan flauta queda asomando
-        if (i === 3 && u >= 0.96) { it.position.set(bolsa.position.x + 0.09, MOSTRADOR.y + 0.36, bolsa.position.z + 0.03); it.rotation.set(0, 0.3, 1.25); it.scale.setScalar(0.8); }
+        if (i === 3 && u >= 0.96) { bolsa.updateMatrixWorld(true); it.position.copy(V3(0.11, 0.34, -0.055)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(-0.22, bolsa.rotation.y, 1.42); it.scale.setScalar(0.8); }
       } else if (i === 3 && bolsa.visible) {
         // el pan flauta asomando de la bolsa (afuera)
         it.visible = true; bolsa.updateMatrixWorld(true);
-        it.position.copy(V3(0.09, 0.36, 0.03)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(0, bolsa.rotation.y + 0.3, 1.25); it.scale.setScalar(0.8);
+        it.position.copy(V3(0.11, 0.34, -0.055)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(-0.22, bolsa.rotation.y, 1.42); it.scale.setScalar(0.8);
         if (en(t, T.pIns, T.pIns + 0.4)) it.position.y += pulso(t, T.pIns + 0.1, 0.3) * 0.05;
       } else it.visible = false;
     });
@@ -1065,7 +1077,14 @@ function renderAt(tIn) {
       celuR.position.set(x0 + v * Math.sin(t * 90) * 0.006, MOSTRADOR.y + 0.012, z0 + v * Math.cos(t * 77) * 0.005);
       celuR.rotation.set(0, -0.5 + v * Math.sin(t * 70) * 0.05, 0);
       pantR.emissiveIntensity = sg(t, T.vibra, T.vibra + 0.1) * 0.95;
-      vib.visible = v > 0;
+      vib.visible = v > 0 && camCelu;
+      if (camCelu) {
+        celuR.updateMatrixWorld(true);
+        const up = V3(0, 0, -1).transformDirection(celuR.matrixWorld);
+        camera.position.copy(celuR.position).add(V3(0, 0.36, 0)); camera.up.copy(up); camera.fov = 38; camera.updateProjectionMatrix();
+        camera.lookAt(celuR.position); camera.up.set(0, 1, 0);
+        bolsa.visible = false; for (const it of items2) it.visible = false; // nada entre la cámara y la pantalla
+      }
       if (vib.visible) { vib.position.set(x0, MOSTRADOR.y + 0.03, z0); vib.rotation.y = -0.5; vib.scale.setScalar(0.85 + Math.abs(Math.sin(t * 20)) * 0.25); }
     } else vib.visible = false;
     // la oficina: Walter (solo sus manos) sostiene el celular
@@ -1106,7 +1125,7 @@ function renderAt(tIn) {
     chip.visible = vis;
     if (vis) {
       const kk = kf;
-      chip.position.set(0, 0.2 * 0.72 / 0.72 * kk * 0.72 / 0.72 * 1, -0.72); chip.position.y = 0.198 * kk;
+      chip.position.set(0, 0.2 * 0.72 / 0.72 * kk * 0.72 / 0.72 * 1, -0.72); chip.position.y = 0.207 * kk;
       const tarde = en(t, P2, T.pC);
       placaNoche.visible = t < P2; placaTarde.visible = tarde; placaOtra.visible = t >= T.pC;
       let actual = 0; for (let i = 0; i < SEC_HORA.length; i++) if (t >= SEC_HORA[i][0]) actual = i;
@@ -1114,7 +1133,7 @@ function renderAt(tIn) {
       const prev = actual > 0 ? SEC_HORA[actual - 1][1] : null;
       for (const k in HORAS) HORAS[k].visible = false;
       const flip = sg(t, tc, tc + 0.24);
-      const corte = tc === P2 || tc === T.pC || tc === 0; // en los cortes de plano no hay flip
+      const corte = tc === P2 || tc === T.pC || tc === T.pB || tc === 0; // en los cortes de plano no hay flip
       if (!corte && flip < 0.5 && prev) { HORAS[prev].visible = true; HORAS[prev].rotation.x = eio(flip * 2) * Math.PI / 2; }
       else { HORAS[kc].visible = true; HORAS[kc].rotation.x = corte ? 0 : (1 - eo((flip - 0.5) * 2)) * -Math.PI / 2; }
       tildeChip.visible = kc === "2000b" && flip >= 0.5;

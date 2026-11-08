@@ -127,7 +127,7 @@ export function parpadeo(t, semilla = 1, cada = 3.1, d = 0.16) {
 const G = {
   esfera: new THREE.SphereGeometry(1, 28, 20),
   esferaLow: new THREE.SphereGeometry(1, 14, 10),
-  parpado: new THREE.SphereGeometry(1, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2),
+  parpado: new THREE.SphereGeometry(1, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2),
   cil: (() => { const g = new THREE.CylinderGeometry(1, 1, 1, 16, 1); g.translate(0, -0.5, 0); return g; })(),
 };
 
@@ -205,7 +205,7 @@ export function crearPersonaje(cfg) {
   const M2 = {};
   if (c.campera) {
     const k = c.campera; campera = new THREE.Group(); cuerpo.add(campera);
-    M2.campera = mat(k.color, 0.75); M2.cuello = mat(k.cuello ?? k.color, 0.6); M2.cierre = mat(k.cierre ?? k.cuello ?? k.color, 0.5);
+    M2.campera = mat(k.color, 0.75); M2.solapa = mat(new THREE.Color(k.color).multiplyScalar(0.82).getHex(), 0.7); M2.cuello = mat(k.cuello ?? k.color, 0.6); M2.cierre = mat(k.cierre ?? k.cuello ?? k.color, 0.5);
     const pc = perfil.filter((v) => v.y > -0.01 && v.y < 0.47).map((v) => new THREE.Vector2(v.x * 1.09 + 0.006, v.y));
     pc.unshift(new THREE.Vector2(pc[0].x, -0.03)); pc.push(new THREE.Vector2(0.15, 0.47));
     const gap = k.abierta ? 0.42 : 0;
@@ -219,7 +219,7 @@ export function crearPersonaje(cfg) {
       // solapas abiertas: dos bordes del color del cuello a cada lado de la abertura
       for (const s of [-1, 1]) {
         const pts = [0.46, 0.36, 0.24, 0.12, 0.0].map((y) => { const r = radioEn(Math.max(0.0, y)) * 1.09 + 0.012; return new THREE.Vector3(s * Math.sin(gap) * r, y, Math.cos(gap) * r * 0.86); });
-        campera.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 16, 0.017, 6), M2.cuello));
+        campera.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 16, 0.017, 6), M2.solapa)); // solapas del tono de la campera (con la corbata se leían como un "ii")
       }
     } else {
       // cierre al medio, del color de acento
@@ -258,9 +258,9 @@ export function crearPersonaje(cfg) {
     pup.add(mesh(G.esfera, M.pupila, 0, 0, 0.034, 0.036, 0.042, 0.022));
     pup.add(mesh(G.esferaLow, M.blanco, 0.012, 0.016, 0.052, 0.011));
     const lidPivote = new THREE.Group(); g.add(lidPivote);
-    const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.0705, 0.0785, 0.0525); lidPivote.add(lid); // casi al ras del ojo: sin bulto
+    const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.075, 0.083, 0.057); lidPivote.add(lid); // radio claramente mayor que el globo (sin z-fighting); cerrado lo reemplaza la línea
     const lidLow = new THREE.Group(); g.add(lidLow);
-    const lidLowM = mesh(G.parpado, M.piel, 0, 0, 0, 0.07, 0.078, 0.052); lidLowM.rotation.z = Math.PI; lidLow.add(lidLowM);
+    const lidLowM = mesh(G.parpado, M.piel, 0, 0, 0, 0.0745, 0.0825, 0.0565); lidLowM.rotation.z = Math.PI; lidLow.add(lidLowM);
     if (c.pestanas) {
       // pestañas: tres trazos finos en el borde de arriba, hacia afuera (se mueven con el párpado)
       const pm = mat(c.pestanas, 0.5), abajo = new THREE.Vector3(0, -1, 0);
@@ -565,8 +565,21 @@ export function crearPersonaje(cfg) {
     }
   }
   if (campera) { campera.visible = false; ponerCampera(true); }
+  // ojoLejano(posición de la cámara): de perfil o 3/4 (más de ~35°) el ojo del lado de atrás asomaba por fuera del
+  // contorno de la cara: se esconde
+  const _hw = new THREE.Vector3(), _hf = new THREE.Vector3(), _ec = new THREE.Vector3(), _e0 = new THREE.Vector3(), _e1 = new THREE.Vector3();
+  function ojoLejano(cam) {
+    cabeza.updateMatrixWorld(true);
+    cabeza.getWorldPosition(_hw); _hf.set(0, 0, 1).transformDirection(cabeza.matrixWorld); _ec.copy(cam).sub(_hw);
+    _hf.y = 0; _ec.y = 0; _hf.normalize(); _ec.normalize();
+    const ang = Math.acos(Math.max(-1, Math.min(1, _hf.dot(_ec))));
+    ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
+    const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
+    ojos[0].g.visible = ojos[1].g.visible = true;
+    if (ang > 0.6) ojos[lejos].g.visible = false;
+  }
   poner({});
-  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
+  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
 }
 
 // ---------- expresiones listas (se mezclan con mezclar()) ----------

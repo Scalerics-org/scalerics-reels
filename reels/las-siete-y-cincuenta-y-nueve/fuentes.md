@@ -41,8 +41,11 @@ grabaciones CC0 encontradas: "Rolling shutters down", Areti18 (https://freesound
 txirimiri (https://freesound.org/people/txirimiri/sounds/185779/).
 
 ## Mezcla (gen.mjs)
-Techo por efecto de -31 LUFS (más bajo en los que caen cerca de una voz), música y ambiente con techo propio; la música
-se corta seca cuando aparece el dorso "ATRÁS" y en la parte 2 baja 9 dB (rampa de 0,15 s) mientras habla Rubén.
-Medido por tramos de 0,5 s (momentary, stems con `MEDIR=1 node gen.mjs`): la voz queda siempre 6,6 LU o más por
-encima del resto mientras habla (el narrador del cartel incluido). Ronda 1: normalización LINEAL (una sola ganancia +
-limitador), no loudnorm dinámico: parte 1 -17,8 LUFS y parte 2 -16,9 LUFS (antes la 2 quedaba ~10 LU más baja).
+Techo por efecto de -31 LUFS (más bajo en los que caen cerca de una voz o son golpes secos), la cama (música + calle)
+con techo propio; la música se corta seca cuando aparece el dorso "ATRÁS" y en la parte 2 baja 9 dB (rampa de 0,15 s)
+mientras habla Rubén. Ronda 2: las voces pasan por un compresor suave (5:1, ataque 3 ms) y un recorte de picos antes de
+la suma; arreglos por archivo (papel.wav desde 0,3 s, sello.wav y campanita.wav un solo golpe, burbujas -3 dB y sin su
+tramo mudo, tuba desde 0,19, pop desde 0,11, key-press desde 0,07). Normalización lineal: ganancia fija + limitador
+sobremuestreado (192 kHz). Resultado: -15,1 LUFS, true peak -3,3 dBTP (el limitador trabaja ~3 dB solo en el pico
+más alto). Medido por tramos de 0,5 s (stems con `MEDIR=1 node gen.mjs`): la voz queda siempre 6,7 LU o más por encima
+del resto mientras habla.

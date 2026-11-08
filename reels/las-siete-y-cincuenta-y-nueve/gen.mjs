@@ -19,7 +19,7 @@ let P2 = 17.8;          // arranca la parte 2 (termina el iris del cartel)
 const T = {
   // ---- parte 1 ----
   baja: [0.05, 1.1],                     // Rubén baja la cortina con el gancho
-  corre: [0.55, 1.15], frena: 1.15,      // Walter entra corriendo y clava la cortina
+  corre: [0.3, 1.15], frena: 1.15,      // Walter entra corriendo y clava la cortina
   b1: 1.35,                              // "¡Pará, pará!"
   p2: 2.0, miraHora: 2.3, resopla: 2.6,  // contraplano: Rubén lo mira, mira la hora, resopla
   p3: 2.9, b2: 3.1, papelito: 3.4,       // primer plano de Walter: "¡Perdón! Es una cosita nomás." y el papelito
@@ -57,10 +57,17 @@ corre(T.p8, 0.97);
 T.pAtras = r2(T.vuelta + 0.14);     // inserto del dorso
 T.corte = r2(T.pAtras + 0.06);      // la música se corta seca cuando se ve el ATRÁS
 T.pA = P2;
+// ronda 2: el 20:41 queda quieto ~1,4 s antes del giro al cartel (el remate entra apenas termina la frase)
+T.remate = r2(T.voz1 + 3.1); T.h2041 = r2(T.remate + 0.05);
+corre(P1, 0.5);
+// ronda 2: el plano B arranca con un inserto del aviso en el celular de Rubén (de frente, ~0,75 s)
+T.pBgen = r2(T.pB + 0.75); T.vibra = r2(T.pB + 0.1); T.sorboB = r2(T.pB + 0.85);
+T.embolsa = [r2(T.pB + 1.05), r2(T.pB + 1.75)]; T.abrocha = r2(T.pB + 1.95);
+corre(T.pC, 0.15);
 
 // palabras de las líneas (relativas al inicio de cada archivo; medidas con tiempos.mjs y la envolvente)
 const LINEA1 = [["Sacate", 0.9], ["la", 1.38], ["campera,", 1.62], ["Walter.", 2.22]];
-const LINEA2 = [["Está", 0.25], ["en", 0.74], ["la", 0.9], ["bolsa,", 1.06], ["Walter.", 1.62]];
+const LINEA2 = [["Está", 0.28], ["en", 0.6], ["la", 0.8], ["bolsa,", 0.9], ["Walter.", 1.2]];
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo, mudo = 0) {
@@ -174,11 +181,11 @@ linea("s02-linea", T.voz2, LINEA2, 3, T.pIns - 0.02);
           <path d="M700 120 C 820 70, 920 140, 890 230 C 860 320, 720 320, 680 250 C 650 200, 640 150, 700 120 Z" fill="#16243d" opacity="0.85"/>
         </g>
         <g class="burbujas">
-          <circle class="bu" cx="300" cy="1300" r="34" fill="none" stroke="${CR}" stroke-width="10"/>
-          <circle class="bu" cx="1180" cy="1200" r="26" fill="none" stroke="${CR}" stroke-width="9"/>
-          <circle class="bu" cx="420" cy="980" r="18" fill="none" stroke="${NAVY}" stroke-width="8"/>
-          <circle class="bu" cx="1100" cy="1500" r="40" fill="none" stroke="${NAVY}" stroke-width="10"/>
-          <circle class="bu" cx="760" cy="1720" r="22" fill="none" stroke="${CR}" stroke-width="8"/>
+          <circle class="bu" cx="240" cy="1500" r="34" fill="none" stroke="${CR}" stroke-width="10"/>
+          <circle class="bu" cx="1270" cy="1560" r="26" fill="none" stroke="${CR}" stroke-width="9"/>
+          <circle class="bu" cx="330" cy="1620" r="18" fill="none" stroke="${NAVY}" stroke-width="8"/>
+          <circle class="bu" cx="1290" cy="1400" r="40" fill="none" stroke="${NAVY}" stroke-width="10"/>
+          <circle class="bu" cx="500" cy="1960" r="22" fill="none" stroke="${CR}" stroke-width="8"/>
           <circle class="bu" cx="560" cy="560" r="30" fill="none" stroke="${CR}" stroke-width="9"/>
         </g>
       </svg>
@@ -225,16 +232,17 @@ const TECHO = -31;
 const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 // ---- parte 1 ----
-s("sfx/calle.wav", 0, -6, { dur: P1, fin: 0.3, desde: 0.5, techo: -35 });
+s("sfx/calle.wav", 0, -6, { dur: 15.4, fin: 0.4, techo: -35 });
+s("sfx/calle.wav", 15.0, -6, { desde: 1, dur: r2(P1 - 15.0), fin: 0.3, techo: -35 });   // calle.wav dura 15,5 s: se encadena otro tramo
 s("bgm/pizzicato.wav", 0, 0, { dur: T.corte, fin: 0.04, techo: -33 });                // la música se corta seca
 // cortina que baja: traqueteo de lamas (tac/tic alternados) y el golpe cuando Walter la clava
 for (let i = 0, t = T.baja[0]; t < T.frena - 0.05; i++, t += 0.085) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, -2, { techo: -36 });
 // pasos corriendo de Walter
 for (let t = T.corre[0]; t < T.frena; t += 0.14) s("sfx/tac-real.mp3", t, 0, { techo: -33 });
-s("sfx/sello.wav", T.frena, 0);                                                         // clanc: la mano frena la cortina
+s("sfx/sello.wav", T.frena, 0, { techo: -37 });                                                         // clanc: la mano frena la cortina
 s("sfx/burbuja.mp3", T.b1 + 0.03, 0);
 s("sfx/whoosh-short.mp3", T.miraHora - 0.05, 0, { techo: -38 });
-s("voice/ruben1.wav", T.resopla - 0.05, 0, { desde: 0.18, dur: 0.7, fin: 0.2, techo: -30 });     // el resoplido (el suspiro de su toma)
+s("voice/ruben1.wav", T.resopla, 0, { desde: 0.4, dur: 0.45, fin: 0.15, techo: -34 });     // el resoplido (el suspiro de su toma)
 s("sfx/burbuja.mp3", T.b2 + 0.03, 0);
 s("sfx/papel.wav", T.papelito, 0, { dur: 0.35, fin: 0.1, techo: -34 });
 for (let i = 0, t = T.sube[0]; t < T.sube[1]; i++, t += 0.07) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, 0, { techo: -36 });
@@ -262,42 +270,50 @@ s("sfx/papel.wav", T.vuelta, 0, { dur: 0.4, fin: 0.12 });
 s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.cuelga - 0.02, 0, { techo: -40 });
 s("voice/ruben1.wav", T.voz1, 0, { voz: true });
-s("sfx/tuba.mp3", T.h2041 + 0.02, 0, { desde: 0.19, techo: -29.5 });
+s("sfx/tuba.mp3", T.h2041 + 0.12, 0, { desde: 0.19, techo: -31 });
 s("sfx/tic-real.mp3", T.h2041 + 0.08, 0);
 s("sfx/whoosh-short.mp3", T.remate + 0.25, 0, { techo: -40 });              // Walter se saca la campera
 s("sfx/sello.wav", T.remate + 0.12, -6, { techo: -38 });                                // el cajón cruje cuando se sienta
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
-s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -33 });
+s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
 s("voice/narrador.wav", P1 + 0.22, 0, { voz: true });
 s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -37 });
-s("bgm/pizzicato.wav", P2, 0, { dur: 12, fin: 0.8, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.6] });
+s("bgm/pizzicato.wav", P2, 0, { dur: 12, fin: 0.8, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.95] });
 for (let i = 0; i < 10; i++) s("sfx/key-press.mp3", T.tildes + i * 0.15, 0, { desde: 0.07, techo: -37 });
 s("sfx/key-press.mp3", T.pagado - 0.05, 0, { desde: 0.07, techo: -33 });
-s("sfx/cero.mp3", T.pagado, 0, { techo: -30 });
+s("sfx/cero.mp3", T.pagado, 0, { techo: -33 });
 s("sfx/whoosh-short.mp3", T.pB - 0.05, 0, { techo: -38 });
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.7, fin: 0.08, techo: -32 });
-s("sfx/sorbo.wav", T.sorboB, 0, { techo: -33 });
-for (let i = 0; i < 7; i++) s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", T.embolsa[0] + i * 0.13, 0, { techo: -33 - (i % 2), ...(i % 2 ? {} : { desde: 0.11 }) });
+s("sfx/sorbo.wav", T.sorboB, 0, { techo: -36 });
+for (let i = 0; i < 7; i++) s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", T.embolsa[0] + i * 0.1, 0, { techo: -33 - (i % 2), ...(i % 2 ? {} : { desde: 0.11 }) });
 s("sfx/papel.wav", T.embolsa[1] - 0.1, 0, { dur: 0.4, fin: 0.12, techo: -34 });
-s("sfx/sello.wav", T.abrocha, 0);                                                     // la abrochadora: clac
+s("sfx/sello.wav", T.abrocha, 0, { techo: -35 });                                                     // la abrochadora: clac
 for (let t = T.llega[0]; t < T.llega[1]; t += 0.28) s("sfx/tic-real.mp3", t, 0, { techo: -38 });
 s("sfx/papel.wav", T.agarra, 0, { dur: 0.35, fin: 0.1, techo: -34 });
 s("sfx/burbuja.mp3", T.b3 + 0.03, 0);
 s("sfx/burbuja.mp3", T.b4 + 0.03, 0);
 for (const t of [T.seVa + 0.3, T.seVa + 0.55]) s("sfx/tic-real.mp3", t, 0, { techo: -42 });   // dos pasos al irse
 s("voice/ruben2.wav", T.voz2, 0, { voz: true });
-s("sfx/papel.wav", T.pIns + 0.12, 0, { dur: 0.4, fin: 0.12, techo: -38 });
-s("sfx/pop.mp3", T.pIns + 0.25, 0, { desde: 0.11, techo: -37 });
+s("sfx/papel.wav", T.pIns + 0.12, 0, { dur: 0.4, fin: 0.12, techo: -42 });
+s("sfx/pop.mp3", T.pIns + 0.25, 0, { desde: 0.11, techo: -41 });
 for (let i = 0, t = T.tiron[0]; t < T.tiron[1]; i++, t += 0.05) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, 0, { techo: -35 });
-s("sfx/sello.wav", T.tiron[1], 0);
-s("sfx/cero.mp3", T.h2000b, 0, { techo: -29 });
-s("sfx/sorbo.wav", T.sorboE, 0, { techo: -33 });
+s("sfx/sello.wav", T.tiron[1], 0, { techo: -35 });
+s("sfx/cero.mp3", T.h2000b, 0, { techo: -35 });
+s("sfx/sorbo.wav", T.sorboE, 0, { techo: -36 });
 s("sfx/click-soft.mp3", T.guino, 0, { techo: -33 });
 s("sfx/whoosh-short.mp3", T.cierre, 0, { techo: -36 });
 
+// ronda 2: arreglos por archivo (tramos mudos al principio, segundos golpes sin acción, burbujas más bajas)
+for (const x of S) {
+  const [f, , , o] = x;
+  if (f === "sfx/papel.wav") { o.desde = r2((o.desde ?? 0) + 0.3); if (!o.dur) { o.dur = 0.75; o.fin = 0.2; } }
+  if (f === "sfx/sello.wav") { o.dur = 0.3; o.fin = 0.05; }
+  if (f === "sfx/campanita.wav") { o.dur = 0.35; o.fin = 0.08; }
+  if (f === "sfx/burbuja.mp3") { x[1] = r2(Math.max(0, x[1] - 0.03)); o.desde = 0.04; o.techo = (o.techo ?? TECHO) - 3; }
+}
 const lufs = {};
 function lufsTramo(f, o) {
   const k = `${f}@${o.desde ?? 0}@${o.dur ?? "todo"}`;
@@ -309,8 +325,12 @@ function lufsTramo(f, o) {
   }
   return lufs[k];
 }
-const ganancia = ([f, , db, o]) => (o.voz ? db : r2(Math.min(db, (o.techo ?? TECHO) - lufsTramo(f, o))));
-function mezcla(lista, salida, dur) {
+// ronda 2: la cama (música + ambiente) sube CAMA dB: el reel es ralo (la voz suena ~6 s de 32) y, para llegar a -14,5
+// sin aplastar la voz contra el limitador, tiene que sonar más el resto (la voz sigue ≥ 6 LU arriba: medido)
+const CAMA = Number(process.env.CAMA ?? 4);
+const esCama = (f) => f.startsWith("bgm/") || f === "sfx/calle.wav";
+const ganancia = ([f, , db, o]) => (o.voz ? db : r2(Math.min(db, (o.techo ?? TECHO) - lufsTramo(f, o)) + (esCama(f) ? CAMA : 0)));
+function mezcla(lista, salida, dur, bus = false) {  // bus: compresor suave en la suma (baja los picos sueltos)
   const args = ["-y", "-loglevel", "error"];
   const filtros = [];
   lista.forEach((x, i) => {
@@ -319,12 +339,13 @@ function mezcla(lista, salida, dur) {
     let c = `[${i}:a]aresample=48000,aformat=channel_layouts=stereo`;
     if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
     if (o.fin && o.dur) c += `,afade=t=out:st=${r2(o.dur - o.fin)}:d=${o.fin}`;
+    if (o.voz) c += ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.42:attack=1.5:release=40:level=false"; // la voz llega al limitador ya pareja
     c += `,volume=${ganancia(x)}dB`;
     if (o.duck) { const [a, b] = o.duck.map((v) => r2(v - ini)); c += `,volume='1-0.645*clip((t-${a})/0.15,0,1)*clip((${b}-t)/0.15,0,1)':eval=frame`; }
     c += `,adelay=${Math.round(ini * 1000)}|${Math.round(ini * 1000)},apad=whole_dur=${dur}[a${i}]`;
     filtros.push(c);
   });
-  filtros.push(`${lista.map((_, i) => `[a${i}]`).join("")}amix=inputs=${lista.length}:normalize=0:dropout_transition=0,atrim=duration=${dur}[m]`);
+  filtros.push(`${lista.map((_, i) => `[a${i}]`).join("")}amix=inputs=${lista.length}:normalize=0:dropout_transition=0,atrim=duration=${dur}${bus ? ",acompressor=threshold=-30dB:ratio=2.5:attack=5:release=120:makeup=1" : ""}[m]`);
   args.push("-filter_complex", filtros.join(";"), "-map", "[m]", "-ar", "48000", "-c:a", "pcm_s16le", salida);
   execFileSync("ffmpeg", args, { maxBuffer: 1e8 });
 }
@@ -335,11 +356,12 @@ if (process.env.MEDIR) {
   mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
 }
 // nivel: -14 LUFS con limitador a -4,4 dBFS (el loudnorm del paso 10 casi no toca nada y el AAC no clipea)
+const OBJ = Number(process.env.OBJ ?? -14.4), LIM = Number(process.env.LIM ?? 0.68);
 // ronda 1: en modo LINEAL (una ganancia fija): el loudnorm dinámico dejaba la parte 2 ~10 LU más baja
 {
   const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
   const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(-14 - I)}dB,alimiter=limit=0.56:level=false:attack=1:release=40`, "-ar", "48000", "assets/audio/mezcla.wav"]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,aresample=192000,alimiter=limit=${LIM}:level=false:attack=1:release=60,aresample=48000`, "-ar", "48000", "assets/audio/mezcla.wav"]);
 }
 
 // ================= INDEX =================
@@ -376,7 +398,8 @@ fs.writeFileSync("index.html", `<!doctype html>
 ${abajo}
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
 ${arriba}
-${LIMPIO ? "" : `      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${P1}" data-track-index="9" />
+${LIMPIO ? "" : `      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${T.pAtras}" data-track-index="9" />
+      <img id="firma1b" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${T.p8}" data-duration="${r2(P1 - T.p8)}" data-track-index="9" />
       <img id="firma2" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${P2}" data-duration="${r2(DUR - P2)}" data-track-index="9" />`}
       <div id="precarga">Yerba ATRÁS</div>
       <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="${DUR}" data-track-index="30" data-volume="1"></audio>
