@@ -271,7 +271,7 @@ const oficina = new THREE.Group(); oficina.position.copy(OF); scene.add(oficina)
   // escritorio, lámpara, planilla de papel, taza, monitor de espaldas
   oficina.add(mesh(rbox(1.6, 0.05, 0.8, 0.015), M.cr2, 0, 0.74, -0.7));
   for (const sx of [-1, 1]) oficina.add(mesh(rbox(0.05, 0.72, 0.7, 0.01), M.navy3, sx * 0.75, 0.36, -0.7));
-  const lam = new THREE.Group(); lam.position.set(-0.3, 0.765, -0.85); oficina.add(lam);
+  const lam = new THREE.Group(); lam.position.set(-0.3, 0.765, -0.85); oficina.add(lam); lam.visible = false; // ronda 3: su pantalla verde se leía como una forma suelta
   lam.add(mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.02, 16), M.navy3));
   const brazo = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.42, 8), M.navy3, 0.05, 0.2, 0); brazo.rotation.z = -0.25; lam.add(brazo);
   const cab = mesh(new THREE.ConeGeometry(0.09, 0.14, 16, 1, true), mat(C.g, 0.5, { side: THREE.DoubleSide }), 0.16, 0.4, 0.05); cab.rotation.z = 0.9; lam.add(cab);
@@ -328,7 +328,7 @@ listaTex.wrapT = THREE.RepeatWrapping;
 const listaMat = new THREE.MeshStandardMaterial({ map: listaTex, roughness: 0.75, side: THREE.DoubleSide, emissive: 0xffffff, emissiveMap: listaTex, emissiveIntensity: 0.3 });
 // el camino del rollo: mostrador → borde → cae → piso → puerta → vereda → cordón → calle
 const LX = 0.3;
-const CAMINO = [V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z - 0.05), V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z + 0.36), V3(LX, MOSTRADOR.y - 0.08, MOSTRADOR.z + 0.4), V3(LX, 0.45, MOSTRADOR.z + 0.43), V3(LX, 0.012, MOSTRADOR.z + 0.5), V3(LX, 0.012, -0.4), V3(LX, 0.012, 0.3), V3(LX + 0.05, 0.016, VEREDA_Z + 0.06), V3(LX + 0.055, -0.03, VEREDA_Z + 0.16), V3(LX + 0.06, -0.128, VEREDA_Z + 0.22), V3(LX + 0.07, -0.132, VEREDA_Z + 0.4), ...[0.4, 1, 2.5, 4.5, 7, 9].map((d) => V3(LX + 0.07 + d * 0.012, -0.132, VEREDA_Z + 0.3 + d))]; // puntos seguidos en la calle: sin ellos la curva se hundía bajo el asfalto
+const CAMINO = [V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z - 0.05), V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z + 0.365), V3(LX, MOSTRADOR.y - 0.01, MOSTRADOR.z + 0.392), V3(LX, MOSTRADOR.y - 0.1, MOSTRADOR.z + 0.405), V3(LX, 0.45, MOSTRADOR.z + 0.43), V3(LX, 0.012, MOSTRADOR.z + 0.5), V3(LX, 0.012, -0.4), V3(LX, 0.012, 0.3), V3(LX + 0.05, 0.016, VEREDA_Z + 0.06), V3(LX + 0.055, -0.03, VEREDA_Z + 0.16), V3(LX + 0.06, -0.128, VEREDA_Z + 0.22), V3(LX + 0.07, -0.132, VEREDA_Z + 0.4), ...[0.4, 1, 2.5, 4.5, 7, 9].map((d) => V3(LX + 0.07 + d * 0.012, -0.132, VEREDA_Z + 0.3 + d))]; // puntos seguidos en la calle: sin ellos la curva se hundía bajo el asfalto
 const curva = new THREE.CatmullRomCurve3(CAMINO, false, "centripetal", 0.0);
 const LARGO = curva.getLength();
 const NSEG = 600;
@@ -643,7 +643,7 @@ const PLANOS = [
   // B · el mostrador a la tarde: el aviso, el mate, la bolsa que se llena; push-in a la bolsa
   // B0 · inserto: el aviso del pedido en el celular de Rubén, de frente (la cámara la pone camCelu)
   [T.pB, "celu"],
-  [T.pBgen, [[T.pBgen, 0.74, 1.35, 0.3, 0.36, 1.3, -1.7, 40], [T.abrocha, 0.6, 1.33, -0.25, 0.32, 1.18, -1.45, 40], [T.pC, 0.55, 1.3, -0.45, 0.3, 1.15, -1.4, 40]]],
+  [T.pBgen, [[T.pBgen, 0.62, 1.35, 0.3, 0.22, 1.3, -1.7, 40], [T.abrocha, 0.4, 1.33, -0.25, 0.1, 1.18, -1.45, 40], [T.pC, 0.3, 1.3, -0.45, 0.04, 1.15, -1.4, 40]]],
   // C · callback del plano 1: misma vereda, mismo encuadre
   [T.pC, PLAN1.map((k, i) => [i ? T.pD : T.pC, ...k.slice(1)])],
   // D · primer plano de Rubén con el mate
@@ -886,7 +886,7 @@ function ponerPersonajes(t, gap) {
   ruben.poner(pr);
   // ---- Walter ----
   let pw = poseEn(t, WK);
-  walter.ponerCampera(t < T.remate + 0.3 || t >= T.pC);
+  walter.ponerCampera(t < P1 || t >= T.pC); // ronda 3: en el remate la campera queda puesta (antes desaparecía de un cuadro a otro)
   mochila.visible = t < T.remate || t >= T.pC;
   if (t < T.frena) { const u = sg(t, T.corre[0], T.frena); pw.x = lerp(WB.x - 3.2, WB.x, 1 - Math.pow(1 - u, 1.6)); }
   if (en(t, T.pC, T.llega[1])) pw.x = lerp(WB.x - 2.4, WB.x, sg(t, T.llega[0], T.llega[1]));
@@ -975,7 +975,7 @@ function renderAt(tIn) {
     camperaColgada.position.copy(ganchoPerchero); camperaColgada.position.y += 0.03;
     camperaColgada.rotation.set(0, -0.3, Math.sin((t - T.cuelga) * 7) * 0.12 * Math.exp(-(t - T.cuelga) * 2.5));
   }
-  camperaW.visible = t >= T.remate + 0.3 && t < P1;
+  camperaW.visible = false;
   if (camperaW.visible) { camperaW.position.set(CAJON.x - 0.24, 0.42, CAJON.z + 0.1); camperaW.rotation.set(0.05, 0.6, -0.12); camperaW.scale.setScalar(0.64 * Math.max(0.01, bk(sg(t, T.remate + 0.3, T.remate + 0.55)))); }
 
   // ---- el papelito / la lista / la hoja ----
@@ -1032,7 +1032,7 @@ function renderAt(tIn) {
   {
     const enB = s === "tarde";
     bolsa.visible = enB || (s === "vereda" && t >= T.pC) || en(t, T.pIns, T.pE + 0.6);
-    if (enB) { bolsa.position.set(MOSTRADOR.x - 0.22, MOSTRADOR.y, MOSTRADOR.z + 0.08); bolsa.rotation.set(0, 0.15, 0); bolsa.scale.setScalar(1); }
+    if (enB) { bolsa.position.set(MOSTRADOR.x - 0.5, MOSTRADOR.y, MOSTRADOR.z + 0.08); bolsa.rotation.set(0, 0.15, 0); bolsa.scale.setScalar(1); }
     else if (bolsa.visible) {
       // en la vereda: junto a la puerta, Rubén la agarra y se la da a Walter
       if (t < T.agarra) { bolsa.position.set(RB.x + 0.05, 0, RB.z + 0.35); bolsa.rotation.set(0, -0.4, 0); }
@@ -1094,7 +1094,9 @@ function renderAt(tIn) {
   // ---- reloj de pared ----
   {
     let min = 19 * 60 + 59;
-    if (t >= T.h2000) min = 20 * 60 + lerp(0, 23, eio(sg(t, T.h2000, T.h2023 + 0.2)));
+    // el reloj sigue al chip: salta con cada cambio de hora (un giro corto de 0,25 s)
+    const paso = (a, b, t0) => lerp(a, b, eio(sg(t, t0, t0 + 0.25)));
+    if (t >= T.h2000) min = 20 * 60 + (t < T.h2007 ? paso(-1, 0, T.h2000) : t < T.h2023 ? paso(0, 7, T.h2007) : paso(7, 23, T.h2023));
     if (t >= T.h2041) min = 20 * 60 + 41;
     if (s === "tarde") min = 17 * 60 + 5;
     agujaM.rotation.z = -((min % 60) / 60) * Math.PI * 2;

@@ -216,8 +216,8 @@ linea("s02-linea", T.voz2, LINEA2, 3, T.pIns - 0.02);
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 60px; right: 60px; top: 1480px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.92); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 48px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
-    P .b { margin-top: 10px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
+    P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Una tienda online toma</div><div class="a">el pedido y lo cobra por vos</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
@@ -272,7 +272,6 @@ s("sfx/whoosh-short.mp3", T.cuelga - 0.02, 0, { techo: -40 });
 s("voice/ruben1.wav", T.voz1, 0, { voz: true });
 s("sfx/tuba.mp3", T.h2041 + 0.12, 0, { desde: 0.19, techo: -31 });
 s("sfx/tic-real.mp3", T.h2041 + 0.08, 0);
-s("sfx/whoosh-short.mp3", T.remate + 0.25, 0, { techo: -40 });              // Walter se saca la campera
 s("sfx/sello.wav", T.remate + 0.12, -6, { techo: -38 });                                // el cajón cruje cuando se sienta
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
@@ -400,7 +399,8 @@ ${abajo}
 ${arriba}
 ${LIMPIO ? "" : `      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${T.pAtras}" data-track-index="9" />
       <img id="firma1b" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${T.p8}" data-duration="${r2(P1 - T.p8)}" data-track-index="9" />
-      <img id="firma2" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${P2}" data-duration="${r2(DUR - P2)}" data-track-index="9" />`}
+      <img id="firma2" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${P2}" data-duration="${r2(T.pIns - P2)}" data-track-index="9" />
+      <img id="firma2b" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${T.pE}" data-duration="${r2(DUR - T.pE)}" data-track-index="9" />`}
       <div id="precarga">Yerba ATRÁS</div>
       <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="${DUR}" data-track-index="30" data-volume="1"></audio>
     </div>

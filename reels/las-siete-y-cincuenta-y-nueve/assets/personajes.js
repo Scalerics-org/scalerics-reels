@@ -256,7 +256,7 @@ export function crearPersonaje(cfg) {
     const blanco = mesh(G.esfera, M.blanco, 0, 0, 0, 0.068, 0.076, 0.05); g.add(blanco);
     const pup = new THREE.Group(); g.add(pup);
     pup.add(mesh(G.esfera, M.pupila, 0, 0, 0.034, 0.036, 0.042, 0.022));
-    pup.add(mesh(G.esferaLow, M.blanco, 0.012, 0.016, 0.052, 0.011));
+    const brillo = mesh(G.esferaLow, M.blanco, 0.012, 0.016, 0.052, 0.011); pup.add(brillo);
     const lidPivote = new THREE.Group(); g.add(lidPivote);
     const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.075, 0.083, 0.057); lidPivote.add(lid); // radio claramente mayor que el globo (sin z-fighting); cerrado lo reemplaza la línea
     const lidLow = new THREE.Group(); g.add(lidLow);
@@ -277,7 +277,7 @@ export function crearPersonaje(cfg) {
     const ARC = Math.PI * 0.62;
     const cerrado = mesh(new THREE.TorusGeometry(0.056, 0.0105, 6, 18, ARC), mat(c.pestanas ?? 0x2a1d1a, 0.6), 0, -0.006, 0.03);
     cerrado.rotation.z = -Math.PI / 2 - ARC / 2; cerrado.scale.set(1, 0.75, 1); cerrado.visible = false; g.add(cerrado);
-    return { g, blanco, pup, lidPivote, lid, lidLow, s, cerrado };
+    return { g, blanco, pup, lidPivote, lid, lidLow, s, cerrado, brillo, pupila: pup.children[0] };
   });
   // cejas
   const cejas = [-1, 1].map((s) => {
@@ -535,6 +535,8 @@ export function crearPersonaje(cfg) {
       o.lidLow.rotation.set(lerp(Math.PI * 0.62, 0.3, cl(p.ojos.feliz)), 0, 0);
       o.blanco.scale.y = 0.076 * (1 - p.ojos.feliz * 0.15);
       const cer = ab < 0.2;
+      // párpado a media asta (tapa más de ~40 %): sin brillo (atravesaba el párpado como un granito); más bajo, sin pupila
+      o.brillo.visible = ab > 0.62; o.pupila.visible = ab > 0.3;
       o.cerrado.visible = cer; o.blanco.visible = o.pup.visible = o.lidPivote.visible = o.lidLow.visible = !cer;
     }
     // cejas
@@ -576,7 +578,7 @@ export function crearPersonaje(cfg) {
     ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
     ojos[0].g.visible = ojos[1].g.visible = true;
-    if (ang > 0.6) ojos[lejos].g.visible = false;
+    if (ang > 0.42) ojos[lejos].g.visible = false;
   }
   poner({});
   return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
