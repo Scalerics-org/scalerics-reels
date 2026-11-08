@@ -152,7 +152,7 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
     sfx: [
       { t: -0.03, sfx: "click", vol: 0.16 },
       { t: 0.05, sfx: "tipeo", vol: 0.4, max: Math.max(0.3, w(id, 26) - 0.05) },
-      { t: w(id, 26) + 0.05, sfx: "respuesta", vol: 0.3 }, { t: w(id, 26) + 0.1, sfx: "pop", vol: 0.15 }, { t: w(id, 26) + 0.2, sfx: "pop", vol: 0.13 },
+      { t: 0.02, sfx: "pop", vol: 0.15 }, { t: 0.4, sfx: "respuesta", vol: 0.3 },
       { t: w(id, 26) + 0.33, sfx: "whoosh-short", vol: 0.2 },
     ],
   });
@@ -212,7 +212,7 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
     js: `nota(1, ${r2(w(id, 52) + 0.25)}); nota(2, ${r2(w(id, 52) + 0.37)}); sinNota(1, ${r2(ESC[id] - 0.3)}); sinNota(2, ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.16 }, { t: 0, sfx: "golpe", vol: 0.12 },
-      { t: w(id, 57) - 0.2, sfx: "pop", vol: 0.18 }, { t: w(id, 57) - 0.08, sfx: "pop", vol: 0.16 },
+      { t: w(id, 57) - 0.08, sfx: "pop", vol: 0.17 },
       { t: w(id, 52) + 0.27, sfx: "click-soft", vol: 0.16 }, { t: w(id, 52) + 0.39, sfx: "click-soft", vol: 0.14 },
     ],
   });
@@ -245,8 +245,8 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
       ...[0, 1, 2, 3].map((i) => ({ t: r2(0.33 + i * 0.09), sfx: "tac-real", vol: 0.3 })), { t: 0.72, sfx: "golpe", vol: 0.2 },
       { t: 0.9, sfx: "campanita", vol: 0.2 },
       // la de Néstor sube después (w73 - 0,75 a w73 + 0,25; lo rápido entre w73 - 0,5 y w73): traqueteo y golpe al tope
-      ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(w(id, 73) - 0.5 + i * 0.1), sfx: "tac-real", vol: 0.4 })),
-      { t: r2(w(id, 73) - 0.03), sfx: "golpe", vol: 0.3 },
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 73) - 0.42 + i * 0.07), sfx: "tac-real", vol: 0.4 })),
+      { t: r2(w(id, 73) - 0.15), sfx: "golpe", vol: 0.3 },
       // el remate: la calle de la mañana más presente (el hueco de la cama)
       { t: rem - 0.45, sfx: "calle", vol: 0.8, max: 2.55 },
       { t: rem + 0.33, sfx: "vibra2", vol: 0.9, max: 0.5 }, { t: rem + 0.35, sfx: "pop", vol: 0.32 },
@@ -260,7 +260,7 @@ const reloj = (c = REDD) => `<svg width="40" height="40" viewBox="0 0 40 40" ari
   escena(id, {
     html: `<i></i>`, js: ``,
     sfx: [
-      { t: -0.05, sfx: "golpe", vol: 0.14 }, { t: 0.2, sfx: "click", vol: 0.2 },
+      { t: -0.05, sfx: "golpe", vol: 0.14 }, { t: 0.05, sfx: "click", vol: 0.2 },
       { t: w(id, 78) - 0.1, sfx: "whoosh-short", vol: 0.2 }, { t: w(id, 78) + 0.21, sfx: "pop", vol: 0.24 }, { t: w(id, 78) - 0.01, sfx: "ding", vol: 0.14, max: 0.8 },
     ],
   });

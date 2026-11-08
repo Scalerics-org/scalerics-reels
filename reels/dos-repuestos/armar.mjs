@@ -37,6 +37,10 @@ const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
 
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
+// la cama sube en un tramo (reel.bgmSube = { desde, hasta, x }): data-volume al máximo y un carril de volumen que la baja afuera del tramo
+const BS = reel.bgmSube, BV = reel.bgmVol ?? 0.12;
+const bgmVolTag = BS ? +(BV * BS.x).toFixed(4) : BV;
+const bgmAuto = BS ? ` data-automation='${JSON.stringify({ version: 1, lanes: [{ target: "volume", points: [{ t: 0, v: +(1 / BS.x).toFixed(4) }, { t: BS.desde - 0.25, v: +(1 / BS.x).toFixed(4) }, { t: BS.desde, v: 1 }, { t: BS.hasta, v: 1 }, { t: BS.hasta + 0.2, v: +(1 / BS.x).toFixed(4) }] }] })}'` : "";
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
 const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.15);
@@ -97,7 +101,9 @@ CORTES.forEach((desde, g) => {
   let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
-  const ini = r2(Math.max(0, ws[0].start - 0.08));
+  let ini = r2(Math.max(0, ws[0].start - 0.08));
+  // si el grupo arranca justo sobre un corte de escena, arranca EN el corte (no asoma 2-3 cuadros sobre el plano anterior)
+  for (const [, e0] of TODAS) if (e0 > ini && e0 <= ws[0].start + 0.001) ini = e0;
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
   let fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.05 : DUR));
   // si después viene una pausa larga (el remate en silencio), el subtítulo se va al terminar la frase
@@ -219,7 +225,7 @@ const index = `<!doctype html>
 ${hosts}
       <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="${reel.bgmVol ?? 0.12}" data-fade-out="0.35"></audio>\n` : ""}${sfxTags}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="${bgmVolTag}"${bgmAuto} data-fade-out="0.35"></audio>\n` : ""}${sfxTags}
     </div>
     <script>
       window.__hf = window.__hf || {};

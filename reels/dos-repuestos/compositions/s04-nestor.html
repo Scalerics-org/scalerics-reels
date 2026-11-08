@@ -20,15 +20,15 @@
     [data-composition-id="s04-nestor"] .sello { position: absolute; padding: 12px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 96px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s04-nestor" data-width="1080" data-height="1920" data-duration="2.22">
-    <div id="s04-nestor-esc" class="esc clip" data-start="0" data-duration="2.22" data-track-index="0">
+  <div id="root" data-composition-id="s04-nestor" data-width="1080" data-height="1920" data-duration="2.39">
+    <div id="s04-nestor-esc" class="esc clip" data-start="0" data-duration="2.39" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M300 1480 L420 1240"/><circle class="dot r d1" cx="420" cy="1240" r="12"/></svg><div class="pill r grande n1" style="left:300px;top:1530px"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="15" fill="none" stroke="#a8463d" stroke-width="5"/><path d="M20 11 V20 L26 24" fill="none" stroke="#a8463d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>Sin leer</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s04-nestor";
-      const DUR = 2.22;
+      const DUR = 2.39;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -49,7 +49,7 @@
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1.11); sinNota(1, 1.97);
+nota(1, 1.11); sinNota(1, 2.14);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

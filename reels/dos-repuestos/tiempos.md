@@ -7,11 +7,11 @@ Palabras (segundos relativos a la escena): Diez 0.00 · de 0.27 · la 0.34 · no
 ### s03-escribe — dura 1.81 s (inicio global 8.00)
 Palabras (segundos relativos a la escena): mañana 0.00 · reparte. 0.50 · En 1.80
 
-### s04-nestor — dura 2.22 s (inicio global 9.81)
+### s04-nestor — dura 2.39 s (inicio global 9.81)
 Palabras (segundos relativos a la escena): En -0.01 · lo 0.09 · de 0.19 · Néstor, 0.29 · queda 1.11 · para 1.19 · mañana. 1.49
 
-### s05-daniel — dura 2.84 s (inicio global 12.03)
-Palabras (segundos relativos a la escena): En 0.00 · lo 0.09 · de 0.19 · Daniel 0.27 · contesta 0.67 · un 1.67 · agente 1.92 · de 2.17 · IA, 2.27
+### s05-daniel — dura 2.67 s (inicio global 12.20)
+Palabras (segundos relativos a la escena): En 0.00 · lo 0.17 · de 0.33 · Daniel 0.50 · contesta 0.83 · un 1.33 · agente 1.75 · de 2.00 · IA, 2.10
 
 ### s05b-reserva — dura 1.59 s (inicio global 14.87)
 Palabras (segundos relativos a la escena): y 0.00 · se 0.08 · la 0.18 · reserva. 0.33
