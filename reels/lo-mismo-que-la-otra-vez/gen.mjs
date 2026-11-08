@@ -14,7 +14,7 @@ import { execSync, execFileSync } from "node:child_process";
 
 const r2 = (n) => Math.round(n * 100) / 100;
 // la misma ganancia para las tres piezas (parte 1, cartel, parte 2): así las voces quedan parejas entre sí
-const GANANCIA = 9;
+const GANANCIA = 5;
 const MODO = process.argv[2] || "1";
 const ff = (args) => execFileSync("ffmpeg", ["-y", "-loglevel", "error", ...args], { maxBuffer: 1e9 });
 const dur = (f) => Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString());
@@ -35,10 +35,11 @@ if (MODO === "cartel") {
   const DUR = 3.4;
   const SON = [
     ["sfx/whoosh.mp3", 0.0, -31],        // el giro de la parte 1 que se va
-    ["sfx/stinger.wav", 0.05, -29],      // vibráfono (CC0), unos 7 LU por debajo del narrador
+    ["sfx/stinger.wav", 0.05, -31],      // vibráfono (CC0), unos 7 LU por debajo del narrador
     ["voice/narrador.wav", 0.38, -18],   // Gemini Rasalgethi: "Un sistema de clientes más tarde."
     ["sfx/whoosh-short.mp3", 2.94, -31], // el iris que abre la parte 2
   ];
+  for (const x of SON) if (["sfx/whoosh.mp3", "sfx/whoosh-short.mp3"].includes(x[0])) x[3] = { desde: 0.06 };
   mezclar(SON, DUR, "cartel");
   fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
@@ -196,7 +197,7 @@ const ESC = [];
         const c = w.querySelector(".caja");
         if (c) { tl.set(w.querySelector("em"), { color: "${NAVY}", textShadow: "none" }, t + 0.06); tl.fromTo(c, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t + 0.06); }
       }
-      tl.to(q(".linea"), { opacity: 0, duration: 0.18, ease: "power2.in" }, ${r2(d - 0.2)});`,
+      tl.set(q(".linea"), { opacity: 0 }, ${r2(d - 0.02)}); // sale de golpe (con fundido se veía gris)`,
   });
 }
 // la línea chica final (solo parte 2)
@@ -208,7 +209,7 @@ if (PARTE === 2) {
     P .caja { position: absolute; left: 60px; right: 60px; top: 1470px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.92); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 50px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Un sistema que se acuerda de lo<br>que compra cada cliente</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Un sistema que se acuerda<br>de lo que compra cada cliente</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.03);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.28);`,
   });
@@ -230,8 +231,8 @@ if (PARTE === 1) {
       ["sfx/pop.mp3", a, -34],
       ["sfx/burbuja.mp3", a + 0.02, -35],
       ...(no ? [["sfx/burbuja.mp3", no, -36, { vel: 1.12 }]] : []),
-      ["sfx/sello.mp3", deja + 0.06, -32, { vel: [1, 0.9, 1.08, 0.95, 0.85][i] }],   // el paquete que cae en la pila
-      ["sfx/golpe.mp3", deja + 0.06, -38],
+      ["sfx/sello.mp3", deja + 0.06, -36, { vel: [1, 0.9, 1.08, 0.95, 0.85][i], dur: 0.28, fin: 0.06 }],   // el paquete que cae en la pila (solo el primer golpe del sello)
+      ["sfx/golpe.mp3", deja + 0.06, -41],
     ]),
     ["sfx/papel.wav", T.tambalea, -33, { dur: 0.6, fin: 0.2 }],                    // la pila que cruje y se tambalea
     ["sfx/burbuja.mp3", T.verde - 0.02, -33],
@@ -245,14 +246,14 @@ if (PARTE === 1) {
     ["sfx/pop.mp3", T.contador2, -35],
     ["sfx/key-press.mp3", T.tacha, -34],
     ["sfx/tuba.mp3", T.tacha + 0.04, -31, { desde: 0.15 }],
-    ["sfx/golpe.mp3", T.frente + 0.1, -32],
+    ["sfx/cachetada.mp3", T.frente + 0.02, -32],                                  // la mano a la frente
     ["sfx/papel.wav", T.cae + 0.02, -35, { dur: 0.35, fin: 0.12 }],
-    ["sfx/sello.mp3", T.caeGolpe, -33, { vel: 0.8 }],
+    ["sfx/sello.mp3", T.caeGolpe, -34, { vel: 0.8, dur: 0.28, fin: 0.06 }],
   ];
 } else {
   SON = [
     ["sfx/calle.wav", 0, -40, { dur: DUR, fin: 0.5, lp: 900, ini: 0.05 }],
-    ["bgm/pizzicato.wav", 0, -27, { dur: DUR, fin: 1.0, ini: 0.05, baja: [[T.voz - 0.12, T.voz + 1.35, -9]] }], // todo anda: la música sigue (entra con un fundido corto después del cartel)
+    ["bgm/pizzicato.wav", 0, -25, { dur: DUR, fin: 1.0, ini: 0.05, baja: [[T.voz - 0.12, T.guino + 0.7, -9]] }], // todo anda: la música sigue (entra con un fundido corto después del cartel)
     ["sfx/campanita.wav", T.campanita, -32, { dur: 0.7, fin: 0.3 }],
     ["sfx/burbuja.mp3", T.tipea[0] - 0.02, -35],
     ...[0, 1, 2, 3, 4].map((k) => ["sfx/key-press.mp3", r2(T.tipea[0] + (k * (T.tipea[1] - T.tipea[0])) / 5), -34, { dur: 0.12, fin: 0.04 }]),   // tecleo de cada tramo del globo
@@ -270,6 +271,10 @@ if (PARTE === 1) {
     ["sfx/campanita.wav", T.campanita2, -37, { dur: 0.6, fin: 0.3 }],
   ];
 }
+// tramos mudos al principio de algunos efectos (pop 0,09 s, whoosh 0,06 s, chime 0,37 s, tuba 0,15 s)
+const MUDO = { "sfx/pop.mp3": 0.09, "sfx/whoosh.mp3": 0.06, "sfx/whoosh-short.mp3": 0.06 };
+const recortar = (L) => { for (const x of L) if (MUDO[x[0]] && !(x[3] && x[3].desde)) { x[3] = { ...(x[3] || {}), desde: MUDO[x[0]] }; } };
+recortar(SON);
 for (const s of SON) if (!s[0].startsWith("voice/") && !s[0].startsWith("bgm/") && s[0] !== "sfx/calle.wav") s[2] = Math.min(s[2], TECHO);
 mezclar(SON, DUR, String(PARTE));
 
@@ -293,7 +298,7 @@ fs.writeFileSync("index.html", `<!doctype html>
       #tres, #barrido { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       #barrido { visibility: hidden; }
       .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #firma { position: absolute; left: 50%; top: 1800px; height: 38px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 50; filter: drop-shadow(0 0 6px rgba(11,18,32,0.95)) drop-shadow(0 2px 2px rgba(11,18,32,0.9)); }
+      #firma { position: absolute; left: 50%; top: 1790px; height: 44px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 50; filter: drop-shadow(0 0 6px rgba(11,18,32,0.95)) drop-shadow(0 2px 2px rgba(11,18,32,0.9)); }
     </style>
   </head>
   <body>
@@ -339,7 +344,8 @@ function cadena(i, [f, ini, obj, o = {}], cache) {
   if (o.ini) c += `,afade=t=in:st=0:d=${o.ini}`;
   if (o.fin && o.dur) c += `,afade=t=out:st=${r2(Math.max(0, o.dur - o.fin))}:d=${o.fin}`;
   c += `,volume=${gan}dB`;
-  for (const [a, b, db] of o.baja ?? []) c += `,volume=enable='between(t,${r2(a - ini)},${r2(b - ini)})':volume=${db}dB`;
+  // bajadas con rampa de 0,15 s (sin escalones)
+  for (const [a, b, db] of o.baja ?? []) { const A = r2(a - ini), B = r2(b - ini), R = 0.15; c += `,volume='pow(10,(${db})*max(0,min(1,min((t-${A})/${R},(${B}-t)/${R})))/20)':eval=frame`; }
   c += `,adelay=${Math.round(ini * 1000)}|${Math.round(ini * 1000)}`;
   return c;
 }

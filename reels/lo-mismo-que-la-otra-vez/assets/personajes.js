@@ -73,7 +73,7 @@ export const ELENCO = {
 export const DEFECTO = { nombre: "Alguien", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2f2a,
   camisa: MARCA.cr, mangas: "cortas", pantalon: 0x3a3f4a, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, mejillas: 0xe08a7a, alto: 1.0,
   bigote: null, lentes: null, delantal: null, delantalBorde: null, pollera: null, cuello: null, labios: null, aros: null, auriculares: null,
-  pestanas: null, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
+  pestanas: null, ojoDibujo: false, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
 
 export const POSE_BASE = {
   x: 0, y: 0, z: 0, giro: 0, inclina: 0, ladea: 0, torso: 0, aplasta: 0, respira: 1, t: 0, reflejo: 0, paso: 0,
@@ -224,7 +224,13 @@ export function crearPersonaje(cfg) {
       // delineado arriba
       const del = mesh(new THREE.TorusGeometry(0.073, 0.008, 6, 24, Math.PI * 0.75), pm, 0, 0.004, 0.02); del.rotation.z = Math.PI * 0.125; g.add(del);
     }
-    return { g, blanco, pup, lidPivote, lid, lidLow, s };
+    // ojo de dibujo animado (cfg.ojoDibujo): cerrado = una línea curva oscura (sin párpado como bulto de piel)
+    let arco = null;
+    if (c.ojoDibujo) {
+      arco = mesh(new THREE.TorusGeometry(0.052, 0.0105, 8, 20, Math.PI), mat(0x2b1d18, 0.6), 0, 0.012, 0.052);
+      arco.rotation.z = Math.PI; arco.scale.set(1, 0.62, 1); arco.visible = false; g.add(arco);
+    }
+    return { g, blanco, pup, lidPivote, lid, lidLow, s, arco };
   });
   // cejas
   const cejas = [-1, 1].map((s) => {
@@ -496,6 +502,14 @@ export function crearPersonaje(cfg) {
       o.lidPivote.rotation.set(lerp(Math.PI * 0.5, -Math.PI * 0.62, ab), 0, o.s * p.ojos.tension * 0.45);
       o.lidLow.rotation.set(lerp(Math.PI * 0.62, 0.3, cl(p.ojos.feliz)), 0, 0);
       o.blanco.scale.y = 0.076 * (1 - p.ojos.feliz * 0.15);
+      if (o.arco) {
+        // cerrado (parpadeo, guiño, sorbo): se esconde el ojo entero y queda el arco; abierto: el ojo de siempre
+        const cerrado = ab < 0.45;
+        o.arco.visible = cerrado;
+        for (const m of [o.blanco, o.pup, o.lidPivote, o.lidLow]) m.visible = !cerrado;
+        // abierto: el párpado nunca baja más que hasta la mitad (sin medialunas ni bordes dentados)
+        if (!cerrado) o.lidPivote.rotation.x = lerp(Math.PI * 0.5, -Math.PI * 0.62, Math.max(ab, 0.62));
+      }
     }
     // cejas
     for (const e of cejas) {
@@ -772,7 +786,6 @@ export function crearJabonPan() {
   // envoltorio: cubre la mitad izquierda, con la solapa levantada
   const pap = mat(0xefeee5, 0.85);
   const env = new THREE.Mesh(rbox(W * 0.52, H * 1.06, D * 1.06, 0.006, 2), pap); env.position.set(-W * 0.26, H / 2, 0); g.add(env);
-  const sol = new THREE.Mesh(new THREE.BoxGeometry(W * 0.3, 0.003, D * 1.05), pap); sol.position.set(0.006, H * 1.06 + 0.012, 0); sol.rotation.z = 0.5; g.add(sol);
   const tex = etiquetaTex(256, 128, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#3fa60a"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "JABÓN", 900, 70, w * 0.85); x.fillText("JABÓN", w / 2, h / 2); });
   const et = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.48, H * 0.7), new THREE.MeshStandardMaterial({ map: tex, roughness: 0.8 })); et.position.set(-W * 0.26, H / 2, D * 0.535); g.add(et);
   g.userData.tam = [W, H, D];

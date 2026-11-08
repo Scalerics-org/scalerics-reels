@@ -31,7 +31,7 @@
         const c = w.querySelector(".caja");
         if (c) { tl.set(w.querySelector("em"), { color: "#0b1220", textShadow: "none" }, t + 0.06); tl.fromTo(c, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t + 0.06); }
       }
-      tl.to(q(".linea"), { opacity: 0, duration: 0.18, ease: "power2.in" }, 2.3);
+      tl.set(q(".linea"), { opacity: 0 }, 2.48); // sale de golpe (con fundido se veía gris)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

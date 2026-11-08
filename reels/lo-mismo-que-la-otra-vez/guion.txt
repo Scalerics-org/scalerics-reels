@@ -5,4 +5,4 @@ Todo es verde, Graciela.
 [cartel · texto: "Un sistema de clientes más tarde…"; voz Rasalgethi: "Un sistema de clientes más tarde."]
 [parte 2 · globo de Graciela que se corta: "Lo mismo que la ot…" · ficha en la tablet: "Graciela" · "Última compra: sáb 17/10" · "2 jabones en pan (verdes)" · "1 lavandina 2 L" · "3 esponjas" · Graciela "¡Eso! ¿Cómo supiste?"]
 Era verde.
-[línea chica final: "Tu sistema se acuerda de lo que compra cada cliente" · "scalerics.com"]
+[línea chica final: "Un sistema que se acuerda de lo que compra cada cliente" · "scalerics.com"]
