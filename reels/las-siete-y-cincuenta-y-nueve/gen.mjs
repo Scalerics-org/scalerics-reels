@@ -47,8 +47,8 @@ const T = {
 const DUR = 30.4;
 
 // palabras de las líneas (relativas al inicio de cada archivo; medidas con tiempos.mjs y la envolvente)
-const LINEA1 = [["Sacate", 0.92], ["la", 1.5], ["campera,", 1.62], ["Walter.", 2.22]];
-const LINEA2 = [["Está", 0.27], ["en", 0.78], ["la", 0.88], ["bolsa,", 1.0], ["Walter.", 1.62]];
+const LINEA1 = [["Sacate", 0.9], ["la", 1.38], ["campera,", 1.62], ["Walter.", 2.33]];
+const LINEA2 = [["Está", 0.25], ["en", 0.74], ["la", 0.9], ["bolsa,", 1.06], ["Walter.", 1.62]];
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo, mudo = 0) {
@@ -66,7 +66,7 @@ function envolvente(archivo, mudo = 0) {
 }
 const ENV1 = envolvente("assets/voice/ruben1.wav", 0.85);
 const ENV2 = envolvente("assets/voice/ruben2.wav", 0.2);
-fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const VOZ1_ENV = ${JSON.stringify(ENV1)};\nexport const VOZ2_ENV = ${JSON.stringify(ENV2)};\n`);
+fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const VOZ1_ENV = ${JSON.stringify(ENV1)};\nexport const VOZ2_ENV = ${JSON.stringify(ENV2)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin chip ni burbujas (fondo de la portada)\n`);
 
 // ================= CAPA PLANA (HTML) =================
 const NAVY = "#0b1220", CR = "#efeee5", G = "#5ce611";
@@ -122,9 +122,11 @@ function linea(id, vozT, palabras, clave, fin) {
     html: `      <p class="linea">${spans}</p>`,
     js: `      for (const w of qa(".w")) {
         const t = Number(w.dataset.t);
-        tl.fromTo(w, { opacity: 0, y: 18, scale: 0.86 }, { opacity: 1, y: 0, scale: 1, duration: 0.1, ease: "power2.out", immediateRender: true }, t);
+        // la palabra entra entera (sin fundido gris): aparece y rebota en escala
+        tl.set(w, { opacity: 1 }, t);
+        tl.fromTo(w, { y: 18, scale: 0.86 }, { y: 0, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, t);
         const c = w.querySelector(".caja");
-        if (c) tl.fromTo(c, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t + 0.04);
+        if (c) tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t);
       }
       tl.to(q(".linea"), { opacity: 0, duration: 0.18, ease: "power2.in" }, ${r2(dur - 0.2)});`,
   });
@@ -244,21 +246,21 @@ for (const t of [8.3, 8.85, 9.55]) s("sfx/papel.wav", t, 0, { dur: 0.22, fin: 0.
 for (let t = T.p6 + 0.1; t < T.p7 - 0.1; t += 0.32) s("sfx/tic-real.mp3", t, 0, { techo: -42 });  // pasos de Rubén
 s("sfx/papel.wav", T.tacha[0], 0, { dur: 0.25, fin: 0.08, techo: -34 });
 s("sfx/papel.wav", T.vuelta, 0, { dur: 0.4, fin: 0.12 });
-s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -33 });
-s("sfx/papel.wav", T.solapas[0], 0, { dur: 0.45, fin: 0.15, techo: -37 });           // roce de la campera
-s("sfx/whoosh-short.mp3", T.cuelga - 0.02, 0, { techo: -37 });
+s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -39 });
+s("sfx/papel.wav", T.solapas[0], 0, { dur: 0.45, fin: 0.15, techo: -40 });           // roce de la campera
+s("sfx/whoosh-short.mp3", T.cuelga - 0.02, 0, { techo: -40 });
 s("voice/ruben1.wav", T.voz1, 0, { voz: true });
 s("sfx/tuba.mp3", T.h2041 + 0.02, 0, { techo: -29.5 });
 s("sfx/tic-real.mp3", T.h2041, 0);
 s("sfx/golpe.mp3", T.remate + 0.12, -6, { techo: -38 });                                // el cajón cruje cuando se sienta
 // ---- cartel ----
-s("sfx/whoosh.mp3", P1, 0);
-s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -29 });
-s("voice/narrador.wav", P1 + 0.3, 0, { voz: true });
-s("sfx/whoosh-short.mp3", P2 - 0.46, 0);
+s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
+s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -33 });
+s("voice/narrador.wav", P1 + 0.22, 0, { voz: true });
+s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -37 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -37 });
-s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.4, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.4] });
+s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.4, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.6] });
 for (let i = 0; i < 7; i++) s("sfx/key-press.mp3", T.tildes + i * 0.15, 0, { techo: -36 });
 s("sfx/key-press.mp3", T.pagar, 0, { techo: -33 });
 s("sfx/cero.mp3", T.pagado, 0, { techo: -30 });
@@ -273,8 +275,8 @@ s("sfx/papel.wav", T.agarra, 0, { dur: 0.35, fin: 0.1, techo: -34 });
 s("sfx/burbuja.mp3", T.b3 + 0.03, 0);
 s("sfx/burbuja.mp3", T.b4 + 0.03, 0);
 s("voice/ruben2.wav", T.voz2, 0, { voz: true });
-s("sfx/papel.wav", T.pIns + 0.05, 0, { dur: 0.4, fin: 0.12, techo: -35 });
-s("sfx/pop.mp3", T.pIns + 0.2, 0, { techo: -34 });
+s("sfx/papel.wav", T.pIns + 0.12, 0, { dur: 0.4, fin: 0.12, techo: -38 });
+s("sfx/pop.mp3", T.pIns + 0.25, 0, { techo: -37 });
 for (let i = 0, t = T.tiron[0]; t < T.tiron[1]; i++, t += 0.05) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, 0, { techo: -35 });
 s("sfx/golpe.mp3", T.tiron[1], 0);
 s("sfx/cero.mp3", T.h2000b, 0, { techo: -29 });

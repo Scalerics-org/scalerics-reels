@@ -1,0 +1,13 @@
+{
+ "t": 7.5,
+ "chica": "Cerrás a las 20.",
+ "grande": "Entra a las 19:59",
+ "sello": "Para mandar",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.3,
+ "foco": "20%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: el final de la grúa del plano 5 (el almacén con la lista cruzando la calle), de un render LIMPIO=1 node gen.mjs (sin chip, burbujas, subtítulos ni logo). Afinar t con una tira del render limpio."
+}
