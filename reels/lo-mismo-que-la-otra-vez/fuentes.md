@@ -19,9 +19,17 @@ Productos, chat, tablet, mate y termo genéricos, sin marcas.
 - Stinger de vibráfono del cartel, DanJFilms (freesound 528980).
 - Del repo (HyperFrames): pop, key-press, chime, click-soft, whoosh, whoosh-short, impact-bass-1.
 
-## Sonidos nuevos (a completar por el constructor: autor, link y licencia CC0 de cada uno)
-- Golpe de paquete sobre mostrador de madera: pendiente.
-- Crujido de cartón (tambaleo de la pila): pendiente.
-- Paquete que cae y rueda: pendiente.
-- Arrastre de bolsa de papel: pendiente.
-- Ambiente interior de almacén (si no se usa calle.wav filtrado): pendiente.
+## Sonidos de la "pila" y la bolsa (sin descargas nuevas)
+La descarga de Freesound está bloqueada desde la nube (cdn.freesound.org devuelve 403 en el proxy; Openverse solo da
+la búsqueda), así que no se sumaron sonidos nuevos: se usaron grabaciones reales que ya están en el repo, ninguna
+sintetizada.
+- Paquete que cae en la pila (`assets/sfx/sello.mp3`, con la velocidad variada en cada producto): "Stamp", kermite607,
+  Freesound, CC0 1.0 (https://freesound.org/people/kermite607/sounds/362624/), de reels/tres-segundos. Debajo,
+  `golpe.mp3` del repo (HyperFrames) bien bajo.
+- Crujido de la pila que se tambalea, celofán de las galletitas que caen y arrastre de la bolsa de papel
+  (`assets/sfx/papel.wav`, tramos): "Paper slide", Kingofgamers_cz, Freesound, CC0 1.0
+  (https://freesound.org/people/Kingofgamers_cz/sounds/352914/), de reels/trabajar-con-scalerics.
+- Golpe sordo de la frente contra la pila: `golpe.mp3` del repo.
+- Ambiente interior: la calle de Oper8 (`calle.wav`) con un pasabajos a 900 Hz (la calle oída desde adentro).
+- Ding del guiño (`cero.mp3`): "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald, CC0 1.0
+  (https://freesound.org/people/GabFitzgerald/sounds/625174/), de reels/abren-hoy-2.

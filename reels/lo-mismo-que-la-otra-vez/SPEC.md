@@ -141,3 +141,23 @@ Pill de hora: `OTRO SÁBADO · 11:40` (hasta 6,0).
 - Latigazo de cámara: tramo de 0,25 s con blur (render a dos sub-cuadros mezclados o un plano de velocidad en la
   capa HTML).
 - Tablet con 3 pantallas (canvas) y el toque con ripple.
+
+## Cómo quedó construido (constructor, 08-11)
+- Un solo proyecto: `gen.mjs` arma cada pieza (`node gen.mjs 1`, `node gen.mjs 2`, `node gen.mjs cartel`) y
+  `node gen.mjs unir` las pega en `renders/lo-mismo-que-la-otra-vez.mp4` (sin el paso 10). Una sola escena 3D
+  (`assets/tres.js`) con los dos días (`PARTE` en `assets/tiempos3d.js`). Personajes y utilería nuevos en
+  `assets/personajes.js` (copia del canónico `reels/abren-hoy/assets/personajes.js`).
+- Render (desde esta carpeta, con el candado de Chrome), en este orden:
+  1. `node gen.mjs 1 && flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 render --workers 2 -o renders/parte1.mp4`
+  2. `node gen.mjs 2 && flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 render --workers 2 -o renders/parte2.mp4`
+  3. cuadros de unión: `ffmpeg -sseof -0.04 -i renders/parte1.mp4 -frames:v 1 -update 1 assets/img/fin-parte1.png` y
+     `ffmpeg -i renders/parte2.mp4 -frames:v 1 assets/img/inicio-parte2.png`
+  4. `node gen.mjs cartel && flock /tmp/hyperframes.lock npx --yes hyperframes@0.8.206 render --workers 2 -o renders/cartel.mp4`
+  5. `node gen.mjs unir`
+- Ojo: `gen.mjs` reescribe `index.html` y `assets/tiempos3d.js`: no correrlo mientras otra pieza se está renderizando.
+- Cartel de 3,4 s (no 3,2): la toma de Rasalgethi que mejor dice "sistema" dura 2,88 s.
+- Simplificaciones: sin desenfoque de profundidad (el primer plano de Rubén y el contraplano son planos limpios);
+  en el contraplano de Graciela (P4/Q4) Rubén y la tablet no se dibujan (estarían donde está la cámara) y Graciela
+  gira hacia cámara; en P6 la pila no se dibuja (taparía la cara de Rubén desde ese ángulo); en P3/Q3 a Graciela se
+  la ve de atrás. La frente de Rubén queda apoyada al costado de la pila (sin atravesarla). La tablet está casi
+  acostada en un atril bajo para que el inserto cenital la vea de frente.

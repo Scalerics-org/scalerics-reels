@@ -470,7 +470,7 @@ else PLANOS = [
   // Q2 · inserto casi cenital de la tablet (desde atrás del mostrador, del lado de Rubén)
   [1.3, [[1.3, -0.11, 2.29, -1.58, -0.234, 0.974, -1.086, 33], [3.1, -0.12, 2.2, -1.55, -0.234, 0.974, -1.086, 33]]],
   // Q3 · plano medio frontal (el de P3: callback de la pila)
-  [3.1, [[3.1, -0.36, 1.62, 1.25, 0.42, 1.25, -1.2, 46], [4.6, -0.37, 1.63, 1.35, 0.42, 1.26, -1.2, 46]]],
+  [3.1, [[3.1, -0.22, 1.62, 1.25, 0.4, 1.25, -1.2, 46], [4.6, -0.22, 1.63, 1.35, 0.4, 1.26, -1.2, 46]]],
   // Q4 · primer plano de Graciela (desde atrás del mostrador)
   [4.6, [[4.6, -0.6, 1.62, -2.3, -0.42, 1.4, -0.52, 36], [6.0, -0.58, 1.61, -2.2, -0.42, 1.41, -0.52, 35]]],
   // Q5 · primer plano de Rubén, push-in lento
@@ -553,7 +553,7 @@ if (P1) {
     ]),
     [T.niega[0] + 0.25, { ...BRAZOS.apoyado, codoI: null, codoD: null, torso: 0, ...CARA.resignado, ojos: { abiertos: 0.45, x: -0.4, y: 0, tension: 0.5 }, boca: { sonrisa: -0.6, abierta: 0, ancho: 0.95 } }, 0.25],
     // P6: de mirar la estantería verde a mirar a cámara, lento, cara de nada
-    [T.gira - 0.01, { giro: 0.85, ...BRAZOS.apoyado, cabeza: { giro: -1.15, asiente: -0.05, ladea: 0 }, ojos: { abiertos: 0.5, x: -0.6, y: 0.05, tension: 0.3 }, cejas: { alto: 0.1, ang: 0.4 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.9 } }, 0.01],
+    [T.gira - 0.01, { giro: 0.85, ...BRAZOS.apoyado, cabeza: { giro: -0.75, asiente: -0.05, ladea: 0 }, ojos: { abiertos: 0.5, x: -0.8, y: 0.05, tension: 0.3 }, cejas: { alto: 0.1, ang: 0.4 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.9 } }, 0.01],
     [T.gira + 0.55, { cabeza: { giro: 0.25, asiente: 0.0, ladea: 0.05 }, ojos: { abiertos: 0.36, x: 0.05, y: 0.05, tension: 0.6 }, cejas: { alto: 0.25, ang: 0.85 }, boca: { sonrisa: -0.7, abierta: 0, ancho: 0.95 } }, 0.55],
     // P7: vuelve a su lugar (corte), mira a Graciela
     [T.planos[6], { giro: R0.giro, ...mirarG, ...CARA.resignado, ojos: { abiertos: 0.4, x: -0.6, y: 0, tension: 0.6 } }, 0.01],
@@ -758,7 +758,7 @@ function escena(t) {
   // qué se ve en cada plano
   frente.visible = P1 ? planoActual === 3 || planoActual === 3.5 : planoActual === 3;
   graciela.raiz.visible = !(P1 && planoActual === 4);
-  ruben.raiz.visible = planoActual !== 3; // en el contraplano de Graciela la cámara está donde él
+  ruben.raiz.visible = planoActual !== 3 && planoActual !== 3.5; // en el contraplano de Graciela (y al arrancar el latigazo) la cámara está donde él
   if (P1) { ponerProductos(t); if (planoActual === 5) for (const p of PROD) p.o.visible = false; } // en el primer plano de Rubén la pila taparía la cara
   if (P2) { dibujarTablet(t); ponerBolsa(t); tablet.visible = planoActual !== 3; } // en el contraplano de Graciela la tablet taparía el primer plano
   ponerGlobos(t);
