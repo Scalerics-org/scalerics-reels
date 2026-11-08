@@ -150,3 +150,12 @@ Duración total 31.55 (la voz termina en 31.25).
   Cartel ALMACÉN más a la derecha y más abajo.
 - Sonido: sellos de s07 en el toque (0,22 / 0,42 con caída corta); chime adelantado 0,4 s (s09 y s13); sello del cierre
   en 1,0; sin puerta (campanita en 27,56); golpe de s03 con "0 de 8" (7,78).
+
+## Corrección · ronda 3 de revisión (08-11)
+- Graciela: 3/4 de frente en el mostrador (giro -0,42; mira a Rubén con los ojos, la cabeza casi no gira). Patillas de los
+  anteojos escondidas siempre; el cristal lejano y el labio se esconden cuando la cara está a más de ~60° de la cámara.
+- Sonido: sellos de s07 en 0,10 / 0,30; sin campanita ni tic en s11; un solo whoosh en s07; todos los pop adelantados
+  0,08 s (el golpe de pop.mp3 está en 0,11).
+- Gancho: el sello se va hacia cámara y abajo (2,6-2,95) y el tampón sale enseguida (2,78-3,15). Giro 8 → 10 en 0,18 s.
+- Recuadro verde de subtítulos y del cierre sin fundido. Textos del celular ≥ 48 px de textura (≥ 40 px en pantalla).
+- Cierre: arranca en 29,0 ("videollamada", 2,55 s); el subtítulo "en tu local?" se va en 28,52.

@@ -73,7 +73,7 @@ const HELP = `
       // la píldora y su guía arrancan juntas (la guía no se adelanta)
       const nota = (k, t) => { pop(".n" + k, t); if (q(".l" + k)) { dibujar(".l" + k, t + 0.04, 0.26); pop(".d" + k, t + 0.2, 0.2); } };
       const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
-      const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
+      const caja = (s, t) => { tl.set(q(s), { opacity: 0 }, 0); tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.22, ease: "power3.out", immediateRender: false }, t); };
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
@@ -132,7 +132,7 @@ const SEL = `
       tl.set(q(".a"), { opacity: 0 }, ${r2(ESC[id] - 0.09)});`,
     sfx: [
       { t: 0, sfx: "impact-bass-2", vol: 0.1, max: 1.0 }, { t: 0.08, sfx: "sello", vol: 0.32 },
-      { t: w(id, 8) - 0.03, sfx: "pop", vol: 0.2 }, { t: w(id, 8) + 0.06, sfx: "pop", vol: 0.16 },
+      { t: w(id, 8) - 0.03 - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 8) + 0.06 - 0.08, sfx: "pop", vol: 0.16 },
       { t: 2.62, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.9 },
     ],
   });
@@ -149,7 +149,7 @@ const SEL = `
       { t: 0.05, sfx: "whoosh-short", vol: 0.16 }, { t: 0.6, sfx: "papel", vol: 0.4 }, { t: 0.7, sfx: "burbuja", vol: 0.24 }, { t: 0.95, sfx: "burbuja", vol: 0.2 }, { t: 1.2, sfx: "burbuja", vol: 0.18 },
       { t: w(id, 15) - 0.14, sfx: "whoosh-cine-corto", vol: 0.2, max: 1.0 },
       ...Array.from({ length: 6 }, (_, k) => ({ t: r2(w(id, 15) + 0.2 + k * 0.12), sfx: "tic", vol: 0.2 })),
-      { t: w(id, 17), sfx: "pop", vol: 0.2 }, { t: w(id, 20) - 0.03, sfx: "pop", vol: 0.22 }, { t: w(id, 20) + 0.02, sfx: "ding", vol: 0.12, max: 0.55 },
+      { t: w(id, 17) - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 20) - 0.03 - 0.08, sfx: "pop", vol: 0.22 }, { t: w(id, 20) + 0.02, sfx: "ding", vol: 0.12, max: 0.55 },
     ],
   });
 }
@@ -160,7 +160,7 @@ const SEL = `
   escena(id, {
     html: `${pill(1, 300, 1560, "0 de 8", "r grande")}`,
     js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.22)});`,
-    sfx: [{ t: 0.02, sfx: "pop", vol: 0.13 }, { t: -0.12, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 27) - 0.02, sfx: "pop", vol: 0.2 }, { t: w(id, 27) + 0.08, sfx: "golpe", vol: 0.14, max: 0.45 }],
+    sfx: [{ t: 0.02 - 0.08, sfx: "pop", vol: 0.13 }, { t: -0.12, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 27) - 0.02 - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 27) + 0.08, sfx: "golpe", vol: 0.14, max: 0.45 }],
   });
 }
 
@@ -171,7 +171,7 @@ const SEL = `
     html: `${pill(1, 330, 1500, "2 de 10", "g grande")}`,
     js: `nota(1, ${r2(w(id, 37))}); sinNota(1, ${r2(ESC[id] - 0.18)});`,
     sfx: [
-      { t: -0.15, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.9 }, { t: 0.02, sfx: "pop", vol: 0.2 }, { t: w(id, 33) - 0.02, sfx: "pop", vol: 0.2 },
+      { t: -0.15, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.9 }, { t: 0.02 - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 33) - 0.02 - 0.08, sfx: "pop", vol: 0.2 },
       { t: w(id, 35) - 0.04, sfx: "sello", vol: 0.55 }, { t: w(id, 37) - 0.04, sfx: "sello", vol: 0.55 },
     ],
   });
@@ -186,7 +186,7 @@ const SEL = `
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.16 },
       ...Array.from({ length: 8 }, (_, k) => ({ t: r2(0.15 + k * 0.075), sfx: "tic", vol: 0.24 })),
-      { t: 0.3, sfx: "pop", vol: 0.16 },
+      { t: 0.3 - 0.08, sfx: "pop", vol: 0.16 },
     ],
   });
 }
@@ -198,8 +198,8 @@ const SEL = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.25, sfx: "whoosh-cine-corto", vol: 0.14, max: 0.8 }, { t: 0.04, sfx: "impact-bass-1", vol: 0.09, max: 0.9 }, { t: 0.06, sfx: "pop", vol: 0.14 },
-      { t: w(id, 43) - 0.2, sfx: "whoosh-short", vol: 0.15 }, { t: w(id, 43) - 0.05, sfx: "pop", vol: 0.16 },
+      { t: -0.25, sfx: "whoosh-cine-corto", vol: 0.14, max: 0.8 }, { t: 0.04, sfx: "impact-bass-1", vol: 0.09, max: 0.9 }, { t: 0.06 - 0.08, sfx: "pop", vol: 0.14 },
+      { t: w(id, 43) - 0.2, sfx: "whoosh-short", vol: 0.15 }, { t: w(id, 43) - 0.05 - 0.08, sfx: "pop", vol: 0.16 },
       { t: w(id, 43) + 0.05, sfx: "click-soft", vol: 0.2 }, { t: w(id, 47) + 0.18, sfx: "golpe", vol: 0.16, max: 0.45 },
     ],
   });
@@ -212,7 +212,7 @@ const SEL = `
     html: `${leads(lead(1, 520, 1615, 360, 1512, "g"))}${pill(1, 700, 1650, "Ya empezaste", "g grande")}`,
     js: `nota(1, ${r2(w(id, 54))}); sinNota(1, ${r2(ESC[id] - 0.25)});`,
     sfx: [
-      { t: -0.15, sfx: "whoosh-short", vol: 0.16 }, { t: -0.12, sfx: "whoosh-short", vol: 0.12 }, { t: 0.22, sfx: "sello", vol: 0.5 }, { t: 0.42, sfx: "sello", vol: 0.5 },
+      { t: -0.15, sfx: "whoosh-short", vol: 0.16 }, { t: 0.10, sfx: "sello", vol: 0.5 }, { t: 0.30, sfx: "sello", vol: 0.5 },
       { t: w(id, 51), sfx: "riser-corto", vol: 0.12, max: 0.8 }, { t: w(id, 54) + 0.05, sfx: "ding", vol: 0.14, max: 0.9 },
     ],
   });
@@ -225,7 +225,7 @@ const SEL = `
     html: `${leads(lead(1, 520, 580, 790, 640, "g"))}${pill(1, 330, 570, "Aunque sea floja", "g")}`,
     js: `nota(1, ${r2(w(id, 60) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: -0.1, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 60) - 0.25, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 60) + 0.02, sfx: "pop", vol: 0.22 }, { t: w(id, 60) + 0.1, sfx: "sparkle", vol: 0.1, max: 1.0 },
+      { t: -0.1, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 60) - 0.25, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 60) + 0.02 - 0.08, sfx: "pop", vol: 0.22 }, { t: w(id, 60) + 0.1, sfx: "sparkle", vol: 0.1, max: 1.0 },
       { t: w(id, 61) - 0.25, sfx: "papel", vol: 0.4 }, { t: w(id, 61) + 0.05, sfx: "click-soft", vol: 0.2 },
     ],
   });
@@ -240,7 +240,7 @@ const SEL = `
     js: `pop(".n1", 0.15); pop(".n2", 0.3); fuera(".n1", ${r2(w(id, 67) - 0.1)}); fuera(".n2", ${r2(w(id, 67) - 0.1)}); pop(".n3", ${r2(w(id, 68))}); fuera(".n3", ${r2(ESC[id] - 0.22)}, 0.2);`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cine-corto", vol: 0.22, max: 1.0 }, { t: 0.05, sfx: "campanita", vol: 0.3, max: 1.2 },
-      { t: 0.15, sfx: "pop", vol: 0.14 }, { t: 0.3, sfx: "pop", vol: 0.12 }, { t: w(id, 68), sfx: "pop", vol: 0.2 }, { t: w(id, 68) - 0.32, sfx: "chime", vol: 0.14, max: 1.4 },
+      { t: 0.15 - 0.08, sfx: "pop", vol: 0.14 }, { t: 0.3 - 0.08, sfx: "pop", vol: 0.12 }, { t: w(id, 68) - 0.08, sfx: "pop", vol: 0.2 }, { t: w(id, 68) - 0.32, sfx: "chime", vol: 0.14, max: 1.4 },
     ],
   });
 }
@@ -265,7 +265,7 @@ const SEL = `
     html: `<i></i>`,
     js: ``,
     sfx: [
-      { t: -0.12, sfx: "whoosh-short", vol: 0.14 }, { t: 0.4, sfx: "tic", vol: 0.14 }, { t: 0.62, sfx: "tic", vol: 0.12 }, { t: 0.84, sfx: "campanita", vol: 0.22, max: 1.0 },
+      { t: -0.12, sfx: "whoosh-short", vol: 0.14 },
       { t: w(id, 77) - 0.2, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 78) - 0.05, sfx: "vibra", vol: 1.0, max: 0.6 }, { t: w(id, 78) + 0.05, sfx: "notification", vol: 0.22, max: 1.0 },
     ],
   });
@@ -279,7 +279,7 @@ const SEL = `
     js: `nota(1, ${r2(w(id, 85) + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.25)});`,
     sfx: [
       { t: -0.1, sfx: "whoosh-short", vol: 0.14 }, { t: 0.42, sfx: "campanita", vol: 0.32, max: 1.2 },
-      { t: w(id, 85) + 0.1, sfx: "pop", vol: 0.18 }, { t: w(id, 85) + 0.35, sfx: "sparkle", vol: 0.1, max: 0.9 },
+      { t: w(id, 85) + 0.1 - 0.08, sfx: "pop", vol: 0.18 }, { t: w(id, 85) + 0.35, sfx: "sparkle", vol: 0.1, max: 0.9 },
     ],
   });
 }
@@ -304,7 +304,7 @@ const SEL = `
       caja(".sb", ${r2(w(id, 89))});
       tl.set(q(".t3"), { opacity: 0 }, 0); tl.set(q(".t3"), { opacity: 1 }, ${r2(w(id, 89) + 0.12)}); tl.fromTo(q(".t3"), { scale: 0.7, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(1.8)", immediateRender: false }, ${r2(w(id, 89) + 0.12)});
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.06, duration: 0.35, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 91) - 0.05)});`,
-    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.18 }, { t: 0.05, sfx: "pop", vol: 0.16 }, { t: w(id, 89), sfx: "click-soft", vol: 0.26 }, { t: w(id, 89) + 0.12 - 0.4, sfx: "chime", vol: 0.3, max: 1.7 }, { t: w(id, 91) - 0.07, sfx: "sello", vol: 0.4 }],
+    sfx: [{ t: -0.1, sfx: "whoosh-short", vol: 0.18 }, { t: 0.05 - 0.08, sfx: "pop", vol: 0.16 }, { t: w(id, 89), sfx: "click-soft", vol: 0.26 }, { t: w(id, 89) + 0.12 - 0.4, sfx: "chime", vol: 0.3, max: 1.7 }, { t: w(id, 91) - 0.07, sfx: "sello", vol: 0.4 }],
   });
 }
 console.log("escenas escritas:", Object.keys(ESC).join(", "), "· DUR", DUR);

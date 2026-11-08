@@ -374,7 +374,14 @@ const pantGTex = tex(256, 512, (x) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0
 }
 graciela.cuerpo.add(celuG);
 const lentesG = [];
-graciela.cabeza.traverse((o) => { if (o.isMesh && o.geometry.type === "TorusGeometry" && Math.abs(o.geometry.parameters.radius - 0.088) < 1e-6) lentesG.push(o); });
+const labioG = [];
+graciela.cabeza.traverse((o) => {
+  if (!o.isMesh) return;
+  if (o.geometry.type === "TorusGeometry" && Math.abs(o.geometry.parameters.radius - 0.088) < 1e-6) lentesG.push(o);
+  // las patillas (cilindros finos hacia atrás) se esconden siempre: de 3/4 terminaban en el aire
+  if (Math.abs(o.scale.y - 0.26) < 1e-6 && Math.abs(o.scale.x - 0.01) < 1e-6) o.visible = false;
+});
+graciela.raiz.traverse((o) => { if (o.isMesh && o.material && o.material.color && o.material.color.getHex() === ELENCO.clienta.labios) labioG.push(o); });
 
 // ================= EL CELULAR GRANDE (pegado a la cámara) =================
 const PHW = 1.18, PHH = 2.36;
@@ -412,7 +419,7 @@ const pantallas = {};
     x.fillStyle = "#5ce611"; x.beginPath();
     for (let k = 0; k < 10; k++) { const a = -Math.PI / 2 + (k * Math.PI) / 5, r = k % 2 ? 11 : 26; x.lineTo(92 + Math.cos(a) * r, 1220 + Math.sin(a) * r); }
     x.closePath(); x.fill();
-    x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(700, 44); x.fillText("Premio: 10 sellos", 136, 1236);
+    x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(800, 52); x.fillText("Premio: 10 sellos", 134, 1238);
   };
   pantallas.cero = tex(TW, TH, (x) => {
     tarjetaPuntos(x, 0);
@@ -423,13 +430,13 @@ const pantallas = {};
   pantallas.dos = tex(TW, TH, (x) => {
     tarjetaPuntos(x, 2);
     x.fillStyle = "#5ce611"; rr(x, 32, 890, TW - 64, 250, 34);
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 56); x.fillText("¡Bienvenida!", TW / 2, 970);
-    x.font = F(700, 48); x.fillText("Rubén te regaló 2", TW / 2, 1036); x.font = F(600, 44); x.fillText("por estrenarla", TW / 2, 1096);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 58); x.fillText("¡Bienvenida!", TW / 2, 962);
+    x.font = F(700, 52); x.fillText("Rubén te regaló 2", TW / 2, 1034); x.font = F(700, 50); x.fillText("por estrenarla", TW / 2, 1100);
     premio(x);
   });
   const bloqueo = (x) => {
     x.fillStyle = "#16243d"; x.fillRect(0, 0, TW, TH);
-    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(600, 44); x.fillText("martes", TW / 2, 200);
+    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(700, 52); x.fillText("martes", TW / 2, 200);
     x.font = F(800, 170); x.fillText("19:40", TW / 2, 380);
     // linterna y cámara abajo, y la barrita de deslizar
     for (const cx of [110, TW - 110]) { x.fillStyle = "#2c4268"; x.beginPath(); x.arc(cx, 1150, 56, 0, 7); x.fill(); }
@@ -443,8 +450,8 @@ const pantallas = {};
     bloqueo(x);
     x.fillStyle = "#efeee5"; rr(x, 28, 470, TW - 56, 470, 40);
     x.fillStyle = "#5ce611"; x.beginPath(); x.arc(92, 540, 30, 0, 7); x.fill();
-    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 44); x.fillText("Almacén de Rubén", 140, 556);
-    x.font = F(600, 50);
+    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 48); x.fillText("Almacén de Rubén", 132, 558);
+    x.font = F(700, 52);
     ["Graciela, ¡te", "esperamos! Te", "faltan 8 para", "el premio."].forEach((l, i) => x.fillText(l, 60, 650 + i * 66));
   });
   pantallaMat.map = pantallas.cero; pantallaMat.needsUpdate = true;
@@ -535,10 +542,10 @@ function ponerCamara(t) {
 
 // ================= POSES DE LA ZONA B =================
 const R0 = { x: OB.x + 0.72, z: -1.72, giro: 0.6 };
-const G0 = { x: OB.x + 1.78, z: -1.0, giro: -0.8 };
+const G0 = { x: OB.x + 1.78, z: -1.0, giro: -0.42 };
 const conCel = { ...BRAZOS.celular };
 const mirarCel = { cabeza: { giro: 0, asiente: 0.4, ladea: 0.05 }, ojos: { x: 0, y: -0.9 } };
-const mirarRuben = { torso: -0.12, cabeza: { giro: -0.35, asiente: -0.1, ladea: 0 }, ojos: { x: -0.8, y: 0.15 } };
+const mirarRuben = { torso: -0.06, cabeza: { giro: -0.08, asiente: -0.08, ladea: 0.04 }, ojos: { x: -0.95, y: 0.12 } };
 const mateMano = { manoD: [-0.24, 0.3, 0.3], codoD: [-0.8, -0.6, 0], dedoD: 0 };
 const mirarG = { cabeza: { giro: 0.4, asiente: 0.02, ladea: 0.04 }, ojos: { x: 0.5, y: -0.1 } };
 const RK = [
@@ -558,7 +565,7 @@ const GK = [
   [W[64] + 0.55, { ...mirarRuben, ...CARA.sonrisa }, 0.7],
   [S["s10-graciela"], { ...mirarCel, ...CARA.esperanza }, 0.3],
   [W[72] + 0.05, { ...CARA.feliz, inclina: -0.03 }, 0.2],
-  [S["s11-aviso"] + 0.12, { giro: 1.2, ...BRAZOS.costado, cabeza: { giro: -0.6, asiente: 0 }, ojos: { x: -0.3, y: 0 }, ...CARA.neutra }, 0.25],
+  [S["s11-aviso"] + 0.12, { giro: 1.0, ...BRAZOS.costado, cabeza: { giro: -0.75, asiente: 0 }, ojos: { x: -0.4, y: 0 }, ...CARA.neutra }, 0.25],
   [S["s12-tu-local"] - 0.05, { giro: -1.15, cabeza: { giro: 0.55, asiente: 0 }, ojos: { x: 0.3, y: 0 } }, 0.05],
   [S["s12-tu-local"] + 0.85, { giro: -0.55, torso: 0, cabeza: { giro: 0.2, asiente: -0.05, ladea: 0.06 }, ojos: { x: 0.1, y: 0.05 }, ...CARA.feliz }, 0.35],
 ];
@@ -584,8 +591,9 @@ function ponerPersonajes(t) {
     const fw = graciela.cabeza.getWorldDirection(new THREE.Vector3());
     const cosA = fw.dot(camera.position.clone().sub(hp).normalize());
     const a = lentesG[0].getWorldPosition(new THREE.Vector3()).distanceTo(camera.position), b = lentesG[1].getWorldPosition(new THREE.Vector3()).distanceTo(camera.position);
-    const perfil = cosA < 0.64;
+    const perfil = cosA < 0.5; // a más de ~60° de la cámara: sin cristal lejano ni labio (asomaban fuera de la silueta)
     lentesG[0].visible = !(perfil && a > b); lentesG[1].visible = !(perfil && b > a);
+    labioG.forEach((m) => (m.visible = !perfil));
   }
   graciela.raiz.visible = gx < G0.x + 2.35;
   const mD = graciela.brazos[1].mano.position, mI = graciela.brazos[0].mano.position;
@@ -676,15 +684,15 @@ function renderAt(t) {
     const p4a = W[35] - 0.02, p4b = W[37] - 0.02;
     const enS4 = t > p4a - 0.5 && t < p4b + 0.6;
     if (gancho && zonaA) {
-      const vuelaS = eio(sg(t, S["s02-lavadero"] - 0.8, S["s02-lavadero"] - 0.4)); // se va volando por la derecha
-      s = 1;
+      const vuelaS = sg(t, S["s02-lavadero"] - 0.8, S["s02-lavadero"] - 0.45) ** 2; // se va volando hacia cámara (crece y pasa por al lado)
+      s = vuelaS >= 1 ? 0 : 1;
       // baja y apoya en el tampón (0,08 s, con squash), se levanta en "sellos" y queda flotando, inclinado
       const cae = sg(t, 0, 0.08), u = t - 0.08;
       const sq = u > 0 ? Math.exp(-u * 10) * Math.sin(u * 32) * 0.05 : 0;
       const sube = eio(sg(t, W[5] - 0.1, W[5] + 0.35));
       const dir = V(0.4 + 0.15 * sube, 0.55 + 0.05 * sube, 0.73 - 0.15 * sube).normalize();
       const lp = TAMPON_L.clone().add(V(0.1 * sube, 0, 0.13 + (1 - cae * cae) * 0.35 + sq + 0.55 * sube + Math.sin(t * 2.4) * 0.03 * sube));
-      lp.add(V(4.5 * vuelaS, 1.2 * vuelaS, 3.5 * vuelaS));
+      lp.add(V(-0.6 * vuelaS, -1.6 * vuelaS, 9.5 * vuelaS));
       selloGoma.position.copy(lp.applyQuaternion(qH).add(HP));
       selloGoma.quaternion.copy(qH).multiply(qDir(dir, Math.sin(t * 1.7) * 0.06 * sube));
     } else if (enS4) {
@@ -708,8 +716,8 @@ function renderAt(t) {
     ocultar(selloGoma, s);
   }
 
-  tampon.visible = zonaA && t < S["s02-lavadero"] + 0.2;
-  tampon.position.copy(tamponW).add(V(-5 * eio(sg(t, S["s02-lavadero"] - 0.25, S["s02-lavadero"] + 0.15)), 0, 0)); tampon.quaternion.copy(qH); // se va por la izquierda
+  tampon.visible = zonaA && t < S["s02-lavadero"] - 0.2;
+  tampon.position.copy(tamponW).add(V(-5 * eio(sg(t, S["s02-lavadero"] - 0.62, S["s02-lavadero"] - 0.25)), 0, 0)); tampon.quaternion.copy(qH); // se va por la izquierda
 
   // ---- barras 19 % / 34 % con sus mini tarjetas (s02, tiempo B) ----
   {
@@ -746,8 +754,8 @@ function renderAt(t) {
       s8 = lerp(0.6, 1, bk(sg(t, S["s03-ocho"], S["s03-ocho"] + 0.3)));
       p8 = apilar(C8S, STK8).add(V(-6 * fuera, 0, 0));
       // en s04 queda atrás, más chica y gris (la cámara viaja a la de diez)
-    } else if (zonaA && t >= ti8 && t < flip7 + 0.16) {
-      s8 = 1; sx8 = eio(sg(t, ti8, ti8 + 0.2)) * (1 - eio(sg(t, flip7, flip7 + 0.15)));
+    } else if (zonaA && t >= ti8 && t < flip7 + 0.09) {
+      s8 = 1; sx8 = eio(sg(t, ti8, ti8 + 0.2)) * (1 - eio(sg(t, flip7, flip7 + 0.08)));
       p8 = CEN.clone();
     }
     cartaFlip(C8, s8, sx8); C8.position.copy(p8); C8.quaternion.copy(q8);
@@ -758,8 +766,8 @@ function renderAt(t) {
     if (zonaA && t > nace10 && t < S["s06-por-que"] + 0.03) {
       s10 = lerp(0.6, 1, bk(sg(t, nace10, nace10 + 0.35)));
       p10 = apilar(C10S, STK10).add(V(6 * fuera, 0, 0));
-    } else if (zonaA && t >= flip7 + 0.15 && t < fin8) {
-      s10 = 1; sx10 = eio(sg(t, flip7 + 0.15, flip7 + 0.32));
+    } else if (zonaA && t >= flip7 + 0.07 && t < fin8) {
+      s10 = 1; sx10 = eo(sg(t, flip7 + 0.07, flip7 + 0.18));
       // en "excusa" sube un poco para que entre la etiqueta abajo
       p10 = CEN.clone().add(V(0, 0.35 * eio(sg(t, S["s08-excusa"] - 0.1, S["s08-excusa"] + 0.4)), 0));
     }
@@ -768,7 +776,7 @@ function renderAt(t) {
     const sl = C10.userData.sellos;
     sl.forEach((s, i) => { s.visible = false; s.scale.setScalar(1); s.position.z = CARD_D / 2 + 0.02; });
     if (t < S["s06-por-que"] + 0.05) { golpeSello(sl[0], t, W[35] - 0.02, 0.0); golpeSello(sl[1], t, W[37] - 0.02, 0.0); }
-    else if (t >= flip7 + 0.15) { golpeSello(sl[0], t, S["s07-camino"] + 0.22, 0.4); golpeSello(sl[1], t, S["s07-camino"] + 0.42, 0.4); }
+    else if (t >= flip7 + 0.07) { golpeSello(sl[0], t, S["s07-camino"] + 0.22, 0.4); golpeSello(sl[1], t, S["s07-camino"] + 0.42, 0.4); }
     // aros verdes: "mismos ocho" (los 8 casilleros por llenar de cada una se prenden en fila)
     const aroOn = zonaA && t > S["s05-mismos"] + 0.05 && t < S["s06-por-que"] - 0.05;
     C8.userData.aros.forEach((a, i) => { const ti = S["s05-mismos"] + 0.15 + i * 0.075; ocultar(a, aroOn && t > ti ? lerp(0.5, 1, bk(sg(t, ti, ti + 0.16))) : 0); });

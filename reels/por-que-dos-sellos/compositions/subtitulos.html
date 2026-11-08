@@ -96,7 +96,7 @@
           const t = ini + Number(w.dataset.t);
           tl.set(w, { opacity: 1 }, ini);
           const caja = w.querySelector(".caja");
-          if (caja) tl.fromTo(caja, { opacity: 0, scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out" }, t + 0.06);
+          if (caja) { tl.set(caja, { opacity: 0 }, ini); tl.set(caja, { opacity: 1 }, t + 0.06); tl.fromTo(caja, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, t + 0.06); }
         }
       }
       window.__timelines = window.__timelines || {};
