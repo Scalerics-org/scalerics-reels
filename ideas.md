@@ -229,7 +229,7 @@
 - 08-11 · `lo-mismo-que-la-otra-vez` · Sistema de clientes / CRM (qué compró cada cliente) · Para mandar completo: Graciela le pide a Rubén "Lo mismo que la otra vez"; Rubén ofrece yerba, galletitas, dulce de leche, fideos, huevos: "No."; su pista: "¡Era verde!"; latigazo a la estantería: "Cosas verdes: 37"; Rubén: "Todo es verde, Graciela."; remate del remate "Verde clarito." y mano a la frente; cartel "Un sistema de clientes más tarde…" (Rasalgethi); otro sábado Rubén toca "Graciela" en la tablet, la ficha dice 2 jabones en pan verdes, la bolsa ya está: "Era verde." y guiño · línea chica "Un sistema que se acuerda de lo que compra cada cliente · scalerics.com" [formato Para mandar completo · 3D real con Rubén y Graciela, almacén con pared navy claro #16243d, estantería toda verde, cartel verde] (empezado 06-11, terminado en la corrida del 08-11 12:09 tras 3 rondas de revisión + revisión final; renders SwiftShader: parte 1 ~11 min, parte 2 ~8 min, cartel <1 min)
 
 ## En curso
-<!-- corrida-activa: 2026-11-08T16:57 -->
+<!-- corrida-activa: 2026-11-08T17:03 -->
 
 - 06-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido para retirar) · Para mandar completo: Rubén baja la cortina y a las 19:59 entra el cliente con una lista larga; cartel "Una tienda online más tarde…" y la bolsa ya está armada · 3D real con personajes recurrentes, almacén de noche, fondo navy oscuro #0b1220 · reservado (corrida 4 del 06-11)
 
