@@ -137,7 +137,7 @@ const fachada = new THREE.Group(); scene.add(fachada);
   // letrero ALMACÉN (el de abren-hoy, más grande) con una lucecita
   const tex = lienzo(1024, 230, (x) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, 1024, 230); x.strokeStyle = "#16243d"; x.lineWidth = 12; x.strokeRect(18, 18, 988, 194); x.fillStyle = "#16243d"; x.font = F(900, 132); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ALMACÉN", 512, 122); });
   const crL = mat(C.cr, 0.6);
-  fachada.add(mesh(rbox(1.9, 0.43, 0.07, 0.03), [crL, crL, crL, crL, new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.22 }), crL], 0, 3.12, 0.03));
+  fachada.add(mesh(rbox(1.9, 0.43, 0.07, 0.03), [crL, crL, crL, crL, new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6, emissive: 0xffffff, emissiveMap: tex, emissiveIntensity: 0.22 }), crL], 0, 2.97, 0.03));
   // vinilo en la vidriera
   const letrero = lienzo(1024, 200, (x) => { x.fillStyle = "#efeee5"; x.font = F(800, 96); x.textAlign = "center"; x.fillText("FIAMBRES", 512, 130); });
   const vin = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.215), new THREE.MeshBasicMaterial({ map: letrero, transparent: true, opacity: 0.92, depthWrite: false })); vin.position.set(vcx, 1.95, 0.012); fachada.add(vin);
@@ -243,7 +243,7 @@ const agujaH = new THREE.Group(), agujaM = new THREE.Group();
   g.add(mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.03, 12).rotateX(Math.PI / 2), M.red, 0, 0, 0.048));
 }
 // el perchero de pie (detrás del mostrador, a la derecha de Rubén): poste de madera, base y tres ganchos
-const PERCHERO = V3(-0.25, 0, -2.35);
+const PERCHERO = V3(1.28, 0, -2.4);
 const ganchoPerchero = V3(PERCHERO.x + 0.0, 1.78, PERCHERO.z + 0.12);
 {
   const g = new THREE.Group(); g.position.copy(PERCHERO); interior.add(g);
@@ -271,7 +271,7 @@ const oficina = new THREE.Group(); oficina.position.copy(OF); scene.add(oficina)
   // escritorio, lámpara, planilla de papel, taza, monitor de espaldas
   oficina.add(mesh(rbox(1.6, 0.05, 0.8, 0.015), M.cr2, 0, 0.74, -0.7));
   for (const sx of [-1, 1]) oficina.add(mesh(rbox(0.05, 0.72, 0.7, 0.01), M.navy3, sx * 0.75, 0.36, -0.7));
-  const lam = new THREE.Group(); lam.position.set(-0.5, 0.765, -0.9); oficina.add(lam);
+  const lam = new THREE.Group(); lam.position.set(-0.3, 0.765, -0.85); oficina.add(lam);
   lam.add(mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.02, 16), M.navy3));
   const brazo = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.42, 8), M.navy3, 0.05, 0.2, 0); brazo.rotation.z = -0.25; lam.add(brazo);
   const cab = mesh(new THREE.ConeGeometry(0.09, 0.14, 16, 1, true), mat(C.g, 0.5, { side: THREE.DoubleSide }), 0.16, 0.4, 0.05); cab.rotation.z = 0.9; lam.add(cab);
@@ -281,8 +281,8 @@ const oficina = new THREE.Group(); oficina.position.copy(OF); scene.add(oficina)
   const taza = new THREE.Group(); taza.position.set(0.55, 0.765, -0.95); oficina.add(taza);
   taza.add(mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.1, 16), M.cr, 0, 0.05, 0));
   taza.add(mesh(new THREE.TorusGeometry(0.03, 0.009, 6, 12), M.cr, 0.05, 0.05, 0));
-  oficina.add(mesh(rbox(0.6, 0.38, 0.04, 0.02), M.navy, 0.05, 1.05, -1.15));
-  oficina.add(mesh(rbox(0.06, 0.25, 0.06, 0.02), M.navy, 0.05, 0.87, -1.15));
+  oficina.add(mesh(rbox(0.6, 0.38, 0.04, 0.02), M.navy, 0.42, 1.05, -1.15));
+  oficina.add(mesh(rbox(0.06, 0.25, 0.06, 0.02), M.navy, 0.42, 0.87, -1.15));
 }
 
 // ================= LOS PERSONAJES =================
@@ -301,6 +301,7 @@ const camperaW = crearCamperaColgada({ color: C.cr2, cuello: C.navy, cierre: C.n
 const LISTA = ["Yerba", "Fideos moñita", "2 leches", "Pan flauta", "Queso rallado", "Papas 1 kg", "Arroz", "Galletitas", "Dulce de leche", "Huevos (maple)", "Papel higiénico", "Zapallo", "Aceite", "Fósforos", "Tomates", "Harina", "Café", "Jabón", "Lentejas", "Mayonesa", "Polenta", "Azúcar", "Sal fina", "Detergente"];
 // textura del rollo: 16 cm de ancho = 512 px; 1 m = 3200 px (se repite cada metro, con renglones que cambian)
 const ANCHO_LISTA = 0.17;
+const ATRAS = ["Detergente", "Pilas", "Polenta", "Carbón", "Lavandina", "Esponjas", "Sal gruesa", "Vinagre", "Velas", "Fideos tirabuzón", "Bolsas de residuo", "Té"];
 function dibujarLista(x, w, h, desde, tachado, atras) {
   x.fillStyle = "#fbfaf4"; x.fillRect(0, 0, w, h);
   x.strokeStyle = "rgba(120,150,200,0.45)"; x.lineWidth = 3;
@@ -308,9 +309,9 @@ function dibujarLista(x, w, h, desde, tachado, atras) {
   for (let y = paso * 0.75; y < h; y += paso) { x.beginPath(); x.moveTo(0, y); x.lineTo(w, y); x.stroke(); }
   x.fillStyle = "#16243d"; x.textBaseline = "alphabetic"; x.font = FC(92, 700);
   let y0 = paso * 0.7, i = desde;
-  if (atras) { x.font = F(900, 96); x.fillText("ATRÁS", 40, 120); x.fillRect(36, 138, 340, 12); y0 = 280; x.font = FC(92, 700); }
+  if (atras) { x.font = F(900, 128); x.fillText("ATRÁS", 34, 140); x.fillRect(30, 162, 430, 14); y0 = 262; x.font = FC(88, 700); }
   for (let y = y0; y < h - 10; y += paso, i++) {
-    const s = LISTA[i % LISTA.length];
+    const s = atras ? ATRAS[(i - desde) % ATRAS.length] : LISTA[i % LISTA.length];
     x.fillText("· " + s, 28, y);
     if (tachado) { x.strokeStyle = "#16243d"; x.lineWidth = 9; x.beginPath(); x.moveTo(24, y - 26); x.lineTo(40 + x.measureText("· " + s).width, y - 34); x.stroke(); }
   }
@@ -320,7 +321,7 @@ listaTex.wrapT = THREE.RepeatWrapping;
 const listaMat = new THREE.MeshStandardMaterial({ map: listaTex, roughness: 0.75, side: THREE.DoubleSide, emissive: 0xffffff, emissiveMap: listaTex, emissiveIntensity: 0.3 });
 // el camino del rollo: mostrador → borde → cae → piso → puerta → vereda → cordón → calle
 const LX = 0.3;
-const CAMINO = [V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z - 0.05), V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z + 0.36), V3(LX, MOSTRADOR.y - 0.08, MOSTRADOR.z + 0.4), V3(LX, 0.45, MOSTRADOR.z + 0.43), V3(LX, 0.012, MOSTRADOR.z + 0.5), V3(LX, 0.012, -0.4), V3(LX, 0.012, 0.3), V3(LX + 0.05, 0.012, VEREDA_Z - 0.05), V3(LX + 0.06, -0.06, VEREDA_Z + 0.12), V3(LX + 0.07, -0.132, VEREDA_Z + 0.3), ...[0.4, 1, 2.5, 4.5, 7, 10, 13].map((d) => V3(LX + 0.07 + d * 0.012, -0.132, VEREDA_Z + 0.3 + d))]; // puntos seguidos en la calle: sin ellos la curva se hundía bajo el asfalto
+const CAMINO = [V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z - 0.05), V3(LX, MOSTRADOR.y + 0.004, MOSTRADOR.z + 0.36), V3(LX, MOSTRADOR.y - 0.08, MOSTRADOR.z + 0.4), V3(LX, 0.45, MOSTRADOR.z + 0.43), V3(LX, 0.012, MOSTRADOR.z + 0.5), V3(LX, 0.012, -0.4), V3(LX, 0.012, 0.3), V3(LX + 0.05, 0.016, VEREDA_Z + 0.06), V3(LX + 0.055, -0.03, VEREDA_Z + 0.16), V3(LX + 0.06, -0.128, VEREDA_Z + 0.22), V3(LX + 0.07, -0.132, VEREDA_Z + 0.4), ...[0.4, 1, 2.5, 4.5, 7, 9].map((d) => V3(LX + 0.07 + d * 0.012, -0.132, VEREDA_Z + 0.3 + d))]; // puntos seguidos en la calle: sin ellos la curva se hundía bajo el asfalto
 const curva = new THREE.CatmullRomCurve3(CAMINO, false, "centripetal", 0.0);
 const LARGO = curva.getLength();
 const NSEG = 600;
@@ -493,7 +494,7 @@ function dibujarTienda(t) {
   const apr = pulso(t, T.pagar - 0.05, 0.18);
   x.fillStyle = pg ? "#5ce611" : "#16243d"; rr(x, 34 + apr * 8, 850 + apr * 4, W - 68 - apr * 16, 116 - apr * 8, 26);
   x.fillStyle = pg ? "#0b1220" : "#efeee5"; x.font = F(900, 50); x.textAlign = "center"; x.fillText(pg ? "Pagado ✓" : "Pagar", W / 2, 910);
-  x.fillStyle = "#16243d"; x.font = F(700, 30); x.fillText("Retiro en el local", W / 2, 1012); x.font = F(800, 30); x.fillText("hasta las 20:00", W / 2, 1056);
+  x.fillStyle = "#16243d"; x.font = F(700, 38); x.fillText("Retiro en el local", W / 2, 1008); x.font = F(800, 38); x.fillText("hasta las 20:00", W / 2, 1058);
   tiendaTex.needsUpdate = true;
 }
 // el de Rubén (plano B): el aviso del pedido
@@ -563,14 +564,16 @@ const textoGeo = (s, size, depth) => {
 };
 const chip = new THREE.Group(); camera.add(chip);
 const CHIP_W = 2.8, CHIP_H = 0.6;
-const placaTex = (fondo, borde, letra) => lienzo(1148, 246, (x) => {
+const placaTex = (fondo, borde, letra, txt = "VIERNES ·") => lienzo(1148, 246, (x) => {
   x.fillStyle = fondo; rr(x, 0, 0, 1148, 246, 64);
   x.strokeStyle = borde; x.lineWidth = 14; x.beginPath(); x.roundRect(16, 16, 1116, 214, 50); x.stroke();
-  x.fillStyle = letra; x.font = F(800, 92); x.textBaseline = "middle"; x.textAlign = "left"; x.fillText("VIERNES ·", 60, 128);
+  x.fillStyle = letra; x.font = F(800, txt.length > 10 ? 66 : 92); x.textBaseline = "middle"; x.textAlign = "left"; x.fillText(txt, 56, 128);
 });
 const placaNoche = mesh(rbox(CHIP_W, CHIP_H, 0.12, 0.12, 4), [M.navy, M.navy, M.navy, M.navy, new THREE.MeshStandardMaterial({ map: placaTex("#0b1220", "#5ce611", "#efeee5"), roughness: 0.5, emissive: 0xffffff, emissiveMap: placaTex("#0b1220", "#5ce611", "#efeee5"), emissiveIntensity: 0.15 }), M.navy]);
-const placaTarde = mesh(rbox(CHIP_W, CHIP_H, 0.12, 0.12, 4), [M.cr, M.cr, M.cr, M.cr, new THREE.MeshStandardMaterial({ map: placaTex("#efeee5", "#16243d", "#16243d"), roughness: 0.5, emissive: 0xffffff, emissiveMap: placaTex("#efeee5", "#16243d", "#16243d"), emissiveIntensity: 0.15 }), M.cr]);
-chip.add(placaNoche, placaTarde);
+const _tT = placaTex("#efeee5", "#16243d", "#16243d", "OTRO VIERNES ·"), _tO = placaTex("#0b1220", "#5ce611", "#efeee5", "OTRO VIERNES ·");
+const placaTarde = mesh(rbox(CHIP_W, CHIP_H, 0.12, 0.12, 4), [M.cr, M.cr, M.cr, M.cr, new THREE.MeshStandardMaterial({ map: _tT, roughness: 0.5, emissive: 0xffffff, emissiveMap: _tT, emissiveIntensity: 0.15 }), M.cr]);
+const placaOtra = mesh(rbox(CHIP_W, CHIP_H, 0.12, 0.12, 4), [M.navy, M.navy, M.navy, M.navy, new THREE.MeshStandardMaterial({ map: _tO, roughness: 0.5, emissive: 0xffffff, emissiveMap: _tO, emissiveIntensity: 0.15 }), M.navy]);
+chip.add(placaNoche, placaTarde, placaOtra);
 const matDig = { g: new THREE.MeshStandardMaterial({ color: C.g, roughness: 0.4, emissive: C.g, emissiveIntensity: 0.3 }), red: new THREE.MeshStandardMaterial({ color: 0xe0786d, roughness: 0.45, emissive: C.red, emissiveIntensity: 0.35 }), navy: new THREE.MeshStandardMaterial({ color: C.navy2, roughness: 0.4 }) };
 const HORAS = {};
 for (const [k, txt, m] of [["1959", "19:59", "g"], ["2000", "20:00", "g"], ["2007", "20:07", "red"], ["2023", "20:23", "red"], ["2041", "20:41", "red"], ["1612", "16:12", "navy"], ["2000b", "20:00", "g"]]) {
@@ -589,7 +592,7 @@ const tildeChip = new THREE.Group(); chip.add(tildeChip);
   tildeChip.add(mesh(new THREE.ExtrudeGeometry(s, { depth: 0.08, bevelEnabled: true, bevelThickness: 0.015, bevelSize: 0.01, bevelSegments: 2 }), matDig.g));
   tildeChip.position.set(1.2, 0.0, 0.06); tildeChip.scale.setScalar(0.85);
 }
-chip.traverse((o) => { if (o.isMesh) { o.layers.set(1); o.material = Array.isArray(o.material) ? o.material.map((m) => m.clone()) : o.material.clone(); (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => { m.depthTest = false; m.transparent = true; }); o.renderOrder = o === placaNoche || o === placaTarde ? 20 : 21; o.castShadow = false; } });
+chip.traverse((o) => { if (o.isMesh) { o.layers.set(1); o.material = Array.isArray(o.material) ? o.material.map((m) => m.clone()) : o.material.clone(); (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => { m.depthTest = false; m.transparent = true; }); o.renderOrder = o === placaNoche || o === placaTarde || o === placaOtra ? 20 : 21; o.castShadow = false; } });
 // la secuencia de horas: [desde, clave]
 const SEC_HORA = [[0, "1959"], [T.h2000, "2000"], [T.h2007, "2007"], [T.h2023, "2023"], [T.h2041, "2041"], [P2, "1612"], [T.pC, "1959"], [T.h2000b, "2000b"]];
 
@@ -601,7 +604,7 @@ const RB = { x: 0.95, z: 0.45 };  // Rubén en la vereda
 const WB = { x: -0.2, z: 0.68 };  // Walter en la vereda
 const RI = { x: 0.55, z: -2.0 };  // Rubén detrás del mostrador
 const WI = { x: -0.18, z: -0.78 }; // Walter frente al mostrador
-const PLAN1 = [[0, 0.32, 1.62, 6.75, 0.27, 1.62, 0.2, 38], [2.0, 0.3, 1.6, 6.45, 0.27, 1.6, 0.2, 38]];
+const PLAN1 = [[0, 0.32, 1.72, 6.5, 0.3, 1.74, 0.2, 33], [2.0, 0.3, 1.71, 6.38, 0.3, 1.73, 0.2, 33]];
 const PLANOS = [
   // 1 · general de la vereda de noche (portada en movimiento)
   [0, PLAN1],
@@ -610,9 +613,9 @@ const PLANOS = [
   // 3 · primer plano de Walter (la cortina detrás): perdón, cosita nomás, el papelito; la cortina sube
   [T.p3, [[T.p3, WB.x + 1.45, 1.48, WB.z + 1.95, WB.x + 0.02, 1.3, WB.z - 0.1, 34], [T.p4, WB.x + 1.35, 1.47, WB.z + 1.8, WB.x + 0.02, 1.32, WB.z - 0.1, 34]]],
   // 4 · general interior: Walter entra y deja el papelito; Rubén detrás del mostrador
-  [T.p4, [[T.p4, 1.25, 2.3, -2.68, -0.15, 1.1, -0.8, 38], [T.alivio - 0.15, 1.2, 2.26, -2.6, -0.15, 1.1, -0.8, 38]]],
+  [T.p4, [[T.p4, 1.25, 2.3, -2.68, -0.15, 1.1, -0.8, 38], [T.p4b, 1.2, 2.26, -2.6, -0.15, 1.1, -0.8, 38]]],
   // 4b · Rubén ve el papelito y sonríe aliviado: "es poquito"
-  [T.alivio - 0.15, [[T.alivio - 0.15, 0.52, 1.52, 0.75, RI.x, 1.3, RI.z, 34], [T.p5, 0.52, 1.5, 0.55, RI.x, 1.3, RI.z, 34]]],
+  [T.p4b, [[T.p4b, 0.52, 1.45, 0.75, RI.x, 1.2, RI.z, 34], [T.p5, 0.52, 1.43, 0.55, RI.x, 1.2, RI.z, 34]]],
   // 5 · la lista (camLista)
   [T.p5, null],
   // 6 · general frontal por la puerta: el montaje, push-in lento
@@ -620,16 +623,18 @@ const PLANOS = [
   // 7 · medio de Walter desde atrás del mostrador: tacha el último, sonríe, da vuelta el papel
   [T.p7, [[T.p7, -0.55, 1.6, -2.75, WI.x, 1.38, WI.z, 36], [T.p8, -0.52, 1.58, -2.65, WI.x, 1.38, WI.z, 36]]],
   // 8 · Rubén de frente, mira a cámara; push-in rápido a la cara
+  // 7b · inserto del dorso: "ATRÁS" y la carilla entera llena (la cámara la pone camHoja)
+  [T.pAtras, "hoja"],
   [T.p8, [[T.p8, RI.x - 0.05, 1.5, 0.7, RI.x, 1.42, RI.z, 34], [T.pushIn[0], RI.x - 0.05, 1.5, 0.55, RI.x, 1.42, RI.z, 34, "e"], [T.pushIn[1], RI.x, 1.49, -0.45, RI.x, 1.43, RI.z, 34], [T.cuelga, RI.x, 1.49, -0.5, RI.x, 1.43, RI.z, 34]]],
   // 8b · ya sin campera, la cuelga en el perchero y le habla a Walter (a cámara)
-  [T.cuelga, [[T.cuelga, 0.12, 1.45, 0.6, 0.1, 1.3, RI.z - 0.1, 38], [T.remate, 0.12, 1.45, 0.3, 0.1, 1.32, RI.z - 0.1, 38]]],
+  [T.cuelga, [[T.cuelga, 1.0, 1.42, -0.15, 1.0, 1.28, RI.z - 0.2, 38], [T.remate, 1.0, 1.42, -0.35, 1.0, 1.3, RI.z - 0.2, 38]]],
   // 9 · remate del remate: general interior, Walter se sienta en el cajón, Rubén apoya termo y mate
   [T.remate, [[T.remate, 0.42, 1.78, 2.4, 0.56, 0.85, -1.4, 40], [P1, 0.42, 1.74, 2.15, 0.56, 0.85, -1.4, 40]]],
   // ---- parte 2 ----
   // A · el celular de Walter en grande (la oficina atrás)
-  [T.pA, [[T.pA, OF.x + 0.015, 1.165, -0.035, OF.x, 1.02, -0.34, 38], [T.pB, OF.x + 0.0, 1.16, -0.05, OF.x, 1.02, -0.34, 38]]],
+  [T.pA, [[T.pA, OF.x + 0.02, 1.08, -0.02, OF.x, 1.03, -0.34, 40], [T.pB, OF.x + 0.0, 1.075, -0.04, OF.x, 1.03, -0.34, 40]]],
   // B · el mostrador a la tarde: el aviso, el mate, la bolsa que se llena; push-in a la bolsa
-  [T.pB, [[T.pB, 0.78, 1.75, 0.3, 0.36, 1.28, -1.7, 40], [T.abrocha, 0.58, 1.45, -0.38, 0.3, 1.1, -1.4, 40], [T.pC, 0.48, 1.32, -0.68, 0.3, 1.1, -1.35, 40]]],
+  [T.pB, [[T.pB, 0.74, 1.35, 0.3, 0.36, 1.3, -1.7, 40], [T.abrocha, 0.6, 1.33, -0.25, 0.32, 1.18, -1.45, 40], [T.pC, 0.55, 1.3, -0.45, 0.3, 1.15, -1.4, 40]]],
   // C · callback del plano 1: misma vereda, mismo encuadre
   [T.pC, PLAN1.map((k, i) => [i ? T.pD : T.pC, ...k.slice(1)])],
   // D · primer plano de Rubén con el mate
@@ -637,10 +642,10 @@ const PLANOS = [
   // inserto · Walter mira adentro de la bolsa: el pan flauta asoma
   [T.pIns, [[T.pIns, WB.x - 0.6, 1.32, WB.z + 2.7, WB.x, 1.08, WB.z, 32], [T.pE, WB.x - 0.55, 1.32, WB.z + 2.55, WB.x, 1.1, WB.z, 32]]],
   // E · general de la vereda: la cortina baja a las 20:00 en punto; Rubén guiña; push-in lento
-  [T.pE, [[T.pE, 0.32, 1.52, 6.3, 0.27, 1.32, 0.2, 38], [T.aCamara, 0.45, 1.55, 4.6, 0.6, 1.45, 0.3, 38], [DUR, 0.72, 1.52, 3.2, 0.82, 1.4, 0.35, 38]]],
+  [T.pE, [[T.pE, 0.32, 1.72, 6.5, 0.3, 1.74, 0.2, 33], [T.aCamara, 0.45, 1.55, 4.6, 0.6, 1.45, 0.3, 38], [DUR, 0.72, 1.52, 3.2, 0.82, 1.4, 0.35, 38]]],
 ];
 const _m = new THREE.Vector3();
-let planoActual = 0;
+let planoActual = 0, camHoja = false;
 function catmull(CAM, t) {
   let i = 0; while (i + 1 < CAM.length - 1 && CAM[i + 1][0] <= t) i++;
   const a = CAM[i], b = CAM[i + 1];
@@ -673,6 +678,8 @@ function ponerCamara(t) {
   let pi = 0; while (pi + 1 < PLANOS.length && PLANOS[pi + 1][0] <= t) pi++;
   planoActual = pi;
   let v;
+  if (PLANOS[pi][1] === "hoja") { camHoja = true; return; }
+  camHoja = false;
   if (PLANOS[pi][1] === null) { const c = camLista(t); v = [c[0], c[1], c[2], c[3], c[4], c[5], c[6]]; }
   else v = catmull(PLANOS[pi][1], t);
   const mano = Math.sin(t * 0.9) * 0.008;
@@ -687,7 +694,7 @@ const set = (t) => {
   // qué set se ve: "vereda" (noche afuera), "adentro" (noche), "tarde" (adentro de día), "oficina"
   if (t < T.p4) return "vereda";
   if (t < T.p5) return "adentro";
-  if (t < T.p6) return t < T.rodar[0] + 0.3 ? "adentro" : "vereda";
+  if (t < T.p6) return camera.position.z < -0.05 ? "adentro" : "vereda";
   if (t < P1) return "adentro";
   if (t < T.pB) return "oficina";
   if (t < T.pC) return "tarde";
@@ -709,18 +716,18 @@ const RK = [
   // adentro, detrás del mostrador (corte)
   [T.p4 - 0.001, { x: -0.45, z: RI.z, giro: 0.5, paso: 0, ...conTermo, ...aC(-0.6, 0.1), ...CARA.neutra, ojos: { x: -0.6, abiertos: 0.6 }, boca: { sonrisa: 0 } }, 0.001],
   [T.apoya, { giro: -0.15, manoI: [0.28, 0.3, 0.42], codoI: null }, 0.25],
-  [T.alivio - 0.15, { x: RI.x }, 0.001],
+  [T.p4b, { x: RI.x }, 0.001],
   [T.deja + 0.05, { ...aC(-0.35, 0.45), ojos: { x: -0.35, y: -0.9, abiertos: 0.9 }, cejas: { alto: 0.3 } }, 0.2],
-  [T.alivio, { ...BRAZOS.apoyado, ...CARA.sonrisa, ...aC(-0.4, 0.2), ojos: { x: -0.5, y: -0.4, feliz: 0.4 }, boca: { sonrisa: 0.85 } }, 0.25],
+  [T.alivio, { ...BRAZOS.apoyado, ...aC(-0.25, 0.1), ojos: { x: -0.3, y: -0.4, abiertos: 0.85, tension: 0, feliz: 0.65 }, cejas: { alto: 0.7, ang: 0.4, asim: 0 }, boca: { sonrisa: 1, abierta: 0.35, ancho: 1.25 } }, 0.2],
   [T.suelta + 0.25, { ...CARA.sorpresa, ...aC(-0.2, 0.55), ojos: { x: -0.2, y: -1, abiertos: 1 }, boca: { sonrisa: 0, abierta: 0.55, ancho: 0.7 } }, 0.15],
   // montaje (la ida y vuelta a los estantes la pone ponerPersonajes)
-  [T.p6, { ...BRAZOS.apoyado, ...CARA.fastidio, cejas: { alto: -0.2, ang: -0.3 }, ojos: { abiertos: 0.65 }, boca: { sonrisa: -0.3 } }, 0.001],
+  [T.p6, { ...BRAZOS.apoyado, ...CARA.fastidio, cejas: { alto: 0.15, ang: 0.35 }, ojos: { abiertos: 0.7, tension: 0.2 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.9 } }, 0.001],
   // plano 8: mira a cámara, cara de nada
   [T.p8 - 0.001, { x: RI.x, z: RI.z, giro: 0, paso: 0, ...BRAZOS.apoyado, ...aC(0.02, 0.0), ojos: { x: 0, y: 0.04, abiertos: 0.42, tension: 0.35 }, cejas: { alto: 0.15, ang: 0.55, asim: 0 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.95 } }, 0.001],
   [T.solapas[0] + 0.25, { manoI: [0.1, 0.42, 0.28], manoD: [-0.1, 0.42, 0.28], codoI: [1, -0.5, 0], codoD: [-1, -0.5, 0] }, 0.25],
   // 8b: ya sin campera; la cuelga con la derecha y mira a cámara
-  [T.cuelga - 0.001, { x: RI.x - 0.25, giro: -0.15, ...BRAZOS.costado, ...aC(0.12, 0.02), ...CARA.resignado, ojos: { x: 0.15, y: 0.05, abiertos: 0.4, tension: 0.55 } }, 0.001],
-  [T.cuelga + 0.45, { manoD: [-0.28, -0.06, 0.06], codoD: null }, 0.3],
+  [T.cuelga - 0.001, { x: 0.82, giro: -0.12, ...BRAZOS.costado, ...aC(0.12, 0.02), ...CARA.resignado, ojos: { x: 0.15, y: 0.05, abiertos: 0.4, tension: 0.55 } }, 0.001],
+  [T.cuelga + 0.45, { manoI: [0.28, -0.06, 0.06], codoI: null }, 0.3],
   [T.voz1 + 2.25, { cabeza: { giro: 0.25, asiente: 0.05, ladea: 0.1 }, ojos: { x: 0.35, y: 0.0 }, cejas: { alto: 0.35, ang: 0.6 } }, 0.25],
   // remate: apoya termo y mate en el mostrador (está para rato)
   [T.remate - 0.001, { x: RI.x - 0.1, z: RI.z, giro: -0.25, manoI: [0.24, 0.32, 0.4], manoD: [-0.2, 0.32, 0.4], codoI: null, codoD: null, ...aC(-0.4, 0.15), ...CARA.sonrisa, ojos: { x: -0.5, y: -0.2, feliz: 0.3 }, boca: { sonrisa: 0.5 } }, 0.001],
@@ -728,7 +735,7 @@ const RK = [
   // ---- parte 2 ----
   // B: a la tarde, con el mate, arma la bolsa sin apuro
   [T.pB - 0.001, { x: RI.x - 0.1, z: RI.z, giro: -0.2, manoI: [0.2, 0.45, 0.3], codoI: [1, -0.6, -0.2], manoD: [-0.28, 0.3, 0.38], codoD: null, ...aC(-0.2, 0.35), ...CARA.sonrisa, ojos: { x: -0.2, y: -0.6, abiertos: 0.7, feliz: 0.3 } }, 0.001],
-  [T.sorboB - 0.05, { manoI: [0.06, 0.66, 0.24], codoI: [1, -0.4, 0.1], ojos: { abiertos: 0, feliz: 0.6 }, cabeza: { giro: -0.05, asiente: -0.1 } }, 0.25],
+  [T.sorboB - 0.05, { manoI: [0.1, 0.58, 0.32], codoI: [1, -0.4, 0.1], ojos: { abiertos: 0, feliz: 0.6 }, cabeza: { giro: -0.05, asiente: 0.05 } }, 0.25],
   [T.sorboB + 0.55, { manoI: [0.2, 0.45, 0.3], codoI: [1, -0.6, -0.2], ojos: { abiertos: 0.7, feliz: 0.3, y: -0.6, x: -0.3 }, cabeza: { giro: -0.3, asiente: 0.35 } }, 0.25],
   [T.abrocha, { manoD: [-0.1, 0.38, 0.42], ...CARA.feliz, ojos: { y: -0.5, x: -0.3, feliz: 0.5 } }, 0.15],
   [T.abrocha + 0.3, { manoD: [-0.28, 0.3, 0.38], boca: { sonrisa: 0.7, abierta: 0 } }, 0.2],
@@ -741,9 +748,9 @@ const RK = [
   [T.pD - 0.001, { ...aC(-0.45, 0.04), ojos: { x: -0.6, y: 0.0, abiertos: 0.55, tension: 0.1 }, cejas: { alto: 0.25, ang: 0.1 }, boca: { sonrisa: 0.2 } }, 0.001],
   [T.voz2 + 2.1, { ...CARA.sonrisa, ojos: { x: -0.6, feliz: 0.45, abiertos: 0.65 } }, 0.3],
   // E: baja la cortina de un tirón con la derecha, se acomoda, sorbo, mira a cámara y guiña
-  [T.pE - 0.001, { x: RB.x - 0.2, z: RB.z - 0.12, giro: -0.6, ...aC(-0.3, 0.2), codoD: [-0.8, -0.5, 0] }, 0.001],
+  [T.pE - 0.001, { x: RB.x - 0.3, z: RB.z - 0.15, giro: -0.75, ...aC(-0.3, 0.2), codoD: [-0.8, -0.5, 0] }, 0.001],
   [T.tiron[1] + 0.35, { codoD: null, giro: -0.2 }, 0.3],
-  [T.sorboE - 0.05, { manoI: [0.06, 0.66, 0.24], codoI: [1, -0.4, 0.1], ojos: { abiertos: 0, feliz: 0.6 }, cabeza: { giro: -0.05, asiente: -0.1 } }, 0.25],
+  [T.sorboE - 0.05, { manoI: [0.1, 0.58, 0.32], codoI: [1, -0.4, 0.1], ojos: { abiertos: 0, feliz: 0.6 }, cabeza: { giro: -0.05, asiente: 0.05 } }, 0.25],
   [T.aCamara, { manoI: [0.2, 0.18, 0.24], codoI: [1, -0.4, -0.4], ...aC(0.12, 0.02), ojos: { x: 0.15, y: 0.05, abiertos: 0.8, feliz: 0.35 }, ...CARA.sonrisa, boca: { sonrisa: 0.8 } }, 0.3],
   [T.guino, { ojos: { guiño: -1, feliz: 0.4 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 } }, 0.12],
   [T.guino + 0.45, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
@@ -760,7 +767,7 @@ const WK = [
   [T.b2 + 0.4, { boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 } }, 0.15],
   [T.papelito, { manoD: [-0.16, 0.52, 0.42], codoD: [-0.8, -0.5, 0] }, 0.25],
   // plano 4: entra y deja el papelito en el mostrador
-  [T.p4 - 0.001, { x: 0.35, z: 0.35, giro: 3.74, paso: 1, pasoVel: 10, ...BRAZOS.costado, ...aC(0, 0), ...CARA.esperanza }, 0.001],
+  [T.p4 - 0.001, { x: 0.12, z: -0.3, giro: 3.74, paso: 1, pasoVel: 10, ...BRAZOS.costado, ...aC(0, 0), ...CARA.esperanza }, 0.001],
   [T.entra[1], { x: WI.x, z: WI.z, giro: Math.PI - 0.45, paso: 0 }, T.entra[1] - T.entra[0]],
   [T.deja, { manoD: [-0.12, 0.38, 0.45], codoD: null, inclina: 0.1 }, 0.25],
   [T.deja + 0.3, { manoD: [-0.25, 0.05, 0.1], inclina: 0, ...CARA.sonrisa }, 0.25],
@@ -808,7 +815,7 @@ const bocaVoz = (p, t, t0, env) => {
 // la cortina en el tiempo (alto del hueco abajo, m)
 function gapEn(t) {
   if (t < T.p4) {
-    let g = lerp(1.38, 1.02, eio(sg(t, T.baja[0], T.frena)));
+    let g = lerp(1.2, 0.98, eio(sg(t, T.baja[0], T.frena)));
     g += 0.04 * Math.exp(-Math.max(0, t - T.frena) * 10) * (t > T.frena ? Math.sin((t - T.frena) * 40) : 0); // el clanc
     return lerp(g, PUERTA.alto + 0.1, eio(sg(t, T.sube[0], T.sube[1])));
   }
@@ -826,9 +833,9 @@ function ponerPersonajes(t, gap) {
   if (t < T.p4) {
     // el gancho: la punta en la argolla del zócalo, la mano derecha en la varilla
     const punta = V3(0.3, gap + 0.0, 0.11);
-    const dir = V3(0.42, 0.62, 0.66).normalize();
+    // la mano derecha queda al costado del cuerpo, del lado de la cortina (no le cruza la cara)
+    const agarre = V3(0.76, 0.9, 0.3), dir = agarre.clone().sub(punta).normalize();
     gancho.visible = true; gancho.position.copy(punta); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), dir);
-    const agarre = punta.clone().addScaledVector(dir, 0.58);
     if (t < T.frena + 0.4) pr = manoA(ruben, pr, "D", agarre);
     else { const suelta = eio(sg(t, T.frena + 0.4, T.frena + 0.8)); const p2 = manoA(ruben, { ...pr }, "D", agarre); pr.manoD = p2.manoD.map((v, i) => lerp(v, [-0.3, -0.06, 0.05][i], suelta)); }
     if (t > T.frena + 0.4) { // el gancho queda apoyado contra la pared
@@ -840,18 +847,20 @@ function ponerPersonajes(t, gap) {
     gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize());
     const y = Math.max(gap, 0.92), suelta = sg(t, T.tiron[0] + 0.12, T.tiron[1] + 0.3);
     pr.inclina = 0.12 * (1 - suelta);
-    const p2 = manoA(ruben, { ...pr }, "D", V3(0.62, y + 0.02, 0.15));
+    const p2 = manoA(ruben, { ...pr }, "D", V3(0.34, y - 0.05, 0.13));
     pr.manoD = p2.manoD.map((v, i) => lerp(v, [-0.3, -0.06, 0.05][i], eio(suelta)));
   } else if (t >= T.pC) { gancho.visible = true; gancho.position.set(1.15, 0, 0.12); gancho.quaternion.setFromUnitVectors(V3(0, 1, 0), V3(0.05, 1, -0.08).normalize()); }
   else gancho.visible = false;
   // montaje: va a los estantes y vuelve con cada cosa
   if (en(t, T.p6, T.p7)) {
-    const ci = T.items.findIndex((x) => x > t);
-    const prox = ci < 0 ? T.p7 : T.items[ci], prev = ci <= 0 ? T.p6 : T.items[ci - 1];
-    const u = sg(t, prev, prox), ida = Math.sin(u * Math.PI);
-    pr.z = RI.z - ida * 0.45; pr.giro = ida > 0.3 && u < 0.5 ? Math.PI * 0.9 : -0.1 + (u > 0.5 ? (1 - u) * 0.4 : 0); pr.paso = ida > 0.05 ? 1 : 0;
-    if (ida < 0.3) pr = mezclar(pr, { ...pr, ...BRAZOS.apoyado, inclina: 0.06 }, 1 - ida / 0.3);
-    pr.cabeza = { ...pr.cabeza, giro: u > 0.5 ? -0.4 : 0, asiente: 0.15 };
+    // ciclos de 0,5 s: gira de costado hacia un estante (0,2 s), agarra, vuelve al mostrador (0,2 s); un lado y el otro
+    const k = Math.floor((t - T.p6) / 0.5), u = (t - T.p6) / 0.5 - k, amp = k % 2 ? 0.75 : 1.15;
+    const va = eio(sg(u, 0.0, 0.4)) * (1 - eio(sg(u, 0.6, 1.0)));
+    // siempre hacia el lado de la cámara (de perfil, nunca de espaldas)
+    pr.giro = lerp(-0.08, -amp, va); pr.x = RI.x - 0.15 * va; pr.paso = va > 0.03 && va < 0.97 ? 1 : 0;
+    pr = mezclar(pr, { ...pr, ...BRAZOS.costado }, Math.min(1, va * 1.6));
+    if (va < 0.3) pr = mezclar(pr, { ...pr, ...BRAZOS.apoyado, inclina: 0.06 }, 1 - va / 0.3);
+    pr.cabeza = { ...pr.cabeza, giro: -0.25 * va, asiente: 0.1 };
   }
   // el resoplido: los cachetes inflados un instante
   pr.aplasta += 0.04 * pulso(t, T.resopla, 0.35);
@@ -862,11 +871,11 @@ function ponerPersonajes(t, gap) {
   // el sacarse la campera (antes del corte): se abre los hombros
   if (en(t, T.solapas[0], T.cuelga)) { const u = sg(t, T.solapas[0], T.cuelga); pr.torso = Math.sin(u * Math.PI) * 0.12; pr.ladea = Math.sin(u * Math.PI) * -0.05; }
   // colgar la campera: la mano derecha llega al gancho del perchero y suelta
-  if (en(t, T.cuelga, T.cuelga + 0.6)) { const u = 1 - sg(t, T.cuelga + 0.25, T.cuelga + 0.6); if (u > 0) { const p2 = manoA(ruben, { ...pr }, "D", ganchoPerchero.clone().add(V3(0.02, -0.05, 0.06))); pr.manoD = pr.manoD.map((v, i) => lerp(v, p2.manoD[i], eio(u))); } }
+  if (en(t, T.cuelga, T.cuelga + 0.6)) { const u = 1 - sg(t, T.cuelga + 0.25, T.cuelga + 0.6); if (u > 0) { const p2 = manoA(ruben, { ...pr }, "I", ganchoPerchero.clone().add(V3(-0.04, -0.05, 0.08))); pr.manoI = pr.manoI.map((v, i) => lerp(v, p2.manoI[i], eio(u))); } }
   ruben.poner(pr);
   // ---- Walter ----
   let pw = poseEn(t, WK);
-  walter.ponerCampera(t < T.remate || t >= T.pC);
+  walter.ponerCampera(t < T.remate + 0.3 || t >= T.pC);
   mochila.visible = t < T.remate || t >= T.pC;
   if (t < T.frena) { const u = sg(t, T.corre[0], T.frena); pw.x = lerp(WB.x - 3.2, WB.x, 1 - Math.pow(1 - u, 1.6)); }
   if (en(t, T.pC, T.llega[1])) pw.x = lerp(WB.x - 2.4, WB.x, sg(t, T.llega[0], T.llega[1]));
@@ -874,11 +883,11 @@ function ponerPersonajes(t, gap) {
   else if (en(t, T.frenaVuelta - 0.05, T.pE)) pw.x = WB.x - (T.frenaVuelta - 0.3 - T.seVa) * 0.8;
   if (t >= T.pE) pw.x = WB.x - 0.6 - (t - T.pE) * 1.3;
   // la mano en la cortina cuando la frena
-  if (en(t, T.frena - 0.1, T.p3)) { const u = eio(sg(t, T.frena - 0.1, T.frena + 0.1)); pw = mezclar(pw, { ...pw, manoI: [0.24, 0.62, 0.36], manoD: [-0.2, 0.6, 0.38], codoI: [1, -0.4, -0.3], codoD: [-1, -0.4, -0.3] }, u); const sac = Math.sin(t * 26) * 0.03 * (t < T.b1 + 0.6 ? 1 : 0); pw.manoI[1] += sac; pw.manoD[1] -= sac; }
+  if (en(t, T.frena - 0.1, T.p3)) { const u = eio(sg(t, T.frena - 0.1, T.frena + 0.1)); pw = mezclar(pw, { ...pw, manoI: [0.26, 0.48, 0.4], manoD: [-0.22, 0.46, 0.42], codoI: [1, -0.4, -0.3], codoD: [-1, -0.4, -0.3] }, u); const sac = Math.sin(t * 26) * 0.03 * (t < T.b1 + 0.6 ? 1 : 0); pw.manoI[1] += sac; pw.manoD[1] -= sac; }
   // tachar: la lapicera se mueve sobre la lista
   if (en(t, T.p6, T.p7) || en(t, T.tacha[0], T.tacha[1] + 0.05)) { const k = Math.sin(t * 22) * 0.025; pw.manoD = [pw.manoD[0] + k, pw.manoD[1] + Math.cos(t * 17) * 0.008, pw.manoD[2]]; }
   // da vuelta el papel: las dos manos giran hacia afuera
-  if (en(t, T.vuelta - 0.1, T.p8)) { pw.manoI = [0.13, 0.36, 0.4]; pw.manoD = [-0.13, 0.36, 0.4]; }
+  if (en(t, T.vuelta - 0.1, T.p8)) { const a = sg(t, T.vuelta - 0.1, T.pAtras); pw.manoI = [0.13, lerp(0.36, 0.56, a), 0.4]; pw.manoD = [-0.13, lerp(0.36, 0.56, a), 0.4]; }
   // saluda al irse
   if (en(t, T.saluda, T.pE)) pw = mezclar(pw, { ...pw, ...saludo(t - T.saluda, "I", 1.1) }, eio(sg(t, T.saluda, T.saluda + 0.2)));
   if (t >= T.pE) pw = mezclar(pw, { ...pw, ...saludo(t - T.pE, "I", 1.1) }, 1);
@@ -934,14 +943,16 @@ function renderAt(tIn) {
     const conCampera = t < T.cuelga;
     // termo: bajo el brazo izquierdo (vereda), sobre el mostrador (adentro)
     if (s === "vereda" || (s === "adentro" && t < T.apoya)) {
-      ruben.cuerpo.add(termoR); termoR.position.set(0.27, 0.05, 0.08); termoR.rotation.set(0.15, 0, 0.35); termoR.visible = true;
+      ruben.cuerpo.add(termoR); termoR.position.set(0.27, 0.05, 0.08); termoR.rotation.set(0.15, 0, 0.35); termoR.visible = true; termoR.scale.setScalar(1);
     } else if (s === "adentro" || s === "tarde") {
-      scene.add(termoR); termoR.position.set(MOSTRADOR.x + 0.95, MOSTRADOR.y, MOSTRADOR.z - 0.2); termoR.rotation.set(0, 0.4, 0); termoR.visible = t >= T.apoya;
+      scene.add(termoR); termoR.visible = t >= T.apoya; termoR.rotation.set(0, 0.4, 0);
+      if (t >= T.remate && t < P1) { termoR.position.set(MOSTRADOR.x - 0.3, MOSTRADOR.y, MOSTRADOR.z + 0.17); termoR.scale.setScalar(1 + 0.15 * pulso(t, T.remate + 0.2, 0.25)); }
+      else { termoR.position.set(MOSTRADOR.x + 0.95, MOSTRADOR.y, MOSTRADOR.z - 0.2); termoR.scale.setScalar(1); }
     } else termoR.visible = false;
     // mate: en la mano izquierda en la parte 2 (vereda y tarde); en el remate lo apoya en el mostrador
     const mateEnMano = (s === "vereda" && t >= T.pC) || s === "tarde";
     if (mateEnMano) { const p = manoMundo(ruben, "I", _a); mateR.position.copy(p).add(V3(0, -0.07, 0.02)); mateR.rotation.set(0, 0.5, 0); mateR.visible = true; }
-    else if (parte1 && t >= T.remate) { mateR.position.set(MOSTRADOR.x + 0.72, MOSTRADOR.y, MOSTRADOR.z + 0.05); mateR.rotation.set(0, 0, 0); mateR.visible = true; mateR.scale.setScalar(1 + 0.15 * pulso(t, T.remate + 0.35, 0.25)); }
+    else if (parte1 && t >= T.remate) { mateR.position.set(MOSTRADOR.x - 0.12, MOSTRADOR.y, MOSTRADOR.z + 0.2); mateR.rotation.set(0, 0, 0); mateR.visible = true; mateR.scale.setScalar(1 + 0.15 * pulso(t, T.remate + 0.35, 0.25)); }
     else mateR.visible = false;
     void conCampera;
   }
@@ -952,8 +963,8 @@ function renderAt(tIn) {
     camperaColgada.position.copy(ganchoPerchero); camperaColgada.position.y += 0.03;
     camperaColgada.rotation.set(0, -0.3, Math.sin((t - T.cuelga) * 7) * 0.12 * Math.exp(-(t - T.cuelga) * 2.5));
   }
-  camperaW.visible = t >= T.remate && t < P1;
-  if (camperaW.visible) { camperaW.position.set(CAJON.x + 0.12, 0.42, CAJON.z + 0.12); camperaW.rotation.set(-1.35, -0.6, 0.1); camperaW.scale.setScalar(0.85); }
+  camperaW.visible = t >= T.remate + 0.3 && t < P1;
+  if (camperaW.visible) { camperaW.position.set(CAJON.x + 0.12, 0.42, CAJON.z + 0.12); camperaW.rotation.set(-1.35, -0.6, 0.1); camperaW.scale.setScalar(0.85 * Math.max(0.01, bk(sg(t, T.remate + 0.3, T.remate + 0.55)))); }
 
   // ---- el papelito / la lista / la hoja ----
   {
@@ -977,12 +988,24 @@ function renderAt(tIn) {
     if (en(t, T.p6, T.p8)) {
       const pi = manoMundo(walter, "I", _a), pd = manoMundo(walter, "D", _b);
       hoja.visible = true; hoja.position.copy(pi).add(pd).multiplyScalar(0.5).add(V3(0, t >= T.p7 ? 0.14 : 0.1, 0));
-      const giroV = eio(sg(t, T.vuelta, T.vuelta + 0.22)) * Math.PI;
+      if (t >= T.p7) { const gy = walter.raiz.rotation.y; hoja.position.add(V3(Math.sin(gy) * 0.12, 0, Math.cos(gy) * 0.12)); } // adelante de la cara
+      const giroV = eio(sg(t, T.vuelta, T.vuelta + 0.12)) * Math.PI;
       // de frente a la cámara del plano 7 (Rubén): el frente tachado se ve, después el dorso
       hoja.rotation.order = "YXZ";
       hoja.rotation.set(-0.15, walter.raiz.rotation.y + giroV, 0);
       if (t < T.p7) hoja.rotation.set(-1.94, walter.raiz.rotation.y, 0);
       tiraHoja.visible = t >= T.p7; hoja.scale.setScalar(t >= T.p7 ? 1.45 : 1);
+      if (camHoja) {
+        // inserto: el dorso llena el cuadro (la cámara del lado del dorso, con un push-in suave)
+        hoja.updateMatrixWorld(true);
+        const n = V3(0, 0, -1).transformDirection(hoja.matrixWorld), up = V3(0, 1, 0).transformDirection(hoja.matrixWorld);
+        const c = hoja.position.clone().add(up.clone().multiplyScalar(0.02));
+        const d = lerp(0.84, 0.76, sg(t, T.pAtras, T.p8));
+        camera.position.copy(c).addScaledVector(n, d); camera.up.copy(up); camera.fov = 36; camera.updateProjectionMatrix();
+        camera.lookAt(c.clone().add(up.clone().multiplyScalar(0.035))); camera.up.set(0, 1, 0);
+        ruben.raiz.visible = false; // la cámara del inserto queda donde está Rubén (fuera de cuadro)
+        for (const it of items) it.visible = false; // y la mercadería del mostrador no tapa el papel
+      }
       lapicera.visible = t < T.vuelta - 0.05; lapicera.position.copy(pd).add(V3(0, 0.05, 0.02)); lapicera.rotation.set(0.6, 0, 0.5);
     }
   }
@@ -990,7 +1013,7 @@ function renderAt(tIn) {
   // ---- la mercadería: parte 1 aparece en el mostrador con pop y squash; parte 2 vuela a la bolsa ----
   items.forEach((it, i) => {
     const ti = T.items[i];
-    const vis = t >= ti && t < P1;
+    const vis = t >= ti && t < P1 && !camHoja;
     it.visible = vis;
     if (vis) { const s2 = bk(sg(t, ti, ti + 0.22)); const sq = pulso(t, ti + 0.1, 0.18) * 0.25; it.scale.set(Math.max(0.001, s2) * (1 + sq), Math.max(0.001, s2) * (1 - sq), Math.max(0.001, s2) * (1 + sq)); }
   });
@@ -1012,16 +1035,16 @@ function renderAt(tIn) {
         it.visible = true;
         const u = sg(t, t0, t0 + 0.3);
         const desde = V3(MOSTRADOR.x + 0.05 + (i % 4) * 0.08, MOSTRADOR.y + 0.0, MOSTRADOR.z + 0.12 - Math.floor(i / 4) * 0.12);
-        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.4, bolsa.position.z);
-        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.22;
+        const hasta = V3(bolsa.position.x + ((i % 3) - 1) * 0.05, MOSTRADOR.y + 0.38, bolsa.position.z);
+        it.position.lerpVectors(desde, hasta, eio(u)); it.position.y += Math.sin(u * Math.PI) * 0.1;
         it.rotation.set(0, i, u * (i % 2 ? 2 : -2));
         const sc = 1 - 0.55 * u; it.scale.setScalar(sc);
         it.visible = u < 0.96 || i === 3; // entran por arriba de la bolsa; el pan flauta queda asomando
-        if (i === 3 && u >= 1) { it.position.set(bolsa.position.x + 0.04, MOSTRADOR.y + 0.36, bolsa.position.z); it.rotation.set(0, 0.3, 1.25); it.scale.setScalar(0.8); }
+        if (i === 3 && u >= 0.96) { it.position.set(bolsa.position.x + 0.09, MOSTRADOR.y + 0.36, bolsa.position.z + 0.03); it.rotation.set(0, 0.3, 1.25); it.scale.setScalar(0.8); }
       } else if (i === 3 && bolsa.visible) {
         // el pan flauta asomando de la bolsa (afuera)
         it.visible = true; bolsa.updateMatrixWorld(true);
-        it.position.copy(V3(0.03, 0.36, 0)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(0, bolsa.rotation.y + 0.3, 1.25); it.scale.setScalar(0.8);
+        it.position.copy(V3(0.09, 0.36, 0.03)).applyMatrix4(bolsa.matrixWorld); it.rotation.set(0, bolsa.rotation.y + 0.3, 1.25); it.scale.setScalar(0.8);
         if (en(t, T.pIns, T.pIns + 0.4)) it.position.y += pulso(t, T.pIns + 0.1, 0.3) * 0.05;
       } else it.visible = false;
     });
@@ -1032,13 +1055,13 @@ function renderAt(tIn) {
     celuW.visible = s === "oficina";
     if (celuW.visible) {
       dibujarTienda(t);
-      celuW.position.set(OF.x, 1.02, -0.34); celuW.rotation.set(-0.42, 0, 0);
+      celuW.position.set(OF.x, 1.03, -0.34); celuW.rotation.set(-0.12, 0, 0);
       celuW.position.y += Math.sin(t * 1.3) * 0.002;
     }
     celuR.visible = s === "tarde";
     if (celuR.visible) {
       const v = en(t, T.vibra, T.vibra + 0.7) ? 1 : 0;
-      const x0 = MOSTRADOR.x + 0.08, z0 = MOSTRADOR.z + 0.2;
+      const x0 = MOSTRADOR.x - 0.05, z0 = MOSTRADOR.z + 0.12;
       celuR.position.set(x0 + v * Math.sin(t * 90) * 0.006, MOSTRADOR.y + 0.012, z0 + v * Math.cos(t * 77) * 0.005);
       celuR.rotation.set(0, -0.5 + v * Math.sin(t * 70) * 0.05, 0);
       pantR.emissiveIntensity = sg(t, T.vibra, T.vibra + 0.1) * 0.95;
@@ -1061,30 +1084,31 @@ function renderAt(tIn) {
 
   // ---- burbujas (en el espacio de la cámara, debajo del chip) ----
   const kf = Math.tan((camera.fov * D2R) / 2) / Math.tan(19 * D2R);
-  const ponerB = (b, ti, tf, x, y) => {
-    const e = bk(sg(t, ti, ti + 0.3)), sale = eio(sg(t, tf - 0.1, tf));
-    b.visible = e > 0.002 && sale < 0.5 && t < tf;
+  const ponerB = (b, ti, tf, x, y, corte = true) => {
+    // corte: true si tf es un corte de plano (se va en seco con el plano); si no, se achica en 0,15 s
+    const sale = corte ? 0 : eio(sg(t, tf - 0.15, tf)), e = bk(sg(t, ti, ti + 0.3));
+    b.visible = e > 0.002 && sale < 0.98 && t < tf;
     if (!b.visible) return;
-    b.position.set(x * kf, (y + (1 - eo(sg(t, ti, ti + 0.3))) * -0.03 + sale * 0.05) * kf, -1.0);
+    b.position.set(x * kf, (y + (1 - eo(sg(t, ti, ti + 0.3))) * -0.03) * kf, -1.0);
     b.rotation.set(0.08, Math.sin((t - ti) * 1.7) * 0.05, Math.sin((t - ti) * 2.2) * 0.02);
     b.scale.setScalar(0.19 * e * (1 - sale) * kf);
   };
-  ponerB(B.para, T.b1, T.p3, -0.05, 0.13);
+  ponerB(B.para, T.b1, T.p2, -0.05, 0.13);
   ponerB(B.perdon, T.b2, T.p4, 0.04, 0.14);
-  ponerB(B.ay1, T.ay1, T.p7, -0.04, 0.17);
-  ponerB(B.ay2, T.ay2, T.p7, -0.02, 0.105);
-  ponerB(B.gracias, T.b3, T.seVa + 0.2, -0.05, 0.15);
-  ponerB(B.ay3, T.b4, T.pD + 0.35, -0.05, 0.15);
+  ponerB(B.ay1, T.ay1, T.ay2 + 0.15, -0.04, 0.15, false);
+  ponerB(B.ay2, T.ay2, T.p7, 0.02, 0.15);
+  ponerB(B.gracias, T.b3, T.seVa + 0.2, -0.05, 0.15, false);
+  ponerB(B.ay3, T.b4, T.pD, -0.05, 0.15);
 
   // ---- el chip de hora ----
   {
-    const vis = !en(t, T.pIns, T.pE) && t < T.cierre + 0.3;
+    const vis = t < T.cierre + 0.3;
     chip.visible = vis;
     if (vis) {
       const kk = kf;
       chip.position.set(0, 0.2 * 0.72 / 0.72 * kk * 0.72 / 0.72 * 1, -0.72); chip.position.y = 0.198 * kk;
       const tarde = en(t, P2, T.pC);
-      placaNoche.visible = !tarde; placaTarde.visible = tarde;
+      placaNoche.visible = t < P2; placaTarde.visible = tarde; placaOtra.visible = t >= T.pC;
       let actual = 0; for (let i = 0; i < SEC_HORA.length; i++) if (t >= SEC_HORA[i][0]) actual = i;
       const [tc, kc] = SEC_HORA[actual];
       const prev = actual > 0 ? SEC_HORA[actual - 1][1] : null;

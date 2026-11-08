@@ -50,7 +50,7 @@ export const ELENCO = {
   // Walter (las-siete-y-cincuenta-y-nueve, 08-11): ~40, oficinista que sale tarde del trabajo y llega 19:59. Pelo castaño
   // corto con un jopo bajo despeinado, ojeras suaves, camisa blanca con corbata navy floja, campera crema abierta con
   // cuello navy, pantalón navy y mochila. Simpático, nunca canchero: cara de "perdón".
-  walter: { nombre: "Walter", piel: PIEL.clara, pelo: PELO.castaño, peinado: "texturado", texturaAlto: 0.4, cejasColor: 0x4a3222, ojeras: 0xb88a8a,
+  walter: { nombre: "Walter", piel: PIEL.clara, pelo: PELO.castaño, peinado: "texturado", texturaAlto: 0.25, cejasColor: 0x4a3222, ojeras: 0xb88a8a,
     camisa: 0xf7f7f2, mangas: "largas", cuello: 0xf7f7f2, cuelloBotones: false, corbata: MARCA.navy, pantalon: MARCA.navy2, zapatos: 0x3b2a20,
     campera: { color: MARCA.cr2, cuello: MARCA.navy, cierre: 0xb4b2a3, abierta: true }, panza: 1.0, nariz: 0.058, mejillas: 0xe8968a, alto: 1.0 },
   // Para reels futuros: el empleado joven y la dueña de la cafetería.
@@ -258,9 +258,9 @@ export function crearPersonaje(cfg) {
     pup.add(mesh(G.esfera, M.pupila, 0, 0, 0.034, 0.036, 0.042, 0.022));
     pup.add(mesh(G.esferaLow, M.blanco, 0.012, 0.016, 0.052, 0.011));
     const lidPivote = new THREE.Group(); g.add(lidPivote);
-    const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.074, 0.082, 0.058); lidPivote.add(lid);
+    const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.0705, 0.0785, 0.0525); lidPivote.add(lid); // casi al ras del ojo: sin bulto
     const lidLow = new THREE.Group(); g.add(lidLow);
-    const lidLowM = mesh(G.parpado, M.piel, 0, 0, 0, 0.073, 0.08, 0.057); lidLowM.rotation.z = Math.PI; lidLow.add(lidLowM);
+    const lidLowM = mesh(G.parpado, M.piel, 0, 0, 0, 0.07, 0.078, 0.052); lidLowM.rotation.z = Math.PI; lidLow.add(lidLowM);
     if (c.pestanas) {
       // pestañas: tres trazos finos en el borde de arriba, hacia afuera (se mueven con el párpado)
       const pm = mat(c.pestanas, 0.5), abajo = new THREE.Vector3(0, -1, 0);
@@ -272,7 +272,12 @@ export function crearPersonaje(cfg) {
       // delineado arriba
       const del = mesh(new THREE.TorusGeometry(0.073, 0.008, 6, 24, Math.PI * 0.75), pm, 0, 0.004, 0.02); del.rotation.z = Math.PI * 0.125; g.add(del);
     }
-    return { g, blanco, pup, lidPivote, lid, lidLow, s };
+    // ojo cerrado (parpadeo, guiño, sorbo): el ojo se esconde y queda una línea curva oscura, como en el dibujo animado
+    // (las-siete-y-cincuenta-y-nueve, ronda 1: el párpado cerrado se veía como una bola de piel)
+    const ARC = Math.PI * 0.62;
+    const cerrado = mesh(new THREE.TorusGeometry(0.056, 0.0105, 6, 18, ARC), mat(c.pestanas ?? 0x2a1d1a, 0.6), 0, -0.006, 0.03);
+    cerrado.rotation.z = -Math.PI / 2 - ARC / 2; cerrado.scale.set(1, 0.75, 1); cerrado.visible = false; g.add(cerrado);
+    return { g, blanco, pup, lidPivote, lid, lidLow, s, cerrado };
   });
   // cejas
   const cejas = [-1, 1].map((s) => {
@@ -529,6 +534,8 @@ export function crearPersonaje(cfg) {
       o.lidPivote.rotation.set(lerp(Math.PI * 0.5, -Math.PI * 0.62, ab), 0, o.s * p.ojos.tension * 0.45);
       o.lidLow.rotation.set(lerp(Math.PI * 0.62, 0.3, cl(p.ojos.feliz)), 0, 0);
       o.blanco.scale.y = 0.076 * (1 - p.ojos.feliz * 0.15);
+      const cer = ab < 0.2;
+      o.cerrado.visible = cer; o.blanco.visible = o.pup.visible = o.lidPivote.visible = o.lidLow.visible = !cer;
     }
     // cejas
     for (const e of cejas) {

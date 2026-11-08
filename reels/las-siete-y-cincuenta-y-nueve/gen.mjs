@@ -14,8 +14,8 @@ import { execSync, execFileSync } from "node:child_process";
 const r2 = (n) => Math.round(n * 100) / 100;
 
 // ================= LOS BEATS (segundos del video final) =================
-const P1 = 14.6;          // termina la parte 1 (arranca el cartel)
-const P2 = 17.8;          // arranca la parte 2 (termina el iris del cartel)
+let P1 = 14.6;          // termina la parte 1 (arranca el cartel)
+let P2 = 17.8;          // arranca la parte 2 (termina el iris del cartel)
 const T = {
   // ---- parte 1 ----
   baja: [0.05, 1.1],                     // Rubén baja la cortina con el gancho
@@ -24,9 +24,9 @@ const T = {
   p2: 2.0, miraHora: 2.3, resopla: 2.6,  // contraplano: Rubén lo mira, mira la hora, resopla
   p3: 2.9, b2: 3.1, papelito: 3.4,       // primer plano de Walter: "¡Perdón! Es una cosita nomás." y el papelito
   sube: [3.75, 4.25],                    // la cortina sube (detrás de Walter)
-  p4: 4.3, entra: [4.3, 4.95], apoya: 4.55, deja: 4.95, alivio: 5.2,
+  p4: 4.3, entra: [4.3, 4.7], apoya: 4.55, deja: 4.82, alivio: 5.05, p4b: 4.95,
   suelta: 5.75,                          // Walter suelta una punta: la lista se desenrolla
-  p5: 5.75, rodar: [5.75, 7.15], grua: [6.95, 7.55],
+  p5: 5.75, rodar: [5.75, 7.15], grua: [6.95, 7.55], cordon: 6.51, // cordon: el rollo baja del cordón (calculado sobre la curva de tres.js)
   p6: 7.55,                              // montaje: el mostrador se llena
   items: [7.75, 8.0, 8.25, 8.5, 8.75, 9.0, 9.25],
   ay1: 8.05, ay2: 9.05,                  // "Ah, y…" "Ah, y…"
@@ -38,16 +38,28 @@ const T = {
   // ---- parte 2 ----
   pA: P2, tildes: 18.05, pagar: 19.2, pagado: 19.38,
   pB: 19.8, vibra: 19.95, sorboB: 20.1, embolsa: [20.45, 21.3], abrocha: 21.48,
-  pC: 22.1, llega: [22.3, 22.85], agarra: 22.7, da: 22.95, b3: 23.2, seVa: 23.5, frenaVuelta: 23.75, b4: 23.85,
-  pD: 24.1, voz2: 23.95,                 // archivo de la voz 2 ("Está en la bolsa, Walter.")
+  pC: 22.1, llega: [22.3, 22.85], agarra: 22.7, da: 22.95, b3: 23.2, seVa: 23.5, frenaVuelta: 23.75, b4: 23.73,
+  pD: 24.55, voz2: 23.95,                 // archivo de la voz 2 ("Está en la bolsa, Walter.")
   pIns: 26.25, saluda: 26.6,
   pE: 27.0, tiron: [27.1, 27.38], h2000b: 27.42, sorboE: 27.95, aCamara: 28.35, guino: 28.65,
   cierre: 28.5,
 };
-const DUR = 30.4;
+let DUR = 30.4;
+// ronda 1 (revisores): el montaje arranca 0,2 s después (la lista rueda más lento) y después de que Walter da vuelta
+// el papel entra un inserto del dorso "ATRÁS" a cuadro lleno (~1,1 s): todo lo que sigue se corre
+function corre(desde, d) {
+  for (const k in T) T[k] = Array.isArray(T[k]) ? T[k].map((v) => (v >= desde ? r2(v + d) : v)) : T[k] >= desde ? r2(T[k] + d) : T[k];
+  if (P1 >= desde) P1 = r2(P1 + d); if (P2 >= desde) P2 = r2(P2 + d); DUR = r2(DUR + d);
+}
+corre(7.5, 0.2);
+T.rodar = [5.75, 7.35]; T.grua = [7.15, 7.75];
+corre(T.p8, 0.97);
+T.pAtras = r2(T.vuelta + 0.14);     // inserto del dorso
+T.corte = r2(T.pAtras + 0.06);      // la música se corta seca cuando se ve el ATRÁS
+T.pA = P2;
 
 // palabras de las líneas (relativas al inicio de cada archivo; medidas con tiempos.mjs y la envolvente)
-const LINEA1 = [["Sacate", 0.9], ["la", 1.38], ["campera,", 1.62], ["Walter.", 2.33]];
+const LINEA1 = [["Sacate", 0.9], ["la", 1.38], ["campera,", 1.62], ["Walter.", 2.22]];
 const LINEA2 = [["Está", 0.25], ["en", 0.74], ["la", 0.9], ["bolsa,", 1.06], ["Walter.", 1.62]];
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -199,7 +211,7 @@ linea("s02-linea", T.voz2, LINEA2, 3, T.pIns - 0.02);
     P .caja { position: absolute; left: 60px; right: 60px; top: 1480px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.92); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 48px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Tu tienda online toma</div><div class="a">el pedido y lo cobra</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Una tienda online toma</div><div class="a">el pedido y lo cobra por vos</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -219,66 +231,68 @@ s("bgm/pizzicato.wav", 0, 0, { dur: T.corte, fin: 0.04, techo: -33 });          
 for (let i = 0, t = T.baja[0]; t < T.frena - 0.05; i++, t += 0.085) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, -2, { techo: -36 });
 // pasos corriendo de Walter
 for (let t = T.corre[0]; t < T.frena; t += 0.14) s("sfx/tac-real.mp3", t, 0, { techo: -33 });
-s("sfx/golpe.mp3", T.frena, 0);                                                         // clanc: la mano frena la cortina
+s("sfx/sello.wav", T.frena, 0);                                                         // clanc: la mano frena la cortina
 s("sfx/burbuja.mp3", T.b1 + 0.03, 0);
 s("sfx/whoosh-short.mp3", T.miraHora - 0.05, 0, { techo: -38 });
+s("voice/ruben1.wav", T.resopla - 0.05, 0, { desde: 0.18, dur: 0.7, fin: 0.2, techo: -30 });     // el resoplido (el suspiro de su toma)
 s("sfx/burbuja.mp3", T.b2 + 0.03, 0);
 s("sfx/papel.wav", T.papelito, 0, { dur: 0.35, fin: 0.1, techo: -34 });
 for (let i = 0, t = T.sube[0]; t < T.sube[1]; i++, t += 0.07) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, 0, { techo: -36 });
-s("sfx/golpe.mp3", T.sube[1], -4, { techo: -36 });
+s("sfx/sello.wav", T.sube[1], -4, { techo: -36 });
 for (let t = T.entra[0]; t < T.entra[1]; t += 0.3) s("sfx/tic-real.mp3", t, 0, { techo: -38 });
-s("sfx/pop.mp3", T.apoya, 0, { techo: -35 });
 s("sfx/papel.wav", T.deja - 0.05, 0, { dur: 0.3, fin: 0.1, techo: -34 });
 // la lista que se desenrolla: papel que crece, el tuc del cordón y el whoosh de la grúa
 s("sfx/papel.wav", T.suelta, 0, { techo: -33 });
 s("sfx/papel.wav", T.suelta + 0.45, 0, { techo: -32 });
 s("sfx/papel.wav", T.suelta + 0.9, 0, { techo: -31 });
 s("sfx/whoosh.mp3", T.suelta + 0.3, 0, { techo: -34 });
-s("sfx/golpe.mp3", 6.62, -4, { techo: -35 });
+s("sfx/sello.wav", T.cordon, -4, { techo: -35 });
+s("sfx/sello.wav", T.cordon + 0.32, -4, { techo: -41 });
 s("sfx/whoosh.mp3", T.grua[0], 0);
 // montaje: pop por objeto (tonos variados), tic + campanita del reloj, "Ah, y…", tachones
-T.items.forEach((t, i) => s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", t, 0, { techo: -31 - (i % 3) }));
-for (const t of [T.h2000, T.h2007, T.h2023]) s("sfx/tic-real.mp3", t, 0);
-s("sfx/campanita.wav", T.h2000 + 0.02, 0, { techo: -33 });
+T.items.forEach((t, i) => s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", t, 0, { techo: -31 - (i % 3), ...(i % 2 ? {} : { desde: 0.11 }) }));
+for (const t of [T.h2000, T.h2007, T.h2023]) s("sfx/tic-real.mp3", t + 0.08, 0);
+s("sfx/campanita.wav", T.h2000 + 0.1, 0, { techo: -33 });
 s("sfx/burbuja.mp3", T.ay1 + 0.03, 0);
 s("sfx/burbuja.mp3", T.ay2 + 0.03, 0);
-for (const t of [8.3, 8.85, 9.55]) s("sfx/papel.wav", t, 0, { dur: 0.22, fin: 0.08, techo: -36 });
+for (const t of [8.5, 9.05, 9.75]) s("sfx/papel.wav", t, 0, { dur: 0.22, fin: 0.08, techo: -36 });
 for (let t = T.p6 + 0.1; t < T.p7 - 0.1; t += 0.32) s("sfx/tic-real.mp3", t, 0, { techo: -42 });  // pasos de Rubén
 s("sfx/papel.wav", T.tacha[0], 0, { dur: 0.25, fin: 0.08, techo: -34 });
 s("sfx/papel.wav", T.vuelta, 0, { dur: 0.4, fin: 0.12 });
-s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -39 });
-s("sfx/papel.wav", T.solapas[0], 0, { dur: 0.45, fin: 0.15, techo: -40 });           // roce de la campera
+s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.cuelga - 0.02, 0, { techo: -40 });
 s("voice/ruben1.wav", T.voz1, 0, { voz: true });
-s("sfx/tuba.mp3", T.h2041 + 0.02, 0, { techo: -29.5 });
-s("sfx/tic-real.mp3", T.h2041, 0);
-s("sfx/golpe.mp3", T.remate + 0.12, -6, { techo: -38 });                                // el cajón cruje cuando se sienta
+s("sfx/tuba.mp3", T.h2041 + 0.02, 0, { desde: 0.19, techo: -29.5 });
+s("sfx/tic-real.mp3", T.h2041 + 0.08, 0);
+s("sfx/whoosh-short.mp3", T.remate + 0.25, 0, { techo: -40 });              // Walter se saca la campera
+s("sfx/sello.wav", T.remate + 0.12, -6, { techo: -38 });                                // el cajón cruje cuando se sienta
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -33 });
 s("voice/narrador.wav", P1 + 0.22, 0, { voz: true });
-s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -37 });
+s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -37 });
-s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.4, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.6] });
-for (let i = 0; i < 7; i++) s("sfx/key-press.mp3", T.tildes + i * 0.15, 0, { techo: -36 });
-s("sfx/key-press.mp3", T.pagar, 0, { techo: -33 });
+s("bgm/pizzicato.wav", P2, 0, { dur: 12, fin: 0.8, techo: -36, duck: [T.voz2 + 0.1, T.voz2 + 2.6] });
+for (let i = 0; i < 10; i++) s("sfx/key-press.mp3", T.tildes + i * 0.15, 0, { desde: 0.07, techo: -37 });
+s("sfx/key-press.mp3", T.pagado - 0.05, 0, { desde: 0.07, techo: -33 });
 s("sfx/cero.mp3", T.pagado, 0, { techo: -30 });
 s("sfx/whoosh-short.mp3", T.pB - 0.05, 0, { techo: -38 });
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.7, fin: 0.08, techo: -32 });
 s("sfx/sorbo.wav", T.sorboB, 0, { techo: -33 });
-for (let i = 0; i < 7; i++) s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", T.embolsa[0] + i * 0.13, 0, { techo: -33 - (i % 2) });
+for (let i = 0; i < 7; i++) s(i % 2 ? "sfx/burbuja.mp3" : "sfx/pop.mp3", T.embolsa[0] + i * 0.13, 0, { techo: -33 - (i % 2), ...(i % 2 ? {} : { desde: 0.11 }) });
 s("sfx/papel.wav", T.embolsa[1] - 0.1, 0, { dur: 0.4, fin: 0.12, techo: -34 });
 s("sfx/sello.wav", T.abrocha, 0);                                                     // la abrochadora: clac
 for (let t = T.llega[0]; t < T.llega[1]; t += 0.28) s("sfx/tic-real.mp3", t, 0, { techo: -38 });
 s("sfx/papel.wav", T.agarra, 0, { dur: 0.35, fin: 0.1, techo: -34 });
 s("sfx/burbuja.mp3", T.b3 + 0.03, 0);
 s("sfx/burbuja.mp3", T.b4 + 0.03, 0);
+for (const t of [T.seVa + 0.3, T.seVa + 0.55]) s("sfx/tic-real.mp3", t, 0, { techo: -42 });   // dos pasos al irse
 s("voice/ruben2.wav", T.voz2, 0, { voz: true });
 s("sfx/papel.wav", T.pIns + 0.12, 0, { dur: 0.4, fin: 0.12, techo: -38 });
-s("sfx/pop.mp3", T.pIns + 0.25, 0, { techo: -37 });
+s("sfx/pop.mp3", T.pIns + 0.25, 0, { desde: 0.11, techo: -37 });
 for (let i = 0, t = T.tiron[0]; t < T.tiron[1]; i++, t += 0.05) s(i % 2 ? "sfx/tic-real.mp3" : "sfx/tac-real.mp3", t, 0, { techo: -35 });
-s("sfx/golpe.mp3", T.tiron[1], 0);
+s("sfx/sello.wav", T.tiron[1], 0);
 s("sfx/cero.mp3", T.h2000b, 0, { techo: -29 });
 s("sfx/sorbo.wav", T.sorboE, 0, { techo: -33 });
 s("sfx/click-soft.mp3", T.guino, 0, { techo: -33 });
@@ -306,7 +320,7 @@ function mezcla(lista, salida, dur) {
     if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
     if (o.fin && o.dur) c += `,afade=t=out:st=${r2(o.dur - o.fin)}:d=${o.fin}`;
     c += `,volume=${ganancia(x)}dB`;
-    if (o.duck) { const [a, b] = o.duck.map((v) => r2(v - ini)); c += `,volume='if(between(t,${a},${b}),0.355,1)':eval=frame`; }
+    if (o.duck) { const [a, b] = o.duck.map((v) => r2(v - ini)); c += `,volume='1-0.645*clip((t-${a})/0.15,0,1)*clip((${b}-t)/0.15,0,1)':eval=frame`; }
     c += `,adelay=${Math.round(ini * 1000)}|${Math.round(ini * 1000)},apad=whole_dur=${dur}[a${i}]`;
     filtros.push(c);
   });
@@ -321,7 +335,12 @@ if (process.env.MEDIR) {
   mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
 }
 // nivel: -14 LUFS con limitador a -4,4 dBFS (el loudnorm del paso 10 casi no toca nada y el AAC no clipea)
-execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", "loudnorm=I=-14:TP=-3:LRA=11,alimiter=limit=0.6:level=false", "-ar", "48000", "assets/audio/mezcla.wav"]);
+// ronda 1: en modo LINEAL (una ganancia fija): el loudnorm dinámico dejaba la parte 2 ~10 LU más baja
+{
+  const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
+  const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(-14 - I)}dB,alimiter=limit=0.56:level=false:attack=1:release=40`, "-ar", "48000", "assets/audio/mezcla.wav"]);
+}
 
 // ================= INDEX =================
 const LIMPIO = !!process.env.LIMPIO;
@@ -347,7 +366,7 @@ fs.writeFileSync("index.html", `<!doctype html>
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 2; transform-origin: 540px 960px; }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
-      .firma { position: absolute; left: 50%; top: 1800px; height: 36px; width: auto; transform: translateX(-50%); opacity: 0.8; z-index: 4; }
+      .firma { position: absolute; left: 50%; top: 1800px; height: 36px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 4; filter: drop-shadow(0 0 3px rgba(11,18,32,0.95)) drop-shadow(0 0 10px rgba(11,18,32,0.85)); }
       #precarga { position: absolute; left: -9999px; font: 400 40px "Caveat"; }
     </style>
   </head>

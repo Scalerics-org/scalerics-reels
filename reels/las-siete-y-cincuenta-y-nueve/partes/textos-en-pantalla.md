@@ -14,12 +14,12 @@ Parte 1
 Cartel (time card): Una tienda online más tarde…
 
 Parte 2
-- Chip de hora (crema, otro día no: el MISMO viernes): VIERNES · 16:12
+- Chip de hora (crema): OTRO VIERNES · 16:12 (el cartel dice "más tarde": es otro viernes)
 - Celular de Walter, tienda genérica "Almacén de Rubén": Yerba ✓ · Fideos moñita ✓ · 2 leches ✓ · Pan flauta ✓ ·
   ... · Botón "Pagar" → "Pagado ✓" · "Retiro en el local · hasta las 20:00"
 - Celular de Rubén (aviso): Pedido nuevo · Walter · Pagado ✓ · Retira hoy
 - Ticket abrochado en la bolsa: WALTER · PAGADO ✓
-- Chip de hora: VIERNES · 19:59 → 20:00 ✓ (en verde)
+- Chip de hora: OTRO VIERNES · 19:59 → 20:00 ✓ (en verde)
 - Walter (burbuja): ¡Gracias, Rubén!  /  Ah, y…
 - Subtítulo de la voz: Está en la bolsa, Walter.  ("bolsa" en recuadro verde)
-- Línea chica final (~1,6 s): Tu tienda online toma el pedido y lo cobra · scalerics.com
+- Línea chica final (~2 s): Una tienda online toma el pedido y lo cobra por vos · scalerics.com
