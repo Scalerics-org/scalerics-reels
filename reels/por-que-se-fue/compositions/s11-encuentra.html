@@ -26,15 +26,15 @@
     [data-composition-id="s11-encuentra"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s11-encuentra" data-width="1080" data-height="1920" data-duration="2.3">
-    <div id="s11-encuentra-esc" class="esc clip" data-start="0" data-duration="2.3" data-track-index="0">
+  <div id="root" data-composition-id="s11-encuentra" data-width="1080" data-height="1920" data-duration="2.54">
+    <div id="s11-encuentra-esc" class="esc clip" data-start="0" data-duration="2.54" data-track-index="0">
 <div class="pill nom n1" style="left:300px;top:600px">Graciela</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s11-encuentra";
-      const DUR = 2.3;
+      const DUR = 2.54;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-pop(".n1", 0.39); fuera(".n1", 2.05, 0.1);
+pop(".n1", 0.37); fuera(".n1", 2.29, 0.1);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

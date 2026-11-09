@@ -33,8 +33,8 @@
     [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 118px/1.04 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.04em; }
     [data-composition-id="s01-gancho"] .h1 { top: 86px; font-size: 92px; font-weight: 800; letter-spacing: -0.03em; } [data-composition-id="s01-gancho"] .h2 { top: 200px; font-size: 140px; color: #c7655b; } [data-composition-id="s01-gancho"] .h3 { top: 350px; font-size: 140px; }
   </style>
-  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.36">
-    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.36" data-track-index="0">
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.11">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.11" data-track-index="0">
 
       <div class="h h1">Vino por su <span class="mk "><b class="fondo"></b><em>yerba</em></span>.</div>
       <div class="h h2">No había.</div>
@@ -44,7 +44,7 @@
   <script>
     (function () {
       const ID = "s01-gancho";
-      const DUR = 3.36;
+      const DUR = 3.11;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -71,7 +71,7 @@
       late(".h1 .mk", 0.7, 1.06);
       late(".h2", 1.36, 1.08);
       late(".h3", 2.34, 1.06);
-      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 3.14);
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.89);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

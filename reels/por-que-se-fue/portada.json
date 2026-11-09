@@ -9,6 +9,9 @@
  "foco": "45%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "circulo": { "x": 540, "y": 900, "r": 150 },
- "nota": "BORRADOR. Fondo = portada-fondo.png: cuadro limpio (LIMPIO=1 node armar.mjs, solo capa 3D) de la góndola llena con el hueco y la etiqueta roja en el centro (s01, ~1,0 s), sin gancho, subtítulos ni logo; pasado a un mp4 de 1 s como en por-que-buscando. Ajustar circulo (rojo sobre el hueco) y foco mirando el cuadro."
+ "circulo": {
+  "x": 540,
+  "y": 900,
+  "r": 150
+ }
 }

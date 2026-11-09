@@ -28,7 +28,7 @@
   </style>
   <div id="root" data-composition-id="s07-rapido" data-width="1080" data-height="1920" data-duration="2.04">
     <div id="s07-rapido-esc" class="esc clip" data-start="0" data-duration="2.04" data-track-index="0">
-<div class="pill rl n1" style="left:540px;top:1650px">Se vacía antes del pedido</div>
+<div class="pill rl n1" style="left:540px;top:1640px">Se vacía antes del pedido</div>
     </div>
   </div>
   <script>
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.03); sinNota(1, 1.89);
+nota(1, 1.05); sinNota(1, 1.64);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

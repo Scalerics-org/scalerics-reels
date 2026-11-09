@@ -26,15 +26,15 @@
     [data-composition-id="s05-lo-que-mas"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s05-lo-que-mas" data-width="1080" data-height="1920" data-duration="2.12">
-    <div id="s05-lo-que-mas-esc" class="esc clip" data-start="0" data-duration="2.12" data-track-index="0">
+  <div id="root" data-composition-id="s05-lo-que-mas" data-width="1080" data-height="1920" data-duration="2.08">
+    <div id="s05-lo-que-mas-esc" class="esc clip" data-start="0" data-duration="2.08" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M770 640 L640 640"/><circle class="dot r d1" cx="640" cy="640" r="12"/></svg><div class="pill rl nom n1" style="left:850px;top:640px">El más vendido</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s05-lo-que-mas";
-      const DUR = 2.12;
+      const DUR = 2.08;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -56,7 +56,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.24); sinNota(1, 2.42);
+nota(1, 1.32); sinNota(1, 2.38);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

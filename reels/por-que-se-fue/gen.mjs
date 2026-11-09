@@ -152,13 +152,12 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s02-otro-lado";
   escena(id, {
     html: `${pill(1, 540, 1640, "Compra en otro local", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 15) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.2)});`,
+    js: `nota(1, ${r2(w(id, 15) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.4)});`,
     sfx: [
-      { t: -0.1, sfx: "whoosh-short", vol: 0.12 },
-      ...[0, 1, 2, 3, 4].map((k) => ({ t: r2(0.1 + k * 0.05), sfx: k % 2 ? "tic-real" : "pop", vol: k % 2 ? 0.22 : 0.09 })),
+      { t: 0.1, sfx: "pop", vol: 0.09 }, { t: 0.15, sfx: "tic-real", vol: 0.22 }, { t: 0.3, sfx: "pop", vol: 0.09 },
       { t: w(id, 10) - 0.05, sfx: "whoosh-cinematic", vol: 0.14, max: 0.9 },
-      { t: w(id, 13) - 0.1, sfx: "pop", vol: 0.1 }, { t: w(id, 13) - 0.08, sfx: "sello", vol: 0.22 },
-      { t: w(id, 14) - 0.05, sfx: "puerta", vol: 0.3, max: 0.8 }, { t: w(id, 14) + 0.05, sfx: "campanita", vol: 0.3, max: 1.0 },
+      { t: w(id, 11) + 0.1, sfx: "puerta", vol: 0.3, max: 0.8 }, { t: w(id, 11) + 0.2, sfx: "campanita", vol: 0.26, max: 1.0 },
+      { t: w(id, 11) + 0.6, sfx: "sello", vol: 0.22 },
       { t: w(id, 15) - 0.1, sfx: "click-soft", vol: 0.12 },
     ],
   });
@@ -169,9 +168,9 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s03-marca";
   const tC = w(id, 21) + 0.1, tE = w(id, 23);
   escena(id, {
-    html: `${leads(lead(1, 200, 640, 200, 1300), lead(2, 400, 740, 400, 1330), lead(3, 820, 640, 820, 1010))}
-      ${pill(1, 260, 600, "26 % otra marca", "nom")}${pill(2, 330, 700, "19 % otra versión", "nom")}${pill(3, 820, 600, "15 % espera", "nom")}`,
-    js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] + 0.6)}); sinNota(2, ${r2(ESC[id] + 0.6)}); sinNota(3, ${r2(ESC[id] + 0.6)});`,
+    html: `${leads(lead(1, 230, 1420, 230, 1290), lead(2, 330, 1530, 330, 1290), lead(3, 850, 1420, 850, 1270))}
+      ${pill(1, 260, 1460, "26 % otra marca", "nom")}${pill(2, 330, 1570, "19 % otra versión", "nom")}${pill(3, 820, 1460, "15 % espera", "nom")}`,
+    js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cinematic", vol: 0.14, max: 0.7 },
       { t: w(id, 21) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 21) + 0.12, sfx: "papel", vol: 0.3, max: 0.5 }, { t: w(id, 21) + 0.2, sfx: "papel", vol: 0.24, max: 0.5 },
@@ -184,13 +183,14 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 // ================= s04 · nueve de cada cien no compran nada (la canasta vacía) + crédito del estudio =================
 {
   const id = "s04-nada";
+  const t9 = r2(Math.max(w(id, 25) - 0.05, 0.45));
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 1500px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 500 36px/1.3 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.02em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
-    html: `<div class="cred">Más de 70.000 compradores · 29 países<br>Gruen, Corsten y Bharadwaj, 2002</div>`,
-    js: `tl.set(q(".cred"), { opacity: 1 }, ${w(id, 25)}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${w(id, 25)}); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.2)});`,
+    css: `P .cred { position: absolute; left: 540px; top: 1560px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 500 38px/1.3 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.02em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
+    html: `<div class="cred">Estudio mundial de faltantes · 2002<br>más de 70.000 compradores · 29 países</div>`,
+    js: `tl.set(q(".cred"), { opacity: 1 }, ${t9}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${t9}); tl.to(q(".cred"), { opacity: 0, duration: 0.12, ease: "power1.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
-      { t: w(id, 25) - 0.05, sfx: "pop", vol: 0.1 }, { t: w(id, 25) - 0.03, sfx: "sello", vol: 0.24 },
-      { t: w(id, 25) + 0.15, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 29) + 0.05, sfx: "papel", vol: 0.2, max: 0.4 },
+      { t: -0.05, sfx: "whoosh-short", vol: 0.12 },
+      { t: t9 - 0.02, sfx: "pop", vol: 0.1 }, { t: t9, sfx: "sello", vol: 0.24 }, { t: w(id, 29) + 0.05, sfx: "papel", vol: 0.2, max: 0.4 },
       { t: w(id, 31) - 0.02, sfx: "golpe", vol: 0.3, max: 0.5 }, { t: w(id, 31), sfx: "sparkle", vol: 0.05, max: 0.5 },
     ],
   });
@@ -218,7 +218,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
     { t: -0.08, sfx: "whoosh-short", vol: 0.12 }, { t: 0.0, sfx: "pop", vol: 0.12 }, { t: 0.04, sfx: "sparkle", vol: 0.07, max: 0.6 },
     { t: w(id, 42) - 0.15, sfx: "whoosh-short", vol: 0.12 },
     ...[0, 1, 2, 3].map((k) => ({ t: r2(w(id, 42) - 0.04 + k * 0.08), sfx: "pop", vol: 0.08 })),
-    ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(w(id, 44) - 0.05 + k * 0.1), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.22 })),
+    // un tic por cada número del contador (12 → 1); el 0 tiene su golpe en s07
+    ...Array.from({ length: 11 }, (_, k) => ({ t: r2(w(id, 44) - 0.05 + (T(47) - T(44) + 0.05) * (k / 11)), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.16 })),
   ]);
 }
 
@@ -227,12 +228,11 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s07-rapido";
   const t0 = r2(Number((pal[47].start - INI[id]).toFixed(2)));
   escena(id, {
-    html: `${pill(1, 540, 1650, "Se vacía antes del pedido", "rl")}`,
-    js: `nota(1, ${r2(w(id, 50) + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.15)});`,
+    html: `${pill(1, 540, 1640, "Se vacía antes del pedido", "rl")}`,
+    js: `nota(1, ${r2(w(id, 50) + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.4)});`,
     sfx: [
-      ...[0, 1, 2, 3].map((k) => ({ t: r2(0.02 + k * 0.08), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.22 })),
       { t: t0, sfx: "glitch-1", vol: 0.12, max: 0.3 }, { t: t0 + 0.02, sfx: "tic-real", vol: 0.4 },
-      { t: w(id, 50) - 0.4, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 50) - 0.02, sfx: "sello", vol: 0.42 },
+      { t: t0 + 0.14, sfx: "whoosh-short", vol: 0.14 }, { t: t0 + 0.52, sfx: "sello", vol: 0.42 },
       { t: ESC[id] - 0.45, sfx: "whoosh-cinematic", vol: 0.14, max: 0.8 },
     ],
   });
@@ -242,7 +242,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 {
   const id = "s08-ruben";
   escena(id, {
-    html: `${pill(1, 770, 560, "Rubén", "nom")}`,
+    html: `${pill(1, 640, 600, "Rubén", "nom")}`,
     js: `pop(".n1", 0.25); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1);`,
     sfx: [
       { t: 0.02, sfx: "campanita", vol: 0.26, max: 1.0 }, { t: 0.25, sfx: "pop", vol: 0.08 },
@@ -257,12 +257,12 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s09-aviso";
   escena(id, {
     html: `${pill(1, 540, 1590, "Sistema a medida", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 61))}); sinNota(1, ${r2(ESC[id] - 0.15)});`,
+    js: `nota(1, ${r2(w(id, 61))}); sinNota(1, ${r2(ESC[id] - 0.35)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.16, max: 0.9 }, { t: 0.2, sfx: "papel", vol: 0.24, max: 0.4 },
       { t: w(id, 61), sfx: "pop", vol: 0.1 }, { t: w(id, 61) + 0.02, sfx: "click-soft", vol: 0.14 },
-      { t: w(id, 65) - 0.05, sfx: "notification", vol: 0.16, max: 0.9 },
-      { t: w(id, 67), sfx: "tic-real", vol: 0.22 },
+      { t: w(id, 63) - 0.05, sfx: "notification", vol: 0.16, max: 0.9 },
+      { t: w(id, 65), sfx: "tic-real", vol: 0.22 },
     ],
   });
 }
@@ -272,10 +272,10 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s10-pide";
   const caja = w(id, 72) + 0.18;
   vacia(id, [
-    { t: 0.0, sfx: "ping", vol: 0.12, max: 0.6 },
+    { t: 0.0, sfx: "tic-real", vol: 0.16 },
     { t: w(id, 70) + 0.0, sfx: "click", vol: 0.2 }, { t: w(id, 70) + 0.04, sfx: "ding", vol: 0.12, max: 0.8 },
     { t: caja - 0.12, sfx: "whoosh-short", vol: 0.14 }, { t: caja + 0.3, sfx: "golpe", vol: 0.32, max: 0.5 }, { t: caja + 0.33, sfx: "papel", vol: 0.3, max: 0.5 },
-    { t: caja + 0.36, sfx: "pop", vol: 0.1 }, { t: caja + 0.5, sfx: "pop", vol: 0.1 }, { t: caja + 0.65, sfx: "tic-real", vol: 0.24 }, { t: caja + 0.78, sfx: "tic-real", vol: 0.24 },
+    { t: caja + 0.56, sfx: "pop", vol: 0.1 },
   ]);
 }
 
@@ -286,7 +286,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
     html: `${pill(1, 300, 600, "Graciela", "nom")}`,
     js: `pop(".n1", ${r2(w(id, 75))}); fuera(".n1", ${r2(ESC[id] - 0.25)}, 0.1);`,
     sfx: [
-      { t: -0.06, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 74) - 0.1, sfx: "papel", vol: 0.22, max: 0.4 }, { t: 0.08, sfx: "campanita", vol: 0.2, max: 0.9 },
+      { t: -0.06, sfx: "whoosh-short", vol: 0.12 }, { t: 0.4, sfx: "campanita", vol: 0.12, max: 0.8 },
       { t: w(id, 75) + 0.05, sfx: "pop", vol: 0.08 }, { t: w(id, 75) + 0.12, sfx: "papel", vol: 0.24, max: 0.4 },
       { t: w(id, 76) + 0.05, sfx: "pop", vol: 0.1 }, { t: w(id, 76) + 0.07, sfx: "ding", vol: 0.12, max: 0.9 },
     ],

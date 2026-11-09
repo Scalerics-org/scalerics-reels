@@ -28,8 +28,8 @@
   </style>
   <div id="root" data-composition-id="s03-marca" data-width="1080" data-height="1920" data-duration="2.3">
     <div id="s03-marca-esc" class="esc clip" data-start="0" data-duration="2.3" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M200 640 L200 1300"/><circle class="dot  d1" cx="200" cy="1300" r="12"/><path class="lead  l2" d="M400 740 L400 1330"/><circle class="dot  d2" cx="400" cy="1330" r="12"/><path class="lead  l3" d="M820 640 L820 1010"/><circle class="dot  d3" cx="820" cy="1010" r="12"/></svg>
-      <div class="pill nom n1" style="left:260px;top:600px">26 % otra marca</div><div class="pill nom n2" style="left:330px;top:700px">19 % otra versión</div><div class="pill nom n3" style="left:820px;top:600px">15 % espera</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M230 1420 L230 1290"/><circle class="dot  d1" cx="230" cy="1290" r="12"/><path class="lead  l2" d="M330 1530 L330 1290"/><circle class="dot  d2" cx="330" cy="1290" r="12"/><path class="lead  l3" d="M850 1420 L850 1270"/><circle class="dot  d3" cx="850" cy="1270" r="12"/></svg>
+      <div class="pill nom n1" style="left:260px;top:1460px">26 % otra marca</div><div class="pill nom n2" style="left:330px;top:1570px">19 % otra versión</div><div class="pill nom n3" style="left:820px;top:1460px">15 % espera</div>
     </div>
   </div>
   <script>
@@ -57,7 +57,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.05); nota(2, 1.17); nota(3, 1.69); sinNota(1, 2.9); sinNota(2, 2.9); sinNota(3, 2.9);
+nota(1, 1); nota(2, 1.12); nota(3, 1.69); sinNota(1, 1.9); sinNota(2, 1.9); sinNota(3, 1.9);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
