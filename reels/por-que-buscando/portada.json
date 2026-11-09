@@ -1,0 +1,13 @@
+{
+ "t": 0.2,
+ "chica": "¿Por qué te muestran",
+ "grande": "que están buscando?",
+ "sello": "¿Por qué…?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "50%",
+ "velo": "11,18,32",
+ "fondo": "#efeee5",
+ "nota": "fondo = portada-fondo.png: cuadro 3,5 s renderizado con LIMPIO=1 node armar.mjs (solo la capa 3D: el celular con Buscando… y tres aerolíneas tildadas, sin gancho, subtítulos ni logo), achicado al 62 % sobre crema para que quede entre las bandas del velo; pasado a un mp4 de 1 s para portada.mjs; t=0.2 es sobre ese mp4"
+}
