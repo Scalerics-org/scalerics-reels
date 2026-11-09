@@ -231,7 +231,7 @@
 - 09-11 · `que-en-paz-descanse` · Sitio web (horario y ubicación al día, ficha en los buscadores) · Para mandar completo: en internet el almacén de Rubén figura "Cerrado permanentemente"; Graciela: "Rubén… dice acá que cerraste."; Marta de luto con bizcochos, corona "ALMACÉN RUBÉN · Q.E.P.D." en la puerta, contador "Pésames" 3 → 7 → 12; Graciela: "¡Era tan buen almacén!"; música que se corta y Rubén: "Es, Graciela."; remate del remate: "Mamá: ¿Por qué me entero por internet?" y Pésames 13 con tuba; cartel "Un sitio web más tarde…" (Rasalgethi); Graciela busca, la ficha dice "Abierto ahora", toca "Sitio web", Pésames 0, "¡Estás abierto!" / "Estoy, Graciela." y Mamá: "Vi tu página. ¡Qué buen mozo!" con guiño (misma idea que `la-medium` y `el-velorio`, ahora en línea para mandar: no repetir) [formato Para mandar completo · 3D real con Rubén, Graciela y Marta, almacén de día con pared crema #efeee5, cartel verde]
 
 ## En curso
-<!-- corrida-activa: 2026-11-09T09:27 -->
+<!-- corrida-activa: 2026-11-09T09:33 -->
 - 09-11 · `por-que-buscando` · reservado · explicador ¿Por qué? sin marcas (ilusión de trabajo / transparencia operativa, Buell y Norton) · Automatizaciones (avisos de estado del pedido) · Rubén como dueño
 
 
