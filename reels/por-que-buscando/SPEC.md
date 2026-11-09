@@ -75,42 +75,40 @@ Tiempos por palabra: STT de Google ajustado a mano por frases (silencedetect) y 
 Fondo crema (no navy), subtítulos arriba al centro de 1 a 3 palabras (86 px, navy, recuadro verde en la clave), logo
 oscuro en píldora crema, todo lo dibujado es 3D (no líneas SVG). Cierre en verde con letras navy.
 
-## Escenas (segundos globales)
+## Escenas (segundos globales, voz de 33,88 s; DUR 34,00)
 1. **s01-gancho** 0,00-3,92 · Cuadro 0 = portada: gancho Lexend 900 en 4 líneas navy ("“buscando”" en recuadro verde)
-   y el celular gigante con la ruedita verde girando y "Buscando…"; Aerolínea 1 tildada, la 2 en "páginas", la 3 en
-   "buscando". Push-in leve en contrapicado. El gancho se va a 3,62.
-2. **s02-prefiere** 3,92-5,83 · Órbita corta; la 4 se tilda en "que hasta"; en "prefiere" cae el sello 3D verde
-   "PREFERIDA" sobre el celular (squash, golpe del sello).
-3. **s03-viajes** 5,83-8,01 · El celular gira 360° y aparece la página de viajes ("Buscá tu vuelo", Montevideo →
-   ¿A dónde?, Buscar). En "página" despega el avión low-poly de la pantalla, viene a cámara y sale por la derecha;
-   grúa corta. Crédito "Experimento · Buell y Norton, 2011" (38 px mono) desde "probaron".
-4. **s04-instante** 8,01-10,22 · El celular se corre a la izquierda; en "vuelos" destello y los tres vuelos aparecen
-   de golpe; en "instante" el rayo 3D navy/verde y la píldora "Al instante".
-5. **s05-aerolinea** 10,22-13,55 · Travelling a la derecha: el segundo celular sale de atrás del primero; "Revisando
-   aerolíneas…", el marco verde recorre las filas y cada una se tilda (la 3 justo en "aerolínea"); el reloj de arena
-   3D se da vuelta en "esperar" y la arena verde cae. Al terminar, los mismos vuelos. Píldora "Se ve el trabajo".
-6. **s06-mismos** 13,55-16,58 · Plano general de los dos: escupen su tarjeta de embarque (08:40), se apilan en el
-   centro con un "=" verde; sello "MISMO RESULTADO". En "Y la espera" los celulares salen por los costados, crece la
-   balanza y caen tarjeta + rayo a un plato y tarjeta + reloj al otro; en "valoraba" baja el de la espera; en "más"
-   tilde verde arriba.
-7. **s07-por-que** 16,58-19,71 · La balanza se hunde, el reloj sube al centro y su arena (granos verdes) arma el "?"
-   3D grande. En "Vieron" el "?" gira de canto y del otro lado está la lupa: adentro "Aerolínea 3/4" que se tildan;
-   en "valoraron" cae una tilde verde gigante en el lente ("Esfuerzo a la vista"). La lupa viene a cámara (zambullida).
-8. **s08-ruben** 19,71-22,44 · Corte al almacén, pegado a la bolsa de papel; se abre a Rubén (etiqueta "Rubén"
-   arriba, nunca en la cara). Fideos, yerba, leche y pan entran en "arma", "cada", "pedido", "cuidado"; su mano
-   derecha acomoda cada uno. Píldora "Pedido de Graciela".
-9. **s09-no-ve** 22,44-24,74 · Contraplano: Graciela en su casa, preocupada, con el celular; el chat (pegado a
-   cámara) sube desde abajo: "¿Y mi pedido?" con tilde gris y "Sin respuesta" (reloj rojo apagado). El reloj de pared
-   corre y se clava en "nada"; píldora roja "Sin noticias".
-10. **s10-avisos** 24,74-27,42 · El almacén otra vez; el chat se achica a la esquina. "Automatizado". En "recibimos"
-    sale un globo 3D del celular del mostrador y vuela al chat: "Recibimos tu pedido".
-11. **s11-salio** 27,42-29,54 · "Lo estamos armando" (Rubén cierra la bolsa), "¡Salió!" (Nico, el empleado, se la
-    lleva; Rubén toma mate y saluda).
-12. **s12-se-vea** 29,54-32,02 · Graciela sonríe, la bolsa ya está en su mesita; llega "¡Llegó!" y ella contesta
-    "¡Gracias, Rubén!".
-13. **s13-llamada** 32,02-34,69 · Fondo verde: "Videollamada" / "gratis" (navy con letras verdes) / "scalerics.com"
-    (crema con borde navy); abajo el celular del gancho con "Tu pedido": Recibido, Armando, Salió, Llegó se tildan en
-    fila y la tilde grande reemplaza a la ruedita.
+   y el celular gigante con la ruedita verde y "Buscando…"; Aerolínea 1 tildada, la 2 en "páginas", la 3 en
+   "buscando"; push-in y órbita lenta. El gancho se va a 3,62.
+2. **s02-prefiere** 3,92-5,83 · La 4 se tilda en "que hasta"; en "prefiere" cae el sello 3D "¿PREFERIDA?".
+3. **s03-viajes** 5,83-8,01 · El celular gira 360° (dorso con módulo de cámara y franja verde) y aparece la página de
+   viajes. En "página" el avión sale por delante de la pantalla, viene a cámara y se va entero por la derecha.
+   Crédito "Experimento · Buell y Norton, 2011" arriba, debajo del subtítulo.
+4. **s04-instante** 8,01-10,22 · El celular se corre a la izquierda con la cámara; en "A unos" los vuelos aparecen de
+   golpe (pop, sin destello); rayo en "instante" y píldora "Al instante".
+5. **s05-aerolinea** 10,22-13,55 · Barrido a la derecha: el segundo celular aparece en su lugar con un pop; filas que
+   se tildan (la 3 en "aerolínea"), reloj de arena que se da vuelta en "esperar". Píldora "Se ve el trabajo".
+6. **s06-mismos** 13,55-16,58 · Los dos celulares salen por los costados; las dos tarjetas de embarque aparecen
+   apiladas en el centro con el "=" verde y el sello "MISMO RESULTADO". En "Y la espera" crece la balanza y caen tarjeta
+   (parada, de frente) + rayo a un plato y tarjeta + reloj al otro; en "valoraba" baja el de la espera; tilde en "más".
+7. **s07-por-que** 16,58-19,71 · Corte: UN "?" 3D verde grande desde el primer cuadro. En "Vieron" gira de canto y es la
+   lupa (filas que se tildan, tilde gigante en "valoraron", "Esfuerzo a la vista"); la lupa viene a cámara.
+8. **s08-ruben** 19,71-22,44 · Almacén, plano medio desde arriba: Rubén, la bolsa, el celular del mostrador; etiqueta
+   "Rubén" desde el corte. Fideos, yerba, leche y pan caen en la bolsa; la mano derecha los acomoda.
+9. **s09-no-ve** 22,44-24,72 · Graciela preocupada; el chat sube desde abajo: "¿Y mi pedido?" con tilde gris y el reloj
+   rojo grande "Sin respuesta"; reloj de pared que se clava en "nada"; píldora "Sin noticias".
+10. **s10-avisos** 24,72-27,40 · Vuelve el celular gigante del gancho (callback) con el chat: reloj rojo → en
+    "automatizamos" tilde verde "Avisos automáticos" → en "recibimos" aparece el globo "Recibimos tu pedido",
+    "escribiendo…" y la barra "Aviso automático".
+11. **s11-salio** 27,40-29,22 · Almacén sin chat encima: Rubén cierra la bolsa y aparece el globo 3D "Lo estamos
+    armando"; Nico entra caminando entero, se lleva la bolsa y aparece "¡Salió!"; Rubén toma mate y saluda.
+12. **s12-se-vea** 29,22-31,32 · Graciela sonríe con el chat lleno; llega "¡Llegó!" y contesta "¡Gracias, Rubén!".
+    (Sin reloj de pared: ya no espera.)
+13. **s13-llamada** 31,32-34,00 · Fondo verde, tarjeta de videollamada; el celular del gancho con "Tu pedido" tildado.
+
+Subtítulos: placa crema detrás (se lee sobre la estantería), arrancan junto con cada corte de cámara, los avisos van
+entre comillas (“Recibimos tu pedido”…), "Vieron el trabajo" sin coma, y "Agendá una videollamada…" queda solo en
+la tarjeta. La voz de "Lo automatizamos:" y de "¿Querés que se vea tu trabajo?" se regeneró aparte (tomas en
+`partes/`) y se pegó con ffmpeg; el original quedó en `partes/locucion-v1.wav`.
 
 ## Sonido
 Voz Orus a volumen 1; cama `bed.mp3` con sidechain (baja sola bajo la voz); SFX con techo -31 LUFS por efecto (ver

@@ -661,9 +661,16 @@ const PLANOS = [
     [W[20] + 0.25, 2, 4, 14.2, 0.2, 3.2, 0.4, 30],
     [W[22] + 0.05, 6, 5, 14.4, 0.4, 3.4, 0.4, 30],
     [S["s04-instante"] + 0.35, -4, 2, 12.6, -1.85, 2.78, 0, 30],
-    [S["s05-aerolinea"] - 0.15, 3, 2, 12.4, -1.85, 2.78, 0, 30],
-    [S["s05-aerolinea"] + 0.25, -3, 2, 12.6, 1.95, 2.78, 0, 30],
-    [S["s06-mismos"] - 0.05, 2, 2, 12.3, 1.95, 2.82, 0, 30],
+    [S["s05-aerolinea"], 3, 2, 12.4, -1.85, 2.78, 0, 30],
+  ]],
+  // corte seco (whoosh) al celular que muestra el trabajo: entra entero, sin asomar por el borde
+  [S["s05-aerolinea"], "A", [
+    [S["s05-aerolinea"], -4, 2, 12.9, 1.95, 2.78, 0, 30],
+    [S["s06-mismos"], 2, 2, 12.3, 1.95, 2.82, 0, 30],
+  ]],
+  // corte a las dos tarjetas en el centro ("Mismos vuelos")
+  [S["s06-mismos"], "A", [
+    [S["s06-mismos"], 3, 4, 15.2, 0, 2.6, 1.6, 30],
     [S["s06-mismos"] + 0.4, 0, 4, 14.6, 0, 2.6, 1.6, 30],
     [W[38] - 0.2, 0, 5, 14.2, 0, 2.6, 1.6, 30],
     [W[40] + 0.35, 0, 7, 17.4, 0, 2.3, 0, 30],
@@ -745,7 +752,7 @@ const tildeMas = tildeSuelta(1.0);
 destello.visible = false;
 function zonaA(t) {
   const A = plano === "A", Q = plano === "Q", A2 = plano === "A2", FIN = plano === "FIN";
-  const sale = eio(sg(t, S["s06-mismos"] + 0.05, S["s06-mismos"] + 0.45)); // los dos celulares salen por los costados
+  const sale = eio(sg(t, S["s06-mismos"], S["s06-mismos"] + 0.25)); // los dos celulares salen por los costados
   // ---- P1: el celular del gancho (y el chat en s10, y el cierre) ----
   {
     let pos = V(0, CY, 0), ry = 0, s = 1;
@@ -759,7 +766,7 @@ function zonaA(t) {
     if (t > tg && t < tg + 0.5) pos.y -= Math.exp(-(t - tg) * 10) * Math.sin((t - tg) * 30) * 0.06;
     const tI = S["s04-instante"] + 0.05;
     s = 1 + 0.05 * pulso(t, tI, 0.25);
-    let vis = A && t < S["s06-mismos"] + 0.5;
+    let vis = A && t < S["s06-mismos"];
     if (A2) { vis = true; pos = V(0, CY, 0); ry = Math.sin((t - S["s10-avisos"]) * 0.9) * 0.1; s = 1 + 0.04 * pulso(t, W[69] - 0.05, 0.25); }
     if (FIN) { vis = true; pos = V(0, CY, 0); ry = Math.sin((t - S["s13-llamada"]) * 0.9) * 0.16; s = lerp(0.85, 1, bk(sg(t, S["s13-llamada"], S["s13-llamada"] + 0.35))); }
     P1.g.visible = vis; P1.g.position.copy(pos); P1.g.rotation.set(-0.04, ry, 0); P1.g.scale.setScalar(s);
@@ -816,11 +823,11 @@ function zonaA(t) {
   }
   // ---- P2: aparece en su lugar con el barrido de cámara (no sale de atrás del otro) ----
   {
-    const nace = S["s05-aerolinea"] - 0.15;
-    const vis = A && t > nace && t < S["s06-mismos"] + 0.5;
+    const nace = S["s05-aerolinea"] - 0.01;
+    const vis = A && t > nace && t < S["s06-mismos"];
     P2.g.visible = vis; sombraP2.visible = vis;
     const pos = V(R.x + 6 * sale, CY, 0);
-    P2.g.position.copy(pos); P2.g.rotation.set(-0.04, -0.12 * (1 - sale), 0); P2.g.scale.setScalar(Math.max(0.001, popIn(t, nace, 0.3)));
+    P2.g.position.copy(pos); P2.g.rotation.set(-0.04, -0.12 * (1 - sale), 0); P2.g.scale.setScalar(lerp(0.94, 1, bk(sg(t, nace, nace + 0.25))));
     sombraP2.position.set(pos.x, 0.005, pos.z + 0.1);
     const fin = W[35] + 0.45;
     ponerPantalla(P2, t >= fin ? PANT.instante : PANT.revisando);
@@ -843,11 +850,12 @@ function zonaA(t) {
   const finA = S["s07-por-que"];
   {
     const tR = W[28] - 0.05;
-    const vis = A && t > tR && t < finA;
+    const vis = A && t > tR && t < finA && (t < S["s06-mismos"] || t > tCae);
     rayo.visible = vis;
     if (vis) {
-      const a0 = V(L.x - 1.6, 3.2, 0.6), b0 = platoC(-1).add(V(0.12, 0.8, -0.24));
-      const p = lerpV(a0, b0, cae); p.y += Math.sin(Math.PI * cae) * 1.0;
+      // se va con su celular; en "Y la espera" cae desde arriba al plato
+      const a0 = V(L.x - 1.6 - 6 * sale, 3.2, 0.6), b0 = platoC(-1).add(V(0.12, 0.8, -0.24));
+      const p = t > tCae ? lerpV(b0.clone().add(V(-0.3, 1.6, 0)), b0, cae) : a0;
       rayo.position.copy(p);
       rayo.rotation.set(0, Math.sin(t * 1.6) * 0.25 * (1 - cae), 0.1 * (1 - cae));
       rayo.scale.setScalar(popIn(t, tR, 0.3) * lerp(1.0, 0.8, cae));
@@ -855,11 +863,11 @@ function zonaA(t) {
   }
   {
     const tH = S["s05-aerolinea"] + 0.12, flip = W[31] - 0.05;
-    const vis = A && t > tH && t < finA;
+    const vis = A && t > tH && t < finA && (t < S["s06-mismos"] || t > tCae);
     reloj.visible = vis;
     if (vis) {
-      const a0 = V(R.x + 1.6, 3.2, 0.6), b0 = platoC(1).add(V(-0.08, 0.58, -0.22));
-      const p = lerpV(a0, b0, cae); p.y += Math.sin(Math.PI * cae) * 1.0;
+      const a0 = V(R.x + 1.6 + 6 * sale, 3.2, 0.6), b0 = platoC(1).add(V(-0.08, 0.58, -0.22));
+      const p = t > tCae ? lerpV(b0.clone().add(V(0.3, 1.6, 0)), b0, cae) : a0;
       reloj.position.copy(p);
       const fz = eio(sg(t, flip, flip + 0.38));
       reloj.rotation.set(0, Math.sin(t * 1.1) * 0.2 * (1 - cae), fz * Math.PI);
@@ -877,20 +885,20 @@ function zonaA(t) {
   }
   // ---- tarjetas de embarque: nacen delante de cada pantalla, se apilan con "=", caen paradas a los platos ----
   {
-    const t0 = S["s06-mismos"] + 0.02, junta = W[37] - 0.05;
-    const vis = A && t > t0 + 0.18 && t < finA;
+    const t0 = S["s06-mismos"] - 0.01, junta = W[37] - 0.05;
+    const vis = A && t > t0 && t < finA;
     pasA.visible = pasB.visible = vis;
     if (vis) {
       // nacen ya en el centro (los celulares se van por los costados): sin tapar pantallas
-      const sal = eo(sg(t, t0 + 0.18, t0 + 0.45)), jn = eio(sg(t, junta - 0.25, junta + 0.2));
+      const sal = eo(sg(t, t0, t0 + 0.22)), jn = eio(sg(t, junta - 0.25, junta + 0.2));
       [[pasA, -1, L], [pasB, 1, R]].forEach(([c, s, P]) => {
         const centro = V(0, 2.6 - s * 0.9, 3.2), afuera = V(s * 0.5, 2.6 - s * 0.9, 3.2);
         const plato = platoC(s).add(V(s * 0.05, 0.22, 0.38));
-        let p = lerpV(afuera, centro, jn);
+        let p = centro.clone(); void afuera;
         p = lerpV(p, plato, cae); p.y += Math.sin(Math.PI * cae) * 0.9;
         c.position.copy(p);
         c.rotation.set(lerp(0, -0.22, cae), Math.sin(t * 1.3 + s) * 0.08 * (1 - cae) + lerp(0, s * -0.18, cae), s * 0.04 * (1 - jn));
-        c.scale.setScalar(lerp(0.4, 1.9, sal) * lerp(1, 0.45, cae));
+        c.scale.setScalar(lerp(0.3, 1.9, bk(sal)) * lerp(1, 0.45, cae));
       });
     }
     const iv = A && t > junta && t < tCae + 0.1;
