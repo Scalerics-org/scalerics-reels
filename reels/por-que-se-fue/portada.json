@@ -1,0 +1,13 @@
+{
+ "t": 0.3,
+ "chica": "Vino por su yerba.",
+ "grande": "No había.",
+ "sello": "¿Por qué…?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.35,
+ "foco": "38%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro limpio (LIMPIO=1 FONDO=#0b1220 node armar.mjs, snapshot en 1,2 s: la góndola con el hueco y AGOTADO) en portada-src/fondo-limpio-1.2.png; para regenerar, mp4 de 1 s con ese png en renders/por-que-se-fue-final.mp4 y flock /tmp/hyperframes.lock node herramientas/portada.mjs por-que-se-fue"
+}
