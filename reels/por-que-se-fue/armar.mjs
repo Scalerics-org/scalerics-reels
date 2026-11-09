@@ -1,8 +1,8 @@
 // Arma index.html, compositions/subtitulos.html y tiempos.md desde reel.json y la locución.
 // Versión corta de netflix-blockbuster (03-11, ~30 s; reel.json acepta sinSub) (copiada de caso-dominos; capa 3D real con Three.js en assets/tres.js debajo de las escenas HTML): subtítulos arriba al centro, de 1 a 3
 // palabras, Lexend 700 grande, y la palabra clave dentro de un recuadro verde de selección.
-// por-que-buscando (base por-que-seis): fondo crema #efeee5 liso (compresión de Instagram), subtítulos navy, recuadro verde
-// con texto navy, logo oscuro; en el cierre (s13) el fondo pasa a verde de marca #5ce611.
+// por-que-se-fue (base por-que-buscando): fondo navy oscuro #0b1220 liso (compresión de Instagram), subtítulos navy sobre
+// cartel crema, recuadro verde con texto navy, logo en píldora crema; en el cierre (s13) el fondo pasa a verde de marca #5ce611.
 //
 // reel.json:
 //   escenas:  [["s01-algo", 0], ...]   id y ÍNDICE de la palabra donde arranca
@@ -199,7 +199,7 @@ const sfxTags = sfx
 
 // LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
 const LIMPIO = process.env.LIMPIO === "1";
-const FONDO_LIMPIO = process.env.FONDO || "#efeee5";
+const FONDO_LIMPIO = process.env.FONDO || "#0b1220";
 const index = `<!doctype html>
 <html lang="es">
   <head>
@@ -210,9 +210,9 @@ const index = `<!doctype html>
       @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
       @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
-      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#0b1220"}; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#0b1220"}; }
+      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#0b1220"}; }
       #estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(239,238,229,0.88) 0%, rgba(239,238,229,0.7) 50%, rgba(239,238,229,0) 100%); }
@@ -245,7 +245,7 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // cierre: el fondo pasa a verde de marca (el texto de la tarjeta es navy)
-      tl.set("#fondo", { backgroundColor: "#efeee5" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s13-llamada")[1]});
+      tl.set("#fondo", { backgroundColor: "#0b1220" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s13-llamada")[1]});
       tl.set("#firma", { backgroundColor: "#efeee5" }, 0);
       window.__timelines["main"] = tl;
     </script>
