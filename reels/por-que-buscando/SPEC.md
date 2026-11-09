@@ -10,9 +10,9 @@ Producto: Automatizaciones (avisos de estado del pedido). Sin marcas reales. Voz
 
 **Recurso central:** una sola escena Three.js (`assets/tres.js`, `renderAt(t)` puro). Zona A en fondo crema liso
 #efeee5 (el celular gigante, el avión low-poly, los dos celulares con rayo y reloj de arena, las tarjetas de
-embarque apiladas con "=", la balanza, el "?", la lupa y el cierre); zona B el almacén de Rubén (x = 40
-); zona C la casa de Graciela (x = -40, reloj de pared rojo apagado = el problema). El celular
-del chat va pegado a la cámara en B y C (en B se achica a la esquina para que se vea Rubén). Cierre con fondo verde
+embarque apiladas con "=", la balanza, el "?", la lupa y el cierre); zona B el almacén de Rubén (x = 40);
+zona C la casa de Graciela (x = -40, reloj de pared rojo apagado = el problema). El celular del chat va pegado a la
+cámara solo en C (en s10 el chat va en el celular gigante de la zona A). Cierre con fondo verde
 #5ce611 y letras navy. Subtítulos navy con borde crema y recuadro verde (nunca blanco sobre crema), logo oscuro.
 
 Cómo se arma: `node armar.mjs && node gen.mjs && node armar.mjs` (armar escribe `assets/tiempos3d.js`,
