@@ -2,11 +2,11 @@
 // anterior; dentro de la frase se usan los tiempos de STT si caen adentro y en orden, si no se reparten por letras.
 import fs from "node:fs";
 const stt = JSON.parse(fs.readFileSync("assets/voice/palabras-stt.json", "utf8"));
-// [primer índice de palabra, inicio, fin] de cada frase (silencedetect -35 dB, d 0.07) · locución v2: v1 con las frases 5 y 9
-// regeneradas (partes/frases1.wav) y pegadas con ffmpeg; "¿Querés" arranca después de la respiración
+// [primer índice de palabra, inicio, fin] de cada frase (silencedetect -35 dB, d 0.07) · locución v3: v1 con las líneas 4, 5 y 9
+// de partes/frases3.wav (la toma de tono más parecido, medido con partes/tono.py) pegadas con ffmpeg; "¿Querés" arranca después de la respiración
 const F = [[0, 0.11, 1.17], [4, 1.36, 2.08], [6, 2.34, 2.96], [8, 3.11, 5.58], [18, 5.9, 6.26], [19, 6.35, 7.39], [22, 7.48, 7.9],
-  [24, 8.2, 10.61], [32, 10.73, 12.52], [40, 12.81, 13.26], [42, 13.58, 14.76], [45, 14.85, 16.53], [51, 16.89, 18.89], [60, 19.22, 20.61],
-  [66, 20.8, 21.72], [70, 22.02, 22.85], [73, 23.13, 25.16], [79, 25.67, 26.74], [84, 26.94, 28.59], [88, 28.7, 30.29]];
+  [24, 8.19, 10.58], [32, 10.8, 12.65], [40, 13.06, 13.51], [42, 13.83, 15.01], [45, 15.1, 16.78], [51, 17.14, 19.14], [60, 19.48, 21.04],
+  [66, 21.28, 22.41], [70, 22.71, 23.54], [73, 23.82, 25.85], [79, 26.36, 27.43], [84, 27.63, 29.28], [88, 29.39, 30.98]];
 const out = stt.map((w) => ({ ...w }));
 F.forEach(([i0, a, b], k) => {
   const i1 = k + 1 < F.length ? F[k + 1][0] : stt.length;

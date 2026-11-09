@@ -26,15 +26,15 @@
     [data-composition-id="s05-lo-que-mas"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 
   </style>
-  <div id="root" data-composition-id="s05-lo-que-mas" data-width="1080" data-height="1920" data-duration="2.08">
-    <div id="s05-lo-que-mas-esc" class="esc clip" data-start="0" data-duration="2.08" data-track-index="0">
+  <div id="root" data-composition-id="s05-lo-que-mas" data-width="1080" data-height="1920" data-duration="2.26">
+    <div id="s05-lo-que-mas-esc" class="esc clip" data-start="0" data-duration="2.26" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead r l1" d="M770 640 L640 640"/><circle class="dot r d1" cx="640" cy="640" r="12"/></svg><div class="pill rl nom n1" style="left:850px;top:640px">El más vendido</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s05-lo-que-mas";
-      const DUR = 2.08;
+      const DUR = 2.26;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -50,13 +50,13 @@
         tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
-      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.18, ease: "power1.in" }, t);
       const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 1.32); sinNota(1, 2.38);
+nota(1, 1.35); sinNota(1, 2.56);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

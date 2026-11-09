@@ -146,13 +146,13 @@
  {
   "id": 24,
   "text": "Y",
-  "start": 8.2,
-  "end": 8.3
+  "start": 8.19,
+  "end": 8.35
  },
  {
   "id": 25,
   "text": "nueve",
-  "start": 8.3,
+  "start": 8.35,
   "end": 8.6
  },
  {
@@ -165,378 +165,378 @@
   "id": 27,
   "text": "cada",
   "start": 8.7,
-  "end": 9.27
+  "end": 9.25
  },
  {
   "id": 28,
   "text": "cien",
-  "start": 9.27,
-  "end": 9.35
+  "start": 9.25,
+  "end": 9.57
  },
  {
   "id": 29,
   "text": "no",
-  "start": 9.35,
-  "end": 9.81
+  "start": 9.57,
+  "end": 9.65
  },
  {
   "id": 30,
   "text": "compran",
-  "start": 9.81,
-  "end": 10.29
+  "start": 9.65,
+  "end": 10.26
  },
  {
   "id": 31,
   "text": "nada.",
-  "start": 10.29,
-  "end": 10.61
+  "start": 10.26,
+  "end": 10.58
  },
  {
   "id": 32,
   "text": "Y",
-  "start": 10.73,
-  "end": 10.81
+  "start": 10.8,
+  "end": 10.93
  },
  {
   "id": 33,
   "text": "suele",
-  "start": 10.81,
-  "end": 11.1
+  "start": 10.93,
+  "end": 11.2
  },
  {
   "id": 34,
   "text": "faltar",
-  "start": 11.1,
-  "end": 11.3
+  "start": 11.2,
+  "end": 11.4
  },
  {
   "id": 35,
   "text": "lo",
-  "start": 11.3,
-  "end": 11.6
+  "start": 11.4,
+  "end": 11.8
  },
  {
   "id": 36,
   "text": "que",
-  "start": 11.6,
-  "end": 11.7
+  "start": 11.8,
+  "end": 11.88
  },
  {
   "id": 37,
   "text": "más",
-  "start": 11.7,
-  "end": 12
+  "start": 11.88,
+  "end": 12.1
  },
  {
   "id": 38,
   "text": "se",
-  "start": 12,
-  "end": 12.1
+  "start": 12.1,
+  "end": 12.2
  },
  {
   "id": 39,
   "text": "vende.",
-  "start": 12.1,
-  "end": 12.52
+  "start": 12.2,
+  "end": 12.65
  },
  {
   "id": 40,
   "text": "¿Por",
-  "start": 12.81,
-  "end": 13.04
+  "start": 13.06,
+  "end": 13.29
  },
  {
   "id": 41,
   "text": "qué?",
-  "start": 13.04,
-  "end": 13.26
+  "start": 13.29,
+  "end": 13.51
  },
  {
   "id": 42,
   "text": "Sale",
-  "start": 13.58,
-  "end": 13.9
+  "start": 13.83,
+  "end": 14.1
  },
  {
   "id": 43,
   "text": "tan",
-  "start": 13.9,
-  "end": 14.1
+  "start": 14.1,
+  "end": 14.4
  },
  {
   "id": 44,
   "text": "rápido",
-  "start": 14.1,
-  "end": 14.76
+  "start": 14.4,
+  "end": 15.01
  },
  {
   "id": 45,
   "text": "que",
-  "start": 14.85,
-  "end": 15.08
+  "start": 15.1,
+  "end": 15.33
  },
  {
   "id": 46,
   "text": "se",
-  "start": 15.08,
-  "end": 15.16
+  "start": 15.33,
+  "end": 15.41
  },
  {
   "id": 47,
   "text": "acaba",
-  "start": 15.16,
-  "end": 15.4
+  "start": 15.41,
+  "end": 15.7
  },
  {
   "id": 48,
   "text": "antes",
-  "start": 15.4,
-  "end": 15.7
+  "start": 15.7,
+  "end": 15.9
  },
  {
   "id": 49,
   "text": "de",
-  "start": 15.7,
-  "end": 15.8
+  "start": 15.9,
+  "end": 16.1
  },
  {
   "id": 50,
   "text": "pedirlo.",
-  "start": 15.8,
-  "end": 16.53
+  "start": 16.1,
+  "end": 16.78
  },
  {
   "id": 51,
   "text": "A",
-  "start": 16.89,
-  "end": 17
+  "start": 17.14,
+  "end": 17.26
  },
  {
   "id": 52,
   "text": "Rubén",
-  "start": 17,
-  "end": 17.3
+  "start": 17.26,
+  "end": 17.6
  },
  {
   "id": 53,
   "text": "le",
-  "start": 17.3,
-  "end": 17.4
+  "start": 17.6,
+  "end": 17.68
  },
  {
   "id": 54,
   "text": "pasa",
-  "start": 17.4,
-  "end": 17.6
+  "start": 17.68,
+  "end": 17.9
  },
  {
   "id": 55,
   "text": "con",
-  "start": 17.6,
-  "end": 17.8
+  "start": 17.9,
+  "end": 18.1
  },
  {
   "id": 56,
   "text": "la",
-  "start": 17.8,
-  "end": 17.9
+  "start": 18.1,
+  "end": 18.2
  },
  {
   "id": 57,
   "text": "yerba",
-  "start": 17.9,
-  "end": 18.2
+  "start": 18.2,
+  "end": 18.4
  },
  {
   "id": 58,
   "text": "del",
-  "start": 18.2,
-  "end": 18.3
+  "start": 18.4,
+  "end": 18.6
  },
  {
   "id": 59,
   "text": "sábado.",
-  "start": 18.3,
-  "end": 18.89
+  "start": 18.6,
+  "end": 19.14
  },
  {
   "id": 60,
   "text": "Su",
-  "start": 19.22,
-  "end": 19.3
+  "start": 19.48,
+  "end": 19.6
  },
  {
   "id": 61,
   "text": "sistema",
-  "start": 19.3,
-  "end": 19.7
+  "start": 19.6,
+  "end": 20
  },
  {
   "id": 62,
   "text": "le",
-  "start": 19.7,
-  "end": 19.8
+  "start": 20,
+  "end": 20.2
  },
  {
   "id": 63,
   "text": "avisa",
-  "start": 19.8,
-  "end": 20
+  "start": 20.2,
+  "end": 20.4
  },
  {
   "id": 64,
   "text": "el",
-  "start": 20,
-  "end": 20.1
+  "start": 20.4,
+  "end": 20.5
  },
  {
   "id": 65,
   "text": "martes:",
-  "start": 20.1,
-  "end": 20.61
+  "start": 20.5,
+  "end": 21.04
  },
  {
   "id": 66,
   "text": "se",
-  "start": 20.8,
-  "end": 20.9
+  "start": 21.28,
+  "end": 21.4
  },
  {
   "id": 67,
   "text": "acaba",
-  "start": 20.9,
-  "end": 21.2
+  "start": 21.4,
+  "end": 21.7
  },
  {
   "id": 68,
   "text": "el",
-  "start": 21.2,
-  "end": 21.3
+  "start": 21.7,
+  "end": 21.8
  },
  {
   "id": 69,
   "text": "sábado.",
-  "start": 21.3,
-  "end": 21.72
+  "start": 21.8,
+  "end": 22.41
  },
  {
   "id": 70,
   "text": "Pide",
-  "start": 22.02,
-  "end": 22.2
+  "start": 22.71,
+  "end": 22.9
  },
  {
   "id": 71,
   "text": "a",
-  "start": 22.2,
-  "end": 22.3
+  "start": 22.9,
+  "end": 23
  },
  {
   "id": 72,
   "text": "tiempo.",
-  "start": 22.3,
-  "end": 22.85
+  "start": 23,
+  "end": 23.54
  },
  {
   "id": 73,
   "text": "El",
-  "start": 23.13,
-  "end": 23.21
+  "start": 23.82,
+  "end": 23.9
  },
  {
   "id": 74,
   "text": "sábado,",
-  "start": 23.21,
-  "end": 23.5
+  "start": 23.9,
+  "end": 24.2
  },
  {
   "id": 75,
   "text": "Graciela",
-  "start": 23.5,
-  "end": 24.2
+  "start": 24.2,
+  "end": 24.8
  },
  {
   "id": 76,
   "text": "encuentra",
-  "start": 24.2,
-  "end": 24.6
+  "start": 24.8,
+  "end": 25.2
  },
  {
   "id": 77,
   "text": "la",
-  "start": 24.6,
-  "end": 24.7
+  "start": 25.2,
+  "end": 25.4
  },
  {
   "id": 78,
   "text": "suya.",
-  "start": 24.7,
-  "end": 25.16
+  "start": 25.4,
+  "end": 25.85
  },
  {
   "id": 79,
   "text": "¿Querés",
-  "start": 25.67,
-  "end": 25.8
+  "start": 26.36,
+  "end": 26.5
  },
  {
   "id": 80,
   "text": "que",
-  "start": 25.8,
-  "end": 26
+  "start": 26.5,
+  "end": 26.6
  },
  {
   "id": 81,
   "text": "no",
-  "start": 26,
-  "end": 26.08
+  "start": 26.6,
+  "end": 26.7
  },
  {
   "id": 82,
   "text": "te",
-  "start": 26.08,
-  "end": 26.47
+  "start": 26.7,
+  "end": 27.16
  },
  {
   "id": 83,
   "text": "falte?",
-  "start": 26.47,
-  "end": 26.74
+  "start": 27.16,
+  "end": 27.43
  },
  {
   "id": 84,
   "text": "Agendá",
-  "start": 26.94,
-  "end": 27.3
+  "start": 27.63,
+  "end": 28
  },
  {
   "id": 85,
   "text": "una",
-  "start": 27.3,
-  "end": 27.5
+  "start": 28,
+  "end": 28.2
  },
  {
   "id": 86,
   "text": "videollamada",
-  "start": 27.5,
-  "end": 28.21
+  "start": 28.2,
+  "end": 28.9
  },
  {
   "id": 87,
   "text": "gratis",
-  "start": 28.21,
-  "end": 28.59
+  "start": 28.9,
+  "end": 29.28
  },
  {
   "id": 88,
   "text": "en",
-  "start": 28.7,
-  "end": 28.8
+  "start": 29.39,
+  "end": 29.5
  },
  {
   "id": 89,
   "text": "scalerics.com.",
-  "start": 28.8,
-  "end": 30.29
+  "start": 29.5,
+  "end": 30.98
  }
 ]

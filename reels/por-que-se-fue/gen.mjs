@@ -70,7 +70,7 @@ const HELP = `
         tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
-      const sinNota = (k, t) => fuera(qa(".n" + k + ", .l" + k + ", .d" + k), t, 0.2);
+      const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.18, ease: "power1.in" }, t);
       const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
@@ -137,7 +137,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
       late(".h1 .mk", ${w(id, 3)}, 1.06);
       late(".h2", ${w(id, 4)}, 1.08);
       late(".h3", ${w(id, 6)}, 1.06);
-      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.22)});`,
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: 0, sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
       { t: w(id, 3) - 0.02, sfx: "pop", vol: 0.1 },
@@ -154,9 +154,9 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
     html: `${pill(1, 540, 1640, "Compra en otro local", "lleno grande")}`,
     js: `nota(1, ${r2(w(id, 15) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.4)});`,
     sfx: [
-      { t: 0.1, sfx: "pop", vol: 0.09 }, { t: 0.15, sfx: "tic-real", vol: 0.22 }, { t: 0.3, sfx: "pop", vol: 0.09 },
-      { t: w(id, 10) - 0.05, sfx: "whoosh-cinematic", vol: 0.14, max: 0.9 },
-      { t: w(id, 11) + 0.1, sfx: "puerta", vol: 0.3, max: 0.8 }, { t: w(id, 11) + 0.2, sfx: "campanita", vol: 0.26, max: 1.0 },
+      { t: 0.1, sfx: "pop", vol: 0.09 }, { t: 0.15, sfx: "tic-real", vol: 0.22 },
+      { t: w(id, 10) - 0.05, sfx: "whoosh-cinematic", vol: 0.13, max: 0.9 },
+      { t: w(id, 11) + 0.1, sfx: "puerta", vol: 1.0, max: 0.8 }, { t: w(id, 11) + 0.2, sfx: "campanita", vol: 0.26, max: 1.0 },
       { t: w(id, 11) + 0.6, sfx: "sello", vol: 0.22 },
       { t: w(id, 15) - 0.1, sfx: "click-soft", vol: 0.12 },
     ],
@@ -168,12 +168,12 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s03-marca";
   const tC = w(id, 21) + 0.1, tE = w(id, 23);
   escena(id, {
-    html: `${leads(lead(1, 230, 1420, 230, 1290), lead(2, 330, 1530, 330, 1290), lead(3, 850, 1420, 850, 1270))}
-      ${pill(1, 260, 1460, "26 % otra marca", "nom")}${pill(2, 330, 1570, "19 % otra versión", "nom")}${pill(3, 820, 1460, "15 % espera", "nom")}`,
+    html: `${leads(lead(1, 260, 690, 260, 850), lead(2, 330, 790, 330, 850), lead(3, 800, 690, 800, 820))}
+      ${pill(1, 260, 650, "26 % otra marca", "nom")}${pill(2, 330, 750, "19 % otra versión", "nom")}${pill(3, 800, 650, "15 % espera", "nom")}`,
     js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cinematic", vol: 0.14, max: 0.7 },
-      { t: w(id, 21) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 21) + 0.12, sfx: "papel", vol: 0.3, max: 0.5 }, { t: w(id, 21) + 0.2, sfx: "papel", vol: 0.24, max: 0.5 },
+      { t: w(id, 21) - 0.1, sfx: "whoosh-short", vol: 0.1 }, { t: w(id, 21) + 0.12, sfx: "papel", vol: 0.9, max: 0.5 }, { t: w(id, 21) + 0.2, sfx: "papel", vol: 0.24, max: 0.5 },
       { t: w(id, 21) + 0.15, sfx: "pop", vol: 0.1 }, { t: w(id, 21) + 0.25, sfx: "pop", vol: 0.09 },
       { t: tE, sfx: "tic-real", vol: 0.24 }, { t: tE + 0.12, sfx: "papel", vol: 0.28, max: 0.4 }, { t: tE + 0.4, sfx: "papel", vol: 0.26, max: 0.4 },
     ],
@@ -205,8 +205,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
     sfx: [
       { t: -0.1, sfx: "whoosh-cinematic", vol: 0.14, max: 0.8 },
       ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(w(id, 34) - 0.12 + k * 0.07), sfx: k % 2 ? "tic-real" : "pop", vol: k % 2 ? 0.2 : 0.08 })),
-      { t: w(id, 37) - 0.2, sfx: "riser-corto", vol: 0.1, max: 0.5 },
-      { t: w(id, 39) - 0.02, sfx: "impact-bass-1", vol: 0.16, max: 0.8 },
+      { t: w(id, 37) - 0.2, sfx: "riser-corto", vol: 0.06, max: 0.5 },
+      { t: w(id, 39) - 0.02, sfx: "impact-bass-1", vol: 0.08, max: 0.8 },
     ],
   });
 }
@@ -256,7 +256,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 {
   const id = "s09-aviso";
   escena(id, {
-    html: `${pill(1, 540, 1590, "Sistema a medida", "lleno grande")}`,
+    html: `${pill(1, 380, 1590, "Sistema a medida", "lleno grande")}`,
     js: `nota(1, ${r2(w(id, 61))}); sinNota(1, ${r2(ESC[id] - 0.35)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.16, max: 0.9 }, { t: 0.2, sfx: "papel", vol: 0.24, max: 0.4 },
