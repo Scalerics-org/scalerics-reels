@@ -526,11 +526,11 @@ const T = {
   tiembla: W[4] + 0.02, sube: W[6] - 0.04, rebana: S["s02-otro-lado"] + 0.08, vuela: W[11] - 0.02,
   abre: W[14] - 0.15, entra: W[15] + 0.1, num31: W[13] - 0.1,
   vuelta: S["s03-marca"] - 0.05, cae: W[21] - 0.15, espera: W[23] - 0.05,
-  nueve: W[25] - 0.05, esfuma: W[31] - 0.02,
+  nueve: Math.max(W[25] - 0.05, S["s04-nada"] + 0.45), esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
   preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[50] - 0.35,
   flipMar: S["s09-aviso"] + 0.3, avisa: W[65] - 0.05, quedan: W[68] - 0.03, pide: W[70] + 0.02,
-  cajaCae: W[72] + 0.18, flipSab: W[74] - 0.12, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
+  cajaCae: W[72] + 0.18, flipSab: S["s11-encuentra"] - 0.4, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
 };
 T.cortePila = T.cajaCae - 0.12; // corte al estante (después del "Pedir")
 
@@ -725,12 +725,12 @@ function zonaA(t) {
       // 9 %: baja a la canasta vacía y se esfuma en "nada"
       {
         const t0 = S["s04-nada"] + 0.05;
-        const u = eio(sg(t, t0, t0 + 0.7));
+        const u = eio(sg(t, t0, t0 + 0.4));
         if (t > t0) { const pp = lerpV(V(xTaj(0) - 2 * 0.075, 0, 0), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); pp.y += Math.sin(Math.PI * u) * 0.15; taj9.position.copy(pp); }
         const rojo = sg(t, T.nueve - 0.05, T.nueve + 0.3);
         taj9Mats.forEach((m) => { m.color.copy(m.userData.c0).lerp(new THREE.Color(C.red), rojo * 0.75); m.emissiveIntensity = 0.25 * rojo; });
         const esf = sg(t, T.esfuma, T.esfuma + 0.25);
-        taj9.scale.setScalar((1 + 0.15 * pulso(t, T.nueve, 0.25)) * (1 - eio(esf)) * lerp(1, 0.85, u));
+        taj9.scale.setScalar((1 + 0.15 * pulso(t, T.nueve, 0.25)) * (1 - eio(esf)) * lerp(1, 0.5, u));
         taj9.visible = esf < 0.99;
       }
       // en la grúa lo que queda se achica (sale de cuadro)
@@ -758,7 +758,7 @@ function zonaA(t) {
     const rb = rebote(t, T.cae + 0.3, 9, 28, 0.06);
     canasta.scale.set(se * 1.2 * (1 + rb * 0.5), se * 1.2 * (1 - rb), se * 1.2 * (1 + rb * 0.5)); almanaque.scale.setScalar(se * 1.15);
     const rv = rebote(t, T.esfuma, 8, 26, 0.09);
-    const kv = popIn(t, S["s04-nada"] + 0.02, 0.3);
+    const kv = popIn(t, S["s04-nada"] + 0.3, 0.3);
     canastaVacia.visible = sombraVac.visible = vis && kv > 0;
     canastaVacia.scale.set(kv * (1 + rv * 0.5), kv * (1 - rv), kv * (1 + rv * 0.5));
     canastaVacia.rotation.y = rebote(t, T.esfuma, 7, 22, 0.05);
@@ -811,7 +811,7 @@ function zonaA(t) {
     const vpi = A && t > T.pila && t < S["s08-ruben"] + 0.01;
     PILA.forEach((p, i) => {
       const { f, c } = p.userData;
-      const tin = T.pila + 0.02 * i;
+      const tin = T.pila + 0.025 * (f * 4 + c);
       const tsal = T.salen + (T.cero - T.salen) * (i / 11);
       const sal = sg(t, tsal, tsal + 0.28);
       p.visible = vpi && t > tin && sal < 1;
@@ -822,14 +822,14 @@ function zonaA(t) {
       p.position.copy(pp); p.rotation.set(0, sal * -1.2 + ((i % 3) - 1) * 0.03, sal * -0.6);
       p.scale.setScalar(popIn(t, tin, 0.22) * (1 - 0.6 * sal));
     });
-    const vc = A && t > T.pila + 0.15 && t < T.notita + 0.3;
+    const vc = A && t > T.pila + 0.4 && t < T.notita + 0.3;
     contador.visible = vc;
     if (vc) {
       let n = 12; for (let i = 0; i < 12; i++) if (t >= T.salen + (T.cero - T.salen) * (i / 11)) n = 11 - i;
       if (contador.geometry !== numGeo[n]) contador.geometry = numGeo[n];
       contador.material = n === 0 ? M.red : MC;
       const ultimo = T.salen + (T.cero - T.salen) * ((11 - n) / 11);
-      const k = popIn(t, T.pila + 0.15, 0.25) * popOut(t, T.notita + 0.1, 0.18) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
+      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.1, 0.18) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
       contador.scale.setScalar(k); contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.75, TOPE_Y + 2.15, eio(sg(t, T.cero - 0.25, T.cero + 0.2))), 0.2); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
     }
     const vn = A && t > T.notita;
