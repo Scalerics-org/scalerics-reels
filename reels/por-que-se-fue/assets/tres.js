@@ -585,7 +585,7 @@ const T = {
   vuelta: S["s03-marca"] - 0.05, cae: S["s03-marca"] + 0.12, espera: W[23] - 0.05,
   nueve: Math.max(W[25] - 0.05, S["s04-nada"] + 0.45), esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
-  preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.12,
+  preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.5,
   flipMar: S["s09-aviso"] + 0.3, avisa: W[65] - 0.05, quedan: W[66] - 0.03, pide: W[70] + 0.02,
   cajaCae: W[70] + 0.42, flipSab: S["s11-encuentra"] - 0.4, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
 };
@@ -749,7 +749,7 @@ function zonaA(t) {
         grande.position.copy(pK); grande.scale.setScalar(KG * lerp(1, 0.42, via));
         grande.rotation.y = lerp(grande.rotation.y, 0, via);
       }
-      etqTaj.forEach((m, i) => (m.visible = i === 0 && via > 0.9 && t < S["s04-nada"] + 0.15));
+      etqTaj.forEach((m, i) => (m.visible = i === 0 && via > 0.9 && t < S["s04-nada"]));
       sombraGrande.position.set(grande.position.x, 0.008, grande.position.z + 0.1); sombraGrande.scale.setScalar(grande.scale.x / KG);
       grande.updateMatrixWorld(true);
       // 31 %: se va volando a la puerta de al lado y entra
@@ -789,7 +789,7 @@ function zonaA(t) {
       {
         const t0 = S["s04-nada"] + 0.05;
         const u = eio(sg(t, t0, t0 + 0.4));
-        if (t > t0) { const pp = lerpV(aLocal(canastaVacia.position.clone().add(V(-0.6, 2.6, 0.4))), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); taj9.position.copy(pp); }
+        if (t > t0) { const pp = lerpV(aLocal(canastaVacia.position.clone().add(V(0, 1.25, 0.1))), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); taj9.position.copy(pp); }
         const rojo = sg(t, T.nueve - 0.05, T.nueve + 0.3);
         taj9Mats.forEach((m) => { m.color.copy(m.userData.c0).lerp(new THREE.Color(C.red), rojo * 0.75); m.emissiveIntensity = 0.25 * rojo; });
         const esf = sg(t, T.esfuma, T.esfuma + 0.25);
@@ -900,8 +900,8 @@ function zonaA(t) {
       if (contador.geometry !== numGeo[n]) contador.geometry = numGeo[n];
       contador.material = n === 0 ? M.red : MC;
       const ultimo = salida(11 - n) + 0.08;
-      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.3, 0.12) * lerp(1, 2.6, eio(sg(t, T.cero - 0.05, T.cero + 0.2))) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
-      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 1.55, eio(sg(t, T.cero - 0.05, T.cero + 0.2))), 0.0); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
+      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita - 0.06, 0.1) * lerp(1, 2.6, eio(sg(t, T.cero - 0.3, T.cero - 0.05))) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
+      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 1.55, eio(sg(t, T.cero - 0.3, T.cero - 0.05))), 0.0); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
     }
     const vn = A && t > T.notita;
     notita.visible = vn;
