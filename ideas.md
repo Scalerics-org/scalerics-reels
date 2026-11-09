@@ -230,7 +230,7 @@
 - 08-11 · `las-siete-y-cincuenta-y-nueve` · Tienda online (pedido y pago antes, retiro en el local) · Para mandar completo: viernes 19:59, Rubén con la campera puesta baja la cortina; llega Walter (nuevo en personajes, copia local del módulo) con "una cosita nomás": el papelito se desenrolla del mostrador hasta la calle, el chip de hora salta 20:00, 20:07, 20:23, "Ah, y…", y el dorso dice "ATRÁS" lleno; Rubén, ya en camisa con la campera colgada: "Sacate la campera, Walter."; remate del remate 20:41 con Walter sentado en un cajón; cartel "Una tienda online más tarde…" (Rasalgethi); otro viernes a las 16:12 Walter pide y paga desde el celular, Rubén arma la bolsa a las 17:30, a las 19:59 se la da, "Ah, y…" / "Está en la bolsa, Walter.", y la cortina baja a las 20:00 ✓ · línea chica "Una tienda online toma el pedido y lo cobra por vos · scalerics.com" [formato Para mandar completo · 3D real con Rubén y Walter, vereda de noche navy oscuro #0b1220 con interior cálido, cartel verde] (empezado 06-11, terminado en la corrida del 08-11 12:09 tras 3 rondas de revisión + revisión final + arreglo del ojo; render SwiftShader ~24-30 min por pasada)
 
 ## En curso
-<!-- corrida-activa: 2026-11-09T08:14 -->
+<!-- corrida-activa: 2026-11-09T08:19 -->
 - 09-11 · `por-que-buscando` · reservado · explicador ¿Por qué? sin marcas (ilusión de trabajo / transparencia operativa, Buell y Norton) · Automatizaciones (avisos de estado del pedido) · Rubén como dueño
 - 09-11 · `que-en-paz-descanse` · reservado · para mandar completo con Rubén: "dice acá que cerraste" (el almacén figura cerrado en internet, llegan condolencias) · Sitio web (horarios y ubicación al día)
 
