@@ -1,0 +1,15 @@
+[sin narrador Orus: el chiste va en burbujas y en la pantalla del celular; una línea de voz de Rubén por parte (Gemini Algenib) y el narrador del cartel (Gemini Rasalgethi). Para la voz usar partes/*.txt, una toma por archivo]
+[parte 1 · celular de Graciela: "Almacén Rubén" · "Cerrado permanentemente" (rojo apagado)]
+[parte 1 · burbuja GRACIELA: "Rubén… dice acá que cerraste."]
+[parte 1 · Rubén no habla: se señala a sí mismo con el mate]
+[parte 1 · burbuja MARTA: "Mi más sentido pésame, Rubén."]
+[parte 1 · cinta de la corona: "ALMACÉN RUBÉN · Q.E.P.D." · contador "Pésames: 3" → "7" → "12"]
+[parte 1 · burbuja GRACIELA: "¡Era tan buen almacén!" ("Era" marcado)]
+RUBEN: Es, Graciela.
+[parte 1 · remate del remate · notificación en el celular de Rubén: "Mamá" · "¿Por qué me entero por internet?" · contador "Pésames: 13"]
+NARRADOR: Un sitio web más tarde.
+[parte 2 · celular de Graciela: la web del almacén · "ABIERTO AHORA" · "Lun a sáb · 8:00 a 20:00" · mapa · botón "Escribinos por WhatsApp"]
+[parte 2 · burbuja GRACIELA: "¡Estás abierto!"]
+RUBEN: Estoy, Graciela.
+[parte 2 · notificación en el celular de Rubén: "Mamá" · "Vi tu página. ¡Qué buen mozo!"]
+[línea chica final: "Tu horario y tu ubicación, al día en internet" · "scalerics.com"]
