@@ -1,8 +1,8 @@
 // Arma index.html, compositions/subtitulos.html y tiempos.md desde reel.json y la locución.
 // Versión corta de netflix-blockbuster (03-11, ~30 s; reel.json acepta sinSub) (copiada de caso-dominos; capa 3D real con Three.js en assets/tres.js debajo de las escenas HTML): subtítulos arriba al centro, de 1 a 3
 // palabras, Lexend 700 grande, y la palabra clave dentro de un recuadro verde de selección.
-// por-que-dos-sellos: fondo navy claro #16243d liso (sin estrellas ni degradé: compresión de Instagram).
-// LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada.
+// por-que-buscando (base por-que-seis): fondo crema #efeee5 liso (compresión de Instagram), subtítulos navy, recuadro verde
+// con texto navy, logo oscuro; en el cierre (s13) el fondo pasa a verde de marca #5ce611.
 //
 // reel.json:
 //   escenas:  [["s01-algo", 0], ...]   id y ÍNDICE de la palabra donde arranca
@@ -15,33 +15,36 @@ import { execSync } from "node:child_process";
 const largo = {};
 const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
 // techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
-const TECHO = -33.5;
-const LIMPIO = process.env.LIMPIO === "1";
+const TECHO = -31;
 const lufs = {};
-// se mide el TRAMO que suena (atrim hasta max) con apad, así un efecto corto o recortado se mide de verdad
-const lufsArchivo = (n, max) => {
-  const k = n + "@" + (max ?? "todo");
-  if (lufs[k] === undefined) {
-    const corte = max ? `atrim=0:${max},` : "";
-    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af ${corte}apad=pad_dur=1,ebur128 -f null - 2>&1`).toString();
+const lufsArchivo = (n) => {
+  if (lufs[n] === undefined) {
+    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af ebur128 -f null - 2>&1`).toString();
     const m = [...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1);
-    lufs[k] = m && Number(m[1]) > -69 ? Number(m[1]) : -30;
-    // el render duplica los SFX mono a estéreo (+3 LU): se miden como suenan
-    const canales = Number(execSync(`ffprobe -v error -select_streams a:0 -show_entries stream=channels -of csv=p=0 assets/sfx/${n}.mp3`).toString());
-    if (canales === 1) lufs[k] += 3;
+    lufs[n] = m ? Number(m[1]) : -30;
   }
-  return lufs[k];
+  return lufs[n];
 };
-// los que tienen picos cortos pasaban -31 en momentánea: un recorte extra por efecto
-const PICO = { sparkle: 0.7, notification: 0.75, "riser-corto": 0.8, "whoosh-cine-corto": 0.85 };
-const conTecho = (n, v, max) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n, max)) / 20)) * (PICO[n] ?? 1) * 1000) / 1000;
+// silencio inicial de cada SFX: se adelanta el cue para que el sonido arranque en el tiempo pedido
+const lead = {};
+const leadArchivo = (n) => {
+  if (lead[n] === undefined) {
+    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af silencedetect=n=-45dB:d=0.02 -f null - 2>&1`).toString();
+    const m = txt.match(/silence_start: (-?[\d.]+)[\s\S]*?silence_end: ([\d.]+)/);
+    lead[n] = m && Number(m[1]) <= 0.01 ? Math.min(0.6, Number(m[2])) : 0;
+  }
+  return lead[n];
+};
+// colas largas: estos SFX se cortan (con max) aunque la escena no lo pida
+const MAXDEF = { pop: 0.35, "glitch-1": 0.6, "impact-bass-1": 0.8, "impact-bass-2": 0.9, riser: 1.2 };
+const conTecho = (n, v) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n)) / 20)) * 1000) / 1000;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
 
 const reel = JSON.parse(fs.readFileSync("reel.json", "utf8"));
 const palabras = JSON.parse(fs.readFileSync("assets/voice/palabras.json", "utf8"));
 const VOZ = r2(Number(execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString()));
-const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.3);
+const DUR = r2(Math.max(VOZ, palabras.at(-1).end) + 0.12);
 
 const inicio = (i) => (i === 0 ? 0 : r2(palabras[i].start));
 const TODAS = reel.escenas.map(([id, i], k) => [id, inicio(i), k + 1 < reel.escenas.length ? inicio(reel.escenas[k + 1][1]) : DUR]);
@@ -88,10 +91,9 @@ CORTES.forEach((desde, g) => {
   let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
-  // si el grupo arranca justo en un corte de escena, no se adelanta (no asoma antes del corte)
-  const ini = reel.escenas.some(([, i]) => i === desde) ? r2(palabras[desde].start) : r2(Math.max(0, ws[0].start - 0.08));
-  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start - 0.1 : DUR);
-  const fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.05 : DUR));
+  const ini = r2(Math.max(0, ws[0].start - 0.08));
+  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start : DUR);
+  const fin = r2(Math.min(proximo, DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
     .map((w, k) => {
@@ -101,8 +103,7 @@ CORTES.forEach((desde, g) => {
       return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(w.text)}</em></span>`;
     })
     .join(" ");
-  const largoTxt = ws.map((w) => w.text).join(" ").length;
-  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${largoTxt > 17 ? ' style="font-size: 76px"' : ""}>${spans}</p></div>\n`;
+  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
 });
 
@@ -112,12 +113,12 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #ffffff; text-shadow: 0 5px 0 rgba(3, 6, 12, 0.55); }
+    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 4px 0px 0 #efeee5, -4px 0px 0 #efeee5, 0px 4px 0 #efeee5, 0px -4px 0 #efeee5, 3px 3px 0 #efeee5, -3px 3px 0 #efeee5, 3px -3px 0 #efeee5, -3px -3px 0 #efeee5, 5px 2px 0 #efeee5, -5px 2px 0 #efeee5, 2px 5px 0 #efeee5, -2px 5px 0 #efeee5, 5px -2px 0 #efeee5, -5px -2px 0 #efeee5, 2px -5px 0 #efeee5, -2px -5px 0 #efeee5, 0 0 14px rgba(239,238,229,0.9); }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
-    ${C} .w.ac { margin: 0 2px; }
-    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.16); }
-    ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.18); }
+    ${C} .w.ac { margin: 0 14px; }
+    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.55); opacity: 0; }
+    ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.30); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }
     ${C} .malo .caja i { border-color: #c7655b; }
     ${C} .caja .c1 { left: -12px; top: -12px; } ${C} .caja .c2 { right: -12px; top: -12px; }
@@ -137,9 +138,9 @@ ${anim}      ];
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.set(w, { opacity: 1 }, ini);
+          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10, scale: 0.94 }, { y: 0, scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
-          if (caja) { tl.set(caja, { opacity: 0 }, ini); tl.set(caja, { opacity: 1 }, t + 0.06); tl.fromTo(caja, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.2, ease: "power3.out", immediateRender: false }, t + 0.06); }
+          if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out", immediateRender: false }, t + 0.02);
         }
       }
       window.__timelines = window.__timelines || {};
@@ -160,6 +161,9 @@ for (let i = 0; i < 0; i++) {
   estrellas += `<circle class="estr" cx="${x}" cy="${y}" r="${r}" fill="#efeee5" opacity="${o}" />`;
 }
 
+// música recortada a la duración del reel, con fundido de 0,35 s al final
+// la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.07:ratio=2.5:attack=30:release=1000:makeup=1[d];[d]afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -170,12 +174,27 @@ for (const [id, a] of ESCENAS) {
   if (!fs.existsSync(f)) continue;
   for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max });
 }
-for (const [, a] of ESCENAS.slice(1)) if (!sfx.some((s) => /whoosh/.test(s.name) && Math.abs(s.t - (a - 0.15)) < 0.45)) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.16 });
+// whoosh automático en cada cambio de escena, salvo que la escena ya traiga uno (whoosh y whoosh-short son el mismo archivo)
+for (const [id, a] of ESCENAS.slice(1)) {
+  const f = `compositions/${id}.sfx.json`;
+  const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.3 && s.t >= -0.6);
+  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.1 });
+}
+for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);
 const sfxTags = sfx
-  .map((s, i) => `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${r2(Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}" data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol, Math.min(s.max ?? 99, durArchivo(s.name)) - 0.01)}"${s.max && s.max < durArchivo(s.name) ? ` data-fade-out="${r2(Math.min(0.15, s.max / 3))}"` : ""}></audio>`)
+  .map((s, i) => {
+    // duración: la pedida, sin pasar el final del archivo ni el final del reel; si se corta antes del final, fundido de salida
+    const full = durArchivo(s.name), d = r2(Math.min((s.max ?? 99) + (s.cut ?? 0), full, DUR - 0.02 - s.t) - 0.01);
+    const largo = /^(impact|whoosh|glitch|sparkle|chime|riser)/.test(s.name);
+    const fade = d < full - 0.03 ? ` data-fade-out="${r2(largo ? Math.min(0.35, d * 0.4) : Math.min(0.08, d * 0.2))}"` : "";
+    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`;
+  })
   .join("\n");
 
+// LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
+const LIMPIO = process.env.LIMPIO === "1";
+const FONDO_LIMPIO = process.env.FONDO || "#efeee5";
 const index = `<!doctype html>
 <html lang="es">
   <head>
@@ -185,31 +204,27 @@ const index = `<!doctype html>
     <style>
       @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
       @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
-      @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #16243d; }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #16243d; }
-      #fondo { position: absolute; inset: 0; background: #16243d; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
       #estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
-      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 600px; background: linear-gradient(180deg, rgba(22,36,61,0.88) 0%, rgba(22,36,61,0.6) 55%, rgba(22,36,61,0) 100%); }
+      #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(239,238,229,0.88) 0%, rgba(239,238,229,0.7) 50%, rgba(239,238,229,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #velo2 { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(11,18,32,0.82) 0%, rgba(11,18,32,0.62) 55%, rgba(11,18,32,0) 100%); }
-      #firmaFondo { position: absolute; left: 50%; top: 1742px; width: 300px; height: 76px; transform: translateX(-50%); border-radius: 38px; background: rgba(11,18,32,0.82); z-index: 49; }
-      #firma { position: absolute; left: 50%; top: 1760px; height: 40px; width: auto; transform: translateX(-50%); opacity: 0.85; z-index: 50; }
+      #firma { position: absolute; left: 50%; top: 1752px; height: 40px; width: auto; transform: translateX(-50%); z-index: 50; box-sizing: content-box; padding: 8px 20px; border-radius: 999px; background: #efeee5; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
-      <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"></div>
+      <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"><svg id="estrellas" viewBox="0 0 1080 1920" aria-hidden="true">${estrellas}</svg></div>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-      ${LIMPIO ? "" : `<div id="velo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="4"></div>`}
 ${LIMPIO ? "" : hosts}
-${LIMPIO || !reel.veloFuerte ? "" : (() => { const a = TODAS.find(([id]) => id === reel.veloFuerte[0])[1], b = TODAS.find(([id]) => id === reel.veloFuerte[1])[1]; return `      <div id="velo2" class="clip" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="6"></div>\n      <div id="firmaFondo" class="clip" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="8"></div>\n`; })()}${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
-      <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
+${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
+      <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.16" data-fade-out="0.5"></audio>\n` : ""}${sfxTags}`}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.4"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -224,7 +239,9 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
         tl.to(s, { opacity: 0.08, duration: 1.4 + (i % 5) * 0.3, ease: "sine.inOut", yoyo: true, repeat: Math.ceil(${DUR} / 2.6) }, (i % 7) * 0.4);
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-${(reel.sinLogo ?? []).map(([x, y]) => `      tl.to("#firma", { opacity: 0, duration: 0.2, ease: "power1.inOut" }, ${r2(x - 0.2)});\n      tl.to("#firma", { opacity: 0.85, duration: 0.2, ease: "power1.inOut" }, ${y});`).join("\n")}
+      // cierre: el fondo pasa a verde de marca (el texto de la tarjeta es navy)
+      tl.set("#fondo", { backgroundColor: "#efeee5" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s13-llamada")[1]});
+      tl.set("#firma", { backgroundColor: "#efeee5" }, 0);
       window.__timelines["main"] = tl;
     </script>
   </body>
