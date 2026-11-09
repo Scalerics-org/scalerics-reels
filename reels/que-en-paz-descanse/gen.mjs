@@ -29,7 +29,7 @@ const T = {
   p7: 11.2, vibra: 11.25, notif: 11.45, c13: 12.3,
   p8: 12.8, techo: 12.85, ofrece: 13.3, agarra: 13.7, muerde: 13.95,
   // ---- parte 2 ----
-  q1: P2, tipeo: [17.62, 17.92], ficha: 17.95, tap: 18.35, web: 18.5, abierto: 18.6, horario: 18.75, mapa: 18.9, boton: 19.05, foto: 19.2, c0: 18.9,
+  q1: P2, tipeo: [17.62, 17.92], ficha: 17.95, tap: 18.35, web: 18.5, abierto: 18.52, horario: 18.62, mapa: 18.72, boton: 18.82, foto: 18.92, c0: 18.9,
   q2: 20.1, entra2: [20.15, 20.95], b4: 20.45,
   q3: 21.5, sorbo2: [21.55, 22.15], baja: 22.25, voz2: 22.35,  // "Estoy" en 22,45
   q4: 24.0, vibra2: 24.05, notif2: 24.25, mini: 24.6,
@@ -106,11 +106,11 @@ function hora(id, ini, fin, texto, top = 1665, entra = true) {
     html: `      <div class="hora"><span class="punto"></span><span>${texto}</span></div>`,
     js: `      ${entra ? `tl.fromTo(q(".hora"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.0);` : ""}
       tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: ${Math.max(1, Math.floor(dur / 0.5) - 2)}, ease: "sine.inOut", immediateRender: false }, 0.4);
-      ${top === 820 ? "" : `tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`}`,
+      tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`,
   });
 }
-hora("s00a-hora", 0, T.p2, "MARTES · 10:15", 820, false);   // en P1 más arriba: abajo está el celular de Graciela
-hora("s00-hora", T.p2, T.p6, "MARTES · 10:15", 1665, false);
+hora("s00a-hora", 0, 1.35, "MARTES · 10:15", 820, false);   // en P1 más arriba (abajo está el celular) y se va antes de que la cámara entre   // en P1 más arriba: abajo está el celular de Graciela
+hora("s00-hora", 1.75, T.p6, "MARTES · 10:15");
 
 // las líneas de Rubén, palabra por palabra, abajo de su cara; la clave en el recuadro verde
 function linea(id, vozT, palabras, clave, fin) {

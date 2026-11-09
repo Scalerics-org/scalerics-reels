@@ -149,8 +149,6 @@ const MOSTRADOR = { x: 0.45, y: 0.9, z: -1.3, w: 2.3, d: 0.62 };
   scene.add(mesh(rbox(MX.w, 0.86, MX.d, 0.03), M.navy3, MX.x, 0.43, MX.z));
   scene.add(mesh(rbox(MX.w + 0.12, 0.06, MX.d + 0.1, 0.02), M.madera, MX.x, MX.y - 0.03, MX.z));
   scene.add(mesh(rbox(MX.w - 0.2, 0.06, 0.02, 0.01), M.g, MX.x, 0.3, MX.z + MX.d / 2 + 0.005));
-  scene.add(mesh(rbox(0.34, 0.1, 0.28, 0.03), M.cr, MX.x + 0.75, MX.y + 0.05, MX.z - 0.12));
-  scene.add(mesh(rbox(0.38, 0.025, 0.3, 0.01), mat(0xb9c0c8, 0.3), MX.x + 0.75, MX.y + 0.12, MX.z - 0.12));
   const frasco = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.26, 18), new THREE.MeshStandardMaterial({ color: 0xdfeeff, transparent: true, opacity: 0.35, roughness: 0.05 }));
   frasco.position.set(MX.x + 1.05, MX.y + 0.13, MX.z - 0.05); scene.add(frasco);
   scene.add(mesh(new THREE.CylinderGeometry(0.115, 0.115, 0.04, 18), M.cr, MX.x + 1.05, MX.y + 0.28, MX.z - 0.05));
@@ -232,7 +230,7 @@ const afuera = new THREE.Group(); scene.add(afuera);
 const RI = { x: 0.05, z: -1.85 };     // Rubén detrás del mostrador
 const G0 = { x: -0.5, z: -0.66 };    // Graciela frente al mostrador
 const M0 = { x: 0.62, z: -0.76 };    // Marta frente al mostrador
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeosExtra: [], parpadeoCada: 3.6 });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeosExtra: [], parpadeoCada: 3.7 });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.4 });
 const marta = crearPersonaje({ ...MARTA_LUTO, dedos: true, parpadeoCada: 3.7 });
 scene.add(ruben.raiz, graciela.raiz, marta.raiz);
@@ -252,7 +250,10 @@ const corona = crearCorona("ALMACÉN RUBÉN · Q.E.P.D."); scene.add(corona); co
 const CORONA = V3(0.2, 0, FZ + 0.2);
 const BANDEJA = V3(M0.x + 0.12, MOSTRADOR.y, -1.14);
 const TERMO = V3(RI.x - 0.5, MOSTRADOR.y, -1.52);
-const CELU_R = V3(RI.x + 0.1, MOSTRADOR.y + 0.008, -1.32);
+const CELU_R = V3(RI.x + 0.12, MOSTRADOR.y + 0.008, -1.53);
+// en los insertos cenitales (P7, Q4) el celular va un poco más adelante en el mostrador: si no, arriba del cuadro
+// asomaba el borde del mostrador y el piso de atrás
+const CELU_INS = V3(RI.x + 0.12, MOSTRADOR.y + 0.008, -1.3);
 
 // ---------- la foto de Rubén para la web (un render de su cara, una sola vez, al cargar) ----------
 const fotoCanvas = document.createElement("canvas"); fotoCanvas.width = fotoCanvas.height = 256;
@@ -541,9 +542,9 @@ function numeroEn(t) {
 // plano, Catmull-Rom continua (modo "e" = tramo con ease propio: el push-in rápido). "celu" = inserto cenital del
 // celular de Rubén (la cámara la pone ponerCamara).
 const kP1 = (t0, t1, dolly = true) => dolly
-  ? [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t0 + 1.2, RI.x - 0.62, 1.56, 0.56, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.36, 1.5, -0.35, RI.x, 1.17, -1.9, 46]]
+  ? [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t0 + 1.2, RI.x - 0.62, 1.56, 0.56, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.4, 1.56, -0.25, RI.x, 1.2, -1.9, 46]]
   : [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.62, 1.56, 0.5, RI.x - 0.02, 0.86, -1.9, 55]];
-const kP3 = (t0, t1, lx = 0.06, fov = 56) => [[t0, lx, 2.3, -2.75, lx, 1.3, 0.1, fov], [t1, lx, 2.27, -2.65, lx, 1.3, 0.1, fov]];
+const kP3 = (t0, t1, lx = 0.06, fov = 56) => [[t0, lx, 2.3, -2.75, lx, 1.5, 0.1, fov], [t1, lx, 2.27, -2.65, lx, 1.5, 0.1, fov]];
 const kP6 = (t0, t1, push) => push
   ? [[t0, RI.x, 1.44, 0.45, RI.x, 1.22, RI.z, 40], [push[0], RI.x, 1.44, 0.4, RI.x, 1.22, RI.z, 40, "e"], [push[1], RI.x, 1.42, -0.1, RI.x, 1.25, RI.z, 40], [t1, RI.x, 1.42, -0.14, RI.x, 1.25, RI.z, 40]]
   : [[t0, RI.x, 1.44, 0.45, RI.x, 1.22, RI.z, 40], [t1, RI.x, 1.43, 0.15, RI.x, 1.24, RI.z, 40]];
@@ -551,7 +552,7 @@ const PLANOS = [
   // P1 · sobre el hombro de Graciela: su celular en primer plano, Rubén abierto atrás con el mate
   [0, kP1(0, T.p2)],
   // P2 · primer plano de Rubén (contraplano): se señala con el mate, sorbe
-  [T.p2, [[T.p2, RI.x - 0.3, 1.5, 0.35, RI.x, 1.18, RI.z, 42], [T.p3, RI.x - 0.29, 1.5, 0.22, RI.x, 1.18, RI.z, 42]]],
+  [T.p2, [[T.p2, RI.x - 0.32, 1.22, 0.25, RI.x, 1.3, RI.z, 40], [T.p3, RI.x - 0.31, 1.22, 0.12, RI.x, 1.3, RI.z, 40]]],
   // P3 · general alto desde atrás de la caja, mirando a la puerta: entra Marta de negro con la bandeja
   [T.p3, kP3(T.p3, T.p3b)],
   // P3b · Rubén de frente (desde el lado de los clientes): la mano de Marta en su antebrazo, él mira la mano y a cámara
@@ -597,8 +598,8 @@ function ponerCamara(t) {
   if (camCelu) {
     // inserto cenital: el celular de Rubén de frente, la parte de arriba de la pantalla hacia el fondo del almacén
     const t0 = PLANOS[pi][0], d = lerp(0.365, 0.345, sg(t, t0, t0 + 1.6));
-    camera.position.set(CELU_R.x - 0.004, CELU_R.y + d, CELU_R.z - 0.005); camera.up.set(0, 0, -1); camera.fov = 38; camera.updateProjectionMatrix();
-    camera.lookAt(CELU_R.x - 0.004, CELU_R.y, CELU_R.z - 0.015); camera.up.set(0, 1, 0);
+    camera.position.set(CELU_INS.x - 0.004, CELU_INS.y + d, CELU_INS.z - 0.005); camera.up.set(0, 0, -1); camera.fov = 38; camera.updateProjectionMatrix();
+    camera.lookAt(CELU_INS.x - 0.004, CELU_INS.y, CELU_INS.z - 0.015); camera.up.set(0, 1, 0);
     return;
   }
   const v = catmull(PLANOS[pi][1], t);
@@ -649,7 +650,7 @@ const RK = [
   [T.cuello + 0.3, { inclina: -0.07, cabeza: { giro: 0.03, asiente: -0.08, ladea: 0.05 }, cejas: { alto: 0.45 }, boca: { sonrisa: 0.85, ancho: 1.1 } }, 0.3],
   [T.guino, { ojos: { guiño: -1, feliz: 0.45 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 }, manoD: [-0.16, 0.42, 0.34] }, 0.12],
   [T.guino + 0.5, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
-  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.45, ang: 0.1, asim: 0 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, inclina: 0 }, 0.001],
+  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.55, ang: 0.55, asim: 0 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, inclina: 0 }, 0.001],
 ];
 // ---- Graciela ----
 const G_GIRO = Math.atan2(RI.x - G0.x, RI.z - G0.z);
@@ -862,7 +863,8 @@ function renderAt(tIn) {
     celuR.visible = ruben.raiz.visible || camCelu;
     dibujarCeluR(t);
     const vibra = en(t, T.vibra, T.vibra + 0.7) || en(t, T.vibra2, T.vibra2 + 0.7) ? 1 : 0;
-    celuR.position.set(CELU_R.x + vibra * Math.sin(t * 90) * 0.004, CELU_R.y, CELU_R.z + vibra * Math.cos(t * 77) * 0.003);
+    const cb = camCelu ? CELU_INS : CELU_R;
+    celuR.position.set(cb.x + vibra * Math.sin(t * 90) * 0.004, cb.y, cb.z + vibra * Math.cos(t * 77) * 0.003);
     celuR.rotation.set(-Math.PI / 2, 0, vibra * Math.sin(t * 70) * 0.04);
   }
 
