@@ -178,7 +178,7 @@ function cuerpoBolsa(w, h, d, x0, W0) {
     const u = (x + x0) / (W0 / 2), vy = y / h; // -1..1 en el ancho del paquete entero, 0..1 en el alto
     const panza = 1 + 0.09 * (1 - u * u) * Math.sin(Math.PI * Math.min(1, vy / 0.86));
     let zz = z * panza;
-    if (vy > 0.84) zz *= 1 - 0.8 * ((vy - 0.84) / 0.16); // arriba se cierra como bolsa
+    if (vy > 0.88) zz *= 1 - 0.3 * ((vy - 0.88) / 0.12); // arriba se achica un poco (la boca doblada)
     pos.setXYZ(i, x, y, zz);
   }
   g.computeVertexNormals();
@@ -200,8 +200,9 @@ function hacerPaquete(v, cortes = [0, 1], dims = PK) {
     const cuerpo = mesh(cuerpoBolsa(w - 0.004, dims.h, dims.d, s.position.x, dims.w), [ladoD, ladoI, M.papel, M.papel, fm, M.papel]);
     s.add(cuerpo);
     // el fuelle doblado: una lengüeta de papel con la banda, plegada hacia adelante sobre la boca de la bolsa
-    const sol0 = mesh(rbox(w - 0.008, 0.16, 0.035, 0.012, 1), [M.papel, M.papel, M.papel, M.papel, MBANDA[fv], M.papel], 0, dims.h + 0.03, dims.d * 0.12);
-    sol0.rotation.x = 0.55; s.add(sol0);
+    s.add(mesh(rbox(w - 0.012, 0.03, dims.d * 0.72, 0.01, 1), M.papel, 0, dims.h + 0.008, -0.01));
+    const sol0 = mesh(rbox(w - 0.01, 0.13, 0.03, 0.01, 1), [M.papel, M.papel, M.papel, M.papel, MBANDA[fv], M.papel], 0, dims.h - 0.03, dims.d * 0.5 + 0.02);
+    sol0.rotation.x = -0.22; s.add(sol0);
     tajadas.push(s);
   }
   g.userData.tajadas = tajadas;
@@ -279,7 +280,7 @@ const [taj9, taj15, taj19, taj26, taj31] = grande.userData.tajadas;
 const entero = hacerPaquete("A", [0, 1], PKG); grande.add(entero);
 // cada tajada lleva su % pegado arriba (3D)
 const ROT = ["9 %", "15 %", "19 %", "26 %", "31 %"];
-const etqTaj = [taj9, taj15, taj19, taj26, taj31].map((s, i) => { const m = mesh(textoGeo(ROT[i], 0.085, 0.03), i ? MCR() : M.red, 0, PKG.h + 0.2, 0.05); s.add(m); return m; });
+const etqTaj = [taj9, taj15, taj19, taj26, taj31].map((s, i) => { const m = mesh(textoGeo(ROT[i], 0.13, 0.04), i ? MCR() : M.red, 0, PKG.h + 0.2 + (i % 2) * 0.2, 0.05); s.add(m); return m; });
 // el 9 %: se pone rojo apagado (el problema)
 const taj9Mats = [];
 taj9.traverse((o) => { if (o.isMesh) { o.material = Array.isArray(o.material) ? o.material.map((m) => m.clone()) : o.material.clone(); (Array.isArray(o.material) ? o.material : [o.material]).forEach((m) => taj9Mats.push(m)); } });
@@ -348,13 +349,13 @@ function hacerCanasta(cuerpo, borde, W2 = 1.5, H2 = 0.75, D2 = 1.0) {
   for (const s of [-1, 1]) g.add(mesh(new THREE.TorusGeometry(W2 * 0.3, 0.045, 10, 30, Math.PI), M.navy2, 0, H2 + 0.1, s * D2 * 0.32));
   sh(g); scene.add(g); return g;
 }
-const canasta = hacerCanasta(0x5f7f72, C.navy3); canasta.position.set(XK - 1.05, 0, 0.5); canasta.scale.setScalar(1.2);
+const canasta = hacerCanasta(0x5f7f72, C.navy3); canasta.position.set(XK - 0.95, 0, 0.5); canasta.scale.setScalar(1.1);
 const canastaVacia = hacerCanasta(0x5f7f72, C.red, 1.4, 0.7, 0.95); canastaVacia.position.set(XK + 3.4, 0, 1.0);
 const sombraCan = sombra(2.2, 1.6), sombraVac = sombra(2.0, 1.5);
 const otraMarca = hacerPaquete("B"); scene.add(otraMarca);
 const medioKilo = hacerPaquete("A2"); scene.add(medioKilo);
 // el almanaque de tapa: HOY · MAÑANA · DESPUÉS (las hojas pasan por arriba hacia atrás)
-const almanaque = new THREE.Group(); almanaque.position.set(XK + 1.2, 0, 0.4); almanaque.scale.setScalar(1.15); scene.add(almanaque);
+const almanaque = new THREE.Group(); almanaque.position.set(XK + 1.05, 0, 0.4); almanaque.scale.setScalar(1.15); scene.add(almanaque);
 const hojasAlm = [];
 {
   const AW = 1.25, AH = 1.35;
@@ -538,10 +539,10 @@ const TABLET = {
 const avisoTex = (pedido) => tex(900, 470, (x, w, h) => {
   x.fillStyle = CRE; rr(x, 0, 0, w, h, 44);
   x.fillStyle = ROJ; x.beginPath(); x.arc(86, 92, 44, 0, 7); x.fill(); x.fillStyle = CRE; x.font = F(900, 64); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("!", 86, 96);
-  x.fillStyle = NAV0; x.textAlign = "left"; x.font = F(800, 62); x.fillText("Yerba 1 kg", 154, 92);
-  x.font = F(700, 52); x.fillText("Quedan 8", 48, 202); x.fillStyle = ROJ; x.fillText("Se acaba el sábado", 48, 276);
+  x.fillStyle = NAV0; x.textAlign = "left"; x.font = F(800, 74); x.fillText("Yerba 1 kg", 154, 94);
+  x.font = F(700, 64); x.fillText("Quedan 8", 48, 200); x.fillStyle = ROJ; x.font = F(800, 66); x.fillText("Se acaba el sábado", 48, 278);
   x.fillStyle = pedido ? NAV3 : VER; rr(x, 48, 334, w - 96, 106, 53);
-  x.fillStyle = pedido ? VER : NAV0; x.font = F(800, 60); x.textAlign = "center"; x.fillText(pedido ? "Pedido hecho" : "Pedir", w / 2, 390);
+  x.fillStyle = pedido ? VER : NAV0; x.font = F(800, 72); x.textAlign = "center"; x.fillText(pedido ? "Pedido hecho" : "Pedir", w / 2, 390);
 });
 const AVISO = [avisoTex(false), avisoTex(true)];
 // en los planos generales la tablet no lleva texto chico: barras grandes y un tilde
@@ -595,10 +596,10 @@ const PLANOS = [
   ]],
   // corte seco (whoosh) a la canasta y el almanaque
   [T.vuelta, "A", [
-    [T.vuelta, -6, 10, 10.6, XG + 0.05, 1.0, 1.0, 30],
-    [S["s04-nada"], -2, 10, 10.2, XG + 0.1, 1.0, 1.0, 30],
-    [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 3.4, 1.2, 1.0, 30],
-    [T.grua, 3, 10, 7.0, XK + 3.4, 1.2, 1.0, 30],
+    [T.vuelta, -6, 10, 11.6, XG + 0.05, 1.0, 1.0, 30],
+    [S["s04-nada"], -2, 10, 11.2, XG + 0.1, 1.0, 1.0, 30],
+    [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 3.4, 1.45, 1.0, 30],
+    [T.grua, 3, 10, 7.0, XK + 3.4, 1.45, 1.0, 30],
   ]],
   // corte seco (whoosh) a la góndola con las barras de ventas
   [T.grua, "A", [
@@ -614,14 +615,14 @@ const PLANOS = [
     [S["s08-ruben"], 0, 1, 8.0, 0, TOPE_Y + 1.05, 0.3, 30],
   ]],
   [S["s08-ruben"], "B1", [
-    [S["s08-ruben"], 6, 7, 6.8, OB.x + 0.0, 1.05, -0.7, 34],
-    [S["s09-aviso"], 2, 7, 6.5, OB.x + 0.0, 1.05, -0.7, 34],
+    [S["s08-ruben"], 10, 7, 6.9, OB.x + 0.0, 1.05, -0.7, 34],
+    [S["s09-aviso"], 6, 7, 6.6, OB.x + 0.0, 1.05, -0.7, 34],
   ]],
   [S["s09-aviso"], "B2", [
     [S["s09-aviso"], 6, 7, 4.9, OB.x + 0.45, 1.05, -1.0, 34],
     [T.flipMar + 0.4, 2, 9, 4.3, OB.x + 0.3, 1.08, -1.05, 34],
-    [T.avisa - 0.1, 2, 14, 2.05, OB.x + 0.04, 1.1, -1.0, 34],
-    [T.cortePila, -2, 14, 1.95, OB.x + 0.04, 1.1, -1.0, 34],
+    [T.avisa - 0.1, 2, 8, 3.0, OB.x + 0.2, 1.26, -1.15, 34],
+    [T.cortePila, -2, 8, 2.85, OB.x + 0.2, 1.26, -1.15, 34],
   ]],
   [T.cortePila, "B3", [
     [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.72, EST.z + 0.2, 34],
@@ -636,8 +637,8 @@ const PLANOS = [
     [S["s13-llamada"], 3, 4, 14.8, 0, 3.1, 0, 30],
   ]],
   [S["s13-llamada"], "FIN", [
-    [S["s13-llamada"], -7, 4, 17.6, 0, 3.62, 0, 30],
-    [DUR, 6, 4, 17.3, 0, 3.62, 0, 30],
+    [S["s13-llamada"], -7, 4, 18.3, 0, 3.85, 0, 30],
+    [DUR, 6, 4, 18.0, 0, 3.85, 0, 30],
   ]],
 ];
 const _mira = new THREE.Vector3();
@@ -731,6 +732,7 @@ function zonaA(t) {
         grande.position.copy(pK); grande.scale.setScalar(KG * lerp(1, 0.42, via));
         grande.rotation.y = lerp(grande.rotation.y, 0, via);
       }
+      etqTaj.forEach((m) => (m.visible = via > 0.9));
       sombraGrande.position.set(grande.position.x, 0.008, grande.position.z + 0.1); sombraGrande.scale.setScalar(grande.scale.x / KG);
       grande.updateMatrixWorld(true);
       // 31 %: se va volando a la puerta de al lado y entra
@@ -800,7 +802,7 @@ function zonaA(t) {
     sombraCan.position.set(canasta.position.x, 0.007, canasta.position.z); sombraAlm.position.set(almanaque.position.x, 0.007, almanaque.position.z);
     sombraVac.position.set(canastaVacia.position.x, 0.007, canastaVacia.position.z);
     const rb = rebote(t, T.cae + 0.3, 9, 28, 0.06);
-    canasta.scale.set(se * 1.2 * (1 + rb * 0.5), se * 1.2 * (1 - rb), se * 1.2 * (1 + rb * 0.5)); almanaque.scale.setScalar(se * 1.15);
+    canasta.scale.set(1.1 * (1 + rb * 0.5), 1.1 * (1 - rb), 1.1 * (1 + rb * 0.5)); almanaque.scale.setScalar(se * 1.15);
     const rv = rebote(t, T.esfuma, 8, 26, 0.09);
     const kv = 1;
     canastaVacia.visible = sombraVac.visible = vis && kv > 0;
@@ -861,10 +863,10 @@ function zonaA(t) {
       p.visible = vpi && t > tin && sal < 1;
       if (!p.visible) return;
       const base = V((c - 1.5) * 0.6, TOPE_Y + f * (PK.h + 0.05), 0.1);
-      const fuera = base.clone().add(V(3.2 + c * 0.2, 1.6 + f * 0.3, 1.5));
-      const pp = lerpV(base, fuera, eio(sal)); pp.y += Math.sin(Math.PI * sal) * 0.5 + 0.35 * eo(sg(sal, 0, 0.35));
+      const fuera = base.clone().add(V(2.4 + c * 0.2, -0.4 - f * 0.2, 1.6));
+      const pp = lerpV(base, fuera, eio(sal)); pp.y += Math.sin(Math.PI * sal) * 0.25 + 0.3 * eo(sg(sal, 0, 0.3));
       p.position.copy(pp); p.rotation.set(0, sal * sal * -1.2 + ((i % 3) - 1) * 0.03, sal * sal * -0.6);
-      p.scale.setScalar(popIn(t, tin, 0.22) * (1 - sal));
+      p.scale.setScalar(popIn(t, tin, 0.22) * Math.pow(1 - sal, 1.6));
     });
     const vc = A && t > T.pila + 0.4 && t < T.notita + 0.26;
     contador.visible = vc;
@@ -953,7 +955,7 @@ function zonaB(t) {
   }
   // la tablet: stock → aviso ("quedan 8") → pedido
   {
-    const pant = B1 || B4 ? TABLET.reposo : t >= T.avisa ? TABLET.aviso : TABLET.stock;
+    const pant = B1 || B4 || t < T.avisa - 0.12 ? TABLET.reposo : TABLET.aviso;
     if (tabPant.material.map !== pant) { tabPant.material.map = pant; tabPant.material.emissiveMap = pant; tabPant.material.needsUpdate = true; }
     aviso.visible = B2 && t > T.avisa;
     if (aviso.visible) {
