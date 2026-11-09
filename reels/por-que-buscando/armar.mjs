@@ -93,7 +93,7 @@ CORTES.forEach((desde, g) => {
   const ws = palabras.slice(desde, hasta);
   const ini = r2(Math.max(0, ws[0].start - 0.08));
   const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start : DUR);
-  const fin = r2(Math.min(proximo, DUR));
+  const fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.06 : DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
     .map((w, k) => {
