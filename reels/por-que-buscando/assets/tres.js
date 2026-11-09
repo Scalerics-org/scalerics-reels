@@ -1084,11 +1084,9 @@ function personajes(t) {
       const a = ruben.cuerpo.worldToLocal(BOLSA.clone().add(V(-0.2, 0.22, 0.02)));
       pr = { ...pr, manoD: mezclar(pr.manoD, [a.x, a.y, a.z], Math.sin(Math.PI * emp)) };
     }
-    if (B2 && t > W[75] + 0.15) {
-      const u = eio(sg(t, W[75] + 0.15, W[75] + 0.5));
-      pr = mezclar(pr, { ...pr, ...mateMano }, u);
-      mate.visible = true;
-    }
+    // en s11 Rubén tiene el mate en la mano derecha desde el primer cuadro (apoyado en el mostrador)
+    if (B2) pr = { ...pr, ...mateMano };
+    mate.visible = B2;
     ruben.poner(pr);
     if (mate.visible) { ruben.raiz.updateMatrixWorld(true); ruben.mano("D").getWorldPosition(mate.position); mate.position.y -= 0.06; mate.position.z += 0.03; mate.rotation.set(0, 0.6, 0); }
   }
