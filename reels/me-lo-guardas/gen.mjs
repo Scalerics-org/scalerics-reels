@@ -22,22 +22,22 @@ const T = {
   // P1 · plano medio de Rubén: el chat de Walter en su celular, escribe el papelito y lo pega en la bolsa
   notif0: 0.05, escribe: [0.25, 0.85], c3: 0.6, levanta: 1.1, pega: 1.3,
   // P2 · el estante GUARDADOS se llena (mensajes, objetos, contador, días) y se arquea; la telaraña
-  p2: 2.1, dejaW: 2.15, m1: 2.45, m2: 2.95, m3: 3.4, maple: 3.78, cosas: [3.95, 4.08, 4.2, 4.3, 4.38], zapallo: 4.2,
+  p2: 2.1, dejaW: 2.1, m1: 2.45, m2: 2.95, m3: 3.4, maple: 3.78, cosas: [3.95, 4.08, 4.2, 4.3, 4.38], zapallo: 4.2,
   c11: 3.4, rodillo: [3.6, 4.4], arquea: [4.15, 4.5], dia1: 3.0, dia2: 3.9, mes: 4.5, tela: [4.5, 4.78],
   // P3 · entra Graciela (vista hacia la puerta) · P3b contraplano: el hueco de la yerba, las cabezas giran
-  p3: 4.8, campana1: 4.85, entraG: [4.85, 5.35], b1: 5.2, p3b: 5.55, giraEst: 5.6, agotada: 5.65, giraCab: [5.95, 6.35],
+  p3: 4.8, campana1: 4.85, entraG: [4.85, 5.35], b1: 5.2, p3b: 5.55, giraEst: 5.6, agotada: 5.65, p3c: 5.95, giraCab: [5.98, 6.35],
   // P4 · zambullida al papelito de Walter
-  p4: 6.4, dive: [6.4, 7.2], b2: 7.35,
+  p4: 6.4, dive: [6.4, 7.2], tela2: 7.0, b2: 7.35,
   // P5 · primer plano: se corta la música, gira a cámara, push-in, "Ya viene, Graciela."
   p5: 8.2, corte: 8.2, giraCam: [8.3, 9.0], pushIn: [8.8, 9.1], voz1: 9.21,
   // P6 · Walter en la puerta: "¡Guardame un dulce de leche!" "¡Ya vengo!", 28 y tuba, palmaditas
-  p6: 11.4, p6b: 13.3, campana2: 11.45, asoma: [11.45, 11.75], giran: 11.6, levanta2: 11.75, b3: 12.0, b4: 12.55, seVa: [12.6, 12.85], campana3: 12.75, c28: 12.95, palmas: [13.55, 13.95],
+  p6: 11.1, p6b: 13.3, campana2: 11.2, asoma: [11.15, 11.75], giran: 11.6, levanta2: 11.75, b3: 12.0, b4: 12.55, seVa: [12.6, 12.85], campana3: 12.75, c28: 12.95, palmas: [13.55, 13.95],
   // ---- parte 2 ----
-  q1: P2, notif2: 17.7, escribiendo: 17.95, resp1: 18.3, sorbo1: 18.4, tap: 18.95, pagada: 19.0, resp2: 19.35,
-  q2: 20.2, c3s: 20.4, vence: 21.1, vuela: [21.35, 21.85],
+  q1: P2, notif2: 17.62, escribiendo: 17.95, resp1: 18.3, sorbo1: 18.4, tap: 18.95, pagada: 19.0, resp2: 19.35,
+  q2: 20.2, c3s: 20.4, vence: 21.0, vuela: [21.3, 21.55], q2b: 21.55, aterriza: 21.85,
   q3: 22.4, campana4: 22.5, entraW: [22.5, 23.05], alcanza: 22.95, b5: 23.3,
   q4: 24.4, sorbo2: [24.45, 24.95], baja: 25.05, voz2: 25.15,
-  q5: 26.6, b6: 26.65, vibra: 27.15, resp3: 27.2, pulgar: 27.45, q6: 27.85, guino: 28.0,
+  q5: 26.6, b6: 26.68, vibra: 27.12, resp3: 27.15, pulgar: 27.45, q6: 27.85, guino: 28.0,
   cierre: 28.5,
 };
 const DUR = 30.0;
@@ -145,7 +145,7 @@ hora("s00-hora", 0, T.p5, [[0, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 10:15"
         for (let k = 0; k < i; k++) {
           const mk = q(".m" + k), lugar = i - k;
           tl.to(mk, { y: lugar * ALTO, duration: 0.2, ease: "power2.out" }, t);
-          if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.18, ease: "power2.in" }, t);
+          if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.14, ease: "power2.in" }, t - 0.16);
         }
       });
       qa(".m").forEach((m) => tl.to(m, { opacity: 0, x: -60, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.22)}));`,
@@ -154,16 +154,21 @@ hora("s00-hora", 0, T.p5, [[0, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 10:15"
 
 // la respuesta del agente pegada a cámara sobre el celular de Rubén (Q5): navy claro con letra crema
 {
-  const id = "s06-resp", ini = T.resp3 - 0.03, fin = T.cierre - 0.05, dur = r2(fin - ini);
+  const id = "s06-resp", ini = T.b6 - 0.02, fin = T.q6 - 0.04, dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .r { position: absolute; right: 44px; top: 300px; width: 760px; padding: 22px 32px 24px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 90% 100%; }
+    P .w { position: absolute; left: 44px; top: 300px; max-width: 760px; padding: 18px 30px 22px; border-radius: 34px 34px 34px 10px; background: ${CR}; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 0% 100%; }
+    P .w .n { font: 500 34px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: #3fa60a; }
+    P .w .x { color: ${NAVY}; }
+    P .r { position: absolute; right: 44px; top: 560px; width: 760px; padding: 22px 32px 24px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 90% 100%; }
     P .x { font: 700 50px/1.18 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .a { margin-top: 12px; font: 500 34px/1.1 "IBM Plex Mono", monospace; color: ${G}; letter-spacing: 0.02em; }`,
-    html: `      <div class="r"><div class="x">Reservado. Te espera<br>hasta el viernes.</div><div class="a">respondido automáticamente</div></div>`,
-    js: `      tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, 0.03);
-      tl.to(q(".r"), { opacity: 0, y: 30, duration: 0.18, ease: "power2.in" }, ${r2(dur - 0.2)});`,
+    html: `      <div class="w"><div class="n">Walter</div><div class="x">¿Me guardás un<br>dulce de leche?</div></div>
+      <div class="r"><div class="x">Reservado. Te espera<br>hasta el viernes.</div><div class="a">respondido automáticamente</div></div>`,
+    js: `      tl.fromTo(q(".w"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.02);
+      tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, ${r2(T.resp3 - T.b6 + 0.02)});
+      tl.to([q(".w"), q(".r")], { opacity: 0, y: -30, duration: 0.14, ease: "power2.in" }, ${r2(dur - 0.15)});`,
   });
 }
 
@@ -261,9 +266,9 @@ hora("s04-hora", T.q1 + 0.05, T.q4, [[T.q1 + 0.05, "OTRO LUNES · 10:15"], [T.q3
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 60px; right: 60px; top: 1480px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.94); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 50px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .a { font: 700 56px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Un agente de IA reserva,</div><div class="a">cobra la seña y avisa por vos</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Un agente de IA reserva</div><div class="a">con seña y avisa por vos</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -296,7 +301,7 @@ for (let i = 0; i < 16; i++) { const u = i / 15; s("sfx/key-press.mp3", T.rodill
 for (const t of [T.dia1, T.dia2]) s("sfx/tic-real.mp3", t, 0, { techo: -36 });
 s("sfx/papel.wav", T.arquea[0], 0, { dur: 0.45, fin: 0.15, techo: -40 });               // la madera que cede
 // el mes que pasa: ráfaga de tic/tac acelerando
-for (let i = 0, t = T.mes; i < 10; i++) { s(i % 2 ? "sfx/tac-real.mp3" : "sfx/tic-real.mp3", t, 0, { techo: -37 + i * 0.3 }); t += 0.13 * Math.pow(0.86, i); }
+for (let i = 0, t = T.mes; i < 6; i++) { s(i % 2 ? "sfx/tac-real.mp3" : "sfx/tic-real.mp3", t, 0, { techo: -37 + i * 0.4 }); t += 0.07 * Math.pow(0.86, i); }   // termina antes de 4,8 (la campanita se oye limpia)
 // P3: campanita, pasos de Graciela, su burbuja, el AGOTADA, el giro de cabezas
 s("sfx/campanita.wav", T.campana1, 0, { techo: -32 });
 for (let t = T.entraG[0] + 0.1; t < T.entraG[1]; t += 0.2) s("sfx/tac-real.mp3", t, 0, { techo: -41 });
@@ -305,10 +310,11 @@ s("sfx/pop.mp3", T.agotada, 0, { desde: 0.11, techo: -36 });
 s("sfx/whoosh-short.mp3", T.giraCab[0] + 0.05, 0, { techo: -41 });
 // P4: la zambullida y "¿Y cuándo viene?"
 s("sfx/whoosh.mp3", T.dive[0], 0, { techo: -37 });
+s("sfx/papel.wav", T.tela2, 0, { dur: 0.18, fin: 0.06, techo: -40 });               // la telaraña que llena el cuadro
 s("sfx/burbuja.mp3", T.b2, 0);
 // P5: se corta la música (solo ambiente), push-in, la voz; después nada
 s("sfx/whoosh-short.mp3", T.pushIn[0], 0, { techo: -38 });
-s("voice/ruben1.wav", T.voz1, 0, { voz: true });
+s("voice/ruben1.wav", T.voz1, -3, { voz: true });
 // P6: Walter en la puerta
 s("sfx/campanita.wav", T.campana2, 0, { techo: -32 });
 s("sfx/papel.wav", T.levanta2, 0, { dur: 0.3, fin: 0.08, techo: -37 });                // la bolsa que levanta
@@ -321,7 +327,7 @@ for (const t of [T.palmas[0], T.palmas[0] + 0.22]) s("sfx/tac-real.mp3", t, 0, {
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
-s("voice/narrador.wav", P1 + 0.3, 0, { voz: true });
+s("voice/narrador.wav", P1 + 0.3, -3, { voz: true });
 s("sfx/calle.wav", P2 - 1.05, -6, { desde: 5, dur: 1.1, fi: 0.35, fin: 0.05, techo: -40, lp: 1800 });   // cama mínima bajo el final del cartel
 s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
@@ -338,13 +344,15 @@ s("sfx/papel.wav", T.c3s - 0.02, 0, { dur: 0.2, fin: 0.06, techo: -37 });       
 s("sfx/cero.mp3", T.c3s + 0.2, 0, { techo: -33 });                                         // "3 · con seña"
 s("sfx/papel.wav", T.vence, 0, { dur: 0.25, fin: 0.06, techo: -37 });                    // la etiqueta "venció"
 s("sfx/whoosh-short.mp3", T.vuela[0], 0, { techo: -37 });
-s("sfx/pop.mp3", T.vuela[1], 0, { desde: 0.11, techo: -33 }); s("sfx/sello.wav", T.vuela[1] + 0.05, -4, { techo: -38 });
+s("sfx/whoosh-short.mp3", T.q2b, 0, { techo: -40 });
+s("sfx/pop.mp3", T.aterriza, 0, { desde: 0.11, techo: -33 }); s("sfx/sello.wav", T.aterriza + 0.05, -4, { techo: -38 });
 s("sfx/campanita.wav", T.campana4, 0, { techo: -32 });
 for (let t = T.entraW[0] + 0.12; t < T.entraW[1]; t += 0.22) s("sfx/tac-real.mp3", t, 0, { techo: -41 });
 s("sfx/papel.wav", T.alcanza, 0, { dur: 0.3, fin: 0.08, techo: -37 });                 // la bolsa
 s("sfx/burbuja.mp3", T.b5, 0);
 s("sfx/sorbo.wav", T.sorbo2[0], 0, { techo: -34 });
-s("voice/ruben2.wav", T.voz2, 0, { voz: true });
+s("sfx/tac-real.mp3", T.baja, 0, { techo: -40 });                                         // el mate que se apoya
+s("voice/ruben2.wav", T.voz2, -3, { voz: true });
 s("sfx/burbuja.mp3", T.b6, 0);
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.6, fin: 0.08, techo: -33 });
 s("sfx/respuesta.wav", T.resp3, 0, { techo: -35 });
@@ -405,7 +413,7 @@ if (process.env.MEDIR) {
   mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
 }
 // nivel: -14 LUFS con limitador (el loudnorm del paso 10 casi no toca nada y el AAC no clipea); modo lineal
-const OBJ = Number(process.env.OBJ ?? -14.4), LIM = Number(process.env.LIM ?? 0.68);
+const OBJ = Number(process.env.OBJ ?? -13.2), LIM = Number(process.env.LIM ?? 0.6);
 {
   const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
   const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
@@ -464,9 +472,9 @@ ${LIMPIO ? "" : FIRMAS.map(([a, b], i) => `      <img id="firma${i}" class="firm
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
       tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.42, ease: "power2.in", immediateRender: false }, ${ROT});
-      // la parte 2 entra por un iris que se abre desde el centro
-      tl.set("#capa3d", { scale: 1, rotation: 0, clipPath: "circle(0px at 540px 960px)" }, ${r2(ROT + 0.43)});
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 960px)" }, { clipPath: "circle(1150px at 540px 960px)", duration: 0.42, ease: "power2.in", immediateRender: false }, ${IRIS});
+      // la parte 2 entra por un iris que se abre desde el celular de Rubén (con el mensaje de Walter ya puesto)
+      tl.set("#capa3d", { scale: 1, rotation: 0, clipPath: "circle(0px at 254px 960px)" }, ${r2(ROT + 0.43)});
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 254px 960px)" }, { clipPath: "circle(1400px at 254px 960px)", duration: 0.42, ease: "power2.in", immediateRender: false }, ${IRIS});
       tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 + 0.01)});
       window.__timelines["main"] = tl;
     </script>

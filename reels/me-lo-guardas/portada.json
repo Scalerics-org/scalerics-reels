@@ -2,12 +2,11 @@
  "t": 5.0,
  "chica": "¿Me lo guardás?",
  "grande": "Ya vengo.",
- "sello": "Para mandar",
+ "sello": "Guardados: 28",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.3,
  "foco": "35%",
  "velo": "11,18,32",
- "fondo": "#16243d",
- "nota": "BORRADOR. Fondo: cuadro LIMPIO (LIMPIO=1 node gen.mjs: sin burbujas, contador, pill ni subtítulos) de P2 ~5,0 s, el estante GUARDADOS lleno y arqueado con la bolsa de Walter y su telaraña abajo; alternativa P4 ~7,6 s (el papelito 'Walter · ya vengo' con la telaraña llenando el cuadro). Afinar t mirando la hoja del render. Todo lo importante entre y 285 y 1635."
+ "fondo": "#16243d"
 }

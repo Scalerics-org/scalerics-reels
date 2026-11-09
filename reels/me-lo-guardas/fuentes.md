@@ -12,11 +12,11 @@ vende": agentes de IA que toman pedidos y reservas y hacen el seguimiento del cl
 
 ## Voces (Gemini TTS)
 - Rubén: Algenib ("Ya viene, Graciela." y "Ya vino, Graciela."), en partes/ruben-1.txt y partes/ruben-2.txt.
-- Narrador del cartel: Rasalgethi ("Un agente de IA más tarde."), en partes/narrador.txt (o el cartel.wav de
-  reels/abren-hoy-completo, que dice la misma frase).
+- Narrador del cartel: Rasalgethi ("Un agente de IA más tarde."): se reusa tal cual
+  reels/abren-hoy-completo/assets/voice/narrador.wav (misma frase; registrado en reels/abren-hoy-completo/fuentes.md).
 - Graciela y Walter: sin voz, solo burbujas.
 
-## Sonido (previsto)
+## Sonido
 Todo con grabaciones reales que ya están en el repo con su licencia registrada (la descarga de freesound está
 bloqueada en la nube); nada sintetizado con ffmpeg, sin golpe.mp3 (sin licencia registrada). Créditos completos en
 reels/abren-hoy/fuentes.md, reels/abren-hoy-2/fuentes.md, reels/abren-hoy-completo/fuentes.md,
@@ -43,5 +43,5 @@ reels/que-en-paz-descanse/assets/sfx y assets/bgm:
 - Cartel: `stinger.wav` (DanJFilms, CC0), `whoosh.mp3` y `whoosh-short.mp3` (HyperFrames).
 - Guiño final: `chime.mp3` (HyperFrames).
 
-El constructor verifica que cada archivo usado figure con autor, sitio y licencia en alguno de esos fuentes.md; si
-falta uno, lo anota acá o lo cambia por otro registrado.
+Son los únicos archivos en assets/sfx y assets/bgm (se borraron tictac.wav, impact-bass-1.mp3 y puerta.wav, que no se
+usan). Los toma gen.mjs (lista SONIDO).

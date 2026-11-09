@@ -32,7 +32,7 @@
         for (let k = 0; k < i; k++) {
           const mk = q(".m" + k), lugar = i - k;
           tl.to(mk, { y: lugar * ALTO, duration: 0.2, ease: "power2.out" }, t);
-          if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.18, ease: "power2.in" }, t);
+          if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.14, ease: "power2.in" }, t - 0.16);
         }
       });
       qa(".m").forEach((m) => tl.to(m, { opacity: 0, x: -60, duration: 0.2, ease: "power2.in" }, 1.86));

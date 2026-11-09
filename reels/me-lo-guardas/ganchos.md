@@ -19,7 +19,7 @@ libera la reserva sola. La vara: ¿un dueño se lo manda a otro con "jaja este s
   bolsa… y Walter: "¡Guardame un dulce de leche!" / "¡Ya vengo!", y se va. Guardados: 28 (tuba).
 - Parte 2 (callback): el mismo mensaje de Walter, pero el celular contesta solo ("Te lo reservo con una seña", botón
   "Pagar seña", "Seña paga ✓", "Te espera hasta el viernes"). El estante GUARDADOS ordenado (Guardados: 27 tachado →
-  3, todos con seña); la reserva de "la del perro" vence y la yerba vuelve sola al estante. Graciela con su yerba en
+  3, todos con seña); la reserva de "el de la gorra" vence y la yerba vuelve sola al estante. Graciela con su yerba en
   la mano; campanita: entra Walter a buscar lo suyo. Graciela: "¿Walter?". Rubén: **"Ya vino, Graciela."** Walter,
   ya en la puerta: "¡Ah! ¿Me guardás un dulce de leche?", el celular de Rubén contesta solo "Reservado. Te espera
   hasta el viernes." y Rubén guiña con el mate.

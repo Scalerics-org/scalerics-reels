@@ -7,8 +7,8 @@ RUBEN: Ya viene, Graciela.
 [parte 1 · remate del remate · burbujas WALTER en la puerta: "¡Guardame un dulce de leche!" · "¡Ya vengo!" · contador "Guardados: 28" (tuba)]
 NARRADOR: Un agente de IA más tarde.
 [parte 2 · celular de Rubén: "Walter" · "¿Me lo guardás? Ya vengo." · respuesta sola: "¡Dale, Walter! Te lo reservo con una seña." · botón "Pagar seña" · "Seña paga ✓" · "Te espera hasta el viernes." · "respondido automáticamente"]
-[parte 2 · estante GUARDADOS ordenado, etiquetas "Walter · seña ✓ · hasta vie" · "la del perro · venció" → la yerba vuelve al estante · contador "Guardados: 27" tachado → "3 · con seña"]
+[parte 2 · estante GUARDADOS ordenado, etiquetas "Walter · seña ✓ · hasta vie" · "Sr. del 4B · seña ✓" · "la del perro · seña ✓" · "el de la gorra · venció" → la yerba vuelve al estante · contador "Guardados: 28" tachado → "3" y "con seña"]
 [parte 2 · Graciela con la yerba en la mano; entra Walter a buscar lo suyo · burbuja GRACIELA: "¿Walter?"]
 RUBEN: Ya vino, Graciela.
-[parte 2 · burbuja WALTER: "¡Ah! ¿Me guardás un dulce de leche?" · celular de Rubén, solo: "Reservado. Te espera hasta el viernes." · Rubén guiña con el mate]
-[línea chica final: "Un agente de IA reserva, cobra la seña y avisa por vos" · "scalerics.com"]
+[parte 2 · Walter en la puerta ESCRIBE desde su celular: "¿Me guardás un dulce de leche?" · celular de Rubén, solo: "Reservado. Te espera hasta el viernes." · Rubén guiña con el mate]
+[línea chica final: "Un agente de IA reserva con seña y avisa por vos" · "scalerics.com"]
