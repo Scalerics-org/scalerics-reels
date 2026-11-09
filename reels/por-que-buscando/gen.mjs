@@ -181,7 +181,7 @@ vacia("s02-prefiere", [
   const id = "s05-aerolinea";
   const tt = [0.25, w(id, 32) + 0.05, w(id, 34) - 0.02, w(id, 35) - 0.12, w(id, 35) + 0.3];
   escena(id, {
-    html: `${pill(1, 780, 1590, "Se ve el trabajo", "lleno grande")}`,
+    html: `${pill(1, 600, 1600, "Se ve el trabajo", "lleno grande")}`,
     js: `nota(1, ${r2(w(id, 34) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.2, sfx: "whoosh-short", vol: 0.14 }, { t: 0.08, sfx: "pop", vol: 0.09 },
@@ -198,10 +198,10 @@ vacia("s02-prefiere", [
   escena(id, {
     css: `P .sello { left: 540px; top: 1500px; transform: translate(-50%, -50%); border-color: ${NAVY}; color: ${NAVY}; font-size: 60px; background: ${G}; }`,
     html: `<div class="sello">MISMO RESULTADO</div>`,
-    js: `sello(".sello", ${r2(w(id, 37) + 0.02)}, -4); tl.set(q(".sello"), { opacity: 0 }, ${r2(w(id, 38) - 0.15)});`,
+    js: `sello(".sello", ${r2(w(id, 37) - 0.2)}, -4); tl.set(q(".sello"), { opacity: 0 }, ${r2(w(id, 38) - 0.15)});`,
     sfx: [
       { t: 0.02, sfx: "whoosh-short", vol: 0.12 }, { t: 0.05, sfx: "papel", vol: 0.3, max: 0.5 }, { t: 0.12, sfx: "papel", vol: 0.24, max: 0.5 },
-      { t: w(id, 37) - 0.05, sfx: "pop", vol: 0.1 }, { t: w(id, 37) + 0.02, sfx: "sello", vol: 0.4 },
+      { t: w(id, 37) - 0.05, sfx: "pop", vol: 0.1 }, { t: w(id, 37) - 0.2, sfx: "sello", vol: 0.4 },
       { t: w(id, 38) - 0.15, sfx: "whoosh-cine-corto", vol: 0.14, max: 0.8 }, { t: w(id, 38) - 0.03, sfx: "pop", vol: 0.1 },
       { t: w(id, 38) + 0.45, sfx: "sello", vol: 0.22 },
       { t: w(id, 42) - 0.12, sfx: "impact-bass-1", vol: 0.1, max: 0.8 },

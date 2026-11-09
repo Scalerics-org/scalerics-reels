@@ -446,9 +446,9 @@ const productos = [];
   const leche = new THREE.Group(); leche.add(sh(mesh(new THREE.CylinderGeometry(0.06, 0.065, 0.26, 18), M.white))); leche.add(mesh(new THREE.CylinderGeometry(0.035, 0.04, 0.05, 14), M.white, 0, 0.15, 0)); leche.add(mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.035, 14), M.g, 0, 0.19, 0)); leche.add(mesh(new THREE.CylinderGeometry(0.066, 0.066, 0.07, 18), M.navy2, 0, -0.01, 0));
   const pan = new THREE.Group(); { const g = new THREE.CapsuleGeometry(0.055, 0.42, 6, 12); const m = sh(mesh(g, mat(0xd6a15e, 0.7))); pan.add(m); for (let k = -1; k <= 1; k++) { const c = mesh(rbox(0.03, 0.012, 0.09, 0.005), mat(0xf2d7a6, 0.7), 0, k * 0.13, 0.05); c.rotation.set(0.5, 0, 0.6); pan.add(c); } }
   // dónde quedan adentro (en el espacio de la bolsa) y con qué giro
-  productos.push({ o: fideos, fin: V(-0.1, 0.2, 0.02), rot: V(0, 0.1, 0.05) });
+  productos.push({ o: fideos, fin: V(-0.09, 0.2, 0.0), rot: V(0, 0.1, 0.05) });
   productos.push({ o: yerba, fin: V(0.08, 0.17, -0.04), rot: V(0, -0.2, -0.05) });
-  productos.push({ o: leche, fin: V(0.12, 0.18, 0.06), rot: V(0, 0, 0.08) });
+  productos.push({ o: leche, fin: V(0.08, 0.18, 0.03), rot: V(0, 0, 0.08) });
   productos.push({ o: pan, fin: V(-0.05, 0.36, -0.02), rot: V(0, 0, -0.45) });
   productos.forEach((p) => bolsa.add(p.o));
 }
@@ -475,7 +475,7 @@ const bolsaCasa = new THREE.Group();
   ven.add(mesh(rbox(0.05, 0.96, 0.03, 0.01), M.navy2, 0, 0, 0.05)); ven.add(mesh(rbox(1.06, 0.05, 0.03, 0.01), M.navy2, 0, 0, 0.05));
   for (const s of [-1, 1]) ven.add(mesh(rbox(0.26, 1.25, 0.05, 0.03), M.g, s * 0.68, -0.02, 0.08));
   // mesita con taza y maceta
-  const mesa = new THREE.Group(); mesa.position.set(-0.48, 0, 0.22); casa.add(mesa);
+  const mesa = new THREE.Group(); mesa.position.set(-0.78, 0, -1.15); mesa.scale.setScalar(0.85); casa.add(mesa);
   mesa.add(sh(mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.05, 32), M.madera, 0, 0.72, 0)));
   mesa.add(sh(mesh(new THREE.CylinderGeometry(0.04, 0.05, 0.7, 12), M.navy2, 0, 0.36, 0)));
   mesa.add(sh(mesh(new THREE.CylinderGeometry(0.22, 0.25, 0.04, 24), M.navy2, 0, 0.02, 0)));
@@ -485,7 +485,7 @@ const bolsaCasa = new THREE.Group();
   for (let k = 0; k < 6; k++) { const a = k * 1.05; const h = mesh(new THREE.SphereGeometry(0.07, 10, 8), mat(0x4f9a2a, 0.7), 0.22 + Math.cos(a) * 0.05, 0.95 + (k % 2) * 0.05, -0.12 + Math.sin(a) * 0.05); h.scale.set(0.8, 1.4, 0.8); mesa.add(h); }
   bolsaCasa.position.set(0.05, 0.745, 0.05); bolsaCasa.rotation.y = -0.4; mesa.add(bolsaCasa);
   // el reloj de pared (rojo apagado: el problema)
-  relojPared.position.set(-0.92, 1.72, -2.3); relojPared.scale.setScalar(0.85); casa.add(relojPared);
+  relojPared.position.set(-0.7, 1.98, -2.3); relojPared.scale.setScalar(0.85); casa.add(relojPared);
   relojPared.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.06, 40).rotateX(Math.PI / 2), M.cr, 0, 0, 0));
   relojPared.add(mesh(new THREE.TorusGeometry(0.3, 0.05, 12, 40), M.red, 0, 0, 0.02));
   for (let k = 0; k < 12; k++) { const a = (k / 12) * Math.PI * 2; relojPared.add(mesh(rbox(0.025, k % 3 ? 0.04 : 0.07, 0.01, 0.005), M.navy2, Math.sin(a) * 0.23, Math.cos(a) * 0.23, 0.04)); relojPared.children.at(-1).rotation.z = -a; }
@@ -605,22 +605,22 @@ const CY = 0.1 + PH / 2; // centro del celular parado
 const GX = OC.x - 0.32, GZ = -0.45; // Graciela
 const PLANOS = [
   [0, [
-    [0, 5, -3, 14.8, 0, 2.85, 0, 30],
-    [S["s02-prefiere"] - 0.05, 1, -2, 14.2, 0, 2.8, 0, 30],
+    [0, 6, -3, 14.8, 0, 2.85, 0, 30],
+    [S["s02-prefiere"] - 0.05, -3, -1, 13.6, 0, 2.75, 0, 30],
     [W[13], 14, 1, 14.0, 0, 2.75, 0, 30],
     [S["s03-viajes"], 22, 3, 14.1, 0, 2.75, 0, 30],
     [S["s03-viajes"] + 0.55, 8, 3, 14.2, 0, 2.75, 0, 30],
-    [W[20] + 0.25, -2, 5, 14.0, 0.4, 3.5, 0.4, 30],
-    [W[22] + 0.12, -8, 7, 15.2, 0.0, 4.5, 0, 30],
-    [S["s04-instante"], -6, 5, 14.6, -0.8, 3.3, 0, 30],
+    [W[20] + 0.25, 2, 4, 14.2, 0.2, 3.2, 0.4, 30],
+    [W[22] + 0.12, 6, 5, 14.4, 0.4, 3.45, 0.4, 30],
+    [S["s04-instante"], -2, 4, 14.4, -0.7, 3.0, 0, 30],
     [S["s04-instante"] + 0.55, -4, 2, 14.0, -1.85, 2.7, 0, 30],
     [S["s05-aerolinea"] - 0.22, 3, 2, 13.6, -1.85, 2.7, 0, 30],
     [S["s05-aerolinea"] + 0.42, -3, 2, 14.0, 1.95, 2.7, 0, 30],
     [S["s06-mismos"] - 0.1, 2, 2, 13.5, 1.95, 2.75, 0, 30],
     [S["s06-mismos"] + 0.42, 0, 4, 18.5, 0, 2.6, 0, 30],
     [W[38] - 0.25, 0, 5, 14.8, 0, 2.6, 0.8, 30],
-    [W[40] + 0.35, 0, 7, 15.2, 0, 2.3, 0, 30],
-    [S["s07-por-que"] - 0.1, 4, 7, 14.6, 0, 2.35, 0, 30],
+    [W[40] + 0.35, 0, 7, 16.6, 0, 2.3, 0, 30],
+    [S["s07-por-que"] - 0.1, 4, 7, 15.8, 0, 2.35, 0, 30],
     [S["s07-por-que"] + 0.42, 0, 3, 10.6, 0, 2.85, 0.5, 30],
     [W[46] + 0.3, -6, 3, 10.4, 0, 2.8, 0.5, 30],
     [S["s08-ruben"] - 0.45, 5, 3, 10.0, 0, 2.8, 0.5, 30],
@@ -629,8 +629,8 @@ const PLANOS = [
   // almacén: arranca pegado a la bolsa y se abre a Rubén
   [S["s08-ruben"], [
     [S["s08-ruben"], -14, 12, 1.9, BOLSA.x, 1.16, BOLSA.z, 34],
-    [S["s08-ruben"] + 0.75, 6, 15, 3.7, OB.x + 0.56, 1.36, -1.42, 34],
-    [S["s09-no-ve"], 12, 14, 3.4, OB.x + 0.56, 1.36, -1.38, 34],
+    [S["s08-ruben"] + 0.75, 6, 24, 3.7, OB.x + 0.56, 1.3, -1.42, 34],
+    [S["s09-no-ve"], 12, 23, 3.4, OB.x + 0.56, 1.3, -1.38, 34],
   ]],
   // Graciela en su casa (contraplano)
   [S["s09-no-ve"], [
@@ -639,8 +639,8 @@ const PLANOS = [
   ]],
   // el almacén otra vez, plano general: Rubén a la izquierda, el chat a la derecha
   [S["s10-avisos"], [
-    [S["s10-avisos"], -6, 13, 6.0, OB.x + 1.0, 1.15, -1.3, 34],
-    [S["s12-se-vea"], 4, 13, 5.6, OB.x + 0.98, 1.15, -1.3, 34],
+    [S["s10-avisos"], -6, 9, 6.8, OB.x + 0.98, 1.15, -1.3, 34],
+    [S["s12-se-vea"], 4, 9, 6.4, OB.x + 0.96, 1.15, -1.3, 34],
   ]],
   [S["s12-se-vea"], [
     [S["s12-se-vea"], 8, 6, 5.2, GX + 0.46, 1.16, GZ, 34],
@@ -724,7 +724,7 @@ function zonaA(t) {
     const buscando = tx === PANT.buscando;
     rueda1.visible = buscando; if (buscando) girarRueda(rueda1, t);
     // tildes del gancho: la 1 ya puesta, la 2 en "buscando", 3 y 4 en s02
-    const tt = [-1, W[8] - 0.04, W[11] + 0.05, W[15] - 0.05];
+    const tt = [-1, W[3] - 0.02, W[8] - 0.04, W[11] + 0.02];
     tildes1.forEach((k, i) => ocultar(k, buscando ? (i === 0 ? 1 : popIn(t, tt[i])) : 0));
     // cierre: los cuatro estados del pedido se tildan en fila y la tilde grande reemplaza a la rueda
     const t0 = S["s13-llamada"];
@@ -744,11 +744,11 @@ function zonaA(t) {
       const u = t - tg;
       const sq = u > 0 ? Math.exp(-u * 9) * Math.sin(u * 30) * 0.3 : 0;
       P1.g.updateMatrixWorld(true);
-      const lp = V(0.02, -1.62, PD / 2 + 0.07 + (1 - baja * baja) * 3.2);
+      const lp = V(0.02, -1.62 + (1 - baja * baja) * 0.6, PD / 2 + 0.07 + (1 - baja * baja) * 1.1);
       sello.position.copy(P1.g.localToWorld(lp));
       sello.quaternion.copy(P1.g.quaternion).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0.13 - (1 - baja) * 0.3)));
       const sal = sg(t, S["s03-viajes"] - 0.12, S["s03-viajes"] + 0.02);
-      const k = (1 + sq * 0.4) * (1 - 0.6 * sal) * lerp(1.5, 1, baja);
+      const k = (1 + sq * 0.4) * (1 - 0.6 * sal) * lerp(1.15, 1, baja);
       sello.scale.set(k, k, Math.max(0.4, 1 - sq));
       if (sal >= 1) sello.visible = false;
     }
@@ -759,12 +759,12 @@ function zonaA(t) {
     const vis = on && !cierre && t > t0 && t < t1;
     avion.visible = vis; sombraAvion.visible = vis;
     if (vis) {
-      const curva = new THREE.CatmullRomCurve3([V(0, 2.9, 0.3), V(0.3, 3.5, 2.6), V(1.1, 4.4, 4.2), V(1.3, 5.5, 2.4), V(-0.4, 6.3, -0.4), V(-4, 7.2, -2.2)]);
+      const curva = new THREE.CatmullRomCurve3([V(0, 2.9, 0.3), V(0.2, 3.2, 2.0), V(-0.3, 3.5, 3.8), V(0.3, 3.9, 4.6), V(2.0, 4.4, 4.4), V(4.6, 5.0, 3.0)]);
       const u = eio(sg(t, t0, t1)) * 0.97;
       const p = curva.getPointAt(u), q = curva.getPointAt(Math.min(1, u + 0.02));
       avion.position.copy(p); avion.lookAt(q);
-      avion.rotateZ(-0.55 * Math.sin(Math.PI * cl(u * 1.3)));
-      avion.scale.setScalar(lerp(0.25, 1.2, eo(sg(t, t0, t0 + 0.35))));
+      avion.rotateZ(0.5 * Math.sin(Math.PI * cl(u * 1.1)));
+      avion.scale.setScalar(lerp(0.2, 1.1, eo(sg(t, t0, t0 + 0.4))));
       sombraAvion.position.set(p.x, 0.005, p.z); sombraAvion.material.opacity = cl(1 - (p.y - 3) / 4) * 0.8;
     }
   }
@@ -847,13 +847,13 @@ function zonaA(t) {
     if (vis) {
       const sal = eo(sg(t, t0, t0 + 0.3)), jn = eio(sg(t, junta - 0.25, junta + 0.2));
       [[pasA, -1, L], [pasB, 1, R]].forEach(([c, s, P]) => {
-        const scr = V(P.x, CY + 0.2, 0.3), frente = V(P.x * 0.9, CY + 0.15, 1.6), centro = V(s * 0.92, 2.6, 3.2);
+        const scr = V(P.x, CY + 0.2, 0.3), frente = V(P.x * 0.9, CY + 0.15, 1.8), centro = V(0, 2.6 - s * 0.76, 3.2);
         const plato = platoC(s).add(V(s * -0.05 + (s < 0 ? -0.18 : 0.18), 0.22, 0.05));
         let p = lerpV(scr, frente, sal); p = lerpV(p, centro, jn);
         p = lerpV(p, plato, cae); p.y += Math.sin(Math.PI * cae) * 0.9;
         c.position.copy(p);
         c.rotation.set(lerp(0, -1.1, cae), Math.sin(t * 1.3 + s) * 0.08 * (1 - cae) + lerp(0, s * -0.25, cae), s * 0.04 * (1 - jn));
-        let k = lerp(0.4, 1.15, sal) * lerp(1, 0.85, cae);
+        let k = lerp(0.4, 1.6, sal) * lerp(1, 0.53, cae);
         if (t > S["s07-por-que"] - 0.05) k *= 1 - 0.6 * sg(t, S["s07-por-que"] - 0.05, S["s07-por-que"] + 0.1);
         c.scale.setScalar(k);
       });
@@ -992,10 +992,10 @@ function personajes(t) {
       p.o.visible = on;
       if (!on) return;
       const u = sg(t, ti - 0.3, ti);
-      const alto = p.fin.clone().add(V(0, 0.55, 0.05));
+      const alto = p.fin.clone().add(V(0, 0.45, 0));
       p.o.position.copy(lerpV(alto, p.fin, u * u));
       p.o.rotation.set(p.rot.x, p.rot.y + (1 - u) * 0.8, p.rot.z);
-      const s = lerp(0.4, 1, bk(sg(t, ti - 0.3, ti - 0.05)));
+      const s = 1.2 * lerp(0.4, 1, bk(sg(t, ti - 0.3, ti - 0.05)));
       const rb = t > ti ? Math.exp(-(t - ti) * 10) * Math.sin((t - ti) * 26) * 0.06 : 0;
       p.o.scale.set(s, s * (1 - rb), s);
     });
@@ -1032,10 +1032,9 @@ function personajes(t) {
     let ob = null;
     tp.forEach((ti, i) => { const u = sg(t, ti - 0.32, ti + 0.18); if (u > 0 && u < 1) ob = { i, u }; });
     if (ob && t < S["s09-no-ve"]) {
-      const p = productos[ob.i].o.getWorldPosition(new THREE.Vector3());
-      const tgt = ruben.cuerpo.worldToLocal(p.lerp(bolsaBoca, 0.3));
+      const tgt = ruben.cuerpo.worldToLocal(bolsaBoca.clone().add(V(0.06, 0.02, -0.06)));
       const k = Math.sin(Math.PI * ob.u);
-      const lado = ob.i % 2 ? "manoI" : "manoD";
+      const lado = "manoD";
       pr = { ...pr, [lado]: mezclar(pr[lado], [tgt.x, tgt.y, tgt.z], k) };
     }
     const cierraM = sg(t, W[74] - 0.45, W[74] + 0.35);
