@@ -129,7 +129,7 @@ const vacia = (id, sfx) => escena(id, { html: `<i></i>`, js: ``, sfx });
       <div class="h h3">${marca("“buscando”")}?</div>`,
     js: `
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
-      late(".h3 .mk", ${r2(w(id, 8))}, 1.12);
+      late(".h3 .mk", ${r2(w(id, 8))}, 1.05);
       // el gancho se va (4-5 cuadros) antes de que entre el primer subtítulo
       tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.3)});`,
     sfx: [
@@ -151,7 +151,7 @@ vacia("s02-prefiere", [
 {
   const id = "s03-viajes";
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
+    css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 44px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
     html: `<div class="cred">Experimento · Buell y Norton, 2011</div>`,
     js: `tl.set(q(".cred"), { opacity: 1 }, ${r2(w(id, 17))}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(w(id, 17))}); fuera(".cred", ${r2(ESC[id] - 0.25)}, 0.1);`,
     sfx: [
@@ -166,8 +166,8 @@ vacia("s02-prefiere", [
 {
   const id = "s04-instante";
   escena(id, {
-    html: `${pill(1, 300, 1590, "Al instante", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 28))}); sinNota(1, ${r2(ESC[id] - 0.28)});`,
+    html: `${pill(1, 200, 1190, "Al instante", "lleno")}`,
+    js: `nota(1, ${r2(w(id, 28))}); tl.set(qa(".n1"), { opacity: 0 }, ${r2(ESC[id] - 0.01)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.14 }, { t: 0.18, sfx: "pop", vol: 0.08 },
       { t: 0.05, sfx: "pop", vol: 0.12 }, { t: 0.06, sfx: "click-soft", vol: 0.14 },
@@ -181,8 +181,8 @@ vacia("s02-prefiere", [
   const id = "s05-aerolinea";
   const tt = [0.25, w(id, 32) + 0.05, w(id, 34) - 0.02, w(id, 35) - 0.12, w(id, 35) + 0.3];
   escena(id, {
-    html: `${pill(1, 560, 1668, "Se ve el trabajo", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 34) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
+    html: `<i></i>`,
+    js: ``,
     sfx: [
       { t: -0.2, sfx: "whoosh-short", vol: 0.14 }, { t: 0.08, sfx: "pop", vol: 0.09 },
       { t: w(id, 31) - 0.05, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 31) + 0.3, sfx: "sello", vol: 0.16 },
@@ -234,7 +234,7 @@ vacia("s02-prefiere", [
     html: `${pill(1, 300, 640, "Rubén", "nom")}${pill(2, 540, 1600, "Pedido de Graciela", "lleno grande")}`,
     js: `pop(".n1", 0.1); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1); pop(".n2", ${r2(w(id, 55))}); fuera(".n2", ${r2(ESC[id] - 0.3)}, 0.1);`,
     sfx: [
-      { t: -0.04, sfx: "campanita", vol: 0.22, max: 1.0 }, { t: 0.1, sfx: "papel", vol: 0.3, max: 0.6 },
+      { t: 0.1, sfx: "papel", vol: 0.3, max: 0.6 },
       ...[53, 54, 55, 57].flatMap((i, k) => [{ t: r2(w(id, i) - 0.05 - 0.3), sfx: "pop", vol: 0.08 }, { t: r2(w(id, i) - (k === 3 ? 0.02 : 0.05)), sfx: k % 2 ? "burbuja" : "papel", vol: k % 2 ? 0.2 : 0.22, max: 0.4 }]),
       { t: w(id, 55), sfx: "pop", vol: 0.09 },
     ],
@@ -246,7 +246,7 @@ vacia("s02-prefiere", [
   const id = "s09-no-ve";
   escena(id, {
     css: `P .nom { font-size: 44px; padding: 12px 28px 13px; }`,
-    html: `${pill(1, 250, 1600, "Sin noticias", "rl grande")}`,
+    html: `${pill(1, 760, 1690, "Sin noticias", "rl")}`,
     js: `nota(1, ${r2(w(id, 66) + 0.02)}); sinNota(1, ${r2(ESC[id] - 0.25)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.14 }, { t: 0.12, sfx: "pop", vol: 0.08 },
@@ -312,7 +312,7 @@ vacia("s12-se-vea", [
     sfx: [
       { t: -0.4, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 },
       ...[0, 1, 2, 3].map((k) => ({ t: r2(0.12 + k * 0.13), sfx: "tic-real", vol: 0.18 })), { t: 0.72, sfx: "ding", vol: 0.08, max: 0.8 },
-      { t: w(id, 85) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.09, max: 1.8 }, { t: w(id, 87) - 0.03, sfx: "click-soft", vol: 0.08 },
+      { t: w(id, 85) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 87) - 0.03, sfx: "click-soft", vol: 0.08 },
     ],
   });
 }
