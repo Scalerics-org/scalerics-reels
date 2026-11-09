@@ -896,7 +896,7 @@ function zonaA(t) {
       contador.material = n === 0 ? M.red : MC;
       const ultimo = salida(11 - n) + 0.08;
       const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.12, 0.15) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
-      contador.scale.setScalar(k); contador.visible = k > 0.06; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 2.15, eio(sg(t, T.cero - 0.1, T.cero + 0.25))), 0.4); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
+      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 2.15, eio(sg(t, T.cero - 0.1, T.cero + 0.25))), 0.4); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
     }
     const vn = A && t > T.notita;
     notita.visible = vn;
@@ -1040,7 +1040,7 @@ function zonaB(t) {
       tildeG.visible = t > T.encuentra;
       if (tildeG.visible) {
         const der = V(1, 0, 0).applyQuaternion(camera.quaternion), arr = V(0, 1, 0).applyQuaternion(camera.quaternion);
-        graciela.cabeza.getWorldPosition(_v); tildeG.position.copy(_v).addScaledVector(arr, 0.5).addScaledVector(der, 0.05); tildeG.quaternion.copy(camera.quaternion); tildeG.scale.setScalar(popIn(t, T.encuentra, 0.3));
+        graciela.cabeza.getWorldPosition(_v); tildeG.position.copy(_v).addScaledVector(arr, 0.22).addScaledVector(der, 0.42); tildeG.quaternion.copy(camera.quaternion); tildeG.scale.setScalar(popIn(t, T.encuentra, 0.3));
       }
     }
     if (lentesG.length === 2) {
