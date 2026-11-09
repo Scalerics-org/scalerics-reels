@@ -21,7 +21,7 @@ const T = {
   b1: 0.3,                                // "Rubén… dice acá que cerraste."
   dolly: [1.2, 2.2],                       // el celular baja y la cámara va hacia Rubén
   p2: 2.2, senala: 2.45, sorbo: 2.95,      // primer plano: se señala con el mate, sorbe
-  p3: 3.3, p3b: 4.45, entra: [3.35, 4.3], b2: 3.65, c3: 4.1, apoya: 4.5, mano: [4.6, 5.1], aCam: 4.85,
+  p3: 3.3, p3b: 4.15, entra: [3.35, 4.3], b2: 3.65, c3: 4.2, apoya: 4.5, mano: [4.6, 5.1], aCam: 4.85,
   p4: 5.1, corona: 5.2, push: [5.4, 6.5], c7: 5.55, c12: [5.95, 6.3],
   p5: 6.7, panuelo: 6.9, b3: 7.1,
   p6: 8.4, corte: 8.4, giraCab: [8.45, 9.0], pushIn: [9.05, 9.35],
