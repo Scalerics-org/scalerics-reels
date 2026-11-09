@@ -89,3 +89,19 @@ inventada (el experimento usó una página simulada).
 - **Que algún buscador de vuelos real lo use hoy**: fuentes contradictorias; además no nombramos marcas. Afuera.
 - **"22 % mejor" y "10 % más satisfacción" del estudio del comedor**: cifras de prensa, no del paper. Afuera.
 - **"Harvard" en la voz**: se puede poner como crédito chico en pantalla, no en la locución.
+
+## Sonido (constructor, 09-11)
+- Sin descargas nuevas: todo sale de otros reels del repo, con su origen ya anotado (nada sintetizado con ffmpeg).
+- `tic-real.mp3` / `tac-real.mp3` (filas que se tildan, reloj de pared, pasos de Nico): recortes de "Clock ticking",
+  olver, Freesound, CC0 1.0 (https://freesound.org/people/olver/sounds/130388/), de reels/las-siete-y-cincuenta-y-nueve.
+- `sello.mp3` (sello PREFERIDA, MISMO RESULTADO, golpes en la balanza y en la lupa): "Stamp", kermite607, Freesound,
+  CC0 1.0 (https://freesound.org/people/kermite607/sounds/362624/).
+- `papel.mp3` (la bolsa, las tarjetas de embarque): "Paper slide", Kingofgamers_cz, Freesound, CC0 1.0
+  (https://freesound.org/people/Kingofgamers_cz/sounds/352914/).
+- `campanita.mp3` (puerta del almacén): "Shop door bell.wav", 775noise, Freesound, CC0 1.0
+  (https://freesound.org/people/775noise/sounds/494565/).
+- `burbuja.mp3` (productos, respuesta de Graciela): "Bubble Pop", Mafon2, Freesound, CC0 1.0
+  (https://freesound.org/people/Mafon2/sounds/253956/).
+- El resto: los efectos de siempre del repo (whoosh-short, whoosh-cine-corto, whoosh-cinematic, pop, tic, flash,
+  click-soft, key-press, ding, chime, sparkle, notification, impact-bass-1, riser-corto) y la música `bgm/bed.mp3`
+  (la de por-que-el-final / por-que-dos-sellos). No se usa `golpe.mp3` (sin licencia anotada en el repo).

@@ -485,7 +485,7 @@ const bolsaCasa = new THREE.Group();
   for (let k = 0; k < 6; k++) { const a = k * 1.05; const h = mesh(new THREE.SphereGeometry(0.07, 10, 8), mat(0x4f9a2a, 0.7), 0.22 + Math.cos(a) * 0.05, 0.95 + (k % 2) * 0.05, -0.12 + Math.sin(a) * 0.05); h.scale.set(0.8, 1.4, 0.8); mesa.add(h); }
   bolsaCasa.position.set(0.05, 0.745, 0.05); bolsaCasa.rotation.y = -0.4; mesa.add(bolsaCasa);
   // el reloj de pared (rojo apagado: el problema)
-  relojPared.position.set(-0.5, 2.1, -2.3); relojPared.scale.setScalar(0.85); casa.add(relojPared);
+  relojPared.position.set(-0.6, 1.98, -2.3); relojPared.scale.setScalar(0.7); casa.add(relojPared);
   relojPared.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.06, 40).rotateX(Math.PI / 2), M.cr, 0, 0, 0));
   relojPared.add(mesh(new THREE.TorusGeometry(0.3, 0.05, 12, 40), M.red, 0, 0, 0.02));
   for (let k = 0; k < 12; k++) { const a = (k / 12) * Math.PI * 2; relojPared.add(mesh(rbox(0.025, k % 3 ? 0.04 : 0.07, 0.01, 0.005), M.navy2, Math.sin(a) * 0.23, Math.cos(a) * 0.23, 0.04)); relojPared.children.at(-1).rotation.z = -a; }
@@ -644,7 +644,7 @@ const PLANOS = [
   ]],
   [S["s12-se-vea"], [
     [S["s12-se-vea"], 8, 6, 5.2, GX + 0.46, 1.16, GZ, 34],
-    [S["s13-llamada"], 0, 6, 4.6, GX + 0.42, 1.2, GZ, 34],
+    [S["s13-llamada"], 0, 6, 4.95, GX + 0.44, 1.18, GZ, 34],
   ]],
   // cierre: el celular del gancho abajo (callback), el texto arriba, fondo verde
   [S["s13-llamada"], [
@@ -1092,9 +1092,9 @@ function chat(t) {
   const pop = 1 + 0.04 * TV.reduce((a, ti) => a + pulso(t, ti, 0.22), 0) + 0.04 * pulso(t, tGracias, 0.22);
   // en el almacén (plano 3) se achica a la esquina de abajo a la derecha para que se vea Rubén; en la casa vuelve grande
   const chico = planoActual === 3 ? eio(sg(t, S["s10-avisos"], S["s10-avisos"] + 0.35)) : planoActual === 4 ? 1 - eio(sg(t, S["s12-se-vea"], S["s12-se-vea"] + 0.35)) : 0;
-  telefono.position.set(lerp(0.075, 0.098, chico) * kf, (lerp(-0.03, -0.068, chico) - (1 - ent) * 0.45) * kf, -1);
+  telefono.position.set(lerp(0.075, 0.09, chico) * kf, (lerp(-0.03, -0.058, chico) - (1 - ent) * 0.45) * kf, -1);
   telefono.rotation.set(-0.04, -0.14 + Math.sin(t * 0.8) * 0.05, Math.sin(t * 0.6) * 0.012 + (1 - ent) * 0.2);
-  telefono.scale.setScalar(lerp(0.15, 0.118, chico) * kf * pop);
+  telefono.scale.setScalar(lerp(0.15, 0.13, chico) * kf * pop);
   let n = 0; TV.forEach((ti, i) => { if (t >= ti) n = i + 1; });
   if (t >= tGracias) n = 5;
   const tx = CHATS[n];
