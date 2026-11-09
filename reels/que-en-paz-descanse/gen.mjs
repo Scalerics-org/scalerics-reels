@@ -247,12 +247,11 @@ s("sfx/vibra.wav", T.vibra, 0, { dur: 0.75, fin: 0.08, techo: -32 });
 s("sfx/notification.mp3", T.notif, 0, { techo: -36 });
 s("sfx/key-press.mp3", T.c13, 0, { desde: 0.07, techo: -34 });
 s("sfx/tuba.mp3", T.c13 + 0.05, 0, { desde: 0.19, techo: -31 });
-s("sfx/papel.wav", T.muerde, 0, { dur: 0.22, fin: 0.06, techo: -36 });                 // crujido del bizcocho
+s("sfx/papel.wav", T.muerde - 0.12, 0, { dur: 0.22, fin: 0.06, techo: -36 });                 // crujido del bizcocho
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
 s("voice/narrador.wav", P1 + 0.3, 0, { voz: true });
-s("sfx/whoosh-short.mp3", P1 + 2.75, 0, { techo: -42 });   // el zoom del texto del cartel
 s("sfx/calle.wav", P2 - 1.05, -6, { desde: 5, dur: 1.1, fi: 0.35, fin: 0.05, techo: -40, lp: 1800 });   // cama mínima bajo el final del cartel (sin silencio digital)   // sin silencio digital entre el narrador y el iris
 s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
@@ -263,7 +262,7 @@ s("sfx/pop.mp3", T.ficha, 0, { desde: 0.11, techo: -37 });
 s("sfx/click-soft.mp3", T.tap, 0, { techo: -35 });
 s("sfx/pop.mp3", T.web, 0, { desde: 0.11, techo: -34 });   // la web abre entera
 s("sfx/pop.mp3", T.c0, 0, { desde: 0.11, techo: -37 });
-s("sfx/papel.wav", T.c0 + 0.08, 0, { dur: 0.2, fin: 0.06, techo: -36 });   // la raya que tacha el 13
+s("sfx/papel.wav", T.c0 - 0.03, 0, { dur: 0.2, fin: 0.06, techo: -36 });   // la raya que tacha el 13
 s("sfx/cero.mp3", T.c0 + 0.25, 0, { techo: -33 });                          // el 0 verde
 s("sfx/campanita.wav", T.entra2[0], 0, { techo: -32 });
 for (let t = T.entra2[0] + 0.15; t < T.entra2[1]; t += 0.3) s("sfx/tac-real.mp3", t, 0, { techo: -40 });

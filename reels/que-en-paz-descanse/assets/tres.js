@@ -277,8 +277,8 @@ const CELU_INS = V3(RI.x + 0.12, MOSTRADOR.y + 0.008, -1.3);
 const fotoCanvas = document.createElement("canvas"); fotoCanvas.width = fotoCanvas.height = 256;
 {
   const fs = new THREE.Scene(); fs.background = new THREE.Color(0xefeee5);
-  fs.add(new THREE.HemisphereLight(0xffffff, 0x8a7a68, 1.1));
-  const d = new THREE.DirectionalLight(0xffffff, 1.3); d.position.set(1, 2, 3); fs.add(d);
+  fs.add(new THREE.HemisphereLight(0xffffff, 0xb8a890, 2.4)); fs.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const d = new THREE.DirectionalLight(0xffffff, 2.2); d.position.set(1, 2, 3); fs.add(d);
   const prev = ruben.raiz.parent; fs.add(ruben.raiz);
   ruben.poner({ x: 0, z: 0, giro: 0, ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.35, x: 0, y: 0 }, manoD: [-0.12, 0.4, 0.3], codoD: [-1, -0.5, 0], t: 1.5 });
   const m2 = crearMate(); m2.scale.setScalar(1.25); fs.add(m2); ruben.raiz.updateMatrixWorld(true);
@@ -588,7 +588,7 @@ const PLANOS = [
   [T.p8, [[T.p8, RI.x + 0.08, 2.55, 1.25, RI.x + 0.02, 0.95, -1.4, 56], [P1, RI.x + 0.1, 2.56, 1.3, RI.x + 0.02, 0.95, -1.4, 56]]],
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   [P2, kP1(P2, T.q2, false)],
-  [T.q2, [[T.q2, 0.1, 1.75, -2.4, 0.2, 1.2, 0.6, 48], [T.q2 + 0.45, 0.07, 1.75, -2.37, 0.05, 1.2, 0.6, 48], [T.q3 - 0.4, 0.05, 1.74, -2.32, -0.4, 1.2, 0.6, 48], [T.q3, 0.05, 1.74, -2.3, -0.45, 1.2, 0.6, 48]]],
+  [T.q2, [[T.q2, 0.1, 1.75, -2.4, 0.2, 1.2, 0.6, 48], [T.q2 + 0.45, 0.07, 1.75, -2.37, 0.05, 1.2, 0.6, 48], [T.q3 - 0.75, 0.05, 1.74, -2.32, -0.62, 1.2, 0.6, 48], [T.q3, 0.05, 1.74, -2.3, -0.66, 1.2, 0.6, 48]]],
   [T.q3, kP6(T.q3, T.q4)],
   [T.q4, "celu"],
   // Q5 · primer plano de Rubén, push-in lento: el cuello de la camisa, el guiño
@@ -655,7 +655,7 @@ const RK = [
   [T.voz1 + 1.5, { cejas: { alto: 0.3, ang: 0.7 } }, 0.3],
   // P8: mira al techo, resignado; agarra el bizcocho sin bajar la vista
   [T.p8 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, cabeza: { giro: 0.05, asiente: -0.4, ladea: 0.06 }, ojos: { x: 0, y: 0.95, abiertos: 0.85, tension: 0.4 }, cejas: { alto: 0.55, ang: 0.7 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.9 } }, 0.001],
-  [T.muerde - 0.05, { cabeza: { giro: 0.03, asiente: 0.1, ladea: 0.03 }, ojos: { y: 0.3, abiertos: 0.75 } }, 0.35],
+  [T.muerde - 0.05, { cabeza: { giro: 0.28, asiente: 0.16, ladea: 0.06 }, ojos: { x: 0.3, y: 0.2, abiertos: 0.75 } }, 0.35],
   [T.muerde + 0.3, { cabeza: { giro: 0.05, asiente: -0.3, ladea: 0.06 }, ojos: { y: 0.9, abiertos: 0.85 } }, 0.3],
   // ---- parte 2 ----
   [P2 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, ...aC(-0.28, 0.02), ...CARA.sonrisa, ojos: { x: -0.3, y: 0, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.2, ang: 0 }, boca: { sonrisa: 0.8 } }, 0.001],
@@ -686,7 +686,7 @@ const GK = [
   // P8: de vuelta en su lugar, triste, el pañuelo en la mano
   [T.p8 - 0.001, { x: G0.x, z: G0.z, giro: G_GIRO, ...BRAZOS.costado, ...aC(0.0, 0.1), ...CARA.resignado, ojos: { abiertos: 0.7 } }, 0.001],
   // ---- parte 2: entra contenta con el celular en alto ----
-  [T.q2 - 0.001, { x: 0.34, z: FZ + 0.5, giro: Math.PI, paso: 1, ...BRAZOS.costado, manoD: [-0.36, 0.6, 0.3], codoD: [-1, -0.2, 0.2], ...aC(0, -0.05), ...CARA.feliz }, 0.001],
+  [T.q2 - 0.001, { x: 0.34, z: FZ - 0.25, giro: Math.PI, paso: 1, ...BRAZOS.costado, manoD: [-0.36, 0.6, 0.3], codoD: [-1, -0.2, 0.2], ...aC(0, -0.05), ...CARA.feliz }, 0.001],
   [T.entra2[0] + 0.45, { x: 0.3, z: 0.3 }, 0.6, (u) => u],
   [T.entra2[1], { x: G0.x, z: G0.z, giro: G_GIRO, paso: 0 }, T.entra2[1] - T.entra2[0] - 0.45],
   [T.b4 + 0.5, { manoD: [-0.28, 0.5, 0.32] }, 0.35],
@@ -757,9 +757,10 @@ function ponerPersonajes(t, plano) {
     pr.manoI = [0.2, 0.34, 0.4]; pr.codoI = [1, -0.6, -0.2];
     if (u > 0) {
       ruben.poner(pr);
-      const obj = bocaMundo(ruben, 0.075, V3()).sub(BIZ_EN_MANO);
+      // la medialuna llega a la comisura izquierda desde abajo y el costado; la cabeza gira hacia la mano (el antebrazo no cruza la cara)
+      const obj = bocaMundo(ruben, 0.06, V3()).add(V3(0.07, -0.01, 0)).sub(BIZ_EN_MANO);
       const p1 = manoA(ruben, { ...pr }, "I", obj);
-      pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pr.codoI = [1, -0.7, -0.1];
+      pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pr.codoI = [1, -0.9, 0.1];
     }
   }
   if (t >= T.muerde && t < P1) pr.boca = { ...pr.boca, abierta: 0.12 * pulso(t, T.muerde, 0.18), sonrisa: -0.3 };
@@ -888,7 +889,8 @@ function renderAt(tIn) {
     ponerGlobo(GL.cerraste, 540, 200, plano === "P1" ? ent(T.b1) * (1 - eio(sg(t, 1.85, 2.05))) : 0, [330, 900]);
     // "Mi más sentido pésame, Rubén." (arriba de Marta, debajo del contador)
     if (plano === "P3" && t >= T.b2) { const [hx, hy] = cab(marta); ponerGlobo(GL.pesame, 560, 300, ent(T.b2), [hx, hy - 150]); }
-    else if (plano === "P3b") ponerGlobo(GL.pesame, 720, 425, 1, [1080, 900]); else GL.pesame.visible = false;
+    else if (plano === "P3b") ponerGlobo(GL.pesame, 760, 425, 1, [1400, 640]); // la cola hacia la derecha, afuera de cuadro (habla Marta, no Rubén)
+    else GL.pesame.visible = false;
     if (plano === "P5" && t >= T.b3) { const [hx, hy] = cab(graciela); ponerGlobo(GL.era, 700, 435, ent(T.b3), [hx + 40, hy - 250]); } else GL.era.visible = false;
     if (plano === "Q2" && t >= T.b4) { const [hx, hy] = cab(graciela); ponerGlobo(GL.abierto, Math.min(hx, 680), Math.min(470, hy - 300), ent(T.b4), [hx, hy - 120]); } else GL.abierto.visible = false;
   }

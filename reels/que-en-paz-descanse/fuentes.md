@@ -20,7 +20,7 @@ reels/abren-hoy-completo/fuentes.md y reels/las-siete-y-cincuenta-y-nueve/fuente
   tramo muy bajo bajo el final del cartel para que no quede silencio digital antes del iris.
 - Música: "Pizzicato Intrigue" (younoise), `bgm/pizzicato.wav`; arranca desde 0,6 s del archivo para que en 8,4 s
   esté sonando una nota y el corte seco se oiga; vuelve en la parte 2 (baja 9 dB mientras habla Rubén).
-- Campanita de la puerta (entra Marta, entra Graciela, el cierre): `campanita.wav`, "Shop door bell.wav", 775noise.
+- Campanita de la puerta (entra Marta, entra Graciela): `campanita.wav`, "Shop door bell.wav", 775noise.
 - Pop de las burbujas: `burbuja.mp3` (Mafon2).
 - Sorbo de mate: `sorbo.wav` (Abir19).
 - Vibración del celular de Rubén: `vibra.wav` (SpliceSound).
@@ -40,6 +40,6 @@ reels/abren-hoy-completo/fuentes.md y reels/las-siete-y-cincuenta-y-nueve/fuente
 ## Mezcla (gen.mjs)
 Techo por efecto de -31 LUFS (más bajo en golpes secos y en los que caen cerca de una voz), la cama (música + calle)
 con techo propio; voces con compresor suave (5:1) y recorte de picos antes de la suma; normalización lineal con
-limitador sobremuestreado. Medido (MEDIR=1, por tramos de 0,5 s): la voz queda 16 LU o más por encima del resto
+limitador sobremuestreado. Medido (MEDIR=1, por tramos de 0,5 s): la voz queda 14 LU o más por encima del resto
 mientras habla (Rubén y el narrador del cartel). Mezcla: -15,6 LUFS, pico -3,3 dBFS (el loudnorm del paso 10 la
 lleva a -14).
