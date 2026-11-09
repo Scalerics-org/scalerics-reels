@@ -585,7 +585,7 @@ const T = {
   vuelta: S["s03-marca"] - 0.05, cae: S["s03-marca"] + 0.12, espera: W[23] - 0.05,
   nueve: Math.max(W[25] - 0.05, S["s04-nada"] + 0.45), esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
-  preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.5,
+  preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.3,
   flipMar: S["s09-aviso"] + 0.3, avisa: W[65] - 0.05, quedan: W[66] - 0.03, pide: W[70] + 0.02,
   cajaCae: W[70] + 0.42, flipSab: S["s11-encuentra"] - 0.4, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
 };
@@ -599,17 +599,17 @@ const PLANOS = [
   [0, "A", [
     [0, 0, 3, 16.0, 0, 3.21, 0, 30],
     [T.sube, -2, 3, 15.3, 0, 3.3, 0.2, 30],
-    [S["s02-otro-lado"], -3, 3, 13.0, 0, 3.0, 1.8, 30],
-    [T.vuela, 0, 3, 12.4, 0, 2.9, 2.6, 30],
-    [T.vuela + 0.3, 6, 4, 11.0, XP * 0.75, 3.0, 1.0, 30],
+    [S["s02-otro-lado"], -2, 3, 13.4, 0, 3.0, 2.6, 30],
+    [T.vuela, 0, 3, 13.0, 0, 3.0, 2.6, 30],
+    [T.vuela + 0.32, 6, 4, 11.0, XP - 0.3, 3.1, 0.8, 30],
     [T.vuela + 0.6, 8, 4, 11.0, XP - 0.4, 3.2, 0.6, 30],
     [T.entra + 0.2, 4, 4, 10.6, XP - 0.1, 3.2, 0.4, 30],
     [T.vuelta, 0, 4, 10.2, XP + 0.05, 3.15, 0.4, 30],
   ]],
   // corte seco (whoosh) a la canasta y el almanaque
   [T.vuelta, "A", [
-    [T.vuelta, -3, 5, 9.0, XG + 0.06, 1.25, 0.2, 30],
-    [S["s04-nada"], -1, 5, 8.7, XG + 0.06, 1.25, 0.2, 30],
+    [T.vuelta, -3, 5, 9.6, XG - 0.05, 1.3, 0.2, 30],
+    [S["s04-nada"], -1, 5, 9.3, XG - 0.05, 1.3, 0.2, 30],
   ]],
   // corte seco a la canasta roja (sin paneo vacío)
   [S["s04-nada"], "A", [
@@ -635,8 +635,8 @@ const PLANOS = [
     [S["s09-aviso"], 6, 7, 6.6, OB.x + 0.0, 1.05, -0.7, 34],
   ]],
   [S["s09-aviso"], "B2", [
-    [S["s09-aviso"], 6, 7, 5.0, OB.x + 0.4, 1.05, -1.0, 34],
-    [T.flipMar + 0.15, 3, 8, 4.7, OB.x + 0.2, 1.07, -1.05, 34],
+    [S["s09-aviso"], 6, 7, 5.2, OB.x + 0.55, 1.05, -1.0, 34],
+    [T.flipMar + 0.15, 3, 8, 4.9, OB.x + 0.45, 1.07, -1.05, 34],
     [T.avisa - 0.1, 16, 16, 2.8, OB.x - 0.2, 1.3, -1.2, 34],
     [T.cortePila, 16, 16, 2.6, OB.x - 0.18, 1.3, -1.2, 34],
   ]],
@@ -700,15 +700,17 @@ function ponerCamara(t) {
 // ================= ZONA A en el tiempo =================
 const HUECO_P = V(xCol(HUECO.c), GD.baldas[HUECO.b], 0.2); // donde estaba el paquete que falta
 const FLOTA = V(0, 2.75, 1.2); // frente al hueco
-const GRANDE = V(0, 1.75, 2.6), KG = 2.2; // el paquete gigante (escala)
+const GRANDE = V(0, 1.55, 2.6), KG = 3.0; // el paquete gigante (escala)
 const PUERTA = V(XP, 0.25, 0.7);
 const TAJ_K = V(XG - 2.4, 2.4, 1.0); // donde quedan flotando las tajadas que no se fueron
-const GAP = 0.09; // separación entre tajadas (local)
+const GAP = 0.075; // separación entre tajadas (local)
 const xTaj = (i) => ((CORTES[i] + CORTES[i + 1]) / 2 - 0.5) * PKG.w;
 function zonaA(t) {
   const A = plano === "A", A2 = plano === "A2", FIN = plano === "FIN", enA = A || A2 || FIN;
   piso.visible = A || A2;
-  gondola.visible = enA; sombraGond.visible = enA; sombraGond.position.set(0, 0.006, 0.1);
+  const baja = A && t < T.grua ? eio(sg(t, S["s02-otro-lado"] - 0.42, S["s02-otro-lado"] - 0.14)) : 0;
+  gondola.position.y = -6.5 * baja;
+  gondola.visible = enA && baja < 0.99; sombraGond.visible = enA && baja < 0.3; sombraGond.position.set(0, 0.006, 0.1);
   // ---- la góndola: el precio del hueco tiembla en "No había"; en el callback el hueco está lleno ----
   const lleno = A2 || FIN;
   repuestos.forEach((p) => { p.visible = lleno; p.scale.setScalar(1); });
@@ -725,7 +727,7 @@ function zonaA(t) {
     grande.visible = vis; sombraGrande.visible = vis && t > S["s02-otro-lado"] && t < T.grua;
     if (vis) {
       const sale = eio(sg(t, T.sube, T.sube + 0.45));
-      const crece = eio(sg(t, S["s02-otro-lado"] - 0.15, S["s02-otro-lado"] + 0.3));
+      const crece = eio(sg(t, S["s02-otro-lado"] - 0.4, S["s02-otro-lado"] + 0.1));
       let p = lerpV(HUECO_P.clone().add(V(0, 0.02, 0)), FLOTA, sale);
       p = lerpV(p, GRANDE, crece);
       p.y += Math.sin(t * 2.2) * 0.04 * (1 - crece);
@@ -899,15 +901,16 @@ function zonaA(t) {
       let n = 12; for (let i = 0; i < 12; i++) if (t >= salida(i) + 0.08) n = 11 - i;
       if (contador.geometry !== numGeo[n]) contador.geometry = numGeo[n];
       contador.material = n === 0 ? M.red : MC;
+      const cero = n === 0 ? 1 : 0;
       const ultimo = salida(11 - n) + 0.08;
-      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita - 0.06, 0.1) * lerp(1, 2.6, eio(sg(t, T.cero - 0.3, T.cero - 0.05))) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
-      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 1.55, eio(sg(t, T.cero - 0.3, T.cero - 0.05))), 0.0); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
+      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.08, 0.1) * lerp(1, 2.6, cero) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
+      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 1.55, cero), 0.0); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
     }
     const vn = A && t > T.notita;
     notita.visible = vn;
     if (vn) {
       const u = eio(sg(t, T.notita, T.notita + 0.38));
-      const p = lerpV(V(-4.2, TOPE_Y + 2.6, 1.0), V(0, TOPE_Y + 1.0, 0.3), u); p.y += Math.sin(Math.PI * u) * 0.5;
+      const p = lerpV(V(-2.6, TOPE_Y + 1.6, 0.8), V(0, TOPE_Y + 1.0, 0.3), u); p.y += Math.sin(Math.PI * u) * 0.5;
       notita.position.copy(p);
       const sq = rebote(t, T.notita + 0.38, 12, 30, 0.12);
       notita.rotation.set(-0.04, (1 - u) * 0.8, 0.025 + (1 - u) * 0.5);
@@ -962,7 +965,7 @@ function zonaB(t) {
       const u = eio(sg(t, llega(k), llega(k) + 0.24));
       estanteY.updateMatrixWorld(true);
       const desde = estanteY.worldToLocal(caja.position.clone().add(V(0, 0.6, 0)));
-      const p = lerpV(desde, fin, u); p.y += Math.sin(Math.PI * u) * 0.35;
+      const p = lerpV(desde, fin, u); p.y += Math.sin(Math.PI * Math.min(1, u * 1.15)) * 0.45; p.z += Math.sin(Math.PI * u) * 0.35;
       o.position.copy(p); o.rotation.set(0, (1 - u) * 1.5, 0); o.scale.setScalar(EST.k * popIn(t, llega(k), 0.2));
     } else { o.position.copy(fin); o.rotation.set(0, 0, 0); o.scale.setScalar(EST.k); }
   });
@@ -991,7 +994,7 @@ function zonaB(t) {
       tildePedir.visible = t > T.pide;
       if (tildePedir.visible) {
         aviso.updateMatrixWorld(true);
-        tildePedir.position.copy(aviso.localToWorld(V(0.17, -0.083, 0.02)));
+        tildePedir.position.copy(aviso.localToWorld(V(0.262, -0.083, 0.02)));
         tildePedir.quaternion.copy(aviso.getWorldQuaternion(new THREE.Quaternion()));
         tildePedir.scale.setScalar(popIn(t, T.pide, 0.25));
       }

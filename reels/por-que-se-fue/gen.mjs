@@ -168,8 +168,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s03-marca";
   const tC = w(id, 21) + 0.1, tE = w(id, 23);
   escena(id, {
-    html: `${leads(lead(1, 200, 560, 200, 1020), lead(2, 420, 655, 420, 1020), lead(3, 840, 568, 840, 630))}
-      ${pill(1, 300, 525, "26 % otra marca", "nom")}${pill(2, 335, 618, "19 % otra versión", "nom")}${pill(3, 820, 530, "15 % espera", "nom")}`,
+    html: `${leads(lead(1, 230, 490, 230, 1010), lead(2, 420, 620, 420, 1010), lead(3, 830, 490, 830, 560))}
+      ${pill(1, 330, 450, "26 % otra marca", "nom")}${pill(2, 400, 580, "19 % otra versión", "nom")}${pill(3, 820, 440, "15 % espera", "nom")}`,
     js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cinematic", vol: 0.14, max: 0.7 },
