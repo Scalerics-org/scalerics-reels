@@ -231,6 +231,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-09T05:10 -->
+- 09-11 · `por-que-buscando` · reservado · explicador ¿Por qué? sin marcas (ilusión de trabajo / transparencia operativa, Buell y Norton) · Automatizaciones (avisos de estado del pedido) · Rubén como dueño
+- 09-11 · `que-en-paz-descanse` · reservado · para mandar completo con Rubén: "dice acá que cerraste" (el almacén figura cerrado en internet, llegan condolencias) · Sitio web (horarios y ubicación al día)
 
 
 
