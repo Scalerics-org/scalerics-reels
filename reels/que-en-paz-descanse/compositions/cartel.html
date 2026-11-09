@@ -7,10 +7,10 @@
     [data-composition-id="cartel"] .esc { position: absolute; inset: 0; }
     [data-composition-id="cartel"] .fondo { position: absolute; inset: -200px; background: #5ce611; }
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
-    [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 650px; text-align: center; transform: rotate(-4deg); }
+    [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 600px; text-align: center; transform: rotate(-4deg); }
     [data-composition-id="cartel"] .linea { display: block; font: 900 150px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.b { font-size: 166px; margin-top: 10px; }
-    [data-composition-id="cartel"] .linea.c { font-size: 136px; margin-top: 22px; }
+    [data-composition-id="cartel"] .linea.b { font-size: 190px; margin-top: 6px; }
+    [data-composition-id="cartel"] .linea.c { font-size: 140px; margin-top: 22px; }
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
@@ -36,8 +36,8 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="l">a</span><span class="esp"></span><span class="l">t</span><span class="l">i</span><span class="l">e</span><span class="l">n</span><span class="l">d</span><span class="l">a</span></span>
-        <span class="linea b"><span class="l">o</span><span class="l">n</span><span class="l">l</span><span class="l">i</span><span class="l">n</span><span class="l">e</span></span>
+        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="esp"></span><span class="l">s</span><span class="l">i</span><span class="l">t</span><span class="l">i</span><span class="l">o</span></span>
+        <span class="linea b"><span class="l">w</span><span class="l">e</span><span class="l">b</span></span>
         <span class="linea c"><span class="l">m</span><span class="l">á</span><span class="l">s</span><span class="esp"></span><span class="l">t</span><span class="l">a</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">…</span></span>
       </div>
     </div>
@@ -53,7 +53,7 @@
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 3.2, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
-        const t0 = 0.3 + i * 0.035;
+        const t0 = 0.3 + i * 0.04;
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;

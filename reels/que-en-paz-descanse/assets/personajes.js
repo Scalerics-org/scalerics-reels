@@ -734,3 +734,116 @@ export function crearCamperaColgada(k = { color: MARCA.navy3, cuello: MARCA.navy
   g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
   return g;
 }
+
+// ---------- utilería de que-en-paz-descanse (09-11) ----------
+// Marta "de luto": vestido navy casi negro con cuello crema (sin delantal) y un broche verde chiquito (lo pone el reel).
+export const MARTA_LUTO = { ...ELENCO.duena, camisa: MARCA.navy, cuello: MARCA.cr, cuelloBotones: false, delantal: null, delantalBorde: null,
+  pollera: MARCA.navy, pantalon: MARCA.navy, zapatos: 0x1a1414, aros: MARCA.cr, mangas: "largas" };
+// Un bizcocho suelto (para comer): tipo "med" (medialuna), "can" (cañoncito de dulce de leche) o "gra" (bizcocho de grasa).
+// Origen en el centro. Medidas reales x ~1,3 (los personajes tienen cabeza grande).
+export function crearBizcocho(tipo = "med") {
+  const g = new THREE.Group();
+  const dorado = mat(0xd99a4a, 0.45, { emissive: 0x3a1e05, emissiveIntensity: 0.15 }), claro = mat(0xeccb8a, 0.6), dulce = mat(0x7a3f1c, 0.35);
+  if (tipo === "med") {
+    // medialuna: arco grueso, más fino en las puntas, con las vueltas marcadas y brillo de almíbar
+    const n = 7;
+    for (let i = 0; i < n; i++) {
+      const u = i / (n - 1), a = -1.15 + u * 2.3, r = 0.03 * (1 - Math.pow(Math.abs(u - 0.5) * 2, 1.6) * 0.6);
+      const s = new THREE.Mesh(G.esfera, i % 2 ? dorado : mat(0xc98a3c, 0.4)); s.position.set(Math.sin(a) * 0.055, 0, Math.cos(a) * 0.055 - 0.045); s.scale.set(r * 1.05, r * 0.85, r * 1.15); s.rotation.y = a; g.add(s);
+    }
+  } else if (tipo === "can") {
+    // cañoncito: tubo de hojaldre (anillos) con el dulce de leche asomando por las dos puntas, azúcar arriba
+    for (let i = 0; i < 5; i++) { const t = new THREE.Mesh(new THREE.TorusGeometry(0.026, 0.012, 8, 16), i % 2 ? claro : dorado); t.position.x = -0.05 + i * 0.025; t.rotation.y = Math.PI / 2; g.add(t); }
+    for (const s of [-1, 1]) { const d = new THREE.Mesh(G.esfera, dulce); d.position.x = s * 0.066; d.scale.set(0.012, 0.02, 0.02); g.add(d); }
+    for (let i = 0; i < 6; i++) { const a = new THREE.Mesh(G.esferaLow, mat(0xffffff, 0.8)); a.position.set(-0.045 + i * 0.018, 0.036, (i % 2) * 0.006); a.scale.setScalar(0.004); g.add(a); }
+  } else {
+    // bizcocho de grasa: redondito y aplastado, con la tapa más tostada y una cruz marcada
+    const b = new THREE.Mesh(G.esfera, claro); b.scale.set(0.042, 0.02, 0.042); g.add(b);
+    const tapa = new THREE.Mesh(G.esfera, dorado); tapa.position.y = 0.006; tapa.scale.set(0.036, 0.016, 0.036); g.add(tapa);
+    for (const r of [0, Math.PI / 2]) { const c = new THREE.Mesh(rbox(0.05, 0.004, 0.005, 0.002), mat(0x9c6a30, 0.6)); c.position.y = 0.022; c.rotation.y = r; g.add(c); }
+  }
+  g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  return g;
+}
+// Bandeja ovalada de panadería (crema plateada mate) con una servilleta blanca a medias y bizcochos uruguayos:
+// medialunas, cañoncitos de dulce de leche y bizcochos de grasa. Origen en la base. ~0,46 x 0,32.
+export function crearBandejaBizcochos() {
+  const g = new THREE.Group();
+  const bm = mat(0xd9d7cf, 0.32, { metalness: 0.35 });
+  const base = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.012, 40), bm); base.scale.set(0.24, 1, 0.16); base.position.y = 0.006; g.add(base);
+  const borde = new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 6, 48), bm); borde.rotation.x = Math.PI / 2; borde.scale.set(0.24, 0.16, 0.25); borde.position.y = 0.016; g.add(borde);
+  // servilleta: un cuadrado blanco girado, apenas levantado en una punta
+  const sv = new THREE.Mesh(rbox(0.26, 0.004, 0.2, 0.002), mat(0xffffff, 0.85)); sv.position.set(0.06, 0.016, -0.01); sv.rotation.set(0, 0.6, 0.04); g.add(sv);
+  const P = [["med", -0.12, 0.03, 0.4], ["med", -0.06, -0.06, -0.5], ["med", 0.04, 0.06, 2.4], ["can", 0.1, -0.04, 0.3], ["can", 0.14, 0.04, -0.2], ["gra", -0.15, -0.06, 0], ["gra", 0.0, -0.01, 0], ["gra", 0.06, 0.0, 0], ["med", 0.02, -0.07, 1.2]];
+  g.userData.bizcochos = [];
+  for (const [tp, x, z, r] of P) { const b = crearBizcocho(tp); b.position.set(x, tp === "gra" ? 0.035 : tp === "can" ? 0.05 : 0.04, z); b.rotation.y = r; g.add(b); g.userData.bizcochos.push(b); }
+  g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  return g;
+}
+// Pañuelo de tela crema con borde de puntilla. Origen en el centro; cuelga un poco (plano doblado).
+export function crearPanuelo() {
+  const g = new THREE.Group();
+  const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
+  x.fillStyle = "#f4f2e8"; x.fillRect(0, 0, 128, 128); x.fillStyle = "#ffffff";
+  for (let i = 0; i < 16; i++) for (const [a, b] of [[i * 8 + 4, 5], [i * 8 + 4, 123], [5, i * 8 + 4], [123, i * 8 + 4]]) { x.beginPath(); x.arc(a, b, 4, 0, 7); x.fill(); }
+  x.strokeStyle = "#d9d7c9"; x.lineWidth = 3; x.strokeRect(12, 12, 104, 104);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
+  const m = new THREE.MeshStandardMaterial({ map: t, roughness: 0.9, side: THREE.DoubleSide });
+  const a = new THREE.Mesh(new THREE.PlaneGeometry(0.11, 0.07), m); a.position.y = 0.02; g.add(a);
+  const b = new THREE.Mesh(new THREE.PlaneGeometry(0.11, 0.07), m); b.position.set(0, -0.035, 0.012); b.rotation.x = -0.5; g.add(b);
+  return g;
+}
+// Corona de flores de velorio: aro de hojas verde oscuro y navy con claveles blancos, crema y algún rojo apagado,
+// sobre un trípode de madera; cinta crema cruzada con un texto (canvas). Origen en el piso, al pie del trípode;
+// el aro (diámetro ~1) queda centrado en y = 1.0, mirando a +z.
+export function crearCorona(texto = "ALMACÉN RUBÉN · Q.E.P.D.", fuente = '800 60px "Lexend", sans-serif') {
+  const g = new THREE.Group();
+  const aro = new THREE.Group(); aro.position.y = 1.0; g.add(aro);
+  let s = 23; const az = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const hojas = [mat(0x3fa60a, 0.6), mat(0x2f7d0a, 0.6), mat(0x1f3254, 0.7)];
+  const hojaG = new THREE.SphereGeometry(1, 8, 6);
+  aro.add(new THREE.Mesh(new THREE.TorusGeometry(0.4, 0.07, 10, 40), mat(0x245f0a, 0.8)));
+  for (let i = 0; i < 90; i++) {
+    const a = az() * Math.PI * 2, rr = 0.4 + (az() - 0.5) * 0.14;
+    const h = new THREE.Mesh(hojaG, hojas[i % 3]); h.position.set(Math.cos(a) * rr, Math.sin(a) * rr, (az() - 0.3) * 0.08);
+    h.scale.set(0.06, 0.025, 0.02); h.rotation.set(az() * 0.6, az() * 0.6, a + (az() - 0.5) * 1.4); aro.add(h);
+  }
+  const clavel = new THREE.IcosahedronGeometry(1, 1);
+  const flores = [mat(0xffffff, 0.75, { flatShading: true }), mat(0xefeee5, 0.75, { flatShading: true }), mat(0xc7655b, 0.7, { flatShading: true })];
+  for (let i = 0; i < 26; i++) {
+    const a = (i / 26) * Math.PI * 2 + az() * 0.1, rr = 0.4 + (i % 2 ? 0.05 : -0.04);
+    const f = new THREE.Mesh(clavel, flores[i % 9 === 4 ? 2 : i % 2]); f.position.set(Math.cos(a) * rr, Math.sin(a) * rr, 0.07);
+    f.scale.setScalar(0.05 + az() * 0.012); f.rotation.set(az() * 3, az() * 3, az() * 3); aro.add(f);
+  }
+  // trípode
+  const mad = mat(0x8a5a36, 0.6);
+  for (const [x, z, rz, rx] of [[-0.32, 0.05, -0.17, 0.05], [0.32, 0.05, 0.17, 0.05], [0, -0.3, 0, -0.32]]) {
+    const p = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.022, 1.32, 8), mad); p.position.set(x / 2, 0.62, z / 2); p.rotation.set(rx, 0, rz); g.add(p);
+  }
+  // la cinta: banda crema cruzada apenas en diagonal sobre el aro, con el texto en navy
+  const W = 1.12, H = 0.13;
+  const cv = document.createElement("canvas"); cv.width = 2048; cv.height = Math.round(2048 * H / W); const x = cv.getContext("2d");
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, cv.width, cv.height);
+  x.fillStyle = "#c7655b"; x.fillRect(0, 10, cv.width, 8); x.fillRect(0, cv.height - 18, cv.width, 8);
+  x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle";
+  let tam = 150; x.font = fuente.replace(/\d+px/, tam + "px"); while (x.measureText(texto).width > cv.width - 120 && tam > 40) { tam -= 4; x.font = fuente.replace(/\d+px/, tam + "px"); }
+  x.fillText(texto, cv.width / 2, cv.height / 2 + 6);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  const cm = new THREE.MeshStandardMaterial({ map: t, roughness: 0.7, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.25 });
+  const cinta = new THREE.Mesh(rbox(W, H, 0.012, 0.004), [mat(0xefeee5), mat(0xefeee5), mat(0xefeee5), mat(0xefeee5), cm, mat(0xefeee5)]);
+  cinta.position.set(0, -0.03, 0.15); cinta.rotation.z = 0.13; aro.add(cinta);
+  // las puntas de la cinta que cuelgan
+  for (const sx of [-1, 1]) { const p = new THREE.Mesh(rbox(0.1, 0.32, 0.01, 0.004), mat(0xefeee5, 0.7)); p.position.set(sx * 0.5, -0.25 + sx * 0.06, 0.13); p.rotation.z = sx * 0.12; aro.add(p); }
+  g.userData.aro = aro; g.userData.cinta = cinta;
+  g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  return g;
+}
+// Celular: cuerpo redondeado con funda de color y pantalla (textura canvas, sin luz: se lee siempre). Mira a +z.
+export function crearCelular(textura, funda = MARCA.navy3, W = 0.08, H = 0.162) {
+  const g = new THREE.Group();
+  g.add(new THREE.Mesh(rbox(W + 0.006, H + 0.006, 0.013, 0.012), mat(funda, 0.5)));
+  const p = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.004, H - 0.006), new THREE.MeshBasicMaterial({ map: textura, toneMapped: false })); p.position.z = 0.0068; g.add(p);
+  g.userData.pantalla = p;
+  g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
+  return g;
+}
