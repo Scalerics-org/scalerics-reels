@@ -40,8 +40,8 @@ reels/que-en-paz-descanse/assets/sfx y assets/bgm:
 - Tuba del "Guardados: 28": `tuba.mp3` (nomiqbomi, CC0).
 - Ding del "3 · con seña" y de "Seña paga ✓": `cero.mp3` (GabFitzgerald, CC0).
 - Tap en "Pagar seña": `click-soft.mp3` (HyperFrames).
-- Cartel: `stinger.wav` (DanJFilms, CC0), `whoosh.mp3` y `whoosh-short.mp3` (HyperFrames).
+- Cartel: `stinger.wav` (DanJFilms, CC0), `whoosh.mp3` (HyperFrames; la zambullida, el mismo archivo más lento).
 - Guiño final: `chime.mp3` (HyperFrames).
 
-Son los únicos archivos en assets/sfx y assets/bgm (se borraron tictac.wav, impact-bass-1.mp3 y puerta.wav, que no se
+Son los únicos archivos en assets/sfx y assets/bgm (se borraron tictac.wav, impact-bass-1.mp3, puerta.wav y whoosh-short.mp3 (duplicado de whoosh.mp3), que no se
 usan). Los toma gen.mjs (lista SONIDO).

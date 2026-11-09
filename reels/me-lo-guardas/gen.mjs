@@ -100,12 +100,12 @@ for (const f of fs.readdirSync("compositions")) if (f.endsWith(".html")) fs.unli
 const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el canvas) o "abajo" (el cartel)
 
 // la pastilla del día (abajo a la derecha, como abren-hoy s01-hora): cambia de texto con un flip y un tic
-function hora(id, ini, fin, textos, top = 1665) {
+function hora(id, ini, fin, textos, top = 1770) {
   const dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .hora { position: absolute; right: 50px; top: ${top}px; display: flex; align-items: center; gap: 18px; padding: 16px 28px 17px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 40px/1 "IBM Plex Mono", monospace; letter-spacing: 0.1em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
+    P .hora { position: absolute; right: 40px; top: ${top}px; display: flex; align-items: center; gap: 14px; padding: 12px 22px 13px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
     P .hora.mes { border-color: ${G}; }
     P .punto { width: 18px; height: 18px; border-radius: 50%; background: ${G}; }
     P .tx { position: relative; display: inline-block; }
@@ -133,7 +133,8 @@ hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 
   escena(id, dur, {
     css: `
     P .m { position: absolute; left: 40px; top: 300px; max-width: 660px; padding: 18px 30px 22px; border-radius: 34px 34px 34px 10px; background: ${CR}; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 0% 100%; opacity: 0; }
-    P .n { font: 500 34px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: #3fa60a; }
+    P .n { font: 600 38px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY}; opacity: 0.8; }
+    P .m::after { content: ""; position: absolute; left: -6px; bottom: -30px; border-left: 34px solid ${NAVY}; border-bottom: 30px solid transparent; }
     P .x { font: 700 44px/1.16 "Lexend", sans-serif; color: ${NAVY}; letter-spacing: -0.01em; }`,
     html: MSJ.map(([n, a, b], i) => `      <div class="m m${i}"><div class="n">${n}</div><div class="x">${a}<br>${b}</div></div>`).join("\n"),
     js: `      const ts = ${JSON.stringify(MSJ.map((m) => r2(m[3] - ini)))};
@@ -159,13 +160,15 @@ hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 
   escena(id, dur, {
     css: `
     P .w { position: absolute; left: 44px; top: 300px; max-width: 760px; padding: 18px 30px 22px; border-radius: 34px 34px 34px 10px; background: ${CR}; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 0% 100%; }
-    P .w .n { font: 500 34px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: #3fa60a; }
+    P .w .n { font: 600 38px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY}; opacity: 0.8; }
+    P .w::after { content: ""; position: absolute; left: -6px; bottom: -30px; border-left: 34px solid ${NAVY}; border-bottom: 30px solid transparent; }
+    P .r::after { content: ""; position: absolute; left: 50%; bottom: -46px; margin-left: -24px; border-left: 24px solid transparent; border-right: 24px solid transparent; border-top: 44px solid ${G}; }
     P .w .x { color: ${NAVY}; }
-    P .r { position: absolute; right: 44px; top: 560px; width: 760px; padding: 22px 32px 24px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 90% 100%; }
+    P .r { position: absolute; left: 160px; top: 1120px; width: 760px; padding: 22px 32px 24px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 90% 100%; }
     P .x { font: 700 50px/1.18 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
-    P .a { margin-top: 12px; font: 500 34px/1.1 "IBM Plex Mono", monospace; color: ${G}; letter-spacing: 0.02em; }`,
+    P .a { margin-top: 12px; font: 500 38px/1.1 "IBM Plex Mono", monospace; color: ${G}; letter-spacing: 0.01em; }`,
     html: `      <div class="w"><div class="n">Walter</div><div class="x">¿Me guardás un<br>dulce de leche?</div></div>
-      <div class="r"><div class="x">Reservado. Te espera<br>hasta el viernes.</div><div class="a">respondido automáticamente</div></div>`,
+      <div class="r"><div class="x">Reservado. Te espera<br>hasta el martes.</div><div class="a">respondido automáticamente</div></div>`,
     js: `      tl.fromTo(q(".w"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.02);
       tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, ${r2(T.resp3 - T.b6 + 0.02)});
       tl.to([q(".w"), q(".r")], { opacity: 0, y: -30, duration: 0.14, ease: "power2.in" }, ${r2(dur - 0.15)});`,
@@ -179,7 +182,7 @@ function linea(id, vozT, palabras, clave, fin) {
   const spans = palabras.map(([w, s], i) => `<span class="w${i === clave ? " ac" : ""}" data-t="${r2(vozT + s - ini)}">${i === clave ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : ""}<em>${w}</em></span>`).join(" ");
   escena(id, dur, {
     css: `
-    P .linea { position: absolute; left: 40px; right: 40px; top: 110px; text-align: center; font: 700 96px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
+    P .linea { position: absolute; left: 50px; right: 50px; top: 110px; text-align: center; font: 700 84px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
     P .w { display: inline-block; position: relative; opacity: 0; }
     P .w em { font-style: normal; position: relative; }
     P .w.ac { margin: 0 18px; }
@@ -257,7 +260,7 @@ linea("s02-linea", T.voz2, LINEA2, 1, T.q5 - 0.02);
       tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, ${r2(dur - 0.45)});`,
   });
 }
-hora("s04-hora", T.q1 + 0.05, T.q4, [[T.q1 + 0.05, "OTRO LUNES · 10:15"], [T.q3, "VIERNES · 10:15"]]);
+hora("s04-hora", T.q1 + 0.05, T.q4, [[T.q1 + 0.05, "OTRO LUNES · 10:15"], [T.q3, "MARTES · 10:15"]]);
 
 // la línea chica final (abajo): una línea y la web
 {
@@ -283,21 +286,21 @@ const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 // ---- parte 1 ----
 // ambiente de barrio de mañana (calle.wav dura 15,5 s), con pasabajos: se oye desde adentro del almacén
-s("sfx/calle.wav", 0, -6, { dur: P1, fin: 0.3, techo: -36, lp: 1800 });
-s("bgm/pizzicato.wav", 0, 0, { desde: 0.4, dur: T.corte, fin: 0.02, techo: -32 });   // la música se corta seca en P5
+s("sfx/calle.wav", 0, -6, { dur: P1, fin: 0.3, techo: -36, lp: 1800, duck: [T.corte, T.p6] });   // en la pausa (P5) el ambiente baja: el silencio es el chiste
+s("bgm/pizzicato.wav", 0, 0, { desde: 1.1, dur: T.corte, fin: 0.01, techo: -32 });   // desde 1,1: en 8,07 entra una nota (la de 9,17 del archivo) y el corte seco de 8,2 se oye   // la música se corta seca en P5
 s("sfx/notification.mp3", T.notif0, 0, { techo: -36 });
 s("sfx/papel.wav", T.escribe[0], 0, { dur: 0.6, fin: 0.12, techo: -38 });               // la birome en el papelito
 s("sfx/pop.mp3", T.c3, 0, { desde: 0.11, techo: -34 });
 s("sfx/key-press.mp3", T.c3 + 0.04, 0, { desde: 0.07, techo: -36 });
 s("sfx/papel.wav", T.pega, 0, { dur: 0.22, fin: 0.06, techo: -36 });                    // la cinta
 // P2: cada mensaje (burbuja) y cada cosa que cae en el estante (pop con apoyo bajo), el contador, los días
-s("sfx/whoosh-short.mp3", T.p2 - 0.02, 0, { techo: -42 });
+s("sfx/whoosh.mp3", T.p2 - 0.02, 0, { techo: -42 });
 s("sfx/pop.mp3", T.dejaW, 0, { desde: 0.11, techo: -34 }); s("sfx/sello.wav", T.dejaW + 0.08, -4, { techo: -39 });
 const COSAS = [T.m1 + 0.12, T.m2 + 0.12, T.m3 + 0.12, T.maple, ...T.cosas];
-for (const [i, t] of COSAS.entries()) { s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -34 + (i % 3) }); s("sfx/sello.wav", t + 0.06, -4, { techo: -41 }); }
+for (const [i, t] of COSAS.entries()) s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -34 + (i % 3) });
 for (const t of [T.m1, T.m2, T.m3]) s("sfx/burbuja.mp3", t, 0);
 s("sfx/key-press.mp3", T.c11, 0, { desde: 0.07, techo: -35 });
-for (let i = 0; i < 16; i++) { const u = i / 15; s("sfx/key-press.mp3", T.rodillo[0] + (T.rodillo[1] - T.rodillo[0]) * (1 - Math.pow(1 - u, 1.6)), 0, { desde: 0.07, techo: -38 + u * 2 }); }
+for (let i = 0; i < 8; i++) { const u = i / 7; s("sfx/key-press.mp3", T.rodillo[0] + (T.rodillo[1] - T.rodillo[0]) * (1 - Math.pow(1 - u, 1.6)), 0, { desde: 0.07, techo: -38 + u * 2 }); }
 for (const t of [T.dia1, T.dia2]) s("sfx/tic-real.mp3", t, 0, { techo: -36 });
 s("sfx/papel.wav", T.arquea[0], 0, { dur: 0.45, fin: 0.15, techo: -40 });               // la madera que cede
 // el mes que pasa: ráfaga de tic/tac acelerando
@@ -307,17 +310,16 @@ s("sfx/campanita.wav", T.campana1, 0, { techo: -32 });
 for (let t = T.entraG[0] + 0.1; t < T.entraG[1]; t += 0.2) s("sfx/tac-real.mp3", t, 0, { techo: -41 });
 s("sfx/burbuja.mp3", T.b1, 0);
 s("sfx/pop.mp3", T.agotada, 0, { desde: 0.11, techo: -36 });
-s("sfx/whoosh-short.mp3", T.giraCab[0] + 0.05, 0, { techo: -41 });
+s("sfx/whoosh.mp3", T.giraCab[0] + 0.05, 0, { techo: -41 });
 // P4: la zambullida y "¿Y cuándo viene?"
-s("sfx/whoosh.mp3", T.dive[0], 0, { techo: -37 });
+s("sfx/whoosh.mp3", T.dive[0], 0, { techo: -37, tempo: 0.6 });   // la zambullida: el mismo whoosh, más lento (más largo)
 s("sfx/papel.wav", T.tela2, 0, { dur: 0.18, fin: 0.06, techo: -40 });               // la telaraña que llena el cuadro
 s("sfx/burbuja.mp3", T.b2, 0);
 // P5: se corta la música (solo ambiente), push-in, la voz; después nada
-s("sfx/whoosh-short.mp3", T.pushIn[0], 0, { techo: -38 });
-s("voice/ruben1.wav", T.voz1, -3, { voz: true });
+s("sfx/whoosh.mp3", T.pushIn[0], 0, { techo: -38 });
+s("voice/ruben1.wav", T.voz1, -5, { voz: true });
 // P6: Walter en la puerta
 s("sfx/campanita.wav", T.campana2, 0, { techo: -32 });
-s("sfx/papel.wav", T.levanta2, 0, { dur: 0.3, fin: 0.08, techo: -37 });                // la bolsa que levanta
 s("sfx/burbuja.mp3", T.b3, 0);
 s("sfx/burbuja.mp3", T.b4, 0);
 s("sfx/campanita.wav", T.campana3, 0, { techo: -34 });
@@ -327,9 +329,9 @@ for (const t of [T.palmas[0], T.palmas[0] + 0.22]) s("sfx/tac-real.mp3", t, 0, {
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
-s("voice/narrador.wav", P1 + 0.3, -3, { voz: true });
+s("voice/narrador.wav", P1 + 0.3, -5, { voz: true });
 s("sfx/calle.wav", P2 - 1.05, -6, { desde: 5, dur: 1.1, fi: 0.35, fin: 0.05, techo: -40, lp: 1800 });   // cama mínima bajo el final del cartel
-s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
+s("sfx/whoosh.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -37, lp: 1800 });
 s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.8, techo: -35, duck: [T.voz2 + 0.02, T.voz2 + 1.4] });
@@ -339,12 +341,12 @@ s("sfx/sorbo.wav", T.sorbo1, 0, { techo: -35 });
 s("sfx/click-soft.mp3", T.tap, 0, { techo: -35 });
 s("sfx/cero.mp3", T.pagada + 0.02, 0, { techo: -34 });
 s("sfx/respuesta.wav", T.resp2, 0, { techo: -36 });
-s("sfx/whoosh-short.mp3", T.q2 - 0.02, 0, { techo: -42 });
+s("sfx/whoosh.mp3", T.q2 - 0.02, 0, { techo: -42 });
 s("sfx/papel.wav", T.c3s - 0.02, 0, { dur: 0.2, fin: 0.06, techo: -37 });               // la raya que tacha el 27
 s("sfx/cero.mp3", T.c3s + 0.2, 0, { techo: -33 });                                         // "3 · con seña"
 s("sfx/papel.wav", T.vence, 0, { dur: 0.25, fin: 0.06, techo: -37 });                    // la etiqueta "venció"
-s("sfx/whoosh-short.mp3", T.vuela[0], 0, { techo: -37 });
-s("sfx/whoosh-short.mp3", T.q2b, 0, { techo: -40 });
+s("sfx/whoosh.mp3", T.vuela[0], 0, { techo: -37 });
+s("sfx/whoosh.mp3", T.q2b, 0, { techo: -40 });
 s("sfx/pop.mp3", T.aterriza, 0, { desde: 0.11, techo: -33 }); s("sfx/sello.wav", T.aterriza + 0.05, -4, { techo: -38 });
 s("sfx/campanita.wav", T.campana4, 0, { techo: -32 });
 for (let t = T.entraW[0] + 0.12; t < T.entraW[1]; t += 0.22) s("sfx/tac-real.mp3", t, 0, { techo: -41 });
@@ -352,12 +354,12 @@ s("sfx/papel.wav", T.alcanza, 0, { dur: 0.3, fin: 0.08, techo: -37 });          
 s("sfx/burbuja.mp3", T.b5, 0);
 s("sfx/sorbo.wav", T.sorbo2[0], 0, { techo: -34 });
 s("sfx/tac-real.mp3", T.baja, 0, { techo: -40 });                                         // el mate que se apoya
-s("voice/ruben2.wav", T.voz2, -3, { voz: true });
+s("voice/ruben2.wav", T.voz2, -5, { voz: true });
 s("sfx/burbuja.mp3", T.b6, 0);
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.6, fin: 0.08, techo: -33 });
 s("sfx/respuesta.wav", T.resp3, 0, { techo: -35 });
 s("sfx/chime.mp3", T.guino, 0, { desde: 0.41, techo: -34 });   // chime.mp3 tiene 0,41 s mudos al principio
-s("sfx/whoosh-short.mp3", T.cierre - 0.03, 0, { techo: -39 });
+s("sfx/whoosh.mp3", T.cierre - 0.03, 0, { techo: -39 });
 s("sfx/campanita.wav", 29.3, 0, { techo: -40 });
 
 // arreglos por archivo (heredados de las-siete: tramos mudos al principio, un solo golpe, burbujas más bajas)
@@ -394,6 +396,7 @@ function mezcla(lista, salida, dur, bus = false) {
     let c = `[${i}:a]aresample=48000,aformat=channel_layouts=stereo`;
     if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
     if (o.lp) c += `,lowpass=f=${o.lp}`;
+    if (o.tempo) c += `,atempo=${o.tempo}`;
     if (o.fin && o.dur) c += `,afade=t=out:st=${r2(o.dur - o.fin)}:d=${o.fin}`;
     if (o.fi) c += `,afade=t=in:st=0:d=${o.fi}`;
     if (o.voz) c += ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.42:attack=1.5:release=40:level=false";
