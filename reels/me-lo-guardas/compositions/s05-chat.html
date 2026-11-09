@@ -1,0 +1,44 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-chat"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-chat"] .m { position: absolute; left: 40px; top: 300px; max-width: 660px; padding: 18px 30px 22px; border-radius: 34px 34px 34px 10px; background: #efeee5; border: 6px solid #0b1220; box-shadow: 8px 10px 0 rgba(11,18,32,0.55); transform-origin: 0% 100%; opacity: 0; }
+    [data-composition-id="s05-chat"] .n { font: 600 38px/1.2 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #0b1220; opacity: 0.8; }
+    [data-composition-id="s05-chat"] .m::after { content: ""; position: absolute; left: -6px; bottom: -30px; border-left: 34px solid #0b1220; border-bottom: 30px solid transparent; }
+    [data-composition-id="s05-chat"] .x { font: 700 44px/1.16 "Lexend", sans-serif; color: #0b1220; letter-spacing: -0.01em; }
+  </style>
+  <div id="root" data-composition-id="s05-chat" data-width="1080" data-height="1920" data-duration="2.08">
+    <div id="s05-chat-esc" class="esc clip" data-start="0" data-duration="2.08" data-track-index="0">
+      <div class="m m0"><div class="n">la del perro</div><div class="x">¿Me separás un queso?<br>Paso a la tarde.</div></div>
+      <div class="m m1"><div class="n">Sr. del 4B</div><div class="x">Guardame 2 flautas,<br>ya voy.</div></div>
+      <div class="m m2"><div class="n">el de la gorra</div><div class="x">¿Me lo guardás<br>hasta el lunes?</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-chat";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const ts = [0.05,0.55,1];
+      const ALTO = 240;
+      ts.forEach((t, i) => {
+        const m = q(".m" + i);
+        tl.fromTo(m, { opacity: 0, scale: 0.6, y: 0 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)", immediateRender: true }, t);
+        // los anteriores bajan un lugar; el de hace dos se va
+        for (let k = 0; k < i; k++) {
+          const mk = q(".m" + k), lugar = i - k;
+          tl.to(mk, { y: lugar * ALTO, duration: 0.14, ease: "power2.out" }, t - 0.14);
+          if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.14, ease: "power2.in" }, t - 0.16);
+        }
+      });
+      qa(".m").forEach((m) => tl.to(m, { opacity: 0, x: -60, duration: 0.2, ease: "power2.in" }, 1.86));
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

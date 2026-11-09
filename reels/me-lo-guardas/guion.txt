@@ -1,0 +1,14 @@
+[sin narrador Orus: el chiste va en burbujas, papelitos y la pantalla del celular; una línea de voz de Rubén por parte (Gemini Algenib) y el narrador del cartel (Gemini Rasalgethi). Para la voz usar partes/*.txt, una toma por archivo; voces y tonos en partes/voces.md]
+[parte 1 · celular de Rubén: "Walter" · "¿Me lo guardás? Ya vengo." · papelito que escribe Rubén: "Walter · ya vengo" · contador "Guardados: 3"]
+[parte 1 · montaje · mensajes: "¿Me separás un queso? Paso a la tarde." · "Guardame 2 flautas, ya voy." · "¿Me lo guardás hasta el lunes?" · papelitos: "la del perro · a la tarde" · "Sr. del 4B · ya voy" · "el de la gorra · lunes" · "sobrino de Marta" · contador 3 → 11 → 27 · pill LUNES → MIÉRCOLES → VIERNES → UN MES DESPUÉS]
+[parte 1 · burbuja GRACIELA: "Rubén, ¿tenés yerba?" · el lugar de la yerba vacío, cartelito "AGOTADA"]
+[parte 1 · la última yerba, en GUARDADOS, con telaraña: papelito "Walter · ya vengo" · burbuja GRACIELA: "¿Y cuándo viene?"]
+RUBEN: Ya viene, Graciela.
+[parte 1 · remate del remate · burbujas WALTER en la puerta: "¡Guardame un dulce de leche!" · "¡Ya vengo!" · contador "Guardados: 28" (tuba)]
+NARRADOR: Un agente de IA más tarde.
+[parte 2 · celular de Rubén: "Walter" · "¿Me lo guardás? Ya vengo." · respuesta sola: "¡Dale, Walter! Te lo reservo con una seña." · botón "Pagar seña" · "Seña paga ✓" · "Te espera hasta el jueves." · "respondido automáticamente"]
+[parte 2 · estante GUARDADOS ordenado, etiquetas "Walter · seña ✓ · hasta el jueves" · "Sr. del 4B · seña ✓" · "la del perro · seña ✓" · "el de la gorra · venció" → la yerba vuelve al estante · contador "Guardados: 28" tachado → "3" y "con seña"]
+[parte 2 · Graciela con la yerba en la mano; entra Walter a buscar lo suyo · burbuja GRACIELA: "¿Walter?"]
+RUBEN: Ya vino, Graciela.
+[parte 2 · Walter en la puerta ESCRIBE desde su celular: "¿Me guardás un dulce de leche?" · celular de Rubén, solo: "Reservado. Te espera hasta el jueves." · Rubén guiña con el mate]
+[línea chica final: "Un agente de IA reserva con seña y avisa por vos" · "scalerics.com"]

@@ -1,0 +1,13 @@
+{
+ "t": 0.3,
+ "chica": "¿Me lo guardás?",
+ "grande": "Ya vengo.",
+ "sello": "Guardados: 28",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.15,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#16243d",
+ "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 13,9 s: P6b, Rubén cansado con la bolsa de Walter y la telaraña), en portada-src/fondo-limpio-13.9.png; para regenerar, mp4 de 1 s con ese png en renders/me-lo-guardas-final.mp4 y flock /tmp/hyperframes.lock node herramientas/portada.mjs me-lo-guardas"
+}
