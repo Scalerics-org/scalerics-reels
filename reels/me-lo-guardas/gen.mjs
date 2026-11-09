@@ -138,14 +138,14 @@ hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES"], [T.dia1, "MIÉRCOLES"], [T.dia2, 
     P .x { font: 700 44px/1.16 "Lexend", sans-serif; color: ${NAVY}; letter-spacing: -0.01em; }`,
     html: MSJ.map(([n, a, b], i) => `      <div class="m m${i}"><div class="n">${n}</div><div class="x">${a}<br>${b}</div></div>`).join("\n"),
     js: `      const ts = ${JSON.stringify(MSJ.map((m) => r2(m[3] - ini)))};
-      const ALTO = 215;
+      const ALTO = 240;
       ts.forEach((t, i) => {
         const m = q(".m" + i);
         tl.fromTo(m, { opacity: 0, scale: 0.6, y: 0 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.2)", immediateRender: true }, t);
         // los anteriores bajan un lugar; el de hace dos se va
         for (let k = 0; k < i; k++) {
           const mk = q(".m" + k), lugar = i - k;
-          tl.to(mk, { y: lugar * ALTO, duration: 0.2, ease: "power2.out" }, t);
+          tl.to(mk, { y: lugar * ALTO, duration: 0.14, ease: "power2.out" }, t - 0.14);
           if (lugar >= 2) tl.to(mk, { opacity: 0, x: -60, duration: 0.14, ease: "power2.in" }, t - 0.16);
         }
       });

@@ -255,7 +255,7 @@ function nuevoGuardado(id, tabla, xl, t, obj, papel, etiqueta, frenteZ, papelY) 
   const g = new THREE.Group(); g.add(obj); estante.add(g);
   let p = null, e = null;
   if (papel) { p = PAPEL(papel); p.position.set(0, papelY, frenteZ + 0.004); g.add(p); }
-  if (etiqueta) { e = crearPapelito(etiqueta, { W: 0.23, H: 0.125, fuente: "Lexend", tilde: etiqueta.join(" ").includes("seña") }); e.position.set(0, papelY, frenteZ + 0.004); g.add(e); }
+  if (etiqueta) { e = crearPapelito(etiqueta, { W: 0.26, H: 0.145, fuente: "Lexend", tilde: etiqueta.join(" ").includes("seña") }); e.position.set(0, papelY, frenteZ + 0.004); g.add(e); }
   const o = { id, tabla, xl, t, g, obj, p, e };
   GUARD.push(o); return o;
 }
@@ -271,7 +271,7 @@ nuevoGuardado("b1", 2, -0.5, -1, bolsaCon("fideos"), ["Ana", "mañana"], null, 0
 nuevoGuardado("b2", 2, -0.08, T.cosas[1], bolsaCon("dulce"), ["Coco", "ya vengo"], null, 0.08, 0.1);
 nuevoGuardado("b3", 2, 0.4, T.cosas[3], bolsaCon("galletas"), ["la de", "enfrente"], null, 0.08, 0.1);
 const EN_P2 = new Set(["walter", "perro", "pan", "gorra"]);
-const vencio = crearPapelito(["el de la gorra", "venció"], { W: 0.23, H: 0.125, fuente: "Lexend", color: "#efeee5", fondo: "#c7655b" });
+const vencio = crearPapelito(["el de la gorra", "venció"], { W: 0.26, H: 0.145, fuente: "Lexend", color: "#efeee5", fondo: "#c7655b" });
 gGorra.g.add(vencio); vencio.position.copy(gGorra.e.position); vencio.position.z += 0.001;
 // la telaraña y el polvo de la bolsa de Walter (parte 1, desde "UN MES DESPUÉS")
 const tela = crearTelarana(0.2, 0.0034, 5);
@@ -579,7 +579,7 @@ const PLANOS = [
   // P3c · vista de la puerta: Graciela gira la cabeza hacia GUARDADOS (hacia cámara)
   ["P3c", T.p3c, [[T.p3c, 1.38, 1.68, -2.5, 0.98, 1.34, -0.4, 44], [T.p4, 1.38, 1.67, -2.45, 1.0, 1.34, -0.45, 44]]],
   // P4 · zambullida: del estante (llenando el ancho) a la bolsa de Walter
-  ["P4", T.p4, [[T.p4, GX, 1.6, -0.55, GX, 1.5, GZ, 50], [T.dive[0] + 0.35, GX - 0.3, 1.2, -1.4, GX - 0.35, 1.0, GZ, 47], [T.dive[1], GX - 0.47, 0.9, -2.3, GX - 0.47, 0.84, GZ, 42], [T.p5, GX - 0.47, 0.89, -2.36, GX - 0.47, 0.84, GZ, 42]]],
+  ["P4", T.p4, [[T.p4, GX, 1.6, -0.55, GX, 1.5, GZ, 54], [T.dive[0] + 0.35, GX - 0.3, 1.2, -1.4, GX - 0.35, 1.0, GZ, 47], [T.dive[1], GX - 0.47, 0.9, -2.3, GX - 0.47, 0.84, GZ, 42], [T.p5, GX - 0.47, 0.89, -2.36, GX - 0.47, 0.84, GZ, 42]]],
   ["P5", T.p5, [[T.p5, ...PP(0.25)], [T.pushIn[0], ...PP(0.18), "e"], [T.pushIn[1], ...PP(-0.28)], [T.p6, ...PP(-0.33)]]],
   ["P6", T.p6, kPuer(T.p6, T.p6b, 0.1)],
   ["P6b", T.p6b, [[T.p6b, ...FRE], [P1, FRE[0] + 0.03, FRE[1] - 0.02, FRE[2] - 0.12, ...FRE.slice(3)]]],
@@ -623,7 +623,7 @@ function ponerCamara(t) {
 const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, ladea }, ojos: { x: giro * 0.6, y: 0.05 } });
 const MATE_D = { manoD: [-0.25, 0.4, 0.32], codoD: [-1, -0.6, -0.2], dedoD: 0 };
 // el mate a la altura del pecho (cuando habla y en los planos de frente: la bombilla lejos del bigote)
-const MATE_P = { manoD: [-0.3, 0.3, 0.36], codoD: [-1, -0.6, -0.2], dedoD: 0 };
+const MATE_P = { manoD: [-0.42, 0.46, 0.46], codoD: [-1, -0.6, -0.2], dedoD: 0 };
 const APOYA_I = { manoI: [0.22, 0.32, 0.42], codoI: null, dedoI: 0 };
 // ---- Rubén ----
 const RK = [
@@ -656,7 +656,7 @@ const RK = [
   [T.q5 - 0.001, { x: RI.x, z: RI.z, giro: 0.1, ...MATE_P, manoI: [0.28, -0.05, 0.08], codoI: null, ...aC(0.0, 0.02), ...CARA.sonrisa, ojos: { x: 0, abiertos: 1, feliz: 0.3 }, boca: { sonrisa: 0.5 } }, 0.001],
   // Q6: de frente; levanta el mate (a la altura del pecho, hacia cámara) y guiña
   [T.q6 - 0.001, { giro: 0.2, ...MATE_P, ...aC(-0.4, 0.0), ...CARA.sonrisa, ojos: { x: -0.45, abiertos: 1, feliz: 0.35 }, boca: { sonrisa: 0.9, ancho: 1.1 } }, 0.001],
-  [T.guino - 0.05, { manoD: [-0.26, 0.36, 0.44], codoD: [-1, -0.5, -0.1] }, 0.25],
+  [T.guino - 0.05, { manoD: [-0.44, 0.5, 0.52], codoD: [-1, -0.5, -0.1] }, 0.25],
   [T.guino + 0.08, { ojos: { guiño: -1, feliz: 0.45 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 } }, 0.12],
   [T.guino + 0.55, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
   [T.guino + 0.9, { ...aC(-0.1, 0.02), ...MATE_P, ojos: { x: 0.3 } }, 0.4],
@@ -907,7 +907,10 @@ function renderAt(tIn) {
     } else if (t >= T.p2) {
       const p = manoMundo(ruben, "D", _a);
       const rot = new THREE.Matrix4().makeRotationY(ruben.raiz.rotation.y);
-      mateR.position.copy(p).add(MATE_OFF.clone().applyMatrix4(rot)); mateR.rotation.set(0, ruben.raiz.rotation.y - Math.PI / 2, 0);
+      mateR.position.copy(p).add(MATE_OFF.clone().applyMatrix4(rot));
+      // la bombilla se inclina hacia la boca solo al tomar; el resto del tiempo, hacia afuera (lejos del bigote)
+      let su = 0; for (const [a2, b2] of [[T.sorbo1 - 0.15, T.sorbo1 + 0.45], [T.sorbo2[0] - 0.15, T.sorbo2[1]]]) su = Math.max(su, eio(sg(t, a2, a2 + 0.22)) * (1 - eio(sg(t, b2 - 0.1, b2 + 0.15))));
+      mateR.rotation.set(0, ruben.raiz.rotation.y - Math.PI / 2 + (1 - su) * (-Math.PI / 2), 0);
       mateR.visible = ruben.raiz.visible;
     } else { mateR.position.copy(MATE_APOYADO); mateR.rotation.set(0, 0.4, 0); mateR.visible = true; }
     termoR.position.copy(TERMO); termoR.rotation.set(0, 0.6, 0); termoR.visible = !['P3b', 'Q2b'].includes(plano);
@@ -964,16 +967,16 @@ function renderAt(tIn) {
     if (plano === "P6" && t >= T.b3 && t < T.b4) { const [hx, hy] = cab(walter); ponerGlobo(GL.dulce, hx, Math.max(330, hy - 340), ent(T.b3), [hx, hy - 150]); } else GL.dulce.visible = false;
     // "¡Ya vengo!": grande desde 12,4 hasta que Walter sale (se va con él, rápido, sin achicarse antes)
     if (plano === "P6" && t >= T.b4 && t < T.seVa[0] + 0.3) { const [hx, hy] = cab(walter); ponerGlobo(GL.vengo, hx, Math.max(330, hy - 330), ent(T.b4) * (1 - sg(t, T.seVa[0] + 0.2, T.seVa[0] + 0.3)), [hx, hy - 150]); } else GL.vengo.visible = false;
-    if (plano === "Q2" && t >= T.vence) { estante.updateMatrixWorld(true); const [bx, by] = enPantalla(gGorra.g.localToWorld(V3(0, 0.2, 0.08))); ponerGlobo(GL.vencio, bx - 330, by - 60, ent(T.vence), [bx - 60, by + 40]); } else GL.vencio.visible = false;
+    if (plano === "Q2" && t >= T.vence) { estante.updateMatrixWorld(true); const [bx, by] = enPantalla(gGorra.g.localToWorld(V3(0, 0.2, 0.08))); ponerGlobo(GL.vencio, bx - 300, by - 230, ent(T.vence), [bx - 40, by - 80]); } else GL.vencio.visible = false;
     // "¿Walter?": Graciela está fuera de cuadro a la izquierda (la cola sale hacia ella)
     if (plano === "Q3" && t >= T.b5) ponerGlobo(GL.walter, 300, 420, ent(T.b5), [-300, 760]); else GL.walter.visible = false;
   }
   // ---- contador "Guardados" ----
   {
     let s = 0;
-    const vis = (!parte2 && t >= T.c3 && t < T.p3) || ((plano === "P6" || plano === "P6b") && t >= T.c28 - 0.15) || plano === "Q2";
+    const vis = (!parte2 && t >= T.c3 && t < T.p3) || (plano === "P6b" && t >= T.c28 - 0.15) || plano === "Q2";
     if (vis) {
-      const ini = plano === "P6" || plano === "P6b" ? T.c28 - 0.15 : plano === "Q2" ? -1 : T.c3;
+      const ini = plano === "P6b" ? T.p6b : plano === "Q2" ? -1 : T.c3;
       s = 0.92 * (ini < 0 ? 1 : bk(sg(t, ini, ini + 0.3)));
     }
     const [n, desde] = numeroEn(t);

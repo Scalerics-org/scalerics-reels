@@ -1059,7 +1059,7 @@ export function crearPapelito(lineas, { W = 0.17, H = 0.11, inclina = 0, fuente 
   x.fillStyle = color; x.textAlign = "center"; x.textBaseline = "middle";
   const n = lineas.length, alto = ch / (n + 0.6);
   lineas.forEach((l, i) => {
-    let s = Math.round(alto * (fuente === "Caveat" ? 1.05 : 0.8)); const peso = fuente === "Caveat" ? 700 : 800;
+    let s = Math.round(alto * (fuente === "Caveat" ? 1.05 : 0.92)); const peso = fuente === "Caveat" ? 700 : 800;
     x.font = `${peso} ${s}px "${fuente}", sans-serif`;
     const max = cw * (tilde && i === 0 ? 0.78 : 0.9);
     while (x.measureText(l).width > max && s > 20) { s -= 4; x.font = `${peso} ${s}px "${fuente}", sans-serif`; }
