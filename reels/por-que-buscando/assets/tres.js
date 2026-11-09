@@ -442,8 +442,8 @@ const celuMTex = tex(256, 512, (x) => {
     g.add(sh(mesh(rbox(0.5, 0.26, 0.36, 0.02), mat(0x5b3b22, 0.8), 0, 0.13, 0)));
     for (let i = 0; i < 16; i++) { const r = 0.06 + az() * 0.015; g.add(sh(mesh(new THREE.SphereGeometry(r, 14, 10), mat(i % 3 ? color : color2, 0.5), -0.24 + (i % 4) * 0.16 + az() * 0.02, 0.6 + az() * 0.03, -0.14 + Math.floor(i / 4) * 0.095))); }
   };
-  cajon(0.18, -0.52, 0.05, 0xc7413b, 0xd9583f); // tomates
-  cajon(0.9, -0.52, -0.05, 0x7cc243, 0x5ce611); // manzanas verdes
+  cajon(0.24, -0.52, 0.03, 0xc7413b, 0xd9583f); // tomates
+  cajon(0.86, -0.52, -0.03, 0x7cc243, 0x5ce611); // manzanas verdes
 }
 // la bolsa del pedido (papel madera) y lo que va adentro
 const BOLSA = V(OB.x + 0.45, MOSTRADOR.y, -1.24);
@@ -473,7 +473,7 @@ const productos = [];
   productos.push({ o: pan, fin: V(-0.05, 0.36, -0.02), rot: V(0, 0, -0.45) });
   productos.forEach((p) => bolsa.add(p.o));
 }
-const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 1e6, dedos: true }); scene.add(ruben.raiz);
+const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 1e6, dedos: false }); scene.add(ruben.raiz);
 const nico = crearPersonaje({ ...ELENCO.empleado, parpadeoCada: 1e6 }); scene.add(nico.raiz);
 const mate = crearMate(); scene.add(mate);
 
@@ -494,7 +494,7 @@ const bolsaCasa = new THREE.Group();
   ven.add(mesh(rbox(1.2, 1.1, 0.06, 0.03), M.navy2));
   ven.add(mesh(new THREE.PlaneGeometry(1.04, 0.94), new THREE.MeshBasicMaterial({ color: 0xcfe3ef, toneMapped: false }), 0, 0, 0.035));
   ven.add(mesh(rbox(0.05, 0.96, 0.03, 0.01), M.navy2, 0, 0, 0.05)); ven.add(mesh(rbox(1.06, 0.05, 0.03, 0.01), M.navy2, 0, 0, 0.05));
-  for (const s of [-1, 1]) ven.add(mesh(rbox(0.26, 1.25, 0.05, 0.03), M.g, s * 0.68, -0.02, 0.08));
+
   // mesita con taza y maceta
   const mesa = new THREE.Group(); mesa.position.set(-0.78, 0, -1.15); mesa.scale.setScalar(0.85); casa.add(mesa);
   mesa.add(sh(mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.05, 32), M.madera, 0, 0.72, 0)));
@@ -506,7 +506,7 @@ const bolsaCasa = new THREE.Group();
   for (let k = 0; k < 6; k++) { const a = k * 1.05; const h = mesh(new THREE.SphereGeometry(0.07, 10, 8), mat(0x4f9a2a, 0.7), 0.22 + Math.cos(a) * 0.05, 0.95 + (k % 2) * 0.05, -0.12 + Math.sin(a) * 0.05); h.scale.set(0.8, 1.4, 0.8); mesa.add(h); }
   bolsaCasa.position.set(0.05, 0.745, 0.05); bolsaCasa.rotation.y = -0.4; mesa.add(bolsaCasa);
   // el reloj de pared (rojo apagado: el problema)
-  relojPared.position.set(-0.5, 2.15, -2.3); relojPared.scale.setScalar(0.75); casa.add(relojPared);
+  relojPared.position.set(-0.66, 2.08, -2.3); relojPared.scale.setScalar(0.6); casa.add(relojPared);
   relojPared.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.06, 40).rotateX(Math.PI / 2), M.cr, 0, 0, 0));
   relojPared.add(mesh(new THREE.TorusGeometry(0.3, 0.05, 12, 40), M.red, 0, 0, 0.02));
   for (let k = 0; k < 12; k++) { const a = (k / 12) * Math.PI * 2; relojPared.add(mesh(rbox(0.025, k % 3 ? 0.04 : 0.07, 0.01, 0.005), M.navy2, Math.sin(a) * 0.23, Math.cos(a) * 0.23, 0.04)); relojPared.children.at(-1).rotation.z = -a; }
@@ -668,10 +668,10 @@ const PLANOS = [
     [0, 8, -3, 15.4, 0, 2.95, 0, 30],
     [S["s02-prefiere"] - 0.05, -6, -1, 14.2, 0, 2.8, 0, 30],
     [W[13], 12, 1, 13.6, 0, 2.75, 0, 30],
-    [S["s03-viajes"], 22, 3, 14.1, 0, 2.75, 0, 30],
-    [S["s03-viajes"] + 0.55, 8, 3, 14.2, 0, 2.75, 0, 30],
-    [W[20] + 0.25, 2, 4, 14.2, 0.2, 3.2, 0.4, 30],
-    [W[22] + 0.05, 6, 5, 14.4, 0.4, 3.4, 0.4, 30],
+    [S["s03-viajes"], 22, 3, 14.3, 0, 2.85, 0, 30],
+    [S["s03-viajes"] + 0.55, 8, 3, 14.4, 0, 2.85, 0, 30],
+    [W[20] + 0.25, 2, 4, 14.6, 0.2, 2.95, 0.4, 30],
+    [W[22] + 0.05, 6, 5, 14.6, 0.4, 2.95, 0.4, 30],
     [S["s04-instante"] + 0.35, -4, 2, 12.6, -1.85, 2.78, 0, 30],
     [S["s05-aerolinea"], 3, 2, 12.4, -1.85, 2.78, 0, 30],
   ]],
@@ -685,8 +685,8 @@ const PLANOS = [
     [S["s06-mismos"], 3, 4, 15.2, 0, 2.6, 1.6, 30],
     [S["s06-mismos"] + 0.4, 0, 4, 14.6, 0, 2.6, 1.6, 30],
     [W[38] - 0.2, 0, 5, 14.2, 0, 2.6, 1.6, 30],
-    [W[40] + 0.35, 0, 7, 16.4, 0, 2.45, 0, 30],
-    [S["s07-por-que"], 3, 7, 16.0, 0, 2.5, 0, 30],
+    [W[40] + 0.35, 0, 7, 18.6, 0, 2.45, 0, 30],
+    [S["s07-por-que"], 2, 7, 18.2, 0, 2.5, 0, 30],
   ]],
   [S["s07-por-que"], "Q", [
     [S["s07-por-que"], 0, 3, 10.2, 0, 2.85, 0.5, 30],
@@ -695,8 +695,8 @@ const PLANOS = [
     [S["s08-ruben"], 0, 2, 9.4, 0, 2.8, 0.5, 30],
   ]],
   [S["s08-ruben"], "B1", [
-    [S["s08-ruben"], -6, 12, 4.15, OB.x + 0.6, 1.24, -1.4, 34],
-    [S["s09-no-ve"], 6, 12, 3.9, OB.x + 0.6, 1.26, -1.4, 34],
+    [S["s08-ruben"], -6, 12, 4.25, OB.x + 0.58, 1.24, -1.4, 34],
+    [S["s09-no-ve"], 5, 12, 4.05, OB.x + 0.58, 1.26, -1.4, 34],
   ]],
   [S["s09-no-ve"], "C1", [
     [S["s09-no-ve"], -4, 6, 5.6, GX + 0.46, 1.12, GZ, 34],
@@ -707,8 +707,8 @@ const PLANOS = [
     [S["s11-salio"], 4, 2, 12.6, 0, 2.75, 0, 30],
   ]],
   [S["s11-salio"], "B2", [
-    [S["s11-salio"], 5, 12, 4.15, OB.x + 0.6, 1.34, -1.4, 34],
-    [S["s12-se-vea"], -3, 12, 3.95, OB.x + 0.6, 1.36, -1.4, 34],
+    [S["s11-salio"], 5, 12, 4.25, OB.x + 0.58, 1.34, -1.4, 34],
+    [S["s12-se-vea"], -3, 12, 4.05, OB.x + 0.58, 1.36, -1.4, 34],
   ]],
   [S["s12-se-vea"], "C2", [
     [S["s12-se-vea"], 8, 6, 5.2, GX + 0.46, 1.16, GZ, 34],
@@ -776,7 +776,7 @@ function zonaA(t) {
     const tg = W[13] + 0.02;
     if (t > tg && t < tg + 0.5) pos.y -= Math.exp(-(t - tg) * 10) * Math.sin((t - tg) * 30) * 0.06;
     const tI = S["s04-instante"] + 0.05;
-    s = 1 + 0.05 * pulso(t, tI, 0.25) + 0.05 * pulso(t, S["s03-viajes"] + 0.12, 0.28);
+    s = 1 + 0.05 * pulso(t, tI, 0.25) + 0.025 * pulso(t, S["s03-viajes"] + 0.12, 0.28);
     let vis = A && t < S["s05-aerolinea"];
     if (A2) { vis = true; pos = V(0, CY, 0); ry = Math.sin((t - S["s10-avisos"]) * 0.9) * 0.1; s = 1 + 0.04 * pulso(t, W[69] - 0.05, 0.25); }
     if (FIN) { vis = true; pos = V(0, CY, 0); ry = Math.sin((t - S["s13-llamada"]) * 0.9) * 0.16; s = lerp(0.85, 1, bk(sg(t, S["s13-llamada"], S["s13-llamada"] + 0.35))); }
@@ -867,7 +867,7 @@ function zonaA(t) {
     rayo.visible = vis;
     if (vis) {
       // se va con su celular; en "Y la espera" cae desde arriba al plato
-      const a0 = V(L.x - 1.6 - 6 * sale, 3.2, 0.6), b0 = platoC(-1).add(V(-0.5, 0.62, -0.2));
+      const a0 = V(L.x - 1.6 - 6 * sale, 3.2, 0.6), b0 = platoC(-1).add(V(-0.62, 0.62, 0.05));
       const p = t > tCae ? lerpV(b0.clone().add(V(0, 1.0, 0)), b0, caeR) : a0;
       rayo.position.copy(p);
       rayo.rotation.set(0, Math.sin(t * 1.6) * 0.25 * (1 - cae), 0.1 * (1 - cae));
@@ -879,7 +879,7 @@ function zonaA(t) {
     const vis = A && t > tH && t < finA && (t < S["s06-mismos"] || t > tCae + 0.25);
     reloj.visible = vis;
     if (vis) {
-      const a0 = V(R.x - 1.6 - 6 * sale, 3.2, 0.6), b0 = platoC(1).add(V(0.5, 0.5, -0.2));
+      const a0 = V(R.x - 1.6 - 6 * sale, 3.2, 0.6), b0 = platoC(1).add(V(0.6, 0.5, 0.0));
       const p = t > tCae ? lerpV(b0.clone().add(V(0, 1.0, 0)), b0, caeR) : a0;
       reloj.position.copy(p);
       const fz = eio(sg(t, flip, flip + 0.38));
@@ -906,7 +906,7 @@ function zonaA(t) {
       const sal = eo(sg(t, t0, t0 + 0.22)), jn = eio(sg(t, junta - 0.25, junta + 0.2));
       [[pasA, -1, L], [pasB, 1, R]].forEach(([c, s, P]) => {
         const centro = V(0, 2.6 + s * 0.9, 3.2), afuera = V(s * 0.5, 2.6 - s * 0.9, 3.2);
-        const plato = platoC(s).add(V(s * -0.3, 0.38, 0.42));
+        const plato = platoC(s).add(V(s * -0.36, 0.38, 0.42));
         let p = centro.clone(); void afuera;
         p = lerpV(p, plato, cae); p.y += Math.sin(Math.PI * cae) * 0.5; p.z += Math.sin(Math.PI * cae) * 0.6;
         c.position.copy(p);
@@ -968,9 +968,9 @@ function zonaA(t) {
       if (tildeLupa.visible) {
         lupa.updateMatrixWorld(true);
         const baja = sg(t, tv - 0.15, tv);
-        tildeLupa.position.copy(lupa.localToWorld(V(1.0, 1.0 + (1 - baja) * 1.2, 0.4)));
+        tildeLupa.position.copy(lupa.localToWorld(V(0.55, 0.9 + (1 - baja) * 1.2, 0.4)));
         tildeLupa.quaternion.copy(lupa.quaternion);
-        const k = lerp(0.4, 0.85, bk(sg(t, tv - 0.15, tv + 0.2))) * lupa.scale.x;
+        const k = lerp(0.4, 0.72, bk(sg(t, tv - 0.15, tv + 0.2))) * lupa.scale.x;
         tildeLupa.scale.set(k, k, k * 0.9);
       }
     } else tildeLupa.visible = false;
@@ -978,11 +978,13 @@ function zonaA(t) {
 }
 
 // ================= ZONAS B y C: personajes =================
-const R0 = { x: OB.x + 0.9, z: -1.66, giro: 0.06 };
+const R0 = { x: OB.x + 0.84, z: -1.66, giro: 0.06 };
 const mirarBolsa = { cabeza: { giro: -0.3, asiente: 0.14, ladea: 0.04 } };
 const caraR = { ...CARA.sonrisa, cejas: { alto: 0.45, ang: 0.45 }, ojos: { x: -0.3, y: -0.7, feliz: 0.25 } };
 const RK = [
-  [0, { ...R0, ...BRAZOS.apoyado, ...mirarBolsa, ...caraR }],
+  [0, { ...R0, ...BRAZOS.apoyado, manoI: [0.22, 0.3, 0.36], manoD: [-0.22, 0.3, 0.36], ...mirarBolsa, ...caraR }],
+  [W[74] - 0.1, { cabeza: { giro: -0.3, asiente: 0.3, ladea: 0.04 } }, 0.15],
+  [W[74] + 0.15, { cabeza: { giro: -0.3, asiente: 0.1, ladea: 0.04 } }, 0.2],
   [W[75] + 0.15, { cabeza: { giro: -0.45, asiente: 0.05, ladea: 0.05 }, ojos: { x: -0.7, y: 0 }, ...CARA.feliz }, 0.3],
 ];
 const mateMano = { manoD: [-0.24, 0.3, 0.3], codoD: [-0.8, -0.6, 0], dedoD: 0 };
@@ -1035,7 +1037,7 @@ function personajes(t) {
       p.o.scale.set(s, s * (1 - rb), s);
     });
     // en s11 la bolsa ya está llena: se cierra en "armando"
-    const cierra = B2 ? eio(sg(t, W[74] - 0.2, W[74] + 0.15)) : 0;
+    const cierra = B2 ? bk(sg(t, W[74] - 0.12, W[74] + 0.1)) : 0;
     tapaBolsa.rotation.x = lerp(-1.9, 0, cierra);
     tapaBolsa.visible = B2;
     if (B2) {
@@ -1068,19 +1070,19 @@ function personajes(t) {
     const bolsaBoca = BOLSA.clone().add(V(0, BH + 0.05, 0.02));
     let ob = null;
     if (B1) tp.forEach((ti, i) => { const u = sg(t, ti - 0.32, ti + 0.18); if (u > 0 && u < 1) ob = { i, u }; });
-    if (ob) {
+    if (false) {
       const tgt = ruben.cuerpo.worldToLocal(bolsaBoca.clone().add(V(0.1, -0.02, -0.04)));
       pr = { ...pr, manoD: mezclar(pr.manoD, [tgt.x, tgt.y, tgt.z], Math.sin(Math.PI * ob.u)) };
     }
     const cierraM = B2 ? sg(t, W[74] - 0.45, W[74] + 0.35) : 0;
-    if (cierraM > 0 && cierraM < 1) {
+    if (false) {
       const a = ruben.cuerpo.worldToLocal(bolsaBoca.clone().add(V(-0.12, -0.02, 0.06))), b = ruben.cuerpo.worldToLocal(bolsaBoca.clone().add(V(0.12, -0.02, 0.06)));
       const k = Math.sin(Math.PI * cierraM);
       pr = { ...pr, manoD: mezclar(pr.manoD, [a.x, a.y, a.z], k), manoI: mezclar(pr.manoI, [b.x, b.y, b.z], k) };
     }
     // empujoncito a la bolsa con la mano izquierda (la de la derecha de pantalla queda libre para el mate)
     const emp = B2 ? sg(t, W[75] - 0.3, W[75] + 0.12) : 0;
-    if (emp > 0 && emp < 1) {
+    if (false) {
       const a = ruben.cuerpo.worldToLocal(BOLSA.clone().add(V(-0.2, 0.22, 0.02)));
       pr = { ...pr, manoD: mezclar(pr.manoD, [a.x, a.y, a.z], Math.sin(Math.PI * emp)) };
     }
@@ -1094,7 +1096,7 @@ function personajes(t) {
   }
   if (enC) {
     let pg = poseEn(t, GK);
-    if (C2) { const u = eio(sg(t, W[81] + 0.2, W[81] + 0.5)); if (u > 0) pg = mezclar(pg, { ...pg, ...saludo(t, "I", 0.9), manoD: [-0.02, 0.36, 0.3] }, u); }
+    if (C2 && t > W[81] + 0.2) pg.cabeza = { ...pg.cabeza, asiente: pg.cabeza.asiente + 0.12 * Math.sin((t - W[81] - 0.2) * 7) * Math.exp(-(t - W[81] - 0.2) * 1.2) };
     graciela.poner(pg);
     graciela.raiz.updateMatrixWorld(true);
     if (lentesG.length === 2) {

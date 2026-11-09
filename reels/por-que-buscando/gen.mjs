@@ -151,9 +151,9 @@ vacia("s02-prefiere", [
 {
   const id = "s03-viajes";
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 44px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
-    html: `<div class="cred">Experimento · Buell y Norton, 2011</div>`,
-    js: `tl.set(q(".cred"), { opacity: 1 }, ${r2(w(id, 17))}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(w(id, 17))}); fuera(".cred", ${r2(ESC[id] - 0.25)}, 0.1);`,
+    css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 40px/1.25 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
+    html: `<div class="cred">Experimento<br>Buell y Norton, 2011</div>`,
+    js: `tl.set(q(".cred"), { opacity: 1 }, ${r2(w(id, 17))}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(w(id, 17))}); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.2)});`,
     sfx: [
       { t: 0.02, sfx: "whoosh-short", vol: 0.14 }, { t: 0.3, sfx: "click-soft", vol: 0.12 },
       { t: w(id, 17), sfx: "key-press", vol: 0.1 },
@@ -232,7 +232,7 @@ vacia("s02-prefiere", [
   escena(id, {
     css: `P .nom { font-size: 44px; padding: 12px 28px 13px; }`,
     html: `${pill(1, 300, 640, "Rubén", "nom")}${pill(2, 540, 1600, "Pedido de Graciela", "lleno grande")}`,
-    js: `pop(".n1", 0.1); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1); pop(".n2", ${r2(w(id, 55))}); fuera(".n2", ${r2(ESC[id] - 0.3)}, 0.1);`,
+    js: `tl.set(q(".n1"), { opacity: 1 }, 0); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1); pop(".n2", ${r2(w(id, 55))}); fuera(".n2", ${r2(ESC[id] - 0.3)}, 0.1);`,
     sfx: [
       { t: 0.1, sfx: "papel", vol: 0.3, max: 0.6 },
       ...[53, 54, 55, 57].flatMap((i, k) => [{ t: r2(w(id, i) - 0.05 - 0.3), sfx: "pop", vol: 0.08 }, { t: r2(w(id, i) - (k === 3 ? 0.02 : 0.05)), sfx: k % 2 ? "burbuja" : "papel", vol: k % 2 ? 0.2 : 0.22, max: 0.4 }]),
@@ -310,7 +310,7 @@ vacia("s12-se-vea", [
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.03)});
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
-      { t: -0.4, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 },
+      { t: -0.14, sfx: "whoosh-cine-corto", vol: 0.08, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.1 },
       ...[0, 1, 2, 3].map((k) => ({ t: r2(0.12 + k * 0.13), sfx: "tic-real", vol: 0.18 })), { t: 0.72, sfx: "ding", vol: 0.08, max: 0.8 },
       { t: w(id, 85) - 0.02, sfx: "key-press", vol: 0.12 }, { t: w(id, 87) - 0.03, sfx: "click-soft", vol: 0.08 },
     ],
