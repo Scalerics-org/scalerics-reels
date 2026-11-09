@@ -233,6 +233,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-09T10:10 -->
+- 09-11 · `me-lo-guardas` · Agente de IA (reserva con seña y aviso de retiro) · Para mandar completo con Rubén: el estante de "guardados" que crece con papelitos y nadie viene a buscar; cartel "Un agente de IA más tarde…" · corrida 09-11 10:10
+- 09-11 · `por-que-se-fue` · Sistema a medida (stock con aviso de mínimo) · Explicador ¿Por qué? sin marcas: qué hace el cliente cuando falta lo que vino a buscar (estudio de faltantes en góndola, a verificar); callback con Rubén y la yerba que más vende · corrida 09-11 10:10
 
 
 
