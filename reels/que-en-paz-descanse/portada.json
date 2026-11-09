@@ -1,0 +1,13 @@
+{
+ "t": 0.3,
+ "chica": "Rubén…",
+ "grande": "¿cerraste?",
+ "sello": "Para mandar",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.05,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 8,9 s: P6, Rubén de frente con el mate, cara de nada antes de 'Es, Graciela.'), guardado en portada-src/fondo-limpio-8.9.png. Para regenerar: con ese png hacé un mp4 de 1 s en renders/que-en-paz-descanse-final.mp4 (si todavía no está el render final), corré desde la raíz flock /tmp/hyperframes.lock node herramientas/portada.mjs que-en-paz-descanse y borrá el mp4."
+}
