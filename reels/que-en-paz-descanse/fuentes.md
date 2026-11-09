@@ -16,9 +16,10 @@ bloqueada en la nube); nada sintetizado con ffmpeg, y sin golpe.mp3 (sin licenci
 
 Reutilizados, CC0 1.0 (créditos completos en reels/abren-hoy/fuentes.md, reels/abren-hoy-2/fuentes.md,
 reels/abren-hoy-completo/fuentes.md y reels/las-siete-y-cincuenta-y-nueve/fuentes.md):
-- Ambiente de barrio de día: `calle.wav` (Oper8), con pasabajos a 1800 Hz (se oye desde adentro del almacén).
-- Música: "Pizzicato Intrigue" (younoise), `bgm/pizzicato.wav`; se corta seca en 8,4 s y vuelve en la parte 2 (baja
-  9 dB mientras habla Rubén).
+- Ambiente de barrio de día: `calle.wav` (Oper8), con pasabajos a 1800 Hz (se oye desde adentro del almacén); un
+  tramo muy bajo bajo el final del cartel para que no quede silencio digital antes del iris.
+- Música: "Pizzicato Intrigue" (younoise), `bgm/pizzicato.wav`; arranca desde 0,6 s del archivo para que en 8,4 s
+  esté sonando una nota y el corte seco se oiga; vuelve en la parte 2 (baja 9 dB mientras habla Rubén).
 - Campanita de la puerta (entra Marta, entra Graciela, el cierre): `campanita.wav`, "Shop door bell.wav", 775noise.
 - Pop de las burbujas: `burbuja.mp3` (Mafon2).
 - Sorbo de mate: `sorbo.wav` (Abir19).
@@ -30,7 +31,7 @@ reels/abren-hoy-completo/fuentes.md y reels/las-siete-y-cincuenta-y-nueve/fuente
   ticking", olver, https://freesound.org/people/olver/sounds/130388/ (CC0 1.0).
 - La bandeja que se apoya y el trípode de la corona que toca el piso: `sello.wav`, "Stamp", kermite607,
   https://freesound.org/people/kermite607/sounds/362624/ (CC0 1.0).
-- El pañuelo, el bizcocho que cruje, el cuello de la camisa: `papel.wav`, "Paper slide", Kingofgamers_cz,
+- El pañuelo, el bizcocho que cruje, la raya que tacha el 13: `papel.wav`, "Paper slide", Kingofgamers_cz,
   https://freesound.org/people/Kingofgamers_cz/sounds/352914/ (CC0 1.0).
 - Del banco de HyperFrames que viene con la herramienta (`molde/assets/sfx`, usados en todos los reels aprobados):
   whoosh, whoosh-short, pop, key-press (tics del contador y tipeo), click-soft (el tap), notification (la

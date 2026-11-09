@@ -232,13 +232,13 @@ const afuera = new THREE.Group(); scene.add(afuera);
 const RI = { x: 0.05, z: -1.85 };     // Rubén detrás del mostrador
 const G0 = { x: -0.5, z: -0.66 };    // Graciela frente al mostrador
 const M0 = { x: 0.62, z: -0.76 };    // Marta frente al mostrador
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, parpadeosExtra: [], parpadeoCada: 3.6 });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeosExtra: [], parpadeoCada: 3.6 });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.4 });
 const marta = crearPersonaje({ ...MARTA_LUTO, dedos: true, parpadeoCada: 3.7 });
 scene.add(ruben.raiz, graciela.raiz, marta.raiz);
 for (const p of [ruben, graciela, marta]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 // los lentes de Graciela: armazón más pegado a la cara y patillas cortas (de espaldas asomaba la patilla como una raya)
-{ const CCg = 0.3 * 0.92; graciela.cabeza.traverse((l) => { if (!l.isMesh) return; const esL = (l.material.color && l.material.color.getHex() === 0x16243d) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry"); if (!esL) return; l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.scale.y = 0.13; }); }
+{ const CCg = 0.3 * 0.92; graciela.cabeza.traverse((l) => { if (!l.isMesh) return; const esL = (l.material.color && l.material.color.getHex() === 0x16243d) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry"); if (!esL) return; l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.visible = false; }); } // sin patillas: de 3/4 la del fondo cruzaba el lente
 // el broche verde de Marta
 { const b = mesh(new THREE.IcosahedronGeometry(0.022, 1), mat(C.g, 0.35, { emissive: C.g, emissiveIntensity: 0.15 }), -0.085, 0.4, 0.19); marta.cuerpo.add(b); }
 
@@ -252,7 +252,7 @@ const corona = crearCorona("ALMACÉN RUBÉN · Q.E.P.D."); scene.add(corona); co
 const CORONA = V3(0.2, 0, FZ + 0.2);
 const BANDEJA = V3(M0.x + 0.12, MOSTRADOR.y, -1.14);
 const TERMO = V3(RI.x - 0.5, MOSTRADOR.y, -1.52);
-const CELU_R = V3(RI.x - 0.04, MOSTRADOR.y + 0.008, -1.36);
+const CELU_R = V3(RI.x + 0.1, MOSTRADOR.y + 0.008, -1.32);
 
 // ---------- la foto de Rubén para la web (un render de su cara, una sola vez, al cargar) ----------
 const fotoCanvas = document.createElement("canvas"); fotoCanvas.width = fotoCanvas.height = 256;
@@ -261,7 +261,7 @@ const fotoCanvas = document.createElement("canvas"); fotoCanvas.width = fotoCanv
   fs.add(new THREE.HemisphereLight(0xffffff, 0x8a7a68, 1.1));
   const d = new THREE.DirectionalLight(0xffffff, 1.3); d.position.set(1, 2, 3); fs.add(d);
   const prev = ruben.raiz.parent; fs.add(ruben.raiz);
-  ruben.poner({ x: 0, z: 0, giro: 0, ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.35, x: 0, y: 0 }, manoD: [-0.12, 0.4, 0.3], codoD: [-1, -0.5, 0], t: 0.4 });
+  ruben.poner({ x: 0, z: 0, giro: 0, ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.35, x: 0, y: 0 }, manoD: [-0.12, 0.4, 0.3], codoD: [-1, -0.5, 0], t: 1.5 });
   const m2 = crearMate(); m2.scale.setScalar(1.25); fs.add(m2); ruben.raiz.updateMatrixWorld(true);
   const ph = ruben.brazos[1].mano.getWorldPosition(new THREE.Vector3()); m2.position.copy(ph).add(V3(0, -0.09, 0.03)); m2.rotation.y = -Math.PI / 2;
   const fc = new THREE.PerspectiveCamera(30, 1, 0.1, 10); fc.position.set(0.12, 1.36, 1.7); fc.lookAt(0.02, 1.18, 0);
@@ -301,49 +301,72 @@ function barraEstado(x, w, oscuro) {
 // pantalla de Graciela: parte 1 la ficha del buscador genérico; parte 2 el buscador → la web del almacén
 let claveG = "";
 function dibujarCeluG(t) {
-  const fase = t < P2 ? "ficha" : t < T.web ? "busca" : "web";
+  // parte 1: la ficha del buscador genérico dice "Cerrado permanentemente". Parte 2: se busca, sale la ficha al día
+  // ("Abierto ahora", horario) con el enlace "Sitio web", y el tap abre la web del almacén.
+  const fase = t < P2 ? "ficha" : t < T.ficha ? "busca" : t < T.web ? "ficha2" : "web";
   const tipeo = Math.round(sg(t, T.tipeo[0], T.tipeo[1]) * 13);
   const pasos = [T.abierto, T.horario, T.mapa, T.boton, T.foto].map((a) => Math.round(sg(t, a, a + 0.25) * 6));
   const rip = Math.round(sg(t, T.tap, T.tap + 0.15) * 6);
+  const ent = Math.round(sg(t, T.ficha, T.ficha + 0.15) * 6);
   const pin = Math.round(sg(t, T.mapa, T.mapa + 0.4) * 12);
-  const clave = `${fase}|${tipeo}|${pasos}|${rip}|${pin}|${t >= T.tipeo[1] ? 1 : 0}`;
+  const clave = `${fase}|${tipeo}|${pasos}|${rip}|${pin}|${ent}`;
   if (clave === claveG) return;
   claveG = clave;
   const { x } = pantG.userData, W = 540, H = 1080;
   x.clearRect(0, 0, W, H);
   x.textBaseline = "middle"; x.textAlign = "left";
+  const ajustar = (txt, peso, tam, ancho) => { x.font = F(peso, tam); while (x.measureText(txt).width > ancho && tam > 30) { tam -= 1; x.font = F(peso, tam); } return tam; };
   const buscador = (texto, cursor) => {
-    x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(28, 90, W - 56, 96, 48); x.fill(); x.stroke();
-    x.strokeStyle = "#16243d"; x.lineWidth = 7; x.beginPath(); x.arc(84, 132, 17, 0, 7); x.stroke(); x.beginPath(); x.moveTo(96, 145); x.lineTo(110, 160); x.stroke();
-    x.fillStyle = "#16243d"; x.font = F(600, 42); x.fillText(texto, 130, 140);
-    if (cursor) { const w = x.measureText(texto).width; x.fillRect(134 + w, 116, 4, 46); }
+    x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(24, 84, W - 48, 104, 52); x.fill(); x.stroke();
+    x.strokeStyle = "#16243d"; x.lineWidth = 7; x.beginPath(); x.arc(80, 130, 17, 0, 7); x.stroke(); x.beginPath(); x.moveTo(92, 143); x.lineTo(106, 158); x.stroke();
+    x.fillStyle = "#16243d"; x.font = F(700, 46); x.fillText(texto, 126, 138);
+    if (cursor) { const w = x.measureText(texto).width; x.fillRect(130 + w, 110, 5, 52); }
+  };
+  // la ficha del buscador (genérica: blanco, navy y crema; estrellas navy)
+  const ficha = (abierta) => {
+    x.fillStyle = "#ffffff"; rr(x, 18, 212, W - 36, 846, 34);
+    x.strokeStyle = "#d9d7c9"; x.lineWidth = 4; x.beginPath(); x.roundRect(18, 212, W - 36, 846, 34); x.stroke();
+    x.fillStyle = "#16243d"; ajustar("Almacén de Rubén", 800, 60, W - 84); x.fillText("Almacén de Rubén", 42, 282);
+    x.fillStyle = "#3a4560"; x.font = F(600, 46); x.fillText("Almacén de barrio", 42, 346);
+    x.fillStyle = "#16243d"; for (let i = 0; i < 5; i++) estrella(x, 64 + i * 60, 408, 26);
+    if (!abierta) {
+      x.fillStyle = "#c7655b"; rr(x, 30, 456, W - 60, 210, 26);
+      x.fillStyle = "#ffffff"; x.beginPath(); x.arc(76, 516, 17, 0, 7); x.fill();
+      x.font = F(900, 68); x.fillText("Cerrado", 108, 520);
+      const tm = ajustar("permanentemente", 900, 60, W - 60 - 40); x.font = F(900, tm); x.fillText("permanentemente", 50, 606);
+    } else {
+      x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(56, 506, 17, 0, 7); x.fill();
+      x.font = F(900, 58); x.fillText("Abierto ahora", 86, 510);
+      x.fillStyle = "#16243d"; const th = ajustar("Lun a sáb · 8 a 20", 800, 50, W - 80); x.font = F(800, th); x.fillText("Lun a sáb · 8 a 20", 40, 594);
+    }
+    x.fillStyle = "#3a4560"; x.font = F(600, 46); x.textAlign = "center"; x.fillText("Av. Rivera 2140", W / 2 + 30, 724); x.textAlign = "left";
+    // el enlace "Sitio web" (en la parte 2, verde: lo toca) y "Cómo llegar"
+    x.fillStyle = abierta ? "#5ce611" : "#e9e7dc"; rr(x, 30, 786, W - 60, 112, 56);
+    x.fillStyle = "#e9e7dc"; rr(x, 30, 922, W - 60, 104, 52);
+    x.fillStyle = "#16243d"; x.textAlign = "center"; x.font = F(900, 52); x.fillText("Sitio web", W / 2, 844); x.font = F(800, 46); x.fillText("Cómo llegar", W / 2, 976); x.textAlign = "left";
+    if (abierta && rip > 0 && rip < 6) { const u = rip / 6; x.strokeStyle = `rgba(11,18,32,${0.8 * (1 - u)})`; x.lineWidth = 10; x.beginPath(); x.arc(W / 2, 842, 30 + u * 170, 0, 7); x.stroke(); }
   };
   if (fase === "ficha") {
     x.fillStyle = "#f6f5ef"; x.fillRect(0, 0, W, H); barraEstado(x, W, false);
     buscador("almacén rubén", false);
-    // la ficha: nombre, rubro, estrellas, el estado en rojo apagado, la dirección y los botones
-    x.fillStyle = "#ffffff"; rr(x, 22, 216, W - 44, 800, 34);
-    x.strokeStyle = "#d9d7c9"; x.lineWidth = 4; x.beginPath(); x.roundRect(22, 216, W - 44, 800, 34); x.stroke();
-    x.fillStyle = "#16243d"; x.font = F(800, 56); x.fillText("Almacén Rubén", 50, 296);
-    x.fillStyle = "#5a6478"; x.font = F(600, 40); x.fillText("Almacén de barrio", 54, 362);
-    x.fillStyle = "#d9a441"; for (let i = 0; i < 5; i++) estrella(x, 74 + i * 56, 428, 24);
-    x.fillStyle = "#c7655b"; rr(x, 40, 486, W - 80, 236, 26);
-    x.fillStyle = "#ffffff"; x.beginPath(); x.arc(84, 552, 18, 0, 7); x.fill();
-    x.font = F(900, 66); x.fillText("Cerrado", 116, 556); x.font = F(900, 58); x.fillText("permanente-", 64, 630); x.fillText("mente", 64, 690);
-    x.fillStyle = "#5a6478"; x.font = F(600, 40); x.fillText("Calle del barrio 1234", 54, 786);
-    for (const [i, s] of [[0, "Llamar"], [1, "Cómo llegar"]]) { x.fillStyle = "#e9e7dc"; rr(x, 40 + i * 190, 850, i ? 270 : 170, 96, 48); x.fillStyle = "#16243d"; x.font = F(700, 40); x.textAlign = "center"; x.fillText(s, 40 + i * 190 + (i ? 135 : 85), 900); x.textAlign = "left"; }
+    ficha(false);
   } else if (fase === "busca") {
+    // se tipea y abajo las sugerencias (la pantalla nunca queda vacía)
     x.fillStyle = "#f6f5ef"; x.fillRect(0, 0, W, H); barraEstado(x, W, false);
-    buscador("almacén rubén".slice(0, tipeo), t < T.tipeo[1]);
-    if (t >= T.tipeo[1]) {
-      // el primer resultado: la web del almacén, con el tap
-      x.fillStyle = rip > 0 ? "#e6f9da" : "#ffffff"; rr(x, 22, 230, W - 44, 300, 30);
-      x.fillStyle = "#16243d"; x.font = F(800, 45); x.fillText("Almacén de Rubén", 48, 300);
-      x.fillStyle = "#5a6478"; x.font = F(600, 40); x.fillText("Sitio web", 54, 362);
-      x.fillStyle = "#3fa60a"; x.font = F(800, 44); x.beginPath(); x.arc(70, 440, 14, 0, 7); x.fill(); x.fillText("Abierto ahora", 98, 444);
-      if (rip > 0 && rip < 6) { const u = rip / 6; x.strokeStyle = `rgba(92,230,17,${1 - u})`; x.lineWidth = 12; x.beginPath(); x.arc(300, 380, 30 + u * 200, 0, 7); x.stroke(); }
-      x.fillStyle = "#ffffff"; rr(x, 22, 560, W - 44, 170, 30); x.fillStyle = "#c9cdd6"; rr(x, 52, 600, 330, 30, 12); rr(x, 52, 650, 230, 30, 12);
-    }
+    buscador("almacén rubén".slice(0, Math.max(1, tipeo)), true);
+    const sug = ["almacén rubén", "almacén abierto", "almacenes cerca", "almacén de barrio"];
+    sug.forEach((s2, i) => {
+      const y = 260 + i * 130;
+      x.fillStyle = "#ffffff"; rr(x, 18, y, W - 36, 112, 24);
+      x.strokeStyle = "#9aa3b5"; x.lineWidth = 6; x.beginPath(); x.arc(70, y + 56, 16, 0, 7); x.stroke(); x.beginPath(); x.moveTo(81, y + 67); x.lineTo(94, y + 80); x.stroke();
+      x.fillStyle = "#16243d"; ajustar(s2, 600, 46, W - 150); x.fillText(s2, 112, y + 58);
+    });
+    x.fillStyle = "#e9e7dc"; rr(x, 18, 800, W - 36, 240, 28);
+    x.fillStyle = "#c9cdd6"; for (let i = 0; i < 3; i++) for (let j = 0; j < 6; j++) rr(x, 40 + j * 80, 830 + i * 66, 64, 50, 10);
+  } else if (fase === "ficha2") {
+    x.fillStyle = "#f6f5ef"; x.fillRect(0, 0, W, H); barraEstado(x, W, false);
+    buscador("almacén rubén", false);
+    x.save(); const u = ent / 6; x.translate(0, (1 - eo(u)) * 120); ficha(true); x.restore();
   } else {
     // la web del almacén (navy, crema y verde): abre entera al toque, cada bloque entra con un pop
     const k = (i) => pasos[i] / 6;
@@ -366,8 +389,8 @@ function dibujarCeluG(t) {
     pop(3, W / 2, 920, () => {
       x.fillStyle = "#5ce611"; rr(x, 36, 860, W - 72, 120, 30); x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(36, 860, W - 72, 120, 30); x.stroke();
       // globito de chat genérico (de líneas, sin el logo de ninguna app)
-      x.lineWidth = 6; x.beginPath(); x.roundRect(64, 892, 60, 46, 14); x.stroke(); x.beginPath(); x.moveTo(76, 936); x.lineTo(72, 954); x.lineTo(92, 938); x.stroke();
-      x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 40); x.fillText("Escribinos por", 146, 900); x.fillText("WhatsApp", 146, 946);
+      x.lineWidth = 6; x.beginPath(); x.roundRect(110, 896, 60, 46, 14); x.stroke(); x.beginPath(); x.moveTo(122, 940); x.lineTo(118, 958); x.lineTo(138, 942); x.stroke();
+      x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 52); x.fillText("Escribinos", 196, 922);
     });
   }
   pantG.needsUpdate = true;
@@ -384,8 +407,8 @@ function dibujarCeluR(t) {
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, H);
   x.fillStyle = "#1f3254"; for (let i = 0; i < 6; i++) { x.beginPath(); x.arc(100 + i * 90, 1000 - i * 60, 160, 0, 7); x.fill(); }
   barraEstado(x, W, true);
-  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(300, 150); x.fillText("10:16", W / 2, 230);
-  x.font = F(600, 40); x.fillText("martes", W / 2, 330);
+  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(300, 150); x.fillText("10:15", W / 2, 230);
+  x.font = F(700, 50); x.fillText("martes", W / 2, 334);
   if (u > 0) {
     const y0 = 420 - (1 - eo(u)) * 300;
     x.save();
@@ -398,7 +421,7 @@ function dibujarCeluR(t) {
     lineas.forEach((l, i) => x.fillText(l, 56, y0 + 190 + i * 64));
     if (p2 && mini > 0) {
       x.save(); x.globalAlpha = mini; x.beginPath(); x.roundRect(56, y0 + 300, 140, 140, 22); x.clip(); x.drawImage(fotoCanvas, 56, y0 + 300, 140, 140); x.restore();
-      x.save(); x.globalAlpha = mini; x.fillStyle = "#16243d"; x.font = F(700, 40); x.fillText("almacén", 220, y0 + 350); x.fillText("de Rubén", 220, y0 + 400); x.restore();
+      x.save(); x.globalAlpha = mini; x.fillStyle = "#16243d"; x.font = F(800, 42); x.fillText("Almacén", 220, y0 + 350); x.fillText("de Rubén", 220, y0 + 400); x.restore();
     }
     x.restore();
   }
@@ -506,7 +529,7 @@ function ponerContador(cx, cy, s) {
 }
 // el número en t: [n, desde (el último cambio)]
 function numeroEn(t) {
-  if (t >= P2) return t >= T.c0 + 0.28 ? [0, T.c0 + 0.28] : [13, T.q1];
+  if (t >= P2) return t >= T.c0 + 0.25 ? [0, T.c0 + 0.25] : [13, T.q1];
   if (t >= T.c13) return [13, T.c13];
   if (t >= T.c12[0]) { const i = Math.min(4, Math.floor(sg(t, T.c12[0], T.c12[1]) * 4.999)); return [8 + i, T.c12[0] + i * ((T.c12[1] - T.c12[0]) / 4)]; }
   if (t >= T.c7) return [7, T.c7];
@@ -520,7 +543,7 @@ function numeroEn(t) {
 const kP1 = (t0, t1, dolly = true) => dolly
   ? [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t0 + 1.2, RI.x - 0.62, 1.56, 0.56, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.36, 1.5, -0.35, RI.x, 1.17, -1.9, 46]]
   : [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.62, 1.56, 0.5, RI.x - 0.02, 0.86, -1.9, 55]];
-const kP3 = (t0, t1, lx = 0.06) => [[t0, lx, 2.3, -2.75, lx, 1.3, 0.1, 56], [t1, lx, 2.27, -2.65, lx, 1.3, 0.1, 56]];
+const kP3 = (t0, t1, lx = 0.06, fov = 56) => [[t0, lx, 2.3, -2.75, lx, 1.3, 0.1, fov], [t1, lx, 2.27, -2.65, lx, 1.3, 0.1, fov]];
 const kP6 = (t0, t1, push) => push
   ? [[t0, RI.x, 1.44, 0.45, RI.x, 1.22, RI.z, 40], [push[0], RI.x, 1.44, 0.4, RI.x, 1.22, RI.z, 40, "e"], [push[1], RI.x, 1.42, -0.1, RI.x, 1.25, RI.z, 40], [t1, RI.x, 1.42, -0.14, RI.x, 1.25, RI.z, 40]]
   : [[t0, RI.x, 1.44, 0.45, RI.x, 1.22, RI.z, 40], [t1, RI.x, 1.43, 0.15, RI.x, 1.24, RI.z, 40]];
@@ -536,7 +559,7 @@ const PLANOS = [
   // P4 · la puerta desde adentro, push-in a la corona hasta que la cinta llena el ancho
   [T.p4, [[T.p4, 0.2, 1.3, -1.0, 0.2, 1.25, CORONA.z, 54], [T.push[0], 0.2, 1.3, -0.98, 0.2, 1.25, CORONA.z, 53], [T.push[1], 0.2, 1.2, -0.62, 0.2, 1.17, CORONA.z, 44], [T.p5, 0.2, 1.2, -0.6, 0.2, 1.17, CORONA.z, 44]]],
   // P5 · plano medio de Graciela y Marta (contraplano de 3/4 desde atrás del mostrador)
-  [T.p5, [[T.p5, 1.15, 1.55, -2.9, 0.36, 1.22, -0.55, 44], [T.p6, 1.12, 1.54, -2.8, 0.36, 1.22, -0.55, 44]]],
+  [T.p5, [[T.p5, 1.2, 1.55, -2.95, 0.44, 1.22, -0.52, 48], [T.p6, 1.17, 1.54, -2.85, 0.44, 1.22, -0.52, 48]]],
   // P6 · primer plano de Rubén de frente (la pausa, el push-in, "Es, Graciela.")
   [T.p6, kP6(T.p6, T.p7, T.pushIn)],
   // P7 · inserto cenital del celular de Rubén sobre el mostrador
@@ -545,7 +568,7 @@ const PLANOS = [
   [T.p8, [[T.p8, RI.x + 0.08, 2.35, 1.2, RI.x + 0.02, 1.0, -1.5, 48], [P1, RI.x + 0.1, 2.36, 1.25, RI.x + 0.02, 1.0, -1.5, 48]]],
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   [P2, kP1(P2, T.q2, false)],
-  [T.q2, kP3(T.q2, T.q3, -0.05)],
+  [T.q2, kP3(T.q2, T.q3, -0.18, 62)],
   [T.q3, kP6(T.q3, T.q4)],
   [T.q4, "celu"],
   // Q5 · primer plano de Rubén, push-in lento: el cuello de la camisa, el guiño
@@ -612,6 +635,7 @@ const RK = [
   [T.voz1 + 1.5, { cejas: { alto: 0.3, ang: 0.7 } }, 0.3],
   // P8: mira al techo, resignado; agarra el bizcocho sin bajar la vista
   [T.p8 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, cabeza: { giro: 0.05, asiente: -0.4, ladea: 0.06 }, ojos: { x: 0, y: 0.95, abiertos: 0.85, tension: 0.4 }, cejas: { alto: 0.55, ang: 0.7 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.9 } }, 0.001],
+  [T.muerde, { cabeza: { giro: 0.05, asiente: -0.2, ladea: 0.04 }, ojos: { y: 0.9 } }, 0.25],
   // ---- parte 2 ----
   [P2 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, ...aC(-0.28, 0.02), ...CARA.sonrisa, ojos: { x: -0.3, y: 0, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.2, ang: 0 }, boca: { sonrisa: 0.8 } }, 0.001],
   [T.q2 - 0.001, { giro: 0.15, ...aC(0.05, 0), ojos: { x: 0.0 } }, 0.001],
@@ -625,7 +649,7 @@ const RK = [
   [T.cuello + 0.3, { inclina: -0.07, cabeza: { giro: 0.03, asiente: -0.08, ladea: 0.05 }, cejas: { alto: 0.45 }, boca: { sonrisa: 0.85, ancho: 1.1 } }, 0.3],
   [T.guino, { ojos: { guiño: -1, feliz: 0.45 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 }, manoD: [-0.16, 0.42, 0.34] }, 0.12],
   [T.guino + 0.5, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
-  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.feliz, ojos: { x: -0.3, abiertos: 0.95, feliz: 0.45 }, cejas: { alto: 0.45, ang: 0.0, asim: 0 }, inclina: 0 }, 0.001],
+  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.45, ang: 0.1, asim: 0 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, inclina: 0 }, 0.001],
 ];
 // ---- Graciela ----
 const G_GIRO = Math.atan2(RI.x - G0.x, RI.z - G0.z);
@@ -640,8 +664,9 @@ const GK = [
   // P8: de vuelta en su lugar, triste, el pañuelo en la mano
   [T.p8 - 0.001, { x: G0.x, z: G0.z, giro: G_GIRO, ...BRAZOS.costado, ...aC(0.0, 0.1), ...CARA.resignado, ojos: { abiertos: 0.7 } }, 0.001],
   // ---- parte 2: entra contenta con el celular en alto ----
-  [T.q2 - 0.001, { x: 0.2, z: FZ + 0.4, giro: Math.PI, paso: 1, ...BRAZOS.costado, manoD: [-0.36, 0.6, 0.3], codoD: [-1, -0.2, 0.2], ...aC(0, -0.05), ...CARA.feliz }, 0.001],
-  [T.entra2[1], { x: G0.x, z: G0.z, giro: G_GIRO, paso: 0 }, T.entra2[1] - T.entra2[0]],
+  [T.q2 - 0.001, { x: 0.34, z: FZ + 0.5, giro: Math.PI, paso: 1, ...BRAZOS.costado, manoD: [-0.36, 0.6, 0.3], codoD: [-1, -0.2, 0.2], ...aC(0, -0.05), ...CARA.feliz }, 0.001],
+  [T.entra2[0] + 0.45, { x: 0.3, z: 0.3 }, 0.6, (u) => u],
+  [T.entra2[1], { x: G0.x, z: G0.z, giro: G_GIRO, paso: 0 }, T.entra2[1] - T.entra2[0] - 0.45],
   [T.b4 + 0.5, { manoD: [-0.28, 0.5, 0.32] }, 0.35],
   [T.q6 - 0.001, { x: G0.x, z: G0.z, giro: G_GIRO, ...BRAZOS.costado, manoI: [0.12, 0.38, 0.42], codoI: [1, -0.5, -0.2], ...aC(0, 0.05), ...CARA.sonrisa }, 0.001],
 ];
@@ -650,9 +675,9 @@ const M_GIRO = Math.atan2(RI.x - M0.x, RI.z - M0.z);
 const BANDEJA_M = { manoI: [0.14, 0.3, 0.36], manoD: [-0.14, 0.3, 0.36], codoI: [1, -0.6, -0.3], codoD: [-1, -0.6, -0.3], dedoI: 0, dedoD: 0 };
 const PESAME = { ojos: { abiertos: 0.7, tension: 0.65, feliz: 0 }, cejas: { alto: 0.35, ang: 0.9, asim: 0 }, boca: { sonrisa: -0.5, abierta: 0, ancho: 0.85 } };
 const MK = [
-  [0, { x: 0.2, z: FZ + 0.5, giro: Math.PI, paso: 1, ...BANDEJA_M, ...aC(0, 0, 0.15), ...PESAME }],
-  [T.entra[0] + 0.45, { x: 0.32, z: 0.1, giro: Math.PI - 0.25, paso: 1 }, 0.45],
-  [T.entra[1], { x: M0.x, z: M0.z, giro: M_GIRO, paso: 0, cabeza: { giro: 0, asiente: 0.08, ladea: 0.16 } }, T.entra[1] - T.entra[0] - 0.45],
+  [0, { x: 0.38, z: FZ + 1.3, giro: Math.PI, paso: 1, ...BANDEJA_M, ...aC(0, 0, 0.15), ...PESAME }],
+  [T.entra[0] + 0.3, { x: 0.38, z: 0.8 }, T.entra[0] + 0.3 - T.p3, (u) => u],
+  [T.entra[1], { x: M0.x, z: M0.z, giro: M_GIRO, paso: 0, cabeza: { giro: 0, asiente: 0.08, ladea: 0.16 } }, T.entra[1] - T.entra[0] - 0.3],
   [T.apoya, { inclina: 0.22, manoI: [0.14, 0.12, 0.45], manoD: [-0.14, 0.12, 0.45] }, 0.25],
   [T.mano[0], { inclina: 0.08, ...BRAZOS.costado }, 0.15],
   // P5: junto a Graciela, la mano en el pecho, asiente despacio
@@ -686,7 +711,7 @@ function posBizcocho(t) {
   const ofrecido = V3(RI.x + 0.3, 1.12, -1.35);
   if (t < T.ofrece + 0.3) return BIZ_TRAY().lerp(ofrecido, eio(sg(t, T.ofrece - 0.1, T.ofrece + 0.3)));
   if (t < T.agarra) return ofrecido;
-  const boca = bocaMundo(ruben, 0.06, V3()), abajo = V3(RI.x + 0.25, 1.05, -1.5);
+  const boca = bocaMundo(ruben, 0.085, V3()).add(V3(0, -0.015, 0)), abajo = V3(RI.x + 0.25, 1.05, -1.5);
   if (t < T.muerde + 0.08) return ofrecido.clone().lerp(boca, eio(sg(t, T.agarra, T.muerde)));
   return boca.lerp(abajo, eio(sg(t, T.muerde + 0.08, T.muerde + 0.38)));
 }
@@ -714,7 +739,7 @@ function ponerPersonajes(t, plano) {
   // P8: agarra el bizcocho y lo muerde (sin bajar la vista)
   if (en(t, T.agarra - 0.3, P1)) {
     const u = eio(sg(t, T.agarra - 0.3, T.agarra)), b = posBizcocho(t);
-    const p1 = manoA(ruben, { ...pr }, "I", b.clone().add(V3(0.07, -0.1, 0.03)));
+    const p1 = manoA(ruben, { ...pr }, "I", b.clone().add(V3(0.1, -0.08, -0.01)));
     pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pr.codoI = [1, -0.5, -0.2];
   }
   if (t >= T.muerde && t < P1) pr.boca = { ...pr.boca, abierta: 0.12 * pulso(t, T.muerde, 0.18), sonrisa: -0.3 };
@@ -752,7 +777,7 @@ function ponerPersonajes(t, plano) {
   // visibilidad por plano (los que no están en cuadro no tapan la cámara)
   ruben.raiz.visible = !["P3", "P4", "P5", "Q2", "P7", "Q4"].includes(plano);
   graciela.raiz.visible = !["P1", "Q1", "P2", "P3b", "P4", "P6", "Q3", "Q5"].includes(plano);
-  marta.raiz.visible = ["P3", "P3b", "P5", "P8"].includes(plano) && !(plano === "P3" && t < T.entra[0]);
+  marta.raiz.visible = ["P3", "P5", "P8"].includes(plano) || (plano === "P3b" && t >= T.mano[0] - 0.05);
 }
 
 // ================= ESCENA EN EL TIEMPO =================
@@ -769,8 +794,9 @@ function renderAt(tIn) {
 
   // ---- la puerta: se abre cuando entra alguien ----
   {
-    const abre = (a) => eio(sg(t, a - 0.05, a + 0.2)) * (1 - eio(sg(t, a + 0.7, a + 1.0)));
-    hoja.rotation.y = 1.25 * (parte2 ? abre(T.entra2[0]) : abre(T.entra[0]));
+    // la puerta ya está abierta cuando arranca el plano (así el cartel y el vinilo no le tapan la cara a quien entra)
+    const cierra = (a) => (t < a - 1.2 ? 0 : 1 - eio(sg(t, a, a + 0.3)));
+    hoja.rotation.y = -1.1 * (parte2 ? cierra(T.entra2[1] - 0.05) : cierra(T.entra[1] - 0.3));
     vinilo.visible = parte2;
   }
   // ---- la corona: aparece en P4 con pop y rebotito sobre su trípode; parte 1 solamente ----
@@ -796,7 +822,7 @@ function renderAt(tIn) {
       const pi = manoMundo(marta, "I", V3()), pd = manoMundo(marta, "D", V3());
       bandeja.position.copy(pi).add(pd).multiplyScalar(0.5).add(V3(0, -0.02, 0)); bandeja.rotation.set(0, marta.raiz.rotation.y, 0);
       bandeja.visible = marta.raiz.visible;
-    } else { bandeja.position.copy(BANDEJA); bandeja.rotation.set(0, 0.25, 0); bandeja.visible = !parte2 && plano !== "P7"; }
+    } else { bandeja.position.copy(BANDEJA); bandeja.rotation.set(0, 0.25, 0); bandeja.visible = !parte2 && plano !== "P7" && plano !== "P3b"; }
     // el bizcocho que se come
     const enMano = !parte2 && t >= T.ofrece - 0.1;
     bandeja.userData.bizcochos[0].visible = !enMano;
@@ -823,7 +849,7 @@ function renderAt(tIn) {
       dibujarCeluG(t);
       // en P1 el celular baja y sale por abajo mientras la cámara va hacia Rubén
       const baja = plano === "P1" ? eio(sg(t, T.dolly[0], T.dolly[0] + 0.5)) : 0;
-      celuGcam.position.set(-0.008, -0.085 - baja * 0.2, -0.32);
+      celuGcam.position.set(-0.02, -0.075 - baja * 0.2, -0.315);
       celuGcam.rotation.set(-0.08 - baja * 0.3, 0.02, 0.05);
     }
     celuG2.visible = plano === "Q2" || plano === "Q6";
@@ -849,7 +875,7 @@ function renderAt(tIn) {
     // "Mi más sentido pésame, Rubén." (arriba de Marta, debajo del contador)
     if (plano === "P3" && t >= T.b2) { const [hx, hy] = cab(marta); ponerGlobo(GL.pesame, 560, 300, ent(T.b2), [hx, hy - 150]); }
     else if (plano === "P3b") ponerGlobo(GL.pesame, 720, 425, 1, [1080, 900]); else GL.pesame.visible = false;
-    if (plano === "P5" && t >= T.b3) { const [hx, hy] = cab(graciela); ponerGlobo(GL.era, hx + 60, Math.max(470, hy - 360), ent(T.b3), [hx, hy - 140]); } else GL.era.visible = false;
+    if (plano === "P5" && t >= T.b3) { const [hx, hy] = cab(graciela); ponerGlobo(GL.era, 700, 435, ent(T.b3), [hx + 40, hy - 250]); } else GL.era.visible = false;
     if (plano === "Q2" && t >= T.b4) { const [hx, hy] = cab(graciela); ponerGlobo(GL.abierto, Math.min(hx, 680), Math.min(470, hy - 300), ent(T.b4), [hx, hy - 120]); } else GL.abierto.visible = false;
   }
   // ---- contador de pésames ----
@@ -859,14 +885,13 @@ function renderAt(tIn) {
     if (visible) {
       const ini = parte2 ? T.c0 : T.c3;
       s = 0.92 * ((plano === "P3" && t < T.c3 + 0.4) || parte2 ? bk(sg(t, ini, ini + 0.3)) : 1);
-      if (plano === "Q1") s *= 1 - eio(sg(t, T.q2 - 0.18, T.q2));
     }
     const [n, desde] = numeroEn(t);
     for (const k in NUMS) NUMS[k].visible = false;
     const sinFlip = desde === T.c3 || desde === T.q1;
     // cada número nuevo entra con un pop de escala (sin girar: a mitad de giro se veía la cara de arriba como un bloque)
-    NUMS[n].visible = true; NUMS[n].rotation.x = 0; NUMS[n].scale.setScalar(sinFlip ? 1 : Math.max(0.05, bk(sg(t, desde, desde + (n > 7 && n < 12 ? 0.07 : 0.2)))));
-    const u = sg(t, T.c0, T.c0 + 0.2);
+    NUMS[n].visible = true; NUMS[n].rotation.x = 0; NUMS[n].scale.setScalar(sinFlip ? 1 : 0.55 + 0.45 * bk(sg(t, desde, desde + (n > 7 && n < 12 ? 0.07 : 0.2))));
+    const u = sg(t, T.c0 + 0.05, T.c0 + 0.2);
     tacha.visible = parte2 && n === 13 && u > 0; tacha.scale.set(Math.max(0.001, u), 1, 1);
     const late = (sinFlip ? 0 : pulso(t, desde, 0.28)) + (n === 13 && !parte2 ? pulso(t, T.c13, 0.4) * 0.8 : 0) + (n === 0 ? pulso(t, desde, 0.35) * 0.6 : 0);
     ponerContador(540, 182, s * (1 + 0.1 * late));

@@ -1,0 +1,13 @@
+{
+ "t": 0.3,
+ "chica": "Rubén…",
+ "grande": "¿cerraste?",
+ "sello": "Para mandar",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 0,6 s: P1, el celular de Graciela con 'Cerrado permanentemente' y Rubén abierto atrás con el mate), guardado en portada-src/fondo-limpio-0.6.png. Para regenerar: hacé con ese png un mp4 de 1 s en renders/que-en-paz-descanse-final.mp4 (si no existe el render final), corré portada.mjs y borralo."
+}

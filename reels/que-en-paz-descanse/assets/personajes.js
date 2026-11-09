@@ -131,6 +131,14 @@ const G = {
   cil: (() => { const g = new THREE.CylinderGeometry(1, 1, 1, 16, 1); g.translate(0, -0.5, 0); return g; })(),
 };
 
+// casquete del párpado: esfera unitaria desde el polo de arriba hasta el ángulo que corresponde a `cub` (0..1),
+// con un poco de margen arriba siempre (cachea por valor redondeado)
+const _caps = {};
+function capParpado(cub) {
+  const k = Math.round(cl(cub) * 40);
+  return (_caps[k] ??= new THREE.SphereGeometry(1, 40, 20, 0, Math.PI * 2, 0, Math.max(0.05, Math.PI * (0.06 + 0.94 * (k / 40)))));
+}
+
 export function crearPersonaje(cfg) {
   // ojo: lo que no viene en cfg sale de DEFECTO (neutro), nunca de otro personaje
   const c = { ...DEFECTO, ...cfg };
@@ -258,7 +266,10 @@ export function crearPersonaje(cfg) {
     pup.add(mesh(G.esfera, M.pupila, 0, 0, 0.034, 0.036, 0.042, 0.022));
     const brillo = mesh(G.esferaLow, M.blanco, 0.012, 0.016, 0.052, 0.011); pup.add(brillo);
     const lidPivote = new THREE.Group(); g.add(lidPivote);
-    const lid = mesh(G.parpado, M.piel, 0, 0, 0, 0.075, 0.083, 0.057); lidPivote.add(lid); // radio claramente mayor que el globo (sin z-fighting); cerrado lo reemplaza la línea
+    // que-en-paz-descanse (09-11): el párpado es un casquete que baja desde arriba (cubre todo el globo de arriba hasta
+    // el borde, adelante y atrás): a media asta no asoma el blanco por arriba ni recorta la pupila (antes era una media
+    // esfera que rotaba y a medio camino dejaba ver el globo encima del párpado)
+    const lid = new THREE.Mesh(capParpado(0.5), M.piel); lid.scale.set(0.079, 0.087, 0.068); lidPivote.add(lid);
     const lidLow = new THREE.Group(); g.add(lidLow);
     const lidLowM = mesh(G.parpado, M.piel, 0, 0, 0, 0.0745, 0.0825, 0.0565); lidLowM.rotation.z = Math.PI; lidLow.add(lidLowM);
     if (c.pestanas) {
@@ -328,6 +339,16 @@ export function crearPersonaje(cfg) {
   } else if (c.peinado === "pelado") {
     const corona = mesh(new THREE.SphereGeometry(1, 32, 16, Math.PI * 0.93, Math.PI * 1.14, Math.PI * 0.34, Math.PI * 0.3), M.pelo, 0, CC, 0, R * 1.035, R * 1.0, R * 0.985);
     cabeza.add(corona);
+    // cfg.mechones (de lo-mismo-que-la-otra-vez): en vez de la cáscara (que en planos medios se veía como un arco de
+    // alambre despegado sobre la oreja), una herradura de pelo con volumen alrededor de la nuca
+    if (c.mechones) {
+      corona.visible = false;
+      const pelo = mat(c.pelo, 0.8);
+      const herr = new THREE.Group(); herr.position.set(0, CC - 0.015, -0.005); herr.rotation.y = -0.12; herr.scale.set(1, 1.3, 0.95); cabeza.add(herr);
+      const arco = Math.PI + 0.24, rr = R * 0.975, tubo = 0.032;
+      const anillo = mesh(new THREE.TorusGeometry(rr, tubo, 12, 48, arco), pelo); anillo.rotation.x = -Math.PI / 2; herr.add(anillo);
+      for (const th of [0, arco]) { const pt = mesh(G.esfera, pelo, rr * Math.cos(th), 0, -rr * Math.sin(th), tubo); herr.add(pt); }
+    }
     craneo.material = M.piel.clone(); craneo.material.roughness = 0.38; // brillo de pelado
   } else if (c.peinado === "rulos") {
     let s = 11;
@@ -531,12 +552,14 @@ export function crearPersonaje(cfg) {
     for (const o of ojos) {
       const ab = cl(p.ojos.abiertos * (1 - parp) * (1 - cl(p.ojos.guiño * o.s)));
       o.pup.position.set(p.ojos.x * 0.024, p.ojos.y * 0.026, 0);
-      o.lidPivote.rotation.set(lerp(Math.PI * 0.5, -Math.PI * 0.62, ab), 0, o.s * p.ojos.tension * 0.45);
+      const cub = cl(1 - ab, 0, 1); // cuánto tapa el párpado (0 abierto, 1 cerrado)
+      o.lid.geometry = capParpado(cub); o.lid.visible = cub > 0.06;
+      o.lidPivote.rotation.set(0, 0, -o.s * p.ojos.tension * 0.3);
       o.lidLow.rotation.set(lerp(Math.PI * 0.62, 0.3, cl(p.ojos.feliz)), 0, 0);
       o.blanco.scale.y = 0.076 * (1 - p.ojos.feliz * 0.15);
-      const cer = ab < 0.2;
+      const cer = ab < 0.45; // casi cerrado ya es la línea (el casquete casi entero se leía como un bulto de piel)
       // párpado a media asta (tapa más de ~40 %): sin brillo (atravesaba el párpado como un granito); más bajo, sin pupila
-      o.brillo.visible = ab > 0.62; o.pupila.visible = ab > 0.3;
+      o.brillo.visible = ab > 0.8; o.pupila.visible = ab > 0.3;
       o.cerrado.visible = cer; o.blanco.visible = o.pup.visible = o.lidPivote.visible = o.lidLow.visible = !cer;
     }
     // cejas
@@ -782,15 +805,20 @@ export function crearBandejaBizcochos() {
 }
 // Pañuelo de tela crema con borde de puntilla. Origen en el centro; cuelga un poco (plano doblado).
 export function crearPanuelo() {
+  // tela blanca con puntilla crema en el borde, con pliegues (vértices ondulados) y una punta que cae
   const g = new THREE.Group();
   const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
-  x.fillStyle = "#f4f2e8"; x.fillRect(0, 0, 128, 128); x.fillStyle = "#ffffff";
-  for (let i = 0; i < 16; i++) for (const [a, b] of [[i * 8 + 4, 5], [i * 8 + 4, 123], [5, i * 8 + 4], [123, i * 8 + 4]]) { x.beginPath(); x.arc(a, b, 4, 0, 7); x.fill(); }
-  x.strokeStyle = "#d9d7c9"; x.lineWidth = 3; x.strokeRect(12, 12, 104, 104);
+  x.fillStyle = "#ffffff"; x.fillRect(0, 0, 128, 128); x.fillStyle = "#e9e4cf";
+  for (let i = 0; i < 16; i++) for (const [a, b] of [[i * 8 + 4, 4], [i * 8 + 4, 124], [4, i * 8 + 4], [124, i * 8 + 4]]) { x.beginPath(); x.arc(a, b, 4, 0, 7); x.fill(); }
   const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
-  const m = new THREE.MeshStandardMaterial({ map: t, roughness: 0.9, side: THREE.DoubleSide });
-  const a = new THREE.Mesh(new THREE.PlaneGeometry(0.11, 0.07), m); a.position.y = 0.02; g.add(a);
-  const b = new THREE.Mesh(new THREE.PlaneGeometry(0.11, 0.07), m); b.position.set(0, -0.035, 0.012); b.rotation.x = -0.5; g.add(b);
+  const m = new THREE.MeshStandardMaterial({ map: t, roughness: 0.95, side: THREE.DoubleSide });
+  const tela = (w, h, amp, fase) => {
+    const geo = new THREE.PlaneGeometry(w, h, 10, 8), pos = geo.attributes.position;
+    for (let i = 0; i < pos.count; i++) { const px = pos.getX(i), py = pos.getY(i); pos.setZ(i, amp * Math.sin(px * 70 + fase) + amp * 0.6 * Math.cos(py * 60) - (py / h) * (py / h) * 0.02); }
+    geo.computeVertexNormals(); return geo;
+  };
+  const a = new THREE.Mesh(tela(0.12, 0.08, 0.005, 0), m); a.position.y = 0.02; a.rotation.z = 0.12; g.add(a);
+  const b = new THREE.Mesh(tela(0.09, 0.07, 0.006, 1.3), m); b.position.set(0.01, -0.035, 0.01); b.rotation.set(-0.45, 0, -0.25); g.add(b);
   return g;
 }
 // Corona de flores de velorio: aro de hojas verde oscuro y navy con claveles blancos, crema y algún rojo apagado,
@@ -833,7 +861,13 @@ export function crearCorona(texto = "ALMACÉN RUBÉN · Q.E.P.D.", fuente = '800
   const cinta = new THREE.Mesh(rbox(W, H, 0.012, 0.004), [mat(0xefeee5), mat(0xefeee5), mat(0xefeee5), mat(0xefeee5), cm, mat(0xefeee5)]);
   cinta.position.set(0, -0.03, 0.15); cinta.rotation.z = 0.13; aro.add(cinta);
   // las puntas de la cinta que cuelgan
-  for (const sx of [-1, 1]) { const p = new THREE.Mesh(rbox(0.1, 0.32, 0.01, 0.004), mat(0xefeee5, 0.7)); p.position.set(sx * 0.5, -0.25 + sx * 0.06, 0.13); p.rotation.z = sx * 0.12; aro.add(p); }
+  // las puntas de la cinta que cuelgan, onduladas como tela (con el corte en V abajo)
+  for (const sx of [-1, 1]) {
+    const geo = new THREE.PlaneGeometry(0.1, 0.36, 2, 14), pos = geo.attributes.position;
+    for (let i = 0; i < pos.count; i++) { const py = pos.getY(i), px = pos.getX(i); const u = (0.18 - py) / 0.36; pos.setX(i, px + sx * 0.05 * Math.sin(u * 3.2)); pos.setZ(i, 0.025 * Math.sin(u * 5 + sx)); if (u > 0.97 && Math.abs(px) < 0.01) pos.setY(i, py + 0.035); }
+    geo.computeVertexNormals();
+    const p = new THREE.Mesh(geo, mat(0xefeee5, 0.7, { side: THREE.DoubleSide })); p.position.set(sx * 0.46, -0.24 + sx * 0.05, 0.13); p.rotation.z = sx * 0.1; aro.add(p);
+  }
   g.userData.aro = aro; g.userData.cinta = cinta;
   g.traverse((o) => { if (o.isMesh) o.castShadow = true; });
   return g;

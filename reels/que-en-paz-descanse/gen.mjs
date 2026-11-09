@@ -21,7 +21,7 @@ const T = {
   b1: 0.3,                                // "Rubén… dice acá que cerraste."
   dolly: [1.2, 2.2],                       // el celular baja y la cámara va hacia Rubén
   p2: 2.2, senala: 2.45, sorbo: 2.95,      // primer plano: se señala con el mate, sorbe
-  p3: 3.3, p3b: 4.15, entra: [3.35, 4.3], b2: 3.65, c3: 4.2, apoya: 4.5, mano: [4.6, 5.1], aCam: 4.85,
+  p3: 3.3, p3b: 4.15, entra: [3.8, 4.5], b2: 3.85, c3: 4.2, apoya: 4.55, mano: [4.6, 5.1], aCam: 4.85,
   p4: 5.1, corona: 5.2, push: [5.4, 6.5], c7: 5.55, c12: [5.95, 6.3],
   p5: 6.7, panuelo: 6.9, b3: 7.1,
   p6: 8.4, corte: 8.4, giraCab: [8.45, 9.0], pushIn: [9.05, 9.35],
@@ -29,12 +29,12 @@ const T = {
   p7: 11.2, vibra: 11.25, notif: 11.45, c13: 12.3,
   p8: 12.8, techo: 12.85, ofrece: 13.3, agarra: 13.7, muerde: 13.95,
   // ---- parte 2 ----
-  q1: P2, tipeo: [17.7, 18.05], tap: 18.1, web: 18.25, abierto: 18.4, horario: 18.65, mapa: 18.9, boton: 19.15, foto: 19.35, c0: 19.6,
+  q1: P2, tipeo: [17.62, 17.92], ficha: 17.95, tap: 18.35, web: 18.5, abierto: 18.6, horario: 18.75, mapa: 18.9, boton: 19.05, foto: 19.2, c0: 18.9,
   q2: 20.1, entra2: [20.15, 20.95], b4: 20.45,
   q3: 21.5, sorbo2: [21.55, 22.15], baja: 22.25, voz2: 22.35,  // "Estoy" en 22,45
   q4: 24.0, vibra2: 24.05, notif2: 24.25, mini: 24.6,
   q5: 26.3, cuello: 26.4, guino: 27.3,
-  q6: 28.5, cierre: 28.0,
+  q6: 28.5, cierre: 28.5,
 };
 const DUR = 30.0;
 
@@ -96,20 +96,21 @@ for (const f of fs.readdirSync("compositions")) if (f.endsWith(".html")) fs.unli
 const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el canvas) o "abajo" (el cartel)
 
 // la hora (pill abajo a la derecha, como abren-hoy s01-hora)
-function hora(id, ini, fin, texto) {
+function hora(id, ini, fin, texto, top = 1665, entra = true) {
   const dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .hora { position: absolute; right: 50px; top: 1665px; display: flex; align-items: center; gap: 18px; padding: 16px 28px 17px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); }
+    P .hora { position: absolute; right: 50px; top: ${top}px; display: flex; align-items: center; gap: 18px; padding: 16px 28px 17px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); }
     P .punto { width: 18px; height: 18px; border-radius: 50%; background: ${G}; }`,
     html: `      <div class="hora"><span class="punto"></span><span>${texto}</span></div>`,
-    js: `      tl.fromTo(q(".hora"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.15);
+    js: `      ${entra ? `tl.fromTo(q(".hora"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.0);` : ""}
       tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: ${Math.max(1, Math.floor(dur / 0.5) - 2)}, ease: "sine.inOut", immediateRender: false }, 0.4);
-      tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`,
+      ${top === 820 ? "" : `tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`}`,
   });
 }
-hora("s00-hora", T.p2, T.p6, "MARTES · 10:15");
+hora("s00a-hora", 0, T.p2, "MARTES · 10:15", 820, false);   // en P1 más arriba: abajo está el celular de Graciela
+hora("s00-hora", T.p2, T.p6, "MARTES · 10:15", 1665, false);
 
 // las líneas de Rubén, palabra por palabra, abajo de su cara; la clave en el recuadro verde
 function linea(id, vozT, palabras, clave, fin) {
@@ -118,7 +119,7 @@ function linea(id, vozT, palabras, clave, fin) {
   const spans = palabras.map(([w, s], i) => `<span class="w${i === clave ? " ac" : ""}" data-t="${r2(vozT + s - ini)}">${i === clave ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : ""}<em>${w}</em></span>`).join(" ");
   escena(id, dur, {
     css: `
-    P .linea { position: absolute; left: 40px; right: 40px; top: 1500px; text-align: center; font: 700 96px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
+    P .linea { position: absolute; left: 40px; right: 40px; top: 1640px; text-align: center; font: 700 96px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
     P .w { display: inline-block; position: relative; opacity: 0; }
     P .w em { font-style: normal; position: relative; }
     P .w.ac { margin: 0 18px; }
@@ -207,7 +208,7 @@ hora("s04-hora", T.q2, T.q3, "OTRO MARTES · 10:15");
     P .caja { position: absolute; left: 60px; right: 60px; top: 1480px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.94); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Tu horario y tu ubicación,</div><div class="a">al día en internet</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Un sitio web con</div><div class="a">tu horario al día</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -223,13 +224,13 @@ const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 // ---- parte 1 ----
 // ambiente de barrio de día (calle.wav dura 15,5 s), con pasabajos: se oye desde adentro del almacén
 s("sfx/calle.wav", 0, -6, { dur: P1, fin: 0.3, techo: -36, lp: 1800 });
-s("bgm/pizzicato.wav", 0, 0, { dur: T.corte, fin: 0.03, techo: -32 });                // la música se corta seca
+s("bgm/pizzicato.wav", 0, 0, { desde: 0.6, dur: T.corte, fin: 0.02, techo: -32 });   // desde 0,6: en 8,4 suena una nota (la de 8,9 del archivo) y el corte se oye                // la música se corta seca
 s("sfx/burbuja.mp3", T.b1, 0);
 s("sfx/whoosh-short.mp3", T.dolly[0] + 0.05, 0, { techo: -40 });
 s("sfx/tic-real.mp3", T.senala + 0.05, 0, { techo: -38 });                              // el mate toca el pecho
 s("sfx/sorbo.wav", T.sorbo, 0, { techo: -33 });
 s("sfx/campanita.wav", T.entra[0], 0, { techo: -32 });
-for (let t = T.entra[0] + 0.15; t < T.entra[1]; t += 0.3) s("sfx/tac-real.mp3", t, 0, { techo: -40 });  // pasos de Marta
+for (let t = T.p3 + 0.05; t < T.p3b; t += 0.22) s("sfx/tac-real.mp3", t, 0, { techo: -40 });  // pasos de Marta
 s("sfx/burbuja.mp3", T.b2, 0);
 s("sfx/pop.mp3", T.c3, 0, { desde: 0.11, techo: -33 });
 s("sfx/key-press.mp3", T.c3 + 0.05, 0, { desde: 0.07, techo: -36 });
@@ -253,14 +254,19 @@ s("sfx/papel.wav", T.muerde, 0, { dur: 0.22, fin: 0.06, techo: -38 });          
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
 s("voice/narrador.wav", P1 + 0.3, 0, { voz: true });
+s("sfx/whoosh-short.mp3", P2 - 0.78, 0, { techo: -42 });
+s("sfx/calle.wav", P2 - 1.05, -6, { desde: 5, dur: 1.1, fi: 0.35, fin: 0.05, techo: -40, lp: 1800 });   // cama mínima bajo el final del cartel (sin silencio digital)   // sin silencio digital entre el narrador y el iris
 s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -37, lp: 1800 });
 s("bgm/pizzicato.wav", P2, 0, { dur: 12, fin: 0.8, techo: -35, duck: [T.voz2 + 0.05, T.voz2 + 1.55] });
-for (let i = 0; i < 9; i++) s("sfx/key-press.mp3", T.tipeo[0] + i * 0.042, 0, { desde: 0.07, techo: -40 });
+for (let i = 0; i < 9; i++) s("sfx/key-press.mp3", T.tipeo[0] + i * 0.034, 0, { desde: 0.07, techo: -40 });
+s("sfx/pop.mp3", T.ficha, 0, { desde: 0.11, techo: -37 });
 s("sfx/click-soft.mp3", T.tap, 0, { techo: -35 });
 for (const t of [T.abierto, T.horario, T.mapa, T.boton, T.foto]) s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -37 });
-s("sfx/cero.mp3", T.c0 + 0.12, 0, { techo: -33 });
+s("sfx/pop.mp3", T.c0, 0, { desde: 0.11, techo: -37 });
+s("sfx/papel.wav", T.c0 + 0.08, 0, { dur: 0.2, fin: 0.06, techo: -40 });   // la raya que tacha el 13
+s("sfx/cero.mp3", T.c0 + 0.25, 0, { techo: -33 });                          // el 0 verde
 s("sfx/campanita.wav", T.entra2[0], 0, { techo: -32 });
 for (let t = T.entra2[0] + 0.15; t < T.entra2[1]; t += 0.3) s("sfx/tac-real.mp3", t, 0, { techo: -40 });
 s("sfx/burbuja.mp3", T.b4, 0);
@@ -268,7 +274,6 @@ s("sfx/sorbo.wav", T.sorbo2[0], 0, { techo: -33 });
 s("voice/ruben2.wav", T.voz2, 0, { voz: true });
 s("sfx/vibra.wav", T.vibra2, 0, { dur: 0.75, fin: 0.08, techo: -32 });
 s("sfx/notification.mp3", T.notif2, 0, { techo: -36 });
-s("sfx/papel.wav", T.cuello, 0, { dur: 0.3, fin: 0.1, techo: -42 });                    // se acomoda el cuello
 s("sfx/chime.mp3", T.guino, 0, { techo: -34 });
 s("sfx/whoosh-short.mp3", T.cierre, 0, { techo: -38 });
 s("sfx/campanita.wav", 29.3, 0, { techo: -40 });
@@ -308,6 +313,7 @@ function mezcla(lista, salida, dur, bus = false) {
     if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
     if (o.lp) c += `,lowpass=f=${o.lp}`;
     if (o.fin && o.dur) c += `,afade=t=out:st=${r2(o.dur - o.fin)}:d=${o.fin}`;
+    if (o.fi) c += `,afade=t=in:st=0:d=${o.fi}`;
     if (o.voz) c += ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.42:attack=1.5:release=40:level=false";
     c += `,volume=${ganancia(x)}dB`;
     if (o.duck) { const [a, b] = o.duck.map((v) => r2(v - ini)); c += `,volume='1-0.645*clip((t-${a})/0.15,0,1)*clip((${b}-t)/0.15,0,1)':eval=frame`; }
@@ -329,7 +335,7 @@ const OBJ = Number(process.env.OBJ ?? -14.4), LIM = Number(process.env.LIM ?? 0.
 {
   const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
   const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,aresample=192000,alimiter=limit=${LIM}:level=false:attack=1:release=60,aresample=48000`, "-ar", "48000", "assets/audio/mezcla.wav"]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,aresample=192000,alimiter=limit=${LIM}:level=false:attack=1:release=60,aresample=48000,atrim=duration=${DUR}`, "-ar", "48000", "assets/audio/mezcla.wav"]);
 }
 
 // ================= INDEX =================
