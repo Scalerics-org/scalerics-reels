@@ -328,8 +328,8 @@ const BAL = { piv: 2.3, semi: 1.45, alto: 0.42, r: 0.86 };
 const brazo = new THREE.Group(); brazo.position.y = BAL.piv; balanza.add(brazo);
 const platos = [];
 {
-  balanza.add(mesh(rbox(2.0, 0.24, 1.0, 0.1), M.navy2, 0, 0.12, 0));
-  balanza.add(mesh(rbox(1.5, 0.08, 0.7, 0.04), M.g, 0, 0.27, 0));
+  balanza.add(mesh(rbox(3.0, 0.3, 1.3, 0.12), M.navy2, 0, 0.15, 0));
+  balanza.add(mesh(rbox(2.4, 0.08, 0.9, 0.04), M.g, 0, 0.32, 0));
   balanza.add(mesh(new THREE.CylinderGeometry(0.11, 0.15, BAL.piv - 0.2, 20), M.navy3, 0, BAL.piv / 2 + 0.1, 0));
   balanza.add(mesh(new THREE.SphereGeometry(0.2, 24, 16), M.g, 0, BAL.piv, 0.0));
   brazo.add(mesh(rbox(BAL.semi * 2 + 0.2, 0.16, 0.2, 0.07), M.navy2, 0, 0, 0));
@@ -412,7 +412,6 @@ const sh = (o) => { o.castShadow = true; o.receiveShadow = true; return o; };
   almacen.add(mesh(rbox(1.6, 0.34, 0.05, 0.03), [M.navy2, M.navy2, M.navy2, M.navy2, new THREE.MeshStandardMaterial({ map: letTex, roughness: 0.6, emissive: 0xffffff, emissiveMap: letTex, emissiveIntensity: 0.15 }), M.navy2], 1.15, 3.24, -3.22));
   almacen.add(sh(mesh(rbox(2.5, 0.84, 0.62, 0.03), M.navy3, 0.25, 0.42, MOSTRADOR.z)));
   almacen.add(sh(mesh(rbox(2.62, 0.06, 0.72, 0.02), mat(0x9b6a43, 0.55), 0.25, MOSTRADOR.y - 0.02, MOSTRADOR.z)));
-  almacen.add(mesh(rbox(2.3, 0.06, 0.02, 0.01), M.g, 0.25, 0.3, MOSTRADOR.z + 0.315));
   const fr = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.26, 18), new THREE.MeshStandardMaterial({ color: 0xdfeeff, transparent: true, opacity: 0.35, roughness: 0.05 }));
   fr.position.set(-0.75, MOSTRADOR.y + 0.14, MOSTRADOR.z + 0.05); almacen.add(fr);
   for (let i = 0; i < 9; i++) almacen.add(mesh(new THREE.SphereGeometry(0.035, 10, 8), mat([C.red, C.g, 0xd9a441][i % 3], 0.3), -0.75 + Math.sin(i * 2.4) * 0.06, MOSTRADOR.y + 0.05 + Math.floor(i / 3) * 0.05, MOSTRADOR.z + 0.05 + Math.cos(i * 2.4) * 0.06));
@@ -429,7 +428,7 @@ const celuMTex = tex(256, 512, (x) => {
   celuMostrador.add(mesh(rbox(0.2, 0.38, 0.025, 0.03), M.navy));
   const p = mesh(new THREE.PlaneGeometry(0.18, 0.35), new THREE.MeshBasicMaterial({ map: celuMTex, toneMapped: false }), 0, 0, 0.014); celuMostrador.add(p);
   const pie = mesh(rbox(0.16, 0.05, 0.14, 0.02), M.navy3, 0, -0.19, -0.05); celuMostrador.add(pie);
-  celuMostrador.position.set(0.15, MOSTRADOR.y + 0.2, MOSTRADOR.z + 0.26); celuMostrador.rotation.set(-0.35, 0.25, 0);
+  celuMostrador.position.set(1.06, MOSTRADOR.y + 0.2, MOSTRADOR.z + 0.26); celuMostrador.rotation.set(-0.35, -0.3, 0);
   celuMostrador.traverse((o) => { if (o.isMesh) o.castShadow = true; });
 }
 // cajones de verdura delante del mostrador (primer plano abajo)
@@ -446,7 +445,7 @@ const celuMTex = tex(256, 512, (x) => {
   cajon(0.86, -0.52, -0.03, 0x7cc243, 0x5ce611); // manzanas verdes
 }
 // la bolsa del pedido (papel madera) y lo que va adentro
-const BOLSA = V(OB.x + 0.45, MOSTRADOR.y, -1.24);
+const BOLSA = V(OB.x + 0.24, MOSTRADOR.y, -1.24);
 const bolsa = new THREE.Group(); scene.add(bolsa);
 const BW = 0.38, BH = 0.42, BD = 0.26;
 {
@@ -470,7 +469,7 @@ const productos = [];
   productos.push({ o: fideos, fin: V(-0.09, 0.2, 0.0), rot: V(0, 0.1, 0.05) });
   productos.push({ o: yerba, fin: V(0.08, 0.17, -0.04), rot: V(0, -0.2, -0.05) });
   productos.push({ o: leche, fin: V(0.08, 0.18, 0.03), rot: V(0, 0, 0.08) });
-  productos.push({ o: pan, fin: V(-0.05, 0.36, -0.02), rot: V(0, 0, -0.45) });
+  productos.push({ o: pan, fin: V(-0.06, 0.3, -0.02), rot: V(0, 0, 0.5) });
   productos.forEach((p) => bolsa.add(p.o));
 }
 const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 1e6, dedos: false }); scene.add(ruben.raiz);
@@ -685,8 +684,8 @@ const PLANOS = [
     [S["s06-mismos"], 3, 4, 15.2, 0, 2.6, 1.6, 30],
     [S["s06-mismos"] + 0.4, 0, 4, 14.6, 0, 2.6, 1.6, 30],
     [W[38] - 0.2, 0, 5, 14.2, 0, 2.6, 1.6, 30],
-    [W[40] + 0.35, 0, 7, 18.6, 0, 2.45, 0, 30],
-    [S["s07-por-que"], 2, 7, 18.2, 0, 2.5, 0, 30],
+    [W[40] + 0.35, 0, 9, 19.2, 0, 2.05, 0, 30],
+    [S["s07-por-que"], 2, 9, 18.8, 0, 2.1, 0, 30],
   ]],
   [S["s07-por-que"], "Q", [
     [S["s07-por-que"], 0, 3, 10.2, 0, 2.85, 0.5, 30],
@@ -695,8 +694,8 @@ const PLANOS = [
     [S["s08-ruben"], 0, 2, 9.4, 0, 2.8, 0.5, 30],
   ]],
   [S["s08-ruben"], "B1", [
-    [S["s08-ruben"], -6, 12, 4.25, OB.x + 0.58, 1.24, -1.4, 34],
-    [S["s09-no-ve"], 5, 12, 4.05, OB.x + 0.58, 1.26, -1.4, 34],
+    [S["s08-ruben"], -6, 12, 4.25, OB.x + 0.6, 1.24, -1.4, 34],
+    [S["s09-no-ve"], 5, 12, 4.05, OB.x + 0.6, 1.26, -1.4, 34],
   ]],
   [S["s09-no-ve"], "C1", [
     [S["s09-no-ve"], -4, 6, 5.6, GX + 0.46, 1.12, GZ, 34],
@@ -707,8 +706,8 @@ const PLANOS = [
     [S["s11-salio"], 4, 2, 12.6, 0, 2.75, 0, 30],
   ]],
   [S["s11-salio"], "B2", [
-    [S["s11-salio"], 5, 12, 4.25, OB.x + 0.58, 1.34, -1.4, 34],
-    [S["s12-se-vea"], -3, 12, 4.05, OB.x + 0.58, 1.36, -1.4, 34],
+    [S["s11-salio"], 5, 12, 4.25, OB.x + 0.6, 1.34, -1.4, 34],
+    [S["s12-se-vea"], -3, 12, 4.05, OB.x + 0.6, 1.36, -1.4, 34],
   ]],
   [S["s12-se-vea"], "C2", [
     [S["s12-se-vea"], 8, 6, 5.2, GX + 0.46, 1.16, GZ, 34],
@@ -883,10 +882,10 @@ function zonaA(t) {
       const p = t > tCae ? lerpV(b0.clone().add(V(0, 1.0, 0)), b0, caeR) : a0;
       reloj.position.copy(p);
       const fz = eio(sg(t, flip, flip + 0.38));
-      reloj.rotation.set(0, Math.sin(t * 1.1) * 0.2 * (1 - cae), fz * Math.PI);
+      reloj.rotation.set(0, Math.sin(t * 1.1) * 0.2 * (1 - cae), Math.PI); void fz;
       reloj.scale.setScalar((t < tH + 0.3 && tH > S["s05-aerolinea"] ? popIn(t, tH, 0.3) : 1) * lerp(0.95, 0.72, cae));
-      const vacia = sg(t, flip + 0.3, W[35] + 0.4);
-      const antes = t < flip + 0.19;
+      const vacia = sg(t, S["s05-aerolinea"], W[35] + 0.4);
+      const antes = false;
       arena.bLejos.visible = antes;
       arena.bCuello.visible = !antes && vacia < 0.98;
       if (arena.bCuello.visible) { const h = 0.42 * (1 - vacia); arena.bCuello.scale.set(1 - vacia * 0.5, h, 1 - vacia * 0.5); arena.bCuello.position.set(0, -0.05 - h / 2, 0); }
@@ -964,13 +963,12 @@ function zonaA(t) {
       const tl = [W[47] - 0.02, W[48] + 0.15];
       lupaTildes.forEach((k, i) => ocultar(k, popIn(t, tl[i])));
       const tv = W[51] - 0.05;
-      tildeLupa.visible = t > tv - 0.15;
+      tildeLupa.visible = t > tv;
       if (tildeLupa.visible) {
         lupa.updateMatrixWorld(true);
-        const baja = sg(t, tv - 0.15, tv);
-        tildeLupa.position.copy(lupa.localToWorld(V(0.55, 0.9 + (1 - baja) * 1.2, 0.4)));
+        tildeLupa.position.copy(lupa.localToWorld(V(0.02, -0.66, 0.3)));
         tildeLupa.quaternion.copy(lupa.quaternion);
-        const k = lerp(0.4, 0.72, bk(sg(t, tv - 0.15, tv + 0.2))) * lupa.scale.x;
+        const k = lerp(0.2, 0.5, bk(sg(t, tv, tv + 0.25))) * lupa.scale.x;
         tildeLupa.scale.set(k, k, k * 0.9);
       }
     } else tildeLupa.visible = false;
@@ -979,7 +977,7 @@ function zonaA(t) {
 
 // ================= ZONAS B y C: personajes =================
 const R0 = { x: OB.x + 0.84, z: -1.66, giro: 0.06 };
-const mirarBolsa = { cabeza: { giro: -0.3, asiente: 0.14, ladea: 0.04 } };
+const mirarBolsa = { cabeza: { giro: -0.42, asiente: 0.16, ladea: 0.04 }, ojos: { x: -0.6, y: -0.5 } };
 const caraR = { ...CARA.sonrisa, cejas: { alto: 0.45, ang: 0.45 }, ojos: { x: -0.3, y: -0.7, feliz: 0.25 } };
 const RK = [
   [0, { ...R0, ...BRAZOS.apoyado, manoI: [0.22, 0.3, 0.36], manoD: [-0.22, 0.3, 0.36], ...mirarBolsa, ...caraR }],
@@ -1029,7 +1027,7 @@ function personajes(t) {
       p.o.visible = on;
       if (!on) return;
       const u = sg(t, ti - 0.3, ti);
-      const alto = p.fin.clone().add(V(0, 0.25, 0));
+      const alto = p.fin.clone().add(V(0, 0.16, 0));
       p.o.position.copy(lerpV(alto, p.fin, u * u));
       p.o.rotation.set(p.rot.x, p.rot.y + (1 - u) * 0.8, p.rot.z);
       const s = 1.2 * lerp(0.4, 1, bk(sg(t, ti - 0.3, ti - 0.05)));
@@ -1042,8 +1040,8 @@ function personajes(t) {
     tapaBolsa.visible = B2;
     if (B2) {
       const va = eio(sg(t, W[75] - 0.05, W[75] + 0.5));
-      bolsa.position.x = BOLSA.x + 2.2 * va; bolsa.position.y = BOLSA.y + Math.sin(Math.PI * sg(t, W[75] - 0.05, W[75] + 0.15)) * 0.05;
-      bolsa.rotation.z = -0.06 * Math.sin(Math.PI * va);
+      bolsa.position.x = BOLSA.x - 2.0 * va; bolsa.position.y = BOLSA.y + Math.sin(Math.PI * sg(t, W[75] - 0.05, W[75] + 0.15)) * 0.05;
+      bolsa.rotation.z = 0.06 * Math.sin(Math.PI * va);
       bolsa.visible = va < 0.99;
     }
     if (B2 && cierra < 0.6) productos.forEach((p) => { p.o.visible = true; p.o.position.copy(p.fin); p.o.rotation.set(p.rot.x, p.rot.y, p.rot.z); p.o.scale.setScalar(1.2); });

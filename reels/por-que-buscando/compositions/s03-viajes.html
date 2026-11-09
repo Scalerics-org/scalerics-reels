@@ -55,7 +55,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-tl.set(q(".cred"), { opacity: 1 }, 0.19); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 0.19); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 1.98);
+tl.set(q(".cred"), { opacity: 1 }, 0.24); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 0.24); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 1.98);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

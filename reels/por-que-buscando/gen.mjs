@@ -153,7 +153,7 @@ vacia("s02-prefiere", [
   escena(id, {
     css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 40px/1.25 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
     html: `<div class="cred">Experimento<br>Buell y Norton, 2011</div>`,
-    js: `tl.set(q(".cred"), { opacity: 1 }, ${r2(w(id, 17))}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(w(id, 17))}); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.2)});`,
+    js: `tl.set(q(".cred"), { opacity: 1 }, 0.24); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, 0.24); tl.to(q(".cred"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.2)});`,
     sfx: [
       { t: 0.02, sfx: "whoosh-short", vol: 0.14 }, { t: 0.3, sfx: "click-soft", vol: 0.12 },
       { t: w(id, 17), sfx: "key-press", vol: 0.1 },
