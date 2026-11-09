@@ -388,7 +388,7 @@ function dibujarCeluR(t) {
   x.font = F(600, 40); x.fillText("martes", W / 2, 330);
   if (u > 0) {
     const y0 = 420 - (1 - eo(u)) * 300;
-    x.save(); x.globalAlpha = Math.min(1, u * 2);
+    x.save();
     x.fillStyle = "#ffffff"; rr(x, 26, y0, W - 52, p2 && mini > 0 ? 470 : 330, 34);
     x.fillStyle = "#efeee5"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.arc(100, y0 + 80, 46, 0, 7); x.fill(); x.stroke();
     x.fillStyle = "#16243d"; x.font = F(900, 52); x.fillText("M", 100, y0 + 84);
@@ -518,7 +518,7 @@ function numeroEn(t) {
 // plano, Catmull-Rom continua (modo "e" = tramo con ease propio: el push-in rápido). "celu" = inserto cenital del
 // celular de Rubén (la cámara la pone ponerCamara).
 const kP1 = (t0, t1, dolly = true) => dolly
-  ? [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t0 + 1.2, RI.x - 0.62, 1.56, 0.56, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.45, 1.5, 0.05, RI.x, 1.13, -1.9, 50]]
+  ? [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t0 + 1.2, RI.x - 0.62, 1.56, 0.56, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.36, 1.5, -0.35, RI.x, 1.17, -1.9, 46]]
   : [[t0, RI.x - 0.62, 1.56, 0.62, RI.x - 0.02, 0.86, -1.9, 55], [t1, RI.x - 0.62, 1.56, 0.5, RI.x - 0.02, 0.86, -1.9, 55]];
 const kP3 = (t0, t1, lx = 0.06) => [[t0, lx, 2.3, -2.75, lx, 1.3, 0.1, 56], [t1, lx, 2.27, -2.65, lx, 1.3, 0.1, 56]];
 const kP6 = (t0, t1, push) => push
@@ -573,9 +573,9 @@ function ponerCamara(t) {
   camCelu = PLANOS[pi][1] === "celu";
   if (camCelu) {
     // inserto cenital: el celular de Rubén de frente, la parte de arriba de la pantalla hacia el fondo del almacén
-    const t0 = PLANOS[pi][0], d = lerp(0.36, 0.33, sg(t, t0, t0 + 1.6));
+    const t0 = PLANOS[pi][0], d = lerp(0.365, 0.345, sg(t, t0, t0 + 1.6));
     camera.position.set(CELU_R.x - 0.004, CELU_R.y + d, CELU_R.z - 0.005); camera.up.set(0, 0, -1); camera.fov = 38; camera.updateProjectionMatrix();
-    camera.lookAt(CELU_R.x - 0.004, CELU_R.y, CELU_R.z - 0.025); camera.up.set(0, 1, 0);
+    camera.lookAt(CELU_R.x - 0.004, CELU_R.y, CELU_R.z - 0.015); camera.up.set(0, 1, 0);
     return;
   }
   const v = catmull(PLANOS[pi][1], t);
@@ -604,7 +604,7 @@ const RK = [
   [T.p3 - 0.001, { giro: 0.45, ...aC(0.1, 0), ...CARA.neutra, ojos: { x: 0.1, abiertos: 0.9 } }, 0.001],
   [T.c3, { ...aC(0.35, 0.05), ojos: { x: 0.35 }, ...CARA.incredula, cejas: { alto: 0.5, asim: 0.5 } }, 0.3],
   [T.p3b - 0.001, { giro: 0, ...aC(0.2, 0.05), ojos: { x: 0.3, abiertos: 0.85 } }, 0.001],
-  [T.mano[0] + 0.15, { ...aC(0.42, 0.4), ojos: { x: 0.3, y: -0.8, abiertos: 0.8 } }, 0.2],
+  [T.mano[0] + 0.15, { ...aC(0.08, 0.3), ojos: { x: 0.7, y: -0.9, abiertos: 0.85 } }, 0.2],
   [T.aCam + 0.2, { giro: 0, cabeza: { giro: -0.06, asiente: 0.02, ladea: -0.05 }, ojos: { x: 0.2, y: 0.05, abiertos: 0.6, tension: 0.3 }, cejas: { alto: 0.1, ang: 0.45, asim: 0 }, boca: { sonrisa: -0.4, abierta: 0, ancho: 0.9 } }, 0.22],
   // P6: corte; todavía mira a Graciela; gira la cabeza lento a cámara; "Es, Graciela."
   [T.p6 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, ...aC(-0.35, 0.03), ojos: { x: -0.4, y: 0, abiertos: 0.62, tension: 0.35, feliz: 0 }, cejas: { alto: 0.2, ang: 0.6, asim: 0 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.95 } }, 0.001],
@@ -625,7 +625,7 @@ const RK = [
   [T.cuello + 0.3, { inclina: -0.07, cabeza: { giro: 0.03, asiente: -0.08, ladea: 0.05 }, cejas: { alto: 0.45 }, boca: { sonrisa: 0.85, ancho: 1.1 } }, 0.3],
   [T.guino, { ojos: { guiño: -1, feliz: 0.45 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 }, manoD: [-0.16, 0.42, 0.34] }, 0.12],
   [T.guino + 0.5, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
-  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.35, ang: 0.4, asim: 0 }, inclina: 0 }, 0.001],
+  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.feliz, ojos: { x: -0.3, abiertos: 0.95, feliz: 0.45 }, cejas: { alto: 0.45, ang: 0.0, asim: 0 }, inclina: 0 }, 0.001],
 ];
 // ---- Graciela ----
 const G_GIRO = Math.atan2(RI.x - G0.x, RI.z - G0.z);
@@ -788,7 +788,7 @@ function renderAt(tIn) {
     const rot = new THREE.Matrix4().makeRotationY(ruben.raiz.rotation.y);
     mateR.position.copy(p).add(MATE_OFF.clone().applyMatrix4(rot)); mateR.rotation.set(0, ruben.raiz.rotation.y - Math.PI / 2, 0);
     mateR.visible = ruben.raiz.visible;
-    termoR.position.copy(TERMO); termoR.rotation.set(0, 0.6, 0);
+    termoR.position.copy(TERMO); termoR.rotation.set(0, 0.6, 0); termoR.visible = !["P3", "Q2"].includes(plano);
   }
   // ---- la bandeja de bizcochos: en las manos de Marta, después en el mostrador (solo parte 1) ----
   {
@@ -812,8 +812,7 @@ function renderAt(tIn) {
     panuelo.visible = !parte2 && t >= T.panuelo - 0.25 && graciela.raiz.visible;
     if (panuelo.visible) {
       const p = manoMundo(graciela, "D", _a);
-      panuelo.position.copy(p).add(V3(0, 0.05, 0)); panuelo.rotation.set(0, graciela.raiz.rotation.y, 0.2);
-      if (t < T.p6) { const bm = bocaMundo(graciela, 0.07, V3()).add(V3(0, -0.045, 0)); panuelo.position.lerp(bm, eio(sg(t, T.panuelo - 0.25, T.panuelo + 0.05))); }
+      panuelo.position.copy(p).add(V3(0, 0.075, 0)); panuelo.rotation.set(0, graciela.raiz.rotation.y, 0.2);
     }
   }
   // ---- los celulares ----
@@ -823,7 +822,7 @@ function renderAt(tIn) {
     if (enP1) {
       dibujarCeluG(t);
       // en P1 el celular baja y sale por abajo mientras la cámara va hacia Rubén
-      const baja = plano === "P1" ? eio(sg(t, T.dolly[0], T.dolly[1])) : 0;
+      const baja = plano === "P1" ? eio(sg(t, T.dolly[0], T.dolly[0] + 0.5)) : 0;
       celuGcam.position.set(-0.008, -0.085 - baja * 0.2, -0.32);
       celuGcam.rotation.set(-0.08 - baja * 0.3, 0.02, 0.05);
     }
@@ -846,7 +845,7 @@ function renderAt(tIn) {
     const ent = (ti) => bk(sg(t, ti, ti + 0.28));
     const cab = (p) => cabezaEnPantalla(p, 0.12);
     // "Rubén… dice acá que cerraste." (Graciela fuera de cuadro: la cola baja hacia su celular)
-    ponerGlobo(GL.cerraste, 540, 245, plano === "P1" ? ent(T.b1) : 0, [330, 900]);
+    ponerGlobo(GL.cerraste, 540, 200, plano === "P1" ? ent(T.b1) * (1 - eio(sg(t, 1.85, 2.05))) : 0, [330, 900]);
     // "Mi más sentido pésame, Rubén." (arriba de Marta, debajo del contador)
     if (plano === "P3" && t >= T.b2) { const [hx, hy] = cab(marta); ponerGlobo(GL.pesame, 560, 300, ent(T.b2), [hx, hy - 150]); }
     else if (plano === "P3b") ponerGlobo(GL.pesame, 720, 425, 1, [1080, 900]); else GL.pesame.visible = false;
@@ -864,9 +863,9 @@ function renderAt(tIn) {
     }
     const [n, desde] = numeroEn(t);
     for (const k in NUMS) NUMS[k].visible = false;
-    const flip = sg(t, desde, desde + 0.2);
-    const sinFlip = desde === T.c3 || desde === T.q1 || (n > 7 && n < 13);
-    NUMS[n].visible = true; NUMS[n].rotation.x = sinFlip ? 0 : (1 - eo(flip)) * -Math.PI / 2;
+    const sinFlip = desde === T.c3 || desde === T.q1;
+    // cada número nuevo entra con un pop de escala (sin girar: a mitad de giro se veía la cara de arriba como un bloque)
+    NUMS[n].visible = true; NUMS[n].rotation.x = 0; NUMS[n].scale.setScalar(sinFlip ? 1 : Math.max(0.05, bk(sg(t, desde, desde + (n > 7 && n < 12 ? 0.07 : 0.2)))));
     const u = sg(t, T.c0, T.c0 + 0.2);
     tacha.visible = parte2 && n === 13 && u > 0; tacha.scale.set(Math.max(0.001, u), 1, 1);
     const late = (sinFlip ? 0 : pulso(t, desde, 0.28)) + (n === 13 && !parte2 ? pulso(t, T.c13, 0.4) * 0.8 : 0) + (n === 0 ? pulso(t, desde, 0.35) * 0.6 : 0);
