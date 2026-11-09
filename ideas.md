@@ -232,7 +232,7 @@
 - 09-11 · `por-que-buscando` · Automatizaciones (avisos automáticos de estado del pedido por WhatsApp) · "¿Por qué algunas páginas te muestran que están "buscando"?" Explicador sin marcas (Buell y Norton 2011, "The Labor Illusion", ver fuentes.md): una página de viajes, a unos los vuelos al instante y a otros esperando viendo cada aerolínea revisada; mismos vuelos y la espera se valoraba más; ¿Por qué? vieron el trabajo; callback: Rubén arma el pedido de Graciela con cuidado pero ella no ve nada ("Sin respuesta"), lo automatizamos: "Recibimos tu pedido", "Lo estamos armando", "Salió"; cierre con el celular del gancho tildado · Videollamada gratis [formato explicador ¿Por qué? · 3D real (celular gigante con "Buscando…", avión, reloj de arena y rayo, tarjetas de embarque, balanza, "?" y lupa, almacén con Rubén, Graciela con el chat), fondo crema #efeee5 con celular navy claro y cierre verde]
 
 ## En curso
-
+<!-- corrida-activa: 2026-11-09T10:10 -->
 
 
 
