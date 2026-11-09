@@ -149,6 +149,13 @@ const MOSTRADOR = { x: 0.45, y: 0.9, z: -1.3, w: 2.3, d: 0.62 };
   scene.add(mesh(rbox(MX.w, 0.86, MX.d, 0.03), M.navy3, MX.x, 0.43, MX.z));
   scene.add(mesh(rbox(MX.w + 0.12, 0.06, MX.d + 0.1, 0.02), M.madera, MX.x, MX.y - 0.03, MX.z));
   scene.add(mesh(rbox(MX.w - 0.2, 0.06, 0.02, 0.01), M.g, MX.x, 0.3, MX.z + MX.d / 2 + 0.005));
+  // el frente con paneles enmarcados (de cerca no queda una superficie navy lisa)
+  for (let i = 0; i < 4; i++) {
+    const px = MX.x - MX.w / 2 + 0.3 + i * ((MX.w - 0.6) / 3);
+    scene.add(mesh(rbox(0.46, 0.4, 0.02, 0.02), mat(0x2c4268, 0.6), px, 0.6, MX.z + MX.d / 2 + 0.01));
+    scene.add(mesh(rbox(0.38, 0.32, 0.024, 0.02), M.navy3, px, 0.6, MX.z + MX.d / 2 + 0.014));
+  }
+  scene.add(mesh(rbox(MX.w, 0.035, 0.03, 0.01), M.cr2, MX.x, 0.84, MX.z + MX.d / 2 + 0.01));
   const frasco = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.26, 18), new THREE.MeshStandardMaterial({ color: 0xdfeeff, transparent: true, opacity: 0.35, roughness: 0.05 }));
   frasco.position.set(MX.x + 1.05, MX.y + 0.13, MX.z - 0.05); scene.add(frasco);
   scene.add(mesh(new THREE.CylinderGeometry(0.115, 0.115, 0.04, 18), M.cr, MX.x + 1.05, MX.y + 0.28, MX.z - 0.05));
@@ -184,9 +191,9 @@ const vinilo = new THREE.Group();
   hoja.add(mesh(rbox(0.04, 0.3, 0.05, 0.015), mat(0xc9ccd2, 0.25, { metalness: 0.6 }), W - 0.075, 1.12, -0.06));
   // el cartel ABIERTO: placa verde con letra navy, cuelga de una cadenita, del lado de adentro del vidrio
   const tx = lienzo(1024, 420, (x, w, h) => {
-    x.fillStyle = "#5ce611"; rr(x, 0, 0, w, h, 56);
+    x.fillStyle = "#5ce611"; x.fillRect(0, 0, w, h);
     x.strokeStyle = "#0b1220"; x.lineWidth = 18; x.beginPath(); x.roundRect(22, 22, w - 44, h - 44, 40); x.stroke();
-    x.fillStyle = "#0b1220"; x.font = F(900, 210); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ABIERTO", w / 2, h / 2 + 12);
+    x.fillStyle = "#0b1220"; x.font = F(900, 168); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ABIERTO", w / 2, h / 2 + 12);
   });
   const gm = mat(C.g, 0.5);
   // la cara -z de la placa es la [5] del RoundedBox: mira hacia adentro del almacén (se ve desde el mostrador)
@@ -205,6 +212,17 @@ const vinilo = new THREE.Group();
   vm.rotation.y = Math.PI; vm.position.set(W / 2, 1.12, -0.012); vm.renderOrder = 7; vinilo.add(vm); hoja.add(vinilo);
   // la campanita arriba de la puerta
   frente.add(mesh(new THREE.ConeGeometry(0.05, 0.08, 14, 1, true), mat(0xd9b04a, 0.3, { metalness: 0.6, side: THREE.DoubleSide }), PUERTA.x0 + 0.2, PUERTA.alto - 0.1, FZ - 0.12));
+}
+// la pared del frente por dentro: un reloj y un estante con frascos a la izquierda de la puerta
+{
+  const Z = FZ - 0.07;
+  const esf = lienzo(256, 256, (x) => { x.fillStyle = "#efeee5"; x.beginPath(); x.arc(128, 128, 124, 0, 7); x.fill(); x.fillStyle = "#16243d"; for (let h = 0; h < 12; h++) { const a = (h / 12) * Math.PI * 2; x.beginPath(); x.arc(128 + Math.sin(a) * 100, 128 - Math.cos(a) * 100, h % 3 ? 5 : 9, 0, 7); x.fill(); } x.lineWidth = 10; x.strokeStyle = "#16243d"; x.lineCap = "round"; x.beginPath(); x.moveTo(128, 128); x.lineTo(128 + 50, 128 + 10); x.stroke(); x.beginPath(); x.moveTo(128, 128); x.lineTo(128 + 0, 128 - 85); x.stroke(); });
+  const rel = new THREE.Group(); rel.position.set(-1.05, 2.2, Z); rel.rotation.y = Math.PI; scene.add(rel);
+  rel.add(mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.04, 32).rotateX(Math.PI / 2), M.g));
+  const cara = new THREE.Mesh(new THREE.CircleGeometry(0.17, 32), new THREE.MeshStandardMaterial({ map: esf, roughness: 0.5 })); cara.position.z = 0.022; rel.add(cara);
+  const est = new THREE.Group(); est.position.set(-1.05, 1.45, Z - 0.12); scene.add(est);
+  est.add(mesh(rbox(1.0, 0.04, 0.24, 0.01), M.maderaC, 0, 0, 0));
+  for (let i = 0; i < 5; i++) { const c = [C.red, C.mostaza, C.cr, C.navy3, 0xd98a5a][i]; est.add(mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.18, 14), mat(c, 0.4), -0.38 + i * 0.19, 0.11, 0)); est.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.03, 14), M.cr, -0.38 + i * 0.19, 0.215, 0)); }
 }
 // afuera, al sol: vereda de baldosas, cordón, calle, un árbol y la casa de enfrente
 const afuera = new THREE.Group(); scene.add(afuera);
@@ -230,13 +248,13 @@ const afuera = new THREE.Group(); scene.add(afuera);
 const RI = { x: 0.05, z: -1.85 };     // Rubén detrás del mostrador
 const G0 = { x: -0.5, z: -0.66 };    // Graciela frente al mostrador
 const M0 = { x: 0.62, z: -0.76 };    // Marta frente al mostrador
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeosExtra: [], parpadeoCada: 3.7 });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: false, mechones: true, parpadeosExtra: [], parpadeoCada: 3.7 });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.4 });
 const marta = crearPersonaje({ ...MARTA_LUTO, dedos: true, parpadeoCada: 3.7 });
 scene.add(ruben.raiz, graciela.raiz, marta.raiz);
 for (const p of [ruben, graciela, marta]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 // los lentes de Graciela: armazón más pegado a la cara y patillas cortas (de espaldas asomaba la patilla como una raya)
-{ const CCg = 0.3 * 0.92; graciela.cabeza.traverse((l) => { if (!l.isMesh) return; const esL = (l.material.color && l.material.color.getHex() === 0x16243d) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry"); if (!esL) return; l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.visible = false; }); } // sin patillas: de 3/4 la del fondo cruzaba el lente
+{ const CCg = 0.3 * 0.92; graciela.cabeza.traverse((l) => { if (!l.isMesh) return; const esL = (l.material.color && l.material.color.getHex() === 0x16243d) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry"); if (!esL) return; l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.visible = false; if (Math.abs(l.scale.y - 0.07) < 1e-6 && Math.abs(l.scale.x - 0.011) < 1e-6) { l.position.x = -0.035; } }); } // puente centrado entre los ojos (antes arrancaba en el centro y se metía en el ojo izquierdo) // sin patillas: de 3/4 la del fondo cruzaba el lente
 // el broche verde de Marta
 { const b = mesh(new THREE.IcosahedronGeometry(0.022, 1), mat(C.g, 0.35, { emissive: C.g, emissiveIntensity: 0.15 }), -0.085, 0.4, 0.19); marta.cuerpo.add(b); }
 
@@ -245,10 +263,10 @@ const mateR = crearMate(); mateR.scale.setScalar(1.25); scene.add(mateR);
 const termoR = crearTermo(); termoR.scale.setScalar(1.3); scene.add(termoR);
 const bandeja = crearBandejaBizcochos(); bandeja.scale.setScalar(1.25); scene.add(bandeja);
 const bizcochoMano = crearBizcocho("med"); bizcochoMano.scale.setScalar(1.3); scene.add(bizcochoMano);
-const panuelo = crearPanuelo(); scene.add(panuelo);
+const panuelo = crearPanuelo(); panuelo.scale.setScalar(1.55); scene.add(panuelo);
 const corona = crearCorona("ALMACÉN RUBÉN · Q.E.P.D."); scene.add(corona); corona.userData.aro.scale.setScalar(0.74);
 const CORONA = V3(0.2, 0, FZ + 0.2);
-const BANDEJA = V3(M0.x + 0.12, MOSTRADOR.y, -1.14);
+const BANDEJA = V3(0.42, MOSTRADOR.y, -1.16);
 const TERMO = V3(RI.x - 0.5, MOSTRADOR.y, -1.52);
 const CELU_R = V3(RI.x + 0.12, MOSTRADOR.y + 0.008, -1.53);
 // en los insertos cenitales (P7, Q4) el celular va un poco más adelante en el mostrador: si no, arriba del cuadro
@@ -306,7 +324,7 @@ function dibujarCeluG(t) {
   // ("Abierto ahora", horario) con el enlace "Sitio web", y el tap abre la web del almacén.
   const fase = t < P2 ? "ficha" : t < T.ficha ? "busca" : t < T.web ? "ficha2" : "web";
   const tipeo = Math.round(sg(t, T.tipeo[0], T.tipeo[1]) * 13);
-  const pasos = [T.abierto, T.horario, T.mapa, T.boton, T.foto].map((a) => Math.round(sg(t, a, a + 0.25) * 6));
+  const pasos = [Math.round(sg(t, T.web, T.web + 0.2) * 8)];
   const rip = Math.round(sg(t, T.tap, T.tap + 0.15) * 6);
   const ent = Math.round(sg(t, T.ficha, T.ficha + 0.15) * 6);
   const pin = Math.round(sg(t, T.mapa, T.mapa + 0.4) * 12);
@@ -369,13 +387,13 @@ function dibujarCeluG(t) {
     buscador("almacén rubén", false);
     x.save(); const u = ent / 6; x.translate(0, (1 - eo(u)) * 120); ficha(true); x.restore();
   } else {
-    // la web del almacén (navy, crema y verde): abre entera al toque, cada bloque entra con un pop
-    const k = (i) => pasos[i] / 6;
+    // la web del almacén (navy, crema y verde): abre entera al toque, con un solo pop de toda la página
+    const sp = bk(sg(t, T.web, T.web + 0.2)); x.fillStyle = "#16243d"; x.fillRect(0, 0, W, H); x.save(); x.translate(W / 2, H / 2); x.scale(0.8 + 0.2 * sp, 0.8 + 0.2 * sp); x.translate(-W / 2, -H / 2);
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
     x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 300); barraEstado(x, W, true);
     x.fillStyle = "#5ce611"; x.fillRect(0, 294, W, 8);
     x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(900, 72); x.fillText("Almacén", W / 2, 140); x.font = F(800, 60); x.fillText("de Rubén", W / 2, 222);
-    const pop = (i, cx, cy, dibujo) => { const u = k(i); if (u <= 0) return; const s = bk(u); x.save(); x.translate(cx, cy); x.scale(s, s); x.translate(-cx, -cy); dibujo(); x.restore(); };
+    const pop = (i, cx, cy, dibujo) => { dibujo(); }; // la página abre entera de una (el pop es de toda la pantalla)
     pop(0, W / 2, 370, () => { x.fillStyle = "#5ce611"; rr(x, 50, 326, W - 100, 92, 46); x.fillStyle = "#0b1220"; x.beginPath(); x.arc(84, 372, 13, 0, 7); x.fill(); x.font = F(900, 40); x.textAlign = "center"; x.fillText("ABIERTO AHORA", W / 2 + 22, 374); });
     pop(1, 180, 500, () => { x.fillStyle = "#16243d"; x.textAlign = "left"; x.font = F(700, 44); x.fillText("Lun a sáb", 44, 478); x.font = F(900, 46); x.fillText("8:00 a 20:00", 44, 540); });
     pop(4, 440, 505, () => { x.save(); x.beginPath(); x.roundRect(380, 444, 128, 128, 24); x.clip(); x.drawImage(fotoCanvas, 380, 444, 128, 128); x.restore(); x.strokeStyle = "#5ce611"; x.lineWidth = 6; x.beginPath(); x.roundRect(380, 444, 128, 128, 24); x.stroke(); });
@@ -393,6 +411,7 @@ function dibujarCeluG(t) {
       x.lineWidth = 6; x.beginPath(); x.roundRect(110, 896, 60, 46, 14); x.stroke(); x.beginPath(); x.moveTo(122, 940); x.lineTo(118, 958); x.lineTo(138, 942); x.stroke();
       x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 52); x.fillText("Escribinos", 196, 922);
     });
+    x.restore();
   }
   pantG.needsUpdate = true;
 }
@@ -514,8 +533,8 @@ const tacha = new THREE.Group();
   placa.userData.orden = 0; contador.add(placa);
   const rojo = new THREE.MeshStandardMaterial({ color: 0xe0786d, roughness: 0.45, emissive: C.red, emissiveIntensity: 0.4 });
   const verde = new THREE.MeshStandardMaterial({ color: C.g, roughness: 0.4, emissive: C.g, emissiveIntensity: 0.35 });
-  for (let n = 3; n <= 13; n++) { const m = mesh(textoGeo(String(n), 0.13, 0.04), rojo, 0.22, 0.0, 0.05); m.userData.orden = 2; contador.add(m); NUMS[n] = m; }
-  NUMS[0] = mesh(textoGeo("0", 0.13, 0.04), verde, 0.22, 0.0, 0.05); NUMS[0].userData.orden = 2; contador.add(NUMS[0]);
+  for (let n = 3; n <= 13; n++) { const m = mesh(textoGeo(String(n), 0.13, 0.008), rojo, 0.22, 0.0, 0.05); m.userData.orden = 2; contador.add(m); NUMS[n] = m; }
+  NUMS[0] = mesh(textoGeo("0", 0.13, 0.008), verde, 0.22, 0.0, 0.05); NUMS[0].userData.orden = 2; contador.add(NUMS[0]);
   const raya = mesh(rbox(0.2, 0.026, 0.02, 0.012), mat(C.red, 0.5, { emissive: C.red, emissiveIntensity: 0.3 }), 0, 0, 0); raya.userData.orden = 3; tacha.add(raya);
   tacha.position.set(0.22, 0.0, 0.08); tacha.rotation.z = 0.18; contador.add(tacha);
   pegarACamara(contador, camera, 60);
@@ -558,7 +577,7 @@ const PLANOS = [
   // P3b · Rubén de frente (desde el lado de los clientes): la mano de Marta en su antebrazo, él mira la mano y a cámara
   [T.p3b, [[T.p3b, -0.15, 1.6, 0.55, 0.0, 1.22, RI.z, 46], [T.p4, -0.13, 1.59, 0.42, 0.0, 1.22, RI.z, 46]]],
   // P4 · la puerta desde adentro, push-in a la corona hasta que la cinta llena el ancho
-  [T.p4, [[T.p4, 0.2, 1.3, -1.0, 0.2, 1.25, CORONA.z, 54], [T.push[0], 0.2, 1.3, -0.98, 0.2, 1.25, CORONA.z, 53], [T.push[1], 0.2, 1.2, -0.62, 0.2, 1.17, CORONA.z, 44], [T.p5, 0.2, 1.2, -0.6, 0.2, 1.17, CORONA.z, 44]]],
+  [T.p4, [[T.p4, 0.2, 1.3, -0.9, 0.2, 1.3, CORONA.z, 50], [T.push[0], 0.2, 1.3, -0.88, 0.2, 1.3, CORONA.z, 49.5], [T.push[1], 0.2, 1.2, -0.62, 0.2, 1.17, CORONA.z, 44], [T.p5, 0.2, 1.2, -0.6, 0.2, 1.17, CORONA.z, 44]]],
   // P5 · plano medio de Graciela y Marta (contraplano de 3/4 desde atrás del mostrador)
   [T.p5, [[T.p5, 1.2, 1.55, -2.95, 0.44, 1.22, -0.52, 48], [T.p6, 1.17, 1.54, -2.85, 0.44, 1.22, -0.52, 48]]],
   // P6 · primer plano de Rubén de frente (la pausa, el push-in, "Es, Graciela.")
@@ -566,16 +585,16 @@ const PLANOS = [
   // P7 · inserto cenital del celular de Rubén sobre el mostrador
   [T.p7, "celu"],
   // P8 · general de frente: Rubén mira al techo, Marta le acerca un bizcocho
-  [T.p8, [[T.p8, RI.x + 0.08, 2.35, 1.2, RI.x + 0.02, 1.0, -1.5, 48], [P1, RI.x + 0.1, 2.36, 1.25, RI.x + 0.02, 1.0, -1.5, 48]]],
+  [T.p8, [[T.p8, RI.x + 0.08, 2.55, 1.25, RI.x + 0.02, 0.95, -1.4, 56], [P1, RI.x + 0.1, 2.56, 1.3, RI.x + 0.02, 0.95, -1.4, 56]]],
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   [P2, kP1(P2, T.q2, false)],
-  [T.q2, kP3(T.q2, T.q3, -0.18, 62)],
+  [T.q2, [[T.q2, 0.1, 1.75, -2.4, 0.2, 1.2, 0.6, 48], [T.q2 + 0.45, 0.07, 1.75, -2.37, 0.05, 1.2, 0.6, 48], [T.q3 - 0.4, 0.05, 1.74, -2.32, -0.4, 1.2, 0.6, 48], [T.q3, 0.05, 1.74, -2.3, -0.45, 1.2, 0.6, 48]]],
   [T.q3, kP6(T.q3, T.q4)],
   [T.q4, "celu"],
   // Q5 · primer plano de Rubén, push-in lento: el cuello de la camisa, el guiño
   [T.q5, [[T.q5, RI.x, 1.44, 0.3, RI.x, 1.24, RI.z, 38], [T.q6, RI.x, 1.43, -0.05, RI.x, 1.26, RI.z, 38]]],
   // Q6 · general que se abre (dolly atrás)
-  [T.q6, [[T.q6, RI.x + 0.08, 2.2, 0.7, RI.x + 0.02, 1.05, -1.5, 48], [DUR, RI.x + 0.1, 2.36, 1.25, RI.x + 0.02, 1.0, -1.5, 48]]],
+  [T.q6, [[T.q6, RI.x + 0.08, 2.35, 0.75, RI.x + 0.02, 1.0, -1.45, 54], [DUR, RI.x + 0.1, 2.55, 1.3, RI.x + 0.02, 0.95, -1.4, 56]]],
 ];
 const NOMBRES = ["P1", "P2", "P3", "P3b", "P4", "P5", "P6", "P7", "P8", "Q1", "Q2", "Q3", "Q4", "Q5", "Q6"];
 const _m = new THREE.Vector3();
@@ -613,8 +632,8 @@ function ponerCamara(t) {
 
 // ================= POSES =================
 const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, ladea }, ojos: { x: giro * 0.6, y: 0.05 } });
-const MATE_D = { manoD: [-0.2, 0.3, 0.3], codoD: [-1, -0.6, -0.2], dedoD: 0 };
-const APOYA_I = { manoI: [0.3, 0.32, 0.4], codoI: null, dedoI: 0 };
+const MATE_D = { manoD: [-0.25, 0.4, 0.32], codoD: [-1, -0.6, -0.2], dedoD: 0 };
+const APOYA_I = { manoI: [0.22, 0.32, 0.42], codoI: null, dedoI: 0 };
 // ---- Rubén ----
 const RK = [
   // P1: abierto, tranquilo, con el mate; escucha a Graciela
@@ -622,7 +641,7 @@ const RK = [
   [1.25, { cejas: { alto: 0.55, ang: 0.15 }, boca: { sonrisa: 0.35, abierta: 0 }, ojos: { feliz: 0 } }, 0.3],
   // P2: cejas arriba; se señala el pecho con el mate ("estoy acá"); sorbe sin dejar de mirarla
   [T.p2 + 0.05, { ...CARA.incredula, cejas: { alto: 0.4, ang: 0.1, asim: 0.6 }, ojos: { x: -0.25, abiertos: 0.85 }, boca: { sonrisa: -0.1 } }, 0.15],
-  [T.senala, { manoD: [-0.03, 0.36, 0.33], codoD: [-1, -0.5, 0.05], cejas: { alto: 0.9, ang: 0.2, asim: 0 }, ojos: { abiertos: 1 }, boca: { sonrisa: 0.05, ancho: 0.85 }, cabeza: { asiente: -0.06, ladea: 0.08 } }, 0.2],
+  [T.senala, { manoD: [-0.1, 0.4, 0.34], codoD: [-1, -0.5, 0.05], cejas: { alto: 0.9, ang: 0.2, asim: 0 }, ojos: { abiertos: 1 }, boca: { sonrisa: 0.05, ancho: 0.85 }, cabeza: { asiente: -0.06, ladea: 0.08 } }, 0.2],
   [T.sorbo - 0.12, { ...MATE_D, cejas: { alto: 0.7, ang: 0.15 }, cabeza: { asiente: 0.02 } }, 0.25],
   // P3: mira a Marta que entra; después la mano en el brazo y "a cámara" con cara de nada
   [T.p3 - 0.001, { giro: 0.45, ...aC(0.1, 0), ...CARA.neutra, ojos: { x: 0.1, abiertos: 0.9 } }, 0.001],
@@ -636,7 +655,8 @@ const RK = [
   [T.voz1 + 1.5, { cejas: { alto: 0.3, ang: 0.7 } }, 0.3],
   // P8: mira al techo, resignado; agarra el bizcocho sin bajar la vista
   [T.p8 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, cabeza: { giro: 0.05, asiente: -0.4, ladea: 0.06 }, ojos: { x: 0, y: 0.95, abiertos: 0.85, tension: 0.4 }, cejas: { alto: 0.55, ang: 0.7 }, boca: { sonrisa: -0.45, abierta: 0, ancho: 0.9 } }, 0.001],
-  [T.muerde, { cabeza: { giro: 0.05, asiente: -0.2, ladea: 0.04 }, ojos: { y: 0.9 } }, 0.25],
+  [T.muerde - 0.05, { cabeza: { giro: 0.03, asiente: 0.1, ladea: 0.03 }, ojos: { y: 0.3, abiertos: 0.75 } }, 0.35],
+  [T.muerde + 0.3, { cabeza: { giro: 0.05, asiente: -0.3, ladea: 0.06 }, ojos: { y: 0.9, abiertos: 0.85 } }, 0.3],
   // ---- parte 2 ----
   [P2 - 0.001, { x: RI.x, giro: 0, ...MATE_D, ...APOYA_I, ...aC(-0.28, 0.02), ...CARA.sonrisa, ojos: { x: -0.3, y: 0, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.2, ang: 0 }, boca: { sonrisa: 0.8 } }, 0.001],
   [T.q2 - 0.001, { giro: 0.15, ...aC(0.05, 0), ojos: { x: 0.0 } }, 0.001],
@@ -650,7 +670,8 @@ const RK = [
   [T.cuello + 0.3, { inclina: -0.07, cabeza: { giro: 0.03, asiente: -0.08, ladea: 0.05 }, cejas: { alto: 0.45 }, boca: { sonrisa: 0.85, ancho: 1.1 } }, 0.3],
   [T.guino, { ojos: { guiño: -1, feliz: 0.45 }, cejas: { asim: 0.7 }, boca: { sonrisa: 1, ancho: 1.15 }, manoD: [-0.16, 0.42, 0.34] }, 0.12],
   [T.guino + 0.5, { ojos: { guiño: 0, feliz: 0.35 }, cejas: { asim: 0 } }, 0.15],
-  [T.q6 - 0.001, { ...MATE_D, ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.55, ang: 0.55, asim: 0 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, inclina: 0 }, 0.001],
+  [T.q6 - 0.001, { manoD: [-0.16, 0.42, 0.34], ...APOYA_I, ...aC(-0.3, 0.05), ...CARA.sonrisa, ojos: { x: -0.3, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.55, ang: 0.55, asim: 0 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, inclina: 0 }, 0.001],
+  [T.q6 + 0.5, { ...MATE_D }, 0.45],
 ];
 // ---- Graciela ----
 const G_GIRO = Math.atan2(RI.x - G0.x, RI.z - G0.z);
@@ -676,7 +697,7 @@ const M_GIRO = Math.atan2(RI.x - M0.x, RI.z - M0.z);
 const BANDEJA_M = { manoI: [0.14, 0.3, 0.36], manoD: [-0.14, 0.3, 0.36], codoI: [1, -0.6, -0.3], codoD: [-1, -0.6, -0.3], dedoI: 0, dedoD: 0 };
 const PESAME = { ojos: { abiertos: 0.7, tension: 0.65, feliz: 0 }, cejas: { alto: 0.35, ang: 0.9, asim: 0 }, boca: { sonrisa: -0.5, abierta: 0, ancho: 0.85 } };
 const MK = [
-  [0, { x: 0.38, z: FZ + 1.3, giro: Math.PI, paso: 1, ...BANDEJA_M, ...aC(0, 0, 0.15), ...PESAME }],
+  [0, { x: 0.38, z: FZ + 0.08, giro: Math.PI, paso: 1, ...BANDEJA_M, ...aC(0, 0, 0.15), ...PESAME }],
   [T.entra[0] + 0.3, { x: 0.38, z: 0.8 }, T.entra[0] + 0.3 - T.p3, (u) => u],
   [T.entra[1], { x: M0.x, z: M0.z, giro: M_GIRO, paso: 0, cabeza: { giro: 0, asiente: 0.08, ladea: 0.16 } }, T.entra[1] - T.entra[0] - 0.3],
   [T.apoya, { inclina: 0.22, manoI: [0.14, 0.12, 0.45], manoD: [-0.14, 0.12, 0.45] }, 0.25],
@@ -703,19 +724,12 @@ const bocaVoz = (p, t, t0, env) => {
   if (t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta, cl(e * 1.1 - 0.05) * 0.7); }
 };
 // el mate en la mano derecha: base del mate = mano + MATE_OFF (girado con Rubén); la bombilla se inclina hacia su cara
-const MATE_OFF = V3(0, -0.075, 0.025);
+const MATE_OFF = V3(0.11, -0.09, 0.02); // el mate al costado de la mano (hacia el centro): la mano lo agarra de afuera
 const PUNTA = V3(0, 0.31 * 1.25, -0.045 * 1.25); // punta de la bombilla relativa a la base (giro 0, escala 1,25)
 const BIZ_TRAY = () => V3(BANDEJA.x - 0.06, BANDEJA.y + 0.06, BANDEJA.z + 0.02);
-// el bizcocho que se come: en la bandeja, en la mano de Marta, en la de Rubén, a la boca
-function posBizcocho(t) {
-  if (t < T.ofrece - 0.1) return BIZ_TRAY();
-  const ofrecido = V3(RI.x + 0.3, 1.12, -1.35);
-  if (t < T.ofrece + 0.3) return BIZ_TRAY().lerp(ofrecido, eio(sg(t, T.ofrece - 0.1, T.ofrece + 0.3)));
-  if (t < T.agarra) return ofrecido;
-  const boca = bocaMundo(ruben, 0.085, V3()).add(V3(0, -0.015, 0)), abajo = V3(RI.x + 0.25, 1.05, -1.5);
-  if (t < T.muerde + 0.08) return ofrecido.clone().lerp(boca, eio(sg(t, T.agarra, T.muerde)));
-  return boca.lerp(abajo, eio(sg(t, T.muerde + 0.08, T.muerde + 0.38)));
-}
+// el bizcocho que se come: en la mano izquierda de Rubén (arriba de la mano), toda la escena P8
+const BIZ_EN_MANO = V3(0.0, 0.06, 0.035);
+function posBizcocho() { return manoMundo(ruben, "I", V3()).add(BIZ_EN_MANO); }
 
 function ponerPersonajes(t, plano) {
   // ---- Rubén ----
@@ -737,11 +751,16 @@ function ponerPersonajes(t, plano) {
   bocaVoz(pr, t, T.voz2, VOZ2_ENV);
   // P3: Marta le apoya la mano en el antebrazo: la mano izquierda de Rubén queda quieta sobre el mostrador
   if (en(t, T.p3, T.p4)) { pr = manoA(ruben, { ...pr }, "I", V3(RI.x + 0.36, MOSTRADOR.y + 0.03, -1.43)); pr.codoI = [1, -0.5, -0.4]; }
-  // P8: agarra el bizcocho y lo muerde (sin bajar la vista)
-  if (en(t, T.agarra - 0.3, P1)) {
-    const u = eio(sg(t, T.agarra - 0.3, T.agarra)), b = posBizcocho(t);
-    const p1 = manoA(ruben, { ...pr }, "I", b.clone().add(V3(0.1, -0.08, -0.01)));
-    pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pr.codoI = [1, -0.5, -0.2];
+  // P8: tiene un bizcocho en la mano izquierda (apoyada en el mostrador); lo lleva a la boca desde abajo y muerde
+  if (en(t, T.p8, P1)) {
+    const u = eio(sg(t, T.muerde - 0.35, T.muerde)) * (1 - eio(sg(t, T.muerde + 0.15, T.muerde + 0.45)));
+    pr.manoI = [0.2, 0.34, 0.4]; pr.codoI = [1, -0.6, -0.2];
+    if (u > 0) {
+      ruben.poner(pr);
+      const obj = bocaMundo(ruben, 0.075, V3()).sub(BIZ_EN_MANO);
+      const p1 = manoA(ruben, { ...pr }, "I", obj);
+      pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pr.codoI = [1, -0.7, -0.1];
+    }
   }
   if (t >= T.muerde && t < P1) pr.boca = { ...pr.boca, abierta: 0.12 * pulso(t, T.muerde, 0.18), sonrisa: -0.3 };
   if (en(t, T.cuello + 0.2, T.guino)) pr.aplasta -= 0.03; // infla el pecho
@@ -767,13 +786,6 @@ function ponerPersonajes(t, plano) {
     pm.manoI = pm.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pm.codoI = [1, -0.3, -0.2]; pm.inclina = lerp(pm.inclina, 0.3, u);
   }
   if (en(t, T.p5, T.p6)) pm.cabeza = { ...pm.cabeza, asiente: 0.1 + 0.07 * Math.sin((t - T.p5) * 3.2) };
-  if (en(t, T.ofrece - 0.35, T.agarra + 0.4)) {
-    const u = eio(sg(t, T.ofrece - 0.35, T.ofrece - 0.1)) * (1 - eio(sg(t, T.agarra + 0.05, T.agarra + 0.4)));
-    const b = posBizcocho(Math.min(t, T.agarra));
-    const p1 = manoA(marta, { ...pm, inclina: 0.18 }, "I", b.clone().add(V3(0, -0.04, 0.03)));
-    pm.manoI = pm.manoI.map((v, i) => lerp(v, p1.manoI[i], u)); pm.codoI = [1, -0.4, -0.2]; pm.inclina = 0.18 * u;
-    pm.boca = { ...pm.boca, sonrisa: lerp(-0.5, 0.1, u) };
-  }
   marta.poner(pm);
   // visibilidad por plano (los que no están en cuadro no tapan la cámara)
   ruben.raiz.visible = !["P3", "P4", "P5", "Q2", "P7", "Q4"].includes(plano);
@@ -823,13 +835,13 @@ function renderAt(tIn) {
       const pi = manoMundo(marta, "I", V3()), pd = manoMundo(marta, "D", V3());
       bandeja.position.copy(pi).add(pd).multiplyScalar(0.5).add(V3(0, -0.02, 0)); bandeja.rotation.set(0, marta.raiz.rotation.y, 0);
       bandeja.visible = marta.raiz.visible;
-    } else { bandeja.position.copy(BANDEJA); bandeja.rotation.set(0, 0.25, 0); bandeja.visible = !parte2 && plano !== "P7" && plano !== "P3b"; }
+    } else { bandeja.position.copy(BANDEJA); bandeja.rotation.set(0, 0.25, 0); bandeja.visible = !parte2 && !["P7", "P3b", "P6"].includes(plano); }
     // el bizcocho que se come
-    const enMano = !parte2 && t >= T.ofrece - 0.1;
-    bandeja.userData.bizcochos[0].visible = !enMano;
-    bizcochoMano.visible = enMano && t < P1;
+    const enMano = plano === "P8";
+    bandeja.userData.bizcochos[0].visible = true;
+    bizcochoMano.visible = enMano && ruben.raiz.visible;
     if (bizcochoMano.visible) {
-      bizcochoMano.position.copy(posBizcocho(t)); bizcochoMano.rotation.set(0.3, 0.4, 0);
+      bizcochoMano.position.copy(posBizcocho()); bizcochoMano.rotation.set(0.2, 0.3, 0.1);
       const mordido = t >= T.muerde + 0.06 ? 0.62 : 1;
       bizcochoMano.scale.set(1.3 * mordido, 1.3, 1.3);
     }
@@ -857,7 +869,7 @@ function renderAt(tIn) {
     if (celuG2.visible) {
       if (!enP1) dibujarCeluG(Math.max(t, T.foto + 0.3));
       const p = manoMundo(graciela, "D", _a);
-      celuG2.position.copy(p).add(V3(0, 0.07, 0)); celuG2.rotation.set(0.15, graciela.raiz.rotation.y, 0);
+      celuG2.position.copy(p).add(V3(0, 0.11, 0)); celuG2.rotation.set(0.15, graciela.raiz.rotation.y, 0); celuG2.scale.setScalar(1.7);
     }
     // el de Rubén, sobre el mostrador (vibra)
     celuR.visible = ruben.raiz.visible || camCelu;
@@ -897,7 +909,7 @@ function renderAt(tIn) {
     tacha.visible = parte2 && n === 13 && u > 0; tacha.scale.set(Math.max(0.001, u), 1, 1);
     const late = (sinFlip ? 0 : pulso(t, desde, 0.28)) + (n === 13 && !parte2 ? pulso(t, T.c13, 0.4) * 0.8 : 0) + (n === 0 ? pulso(t, desde, 0.35) * 0.6 : 0);
     ponerContador(540, 182, s * (1 + 0.1 * late));
-    contador.rotation.set(-0.04, Math.sin(t * 0.8) * 0.06, Math.sin(t * 0.6) * 0.012);
+    contador.rotation.set(0, 0, Math.sin(t * 0.6) * 0.012); // de frente a cámara: de costado el número 3D mostraba sus caras internas
   }
 
   if (LIMPIO) { contador.visible = false; for (const k in GL) GL[k].visible = false; }

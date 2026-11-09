@@ -29,7 +29,7 @@ const T = {
   p7: 11.2, vibra: 11.25, notif: 11.45, c13: 12.3,
   p8: 12.8, techo: 12.85, ofrece: 13.3, agarra: 13.7, muerde: 13.95,
   // ---- parte 2 ----
-  q1: P2, tipeo: [17.62, 17.92], ficha: 17.95, tap: 18.35, web: 18.5, abierto: 18.52, horario: 18.62, mapa: 18.72, boton: 18.82, foto: 18.92, c0: 18.9,
+  q1: P2, tipeo: [17.6, 17.82], ficha: 17.85, tap: 18.7, web: 18.85, abierto: 18.85, horario: 18.85, mapa: 18.85, boton: 18.85, foto: 18.85, c0: 19.05,
   q2: 20.1, entra2: [20.15, 20.95], b4: 20.45,
   q3: 21.5, sorbo2: [21.55, 22.15], baja: 22.25, voz2: 22.35,  // "Estoy" en 22,45
   q4: 24.0, vibra2: 24.05, notif2: 24.25, mini: 24.6,
@@ -109,7 +109,6 @@ function hora(id, ini, fin, texto, top = 1665, entra = true) {
       tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`,
   });
 }
-hora("s00a-hora", 0, 1.35, "MARTES · 10:15", 820, false);   // en P1 más arriba (abajo está el celular) y se va antes de que la cámara entre   // en P1 más arriba: abajo está el celular de Graciela
 hora("s00-hora", 1.75, T.p6, "MARTES · 10:15");
 
 // las líneas de Rubén, palabra por palabra, abajo de su cara; la clave en el recuadro verde
@@ -119,7 +118,7 @@ function linea(id, vozT, palabras, clave, fin) {
   const spans = palabras.map(([w, s], i) => `<span class="w${i === clave ? " ac" : ""}" data-t="${r2(vozT + s - ini)}">${i === clave ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : ""}<em>${w}</em></span>`).join(" ");
   escena(id, dur, {
     css: `
-    P .linea { position: absolute; left: 40px; right: 40px; top: 1640px; text-align: center; font: 700 96px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
+    P .linea { position: absolute; left: 40px; right: 40px; top: 110px; text-align: center; font: 700 96px/1.2 "Lexend", sans-serif; letter-spacing: -0.015em; color: #fff; text-shadow: -5px -5px 0 ${NAVY}, 5px -5px 0 ${NAVY}, -5px 5px 0 ${NAVY}, 5px 5px 0 ${NAVY}, 0 -7px 0 ${NAVY}, 0 7px 0 ${NAVY}, -7px 0 0 ${NAVY}, 7px 0 0 ${NAVY}, 0 12px 0 rgba(11,18,32,0.45); }
     P .w { display: inline-block; position: relative; opacity: 0; }
     P .w em { font-style: normal; position: relative; }
     P .w.ac { margin: 0 18px; }
@@ -197,7 +196,7 @@ linea("s02-linea", T.voz2, LINEA2, 0, T.q4 - 0.02);
       tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, ${r2(dur - 0.45)});`,
   });
 }
-hora("s04-hora", T.q2, T.q3, "OTRO MARTES · 10:15");
+hora("s04-hora", T.q2, 23.0, "OTRO MARTES · 10:15");
 
 // la línea chica final (abajo): una línea y la web
 {
@@ -229,7 +228,7 @@ s("sfx/burbuja.mp3", T.b1, 0);
 s("sfx/whoosh-short.mp3", T.dolly[0] + 0.05, 0, { techo: -40 });
 s("sfx/tic-real.mp3", T.senala + 0.05, 0, { techo: -38 });                              // el mate toca el pecho
 s("sfx/sorbo.wav", T.sorbo, 0, { techo: -33 });
-s("sfx/campanita.wav", T.entra[0], 0, { techo: -32 });
+s("sfx/campanita.wav", 3.42, 0, { techo: -32 });   // cuando Marta cruza la puerta
 for (let t = T.p3 + 0.05; t < T.p3b; t += 0.22) s("sfx/tac-real.mp3", t, 0, { techo: -40 });  // pasos de Marta
 s("sfx/burbuja.mp3", T.b2, 0);
 s("sfx/pop.mp3", T.c3, 0, { desde: 0.11, techo: -33 });
@@ -241,20 +240,19 @@ s("sfx/whoosh.mp3", T.push[0], 0, { techo: -38 });
 s("sfx/key-press.mp3", T.c7, 0, { desde: 0.07, techo: -35 });
 for (let i = 0; i < 5; i++) s("sfx/key-press.mp3", T.c12[0] + i * ((T.c12[1] - T.c12[0]) / 4), 0, { desde: 0.07, techo: -36 + i * 0.5 });
 s("sfx/burbuja.mp3", T.b3, 0);
-s("sfx/papel.wav", T.panuelo, 0, { dur: 0.3, fin: 0.1, techo: -40 });                  // el pañuelo
+s("sfx/papel.wav", T.panuelo, 0, { dur: 0.3, fin: 0.1, techo: -36 });                  // el pañuelo
 s("sfx/whoosh-short.mp3", T.pushIn[0], 0, { techo: -37 });
 s("voice/ruben1.wav", T.voz1, 0, { voz: true });
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.75, fin: 0.08, techo: -32 });
 s("sfx/notification.mp3", T.notif, 0, { techo: -36 });
 s("sfx/key-press.mp3", T.c13, 0, { desde: 0.07, techo: -34 });
 s("sfx/tuba.mp3", T.c13 + 0.05, 0, { desde: 0.19, techo: -31 });
-s("sfx/papel.wav", T.ofrece, 0, { dur: 0.25, fin: 0.08, techo: -42 });
-s("sfx/papel.wav", T.muerde, 0, { dur: 0.22, fin: 0.06, techo: -38 });                 // crujido del bizcocho
+s("sfx/papel.wav", T.muerde, 0, { dur: 0.22, fin: 0.06, techo: -36 });                 // crujido del bizcocho
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
 s("voice/narrador.wav", P1 + 0.3, 0, { voz: true });
-s("sfx/whoosh-short.mp3", P2 - 0.78, 0, { techo: -42 });
+s("sfx/whoosh-short.mp3", P1 + 2.75, 0, { techo: -42 });   // el zoom del texto del cartel
 s("sfx/calle.wav", P2 - 1.05, -6, { desde: 5, dur: 1.1, fi: 0.35, fin: 0.05, techo: -40, lp: 1800 });   // cama mínima bajo el final del cartel (sin silencio digital)   // sin silencio digital entre el narrador y el iris
 s("sfx/whoosh-short.mp3", P2 - 0.38, 0, { techo: -40 });
 // ---- parte 2 ----
@@ -263,9 +261,9 @@ s("bgm/pizzicato.wav", P2, 0, { dur: 12, fin: 0.8, techo: -35, duck: [T.voz2 + 0
 for (let i = 0; i < 9; i++) s("sfx/key-press.mp3", T.tipeo[0] + i * 0.034, 0, { desde: 0.07, techo: -40 });
 s("sfx/pop.mp3", T.ficha, 0, { desde: 0.11, techo: -37 });
 s("sfx/click-soft.mp3", T.tap, 0, { techo: -35 });
-for (const t of [T.abierto, T.horario, T.mapa, T.boton, T.foto]) s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -37 });
+s("sfx/pop.mp3", T.web, 0, { desde: 0.11, techo: -34 });   // la web abre entera
 s("sfx/pop.mp3", T.c0, 0, { desde: 0.11, techo: -37 });
-s("sfx/papel.wav", T.c0 + 0.08, 0, { dur: 0.2, fin: 0.06, techo: -40 });   // la raya que tacha el 13
+s("sfx/papel.wav", T.c0 + 0.08, 0, { dur: 0.2, fin: 0.06, techo: -36 });   // la raya que tacha el 13
 s("sfx/cero.mp3", T.c0 + 0.25, 0, { techo: -33 });                          // el 0 verde
 s("sfx/campanita.wav", T.entra2[0], 0, { techo: -32 });
 for (let t = T.entra2[0] + 0.15; t < T.entra2[1]; t += 0.3) s("sfx/tac-real.mp3", t, 0, { techo: -40 });
@@ -274,9 +272,9 @@ s("sfx/sorbo.wav", T.sorbo2[0], 0, { techo: -33 });
 s("voice/ruben2.wav", T.voz2, 0, { voz: true });
 s("sfx/vibra.wav", T.vibra2, 0, { dur: 0.75, fin: 0.08, techo: -32 });
 s("sfx/notification.mp3", T.notif2, 0, { techo: -36 });
-s("sfx/chime.mp3", T.guino, 0, { techo: -34 });
+s("sfx/pop.mp3", T.mini, 0, { desde: 0.11, techo: -37 });   // la miniatura "Almacén de Rubén"
+s("sfx/chime.mp3", T.guino, 0, { desde: 0.41, techo: -34 });   // chime.mp3 tiene 0,41 s mudos al principio
 s("sfx/whoosh-short.mp3", T.cierre, 0, { techo: -38 });
-s("sfx/campanita.wav", 29.3, 0, { techo: -40 });
 
 // arreglos por archivo (heredados de las-siete: tramos mudos al principio, un solo golpe, burbujas más bajas)
 for (const x of S) {

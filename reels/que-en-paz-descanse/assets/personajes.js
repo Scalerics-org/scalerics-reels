@@ -286,7 +286,7 @@ export function crearPersonaje(cfg) {
     // ojo cerrado (parpadeo, guiño, sorbo): el ojo se esconde y queda una línea curva oscura, como en el dibujo animado
     // (las-siete-y-cincuenta-y-nueve, ronda 1: el párpado cerrado se veía como una bola de piel)
     const ARC = Math.PI * 0.62;
-    const cerrado = mesh(new THREE.TorusGeometry(0.056, 0.0105, 6, 18, ARC), mat(c.pestanas ?? 0x2a1d1a, 0.6), 0, -0.006, 0.03);
+    const cerrado = mesh(new THREE.TorusGeometry(0.056, 0.0105, 6, 18, ARC), mat(c.pestanas ?? 0x2a1d1a, 0.6), 0, 0.03, 0.035); // el arco (la mitad de abajo del aro) queda centrado en el ojo
     cerrado.rotation.z = -Math.PI / 2 - ARC / 2; cerrado.scale.set(1, 0.75, 1); cerrado.visible = false; g.add(cerrado);
     return { g, blanco, pup, lidPivote, lid, lidLow, s, cerrado, brillo, pupila: pup.children[0] };
   });
@@ -796,7 +796,7 @@ export function crearBandejaBizcochos() {
   const base = new THREE.Mesh(new THREE.CylinderGeometry(1, 1, 0.012, 40), bm); base.scale.set(0.24, 1, 0.16); base.position.y = 0.006; g.add(base);
   const borde = new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 6, 48), bm); borde.rotation.x = Math.PI / 2; borde.scale.set(0.24, 0.16, 0.25); borde.position.y = 0.016; g.add(borde);
   // servilleta: un cuadrado blanco girado, apenas levantado en una punta
-  const sv = new THREE.Mesh(rbox(0.26, 0.004, 0.2, 0.002), mat(0xffffff, 0.85)); sv.position.set(0.06, 0.016, -0.01); sv.rotation.set(0, 0.6, 0.04); g.add(sv);
+  const sv = new THREE.Mesh(rbox(0.18, 0.004, 0.13, 0.002), mat(0xffffff, 0.85)); sv.position.set(0.05, 0.016, -0.01); sv.rotation.set(0, 0.6, 0.04); g.add(sv);
   const P = [["med", -0.12, 0.03, 0.4], ["med", -0.06, -0.06, -0.5], ["med", 0.04, 0.06, 2.4], ["can", 0.1, -0.04, 0.3], ["can", 0.14, 0.04, -0.2], ["gra", -0.15, -0.06, 0], ["gra", 0.0, -0.01, 0], ["gra", 0.06, 0.0, 0], ["med", 0.02, -0.07, 1.2]];
   g.userData.bizcochos = [];
   for (const [tp, x, z, r] of P) { const b = crearBizcocho(tp); b.position.set(x, tp === "gra" ? 0.035 : tp === "can" ? 0.05 : 0.04, z); b.rotation.y = r; g.add(b); g.userData.bizcochos.push(b); }
