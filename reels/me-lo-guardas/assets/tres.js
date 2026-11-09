@@ -313,7 +313,7 @@ const termoR = crearTermo(); termoR.scale.setScalar(1.3); scene.add(termoR);
 const TERMO = V3(RI.x - 0.5, MOSTRADOR.y, -1.55);
 const MATE_APOYADO = V3(RI.x + 0.45, MOSTRADOR.y, -1.62);
 const birome = crearLapicera(); birome.scale.setScalar(1.3); scene.add(birome);
-const BOLSA_M = V3(RI.x + 0.22, MOSTRADOR.y, -1.3);
+const BOLSA_M = V3(RI.x + 0.17, MOSTRADOR.y, -1.28);
 const PAPEL_M = V3(RI.x - 0.02, MOSTRADOR.y + 0.004, -1.36);
 const papelSuelto = PAPEL(["Walter", "ya vengo"], { W: 0.17, H: 0.108 }); scene.add(papelSuelto);
 
@@ -333,7 +333,7 @@ atril.position.copy(ATRIL); atril.rotation.y = Math.PI - 0.5;
 // en P1/Q1 el mismo celular en primer término (pegado a la cámara, abajo a la izquierda, sobre el borde del mostrador)
 const celuCam = crearCelular(pantR, C.navy3, 0.08, 0.16);
 const celuCamG = new THREE.Group(); celuCamG.add(celuCam); camera.add(celuCamG);
-celuCamG.position.set(-0.052, 0.002, -0.36); celuCamG.rotation.set(-0.1, 0.14, 0.05);
+celuCamG.position.set(-0.058, 0.002, -0.36); celuCamG.rotation.set(-0.1, 0.14, 0.05);
 celuCam.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
 const pantW = lienzo(400, 800, (x, w, h) => {
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h);
@@ -554,7 +554,7 @@ const PLANOS = [
   // P6b · de frente: Rubén con la bolsa en el aire mira a cámara; las palmaditas de Graciela
   ["P6b", T.p6b, [[T.p6b, ...FRE], [P1, FRE[0] + 0.03, FRE[1] - 0.02, FRE[2] - 0.12, ...FRE.slice(3)]]],
   ["Q1", P2, kP1(P2, T.q2)],
-  ["Q2", T.q2, [[T.q2, ...EST2], [T.vuela[0], EST2[0], EST2[1], EST2[2] - 0.1, ...EST2.slice(3)], [T.vuela[1] + 0.15, -0.3, 1.72, -2.15, HUECO.x, 1.25, GZ, 50], [T.q3, -0.3, 1.72, -2.2, HUECO.x, 1.25, GZ, 50]]],
+  ["Q2", T.q2, [[T.q2, ...EST2], [T.vuela[0], EST2[0], EST2[1], EST2[2] - 0.1, ...EST2.slice(3)], [T.vuela[1] + 0.15, -0.36, 1.7, -0.45, HUECO.x, 1.28, GZ, 50], [T.q3, -0.36, 1.7, -0.55, HUECO.x, 1.28, GZ, 50]]],
   ["Q3", T.q3, kPuer(T.q3, T.q4)],
   ["Q4", T.q4, [[T.q4, ...PP(0.25)], [T.q5, ...PP(0.0)]]],
   ["Q5", T.q5, kPuer(T.q5, T.q6)],
