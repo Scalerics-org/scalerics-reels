@@ -75,7 +75,7 @@ Tiempos por palabra: STT de Google ajustado a mano por frases (silencedetect) y 
 Fondo crema (no navy), subtítulos arriba al centro de 1 a 3 palabras (86 px, navy, recuadro verde en la clave), logo
 oscuro en píldora crema, todo lo dibujado es 3D (no líneas SVG). Cierre en verde con letras navy.
 
-## Escenas (segundos globales, voz de 33,88 s; DUR 34,00)
+## Escenas (segundos globales, voz de 34,14 s; DUR 34,26)
 1. **s01-gancho** 0,00-3,92 · Cuadro 0 = portada: gancho Lexend 900 en 4 líneas navy ("“buscando”" en recuadro verde)
    y el celular gigante con la ruedita verde y "Buscando…"; Aerolínea 1 tildada, la 2 en "páginas", la 3 en
    "buscando"; push-in y órbita lenta. El gancho se va a 3,62.
@@ -99,16 +99,20 @@ oscuro en píldora crema, todo lo dibujado es 3D (no líneas SVG). Cierre en ver
 10. **s10-avisos** 24,72-27,40 · Vuelve el celular gigante del gancho (callback) con el chat: reloj rojo → en
     "automatizamos" tilde verde "Avisos automáticos" → en "recibimos" aparece el globo "Recibimos tu pedido",
     "escribiendo…" y la barra "Aviso automático".
-11. **s11-salio** 27,40-29,22 · Almacén sin chat encima: Rubén cierra la bolsa y aparece el globo 3D "Lo estamos
-    armando"; Nico entra caminando entero, se lleva la bolsa y aparece "¡Salió!"; Rubén toma mate y saluda.
-12. **s12-se-vea** 29,22-31,32 · Graciela sonríe con el chat lleno; llega "¡Llegó!" y contesta "¡Gracias, Rubén!".
-    (Sin reloj de pared: ya no espera.)
-13. **s13-llamada** 31,32-34,00 · Fondo verde, tarjeta de videollamada; el celular del gancho con "Tu pedido" tildado.
+11. **s11-salio** 27,42-29,24 · Almacén sin chat encima (mismo plano que s08, cajones de tomates y manzanas en primer
+    plano): Rubén cierra la bolsa y aparece el globo 3D "Lo estamos armando"; en "salió" le da un empujoncito y la bolsa
+    se desliza por el mostrador fuera de cuadro, aparece "¡Salió!"; Rubén toma mate. (Sin Nico.)
+12. **s12-se-vea** 29,24-31,59 · Graciela sonríe con el chat lleno; llega "¡Llegó!", contesta "¡Gracias, Rubén!" y
+    saluda con la mano mientras dice "Agendá…". El subtítulo "tu trabajo?" queda hasta el corte. (Sin reloj de pared.)
+13. **s13-llamada** 31,59-34,26 · Fondo verde, tarjeta de videollamada; el celular del gancho con "Tu pedido" tildado.
 
 Subtítulos: placa crema detrás (se lee sobre la estantería), arrancan junto con cada corte de cámara, los avisos van
 entre comillas (“Recibimos tu pedido”…), "Vieron el trabajo" sin coma, y "Agendá una videollamada…" queda solo en
-la tarjeta. La voz de "Lo automatizamos:" y de "¿Querés que se vea tu trabajo?" se regeneró aparte (tomas en
-`partes/`) y se pegó con ffmpeg; el original quedó en `partes/locucion-v1.wav`.
+la tarjeta. Voz: la toma original (`partes/locucion-v1.wav`) con solo "¿Querés que se vea tu trabajo?" regenerada (`partes/queres1t.wav`,
+de-esser + rebaje de 6,5 kHz, mismo loudness que lo que la rodea), 0,3 s de pausa antes de "Agendá", todo a -1,5 dB con
+limitador (pico -1,5 dBFS, sin recortes). "Lo automatizamos:" quedó la toma original.
+Balanza: bandejas arriba de los brazos (sin hilos); las tarjetas suben a las bandejas y recién ahí crece la balanza; rayo
+y reloj caen después, atrás y hacia afuera de cada tarjeta.
 
 ## Sonido
 Voz Orus a volumen 1; cama `bed.mp3` con sidechain (baja sola bajo la voz); SFX con techo -31 LUFS por efecto (ver

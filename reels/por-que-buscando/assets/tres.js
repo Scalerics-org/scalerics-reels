@@ -801,18 +801,18 @@ function zonaA(t) {
   // ---- el sello ¿PREFERIDA? ----
   {
     const tg = W[13] + 0.02;
-    const vis = A && t > tg - 0.2 && t < S["s03-viajes"] + 0.02;
+    const vis = A && t > tg - 0.2 && t < S["s03-viajes"] - 0.03;
     sello.visible = vis;
     if (vis) {
       const baja = sg(t, tg - 0.2, tg);
       const u = t - tg;
       const sq = u > 0 ? Math.exp(-u * 9) * Math.sin(u * 30) * 0.3 : 0;
       P1.g.updateMatrixWorld(true);
-      const sal0 = sg(t, S["s03-viajes"] - 0.12, S["s03-viajes"] + 0.02);
+      const sal0 = sg(t, S["s03-viajes"] - 0.2, S["s03-viajes"] - 0.03);
       const lp = V(0.02, -1.62 + (1 - baja * baja) * 0.6 + sal0 * 0.5, PD / 2 + 0.07 + (1 - baja * baja) * 1.1 + sal0 * 1.4);
       sello.position.copy(P1.g.localToWorld(lp));
       sello.quaternion.copy(P1.g.quaternion).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0.13 - (1 - baja) * 0.3)));
-      const sal = sg(t, S["s03-viajes"] - 0.12, S["s03-viajes"] + 0.02);
+      const sal = sg(t, S["s03-viajes"] - 0.2, S["s03-viajes"] - 0.03);
       const k = (1 + sq * 0.4) * (1 - 0.5 * sal) * lerp(1.15, 1, baja);
       sello.scale.set(k, k, Math.max(0.4, 1 - sq) * (1 - 0.5 * sal));
       if (sal >= 1) sello.visible = false;
