@@ -185,7 +185,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s04-nada";
   const t9 = r2(Math.max(w(id, 25) - 0.05, 0.45));
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 1560px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 500 38px/1.3 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.02em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
+    css: `P .cred { position: absolute; left: 540px; top: 1606px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 500 38px/1.3 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.02em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
     html: `<div class="cred">Estudio mundial de faltantes · 2002<br>más de 70.000 compradores · 29 países</div>`,
     js: `tl.set(q(".cred"), { opacity: 1 }, ${t9}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${t9}); tl.to(q(".cred"), { opacity: 0, duration: 0.12, ease: "power1.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
@@ -261,8 +261,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.16, max: 0.9 }, { t: 0.2, sfx: "papel", vol: 0.24, max: 0.4 },
       { t: w(id, 61), sfx: "pop", vol: 0.1 }, { t: w(id, 61) + 0.02, sfx: "click-soft", vol: 0.14 },
-      { t: w(id, 63) - 0.05, sfx: "notification", vol: 0.16, max: 0.9 },
-      { t: w(id, 65), sfx: "tic-real", vol: 0.22 },
+      { t: w(id, 65) - 0.05, sfx: "notification", vol: 0.16, max: 0.9 },
+      { t: w(id, 66), sfx: "tic-real", vol: 0.22 },
     ],
   });
 }

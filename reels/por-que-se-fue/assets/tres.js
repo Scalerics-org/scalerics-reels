@@ -517,7 +517,7 @@ const pizCara = new THREE.Group();
   pata(-0.3, -0.03, 0.0); pata(0.3, -0.03, 0.0); pata(-0.3, -0.25, -0.42); pata(0.3, -0.25, -0.42);
   sh(pizarra);
 }
-pizarra.position.set(OB.x + 0.75, 0.5, -0.38); pizarra.rotation.set(0, -0.32, 0);
+pizarra.position.set(OB.x + 0.82, 0.5, -0.2); pizarra.rotation.set(0, -0.32, 0);
 pizCara.position.set(0, 0.22, 0.03);
 // la tablet del mostrador: stock → aviso → pedido
 const TBW = 1024, TBH = 720;
@@ -574,7 +574,7 @@ const T = {
   nueve: Math.max(W[25] - 0.05, S["s04-nada"] + 0.45), esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
   preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.12,
-  flipMar: S["s09-aviso"] + 0.3, avisa: W[63] - 0.05, quedan: W[66] - 0.03, pide: W[70] + 0.02,
+  flipMar: S["s09-aviso"] + 0.3, avisa: W[65] - 0.05, quedan: W[66] - 0.03, pide: W[70] + 0.02,
   cajaCae: W[72] + 0.18, flipSab: S["s11-encuentra"] - 0.4, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
 };
 T.cortePila = T.cajaCae - 0.12; // corte al estante (después del "Pedir")
@@ -596,10 +596,10 @@ const PLANOS = [
   ]],
   // corte seco (whoosh) a la canasta y el almanaque
   [T.vuelta, "A", [
-    [T.vuelta, -6, 10, 11.6, XG + 0.05, 1.0, 1.0, 30],
-    [S["s04-nada"], -2, 10, 11.2, XG + 0.1, 1.0, 1.0, 30],
-    [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 3.4, 1.45, 1.0, 30],
-    [T.grua, 3, 10, 7.0, XK + 3.4, 1.45, 1.0, 30],
+    [T.vuelta, -6, 10, 11.6, XG - 0.15, 1.1, 1.0, 30],
+    [S["s04-nada"], -2, 10, 11.2, XG - 0.1, 1.1, 1.0, 30],
+    [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 3.4, 1.15, 1.0, 30],
+    [T.grua, 3, 10, 7.0, XK + 3.4, 1.15, 1.0, 30],
   ]],
   // corte seco (whoosh) a la góndola con las barras de ventas
   [T.grua, "A", [
@@ -620,9 +620,9 @@ const PLANOS = [
   ]],
   [S["s09-aviso"], "B2", [
     [S["s09-aviso"], 6, 7, 4.9, OB.x + 0.45, 1.05, -1.0, 34],
-    [T.flipMar + 0.4, 2, 9, 4.3, OB.x + 0.3, 1.08, -1.05, 34],
-    [T.avisa - 0.1, 2, 8, 3.0, OB.x + 0.2, 1.26, -1.15, 34],
-    [T.cortePila, -2, 8, 2.85, OB.x + 0.2, 1.26, -1.15, 34],
+    [T.flipMar + 0.15, 3, 8, 4.6, OB.x + 0.35, 1.07, -1.05, 34],
+    [T.avisa - 0.1, 2, 8, 3.0, OB.x + 0.1, 1.26, -1.15, 34],
+    [T.cortePila, -2, 8, 2.85, OB.x + 0.1, 1.26, -1.15, 34],
   ]],
   [T.cortePila, "B3", [
     [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.72, EST.z + 0.2, 34],
@@ -732,7 +732,7 @@ function zonaA(t) {
         grande.position.copy(pK); grande.scale.setScalar(KG * lerp(1, 0.42, via));
         grande.rotation.y = lerp(grande.rotation.y, 0, via);
       }
-      etqTaj.forEach((m) => (m.visible = via > 0.9));
+      etqTaj.forEach((m, i) => (m.visible = via > 0.9 && !(i === 0 && t > S["s04-nada"] + 0.15)));
       sombraGrande.position.set(grande.position.x, 0.008, grande.position.z + 0.1); sombraGrande.scale.setScalar(grande.scale.x / KG);
       grande.updateMatrixWorld(true);
       // 31 %: se va volando a la puerta de al lado y entra
@@ -955,7 +955,7 @@ function zonaB(t) {
   }
   // la tablet: stock → aviso ("quedan 8") → pedido
   {
-    const pant = B1 || B4 || t < T.avisa - 0.12 ? TABLET.reposo : TABLET.aviso;
+    const pant = B1 || B4 || t < T.avisa - 0.05 ? TABLET.reposo : TABLET.aviso;
     if (tabPant.material.map !== pant) { tabPant.material.map = pant; tabPant.material.emissiveMap = pant; tabPant.material.needsUpdate = true; }
     aviso.visible = B2 && t > T.avisa;
     if (aviso.visible) {
