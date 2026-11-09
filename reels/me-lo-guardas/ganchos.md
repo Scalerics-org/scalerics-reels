@@ -3,7 +3,7 @@
 Tema común: el "¿me lo guardás? ya vengo". Todo almacenero tiene el estante (o la caja abajo del mostrador) de cosas
 guardadas que nadie vino a buscar, con papelitos que dicen "el de la gorra" o "la del perro". Rubén guarda todo
 porque es buena gente y cumple su palabra: queda bien parado. Producto: agente de IA que atiende el "¿me lo
-guardás?" por WhatsApp, reserva con una seña por link de pago, avisa "te espera hasta el viernes" y, si no viene,
+guardás?" por WhatsApp, reserva con una seña por link de pago, avisa "te espera hasta el jueves" y, si no viene,
 libera la reserva sola. La vara: ¿un dueño se lo manda a otro con "jaja este sos vos"? ¿El remate pega?
 
 ## Versión A · "Ya viene, Graciela." + Walter que vuelve a pedir (LA ELEGIDA)
@@ -18,11 +18,11 @@ libera la reserva sola. La vara: ¿un dueño se lo manda a otro con "jaja este s
 - Remate del remate: campanita, ¡Walter en la puerta! Rubén y Graciela con cara de esperanza, Rubén ya le alcanza la
   bolsa… y Walter: "¡Guardame un dulce de leche!" / "¡Ya vengo!", y se va. Guardados: 28 (tuba).
 - Parte 2 (callback): el mismo mensaje de Walter, pero el celular contesta solo ("Te lo reservo con una seña", botón
-  "Pagar seña", "Seña paga ✓", "Te espera hasta el viernes"). El estante GUARDADOS ordenado (Guardados: 27 tachado →
+  "Pagar seña", "Seña paga ✓", "Te espera hasta el jueves"). El estante GUARDADOS ordenado (Guardados: 27 tachado →
   3, todos con seña); la reserva de "el de la gorra" vence y la yerba vuelve sola al estante. Graciela con su yerba en
   la mano; campanita: entra Walter a buscar lo suyo. Graciela: "¿Walter?". Rubén: **"Ya vino, Graciela."** Walter,
   ya en la puerta: "¡Ah! ¿Me guardás un dulce de leche?", el celular de Rubén contesta solo "Reservado. Te espera
-  hasta el viernes." y Rubén guiña con el mate.
+  hasta el jueves." y Rubén guiña con el mate.
 - ¿Lo mandaría un dueño? Sí, sin dudarlo: el "ya vengo" que nunca viene es universal (almacén, ferretería, ropa,
   repuestos), todos tienen el estante y todos tienen "un Walter". Se lo manda a otro dueño ("tu estante") o al
   cliente que le debe una visita. Rubén queda como el bueno que cumple; Walter no es un villano, es Walter.

@@ -29,9 +29,9 @@ const T = {
   // P4 · zambullida al papelito de Walter
   p4: 6.4, dive: [6.4, 7.2], tela2: 7.0, b2: 7.35,
   // P5 · primer plano: se corta la música, gira a cámara, push-in, "Ya viene, Graciela."
-  p5: 8.2, corte: 8.2, giraCam: [8.3, 9.0], pushIn: [8.8, 9.1], voz1: 9.21,
+  p5: 8.2, corte: 8.12, giraCam: [8.3, 9.0], pushIn: [8.8, 9.1], voz1: 9.21,
   // P6 · Walter en la puerta: "¡Guardame un dulce de leche!" "¡Ya vengo!", 28 y tuba, palmaditas
-  p6: 11.1, p6b: 13.3, campana2: 11.2, asoma: [11.15, 11.75], giran: 11.6, levanta2: 11.75, b3: 12.0, b4: 12.55, seVa: [12.6, 12.85], campana3: 12.75, c28: 12.95, palmas: [13.55, 13.95],
+  p6: 11.1, p6b: 13.45, campana2: 11.2, asoma: [11.15, 11.75], giran: 11.6, levanta2: 11.75, b3: 11.85, b4: 12.4, seVa: [13.05, 13.4], campana3: 13.25, c28: 13.5, palmas: [13.85, 14.15],
   // ---- parte 2 ----
   q1: P2, notif2: 17.62, escribiendo: 17.95, resp1: 18.3, sorbo1: 18.4, tap: 18.95, pagada: 19.0, resp2: 19.35,
   q2: 20.2, c3s: 20.4, vence: 21.0, vuela: [21.3, 21.55], q2b: 21.55, aterriza: 21.85,
@@ -105,7 +105,7 @@ function hora(id, ini, fin, textos, top = 1770) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .hora { position: absolute; right: 40px; top: ${top}px; display: flex; align-items: center; gap: 14px; padding: 12px 22px 13px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
+    P .hora { position: absolute; right: 40px; top: ${top}px; display: flex; align-items: center; gap: 14px; padding: 12px 22px 13px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
     P .hora.mes { border-color: ${G}; }
     P .punto { width: 18px; height: 18px; border-radius: 50%; background: ${G}; }
     P .tx { position: relative; display: inline-block; }
@@ -122,7 +122,7 @@ function hora(id, ini, fin, textos, top = 1770) {
       tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`,
   });
 }
-hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 10:15"], [T.dia2, "VIERNES · 10:15"], [T.mes, "UN MES DESPUÉS"]]);
+hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES"], [T.dia1, "MIÉRCOLES"], [T.dia2, "VIERNES"], [T.mes, "UN MES DESPUÉS"]]);
 
 // los mensajes del chat que llegan mientras se llena el estante (P2): pegados arriba a la izquierda, el nuevo empuja
 // al viejo, 2 a la vista. Burbuja crema del cliente con su nombre, como en el chat del celular.
@@ -168,7 +168,7 @@ hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 
     P .x { font: 700 50px/1.18 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .a { margin-top: 12px; font: 500 38px/1.1 "IBM Plex Mono", monospace; color: ${G}; letter-spacing: 0.01em; }`,
     html: `      <div class="w"><div class="n">Walter</div><div class="x">¿Me guardás un<br>dulce de leche?</div></div>
-      <div class="r"><div class="x">Reservado. Te espera<br>hasta el martes.</div><div class="a">respondido automáticamente</div></div>`,
+      <div class="r"><div class="x">Reservado. Te espera<br>hasta el jueves.</div><div class="a">respondido automáticamente</div></div>`,
     js: `      tl.fromTo(q(".w"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.02);
       tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, ${r2(T.resp3 - T.b6 + 0.02)});
       tl.to([q(".w"), q(".r")], { opacity: 0, y: -30, duration: 0.14, ease: "power2.in" }, ${r2(dur - 0.15)});`,
@@ -260,7 +260,7 @@ linea("s02-linea", T.voz2, LINEA2, 1, T.q5 - 0.02);
       tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, ${r2(dur - 0.45)});`,
   });
 }
-hora("s04-hora", T.q1 + 0.05, T.q4, [[T.q1 + 0.05, "OTRO LUNES · 10:15"], [T.q3, "MARTES · 10:15"]]);
+hora("s04-hora", T.q1 + 0.05, T.q4, [[T.q1 + 0.05, "OTRO LUNES"], [T.q3, "MARTES"]]);
 
 // la línea chica final (abajo): una línea y la web
 {
@@ -296,7 +296,7 @@ s("sfx/papel.wav", T.pega, 0, { dur: 0.22, fin: 0.06, techo: -36 });            
 // P2: cada mensaje (burbuja) y cada cosa que cae en el estante (pop con apoyo bajo), el contador, los días
 s("sfx/whoosh.mp3", T.p2 - 0.02, 0, { techo: -42 });
 s("sfx/pop.mp3", T.dejaW, 0, { desde: 0.11, techo: -34 }); s("sfx/sello.wav", T.dejaW + 0.08, -4, { techo: -39 });
-const COSAS = [T.m1 + 0.12, T.m2 + 0.12, T.m3 + 0.12, T.maple, ...T.cosas];
+const COSAS = [T.m1 + 0.12, T.m2 + 0.12, T.m3 + 0.12, ...T.cosas.slice(1)];
 for (const [i, t] of COSAS.entries()) s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -34 + (i % 3) });
 for (const t of [T.m1, T.m2, T.m3]) s("sfx/burbuja.mp3", t, 0);
 s("sfx/key-press.mp3", T.c11, 0, { desde: 0.07, techo: -35 });
@@ -355,6 +355,7 @@ s("sfx/burbuja.mp3", T.b5, 0);
 s("sfx/sorbo.wav", T.sorbo2[0], 0, { techo: -34 });
 s("sfx/tac-real.mp3", T.baja, 0, { techo: -40 });                                         // el mate que se apoya
 s("voice/ruben2.wav", T.voz2, -5, { voz: true });
+for (let i = 0; i < 6; i++) s("sfx/key-press.mp3", T.b6 - 0.32 + i * 0.05, 0, { desde: 0.07, techo: -42 });   // Walter escribe
 s("sfx/burbuja.mp3", T.b6, 0);
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.6, fin: 0.08, techo: -33 });
 s("sfx/respuesta.wav", T.resp3, 0, { techo: -35 });

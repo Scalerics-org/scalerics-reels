@@ -2,7 +2,7 @@
 
 Sin datos ni afirmaciones de hechos para verificar: es una situación inventada (el estante de "guardados" del almacén
 de Rubén que nadie viene a buscar). El contador "Guardados: 3 → 11 → 27 → 28" y "3 · con seña", los papelitos, los
-días ("UN MES DESPUÉS") y el "hasta el viernes" son parte del chiste, no estadísticas. Celular, chat, link de pago,
+días ("UN MES DESPUÉS") y el "hasta el jueves" son parte del chiste, no estadísticas. Celular, chat, link de pago,
 bolsas, yerba, dulce de leche, queso, pan, mate y termo genéricos, sin marcas: no se nombra ni se dibuja ninguna app
 de mensajería ni de pagos (el chat es navy/crema/verde, el botón dice "Pagar seña").
 
