@@ -519,7 +519,7 @@ const mate = crearMate(); scene.add(mate);
 const lentesG = [], labioG = [];
 graciela.cabeza.traverse((o) => { if (o.isMesh && o.geometry.type === "TorusGeometry" && Math.abs(o.geometry.parameters.radius - 0.088) < 1e-6) lentesG.push(o); });
 graciela.raiz.traverse((o) => { if (o.isMesh && o.material && o.material.color && o.material.color.getHex() === ELENCO.clienta.labios) labioG.push(o); });
-const tildeG = hacerTilde(0.16);
+const tildeG = hacerTilde(0.11);
 
 // ================= TIEMPOS CLAVE =================
 const T = {
@@ -529,7 +529,7 @@ const T = {
   nueve: W[25] - 0.05, esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
   preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[50] - 0.35,
-  flipMar: S["s09-aviso"] + 0.05, avisa: W[65] - 0.05, quedan: W[68] - 0.03, pide: W[70] + 0.02,
+  flipMar: S["s09-aviso"] + 0.3, avisa: W[65] - 0.05, quedan: W[68] - 0.03, pide: W[70] + 0.02,
   cajaCae: W[72] + 0.18, flipSab: W[74] - 0.12, toma: W[75] + 0.05, encuentra: W[76] + 0.05,
 };
 T.cortePila = T.cajaCae - 0.12; // corte al estante (después del "Pedir")
@@ -544,22 +544,27 @@ const PLANOS = [
     [T.sube, -2, 3, 12.9, 0, 3.95, 0.3, 30],
     [S["s02-otro-lado"], -3, 3, 13.0, 0, 3.25, 1.5, 30],
     [T.vuela, 0, 3, 12.4, 0, 3.2, 2.4, 30],
-    [T.vuela + 0.55, 10, 4, 11.0, XP - 0.6, 3.1, 0.6, 30],
-    [T.entra + 0.2, 4, 4, 10.8, XP - 0.1, 3.1, 0.4, 30],
-    [T.vuelta, 0, 4, 10.6, XP + 0.1, 3.1, 0.4, 30],
-    [T.vuelta + 0.5, -8, 7, 11.4, XG, 2.2, 0.8, 30],
+    [T.vuela + 0.3, 8, 4, 11.4, XP * 0.55, 2.9, 1.4, 30],
+    [T.vuela + 0.6, 10, 4, 11.0, XP - 0.6, 2.8, 0.6, 30],
+    [T.entra + 0.2, 4, 4, 10.8, XP - 0.1, 2.8, 0.4, 30],
+    [T.vuelta, 0, 4, 10.6, XP + 0.1, 2.8, 0.4, 30],
+  ]],
+  // corte seco (whoosh) a la canasta y el almanaque
+  [T.vuelta, "A", [
+    [T.vuelta, -8, 7, 11.8, XG, 2.2, 0.8, 30],
     [S["s04-nada"], -2, 8, 11.2, XG, 2.2, 0.9, 30],
-    [S["s04-nada"] + 0.6, 0, 12, 8.2, XG + 0.05, 1.5, 3.2, 30],
-    [T.grua, 4, 11, 7.8, XG + 0.05, 1.5, 3.3, 30],
+    [S["s04-nada"] + 0.6, 0, 12, 8.4, XG + 0.05, 1.75, 3.2, 30],
+    [T.grua, 4, 11, 8.0, XG + 0.05, 1.75, 3.3, 30],
   ]],
   // corte seco (whoosh) a la góndola con las barras de ventas
   [T.grua, "A", [
     [T.grua, 3, 3, 11.5, 0, 3.6, 0, 30],
-    [T.barras + 0.3, 0, 4, 15.6, 0, 5.9, 0, 30],
-    [T.preg - 0.05, -2, 4, 15.4, 0, 6.3, 0, 30],
+    [T.barras + 0.3, 0, 4, 18.0, 0, 6.5, 0, 30],
+    [T.preg - 0.05, -2, 4, 17.6, 0, 6.5, 0, 30],
     [T.preg + 0.3, 0, 3, 8.6, 0, 6.35, 0.2, 30],
     [T.pila - 0.05, 3, 3, 8.0, 0, 6.35, 0.2, 30],
     [T.pila + 0.35, 0, 3, 12.2, 0, 7.4, 0, 30],
+    [T.cero - 0.1, 2, 3, 12.0, 0, 7.4, 0, 30],
     [T.cero + 0.1, -2, 3, 10.4, 0, 6.8, 0.1, 30],
     [T.notita, -2, 3, 10.0, 0, 6.6, 0.1, 30],
     [T.notita + 0.45, 0, 2, 9.0, 0, 6.4, 0.2, 30],
@@ -588,8 +593,8 @@ const PLANOS = [
     [S["s13-llamada"], 3, 4, 12.8, 0, 3.45, 0, 30],
   ]],
   [S["s13-llamada"], "FIN", [
-    [S["s13-llamada"], -7, 4, 18.8, 0, 2.6, 0, 30],
-    [DUR, 6, 4, 18.2, 0, 2.6, 0, 30],
+    [S["s13-llamada"], -7, 4, 16.6, 0, 3.9, 0, 30],
+    [DUR, 6, 4, 16.1, 0, 3.9, 0, 30],
   ]],
 ];
 const _mira = new THREE.Vector3();
@@ -715,12 +720,12 @@ function zonaA(t) {
       if (t > T.espera - 0.2) {
         const u = eio(sg(t, T.espera - 0.2, T.espera + 0.15));
         const pp = lerpV(V(xTaj(1) - 0.075, 0, 0), aLocal(almanaque.position.clone().add(V(-0.72, 0.0, 0.15))), u);
-        taj15.position.copy(pp); taj15.rotation.set(0, 0.15 * u, -0.2 * u); taj15.scale.setScalar(lerp(1, 0.85, u));
+        taj15.position.copy(pp); taj15.rotation.set(0, 0.15 * u, -0.2 * u); taj15.scale.setScalar(lerp(1, 0.85, u) * popOut(t, S["s04-nada"] + 0.12, 0.3)); taj15.visible = t < S["s04-nada"] + 0.42;
       }
       // 9 %: baja a la canasta vacía y se esfuma en "nada"
       {
-        const t0 = T.nueve + 0.1;
-        const u = eio(sg(t, t0, t0 + 0.55));
+        const t0 = S["s04-nada"] + 0.05;
+        const u = eio(sg(t, t0, t0 + 0.7));
         if (t > t0) { const pp = lerpV(V(xTaj(0) - 2 * 0.075, 0, 0), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); pp.y += Math.sin(Math.PI * u) * 0.15; taj9.position.copy(pp); }
         const rojo = sg(t, T.nueve - 0.05, T.nueve + 0.3);
         taj9Mats.forEach((m) => { m.color.copy(m.userData.c0).lerp(new THREE.Color(C.red), rojo * 0.75); m.emissiveIntensity = 0.25 * rojo; });
@@ -739,7 +744,7 @@ function zonaA(t) {
     hoja.rotation.y = -1.75 * eio(sg(t, T.abre, T.abre + 0.35)) + 1.75 * eio(sg(t, T.entra + 0.55, T.entra + 0.9)) + rebote(t, T.entra + 0.9, 8, 30, 0.05);
     const v31 = vis && t > T.num31;
     ocultar(num31, v31 ? popIn(t, T.num31, 0.3) : 0);
-    if (v31) { num31.position.set(XP, 3.95 + Math.sin(t * 2) * 0.03, 0.75); num31.rotation.set(0, Math.sin(t * 1.4) * 0.12, 0); }
+    if (v31) { num31.position.set(XP, 3.65 + Math.sin(t * 2) * 0.03, 0.75); num31.rotation.set(0, Math.sin(t * 1.4) * 0.12, 0); }
   }
   // ---- canasta, almanaque, canasta vacía ----
   {
@@ -766,7 +771,7 @@ function zonaA(t) {
     hojasAlm.forEach((h, i) => { h.rotation.x = i < 2 ? -(2 * Math.PI - 1.0) * eio(sg(t, T.espera + 0.05 + i * 0.28, T.espera + 0.3 + i * 0.28)) : 0; });
     const v9 = vis && t > T.nueve;
     ocultar(num9, v9 ? popIn(t, T.nueve, 0.3) : 0);
-    if (v9) { num9.position.copy(canastaVacia.position).add(V(0, 2.0 + Math.sin(t * 2) * 0.03, 0)); num9.rotation.set(0, Math.sin(t * 1.4) * 0.12, 0); }
+    if (v9) { num9.position.copy(canastaVacia.position).add(V(0, 2.45 + Math.sin(t * 2) * 0.03, 0)); num9.rotation.set(0, Math.sin(t * 1.4) * 0.12, 0); }
     migas.forEach((m) => {
       const u = sg(t, T.esfuma, T.esfuma + 0.55);
       m.visible = vis && u > 0 && u < 1;
@@ -783,7 +788,7 @@ function zonaA(t) {
       if (o.visible) {
         const kk = popIn(t, t0, 0.24) * (1 - eio(baja));
         o.position.set(xCol(c), TOPE_Y + k * (PK.h + 0.04) * (1 - baja), 0.1); o.rotation.set(0, k % 2 ? 0.04 : -0.04, 0);
-        o.scale.setScalar(Math.max(0.001, kk)); o.visible = kk > 0.01;
+        o.scale.setScalar(Math.max(0.001, kk)); o.visible = kk > 0.15;
       }
     });
     const vb = vis && t > T.roja;
@@ -956,7 +961,7 @@ function zonaB(t) {
       suya.visible = t > T.toma + 0.05;
       if (suya.visible) { graciela.mano("D").getWorldPosition(_v); suya.position.copy(_v).add(V(0, -0.08, 0.02)); suya.rotation.set(0, estanteY.rotation.y - tomo * 0.6, 0); }
       tildeG.visible = t > T.encuentra;
-      if (tildeG.visible) { tildeG.position.copy(suya.position).add(V(0.02, 0.36, 0.12)); tildeG.quaternion.copy(camera.quaternion); tildeG.scale.setScalar(popIn(t, T.encuentra, 0.3)); }
+      if (tildeG.visible) { tildeG.position.copy(suya.position).add(V(0, 0.16, 0.1)); tildeG.quaternion.copy(camera.quaternion); tildeG.scale.setScalar(popIn(t, T.encuentra, 0.3)); }
     }
     if (lentesG.length === 2) {
       const hp = graciela.cabeza.getWorldPosition(new THREE.Vector3());
