@@ -288,7 +288,7 @@ taj9Mats.forEach((m) => { m.userData.c0 = m.color.clone(); m.emissive = new THRE
 const sombraGrande = sombra(2.2, 1.4);
 
 // ================= EL LOCAL DE AL LADO (x = 9) =================
-const XP = 5.6;
+const XP = 4.6;
 const local = new THREE.Group(); local.position.set(XP, 0, 0); scene.add(local);
 const hoja = new THREE.Group();
 {
@@ -302,7 +302,7 @@ const hoja = new THREE.Group();
   const colL = [0xefeee5, 0x5ce611, 0x8e8c80, 0xd9a441, 0x2c4268];
   for (const y of [0.75, 1.35, 1.95]) {
     local.add(mesh(new THREE.BoxGeometry(1.4, 0.05, 0.3), new THREE.MeshBasicMaterial({ color: 0x3b2a1c }), 0, y, -1.45));
-    for (let k = 0; k < 6; k++) local.add(mesh(new THREE.BoxGeometry(0.16, 0.26 + (k % 2) * 0.06, 0.16), new THREE.MeshBasicMaterial({ color: colL[(k + y * 7) % 5 | 0] }), -0.55 + k * 0.22, y + 0.16, -1.42));
+    for (let k = 0; k < 6; k++) if (!(y === 1.35 && (k === 2 || k === 3))) local.add(mesh(new THREE.BoxGeometry(0.16, 0.26 + (k % 2) * 0.06, 0.16), new THREE.MeshBasicMaterial({ color: colL[(k + y * 7) % 5 | 0] }), -0.55 + k * 0.22, y + 0.16, -1.42));
   }
   local.add(mesh(new THREE.PlaneGeometry(0.5, 0.06), new THREE.MeshBasicMaterial({ color: 0xffe2a8 }), 0, 2.6, -1.58));
   // marco de la puerta
@@ -549,8 +549,8 @@ const avisoTex = (pedido) => tex(900, 470, (x, w, h) => {
   x.fillStyle = ROJ; x.beginPath(); x.arc(86, 92, 44, 0, 7); x.fill(); x.fillStyle = CRE; x.font = F(900, 64); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("!", 86, 96);
   x.fillStyle = NAV0; x.textAlign = "left"; x.font = F(800, 78); x.fillText("Yerba 1 kg", 154, 94);
   x.font = F(800, 72); x.fillText("Quedan 8", 48, 200); x.fillStyle = ROJ; x.font = F(800, 72); x.fillText("Se acaba el sábado", 48, 280);
-  x.fillStyle = pedido ? NAV3 : VER; rr(x, 48, 334, w - 96, 106, 53);
-  x.fillStyle = pedido ? VER : NAV0; x.font = F(800, 72); x.textAlign = "center"; x.fillText(pedido ? "Pedido hecho" : "Pedir", w / 2, 390);
+  x.fillStyle = VER; rr(x, 48, 334, w - 96, 106, 53);
+  x.fillStyle = NAV0; x.font = F(800, 72); x.textAlign = "center"; x.fillText(pedido ? "Pedido hecho" : "Pedir", w / 2, 390);
 });
 const AVISO = [avisoTex(false), avisoTex(true)];
 // en los planos generales la tablet no lleva texto chico: barras grandes y un tilde
@@ -599,9 +599,9 @@ const PLANOS = [
   [0, "A", [
     [0, 0, 3, 16.0, 0, 3.21, 0, 30],
     [T.sube, -2, 3, 15.3, 0, 3.3, 0.2, 30],
-    [S["s02-otro-lado"], -3, 3, 13.0, 0, 3.25, 2.3, 30],
-    [T.vuela, 0, 3, 12.4, 0, 3.2, 3.3, 30],
-    [T.vuela + 0.3, 6, 4, 11.2, XP * 0.6, 2.9, 1.2, 30],
+    [S["s02-otro-lado"], -3, 3, 13.0, 0, 3.0, 1.8, 30],
+    [T.vuela, 0, 3, 12.4, 0, 2.9, 2.6, 30],
+    [T.vuela + 0.3, 6, 4, 11.0, XP * 0.75, 3.0, 1.0, 30],
     [T.vuela + 0.6, 8, 4, 11.0, XP - 0.4, 3.2, 0.6, 30],
     [T.entra + 0.2, 4, 4, 10.6, XP - 0.1, 3.2, 0.4, 30],
     [T.vuelta, 0, 4, 10.2, XP + 0.05, 3.15, 0.4, 30],
@@ -610,6 +610,10 @@ const PLANOS = [
   [T.vuelta, "A", [
     [T.vuelta, -3, 5, 9.0, XG + 0.06, 1.25, 0.2, 30],
     [S["s04-nada"], -1, 5, 8.7, XG + 0.06, 1.25, 0.2, 30],
+  ]],
+  // corte seco a la canasta roja (sin paneo vacío)
+  [S["s04-nada"], "A", [
+    [S["s04-nada"], 3, 10, 7.8, XK + 4.0, 1.15, 1.6, 30],
     [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 4.0, 1.15, 1.6, 30],
     [T.grua, 3, 10, 7.0, XK + 4.0, 1.15, 1.6, 30],
   ]],
@@ -633,16 +637,16 @@ const PLANOS = [
   [S["s09-aviso"], "B2", [
     [S["s09-aviso"], 6, 7, 5.0, OB.x + 0.4, 1.05, -1.0, 34],
     [T.flipMar + 0.15, 3, 8, 4.7, OB.x + 0.2, 1.07, -1.05, 34],
-    [T.avisa - 0.1, 16, 10, 3.3, OB.x - 0.16, 1.22, -1.15, 34],
-    [T.cortePila, 16, 10, 3.05, OB.x - 0.12, 1.22, -1.15, 34],
+    [T.avisa - 0.1, 16, 16, 2.8, OB.x - 0.2, 1.3, -1.2, 34],
+    [T.cortePila, 16, 16, 2.6, OB.x - 0.18, 1.3, -1.2, 34],
   ]],
   [T.cortePila, "B3", [
     [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.52, EST.z + 0.2, 34],
     [S["s11-encuentra"], 12, 10, 3.4, OB.x + EST.x + 0.25, 0.52, EST.z + 0.2, 34],
   ]],
   [S["s11-encuentra"], "B4", [
-    [S["s11-encuentra"], 4, 7, 6.6, OB.x + 0.0, 1.05, -0.7, 34],
-    [S["s12-queres"], 8, 7, 6.3, OB.x + 0.0, 1.05, -0.7, 34],
+    [S["s11-encuentra"], 4, 7, 6.6, OB.x - 0.12, 1.05, -0.7, 34],
+    [S["s12-queres"], 8, 7, 6.3, OB.x - 0.12, 1.05, -0.7, 34],
   ]],
   [S["s12-queres"], "A2", [
     [S["s12-queres"], -6, 4, 15.2, 0, 3.1, 0, 30],
@@ -696,10 +700,10 @@ function ponerCamara(t) {
 // ================= ZONA A en el tiempo =================
 const HUECO_P = V(xCol(HUECO.c), GD.baldas[HUECO.b], 0.2); // donde estaba el paquete que falta
 const FLOTA = V(0, 2.75, 1.2); // frente al hueco
-const GRANDE = V(0, 1.75, 3.3), KG = 2.9; // el paquete gigante (escala)
+const GRANDE = V(0, 1.75, 2.6), KG = 2.2; // el paquete gigante (escala)
 const PUERTA = V(XP, 0.25, 0.7);
 const TAJ_K = V(XG - 2.4, 2.4, 1.0); // donde quedan flotando las tajadas que no se fueron
-const GAP = 0.13; // separación entre tajadas (local)
+const GAP = 0.09; // separación entre tajadas (local)
 const xTaj = (i) => ((CORTES[i] + CORTES[i + 1]) / 2 - 0.5) * PKG.w;
 function zonaA(t) {
   const A = plano === "A", A2 = plano === "A2", FIN = plano === "FIN", enA = A || A2 || FIN;
@@ -755,11 +759,11 @@ function zonaA(t) {
         const desde = V(xTaj(4) + 2 * GAP, 0, 0);
         const g0 = grande.position.clone(), k0 = grande.scale.x;
         const aLocal = (w) => w.clone().sub(g0).divideScalar(k0); // ignora el giro chico del paquete
-        const pf = lerpV(aLocal(PUERTA.clone().add(V(0, 0, 0.6))), aLocal(PUERTA.clone().add(V(0, 0, -1.1))), ent);
+        const pf = lerpV(aLocal(PUERTA.clone().add(V(0, 0.4, 0.6))), aLocal(V(XP, 1.38, -1.36)), ent);
         const p2 = lerpV(desde, pf, u); p2.y += Math.sin(Math.PI * u) * 0.35;
         taj31.position.copy(p2);
         taj31.rotation.set(0, -Math.sin(Math.PI * u) * 0.6, Math.sin(Math.PI * u) * -0.2);
-        taj31.scale.setScalar(lerp(1, 0.6, u) * (1 - 0.3 * ent) * (KG / k0));
+        taj31.scale.setScalar(lerp(1, 0.6, u) * (1 - 0.55 * ent) * (KG / k0));
         taj31.visible = t < T.vuelta;
       }
       const g0 = grande.position.clone(), k0 = grande.scale.x;
@@ -789,8 +793,8 @@ function zonaA(t) {
         const rojo = sg(t, T.nueve - 0.05, T.nueve + 0.3);
         taj9Mats.forEach((m) => { m.color.copy(m.userData.c0).lerp(new THREE.Color(C.red), rojo * 0.75); m.emissiveIntensity = 0.25 * rojo; });
         const esf = sg(t, T.esfuma, T.esfuma + 0.25);
-        taj9.scale.setScalar((1 + 0.15 * pulso(t, T.nueve, 0.25)) * (1 - eio(esf)) * lerp(1, 0.5, u));
-        taj9.visible = esf < 0.99 && (t < T.vuelta || t > t0);
+        taj9.scale.setScalar(lerp(1, 0.5, u) * (1 - eio(sg(t, t0 + 0.3, t0 + 0.42))));
+        taj9.visible = (t < T.vuelta || (t > t0 && t < t0 + 0.42)); void esf;
       }
       // en la grúa lo que queda se achica (sale de cuadro)
       if (t > T.grua) { const kk = popOut(t, T.grua + 0.1, 0.3); grande.scale.multiplyScalar(Math.max(0.001, kk)); grande.visible = kk > 0.01; }
@@ -831,12 +835,13 @@ function zonaA(t) {
       const tf = [T.espera + 0.05, T.espera + 0.33];
       let cual = 0; tf.forEach((x, k) => { if (t >= x + 0.07) cual = k + 1; });
       const ap = tf.reduce((m, x) => Math.max(m, pulso(t, x, 0.14)), 0);
-      hojasAlm.forEach((h, i) => { h.rotation.x = 0; h.visible = i === cual; h.scale.set(1, 1 - 0.8 * ap, 1); });
+      hojasAlm.forEach((h, i) => { h.rotation.x = 0; h.visible = i === cual; h.scale.set(1 + 0.05 * ap, 1 + 0.05 * ap, 1); });
     }
     const v9 = vis && t > T.nueve;
     ocultar(num9, v9 ? popIn(t, T.nueve, 0.3) : 0);
     if (v9) { num9.position.copy(canastaVacia.position).add(V(0, 1.75 + Math.sin(t * 2) * 0.03, 0)); num9.rotation.set(0, Math.sin(t * 1.4) * 0.12, 0); }
-    migas.forEach((m) => {
+    migas.forEach((m) => { m.visible = false; });
+    if (false) migas.forEach((m) => {
       const u = sg(t, T.esfuma, T.esfuma + 0.55);
       m.visible = vis && u > 0 && u < 1;
       if (m.visible) { const p = canastaVacia.position.clone().add(V(0, 0.9, 0)).addScaledVector(m.userData.d, eo(u) * 0.9 * m.userData.k); p.y -= u * u * 0.5; m.position.copy(p); m.scale.setScalar((1 - u) * 1.3); m.rotation.set(u * 4, u * 3, 0); }
@@ -870,10 +875,10 @@ function zonaA(t) {
     const CEN = V(0, TOPE_Y + 1.25, 0.15);
     const giro = eio(sg(t, T.pila - 0.12, T.pila + 0.2));
     const vp = A && t > T.preg && giro < 0.5;
-    ocultar(pregunta, vp ? popIn(t, T.preg, 0.3) * (1 + 0.05 * pulso(t, W[41], 0.3)) : 0);
+    ocultar(pregunta, vp ? popIn(t, T.preg + 0.1, 0.3) * (1 + 0.05 * pulso(t, W[41], 0.3)) : 0);
     if (vp) { pregunta.position.copy(CEN); pregunta.rotation.set(0, Math.sin(t * 1.5) * 0.18 + giro * Math.PI, 0); pregunta.scale.x *= 1 - giro * 1.6; }
     const vpi = A && t > T.pila && t < S["s08-ruben"] + 0.01;
-    const salida = (k) => T.salen + (T.cero - 0.1 - T.salen) * (k / 11);
+    const salida = (k) => T.salen + (T.cero - 0.35 - T.salen) * (k / 11);
     PILA.forEach((p, i) => {
       const { f, c } = p.userData;
       const tin = T.pila + 0.025 * (f * 4 + c);
@@ -888,15 +893,15 @@ function zonaA(t) {
       p.position.copy(pp); p.rotation.set(0, sal * sal * -1.2 + ((i % 3) - 1) * 0.03, sal * sal * -0.6);
       const kp = popIn(t, tin, 0.22) * Math.pow(1 - sal, 1.6); p.scale.setScalar(kp); if (kp < 0.15 && sal > 0) p.visible = false;
     });
-    const vc = A && t > T.pila + 0.4 && t < T.notita + 0.26;
+    const vc = A && t > T.pila + 0.4 && t < T.notita + 0.45;
     contador.visible = vc;
     if (vc) {
       let n = 12; for (let i = 0; i < 12; i++) if (t >= salida(i) + 0.08) n = 11 - i;
       if (contador.geometry !== numGeo[n]) contador.geometry = numGeo[n];
       contador.material = n === 0 ? M.red : MC;
       const ultimo = salida(11 - n) + 0.08;
-      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.12, 0.15) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
-      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 2.15, eio(sg(t, T.cero - 0.1, T.cero + 0.25))), 0.4); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
+      const k = popIn(t, T.pila + 0.4, 0.25) * popOut(t, T.notita + 0.3, 0.12) * lerp(1, 2.6, eio(sg(t, T.cero - 0.05, T.cero + 0.2))) * (1 + 0.1 * pulso(t, ultimo, 0.12) + 0.25 * (n === 0 ? pulso(t, T.cero, 0.3) : 0));
+      contador.scale.setScalar(k); contador.visible = k > 0.3; contador.position.set(0, lerp(TOPE_Y + 3 * (PK.h + 0.05) + 0.42, TOPE_Y + 1.55, eio(sg(t, T.cero - 0.05, T.cero + 0.2))), 0.0); contador.rotation.set(0, Math.sin(t * 1.4) * 0.1, 0);
     }
     const vn = A && t > T.notita;
     notita.visible = vn;
@@ -979,7 +984,7 @@ function zonaB(t) {
     if (tabPant.material.map !== pant) { tabPant.material.map = pant; tabPant.material.emissiveMap = pant; tabPant.material.needsUpdate = true; }
     aviso.visible = B2 && t > T.avisa;
     if (aviso.visible) {
-      const k = popIn(t, T.avisa, 0.3) * (1 + 0.06 * pulso(t, T.quedan, 0.25)) * (1 - 0.05 * pulso(t, T.pide - 0.05, 0.15));
+      const k = popIn(t, T.avisa, 0.3) * (1 + 0.06 * pulso(t, T.quedan, 0.25)) * (1 + 0.08 * pulso(t, T.pide, 0.3));
       aviso.scale.setScalar(k); aviso.position.set(0, 0.44 * 0.45, 0.012);
       const m = t > T.pide ? AVISO[1] : AVISO[0];
       if (avisoMat.map !== m) { avisoMat.map = m; avisoMat.needsUpdate = true; }
@@ -997,13 +1002,8 @@ function zonaB(t) {
     let pr = B4 ? poseEn(t, RK2) : poseEn(t, RK);
     if (B1) pr.cabeza = { ...pr.cabeza, giro: pr.cabeza.giro + niega(t, S["s08-ruben"] + 0.7, S["s08-ruben"] + 1.9, 0.28, 2) };
     if (B2) {
-      // toca "Pedir" con el índice
-      const k = sg(t, T.pide - 0.35, T.pide - 0.05) * (1 - sg(t, T.pide + 0.25, T.pide + 0.55));
-      if (k > 0) {
-        ruben.poner(pr); ruben.raiz.updateMatrixWorld(true); tablet.updateMatrixWorld(true);
-        const obj = ruben.cuerpo.worldToLocal(aviso.localToWorld(V(0, -0.083, 0.06)));
-        pr = { ...pr, manoD: mezclar(pr.manoD, [obj.x, obj.y, obj.z], eio(k)), codoD: [-0.8, -0.6, 0.2], dedoD: k };
-      }
+      // pide: asiente (sin mano sobre la pantalla; el botón se pone verde solo)
+      pr.cabeza = { ...pr.cabeza, asiente: pr.cabeza.asiente + 0.18 * pulso(t, T.pide - 0.05, 0.45) };
     }
     if (B4) pr = { ...pr, ...mateMano };
     ruben.poner(pr);

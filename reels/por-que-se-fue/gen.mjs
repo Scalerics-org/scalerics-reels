@@ -35,12 +35,12 @@ const CSS = (P) => `
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
     ${P} .esc { position: absolute; inset: 0; }
     ${P} svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
-    ${P} .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 16px 32px 17px; border: 6px solid ${CR}; border-radius: 999px; background: ${CR}; font: 700 46px/1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(0,0,0,0.28); }
+    ${P} .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 16px 32px 17px; border: 6px solid ${CR}; border-radius: 999px; background: ${CR}; font: 700 54px/1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(0,0,0,0.28); }
     ${P} .pill.g { border-color: ${G}; color: ${G}; }
     ${P} .pill.r { border-color: ${RED}; color: ${RED}; }
     ${P} .pill.lleno { background: ${G}; border-color: ${G}; color: ${NAVY}; }
     ${P} .pill.rl { background: ${RED}; border-color: ${RED}; color: #fff; }
-    ${P} .pill.nom { font-size: 44px; padding: 12px 28px 13px; }
+    ${P} .pill.nom { font-size: 54px; padding: 14px 32px 15px; }
     ${P} .pill.grande { font-size: 64px; padding: 20px 44px 22px; }
     ${P} .mono { position: absolute; transform: translateX(-50%); font: 500 32px/1 "IBM Plex Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; color: ${CR}; white-space: nowrap; opacity: 0; }
     ${P} .mono.g { color: ${G}; }
@@ -70,7 +70,7 @@ const HELP = `
         tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
-      const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.18, ease: "power1.in" }, t);
+      const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
       const caja = (s, t) => tl.fromTo(q(s), { opacity: 0, scaleX: 1.12, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.26, ease: "power3.out" }, t);
       const sello = (s, t, rot) => tl.fromTo(q(s), { opacity: 0, scale: 1.8, rotation: rot ?? -8, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, rotation: rot ?? -8, duration: 0.28, ease: "power4.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
@@ -127,7 +127,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   escena(id, {
     css: `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} }
-    P .h1 { top: 86px; font-size: 92px; font-weight: 800; letter-spacing: -0.03em; } P .h2 { top: 200px; font-size: 140px; color: ${RED}; } P .h3 { top: 350px; font-size: 140px; }`,
+    P .h1 { top: 82px; font-size: 100px; font-weight: 800; letter-spacing: -0.03em; } P .h2 { top: 206px; font-size: 140px; color: ${RED}; } P .h3 { top: 356px; font-size: 140px; }`,
     html: `
       <div class="h h1">Vino por su ${marca("yerba")}.</div>
       <div class="h h2">No había.</div>
@@ -168,8 +168,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s03-marca";
   const tC = w(id, 21) + 0.1, tE = w(id, 23);
   escena(id, {
-    html: `${leads(lead(1, 200, 568, 200, 1020), lead(2, 420, 650, 420, 1020), lead(3, 840, 568, 840, 630))}
-      ${pill(1, 260, 530, "26 % otra marca", "nom")}${pill(2, 320, 612, "19 % otra versión", "nom")}${pill(3, 820, 530, "15 % espera", "nom")}`,
+    html: `${leads(lead(1, 200, 560, 200, 1020), lead(2, 420, 655, 420, 1020), lead(3, 840, 568, 840, 630))}
+      ${pill(1, 300, 525, "26 % otra marca", "nom")}${pill(2, 335, 618, "19 % otra versión", "nom")}${pill(3, 820, 530, "15 % espera", "nom")}`,
     js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cinematic", vol: 0.14, max: 0.7 },
@@ -185,7 +185,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s04-nada";
   const t9 = r2(Math.max(w(id, 25) - 0.05, 0.45));
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 1606px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 500 38px/1.3 "IBM Plex Mono", monospace; text-align: center; letter-spacing: 0.02em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
+    css: `P .cred { position: absolute; left: 540px; top: 1588px; transform: translateX(-50%); padding: 14px 28px 15px; border-radius: 18px; background: ${CR}; font: 600 44px/1.25 "Lexend", sans-serif; text-align: center; letter-spacing: -0.01em; color: ${NAVY}; white-space: nowrap; opacity: 0; }`,
     html: `<div class="cred">Estudio mundial de faltantes · 2002<br>más de 70.000 compradores · 29 países</div>`,
     js: `tl.set(q(".cred"), { opacity: 1 }, ${t9}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${t9}); tl.to(q(".cred"), { opacity: 0, duration: 0.12, ease: "power1.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
@@ -200,7 +200,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 {
   const id = "s05-lo-que-mas";
   escena(id, {
-    html: `${leads(lead(1, 770, 640, 640, 640, "r"))}${pill(1, 850, 640, "El más vendido", "rl nom")}`,
+    html: `${leads(lead(1, 555, 640, 545, 640, "r"))}${pill(1, 795, 640, "El más vendido", "rl nom")}`,
     js: `nota(1, ${r2(w(id, 39) - 0.05)}); sinNota(1, ${r2(ESC[id] + 0.3)});`,
     sfx: [
       { t: -0.1, sfx: "whoosh-cinematic", vol: 0.14, max: 0.8 },

@@ -9,8 +9,8 @@ of Extent, Causes and Consumer Responses* (2002), para Grocery Manufacturers of 
 CIES (The Food Business Forum), financiado por Procter & Gamble. Recopila 52 estudios, 29 países, 32 categorías y
 unos 71.000-72.000 compradores. Resumen de divulgación: Corsten y Gruen, "Stock-Outs Cause Walkouts", *Harvard
 Business Review*, mayo 2004.
-El guion NO nombra a los autores en la voz (nada de personas reales con nombre propio); van chicos en pantalla
-como crédito ("Gruen, Corsten y Bharadwaj, 2002 · 29 países"). Sin marcas: la yerba es genérica.
+El guion NO nombra a los autores en la voz (nada de personas reales con nombre propio); en pantalla el
+crédito es "Estudio mundial de faltantes · 2002 / más de 70.000 compradores · 29 países" y los autores van en descripcion.txt. Sin marcas: la yerba es genérica.
 
 - HBR, "Stock-Outs Cause Walkouts" (Corsten y Gruen, 2004): https://hbr.org/2004/05/stock-outs-cause-walkouts
 - Capítulo de Corsten y Gruen (Springer, 2019) que resume el estudio de 2002 con la tabla de respuestas:
