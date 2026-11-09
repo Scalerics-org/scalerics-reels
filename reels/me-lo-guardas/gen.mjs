@@ -122,7 +122,7 @@ function hora(id, ini, fin, textos, top = 1665) {
       tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.25)});`,
   });
 }
-hora("s00-hora", 0, T.p5, [[0, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 10:15"], [T.dia2, "VIERNES · 10:15"], [T.mes, "UN MES DESPUÉS"]]);
+hora("s00-hora", T.p2, T.p5, [[T.p2, "LUNES · 10:15"], [T.dia1, "MIÉRCOLES · 10:15"], [T.dia2, "VIERNES · 10:15"], [T.mes, "UN MES DESPUÉS"]]);
 
 // los mensajes del chat que llegan mientras se llena el estante (P2): pegados arriba a la izquierda, el nuevo empuja
 // al viejo, 2 a la vista. Burbuja crema del cliente con su nombre, como en el chat del celular.
@@ -382,7 +382,7 @@ function lufsTramo(f, o) {
 }
 // la cama (música + ambiente) sube CAMA dB: el reel es ralo (la voz suena ~3 s de 30) y, para llegar a -14,5 sin
 // aplastar la voz contra el limitador, tiene que sonar más el resto (la voz sigue ≥ 6 LU arriba: medido)
-const CAMA = Number(process.env.CAMA ?? 4);
+const CAMA = Number(process.env.CAMA ?? 6);
 const esCama = (f) => f.startsWith("bgm/") || f === "sfx/calle.wav";
 const ganancia = ([f, , db, o]) => (o.voz ? db : r2(Math.min(db, (o.techo ?? TECHO) - lufsTramo(f, o)) + (esCama(f) ? CAMA : 0)));
 function mezcla(lista, salida, dur, bus = false) {
@@ -413,11 +413,11 @@ if (process.env.MEDIR) {
   mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
 }
 // nivel: -14 LUFS con limitador (el loudnorm del paso 10 casi no toca nada y el AAC no clipea); modo lineal
-const OBJ = Number(process.env.OBJ ?? -13.2), LIM = Number(process.env.LIM ?? 0.6);
+const OBJ = Number(process.env.OBJ ?? -11), LIM = Number(process.env.LIM ?? 0.6);
 {
   const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
   const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,aresample=192000,alimiter=limit=${LIM}:level=false:attack=1:release=60,aresample=48000,atrim=duration=${DUR}`, "-ar", "48000", "assets/audio/mezcla.wav"]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,lowpass=f=${process.env.LP ?? 15000}:poles=2,aresample=192000,alimiter=limit=${LIM}:level=false:attack=1:release=60,aresample=48000,atrim=duration=${DUR}`, "-ar", "48000", "assets/audio/mezcla.wav"]);
 }
 
 // ================= INDEX =================

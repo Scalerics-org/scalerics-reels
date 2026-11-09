@@ -313,7 +313,7 @@ const termoR = crearTermo(); termoR.scale.setScalar(1.3); scene.add(termoR);
 const TERMO = V3(RI.x - 0.45, MOSTRADOR.y, -1.6);
 const MATE_APOYADO = V3(RI.x + 0.45, MOSTRADOR.y, -1.62);
 const birome = crearLapicera(); birome.scale.setScalar(1.3); scene.add(birome);
-const BOLSA_M = V3(RI.x + 0.24, MOSTRADOR.y, -1.1);
+const BOLSA_M = V3(RI.x - 0.02, MOSTRADOR.y, -1.1);
 const PAPEL_M = V3(RI.x + 0.1, MOSTRADOR.y + 0.004, -1.42);
 const papelSuelto = PAPEL(["Walter", "ya vengo"], { W: 0.17, H: 0.108 }); scene.add(papelSuelto);
 
@@ -389,9 +389,9 @@ function dibujarCeluR(t) {
     x.textAlign = "left"; x.textBaseline = "middle";
     if (b.tipo === "cli") {
       x.translate(30, y + h); x.scale(s, s); x.translate(-30, -(y + h));
-      x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(24, y, 500, h - 22, [34, 34, 34, 8]); x.fill(); x.stroke();
-      x.fillStyle = "#0b1220"; x.font = F(800, 58); b.lineas.forEach((l, k) => x.fillText(l, 52, y + 62 + k * 70));
-      x.fillStyle = "#5a6478"; x.font = '500 34px "IBM Plex Mono", monospace'; x.fillText("10:15", 380, y + h - 52);
+      x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(24, y, 536, h - 22, [34, 34, 34, 8]); x.fill(); x.stroke();
+      x.fillStyle = "#0b1220"; x.font = F(800, 56); b.lineas.forEach((l, k) => x.fillText(l, 50, y + 62 + k * 70));
+      x.fillStyle = "#5a6478"; x.font = '500 34px "IBM Plex Mono", monospace'; x.fillText("10:15", 420, y + h - 52);
     } else if (b.tipo === "esc") {
       x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, y, 200, h - 22, 34); x.fill();
       for (let k = 0; k < 3; k++) { x.fillStyle = k === pts ? "#16243d" : "#9aa3b5"; x.beginPath(); x.arc(76 + k * 48, y + (h - 22) / 2, 15, 0, 7); x.fill(); }
@@ -550,7 +550,7 @@ function numeroEn(t) {
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov, modo]. Entre planos hay corte seco;
 // dentro de un plano, Catmull-Rom continua (modo "e" = tramo con ease propio: el push-in rápido).
 const kP1 = (t0, t1, push = false) => push
-  ? [[t0, RI.x - 0.2, 1.66, 0.3, RI.x - 0.3, 1.15, RI.z, 50], [T.levanta - 0.2, RI.x - 0.2, 1.65, 0.22, RI.x - 0.3, 1.15, RI.z, 50], [T.levanta + 0.25, RI.x - 0.14, 1.5, -0.1, RI.x - 0.24, 1.18, RI.z, 47], [t1, RI.x - 0.14, 1.5, -0.14, RI.x - 0.24, 1.18, RI.z, 47]]
+  ? [[t0, RI.x - 0.2, 1.88, 0.3, RI.x - 0.3, 1.1, RI.z, 50], [T.levanta - 0.2, RI.x - 0.2, 1.86, 0.22, RI.x - 0.3, 1.1, RI.z, 50], [T.levanta + 0.25, RI.x - 0.14, 1.5, -0.1, RI.x - 0.24, 1.18, RI.z, 47], [t1, RI.x - 0.14, 1.5, -0.14, RI.x - 0.24, 1.18, RI.z, 47]]
   : [[t0, RI.x - 0.2, 1.66, 0.3, RI.x - 0.3, 1.15, RI.z, 50], [t1, RI.x - 0.2, 1.64, 0.15, RI.x - 0.3, 1.15, RI.z, 50]];
 // el estante GUARDADOS de frente, entero, con el cartel por debajo de los mensajes del chat (P2)
 const EST = [GX, 1.95, GZ + 3.0, GX, 1.95, GZ, 54];
@@ -581,7 +581,7 @@ const PLANOS = [
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   ["Q1", P2, kP1(P2, T.q2)],
   // Q2 · el estante ordenado, push-in a las bolsas con seña (las etiquetas se leen)
-  ["Q2", T.q2, [[T.q2, GX - 0.15, 1.45, -0.6, GX - 0.15, 1.2, GZ, 50], [T.vence - 0.05, GX - 0.17, 1.05, -1.55, GX - 0.17, 0.98, GZ, 50], [T.q2b, GX - 0.17, 1.04, -1.6, GX - 0.17, 0.98, GZ, 50]]],
+  ["Q2", T.q2, [[T.q2, GX - 0.15, 1.15, -0.7, GX - 0.15, 0.95, GZ, 50], [T.vence - 0.05, GX - 0.17, 1.05, -1.55, GX - 0.17, 0.98, GZ, 50], [T.q2b, GX - 0.17, 1.04, -1.6, GX - 0.17, 0.98, GZ, 50]]],
   // Q2b · la yerba cae en su hueco (el mismo encuadre de P3b)
   ["Q2b", T.q2b, [[T.q2b, ...HUE0], [T.q3, ...HUE1]]],
   ["Q3", T.q3, kPuer(T.q3, T.q4)],
@@ -623,7 +623,7 @@ const APOYA_I = { manoI: [0.22, 0.32, 0.42], codoI: null, dedoI: 0 };
 // ---- Rubén ----
 const RK = [
   // P1: escribe el papelito inclinado sobre el mostrador; lo levanta a cámara; lo pega en la bolsa
-  [0, { x: RI.x, z: RI.z, giro: 0, inclina: 0.12, ...aC(-0.05, 0.3), ...CARA.sonrisa, ojos: { x: 0, y: -0.85, abiertos: 0.9, feliz: 0.25 } }],
+  [0, { x: RI.x, z: RI.z, giro: 0, inclina: 0.04, ...aC(-0.05, 0.22), ...CARA.sonrisa, ojos: { x: 0, y: -0.85, abiertos: 0.9, feliz: 0.25 } }],
   [T.levanta + 0.12, { inclina: 0.02, ...aC(0, 0.02), ojos: { x: 0, y: 0.05, abiertos: 1, feliz: 0.35 }, boca: { sonrisa: 0.95, ancho: 1.15 } }, 0.25],
   [T.pega + 0.2, { inclina: 0.06, ...aC(-0.25, 0.12), ojos: { x: -0.5, y: -0.4 } }, 0.2],
   [T.p2 - 0.25, { ...aC(0.05, 0.02), ojos: { x: 0, y: 0.05 } }, 0.25],
