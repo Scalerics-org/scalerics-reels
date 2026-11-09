@@ -552,7 +552,7 @@ TABLET.reposo = tex(TBW, TBH, (x) => {
 });
 TABLET.repuesto = TABLET.reposo;
 const tablet = crearTablet(TABLET.stock, 0.62, 0.44, 0.28); scene.add(tablet);
-tablet.position.set(OB.x - 0.28, MOSTRADOR.y, MOSTRADOR.z + 0.05); tablet.rotation.y = 0.12;
+tablet.position.set(OB.x - 0.28, MOSTRADOR.y, MOSTRADOR.z + 0.05); tablet.rotation.y = 0.2;
 const tabPant = tablet.userData.pantalla;
 const avisoMat = new THREE.MeshBasicMaterial({ map: AVISO[0], transparent: true, toneMapped: false });
 const aviso = mesh(new THREE.PlaneGeometry(0.5, 0.26), avisoMat); tablet.userData.pivote.add(aviso);
@@ -623,10 +623,10 @@ const PLANOS = [
     [S["s09-aviso"], 6, 7, 6.6, OB.x + 0.0, 1.05, -0.7, 34],
   ]],
   [S["s09-aviso"], "B2", [
-    [S["s09-aviso"], 6, 7, 5.0, OB.x + 0.3, 1.05, -1.0, 34],
+    [S["s09-aviso"], 6, 7, 5.0, OB.x + 0.4, 1.05, -1.0, 34],
     [T.flipMar + 0.15, 3, 8, 4.7, OB.x + 0.2, 1.07, -1.05, 34],
-    [T.avisa - 0.1, 2, 10, 3.25, OB.x - 0.06, 1.22, -1.15, 34],
-    [T.cortePila, -1, 10, 2.95, OB.x - 0.06, 1.22, -1.15, 34],
+    [T.avisa - 0.1, 16, 10, 3.3, OB.x - 0.16, 1.22, -1.15, 34],
+    [T.cortePila, 16, 10, 3.05, OB.x - 0.12, 1.22, -1.15, 34],
   ]],
   [T.cortePila, "B3", [
     [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.72, EST.z + 0.2, 34],
@@ -737,7 +737,7 @@ function zonaA(t) {
         grande.position.copy(pK); grande.scale.setScalar(KG * lerp(1, 0.42, via));
         grande.rotation.y = lerp(grande.rotation.y, 0, via);
       }
-      etqTaj.forEach((m, i) => (m.visible = via > 0.9 && !(i === 0 && t > S["s04-nada"] + 0.15)));
+      etqTaj.forEach((m, i) => (m.visible = i === 0 && via > 0.9 && t < S["s04-nada"] + 0.15));
       sombraGrande.position.set(grande.position.x, 0.008, grande.position.z + 0.1); sombraGrande.scale.setScalar(grande.scale.x / KG);
       grande.updateMatrixWorld(true);
       // 31 %: se va volando a la puerta de al lado y entra

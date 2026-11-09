@@ -43,6 +43,11 @@ como crédito ("Gruen, Corsten y Bharadwaj, 2002 · 29 países"). Sin marcas: la
 ## "Otros cambian de marca o esperan."
 - 26 % cambia de marca; 19 % se lleva otra versión de la misma marca (otro tamaño, otra variedad); 15 % posterga
   la compra. En pantalla: "26 % otra marca", "19 % otra versión", "15 % espera".
+  - **19 % y 15 % (decisión del 09-11, ronda 2):** quedan en pantalla porque los da explícitamente el capítulo de
+    los propios autores del estudio (Corsten y Gruen, Springer 2019: "26% of shoppers switch brands, 31% switch
+    stores, 19% substitute within the same brand, 15% delay their purchase, and 9% do not purchase at all"). Es la
+    fuente original de los autores y vale como primaria; la segunda independiente (Alimarket) solo da 31 %, 26 % y
+    9 %. La voz no dice ni 19 ni 15 ("Otros cambian de marca o esperan.").
   - Capítulo Springer 2019 y Alimarket (links de arriba). El 15 % y el 19 % salen del capítulo de los propios
     autores; la segunda fuente independiente que da el reparto completo es la tabla de Supermarket News (por
     categoría). Si el revisor lo quiere más firme: en pantalla basta "26 % otra marca" (dos fuentes) y la voz no da
@@ -55,12 +60,12 @@ como crédito ("Gruen, Corsten y Bharadwaj, 2002 · 29 países"). Sin marcas: la
   enfrentan en promedio a una pérdida directa del 40 % de la venta potencial" (otro establecimiento 31 % + desiste 9 %).
   Es suma de los dos datos de arriba; puede ir en pantalla, no en la voz.
 
-## Crédito en pantalla: "Más de 70.000 compradores · 29 países · Gruen, Corsten y Bharadwaj, 2002"
+## Crédito en pantalla (como está en el video): "Estudio mundial de faltantes · 2002 / más de 70.000 compradores · 29 países"
 - 52 estudios, 29 países, 32 categorías, 72.000 compradores (capítulo Springer 2019; Supermarket News); "more than
   71,000 consumers in 29 countries" (vista previa de HBR 2004, link de arriba). Por eso "más de 70.000", no un
-  número exacto.
+  número exacto. Los autores (Gruen, Corsten y Bharadwaj) quedan en `descripcion.txt` y en este archivo, no en pantalla.
 
-## "Y suele faltar lo que más se vende."
+## "Y suele faltar lo que más se vende." (antes "Pero suele…": se sacó el "Pero", que no se oponía)
 - Los faltantes se concentran en lo que más rota. "Suele" (no "siempre").
   - Supermarket News, "New study aims to fix persistent stockouts", Gruen: "There is a strong correlation between
     velocity and out-of-stocks"; recomienda enfocarse en los productos que más rápido se mueven:
@@ -86,7 +91,8 @@ como crédito ("Gruen, Corsten y Bharadwaj, 2002 · 29 países"). Sin marcas: la
 ## "A Rubén le pasa con la yerba del sábado." → hasta "Graciela encuentra la suya."
 - Rubén, Graciela y su almacén son personajes inventados de Scalerics (`reels/abren-hoy/assets/personajes.js`).
   Es el callback, no un dato. La yerba es genérica (paquete sin marca, colores de Scalerics).
-- "Su sistema a medida le avisa el martes: quedan pocas": servicio de Scalerics (CLAUDE.md, "Sistemas a medida":
+- "Su sistema le avisa el martes: se acaba el sábado." (texto final de la línea 9, cambiado en la ronda 1): es un
+  pronóstico según lo que se vende, no un mínimo fijo. Servicio de Scalerics (CLAUDE.md, "Sistemas a medida":
   stock, pedidos, proveedores). Distinto de `caso-toyota` (pedido automático al proveedor) y de `se-te-acaba`
   (punto de vista del dueño): acá el ángulo es lo que hace el cliente, y el sistema avisa con días de margen según
   lo que se vende, y el que pide es Rubén.
