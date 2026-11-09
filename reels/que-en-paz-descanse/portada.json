@@ -9,5 +9,5 @@
  "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 0,6 s: P1, el celular de Graciela con 'Cerrado permanentemente' y Rubén abierto atrás con el mate), guardado en portada-src/fondo-limpio-0.6.png. Para regenerar: hacé con ese png un mp4 de 1 s en renders/que-en-paz-descanse-final.mp4 (si no existe el render final), corré portada.mjs y borralo."
+ "nota": "fondo: cuadro limpio (LIMPIO=1 node gen.mjs, snapshot en 5,6 s: P4, la corona 'ALMACÉN RUBÉN · Q.E.P.D.' contra la puerta con el cartel ABIERTO arriba), guardado en portada-src/fondo-limpio-5.6.png. Para regenerar: con ese png hacé un mp4 de 1 s en renders/que-en-paz-descanse-final.mp4 (si todavía no está el render final), corré desde la raíz flock /tmp/hyperframes.lock node herramientas/portada.mjs que-en-paz-descanse y borrá el mp4."
 }
