@@ -168,8 +168,8 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
   const id = "s03-marca";
   const tC = w(id, 21) + 0.1, tE = w(id, 23);
   escena(id, {
-    html: `${leads(lead(1, 260, 690, 260, 850), lead(2, 330, 790, 330, 850), lead(3, 800, 690, 800, 820))}
-      ${pill(1, 260, 650, "26 % otra marca", "nom")}${pill(2, 330, 750, "19 % otra versión", "nom")}${pill(3, 800, 650, "15 % espera", "nom")}`,
+    html: `${leads(lead(1, 200, 568, 200, 1020), lead(2, 420, 650, 420, 1020), lead(3, 840, 568, 840, 630))}
+      ${pill(1, 260, 530, "26 % otra marca", "nom")}${pill(2, 320, 612, "19 % otra versión", "nom")}${pill(3, 820, 530, "15 % espera", "nom")}`,
     js: `nota(1, ${r2(tC)}); nota(2, ${r2(tC + 0.12)}); nota(3, ${r2(tE)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-cinematic", vol: 0.14, max: 0.7 },
@@ -206,7 +206,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
       { t: -0.1, sfx: "whoosh-cinematic", vol: 0.14, max: 0.8 },
       ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(w(id, 34) - 0.12 + k * 0.07), sfx: k % 2 ? "tic-real" : "pop", vol: k % 2 ? 0.2 : 0.08 })),
       { t: w(id, 37) - 0.2, sfx: "riser-corto", vol: 0.06, max: 0.5 },
-      { t: w(id, 39) - 0.02, sfx: "impact-bass-1", vol: 0.08, max: 0.8 },
+      { t: w(id, 39) - 0.02, sfx: "impact-bass-1", vol: 0.08, max: 0.4 },
     ],
   });
 }
@@ -215,7 +215,7 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 {
   const id = "s06-por-que";
   vacia(id, [
-    { t: -0.08, sfx: "whoosh-short", vol: 0.12 }, { t: 0.0, sfx: "pop", vol: 0.12 }, { t: 0.04, sfx: "sparkle", vol: 0.07, max: 0.6 },
+    { t: -0.08, sfx: "whoosh-short", vol: 0.05 }, { t: 0.0, sfx: "pop", vol: 0.1 }, { t: 0.04, sfx: "sparkle", vol: 0.05, max: 0.6 },
     { t: w(id, 42) - 0.15, sfx: "whoosh-short", vol: 0.12 },
     ...[0, 1, 2, 3].map((k) => ({ t: r2(w(id, 42) - 0.04 + k * 0.08), sfx: "pop", vol: 0.08 })),
     // un tic por cada número del contador (12 → 1); el 0 tiene su golpe en s07

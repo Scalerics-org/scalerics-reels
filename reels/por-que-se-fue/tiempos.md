@@ -22,19 +22,19 @@ Palabras (segundos relativos a la escena): que 0.00 · se 0.23 · acaba 0.31 · 
 ### s08-ruben — dura 2.34 s (inicio global 17.14)
 Palabras (segundos relativos a la escena): A 0.00 · Rubén 0.12 · le 0.46 · pasa 0.54 · con 0.76 · la 0.96 · yerba 1.06 · del 1.26 · sábado. 1.46
 
-### s09-aviso — dura 2.22 s (inicio global 19.48)
-Palabras (segundos relativos a la escena): Su 0.00 · sistema 0.12 · le 0.52 · avisa 0.72 · el 0.92 · martes: 1.02 · se 1.80 · acaba 1.92
+### s09-aviso — dura 2.52 s (inicio global 19.48)
+Palabras (segundos relativos a la escena): Su 0.00 · sistema 0.12 · le 0.52 · avisa 0.62 · el 1.02 · martes: 1.12 · se 1.92 · acaba 2.12
 
-### s10-pide — dura 2.12 s (inicio global 21.70)
-Palabras (segundos relativos a la escena): el 0.00 · sábado. 0.10 · Pide 1.01 · a 1.20 · tiempo. 1.30
+### s10-pide — dura 2.11 s (inicio global 22.00)
+Palabras (segundos relativos a la escena): el 0.00 · sábado. 0.10 · Pide 1.00 · a 1.20 · tiempo. 1.28
 
-### s11-encuentra — dura 2.54 s (inicio global 23.82)
-Palabras (segundos relativos a la escena): El 0.00 · sábado, 0.08 · Graciela 0.38 · encuentra 0.98 · la 1.38 · suya. 1.58
+### s11-encuentra — dura 2.54 s (inicio global 24.11)
+Palabras (segundos relativos a la escena): El 0.00 · sábado, 0.09 · Graciela 0.39 · encuentra 0.99 · la 1.39 · suya. 1.59
 
-### s12-queres — dura 1.84 s (inicio global 26.36)
-Palabras (segundos relativos a la escena): ¿Querés 0.00 · que 0.14 · no 0.24 · te 0.34 · falte? 0.80 · Agendá 1.27 · una 1.64
+### s12-queres — dura 1.85 s (inicio global 26.65)
+Palabras (segundos relativos a la escena): ¿Querés 0.00 · que 0.15 · no 0.25 · te 0.35 · falte? 0.80 · Agendá 1.27 · una 1.65
 
-### s13-llamada — dura 2.93 s (inicio global 28.20)
-Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.70 · en 1.19 · scalerics.com. 1.30
+### s13-llamada — dura 2.92 s (inicio global 28.50)
+Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.69 · en 1.18 · scalerics.com. 1.30
 
-Duración total 31.13 (la voz termina en 31.01).
+Duración total 31.42 (la voz termina en 31.3).

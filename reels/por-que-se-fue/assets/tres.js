@@ -349,13 +349,21 @@ function hacerCanasta(cuerpo, borde, W2 = 1.5, H2 = 0.75, D2 = 1.0) {
   for (const s of [-1, 1]) g.add(mesh(new THREE.TorusGeometry(W2 * 0.3, 0.045, 10, 30, Math.PI), M.navy2, 0, H2 + 0.1, s * D2 * 0.32));
   sh(g); scene.add(g); return g;
 }
-const canasta = hacerCanasta(0x5f7f72, C.navy3); canasta.position.set(XK - 0.8, 0, 0.4); canasta.scale.setScalar(1.0);
+const canasta = hacerCanasta(0x5f7f72, C.navy3); canasta.position.set(XK - 0.62, 0, 0.55); canasta.scale.setScalar(0.85);
 const canastaVacia = hacerCanasta(0x5f7f72, C.red, 1.4, 0.7, 0.95); canastaVacia.position.set(XK + 4.0, 0, 1.6);
 const sombraCan = sombra(2.2, 1.6), sombraVac = sombra(2.0, 1.5);
 const otraMarca = hacerPaquete("B"); scene.add(otraMarca);
 const medioKilo = hacerPaquete("A2"); scene.add(medioKilo);
 // el almanaque de tapa: HOY · MAÑANA · DESPUÉS (las hojas pasan por arriba hacia atrás)
-const almanaque = new THREE.Group(); almanaque.position.set(XK + 0.85, 0, 0.3); almanaque.scale.setScalar(1.0); scene.add(almanaque);
+const almanaque = new THREE.Group(); almanaque.position.set(XK + 0.62, 0.78, -0.25); almanaque.scale.setScalar(0.92); scene.add(almanaque);
+// el cajón de madera donde está apoyado el almanaque (lo sube en el cuadro)
+const cajon = new THREE.Group(); cajon.position.set(XK + 0.62, 0, -0.3); scene.add(cajon);
+{
+  const mad = mat(0x9b6a43, 0.7), mad2 = mat(0x7a5233, 0.75);
+  cajon.add(mesh(rbox(1.3, 0.78, 0.8, 0.03), mad2, 0, 0.39, 0));
+  for (const y of [0.16, 0.39, 0.62]) cajon.add(mesh(rbox(1.32, 0.16, 0.82, 0.02), mad, 0, y, 0));
+  sh(cajon);
+}
 const hojasAlm = [];
 {
   const AW = 1.25, AH = 1.35;
@@ -574,7 +582,7 @@ const tildeG = hacerTilde(0.1);
 const T = {
   tiembla: W[4] + 0.02, sube: W[6] - 0.04, rebana: S["s02-otro-lado"] + 0.08, vuela: W[11] - 0.02,
   abre: W[11] + 0.1, entra: W[15] + 0.05, num31: W[11] + 0.62,
-  vuelta: S["s03-marca"] - 0.05, cae: W[21] - 0.15, espera: W[23] - 0.05,
+  vuelta: S["s03-marca"] - 0.05, cae: S["s03-marca"] + 0.12, espera: W[23] - 0.05,
   nueve: Math.max(W[25] - 0.05, S["s04-nada"] + 0.45), esfuma: W[31] - 0.02,
   grua: S["s05-lo-que-mas"] - 0.08, barras: W[34] - 0.12, roja: W[37] - 0.2, golpe: W[39] - 0.02,
   preg: S["s06-por-que"] - 0.04, pila: W[42] - 0.06, salen: W[44] - 0.05, cero: W[47], notita: W[47] + 0.12,
@@ -600,8 +608,8 @@ const PLANOS = [
   ]],
   // corte seco (whoosh) a la canasta y el almanaque
   [T.vuelta, "A", [
-    [T.vuelta, -4, 9, 10.4, XG, 1.05, 1.0, 30],
-    [S["s04-nada"], -1, 9, 10.0, XG, 1.05, 1.0, 30],
+    [T.vuelta, -3, 5, 9.0, XG + 0.06, 1.25, 0.2, 30],
+    [S["s04-nada"], -1, 5, 8.7, XG + 0.06, 1.25, 0.2, 30],
     [S["s04-nada"] + 0.45, 0, 10, 7.4, XK + 4.0, 1.15, 1.6, 30],
     [T.grua, 3, 10, 7.0, XK + 4.0, 1.15, 1.6, 30],
   ]],
@@ -629,8 +637,8 @@ const PLANOS = [
     [T.cortePila, 16, 10, 3.05, OB.x - 0.12, 1.22, -1.15, 34],
   ]],
   [T.cortePila, "B3", [
-    [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.72, EST.z + 0.2, 34],
-    [S["s11-encuentra"], 12, 10, 3.4, OB.x + EST.x + 0.25, 0.72, EST.z + 0.2, 34],
+    [T.cortePila, 18, 10, 3.6, OB.x + EST.x + 0.25, 0.52, EST.z + 0.2, 34],
+    [S["s11-encuentra"], 12, 10, 3.4, OB.x + EST.x + 0.25, 0.52, EST.z + 0.2, 34],
   ]],
   [S["s11-encuentra"], "B4", [
     [S["s11-encuentra"], 4, 7, 6.6, OB.x + 0.0, 1.05, -0.7, 34],
@@ -690,7 +698,7 @@ const HUECO_P = V(xCol(HUECO.c), GD.baldas[HUECO.b], 0.2); // donde estaba el pa
 const FLOTA = V(0, 2.75, 1.2); // frente al hueco
 const GRANDE = V(0, 1.75, 3.3), KG = 2.9; // el paquete gigante (escala)
 const PUERTA = V(XP, 0.25, 0.7);
-const TAJ_K = V(XG + 0.1, 0, 1.9); // donde quedan flotando las tajadas que no se fueron
+const TAJ_K = V(XG - 2.4, 2.4, 1.0); // donde quedan flotando las tajadas que no se fueron
 const GAP = 0.13; // separación entre tajadas (local)
 const xTaj = (i) => ((CORTES[i] + CORTES[i + 1]) / 2 - 0.5) * PKG.w;
 function zonaA(t) {
@@ -768,21 +776,21 @@ function zonaA(t) {
       caeTaj(taj26, 3, T.cae, dC.clone().add(V(-0.3, 0, 0)));
       caeTaj(taj19, 2, T.cae + 0.08, dC.clone().add(V(0.32, 0, 0)));
       // 15 %: se apoya en el almanaque
-      if (t > T.espera - 0.2) {
-        const u = eio(sg(t, T.espera - 0.2, T.espera + 0.15));
-        const pp = lerpV(V(xTaj(1) - GAP, 0, 0), aLocal(almanaque.position.clone().add(V(-0.95, 0.0, 0.35))), u); pp.y += Math.sin(Math.PI * u) * 0.5 / k0;
-        taj15.position.copy(pp); taj15.rotation.set(0, 0.25 * u, 0); taj15.scale.setScalar(1);
+      if (t > T.cae + 0.15) {
+        const u = eio(sg(t, T.cae + 0.15, T.cae + 0.5));
+        const pp = lerpV(V(xTaj(1) - GAP, 0, 0), aLocal(V(XK + 0.2, 0, 0.75)), u); pp.y += Math.sin(Math.PI * u) * 0.6 / k0;
+        taj15.position.copy(pp); taj15.rotation.set(0, 0.15 * u, 0); taj15.scale.setScalar(lerp(1, 0.72, u));
       }
       // 9 %: baja a la canasta vacía y se esfuma en "nada"
       {
         const t0 = S["s04-nada"] + 0.05;
         const u = eio(sg(t, t0, t0 + 0.4));
-        if (t > t0) { const pp = lerpV(V(xTaj(0) - 2 * GAP, 0, 0), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); pp.y += Math.sin(Math.PI * u) * 1.2 / k0; pp.z += Math.sin(Math.PI * u) * 1.2 / k0; taj9.position.copy(pp); }
+        if (t > t0) { const pp = lerpV(aLocal(canastaVacia.position.clone().add(V(-0.6, 2.6, 0.4))), aLocal(canastaVacia.position.clone().add(V(0, 0.55, 0))), u); taj9.position.copy(pp); }
         const rojo = sg(t, T.nueve - 0.05, T.nueve + 0.3);
         taj9Mats.forEach((m) => { m.color.copy(m.userData.c0).lerp(new THREE.Color(C.red), rojo * 0.75); m.emissiveIntensity = 0.25 * rojo; });
         const esf = sg(t, T.esfuma, T.esfuma + 0.25);
         taj9.scale.setScalar((1 + 0.15 * pulso(t, T.nueve, 0.25)) * (1 - eio(esf)) * lerp(1, 0.5, u));
-        taj9.visible = esf < 0.99;
+        taj9.visible = esf < 0.99 && (t < T.vuelta || t > t0);
       }
       // en la grúa lo que queda se achica (sale de cuadro)
       if (t > T.grua) { const kk = popOut(t, T.grua + 0.1, 0.3); grande.scale.multiplyScalar(Math.max(0.001, kk)); grande.visible = kk > 0.01; }
@@ -802,22 +810,22 @@ function zonaA(t) {
     const vis = A && t > S["s02-otro-lado"] && t < T.grua + 0.7;
     // en "nueve" la canasta y el almanaque se van (queda sola la canasta vacía)
     const se = 1;
-    canasta.visible = almanaque.visible = vis && se > 0.01; canastaVacia.visible = vis;
+    canasta.visible = almanaque.visible = cajon.visible = vis && se > 0.01; canastaVacia.visible = vis;
     sombraCan.visible = sombraAlm.visible = sombraVac.visible = vis;
     sombraCan.position.set(canasta.position.x, 0.007, canasta.position.z); sombraAlm.position.set(almanaque.position.x, 0.007, almanaque.position.z);
     sombraVac.position.set(canastaVacia.position.x, 0.007, canastaVacia.position.z);
     const rb = rebote(t, T.cae + 0.3, 9, 28, 0.06);
-    canasta.scale.set(1 + rb * 0.5, 1 - rb, 1 + rb * 0.5); almanaque.scale.setScalar(1.0);
+    canasta.scale.set(0.85 * (1 + rb * 0.5), 0.85 * (1 - rb), 0.85 * (1 + rb * 0.5)); almanaque.scale.setScalar(0.92);
     const rv = rebote(t, T.esfuma, 8, 26, 0.09);
     const kv = 1;
     canastaVacia.visible = sombraVac.visible = vis && kv > 0;
     canastaVacia.scale.set(kv * (1 + rv * 0.5), kv * (1 - rv), kv * (1 + rv * 0.5));
     canastaVacia.rotation.y = rebote(t, T.esfuma, 7, 22, 0.05);
     const tC = T.cae + 0.25;
-    [[otraMarca, -0.32, 0.22], [medioKilo, 0.36, -0.15]].forEach(([p, dx, ry], i) => {
+    [[otraMarca, -0.27, 0.22], [medioKilo, 0.3, -0.15]].forEach(([p, dx, ry], i) => {
       const t0 = tC + i * 0.08;
       p.visible = vis && t > t0 && se > 0.01;
-      if (p.visible) { p.position.copy(canasta.position).add(V(dx, 0.1, 0.05)); p.rotation.set(0, ry, i ? -0.08 : 0.1); p.scale.setScalar(se * popIn(t, t0, 0.3) * (i ? 0.66 : 0.95)); }
+      if (p.visible) { p.position.copy(canasta.position).add(V(dx, 0.1, 0.05)); p.rotation.set(0, ry, i ? -0.08 : 0.1); p.scale.setScalar(se * popIn(t, t0, 0.3) * (i ? 0.58 : 0.8)); }
     });
     {
       const tf = [T.espera + 0.05, T.espera + 0.33];
