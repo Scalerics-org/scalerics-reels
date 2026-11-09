@@ -22,19 +22,19 @@ Palabras (segundos relativos a la escena): ¿Por -0.00 · qué? 0.17 · Vieron 0
 ### s08-ruben — dura 2.73 s (inicio global 19.71)
 Palabras (segundos relativos a la escena): Rubén 0.00 · arma 0.40 · cada 0.79 · pedido 1.19 · con 1.75 · cuidado. 1.98
 
-### s09-no-ve — dura 2.30 s (inicio global 22.44)
-Palabras (segundos relativos a la escena): Pero 0.00 · el 0.26 · que 0.41 · pidió 0.56 · por 0.82 · WhatsApp 0.98 · no 1.38 · ve 1.55 · nada. 1.72 · Lo 2.30
+### s09-no-ve — dura 2.28 s (inicio global 22.44)
+Palabras (segundos relativos a la escena): Pero 0.00 · el 0.26 · que 0.41 · pidió 0.56 · por 0.82 · WhatsApp 0.98 · no 1.38 · ve 1.55 · nada. 1.72 · Lo 2.28
 
-### s10-avisos — dura 2.68 s (inicio global 24.74)
-Palabras (segundos relativos a la escena): Lo -0.00 · automatizamos: 0.21 · recibimos 1.39 · tu 1.93 · pedido, 2.10
+### s10-avisos — dura 2.68 s (inicio global 24.72)
+Palabras (segundos relativos a la escena): Lo -0.00 · automatizamos: 0.20 · recibimos 1.39 · tu 1.93 · pedido, 2.10 · lo 2.68
 
-### s11-salio — dura 2.12 s (inicio global 27.42)
-Palabras (segundos relativos a la escena): lo 0.00 · estamos 0.16 · armando, 0.55 · salió. 1.08
+### s11-salio — dura 1.82 s (inicio global 27.40)
+Palabras (segundos relativos a la escena): lo -0.00 · estamos 0.16 · armando, 0.55 · salió. 1.07 · ¿Querés 1.82
 
-### s12-se-vea — dura 2.48 s (inicio global 29.54)
-Palabras (segundos relativos a la escena): ¿Querés 0.00 · que 0.36 · se 0.56 · vea 0.77 · tu 0.97 · trabajo? 1.18 · Agendá 1.78 · una 2.19 · videollamada 2.48
+### s12-se-vea — dura 2.10 s (inicio global 29.22)
+Palabras (segundos relativos a la escena): ¿Querés -0.00 · que 0.27 · se 0.43 · vea 0.59 · tu 0.75 · trabajo? 0.91 · Agendá 1.41 · una 1.81
 
-### s13-llamada — dura 2.67 s (inicio global 32.02)
-Palabras (segundos relativos a la escena): videollamada -0.00 · gratis 0.64 · en 1.05 · scalerics.com. 1.29
+### s13-llamada — dura 2.68 s (inicio global 31.32)
+Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.65 · en 1.05 · scalerics.com. 1.30
 
-Duración total 34.69 (la voz termina en 34.57).
+Duración total 34 (la voz termina en 33.88).

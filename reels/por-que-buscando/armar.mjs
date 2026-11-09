@@ -86,13 +86,17 @@ fs.writeFileSync(
 // ---------- subtítulos ----------
 let grupos = "";
 let anim = "";
+// texto de pantalla distinto del dicho (comillas en los avisos, sin la coma de "trabajo,")
+const TEXTO = reel.texto ?? {};
 const SINS = reel.sinSub ?? [];
 CORTES.forEach((desde, g) => {
   let hasta = g + 1 < CORTES.length ? CORTES[g + 1] : HASTA;
   for (const [a, b] of SINS) if (a > desde && a < hasta) hasta = a;
   const ws = palabras.slice(desde, hasta);
-  const ini = r2(Math.max(0, ws[0].start - 0.08));
-  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - 0.08 : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start : DUR);
+  // si el grupo arranca justo en un corte de escena, entra con el corte (ni antes ni después)
+  const enCorte = (i) => reel.escenas.some(([, k]) => k === i);
+  const ini = enCorte(desde) ? r2(palabras[desde].start) : r2(Math.max(0, ws[0].start - 0.08));
+  const proximo = g + 1 < CORTES.length && CORTES[g + 1] === hasta ? palabras[CORTES[g + 1]].start - (enCorte(CORTES[g + 1]) ? 0 : 0.08) : Math.min(DUR, ws.at(-1).end + 0.35, hasta < palabras.length && SINS.some(([x]) => x === hasta) ? palabras[hasta].start : DUR);
   const fin = r2(Math.min(proximo, DUR, hasta === HASTA && HASTA < palabras.length ? palabras[HASTA].start - 0.06 : DUR));
   const id = `sub-g${String(g + 1).padStart(2, "0")}`;
   const spans = ws
@@ -100,10 +104,11 @@ CORTES.forEach((desde, g) => {
       const i = desde + k;
       const cls = ACENTO.has(i) ? " ac" : MALO.has(i) ? " ac malo" : "";
       const caja = cls ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : "";
-      return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(w.text)}</em></span>`;
+      return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(TEXTO[i] ?? w.text)}</em></span>`;
     })
     .join(" ");
-  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p>${spans}</p></div>\n`;
+  const largoTxt = ws.map((w, k) => TEXTO[desde + k] ?? w.text).join(" ").length;
+  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
 });
 
@@ -113,10 +118,10 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 4px 0px 0 #efeee5, -4px 0px 0 #efeee5, 0px 4px 0 #efeee5, 0px -4px 0 #efeee5, 3px 3px 0 #efeee5, -3px 3px 0 #efeee5, 3px -3px 0 #efeee5, -3px -3px 0 #efeee5, 5px 2px 0 #efeee5, -5px 2px 0 #efeee5, 2px 5px 0 #efeee5, -2px 5px 0 #efeee5, 5px -2px 0 #efeee5, -5px -2px 0 #efeee5, 2px -5px 0 #efeee5, -2px -5px 0 #efeee5, 0 0 14px rgba(239,238,229,0.9); }
+    ${C} p { margin: 0; padding: 6px 28px 12px; border-radius: 28px; background: rgba(239,238,229,0.94); max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 4px 0px 0 #efeee5, -4px 0px 0 #efeee5, 0px 4px 0 #efeee5, 0px -4px 0 #efeee5, 3px 3px 0 #efeee5, -3px 3px 0 #efeee5, 3px -3px 0 #efeee5, -3px -3px 0 #efeee5, 5px 2px 0 #efeee5, -5px 2px 0 #efeee5, 2px 5px 0 #efeee5, -2px 5px 0 #efeee5, 5px -2px 0 #efeee5, -5px -2px 0 #efeee5, 2px -5px 0 #efeee5, -2px -5px 0 #efeee5, 0 0 14px rgba(239,238,229,0.9); }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
-    ${C} .w.ac { margin: 0 14px; }
+    ${C} .w.ac { margin: 0 4px; }
     ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.55); opacity: 0; }
     ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.30); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }
@@ -213,7 +218,7 @@ const index = `<!doctype html>
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(239,238,229,0.88) 0%, rgba(239,238,229,0.7) 50%, rgba(239,238,229,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #firma { position: absolute; left: 50%; top: 1752px; height: 40px; width: auto; transform: translateX(-50%); z-index: 50; box-sizing: content-box; padding: 8px 20px; border-radius: 999px; background: #efeee5; }
+      #firma { position: absolute; left: 50%; top: 1752px; height: 40px; width: auto; transform: translateX(-50%); z-index: 50; box-sizing: content-box; padding: 8px 20px; border-radius: 999px; background: #efeee5; border: 4px solid #0b1220; }
     </style>
   </head>
   <body>

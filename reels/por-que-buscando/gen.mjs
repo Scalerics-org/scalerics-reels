@@ -121,7 +121,7 @@ const vacia = (id, sfx) => escena(id, { html: `<i></i>`, js: ``, sfx });
   escena(id, {
     css: `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} }
-    P .h0 { top: 96px; font-size: 76px; font-weight: 800; letter-spacing: -0.03em; } P .h1 { top: 190px; } P .h2 { top: 308px; } P .h3 { top: 430px; font-size: 120px; }`,
+    P .h0 { top: 84px; font-size: 70px; font-weight: 800; letter-spacing: -0.03em; } P .h1 { top: 170px; font-size: 106px; } P .h2 { top: 280px; font-size: 106px; } P .h3 { top: 392px; font-size: 114px; }`,
     html: `
       <div class="h h0">¿Por qué algunas páginas</div>
       <div class="h h1">te muestran</div>
@@ -135,7 +135,7 @@ const vacia = (id, sfx) => escena(id, { html: `<i></i>`, js: ``, sfx });
     sfx: [
       { t: 0, sfx: "whoosh-cine-corto", vol: 0.1, max: 0.8 },
       { t: w(id, 8) - 0.04, sfx: "pop", vol: 0.12 }, { t: w(id, 8) - 0.02, sfx: "tic-real", vol: 0.3 },
-      ...[0.5, 1.4, 2.2].map((x) => ({ t: x, sfx: "tic", vol: 0.06 })),
+      { t: w(id, 3) - 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 3) - 0.02, sfx: "tic-real", vol: 0.28 },
     ],
   });
 }
@@ -151,7 +151,7 @@ vacia("s02-prefiere", [
 {
   const id = "s03-viajes";
   escena(id, {
-    css: `P .cred { position: absolute; left: 540px; top: 1636px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
+    css: `P .cred { position: absolute; left: 540px; top: 424px; transform: translateX(-50%); padding: 12px 26px 13px; border-radius: 16px; background: ${CR}; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${NAVY}; white-space: nowrap; opacity: 0; border: 4px solid ${NAVY}; }`,
     html: `<div class="cred">Experimento · Buell y Norton, 2011</div>`,
     js: `tl.set(q(".cred"), { opacity: 1 }, ${r2(w(id, 17))}); tl.fromTo(q(".cred"), { y: 24 }, { y: 0, duration: 0.2, ease: "power3.out", immediateRender: false }, ${r2(w(id, 17))}); fuera(".cred", ${r2(ESC[id] - 0.25)}, 0.1);`,
     sfx: [
@@ -170,7 +170,7 @@ vacia("s02-prefiere", [
     js: `nota(1, ${r2(w(id, 28))}); sinNota(1, ${r2(ESC[id] - 0.28)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.14 }, { t: 0.18, sfx: "pop", vol: 0.08 },
-      { t: w(id, 26) - 0.06, sfx: "flash", vol: 0.22 }, { t: w(id, 26) - 0.04, sfx: "pop", vol: 0.1 },
+      { t: 0.05, sfx: "pop", vol: 0.12 }, { t: 0.06, sfx: "click-soft", vol: 0.14 },
       { t: w(id, 28) - 0.05, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 28), sfx: "flash", vol: 0.16 }, { t: w(id, 28) + 0.02, sfx: "pop", vol: 0.1 },
     ],
   });
@@ -181,7 +181,7 @@ vacia("s02-prefiere", [
   const id = "s05-aerolinea";
   const tt = [0.25, w(id, 32) + 0.05, w(id, 34) - 0.02, w(id, 35) - 0.12, w(id, 35) + 0.3];
   escena(id, {
-    html: `${pill(1, 600, 1600, "Se ve el trabajo", "lleno grande")}`,
+    html: `${pill(1, 560, 1668, "Se ve el trabajo", "lleno grande")}`,
     js: `nota(1, ${r2(w(id, 34) - 0.1)}); sinNota(1, ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.2, sfx: "whoosh-short", vol: 0.14 }, { t: 0.08, sfx: "pop", vol: 0.09 },
@@ -198,14 +198,14 @@ vacia("s02-prefiere", [
   escena(id, {
     css: `P .sello { left: 540px; top: 1500px; transform: translate(-50%, -50%); border-color: ${NAVY}; color: ${NAVY}; font-size: 60px; background: ${G}; }`,
     html: `<div class="sello">MISMO RESULTADO</div>`,
-    js: `sello(".sello", ${r2(w(id, 37) - 0.2)}, -4); tl.set(q(".sello"), { opacity: 0 }, ${r2(w(id, 38) - 0.15)});`,
+    js: `tl.set(q(".sello"), { opacity: 0 }, 0); tl.set(q(".sello"), { opacity: 1 }, ${r2(w(id, 37) - 0.2)}); tl.fromTo(q(".sello"), { scale: 1.2, rotation: -4 }, { scale: 1, rotation: -4, duration: 0.22, ease: "power4.in", immediateRender: false }, ${r2(w(id, 37) - 0.2)}); tl.set(q(".sello"), { opacity: 0 }, ${r2(w(id, 38) - 0.15)});`,
     sfx: [
       { t: 0.02, sfx: "whoosh-short", vol: 0.12 }, { t: 0.05, sfx: "papel", vol: 0.3, max: 0.5 }, { t: 0.12, sfx: "papel", vol: 0.24, max: 0.5 },
       { t: w(id, 37) - 0.05, sfx: "pop", vol: 0.1 }, { t: w(id, 37) - 0.2, sfx: "sello", vol: 0.4 },
       { t: w(id, 38) - 0.15, sfx: "whoosh-cine-corto", vol: 0.14, max: 0.8 }, { t: w(id, 38) - 0.03, sfx: "pop", vol: 0.1 },
       { t: w(id, 38) + 0.45, sfx: "sello", vol: 0.22 },
       { t: w(id, 42) - 0.12, sfx: "impact-bass-1", vol: 0.1, max: 0.8 },
-      { t: w(id, 43) - 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 43), sfx: "ding", vol: 0.1, max: 0.9 },
+      { t: w(id, 43) - 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 43) + 0.15, sfx: "ding", vol: 0.1, max: 0.9 },
     ],
   });
 }
@@ -217,7 +217,7 @@ vacia("s02-prefiere", [
     html: `${pill(1, 540, 1610, "Esfuerzo a la vista", "lleno grande")}`,
     js: `nota(1, ${r2(w(id, 51) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.5)});`,
     sfx: [
-      { t: -0.3, sfx: "riser-corto", vol: 0.12, max: 0.6 }, { t: 0.08, sfx: "pop", vol: 0.12 }, { t: 0.1, sfx: "sparkle", vol: 0.08, max: 0.7 },
+      { t: -0.12, sfx: "whoosh-short", vol: 0.14 }, { t: 0.0, sfx: "impact-bass-1", vol: 0.09, max: 0.7 }, { t: 0.02, sfx: "pop", vol: 0.12 },
       { t: w(id, 46) - 0.15, sfx: "whoosh-short", vol: 0.14 },
       { t: w(id, 47) - 0.02, sfx: "tic-real", vol: 0.28 }, { t: w(id, 48) + 0.15, sfx: "tic-real", vol: 0.28 },
       { t: w(id, 51) - 0.08, sfx: "pop", vol: 0.12 }, { t: w(id, 51) - 0.05, sfx: "sello", vol: 0.3 }, { t: w(id, 51) + 0.02, sfx: "ding", vol: 0.1, max: 0.8 },
@@ -232,7 +232,7 @@ vacia("s02-prefiere", [
   escena(id, {
     css: `P .nom { font-size: 44px; padding: 12px 28px 13px; }`,
     html: `${pill(1, 300, 640, "Rubén", "nom")}${pill(2, 540, 1600, "Pedido de Graciela", "lleno grande")}`,
-    js: `pop(".n1", 0.75); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1); pop(".n2", ${r2(w(id, 55))}); fuera(".n2", ${r2(ESC[id] - 0.3)}, 0.1);`,
+    js: `pop(".n1", 0.1); fuera(".n1", ${r2(ESC[id] - 0.3)}, 0.1); pop(".n2", ${r2(w(id, 55))}); fuera(".n2", ${r2(ESC[id] - 0.3)}, 0.1);`,
     sfx: [
       { t: -0.04, sfx: "campanita", vol: 0.22, max: 1.0 }, { t: 0.1, sfx: "papel", vol: 0.3, max: 0.6 },
       ...[53, 54, 55, 57].flatMap((i, k) => [{ t: r2(w(id, i) - 0.05 - 0.3), sfx: "pop", vol: 0.08 }, { t: r2(w(id, i) - (k === 3 ? 0.02 : 0.05)), sfx: k % 2 ? "burbuja" : "papel", vol: k % 2 ? 0.2 : 0.22, max: 0.4 }]),
@@ -260,27 +260,32 @@ vacia("s02-prefiere", [
 {
   const id = "s10-avisos";
   escena(id, {
-    html: `${pill(1, 270, 1480, "Automatizado", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 68) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.25)});`,
+    html: `<i></i>`,
+    js: ``,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.14 }, { t: w(id, 68) + 0.05, sfx: "click-soft", vol: 0.14 }, { t: w(id, 68) + 0.1, sfx: "sparkle", vol: 0.06, max: 0.6 },
-      { t: w(id, 69) - 0.47, sfx: "whoosh-short", vol: 0.12 }, { t: w(id, 69) - 0.05, sfx: "notification", vol: 0.14, max: 0.9 },
+      { t: w(id, 69) - 0.07, sfx: "pop", vol: 0.1 }, { t: w(id, 69) - 0.05, sfx: "notification", vol: 0.14, max: 0.9 },
     ],
   });
 }
 
-// ================= s11 · lo estamos armando, salió (Nico se lleva la bolsa) =================
-vacia("s11-salio", [
-  { t: w("s11-salio", 74) - 0.25, sfx: "papel", vol: 0.26, max: 0.5 },
-  { t: w("s11-salio", 74) - 0.47, sfx: "whoosh-short", vol: 0.1 }, { t: w("s11-salio", 74) - 0.05, sfx: "notification", vol: 0.13, max: 0.9 },
-  { t: w("s11-salio", 75) - 0.44, sfx: "whoosh-short", vol: 0.1 }, { t: w("s11-salio", 75) - 0.02, sfx: "notification", vol: 0.13, max: 0.9 },
-  ...[0.0, 0.26, 0.52].map((x, k) => ({ t: r2(w("s11-salio", 74) + 0.05 - 0.55 + x), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.14 })),
-  ...[0.3, 0.56, 0.82, 1.08].map((x, k) => ({ t: r2(w("s11-salio", 75) + x), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.14 })),
-]);
+// ================= s11 · "lo estamos armando", "salió" (Rubén cierra la bolsa, Nico se la lleva; globos 3D) =================
+{
+  const id = "s11-salio";
+  const nIn = 0.08, nLlega = w(id, 75) - 0.32, nSale = w(id, 75) + 0.25, nFin = ESC[id] + 0.3;
+  const pasos = (a, b) => { const o = []; for (let x = a, k = 0; x < Math.min(b, ESC[id]); x += 0.26, k++) o.push({ t: r2(x), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.13 }); return o; };
+  vacia(id, [
+    { t: -0.1, sfx: "whoosh-short", vol: 0.12 },
+    { t: w(id, 74) - 0.25, sfx: "papel", vol: 0.26, max: 0.5 },
+    { t: w(id, 74) - 0.07, sfx: "pop", vol: 0.1 }, { t: w(id, 74) - 0.05, sfx: "notification", vol: 0.13, max: 0.9 },
+    { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.1 }, { t: w(id, 75) - 0.02, sfx: "notification", vol: 0.13, max: 0.9 },
+    ...pasos(nIn + 0.1, nLlega), ...pasos(nSale, nFin),
+  ]);
+}
 
 // ================= s12 · ¿querés que se vea tu trabajo? (Graciela recibe "¡Llegó!") =================
 vacia("s12-se-vea", [
-  { t: -0.08, sfx: "whoosh-short", vol: 0.14 }, { t: 0.2, sfx: "notification", vol: 0.13, max: 0.9 },
+  { t: -0.08, sfx: "whoosh-short", vol: 0.14 }, { t: 0.23, sfx: "notification", vol: 0.13, max: 0.9 },
   { t: w("s12-se-vea", 79) - 0.04, sfx: "burbuja", vol: 0.22 }, { t: w("s12-se-vea", 79), sfx: "pop", vol: 0.08 },
 ]);
 
