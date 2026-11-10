@@ -574,14 +574,16 @@ const PLANOS = [
     k(S["s03-uno-dos"] - 0.1, [0.4, 3.2, 7.8], [0.0, 1.05, 0.1]),
     // (de la mesa a las pilas manda el seguimiento del caramelo; ver ponerCamara)
     k(T.llega1 + 0.45, [-3.82, 2.75, 9.0], [-3.87, 1.62, PZ]),
-    k(S["s04-uno-mas-uno"] - 0.05, [-3.95, 2.7, 8.9], [-3.87, 1.62, PZ]),
-    // de vuelta a la mesa: la moza en plano medio
+    k(S["s04-uno-mas-uno"] - 0.025, [-3.95, 2.7, 8.9], [-3.87, 1.62, PZ]),
+    // corte a la mesa (sin barrido por el vacío): la moza en plano medio, con un push-in corto
+    k(S["s04-uno-mas-uno"], [3.0, 1.85, 4.85], [0.92, 1.0, 0.25]),
     k(S["s04-uno-mas-uno"] + 0.42, [2.75, 1.8, 4.5], [0.92, 1.0, 0.25]),
     k(T.amaga, [2.8, 1.8, 4.45], [0.98, 1.0, 0.2]),
     k(T.vuelve, [2.8, 1.8, 4.4], [1.0, 1.0, 0.12]),
     k(T.latigo, [2.75, 1.8, 4.45], [0.95, 1.0, 0.22]),
     // dolly rápido al plano general de las cuatro pilas (la del 1 + 1 termina de crecer y se pone verde)
-    k(T.latigo + 0.38, [-3.85, 2.75, 9.0], [-3.87, 1.62, PZ]),
+    k(T.latigo + 0.28, [2.72, 1.8, 4.5], [0.93, 1.0, 0.24]),
+    k(T.latigo + 0.285, [-3.85, 2.75, 9.0], [-3.87, 1.62, PZ]),
     k(T.sube, [-3.8, 2.75, 8.85], [-3.87, 1.62, PZ]),
     // grúa arriba con los pares: solo los caramelos y el "="
     k(T.sube + 0.55, [-3.8, 3.5, 9.7], [-3.8, 3.25, PZ]),
@@ -592,8 +594,8 @@ const PLANOS = [
     k(T.parecio + 0.75, [-0.6, 1.35, 3.25], [0.82, 1.12, 0.4]),
     k(T.vuelaB, [-0.5, 1.35, 3.1], [0.83, 1.12, 0.4]),
     // (en el vuelo al frasco manda el seguimiento del caramelo; ver ponerCamara)
-    k(T.frasco + 0.5, ob(-2.3, 3.5, 5.6), ob(0.55, 0.95, -0.8)),
-    k(S["s08-ficha"] - 0.05, ob(-2.2, 3.45, 5.45), ob(0.55, 0.95, -0.8)),
+    k(T.frasco + 0.5, ob(-1.5, 3.9, 6.9), ob(1.35, 1.3, -0.8), 45),
+    k(S["s08-ficha"] - 0.05, ob(-1.45, 3.85, 6.75), ob(1.35, 1.3, -0.8), 45),
     // push-in a la tablet (que llene el cuadro)
     k(S["s08-ficha"] + 0.6, ob(-0.62, 1.5, 0.98), ob(-0.62, 1.29, -1.0)),
     k(T.daR - 0.3, ob(-0.62, 1.48, 0.86), ob(-0.62, 1.29, -1.0)),
@@ -610,8 +612,8 @@ const PLANOS = [
   ]],
   // grúa arriba y atrás: Graciela se va feliz; baja a la tablet con los gestos
   [T.grua2, [
-    k(T.grua2, ob(0.1, 2.9, 4.4), ob(-0.4, 0.95, -0.1)),
-    k(T.grua2 + 0.85, ob(0.0, 3.4, 4.8), ob(-0.6, 0.9, 0.2)),
+    k(T.grua2, ob(0.35, 1.8, 3.3), ob(-0.45, 1.08, -0.05)),
+    k(T.grua2 + 0.85, ob(0.0, 1.8, 2.75), ob(-0.32, 1.12, -0.5)),
     k(T.grua2 + 1.55, ob(-0.62, 1.58, 0.95), ob(-0.62, 1.12, -1.0)),
     k(T.fin, ob(-0.62, 1.55, 0.88), ob(-0.62, 1.12, -1.0)),
   ]],
@@ -657,7 +659,7 @@ function ponerCamara(t) {
   const w = pi === 0 ? eio(sg(t, T.vuelaB, T.vuelaB + 0.22)) * (1 - eio(sg(t, T.frasco + 0.05, T.frasco + 0.5))) : 0;
   if (w > 0) {
     const c = vueloB(Math.min(t, T.frasco + 0.2)), u = sg(t, T.vuelaB, T.frasco);
-    const off = lerpV(V(-0.7, 0.3, 1.5), V(-1.3, 1.0, 1.2), u);
+    const off = lerpV(V(-0.7, 0.3, 1.5), V(0.1, 1.25, 0.55), u);
     const pos = c.clone().add(off), mira = c.clone().add(V(0.12 * (1 - u), -0.05 * u, 0));
     for (let j = 0; j < 3; j++) { v[j] = lerp(v[j], pos.getComponent(j), w); v[j + 3] = lerp(v[j + 3], mira.getComponent(j), w); }
   }
@@ -945,8 +947,8 @@ function zonaB(t) {
   });
   pregRojas.forEach((m, i) => {
     const t0 = T.todos + i * 0.07;
-    const v = plano === 0 && t > t0 && t < T.ficha + 0.45;
-    ocultar(m, v ? popIn(t, t0, 0.25) * (1 - eio(sg(t, T.ficha + 0.15, T.ficha + 0.45))) : 0);
+    const v = plano === 0 && t > t0 && t < S["s08-ficha"] + 0.15;
+    ocultar(m, v ? popIn(t, t0, 0.25) * (1 - eio(sg(t, S["s08-ficha"] - 0.12, S["s08-ficha"] + 0.15))) : 0);
     if (m.visible) { enFila[i].raiz.updateMatrixWorld(true); enFila[i].cabeza.getWorldPosition(_v); m.position.copy(_v).add(V(0, 1.02 + Math.sin(t * 3 + i) * 0.02, 0)); m.quaternion.copy(camera.quaternion); }
   });
   // ---- Rubén ----

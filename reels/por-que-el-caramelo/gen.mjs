@@ -129,8 +129,8 @@ const POS = {
   pocoMas: [300, 690], pocoLead: [300, 740, 300, 830],
   mas: [870, 760], masLead: [800, 800, 720, 850],
   dosJuntos: [250, 1180], laQueMas: [700, 1680],
-  gesto: [540, 600], gestoLead: [560, 650, 590, 960],
-  ruben: [260, 860],
+  gesto: [300, 1520], gestoLead: [330, 1470, 520, 1215],
+  ruben: [200, 660],
   burbuja: [540, 300], colita: 42,
 };
 
