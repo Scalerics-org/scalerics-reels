@@ -22,17 +22,17 @@
     <div id="root" data-composition-id="main" data-start="0" data-duration="32.6" data-width="1080" data-height="1920">
       <div id="precarga">Graciela</div>
       <div id="fondo" class="clip" data-start="0" data-duration="32.6" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="16.5" data-duration="3.2" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="16.8" data-duration="3" data-track-index="12" data-track-kind="graphics"></div>
       <div id="capa3d" class="clip" data-start="0" data-duration="32.6" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-      <div id="el-s00-hora" class="scene" style="z-index:3" data-composition-id="s00-hora" data-composition-src="compositions/s00-hora.html" data-start="0" data-duration="16.48" data-track-index="2" data-track-kind="graphics"></div>
-      <div id="el-s05-chip" class="scene" style="z-index:3" data-composition-id="s05-chip" data-composition-src="compositions/s05-chip.html" data-start="13.12" data-duration="1.14" data-track-index="3" data-track-kind="graphics"></div>
-      <div id="el-s06-resp" class="scene" style="z-index:3" data-composition-id="s06-resp" data-composition-src="compositions/s06-resp.html" data-start="29.78" data-duration="2.82" data-track-index="4" data-track-kind="graphics"></div>
-      <div id="el-s01-linea" class="scene" style="z-index:3" data-composition-id="s01-linea" data-composition-src="compositions/s01-linea.html" data-start="13.17" data-duration="1.26" data-track-index="5" data-track-kind="graphics"></div>
-      <div id="el-s02-linea" class="scene" style="z-index:3" data-composition-id="s02-linea" data-composition-src="compositions/s02-linea.html" data-start="28.52" data-duration="1.06" data-track-index="6" data-track-kind="graphics"></div>
-      <div id="el-s04-hora" class="scene" style="z-index:3" data-composition-id="s04-hora" data-composition-src="compositions/s04-hora.html" data-start="19.75" data-duration="9.85" data-track-index="7" data-track-kind="graphics"></div>
-      <div id="el-s03-cierre" class="scene" style="z-index:3" data-composition-id="s03-cierre" data-composition-src="compositions/s03-cierre.html" data-start="30.85" data-duration="1.75" data-track-index="8" data-track-kind="graphics"></div>
-      <img id="firma0" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="16.5" data-track-index="9" />
-      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="19.7" data-duration="11.15" data-track-index="9" />
+      <div id="el-s00-hora" class="scene" style="z-index:3" data-composition-id="s00-hora" data-composition-src="compositions/s00-hora.html" data-start="0" data-duration="16.78" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s05-chip" class="scene" style="z-index:3" data-composition-id="s05-chip" data-composition-src="compositions/s05-chip.html" data-start="13.36" data-duration="1.2" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s06-resp" class="scene" style="z-index:3" data-composition-id="s06-resp" data-composition-src="compositions/s06-resp.html" data-start="30.03" data-duration="2.57" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s01-linea" class="scene" style="z-index:3" data-composition-id="s01-linea" data-composition-src="compositions/s01-linea.html" data-start="13.47" data-duration="1.26" data-track-index="5" data-track-kind="graphics"></div>
+      <div id="el-s02-linea" class="scene" style="z-index:3" data-composition-id="s02-linea" data-composition-src="compositions/s02-linea.html" data-start="29.02" data-duration="0.91" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s04-hora" class="scene" style="z-index:3" data-composition-id="s04-hora" data-composition-src="compositions/s04-hora.html" data-start="19.85" data-duration="10.1" data-track-index="7" data-track-kind="graphics"></div>
+      <div id="el-s03-cierre" class="scene" style="z-index:3" data-composition-id="s03-cierre" data-composition-src="compositions/s03-cierre.html" data-start="30.75" data-duration="1.85" data-track-index="8" data-track-kind="graphics"></div>
+      <img id="firma0" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="0" data-duration="16.8" data-track-index="9" />
+      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="19.8" data-duration="10.95" data-track-index="9" />
       <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="32.6" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
@@ -46,11 +46,11 @@
       const tl = gsap.timeline({ paused: true });
       tl.to("#fondo", { opacity: 1, duration: 32.6 }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
-      tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.42, ease: "power2.in", immediateRender: false }, 16.5);
+      tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.42, ease: "power2.in", immediateRender: false }, 16.8);
       // la parte 2 entra por un iris que se abre desde el celular de Rubén (con el audio de Graciela ya puesto)
-      tl.set("#capa3d", { scale: 1, rotation: 0, clipPath: "circle(0px at 540px 1300px)" }, 16.93);
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1300px)" }, { clipPath: "circle(1500px at 540px 1300px)", duration: 0.42, ease: "power2.in", immediateRender: false }, 19.26);
-      tl.set("#capa3d", { clipPath: "none" }, 19.71);
+      tl.set("#capa3d", { scale: 1, rotation: 0, clipPath: "circle(0px at 520px 560px)" }, 17.23);
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 520px 560px)" }, { clipPath: "circle(1500px at 520px 560px)", duration: 0.42, ease: "power2.in", immediateRender: false }, 19.36);
+      tl.set("#capa3d", { clipPath: "none" }, 19.81);
       window.__timelines["main"] = tl;
     </script>
   </body>

@@ -10,8 +10,8 @@
     [data-composition-id="s04-hora"] .tx { position: relative; display: inline-block; }
     [data-composition-id="s04-hora"] .tx span { display: none; white-space: nowrap; }
   </style>
-  <div id="root" data-composition-id="s04-hora" data-width="1080" data-height="1920" data-duration="9.85">
-    <div id="s04-hora-esc" class="esc clip" data-start="0" data-duration="9.85" data-track-index="0">
+  <div id="root" data-composition-id="s04-hora" data-width="1080" data-height="1920" data-duration="10.1">
+    <div id="s04-hora-esc" class="esc clip" data-start="0" data-duration="10.1" data-track-index="0">
       <div class="hora"><span class="punto"></span><span class="tx"><span class="t0">OTRO MARTES · 10:15</span><span class="t1">OTRO MARTES · 10:16</span></span></div>
     </div>
   </div>
@@ -28,8 +28,8 @@
         tl.set(q(".t" + i), { display: "inline" }, Math.max(0, t));
         if (i > 0) { tl.set(q(".t" + (i - 1)), { display: "none" }, t); tl.fromTo(q(".hora"), { rotationX: 85, scale: 1.1 }, { rotationX: 0, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t); }
       });
-      tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: 17, ease: "sine.inOut", immediateRender: false }, 0.4);
-      tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.2, ease: "power2.in" }, 9.63);
+      tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: 18, ease: "sine.inOut", immediateRender: false }, 0.4);
+      tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.2, ease: "power2.in" }, 9.88);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

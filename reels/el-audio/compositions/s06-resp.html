@@ -19,11 +19,11 @@
     [data-composition-id="s06-resp"] .x { font: 700 44px/1.16 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.01em; }
     [data-composition-id="s06-resp"] .a { margin-top: 10px; font: 500 30px/1.1 "IBM Plex Mono", monospace; color: #5ce611; letter-spacing: 0.01em; }
   </style>
-  <div id="root" data-composition-id="s06-resp" data-width="1080" data-height="1920" data-duration="2.82">
-    <div id="s06-resp-esc" class="esc clip" data-start="0" data-duration="2.82" data-track-index="0">
+  <div id="root" data-composition-id="s06-resp" data-width="1080" data-height="1920" data-duration="2.57">
+    <div id="s06-resp-esc" class="esc clip" data-start="0" data-duration="2.57" data-track-index="0">
       <div class="au"><div class="n">Nelly</div><div class="fila"><span class="play"></span><span class="onda"><i style="height:34px"></i><i style="height:66px"></i><i style="height:28px"></i><i style="height:35px"></i><i style="height:33px"></i><i style="height:32px"></i><i style="height:55px"></i><i style="height:55px"></i><i style="height:26px"></i><i style="height:20px"></i><i style="height:45px"></i><i style="height:24px"></i><i style="height:64px"></i><i style="height:34px"></i><i style="height:30px"></i><i style="height:37px"></i><i style="height:42px"></i><i style="height:45px"></i></span><span class="d">6:47</span></div></div>
       <div class="ok"><svg viewBox="0 0 44 44"><path d="M7 23 L18 33 L37 11" fill="none" stroke="#0b1220" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>Audio escuchado</div>
-      <div class="r"><div class="x">¡Hola, Nelly!<br>La polenta está a $&nbsp;90.<br>¿Te la separo?</div><div class="a">respondido automáticamente</div></div>
+      <div class="r"><div class="x">¡Hola, Nelly!<br>La polenta está<br>a $&nbsp;90. ¿Te la<br>separo?</div><div class="a">respondido automáticamente</div></div>
     </div>
   </div>
   <script>
@@ -34,8 +34,8 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".au"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.02);
-      tl.fromTo(q(".ok"), { opacity: 0, scale: 0.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.27);
-      tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: -30 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, 0.52);
+      tl.fromTo(q(".ok"), { opacity: 0, scale: 0.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.22);
+      tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: -30 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, 0.42);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

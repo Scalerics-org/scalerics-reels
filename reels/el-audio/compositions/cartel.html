@@ -14,8 +14,8 @@
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="3.2">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="3.2" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="3">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="3" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -36,9 +36,9 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="esp"></span><span class="l">a</span><span class="l">g</span><span class="l">e</span><span class="l">n</span><span class="l">t</span><span class="l">e</span></span>
-        <span class="linea b"><span class="l">d</span><span class="l">e</span><span class="esp"></span><span class="l">I</span><span class="l">A</span></span>
-        <span class="linea c"><span class="l">m</span><span class="l">á</span><span class="l">s</span><span class="esp"></span><span class="l">t</span><span class="l">a</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">…</span></span>
+        <span class="linea a"><span class="l" data-t="0.2">U</span><span class="l" data-t="0.24">n</span><span class="esp"></span><span class="l" data-t="0.38">a</span><span class="l" data-t="0.42">g</span><span class="l" data-t="0.45">e</span><span class="l" data-t="0.49">n</span><span class="l" data-t="0.52">t</span><span class="l" data-t="0.56">e</span></span>
+        <span class="linea b"><span class="l" data-t="0.9">d</span><span class="l" data-t="0.94">e</span><span class="esp"></span><span class="l" data-t="1.08">I</span><span class="l" data-t="1.12">A</span></span>
+        <span class="linea c"><span class="l" data-t="1.5">m</span><span class="l" data-t="1.54">á</span><span class="l" data-t="1.57">s</span><span class="esp"></span><span class="l" data-t="1.68">t</span><span class="l" data-t="1.72">a</span><span class="l" data-t="1.75">r</span><span class="l" data-t="1.79">d</span><span class="l" data-t="1.82">e</span><span class="l" data-t="1.86">…</span></span>
       </div>
     </div>
   </div>
@@ -49,18 +49,18 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 3.2, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 3.2, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 3, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 3, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
-        const t0 = 0.3 + i * 0.04;
+        const t0 = Number(l.dataset.t);
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, 2.75);
+      tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, 2.55);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

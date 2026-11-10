@@ -14,7 +14,7 @@ vende": agentes de IA que atienden por WhatsApp con tus precios, stock y horario
 - Graciela: Gacrux (tomas graciela-1-c, 2-a, 3-a, 4-a, 5-b, 6-a). Se probaron también Sulafat y Aoede para el arranque
   (graciela-1-sa, graciela-1-oa); se eligió Gacrux por ser la voz de Graciela en reels/el-reencuentro y por tono medio
   más alto y ritmo más rápido en la toma c (más charlatana).
-  - g1-g5 (audio de WhatsApp): silencios recortados, atempo 1,2 (g1-g3), 2,0 (g4, el "2x") y 1,3 (g5, para que
+  - g1-g5 (audio de WhatsApp): silencios recortados, atempo 1,1 (g1-g3), 2,3 (g4, el "2x", que se tiene que notar) y 1,3 (g5, para que
     "¿A cuánto está la polenta?" se entienda), filtro de celular (highpass 300-320 Hz, lowpass 3,3-3,4 kHz,
     compresor). g1 se corta después de "sobrino", g2 después de "divino" (saltos del audio).
   - g6 (en persona, parte 2): sin filtro.
@@ -40,6 +40,10 @@ reels/abren-hoy-completo/fuentes.md y reels/que-en-paz-descanse/fuentes.md):
 - Sorbos: `sorbo.wav` (Abir19, CC0). Campanita de la puerta: `campanita.wav` (775noise, CC0).
 - "Audio escuchado": `cero.mp3` (GabFitzgerald, CC0). Respuestas del agente: `respuesta.wav` (Sunart1, registrado en
   reels/abren-hoy-2/fuentes.md). Vibración: `vibra.wav` (SpliceSound, CC0).
-- El agua al cebar: `papel.wav` (Kingofgamers_cz, CC0), un roce corto y bajo.
+- "Graciela está grabando un audio…": `ping.mp3` (banco de HyperFrames, copiado de reels/a-que-hora-abren).
+- El agente que escribe (tecleo suave en Q1/Q1b): `tipeo.mp3` ("Typing on an iPhone.mp3", Caitlin_100, CC0,
+  https://freesound.org/people/Caitlin_100/sounds/365543/; registrado en reels/abren-hoy/fuentes.md).
+- Sin sonido de agua: no hay ninguno real registrado en el repo (se buscó en todos los assets/sfx), y en la versión
+  final Rubén no ceba en cuadro (le alcanza el mate ya cebado).
 - Cartel: `stinger.wav` (DanJFilms, CC0) y `whoosh.mp3`.
 Sin ladrido (no hay uno registrado): "el perro" va solo como ficha.

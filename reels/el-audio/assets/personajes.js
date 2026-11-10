@@ -1250,8 +1250,8 @@ export function crearVapor(N = 9) {
     puffs.forEach((m, i) => {
       const f = (t * 0.55 + i / N) % 1;                     // fase de subida 0..1
       const cinta = i % 3;                                   // tres cintas que se cruzan
-      const y = 0.01 + f * 0.26;
-      const x = Math.sin(t * 2.2 + f * 5 + cinta * 2.1) * 0.025 * (0.4 + f) + (cinta - 1) * 0.012;
+      const y = 0.01 + f * 0.19;
+      const x = Math.sin(t * 2.2 + f * 5 + cinta * 2.1) * 0.025 * (0.4 + f) + (cinta - 1) * 0.012 - f * 0.05;   // se va hacia afuera (no por delante de la cara)
       const z = Math.cos(t * 1.7 + f * 4 + cinta) * 0.016 * (0.4 + f);
       m.position.set(x, y, z);
       const r = 0.014 + f * 0.03;
