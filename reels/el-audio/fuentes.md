@@ -6,9 +6,10 @@ preguntar a cuánto está la polenta). Las duraciones (4:12, 0:01, 6:47), el "2x
 no estadísticas. Celular, chat, polenta, yerba, mate y termos genéricos, sin marcas: no se nombra ni se dibuja ninguna
 app de mensajería (el chat es navy/crema/verde, sin logo).
 
-Lo que hace el agente de IA en la parte 2 (escuchar los audios del cliente, entender la pregunta y contestar al
-instante con precios y stock, separar el producto) está dentro de lo que vende Scalerics (ver CLAUDE.md, "Lo que se
-vende": agentes de IA que atienden por WhatsApp con tus precios, stock y horarios y toman pedidos).
+Lo que hace el agente de IA en la parte 2 (contestar al instante con precios y stock, separar el producto) está
+dentro de lo que vende Scalerics (ver CLAUDE.md, "Lo que se vende": agentes de IA que atienden por WhatsApp con tus
+precios, stock y horarios y toman pedidos). Supuesto a confirmar con Juan: que el agente transcribe notas de voz (en el
+reel "escucha" el audio de 4:12 y el de 6:47); por eso la línea chica y descripcion.txt no prometen audios.
 
 ## Voces (Gemini TTS, herramientas/voz.mjs; tomas en partes/tomas, recortes en partes/rec)
 - Graciela: Gacrux (tomas graciela-1-c, 2-a, 3-a, 4-a, 5-b, 6-a). Se probaron también Sulafat y Aoede para el arranque
@@ -44,6 +45,6 @@ reels/abren-hoy-completo/fuentes.md y reels/que-en-paz-descanse/fuentes.md):
 - El agente que escribe (tecleo suave en Q1/Q1b): `tipeo.mp3` ("Typing on an iPhone.mp3", Caitlin_100, CC0,
   https://freesound.org/people/Caitlin_100/sounds/365543/; registrado en reels/abren-hoy/fuentes.md).
 - Sin sonido de agua: no hay ninguno real registrado en el repo (se buscó en todos los assets/sfx), y en la versión
-  final Rubén no ceba en cuadro (le alcanza el mate ya cebado).
+  final nadie ceba en cuadro: Rubén levanta el segundo termo, lo vuelve a apoyar y le alcanza el mate ya cebado.
 - Cartel: `stinger.wav` (DanJFilms, CC0) y `whoosh.mp3`.
 Sin ladrido (no hay uno registrado): "el perro" va solo como ficha.

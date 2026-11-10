@@ -1,13 +1,16 @@
 # el-audio · PARA MANDAR completo (3D real), ~30,2 s
 
-> **Nota de construcción (10-11, ronda 1): los tiempos que mandan son los de `gen.mjs` (objeto `T`), no los de las
-> tablas de abajo.** Duración 32,6 s: parte 1 0-16,8 (P1 0-2,0 · P2 2,0-5,0 · P3a 5,0-7,5 general con vidriera y reloj ·
-> P3b 7,5-9,4 · P4 9,4-11,2 la burbuja de cerca · P4b 11,2-12,75 general de noche · P5 12,75-14,75 (la luz vuelve en el
-> corte) · P6 14,75-16,02 · P6b 16,02-16,8), cartel 16,8-19,8 (3,0 s), parte 2 19,8-32,6 (Q1 19,8-21,9 · Q1b 21,9-23,4 ·
-> Q2 23,4-24,8 · Q3 24,8-27,0 · Q4 27,0-29,95 · Q5 29,95-32,6). Cambios respecto de este SPEC: el mate va en la mano
-> derecha de Rubén; Q1 y Q5 sin cebar (le alcanza el mate ya cebado); el reloj está en la pared de la vidriera; el 6:47
-> de Q5 es un audio de **Nelly** ("¡Hola, Nelly! La polenta está a $ 90. ¿Te la separo?"), solo en la capa HTML; línea
-> chica "Un agente de IA contesta los precios por vos · scalerics.com"; ficha de arranque "¡Hola, Rubén! ¿Cómo andás?".
+> **Nota de construcción (10-11, ronda 3): los tiempos que mandan son los de `gen.mjs` (objeto `T`), no los de las
+> tablas de abajo.** Duración **33,4 s**: parte 1 0-17,0 (P1 0-2,0 · P2 2,0-5,0 · P3a 5,0-7,1 general con vidriera y
+> reloj · P3b 7,1-9,4 · P4 9,4-11,2 la burbuja de cerca · P4b 11,2-12,75 general de noche · P5 12,75-14,75 (la luz
+> vuelve en el corte) · P6 14,75-16,02 · P6b 16,02-17,0), cartel 17,0-20,0 (3,0 s), parte 2 20,0-33,4 (Q1 20,0-22,0 ·
+> Q1b 22,0-23,5 · Q2 23,5-23,95 · Q2b 23,95-25,0 la etiqueta "Para Graciela ✓" · Q3 25,0-27,2 · Q4 27,2-30,75 ·
+> Q5 30,75-33,4). Cambios: el mate va en la mano derecha de Rubén; nadie ceba en cuadro (Q1 toma mate; en Q4 levanta
+> el segundo termo, dice "Contame." y lo vuelve a apoyar; en Q5 le alcanza el mate ya cebado); el reloj está en la
+> pared de la vidriera; el 6:47 de Q5 es un audio de **Nelly** y el agente contesta **"¡Hola, Nelly! Sí, era la
+> Beba."** (capa HTML); línea chica "Un agente de IA contesta los precios por vos · scalerics.com"; ficha de arranque
+> "¡Hola, Rubén! ¿Cómo andás?". Música de la parte 2: duck de ~22 dB (0,92) desde Graciela en persona hasta después
+> de "Contame." (no 9 dB).
 
 
 **De qué trata.** El audio de WhatsApp de cuatro minutos para preguntar un precio. Graciela le manda a Rubén un audio de
@@ -117,11 +120,11 @@ Pill de hora: `OTRO MARTES · 10:15` (17,8) → `10:16` (22,0). La luz es de ma�
 
 | t (s) | plano y cámara | qué pasa | SFX |
 |---|---|---|---|
-| 17,80-19,90 | **Q1 = encuadre de P1 (callback):** el celular en primer término, Rubén atrás cebando mate (crearTermo en la mano, el mate **humea**). | 17,90 · llega el mismo audio de Graciela: **4:12** (pop). El contador 3D: "Audio: 4:12". 18,20 · Rubén no lo toca. En la pantalla, debajo, una línea del agente: "Escuchando…" y la bolita de avance **recorre toda la onda en 0,7 s** (whoosh rápido). 18,95 · **"Audio escuchado ✓"** en verde; el contador cambia a **"escuchado ✓"** verde (ding). 19,25 · respuesta del agente (burbuja navy claro, letra crema, "respondido automáticamente" ≥ 28 px): **"¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?"** | pop 17,90; whoosh-short 18,20; cero.mp3 18,95; respuesta.wav 19,25 |
+| 17,80-19,90 | **Q1 = encuadre de P1 (callback):** el celular en primer término, Rubén atrás tomando mate (el mate **humea**). | 17,90 · llega el mismo audio de Graciela: **4:12** (pop). El contador 3D: "Audio: 4:12". 18,20 · Rubén no lo toca. En la pantalla, debajo, una línea del agente: "Escuchando…" y la bolita de avance **recorre toda la onda en 0,7 s** (whoosh rápido). 18,95 · **"Audio escuchado ✓"** en verde; el contador cambia a **"escuchado ✓"** verde (ding). 19,25 · respuesta del agente (burbuja navy claro, letra crema, "respondido automáticamente" ≥ 28 px): **"¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?"** | pop 17,90; whoosh-short 18,20; cero.mp3 18,95; respuesta.wav 19,25 |
 | 21,9-23,5 (ver gen.mjs) | **Q1b push-in a la pantalla.** | Segunda burbuja del agente: **"Saludos a tu sobrino."** (escuchó todo). Sin respuesta de Graciela en texto (la respuesta del agente se ve entera). | respuesta.wav, tecleo suave |
 | 21,40-23,00 | **Q2 = encuadre de P3a (callback):** general del almacén, misma vidriera, mismo reloj; **la luz se queda de mañana** y el reloj marca 10:16 quieto. | 21,50 · al paquete de polenta del estante se le pega una etiquetita **"Graciela ✓"** verde (pop). Rubén, tranquilo, ceba y toma mate; el segundo termo está en el mostrador. 22,00 · flip de la pill a `10:16`. | pop 21,50; tic-real 22,00 |
 | 23,00-25,00 | **Q3 = mismo general, hacia la puerta**: entra Graciela. | 23,05 · **campanita**: entra Graciela en persona (CARA.feliz), con su cartera, va al mostrador. 23,60 · voz (Gacrux, sin filtro) y burbuja: **"¡Rubén! ¿Te conté lo de mi sobrino?"** (pop). | campanita 23,05; pasos (tac/tic-real) 23,1-23,5; pop 23,60 |
-| 25,00-27,50 | **Q4 = encuadre de P5 (callback):** primer plano de Rubén de frente, push-in lento. | 25,00-25,50 · pausa: Rubén la mira, se le arma media sonrisa (CARA.sonrisa suave). 25,50 · levanta **el segundo termo** a cuadro (el mismo de P6). **25,80 · voz (Algenib): "Contame."** (~0,7 s). Subtítulo con **"Contame."** en el recuadro verde. La música baja 9 dB mientras habla. | voz; sello.wav suave (el termo) 25,50 |
+| 25,00-27,50 | **Q4 = encuadre de P5 (callback):** primer plano de Rubén de frente, push-in lento. | 25,00-25,50 · pausa: Rubén la mira, se le arma media sonrisa (CARA.sonrisa suave). 25,50 · levanta **el segundo termo** a cuadro (el mismo de P6). **25,80 · voz (Algenib): "Contame."** (~0,7 s). Subtítulo con **"Contame."** en el recuadro verde. La música baja ~22 dB (duck 0,92) desde que habla Graciela hasta después de "Contame.". | voz; sello.wav suave (el termo) |
 | 29,95-33,4 (ver gen.mjs) | **Q5 general de 3/4** con las dos caras (Graciela girada a cámara). | Rubén le alcanza el mate ya cebado; Graciela: **"Resulta que…"**. El celular vibra: llega un audio de **Nelly** de **6:47** → **"Audio escuchado ✓"** → **"¡Hola, Nelly! Sí, era la Beba."** (capa HTML, arriba). **Línea chica:** **"Un agente de IA contesta los precios por vos"** / **"scalerics.com"**. | vibra, cero.mp3, respuesta.wav, whoosh de la línea chica |
 
 ## Cámara
@@ -140,7 +143,7 @@ siempre hay un objeto grande en cuadro (el celular o Rubén), nunca la pared cre
 - **Cartel:** como abren-hoy-completo (whoosh, stinger CC0, narrador, whoosh del iris).
 - **17,8 a 30,2:** música tranquila (pizzicato más bajo, nunca se corta: todo anda), pop del audio que llega, whoosh
   corto de la escucha rápida, ding (cero.mp3) en "escuchado ✓", respuesta.wav en cada respuesta del agente, sorbos,
-  campanita y pasos de Graciela, vibra; la música baja 9 dB mientras hablan Graciela y Rubén.
+  campanita y pasos de Graciela, vibra; la música baja ~22 dB (duck 0,92) desde Graciela en persona hasta después de "Contame.".
 - Todo con grabaciones reales ya registradas (las de `reels/que-en-paz-descanse/assets/sfx` y `assets/bgm`, créditos en
   los fuentes.md de me-lo-guardas y anteriores). No usar golpe.mp3 ni tictac.wav (sin licencia registrada). Nada
   sintetizado. Sin ladrido (no hay uno registrado): "el perro" va solo como ficha. Si se quiere un ladrido lejano dentro

@@ -26,7 +26,7 @@
       const ts = [0,4.6];
       ts.forEach((t, i) => {
         tl.set(q(".t" + i), { display: "inline" }, Math.max(0, t));
-        if (i > 0) { tl.set(q(".t" + (i - 1)), { display: "none" }, t); tl.fromTo(q(".hora"), { rotationX: 85, scale: 1.1 }, { rotationX: 0, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t); }
+        if (i > 0) { tl.set(q(".t" + (i - 1)), { display: "none" }, t); tl.fromTo(q(".hora"), { scale: 1.12 }, { scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t); }
       });
       tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: 19, ease: "sine.inOut", immediateRender: false }, 0.4);
       tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.2, ease: "power2.in" }, 10.53);

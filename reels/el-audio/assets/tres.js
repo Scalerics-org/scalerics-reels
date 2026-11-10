@@ -276,8 +276,8 @@ const CASA = V3(30, 0, 0);
 
 // ================= LOS PERSONAJES =================
 const G0 = { x: -0.45, z: -0.62 };     // Graciela frente al mostrador (parte 2)
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: false, mechones: true, parpadeoCada: 3.7 });
-const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.4 });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: false, mechones: true, parpadeoCada: 3.6 });
+const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.3 });
 scene.add(ruben.raiz, graciela.raiz);
 for (const p of [ruben, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 { const CCg = 0.3 * 0.92; graciela.cabeza.traverse((l) => { if (!l.isMesh) return; const esL = (l.material.color && l.material.color.getHex() === 0x16243d) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry"); if (!esL) return; l.position.y -= CCg; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CCg; if (Math.abs(l.scale.y - 0.26) < 1e-6) l.visible = false; if (Math.abs(l.scale.y - 0.07) < 1e-6 && Math.abs(l.scale.x - 0.011) < 1e-6) { l.position.x = -0.035; } }); }
@@ -321,7 +321,7 @@ const celuMano = crearCelular(pantR, C.navy3, 0.085, 0.138); celuMano.scale.setS
 const pantG = lienzo(400, 650, () => {});
 let claveG = "";
 function dibujarPantG(t) {
-  const seg = 241 + Math.floor(t - T.p2), txt = `${Math.floor(seg / 60)}:${String(seg % 60).padStart(2, "0")}`;
+  const seg = Math.floor(posAudio(t)), txt = `${Math.floor(seg / 60)}:${String(seg % 60).padStart(2, "0")}`;
   const fase = Math.floor(t * 6) % 4;
   if (claveG === txt + fase) return; claveG = txt + fase;
   const { x } = pantG.userData, w = 400, h = 650;
@@ -535,7 +535,7 @@ function cabezaEnPantalla(p, dy = 0.0) { p.cabeza.getWorldPosition(_cab); _cab.y
 const GL = {
   g6: crearGlobo(["¡Rubén! ¿Te conté", "lo de mi sobrino?"], 70),
   resulta: crearGlobo(["Resulta que…"], 54),
-  sep: crearGlobo(["Separada", "para Graciela"], 58, { fondo: "#5ce611" }),
+  sep: crearGlobo(["Para Graciela ✓"], 60, { fondo: "#5ce611" }),
 };
 // las fichas de los temas del audio: crema con borde navy, sin cola; la de la polenta en verde (selección)
 const FICHA = (txt, t0, t1, pos, o = {}) => ({ g: crearGlobo(txt, o.px ?? 64, { cola: false, ...(o.estilo || {}) }), t0, t1, pos, giro: o.giro ?? 0 });
@@ -650,17 +650,17 @@ const PLANOS = [
   // P3a · el general, dolly lateral lento
   ["P3a", T.p3a, [[T.p3a, ...GEN], [T.p3b, GEN[0] + 0.3, GEN[1], GEN[2] - 0.1, GEN[3] + 0.15, GEN[4], GEN[5], GEN[6]]]],
   ["P3b", T.p3b, [[T.p3b, ...CEL(0.08)], [T.mejilla, ...CEL(0.04)], [T.p4, ATRIL.x - 0.22, 1.66, 0.3, RI.x - 0.05, 1.12, -1.55, 46]]],
-  ["P4", T.p4, [[T.p4, ...PANT(0.86, 42, 0.62)], [T.p4b, ...PANT(0.8, 42, 0.64)]]],
+  ["P4", T.p4, [[T.p4, ...PANT(0.86, 42, 0.68)], [T.p4b, ...PANT(0.8, 42, 0.7)]]],
   ["P4b", T.p4b, [[T.p4b, ...GEN], [T.p5, GEN[0] - 0.08, GEN[1], GEN[2] - 0.15, GEN[3], GEN[4], GEN[5], GEN[6]]]],
   ["P5", T.p5, [[T.p5, ...PP(0.45)], [T.pushIn[0], ...PP(0.4), "e"], [T.pushIn[1], ...PP(0.05)], [T.p6, ...PP(0.0)]]],
-  ["P6", T.p6, [[T.p6, ...PANT(0.72, 44, 0.64)], [T.p6b, ...PANT(0.68, 44, 0.64)]]],
+  ["P6", T.p6, [[T.p6, ...PANT(0.72, 44, 0.7)], [T.p6b, ...PANT(0.68, 44, 0.7)]]],
   ["P6b", T.p6b, [[T.p6b, ...CEL(0.0)], [P1, ...CEL(-0.05)]]],
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   ["Q1", P2, [[P2, ...CEL(0.03)], [T.q1b, ...CEL(-0.02)]]],
   ["Q1b", T.q1b, [[T.q1b, ...PANT(0.84, 44, 0.6)], [T.q2, ...PANT(0.78, 44, 0.6)]]],
   ["Q2", T.q2, [[T.q2, ...GEN], [T.pushQ2[0], GEN[0] + 0.06, GEN[1], GEN[2] - 0.04, GEN[3], GEN[4], GEN[5], GEN[6]]]],
   // Q2b · corte al paquete de polenta (por delante de Rubén no se puede pasar): push-in corto a la etiqueta
-  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.12, ETI.y - 0.02, ETI.z + 1.45, ETI.x, ETI.y - 0.06, ETI.z, 40], [T.q3, ETI.x + 0.1, ETI.y - 0.02, ETI.z + 1.3, ETI.x, ETI.y - 0.06, ETI.z, 40]]],
+  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.1, ETI.y + 0.03, ETI.z + 0.92, ETI.x + 0.05, ETI.y + 0.0, ETI.z, 46], [T.q3, ETI.x + 0.08, ETI.y + 0.03, ETI.z + 0.82, ETI.x + 0.05, ETI.y + 0.0, ETI.z, 46]]],
   // Q3 · el mismo general, mirando hacia la puerta: entra Graciela
   ["Q3", T.q3, [[T.q3, 1.75, 1.72, 1.25, -1.1, 1.2, -0.6, 58], [T.entraG[1], 1.75, 1.72, 1.25, -0.3, 1.2, -1.3, 62], [T.q4, 1.72, 1.72, 1.22, -0.25, 1.2, -1.35, 62]]],
   ["Q4", T.q4, [[T.q4, ...PP(0.45, 0.06, 46)], [T.q5, ...PP(0.3, 0.06, 46)]]],
@@ -756,7 +756,7 @@ const RK = [
   [T.termo2 + 0.25, { ...aC(0.0, 0.05, 0.0), ojos: { x: 0, y: 0.05, abiertos: 0.6, tension: 0.35 }, cejas: { alto: 0.25, ang: 0.6 } }, 0.3],
   // ---- parte 2 ----
   // Q1/Q1b: ceba tranquilo, ni mira el celular
-  [P2 - 0.001, { x: RI.x, z: RI.z, giro: -0.1, inclina: 0.03, ladea: 0, ...MATE_P, ...APOYA_I, ...aC(-0.12, 0.25), ...CARA.sonrisa, ojos: { x: -0.25, y: -0.5, abiertos: 1, feliz: 0.35 }, cejas: { alto: 0.25, ang: 0 }, boca: { sonrisa: 0.75 } }, 0.001],
+  [P2 - 0.001, { x: RI.x, z: RI.z, giro: -0.1, inclina: 0.03, ladea: 0, ...MATE_D, ...APOYA_I, ...aC(-0.12, 0.25), ...CARA.sonrisa, ojos: { x: -0.25, y: -0.5, abiertos: 1, feliz: 0.35 }, cejas: { alto: 0.25, ang: 0 }, boca: { sonrisa: 0.75 } }, 0.001],
   [T.q1b + 0.4, { ...MATE_D, ...BAJA_I, ...aC(-0.05, 0.05), ojos: { x: -0.1, y: 0.0 } }, 0.35],
   // Q2: tranquilo, toma mate
   [T.q2 - 0.001, { x: RI.x, z: RI.z, giro: 0.15, inclina: 0.0, ...MATE_P, ...BAJA_I, ...aC(0.15, 0.05), ...CARA.sonrisa, ojos: { x: 0.3, abiertos: 1, feliz: 0.3 } }, 0.001],
@@ -777,9 +777,9 @@ const GK = [
   [0, { x: CASA.x - 0.25, z: 0.0, giro: 0.25, paso: 0.55, pasoVel: 5, ...BRAZOS.costado, ...aC(0.1, 0.05), ...CARA.feliz, ojos: { x: 0.1, y: -0.1, abiertos: 0.95, feliz: 0.5 } }],
   [T.p3a, { x: CASA.x + 0.2, z: 0.05, giro: -0.2 }, T.p3a - T.p2, (u) => u],
   // parte 2 · Q3: entra por la puerta y va al mostrador; habla con Rubén
-  [T.q3 - 0.001, { x: LX + 0.25, z: PUERTA.z0 + 0.5, giro: Math.PI / 2 + 0.2, paso: 1, pasoVel: 9, ...BRAZOS.costado, ...aC(0, 0), ...CARA.feliz, ojos: { x: 0, y: 0, abiertos: 0.95, feliz: 0.45 } }, 0.001],
+  [T.q3 - 0.001, { x: LX + 0.25, z: PUERTA.z0 + 0.5, giro: Math.PI / 2 + 0.2, paso: 1, pasoVel: 9, ...BRAZOS.costado, ...aC(0, 0), ...CARA.feliz, ojos: { x: 0, y: 0, abiertos: 1, feliz: 0.15 } }, 0.001],
   [T.entraG[1], { x: G0.x, z: G0.z, giro: G_GIRO - 0.55, paso: 0 }, T.entraG[1] - T.entraG[0], (u) => eo(u)],
-  [T.q5 - 0.001, { x: G0.x, z: G0.z, giro: G_GIRO - 0.6, paso: 0, ...BRAZOS.costado, ...aC(0.05, 0.02), ...CARA.feliz, ojos: { x: 0, abiertos: 0.95, feliz: 0.45 } }, 0.001],
+  [T.q5 - 0.001, { x: G0.x, z: G0.z, giro: G_GIRO - 0.6, paso: 0, ...BRAZOS.costado, ...aC(0.05, 0.02), ...CARA.feliz, ojos: { x: 0, abiertos: 1, feliz: 0.15 } }, 0.001],
 ];
 // ---------- helpers de mano en coordenadas del mundo ----------
 const _w = new THREE.Vector3();
@@ -834,7 +834,7 @@ function ponerPersonajes(t, plano) {
     // desde el primer cuadro de P5 el celular está en la mano (abajo, a la altura del pecho); sube a la boca y baja
     const k = eio(sg(t, T.micro[0], T.micro[1])) * (1 - eio(sg(t, T.suelta, T.suelta + 0.25)));
     ruben.poner(pr);
-    const alto = bocaMundo(ruben, 0.0).add(V3(0.2, -0.26, 0.12)), bajo = bocaMundo(ruben, 0.0).add(V3(0.06, -0.48, 0.24));
+    const alto = bocaMundo(ruben, 0.0).add(V3(0.2, -0.26, 0.12)), bajo = bocaMundo(ruben, 0.0).add(V3(0.18, -0.26, 0.24));
     const p1 = manoA(ruben, { ...pr, codoI: [1, -0.6, -0.1] }, "I", bajo.lerp(alto, k));
     pr.manoI = p1.manoI; pr.codoI = [1, -0.6, -0.1]; pr.dedoI = 0;
   }
@@ -842,13 +842,13 @@ function ponerPersonajes(t, plano) {
   if (en(t, T.p6b - 0.4, T.termo2 + 0.45)) {
     const k = eio(sg(t, T.p6b - 0.4, T.p6b - 0.2)) * (1 - eio(sg(t, T.termo2 + 0.2, T.termo2 + 0.45)));
     ruben.poner(pr);
-    const p1 = manoA(ruben, { ...pr, codoI: [1, -0.5, -0.2] }, "I", termo2Pos(t).add(V3(-0.075, 0.2, 0.0)));
+    const p1 = manoA(ruben, { ...pr, codoI: [1, -0.5, -0.2] }, "I", termo2Pos(t).add(V3(-0.02, 0.44, 0.02)));
     pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], k)); pr.codoI = [1, -0.5, -0.2];
   }
   // Q4: levanta el segundo termo (el mismo de P6) a cuadro; Q5: lo usa para cebar
-  if (en(t, T.levTermo[0] - 0.05, T.q5)) {
+  if (en(t, T.levTermo[0] - 0.05, T.ceba[0] + 0.45)) {
     ruben.poner(pr);
-    const p1 = manoA(ruben, { ...pr, codoI: [1, -0.5, -0.2] }, "I", termo2Pos(t).add(V3(-0.075, 0.2, 0.0)));
+    const p1 = manoA(ruben, { ...pr, codoI: [1, -0.5, -0.2] }, "I", termo2Pos(t).add(V3(-0.02, 0.44, 0.02)));
     const k = eio(sg(t, T.levTermo[0] - 0.05, T.levTermo[0] + 0.2));
     pr.manoI = pr.manoI.map((v, i) => lerp(v, p1.manoI[i], k)); pr.codoI = [1, -0.5, -0.2];
   }
@@ -893,7 +893,7 @@ function ponerPersonajes(t, plano) {
     if (t >= T.alcanza[0]) {
       graciela.poner(pg);
       const k = eio(sg(t, T.alcanza[0] + 0.15, T.alcanza[1]));
-      const destino = t < T.alcanza[1] + 0.35 ? ENTREGA.clone().add(V3(0, 0.0, 0.07)) : ENTREGA.clone().lerp(V3(G0.x + 0.14, 1.0, G0.z - 0.2), eio(sg(t, T.alcanza[1] + 0.35, T.alcanza[1] + 0.75))).add(V3(0, 0, 0.07));
+      const destino = t < T.alcanza[1] + 0.35 ? ENTREGA.clone().add(V3(0, 0.0, 0.07)) : ENTREGA.clone().lerp(V3(G0.x + 0.16, 0.86, G0.z - 0.18), eio(sg(t, T.alcanza[1] + 0.35, T.alcanza[1] + 0.75))).add(V3(0, 0, 0.07));
       const p1 = manoA(graciela, { ...pg, codoD: [-1, -0.5, -0.1] }, "D", destino);
       pg.manoD = pg.manoD.map((v, i) => lerp(v, p1.manoD[i], k)); pg.codoD = [-1, -0.5, -0.1];
     }
@@ -922,7 +922,7 @@ function termo2Pos(t) {
     const p = TERMO2.clone().lerp(V3(RI.x + 0.22, 1.0, -1.35), u);
     // después de "Contame." lo baja y lo inclina sobre el mate (gesto de cebar, por debajo de la cara)
     const c = eio(sg(t, T.ceba[0], T.ceba[0] + 0.25));
-    return p.lerp(V3(RI.x + 0.02, 0.98, -1.32), c);
+    return p.lerp(TERMO2.clone(), c);   // lo vuelve a apoyar en el mostrador (no ceba en cuadro)
   }
   // Q5: otra vez apoyado en el mostrador (el mate ya está cebado)
   return TERMO2.clone();
@@ -973,7 +973,7 @@ function renderAt(tIn) {
     termo2.position.copy(termo2Pos(t));
     const golpe = !parte2 ? pulso(t, T.termo2, 0.12) * 0.08 : 0;
     termo2.scale.set(1.3 * (1 + golpe), 1.3 * (1 - golpe), 1.3 * (1 + golpe));
-    termo2.rotation.set(0, -0.4, en(t, T.ceba[0], T.q5) ? 1.15 * eio(sg(t, T.ceba[0], T.ceba[0] + 0.25)) : 0);
+    termo2.rotation.set(0, -0.4, 0);
   }
   // ---- la etiquetita "Graciela ✓" en el paquete de polenta (parte 2) ----
   {
@@ -990,7 +990,7 @@ function renderAt(tIn) {
     celuMano.visible = plano === "P5";
     if (celuMano.visible) {
       const p = manoMundo(ruben, "I", _a);
-      celuMano.position.copy(p).add(V3(-0.02, 0.16, 0.0));   // la mano agarra el borde de abajo (el pulgar no tapa la pantalla)
+      celuMano.position.copy(p).add(V3(-0.02, 0.12, 0.02));   // la mano agarra el borde de abajo (el pulgar no tapa la pantalla)
       celuMano.rotation.set(0.15, 1.15, 0.05);
     }
     celuG.visible = plano === "P2";

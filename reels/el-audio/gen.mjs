@@ -41,7 +41,7 @@ const T = {
   // ---- parte 2 ----
   q1: P2, llega: P2, escucha: [20.3, 21.0], escuchado: 21.05, resp1: 21.4,
   q1b: 22.0, resp2: 22.1,
-  q2: 23.5, sorbo2: 23.55, pushQ2: [23.95, 24.4], etiqueta: 24.45, h1016: 24.6,
+  q2: 23.5, sorbo2: 23.55, pushQ2: [23.95, 24.4], etiqueta: 24.0, h1016: 24.6,
   q3: 25.0, campana: 25.1, entraG: [25.05, 26.05], g6: 25.6, bG6: 25.63,   // g6 (en persona): "¡Rubén! ¿Te conté lo de mi sobrino?" (termina +2,84)
   q4: 27.2, bG6fin: 28.3, levTermo: [28.5, 28.75], voz2: 29.3, ceba: [30.1, 30.6],
   q5: 30.75, alcanza: [30.8, 31.2], vibra: 30.8, b647b: 30.85, escuchado2: 31.05, resp3: 31.25, cierre: 31.55, bResulta: 31.8,
@@ -119,7 +119,7 @@ function hora(id, ini, fin, textos, top = 1770) {
       const ts = ${JSON.stringify(textos.map(([t]) => r2(t - ini)))};
       ts.forEach((t, i) => {
         tl.set(q(".t" + i), { display: "inline" }, Math.max(0, t));
-        if (i > 0) { tl.set(q(".t" + (i - 1)), { display: "none" }, t); tl.fromTo(q(".hora"), { rotationX: 85, scale: 1.1 }, { rotationX: 0, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t); }
+        if (i > 0) { tl.set(q(".t" + (i - 1)), { display: "none" }, t); tl.fromTo(q(".hora"), { scale: 1.12 }, { scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, t); }
       });
       tl.fromTo(q(".punto"), { opacity: 1 }, { opacity: 0.35, duration: 0.5, yoyo: true, repeat: ${Math.max(1, Math.floor(dur / 0.5) - 2)}, ease: "sine.inOut", immediateRender: false }, 0.4);
       tl.to(q(".hora"), { opacity: 0, y: 30, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.22)});`,
@@ -152,10 +152,10 @@ hora("s00-hora", 0, P1 - 0.02, [[0, "MARTES · 10:15"], [T.luz, "MARTES · 10:19
 {
   const id = "s06-resp", ini = T.b647b - 0.02, fin = DUR, dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
-  const barras = Array.from({ length: 15 }, (_, i) => Math.round(18 + 48 * Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.53 + 1) * 0.4)));
+  const barras = Array.from({ length: 11 }, (_, i) => Math.round(18 + 48 * Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.53 + 1) * 0.4)));
   escena(id, dur, {
     css: `
-    P .au { position: absolute; left: 40px; top: 150px; width: 520px; padding: 16px 28px 20px; border-radius: 34px 34px 34px 10px; background: #fff; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 0% 100%; }
+    P .au { position: absolute; left: 30px; top: 150px; width: 470px; padding: 16px 28px 20px; border-radius: 34px 34px 34px 10px; background: #fff; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 0% 100%; }
     P .au .n { font: 800 40px/1.1 "Lexend", sans-serif; color: ${NAVY}; }
     P .fila { display: flex; align-items: center; gap: 18px; margin-top: 10px; }
     P .play { width: 64px; height: 64px; border-radius: 50%; background: ${NAVY}; position: relative; flex: none; }
@@ -290,7 +290,7 @@ const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 // ---- parte 1 ----
 // ambiente de barrio (calle.wav con pasabajos): se oye desde adentro; de noche baja; en la pausa de P5 casi nada
-s("sfx/calle.wav", 0, -6, { dur: P1, fin: 0.3, techo: -39, lp: 1800, duck: [T.corte, T.p6] });
+s("sfx/calle.wav", 0, -6, { loop: true, dur: P1, fin: 0.3, techo: -39, lp: 1800, duck: [T.corte, T.p6] });
 // la música, liviana debajo del audio de Graciela, se corta seca en P5 (antes de "Noventa.")
 s("bgm/pizzicato.wav", 0, 0, { loop: true, desde: 8.0, dur: T.corte, fin: 0.01, techo: -40, sube: [T.corte - 1.5, T.corte, 3] });   // desde 8,0: en el corte suena una nota (la de 8,65 del archivo)
 s("sfx/click-soft.mp3", T.tap, 0, { techo: -37 });                                       // play
@@ -304,14 +304,14 @@ s("voice/g5.wav", T.g5, -4, { voz: true });
 for (const t of [T.fSobrino, T.fPerro, T.fFrio, T.fNelly]) s("sfx/pop.mp3", t, 0, { desde: 0.11, techo: -39 });
 s("sfx/pop.mp3", T.fVecina, 0, { desde: 0.11, techo: -41 });
 s("sfx/pop.mp3", T.fPolenta, 0, { desde: 0.11, techo: -37 });
-s("sfx/whoosh.mp3", T.p2 - 0.03, 0, { techo: -43 });
+s("sfx/whoosh.mp3", T.p2 - 0.03, 0, { techo: -39 });
 s("sfx/sorbo.wav", T.sorbo1, 0, { techo: -38 });
 // las agujas del reloj que giran rápido durante el time-lapse: tic/tac bajito
 for (let t = T.p3a + 0.1, i = 0; t < T.luz - 0.1; t += 0.24, i++) if (!en(t, 10.95, 11.6)) s(i % 2 ? "sfx/tac-real.mp3" : "sfx/tic-real.mp3", t, 0, { techo: -46 });
 s("sfx/click-soft.mp3", T.tap2x, 0, { techo: -37 });                                      // 2x
-for (let i = 0; i < 5; i++) s("sfx/key-press.mp3", T.rodillo[0] + i * 0.07, 0, { desde: 0.07, techo: -41 });
-s("sfx/whoosh.mp3", T.farol, 0, { techo: -45 });                                            // se prende el farol
-for (const t of [T.k409, T.k410, T.k412]) s("sfx/key-press.mp3", t, 0, { desde: 0.07, techo: -44 });
+for (let i = 0; i < 5; i++) s("sfx/key-press.mp3", T.rodillo[0] + i * 0.07, 0, { desde: 0.04, techo: -40, pico: -18 });
+s("sfx/whoosh.mp3", T.farol + 0.15, 0, { techo: -40 });                                            // se prende el farol
+for (const t of [T.k409, T.k410, T.k412]) s("sfx/key-press.mp3", t, 0, { desde: 0.04, techo: -40, pico: -18 });
 // la luz vuelve de golpe: whoosh al revés + tic
 s("sfx/whoosh.mp3", T.luz - 0.45, 0, { rev: true, techo: -38 });
 s("sfx/tic-real.mp3", T.luz + 0.02, 0, { techo: -37 });
@@ -322,7 +322,7 @@ s("voice/ruben1.wav", T.voz1, -2.5, { voz: true });
 s("sfx/burbuja.mp3", T.enviado, 0);
 // P6: 0:01, grabando, 6:47 con tuba, el segundo termo con un golpe seco
 s("sfx/pop.mp3", T.b001, 0, { desde: 0.11, techo: -35 });
-s("sfx/ping.mp3", T.grabando, 0, { techo: -36 });
+s("sfx/ping.mp3", T.grabando - 0.02, 0, { desde: 0.3, techo: -36 });
 s("sfx/notification.mp3", T.b647, 0, { techo: -37 });
 s("sfx/key-press.mp3", T.b647, 0, { desde: 0.07, techo: -36 });
 s("sfx/tuba.mp3", T.b647 + 0.05, 0, { desde: 0.19, techo: -31, fin: 0.25, dur: 1.2 });
@@ -331,14 +331,14 @@ s("sfx/sello.wav", T.termo2, 0, { techo: -35 });
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
 s("voice/narrador.wav", P1 + 0.2, -5, { voz: true, fi: 0.01, dur: 2.38, fin: 0.1 });
-for (const d of [0.2, 0.9, 1.5]) s("sfx/pop.mp3", P1 + d, 0, { desde: 0.11, techo: -42 });   // un pop por línea del cartel, con la voz
+for (const d of [0.2, 0.9, 1.5]) s("sfx/pop.mp3", P1 + d, 0, { desde: 0.11, techo: -39 });   // un pop por línea del cartel, con la voz
 s("sfx/calle.wav", P1 + 2.55, -6, { desde: 5, dur: r2(P2 - P1 - 2.55 + 0.05), fi: 0.15, fin: 0.05, techo: -41, lp: 1800 });
 s("sfx/whoosh.mp3", P2 - 0.3, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -38, lp: 1800 });
-s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.8, techo: -33, duck: [T.g6 - 0.1, T.voz2 + 0.8], duckK: 0.92 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, dur: r2(DUR - P2), fin: 0.8, techo: -30, duck: [T.g6 - 0.1, T.voz2 + 0.8], duckK: 0.92 });
 // el agente "escribe" mientras contesta (tecleo suave): Q1 y Q1b no se desinflan
-for (const t of [T.resp1 - 0.3, T.resp2 - 0.3]) s("sfx/tipeo.mp3", t, 0, { dur: 0.28, fin: 0.06, techo: -38 });
+for (const t of [T.resp1 - 0.3, T.resp2 - 0.3]) s("sfx/tipeo.mp3", t, 0, { dur: 0.28, fin: 0.06, techo: -36, pico: -17 });
 s("sfx/pop.mp3", T.llega + 0.02, 0, { desde: 0.11, techo: -37 });
 s("sfx/whoosh.mp3", T.escucha[0], 0, { techo: -38 });
 s("sfx/cero.mp3", T.escuchado, 0, { techo: -34 });
@@ -353,7 +353,7 @@ s("sfx/tic-real.mp3", T.h1016, 0, { techo: -38 });
 s("sfx/campanita.wav", T.campana, 0, { techo: -35, dur: 0.35 });
 for (let t = T.entraG[0] + 0.1; t < T.g6 - 0.08; t += 0.22) s("sfx/tac-real.mp3", t, 0, { techo: -38 });
 s("voice/g6.wav", T.g6, -5, { voz: true });
-s("sfx/burbuja.mp3", T.bG6, 0, { techo: -40 });
+s("sfx/burbuja.mp3", T.bG6, 0, { techo: -36 });
 s("sfx/sello.wav", T.levTermo[0] + 0.02, 0, { techo: -38 });
 s("voice/ruben2.wav", T.voz2, -2.5, { voz: true });
 s("sfx/burbuja.mp3", T.bResulta, 0, { techo: -36 });
@@ -388,7 +388,7 @@ function lufsTramo(f, o) {
 const PICO = Number(process.env.PICO ?? -19);   // pico verdadero máximo de cada efecto en la mezcla cruda
 const CAMA = 0;   // ya no se suma: el techo de la cama se respeta
 const esCama = (f) => f.startsWith("bgm/") || f === "sfx/calle.wav";
-const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, (o.techo ?? TECHO) - L.M, PICO - L.pk)); };
+const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, (o.techo ?? TECHO) - L.M, (o.pico ?? PICO) - L.pk)); };
 function mezcla(lista, salida, dur, bus = false) {
   const args = ["-y", "-loglevel", "error"];
   const filtros = [];

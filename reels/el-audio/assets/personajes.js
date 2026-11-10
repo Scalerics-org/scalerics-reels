@@ -600,8 +600,8 @@ export function crearPersonaje(cfg) {
     const ang = Math.acos(Math.max(-1, Math.min(1, _hf.dot(_ec))));
     ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
-    ojos[0].g.visible = ojos[1].g.visible = true;
-    if (ang > 0.42) ojos[lejos].g.visible = false;
+    ojos[0].g.visible = ojos[1].g.visible = true; cejas[0].piv.visible = cejas[1].piv.visible = true;
+    if (ang > 0.42) { ojos[lejos].g.visible = false; if (ang > 0.6) cejas[lejos].piv.visible = false; }   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
   return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
