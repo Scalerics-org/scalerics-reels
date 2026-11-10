@@ -23,8 +23,8 @@ Links:
   resumen en Farnam Street): https://fs.blog/yes-50-scientifically-proven-ways-to-be-persuasive/
 
 ## "¿Por qué te traen un caramelo con la cuenta?" (gancho)
-- Pregunta, no dato. NO decimos que todos los restaurantes lo hacen por la propina: el guion sigue con "Lo midieron",
-  o sea, contamos qué midió el estudio, no la intención de cada mozo.
+- Pregunta, no dato. NO decimos que todos los restaurantes lo hacen por la propina: el guion sigue con "Un estudio comparó las
+  propinas.", o sea, contamos qué comparó el estudio, no la intención de cada mozo.
 
 ## "Un estudio comparó las propinas." (guion v2; antes "Lo midieron en un restaurante." y "Un estudio midió qué pasa con la propina.", que STT oía "me dio")
 - Comparó la propina promedio entre condiciones (sin caramelo, uno, dos, uno + uno): resumen del paper ("tips varied with
@@ -122,6 +122,12 @@ Links:
 - Ronda 1 (arte + sonido): techo de -31 LUFS medido como momentáneo máximo SOLO sobre el tramo que suena de cada clip
   (antes se medía el archivo entero y los efectos cortos quedaban inaudibles). Pings, vibración, notificación, tecla y
   campanita de la tarjeta, chime y pops subidos a ~-32/-35 momentáneo. Se sacó el `papel` en "cuenta" (no había acción).
-- Voces nuevas (Gemini TTS): `v3-a2` (línea 2), `v4-leda2` ("Le da un caramelo…", más claro), `v4-ruben4` (Rubén,
-  Algenib: STT es-UY oye "y este por tu año"), `v2-c3` (cierre: STT oye "querés"; ninguna toma da "agendá" en STT, que
+- Voces nuevas (Gemini TTS): `v3-a2` (línea 2), `v4-leda2` ("Le da un caramelo…", más claro), `v4-ruben7e` (Rubén,
+  Algenib, ronda 2: toma nueva recortada con ~0,4 s entre "este…" y "por"; STT es-UY oye "y este por tu año"), `v2-c3` (cierre: STT oye "querés"; ninguna toma da "agendá" en STT, que
   transcribe "agenda": se eligió la que suena con acento final al oído).
+
+## Sonido (ronda 2)
+- `vibra-fuerte.mp3`: `vibra.mp3` (SpliceSound, CC0 1.0, https://freesound.org/people/SpliceSound/sounds/369839/) con
+  +9 dB y limitador (el original queda en -38 LUFS momentáneo y no se oía con el techo). Nada sintetizado.
+- Papel, tic/tac del amague, caída al frasco y vibración a -34/-36 LUFS momentáneo (sin el descuento de 0,6 por voz).
+  Se sacó la tecla (`key-press`) de la tarjeta de cierre. El cierre de la voz llega entero hasta "punto com".

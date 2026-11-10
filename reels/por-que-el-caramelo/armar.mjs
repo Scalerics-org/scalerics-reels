@@ -183,7 +183,7 @@ const sfx = [];
 for (const [id, a] of ESCENAS) {
   const f = `compositions/${id}.sfx.json`;
   if (!fs.existsSync(f)) continue;
-  for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max });
+  for (const s of JSON.parse(fs.readFileSync(f, "utf8"))) sfx.push({ t: r2(a + s.t), name: s.sfx, vol: s.vol ?? 0.3, max: s.max, full: s.full });
 }
 // whoosh automático en cada cambio de escena, salvo que la escena ya traiga uno (whoosh y whoosh-short son el mismo archivo)
 for (const [id, a] of ESCENAS.slice(1)) {
@@ -199,7 +199,7 @@ const sfxTags = sfx
     const full = durArchivo(s.name), d = r2(Math.min((s.max ?? 99) + (s.cut ?? 0), full, DUR - 0.02 - s.t) - 0.01);
     const largo = /^(impact|whoosh|glitch|sparkle|chime|riser)/.test(s.name);
     const fade = d < full - 0.03 ? ` data-fade-out="${r2(largo ? Math.min(0.35, d * 0.4) : Math.min(0.08, d * 0.2))}"` : "";
-    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${Math.round(conTecho(s.name, s.vol, 0, d) * (palabras.some((w) => w.end > s.t + 0.02 && w.start < s.t + Math.min(d, 0.5)) ? 0.6 : 1) * 1000) / 1000}"></audio>`;
+    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${Math.round(conTecho(s.name, s.vol, 0, d) * (!s.full && palabras.some((w) => w.end > s.t + 0.02 && w.start < s.t + Math.min(d, 0.5)) ? 0.6 : 1) * 1000) / 1000}"></audio>`;
   })
   .join("\n");
 

@@ -22,13 +22,13 @@ Palabras (segundos relativos a la escena): Y 0.00 · para 0.08 · que 0.27 · se
 ### s08-ficha — dura 3.92 s (inicio global 20.62)
 Palabras (segundos relativos a la escena): La -0.01 · ficha 0.16 · de 0.28 · Rubén 0.38 · le 0.78 · avisa: 0.88 · Graciela 1.71 · hace 2.18 · un 2.58 · año 2.68 · que 2.88 · viene. 3.08 · Le 3.92
 
-### s09-vuelve — dura 6.46 s (inicio global 24.54)
-Palabras (segundos relativos a la escena): Le -0.00 · da 0.16 · un 0.36 · caramelo… 0.56 · y 2.43 · vuelve 2.53 · con 2.76 · otro. 2.86 · Y 3.82 · este… 3.93 · por 4.29 · tu 4.71 · año. 5.12 · ¿Querés 6.46
+### s09-vuelve — dura 7.09 s (inicio global 24.54)
+Palabras (segundos relativos a la escena): Le -0.00 · da 0.16 · un 0.36 · caramelo… 0.56 · y 2.43 · vuelve 2.53 · con 2.76 · otro. 2.86 · Y 3.75 · este… 4.12 · por 4.72 · tu 5.18 · año. 5.63 · ¿Querés 7.09
 
-### s10-gesto — dura 2.74 s (inicio global 31.00)
-Palabras (segundos relativos a la escena): ¿Querés -0.00 · tener 0.20 · ese 0.40 · gesto 0.60 · con 0.90 · cada 1.10 · cliente? 1.40 · Agendá 2.16 · una 2.60
+### s10-gesto — dura 2.74 s (inicio global 31.63)
+Palabras (segundos relativos a la escena): ¿Querés -0.00 · tener 0.33 · ese 0.62 · gesto 0.83 · con 1.12 · cada 1.33 · cliente? 1.58 · Agendá 2.16 · una 2.60
 
-### s11-llamada — dura 2.70 s (inicio global 33.74)
+### s11-llamada — dura 2.99 s (inicio global 34.37)
 Palabras (segundos relativos a la escena): videollamada 0.00 · gratis 0.64 · en 0.98 · scalerics.com. 1.12
 
-Duración total 36.44 (la voz termina en 36.32).
+Duración total 37.36 (la voz termina en 37.24).

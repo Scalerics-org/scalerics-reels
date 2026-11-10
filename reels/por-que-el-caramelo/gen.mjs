@@ -126,12 +126,12 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
   cred: [540, 1590], credLead: [560, 1530, 700, 1130],
-  pocoMas: [300, 690], pocoLead: [300, 740, 300, 830],
-  mas: [870, 760], masLead: [800, 800, 720, 850],
-  dosJuntos: [250, 1180], laQueMas: [700, 1680],
+  pocoMas: [400, 640], pocoLead: [425, 690, 428, 790],
+  mas: [880, 620], masLead: [840, 660, 690, 750],
+  dosJuntos: [250, 1180], unoMasUno: [790, 1180], laQueMas: [700, 1680],
   gesto: [300, 1520], gestoLead: [330, 1470, 520, 1215],
-  ruben: [200, 660],
-  burbuja: [540, 300], colita: 42,
+  ruben: [150, 650],
+  burbuja: [540, 360], colita: 19,
 };
 
 // ================= s01 · gancho (cuadro 0 = portada): el platito con la cuenta y el caramelo =================
@@ -139,7 +139,8 @@ const POS = {
   const id = "s01-gancho";
   escena(id, {
     css: `${CSS_MK}
-    P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} color: ${NAVY}; }
+    P .h { position: absolute; left: 0; right: 0; text-align: center; ${TIT} color: ${NAVY}; -webkit-text-stroke: 16px #efeee5; paint-order: stroke fill; }
+    P .h .mk { -webkit-text-stroke: 0; }
     P .h1 { top: 150px; font-size: 104px; font-weight: 800; letter-spacing: -0.03em; } P .h2 { top: 286px; font-size: 140px; } P .h3 { top: 450px; font-size: 118px; }`,
     html: `
       <div class="h h1">¿Por qué te traen</div>
@@ -151,7 +152,7 @@ const POS = {
       late(".h3", ${w(id, 8)}, 1.05);
       tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: w(id, 5) - 0.03, sfx: "pop", vol: 0.3 }, { t: w(id, 5) + 0.02, sfx: "papel-fuerte", vol: 0.5, max: 0.3 },
+      { t: w(id, 5) - 0.03, sfx: "pop", vol: 0.3 }, { t: w(id, 5) + 0.02, sfx: "papel-fuerte", vol: 0.55, max: 0.3, full: 1 },
     ],
   });
 }
@@ -176,14 +177,14 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
 // ================= s03 · con uno, subió un poco; con dos, más (las pilas de monedas) =================
 {
   const id = "s03-uno-dos";
-  const llega1 = 0.62, dos = w(id, 21) - 0.1;
+  const llega1 = 0.55, dos = w(id, 21) - 0.1;
   const [px, py] = POS.pocoMas, [pa, pb, pc, pd] = POS.pocoLead, [mx, my] = POS.mas, [ma, mb, mc, md] = POS.masLead;
   escena(id, {
     html: `${leads(lead(1, pa, pb, pc, pd, "g"), lead(2, ma, mb, mc, md, "g"))}${pill(1, px, py, "Un poco más", "g nom")}${pill(2, mx, my, "Más", "lleno grande")}`,
     js: `nota(1, ${r2(llega1 + 0.75)}); sinNota(1, ${r2(ESC[id] - 0.3)}); nota(2, ${r2(w(id, 22) - 0.05)}); sinNota(2, ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh", vol: 0.4 },
-      ...pings(0.1, 0.36, 4),
+
       { t: llega1 - 0.02, sfx: "pop", vol: 0.3 },
       ...pings(llega1 + 0.02, 0.5, 4),
       { t: llega1 + 0.75, sfx: "click-soft", vol: 0.3 },
@@ -200,11 +201,11 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
   const dar = w(id, 27) - 0.15, amaga = w(id, 29) - 0.02, vuelve = w(id, 32) - 0.02, latigo = w(id, 35) + 0.05;
   vacia(id, [
     { t: -0.08, sfx: "whoosh-short", vol: 0.3 },
-    { t: dar + 0.38, sfx: "pop", vol: 0.25 }, { t: dar + 0.4, sfx: "papel-fuerte", vol: 0.25, max: 0.25 },
+    { t: dar + 0.38, sfx: "pop", vol: 0.25 }, { t: dar + 0.4, sfx: "papel-fuerte", vol: 0.6, max: 0.25, full: 1 },
     { t: amaga, sfx: "whoosh-short", vol: 0.3 },
-    { t: amaga + 0.4, sfx: "tac-real", vol: 0.4 },
-    { t: vuelve, sfx: "tic-real", vol: 0.45 }, { t: vuelve + 0.06, sfx: "whoosh-short", vol: 0.2 },
-    { t: vuelve + 0.3, sfx: "pop", vol: 0.25 }, { t: vuelve + 0.33, sfx: "papel-fuerte", vol: 0.3, max: 0.25 },
+    { t: amaga + 0.4, sfx: "tac-real", vol: 0.65, full: 1 },
+    { t: vuelve, sfx: "tic-real", vol: 0.65, full: 1 }, { t: vuelve + 0.06, sfx: "whoosh-short", vol: 0.2 },
+    { t: vuelve + 0.3, sfx: "pop", vol: 0.25 }, { t: vuelve + 0.33, sfx: "papel-fuerte", vol: 0.6, max: 0.25, full: 1 },
     { t: latigo - 0.05, sfx: "whoosh", vol: 0.45 },
     { t: latigo + 0.3, sfx: "pop", vol: 0.25 }, { t: latigo + 0.5, sfx: "pop", vol: 0.25 },
   ]);
@@ -213,11 +214,11 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
 // ================= s05 · los mismos dos caramelos (plano general de las 4 pilas; los dos pares y el "=") =================
 {
   const id = "s05-mismos";
-  const [dx, dy] = POS.dosJuntos, [lx, ly] = POS.laQueMas;
+  const [dx, dy] = POS.dosJuntos, [ux, uy] = POS.unoMasUno, [lx, ly] = POS.laQueMas;
   const t0 = r2(T(35) + 0.05 + 0.62 - INI[id]), verde = r2(t0 + 23 * 0.017 + 0.12), sube = r2(w(id, 38) + 0.05), mismos = r2(w(id, 38) + 0.45);
   escena(id, {
-    html: `${pill(1, dx, dy, "Dos juntos", "nom")}${pill(2, lx, ly, "Uno + uno: la que más", "lleno nom")}`,
-    js: `nota(2, ${r2(verde + 0.02)}); sinNota(2, ${r2(sube - 0.05)}); nota(1, ${r2(mismos + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.15)});`,
+    html: `${leads(lead(1, dx, dy - 40, dx, dy - 150, "g"), lead(3, ux, uy - 40, ux, uy - 110, "g"))}${pill(1, dx, dy, "Dos juntos", "nom")}${pill(3, ux, uy, "Uno + uno", "nom")}${pill(2, lx, ly, "Uno + uno: la que más", "lleno nom")}`,
+    js: `nota(2, ${r2(verde + 0.02)}); sinNota(2, ${r2(sube - 0.05)}); nota(1, ${r2(mismos + 0.1)}); nota(3, ${r2(mismos + 0.25)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       ...pings(t0, 0.36, 4),
       { t: verde, sfx: "ding", vol: 0.35, max: 0.8 },
@@ -249,11 +250,11 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
   const id = "s07-quien";
   const [rx, ry] = POS.ruben;
   escena(id, {
-    html: `${pill(1, rx, ry, "Rubén", "nom")}`,
-    js: `pop(".n1", 1.45); fuera(".n1", ${r2(ESC[id] - 0.12)}, 0.08);`,
+    html: `${leads(lead(1, rx, ry + 40, rx + 2, ry + 235, "g"))}${pill(1, rx, ry, "Rubén", "nom")}`,
+    js: `nota(1, 1.45); sinNota(1, ${r2(ESC[id] - 0.15)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.4 },
-      { t: 0.85, sfx: "ping", vol: 0.5, max: 0.6 }, { t: 0.86, sfx: "tic-real", vol: 0.4 },
+      { t: 0.0, sfx: "whoosh", vol: 0.12 },
+      { t: 0.03, sfx: "whoosh-short", vol: 0.15 }, { t: 0.58, sfx: "ping", vol: 0.5, max: 0.6 }, { t: 0.59, sfx: "tic-real", vol: 0.65, full: 1 },
       { t: 1.1, sfx: "campanita", vol: 0.25, max: 0.8 },
       ...[0, 1, 2, 3, 4].map((k) => ({ t: r2(w(id, 56) - 0.05 + k * 0.07), sfx: "pop", vol: 0.25 })),
     ],
@@ -264,7 +265,7 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
 vacia("s08-ficha", [
   { t: -0.05, sfx: "whoosh-short", vol: 0.3 },
   { t: w("s08-ficha", 59) + 0.05, sfx: "click", vol: 0.4 }, { t: w("s08-ficha", 59) + 0.1, sfx: "whoosh-short", vol: 0.15 },
-  { t: w("s08-ficha", 63) - 0.05, sfx: "vibra", vol: 1.0, max: 0.45 }, { t: w("s08-ficha", 63) + 0.02, sfx: "notification", vol: 0.4, max: 0.7 },
+  { t: w("s08-ficha", 63) - 0.05, sfx: "vibra-fuerte", vol: 0.6, max: 0.45, full: 1 }, { t: w("s08-ficha", 63) + 0.02, sfx: "notification", vol: 0.4, max: 0.7 },
   { t: w("s08-ficha", 64) - 0.02, sfx: "pop", vol: 0.25 }, { t: w("s08-ficha", 67) - 0.02, sfx: "sparkle", vol: 0.3, max: 0.5 }, { t: w("s08-ficha", 67), sfx: "pop", vol: 0.2 },
 ]);
 
@@ -282,11 +283,11 @@ vacia("s08-ficha", [
     js: `tl.set(q(".burb"), { opacity: 1 }, ${r2(tH)}); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ${r2(tH)}); tl.to(q(".burb"), { opacity: 0, duration: 0.06 }, ${r2(tC - 0.06)});`,
     sfx: [
       { t: -0.06, sfx: "whoosh-short", vol: 0.3 },
-      { t: daR + 0.3, sfx: "pop", vol: 0.25 }, { t: daR + 0.72, sfx: "papel-fuerte", vol: 0.4, max: 0.3 }, { t: daR + 0.74, sfx: "pop", vol: 0.2 },
+      { t: daR + 0.3, sfx: "pop", vol: 0.25 }, { t: daR + 0.72, sfx: "papel-fuerte", vol: 0.6, max: 0.3, full: 1 }, { t: daR + 0.74, sfx: "pop", vol: 0.2 },
       { t: mira + 0.05, sfx: "click-soft", vol: 0.3 }, { t: mira + 0.08, sfx: "sparkle", vol: 0.25, max: 0.5 },
       { t: vuelve - 0.03, sfx: "pop", vol: 0.35 }, { t: vuelve, sfx: "whoosh-short", vol: 0.25 }, { t: vuelve + 0.02, sfx: "ding", vol: 0.35, max: 0.6 },
       { t: vuelve + 0.55, sfx: "pop", vol: 0.3 },
-      { t: toma, sfx: "papel-fuerte", vol: 0.4, max: 0.3 }, { t: toma + 0.02, sfx: "pop", vol: 0.2 },
+      { t: toma, sfx: "papel-fuerte", vol: 0.6, max: 0.3, full: 1 }, { t: toma + 0.02, sfx: "pop", vol: 0.2 },
       { t: tC - 0.02, sfx: "whoosh-short", vol: 0.2 }, { t: tC + 0.25, sfx: "chime", vol: 0.4, max: 0.8 },
     ],
   });
@@ -325,7 +326,7 @@ vacia("s08-ficha", [
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: w(id, 93) - 0.02, sfx: "key-press", vol: 0.6 }, { t: w(id, 95) - 0.03, sfx: "chime", vol: 0.5, max: 1.2 },
+      { t: w(id, 95) - 0.03, sfx: "chime", vol: 0.5, max: 1.2 },
     ],
   });
 }

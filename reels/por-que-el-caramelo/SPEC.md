@@ -37,6 +37,11 @@ sombra suave; nada de degradés ni brillos (compresión de Instagram). Cierre en
   s09 en plano a dos (Rubén da uno al platito, mira la tablet, el segundo vuela de la tablet a su palma abierta y
   Graciela lo toma); contraplano de Graciela con estantes atrás y el caramelo en el pecho; s05 los dos pares grandes
   con "=" y las pilas abajo; el "?" sale entero hacia arriba; el caramelo del cierre es crema con rayas verdes.
+- Ronda 2 (última): 37,36 s (s10 31,63 · s11 34,37, tarjeta 2,99 s). Transiciones simplificadas a cortes: platito → las 4
+  pilas (el caramelo entra cayendo desde arriba del cuadro), moza ↔ pilas, moza → frasco (plano desde atrás del mostrador,
+  el caramelo cae adentro, la fila fuera de cuadro) → plano general de la fila. Sin cámara de seguimiento. Pilas más altas
+  (monedas de 0,1); en s05 las pilas se hunden y quedan los dos pares con rótulo y línea cada uno. "?" completo con su
+  punto y el caramelo abajo. Moza con coleta alta, en 3/4. Sin el cartel "ALMACÉN". Servilletas con volumen.
 
 ## Lo que cambia respecto de SPEC-base
 Todo lo dibujado es 3D (no líneas SVG). Subtítulos arriba al centro, 1 a 3 palabras, Lexend 700 ~86 px crema con
