@@ -34,7 +34,14 @@ Un dulce de leche ✓"), el "+20 ✓" de Graciela y la línea chica final.
 
 ## Tomas elegidas (10-11) · recortadas en partes/rec, finales en assets/voice
 Héctor Sadaltager (tono "jubilado canchero"): hector-1-b, hector-2-a, hector-3-b (pausa Dejá/Quedate recortada a 0,26 s),
-hector-4-b (atempo 1,12), hector-5-b, hector-6-a (pareja de hector-2-a), hector-7-b (atempo 1,1). Rubén Algenib: ruben-1-a
+hector-4-b (atempo 1,12), hector-5-b, hector-6-a (pareja de hector-2-a) [hector-7 fuera en la ronda 1]. Rubén Algenib: ruben-1-a
 (atempo 1,1), ruben-2-a. Graciela Gacrux: graciela-1-a (pausa tras "Rubén," a 0,26 s, atempo 1,15), graciela-2-a.
 Narrador Rasalgethi: narrador-b (2,26 s). Todas verificadas con tiempos.mjs ("oyó:" coincide; "hacés" sale "hace" por la
 s aspirada uruguaya).
+
+## Ronda 1 (10-11)
+- hector-3: rearmada desde hector-3-b con una pausa real de 0,5 s entre "Dejá." y "Quedate con el vuelto." (assets/voice/hector3.wav,
+  2,30 s; "Quedate" en +1,25). La burbuja cambia con la voz.
+- hector-7 fuera (Héctor sale sin hablar).
+- narrador.txt nuevo: "Una tarjeta de puntos más tarde." · Rasalgethi, toma narrador-d (2,06 s), verificada con tiempos.mjs
+  ("oyó: una tarjeta de puntos más tarde": Una 0 · tarjeta 0,2 · de 0,6 · puntos 0,8 · más 1,1 · tarde 1,5).

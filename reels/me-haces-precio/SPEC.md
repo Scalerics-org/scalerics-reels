@@ -180,3 +180,40 @@ Graciela tienen que llenar el centro; el marco de la puerta y los estantes relle
 Parte 1 16,4 s + cartel 3,0 s + parte 2 12,5 s = **31,9 s**. Voces: Héctor ×7 (Sadaltager), Rubén ×2 (Algenib:
 "Ciento noventa y cinco." / "Doscientos."), Graciela ×2 (Gacrux: "¿me hacés precio?" / "¿me hacés puntos?"), narrador
 del cartel (Rasalgethi: "Unos puntos más tarde.").
+
+## RONDA 1 DE REVISIÓN (10-11): lo que cambió y los tiempos nuevos (mandan sobre las tablas de arriba)
+Duración **33,09 s**: parte 1 0-18,72 · cartel 18,72-21,42 (2,7 s) · parte 2 21,42-33,09.
+- **Fuera:** P3b entero (monedas, termo vacío) y hector-7 ("¡Pagué doscientos y me llevo dos!": Héctor sale mostrando los dos
+  potes sin hablar). El tercer escalón del regateo queda en P3a: sentado, sacude el monedero abierto: burbuja "Tengo ciento
+  noventa en monedas." (con el tintineo).
+- **P6:** "Dejá." sola (104 px) → pausa real de 0,5 s en la voz (sin burbuja nueva) → "Quedate con el vuelto." en otra burbuja
+  más grande (96 px) con pop; en la palabra "vuelto" el 195 rojo crece al centro y rueda de vuelta a **$ 200 crema** con
+  key-press seco (pagó el precio entero). En P6b el "$ 200" crema queda arriba a la derecha.
+- **P7 se parte en P7 (puerta, "¡Me lo dejó en…!") y P7c (Graciela de cerca, desde atrás del mostrador: "Rubén, ¿me hacés
+  precio?").** Q4 se parte en Q4 (puerta: Héctor sale, Graciela entra y empieza "Rubén, ¿me hacés puntos?" con el celular en
+  alto) y Q4b (Graciela y Rubén en el mostrador: el lector, "+20 ✓", línea chica).
+- **Tarjeta del celular:** "180 / 200 puntos" · barra · "Esta compra: +20" · "Premio a las 10 compras: un dulce de leche".
+- **Q2b:** ficha verde "Héctor: 5 veces esta semana" (abajo a la izquierda, cola a la tablet, sin tapar la cara).
+- **Cartel:** "Una tarjeta / de puntos / más tarde…" (3 líneas), voz nueva de Rasalgethi (2,06 s).
+- **Línea chica:** "Scalerics Puntos: que ganen sin que bajes el precio" · "scalerics.com".
+
+| plano | desde | hasta | dur |
+|---|---|---|---|
+| P1 Héctor 3/4 + gancho | 0,00 | 1,85 | 1,85 |
+| P2 Rubén de frente "Doscientos." | 1,85 | 2,95 | 1,10 |
+| P3a general de perfil (180, 190, banquito, monedero) | 2,95 | 6,05 | 3,10 |
+| P4 Rubén "Ciento noventa y cinco." (rodillo 7,55) | 6,05 | 8,20 | 2,15 |
+| P5 PUÑO "¡Hecho!" + choque de manos | 8,20 | 9,40 | 1,20 |
+| P6 billete, latita, música cortada 10,10, "Dejá." 10,45 · "Quedate…" 11,70 · 195→200 12,25 | 9,40 | 12,85 | 3,45 |
+| P6b Rubén con la moneda | 12,85 | 13,68 | 0,83 |
+| P7 puerta "¡Me lo dejó en ciento noventa y cinco!" 13,93 | 13,68 | 16,05 | 2,37 |
+| P7c Graciela "Rubén, ¿me hacés precio?" 16,15 | 16,05 | 18,07 | 2,02 |
+| P7b la frente en el mostrador (golpe 18,47) | 18,07 | 18,72 | 0,65 |
+| CARTEL "Una tarjeta de puntos más tarde…" | 18,72 | 21,42 | 2,70 |
+| Q1 "¿Me hac…", vibra 22,02 | 21,42 | 22,47 | 1,05 |
+| Q1b la tarjeta del celular | 22,47 | 23,67 | 1,20 |
+| Q2 "¿Cuánto es?" 23,77 | 23,67 | 24,47 | 0,80 |
+| Q2b Rubén "Doscientos." 24,57 + ficha | 24,47 | 25,69 | 1,22 |
+| Q3 "¡Pago!", tilde, +20, ¡Premio!, PUÑO "¡Gané!" 27,09, segundo pote 27,84 | 25,69 | 28,19 | 2,50 |
+| Q4 puerta: Héctor sale con los dos potes; "Rubén, ¿me hacés puntos?" 29,14 | 28,19 | 29,79 | 1,60 |
+| Q4b lector 31,29, "+20 ✓" 31,44, línea chica 31,64 | 29,79 | 33,09 | 3,30 |

@@ -1,13 +1,12 @@
 {
- "t": 0.8,
+ "t": 0.6,
  "chica": "En algo de $ 200:",
  "grande": "¿Me hacés precio?",
- "sello": "Precio: $ 200",
+ "sello": "Por deporte",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.25,
  "foco": "30%",
  "velo": "11,18,32",
- "fondo": "#0b1220",
- "nota": "tentativo: fondo de un cuadro limpio (LIMPIO=1 node gen.mjs) de P1 ~0,8 s, Héctor con el pote y la etiqueta $ 200; alternativa P6b ~12,6 s (Rubén con la moneda de 5). Afinar t, zoom y foco mirando la hoja de cuadros."
+ "fondo": "#0b1220"
 }

@@ -1,23 +1,22 @@
 [sin narrador Orus: el chiste va en burbujas, la etiqueta "$ 200", los números del regateo y la tarjeta de puntos del celular; voces por archivo en partes/*.txt, ver partes/voces.md y fuentes.md]
 [parte 1 · almacén de Rubén, pared navy oscuro y luz cálida · Héctor (nuevo: jubilado canchero, boina, chaleco mostaza, monedero de cuero) con un pote de dulce de leche con etiqueta "$ 200"]
 HECTOR: ¿Me hacés precio?
-[parte 1 · regateo en burbujas: RUBEN "Doscientos." · HECTOR "¿Ciento ochenta?" · RUBEN "Doscientos." · HECTOR "¿Ciento noventa? Vengo todos los días." · RUBEN "Doscientos." · Héctor se arrima un banquito y se sienta · abre el monedero y apila monedas: "Tengo ciento noventa en monedas." · Rubén inclina el termo: no sale nada]
+[parte 1 · regateo en burbujas: RUBEN "Doscientos." · HECTOR "¿Ciento ochenta?" · RUBEN "Doscientos." · HECTOR "¿Ciento noventa? Vengo todos los días." · RUBEN "Doscientos." · Héctor se arrima un banquito y se sienta · sacude el monedero abierto: "Tengo ciento noventa en monedas."]
 RUBEN: Ciento noventa y cinco.
 HECTOR: ¡Hecho!
 [choque de manos · Héctor apoya un billete de 200 · Rubén abre la latita y saca una moneda de 5 para el vuelto · la música se corta · pausa]
-HECTOR: Dejá. Quedate con el vuelto.
+HECTOR: Dejá. [pausa] Quedate con el vuelto.
 [Rubén con la moneda de 5 en la mano, cara de nada]
 [remate del remate · en la puerta, Héctor se cruza con Graciela y le muestra el pote]
 HECTOR: ¡Me lo dejó en ciento noventa y cinco!
 GRACIELA: Rubén, ¿me hacés precio?
 [Rubén apoya la frente en el mostrador (golpe sordo)]
-NARRADOR: Unos puntos más tarde.
+NARRADOR: Una tarjeta de puntos más tarde.
 [parte 2 · Héctor vuelve con el mismo pote, burbuja "¿Me hac…" cortada · le vibra el celular: su tarjeta del almacén "Héctor · 180 / 200 puntos · Premio: un dulce de leche"]
 HECTOR: ¿Cuánto es?
 RUBEN: Doscientos.
 [Héctor pone el billete al toque, burbuja "¡Pago!" · celular "+20 puntos" · la barra se llena · "¡Premio! Un dulce de leche ✓" · el mismo puño arriba]
 HECTOR: ¡Gané!
-[Rubén apoya el segundo pote · el banquito queda vacío, sin monedas · en la puerta Héctor con los dos potes]
-HECTOR: ¡Pagué doscientos y me llevo dos!
+[Rubén apoya el segundo pote · el banquito queda vacío · Héctor sale por la puerta con los dos potes en alto, sin hablar]
 GRACIELA: Rubén, ¿me hacés puntos?
-[Rubén, con media sonrisa, le acerca el lector al celular de Graciela: "+20 ✓" · línea chica: "Scalerics Puntos: tus clientes suman y vuelven" · "scalerics.com"]
+[Rubén, con media sonrisa, le acerca el lector al celular de Graciela: "+20 ✓" · línea chica: "Scalerics Puntos: que ganen sin que bajes el precio" · "scalerics.com"]

@@ -16,42 +16,48 @@ const r2 = (n) => Math.round(n * 100) / 100;
 
 // ================= LOS BEATS (segundos del video final) =================
 // Las voces (assets/voice/*.wav) ya vienen recortadas (y algunas aceleradas: ver partes/voces.md). Duraciones:
-// hector1 1,06 · hector2 0,97 · hector3 2,05 ("Dejá." 0 · "Quedate" 1,0) · hector4 2,04 · hector5 0,62 · hector6 0,87 ·
-// hector7 1,83 · ruben1 1,69 ("cinco" +0,95) · ruben2 1,02 · graciela1 1,87 · graciela2 2,10 · narrador 2,26
-const P1 = 19.5;          // termina la parte 1 (arranca el cartel)
-const P2 = 22.5;          // arranca la parte 2 (termina el iris del cartel): cartel de 3,0 s
-const T = {
-  // ---- parte 1 ----
-  // P1 · Héctor de 3/4 con el pote y la etiqueta "$ 200": "¿Me hacés precio?"
-  h1: 0.25,
-  // P2 · contraplano: Rubén de frente, sorbe el mate, "Doscientos."
-  p2: 1.85, sorbo1: 1.92, bDos1: 2.3,
-  // P3a · general de perfil: el duelo de números (180 y 190 chocan contra el 200, se tachan y caen), el banquito
-  p3a: 2.95, b180: 3.05, bDos2: 3.65, b190: 4.1, bDos3: 4.8, banco: [4.95, 5.3], sienta: [5.25, 5.5],
-  // P3b · primer plano del mostrador: el monedero, las monedas en tres torres, el termo que no tira nada
-  p3b: 5.55, abre: 5.6, monedas: [5.7, 6.3], bMon: 5.85, termo: [6.35, 6.6, 6.8, 6.95],
-  // P4 · primer plano de Rubén: cierra los ojos, "Ciento noventa y cinco.", el 200 rueda a 195
-  p4: 7.0, ojos: [7.05, 7.35], r1: 7.4, rodillo: 8.5,
-  // P5 · plano medio de Héctor: se para, PUÑO "¡Hecho!", choque de manos
-  p5: 9.15, puno: 9.2, h2: 9.25, mano: [9.6, 9.88], palmada: 9.88,
-  // P6 · el mostrador: el billete, la latita, la moneda de 5; se corta la música; "Dejá. Quedate con el vuelto."
-  p6: 10.35, billete: 10.42, latita: 10.68, moneda: [10.85, 11.1], corte: 11.15, deja: 11.4, h3: 11.5,
-  // P6b · Rubén con la moneda de 5, cara de nada
-  p6b: 13.62,
-  // P7 · general hacia la puerta: Héctor sale con el pote, se cruza con Graciela; "¡Me lo dejó en…!"; "Rubén, ¿me hacés precio?"
-  p7: 14.45, campana: 14.5, h4: 14.7, hSale: [16.6, 17.5], g1: 16.95,
-  // P7b · primer plano de Rubén: apoya la frente en el mostrador
-  p7b: 18.85, frente: [18.95, 19.25],
-  // ---- parte 2 ----
-  q1: P2, bMeHac: 22.8, vibra: 23.25, saca: [23.35, 23.75],
-  q1b: 23.85, noti: 23.9, late: 24.4,
-  q2: 25.15, h5: 25.25,
-  q2b: 25.95, r2: 26.05,
-  q3: 27.2, pago: 27.3, tilde: 27.5, mas20: 27.8, premio: 28.35, puno2: 28.7, h6: 28.75, pote2: 29.55,
-  q4: 30.05, campana2: 30.1, h7: 30.25, hSale2: [31.95, 32.75], g2: 32.2, scan: 34.35, ok20: 34.5,
-  cierre: 34.75,
-};
-const DUR = 36.35;
+// hector1 1,06 · hector2 0,97 · hector3 2,30 ("Dejá." 0 · pausa de 0,5 s · "Quedate" +1,25) · hector4 2,04 ·
+// hector5 0,62 · hector6 0,87 · ruben1 1,69 ("cinco" +0,95) · ruben2 1,02 · graciela1 1,87 · graciela2 2,10 ·
+// narrador 2,06 ("Una tarjeta de puntos más tarde.": tarjeta +0,2 · puntos +0,8 · más +1,1 · tarde +1,5)
+// Ronda 1 de revisión: sin P3b (monedas y termo) ni hector7; el cartel dura 2,7 s. Todos los beats en cadena.
+const QUEDATE = 1.25, LEN = { h3: 2.3, h4: 2.04, g1: 1.87, r1: 1.69, h5: 0.62, r2: 1.02, h6: 0.87, g2: 2.1 };
+const T = {};
+// ---- parte 1 ----
+// P1 · Héctor de 3/4 con el pote y la etiqueta "$ 200": "¿Me hacés precio?"
+T.h1 = 0.25;
+// P2 · contraplano: Rubén de frente, sorbe el mate, "Doscientos."
+T.p2 = 1.85; T.sorbo1 = 1.92; T.bDos1 = 2.3;
+// P3a · general de perfil: el duelo de números (180 y 190 chocan contra el 200, se tachan y caen), el banquito, y el
+// tercer escalón: sentado, sacude el monedero: "Tengo ciento noventa en monedas."
+T.p3a = 2.95; T.b180 = 3.05; T.bDos2 = 3.6; T.b190 = 4.05; T.bDos3 = 4.6; T.banco = [4.75, 5.05]; T.sienta = [5.0, 5.25]; T.bMon = 5.3;
+// P4 · primer plano de Rubén: cierra los ojos, "Ciento noventa y cinco.", el 200 rueda a 195
+T.p4 = 6.05; T.ojos = [6.1, 6.4]; T.r1 = 6.45; T.rodillo = r2(T.r1 + 1.1);
+// P5 · plano medio de Héctor: se para, PUÑO "¡Hecho!", choque de manos
+T.p5 = r2(T.r1 + LEN.r1 + 0.06); T.puno = r2(T.p5 + 0.05); T.h2 = r2(T.p5 + 0.1); T.mano = [r2(T.p5 + 0.45), r2(T.p5 + 0.73)]; T.palmada = T.mano[1];
+// P6 · el mostrador: billete, latita, la moneda de 5; se corta la música; "Dejá." · pausa · "Quedate con el vuelto."
+// (otra burbuja, más grande); el 195 rueda de vuelta a $ 200 crema: pagó el precio entero
+T.p6 = r2(T.p5 + 1.2); T.billete = r2(T.p6 + 0.07); T.latita = r2(T.p6 + 0.3); T.moneda = [r2(T.p6 + 0.4), r2(T.p6 + 0.65)]; T.corte = r2(T.p6 + 0.7);
+T.deja = r2(T.p6 + 0.95); T.h3 = r2(T.p6 + 1.05); T.quedate = r2(T.h3 + QUEDATE); T.rodillo2 = r2(T.quedate + 0.55);
+// P6b · Rubén con la moneda de 5, cara de nada
+T.p6b = r2(T.h3 + LEN.h3 + 0.1);
+// P7 · general hacia la puerta: Héctor sale con el pote, se cruza con Graciela: "¡Me lo dejó en…!" · P7c · Graciela
+T.p7 = r2(T.p6b + 0.83); T.campana = r2(T.p7 + 0.05); T.h4 = r2(T.p7 + 0.25); T.hSale = [r2(T.h4 + 1.85), r2(T.h4 + 2.75)];
+T.p7c = r2(T.h4 + LEN.h4 + 0.08); T.g1 = r2(T.p7c + 0.1);
+// P7b · Rubén apoya la frente en el mostrador
+T.p7b = r2(T.g1 + LEN.g1 + 0.05); T.frente = [r2(T.p7b + 0.1), r2(T.p7b + 0.4)];
+const P1 = r2(T.p7b + 0.65);   // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + 2.7);       // arranca la parte 2 (termina el iris del cartel): cartel de 2,7 s
+// ---- parte 2 ----
+T.q1 = P2; T.bMeHac = r2(P2 + 0.27); T.vibra = r2(P2 + 0.6); T.saca = [r2(P2 + 0.67), r2(P2 + 1.0)];
+T.q1b = r2(P2 + 1.05); T.noti = r2(P2 + 1.1); T.late = r2(P2 + 1.6);
+T.q2 = r2(P2 + 2.25); T.h5 = r2(T.q2 + 0.1);
+T.q2b = r2(T.h5 + LEN.h5 + 0.08); T.r2 = r2(T.q2b + 0.1);
+T.q3 = r2(T.r2 + LEN.r2 + 0.1); T.pago = r2(T.q3 + 0.1); T.tilde = r2(T.q3 + 0.3); T.mas20 = r2(T.q3 + 0.55); T.premio = r2(T.q3 + 1.05);
+T.puno2 = r2(T.q3 + 1.35); T.h6 = r2(T.q3 + 1.4); T.pote2 = r2(T.q3 + 2.15);
+// Q4 · Héctor sale con los dos potes en alto (sin hablar) y Graciela entra; "Rubén, ¿me hacés puntos?" · Q4b · el lector
+T.q4 = r2(T.q3 + 2.5); T.campana2 = r2(T.q4 + 0.05); T.hSale2 = [r2(T.q4 + 0.15), r2(T.q4 + 1.0)]; T.g2 = r2(T.q4 + 0.95);
+T.q4b = r2(T.q4 + 1.6); T.scan = r2(T.g2 + LEN.g2 + 0.05); T.ok20 = r2(T.scan + 0.15); T.cierre = r2(T.ok20 + 0.2);
+const DUR = r2(T.cierre + 1.45);
 
 // palabras de las líneas de Rubén (relativas al inicio de cada archivo)
 const LINEA1 = [["Ciento", 0.0], ["noventa", 0.32], ["y", 0.64], ["cinco.", 0.95]];
@@ -69,7 +75,7 @@ function envolvente(archivo) {
   const mx = Math.max(...env);
   return env.map((v) => { const k = v / mx; return r2(k < 0.1 ? 0 : Math.pow(k, 0.8)); });
 }
-const VOCES = ["hector1", "hector2", "hector3", "hector4", "hector5", "hector6", "hector7", "ruben1", "ruben2", "graciela1", "graciela2"];
+const VOCES = ["hector1", "hector2", "hector3", "hector4", "hector5", "hector6", "ruben1", "ruben2", "graciela1", "graciela2"];
 const ENV = Object.fromEntries(VOCES.map((v) => [v, envolvente(`assets/voice/${v}.wav`)]));
 fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const ENV = ${JSON.stringify(ENV)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin números, globos ni rótulos (fondo de la portada)\n`);
 
@@ -127,8 +133,7 @@ const GANCHO = { cola: 560, rot: 14 };
     P .cola::after { content: ""; position: absolute; left: -30px; top: -98px; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 62px solid ${CR}; }`,
     html: `      <div class="glo"><div class="tx">¿Me hacés<br><span class="sel"><b></b><em>precio?</em></span></div><div class="cola"></div></div>`,
     js: `      tl.fromTo(q(".glo"), { scale: 1 }, { scale: 1.06, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${T.h1});
-      tl.fromTo(q(".sel b"), { scaleX: 1.2, scaleY: 1.35 }, { scaleX: 1, scaleY: 1, duration: 0.28, ease: "power3.out", immediateRender: false }, ${r2(T.h1 + 0.32)});
-      tl.to(q(".glo"), { opacity: 0, scale: 0.85, duration: 0.12, ease: "power2.in" }, ${r2(dur - 0.13)});`,
+      tl.fromTo(q(".sel b"), { scaleX: 1.2, scaleY: 1.35 }, { scaleX: 1, scaleY: 1, duration: 0.28, ease: "power3.out", immediateRender: false }, ${r2(T.h1 + 0.32)});`,   // sin fundido: el corte a P2 es seco (y el chequeo de contraste no mide la burbuja a medio desaparecer)
   });
 }
 
@@ -161,7 +166,7 @@ function linea(id, vozT, palabras, clave, fin, top = 1420) {
 linea("s01-linea", T.r1, LINEA1, 3, T.p5 - 0.02);
 linea("s02-linea", T.r2, LINEA2, 0, T.q3 - 0.02, 190);
 
-// el cartel "Unos puntos más tarde…" (time card de dibujito, de marca, hecho de cero; el mismo de abren-hoy-completo,
+// el cartel "Una tarjeta de puntos más tarde…" (time card de dibujito, de marca, hecho de cero; el mismo de abren-hoy-completo,
 // me-lo-guardas y el-audio, con el texto nuevo en dos líneas). Va DEBAJO del canvas: el canvas se va girando (último
 // cuadro de la parte 1) y vuelve abriéndose en un iris (primer cuadro de la parte 2). No dice "Scalerics".
 {
@@ -174,9 +179,10 @@ linea("s02-linea", T.r2, LINEA2, 0, T.q3 - 0.02, 190);
     css: `
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
     P svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
-    P .texto { position: absolute; left: 0; right: 0; top: 690px; text-align: center; transform: rotate(-4deg); }
+    P .texto { position: absolute; left: 0; right: 0; top: 560px; text-align: center; transform: rotate(-4deg); }
     P .linea { display: block; font: 900 136px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    P .linea.b { font-size: 146px; margin-top: 18px; }
+    P .linea.b { font-size: 136px; margin-top: 12px; }
+    P .linea.c { font-size: 150px; margin-top: 24px; }
     P .l { display: inline-block; position: relative; color: ${CR}; -webkit-text-stroke: 16px ${NAVY}; paint-order: stroke fill; text-shadow: 0 16px 0 ${NAVY}, 10px 16px 0 ${NAVY}; }
     P .esp { display: inline-block; width: 0.32em; }`,
     html: `      <div class="fondo"></div>
@@ -199,8 +205,9 @@ linea("s02-linea", T.r2, LINEA2, 0, T.q3 - 0.02, 190);
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        ${lin("a", [["Unos", 0.2], ["puntos", 0.55]])}
-        ${lin("b", [["más", 1.15], ["tarde…", 1.45]])}
+        ${lin("a", [["Una", 0.2], ["tarjeta", 0.4]])}
+        ${lin("b", [["de", 0.8], ["puntos", 0.95]])}
+        ${lin("c", [["más", 1.3], ["tarde…", 1.6]])}
       </div>`,
     js: `      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: ${dur}, ease: "sine.inOut", immediateRender: true }, 0);
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: ${dur}, ease: "none", immediateRender: true }, 0));
@@ -226,7 +233,7 @@ linea("s02-linea", T.r2, LINEA2, 0, T.q3 - 0.02, 190);
     P .caja { position: absolute; left: 60px; right: 60px; top: 1450px; padding: 26px 30px 30px; border-radius: 30px; background: rgba(11,18,32,0.96); border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Scalerics Puntos: tus clientes</div><div class="a">suman y vuelven</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Scalerics Puntos: que ganen</div><div class="a">sin que bajes el precio</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -265,10 +272,8 @@ for (const t of [T.b180, T.b190]) {
 s("sfx/papel.wav", T.banco[0], 0, { desde: 0.0, dur: 0.42, fin: 0.12, techo: -40, lp: 900 });   // el banquito que se arrastra (grave)
 s("sfx/tac-real.mp3", T.sienta[1] - 0.05, 0, { techo: -40 });                                 // se sienta
 // P3b · el monedero, las monedas (tres torres), el termo vacío
-s("sfx/click-soft.mp3", T.abre, 0, { techo: -39 });
-for (let i = 0; i < 9; i++) golpecito(T.monedas[0] + i * 0.066, -41 + (i % 3 === 2 ? 2 : 0));
 pop(T.bMon, -37);
-s("sfx/click-soft.mp3", T.termo[3], 0, { techo: -38 });
+for (let i = 0; i < 4; i++) golpecito(T.bMon + 0.05 + i * 0.11, -42);   // el monedero que suena
 // P4 · el rodillo 200 → 195
 s("sfx/whoosh.mp3", T.rodillo - 0.05, 0, { techo: -40, dur: 0.3, fin: 0.08 });
 for (let i = 0; i < 3; i++) s("sfx/key-press.mp3", T.rodillo + i * 0.07, 0, { desde: 0.04, techo: -39, pico: -18 });
@@ -282,6 +287,8 @@ s("sfx/papel.wav", T.billete, 0, { dur: 0.3, fin: 0.1, techo: -40 });
 s("sfx/click-soft.mp3", T.latita, 0, { techo: -38 });
 s("sfx/ping.mp3", T.moneda[1] - 0.06, 0, { dur: 0.35, fin: 0.2, techo: -41, pico: -22 });
 s("voice/hector3.wav", T.h3, -3, { voz: true });
+pop(T.quedate - 0.02, -38);                                    // entra "Quedate con el vuelto."
+for (let i = 0; i < 3; i++) s("sfx/key-press.mp3", T.rodillo2 + i * 0.06, 0, { desde: 0.04, techo: -40, pico: -18 });   // 195 → 200
 // P7 · campanita, pasos, las dos voces; P7b · el golpe sordo de la frente
 s("sfx/campanita.wav", T.campana, 0, { techo: -36, dur: 0.6 });
 for (let t = T.campana + 0.1; t < T.h4 - 0.05; t += 0.24) s("sfx/tac-real.mp3", t, 0, { techo: -42 });
@@ -289,17 +296,18 @@ pop(T.h4 - 0.02, -38);
 s("voice/hector4.wav", T.h4, -3, { voz: true });
 for (let t = T.hSale[0] + 0.05; t < T.hSale[1]; t += 0.26) s("sfx/tac-real.mp3", t, 0, { techo: -44 });
 pop(T.g1 - 0.02, -38);
+s("sfx/whoosh.mp3", T.p7c - 0.03, 0, { techo: -42, dur: 0.3, fin: 0.08 });
 s("voice/graciela1.wav", T.g1, -4, { voz: true });
 s("sfx/sello.wav", T.frente[1] - 0.02, 0, { techo: -34 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -36 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -36 });
-s("voice/narrador.wav", P1 + 0.2, -5, { voz: true, fi: 0.01, dur: 2.3, fin: 0.1 });
-for (const d of [0.2, 1.15]) pop(P1 + d, -39);
+s("voice/narrador.wav", P1 + 0.2, -5, { voz: true, fi: 0.01, dur: 2.1, fin: 0.08 });
+for (const d of [0.2, 0.8, 1.3]) pop(P1 + d, -39);
 s("sfx/whoosh.mp3", P2 - 0.3, 0, { techo: -40 });
 // ---- parte 2 ----
 s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -40, lp: 1800 });
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fin: 0.8, techo: -34, duck: [T.h5 - 0.1, T.r2 + 1.1], duckK: 0.65 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fin: 0.8, techo: -34, duck: [T.h5 - 0.1, T.r2 + 1.1], duck2: [T.h6 - 0.1, T.h6 + 1.4], duckK: 0.65 });
 pop(T.bMeHac, -38);
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.6, fin: 0.08, techo: -35 });
 s("sfx/whoosh.mp3", T.q1b - 0.03, 0, { techo: -41, dur: 0.35, fin: 0.1 });
@@ -315,13 +323,12 @@ s("sfx/sparkle.mp3", T.mas20, 0, { techo: -38, dur: 1.0, fin: 0.4 });
 s("sfx/cero.mp3", T.premio, 0, { techo: -36 });
 pop(T.puno2 - 0.02, -38);
 s("voice/hector6.wav", T.h6, -3, { voz: true });
-pop(T.pote2, -36);
-s("sfx/campanita.wav", T.campana2, 0, { techo: -37, dur: 0.6 });
-s("voice/hector7.wav", T.h7, -3, { voz: true });
-pop(T.h7, -39);
+pop(T.pote2, -40);
+s("sfx/campanita.wav", T.campana2, 0, { techo: -39, dur: 0.6 });
 for (let t = T.hSale2[0] + 0.05; t < T.hSale2[1]; t += 0.26) s("sfx/tac-real.mp3", t, 0, { techo: -44 });
 pop(T.g2 - 0.02, -38);
 s("voice/graciela2.wav", T.g2, -4, { voz: true });
+s("sfx/whoosh.mp3", T.q4b - 0.03, 0, { techo: -42, dur: 0.3, fin: 0.08 });
 s("sfx/scan.mp3", T.scan, 0, { techo: -37 });
 s("sfx/cero.mp3", T.ok20, 0, { techo: -37 });
 s("sfx/whoosh.mp3", T.cierre - 0.03, 0, { techo: -40, dur: 0.35, fin: 0.1 });
@@ -366,6 +373,7 @@ function mezcla(lista, salida, dur) {
     if (o.voz) c += ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.34:attack=1.5:release=40:level=false";
     c += `,volume=${ganancia(x)}dB`;
     if (o.duck) { const [a, b] = o.duck.map((v) => r2(v - ini)); c += `,volume='1-${o.duckK ?? 0.645}*clip((t-${a})/0.15,0,1)*clip((${b}-t)/0.15,0,1)':eval=frame`; }
+    if (o.duck2) { const [a, b] = o.duck2.map((v) => r2(v - ini)); c += `,volume='1-${o.duckK ?? 0.645}*clip((t-${a})/0.15,0,1)*clip((${b}-t)/0.15,0,1)':eval=frame`; }
     c += `,adelay=${Math.round(ini * 1000)}|${Math.round(ini * 1000)},apad=whole_dur=${dur}[a${i}]`;
     filtros.push(c);
   });

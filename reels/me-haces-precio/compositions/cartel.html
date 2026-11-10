@@ -7,14 +7,15 @@
     [data-composition-id="cartel"] .esc { position: absolute; inset: 0; }
     [data-composition-id="cartel"] .fondo { position: absolute; inset: -200px; background: #5ce611; }
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
-    [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 690px; text-align: center; transform: rotate(-4deg); }
+    [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 560px; text-align: center; transform: rotate(-4deg); }
     [data-composition-id="cartel"] .linea { display: block; font: 900 136px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.b { font-size: 146px; margin-top: 18px; }
+    [data-composition-id="cartel"] .linea.b { font-size: 136px; margin-top: 12px; }
+    [data-composition-id="cartel"] .linea.c { font-size: 150px; margin-top: 24px; }
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="3">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="3" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.7">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.7" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -35,8 +36,9 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l" data-t="0.2">U</span><span class="l" data-t="0.24">n</span><span class="l" data-t="0.27">o</span><span class="l" data-t="0.31">s</span><span class="esp"></span><span class="l" data-t="0.55">p</span><span class="l" data-t="0.59">u</span><span class="l" data-t="0.62">n</span><span class="l" data-t="0.66">t</span><span class="l" data-t="0.69">o</span><span class="l" data-t="0.73">s</span></span>
-        <span class="linea b"><span class="l" data-t="1.15">m</span><span class="l" data-t="1.18">á</span><span class="l" data-t="1.22">s</span><span class="esp"></span><span class="l" data-t="1.45">t</span><span class="l" data-t="1.49">a</span><span class="l" data-t="1.52">r</span><span class="l" data-t="1.56">d</span><span class="l" data-t="1.59">e</span><span class="l" data-t="1.63">…</span></span>
+        <span class="linea a"><span class="l" data-t="0.2">U</span><span class="l" data-t="0.24">n</span><span class="l" data-t="0.27">a</span><span class="esp"></span><span class="l" data-t="0.4">t</span><span class="l" data-t="0.44">a</span><span class="l" data-t="0.47">r</span><span class="l" data-t="0.51">j</span><span class="l" data-t="0.54">e</span><span class="l" data-t="0.58">t</span><span class="l" data-t="0.61">a</span></span>
+        <span class="linea b"><span class="l" data-t="0.8">d</span><span class="l" data-t="0.84">e</span><span class="esp"></span><span class="l" data-t="0.95">p</span><span class="l" data-t="0.99">u</span><span class="l" data-t="1.02">n</span><span class="l" data-t="1.06">t</span><span class="l" data-t="1.09">o</span><span class="l" data-t="1.13">s</span></span>
+        <span class="linea c"><span class="l" data-t="1.3">m</span><span class="l" data-t="1.34">á</span><span class="l" data-t="1.37">s</span><span class="esp"></span><span class="l" data-t="1.6">t</span><span class="l" data-t="1.64">a</span><span class="l" data-t="1.67">r</span><span class="l" data-t="1.71">d</span><span class="l" data-t="1.74">e</span><span class="l" data-t="1.78">…</span></span>
       </div>
     </div>
   </div>
@@ -47,8 +49,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 3, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 3, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.7, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.7, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
@@ -58,7 +60,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.3, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.38);
+      tl.to(q(".texto"), { scale: 1.3, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.08);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
