@@ -1,0 +1,75 @@
+# me-haces-precio · fuentes
+
+Ficción: sin datos ni afirmaciones de hechos para verificar. Es una situación inventada (un cliente que regatea por
+deporte un pote de dulce de leche de $ 200, lo baja a $ 195 y deja los 5 de vuelto). Los precios ($ 200, 180, 190,
+195), los puntos (180 / 200, +20, premio a los 200), "5 veces esta semana" y los personajes (Héctor, nuevo; Rubén y
+Graciela, del módulo de personajes) son parte del chiste, no estadísticas. No se dice ninguna proporción de puntos ni
+cuánto cuesta el servicio.
+
+Sin marcas: dulce de leche, monedas, billete, monedero, celular, tablet, mate y termo genéricos. El billete de 200 no
+copia el diseño de ningún billete real (papel crema con guarda verde y "200"); las monedas son discos dorados lisos con
+un "5". La tarjeta de puntos del celular dice "Mis puntos · Almacén de Rubén" (almacén inventado), sin logo ni la
+palabra Scalerics. Lo que hace la tarjeta en la parte 2 (sumar con cada compra, la tarjeta en el celular, canjear un
+premio, el dueño que ve quién viene y cada cuánto) está dentro de lo que vende Scalerics Puntos (ver CLAUDE.md, "Lo
+que se vende").
+
+## Voces (Gemini TTS, herramientas/voz.mjs; plan en partes/voces.md)
+- Héctor: Sadaltager (alternativas a probar: Achird, Umbriel).
+- Rubén: Algenib. Graciela: Gacrux.
+- Narrador del cartel: Rasalgethi, frase nueva "Una tarjeta de puntos más tarde." (toma narrador-d; no se reusa el
+  cartel.wav de abren-hoy-completo, que dice otra cosa).
+
+## Sonido planeado
+Todo con grabaciones reales que ya están en el repo con su licencia registrada; nada sintetizado con ffmpeg, sin
+golpe.mp3 ni tictac.wav. Copiados a `assets/sfx` y `assets/bgm` desde reels/el-audio (créditos completos en
+reels/el-audio/fuentes.md, reels/me-lo-guardas/fuentes.md, reels/abren-hoy/fuentes.md, reels/abren-hoy-2/fuentes.md,
+reels/abren-hoy-completo/fuentes.md y reels/que-en-paz-descanse/fuentes.md). **tuba.mp3 se sacó a propósito** (el
+remate del remate de esta noche no es contador + tuba).
+- Música: "Pizzicato Intrigue" (younoise, CC0), `bgm/pizzicato.wav`; parte 1 se corta seca en 10,70 s (sobre una nota que suena) antes de
+  "Dejá. Quedate con el vuelto."; parte 2 sin cortes, baja ~9 dB con cada voz.
+- Ambiente: `calle.wav` (Oper8, CC0) con pasabajos a 1800 Hz.
+- Burbujas, números que entran, el segundo pote: `pop.mp3` (HyperFrames).
+- Números que chocan y el rodillo 200 → 195: `key-press.mp3` + `whoosh.mp3` corto (HyperFrames); el número que cae:
+  `sello.wav` bajito (kermite607, CC0).
+- Choque de manos ("¡Hecho!"): `cachetada.mp3` ("Face slap sound effect", magicjoshua,
+  https://freesound.org/people/magicjoshua/sounds/704179/, registrado en reels/abren-hoy/fuentes.md; copiado de
+  reels/abren-hoy/assets/sfx).
+- Frente de Rubén contra el mostrador: `sello.wav` (golpe sordo).
+- Monedas que caen del monedero y la moneda de 5: `ping.mp3` cortado en golpecitos (banco de HyperFrames, como hizo
+  reels/por-que-el-caramelo). Si se consigue un "coins on wooden table" real CC0 (Freesound, licencia CC0), usarlo y
+  anotar acá autor, link y licencia.
+- Billete que se apoya (el banquito que se arrastra quedó DESCARTADO en la ronda 2): `papel.wav` (registrado en reels/me-lo-guardas/fuentes.md; para el
+  banquito, grave). Si se consigue un roce de banquito de madera real CC0, usarlo y anotarlo acá.
+- Tapa de la latita y toques en el celular: `click-soft.mp3` (HyperFrames). (El termo que se apoya quedó DESCARTADO.)
+- Sorbo de mate: DESCARTADO (Rubén no toma; `sorbo.wav` no se usa). Campanita de la puerta: `campanita.wav` (775noise, CC0). Pasos:
+  `tac-real.mp3` (olver, CC0).
+- Celular que vibra: `vibra.wav` (SpliceSound, CC0); tarjeta que aparece: `notification.mp3` (HyperFrames).
+- Tilde del 200: `ding.mp3`; "+20 puntos": `sparkle.mp3`; lector de Rubén: `scan.mp3` (banco de HyperFrames de
+  molde/netflix-blockbuster, copiados de reels/por-que-se-fue/assets/sfx). "¡Premio!" y "+20 ✓": `cero.mp3`
+  (GabFitzgerald, CC0).
+- Cartel: `stinger.wav` ("Vibraphone Transition Music Cue", DanJFilms, CC0) y `whoosh.mp3`.
+- Línea chica: `whoosh.mp3` corto.
+
+## Lo que se usó al construir (10-11)
+- Ronda 2: sin monedas en el mostrador ni banquito arrastrado. El monedero de P3a y la moneda que sale de la latita usan
+  `ping.mp3` muy bajo (techo -45/-47): en el repo no hay un sonido real de monedas con origen registrado (el `moneda.mp3` de
+  cuenta-cartas/el-conde no tiene fuente) y freesound.org responde 403 desde la nube. Sin sorbo (Rubén no toma). Los codos en
+  el mostrador: `tac-real.mp3`.
+- Música: la parte 1 arranca en el segundo 10,50 del archivo (en loop) para que el corte seco (10,70 del reel = 9,20 del
+  archivo) caiga sobre una nota a -18 dB RMS, sin bajar de -34 dB en los 0,5 s anteriores (medido en ventanas de 50 ms);
+  fundido de 5 ms. Duck también bajo "¡Hecho!".
+- Ronda 2 de arte y sonido: monedero y moneda de 5 con `ping.mp3` a techo -40 (antes -45/-47, no se oían); el segundo pote
+  y los pasos de Graciela al entrar en Q4b con `tac-real.mp3` (olver, CC0). "¿Cuánto es?" es ahora la toma hector-5-a
+  (la b venía cortada en la "s"), con la cola entera y fundido de 0,04 s; ruben1 y hector3 también con fundido de 0,04 s.
+- Nada sintetizado con ffmpeg. Techo por efecto entre -37 y -47 LUFS (momentáneo máximo); mezcla cruda -14,0 LUFS
+  integrado, pico verdadero -2,2 dBFS, sin clipping (el loudnorm final lo hace el coordinador).
+
+## Ronda 3 (10-11)
+- El tercer "Doscientos." del regateo (P3a) lo dice Rubén: la misma toma de assets/voice/ruben2.wav (Algenib), con fundido de 0,04 s.
+- Música: el corte seco cae 0,15 s adentro de una nota (ataque en el 9,60 del archivo, corte en el 9,75; parte 1 desde el 11,05
+  en loop); +3 dB en el regateo (1,6 a P4, sin voz) y en los 0,6 s antes del corte, dentro del techo de -31 LUFS.
+- Ambiente `calle.wav` también debajo del cartel (no queda silencio digital). El sello del tachado en t+0,43 (con la raya).
+- Billete apoyado en Q3 y el primer paso de Héctor en Q4: `tac-real.mp3` (olver, CC0). Inserto Q4c: `whoosh.mp3` corto.
+- hector4 ("dejó"): se generaron dos tomas nuevas (partes/tomas/hector-4-c y -d, con el tono pidiendo "dejó" clara); el
+  Speech-to-Text oye "dejo" en las cuatro tomas y en la actual, así que no hay forma de decidir sin oído: queda la actual.
+- La meta del premio es 500 puntos (480 / 500 · +20 por compra de $ 200), para que la cuenta no sea un 10 % devuelto.

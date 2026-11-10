@@ -1,0 +1,24 @@
+[sin narrador Orus: el chiste va en burbujas, la etiqueta "$ 200", los números del regateo y la tarjeta de puntos del celular; voces por archivo en partes/*.txt, ver partes/voces.md y fuentes.md]
+[parte 1 · almacén de Rubén, pared navy oscuro y luz cálida · Héctor (nuevo: jubilado canchero, boina, chaleco mostaza, monedero de cuero) con un pote de dulce de leche con etiqueta "$ 200"]
+HECTOR: ¿Me hacés precio?
+[parte 1 · regateo en burbujas: RUBEN "Doscientos." · HECTOR "¿Ciento ochenta?" · RUBEN "Doscientos." · HECTOR "¿Ciento noventa? Vengo siempre."]
+RUBEN: Doscientos.
+[Héctor se instala con los codos en el mostrador · sacude el monedero abierto: "Tengo ciento noventa en monedas."]
+RUBEN: Ciento noventa y cinco.
+HECTOR: ¡Hecho!
+[choque de manos · Héctor apoya un billete de 200 · Rubén abre la latita y saca una moneda de 5 para el vuelto · la música se corta · pausa]
+HECTOR: Dejá. [pausa] Quedate con el vuelto.
+[Rubén con la moneda de 5 en la mano, cara de nada]
+[remate del remate · en la puerta, Héctor le muestra el pote a Graciela, que acaba de entrar]
+HECTOR: ¡Me lo dejó en ciento noventa y cinco!
+GRACIELA: Rubén, ¿me hacés precio?
+[Rubén apoya la frente en el mostrador (golpe sordo)]
+NARRADOR: Una tarjeta de puntos más tarde.
+[parte 2 · Héctor vuelve con el mismo pote, burbuja "¿Me hac…" cortada · le vibra el celular: su tarjeta del almacén "Héctor · 480 / 500 puntos · Esta compra: +20 · Premio: 500 puntos = un dulce de leche"]
+HECTOR: ¿Cuánto es?
+RUBEN: Doscientos.
+[Héctor levanta el billete de 200 con el celular en la otra mano, burbuja "¡Pago!", y lo apoya · celular "+20 puntos" · la barra se llena · "¡Premio! Un dulce de leche ✓" · el mismo puño arriba]
+HECTOR: ¡Gané!
+[Rubén apoya el segundo pote · Héctor sale por la puerta con los dos potes en alto, sin hablar · Graciela entra y va al mostrador]
+GRACIELA: Rubén, ¿me hacés puntos?
+[Rubén, con media sonrisa, le acerca la tablet al celular de Graciela (inserto de las dos pantallas): "20 / 500" y "+20 ✓" · línea chica: "Scalerics Puntos: que ganen sin que bajes el precio" · "scalerics.com"]
