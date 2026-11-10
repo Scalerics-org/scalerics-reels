@@ -17,9 +17,9 @@
     [data-composition-id="s10-olvide"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
     [data-composition-id="s10-olvide"] .sello.chico { font-size: 70px; }
 
-    [data-composition-id="s10-olvide"] .burb { position: absolute; left: 690px; top: 860px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid #0b1220; font: 700 64px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
-    [data-composition-id="s10-olvide"] .burb::after { content: ""; position: absolute; left: 36%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid #0b1220; transform: translateX(-50%); }
-    [data-composition-id="s10-olvide"] .burb::before { content: ""; position: absolute; left: 36%; bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid #ffffff; z-index: 1; transform: translateX(-50%); }
+    [data-composition-id="s10-olvide"] .burb { position: absolute; left: 305px; top: 1150px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid #0b1220; font: 700 56px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
+    [data-composition-id="s10-olvide"] .burb::after { content: ""; position: absolute; right: -50px; top: 50%; width: 0; height: 0; border-top: 28px solid transparent; border-bottom: 28px solid transparent; border-left: 52px solid #0b1220; transform: translateY(-50%); }
+    [data-composition-id="s10-olvide"] .burb::before { content: ""; position: absolute; right: -35px; top: 50%; width: 0; height: 0; border-top: 19px solid transparent; border-bottom: 19px solid transparent; border-left: 36px solid #ffffff; z-index: 1; transform: translateY(-50%); }
   </style>
   <div id="root" data-composition-id="s10-olvide" data-width="1080" data-height="1920" data-duration="2.58">
     <div id="s10-olvide-esc" class="esc clip" data-start="0" data-duration="2.58" data-track-index="0">
@@ -48,7 +48,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "36% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, 1.15); late(".burb", 1.15, 1.06); tl.set(q(".burb"), { opacity: 0 }, 2.48);
+gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "100% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, 1.15); late(".burb", 1.15, 1.06); tl.set(q(".burb"), { opacity: 0 }, 2.48);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

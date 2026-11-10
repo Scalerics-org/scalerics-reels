@@ -550,7 +550,7 @@ function dibujarPlan(n) {
   const x = planCanvas.getContext("2d"), w = 1024, h = 672;
   x.fillStyle = "#fbfaf4"; x.fillRect(0, 0, w, h);
   x.fillStyle = NAV; x.fillRect(0, 0, w, 120); x.fillStyle = CRE; x.font = F(800, 62); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Plan", 48, 66);
-  x.fillStyle = VER; rr(x, w - 290, 22, 250, 80, 40); x.fillStyle = NAV0; x.font = F(800, 58); x.textAlign = "center"; x.fillText("1 tarea", w - 165, 64);
+  x.fillStyle = VER; rr(x, w - 340, 16, 310, 92, 46); x.fillStyle = NAV0; x.font = F(800, 72); x.textAlign = "center"; x.fillText("1 tarea", w - 185, 64);
   let resto = n;
   RENG.forEach(([a, b], i) => {
     const y = 210 + i * 160;
@@ -724,13 +724,13 @@ function dibujarTablet({ filas = 0, resp = 0, aviso = 0, hecho = 0 }) {
     x.fillStyle = ok ? "#e3f7d6" : "#eceae0"; rr(x, 26, y, TBW - 52, 178, 28);
     iconoTex(x, 92, y + 64, f.ico, ok ? "#3fa60a" : NAV);
     x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "middle";
-    const t = ok ? f.hecho : f.txt; ajustar(x, t, 800, 54, ok ? 700 : 760); x.fillText(t, 160, y + 58);
+    const t = ok ? f.hecho : f.txt; ajustar(x, t, 800, 70, ok ? 700 : 820); x.fillText(t, 150, y + 56);
     if (ok) { x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(TBW - 100, y + 89, 50, 0, 7); x.fill(); x.strokeStyle = NAV0; x.lineWidth = 14; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(TBW - 124, y + 90); x.lineTo(TBW - 106, y + 110); x.lineTo(TBW - 74, y + 70); x.stroke(); }
     if (!ok) {
       // responsable (avatar + nombre) y aviso (campanita + hora)
-      if (resp > 0.5) { avatarTex(x, 190, y + 130, 30, f.quien); x.fillStyle = NAV0; x.font = F(700, 42); x.textAlign = "left"; x.fillText(f.quien, 232, y + 132); }
+      if (resp > 0.5) { avatarTex(x, 190, y + 130, 30, f.quien); x.fillStyle = NAV0; x.font = F(700, 54); x.textAlign = "left"; x.fillText(f.quien, 232, y + 132); }
       else { x.fillStyle = "#c9c7bb"; x.beginPath(); x.arc(190, y + 130, 30, 0, 7); x.fill(); x.fillRect(232, y + 120, 110, 22); }
-      if (aviso > 0.5) { campanita(x, 470, y + 128, 52, "#3fa60a"); x.fillStyle = NAV0; x.font = F(700, 42); x.textAlign = "left"; x.fillText(f.aviso, 508, y + 132); }
+      if (aviso > 0.5) { campanita(x, 470, y + 128, 52, "#3fa60a"); x.fillStyle = NAV0; x.font = F(700, 54); x.textAlign = "left"; x.fillText(f.aviso, 508, y + 132); }
       else { x.fillStyle = "#c9c7bb"; x.fillRect(450, y + 120, 200, 22); }
     }
   });
@@ -981,7 +981,8 @@ function zonaR(t) {
     mozo.poner(pose); mozo.raiz.updateMatrixWorld(true);
     const enMesa = mozo.cuerpo.worldToLocal(PLAT0.clone().add(V(0, 0.07, 0)));
     const alto = [0.2, 0.34, 0.36];
-    pose = { ...pose, manoI: mezclar(mezclar(pose.manoI, [enMesa.x, enMesa.y, enMesa.z], eio(sg(t, T.primer, T.primer + 0.3))), alto, eio(cobra)), codoI: [1, -0.6, -0.2], dedoI: 0 };
+    void enMesa; void cobra; // (final) el platito ya está en la mano desde el corte (sin agarrarlo de la mesa)
+    pose = { ...pose, manoI: alto, codoI: [1, -0.6, -0.2], dedoI: 0 };
   }
   pose.t = t;
   mozo.poner(pose); mozo.raiz.updateMatrixWorld(true);
@@ -1001,7 +1002,7 @@ function zonaR(t) {
   // el platito: en la mesa hasta que lo agarra; después en la mano izquierda
   {
     const mI = mozo.mano("I").getWorldPosition(new THREE.Vector3());
-    const agarra = t > T.primer + 0.3;
+    const agarra = t >= T.primer;
     if (agarra) { platito.position.copy(mI).add(V(0, 0.075, 0.03)); platito.rotation.set(0.15, -0.3, 0); }
     else { platito.position.copy(PLAT0); platito.rotation.set(0, -0.35, 0); }
     // las monedas caen de a una en el platito ("Pagaron…")
@@ -1012,7 +1013,7 @@ function zonaR(t) {
       platito.updateMatrixWorld(true);
       const dest = platito.localToWorld(V(-0.04 + (i % 3) * 0.03, 0.03 + Math.floor(i / 3) * 0.008, 0.03 - (i % 2) * 0.03));
       const u = sg(t, t0, t0 + 0.16);
-      m.position.copy(dest).add(V(0, (1 - u * u) * 0.5, 0)); m.position.y += rebote(t, t0 + 0.16, 20, 50, 0.01);
+      m.position.copy(dest).add(V(0, (1 - u * u) * 0.13, (1 - u) * 0.08)); m.position.y += rebote(t, t0 + 0.16, 20, 50, 0.01);
       m.rotation.set((1 - u) * 1.5 + 0.1, i, 0.05);
       // "olvidó": las monedas siguen ahí (cobró), pero la nube se va
     });
@@ -1093,7 +1094,7 @@ function zonaL(t) {
   fichas.forEach((pila, kk) => pila.forEach((m, i) => {
     const t0 = kk === 0 ? T.record + 0.25 + i * 0.045 : T.record + 0.25 + i * ((T.doble - T.record - 0.3) / NF[1]);
     let vis = en && t > t0 && t < T.armaQ + 0.45;
-    if (kk === 0 && t > T.armaQ + 0.05) vis = false;
+    if (kk === 0 && t > T.armaQ + 0.25) vis = false;
     m.visible = vis; if (!vis) return;
     const yF = LTOP + FH * (i + 0.5);
     const u = sg(t, t0, t0 + 0.12);
@@ -1104,15 +1105,15 @@ function zonaL(t) {
       const dest = QC.clone().add(V(Math.sin(i * 2.1) * 0.25, Math.cos(i * 1.3) * 0.3, 0));
       p = lerpV(p, dest, sube); ry += sube * 3;
       m.scale.setScalar(1 - sube * 0.9);
-    } else m.scale.setScalar(1 + (kk === 1 ? 0.12 * pulso(t, T.doble, 0.3) : 0));
+    } else m.scale.setScalar((1 + (kk === 1 ? 0.12 * pulso(t, T.doble, 0.3) : 0)) * (kk === 0 ? 1 - eio(sg(t, T.armaQ - 0.02, T.armaQ + 0.25)) : 1));
     m.position.copy(p); m.rotation.set(0, ry, 0);
   }));
   // las placas de las pilas (adelante, en el canto de la mesa)
   placaPila.forEach((pl, kk) => {
-    const v = en && t > T.record + 0.35 && t < T.armaQ;
+    const v = en && t > T.record + 0.35 && t < T.armaQ + 0.25;
     pl.visible = v; if (!v) return;
     pl.position.set(OL.x + PILX[kk], LTOP + 0.12, 0.36); pl.quaternion.copy(camera.quaternion);
-    pl.scale.setScalar(popIn(t, T.record + 0.35 + kk * 0.1, 0.25) * 0.98);
+    pl.scale.setScalar(Math.max(0.001, popIn(t, T.record + 0.35 + kk * 0.1, 0.25) * 0.98 * (1 - eio(sg(t, T.armaQ - 0.02, T.armaQ + 0.25)))));
   });
   // ---- el "?" (s05) → la "C" (s06) ----
   {
@@ -1219,7 +1220,7 @@ function zonaD(t) {
   aroLamp.visible = true;
   // s10: en "olvidé" apaga la lámpara (baja un poco, nunca a negro); s11: amanece
   const apaga = eio(sg(t, T.olvide + 0.55, T.olvide + 0.8));
-  const manana = t >= T.dormir ? 1 : 0; // (ronda 2) amanece en el corte: sin cuadros de ventana a medio camino
+  const manana = eio(sg(t, T.dormir, T.dormir + 0.4)); // (final) fundido noche → día de 0,4 s
   pantalla.material.emissiveIntensity = lampOn ? lerp(0.9, 0.15, apaga) * (1 - manana) + 0.05 : 0.05;
   lampara.intensity = en && lampOn ? lerp(3.2, 0.8, apaga) * (1 - manana * 0.8) * eio(sg(t, T.noche + 0.4, T.noche + 0.7)) : 0;
   if (en) { mesita.userData.lamp.getWorldPosition(_v); lampara.position.copy(_v).add(V(0, 0.42, 0.05)); }
@@ -1252,8 +1253,8 @@ function zonaD(t) {
     [T.sis0 + 0.7, { ...CARA.neutra, ...BRAZOS.ofrece(0.58, 0.24, 0.52), cabeza: { giro: 0.1, asiente: 0.42, ladea: 0 }, ojos: { x: 0, y: -0.5, abiertos: 1 }, cejas: { alto: 0.2, ang: 0.2 } }, 0.4],
     [T.resp, { ...CARA.sonrisa, ojos: { x: 0, y: -0.5, abiertos: 1, feliz: 0.2 } }, 0.3],
     // s10: deja la tablet, sonríe debajo del bigote mirando a cámara, se acomoda
-    [T.anotado - 0.02, { ...BRAZOS.ofrece(0.58, 0.06, 0.48) }, 0.35],
-    [T.anotado + 0.12, { ...CARA.sonrisa, manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], cabeza: { giro: 0.3, asiente: 0.5, ladea: 0.05 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.15 } }, 0.45],
+    [T.anotado - 0.01, { ...BRAZOS.ofrece(0.58, 0.24, 0.52) }, 0.01],
+    [T.anotado + 0.4, { ...CARA.sonrisa, manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], cabeza: { giro: 0.3, asiente: 0.5, ladea: 0.05 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.15 } }, 0.4],
     [T.olvide + 0.2, { ...CARA.sonrisa, cabeza: { giro: 0.28, asiente: 0.48, ladea: 0.1 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.3 } }, 0.25],
     // recién después de apagar la luz cierra los ojos (ojos de dibujo: una línea curva, sin bultos)
     [T.olvide + 0.95, { ojos: { abiertos: 0, feliz: 0.4 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.05 } }, 0.25],
@@ -1286,7 +1287,9 @@ function zonaD(t) {
     ponerNube(nube3, t, { infla: 1 - des, arruga: des > 0 && des < 1 ? 0.8 : 0.25 * pulso(t, T.prov, 0.5), late: 0.7 * (1 - vac) });
     nube3.visible = kn > 0.01 && des < 0.985;
     nube3.position.copy(base); nube3.quaternion.copy(camera.quaternion);
-    nube3.scale.setScalar(kn * lerp(0.6, 0.36, chica));
+    const vuelve = t >= T.anotado ? popIn(t, T.anotado + 0.05, 0.3) : 1;
+    nube3.scale.setScalar(Math.max(0.001, kn * 0.6 * (1 - chica) * vuelve));
+    if (chica > 0.98) nube3.visible = false;
     const llegan = [T.sena, T.presu, T.prov];
     PEND.forEach((it, i) => {
       const t0 = llegan[i];

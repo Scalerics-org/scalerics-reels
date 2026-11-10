@@ -111,7 +111,7 @@ const POS = {
   ruben: [300, 1450], rubenLead: [330, 1390, 470, 1180],
   resp: [250, 1660], respLead: [262, 1600, 315, 1425],
   aviso: [820, 1660], avisoLead: [808, 1600, 650, 1425],
-  burbuja: [690, 860], colita: 36,
+  burbuja: [305, 1150], colita: 50,
 };
 
 // ================= s01 · gancho (cuadro 0 = portada): el mozo con la bandeja y la nube de pedidos =================
@@ -186,7 +186,7 @@ const POS = {
   const tI = w(id, 30) - 0.05, tR = w(id, 32) - 0.05, tD = w(id, 35) - 0.05;
   escena(id, {
     css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
-    P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
+    P .cred .sub { display: block; margin-top: 8px; font: 500 42px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
     html: `<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>`,
     js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); `,
     sfx: [
@@ -290,11 +290,11 @@ vacia("s05-por-que", [
   const tO = w(id, 77) - 0.05;
   escena(id, {
     css: `
-    P .burb { position: absolute; left: ${bx}px; top: ${by}px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid ${NAVY}; font: 700 64px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
-    P .burb::after { content: ""; position: absolute; left: ${POS.colita}%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid ${NAVY}; transform: translateX(-50%); }
-    P .burb::before { content: ""; position: absolute; left: ${POS.colita}%; bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid #ffffff; z-index: 1; transform: translateX(-50%); }`,
+    P .burb { position: absolute; left: ${bx}px; top: ${by}px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid ${NAVY}; font: 700 56px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
+    P .burb::after { content: ""; position: absolute; right: -50px; top: ${POS.colita}%; width: 0; height: 0; border-top: 28px solid transparent; border-bottom: 28px solid transparent; border-left: 52px solid ${NAVY}; transform: translateY(-50%); }
+    P .burb::before { content: ""; position: absolute; right: -35px; top: ${POS.colita}%; width: 0; height: 0; border-top: 19px solid transparent; border-bottom: 19px solid transparent; border-left: 36px solid #ffffff; z-index: 1; transform: translateY(-50%); }`,
     html: `<div class="burb">Anotado.<span class="r2"><br>Ya me olvidé.</span></div>`,
-    js: `gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
+    js: `gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "100% ${POS.colita}%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       ...tictac(0.0, tO + 0.6, 0.22),
       { t: 0.35, sfx: "tac-real", vol: 0.22 }, { t: 0.08, sfx: "pop", vol: 0.25 }, { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.22 },
