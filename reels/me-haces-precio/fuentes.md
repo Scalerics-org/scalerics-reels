@@ -25,7 +25,7 @@ golpe.mp3 ni tictac.wav. Copiados a `assets/sfx` y `assets/bgm` desde reels/el-a
 reels/el-audio/fuentes.md, reels/me-lo-guardas/fuentes.md, reels/abren-hoy/fuentes.md, reels/abren-hoy-2/fuentes.md,
 reels/abren-hoy-completo/fuentes.md y reels/que-en-paz-descanse/fuentes.md). **tuba.mp3 se sacó a propósito** (el
 remate del remate de esta noche no es contador + tuba).
-- Música: "Pizzicato Intrigue" (younoise, CC0), `bgm/pizzicato.wav`; parte 1 se corta seca en 10,5 s antes de
+- Música: "Pizzicato Intrigue" (younoise, CC0), `bgm/pizzicato.wav`; parte 1 se corta seca en 10,70 s (sobre una nota que suena) antes de
   "Dejá. Quedate con el vuelto."; parte 2 sin cortes, baja ~9 dB con cada voz.
 - Ambiente: `calle.wav` (Oper8, CC0) con pasabajos a 1800 Hz.
 - Burbujas, números que entran, el segundo pote: `pop.mp3` (HyperFrames).
@@ -55,6 +55,11 @@ remate del remate de esta noche no es contador + tuba).
   `ping.mp3` muy bajo (techo -45/-47): en el repo no hay un sonido real de monedas con origen registrado (el `moneda.mp3` de
   cuenta-cartas/el-conde no tiene fuente) y freesound.org responde 403 desde la nube. Sin sorbo (Rubén no toma). Los codos en
   el mostrador: `tac-real.mp3`.
-- Música: la parte 1 arranca en el segundo 0,52 del archivo para que el corte seco (10,10) caiga sobre una nota que suena.
+- Música: la parte 1 arranca en el segundo 10,50 del archivo (en loop) para que el corte seco (10,70 del reel = 9,20 del
+  archivo) caiga sobre una nota a -18 dB RMS, sin bajar de -34 dB en los 0,5 s anteriores (medido en ventanas de 50 ms);
+  fundido de 5 ms. Duck también bajo "¡Hecho!".
+- Ronda 2 de arte y sonido: monedero y moneda de 5 con `ping.mp3` a techo -40 (antes -45/-47, no se oían); el segundo pote
+  y los pasos de Graciela al entrar en Q4b con `tac-real.mp3` (olver, CC0). "¿Cuánto es?" es ahora la toma hector-5-a
+  (la b venía cortada en la "s"), con la cola entera y fundido de 0,04 s; ruben1 y hector3 también con fundido de 0,04 s.
 - Nada sintetizado con ffmpeg. Techo por efecto entre -37 y -47 LUFS (momentáneo máximo); mezcla cruda -14,0 LUFS
   integrado, pico verdadero -2,2 dBFS, sin clipping (el loudnorm final lo hace el coordinador).

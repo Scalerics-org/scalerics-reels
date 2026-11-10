@@ -248,3 +248,44 @@ Duración **33,09 s**: parte 1 0-18,72 · cartel 18,72-21,42 (2,7 s) · parte 2 
 | Q3 | 25,94 | 28,29 |
 | Q4 | 28,29 | 29,89 |
 | Q4b | 29,89 | 33,14 |
+
+## RONDA 3 (segunda revisión de arte y sonido sobre el MP4): manda sobre todo lo anterior. Duración 34,96 s
+- Héctor y Graciela de 3/4 a cámara en la puerta (P7) y Graciela de 3/4 en Q4b: ~0,4-0,5 rad de la cámara. Los dos ojos y los
+  dos aros se ven hasta 0,62 rad (antes 0,42): nada de monóculo. Pelo de Héctor: dos filas de mechones chicos y chatos,
+  gris claro, que arrancan detrás de la oreja (no tapan la mejilla de perfil ni se leen como venda de espaldas).
+- P6 inserto (1,25 s): el billete con "200" grande al centro, entero y a la vista ~0,9 s (la mano de Héctor golpea y se va);
+  la moneda de 5 va entre el pulgar y el índice de Rubén (la mano lleva ese punto) y sube a cámara. P6h: la herradura de pelo
+  de Rubén no se dibuja de espaldas (era el "caño"). P6b 1,05 s, la moneda en los dedos, al centro.
+- P7b sin mate (la bombilla le atravesaba la nariz). Lamparitas fuera en P6, P7, P7c, P7b, Q4 y Q4b (quedaban cortadas).
+- P3a: la oferta (180/190) y la placa del 200 entran las dos con 75 px de margen; "¿Ciento noventa? Vengo siempre." 1,0 s.
+  Los tres dígitos dan vuelta a la vez en 0,16 s (nunca "$ 100").
+- Q1b 1,5 s, la tarjeta en una sola unidad: "180 / 200 puntos · Esta compra: +20 · Premio: 200 puntos = un dulce de leche".
+  El celular sube por arriba de la etiqueta del pote, adentro del cuadro.
+- Q2b: la tablet entera y sin nada encima (latita y pote fuera, el mate más arriba). Q4: Héctor solo, los dos potes juntos
+  adelante del pecho; corta apenas sale. Q4b más abierto: Graciela entra caminando al mostrador (pasos) y recién ahí habla
+  (la burbuja nace en el plano nuevo); Rubén entero en cuadro. Línea chica 1,6 s.
+- Cartel 3,0 s: la frase entera ~1,2 s, se va debajo del iris (sin verde vacío), sin logo encima; el plano que se va girando
+  se funde antes de quedar como una mota.
+- Puño de "¡Hecho!" y "¡Gané!" más afuera y más abajo; "¡Hecho!" del lado contrario al puño.
+
+| plano | desde | hasta | dura |
+|---|---|---|---|
+| P1 | 0,00 | 1,85 | 1,85 |
+| P2 | 1,85 | 2,85 | 1,00 |
+| P3a | 2,85 | 6,20 | 3,35 |
+| P4 | 6,20 | 8,35 | 2,15 |
+| P5 | 8,35 | 9,55 | 1,20 |
+| P6 inserto | 9,55 | 10,80 | 1,25 |
+| P6h | 10,80 | 13,30 | 2,50 |
+| P6b | 13,30 | 14,35 | 1,05 |
+| P7 | 14,35 | 16,72 | 2,37 |
+| P7c | 16,72 | 18,74 | 2,02 |
+| P7b | 18,74 | 19,72 | 0,98 |
+| cartel | 19,72 | 22,72 | 3,00 |
+| Q1 | 22,72 | 23,77 | 1,05 |
+| Q1b | 23,77 | 25,27 | 1,50 |
+| Q2 | 25,27 | 26,09 | 0,82 |
+| Q2b | 26,09 | 27,31 | 1,22 |
+| Q3 | 27,31 | 29,66 | 2,35 |
+| Q4 | 29,66 | 30,61 | 0,95 |
+| Q4b (línea chica desde 33,36) | 30,61 | 34,96 | 4,35 |

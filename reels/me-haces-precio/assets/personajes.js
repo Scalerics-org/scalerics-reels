@@ -56,7 +56,7 @@ export const ELENCO = {
   // Héctor (me-haces-precio, 10-11): ~70, jubilado canchero que regatea por deporte. Costados blancos cortos bajo una
   // boina navy inclinada, cejas blancas tupidas, afeitado, lentes finos, camisa celeste muy pálida, chaleco de lana
   // mostaza abierto con botones navy, pantalón navy y zapatos marrones. Sonrisa de costado, nunca burlona.
-  hector: { nombre: "Héctor", piel: PIEL.clara, pelo: 0xeeebe4, peinado: "costados", cejasColor: 0xe8e4dc, cejaGruesa: true,
+  hector: { nombre: "Héctor", piel: PIEL.clara, pelo: 0xd3cfc6, peinado: "costados", cejasColor: 0xe8e4dc, cejaGruesa: true,
     bigote: null, camisa: 0xdfe6ee, mangas: "largas", cuello: 0xdfe6ee, pantalon: MARCA.navy2, zapatos: 0x6b3f2e,
     panza: 0.94, nariz: 0.064, mejillas: 0xe8968a, alto: 1.03, lentes: MARCA.navy3, lentesFinos: true,
     boina: MARCA.navy3, chaleco: { color: 0xd9a441, botones: MARCA.navy3 } },
@@ -394,11 +394,14 @@ export function crearPersonaje(cfg) {
     // costados y nuca cortos (debajo de una boina): mechones redondeados y opacos que siguen el cráneo, sin bordes
     // rectos (me-haces-precio, ronda 2: la banda de casquete se leía como un bloque semitransparente de nuca)
     const pm = mat(c.pelo, 0.9);
-    for (const el of [0.3, 0.12, -0.06]) {
-      const n = el > 0 ? 13 : 11;
+    // (ronda 2 de arte: arrancan detrás de la oreja, no en la mejilla: de perfil tapaban media cara como una nube; más
+    // chicos y más chatos, pegados al cráneo: de espaldas se leen como pelo corto y no como una masa)
+    for (const el of [0.28, 0.1]) {
+      const n = el > 0.2 ? 15 : 13;
+      const a0 = el > 0.2 ? 1.5 : 1.62;
       for (let i = 0; i < n; i++) {
-        const az = 1.05 + (i / (n - 1)) * (Math.PI * 2 - 2.1);       // de una sien a la otra por atrás
-        const m = mesh(G.esfera, pm, 0, 0, 0, 0.085, el > 0.2 ? 0.075 : 0.07, 0.05); sobre(m, az, el, 0.985); cabeza.add(m);
+        const az = a0 + (i / (n - 1)) * (Math.PI * 2 - 2 * a0);       // de detrás de una oreja a la otra por la nuca
+        const m = mesh(G.esfera, pm, 0, 0, 0, 0.068, el > 0.2 ? 0.062 : 0.058, 0.032); sobre(m, az, el, 0.99); cabeza.add(m);
       }
     }
     for (const sg of [-1, 1]) { const p = mesh(G.esfera, pm, 0, 0, 0, 0.03, 0.065, 0.026); sobre(p, sg * 1.28, 0.1, 0.99); cabeza.add(p); }
@@ -649,7 +652,7 @@ export function crearPersonaje(cfg) {
     ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
     ojos[0].g.visible = ojos[1].g.visible = true; cejas[0].piv.visible = cejas[1].piv.visible = true;
-    if (ang > 0.42) { ojos[lejos].g.visible = false; if (ang > 0.6) cejas[lejos].piv.visible = false; }   // la ceja de atrás sobresalía de la silueta
+    if (ang > 0.62) { ojos[lejos].g.visible = false; if (ang > 0.8) cejas[lejos].piv.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
   return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
@@ -677,7 +680,7 @@ export const BRAZOS = {
 };
 // puño arriba (Héctor, me-haces-precio): el brazo derecho levantado, puño cerrado a la altura de la boina, el codo
 // afuera (no pasa por delante de la cara)
-BRAZOS.puno = { manoD: [-0.46, 0.98, 0.16], codoD: [-1, -0.25, 0.0], dedoD: 0 };
+BRAZOS.puno = { manoD: [-0.5, 0.86, 0.14], codoD: [-1, -0.25, 0.0], dedoD: 0 };   // (r2: un poco más abajo y afuera: no toca el ala de la boina)
 // ofrecer (de abren-hoy): las dos manos adelante, a la altura del pecho, sosteniendo algo de `ancho`
 BRAZOS.ofrece = (ancho = 0.3, alto = 0.4, adelante = 0.44) => ({ manoI: [ancho / 2 + 0.03, alto, adelante], manoD: [-ancho / 2 - 0.03, alto, adelante], codoI: [0.8, -0.8, -0.2], codoD: [-0.8, -0.8, -0.2], dedoI: 0, dedoD: 0 });
 // saludo con la mano izquierda (lado +x): ida y vuelta según t
@@ -1365,10 +1368,10 @@ export function crearBillete(W = 0.16, H = 0.075) {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
     x.strokeStyle = "#3fa60a"; x.lineWidth = 34; x.strokeRect(17, 17, w - 34, h - 34);
     x.lineWidth = 8; x.strokeRect(58, 58, w - 116, h - 116);
-    x.fillStyle = "#3fa60a"; x.beginPath(); x.ellipse(w / 2, h / 2, 120, 120, 0, 0, 7); x.fill();
-    x.fillStyle = "#efeee5"; x.beginPath(); x.ellipse(w / 2, h / 2, 92, 92, 0, 0, 7); x.fill();
-    x.fillStyle = "#0b1220"; x.textBaseline = "middle"; x.font = LX(900, 150);
-    x.textAlign = "left"; x.fillText("200", 86, 150); x.textAlign = "right"; x.fillText("200", w - 86, h - 140);
+    // (me-haces-precio r2: el "200" grande al centro, que se lea desde el cenital)
+    x.fillStyle = "#3fa60a"; x.beginPath(); x.ellipse(170, h / 2, 70, 70, 0, 0, 7); x.fill();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.ellipse(170, h / 2, 48, 48, 0, 0, 7); x.fill();
+    x.fillStyle = "#0b1220"; x.textBaseline = "middle"; x.textAlign = "center"; x.font = LX(900, 270); x.fillText("200", w / 2 + 90, h / 2 + 12);
   });
   const fm = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85 }), dm = mat(0xe4e2d6, 0.9);
   const m = new THREE.Mesh(new THREE.BoxGeometry(W, 0.0015, H), [dm, dm, fm, dm, dm, dm]);

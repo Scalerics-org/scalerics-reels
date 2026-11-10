@@ -28,7 +28,7 @@ nueva: "Unos puntos más tarde." no se puede reusar el cartel.wav de abren-hoy-c
 | graciela-2.txt · "Rubén, ¿me hacés puntos?" | Graciela | Gacrux | La misma Graciela de graciela-1 (mismo ritmo y misma ilusión), ahora con el celular en la mano; "puntos" con alegría. ~1,1 s. | Sin filtro. Es el espejo de graciela-1: que suene a la misma frase con una palabra cambiada. |
 
 Textos que NO van a la voz (están en SPEC.md): el regateo en burbujas ("Doscientos." ×3, "¿Ciento ochenta?",
-"¿Ciento noventa? Vengo todos los días.", "Tengo ciento noventa en monedas."), "¿Me hac…" y "¡Pago!" de la parte 2, la
+"¿Ciento noventa? Vengo siempre.", "Tengo ciento noventa en monedas."), "¿Me hac…" y "¡Pago!" de la parte 2, la
 etiqueta "$ 200", los números 3D del regateo, la tarjeta de puntos del celular ("180 / 200", "+20 puntos", "¡Premio!
 Un dulce de leche ✓"), el "+20 ✓" de Graciela y la línea chica final.
 
@@ -45,4 +45,6 @@ s aspirada uruguaya).
 - hector-7 fuera (Héctor sale sin hablar).
 - narrador.txt nuevo: "Una tarjeta de puntos más tarde." · Rasalgethi, toma narrador-d (2,06 s), verificada con tiempos.mjs
   ("oyó: una tarjeta de puntos más tarde": Una 0 · tarjeta 0,2 · de 0,6 · puntos 0,8 · más 1,1 · tarde 1,5).
+- Ronda 2 de sonido: hector5 = toma hector-5-a (0,25-0,89 s, 0,64 s; "oyó: cuánto es"): la b terminaba cortada ("¿cuánto e-").
+  La pausa de hector3 queda en 0,5 s (no se estiró a 0,65: el reel ya está en 34,96 s).
 - Ronda 2: el narrador entra 0,1 s más tarde (P1 + 0,3) para no pisarse con el stinger; graciela1 con fundido de 0,12 s.
