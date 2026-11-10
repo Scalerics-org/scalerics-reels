@@ -21,7 +21,7 @@
   </style>
   <div id="root" data-composition-id="s04-estudio" data-width="1080" data-height="1920" data-duration="3.99">
     <div id="s04-estudio-esc" class="esc clip" data-start="0" data-duration="3.99" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M420 610 L600 600"/><circle class="dot  d2" cx="600" cy="600" r="13"/></svg><div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div><div class="pill lleno grande n2" style="left:300px;top:560px">casi el doble</div>
+<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>
     </div>
   </div>
   <script>
@@ -46,7 +46,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.21); sinNota(1, 2.09); nota(2, 2.81); sinNota(2, 3.39);
+nota(1, 0.21); sinNota(1, 2.09); 
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

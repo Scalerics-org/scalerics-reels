@@ -111,7 +111,7 @@ const POS = {
   ruben: [300, 1450], rubenLead: [330, 1390, 470, 1180],
   resp: [250, 1660], respLead: [262, 1600, 315, 1425],
   aviso: [820, 1660], avisoLead: [808, 1600, 650, 1425],
-  burbuja: [760, 560], colita: 24,
+  burbuja: [690, 860], colita: 36,
 };
 
 // ================= s01 · gancho (cuadro 0 = portada): el mozo con la bandeja y la nube de pedidos =================
@@ -187,8 +187,8 @@ const POS = {
   escena(id, {
     css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
     P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
-    html: `${leads(lead(2, a, b, c, d))}<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>${pill(2, dx, dy, "casi el doble", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); nota(2, ${r2(tD - 0.2)}); sinNota(2, ${r2(tD + 0.38)});`,
+    html: `<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>`,
+    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); `,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.3 }, { t: 0.0, sfx: "papel", vol: 0.22, max: 0.5 },
       ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(0.15 + Math.floor(k / 2) * 0.14 + (k % 2) * 0.32), sfx: "pop", vol: 0.22 })),
@@ -219,7 +219,7 @@ vacia("s05-por-que", [
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
       { t: 0.35, sfx: "pop", vol: 0.25 },
-      { t: tA, sfx: "pop", vol: 0.25 }, { t: tA + 0.05, sfx: "click-soft", vol: 0.25 },
+      { t: tA - 0.2, sfx: "pop", vol: 0.25 }, { t: tA - 0.15, sfx: "click-soft", vol: 0.25 },
       ...tictac(tA + 0.25, ESC[id], 0.25),
     ],
   });
@@ -232,7 +232,7 @@ vacia("s05-por-que", [
   const tP = w(id, 51) - 0.05, tC = w(id, 54) - 0.05;
   escena(id, {
     css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; }`,
-    html: `${leads(lead(2, a, b, c, d))}<div class="cred n1">Estudio · 2011</div>${pill(2, px, py, "Plan concreto", "lleno grande")}`,
+    html: `${leads(lead(2, a, b, c, d, "g"))}<div class="cred n1">Estudio · 2011</div>${pill(2, px, py, "Plan concreto", "lleno grande")}`,
     js: `nota(1, 0.3); sinNota(1, ${r2(tC - 0.1)}); nota(2, ${r2(tC + 0.1)}); sinNota(2, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       ...tictac(0.15, tC - 0.05, 0.25),
@@ -240,7 +240,7 @@ vacia("s05-por-que", [
       { t: 0.3, sfx: "click-soft", vol: 0.25 },
       { t: 0.47, sfx: "typing", vol: 0.25, max: r2(tC - 0.2 - 0.47) },
       ...[0, 1, 2].map((k) => ({ t: r2(0.45 + (k + 1) * ((tC - 0.2 - 0.45) / 3)), sfx: "pop", vol: 0.22 })),
-      { t: tC - 0.15, sfx: "whoosh-short", vol: 0.06 }, { t: tC + 0.32, sfx: "chime", vol: 0.45, max: 1.2 }, { t: tC + 0.32, sfx: "pop", vol: 0.3 },
+      { t: tC - 0.15, sfx: "whoosh-short", vol: 0.06 }, { t: tC + 0.32, sfx: "chime", vol: 0.45, max: 0.9 }, { t: tC + 0.32, sfx: "pop", vol: 0.3 },
     ],
   });
 }
@@ -254,9 +254,9 @@ vacia("s05-por-que", [
     js: `nota(1, 0.95); sinNota(1, ${r2(w(id, 59) - 0.1)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.45 },
-      { t: 0.92, sfx: "click", vol: 0.15 },
+      { t: 0.4, sfx: "click", vol: 0.15 },
       { t: 0.95, sfx: "pop", vol: 0.1 },
-      ...tictac(0.6, ESC[id], 0.2),
+      ...tictac(0.69, ESC[id], 0.2),
       ...[59, 61, 63].map((i) => ({ t: r2(w(id, i) - 0.05), sfx: "pop", vol: 0.24 })),
       
     ],
@@ -274,8 +274,8 @@ vacia("s05-por-que", [
     sfx: [
       ...tictac(0.0, tS, 0.25),
       { t: 0.05, sfx: "whoosh-short", vol: 0.25 }, { t: 0.4, sfx: "click-soft", vol: 0.3 },
-      ...[0, 1, 2].map((k) => ({ t: r2(tS + k * 0.25), sfx: "whoosh-short", vol: 0.14 })),
-      ...[0, 1, 2].map((k) => ({ t: r2(tS + 0.4 + k * 0.25), sfx: "click", vol: 0.07 })),
+      ...[0, 1, 2].map((k) => ({ t: r2(0.3 + k * 0.3), sfx: "whoosh-short", vol: 0.14 })),
+      ...[0, 1, 2].map((k) => ({ t: r2(0.68 + k * 0.3), sfx: "click", vol: 0.07 })),
       { t: tR, sfx: "whoosh-short", vol: 0.06 },
       { t: tR + 0.05, sfx: "pop", vol: 0.3 },
       { t: tA, sfx: "notification", vol: 0.3, max: 0.9 }, { t: tA + 0.05, sfx: "pop", vol: 0.3 }, { t: tA + 0.15, sfx: "pop", vol: 0.2 }, { t: tA + 0.25, sfx: "pop", vol: 0.18 },
@@ -297,7 +297,7 @@ vacia("s05-por-que", [
     js: `gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       ...tictac(0.0, tO + 0.6, 0.22),
-      { t: 0.35, sfx: "tac-real", vol: 0.6, full: 1 }, { t: 0.08, sfx: "pop", vol: 0.25 }, { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.22 },
+      { t: 0.35, sfx: "tac-real", vol: 0.22 }, { t: 0.08, sfx: "pop", vol: 0.25 }, { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.22 },
       { t: tO, sfx: "whoosh-short", vol: 0.45 }, { t: tO + 0.05, sfx: "burbuja", vol: 0.4 },
       { t: tO + 0.85, sfx: "click", vol: 0.25 },
     ],
@@ -309,8 +309,8 @@ vacia("s05-por-que", [
   const id = "s11-dormir";
   vacia(id, [
     { t: -0.05, sfx: "whoosh", vol: 0.35 }, { t: 0.2, sfx: "sparkle", vol: 0.25, max: 0.8 },
-    ...[0, 1, 2].map((k) => ({ t: r2(0.9 + k * 0.3), sfx: "pop", vol: 0.3 })),
-    { t: 0.9, sfx: "ding", vol: 0.28, max: 0.7 },
+    ...[1.14, 1.38, 1.64].map((x) => ({ t: x, sfx: "pop", vol: 0.3 })),
+    { t: 1.14, sfx: "ding", vol: 0.28, max: 0.7 },
   ]);
 }
 
@@ -336,7 +336,7 @@ vacia("s05-por-que", [
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.3, max: 1.2 },
+      { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.3, max: r2(ESC[id] - w(id, 87) - 0.5) },
     ],
   });
 }
