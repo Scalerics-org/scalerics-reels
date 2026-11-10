@@ -239,6 +239,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-10T14:15 -->
+- 10-11 · `me-haces-precio` · Scalerics Puntos · Para mandar completo con Rubén: le piden descuento en algo de $200; cartel "Unos puntos más tarde…" (corrida 10-11 14:15)
+- 10-11 · `por-que-el-mozo` · Sistema a medida (lo pendiente anotado en un sistema, no en la cabeza) · explicador ¿Por qué?: el mozo se acuerda del pedido hasta que lo cobran (Zeigarnik) (corrida 10-11 14:15)
 
 
 
