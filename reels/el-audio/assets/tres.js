@@ -660,12 +660,12 @@ const PLANOS = [
   ["Q1b", T.q1b, [[T.q1b, ...PANT(0.84, 44, 0.6)], [T.q2, ...PANT(0.78, 44, 0.6)]]],
   ["Q2", T.q2, [[T.q2, ...GEN], [T.pushQ2[0], GEN[0] + 0.06, GEN[1], GEN[2] - 0.04, GEN[3], GEN[4], GEN[5], GEN[6]]]],
   // Q2b · corte al paquete de polenta (por delante de Rubén no se puede pasar): push-in corto a la etiqueta
-  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.14, ETI.y - 0.04, ETI.z + 1.15, ETI.x, ETI.y - 0.06, ETI.z, 40], [T.q3, ETI.x + 0.11, ETI.y - 0.05, ETI.z + 0.92, ETI.x, ETI.y - 0.06, ETI.z, 40]]],
+  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.12, ETI.y - 0.02, ETI.z + 1.45, ETI.x, ETI.y - 0.06, ETI.z, 40], [T.q3, ETI.x + 0.1, ETI.y - 0.02, ETI.z + 1.3, ETI.x, ETI.y - 0.06, ETI.z, 40]]],
   // Q3 · el mismo general, mirando hacia la puerta: entra Graciela
   ["Q3", T.q3, [[T.q3, 1.75, 1.72, 1.25, -1.1, 1.2, -0.6, 58], [T.entraG[1], 1.75, 1.72, 1.25, -0.3, 1.2, -1.3, 62], [T.q4, 1.72, 1.72, 1.22, -0.25, 1.2, -1.35, 62]]],
   ["Q4", T.q4, [[T.q4, ...PP(0.45, 0.06, 46)], [T.q5, ...PP(0.3, 0.06, 46)]]],
   // Q5 · de 3/4, Rubén y Graciela a los dos lados del mostrador, el celular en primer término a la derecha
-  ["Q5", T.q5, [[T.q5, 1.8, 1.62, 1.0, -0.12, 1.2, -1.3, 62], [DUR, 1.83, 1.63, 1.08, -0.14, 1.19, -1.3, 62.5]]],
+  ["Q5", T.q5, [[T.q5, 1.8, 1.62, 1.0, -0.2, 1.2, -1.3, 63], [DUR, 1.8, 1.62, 1.02, -0.22, 1.2, -1.3, 63.5]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
