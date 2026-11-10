@@ -1,0 +1,530 @@
+[
+ {
+  "id": 0,
+  "text": "¿Por",
+  "start": 0.03,
+  "end": 0.24
+ },
+ {
+  "id": 1,
+  "text": "qué",
+  "start": 0.24,
+  "end": 0.3
+ },
+ {
+  "id": 2,
+  "text": "el",
+  "start": 0.3,
+  "end": 0.4
+ },
+ {
+  "id": 3,
+  "text": "mozo",
+  "start": 0.4,
+  "end": 0.8
+ },
+ {
+  "id": 4,
+  "text": "se",
+  "start": 0.8,
+  "end": 0.9
+ },
+ {
+  "id": 5,
+  "text": "acuerda",
+  "start": 0.9,
+  "end": 1.3
+ },
+ {
+  "id": 6,
+  "text": "de",
+  "start": 1.3,
+  "end": 1.38
+ },
+ {
+  "id": 7,
+  "text": "tu",
+  "start": 1.38,
+  "end": 1.45
+ },
+ {
+  "id": 8,
+  "text": "pedido…",
+  "start": 1.45,
+  "end": 2.12
+ },
+ {
+  "id": 9,
+  "text": "hasta",
+  "start": 2.12,
+  "end": 2.3
+ },
+ {
+  "id": 10,
+  "text": "que",
+  "start": 2.3,
+  "end": 2.44
+ },
+ {
+  "id": 11,
+  "text": "pagás?",
+  "start": 2.44,
+  "end": 2.954
+ },
+ {
+  "id": 12,
+  "text": "Se",
+  "start": 3.321,
+  "end": 3.4
+ },
+ {
+  "id": 13,
+  "text": "cuenta",
+  "start": 3.4,
+  "end": 3.7
+ },
+ {
+  "id": 14,
+  "text": "que",
+  "start": 3.7,
+  "end": 3.8
+ },
+ {
+  "id": 15,
+  "text": "un",
+  "start": 3.8,
+  "end": 3.9
+ },
+ {
+  "id": 16,
+  "text": "mozo",
+  "start": 3.9,
+  "end": 4.2
+ },
+ {
+  "id": 17,
+  "text": "recordaba",
+  "start": 4.2,
+  "end": 4.966
+ },
+ {
+  "id": 18,
+  "text": "todo",
+  "start": 5.087,
+  "end": 5.3
+ },
+ {
+  "id": 19,
+  "text": "sin",
+  "start": 5.3,
+  "end": 5.6
+ },
+ {
+  "id": 20,
+  "text": "anotar.",
+  "start": 5.6,
+  "end": 5.988
+ },
+ {
+  "id": 21,
+  "text": "Pagaron…",
+  "start": 6.38,
+  "end": 6.87
+ },
+ {
+  "id": 22,
+  "text": "y",
+  "start": 7.421,
+  "end": 7.52
+ },
+ {
+  "id": 23,
+  "text": "se",
+  "start": 7.52,
+  "end": 7.6
+ },
+ {
+  "id": 24,
+  "text": "olvidó.",
+  "start": 7.6,
+  "end": 7.906
+ },
+ {
+  "id": 25,
+  "text": "En",
+  "start": 8.54,
+  "end": 8.62
+ },
+ {
+  "id": 26,
+  "text": "un",
+  "start": 8.62,
+  "end": 8.7
+ },
+ {
+  "id": 27,
+  "text": "estudio,",
+  "start": 8.7,
+  "end": 9.2
+ },
+ {
+  "id": 28,
+  "text": "las",
+  "start": 9.2,
+  "end": 9.4
+ },
+ {
+  "id": 29,
+  "text": "tareas",
+  "start": 9.4,
+  "end": 9.7
+ },
+ {
+  "id": 30,
+  "text": "interrumpidas",
+  "start": 9.7,
+  "end": 10.4
+ },
+ {
+  "id": 31,
+  "text": "se",
+  "start": 10.4,
+  "end": 10.48
+ },
+ {
+  "id": 32,
+  "text": "recordaban",
+  "start": 10.48,
+  "end": 11
+ },
+ {
+  "id": 33,
+  "text": "casi",
+  "start": 11,
+  "end": 11.4
+ },
+ {
+  "id": 34,
+  "text": "el",
+  "start": 11.4,
+  "end": 11.6
+ },
+ {
+  "id": 35,
+  "text": "doble.",
+  "start": 11.6,
+  "end": 11.978
+ },
+ {
+  "id": 36,
+  "text": "¿Por",
+  "start": 12.529,
+  "end": 12.67
+ },
+ {
+  "id": 37,
+  "text": "qué?",
+  "start": 12.67,
+  "end": 12.843
+ },
+ {
+  "id": 38,
+  "text": "Lo",
+  "start": 13.836,
+  "end": 13.92
+ },
+ {
+  "id": 39,
+  "text": "pendiente",
+  "start": 13.92,
+  "end": 14.2
+ },
+ {
+  "id": 40,
+  "text": "queda",
+  "start": 14.2,
+  "end": 14.7
+ },
+ {
+  "id": 41,
+  "text": "abierto",
+  "start": 14.7,
+  "end": 15
+ },
+ {
+  "id": 42,
+  "text": "en",
+  "start": 15,
+  "end": 15.1
+ },
+ {
+  "id": 43,
+  "text": "la",
+  "start": 15.1,
+  "end": 15.2
+ },
+ {
+  "id": 44,
+  "text": "cabeza.",
+  "start": 15.2,
+  "end": 15.631
+ },
+ {
+  "id": 45,
+  "text": "Otro",
+  "start": 15.95,
+  "end": 16.1
+ },
+ {
+  "id": 46,
+  "text": "estudio",
+  "start": 16.1,
+  "end": 16.35
+ },
+ {
+  "id": 47,
+  "text": "vio",
+  "start": 16.35,
+  "end": 16.5
+ },
+ {
+  "id": 48,
+  "text": "que",
+  "start": 16.5,
+  "end": 16.62
+ },
+ {
+  "id": 49,
+  "text": "hacer",
+  "start": 16.62,
+  "end": 16.88
+ },
+ {
+  "id": 50,
+  "text": "un",
+  "start": 16.88,
+  "end": 17
+ },
+ {
+  "id": 51,
+  "text": "plan",
+  "start": 17,
+  "end": 17.3
+ },
+ {
+  "id": 52,
+  "text": "concreto",
+  "start": 17.3,
+  "end": 18.02
+ },
+ {
+  "id": 53,
+  "text": "la",
+  "start": 18.02,
+  "end": 18.18
+ },
+ {
+  "id": 54,
+  "text": "despeja.",
+  "start": 18.18,
+  "end": 19.107
+ },
+ {
+  "id": 55,
+  "text": "Rubén,",
+  "start": 19.56,
+  "end": 19.9
+ },
+ {
+  "id": 56,
+  "text": "de",
+  "start": 19.9,
+  "end": 20.2
+ },
+ {
+  "id": 57,
+  "text": "noche:",
+  "start": 20.2,
+  "end": 20.577
+ },
+ {
+  "id": 58,
+  "text": "la",
+  "start": 20.867,
+  "end": 21
+ },
+ {
+  "id": 59,
+  "text": "seña,",
+  "start": 21,
+  "end": 21.3
+ },
+ {
+  "id": 60,
+  "text": "el",
+  "start": 21.3,
+  "end": 21.6
+ },
+ {
+  "id": 61,
+  "text": "presupuesto,",
+  "start": 21.6,
+  "end": 22.184
+ },
+ {
+  "id": 62,
+  "text": "el",
+  "start": 22.288,
+  "end": 22.5
+ },
+ {
+  "id": 63,
+  "text": "proveedor.",
+  "start": 22.5,
+  "end": 23.087
+ },
+ {
+  "id": 64,
+  "text": "Ahora",
+  "start": 23.418,
+  "end": 23.7
+ },
+ {
+  "id": 65,
+  "text": "cada",
+  "start": 23.7,
+  "end": 24
+ },
+ {
+  "id": 66,
+  "text": "pendiente",
+  "start": 24,
+  "end": 24.7
+ },
+ {
+  "id": 67,
+  "text": "va",
+  "start": 24.7,
+  "end": 24.9
+ },
+ {
+  "id": 68,
+  "text": "al",
+  "start": 24.9,
+  "end": 24.98
+ },
+ {
+  "id": 69,
+  "text": "sistema,",
+  "start": 24.98,
+  "end": 25.662
+ },
+ {
+  "id": 70,
+  "text": "con",
+  "start": 25.959,
+  "end": 26.1
+ },
+ {
+  "id": 71,
+  "text": "responsable",
+  "start": 26.1,
+  "end": 27
+ },
+ {
+  "id": 72,
+  "text": "y",
+  "start": 27,
+  "end": 27.3
+ },
+ {
+  "id": 73,
+  "text": "aviso.",
+  "start": 27.3,
+  "end": 27.925
+ },
+ {
+  "id": 74,
+  "text": "Anotado.",
+  "start": 28.455,
+  "end": 29.072
+ },
+ {
+  "id": 75,
+  "text": "Ya",
+  "start": 29.648,
+  "end": 29.9
+ },
+ {
+  "id": 76,
+  "text": "me",
+  "start": 29.9,
+  "end": 30
+ },
+ {
+  "id": 77,
+  "text": "olvidé.",
+  "start": 30,
+  "end": 30.485
+ },
+ {
+  "id": 78,
+  "text": "¿Querés",
+  "start": 31.04,
+  "end": 31.2
+ },
+ {
+  "id": 79,
+  "text": "dormir",
+  "start": 31.2,
+  "end": 31.79
+ },
+ {
+  "id": 80,
+  "text": "sin",
+  "start": 31.79,
+  "end": 31.87
+ },
+ {
+  "id": 81,
+  "text": "pendientes?",
+  "start": 31.87,
+  "end": 32.596
+ },
+ {
+  "id": 82,
+  "text": "Agendá",
+  "start": 32.9,
+  "end": 33.23
+ },
+ {
+  "id": 83,
+  "text": "una",
+  "start": 33.23,
+  "end": 33.47
+ },
+ {
+  "id": 84,
+  "text": "videollamada",
+  "start": 33.47,
+  "end": 34.31
+ },
+ {
+  "id": 85,
+  "text": "gratis",
+  "start": 34.31,
+  "end": 34.61
+ },
+ {
+  "id": 86,
+  "text": "en",
+  "start": 34.61,
+  "end": 34.94
+ },
+ {
+  "id": 87,
+  "text": "scalerics.com.",
+  "start": 34.94,
+  "end": 36.106
+ }
+]
