@@ -890,7 +890,7 @@ function zonaB(t) {
   if (t > T.vos && t < T.vos + 0.45) pr.ojos = { ...pr.ojos, guiño: Math.sin(Math.PI * sg(t, T.vos, T.vos + 0.45)) };
   ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
   // la mano derecha: al frasco, al platito (el primero); al frasco y a la palma (el segundo)
-  const FR = FRASCO.clone().add(V(0.02, 0.3, 0.12)), PLW = PB.clone().add(V(-0.04, 0.09, 0.0));
+  const FR = FRASCO.clone().add(V(0.02, 0.3, 0.2)), PLW = PB.clone().add(V(-0.04, 0.09, 0.0));
   const tramo = (a, b) => sg(t, a, b);
   const g1 = tramo(T.daR - 0.05, T.daR + 0.3), g2 = tramo(T.daR + 0.38, T.daR + 0.7), g3 = tramo(T.daR + 0.75, T.daR + 1.0);
   const h1 = tramo(T.vuelveR + 0.3, T.vuelveR + 0.55), h2 = tramo(T.vuelveR + 0.62, T.habla + 0.15);

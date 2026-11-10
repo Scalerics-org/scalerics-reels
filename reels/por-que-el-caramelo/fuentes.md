@@ -90,3 +90,18 @@ Links:
 - SFX de la biblioteca del repo (`reels/por-que-se-fue/assets/sfx`): pop, papel, tic-real, ding, campanita, whoosh.
   Si hace falta el crujido de papel de caramelo o el tintineo de monedas y no está, uno real CC0 (anotar autor, sitio y
   licencia acá), nunca sintetizado.
+
+## Sonido (constructor, 10-11)
+- Sin descargas nuevas: la nube bloquea Freesound y Openverse (403 del proxy en esta corrida), así que no hay crujido de
+  celofán ni tintineo de monedas grabados a propósito. Nada sintetizado: todo sale de la biblioteca del repo.
+- Envoltorio y ticket (`papel-fuerte.mp3`): recorte de 0,26-0,86 s de `papel.mp3` ("Paper slide", Kingofgamers_cz,
+  CC0 1.0, https://freesound.org/people/Kingofgamers_cz/sounds/352914/) con +12 dB y limitador (el original queda en
+  -42 LUFS y no se oía con el techo de -31).
+- Monedas que caen en las pilas, el amague de la moza y de Rubén: `tic-real.mp3` / `tac-real.mp3` (recortes de "Clock
+  ticking", olver, CC0 1.0, https://freesound.org/people/olver/sounds/130388/), de a 3-6 golpes por pila.
+- Caramelo que cae al frasco: `ping` + `tic-real`; campanita de la puerta del almacén (`campanita.mp3`): "Shop door
+  bell.wav", 775noise, CC0 1.0 (https://freesound.org/people/775noise/sounds/494565/); vibración de la tablet
+  (`vibra.mp3`): SpliceSound, CC0 1.0 (https://freesound.org/people/SpliceSound/sounds/369839/).
+- El resto: los efectos de siempre del repo (HyperFrames: whoosh, whoosh-short, whoosh-cine-corto, whoosh-cinematic,
+  pop, click, click-soft, ding, chime, sparkle, notification, impact-bass-1, key-press) y la música `bgm/bed.mp3`
+  (la de por-que-se-fue / por-que-el-final).

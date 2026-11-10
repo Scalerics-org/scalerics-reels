@@ -19,6 +19,17 @@ Rubén (callback visual). Cámara continua (Catmull-Rom) de objeto en objeto, ca
 **Fondo navy claro `#16243d` LISO** (los dos últimos explicadores fueron crema y navy oscuro); piso `#1f3254` con
 sombra suave; nada de degradés ni brillos (compresión de Instagram). Cierre en verde de marca `#5ce611` con letras navy.
 
+## Construcción (10-11)
+- Voz: Orus `partes/orus-a2.wav` (toma elegida: en orus-a1 se comió el "se" de "irse") con "Pareció un gesto personal."
+  de `partes/orus-parecio.wav` (en a2 STT oía "parece"), Rubén `partes/ruben2.wav` (Algenib), Orus `partes/orus-b1.wav`;
+  pegado en `partes/armar-voz.sh` (pausas: +0,15 s antes de "¿Por qué?", +0,28 s antes de "y vuelve", 0,35 s antes de
+  Rubén, 0,5 s después). Tiempos: `partes/ajustar-tiempos.mjs` (silencios reales + STT; el cierre a mano). 34,56 s.
+- Escenas reales (reel.json): "¿Por qué?" (0,58 s) y "Pareció un gesto personal." van juntas en `s06-por-que`, así que
+  desde ahí las ids corren una: s07-ruben, s08-ficha, s09-vuelve, s10-gesto, s11-llamada.
+- La fila del almacén quedó a la derecha de Graciela, paralela al mostrador; la tablet, a la izquierda del mostrador.
+- En la tarjeta de cierre el caramelo verde oscuro va grande abajo del texto (no en la esquina): sin él la mitad de abajo
+  quedaba verde vacía.
+
 ## Lo que cambia respecto de SPEC-base
 Todo lo dibujado es 3D (no líneas SVG). Subtítulos arriba al centro, 1 a 3 palabras, Lexend 700 ~86 px crema con
 borde navy; la palabra clave en recuadro verde con letras navy (acentos sugeridos: caramelo, cuenta, midieron, poco,
