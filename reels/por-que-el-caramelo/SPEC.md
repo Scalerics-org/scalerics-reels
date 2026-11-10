@@ -30,7 +30,13 @@ sombra suave; nada de degradés ni brillos (compresión de Instagram). Cierre en
 - Sin tarjetita "Para esta mesa". Rótulo s02 "Estudio publicado en 2002". Ficha: "Clienta desde: hace 1 año", aviso
   "Hoy cumple 1 año / como clienta", lista con Héctor en vez de Nico. El logo entra en s02 (no en el cuadro 0).
 - La fila del almacén está a la derecha de Graciela, paralela al mostrador; la tablet, a la izquierda del mostrador.
-- En la tarjeta de cierre el caramelo verde oscuro va grande abajo del texto (no en la esquina).
+- En la tarjeta de cierre el caramelo va grande abajo del texto (no en la esquina).
+- Ronda 1 de arte y sonido: 36,44 s. Inicios: s02 2,56 · s03 4,83 · s04 8,30 · s05 12,44 · s06 14,58 · s07 17,33 ·
+  s08 20,62 · s09 24,54 · s10 31,00 · s11 33,74. Frasco ABIERTO a la izquierda de Rubén (tapa al lado), caramelos desde
+  el fondo; estantería lateral y pared de enfrente (solo en el contraplano) para que nunca haya fondo navy vacío;
+  s09 en plano a dos (Rubén da uno al platito, mira la tablet, el segundo vuela de la tablet a su palma abierta y
+  Graciela lo toma); contraplano de Graciela con estantes atrás y el caramelo en el pecho; s05 los dos pares grandes
+  con "=" y las pilas abajo; el "?" sale entero hacia arriba; el caramelo del cierre es crema con rayas verdes.
 
 ## Lo que cambia respecto de SPEC-base
 Todo lo dibujado es 3D (no líneas SVG). Subtítulos arriba al centro, 1 a 3 palabras, Lexend 700 ~86 px crema con

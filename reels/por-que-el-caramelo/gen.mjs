@@ -125,12 +125,12 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
-  cred: [540, 1590], credLead: [540, 1520, 540, 1350],
+  cred: [540, 1590], credLead: [560, 1530, 700, 1130],
   pocoMas: [300, 690], pocoLead: [300, 740, 300, 830],
   mas: [870, 760], masLead: [800, 800, 720, 850],
-  dosJuntos: [230, 1265], laQueMas: [700, 1560],
-  gesto: [540, 1590], gestoLead: [540, 1530, 560, 1290],
-  ruben: [300, 880],
+  dosJuntos: [250, 1180], laQueMas: [700, 1680],
+  gesto: [540, 600], gestoLead: [560, 650, 590, 960],
+  ruben: [260, 860],
   burbuja: [540, 300], colita: 42,
 };
 
@@ -217,7 +217,7 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
   const t0 = r2(T(35) + 0.05 + 0.62 - INI[id]), verde = r2(t0 + 23 * 0.017 + 0.12), sube = r2(w(id, 38) + 0.05), mismos = r2(w(id, 38) + 0.45);
   escena(id, {
     html: `${pill(1, dx, dy, "Dos juntos", "nom")}${pill(2, lx, ly, "Uno + uno: la que más", "lleno nom")}`,
-    js: `nota(2, ${r2(verde + 0.05)}); sinNota(2, ${r2(sube + 0.1)}); nota(1, ${r2(mismos + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.15)});`,
+    js: `nota(2, ${r2(verde + 0.02)}); sinNota(2, ${r2(sube - 0.05)}); nota(1, ${r2(mismos + 0.1)}); sinNota(1, ${r2(ESC[id] - 0.15)});`,
     sfx: [
       ...pings(t0, 0.36, 4),
       { t: verde, sfx: "ding", vol: 0.35, max: 0.8 },

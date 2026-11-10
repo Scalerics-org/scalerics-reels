@@ -119,3 +119,9 @@ Links:
 - El resto: los efectos de siempre del repo (HyperFrames: whoosh, whoosh-short, whoosh-cine-corto, whoosh-cinematic,
   pop, click, click-soft, ding, chime, sparkle, notification, impact-bass-1, key-press) y la música `bgm/bed.mp3`
   (la de por-que-se-fue / por-que-el-final).
+- Ronda 1 (arte + sonido): techo de -31 LUFS medido como momentáneo máximo SOLO sobre el tramo que suena de cada clip
+  (antes se medía el archivo entero y los efectos cortos quedaban inaudibles). Pings, vibración, notificación, tecla y
+  campanita de la tarjeta, chime y pops subidos a ~-32/-35 momentáneo. Se sacó el `papel` en "cuenta" (no había acción).
+- Voces nuevas (Gemini TTS): `v3-a2` (línea 2), `v4-leda2` ("Le da un caramelo…", más claro), `v4-ruben4` (Rubén,
+  Algenib: STT es-UY oye "y este por tu año"), `v2-c3` (cierre: STT oye "querés"; ninguna toma da "agendá" en STT, que
+  transcribe "agenda": se eligió la que suena con acento final al oído).
