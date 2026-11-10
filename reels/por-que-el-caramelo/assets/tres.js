@@ -140,9 +140,9 @@ const rayasTex = (fondo, raya) => tex(512, 256, (x, w, h) => {
   x.strokeStyle = raya; x.lineWidth = 16; x.lineCap = "butt";
   for (let i = -6; i < 14; i++) { x.beginPath(); x.moveTo(i * 52, -4); x.lineTo(i * 52 + 150, h + 4); x.stroke(); }
 });
-const RAYAS = { g: rayasTex(VER, "rgba(239,238,229,0.92)"), gd: rayasTex("#2f8a06", "rgba(11,18,32,0.55)") };
-const celofan = (k, lados = THREE.FrontSide) => new THREE.MeshPhysicalMaterial({ map: RAYAS[k], color: 0xffffff, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.08, emissive: k === "g" ? 0x2c7a06 : 0x0f3a02, emissiveIntensity: 0.18, side: lados });
-const MCAR = { g: [celofan("g"), celofan("g", THREE.DoubleSide)], gd: [celofan("gd"), celofan("gd", THREE.DoubleSide)] };
+const RAYAS = { g: rayasTex(VER, "rgba(239,238,229,0.92)"), gd: rayasTex("#2f8a06", "rgba(11,18,32,0.55)"), cr: rayasTex(CRE, "rgba(63,166,10,1)") };
+const celofan = (k, lados = THREE.FrontSide) => new THREE.MeshPhysicalMaterial({ map: RAYAS[k], color: 0xffffff, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.08, emissive: k === "g" ? 0x2c7a06 : k === "cr" ? 0x000000 : 0x0f3a02, emissiveIntensity: 0.18, side: lados });
+const MCAR = { g: [celofan("g"), celofan("g", THREE.DoubleSide)], gd: [celofan("gd"), celofan("gd", THREE.DoubleSide)], cr: [celofan("cr"), celofan("cr", THREE.DoubleSide)] };
 const cuerpoCarGeo = new THREE.SphereGeometry(1, 48, 24).rotateZ(Math.PI / 2).scale(0.5, 0.33, 0.33);
 const cuelloGeo = (() => { const g = new THREE.CylinderGeometry(0.075, 0.1, 0.14, 20, 3); g.rotateZ(Math.PI / 2); return g; })();
 const abanicoGeo = (() => {
@@ -195,9 +195,13 @@ const ticketTex = (titulo) => tex(512, 640, (x, w, h) => {
 const TICKET = { cuenta: ticketTex("CUENTA"), almacen: ticketTex("ALMACÉN") };
 function hacerPlatito(tt) {
   const g = new THREE.Group();
-  const perfil = [[0, 0], [0.09, 0.0], [0.105, 0.006], [0.13, 0.016], [0.15, 0.024], [0.152, 0.027]].map(([r, y]) => new THREE.Vector2(r, y));
-  const plato = mesh(new THREE.LatheGeometry(perfil, 48), mat(0xf4f2e8, 0.3, { side: THREE.DoubleSide })); plato.scale.z = 0.72; g.add(plato);
-  const borde = mesh(new THREE.TorusGeometry(0.15, 0.005, 8, 64), M.navy2, 0, 0.026, 0); borde.rotation.x = Math.PI / 2; borde.scale.y = 0.72; g.add(borde);
+  const perfil = [[0, 0.0], [0.07, 0.0], [0.08, 0.004], [0.095, 0.01], [0.105, 0.008], [0.125, 0.02], [0.148, 0.034], [0.156, 0.04], [0.158, 0.036], [0.15, 0.028], [0.12, 0.012], [0.1, 0.0]].map(([r, y]) => new THREE.Vector2(r, y));
+  const loza = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.18, clearcoat: 1, clearcoatRoughness: 0.08, side: THREE.DoubleSide });
+  const plato = mesh(new THREE.LatheGeometry(perfil, 64), loza); plato.scale.z = 0.72; g.add(plato);
+  const pie = mesh(new THREE.CylinderGeometry(0.075, 0.08, 0.008, 40), mat(0xd9d7c9, 0.5), 0, 0.002, 0); pie.scale.z = 0.72; g.add(pie);
+  const ala = mesh(new THREE.TorusGeometry(0.139, 0.0065, 8, 72), M.navy2, 0, 0.03, 0); ala.rotation.x = Math.PI / 2; ala.scale.y = 0.72; g.add(ala);
+  const borde = mesh(new THREE.TorusGeometry(0.157, 0.004, 8, 72), M.navy2, 0, 0.039, 0); borde.rotation.x = Math.PI / 2; borde.scale.y = 0.72; g.add(borde);
+  const somb = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.3), new THREE.MeshBasicMaterial({ map: sombraTex, transparent: true, depthWrite: false, opacity: 0.7 })); somb.rotation.x = -Math.PI / 2; somb.position.y = 0.002; somb.renderOrder = -1; g.add(somb);
   // ticket doblado al medio: la mitad de abajo apoyada, la de arriba levantada desde el pliegue (z = 0)
   const TW = 0.13, TH = 0.085;
   const mt = new THREE.MeshStandardMaterial({ map: tt, roughness: 0.85 });
@@ -234,9 +238,7 @@ const mesa = new THREE.Group(); scene.add(mesa);
     const s = mesh(new THREE.CylinderGeometry(0.0001, 0.07, 0.11, 3), M.g, x, TOP + 0.03, z); s.rotation.set(Math.PI / 2, r, 0); s.scale.set(1, 1, 0.35); mesa.add(s);
   }
   // la lámpara colgante (cable, pantalla crema)
-  mesa.add(mesh(new THREE.CylinderGeometry(0.006, 0.006, 1.6, 6), M.navy, 0, 2.95, 0));
-  const pant = mesh(new THREE.CylinderGeometry(0.07, 0.26, 0.2, 32, 1, true), mat(0xefeee5, 0.6, { side: THREE.DoubleSide, emissive: 0xffe2a8, emissiveIntensity: 0.15 }), 0, 2.08, 0); mesa.add(pant);
-  mesa.add(mesh(new THREE.SphereGeometry(0.06, 16, 10), new THREE.MeshBasicMaterial({ color: 0xffe8b8 }), 0, 1.99, 0));
+  // (sin lámpara colgante: se metía en los subtítulos)
   sh(mesa);
 }
 const sombraMesa = sombra(2.4, 2.4); sombraMesa.position.set(0, 0.004, 0);
@@ -267,7 +269,20 @@ function sentar(p) { const esc = p.raiz.children[0]; esc.children[0].rotation.x 
 // la moza (genérica): camisa crema, delantal largo navy con bolsillo, coleta; canastita de mimbre con caramelos
 const moza = crearPersonaje({ nombre: "Moza", piel: PIEL.media, pelo: 0x4a2c1c, peinado: "coleta", cejasColor: 0x3a2418, camisa: C.cr, mangas: "cortas",
   delantal: C.navy, delantalBorde: C.edge, pantalon: C.navy, zapatos: 0x1e1a18, panza: 0.98, nariz: 0.05, mejillas: 0xd98a78, labios: 0xa4484c, alto: 0.97, parpadeoCada: 1e6 });
-scene.add(moza.raiz); moza.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
+scene.add(moza.raiz);
+{
+  const pm = mat(0x4a2c1c, 0.75);
+  moza.cabeza.traverse((o) => {
+    if (!o.isMesh) return;
+    const gp = o.geometry.parameters || {};
+    if (o.geometry.type === "SphereGeometry" && Math.abs((gp.thetaLength || 0) - Math.PI * 0.44) < 1e-6) o.geometry = new THREE.SphereGeometry(1, 40, 16, 0, Math.PI * 2, 0, Math.PI * 0.36);
+    if (Math.abs(o.scale.x - 0.17) < 1e-6 && Math.abs(o.scale.y - 0.06) < 1e-6) o.visible = false; // mechón de flequillo
+  });
+  // la nuca: una cáscara de pelo atrás, de la coronilla hasta abajo de las orejas
+  const nuca = mesh(new THREE.SphereGeometry(1, 40, 18, Math.PI, Math.PI, Math.PI * 0.12, Math.PI * 0.62), pm, 0, 0.3 * 0.92 + 0.005, -0.006);
+  nuca.scale.set(0.3 * 1.055, 0.3 * 1.03, 0.3 * 1.06); moza.cabeza.add(nuca);
+}
+moza.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const canasta = new THREE.Group(); scene.add(canasta);
 const carCanasta = [];
 {
@@ -298,10 +313,15 @@ const placas = [];
   bandeja.add(mesh(rbox(2.9, 0.16, 1.05, 0.05), M.navy, -3.87, 0.08, PZ));
   PX.forEach((x, i) => {
     bandeja.add(mesh(new THREE.CylinderGeometry(RM + 0.05, RM + 0.05, 0.025, 40), M.edge, x, 0.17, PZ));
-    const tt = tex(512, 150, (c, w, h) => { c.fillStyle = CRE; rr(c, 0, 0, w, h, 26); c.fillStyle = NAV0; c.textAlign = "center"; c.textBaseline = "middle"; ajustar(c, ROT_PILA[i], 800, 92, w - 44); c.fillText(ROT_PILA[i], w / 2, h / 2 + 4); });
+    const tt = tex(512, 232, (c, w, h) => {
+      c.fillStyle = CRE; rr(c, 0, 0, w, h, 30); c.fillStyle = NAV0; c.textAlign = "center"; c.textBaseline = "middle";
+      const ls = ROT_PILA[i] === "Sin caramelo" ? ["Sin", "caramelo"] : [ROT_PILA[i]];
+      if (ls.length === 2) { c.font = F(800, 96); c.fillText(ls[0], w / 2, 66); ajustar(c, ls[1], 800, 96, w - 30); c.fillText(ls[1], w / 2, 166); }
+      else { ajustar(c, ls[0], 800, 120, w - 30); c.fillText(ls[0], w / 2, h / 2 + 4); }
+    });
     const pm = new THREE.MeshStandardMaterial({ map: tt, roughness: 0.6, emissive: 0xffffff, emissiveMap: tt, emissiveIntensity: 0.16, transparent: true });
-    const pl = mesh(new THREE.PlaneGeometry(0.54, 0.16), pm, x, 0.27, PZ + 0.56); pl.rotation.x = -0.3; bandeja.add(pl); placas.push(pl);
-    bandeja.add(mesh(rbox(0.46, 0.12, 0.04, 0.01), M.navy3, x, 0.12, PZ + 0.53));
+    const pl = mesh(new THREE.PlaneGeometry(0.66, 0.3), pm, x, 0.33, PZ + 0.56); pl.rotation.x = -0.3; bandeja.add(pl); placas.push(pl);
+    bandeja.add(mesh(rbox(0.5, 0.16, 0.04, 0.01), M.navy3, x, 0.12, PZ + 0.53));
   });
   sh(bandeja);
 }
@@ -328,7 +348,7 @@ const KQ = 1.9 / 1.5; // medidas del glifo de Lexend 800 a tamaño 1,5 (centrado
 const pregGeo = textoGeo("?", 1.9, 0.46);
 const corteQ = new THREE.Plane();
 const pregunta = mesh(pregGeo, M.g.clone()); pregunta.material.clippingPlanes = [corteQ]; scene.add(pregunta);
-const QC = V(-3.32, 3.75, 0.7); // el "?"
+const QC = V(-3.32, 4.75, 0.7); // el "?"
 const PUNTO = V(-0.013 * KQ, -0.43 * KQ, 0.04); // el centro del punto, en el espacio del "?" (el punto de verdad se recorta: lo reemplaza el caramelo)
 // tarjetita de regalo "Para esta mesa" atada al moño (en el espacio del caramelo)
 const tarjeta = new THREE.Group();
@@ -350,7 +370,7 @@ const carP = hacerCaramelo(); // el punto del "?" → la mano de la moza → el 
 // (la tarjetita con texto se sacó en la ronda 1: el gesto lo cuenta el rótulo)
 const carR1 = hacerCaramelo(); // Rubén: el primero, al platito
 const carR2 = hacerCaramelo(); // Rubén: "Y este, para vos."
-const carFin = hacerCaramelo("gd");
+const carFin = hacerCaramelo("cr");
 
 // ================= ZONA B: el almacén de Rubén =================
 const almacen = new THREE.Group(); almacen.position.copy(OB); scene.add(almacen);
@@ -379,13 +399,26 @@ const MOSTRADOR = { y: 0.88, z: -1.12 };
   }
   const letTex = tex(1024, 220, (x) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, 1024, 220); x.strokeStyle = "#5ce611"; x.lineWidth = 12; x.strokeRect(16, 16, 992, 188); x.fillStyle = "#efeee5"; x.font = F(900, 120); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ALMACÉN", 512, 116); });
   almacen.add(mesh(rbox(1.6, 0.34, 0.05, 0.03), [M.navy2, M.navy2, M.navy2, M.navy2, new THREE.MeshStandardMaterial({ map: letTex, roughness: 0.6, emissive: 0xffffff, emissiveMap: letTex, emissiveIntensity: 0.15 }), M.navy2], 0.0, 3.0, -3.22));
+  // estantería lateral (a la izquierda, mirando al mostrador): fondo del contraplano de Graciela
+  {
+    const lado = new THREE.Group(); lado.position.set(-2.75, 0, -0.5); lado.rotation.y = Math.PI / 2; almacen.add(lado);
+    lado.add(mesh(new THREE.BoxGeometry(5.4, 2.9, 0.1), pared, 0, 1.45, -0.2));
+    for (const y of [0.55, 1.1, 1.65, 2.2]) {
+      lado.add(mesh(rbox(5.2, 0.05, 0.4, 0.015), estante, 0, y, 0.0));
+      for (let x = -2.5; x < 2.5; x += 0.17 + az() * 0.08) {
+        const k = az(), c = colores[Math.floor(az() * colores.length)];
+        if (k < 0.5) { const h = 0.22 + az() * 0.18; lado.add(mesh(rbox(0.13, h, 0.16, 0.012), mat(c, 0.6), x, y + 0.025 + h / 2, 0.05)); }
+        else { lado.add(mesh(frasco, mat(c, 0.35), x, y + 0.125, 0.05)); lado.add(mesh(tapa, M.cr, x, y + 0.245, 0.05)); }
+      }
+    }
+  }
   // mostrador: cuerpo navy con frente crema, tapa de madera
   almacen.add(mesh(rbox(3.0, 0.84, 0.62, 0.03), M.navy3, 0.0, 0.42, MOSTRADOR.z));
   almacen.add(mesh(rbox(2.8, 0.6, 0.02, 0.01), M.cr, 0.0, 0.44, MOSTRADOR.z + 0.315));
   almacen.add(mesh(rbox(3.12, 0.06, 0.72, 0.02), mat(0x9b6a43, 0.55), 0.0, MOSTRADOR.y - 0.02, MOSTRADOR.z));
-  const termo = crearTermo(); termo.position.set(0.95, MOSTRADOR.y + 0.01, MOSTRADOR.z - 0.1); almacen.add(termo);
+  const termo = crearTermo(); termo.position.set(1.12, MOSTRADOR.y + 0.01, MOSTRADOR.z - 0.16); almacen.add(termo);
   // caja registradora genérica
-  const caja = new THREE.Group(); caja.position.set(1.3, MOSTRADOR.y + 0.01, MOSTRADOR.z - 0.08); caja.rotation.y = -0.35; almacen.add(caja);
+  const caja = new THREE.Group(); caja.position.set(1.42, MOSTRADOR.y + 0.01, MOSTRADOR.z - 0.06); caja.rotation.y = -0.35; almacen.add(caja);
   caja.add(mesh(rbox(0.36, 0.12, 0.32, 0.02), M.navy2, 0, 0.06, 0));
   const tecl = mesh(rbox(0.3, 0.1, 0.2, 0.02), M.edge, 0, 0.15, 0.03); tecl.rotation.x = -0.35; caja.add(tecl);
   for (let i = 0; i < 3; i++) for (let j = 0; j < 4; j++) { const b = mesh(rbox(0.045, 0.02, 0.035, 0.008), i === 2 && j === 3 ? M.g : M.cr, -0.09 + j * 0.06, 0.2 - i * 0.02, -0.02 + i * 0.05); b.rotation.x = -0.35; caja.add(b); }
@@ -394,26 +427,26 @@ const MOSTRADOR = { y: 0.88, z: -1.12 };
   sh(almacen);
 }
 // el frasco de vidrio con tapa navy, lleno de caramelos verdes
-const FRASCO = V(OB.x - 0.3, MOSTRADOR.y, MOSTRADOR.z + 0.06);
+const FRASCO = V(OB.x + 0.6, MOSTRADOR.y, MOSTRADOR.z + 0.04);
 const frasco = new THREE.Group(); frasco.position.copy(FRASCO); scene.add(frasco);
 {
   const vidrio = new THREE.MeshPhysicalMaterial({ color: 0xe6f0f5, roughness: 0.06, transparent: true, opacity: 0.26, clearcoat: 1, clearcoatRoughness: 0.05, depthWrite: false, side: THREE.DoubleSide });
   const pf = [[0, 0.002], [0.12, 0.002], [0.13, 0.02], [0.13, 0.25], [0.11, 0.29], [0.095, 0.3], [0.095, 0.32]].map(([r, y]) => new THREE.Vector2(r, y));
   const v = mesh(new THREE.LatheGeometry(pf, 40), vidrio); v.renderOrder = 5; frasco.add(v);
-  frasco.add(mesh(new THREE.CylinderGeometry(0.105, 0.105, 0.045, 32), M.navy2, 0, 0.34, 0));
-  frasco.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.02, 24), M.g, 0, 0.37, 0));
+  // la tapa, apoyada al lado (el frasco queda abierto)
+  frasco.add(mesh(new THREE.CylinderGeometry(0.105, 0.105, 0.045, 32), M.navy2, 0.25, 0.0225, 0.04));
+  frasco.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.02, 24), M.g, 0.25, 0.055, 0.04));
   let s = 3; const az = () => ((s = (s * 16807) % 2147483647) / 2147483647);
-  for (let i = 0; i < 22; i++) {
+  // apilados desde el fondo: capas de 6 alrededor + 1 al medio, acostados
+  for (let L = 0; L < 4; L++) for (let j = 0; j < 7; j++) {
     const c = hacerCaramelo(); scene.remove(c); c.visible = true;
-    const a = i * 2.4 + az(), r = 0.03 + az() * 0.06;
-    c.position.set(Math.cos(a) * r, 0.035 + Math.floor(i / 6) * 0.05 + az() * 0.015, Math.sin(a) * r);
-    c.scale.setScalar(0.042); c.rotation.set(az() * 3, az() * 3, az() * 3); frasco.add(c);
+    const a = j * (Math.PI / 3) + L * 0.5 + az() * 0.2, r = j === 6 ? 0 : 0.068;
+    c.position.set(Math.cos(a) * r, 0.022 + L * 0.036 + az() * 0.006, Math.sin(a) * r);
+    c.scale.setScalar(0.04); c.rotation.set((az() - 0.5) * 0.4, -a + Math.PI / 2 + (az() - 0.5) * 0.4, (az() - 0.5) * 0.3); frasco.add(c);
   }
-  // reflejo vertical del vidrio (que se lea como frasco)
-  const brillo = mesh(new THREE.PlaneGeometry(0.025, 0.2), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55, depthWrite: false }), -0.06, 0.15, 0.115); brillo.renderOrder = 6; frasco.add(brillo);
 }
 const platitoB = hacerPlatito(TICKET.almacen);
-const PB = V(OB.x + 0.36, MOSTRADOR.y, MOSTRADOR.z + 0.12);
+const PB = V(OB.x + 0.16, MOSTRADOR.y, MOSTRADOR.z + 0.14);
 platitoB.position.copy(PB); platitoB.rotation.y = 0.25; platitoB.userData.bis.rotation.x = 0.55;
 // la tablet del mostrador (CRM): lista → ficha de Graciela → aviso; en el cierre, la lista con los gestos
 const TBW = 1024, TBH = 720;
@@ -452,7 +485,7 @@ const TAB = {
   gestos: tex(TBW, TBH, (x) => { cabezal(x, "Clientes"); filaLista(x, 150, "Graciela · 1 año", true, true); filaLista(x, 330, "Héctor · lo de siempre", false, true); filaLista(x, 510, "Alicia · volvió", false, true); }),
 };
 const tablet = crearTablet(TAB.lista, 0.62, 0.44, 0.28); scene.add(tablet);
-const TB0 = V(OB.x - 0.82, MOSTRADOR.y, MOSTRADOR.z + 0.02);
+const TB0 = V(OB.x - 0.62, MOSTRADOR.y, MOSTRADOR.z + 0.02);
 tablet.position.copy(TB0); tablet.rotation.y = 0.12;
 const tabPant = tablet.userData.pantalla, tabPiv = tablet.userData.pivote;
 // el aviso verde que cae sobre la ficha
@@ -476,7 +509,7 @@ graciela.cabeza.traverse((o) => {
   if (Math.abs(o.scale.y - 0.26) < 1e-6 && Math.abs(o.scale.x - 0.01) < 1e-6) o.visible = false; // patillas
 });
 const FILA = [
-  { nombre: "Cliente", piel: PIEL.clara, pelo: PELO.gris, peinado: "corto", camisa: C.cr2, mangas: "largas", pantalon: C.navy2, panza: 1.1, alto: 1.02 },
+  { nombre: "Cliente", piel: PIEL.clara, pelo: PELO.gris, peinado: "pelado", mechones: true, camisa: C.cr2, mangas: "largas", pantalon: C.navy2, panza: 1.1, alto: 1.02 },
   { nombre: "Clienta", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "rodete", camisa: C.cr, mangas: "largas", pollera: C.navy3, pantalon: null, panza: 1.0, alto: 0.95 },
   { nombre: "Cliente", piel: PIEL.media, pelo: PELO.castaño, peinado: "jopo", jopoAlto: 0.6, camisa: 0xc9c6b8, mangas: "cortas", pantalon: C.navy, panza: 1.0, alto: 1.03 },
   { nombre: "Clienta", piel: PIEL.clara, pelo: PELO.rubio, peinado: "coleta", camisa: C.cr2, mangas: "largas", pantalon: C.navy2, panza: 0.96, alto: 0.94 },
@@ -485,25 +518,33 @@ for (const p of [ruben, graciela, ...FILA]) p.raiz.traverse((o) => { if (o.isMes
 const POSFILA = [[0.82, -0.22], [1.4, -0.08], [1.98, 0.06], [2.56, 0.2]]; // relativas al almacén: en fila a la derecha de Graciela
 const G0 = { x: OB.x + 0.22, z: -0.36, giro: Math.PI + 0.1 };
 const R0 = { x: OB.x + 0.08, z: -1.58, giro: -0.04 };
-const pregRojaGeo = textoGeo("?", 0.24, 0.07);
-const pregRojas = [0, 1, 2, 3, 4].map(() => { const m = mesh(pregRojaGeo, M.red); scene.add(m); return m; });
+const pregRojaGeo = textoGeo("?", 0.34, 0.08);
+const pregRojas = [0, 1, 2, 3, 4].map(() => {
+  const g = new THREE.Group();
+  g.add(mesh(new THREE.CylinderGeometry(0.25, 0.25, 0.04, 40).rotateX(Math.PI / 2), MCR(), 0, 0, -0.04));
+  g.add(mesh(new THREE.TorusGeometry(0.25, 0.022, 10, 48), M.red, 0, 0, -0.02));
+  g.add(mesh(pregRojaGeo, M.red, 0, 0, 0.03));
+  scene.add(g); return g;
+});
 const tildeFin = hacerTilde(0.09);
 
 // ================= TIEMPOS CLAVE =================
 const T = {
   saltito: W[5] - 0.05, cuenta: W[8] - 0.05,
   grua: S["s02-estudio"] - 0.02,
-  vuela1: S["s03-uno-dos"] - 0.02, llega1: S["s03-uno-dos"] + 0.5, // el caramelo del platito → pila "Uno"
+  vuela1: S["s03-uno-dos"] - 0.05, llega1: S["s03-uno-dos"] + 0.62, // el caramelo del platito → pila "Uno" (la cámara lo sigue)
   dos: W[21] - 0.1, // los dos caramelos → pila "Dos"
   vaMoza: S["s04-uno-mas-uno"] - 0.02, dar: W[27] - 0.05, amaga: W[29] - 0.02, vuelve: W[32] - 0.02, otro: W[35] - 0.05,
-  latigo: W[35] + 0.05, // dolly rápido a la pila 4
-  mismos: W[37] - 0.05, junta: S["s06-por-que"] - 0.3, preg: S["s06-por-que"] + 0.02,
+  latigo: W[35] + 0.05, // dolly rápido al plano general de las 4 pilas
+  sube: W[38] + 0.05, // los pares suben (la cámara sube con ellos)
+  mismos: W[38] + 0.45, junta: S["s06-por-que"] - 0.3, preg: S["s06-por-que"] + 0.02,
   parecio: W[42] - 0.02, personal: W[47] - 0.05,
   vuelaB: S["s07-quien"] + 0.02, frasco: S["s07-quien"] + 0.85, todos: W[56] - 0.05,
   ficha: W[59] + 0.05, avisa: W[63] - 0.05, gra: W[64] - 0.02,
   // s09: da uno; en la pausa mira el aviso de la ficha; "y vuelve con otro": el segundo sale de la tablet
-  daR: W[70] - 0.05, mira: W[73] + 0.3, vuelveR: W[74] - 0.05, habla: W[78], vos: W[82], callaR: W[82] + 0.5,
-  contra: W[82] + 0.5, grua2: S["s10-gesto"], tildes: W[89] - 0.2, fin: S["s11-llamada"],
+  daR: W[70] - 0.05, mira: W[73] + 0.3, vuelveR: W[74] - 0.05, habla: W[78], vos: W[82], callaR: W[82] + 0.75,
+  toma: W[81] - 0.1, // Graciela toma el caramelo de la palma de Rubén
+  contra: W[82] + 0.78, grua2: S["s10-gesto"], tildes: W[89] - 0.2, fin: S["s11-llamada"], ano: W[67] - 0.02,
 };
 
 // ================= CÁMARA =================
@@ -512,52 +553,52 @@ const ob = (x, y, z) => [OB.x + x, y, z];
 const k = (t, p, m, fov = 34) => [t, ...p, ...m, fov];
 const PLANOS = [
   [0, [
-    k(0, [0.6, 1.62, 1.06], [0.4, 0.79, 0.32]),
-    k(T.grua - 0.05, [0.58, 1.5, 0.94], [0.4, 0.79, 0.32]),
-    k(T.grua + 0.55, [0.6, 2.7, 4.6], [0.1, 0.95, 0.2]),
-    k(S["s03-uno-dos"] - 0.1, [0.4, 3.15, 7.0], [0.0, 1.0, 0.05]),
-    // travelling a la izquierda siguiendo al caramelo que vuela a la pila
-    k(T.llega1 + 0.05, [-3.8, 2.8, 9.1], [-3.87, 1.62, PZ]),
-    k(S["s04-uno-mas-uno"] - 0.05, [-3.98, 2.7, 8.9], [-3.87, 1.62, PZ]),
+    k(0, [0.53, 1.36, 1.02], [0.4, 0.86, 0.34]),
+    k(T.grua - 0.05, [0.51, 1.3, 0.94], [0.4, 0.86, 0.34]),
+    k(T.grua + 0.5, [0.45, 2.75, 6.0], [0.0, 1.0, 0.15]),
+    k(S["s03-uno-dos"] - 0.1, [0.4, 3.0, 7.0], [0.0, 1.05, 0.1]),
+    // (de la mesa a las pilas manda el seguimiento del caramelo; ver ponerCamara)
+    k(T.llega1 + 0.45, [-3.82, 2.75, 9.0], [-3.87, 1.62, PZ]),
+    k(S["s04-uno-mas-uno"] - 0.05, [-3.95, 2.7, 8.9], [-3.87, 1.62, PZ]),
     // de vuelta a la mesa: la moza en plano medio
     k(S["s04-uno-mas-uno"] + 0.42, [2.75, 1.8, 4.5], [0.92, 1.0, 0.25]),
     k(T.amaga, [2.8, 1.8, 4.45], [0.98, 1.0, 0.2]),
     k(T.vuelve, [2.8, 1.8, 4.4], [1.0, 1.0, 0.12]),
     k(T.latigo, [2.75, 1.8, 4.45], [0.95, 1.0, 0.22]),
-    // dolly rápido a la pila del 1 + 1
-    k(T.latigo + 0.38, [-3.2, 2.35, 7.3], [-3.3, 1.72, PZ]),
-    k(S["s05-mismos"] + 0.25, [-3.1, 3.3, 9.0], [-3.2, 2.65, PZ]),
-    k(S["s06-por-que"] - 0.2, [-3.2, 3.45, 8.6], [-3.22, 2.8, PZ]),
-    k(T.preg + 0.25, [-3.2, 4.05, 5.75], [-3.32, 3.85, PZ]),
-    k(T.parecio, [-2.8, 4.05, 5.55], [-3.32, 3.85, PZ]),
-    // el punto del "?" vuela a la mano de la moza
-    k(T.parecio + 0.75, [-0.35, 1.42, 2.75], [0.84, 1.2, 0.4]),
-    k(T.vuelaB, [-0.25, 1.42, 2.62], [0.85, 1.2, 0.4]),
+    // dolly rápido al plano general de las cuatro pilas (la del 1 + 1 termina de crecer y se pone verde)
+    k(T.latigo + 0.38, [-3.85, 2.75, 9.0], [-3.87, 1.62, PZ]),
+    k(T.sube, [-3.8, 2.75, 8.85], [-3.87, 1.62, PZ]),
+    // grúa arriba con los pares: solo los caramelos y el "="
+    k(T.sube + 0.55, [-3.32, 4.7, 8.0], [-3.32, 4.6, PZ]),
+    k(T.junta, [-3.32, 4.72, 7.7], [-3.32, 4.6, PZ]),
+    k(T.preg + 0.25, [-3.32, 4.82, 6.7], [-3.32, 4.62, PZ]),
+    k(T.parecio, [-3.32, 4.82, 6.5], [-3.32, 4.62, PZ]),
+    // el punto del "?" vuela a la mano de la moza (la cámara mira al caramelo)
+    k(T.parecio + 0.75, [-0.6, 1.35, 3.25], [0.82, 1.12, 0.4]),
+    k(T.vuelaB, [-0.5, 1.35, 3.1], [0.83, 1.12, 0.4]),
     // (en el vuelo al frasco manda el seguimiento del caramelo; ver ponerCamara)
-    k(T.frasco + 0.5, ob(-2.6, 3.6, 4.2), ob(0.4, 0.95, -0.8)),
-    k(S["s08-ficha"] - 0.05, ob(-2.5, 3.55, 4.1), ob(0.4, 0.95, -0.8)),
-    // push-in a la tablet
-    k(S["s08-ficha"] + 0.65, ob(-0.82, 1.72, 1.35), ob(-0.82, 1.16, -0.98)),
-    k(T.daR - 0.3, ob(-0.82, 1.7, 1.22), ob(-0.82, 1.16, -0.98)),
-    // Rubén y Graciela en el mostrador (tres cuartos)
-    k(T.daR + 0.25, ob(-2.25, 2.15, 3.55), ob(-0.42, 1.1, -0.95)),
-    k(T.vuelveR + 0.4, ob(-2.15, 2.1, 3.4), ob(-0.4, 1.1, -0.95)),
-    k(T.habla - 0.05, ob(-1.3, 1.7, 1.75), ob(0.1, 1.25, -1.2)),
-    // primer plano de Rubén (por encima del hombro de Graciela)
-    k(T.habla + 0.35, ob(-1.1, 1.6, 1.0), ob(0.0, 1.24, -1.5)),
-    k(T.contra, ob(-1.05, 1.6, 0.9), ob(0.0, 1.25, -1.5)),
+    k(T.frasco + 0.5, ob(-2.0, 3.3, 5.0), ob(0.95, 0.95, -0.7)),
+    k(S["s08-ficha"] - 0.05, ob(-1.9, 3.25, 4.85), ob(0.95, 0.95, -0.7)),
+    // push-in a la tablet (que llene el cuadro)
+    k(S["s08-ficha"] + 0.6, ob(-0.62, 1.5, 0.98), ob(-0.62, 1.29, -1.0)),
+    k(T.daR - 0.3, ob(-0.62, 1.48, 0.86), ob(-0.62, 1.29, -1.0)),
+    // plano de dos: Rubén y Graciela de perfil, la tablet y el platito adelante
+    k(T.daR + 0.3, ob(-2.55, 1.75, 0.3), ob(-0.05, 1.12, -0.95), 40),
+    k(T.vuelveR + 0.5, ob(-2.45, 1.72, 0.25), ob(-0.02, 1.15, -0.95), 40),
+    k(T.habla, ob(-2.25, 1.72, 0.15), ob(0.02, 1.18, -0.95), 40),
+    k(T.contra, ob(-2.05, 1.7, 0.1), ob(0.05, 1.2, -0.95), 40),
   ]],
-  // contraplano: Graciela, por encima del hombro de Rubén
+  // contraplano: Graciela con su caramelo, la estantería de costado atrás
   [T.contra, [
-    k(T.contra, ob(0.85, 1.58, -2.55), ob(0.2, 1.3, -0.36)),
-    k(T.grua2, ob(0.8, 1.56, -2.45), ob(0.2, 1.32, -0.36)),
+    k(T.contra, ob(1.05, 1.52, -1.15), ob(0.18, 1.32, -0.36)),
+    k(T.grua2, ob(1.0, 1.5, -1.1), ob(0.18, 1.33, -0.36)),
   ]],
   // grúa arriba y atrás: Graciela se va feliz; baja a la tablet con los gestos
   [T.grua2, [
     k(T.grua2, ob(0.1, 2.9, 4.4), ob(-0.4, 0.95, -0.1)),
     k(T.grua2 + 0.85, ob(0.0, 3.4, 4.8), ob(-0.6, 0.9, 0.2)),
-    k(T.grua2 + 1.55, ob(-0.82, 2.15, 1.15), ob(-0.82, 1.06, -0.98)),
-    k(T.fin, ob(-0.82, 2.1, 1.08), ob(-0.82, 1.06, -0.98)),
+    k(T.grua2 + 1.55, ob(-0.62, 1.58, 0.95), ob(-0.62, 1.12, -1.0)),
+    k(T.fin, ob(-0.62, 1.55, 0.88), ob(-0.62, 1.12, -1.0)),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.15, 4.4], [OF.x, 0.86, 0]),
@@ -589,11 +630,19 @@ function ponerCamara(t) {
     if (h <= 0) { v.push(a[c]); continue; }
     v.push((2 * s3 - 3 * s2 + 1) * a[c] + (s3 - 2 * s2 + u) * h * tang(i, c) + (-2 * s3 + 3 * s2) * b[c] + (s3 - s2) * h * tang(i + 1, c));
   }
+  // s03: la cámara va pegada al caramelo que vuela del platito a la pila "Uno"
+  const wP = pi === 0 ? eio(sg(t, T.vuela1, T.vuela1 + 0.15)) * (1 - eio(sg(t, T.llega1 - 0.05, T.llega1 + 0.42))) : 0;
+  if (wP > 0) {
+    const c = vueloPila(Math.min(t, T.llega1)), u = sg(t, T.vuela1, T.llega1);
+    const off = lerpV(V(0.35, 0.3, 1.25), V(0.25, 0.45, 1.7), u);
+    const pos = c.clone().add(off), mira = c.clone().add(V(-0.25 * (1 - u), -0.05, 0));
+    for (let j = 0; j < 3; j++) { v[j] = lerp(v[j], pos.getComponent(j), wP); v[j + 3] = lerp(v[j + 3], mira.getComponent(j), wP); }
+  }
   // s07: la cámara sigue al caramelo que vuela de la palma de la moza al frasco
   const w = pi === 0 ? eio(sg(t, T.vuelaB, T.vuelaB + 0.22)) * (1 - eio(sg(t, T.frasco + 0.05, T.frasco + 0.5))) : 0;
   if (w > 0) {
     const c = vueloB(Math.min(t, T.frasco + 0.2)), u = sg(t, T.vuelaB, T.frasco);
-    const off = lerpV(V(-0.9, 0.2, 1.5), V(-0.55, 0.45, 1.0), u);
+    const off = lerpV(V(-0.8, 0.35, 1.3), V(-0.5, 0.55, 0.95), u);
     const pos = c.clone().add(off), mira = c.clone().add(V(0.12 * (1 - u), -0.05 * u, 0));
     for (let j = 0; j < 3; j++) { v[j] = lerp(v[j], pos.getComponent(j), w); v[j + 3] = lerp(v[j + 3], mira.getComponent(j), w); }
   }
@@ -628,24 +677,33 @@ const MOZA_K = [
 
 // la palma de la moza en s06 (de ahí sale el caramelo al frasco de Rubén)
 moza.poner(poseEn(T.parecio + 1.2, MOZA_K)); moza.raiz.updateMatrixWorld(true);
-const PALMA = moza.mano("D").getWorldPosition(new THREE.Vector3()).add(V(0.0, 0.045, 0.02));
-const DENTRO = FRASCO.clone().add(V(0.0, 0.2, 0.0));
+const PALMA = moza.mano("D").getWorldPosition(new THREE.Vector3()).add(V(0.0, 0.085, 0.05));
+const DENTRO = FRASCO.clone().add(V(0.0, 0.17, 0.0));
+// del platito a la pila "Uno" (s03): por delante de la mesa, alto
+const P_BASE = P0.clone().add(V(0.035, 0.035, 0.045));
+function vueloPila(t) {
+  const u = eio(sg(t, T.vuela1, T.llega1));
+  const top = V(PX[1], 0.18 + NMON[1] * HM + 0.75, PZ);
+  const p = arco(P_BASE, top, u, 1.0); p.z += Math.sin(Math.PI * u) * 1.1;
+  return p;
+}
 // del punto del "?" a la palma de la moza (s06)
 const QSTART = QC.clone().add(PUNTO);
 function vueloQ(t) { return arco(QSTART, PALMA, eio(sg(t, T.parecio + 0.05, T.parecio + 0.72)), 0.35); }
 function vueloB(t) {
   const uB = eio(sg(t, T.vuelaB, T.frasco));
-  let p = arco(PALMA, DENTRO.clone().add(V(0, 0.18, 0)), uB, 1.0); p.z += Math.sin(Math.PI * uB) * 0.7;
+  let p = arco(PALMA, DENTRO.clone().add(V(0, 0.45, 0)), uB, 3.1); p.z += Math.sin(Math.PI * uB) * 0.4;
   const cae = sg(t, T.frasco, T.frasco + 0.18);
-  if (cae > 0) p = lerpV(DENTRO.clone().add(V(0, 0.18, 0)), DENTRO, cae * cae);
+  if (cae > 0) p = lerpV(DENTRO.clone().add(V(0, 0.45, 0)), DENTRO, cae * cae);
   return p;
 }
 // ================= ZONA R + C en el tiempo =================
 const altoPila = (kk) => 0.18 + NMON[kk] * HM;
 const K_PILA = 0.2; // caramelo arriba de una pila
 // cuándo empieza a llover cada pila
-const LLUEVE = () => [S["s03-uno-dos"] - 0.4, T.llega1 + 0.02, T.dos + 0.42, T.latigo + 0.16];
-const DT_MON = [0.0, 0.028, 0.026, 0.024];
+const LLUEVE = () => [S["s03-uno-dos"] + 0.1, T.llega1 + 0.02, T.dos + 0.42, T.latigo + 0.62];
+const DT_MON = [0.02, 0.026, 0.024, 0.017];
+const VERDE = () => LLUEVE()[3] + NMON[3] * DT_MON[3] + 0.12; // la pila del 1 + 1 se pone verde
 function monedas(t) {
   const ll = LLUEVE();
   pilas.forEach((pila, kk) => pila.forEach((m, i) => {
@@ -655,11 +713,11 @@ function monedas(t) {
     const yF = 0.18 + HM * (i + 0.5);
     const u = sg(t, t0, t0 + 0.12);
     const y0 = altoPila(kk) + 0.42;
-    const y = kk === 0 ? yF : lerp(y0, yF, u * u) + rebote(t, t0 + 0.16, 18, 40, 0.025);
+    const y = lerp(y0, yF, u * u) + rebote(t, t0 + 0.16, 18, 40, 0.025);
     m.position.set(PX[kk] + Math.sin(i * 2.3 + kk) * 0.008, y, PZ + Math.cos(i * 1.7 + kk) * 0.007);
-    m.rotation.set(kk === 0 ? 0 : (1 - u) * 0.5, i * 0.7, 0);
-    m.scale.setScalar(kk === 0 ? popIn(t, t0 + i * 0.012, 0.2) : 1);
-    m.material = kk === 0 ? MMON.gris : kk === 3 && t > T.latigo + 0.16 + 15 * DT_MON[3] + 0.1 ? MMON.verde : MMON.oro;
+    m.rotation.set((1 - u) * 0.5, i * 0.7, 0);
+    m.scale.setScalar(1);
+    m.material = kk === 0 ? MMON.gris : kk === 3 && t > VERDE() ? MMON.verde : MMON.oro;
   }));
 }
 function zonaRC(t) {
@@ -677,12 +735,12 @@ function zonaRC(t) {
     const base = P0.clone().add(V(0.035, 0.035, 0.045));
     const salto = pulso(t, T.saltito, 0.32);
     const giro = 0.35 * eo(sg(t, T.saltito, T.saltito + 0.32));
-    const dest = V(PX[1], altoPila(1) + 0.15, PZ);
+    const dest = V(PX[1], altoPila(1) + 0.068, PZ);
     const top = V(PX[1], altoPila(1) + 0.75, PZ);
     let p = base.clone(); p.y += salto * 0.06; let kk = K_REAL, ry = -0.75 + giro, rz = 0.0, rx = 0;
     if (t > T.vuela1) {
       const u = eio(sg(t, T.vuela1, T.llega1));
-      p = arco(base, top, u, 0.9); kk = lerp(K_REAL, K_PILA, eo(u)); ry = lerp(ry, 0.2, u); rz = Math.sin(Math.PI * u) * 1.2; rx = u * 0.6;
+      p = vueloPila(t); kk = lerp(K_REAL, K_PILA, eo(u)); ry = lerp(ry, 0.2, u); rz = Math.sin(Math.PI * u) * 1.2; rx = u * 0.6;
       // flota arriba mientras llueven las monedas y después se apoya
       const ll = LLUEVE()[1] + NMON[1] * DT_MON[1];
       const baja = eio(sg(t, ll, ll + 0.25));
@@ -696,19 +754,19 @@ function zonaRC(t) {
     const ll = LLUEVE()[2] + NMON[2] * DT_MON[2];
     [[car3a, -0.11, 0], [car3b, 0.11, 0.06]].forEach(([c, dz, dt]) => {
       const t0 = T.dos + dt;
-      const desde = V(PX[2] + 2.2, 2.6, PZ + 0.4), top = V(PX[2], altoPila(2) + 0.7 + dz * 0.5, PZ + dz * 0.4), dest = V(PX[2], altoPila(2) + 0.1 + (dz > 0 ? 0.13 : 0), PZ + dz * 0.25);
+      const desde = V(PX[2] + 2.2, 2.6, PZ + 0.4), top = V(PX[2], altoPila(2) + 0.7 + dz * 0.5, PZ + dz * 0.4), dest = V(PX[2], altoPila(2) + 0.068 + (dz > 0 ? 0.134 : 0), PZ);
       const u = eio(sg(t, t0, t0 + 0.4));
       let p = arco(desde, top, u, 0.4); const baja = eio(sg(t, ll, ll + 0.25));
       if (u >= 1) p = lerpV(top, dest, baja);
       // s05: suben y se agrandan (izquierda: los dos juntos)
-      const sube = eio(sg(t, S["s05-mismos"] - 0.05, S["s05-mismos"] + 0.4));
-      const par = V(-4.0, 2.5 + (dz > 0 ? 0.135 : -0.135), PZ + 0.1);
+      const sube = eio(sg(t, T.sube, T.sube + 0.5));
+      const par = V(-3.98, 4.6 + (dz > 0 ? 0.15 : -0.15), PZ + 0.1);
       p = lerpV(p, par, sube);
       // s06: se juntan en el centro y se funden en el "?"
       const jn = eio(sg(t, T.junta, T.preg + 0.08));
-      p = lerpV(p, QC.clone().add(V(0, -0.5, 0)), jn);
-      const kk = lerp(K_PILA, 0.27, sube) * (1 - jn * 0.8);
-      ponerCar(c, p, t > t0 ? kk * popIn(t, t0, 0.2) : 0, 0.15 + (dz > 0 ? -0.05 : 0.05), Math.sin(Math.PI * u) * 0.8 + jn * 2.0, 0.1);
+      p = lerpV(p, QC.clone().add(PUNTO), jn);
+      const kk = lerp(K_PILA, 0.44, sube) * (1 - jn * 0.8);
+      ponerCar(c, p, t > t0 ? kk * popIn(t, t0, 0.2) : 0, 0.15 + (dz > 0 ? -0.05 : 0.05) * (1 - sube), Math.sin(Math.PI * u) * 0.8 + jn * 2.0, 0.1);
       if (jn >= 0.999) c.visible = false;
     });
   }
@@ -716,34 +774,35 @@ function zonaRC(t) {
   {
     const ll = LLUEVE()[3] + NMON[3] * DT_MON[3];
     [[car4a, 0, -0.1], [car4b, 0.2, 0.12]].forEach(([c, dt, dz], j) => {
-      const t0 = T.otro + dt;
-      const desde = V(PX[3] + 1.6, 2.4, PZ + 0.5), top = V(PX[3], altoPila(3) + 0.5 + j * 0.22, PZ), dest = V(PX[3], altoPila(3) + 0.1 + j * 0.22, PZ + dz * 0.3);
+      const t0 = T.latigo + 0.3 + dt;
+      const desde = V(PX[3] + 1.6, 2.4, PZ + 0.5), top = V(PX[3], altoPila(3) + 0.5 + j * 0.22, PZ), dest = V(PX[3], altoPila(3) + 0.068 + j * 0.134, PZ);
       const u = eio(sg(t, t0, t0 + 0.35));
       let p = arco(desde, top, u, 0.4); const baja = eio(sg(t, ll, ll + 0.22));
       if (u >= 1) p = lerpV(top, dest, baja);
-      const sube = eio(sg(t, S["s05-mismos"] - 0.05, S["s05-mismos"] + 0.4));
-      const par = V(-2.64, j ? 2.2 : 2.82, PZ + 0.1);
+      const sube = eio(sg(t, T.sube, T.sube + 0.5));
+      const par = V(-2.66, j ? 4.22 : 4.98, PZ + 0.1);
       p = lerpV(p, par, sube);
       const jn = eio(sg(t, T.junta, T.preg + 0.08));
-      p = lerpV(p, QC.clone().add(V(0, -0.5, 0)), jn);
-      const kk = lerp(K_PILA, 0.27, sube) * (1 - jn * 0.8);
-      ponerCar(c, p, t > t0 ? kk * popIn(t, t0, 0.2) : 0, -0.1, Math.sin(Math.PI * u) * 0.8 - jn * 2.0, 0.1);
+      p = lerpV(p, QC.clone().add(PUNTO), jn);
+      const kk = lerp(K_PILA, 0.44, sube) * (1 - jn * 0.8);
+      ponerCar(c, p, t > t0 ? kk * popIn(t, t0, 0.2) : 0, -0.1 * (1 - sube), Math.sin(Math.PI * u) * 0.8 - jn * 2.0, 0.1);
       if (jn >= 0.999) c.visible = false;
     });
   }
   monedas(t);
   // ---- la base vacía del 1 + 1 con un "?" de línea; el "=" y la flecha; el tilde de "la que más" ----
   {
-    const v = enC && t > S["s03-uno-dos"] + 0.2 && t < T.otro;
-    ocultar(pregLinea, v ? popIn(t, S["s03-uno-dos"] + 0.2, 0.3) * (1 - sg(t, T.otro - 0.12, T.otro)) : 0);
+    const tq = T.latigo + 0.3, v = enC && t > T.llega1 && t < tq;
+    ocultar(pregLinea, v ? popIn(t, T.llega1, 0.3) * (1 - sg(t, tq - 0.12, tq)) : 0);
     if (pregLinea.visible) { pregLinea.position.set(PX[3], 0.62 + Math.sin(t * 2.4) * 0.03, PZ); pregLinea.rotation.set(0, Math.sin(t * 1.3) * 0.3, 0); }
-    const vi = t > T.mismos && t < T.junta + 0.1;
-    ocultar(igual, vi ? popIn(t, T.mismos, 0.3) * (1 - sg(t, T.junta - 0.1, T.junta + 0.1)) : 0);
-    if (igual.visible) { igual.position.set(-3.32, 2.51, PZ + 0.1); igual.rotation.set(0, Math.sin(t * 1.6) * 0.15, 0); }
-    ocultar(flecha, vi ? popIn(t, T.mismos + 0.15, 0.3) * (1 - sg(t, T.junta - 0.1, T.junta + 0.1)) : 0);
-    if (flecha.visible) flecha.position.set(-2.36, 2.52, PZ + 0.1);
-    const tv = T.latigo + 0.16 + 15 * DT_MON[3] + 0.12;
-    ocultar(tildePila, t > tv && t < S["s05-mismos"] + 0.05 ? popIn(t, tv, 0.3) * (1 - sg(t, S["s05-mismos"] - 0.1, S["s05-mismos"] + 0.05)) : 0);
+    const vi = t > T.mismos && t < T.junta;
+    const sale = (t0) => (t < t0 ? 1 : 0);
+    ocultar(igual, vi ? 1.7 * popIn(t, T.mismos, 0.3) * sale(T.junta) : 0);
+    if (igual.visible) { igual.position.set(-3.32, 4.6, PZ + 0.1); igual.rotation.set(0, Math.sin(t * 1.6) * 0.15, 0); }
+    ocultar(flecha, vi ? 1.45 * popIn(t, T.mismos + 0.15, 0.3) * sale(T.junta) : 0);
+    if (flecha.visible) flecha.position.set(-2.2, 4.62, PZ + 0.1);
+    const tv = VERDE() + 0.05;
+    ocultar(tildePila, t > tv && t < T.sube + 0.2 ? popIn(t, tv, 0.3) * (1 - sg(t, T.sube, T.sube + 0.2)) : 0);
     if (tildePila.visible) { tildePila.position.set(PX[3] + 0.42, altoPila(3) + 0.5, PZ + 0.1); tildePila.quaternion.copy(camera.quaternion); }
   }
   // ---- el "?": UN objeto; su punto es un caramelo; en "Pareció" se desarma y el punto vuela a la mano de la moza ----
@@ -751,9 +810,9 @@ function zonaRC(t) {
   {
     const v = t > T.preg - 0.05 && t < T.parecio + 0.4;
     const k0 = popIn(t, T.preg - 0.05, 0.32) * (1 + 0.06 * pulso(t, W[41], 0.3));
-    const fuera = eio(sg(t, T.parecio, T.parecio + 0.3));
-    ocultar(pregunta, v ? k0 * (1 - fuera) : 0);
-    pregunta.position.copy(Q); pregunta.rotation.set(0, Math.sin(t * 1.5) * 0.16 + fuera * 2.5, fuera * 0.6); pregunta.updateMatrixWorld(true);
+    const fuera = eio(sg(t, T.parecio, T.parecio + 0.4));
+    ocultar(pregunta, v ? k0 : 0);
+    pregunta.position.copy(Q); pregunta.position.y += fuera * 4.5; pregunta.rotation.set(0, Math.sin(t * 1.5) * 0.12, 0); pregunta.updateMatrixWorld(true);
     corteQ.setFromNormalAndCoplanarPoint(V(0, 1, 0), V(0, -0.205 * KQ, 0)).applyMatrix4(pregunta.matrixWorld);
   }
   // ---- la moza ----
@@ -806,7 +865,7 @@ function zonaMoza(t, Q) {
   // el punto del "?" (s06) → la palma de la moza → (s07) el frasco de Rubén
   {
     const enQ = pregunta.localToWorld(PUNTO.clone());
-    const palma = mD.clone().add(V(0.0, 0.045, 0.02));
+    const palma = mD.clone().add(V(0.0, 0.085, 0.05));
     const u = eio(sg(t, T.parecio + 0.05, T.parecio + 0.72));
     let p = u > 0 ? vueloQ(t) : enQ;
     let kk = lerp(0.42, 0.15, u), ry = lerp(0.0, -0.42 + 0.0, u), rz = Math.sin(Math.PI * u) * 1.4, rx = 0.15;
@@ -846,7 +905,7 @@ function zonaB(t) {
     aviso.visible = va;
     if (va) {
       const u = eio(sg(t, T.avisa, T.avisa + 0.3));
-      aviso.position.set(0, lerp(0.42, 0.2937, u), 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.06 * pulso(t, T.gra, 0.3) + 0.12 * pulso(t, T.mira, 0.3) + 0.1 * pulso(t, T.vuelveR, 0.25)));
+      aviso.position.set(0, lerp(0.42, 0.2937, u), 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.08 * pulso(t, T.gra, 0.3) + 0.12 * pulso(t, T.ano, 0.3) + 0.14 * pulso(t, T.mira, 0.3) + 0.14 * pulso(t, T.vuelveR - 0.05, 0.25)));
     }
     // los tildes de los gestos (s10)
     tildesTab.forEach((tk, i) => {
@@ -869,7 +928,7 @@ function zonaB(t) {
     const t0 = T.todos + i * 0.07;
     const v = plano === 0 && t > t0 && t < T.ficha + 0.45;
     ocultar(m, v ? popIn(t, t0, 0.25) * (1 - eio(sg(t, T.ficha + 0.15, T.ficha + 0.45))) : 0);
-    if (m.visible) { enFila[i].raiz.updateMatrixWorld(true); enFila[i].cabeza.getWorldPosition(_v); m.position.copy(_v).add(V(0, 0.92 + Math.sin(t * 3 + i) * 0.02, 0)); m.quaternion.copy(camera.quaternion); }
+    if (m.visible) { enFila[i].raiz.updateMatrixWorld(true); enFila[i].cabeza.getWorldPosition(_v); m.position.copy(_v).add(V(0, 1.02 + Math.sin(t * 3 + i) * 0.02, 0)); m.quaternion.copy(camera.quaternion); }
   });
   // ---- Rubén ----
   const habla = t > T.habla && t < T.callaR;
@@ -878,54 +937,57 @@ function zonaB(t) {
     [0, { ...R0, ...BRAZOS.apoyado, ...CARA.neutra, cabeza: { giro: 0.0, asiente: 0.05, ladea: 0.04 }, ojos: { x: 0, y: -0.1, abiertos: 0.9 }, cejas: { alto: 0.1, ang: 0.6 } }],
     // "no se acuerda de todos": se rasca la cabeza, cejas preocupadas
     [T.todos - 0.2, { ...CARA.incredula, cejas: { alto: 0.4, ang: 0.8, asim: 0 }, ojos: { x: -0.4, y: 0, abiertos: 0.85 }, cabeza: { giro: -0.2, asiente: 0.02, ladea: 0.12 }, manoD: [-0.34, 0.98, -0.16], codoD: [-1, 0.2, -0.3] }, 0.3],
-    [S["s08-ficha"] + 0.3, { ...BRAZOS.apoyado, ...CARA.sonrisa, cabeza: { giro: 0.45, asiente: 0.18, ladea: 0 }, ojos: { x: 0.6, y: -0.3, abiertos: 1 }, cejas: { alto: 0.3, ang: 0.1 } }, 0.35],
+    [S["s08-ficha"] + 0.3, { ...BRAZOS.apoyado, ...CARA.sonrisa, cabeza: { giro: -0.2, asiente: 0.15, ladea: 0 }, ojos: { x: -0.4, y: -0.3, abiertos: 1 }, cejas: { alto: 0.3, ang: 0.3 } }, 0.35],
     [T.gra, { ...CARA.feliz, cejas: { alto: 0.6, ang: 0.2 } }, 0.3],
-    [T.daR, { ...CARA.sonrisa, cabeza: { giro: 0.0, asiente: 0.12, ladea: 0 }, ojos: { x: 0, y: -0.2, abiertos: 1 } }, 0.25],
+    [T.daR, { ...CARA.sonrisa, cejas: { alto: 0.35, ang: 0.35 }, cabeza: { giro: 0.25, asiente: 0.12, ladea: 0 }, ojos: { x: 0.3, y: -0.2, abiertos: 1 } }, 0.25],
     // amaga a irse: se da vuelta hacia la estantería
     // mira el aviso de la tablet (a su derecha): "1 año"
     [T.mira + 0.3, { cabeza: { giro: -1.1, asiente: 0.25, ladea: -0.05 }, ojos: { x: -0.9, y: -0.5, abiertos: 1 }, ...CARA.sorpresa, boca: { sonrisa: 0.5, abierta: 0.15, ancho: 0.9 } }, 0.3],
     // vuelve
-    [T.vuelveR + 0.4, { ...CARA.sonrisa, cabeza: { giro: 0.0, asiente: 0.1, ladea: 0.05 }, ojos: { x: 0, y: -0.15, abiertos: 1, feliz: 0.3 } }, 0.32],
-    [T.habla, { ...CARA.feliz, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, cabeza: { giro: -0.06, asiente: 0.06, ladea: 0.1 }, ojos: { x: 0, y: -0.1, abiertos: 1, feliz: 0.35 } }, 0.25],
+    [T.vuelveR + 0.4, { ...CARA.sonrisa, cejas: { alto: 0.4, ang: 0.35 }, cabeza: { giro: 0.0, asiente: 0.1, ladea: 0.05 }, ojos: { x: 0, y: -0.15, abiertos: 1, feliz: 0.3 } }, 0.32],
+    [T.habla, { ...CARA.feliz, cejas: { alto: 0.45, ang: 0.35 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, cabeza: { giro: 0.0, asiente: 0.08, ladea: 0.08 }, ojos: { x: 0.1, y: -0.15, abiertos: 1, feliz: 0.25 } }, 0.25],
     [T.grua2 + 0.2, { ...CARA.feliz, ...BRAZOS.apoyado, cabeza: { giro: -0.3, asiente: 0.05, ladea: 0.1 } }, 0.3],
   ]);
   if (habla) pr.boca = { ...pr.boca, abierta: 0.12 + 0.42 * Math.abs(Math.sin((t - T.habla) * 13)) * (0.6 + 0.4 * Math.sin((t - T.habla) * 5.3)) };
   // guiño en "vos"
   if (t > T.vos && t < T.vos + 0.45) pr.ojos = { ...pr.ojos, guiño: Math.sin(Math.PI * sg(t, T.vos, T.vos + 0.45)) };
   ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
-  // la mano derecha: al frasco, al platito (el primero); al frasco y a la palma (el segundo)
-  const FR = FRASCO.clone().add(V(0.02, 0.3, 0.2)), PLW = PB.clone().add(V(-0.04, 0.09, 0.0));
-  const tramo = (a, b) => sg(t, a, b);
-  const g1 = tramo(T.daR - 0.05, T.daR + 0.3), g2 = tramo(T.daR + 0.38, T.daR + 0.7), g3 = tramo(T.daR + 0.75, T.daR + 1.0);
-  const h1 = tramo(T.vuelveR, T.vuelveR + 0.3), h2 = tramo(T.vuelveR + 0.65, T.habla + 0.15);
-  const atrapa = ruben.cuerpo.localToWorld(V(-0.24, 0.48, 0.4));
-  let objW = null;
+  // el primero: con la mano IZQUIERDA del frasco (a su izquierda, abierto) al platito de Graciela
+  // el segundo: sale del aviso de la tablet (a su derecha) y cae en su palma DERECHA, abierta hacia Graciela
   const local = (w) => { const p = ruben.cuerpo.worldToLocal(w.clone()); return [p.x, p.y, p.z]; };
-  const palmaR = ruben.cuerpo.localToWorld(V(0.03, 0.56, 0.46));
-  const descanso = ruben.cuerpo.localToWorld(V(-0.3, 0.32, 0.36));
-  if (t > T.daR - 0.05 && t < T.daR + 1.0) objW = g1 < 1 ? lerpV(descanso, FR, eio(g1)) : g2 < 1 ? lerpV(FR, PLW, eio(g2)) : lerpV(PLW, descanso, eio(g3));
-  if (t > T.vuelveR) objW = h2 <= 0 ? lerpV(descanso, atrapa, eio(h1)) : lerpV(atrapa, palmaR, eio(h2));
-  if (t > T.grua2 - 0.6) objW = lerpV(palmaR, descanso, eio(sg(t, T.grua2 - 0.6, T.grua2 - 0.2)));
-  if (objW) { pr = { ...pr, manoD: local(objW), codoD: [-0.9, -0.5, -0.3] }; ruben.poner(pr); ruben.raiz.updateMatrixWorld(true); }
+  const FR = FRASCO.clone().add(V(0, 0.36, 0.0)), PLW = PB.clone().add(V(0.02, 0.1, 0.0));
+  const tramo = (a, b) => sg(t, a, b);
+  const descI = ruben.cuerpo.localToWorld(V(0.3, 0.32, 0.36)), descD = ruben.cuerpo.localToWorld(V(-0.3, 0.32, 0.36));
+  const palmaR = ruben.cuerpo.localToWorld(V(-0.02, 0.5, 0.5));
+  const g1 = tramo(T.daR - 0.05, T.daR + 0.3), g2 = tramo(T.daR + 0.38, T.daR + 0.72), g3 = tramo(T.daR + 0.8, T.daR + 1.1);
+  if (t > T.daR - 0.05 && t < T.daR + 1.1) {
+    const w = g1 < 1 ? lerpV(descI, FR, eio(g1)) : g2 < 1 ? lerpV(FR, PLW, eio(g2)) : lerpV(PLW, descI, eio(g3));
+    pr = { ...pr, manoI: local(w), codoI: [0.9, -0.5, -0.3] };
+  }
+  // la palma derecha se abre hacia Graciela un poco antes de que salga el caramelo de la tablet; vuelve después de la entrega
+  const ab = eio(tramo(T.vuelveR - 0.35, T.vuelveR + 0.05)) * (1 - eio(tramo(T.toma + 0.35, T.toma + 0.75)));
+  if (ab > 0) pr = { ...pr, manoD: local(lerpV(descD, palmaR, ab)), codoD: [-0.9, -0.6, -0.2] };
+  ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
   const mR = ruben.mano("D").getWorldPosition(new THREE.Vector3());
-  // el primer caramelo: del frasco a la mano y al platito
+  const mRI = ruben.mano("I").getWorldPosition(new THREE.Vector3());
+  // el primer caramelo: del frasco a la mano izquierda y al platito
   {
-    const enMano = t > T.daR + 0.3 && t < T.daR + 0.68;
-    const p = enMano ? mR.clone().add(V(0, -0.04, 0.02)) : PB.clone().add(V(0.05, 0.035, 0.03));
-    ponerCar(carR1, p, t > T.daR + 0.3 && plano < 2 ? K_REAL : 0, 0.5, 0, 0.15);
+    const enMano = t > T.daR + 0.3 && t < T.daR + 0.7;
+    const p = enMano ? mRI.clone().add(V(0, -0.03, 0.02)) : PB.clone().add(V(0.04, 0.045, 0.02));
+    ponerCar(carR1, p, t > T.daR + 0.3 && plano < 2 ? K_REAL * popIn(t, T.daR + 0.3, 0.15) : 0, 0.5, 0, 0.1);
   }
-  // el segundo: "Y este, para vos." en la palma
+  // el segundo: del aviso de la ficha ("1 año") a la palma de Rubén; Graciela lo toma en "año"
+  const t0b = T.vuelveR, t1b = T.vuelveR + 0.55;
   {
-    // sale del aviso de la ficha ("1 año") y vuela a la mano de Rubén
-    const t0 = T.vuelveR, t1 = T.vuelveR + 0.5;
     tabPiv.updateMatrixWorld(true);
-    const desde = tabPiv.localToWorld(aviso.position.clone().add(V(0, 0, 0.03)));
-    const enMano = mR.clone().add(V(0, 0.03, 0.02));
-    const u = eio(sg(t, t0, t1));
-    const p = u < 1 ? arco(desde, enMano, u, 0.22) : enMano;
-    const k = K_REAL * 1.15 * (u < 1 ? lerp(1.6, 1, u) : 1) * popIn(t, t0, 0.22);
-    ponerCar(carR2, p, t > t0 && t < T.contra + 0.2 ? k : 0, -0.3 + Math.sin(t * 2) * 0.05 + (1 - u) * 2.0, (1 - u) * 1.2, 0.0);
+    const desde = tabPiv.localToWorld(aviso.position.clone().add(V(0, 0, 0.05)));
+    const enPalma = mR.clone().add(V(0, 0.07, 0.02));
+    const u = eio(sg(t, t0b, t1b));
+    let p = u < 1 ? arco(desde, enPalma, u, 0.3) : enPalma;
+    const k = K_REAL * 1.25 * (u < 1 ? lerp(2.2, 1, eio(u)) : 1) * popIn(t, t0b, 0.22);
+    ponerCar(carR2, p, t > t0b && plano < 2 ? k : 0, -0.4 + (1 - u) * 2.0, (1 - u) * 1.2, 0.15);
   }
+  carR2.userData.enPalma = carR2.position.clone();
   // ---- Graciela ----
   {
     const sale = plano === 2;
@@ -933,9 +995,18 @@ function zonaB(t) {
       [0, { ...G0, ...BRAZOS.costado, ...CARA.neutra, cabeza: { giro: 0.0, asiente: -0.08, ladea: 0.0 }, ojos: { x: 0, y: 0.2, abiertos: 1 } }],
       [T.gra, { ...CARA.esperanza, cabeza: { giro: 0.0, asiente: -0.12, ladea: 0.06 } }, 0.3],
       [T.habla + 0.2, { ...CARA.sorpresa, boca: { sonrisa: 0.4, abierta: 0.3, ancho: 0.8 } }, 0.3],
-      // contraplano: la mano al pecho, ojos felices
-      [T.contra + 0.12, { ...CARA.feliz, ojos: { x: 0, y: 0.15, abiertos: 1, feliz: 0.8 }, manoI: [0.08, 0.42, 0.24], codoI: [0.8, -0.6, 0.0], cabeza: { giro: 0.0, asiente: -0.1, ladea: -0.12 } }, 0.25],
+      [T.toma + 0.3, { ...CARA.feliz, ojos: { x: 0, y: 0.1, abiertos: 1, feliz: 0.3 }, cabeza: { giro: 0.0, asiente: -0.08, ladea: -0.08 } }, 0.3],
     ]);
+    if (!(plano === 2)) {
+      // la mano izquierda va a la palma de Rubén, agarra el caramelo y lo lleva al pecho
+      const va = eio(sg(t, T.toma - 0.45, T.toma)), trae = eio(sg(t, T.toma + 0.15, T.toma + 0.6));
+      if (va > 0) {
+        graciela.poner({ ...pg, t }); graciela.raiz.updateMatrixWorld(true);
+        const enP = graciela.cuerpo.worldToLocal(carR2.userData.enPalma.clone().add(V(0, -0.03, 0.04)));
+        const pecho = [0.06, 0.4, 0.3];
+        pg = { ...pg, manoI: mezclar(mezclar(pg.manoI, [enP.x, enP.y, enP.z], va), pecho, trae), codoI: [0.8, -0.6, -0.1] };
+      }
+    }
     if (sale) {
       // se va contenta hacia la puerta (hacia cámara, a la izquierda) con sus dos caramelos
       const u = sg(t, T.grua2 + 0.15, T.grua2 + 1.3);
@@ -946,7 +1017,11 @@ function zonaB(t) {
     graciela.poner(pg); graciela.raiz.updateMatrixWorld(true);
     if (sale) {
       const a = graciela.mano("I").getWorldPosition(new THREE.Vector3()), b = graciela.mano("D").getWorldPosition(new THREE.Vector3());
-      ponerCar(carR1, a.add(V(0, 0.02, 0)), K_REAL, pg.giro, 0.2, 0); ponerCar(carR2, b.add(V(0, 0.02, 0)), K_REAL, pg.giro, -0.2, 0);
+      ponerCar(carR2, a.add(V(0, 0.075, 0)), K_REAL * 1.1, pg.giro, 0.2, 0); ponerCar(carR1, b.add(V(0, 0.075, 0)), K_REAL * 1.1, pg.giro, -0.2, 0);
+    } else if (t > T.toma) {
+      // en la mano de Graciela
+      const a = graciela.mano("I").getWorldPosition(new THREE.Vector3());
+      ponerCar(carR2, a.add(V(0, 0.07, 0.03)), K_REAL * 1.25, Math.PI + 0.3, 0.1, 0.1);
     }
   }
   if (lentesG.length === 2) {
@@ -954,8 +1029,8 @@ function zonaB(t) {
     const fw = graciela.cabeza.getWorldDirection(new THREE.Vector3());
     const cosA = fw.dot(camera.position.clone().sub(hp).normalize());
     const a = lentesG[0].getWorldPosition(new THREE.Vector3()).distanceTo(camera.position), b = lentesG[1].getWorldPosition(new THREE.Vector3()).distanceTo(camera.position);
-    const perfil = cosA < 0.5, atras = cosA < -0.2;
-    lentesG[0].visible = !atras && !(perfil && a > b); lentesG[1].visible = !atras && !(perfil && b > a);
+    const perfil = cosA < 0.6;
+    lentesG[0].visible = lentesG[1].visible = !perfil; void a; void b;
   }
   // tilde verde arriba de los dos, en el contraplano
   {

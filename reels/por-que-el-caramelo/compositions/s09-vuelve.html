@@ -30,15 +30,15 @@
     [data-composition-id="s09-vuelve"] .burb::after { content: ""; position: absolute; left: 42%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid #0b1220; }
     [data-composition-id="s09-vuelve"] .burb::before { content: ""; position: absolute; left: calc(42% + 9px); bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid #efeee5; z-index: 1; }
   </style>
-  <div id="root" data-composition-id="s09-vuelve" data-width="1080" data-height="1920" data-duration="5.08">
-    <div id="s09-vuelve-esc" class="esc clip" data-start="0" data-duration="5.08" data-track-index="0">
-<div class="burb">Y este, por tu año.</div>
+  <div id="root" data-composition-id="s09-vuelve" data-width="1080" data-height="1920" data-duration="6.46">
+    <div id="s09-vuelve-esc" class="esc clip" data-start="0" data-duration="6.46" data-track-index="0">
+<div class="burb">Y este… por tu año.</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-vuelve";
-      const DUR = 5.08;
+      const DUR = 6.46;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -60,7 +60,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-tl.set(q(".burb"), { opacity: 1 }, 2.53); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "42% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 2.53); tl.to(q(".burb"), { opacity: 0, duration: 0.06 }, 4.41);
+tl.set(q(".burb"), { opacity: 1 }, 3.77); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "42% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 3.77); tl.to(q(".burb"), { opacity: 0, duration: 0.06 }, 5.84);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

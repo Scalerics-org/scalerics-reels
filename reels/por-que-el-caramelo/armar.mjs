@@ -14,16 +14,18 @@ import fs from "node:fs";
 import { execSync } from "node:child_process";
 const largo = {};
 const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/sfx/${n}.mp3`).toString()));
-// techo por efecto: cada SFX queda como mucho en TECHO LUFS (la voz anda en -15), así nunca tapa la voz
+// techo por efecto: cada SFX queda con su sonoridad MOMENTÁNEA máxima (ventana de 0,4 s) en TECHO LUFS como mucho, medida
+// sobre el tramo que de verdad suena (desde el silencio inicial hasta su max), así nunca tapa la voz (que anda en -15)
 const TECHO = -31;
 const lufs = {};
-const lufsArchivo = (n) => {
-  if (lufs[n] === undefined) {
-    const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af ebur128 -f null - 2>&1`).toString();
-    const m = [...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1);
-    lufs[n] = m ? Number(m[1]) : -30;
+const lufsArchivo = (n, desde = 0, dur = 99) => {
+  const kk = `${n}|${desde}|${dur}`;
+  if (lufs[kk] === undefined) {
+    const txt = execSync(`ffmpeg -hide_banner -ss ${desde} -t ${dur} -i assets/sfx/${n}.mp3 -af "apad=pad_dur=0.4,ebur128=metadata=1,ametadata=print:key=lavfi.r128.M" -f null - 2>&1`).toString();
+    const ms = [...txt.matchAll(/lavfi.r128.M=(-?[\d.]+)/g)].map((m) => Number(m[1])).filter((x) => isFinite(x));
+    lufs[kk] = ms.length ? Math.max(...ms) : -30;
   }
-  return lufs[n];
+  return lufs[kk];
 };
 // silencio inicial de cada SFX: se adelanta el cue para que el sonido arranque en el tiempo pedido
 const lead = {};
@@ -37,7 +39,7 @@ const leadArchivo = (n) => {
 };
 // colas largas: estos SFX se cortan (con max) aunque la escena no lo pida
 const MAXDEF = { pop: 0.35, "glitch-1": 0.6, "impact-bass-1": 0.8, "impact-bass-2": 0.9, riser: 1.2 };
-const conTecho = (n, v) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n)) / 20)) * 1000) / 1000;
+const conTecho = (n, v, desde, dur) => Math.round(Math.min(v, Math.pow(10, (TECHO - lufsArchivo(n, desde, dur)) / 20)) * 1000) / 1000;
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const r2 = (n) => Math.round(n * 100) / 100;
 
@@ -122,7 +124,8 @@ const subtitulos = `<template>
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 4px; }
-    ${C} .caja { position: absolute; left: -16px; right: -16px; top: 4px; bottom: 0px; border: 5px solid #5ce611; background: rgba(92, 230, 17, 0.55); opacity: 0; }
+    ${C} .caja { position: absolute; left: -14px; right: -14px; top: 6px; bottom: 2px; border-radius: 14px; background: #5ce611; opacity: 0; }
+    ${C} .caja i { display: none; }
     ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.30); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }
     ${C} .malo .caja i { border-color: #c7655b; }
@@ -196,7 +199,7 @@ const sfxTags = sfx
     const full = durArchivo(s.name), d = r2(Math.min((s.max ?? 99) + (s.cut ?? 0), full, DUR - 0.02 - s.t) - 0.01);
     const largo = /^(impact|whoosh|glitch|sparkle|chime|riser)/.test(s.name);
     const fade = d < full - 0.03 ? ` data-fade-out="${r2(largo ? Math.min(0.35, d * 0.4) : Math.min(0.08, d * 0.2))}"` : "";
-    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol)}"></audio>`;
+    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${conTecho(s.name, s.vol, 0, d)}"></audio>`;
   })
   .join("\n");
 
