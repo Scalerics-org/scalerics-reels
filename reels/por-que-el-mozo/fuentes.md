@@ -81,16 +81,16 @@ los créditos son "Estudio clásico · 1927" y "Estudio · 2011"; los nombres va
   el meta-análisis es la tendencia general a retomar lo interrumpido (efecto Ovsiankina).
 - Es una afirmación general sobre "lo pendiente", no sobre la memoria: la parte más firme de todo el tema.
 
-### "Otro estudio vio que hacer un plan concreto la calma."
+### "Otro estudio vio que hacer un plan concreto la despeja." (ronda 1: antes "la calma", que decía más que la fuente)
 - [F] abstract: las metas sin cumplir causaron pensamientos intrusivos durante una lectura no relacionada y peor
   rendimiento en anagramas; "allowing participants to formulate specific plans for their unfulfilled goals eliminated
   the various activation and interference effects". [G]: con planes muy concretos, los pensamientos intrusivos bajaron
   "to the same level as a control group". [H]: menos pensamientos intrusivos.
 - Dijimos **"hacer un plan"**, no "anotar": no confirmamos que los participantes lo escribieran (el abstract dice
-  "formulate"). "La calma" = menos pensamientos que interrumpen; no decimos "se te va la ansiedad" ([H]: la ansiedad
+  "formulate"). "La despeja" = menos pensamientos intrusivos sobre la tarea pendiente (lo que mide [F]); no decimos "se te va la ansiedad" ([H]: la ansiedad
   no bajó). No decimos "elimina" en la voz (es de laboratorio, con estudiantes).
 
-### "Rubén, de noche: la seña, el presupuesto, el proveedor." · "Ahora cada pendiente va a su sistema, con responsable y aviso." · Rubén: "Anotado. Ya me olvidé." · cierre
+### "Rubén, de noche: la seña, el presupuesto, el proveedor." · "Ahora cada pendiente va al sistema, con responsable y aviso." · Rubén: "Anotado. Ya me olvidé." · cierre
 - Historia inventada (Rubén es personaje) y descripción del producto (sistema a medida con pendientes, responsable y
   aviso): sin datos. El "Ya me olvidé." es el callback en chiste al mozo; no es una afirmación científica (el plan
   baja los pensamientos intrusivos [F], que es lo que se dramatiza).
@@ -101,3 +101,17 @@ los créditos son "Estudio clásico · 1927" y "Estudio · 2011"; los nombres va
 - Cualquier porcentaje ("90 % mejor") y "recordamos el doble lo que no terminamos" como ley.
 - Que el estudio de 2011 haya hecho ESCRIBIR el plan (no confirmado: "formulate").
 - Que planificar quite la ansiedad ([H] dice que no).
+
+## Sonido (constructor, 10-11)
+- Todo sale de la biblioteca del repo; nada sintetizado y sin descargas nuevas.
+- Tic-tac del despertador (`tic-real.mp3` / `tac-real.mp3`): recortes de "Clock ticking", olver, CC0 1.0,
+  https://freesound.org/people/olver/sounds/130388/ (mismo origen que en reels/por-que-el-caramelo).
+- Papel del billete y del telón (`papel.mp3` / `papel-fuerte.mp3`): "Paper slide", Kingofgamers_cz, CC0 1.0,
+  https://freesound.org/people/Kingofgamers_cz/sounds/352914/ (`papel-fuerte` = recorte con +12 dB y limitador).
+- Campanitas (`campanita.mp3`): "Shop door bell.wav", 775noise, CC0 1.0, https://freesound.org/people/775noise/sounds/494565/.
+- El resto: efectos de la biblioteca de HyperFrames del repo (whoosh, whoosh-short, whoosh-cine-corto, pop, click,
+  click-soft, ding, chime, sparkle, notification, impact-bass-1, ping, sello, burbuja, typing) y la música `bgm/bed.mp3`
+  (la de por-que-se-fue).
+- **No se consiguió** ambiente de restaurante (s01-s03) ni pájaros de la mañana (s11): no hay ninguno con origen
+  registrado en el repo (solo `calle.wav` de abren-hoy-completo, que es calle, no restaurante) y la nube bloquea
+  Freesound/Openverse. Esos dos quedan sin sonido de ambiente; nada sintetizado.

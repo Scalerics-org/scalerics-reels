@@ -453,7 +453,8 @@ export function crearPersonaje(cfg) {
   }
   if (c.lapizOreja) {
     // lápiz atrás de la oreja derecha (-x), sin usar: cuerpo verde, punta de madera y grafito
-    const lap = new THREE.Group(); const p = sup(-1.62, 0.16, 1.05); lap.position.copy(p); lap.rotation.set(0.25, Math.PI, -0.45); lap.scale.setScalar(0.85); cabeza.add(lap);
+    // (ronda 1) en la oreja IZQUIERDA (+x), la que el mozo muestra a cámara; apoyado arriba de la oreja, la punta hacia adelante
+    const lap = new THREE.Group(); const p = sup(1.42, 0.2, 1.08); lap.position.copy(p); lap.rotation.set(0.35, 0.25, 0.0); cabeza.add(lap);
     lap.add(mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.2, 6).rotateX(Math.PI / 2), mat(MARCA.g, 0.5), 0, 0, -0.02));
     lap.add(mesh(new THREE.ConeGeometry(0.014, 0.04, 6).rotateX(Math.PI / 2), mat(0xe6c99a, 0.7), 0, 0, 0.1));
     lap.add(mesh(new THREE.ConeGeometry(0.005, 0.014, 6).rotateX(Math.PI / 2), mat(0x2a2a2a, 0.5), 0, 0, 0.122));

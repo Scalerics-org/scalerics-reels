@@ -11,20 +11,22 @@
     [data-composition-id="s06-abierto"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     [data-composition-id="s06-abierto"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s06-abierto"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s06-abierto"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s06-abierto"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s06-abierto"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
     [data-composition-id="s06-abierto"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     [data-composition-id="s06-abierto"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
+    [data-composition-id="s06-abierto"] .sello.chico { font-size: 70px; }
 
   </style>
-  <div id="root" data-composition-id="s06-abierto" data-width="1080" data-height="1920" data-duration="2.02">
-    <div id="s06-abierto-esc" class="esc clip" data-start="0" data-duration="2.02" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M400 1460 L520 1100"/><circle class="dot  d1" cx="520" cy="1100" r="13"/></svg><div class="pill  n1" style="left:360px;top:1520px">Pendiente: queda abierto</div>
+  <div id="root" data-composition-id="s06-abierto" data-width="1080" data-height="1920" data-duration="2.11">
+    <div id="s06-abierto-esc" class="esc clip" data-start="0" data-duration="2.11" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M470 1500 L470 1110"/><circle class="dot  d1" cx="470" cy="1110" r="13"/></svg><div class="pill  n1" style="left:540px;top:1560px">Pendiente: sigue dando vueltas</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s06-abierto";
-      const DUR = 2.02;
+      const DUR = 2.11;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,10 +42,10 @@
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.79); sinNota(1, 1.9);
+nota(1, 0.46); sinNota(1, 2.01);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

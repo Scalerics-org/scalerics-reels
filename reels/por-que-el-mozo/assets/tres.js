@@ -375,7 +375,7 @@ function sombrero(p, color = C.navy2) {
 }
 const COM = [
   { cfg: { nombre: "Comensal", piel: PIEL.clara, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x4a3426, camisa: C.navy3, mangas: "largas", cuello: C.cr, pantalon: C.navy, panza: 1.06, alto: 1.0 }, x: -0.42, z: -0.82, hat: C.navy2 },
-  { cfg: { nombre: "Comensala", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "rodete", cejasColor: 0x1e1a18, camisa: C.cr2, mangas: "largas", cuello: C.g, cuelloBotones: false, pantalon: C.navy2, panza: 0.98, nariz: 0.05, labios: 0x9a4448, aros: C.g, alto: 0.96 }, x: 0.4, z: -0.84 },
+  { cfg: { nombre: "Comensala", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "rodete", cejasColor: 0x1e1a18, camisa: C.cr2, mangas: "largas", cuello: C.g, cuelloBotones: false, pantalon: C.navy2, panza: 0.98, nariz: 0.05, labios: 0x9a4448, aros: C.g, alto: 0.96 }, x: 0.12, z: -0.88 },
   { cfg: { nombre: "Señor", piel: PIEL.media, pelo: PELO.gris, peinado: "corto", cejasColor: 0x6a625a, bigote: PELO.gris, camisa: C.cr, mangas: "largas", cuello: C.navy2, pantalon: C.navy, panza: 1.14, alto: 1.0 }, x: -0.98, z: -0.05, hat: 0x3a4a63 },
   { cfg: { nombre: "Señora", piel: PIEL.clara, pelo: PELO.rubio, peinado: "rulos", cejasColor: 0x8a6f4a, camisa: C.navy2, mangas: "largas", cuello: C.cr, cuelloBotones: false, pantalon: C.navy3, panza: 1.0, labios: 0xb5555a, alto: 0.95 }, x: -0.72, z: 0.72 },
 ].map((c) => {
@@ -400,23 +400,23 @@ const bandeja = new THREE.Group(); scene.add(bandeja);
   const t2 = hacerTorta(); t2.scale.setScalar(0.17); t2.position.set(0.1, 0.02, -0.05); t2.rotation.y = 2.2; bandeja.add(t2);
   sh(bandeja);
 }
-const billeteBand = hacerBillete(false); billeteBand.scale.setScalar(0.16); scene.add(billeteBand); sh(billeteBand);
+const billeteBand = hacerBillete(false); billeteBand.scale.setScalar(0.24); scene.add(billeteBand); sh(billeteBand);
 
 // la nube del mozo: 4 pedidos de la mesa 4, después se le suman 3
 const nube = hacerNube(-1);
 const PED = [
-  { o: hacerTaza(), k: 0.3, p: [-0.27, 0.16], ry: 0.5, txt: "café" },
-  { o: hacerTorta(), k: 0.3, p: [0.25, 0.17], ry: 2.6, txt: "torta" },
-  { o: hacerAgua(), k: 0.26, p: [-0.27, -0.16], ry: 0, txt: "agua con gas" },
-  { o: hacerJarrita(), k: 0.26, p: [0.25, -0.15], ry: -0.6, txt: "con leche" },
+  { o: hacerTaza(), k: 0.3, p: [-0.3, 0.2], ry: 0.5, txt: "café" },
+  { o: hacerTorta(), k: 0.3, p: [0.3, 0.21], ry: 2.6, txt: "torta" },
+  { o: hacerAgua(), k: 0.26, p: [-0.3, -0.13], ry: 0, txt: "agua\ncon gas" },
+  { o: hacerJarrita(), k: 0.26, p: [0.3, -0.12], ry: -0.6, txt: "con leche" },
   { o: hacerMedialuna(), k: 0.24, p: [0.0, 0.36], ry: 0.3, extra: true },
 ];
 for (const it of PED) {
   const h = new THREE.Group(); h.add(it.o); it.o.scale.setScalar(it.k); it.o.rotation.set(0.35, it.ry, 0); it.o.position.y = -it.k * 0.2;
   nube.userData.items.add(h); it.h = h;
-  if (it.txt) { it.placa = placa(it.txt, 0.5); it.placa.position.set(0, -it.k * 0.62, 0.14); h.add(it.placa); }
+  if (it.txt) { it.placa = placa(it.txt, 0.58); it.placa.position.set(0, -it.k * 0.62 - (it.txt.includes("\n") ? 0.05 : 0), 0.14); h.add(it.placa); }
 }
-const placaMesa = placa("Mesa 4", 0.5, "#5ce611", NAV0, NAV0); nube.add(placaMesa); placaMesa.position.set(0, 0.5, 0.3);
+const placaMesa = placa("Mesa 4", 0.74, "#5ce611", NAV0, NAV0); nube.add(placaMesa); placaMesa.position.set(0, 0.52, 0.3);
 
 // ================= ZONA L: el laboratorio de tareas =================
 tarima(OL.x, 0, 3.4);
@@ -427,6 +427,9 @@ const vetaTex = tex(512, 256, (x, w, h) => { x.fillStyle = "#1f3254"; x.fillRect
   const md = new THREE.MeshStandardMaterial({ map: vetaTex, roughness: 0.55 });
   lab.add(mesh(rbox(1.75, 0.08, 2.75, 0.025), md, 0, LTOP - 0.04, 0));
   for (const [x, z] of [[-0.8, -1.28], [0.8, -1.28], [-0.8, 1.28], [0.8, 1.28]]) lab.add(mesh(rbox(0.08, LTOP - 0.08, 0.08, 0.015), M.navy2, x, (LTOP - 0.08) / 2, z));
+  // (ronda 1) frente cerrado de la mesa (que abajo del cuadro no quede piso vacío)
+  lab.add(mesh(rbox(1.74, LTOP - 0.06, 0.04, 0.012), M.navy3, 0, (LTOP - 0.06) / 2, 1.33));
+  for (const xx of [-0.84, 0.84]) lab.add(mesh(rbox(0.04, LTOP - 0.06, 2.66, 0.012), M.navy3, xx, (LTOP - 0.06) / 2, 0));
   sh(lab);
 }
 const sombraLab = sombra(2.4, 3.6, 0.7); sombraLab.position.set(OL.x, 0.005, 0);
@@ -472,12 +475,13 @@ function hacerBarquito(entero) {
     const vg = new THREE.ExtrudeGeometry(vela, { depth: 0.1, bevelEnabled: false }); vg.translate(0, 0, -0.05); g.add(mesh(vg, pap));
     g.add(mesh(new THREE.BoxGeometry(0.004, 0.27, 0.105), mat(C.cr2, 0.8), 0, 0.26, 0));
   } else {
-    // la hoja a medio plegar: un rectángulo con un triángulo doblado hacia arriba
-    g.add(mesh(new THREE.BoxGeometry(0.5, 0.006, 0.36), pap, 0, 0.004, 0));
-    const pl = new THREE.Shape(); pl.moveTo(-0.25, 0); pl.lineTo(0, 0.25); pl.lineTo(0, 0); pl.closePath();
-    const pg = new THREE.ShapeGeometry(pl); const m = mesh(pg, pap, 0, 0.01, -0.18); m.rotation.x = -0.9; g.add(m);
-    const pl2 = new THREE.Shape(); pl2.moveTo(0.25, 0); pl2.lineTo(0, 0.25); pl2.lineTo(0, 0); pl2.closePath();
-    const m2 = mesh(new THREE.ShapeGeometry(pl2), pap, 0, 0.01, -0.18); m2.rotation.x = -Math.PI / 2 + 0.2; g.add(m2);
+    // (ronda 1) medio barquito: el casco y la vela hechos solo hasta la mitad, y la otra mitad de la hoja todavía plana
+    const casco = new THREE.Shape(); casco.moveTo(-0.3, 0.12); casco.lineTo(0, 0.12); casco.lineTo(0, 0); casco.lineTo(-0.2, 0); casco.closePath();
+    const cg = new THREE.ExtrudeGeometry(casco, { depth: 0.14, bevelEnabled: false }); cg.translate(0, 0, -0.07); g.add(mesh(cg, pap));
+    const vela = new THREE.Shape(); vela.moveTo(-0.17, 0.12); vela.lineTo(0, 0.12); vela.lineTo(0, 0.4); vela.closePath();
+    const vg = new THREE.ExtrudeGeometry(vela, { depth: 0.1, bevelEnabled: false }); vg.translate(0, 0, -0.05); g.add(mesh(vg, pap));
+    g.add(mesh(new THREE.BoxGeometry(0.3, 0.006, 0.3), pap, 0.16, 0.004, 0.0));
+    g.add(mesh(new THREE.BoxGeometry(0.3, 0.0065, 0.004), mat(C.cr2, 0.8), 0.16, 0.006, 0.0)); // el doblez marcado
   }
   return g;
 }
@@ -508,14 +512,18 @@ const bustoM = new THREE.MeshStandardMaterial({ color: C.navy2, roughness: 0.45 
 void corteBusto;
 const busto = new THREE.Group(); scene.add(busto);
 {
-  const add = (g, x, y, z, sx, sy, sz, rz = 0) => { const o = mesh(g, bustoM, x, y, z * 0.6); o.scale.set(sx, sy, sz * 0.6); o.rotation.z = rz; busto.add(o); };
-  add(esfGeo, 0, 0, 0, 0.5, 0.52, 0.44); // cráneo
-  add(esfGeo, 0.2, -0.26, 0, 0.3, 0.32, 0.3, 0.2); // cara y mandíbula
-  add(esfGeo, 0.47, -0.08, 0, 0.07, 0.11, 0.07, -0.5); // nariz
-  add(esfGeo, 0.39, -0.37, 0, 0.09, 0.07, 0.09); // mentón
-  add(esfGeo, 0.38, 0.12, 0, 0.12, 0.06, 0.1); // frente/ceja
-  add(new THREE.CylinderGeometry(0.17, 0.2, 0.5, 32), -0.05, -0.62, 0, 1, 1, 1); // cuello
-  add(esfGeo, -0.08, -1.08, 0, 0.62, 0.3, 0.36); // hombros
+  // ronda 1: el perfil es UNA silueta extruida (frente, ceja, nariz, labios, mentón, cuello y hombros): se lee "cabeza de
+  // perfil", no peón. Mira a +x; y = 0 es el centro del cráneo (donde va la "C").
+  const P = [[-0.3, -0.56], [-0.34, -0.36], [-0.43, -0.16], [-0.46, 0.08], [-0.4, 0.33], [-0.22, 0.5], [0.04, 0.54], [0.24, 0.44], [0.33, 0.27],
+    [0.35, 0.13], [0.31, 0.06], [0.35, 0.0], [0.47, -0.13], [0.37, -0.18], [0.38, -0.24], [0.34, -0.28], [0.37, -0.32], [0.33, -0.38], [0.32, -0.44],
+    [0.22, -0.51], [0.1, -0.53], [0.11, -0.74], [0.36, -0.86], [0.5, -1.02], [0.52, -1.2]];
+  const sh2 = new THREE.Shape(); sh2.moveTo(...P[0]); sh2.splineThru(P.slice(1).map(([x, y]) => new THREE.Vector2(x, y)));
+  sh2.lineTo(-0.56, -1.2); sh2.lineTo(-0.54, -1.0); sh2.splineThru([new THREE.Vector2(-0.42, -0.88), new THREE.Vector2(-0.32, -0.74), new THREE.Vector2(-0.3, -0.56)]);
+  const g = new THREE.ExtrudeGeometry(sh2, { depth: 0.36, bevelEnabled: true, bevelThickness: 0.07, bevelSize: 0.05, bevelSegments: 5, curveSegments: 48 });
+  g.translate(0, 0, -0.18); busto.add(mesh(g, bustoM));
+  // la oreja (adelante, en el lado que mira a cámara)
+  const or = mesh(new THREE.TorusGeometry(0.075, 0.03, 10, 24), bustoM, -0.04, -0.23, 0.25); or.scale.set(0.8, 1.15, 1); busto.add(or);
+  busto.add(mesh(new THREE.CircleGeometry(0.06, 20), mat(C.navy3, 0.5), -0.04, -0.23, 0.252));
 }
 busto.traverse((o) => { if (o.isMesh) o.castShadow = false; });
 const pedestal = new THREE.Group(); scene.add(pedestal);
@@ -608,7 +616,9 @@ const frazada = new THREE.Group();
   cama.add(mesh(rbox(CAMA.w, 0.24, CAMA.largo - 0.04, 0.06), M.white, 0, 0.4, zc));
   cama.add(mesh(rbox(CAMA.w + 0.12, 0.42, 0.06, 0.03), md, 0, 0.21, zc + CAMA.largo / 2 + 0.03));
   // almohada
-  const alm = mesh(rbox(0.75, 0.16, 0.4, 0.07), mat(0xffffff, 0.75), 0, CAMA.colchon + 0.06, CAMA.z0 + 0.32); alm.rotation.x = -0.12; cama.add(alm);
+  const almM = mat(0xffffff, 0.75);
+  const alm = mesh(rbox(0.8, 0.16, 0.42, 0.07), almM, 0, CAMA.colchon + 0.07, CAMA.z0 + 0.26); cama.add(alm);
+  const alm2 = mesh(rbox(0.78, 0.17, 0.5, 0.08), almM, 0, CAMA.colchon + 0.3, CAMA.z0 + 0.2); alm2.rotation.x = -(Math.PI / 2 - 0.8); cama.add(alm2);
   // sábana doblada sobre la frazada y la frazada (cubre a Rubén del pecho para abajo)
   const fz = mat(C.navy2, 0.85);
   frazada.add(mesh(rbox(CAMA.w + 0.1, 0.36, 1.3, 0.14), fz, 0, 0, 0));
@@ -633,6 +643,7 @@ let pantalla, aroLamp;
   lamp.add(mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.32, 12), M.navy2, 0, 0.2, 0));
   pantalla = mesh(new THREE.CylinderGeometry(0.12, 0.2, 0.22, 36, 1, true), new THREE.MeshStandardMaterial({ color: 0xf3ead2, roughness: 0.8, side: THREE.DoubleSide, emissive: 0xffd9a0, emissiveIntensity: 0 }), 0, 0.42, 0); lamp.add(pantalla);
   aroLamp = mesh(new THREE.TorusGeometry(0.2, 0.016, 8, 40), M.g, 0, 0.31, 0); aroLamp.rotation.x = Math.PI / 2; lamp.add(aroLamp);
+  const tapa = mesh(new THREE.CircleGeometry(0.12, 32), pantalla.material, 0, 0.529, 0); tapa.rotation.x = -Math.PI / 2; lamp.add(tapa);
   mesita.userData.lamp = lamp;
   sh(mesita);
   pantalla.castShadow = false;
@@ -645,7 +656,7 @@ const relojTex = tex(256, 256, (x, w, h) => {
   for (let i = 0; i < 12; i++) { if (i % 3 === 0) continue; const r = (i * Math.PI) / 6; x.beginPath(); x.arc(128 + Math.sin(r) * 96, 128 - Math.cos(r) * 96, 6, 0, 7); x.fill(); }
   x.lineCap = "round"; x.strokeStyle = NAV0;
   const ag = (ang, L, wd) => { x.lineWidth = wd; x.beginPath(); x.moveTo(128, 128); x.lineTo(128 + Math.sin(ang) * L, 128 - Math.cos(ang) * L); x.stroke(); };
-  ag(((3 + 12 / 60) / 12) * Math.PI * 2, 58, 14); ag((12 / 60) * Math.PI * 2, 86, 9);
+  ag(((3 + 12 / 60) / 12) * Math.PI * 2, 50, 16); x.strokeStyle = ROJ; ag((12 / 60) * Math.PI * 2, 100, 8); x.strokeStyle = NAV0;
   x.fillStyle = ROJ; x.beginPath(); x.arc(128, 128, 11, 0, 7); x.fill();
 });
 const despertador = new THREE.Group(); despertador.position.set(0.15, 0.64, -0.12); despertador.rotation.y = 0.2; mesita.add(despertador);
@@ -663,7 +674,7 @@ const campanas = new THREE.Group();
   despertador.add(campanas);
   sh(despertador);
 }
-const mate = crearMate(); mate.position.set(0.31, 0.64, 0.19); mate.scale.setScalar(1.0); mesita.add(mate);
+const mate = crearMate(); mate.position.set(0.27, 0.64, 0.17); mate.scale.setScalar(1.0); mesita.add(mate);
 // vapor del mate (s11): bolitas translúcidas que suben (deterministas)
 const vapor = [0, 1, 2, 3, 4].map(() => { const m = mesh(new THREE.SphereGeometry(0.03, 12, 8), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, depthWrite: false })); scene.add(m); return m; });
 // la tablet de Rubén (el sistema): pantalla "Pendientes"
@@ -705,7 +716,8 @@ function dibujarTablet({ filas = 0, resp = 0, aviso = 0, hecho = 0 }) {
   const nHecho = hecho;
   x.fillStyle = VER; rr(x, TBW - 230, 34, 190, 66, 33); x.fillStyle = NAV0; x.font = F(700, 42); x.textAlign = "center"; x.fillText(nHecho ? `${nHecho} de 3` : "3", TBW - 135, 68);
   FILAS.forEach((f, i) => {
-    if (i >= filas) return;
+    // (ronda 1) las filas que todavía no llegaron: renglones vacíos (la pantalla nunca queda en blanco)
+    if (i >= filas) { const y = 160 + i * 200; x.fillStyle = "#eceae0"; rr(x, 26, y, TBW - 52, 178, 28); x.fillStyle = "#d6d3c6"; rr(x, 60, y + 34, 64, 60, 12); rr(x, 160, y + 40, 520 - i * 60, 36, 18); rr(x, 160, y + 112, 300, 28, 14); return; }
     const y = 160 + i * 200, ok = i < hecho;
     x.fillStyle = ok ? "#e3f7d6" : "#eceae0"; rr(x, 26, y, TBW - 52, 178, 28);
     iconoTex(x, 92, y + 64, f.ico, ok ? "#3fa60a" : NAV);
@@ -764,12 +776,12 @@ const T = {
   grua: S["s02-mozo"] - 0.02, todo: W[18] - 0.05, anotar: W[20] - 0.08,
   primer: S["s03-olvido"] - 0.02, pagaron: W[21], olvido: W[24] - 0.05,
   telon: S["s04-estudio"] - 0.3, lab: S["s04-estudio"], estudio: W[27], interr: W[30] - 0.05, record: W[32] - 0.05, doble: W[35] - 0.05,
-  preg: S["s05-por-que"], que: W[37],
+  preg: S["s05-por-que"], que: W[37], armaQ: W[35] + 0.4,
   abierto0: S["s06-abierto"], abierto: W[41] - 0.05,
-  plan0: S["s07-plan"], plan: W[51] - 0.05, calma: W[54] - 0.05,
+  plan0: S["s07-plan"], plan: W[51] - 0.05, calma: W[54] - 0.05, escribe: S["s07-plan"] + 0.45,
   noche: S["s08-noche"], sena: W[59] - 0.05, presu: W[61] - 0.05, prov: W[63] - 0.05,
-  sis0: S["s09-sistema"], sistema: W[70] - 0.05, resp: W[72] - 0.05, aviso: W[74] - 0.05,
-  anotado: S["s10-olvide"], olvide: W[78] - 0.05,
+  sis0: S["s09-sistema"], sistema: W[69] - 0.05, resp: W[71] - 0.05, aviso: W[73] - 0.05,
+  anotado: S["s10-olvide"], olvide: W[77] - 0.05,
   dormir: S["s11-dormir"], fin: S["s12-llamada"],
 };
 
@@ -782,28 +794,32 @@ const CAB = V(OL.x, 1.95, 0.0); // el centro de la cabeza del busto (= el "?")
 const PLANOS = [
   [0, [
     // s01: plano medio del mozo con la bandeja y la nube; push-in lento
-    k(0, [0.98, 1.75, 5.05], [1.3, 1.62, 0.42]),
-    k(T.grua - 0.05, [1.0, 1.74, 4.75], [1.3, 1.62, 0.42]),
+    k(0, [0.86, 1.8, 5.75], [1.18, 1.68, 0.42]),
+    k(T.grua - 0.05, [0.88, 1.79, 5.45], [1.18, 1.68, 0.42]),
     // s02: grúa atrás y arriba: la mesa de 4 y el mozo
     k(T.grua + 0.7, [1.3, 3.0, 5.9], [1.18, 1.5, 0.1], 36),
-    k(T.anotar - 0.1, [1.3, 2.95, 5.75], [1.2, 1.5, 0.1], 36),
-    // "anotar": push-in al delantal (la libreta cerrada) y al lápiz atrás de la oreja
-    k(T.anotar + 0.35, [0.55, 1.05, 2.55], [0.98, 0.92, 0.42]),
-    k(T.primer - 0.05, [0.55, 1.05, 2.5], [0.98, 0.92, 0.42]),
-    // s03: primer plano del mozo con la nube llena y el platito
+    k(T.anotar - 0.005, [1.3, 2.95, 5.72], [1.2, 1.5, 0.1], 36),
+    // "anotar": CORTE al delantal (la libreta cerrada en el bolsillo; la cara queda fuera de cuadro) con un push-in corto
+    k(T.anotar, [0.6, 0.8, 2.3], [0.96, 0.66, 0.42]),
+    k(T.anotar + 0.35, [0.62, 0.78, 2.05], [0.96, 0.66, 0.42]),
+    k(T.primer - 0.005, [0.62, 0.78, 2.0], [0.96, 0.66, 0.42]),
+    // s03: corte a primer plano del mozo con la nube llena y el platito
+    k(T.primer, [1.02, 1.65, 5.2], [1.33, 1.55, 0.42]),
     k(T.primer + 0.3, [1.02, 1.65, 5.1], [1.33, 1.55, 0.42]),
     k(T.olvido, [1.02, 1.65, 4.95], [1.33, 1.55, 0.42]),
-    k(T.telon + 0.05, [1.02, 1.6, 4.85], [1.33, 1.5, 0.42]),
+    // después del olvido, push-in a la cara en blanco (que no quede media pantalla vacía)
+    k(T.olvido + 0.45, [0.88, 1.52, 3.3], [1.02, 1.42, 0.42]),
+    k(T.telon + 0.05, [0.88, 1.5, 3.2], [1.02, 1.4, 0.42]),
   ]],
   // s04: el laboratorio (después del telón): las tareas en dos filas
   [T.lab, [
     k(T.lab, ol(0, 5.1, 3.55), ol(0, 0.8, -0.2)),
     k(T.record - 0.1, ol(0, 4.9, 3.4), ol(0, 0.8, -0.2)),
     // las pilas: más bajo y más cerca
-    k(T.record + 0.45, ol(0, 1.75, 4.7), ol(0, 1.2, 0.0)),
-    k(T.preg - 0.25, ol(0, 1.77, 4.55), ol(0, 1.22, 0.0)),
+    k(T.record + 0.45, ol(0, 1.45, 3.55), ol(0, 1.12, 0.0), 40),
+    k(T.armaQ - 0.05, ol(0, 1.47, 3.42), ol(0, 1.14, 0.0), 40),
     // s05: sube con las fichas al "?" (push-in y órbita corta)
-    k(T.preg + 0.3, ol(-0.25, 2.05, 2.75), ol(0, 1.95, 0)),
+    k(T.armaQ + 0.55, ol(-0.25, 2.05, 2.85), ol(0, 1.95, 0)),
     k(T.abierto0 - 0.02, ol(0.3, 2.0, 2.6), ol(0, 1.97, 0)),
     // s06: retrocede: la "C" queda dentro de la cabeza de perfil
     k(T.abierto0 + 0.42, ol(0.25, 2.2, 5.2), ol(0.2, 2.0, 0), 36),
@@ -817,23 +833,25 @@ const PLANOS = [
   // s08: el aro vuela a la lámpara; plano picado del dormitorio
   [T.noche, [
     k(T.noche, ol(-0.2, 1.85, 2.6), ol(-0.4, 1.8, 0)),
-    k(T.noche + 0.75, od(-0.05, 3.35, 1.5), od(-0.3, 1.12, -1.5), 40),
-    k(T.prov + 0.6, od(-0.1, 2.95, 0.95), od(-0.3, 1.15, -1.55), 40),
+    k(T.noche + 0.75, od(0.85, 1.5, 1.15), od(0.0, 1.3, -1.45), 40),
+    k(T.prov + 0.6, od(0.75, 1.47, 0.85), od(0.0, 1.3, -1.5), 40),
     // s09: Rubén se sienta con la tablet (plano medio con la nube); en "responsable" push-in a la tablet
-    k(T.sis0 + 0.5, od(0.25, 2.35, 1.7), od(0.02, 1.25, -1.15), 40),
-    k(T.sistema + 0.75, od(0.23, 2.3, 1.55), od(0.03, 1.25, -1.15), 40),
-    k(T.resp + 0.3, od(0.12, 1.62, 1.3), od(0.08, 1.0, -1.0), 36),
-    k(T.anotado - 0.05, od(0.12, 1.62, 1.25), od(0.08, 1.0, -1.0), 36),
+    k(T.sis0 + 0.7, od(0.85, 1.62, 1.4), od(0.0, 1.34, -1.3), 42),
+    k(T.sistema + 0.75, od(0.82, 1.62, 1.3), od(0.0, 1.34, -1.3), 42),
+    k(T.resp + 0.35, od(0.45, 1.55, 0.75), od(0.12, 1.12, -1.0), 36),
+    k(T.anotado - 0.05, od(0.45, 1.55, 0.7), od(0.12, 1.12, -1.0), 36),
   ]],
-  // s10: plano medio de Rubén en la cama (la tablet baja a la mesita)
+  // s10: plano medio de Rubén en la cama (la tablet vuelve a la mesita)
   [T.anotado, [
-    k(T.anotado, od(0.6, 2.8, 1.5), od(-0.1, 1.0, -1.4), 40),
-    k(T.dormir - 0.05, od(0.55, 2.7, 1.3), od(-0.1, 1.0, -1.45), 40),
+    k(T.anotado, od(0.85, 1.5, 1.05), od(0.0, 1.3, -1.45), 40),
+    k(T.dormir - 0.05, od(0.75, 1.47, 0.8), od(0.0, 1.3, -1.5), 40),
   ]],
-  // s11: a la mañana, push-in a la tablet en la mesita (con el mate)
+  // s11: a la mañana: general (ventana con sol, Rubén se estira) y push-in a la tablet en la mesita (con el mate)
   [T.dormir, [
-    k(T.dormir, od(-0.5, 1.65, 0.55), od(-0.93, 0.9, -1.55), 38),
-    k(T.fin - 0.05, od(-0.6, 1.4, 0.0), od(-0.95, 0.9, -1.6), 36),
+    k(T.dormir, od(0.1, 1.65, 1.6), od(-0.05, 1.42, -1.6), 48),
+    k(T.dormir + 0.55, od(0.05, 1.62, 1.4), od(-0.1, 1.38, -1.6), 48),
+    k(T.dormir + 1.05, od(-0.42, 1.38, 0.3), od(-0.95, 0.92, -1.6), 38),
+    k(T.fin - 0.05, od(-0.44, 1.37, 0.25), od(-0.95, 0.92, -1.6), 38),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.15, 4.4], [OF.x, 0.86, 0]),
@@ -867,7 +885,7 @@ function ponerCamara(t) {
     v.push((2 * s3 - 3 * s2 + 1) * a[c] + (s3 - 2 * s2 + u) * h * tang(i, c) + (-2 * s3 + 3 * s2) * b[c] + (s3 - s2) * h * tang(i + 1, c));
   }
   // s08: la cámara sigue al aro que vuela de la cabeza a la lámpara
-  if (t > T.noche && t < T.noche + 0.75) {
+  if (t >= T.noche && t < T.noche + 0.75) {
     const u2 = eio(sg(t, T.noche, T.noche + 0.75));
     const p = vueloAro(t);
     // arranca exactamente donde estaba la cámara del plan (sin salto) y termina en el plano del dormitorio
@@ -900,11 +918,10 @@ const telon = new THREE.Group(); camera.add(telon);
   const tm = new THREE.MeshStandardMaterial({ map: cuad, roughness: 0.85, side: THREE.DoubleSide });
   telon.add(mesh(g, tm));
   // la guarda navy y la franja verde del borde de abajo (el dobladillo que se ve subir)
-  const g2 = new THREE.PlaneGeometry(2.6, 0.16, 60, 1); const p2 = g2.attributes.position;
+  const g2 = new THREE.PlaneGeometry(2.6, 0.045, 60, 1); const p2 = g2.attributes.position;
   for (let i = 0; i < p2.count; i++) p2.setZ(i, Math.sin(p2.getX(i) * 9) * 0.045 + 0.004);
   g2.computeVertexNormals();
-  telon.add(mesh(g2, mat(C.navy2, 0.7, { side: THREE.DoubleSide }), 0, -1.45, 0));
-  const g3 = g2.clone(); telon.add(mesh(g3, mat(C.g, 0.6, { side: THREE.DoubleSide }), 0, -1.6, 0.001)).scale.y = 0.4;
+  telon.add(mesh(g2, mat(C.navy2, 0.7, { side: THREE.DoubleSide }), 0, -1.68, 0)); // el dobladillo: la misma guarda navy del mantel
   telon.traverse((o) => { if (o.isMesh) { o.renderOrder = 50; } });
 }
 
@@ -921,7 +938,7 @@ function zonaR(t) {
   const cobra = sg(t, T.pagaron - 0.25, T.pagaron + 0.15);
   let pose = poseEn(t, [
     [0, { ...MZ, ...CARA.sonrisa, cejas: { alto: 0.25, ang: 0, asim: 0.5 }, cabeza: { giro: 0.32, asiente: 0.02, ladea: -0.06 }, ojos: { x: 0.45, y: 0.05, abiertos: 1, feliz: 0.25 },
-      manoD: [-0.34, 0.86, 0.12], codoD: [-1, -0.3, -0.4], manoI: [0.27, -0.02, 0.12] }],
+      manoD: [-0.38, 0.95, 0.06], codoD: [-1, -0.2, -0.3], manoI: [0.27, -0.02, 0.12] }],
     // s02: mira a la mesa, orgulloso
     [T.grua + 0.4, { cabeza: { giro: -0.3, asiente: 0.12, ladea: 0.04 }, ojos: { x: -0.5, y: -0.2, abiertos: 1, feliz: 0.3 } }, 0.35],
     [T.todo + 0.1, { cabeza: { giro: -0.15, asiente: 0.05, ladea: -0.08 }, ...CARA.sonrisa, cejas: { alto: 0.5, ang: 0, asim: 0.6 } }, 0.3],
@@ -936,7 +953,7 @@ function zonaR(t) {
     [T.olvido + 0.3, { ojos: { x: 0, y: 0.1, abiertos: 1, feliz: 0, tension: 0 }, cejas: { alto: 1, ang: 0.1, asim: 0 }, boca: { sonrisa: 0, abierta: 0.3, ancho: 0.55 }, cabeza: { giro: 0.3, asiente: -0.04, ladea: 0.1 } }, 0.2],
   ]);
   // parpadeo rápido en el olvido (ojos abiertos antes y después)
-  { const pb = t - (T.olvido + 0.45); if (pb > 0 && pb < 0.32) { const f = Math.sin(Math.PI * ((pb % 0.16) / 0.16)); pose.ojos = { ...pose.ojos, abiertos: 1 - f }; } }
+  // (ronda 1: sin parpadeo; la cara en blanco queda con los ojos bien abiertos)
   // levanta el platito con la izquierda en "Pagaron"
   if (t > T.primer) {
     mozo.poner(pose); mozo.raiz.updateMatrixWorld(true);
@@ -947,13 +964,14 @@ function zonaR(t) {
   pose.t = t;
   mozo.poner(pose); mozo.raiz.updateMatrixWorld(true);
   // la bandeja en la palma derecha
+  // (ronda 1) la bandeja va arriba y al costado de la cabeza: apoyada en la punta de la mano, el centro afuera del hombro
   const mD = mozo.mano("D").getWorldPosition(new THREE.Vector3());
-  bandeja.position.copy(mD).add(V(0, 0.05, 0)); bandeja.rotation.set(0, 0.4, 0);
+  bandeja.position.copy(mozo.cuerpo.localToWorld(V(-0.42, 1.14, 0.06))); bandeja.rotation.set(0, 0.4, 0);
   // el billete cae doblado sobre la bandeja en "pagás"
   {
     const u = eio(sg(t, T.pagas, T.pagas + 0.35));
-    const p = bandeja.position.clone().add(V(0.02, 0.03 + (1 - u) * 0.25, 0.1)).add(V(0, rebote(t, T.pagas + 0.35, 14, 30, 0.012), 0));
-    billeteBand.position.copy(p); billeteBand.rotation.set((1 - u) * 1.2, 0.3 + (1 - u) * 2.0, (1 - u) * 0.6);
+    const p = bandeja.position.clone().add(V(0.0, 0.035 + (1 - u) * 0.5, 0.05 + (1 - u) * 0.3)).add(V(0, rebote(t, T.pagas + 0.35, 14, 30, 0.012), 0));
+    billeteBand.position.copy(p); billeteBand.rotation.set((1 - u) * 0.9 + Math.sin(t * 18) * 0.25 * (1 - u), 0.3 + (1 - u) * 2.0, (1 - u) * 0.5);
     billeteBand.visible = billeteBand.visible && t < T.primer;
   }
   // el platito: en la mesa hasta que lo agarra; después en la mano izquierda
@@ -984,7 +1002,7 @@ function zonaR(t) {
     ponerNube(nube, t, { infla: 1 - des, arruga: pulso(t, T.pagas, 0.5) * 0.5 + (des > 0 && des < 1 ? 0.8 : 0), late: 0.6 });
     nube.position.copy(sobre).add(V(rebote(t, T.pagas + 0.05, 9, 40, 0.025), 0.06 * des, 0));
     nube.quaternion.copy(camera.quaternion);
-    nube.scale.setScalar(0.57 * crece * (1 + 0.06 * pulso(t, T.pedido, 0.3)));
+    nube.scale.setScalar(0.58 * crece * (1 + 0.06 * pulso(t, T.pedido, 0.3)));
     nube.visible = des < 0.985;
     PED.forEach((it, i) => {
       const t0 = it.extra ? T.todo : T.pedido + i * 0.08;
@@ -1014,7 +1032,7 @@ function zonaL(t) {
   lab.visible = sombraLab.visible = en && t < T.abierto0 + 0.1;
   const tareasV = en && t < T.record + 0.45;
   TAREAS.forEach(({ o, i, fila }) => {
-    const t0 = T.lab + 0.06 + fila * 0.2 + i * 0.05;
+    const t0 = T.lab - 0.06 + fila * 0.12 + i * 0.04;
     // en "recordaban" cada tarea se aplana y vuela a su pila (las terminadas a la gris, las interrumpidas a la verde)
     const u = eio(sg(t, T.record + i * 0.04, T.record + 0.35 + i * 0.04));
     const k0 = tareasV && t > t0 - 0.1 ? popIn(t, t0, 0.25) * (1 - u) : 0;
@@ -1039,16 +1057,18 @@ function zonaL(t) {
     cortes[i].visible = vc;
     if (vc) {
       const kk = popIn(t, tc, 0.22);
-      cortes[i].position.set(OL.x + TZ[1] + 0.03, LTOP + 0.3, TX[i] + 0.12); cortes[i].quaternion.copy(camera.quaternion); cortes[i].rotateZ(i === 1 ? 0.6 : 0.0);
-      cortes[i].scale.set(kk * 1.1, kk * 0.85, 1);
+      // dónde quedó cada una: arriba del hilo, en el corte del barquito, en el renglón del resultado, en la mitad del jarrón
+      const [dx, dy, dz, rot, sy] = [[0, 0.3, 0.02, Math.PI / 2, 0.55], [0.0, 0.24, 0.05, 0, 0.75], [0.08, 0.1, 0.14, Math.PI / 2, 0.45], [0.02, 0.1, 0.0, 0, 0.75]][i];
+      cortes[i].position.set(OL.x + TZ[1] + dx, LTOP + dy, TX[i] + dz); cortes[i].quaternion.copy(camera.quaternion); cortes[i].rotateZ(rot);
+      cortes[i].scale.set(kk * 1.1, kk * sy, 1);
     }
   });
   // las fichas: llueven en las pilas desde "recordaban"; la verde llega a casi el doble en "doble"
-  const sube = eio(sg(t, T.preg - 0.05, T.preg + 0.35)); // s05: las verdes se juntan en el "?"
+  const sube = eio(sg(t, T.armaQ, T.armaQ + 0.4)); // las verdes se juntan en el "?" (en la pausa después de "doble")
   fichas.forEach((pila, kk) => pila.forEach((m, i) => {
     const t0 = kk === 0 ? T.record + 0.25 + i * 0.045 : T.record + 0.25 + i * ((T.doble - T.record - 0.3) / NF[1]);
-    let vis = en && t > t0 && t < T.preg + 0.4;
-    if (kk === 0 && t > T.preg + 0.05) vis = false;
+    let vis = en && t > t0 && t < T.armaQ + 0.45;
+    if (kk === 0 && t > T.armaQ + 0.05) vis = false;
     m.visible = vis; if (!vis) return;
     const yF = LTOP + FH * (i + 0.5);
     const u = sg(t, t0, t0 + 0.12);
@@ -1064,28 +1084,28 @@ function zonaL(t) {
   }));
   // las placas de las pilas (adelante, en el canto de la mesa)
   placaPila.forEach((pl, kk) => {
-    const v = en && t > T.record + 0.35 && t < T.preg;
+    const v = en && t > T.record + 0.35 && t < T.armaQ;
     pl.visible = v; if (!v) return;
     pl.position.set(OL.x + PILX[kk], LTOP + 0.13, 0.36); pl.quaternion.copy(camera.quaternion);
     pl.scale.setScalar(popIn(t, T.record + 0.35 + kk * 0.1, 0.25) * 0.98);
   });
   // ---- el "?" (s05) → la "C" (s06) ----
   {
-    const v = en && t > T.preg - 0.05 && t < T.abierto0 + 0.25;
-    const kq = popIn(t, T.preg + 0.15, 0.32) * (1 + 0.08 * pulso(t, T.que, 0.3)) * (1 - eio(sg(t, T.abierto0 - 0.05, T.abierto0 + 0.25)));
+    const v = en && t > T.armaQ + 0.2 && t < T.abierto0 + 0.03;
+    const kq = popIn(t, T.armaQ + 0.25, 0.32) * (1 + 0.08 * pulso(t, T.que, 0.3)) * (1 - eio(sg(t, T.abierto0 - 0.16, T.abierto0 + 0.02)));
     ocultar(pregunta, v ? kq : 0);
-    pregunta.position.copy(QC); pregunta.rotation.set(0, Math.sin((t - T.preg) * 1.8) * 0.25, eio(sg(t, T.abierto0 - 0.05, T.abierto0 + 0.25)) * 1.2);
+    pregunta.position.copy(QC); pregunta.rotation.set(0, Math.sin((t - T.armaQ) * 1.8) * 0.25, eio(sg(t, T.abierto0 - 0.16, T.abierto0 + 0.02)) * 1.6);
   }
   {
-    const v = en && t > T.abierto0 - 0.05;
+    const v = en && t > T.abierto0 - 0.0;
     const cierra = eio(sg(t, T.calma, T.calma + 0.35));
     const arcF = lerp(0.76, 1, cierra);
     aroC.geometry = aroGeo(arcF);
-    const kc = v ? popIn(t, T.abierto0 - 0.05, 0.35) * (1 + 0.15 * pulso(t, T.calma + 0.3, 0.3)) : 0;
+    const kc = v ? popIn(t, T.abierto0, 0.3) * (1 + 0.15 * pulso(t, T.calma + 0.3, 0.3)) : 0;
     ocultar(aroC, kc);
     // gira sobre sí mismo sin cerrarse (el hueco siempre visible); al cerrarse, se queda quieto
     const giro = (t - T.abierto0) * (1 - cierra) * 2.4 + Math.PI * 0.62;
-    aroC.position.copy(CAB).add(V(-0.05, 0.02, 0.3)); aroC.rotation.set(0, 0, giro);
+    aroC.position.copy(CAB).add(V(-0.08, 0.16, 0.33)); aroC.rotation.set(0, 0, giro);
     aroC.material.emissiveIntensity = 0.2 + 0.5 * pulso(t, T.calma + 0.25, 0.5);
     // las puntas redondeadas de la "C"
     const R0 = 0.23, a1 = giro, a2 = giro + Math.PI * 2 * Math.round(arcF * 60) / 60;
@@ -1093,24 +1113,25 @@ function zonaL(t) {
   }
   // ---- el busto (aparece alrededor de la "C" cuando la cámara retrocede) ----
   {
-    const v = en && t > T.abierto0;
-    const kb = en && t > T.abierto0 - 0.02 ? popIn(t, T.abierto0 - 0.02, 0.18) : 0;
+    // (sigue en cuadro al arrancar s08: la cámara se aleja con el aro, la cabeza no desaparece de golpe)
+    const sigue = en || (plano === 2 && t < T.noche + 0.6);
+    const kb = sigue && t > T.abierto0 - 0.02 ? popIn(t, T.abierto0 - 0.02, 0.18) : 0;
     busto.visible = pedestal.visible = kb > 0.01;
     busto.position.copy(CAB); busto.scale.setScalar(Math.max(0.01, kb));
     busto.rotation.set(0, 0, 0);
-    pedestal.position.set(CAB.x - 0.08, CAB.y - 1.48, 0); pedestal.scale.setScalar(Math.max(0.01, kb));
+    pedestal.position.set(CAB.x - 0.02, CAB.y - 1.2 - 0.54, 0); pedestal.scale.setScalar(Math.max(0.01, kb));
     // el plano de corte sigue a la cámara (la mitad de adelante se va)
 
   }
   // la nube vacía arriba de la cabeza, latiendo (s06-s07); en "calma" se achica tranquila
   {
-    const v = en && t > T.abierto + 0.0;
+    const v = (en || (plano === 2 && t < T.noche + 0.6)) && t > T.abierto + 0.0;
     const kn = v ? popIn(t, T.abierto, 0.3) : 0;
     const achica = eio(sg(t, T.calma + 0.1, T.calma + 0.7));
     ponerNube(nube2, t, { infla: lerp(1, 0.55, achica), late: 1.2 * (1 - achica) });
     nube2.visible = kn > 0.01;
-    nube2.position.copy(CAB).add(V(0.62, 0.68, 0.05)); nube2.quaternion.copy(camera.quaternion);
-    nube2.scale.setScalar(kn * 0.5 * (1 + 0.05 * Math.sin(t * 6) * (1 - achica)));
+    nube2.position.copy(CAB).add(V(0.44, 0.62, 0.05)); nube2.quaternion.copy(camera.quaternion);
+    nube2.scale.setScalar(kn * 0.4 * (1 + 0.05 * Math.sin(t * 6) * (1 - achica)));
   }
   // la tarjeta del plan: entra delante de la cabeza, se escriben los renglones, en "calma" se corre al costado
   {
@@ -1120,17 +1141,17 @@ function zonaL(t) {
     const corre = eio(sg(t, T.calma - 0.15, T.calma + 0.3));
     const kp = v ? popIn(t, t0, 0.35) : 0;
     ocultar(plan, kp * 0.72);
-    plan.position.copy(CAB).add(V(lerp(0.45, 0.12, entra) + corre * 0.9, lerp(-0.72, -0.45, entra) - corre * 0.5, 1.15));
+    plan.position.copy(CAB).add(V(lerp(0.45, 0.08, entra) + corre * 0.9, lerp(-0.9, -0.66, entra) - corre * 0.5, 0.9));
     plan.rotation.set(-0.08, lerp(-0.5, -0.1, entra) - corre * 0.4, lerp(0.15, 0.03, entra) + corre * 0.2);
     if (corre > 0) plan.scale.multiplyScalar(1 - corre);
     // los renglones: letra por letra desde "plan" (los tres antes de "calma")
     const total = RENG.reduce((s, [a, b]) => s + a.length + 1 + b.length, 0);
-    const n = Math.floor(total * sg(t, T.plan, T.calma - 0.2));
+    const n = Math.floor(total * sg(t, T.escribe, T.calma - 0.2));
     dibujarPlan(n);
     let acum = 0;
     tildesPlan.forEach((tk, i) => {
       acum += RENG[i][0].length + 1 + RENG[i][1].length;
-      const tt = T.plan + (acum / total) * (T.calma - 0.2 - T.plan);
+      const tt = T.escribe + (acum / total) * (T.calma - 0.2 - T.escribe);
       ocultar(tk, n >= acum ? popIn(t, tt, 0.2) : 0);
       tk.position.set(PW / 2 - 0.12, PH / 2 - (210 + i * 160) / 672 * PH, 0.03);
     });
@@ -1142,7 +1163,7 @@ let LAMP_POS = null;
 function vueloAro(t) {
   LAMP_POS ??= LAMPW();
   const u = eio(sg(t, T.noche, T.noche + 0.75));
-  const A = CAB.clone().add(V(-0.05, 0.02, 0.3)), B = LAMP_POS;
+  const A = CAB.clone().add(V(-0.08, 0.16, 0.33)), B = LAMP_POS;
   const p = lerpV(A, B, u); p.y += Math.sin(Math.PI * u) * 0.4; p.z += Math.sin(Math.PI * u) * 1.2;
   return p;
 }
@@ -1179,44 +1200,51 @@ function zonaD(t) {
   despertador.rotation.z = en && t < T.olvide + 0.6 ? Math.sin(t * 25) * 0.015 : 0;
   campanas.rotation.z = en && t < T.olvide + 0.6 ? Math.sin(t * 12.5) * 0.03 : 0;
   if (!en) { nube3.visible = tablet.visible = false; vapor.forEach((m) => (m.visible = false)); return; }
-  // ---- Rubén: boca arriba con los ojos abiertos; "proveedor": se pone de costado; s09: se incorpora con la tablet ----
-  const incorpora = eio(sg(t, T.sis0 - 0.1, T.sis0 + 0.45)) * (1 - eio(sg(t, T.anotado - 0.05, T.anotado + 0.35)));
-  const costado = eio(sg(t, T.prov, T.prov + 0.35)) * (1 - eio(sg(t, T.sis0 - 0.2, T.sis0 + 0.15)));
-  const estira = eio(sg(t, T.dormir + 0.6, T.dormir + 1.1)) * (1 - eio(sg(t, T.fin - 0.4, T.fin)));
-  // el pivote de acostado es la cadera (pose.y = -0,56: la cadera de Rubén queda en el origen del grupo)
-  acostado.position.set(CAMA.x, CAMA.colchon + 0.14 + incorpora * 0.06, CAMA.z0 + 1.27);
-  // de acostado (-90°) a medio sentado contra el respaldo
-  acostado.rotation.set(-Math.PI / 2 + incorpora * 1.05, 0, costado * 0.35, "XYZ");
+  // ---- Rubén (ronda 1): recostado en dos almohadas contra el respaldo (no boca arriba), la cara hacia la cámara baja
+  // de los pies; s09: se sienta (0,7 s) y la tablet llega por afuera del cuerpo; s10: vuelve a recostarse ----
+  const sienta = eio(sg(t, T.sis0 - 0.15, T.sis0 + 0.55)) * (1 - eio(sg(t, T.anotado - 0.05, T.anotado + 0.65)));
+  const acomoda = eio(sg(t, T.olvide + 0.25, T.olvide + 0.8));
+  const estira = eio(sg(t, T.dormir + 0.35, T.dormir + 0.85)) * (1 - eio(sg(t, T.fin - 0.4, T.fin)));
+  const rec = 0.74 + sienta * 0.4 - acomoda * 0.12 + estira * 0.12;
+  // el pivote de acostado es la cadera (pose.y = -0,56); la cabeza queda siempre sobre la almohada de arriba
+  acostado.position.set(CAMA.x, CAMA.colchon + 0.14, CAMA.z0 + 0.4 + 0.82 * Math.cos(rec));
+  acostado.rotation.set(rec - Math.PI / 2, 0, 0);
+  const piernaRot = -rec;
   let pr = poseEn(t, [
-    [0, { x: 0, y: -0.56, z: 0, giro: 0, ...CARA.neutra, ojos: { x: 0, y: 0.15, abiertos: 1 }, cejas: { alto: 0.45, ang: 0.7 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.85 }, cabeza: { giro: 0, asiente: -0.12, ladea: 0 },
-      manoI: [0.2, 0.25, 0.25], manoD: [-0.2, 0.25, 0.25], codoI: [0.9, 0, -0.4], codoD: [-0.9, 0, -0.4], respira: 0.6 }],
-    [T.sena, { ojos: { x: -0.3, y: 0.2, abiertos: 1 }, cabeza: { giro: -0.12, asiente: -0.12, ladea: 0 } }, 0.25],
-    [T.presu, { ojos: { x: 0.3, y: 0.2, abiertos: 1 }, cabeza: { giro: 0.12, asiente: -0.12, ladea: 0 }, cejas: { alto: 0.6, ang: 0.85 } }, 0.25],
-    // "proveedor": de costado, abre más los ojos (no duerme)
-    [T.prov + 0.3, { ojos: { x: 0.0, y: 0.2, abiertos: 1 }, cejas: { alto: 0.9, ang: 0.6 }, boca: { sonrisa: -0.5, abierta: 0.1, ancho: 0.8 }, cabeza: { giro: -0.35, asiente: -0.05, ladea: 0 } }, 0.25],
-    // s09: agarra la tablet con las dos manos
-    [T.sis0 + 0.45, { ...CARA.neutra, ...BRAZOS.ofrece(0.72, 0.3, 0.46), cabeza: { giro: 0, asiente: 0.3, ladea: 0 }, ojos: { x: 0, y: -0.6, abiertos: 1 }, cejas: { alto: 0.2, ang: 0.2 } }, 0.35],
-    [T.resp, { ...CARA.sonrisa, ojos: { x: 0, y: -0.6, abiertos: 1, feliz: 0.2 } }, 0.3],
-    // s10: deja la tablet, sonríe debajo del bigote, se acomoda
-    [T.anotado + 0.3, { ...CARA.sonrisa, manoI: [0.2, 0.25, 0.25], manoD: [-0.2, 0.25, 0.25], codoI: [0.9, 0, -0.4], codoD: [-0.9, 0, -0.4], cabeza: { giro: 0.25, asiente: -0.08, ladea: 0.05 }, ojos: { x: 0.4, y: 0.0, abiertos: 1, feliz: 0.2 } }, 0.35],
-    [T.olvide + 0.2, { ...CARA.sonrisa, cabeza: { giro: 0.1, asiente: -0.1, ladea: 0.08 }, ojos: { x: 0, y: 0.0, abiertos: 1, feliz: 0.3 } }, 0.25],
+    [0, { x: 0, y: -0.56, z: 0, giro: 0, ...CARA.neutra, ojos: { x: 0.15, y: 0.0, abiertos: 1 }, cejas: { alto: 0.45, ang: 0.7 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.85 }, cabeza: { giro: 0.28, asiente: 0.5, ladea: -0.05 },
+      manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], respira: 0.6 }],
+    [T.sena, { ojos: { x: -0.45, y: 0.25, abiertos: 1 }, cabeza: { giro: 0.18, asiente: 0.42, ladea: -0.08 } }, 0.25],
+    [T.presu, { ojos: { x: 0.45, y: 0.25, abiertos: 1 }, cabeza: { giro: 0.38, asiente: 0.42, ladea: 0.04 }, cejas: { alto: 0.6, ang: 0.85 } }, 0.25],
+    // "proveedor": abre más los ojos (no duerme), mira a cámara
+    [T.prov + 0.25, { ojos: { x: 0.1, y: 0.0, abiertos: 1 }, cejas: { alto: 0.95, ang: 0.6 }, boca: { sonrisa: -0.5, abierta: 0.12, ancho: 0.8 }, cabeza: { giro: 0.3, asiente: 0.5, ladea: 0 } }, 0.25],
+    // s09: agarra la tablet con las dos manos (los brazos suben cuando la tablet ya está adelante)
+    [T.sis0 + 0.7, { ...CARA.neutra, ...BRAZOS.ofrece(0.7, 0.36, 0.5), cabeza: { giro: 0.1, asiente: 0.42, ladea: 0 }, ojos: { x: 0, y: -0.5, abiertos: 1 }, cejas: { alto: 0.2, ang: 0.2 } }, 0.4],
+    [T.resp, { ...CARA.sonrisa, ojos: { x: 0, y: -0.5, abiertos: 1, feliz: 0.2 } }, 0.3],
+    // s10: deja la tablet, sonríe debajo del bigote mirando a cámara, se acomoda
+    [T.anotado + 0.45, { ...CARA.sonrisa, manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], cabeza: { giro: 0.3, asiente: 0.5, ladea: 0.05 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.15 } }, 0.45],
+    [T.olvide + 0.2, { ...CARA.sonrisa, cabeza: { giro: 0.28, asiente: 0.48, ladea: 0.1 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.3 } }, 0.25],
     // recién después de apagar la luz cierra los ojos (ojos de dibujo: una línea curva, sin bultos)
     [T.olvide + 0.95, { ojos: { abiertos: 0, feliz: 0.4 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.05 } }, 0.25],
     // s11: a la mañana se estira descansado
-    [T.dormir + 0.5, { ...CARA.feliz, ojos: { abiertos: 0.9, feliz: 0.5 }, cabeza: { giro: 0, asiente: -0.1, ladea: 0 } }, 0.3],
+    [T.dormir + 0.4, { ...CARA.feliz, ojos: { abiertos: 0.9, feliz: 0.5 }, cabeza: { giro: 0.2, asiente: 0.4, ladea: 0 } }, 0.3],
   ]);
-  if (estira > 0) pr = { ...pr, manoI: mezclar(pr.manoI, [0.32, 0.98, 0.1], estira), manoD: mezclar(pr.manoD, [-0.32, 0.98, 0.1], estira), codoI: [1, 0, 0.4], codoD: [-1, 0, 0.4], boca: { sonrisa: 0.6, abierta: 0.55 * estira, ancho: 0.8 } };
+  if (estira > 0) pr = { ...pr, manoI: mezclar(pr.manoI, [0.34, 0.98, 0.0], estira), manoD: mezclar(pr.manoD, [-0.34, 0.98, 0.0], estira), codoI: [1, 0, 0.3], codoD: [-1, 0, 0.3], boca: { sonrisa: 0.6, abierta: 0.55 * estira, ancho: 0.8 } };
   // la boca en "Anotado. Ya me olvidé." (la dice él)
-  const hab = (t > T.anotado && t < W[75] + 0.62) || (t > W[76] && t < W[78] + 0.45);
+  const hab = (t > T.anotado && t < W[74] + 0.62) || (t > W[75] && t < W[77] + 0.45);
   if (hab) pr.boca = { ...pr.boca, abierta: 0.08 + 0.3 * Math.abs(Math.sin((t - T.anotado) * 13)) };
   pr.t = t;
-  ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
+  ruben.poner(pr);
+  { const esc = ruben.raiz.children[0]; esc.children[0].rotation.x = piernaRot; esc.children[1].rotation.x = piernaRot; }
+  ruben.raiz.updateMatrixWorld(true);
   // ---- la nube de Rubén (LA MISMA): arriba del respaldo, a la derecha de su cabeza ----
   {
     ruben.cabeza.getWorldPosition(_v);
     // de noche, arriba del respaldo a la derecha de la cabeza; sentado (s09) sube un poco para no taparle la cara
-    const sube = incorpora;
-    const base = lerpV(V(OD.x + CAMA.x - 0.3, 1.42, PARED_Z + 0.5), V(OD.x + CAMA.x - 0.48, 1.68, PARED_Z + 0.55), sube);
+    const sube = sienta;
+    let base = lerpV(V(OD.x + CAMA.x - 0.36, 1.62, PARED_Z + 0.5), V(OD.x + CAMA.x - 0.6, 1.68, PARED_Z + 0.55), sube);
+    // en el push-in a la tablet la nube (ya vacía) se achica y se arrima arriba de la cabeza (que no quede cortada en el borde)
+    const chica = eio(sg(t, T.resp, T.resp + 0.35)) * (1 - eio(sg(t, T.anotado, T.anotado + 0.35)));
+    base = lerpV(base, V(OD.x + CAMA.x - 0.2, 1.62, PARED_Z + 0.45), chica);
     const v = t > T.noche + 0.85 && t < T.olvide + 0.6;
     const kn = v ? popIn(t, T.noche + 0.85, 0.35) : 0;
     const vac = eio(sg(t, T.sistema, T.sistema + 0.9)); // los pendientes se van a la tablet
@@ -1224,7 +1252,7 @@ function zonaD(t) {
     ponerNube(nube3, t, { infla: 1 - des, arruga: des > 0 && des < 1 ? 0.8 : 0.25 * pulso(t, T.prov, 0.5), late: 0.7 * (1 - vac) });
     nube3.visible = kn > 0.01 && des < 0.985;
     nube3.position.copy(base); nube3.quaternion.copy(camera.quaternion);
-    nube3.scale.setScalar(kn * lerp(0.6, 0.45, sube));
+    nube3.scale.setScalar(kn * lerp(0.46, 0.3, chica));
     const llegan = [T.sena, T.presu, T.prov];
     PEND.forEach((it, i) => {
       const t0 = llegan[i];
@@ -1247,18 +1275,21 @@ function zonaD(t) {
     tablet.visible = true;
     const enMesa = { p: V(OD.x + MESITA.x - 0.04, MESITA.y + 0.024, MESITA.z + 0.1), r: new THREE.Euler(-Math.PI / 2 + 0.0, 0, 0.25) };
     // a la mañana queda apoyada en el atril invisible del mate: inclinada hacia la cámara
-    const enMesaM = { p: V(OD.x + MESITA.x - 0.04, MESITA.y + 0.2, MESITA.z + 0.1), r: new THREE.Euler(-0.4, 0.15, 0) };
-    const a = eio(sg(t, T.sis0 + 0.05, T.sis0 + 0.45)), b = eio(sg(t, T.anotado, T.anotado + 0.45));
+    const enMesaM = { p: V(OD.x + MESITA.x - 0.02, MESITA.y + 0.2, MESITA.z + 0.12), r: new THREE.Euler(-0.35, 0.3, 0) };
+    const a = eio(sg(t, T.sis0 + 0.0, T.sis0 + 0.7)), b = eio(sg(t, T.anotado + 0.0, T.anotado + 0.7));
     const mI = ruben.mano("I").getWorldPosition(new THREE.Vector3()), mD = ruben.mano("D").getWorldPosition(new THREE.Vector3());
-    const enManos = mI.clone().add(mD).multiplyScalar(0.5).add(V(0, 0.0, 0.08));
-    let p = lerpV(enMesa.p, enManos, a); p = lerpV(p, enMesa.p, b);
+    const enManos = mI.clone().add(mD).multiplyScalar(0.5).add(V(0.0, 0.06, 0.1));
+    // arco por AFUERA del cuerpo: de la mesita sube, pasa por delante del pecho (lado de la cámara) y baja a las manos
+    const MID = V(OD.x + CAMA.x - 0.35, 1.55, CAMA.z0 + 1.0);
+    const bez = (A, B, u) => A.clone().multiplyScalar((1 - u) * (1 - u)).add(MID.clone().multiplyScalar(2 * u * (1 - u))).add(B.clone().multiplyScalar(u * u));
+    const p = b > 0 ? bez(enManos, enMesa.p, b) : bez(enMesa.p, enManos, a);
     const qm = new THREE.Quaternion().setFromEuler(enMesa.r);
     const qh = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(camera.position, enManos, V(0, 1, 0)));
     const qr = qm.clone().slerp(qh, a).slerp(qm, b);
     tablet.position.copy(p); tablet.quaternion.copy(qr);
     if (plano === 4) { tablet.position.copy(enMesaM.p); tablet.quaternion.setFromEuler(enMesaM.r); }
     const filas = t < T.sistema + 0.35 ? 0 : t < T.sistema + 0.6 ? 1 : t < T.sistema + 0.85 ? 2 : 3;
-    const hecho = plano === 4 ? (t > T.dormir + 0.9 ? 1 : 0) + (t > T.dormir + 1.2 ? 1 : 0) + (t > T.dormir + 1.5 ? 1 : 0) : 0;
+    const hecho = plano === 4 ? (t > T.dormir + 1.1 ? 1 : 0) + (t > T.dormir + 1.35 ? 1 : 0) + (t > T.dormir + 1.6 ? 1 : 0) : 0;
     dibujarTablet({ filas: plano === 4 ? 3 : filas, resp: t > T.resp ? 1 : 0, aviso: t > T.aviso ? 1 : 0, hecho });
   }
   // ---- el vapor del mate (s11) ----
@@ -1281,9 +1312,9 @@ function zonaFin(t) {
   nubeFin.visible = v;
   if (!v) return;
   ponerNube(nubeFin, t, { infla: 1, late: 0.4 });
-  nubeFin.position.set(OF.x, 0.62 + Math.sin(t * 2.2) * 0.03, 0);
+  nubeFin.position.set(OF.x, 0.42 + Math.sin(t * 2.2) * 0.03, 0);
   nubeFin.rotation.set(0.05, 0.35 * Math.sin((t - T.fin) * 1.6), 0);
-  nubeFin.scale.setScalar(popIn(t, T.fin + 0.05, 0.4) * 0.7);
+  nubeFin.scale.setScalar(popIn(t, T.fin + 0.05, 0.4) * 0.92);
 }
 
 // ================= ESCENA EN EL TIEMPO =================

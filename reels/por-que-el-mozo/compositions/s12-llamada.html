@@ -11,9 +11,11 @@
     [data-composition-id="s12-llamada"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     [data-composition-id="s12-llamada"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s12-llamada"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s12-llamada"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s12-llamada"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s12-llamada"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
     [data-composition-id="s12-llamada"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     [data-composition-id="s12-llamada"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
+    [data-composition-id="s12-llamada"] .sello.chico { font-size: 70px; }
 
     [data-composition-id="s12-llamada"] .t1 { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font: 900 128px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; }
     [data-composition-id="s12-llamada"] .t2w { position: absolute; left: 0; right: 0; top: 476px; text-align: center; }
@@ -21,8 +23,8 @@
     [data-composition-id="s12-llamada"] .t3w { position: absolute; left: 0; right: 0; top: 676px; text-align: center; }
     [data-composition-id="s12-llamada"] .t3 { display: inline-block; padding: 14px 40px 24px; border-radius: 30px; background: #efeee5; border: 8px solid #0b1220; font: 900 108px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; }
   </style>
-  <div id="root" data-composition-id="s12-llamada" data-width="1080" data-height="1920" data-duration="2.99">
-    <div id="s12-llamada-esc" class="esc clip" data-start="0" data-duration="2.99" data-track-index="0">
+  <div id="root" data-composition-id="s12-llamada" data-width="1080" data-height="1920" data-duration="2.97">
+    <div id="s12-llamada-esc" class="esc clip" data-start="0" data-duration="2.97" data-track-index="0">
 
       <div class="t1">Videollamada</div>
       <div class="t2w"><span class="t2">gratis</span></div>
@@ -32,7 +34,7 @@
   <script>
     (function () {
       const ID = "s12-llamada";
-      const DUR = 2.99;
+      const DUR = 2.97;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -48,15 +50,15 @@
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
 
       tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
       tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 0.82);
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 1.47);
-      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: 2.79, ease: "none", immediateRender: false }, 0.2);
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 1.44);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: 2.77, ease: "none", immediateRender: false }, 0.2);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

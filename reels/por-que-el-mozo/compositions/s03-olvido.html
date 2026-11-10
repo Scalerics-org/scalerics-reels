@@ -11,20 +11,22 @@
     [data-composition-id="s03-olvido"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     [data-composition-id="s03-olvido"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s03-olvido"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s03-olvido"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s03-olvido"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s03-olvido"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
     [data-composition-id="s03-olvido"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     [data-composition-id="s03-olvido"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
+    [data-composition-id="s03-olvido"] .sello.chico { font-size: 70px; }
 
   </style>
-  <div id="root" data-composition-id="s03-olvido" data-width="1080" data-height="1920" data-duration="1.77">
-    <div id="s03-olvido-esc" class="esc clip" data-start="0" data-duration="1.77" data-track-index="0">
+  <div id="root" data-composition-id="s03-olvido" data-width="1080" data-height="1920" data-duration="2.16">
+    <div id="s03-olvido-esc" class="esc clip" data-start="0" data-duration="2.16" data-track-index="0">
 <div class="sello navy s1" style="left:540px;top:1615px"><svg width="56" height="56" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#5ce611"/><path d="M12 22.5 L19 29.5 L32 15" fill="none" stroke="#0b1220" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Cobrado</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s03-olvido";
-      const DUR = 1.77;
+      const DUR = 2.16;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,10 +42,10 @@
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", 0.45, -5); tl.set(q(".s1"), { opacity: 0 }, 1.69);
+gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", 0.45, -5); tl.to(q(".s1"), { scale: 0.6, opacity: 0, duration: 0.16, ease: "power2.in" }, 1.76);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -11,20 +11,22 @@
     [data-composition-id="s09-sistema"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     [data-composition-id="s09-sistema"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s09-sistema"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s09-sistema"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s09-sistema"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s09-sistema"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
     [data-composition-id="s09-sistema"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     [data-composition-id="s09-sistema"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
+    [data-composition-id="s09-sistema"] .sello.chico { font-size: 70px; }
 
   </style>
-  <div id="root" data-composition-id="s09-sistema" data-width="1080" data-height="1920" data-duration="4.29">
-    <div id="s09-sistema-esc" class="esc clip" data-start="0" data-duration="4.29" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M270 1600 L330 1150"/><circle class="dot  d1" cx="330" cy="1150" r="13"/><path class="lead  l2" d="M800 1600 L640 1150"/><circle class="dot  d2" cx="640" cy="1150" r="13"/></svg><div class="pill  n1" style="left:250px;top:1660px">Responsable</div><div class="pill lleno n2" style="left:820px;top:1660px">Aviso</div>
+  <div id="root" data-composition-id="s09-sistema" data-width="1080" data-height="1920" data-duration="5.04">
+    <div id="s09-sistema-esc" class="esc clip" data-start="0" data-duration="5.04" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M270 1600 L330 1150"/><circle class="dot g d1" cx="330" cy="1150" r="13"/><path class="lead g l2" d="M800 1600 L640 1150"/><circle class="dot g d2" cx="640" cy="1150" r="13"/></svg><div class="pill  n1" style="left:250px;top:1660px">Responsable</div><div class="pill lleno n2" style="left:820px;top:1660px">Aviso</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-sistema";
-      const DUR = 4.29;
+      const DUR = 5.04;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,10 +42,10 @@
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 2.41); nota(2, 3.4); sinNota(1, 4.17); sinNota(2, 4.17);
+nota(1, 2.68); nota(2, 3.88); sinNota(1, 4.92); sinNota(2, 4.92);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

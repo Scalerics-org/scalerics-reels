@@ -17,7 +17,7 @@ voz = [t for t in tags if t[0]=='voz']; resto = [t for t in tags if t[0]!='voz']
 mix(voz, '/tmp/claude-0/pqem_voz.wav'); mix(resto, '/tmp/claude-0/pqem_resto.wav')
 def rms(f):
     out = subprocess.run(['ffmpeg','-hide_banner','-i',f,'-af','asetnsamples=24000,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level','-f','null','-'],capture_output=True,text=True).stderr
-    return [float(x) if x!='-inf' else -120 for x in re.findall(r'RMS_level=(-?[\d.inf]+)', out)]
+    return [float(x) if ('inf' not in x and 'nan' not in x) else -120 for x in re.findall(r'RMS_level=(-?[\d.infa]+)', out)]
 a, b = rms('/tmp/claude-0/pqem_voz.wav'), rms('/tmp/claude-0/pqem_resto.wav')
 malos = [(i*0.5, round(x-y,1)) for i,(x,y) in enumerate(zip(a,b)) if x > -40 and x - y < 6]
 print('tramos con voz < 6 dB sobre el resto:', malos)
@@ -29,7 +29,7 @@ def lufs(f):
     res = {}
     for ts, m in vals:
         k = round(float(ts) * 2) / 2
-        if abs(float(ts) - k) < 0.011: res[k] = float(m) if 'inf' not in m else -120
+        if abs(float(ts) - k) < 0.011: res[k] = (float(m) if m.replace('-','').replace('.','').isdigit() else -120)
     return res
 lv, lr = lufs('/tmp/claude-0/pqem_voz.wav'), lufs('/tmp/claude-0/pqem_resto.wav')
 d = [(k, round(lv[k] - lr.get(k, -120), 1)) for k in sorted(lv) if lv[k] > -35]
@@ -37,7 +37,7 @@ print('LU voz - resto (momentánea, con voz):', 'mínimo', min(d, key=lambda x: 
 # medida fina: tramos de 0,5 s, contando solo los pedazos de 0,1 s donde la voz habla (RMS con pesado K aproximado)
 def rms01(f):
     out = subprocess.run(['ffmpeg','-hide_banner','-i',f,'-af','aresample=48000,highpass=f=60,highshelf=f=1500:g=4,asetnsamples=4800,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level','-f','null','-'],capture_output=True,text=True).stderr
-    return [float(x) if 'inf' not in x else -120 for x in re.findall(r'RMS_level=(-?[\d.inf]+)', out)]
+    return [float(x) if ('inf' not in x and 'nan' not in x) else -120 for x in re.findall(r'RMS_level=(-?[\d.infa]+)', out)]
 v1, r1 = rms01('/tmp/claude-0/pqem_voz.wav'), rms01('/tmp/claude-0/pqem_resto.wav')
 tr = {}
 for i, (a, b) in enumerate(zip(v1, r1)):

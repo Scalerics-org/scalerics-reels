@@ -35,9 +35,11 @@ const CSS = (P) => `
     ${P} .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     ${P} .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: ${G}; }
     ${P} .lead { fill: none; stroke: ${NAVY}; stroke-width: 7; stroke-linecap: round; }
+    ${P} .lead.g { stroke: ${G}; stroke-width: 8; }
     ${P} .dot { fill: ${NAVY}; opacity: 0; } ${P} .dot.g { fill: ${G}; stroke: ${NAVY}; stroke-width: 5; }
     ${P} .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid ${NAVY}; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: ${NAVY}; background: ${G}; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     ${P} .sello.navy { background: ${NAVY2}; color: ${CR}; border-color: ${G}; }
+    ${P} .sello.chico { font-size: 70px; }
 `;
 
 // ---------- JS común ----------
@@ -55,7 +57,7 @@ const HELP = `
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 `;
 
@@ -99,17 +101,17 @@ const tictac = (a, b, vol = 0.35) => { const o = []; for (let t = a, i = 0; t < 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
   berlin: [210, 1580], berlinLead: [230, 1515, 280, 1330],
-  sinAnotar: [300, 1320],
+  sinAnotar: [560, 1420],
   cobrado: [540, 1615],
   cred1: [540, 1660],
-  doble: [330, 640], dobleLead: [400, 700, 560, 840],
-  abierto: [360, 1520], abiertoLead: [400, 1460, 520, 1100],
+  doble: [300, 560], dobleLead: [420, 610, 600, 600],
+  abierto: [540, 1560], abiertoLead: [470, 1500, 470, 1110],
   cred2: [270, 560],
   calma: [330, 1430], calmaLead: [360, 1370, 470, 1040],
   ruben: [300, 1450], rubenLead: [330, 1390, 470, 1180],
   resp: [250, 1660], respLead: [270, 1600, 330, 1150],
   aviso: [820, 1660], avisoLead: [800, 1600, 640, 1150],
-  burbuja: [770, 640], colita: 28,
+  burbuja: [800, 560], colita: 24,
 };
 
 // ================= s01 · gancho (cuadro 0 = portada): el mozo con la bandeja y la nube de pedidos =================
@@ -144,16 +146,16 @@ const POS = {
   const [bx, by] = POS.berlin, [a, b, c, d] = POS.berlinLead, [sx, sy] = POS.sinAnotar;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, bx, by, `Berlín<span class="sub">se cuenta</span>`, "grande")}
-      <div class="sello s1" style="left:${sx}px;top:${sy}px">${tickSvg(30)}Sin anotar</div>`,
+      <div class="sello s1 chico" style="left:${sx}px;top:${sy}px">${tickSvg(28)}Sin anotar</div>`,
     css: `P .pill.grande { flex-direction: column; gap: 0; }`,
-    js: `nota(1, 0.6); sinNota(1, ${r2(w(id, 20) - 0.12)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(w(id, 20) - 0.02)}, -6); tl.set(q(".s1"), { opacity: 0 }, ${r2(ESC[id] - 0.06)});`,
+    js: `nota(1, 0.6); sinNota(1, ${r2(w(id, 20) - 0.24)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(w(id, 20) - 0.02)}, -6); tl.set(q(".s1"), { opacity: 0 }, ${r2(ESC[id] - 0.06)});`,
     sfx: [
       { t: -0.12, sfx: "whoosh", vol: 0.22 },
       { t: 0.6, sfx: "click-soft", vol: 0.25 },
       ...[0, 1, 2].map((k) => ({ t: r2(w(id, 18) - 0.05 + k * 0.08), sfx: "pop", vol: 0.26 })),
       { t: w(id, 18) + 0.05, sfx: "burbuja", vol: 0.25 },
       { t: w(id, 20) - 0.08, sfx: "whoosh-short", vol: 0.3 },
-      { t: w(id, 20) + 0.24, sfx: "sello", vol: 0.3 },
+      { t: w(id, 20) + 0.2, sfx: "sello", vol: 0.2, max: 0.35 },
     ],
   });
 }
@@ -165,14 +167,15 @@ const POS = {
   const pg = w(id, 21), ol = w(id, 24) - 0.05;
   escena(id, {
     html: `<div class="sello navy s1" style="left:${cx}px;top:${cy}px">${tickSvg(28)}Cobrado</div>`,
-    js: `gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(pg + 0.45)}, -5); tl.set(q(".s1"), { opacity: 0 }, ${r2(ESC[id] - 0.08)});`,
+    js: `gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(pg + 0.45)}, -5); tl.to(q(".s1"), { scale: 0.6, opacity: 0, duration: 0.16, ease: "power2.in" }, ${r2(ESC[id] - 0.4)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh-short", vol: 0.25 },
-      ...[0, 1, 2].map((k) => ({ t: r2(pg + 0.2 + k * 0.14), sfx: "ping", vol: 0.5, max: 0.22 })),
-      ...[0, 1].map((k) => ({ t: r2(pg + 0.22 + k * 0.14), sfx: "tic-real", vol: 0.4 })),
+      { t: 0.05, sfx: "whoosh-short", vol: 0.12 },
+      ...[0, 1, 2].map((k) => ({ t: r2(pg + 0.55 + k * 0.14), sfx: "ping", vol: 0.5, max: 0.22 })),
+      ...[0, 1].map((k) => ({ t: r2(pg + 0.57 + k * 0.14), sfx: "tic-real", vol: 0.4 })),
       { t: pg + 0.45, sfx: "sello", vol: 0.3 },
       { t: ol, sfx: "whoosh-short", vol: 0.45 }, { t: ol + 0.05, sfx: "burbuja", vol: 0.4 },
       { t: ol + 0.45, sfx: "pop", vol: 0.3 },
+      { t: r2(ESC[id] - 0.4), sfx: "whoosh-short", vol: 0.15 },
     ],
   });
 }
@@ -183,17 +186,19 @@ const POS = {
   const [cx, cy] = POS.cred1, [dx, dy] = POS.doble, [a, b, c, d] = POS.dobleLead;
   const tI = w(id, 30) - 0.05, tR = w(id, 32) - 0.05, tD = w(id, 35) - 0.05;
   escena(id, {
-    css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; }`,
-    html: `${leads(lead(2, a, b, c, d))}<div class="cred n1">Estudio clásico · 1927</div>${pill(2, dx, dy, "casi el doble", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); nota(2, ${r2(tD - 0.05)}); sinNota(2, ${r2(ESC[id] - 0.12)});`,
+    css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
+    P .cred .sub { display: block; margin-top: 8px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
+    html: `${leads(lead(2, a, b, c, d))}<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>${pill(2, dx, dy, "casi el doble", "lleno grande")}`,
+    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); nota(2, ${r2(tD - 0.2)}); sinNota(2, ${r2(ESC[id] - 0.08)});`,
     sfx: [
-      { t: -0.22, sfx: "whoosh", vol: 0.3 }, { t: -0.2, sfx: "papel", vol: 0.22, max: 0.5 },
+      { t: -0.05, sfx: "whoosh", vol: 0.3 }, { t: 0.0, sfx: "papel", vol: 0.22, max: 0.5 },
       ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(0.15 + Math.floor(k / 2) * 0.14 + (k % 2) * 0.32), sfx: "pop", vol: 0.22 })),
       { t: w(id, 27) + 0.05, sfx: "click-soft", vol: 0.3 },
       ...[0, 1, 2, 3].map((k) => ({ t: r2(tI + k * 0.09), sfx: "pop", vol: 0.25 })),
       { t: tR, sfx: "whoosh-short", vol: 0.3 },
       ...Array.from({ length: 8 }, (_, k) => ({ t: r2(tR + 0.3 + k * ((tD - tR - 0.3) / 8)), sfx: "tic-real", vol: 0.35, full: 1 })),
       { t: tD, sfx: "ding", vol: 0.35, max: 0.9 }, { t: tD + 0.1, sfx: "pop", vol: 0.25 },
+      { t: r2(tD + 0.45), sfx: "whoosh-short", vol: 0.3 }, { t: r2(tD + 0.72), sfx: "pop", vol: 0.32 },
     ],
   });
 }
@@ -201,7 +206,6 @@ const POS = {
 // ================= s05 · ¿Por qué? (las fichas verdes se juntan en el "?") =================
 vacia("s05-por-que", [
   { t: -0.12, sfx: "whoosh-cine-corto", vol: 0.15, max: 0.6 },
-  { t: 0.15, sfx: "pop", vol: 0.3 },
   { t: w("s05-por-que", 37), sfx: "impact-bass-1", vol: 0.3, max: 0.6 },
 ]);
 
@@ -211,8 +215,8 @@ vacia("s05-por-que", [
   const [ax, ay] = POS.abierto, [a, b, c, d] = POS.abiertoLead;
   const tA = w(id, 41) - 0.05;
   escena(id, {
-    html: `${leads(lead(1, a, b, c, d))}${pill(1, ax, ay, "Pendiente: queda abierto")}`,
-    js: `nota(1, ${r2(tA + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.12)});`,
+    html: `${leads(lead(1, a, b, c, d))}${pill(1, ax, ay, "Pendiente: sigue dando vueltas")}`,
+    js: `nota(1, ${r2(tA - 0.35)}); sinNota(1, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
       { t: 0.35, sfx: "pop", vol: 0.25 },
@@ -235,9 +239,9 @@ vacia("s05-por-que", [
       ...tictac(0.15, tC - 0.05, 0.25),
       { t: 0.05, sfx: "papel-fuerte", vol: 0.25, max: 0.4 }, { t: 0.1, sfx: "pop", vol: 0.2 },
       { t: 0.3, sfx: "click-soft", vol: 0.25 },
-      { t: tP, sfx: "typing", vol: 0.25, max: r2(tC - tP - 0.2) },
-      ...[0, 1, 2].map((k) => ({ t: r2(tP + (k + 1) * ((tC - 0.2 - tP) / 3)), sfx: "pop", vol: 0.22 })),
-      { t: tC + 0.25, sfx: "chime", vol: 0.45, max: 1.2 }, { t: tC + 0.3, sfx: "pop", vol: 0.3 },
+      { t: 0.47, sfx: "typing", vol: 0.25, max: r2(tC - 0.2 - 0.47) },
+      ...[0, 1, 2].map((k) => ({ t: r2(0.45 + (k + 1) * ((tC - 0.2 - 0.45) / 3)), sfx: "pop", vol: 0.22 })),
+      { t: tC + 0.32, sfx: "chime", vol: 0.45, max: 1.2 }, { t: tC + 0.32, sfx: "pop", vol: 0.3 },
     ],
   });
 }
@@ -264,9 +268,9 @@ vacia("s05-por-que", [
 {
   const id = "s09-sistema";
   const [x1, y1] = POS.resp, l1 = POS.respLead, [x2, y2] = POS.aviso, l2 = POS.avisoLead;
-  const tS = w(id, 70) - 0.05, tR = w(id, 72) - 0.05, tA = w(id, 74) - 0.05;
+  const tS = w(id, 69) - 0.05, tR = w(id, 71) - 0.05, tA = w(id, 73) - 0.05;
   escena(id, {
-    html: `${leads(lead(1, ...l1), lead(2, ...l2))}${pill(1, x1, y1, "Responsable")}${pill(2, x2, y2, "Aviso", "lleno")}`,
+    html: `${leads(lead(1, ...l1, "g"), lead(2, ...l2, "g"))}${pill(1, x1, y1, "Responsable")}${pill(2, x2, y2, "Aviso", "lleno")}`,
     js: `nota(1, ${r2(tR + 0.05)}); nota(2, ${r2(tA + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.12)}); sinNota(2, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       ...tictac(0.0, tS, 0.25),
@@ -274,7 +278,7 @@ vacia("s05-por-que", [
       ...[0, 1, 2].map((k) => ({ t: r2(tS + k * 0.25), sfx: "whoosh-short", vol: 0.14 })),
       ...[0, 1, 2].map((k) => ({ t: r2(tS + 0.4 + k * 0.25), sfx: "click", vol: 0.16 })),
       { t: tR + 0.05, sfx: "pop", vol: 0.3 },
-      { t: tA, sfx: "notification", vol: 0.3, max: 0.9 }, { t: tA + 0.05, sfx: "pop", vol: 0.3 },
+      { t: tA, sfx: "notification", vol: 0.3, max: 0.9 }, { t: tA + 0.05, sfx: "pop", vol: 0.3 }, { t: tA + 0.15, sfx: "pop", vol: 0.2 }, { t: tA + 0.25, sfx: "pop", vol: 0.18 },
     ],
   });
 }
@@ -283,17 +287,17 @@ vacia("s05-por-que", [
 {
   const id = "s10-olvide";
   const [bx, by] = POS.burbuja;
-  const tO = w(id, 78) - 0.05;
+  const tO = w(id, 77) - 0.05;
   escena(id, {
     css: `
     P .burb { position: absolute; left: ${bx}px; top: ${by}px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid ${NAVY}; font: 700 64px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
     P .burb::after { content: ""; position: absolute; left: ${POS.colita}%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid ${NAVY}; transform: translateX(-50%); }
     P .burb::before { content: ""; position: absolute; left: ${POS.colita}%; bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid #ffffff; z-index: 1; transform: translateX(-50%); }`,
-    html: `<div class="burb">Anotado.<br>Ya me olvidé.</div>`,
-    js: `tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
+    html: `<div class="burb">Anotado.<br><span class="r2">Ya me olvidé.</span></div>`,
+    js: `gsap.set(q(".r2"), { opacity: 0 }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { opacity: 1 }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       ...tictac(0.0, tO + 0.6, 0.22),
-      { t: 0.35, sfx: "tac-real", vol: 0.6, full: 1 },
+      { t: 0.35, sfx: "tac-real", vol: 0.6, full: 1 }, { t: 0.08, sfx: "pop", vol: 0.25 }, { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.22 },
       { t: tO, sfx: "whoosh-short", vol: 0.45 }, { t: tO + 0.05, sfx: "burbuja", vol: 0.4 },
       { t: tO + 0.55, sfx: "click", vol: 0.45 },
     ],
@@ -327,12 +331,12 @@ vacia("s05-por-que", [
     js: `
       tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
-      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 86) - 0.02)});
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 88) - 0.03)});
+      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 85) - 0.02)});
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 87) - 0.03)});
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: w(id, 88) - 0.03, sfx: "chime", vol: 0.5, max: 1.2 },
+      { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.5, max: 1.2 },
     ],
   });
 }

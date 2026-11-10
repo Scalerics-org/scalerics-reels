@@ -11,20 +11,23 @@
     [data-composition-id="s04-estudio"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
     [data-composition-id="s04-estudio"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s04-estudio"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s04-estudio"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s04-estudio"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s04-estudio"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
     [data-composition-id="s04-estudio"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #0b1220; border-radius: 22px; font: 900 80px/1 "Lexend", sans-serif; letter-spacing: 0.01em; color: #0b1220; background: #5ce611; opacity: 0; white-space: nowrap; display: flex; align-items: center; gap: 18px; box-shadow: 0 10px 0 rgba(11,18,32,0.22); }
     [data-composition-id="s04-estudio"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
-[data-composition-id="s04-estudio"] .cred { position: absolute; left: 540px; top: 1660px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: #16243d; border: 6px solid #5ce611; font: 600 46px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; }
+    [data-composition-id="s04-estudio"] .sello.chico { font-size: 70px; }
+[data-composition-id="s04-estudio"] .cred { position: absolute; left: 540px; top: 1660px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: #16243d; border: 6px solid #5ce611; font: 600 46px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; }
+    [data-composition-id="s04-estudio"] .cred .sub { display: block; margin-top: 8px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s04-estudio" data-width="1080" data-height="1920" data-duration="4.37">
-    <div id="s04-estudio-esc" class="esc clip" data-start="0" data-duration="4.37" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M400 700 L560 840"/><circle class="dot  d2" cx="560" cy="840" r="13"/></svg><div class="cred n1">Estudio clásico · 1927</div><div class="pill lleno grande n2" style="left:330px;top:640px">casi el doble</div>
+  <div id="root" data-composition-id="s04-estudio" data-width="1080" data-height="1920" data-duration="3.99">
+    <div id="s04-estudio-esc" class="esc clip" data-start="0" data-duration="3.99" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M420 610 L600 600"/><circle class="dot  d2" cx="600" cy="600" r="13"/></svg><div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div><div class="pill lleno grande n2" style="left:300px;top:560px">casi el doble</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s04-estudio";
-      const DUR = 4.37;
+      const DUR = 3.99;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,10 +43,10 @@
       });
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const sinNota = (k, t) => tl.to(qa(".n" + k + ", .l" + k + ", .d" + k), { opacity: 0, duration: 0.08, ease: "power1.in" }, t);
-      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.45, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
+      const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.6); sinNota(1, 2.48); nota(2, 3.35); sinNota(2, 4.25);
+nota(1, 0.21); sinNota(1, 2.09); nota(2, 2.81); sinNota(2, 3.91);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

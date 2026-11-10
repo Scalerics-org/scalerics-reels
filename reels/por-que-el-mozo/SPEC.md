@@ -5,7 +5,7 @@ citados por MacLeod 2020, ver `fuentes.md`) que un mozo en Berlín recordaba tod
 olvidó. Un estudio clásico (Zeigarnik, 1927): las tareas interrumpidas se recordaban casi el doble. Bisagra "¿Por qué?":
 lo pendiente queda abierto en la cabeza. Giro: otro estudio (Masicampo y Baumeister, 2011) vio que hacer un plan
 concreto la calma: no hace falta terminarlo para sacárselo de encima. Callback: Rubén, de noche, es como aquel mozo
-(la seña, el presupuesto, el proveedor dando vueltas en la misma nube); ahora cada pendiente va a su sistema, con
+(la seña, el presupuesto, el proveedor dando vueltas en la misma nube); ahora cada pendiente va al sistema, con
 responsable y aviso; Rubén: "Anotado. Ya me olvidé." (el olvido del mozo, pero tranquilo). Cierre: videollamada gratis.
 **Producto: sistema a medida** (los pendientes del negocio, con responsable y aviso). Sin marcas reales.
 Voz: Orus (85 palabras) + Rubén (4 palabras, Algenib). 89 palabras en total.
@@ -103,9 +103,9 @@ mesita de luz (con moderación).
 | 4 | s04-estudio | 25 "En" | 7,9-11,6 | En un estudio, las tareas interrumpidas se recordaban casi el doble. | Tareas a medias y las dos pilas | "interrumpidas": cortes verdes; "doble": pila verde x2 |
 | 5 | s05-por-que | 36 "¿Por" | 11,6-13,3 | ¿Por qué? | "?" 3D verde | Push-in y órbita corta |
 | 6 | s06-abierto | 38 "Lo" | 13,3-15,6 | Lo pendiente queda abierto en la cabeza. | La cabeza con la "C" abierta | "abierto": la C gira sin cerrar |
-| 7 | s07-plan | 45 "Otro" | 15,6-18,8 | Otro estudio vio que hacer un plan concreto la calma. | La tarjeta del plan | "plan": renglones; "calma": la C se cierra |
+| 7 | s07-plan | 45 "Otro" | 15,6-18,8 | Otro estudio vio que hacer un plan concreto la despeja. | La tarjeta del plan | "plan": renglones; "calma": la C se cierra |
 | 8 | s08-noche | 55 "Rubén," | 18,8-21,9 | Rubén, de noche: la seña, el presupuesto, el proveedor. | Rubén en la cama y LA MISMA nube | Un pendiente por palabra |
-| 9 | s09-sistema | 64 "Ahora" | 21,9-25,3 | Ahora cada pendiente va a su sistema, con responsable y aviso. | La tablet con "Pendientes" | "sistema": vuelan a la tablet; "responsable": avatares; "aviso": campanitas |
+| 9 | s09-sistema | 64 "Ahora" | 21,9-25,3 | Ahora cada pendiente va al sistema, con responsable y aviso. | La tablet con "Pendientes" | "sistema": vuelan a la tablet; "responsable": avatares; "aviso": campanitas |
 | 10 | s10-olvide | 75 "Anotado." | 25,3-27,3 | RUBÉN: Anotado. Ya me olvidé. | Rubén apaga la lámpara, la nube vacía | La nube se desinfla (callback del s03) |
 | 11 | s11-dormir | 79 "¿Querés" | 27,3-29,8 | ¿Querés dormir sin pendientes? Agendá una | La tablet con las tildes, a la mañana | Tildes en fila |
 | 12 | s12-llamada | 85 "videollamada" | 29,8-32,6 | videollamada gratis en scalerics.com. | Tarjeta verde | "Videollamada gratis" / "scalerics.com" |
@@ -166,7 +166,7 @@ mesita de luz (con moderación).
    - Rótulo con línea guía a la C: "Pendiente: queda abierto".
    - SFX: whoosh-short, un zumbido grave muy bajo en loop mientras gira (o tic-tac), pop de la nube.
 
-7. **s07-plan** (~3,2 s) · GIRO · "Otro estudio vio que hacer un plan concreto la calma."
+7. **s07-plan** (~3,2 s) · GIRO · "Otro estudio vio que hacer un plan concreto la despeja."
    - Push-in: delante de la cabeza entra LA TARJETA DEL PLAN grande (70 % del ancho) con pop y giro de 15°. Rótulo
      arriba "Estudio · 2011". En "plan" se escriben los tres renglones de a uno (cursor/lápiz animado, letras navy
      Lexend 700 40 px): "Qué: llamar al proveedor" / "Cuándo: jueves 10:00" / "Quién: Nico", con tilde verde en cada
@@ -187,7 +187,7 @@ mesita de luz (con moderación).
    - SFX: tic-tac del despertador, click de lámpara, pop x3 (más graves que los del mozo), suspiro de Rubén (si hay
      CC0; si no, nada).
 
-9. **s09-sistema** (~3,4 s) · EL PRODUCTO · "Ahora cada pendiente va a su sistema, con responsable y aviso."
+9. **s09-sistema** (~3,4 s) · EL PRODUCTO · "Ahora cada pendiente va al sistema, con responsable y aviso."
    - Rubén agarra LA TABLET de la mesita; en "sistema" los 3 pendientes salen de la nube y vuelan uno por uno a la
      pantalla (whoosh-short cada uno), donde se vuelven filas de la lista "Pendientes" y se ponen verdes/navy (dejan
      el rojo). Push-in a la tablet hasta llenar el 75 % del ancho (Rubén detrás, desenfocado). En "responsable" se
