@@ -234,6 +234,7 @@
 - 09-11 · `por-que-se-fue` · Sistema a medida (stock que avisa antes de que se acabe lo que más sale) · "Vino por su yerba. No había. ¿Qué hizo?" Explicador sin marcas (estudio mundial de faltantes, Gruen, Corsten y Bharadwaj 2002, ver fuentes.md): casi un tercio la compra en otro local, otros cambian de marca o esperan, 9 de cada 100 no compran nada; y suele faltar lo que más se vende; ¿Por qué? sale tan rápido que se acaba antes de pedirlo; callback: a Rubén le pasa con la yerba del sábado, su sistema le avisa el martes "se acaba el sábado", pide a tiempo y Graciela encuentra la suya · Videollamada gratis [formato explicador ¿Por qué? · 3D real (góndola con hueco, paquete rebanado en porciones, local de al lado, canasta, almanaque, "?", pila con contador, almacén con Rubén y Graciela, tablet), fondo navy oscuro #0b1220 liso con cierre verde] (corrida 09-11 10:10, 3 rondas de revisión + 2 verificaciones finales; render SwiftShader ~12-13 min)
 
 ## En curso
+<!-- corrida-activa: 2026-11-10T05:09 -->
 
 
 
