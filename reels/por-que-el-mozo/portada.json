@@ -1,0 +1,13 @@
+{
+ "t": 1.2,
+ "chica": "¿Por qué el mozo",
+ "grande": "se olvida al cobrar?",
+ "sello": "¿Por qué…?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.4,
+ "foco": "45%",
+ "foco_x": "50%",
+ "fondo": "#efeee5",
+ "nota": "TENTATIVO. Fondo: cuadro limpio (LIMPIO=1 node armar.mjs + snapshot ~1,2 s: el mozo con la bandeja y la nube de pedidos llena, sin gancho ni subtítulos ni logo) guardado en portada-src/fondo.png. Sobre crema el texto va navy con 'olvida' en recuadro verde; si el velo crema lava el cuadro, probar velo navy 22,36,61 bajo el texto. Alternativa de cuadro: s03 con la nube desinflándose y el billete en la bandeja."
+}
