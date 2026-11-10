@@ -1,0 +1,13 @@
+[sin narrador Orus: el chiste va en el celular, las fichas de temas, el contador "Audio" y la luz; voces por archivo en partes/*.txt, ver partes/voces.md y fuentes.md]
+GRACIELA (audio de WhatsApp, 4:12): ¡Hola, Rubén! ¿Cómo andás? Mirá, te cuento, porque ayer vino mi sobrino…
+GRACIELA (audio): …y el perro, divino,
+GRACIELA (audio): …¿y viste el frío que hace? Yo le dije a la del tres…
+GRACIELA (audio, 2x): …y ahí me dice la Nelly, no, pará, ¿la Nelly o la Beba? La Beba…
+GRACIELA (audio): …bueno, no te molesto más. ¿A cuánto está la polenta? Beso.
+RUBEN: Noventa.
+[remate del remate: "Graciela está grabando un audio…" → 6:47 (tuba) · el segundo termo]
+NARRADOR: Un agente de IA más tarde.
+[parte 2 · el agente escucha el 4:12: "Audio escuchado ✓" · "¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?" · "Saludos a tu sobrino." · etiqueta "Graciela ✓" en la polenta y el rótulo "Para Graciela ✓"]
+GRACIELA (en persona): ¡Rubén! ¿Te conté lo de mi sobrino?
+RUBEN: Contame.
+[Rubén, después de "Contame.", vuelve a apoyar el segundo termo · Q5: le alcanza el mate ya cebado a Graciela ("Resulta que…") · en el celular llega un audio de NELLY de 6:47: "Audio escuchado ✓" · "¡Hola, Nelly! Sí, era la Beba." · línea chica: "Un agente de IA contesta los precios por vos" · "scalerics.com"]
