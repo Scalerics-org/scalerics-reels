@@ -1,0 +1,13 @@
+{
+ "t": 14.2,
+ "chica": "Para preguntar un precio:",
+ "grande": "un audio de 4:12",
+ "sello": "Para mandar",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.25,
+ "foco": "35%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "nota": "t A CONFIRMAR mirando el render: P6 ~14,2 s (celular con 4:12 arriba, 0:01 abajo y 6:47, Rubén atrás con el segundo termo) o P1 ~0,2 s (Rubén con el mate humeante y el 4:12). Fondo desde un cuadro limpio (LIMPIO=1 node gen.mjs + snapshot, como me-lo-guardas): sin fichas, subtítulos, contador ni pill."
+}
