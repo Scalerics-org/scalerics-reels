@@ -124,7 +124,7 @@ const subtitulos = `<template>
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 4px; }
-    ${C} .caja { position: absolute; left: -14px; right: -14px; top: 6px; bottom: 2px; border-radius: 14px; background: #5ce611; opacity: 0; }
+    ${C} .caja { position: absolute; left: -7px; right: -7px; top: 6px; bottom: 2px; border-radius: 14px; background: #5ce611; opacity: 0; }
     ${C} .caja i { display: none; }
     ${C} .malo .caja { border-color: #c7655b; background: rgba(199, 101, 91, 0.30); }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }

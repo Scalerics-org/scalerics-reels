@@ -327,7 +327,7 @@ const igual = mesh(textoGeo("=", 0.42, 0.12), MCR()); scene.add(igual);
 const flecha = new THREE.Group(); scene.add(flecha);
 {
   const cur = new THREE.CatmullRomCurve3([V(0.0, 0.22, 0), V(0.3, 0.05, 0.05), V(0.3, -0.22, 0.05), V(0.06, -0.38, 0)]);
-  flecha.add(mesh(new THREE.TubeGeometry(cur, 32, 0.028, 10), MCR()));
+  flecha.add(mesh(new THREE.TubeGeometry(cur, 32, 0.045, 10), MCR()));
   const punta = mesh(new THREE.ConeGeometry(0.07, 0.15, 16), MCR(), 0.02, -0.41, 0); punta.rotation.z = -Math.PI / 2 - 0.5; flecha.add(punta);
 }
 const tildePila = hacerTilde(0.13);
@@ -338,7 +338,7 @@ const pregGeo = textoGeo("?", 1.9, 0.46);
 const corteQ = new THREE.Plane();
 const pregunta = mesh(pregGeo, M.g.clone()); pregunta.material.clippingPlanes = []; void corteQ; scene.add(pregunta);
 const QC = V(-3.32, 4.75, 0.7); // el "?"
-const PUNTO = V(-0.013 * KQ, -1.02 * KQ, 0.1); // el centro del punto, en el espacio del "?" (el punto de verdad se recorta: lo reemplaza el caramelo)
+const PUNTO = V(-0.013 * KQ, -0.9 * KQ, 0.1); // el centro del punto, en el espacio del "?" (el punto de verdad se recorta: lo reemplaza el caramelo)
 // tarjetita de regalo "Para esta mesa" atada al moño (en el espacio del caramelo)
 const tarjeta = new THREE.Group();
 {
@@ -369,7 +369,7 @@ const MOSTRADOR = { y: 0.88, z: -1.12 };
   damero.wrapS = damero.wrapT = THREE.RepeatWrapping; damero.repeat.set(4, 3);
   const p = mesh(new THREE.PlaneGeometry(9, 7), new THREE.MeshStandardMaterial({ map: damero, roughness: 0.45 }), 0.2, 0.004, 0.1); p.rotation.x = -Math.PI / 2; p.receiveShadow = true; almacen.add(p);
   const pared = mat(0xe7dcc4, 0.85);
-  almacen.add(mesh(new THREE.BoxGeometry(9, 3.4, 0.1), pared, 0.2, 1.7, -3.3));
+  almacen.add(mesh(new THREE.BoxGeometry(16, 6, 0.1), pared, 2.0, 3.0, -3.3));
   almacen.add(mesh(rbox(9, 0.2, 0.12, 0.02), M.navy3, 0.2, 0.1, -3.22));
   let s = 7;
   const az = () => ((s = (s * 16807) % 2147483647) / 2147483647);
@@ -578,10 +578,13 @@ const PLANOS = [
     k(T.latigo + 0.285, [-3.87, 2.75, 10.0], [-3.87, 1.9, PZ]),
     k(T.sube, [-3.87, 2.75, 10.0], [-3.87, 1.9, PZ]),
     // grúa arriba con los pares: solo los caramelos y el "="
-    k(T.sube + 0.55, [-3.8, 3.5, 9.7], [-3.8, 3.25, PZ]),
-    k(T.junta, [-3.8, 3.55, 9.4], [-3.8, 3.27, PZ]),
-    k(T.preg + 0.25, [-3.32, 4.5, 6.4], [-3.32, 4.42, PZ]),
-    k(T.parecio, [-3.32, 4.5, 6.2], [-3.32, 4.42, PZ]),
+    k(T.sube + 0.55, [-3.75, 3.75, 8.3], [-3.75, 3.52, PZ]),
+    k(T.junta, [-3.75, 3.78, 8.0], [-3.75, 3.54, PZ]),
+    k(T.preg + 0.25, [-3.32, 4.72, 6.4], [-3.32, 4.64, PZ]),
+    k(T.parecio, [-3.32, 4.72, 6.2], [-3.32, 4.64, PZ]),
+    k(T.parecio + 0.04, [-3.32, 4.72, 6.18], [-3.32, 4.64, PZ]),
+    // 9: corte a la moza (sin barrido sobre navy); el caramelo le llega a la mano
+    k(T.parecio + 0.05, [-0.62, 1.35, 3.28], [0.82, 1.12, 0.4]),
     // el punto del "?" vuela a la mano de la moza (la cámara mira al caramelo)
     k(T.parecio + 0.75, [-0.6, 1.35, 3.25], [0.82, 1.12, 0.4]),
     k(S["s07-quien"] - 0.005, [-0.52, 1.35, 3.12], [0.83, 1.12, 0.4]),
@@ -589,8 +592,8 @@ const PLANOS = [
     k(S["s07-quien"], ob(1.2, 1.42, -2.0), ob(0.6, 1.0, -1.08)),
     k(S["s07-quien"] + 0.9, ob(1.08, 1.36, -1.86), ob(0.6, 1.0, -1.08)),
     // corte al plano general de la fila
-    k(S["s07-quien"] + 0.905, ob(-1.5, 3.7, 6.7), ob(1.35, 1.58, -0.8), 45),
-    k(S["s08-ficha"] - 0.05, ob(-1.4, 3.62, 6.6), ob(1.42, 1.56, -0.8), 45),
+    k(S["s07-quien"] + 0.905, ob(-1.75, 3.5, 6.6), ob(1.15, 1.62, -0.8), 48),
+    k(S["s08-ficha"] - 0.05, ob(-1.65, 3.45, 6.4), ob(1.18, 1.6, -0.8), 47),
     // push-in a la tablet (que llene el cuadro)
     k(S["s08-ficha"] + 0.6, ob(-0.62, 1.5, 0.98), ob(-0.62, 1.29, -1.0)),
     k(T.daR - 0.3, ob(-0.62, 1.48, 0.86), ob(-0.62, 1.29, -1.0)),
@@ -609,8 +612,8 @@ const PLANOS = [
   [T.grua2, [
     k(T.grua2, ob(0.5, 1.85, 3.5), ob(-0.2, 1.06, -0.1)),
     k(T.grua2 + 0.85, ob(0.0, 1.8, 2.75), ob(-0.32, 1.12, -0.5)),
-    k(T.grua2 + 1.55, ob(-0.62, 1.5, 0.66), ob(-0.62, 1.15, -1.0)),
-    k(T.fin, ob(-0.62, 1.48, 0.6), ob(-0.62, 1.15, -1.0)),
+    k(T.grua2 + 1.55, ob(-0.62, 1.36, 0.66), ob(-0.62, 1.22, -1.0)),
+    k(T.fin, ob(-0.62, 1.35, 0.6), ob(-0.62, 1.22, -1.0)),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.15, 4.4], [OF.x, 0.86, 0]),
@@ -631,6 +634,7 @@ function ponerCamara(t) {
   const tang = (j, c) => {
     if (j <= 0 || j >= K.length - 1) return 0;
     const p = K[j - 1], q = K[j], r = K[j + 1];
+    if (q[0] - p[0] < 0.05 || r[0] - q[0] < 0.05) return 0; // junto a un corte duro: sin pendiente
     const d1 = (q[c] - p[c]) / Math.max(1e-4, q[0] - p[0]), d2 = (r[c] - q[c]) / Math.max(1e-4, r[0] - q[0]);
     if (d1 * d2 <= 0) return 0;
     const m = (r[c] - p[c]) / Math.max(1e-4, r[0] - p[0]);
@@ -640,6 +644,7 @@ function ponerCamara(t) {
   const v = [];
   for (let c = 1; c <= 7; c++) {
     if (h <= 0) { v.push(a[c]); continue; }
+    if (h < 0.05) { v.push(u > 0 ? b[c] : a[c]); continue; } // corte duro: salta, no interpola
     v.push((2 * s3 - 3 * s2 + 1) * a[c] + (s3 - 2 * s2 + u) * h * tang(i, c) + (-2 * s3 + 3 * s2) * b[c] + (s3 - s2) * h * tang(i + 1, c));
   }
   // s03: la cámara va pegada al caramelo que vuela del platito a la pila "Uno"
@@ -658,7 +663,7 @@ function ponerCamara(t) {
     const pos = c.clone().add(off), mira = c.clone().add(V(0.12 * (1 - u), -0.05 * u, 0));
     for (let j = 0; j < 3; j++) { v[j] = lerp(v[j], pos.getComponent(j), w); v[j + 3] = lerp(v[j + 3], mira.getComponent(j), w); }
   }
-  const wq = pi === 0 ? Math.sin(Math.PI * sg(t, T.parecio, T.parecio + 0.8)) * 0.85 : 0;
+  const wq = 0;
   if (wq > 0) { const c = vueloQ(t); for (let j = 0; j < 3; j++) v[j + 3] = lerp(v[j + 3], c.getComponent(j), wq); }
   camera.position.set(v[0], v[1], v[2]);
   // un respiro de cámara en mano, muy leve
@@ -702,14 +707,14 @@ function vueloPila(t) {
 }
 // del punto del "?" a la palma de la moza (s06)
 const QSTART = QC.clone().add(PUNTO);
-function vueloQ(t) { return arco(QSTART, PALMA, eio(sg(t, T.parecio + 0.05, T.parecio + 0.72)), 0.35); }
+function vueloQ(t) { void QSTART; return arco(PALMA.clone().add(V(-0.9, 0.5, 0.45)), PALMA, eio(sg(t, T.parecio + 0.05, T.parecio + 0.45)), 0.2); }
 function vueloB(t) {
   const uB = eio(sg(t, T.vuelaB, T.frasco));
   const u1 = eio(sg(t, T.vuelaB, T.vuelaB + 0.16)), MID = PALMA.clone().add(V(0.35, 0.1, 0.65));
   const u2 = eio(sg(t, T.vuelaB + 0.12, T.frasco));
   void u1; void u2; void MID;
   const c = sg(t, T.vuelaB, T.frasco);
-  return lerpV(DENTRO.clone().add(V(0.03, 0.3, -0.02)), DENTRO.clone().add(V(0, 0.1, 0)), c * c);
+  return lerpV(DENTRO.clone().add(V(0.03, 0.3, -0.02)), DENTRO.clone().add(V(0, -0.02, 0)), c * c);
 }
 // ================= ZONA R + C en el tiempo =================
 const altoPila = (kk) => 0.18 + NMON[kk] * HM;
@@ -817,16 +822,16 @@ function zonaRC(t) {
     ocultar(igual, vi ? 1.7 * popIn(t, T.mismos, 0.3) * sale(T.junta) : 0);
     if (igual.visible) { igual.position.set(-3.82, 3.8, PZ + 0.1); igual.rotation.set(0, Math.sin(t * 1.6) * 0.15, 0); }
     ocultar(flecha, vi ? 0.85 * popIn(t, T.mismos + 0.15, 0.3) * sale(T.junta) : 0);
-    if (flecha.visible) flecha.position.set(-2.82, 3.82, PZ + 0.1);
+    if (flecha.visible) flecha.position.set(-2.9, 3.82, PZ + 0.1);
     const tv = VERDE() + 0.05;
     ocultar(tildePila, t > tv && t < T.sube + 0.2 ? popIn(t, tv, 0.3) * (1 - sg(t, T.sube, T.sube + 0.2)) : 0);
-    if (tildePila.visible) { tildePila.position.set(PX[3] + 0.42, altoPila(3) + 0.5, PZ + 0.1); tildePila.quaternion.copy(camera.quaternion); }
+    if (tildePila.visible) { tildePila.position.set(PX[3], altoPila(3) + 0.62, PZ + 0.1); tildePila.quaternion.copy(camera.quaternion); }
   }
   // ---- el "?": UN objeto; su punto es un caramelo; en "Pareció" se desarma y el punto vuela a la mano de la moza ----
   const Q = QC.clone();
   {
-    const v = t > T.preg - 0.05 && t < T.parecio + 0.15;
-    const k0 = popIn(t, T.preg - 0.05, 0.32) * (1 + 0.06 * pulso(t, W[41], 0.3));
+    const v = t > T.preg + 0.0 && t < T.parecio + 0.15;
+    const k0 = popIn(t, T.preg + 0.0, 0.32) * (1 + 0.06 * pulso(t, W[41], 0.3));
     const fuera = eio(sg(t, T.parecio - 0.2, T.parecio + 0.15));
     ocultar(pregunta, v ? k0 : 0);
     pregunta.position.copy(Q); pregunta.position.y += fuera * 4.5; pregunta.rotation.set(0, Math.sin(t * 1.5) * 0.12, 0); pregunta.updateMatrixWorld(true);
@@ -883,15 +888,15 @@ function zonaMoza(t, Q) {
   {
     const enQ = QC.clone().add(PUNTO);
     const palma = mD.clone().add(V(0.0, 0.085, 0.05));
-    const u = eio(sg(t, T.parecio + 0.05, T.parecio + 0.72));
+    const u = eio(sg(t, T.parecio + 0.05, T.parecio + 0.45));
     let p = u > 0 ? vueloQ(t) : enQ;
-    let kk = lerp(0.42, 0.15, u), ry = lerp(0.0, -0.42 + 0.0, u), rz = Math.sin(Math.PI * u) * 1.4, rx = 0.15;
-    if (t >= T.parecio + 0.72) { p = palma; ry = -0.42 + Math.sin(t * 1.5) * 0.06; rz = 0; }
+    let kk = lerp(0.24, 0.15, u), ry = lerp(0.0, -0.42 + 0.0, u), rz = Math.sin(Math.PI * u) * 1.4, rx = 0.15;
+    if (t >= T.parecio + 0.45) { p = palma; ry = -0.42 + Math.sin(t * 1.5) * 0.06; rz = 0; }
     // s07: sale volando al frasco
     const uB = eio(sg(t, T.vuelaB, T.frasco));
     if (uB > 0) { p = vueloB(t); kk = lerp(0.075, 0.045, eio(sg(t, T.vuelaB, T.frasco))); rz = uB * 4.0; rx = uB * 2.0; }
-    const v = t > T.preg - 0.05 && t < T.frasco + 0.25;
-    ponerCar(carP, p, v ? kk * (u > 0 ? 1 : popIn(t, T.preg - 0.05, 0.32)) : 0, ry, rz, rx);
+    const v = t > T.preg + 0.0 && t < T.frasco + 0.25;
+    ponerCar(carP, p, v ? kk * (u > 0 ? 1 : popIn(t, T.preg + 0.0, 0.32)) : 0, ry, rz, rx);
     // la tarjetita "Para esta mesa" en "personal": aparece y gira hacia cámara
     const vt = t > T.personal && t < T.vuelaB;
     tarjeta.visible = false; void vt;
@@ -904,13 +909,14 @@ const _v = new THREE.Vector3();
 function zonaB(t) {
   const enB = (plano === 0 && t > T.vuelaB - 0.08) || plano === 1 || plano === 2;
   almacen.visible = frasco.visible = platitoB.visible = tablet.visible = enB;
-  frente.visible = plano === 1 || (plano === 0 && t > S["s07-quien"] - 0.01 && t < S["s07-quien"] + 0.905);
+  frente.visible = plano === 1 || (plano === 0 && t > S["s07-quien"] && t <= S["s07-quien"] + 0.9);
   if (plano === 1) frasco.visible = false;
   ruben.raiz.visible = graciela.raiz.visible = enB;
   // en el plano del frasco (de espaldas a la fila) la fila queda fuera: de fondo, solo la pared del frente
-  const planoFrasco = plano === 0 && t > S["s07-quien"] - 0.01 && t < S["s07-quien"] + 0.905;
+  const planoFrasco = plano === 0 && t > S["s07-quien"] && t <= S["s07-quien"] + 0.9;
   if (planoFrasco) graciela.raiz.visible = false;
-  FILA.forEach((p) => (p.raiz.visible = enB && !planoFrasco));
+  FILA.forEach((p) => (p.raiz.visible = enB && !planoFrasco && plano !== 1));
+  if (plano === 1) ruben.raiz.visible = false;
   if (!enB) { pregRojas.forEach((m) => (m.visible = false)); tildeFin.visible = carR1.visible = carR2.visible = aviso.visible = false; tildesTab.forEach((x) => (x.visible = false)); return; }
   // ---- la tablet: lista → ficha → aviso; se levanta hacia la cámara en s08; en s10 la lista con los gestos ----
   {
@@ -927,7 +933,7 @@ function zonaB(t) {
     aviso.visible = va;
     if (va) {
       const u = eio(sg(t, T.avisa, T.avisa + 0.3));
-      aviso.position.set(0, 0.2937 + 0 * u, 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.08 * pulso(t, T.gra, 0.3) + 0.12 * pulso(t, T.ano, 0.3) + 0.14 * pulso(t, T.mira, 0.3) + 0.14 * pulso(t, T.vuelveR - 0.05, 0.25)));
+      aviso.position.set(0, 0.2937 + 0 * u, 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.16 * pulso(t, T.gra, 0.3) + 0.2 * pulso(t, T.ano, 0.3) + 0.14 * pulso(t, T.mira, 0.3) + 0.14 * pulso(t, T.vuelveR - 0.05, 0.25)));
     }
     // los tildes de los gestos (s10)
     tildesTab.forEach((tk, i) => {
@@ -950,7 +956,7 @@ function zonaB(t) {
     const t0 = T.todos + i * 0.07;
     const v = plano === 0 && t > t0 && t < S["s08-ficha"] + 0.15;
     ocultar(m, v ? popIn(t, t0, 0.25) * (1 - eio(sg(t, S["s08-ficha"] - 0.12, S["s08-ficha"] + 0.15))) : 0);
-    if (m.visible) { enFila[i].raiz.updateMatrixWorld(true); enFila[i].cabeza.getWorldPosition(_v); m.position.copy(_v).add(V(0, 1.02 + Math.sin(t * 3 + i) * 0.02, 0)); m.quaternion.copy(camera.quaternion); }
+    if (m.visible) { enFila[i].raiz.updateMatrixWorld(true); enFila[i].cabeza.getWorldPosition(_v); m.position.copy(_v).add(V(i === 0 ? 0.28 : 0, 1.02 + Math.sin(t * 3 + i) * 0.02, 0)); m.quaternion.copy(camera.quaternion); }
   });
   // ---- Rubén ----
   const habla = t > T.habla && t < T.callaR;
@@ -1003,7 +1009,7 @@ function zonaB(t) {
   {
     tabPiv.updateMatrixWorld(true);
     const desde = tabPiv.localToWorld(aviso.position.clone().add(V(0, 0, 0.2)));
-    const enPalma = mR.clone().add(V(0, 0.07, 0.02));
+    const enPalma = mR.clone().add(V(0, 0.08, 0.09));
     const u = eio(sg(t, t0b, t1b));
     let p = u < 1 ? arco(desde, enPalma, u, 0.1) : enPalma; if (u < 1) p.z += Math.sin(Math.PI * u) * 0.25;
     const k = K_REAL * 1.25 * (u < 1 ? lerp(2.2, 1, eio(u)) : 1) * popIn(t, t0b, 0.22);
@@ -1024,7 +1030,7 @@ function zonaB(t) {
       const va = eio(sg(t, T.toma - 0.45, T.toma)), trae = eio(sg(t, T.toma + 0.15, T.toma + 0.6));
       if (va > 0) {
         graciela.poner({ ...pg, t }); graciela.raiz.updateMatrixWorld(true);
-        const enP = graciela.cuerpo.worldToLocal(carR2.userData.enPalma.clone().add(V(0, -0.03, 0.04)));
+        const enP = graciela.cuerpo.worldToLocal(carR2.userData.enPalma.clone().add(V(0, 0.07, 0.1)));
         const pecho = [0.06, 0.4, 0.3];
         pg = { ...pg, manoI: mezclar(mezclar(pg.manoI, [enP.x, enP.y, enP.z], va), pecho, trae), codoI: [0.8, -0.6, -0.1] };
       }
@@ -1033,7 +1039,7 @@ function zonaB(t) {
       // se va contenta hacia la puerta (hacia cámara, a la izquierda) con sus dos caramelos
       const u = sg(t, T.grua2 - 0.05, T.grua2 + 1.15);
       pg = { ...pg, ...CARA.feliz, x: lerp(G0.x, OB.x - 2.0, u), z: lerp(G0.z, 1.05, u), giro: lerp(G0.giro, Math.PI * 2 - 0.95, eio(sg(t, T.grua2, T.grua2 + 0.35))), paso: u > 0 && u < 1 ? 1 : 0,
-        manoI: [0.16, 0.36, 0.3], codoI: [0.8, -0.8, -0.2], cabeza: { giro: 0.1, asiente: 0.0, ladea: 0.08 } };
+        manoI: [0.14, 0.22, 0.3], codoI: [0.8, -0.8, -0.2], cabeza: { giro: 0.1, asiente: 0.0, ladea: 0.08 } };
     }
     pg.t = t;
     graciela.poner(pg); graciela.raiz.updateMatrixWorld(true);
@@ -1043,7 +1049,7 @@ function zonaB(t) {
     } else if (t > T.toma) {
       // en la mano de Graciela
       const a = graciela.mano("I").getWorldPosition(new THREE.Vector3());
-      ponerCar(carR2, a.add(V(0, 0.1, 0.06)), K_REAL * 1.25, Math.PI + 0.3, 0.1, 0.1);
+      ponerCar(carR2, a.add(V(0, 0.055, 0.075)), K_REAL * 1.25, Math.PI + 0.3, 0.1, 0.1);
     }
   }
   if (lentesG.length === 2) {
@@ -1059,7 +1065,7 @@ function zonaB(t) {
   {
     const v = plano === 1 && t > T.contra + 0.25;
     ocultar(tildeFin, v ? popIn(t, T.contra + 0.25, 0.3) : 0);
-    if (tildeFin.visible) { graciela.cabeza.getWorldPosition(_v); const der = V(1, 0, 0).applyQuaternion(camera.quaternion), arr = V(0, 1, 0).applyQuaternion(camera.quaternion); tildeFin.position.copy(_v).addScaledVector(arr, 0.52).addScaledVector(der, 0.5); tildeFin.quaternion.copy(camera.quaternion); }
+    if (tildeFin.visible) { graciela.cabeza.getWorldPosition(_v); const der = V(1, 0, 0).applyQuaternion(camera.quaternion), arr = V(0, 1, 0).applyQuaternion(camera.quaternion); tildeFin.position.copy(_v).addScaledVector(arr, 0.62).addScaledVector(der, 0.26); tildeFin.quaternion.copy(camera.quaternion); }
   }
 }
 

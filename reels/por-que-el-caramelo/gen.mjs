@@ -128,7 +128,7 @@ const POS = {
   cred: [540, 1590], credLead: [560, 1530, 700, 1130],
   pocoMas: [400, 640], pocoLead: [425, 690, 428, 790],
   mas: [880, 620], masLead: [840, 660, 690, 750],
-  dosJuntos: [250, 1180], unoMasUno: [790, 1180], laQueMas: [700, 1680],
+  dosJuntos: [230, 1180], unoMasUno: [791, 1180], laQueMas: [700, 1680],
   gesto: [300, 1520], gestoLead: [330, 1470, 520, 1215],
   ruben: [150, 650],
   burbuja: [540, 360], colita: 19,
@@ -280,14 +280,14 @@ vacia("s08-ficha", [
     P .burb::after { content: ""; position: absolute; left: ${POS.colita}%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid ${NAVY}; }
     P .burb::before { content: ""; position: absolute; left: calc(${POS.colita}% + 9px); bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid ${CR}; z-index: 1; }`,
     html: `<div class="burb">Y este… por tu año.</div>`,
-    js: `tl.set(q(".burb"), { opacity: 1 }, ${r2(tH)}); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ${r2(tH)}); tl.to(q(".burb"), { opacity: 0, duration: 0.06 }, ${r2(tC - 0.06)});`,
+    js: `tl.set(q(".burb"), { opacity: 1 }, ${r2(tH)}); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, ${r2(tH)}); tl.set(q(".burb"), { opacity: 0 }, ${r2(tC - 0.08)});`,
     sfx: [
       { t: -0.06, sfx: "whoosh-short", vol: 0.3 },
       { t: daR + 0.3, sfx: "pop", vol: 0.25 }, { t: daR + 0.72, sfx: "papel-fuerte", vol: 0.6, max: 0.3, full: 1 }, { t: daR + 0.74, sfx: "pop", vol: 0.2 },
       { t: mira + 0.05, sfx: "click-soft", vol: 0.3 }, { t: mira + 0.08, sfx: "sparkle", vol: 0.25, max: 0.5 },
       { t: vuelve - 0.03, sfx: "pop", vol: 0.35 }, { t: vuelve, sfx: "whoosh-short", vol: 0.25 }, { t: vuelve + 0.02, sfx: "ding", vol: 0.35, max: 0.6 },
       { t: vuelve + 0.55, sfx: "pop", vol: 0.3 },
-      { t: toma, sfx: "papel-fuerte", vol: 0.6, max: 0.3, full: 1 }, { t: toma + 0.02, sfx: "pop", vol: 0.2 },
+      { t: toma, sfx: "papel-fuerte", vol: 0.42, max: 0.3, full: 1 }, { t: toma + 0.02, sfx: "pop", vol: 0.14 },
       { t: tC - 0.02, sfx: "whoosh-short", vol: 0.2 }, { t: tC + 0.25, sfx: "chime", vol: 0.4, max: 0.8 },
     ],
   });
