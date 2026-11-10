@@ -34,8 +34,8 @@
     [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 118px/1.04 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.04em; color: #0b1220; }
     [data-composition-id="s01-gancho"] .h1 { top: 150px; font-size: 104px; font-weight: 800; letter-spacing: -0.03em; } [data-composition-id="s01-gancho"] .h2 { top: 286px; font-size: 140px; } [data-composition-id="s01-gancho"] .h3 { top: 450px; font-size: 118px; }
   </style>
-  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.61">
-    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.61" data-track-index="0">
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.56">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.56" data-track-index="0">
 
       <div class="h h1">¿Por qué te traen</div>
       <div class="h h2">un <span class="mk "><b class="fondo"></b><em>caramelo</em></span></div>
@@ -45,7 +45,7 @@
   <script>
     (function () {
       const ID = "s01-gancho";
-      const DUR = 2.61;
+      const DUR = 2.56;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -71,7 +71,7 @@
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
       late(".h2 .mk", 0.8, 1.08);
       late(".h3", 1.6, 1.05);
-      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.31);
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.26);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

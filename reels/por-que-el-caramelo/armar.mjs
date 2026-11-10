@@ -232,7 +232,7 @@ const index = `<!doctype html>
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
 ${LIMPIO ? "" : hosts}
 ${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
-      <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="0" data-duration="${DUR}" data-track-index="9" />
+      <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="${TODAS[1][1]}" data-duration="${r2(DUR - TODAS[1][1])}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
 ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.4"></audio>\n` : ""}${sfxTags}`}
     </div>
