@@ -9,7 +9,7 @@
     [data-composition-id="s04-estudio"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #16243d; font: 600 48px/1.05 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     [data-composition-id="s04-estudio"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 700; }
     [data-composition-id="s04-estudio"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
-    [data-composition-id="s04-estudio"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s04-estudio"] .pill .sub { display: block; margin-top: 6px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s04-estudio"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s04-estudio"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s04-estudio"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s04-estudio"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
@@ -17,7 +17,7 @@
     [data-composition-id="s04-estudio"] .sello.navy { background: #16243d; color: #efeee5; border-color: #5ce611; }
     [data-composition-id="s04-estudio"] .sello.chico { font-size: 70px; }
 [data-composition-id="s04-estudio"] .cred { position: absolute; left: 540px; top: 1660px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: #16243d; border: 6px solid #5ce611; font: 600 46px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; }
-    [data-composition-id="s04-estudio"] .cred .sub { display: block; margin-top: 8px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #5ce611; }
+    [data-composition-id="s04-estudio"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: #5ce611; }
   </style>
   <div id="root" data-composition-id="s04-estudio" data-width="1080" data-height="1920" data-duration="3.99">
     <div id="s04-estudio-esc" class="esc clip" data-start="0" data-duration="3.99" data-track-index="0">
@@ -46,7 +46,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.21); sinNota(1, 2.09); nota(2, 2.81); sinNota(2, 3.91);
+nota(1, 0.21); sinNota(1, 2.09); nota(2, 2.81); sinNota(2, 3.39);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

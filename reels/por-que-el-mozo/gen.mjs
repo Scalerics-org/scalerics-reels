@@ -33,7 +33,7 @@ const CSS = (P) => `
     ${P} .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid ${G}; border-radius: 26px; background: ${NAVY2}; font: 600 48px/1.05 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     ${P} .pill.lleno { background: ${G}; border-color: ${NAVY}; color: ${NAVY}; font-weight: 700; }
     ${P} .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
-    ${P} .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: ${G}; }
+    ${P} .pill .sub { display: block; margin-top: 6px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: ${G}; }
     ${P} .lead { fill: none; stroke: ${NAVY}; stroke-width: 7; stroke-linecap: round; }
     ${P} .lead.g { stroke: ${G}; stroke-width: 8; }
     ${P} .dot { fill: ${NAVY}; opacity: 0; } ${P} .dot.g { fill: ${G}; stroke: ${NAVY}; stroke-width: 5; }
@@ -109,9 +109,9 @@ const POS = {
   cred2: [270, 560],
   calma: [330, 1430], calmaLead: [360, 1370, 470, 1040],
   ruben: [300, 1450], rubenLead: [330, 1390, 470, 1180],
-  resp: [250, 1660], respLead: [270, 1600, 330, 1150],
-  aviso: [820, 1660], avisoLead: [800, 1600, 640, 1150],
-  burbuja: [800, 560], colita: 24,
+  resp: [250, 1660], respLead: [262, 1600, 315, 1425],
+  aviso: [820, 1660], avisoLead: [808, 1600, 650, 1425],
+  burbuja: [760, 560], colita: 24,
 };
 
 // ================= s01 · gancho (cuadro 0 = portada): el mozo con la bandeja y la nube de pedidos =================
@@ -148,7 +148,7 @@ const POS = {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, bx, by, `Berlín<span class="sub">se cuenta</span>`, "grande")}
       <div class="sello s1 chico" style="left:${sx}px;top:${sy}px">${tickSvg(28)}Sin anotar</div>`,
     css: `P .pill.grande { flex-direction: column; gap: 0; }`,
-    js: `nota(1, 0.6); sinNota(1, ${r2(w(id, 20) - 0.24)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(w(id, 20) - 0.02)}, -6); tl.set(q(".s1"), { opacity: 0 }, ${r2(ESC[id] - 0.06)});`,
+    js: `nota(1, 0.6); sinNota(1, ${r2(w(id, 20) - 0.24)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(w(id, 20) - 0.02)}, -6); tl.to(q(".s1"), { scale: 0.7, opacity: 0, duration: 0.14, ease: "power2.in" }, ${r2(ESC[id] - 0.16)});`,
     sfx: [
       { t: -0.12, sfx: "whoosh", vol: 0.22 },
       { t: 0.6, sfx: "click-soft", vol: 0.25 },
@@ -171,7 +171,6 @@ const POS = {
     sfx: [
       { t: 0.05, sfx: "whoosh-short", vol: 0.12 },
       ...[0, 1, 2].map((k) => ({ t: r2(pg + 0.55 + k * 0.14), sfx: "ping", vol: 0.5, max: 0.22 })),
-      ...[0, 1].map((k) => ({ t: r2(pg + 0.57 + k * 0.14), sfx: "tic-real", vol: 0.4 })),
       { t: pg + 0.45, sfx: "sello", vol: 0.3 },
       { t: ol, sfx: "whoosh-short", vol: 0.45 }, { t: ol + 0.05, sfx: "burbuja", vol: 0.4 },
       { t: ol + 0.45, sfx: "pop", vol: 0.3 },
@@ -187,9 +186,9 @@ const POS = {
   const tI = w(id, 30) - 0.05, tR = w(id, 32) - 0.05, tD = w(id, 35) - 0.05;
   escena(id, {
     css: `P .cred { position: absolute; left: ${cx}px; top: ${cy}px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: ${NAVY2}; border: 6px solid ${G}; font: 600 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
-    P .cred .sub { display: block; margin-top: 8px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
+    P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.08em; color: ${G}; }`,
     html: `${leads(lead(2, a, b, c, d))}<div class="cred n1">Estudio clásico · 1927<span class="sub">no siempre se repitió</span></div>${pill(2, dx, dy, "casi el doble", "lleno grande")}`,
-    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); nota(2, ${r2(tD - 0.2)}); sinNota(2, ${r2(ESC[id] - 0.08)});`,
+    js: `nota(1, ${r2(w(id, 27) + 0.05)}); sinNota(1, ${r2(tR + 0.2)}); nota(2, ${r2(tD - 0.2)}); sinNota(2, ${r2(tD + 0.38)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.3 }, { t: 0.0, sfx: "papel", vol: 0.22, max: 0.5 },
       ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: r2(0.15 + Math.floor(k / 2) * 0.14 + (k % 2) * 0.32), sfx: "pop", vol: 0.22 })),
@@ -241,7 +240,7 @@ vacia("s05-por-que", [
       { t: 0.3, sfx: "click-soft", vol: 0.25 },
       { t: 0.47, sfx: "typing", vol: 0.25, max: r2(tC - 0.2 - 0.47) },
       ...[0, 1, 2].map((k) => ({ t: r2(0.45 + (k + 1) * ((tC - 0.2 - 0.45) / 3)), sfx: "pop", vol: 0.22 })),
-      { t: tC + 0.32, sfx: "chime", vol: 0.45, max: 1.2 }, { t: tC + 0.32, sfx: "pop", vol: 0.3 },
+      { t: tC - 0.15, sfx: "whoosh-short", vol: 0.06 }, { t: tC + 0.32, sfx: "chime", vol: 0.45, max: 1.2 }, { t: tC + 0.32, sfx: "pop", vol: 0.3 },
     ],
   });
 }
@@ -255,8 +254,8 @@ vacia("s05-por-que", [
     js: `nota(1, 0.95); sinNota(1, ${r2(w(id, 59) - 0.1)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.45 },
-      { t: 0.72, sfx: "click", vol: 0.45 },
-      { t: 0.9, sfx: "pop", vol: 0.25 },
+      { t: 0.92, sfx: "click", vol: 0.15 },
+      { t: 0.95, sfx: "pop", vol: 0.1 },
       ...tictac(0.6, ESC[id], 0.2),
       ...[59, 61, 63].map((i) => ({ t: r2(w(id, i) - 0.05), sfx: "pop", vol: 0.24 })),
       
@@ -271,12 +270,13 @@ vacia("s05-por-que", [
   const tS = w(id, 69) - 0.05, tR = w(id, 71) - 0.05, tA = w(id, 73) - 0.05;
   escena(id, {
     html: `${leads(lead(1, ...l1, "g"), lead(2, ...l2, "g"))}${pill(1, x1, y1, "Responsable")}${pill(2, x2, y2, "Aviso", "lleno")}`,
-    js: `nota(1, ${r2(tR + 0.05)}); nota(2, ${r2(tA + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.12)}); sinNota(2, ${r2(ESC[id] - 0.12)});`,
+    js: `nota(1, ${r2(tR + 0.05)}); nota(2, ${r2(tA + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(2, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       ...tictac(0.0, tS, 0.25),
       { t: 0.05, sfx: "whoosh-short", vol: 0.25 }, { t: 0.4, sfx: "click-soft", vol: 0.3 },
       ...[0, 1, 2].map((k) => ({ t: r2(tS + k * 0.25), sfx: "whoosh-short", vol: 0.14 })),
-      ...[0, 1, 2].map((k) => ({ t: r2(tS + 0.4 + k * 0.25), sfx: "click", vol: 0.16 })),
+      ...[0, 1, 2].map((k) => ({ t: r2(tS + 0.4 + k * 0.25), sfx: "click", vol: 0.07 })),
+      { t: tR, sfx: "whoosh-short", vol: 0.06 },
       { t: tR + 0.05, sfx: "pop", vol: 0.3 },
       { t: tA, sfx: "notification", vol: 0.3, max: 0.9 }, { t: tA + 0.05, sfx: "pop", vol: 0.3 }, { t: tA + 0.15, sfx: "pop", vol: 0.2 }, { t: tA + 0.25, sfx: "pop", vol: 0.18 },
     ],
@@ -293,13 +293,13 @@ vacia("s05-por-que", [
     P .burb { position: absolute; left: ${bx}px; top: ${by}px; transform: translate(-50%, -50%); padding: 24px 46px 30px; border-radius: 48px; background: #ffffff; border: 7px solid ${NAVY}; font: 700 64px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; white-space: nowrap; text-align: center; opacity: 0; box-shadow: 0 10px 0 rgba(11,18,32,0.2); }
     P .burb::after { content: ""; position: absolute; left: ${POS.colita}%; bottom: -46px; width: 0; height: 0; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 48px solid ${NAVY}; transform: translateX(-50%); }
     P .burb::before { content: ""; position: absolute; left: ${POS.colita}%; bottom: -32px; width: 0; height: 0; border-left: 21px solid transparent; border-right: 21px solid transparent; border-top: 34px solid #ffffff; z-index: 1; transform: translateX(-50%); }`,
-    html: `<div class="burb">Anotado.<br><span class="r2">Ya me olvidé.</span></div>`,
-    js: `gsap.set(q(".r2"), { opacity: 0 }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { opacity: 1 }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
+    html: `<div class="burb">Anotado.<span class="r2"><br>Ya me olvidé.</span></div>`,
+    js: `gsap.set(q(".r2"), { display: "none" }); tl.set(q(".burb"), { opacity: 1 }, 0.08); tl.fromTo(q(".burb"), { scale: 0.6, transformOrigin: "${POS.colita}% 100%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, 0.08); tl.set(q(".r2"), { display: "inline" }, ${r2(w(id, 75) - 0.04)}); late(".burb", ${r2(w(id, 75) - 0.04)}, 1.06); tl.set(q(".burb"), { opacity: 0 }, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       ...tictac(0.0, tO + 0.6, 0.22),
       { t: 0.35, sfx: "tac-real", vol: 0.6, full: 1 }, { t: 0.08, sfx: "pop", vol: 0.25 }, { t: w(id, 75) - 0.04, sfx: "pop", vol: 0.22 },
       { t: tO, sfx: "whoosh-short", vol: 0.45 }, { t: tO + 0.05, sfx: "burbuja", vol: 0.4 },
-      { t: tO + 0.55, sfx: "click", vol: 0.45 },
+      { t: tO + 0.85, sfx: "click", vol: 0.25 },
     ],
   });
 }
@@ -336,7 +336,7 @@ vacia("s05-por-que", [
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh-cine-corto", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.5, max: 1.2 },
+      { t: w(id, 87) - 0.03, sfx: "chime", vol: 0.3, max: 1.2 },
     ],
   });
 }

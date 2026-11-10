@@ -9,7 +9,7 @@
     [data-composition-id="s02-mozo"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #16243d; font: 600 48px/1.05 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     [data-composition-id="s02-mozo"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 700; }
     [data-composition-id="s02-mozo"] .pill.grande { font-size: 60px; padding: 18px 40px 21px; }
-    [data-composition-id="s02-mozo"] .pill .sub { display: block; margin-top: 6px; font: 500 34px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
+    [data-composition-id="s02-mozo"] .pill .sub { display: block; margin-top: 6px; font: 500 38px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #5ce611; }
     [data-composition-id="s02-mozo"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s02-mozo"] .lead.g { stroke: #5ce611; stroke-width: 8; }
     [data-composition-id="s02-mozo"] .dot { fill: #0b1220; opacity: 0; } [data-composition-id="s02-mozo"] .dot.g { fill: #5ce611; stroke: #0b1220; stroke-width: 5; }
@@ -46,7 +46,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.6); sinNota(1, 2.04); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", 2.26, -6); tl.set(q(".s1"), { opacity: 0 }, 3);
+nota(1, 0.6); sinNota(1, 2.04); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", 2.26, -6); tl.to(q(".s1"), { scale: 0.7, opacity: 0, duration: 0.14, ease: "power2.in" }, 2.9);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

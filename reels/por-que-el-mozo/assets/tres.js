@@ -251,14 +251,15 @@ function hacerCaja() {
 }
 
 // ---------- plaquitas mono (debajo de cada pendiente) ----------
+let PX_PLACA = 78;
 const placaTex = (txt, fondo = "#ffffff", tinta = NAV0, borde = NAV0, H = 160) => tex(512, H, (x, w, h) => {
   x.fillStyle = borde; rr(x, 0, 0, w, h, 40); x.fillStyle = fondo; rr(x, 7, 7, w - 14, h - 14, 34);
   x.fillStyle = tinta; x.textAlign = "center"; x.textBaseline = "middle";
-  const ls = txt.split("\n"); const px = Math.min(...ls.map((l) => ajustar(x, l, 500, 78, w - 50, "IBM Plex Mono"))); x.font = F(500, px, "IBM Plex Mono");
+  const ls = txt.split("\n"); const px = Math.min(...ls.map((l) => ajustar(x, l, 500, PX_PLACA, w - 44, "IBM Plex Mono"))); x.font = F(500, px, "IBM Plex Mono");
   ls.forEach((l, i) => x.fillText(l, w / 2, h / 2 + 3 + (i - (ls.length - 1) / 2) * px * 1.1));
 });
 function placa(txt, ancho = 0.62, fondo, tinta, borde) {
-  const H = txt.includes("\n") ? 260 : 160;
+  const H = txt.includes("\n") ? 280 : 170;
   const t = placaTex(txt, fondo, tinta, borde, H);
   const m = mesh(new THREE.PlaneGeometry(ancho, (ancho * H) / 512), new THREE.MeshBasicMaterial({ map: t, transparent: true, toneMapped: false }));
   m.renderOrder = 6; return m;
@@ -405,16 +406,15 @@ const billeteBand = hacerBillete(false); billeteBand.scale.setScalar(0.24); scen
 // la nube del mozo: 4 pedidos de la mesa 4, después se le suman 3
 const nube = hacerNube(-1);
 const PED = [
-  { o: hacerTaza(), k: 0.3, p: [-0.3, 0.2], ry: 0.5, txt: "café" },
-  { o: hacerTorta(), k: 0.3, p: [0.3, 0.21], ry: 2.6, txt: "torta" },
-  { o: hacerAgua(), k: 0.26, p: [-0.3, -0.13], ry: 0, txt: "agua\ncon gas" },
-  { o: hacerJarrita(), k: 0.26, p: [0.3, -0.12], ry: -0.6, txt: "con leche" },
-  { o: hacerMedialuna(), k: 0.24, p: [0.0, 0.36], ry: 0.3, extra: true },
+  { o: hacerTaza(), k: 0.27, p: [-0.31, 0.27], ry: 0.5, txt: "café" },
+  { o: hacerTorta(), k: 0.27, p: [0.31, 0.27], ry: 2.6, txt: "torta" },
+  { o: hacerAgua(), k: 0.22, p: [-0.31, -0.13], ry: 0, txt: "agua\ncon gas" },
+  { o: hacerJarrita(), k: 0.23, p: [0.31, -0.12], ry: -0.6, txt: "con\nleche" },
 ];
 for (const it of PED) {
   const h = new THREE.Group(); h.add(it.o); it.o.scale.setScalar(it.k); it.o.rotation.set(0.35, it.ry, 0); it.o.position.y = -it.k * 0.2;
   nube.userData.items.add(h); it.h = h;
-  if (it.txt) { it.placa = placa(it.txt, 0.58); it.placa.position.set(0, -it.k * 0.62 - (it.txt.includes("\n") ? 0.05 : 0), 0.14); h.add(it.placa); }
+  if (it.txt) { PX_PLACA = 100; it.placa = placa(it.txt, 0.5); PX_PLACA = 78; it.placa.position.set(0, it.txt.includes("\n") ? -0.2 : -0.13, 0.16); h.add(it.placa); }
 }
 const placaMesa = placa("Mesa 4", 0.74, "#5ce611", NAV0, NAV0); nube.add(placaMesa); placaMesa.position.set(0, 0.52, 0.3);
 
@@ -494,12 +494,12 @@ const tildesGris = [0, 1, 2, 3].map(() => hacerTilde(0.07, M.gris, M.white));
 const corteTex = tex(64, 512, (x, w, h) => { x.fillStyle = VER; for (let i = 0; i < 7; i++) rr(x, 12, 8 + i * 72, 40, 46, 14); });
 const cortes = [0, 1, 2, 3].map(() => { const m = mesh(new THREE.PlaneGeometry(0.05, 0.42), new THREE.MeshBasicMaterial({ map: corteTex, transparent: true, toneMapped: false, depthWrite: false })); m.renderOrder = 7; scene.add(m); return m; });
 // las fichas de las dos pilas (1 : 1,9)
-const NF = [10, 19], FH = 0.046, PILX = [-0.36, 0.36];
+const NF = [10, 19], FH = 0.046, PILX = [-0.28, 0.28];
 const fichaGeo = rbox(0.5, FH * 0.86, 0.42, 0.014);
 const fichaM = [mat(0xc2c0b4, 0.6), mat(C.g, 0.45, { emissive: C.g, emissiveIntensity: 0.12 })];
 const fichas = NF.map((n, k) => Array.from({ length: n }, () => { const m = mesh(fichaGeo, fichaM[k]); m.castShadow = true; m.receiveShadow = true; scene.add(m); return m; }));
 // renglones de texto en el canto de cada ficha (que se lea "tarjeta", no "ladrillo")
-const placaPila = [placa("Terminadas", 0.62, "#efeee5", NAV0, NAV0), placa("Interrumpidas", 0.62, "#5ce611", NAV0, NAV0)];
+const placaPila = [placa("Terminadas", 0.4, "#efeee5", NAV0, NAV0), placa("Interrumpidas", 0.4, "#5ce611", NAV0, NAV0)];
 placaPila.forEach((p) => scene.add(p));
 
 // ================= EL "?" (bisagra) y EL BUSTO con la "C" =================
@@ -536,6 +536,8 @@ const aroGeo = (arcF) => { const k = Math.round(arcF * 60); return (aroGeos[k] ?
 const aroC = mesh(aroGeo(0.78), M.g.clone()); aroC.material.emissiveIntensity = 0.2; scene.add(aroC);
 const capas = [0, 1].map(() => { const m = mesh(new THREE.SphereGeometry(0.068, 18, 12), aroC.material); scene.add(m); return m; }); // las puntas redondeadas
 const nube2 = hacerNube(-1);
+// (ronda 2) el pendiente que da vueltas en la cabeza: la caja del proveedor; en "plan" sale de la nube y entra en la tarjeta
+const cajaPlan = hacerCaja(); sh(cajaPlan); scene.add(cajaPlan);
 // la tarjeta del plan (agenda con anillado navy)
 const PW = 1.25, PH = 0.82;
 let planClave = "";
@@ -548,7 +550,7 @@ function dibujarPlan(n) {
   const x = planCanvas.getContext("2d"), w = 1024, h = 672;
   x.fillStyle = "#fbfaf4"; x.fillRect(0, 0, w, h);
   x.fillStyle = NAV; x.fillRect(0, 0, w, 120); x.fillStyle = CRE; x.font = F(800, 62); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Plan", 48, 66);
-  x.fillStyle = VER; rr(x, w - 220, 30, 180, 64, 32); x.fillStyle = NAV0; x.font = F(700, 40); x.textAlign = "center"; x.fillText("1 tarea", w - 130, 64);
+  x.fillStyle = VER; rr(x, w - 290, 22, 250, 80, 40); x.fillStyle = NAV0; x.font = F(800, 58); x.textAlign = "center"; x.fillText("1 tarea", w - 165, 64);
   let resto = n;
   RENG.forEach(([a, b], i) => {
     const y = 210 + i * 160;
@@ -674,7 +676,7 @@ const campanas = new THREE.Group();
   despertador.add(campanas);
   sh(despertador);
 }
-const mate = crearMate(); mate.position.set(0.27, 0.64, 0.17); mate.scale.setScalar(1.0); mesita.add(mate);
+const mate = crearMate(); mate.position.set(0.31, 0.64, 0.2); mate.scale.setScalar(1.0); mesita.add(mate);
 // vapor del mate (s11): bolitas translúcidas que suben (deterministas)
 const vapor = [0, 1, 2, 3, 4].map(() => { const m = mesh(new THREE.SphereGeometry(0.03, 12, 8), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5, depthWrite: false })); scene.add(m); return m; });
 // la tablet de Rubén (el sistema): pantalla "Pendientes"
@@ -755,14 +757,16 @@ const acostado = new THREE.Group(); acostado.add(ruben.raiz); dorm.add(acostado)
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const nube3 = hacerNube(1);
 const PEND = [
-  { o: hacerBillete(true), k: 0.34, p: [-0.32, 0.26], rot: [1.1, 0.2, 0.15], txt: "Seña · Graciela" },
-  { o: hacerPresupuesto(), k: 0.26, p: [0.32, 0.22], rot: [0.0, -0.15, 0.05], txt: "Presupuesto\nheladera" },
-  { o: hacerCaja(), k: 0.26, p: [0.0, -0.1], rot: [0.35, -0.5, 0], txt: "Pedido al\nproveedor" },
+  { o: hacerBillete(true), k: 0.3, p: [-0.43, 0.12], rot: [1.1, 0.2, 0.15], txt: "Seña\nGraciela" },
+  { o: hacerPresupuesto(), k: 0.24, p: [0.0, 0.1], rot: [0.0, -0.15, 0.05], txt: "Presu-\npuesto" },
+  { o: hacerCaja(), k: 0.24, p: [0.43, 0.1], rot: [0.35, -0.5, 0], txt: "Pedido\nproveedor" },
 ];
 for (const it of PEND) {
   const h = new THREE.Group(); h.add(it.o); it.o.scale.setScalar(it.k); it.o.rotation.set(...it.rot); it.o.position.y = -0.06;
   nube3.userData.items.add(h); it.h = h; sh(it.o);
-  it.placa = placa(it.txt, 0.6, "#ffffff", NAV0, ROJ); it.placa.position.set(0, it.txt.includes("\n") ? -0.3 : -0.24, 0.16); h.add(it.placa);
+  // (ronda 2) rótulo debajo de cada objeto, siempre encima de todo (nada lo tapa: ni la cabeza ni la tablet)
+  PX_PLACA = 100; it.placa = placa(it.txt, 0.41, "#ffffff", NAV0, ROJ); PX_PLACA = 78; it.placa.position.set(0, -0.27, 0.2); h.add(it.placa);
+  it.placa.material.depthTest = false; it.placa.renderOrder = 40;
 }
 
 // ================= EL CIERRE: la nubecita vacía con un tilde =================
@@ -797,8 +801,8 @@ const PLANOS = [
     k(0, [0.86, 1.8, 5.75], [1.18, 1.68, 0.42]),
     k(T.grua - 0.05, [0.88, 1.79, 5.45], [1.18, 1.68, 0.42]),
     // s02: grúa atrás y arriba: la mesa de 4 y el mozo
-    k(T.grua + 0.7, [1.3, 3.0, 5.9], [1.18, 1.5, 0.1], 36),
-    k(T.anotar - 0.005, [1.3, 2.95, 5.72], [1.2, 1.5, 0.1], 36),
+    k(T.grua + 0.7, [1.5, 2.45, 4.95], [1.36, 1.18, 0.1], 36),
+    k(T.anotar - 0.005, [1.5, 2.42, 4.8], [1.38, 1.18, 0.1], 36),
     // "anotar": CORTE al delantal (la libreta cerrada en el bolsillo; la cara queda fuera de cuadro) con un push-in corto
     k(T.anotar, [0.6, 0.8, 2.3], [0.96, 0.66, 0.42]),
     k(T.anotar + 0.35, [0.62, 0.78, 2.05], [0.96, 0.66, 0.42]),
@@ -807,51 +811,56 @@ const PLANOS = [
     k(T.primer, [1.02, 1.65, 5.2], [1.33, 1.55, 0.42]),
     k(T.primer + 0.3, [1.02, 1.65, 5.1], [1.33, 1.55, 0.42]),
     k(T.olvido, [1.02, 1.65, 4.95], [1.33, 1.55, 0.42]),
-    // después del olvido, push-in a la cara en blanco (que no quede media pantalla vacía)
-    k(T.olvido + 0.45, [0.88, 1.52, 3.3], [1.02, 1.42, 0.42]),
-    k(T.telon + 0.05, [0.88, 1.5, 3.2], [1.02, 1.4, 0.42]),
+    // (ronda 2) el desinflado y la cara en blanco se ven en el mismo plano; después la cámara se zambulle en el ticket
+    // del platito (ver ponerCamara) y CORTA a la hoja "37 × 48" del laboratorio con el mismo encuadre (match cut)
+    k(T.lab - 0.005, [1.02, 1.63, 4.85], [1.33, 1.53, 0.42]),
   ]],
-  // s04: el laboratorio (después del telón): las tareas en dos filas
+  // s04: el laboratorio: arranca encima de la hoja de la cuenta interrumpida y sube a las tareas en dos filas
   [T.lab, [
-    k(T.lab, ol(0, 5.1, 3.55), ol(0, 0.8, -0.2)),
-    k(T.record - 0.1, ol(0, 4.9, 3.4), ol(0, 0.8, -0.2)),
+    k(T.lab, ol(0.42, 2.15, 1.05), ol(0.42, 0.86, 0.3)),
+    k(T.lab + 0.6, ol(0, 5.1, 3.7), ol(0, 0.8, -0.05)),
+    k(T.record - 0.1, ol(0, 4.9, 3.55), ol(0, 0.8, -0.05)),
     // las pilas: más bajo y más cerca
-    k(T.record + 0.45, ol(0, 1.45, 3.55), ol(0, 1.12, 0.0), 40),
-    k(T.armaQ - 0.05, ol(0, 1.47, 3.42), ol(0, 1.14, 0.0), 40),
+    k(T.record + 0.45, ol(0, 1.85, 2.8), ol(0, 0.98, 0.0), 40),
+    k(T.armaQ - 0.05, ol(0, 1.87, 2.7), ol(0, 1.0, 0.0), 40),
     // s05: sube con las fichas al "?" (push-in y órbita corta)
     k(T.armaQ + 0.55, ol(-0.25, 2.05, 2.85), ol(0, 1.95, 0)),
-    k(T.abierto0 - 0.02, ol(0.3, 2.0, 2.6), ol(0, 1.97, 0)),
+    k(T.abierto0 - 0.4, ol(0.3, 2.0, 2.65), ol(0, 1.97, 0)),
+    k(T.abierto0 + 0.02, ol(0.25, 2.05, 4.4), ol(0.15, 1.95, 0)),
     // s06: retrocede: la "C" queda dentro de la cabeza de perfil
-    k(T.abierto0 + 0.42, ol(0.25, 2.2, 5.2), ol(0.2, 2.0, 0), 36),
-    k(T.plan0 - 0.05, ol(0.25, 2.2, 5.0), ol(0.2, 2.0, 0), 36),
+    k(T.abierto0 + 0.42, ol(0.25, 2.25, 5.2), ol(0.2, 2.08, 0), 36),
+    k(T.plan0 - 0.05, ol(0.25, 2.25, 5.0), ol(0.2, 2.08, 0), 36),
     // s07: push-in, entra la tarjeta del plan
-    k(T.plan0 + 0.45, ol(0.25, 2.15, 4.7), ol(0.2, 1.95, 0), 36),
-    k(T.calma - 0.1, ol(0.25, 2.15, 4.6), ol(0.2, 1.95, 0), 36),
+    k(T.plan0 + 0.45, ol(0.25, 2.22, 4.7), ol(0.2, 2.05, 0), 36),
+    k(T.calma - 0.1, ol(0.25, 2.22, 4.6), ol(0.2, 2.05, 0), 36),
     k(T.calma + 0.35, ol(0.2, 2.2, 4.3), ol(0.1, 2.05, 0), 36),
     k(T.noche - 0.02, ol(0.2, 2.2, 4.2), ol(0.1, 2.05, 0), 36),
   ]],
   // s08: el aro vuela a la lámpara; plano picado del dormitorio
   [T.noche, [
     k(T.noche, ol(-0.2, 1.85, 2.6), ol(-0.4, 1.8, 0)),
-    k(T.noche + 0.75, od(0.85, 1.5, 1.15), od(0.0, 1.3, -1.45), 40),
-    k(T.prov + 0.6, od(0.75, 1.47, 0.85), od(0.0, 1.3, -1.5), 40),
+    k(T.noche + 0.75, od(0.75, 1.66, 1.45), od(-0.08, 1.56, -1.45), 42),
+    k(T.prov + 0.6, od(0.68, 1.64, 1.2), od(-0.08, 1.56, -1.5), 42),
     // s09: Rubén se sienta con la tablet (plano medio con la nube); en "responsable" push-in a la tablet
-    k(T.sis0 + 0.7, od(0.85, 1.62, 1.4), od(0.0, 1.34, -1.3), 42),
-    k(T.sistema + 0.75, od(0.82, 1.62, 1.3), od(0.0, 1.34, -1.3), 42),
-    k(T.resp + 0.35, od(0.45, 1.55, 0.75), od(0.12, 1.12, -1.0), 36),
-    k(T.anotado - 0.05, od(0.45, 1.55, 0.7), od(0.12, 1.12, -1.0), 36),
+    k(T.sis0 + 0.7, od(0.75, 1.72, 1.6), od(-0.06, 1.6, -1.3), 44),
+    k(T.sistema + 0.75, od(0.72, 1.72, 1.5), od(-0.06, 1.6, -1.3), 44),
+    k(T.resp + 0.35, od(0.45, 1.62, 1.05), od(0.1, 1.28, -1.1), 38),
+    k(T.anotado - 0.05, od(0.45, 1.62, 1.0), od(0.1, 1.28, -1.1), 38),
   ]],
   // s10: plano medio de Rubén en la cama (la tablet vuelve a la mesita)
   [T.anotado, [
-    k(T.anotado, od(0.85, 1.5, 1.05), od(0.0, 1.3, -1.45), 40),
-    k(T.dormir - 0.05, od(0.75, 1.47, 0.8), od(0.0, 1.3, -1.5), 40),
+    k(T.anotado, od(0.8, 1.66, 1.3), od(-0.05, 1.5, -1.45), 42),
+    k(T.dormir - 0.05, od(0.72, 1.64, 1.1), od(-0.05, 1.5, -1.5), 42),
   ]],
   // s11: a la mañana: general (ventana con sol, Rubén se estira) y push-in a la tablet en la mesita (con el mate)
   [T.dormir, [
-    k(T.dormir, od(0.1, 1.65, 1.6), od(-0.05, 1.42, -1.6), 48),
-    k(T.dormir + 0.55, od(0.05, 1.62, 1.4), od(-0.1, 1.38, -1.6), 48),
-    k(T.dormir + 1.05, od(-0.42, 1.38, 0.3), od(-0.95, 0.92, -1.6), 38),
-    k(T.fin - 0.05, od(-0.44, 1.37, 0.25), od(-0.95, 0.92, -1.6), 38),
+    k(T.dormir, od(0.3, 1.62, 0.95), od(0.05, 1.5, -1.6), 44),
+    k(T.dormir + 0.8, od(0.27, 1.6, 0.8), od(0.05, 1.48, -1.6), 44),
+  ]],
+  // corte a la tablet en la mesita (con el mate al costado)
+  [T.dormir + 0.82, [
+    k(T.dormir + 0.82, od(-0.44, 1.38, 0.55), od(-1.0, 0.85, -1.6), 38),
+    k(T.fin - 0.05, od(-0.44, 1.36, 0.44), od(-1.0, 0.85, -1.6), 38),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.15, 4.4], [OF.x, 0.86, 0]),
@@ -860,6 +869,7 @@ const PLANOS = [
 ];
 const _mira = new THREE.Vector3();
 let plano = 0;
+let PLAT_LAB = null;
 function ponerCamara(t) {
   let pi = 0; while (pi + 1 < PLANOS.length && PLANOS[pi + 1][0] <= t) pi++;
   plano = pi;
@@ -883,6 +893,14 @@ function ponerCamara(t) {
     if (h <= 0) { v.push(a[c]); continue; }
     if (h < 0.05) { v.push(u > 0 ? b[c] : a[c]); continue; }
     v.push((2 * s3 - 3 * s2 + 1) * a[c] + (s3 - 2 * s2 + u) * h * tang(i, c) + (-2 * s3 + 3 * s2) * b[c] + (s3 - s2) * h * tang(i + 1, c));
+  }
+  // s03 → s04: zambullida al ticket del platito (que el mozo tiene en la mano)
+  if (plano === 0 && t > T.lab - 0.5) {
+    if (!PLAT_LAB) { const pl = plano; plano = 0; zonaR(T.lab - 0.4); PLAT_LAB = platito.getWorldPosition(new THREE.Vector3()); plano = pl; }
+    const w = eio(sg(t, T.lab - 0.5, T.lab));
+    const pos = PLAT_LAB.clone().add(V(0.0, 0.42, 0.21)), mira = PLAT_LAB.clone().add(V(0, 0.01, 0));
+    for (let j = 0; j < 3; j++) { v[j] = lerp(v[j], pos.getComponent(j), w); v[j + 3] = lerp(v[j + 3], mira.getComponent(j), w); }
+    v[6] = lerp(v[6], 34, w);
   }
   // s08: la cámara sigue al aro que vuela de la cabeza a la lámpara
   if (t >= T.noche && t < T.noche + 0.75) {
@@ -940,8 +958,8 @@ function zonaR(t) {
     [0, { ...MZ, ...CARA.sonrisa, cejas: { alto: 0.25, ang: 0, asim: 0.5 }, cabeza: { giro: 0.32, asiente: 0.02, ladea: -0.06 }, ojos: { x: 0.45, y: 0.05, abiertos: 1, feliz: 0.25 },
       manoD: [-0.38, 0.95, 0.06], codoD: [-1, -0.2, -0.3], manoI: [0.27, -0.02, 0.12] }],
     // s02: mira a la mesa, orgulloso
-    [T.grua + 0.4, { cabeza: { giro: -0.3, asiente: 0.12, ladea: 0.04 }, ojos: { x: -0.5, y: -0.2, abiertos: 1, feliz: 0.3 } }, 0.35],
-    [T.todo + 0.1, { cabeza: { giro: -0.15, asiente: 0.05, ladea: -0.08 }, ...CARA.sonrisa, cejas: { alto: 0.5, ang: 0, asim: 0.6 } }, 0.3],
+    [T.grua + 0.4, { cabeza: { giro: 0.38, asiente: 0.1, ladea: 0.04 }, ojos: { x: -0.3, y: -0.2, abiertos: 1, feliz: 0.3 } }, 0.35],
+    [T.todo + 0.1, { cabeza: { giro: 0.3, asiente: 0.05, ladea: -0.08 }, ...CARA.sonrisa, cejas: { alto: 0.5, ang: 0, asim: 0.6 } }, 0.3],
     // "anotar": se toca la sien con el índice (no necesita anotar)
     [T.anotar + 0.25, { cabeza: { giro: 0.25, asiente: 0.0, ladea: 0.06 }, ojos: { x: 0.4, y: 0.1, abiertos: 1, feliz: 0.3 } }, 0.3],
     // s03: baja la mano y agarra el platito
@@ -950,7 +968,7 @@ function zonaR(t) {
     // la pausa: mira al frente, quieto
     [T.olvido - 0.1, { ...CARA.sonrisa, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.2 }, cabeza: { giro: 0.25, asiente: 0.02, ladea: 0 } }, 0.3],
     // "olvidó": la cara en blanco (cejas altas, ojos redondos, boquita "o")
-    [T.olvido + 0.3, { ojos: { x: 0, y: 0.1, abiertos: 1, feliz: 0, tension: 0 }, cejas: { alto: 1, ang: 0.1, asim: 0 }, boca: { sonrisa: 0, abierta: 0.3, ancho: 0.55 }, cabeza: { giro: 0.3, asiente: -0.04, ladea: 0.1 } }, 0.2],
+    [T.olvido + 0.1, { ojos: { x: 0, y: 0.1, abiertos: 1, feliz: 0, tension: 0 }, cejas: { alto: 1, ang: 0.1, asim: 0 }, boca: { sonrisa: 0, abierta: 0.3, ancho: 0.55 }, cabeza: { giro: 0.12, asiente: -0.04, ladea: 0.1 } }, 0.12],
   ]);
   // parpadeo rápido en el olvido (ojos abiertos antes y después)
   // (ronda 1: sin parpadeo; la cara en blanco queda con los ojos bien abiertos)
@@ -998,9 +1016,9 @@ function zonaR(t) {
     mozo.cabeza.getWorldPosition(_v);
     const sobre = _v.clone().add(V(0.66, 0.44, 0.05));
     const crece = 1 + 0.1 * eio(sg(t, T.todo, T.todo + 0.35));
-    const des = eio(sg(t, T.olvido, T.olvido + 0.45));
+    const des = eio(sg(t, T.olvido, T.olvido + 0.35));
     ponerNube(nube, t, { infla: 1 - des, arruga: pulso(t, T.pagas, 0.5) * 0.5 + (des > 0 && des < 1 ? 0.8 : 0), late: 0.6 });
-    nube.position.copy(sobre).add(V(rebote(t, T.pagas + 0.05, 9, 40, 0.025), 0.06 * des, 0));
+    nube.position.copy(sobre).add(V(rebote(t, T.pagas + 0.05, 9, 40, 0.025), 0, 0));
     nube.quaternion.copy(camera.quaternion);
     nube.scale.setScalar(0.58 * crece * (1 + 0.06 * pulso(t, T.pedido, 0.3)));
     nube.visible = des < 0.985;
@@ -1008,15 +1026,16 @@ function zonaR(t) {
       const t0 = it.extra ? T.todo : T.pedido + i * 0.08;
       const en = it.extra ? t > t0 : true;
       const pop = it.extra ? popIn(t, t0, 0.25) : 1 + 0.25 * pulso(t, t0, 0.28);
-      const kk = en && des < 0.6 ? pop * (1 - des) : 0;
+      const kk = en ? pop * (1 - des) : 0;
       it.h.visible = kk > 0.01;
-      it.h.position.set(it.p[0], it.p[1], 0.02);
+      it.h.position.set(it.p[0] * lerp(0.16, 1, 1 - des), it.p[1] * lerp(0.16, 1, 1 - des), 0.02);
       it.h.scale.setScalar(kk);
       it.o.rotation.y = it.ry + Math.sin(t * 1.4 + i) * 0.15;
-      if (it.placa) { const vp = t > T.todo && t < T.olvido; it.placa.visible = vp; if (vp) it.placa.scale.setScalar(popIn(t, T.todo + i * 0.07, 0.25)); }
+      // (ronda 2) los rótulos se van CON la nube (son hijos de cada objeto: se achican con el desinflado)
+      if (it.placa) { const vp = t > T.todo; it.placa.visible = vp; if (vp) it.placa.scale.setScalar(popIn(t, T.todo + i * 0.07, 0.25)); }
     });
-    placaMesa.visible = t > T.pedido + 0.15 && t < T.olvido;
-    if (placaMesa.visible) placaMesa.scale.setScalar(popIn(t, T.pedido + 0.15, 0.25));
+    placaMesa.visible = t > T.pedido + 0.15;
+    if (placaMesa.visible) placaMesa.scale.setScalar(popIn(t, T.pedido + 0.15, 0.25) * (1 - des)); placaMesa.visible = placaMesa.visible && des < 0.6;
   }
   // ---- comensales ----
   COM.forEach((c, j) => {
@@ -1029,10 +1048,10 @@ function zonaR(t) {
 // ================= ZONA L en el tiempo =================
 function zonaL(t) {
   const en = plano === 1;
-  lab.visible = sombraLab.visible = en && t < T.abierto0 + 0.1;
+  lab.visible = sombraLab.visible = en && t < T.abierto0 - 0.05;
   const tareasV = en && t < T.record + 0.45;
   TAREAS.forEach(({ o, i, fila }) => {
-    const t0 = T.lab - 0.06 + fila * 0.12 + i * 0.04;
+    const t0 = fila === 1 && i === 2 ? T.lab - 0.5 : T.lab + 0.12 + fila * 0.12 + i * 0.05;
     // en "recordaban" cada tarea se aplana y vuela a su pila (las terminadas a la gris, las interrumpidas a la verde)
     const u = eio(sg(t, T.record + i * 0.04, T.record + 0.35 + i * 0.04));
     const k0 = tareasV && t > t0 - 0.1 ? popIn(t, t0, 0.25) * (1 - u) : 0;
@@ -1086,22 +1105,22 @@ function zonaL(t) {
   placaPila.forEach((pl, kk) => {
     const v = en && t > T.record + 0.35 && t < T.armaQ;
     pl.visible = v; if (!v) return;
-    pl.position.set(OL.x + PILX[kk], LTOP + 0.13, 0.36); pl.quaternion.copy(camera.quaternion);
+    pl.position.set(OL.x + PILX[kk], LTOP + 0.12, 0.36); pl.quaternion.copy(camera.quaternion);
     pl.scale.setScalar(popIn(t, T.record + 0.35 + kk * 0.1, 0.25) * 0.98);
   });
   // ---- el "?" (s05) → la "C" (s06) ----
   {
-    const v = en && t > T.armaQ + 0.2 && t < T.abierto0 + 0.03;
-    const kq = popIn(t, T.armaQ + 0.25, 0.32) * (1 + 0.08 * pulso(t, T.que, 0.3)) * (1 - eio(sg(t, T.abierto0 - 0.16, T.abierto0 + 0.02)));
+    const v = en && t > T.armaQ + 0.2 && t < T.abierto0 + 0.04;
+    const kq = popIn(t, T.armaQ + 0.25, 0.32) * (1 + 0.08 * pulso(t, T.que, 0.3)) * (1 - eio(sg(t, T.abierto0 - 0.12, T.abierto0 + 0.04)));
     ocultar(pregunta, v ? kq : 0);
     pregunta.position.copy(QC); pregunta.rotation.set(0, Math.sin((t - T.armaQ) * 1.8) * 0.25, eio(sg(t, T.abierto0 - 0.16, T.abierto0 + 0.02)) * 1.6);
   }
   {
-    const v = en && t > T.abierto0 - 0.0;
+    const v = en && t > T.abierto0 - 0.03;
     const cierra = eio(sg(t, T.calma, T.calma + 0.35));
     const arcF = lerp(0.76, 1, cierra);
     aroC.geometry = aroGeo(arcF);
-    const kc = v ? popIn(t, T.abierto0, 0.3) * (1 + 0.15 * pulso(t, T.calma + 0.3, 0.3)) : 0;
+    const kc = v ? popIn(t, T.abierto0 - 0.03, 0.22) * (1 + 0.15 * pulso(t, T.calma + 0.3, 0.3)) : 0;
     ocultar(aroC, kc);
     // gira sobre sí mismo sin cerrarse (el hueco siempre visible); al cerrarse, se queda quieto
     const giro = (t - T.abierto0) * (1 - cierra) * 2.4 + Math.PI * 0.62;
@@ -1115,7 +1134,7 @@ function zonaL(t) {
   {
     // (sigue en cuadro al arrancar s08: la cámara se aleja con el aro, la cabeza no desaparece de golpe)
     const sigue = en || (plano === 2 && t < T.noche + 0.6);
-    const kb = sigue && t > T.abierto0 - 0.02 ? popIn(t, T.abierto0 - 0.02, 0.18) : 0;
+    const kb = sigue && t > T.abierto0 - 0.03 ? popIn(t, T.abierto0 - 0.03, 0.16) : 0;
     busto.visible = pedestal.visible = kb > 0.01;
     busto.position.copy(CAB); busto.scale.setScalar(Math.max(0.01, kb));
     busto.rotation.set(0, 0, 0);
@@ -1130,8 +1149,16 @@ function zonaL(t) {
     const achica = eio(sg(t, T.calma + 0.1, T.calma + 0.7));
     ponerNube(nube2, t, { infla: lerp(1, 0.55, achica), late: 1.2 * (1 - achica) });
     nube2.visible = kn > 0.01;
-    nube2.position.copy(CAB).add(V(0.44, 0.62, 0.05)); nube2.quaternion.copy(camera.quaternion);
-    nube2.scale.setScalar(kn * 0.4 * (1 + 0.05 * Math.sin(t * 6) * (1 - achica)));
+    nube2.position.copy(CAB).add(V(0.5, 0.78, 0.05)); nube2.quaternion.copy(camera.quaternion);
+    nube2.scale.setScalar(kn * 0.6 * (1 + 0.05 * Math.sin(t * 6) * (1 - achica)));
+    // la caja adentro de la nube; entre "plan" y "despeja" vuela a la tarjeta y se mete en ella
+    nube2.updateMatrixWorld(true);
+    const enNube = nube2.localToWorld(V(0, 0.02, 0.25));
+    const enPlan = plan.position.clone().add(V(0.25, 0.05, 0.1));
+    const va = eio(sg(t, T.plan - 0.1, T.plan + 0.45));
+    const kc2 = kn * (va < 1 ? 1 : 1 - eio(sg(t, T.plan + 0.45, T.plan + 0.65)));
+    ocultar(cajaPlan, nube2.visible && kc2 > 0.01 ? kc2 * lerp(0.3, 0.2, va) : 0);
+    if (cajaPlan.visible) { cajaPlan.position.copy(arco(enNube, enPlan, va, 0.15)); cajaPlan.rotation.set(0.35, -0.5 + va * 2.5 + Math.sin(t * 1.5) * 0.15, 0); }
   }
   // la tarjeta del plan: entra delante de la cabeza, se escriben los renglones, en "calma" se corre al costado
   {
@@ -1141,7 +1168,7 @@ function zonaL(t) {
     const corre = eio(sg(t, T.calma - 0.15, T.calma + 0.3));
     const kp = v ? popIn(t, t0, 0.35) : 0;
     ocultar(plan, kp * 0.72);
-    plan.position.copy(CAB).add(V(lerp(0.45, 0.08, entra) + corre * 0.9, lerp(-0.9, -0.66, entra) - corre * 0.5, 0.9));
+    plan.position.copy(CAB).add(V(lerp(0.45, 0.08, entra) + corre * 0.9, lerp(-0.74, -0.5, entra) - corre * 0.5, 0.9));
     plan.rotation.set(-0.08, lerp(-0.5, -0.1, entra) - corre * 0.4, lerp(0.15, 0.03, entra) + corre * 0.2);
     if (corre > 0) plan.scale.multiplyScalar(1 - corre);
     // los renglones: letra por letra desde "plan" (los tres antes de "calma")
@@ -1171,7 +1198,7 @@ const aroVuela = mesh(new THREE.TorusGeometry(0.23, 0.068, 18, 64), M.g); scene.
 
 // ================= ZONA D en el tiempo =================
 function zonaD(t) {
-  const en = plano >= 2 && plano <= 4;
+  const en = plano >= 2 && plano <= 5;
   dorm.visible = en;
   // el aro que vuela
   {
@@ -1188,12 +1215,12 @@ function zonaD(t) {
   aroLamp.visible = !(plano === 2 && t < T.noche + 0.72);
   // s10: en "olvidé" apaga la lámpara (baja un poco, nunca a negro); s11: amanece
   const apaga = eio(sg(t, T.olvide + 0.55, T.olvide + 0.8));
-  const manana = eio(sg(t, T.dormir - 0.05, T.dormir + 0.6));
+  const manana = t >= T.dormir ? 1 : 0; // (ronda 2) amanece en el corte: sin cuadros de ventana a medio camino
   pantalla.material.emissiveIntensity = lampOn ? lerp(0.9, 0.15, apaga) * (1 - manana) + 0.05 : 0.05;
   lampara.intensity = en && lampOn ? lerp(3.2, 0.8, apaga) * (1 - manana * 0.8) : 0;
   if (en) { mesita.userData.lamp.getWorldPosition(_v); lampara.position.copy(_v).add(V(0, 0.42, 0.05)); }
-  ventanaVidrio.color.set(C.navy2).lerp(new THREE.Color(0xdbe6ee), manana);
-  ventanaVidrio.emissive.set(C.navy2).lerp(new THREE.Color(0xdbe6ee), manana);
+  ventanaVidrio.color.set(C.navy2).lerp(new THREE.Color(0xa9d8f2), manana);
+  ventanaVidrio.emissive.set(C.navy2).lerp(new THREE.Color(0x9fd2ef), manana);
   luna.visible = luna.userData.mordida.visible = manana < 0.5; estrellas.forEach((e) => (e.visible = manana < 0.5));
   sol2.visible = manana > 0.5;
   // el despertador tiembla un poco con el tic-tac (de noche)
@@ -1218,10 +1245,10 @@ function zonaD(t) {
     // "proveedor": abre más los ojos (no duerme), mira a cámara
     [T.prov + 0.25, { ojos: { x: 0.1, y: 0.0, abiertos: 1 }, cejas: { alto: 0.95, ang: 0.6 }, boca: { sonrisa: -0.5, abierta: 0.12, ancho: 0.8 }, cabeza: { giro: 0.3, asiente: 0.5, ladea: 0 } }, 0.25],
     // s09: agarra la tablet con las dos manos (los brazos suben cuando la tablet ya está adelante)
-    [T.sis0 + 0.7, { ...CARA.neutra, ...BRAZOS.ofrece(0.7, 0.36, 0.5), cabeza: { giro: 0.1, asiente: 0.42, ladea: 0 }, ojos: { x: 0, y: -0.5, abiertos: 1 }, cejas: { alto: 0.2, ang: 0.2 } }, 0.4],
+    [T.sis0 + 0.7, { ...CARA.neutra, ...BRAZOS.ofrece(0.7, 0.24, 0.52), cabeza: { giro: 0.1, asiente: 0.42, ladea: 0 }, ojos: { x: 0, y: -0.5, abiertos: 1 }, cejas: { alto: 0.2, ang: 0.2 } }, 0.4],
     [T.resp, { ...CARA.sonrisa, ojos: { x: 0, y: -0.5, abiertos: 1, feliz: 0.2 } }, 0.3],
     // s10: deja la tablet, sonríe debajo del bigote mirando a cámara, se acomoda
-    [T.anotado + 0.45, { ...CARA.sonrisa, manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], cabeza: { giro: 0.3, asiente: 0.5, ladea: 0.05 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.15 } }, 0.45],
+    [T.anotado + 0.1, { ...CARA.sonrisa, manoI: [0.17, 0.14, 0.3], manoD: [-0.17, 0.14, 0.3], codoI: [0.9, -0.2, -0.3], codoD: [-0.9, -0.2, -0.3], cabeza: { giro: 0.3, asiente: 0.5, ladea: 0.05 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.15 } }, 0.45],
     [T.olvide + 0.2, { ...CARA.sonrisa, cabeza: { giro: 0.28, asiente: 0.48, ladea: 0.1 }, ojos: { x: 0.1, y: 0.0, abiertos: 1, feliz: 0.3 } }, 0.25],
     // recién después de apagar la luz cierra los ojos (ojos de dibujo: una línea curva, sin bultos)
     [T.olvide + 0.95, { ojos: { abiertos: 0, feliz: 0.4 }, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.05 } }, 0.25],
@@ -1241,9 +1268,10 @@ function zonaD(t) {
     ruben.cabeza.getWorldPosition(_v);
     // de noche, arriba del respaldo a la derecha de la cabeza; sentado (s09) sube un poco para no taparle la cara
     const sube = sienta;
-    let base = lerpV(V(OD.x + CAMA.x - 0.36, 1.62, PARED_Z + 0.5), V(OD.x + CAMA.x - 0.6, 1.68, PARED_Z + 0.55), sube);
+    // (ronda 2) arriba a la izquierda de la cabeza, con aire (no se mete en la cabeza); la cola apunta a la sien
+    let base = lerpV(V(OD.x + CAMA.x - 0.2, 1.9, PARED_Z + 0.6), V(OD.x + CAMA.x - 0.22, 2.06, PARED_Z + 0.6), sube);
     // en el push-in a la tablet la nube (ya vacía) se achica y se arrima arriba de la cabeza (que no quede cortada en el borde)
-    const chica = eio(sg(t, T.resp, T.resp + 0.35)) * (1 - eio(sg(t, T.anotado, T.anotado + 0.35)));
+    const chica = eio(sg(t, T.resp, T.resp + 0.35)) * (t >= T.anotado ? 0 : 1);
     base = lerpV(base, V(OD.x + CAMA.x - 0.2, 1.62, PARED_Z + 0.45), chica);
     const v = t > T.noche + 0.85 && t < T.olvide + 0.6;
     const kn = v ? popIn(t, T.noche + 0.85, 0.35) : 0;
@@ -1252,7 +1280,7 @@ function zonaD(t) {
     ponerNube(nube3, t, { infla: 1 - des, arruga: des > 0 && des < 1 ? 0.8 : 0.25 * pulso(t, T.prov, 0.5), late: 0.7 * (1 - vac) });
     nube3.visible = kn > 0.01 && des < 0.985;
     nube3.position.copy(base); nube3.quaternion.copy(camera.quaternion);
-    nube3.scale.setScalar(kn * lerp(0.46, 0.3, chica));
+    nube3.scale.setScalar(kn * lerp(0.6, 0.36, chica));
     const llegan = [T.sena, T.presu, T.prov];
     PEND.forEach((it, i) => {
       const t0 = llegan[i];
@@ -1275,29 +1303,31 @@ function zonaD(t) {
     tablet.visible = true;
     const enMesa = { p: V(OD.x + MESITA.x - 0.04, MESITA.y + 0.024, MESITA.z + 0.1), r: new THREE.Euler(-Math.PI / 2 + 0.0, 0, 0.25) };
     // a la mañana queda apoyada en el atril invisible del mate: inclinada hacia la cámara
-    const enMesaM = { p: V(OD.x + MESITA.x - 0.02, MESITA.y + 0.2, MESITA.z + 0.12), r: new THREE.Euler(-0.35, 0.3, 0) };
-    const a = eio(sg(t, T.sis0 + 0.0, T.sis0 + 0.7)), b = eio(sg(t, T.anotado + 0.0, T.anotado + 0.7));
+    const enMesaM = { p: V(OD.x + MESITA.x - 0.15, MESITA.y + 0.2, MESITA.z + 0.12), r: new THREE.Euler(-0.35, 0.3, 0) };
+    const a = eio(sg(t, T.sis0 + 0.0, T.sis0 + 0.7)), b = t >= T.anotado ? 1 : eio(sg(t, T.anotado - 0.35, T.anotado));
     const mI = ruben.mano("I").getWorldPosition(new THREE.Vector3()), mD = ruben.mano("D").getWorldPosition(new THREE.Vector3());
     const enManos = mI.clone().add(mD).multiplyScalar(0.5).add(V(0.0, 0.06, 0.1));
     // arco por AFUERA del cuerpo: de la mesita sube, pasa por delante del pecho (lado de la cámara) y baja a las manos
     const MID = V(OD.x + CAMA.x - 0.35, 1.55, CAMA.z0 + 1.0);
     const bez = (A, B, u) => A.clone().multiplyScalar((1 - u) * (1 - u)).add(MID.clone().multiplyScalar(2 * u * (1 - u))).add(B.clone().multiplyScalar(u * u));
-    const p = b > 0 ? bez(enManos, enMesa.p, b) : bez(enMesa.p, enManos, a);
+    // a la vuelta baja por debajo del pecho (no cruza la cara)
+    const MID2 = V(OD.x + CAMA.x - 0.45, 1.05, CAMA.z0 + 1.0);
+    const p = b > 0 ? enManos.clone().multiplyScalar((1 - b) * (1 - b)).add(MID2.clone().multiplyScalar(2 * b * (1 - b))).add(enMesa.p.clone().multiplyScalar(b * b)) : bez(enMesa.p, enManos, a);
     const qm = new THREE.Quaternion().setFromEuler(enMesa.r);
     const qh = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().lookAt(camera.position, enManos, V(0, 1, 0)));
     const qr = qm.clone().slerp(qh, a).slerp(qm, b);
     tablet.position.copy(p); tablet.quaternion.copy(qr);
-    if (plano === 4) { tablet.position.copy(enMesaM.p); tablet.quaternion.setFromEuler(enMesaM.r); }
+    if (plano >= 4) { tablet.position.copy(enMesaM.p); tablet.quaternion.setFromEuler(enMesaM.r); }
     const filas = t < T.sistema + 0.35 ? 0 : t < T.sistema + 0.6 ? 1 : t < T.sistema + 0.85 ? 2 : 3;
-    const hecho = plano === 4 ? (t > T.dormir + 1.1 ? 1 : 0) + (t > T.dormir + 1.35 ? 1 : 0) + (t > T.dormir + 1.6 ? 1 : 0) : 0;
-    dibujarTablet({ filas: plano === 4 ? 3 : filas, resp: t > T.resp ? 1 : 0, aviso: t > T.aviso ? 1 : 0, hecho });
+    const hecho = plano >= 4 ? (t > T.dormir + 1.1 ? 1 : 0) + (t > T.dormir + 1.35 ? 1 : 0) + (t > T.dormir + 1.6 ? 1 : 0) : 0;
+    dibujarTablet({ filas: plano >= 4 ? 3 : filas, resp: t > T.resp ? 1 : 0, aviso: t > T.aviso ? 1 : 0, hecho });
   }
   // ---- el vapor del mate (s11) ----
   {
     mate.getWorldPosition(_v);
     vapor.forEach((m, i) => {
       const fase = ((t * 0.55 + i / vapor.length) % 1);
-      m.visible = plano === 4;
+      m.visible = plano >= 4;
       if (!m.visible) return;
       m.position.copy(_v).add(V(Math.sin(fase * 6 + i) * 0.025, 0.3 + fase * 0.35, 0));
       m.scale.setScalar(0.6 + fase * 1.2);
@@ -1308,13 +1338,13 @@ function zonaD(t) {
 
 // ================= EL CIERRE =================
 function zonaFin(t) {
-  const v = plano === 5;
+  const v = plano === 6;
   nubeFin.visible = v;
   if (!v) return;
   ponerNube(nubeFin, t, { infla: 1, late: 0.4 });
   nubeFin.position.set(OF.x, 0.42 + Math.sin(t * 2.2) * 0.03, 0);
   nubeFin.rotation.set(0.05, 0.35 * Math.sin((t - T.fin) * 1.6), 0);
-  nubeFin.scale.setScalar(popIn(t, T.fin + 0.05, 0.4) * 0.92);
+  nubeFin.scale.setScalar(popIn(t, T.fin - 0.02, 0.3) * 0.92);
 }
 
 // ================= ESCENA EN EL TIEMPO =================
@@ -1324,18 +1354,18 @@ function renderAt(t) {
   // el telón: el mantel sube delante de la cámara (tapa el corte del restaurante al laboratorio)
   {
     const u = sg(t, T.telon, T.lab + 0.32);
-    telon.visible = u > 0 && u < 1;
+    telon.visible = false && u > 0 && u < 1; // (ronda 2: sin telón; la transición es el match cut ticket → hoja)
     telon.position.set(0, lerp(-3.4, 3.5, eio(u)), -1.2);
     telon.rotation.set(0, 0, Math.sin(u * Math.PI) * 0.04);
   }
-  const zona = plano === 0 ? V(0.4, 0, 0) : plano === 1 ? OL : plano === 5 ? OF : OD;
+  const zona = plano === 0 ? V(0.4, 0, 0) : plano === 1 ? OL : plano === 6 ? OF : OD;
   sol.position.copy(zona).add(V(-3.0, 7, 6)); sol.target.position.copy(zona);
   const r = 3.2;
   Object.assign(sol.shadow.camera, { left: -r, right: r, top: r, bottom: -r, near: 0.5, far: 30 }); sol.shadow.camera.updateProjectionMatrix();
-  const enD = plano >= 2 && plano <= 4;
-  const noche = enD && plano !== 4;
+  const enD = plano >= 2 && plano <= 5;
+  const noche = enD && plano < 4;
   sol.intensity = noche ? 0.9 : 1.5;
-  key.intensity = noche ? 0.95 : plano === 5 ? 1.8 : 2.0;
+  key.intensity = noche ? 0.95 : plano === 6 ? 1.8 : 2.0;
   fill.intensity = noche ? 0.85 : 1.05;
   zonaR(t);
   zonaL(t);
