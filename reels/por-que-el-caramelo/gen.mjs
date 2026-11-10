@@ -126,9 +126,9 @@ const rotulo = (id, k, t, fin) => `nota(${k}, ${r2(t)}); sinNota(${k}, ${r2(fin 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
   cred: [540, 1590], credLead: [540, 1520, 540, 1350],
-  pocoMas: [300, 800], pocoLead: [300, 850, 300, 950],
+  pocoMas: [300, 690], pocoLead: [300, 740, 300, 830],
   mas: [870, 760], masLead: [800, 800, 720, 850],
-  dosJuntos: [210, 1120], laQueMas: [745, 1235],
+  dosJuntos: [230, 1265], laQueMas: [700, 1560],
   gesto: [540, 1590], gestoLead: [540, 1530, 560, 1290],
   ruben: [300, 880],
   burbuja: [540, 300],
@@ -200,7 +200,7 @@ const POS = {
   const dar = w(id, 30) - 0.15, amaga = w(id, 32) - 0.02, vuelve = w(id, 35) - 0.02, latigo = w(id, 38) + 0.05;
   vacia(id, [
     { t: -0.08, sfx: "whoosh-short", vol: 0.12 },
-    { t: dar + 0.38, sfx: "pop", vol: 0.1 }, { t: dar + 0.4, sfx: "papel-fuerte", vol: 0.25, max: 0.25 },
+    { t: dar + 0.38, sfx: "pop", vol: 0.08 }, { t: dar + 0.4, sfx: "papel-fuerte", vol: 0.12, max: 0.25 },
     { t: amaga, sfx: "whoosh-short", vol: 0.12 },
     { t: amaga + 0.4, sfx: "tac-real", vol: 0.25 },
     { t: vuelve, sfx: "tic-real", vol: 0.3 }, { t: vuelve + 0.06, sfx: "whoosh-short", vol: 0.08 },

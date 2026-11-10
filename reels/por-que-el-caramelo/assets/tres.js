@@ -300,7 +300,7 @@ const placas = [];
     bandeja.add(mesh(new THREE.CylinderGeometry(RM + 0.05, RM + 0.05, 0.025, 40), M.edge, x, 0.17, PZ));
     const tt = tex(512, 150, (c, w, h) => { c.fillStyle = CRE; rr(c, 0, 0, w, h, 26); c.fillStyle = NAV0; c.textAlign = "center"; c.textBaseline = "middle"; ajustar(c, ROT_PILA[i], 800, 92, w - 44); c.fillText(ROT_PILA[i], w / 2, h / 2 + 4); });
     const pm = new THREE.MeshStandardMaterial({ map: tt, roughness: 0.6, emissive: 0xffffff, emissiveMap: tt, emissiveIntensity: 0.16, transparent: true });
-    const pl = mesh(new THREE.PlaneGeometry(0.6, 0.18), pm, x, 0.27, PZ + 0.56); pl.rotation.x = -0.3; bandeja.add(pl); placas.push(pl);
+    const pl = mesh(new THREE.PlaneGeometry(0.54, 0.16), pm, x, 0.27, PZ + 0.56); pl.rotation.x = -0.3; bandeja.add(pl); placas.push(pl);
     bandeja.add(mesh(rbox(0.46, 0.12, 0.04, 0.01), M.navy3, x, 0.12, PZ + 0.53));
   });
   sh(bandeja);
@@ -442,10 +442,12 @@ const TAB = {
   lista: tex(TBW, TBH, (x) => { cabezal(x, "Clientes"); filaLista(x, 150, "Graciela", true); filaLista(x, 330, "Héctor", false); filaLista(x, 510, "Alicia", false); }),
   ficha: tex(TBW, TBH, (x) => {
     cabezal(x, "Clientes  ›  Ficha");
-    avatar(x, 150, 300, 104, true);
-    x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 84); x.fillText("Graciela", 290, 290);
-    const fila2 = (y, a, b) => { x.fillStyle = "#eceae0"; rr(x, 30, y, TBW - 60, 112, 22); x.fillStyle = "#33415e"; x.font = F(600, 50); x.fillText(a, 60, y + 58); x.fillStyle = NAV0; x.font = F(800, 50); x.fillText(b, 60 + x.measureText(a).width + 18, y + 58); };
-    x.font = F(600, 50); fila2(436, "Clienta desde:", "hace 1 año"); fila2(566, "Lleva siempre:", "yerba y bizcochos");
+    // (la franja de 128 a 318 queda libre: ahí cae el aviso)
+    x.strokeStyle = "#d9d7c9"; x.lineWidth = 4; x.setLineDash([14, 12]); x.strokeRect(34, 132, TBW - 68, 182); x.setLineDash([]);
+    avatar(x, 112, 396, 66, true);
+    x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 76); x.fillText("Graciela", 200, 396);
+    const fila2 = (y, a, b) => { x.fillStyle = "#eceae0"; rr(x, 30, y, TBW - 60, 100, 22); x.fillStyle = "#33415e"; x.font = F(600, 50); x.fillText(a, 60, y + 52); x.fillStyle = NAV0; x.font = F(800, 50); x.fillText(b, 60 + x.measureText(a).width + 18, y + 52); };
+    x.font = F(600, 50); fila2(484, "Clienta desde:", "hace 1 año"); fila2(600, "Lleva siempre:", "yerba y bizcochos");
   }),
   gestos: tex(TBW, TBH, (x) => { cabezal(x, "Clientes"); filaLista(x, 150, "Graciela · 1 año", true, true); filaLista(x, 330, "Héctor · lo de siempre", false, true); filaLista(x, 510, "Alicia · volvió", false, true); }),
 };
@@ -454,12 +456,13 @@ const TB0 = V(OB.x - 0.82, MOSTRADOR.y, MOSTRADOR.z + 0.02);
 tablet.position.copy(TB0); tablet.rotation.y = 0.12;
 const tabPant = tablet.userData.pantalla, tabPiv = tablet.userData.pivote;
 // el aviso verde que cae sobre la ficha
-const avisoTex = tex(900, 190, (x, w, h) => {
-  x.fillStyle = VER; rr(x, 0, 0, w, h, 40);
-  x.fillStyle = NAV0; x.beginPath(); const cx = 95, cy = h / 2; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? 26 : 56; x.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); } x.closePath(); x.fill();
-  x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "Hoy cumple 1 año como clienta", 800, 82, w - 200); x.fillText("Hoy cumple 1 año como clienta", 175, h / 2 + 4);
+const avisoTex = tex(1000, 185, (x, w, h) => {
+  x.fillStyle = VER; rr(x, 0, 0, w, h, 36);
+  x.fillStyle = NAV0; x.beginPath(); const cx = 92, cy = h / 2; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + (i * Math.PI) / 5, r = i % 2 ? 26 : 58; x.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); } x.closePath(); x.fill();
+  x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 78); x.fillText("Hoy cumple 1 año", 178, 64);
+  x.font = F(700, 58); x.fillText("como clienta", 178, 136);
 });
-const aviso = mesh(new THREE.PlaneGeometry(0.56, 0.118), new THREE.MeshBasicMaterial({ map: avisoTex, transparent: true, toneMapped: false })); tabPiv.add(aviso);
+const aviso = mesh(new THREE.PlaneGeometry(0.55, 0.102), new THREE.MeshBasicMaterial({ map: avisoTex, transparent: true, toneMapped: false })); tabPiv.add(aviso);
 const tildesTab = [0, 1, 2].map(() => { const t = hacerTilde(0.034); t.visible = false; return t; });
 
 // ---------- Rubén, Graciela y la fila ----------
@@ -514,8 +517,8 @@ const PLANOS = [
     k(T.grua + 0.55, [0.6, 2.7, 4.6], [0.1, 0.95, 0.2]),
     k(S["s03-uno-dos"] - 0.1, [0.4, 3.15, 7.0], [0.0, 1.0, 0.05]),
     // travelling a la izquierda siguiendo al caramelo que vuela a la pila
-    k(T.llega1 + 0.05, [-3.65, 2.75, 8.2], [-3.87, 1.42, PZ]),
-    k(S["s04-uno-mas-uno"] - 0.05, [-4.05, 2.65, 8.0], [-3.87, 1.42, PZ]),
+    k(T.llega1 + 0.05, [-3.8, 2.8, 9.1], [-3.87, 1.62, PZ]),
+    k(S["s04-uno-mas-uno"] - 0.05, [-3.98, 2.7, 8.9], [-3.87, 1.62, PZ]),
     // de vuelta a la mesa: la moza en plano medio
     k(S["s04-uno-mas-uno"] + 0.42, [2.75, 1.8, 4.5], [0.92, 1.0, 0.25]),
     k(T.amaga, [2.8, 1.8, 4.45], [0.98, 1.0, 0.2]),
@@ -523,8 +526,8 @@ const PLANOS = [
     k(T.latigo, [2.75, 1.8, 4.45], [0.95, 1.0, 0.22]),
     // dolly rápido a la pila del 1 + 1
     k(T.latigo + 0.38, [-3.2, 2.35, 7.3], [-3.3, 1.72, PZ]),
-    k(S["s05-mismos"] + 0.25, [-3.1, 2.9, 9.0], [-3.2, 2.12, PZ]),
-    k(S["s06-por-que"] - 0.2, [-3.2, 3.15, 8.6], [-3.22, 2.42, PZ]),
+    k(S["s05-mismos"] + 0.25, [-3.1, 3.3, 9.0], [-3.2, 2.65, PZ]),
+    k(S["s06-por-que"] - 0.2, [-3.2, 3.45, 8.6], [-3.22, 2.8, PZ]),
     k(T.preg + 0.25, [-3.2, 4.05, 5.75], [-3.32, 3.85, PZ]),
     k(T.parecio, [-2.8, 4.05, 5.55], [-3.32, 3.85, PZ]),
     // el punto del "?" vuela a la mano de la moza
@@ -537,8 +540,8 @@ const PLANOS = [
     k(S["s08-ficha"] + 0.65, ob(-0.82, 1.72, 1.35), ob(-0.82, 1.16, -0.98)),
     k(T.daR - 0.3, ob(-0.82, 1.7, 1.22), ob(-0.82, 1.16, -0.98)),
     // Rubén y Graciela en el mostrador (tres cuartos)
-    k(T.daR + 0.25, ob(-2.0, 2.1, 3.15), ob(-0.2, 1.1, -0.95)),
-    k(T.vuelveR + 0.4, ob(-1.9, 2.05, 3.0), ob(-0.22, 1.1, -0.95)),
+    k(T.daR + 0.25, ob(-2.25, 2.15, 3.55), ob(-0.42, 1.1, -0.95)),
+    k(T.vuelveR + 0.4, ob(-2.15, 2.1, 3.4), ob(-0.4, 1.1, -0.95)),
     k(T.habla - 0.05, ob(-1.3, 1.7, 1.75), ob(0.1, 1.25, -1.2)),
     // primer plano de Rubén (por encima del hombro de Graciela)
     k(T.habla + 0.35, ob(-1.1, 1.6, 1.0), ob(0.0, 1.24, -1.5)),
@@ -843,7 +846,7 @@ function zonaB(t) {
     aviso.visible = va;
     if (va) {
       const u = eio(sg(t, T.avisa, T.avisa + 0.3));
-      aviso.position.set(0, 0.22 + lerp(0.3, 0.158, u), 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.06 * pulso(t, T.gra, 0.3) + 0.12 * pulso(t, T.mira, 0.3) + 0.1 * pulso(t, T.vuelveR, 0.25)));
+      aviso.position.set(0, lerp(0.42, 0.2937, u), 0.012); aviso.scale.setScalar(popIn(t, T.avisa, 0.3) * (1 + 0.06 * pulso(t, T.gra, 0.3) + 0.12 * pulso(t, T.mira, 0.3) + 0.1 * pulso(t, T.vuelveR, 0.25)));
     }
     // los tildes de los gestos (s10)
     tildesTab.forEach((tk, i) => {
@@ -880,7 +883,7 @@ function zonaB(t) {
     [T.daR, { ...CARA.sonrisa, cabeza: { giro: 0.0, asiente: 0.12, ladea: 0 }, ojos: { x: 0, y: -0.2, abiertos: 1 } }, 0.25],
     // amaga a irse: se da vuelta hacia la estantería
     // mira el aviso de la tablet (a su derecha): "1 año"
-    [T.mira + 0.3, { cabeza: { giro: -0.85, asiente: 0.22, ladea: 0.0 }, ojos: { x: -0.6, y: -0.4, abiertos: 1 }, ...CARA.sorpresa, boca: { sonrisa: 0.5, abierta: 0.15, ancho: 0.9 } }, 0.3],
+    [T.mira + 0.3, { cabeza: { giro: -1.1, asiente: 0.25, ladea: -0.05 }, ojos: { x: -0.9, y: -0.5, abiertos: 1 }, ...CARA.sorpresa, boca: { sonrisa: 0.5, abierta: 0.15, ancho: 0.9 } }, 0.3],
     // vuelve
     [T.vuelveR + 0.4, { ...CARA.sonrisa, cabeza: { giro: 0.0, asiente: 0.1, ladea: 0.05 }, ojos: { x: 0, y: -0.15, abiertos: 1, feliz: 0.3 } }, 0.32],
     [T.habla, { ...CARA.feliz, boca: { sonrisa: 0.9, abierta: 0, ancho: 1.1 }, cabeza: { giro: -0.06, asiente: 0.06, ladea: 0.1 }, ojos: { x: 0, y: -0.1, abiertos: 1, feliz: 0.35 } }, 0.25],

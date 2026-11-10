@@ -19,16 +19,18 @@ Rubén (callback visual). Cámara continua (Catmull-Rom) de objeto en objeto, ca
 **Fondo navy claro `#16243d` LISO** (los dos últimos explicadores fueron crema y navy oscuro); piso `#1f3254` con
 sombra suave; nada de degradés ni brillos (compresión de Instagram). Cierre en verde de marca `#5ce611` con letras navy.
 
-## Construcción (10-11)
-- Voz: Orus `partes/orus-a2.wav` (toma elegida: en orus-a1 se comió el "se" de "irse") con "Pareció un gesto personal."
-  de `partes/orus-parecio.wav` (en a2 STT oía "parece"), Rubén `partes/ruben2.wav` (Algenib), Orus `partes/orus-b1.wav`;
-  pegado en `partes/armar-voz.sh` (pausas: +0,15 s antes de "¿Por qué?", +0,28 s antes de "y vuelve", 0,35 s antes de
-  Rubén, 0,5 s después). Tiempos: `partes/ajustar-tiempos.mjs` (silencios reales + STT; el cierre a mano). 34,56 s.
-- Escenas reales (reel.json): "¿Por qué?" (0,58 s) y "Pareció un gesto personal." van juntas en `s06-por-que`, así que
-  desde ahí las ids corren una: s07-ruben, s08-ficha, s09-vuelve, s10-gesto, s11-llamada.
-- La fila del almacén quedó a la derecha de Graciela, paralela al mostrador; la tablet, a la izquierda del mostrador.
-- En la tarjeta de cierre el caramelo verde oscuro va grande abajo del texto (no en la esquina): sin él la mitad de abajo
-  quedaba verde vacía.
+## Construcción (10-11) · guion v2 (ronda 1 de correcciones del revisor de guion y datos)
+- Guion v2 en `guion.txt` (v1 en `partes/guion-v1.txt`). Voz pegada en `partes/armar-voz.sh`: Orus línea 1 y 4-7 de
+  `orus-a2` (v1), líneas 2-3 de `v2-a2`, 8-11 de `v2-b2`, Rubén `v2-ruben7` (Algenib; la única toma en la que STT oye
+  "por tu año"), línea 13 de `v2-c1`. Tiempos: `partes/ajustar-tiempos.mjs` (silencios + STT; el cierre a mano). 34,99 s.
+- Escenas (reel.json): s01-gancho · s02-estudio · s03-uno-dos · s04-uno-mas-uno · s05-mismos · s06-por-que ("¿Por qué?"
+  + "Se sintió como un gesto personal.") · s07-quien (el caramelo cae al frasco; la fila con "?" en "quién") · s08-ficha ·
+  s09-vuelve (da uno, mira el aviso, el segundo sale de la tablet; "Y este, por tu año.") · s10-gesto · s11-llamada.
+- Pilas proporcionales a la propina promedio (19 / 20 / 22 / 23 monedas finas); la diferencia, en color y tilde.
+- Sin tarjetita "Para esta mesa". Rótulo s02 "Estudio publicado en 2002". Ficha: "Clienta desde: hace 1 año", aviso
+  "Hoy cumple 1 año / como clienta", lista con Héctor en vez de Nico. El logo entra en s02 (no en el cuadro 0).
+- La fila del almacén está a la derecha de Graciela, paralela al mostrador; la tablet, a la izquierda del mostrador.
+- En la tarjeta de cierre el caramelo verde oscuro va grande abajo del texto (no en la esquina).
 
 ## Lo que cambia respecto de SPEC-base
 Todo lo dibujado es 3D (no líneas SVG). Subtítulos arriba al centro, 1 a 3 palabras, Lexend 700 ~86 px crema con
