@@ -69,11 +69,17 @@ export const ELENCO = {
     auriculares: MARCA.g, auricularFino: true, alto: 1.0, lentes: null },
 };
 
+// el mozo de por-que-el-mozo (10-11, genérico, no es del elenco fijo): camisa blanca, chaleco navy, moño verde, delantal
+// largo crema, repasador al hombro, pelo engominado con raya al costado, bigote fino y el lápiz atrás de la oreja
+export const MOZO = { nombre: "Mozo", piel: PIEL.clara, pelo: 0x2a2220, peinado: "engominado", cejasColor: 0x2a2220, bigoteFino: 0x2a2220,
+  camisa: 0xffffff, mangas: "largas", chaleco: MARCA.navy2, moño: MARCA.g, delantalLargo: MARCA.cr, repasador: true, lapizOreja: true,
+  pantalon: MARCA.navy, zapatos: 0x1a1414, panza: 1.0, nariz: 0.058, mejillas: 0xe59a8a, alto: 1.02, ojoDibujo: true };
+
 // valores neutros para lo que un personaje no define (sin bigote, sin lentes, sin delantal...)
 export const DEFECTO = { nombre: "Alguien", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2f2a,
   camisa: MARCA.cr, mangas: "cortas", pantalon: 0x3a3f4a, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, mejillas: 0xe08a7a, alto: 1.0,
   bigote: null, lentes: null, delantal: null, delantalBorde: null, pollera: null, cuello: null, labios: null, aros: null, auriculares: null,
-  pestanas: null, ojoDibujo: false, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
+  pestanas: null, ojoDibujo: false, chaleco: null, moño: null, delantalLargo: null, repasador: false, bigoteFino: null, lapizOreja: false, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
 
 export const POSE_BASE = {
   x: 0, y: 0, z: 0, giro: 0, inclina: 0, ladea: 0, torso: 0, aplasta: 0, respira: 1, t: 0, reflejo: 0, paso: 0,
@@ -181,6 +187,44 @@ export function crearPersonaje(cfg) {
     // franja de marca en el pecho (buzo): un aro que sigue el torso
     const fm = mat(c.franja, 0.5);
     for (const [y, r] of [[0.3, 0.226], [0.255, 0.231]]) { const f = mesh(new THREE.TorusGeometry(r * (y < 0.28 ? Math.max(1, P * 0.98) : 1), y < 0.28 ? 0.012 : 0.022, 8, 40), fm, 0, y, 0); f.rotation.x = Math.PI / 2; f.scale.set(1, 0.86, 1); cuerpo.add(f); }
+  }
+  if (c.chaleco) {
+    // chaleco abierto adelante (deja ver la camisa y el moño): un tubo que sigue el torso, con botones
+    const vm = mat(c.chaleco, 0.6);
+    const vg = new THREE.CylinderGeometry(0.212, 0.252 * P, 0.36, 36, 1, true, 0.42, Math.PI * 2 - 0.84);
+    const v = mesh(vg, vm, 0, 0.3, 0); v.scale.z = 0.9; cuerpo.add(v);
+    // hombros del chaleco (tapa la costura con la bola del brazo)
+    const hom = mesh(new THREE.CylinderGeometry(0.12, 0.2, 0.06, 36, 1, true, 0.62, Math.PI * 2 - 1.24), vm, 0, 0.495, 0); hom.scale.z = 0.88; cuerpo.add(hom);
+    for (const s of [-1, 1]) { const solapa = mesh(rbox(0.035, 0.3, 0.02, 0.008), vm, s * 0.085, 0.3, 0.205 * P); solapa.rotation.set(-0.12, 0, s * 0.22); cuerpo.add(solapa); }
+    const bm = mat(c.chalecoBoton ?? MARCA.cr, 0.35);
+    for (const y of [0.13, 0.2]) cuerpo.add(mesh(G.esferaLow, bm, 0.05, y, 0.228 * P, 0.014));
+  }
+  if (c.moño) {
+    // moño (corbata de lazo) en el cuello de la camisa
+    const mm = mat(c.moño, 0.45);
+    const lz = new THREE.Group(); lz.position.set(0, 0.49, 0.125); lz.rotation.x = -0.25; cuerpo.add(lz);
+    for (const s of [-1, 1]) { const a = mesh(new THREE.ConeGeometry(0.035, 0.065, 4), mm, s * 0.032, 0, 0); a.rotation.z = s * Math.PI / 2; a.scale.z = 0.5; lz.add(a); }
+    lz.add(mesh(G.esferaLow, mm, 0, 0, 0.004, 0.016, 0.018, 0.012));
+  }
+  if (c.delantalLargo) {
+    // delantal de mozo: desde la cintura hasta abajo de la rodilla, atado con una tira; bolsillo con la libreta cerrada
+    const dm = mat(c.delantalLargo, 0.8); dm.side = THREE.DoubleSide;
+    const del = mesh(new THREE.CylinderGeometry(0.248 * P, 0.29, 0.58, 30, 1, true, -1.25, 2.5), dm, 0, -0.2, 0); del.scale.z = 0.92; cuerpo.add(del);
+    const tira = mesh(new THREE.TorusGeometry(0.242 * P, 0.012, 6, 40), dm, 0, 0.09, 0); tira.rotation.x = Math.PI / 2; tira.scale.y = 0.88; cuerpo.add(tira);
+    const bol = mesh(rbox(0.13, 0.11, 0.022, 0.01), dm, -0.1, -0.06, 0.262); bol.rotation.y = -0.38; cuerpo.add(bol);
+    // la libreta cerrada asoma del bolsillo
+    const lib = mesh(rbox(0.085, 0.1, 0.022, 0.008), mat(MARCA.navy2, 0.6), -0.098, 0.0, 0.255); lib.rotation.set(0, -0.38, -0.06); cuerpo.add(lib);
+    const hojas = mesh(rbox(0.077, 0.006, 0.016, 0.002), mat(0xf7f5ec, 0.8), -0.098, 0.05, 0.255); hojas.rotation.set(0, -0.38, -0.06); cuerpo.add(hojas);
+    const gom = mesh(rbox(0.088, 0.008, 0.026, 0.003), mat(MARCA.g, 0.5), -0.098, 0.025, 0.256); gom.rotation.set(0, -0.38, -0.06); cuerpo.add(gom);
+    cuerpo.userData.libreta = lib;
+  }
+  if (c.repasador) {
+    // repasador blanco al hombro izquierdo (+x): cae adelante sobre el pecho y atrás
+    const rm = mat(0xffffff, 0.85);
+    const top = mesh(rbox(0.1, 0.025, 0.18, 0.01), rm, 0.17, 0.5, 0.0); top.rotation.z = -0.35; cuerpo.add(top);
+    const fr = mesh(rbox(0.1, 0.2, 0.022, 0.01), rm, 0.17, 0.39, 0.155); fr.rotation.set(-0.25, 0, 0.12); cuerpo.add(fr);
+    for (const y of [0.33, 0.35]) { const r = mesh(rbox(0.102, 0.008, 0.024, 0.003), mat(MARCA.g, 0.6), 0.17 + (0.36 - y) * 0.12, y, 0.17 - (0.36 - y) * 0.25); r.rotation.set(-0.25, 0, 0.12); cuerpo.add(r); }
+    const at = mesh(rbox(0.1, 0.16, 0.022, 0.01), rm, 0.17, 0.42, -0.14); at.rotation.set(0.2, 0, 0.1); cuerpo.add(at);
   }
   const CA = c.cuelloAlto || 0;
   // cuelloAlto: la cabeza sube y se ve un cuello de verdad (sin el aro de la camisa haciendo de pedestal)
@@ -361,6 +405,16 @@ export function crearPersonaje(cfg) {
     for (const sg of [-1, 1]) { mecha(sg * 1.5, 0.5, 0.1, 0.07, 0.022, 1.0, 0); mecha(sg * 1.34, 0.2, 0.024, 0.06, 0.016, 1.0, sg * 0.05); }
     // el jopo: mechones que suben desde la frente y se van hacia atrás, el del medio más alto
     for (const [az, el, sx, sy, sz, rz] of [[-0.4, 0.84, 0.1, 0.06, 0.11, 0.35], [-0.13, 0.9, 0.12, 0.075, 0.12, 0.12], [0.15, 0.91, 0.12, 0.08, 0.12, -0.08], [0.42, 0.85, 0.1, 0.06, 0.11, -0.3], [0.0, 1.12, 0.16, 0.07, 0.15, 0], [-0.3, 1.08, 0.11, 0.06, 0.12, 0.2], [0.3, 1.08, 0.11, 0.06, 0.12, -0.2]]) mecha(az, el, sx, sy * JA, sz, 1.0 + 0.06 * JA, rz, -0.35);
+  } else if (c.peinado === "engominado") {
+    // el mozo (por-que-el-mozo, 10-11): pelo engominado pegado y brillante, raya al costado (lado derecho del personaje)
+    const gm = mat(c.pelo, 0.22, { metalness: 0.05 });
+    const cap = mesh(new THREE.SphereGeometry(1, 40, 18, 0, Math.PI * 2, 0, Math.PI * 0.43), gm, 0, CC + 0.006, -0.012, R * 1.04, R * 1.03, R * 1.035); cap.rotation.x = -0.28; cabeza.add(cap);
+    // el lado largo (izquierda del personaje, +x) peinado hacia atrás con una onda sobre la frente
+    const onda = mesh(G.esfera, gm, 0, 0, 0, 0.17, 0.06, 0.1); sobre(onda, 0.32, 0.72, 1.0); onda.rotation.z += -0.32; onda.rotation.x -= 0.25; cabeza.add(onda);
+    // la raya: un surco de piel fino que va de la frente hacia atrás
+    const raya = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([sup(-0.36, 0.62, 1.035), sup(-0.33, 0.85, 1.035), sup(-0.28, 1.1, 1.03), sup(-0.24, 1.32, 1.02)]), 16, 0.007, 5);
+    cabeza.add(new THREE.Mesh(raya, M.pielSombra));
+    for (const sg of [-1, 1]) { const m = mesh(G.esfera, gm, 0, 0, 0, 0.03, 0.07, 0.016); sobre(m, sg * 1.36, 0.18, 1.0); cabeza.add(m); }
   } else if (c.peinado === "rodete") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.45), M.pelo, 0, CC + 0.005, -0.008, R * 1.04, R * 1.02, R * 1.02));
     cabeza.add(mesh(G.esfera, M.pelo, 0, CC + R * 0.95, -R * 0.45, 0.13));
@@ -391,6 +445,19 @@ export function crearPersonaje(cfg) {
       const bd = mat(c.bigoteColor ?? 0x1e1612, 0.85);
       for (const s of [-1, 1]) { const bg = mesh(G.esfera, bd, 0, 0, 0, 0.068, 0.017, 0.016); sobre(bg, s * 0.11, -0.262, 1.0); bg.rotation.z += s * 0.1; cabeza.add(bg); }
     }
+  }
+  if (c.bigoteFino) {
+    // bigote fino de mozo antiguo: dos trazos finos y largos con las puntas apenas para arriba
+    const bm = mat(c.bigoteFino, 0.5);
+    for (const s of [-1, 1]) { const b = mesh(G.esfera, bm, 0, 0, 0, 0.07, 0.013, 0.014); sobre(b, s * 0.13, -0.2, 1.01); b.rotation.z += s * 0.18; cabeza.add(b); }
+  }
+  if (c.lapizOreja) {
+    // lápiz atrás de la oreja derecha (-x), sin usar: cuerpo verde, punta de madera y grafito
+    const lap = new THREE.Group(); const p = sup(-1.62, 0.16, 1.05); lap.position.copy(p); lap.rotation.set(0.25, Math.PI, -0.45); lap.scale.setScalar(0.85); cabeza.add(lap);
+    lap.add(mesh(new THREE.CylinderGeometry(0.014, 0.014, 0.2, 6).rotateX(Math.PI / 2), mat(MARCA.g, 0.5), 0, 0, -0.02));
+    lap.add(mesh(new THREE.ConeGeometry(0.014, 0.04, 6).rotateX(Math.PI / 2), mat(0xe6c99a, 0.7), 0, 0, 0.1));
+    lap.add(mesh(new THREE.ConeGeometry(0.005, 0.014, 6).rotateX(Math.PI / 2), mat(0x2a2a2a, 0.5), 0, 0, 0.122));
+    lap.add(mesh(new THREE.CylinderGeometry(0.0145, 0.0145, 0.02, 6).rotateX(Math.PI / 2), mat(MARCA.cr, 0.5), 0, 0, -0.125));
   }
   if (c.bigote) {
     const bm = mat(c.bigote, 0.7);

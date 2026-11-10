@@ -1,0 +1,16 @@
+file:///home/user/wt/por-que-el-mozo/herramientas/google.mjs:40
+  if (!r.ok) throw new Error(`${url} → ${r.status}: ${JSON.stringify(j).slice(0, 400)}`);
+                   ^
+
+Error: https://texttospeech.googleapis.com/v1/text:synthesize → 429: {"error":{"code":429,"message":"Quota exceeded for aiplatform.googleapis.com/global_generate_content_requests_per_minute_per_project_per_base_model with base model: gemini-2.5-pro-tts. Please submit a quota increase request. https://cloud.google.com/vertex-ai/docs/generative-ai/quotas-genai.","status":"RESOURCE_EXHAUSTED"}}
+    at llamar (file:///home/user/wt/por-que-el-mozo/herramientas/google.mjs:40:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async file:///home/user/wt/por-que-el-mozo/herramientas/voz.mjs:30:11
+
+Node.js v22.23.4
+voz lista: partes/orus-a1.wav
+voz lista: partes/ruben1.wav
+voz lista: partes/orus-b1.wav
+voz lista: partes/orus-a2.wav
+voz lista: partes/ruben2.wav
+LISTO

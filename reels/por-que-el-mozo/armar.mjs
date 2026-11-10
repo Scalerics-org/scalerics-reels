@@ -1,8 +1,9 @@
 // Arma index.html, compositions/subtitulos.html y tiempos.md desde reel.json y la locución.
 // Versión corta de netflix-blockbuster (03-11, ~30 s; reel.json acepta sinSub) (copiada de caso-dominos; capa 3D real con Three.js en assets/tres.js debajo de las escenas HTML): subtítulos arriba al centro, de 1 a 3
 // palabras, Lexend 700 grande, y la palabra clave dentro de un recuadro verde de selección.
-// por-que-el-caramelo (base por-que-se-fue): fondo navy claro #16243d liso (compresión de Instagram), subtítulos navy sobre
-// cartel crema, recuadro verde con texto navy, logo en píldora crema; en el cierre (s11) el fondo pasa a verde de marca #5ce611.
+// por-que-el-mozo (base por-que-el-caramelo): fondo crema #efeee5 liso (compresión de Instagram), subtítulos navy sobre
+// cartel BLANCO con borde navy de 4 px (el crema se perdería en el fondo), recuadro verde con texto navy, logo oscuro en
+// píldora blanca; en el cierre (s12) el fondo pasa a verde de marca #5ce611.
 //
 // reel.json:
 //   escenas:  [["s01-algo", 0], ...]   id y ÍNDICE de la palabra donde arranca
@@ -120,7 +121,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; padding: 6px 28px 12px; border-radius: 28px; background: rgba(239,238,229,0.94); max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-shadow: 4px 0px 0 #efeee5, -4px 0px 0 #efeee5, 0px 4px 0 #efeee5, 0px -4px 0 #efeee5, 3px 3px 0 #efeee5, -3px 3px 0 #efeee5, 3px -3px 0 #efeee5, -3px -3px 0 #efeee5, 5px 2px 0 #efeee5, -5px 2px 0 #efeee5, 2px 5px 0 #efeee5, -2px 5px 0 #efeee5, 5px -2px 0 #efeee5, -5px -2px 0 #efeee5, 2px -5px 0 #efeee5, -2px -5px 0 #efeee5, 0 0 14px rgba(239,238,229,0.9); }
+    ${C} p { margin: 0; padding: 4px 30px 12px; border-radius: 28px; background: #ffffff; border: 4px solid #0b1220; box-shadow: 0 8px 0 rgba(11,18,32,0.18); max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 700; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 4px; }
@@ -170,11 +171,13 @@ for (let i = 0; i < 0; i++) {
 }
 
 // en el "¿Por qué?" la cama baja más (bisagra)
-const S06 = TODAS.find(([id]) => id === "s06-por-que")[1];
+const S06 = TODAS.find(([id]) => id === "s05-por-que")[1];
 const DUCK = [r2(S06 - 0.85), r2(S06 + 0.15)];
+// la cama tiene un golpe propio entre 14,9 y 15,7 s (justo antes de "Otro estudio"): ahí baja también
+const DUCK2 = [14.85, 15.75];
 // música recortada a la duración del reel, con fundido de 0,35 s al final
 // la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
-execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.07:ratio=2.5:attack=30:release=1000:makeup=1[d];[d]volume='1-0.7*min(max((t-${DUCK[0]})/0.2,0),1)*min(max((${DUCK[1]}-t)/0.2,0),1)':eval=frame,afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.035:ratio=4:attack=20:release=700:makeup=1[d];[d]volume='(1-0.7*min(max((t-${DUCK[0]})/0.2,0),1)*min(max((${DUCK[1]}-t)/0.2,0),1))*(1-0.6*min(max((t-${DUCK2[0]})/0.15,0),1)*min(max((${DUCK2[1]}-t)/0.15,0),1))':eval=frame,afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -206,7 +209,7 @@ const sfxTags = sfx
 // LIMPIO=1 node armar.mjs: solo la capa 3D (sin escenas HTML, subtítulos, logo ni audio), para el fondo de la portada
 const LIMPIO = process.env.LIMPIO === "1";
 // zona libre del logo (s05-s07: la góndola llega hasta abajo del cuadro)
-const FONDO_LIMPIO = process.env.FONDO || "#16243d";
+const FONDO_LIMPIO = process.env.FONDO || "#efeee5";
 const index = `<!doctype html>
 <html lang="es">
   <head>
@@ -217,16 +220,16 @@ const index = `<!doctype html>
       @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
       @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#16243d"}; }
-      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#16243d"}; }
-      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#16243d"}; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
+      #fondo { position: absolute; inset: 0; background: ${LIMPIO ? FONDO_LIMPIO : "#efeee5"}; }
       #estrellas { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; }
       #pie { position: absolute; left: 0; top: 1712px; width: 1080px; height: 208px; background: #0b1220; }
       #velo { position: absolute; left: 0; top: 0; width: 1080px; height: 640px; background: linear-gradient(180deg, rgba(239,238,229,0.88) 0%, rgba(239,238,229,0.7) 50%, rgba(239,238,229,0) 100%); }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene, #el-subtitulos { position: absolute; inset: 0; width: 100%; height: 100%; }
-      #firma { position: absolute; left: 50%; top: 1752px; height: 40px; width: auto; transform: translateX(-50%); z-index: 50; box-sizing: content-box; padding: 8px 20px; border-radius: 999px; background: #efeee5; border: 4px solid #0b1220; }
+      #firma { position: absolute; left: 50%; top: 1752px; height: 40px; width: auto; transform: translateX(-50%); z-index: 50; box-sizing: content-box; padding: 8px 20px; border-radius: 999px; background: #ffffff; border: 4px solid #0b1220; }
     </style>
   </head>
   <body>
@@ -237,7 +240,7 @@ ${LIMPIO ? "" : hosts}
 ${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-oscuro.png" alt="Scalerics" data-start="${TODAS[1][1]}" data-duration="${r2(DUR - TODAS[1][1])}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.4"></audio>\n` : ""}${sfxTags}`}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.3"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -253,8 +256,8 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // cierre: el fondo pasa a verde de marca (el texto de la tarjeta es navy)
-      tl.set("#fondo", { backgroundColor: "#16243d" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s11-llamada")[1]});
-      tl.set("#firma", { backgroundColor: "#efeee5" }, 0);
+      tl.set("#fondo", { backgroundColor: "#efeee5" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s12-llamada")[1]});
+      tl.set("#firma", { backgroundColor: "#ffffff" }, 0);
       window.__timelines["main"] = tl;
     </script>
   </body>
