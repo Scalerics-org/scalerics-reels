@@ -315,7 +315,7 @@ atril.position.copy(ATRIL);
 // el mismo celular en la mano de Rubén (P5: graba el audio)
 const celuMano = crearCelular(pantR, C.navy3, 0.085, 0.138); celuMano.scale.setScalar(2.1); scene.add(celuMano);
 // el de Graciela (funda crema), en su casa (P2)
-const pantG = lienzo(200, 325, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, h * 0.55, 34, 0, 7); x.fill(); x.fillStyle = "#efeee5"; x.font = F(800, 30); x.textAlign = "center"; x.fillText("Grabando", w / 2, h * 0.3); });
+const pantG = lienzo(200, 325, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, h * 0.5, 60, 0, 7); x.fill(); });
 const celuG = crearCelular(pantG, C.cr, 0.085, 0.138); celuG.scale.setScalar(1.5); scene.add(celuG);
 
 function barraEstado(x, w) {
@@ -411,10 +411,10 @@ function dibujarCeluR(t) {
   const pa = posAudio(t);
   const prog = p2 ? (t < T.escucha[0] ? 0 : t < T.escucha[1] ? Math.round(sg(t, T.escucha[0], T.escucha[1]) * 30) / 30 : 1) : Math.min(1, pa / 252);
   const lat = Math.floor(t / 0.3) % 2;
-  const ultimo = !p2 ? -9 : [T.escuchado, T.resp1, T.resp2, T.gTexto, T.b647b, T.escuchado2, T.resp3].filter((v) => v <= t).pop() ?? -9;
+  const ultimo = !p2 ? -9 : [T.escuchado, T.resp1, T.resp2, T.gTexto].filter((v) => v <= t).pop() ?? -9;
   const scroll = Math.round(eio(sg(t, ultimo, ultimo + 0.25)) * 10) / 10;
   const fase1 = !p2 ? [t >= T.tap, t >= T.tap2x, t >= T.k412, u(T.b001), t >= T.grabando && t < T.b647 ? lat + 1 : 0, u(T.b647)].join() : "";
-  const fase2 = p2 ? [u(T.llega), t >= T.escucha[0], u(T.escuchado), u(T.resp1), u(T.resp2), u(T.gTexto), u(T.b647b), u(T.escuchado2), u(T.resp3)].join() : "";
+  const fase2 = p2 ? [u(T.llega), t >= T.escucha[0], u(T.escuchado), u(T.resp1), u(T.resp2), u(T.gTexto)].join() : "";
   const clave = `${p2}|${fase1}|${fase2}|${Math.round(prog * 60)}|${scroll}`;
   if (clave === claveR) return;
   claveR = clave;
@@ -432,9 +432,6 @@ function dibujarCeluR(t) {
     if (t >= T.resp1) items.push([40 + 4 * 62 + 104 + 8 + 18, (y) => burbujaTexto(x, y, ["¡Hola, Graciela!", "La polenta está", "a $ 90.", "¿Te la separo?"], { u: u(T.resp1), auto: true }) + 18]);
     if (t >= T.resp2) items.push([40 + 2 * 62 + 8 + 18, (y) => burbujaTexto(x, y, ["Saludos a tu", "sobrino."], { u: u(T.resp2) }) + 18]);
     if (t >= T.gTexto) items.push([40 + 2 * 62 + 8 + 18, (y) => burbujaTexto(x, y, ["¡Sí! Paso en", "un rato."], { lado: "cli", u: u(T.gTexto) }) + 18]);
-    if (t >= T.b647b) items.push([214, (y) => burbujaAudio(x, y, { dur: "6:47", sale: true, u: u(T.b647b) })]);
-    if (t >= T.escuchado2) items.push([96, (y) => chipVerde(x, y, "Audio escuchado", u(T.escuchado2))]);
-    if (t >= T.resp3) items.push([40 + 3 * 62 + 104 + 8 + 18, (y) => burbujaTexto(x, y, ["¡Qué lindo lo del", "perro! Ya te la", "separé."], { u: u(T.resp3), auto: true }) + 18]);
   }
   const ind = !p2 && en(t, T.grabando, T.b647) ? 150 : 0;      // "Graciela está grabando un audio…"
   const total = items.reduce((a, b) => a + b[0], 0);
@@ -520,11 +517,12 @@ const _cab = new THREE.Vector3();
 function cabezaEnPantalla(p, dy = 0.0) { p.cabeza.getWorldPosition(_cab); _cab.y += dy; return enPantalla(_cab); }
 const GL = {
   g6: crearGlobo(["¡Rubén! ¿Te conté", "lo de mi sobrino?"], 70),
-  resulta: crearGlobo(["Resulta que…"], 70),
+  resulta: crearGlobo(["Resulta que…"], 54),
 };
 // las fichas de los temas del audio: crema con borde navy, sin cola; la de la polenta en verde (selección)
 const FICHA = (txt, t0, t1, pos, o = {}) => ({ g: crearGlobo(txt, o.px ?? 64, { cola: false, ...(o.estilo || {}) }), t0, t1, pos, giro: o.giro ?? 0 });
 const FICHAS = [
+  FICHA(["¡Hola, Rubén!", "¿Cómo andás?"], 0.45, T.p2, { P1: [290, 1340] }, { giro: -0.03, px: 58 }),
   FICHA(["el sobrino"], T.fSobrino, T.fVecina, { P2: [290, 380], P3a: [300, 1290] }, { giro: 0.04 }),
   FICHA(["el perro"], T.fPerro, T.fNelly, { P2: [300, 1480], P3a: [300, 1450] }, { giro: -0.05 }),
   FICHA(["el frío"], T.fFrio, T.p4, { P3a: [300, 1610], P3b: [200, 1330] }, { giro: -0.03, px: 56 }),
@@ -986,8 +984,11 @@ function renderAt(tIn) {
   // ---- globos (Graciela en persona) ----
   {
     const ent = (ti) => bk(sg(t, ti, ti + 0.28));
-    if (plano === "Q3" && t >= T.bG6) { const [hx, hy] = cabezaEnPantalla(graciela, 0.12); ponerGlobo(GL.g6, hx + 60, Math.max(360, hy - 360), ent(T.bG6), [hx, hy - 160]); } else GL.g6.visible = false;
-    if (plano === "Q5" && t >= T.bResulta) { const [hx, hy] = cabezaEnPantalla(graciela, 0.12); ponerGlobo(GL.resulta, hx, cl(hy - 300, 820, 1100), ent(T.bResulta), [hx, hy - 120]); } else GL.resulta.visible = false;
+    const sale6 = 1 - eio(sg(t, T.bG6fin - 0.15, T.bG6fin));
+    if (plano === "Q3" && t >= T.bG6) { const [hx, hy] = cabezaEnPantalla(graciela, 0.12); ponerGlobo(GL.g6, hx + 60, Math.max(360, hy - 360), ent(T.bG6), [hx, hy - 160]); }
+    else if (plano === "Q4" && t < T.bG6fin) ponerGlobo(GL.g6, 400, 330, sale6, [-300, 700]);
+    else GL.g6.visible = false;
+    if (plano === "Q5" && t >= T.bResulta) { const [hx, hy] = cabezaEnPantalla(graciela, 0.12); ponerGlobo(GL.resulta, 250, 610, ent(T.bResulta), [hx, hy - 140]); } else GL.resulta.visible = false;
   }
   // ---- fichas de los temas del audio ----
   for (const f of FICHAS) {
