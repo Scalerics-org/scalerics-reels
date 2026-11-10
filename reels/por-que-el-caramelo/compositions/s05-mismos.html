@@ -29,7 +29,7 @@
   </style>
   <div id="root" data-composition-id="s05-mismos" data-width="1080" data-height="1920" data-duration="2.14">
     <div id="s05-mismos-esc" class="esc clip" data-start="0" data-duration="2.14" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M230 1140 L230 1030"/><circle class="dot g d1" cx="230" cy="1030" r="12"/><path class="lead g l3" d="M791 1140 L791 1070"/><circle class="dot g d3" cx="791" cy="1070" r="12"/></svg><div class="pill nom n1" style="left:230px;top:1180px">Dos juntos</div><div class="pill nom n3" style="left:791px;top:1180px">Uno + uno</div><div class="pill lleno nom n2" style="left:700px;top:1680px">Uno + uno: la que más</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M230 1140 L230 1030"/><circle class="dot g d1" cx="230" cy="1030" r="12"/><path class="lead g l3" d="M791 1140 L791 1070"/><circle class="dot g d3" cx="791" cy="1070" r="12"/></svg><div class="pill nom n1" style="left:230px;top:1180px">Dos juntos</div><div class="pill nom n3" style="left:791px;top:1180px">Uno + uno</div>
     </div>
   </div>
   <script>
@@ -57,7 +57,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(2, 0.46); sinNota(2, 0.46); nota(1, 1.01); nota(3, 1.16); sinNota(1, 1.74); sinNota(3, 1.74);
+nota(1, 1.01); nota(3, 1.16); sinNota(1, 1.74); sinNota(3, 1.74);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

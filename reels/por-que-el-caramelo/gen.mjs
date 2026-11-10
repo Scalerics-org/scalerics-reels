@@ -217,8 +217,8 @@ const pings = (t0, dur, n) => Array.from({ length: n }, (_, k) => ({ t: r2(t0 + 
   const [dx, dy] = POS.dosJuntos, [ux, uy] = POS.unoMasUno, [lx, ly] = POS.laQueMas;
   const t0 = r2(T(35) + 0.05 + 0.62 - INI[id]), verde = r2(t0 + 23 * 0.017 + 0.12), sube = r2(w(id, 38) + 0.05), mismos = r2(w(id, 38) + 0.45);
   escena(id, {
-    html: `${leads(lead(1, dx, dy - 40, dx, dy - 150, "g"), lead(3, ux, uy - 40, ux, uy - 110, "g"))}${pill(1, dx, dy, "Dos juntos", "nom")}${pill(3, ux, uy, "Uno + uno", "nom")}${pill(2, lx, ly, "Uno + uno: la que más", "lleno nom")}`,
-    js: `nota(2, ${r2(verde + 0.02)}); sinNota(2, ${r2(sube - 0.05)}); nota(1, ${r2(mismos + 0.1)}); nota(3, ${r2(mismos + 0.25)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
+    html: `${leads(lead(1, dx, dy - 40, dx, dy - 150, "g"), lead(3, ux, uy - 40, ux, uy - 110, "g"))}${pill(1, dx, dy, "Dos juntos", "nom")}${pill(3, ux, uy, "Uno + uno", "nom")}`,
+    js: `nota(1, ${r2(mismos + 0.1)}); nota(3, ${r2(mismos + 0.25)}); sinNota(1, ${r2(ESC[id] - 0.4)}); sinNota(3, ${r2(ESC[id] - 0.4)});`,
     sfx: [
       ...pings(t0, 0.36, 4),
       { t: verde, sfx: "ding", vol: 0.35, max: 0.8 },
