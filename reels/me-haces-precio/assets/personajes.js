@@ -53,6 +53,13 @@ export const ELENCO = {
   walter: { nombre: "Walter", piel: PIEL.clara, pelo: PELO.castaño, peinado: "texturado", texturaAlto: 0.25, cejasColor: 0x4a3222, ojeras: 0xb88a8a,
     camisa: 0xf7f7f2, mangas: "largas", cuello: 0xf7f7f2, cuelloBotones: false, corbata: MARCA.navy, pantalon: MARCA.navy2, zapatos: 0x3b2a20,
     campera: { color: MARCA.cr2, cuello: MARCA.navy, cierre: 0xb4b2a3, abierta: true }, panza: 1.0, nariz: 0.058, mejillas: 0xe8968a, alto: 1.0 },
+  // Héctor (me-haces-precio, 10-11): ~70, jubilado canchero que regatea por deporte. Costados blancos cortos bajo una
+  // boina navy inclinada, cejas blancas tupidas, afeitado, lentes finos, camisa celeste muy pálida, chaleco de lana
+  // mostaza abierto con botones navy, pantalón navy y zapatos marrones. Sonrisa de costado, nunca burlona.
+  hector: { nombre: "Héctor", piel: PIEL.clara, pelo: 0xeeebe4, peinado: "costados", cejasColor: 0xe8e4dc, cejaGruesa: true,
+    bigote: null, camisa: 0xdfe6ee, mangas: "largas", cuello: 0xdfe6ee, pantalon: MARCA.navy2, zapatos: 0x6b3f2e,
+    panza: 0.94, nariz: 0.064, mejillas: 0xe8968a, alto: 1.03, lentes: MARCA.navy3, lentesFinos: true,
+    boina: MARCA.navy3, chaleco: { color: 0xd9a441, botones: MARCA.navy3 } },
   // Para reels futuros: el empleado joven y la dueña de la cafetería.
   empleado: { nombre: "Nico", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "corto", cejasColor: 0x2a2220,
     camisa: MARCA.g, mangas: "cortas", pantalon: MARCA.navy2, zapatos: 0xefeee5, panza: 1.0, nariz: 0.055, mejillas: 0xc9785e, alto: 1.02 },
@@ -79,7 +86,7 @@ export const ELENCO = {
 export const DEFECTO = { nombre: "Alguien", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2f2a,
   camisa: MARCA.cr, mangas: "cortas", pantalon: 0x3a3f4a, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, mejillas: 0xe08a7a, alto: 1.0,
   bigote: null, lentes: null, delantal: null, delantalBorde: null, pollera: null, cuello: null, labios: null, aros: null, auriculares: null,
-  pestanas: null, campera: null, corbata: null, ojeras: null, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
+  pestanas: null, campera: null, chaleco: null, boina: null, lentesFinos: false, corbata: null, ojeras: null, barba: null, barbaBigote: false, cejaGruesa: false, ojosColor: null, caraLarga: 1, texturaAlto: 1, barbaLarga: 0.5, jopoAlto: 1, dedos: false, cuelloAlto: 0, labiosPegados: false, cuelloFino: false, cejaFina: false, ojoEscala: 1, franja: null, cuelloBotones: true, parpadeoCada: 3.1, parpadeoDur: 0.16 };
 
 export const POSE_BASE = {
   x: 0, y: 0, z: 0, giro: 0, inclina: 0, ladea: 0, torso: 0, aplasta: 0, respira: 1, t: 0, reflejo: 0, paso: 0, sentado: 0, pasoVel: 9,
@@ -237,6 +244,25 @@ export function crearPersonaje(cfg) {
     }
     campera.traverse((o) => { if (o.isMesh) o.castShadow = true; });
   }
+  // chaleco (Héctor): una cáscara sin mangas, abierta adelante, de lana (un poco más ancha que el torso), con el ruedo,
+  // las sisas marcadas y los botones de un lado. No toca las mangas (la camisa se sigue viendo en los brazos).
+  if (c.chaleco) {
+    const k = c.chaleco, mc = mat(k.color, 0.85), mb = mat(k.botones ?? MARCA.navy3, 0.45), mo = mat(new THREE.Color(k.color).multiplyScalar(0.8).getHex(), 0.85);
+    const pc = perfil.filter((v) => v.y > -0.01 && v.y < 0.45).map((v) => new THREE.Vector2(v.x * 1.07 + 0.008, v.y));
+    pc.unshift(new THREE.Vector2(pc[0].x, -0.04)); pc.push(new THREE.Vector2(0.16, 0.46));
+    const gap = 0.34;
+    const sh = mesh(new THREE.LatheGeometry(pc, 36, gap, Math.PI * 2 - 2 * gap), mc); sh.scale.z = 0.86; sh.material.side = THREE.DoubleSide; cuerpo.add(sh);
+    // ruedo de punto
+    const ru = mesh(new THREE.TorusGeometry(pc[1].x, 0.016, 6, 36, Math.PI * 2 - 2 * gap), mo, 0, -0.03, 0); ru.rotation.set(Math.PI / 2, 0, Math.PI / 2 + gap); ru.scale.y = 0.86; cuerpo.add(ru);
+    // bordes delanteros (tapeta) y botones del lado izquierdo del personaje
+    for (const s of [-1, 1]) {
+      const pts = [0.44, 0.36, 0.24, 0.12, -0.02].map((y) => { const r = radioEn(Math.max(0.0, y)) * 1.07 + 0.014; return new THREE.Vector3(s * Math.sin(gap) * r, y, Math.cos(gap) * r * 0.86); });
+      cuerpo.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 16, 0.014, 6), mo));
+      if (s > 0) for (const y of [0.3, 0.19, 0.08]) { const r = radioEn(y) * 1.07 + 0.024; cuerpo.add(mesh(G.esferaLow, mb, Math.sin(gap) * r + 0.012, y, Math.cos(gap) * r * 0.86 + 0.004, 0.017, 0.017, 0.01)); }
+    }
+    // sisas: aro alrededor de cada hombro
+    for (const s of [-1, 1]) { const a = mesh(new THREE.TorusGeometry(0.075, 0.016, 6, 20), mo, s * 0.205, 0.4, 0); a.rotation.y = Math.PI / 2; cuerpo.add(a); }
+  }
   const CA = c.cuelloAlto || 0;
   // cuelloAlto: la cabeza sube y se ve un cuello de verdad (sin el aro de la camisa haciendo de pedestal)
   const cuello = CA ? mesh(G.cil, M.piel, 0, 0.53 + CA * 0.5, 0, 0.056, 0.1 + CA, 0.05) : mesh(G.cil, M.piel, 0, 0.58, 0, 0.065, 0.1, 0.065); cuerpo.add(cuello);
@@ -364,6 +390,12 @@ export function crearPersonaje(cfg) {
     }
     // flequillo
     for (let i = -3; i <= 3; i++) { const m = mesh(rulo, M.pelo, 0, 0, 0, 0.058); sobre(m, i * 0.17, 0.7 + Math.abs(i) * 0.05, 1.02); cabeza.add(m); }
+  } else if (c.peinado === "costados") {
+    // costados y nuca cortos (debajo de una boina): una banda de pelo que no llega a la frente, con volumen corto
+    const pm = mat(c.pelo, 0.85);
+    const banda = mesh(new THREE.SphereGeometry(1, 40, 10, Math.PI / 2 + 0.95, Math.PI * 2 - 1.9, Math.PI * 0.26, Math.PI * 0.3), pm, 0, CC + 0.004, -0.004, R * 1.035, R * 1.0, R * 1.0);
+    cabeza.add(banda);
+    for (const sg of [-1, 1]) { const p = mesh(G.esfera, pm, 0, 0, 0, 0.022, 0.06, 0.016); sobre(p, sg * 1.3, 0.12, 1.0); cabeza.add(p); }
   } else if (c.peinado === "corto") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.42), M.pelo, 0, CC + 0.01, -0.01, R * 1.05, R * 1.02, R * 1.02));
     const flequillo = mesh(rbox(0.36, 0.08, 0.12, 0.035), M.pelo); sobre(flequillo, 0, 0.72, 1.0); flequillo.rotation.x -= 0.4; cabeza.add(flequillo);
@@ -454,7 +486,7 @@ export function crearPersonaje(cfg) {
   const reflejos = [];
   if (c.lentes) {
     const lm = mat(c.lentes, 0.35);
-    const aro = new THREE.TorusGeometry(0.088, 0.013, 8, 28);
+    const aro = new THREE.TorusGeometry(0.088, c.lentesFinos ? 0.008 : 0.013, 8, 28);
     for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); }
     const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
     // reflejo de una pantalla en los vidrios (pose.reflejo 0..1): un rectángulo de luz fría con renglones
@@ -482,6 +514,16 @@ export function crearPersonaje(cfg) {
     const vara = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(-R * 1.08, CC - 0.04, 0.02), new THREE.Vector3(-R * 0.95, CC - 0.16, R * 0.55), new THREE.Vector3(-R * 0.42, CC - 0.28, R * 0.92)]), 16, 0.011, 6);
     cabeza.add(mesh(vara, am));
     cabeza.add(mesh(G.esferaLow, ag, -R * 0.4, CC - 0.285, R * 0.93, 0.026));
+  }
+  let boinaG = null;
+  if (c.boina) {
+    // boina: un disco de paño aplanado, más ancho que el cráneo, con el borde abullonado (vincha) y el piquito arriba;
+    // inclinada hacia la derecha del personaje (-x) y un poco hacia adelante
+    const bm = mat(c.boina, 0.92), bb = mat(new THREE.Color(c.boina).multiplyScalar(0.8).getHex(), 0.9);
+    boinaG = new THREE.Group(); boinaG.position.set(-0.02, CC + R * 0.66, -0.01); boinaG.rotation.set(0.12, 0, 0.2); cabeza.add(boinaG);
+    const disco = mesh(G.esfera, bm, -0.03, 0.05, 0, R * 1.16, R * 0.36, R * 1.12); boinaG.add(disco);
+    const vincha = mesh(new THREE.TorusGeometry(R * 0.86, 0.034, 10, 40), bb, 0, -0.005, 0); vincha.rotation.x = Math.PI / 2; vincha.scale.set(1, 1.02, 1); boinaG.add(vincha);
+    const pico = mesh(new THREE.CylinderGeometry(0.008, 0.014, 0.05, 8), bb, -0.02, 0.15, 0); pico.rotation.z = -0.3; boinaG.add(pico);
   }
   if (c.aros) for (const s of [-1, 1]) { const a = mesh(G.esferaLow, mat(c.aros, 0.3), 0, 0, 0, 0.026); sobre(a, s * 1.5, -0.3, 1.0); cabeza.add(a); }
 
@@ -604,7 +646,7 @@ export function crearPersonaje(cfg) {
     if (ang > 0.42) { ojos[lejos].g.visible = false; if (ang > 0.6) cejas[lejos].piv.visible = false; }   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
-  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
+  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
 }
 
 // ---------- expresiones listas (se mezclan con mezclar()) ----------
@@ -627,6 +669,9 @@ export const BRAZOS = {
   celular: { manoI: [0.075, 0.33, 0.3], manoD: [-0.075, 0.33, 0.3], codoI: [0.6, -0.8, -0.3], codoD: [-0.6, -0.8, -0.3], dedoI: 0, dedoD: 0 },
   jarras: { manoI: [0.3, 0.2, -0.02], manoD: [-0.3, 0.2, -0.02], codoI: [1, 0, -0.3], codoD: [-1, 0, -0.3] },
 };
+// puño arriba (Héctor, me-haces-precio): el brazo derecho levantado, puño cerrado a la altura de la boina, el codo
+// afuera (no pasa por delante de la cara)
+BRAZOS.puno = { manoD: [-0.46, 0.98, 0.16], codoD: [-1, -0.25, 0.0], dedoD: 0 };
 // ofrecer (de abren-hoy): las dos manos adelante, a la altura del pecho, sosteniendo algo de `ancho`
 BRAZOS.ofrece = (ancho = 0.3, alto = 0.4, adelante = 0.44) => ({ manoI: [ancho / 2 + 0.03, alto, adelante], manoD: [-ancho / 2 - 0.03, alto, adelante], codoI: [0.8, -0.8, -0.2], codoD: [-0.8, -0.8, -0.2], dedoI: 0, dedoD: 0 });
 // saludo con la mano izquierda (lado +x): ida y vuelta según t
@@ -1260,5 +1305,103 @@ export function crearVapor(N = 9) {
       m.visible = m.material.opacity > 0.02;
     });
   };
+  return g;
+}
+
+// ---------- utilería de me-haces-precio (10-11) ----------
+// Tablet en un atril (de reels/abren-hoy/assets/personajes.js): marco navy oscuro y pantalla con la textura que se le
+// pase. La pantalla mira a +z y el atril la inclina hacia atrás.
+export function crearTablet(textura, W = 0.26, H = 0.18, incl = 0.42) {
+  const g = new THREE.Group();
+  const marco = mat(0x0b1220, 0.35);
+  const pivote = new THREE.Group(); pivote.position.set(0, 0.03, 0); pivote.rotation.x = -incl; g.add(pivote);
+  const cuerpo = new THREE.Mesh(rbox(W, H, 0.012, 0.014, 3), marco); cuerpo.position.y = H / 2; pivote.add(cuerpo);
+  const pant = new THREE.Mesh(new THREE.PlaneGeometry(W * 0.92, H * 0.88), new THREE.MeshBasicMaterial({ map: textura, toneMapped: false }));
+  pant.position.set(0, H / 2, 0.0065); pivote.add(pant);
+  const atril = mat(0x2c4268, 0.5);
+  const pata = new THREE.Mesh(rbox(W * 0.5, 0.012, 0.16, 0.005, 1), atril); pata.position.set(0, 0.006, -0.02); g.add(pata);
+  const ha = Math.max(0.03, H * 0.55 * Math.cos(incl)), apoyo = new THREE.Mesh(rbox(W * 0.4, ha, 0.012, 0.005, 1), atril); apoyo.position.set(0, ha / 2, -H * 0.55 * Math.sin(incl) + 0.01); apoyo.rotation.x = -0.15; g.add(apoyo);
+  const tope = new THREE.Mesh(rbox(W * 0.9, 0.02, 0.025, 0.006, 1), atril); tope.position.set(0, 0.012, 0.02); g.add(tope);
+  g.userData.pantalla = pant; g.userData.pivote = pivote; g.userData.tam = [W, H];
+  return sombra(g);
+}
+// Monedero de cuero marrón con boquilla de metal dorado (dos bolitas que cierran). Origen en la base de la bolsa;
+// abrir(u) separa las dos mitades de la boquilla (0 cerrado, 1 abierto). ~0.11 de ancho.
+export function crearMonedero(cuero = 0x6b3f2e) {
+  const g = new THREE.Group(), mc = mat(cuero, 0.55), mo = mat(0xd9b04a, 0.25, { metalness: 0.75 });
+  const cuerpo = new THREE.Mesh(G.esfera, mc); cuerpo.scale.set(0.058, 0.042, 0.028); cuerpo.position.y = 0.04; g.add(cuerpo);
+  const costura = new THREE.Mesh(new THREE.TorusGeometry(1, 0.06, 6, 28, Math.PI), mat(new THREE.Color(cuero).multiplyScalar(0.7).getHex(), 0.6)); costura.scale.set(0.05, 0.034, 0.03); costura.position.set(0, 0.04, 0.0); costura.rotation.z = Math.PI; g.add(costura);
+  const mitades = [-1, 1].map((s) => {
+    const p = new THREE.Group(); p.position.set(0, 0.07, 0); g.add(p);
+    const arco = new THREE.Mesh(new THREE.TorusGeometry(0.05, 0.0045, 6, 24, Math.PI), mo); arco.position.z = s * 0.006; p.add(arco);
+    const tapa = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2), mc); tapa.scale.set(0.05, 0.02, 0.012); tapa.position.set(0, 0.0, s * 0.012); p.add(tapa);
+    const bola = new THREE.Mesh(G.esferaLow, mo); bola.scale.setScalar(0.0085); bola.position.set(s * 0.008, 0.052, s * 0.006); p.add(bola);
+    return { p, s };
+  });
+  const boca = new THREE.Mesh(G.esferaLow, mat(0x2a1812, 0.9)); boca.scale.set(0.045, 0.004, 0.001); boca.position.y = 0.072; g.add(boca);
+  g.userData.abrir = (u) => { for (const { p, s } of mitades) p.rotation.x = s * u * 0.9; boca.scale.z = 0.001 + u * 0.018; };
+  g.userData.abrir(0);
+  return sombra(g);
+}
+// Moneda genérica: disco dorado liso con el borde marcado y un "5" en relieve (geo del "5" aparte, ver tres.js).
+// Origen en el centro, acostada (cara arriba). Radio ~0.024.
+export function crearMoneda(geo5 = null, R = 0.024) {
+  const g = new THREE.Group(), mo = mat(0xc9a24a, 0.3, { metalness: 0.7 }), mb = mat(0xa8842f, 0.35, { metalness: 0.7 });
+  const d = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.006, 28), mo); g.add(d);
+  const b = new THREE.Mesh(new THREE.TorusGeometry(R * 0.86, 0.0016, 4, 28), mb); b.rotation.x = Math.PI / 2; b.position.y = 0.0031; g.add(b);
+  if (geo5) { const n = new THREE.Mesh(geo5, mb); n.rotation.x = -Math.PI / 2; n.position.y = 0.0032; g.add(n); }
+  return sombra(g);
+}
+// Billete genérico de 200 (no copia ningún billete real): papel crema con guarda verde oscuro y "200" grande navy
+// en las dos esquinas. Origen en el centro, acostado. 0.16 x 0.075.
+export function crearBillete(W = 0.16, H = 0.075) {
+  const tex = etiquetaTex(1024, 480, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+    x.strokeStyle = "#3fa60a"; x.lineWidth = 34; x.strokeRect(17, 17, w - 34, h - 34);
+    x.lineWidth = 8; x.strokeRect(58, 58, w - 116, h - 116);
+    x.fillStyle = "#3fa60a"; x.beginPath(); x.ellipse(w / 2, h / 2, 120, 120, 0, 0, 7); x.fill();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.ellipse(w / 2, h / 2, 92, 92, 0, 0, 7); x.fill();
+    x.fillStyle = "#0b1220"; x.textBaseline = "middle"; x.font = LX(900, 150);
+    x.textAlign = "left"; x.fillText("200", 86, 150); x.textAlign = "right"; x.fillText("200", w - 86, h - 140);
+  });
+  const fm = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.85 }), dm = mat(0xe4e2d6, 0.9);
+  const m = new THREE.Mesh(new THREE.BoxGeometry(W, 0.0015, H), [dm, dm, fm, dm, dm, dm]);
+  const g = new THREE.Group(); g.add(m); return sombra(g);
+}
+// Latita redonda de galletitas vieja (navy3, sin marca) con tapa que se levanta (abrir(u) 0..1). Origen en la base.
+// Adentro, monedas doradas. R ~0.075, alto ~0.07.
+export function crearLatita(color = MARCA.navy3) {
+  const g = new THREE.Group(), ml = mat(color, 0.35, { metalness: 0.4 }), mr = mat(0xc9ccd2, 0.3, { metalness: 0.6 }), mo = mat(0xc9a24a, 0.3, { metalness: 0.7 });
+  const R = 0.075, H = 0.065;
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(R, R, H, 32, 1, true), ml); c.position.y = H / 2; c.material.side = THREE.DoubleSide; g.add(c);
+  const fondo = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 0.004, 32), ml); fondo.position.y = 0.002; g.add(fondo);
+  const franja = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.0015, R + 0.0015, 0.012, 32, 1, true), mat(MARCA.cr, 0.4)); franja.position.y = H * 0.45; g.add(franja);
+  for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.004, 16), mo); m.position.set(Math.cos(i * 2.3) * 0.04 * (i % 3) / 2, H * 0.55 + (i % 2) * 0.004, Math.sin(i * 2.3) * 0.04 * (i % 3) / 2); m.rotation.set((i % 3) * 0.2, 0, (i % 2) * 0.25); g.add(m); }
+  const tapaP = new THREE.Group(); tapaP.position.set(0, H, -R); g.add(tapaP);
+  const tapa = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.004, R + 0.004, 0.012, 32), ml); tapa.position.set(0, 0.006, R); tapaP.add(tapa);
+  const aro = new THREE.Mesh(new THREE.TorusGeometry(R + 0.004, 0.003, 6, 32), mr); aro.rotation.x = Math.PI / 2; aro.position.set(0, 0.0, R); tapaP.add(aro);
+  g.userData.abrir = (u) => { tapaP.rotation.x = -u * 1.9; };
+  g.userData.tapa = tapaP;
+  return sombra(g);
+}
+// Banquito de madera: asiento redondo y cuatro patas con travesaños. Origen en el piso, al centro. Asiento a `alto`.
+export function crearBanquito(alto = 0.62) {
+  const g = new THREE.Group(), md = mat(0xb07a48, 0.6), mo = mat(0x8a5a36, 0.6);
+  const as = new THREE.Mesh(new THREE.CylinderGeometry(0.17, 0.165, 0.04, 28), md); as.position.y = alto - 0.02; g.add(as);
+  for (let i = 0; i < 4; i++) {
+    const a = Math.PI / 4 + (i * Math.PI) / 2, x = Math.cos(a) * 0.12, z = Math.sin(a) * 0.12;
+    const p = new THREE.Mesh(new THREE.CylinderGeometry(0.017, 0.021, alto - 0.04, 10), mo); p.position.set(x * 1.08, (alto - 0.04) / 2, z * 1.08); p.rotation.set(-z * 0.25, 0, x * 0.25); g.add(p);
+  }
+  for (let i = 0; i < 4; i++) { const a = (i * Math.PI) / 2; const t = new THREE.Mesh(new THREE.CylinderGeometry(0.009, 0.009, 0.2, 8), mo); t.position.set(Math.cos(a + Math.PI / 4) * 0.093, alto * 0.38, Math.sin(a + Math.PI / 4) * 0.093); t.rotation.set(0, -a, Math.PI / 2); g.add(t); }
+  return sombra(g);
+}
+// Lamparita colgante: cable navy, pantalla de chapa navy3 (cono abierto) y foco ámbar. Origen en el foco.
+export function crearLamparita(cable = 0.6, foco = 0xe9a65a) {
+  const g = new THREE.Group();
+  const c = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, cable, 6), mat(MARCA.navy, 0.5)); c.position.y = 0.1 + cable / 2; g.add(c);
+  const p = new THREE.Mesh(new THREE.ConeGeometry(0.16, 0.13, 24, 1, true), mat(MARCA.navy3, 0.45, { side: THREE.DoubleSide, metalness: 0.3 })); p.position.y = 0.05; g.add(p);
+  const borde = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.008, 6, 24), mat(MARCA.cr2, 0.4)); borde.rotation.x = Math.PI / 2; borde.position.y = -0.015; g.add(borde);
+  const f = new THREE.Mesh(new THREE.SphereGeometry(0.045, 16, 12), new THREE.MeshBasicMaterial({ color: foco })); f.position.y = -0.01; g.add(f);
+  g.userData.foco = f;
   return g;
 }

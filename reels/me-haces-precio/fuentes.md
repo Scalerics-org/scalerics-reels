@@ -49,3 +49,9 @@ remate del remate de esta noche no es contador + tuba).
   (GabFitzgerald, CC0).
 - Cartel: `stinger.wav` ("Vibraphone Transition Music Cue", DanJFilms, CC0) y `whoosh.mp3`.
 - Línea chica: `whoosh.mp3` corto.
+
+## Lo que se usó al construir (10-11)
+- Monedas y moneda de 5: `ping.mp3` cortado en golpecitos (90 ms) y `ping.mp3` corto; no se pudo bajar un "coins on table"
+  CC0 (freesound.org responde 403 desde la nube). Banquito: `papel.wav` con pasabajos a 900 Hz + `tac-real.mp3` al sentarse.
+- Nada sintetizado con ffmpeg. Techo por efecto entre -34 y -44 LUFS (momentáneo máximo); mezcla final -14,0 LUFS
+  integrado, pico verdadero -2,1 dBFS, sin clipping.

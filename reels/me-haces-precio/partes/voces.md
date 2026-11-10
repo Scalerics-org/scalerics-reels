@@ -31,3 +31,10 @@ Textos que NO van a la voz (están en SPEC.md): el regateo en burbujas ("Doscien
 "¿Ciento noventa? Vengo todos los días.", "Tengo ciento noventa en monedas."), "¿Me hac…" y "¡Pago!" de la parte 2, la
 etiqueta "$ 200", los números 3D del regateo, la tarjeta de puntos del celular ("180 / 200", "+20 puntos", "¡Premio!
 Un dulce de leche ✓"), el "+20 ✓" de Graciela y la línea chica final.
+
+## Tomas elegidas (10-11) · recortadas en partes/rec, finales en assets/voice
+Héctor Sadaltager (tono "jubilado canchero"): hector-1-b, hector-2-a, hector-3-b (pausa Dejá/Quedate recortada a 0,26 s),
+hector-4-b (atempo 1,12), hector-5-b, hector-6-a (pareja de hector-2-a), hector-7-b (atempo 1,1). Rubén Algenib: ruben-1-a
+(atempo 1,1), ruben-2-a. Graciela Gacrux: graciela-1-a (pausa tras "Rubén," a 0,26 s, atempo 1,15), graciela-2-a.
+Narrador Rasalgethi: narrador-b (2,26 s). Todas verificadas con tiempos.mjs ("oyó:" coincide; "hacés" sale "hace" por la
+s aspirada uruguaya).
