@@ -22,8 +22,8 @@ separo?" + "Saludos a tu sobrino."; Rubén ceba tranquilo, la luz no se mueve; e
 conté lo de mi sobrino?"; Rubén levanta el segundo termo: **"Contame."** y le ceba un mate; el 6:47 lo contesta el
 celular solo.
 
-- **Producto:** agente de IA que escucha los audios del cliente, entiende la pregunta y contesta al instante con tus
-  precios y stock, a cualquier hora. Solo en la línea chica final y en descripcion.txt. El cartel NUNCA dice
+- **Producto:** agente de IA que contesta al instante lo que preguntan los clientes (también cuando mandan audios),
+  con tus precios y stock, a cualquier hora. Solo en la línea chica final y en descripcion.txt. El cartel NUNCA dice
   "Scalerics". Sin marcas: chat genérico (navy/crema/verde, sin logo ni colores de ninguna app de mensajería), polenta
   y termo genéricos.
 - **Recurso visual central:** el **celular de Rubén con la burbuja de audio** (onda gruesa, barra de avance, contador
@@ -118,11 +118,11 @@ Pill de hora: `OTRO MARTES · 10:15` (17,8) → `10:16` (22,0). La luz es de ma�
 | t (s) | plano y cámara | qué pasa | SFX |
 |---|---|---|---|
 | 17,80-19,90 | **Q1 = encuadre de P1 (callback):** el celular en primer término, Rubén atrás cebando mate (crearTermo en la mano, el mate **humea**). | 17,90 · llega el mismo audio de Graciela: **4:12** (pop). El contador 3D: "Audio: 4:12". 18,20 · Rubén no lo toca. En la pantalla, debajo, una línea del agente: "Escuchando…" y la bolita de avance **recorre toda la onda en 0,7 s** (whoosh rápido). 18,95 · **"Audio escuchado ✓"** en verde; el contador cambia a **"escuchado ✓"** verde (ding). 19,25 · respuesta del agente (burbuja navy claro, letra crema, "respondido automáticamente" ≥ 28 px): **"¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?"** | pop 17,90; whoosh-short 18,20; cero.mp3 18,95; respuesta.wav 19,25 |
-| 19,90-21,40 | **Q1b push-in a la pantalla** (Rubén atrás desenfocado sorbiendo). | 19,95 · segunda burbuja del agente: **"Saludos a tu sobrino."** (escuchó todo) (pop). 20,60 · respuesta de Graciela en texto, cortita: **"¡Sí! Paso en un rato."** (burbuja crema). 20,90 · Rubén sorbe atrás (el vapor se ve). | respuesta.wav 19,95; burbuja.mp3 20,60; sorbo 20,90 |
+| 21,9-23,5 (ver gen.mjs) | **Q1b push-in a la pantalla.** | Segunda burbuja del agente: **"Saludos a tu sobrino."** (escuchó todo). Sin respuesta de Graciela en texto (la respuesta del agente se ve entera). | respuesta.wav, tecleo suave |
 | 21,40-23,00 | **Q2 = encuadre de P3a (callback):** general del almacén, misma vidriera, mismo reloj; **la luz se queda de mañana** y el reloj marca 10:16 quieto. | 21,50 · al paquete de polenta del estante se le pega una etiquetita **"Graciela ✓"** verde (pop). Rubén, tranquilo, ceba y toma mate; el segundo termo está en el mostrador. 22,00 · flip de la pill a `10:16`. | pop 21,50; tic-real 22,00 |
 | 23,00-25,00 | **Q3 = mismo general, hacia la puerta**: entra Graciela. | 23,05 · **campanita**: entra Graciela en persona (CARA.feliz), con su cartera, va al mostrador. 23,60 · voz (Gacrux, sin filtro) y burbuja: **"¡Rubén! ¿Te conté lo de mi sobrino?"** (pop). | campanita 23,05; pasos (tac/tic-real) 23,1-23,5; pop 23,60 |
 | 25,00-27,50 | **Q4 = encuadre de P5 (callback):** primer plano de Rubén de frente, push-in lento. | 25,00-25,50 · pausa: Rubén la mira, se le arma media sonrisa (CARA.sonrisa suave). 25,50 · levanta **el segundo termo** a cuadro (el mismo de P6). **25,80 · voz (Algenib): "Contame."** (~0,7 s). Subtítulo con **"Contame."** en el recuadro verde. La música baja 9 dB mientras habla. | voz; sello.wav suave (el termo) 25,50 |
-| 27,50-30,20 | **Q5 general que se abre** (dolly atrás suave), de 3/4: Rubén y Graciela a los dos lados del mostrador, el celular de Rubén en primer término a la derecha. | 27,55 · Rubén le ceba un mate y se lo alcanza; Graciela lo agarra feliz y arranca a contar (burbuja chica **"Resulta que…"**). 28,00 · el celular **vibra**: llega otro audio, **6:47** (el del remate del remate), y debajo, solo: **"Audio escuchado ✓"** y la respuesta "¡Qué lindo lo del perro! Ya te la separé." (navy claro, "respondido automáticamente"). Nadie lo mira. 28,60 · **línea chica** abajo (caja navy con borde verde, como s03-cierre de abren-hoy, Lexend 600 ≥ 36 px): **"Un agente de IA escucha los audios"** / **"y contesta por vos"** / **"scalerics.com"** en verde (1,6 s, hasta el final). Sin tarjeta de videollamada. | burbuja.mp3 27,60; vibra 28,00; respuesta.wav 28,20 |
+| 29,95-33,4 (ver gen.mjs) | **Q5 general de 3/4** con las dos caras (Graciela girada a cámara). | Rubén le alcanza el mate ya cebado; Graciela: **"Resulta que…"**. El celular vibra: llega un audio de **Nelly** de **6:47** → **"Audio escuchado ✓"** → **"¡Hola, Nelly! Sí, era la Beba."** (capa HTML, arriba). **Línea chica:** **"Un agente de IA contesta los precios por vos"** / **"scalerics.com"**. | vibra, cero.mp3, respuesta.wav, whoosh de la línea chica |
 
 ## Cámara
 PLANOS de abren-hoy (cortes entre planos, Catmull-Rom adentro de cada uno). P3a es un dolly lateral con el time-lapse,
@@ -170,7 +170,7 @@ siempre hay un objeto grande en cuadro (el celular o Rubén), nunca la pared cre
 - Graciela en su casa (P2): que no aparezca nada del almacén; el celular delante del mentón sin tapar la boca.
 - Las fichas de temas: máximo 3 a la vista, nunca sobre la cara de Rubén ni sobre el contador.
 - Manos al pasar el mate (Q5) y al apoyar la mejilla (P3b): nada atraviesa caras ni bombillas.
-- "Saludos a tu sobrino." y "¡Qué lindo lo del perro!" bien escritos (es el callback que prueba que el agente escuchó).
+- "Saludos a tu sobrino." y "¡Hola, Nelly! Sí, era la Beba." bien escritos (es el callback que prueba que el agente escuchó).
 
 ## Portada (portada.json, fondo LIMPIO=1, sin fichas ni subtítulos ni contador ni pill)
 - Fondo: P6 ~14,2 s (el celular con 4:12 arriba, 0:01 abajo y 6:47 llegando, Rubén atrás con el segundo termo) o P1 ~0,2

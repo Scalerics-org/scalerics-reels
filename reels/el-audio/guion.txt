@@ -7,7 +7,7 @@ GRACIELA (audio): …bueno, no te molesto más. ¿A cuánto está la polenta? Be
 RUBEN: Noventa.
 [remate del remate: "Graciela está grabando un audio…" → 6:47 (tuba) · el segundo termo]
 NARRADOR: Un agente de IA más tarde.
-[parte 2 · el agente escucha el 4:12: "Audio escuchado ✓" · "¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?" · "Saludos a tu sobrino." · Graciela: "¡Sí! Paso en un rato." · etiqueta "Graciela ✓" en la polenta]
+[parte 2 · el agente escucha el 4:12: "Audio escuchado ✓" · "¡Hola, Graciela! La polenta está a $ 90. ¿Te la separo?" · "Saludos a tu sobrino." · etiqueta "Graciela ✓" en la polenta]
 GRACIELA (en persona): ¡Rubén! ¿Te conté lo de mi sobrino?
 RUBEN: Contame.
-[el 6:47 lo contesta el celular solo: "Audio escuchado ✓" · "¡Qué lindo lo del perro! Ya te la separé." · línea chica: "Un agente de IA escucha los audios y contesta por vos" · "scalerics.com"]
+[Rubén, después de "Contame.", inclina el segundo termo sobre el mate · Q5: le alcanza el mate a Graciela ("Resulta que…") · en el celular llega un audio de NELLY de 6:47: "Audio escuchado ✓" · "¡Hola, Nelly! Sí, era la Beba." · línea chica: "Un agente de IA contesta los precios por vos" · "scalerics.com"]

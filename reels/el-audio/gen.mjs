@@ -17,8 +17,8 @@ const r2 = (n) => Math.round(n * 100) / 100;
 // ================= LOS BEATS (segundos del video final) =================
 // Las voces de Graciela (assets/voice/g1..g5) ya vienen recortadas, aceleradas (g1-g3 1,1x; g4 2,3x, el "2x"; g5 1,3x)
 // y con el filtro de audio de celular (ver fuentes.md). Las palabras de cada una (relativas) están anotadas al lado.
-const P1 = 16.8;          // termina la parte 1 (arranca el cartel)
-const P2 = 19.8;          // arranca la parte 2 (termina el iris del cartel): cartel de 3,0 s
+const P1 = 17.0;          // termina la parte 1 (arranca el cartel)
+const P2 = 20.0;          // arranca la parte 2 (termina el iris del cartel): cartel de 3,0 s
 const T = {
   // ---- parte 1 ----
   // P1 · el celular en primer término, Rubén atrás con el mate humeante: toca play
@@ -36,16 +36,16 @@ const T = {
   // P5 · primer plano de Rubén: la luz vuelve a la mañana en el corte (10:19), se corta la música, graba "Noventa."
   luz: 12.75, p5: 12.75, corte: 12.75, cabeza: [12.8, 13.25], micro: [13.05, 13.3], pushIn: [13.18, 13.42], click: 13.36, voz1: 13.55, suelta: 14.5, enviado: 14.55,
   // P6 · la pantalla: 4:12 arriba y 0:01 abajo; "Graciela está grabando un audio…"; 6:47 y tuba · P6b: el segundo termo
-  p6: 14.75, b001: 14.9, grabando: 15.25, b647: 15.75, p6b: 16.02, termo2: 16.25,
+  p6: 14.75, b001: 14.9, grabando: 15.25, b647: 15.75, p6b: 16.02, termo2: 16.35,
   // ---- parte 2 ----
-  q1: P2, llega: 19.9, escucha: [20.2, 20.9], escuchado: 20.95, resp1: 21.3,
-  q1b: 21.9, resp2: 22.0, gTexto: 22.6,
-  q2: 23.4, etiqueta: 23.55, sorbo2: 23.75, h1016: 24.1,
-  q3: 24.8, campana: 24.9, entraG: [24.85, 25.85], g6: 25.4, bG6: 25.43,   // g6 (en persona): "¡Rubén! ¿Te conté lo de mi sobrino?" (termina +2,84)
-  q4: 27.0, bG6fin: 28.1, levTermo: [28.3, 28.55], voz2: 29.1,
-  q5: 29.95, alcanza: [30.0, 30.4], vibra: 30.0, b647b: 30.05, escuchado2: 30.25, resp3: 30.45, cierre: 30.75, bResulta: 31.0,
+  q1: P2, llega: P2, escucha: [20.3, 21.0], escuchado: 21.05, resp1: 21.4,
+  q1b: 22.0, resp2: 22.1,
+  q2: 23.5, sorbo2: 23.55, pushQ2: [23.95, 24.4], etiqueta: 24.45, h1016: 24.6,
+  q3: 25.0, campana: 25.1, entraG: [25.05, 26.05], g6: 25.6, bG6: 25.63,   // g6 (en persona): "¡Rubén! ¿Te conté lo de mi sobrino?" (termina +2,84)
+  q4: 27.2, bG6fin: 28.3, levTermo: [28.5, 28.75], voz2: 29.3, ceba: [30.1, 30.6],
+  q5: 30.75, alcanza: [30.8, 31.2], vibra: 30.8, b647b: 30.85, escuchado2: 31.05, resp3: 31.25, cierre: 31.55, bResulta: 31.8,
 };
-const DUR = 32.6;
+const DUR = 33.4;
 
 // palabras de las líneas de Rubén (relativas al inicio de cada archivo)
 const LINEA1 = [["Noventa.", 0.02]];
@@ -109,12 +109,12 @@ function hora(id, ini, fin, textos, top = 1770) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .hora { position: absolute; right: 40px; top: ${top}px; display: flex; align-items: center; gap: 14px; padding: 12px 22px 13px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 36px/1 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
+    P .hora { position: absolute; right: 40px; top: ${top}px; display: flex; align-items: center; gap: 14px; padding: 12px 22px 13px; border-radius: 999px; background: ${NAVY}; border: 5px solid ${CR}; font: 500 44px/1 "IBM Plex Mono", monospace; letter-spacing: 0.03em; color: ${CR}; box-shadow: 0 8px 0 rgba(3,6,12,0.45); transform-origin: 100% 50%; }
     P .punto { width: 18px; height: 18px; border-radius: 50%; background: ${G}; }
     P .tx { position: relative; display: inline-block; }
     P .tx span { display: none; white-space: nowrap; }`,
     html: `      <div class="hora"><span class="punto"></span><span class="tx">${textos.map(([, s], i) => `<span class="t${i}">${s}</span>`).join("")}</span></div>`,
-    js: `      ${ini > 0 ? `tl.fromTo(q(".hora"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.0);` : ""}
+    js: `      ${ini > 0 && ini !== P2 ? `tl.fromTo(q(".hora"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.0);` : ""}
       const ts = ${JSON.stringify(textos.map(([t]) => r2(t - ini)))};
       ts.forEach((t, i) => {
         tl.set(q(".t" + i), { display: "inline" }, Math.max(0, t));
@@ -151,10 +151,10 @@ hora("s00-hora", 0, P1 - 0.02, [[0, "MARTES · 10:15"], [T.luz, "MARTES · 10:19
 {
   const id = "s06-resp", ini = T.b647b - 0.02, fin = DUR, dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
-  const barras = Array.from({ length: 18 }, (_, i) => Math.round(18 + 48 * Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.53 + 1) * 0.4)));
+  const barras = Array.from({ length: 15 }, (_, i) => Math.round(18 + 48 * Math.abs(Math.sin(i * 1.7) * 0.6 + Math.sin(i * 0.53 + 1) * 0.4)));
   escena(id, dur, {
     css: `
-    P .au { position: absolute; right: 40px; top: 190px; width: 580px; padding: 16px 28px 20px; border-radius: 34px 34px 34px 10px; background: #fff; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 0% 100%; }
+    P .au { position: absolute; left: 40px; top: 150px; width: 520px; padding: 16px 28px 20px; border-radius: 34px 34px 34px 10px; background: #fff; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 0% 100%; }
     P .au .n { font: 800 40px/1.1 "Lexend", sans-serif; color: ${NAVY}; }
     P .fila { display: flex; align-items: center; gap: 18px; margin-top: 10px; }
     P .play { width: 64px; height: 64px; border-radius: 50%; background: ${NAVY}; position: relative; flex: none; }
@@ -162,14 +162,14 @@ hora("s00-hora", 0, P1 - 0.02, [[0, "MARTES · 10:15"], [T.luz, "MARTES · 10:19
     P .onda { display: flex; align-items: center; gap: 5px; height: 70px; }
     P .onda i { display: block; width: 10px; border-radius: 5px; background: ${NAVY}; }
     P .d { font: 900 56px/1 "Lexend", sans-serif; color: #c7655b; margin-left: auto; }
-    P .ok { position: absolute; right: 40px; top: 382px; display: flex; align-items: center; gap: 16px; padding: 16px 30px 18px 22px; border-radius: 999px; background: ${G}; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); font: 800 46px/1 "Lexend", sans-serif; color: ${NAVY}; transform-origin: 100% 50%; }
+    P .ok { position: absolute; right: 40px; top: 160px; display: flex; align-items: center; gap: 16px; padding: 16px 30px 18px 22px; border-radius: 999px; background: ${G}; border: 6px solid ${NAVY}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); font: 800 46px/1 "Lexend", sans-serif; color: ${NAVY}; transform-origin: 100% 50%; }
     P .ok svg { width: 44px; height: 44px; }
-    P .r { position: absolute; right: 40px; top: 486px; width: 560px; padding: 18px 28px 20px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 90% 0%; }
-    P .x { font: 700 44px/1.16 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .r { position: absolute; right: 40px; top: 262px; width: 470px; padding: 16px 26px 18px; border-radius: 34px 34px 10px 34px; background: #16243d; border: 6px solid ${G}; box-shadow: 8px 10px 0 rgba(11,18,32,0.5); transform-origin: 90% 0%; }
+    P .x { font: 700 50px/1.16 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .a { margin-top: 10px; font: 500 30px/1.1 "IBM Plex Mono", monospace; color: ${G}; letter-spacing: 0.01em; }`,
     html: `      <div class="au"><div class="n">Nelly</div><div class="fila"><span class="play"></span><span class="onda">${barras.map((h) => `<i style="height:${h}px"></i>`).join("")}</span><span class="d">6:47</span></div></div>
       <div class="ok"><svg viewBox="0 0 44 44"><path d="M7 23 L18 33 L37 11" fill="none" stroke="${NAVY}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>Audio escuchado</div>
-      <div class="r"><div class="x">¡Hola, Nelly!<br>La polenta está<br>a $&nbsp;90. ¿Te la<br>separo?</div><div class="a">respondido automáticamente</div></div>`,
+      <div class="r"><div class="x">¡Hola, Nelly!<br>Sí, era la Beba.</div></div>`,
     js: `      tl.fromTo(q(".au"), { opacity: 0, scale: 0.55, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, 0.02);
       tl.fromTo(q(".ok"), { opacity: 0, scale: 0.55 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2)", immediateRender: true }, ${r2(T.escuchado2 - ini)});
       tl.fromTo(q(".r"), { opacity: 0, scale: 0.55, y: -30 }, { opacity: 1, scale: 1, y: 0, duration: 0.26, ease: "back.out(2)", immediateRender: true }, ${r2(T.resp3 - ini)});`,
@@ -259,10 +259,10 @@ linea("s02-linea", T.voz2, LINEA2, 0, T.q5 - 0.02);
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, ${r2(dur - 0.45)});`,
+      tl.to(q(".texto"), { scale: 1.3, opacity: 0, duration: 0.3, ease: "power2.in" }, ${r2(dur - 0.62)});`,
   });
 }
-hora("s04-hora", T.q1 + 0.05, T.q5, [[T.q1 + 0.05, "OTRO MARTES · 10:15"], [T.h1016, "OTRO MARTES · 10:16"]], 1690);
+hora("s04-hora", T.q1, T.q5, [[T.q1, "OTRO MARTES · 10:15"], [T.h1016, "OTRO MARTES · 10:16"]], 1690);
 
 // la línea chica final (abajo): una línea y la web
 {
@@ -338,13 +338,12 @@ s("sfx/calle.wav", P2, -6, { desde: 2, dur: r2(DUR - P2), fin: 0.3, techo: -38, 
 s("bgm/pizzicato.wav", P2, 0, { dur: r2(DUR - P2), fin: 0.8, techo: -33, duck: [T.g6 - 0.1, T.voz2 + 0.8], duckK: 0.92 });
 // el agente "escribe" mientras contesta (tecleo suave): Q1 y Q1b no se desinflan
 for (const t of [T.resp1 - 0.3, T.resp2 - 0.3]) s("sfx/tipeo.mp3", t, 0, { dur: 0.28, fin: 0.06, techo: -42 });
-s("sfx/pop.mp3", T.llega, 0, { desde: 0.11, techo: -35 });
+s("sfx/pop.mp3", T.llega + 0.02, 0, { desde: 0.11, techo: -37 });
 s("sfx/whoosh.mp3", T.escucha[0], 0, { techo: -38 });
 s("sfx/cero.mp3", T.escuchado, 0, { techo: -34 });
 s("sfx/respuesta.wav", T.resp1, 0, { techo: -35 });
 s("sfx/whoosh.mp3", T.q1b - 0.02, 0, { techo: -44 });
 s("sfx/respuesta.wav", T.resp2, 0, { techo: -36 });
-s("sfx/burbuja.mp3", T.gTexto, 0);
 s("sfx/sorbo.wav", T.sorbo2, 0, { techo: -36 });
 s("sfx/pop.mp3", T.etiqueta, 0, { desde: 0.11, techo: -35 });
 s("sfx/tic-real.mp3", T.h1016, 0, { techo: -38 });
@@ -427,8 +426,8 @@ const capa = (c) => (LIMPIO ? [] : ESC.filter((e) => e[3] === c));
 const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style="z-index:${z}" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${d}" data-track-index="${2 + i}" data-track-kind="graphics"></div>`;
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre (también en LIMPIO)
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
-const ROT = r2(P1), IRIS = r2(P2 - 0.44);
-const IRIS_C = "520px 560px";   // el iris se abre desde el celular de Rubén (abajo al centro en Q1)
+const ROT = r2(P1), IRIS = r2(P2 - 0.32);
+const IRIS_C = "780px 1180px";   // el iris se abre desde el celular de Rubén (con el 4:12 ya puesto)   // el iris se abre desde el celular de Rubén (abajo al centro en Q1)
 // la firma (logo) abajo al centro, en las dos partes (no en el cartel ni sobre la línea chica final)
 const FIRMAS = [[0, P1], [P2, T.cierre]];
 fs.writeFileSync("index.html", `<!doctype html>
@@ -448,7 +447,7 @@ fs.writeFileSync("index.html", `<!doctype html>
       #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 2; transform-origin: 540px 960px; }
       #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
       .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
-      .firma { position: absolute; left: 50%; top: 1800px; height: 36px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 4; filter: drop-shadow(0 0 3px rgba(11,18,32,0.95)) drop-shadow(0 0 10px rgba(11,18,32,0.85)); }
+      .firma { position: absolute; left: 50%; top: 1795px; height: 46px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 4; filter: drop-shadow(0 0 3px rgba(11,18,32,0.95)) drop-shadow(0 0 10px rgba(11,18,32,0.85)); }
     </style>
   </head>
   <body>
@@ -475,7 +474,7 @@ ${LIMPIO ? "" : FIRMAS.map(([a, b], i) => `      <img id="firma${i}" class="firm
       tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.42, ease: "power2.in", immediateRender: false }, ${ROT});
       // la parte 2 entra por un iris que se abre desde el celular de Rubén (con el audio de Graciela ya puesto)
       tl.set("#capa3d", { scale: 1, rotation: 0, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.43)});
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at ${IRIS_C})" }, { clipPath: "circle(1500px at ${IRIS_C})", duration: 0.42, ease: "power2.in", immediateRender: false }, ${IRIS});
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at ${IRIS_C})" }, { clipPath: "circle(1700px at ${IRIS_C})", duration: 0.3, ease: "power2.in", immediateRender: false }, ${IRIS});
       tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 + 0.01)});
       window.__timelines["main"] = tl;
     </script>

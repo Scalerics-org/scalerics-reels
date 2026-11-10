@@ -60,7 +60,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.25, duration: 0.45, ease: "power2.in" }, 2.55);
+      tl.to(q(".texto"), { scale: 1.3, opacity: 0, duration: 0.3, ease: "power2.in" }, 2.38);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
