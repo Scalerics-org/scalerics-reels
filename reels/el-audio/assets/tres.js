@@ -155,7 +155,7 @@ const exterior = [];   // materiales de afuera (se oscurecen de noche)
     }
   }
   // la fila de polenta (bien a la vista detrás de la cabeza de Rubén), con su precio
-  for (let x = POL.x0; x <= POL.x1 + 0.001; x += 0.145) { const pl = crearPolenta(); pl.position.set(x, POL.y + 0.025, -3.02); pl.rotation.y = (az() - 0.5) * 0.08; scene.add(pl); }
+  for (let x = POL.x0; x <= POL.x1 + 0.001; x += 0.145) { const pl = crearPolenta(); pl.position.set(x, POL.y + 0.025, -3.02); pl.rotation.y = (az() - 0.5) * 0.08; scene.add(pl); if (x < 0.05) { const p2 = crearPolenta(); p2.position.set(x + 0.004, POL.y + 0.025 + 0.215, -3.03); p2.rotation.y = (az() - 0.5) * 0.08; scene.add(p2); } }   // a la izquierda, apiladas de a dos (el estante lleno)
   const et = lienzo(512, 200, (x, w, h) => {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.strokeRect(5, 5, w - 10, h - 10);
     x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 96); x.fillText("$ 90", w / 2, h / 2 + 6);
@@ -290,7 +290,7 @@ const termo2 = crearTermo(C.navy3, C.g); termo2.scale.setScalar(1.3); scene.add(
 // el asa en C del termo genérico quedaba a 4 mm del cilindro (flotaba): se pega al cuerpo
 for (const tm of [termo1, termo2]) tm.traverse((o) => { if (o.isMesh && o.geometry.type === "TorusGeometry") o.position.x = -0.052; });
 const TERMO1 = V3(RI.x - 0.5, MOSTRADOR.y, -1.5);
-const TERMO2 = V3(RI.x + 0.4, MOSTRADOR.y, -1.78);
+const TERMO2 = V3(RI.x + 0.3, MOSTRADOR.y, -1.5);   // sobre el mostrador, a la derecha del mate (se ve en todos los planos)
 const chorro = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 1, 8), new THREE.MeshStandardMaterial({ color: 0xdfeeff, roughness: 0.1, transparent: true, opacity: 0.75 }));
 scene.add(chorro);
 // la etiquetita "Graciela ✓" que se pega al paquete de polenta (Q2)
@@ -650,17 +650,17 @@ const PLANOS = [
   // P3a · el general, dolly lateral lento
   ["P3a", T.p3a, [[T.p3a, ...GEN], [T.p3b, GEN[0] + 0.3, GEN[1], GEN[2] - 0.1, GEN[3] + 0.15, GEN[4], GEN[5], GEN[6]]]],
   ["P3b", T.p3b, [[T.p3b, ...CEL(0.08)], [T.mejilla, ...CEL(0.04)], [T.p4, ATRIL.x - 0.22, 1.66, 0.3, RI.x - 0.05, 1.12, -1.55, 46]]],
-  ["P4", T.p4, [[T.p4, ...PANT(0.86, 42, 0.68)], [T.p4b, ...PANT(0.8, 42, 0.7)]]],
+  ["P4", T.p4, [[T.p4, ...PANT(0.86, 42, 0.75)], [T.p4b, ...PANT(0.8, 42, 0.76)]]],
   ["P4b", T.p4b, [[T.p4b, ...GEN], [T.p5, GEN[0] - 0.08, GEN[1], GEN[2] - 0.15, GEN[3], GEN[4], GEN[5], GEN[6]]]],
   ["P5", T.p5, [[T.p5, ...PP(0.45)], [T.pushIn[0], ...PP(0.4), "e"], [T.pushIn[1], ...PP(0.05)], [T.p6, ...PP(0.0)]]],
-  ["P6", T.p6, [[T.p6, ...PANT(0.72, 44, 0.7)], [T.p6b, ...PANT(0.68, 44, 0.7)]]],
+  ["P6", T.p6, [[T.p6, ...PANT(0.72, 44, 0.8)], [T.p6b, ...PANT(0.68, 44, 0.8)]]],
   ["P6b", T.p6b, [[T.p6b, ...CEL(0.0)], [P1, ...CEL(-0.05)]]],
   // ---- parte 2 (los mismos encuadres: el callback se ve) ----
   ["Q1", P2, [[P2, ...CEL(0.03)], [T.q1b, ...CEL(-0.02)]]],
   ["Q1b", T.q1b, [[T.q1b, ...PANT(0.84, 44, 0.6)], [T.q2, ...PANT(0.78, 44, 0.6)]]],
   ["Q2", T.q2, [[T.q2, ...GEN], [T.pushQ2[0], GEN[0] + 0.06, GEN[1], GEN[2] - 0.04, GEN[3], GEN[4], GEN[5], GEN[6]]]],
   // Q2b · corte al paquete de polenta (por delante de Rubén no se puede pasar): push-in corto a la etiqueta
-  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.1, ETI.y + 0.03, ETI.z + 0.92, ETI.x + 0.05, ETI.y + 0.0, ETI.z, 46], [T.q3, ETI.x + 0.08, ETI.y + 0.03, ETI.z + 0.82, ETI.x + 0.05, ETI.y + 0.0, ETI.z, 46]]],
+  ["Q2b", T.pushQ2[0], [[T.pushQ2[0], ETI.x + 0.06, 1.97, ETI.z + 0.92, ETI.x, 1.95, ETI.z, 40], [T.q3, ETI.x + 0.05, 1.97, ETI.z + 0.82, ETI.x, 1.95, ETI.z, 40]]],   // inserto del estante: lo que queda entre la cámara y el estante no se dibuja
   // Q3 · el mismo general, mirando hacia la puerta: entra Graciela
   ["Q3", T.q3, [[T.q3, 1.75, 1.72, 1.25, -1.1, 1.2, -0.6, 58], [T.entraG[1], 1.75, 1.72, 1.25, -0.3, 1.2, -1.3, 62], [T.q4, 1.72, 1.72, 1.22, -0.25, 1.2, -1.35, 62]]],
   ["Q4", T.q4, [[T.q4, ...PP(0.45, 0.06, 46)], [T.q5, ...PP(0.3, 0.06, 46)]]],
@@ -902,7 +902,7 @@ function ponerPersonajes(t, plano) {
   }
   graciela.poner(pg);
   // visibilidad por plano (los que no están en cuadro no tapan la cámara)
-  ruben.raiz.visible = plano !== "P2";
+  ruben.raiz.visible = plano !== "P2" && plano !== "Q2b";
   graciela.raiz.visible = plano === "P2" || (t >= P2 && ["Q3", "Q5"].includes(plano));
 }
 const ENTREGA = V3((RI.x + G0.x) / 2 - 0.02, 1.04, -1.28);
@@ -913,7 +913,7 @@ function termo2Pos(t) {
     // la mano lo trae desde abajo del mostrador (al costado de Rubén), sube por encima del borde y lo apoya con un golpe
     const u = sg(t, T.p6b - 0.1, T.termo2);
     const a = V3(TERMO2.x + 0.16, 0.55, -1.95), b = TERMO2.clone();
-    const p = a.lerp(b, eio(u)); p.y += Math.sin(Math.PI * Math.min(1, u * 1.15)) * 0.22;
+    const p = a.lerp(b, eio(u)); p.y += Math.sin(Math.PI * Math.min(1, u * 1.15)) * 0.06;
     return u >= 1 ? TERMO2.clone() : p;
   }
   if (t < T.levTermo[0]) return TERMO2.clone();
@@ -967,9 +967,9 @@ function renderAt(tIn) {
     vapor.visible = mateR.visible && hum > 0.01;
     // termo crema: apoyado (en Q1 lo usa para cebar)
     termo1.position.copy(TERMO1); termo1.rotation.set(0, 0.6, 0); chorro.visible = false;
-    termo1.visible = plano !== "P2";
+    termo1.visible = plano !== "P2" && plano !== "Q2b";
     // segundo termo
-    termo2.visible = plano !== "P2" && (parte2 || t >= T.p6b);
+    termo2.visible = plano !== "P2" && plano !== "Q2b" && (parte2 || t >= T.p6b);
     termo2.position.copy(termo2Pos(t));
     const golpe = !parte2 ? pulso(t, T.termo2, 0.12) * 0.08 : 0;
     termo2.scale.set(1.3 * (1 + golpe), 1.3 * (1 - golpe), 1.3 * (1 + golpe));
@@ -983,7 +983,7 @@ function renderAt(tIn) {
   // ---- los celulares ----
   {
     dibujarCeluR(t);
-    atril.visible = !['P2', 'P5', 'Q4'].includes(plano);
+    atril.visible = !['P2', 'P5', 'Q4', 'Q2b'].includes(plano);
     const vib = parte2 && en(t, T.vibra, T.vibra + 0.55) ? 1 : 0;
     atril.position.set(ATRIL.x + vib * Math.sin(t * 90) * 0.004, ATRIL.y + vib * Math.abs(Math.sin(t * 60)) * 0.003, ATRIL.z + vib * Math.cos(t * 77) * 0.003);
     atril.rotation.y = vib * Math.sin(t * 70) * 0.03;
