@@ -1,4 +1,5 @@
 {
+ "t": 0.5,
  "chica": "Para preguntar un precio:",
  "grande": "un audio de 4:12",
  "sello": "Audio: 4:12",
@@ -7,6 +8,5 @@
  "zoom": 1.0,
  "foco": "0%",
  "velo": "11,18,32",
- "fondo": "#0b1220",
- "t": 0.5
+ "fondo": "#0b1220"
 }
