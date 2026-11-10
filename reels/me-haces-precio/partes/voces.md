@@ -24,7 +24,7 @@ nueva: "Unos puntos más tarde." no se puede reusar el cartel.wav de abren-hoy-c
 | hector-5.txt · "¿Cuánto es?" | Héctor | Sadaltager | Rápido y decidido, ya convencido por lo que vio en el celular; nada de regateo, casi apurado por pagar. ~0,7 s. | Sin filtro. |
 | ruben-2.txt · "Doscientos." | Rubén | Algenib | El mismo Rubén grave, ahora tranquilo y con media sonrisa: la palabra que en la parte 1 era un muro, dicha con calma, sin desafío. ~0,8 s. | Sin filtro. Música baja ~9 dB mientras habla. |
 | hector-6.txt · "¡Gané!" | Héctor | Sadaltager | La misma alegría triunfal de "¡Hecho!", puño arriba, un poco más fuerte todavía. ~0,5 s. | Sin filtro. Tiene que sonar igual de festejo que hector-2 (es el callback): si salen distintas, elegir las dos tomas más parecidas. |
-| hector-7.txt · "¡Pagué doscientos y me llevo dos!" | Héctor | Sadaltager | Orgulloso y canchero en la puerta, mostrando los dos potes; mismo tono de "cuento el gol" que hector-4. ~1,5 s. | Sin filtro. Si pasa de 1,6 s, atempo 1,1. |
+| (BORRADO en la ronda 3) hector-7.txt · "¡Pagué doscientos y me llevo dos!" | Héctor | Sadaltager | Orgulloso y canchero en la puerta, mostrando los dos potes; mismo tono de "cuento el gol" que hector-4. ~1,5 s. | Sin filtro. Si pasa de 1,6 s, atempo 1,1. |
 | graciela-2.txt · "Rubén, ¿me hacés puntos?" | Graciela | Gacrux | La misma Graciela de graciela-1 (mismo ritmo y misma ilusión), ahora con el celular en la mano; "puntos" con alegría. ~1,1 s. | Sin filtro. Es el espejo de graciela-1: que suene a la misma frase con una palabra cambiada. |
 
 Textos que NO van a la voz (están en SPEC.md): el regateo en burbujas ("Doscientos." ×3, "¿Ciento ochenta?",
@@ -48,3 +48,6 @@ s aspirada uruguaya).
 - Ronda 2 de sonido: hector5 = toma hector-5-a (0,25-0,89 s, 0,64 s; "oyó: cuánto es"): la b terminaba cortada ("¿cuánto e-").
   La pausa de hector3 queda en 0,5 s (no se estiró a 0,65: el reel ya está en 34,96 s).
 - Ronda 2: el narrador entra 0,1 s más tarde (P1 + 0,3) para no pisarse con el stinger; graciela1 con fundido de 0,12 s.
+- Ronda 3: el tercer "Doscientos." de P3a lo dice Rubén (assets/voice/ruben2.wav). hector-7 borrado (txt, tomas y wav).
+  hector-4-c y hector-4-d generadas pidiendo "dejó" bien clara; el Speech-to-Text oye "dejo" en todas, sin forma de
+  decidir sin oído: sigue la toma actual (hector-4-b). Elegir de oído si se quiere cambiar.

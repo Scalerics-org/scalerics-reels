@@ -289,3 +289,41 @@ Duración **33,09 s**: parte 1 0-18,72 · cartel 18,72-21,42 (2,7 s) · parte 2 
 | Q3 | 27,31 | 29,66 | 2,35 |
 | Q4 | 29,66 | 30,61 | 0,95 |
 | Q4b (línea chica desde 33,36) | 30,61 | 34,96 | 4,35 |
+
+## RONDA 4 (tercera revisión): manda sobre todo lo anterior. Duración 35,86 s
+- P3a: el tercer "Doscientos." lo DICE Rubén (ruben2.wav); el tachado de 180/190 es una línea fina; "$ 200" con espacio en la
+  placa, como en la etiqueta. Mate fuera de los perfiles (P3a, Q3).
+- Q1b / Q3 / Q4c: meta de 500 puntos ("480 / 500 puntos · Esta compra: +20 · Premio: 500 puntos = un dulce de leche";
+  Graciela 0 / 500 → 20 / 500).
+- Q3 (2,95 s): Héctor con el celular en la izquierda todo el plano; "¡Pago!" con el billete de 200 en alto en la derecha, de
+  cara a la cámara, que apoya en la madera a q3+0,6; "+20 puntos" → "¡Premio! Un dulce de leche ✓" 1,05 s antes de
+  "¡Gané!"; el puño al costado de la cabeza; el segundo pote a 32 cm del primero (cada etiqueta hacia afuera).
+- Q4 (0,8 s): Héctor de frente con los dos potes en alto; arranca a irse girando apenas a 3/4 y se corta antes del giro: nunca
+  de espaldas.
+- Q4b: sin mate; la tablet en el mostrador desde el primer cuadro; Graciela entra y la cámara hace push-in hasta que los dos
+  llenan el cuadro. Q4c (~33,4): inserto de Graciela con su celular y la tablet de Rubén (ella acerca el celular): "20 / 500"
+  y "+20 ✓". Q4d: el dos planos con la línea chica.
+
+| plano | desde | hasta | dura |
+|---|---|---|---|
+| P1 | 0,00 | 1,85 | 1,85 |
+| P2 | 1,85 | 2,85 | 1,00 |
+| P3a | 2,85 | 6,38 | 3,53 |
+| P4 | 6,38 | 8,53 | 2,15 |
+| P5 | 8,53 | 9,73 | 1,20 |
+| P6 inserto | 9,73 | 10,98 | 1,25 |
+| P6h | 10,98 | 13,48 | 2,50 |
+| P6b | 13,48 | 14,53 | 1,05 |
+| P7 | 14,53 | 16,90 | 2,37 |
+| P7c | 16,90 | 18,92 | 2,02 |
+| P7b | 18,92 | 19,90 | 0,98 |
+| cartel | 19,90 | 22,90 | 3,00 |
+| Q1 | 22,90 | 23,95 | 1,05 |
+| Q1b | 23,95 | 25,45 | 1,50 |
+| Q2 | 25,45 | 26,27 | 0,82 |
+| Q2b | 26,27 | 27,49 | 1,22 |
+| Q3 | 27,49 | 30,44 | 2,95 |
+| Q4 | 30,44 | 31,24 | 0,80 |
+| Q4b | 31,24 | 33,39 | 2,15 |
+| Q4c inserto | 33,39 | 34,21 | 0,82 |
+| Q4d (línea chica desde 34,26) | 34,21 | 35,86 | 1,65 |

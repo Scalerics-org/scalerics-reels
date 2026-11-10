@@ -16,8 +16,8 @@ que se vende").
 ## Voces (Gemini TTS, herramientas/voz.mjs; plan en partes/voces.md)
 - Héctor: Sadaltager (alternativas a probar: Achird, Umbriel).
 - Rubén: Algenib. Graciela: Gacrux.
-- Narrador del cartel: Rasalgethi, frase nueva "Unos puntos más tarde." (no se reusa el cartel.wav de
-  abren-hoy-completo, que dice otra cosa).
+- Narrador del cartel: Rasalgethi, frase nueva "Una tarjeta de puntos más tarde." (toma narrador-d; no se reusa el
+  cartel.wav de abren-hoy-completo, que dice otra cosa).
 
 ## Sonido planeado
 Todo con grabaciones reales que ya están en el repo con su licencia registrada; nada sintetizado con ffmpeg, sin
@@ -38,10 +38,10 @@ remate del remate de esta noche no es contador + tuba).
 - Monedas que caen del monedero y la moneda de 5: `ping.mp3` cortado en golpecitos (banco de HyperFrames, como hizo
   reels/por-que-el-caramelo). Si se consigue un "coins on wooden table" real CC0 (Freesound, licencia CC0), usarlo y
   anotar acá autor, link y licencia.
-- Billete que se apoya y banquito que se arrastra: `papel.wav` (registrado en reels/me-lo-guardas/fuentes.md; para el
+- Billete que se apoya (el banquito que se arrastra quedó DESCARTADO en la ronda 2): `papel.wav` (registrado en reels/me-lo-guardas/fuentes.md; para el
   banquito, grave). Si se consigue un roce de banquito de madera real CC0, usarlo y anotarlo acá.
-- Tapa de la latita, termo que se apoya, toques en el celular: `click-soft.mp3` (HyperFrames).
-- Sorbo de mate: `sorbo.wav` (Abir19, CC0). Campanita de la puerta: `campanita.wav` (775noise, CC0). Pasos:
+- Tapa de la latita y toques en el celular: `click-soft.mp3` (HyperFrames). (El termo que se apoya quedó DESCARTADO.)
+- Sorbo de mate: DESCARTADO (Rubén no toma; `sorbo.wav` no se usa). Campanita de la puerta: `campanita.wav` (775noise, CC0). Pasos:
   `tac-real.mp3` (olver, CC0).
 - Celular que vibra: `vibra.wav` (SpliceSound, CC0); tarjeta que aparece: `notification.mp3` (HyperFrames).
 - Tilde del 200: `ding.mp3`; "+20 puntos": `sparkle.mp3`; lector de Rubén: `scan.mp3` (banco de HyperFrames de
@@ -63,3 +63,13 @@ remate del remate de esta noche no es contador + tuba).
   (la b venía cortada en la "s"), con la cola entera y fundido de 0,04 s; ruben1 y hector3 también con fundido de 0,04 s.
 - Nada sintetizado con ffmpeg. Techo por efecto entre -37 y -47 LUFS (momentáneo máximo); mezcla cruda -14,0 LUFS
   integrado, pico verdadero -2,2 dBFS, sin clipping (el loudnorm final lo hace el coordinador).
+
+## Ronda 3 (10-11)
+- El tercer "Doscientos." del regateo (P3a) lo dice Rubén: la misma toma de assets/voice/ruben2.wav (Algenib), con fundido de 0,04 s.
+- Música: el corte seco cae 0,15 s adentro de una nota (ataque en el 9,60 del archivo, corte en el 9,75; parte 1 desde el 11,05
+  en loop); +3 dB en el regateo (1,6 a P4, sin voz) y en los 0,6 s antes del corte, dentro del techo de -31 LUFS.
+- Ambiente `calle.wav` también debajo del cartel (no queda silencio digital). El sello del tachado en t+0,43 (con la raya).
+- Billete apoyado en Q3 y el primer paso de Héctor en Q4: `tac-real.mp3` (olver, CC0). Inserto Q4c: `whoosh.mp3` corto.
+- hector4 ("dejó"): se generaron dos tomas nuevas (partes/tomas/hector-4-c y -d, con el tono pidiendo "dejó" clara); el
+  Speech-to-Text oye "dejo" en las cuatro tomas y en la actual, así que no hay forma de decidir sin oído: queda la actual.
+- La meta del premio es 500 puntos (480 / 500 · +20 por compra de $ 200), para que la cuenta no sea un 10 % devuelto.
