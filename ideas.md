@@ -235,6 +235,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-10T05:09 -->
+- 10-11 · `el-audio` · Agente de IA (escucha audios y contesta el precio al instante) · Para mandar completo: Graciela le manda a Rubén un audio de 4:12 para preguntar el precio de la yerba; el audio avanza y pasa de todo (el sobrino, el perro, el tiempo) mientras a Rubén se le enfría el mate y entra la tarde; recién al final: "…¿y a cuánto está la yerba?"; remate del remate: llega otro audio de 6:47; cartel "Un agente de IA más tarde…"; el agente lo escucha y contesta en segundos (corrida 10-11 05:09)
+- 10-11 · `por-que-el-caramelo` · CRM (saber quién es cada cliente y tener un gesto personal) · Explicador ¿Por qué? sin marcas: "¿Por qué el mozo te trae un caramelo con la cuenta?" (estudio de propinas y caramelos, a verificar con fuentes); giro: no es el caramelo, es que parezca para vos; callback con Rubén y Graciela (corrida 10-11 05:09)
 
 
 
