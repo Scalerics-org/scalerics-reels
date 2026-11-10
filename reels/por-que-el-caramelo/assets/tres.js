@@ -494,16 +494,16 @@ const T = {
   saltito: W[5] - 0.05, cuenta: W[8] - 0.05,
   grua: S["s02-estudio"] - 0.02,
   vuela1: S["s03-uno-dos"] - 0.02, llega1: S["s03-uno-dos"] + 0.5, // el caramelo del platito → pila "Uno"
-  dos: W[24] - 0.1, // los dos caramelos → pila "Dos"
-  vaMoza: S["s04-uno-mas-uno"] - 0.02, dar: W[30] - 0.05, amaga: W[32] - 0.02, vuelve: W[35] - 0.02, otro: W[38] - 0.05,
-  latigo: W[38] + 0.05, // dolly rápido a la pila 4
-  mismos: W[40] - 0.05, junta: S["s06-por-que"] - 0.3, preg: S["s06-por-que"] + 0.02,
-  parecio: W[45] - 0.02, personal: W[50] - 0.05,
-  vuelaB: S["s07-quien"] + 0.02, frasco: S["s07-quien"] + 0.85, todos: W[59] - 0.05,
-  ficha: W[62] + 0.05, avisa: W[66] - 0.05, gra: W[67] - 0.02,
+  dos: W[21] - 0.1, // los dos caramelos → pila "Dos"
+  vaMoza: S["s04-uno-mas-uno"] - 0.02, dar: W[27] - 0.05, amaga: W[29] - 0.02, vuelve: W[32] - 0.02, otro: W[35] - 0.05,
+  latigo: W[35] + 0.05, // dolly rápido a la pila 4
+  mismos: W[37] - 0.05, junta: S["s06-por-que"] - 0.3, preg: S["s06-por-que"] + 0.02,
+  parecio: W[42] - 0.02, personal: W[47] - 0.05,
+  vuelaB: S["s07-quien"] + 0.02, frasco: S["s07-quien"] + 0.85, todos: W[56] - 0.05,
+  ficha: W[59] + 0.05, avisa: W[63] - 0.05, gra: W[64] - 0.02,
   // s09: da uno; en la pausa mira el aviso de la ficha; "y vuelve con otro": el segundo sale de la tablet
-  daR: W[73] - 0.05, mira: W[76] + 0.3, vuelveR: W[77] - 0.05, habla: W[81], vos: W[85], callaR: W[85] + 0.5,
-  contra: W[85] + 0.5, grua2: S["s10-gesto"], tildes: W[92] - 0.2, fin: S["s11-llamada"],
+  daR: W[70] - 0.05, mira: W[73] + 0.3, vuelveR: W[74] - 0.05, habla: W[78], vos: W[82], callaR: W[82] + 0.5,
+  contra: W[82] + 0.5, grua2: S["s10-gesto"], tildes: W[89] - 0.2, fin: S["s11-llamada"],
 };
 
 // ================= CÁMARA =================
@@ -750,7 +750,7 @@ function zonaRC(t) {
   const Q = QC.clone();
   {
     const v = t > T.preg - 0.05 && t < T.parecio + 0.4;
-    const k0 = popIn(t, T.preg - 0.05, 0.32) * (1 + 0.06 * pulso(t, W[44], 0.3));
+    const k0 = popIn(t, T.preg - 0.05, 0.32) * (1 + 0.06 * pulso(t, W[41], 0.3));
     const fuera = eio(sg(t, T.parecio, T.parecio + 0.3));
     ocultar(pregunta, v ? k0 * (1 - fuera) : 0);
     pregunta.position.copy(Q); pregunta.rotation.set(0, Math.sin(t * 1.5) * 0.16 + fuera * 2.5, fuera * 0.6); pregunta.updateMatrixWorld(true);

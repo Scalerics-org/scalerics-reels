@@ -27,15 +27,15 @@
     [data-composition-id="s02-estudio"] .sello { position: absolute; padding: 14px 34px 18px; border: 9px solid #c7655b; border-radius: 22px; font: 900 92px/1 "Lexend", sans-serif; letter-spacing: 0.02em; color: #c7655b; background: rgba(239,238,229,0.92); opacity: 0; white-space: nowrap; }
 [data-composition-id="s02-estudio"] .cred { position: absolute; left: 540px; top: 1590px; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #5ce611; font: 600 44px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; color: #efeee5; white-space: nowrap; opacity: 0; }
   </style>
-  <div id="root" data-composition-id="s02-estudio" data-width="1080" data-height="1920" data-duration="2.32">
-    <div id="s02-estudio-esc" class="esc clip" data-start="0" data-duration="2.32" data-track-index="0">
+  <div id="root" data-composition-id="s02-estudio" data-width="1080" data-height="1920" data-duration="2.27">
+    <div id="s02-estudio-esc" class="esc clip" data-start="0" data-duration="2.27" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead g l1" d="M540 1520 L540 1350"/><circle class="dot g d1" cx="540" cy="1350" r="12"/></svg><div class="cred n1">Estudio publicado en 2002</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s02-estudio";
-      const DUR = 2.32;
+      const DUR = 2.27;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -57,7 +57,7 @@
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
       const finTodo = () => tl.to(q(".esc"), { opacity: 0, duration: 0.2, ease: "power2.in" }, DUR - 0.22);
 
-nota(1, 0.19); sinNota(1, 2.17);
+nota(1, 0.19); sinNota(1, 2.12);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

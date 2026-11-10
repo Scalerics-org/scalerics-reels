@@ -21,8 +21,8 @@ sombra suave; nada de degradés ni brillos (compresión de Instagram). Cierre en
 
 ## Construcción (10-11) · guion v2 (ronda 1 de correcciones del revisor de guion y datos)
 - Guion v2 en `guion.txt` (v1 en `partes/guion-v1.txt`). Voz pegada en `partes/armar-voz.sh`: Orus línea 1 y 4-7 de
-  `orus-a2` (v1), líneas 2-3 de `v2-a2`, 8-11 de `v2-b2`, Rubén `v2-ruben7` (Algenib; la única toma en la que STT oye
-  "por tu año"), línea 13 de `v2-c1`. Tiempos: `partes/ajustar-tiempos.mjs` (silencios + STT; el cierre a mano). 34,99 s.
+  `orus-a2` (v1), línea 2 de `v3-a2` ("Un estudio comparó las propinas."), línea 3 de `v2-a2`, 8-11 de `v2-b2`, Rubén `v2-ruben7` (Algenib; la única toma en la que STT oye
+  "por tu año"), línea 13 de `v2-c1`. Tiempos: `partes/ajustar-tiempos.mjs` (silencios + STT; el cierre a mano). 34,94 s.
 - Escenas (reel.json): s01-gancho · s02-estudio · s03-uno-dos · s04-uno-mas-uno · s05-mismos · s06-por-que ("¿Por qué?"
   + "Se sintió como un gesto personal.") · s07-quien (el caramelo cae al frasco; la fila con "?" en "quién") · s08-ficha ·
   s09-vuelve (da uno, mira el aviso, el segundo sale de la tablet; "Y este, por tu año.") · s10-gesto · s11-llamada.

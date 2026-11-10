@@ -26,7 +26,9 @@ Links:
 - Pregunta, no dato. NO decimos que todos los restaurantes lo hacen por la propina: el guion sigue con "Lo midieron",
   o sea, contamos qué midió el estudio, no la intención de cada mozo.
 
-## "Un estudio midió qué pasa con la propina." (guion v2; antes "Lo midieron en un restaurante.")
+## "Un estudio comparó las propinas." (guion v2; antes "Lo midieron en un restaurante." y "Un estudio midió qué pasa con la propina.", que STT oía "me dio")
+- Comparó la propina promedio entre condiciones (sin caramelo, uno, dos, uno + uno): resumen del paper ("tips varied with
+  the amount of the candy ... as well as with the manner in which it was offered") y la tabla que reproduce Changing Minds.
 - Experimento de campo en restaurantes: el experimento 2 (el de 1, 2 y 1 + 1 caramelos) fue en un restaurante; el
   experimento 1 en otro. Resumen del paper (Wiley, Cornell): "Study 1 found that customers who received a small piece
   of chocolate along with the check tipped more than did customers who received no candy. Study 2 found that tips
