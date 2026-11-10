@@ -217,3 +217,34 @@ Duración **33,09 s**: parte 1 0-18,72 · cartel 18,72-21,42 (2,7 s) · parte 2 
 | Q3 "¡Pago!", tilde, +20, ¡Premio!, PUÑO "¡Gané!" 27,09, segundo pote 27,84 | 25,69 | 28,19 | 2,50 |
 | Q4 puerta: Héctor sale con los dos potes; "Rubén, ¿me hacés puntos?" 29,14 | 28,19 | 29,79 | 1,60 |
 | Q4b lector 31,29, "+20 ✓" 31,44, línea chica 31,64 | 29,79 | 33,09 | 3,30 |
+
+## RONDA 2 (arte y sonido sobre el MP4): mandan sobre todo lo anterior. Duración 33,14 s
+- Los precios van sobre una placa navy con borde crema y cambian dando vuelta en el lugar (200→195 en P4, 195→200 en P6h): nada
+  viaja ni cruza una cabeza. Las ofertas 180/190 entran, chocan, se tachan y se achican dentro del cuadro.
+- Todos los parlamentos en burbuja (también "Ciento noventa y cinco." y el "Doscientos." de Q2b): sin karaoke ni rótulos.
+- P3a más abierto y sin banquito (Héctor se instala con los codos y saca el monedero en primer término). P6 = inserto cenital
+  (billete, latita, la moneda de 5 sube a cámara) + P6h (Héctor: "Dejá." · pausa · "Quedate con el vuelto.", el número grande
+  arriba al centro). P7: Graciela ya adentro desde el primer cuadro. Q4: Héctor de frente con los dos potes, sale por su
+  carril; Graciela espera afuera y entra por el suyo. Sin sorbo. Pelo de Héctor en mechones opacos redondeados.
+
+| plano | desde | hasta |
+|---|---|---|
+| P1 | 0,00 | 1,85 |
+| P2 | 1,85 | 2,85 |
+| P3a | 2,85 | 5,95 |
+| P4 | 5,95 | 8,10 |
+| P5 | 8,10 | 9,30 |
+| P6 inserto | 9,30 | 10,20 |
+| P6h | 10,20 | 12,70 |
+| P6b | 12,70 | 13,53 |
+| P7 | 13,53 | 15,90 |
+| P7c | 15,90 | 17,92 |
+| P7b | 17,92 | 18,97 |
+| cartel | 18,97 | 21,67 |
+| Q1 | 21,67 | 22,72 |
+| Q1b | 22,72 | 23,92 |
+| Q2 | 23,92 | 24,72 |
+| Q2b | 24,72 | 25,94 |
+| Q3 | 25,94 | 28,29 |
+| Q4 | 28,29 | 29,89 |
+| Q4b | 29,89 | 33,14 |

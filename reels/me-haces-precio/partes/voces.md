@@ -45,3 +45,4 @@ s aspirada uruguaya).
 - hector-7 fuera (Héctor sale sin hablar).
 - narrador.txt nuevo: "Una tarjeta de puntos más tarde." · Rasalgethi, toma narrador-d (2,06 s), verificada con tiempos.mjs
   ("oyó: una tarjeta de puntos más tarde": Una 0 · tarjeta 0,2 · de 0,6 · puntos 0,8 · más 1,1 · tarde 1,5).
+- Ronda 2: el narrador entra 0,1 s más tarde (P1 + 0,3) para no pisarse con el stinger; graciela1 con fundido de 0,12 s.

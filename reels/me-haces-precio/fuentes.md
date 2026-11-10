@@ -51,7 +51,10 @@ remate del remate de esta noche no es contador + tuba).
 - Línea chica: `whoosh.mp3` corto.
 
 ## Lo que se usó al construir (10-11)
-- Monedas y moneda de 5: `ping.mp3` cortado en golpecitos (90 ms) y `ping.mp3` corto; no se pudo bajar un "coins on table"
-  CC0 (freesound.org responde 403 desde la nube). Banquito: `papel.wav` con pasabajos a 900 Hz + `tac-real.mp3` al sentarse.
-- Nada sintetizado con ffmpeg. Techo por efecto entre -34 y -44 LUFS (momentáneo máximo); mezcla final -14,0 LUFS
-  integrado, pico verdadero -2,1 dBFS, sin clipping.
+- Ronda 2: sin monedas en el mostrador ni banquito arrastrado. El monedero de P3a y la moneda que sale de la latita usan
+  `ping.mp3` muy bajo (techo -45/-47): en el repo no hay un sonido real de monedas con origen registrado (el `moneda.mp3` de
+  cuenta-cartas/el-conde no tiene fuente) y freesound.org responde 403 desde la nube. Sin sorbo (Rubén no toma). Los codos en
+  el mostrador: `tac-real.mp3`.
+- Música: la parte 1 arranca en el segundo 0,52 del archivo para que el corte seco (10,10) caiga sobre una nota que suena.
+- Nada sintetizado con ffmpeg. Techo por efecto entre -37 y -47 LUFS (momentáneo máximo); mezcla cruda -14,0 LUFS
+  integrado, pico verdadero -2,2 dBFS, sin clipping (el loudnorm final lo hace el coordinador).

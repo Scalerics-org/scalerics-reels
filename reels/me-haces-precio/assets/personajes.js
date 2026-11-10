@@ -391,11 +391,17 @@ export function crearPersonaje(cfg) {
     // flequillo
     for (let i = -3; i <= 3; i++) { const m = mesh(rulo, M.pelo, 0, 0, 0, 0.058); sobre(m, i * 0.17, 0.7 + Math.abs(i) * 0.05, 1.02); cabeza.add(m); }
   } else if (c.peinado === "costados") {
-    // costados y nuca cortos (debajo de una boina): una banda de pelo que no llega a la frente, con volumen corto
-    const pm = mat(c.pelo, 0.85);
-    const banda = mesh(new THREE.SphereGeometry(1, 40, 10, Math.PI / 2 + 0.95, Math.PI * 2 - 1.9, Math.PI * 0.26, Math.PI * 0.3), pm, 0, CC + 0.004, -0.004, R * 1.035, R * 1.0, R * 1.0);
-    cabeza.add(banda);
-    for (const sg of [-1, 1]) { const p = mesh(G.esfera, pm, 0, 0, 0, 0.022, 0.06, 0.016); sobre(p, sg * 1.3, 0.12, 1.0); cabeza.add(p); }
+    // costados y nuca cortos (debajo de una boina): mechones redondeados y opacos que siguen el cráneo, sin bordes
+    // rectos (me-haces-precio, ronda 2: la banda de casquete se leía como un bloque semitransparente de nuca)
+    const pm = mat(c.pelo, 0.9);
+    for (const el of [0.3, 0.12, -0.06]) {
+      const n = el > 0 ? 13 : 11;
+      for (let i = 0; i < n; i++) {
+        const az = 1.05 + (i / (n - 1)) * (Math.PI * 2 - 2.1);       // de una sien a la otra por atrás
+        const m = mesh(G.esfera, pm, 0, 0, 0, 0.085, el > 0.2 ? 0.075 : 0.07, 0.05); sobre(m, az, el, 0.985); cabeza.add(m);
+      }
+    }
+    for (const sg of [-1, 1]) { const p = mesh(G.esfera, pm, 0, 0, 0, 0.03, 0.065, 0.026); sobre(p, sg * 1.28, 0.1, 0.99); cabeza.add(p); }
   } else if (c.peinado === "corto") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.42), M.pelo, 0, CC + 0.01, -0.01, R * 1.05, R * 1.02, R * 1.02));
     const flequillo = mesh(rbox(0.36, 0.08, 0.12, 0.035), M.pelo); sobre(flequillo, 0, 0.72, 1.0); flequillo.rotation.x -= 0.4; cabeza.add(flequillo);
