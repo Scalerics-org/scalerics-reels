@@ -251,7 +251,7 @@ const campanita = new THREE.Group();
 
 // ================= LOS PERSONAJES =================
 const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 3.6 });
-const hector = crearPersonaje({ ...ELENCO.hector, dedos: true, parpadeoCada: 3.45 });   // (3,45: no parpadea justo en "¡Hecho!")
+const hector = crearPersonaje({ ...ELENCO.hector, dedos: true, parpadeoCada: 3.65 });   // (3,65: no parpadea en el gancho, "¡Hecho!", "Dejá", la puerta, el arranque de Q1 ni "¡Gané!")
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 3.35 });   // (r2: no parpadea en el arranque de "¿me hacés precio?")
 scene.add(ruben.raiz, hector.raiz, graciela.raiz);
 for (const p of [ruben, hector, graciela]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
@@ -352,7 +352,18 @@ const billete1 = crearBillete(); billete1.scale.setScalar(1.25); scene.add(bille
 const billete2 = crearBillete(); billete2.scale.setScalar(1.25); scene.add(billete2);
 const latita = crearLatita(); latita.scale.setScalar(1.3); scene.add(latita);
 const LATITA = V3(0.3, MOSTRADOR.y, -1.47);
+// (final) desde el inserto la latita ya está abierta: la tapa apoyada en la madera, al lado (la de la latita no se dibuja)
+const tapaSuelta = new THREE.Group(); scene.add(tapaSuelta);
+{
+  const ml = new THREE.MeshStandardMaterial({ color: C.navy3, roughness: 0.35, metalness: 0.4 });
+  tapaSuelta.add(mesh(new THREE.CylinderGeometry(0.079, 0.079, 0.012, 32), ml, 0, 0.006, 0));
+  const aro = mesh(new THREE.TorusGeometry(0.079, 0.003, 6, 32), new THREE.MeshStandardMaterial({ color: 0xc9ccd2, roughness: 0.3, metalness: 0.6 }), 0, 0.012, 0); aro.rotation.x = Math.PI / 2; tapaSuelta.add(aro);
+  tapaSuelta.scale.setScalar(1.3); tapaSuelta.position.copy(LATITA).add(V3(0.2, 0.001, 0.05));
+}
 const moneda5 = crearMoneda(geo5); moneda5.scale.setScalar(1.4); scene.add(moneda5);
+// (final) de cara a la cámara el metal reflejaba el entorno claro y la moneda se veía lavada, como transparente: dorado
+// mate y lleno, con el "5" y el borde más oscuros
+moneda5.traverse((o) => { if (o.isMesh) { const oscuro = o.geometry.type !== "CylinderGeometry"; o.material = new THREE.MeshStandardMaterial({ color: oscuro ? 0x7d5d1c : 0xd4a63c, roughness: 0.55, metalness: 0.15 }); } });
 // el mate y el termo de Rubén
 const mateR = crearMate(); mateR.scale.setScalar(1.25); scene.add(mateR);
 const termo = crearTermo(); termo.scale.setScalar(1.3); scene.add(termo);
@@ -405,9 +416,9 @@ function tarjetaPuntos(x, W, H, { nombre, pts, mas = 0, premio = 0, late = 0 }) 
     x.restore();
   }
   if (mas > 0) {
-    x.save(); x.globalAlpha = Math.min(1, mas * 2); const s = 0.6 + 0.4 * eo(mas); x.translate(W - 50, 420); x.scale(s, s);
-    x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 7; x.beginPath(); x.roundRect(-230, -52, 230, 104, 52); x.fill(); x.stroke();
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 66); x.fillText("+20", -115, 4); x.restore();
+    x.save(); x.globalAlpha = Math.min(1, mas * 2); const s = 0.6 + 0.4 * eo(mas); x.translate(W - 40, 300); x.scale(s, s);   // (final) al lado del nombre: no tapa "puntos"
+    x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 7; x.beginPath(); x.roundRect(-190, -46, 190, 92, 46); x.fill(); x.stroke();
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 58); x.fillText("+20", -95, 4); x.restore();
   }
   x.fillStyle = "#d9d7c9"; x.fillRect(0, H - 40, W, 40); x.fillStyle = "#16243d"; rr(x, W / 2 - 80, H - 26, 160, 10, 5);
 }
@@ -666,7 +677,7 @@ const PLANOS = [
   ["Q2", T.q2, [[T.q2, ...HEC5(0)], [T.q2b, ...HEC5(0.05)]]],
   ["Q2b", T.q2b, [[T.q2b, ...RUBQ(0)], [T.q3, ...RUBQ(-0.08)]]],
   ["Q3", T.q3, [[T.q3, ...PER(0)], [T.q4, ...PER(-0.2)]]],
-  ["Q4", T.q4, [[T.q4, ...PUE(0, 40)], [T.q4b, ...PUE(0.03, 39)]]],
+  ["Q4", T.q4, [[T.q4, ...PUE(0, 44)], [T.q4b, ...PUE(0.03, 43)]]],   // (final: más abierto, entran los dos potes)
   // (r3) Q4b con push-in hasta que los dos llenan el cuadro · Q4c inserto del lector y el celular (la cámara se arma en
   // renderAt con las posiciones reales) · Q4d el dos planos cerrado con la línea chica
   ["Q4b", T.q4b, [[T.q4b, ...DOS(0, 56)], [T.q4c, ...DOS(-0.15, 53)]]],
@@ -739,7 +750,7 @@ const RK = [
   // ---- parte 2 ----
   [P2 - 0.001, { x: RI.x, z: RI.z, giro: 0, inclina: 0.0, ...BAJA, ...aC(0, 0.02), ...CARA.sonrisa }, 0.001],
   // Q2b: de frente, mate en la mano, media sonrisa: "Doscientos." (tranquilo)
-  [T.q2b - 0.001, { x: RI.x, z: RI.z, giro: 0, inclina: 0.0, ...BAJA, ...MATE_P, manoD: [-0.34, 0.56, 0.3],   /* r2: el mate más arriba, no tapa la tablet */ ...aC(0.0, 0.04), ...CARA.sonrisa, ojos: { x: 0, y: 0.0, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.2, ang: 0.0 }, boca: { sonrisa: 0.45, ancho: 1.0 } }, 0.001],
+  [T.q2b - 0.001, { x: RI.x, z: RI.z, giro: 0, inclina: 0.0, ...BAJA, ...MATE_P, manoD: [-0.27, 0.56, 0.34],   /* r2: el mate más arriba, no tapa la tablet (final: más adentro, entero) */ ...aC(0.0, 0.04), ...CARA.sonrisa, ojos: { x: 0, y: 0.0, abiertos: 1, feliz: 0.3 }, cejas: { alto: 0.2, ang: 0.0 }, boca: { sonrisa: 0.45, ancho: 1.0 } }, 0.001],
   // Q3: de perfil; apoya el segundo pote (la izquierda la maneja ponerPersonajes)
   [T.q3 - 0.001, { x: RI.x, z: RI.z, giro: GR_PER, inclina: 0.2, ...APOYA, ...aC(0.35, 0.05), ...CARA.sonrisa, ojos: { x: 0.45, abiertos: 1, feliz: 0.3 } }, 0.001],
   // Q4/Q4b: de 3/4 a cámara, la cabeza hacia Graciela; le acerca la tablet (la derecha)
@@ -756,7 +767,7 @@ const HK = [
   [T.instala, { inclina: 0.3, y: -0.05, manoI: [0.22, 0.26, 0.46], manoD: [-0.22, 0.26, 0.46], ...aC(-0.35, -0.04, -0.08) }, 0.3],
   // P5: PUÑO "¡Hecho!" (ojos abiertos, contento); le da la mano a Rubén
   [T.p5 - 0.001, { x: H0.x, z: H0.z, y: 0, sentado: 0, giro: GH_P1, inclina: 0.05, ...APOYA, ...aC(-0.12, 0.0, -0.05), ...CANCHERO }, 0.001],
-  [T.puno + 0.18, { inclina: 0.0, z: H0.z + 0.05, ...BRAZOS.puno, manoI: [0.26, 0.2, 0.2], codoI: null, ...CARA.feliz, ...aC(-0.12, -0.12, -0.05), ojos: { abiertos: 1, feliz: 0.2 } }, 0.2],
+  [T.puno + 0.18, { inclina: 0.0, z: H0.z + 0.05, ...BRAZOS.puno, manoD: [-0.42, 0.86, 0.2], manoI: [0.26, 0.2, 0.2], codoI: null, ...CARA.feliz, ...aC(-0.12, -0.12, -0.05), ojos: { abiertos: 1, feliz: 0.2 } }, 0.2],
   [T.mano[0], { inclina: 0.06, manoD: [-0.2, 0.36, 0.45], codoD: null, ...CANCHERO, ...aC(-0.05, 0.02, -0.04) }, T.mano[0] - T.puno - 0.25],
   // P6: de frente al mostrador (el billete) · P6h: el encuadre de P5, "Dejá." · "Quedate con el vuelto."
   [T.p6 - 0.001, { x: H0.x, z: H0.z, y: 0, sentado: 0, giro: Math.PI, inclina: 0.08, ...APOYA, ...aC(0, 0.25), ...CANCHERO }, 0.001],
@@ -899,6 +910,8 @@ function ponerPersonajes(t, plano) {
     const p1 = manoA(hector, { ...ph, codoD: [-1, -0.6, -0.2] }, "D", MEET.clone().add(V3(0, sacude, 0.055)));
     mezclaMano(ph, p1, "D", k);
   }
+  // (final) Q2: el celular sigue en la izquierda, abajo a la altura del pecho (no tapa la cara ni la burbuja)
+  if (plano === "Q2") { ph.manoI = [0.22, 0.4, 0.42]; ph.codoI = [0.8, -0.8, -0.2]; }
   // P6: apoya el billete (derecha) con un golpecito; "dejá": la palma abierta hacia Rubén
   if (en(t, T.p6, T.p6b)) {
     hector.poner(ph);
@@ -912,14 +925,14 @@ function ponerPersonajes(t, plano) {
   if (en(t, T.p7, T.p7b) || en(t, T.q4, DUR)) {
     const muestra = t < P2 ? 1 - eio(sg(t, T.hSale[0], T.hSale[0] + 0.3)) * 0.4 : 1 - 0.15 * pulso(t, T.q4 + 0.05, 0.3);   // (r3) los potes siempre en alto
     ph.manoD = [-0.42, lerp(0.3, 0.5, muestra), 0.24]; ph.codoD = [-1, -0.6, -0.1];
-    if (t >= P2) { ph.manoD = [-0.21, lerp(0.3, 0.48, muestra), 0.38]; ph.codoD = [-1, -0.6, -0.1]; ph.manoI = [0.21, lerp(0.3, 0.48, muestra), 0.38]; ph.codoI = [1, -0.6, -0.1]; }   // (r2: los dos potes juntos adelante del pecho)
+    if (t >= P2) { ph.manoD = [-0.17, lerp(0.3, 0.48, muestra), 0.4]; ph.codoD = [-1, -0.6, -0.1]; ph.manoI = [0.17, lerp(0.3, 0.48, muestra), 0.4]; ph.codoI = [1, -0.6, -0.1]; }   // (r2: los dos potes juntos adelante del pecho)
   }
   // Q3: estampa el billete (derecha) y levanta el celular adelante del pecho, pantalla a cámara (izquierda)
   if (en(t, T.q3, T.q4)) {
     hector.poner(ph);
     // (r3) "¡Pago!": el billete en alto en la derecha, de cara a la cámara; lo apoya en la madera (T.apoya) y la mano vuelve
     if (t < T.puno2) {
-      const ALTO = [-0.38, 0.64, 0.4];   // (afuera, lejos del celular)
+      const ALTO = [-0.44, 0.48, 0.34];   // (final) al costado y más abajo: no tapa la boca   // (afuera, lejos del celular)
       const ku = 1 - eio(sg(t, T.apoya - 0.18, T.apoya));
       const kv = eio(sg(t, T.apoya + 0.05, T.apoya + 0.3));
       if (t < T.apoya) { ph.manoD = ph.manoD.map((v, i) => lerp(v, ALTO[i], ku)); ph.codoD = [-1, -0.6, -0.2]; }
@@ -927,7 +940,7 @@ function ponerPersonajes(t, plano) {
       if (t < T.apoya) mezclaMano(ph, p1, "D", 1 - ku); else mezclaMano(ph, p1, "D", 1 - kv);
     }
     // el celular en la izquierda, a la altura del pecho, desde el primer cuadro del plano (viene de Q1b)
-    ph.manoI = [0.08, 0.6, 0.45]; ph.codoI = [1, -0.6, -0.2];
+    ph.manoI = [0.12, 0.56, 0.32]; ph.codoI = [1, -0.6, -0.2];   // (final) más pegado al cuerpo: lejos de la cara de Rubén
   }
   for (const [t0, e] of [[T.h1, "hector1"], [T.h2, "hector2"], [T.h3, "hector3"], [T.h4, "hector4"], [T.h5, "hector5"], [T.h6, "hector6"]]) bocaVoz(ph, t, t0, ENV[e], 0.65);
   for (const b of [T.b180, T.b190, T.bMon, T.pago]) if (en(t, b, b + 0.6)) ph.boca.abierta = Math.max(ph.boca.abierta, Math.abs(Math.sin((t - b) * 13)) * 0.35);
@@ -947,7 +960,7 @@ function ponerPersonajes(t, plano) {
   graciela.poner(pg);
 
   // visibilidad por plano (los que no están en cuadro no tapan la cámara)
-  ruben.raiz.visible = plano !== "Q1b";
+  ruben.raiz.visible = plano !== "Q1b" && plano !== "Q4";   // (final: en Q4 más abierto asomaba su cabeza cortada en el borde)
   hector.raiz.visible = !["P2", "P4", "P6b", "P7b", "Q2b", "P7c", "Q4b", "Q4c", "Q4d"].includes(plano) && !(plano === "P7" && t > T.hSale[1] - 0.05);
   graciela.raiz.visible = ["P7", "P7c", "Q4b", "Q4c", "Q4d"].includes(plano);
   // en los planos cenitales del mostrador (P3b, P6) las cabezas quedarían cortadas en el borde: no se dibujan
@@ -985,7 +998,7 @@ function billete1Pos(t) {
 }
 function monedaRubenPos(t) {
   // en la latita → levantada entre el índice y el pulgar (para dársela)
-  const enLata = LATITA.clone().add(V3(0, 0.06, 0.0));
+  const enLata = LATITA.clone().add(V3(0, 0.11, 0.0));   // (final) arriba de la pila, al ras del borde: la pinza no entra en la lata
   const arriba = LATITA.clone().add(V3(0.04, 0.32, 0.12));      // sube a cámara (P6 cenital)
   const ofrece = V3(0.42, 1.12, -1.3);                           // P6h: se la ofrece a Héctor
   if (t >= T.p6h) return ofrece.clone();
@@ -1075,6 +1088,8 @@ function renderAt(tIn) {
     const b1 = billete1Pos(t);
     billete1.visible = b1 !== null && plano !== 'P6b';
     if (b1) { billete1.position.copy(b1); billete1.rotation.set(0, 0.25, 0); }
+    // (final) hasta el golpe, el billete viene en los dedos de Héctor (no está en el mostrador antes de que entre la mano)
+    if (b1 && t < T.billete) billete1.position.copy(puntaMano(hector, "D", _a)).add(V3(0, -0.012, 0));
     billete2.visible = parte2 && t >= T.q3;
     billete2.visible = billete2.visible && (plano === "Q3" || t >= T.q4b);   // (queda en el mostrador)
     if (billete2.visible) {
@@ -1091,12 +1106,14 @@ function renderAt(tIn) {
     }
     latita.position.copy(LATITA); latita.rotation.set(0, -0.4, 0);
     latita.visible = !['P1', 'Q1', 'P5', 'Q2', 'P6h', 'P4', 'P6b', 'Q2b'].includes(plano);   // (Q2b: tapaba la tablet)   // en los planos de Héctor quedaba como un domo cortado abajo
-    latita.userData.abrir(!parte2 ? eio(sg(t, T.latita - 0.12, T.latita + 0.08)) : 0);
+    const abierta = !parte2 && t >= T.p6;
+    latita.userData.abrir(0); latita.userData.tapa.visible = !abierta;
+    tapaSuelta.visible = latita.visible && abierta;
     moneda5.visible = en(t, T.latita, T.p7);
     if (moneda5.visible) {
       // (r2) en la latita hasta que la agarra; después, siempre entre el pulgar y el índice de Rubén, de cara a la cámara
       if (t < T.moneda[0]) { moneda5.position.copy(monedaRubenPos(t)); moneda5.rotation.set(0, -0.5, 0); }
-      else { moneda5.position.copy(puntaMano(ruben, "I", _a)); const dc = camera.position.clone().sub(moneda5.position).normalize(); moneda5.quaternion.setFromUnitVectors(V3(0, 1, 0), dc); }
+      else { moneda5.position.copy(puntaMano(ruben, "I", _a)); moneda5.position.add(camera.position.clone().sub(moneda5.position).normalize().multiplyScalar(0.018)); const dc = camera.position.clone().sub(moneda5.position).normalize(); moneda5.quaternion.setFromUnitVectors(V3(0, 1, 0), dc); }
     }
   }
   // ---- mate de Rubén ----
@@ -1108,17 +1125,17 @@ function renderAt(tIn) {
       mateR.position.copy(p).add(MATE_OFF.clone().applyMatrix4(rot));
       mateR.rotation.set(0, ruben.raiz.rotation.y - Math.PI, 0);
     } else { mateR.position.copy(MATE_C); mateR.rotation.set(0, -1.2, 0); }
-    mateR.visible = !["P7b", "P3a", "Q3", "Q4b", "Q4c", "Q4d"].includes(plano);   // (r3: en el perfil la bombilla quedaba pegada a la cara de Rubén; en Q4b el brazo la atravesaba)   // (r2: la bombilla le atravesaba la nariz cuando apoya la frente)
+    mateR.visible = !["P7b", "P3a", "Q3", "Q4", "Q4b", "Q4c", "Q4d"].includes(plano);   // (r3: en el perfil la bombilla quedaba pegada a la cara de Rubén; en Q4b el brazo la atravesaba)   // (r2: la bombilla le atravesaba la nariz cuando apoya la frente)
   }
   // ---- los celulares y la tablet ----
   {
-    celuH.visible = parte2 && (en(t, T.saca[0] + 0.18, T.q2) || plano === "Q3");
+    celuH.visible = parte2 && (en(t, T.saca[0] + 0.18, T.q2) || plano === "Q2" || plano === "Q3");   // (final) también en Q2
     if (celuH.visible) {
       dibujarPantH(t);
       const p = manoMundo(hector, "I", _a);
       const vib = en(t, T.vibra, T.vibra + 0.5) ? Math.sin(t * 90) * 0.004 : 0;
       const dd = camera.position.clone().sub(p); dd.y = 0; dd.normalize();
-      celuH.position.copy(p).add(V3(vib, plano === 'Q1b' ? 0.2 : plano === "Q3" ? 0.08 : 0.15, 0.0)).add(dd.multiplyScalar(plano === "Q3" ? 0.05 : 0.09));   // (r3) en Q3, en la mano
+      celuH.position.copy(p).add(V3(vib, plano === 'Q1b' ? 0.2 : (plano === "Q3" || plano === "Q2") ? 0.08 : 0.15, 0.0)).add(dd.multiplyScalar((plano === "Q3" || plano === "Q2") ? 0.05 : 0.09));   // (r3) en Q3, en la mano
       const d = camera.position.clone().sub(celuH.position);
       celuH.rotation.set(plano === "Q3" ? -0.05 : -0.12, Math.atan2(d.x, d.z), 0.0);
     }
