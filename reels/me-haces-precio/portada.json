@@ -1,12 +1,12 @@
 {
  "t": 0.6,
- "chica": "En algo de $ 200:",
+ "chica": "En algo de $ 200:",
  "grande": "¿Me hacés precio?",
  "sello": "Por deporte",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.25,
- "foco": "30%",
+ "zoom": 1.3,
+ "foco": "100%",
  "velo": "11,18,32",
  "fondo": "#0b1220"
 }
