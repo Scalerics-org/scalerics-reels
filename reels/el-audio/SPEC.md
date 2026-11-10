@@ -1,13 +1,13 @@
 # el-audio · PARA MANDAR completo (3D real), ~30,2 s
 
-> **Nota de construcción (10-11): los tiempos que mandan son los de `gen.mjs` (objeto `T`), no los de las tablas de
-> abajo.** Con las voces reales el reel quedó en 32,6 s: parte 1 0-16,5 (P1 0-2,0 · P2 2,0-5,0 · P3a 5,0-6,95 · P3b
-> 6,95-9,0 · P4 9,0-10,95 · P4b 10,95-12,5 · P5 12,5-14,45 · P6 14,45-15,72 · P6b 15,72-16,5), cartel 16,5-19,7,
-> parte 2 19,7-32,6 (Q1 19,7-21,8 · Q1b 21,8-23,3 · Q2 23,3-24,7 · Q3 24,7-26,8 · Q4 26,8-29,6 · Q5 29,6-32,6).
-> Cambios respecto de este SPEC: el mate va en la mano derecha de Rubén (toca la pantalla con la izquierda); Q1 sin
-> cebar; el 6:47 de Q5 es un audio de **Nelly** ("¡Hola, Nelly! La polenta está a $ 90. ¿Te la separo?"), solo en la
-> capa HTML; línea chica "Un agente de IA contesta los precios por vos · scalerics.com"; ficha de arranque "¡Hola,
-> Rubén! ¿Cómo andás?" en P1.
+> **Nota de construcción (10-11, ronda 1): los tiempos que mandan son los de `gen.mjs` (objeto `T`), no los de las
+> tablas de abajo.** Duración 32,6 s: parte 1 0-16,8 (P1 0-2,0 · P2 2,0-5,0 · P3a 5,0-7,5 general con vidriera y reloj ·
+> P3b 7,5-9,4 · P4 9,4-11,2 la burbuja de cerca · P4b 11,2-12,75 general de noche · P5 12,75-14,75 (la luz vuelve en el
+> corte) · P6 14,75-16,02 · P6b 16,02-16,8), cartel 16,8-19,8 (3,0 s), parte 2 19,8-32,6 (Q1 19,8-21,9 · Q1b 21,9-23,4 ·
+> Q2 23,4-24,8 · Q3 24,8-27,0 · Q4 27,0-29,95 · Q5 29,95-32,6). Cambios respecto de este SPEC: el mate va en la mano
+> derecha de Rubén; Q1 y Q5 sin cebar (le alcanza el mate ya cebado); el reloj está en la pared de la vidriera; el 6:47
+> de Q5 es un audio de **Nelly** ("¡Hola, Nelly! La polenta está a $ 90. ¿Te la separo?"), solo en la capa HTML; línea
+> chica "Un agente de IA contesta los precios por vos · scalerics.com"; ficha de arranque "¡Hola, Rubén! ¿Cómo andás?".
 
 
 **De qué trata.** El audio de WhatsApp de cuatro minutos para preguntar un precio. Graciela le manda a Rubén un audio de
