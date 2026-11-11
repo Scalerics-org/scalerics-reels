@@ -128,7 +128,6 @@ const subtitulos = `<template>
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0 4px; }
     ${C} .caja { position: absolute; left: -12px; right: -12px; top: 8px; bottom: 0px; border-radius: 16px; background: #5ce611; border: 5px solid #0b1220; opacity: 0; }
-    ${C} .w.ac em { -webkit-text-stroke: 0; }
     ${C} .caja i { display: none; }
     ${C} .malo .caja { border-color: #0b1220; background: #c7655b; }
     ${C} .caja i { position: absolute; width: 18px; height: 18px; background: #ffffff; border: 4px solid #5ce611; }

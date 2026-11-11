@@ -2,7 +2,7 @@
 
 "¿Por qué el dentista te manda un mensaje el día antes?". Desenlace en la frase 2: con ese mensaje falta menos gente
 (revisión Cochrane 2013, ver `fuentes.md`). Bisagra "¿Por qué?": la razón que más dan los que faltan es «me olvidé».
-Giro: con la plata pasa igual; en un experimento con préstamos, un aviso antes de cada cuota rindió tanto como bajar
+Giro: con la plata pasa igual; en un experimento con préstamos, un aviso antes de cada cuota rindió casi como bajar
 un cuarto los intereses (la balanza que se equilibra con un mensajito de un lado y una pila de monedas del otro).
 Callback: en el almacén de Rubén el olvido tiene forma de encargo (las bolsas armadas con nombre que esperan); el
 sistema manda solo "Tu pedido está listo" con LA MISMA burbuja que el recordatorio del dentista del cuadro 0, y
@@ -42,12 +42,12 @@ el callback visual; no hace falta decirlo en voz.
 | # | id | arranca | dura | frase |
 |---|----|---------|------|-------|
 | 1 | s01-gancho | 0,0 | 3,6 | ¿Por qué el dentista te manda un mensaje el día antes? |
-| 2 | s02-faltan | 3,6 | 2,6 | Porque con ese mensaje, falta menos gente. |
+| 2 | s02-faltan | 3,6 | 2,6 | Porque con ese mensaje falta menos gente. |
 | 3 | s03-por-que | 6,2 | 1,4 | ¿Por qué? |
 | 4 | s04-olvide | 7,6 | 3,4 | La razón que más dan los que faltan: «me olvidé». |
 | 5 | s05-plata | 11,0 | 1,7 | Y no pasa solo con los turnos. |
 | 6 | s06-cuotas | 12,7 | 2,9 | Un estudio con préstamos: un aviso antes de cada cuota |
-| 7 | s07-balanza | 15,6 | 2,9 | funcionó tanto como bajarle un cuarto a los intereses. |
+| 7 | s07-balanza | 15,6 | 2,9 | funcionó casi como bajarle un cuarto a los intereses. |
 | 8 | s08-encargos | 18,5 | 3,3 | En el almacén de Rubén, el olvido tiene forma de encargo. |
 | 9 | s09-aviso | 21,8 | 3,0 | Ahora el sistema avisa solo: «Tu pedido está listo». |
 | 10 | s10-pasa | 24,8 | 1,8 | Y Graciela pasa. |
@@ -69,7 +69,7 @@ el callback visual; no hace falta decirlo en voz.
    - Rótulo con línea guía al celular: "Recordatorio del día antes".
    - SFX: `vibra` (×1 en "mensaje"), `notification` (pop de la burbuja), ambiente de almacén muy bajo.
 
-2. **s02-faltan** (~2,6 s) · "Porque con ese mensaje, falta menos gente."
+2. **s02-faltan** (~2,6 s) · "Porque con ese mensaje falta menos gente."
    - Zambullida: la cámara entra por la burbuja y sale al **consultorio dental**: una FILA de 6 **sillones de dentista**
      reconocibles (sillón reclinable crema con tapizado navy claro, apoyacabezas, lámpara de brazo articulado con foco
      redondo, bandejita con espejito), en perspectiva, llenando el ancho. Al principio 3 sillones con paciente (siluetas
@@ -109,11 +109,11 @@ el callback visual; no hace falta decirlo en voz.
    - Push-in a la tarjeta: tres días antes de cada casillero, un **celular chico** (el mismo modelo) asoma desde abajo
      y suelta la burbuja-recordatorio ("Tu cuota vence en 3 días"), y el casillero se marca con tilde verde. En cadena
      en los primeros 5 casilleros (ritmo de 0,35 s), el resto ya marcados al alejarse.
-   - Crédito arriba: "Estudio publicado en 2011 · 1.121 préstamos". Rótulo con línea guía a la burbuja: "Un SMS por mes".
+   - Crédito arriba: "Estudio publicado en 2011 · 1.121 préstamos". Rótulo con línea guía a la burbuja: "Un mensaje por mes".
    - Cuidado: nada de casilleros en rojo con "MOROSO" ni caras tristes de deudores; solo tildes que aparecen.
    - SFX: `notification` corto ×3 (las otras burbujas en silencio), `click-soft` por tilde.
 
-7. **s07-balanza** (~2,9 s) · GIRO, remate · "funcionó tanto como bajarle un cuarto a los intereses."
+7. **s07-balanza** (~2,9 s) · GIRO, remate · "funcionó casi como bajarle un cuarto a los intereses."
    - La cámara retrocede y la tarjeta se pliega: aparece una **BALANZA de platillos** grande (bronce mate con
      columna navy, ~80 % del ancho). Plato izquierdo: UNA burbuja-recordatorio chiquita. Plato derecho: la pila de
      monedas con una etiqueta colgando "−25 % de intereses". La balanza arranca inclinada hacia las monedas (lo
@@ -127,7 +127,7 @@ el callback visual; no hace falta decirlo en voz.
      verdad, se transforma en la de Rubén); la cámara sube en grúa y revela el **almacén de Rubén** a la tarde
      (estantería verde, azulejos navy claro, vidriera con luz cálida). Sobre el mostrador, en fila, **4 bolsas de
      papel madera** dobladas arriba con abrochadora y un **ticket con el nombre escrito a mano** grande ("Graciela ·
-     sáb", "Marta", "Nico", "Héctor"), y un **reloj de pared** que marca 19:40. Rubén las mira con el mate, suspira.
+     sáb", "Walter", "Susana", "Héctor"), y un **reloj de pared** que marca 19:40. Rubén las mira con el mate, suspira.
    - En "encargo" las bolsas hacen pop de a una (las 4 llenan ~75 % del ancho, la de Graciela adelante).
    - Rótulo con línea guía a las bolsas: "Encargos armados, esperando".
    - Cuidado: que NO se parezca a `me-lo-guardas` (estante GUARDADOS con papelitos y telaraña): acá las bolsas están en
@@ -170,7 +170,7 @@ autor y sitio anotados en `fuentes.md`.
 ## Portada (portada.json, cuadro limpio sin gancho ni subtítulos)
 - Fondo: s07 (la balanza nivelada con la burbuja chiquita contra la pila de monedas) o s01 (el celular con la muela).
   Preferida: **la balanza**, zoom 1.4, foco arriba del texto.
-- `chica`: "Un mensaje pesó" · `grande`: "lo mismo que un descuento" · `sello`: "¿Por qué?" · acento y sello `#5ce611`.
+- `chica`: "Un mensaje pesó" · `grande`: "casi como bajar los intereses" · `sello`: "¿Por qué?" · acento y sello `#5ce611`.
   (Alternativa con el gancho literal: chica "¿Por qué el dentista" / grande "te avisa el día antes?".)
 
 ## Línea para "Hechos" (ideas.md)
@@ -178,7 +178,7 @@ autor y sitio anotados en `fuentes.md`.
   cuota) · "¿Por qué el dentista te manda un mensaje el día antes?" Explicador sin marcas (revisión Cochrane 2013 sobre
   recordatorios por mensaje; Cadena y Schoar, NBER 2011; ver fuentes.md): con ese mensaje falta menos gente; ¿por qué?
   la razón que más dan los que faltan es «me olvidé»; giro: con la plata igual, en un estudio con préstamos un aviso
-  antes de cada cuota funcionó tanto como bajarle un cuarto a los intereses (balanza que se nivela); callback: en el
+  antes de cada cuota funcionó casi como bajarle un cuarto a los intereses (balanza que se nivela); callback: en el
   almacén de Rubén el olvido tiene forma de encargo, el sistema avisa solo "Tu pedido está listo" con la misma burbuja
   del dentista y Graciela pasa · Videollamada gratis en scalerics.com [formato explicador ¿Por qué? · 3D real (celular
   con recordatorio y muela, fila de sillones de dentista, "?" desde la lámpara, nube de Rubén con el papelito del

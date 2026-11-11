@@ -1,13 +1,13 @@
 {
- "t": 18.6,
- "fondo_limpio": "portada-src/fondo-limpio-18.6.png",
+ "t": 19.25,
+ "fondo_limpio": "portada-src/fondo-limpio-19.25.png",
  "chica": "Un mensaje pesó",
- "grande": "lo mismo que un descuento",
+ "grande": "casi como bajar los intereses",
  "sello": "¿Por qué?",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.25,
- "foco": "30%",
+ "zoom": 1.35,
+ "foco": "32%",
  "fondo": "#0b1220",
  "velo": "11,18,32"
 }

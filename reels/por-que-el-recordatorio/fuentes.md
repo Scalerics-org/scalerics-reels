@@ -46,10 +46,10 @@ investigadores ni el país (nada de personas reales con nombre propio en la voz)
 | Frase | Qué dice | Fuente |
 |---|---|---|
 | ¿Por qué el dentista te manda un mensaje el día antes? | Pregunta: práctica común que todos vieron. No se afirma que el día antes sea el mejor momento (la revisión [A] pide estudiar el momento del envío). | (pregunta, sin dato) |
-| Porque con ese mensaje, falta menos gente. | Con recordatorio por mensaje, más asistencia que sin recordatorio. | [A] [B] |
+| Porque con ese mensaje falta menos gente. | Con recordatorio por mensaje, más asistencia que sin recordatorio. | [A] [B] |
 | La razón que más dan los que faltan: «me olvidé». | El olvido es la razón más citada por los pacientes en muchos estudios (también en dentistas). Se dice "la que más dan", no "la causa real": [C] avisa que puede ser la más cómoda de decir. | [C] [D] |
 | Y no pasa solo con los turnos. / Un estudio con préstamos: un aviso antes de cada cuota | SMS mensual tres días antes de cada cuota, en un experimento con préstamos. | [E] [F] |
-| funcionó tanto como bajarle un cuarto a los intereses. | Efecto parecido ("similar effects") al de una rebaja del 25 % de los intereses, medido en pagar a tiempo. | [E] [F] |
+| funcionó casi como bajarle un cuarto a los intereses. | Efecto parecido ("similar effects") al de una rebaja del 25 % de los intereses, medido en pagar a tiempo. | [E] [F] |
 | En el almacén de Rubén… / Ahora el sistema avisa solo… / Y Graciela pasa. | Ficción (personajes recurrentes), sin datos. Producto: automatización de avisos (pedido listo). | (ficción) |
 | ¿Que tus clientes no se olviden? Agendá una videollamada gratis en scalerics.com. | Cierre (CLAUDE.md punto 8). | (cierre) |
 

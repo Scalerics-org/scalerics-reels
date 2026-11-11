@@ -19,11 +19,19 @@ fija(75, 25.3, 25.58); fija(76, 25.7, 25.82); fija(77, 26.11, 26.5); fija(78, 26
 fija(79, 27.45, 27.6);
 fija(84, 28.4, 29.05); fija(85, 29.21, 29.6); fija(86, 29.6, 29.78); fija(87, 29.78, 30.25); fija(88, 30.25, 30.59);
 fija(89, 30.65, 30.89); fija(90, 30.96, 32.29);
-const corre = (t) => (t < 6.3 ? 0 : t < 25.64 ? 0.2 : t < 25.86 ? 0.5 : 0.32);
+// ronda 1: el tramo 12,30-19,10 de orus1 se reemplaza por partes/prest2.wav (desde 0,25, 7,16 s) + 0,08 s
+const PL = 7.41 - 0.25, D2 = 0.2 + 12.3 + PL + 0.08 - 19.1;
+const corre = (t) => (t < 6.3 ? 0 : t < 12.3 ? 0.2 : t < 25.64 ? D2 : t < 25.86 ? D2 + 0.3 : D2 + 0.12);
+const pr = JSON.parse(fs.readFileSync("partes/prest2.json", "utf8"));
+const fp = (i, s, e) => { pr[i].start = s; pr[i].end = e; };
+fp(0, 0.29, 0.4); fp(10, 4.07, 4.5); fp(11, 4.52, 4.68); fp(12, 4.74, 5.3); fp(18, 6.7, 7.38);
 const G = fs.readFileSync("guion.txt", "utf8").split(/\s+/).filter(Boolean);
 if (G.length !== p.length) throw new Error(`palabras ${p.length} != guion ${G.length}`);
 const r3 = (x) => Math.round(x * 1000) / 1000;
-const out = p.map((w, i) => ({ text: G[i], start: r3(w.start + corre(w.start)), end: r3(w.end + corre(w.start)) }));
+const out = p.map((w, i) => {
+  if (i >= 37 && i <= 55) { const q = pr[i - 37], o = 0.2 + 12.3 - 0.25; return { text: G[i], start: r3(q.start + o), end: r3(q.end + o) }; }
+  return { text: G[i], start: r3(w.start + corre(w.start)), end: r3(w.end + corre(w.start)) };
+});
 for (let i = 1; i < out.length; i++) if (out[i].start < out[i - 1].start) throw new Error("desorden en " + i);
 fs.writeFileSync("assets/voice/palabras.json", JSON.stringify(out, null, 1));
 console.log("palabras.json:", out.length, "palabras; fin", out.at(-1).end);

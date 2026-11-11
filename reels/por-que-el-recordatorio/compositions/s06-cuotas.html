@@ -19,15 +19,15 @@
 [data-composition-id="s06-cuotas"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 16px 34px 18px; border-radius: 22px; background: #16243d; border: 6px solid #5ce611; font: 600 46px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     [data-composition-id="s06-cuotas"] .cred .sub { display: block; margin-top: 8px; font: 500 40px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.04em; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s06-cuotas" data-width="1080" data-height="1920" data-duration="3.44">
-    <div id="s06-cuotas-esc" class="esc clip" data-start="0" data-duration="3.44" data-track-index="0">
-<div class="cred n1" style="left:540px;top:545px">Estudio publicado en 2011<span class="sub">1.121 préstamos</span></div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M640 1630 L770 1460"/><circle class="dot  d2" cx="770" cy="1460" r="13"/></svg><div class="pill  n2" style="left:440px;top:1680px">Un SMS por mes</div>
+  <div id="root" data-composition-id="s06-cuotas" data-width="1080" data-height="1920" data-duration="3.78">
+    <div id="s06-cuotas-esc" class="esc clip" data-start="0" data-duration="3.78" data-track-index="0">
+<div class="cred n1" style="left:540px;top:545px">Estudio publicado en 2011<span class="sub">1.121 préstamos</span></div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M640 1630 L770 1460"/><circle class="dot  d2" cx="770" cy="1460" r="13"/></svg><div class="pill  n2" style="left:440px;top:1680px">Un mensaje por mes</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s06-cuotas";
-      const DUR = 3.44;
+      const DUR = 3.78;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -46,7 +46,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.16); nota(2, 2.29); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, 3.32);
+nota(1, 0.11); nota(2, 1.91); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, 3.28);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

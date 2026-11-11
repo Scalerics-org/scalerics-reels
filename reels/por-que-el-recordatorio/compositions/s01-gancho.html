@@ -31,7 +31,7 @@
       <div class="h h2"><span class="mk"><b class="fondo"></b><em>dentista</em></span></div>
       <div class="h h3">te manda un mensaje</div>
       <div class="h h4">el día antes?</div>
-      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M540 1630 L600 1445"/><circle class="dot  d1" cx="600" cy="1445" r="13"/></svg><div class="pill  n1" style="left:540px;top:1690px">Recordatorio del día antes</div>
+      <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M540 1730 L560 1420"/><circle class="dot  d1" cx="560" cy="1420" r="13"/></svg><div class="pill  n1" style="left:540px;top:1790px">Recordatorio del día antes</div>
     </div>
   </div>
   <script>
@@ -62,7 +62,8 @@
       late(".h3", 1.7, 1.06);
       late(".h4", 2.4, 1.06);
       nota(1, 2.05);
-      tl.to(qa(".h, .n1, .l1, .d1"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.97);
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, 2.97);
+      tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1, ease: "power1.in" }, 3.35);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

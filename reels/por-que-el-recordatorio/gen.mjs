@@ -107,12 +107,12 @@ const FIRMA = [];
 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
-  recordatorio: [540, 1690], recordatorioLead: [540, 1630, 600, 1445],
+  recordatorio: [540, 1790], recordatorioLead: [540, 1730, 560, 1420],
   credRev: [540, 540], noCero: [400, 1640], noCeroLead: [300, 1585, 120, 900],
   citada: [540, 1640],
   credPrest: [540, 545], sms: [440, 1680], smsLead: [640, 1630, 770, 1460],
   parecido: [540, 1650], parecidoLead: [540, 1575, 540, 1180],
-  encargos: [540, 1640], encargosLead: [540, 1585, 540, 1230],
+  encargos: [540, 1640], encargosLead: [470, 1585, 330, 1170],
   solo: [540, 1700], soloLead: [540, 1645, 540, 1490],
 };
 
@@ -137,9 +137,10 @@ const POS = {
       late(".h3", ${w2(id, 7)}, 1.06);
       late(".h4", ${w2(id, 10)}, 1.06);
       nota(1, ${r2(w(id, 7) + 0.35)});
-      tl.to(qa(".h, .n1, .l1, .d1"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.5)});`,
+      tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.5)});
+      tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1, ease: "power1.in" }, ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: w(id, 7) - 0.05, sfx: "vibra", vol: 1, max: 0.5 },
+      { t: w(id, 7) - 0.05, sfx: "vibra-fuerte", vol: 1, max: 0.5 },
       { t: w(id, 7), sfx: "notification", vol: 0.5, max: 0.6 },
       { t: w(id, 7) + 0.35, sfx: "click-soft", vol: 0.25 },
       { t: w(id, 10) - 0.05, sfx: "pop", vol: 0.25 },
@@ -156,15 +157,15 @@ const POS = {
   escena(id, {
     css: CSS_CRED,
     html: `${cred(1, POS.credRev[0], POS.credRev[1], "Revisión de 8 estudios · 2013")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Menos faltas, no cero")}`,
-    js: `nota(1, 0.45); nota(2, ${r2(w(id, 16) + 0.1)}); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.15)});`,
+    js: `nota(1, 1.25); nota(2, ${r2(w(id, 15))}); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.5, max: 0.7, full: 1 },
       { t: 0.3, sfx: "whoosh-short", vol: 0.2 }, { t: 0.58, sfx: "whoosh-short", vol: 0.2 },
       { t: tl1, sfx: "pop", vol: 0.35 }, { t: tl1 + 0.02, sfx: "papel-fuerte", vol: 1, max: 0.3 },
       { t: tl2, sfx: "pop", vol: 0.35 }, { t: tl2 + 0.02, sfx: "papel-fuerte", vol: 1, max: 0.3 },
-      { t: 0.45, sfx: "click-soft", vol: 0.2 },
+      { t: 1.25, sfx: "click-soft", vol: 0.2 },
       { t: w(id, 16) - 0.05, sfx: "ping", vol: 0.25, max: 0.5 },
-      { t: w(id, 16) + 0.1, sfx: "click-soft", vol: 0.22 },
+      { t: w(id, 15), sfx: "click-soft", vol: 0.22 },
     ],
   });
 }
@@ -198,11 +199,11 @@ vacia("s03-por-que", [
 // ================= s05 · y no pasa solo con los turnos (el papelito se da vuelta: la tarjeta de cuotas, las monedas) =================
 {
   const id = "s05-plata";
-  const t0 = w(id, 32) - 0.1;
+  const t0 = 0.9;
   vacia(id, [
     { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
     { t: 0.4, sfx: "papel-fuerte", vol: 1, max: 0.35 },
-    ...[0, 1, 2, 3, 4].map((i) => ({ t: r2(t0 + 0.16 + i * 0.2), sfx: i % 2 ? "tac-real" : "tic-real", vol: 0.35 })),
+    ...[0, 1, 2, 3].map((i) => ({ t: r2(t0 + 0.16 + i * 0.2), sfx: i % 2 ? "tac-real" : "tic-real", vol: 0.08 })),
   ]);
 }
 
@@ -213,19 +214,19 @@ vacia("s03-por-que", [
   const tA = w(id, 42) - 0.05;
   escena(id, {
     css: CSS_CRED,
-    html: `${cred(1, POS.credPrest[0], POS.credPrest[1], "Estudio publicado en 2011", "1.121 préstamos")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Un SMS por mes")}`,
-    js: `nota(1, ${r2(w(id, 38))}); nota(2, ${r2(tA + 0.3)}); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.12)});`,
+    html: `${cred(1, POS.credPrest[0], POS.credPrest[1], "Estudio publicado en 2011", "1.121 préstamos")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Un mensaje por mes")}`,
+    js: `nota(1, ${r2(w(id, 38))}); nota(2, ${r2(tA + 0.05)}); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.5)});`,
     sfx: [
       { t: w(id, 38), sfx: "click-soft", vol: 0.22 },
       { t: tA - 0.4, sfx: "whoosh-short", vol: 0.12 },
-      { t: tA, sfx: "vibra", vol: 1, max: 0.45 },
+      { t: tA, sfx: "vibra-fuerte", vol: 1, max: 0.45 },
       ...[0, 1, 2].map((kk) => ({ t: r2(tA + 0.25 + kk * 0.34), sfx: "notification", vol: 0.3, max: 0.4 })),
       ...[0, 1, 2, 3].map((kk) => ({ t: r2(tA + 0.55 + kk * 0.34), sfx: "click-soft", vol: 0.25 })),
     ],
   });
 }
 
-// ================= s07 · funcionó tanto como bajarle un cuarto a los intereses (la balanza que se nivela) =================
+// ================= s07 · funcionó casi como bajarle un cuarto a los intereses (la balanza que se nivela) =================
 {
   const id = "s07-balanza";
   const [x, y] = POS.parecido, [a, b, c, d] = POS.parecidoLead;
@@ -235,8 +236,8 @@ vacia("s03-por-que", [
     css: `P .pill { flex-direction: column; gap: 0; }`,
     js: `nota(1, ${r2(tT + 0.9)}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.55)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.45, max: 0.7, full: 1 },
-      { t: 0.25, sfx: "pop", vol: 0.3 },
+      { t: -0.15, sfx: "whoosh", vol: 0.45, max: 0.7, full: 1 },
+      { t: 0.0, sfx: "pop", vol: 0.3 },
       ...[0, 1, 2, 3].map((i) => ({ t: r2(0.62 + i * 0.09), sfx: i % 2 ? "tac-real" : "tic-real", vol: 0.25 })),
       { t: 0.5, sfx: "pop", vol: 0.2 },
       { t: tT + 0.75, sfx: "golpe", vol: 0.35, max: 0.5 },
@@ -255,13 +256,12 @@ vacia("s03-por-que", [
   const tE = w(id, 66) - 0.05;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Encargos armados, esperando")}`,
-    js: `nota(1, ${r2(tE + 0.5)}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.6)});`,
+    js: `nota(1, ${r2(w(id, 62))}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: 0.05, sfx: "whoosh-cinematic", vol: 0.1, max: 1.0 },
-      { t: 1.3, sfx: "tic-real", vol: 0.2 }, { t: 1.8, sfx: "tac-real", vol: 0.2 },
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(tE - 0.2 + i * 0.13), sfx: "papel-fuerte", vol: 0.45, max: 0.3 })),
-      { t: tE + 0.5, sfx: "click-soft", vol: 0.2 },
-      { t: r2(ESC[id] - 0.55), sfx: "whoosh-short", vol: 0.25 },
+      { t: 0.05, sfx: "whoosh-cinematic", vol: 0.35, max: 1.0 },
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) - 0.1 + i * 0.13), sfx: "pop", vol: 0.22 })),
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) - 0.08 + i * 0.13), sfx: "papel-fuerte", vol: 0.35, max: 0.25 })),
+      { t: w(id, 62), sfx: "click-soft", vol: 0.15 },
     ],
   });
 }
@@ -273,13 +273,14 @@ vacia("s03-por-que", [
   const tS = w(id, 69) - 0.05, tG = r2(tS + 0.62), tV = r2(tG + 0.35), tTu = w(id, 72), tL = w(id, 75);
   FIRMA.push([r2(INI[id] + tTu - 0.1), r2(INI[id] + ESC[id])]);
   escena(id, {
-    html: `${leads(lead(1, a, b, c, d, "g"))}${pill(1, x, y, "Sale solo, a la hora que elijas", "lleno")}`,
-    js: `nota(1, ${r2(tTu + 0.1)}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(tL + 0.08)});`,
+    css: `P .pill.lleno { font-size: 44px; padding: 12px 28px 15px; }`,
+    html: `${pill(1, x, y, "Sale solo, a la hora que elijas", "lleno")}`,
+    js: `nota(1, ${r2(tTu + 0.05)}); tl.to(qa(".n1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       { t: tS, sfx: "ping", vol: 0.3, max: 0.5 },
       { t: tS + 0.1, sfx: "whoosh-short", vol: 0.35 },
       { t: tG, sfx: "whoosh-short", vol: 0.2 },
-      { t: tV, sfx: "vibra", vol: 1, max: 0.5 },
+      { t: tV, sfx: "vibra-fuerte", vol: 1, max: 0.5 },
       { t: tV + 0.08, sfx: "notification", vol: 0.45, max: 0.6 },
       { t: tTu + 0.1, sfx: "click-soft", vol: 0.2 },
       { t: tL - 0.1, sfx: "click", vol: 0.25 },
