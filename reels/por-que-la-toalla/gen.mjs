@@ -265,12 +265,12 @@ vacia("s05-por-que", [
   const tP = w(id, 63) - 0.05, tB = w(id, 65) - 0.05;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d, "g"))}${pill(1, x, y, "Reseñas de vecinos", "lleno")}`,
-    js: `nota(1, ${r2(tB + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
+    js: `nota(1, ${r2(tB + 0.33)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.03 }, { t: w(id, 56) - 0.1, sfx: "click-soft", vol: 0.1 },
       { t: w(id, 56) + 0.2, sfx: "click-soft", vol: 0.25 },
       ...[0, 1, 2].map((k) => ({ t: r2(tP + 0.05 + k * 0.13), sfx: "pop", vol: 0.28 })),
-      { t: tB + 0.05, sfx: "sparkle", vol: 0.22, max: 0.8 },
+      { t: tB + 0.33, sfx: "sparkle", vol: 0.22, max: 0.8 },
     ],
   });
 }
