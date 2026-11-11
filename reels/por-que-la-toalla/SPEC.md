@@ -29,6 +29,8 @@ líneas guía crema de 7 px.
 - Base: `partes/orus1.wav` (Orus; `partes/guion-voz.txt` = guion sin «»). "la reusa" sonaba "la rehúsa": se regeneró
   SOLO "El otro: la mayoría la reutiliza." (`partes/reutiliza1.wav`) y el cierre con "Scálerics punto com"
   (`partes/cierre1.wav`, STT lo oye "escalera ix.com", igual que en otros reels de Orus). guion.txt dice "la reutiliza".
+- Ronda 2: "la reutiliza" +2,5 dB con 0,17 s de silencio antes y después; fundidos de 30 ms en las colas de "¿Por
+  qué?" y "barrio.".
 - `sh partes/armar-voz.sh` arma `assets/voice/locucion.wav`: orus1 + reutiliza1 + pausa 0,35 s antes de "¿Por qué?" +
   0,25 s después + 0,25 s antes de "Es el cartel de la toalla" + cierre1 + 0,32 s al final (tarjeta de 2,99 s).
 - `node partes/ajustar-tiempos.mjs`: palabras.json desde el STT de cada toma, corrido por el lugar de cada tramo, con
@@ -94,7 +96,12 @@ líneas guía crema de 7 px.
 12. **s12-llamada** · tarjeta verde: "Videollamada" / "gratis" (navy) / "scalerics.com" (verde en placa navy); abajo,
     el cartelito con el tilde verde colgado de un toallero, balanceándose.
 
-## Sonido
+## Sonido (ronda 2: todo más presente)
+- `armar.mjs`: sin la baja ×0,6 de los SFX sobre palabras; cada efecto sube hasta el techo de -31 LUFS (`VOLX`), salvo
+  los que pisaban la voz (bajados a mano en gen.mjs, medido con `partes/medir.py` + `partes/medir-fino.py`). Whoosh: el
+  de medios (`whoosh`) en lugar de `whoosh-cine-corto` (casi todo graves), puestos en las pausas. Vibración:
+  `vibra-medios.mp3` = `vibra-fuerte.mp3` (biblioteca) con paso alto 150 Hz y realce 1,8-3 kHz (se oye en el celular).
+  La cama baja también antes de "El sitio" (tenía un golpe propio).
 Todo de `assets/sfx` (orígenes en `reels/por-que-el-mozo/fuentes.md`: tic/tac-real de olver CC0, papel de
 Kingofgamers_cz CC0, campanita de 775noise CC0; el resto, biblioteca del repo) y `bgm/bed.mp3` con sidechain bajo la
 voz y bajada extra en la bisagra. Techo -31 LUFS por efecto (`TECHO` en armar.mjs). Toallas que caen = tic/tac-real

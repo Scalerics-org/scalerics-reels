@@ -103,3 +103,8 @@ hotel del estudio es de una cadena estadounidense sin nombre en las fuentes). En
 - El nombre o la marca del hotel (las fuentes no lo nombran; además, sin marcas).
 - Que la norma de "esta habitación" gane siempre: las réplicas no lo confirman igual [C] [F].
 - Que el hotel ahorre X litros o X dólares (hay cifras en blogs, sin fuente sólida).
+
+## Sonido (constructor)
+- Todo sale de la biblioteca del repo (orígenes en `reels/por-que-el-mozo/fuentes.md`: tic/tac-real de olver CC0, papel y
+  papel-fuerte de Kingofgamers_cz CC0, campanita de 775noise CC0; el resto, biblioteca de HyperFrames del repo).
+- Vibración del celular de Rubén (`assets/sfx/vibra-medios.mp3`): `vibra-fuerte.mp3` de la biblioteca del repo con paso alto 150 Hz y realce de 1,8-3 kHz (ffmpeg equalizer), para que se oiga en el parlante del celular. No es sintetizado.

@@ -18,6 +18,8 @@ const durArchivo = (n) => (largo[n] ??= Number(execSync(`ffprobe -v error -show_
 // techo por efecto: cada SFX queda con su sonoridad MOMENTÁNEA máxima (ventana de 0,4 s) en TECHO LUFS como mucho, medida
 // sobre el tramo que de verdad suena (desde el silencio inicial hasta su max), así nunca tapa la voz (que anda en -15)
 const TECHO = -31;
+// ronda 2 de revisión: los efectos se oían poco; todos suben hasta el techo (VOLX) y se sacó la baja x0,6 sobre palabras
+const VOLX = 4;
 const lufs = {};
 const lufsArchivo = (n, desde = 0, dur = 99) => {
   const kk = `${n}|${desde}|${dur}`;
@@ -111,7 +113,7 @@ CORTES.forEach((desde, g) => {
     })
     .join(" ");
   const largoTxt = ws.map((w, k) => TEXTO[desde + k] ?? w.text).join(" ").length;
-  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
+  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${largoTxt > 22 ? ' style="font-size: 64px"' : largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
 });
 
@@ -173,7 +175,9 @@ for (let i = 0; i < 0; i++) {
 // en el "¿Por qué?" la cama baja más (bisagra)
 const S06 = TODAS.find(([id]) => id === "s05-por-que")[1];
 const DUCK = [r2(S06 - 0.85), r2(S06 + 0.15)];
-const DUCK2 = [0, 0];
+// la cama tiene un golpe propio justo antes de "El sitio" (s09): ahí baja también
+const S09 = TODAS.find(([id]) => id === "s09-sitio")[1];
+const DUCK2 = [r2(S09 - 0.5), r2(S09 + 0.35)];
 // música recortada a la duración del reel, con fundido de 0,35 s al final
 // la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
 execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.03:ratio=8:attack=15:release=450:makeup=1.4[d];[d]volume='(1-0.7*min(max((t-${DUCK[0]})/0.2,0),1)*min(max((${DUCK[1]}-t)/0.2,0),1))*(1-0.6*min(max((t-${DUCK2[0]})/0.15,0),1)*min(max((${DUCK2[1]}-t)/0.15,0),1))':eval=frame,afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
@@ -191,7 +195,7 @@ for (const [id, a] of ESCENAS) {
 for (const [id, a] of ESCENAS.slice(1)) {
   const f = `compositions/${id}.sfx.json`;
   const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.3 && s.t >= -0.6);
-  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.1 });
+  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.15 });
 }
 for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);
@@ -201,7 +205,7 @@ const sfxTags = sfx
     const full = durArchivo(s.name), d = r2(Math.min((s.max ?? 99) + (s.cut ?? 0), full, DUR - 0.02 - s.t) - 0.01);
     const largo = /^(impact|whoosh|glitch|sparkle|chime|riser)/.test(s.name);
     const fade = d < full - 0.03 ? ` data-fade-out="${r2(largo ? Math.min(0.35, d * 0.4) : Math.min(0.08, d * 0.2))}"` : "";
-    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${Math.round(conTecho(s.name, s.vol, 0, d) * (!s.full && palabras.some((w) => w.end > s.t + 0.02 && w.start < s.t + Math.min(d, 0.5)) ? 0.6 : 1) * 1000) / 1000}"></audio>`;
+    return `      <audio id="sfx-${String(i).padStart(2, "0")}" src="assets/sfx/${s.name}.mp3" data-start="${s.t}" data-duration="${d}"${fade} data-track-index="${40 + (i % 24)}" data-volume="${Math.round(conTecho(s.name, Math.min(1, s.vol * VOLX), 0, d) * 1000) / 1000}"></audio>`;
   })
   .join("\n");
 
@@ -256,6 +260,8 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       // cierre: el fondo pasa a verde de marca (el texto de la tarjeta es navy)
       tl.set("#fondo", { backgroundColor: "#0b1220" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s12-llamada")[1]});
       tl.set("#firma", { backgroundColor: "#ffffff" }, 0);
+      // ronda 2: en el primer plano del celular (s09, desde "pedido") el logo pisaba las tarjetas y las reseñas
+      tl.set("#firma", { opacity: 0 }, ${r2(palabras[63].start - 0.15)}); tl.set("#firma", { opacity: 1 }, ${TODAS.find(([id]) => id === "s10-cartel")[1]});
       window.__timelines["main"] = tl;
     </script>
   </body>

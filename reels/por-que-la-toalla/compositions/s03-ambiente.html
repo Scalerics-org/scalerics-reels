@@ -18,15 +18,15 @@
     [data-composition-id="s03-ambiente"] .sello.chico { font-size: 70px; }
 
   </style>
-  <div id="root" data-composition-id="s03-ambiente" data-width="1080" data-height="1920" data-duration="1.94">
-    <div id="s03-ambiente-esc" class="esc clip" data-start="0" data-duration="1.94" data-track-index="0">
+  <div id="root" data-composition-id="s03-ambiente" data-width="1080" data-height="1920" data-duration="2.11">
+    <div id="s03-ambiente-esc" class="esc clip" data-start="0" data-duration="2.11" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M540 1535 L540 1420"/><circle class="dot  d1" cx="540" cy="1420" r="13"/></svg><div class="pill  n1" style="left:540px;top:1600px">Cartel de siempre</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s03-ambiente";
-      const DUR = 1.94;
+      const DUR = 2.11;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -45,7 +45,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.5); sinNota(1, 1.84);
+nota(1, 0.5); sinNota(1, 2.01);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

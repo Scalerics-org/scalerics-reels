@@ -390,7 +390,7 @@ const P214 = C214.g.position.clone().add(OH); // origen del cuarto 214 (en el mu
 // el cartel de la 214 (cuelga del toallero de ese cuarto, sobre la toalla)
 const tag214 = hacerTag("mayoria", 3); { const co = cordon(0.14, 0.12); tag214.add(co); }
 // las pilas del experimento 2 (dentro del cuarto 214, a la derecha): 10 grises (37 %) y 13 verdes (49 %)
-const PILA2 = { x: [0.14, 0.92], z: -1.0, n: [10, 13] };
+const PILA2 = { x: [-0.04, 0.62], z: -0.95, n: [10, 13] };
 const pilas2 = PILA2.n.map((n, k) => Array.from({ length: n }, () => hacerDoblada(k ? PILA_VERDE : PILA_GRIS, k ? FRANJA_CREMA : FRANJA_GRIS)));
 const nums2 = ["37 %", "49 %"].map((s, k) => { const m = mesh(textoGeo(s, 0.155, 0.06), k ? NUMM[1] : mat(C.navy3, 0.45)); m.castShadow = true; scene.add(m); return m; });
 // el "?" de la 214 (aparece en el corte, sobre el huésped)
@@ -462,7 +462,7 @@ const MOST = { y: 0.95, z: -0.9 };
   // persiana enrollada arriba del hueco
   const pe = mesh(new THREE.CylinderGeometry(0.16, 0.16, AW - 1.3, 20), M.navy3, 0, 2.86, 0.18); pe.rotation.z = Math.PI / 2; almacen.add(pe);
   // cartel ALMACÉN RUBÉN
-  const ct = tex(1024, 220, (x, w, h) => { x.fillStyle = CRE; x.fillRect(0, 0, w, h); x.strokeStyle = NAV; x.lineWidth = 14; x.strokeRect(14, 14, w - 28, h - 28); x.fillStyle = NAV; x.font = F(900, 110); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ALMACÉN RUBÉN", w / 2, h / 2 + 6); });
+  const ct = tex(1024, 220, (x, w, h) => { x.fillStyle = CRE; x.fillRect(0, 0, w, h); x.strokeStyle = NAV; x.lineWidth = 14; x.strokeRect(14, 14, w - 28, h - 28); x.fillStyle = NAV; x.font = F(900, 110); x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 100); x.fillText("ALMACÉN DE RUBÉN", w / 2, h / 2 + 6); });
   const crL = mat(C.cr, 0.6);
   almacen.add(mesh(rbox(3.8, 0.8, 0.12, 0.04), [crL, crL, crL, crL, new THREE.MeshStandardMaterial({ map: ct, roughness: 0.6, emissive: 0xffffff, emissiveMap: ct, emissiveIntensity: 0.2 }), crL], 0, 5.55, 0.2));
   // toldo a rayas verde y crema
@@ -507,8 +507,8 @@ function dibujarHoy(n) {
   if (hoyClave === String(n)) return; hoyClave = String(n);
   const x = hoyC.getContext("2d"), w = 768, h = 300;
   x.fillStyle = NAV0; rr(x, 0, 0, w, h, 50); x.strokeStyle = VER; x.lineWidth = 14; x.beginPath(); x.roundRect(14, 14, w - 28, h - 28, 40); x.stroke();
-  x.fillStyle = CRE; x.font = F(800, 96); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Hoy:", 54, 156);
-  x.fillStyle = VER; x.font = F(900, 128); x.textAlign = "center"; x.fillText(String(n), 330, 154);
+  x.fillStyle = CRE; x.font = F(800, 88); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Hoy:", 50, 156);
+  x.fillStyle = VER; x.font = F(900, 124); x.textAlign = "center"; x.fillText(String(n), 340, 154);
   x.fillStyle = CRE; x.font = F(800, 80); x.textAlign = "left"; x.fillText("pedidos", 422, 160);
   hoyT.needsUpdate = true;
 }
@@ -524,7 +524,7 @@ const hoy = new THREE.Group(); scene.add(hoy);
 const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 2.9 }); scene.add(graciela.raiz);
 const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 3.3 }); scene.add(ruben.raiz);
 for (const p of [graciela, ruben]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
-const GX = AX, GZ = 10.3; // Graciela en la vereda de enfrente, de frente a cámara (el almacén atrás)
+const GX = AX - 1.1, GZ = 10.3; // Graciela en la vereda de enfrente, de frente a cámara (el almacén atrás)
 const RZ = -1.55;
 const mate = crearMate(); scene.add(mate);
 // el celular de Graciela (pantalla en +z): el sitio de Rubén
@@ -544,7 +544,7 @@ function dibujarSitio({ ped = 0, res = 0, pide = 0 }) {
   x.fillStyle = "#f6f5ee"; x.fillRect(0, 0, SW, SH);
   // encabezado
   x.fillStyle = NAV0; x.fillRect(0, 0, SW, 300);
-  x.fillStyle = CRE; x.font = F(900, 74); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Almacén Rubén", 44, 120);
+  x.fillStyle = CRE; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "Almacén de Rubén", 900, 72, SW - 88); x.fillText("Almacén de Rubén", 44, 120);
   x.fillStyle = VER; rr(x, 44, 196, 250, 70, 35); x.fillStyle = NAV0; x.font = F(800, 42); x.textAlign = "center"; x.fillText("Abierto", 169, 232);
   x.fillStyle = CRE; x.font = F(600, 44); x.textAlign = "left"; x.fillText("8 a 21 h", 324, 234);
   // la sección
@@ -622,23 +622,32 @@ function hacerNube(cola = -1) {
   scene.add(g); return g;
 }
 function hacerTarta() {
+  // tarta de jamón y queso con tapa dorada, borde repulgado y una porción cortada (se ven el jamón y el queso)
   const g = new THREE.Group();
-  const masa = mat(0xc98b3c, 0.6), relleno = mat(0xf2c76a, 0.55);
-  g.add(mesh(new THREE.CylinderGeometry(0.5, 0.44, 0.16, 40), masa, 0, 0.08, 0));
-  g.add(mesh(new THREE.CylinderGeometry(0.43, 0.43, 0.03, 40), relleno, 0, 0.165, 0));
-  const borde = mesh(new THREE.TorusGeometry(0.46, 0.06, 10, 40), masa, 0, 0.17, 0); borde.rotation.x = Math.PI / 2; g.add(borde);
-  // enrejado cruzado de masa (la tarta de jamón y queso con cuadriculado)
-  for (const ry of [Math.PI / 4, -Math.PI / 4]) for (let i = -3; i <= 3; i++) { const L = 2 * Math.sqrt(Math.max(0.01, 0.43 * 0.43 - (i * 0.12) ** 2)); const st = new THREE.Group(); st.rotation.y = ry; g.add(st); st.add(mesh(rbox(0.075, 0.045, L, 0.018), mat(0x9a5f24, 0.6), i * 0.12, 0.2, 0)); }
+  const masa = mat(0xd39a4a, 0.6), tapa = mat(0xe0a955, 0.55), jamon = mat(0xe39a9a, 0.6), queso = mat(0xf3d36b, 0.5);
+  const A0 = 0.55, AL = Math.PI * 2 - 1.0; // falta una porción de ~57°
+  g.add(mesh(new THREE.CylinderGeometry(0.5, 0.45, 0.06, 48, 1, false, A0, AL), masa, 0, 0.03, 0));
+  g.add(mesh(new THREE.CylinderGeometry(0.47, 0.47, 0.07, 48, 1, false, A0, AL), jamon, 0, 0.095, 0));
+  g.add(mesh(new THREE.CylinderGeometry(0.47, 0.47, 0.06, 48, 1, false, A0, AL), queso, 0, 0.16, 0));
+  g.add(mesh(new THREE.CylinderGeometry(0.48, 0.48, 0.05, 48, 1, false, A0, AL), tapa, 0, 0.215, 0));
+  // las caras del corte (capas: masa, jamón, queso, tapa)
+  const corteT = tex(64, 256, (x) => { const c = ["#e0a955", "#f3d36b", "#e39a9a", "#d39a4a"], hs = [50, 60, 70, 76]; let y = 0; c.forEach((col, k) => { x.fillStyle = col; x.fillRect(0, y, 64, hs[k]); y += hs[k]; }); });
+  for (const a of [A0, A0 + AL]) { const pl = mesh(new THREE.PlaneGeometry(0.48, 0.24), new THREE.MeshStandardMaterial({ map: corteT, roughness: 0.6, side: THREE.DoubleSide }), Math.sin(a) * 0.24, 0.12, Math.cos(a) * 0.24); pl.rotation.y = a - Math.PI / 2; g.add(pl); }
+  // repulgue: el borde trenzado
+  for (let k = 0; k < 30; k++) { const a = A0 + 0.05 + (k / 29) * (AL - 0.1); const b = mesh(new THREE.SphereGeometry(0.055, 12, 8), masa, Math.sin(a) * 0.47, 0.24, Math.cos(a) * 0.47); b.scale.set(1, 0.7, 1.4); b.rotation.y = a + 0.6; g.add(b); }
+  // pinchazos de tenedor en la tapa
+  for (const [x, z] of [[0.1, -0.15], [-0.15, 0.05], [0.2, 0.12], [-0.05, -0.28]]) g.add(mesh(new THREE.SphereGeometry(0.018, 8, 6), mat(0x9a5f24, 0.6), x, 0.24, z));
   return g;
 }
 function hacerPan() {
+  // flauta de pan con cortes en diagonal
   const g = new THREE.Group();
-  const p = mesh(new THREE.SphereGeometry(0.5, 30, 18), mat(0xb9772f, 0.65), 0, 0.22, 0); p.scale.set(1.25, 0.52, 0.6); g.add(p);
-  for (const d of [-0.36, -0.12, 0.12, 0.36]) { const c = mesh(rbox(0.07, 0.04, 0.34, 0.015), mat(0xf2d9a0, 0.7), d, 0.45 - Math.abs(d) * 0.18, 0); c.rotation.y = 0.55; c.rotation.z = -d * 0.5; g.add(c); }
+  const p = mesh(new THREE.CapsuleGeometry(0.15, 0.85, 10, 20), mat(0xc4823a, 0.65), 0, 0.15, 0); p.rotation.z = Math.PI / 2; p.scale.set(1, 1, 0.9); g.add(p);
+  for (const d of [-0.33, -0.11, 0.11, 0.33]) { const c = mesh(rbox(0.05, 0.03, 0.22, 0.012), mat(0xf2d9a0, 0.7), d, 0.29, 0); c.rotation.y = 0.7; g.add(c); }
   return g;
 }
 const nubeG = hacerNube(-1);
-const ANTOJOS = [{ o: hacerTarta(), k: 0.36, p: [-0.3, 0.06], rx: 0.85 }, { o: hacerPan(), k: 0.32, p: [0.12, 0.16], rx: 0.15 }, { o: crearMaple(), k: 1.0, p: [0.36, -0.1], rx: 0.7 }].map((it) => {
+const ANTOJOS = [{ o: hacerTarta(), k: 0.4, p: [-0.3, 0.05], rx: 0.6 }, { o: hacerPan(), k: 0.36, p: [0.18, 0.18], rx: 0.35 }, { o: crearMaple(), k: 1.55, p: [0.3, -0.16], rx: 0.75 }].map((it) => {
   const h = new THREE.Group(); h.add(it.o); it.o.scale.setScalar(it.k); it.o.rotation.set(it.rx, 0.3, 0); nubeG.userData.items.add(h); it.h = h; return it;
 });
 
@@ -690,11 +699,11 @@ const TAGB = (i) => V(TOX[i], BAR.y - TAGDY, BAR.z + TAGZ); // ojal de cada cart
 const c214 = (x, y, z) => [P214.x + x, P214.y + y, P214.z + z];
 // claves relativas al celular de Graciela (se resuelven con su posición real): entero, el ítem 1 de cerca, las reseñas
 const CELU_K = [
-  k(T.sitio + 0.5, [0, 0, 0.42], [0, 0, 0]),
-  k(T.pedido + 0.25, [-0.002, 0.014, 0.27], [-0.002, 0.014, 0]),
-  k(T.barrio - 0.05, [-0.002, 0.014, 0.26], [-0.002, 0.014, 0]),
-  k(T.barrio + 0.3, [0.006, -0.036, 0.3], [0.006, -0.036, 0]),
-  k(T.s10 - 0.02, [0.006, -0.036, 0.29], [0.006, -0.036, 0]),
+  k(T.sitio + 0.5, [0, 0.0072, 0.48], [0, 0.0072, 0]),
+  k(T.pedido + 0.25, [-0.002, 0.045, 0.27], [-0.002, 0.045, 0]),
+  k(T.barrio - 0.05, [-0.002, 0.045, 0.26], [-0.002, 0.045, 0]),
+  k(T.barrio + 0.3, [0.006, -0.012, 0.42], [0.006, -0.012, 0]),
+  k(T.s10 - 0.02, [0.006, -0.012, 0.41], [0.006, -0.012, 0]),
 ];
 CELU_K.forEach((q) => (q.rel = true));
 const PLANOS = [
@@ -703,46 +712,48 @@ const PLANOS = [
     k(0, [0.43, 1.6, 3.0], [0.4, 1.56, -0.12]),
     k(T.s02 - 0.05, [0.42, 1.59, 2.8], [0.4, 1.55, -0.12]),
     // s02: travelling atrás y a la izquierda: las dos toallas y los dos carteles
-    k(T.s02 + 0.6, [0.02, 1.42, 4.55], [0, 1.4, -0.12]),
-    k(T.s03 - 0.02, [0.0, 1.42, 4.35], [0, 1.4, -0.12]),
+    k(T.s02 + 0.6, [0.02, 1.55, 4.15], [0, 1.53, -0.12]),
+    k(T.s03 - 0.02, [0.0, 1.55, 4.05], [0, 1.53, -0.12]),
     // s03: push-in al cartel de la izquierda
     k(T.s03 + 0.55, [-0.4, 1.36, 2.18], [-0.4, 1.32, 0.0]),
     k(T.s04 - 0.02, [-0.4, 1.36, 2.05], [-0.4, 1.32, 0.0]),
     // s04: paneo al de la derecha
-    k(T.s04 + 0.45, [0.4, 1.36, 2.18], [0.4, 1.32, 0.0]),
+    k(T.s04 + 0.24, [0.0, 1.38, 3.9], [0.0, 1.33, 0.0]),
+    k(T.s04 + 0.48, [0.4, 1.36, 2.18], [0.4, 1.32, 0.0]),
     k(T.gano - 0.02, [0.4, 1.36, 2.05], [0.4, 1.32, 0.0]),
     // "Ganó": atrás y abajo, las dos pilas
-    k(T.gano + 0.5, [0.0, 1.35, 5.4], [0, 0.88, 0.55], 36),
-    k(T.armaQ - 0.05, [0.0, 1.33, 5.2], [0, 0.88, 0.55], 36),
+    k(T.gano + 0.5, [0.0, 1.5, 5.4], [0, 1.05, 0.55], 36),
+    k(T.armaQ - 0.05, [0.0, 1.48, 5.2], [0, 1.05, 0.55], 36),
     // s05: push-in al "?"
     k(T.armaQ + 0.6, [0.12, 1.05, 3.55], [0, 0.98, 0.55]),
     k(T.s06 - 0.02, [-0.12, 1.05, 3.35], [0, 0.98, 0.55]),
   ]],
   // s06: CORTE al "?" del cuarto 214 (mismo encuadre) y grúa atrás: el hotel en corte
   [T.s06, [
-    k(T.s06, c214(0.15, 2.14, -1.25 + 1.2), c214(0.15, 2.12, -1.25)),
-    k(T.s06 + 0.4, c214(0.12, 2.3, 4.0), c214(0.1, 2.0, -1.25)),
-    k(T.s06 + 1.0, h(0.3, 7.6, 33), h(0, 7.4, -1)),
+    k(T.s06, c214(0.1, 1.58, 3.1), c214(0.1, 1.55, -1.25)),
+    k(T.s06 + 0.3, c214(0.12, 1.85, 3.6), c214(0.12, 1.75, -1.25)),
+    k(T.s06 + 0.75, h(0.3, 7.6, 33), h(0, 7.4, -1)),
     k(T.s07 - 0.05, h(0.25, 7.55, 32.4), h(0, 7.38, -1)),
     // s07: push-in a la 214 hasta el cartel
     k(T.s07 + 0.42, c214(-0.57, 1.48, 0.25), c214(-0.57, 1.36, -RD + 0.3)),
-    k(T.habit + 0.15, c214(-0.57, 1.48, 0.0), c214(-0.57, 1.35, -RD + 0.3)),
+    k(T.habit + 0.08, c214(-0.57, 1.48, 0.0), c214(-0.57, 1.35, -RD + 0.3)),
     // "más todavía": atrás y a la derecha: el cartel, las pilas y los números
-    k(T.todavia - 0.05, c214(0.2, 1.42, 5.75), c214(0.2, 0.9, -1.4)),
-    k(T.s08 - 0.3, c214(0.2, 1.42, 5.6), c214(0.2, 0.9, -1.4)),
+    k(T.habit + 0.5, c214(0.02, 1.45, 4.25), c214(0.02, 0.98, -1.4)),
+    k(T.s08 - 0.3, c214(0.02, 1.45, 4.05), c214(0.02, 0.98, -1.4)),
     // s08: sale del hotel y viaja por la calle hasta Graciela (el almacén atrás)
-    k(T.s08 - 0.06, h(6.0, 4.2, 14), h(9.5, 2.0, 6)),
-    k(T.s08 + 0.13, [GX + 0.3, 1.6, GZ + 3.15], [GX + 0.02, 1.4, GZ]),
-    k(T.s09 - 0.02, [GX + 0.25, 1.58, GZ + 2.9], [GX + 0.02, 1.38, GZ]),
+    k(T.s08 - 0.15, h(5.0, 5.0, 19.5), h(9.5, 2.3, 6)),
+    k(T.s08 + 0.04, [GX + 0.3, 1.6, GZ + 3.8], [GX + 0.3, 1.45, GZ]),
+    k(T.s09 - 0.02, [GX + 0.3, 1.58, GZ + 3.6], [GX + 0.3, 1.43, GZ]),
     // s09: push-in al celular que muestra
     ...CELU_K,
     // s10: atrás: la tarjeta sale del celular y cuelga; entra el cartel de la toalla
     k(T.s10 + 0.45, [GX - 0.02, 1.42, GZ + 2.05], [GX - 0.02, 1.38, GZ + 0.9]),
     k(T.s11 - 0.02, [GX - 0.02, 1.42, GZ + 1.98], [GX - 0.02, 1.38, GZ + 0.9]),
     // s11: la tarjeta vuela al almacén y la cámara la sigue por arriba de la calle: Rubén detrás del mostrador
-    k(T.s11 + 0.38, [GX + 0.8, 4.0, GZ - 0.6], [GX, 1.6, 0]),
-    k(T.s11 + 0.95, [GX + 0.06, 2.3, 3.6], [GX - 0.05, 1.12, RZ]),
-    k(T.fin - 0.02, [GX + 0.02, 2.26, 3.35], [GX - 0.05, 1.12, RZ]),
+    k(T.s11 + 0.16, [GX, 1.85, GZ + 2.15], [GX, 2.65, GZ + 0.6]),
+    k(T.s11 + 0.42, [GX + 0.4, 3.2, GZ - 0.4], [AX, 2.0, 2]),
+        k(T.s11 + 0.8, [AX + 0.06, 2.3, 3.6], [AX - 0.05, 1.12, RZ]),
+    k(T.fin - 0.02, [AX + 0.02, 2.26, 3.35], [AX - 0.05, 1.12, RZ]),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.62, 4.1], [OF.x, 1.58, 0]),
@@ -928,16 +939,16 @@ function zonaH(t) {
   {
     const v = t < T.demas + 0.6;
     const u = eio(sg(t, T.s06 + 0.1, T.s06 + 0.7));
-    const kq = v ? lerp(0.42, 0.5, u) * (1 - eio(sg(t, T.demas + 0.35, T.demas + 0.6))) : 0;
+    const kq = v ? 0.45 * (u >= 0 ? 1 : 1) * (1 - eio(sg(t, T.demas + 0.35, T.demas + 0.6))) : 0;
     ocultar(pregunta2, kq);
-    pregunta2.position.set(P214.x + 0.15, P214.y + 2.12, P214.z - 1.25);
+    pregunta2.position.set(P214.x + 0.15, P214.y + 2.1, P214.z - 1.25);
     pregunta2.rotation.set(0, Math.sin((t - T.armaQ) * 1.6) * 0.3, 0);
   }
   // las pilas del exp. 2 y sus números (dentro de la 214)
   pilas2.forEach((pila, kk) => pila.forEach((m, i) => {
     const n = PILA2.n[kk];
-    const t0 = T.todavia - 0.15 + i * ((kk ? 0.5 : 0.42) / n);
-    const fuera = eio(sg(t, T.s08 - 0.1, T.s08 + 0.15));
+    const t0 = T.habit + i * ((kk ? 0.26 : 0.22) / n);
+    const fuera = eio(sg(t, T.s08 - 0.32, T.s08 - 0.18));
     m.visible = t > t0 - 0.02 && fuera < 0.98; if (!m.visible) return;
     const yF = 0.041 + PILA.dh * i;
     const u = sg(t, t0, t0 + 0.12);
@@ -946,7 +957,7 @@ function zonaH(t) {
   }));
   nums2.forEach((m, kk) => {
     const top = 0.041 + PILA.dh * (PILA2.n[kk] - 0.5);
-    const t0 = T.todavia - 0.15 + (kk ? 0.5 : 0.42) + 0.08;
+    const t0 = T.habit + (kk ? 0.26 : 0.22) + 0.06;
     const sc = t > t0 ? popIn(t, t0, 0.3) * (1 + (kk ? 0.1 * pulso(t, t0 + 0.3, 0.3) : 0)) * (1 - eio(sg(t, T.s08 - 0.1, T.s08 + 0.15))) : 0;
     ocultar(m, sc);
     m.position.set(P214.x + PILA2.x[kk], P214.y + top + 0.19, P214.z + PILA2.z + 0.05);
@@ -980,8 +991,8 @@ function zonaH(t) {
     const v = t > T.duda - 0.05 && t < T.sitio;
     const kn = v ? popIn(t, T.duda - 0.05, 0.3) * (1 - eio(sg(t, T.sitio - 0.3, T.sitio))) : 0;
     nubeG.visible = kn > 0.01;
-    nubeG.position.copy(_v).add(V(0.27, 0.48, 0.1)); nubeG.quaternion.copy(camera.quaternion);
-    nubeG.scale.setScalar(kn * 0.31 * (1 + 0.03 * Math.sin(t * 5)));
+    nubeG.position.copy(_v).add(V(0.38, 0.5, 0.3)); nubeG.quaternion.copy(camera.quaternion);
+    nubeG.scale.setScalar(kn * 0.33 * (1 + 0.03 * Math.sin(t * 5)));
     ANTOJOS.forEach((it, i) => {
       const ki = popIn(t, T.duda + 0.1 + i * 0.14, 0.25);
       it.h.position.set(it.p[0], it.p[1], 0.02); it.h.scale.setScalar(ki);
@@ -991,49 +1002,52 @@ function zonaH(t) {
   // ---- Rubén detrás del mostrador, con el mate ----
   const avisa = T.s11 + 1.0;
   let pr = poseEn(t, [
-    [0, { x: AX, y: 0.13, z: RZ, giro: 0, ...CARA.neutra, manoD: [-0.22, 0.3, 0.4], codoD: [-0.9, -0.6, -0.2], manoI: [0.3, 0.32, 0.36], cabeza: { giro: 0.1, asiente: 0.15, ladea: 0.05 }, ojos: { x: 0.1, y: -0.2, abiertos: 0.7 }, cejas: { alto: 0, ang: 0.3 }, boca: { sonrisa: -0.05, ancho: 0.9 } }],
+    [0, { x: AX, y: 0.13, z: RZ, giro: 0, ...CARA.neutra, manoD: [-0.26, 0.28, 0.4], codoD: [-0.9, -0.6, -0.2], manoI: [0.3, 0.32, 0.36], cabeza: { giro: 0.1, asiente: 0.15, ladea: 0.05 }, ojos: { x: 0.1, y: -0.2, abiertos: 0.7 }, cejas: { alto: 0, ang: 0.3 }, boca: { sonrisa: -0.05, ancho: 0.9 } }],
     // el celular vibra: mira abajo
     [avisa + 0.1, { cabeza: { giro: 0.25, asiente: 0.42, ladea: 0.05 }, ojos: { x: 0.3, y: -0.9, abiertos: 1 }, cejas: { alto: 0.5, ang: 0.1 } }, 0.2],
     // sonríe debajo del bigote, a cámara
     [avisa + 0.45, { ...CARA.sonrisa, cabeza: { giro: 0.05, asiente: 0.0, ladea: 0.08 }, ojos: { x: 0.05, y: 0.05, abiertos: 1, feliz: 0.4 }, cejas: { alto: 0.4, ang: 0 } }, 0.25],
   ]);
   pr.t = t; ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
-  ruben.mano("D").getWorldPosition(_v); mate.position.copy(_v).add(V(0.0, 0.0, 0.03)); mate.rotation.set(0, 0.6, 0);
-  celuR.position.set(AX + 0.55, MOST.y + 0.04, MOST.z + 0.12); celuR.rotation.set(0, -0.3 + Math.sin(t * 70) * 0.03 * pulso(t, avisa, 0.5), 0);
+  ruben.mano("D").getWorldPosition(_v); mate.position.copy(_v).add(V(0.0, 0.0, 0.03)); mate.rotation.set(0, 0.6, -0.6); mate.scale.setScalar(1.25);
+  celuR.position.set(AX + 0.08, MOST.y + 0.04, MOST.z + 0.2); celuR.rotation.set(0, -0.3 + Math.sin(t * 70) * 0.03 * pulso(t, avisa, 0.5), 0);
   pantR.emissiveIntensity = t > avisa ? 0.85 : 0.05;
   vib.visible = t > avisa && t < avisa + 0.55; if (vib.visible) { vib.position.copy(celuR.position).add(V(0, 0.03, 0)); vib.scale.setScalar(1 + 0.25 * Math.sin((t - avisa) * 30)); vib.rotation.y = -0.3; }
-  hoy.position.set(AX - 0.3, MOST.y + 0.17, MOST.z + 0.26); hoy.rotation.set(-0.12, 0.12, 0);
+  hoy.position.set(AX + 0.34, MOST.y + 0.15, MOST.z + 0.24); hoy.rotation.set(-0.12, -0.18, 0);
   const llega = avisa + 0.3;
-  dibujarHoy(t > llega ? 13 : 12); hoy.scale.setScalar(1 + 0.18 * pulso(t, llega, 0.3));
+  dibujarHoy(t > llega ? 13 : 12); hoy.scale.setScalar(0.7 * (1 + 0.18 * pulso(t, llega, 0.3)));
   luzAlmacen.position.set(AX, 2.5, -0.6); luzAlmacen.intensity = 6 + 4 * eio(sg(t, llega, llega + 0.3));
   // ---- el callback: la tarjeta sale del celular, cuelga de un tramo de toallero y encaja con el cartel de la toalla ----
   {
     const sale = eio(sg(t, T.s10 - 0.05, T.s10 + 0.4));
     const vive = t > T.s10 - 0.05;
-    const vuela = eio(sg(t, T.s11 + 0.2, T.s11 + 1.0));
+    const vuela = eio(sg(t, T.s11, T.s11 + 0.95));
     tagPedido.visible = vive && vuela < 0.98;
     const SC = 0.42;
     const colgado = V(GX + 0.03, 1.5, GZ + 0.9);
     const barraP = colgado.clone().add(V(0, TAGDY * SC, -TAGZ * SC));
-    barraCb.visible = vive && t < T.s11 + 0.05;
+    barraCb.visible = false;
     if (barraCb.visible) { const ki = eio(sg(t, T.s10 + 0.1, T.s10 + 0.45)), ko = eio(sg(t, T.s11 - 0.25, T.s11 + 0.05)); barraCb.position.copy(barraP).add(V(lerp(-1.2, 0, ki) + ko * 1.3, 0, 0)); barraCb.scale.setScalar(SC * 0.7); }
     if (tagPedido.visible) {
       celu.updateMatrixWorld(true);
       const desde = celu.localToWorld(V(0, 0.01, 0.01));
-      let p = lerpV(desde, colgado.clone().add(V(0, -0.0, 0)), sale);
-      const dest = V(AX + 0.55, MOST.y + 0.1, MOST.z + 0.14);
+      let p = lerpV(desde, colgado.clone().add(V(0, -0.0, 0)), sale); let wv = 0;
+      const dest = V(AX + 0.08, MOST.y + 0.1, MOST.z + 0.22);
       if (vuela > 0) {
         // a mitad de vuelo la tarjeta va adelante de la cámara (que la sigue), un poco abajo del centro
-        const fw = new THREE.Vector3(); camera.getWorldDirection(fw);
-        const delante = camera.position.clone().add(fw.multiplyScalar(1.1)).add(V(0, 0.02, 0));
-        p = lerpV(arco(colgado, dest, vuela, 0.7), delante, Math.sqrt(Math.sin(Math.PI * vuela)) * 0.95);
+        camera.updateMatrixWorld(true); const fw = new THREE.Vector3(); camera.getWorldDirection(fw);
+        const der = new THREE.Vector3().crossVectors(fw, camera.up).normalize();
+        const delante = camera.position.clone().add(fw.clone().multiplyScalar(1.3)).add(der.multiplyScalar(0.02)).add(V(0, -0.06, 0));
+        wv = Math.min(1, Math.sin(Math.PI * sg(t, T.s11, T.s11 + 0.95)) * 6);
+        p = lerpV(arco(colgado, dest, vuela, 0.7), delante, wv);
       }
       tagPedido.position.copy(p);
+      tagPedido.quaternion.identity().slerp(camera.quaternion, wv);
       tagPedido.scale.setScalar(lerp(0.06, SC, sale) * (1 + 0.1 * pulso(t, T.toalla2, 0.3)) * lerp(1, 0.4, vuela));
       // en "cartel" se da vuelta: del otro lado ES el cartel de la toalla; en "toalla" vuelve y encaja (marco verde)
       const vuelta = Math.PI * eio(sg(t, T.cartel - 0.08, T.cartel + 0.26)) + Math.PI * eio(sg(t, T.toalla2 - 0.06, T.toalla2 + 0.24));
       tagPedido.userData.giro.rotation.set(0, (1 - sale) * 0.5 + vuelta, rebote(t, T.s10 + 0.4, 3.5, 8, 0.12) + rebote(t, T.toalla2 + 0.24, 4, 9, 0.06) + Math.sin(vuela * 9) * 0.3 * vuela);
-      tagPedido.userData.cordon.visible = sale > 0.85 && t < T.s11 + 0.12;
+      tagPedido.userData.cordon.visible = false;
     }
     tagEco.visible = false;
     marcoSel.visible = t > T.toalla2 + 0.22 && t < T.s11 - 0.05;
