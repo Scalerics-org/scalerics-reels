@@ -659,7 +659,7 @@ const atril = new THREE.Group(); scene.add(atril);
   sh(atril);
 }
 const tildesT = Array.from({ length: 12 }, () => hacerTilde(0.034, tarjeta));
-const celuC = hacerCelu("Financiera"); // el celular chico de los avisos
+const celuC = hacerCelu("Financiera"); celuC.traverse((o) => (o.castShadow = false)); // el celular chico de los avisos
 const bCuota = hacerBurbuja("cuota"); celuC.add(bCuota);
 const minis = Array.from({ length: 5 }, () => hacerBurbuja("cuota"));
 const papelP = hacerBurbuja("turno");
@@ -748,6 +748,7 @@ T.zamb = T.s02 - 0.45; // la burbuja despega del celular hacia cámara
 T.corteG = T.sistema + 0.62; // corte a Graciela (la burbuja llena el cuadro)
 T.mateR = T.listo + 0.12; // contraplano: Rubén con el mate
 T.vibG = T.corteG + 0.35;
+T.tc10 = T.graciela + 0.22; // s10: corte y Graciela ya con la bolsa en la mano
 
 // ================= CÁMARA =================
 // PLANOS: [desde, [[t, px, py, pz, mx, my, mz, fov], ...]]; dentro de un plano, Hermite monótona; entre planos, corte.
@@ -770,8 +771,10 @@ const PLANOS = [
   ["D", T.s02, [
     k(T.s02, d(6.0, 3.0, 5.6), d(0.2, 1.0, -0.3)),
     k(T.s02 + 1.0, d(7.0, 4.1, 7.6), d(-1.45, 0.75, -0.5)),
-    k(T.s03 - 0.35, d(6.9, 4.05, 7.4), d(-1.45, 0.75, -0.5)),
-    k(T.s03 - 0.02, [QC[0] + 0.7, QC[1] + 0.1, QC[2] + 2.5], [QC[0], QC[1] - 0.12, QC[2]]),
+    k(T.s03 - 0.12, d(6.9, 4.05, 7.4), d(-1.45, 0.75, -0.5)),
+  ]],
+  ["D", T.s03 - 0.12, [
+    k(T.s03 - 0.12, [QC[0] + 0.7, QC[1] + 0.1, QC[2] + 2.5], [QC[0], QC[1] - 0.12, QC[2]]),
     k(T.s04, [QC[0] + 0.62, QC[1] + 0.1, QC[2] + 2.38], [QC[0], QC[1] - 0.12, QC[2]]),
   ]],
   // s04: corte a Rubén (el "?" en el mismo lugar de la pantalla), el "?" se vuelve nube
@@ -785,8 +788,12 @@ const PLANOS = [
     k(T.s05, pp(-0.1, 0.95, 3.8), pp(-0.1, 0.6, 0)),
     k(T.s06, pp(-0.08, 1.0, 3.7), pp(-0.08, 0.68, 0)),
     k(T.s06 + 1.4, pp(-0.06, 0.98, 3.35), pp(-0.06, 0.7, 0)),
-    k(T.s07 - 0.45, pp(-0.06, 0.98, 3.3), pp(-0.06, 0.7, 0)),
-    k(T.s07 + 0.02, pp(0.0, 1.32, 5.3), pp(0.0, 1.15, -0.2)),
+    k(T.s07, pp(-0.06, 0.98, 3.28), pp(-0.06, 0.7, 0)),
+  ]],
+  // s07: corte limpio a la balanza ya grande
+  ["P", T.s07, [
+    k(T.s07, pp(0.0, 1.32, 5.15), pp(0.0, 1.15, -0.2)),
+    k(T.s07 + 0.6, pp(0.0, 1.32, 5.3), pp(0.0, 1.15, -0.2)),
     k(T.s08 - 0.5, pp(0.0, 1.3, 5.05), pp(0.0, 1.15, -0.2)),
     k(T.s08, pp(0.0, 1.25, 4.3), pp(0.0, 1.1, -0.2)),
   ]],
@@ -808,8 +815,8 @@ const PLANOS = [
   ]],
   // corte seco al primer plano del celular (la cámara no cruza la cara)
   ["G", T.tu - 0.08, [
-    { rel: [T.tu - 0.08, 0.0, 0.26, 0.56, 0.0, 0.035] },
-    { rel: [T.mateR, 0.0, 0.25, 0.48, 0.0, 0.035] },
+    { rel: [T.tu - 0.08, 0.0, 0.24, 0.44, 0.0, 0.02] },
+    { rel: [T.mateR, 0.0, 0.235, 0.42, 0.0, 0.02] },
   ]],
   // contraplano: Rubén con el mate (no toca nada)
   ["AR", T.mateR, [
@@ -818,8 +825,12 @@ const PLANOS = [
   ]],
   // s10: Graciela entra al almacén y Rubén le alcanza la bolsa
   ["A10", T.s10, [
-    k(T.s10, [-0.36, 2.15, 5.4], [-0.44, 1.2, 0.0]),
-    k(T.s11, [-0.36, 2.12, 5.15], [-0.44, 1.2, 0.0]),
+    k(T.s10, [-0.44, 2.15, 5.4], [-0.52, 1.2, 0.0]),
+    k(T.tc10, [-0.44, 2.14, 5.25], [-0.52, 1.2, 0.0]),
+  ]],
+  ["A10", T.tc10, [
+    k(T.tc10, [-0.46, 1.95, 4.6], [-0.52, 1.15, 0.0]),
+    k(T.s11, [-0.46, 1.93, 4.4], [-0.52, 1.15, 0.0]),
   ]],
   // s11: el celular de Rubén otra vez: las dos burbujas iguales
   ["A11", T.s11, [
@@ -1045,7 +1056,7 @@ function zonaA(t) {
     const camina = eio(sg(t, T.s10 - 0.2, T.graciela + 0.1));
     let pg = poseEn(t, [
       [0, { x: lerp(-0.98, -0.84, camina), y: 0, z: 0.8, giro: 0.3, paso: 1 - camina, ...BRAZOS.costado, ...CARA.sonrisa, cabeza: { giro: 0.15, asiente: 0.0, ladea: 0.04 }, ojos: { x: 0.5, y: 0, abiertos: 1 } }],
-      [T.graciela + 0.25, { paso: 0, manoI: [0.24, 0.44, 0.46], codoI: [0.8, -0.6, -0.1], ...CARA.sonrisa, ojos: { x: 0.5, y: 0, abiertos: 1, feliz: 0.2 }, cabeza: { giro: 0.12, asiente: -0.05, ladea: 0.06 } }, 0.3],
+      [T.tc10, { paso: 0, manoI: [0.31, 0.02, 0.12], codoI: [1, 0.1, -0.2], ...CARA.sonrisa, ojos: { x: 0.5, y: 0, abiertos: 1, feliz: 0.2 }, cabeza: { giro: 0.12, asiente: -0.05, ladea: 0.06 } }, 0.01],
     ]);
     pg.x = lerp(-0.98, -0.84, camina); pg.z = 0.8; pg.paso = (1 - camina) > 0.05 ? 1 : 0;
     pg.t = t; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true);
@@ -1057,16 +1068,12 @@ function zonaA(t) {
     const ki = t < T.s08 ? 0 : t < t0 ? 0 : popIn(t, t0, 0.28);
     // Graciela se lleva la suya en s10
     // la de Graciela: Rubén la levanta (va a su mano) y se la pasa a la mano de ella
-    const levanta = i === 0 && plano === "A10" ? eio(sg(t, T.graciela - 0.12, T.graciela + 0.15)) : 0;
-    const pasa = i === 0 && plano === "A10" ? eio(sg(t, T.graciela + 0.2, T.graciela + 0.5)) : 0;
+    const enMano = i === 0 && plano === "A10" && t >= T.tc10;
     b.g.visible = b.g.visible && ki > 0.01;
     let p = BOLSA_P[i].clone();
-    if (levanta > 0) {
-      // Rubén se la desliza por el mostrador hasta el borde, del lado de ella, y ella la levanta
-      p = lerpV(p, V(-0.5, MOST.y, 0.3), levanta);
-      if (pasa > 0) { const mG = graciela.mano("I").getWorldPosition(new THREE.Vector3()).add(V(0, -0.26, 0.0)); p = lerpV(p, mG, pasa); }
-    }
-    b.g.position.copy(p); b.g.rotation.set(0, (i - 1.5) * -0.08, 0); b.g.scale.setScalar(ki * BOLSA_K);
+    // después del corte de s10 la bolsa cuelga de la mano de Graciela (la mano en el borde de arriba)
+    if (enMano) p = graciela.mano("I").getWorldPosition(new THREE.Vector3()).add(V(0.0, -0.29 * BOLSA_K, 0.0));
+    b.g.position.copy(p); b.g.rotation.set(0, enMano ? 0.3 : (i - 1.5) * -0.08, 0); b.g.scale.setScalar(ki * BOLSA_K);
     const avisado = i === 0 ? t > T.sistema : t > T.graciela + 0.62 + (i - 1) * 0.15;
     ponerTicket(b, avisado);
     b.g.scale.multiplyScalar(1 + 0.08 * pulso(t, T.encargo - 0.1 + i * 0.1, 0.25));
@@ -1082,9 +1089,8 @@ function zonaA(t) {
       ponerBurbuja(bPed, "pedido", 0);
       const u = eio(sg(t, T.sistema + 0.05, T.corteG));
       BOLSAS[0].g.updateMatrixWorld(true);
-      const desde = BOLSAS[0].g.localToWorld(V(0, 0.42, 0.06));
-      bPed.position.copy(lerpV(desde, delante(0.5, 0, -0.35), u)); bPed.quaternion.copy(camera.quaternion);
-      bPed.scale.setScalar(lerp(0.05, 0.14, u));
+      bPed.position.copy(delante(0.5, 0, -0.35)); bPed.quaternion.copy(camera.quaternion);
+      bPed.scale.setScalar(0.14 * popIn(t, T.sistema + 0.05, 0.3));
     }
   }
 }
@@ -1139,7 +1145,7 @@ function zonaD(t) {
   {
     const s = SILLONES[QS];
     const u = eio(sg(t, T.s03 - 0.14, T.s03 + 0.06));
-    s.cabeza.scale.setScalar(Math.max(0.001, 1 - u)); s.lamp.visible = u < 0.98; s.lamp.scale.setScalar(Math.max(0.001, 1 - u)); s.poste.visible = u < 0.5;
+    s.cabeza.scale.setScalar(Math.max(0.001, 1 - u)); s.lamp.visible = t < T.s03 - 0.12; s.poste.visible = t < T.s03 - 0.12;
     const kq = t < T.s03 - 0.14 ? 0 : lerp(0.0, 1, bk(sg(t, T.s03 - 0.14, T.s03 + 0.2))) * (1 + 0.08 * pulso(t, T.que, 0.3));
     pregunta.visible = kq > 0.01;
     if (pregunta.visible) {
@@ -1160,7 +1166,7 @@ function zonaP(t) {
   if (!en) return;
   const c = OP;
   // al final de s07 la cámara se acerca a la balanza y lo que está encima se achica (en el almacén la balanza está vacía)
-  const achica = t < T.s08 - 0.03 ? 1 : 0;
+  const achica = t < T.s08 ? 1 : 0;
   // ---- el papelito cae y se da vuelta de canto: del otro lado es la tarjeta ----
   const giro = sg(t, T.s05 + 0.45, T.s05 + 0.62);
   // al empezar s07 la tarjeta, el atril y el celular se achican en su lugar (rápido) y recién después aparece la balanza
@@ -1214,7 +1220,7 @@ function zonaP(t) {
   const ang0 = 0.3;
   const nivel = eio(sg(t, T.tanto, T.tanto + 0.8));
   const ang = lerp(ang0, 0, nivel) + rebote(t, T.tanto + 0.8, 4, 11, 0.05);
-  const kB = t < T.s07 ? 0 : lerp(0.55, 1, bk(sg(t, T.s07, T.s07 + 0.28)));
+  const kB = t < T.s07 ? 0 : 1;
   ocultar(balanza, kB);
   balanza.position.set(c.x, 0, -0.2); balanza.rotation.y = 0;
   ponerBalanza(balanza, ang);
@@ -1230,7 +1236,7 @@ function zonaP(t) {
     const base = MONB();
     let p = V(base.x + Math.sin(i * 2.1) * 0.006, lerp(yF + 0.8, yF, u * u) + rebote(t, t0 + 0.16, 18, 40, 0.008), base.z + Math.cos(i * 1.7) * 0.006);
     const vu = eio(sg(t, T.s07 + 0.3 + i * 0.03, T.s07 + 0.75 + i * 0.03));
-    if (vu > 0) { const q = platoD.localToWorld(V(Math.sin(i * 2.1) * 0.01, 0.02 + i * 0.021, Math.cos(i * 1.7) * 0.01)); p = arco(p, q, vu, 0.35); }
+    if (vu > 0) { const q = platoD.localToWorld(V(Math.sin(i * 2.1) * 0.01, 0.02 + i * 0.021, Math.cos(i * 1.7) * 0.01)); p = arco(p, q, vu, 0.35); p.z += Math.sin(Math.PI * vu) * 0.5; }
     m.position.copy(p); m.rotation.set(0, i * 0.7, 0); m.scale.setScalar(achica);
   });
   // la burbuja en el plato izquierdo
@@ -1267,8 +1273,12 @@ function zonaG(t) {
     const mI = graciela.mano("I").getWorldPosition(new THREE.Vector3()), mD = graciela.mano("D").getWorldPosition(new THREE.Vector3());
     const m = mI.add(mD).multiplyScalar(0.5);
     const vb = vibra(t, T.vibG);
-    celuG.position.copy(m).add(V(vb * 0.006, 0.12, 0.035));
-    celuG.rotation.set(lerp(-1.32, -0.5, muestra), Math.PI * (1 - muestra), lerp(0, 0.04, muestra) + vb * 0.03);
+    // primer plano (corte): el celular queda donde estaba (a la altura del pecho, de frente) y las manos bajan fuera de
+    // cuadro; la cámara lo mira de frente, así no se ven ni las manos ni el mentón
+    const pp2 = t >= T.tu - 0.08;
+    if (pp2) { pg.manoI = [0.22, -0.06, 0.12]; pg.manoD = [-0.22, -0.06, 0.12]; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true); }
+    celuG.position.copy(m).add(V(vb * 0.006, 0.12, pp2 ? 0.07 : 0.035));
+    celuG.rotation.set(pp2 ? -0.5 : -0.5, 0, 0.03 + vb * 0.03);
     celuG.scale.setScalar(1);
     // la burbuja llega en primer plano (corte desde el almacén) y se mete en la pantalla
     const u = eio(sg(t, T.corteG, T.vibG));

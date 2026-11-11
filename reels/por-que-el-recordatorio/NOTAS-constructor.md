@@ -228,3 +228,22 @@ Snapshots cuadro a cuadro en cada punto tocado (3,5-4,3, 6,6, 11,0-11,3, 14,6-15
 Queda: a 3,55 se asoma el borde del cartel "Faltó" del sillón cercano a la derecha (2-3 cuadros, apenas empieza el
 travelling). En el primer plano del celular de Graciela se ven sus manos abajo como dos formas redondas (sostienen el
 celular).
+
+## Ronda 4 (verificación final: 2 altos y medios)
+1. Alto, hecho con la alternativa segura: corte dentro de s10 a T.graciela+0,22 (plano un poco más cerca). Antes del
+   corte la bolsa está quieta en el mostrador y Rubén estira la mano hacia ella. Después del corte Graciela ya la tiene
+   colgando de la mano izquierda, agarrada del borde de arriba. No hay vuelo, ni salto, ni mano cruzando la etiqueta.
+2. Alto, hecho. En el primer plano del celular las manos de Graciela bajan fuera de cuadro y el celular queda donde
+   estaba (a la altura del pecho), inclinado hacia la cámara, que lo mira desde un poco más arriba. De fondo solo se ve
+   el buzo verde: sin manos, sin mentón. El subtítulo queda arriba del celular y el rótulo abajo, sin taparse.
+3. Hecho. Los platos se vacían recién con el corte al almacén.
+6. Hecho. El plano del pizarrón se mantiene hasta s07 y corta limpio a la balanza ya grande. No hay achique ni
+   balanza chica que crece.
+7. Hecho. Las monedas saltan al plato en arco por delante de la columna.
+8. Hecho. El celular de la financiera no proyecta sombra (ya no hay sombra despegada).
+9. Hecho. Cámara de s10 corrida a la izquierda; Graciela y el bolso entran en cuadro.
+10. Hecho. La burbuja del pedido aparece con pop en su lugar (abajo del cuadro, sobre el ticket), sin bajar por los
+    subtítulos.
+4. Hecho. Corte seco al "?" a T.s03-0,12 (sin el paneo que mostraba media cara y el brazo de la lámpara). La lámpara
+   y el poste se esconden en el corte y el "?" crece desde ahí.
+`check --json`: ok, 0 errores. Mezcla sin cambios (la de la ronda 2).
