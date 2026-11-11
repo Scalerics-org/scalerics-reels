@@ -37,7 +37,7 @@ T.m4 = 7.4; T.x4 = [7.42, 7.78]; T.c4 = 7.85; T.h1941 = 7.85; T.v4 = [7.85, 8.0]
 // el piso, toma el cartón, se sienta, apoya el cartón SUCURSAL contra las piernas; pausa de solo ambiente; la frase
 const RLEN = 1.77;   // ruben1 "Para estar más cerca del cliente." (cerca +0,6)
 T.m5 = 8.0; T.sale5 = 8.3; T.p5 = 8.22; T.para = 8.9; T.miraA = 9.0; T.p5c = 9.3; T.p5b = 9.7;
-T.baja = [9.75, 10.0]; T.termo = [10.02, 10.25]; T.tomaC = 10.3; T.sienta = [10.35, 10.65]; T.carton = [10.7, 10.95];
+T.baja = [9.75, 10.0]; T.termo = [10.02, 10.25]; T.tomaC = 10.05; T.sienta = [10.35, 10.65]; T.carton = [10.7, 10.95];   // (ronda 3) tomaC: lo agarra agachado, con el cajón recién apoyado
 T.push = 11.0; T.r1 = 11.6;
 // P6 · la grúa: Graciela dice la frase entera sola; después se prenden las otras 6 ventanas a +0,25 s cada una; el farol
 T.p6 = r2(T.r1 + RLEN + 0.12);
@@ -61,7 +61,7 @@ T.q3 = r2(T.q2d + 0.55); T.moto = r2(T.q3 + 0.1); T.aviso1 = r2(T.q3 + 0.3); T.a
 // Q4 · la cuadra: los vecinos en sus ventanas con "Pagado ✓"; salen y cruzan en fila en pantuflas; Q4p inserto bajo de
 // la fila (1,2 s); Q5 el general desde el lado del almacén con la fila llegando; el farol; la línea chica
 T.q4 = r2(T.q3 + 2.2); T.pag = [0, 1, 2, 3, 4, 5, 6].map((i) => r2(T.q4 + 0.08 + i * 0.08));
-T.fila = [r2(T.q4 + 0.5), r2(T.q4 + 3.0)]; T.q4p = [r2(T.q4 + 1.2), r2(T.q4 + 1.2)]; T.farol2 = r2(T.q4p[1] + 0.25);   // (ronda 2b) sin inserto de pantuflas: q4p[1] = corte a Q5
+T.fila = [r2(T.q4 + 0.15), r2(T.q4 + 1.6)]; T.q4p = [r2(T.q4 + 1.2), r2(T.q4 + 1.2)]; T.farol2 = r2(T.q4p[1] + 0.25);   // (ronda 2b) sin inserto de pantuflas: q4p[1] = corte a Q5
 T.cierre = r2(T.q4p[1] + 0.6);
 const DUR = r2(T.cierre + 1.6);
 
@@ -164,6 +164,7 @@ const flipHora = (sel, horas) => horas.map(([t, i]) => i === 0 ? "" : `      tl.
   const id = "s01-hud", ini = T.p3 - 0.05, dur = r2(P1 - ini);
   ESC.push([id, ini, dur, "arriba"]);
   const L = (t) => r2(t - ini);
+  const CORTES = [T.p4h[0], T.p4h[1], T.p5];   // (ronda 3) cortes de cámara de la parte 1 con HUD
   const notis = [["¿Tenés pan?", T.m2, T.m3 - 0.05], ["¿Y hielo?", T.m3, T.m4 - 0.05], ["¿Me cambiás mil?", T.m4, T.m5 - 0.02], ["¿Fósforos tenés?", T.m5, T.p5 + 0.02]];
   escena(id, dur, {
     css: HUDCSS + `
@@ -186,9 +187,9 @@ ${flipHora(".chip .h", [[L(T.h1926), 1], [L(T.h1941), 2]])}
       ${notis.map(([, a, b], i) => `tl.set(notis[${i}], { opacity: 0 }, 0);
       tl.fromTo(notis[${i}], { opacity: 0, scale: 0.6, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.2, ease: "back.out(2)", immediateRender: false }, ${L(a)});
       tl.fromTo(notis[${i}], { x: -6 }, { x: 6, duration: 0.04, repeat: 5, yoyo: true, ease: "none", immediateRender: false }, ${L(a + 0.02)});
-      tl.to(notis[${i}], { opacity: 0, scale: 0.85, y: -30, duration: 0.14, ease: "power2.in" }, ${L(b - 0.14)});`).join("\n      ")}
+      ${CORTES.some((c) => Math.abs(c - b) < 0.2) ? `tl.set(notis[${i}], { opacity: 0 }, ${L(CORTES.find((c) => Math.abs(c - b) < 0.2))});` : `tl.to(notis[${i}], { opacity: 0, scale: 0.85, y: -30, duration: 0.14, ease: "power2.in" }, ${L(b - 0.14)});`}`).join("\n      ")}
       // en el plano a ras de calle el HUD se va (silencio de domingo): queda solo la escena
-      tl.to([q(".cruces"), q(".chip")], { opacity: 0, duration: 0.1, ease: "power2.in" }, ${L(T.p5 - 0.06)});`,
+      tl.set([q(".cruces"), q(".chip")], { opacity: 0 }, ${L(T.p5)});   // (ronda 3) se van justo en el corte`,
   });
 }
 
@@ -210,17 +211,18 @@ function linea(id, vozT, palabras, clave, fin, top = 1400, caja = false) {
     P .caja .c1 { left: -12px; top: -12px; } P .caja .c2 { right: -12px; top: -12px; } P .caja .c3 { left: -12px; bottom: -12px; } P .caja .c4 { right: -12px; bottom: -12px; }`,
     html: `      <p class="linea">${spans}</p>`,
     js: `      for (const w of qa(".w")) {
-        const t = Number(w.dataset.t);
+        const t = ${caja ? `Number(qa(".w")[0].dataset.t)` : `Number(w.dataset.t)`};
         tl.set(w, { opacity: 1 }, t);
         tl.fromTo(w, { y: 18, scale: 0.86 }, { y: 0, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, t);
         const c = w.querySelector(".caja");
-        if (c) tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t);
+        const tc = Number(w.dataset.t);
+        if (c) { ${caja ? `tl.set(c, { opacity: 0 }, 0); tl.set(c, { opacity: 1 }, tc); tl.set(w.querySelector("em"), { color: "#fff" }, 0); tl.set(w.querySelector("em"), { color: "${NAVY}" }, tc);` : ""} tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: ${caja ? "false" : "true"} }, tc); }
       }
       ${caja ? `tl.set(q(".linea"), { opacity: 0 }, 0); tl.set(q(".linea"), { opacity: 1 }, ${r2(vozT + palabras[0][1] - ini)});` : ""}
       tl.to(q(".linea"), { opacity: 0, duration: 0.12, ease: "power2.in" }, ${r2(dur - 0.13)});`,
   });
 }
-linea("s02-cerca", T.r1, [["Para", 0.03], ["estar", 0.2], ["más", 0.4], ["cerca", 0.6], ["del", 0.8], ["cliente.", 1.0]], 3, r2(T.p6 + 0.3), 120, true);
+linea("s02-cerca", T.r1, [["Para", 0.03], ["estar", 0.2], ["más", 0.4], ["cerca", 0.6], ["del", 0.8], ["cliente.", 1.0]], 3, r2(T.p6 + 0.11), 120, true);
 linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63], ["quedás,", 0.73], ["Rubén!", 0.93]], 1, r2(T.q2d - 0.01), 140, true);
 
 // el cartel "Una tienda online más tarde…" (el de las-siete-y-cincuenta-y-nueve tal cual, con su audio). Va DEBAJO del
@@ -292,7 +294,8 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
     P .chip { top: 150px; right: auto; left: 70px; }
     P .aviso { position: absolute; left: 70px; width: 560px; padding: 20px 28px 24px; border-radius: 30px; background: ${G}; border: 7px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); font: 800 52px/1.15 "Lexend", sans-serif; color: ${NAVY}; transform-origin: 0 50%; }
     P .aviso small { display: block; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY2}; }
-    P .a1 { top: 140px; } P .a2 { top: 330px; } P .aviso { width: 500px; }
+    P .aviso { width: 470px; padding: 18px 24px 22px; font-size: 48px; } P .aviso small { font-size: 40px; }
+    P .a1 { top: 470px; left: 40px; } P .a2 { top: 470px; left: 570px; }   /* (ronda 3) entre ALMACÉN y las cabezas */
     P .cruces.r { top: 1400px; }
     P .cruces.r .raya { position: absolute; left: 20px; right: 20px; top: 50%; height: 12px; margin-top: -2px; background: ${NAVY}; border: 3px solid ${CR}; border-radius: 6px; transform-origin: 0 50%; }
     P .cruces.v { top: 1400px; background: ${G}; padding-right: 60px; gap: 18px; }
@@ -305,7 +308,7 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
       <div class="cruces r"><span class="l">Cruces:</span><span class="n"><span>4</span></span><i class="raya"></i></div>
       <div class="cruces v"><span class="l">Cruces de Rubén:</span><span class="n"><span>0</span></span></div>`,
     js: `      tl.fromTo(q(".chip"), { y: -160 }, { y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: true }, 0.05);
-      tl.to(q(".chip"), { opacity: 0, duration: 0.2 }, ${L(T.q2b - 0.2)});
+      tl.set(q(".chip"), { opacity: 0 }, ${L(T.q2b)});   // (ronda 3) se va en el corte
       for (const [s, a] of [[".a1", ${L(T.aviso1)}], [".a2", ${L(T.aviso2)}]]) {
         tl.fromTo(q(s), { opacity: 0, scale: 0.5, x: -60 }, { opacity: 1, scale: 1, x: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, a);
         tl.to(q(s), { opacity: 0, x: -40, duration: 0.15, ease: "power2.in" }, ${L(T.q4 - 0.25)});
@@ -316,7 +319,7 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
       tl.set(q(".cruces.v"), { opacity: 0 }, 0);
       tl.set(q(".cruces.v"), { opacity: 1 }, ${L(T.cero)});
       tl.fromTo(q(".cruces.v"), { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, ${L(T.cero)});
-      tl.fromTo(q(".cruces.v .n span"), { scale: 2 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: true }, ${L(T.cero + 0.06)});
+      tl.fromTo(q(".cruces.v .n span"), { scale: 1.4 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: true }, ${L(T.cero + 0.06)});
       tl.to(q(".cruces.v"), { opacity: 0, scale: 0.85, duration: 0.15, ease: "power2.in" }, ${L(T.q4 - 0.2)});`,
   });
 }
@@ -375,6 +378,7 @@ s("sfx/zumbido.wav", T.p5, 0, { dur: r2(T.p6 - T.p5 + 0.6), fi: 0.3, fin: 0.4, t
 s("sfx/whoosh-short.mp3", T.p5c - 0.03, 0, { techo: -46 });
 s("sfx/whoosh-short.mp3", T.p5b - 0.03, 0, { techo: -46 });
 s("sfx/madera-golpe.wav", T.baja[1] - 0.02, 0, { techo: -35 });
+s("sfx/madera-tabla.wav", T.agarra[0] + 0.05, 0, { dur: 0.25, fin: 0.1, techo: -46 });   // (ronda 3) agarra el cajón
 s("sfx/cruje.wav", T.sienta[1] - 0.08, 0, { techo: -40 });
 s("sfx/madera-tabla.wav", T.termo[1] - 0.02, 0, { dur: 0.25, fin: 0.1, techo: -42 });
 s("sfx/papel.wav", T.tomaC, 0, { dur: 0.2, fin: 0.08, techo: -42 });
@@ -385,7 +389,7 @@ s("sfx/whoosh.mp3", T.p6 - 0.05, 0, { techo: -42 });
 T.ven.forEach((t, i) => { s(i % 2 ? "sfx/interruptor2.wav" : "sfx/interruptor.wav", t - 0.03, 0, { techo: -43 - (i % 3) }); pop(t + 0.02, -42); });
 const CORO_MIX = [["coro-graciela", 0, -2, -0.3, 0], ["coro-marta", 1, -5, 0.4, 5000], ["coro-walter", 2, -6, -0.5, 4200], ["coro-vecino", 3, -8, 0.55, 3800], ["coro-nelly", 4, -8, -0.4, 3800], ["coro-fede", 5, -9, 0.3, 3500], ["coro-chela", 6, -10, -0.15, 3200]];
 for (const [v, i, db, pan, lp] of CORO_MIX) s(`voice/${v}.wav`, T.ven[i], db, { voz: true, pan, lp: lp || undefined, fin: 0.04 });
-for (let i = 0; i < 6; i++) s("sfx/vibra.wav", T.ven[1] + i * (0.36 - i * 0.03), 0, { dur: 0.3, fin: 0.06, techo: -42 });
+for (let i = 0; i < 6; i++) s("sfx/vibra.wav", T.ven[1] + i * (0.36 - i * 0.03), 0, { dur: 0.3, fin: 0.06, techo: -46 });   // (ronda 3) -4 dB
 s("sfx/interruptor.wav", T.farol1 - 0.02, 0, { techo: -36 });
 s("sfx/zumbido.wav", T.farol1, 0, { desde: 2, dur: 0.6, fi: 0.02, fin: 0.3, techo: -44, lp: 1400 });
 // ---- cartel ----
@@ -422,7 +426,6 @@ s("sfx/whoosh.mp3", T.q4 - 0.05, 0, { techo: -42 });
 T.pag.forEach((t, i) => { s(i % 2 ? "sfx/interruptor2.wav" : "sfx/interruptor.wav", t - 0.03, 0, { techo: -44 }); pop(t + 0.02, -42); });
 pasos(T.fila[0], T.fila[1], 22, -44, "pantufla");
 s("sfx/interruptor.wav", T.farol2 - 0.02, 0, { techo: -38 });
-s("sfx/campanita.wav", T.cierre + 0.2, 0, { techo: -44, dur: 0.6, fin: 0.25 });
 
 // arreglos por archivo (heredados)
 for (const x of S) {
@@ -541,7 +544,6 @@ ${LIMPIO ? "" : FIRMAS.map(([a, b], i) => `      <img id="firma${i}" class="firm
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
       tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.26, ease: "power2.in", immediateRender: false }, ${ROT});
-      tl.fromTo("#capa3d", { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "none", immediateRender: false }, ${r2(ROT + 0.12)});
       // la parte 2 entra por un iris que se abre desde el celular de Héctor
       tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.27)});
       tl.fromTo("#capa3d", { clipPath: "circle(0px at ${IRIS_C})" }, { clipPath: "circle(1700px at ${IRIS_C})", duration: 0.3, ease: "power2.in", immediateRender: false }, ${IRIS});

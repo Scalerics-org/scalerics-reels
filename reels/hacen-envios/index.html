@@ -28,7 +28,7 @@
       <div id="capa3d" class="clip" data-start="0" data-duration="32.56" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       <div id="el-s00-gancho" class="scene" style="z-index:3" data-composition-id="s00-gancho" data-composition-src="compositions/s00-gancho.html" data-start="0" data-duration="1.5" data-track-index="2" data-track-kind="graphics"></div>
       <div id="el-s01-hud" class="scene" style="z-index:3" data-composition-id="s01-hud" data-composition-src="compositions/s01-hud.html" data-start="3.6500000000000004" data-duration="13.34" data-track-index="3" data-track-kind="graphics"></div>
-      <div id="el-s02-cerca" class="scene" style="z-index:3" data-composition-id="s02-cerca" data-composition-src="compositions/s02-cerca.html" data-start="11.53" data-duration="2.26" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s02-cerca" class="scene" style="z-index:3" data-composition-id="s02-cerca" data-composition-src="compositions/s02-cerca.html" data-start="11.53" data-duration="2.07" data-track-index="4" data-track-kind="graphics"></div>
       <div id="el-s05-cerquita" class="scene" style="z-index:3" data-composition-id="s05-cerquita" data-composition-src="compositions/s05-cerquita.html" data-start="24.66" data-duration="1.74" data-track-index="5" data-track-kind="graphics"></div>
       <div id="el-s04-hud" class="scene" style="z-index:3" data-composition-id="s04-hud" data-composition-src="compositions/s04-hud.html" data-start="19.99" data-duration="9.15" data-track-index="6" data-track-kind="graphics"></div>
       <div id="el-s06-cierre" class="scene" style="z-index:3" data-composition-id="s06-cierre" data-composition-src="compositions/s06-cierre.html" data-start="30.96" data-duration="1.6" data-track-index="7" data-track-kind="graphics"></div>
@@ -49,7 +49,6 @@
       tl.to("#fondo", { opacity: 1, duration: 32.56 }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
       tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.26, ease: "power2.in", immediateRender: false }, 16.99);
-      tl.fromTo("#capa3d", { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "none", immediateRender: false }, 17.11);
       // la parte 2 entra por un iris que se abre desde el celular de Héctor
       tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 900px)" }, 17.26);
       tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 900px)" }, { clipPath: "circle(1700px at 540px 900px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 19.67);

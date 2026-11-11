@@ -39,8 +39,8 @@ con DEFECTO + rasgos). En la parte 2 cruzan en fila, en pantuflas, Graciela, Wal
 | 7,02-8,22 | P3 picado: cruces 3-4; 8,0-8,2 agarra el cajón (cajón, termo y cartón en la calle desde el principio, z 0,95) | "¿Fósforos tenés?" |
 | 8,22-9,30 | P5 a ras de calle: llega con el cajón | mira el almacén |
 | 9,30-9,70 | P5c contraplano: Héctor saluda | |
-| 9,70-13,49 | P5b de costado: apoya el cajón, deja el termo parado, toma el cartón, se sienta (muslos y rodillas a 90°), apoya SUCURSAL · 11,6 "Para estar más cerca del cliente." | |
-| 13,49-16,99 | P6 grúa al general de la cuadra: las 7 ventanas; burbujas de arriba en dos alturas alternadas (no se pisan) | 16,49 farol |
+| 9,70-13,49 | P5b de costado: apoya el cajón, deja el termo parado; 10,05 agarra el cartón agachado (estaba boca abajo: SUCURSAL no se ve hasta acá) y lo da vuelta con la mano en la esquina; se sienta (muslos y rodillas a 90°), apoya SUCURSAL · 11,6 "Para estar más cerca del cliente." (la frase entera en la caja desde la primera palabra; "cerca" se marca en verde al decirla; se va a 13,6) | |
+| 13,49-16,99 | P6 grúa continua (sin corte desde P5b): retrocede por delante del toldo, sube por encima del almacén y llega al general de la cuadra; las 7 ventanas; las burbujas nacen con la grúa arriba (14,49), en dos alturas alternadas | 16,49 farol |
 | 16,99-19,99 | cartel "Una tienda online más tarde…" (3,0 s) | |
 | 19,99-20,94 | Q1 inserto del celular sostenido por la mano de Héctor (palma, pulgar, dedos, manga) | tildes; "Envío" late (la duda) |
 | 20,94-21,51 | Q1b Héctor levanta la vista | |
@@ -52,7 +52,7 @@ con DEFECTO + rasgos). En la parte 2 cruzan en fila, en pantuflas, Graciela, Wal
 | 26,41-26,96 | Q2d Rubén, cara de nada (la bolsa queda fuera de cuadro) | |
 | 26,96-29,16 | Q3 la moto con los envíos | avisos arriba; 28,06 "Cruces: 4" tachado → "Cruces de Rubén: 0" |
 | 29,16-30,36 | Q4 el general: "Pagado ✓" en cada ventana (dos alturas, quedan aunque el vecino salga); desde 29,66 salen y cruzan | |
-| 30,36-32,56 | Q5 desde la calle, alto (debajo del toldo): la fila llega en diagonal (a la izquierda) y se da vuelta a cámara; Rubén y Héctor libres en la puerta; "ALMACÉN" entero arriba. (El inserto de pantuflas Q4p se sacó en la ronda 2: dejaba medio cuadro de piso vacío.) | 30,96 línea chica opaca (1,6 s) |
+| 30,36-32,56 | Q5 desde la calle, alto y lejos (debajo del borde del toldo; la fila cruza rápido en Q4 y llega al empezar Q5): la fila llega en diagonal (a la izquierda) y se da vuelta a cámara; Rubén y Héctor libres en la puerta; "ALMACÉN" entero arriba. (El inserto de pantuflas Q4p se sacó en la ronda 2: dejaba medio cuadro de piso vacío.) | 30,96 línea chica opaca (1,6 s) |
 
 ## Sonido
 Ver gen.mjs (lista S) y fuentes.md. Techo por efecto -31 LUFS (la mayoría bastante más abajo), voces sin techo con

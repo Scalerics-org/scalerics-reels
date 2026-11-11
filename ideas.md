@@ -245,7 +245,7 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-11T08:10 -->
-- 11-11 · `hacen-envios` · Tienda online (envíos con costo y pedido pago) · Para mandar completo con Rubén: "¿Hacen envíos?" del vecino de enfrente · corrida 11-11 05:10 · LO ESTÁ TERMINANDO la corrida de las 05:10 (sigue activa: ronda 3 de QA, no tomar)
+- 11-11 · `hacen-envios` · Tienda online (envíos con costo y pedido pago) · Para mandar completo con Rubén: "¿Hacen envíos?" del vecino de enfrente · corrida 11-11 05:10 · 3 rondas de QA (sonido y guion aprobados, el remate pega; el arte falló en la ronda 3 por 4 defectos puntuales: grúa de 14,1 que atraviesa la fachada, rodilla delante del cartón SUCURSAL, cartón de canto que atraviesa el torso a 8,6-9,3 y anteojos de Héctor que parecen monóculo a 24,6-26,4). Las correcciones quedan en la rama reel/hacen-envios (último commit "wip:"); FALTA: render, una verificación de arte cuadro por cuadro sobre el MP4 y la entrega (la portada ya está). No publicar hasta que pase
 
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online

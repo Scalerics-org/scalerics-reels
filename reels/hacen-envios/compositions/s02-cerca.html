@@ -15,8 +15,8 @@
     [data-composition-id="s02-cerca"] .caja i { position: absolute; width: 18px; height: 18px; background: #fff; border: 4px solid #0b1220; }
     [data-composition-id="s02-cerca"] .caja .c1 { left: -12px; top: -12px; } [data-composition-id="s02-cerca"] .caja .c2 { right: -12px; top: -12px; } [data-composition-id="s02-cerca"] .caja .c3 { left: -12px; bottom: -12px; } [data-composition-id="s02-cerca"] .caja .c4 { right: -12px; bottom: -12px; }
   </style>
-  <div id="root" data-composition-id="s02-cerca" data-width="1080" data-height="1920" data-duration="2.26">
-    <div id="s02-cerca-esc" class="esc clip" data-start="0" data-duration="2.26" data-track-index="0">
+  <div id="root" data-composition-id="s02-cerca" data-width="1080" data-height="1920" data-duration="2.07">
+    <div id="s02-cerca-esc" class="esc clip" data-start="0" data-duration="2.07" data-track-index="0">
       <p class="linea"><span class="w" data-t="0.1"><em>Para</em></span> <span class="w" data-t="0.27"><em>estar</em></span> <span class="w" data-t="0.47"><em>más</em></span> <span class="w ac" data-t="0.67"><b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b><em>cerca</em></span> <span class="w" data-t="0.87"><em>del</em></span> <span class="w" data-t="1.07"><em>cliente.</em></span></p>
     </div>
   </div>
@@ -28,14 +28,15 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       for (const w of qa(".w")) {
-        const t = Number(w.dataset.t);
+        const t = Number(qa(".w")[0].dataset.t);
         tl.set(w, { opacity: 1 }, t);
         tl.fromTo(w, { y: 18, scale: 0.86 }, { y: 0, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, t);
         const c = w.querySelector(".caja");
-        if (c) tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t);
+        const tc = Number(w.dataset.t);
+        if (c) { tl.set(c, { opacity: 0 }, 0); tl.set(c, { opacity: 1 }, tc); tl.set(w.querySelector("em"), { color: "#fff" }, 0); tl.set(w.querySelector("em"), { color: "#0b1220" }, tc); tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: false }, tc); }
       }
       tl.set(q(".linea"), { opacity: 0 }, 0); tl.set(q(".linea"), { opacity: 1 }, 0.1);
-      tl.to(q(".linea"), { opacity: 0, duration: 0.12, ease: "power2.in" }, 2.13);
+      tl.to(q(".linea"), { opacity: 0, duration: 0.12, ease: "power2.in" }, 1.94);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

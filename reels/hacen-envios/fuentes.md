@@ -22,9 +22,9 @@ billete genérico de me-haces-precio (crema con guarda verde y "200", sin diseñ
 Nada sintetizado con ffmpeg. Del repo (créditos en sus fuentes.md: reels/me-haces-precio, reels/el-audio,
 reels/abren-hoy, reels/abren-hoy-completo, reels/caso-pedidosya, reels/las-siete-y-cincuenta-y-nueve):
 - Música `bgm/pizzicato.wav` ("Pizzicato Intrigue", younoise, CC0). Ambiente `sfx/calle.wav` (Oper8, CC0).
-- `vibra.wav`, `notification.mp3`, `pop.mp3`, `burbuja.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `campanita.wav`,
+- `vibra.wav`, `notification.mp3`, `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `campanita.wav`,
   `papel.wav`, `tic-real.mp3`, `tac-real.mp3`, `cero.mp3`, `ding.mp3`, `key-press.mp3`, `click-soft.mp3`,
-  `stinger.wav`, `sorbo.wav`, `sello.wav`, `sparkle.mp3`.
+  `stinger.wav`.
 - `moto.mp3`: "Scooter drive by .wav", nickpursehouse, Freesound, CC0 1.0 (de reels/caso-pedidosya).
 
 Nuevos, descargados el 11-11 (freesound.org y openverse están bloqueados desde la nube; se bajaron de espejos en
@@ -36,7 +36,7 @@ GitHub que conservan la licencia CC0 1.0 y el crédito de cada sonido):
   "impact_plank_medium_001"; Kenney, "Impact Sounds", CC0 1.0 (mismo espejo).
 - Crujido del cajón al sentarse `sfx/cruje.wav`: "creak_1", Kenney, pack "RPG Audio" (https://kenney.nl/assets/rpg-audio),
   CC0 1.0. Espejo: https://github.com/Boyquotes/kenney-rpg-audio-for-godot
-- Puertas `sfx/puerta-abre.wav`, `sfx/puerta-cierra.wav`: "door_open_1", "door_close_1", Kenney, "RPG Audio", CC0 1.0.
+- Puerta `sfx/puerta-abre.wav`: "door_open_1", Kenney, "RPG Audio", CC0 1.0.
 - Interruptores de las ventanas y clac del farol `sfx/interruptor.wav`, `sfx/interruptor2.wav`: "switch_002",
   "switch_005", Kenney, pack "Interface Sounds" (https://kenney.nl/assets/interface-sounds), CC0 1.0. Espejo:
   https://github.com/Calinou/kenney-interface-sounds
