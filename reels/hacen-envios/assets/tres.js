@@ -175,9 +175,9 @@ function ventana(x0, x1, y0, y1, lado, { postigos = false, reja = false } = {}) 
   g.add(mesh(rbox(w + 0.22, 0.08, 0.2, 0.02), M.cr2, xc, y0 - 0.04, zf + out * 0.06));   // alféizar
   g.add(mesh(rbox(w + 0.16, 0.08, 0.12, 0.02), M.navy3, xc, y1 + 0.04, zf + out * 0.03));
   for (const xx of [x0 - 0.04, x1 + 0.04]) g.add(mesh(rbox(0.08, hh + 0.08, 0.1, 0.02), M.navy3, xx, (y0 + y1) / 2, zf + out * 0.025));
-  if (postigos) for (const [xx, s] of [[x0 - 0.06 - w * 0.22, -1], [x1 + 0.06 + w * 0.22, 1]]) {
-    const p = mesh(rbox(w * 0.44, hh, 0.04, 0.01), M.navy3, xx, (y0 + y1) / 2, zf + out * 0.05); g.add(p);
-    for (let k = 0; k < 5; k++) g.add(mesh(new THREE.BoxGeometry(w * 0.36, 0.025, 0.02), mat(C.edge, 0.6), xx, y0 + hh * (0.15 + k * 0.17), zf + out * 0.075));
+  if (postigos) for (const [xx, s] of [[x0 - 0.05 - w * 0.19, -1], [x1 + 0.05 + w * 0.19, 1]]) {
+    const p = mesh(rbox(w * 0.38, hh, 0.04, 0.01), M.navy3, xx, (y0 + y1) / 2, zf + out * 0.05); g.add(p);
+    for (let k = 0; k < 5; k++) g.add(mesh(new THREE.BoxGeometry(w * 0.3, 0.025, 0.02), mat(C.edge, 0.6), xx, y0 + hh * (0.15 + k * 0.17), zf + out * 0.075));
   }
   // el cuarto: un fondo 1 m adentro, más grande que el hueco, y el piso
   const fondo = new THREE.Mesh(new THREE.PlaneGeometry(w + 1.4, hh + 1.2), M.apagada.clone());
@@ -198,21 +198,21 @@ const encendido = (t, t0) => (t < t0 ? 0 : t < t0 + 0.033 ? 1 : t < t0 + 0.066 ?
 const VENT = [];   // las 7 ventanas del remate del remate (índice = orden en que se prenden)
 {
   // casa A: x -6.2..-2.2
-  fachada({ x0: -6.2, x1: -2.2, h: 5.9, lado: -1, color: C.cr2, huecos: [[-3.15, -2.35, 0.95, 2.15], [-3.15, -2.35, 3.55, 4.75], [-5.4, -4.4, 0.0 + VER, 2.3]] });
-  VENT[3] = ventana(-3.15, -2.35, 0.95, 2.15, -1, { postigos: true });
-  VENT[1] = ventana(-3.15, -2.35, 3.55, 4.75, -1, { postigos: true });
+  fachada({ x0: -6.2, x1: -1.9, h: 5.9, lado: -1, color: C.cr2, huecos: [[-2.65, -2.05, 0.95, 2.15], [-2.65, -2.05, 3.55, 4.75], [-5.4, -4.4, 0.0 + VER, 2.3]] });
+  VENT[3] = ventana(-2.65, -2.05, 0.95, 2.15, -1, { postigos: true });
+  VENT[1] = ventana(-2.65, -2.05, 3.55, 4.75, -1, { postigos: true });
   // la puerta de A (cerrada, navy3)
   scene.add(mesh(rbox(1.0, 2.2, 0.08, 0.02), M.navy3, -4.9, VER + 1.1, -FZ - 0.1));
   // la casa de Héctor: x -2.2..1.2, ventana-puerta de planta baja (x -0.95..0.15) y dos ventanas arriba
-  fachada({ x0: -2.2, x1: 1.2, h: 5.6, lado: -1, color: C.cr, huecos: [[-0.95, 0.15, VER, 2.35], [-1.7, -0.95, 3.45, 4.6], [0.2, 0.95, 3.45, 4.6]] });
-  VENT[4] = ventana(-1.7, -0.95, 3.45, 4.6, -1, { postigos: true });
-  VENT[6] = ventana(0.2, 0.95, 3.45, 4.6, -1, { postigos: true });
+  fachada({ x0: -1.9, x1: 1.0, h: 5.6, lado: -1, color: C.cr, huecos: [[-0.95, 0.15, VER, 2.35], [-1.55, -0.95, 3.45, 4.6], [0.15, 0.75, 3.45, 4.6]] });
+  VENT[4] = ventana(-1.55, -0.95, 3.45, 4.6, -1);
+  VENT[6] = ventana(0.15, 0.75, 3.45, 4.6, -1);
   // casa B: x 1.2..5.4
-  fachada({ x0: 1.2, x1: 5.4, h: 5.9, lado: -1, color: C.cr2, huecos: [[2.95, 3.75, 0.95, 2.15], [1.65, 2.45, 3.55, 4.75], [3.0, 3.8, 3.55, 4.75], [1.6, 2.5, VER, 2.3]] });
-  VENT[0] = ventana(2.95, 3.75, 0.95, 2.15, -1, { postigos: true });
-  VENT[2] = ventana(1.65, 2.45, 3.55, 4.75, -1, { postigos: true });
-  VENT[5] = ventana(3.0, 3.8, 3.55, 4.75, -1, { postigos: true });
-  scene.add(mesh(rbox(0.9, 2.2, 0.08, 0.02), M.navy3, 2.05, VER + 1.1, -FZ - 0.1));   // la puerta de B
+  fachada({ x0: 1.0, x1: 5.4, h: 5.9, lado: -1, color: C.cr2, huecos: [[2.4, 3.05, 0.95, 2.15], [1.35, 1.95, 3.55, 4.75], [2.55, 3.15, 3.55, 4.75], [1.3, 2.05, VER, 2.3]] });
+  VENT[0] = ventana(2.4, 3.05, 0.95, 2.15, -1, { postigos: true });
+  VENT[2] = ventana(1.35, 1.95, 3.55, 4.75, -1, { postigos: true });
+  VENT[5] = ventana(2.55, 3.15, 3.55, 4.75, -1, { postigos: true });
+  scene.add(mesh(rbox(0.75, 2.2, 0.08, 0.02), M.navy3, 1.68, VER + 1.1, -FZ - 0.1));   // la puerta de B
   // más cuadra a los costados (sin ventanas que se prendan)
   fachada({ x0: -11, x1: -6.2, h: 4.2, lado: -1, color: C.cr, huecos: [[-9.4, -8.4, 1.0, 2.2], [-7.6, -6.7, VER, 2.3]] }); ventana(-9.4, -8.4, 1.0, 2.2, -1, { postigos: true });
   fachada({ x0: 5.4, x1: 10, h: 4.4, lado: -1, color: C.cr, huecos: [[6.6, 7.6, 1.0, 2.2], [8.4, 9.3, VER, 2.3]] }); ventana(6.6, 7.6, 1.0, 2.2, -1, { postigos: true });
@@ -392,13 +392,42 @@ const hector = crearPersonaje({ ...ELENCO.hector, dedos: true, parpadeoCada: 3.4
 const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, pantuflas: { color: 0xb7a9c9, borde: C.cr, suela: C.navy } });
 const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, pantuflas: { color: C.cr, borde: C.g, suela: C.navy } });
-const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, pantuflas: { color: C.navy3, borde: C.cr, suela: C.navy } });
+const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, pantuflas: { color: C.cr, borde: C.g, suela: C.navy } });
 const vec1 = crearPersonaje({ ...DEFECTO, nombre: "Beto", piel: PIEL.media, pelo: PELO.gris, peinado: "pelado", cejasColor: 0x6a6a6a, camisa: 0x8fa3c4, mangas: "largas", cuello: 0x8fa3c4, panza: 1.12, nariz: 0.066, alto: 1.0, pantuflas: { color: 0x6b3f2e, borde: C.cr, suela: C.navy } });
 const vec2 = crearPersonaje({ ...DEFECTO, nombre: "Nelly", piel: PIEL.clara, pelo: 0xe8e4dc, peinado: "rodete", cejasColor: 0xb0aaa0, camisa: 0xe8cf9f, mangas: "largas", cuello: C.cr, panza: 1.04, nariz: 0.05, labios: 0xb5555a, alto: 0.94, lentes: C.navy3 });
-const vec3 = crearPersonaje({ ...DEFECTO, nombre: "Fede", piel: PIEL.trigueña, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2a20, camisa: C.cr2, mangas: "cortas", panza: 0.96, nariz: 0.056, alto: 1.03, pantuflas: { color: C.navy2, borde: C.g, suela: C.navy } });
+const vec3 = crearPersonaje({ ...DEFECTO, nombre: "Fede", piel: PIEL.trigueña, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x3a2a20, camisa: C.cr2, mangas: "cortas", panza: 0.96, nariz: 0.056, alto: 1.03, pantuflas: { color: C.cr2, borde: C.navy3, suela: C.navy } });
 const vec4 = crearPersonaje({ ...DEFECTO, nombre: "Chela", piel: PIEL.media, pelo: PELO.rubio, peinado: "rulos", cejasColor: 0x8a6a3a, camisa: C.navy3, mangas: "largas", cuello: C.cr, panza: 1.0, nariz: 0.05, labios: 0xa8524f, alto: 0.95 });
 const TODOS = [ruben, hector, nico, graciela, marta, walter, vec1, vec2, vec3, vec4];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
+// los lentes un poco más adentro de la cara (de el-audio: con el cráneo de 0,3 los aros se salían de la cara)
+function lentesAdentro(per, color) {
+  const CC = 0.3 * 0.92;
+  per.cabeza.traverse((l) => {
+    if (!l.isMesh || l.parent !== per.cabeza) return;
+    const esL = (l.material.color && l.material.color.getHex() === color && (l.geometry.type === "TorusGeometry" || l.geometry.type === "CylinderGeometry")) || (l.material.isMeshBasicMaterial && l.geometry.type === "CircleGeometry");
+    if (!esL) return;
+    l.position.y -= CC; l.position.multiplyScalar(1.04 / 1.13); l.position.y += CC;
+    if (Math.abs(l.scale.y - 0.26) < 1e-6) l.visible = false;
+    if (Math.abs(l.scale.y - 0.07) < 1e-6 && Math.abs(l.scale.x - 0.011) < 1e-6) l.position.x = -0.035;
+  });
+}
+lentesAdentro(graciela, 0x16243d); lentesAdentro(hector, 0x1f3254); lentesAdentro(vec2, 0x1f3254);
+// de perfil (más de ~35°), el aro del ojo de atrás quedaba flotando fuera de la cara: se esconde, como el ojo
+const arosDe = (per, color) => per.cabeza.children.filter((l) => l.isMesh && l.geometry.type === "TorusGeometry" && l.material.color && l.material.color.getHex() === color && l.parent === per.cabeza);
+const LENTES = [[graciela, arosDe(graciela, 0x16243d)], [hector, arosDe(hector, 0x1f3254)], [vec2, arosDe(vec2, 0x1f3254)]];
+const _lc = new THREE.Vector3(), _lf = new THREE.Vector3(), _le = new THREE.Vector3(), _lw = new THREE.Vector3();
+function lenteLejano(per, aros) {
+  per.cabeza.updateMatrixWorld(true);
+  per.cabeza.getWorldPosition(_lc); _lf.set(0, 0, 1).transformDirection(per.cabeza.matrixWorld); _le.copy(camera.position).sub(_lc);
+  _lf.y = 0; _le.y = 0; _lf.normalize(); _le.normalize();
+  const ang = Math.acos(cl(_lf.dot(_le), -1, 1));
+  let lejos = null, dmax = -1;
+  for (const a of aros) { a.visible = true; a.getWorldPosition(_lw); const d = _lw.distanceTo(camera.position); if (d > dmax) { dmax = d; lejos = a; } }
+  if (ang > 0.62 && lejos) lejos.visible = false;   // (ronda 2: de 3/4 se ven los dos aros: nada de monóculo)
+  // el puente también se ve de canto: se esconde con el aro
+  per.cabeza.children.forEach((l) => { if (l.isMesh && l.geometry.type === "CylinderGeometry" && Math.abs(l.scale.y - 0.07) < 1e-6) l.visible = ang <= 0.62; });
+}
+
 // en las ventanas: quién se asoma en cada una (índice de VENT); los que cruzan en la parte 2
 const ASOMA = [graciela, marta, walter, vec1, vec2, vec3, vec4];
 // el casco de Nico (navy, visera crema): pegado a la cabeza
@@ -563,6 +592,7 @@ const celuH = crearCelular(tienda, C.mostaza, 0.085, 0.138); celuH.scale.setScal
 // el pulgar de Héctor sobre la pantalla (Q1)
 const pulgar = mesh(new THREE.CapsuleGeometry(0.03, 0.07, 6, 12), mat(0xf2c9a8, 0.55)); scene.add(pulgar);
 const pantVecino = lienzo(200, 320, (x, w, h) => { x.fillStyle = "#e9e6da"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 60); x.fillStyle = "#ffffff"; x.strokeStyle = "#0b1220"; x.lineWidth = 4; x.beginPath(); x.roundRect(14, 100, w - 40, 70, 14); x.fill(); x.stroke(); x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 200, w - 54, 60, 14); x.fill(); });
+const celuH1 = crearCelular(pantVecino, C.mostaza, 0.085, 0.138); celuH1.scale.setScalar(1.5); scene.add(celuH1);
 const celusV = ASOMA.map(() => { const c = crearCelular(pantVecino, C.navy3, 0.085, 0.138); c.scale.setScalar(1.5); scene.add(c); return c; });
 
 // ---------- la línea punteada de los 14 pasos (verde, sobre la calle) ----------
@@ -646,7 +676,7 @@ const todosGlobos = [GL.gracias, GL.rotH, GL.pasos, ...GL.coro, ...GL.pagado];
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte seco; dentro de un
 // plano, Catmull-Rom continua.
 const PIC = (k = 0) => [0.6, 8.3 + k * 0.35, 5.0 + k * 0.2, 0.2, 0.0, -1.0, 50];      // el picado de la calle (P3/P4/Q2)
-const GRUA = (k = 0) => [0.4, 8.2 + k * 0.5, 4.9 + k * 0.7, 0.35, 2.9, -2.6, 62];         // el general de la cuadra (P6/Q4/Q5)
+const GRUA = (k = 0) => [0.25, 7.0 + k * 0.5, 4.5 + k * 0.7, 0.25, 2.15, -2.8, 60];         // el general de la cuadra (P6/Q4/Q5)
 const HEC_P = (dz = 0) => [-0.15, 1.55, -0.55 + dz, -0.4, 0.95, -FZ, 46];                  // Héctor en su ventana-puerta
 const PLANOS = [
   ["P1", 0, [[0, -0.55, 1.6, 7.3, -0.45, 1.22, 4.0, 52], [T.arranca, -0.5, 1.6, 7.15, -0.4, 1.24, 4.0, 52], [2.0, 0.7, 1.58, 5.95, 1.25, 1.4, 3.0, 48], [T.p2, 1.38, 1.52, 4.3, 0.9, 1.3, 1.0, 50], [2.8, 0.65, 1.38, 1.3, -0.3, 1.2, -3.0, 48], [3.3, ...HEC_P(0.12)], [T.p3, ...HEC_P(0)]]],
@@ -654,13 +684,15 @@ const PLANOS = [
   ["P5", T.p5, [[T.p5, -2.45, 1.1, 1.05, S.x, 0.95, 0, 46], [T.p5c, -2.4, 1.1, 1.03, S.x, 0.93, 0, 46]]],
   ["P5c", T.p5c, [[T.p5c, ...HEC_P(0.25)], [T.p5b, ...HEC_P(0.15)]]],
   ["P5b", T.p5b, [[T.p5b, -2.4, 1.1, 1.03, S.x, 0.88, 0, 46], [T.push, -2.3, 1.08, 1.0, S.x, 0.84, 0, 46], [T.push + 0.45, -1.95, 0.98, 0.88, S.x, 0.58, -0.05, 46], [T.p6, -1.9, 0.98, 0.86, S.x, 0.58, -0.05, 46]]],
-  ["P6", T.p6, [[T.p6, -1.9, 0.98, 0.86, S.x, 0.58, -0.05, 46], [12.9, -1.0, 3.4, 2.4, 0.4, 1.2, -1.2, 54], [13.7, 0.3, 7.2, 4.4, 0.35, 1.3, -2.3, 60], [P1, ...GRUA(0)]]],
+  ["P6", T.p6, [[T.p6, -1.9, 0.98, 0.86, S.x, 0.58, -0.05, 46], [12.55, -2.7, 1.5, 1.6, S.x, 0.7, -0.4, 50], [13.15, -0.8, 4.6, 3.6, 0.3, 1.9, -2.4, 56], [P1, ...GRUA(0)]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, -0.05, 1.45, -2.05, -0.4, 1.32, -3.95, 46], [T.q2, -0.06, 1.45, -2.15, -0.4, 1.32, -3.95, 45]]],
-  ["Q2", T.q2, [[T.q2, ...PIC(0.6)], [T.q2b, ...PIC(0.3)]]],
-  ["Q2b", T.q2b, [[T.q2b, 0.95, 1.45, -0.55, 0.95, 1.15, 3.7, 44], [T.q3, 0.95, 1.45, -0.3, 0.95, 1.15, 3.7, 43]]],
-  ["Q3", T.q3, [[T.q3, -2.3, 1.35, -0.6, 0.9, 1.2, 3.5, 52], [T.q4, -2.2, 1.35, -0.5, 0.9, 1.2, 3.5, 51]]],
-  ["Q4", T.q4, [[T.q4, ...GRUA(0)], [T.cierre, ...GRUA(0.25)], [DUR, ...GRUA(0.8)]]],
+  ["Q2", T.q2, [[T.q2, ...PIC(0.6)], [T.q2b, ...PIC(0.45)]]],
+  ["Q2b", T.q2b, [[T.q2b, 0.85, 1.45, -1.1, 0.85, 1.15, 3.7, 50], [T.q3, 0.85, 1.45, -0.75, 0.85, 1.15, 3.7, 48]]],
+  ["Q3", T.q3, [[T.q3, 0.9, 1.35, -1.0, 0.95, 1.05, 3.7, 60], [T.q4, 0.9, 1.35, -0.85, 0.95, 1.05, 3.7, 59]]],
+  ["Q4", T.q4, [[T.q4, ...GRUA(0)], [27.3, ...GRUA(0.06)]]],
+  ["Q4p", 27.3, [[27.3, 3.6, 0.5, 2.4, 1.4, 0.4, -1.5, 42], [27.7, 3.55, 0.5, 2.3, 1.4, 0.4, -1.5, 42]]],
+  ["Q4", 27.7, [[27.7, ...GRUA(0.1)], [T.cierre, ...GRUA(0.25)], [DUR, ...GRUA(0.8)]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -753,7 +785,7 @@ const adelante = (per, d) => { const g = per.raiz.rotation.y; return V3(Math.sin
 const cajonEnManos = (per) => { const a = manoMundo(per, "I", new THREE.Vector3()), b = manoMundo(per, "D", new THREE.Vector3()); return a.add(b).multiplyScalar(0.5).add(V3(0, -0.12, 0)); };
 
 // la cuadra en la parte 2: los vecinos que cruzan en fila hacia el almacén (desde sus puertas)
-const FILA = [[graciela, V3(3.6, 0, -3.5)], [walter, V3(2.25, 0, -3.5)], [vec1, V3(-3.2, 0, -3.5)], [marta, V3(4.6, 0, -3.4)], [vec3, V3(-1.6, 0, -3.6)]];
+const FILA = [[graciela, V3(2.7, 0, -3.5)], [walter, V3(1.7, 0, -3.5)], [vec1, V3(-2.35, 0, -3.5)], [marta, V3(3.4, 0, -3.4)], [vec3, V3(-1.45, 0, -3.6)]];
 const DESTINO = (i) => V3(1.05 + (i % 2 ? 0.45 : -0.35), 0, 2.55 + i * 0.12);
 
 function renderAt(tIn) {
@@ -860,6 +892,7 @@ function renderAt(tIn) {
       [P2, { x: PUERTA_A.x + 0.05, z: 3.85, y: VER, giro: -1.9, ...BAJA, ...aC(0, 0.02), ...CARA.sonrisa, ojos: { abiertos: 0.9, feliz: 0.25 } }],
       [T.q2b - 0.001, { x: PUERTA_A.x + 0.05, z: 3.85, giro: -1.9, ...aC(0.15, 0.04), ...CARA.neutra, ojos: { abiertos: 0.7, tension: 0.2 }, boca: { sonrisa: 0.05 } }, 0.001],
       [T.h2 + 1.0, { ...aC(0.1, 0.12) }, 0.2], [T.h2 + 1.25, { ...aC(0.1, 0.0) }, 0.2],   // asiente una vez, cara de nada
+      [T.q3 - 0.001, { giro: Math.PI + 0.3 }, 0.001],
       [T.q4 - 0.001, { x: PUERTA_A.x + 0.35, z: 3.75, giro: Math.PI, ...BAJA, ...aC(0, 0.0), ...CARA.sonrisa, ojos: { abiertos: 0.9, feliz: 0.3 } }, 0.001],
     ]);
     // la bolsa: en su mano (izquierda) hasta que se la da a Héctor
@@ -901,9 +934,10 @@ function renderAt(tIn) {
       [T.q2 - 0.001, { x: HEC.x, z: HEC.z, giro: GIRO_BA, ...aC(0, 0.02), ...CANCHERO }, 0.001],
       [T.xh[1], { x: 0.45, z: 3.45, paso: 1, pasoVel: 13 }, T.xh[1] - T.xh[0], (u) => u],
       [T.xh[1] + 0.12, { paso: 0 }, 0.1],
-      [T.q2b - 0.001, { x: 0.45, z: 3.45, giro: 1.0, paso: 0, ...BAJA, ...aC(0, 0.0), ...CARA.feliz }, 0.001],
+      [T.xh[1] + 0.25, { x: 0.45, z: 3.45, giro: 1.0, paso: 0, ...BAJA, ...aC(0, 0.0), ...CARA.feliz }, 0.25],
       [T.h2 + 0.05, { ...aC(0.8, -0.05), ...CARA.sorpresa, boca: { sonrisa: 0.6, abierta: 0.2 }, ojos: { abiertos: 1, feliz: 0.2 } }, 0.25],   // mira para atrás, a su casa
       [T.h2 + 0.9, { ...aC(0.35, -0.02), ...CARA.feliz }, 0.3],
+      [T.q3 - 0.001, { x: 0.35, z: 3.35, giro: Math.PI - 0.35, ...aC(0, 0), ...CARA.feliz }, 0.001],
       [T.q4 - 0.001, { x: 0.2, z: 3.3, giro: 0.6, ...BAJA, ...aC(0, 0), ...CARA.feliz }, 0.001],
     ]);
     // Q1: el celular en las dos manos adelante; el pulgar de la derecha duda sobre "Envío" y toca "Retiro"
@@ -911,7 +945,7 @@ function renderAt(tIn) {
     // cruza con el celular en alto
     if (en(t, T.q2, T.q2b)) { ph.manoD = [-0.2, 0.62, 0.32]; ph.codoD = [-1, -0.6, -0.2]; }
     if (en(t, T.bolsa - 0.25, T.q4)) { const k = eio(sg(t, T.bolsa - 0.25, T.bolsa)); ph.manoD = [lerp(-0.29, -0.22, k), lerp(0.02, 0.3, k), lerp(0.1, 0.34, k)]; ph.codoD = [-1, -0.6, -0.2]; }
-    if (t >= T.q4) Object.assign(ph, saludo(t, "I", 0.8));
+    if (t >= T.q3) Object.assign(ph, saludo(t, "I", 0.8));
     bocaVoz(ph, t, T.h2, ENV.hector2, 0.65);
   }
   if (parte2) ph.y = alturaPiso(ph.z);
@@ -925,7 +959,7 @@ function renderAt(tIn) {
     else { const vib = t >= T.ven[1] ? Math.sin(t * 95) * 0.006 : 0; celuR.position.set(SENT.x + 0.12 + vib, CAJ_SEAT + 0.012, 0.12); celuR.rotation.set(-Math.PI / 2, 0, 0.4 + vib * 4); celuR.scale.setScalar(1.6); }
   }
   // el celular de Héctor (la tienda, Q1); y en P1-P4 un celular común en su mano
-  celuH.visible = true;
+  celuH.visible = true; celuH1.visible = false;
   if (parte2 && t < T.q2b) {
     dibujarTienda(t);
     const a = manoMundo(hector, "I", _a), b = manoMundo(hector, "D", _b);
@@ -933,8 +967,9 @@ function renderAt(tIn) {
     if (plano === "Q1") { celuH.position.add(V3(0, -0.2, 0.08)); celuH.lookAt(camera.position); celuH.rotateX(0.05); celuH.scale.setScalar(3.4); } else { celuH.scale.setScalar(1.6); celuH.rotation.set(-0.2, hector.raiz.rotation.y, 0); }
   } else {
     const p = manoMundo(hector, "D", _a);
-    celuH.scale.setScalar(1.5); celuH.position.copy(p).add(V3(0, 0.1, 0.03)); celuH.rotation.set(-0.15, hector.raiz.rotation.y, 0);
-    if (parte2) celuH.visible = false;
+    celuH.visible = false;
+    celuH1.visible = !parte2;
+    celuH1.position.copy(p).add(V3(0, 0.1, 0.03)); celuH1.rotation.set(-0.15, hector.raiz.rotation.y, 0);
   }
   // el pulgar (Q1): baja sobre "Envío", duda, sube y toca "Retiro"
   pulgar.visible = plano === "Q1" && t >= T.duda - 0.3 && t < T.retiro + 0.12;
@@ -968,7 +1003,7 @@ function renderAt(tIn) {
     const vis = parte2 && plano === "Q3";
     nico.raiz.visible = moto.visible = vis;
     const u = eio(sg(t, T.moto, T.moto + 0.25)) * 0 + cl((t - T.moto) / 1.4);
-    const x = t < T.moto ? 2.4 : lerp(2.4, -6.5, Math.pow(u, 1.35));
+    const x = t < T.moto ? 2.7 : lerp(2.7, -3.2, Math.pow(cl((t - T.moto) / 1.8), 1.2));
     moto.position.set(x, 0, 2.3); moto.rotation.set(0, Math.PI, 0);
     for (const r of ruedas) r.rotation.z = x * 4;
     const pn = poseEn(t, [[0, { x: x + 0.28, z: 2.3, y: 0.36, giro: -Math.PI / 2, sentado: 1, inclina: 0.25, ...aC(0, 0), ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.3 } }]]);
@@ -1019,6 +1054,7 @@ function renderAt(tIn) {
   puntos.visible = (plano === "P1" && t >= T.pasos14) || (plano === "P3" && t < T.m2);
   puntos.children.forEach((d, i) => { d.scale.setScalar(plano === "P1" ? bk(sg(t, T.pasos14 + i * 0.015, T.pasos14 + 0.2 + i * 0.015)) + 0.001 : 1); });
   for (const p of TODOS) p.ojoLejano(camera.position);
+  for (const [per, aros] of LENTES) lenteLejano(per, aros);
   relleno.position.copy(camera.position).add(V3(0.4, 0.8, 0)); relleno.target.position.copy(camera.position).add(camera.getWorldDirection(_a).multiplyScalar(3));
 
   // ---------- globos ----------
@@ -1037,13 +1073,14 @@ function renderAt(tIn) {
       if (i === 4 || i === 2) { const [bx, by] = enPantalla(V3(v.x, v.y0 - 0.05, -FZ)); return [bx, by + 70, [bx, by - 10]]; }
       return [vx + (i === 1 ? -70 : i === 5 ? 70 : 0), vy - 105, [vx, vy + 10]];
     };
+    const enCuadro = (v) => { const [a, b] = enPantalla(V3(v.x, (v.y0 + v.y1) / 2, -FZ)); return a > 40 && a < 1040 && b > 330 && b < 1650; };
     if (plano === "P6") VENT.forEach((v, i) => {
-      if (t < T.ven[i]) return;
+      if (t < T.ven[i] || !enCuadro(v)) return;
       const [x, y, obj] = lugar(v, i);
       ponerGlobo(GL.coro[i], x, y, ent(T.ven[i]), obj, i, 0, 30);
     });
     if (plano === "Q4") VENT.slice(0, 5).forEach((v, i) => {
-      if (t < T.pag[i]) return;
+      if (t < T.pag[i] || !enCuadro(v)) return;
       let [x, y, obj] = lugar(v, i); if (i === 1) x += 70;
       ponerGlobo(GL.pagado[i], x, y, ent(T.pag[i]), obj, i, 0, 30);
     });

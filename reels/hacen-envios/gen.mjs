@@ -35,7 +35,7 @@ T.m4 = 7.55; T.x4 = [7.6, 8.0]; T.c4 = 8.1; T.h1941 = 8.1; T.v4 = [8.1, 8.3];
 T.sale5 = 8.3; T.m5 = 8.33; T.p5 = 8.7; T.para = 8.98; T.miraA = 9.0; T.p5c = 9.3; T.p5b = 9.7;
 T.vuelca = 9.85; T.sienta = 10.1; T.termo = 10.3; T.carton = 10.5; T.push = 10.7; T.r1 = 10.8;
 // P6 · la grúa: se prenden las ventanas de la cuadra (cada una con su "¿Hacen envíos?"), el coro, el farol
-T.p6 = 12.15; T.ven = [12.25, 12.45, 12.6, 12.75, 12.9, 13.0, 13.1]; T.mira6 = 13.6; T.farol1 = 14.1;
+T.p6 = 12.15; T.ven = [12.6, 12.75, 12.88, 13.0, 13.12, 13.22, 13.32]; T.mira6 = 13.75; T.farol1 = 14.15;
 const P1 = 14.6;                // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 3.2);        // arranca la parte 2 (termina el iris del cartel)
 // ---- parte 2 ----
@@ -43,7 +43,7 @@ const P2 = r2(P1 + 3.2);        // arranca la parte 2 (termina el iris del carte
 T.q1 = P2; T.tildes = [r2(P2 + 0.05), r2(P2 + 0.2), r2(P2 + 0.35), r2(P2 + 0.5)]; T.duda = r2(P2 + 0.7); T.miraR = r2(P2 + 1.1);
 T.retiro = r2(P2 + 1.6); T.pagado = r2(P2 + 2.0);
 // Q2 · el picado al revés: cruza Héctor en pantuflas · Q2b · en la puerta del almacén: la bolsa y "¡Qué cerquita…!"
-T.q2 = r2(P2 + 2.6); T.xh = [r2(P2 + 2.65), r2(P2 + 3.75)]; T.q2b = r2(P2 + 3.9); T.bolsa = r2(P2 + 4.0); T.h2 = r2(P2 + 4.12);
+T.q2 = r2(P2 + 2.6); T.xh = [r2(P2 + 2.65), r2(P2 + 3.75)]; T.q2b = r2(P2 + 3.4); T.bolsa = r2(P2 + 4.0); T.h2 = r2(P2 + 4.12);
 // Q3 · la moto de Nico con los envíos de lejos; el contador vuelve: "Cruces de Rubén: 0"
 T.q3 = r2(T.h2 + 1.6 + 0.12); T.moto = r2(T.q3 + 0.1); T.aviso1 = r2(T.q3 + 0.3); T.aviso2 = r2(T.q3 + 0.6); T.cero = r2(T.q3 + 1.0);
 // Q4 · la grúa de P6 al revés: las ventanas con "Pagado ✓" y la fila en pantuflas; el farol sobre la fila
@@ -466,7 +466,7 @@ const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.32);
 const IRIS_C = "540px 900px";
 // la firma (logo) abajo al centro (no en el cartel, ni sobre la línea chica final, ni en los primeros planos del chat)
-const FIRMAS = [[T.p3, T.p5], [r2(T.p6 + 0.8), P1], [T.q2, T.cierre]];
+const FIRMAS = [[T.p3, T.p5], [T.q2, T.q2b], [T.q3, T.q4]];
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

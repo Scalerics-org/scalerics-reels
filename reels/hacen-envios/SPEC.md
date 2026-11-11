@@ -38,13 +38,13 @@ con DEFECTO + rasgos). En la parte 2 cruzan en fila, en pantuflas, Graciela, Wal
 | 8,70-9,30 | P5 a ras de calle, de 3/4, sobre la línea | llega con el cajón y se para; silencio (música a -12 dB, pájaro, zumbido); mira al almacén |
 | 9,30-9,70 | P5c contraplano: Héctor saluda feliz | |
 | 9,70-12,15 | P5b vuelve a Rubén; push-in en 10,70 | 9,85 da vuelta el cajón; 10,10 se sienta; 10,30 el termo; 10,50 el cartón SUCURSAL; 10,80 "Abrimos sucursal." (subtítulo arriba) |
-| 12,15-14,60 | P6 grúa continua atrás y arriba hasta el general de la cuadra | 12,25-13,10 se prenden 7 ventanas (vecino + celular + "¿Hacen envíos?" + coro); 13,60 Rubén mira las ventanas; 14,10 farol |
+| 12,15-14,60 | P6 grúa continua: primero atrás (el cartón entero en cuadro) y después arriba hasta el general de la cuadra | 12,60-13,32 se prenden 7 ventanas (vecino + celular + "¿Hacen envíos?" + coro; cada burbuja recién cuando su ventana está en cuadro); 13,75 Rubén mira las ventanas; 14,15 farol |
 | 14,60-17,80 | cartel "Una tienda online más tarde…" (el de las-siete, audio reusado) | giro 540° de entrada, iris de salida |
 | 17,80-20,40 | Q1 Héctor de frente con el celular grande: la tienda | tildes; duda en "Envío: $ 60"; mira enfrente; toca "Retiro en el local: $ 0"; "Pagado ✓" |
-| 20,40-21,70 | Q2 el mismo picado: cruza Héctor en pantuflas | la reja se abre |
-| 21,70-23,64 | Q2b dos planos en la puerta del almacén | la bolsa "Héctor · pagado ✓"; 21,92 "¡Qué cerquita que quedás, Rubén!" (mira para atrás a su casa); Rubén asiente |
-| 23,64-25,84 | Q3 la moto de Nico pasa en primer término | avisos "Envío pago ✓ · a 15 / 22 cuadras"; 24,64 "Cruces: 4" tachado → "Cruces de Rubén: 0" verde |
-| 25,84-30,59 | Q4/Q5 el general de la cuadra, dolly atrás | ventanas con "Pagado ✓"; la fila en pantuflas cruza al almacén; 27,64 farol; 28,59 línea chica (2,0 s) |
+| 20,40-21,20 | Q2 el mismo picado: cruza Héctor en pantuflas | la reja se abre |
+| 21,20-23,64 | Q2b dos planos en la puerta del almacén; Héctor entra caminando al cuadro | la bolsa "Héctor · pagado ✓"; 21,92 "¡Qué cerquita que quedás, Rubén!" (mira para atrás a su casa); Rubén asiente |
+| 23,64-25,84 | Q3 de frente a la puerta (Héctor saluda a Nico, Rubén al lado, los dos a la vista); la moto pasa en primer término | avisos "Envío pago ✓ · a 15 / 22 cuadras"; 24,64 "Cruces: 4" tachado → "Cruces de Rubén: 0" verde |
+| 25,84-30,59 | Q4/Q5 el general de la cuadra, dolly atrás; 27,30-27,70 Q4p inserto bajo de la fila en pantuflas (caras y pantuflas) | ventanas con "Pagado ✓"; la fila en pantuflas cruza al almacén; 27,64 farol; 28,59 línea chica (2,0 s) |
 
 ## Sonido
 Ver gen.mjs (lista S) y fuentes.md. Techo por efecto -31 LUFS (la mayoría bastante más abajo), voces sin techo con
