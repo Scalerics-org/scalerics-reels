@@ -43,16 +43,16 @@ líneas guía crema de 7 px.
 |---|----|---------|------|-------|
 | 1 | s01-gancho | 0,00 | 3,69 | ¿Por qué el hotel te dice que la mayoría reutiliza la toalla? |
 | 2 | s02-carteles | 3,69 | 2,41 | Un estudio probó dos carteles. |
-| 3 | s03-ambiente | 6,10 | 1,94 | Uno pedía cuidar el ambiente. |
-| 4 | s04-mayoria | 8,04 | 4,01 | El otro: la mayoría la reutiliza. Ganó el segundo. |
-| 5 | s05-por-que | 12,05 | 1,16 | ¿Por qué? (el "?" se arma desde 0,25 s antes) |
-| 6 | s06-demas | 13,21 | 2,24 | Antes de decidir, miramos a los demás. |
-| 7 | s07-habitacion | 15,45 | 3,14 | Y si decía «los de esta habitación», más todavía. |
-| 8 | s08-graciela | 18,59 | 2,11 | Graciela duda qué pedirle a Rubén. |
-| 9 | s09-sitio | 20,70 | 3,18 | El sitio de Rubén le muestra lo más pedido del barrio. |
-| 10 | s10-cartel | 23,88 | 1,61 | Es el cartel de la toalla. |
-| 11 | s11-local | 25,49 | 2,05 | ¿Lo vemos en tu local? Agendá una |
-| 12 | s12-llamada | 27,54 | 2,99 | videollamada gratis en scalerics.com. |
+| 3 | s03-ambiente | 6,10 | 2,11 | Uno pedía cuidar el ambiente. |
+| 4 | s04-mayoria | 8,21 | 4,18 | El otro: la mayoría la reutiliza. Ganó el segundo. |
+| 5 | s05-por-que | 12,39 | 1,16 | ¿Por qué? (el "?" se arma desde 0,25 s antes) |
+| 6 | s06-demas | 13,55 | 2,24 | Antes de decidir, miramos a los demás. |
+| 7 | s07-habitacion | 15,79 | 3,14 | Y si decía «los de esta habitación», más todavía. |
+| 8 | s08-graciela | 18,93 | 2,11 | Graciela duda qué pedirle a Rubén. |
+| 9 | s09-sitio | 21,04 | 3,18 | El sitio de Rubén le muestra lo más pedido del barrio. |
+| 10 | s10-cartel | 24,22 | 1,61 | Es el cartel de la toalla. |
+| 11 | s11-local | 25,83 | 2,05 | ¿Lo vemos en tu local? Agendá una |
+| 12 | s12-llamada | 27,88 | 2,99 | videollamada gratis en scalerics.com. |
 
 ## Brief por escena (lo que hay en `tres.js` y `gen.mjs`)
 1. **s01-gancho** · cuadro 0 = portada en movimiento: toallero cromado con LA toalla blanca (franja tejida verde) y el

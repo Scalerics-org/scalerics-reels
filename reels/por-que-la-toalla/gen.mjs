@@ -110,9 +110,9 @@ const POS = {
   siempre: [540, 1600], siempreLead: [540, 1535, 540, 1420],
   credPilas: [540, 530], gano: [800, 1060],
   demas: [540, 1690], demasLead: [540, 1640, 540, 1560],
-  cred2: [540, 1660], honesto: [470, 555], honestoLead: [790, 600, 805, 668], siempre2: [510, 1480],
+  cred2: [540, 1660], honesto: [470, 555], honestoLead: [800, 628, 895, 738], siempre2: [510, 1480],
   almacen: [800, 1180], almacenLead: [790, 1128, 760, 990],
-  resenas: [540, 1650], resenasLead: [540, 1590, 540, 1265],
+  resenas: [540, 1650], resenasLead: [540, 1600, 540, 1545],
   mismo: [540, 1620],
 };
 
@@ -186,7 +186,7 @@ const POS = {
       { t: -0.05, sfx: "whoosh-short", vol: 0.05 },
       ...[0, 1, 2].map((k) => ({ t: r2(w(id, 25) - 0.02 + k * 0.12), sfx: "pop", vol: 0.26 })),
       { t: tG + 0.05, sfx: "whoosh-short", vol: 0.3 },
-      ...caen(tG + 0.32, tG + 0.78, 6, 0.06),
+      ...caen(tG + 0.32, tG + 0.78, 4, 0.2),
       { t: tG + 0.8, sfx: "pop", vol: 0.1 }, { t: tG + 0.88, sfx: "pop", vol: 0.1 },
       
       { t: tG + 1.0, sfx: "sello", vol: 0.3, max: 0.35 },
@@ -284,7 +284,7 @@ vacia("s05-por-que", [
     html: `${pill(1, x, y, "Mismo cartel · otro mostrador", "lleno")}`,
     js: `nota(1, ${r2(w(id, 68) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh-short", vol: 0.3 },
+      { t: -0.32, sfx: "whoosh-short", vol: 0.19 },
       { t: w(id, 68) - 0.08, sfx: "papel-fuerte", vol: 1, max: 0.35 },
       { t: tT - 0.06, sfx: "papel-fuerte", vol: 1, max: 0.35 },
       { t: tT + 0.22, sfx: "chime", vol: 0.32, max: 0.8 }, { t: tT + 0.22, sfx: "pop", vol: 0.3 },

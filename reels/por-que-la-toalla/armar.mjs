@@ -261,7 +261,9 @@ ${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/b
       tl.set("#fondo", { backgroundColor: "#0b1220" }, 0); tl.set("#fondo", { backgroundColor: "#5ce611" }, ${TODAS.find(([id]) => id === "s12-llamada")[1]});
       tl.set("#firma", { backgroundColor: "#ffffff" }, 0);
       // ronda 2: en el primer plano del celular (s09, desde "pedido") el logo pisaba las tarjetas y las reseñas
-      tl.set("#firma", { opacity: 0 }, ${r2(palabras[63].start - 0.15)}); tl.set("#firma", { opacity: 1 }, ${TODAS.find(([id]) => id === "s10-cartel")[1]});
+      tl.set("#firma", { opacity: 0 }, ${r2(palabras[56].start)}); tl.set("#firma", { opacity: 1 }, ${TODAS.find(([id]) => id === "s10-cartel")[1]});
+      // ronda 3: también en la grúa de s11 (el logo pasaba sobre la tarjeta)
+      tl.set("#firma", { opacity: 0 }, ${TODAS.find(([id]) => id === "s11-local")[1]}); tl.set("#firma", { opacity: 1 }, ${r2(TODAS.find(([id]) => id === "s11-local")[1] + 0.75)});
       window.__timelines["main"] = tl;
     </script>
   </body>

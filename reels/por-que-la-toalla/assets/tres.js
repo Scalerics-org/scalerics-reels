@@ -507,9 +507,15 @@ function dibujarHoy(n) {
   if (hoyClave === String(n)) return; hoyClave = String(n);
   const x = hoyC.getContext("2d"), w = 768, h = 300;
   x.fillStyle = NAV0; rr(x, 0, 0, w, h, 50); x.strokeStyle = VER; x.lineWidth = 14; x.beginPath(); x.roundRect(14, 14, w - 28, h - 28, 40); x.stroke();
-  x.fillStyle = CRE; x.font = F(800, 88); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Hoy:", 50, 156);
-  x.fillStyle = VER; x.font = F(900, 124); x.textAlign = "center"; x.fillText(String(n), 340, 154);
-  x.fillStyle = CRE; x.font = F(800, 80); x.textAlign = "left"; x.fillText("pedidos", 422, 160);
+  // "Hoy: N pedidos" con espacios reales, centrado, con margen interno
+  const pA = "Hoy: ", pB = String(n), pC = " pedidos";
+  let k = 1, wA, wB, wC;
+  const mide = () => { x.font = F(800, 84 * k); wA = x.measureText(pA).width; wC = x.measureText(pC).width; x.font = F(900, 120 * k); wB = x.measureText(pB).width; };
+  mide(); while (wA + wB + wC > w - 110 && k > 0.5) { k -= 0.03; mide(); }
+  let X = (w - (wA + wB + wC)) / 2; x.textAlign = "left"; x.textBaseline = "middle";
+  x.fillStyle = CRE; x.font = F(800, 84 * k); x.fillText(pA, X, 156); X += wA;
+  x.fillStyle = VER; x.font = F(900, 120 * k); x.fillText(pB, X, 152); X += wB;
+  x.fillStyle = CRE; x.font = F(800, 84 * k); x.fillText(pC, X, 158);
   hoyT.needsUpdate = true;
 }
 dibujarHoy(12);
@@ -750,10 +756,10 @@ const PLANOS = [
     k(T.s10 + 0.45, [GX - 0.02, 1.42, GZ + 2.05], [GX - 0.02, 1.38, GZ + 0.9]),
     k(T.s11 - 0.02, [GX - 0.02, 1.42, GZ + 1.98], [GX - 0.02, 1.38, GZ + 0.9]),
     // s11: la tarjeta vuela al almacén y la cámara la sigue por arriba de la calle: Rubén detrás del mostrador
-    k(T.s11 + 0.16, [GX, 1.85, GZ + 2.15], [GX, 2.65, GZ + 0.6]),
-    k(T.s11 + 0.42, [GX + 0.4, 3.2, GZ - 0.4], [AX, 2.0, 2]),
-        k(T.s11 + 0.8, [AX + 0.06, 2.3, 3.6], [AX - 0.05, 1.12, RZ]),
-    k(T.fin - 0.02, [AX + 0.02, 2.26, 3.35], [AX - 0.05, 1.12, RZ]),
+    k(T.s11 + 0.1, [GX, 1.95, GZ + 2.1], [GX + 0.2, 2.3, GZ - 2.5]),
+    k(T.s11 + 0.36, [GX + 0.4, 3.0, GZ - 0.4], [AX, 1.8, 2]),
+        k(T.s11 + 0.8, [AX + 0.06, 2.3, 3.6], [AX - 0.05, 1.24, RZ]),
+    k(T.fin - 0.02, [AX + 0.02, 2.26, 3.35], [AX - 0.05, 1.24, RZ]),
   ]],
   [T.fin, [
     k(T.fin, [OF.x, 1.62, 4.1], [OF.x, 1.58, 0]),
@@ -914,7 +920,7 @@ function zonaH(t) {
     ocultar(q.tilde, colg && t < T.s07 + 0.4 ? popIn(t, tc + 0.12, 0.25) * (1 - eio(sg(t, T.s07, T.s07 + 0.3))) : 0);
     if (q.tilde.visible) q.tilde.quaternion.copy(camera.quaternion);
     // la placa 214 late en "habitación"
-    if (es214) q.placa.scale.setScalar(1 + 0.35 * pulso(t, T.habit, 0.35));
+    if (es214) { q.placa.scale.setScalar(1 + 0.35 * pulso(t, T.habit, 0.35)); q.placa.visible = !(t > T.habit + 0.02 && t < T.s08 - 0.3); }
   });
   // la toalla y el cartel de la 214: la toalla está colgada desde el principio (el cartel cuelga sobre ella)
   C214.toalla.visible = true; C214.toalla.scale.set(1, 1, 1);

@@ -9,7 +9,7 @@ crédito del estudio (ver abajo qué se puede poner).
 
 El guion NO nombra en la voz a los investigadores ni al hotel (nada de personas reales con nombre propio en la voz; el
 hotel del estudio es de una cadena estadounidense sin nombre en las fuentes). En pantalla el crédito es
-"Estudio en un hotel · 2008"; los nombres van en descripcion.txt. Sin marcas reales: hotel, toalla y cartel genéricos.
+"Estudio publicado en 2008"; los nombres van en descripcion.txt. Sin marcas reales: hotel, toalla y cartel genéricos.
 
 ## Fuentes
 - **[A] Goldstein, N. J., Cialdini, R. B. y Griskevicius, V. (2008).** "A Room with a Viewpoint: Using Social Norms
@@ -65,14 +65,14 @@ hotel del estudio es de una cadena estadounidense sin nombre en las fuentes). En
 - [B]: el estándar decía "HELP SAVE THE ENVIRONMENT" (ayudá a cuidar el ambiente) y pedía reusar la toalla. "Cuidar el
   ambiente" es la traducción fiel; NO decir "el planeta".
 
-### "El otro: la mayoría la reusa."
+### "El otro: la mayoría la reutiliza."
 - [B] [E]: el cartel de norma decía que la mayoría (75 %) de los huéspedes participaba usando la toalla más de una
   vez. En pantalla el cartel 3D puede decir "La mayoría de los huéspedes reutiliza su toalla" (paráfrasis) o
   "75 % de los huéspedes…". El 75 % era un dato real del programa [B]: el cartel no mentía (importa para el callback).
 
 ### "Ganó el segundo."
 - [A] [C] [D]: 44,1 % contra 35,1 % de reuso en el experimento 1. **En pantalla permitido:** "35 %" en el cartel
-  gris y "44 %" en el verde, con el crédito "Estudio en un hotel · 2008". La voz no dice números.
+  gris y "44 %" en el verde, con el crédito "Estudio publicado en 2008". La voz no dice números.
   No decir "casi la mitad más", "un 26 % más" ni similares: no lo calculamos en voz ni en pantalla.
 
 ### "¿Por qué?" / "Antes de decidir, miramos a los demás."
@@ -91,7 +91,7 @@ hotel del estudio es de una cadena estadounidense sin nombre en las fuentes). En
   cercanía dio resultados inconsistentes; la síntesis de 7 estudios encuentra un efecto, chico y discutido).
 - No decir "funciona siempre", "está demostrado" ni "la ciencia dice".
 
-### "Graciela duda qué pedirle a Rubén." · "Su sitio le muestra lo más pedido del barrio." · "Es el cartel de la toalla." · cierre
+### "Graciela duda qué pedirle a Rubén." · "El sitio de Rubén le muestra lo más pedido del barrio." · "Es el cartel de la toalla." · cierre
 - Historia inventada (Graciela y Rubén son personajes) y descripción del producto (sitio web con "lo más pedido" y
   reseñas de clientes): sin datos. "Del barrio" es el "esta habitación" del almacén (la norma del grupo más cercano),
   dramatizado, no un dato nuevo. El ranking que muestra el sitio en pantalla tiene que ser plausible y "real" (sale de
