@@ -5,8 +5,9 @@
  "sello": "Sucursal Rubén",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.15,
- "foco": "30%",
+ "zoom": 0.6,
+ "foco": "8%",
  "velo": "22,36,61",
- "fondo": "#16243d"
+ "fondo": "#16243d",
+ "fondo_limpio": "portada-src/fondo-limpio-11.9.png"
 }
