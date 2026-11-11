@@ -1,0 +1,417 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.25
+ },
+ {
+  "text": "qué",
+  "start": 0.25,
+  "end": 0.5
+ },
+ {
+  "text": "el",
+  "start": 0.5,
+  "end": 0.5
+ },
+ {
+  "text": "hotel",
+  "start": 0.5,
+  "end": 0.7
+ },
+ {
+  "text": "te",
+  "start": 0.7,
+  "end": 0.9
+ },
+ {
+  "text": "dice",
+  "start": 0.9,
+  "end": 1.2
+ },
+ {
+  "text": "que",
+  "start": 1.2,
+  "end": 1.3
+ },
+ {
+  "text": "la",
+  "start": 1.3,
+  "end": 1.4
+ },
+ {
+  "text": "mayoría",
+  "start": 1.4,
+  "end": 1.8
+ },
+ {
+  "text": "reutiliza",
+  "start": 1.8,
+  "end": 2.6
+ },
+ {
+  "text": "la",
+  "start": 2.6,
+  "end": 2.7
+ },
+ {
+  "text": "toalla?",
+  "start": 2.7,
+  "end": 3.1
+ },
+ {
+  "text": "Un",
+  "start": 3.694,
+  "end": 3.8
+ },
+ {
+  "text": "estudio",
+  "start": 3.8,
+  "end": 4.2
+ },
+ {
+  "text": "probó",
+  "start": 4.2,
+  "end": 4.5
+ },
+ {
+  "text": "dos",
+  "start": 4.5,
+  "end": 4.9
+ },
+ {
+  "text": "carteles.",
+  "start": 4.9,
+  "end": 5.4
+ },
+ {
+  "text": "Uno",
+  "start": 6.1,
+  "end": 6.3
+ },
+ {
+  "text": "pedía",
+  "start": 6.3,
+  "end": 6.7
+ },
+ {
+  "text": "cuidar",
+  "start": 6.7,
+  "end": 7.2
+ },
+ {
+  "text": "el",
+  "start": 7.2,
+  "end": 7.3
+ },
+ {
+  "text": "ambiente.",
+  "start": 7.3,
+  "end": 7.7
+ },
+ {
+  "text": "El",
+  "start": 8.207,
+  "end": 8.27
+ },
+ {
+  "text": "otro:",
+  "start": 8.27,
+  "end": 8.57
+ },
+ {
+  "text": "la",
+  "start": 8.902,
+  "end": 8.97
+ },
+ {
+  "text": "mayoría",
+  "start": 8.97,
+  "end": 9.47
+ },
+ {
+  "text": "la",
+  "start": 9.47,
+  "end": 9.57
+ },
+ {
+  "text": "reutiliza.",
+  "start": 9.57,
+  "end": 10.37
+ },
+ {
+  "text": "Ganó",
+  "start": 10.87,
+  "end": 11.13
+ },
+ {
+  "text": "el",
+  "start": 11.13,
+  "end": 11.22
+ },
+ {
+  "text": "segundo.",
+  "start": 11.22,
+  "end": 11.69
+ },
+ {
+  "text": "¿Por",
+  "start": 12.39,
+  "end": 12.55
+ },
+ {
+  "text": "qué?",
+  "start": 12.55,
+  "end": 12.74
+ },
+ {
+  "text": "Antes",
+  "start": 13.548,
+  "end": 13.78
+ },
+ {
+  "text": "de",
+  "start": 13.78,
+  "end": 13.88
+ },
+ {
+  "text": "decidir,",
+  "start": 13.88,
+  "end": 14.28
+ },
+ {
+  "text": "miramos",
+  "start": 14.28,
+  "end": 14.78
+ },
+ {
+  "text": "a",
+  "start": 14.78,
+  "end": 14.78
+ },
+ {
+  "text": "los",
+  "start": 14.78,
+  "end": 14.88
+ },
+ {
+  "text": "demás.",
+  "start": 14.88,
+  "end": 15.18
+ },
+ {
+  "text": "Y",
+  "start": 15.785,
+  "end": 15.88
+ },
+ {
+  "text": "si",
+  "start": 15.88,
+  "end": 15.98
+ },
+ {
+  "text": "decía",
+  "start": 15.98,
+  "end": 16.28
+ },
+ {
+  "text": "«los",
+  "start": 16.28,
+  "end": 16.68
+ },
+ {
+  "text": "de",
+  "start": 16.68,
+  "end": 16.78
+ },
+ {
+  "text": "esta",
+  "start": 16.78,
+  "end": 16.98
+ },
+ {
+  "text": "habitación»,",
+  "start": 16.98,
+  "end": 17.28
+ },
+ {
+  "text": "más",
+  "start": 17.744,
+  "end": 17.98
+ },
+ {
+  "text": "todavía.",
+  "start": 17.98,
+  "end": 18.28
+ },
+ {
+  "text": "Graciela",
+  "start": 18.93,
+  "end": 19.48
+ },
+ {
+  "text": "duda",
+  "start": 19.48,
+  "end": 19.78
+ },
+ {
+  "text": "qué",
+  "start": 19.78,
+  "end": 19.98
+ },
+ {
+  "text": "pedirle",
+  "start": 19.98,
+  "end": 20.28
+ },
+ {
+  "text": "a",
+  "start": 20.28,
+  "end": 20.38
+ },
+ {
+  "text": "Rubén.",
+  "start": 20.38,
+  "end": 20.68
+ },
+ {
+  "text": "El",
+  "start": 21.036,
+  "end": 21.28
+ },
+ {
+  "text": "sitio",
+  "start": 21.28,
+  "end": 21.58
+ },
+ {
+  "text": "de",
+  "start": 21.58,
+  "end": 21.68
+ },
+ {
+  "text": "Rubén",
+  "start": 21.68,
+  "end": 21.98
+ },
+ {
+  "text": "le",
+  "start": 21.98,
+  "end": 22.08
+ },
+ {
+  "text": "muestra",
+  "start": 22.08,
+  "end": 22.38
+ },
+ {
+  "text": "lo",
+  "start": 22.38,
+  "end": 22.48
+ },
+ {
+  "text": "más",
+  "start": 22.48,
+  "end": 22.68
+ },
+ {
+  "text": "pedido",
+  "start": 22.68,
+  "end": 22.88
+ },
+ {
+  "text": "del",
+  "start": 22.88,
+  "end": 23.28
+ },
+ {
+  "text": "barrio.",
+  "start": 23.28,
+  "end": 23.58
+ },
+ {
+  "text": "Es",
+  "start": 24.224,
+  "end": 24.33
+ },
+ {
+  "text": "el",
+  "start": 24.33,
+  "end": 24.43
+ },
+ {
+  "text": "cartel",
+  "start": 24.43,
+  "end": 24.73
+ },
+ {
+  "text": "de",
+  "start": 24.73,
+  "end": 24.83
+ },
+ {
+  "text": "la",
+  "start": 24.83,
+  "end": 24.93
+ },
+ {
+  "text": "toalla.",
+  "start": 24.93,
+  "end": 25.03
+ },
+ {
+  "text": "¿Lo",
+  "start": 25.833,
+  "end": 25.98
+ },
+ {
+  "text": "vemos",
+  "start": 25.98,
+  "end": 26.08
+ },
+ {
+  "text": "en",
+  "start": 26.08,
+  "end": 26.28
+ },
+ {
+  "text": "tu",
+  "start": 26.28,
+  "end": 26.38
+ },
+ {
+  "text": "local?",
+  "start": 26.38,
+  "end": 26.68
+ },
+ {
+  "text": "Agendá",
+  "start": 27.319,
+  "end": 27.68
+ },
+ {
+  "text": "una",
+  "start": 27.68,
+  "end": 27.88
+ },
+ {
+  "text": "videollamada",
+  "start": 27.88,
+  "end": 28.18
+ },
+ {
+  "text": "gratis",
+  "start": 28.18,
+  "end": 28.78
+ },
+ {
+  "text": "en",
+  "start": 28.78,
+  "end": 28.98
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 28.98,
+  "end": 30.3
+ }
+]

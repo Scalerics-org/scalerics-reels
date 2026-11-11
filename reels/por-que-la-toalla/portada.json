@@ -1,0 +1,13 @@
+{
+ "t": 2.2,
+ "fondo_limpio": "portada-src/fondo-limpio-2.2.png",
+ "chica": "¿Por qué el hotel",
+ "grande": "te dice esto?",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 0.62,
+ "foco": "15%",
+ "fondo": "#0b1220",
+ "velo": "11,18,32"
+}
