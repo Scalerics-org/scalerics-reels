@@ -202,3 +202,29 @@ Portada: "Un mensaje pesó" / "casi como bajar un 25 % los intereses".
 Snapshots: cuadro a cuadro en 33 tiempos de las zonas tocadas y después en las de G, el mate y el cierre. `check
 --json`: ok, 0 errores. Mezcla: quedan dos tramos con menos de 6 dB, los dos en colas de palabra: 12,0 (S1) y 23,0
 (-0,1 dB, el whoosh del corte después de "encargo.").
+
+## Ronda 3 (arte, medios y bajos)
+No toqué portada.json ni el volumen de la primera moneda en gen.mjs (`i ? 0.3 : 0.12`).
+- M1. La primera burbuja se achica en vuelo (factor 1 - 0,45·sen(π·u)) y queda dentro del cuadro. Las otras dos salen
+  recién cuando la primera aterrizó (s02+0,8 y +1,1) y desde abajo, así que nunca hay dos "Mañana 9:30" grandes a la
+  vez. Los pops y whooshes de s02 siguen los tiempos nuevos.
+- M2. Corte seco al primer plano del celular (un segundo plano "G" desde T.tu-0,08); la cámara ya no cruza la cara.
+- M3. Graciela tiene el celular con la pantalla a cámara desde que aparece y lo agarra por la base (las manos quedan
+  abajo del celular, no delante). La burbuja entra directo a la pantalla.
+- M4. El giro de la burbuja "Martes 9:30" dura 0,17 s (antes 0,5): de canto quedan ~3 cuadros. El atril aparece a
+  s05+0,6.
+- M5. Rubén desliza la bolsa por el mostrador hasta el borde, entre los dos, y Graciela la levanta con la mano izquierda
+  (la chismosa pasó a la derecha). Ya no vuela sola. El papel suena cuando la bolsa arranca.
+- M6. Las monedas pasaron atrás, entre las patas del atril, a la izquierda; el celular de la financiera queda separado
+  adelante a la derecha.
+- B1. El poste de la lámpara del sillón 3 desaparece con el "?". La cabeza de la lámpara todavía se ve 1 cuadro (6,6).
+- B2. Los platos se vacían 1 cuadro antes del corte (antes 6).
+- B4. Corte seco al ticket de Graciela (plano "A9"). Rubén y el mate quedan fuera de ese plano, así que no hay cabeza
+  cortada ni bolsa de Héctor cortada.
+- B5. La burbuja nace arriba de la bolsa, no sobre la etiqueta.
+- B6. Graciela entera en cuadro en s10: arranca más adentro (x -0,98 → -0,84) y la cámara está corrida a la izquierda.
+Snapshots cuadro a cuadro en cada punto tocado (3,5-4,3, 6,6, 11,0-11,3, 14,6-15,5, 19,8-20,0, 23,45-25,4,
+26,75-27,8). `check --json`: ok, 0 errores. La mezcla no cambió (12,0 y 23,0, ver ronda 2).
+Queda: a 3,55 se asoma el borde del cartel "Faltó" del sillón cercano a la derecha (2-3 cuadros, apenas empieza el
+travelling). En el primer plano del celular de Graciela se ven sus manos abajo como dos formas redondas (sostienen el
+celular).

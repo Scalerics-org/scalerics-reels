@@ -153,14 +153,14 @@ const POS = {
 {
   const id = "s02-faltan";
   const [x, y] = POS.noCero, [a, b, c, d] = POS.noCeroLead;
-  const tl1 = 0.8, tl2 = 1.08; // cuando llegan las dos primeras burbujas (ver tres.js)
+  const tl1 = 0.75, tl2 = 1.5; // cuando llegan las dos primeras burbujas (ver tres.js)
   escena(id, {
     css: CSS_CRED,
     html: `${cred(1, POS.credRev[0], POS.credRev[1], "Revisión de 8 estudios · 2013")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Menos faltas, no cero")}`,
     js: `nota(1, 1.25); nota(2, ${r2(w(id, 15))}); tl.to(qa(".n1, .n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh", vol: 0.5, max: 0.7, full: 1 },
-      { t: 0.3, sfx: "whoosh-short", vol: 0.2 }, { t: 0.58, sfx: "whoosh-short", vol: 0.2 },
+      { t: 0.78, sfx: "whoosh-short", vol: 0.15 }, { t: 1.08, sfx: "whoosh-short", vol: 0.15 },
       { t: tl1, sfx: "pop", vol: 0.35 }, { t: tl1 + 0.02, sfx: "papel-fuerte", vol: 1, max: 0.3 },
       { t: tl2, sfx: "pop", vol: 0.35 }, { t: tl2 + 0.02, sfx: "papel-fuerte", vol: 1, max: 0.3 },
       { t: 1.25, sfx: "click-soft", vol: 0.2 },
@@ -292,7 +292,7 @@ vacia("s03-por-que", [
 // ================= s10 · y Graciela pasa (campanita, la bolsa, los demás tickets se prenden) =================
 vacia("s10-pasa", [
   { t: -0.02, sfx: "campanita", vol: 0.14, max: 0.8 },
-  { t: w("s10-pasa", 77) + 0.1, sfx: "papel-fuerte", vol: 0.1, max: 0.35 },
+  { t: w("s10-pasa", 77) - 0.1, sfx: "papel-fuerte", vol: 0.1, max: 0.35 },
   ...[0, 1, 2].map((i) => ({ t: r2(w("s10-pasa", 77) + 0.62 + i * 0.15), sfx: "pop", vol: 0.02 })),
 ]);
 
