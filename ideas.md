@@ -242,7 +242,7 @@
 - 10-11 · `por-que-el-mozo` · Sistema a medida (cada pendiente con responsable y aviso, para que no viva en la cabeza del dueño) · "¿Por qué el mozo se acuerda de tu pedido… hasta que pagás?" Explicador sin marcas (efecto Zeigarnik, 1927, y Masicampo y Baumeister 2011, ver fuentes.md): se cuenta que un mozo en Berlín recordaba todo sin anotar, pagaron y se olvidó; en un estudio las tareas interrumpidas se recordaban casi el doble (rótulo "no siempre se repitió"); ¿Por qué? lo pendiente queda abierto en la cabeza, y otro estudio vio que hacer un plan concreto la despeja; callback: Rubén de noche con la misma nube (la seña, el presupuesto, el proveedor), los pendientes vuelan a la tablet con responsable y aviso, "Anotado. Ya me olvidé." y la nube se desinfla como la del mozo; a la mañana, tres tildes · ¿Querés dormir sin pendientes? Videollamada gratis (36 s, 88 palabras: un poco largo) [formato explicador ¿Por qué? · 3D real (mozo nuevo en personajes, bandeja, nube de pedidos, platito con la cuenta, mesa de laboratorio con tareas a medias, pilas, "?" verde, cabeza de perfil con la C abierta, ficha del plan, dormitorio con Rubén, despertador 3:12, tablet de pendientes), fondo crema #efeee5 con cierre verde] (corrida 10-11 14:15, 3 rondas de revisión + 2 verificaciones finales; render SwiftShader ~14-18 min)
 
 ## En curso
-
+<!-- corrida-activa: 2026-11-11T05:10 -->
 
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online
