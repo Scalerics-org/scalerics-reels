@@ -294,7 +294,7 @@ function hacerVib() {
   const gm = new THREE.MeshStandardMaterial({ color: C.g, emissive: C.g, emissiveIntensity: 0.7 });
   const nm = new THREE.MeshStandardMaterial({ color: C.navy, roughness: 0.5 });
   for (const s of [-1, 1]) for (const k of [0, 1]) {
-    const a = mesh(new THREE.TorusGeometry(0.075 + k * 0.03, 0.0055, 8, 20, 1.0), k ? nm : gm); a.rotation.set(0, 0, s > 0 ? -0.5 : Math.PI - 0.5); v.add(a);
+    const a = mesh(new THREE.TorusGeometry(0.06 + k * 0.016, 0.0055, 8, 20, 0.9), gm); // solo verdes, pegados al celular a.rotation.set(0, 0, s > 0 ? -0.5 : Math.PI - 0.5); v.add(a);
   }
   scene.add(v); return v;
 }
@@ -330,7 +330,7 @@ const RX10 = 0.0; // en s10 Rubén queda en el hueco entre las bolsas
       let o, ancho;
       if (k < 0.5) { o = fab[Math.floor(azar() * fab.length)](); o.scale.setScalar(1.15); ancho = (o.userData.tam?.[0] ?? 0.16) * 1.15; }
       else { const c = colores[Math.floor(azar() * colores.length)]; o = new THREE.Group(); o.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.2, 14), mat(c, 0.35), 0, 0.1, 0)); o.add(mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.035, 14), M.cr, 0, 0.215, 0)); ancho = 0.13; }
-      if (Math.abs(x + ancho / 2) < 0.06 || x + ancho > EX1 - 0.08 || (y < 2 && y > 1.8 && x + ancho > 0.46 && x < 0.98)) { x += 0.08; continue; }
+      if (Math.abs(x + ancho / 2) < 0.06 || x + ancho > EX1 - 0.08 || (y < 2 && y > 1.8 && x + ancho > -0.98 && x < -0.44)) { x += 0.08; continue; }
       o.position.set(x + ancho / 2, y, EZ + 0.02); o.rotation.y = (azar() - 0.5) * 0.25; almacen.add(o);
       x += ancho + 0.03 + azar() * 0.04;
     }
@@ -369,7 +369,7 @@ const reloj = new THREE.Group(); almacen.add(reloj);
   });
   reloj.add(mesh(new THREE.CylinderGeometry(0.26, 0.26, 0.05, 40).rotateX(Math.PI / 2), M.navy));
   const cara = mesh(new THREE.CircleGeometry(0.235, 40), new THREE.MeshStandardMaterial({ map: t, roughness: 0.5, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.15 }), 0, 0, 0.027); reloj.add(cara);
-  reloj.position.set(0.72, 1.845 + 0.19, -1.74); reloj.scale.setScalar(0.68);
+  reloj.position.set(-0.7, 1.845 + 0.19, -1.74); reloj.scale.setScalar(0.68);
 }
 // ---- el celular de Rubén (en el mostrador) con LA burbuja del dentista y la muela ----
 const celuR = hacerCelu("Consultorio");
@@ -432,7 +432,7 @@ function ponerTicket(b, aviso) {
   }
   b.t.needsUpdate = true;
 }
-const BOLSA_P = [V(-0.54, MOST.y, 0.17), V(-0.28, MOST.y, 0.05), V(0.34, MOST.y, 0.05), V(0.6, MOST.y, 0.05)]; // hueco en el medio: se ve el cuerpo de Rubén
+const BOLSA_P = [V(-0.44, MOST.y, 0.17), V(-0.18, MOST.y, 0.05), V(0.22, MOST.y, 0.05), V(0.48, MOST.y, 0.05)]; // hueco en el medio: se ve el cuerpo de Rubén
 const BOLSA_K = 1.0;
 
 // ================= LA BALANZA DE PLATILLOS (la grande de las cuotas y la de Rubén) =================
@@ -686,6 +686,8 @@ const etiInt = new THREE.Group(); scene.add(etiInt);
   etiInt.add(mesh(rbox(0.36, 0.135, 0.012, 0.03), [M.navy, M.navy, M.navy, M.navy, new THREE.MeshStandardMaterial({ map: t, roughness: 0.6, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.15 }), M.navy]));
   sh(etiInt);
 }
+num25.traverse((o) => (o.castShadow = false)); etiInt.traverse((o) => (o.castShadow = false));
+
 
 // ================= ZONA G: Graciela en la vereda =================
 const vereda = new THREE.Group(); scene.add(vereda);
@@ -711,8 +713,8 @@ const bPed = hacerBurbuja("pedido"); celuG.add(bPed);
 const vibG = hacerVib();
 
 // ---- los personajes ----
-const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 3.3 }); scene.add(ruben.raiz);
-const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 2.9 }); scene.add(graciela.raiz);
+const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 3.3, ojoDibujo: true }); scene.add(ruben.raiz);
+const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 2.9, ojoDibujo: true }); scene.add(graciela.raiz);
 for (const p of [graciela, ruben]) p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 // la chismosa de Graciela (bolsa de feria a rayas)
 const chismosa = new THREE.Group(); scene.add(chismosa);
@@ -774,9 +776,9 @@ const PLANOS = [
   ]],
   // s04: corte a Rubén (el "?" en el mismo lugar de la pantalla), el "?" se vuelve nube
   ["A4", T.s04, [
-    k(T.s04, [0.3, 1.85, 3.3], [0.28, 1.7, RZ]),
-    k(T.s04 + 0.6, [0.32, 1.82, 3.9], [0.3, 1.7, RZ]),
-    k(T.s05, [0.3, 1.8, 3.7], [0.3, 1.68, RZ]),
+    k(T.s04, [0.3, 1.98, 3.3], [0.28, 1.85, RZ]),
+    k(T.s04 + 0.6, [0.32, 1.97, 3.9], [0.3, 1.85, RZ]),
+    k(T.s05, [0.3, 1.95, 3.7], [0.3, 1.83, RZ]),
   ]],
   // s05-s07: crema liso: el papelito se vuelve la tarjeta, las monedas; push-in; atrás: la balanza
   ["P", T.s05, [
@@ -790,21 +792,20 @@ const PLANOS = [
   ]],
   // s08: la balanza de Rubén en el mostrador (mismo encuadre) y grúa atrás y arriba: el almacén, las bolsas
   ["A8", T.s08, [
-    k(T.s08, [BALR.x, MOST.y + 1.25 * BALR_K, BALR.z + 4.5 * BALR_K], [BALR.x, MOST.y + 1.1 * BALR_K, BALR.z]),
-    k(T.s08 + 0.12, [BALR.x, MOST.y + 1.25 * BALR_K, BALR.z + 4.5 * BALR_K], [BALR.x, MOST.y + 1.1 * BALR_K, BALR.z]),
-    k(T.s08 + 0.5, [0.03, 2.3, 4.3], [0.03, 1.22, -0.25]),
-    k(T.s09 - 0.05, [0.03, 2.25, 4.1], [0.03, 1.22, -0.25]),
+    k(T.s08, [0.03, 2.05, 3.8], [0.03, 1.45, -0.25]),
+    k(T.s09 - 0.05, [0.03, 1.95, 3.25], [0.03, 1.42, -0.25]),
     // s09: push-in rápido al ticket de Graciela; la burbuja sale hacia cámara
-    k(T.s09 + 0.18, [-0.54, 1.34, 1.3], [-0.54, 1.08, 0.17]),
-    k(T.corteG, [-0.54, 1.32, 1.12], [-0.54, 1.08, 0.17]),
+    k(T.s09 + 0.07, [-0.75, 1.6, 2.2], [-0.5, 1.12, 0.17]),
+    k(T.s09 + 0.18, [-0.47, 1.34, 1.3], [-0.44, 1.08, 0.17]),
+    k(T.corteG, [-0.46, 1.32, 1.12], [-0.44, 1.08, 0.17]),
   ]],
   // s09: Graciela en la vereda con el celular; push-in hasta que el celular llena el cuadro
   ["G", T.corteG, [
     k(T.corteG, gg(0.0, 1.35, 3.4), gg(0.0, 1.2, 0)),
     k(T.vibG + 0.3, gg(0.0, 1.33, 3.1), gg(0.0, 1.18, 0)),
-    k((T.vibG + 0.3 + T.tu) / 2 + 0.03, gg(0.0, 1.05, 1.9), gg(0.0, 1.0, 0)),
-    { rel: [T.tu + 0.05, 0.0, 0.0, 0.5, 0.01] },
-    { rel: [T.mateR, 0.0, 0.0, 0.47, 0.01] },
+    k((T.vibG + 0.3 + T.tu) / 2 + 0.03, gg(0.0, 1.35, 1.6), gg(0.0, 0.95, 0.3)),
+    { rel: [T.tu + 0.05, 0.0, 0.26, 0.5, 0.0, 0.035] },
+    { rel: [T.mateR, 0.0, 0.25, 0.48, 0.0, 0.035] },
   ]],
   // contraplano: Rubén con el mate (no toca nada)
   ["AR", T.mateR, [
@@ -835,7 +836,7 @@ function ponerCamara(t) {
   let K = PLANOS[pi][2];
   if (K.some((q) => q.rel)) {
     if (!CELG_P) { const pl = plano; plano = "G"; zonaG(T.listo); celuG.updateMatrixWorld(true); CELG_P = celuG.getWorldPosition(new THREE.Vector3()); plano = pl; }
-    K = K.map((q) => (q.rel ? [q.rel[0], CELG_P.x + q.rel[1], CELG_P.y + q.rel[2] + q.rel[4], CELG_P.z + q.rel[3], CELG_P.x, CELG_P.y + q.rel[4], CELG_P.z, 34] : q));
+    K = K.map((q) => (q.rel ? [q.rel[0], CELG_P.x + q.rel[1], CELG_P.y + q.rel[2] + q.rel[4], CELG_P.z + q.rel[3], CELG_P.x, CELG_P.y + q.rel[4] + (q.rel[5] ?? 0), CELG_P.z, 34] : q));
   }
   let i = 0; while (i + 1 < K.length - 1 && K[i + 1][0] <= t) i++;
   const a = K[i], b = K[Math.min(i + 1, K.length - 1)];
@@ -927,7 +928,7 @@ function zonaA(t) {
       }
     }
     vibR.visible = (plano === "A1" && t > T.mensaje && t < T.mensaje + 0.5) || (plano === "A11" && t > T.s11 + 0.12 && t < T.s11 + 0.62);
-    if (vibR.visible) { celuR.updateMatrixWorld(true); vibR.position.copy(celuR.localToWorld(V(0, 0, 0.004))); celuR.getWorldQuaternion(vibR.quaternion); const a0 = plano === "A1" ? T.mensaje : T.s11 + 0.12; vibR.scale.setScalar(0.8 * (1 + 0.25 * Math.sin((t - a0) * 30))); }
+    if (vibR.visible) { celuR.updateMatrixWorld(true); vibR.position.copy(celuR.localToWorld(V(0, 0, 0.004))); celuR.getWorldQuaternion(vibR.quaternion); const a0 = plano === "A1" ? T.mensaje : T.s11 + 0.12; vibR.scale.setScalar(0.88 * (1 + 0.08 * Math.sin((t - a0) * 30))); }
   }
   // ---- la mano de Rubén (solo en s01, entra en "antes") ----
   {
@@ -960,7 +961,7 @@ function zonaA(t) {
       [T.olvido, { inclina: 0.03, cabeza: { giro: -0.1, asiente: 0.22, ladea: 0.08 }, ojos: { x: -0.2, y: -0.55, abiertos: 0.9, tension: 0.4 }, cejas: { alto: 0.35, ang: 0.8 }, boca: { sonrisa: -0.55 } }, 0.5],
       [T.encargo + 0.3, { inclina: 0.0, cabeza: { giro: 0.0, asiente: 0.15, ladea: 0.05 }, ojos: { x: 0, y: -0.3, abiertos: 0.9 }, cejas: { alto: 0.3, ang: 0.6 }, boca: { sonrisa: -0.3 } }, 0.3],
       // contraplano: tranquilo, con el mate, ojos achinados
-      [T.mateR, { ...CARA.sonrisa, manoI: [0.22, 0.62, 0.38], codoI: [1, -0.5, -0.2], cabeza: { giro: 0.05, asiente: 0.02, ladea: 0.1 }, ojos: { x: 0, y: 0, abiertos: 1, feliz: 0 }, cejas: { alto: 0.25, ang: 0 } }, 0.05],
+      [T.mateR, { ...CARA.sonrisa, manoI: [0.3, 0.4, 0.42], codoI: [1, -0.5, -0.2], cabeza: { giro: 0.05, asiente: 0.02, ladea: 0.1 }, ojos: { x: 0, y: 0, abiertos: 1, feliz: 0 }, cejas: { alto: 0.25, ang: 0 } }, 0.05],
       // s10: le alcanza la bolsa a Graciela (con la derecha) y levanta el mate
       [T.s10 + 0.05, { giro: 0, cabeza: { giro: -0.22, asiente: 0.05, ladea: 0.04 }, ojos: { x: -0.5, y: 0.0, abiertos: 1, feliz: 0.2 }, ...CARA.sonrisa, manoI: [0.24, 0.42, 0.34] }, 0.05],
       [T.graciela + 0.25, { manoD: [-0.3, 0.4, 0.6], codoD: [-0.9, -0.6, -0.1] }, 0.35],
@@ -982,7 +983,7 @@ function zonaA(t) {
   }
   // el mate: en la mano izquierda de Rubén (o apoyado)
   if (mateApoyado) { mateM.position.set(CELR.x - 0.2, MOST.y, CELR.z - 0.16); mateM.rotation.set(0, 0.6, 0); }
-  else { ruben.mano("I").getWorldPosition(_v); mateM.position.copy(_v).add(V(0.0, -0.075, 0.025)); mateM.rotation.set(0, 0.3, -0.1); }
+  else { ruben.mano("I").getWorldPosition(_v); mateM.position.copy(_v).add(V(0.0, -0.075, 0.025)); mateM.rotation.set(0, 0.3 + Math.PI, 0.25); }
   // ---- la nube (s04): el "?" se achica y se vuelve nube con las cosas del día; el papelito del turno se cae ----
   {
     const v = plano === "A4";
@@ -992,7 +993,7 @@ function zonaA(t) {
       const u = eio(sg(t, T.s04 + 0.02, T.s04 + 0.4));
       const desde = delante(1.9, 0, QDY);
       ruben.cabeza.getWorldPosition(_v);
-      const hasta = _v.clone().add(V(0.45, 0.62, 0.25));
+      const hasta = _v.clone().add(V(0.6, 0.7, 0.25));
       const p = lerpV(desde, hasta, u); p.y += Math.sin(Math.PI * u) * 0.25; p.x += Math.sin(Math.PI * u) * 0.12;
       pregunta2.position.copy(p); pregunta2.quaternion.copy(camera.quaternion);
       pregunta2.scale.setScalar(lerp(QK, 0.16, eo(sg(t, T.s04 + 0.02, T.s04 + 0.22))));
@@ -1001,8 +1002,8 @@ function zonaA(t) {
     nubeR.visible = kn > 0.01;
     if (nubeR.visible) {
       ruben.cabeza.getWorldPosition(_v);
-      nubeR.position.copy(_v).add(V(0.45, 0.62, 0.25)); nubeR.quaternion.copy(camera.quaternion);
-      nubeR.scale.setScalar(kn * 0.55 * (1 + 0.02 * Math.sin(t * 5)));
+      nubeR.position.copy(_v).add(V(0.6, 0.7, 0.25)); nubeR.quaternion.copy(camera.quaternion);
+      nubeR.scale.setScalar(kn * 0.48 * (1 + 0.02 * Math.sin(t * 5)));
       NUBE_ITEMS.forEach((it, i) => {
         const ki = popIn(t, T.s04 + 0.55 + i * 0.22, 0.25);
         // en "olvidé" se aprietan hacia el centro-abajo (empujan al papelito)
@@ -1029,12 +1030,12 @@ function zonaA(t) {
     }
   }
   // ---- la balanza de Rubén (desde s08) ----
-  balanzaR.visible = plano === "A8" && t < T.s09;
+  balanzaR.visible = false;
   balanzaR.position.copy(BALR); balanzaR.scale.setScalar(BALR_K); balanzaR.rotation.y = 0;
   ponerBalanza(balanzaR, rebote(t, T.s08, 2.5, 7, 0.06));
   // ---- las bolsas (pop de a una en "encargo"); los tickets se prenden en "sistema" (Graciela) y en s10 (los demás) ----
   BOLSAS.forEach((b, i) => {
-    const t0 = T.ruben - 0.1 + i * 0.13;
+    const t0 = T.ruben + 0.02 + i * 0.13;
     const ki = t < T.s08 ? 0 : t < t0 ? 0 : popIn(t, t0, 0.28);
     // Graciela se lleva la suya en s10
     const lleva = i === 0 ? eio(sg(t, T.graciela + 0.1, T.graciela + 0.55)) : 0;
@@ -1042,10 +1043,10 @@ function zonaA(t) {
     let p = BOLSA_P[i].clone();
     if (lleva > 0) { graciela.mano("D").getWorldPosition(_v); p = lerpV(p, _v.clone().add(V(0, -0.3, 0.0)), lleva); }
     b.g.position.copy(p); b.g.rotation.set(0, (i - 1.5) * -0.08, 0); b.g.scale.setScalar(ki * BOLSA_K);
-    const avisado = i === 0 ? t > T.sistema : t > T.graciela + 0.5 + (i - 1) * 0.15;
+    const avisado = i === 0 ? t > T.sistema : t > T.graciela + 0.62 + (i - 1) * 0.15;
     ponerTicket(b, avisado);
     b.g.scale.multiplyScalar(1 + 0.08 * pulso(t, T.encargo - 0.1 + i * 0.1, 0.25));
-    if (i > 0) b.g.scale.multiplyScalar(1 + 0.1 * pulso(t, T.graciela + 0.5 + (i - 1) * 0.15, 0.25));
+    if (i > 0) b.g.scale.multiplyScalar(1 + 0.1 * pulso(t, T.graciela + 0.62 + (i - 1) * 0.15, 0.25));
     else b.g.scale.multiplyScalar(1 + 0.1 * pulso(t, T.sistema, 0.25));
   });
   // ---- la burbuja del pedido sale del ticket de Graciela hacia cámara (s09) ----
@@ -1058,7 +1059,7 @@ function zonaA(t) {
       const u = eio(sg(t, T.sistema + 0.05, T.corteG));
       BOLSAS[0].g.updateMatrixWorld(true);
       const desde = BOLSAS[0].g.localToWorld(V(0, 0.15, 0.1));
-      bPed.position.copy(lerpV(desde, delante(0.5, 0, 0.0), u)); bPed.quaternion.copy(camera.quaternion);
+      bPed.position.copy(lerpV(desde, delante(0.5, 0, -0.35), u)); bPed.quaternion.copy(camera.quaternion);
       bPed.scale.setScalar(lerp(0.05, 0.14, u));
     }
   }
@@ -1068,12 +1069,12 @@ function zonaA(t) {
   if (graciela.raiz.visible) {
     const camina = eio(sg(t, T.s10 - 0.2, T.graciela + 0.1));
     let pg = poseEn(t, [
-      [0, { x: lerp(-1.1, -0.92, camina), y: 0, z: 0.8, giro: 0.45, paso: 1 - camina, ...BRAZOS.costado, ...CARA.sonrisa, cabeza: { giro: 0.3, asiente: 0.0, ladea: 0.04 }, ojos: { x: 0.4, y: 0, abiertos: 1 } }],
-      [T.graciela + 0.25, { paso: 0, manoD: [-0.22, 0.42, 0.42], codoD: [-0.8, -0.6, -0.1], ...CARA.feliz, cabeza: { giro: 0.15, asiente: -0.05, ladea: 0.06 } }, 0.3],
+      [0, { x: lerp(-1.1, -0.92, camina), y: 0, z: 0.8, giro: 0.3, paso: 1 - camina, ...BRAZOS.costado, ...CARA.sonrisa, cabeza: { giro: 0.15, asiente: 0.0, ladea: 0.04 }, ojos: { x: 0.5, y: 0, abiertos: 1 } }],
+      [T.graciela + 0.25, { paso: 0, manoD: [-0.22, 0.42, 0.42], codoD: [-0.8, -0.6, -0.1], ...CARA.sonrisa, ojos: { x: 0.5, y: 0, abiertos: 1, feliz: 0.2 }, cabeza: { giro: 0.12, asiente: -0.05, ladea: 0.06 } }, 0.3],
     ]);
     pg.x = lerp(-1.1, -0.92, camina); pg.z = 0.8; pg.paso = (1 - camina) > 0.05 ? 1 : 0;
     pg.t = t; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true);
-    graciela.mano("I").getWorldPosition(_v); chismosa.position.copy(_v).add(V(0, 0.02, 0)); chismosa.rotation.set(0, 0.45, 0);
+    graciela.mano("I").getWorldPosition(_v); chismosa.position.copy(_v).add(V(0, 0.02, 0)); chismosa.rotation.set(0, 0.3, 0);
   }
 }
 
@@ -1086,14 +1087,14 @@ function zonaD(t) {
   // las burbujas: la primera llega grande en primer plano (de la zambullida) y vuela al sillón 1; las otras dos detrás
   bVuela.forEach((b, j) => {
     const s = SILLONES[VACIOS[j]];
-    const t0 = T.s02 + 0.05 + j * 0.28, t1 = t0 + 0.75;
+    const t0 = T.s02 + 0.05 + j * 0.34, t1 = t0 + 0.75;
     const u = eio(sg(t, t0, t1));
     const vive = t < t1 + (j === 2 ? 99 : 0.12);
     b.visible = vive && (j === 0 || t > t0 - 0.2);
     if (!b.visible) return;
     const destino = s.g.position.clone().add(V(0, 1.45, 0.15));
-    const desde = j === 0 ? delante(0.95, 0.0, 0.05) : delante(1.6, j === 1 ? 0.55 : -0.55, 0.3);
-    b.position.copy(arco(desde, destino, u, 0.3));
+    const desde = j === 0 ? delante(0.95, 0.0, 0.05) : delante(1.6, j === 1 ? 0.35 : -0.35, -0.5);
+    b.position.copy(arco(desde, destino, u, 0.08));
     b.quaternion.copy(camera.quaternion);
     const k0 = j === 0 ? 0.25 : popIn(t, t0 - 0.2, 0.25) * 0.2;
     // al llegar se achica y "entra" (sillones 1 y 3); la del 5 se queda flotando chica
@@ -1104,7 +1105,7 @@ function zonaD(t) {
   SILLONES.forEach((s, i) => {
     const vacio = VACIOS.includes(i);
     const j = VACIOS.indexOf(i);
-    const tl = T.s02 + 0.05 + j * 0.28 + 0.75;
+    const tl = T.s02 + 0.05 + j * 0.34 + 0.75;
     const llena = LLENA.includes(i) && t > tl;
     s.pac.visible = (!vacio || llena) && !(i === QS && t > T.s03 - 0.3);
     s.pac.scale.setScalar(vacio ? popIn(t, tl, 0.3) : 1);
@@ -1126,9 +1127,9 @@ function zonaD(t) {
   // ---- s03: la lámpara del medio (sillón 2) se dobla en el "?" ----
   {
     const s = SILLONES[QS];
-    const u = eio(sg(t, T.s03 - 0.05, T.s03 + 0.15));
-    s.cabeza.scale.setScalar(Math.max(0.001, 1 - u));
-    const kq = t < T.s03 - 0.05 ? 0 : lerp(0.0, 1, bk(sg(t, T.s03 - 0.05, T.s03 + 0.3))) * (1 + 0.08 * pulso(t, T.que, 0.3));
+    const u = eio(sg(t, T.s03 - 0.14, T.s03 + 0.06));
+    s.cabeza.scale.setScalar(Math.max(0.001, 1 - u)); s.lamp.visible = u < 0.98; s.lamp.scale.setScalar(Math.max(0.001, 1 - u));
+    const kq = t < T.s03 - 0.14 ? 0 : lerp(0.0, 1, bk(sg(t, T.s03 - 0.14, T.s03 + 0.2))) * (1 + 0.08 * pulso(t, T.que, 0.3));
     pregunta.visible = kq > 0.01;
     if (pregunta.visible) {
       pregunta.position.set(QC[0], QC[1], QC[2]);
@@ -1141,14 +1142,14 @@ function zonaD(t) {
 
 // ================= ZONA P en el tiempo =================
 const TJP = () => V(OP.x - 0.12, 0.66, 0); // centro de la tarjeta (parada en el piso, apenas inclinada)
-const MONB = () => V(OP.x + 0.36, 0, 0.55);             // la pila de monedas
+const MONB = () => V(OP.x + 0.24, 0, 0.6);             // la pila de monedas
 function zonaP(t) {
   const en = plano === "P";
   for (const o of [tarjeta, celuC, balanza, num25, etiInt, sombraP, atril]) o.visible = en;
   if (!en) return;
   const c = OP;
   // al final de s07 la cámara se acerca a la balanza y lo que está encima se achica (en el almacén la balanza está vacía)
-  const achica = 1 - eio(sg(t, T.s08 - 0.45, T.s08 - 0.12));
+  const achica = t < T.s08 - 0.2 ? 1 : 0;
   // ---- el papelito cae y se da vuelta de canto: del otro lado es la tarjeta ----
   const giro = sg(t, T.s05 + 0.35, T.s05 + 0.85);
   // al empezar s07 la tarjeta, el atril y el celular se achican en su lugar (rápido) y recién después aparece la balanza
@@ -1255,8 +1256,8 @@ function zonaG(t) {
     const mI = graciela.mano("I").getWorldPosition(new THREE.Vector3()), mD = graciela.mano("D").getWorldPosition(new THREE.Vector3());
     const m = mI.add(mD).multiplyScalar(0.5);
     const vb = vibra(t, T.vibG);
-    celuG.position.copy(m).add(V(vb * 0.006, 0.05 + muestra * 0.05, 0.02 + muestra * 0.24));
-    celuG.rotation.set(lerp(-1.32, 0.04, muestra), Math.PI * (1 - muestra), lerp(0, 0.06, muestra) + vb * 0.03);
+    celuG.position.copy(m).add(V(vb * 0.006, 0.05 + muestra * 0.1, 0.02 + muestra * 0.26));
+    celuG.rotation.set(lerp(-1.32, -0.5, muestra), Math.PI * (1 - muestra), lerp(0, 0.04, muestra) + vb * 0.03);
     celuG.scale.setScalar(1);
     // la burbuja llega en primer plano (corte desde el almacén) y se mete en la pantalla
     const u = eio(sg(t, T.corteG, T.vibG));
@@ -1264,9 +1265,9 @@ function zonaG(t) {
       if (bPed.parent !== scene) scene.add(bPed);
       celuG.updateMatrixWorld(true);
       const dest = celuG.localToWorld(EN_PANT(0, -0.005));
-      bPed.position.copy(lerpV(delante(0.5, 0, 0), dest, u));
+      bPed.position.copy(lerpV(delante(0.5, 0, -0.35), dest, u));
       celuG.getWorldQuaternion(_q); bPed.quaternion.copy(camera.quaternion).slerp(_q, u);
-      bPed.scale.setScalar(lerp(0.14, BESC, u));
+      bPed.scale.setScalar(lerp(0.14, BESC, eo(sg(t, T.corteG, T.corteG + 0.12))));
     } else {
       if (bPed.parent !== celuG) celuG.add(bPed);
       bPed.position.copy(EN_PANT(0, -0.005)); bPed.quaternion.identity(); bPed.scale.setScalar(BESC);

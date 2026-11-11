@@ -154,3 +154,51 @@ Pendiente o dudoso después de la ronda 1:
 - s08: la mitad de abajo es el frente de madera del mostrador. Ya no es lisa, pero es mucho mostrador.
 - 23,45-23,55: el ojo de Rubén al borde derecho durante el push-in rápido al ticket.
 - 30,25 (s11): con el push-in final el celular se acerca a los subtítulos.
+
+## Ronda 2 de corrección (render de las 13:49)
+Arte alta
+1. Hecho. La nube está más arriba y a la derecha de la cabeza y es más chica; la colita apunta a la cabeza sin tocar la
+   cara. La cámara de s04 mira más arriba (Rubén queda más abajo en el cuadro). Rubén y Graciela tienen ahora
+   `ojoDibujo: true` (opción del módulo de personajes, como en por-que-el-mozo y lo-mismo-que-la-otra-vez): ojo cerrado y
+   guiño = arco oscuro, nunca bulto de piel.
+2. Hecho. Graciela muestra el celular inclinado hacia atrás, a la altura del pecho. La cámara lo mira desde arriba
+   (relativo al celular: +0,26 de alto, 0,5 adelante): de fondo queda el buzo verde y la pollera, sin la cara. Las manos
+   quedan detrás o debajo del celular. El encabezado del chat ya no queda bajo el subtítulo.
+Arte media
+3. Hecho. Las otras dos burbujas nacen abajo del cuadro y 0,34 s después (no detrás de la grande) y vuelan con un arco
+   bajo (no salen por arriba).
+4. Hecho. Toda la lámpara del sillón 3 (brazo y cabeza) se achica y desaparece mientras crece el "?". El "?" ya se ve
+   cuando llega la cámara (crece desde T-0,14).
+5. Hecho. Las monedas están más adentro (x +0,24, adelante).
+6. Hecho. s08 arranca con un corte limpio al plano del almacén. La balanza de Rubén ya no aparece.
+7. Hecho. La cámara mira más arriba y más cerca (mira a y 1,42); las bolsas están más juntas con un hueco chico para el
+   cuerpo de Rubén. El frente de madera queda en ~22 % de abajo.
+8. Hecho. En el contraplano el mate va más abajo, girado con la bombilla hacia afuera; la bombilla queda lejos de la
+   cabeza.
+9. Hecho. Ojos de dibujo (ver 1). Graciela está más de frente (giro 0,3, cabeza 0,15) con sonrisa sin boca abierta
+   (la boca queda bajo la nariz). El guiño de Rubén es un arco oscuro.
+Arte baja
+10. Hecho. Los arcos de vibración son solo verdes, más chicos y pegados al celular.
+11. Hecho. "Recordatorio del día antes" se va con el gancho (ESC-0,5), antes de que despegue la burbuja.
+12. Hecho. La línea guía de "Menos faltas, no cero" baja vertical por el borde izquierdo (x 70) hasta el "Faltó"; no
+    cruza pacientes.
+13. Hecho. El reloj está a la izquierda (x -0,7), lejos del camino del "?" y de la nube. El "?" ya no toca la cabeza
+    (la cámara de s04 mira más arriba).
+14. Hecho. Monedas, burbuja, "-25 %" y "intereses" desaparecen de golpe 0,2 s antes del corte (no se achican a motas).
+    Ni "-25 %" ni "intereses" proyectan sombra.
+15. Hecho. "MISMO ESTUDIO" a 42 px.
+16. Parcial. El travelling al ticket ahora pasa por la izquierda, pero a 23,48 la cabeza de Rubén todavía asoma al borde
+    derecho 2 cuadros.
+17. Hecho. La burbuja que llega al celular de Graciela viaja por la parte de abajo del cuadro y se achica en 0,12 s; no
+    tapa la cara. Los arcos son verdes y van delante de las manos.
+Sonido
+S1. Hecho. Los tic/tac de las monedas van a 0,3 (×4, con techo -31 = el máximo). La medición da un tramo de 0,5 s a 12,0
+    con la cola de "turnos" (-0,8 dB): las monedas caen mientras termina la frase. Si lo querés más limpio, bajalas a
+    0,15.
+S2. Hecho. El chime del cierre se movió a +0,42 (ahora arranca con la tarjeta).
+S3. Hecho. El whoosh de 19,5 se corrió +0,13. Los pop/papel de las bolsas y los pops de los tickets de s10 se corrieron
+    +0,12 (y también las animaciones en tres.js). Los pops de s10 van más bajos (0,02) y el papel a 0,1.
+Portada: "Un mensaje pesó" / "casi como bajar un 25 % los intereses".
+Snapshots: cuadro a cuadro en 33 tiempos de las zonas tocadas y después en las de G, el mate y el cierre. `check
+--json`: ok, 0 errores. Mezcla: quedan dos tramos con menos de 6 dB, los dos en colas de palabra: 12,0 (S1) y 23,0
+(-0,1 dB, el whoosh del corte después de "encargo.").

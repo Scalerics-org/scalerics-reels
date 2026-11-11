@@ -108,7 +108,7 @@ const FIRMA = [];
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
   recordatorio: [540, 1790], recordatorioLead: [540, 1730, 560, 1420],
-  credRev: [540, 540], noCero: [400, 1640], noCeroLead: [300, 1585, 120, 900],
+  credRev: [540, 540], noCero: [330, 1660], noCeroLead: [70, 1660, 70, 900],
   citada: [540, 1640],
   credPrest: [540, 545], sms: [440, 1680], smsLead: [640, 1630, 770, 1460],
   parecido: [540, 1650], parecidoLead: [540, 1575, 540, 1180],
@@ -138,7 +138,7 @@ const POS = {
       late(".h4", ${w2(id, 10)}, 1.06);
       nota(1, ${r2(w(id, 7) + 0.35)});
       tl.to(qa(".h"), { opacity: 0, duration: 0.15, ease: "power1.in" }, ${r2(ESC[id] - 0.5)});
-      tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1, ease: "power1.in" }, ${r2(ESC[id] - 0.12)});`,
+      tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1, ease: "power1.in" }, ${r2(ESC[id] - 0.5)});`,
     sfx: [
       { t: w(id, 7) - 0.05, sfx: "vibra-fuerte", vol: 1, max: 0.5 },
       { t: w(id, 7), sfx: "notification", vol: 0.5, max: 0.6 },
@@ -203,7 +203,7 @@ vacia("s03-por-que", [
   vacia(id, [
     { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
     { t: 0.4, sfx: "papel-fuerte", vol: 1, max: 0.35 },
-    ...[0, 1, 2, 3].map((i) => ({ t: r2(t0 + 0.16 + i * 0.2), sfx: i % 2 ? "tac-real" : "tic-real", vol: 0.08 })),
+    ...[0, 1, 2, 3].map((i) => ({ t: r2(t0 + 0.16 + i * 0.2), sfx: i % 2 ? "tac-real" : "tic-real", vol: i ? 0.3 : 0.12 })),
   ]);
 }
 
@@ -233,7 +233,7 @@ vacia("s03-por-que", [
   const tT = w(id, 48) - 0.05;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, `Efecto parecido en pagar a tiempo<span class="sub">mismo estudio</span>`)}`,
-    css: `P .pill { flex-direction: column; gap: 0; }`,
+    css: `P .pill { flex-direction: column; gap: 0; } P .pill .sub { font-size: 42px; }`,
     js: `nota(1, ${r2(tT + 0.9)}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.55)});`,
     sfx: [
       { t: -0.15, sfx: "whoosh", vol: 0.45, max: 0.7, full: 1 },
@@ -244,7 +244,7 @@ vacia("s03-por-que", [
       { t: tT + 0.9, sfx: "click-soft", vol: 0.2 },
       { t: w(id, 52) - 0.05, sfx: "pop", vol: 0.3 },
       { t: w(id, 55) - 0.02, sfx: "ding", vol: 0.12, max: 0.8 },
-      { t: r2(ESC[id] - 0.45), sfx: "whoosh-short", vol: 0.25 },
+      { t: r2(ESC[id] - 0.32), sfx: "whoosh-short", vol: 0.25 },
     ],
   });
 }
@@ -259,8 +259,8 @@ vacia("s03-por-que", [
     js: `nota(1, ${r2(w(id, 62))}); tl.to(qa(".n1, .l1, .d1"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.05, sfx: "whoosh-cinematic", vol: 0.35, max: 1.0 },
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) - 0.1 + i * 0.13), sfx: "pop", vol: 0.22 })),
-      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) - 0.08 + i * 0.13), sfx: "papel-fuerte", vol: 0.35, max: 0.25 })),
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) + 0.02 + i * 0.13), sfx: "pop", vol: 0.22 })),
+      ...[0, 1, 2, 3].map((i) => ({ t: r2(w(id, 60) + 0.04 + i * 0.13), sfx: "papel-fuerte", vol: 0.35, max: 0.25 })),
       { t: w(id, 62), sfx: "click-soft", vol: 0.15 },
     ],
   });
@@ -292,8 +292,8 @@ vacia("s03-por-que", [
 // ================= s10 · y Graciela pasa (campanita, la bolsa, los demás tickets se prenden) =================
 vacia("s10-pasa", [
   { t: -0.02, sfx: "campanita", vol: 0.14, max: 0.8 },
-  { t: w("s10-pasa", 77) + 0.1, sfx: "papel-fuerte", vol: 0.18, max: 0.35 },
-  ...[0, 1, 2].map((i) => ({ t: r2(w("s10-pasa", 77) + 0.5 + i * 0.15), sfx: "pop", vol: 0.045 })),
+  { t: w("s10-pasa", 77) + 0.1, sfx: "papel-fuerte", vol: 0.1, max: 0.35 },
+  ...[0, 1, 2].map((i) => ({ t: r2(w("s10-pasa", 77) + 0.62 + i * 0.15), sfx: "pop", vol: 0.02 })),
 ]);
 
 // ================= s11 · ¿que tus clientes no se olviden? (el celular de Rubén: las dos burbujas iguales) =================
@@ -329,7 +329,7 @@ vacia("s10-pasa", [
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: 0.1, sfx: "chime", vol: 0.1, max: 0.8 },
+      { t: 0.42, sfx: "chime", vol: 0.1, max: 0.8 },
       { t: w(id, 90) - 0.03, sfx: "ding", vol: 0.08, max: r2(Math.min(1.2, ESC[id] - w(id, 90) - 0.3)) },
     ],
   });
