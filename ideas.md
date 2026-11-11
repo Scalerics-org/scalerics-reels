@@ -245,7 +245,7 @@
 - 11-11 · `hacen-envios` · Tienda online (pedido pago desde el celular, envío con costo o retiro en el local) · Para mandar completo con Rubén: Héctor, el vecino de ENFRENTE, le escribe "¿Hacen envíos?"; Rubén cruza los 14 pasos con la yerba, y otra vez ("¿Tenés pan?", "¿Y hielo?", "¿Me cambiás mil?", Cruces 1 → 4, 19:10 → 19:41); con "¿Fósforos tenés?" se para en el medio de la calle, silencio de domingo, da vuelta un cajón, se sienta con el termo y apoya un cartón SUCURSAL: "Para estar más cerca del cliente."; remate del remate: grúa atrás, se prenden las ventanas de la cuadra con "¿Hacen envíos?" ×7 y el farol sobre Rubén; cartel "Una tienda online más tarde…" (Rasalgethi); Héctor arma el pedido, ve Envío $ 60 / Retiro $ 0, toca Retiro, paga, cruza él en pantuflas: "¡Qué cerquita que quedás, Rubén!"; Nico sale en la moto con los de lejos ("Envío pago ✓"), "Cruces de Rubén: 0" y la cuadra cruza en fila con sus pedidos pagos · línea chica "Una tienda online cobra el pedido y el envío por vos · scalerics.com" (32,6 s) [formato para mandar completo · 3D real, calle de barrio a la hora azul, cielo navy claro #16243d, fachadas crema] (corridas 11-11 05:10 y 11:17, 3 rondas de revisión + verificación final de arte sobre el MP4; render SwiftShader ~30 min)
 
 ## En curso
-<!-- corrida-activa: 2026-11-11T13:55 -->
+<!-- corrida-activa: 2026-11-11T14:25 -->
 - 11-11 · `por-que-el-recordatorio` · Automatizaciones (recordatorios automáticos: "Tu pedido está listo") · Explicador ¿Por qué?: "¿Por qué el dentista te manda un mensaje el día antes?" · corrida 11-11 11:17 · en construcción en la rama reel/por-que-el-recordatorio
 
 
