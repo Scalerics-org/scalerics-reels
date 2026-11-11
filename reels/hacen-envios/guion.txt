@@ -5,7 +5,8 @@ HECTOR: ¿Hacen envíos?
 [Rubén cruza con la yerba · "Cruces: 1" · burbuja de Héctor "¡Gracias, Rubén!"]
 [vibra: "¿Tenés pan?" · cruza · "Cruces: 2" · a mitad de la vuelta vibra: "¿Y hielo?" · gira y vuelve · "Cruces: 3" · "¿Me cambiás mil?" · "Cruces: 4" · chip 19:10 → 19:26 → 19:41]
 [Rubén vuelve con un cajón de verdulería · a mitad de calle vibra: "¿Fósforos tenés?" · se para sobre la línea del medio · silencio de domingo: pájaro, perro lejos, zumbido del farol · mira el almacén, mira a Héctor · da vuelta el cajón, se sienta, saca el termo, apoya un cartón escrito a mano "SUCURSAL"]
-RUBEN: Abrimos sucursal.
+[deja el cartón SUCURSAL en silencio: la imagen ya dice "sucursal"; pausa de solo ambiente]
+RUBEN: Para estar más cerca del cliente.
 [remate del remate · grúa atrás y arriba: se prenden todas las ventanas de la cuadra, cada una con un vecino y un celular · Graciela, Marta, Walter y cuatro más · burbujas apiladas "¿Hacen envíos?" ×7 · el celular de Rubén vibra sin parar · el farol se prende sobre Rubén como un foco]
 CORO (GRACIELA, MARTA, WALTER, VECINO, pisándose): ¿Hacen envíos?
 NARRADOR: Una tienda online más tarde.

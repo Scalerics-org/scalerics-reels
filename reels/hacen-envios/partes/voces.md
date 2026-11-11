@@ -13,7 +13,7 @@ Voces de siempre: **Rubén = Algenib**, **Héctor = Sadaltager** (la de me-haces
 | archivo | quién | voz | tono (para --tono) | proceso |
 |---|---|---|---|---|
 | hector-1.txt · "¿Hacen envíos?" | Héctor | Sadaltager | Jubilado uruguayo de setenta años, canchero y amable, preguntando con total inocencia y buen humor, como quien pregunta algo obvio; "envíos" con la sonrisa en la voz. Nada de vago ni de pícaro: no ve el chiste. ~1,0 s. | Sin filtro, cerca. Es el gancho (entra a ~0,25 s). |
-| ruben-1.txt · "Abrimos sucursal." | Rubén | Algenib | Almacenero uruguayo grave y cansado, sentado en un cajón en el medio de la calle; lo anuncia con total seriedad y calma, como un empresario que comunica una expansión. Seco, sin ironía marcada, sin suspiro: la cara de nada hace el chiste. "sucursal" parejo, sin estirar. ~1,2-1,4 s. | Sin filtro. Va después de 1 s de silencio de barrio: que se oiga solo, con el ambiente bajo. |
+| ruben-1.txt · "Para estar más cerca del cliente." (cambio de guion, ronda 1: el cartón SUCURSAL da la imagen en silencio y la frase arma el eco de "¡Qué cerquita…!") | Rubén | Algenib | Almacenero uruguayo grave y cansado, sentado en un cajón en el medio de la calle; lo anuncia con total seriedad y calma, como un empresario que comunica una expansión. Seco, sin ironía marcada, sin suspiro: la cara de nada hace el chiste. "sucursal" parejo, sin estirar. ~1,2-1,4 s. | Sin filtro. Va después de 1 s de silencio de barrio: que se oiga solo, con el ambiente bajo. |
 | coro-graciela.txt · "¿Hacen envíos?" | Graciela | Gacrux | Señora de barrio de 65 años, cantarina y amable, asomada a la ventana. ~1,0 s. | Paneo leve a la izquierda, -3 dB. |
 | coro-marta.txt · "¿Hacen envíos?" | Marta | Aoede | Dueña de la cafetería de al lado, apurada y simpática, con el delantal puesto. ~0,9 s. | Paneo leve a la derecha, -5 dB, filtro de ventana (lowpass 5 kHz). |
 | coro-walter.txt · "¿Hacen envíos?" | Walter | Umbriel | Oficinista de cuarenta, cansado y con cara de perdón, desde un primer piso. ~1,0 s. | Paneo izquierda, -7 dB, lowpass 4 kHz. |
@@ -27,3 +27,9 @@ otra toma para que suenen 7 ventanas. Cada entrada coincide con el pop de una bu
 celular de Rubén cada vez más seguida. Termina con un perro que ladra una vez y el "clac" del farol al prenderse.
 
 Medir con tiempos.mjs cada línea suelta ("oyó:" tiene que coincidir; "envíos" puede salir "envío" por la s aspirada).
+
+
+## Ronda 1 (cambios)
+- ruben-1: "Para estar más cerca del cliente." Algenib, serio de empresario en conferencia de prensa; toma a (1,77 s).
+- Coro de 7 voces para 7 ventanas: Graciela (Gacrux) dice la frase entera sola; después, a +0,25 s cada una: Marta (Aoede), Walter (Umbriel), Beto (Charon, toma a), Nelly (Vindemiatrix), Fede (Puck), Chela (Callirrhoe). coro-vecino2 = Charon toma c.
+- hector-2: 30 ms de aire adelante del "¡Qué".

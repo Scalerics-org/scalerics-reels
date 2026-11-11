@@ -163,20 +163,27 @@ export function crearPersonaje(cfg) {
 
   // ---- piernas (en la raíz: no se inclinan con el torso) ----
   const CADERA = 0.56;
+  // hacen-envios (ronda 1): la pierna tiene rodilla (muslo + canilla). sentado = 1: muslo horizontal, rodilla a 90°
+  const LM = (CADERA - 0.06) / 2;
   const piernas = [-1, 1].map((s) => {
     const piv = new THREE.Group(); piv.position.set(s * 0.1, CADERA, 0); escala.add(piv);
-    piv.add(mesh(G.cil, c.pantalon ? M.pantalon : M.piel, 0, 0, 0, 0.068, CADERA - 0.06, 0.068));
+    const pm = c.pantalon ? M.pantalon : M.piel;
+    piv.add(mesh(G.cil, pm, 0, 0, 0, 0.068, LM + 0.01, 0.068));
+    const rod = new THREE.Group(); rod.position.y = -LM; piv.add(rod);
+    rod.add(mesh(G.esferaLow, pm, 0, 0, 0, 0.068));
+    rod.add(mesh(G.cil, pm, 0, 0, 0, 0.066, LM, 0.066));
+    const pie = new THREE.Group(); pie.position.y = LM - CADERA; rod.add(pie);   // los pies cuelgan de la rodilla (de pie: en el piso)
     if (c.pantuflas) {
       // hacen-envios (11-11): pantuflas de felpa (más bajas, anchas y redondeadas que un zapato), con el borde de
       // crema alrededor de la boca y la suela navy. { color, borde, suela }
       const k = c.pantuflas;
-      const pf = new THREE.Group(); pf.position.set(0, 0.0 - CADERA, 0.05); piv.add(pf);
+      const pf = new THREE.Group(); pf.position.set(0, 0, 0.05); pie.add(pf);
       pf.add(mesh(rbox(0.17, 0.028, 0.3, 0.012), mat(k.suela ?? MARCA.navy, 0.6), 0, 0.014, 0));
       const cu = mesh(G.esfera, mat(k.color, 0.95), 0, 0.05, 0.02, 0.085, 0.05, 0.15); pf.add(cu);
       const bo = mesh(new THREE.TorusGeometry(0.06, 0.018, 8, 24), mat(k.borde ?? MARCA.cr, 0.9), 0, 0.085, -0.045); bo.rotation.x = Math.PI / 2; bo.scale.set(1.05, 1.25, 1); pf.add(bo);
       pf.add(mesh(G.esferaLow, mat(new THREE.Color(k.color).multiplyScalar(0.82).getHex(), 0.95), 0, 0.075, 0.1, 0.05, 0.022, 0.04));
-    } else piv.add(mesh(rbox(0.15, 0.09, 0.25, 0.04), M.zapatos, 0, 0.045 - CADERA, 0.04));
-    return { piv, s };
+    } else pie.add(mesh(rbox(0.15, 0.09, 0.25, 0.04), M.zapatos, 0, 0.045, 0.04));
+    return { piv, rod, s };
   });
 
   // ---- cuerpo (pivote en la cadera) ----
@@ -599,7 +606,13 @@ export function crearPersonaje(cfg) {
     const p = completar(pose);
     const V = p.pasoVel ?? 9;
     raiz.position.set(p.x, p.y + Math.abs(Math.sin(p.t * V)) * 0.03 * p.paso * (V / 9), p.z); raiz.rotation.y = p.giro;
-    for (const pi of piernas) pi.piv.rotation.x = Math.sin(p.t * V) * 0.5 * p.paso * pi.s * Math.min(1.5, V / 9) - 1.45 * (p.sentado || 0) + (p.sentado ? pi.s * 0.06 * p.sentado : 0);
+    for (const pi of piernas) {
+      const fase = Math.sin(p.t * V) * pi.s;
+      pi.piv.rotation.x = fase * 0.5 * p.paso * Math.min(1.5, V / 9) - (Math.PI / 2) * (p.sentado || 0);
+      // al caminar la rodilla se dobla cuando la pierna va hacia atrás; sentado, a 90°
+      pi.rod.rotation.x = Math.max(0, -fase) * 0.55 * p.paso + (Math.PI / 2) * (p.sentado || 0);
+      pi.piv.rotation.z = p.sentado ? pi.s * 0.05 * p.sentado : 0;
+    }
     const resp = Math.sin(p.t * 2.1) * 0.012 * p.respira;
     cuerpo.rotation.set(p.inclina, p.torso, p.ladea);
     cuerpo.scale.set(1 + p.aplasta * 0.5, 1 - p.aplasta + resp, 1 + p.aplasta * 0.5);
