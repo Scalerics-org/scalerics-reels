@@ -295,7 +295,7 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
     P .aviso { position: absolute; left: 70px; width: 560px; padding: 20px 28px 24px; border-radius: 30px; background: ${G}; border: 7px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); font: 800 52px/1.15 "Lexend", sans-serif; color: ${NAVY}; transform-origin: 0 50%; }
     P .aviso small { display: block; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY2}; }
     P .aviso { width: 470px; padding: 18px 24px 22px; font-size: 48px; } P .aviso small { font-size: 40px; }
-    P .a1 { top: 470px; left: 40px; } P .a2 { top: 470px; left: 570px; }   /* (ronda 3) entre ALMACÉN y las cabezas */
+    P .a1 { top: 100px; left: 40px; } P .a2 { top: 100px; left: 570px; }   /* (verificación final) arriba del toldo: a 470 tapaba la cara de Nico en la moto */
     P .cruces.r { top: 1400px; }
     P .cruces.r .raya { position: absolute; left: 20px; right: 20px; top: 50%; height: 12px; margin-top: -2px; background: ${NAVY}; border: 3px solid ${CR}; border-radius: 6px; transform-origin: 0 50%; }
     P .cruces.v { top: 1400px; background: ${G}; padding-right: 60px; gap: 18px; }
