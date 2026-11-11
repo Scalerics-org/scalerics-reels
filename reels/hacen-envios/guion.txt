@@ -1,0 +1,17 @@
+[sin narrador Orus: el chiste va en burbujas del chat, carteles y el contador "Cruces"; voces por archivo en partes/*.txt, ver partes/voces.md]
+[parte 1 · domingo 19:10, hora azul · cuadro 0: celular de Rubén en primer término con el chat "Héctor · enfrente" · por la vidriera, Héctor en su ventana de enfrente, saludando]
+HECTOR: ¿Hacen envíos?
+[contraplano: Héctor en su ventana, boina, chaleco mostaza y pantuflas, saluda · rótulo "14 pasos"]
+[Rubén cruza con la yerba · "Cruces: 1" · burbuja de Héctor "¡Gracias, Rubén!"]
+[vibra: "¿Tenés pan?" · cruza · "Cruces: 2" · a mitad de la vuelta vibra: "¿Y hielo?" · gira y vuelve · "Cruces: 3" · "¿Me cambiás mil?" · "Cruces: 4" · chip 19:10 → 19:26 → 19:41]
+[Rubén vuelve con un cajón de verdulería · a mitad de calle vibra: "¿Fósforos tenés?" · se para sobre la línea del medio · silencio de domingo: pájaro, zumbido del farol · mira el almacén, mira a Héctor · da vuelta el cajón, se sienta, saca el termo, apoya un cartón escrito a mano "SUCURSAL"]
+[deja el cartón SUCURSAL en silencio: la imagen ya dice "sucursal"; pausa de solo ambiente]
+RUBEN: Para estar más cerca del cliente.
+[remate del remate · grúa atrás y arriba: se prenden todas las ventanas de la cuadra, cada una con un vecino y un celular · Graciela, Marta, Walter y cuatro más · burbujas apiladas "¿Hacen envíos?" ×7 · el celular de Rubén vibra sin parar · el farol se prende sobre Rubén como un foco]
+CORO (GRACIELA, MARTA, WALTER, VECINO, pisándose): ¿Hacen envíos?
+NARRADOR: Una tienda online más tarde.
+[parte 2 · otro domingo 19:10 · Héctor en su ventana arma el pedido en la tienda del almacén: yerba, pan, hielo, fósforos ✓ · "Envío: $ 60" / "Retiro en el local: $ 0" · el dedo duda, mira para enfrente, toca "Retiro" · "Pagado ✓"]
+[Héctor cruza en pantuflas por el mismo camino, pasa por la línea del medio · Rubén le da la bolsa "Héctor · pagado ✓"]
+HECTOR: ¡Qué cerquita que quedás, Rubén!
+[Nico sale en la moto con los pedidos de lejos: "Envío pago ✓ · a 15 cuadras" · "Cruces de Rubén: 0" en verde]
+[plano general: se prenden las ventanas, ahora con "Pagado ✓", y los vecinos cruzan en pantuflas, en fila, hacia el almacén · el farol se prende sobre ellos · línea chica: "Una tienda online cobra el pedido y el envío por vos" / "scalerics.com"]

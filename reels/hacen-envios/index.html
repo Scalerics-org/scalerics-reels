@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+      @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
+      @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+      #precarga { position: absolute; left: -9999px; font: 800 40px "Lexend"; }
+      #precarga2 { position: absolute; left: -9999px; font: 700 40px "Caveat"; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #16243d; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #16243d; }
+      #fondo { position: absolute; inset: 0; background: #16243d; z-index: 0; }
+      #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 2; transform-origin: 540px 960px; }
+      #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .firma { position: absolute; left: 50%; top: 1795px; height: 46px; width: auto; transform: translateX(-50%); opacity: 0.95; z-index: 4; filter: drop-shadow(0 0 3px rgba(11,18,32,0.95)) drop-shadow(0 0 10px rgba(11,18,32,0.85)); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32.56" data-width="1080" data-height="1920">
+      <div id="precarga">Héctor</div><div id="precarga2">SUCURSAL</div>
+      <div id="fondo" class="clip" data-start="0" data-duration="32.56" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="16.99" data-duration="3" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="32.56" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="el-s00-gancho" class="scene" style="z-index:3" data-composition-id="s00-gancho" data-composition-src="compositions/s00-gancho.html" data-start="0" data-duration="1.5" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s01-hud" class="scene" style="z-index:3" data-composition-id="s01-hud" data-composition-src="compositions/s01-hud.html" data-start="3.6500000000000004" data-duration="13.34" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s02-cerca" class="scene" style="z-index:3" data-composition-id="s02-cerca" data-composition-src="compositions/s02-cerca.html" data-start="11.53" data-duration="2.07" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s05-cerquita" class="scene" style="z-index:3" data-composition-id="s05-cerquita" data-composition-src="compositions/s05-cerquita.html" data-start="24.66" data-duration="1.74" data-track-index="5" data-track-kind="graphics"></div>
+      <div id="el-s04-hud" class="scene" style="z-index:3" data-composition-id="s04-hud" data-composition-src="compositions/s04-hud.html" data-start="19.99" data-duration="9.15" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s06-cierre" class="scene" style="z-index:3" data-composition-id="s06-cierre" data-composition-src="compositions/s06-cierre.html" data-start="30.96" data-duration="1.6" data-track-index="7" data-track-kind="graphics"></div>
+      <img id="firma0" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="3.7" data-duration="4.52" data-track-index="9" />
+      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="23.03" data-duration="1" data-track-index="9" />
+      <img id="firma2" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="26.96" data-duration="2.2" data-track-index="9" />
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="32.56" data-track-index="30" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady["tres"] = new Promise((ok) => { window.__tresListo = ok; });
+    </script>
+    <script type="module" src="assets/tres.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#fondo", { opacity: 1, duration: 32.56 }, 0);
+      // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
+      tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.26, ease: "power2.in", immediateRender: false }, 16.99);
+      // la parte 2 entra por un iris que se abre desde el celular de Héctor
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 900px)" }, 17.26);
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 900px)" }, { clipPath: "circle(1700px at 540px 900px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 19.67);
+      tl.set("#capa3d", { clipPath: "none" }, 20);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
