@@ -243,6 +243,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-11T05:10 -->
+- 11-11 · `por-que-la-toalla` · Sitio web (mostrar lo que eligen los demás: lo más pedido y las reseñas) · explicador ¿Por qué? sin marcas: "¿Por qué el hotel te dice que la mayoría reutiliza la toalla?" (Goldstein, Cialdini y Griskevicius 2008) · fondo navy oscuro #0b1220 · corrida 11-11 05:10
+- 11-11 · `hacen-envios` · Tienda online (envíos con costo y pedido pago) · Para mandar completo con Rubén: "¿Hacen envíos?" del vecino de enfrente · corrida 11-11 05:10
 
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online
