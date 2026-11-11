@@ -1,12 +1,12 @@
 {
  "t": 19.25,
  "fondo_limpio": "portada-src/fondo-limpio-19.25.png",
- "chica": "Un mensaje pesó",
- "grande": "casi como bajar un 25 % los intereses",
+ "chica": "Un mensaje pesó casi como",
+ "grande": "bajar un 25 % los intereses",
  "sello": "¿Por qué?",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.35,
+ "zoom": 1.0,
  "foco": "32%",
  "fondo": "#0b1220",
  "velo": "11,18,32"
