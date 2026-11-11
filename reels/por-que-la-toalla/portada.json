@@ -1,9 +1,9 @@
 {
  "t": 2.2,
  "fondo_limpio": "portada-src/fondo-limpio-2.2.png",
- "chica": "El cartel del hotel",
- "grande": "¿Por qué?",
- "sello": "La mayoría lo hace",
+ "chica": "¿Por qué el hotel te dice…",
+ "grande": "La mayoría lo hace",
+ "sello": "¿Por qué?",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.4,

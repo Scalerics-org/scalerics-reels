@@ -108,10 +108,10 @@ const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%)
 const POS = {
   estudio: [540, 1590], estudioLead: [540, 1525, 540, 1300],
   siempre: [540, 1600], siempreLead: [540, 1535, 540, 1420],
-  credPilas: [540, 1640], gano: [800, 1060],
-  demas: [540, 1600], demasLead: [540, 1535, 540, 1250],
-  cred2: [540, 1660], honesto: [650, 570], honestoLead: [880, 667, 900, 720],
-  almacen: [290, 560], almacenLead: [200, 615, 150, 700],
+  credPilas: [540, 530], gano: [800, 1060],
+  demas: [540, 1690], demasLead: [540, 1640, 540, 1560],
+  cred2: [540, 1660], honesto: [540, 570], honestoLead: [790, 600, 805, 668], siempre2: [510, 1480],
+  almacen: [300, 540], almacenLead: [200, 592, 130, 650],
   resenas: [540, 1650], resenasLead: [540, 1590, 540, 1450],
   mismo: [540, 1620],
 };
@@ -137,7 +137,7 @@ const POS = {
     sfx: [
       { t: w(id, 8) - 0.05, sfx: "click-soft", vol: 0.3 },
       ...[0, 1, 2].map((k) => ({ t: r2(w(id, 8) + 0.02 + k * 0.12), sfx: "pop", vol: 0.28 })),
-      { t: w(id, 11) - 0.05, sfx: "papel", vol: 0.35, max: 0.4 },
+      { t: w(id, 11) - 0.05, sfx: "papel-fuerte", vol: 1, max: 0.4, full: 1 },
     ],
   });
 }
@@ -148,12 +148,12 @@ const POS = {
   const [x, y] = POS.estudio, [a, b, c, d] = POS.estudioLead;
   escena(id, {
     css: CSS_CRED,
-    html: `${leads(lead(1, a, b, c, d))}${cred(1, x, y, "Estudio en un hotel · 2008")}`,
+    html: `${leads(lead(1, a, b, c, d))}${cred(1, x, y, "Estudio publicado en 2008")}`,
     js: `nota(1, ${r2(w(id, 13) + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: -0.3, sfx: "whoosh", vol: 0.2 }, { t: 0.0, sfx: "papel", vol: 0.12, max: 0.35 },
+      { t: -0.3, sfx: "whoosh", vol: 0.35 }, { t: 0.08, sfx: "papel-fuerte", vol: 1, max: 0.35 },
       { t: w(id, 13) + 0.05, sfx: "click", vol: 0.25 },
-      { t: w(id, 16) - 0.05, sfx: "papel", vol: 0.3, max: 0.4 }, { t: w(id, 16) + 0.05, sfx: "papel", vol: 0.25, max: 0.4 },
+      { t: w(id, 16) - 0.05, sfx: "papel-fuerte", vol: 1, max: 0.4 },
     ],
   });
 }
@@ -167,7 +167,7 @@ const POS = {
     js: `nota(1, ${r2(w(id, 18) + 0.3)}); sinNota(1, ${r2(ESC[id] - 0.1)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.3 },
-      { t: w(id, 18) - 0.05, sfx: "sello", vol: 0.3, max: 0.4 },
+      { t: w(id, 18) - 0.2, sfx: "papel-fuerte", vol: 1, max: 0.35 }, { t: w(id, 18), sfx: "sello", vol: 0.4, max: 0.4 },
       { t: w(id, 21) - 0.1, sfx: "pop", vol: 0.28 },
     ],
   });
@@ -180,16 +180,16 @@ const POS = {
   const tG = w(id, 28) - 0.05;
   escena(id, {
     css: CSS_CRED,
-    html: `${cred(1, cx, cy, "Estudio en un hotel · 2008", "reusaron la toalla")}<div class="sello s1" style="left:${gx}px;top:${gy}px">${tickSvg(30)}Ganó</div>`,
-    js: `nota(1, ${r2(tG + 0.45)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(tG + 0.8)}, -6); tl.to(qa(".s1, .n1"), { opacity: 0, duration: 0.12 }, ${r2(ESC[id] - 0.12)});`,
+    html: `${cred(1, cx, cy, "Estudio publicado en 2008", "reusaron la toalla")}<div class="sello s1" style="left:${gx}px;top:${gy}px">${tickSvg(30)}Ganó</div>`,
+    js: `nota(1, ${r2(tG + 0.6)}); gsap.set(q(".s1"), { xPercent: -50, yPercent: -50 }); sello(".s1", ${r2(tG + 0.98)}, -6); tl.to(qa(".s1, .n1"), { opacity: 0, duration: 0.12 }, ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.3 },
       ...[0, 1, 2].map((k) => ({ t: r2(w(id, 25) - 0.02 + k * 0.12), sfx: "pop", vol: 0.26 })),
       { t: tG + 0.05, sfx: "whoosh-short", vol: 0.3 },
-      ...caen(tG + 0.15, tG + 0.6, 6, 0.3),
-      { t: tG + 0.62, sfx: "pop", vol: 0.25 }, { t: tG + 0.7, sfx: "pop", vol: 0.25 },
-      { t: tG + 0.72, sfx: "ding", vol: 0.18, max: 0.8 },
-      { t: tG + 0.82, sfx: "sello", vol: 0.25, max: 0.35 },
+      ...caen(tG + 0.32, tG + 0.78, 6, 1),
+      { t: tG + 0.8, sfx: "pop", vol: 0.3 }, { t: tG + 0.88, sfx: "pop", vol: 0.3 },
+      { t: tG + 0.9, sfx: "ding", vol: 0.2, max: 0.8 },
+      { t: tG + 1.0, sfx: "sello", vol: 0.3, max: 0.35 },
     ],
   });
 }
@@ -209,9 +209,9 @@ vacia("s05-por-que", [
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Lo que hacen los demás")}`,
     js: `nota(1, ${r2(w(id, 35) + 0.25)}); sinNota(1, ${r2(ESC[id] - 0.1)});`,
     sfx: [
-      { t: -0.35, sfx: "whoosh-cinematic", vol: 0.1, max: 0.9 },
+      { t: -0.08, sfx: "whoosh-cine-corto", vol: 0.6, max: 0.7, full: 1 },
       ...Array.from({ length: 6 }, (_, i) => ({ t: r2(tD - 0.35 + i * 0.13), sfx: "pop", vol: 0.18 })),
-      { t: tD + 0.67, sfx: "ping", vol: 0.3, max: 0.6 },
+      { t: tD + 0.67, sfx: "ping", vol: 0.22, max: 0.4 },
     ],
   });
 }
@@ -222,18 +222,19 @@ vacia("s05-por-que", [
   const [hx, hy] = POS.honesto, [a, b, c, d] = POS.honestoLead;
   const tL = w(id, 43) - 0.05, tH = w(id, 46) - 0.05, tT = w(id, 48) - 0.05;
   escena(id, {
+    html: `${leads(lead(2, a, b, c, d, "g"))}<div class="hon n2" style="left:${hx}px;top:${hy}px"><b>2.º experimento</b><span>Otros estudios: no siempre tan fuerte</span></div>${pill(3, POS.siempre2[0], POS.siempre2[1], "cartel de siempre", "chico")}`,
     css: `
+    P .pill.chico { font-size: 42px; padding: 10px 24px 13px; border-width: 5px; }
     P .hon { position: absolute; transform: translate(-50%, -50%); padding: 16px 30px 18px; border-radius: 22px; background: ${NAVY}; border: 6px solid ${G}; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
     P .hon b { display: block; font: 600 44px/1.15 "Lexend", sans-serif; margin-bottom: 8px; }
-    P .hon span { display: block; font: 500 40px/1.2 "IBM Plex Mono", monospace; color: ${CR}; opacity: 0.92; }`,
-    html: `${leads(lead(2, a, b, c, d, "g"))}<div class="hon n2" style="left:${hx}px;top:${hy}px"><b>Mismo estudio · otro experimento</b><span>Otros estudios: no siempre<br>da igual de fuerte</span></div>`,
-    js: `nota(2, ${r2(tT - 0.18)}); tl.to(qa(".n2, .l2, .d2"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.08)});`,
+    P .hon span { display: block; font: 500 40px/1.2 "IBM Plex Mono", monospace; color: ${CR}; }`,
+    js: `pop(".n2", ${r2(tH - 0.02)}); dibujar(".l2", ${r2(tT + 0.5)}, 0.28); pop(".d2", ${r2(tT + 0.7)}, 0.2); nota(3, ${r2(tT + 0.05)}); tl.to(qa(".n2, .l2, .d2, .n3"), { opacity: 0, duration: 0.1 }, ${r2(ESC[id] - 0.32)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.3 },
-      { t: tL, sfx: "papel", vol: 0.3, max: 0.4 },
+      { t: tL, sfx: "papel-fuerte", vol: 1, max: 0.4 },
       { t: tH, sfx: "pop", vol: 0.3 },
       { t: tH + 0.25, sfx: "whoosh-short", vol: 0.15 },
-      ...caen(tT - 0.12, tT + 0.4, 5, 0.26),
+      ...caen(tT - 0.02, tT + 0.5, 5, 1),
       { t: tT + 0.45, sfx: "chime", vol: 0.3, max: 0.8 },
       { t: tT - 0.18, sfx: "click-soft", vol: 0.25 },
     ],
@@ -249,7 +250,7 @@ vacia("s05-por-que", [
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Almacén de Rubén")}`,
     js: `nota(1, 0.85); sinNota(1, ${r2(ESC[id] - 0.06)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh-cinematic", vol: 0.22, max: 1.0 },
+      { t: -0.32, sfx: "whoosh-cine-corto", vol: 0.6, max: 0.7, full: 1 },
       { t: tD, sfx: "burbuja", vol: 0.3 },
       ...[0, 1, 2].map((k) => ({ t: r2(tD + 0.15 + k * 0.14), sfx: "pop", vol: 0.24 })),
       { t: 0.85, sfx: "click-soft", vol: 0.22 },
@@ -264,7 +265,7 @@ vacia("s05-por-que", [
   const tP = w(id, 63) - 0.05, tB = w(id, 65) - 0.05;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d, "g"))}${pill(1, x, y, "Reseñas de vecinos", "lleno")}`,
-    js: `nota(1, ${r2(tP + 0.4)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
+    js: `nota(1, ${r2(tB + 0.05)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
     sfx: [
       { t: w(id, 56) - 0.1, sfx: "whoosh-short", vol: 0.3 },
       { t: w(id, 56) + 0.2, sfx: "click-soft", vol: 0.25 },
@@ -283,9 +284,10 @@ vacia("s05-por-que", [
     html: `${pill(1, x, y, "Mismo cartel · otro mostrador", "lleno")}`,
     js: `nota(1, ${r2(w(id, 68) - 0.05)}); sinNota(1, ${r2(ESC[id] - 0.06)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh-short", vol: 0.3 }, { t: 0.15, sfx: "papel", vol: 0.3, max: 0.4 },
-      { t: w(id, 68) - 0.1, sfx: "whoosh-short", vol: 0.18 },
-      { t: tT, sfx: "chime", vol: 0.32, max: 0.8 }, { t: tT, sfx: "pop", vol: 0.28 },
+      { t: 0.0, sfx: "whoosh-short", vol: 0.3 },
+      { t: w(id, 68) - 0.08, sfx: "papel-fuerte", vol: 1, max: 0.35 },
+      { t: tT - 0.06, sfx: "papel-fuerte", vol: 1, max: 0.35 },
+      { t: tT + 0.22, sfx: "chime", vol: 0.32, max: 0.8 }, { t: tT + 0.22, sfx: "pop", vol: 0.3 },
     ],
   });
 }
@@ -294,10 +296,9 @@ vacia("s05-por-que", [
 {
   const id = "s11-local";
   vacia(id, [
-    { t: 0.0, sfx: "click", vol: 0.3 }, { t: 0.05, sfx: "ping", vol: 0.25, max: 0.5 },
-    { t: 0.1, sfx: "whoosh", vol: 0.35 },
-    { t: 1.0, sfx: "vibra", vol: 0.35, max: 0.55 },
-    { t: 1.3, sfx: "pop", vol: 0.3 }, { t: 1.3, sfx: "campanita", vol: 0.22, max: 0.8 },
+    { t: 0.1, sfx: "whoosh", vol: 0.5 },
+    { t: 1.0, sfx: "vibra", vol: 1, max: 0.55 },
+    { t: 1.3, sfx: "pop", vol: 0.3 }, { t: 1.3, sfx: "campanita", vol: 0.155, max: 0.8 },
   ]);
 }
 

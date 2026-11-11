@@ -18,15 +18,15 @@
     [data-composition-id="s08-graciela"] .sello.chico { font-size: 70px; }
 
   </style>
-  <div id="root" data-composition-id="s08-graciela" data-width="1080" data-height="1920" data-duration="1.96">
-    <div id="s08-graciela-esc" class="esc clip" data-start="0" data-duration="1.96" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M200 615 L150 700"/><circle class="dot  d1" cx="150" cy="700" r="13"/></svg><div class="pill  n1" style="left:290px;top:560px">Almacén de Rubén</div>
+  <div id="root" data-composition-id="s08-graciela" data-width="1080" data-height="1920" data-duration="2.11">
+    <div id="s08-graciela-esc" class="esc clip" data-start="0" data-duration="2.11" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M200 592 L130 650"/><circle class="dot  d1" cx="130" cy="650" r="13"/></svg><div class="pill  n1" style="left:300px;top:540px">Almacén de Rubén</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s08-graciela";
-      const DUR = 1.96;
+      const DUR = 2.11;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -45,7 +45,7 @@
       const sello = (s, t, rot) => { tl.set(q(s), { opacity: 1 }, t); tl.fromTo(q(s), { scale: 1.18, rotation: (rot ?? -8) - 14, transformOrigin: "50% 50%" }, { scale: 1, rotation: rot ?? -8, duration: 0.18, ease: "power3.in", immediateRender: false }, t); };
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.85); sinNota(1, 1.9);
+nota(1, 0.85); sinNota(1, 2.05);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
