@@ -15,9 +15,9 @@ import { execSync, execFileSync } from "node:child_process";
 const r2 = (n) => Math.round(n * 100) / 100;
 
 // ================= LOS BEATS (segundos del video final) =================
-// Voces (assets/voice, recortadas): hector1 1,01 ("¿Hacen" 0 · "envíos?" +0,3) · ruben1 1,31 ("Abrimos" 0 ·
-// "sucursal." +0,5) · hector2 1,60 ("¡Qué" 0 · "cerquita" +0,1 · "que" +0,6 · "quedás," +0,7 · "Rubén!" +0,9) · coro:
-// graciela 1,09 · marta 0,90 · walter 0,97 · vecino 1,04 · vecino2 0,91 · narrador 2,81 (reusado de las-siete:
+// Voces (assets/voice, recortadas): hector1 1,01 ("¿Hacen" 0 · "envíos?" +0,3) · ruben1 1,77 ("Para estar más
+// cerca del cliente.": cerca +0,6) · hector2 1,60 ("¡Qué" 0 · "cerquita" +0,1 · "que" +0,6 · "quedás," +0,7 · "Rubén!" +0,9) · coro:
+// graciela 1,09 · marta 0,90 · walter 0,97 · vecino (Beto) 1,04 · nelly 1,17 · fede 1,06 · chela 1,14 · narrador 2,81 (reusado de las-siete:
 // "Una" +0,24 · "tienda" +0,5 · "online" +1,0 · "más" +1,2 · "tarde." +2,07)
 const T = {};
 // ---- parte 1 ----
@@ -29,8 +29,9 @@ T.h1 = 0.25; T.levanta = 1.2; T.arranca = 1.6; T.p2 = 2.3; T.rotH = 2.9; T.pasos
 T.p3 = 3.7;
 T.x1 = [3.75, 4.75]; T.entrega1 = 4.8; T.gracias = 4.85; T.c1 = 5.05; T.v1 = [5.05, 5.55];
 T.m2 = 5.6; T.x2 = [5.65, 6.2]; T.c2 = 6.3; T.h1926 = 6.3; T.v2a = [6.3, 6.65];
-T.m3 = 6.65; T.p4h = [6.6, 7.02]; T.giro3 = [6.68, 6.86]; T.v2b = [6.86, 6.99]; T.x3 = [6.99, 7.27]; T.c3 = 7.3; T.v3 = [7.3, 7.55];
-T.m4 = 7.55; T.x4 = [7.6, 8.0]; T.c4 = 8.1; T.h1941 = 8.1; T.v4 = [8.1, 8.3];
+T.m3 = 6.65; T.p4h = [6.6, 7.02]; T.giro3 = [6.66, 7.0]; T.v2b = [7.02, 7.1]; T.x3 = [7.1, 7.27]; T.c3 = 7.3; T.v3 = [7.3, 7.42];
+// (ronda 2) el cuarto cruce un poco antes: queda tiempo para ver que agarra el cajón del cordón antes del corte
+T.m4 = 7.4; T.x4 = [7.42, 7.78]; T.c4 = 7.85; T.h1941 = 7.85; T.v4 = [7.85, 8.0]; T.agarra = [8.0, 8.2];
 // P5 · "¿Fósforos tenés?" llega mientras entrega el cambio; sale con el cajón (dado vuelta, el termo y el cartón arriba);
 // corte al plano a ras de calle; silencio de domingo; contraplano de Héctor; apoya el cajón al costado, deja el termo en
 // el piso, toma el cartón, se sienta, apoya el cartón SUCURSAL contra las piernas; pausa de solo ambiente; la frase
@@ -43,24 +44,26 @@ T.p6 = r2(T.r1 + RLEN + 0.12);
 { const v0 = r2(T.p6 + 0.15); T.ven = [v0, ...[0.85, 1.1, 1.35, 1.6, 1.85, 2.1].map((d) => r2(v0 + d))]; }
 T.mira6 = r2(T.ven[6] + 0.3); T.farol1 = r2(T.ven[6] + 0.75);
 const P1 = r2(T.farol1 + 0.5);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + 3.2);          // arranca la parte 2 (termina el iris del cartel)
+const P2 = r2(P1 + 3.0);          // arranca la parte 2 (termina el iris del cartel)
 // ---- parte 2 ----
 // Q1 · por encima del hombro de Héctor: la tienda en su celular, el almacén al fondo; la duda: levanta la vista hacia
 // el almacén (Rubén en la puerta) 0,6 s antes de tocar "Retiro"
 T.q1 = P2; T.tildes = [r2(P2 + 0.05), r2(P2 + 0.2), r2(P2 + 0.35), r2(P2 + 0.5)]; T.duda = r2(P2 + 0.75);
-T.retiro = r2(P2 + 1.75); T.miraR = r2(T.retiro - 0.65); T.pagado = r2(P2 + 2.15);
+// (ronda 2) Q1b levanta la vista apenas empieza (0,57 s) · Q1c su punto de vista (0,55 s) · Q1d toca "Retiro"
+T.q1b = r2(P2 + 0.95); T.miraR = r2(T.q1b + 0.02); T.q1c = r2(T.q1b + 0.57); T.q1d = r2(T.q1c + 0.55);
+T.retiro = r2(T.q1d + 0.12); T.pagado = r2(T.retiro + 0.4);
 // Q2 · el picado: cruza Héctor en pantuflas · Q2b dos planos: llega, la bolsa · Q2c contraplano sobre el hombro de
 // Rubén: "¡Qué cerquita que quedás, Rubén!" (señala su casa con el pulgar) · Q2d Rubén, cara de nada
-T.q2 = r2(P2 + 2.6); T.xh = [r2(P2 + 2.65), r2(P2 + 3.8)]; T.q2b = r2(P2 + 3.6); T.bolsa = r2(P2 + 4.05);
-T.q2c = r2(P2 + 4.2); T.h2 = r2(P2 + 4.3); T.q2d = r2(T.h2 + 1.63 + 0.05);
+T.q2 = r2(T.pagado + 0.45); T.xh = [r2(T.q2 + 0.05), r2(T.q2 + 1.2)]; T.q2b = r2(T.q2 + 1.0); T.bolsa = r2(T.q2 + 1.45);
+T.q2c = r2(T.q2 + 1.6); T.h2 = r2(T.q2 + 1.7); T.q2d = r2(T.h2 + 1.63 + 0.05);
 // Q3 · la moto de Nico con los envíos de lejos; el contador vuelve: "Cruces de Rubén: 0"
 T.q3 = r2(T.q2d + 0.55); T.moto = r2(T.q3 + 0.1); T.aviso1 = r2(T.q3 + 0.3); T.aviso2 = r2(T.q3 + 0.6); T.cero = r2(T.q3 + 1.1);
 // Q4 · la cuadra: los vecinos en sus ventanas con "Pagado ✓"; salen y cruzan en fila en pantuflas; Q4p inserto bajo de
 // la fila (1,2 s); Q5 el general desde el lado del almacén con la fila llegando; el farol; la línea chica
-T.q4 = r2(T.q3 + 2.2); T.pag = [0, 1, 2, 3, 4, 5, 6].map((i) => r2(T.q4 + 0.1 + i * 0.12));
-T.fila = [r2(T.q4 + 0.95), r2(T.q4 + 4.6)]; T.q4p = [r2(T.q4 + 1.55), r2(T.q4 + 2.75)]; T.farol2 = r2(T.q4p[1] + 0.25);
+T.q4 = r2(T.q3 + 2.2); T.pag = [0, 1, 2, 3, 4, 5, 6].map((i) => r2(T.q4 + 0.08 + i * 0.08));
+T.fila = [r2(T.q4 + 0.5), r2(T.q4 + 3.0)]; T.q4p = [r2(T.q4 + 1.2), r2(T.q4 + 1.2)]; T.farol2 = r2(T.q4p[1] + 0.25);   // (ronda 2b) sin inserto de pantuflas: q4p[1] = corte a Q5
 T.cierre = r2(T.q4p[1] + 0.6);
-const DUR = r2(T.cierre + 2.2);
+const DUR = r2(T.cierre + 1.6);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -121,20 +124,19 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
 const HUDCSS = `
     P .chip { position: absolute; right: 70px; top: 1610px; height: 92px; padding: 0 30px; border-radius: 46px; background: ${NAVY}; border: 5px solid ${CR}; display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 0 rgba(3,6,12,0.5); }
     P .chip .d { font: 700 40px/1 "Lexend", sans-serif; color: ${CR}; letter-spacing: 0.02em; }
-    P .chip .h { position: relative; width: 132px; height: 52px; overflow: hidden; }
+    P .chip .h { position: relative; width: 142px; height: 52px; overflow: hidden; }
     P .chip .h span { position: absolute; left: 0; top: 0; font: 800 50px/52px "Lexend", sans-serif; color: ${G}; letter-spacing: -0.01em; }
     P .cruces { position: absolute; right: 70px; top: 330px; padding: 18px 34px 22px; border-radius: 30px; background: ${CR}; border: 8px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); display: flex; align-items: baseline; gap: 20px; transform-origin: 100% 0; }
     P .cruces .l { font: 800 60px/1 "Lexend", sans-serif; color: ${NAVY}; }
     P .cruces .n { position: relative; width: 74px; height: 96px; }
     P .cruces .n span { position: absolute; left: 0; right: 0; bottom: -6px; text-align: center; font: 900 104px/1 "Lexend", sans-serif; color: ${RED}; }
-    P .noti { position: absolute; left: 50px; top: 300px; width: 480px; padding: 22px 28px 26px; border-radius: 34px; background: ${CR}; border: 7px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); transform-origin: 0 0; }
+    P .noti { position: absolute; left: 50px; top: 640px; width: 440px; padding: 22px 28px 26px; border-radius: 34px; background: ${CR}; border: 7px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); transform-origin: 0 0; }
     P .noti .de { display: flex; align-items: center; gap: 16px; font: 700 36px/1 "Lexend", sans-serif; color: ${NAVY2}; }
     P .noti .av { width: 50px; height: 50px; border-radius: 25px; background: #d9a441; border: 4px solid ${NAVY}; }
     P .noti .m { margin-top: 12px; font: 800 54px/1.1 "Lexend", sans-serif; color: ${NAVY}; letter-spacing: -0.01em; }`;
-const flipHora = (sel, horas) => horas.map(([t, i]) => i === 0 ? "" : `      tl.fromTo(qa("${sel} span")[${i - 1}], { yPercent: 0 }, { yPercent: -130, duration: 0.1, ease: "power2.in", immediateRender: false }, ${r2(t)});
-      tl.set(qa("${sel} span")[${i - 1}], { opacity: 0 }, ${r2(t + 0.1)});
-      tl.set(qa("${sel} span")[${i}], { opacity: 1 }, ${r2(t + 0.1)});
-      tl.fromTo(qa("${sel} span")[${i}], { yPercent: 130 }, { yPercent: 0, duration: 0.18, ease: "back.out(2)", immediateRender: false }, ${r2(t + 0.1)});`).join("\n");
+const flipHora = (sel, horas) => horas.map(([t, i]) => i === 0 ? "" : `      tl.set(qa("${sel} span")[${i - 1}], { opacity: 0 }, ${r2(t)});
+      tl.set(qa("${sel} span")[${i}], { opacity: 1 }, ${r2(t)});
+      tl.fromTo(qa("${sel} span")[${i}], { scale: 1.5 }, { scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, ${r2(t)});`).join("\n");
 
 // P1 · el gancho entero en el cuadro 0 ("envíos" en el recuadro verde de selección); con la voz de Héctor (0,25) late
 // y a los 1,25 s se achica y se va (arranca la notificación del chat)
@@ -162,7 +164,7 @@ const flipHora = (sel, horas) => horas.map(([t, i]) => i === 0 ? "" : `      tl.
   const id = "s01-hud", ini = T.p3 - 0.05, dur = r2(P1 - ini);
   ESC.push([id, ini, dur, "arriba"]);
   const L = (t) => r2(t - ini);
-  const notis = [["¿Tenés pan?", T.m2, T.m3 - 0.05], ["¿Y hielo?", T.m3, T.m4 - 0.05], ["¿Me cambiás mil?", T.m4, T.m5 - 0.02], ["¿Fósforos tenés?", T.m5, T.p5 + 0.3]];
+  const notis = [["¿Tenés pan?", T.m2, T.m3 - 0.05], ["¿Y hielo?", T.m3, T.m4 - 0.05], ["¿Me cambiás mil?", T.m4, T.m5 - 0.02], ["¿Fósforos tenés?", T.m5, T.p5 + 0.02]];
   escena(id, dur, {
     css: HUDCSS + `
     P .grupo { position: absolute; inset: 0; }`,
@@ -174,11 +176,11 @@ const flipHora = (sel, horas) => horas.map(([t, i]) => i === 0 ? "" : `      tl.
     js: `      const nums = qa(".cruces .n span");
       nums.forEach((s, i) => tl.set(s, { opacity: i === 0 ? 1 : 0 }, 0));
       tl.fromTo(q(".cruces"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)", immediateRender: true }, 0.05);
-      tl.fromTo(q(".chip"), { y: 160 }, { y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: true }, 0.05);
+      tl.fromTo(q(".chip"), { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       ${[T.c1, T.c2, T.c3, T.c4].map((t, i) => `tl.set(nums[${i}], { opacity: 0 }, ${L(t)}); tl.set(nums[${i + 1}], { opacity: 1 }, ${L(t)});
       tl.fromTo(nums[${i + 1}], { scale: 1.9, y: -10 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, ${L(t)});
       tl.fromTo(q(".cruces"), { rotation: -4 }, { rotation: 0, duration: 0.3, ease: "elastic.out(1.2, 0.4)", immediateRender: false }, ${L(t)});`).join("\n      ")}
-      qa(".chip .h span").forEach((s, i) => tl.set(s, { yPercent: i === 0 ? 0 : 130, opacity: i === 0 ? 1 : 0 }, 0));
+      qa(".chip .h span").forEach((s, i) => tl.set(s, { yPercent: 0, opacity: i === 0 ? 1 : 0 }, 0));
 ${flipHora(".chip .h", [[L(T.h1926), 1], [L(T.h1941), 2]])}
       const notis = qa(".noti");
       ${notis.map(([, a, b], i) => `tl.set(notis[${i}], { opacity: 0 }, 0);
@@ -186,7 +188,7 @@ ${flipHora(".chip .h", [[L(T.h1926), 1], [L(T.h1941), 2]])}
       tl.fromTo(notis[${i}], { x: -6 }, { x: 6, duration: 0.04, repeat: 5, yoyo: true, ease: "none", immediateRender: false }, ${L(a + 0.02)});
       tl.to(notis[${i}], { opacity: 0, scale: 0.85, y: -30, duration: 0.14, ease: "power2.in" }, ${L(b - 0.14)});`).join("\n      ")}
       // en el plano a ras de calle el HUD se va (silencio de domingo): queda solo la escena
-      tl.to([q(".cruces"), q(".chip")], { opacity: 0, duration: 0.12, ease: "power2.in" }, ${L(T.p5 - 0.14)});`,
+      tl.to([q(".cruces"), q(".chip")], { opacity: 0, duration: 0.1, ease: "power2.in" }, ${L(T.p5 - 0.06)});`,
   });
 }
 
@@ -214,11 +216,12 @@ function linea(id, vozT, palabras, clave, fin, top = 1400, caja = false) {
         const c = w.querySelector(".caja");
         if (c) tl.fromTo(c, { scaleX: 1.25, scaleY: 1.4, transformOrigin: "50% 50%" }, { scaleX: 1, scaleY: 1, duration: 0.24, ease: "power3.out", immediateRender: true }, t);
       }
-      tl.to(q(".linea"), { opacity: 0, duration: 0.16, ease: "power2.in" }, ${r2(dur - 0.18)});`,
+      ${caja ? `tl.set(q(".linea"), { opacity: 0 }, 0); tl.set(q(".linea"), { opacity: 1 }, ${r2(vozT + palabras[0][1] - ini)});` : ""}
+      tl.to(q(".linea"), { opacity: 0, duration: 0.12, ease: "power2.in" }, ${r2(dur - 0.13)});`,
   });
 }
 linea("s02-cerca", T.r1, [["Para", 0.03], ["estar", 0.2], ["más", 0.4], ["cerca", 0.6], ["del", 0.8], ["cliente.", 1.0]], 3, r2(T.p6 + 0.3), 120, true);
-linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63], ["quedás,", 0.73], ["Rubén!", 0.93]], 1, r2(T.q2d + 0.5), 1430, true);
+linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63], ["quedás,", 0.73], ["Rubén!", 0.93]], 1, r2(T.q2d - 0.01), 140, true);
 
 // el cartel "Una tienda online más tarde…" (el de las-siete-y-cincuenta-y-nueve tal cual, con su audio). Va DEBAJO del
 // canvas: el canvas se va girando (último cuadro de la parte 1) y vuelve abriéndose en un iris. No dice "Scalerics".
@@ -280,19 +283,21 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
 // HUD de la parte 2: chip "OTRO DOMINGO · 19:10"; los avisos de los envíos pagos; el contador que vuelve tachado y pasa
 // a "Cruces de Rubén: 0" en verde
 {
-  const id = "s04-hud", ini = P2, dur = r2(T.cierre - P2 - 0.05);
+  const id = "s04-hud", ini = P2, dur = r2(T.q4 - P2 - 0.02);
   ESC.push([id, ini, dur, "arriba"]);
   const L = (t) => r2(t - ini);
   escena(id, dur, {
     css: HUDCSS + `
-    P .chip .h { width: 132px; }
+    P .chip .h { width: 142px; }
     P .chip { top: 150px; right: auto; left: 70px; }
     P .aviso { position: absolute; left: 70px; width: 560px; padding: 20px 28px 24px; border-radius: 30px; background: ${G}; border: 7px solid ${NAVY}; box-shadow: 12px 14px 0 rgba(5,10,20,0.85); font: 800 52px/1.15 "Lexend", sans-serif; color: ${NAVY}; transform-origin: 0 50%; }
     P .aviso small { display: block; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY2}; }
-    P .a1 { top: 140px; } P .a2 { top: 330px; }
-    P .cruces.r { top: 1330px; }
+    P .a1 { top: 140px; } P .a2 { top: 330px; } P .aviso { width: 500px; }
+    P .cruces.r { top: 1400px; }
     P .cruces.r .raya { position: absolute; left: 20px; right: 20px; top: 50%; height: 12px; margin-top: -2px; background: ${NAVY}; border: 3px solid ${CR}; border-radius: 6px; transform-origin: 0 50%; }
-    P .cruces.v { top: 1330px; background: ${G}; }
+    P .cruces.v { top: 1400px; background: ${G}; padding-right: 60px; gap: 18px; }
+    P .cruces.v .l { font-size: 50px; }
+    P .cruces.v .n { width: 92px; }
     P .cruces.v .n span { color: ${NAVY}; }`,
     html: `      <div class="chip"><span class="d">OTRO DOMINGO ·</span><span class="h"><span>19:10</span></span></div>
       <div class="aviso a1">Envío pago ✓<small>a 15 cuadras</small></div>
@@ -303,7 +308,7 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
       tl.to(q(".chip"), { opacity: 0, duration: 0.2 }, ${L(T.q2b - 0.2)});
       for (const [s, a] of [[".a1", ${L(T.aviso1)}], [".a2", ${L(T.aviso2)}]]) {
         tl.fromTo(q(s), { opacity: 0, scale: 0.5, x: -60 }, { opacity: 1, scale: 1, x: 0, duration: 0.24, ease: "back.out(2)", immediateRender: true }, a);
-        tl.to(q(s), { opacity: 0, x: -40, duration: 0.18, ease: "power2.in" }, ${L(T.q4 - 0.05)});
+        tl.to(q(s), { opacity: 0, x: -40, duration: 0.15, ease: "power2.in" }, ${L(T.q4 - 0.25)});
       }
       tl.fromTo(q(".cruces.r"), { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: true }, ${L(T.cero - 0.45)});
       tl.fromTo(q(".cruces.r .raya"), { scaleX: 0 }, { scaleX: 1, duration: 0.16, ease: "power2.out", immediateRender: true }, ${L(T.cero - 0.15)});
@@ -312,7 +317,7 @@ linea("s05-cerquita", T.h2, [["¡Qué", 0.03], ["cerquita", 0.13], ["que", 0.63]
       tl.set(q(".cruces.v"), { opacity: 1 }, ${L(T.cero)});
       tl.fromTo(q(".cruces.v"), { scale: 0.5 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: false }, ${L(T.cero)});
       tl.fromTo(q(".cruces.v .n span"), { scale: 2 }, { scale: 1, duration: 0.3, ease: "back.out(2.4)", immediateRender: true }, ${L(T.cero + 0.06)});
-      tl.to(q(".cruces.v"), { opacity: 0, scale: 0.85, duration: 0.2, ease: "power2.in" }, ${L(T.pag[0] - 0.1)});`,
+      tl.to(q(".cruces.v"), { opacity: 0, scale: 0.85, duration: 0.15, ease: "power2.in" }, ${L(T.q4 - 0.2)});`,
   });
 }
 
@@ -403,7 +408,6 @@ pasos(T.xh[0], T.xh[1], 10, -41, "pantufla");
 s("sfx/whoosh-short.mp3", T.q2b - 0.04, 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -46 });
 s("sfx/whoosh-short.mp3", T.q2d - 0.04, 0, { techo: -46 });
-s("sfx/whoosh-short.mp3", T.q4p[0] - 0.04, 0, { techo: -44 });
 s("sfx/whoosh.mp3", T.q4p[1] - 0.04, 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.p4h[0] - 0.03, 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.p4h[1] - 0.03, 0, { techo: -45 });

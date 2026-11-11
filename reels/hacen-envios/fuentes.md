@@ -11,9 +11,10 @@ moto y caja de reparto sin marca, yerba, pan, hielo, fósforos, termo y mate gen
 billete genérico de me-haces-precio (crema con guarda verde y "200", sin diseño real).
 
 ## Voces (Gemini TTS, herramientas/voz.mjs; ver partes/voces.md)
-- Héctor: Sadaltager (hector-1 toma a, hector-2 toma a). Rubén: Algenib (ruben-1 toma b).
-- Coro: Graciela = Gacrux, Marta = Aoede, Walter = Umbriel (dos tomas: una para Walter y otra para una ventana del
-  fondo), vecino = Charon (toma a; la toma b salió "enemigo" y se descartó).
+- Héctor: Sadaltager ("¿Hacen envíos?" hector-1 toma a; "¡Qué cerquita que quedás, Rubén!" hector-2 toma a).
+- Rubén: Algenib ("Para estar más cerca del cliente.", ruben-1, archivo de toma `ruben-2-a`, 1,77 s).
+- Coro de las 7 ventanas ("¿Hacen envíos?", una toma "a" por voz): Graciela = Gacrux, Marta = Aoede,
+  Walter = Umbriel, Beto (vecino) = Charon, Nelly = Vindemiatrix, Fede = Puck, Chela = Callirrhoe.
 - Narrador del cartel: reusado `reels/las-siete-y-cincuenta-y-nueve/assets/voice/narrador.wav` (Rasalgethi, "Una
   tienda online más tarde.").
 

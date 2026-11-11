@@ -1,4 +1,4 @@
-# hacen-envios · PARA MANDAR completo (3D real), 34,47 s (ronda 1)
+# hacen-envios · PARA MANDAR completo (3D real), 32,56 s (ronda 2)
 
 **De qué trata.** Héctor, el vecino de ENFRENTE, le escribe a Rubén "¿Hacen envíos?". Rubén cruza la calle con la
 yerba, el pan, el hielo y el cambio (contador "Cruces" rojo, chip de hora 19:10 → 19:26 → 19:41). Al quinto mensaje
@@ -29,31 +29,30 @@ Rubén (almacenero), Héctor (con pantuflas mostaza), Nico (empleado, con casco 
 armado en tres.js), en las ventanas Graciela, Marta, Walter y 4 vecinos genéricos (Beto, Nelly, Fede, Chela, hechos
 con DEFECTO + rasgos). En la parte 2 cruzan en fila, en pantuflas, Graciela, Walter, Beto, Marta y Fede.
 
-## Planos (segundos del video, ronda 1)
+## Planos (segundos del video, ronda 2)
 | t | plano | qué pasa |
 |---|---|---|
-| 0,00-1,60 | P1 adentro del almacén: Rubén detrás del mostrador (mate abajo, bombilla hacia afuera), el celular grande con el chat; por la vidriera, Héctor entero saludando | gancho en el cuadro 0; 0,25 voz de Héctor; 1,2 levanta la vista (cabeza 0,5 rad + torso, sin giro de nuca) |
-| 1,60-3,70 | P2 la cámara va a la derecha y cruza por la PUERTA mirando siempre a Héctor (el parante entre vidriera y puerta es de 10 cm) | 2,9 rótulo "Héctor · enfrente" con línea guía; 3,15 puntitos y "14 pasos" |
-| 3,70-6,60 | P3 picado más bajo y cerca (Rubén ~25-30 % del alto; objetos sobredimensionados: yerba, pan, hielo, billetes) | "¡Gracias, Rubén!" al costado de Héctor; Cruces 1-2 |
-| 6,60-7,02 | P4h plano cerrado: la media vuelta de "¿Y hielo?" | |
-| 7,02-8,22 | P3 picado | cambio, Cruces 3-4; 8,0 "¿Fósforos tenés?" entra mientras entrega el cambio |
-| 8,22-9,30 | P5 a ras de calle, de 3/4: llega con el cajón dado vuelta (termo acostado y cartón arriba, bajos) | silencio de domingo; mira el almacén |
+| 0,00-1,60 | P1 adentro del almacén: Rubén detrás del mostrador, el celular grande con el chat; por la vidriera, Héctor saludando | gancho en el cuadro 0; 0,25 voz de Héctor; 1,2 levanta la vista |
+| 1,60-3,70 | P2 la cámara cruza por la PUERTA mirando siempre a Héctor | 2,9 rótulo "Héctor · enfrente" con línea guía; 3,15 "14 pasos" |
+| 3,70-6,60 | P3 picado: cruces 1-2, "¡Gracias, Rubén!" al costado de Héctor | |
+| 6,60-7,02 | P4h plano medio desde la vereda de enfrente: media vuelta de 0,34 s con easing ("¿Y hielo?"), se le ve la cara | |
+| 7,02-8,22 | P3 picado: cruces 3-4; 8,0-8,2 agarra el cajón (cajón, termo y cartón en la calle desde el principio, z 0,95) | "¿Fósforos tenés?" |
+| 8,22-9,30 | P5 a ras de calle: llega con el cajón | mira el almacén |
 | 9,30-9,70 | P5c contraplano: Héctor saluda | |
-| 9,70-13,49 | P5b | 9,75-10,0 apoya el cajón al costado sobre la línea · 10,02-10,25 deja el termo parado en el piso · 10,3 toma el cartón · 10,35-10,65 se sienta (cadera en el cajón, rodillas a 90°) · 10,7-10,95 apoya SUCURSAL contra las piernas · pausa de solo ambiente 0,65 s · 11,0 push-in · 11,6 "Para estar más cerca del cliente." (subtítulo con caja arriba, "cerca" en verde) |
-| 13,49-16,99 | P6 grúa (primero atrás, después arriba) al general de la cuadra | 13,64 Graciela dice la frase entera sola; 14,49-15,74 las otras 6 ventanas a +0,25 s; 16,49 farol |
-| 16,99-20,19 | cartel "Una tienda online más tarde…" | las burbujas se van con el giro; las letras arrancan a 0,2 s; el texto se va antes del iris |
-| 20,19-21,14 | Q1 inserto del celular (pegado a cámara, textos ≥ 44 px) | tildes; "Envío: $ 60" late (la duda) |
-| 21,14-21,51 | Q1b Héctor levanta la vista por encima del celular | |
-| 21,51-21,86 | Q1c su punto de vista: el almacén, Rubén saluda en la puerta | |
-| 21,86-22,79 | Q1 inserto | 21,94 toca "Retiro en el local: $ 0" (onda del toque); 22,34 "Pagado ✓" |
-| 22,79-23,79 | Q2 picado: cruza en pantuflas | |
-| 23,79-24,39 | Q2b dos planos en la vereda del almacén | 24,24 la bolsa "Héctor · pagado ✓" |
-| 24,39-26,17 | Q2c Héctor de 3/4, sorprendido, señala su casa con el pulgar: "¡Qué cerquita que quedás, Rubén!" (subtítulo con caja) | |
-| 26,17-26,72 | Q2d Rubén de frente, cara de nada, asiente una vez | |
-| 26,72-28,92 | Q3 de frente a la puerta; la moto por la calle | avisos arriba; 27,82 "Cruces: 4" tachado → pop de "Cruces de Rubén: 0" (sin fundido cruzado, abajo) |
-| 28,92-30,47 | Q4 el general: vecinos en sus ventanas con "Pagado ✓"; salen y cruzan (el chip va sobre cada uno) | |
-| 30,47-31,67 | Q4p inserto bajo de la fila en pantuflas (1,2 s) | |
-| 31,67-34,47 | Q5 desde enfrente: la fila llega al almacén, Héctor y Rubén en la puerta, farol | 32,27 línea chica opaca (2,2 s) |
+| 9,70-13,49 | P5b de costado: apoya el cajón, deja el termo parado, toma el cartón, se sienta (muslos y rodillas a 90°), apoya SUCURSAL · 11,6 "Para estar más cerca del cliente." | |
+| 13,49-16,99 | P6 grúa al general de la cuadra: las 7 ventanas; burbujas de arriba en dos alturas alternadas (no se pisan) | 16,49 farol |
+| 16,99-19,99 | cartel "Una tienda online más tarde…" (3,0 s) | |
+| 19,99-20,94 | Q1 inserto del celular sostenido por la mano de Héctor (palma, pulgar, dedos, manga) | tildes; "Envío" late (la duda) |
+| 20,94-21,51 | Q1b Héctor levanta la vista | |
+| 21,51-22,06 | Q1c su punto de vista: Rubén saluda en la puerta | |
+| 22,06-23,03 | Q1 inserto | 22,18 toca "Retiro" (onda; se pone verde después) · 22,58 "Pagado ✓" |
+| 23,03-24,03 | Q2 picado: se abre el portón y cruza en pantuflas | |
+| 24,03-24,63 | Q2b dos planos: la bolsa "Héctor · pagado ✓" | |
+| 24,63-26,41 | Q2c Héctor: "¡Qué cerquita que quedás, Rubén!" (subtítulo con caja) | |
+| 26,41-26,96 | Q2d Rubén, cara de nada (la bolsa queda fuera de cuadro) | |
+| 26,96-29,16 | Q3 la moto con los envíos | avisos arriba; 28,06 "Cruces: 4" tachado → "Cruces de Rubén: 0" |
+| 29,16-30,36 | Q4 el general: "Pagado ✓" en cada ventana (dos alturas, quedan aunque el vecino salga); desde 29,66 salen y cruzan | |
+| 30,36-32,56 | Q5 desde la calle, alto (debajo del toldo): la fila llega en diagonal (a la izquierda) y se da vuelta a cámara; Rubén y Héctor libres en la puerta; "ALMACÉN" entero arriba. (El inserto de pantuflas Q4p se sacó en la ronda 2: dejaba medio cuadro de piso vacío.) | 30,96 línea chica opaca (1,6 s) |
 
 ## Sonido
 Ver gen.mjs (lista S) y fuentes.md. Techo por efecto -31 LUFS (la mayoría bastante más abajo), voces sin techo con

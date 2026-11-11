@@ -30,6 +30,11 @@ Medir con tiempos.mjs cada línea suelta ("oyó:" tiene que coincidir; "envíos"
 
 
 ## Ronda 1 (cambios)
-- ruben-1: "Para estar más cerca del cliente." Algenib, serio de empresario en conferencia de prensa; toma a (1,77 s).
-- Coro de 7 voces para 7 ventanas: Graciela (Gacrux) dice la frase entera sola; después, a +0,25 s cada una: Marta (Aoede), Walter (Umbriel), Beto (Charon, toma a), Nelly (Vindemiatrix), Fede (Puck), Chela (Callirrhoe). coro-vecino2 = Charon toma c.
+- ruben-1: "Para estar más cerca del cliente." Algenib, serio de empresario en conferencia de prensa; segunda tanda, toma a (archivo `ruben-2-a`, 1,77 s).
+- Coro de 7 voces para 7 ventanas: Graciela (Gacrux) dice la frase entera sola; después, a +0,25 s cada una: Marta (Aoede), Walter (Umbriel), Beto (Charon, toma a), Nelly (Vindemiatrix), Fede (Puck), Chela (Callirrhoe). (coro-vecino2 se descartó: no se usa.)
 - hector-2: 30 ms de aire adelante del "¡Qué".
+
+## Ronda 2
+- Sin voces nuevas. Se borraron las tomas que no se usan; quedan en `tomas/` y `rec/` solo las "a" del coro,
+  hector-1-a, hector-2-a y ruben-2-a (la de "Para estar más cerca del cliente.").
+- La tabla de arriba es la del primer guion: la línea de Rubén vigente es la de la ronda 1.
