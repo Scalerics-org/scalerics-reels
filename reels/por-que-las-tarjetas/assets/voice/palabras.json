@@ -1,0 +1,447 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0.13,
+  "end": 0.3
+ },
+ {
+  "text": "qué",
+  "start": 0.2,
+  "end": 0.4
+ },
+ {
+  "text": "el",
+  "start": 0.4,
+  "end": 0.4
+ },
+ {
+  "text": "mejor",
+  "start": 0.4,
+  "end": 0.7
+ },
+ {
+  "text": "vendedor",
+  "start": 0.7,
+  "end": 0.9
+ },
+ {
+  "text": "de",
+  "start": 0.9,
+  "end": 1.2
+ },
+ {
+  "text": "autos",
+  "start": 1.2,
+  "end": 1.6
+ },
+ {
+  "text": "le",
+  "start": 1.6,
+  "end": 1.8
+ },
+ {
+  "text": "mandaba",
+  "start": 1.8,
+  "end": 2.2
+ },
+ {
+  "text": "tarjetas",
+  "start": 2.2,
+  "end": 2.7
+ },
+ {
+  "text": "a",
+  "start": 2.7,
+  "end": 2.9
+ },
+ {
+  "text": "los",
+  "start": 2.9,
+  "end": 3
+ },
+ {
+  "text": "que",
+  "start": 3,
+  "end": 3.1
+ },
+ {
+  "text": "ya",
+  "start": 3.1,
+  "end": 3.3
+ },
+ {
+  "text": "le",
+  "start": 3.3,
+  "end": 3.4
+ },
+ {
+  "text": "compraron?",
+  "start": 3.45,
+  "end": 4.01
+ },
+ {
+  "text": "Porque",
+  "start": 4.36,
+  "end": 4.62
+ },
+ {
+  "text": "volvían.",
+  "start": 4.62,
+  "end": 5.31
+ },
+ {
+  "text": "Lo",
+  "start": 5.51,
+  "end": 5.6
+ },
+ {
+  "text": "contaba",
+  "start": 5.6,
+  "end": 6
+ },
+ {
+  "text": "Joe",
+  "start": 5.98,
+  "end": 6.33
+ },
+ {
+  "text": "Girard,",
+  "start": 6.33,
+  "end": 6.73
+ },
+ {
+  "text": "récord",
+  "start": 6.96,
+  "end": 7.38
+ },
+ {
+  "text": "Guinness",
+  "start": 7.4,
+  "end": 7.7
+ },
+ {
+  "text": "de",
+  "start": 7.7,
+  "end": 7.7
+ },
+ {
+  "text": "autos",
+  "start": 7.7,
+  "end": 8
+ },
+ {
+  "text": "vendidos",
+  "start": 8,
+  "end": 8.3
+ },
+ {
+  "text": "en",
+  "start": 8.3,
+  "end": 8.6
+ },
+ {
+  "text": "un",
+  "start": 8.6,
+  "end": 8.7
+ },
+ {
+  "text": "año.",
+  "start": 8.72,
+  "end": 9.08
+ },
+ {
+  "text": "¿Por",
+  "start": 9.62,
+  "end": 9.78
+ },
+ {
+  "text": "qué?",
+  "start": 9.78,
+  "end": 9.99
+ },
+ {
+  "text": "La",
+  "start": 10.79,
+  "end": 10.84
+ },
+ {
+  "text": "tarjeta",
+  "start": 10.91,
+  "end": 11.23
+ },
+ {
+  "text": "no",
+  "start": 11.25,
+  "end": 11.48
+ },
+ {
+  "text": "vendía",
+  "start": 11.5,
+  "end": 11.88
+ },
+ {
+  "text": "nada.",
+  "start": 11.9,
+  "end": 12.24
+ },
+ {
+  "text": "Decía,",
+  "start": 12.49,
+  "end": 12.96
+ },
+ {
+  "text": "cada",
+  "start": 13.13,
+  "end": 13.3
+ },
+ {
+  "text": "mes:",
+  "start": 13.3,
+  "end": 13.59
+ },
+ {
+  "text": "«Me",
+  "start": 13.84,
+  "end": 13.98
+ },
+ {
+  "text": "caés",
+  "start": 13.98,
+  "end": 14.3
+ },
+ {
+  "text": "bien».",
+  "start": 14.3,
+  "end": 14.66
+ },
+ {
+  "text": "Al",
+  "start": 15.31,
+  "end": 15.48
+ },
+ {
+  "text": "que",
+  "start": 15.48,
+  "end": 15.58
+ },
+ {
+  "text": "ya",
+  "start": 15.58,
+  "end": 15.68
+ },
+ {
+  "text": "te",
+  "start": 15.68,
+  "end": 15.88
+ },
+ {
+  "text": "compró",
+  "start": 15.88,
+  "end": 16.28
+ },
+ {
+  "text": "no",
+  "start": 16.28,
+  "end": 16.58
+ },
+ {
+  "text": "hay",
+  "start": 16.58,
+  "end": 16.68
+ },
+ {
+  "text": "que",
+  "start": 16.68,
+  "end": 16.78
+ },
+ {
+  "text": "convencerlo.",
+  "start": 16.88,
+  "end": 17.52
+ },
+ {
+  "text": "Hay",
+  "start": 17.79,
+  "end": 17.9
+ },
+ {
+  "text": "que",
+  "start": 17.9,
+  "end": 18.02
+ },
+ {
+  "text": "acordarse.",
+  "start": 18.02,
+  "end": 18.7
+ },
+ {
+  "text": "¿Walter?",
+  "start": 19.36,
+  "end": 19.88
+ },
+ {
+  "text": "¿Hace",
+  "start": 20.45,
+  "end": 20.6
+ },
+ {
+  "text": "cuánto",
+  "start": 20.58,
+  "end": 20.98
+ },
+ {
+  "text": "que",
+  "start": 20.98,
+  "end": 21.08
+ },
+ {
+  "text": "no",
+  "start": 21.08,
+  "end": 21.18
+ },
+ {
+  "text": "viene?",
+  "start": 21.23,
+  "end": 21.68
+ },
+ {
+  "text": "El",
+  "start": 22.13,
+  "end": 22.2
+ },
+ {
+  "text": "sistema",
+  "start": 22.2,
+  "end": 22.68
+ },
+ {
+  "text": "sabe:",
+  "start": 22.7,
+  "end": 23.15
+ },
+ {
+  "text": "tres",
+  "start": 23.45,
+  "end": 23.63
+ },
+ {
+  "text": "semanas.",
+  "start": 23.63,
+  "end": 24.29
+ },
+ {
+  "text": "Y",
+  "start": 24.64,
+  "end": 24.74
+ },
+ {
+  "text": "le",
+  "start": 24.74,
+  "end": 24.83
+ },
+ {
+  "text": "escribe",
+  "start": 24.9,
+  "end": 25.2
+ },
+ {
+  "text": "solo,",
+  "start": 25.2,
+  "end": 25.57
+ },
+ {
+  "text": "sin",
+  "start": 25.71,
+  "end": 25.9
+ },
+ {
+  "text": "vender",
+  "start": 25.9,
+  "end": 26.18
+ },
+ {
+  "text": "nada.",
+  "start": 26.18,
+  "end": 26.5
+ },
+ {
+  "text": "El",
+  "start": 27.14,
+  "end": 27.26
+ },
+ {
+  "text": "sábado,",
+  "start": 27.26,
+  "end": 27.79
+ },
+ {
+  "text": "Walter",
+  "start": 27.99,
+  "end": 28.48
+ },
+ {
+  "text": "volvió.",
+  "start": 28.48,
+  "end": 28.95
+ },
+ {
+  "text": "¿Que",
+  "start": 29.38,
+  "end": 29.54
+ },
+ {
+  "text": "no",
+  "start": 29.385,
+  "end": 29.58
+ },
+ {
+  "text": "se",
+  "start": 29.58,
+  "end": 29.68
+ },
+ {
+  "text": "te",
+  "start": 29.68,
+  "end": 29.78
+ },
+ {
+  "text": "olvide",
+  "start": 29.78,
+  "end": 30.08
+ },
+ {
+  "text": "ninguno?",
+  "start": 30.28,
+  "end": 30.68
+ },
+ {
+  "text": "Agendá",
+  "start": 30.98,
+  "end": 31.3
+ },
+ {
+  "text": "una",
+  "start": 31.3,
+  "end": 31.48
+ },
+ {
+  "text": "videollamada",
+  "start": 31.48,
+  "end": 32.13
+ },
+ {
+  "text": "gratis",
+  "start": 32.13,
+  "end": 32.66
+ },
+ {
+  "text": "en",
+  "start": 32.77,
+  "end": 33.01
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 33.08,
+  "end": 33.98
+ }
+]
