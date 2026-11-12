@@ -1,0 +1,13 @@
+{
+ "t": 13.0,
+ "fondo_limpio": "portada-src/fondo-portada.png",
+ "chica": "El que devuelve gratis",
+ "grande": "vuelve a comprar",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.05,
+ "foco": "20%",
+ "fondo": "#16243d",
+ "velo": "22,36,61"
+}
