@@ -77,7 +77,7 @@ T.q2b = r2(T.q2 + 0.5); T.entraH2 = [r2(T.q2b - 0.25), r2(T.q2b + 0.2)]; T.noti 
 T.q2c = r2(T.q2b + 0.55); T.h4 = r2(T.q2c + 0.15);
 T.pagar = r2(T.h4 + LEN.h4 + 0.05); T.pagado = r2(T.pagar + 0.14);
 // Q3 · la tablet de Rubén: las cuentas se ponen en verde una por una · Q3b el estante: la libreta se jubila
-T.q3 = r2(T.pagado + 0.45); T.filas = [0, 0.35, 0.6, 0.85].map((d) => r2(T.q3 + d));
+T.q3 = r2(T.pagado + 0.45); T.filas = [0, 0.2, 0.4, 0.6].map((d) => r2(T.q3 + d));
 T.q3b = r2(T.q3 + 1.05); T.grua = [T.q3b, T.q3b]; T.apoya = r2(T.q3b + 0.35);
 // Q4 · cierre: Rubén sentado, mate en la izquierda, el diario: saca el lápiz de la oreja y escribe FIADO; la línea chica
 T.q4 = r2(T.q3b + 0.6); T.sacaQ4 = [r2(T.q4 + 0.05), r2(T.q4 + 0.3)]; T.fiado = [r2(T.q4 + 0.32), r2(T.q4 + 0.95)];

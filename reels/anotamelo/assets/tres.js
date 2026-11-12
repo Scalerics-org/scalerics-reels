@@ -601,7 +601,7 @@ const FRENTE = (k = 0) => [0.5, 1.52, 0.1 - k * 0.1, 0.3, 1.3, -1.9, 44];   // P
 const DOS = (k = 0) => [0.6 - k * 0.04, 1.66, 0.9, 0.0, 1.25, -1.3, 60];   // P6: los dos
 const PUE = (k = 0) => [0.95, 1.6, -1.55, -1.0, 1.3, -0.3, 50 - k * 3];   // P6b: la puerta desde atrás del mostrador
 const ALTA = (k = 0) => [0.4, 2.35 - k * 0.15, -0.72 - k * 0.25, RI.x, 1.42, RI.z + 0.1, 42 - k * 4];   // P6c: cámara alta desde el lado de Héctor
-const TAB = (k = 0) => [0.18, 1.86, -0.72 - k * 0.04, 0.15, 1.0, -1.26, 44 - k];   // (final) con margen a los dos lados   // Q3: la tablet por encima del hombro
+const TAB = (k = 0) => [0.13, 1.88, -0.84 - k * 0.03, 0.13, 1.2, -1.33, 45 - k * 0.5];   // (final3) de frente a la pantalla, centrada   // (final) con margen a los dos lados   // Q3: la tablet por encima del hombro
 const SENT = (k = 0) => [0.41, 1.5, -0.45 - k * 0.04, 0.31, 1.2, -1.72, 58 - k];   // (final2) Rubén más abajo (la línea chica no le tapa la frente) y el crucigrama entero   // Q4: Rubén sentado, el crucigrama
 const PLANOS = [
   ["P1", 0, [[0, ...AP1(0)], [T.ciclos[0][0], ...AP1(-0.03, 45.5)], [T.ciclos[0][1] - 0.05, ...AP1(-0.06, 45)], [T.ciclos[0][1] + 0.22, -0.02, 1.96, -0.66, 0.44, 1.0, -1.45, 46], [T.p2, -0.02, 1.95, -0.7, 0.44, 1.0, -1.45, 45]]],
@@ -624,7 +624,7 @@ const PLANOS = [
   ["Q2b", T.q2b, [[T.q2b, -0.25, 1.6, -2.6, -0.1, 1.22, -0.6, 48], [T.q2c, -0.25, 1.6, -2.5, -0.1, 1.22, -0.6, 47]]],   // (final) Héctor de medio cuerpo con el celular entero
   ["Q2c", T.q2c, [[T.q2c, ...CEN], [T.q3, ...CEN]]],          // inserto del celular: su línea y el toque a Pagar (se arma aparte)
   ["Q3", T.q3, [[T.q3, ...TAB(0)], [T.q3b, ...TAB(1)]]],
-  ["Q3b", T.q3b, [[T.q3b, 1.2, 2.1, -2.0, 1.15, 1.5, BZ + 0.32, 42], [T.q4, 1.2, 2.06, -2.05, 1.15, 1.5, BZ + 0.32, 40]]],   // (ronda 1) corte al estante: la libreta baja y se acuesta
+  ["Q3b", T.q3b, [[T.q3b, 1.16, 1.98, -2.15, 1.16, 1.73, -3.02, 56], [T.q4, 1.16, 1.97, -2.2, 1.16, 1.73, -3.03, 55]]],   // (final3) cerrado sobre la libreta en el estante   // (ronda 1) corte al estante: la libreta baja y se acuesta
   ["Q4", T.q4, [[T.q4, ...SENT(0)], [DUR, ...SENT(1)]]],
 ];
 const _m = new THREE.Vector3();
@@ -1097,7 +1097,7 @@ function ponerPersonajes(t, plano) {
 function libretaQ3(t) {
   // (ronda 1) entra desde arriba del cuadro, baja y se acuesta en el estante con un rebotecito
   const u = eio(sg(t, T.q3b, T.apoya));
-  const p = JUBILA.clone().add(V3(0, 0.16 * (1 - u), 0.18 * (1 - u)));
+  const p = JUBILA.clone().add(V3(0, 0.2 * (1 - u), 0.05 * (1 - u)));   // (final3) baja casi vertical: no crece hacia la cámara
   if (t > T.apoya) p.y += Math.sin(sg(t, T.apoya, T.apoya + 0.15) * Math.PI) * 0.012;
   return p;
 }

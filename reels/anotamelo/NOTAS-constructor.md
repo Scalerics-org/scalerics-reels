@@ -119,3 +119,8 @@ $ 1.840 a 25,05; push-in a la tablet) · Q2 25,79 · Q2b 26,29 (Héctor entrando
 - P1 1,77-2,15: la cámara de escritura más alta (y 1,96): "Graciela · yerba, galletitas $ 320" se lee por encima de la bolsa.
 - Q3: la fila de Graciela más alta (140) con "Graciela" / "Avisado ✓" en dos renglones (64/62) y "$ 1.840" a la derecha (66); las otras filas 106.
 - Q4: SENT reencuadrado (cámara más alta, a la izquierda, push más corto): la línea chica ya no tapa cejas y el crucigrama entra entero.
+
+## Verificación final 3
+- Q3: filas verdes a 29,15 / 29,35 / 29,55 / 29,75 (Graciela "Avisado ✓" 0,45 s en pantalla hasta el corte de 30,2); los pops siguen a cada fila (gen.mjs T.filas). TAB de frente a la pantalla y centrada (~95 % del ancho).
+- Q3b: encuadre cerrado sobre el estante (cámara 1,16/1,98/-2,15 → libreta, fov 56): solo la libreta, la pared y el canto del estante; la libreta baja casi vertical (no crece hacia la cámara) y queda con margen a los dos lados.
+- Ojo: las hojas de contacto de snap.sh a veces muestran cuadros corridos de costado; los PNG crudos del snapshot están bien.
