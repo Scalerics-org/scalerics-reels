@@ -1714,7 +1714,7 @@ export function crearDecalAntebrazo(lineas, { r = 0.0505, largo = 0.235, arco = 
     });
   });
   const geo = new THREE.CylinderGeometry(r, r, largo, 28, 1, true, -arco / 2, arco);
-  const m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.6, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4 }));
+  const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: tex, transparent: true, alphaTest: 0.06, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4 }));   // (ronda 2) solo el trazo: sin fondo ni sombreado propio
   m.renderOrder = 3;
   return m;
 }
@@ -1741,7 +1741,7 @@ export function crearDecalPelada(lineas, { ancho = 0.34, alto = 0.25, zc = 0.0, 
     p.setXYZ(i, X + n.x * 0.0025, Y + n.y * 0.0025, Z + n.z * 0.0025);
   }
   geo.computeVertexNormals();
-  const m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex, transparent: true, roughness: 0.5, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, side: THREE.DoubleSide }));
+  const m = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: tex, transparent: true, alphaTest: 0.06, roughness: 0.5, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, side: THREE.DoubleSide }));
   m.renderOrder = 3;
   return m;
 }

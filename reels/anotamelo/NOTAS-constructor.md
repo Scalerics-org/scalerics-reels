@@ -88,3 +88,13 @@ Q3 28,85 (filas en verde 28,95-29,70, mismo orden que Q1) · Q3b 29,90 (la libre
 dulce de leche, 30,25) · Q4 30,75 (FIADO 31,20-31,85; línea chica 31,85).
 Mezcla: voz ≥ 6,7 LU sobre el resto en todos los tramos con voz (mín. 28,5 s = cola de h4 con el ding de Pagado);
 -14,0 LUFS integrado antes del loudnorm. Sin logo suelto (criterio parejo: la marca solo en la línea chica).
+
+## Ronda 2 de correcciones · 33,35 s (P1 19,83 · cartel 19,83-22,83 · línea chica 31,75)
+Planos: P1 0,00 (la mano llega a la oreja ~1,2 y saca el lápiz a la vista; la cámara se queda hasta 1,5 y baja a la
+libreta 1,77; el brazo de Graciela con la bolsa en el borde derecho) · P2 2,12 · P3 4,78 · P3b 5,36 · P4 5,90 · P4w 7,07
+· P4i 8,79 · P5 9,49 · P5b 12,05 · P5c 13,33 · P5d 14,28 (subtítulo abajo, sin la cabeza de Rubén) · P6 16,23 (Graciela
+sale 16,23-16,73; Héctor entra 16,95-17,43; habla 17,03) · P6c 18,38 · cartel 19,83 (corte seco) · Q1 22,83 (mismo
+encuadre que P1, tablet más chica y acostada; mano sube 24,1, se frena, baja por el costado, toca 24,89; "+ $ 320 ✓" y
+$ 1.840 a 25,05; push-in a la tablet) · Q2 25,79 · Q2b 26,29 (Héctor entrando con el celular; vibra y notificación acá)
+· Q2c 26,84 ("¡Ah, mirá!…" 26,99 abajo, voz en off; Pagar 28,56) · Q3 29,15 (la tablet sola; Graciela "Avisado ✓") · Q3b
+30,20 · Q4 30,80 (mate, FIADO 31,12-31,75, el lápiz queda al costado de la grilla) · línea chica 31,75.

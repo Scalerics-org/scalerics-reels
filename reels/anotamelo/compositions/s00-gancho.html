@@ -10,7 +10,7 @@
     [data-composition-id="s00-gancho"] .sel { position: relative; display: inline-block; padding: 0 22px; }
     [data-composition-id="s00-gancho"] .sel b { position: absolute; inset: 6px 0 -2px; background: #5ce611; border: 6px solid #0b1220; border-radius: 8px; }
     [data-composition-id="s00-gancho"] .sel em { position: relative; font-style: normal; }
-    [data-composition-id="s00-gancho"] .cola { position: absolute; left: 760px; bottom: -86px; width: 0; height: 0; border-left: 46px solid transparent; border-right: 46px solid transparent; border-top: 90px solid #0b1220; transform: rotate(18deg); transform-origin: 50% 0; }
+    [data-composition-id="s00-gancho"] .cola { position: absolute; left: 800px; bottom: -86px; width: 0; height: 0; border-left: 46px solid transparent; border-right: 46px solid transparent; border-top: 90px solid #0b1220; transform: rotate(22deg); transform-origin: 50% 0; }
     [data-composition-id="s00-gancho"] .cola::after { content: ""; position: absolute; left: -30px; top: -98px; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 62px solid #efeee5; }
   </style>
   <div id="root" data-composition-id="s00-gancho" data-width="1080" data-height="1920" data-duration="1.69">
@@ -25,8 +25,7 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".glo"), { scale: 1 }, { scale: 1.05, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
-      tl.fromTo(q(".sel b"), { scaleX: 1.2, scaleY: 1.35 }, { scaleX: 1, scaleY: 1, duration: 0.28, ease: "power3.out", immediateRender: false }, 0.3);
+      tl.fromTo(q(".glo"), { scale: 1 }, { scale: 1.025, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);   // (ronda 2) sin el salto del recuadro verde
       tl.to(q(".glo"), { scale: 0.6, opacity: 0, y: -50, duration: 0.18, ease: "power2.in" }, 1.49);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
