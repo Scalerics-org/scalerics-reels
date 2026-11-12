@@ -34,13 +34,13 @@ T.ciclos = [
 ];
 T.p2 = 2.12;
 // P2 · el desfile: Héctor, Walter, Marta (con voz) y tres burbujas más, sin voz (cada vez más rápido)
-T.cli = [2.3, 3.06, 3.78, 4.45, 4.68, 4.9];       // cuando aparece cada burbuja
-T.llega = [2.24, 2.94, 3.66];                       // cuando entra (rápido, time-lapse) cada uno
-T.ciclos.push(ciclo(2.38, 0.12, 0.26, 0.14, 0.13), ciclo(3.13, 0.11, 0.23, 0.13, 0.12), ciclo(3.85, 0.1, 0.21, 0.12, 0.11));
-for (const t of [4.45, 4.68, 4.9]) T.ciclos.push(ciclo(t, 0.05, 0.07, 0.04, 0.06));
+T.cli = [2.56, 3.2, 3.85, 4.5, 4.72, 4.92];       // cuando aparece cada burbuja
+T.llega = [2.46, 3.1, 3.75];                       // cuando entra (rápido, time-lapse) cada uno
+T.ciclos.push(ciclo(2.6, 0.12, 0.24, 0.13, 0.12), ciclo(3.25, 0.1, 0.22, 0.12, 0.11), ciclo(3.89, 0.1, 0.2, 0.11, 0.1));
+for (const t of [4.5, 4.72, 4.92]) T.ciclos.push(ciclo(t, 0.05, 0.07, 0.04, 0.06));
 T.largos = [0.24, 0.215, 0.19, 0.165, 0.14, 0.12, 0.105, 0.09];   // el largo antes del primer ciclo y después de cada uno
 // el almanaque: la hoja que se arranca en cada cliente (día que se va → día que queda)
-T.hojas = [[2.42, 1, 8], [3.16, 8, 15], [3.88, 15, 22], [4.5, 22, 25], [4.72, 25, 27], [4.94, 27, 29]];
+T.hojas = [[2.64, 1, 8], [3.28, 8, 15], [3.92, 15, 22], [4.54, 22, 25], [4.75, 25, 27], [4.95, 27, 29]];
 // P3 · el 30: el almanaque grande, la última hoja vuela y queda el 30 con COBRAR · P3b la libreta cerrada y gorda
 T.p3 = 5.22; T.hoja30 = 5.32; T.p3b = 5.8;
 // P4 · cobrar, por encima del hombro de Rubén: Héctor "¿Yo te debía?" · corte a Walter "¿Eso no te lo pagué el martes?" ·

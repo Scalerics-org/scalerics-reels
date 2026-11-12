@@ -564,7 +564,7 @@ const GL = {
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte seco; dentro de un
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P3→Q2).
 const AP1 = (dz = 0, fov = 46) => [0.44, 1.72, 0.28 + dz, 0.4, 1.18, -1.55, fov];   // P1/Q1: desde el lado del cliente, picado leve
-const HOMBRO = (k = 0) => [-0.26 - k * 0.02, 1.7, -2.55 + k * 0.08, 0.36, 1.3, -0.6, 56 - k * 2];   // por encima del hombro derecho de Rubén
+const HOMBRO = (k = 0) => [-0.48 - k * 0.02, 1.72, -2.5 + k * 0.08, 0.22, 1.3, -0.6, 56 - k * 2];   // por encima del hombro derecho de Rubén
 const ALM = (k = 0) => [0.95, 1.76, 0.48 + k * 0.12, 0.95, 1.73, FZ, 44];   // el almanaque grande
 const LIBG = (k = 0) => [LIB0.x + 0.0, 1.62 - k * 0.06, LIB0.z + 0.86 - k * 0.05, LIB0.x - 0.02, MY + 0.02, LIB0.z + 0.24, 46];   // la libreta gorda
 const COB = (k = 0) => [-0.22 - k * 0.02, 1.66, -2.58 + k * 0.1, 0.22, 1.32, -0.66, 52 - k * 1.5];   // P4: contraplano, el cliente de frente
@@ -580,7 +580,7 @@ const SENT = (k = 0) => [0.42, 1.58, -0.5 - k * 0.12, 0.33, 1.08, -1.72, 50 - k 
 const PLANOS = [
   ["P1", 0, [[0, ...AP1(0)], [T.ciclos[0][0], ...AP1(-0.05, 45)], [T.ciclos[0][1] + 0.1, 0.52, 1.78, -0.3, 0.46, 1.08, -1.45, 46], [T.p2, 0.52, 1.76, -0.34, 0.46, 1.08, -1.45, 45]]],
   // la órbita de 140° hasta quedar por encima del hombro derecho de Rubén
-  ["P2", T.p2, [[T.p2, 0.52, 1.76, -0.34, 0.46, 1.08, -1.45, 45], [T.p2 + 0.22, -0.9, 2.05, -0.25, 0.3, 1.2, -1.5, 46], [T.p2 + 0.48, -1.05, 1.9, -1.9, 0.3, 1.28, -0.9, 50], [T.p2 + 0.7, ...HOMBRO(0)], [T.p3, ...HOMBRO(1)]]],
+  ["P2", T.p2, [[T.p2, 0.52, 1.76, -0.34, 0.46, 1.08, -1.45, 45], [T.p2 + 0.15, -0.55, 2.2, -0.45, 0.3, 1.1, -1.5, 46], [T.p2 + 0.3, -1.0, 2.0, -1.75, 0.3, 1.25, -0.9, 50], [T.p2 + 0.45, ...HOMBRO(0)], [T.p3, ...HOMBRO(1)]]],
   ["P3", T.p3, [[T.p3, ...ALM(0)], [T.p3b, ...ALM(-1)]]],
   ["P3b", T.p3b, [[T.p3b, ...LIBG(0)], [T.p4, ...LIBG(1)]]],
   ["P4", T.p4, [[T.p4, ...COB(0)], [T.p4w, ...COB(0.5)]]],
