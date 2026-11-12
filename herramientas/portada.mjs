@@ -21,7 +21,9 @@ if (!fs.existsSync(video)) {
   fs.writeFileSync(video, execFileSync("git", ["show", `origin/reel/${slug}:reels/${slug}/renders/${slug}-final.mp4`], { maxBuffer: 300e6 }));
 }
 const cuadro = path.join(tmp, "cuadro.png");
-execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(cfg.t ?? 2), "-i", video, "-frames:v", "1", cuadro]);
+// "fondo_limpio": un PNG del reel sin gancho, subtítulos ni logo (renderizado aparte); si está, se usa en vez del cuadro del mp4.
+if (cfg.fondo_limpio && fs.existsSync(path.join(dir, cfg.fondo_limpio))) fs.copyFileSync(path.join(dir, cfg.fondo_limpio), cuadro);
+else execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-ss", String(cfg.t ?? 2), "-i", video, "-frames:v", "1", cuadro]);
 
 // Círculo rojo alrededor de lo importante: "circulo": { "x": 540, "y": 760, "r": 220 } (centro y radio, en px
 // de la portada). Flecha roja: "flecha": { "x": 120, "y": 1000, "rot": -35 } (x, y = donde arranca la cola;
