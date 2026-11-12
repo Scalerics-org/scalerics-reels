@@ -18,7 +18,10 @@ Nada sintetizado con ffmpeg. Reusados del repo, con el crédito de `reels/anotam
   https://github.com/Boyquotes/kenney-rpg-audio-for-godot (pasados de .ogg a .wav).
 - `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `ding.mp3`, `notification.mp3`, `key-press.mp3`: la biblioteca de sonidos
   de HyperFrames que trae el molde del repo (los mismos de todos los reels).
-- Voz del cartel `voice/narrador.wav` ("Un sistema más tarde."): la de `reels/anotamelo` (Gemini TTS, Rasalgethi), reusada.
+- Voz del cartel `voice/narrador.wav` ("Una automatización más tarde.", ronda 1): nueva, Gemini TTS, Rasalgethi, con el tono de
+  la de anotamelo.
+- `sfx/sorbo.wav` (el sorbo de mate de Rubén, tramo 0,45-1,4 s): "drink;slurps;small.wav", Abir19, Freesound
+  (https://freesound.org/people/Abir19/sounds/629505/), CC0 1.0 (copiado de `reels/abren-hoy-2`).
 
 Nuevos, bajados el 12-11 (freesound.org está bloqueado desde la nube; espejo en GitHub que conserva la licencia):
 - Kenney, pack "Impact Sounds" (https://kenney.nl/assets/impact-sounds), CC0 1.0. Espejo:
@@ -29,5 +32,5 @@ Nuevos, bajados el 12-11 (freesound.org está bloqueado desde la nube; espejo en
 - **Teclas e impresora de la calculadora:** no se encontró una sumadora/impresora de tickets CC0 accesible desde la nube.
   Las teclas son `key-press.mp3` (real, de la biblioteca del repo) en ráfaga; el "trrrk" de la impresora se arma con
   recortes cortos de `papel.wav` (papel real) bajo las teclas, como pide el plan. Las teclas TOTAL y C: `k-metal-click`.
-- **Papel que se rasga:** no hay un "paper tear" CC0 accesible; el corte en el filo es `k-page-turn.wav` (papel real,
-  Kenney) recortado a 0,3 s.
+- **Papel que se rasga** (ronda 1): `sfx/rasgado.wav` = "paper_ripped_-_1.mp3" del pack "Various paper sound effects", Luckius,
+  OpenGameArt (https://opengameart.org/content/various-paper-sound-effects), CC0 (pasado a .wav).

@@ -712,8 +712,8 @@ const GL = {
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P2→Q2b, P6→Q4b).
 const HOMBRO = (k = 0) => [-0.25 + k * 0.03, 1.75 - k * 0.03, -2.38 + k * 0.12, -0.14, 0.95, 0.8, 54 - k * 2];   // P1/Q1: desde atrás del mostrador, a la derecha de Rubén (fuera de cuadro), hacia la persiana
 const FRENTE = (k = 0) => [0.4, 1.42, 0.35 - k * 0.14, 0.4, 1.2, -1.75, 50 - k * 2];   // P2/Q2b/Q3b: Rubén de frente (lado del cliente)
-const ALTA = (k = 0) => [1.35 - k * 0.05, 2.4 - k * 0.04, 0.95 - k * 0.05, -0.15, 0.85, -1.05, 60 - k];   // P3: general alto desde la derecha (Rubén entero, la torre y Marta a la izquierda)
-const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.52 + lejos * 0.12, -2.1 - lejos * 0.3 + k * 0.04, -0.4, 1.25 + lejos * 0.15, -0.9, 44 + lejos * 8];   // desde atrás del mostrador: la torre adelante, Marta detrás   // P3t: inserto de la torre (desde la derecha: Marta fuera de cuadro, solo su mano)
+const ALTA = (k = 0) => [1.6 - k * 0.05, 2.55 - k * 0.04, 1.2 - k * 0.05, 0.02, 0.85, -1.0, 64 - k];   // P3: general alto desde la derecha (Rubén entero, la torre y Marta a la izquierda)
+const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.55 + lejos * 0.1, -2.42 + k * 0.04, -0.4, 1.25 + lejos * 0.15, -0.9, 38 + lejos * 8];   // desde atrás del mostrador: la torre adelante, Marta detrás
 const BAJO = (k = 0) => [0.75 - k * 0.04, 0.42, -0.15 + k * 0.05, -0.25, 0.45, FZ, 58];   // P4: al ras del piso, la persiana y la franja de luz
 const RUBEN_M = (k = 0) => [0.45, 1.12, 0.6 - k * 0.12, 0.33, 1.34, -1.8, 50 - k * 2];   // P5/P5c: Rubén por arriba de la montaña de cinta (la montaña en primer término)
 const COSTADO = (k = 0) => [1.35 - k * 0.04, 1.38, 1.0 - k * 0.05, 0.12, 1.02, -1.35, 56 - k];   // P6c: general del lado del cliente (cámara baja: el rollo no tapa a Rubén)
