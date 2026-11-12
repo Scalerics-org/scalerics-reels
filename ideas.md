@@ -247,6 +247,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-12T05:10 -->
+- 12-11 · `anotamelo` · Sistema a medida + automatizaciones (cuentas corrientes del fiado: cada cliente ve su saldo y le llega el aviso para pagar) · Para mandar completo con Rubén: la libreta del fiado, "Anotámelo, Rubén"; nadie se acuerda de lo que debe · fondo almacén de día, paredes crema · corrida 12-11 05:10
+- 12-11 · `por-que-devolver-gratis` · Tienda online (política de cambios clara y fácil) · Explicador ¿Por qué? sin marcas: "¿Por qué las tiendas te dejan devolver gratis?" (estudio de devoluciones y compras siguientes, verificar) · fondo navy claro #16243d · corrida 12-11 05:10
 
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online
