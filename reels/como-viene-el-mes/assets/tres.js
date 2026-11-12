@@ -553,7 +553,7 @@ function crearCajon() {
 }
 const cajon = crearCajon(); scene.add(cajon);
 const CAJON = V3(-0.6, 0, -0.12);
-const CAJON2 = V3(-0.62, 0, -0.36);   // parte 2: lo deja al lado
+const CAJON2 = V3(-0.8, 0, -0.74);   // (ronda 1) al lado de Marta: en Q5 Rubén se sienta a su lado   // parte 2: lo deja al lado
 const banco = crearBanquito(0.62); banco.position.set(RI.x - 0.05, 0, RI.z - 0.25); scene.add(banco);
 // ---------- la bolsa del pan con tres flautas y la mano del panadero (solo antebrazo con manga navy2) ----------
 const bolsaPan = new THREE.Group(); scene.add(bolsaPan);
@@ -620,7 +620,7 @@ const termo = crearTermo(); termo.scale.setScalar(1.3); scene.add(termo);
 
 // ================= LOS PERSONAJES =================
 const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [1.0, 5.2, 9.0, 14.2, 22.0, 26.0, 31.0] });
-const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.6, 6.5, 13.0, 23.5, 30.9] });
+const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.9, 6.3, 11.7, 26.0, 34.6] });   // (ronda 1) nunca mientras habla
 const TODOS = [ruben, marta];
 // (ronda 1) la mano abierta de Rubén para el "más o menos": palma plana con cuatro dedos y el pulgar (en la mano derecha)
 const PALMA = new THREE.Group();
@@ -713,7 +713,7 @@ const GL = {
 const HOMBRO = (k = 0) => [-0.25 + k * 0.03, 1.75 - k * 0.03, -2.38 + k * 0.12, -0.14, 0.95, 0.8, 54 - k * 2];   // P1/Q1: desde atrás del mostrador, a la derecha de Rubén (fuera de cuadro), hacia la persiana
 const FRENTE = (k = 0) => [0.4, 1.42, 0.35 - k * 0.14, 0.4, 1.2, -1.75, 50 - k * 2];   // P2/Q2b/Q3b: Rubén de frente (lado del cliente)
 const ALTA = (k = 0) => [1.6 - k * 0.05, 2.55 - k * 0.04, 1.2 - k * 0.05, 0.02, 0.85, -1.0, 64 - k];   // P3: general alto desde la derecha (Rubén entero, la torre y Marta a la izquierda)
-const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.55 + lejos * 0.1, -2.42 + k * 0.04, -0.4, 1.25 + lejos * 0.15, -0.9, 38 + lejos * 8];   // desde atrás del mostrador: la torre adelante, Marta detrás
+const TORRE_C = (k = 0, lejos = 0) => [0.45, 1.42 + lejos * 0.08, -0.85 + k * 0.03, -0.36, 1.24 + lejos * 0.12, -1.12, 50 + lejos * 12];   // de costado desde el lado del cliente: la torre sola, de Marta entra solo la mano
 const BAJO = (k = 0) => [0.75 - k * 0.04, 0.42, -0.15 + k * 0.05, -0.25, 0.45, FZ, 58];   // P4: al ras del piso, la persiana y la franja de luz
 const RUBEN_M = (k = 0) => [0.45, 1.12, 0.6 - k * 0.12, 0.33, 1.34, -1.8, 50 - k * 2];   // P5/P5c: Rubén por arriba de la montaña de cinta (la montaña en primer término)
 const COSTADO = (k = 0) => [1.35 - k * 0.04, 1.38, 1.0 - k * 0.05, 0.12, 1.02, -1.35, 56 - k];   // P6c: general del lado del cliente (cámara baja: el rollo no tapa a Rubén)
@@ -748,7 +748,7 @@ const PLANOS = [
   ["Q3c", T.q3c, [[T.q3c, ...MARTA_Q(0.6)], [T.q4, ...MARTA_Q(0.7)]]],
   ["Q4", T.q4, [[T.q4, ...MARTA_Q(0.9)], [T.q4b, ...MARTA_Q(1.4)]]],
   ["Q4b", T.q4b, [[T.q4b, ...MARTA_Q(1.4)], [T.q5, ...MARTA_Q(1.9)]]],
-  ["Q5", T.q5, [[T.q5, 0.55, 1.6, -2.5, -0.42, 1.15, -0.55, 58], [DUR, 0.5, 1.6, -2.42, -0.42, 1.15, -0.55, 56]]],   // (ronda 1) desde atrás del mostrador: Marta de frente con su caja, Rubén sentado en el cajón   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
+  ["Q5", T.q5, [[T.q5, -1.0, 1.66, -2.42, -0.55, 1.05, -0.6, 64], [DUR, -0.98, 1.64, -2.34, -0.55, 1.05, -0.6, 62]]],   // (ronda 1) desde atrás del mostrador: Marta de frente con su caja, Rubén sentado en el cajón   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -815,7 +815,7 @@ const mirarA = (desde, x, z) => Math.atan2(x - desde.x, z - desde.z);
 // ---------- Rubén ----------
 const BANDEJA_M = V3(-0.55, MY, -1.12);   // (ronda 1) la bandeja va al mostrador en Q1, al costado de Marta
 const MQ = { x: -0.15, z: -0.7 };   // (ronda 1) parte 2: Marta en el mostrador, la bandeja a su izquierda
-const R5 = { x: -0.98, z: -0.66 };   // Q5: Rubén del lado del cliente, junto al cajón
+const R5 = { x: -1.05, z: -0.98 };   // Q5: Rubén del lado del cliente, junto al cajón
 const CAF = V3(-0.13, MY, -1.08);   // la caja CAFETERÍA en el mostrador
 const HACIA_M = -0.62;   // giro de la cabeza de Rubén hacia Marta (a su derecha, -x)
 const RK = [
@@ -844,7 +844,7 @@ const RK = [
   [T.q3b - 0.001, { ...aC(HACIA_M * 0.45, 0.04), ...BUENA, ojos: { x: -0.4, y: 0.05, abiertos: 1, feliz: 0.35 } }, 0.001],
   // (ronda 1) Q5: ya del lado del cliente, junto al cajón: saca un pocillo de la torre y se sienta (ahora espera él)
   [T.q5 - 0.001, { x: R5.x, z: R5.z, giro: mirarA(R5, BANDEJA_M.x, BANDEJA_M.z), y: 0, sentado: 0, inclina: 0.1, ...aC(0, 0.2), ...BUENA, ojos: { x: 0, y: -0.4, abiertos: 1, feliz: 0.2 } }, 0.001],
-  [T.sientaR[1], { x: CAJON2.x, z: CAJON2.z + 0.02, giro: mirarA(CAJON2, MQ.x, MQ.z) + 0.25, y: -0.13, sentado: 1, inclina: 0.06, ...aC(-0.2, 0.05), ...BUENA, ojos: { x: -0.2, y: 0.0, abiertos: 1, feliz: 0.3 } }, T.sientaR[1] - T.sientaR[0]],
+  [T.sientaR[1], { x: CAJON2.x, z: CAJON2.z + 0.02, giro: 2.8, y: -0.13, sentado: 1, inclina: 0.06, ...aC(-0.4, 0.05),   /* de 3/4 a cámara, la cabeza hacia Marta */ ...BUENA, ojos: { x: -0.2, y: 0.0, abiertos: 1, feliz: 0.3 } }, T.sientaR[1] - T.sientaR[0]],
 ];
 // ---------- Marta ----------
 const MC = { x: -0.55, z: -0.62 };   // (ronda 1) a la izquierda de la torre: no la tapa desde el general   // en el mostrador (a la izquierda, junto a la torre)
