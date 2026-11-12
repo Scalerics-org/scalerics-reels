@@ -37,7 +37,7 @@ const T = {
   fin: INI["s13-llamada"],
 };
 T.v0 = T.s07 + 0.3; T.toque = T.probar + 0.05; T.sella = T.devolver2 + 0.25;
-T.pies = T.championes - 0.06; T.nubeR = T.ysi - 0.08;
+T.pies = T.championes - 0.1; T.nubeR = T.ysi - 0.08;
 T.compra = T.devolucion + 0.45; T.pago = T.compra + 0.17; T.paga = T.pago + 0.2;
 T.llega = T.s11 - 0.5; T.abre = T.llega + 0.3; T.piesN = T.quedaron - 0.03; T.talon = T.quedaron + 0.5;
 
@@ -116,7 +116,7 @@ const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${
 const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: ${NAVY}; border: 5px solid ${G}; font: 600 44px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
     P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${G}; }`;
 // tramos sin logo (primeros planos de celulares; tarimas de s03-s05; la pila en s08): los lee armar.mjs
-const FIRMA = [[INI["s03-estudio"], INI["s06-por-que"]], [INI["s08-giro"], r2(INI["s08-giro"] + 0.6)]];
+const FIRMA = [[r2(T.vuelve), INI["s06-por-que"]], [INI["s07-riesgo"], r2(INI["s08-giro"] + 0.6)]]; // s02 (rótulo abajo) a s05 (tarimas); s07 (créditos abajo) y el inicio de s08
 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
@@ -125,9 +125,9 @@ const POS = {
   credEst: [540, 1680], reales: [540, 1690], realesLead: [700, 1635, 760, 1250],
   credPag: [540, 1690], antes: [540, 790], antesLead: [700, 745, 820, 625],
   masAntes: [540, 1690], masAntesLead: [640, 1635, 560, 760],
-  credRiesgo: [540, 1590], riesgo: [770, 860], riesgoLead: [770, 805, 700, 690],
+  credRiesgo: [540, 1830], riesgo: [540, 1830], riesgoLead: [0, 0, 0, 0],
   credRev: [540, 545], algo: [300, 1600], suben: [690, 1690], subenLead: [740, 1635, 740, 1100],
-  duda: [700, 1650], dudaLead: [620, 1595, 520, 1260],
+  duda: [300, 1500], dudaLead: [380, 1445, 520, 1270],
   vista: [540, 1790], vistaLead: [540, 1675, 540, 1500],
   sinUsar: [540, 1690], sinUsarLead: [540, 1635, 540, 1150],
 };
@@ -161,7 +161,7 @@ const POS = {
       { t: T.gratisG + 0.2, sfx: "papel", vol: 0.12, max: 0.4 },
       // cartón: las solapas (golpecitos sordos) y la cinta, todo en el silencio después de "gratis?" y con el grupo bajo
       ...[0, 1, 2, 3].map((k) => ({ t: tCierra + 0.08 + k * 0.076, sfx: "golpe", vol: 0.05, max: 0.18 })),
-      { t: tCierra + 0.4, sfx: "papel-fuerte", vol: 0.14, max: 0.25 },
+      { t: tCierra + 0.4, sfx: "papel-fuerte", vol: 0.07, max: 0.25 },
     ],
   });
 }
@@ -174,11 +174,10 @@ const POS = {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Y vuelve a comprar", "lleno")}`,
     js: `nota(1, ${rel(id, T.vuelve + 0.55)}); fuera([1], ${r2(ESC[id] - 0.22)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.6 },
-      ...[0, 1, 2, 3].map((k) => ({ t: 0.3 + k * 0.22, sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.1 })),
-      { t: rel(id, T.vuelve) - 0.1, sfx: "whoosh-short", vol: 0.3 },
-      { t: rel(id, T.vuelve), sfx: "pop", vol: 0.35 }, { t: rel(id, T.vuelve + 0.2), sfx: "pop", vol: 0.3 },
-      { t: rel(id, T.vuelve + 0.05), sfx: "sparkle", vol: 0.08, max: 0.6 },
+      { t: 0.0, sfx: "whoosh", vol: 0.022, max: 0.6 },
+      ...[0, 1, 2].map((k) => ({ t: 0.3 + k * 0.22, sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.08 })),
+      { t: rel(id, T.vuelve) - 0.1, sfx: "whoosh-short", vol: 0.022 },
+      { t: rel(id, T.vuelve), sfx: "pop", vol: 0.045 }, { t: rel(id, T.vuelve + 0.2), sfx: "pop", vol: 0.04 },
     ],
   });
 }
@@ -192,9 +191,10 @@ const POS = {
     html: `${cred(1, POS.credEst[0], POS.credEst[1], "Estudio en dos tiendas online", "publicado en 2012")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Compras reales, cliente por cliente")}`,
     js: `nota(1, 0.25); fuera([1], ${rel(id, T.dos + 0.05)}); nota(2, ${rel(id, T.dos + 0.15)}); fuera([2], ${r2(ESC[id] - 0.22)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh-cinematic", vol: 0.12, max: 0.9 },
-      ...[0, 1, 2, 3, 4, 5].map((k) => ({ t: 0.1 + k * 0.09 + 0.2, sfx: "pop", vol: 0.12 })),
-      { t: rel(id, T.siguio - 0.05), sfx: "pop", vol: 0.35 },
+      { t: -0.05, sfx: "whoosh-cinematic", vol: 0.07, max: 0.9 },
+      // las cajas que todavía caen después del corte (la 5 y la 6 de cada columna): pops bajos, siguiendo la caída
+      ...[4, 5].flatMap((kk) => [0, 1].map((i) => ({ t: -0.3 + kk * 0.07 + i * 0.03 + 0.16, sfx: "pop", vol: 0.025 }))),
+      { t: 0.62, sfx: "pop", vol: 0.06 },
       { t: rel(id, T.dos), sfx: "click-soft", vol: 0.2 },
     ],
   });
@@ -230,7 +230,7 @@ const POS = {
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
       { t: 0.12, sfx: "pop", vol: 0.25 },
-      ...[0, 1, 2].map((k) => ({ t: rel(id, T.mas + k * 0.14), sfx: "pop", vol: 0.7 * (0.25 + k * 0.05) })),
+      ...[0, 1, 2].map((k) => ({ t: rel(id, T.mas + k * 0.14), sfx: "pop", vol: 0.04 + k * 0.006 })),
       { t: rel(id, T.antes + 0.05), sfx: "ding", vol: 0.05, max: 0.8 },
     ],
   });
@@ -248,18 +248,18 @@ vacia("s06-por-que", [
   const id = "s07-riesgo";
   const [x, y] = POS.riesgo, [a, b, c, d] = POS.riesgoLead;
   escena(id, {
-    css: CSS_CRED,
-    html: `${cred(1, POS.credRiesgo[0], POS.credRiesgo[1], "Comprar a distancia:", "lo sabés recién cuando llega")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Riesgo de comprar")}`,
-    js: `nota(1, ${rel(id, T.v0 + 0.3)}); fuera([1], ${rel(id, T.devolver2 - 0.1)}); nota(2, ${rel(id, T.riesgo + 0.15)}); fuera([2], ${rel(id, T.achica - 0.05)});`,
+    css: CSS_CRED + `P .pill.malo { font-size: 50px; }`,
+    html: `${cred(1, POS.credRiesgo[0], POS.credRiesgo[1], "Comprar a distancia:", "lo sabés recién cuando llega")}${pill(2, x, y, "Riesgo de comprar", "malo")}`,
+    js: `nota(1, ${rel(id, T.v0 + 0.25)}); fuera([1], ${rel(id, T.riesgo + 0.2)}); nota(2, ${rel(id, T.riesgo + 0.3)}); fuera([2], ${rel(id, T.achica - 0.3)});`,
     sfx: [
       { t: rel(id, T.v0) - 0.12, sfx: "whoosh", vol: 0.3, max: 0.5 },
       { t: rel(id, T.toque), sfx: "tic", vol: 0.4 }, { t: rel(id, T.toque + 0.2), sfx: "tic", vol: 0.4 },
       { t: rel(id, T.riesgo), sfx: "glitch-1", vol: 0.08, max: 0.25 },
       { t: rel(id, T.devolver2 - 0.05), sfx: "whoosh-short", vol: 0.3 },
       { t: rel(id, T.sella), sfx: "sello", vol: 0.5 },
-      { t: rel(id, T.achica - 0.12), sfx: "click", vol: 0.12 },
-      { t: rel(id, T.achica + 0.12), sfx: "whoosh-short", vol: 0.18 },
-      { t: rel(id, T.achica + 0.45), sfx: "pop", vol: 0.25 },
+      { t: rel(id, T.achica - 0.14), sfx: "click", vol: 0.1 },
+      { t: rel(id, T.achica - 0.16), sfx: "whoosh-short", vol: 0.02 },
+      { t: rel(id, Wg(50) + 0.62), sfx: "pop", vol: 0.04 },
     ],
   });
 }
@@ -274,13 +274,13 @@ vacia("s06-por-que", [
     html: `${cred(1, POS.credRev[0], POS.credRev[1], "Revisión de estudios", "sobre devoluciones · 2016")}${pill(2, POS.algo[0], POS.algo[1], "Algo, sí", "chico")}${leads(lead(3, a, b, c, d))}${pill(3, x, y, "Suben más las compras", "lleno")}`,
     js: `nota(1, ${rel(id, T.masQ)}); fuera([1], ${rel(id, T.compran - 0.05)}); nota(2, ${rel(id, T.algo + 0.05)}); nota(3, ${rel(id, T.compran + 0.6)}); fuera([2, 3], ${r2(ESC[id] - 0.22)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh", vol: 0.2, max: 0.5 },
-      { t: 0.02, sfx: "papel", vol: 0.12, max: 0.35 },
-      ...[0, 1, 2, 3].map((k) => ({ t: rel(id, tc + 0.05 + k * 0.06), sfx: "golpe", vol: 0.05, max: 0.15 })),
+      { t: -0.05, sfx: "whoosh", vol: 0.025, max: 0.5 },
+      { t: 0.14, sfx: "papel", vol: 0.06, max: 0.35 },
+      ...[0, 1, 2, 3].map((k) => ({ t: rel(id, tc + 0.05 + k * 0.06), sfx: "golpe", vol: 0.03, max: 0.15 })),
       { t: rel(id, tc + 0.32), sfx: "papel-fuerte", vol: 0.25, max: 0.2 },
-      { t: rel(id, T.masQ + 0.15), sfx: "pop", vol: 0.35 },
+      { t: rel(id, T.masQ + 0.32), sfx: "pop", vol: 0.06 },
       { t: rel(id, T.algo + 0.05), sfx: "tic", vol: 0.3 },
-      ...[0, 1].map((k) => ({ t: rel(id, T.compran + k * 0.2 + 0.16), sfx: "pop", vol: 0.25 + k * 0.05 })),
+      ...[0, 1].map((k) => ({ t: rel(id, T.compran + k * 0.2 + 0.16), sfx: "pop", vol: 0.055 + k * 0.01 })),
       { t: rel(id, T.compran + 0.75), sfx: "ding", vol: 0.12, max: 0.8 },
     ],
   });
@@ -301,8 +301,7 @@ vacia("s06-por-que", [
       ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.28 + 0.233 * k + 0.1), sfx: "tac-real", vol: 0.3 })),
       { t: rel(id, T.nubeR) - 0.05, sfx: "whoosh-short", vol: 0.15 },
       { t: rel(id, T.nubeR + 0.05), sfx: "burbuja", vol: 0.3 },
-      ...[0, 1].map((k) => ({ t: rel(id, a0 + 0.24 + k * 0.55), sfx: "golpe", vol: 0.12, max: 0.3 })),
-      ...[0, 1].map((k) => ({ t: rel(id, a0 + 0.26 + k * 0.55), sfx: "pop", vol: 0.15 })),
+      ...[0, 1, 2].filter((k) => a0 + 0.275 + k * 0.55 < T.s10).flatMap((k) => [{ t: rel(id, a0 + 0.275 + k * 0.55), sfx: "golpe", vol: 0.12, max: 0.3 }, { t: rel(id, a0 + 0.285 + k * 0.55), sfx: "pop", vol: 0.12 }]),
     ],
   });
 }
@@ -313,10 +312,10 @@ vacia("s06-por-que", [
   const [x, y] = POS.vista, [a, b, c, d] = POS.vistaLead;
   FIRMA.push([INI[id], r2(T.llega)]);
   escena(id, {
-    html: `${pill(1, x, y, "A la vista, en cada producto", "lleno")}`,
-    js: `nota(1, ${rel(id, T.devolucion + 0.02)}); fuera([1], ${rel(id, T.compra - 0.03)});`,
+    html: `<i></i>`,
+    js: ``,
     sfx: [
-      { t: -0.08, sfx: "whoosh-short", vol: 0.3 },
+      { t: -0.08, sfx: "whoosh-short", vol: 0.03 },
       { t: rel(id, T.devolucion - 0.05), sfx: "ping", vol: 0.3, max: 0.6 },
       { t: rel(id, T.compra), sfx: "click-soft", vol: 0.12 },
       { t: rel(id, T.paga), sfx: "click-soft", vol: 0.12 },
@@ -331,9 +330,9 @@ vacia("s06-por-que", [
   vacia(id, [
     { t: rel(id, T.llega - 0.04), sfx: "timbre", vol: 0.2, max: 0.6 },
     { t: rel(id, T.llega + 0.22), sfx: "golpe", vol: 0.35, max: 0.4 },
-    { t: rel(id, T.abre), sfx: "papel", vol: 0.35, max: 0.4 },
-    { t: rel(id, T.abre + 0.1), sfx: "pop", vol: 0.25 },
-    { t: rel(id, T.piesN) - 0.05, sfx: "whoosh-short", vol: 0.1 },
+    { t: rel(id, T.abre), sfx: "papel", vol: 0.17, max: 0.35 },
+    { t: rel(id, T.abre + 0.04), sfx: "pop", vol: 0.045 },
+    { t: rel(id, T.piesN) - 0.05, sfx: "whoosh-short", vol: 0.02 },
     // después de "quedaron": el viejo del piso cierra la boca
     { t: rel(id, T.talon + 0.1), sfx: "tac-real", vol: 0.45 },
     { t: rel(id, T.talon + 0.14), sfx: "sparkle", vol: 0.05, max: 0.45 },
@@ -373,7 +372,7 @@ vacia("s06-por-que", [
     sfx: [
       { t: -0.14, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
       { t: 0.3, sfx: "chime", vol: 0.1, max: 0.8 },
-      { t: 0.28, sfx: "pop", vol: 0.2 },
+      { t: 0.28, sfx: "pop", vol: 0.04 },
       { t: w(id, 88) - 0.03, sfx: "ding", vol: 0.08, max: r2(Math.min(1.2, ESC[id] - w(id, 88) - 0.3)) },
     ],
   });

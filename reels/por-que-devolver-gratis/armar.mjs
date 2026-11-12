@@ -32,7 +32,10 @@ const lufsArchivo = (n, desde = 0, dur = 99) => {
 };
 // silencio inicial de cada SFX: se adelanta el cue para que el sonido arranque en el tiempo pedido
 const lead = {};
+// ronda 2: papel.mp3 y ping.mp3 arrancan con ~0,3 s de ruido de fondo (no es silencio digital): se fija a mano
+const LEAD_FIJO = { papel: 0.32, ping: 0.31 };
 const leadArchivo = (n) => {
+  if (LEAD_FIJO[n] !== undefined) return LEAD_FIJO[n];
   if (lead[n] === undefined) {
     const txt = execSync(`ffmpeg -hide_banner -i assets/sfx/${n}.mp3 -af silencedetect=n=-45dB:d=0.02 -f null - 2>&1`).toString();
     const m = txt.match(/silence_start: (-?[\d.]+)[\s\S]*?silence_end: ([\d.]+)/);
@@ -113,7 +116,9 @@ CORTES.forEach((desde, g) => {
     })
     .join(" ");
   const largoTxt = ws.map((w, k) => TEXTO[desde + k] ?? w.text).join(" ").length;
-  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${largoTxt > 22 ? ' style="font-size: 64px"' : largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
+  const CLARO = [TODAS.find(([id]) => id === "s09-ruben")[1], TODAS.find(([id]) => id === "s12-tu-tienda")[1]];
+  const claro = ini >= CLARO[0] - 0.01 && ini < CLARO[1] - 0.01 ? ' class="claro"' : "";
+  grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${claro}${largoTxt > 22 ? ' style="font-size: 64px"' : largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
 });
 
@@ -126,7 +131,7 @@ const subtitulos = `<template>
     ${C} p { margin: 0; padding: 4px 30px 12px; -webkit-text-stroke: 14px #0b1220; paint-order: stroke fill; max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #efeee5; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
-    ${C} .w.ac { margin: 0 4px; }
+    ${C} .w.ac { margin: 0; } ${C} p.claro { background: rgba(11,18,32,0.78); border-radius: 26px; }
     ${C} .caja { position: absolute; left: -12px; right: -12px; top: 8px; bottom: 0px; border-radius: 16px; background: #5ce611; border: 5px solid #0b1220; opacity: 0; }
     ${C} .caja i { display: none; }
     ${C} .malo .caja { border-color: #0b1220; background: #c7655b; }
@@ -194,7 +199,7 @@ for (const [id, a] of ESCENAS) {
 for (const [id, a] of ESCENAS.slice(1)) {
   const f = `compositions/${id}.sfx.json`;
   const propio = fs.existsSync(f) && JSON.parse(fs.readFileSync(f, "utf8")).some((s) => /^whoosh/.test(s.sfx) && s.t <= 0.3 && s.t >= -0.6);
-  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.15 });
+  if (!propio) sfx.push({ t: r2(a - 0.15), name: "whoosh-short", vol: 0.03 }); // ronda 2: debajo del techo (antes quedaba topado)
 }
 for (const s of sfx) { const l = leadArchivo(s.name); s.cut = l; s.t = r2(s.t - l); if (s.t < 0) s.t = 0; s.max = s.max ?? MAXDEF[s.name]; }
 sfx.sort((x, y) => x.t - y.t);

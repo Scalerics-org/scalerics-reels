@@ -12,11 +12,11 @@
     [data-composition-id="s07-riesgo"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s07-riesgo"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
 [data-composition-id="s07-riesgo"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #0b1220; border: 5px solid #5ce611; font: 600 44px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; }
-    [data-composition-id="s07-riesgo"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #5ce611; }
+    [data-composition-id="s07-riesgo"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #5ce611; }[data-composition-id="s07-riesgo"] .pill.malo { font-size: 50px; }
   </style>
   <div id="root" data-composition-id="s07-riesgo" data-width="1080" data-height="1920" data-duration="3.96">
     <div id="s07-riesgo-esc" class="esc clip" data-start="0" data-duration="3.96" data-track-index="0">
-<div class="cred n1" style="left:540px;top:1590px">Comprar a distancia:<span class="sub">lo sabés recién cuando llega</span></div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M770 805 L700 690"/><circle class="dot  d2" cx="700" cy="690" r="13"/></svg><div class="pill  n2" style="left:770px;top:860px">Riesgo de comprar</div>
+<div class="cred n1" style="left:540px;top:1830px">Comprar a distancia:<span class="sub">lo sabés recién cuando llega</span></div><div class="pill malo n2" style="left:540px;top:1830px">Riesgo de comprar</div>
     </div>
   </div>
   <script>
@@ -40,7 +40,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.6); fuera([1], 2.01); nota(2, 1.47); fuera([2], 3.07);
+nota(1, 0.55); fuera([1], 1.52); nota(2, 1.62); fuera([2], 2.82);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

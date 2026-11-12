@@ -300,7 +300,7 @@ function extruirPerfil(pts, ancho, bev = 0.01, curvas = []) {
   return g;
 }
 const PERFIL_CAP = [[-0.132, 0.036], [-0.138, 0.1], [-0.124, 0.133, [-0.14, 0.13]], [-0.09, 0.126], [-0.052, 0.116], [-0.034, 0.142], [-0.014, 0.14], [0.06, 0.088], [0.104, 0.07], [0.138, 0.05, [0.134, 0.068]], [0.14, 0.036, [0.146, 0.04]]];
-const PERFIL_PUNTA = [[0.088, 0.036], [0.09, 0.064], [0.12, 0.062], [0.141, 0.046, [0.138, 0.062]], [0.142, 0.036, [0.147, 0.04]]];
+const PERFIL_PUNTA = [[0.095, 0.036], [0.1, 0.058, [0.094, 0.05]], [0.124, 0.06, [0.112, 0.062]], [0.141, 0.046, [0.137, 0.059]], [0.142, 0.036, [0.146, 0.04]]];
 const PERFIL_TALON = [[-0.134, 0.036], [-0.14, 0.096], [-0.112, 0.1], [-0.1, 0.036]];
 const PERFIL_FRANJA = [[-0.085, 0.064], [0.05, 0.058], [0.062, 0.074], [-0.074, 0.088]];
 const geoCap = extruirPerfil(PERFIL_CAP, 0.084), geoPunta = extruirPerfil(PERFIL_PUNTA, 0.088, 0.011), geoTalon = extruirPerfil(PERFIL_TALON, 0.088, 0.011), geoFranja = extruirPerfil(PERFIL_FRANJA, 0.003, 0.002);
@@ -315,9 +315,12 @@ function hacerChampion({ viejo = false } = {}) {
   const dibujo = tex(512, 64, (x, w, h) => { x.fillStyle = viejo ? "#d9d4c2" : "#ffffff"; x.fillRect(0, 0, w, h); x.fillStyle = viejo ? "#9c9684" : "#b4b2a3"; for (let i = 0; i < w; i += 32) x.fillRect(i, h * 0.5, 18, h * 0.32); x.fillStyle = viejo ? "#8a846f" : "#2c4268"; x.fillRect(0, h * 0.22, w, 7); });
   const sueM = new THREE.MeshStandardMaterial({ map: dibujo, roughness: 0.6 });
   // suela blanca gruesa con perfil: atrás fija; adelante en bisagra (el viejo la tiene despegada)
-  g.add(mesh(rbox(0.114, 0.038, 0.17, 0.014, 2), [sueM, sueM, sue, sue, sueM, sueM], 0, 0.019, -0.065));
+  // los nuevos: suela de una pieza; el viejo: la misma suela partida en la bisagra (misma altura, sin escalón)
   const bis = new THREE.Group(); bis.position.set(0, 0.0, 0.02); g.add(bis);
-  bis.add(mesh(rbox(0.112, 0.036, 0.135, 0.016, 2), [sueM, sueM, sue, sue, sueM, sueM], 0, 0.018, 0.064));
+  if (viejo) {
+    g.add(mesh(rbox(0.114, 0.038, 0.17, 0.014, 2), [sueM, sueM, sue, sue, sueM, sueM], 0, 0.019, -0.065));
+    bis.add(mesh(rbox(0.114, 0.038, 0.135, 0.014, 2), [sueM, sueM, sue, sue, sueM, sueM], 0, 0.019, 0.064));
+  } else g.add(mesh(rbox(0.114, 0.038, 0.3, 0.016, 2), [sueM, sueM, sue, sue, sueM, sueM], 0, 0.019, 0.0));
   if (viejo) { // la "boca": el interior oscuro bajo la capellada
     g.add(mesh(rbox(0.09, 0.006, 0.11, 0.003, 1), mat(0x2a1c18, 0.9), 0, 0.037, 0.085));
     bis.add(mesh(rbox(0.09, 0.004, 0.1, 0.002, 1), mat(0xa04a44, 0.8), 0, 0.037, 0.065));
@@ -333,10 +336,9 @@ function hacerChampion({ viejo = false } = {}) {
   const len = mesh(rbox(0.05, 0.05, 0.012, 0.01, 2), cap2, 0, 0.143, -0.03); len.rotation.x = -0.4; g.add(len);
   for (let i = 0; i < 4; i++) {
     const z = -0.008 + i * 0.019, y = 0.137 - (z + 0.014) * 0.667 + 0.006;
-    const c1 = mesh(rbox(0.074, 0.007, 0.008, 0.003, 1), cord, 0, y, z); c1.rotation.set(0.59, 0, (i % 2 ? 1 : -1) * 0.12); g.add(c1);
-    for (const sx of [-1, 1]) g.add(mesh(new THREE.SphereGeometry(0.005, 8, 6), M.navy, sx * 0.04, y - 0.002, z));
+    const c1 = mesh(rbox(0.086, 0.012, 0.013, 0.005, 1), cord, 0, y + 0.002, z); c1.rotation.set(0.59, 0, (i % 2 ? 1 : -1) * 0.16); g.add(c1);
+    for (const sx of [-1, 1]) g.add(mesh(new THREE.SphereGeometry(0.0065, 8, 6), M.navy, sx * 0.043, y - 0.001, z));
   }
-  if (!viejo) { const ll = mesh(rbox(0.045, 0.01, 0.006, 0.003, 1), cord, 0.02, 0.15, -0.045); ll.rotation.set(-0.3, 0, 0.6); g.add(ll); }
   sh(g);
   g.userData = { bis };
   return g;
@@ -423,14 +425,15 @@ const enPant = (g, px, py, z = 0.01) => V((px / PP[0] - 0.5) * g.userData.Wc, (0
 function hacerSello() {
   const g = new THREE.Group();
   const t = tex(1024, 300, (x, w, h) => {
-    x.fillStyle = VER; rr(x, 0, 0, w, h, 70); x.lineWidth = 22; x.strokeStyle = NAV0; x.beginPath(); x.roundRect(11, 11, w - 22, h - 22, 60); x.stroke();
+    x.clearRect(0, 0, w, h); x.fillStyle = VER; rr(x, 2, 2, w - 4, h - 4, 66); x.lineWidth = 20; x.strokeStyle = NAV0; x.beginPath(); x.roundRect(12, 12, w - 24, h - 24, 56); x.stroke();
     flechaVuelta(x, 150, 150, 66, NAV0, 30, 1);
     x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "Devolución", 900, 104, w - 300); x.fillText("Devolución", 260, 104);
     ajustar(x, "gratis", 900, 104, w - 300); x.fillText("gratis", 260, 210);
   });
-  const fm = new THREE.MeshStandardMaterial({ map: t, roughness: 0.5, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.22 });
-  g.add(mesh(rbox(1, 0.293, 0.06, 0.06, 2), [M.g, M.g, M.g, M.g, fm, M.g]));
-  sh(g); return g;
+  // ronda 2: una placa plana con la textura (la caja redondeada verde daba un doble borde corrido)
+  const fm = new THREE.MeshStandardMaterial({ map: t, roughness: 0.5, emissive: 0xffffff, emissiveMap: t, emissiveIntensity: 0.22, transparent: true, alphaTest: 0.5 });
+  g.add(mesh(new THREE.PlaneGeometry(1, 0.293), fm, 0, 0, 0));
+  return g;
 }
 
 // ================= ZONA C: la caja del gancho y la cinta transportadora en U =================
@@ -612,8 +615,8 @@ const etiV = hacerEtiqueta("gratis"); scene.add(etiV);
 
 // ================= ZONA P: las dos pilas =================
 const pisoP = pisoSombra(OP.x, 0, 10, 10);
-const KP = 0.8;
-const PILA = { x: 0.34 };
+const KP = 1.0;
+const PILA = { x: 0.36 };
 const pilaI = Array.from({ length: 3 }, () => { const c = hacerCaja({ seda: false }); ponerCaja(c, [0, 0, 0, 0], 1); const e = hacerEtiqueta("vuelta"); c.userData.cuerpo.add(e); e.position.set(0, CJ.H * 0.5, CJ.D / 2 + 0.006); e.scale.setScalar(1.1); scene.add(c); return c; });
 const pilaD = Array.from({ length: 6 }, (_, k) => { const c = hacerCaja({ seda: k === 2 }); ponerCaja(c, [0, 0, 0, 0], 1); const tk = hacerTilde(0.07, c.userData.cuerpo); tk.position.set(0, CJ.H * 0.5, CJ.D / 2 + 0.012); scene.add(c); return c; });
 const champP = hacerChampion(); scene.add(champP);
@@ -679,6 +682,8 @@ const termo = crearTermo(); scene.add(termo); termo.scale.setScalar(1.25); termo
 const banquito = crearBanquito(0.55); scene.add(banquito);
 const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 3.3 }); scene.add(ruben.raiz);
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
+// ronda 2: el bolsillo verde del delantal quedaba flotando delante del regazo (sentado): se oculta
+ruben.cuerpo.traverse((o) => { if (!o.isMesh || !o.geometry) return; o.geometry.computeBoundingBox(); const b = o.geometry.boundingBox, sx = b.max.x - b.min.x, sy = b.max.y - b.min.y, sz = b.max.z - b.min.z; if (o.material?.color?.getHex() === 0x5ce611 && ((Math.abs(sx - 0.12) < 0.004 && Math.abs(sy - 0.07) < 0.004) || o.geometry.type === "TorusGeometry")) o.visible = false; }); // (y el ribete verde del borde del delantal, que sentado quedaba como una barra suelta)
 const RB = { x: OR.x + 0.0, z: 0.15, y: 0.058 };
 banquito.position.set(RB.x, 0, RB.z + 0.0);
 // el calzado de Rubén: los championes viejos (el derecho con la suela despegada) y los nuevos
@@ -723,13 +728,12 @@ const champNube = hacerChampion(); nubeItems.add(champNube);
 const pieNube = new THREE.Group(); nubeItems.add(pieNube);
 {
   // pie con media crema (puño verde) y la botamanga del pantalón: se lee como pie
-  const media = mat(C.cr, 0.85);
+  const media = mat(C.edge, 0.8);
   const planta = mesh(esfGeo, media, 0, 0.045, 0.035); planta.scale.set(0.052, 0.045, 0.115); pieNube.add(planta);
   const talon = mesh(esfGeo, media, 0, 0.055, -0.06); talon.scale.set(0.05, 0.055, 0.05); pieNube.add(talon);
   for (let i = 0; i < 4; i++) { const d = mesh(esfGeo, media, -0.03 + i * 0.02, 0.05, 0.135 - Math.abs(i - 1.5) * 0.008); d.scale.setScalar(0.016); pieNube.add(d); }
-  pieNube.add(mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.13, 20), media, 0, 0.15, -0.055));
-  const puno = mesh(new THREE.TorusGeometry(0.046, 0.01, 8, 24), M.g, 0, 0.2, -0.055); puno.rotation.x = Math.PI / 2; pieNube.add(puno);
-  pieNube.add(mesh(new THREE.CylinderGeometry(0.062, 0.062, 0.1, 20), mat(0x3a3f4a, 0.7), 0, 0.26, -0.055));
+  pieNube.add(mesh(new THREE.CylinderGeometry(0.044, 0.05, 0.07, 20), media, 0, 0.115, -0.055));
+  const puno = mesh(new THREE.TorusGeometry(0.045, 0.012, 8, 24), M.g, 0, 0.15, -0.055); puno.rotation.x = Math.PI / 2; pieNube.add(puno);
   sh(pieNube);
 }
 // la caja que le llega (LA misma: cajaG) y los championes nuevos adentro, con la etiqueta sin usar
@@ -772,7 +776,7 @@ T.q0 = T.s06 - 0.07;        // corte a la caja sola
 T.v0 = T.s07 + 0.3;         // corte a la vitrina (el "?" queda 1,2 s en pantalla)
 T.toque = T.probar + 0.05;  // la mano choca contra el vidrio
 T.sella = T.devolver2 + 0.25;
-T.pies = T.championes - 0.06; // contraplano a los pies
+T.pies = T.championes - 0.1; // contraplano al champión viejo (antes que el subtítulo)
 T.nubeR = T.ysi - 0.08;     // vuelve el plano medio con la nube
 T.compra = T.devolucion + 0.45; // toque en "Comprar" (onda en el botón)
 T.pago = T.compra + 0.17;    // pantalla de pago
@@ -818,7 +822,7 @@ function armarPlanos() {
     })()],
     // s03: los dos celulares-tarima con sus columnas; grúa que retrocede
     ["E", T.s03, [
-      k(T.s03, e(0, 1.45, 3.0), e(0, 0.42, 0.0)),
+      k(T.s03, e(0, 2.25, 5.5), e(0, 0.78, -0.15)),
       k(T.s03 + 1.0, e(0, 2.55, 5.8), e(0, 0.95, -0.2)),
       k(T.s04, e(0, 2.6, 5.9), e(0, 0.95, -0.2)),
     ]],
@@ -831,16 +835,16 @@ function armarPlanos() {
     ]],
     // s05: travelling a la tienda 2; la columna crece y la cámara sube; al final abre a las dos
     ["E", T.s05, [
-      k(T.s05, e(-0.5, 2.1, 4.05), e(-0.5, 0.78, 0.0)),
+      k(T.s05, e(0.5, 2.1, 4.1), e(0.5, 0.8, 0.0)),
       k(T.s05 + 0.4, e(0.5, 2.1, 4.05), e(0.5, 0.82, 0.0)),
       k(T.mas + 0.5, e(0.5, 2.45, 4.1), e(0.5, 1.2, -0.15)),
       k(T.q0, e(0.1, 2.8, 6.0), e(0.05, 1.05, -0.2)),
     ]],
     // s06: la caja sola; push-in y órbita corta; el "?" sale
     ["Q", T.q0, [
-      k(T.q0, q(0.7, 1.2, 2.9), q(0, 0.42, 0)),
-      k(T.que + 0.25, q(0.35, 1.15, 3.0), q(0, 0.62, 0)),
-      k(T.v0, q(0.12, 1.15, 2.75), q(0, 0.64, 0)),
+      k(T.q0, q(0.45, 0.95, 2.3), q(0, 0.24, 0)),
+      k(T.que + 0.25, q(0.3, 1.15, 3.2), q(0, 0.6, 0)),
+      k(T.v0, q(0.12, 1.2, 3.4), q(0, 0.64, 0)),
     ]],
     // s07: el celular-vitrina de frente; push-in leve
     ["V", T.v0, [
@@ -850,10 +854,10 @@ function armarPlanos() {
     ]],
     // s08: el champión cae en la caja de arriba de la pila derecha; la cámara abre a las dos pilas
     ["P", T.s08, [
-      k(T.s08, pp(PILA.x + 0.05, 1.65, 2.05), pp(PILA.x, pilaY(2) + 0.3, 0)),
-      k(T.s08 + 0.45, pp(PILA.x, 1.7, 2.15), pp(PILA.x, pilaY(2) + 0.3, 0)),
-      k(T.algo, pp(0.05, 1.65, 4.1), pp(0.0, 0.68, 0)),
-      k(T.s09, pp(0.0, 1.7, 4.3), pp(0.0, 0.7, 0)),
+      k(T.s08, pp(PILA.x + 0.05, 1.95, 2.35), pp(PILA.x, pilaY(2) + 0.38, 0)),
+      k(T.s08 + 0.45, pp(PILA.x, 2.0, 2.45), pp(PILA.x, pilaY(2) + 0.38, 0)),
+      k(T.algo, pp(0.03, 1.5, 4.55), pp(0.0, 0.7, 0)),
+      k(T.s09, pp(0.0, 1.45, 4.25), pp(0.0, 0.72, 0)),
     ]],
     // s09: el almacén de noche, Rubén en el banquito mirando el celular (plano medio)
     ["R", T.s09, [
@@ -868,19 +872,19 @@ function armarPlanos() {
     ]],
     // otra vez el plano medio, más abierto para la nube
     ["R", T.nubeR, [
-      k(T.nubeR, r(0.6, 1.62, 3.85), r(0.3, 1.3, RB.z)),
-      k(T.s10, r(0.58, 1.6, 3.7), r(0.3, 1.3, RB.z)),
+      k(T.nubeR, r(0.78, 1.62, 3.95), r(0.42, 1.32, RB.z)),
+      k(T.s10, r(0.76, 1.6, 3.8), r(0.42, 1.32, RB.z)),
     ]],
     // s10: el celular (inserto desde los ojos de Rubén) y push-in
     ["RC", T.s10, [
-      k(T.s10, desdeCelu(0.52, 0.026), miraCelu(0.026)),
-      k(T.precio, desdeCelu(0.46, 0.024), miraCelu(0.024)),
-      k(T.llega, desdeCelu(0.44, 0.024), miraCelu(0.024)),
+      k(T.s10, desdeCelu(0.385, 0.027), miraCelu(0.027)),
+      k(T.precio, desdeCelu(0.378, 0.027), miraCelu(0.027)),
+      k(T.llega, desdeCelu(0.374, 0.027), miraCelu(0.027)),
     ]],
     // s11: la caja cae en el mostrador y se abre (picado)
     ["RM", T.llega, [
-      k(T.llega, [MOST.x + 0.25, MOST.y + 1.5, MOST.z + 2.1], [MOST.x - 0.02, MOST.y + 0.42, MOST.z]),
-      k(T.piesN, [MOST.x + 0.22, MOST.y + 1.42, MOST.z + 1.95], [MOST.x - 0.02, MOST.y + 0.4, MOST.z]),
+      k(T.llega, [MOST.x + 0.22, MOST.y + 1.02, MOST.z + 2.05], [MOST.x - 0.02, MOST.y + 0.27, MOST.z]),
+      k(T.piesN, [MOST.x + 0.2, MOST.y + 0.98, MOST.z + 1.92], [MOST.x - 0.02, MOST.y + 0.26, MOST.z]),
     ]],
     // los pies con los nuevos y el viejo en el piso
     ["RP", T.piesN, [
@@ -889,8 +893,8 @@ function armarPlanos() {
     ]],
     // s12: "Tu tienda": el celular gira hacia cámara; push-in
     ["F1", T.s12, [
-      k(T.s12, [PF.x, PF.y + 0.03, PF.z + 0.52], [PF.x, PF.y + 0.026, PF.z]),
-      k(T.fin, [PF.x, PF.y + 0.027, PF.z + 0.45], [PF.x, PF.y + 0.024, PF.z]),
+      k(T.s12, [PF.x, PF.y + 0.027, PF.z + 0.385], [PF.x, PF.y + 0.027, PF.z]),
+      k(T.fin, [PF.x, PF.y + 0.027, PF.z + 0.372], [PF.x, PF.y + 0.027, PF.z]),
     ]],
     // s13: cierre verde, la caja chica con el tilde abajo
     ["F2", T.fin, [
@@ -997,7 +1001,7 @@ function zonaE(t) {
   // columnas: 6 cajas que caen de a una en s03; la 1 se desarma en "menos"; la 2 crece a 9 en "más"
   columnas.forEach((col, i) => {
     col.forEach((cc, kk) => {
-      const t0 = T.s03 - 0.3 + kk * 0.07 + i * 0.03; // las dos primeras ya cayeron en el corte
+      const t0 = T.s03 - 2; // ronda 2: las columnas ya están armadas en el corte (nada cae cortado por el borde)
       let vis = kk < 6 ? t > t0 : false;
       let s = 1, y = colY(kk), gris = false;
       if (kk < 6) { const u = caida(t, t0, 0.16); y = lerp(colY(kk) + 0.55, colY(kk), u); }
@@ -1076,9 +1080,9 @@ function zonaV(t) {
   vitrina.position.set(OV.x, 0, 0);
   // el champión en la vitrina, girando lento; en "achica" sale al mundo con pop
   const sale = eio(sg(t, T.achica + 0.12, T.achica + 0.5));
-  champV.position.set(0, 1.3 + 0.02 * Math.sin(t * 2) + sale * 0.12, lerp(-0.02, VIT.d / 2 + 0.95, sale));
+  champV.position.set(0, 1.3 + 0.02 * Math.sin(t * 2) - sale * 0.12, lerp(-0.02, VIT.d / 2 + 1.1, sale));
   champV.rotation.set(0.08 + sale * 0.15, 1.15 + Math.sin((t - T.v0) * 0.9) * 0.35 - sale * 0.35, 0);
-  champV.scale.setScalar(KCV * (1 + 0.15 * sale) * (1 + 0.1 * pulso(t, T.achica + 0.45, 0.3)));
+  champV.scale.setScalar(KCV * (1 + 0.05 * sale) * (1 + 0.08 * pulso(t, T.achica + 0.45, 0.3)));
   // el vidrio: se desvanece en "achica" (deja salir el champión); no se mueve
   const fv = 1 - eio(sg(t, T.achica - 0.05, T.achica + 0.15));
   vidrio.position.y = VIT.h / 2; vidrio.visible = fv > 0.01;
@@ -1135,11 +1139,11 @@ function zonaP(t) {
   if (!en) return;
   // izquierda (devoluciones): 2 → 3 en "¿Devuelven más?"
   pilaI.forEach((cc, kk) => {
-    const t0 = kk < 2 ? -1 : T.masQ - 0.05;
+    const t0 = kk < 2 ? -1 : T.masQ + 0.12; // cae después de "más?" (el golpe no pisa la voz)
     cc.visible = t > t0;
     if (!cc.visible) return;
     const u = kk < 2 ? 1 : caida(t, t0, 0.2);
-    cc.position.set(OP.x - PILA.x, lerp(pilaY(kk) + 0.9, pilaY(kk), u), 0);
+    cc.position.set(OP.x - PILA.x, lerp(pilaY(kk) + 0.45, pilaY(kk), u), 0);
     cc.rotation.set(0, Math.sin(kk * 1.7) * 0.07, 0); cc.scale.setScalar(KP);
   });
   // derecha (compras): la de arriba (2) abierta recibe el champión, se cierra; +3 en "compran más"
@@ -1148,8 +1152,8 @@ function zonaP(t) {
     cc.visible = t > t0;
     if (!cc.visible) return;
     const u = kk < 3 ? 1 : caida(t, t0, 0.18);
-    cc.position.set(OP.x + PILA.x, lerp(pilaY(kk) + 0.9, pilaY(kk), u), 0);
-    cc.rotation.set(0, Math.sin(kk * 2.1) * 0.07, 0); cc.scale.setScalar(KP);
+    cc.position.set(OP.x + PILA.x, lerp(pilaY(kk) + 0.45, pilaY(kk), u), 0);
+    cc.rotation.set(0, Math.sin(kk * 2.1) * 0.07, 0); cc.scale.setScalar(KP * (1 + 0.06 * pulso(t, W[57] + kk * 0.04, 0.25)));
     if (kk === 2) { const tc = T.masQ + 0.4; ponerCaja(cc, cierreEn(t, tc, 0.3), eio(sg(t, tc + 0.3, tc + 0.42))); }
   });
   // el champión cae en la caja abierta
@@ -1158,7 +1162,7 @@ function zonaP(t) {
   if (champP.visible) {
     const u = sg(t, tc0, tc0 + 0.3);
     champP.position.set(OP.x + PILA.x, lerp(pilaY(2) + CJ.H * KP + 0.12, pilaY(2) + CJ.H * KP * 0.25, u * u), 0.0);
-    champP.rotation.set(0.3 * (1 - u), 0.6 + u * 0.5, 0.2 * (1 - u));
+    champP.rotation.set(0.15 * (1 - u), Math.PI / 2 + 0.2, 0.25 * (1 - u));
     champP.scale.setScalar(1.25);
   }
 }
@@ -1209,6 +1213,8 @@ function zonaR(t) {
   ponerRuben(t);
   ruben.ojoLejano(camera.position);
   ruben.raiz.visible = plano !== "RC"; mateM.visible = plano !== "RC"; nube.visible = false;
+  // el inserto del celular va sobre fondo neutro (navy liso): sin almacén detrás
+  if (plano === "RC") { almacen.visible = false; for (const x of [lamp, termo, banquito]) x.visible = false; }
   // el mate en la mano izquierda, sobre el muslo
   ruben.mano("I").getWorldPosition(_v); mateM.position.copy(_v).add(V(0.0, -0.06, 0.02)); mateM.rotation.set(0, 0.4, 0);
   // calzado: viejos hasta "quedaron"; después los nuevos (y el viejo en el piso)
@@ -1222,9 +1228,9 @@ function zonaR(t) {
   viejoPiso.visible = nuevos || plano === "RV";
   if (plano === "RV") { ruben.raiz.visible = false; mateM.visible = false; }
   if (plano === "RV") { viejoPiso.position.copy(VP); viejoPiso.rotation.set(0, VROT, 0); }
-  else { viejoPiso.position.set(OR.x - 0.52, 0, RB.z - 0.3); viejoPiso.rotation.set(0, 0.35, 0); } // al lado del banquito, a la vista
+  else { viejoPiso.position.set(OR.x - 0.62, 0, RB.z + 0.05); viejoPiso.rotation.set(0, 0.2, 0); } // al lado del banquito, a la vista
   viejoPiso.userData.bis.rotation.x = plano === "RV" ? 0.08 + 0.75 * flap(t) : lerp(0.42, 0.0, eio(sg(t, T.talon, T.talon + 0.15))) + rebote(t, T.talon + 0.15, 10, 30, 0.05);
-  viejoPiso.scale.setScalar(plano === "RV" ? 1.0 : KZ);
+  viejoPiso.scale.setScalar(plano === "RV" ? 1.0 : 1.45);
   // contraplano: Rubén levanta el pie derecho y lo muestra (con los viejos, la suela aletea como una boca; con los nuevos,
   // lo mueve contento). Se pisa la rodilla después de poner la pose.
   ruben.pies[0].rotation.x = 0; ruben.pies[1].rotation.x = 0;
@@ -1232,6 +1238,7 @@ function zonaR(t) {
     const a0 = T.piesN;
     const ext = eio(sg(t, a0 - 0.02, a0 + 0.25)) * 1.15 + (nuevos ? 0.08 * Math.sin((t - a0) * 9) * sg(t, a0 + 0.25, a0 + 0.4) : 0);
     ruben.piernas[0].rod.rotation.x = Math.PI / 2 - ext; ruben.pies[0].rotation.x = ext * 0.55;
+    ruben.pies[1].rotation.y = 0.35; // el otro pie, girado: los talones no se tocan
     ruben.raiz.updateMatrixWorld(true);
   }
   // la página del celular
@@ -1244,13 +1251,13 @@ function zonaR(t) {
   const ks = t < T.devolucion - 0.05 ? 0 : popIn(t, T.devolucion - 0.05, 0.28);
   const enPago = t > T.pago;
   selloR.visible = ks > 0.01;
-  selloR.position.copy(enPant(celuR, PP[0] / 2, 1192, 0.006));
+  selloR.position.copy(enPant(celuR, PP[0] / 2, 1192, 0.0078));
   selloR.scale.setScalar(Math.max(0.001, ks * 0.062) * (1 + 0.12 * pulso(t, T.gratis10 - 0.05, 0.25)));
   // el pulgar: entra desde abajo a la derecha y toca "Comprar" (y después "Pagar")
   pulgar.visible = false;
-  const tq = t < T.paga - 0.02 ? T.compra : T.paga, uq = sg(t, tq - 0.02, tq + 0.3);
+  const tq = t < T.paga - 0.02 ? T.compra : T.paga, uq = sg(t, tq - 0.02, tq + 0.18);
   toqueR.visible = plano === "RC" && t > tq - 0.02 && uq < 1;
-  if (toqueR.visible) { toqueR.position.copy(enPant(celuR, PP[0] / 2, PP[1] - 195, 0.008)); toqueR.scale.setScalar(lerp(0.002, 0.016, eo(uq))); toqueR.material.opacity = 0.9 * (1 - uq); }
+  if (toqueR.visible) { toqueR.position.copy(enPant(celuR, PP[0] / 2, PP[1] - 195, 0.008)); toqueR.scale.setScalar(lerp(0.002, 0.008, eo(uq))); toqueR.material.opacity = 0.9 * (1 - uq); }
   const toque = 0;
   if (pulgar.visible) {
     const boton = enPant(celuR, PP[0] / 2 + 60, PP[1] - 195, 0.016);
@@ -1262,7 +1269,7 @@ function zonaR(t) {
   nube.visible = kn > 0.01;
   if (nube.visible) {
     ruben.cabeza.getWorldPosition(_v);
-    nube.position.copy(_v).add(V(0.6, 0.38, 0.1)); nube.quaternion.copy(camera.quaternion);
+    nube.position.copy(_v).add(V(0.52, 0.4, 0.1)); nube.quaternion.copy(camera.quaternion);
     nube.scale.setScalar(kn * 0.62 * (1 + 0.02 * Math.sin(t * 5)));
     champNube.position.set(0.04, -0.27, 0.05); champNube.rotation.set(0.2, 1.57, 0); champNube.scale.setScalar(1.9);
     // el pie baja, choca, el champión se aplasta, el pie rebota (dos veces)
@@ -1270,7 +1277,7 @@ function zonaR(t) {
     const baja = ciclo(t);
     const choca = Math.max(0, baja - 0.75) / 0.25;
     // el pie (de costado, como el champión) baja sobre la abertura del talón y no entra
-    pieNube.position.set(-0.12, lerp(0.12, -0.08, baja), 0.12); pieNube.rotation.set(0, 1.57, 0.12); pieNube.scale.setScalar(1.7);
+    pieNube.position.set(-0.1, lerp(0.02, -0.1, baja), 0.14); pieNube.rotation.set(0, 1.57, 0.1); pieNube.scale.setScalar(1.55);
     champNube.scale.set(1.9 * (1 + 0.1 * choca), 1.9 * (1 - 0.28 * choca), 1.9 * (1 + 0.06 * choca));
   }
   // s11: la caja del gancho (MISMA) cae en el mostrador, rebota y se abre: seda, los championes y la etiqueta sin usar
@@ -1283,7 +1290,7 @@ function zonaR(t) {
     ponerCaja(cajaG, t < T.abre ? [0, 0, 0, 0] : ap, t < T.abre ? 1 : 0);
     champCaja.forEach((cc, j) => {
       cc.visible = ab > 0;
-      cc.position.copy(cajaG.position).add(V(0.0, CJ.H * 0.85 * 0.72, -0.02 + j * 0.13)); cc.rotation.set(0, 0.15 + Math.PI / 2 + (j ? Math.PI : 0), 0); cc.scale.setScalar(0.85 * 1.1);
+      cc.position.copy(cajaG.position).add(V(j ? 0.02 : -0.02, CJ.H * 0.85 * 0.55 + (j ? 0.03 : 0.09), j ? -0.08 : 0.06)); cc.rotation.set(j ? 0 : -0.25, Math.PI / 2 + 0.15, j ? 0 : 0.08); cc.scale.setScalar(0.85 * 1.1);
     });
     ponerEtiqueta(etiG, "gratis", 1);
     etiG.visible = ab > 0;
@@ -1298,13 +1305,13 @@ function zonaF(t) {
   const v1 = plano === "F1", v2 = plano === "F2";
   celuF.visible = v1; cajaF.visible = v2; tildeF.visible = v2; pisoF.visible = v2;
   if (v1) {
-    const gi = eio(sg(t, T.s12, T.s12 + 0.3));
-    celuF.position.copy(celuF.userData.base); celuF.rotation.set(0, Math.PI * 0.42 * (1 - gi), 0);
+    const gi = eo(sg(t, T.s12, T.s12 + 0.35));
+    celuF.position.copy(celuF.userData.base); celuF.rotation.set(0, -0.5 * (1 - gi), 0);
     ponerPagina(celuF, "tu", 0);
     campera.visible = false; // la campera va dibujada en la foto de la ficha
     const ks = t < T.tienda12 ? 0 : popIn(t, T.tienda12, 0.28);
     selloF.visible = ks > 0.01;
-    selloF.position.copy(enPant(celuF, PP[0] / 2, 1192, 0.006)); selloF.scale.setScalar(Math.max(0.001, ks * 0.062));
+    selloF.position.copy(enPant(celuF, PP[0] / 2, 1192, 0.0078)); selloF.scale.setScalar(Math.max(0.001, ks * 0.062));
   }
   if (v2) {
     const kk = lerp(0.6, 1, bk(sg(t, T.fin - 0.02, T.fin + 0.3)));

@@ -20,7 +20,7 @@ const PAUSAS = [
   [2.699, 3.026, 0.3],   // gancho → "Porque"
   [8.664, 9.117, 0.3],   // "online." → "Los que pagaron" (en orus2b empieza con el silencio: ver abajo)
   [13.949, 14.378, 0.55], // "antes." → "¿Por qué?" (bisagra)
-  [14.753, 15.23, 0.58], // "¿Por qué?" → "Comprar" (ronda 1: más aire en la bisagra)
+  [14.753, 15.23, 0.62], // "¿Por qué?" → "Comprar" (ronda 2: 0,62 → 0,58 s reales con el atempo)
   [19.153, 19.535, 0.3], // "achica." → "¿Devuelven"
   [20.936, 21.336, 0.4], // "Algo." → "Pero" (el matiz)
   [22.835, 23.067, 0.32], // "todavía." → "Rubén"
@@ -43,6 +43,6 @@ trozo(0, a, FIN2);
 sil(0.12);
 trozo(1, DESDE1, 38.2, ",volume=0.6dB");
 sil(0.3 * TEMPO);
-f.push(`${seg.join("")}concat=n=${seg.length}:v=0:a=1,atempo=${TEMPO},aresample=48000[o]`);
+f.push(`${seg.join("")}concat=n=${seg.length}:v=0:a=1,atempo=${TEMPO},aresample=48000,volume=enable='between(t,5.20,5.355)':volume=0,volume=-1.2dB[o]`); // ronda 2: sin el clic de boca antes de "Un" y con pico debajo de -1 dBFS
 execSync(`ffmpeg -y -hide_banner -loglevel error -i partes/orus2b.wav -i partes/orus1.wav -filter_complex "${f.join(";")}" -map "[o]" -ar 48000 -ac 1 assets/voice/locucion.wav`);
 console.log("locucion.wav:", execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString().trim(), "s");

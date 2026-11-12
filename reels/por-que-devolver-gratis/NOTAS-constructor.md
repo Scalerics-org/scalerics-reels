@@ -124,3 +124,27 @@ Snapshots: dos pasadas completas cada 0,5 s + cuadros a ±0,04 y ±0,3 s de cada
 `check --json`: ok, 0 errores.
 Queda: a 4,6 la caja grande que vuelve toca el borde izquierdo; en el primer plano del champión viejo el champión
 queda arriba del centro con piso abajo; los rótulos de 0,7-1,2 s siguen con aviso line_unread.
+
+## Ronda 2 de corrección (DEFECTOS-r2.md)
+Duración 34,42 s (voz 34,30 s). Inicios: s02 2,79 · s03 5,37 · s04 8,11 · s05 11,24 · s06 13,14 · s07 14,07 · s08 18,03 ·
+s09 21,69 · s10 25,40 · s11 28,66 · s12 29,74 · s13 31,54.
+Arte: celular de Rubén (inserto sobre fondo navy liso, sin almacén) y "Tu tienda" a ~68 % del ancho desde el corte; Tu
+tienda arranca girado 0,5 rad (no de canto) · s03 arranca con las columnas armadas, cámara más atrás · vitrina: créditos
+abajo de la vitrina, "Riesgo de comprar" se va antes de "achica", el champión sale hacia cámara sin subir · nube: pie
+con media navy claro de perfil (contrasta con la nube), sin botamanga, nube más a la izquierda · champión: suela de
+una pieza (solo el viejo la tiene partida, sin escalón), puntera redondeada, cordones gruesos, sin aleta; en la caja
+del mostrador los dos de perfil asomando y cámara más baja · pilas KP 1,0 y más juntas, cámara más cerca, cajas que
+caen desde más abajo · el viejo del piso más grande (1,45), el pie izquierdo girado (los talones no se tocan) ·
+bolsillo y ribete verde del delantal ocultos (flotaban sentado) · rótulo "Le gustan, pero duda" a la izquierda · logo
+oculto desde "vuelve" hasta s05 y en s07 · s05 arranca en la tienda 2 (sin travelling que cruzaba etiquetas) · aro del
+toque chico y corto; sello = placa plana (sin doble borde) · "?" encuadre más abierto · subtítulos con píldora navy en
+s09-s11 (fondos claros) y sin margen extra en las palabras con recuadro (dobles espacios).
+Sonido: tiempos de la frase 3 y 79-82 con los fija() del revisor; clic de boca 5,20-5,36 silenciado; locución a
+-1,2 dBFS de pico; PAUSAS[3] 0,62 · papel.mp3 y ping.mp3 con lead fijo 0,32/0,31 s en armar.mjs · "achica" sin SFX
+encima (click+whoosh antes, pop a 17,9) · "Y le quedaron" limpio (apertura antes, whoosh del corte -14 dB) · grupos de
+pops realmente bajo el techo (armar multiplica ×4 y topaba: volúmenes 0,02-0,06) · s02 sin sparkle ni tac tardíos ·
+pop de la pila después de "más?" · pops de s05 -6 dB · golpe+pop en cada toque del pie en la nube · pop del cierre
+-6 dB · "Porque el que devuelve" en un grupo · pulso de la pila de compras en "todavía".
+No hecho: regenerar "Scálerics punto com" (el STT oye "escalerita/escaleras" en todos los reels con Orus; se oye bien).
+Mezcla (medir.py): I -18,1 LUFS pre-loudnorm, pico -4,0. Tramos < 6 dB solo en pausas (2,5 cinta; 21,0; 28,0 timbre) y
+11,0 (5,5) / 25,0 (5,9).
