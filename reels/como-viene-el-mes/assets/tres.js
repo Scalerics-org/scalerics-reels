@@ -448,7 +448,7 @@ function crearCajaZapatos({ etiqueta = "TICKETS", gorda = false, color = "#0b122
   }
   g.userData = {
     W, D, H, tapa, tick,
-    abrir: (k) => { tapa.rotation.x = gorda ? -0.35 : -1.95 * k; tapa.position.y = gorda ? H + 0.03 : H; arriba.visible = k < 0.3; },   // (ronda 1) abierta: sin etiqueta (no se ve al revés)
+    abrir: (k) => { tapa.rotation.x = gorda ? -0.35 : -2.35 * k; tapa.position.y = gorda ? H + 0.03 : H; arriba.visible = k < 0.3; },   // (ronda 1) abierta: sin etiqueta (no se ve al revés)
     llenos: (n) => tick.forEach((m, i) => (m.visible = i < n)),
   };
   g.userData.abrir(0);
@@ -459,7 +459,7 @@ const TICKET_G = (() => { const g = new THREE.PlaneGeometry(0.05, 0.12, 1, 8); c
 const TICKET_M = new THREE.MeshStandardMaterial({ map: lienzo(128, 300, (x, w, h) => { x.fillStyle = "#f8f6ee"; x.fillRect(0, 0, w, h); x.fillStyle = "#9da0a8"; for (let i = 0; i < 9; i++) x.fillRect(14, 30 + i * 28, (i % 3 === 2 ? 60 : 96), 7); x.fillRect(14, 280, 100, 9); }), roughness: 0.9, side: THREE.DoubleSide });
 const cajaT = crearCajaZapatos({ etiqueta: "TICKETS" }); scene.add(cajaT);
 const CAJA_T = V3(-0.05, MY, -1.12);
-const cajaMP = crearCajaZapatos({ etiqueta: "MES PASADO", gorda: true, color: "#0b1220" });   // (ronda 1) navy grueso sobre crema: que se lea scene.add(cajaMP);
+const cajaMP = crearCajaZapatos({ etiqueta: "MES PASADO", gorda: true, color: "#0b1220" }); scene.add(cajaMP);   // (ronda 1) navy grueso sobre crema: que se lea
 const CAJA_MP = V3(0.27, MY, -1.12);
 const cajaCaf = crearCajaZapatos({ etiqueta: "CAFETERÍA", dibujo: "pocillo" }); scene.add(cajaCaf);
 // los tickets que saltan como resorte (P2 de la caja TICKETS; Q4b de la caja CAFETERÍA) y quedan en el mostrador
@@ -701,10 +701,10 @@ const GL = {
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte seco; dentro de un
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P2→Q2b, P6→Q4b).
-const HOMBRO = (k = 0) => [-0.25 + k * 0.03, 1.75 - k * 0.03, -2.38 + k * 0.12, 0.05, 0.95, 0.8, 52 - k * 2];   // P1/Q1: desde atrás del mostrador, a la derecha de Rubén (fuera de cuadro), hacia la persiana
+const HOMBRO = (k = 0) => [-0.25 + k * 0.03, 1.75 - k * 0.03, -2.38 + k * 0.12, -0.14, 0.95, 0.8, 54 - k * 2];   // P1/Q1: desde atrás del mostrador, a la derecha de Rubén (fuera de cuadro), hacia la persiana
 const FRENTE = (k = 0) => [0.4, 1.42, 0.35 - k * 0.14, 0.4, 1.2, -1.75, 50 - k * 2];   // P2/Q2b/Q3b: Rubén de frente (lado del cliente)
 const ALTA = (k = 0) => [1.35 - k * 0.05, 2.4 - k * 0.04, 0.95 - k * 0.05, -0.15, 0.85, -1.05, 60 - k];   // P3: general alto desde la derecha (Rubén entero, la torre y Marta a la izquierda)
-const TORRE_C = (k = 0, lejos = 0) => [0.2 + lejos * 0.1, 1.42 + lejos * 0.1, -0.35 + lejos * 0.25 - k * 0.04, -0.36, 1.22 + lejos * 0.08, -1.12, 40 + lejos * 6];   // P3t: inserto de la torre (desde la derecha: Marta fuera de cuadro, solo su mano)
+const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.5 + lejos * 0.08, -1.82 - lejos * 0.2 + k * 0.04, -0.4, 1.22 + lejos * 0.1, -0.9, 42 + lejos * 6];   // desde atrás del mostrador: la torre adelante, Marta detrás   // P3t: inserto de la torre (desde la derecha: Marta fuera de cuadro, solo su mano)
 const BAJO = (k = 0) => [0.75 - k * 0.04, 0.42, -0.15 + k * 0.05, -0.25, 0.45, FZ, 58];   // P4: al ras del piso, la persiana y la franja de luz
 const RUBEN_M = (k = 0) => [0.45, 1.12, 0.6 - k * 0.12, 0.33, 1.34, -1.8, 50 - k * 2];   // P5/P5c: Rubén por arriba de la montaña de cinta (la montaña en primer término)
 const COSTADO = (k = 0) => [1.35 - k * 0.04, 1.38, 1.0 - k * 0.05, 0.12, 1.02, -1.35, 56 - k];   // P6c: general del lado del cliente (cámara baja: el rollo no tapa a Rubén)
@@ -739,7 +739,7 @@ const PLANOS = [
   ["Q3c", T.q3c, [[T.q3c, ...MARTA_Q(0.6)], [T.q4, ...MARTA_Q(0.7)]]],
   ["Q4", T.q4, [[T.q4, ...MARTA_Q(0.9)], [T.q4b, ...MARTA_Q(1.4)]]],
   ["Q4b", T.q4b, [[T.q4b, ...MARTA_Q(1.4)], [T.q5, ...MARTA_Q(1.9)]]],
-  ["Q5", T.q5, [[T.q5, 1.15, 1.45, 0.95, -0.45, 1.0, -0.72, 56], [DUR, 1.08, 1.43, 0.85, -0.45, 1.0, -0.72, 54]]],   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
+  ["Q5", T.q5, [[T.q5, 0.35, 1.65, -2.35, -0.42, 1.0, -0.55, 52], [DUR, 0.3, 1.63, -2.25, -0.42, 1.0, -0.55, 50]]],   // (ronda 1) desde atrás del mostrador: Marta de frente con su caja, Rubén sentado en el cajón   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -943,7 +943,7 @@ function ponerPersonajes(t, plano) {
       if (t >= T.masomenos[0]) {
         const k = eio(sg(t, T.masomenos[0], T.masomenos[0] + 0.15)) * (1 - eio(sg(t, T.masomenos[1], T.masomenos[1] + 0.2)));
         const b = Math.sin(sg(t, T.masomenos[0] + 0.12, T.masomenos[1]) * Math.PI * 4) * 0.045;
-        pr.manoD = [lerp(-0.13, -0.22, k), lerp(0.45, 0.5, k), lerp(0.42, 0.6, k)]; pr.codoD = [-1, -0.3, -0.1];   // (ronda 1) delante del pecho, en cuadro
+        pr.manoD = [lerp(-0.13, -0.26, k), lerp(0.45, 0.62, k), lerp(0.42, 0.5, k)]; pr.codoD = [-1, -0.3, -0.1];   // (ronda 1) delante del pecho, en cuadro
       }
       if (t >= T.baja[0] - 0.1) { const k = eio(sg(t, T.baja[0] - 0.1, T.baja[0] + 0.1)); pr.manoI = pr.manoI.map((v, i) => lerp(v, APOYA.manoI[i], k)); pr.manoD = pr.manoD.map((v, i) => lerp(v, APOYA.manoD[i], k)); }
     }
@@ -959,7 +959,8 @@ function ponerPersonajes(t, plano) {
     // P6b · aprieta la C
     if (en(t, T.p6b - 0.1, T.p6c)) {
       const k = eio(sg(t, T.p6b, T.tc)) * (1 - eio(sg(t, T.tc + 0.08, T.tc + 0.25)));
-      const obj = calcu.userData.tecla("C").add(V3(0, 0.035 * (1 - k), 0));
+      const cW = calcu.userData.tecla("C"), sh = ruben.cuerpo.localToWorld(V3(-0.2, 0.55, 0));
+      const obj = cW.clone().add(cW.clone().sub(sh).setY(0).normalize().multiplyScalar(0.07)).add(V3(0, 0.035 * (1 - k), 0));   // (ronda 1) la yema llega a la C
       const p1 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", obj); mezclaMano(pr, p1, "D", Math.min(1, k * 2)); pr.dedoD = 1;
       calcu.userData.hundir("C", t >= T.tc - 0.03 && t < T.tc + 0.22 ? 1 : 0); pr.manoI = APOYA.manoI; pr.codoI = null;
     }
@@ -1204,7 +1205,7 @@ function renderAt(tIn) {
   if (parte2) {
     // (ronda 1) la mano agarra el mate por el costado de afuera (los dedos nunca adentro)
     const p = manoMundo(ruben, "I", _a), g = ruben.raiz.rotation.y, izq = V3(Math.cos(g), 0, -Math.sin(g)), fr = V3(Math.sin(g), 0, Math.cos(g));
-    mateR.position.copy(p).add(izq.multiplyScalar(-0.075)).add(fr.multiplyScalar(0.01)).add(V3(0, -0.11, 0)); mateR.rotation.set(0, g + 0.6, 0);
+    mateR.position.copy(p).add(izq.multiplyScalar(-0.08)).add(fr.multiplyScalar(0.01)).add(V3(0, -0.14, 0)); mateR.rotation.set(0, g + 0.6, 0);
   }
   bandeja.visible = parte2;
   if (parte2) {
@@ -1238,7 +1239,7 @@ function renderAt(tIn) {
     celu.updateMatrixWorld(true);
     const c = celu.localToWorld(V3(0, 0, 0)), n = V3(0, 0, 1).transformDirection(celu.matrixWorld);
     const u = eio(sg(t, T.q2, T.q2 + 0.35));
-    camera.position.copy(c).add(n.multiplyScalar(lerp(0.45, 0.29, u) - 0.015 * sg(t, T.q2 + 0.35, T.q2b))); camera.up.set(0, 1, 0); camera.fov = 40; camera.updateProjectionMatrix(); camera.lookAt(c);
+    camera.position.copy(c).add(n.multiplyScalar(lerp(0.5, 0.35, u) - 0.015 * sg(t, T.q2 + 0.35, T.q2b))); camera.up.set(0, 1, 0); camera.fov = 40; camera.updateProjectionMatrix(); camera.lookAt(c);
   }
 
   // ---- globos ----

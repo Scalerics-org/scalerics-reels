@@ -239,7 +239,7 @@ linea("s05-r2", T.r2, [["Ahí.", 0.0]], 0, r2(T.p6 - 0.02), 200, 210, 250);
     P .caja { position: absolute; left: 60px; right: 60px; top: 160px; padding: 26px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Una automatización te manda</div><div class="a">al celular</div><div class="a">cómo viene el mes</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Una automatización te manda</div><div class="a">al celular cómo viene el mes</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
