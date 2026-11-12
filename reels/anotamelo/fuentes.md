@@ -26,12 +26,27 @@ azúcar, mate, termo, lápiz y sacapuntas genéricos; los billetes son el billet
 
 ## Voces (Gemini TTS, herramientas/voz.mjs; ver partes/voces.md)
 - Graciela: Gacrux · Héctor: Sadaltager · Walter: Umbriel · Marta: Aoede · Rubén: Algenib · narrador del cartel:
-  Rasalgethi. (Tomas elegidas: a completar al generar.)
+  Rasalgethi. Tomas elegidas (12-11, en partes/tomas → partes/rec → assets/voice): g1 = 01-graciela-c (atempo 1,08; se reusa en Q1) · h1 = 02-hector-b · w1 = 03-walter-a (-2 dB) · m1 = 04-marta-b (atempo 1,12) · h2 = 05-hector-a · w2 = 06-walter-b (atempo 1,1) · g2 = 07-graciela-b (pausas internas acortadas a ~0,13 y ~0,2 s, atempo 1,08) · r1 = 08-ruben-a · h3 = 09-hector-a · narrador = 10-narrador-a · r2 = 11-ruben-a · h4 = 12-hector-c (atempo 1,1). Todas verificadas con tiempos.mjs ("oyó" coincide con el guion).
 
 ## Sonido
-A completar en la construcción. Nada sintetizado con ffmpeg. Del repo (créditos en los fuentes.md de
-reels/hacen-envios, reels/me-haces-precio y anteriores): música `bgm/pizzicato.wav` ("Pizzicato Intrigue", younoise,
-CC0), `campanita.wav`, `papel.wav`, `tic-real.mp3`, `vibra.wav`, `notification.mp3`, `pop.mp3`, `whoosh.mp3`,
-`whoosh-short.mp3`, `click-soft.mp3`, `ding.mp3`, `stinger.wav`, `madera-tabla.wav`.
-Nuevos a conseguir (CC0 reales, con autor, sitio y licencia): lápiz escribiendo sobre papel, sacapuntas, hoja de
-almanaque arrancada, tic de reloj de pared (o tic-real), zumbido de heladera, sorbo de mate (opcional).
+Nada sintetizado con ffmpeg. Del repo (créditos en los fuentes.md de reels/hacen-envios, reels/me-haces-precio y
+anteriores): música `bgm/pizzicato.wav` ("Pizzicato Intrigue", younoise, CC0), ambiente `sfx/calle.wav` (Oper8, CC0),
+`campanita.wav` (775noise, CC0), `papel.wav` ("Paper slide", Kingofgamers_cz, CC0), `tic-real.mp3`, `vibra.wav`,
+`notification.mp3`, `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `ding.mp3`, `cero.mp3`,
+`stinger.wav`, `paso-0..4.wav` (Kenney, Impact Sounds, CC0), `puerta-abre.wav` (Kenney, RPG Audio, CC0),
+`zumbido.wav` (la heladera: "Room Tone Ambience Medium Control Low Hum", gchase, Freesound 144046, CC0 1.0).
+
+Nuevos, bajados el 12-11 (freesound.org está bloqueado desde la nube; espejos en GitHub que conservan la licencia):
+- Kenney, pack "RPG Audio" (https://kenney.nl/assets/rpg-audio), CC0 1.0. Espejo:
+  https://github.com/Boyquotes/kenney-rpg-audio-for-godot (pasados de .ogg a .wav):
+  `k-book_flip_1/2/3.wav` (hojas de la libreta y del almanaque que se arrancan), `k-book_close.wav` (la tapa que
+  cierra), `k-book_place_1/2.wav` (la libreta gorda; la libreta que se jubila en el estante), `k-cloth_1/2.wav` (roce
+  de la manga: la mano a la oreja, el antebrazo que se da vuelta, agacharse), `k-knife_slice.wav` y
+  `k-knife_slice_2.wav` (el sacapuntas: **no se encontró un sacapuntas CC0 real accesible desde la nube**; se usa el
+  roce corto de una hoja de metal sobre madera, filtrado, como pide el plan), `k-page-turn.wav` ("Page turn",
+  Kenney, vía el pack "Everyday objects" de https://github.com/Asion001/mangarr-sounds, CC0 1.0).
+- `reloj.wav` (el tic del reloj en la quietud): "Clock ticking", Mortifreshman, Freesound
+  (https://freesound.org/people/Mortifreshman/sounds/237210/), CC0 1.0. Espejo: release "mangarr-objects" de
+  https://github.com/Asion001/mangarr-sounds (licencia verificada por el autor del espejo, ver su CREDITS.md).
+- **Lápiz escribiendo: no hay un CC0 real accesible**; se usan recortes cortos y filtrados de `papel.wav` (papel
+  real). El sorbo de mate se sacó (Rubén sostiene el mate en Q4, no toma: nada cerca de la cara).

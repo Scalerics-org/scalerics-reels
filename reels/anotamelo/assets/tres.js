@@ -564,7 +564,7 @@ const GL = {
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte seco; dentro de un
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P3→Q2).
 const AP1 = (dz = 0, fov = 46) => [0.44, 1.72, 0.28 + dz, 0.4, 1.18, -1.55, fov];   // P1/Q1: desde el lado del cliente, picado leve
-const HOMBRO = (k = 0) => [-0.48 - k * 0.02, 1.72, -2.5 + k * 0.08, 0.22, 1.3, -0.6, 56 - k * 2];   // por encima del hombro derecho de Rubén
+const HOMBRO = (k = 0) => [-0.38 - k * 0.02, 1.72, -2.52 + k * 0.08, 0.28, 1.32, -0.6, 56 - k * 2];   // por encima del hombro derecho de Rubén
 const ALM = (k = 0) => [0.95, 1.76, 0.48 + k * 0.12, 0.95, 1.73, FZ, 44];   // el almanaque grande
 const LIBG = (k = 0) => [LIB0.x + 0.0, 1.62 - k * 0.06, LIB0.z + 0.86 - k * 0.05, LIB0.x - 0.02, MY + 0.02, LIB0.z + 0.24, 46];   // la libreta gorda
 const COB = (k = 0) => [-0.22 - k * 0.02, 1.66, -2.58 + k * 0.1, 0.22, 1.32, -0.66, 52 - k * 1.5];   // P4: contraplano, el cliente de frente
@@ -1223,8 +1223,8 @@ function renderAt(tIn) {
         const fin = T.cli[i + 2] ?? T.p3;
         if (!en(t, t0, fin)) return;
         const s = ent(t0) * sale(fin);
-        if (i < 3) { const [bx, by] = quien[i](); ponerGlobo(GL.anota[i], bx + (i % 2 ? -60 : 60), Math.min(by - 260, 520), s, [bx, by - 40], i % 2); }
-        else ponerGlobo(GL.anota[i], [780, 560, 740][i - 3], [560, 700, 860][i - 3], s, [1080, [560, 760, 900][i - 3]], i % 2, [0.05, -0.04, 0.06][i - 3]);
+        if (i < 3) { const [bx, by] = quien[i](); ponerGlobo(GL.anota[i], bx + (i % 2 ? 190 : 250), Math.min(by - 300, 470), s, [bx, by - 40], i % 2); }
+        else ponerGlobo(GL.anota[i], [820, 700, 840][i - 3], [820, 980, 1140][i - 3], s, [1080, [560, 760, 900][i - 3]], i % 2, [0.05, -0.04, 0.06][i - 3]);
       });
     }
     if (plano === "P4" && t >= T.h2) { const [bx, by] = hb(); ponerGlobo(GL.h2, bx + 40, Math.max(300, by - 560), ent(T.h2), [bx, by - 40]); }
