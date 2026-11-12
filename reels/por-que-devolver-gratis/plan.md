@@ -1,11 +1,13 @@
 # Plan de escenas · por-que-devolver-gratis (explicador "¿Por qué…?", ~33 s, 3D real)
 
+> Cambio del coordinador (12-11, antes de grabar): la frase 10 es "La tienda decía, junto al precio: devolución gratis." (lo que midió el estudio) y en s11 la etiqueta que viene en la caja es LA MISMA del gancho, "DEVOLUCIÓN GRATIS", sin usar. El sello de la ficha dice "Devolución gratis" (sin "30 días").
+
 "¿Por qué las tiendas te dejan devolver gratis?". Desenlace en la frase 2: porque el que devuelve gratis vuelve a
 comprar (Bower y Maxham, Journal of Marketing 2012, ver `fuentes.md`): en dos tiendas online, los que pagaron la
 devolución compraron mucho menos; los que no, más que antes. Bisagra "¿Por qué?": comprar sin probar es un riesgo, y
 devolver gratis lo achica (Wood 2001; Petersen y Kumar 2015). Giro: "¿Devuelven más? Algo. Pero compran más
 todavía." (meta-análisis de Janakiraman, Syrdal y Freling 2016). Callback: Rubén, que compra como cualquiera, duda
-con unos championes online ("¿y si no le quedan?"); la tienda dice junto al precio "cambio gratis"; compra; le llega
+con unos championes online ("¿y si no le quedan?"); la tienda dice junto al precio "devolución gratis"; compra; le llega
 LA MISMA caja del gancho, con la etiqueta de cambio adentro, sin usar. "Y le quedaron." Cierre: videollamada gratis.
 
 - **Producto: tienda online** con la política de cambios clara y fácil, a la vista en cada producto (junto al precio)
@@ -34,7 +36,7 @@ LA MISMA caja del gancho, con la etiqueta de cambio adentro, sin usar. "Y le que
 - **Cartón kraft** `#c9a46e` con canto más oscuro `#a8834f` (es el color real de una caja: si fuera crema no se
   reconoce), **cinta de embalar verde de marca** `#5ce611` (la marca propia del reel, en lugar de la cinta marrón),
   etiqueta crema `#efeee5` con borde navy grueso y texto navy.
-- Verde `#5ce611` = lo resuelto (devolución gratis, cambio gratis, compras que suben, tildes); **rojo apagado
+- Verde `#5ce611` = lo resuelto (devolución gratis, devolución gratis, compras que suben, tildes); **rojo apagado
   `#c7655b` solo para el problema** (la etiqueta "Devolución: la pagás vos", la pila que baja, el medidor de riesgo
   arriba). Lo neutro en crema2 `#d9d7c9`. Cierre en verde con letras navy.
 - Subtítulos: arriba al centro, 1-3 palabras, 86 px, Lexend 800 CREMA con borde navy oscuro de 14 px (sobre navy
@@ -47,7 +49,7 @@ bordes de las solapas como franja ondulada, cinta verde que cruza la tapa) y su 
 crema con borde navy, código de barras grueso navy, texto "DEVOLUCIÓN GRATIS" Lexend 800 y una flecha curva de
 "vuelta"). Nace en el cuadro 0, sale y vuelve como boomerang en s02, se apila en las columnas de s04-s05 y s08, se
 abre y suelta el "?" en s06, la etiqueta se pega en el celular en s07, y vuelve IGUAL en s11 al almacén de Rubén con
-los championes y la etiqueta (ahora "CAMBIO GRATIS") adentro, sin usar. Esa repetición es el callback visual.
+los championes y la etiqueta adentro, sin usar. Esa repetición es el callback visual.
 
 ## Escenas (tiempos estimados a 0,34 s/palabra + pausas; los reales salen de armar.mjs)
 | # | id | arranca | dura | frase |
@@ -61,7 +63,7 @@ los championes y la etiqueta (ahora "CAMBIO GRATIS") adentro, sin usar. Esa repe
 | 7 | s07-riesgo | 14,9 | 3,6 | Comprar sin probar es un riesgo. Devolver gratis lo achica. |
 | 8 | s08-giro | 18,5 | 2,8 | ¿Devuelven más? Algo. Pero compran más todavía. |
 | 9 | s09-ruben | 21,3 | 3,3 | Rubén dudaba: championes online, ¿y si no le quedan? |
-| 10 | s10-cambio | 24,6 | 2,9 | La tienda decía, junto al precio: cambio gratis. |
+| 10 | s10-cambio | 24,6 | 2,9 | La tienda decía, junto al precio: devolución gratis. |
 | 11 | s11-quedaron | 27,5 | 1,5 | Y le quedaron. |
 | 12 | s12-tu-tienda | 29,0 | 2,3 | ¿Lo ponemos en tu tienda? Agendá una |
 | 13 | s13-llamada | 31,3 | 2,9 | videollamada gratis en scalerics.com. |
@@ -166,12 +168,12 @@ los championes y la etiqueta (ahora "CAMBIO GRATIS") adentro, sin usar. Esa repe
    - SFX: `whoosh-cinematic` (retroceso), ambiente de noche (muy bajo), `tac-real` ×2 (suela que aletea), `burbuja`
      (nube), `pop` + `golpe` suave (pie que rebota).
 
-10. **s10-cambio** (~2,9 s) · CALLBACK, solución · "La tienda decía, junto al precio: cambio gratis."
+10. **s10-cambio** (~2,9 s) · CALLBACK, solución · "La tienda decía, junto al precio: devolución gratis."
     - Push-in al celular hasta que llena ~70 % del alto: la **ficha del champión** (foto 3D girando arriba, "Champión
       urbano", precio "$ 2.490" Lexend 800 ≥ 64 px) y en "precio" aparece JUSTO AL LADO del precio un **sello verde
-      "Cambio gratis · 30 días"** (placa 3D verde con borde navy y la flecha curva de la etiqueta del gancho: misma
+      "Devolución gratis"** (placa 3D verde con borde navy y la flecha curva de la etiqueta del gancho: misma
       forma). En "gratis" el pulgar de Rubén toca **"Comprar"** → tilde verde; pantalla siguiente de 0,6 s: el pago con
-      el mismo sello "Cambio gratis" visible arriba del botón "Pagar" (eso es "a la vista en el producto y al pagar").
+      el mismo sello "Devolución gratis" visible arriba del botón "Pagar" (eso es "a la vista en el producto y al pagar").
     - Rótulo con línea guía al sello: "A la vista, en cada producto".
     - Cuidado: precio y textos de interfaz nítidos (textura canvas a 2x), nada de marca de plataforma ni de tarjeta.
     - SFX: `whoosh-short` (push-in), `ping` (sello), `click-soft` (Comprar), `notification` (pago).
@@ -187,7 +189,7 @@ los championes y la etiqueta (ahora "CAMBIO GRATIS") adentro, sin usar. Esa repe
 
 12. **s12-tu-tienda** (~2,3 s) · "¿Lo ponemos en tu tienda? Agendá una"
     - El celular de Rubén gira hacia cámara y la ficha cambia a una **tienda genérica "Tu tienda"** (otro producto: una
-      campera crema doblada, para que se lea que es para cualquier rubro), con el mismo sello verde "Cambio gratis"
+      campera crema doblada, para que se lea que es para cualquier rubro), con el mismo sello verde "Devolución gratis"
       junto al precio. Push-in. Sin rótulo (habla la voz).
     - SFX: `whoosh-short`, `ping`.
 
@@ -202,7 +204,7 @@ los championes y la etiqueta (ahora "CAMBIO GRATIS") adentro, sin usar. Esa repe
   0,45), papel de seda crema arrugado adentro (plano con ruido de vértices con semilla fija). Proporción de caja de
   zapatillas de envío (más ancha que alta).
 - **Etiqueta de devolución**: crema, borde navy de ~8 px en pantalla, código de barras de barras gruesas, flecha curva
-  verde de "vuelta", texto "DEVOLUCIÓN GRATIS" / "CAMBIO GRATIS" / (problema) "DEVOLUCIÓN: LA PAGÁS VOS" en rojo apagado.
+  verde de "vuelta", texto "DEVOLUCIÓN GRATIS" / "DEVOLUCIÓN GRATIS" / (problema) "DEVOLUCIÓN: LA PAGÁS VOS" en rojo apagado.
 - **Champión**: suela blanca gruesa con dibujo en el canto, capellada navy, franja verde de marca a los costados (forma
   propia, ni pipa ni tiras), puntera crema, cordones crema cruzados con ojalillos, lengüeta. El viejo: mismo modelo,
   capellada crema sucio `#b9b39f`, suela despegada en la punta (bisagra).
@@ -228,9 +230,9 @@ y sitio anotados en `fuentes.md`.
   devuelve gratis vuelve a comprar; en dos tiendas online, los que pagaron la devolución compraron mucho menos y los
   que no, más que antes; ¿Por qué? comprar sin probar es un riesgo y devolver gratis lo achica; giro: ¿devuelven más?
   algo, pero compran más todavía; callback: Rubén duda con unos championes online (los suyos tienen la suela
-  despegada), la tienda dice junto al precio "cambio gratis", compra, le llega la misma caja con la etiqueta sin usar
+  despegada), la tienda dice junto al precio "devolución gratis", compra, le llega la misma caja con la etiqueta sin usar
   y le quedaron · Videollamada gratis en scalerics.com [formato explicador ¿Por qué? · 3D real (caja de envío kraft con
   cinta verde y etiqueta de devolución, cinta transportadora boomerang, columnas de cajas sobre dos celulares, "?" que
   sale de la caja, champión en la vitrina del celular con medidor de riesgo, pilas de devoluciones y compras, almacén
-  de Rubén de noche con championes viejos, ficha con sello "Cambio gratis"), fondo navy claro #16243d liso y cierre
+  de Rubén de noche con championes viejos, ficha con sello "Devolución gratis"), fondo navy claro #16243d liso y cierre
   verde]

@@ -1,0 +1,60 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s13-llamada"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s13-llamada"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s13-llamada"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #efeee5; font: 700 48px/1.05 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.35); }
+    [data-composition-id="s13-llamada"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s13-llamada"] .pill.malo { border-color: #c7655b; }
+    [data-composition-id="s13-llamada"] .lead { fill: none; stroke: #efeee5; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s13-llamada"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
+
+    [data-composition-id="s13-llamada"] .t1 { position: absolute; left: 0; right: 0; top: 300px; text-align: center; font: 900 128px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; }
+    [data-composition-id="s13-llamada"] .t2w { position: absolute; left: 0; right: 0; top: 446px; text-align: center; }
+    [data-composition-id="s13-llamada"] .t2 { position: relative; display: inline-block; padding: 6px 34px 18px; border-radius: 22px; background: #0b1220; font: 900 128px/1 "Lexend", sans-serif; letter-spacing: -0.04em; color: #5ce611; }
+    [data-composition-id="s13-llamada"] .t3w { position: absolute; left: 0; right: 0; top: 646px; text-align: center; }
+    [data-composition-id="s13-llamada"] .t3 { display: inline-block; padding: 14px 40px 24px; border-radius: 30px; background: #efeee5; border: 8px solid #0b1220; font: 900 108px/1 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s13-llamada" data-width="1080" data-height="1920" data-duration="2.85">
+    <div id="s13-llamada-esc" class="esc clip" data-start="0" data-duration="2.85" data-track-index="0">
+
+      <div class="t1">Videollamada</div>
+      <div class="t2w"><span class="t2">gratis</span></div>
+      <div class="t3w"><span class="t3">scalerics.com</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s13-llamada";
+      const DUR = 2.85;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
+      const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+
+
+      tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
+      tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
+      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 0.48);
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 1.1);
+      tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: 2.65, ease: "none", immediateRender: false }, 0.2);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

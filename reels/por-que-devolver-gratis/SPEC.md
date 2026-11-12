@@ -1,11 +1,13 @@
 # por-que-devolver-gratis · explicador "¿Por qué…?" (~33 s estimados, 3D real)
 
+> Cambio del coordinador (12-11, antes de grabar): la frase 10 es "La tienda decía, junto al precio: devolución gratis." (lo que midió el estudio) y en s11 la etiqueta que viene en la caja es LA MISMA del gancho, "DEVOLUCIÓN GRATIS", sin usar. El sello de la ficha dice "Devolución gratis" (sin "30 días").
+
 "¿Por qué las tiendas te dejan devolver gratis?". Desenlace en la frase 2: porque el que devuelve gratis vuelve a
 comprar (Bower y Maxham, Journal of Marketing 2012, ver `fuentes.md`): en dos tiendas online, los que pagaron la
 devolución compraron mucho menos; los que no, más que antes. Bisagra "¿Por qué?": comprar sin probar es un riesgo, y
 devolver gratis lo achica (Wood 2001; Petersen y Kumar 2015). Giro: "¿Devuelven más? Algo. Pero compran más todavía."
 (meta-análisis 2016). Callback: Rubén, en su almacén cerrado de noche, duda con unos championes online (los suyos
-tienen la suela despegada); la tienda dice junto al precio "cambio gratis"; compra; le llega LA MISMA caja del gancho
+tienen la suela despegada); la tienda dice junto al precio "devolución gratis"; compra; le llega LA MISMA caja del gancho
 con la etiqueta sin usar. "Y le quedaron." Cierre: videollamada gratis.
 **Producto: tienda online** con la política de cambios clara, a la vista en cada producto y al pagar. Sin marcas
 reales. Voz: Orus sola, 89 palabras (`guion.txt`; para la voz, `partes/guion-voz.txt` con "Scálerics punto com").
@@ -20,8 +22,8 @@ crearCelular, crearYerba, crearGalletitas). Objetos nuevos: `crearCaja()`, `crea
 **El objeto que viaja: LA CAJA DE ENVÍO** (kraft `#c9a46e`, canto corrugado, solapas articuladas, cinta verde de marca)
 **y su ETIQUETA** (crema, borde navy grueso, código de barras grueso, flecha curva verde de "vuelta"): se cierra en el
 gancho, sale y vuelve doble en s02, se apila en columnas (s03-s05, s08), suelta el "?" en s06, la etiqueta sella el
-celular en s07, y vuelve IGUAL al mostrador de Rubén en s11 con la etiqueta "CAMBIO GRATIS" sin usar. El sello verde
-"Cambio gratis" de la ficha (s10, s12) tiene la MISMA flecha curva.
+celular en s07, y vuelve IGUAL al mostrador de Rubén en s11 con la etiqueta "DEVOLUCIÓN GRATIS" sin usar. El sello verde
+"Devolución gratis" de la ficha (s10, s12) tiene la MISMA flecha curva.
 Las escenas HTML (`gen.mjs`) son SOLO la capa plana: gancho, subtítulos, rótulos con línea guía, créditos y la tarjeta
 de cierre. `armar.mjs` escribe `assets/tiempos3d.js` (inicio de cada escena y de cada palabra).
 
@@ -57,7 +59,7 @@ estilo y helpers: `SPEC-base.md` (lo que dice este SPEC manda sobre SPEC-base: f
 | 7 | s07-riesgo | 14,9 | 3,6 | Comprar sin probar es un riesgo. Devolver gratis lo achica. | V: celular-vitrina con el champión |
 | 8 | s08-giro | 18,5 | 2,8 | ¿Devuelven más? Algo. Pero compran más todavía. | P: dos pilas |
 | 9 | s09-ruben | 21,3 | 3,3 | Rubén dudaba: championes online, ¿y si no le quedan? | R: almacén de noche, Rubén y la nube |
-| 10 | s10-cambio | 24,6 | 2,9 | La tienda decía, junto al precio: cambio gratis. | R → F: push-in a la ficha |
+| 10 | s10-cambio | 24,6 | 2,9 | La tienda decía, junto al precio: devolución gratis. | R → F: push-in a la ficha |
 | 11 | s11-quedaron | 27,5 | 1,5 | Y le quedaron. | R: llega la caja, pies, Rubén con el mate |
 | 12 | s12-tu-tienda | 29,0 | 2,3 | ¿Lo ponemos en tu tienda? Agendá una | F: "Tu tienda" con el sello |
 | 13 | s13-llamada | 31,3 | 2,9 | videollamada gratis en scalerics.com. | Z: la caja chica con tilde, fondo verde |
@@ -101,15 +103,15 @@ estilo y helpers: `SPEC-base.md` (lo que dice este SPEC manda sobre SPEC-base: f
    championes viejos crema sucio, la suela del derecho despegada en la punta que aletea. En "¿y si no le quedan?" la
    nube con un pie (media navy) que no entra en un champión nuevo y rebota. Rótulo "Le gustan, pero duda".
 10. **s10-cambio** · push-in al celular (~70 % del alto): ficha "Champión urbano", champión girando arriba, precio
-    "$ 2.490" (≥ 64 px). En "precio" aparece junto al precio el sello verde "Cambio gratis · 30 días" con la flecha
+    "$ 2.490" (≥ 64 px). En "precio" aparece junto al precio el sello verde "Devolución gratis" con la flecha
     curva de la etiqueta. En "gratis" el pulgar toca "Comprar" → tilde verde; 0,6 s de la pantalla de pago con el mismo
     sello arriba de "Pagar". Rótulo "A la vista, en cada producto".
 11. **s11-quedaron** · tras la pausa: timbre, la caja del gancho (misma geometría y cinta) aterriza en el mostrador y
-    rebota; se abre: seda, los championes nuevos y la etiqueta "CAMBIO GRATIS" sin usar arriba. En "quedaron" los pies
+    rebota; se abre: seda, los championes nuevos y la etiqueta "DEVOLUCIÓN GRATIS" sin usar arriba. En "quedaron" los pies
     de Rubén con los nuevos dan un golpecito de talón; el viejo con la suela despegada al lado "cierra la boca". Corte a
     Rubén levantando el mate, satisfecho. Rótulo chico opcional "La etiqueta, sin usar".
 12. **s12-tu-tienda** · el celular gira a cámara y la ficha pasa a "Tu tienda" con otro producto (campera crema doblada)
-    y el mismo sello verde "Cambio gratis" junto al precio. Push-in. Sin rótulo.
+    y el mismo sello verde "Devolución gratis" junto al precio. Push-in. Sin rótulo.
 13. **s13-llamada** · fondo verde: "Videollamada" / "gratis" / "scalerics.com" (navy sobre placa crema), logo, y la caja
     3D cerrada chica abajo con tilde. Arranca sobre "videollamada", 2,5-3 s.
 
@@ -121,7 +123,7 @@ estilo y helpers: `SPEC-base.md` (lo que dice este SPEC manda sobre SPEC-base: f
   nunca queda navy vacío).
 - La caja de s11 es la misma que la de s01 (misma cinta, mismas proporciones, misma etiqueta con otro texto).
 - Championes sin parecido a ninguna marca (sin pipa, sin tres tiras, sin estrella, sin logo en la lengüeta).
-- Ortografía: "DEVOLUCIÓN", "LA PAGÁS VOS", "Champión", "Cambio gratis · 30 días", "$ 2.490".
+- Ortografía: "DEVOLUCIÓN", "LA PAGÁS VOS", "Champión", "Devolución gratis", "$ 2.490".
 
 ## Sonido
 SFX de `assets/sfx` (detalle por escena en `plan.md`). Faltan cinta de embalar y cartón: si se suman, CC0 real con

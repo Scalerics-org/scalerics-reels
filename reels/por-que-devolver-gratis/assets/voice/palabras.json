@@ -1,0 +1,447 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0.25,
+  "end": 0.37
+ },
+ {
+  "text": "qué",
+  "start": 0.42,
+  "end": 0.56
+ },
+ {
+  "text": "las",
+  "start": 0.58,
+  "end": 0.7
+ },
+ {
+  "text": "tiendas",
+  "start": 0.7,
+  "end": 1.1
+ },
+ {
+  "text": "te",
+  "start": 1.1,
+  "end": 1.3
+ },
+ {
+  "text": "dejan",
+  "start": 1.3,
+  "end": 1.6
+ },
+ {
+  "text": "devolver",
+  "start": 1.6,
+  "end": 2
+ },
+ {
+  "text": "gratis?",
+  "start": 2,
+  "end": 2.2
+ },
+ {
+  "text": "Porque",
+  "start": 2.793,
+  "end": 2.9
+ },
+ {
+  "text": "el",
+  "start": 2.9,
+  "end": 3
+ },
+ {
+  "text": "que",
+  "start": 3,
+  "end": 3.1
+ },
+ {
+  "text": "devuelve",
+  "start": 3.1,
+  "end": 3.6
+ },
+ {
+  "text": "gratis",
+  "start": 3.6,
+  "end": 3.9
+ },
+ {
+  "text": "vuelve",
+  "start": 3.9,
+  "end": 4.4
+ },
+ {
+  "text": "a",
+  "start": 4.4,
+  "end": 4.4
+ },
+ {
+  "text": "comprar.",
+  "start": 4.4,
+  "end": 4.8
+ },
+ {
+  "text": "Un",
+  "start": 5.477,
+  "end": 5.6
+ },
+ {
+  "text": "estudio",
+  "start": 5.6,
+  "end": 6
+ },
+ {
+  "text": "siguió",
+  "start": 6,
+  "end": 6.5
+ },
+ {
+  "text": "a",
+  "start": 6.5,
+  "end": 6.6
+ },
+ {
+  "text": "clientes",
+  "start": 6.6,
+  "end": 6.8
+ },
+ {
+  "text": "de",
+  "start": 6.8,
+  "end": 7.1
+ },
+ {
+  "text": "dos",
+  "start": 7.1,
+  "end": 7.3
+ },
+ {
+  "text": "tiendas",
+  "start": 7.3,
+  "end": 7.5
+ },
+ {
+  "text": "online.",
+  "start": 7.5,
+  "end": 8
+ },
+ {
+  "text": "Los",
+  "start": 8.341,
+  "end": 8.5
+ },
+ {
+  "text": "que",
+  "start": 8.5,
+  "end": 8.6
+ },
+ {
+  "text": "pagaron",
+  "start": 8.6,
+  "end": 9
+ },
+ {
+  "text": "la",
+  "start": 9,
+  "end": 9.2
+ },
+ {
+  "text": "devolución",
+  "start": 9.2,
+  "end": 9.4
+ },
+ {
+  "text": "compraron",
+  "start": 9.4,
+  "end": 10.3
+ },
+ {
+  "text": "mucho",
+  "start": 10.3,
+  "end": 10.7
+ },
+ {
+  "text": "menos.",
+  "start": 10.7,
+  "end": 11.1
+ },
+ {
+  "text": "Los",
+  "start": 11.471,
+  "end": 11.6
+ },
+ {
+  "text": "que",
+  "start": 11.6,
+  "end": 11.7
+ },
+ {
+  "text": "no,",
+  "start": 11.7,
+  "end": 11.8
+ },
+ {
+  "text": "más",
+  "start": 12.133,
+  "end": 12.3
+ },
+ {
+  "text": "que",
+  "start": 12.3,
+  "end": 12.4
+ },
+ {
+  "text": "antes.",
+  "start": 12.4,
+  "end": 12.7
+ },
+ {
+  "text": "¿Por",
+  "start": 13.37,
+  "end": 13.53
+ },
+ {
+  "text": "qué?",
+  "start": 13.53,
+  "end": 13.73
+ },
+ {
+  "text": "Comprar",
+  "start": 14,
+  "end": 14.4
+ },
+ {
+  "text": "sin",
+  "start": 14.4,
+  "end": 14.6
+ },
+ {
+  "text": "probar",
+  "start": 14.6,
+  "end": 14.9
+ },
+ {
+  "text": "es",
+  "start": 14.9,
+  "end": 15.2
+ },
+ {
+  "text": "un",
+  "start": 15.2,
+  "end": 15.2
+ },
+ {
+  "text": "riesgo.",
+  "start": 15.2,
+  "end": 15.6
+ },
+ {
+  "text": "Devolver",
+  "start": 16.105,
+  "end": 16.5
+ },
+ {
+  "text": "gratis",
+  "start": 16.5,
+  "end": 16.7
+ },
+ {
+  "text": "lo",
+  "start": 17.12,
+  "end": 17.27
+ },
+ {
+  "text": "achica.",
+  "start": 17.31,
+  "end": 17.68
+ },
+ {
+  "text": "¿Devuelven",
+  "start": 17.95,
+  "end": 18.25
+ },
+ {
+  "text": "más?",
+  "start": 18.25,
+  "end": 18.58
+ },
+ {
+  "text": "Algo.",
+  "start": 18.9,
+  "end": 19.27
+ },
+ {
+  "text": "Pero",
+  "start": 19.63,
+  "end": 19.72
+ },
+ {
+  "text": "compran",
+  "start": 19.7,
+  "end": 20.2
+ },
+ {
+  "text": "más",
+  "start": 20.2,
+  "end": 20.4
+ },
+ {
+  "text": "todavía.",
+  "start": 20.4,
+  "end": 20.7
+ },
+ {
+  "text": "Rubén",
+  "start": 21.622,
+  "end": 21.9
+ },
+ {
+  "text": "dudaba:",
+  "start": 21.9,
+  "end": 22.4
+ },
+ {
+  "text": "championes",
+  "start": 22.755,
+  "end": 23.2
+ },
+ {
+  "text": "online,",
+  "start": 23.2,
+  "end": 23.6
+ },
+ {
+  "text": "¿y",
+  "start": 23.807,
+  "end": 23.9
+ },
+ {
+  "text": "si",
+  "start": 23.9,
+  "end": 24
+ },
+ {
+  "text": "no",
+  "start": 24,
+  "end": 24.2
+ },
+ {
+  "text": "le",
+  "start": 24.2,
+  "end": 24.3
+ },
+ {
+  "text": "quedan?",
+  "start": 24.3,
+  "end": 24.7
+ },
+ {
+  "text": "La",
+  "start": 25.03,
+  "end": 25.15
+ },
+ {
+  "text": "tienda",
+  "start": 25.4,
+  "end": 25.7
+ },
+ {
+  "text": "decía,",
+  "start": 25.7,
+  "end": 26
+ },
+ {
+  "text": "junto",
+  "start": 26,
+  "end": 26.3
+ },
+ {
+  "text": "al",
+  "start": 26.3,
+  "end": 26.4
+ },
+ {
+  "text": "precio:",
+  "start": 26.4,
+  "end": 26.7
+ },
+ {
+  "text": "devolución",
+  "start": 26.7,
+  "end": 27.5
+ },
+ {
+  "text": "gratis.",
+  "start": 27.5,
+  "end": 27.8
+ },
+ {
+  "text": "Y",
+  "start": 28.59,
+  "end": 28.7
+ },
+ {
+  "text": "le",
+  "start": 28.7,
+  "end": 28.82
+ },
+ {
+  "text": "quedaron.",
+  "start": 28.82,
+  "end": 29.3
+ },
+ {
+  "text": "¿Lo",
+  "start": 29.66,
+  "end": 29.78
+ },
+ {
+  "text": "ponemos",
+  "start": 29.7,
+  "end": 30
+ },
+ {
+  "text": "en",
+  "start": 30,
+  "end": 30.2
+ },
+ {
+  "text": "tu",
+  "start": 30.2,
+  "end": 30.3
+ },
+ {
+  "text": "tienda?",
+  "start": 30.3,
+  "end": 30.5
+ },
+ {
+  "text": "Agendá",
+  "start": 30.97,
+  "end": 31.33
+ },
+ {
+  "text": "una",
+  "start": 31.33,
+  "end": 31.5
+ },
+ {
+  "text": "videollamada",
+  "start": 31.5,
+  "end": 32
+ },
+ {
+  "text": "gratis",
+  "start": 32,
+  "end": 32.31
+ },
+ {
+  "text": "en",
+  "start": 32.35,
+  "end": 32.55
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 32.63,
+  "end": 33.9
+ }
+]
