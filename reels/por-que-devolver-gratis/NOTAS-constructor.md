@@ -79,8 +79,8 @@ columna, glitch, ding, whoosh-cinematic de s03, whoosh de "achica"). Que el revi
 - La nube: el pie es chico; se lee más el champión que el pie que rebota.
 - "4 años" y créditos: las cifras son las del abstract (fuentes.md); "publicado en 2012" en el crédito de s03.
 - Rótulos cortos (warnings line_unread): "Le gustan, pero duda" 0,8 s, "Lo que compraban antes" 0,9 s.
-- Portada: `portada.json` con fondo limpio `portada-src/fondo-limpio-13.25.png` (las dos columnas, la línea "antes");
-  alternativa `portada-src/fondo-limpio-1.0.png` (la caja con la etiqueta). Como en recordatorio, portada.mjs no lee
+- Portada: `portada.json` con fondo limpio `portada-src/fondo-limpio-13.0.png` (las dos columnas, la línea "antes");
+  (regenerado tras la ronda 3 desde el build actual). Como en recordatorio, portada.mjs no lee
   `fondo_limpio`: hay que pasárselo.
 - No se renderizó el mp4 ni se hizo commit.
 
@@ -159,3 +159,11 @@ s08 arranca menos cenital · la vitrina entra 0,15 s más tarde (T.v0 = s07 + 0,
 Sonido: el silencio del clic de boca ahora con rampas por muestra (asetnsamples 48 + volume eval=frame), "Un" arranca
 limpio a 5,37 · burbuja −4 dB, golpe+pop de la nube −4 dB, tac-real/papel-fuerte de 18,5-19,5, 22,45-24,35 y
 29,15-30,15 −3 dB.
+
+## Verificación final (retoques)
+Nube sin estela y sin pie: champión grande + "?" verde que late; nube entera y lejos de la cara · brazo de la vitrina
+con manga navy larga que entra desde abajo a la derecha (corte fuera de cuadro, no tapa "Champión urbano") · sin ondas
+en el vidrio ni aro en los toques del celular · subtítulos: las palabras ya no entran escaladas (era el "doble espacio"
+de 1-3 cuadros) · champión viejo del piso entero en cuadro · guía de "Le gustan, pero duda" al celular · "Más que
+antes de devolver" más abajo · "Suben más las compras" separado del logo · plano medio de Rubén un poco más alto
+(píldora sin tocar la coronilla). Sonido de la nube: un pop bajo con el "?" (sin golpes del pie).

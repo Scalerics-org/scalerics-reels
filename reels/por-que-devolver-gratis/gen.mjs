@@ -124,10 +124,10 @@ const POS = {
   vuelve: [540, 1690], vuelveLead: [560, 1635, 640, 1000],
   credEst: [540, 1680], reales: [540, 1690], realesLead: [700, 1635, 760, 1250],
   credPag: [540, 1690], antes: [560, 540], antesLead: [345, 560, 262, 606],
-  masAntes: [540, 1835], masAntesLead: [640, 1635, 560, 760],
+  masAntes: [540, 1862], masAntesLead: [640, 1635, 560, 760],
   credRiesgo: [540, 1830], riesgo: [540, 1830], riesgoLead: [0, 0, 0, 0],
-  credRev: [540, 545], algo: [230, 1560], suben: [690, 1690], subenLead: [740, 1635, 740, 1100],
-  duda: [300, 1500], dudaLead: [380, 1445, 520, 1270],
+  credRev: [540, 545], algo: [230, 1560], suben: [690, 1640], subenLead: [740, 1585, 740, 1100],
+  duda: [300, 1500], dudaLead: [360, 1445, 390, 1080],
   vista: [540, 1790], vistaLead: [540, 1675, 540, 1500],
   sinUsar: [540, 1690], sinUsarLead: [540, 1635, 540, 1150],
 };
@@ -301,7 +301,7 @@ vacia("s06-por-que", [
       ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.28 + 0.233 * k + 0.1), sfx: "tac-real", vol: 0.177 })),
       { t: rel(id, T.nubeR) - 0.05, sfx: "whoosh-short", vol: 0.15 },
       { t: rel(id, T.nubeR + 0.05), sfx: "burbuja", vol: 0.0455 },
-      ...[0, 1, 2].filter((k) => a0 + 0.275 + k * 0.55 < T.s10).flatMap((k) => [{ t: rel(id, a0 + 0.275 + k * 0.55), sfx: "golpe", vol: 0.0315, max: 0.3 }, { t: rel(id, a0 + 0.285 + k * 0.55), sfx: "pop", vol: 0.051 }]),
+      { t: rel(id, T.ysi + 0.15), sfx: "pop", vol: 0.05 }, // el "?" de la nube
     ],
   });
 }

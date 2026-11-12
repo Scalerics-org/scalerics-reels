@@ -585,7 +585,7 @@ const mano = new THREE.Group(); scene.add(mano);
   for (let i = 0; i < 3; i++) { const d = mesh(new THREE.CapsuleGeometry(0.018, 0.035, 6, 10), piel, -0.005 - i * 0.034, -0.012, 0.06); d.rotation.x = Math.PI / 2 + 0.9; mano.add(d); }
   const pulgar = mesh(new THREE.CapsuleGeometry(0.019, 0.05, 6, 10), piel, 0.07, 0.0, 0.03); pulgar.rotation.set(Math.PI / 2, 0, -0.7); mano.add(pulgar);
   const munieca = mesh(new THREE.CylinderGeometry(0.045, 0.05, 0.12, 20), piel, 0, 0, -0.1); munieca.rotation.x = Math.PI / 2; mano.add(munieca);
-  const manga = mesh(new THREE.CylinderGeometry(0.07, 0.085, 1.2, 24), mat(C.edge, 0.75), 0, 0, -0.74); manga.rotation.x = Math.PI / 2; mano.add(manga);
+  const manga = mesh(new THREE.CylinderGeometry(0.07, 0.085, 3.0, 24), mat(C.edge, 0.7), 0, 0, -1.64); manga.rotation.x = Math.PI / 2; mano.add(manga); // larga: el corte queda fuera de cuadro
   const puno = mesh(new THREE.TorusGeometry(0.072, 0.014, 8, 24), mat(C.cr2, 0.7), 0, 0, -0.14); mano.add(puno);
   sh(mano);
 }
@@ -718,13 +718,15 @@ const nubeItems = new THREE.Group(); nubeItems.position.z = 0.22; nube.add(nubeI
     const b = mesh(esfGeo, nubeM, x, y, 0); b.scale.set(r, r, r * 0.55); nube.add(b);
     const o = mesh(esfGeo, nubeBordeM, x, y, -0.01); o.scale.set(r + 0.03, r + 0.03, r * 0.55 + 0.02); nube.add(o);
   }
-  for (const [x, y, r] of [[-0.44, -0.37, 0.08], [-0.56, -0.5, 0.05]]) { // ronda 3: estela más corta (no toca la cara)
+  for (const [x, y, r] of []) { // final: sin estela (las burbujitas quedaban sobre la cara de Rubén)
     const b = mesh(esfGeo, nubeM, x, y, 0); b.scale.set(r, r, r * 0.8); nube.add(b);
     const o = mesh(esfGeo, nubeBordeM, x, y, -0.01); o.scale.set(r + 0.022, r + 0.022, r * 0.8 + 0.012); nube.add(o);
   }
 }
 const champNube = hacerChampion(); nubeItems.add(champNube);
-const pieNube = new THREE.Group(); nubeItems.add(pieNube);
+const pieNube = new THREE.Group(); // final: sin pie (se leía como caño); en la nube, el champión y un "?" verde
+const preguntaNube = new THREE.Group(); nubeItems.add(preguntaNube);
+{ const a = mesh(textoGeo("?", 0.95, 0.3), mat(C.g, 0.38, { emissive: C.g, emissiveIntensity: 0.16 })); preguntaNube.add(a); const b = mesh(a.geometry, new THREE.MeshBasicMaterial({ color: C.navy, side: THREE.BackSide })); b.scale.set(1.04, 1.03, 1.15); preguntaNube.add(b); }
 {
   // pie con media crema (puño verde) y la botamanga del pantalón: se lee como pie
   const media = mat(0x8fa3c7, 0.8); // ronda 3: navy claro (se separa del champión navy)
@@ -860,8 +862,8 @@ function armarPlanos() {
     ]],
     // s09: el almacén de noche, Rubén en el banquito mirando el celular (plano medio)
     ["R", T.s09, [
-      k(T.s09, r(0.5, 1.5, 3.2), r(0.12, 1.15, RB.z)),
-      k(T.pies, r(0.45, 1.48, 2.95), r(0.12, 1.15, RB.z)),
+      k(T.s09, r(0.5, 1.56, 3.2), r(0.12, 1.24, RB.z)),
+      k(T.pies, r(0.45, 1.54, 2.95), r(0.12, 1.24, RB.z)),
     ]],
     // contraplano: los pies con los championes viejos (de costado: se ve la suela despegada)
     // primer plano limpio del champión viejo en el piso del almacén: la suela despegada aletea como una boca
@@ -1090,13 +1092,13 @@ function zonaV(t) {
   const entra = eio(sg(t, T.probar - 0.2, T.toque)), va = eio(sg(t, T.riesgo - 0.1, T.riesgo + 0.25));
   const tap = Math.max(pulso(t, T.toque, 0.12), pulso(t, T.toque + 0.2, 0.12));
   const zG = VIT.d / 2 - 0.01; // el vidrio (local)
-  const punta = V(0.12, 1.36, zG + 0.012 + tap * 0.05); // la punta del índice
-  const desde = V(0.7, -0.7, 1.3);
+  const punta = V(0.36, 1.19, zG + 0.012 + tap * 0.05); // la punta del índice
+  const desde = V(0.9, -0.3, 1.5);
   mano.visible = entra > 0.01 && va < 0.99;
   if (mano.visible) {
     const objetivo = lerpV(desde, punta, entra * (1 - va)).add(OV);
     // el índice apunta hacia -z (al vidrio): la mano mira a -z con la punta del índice a 0.165 adelante
-    mano.rotation.set(0.45, Math.PI + 0.3, 0);
+    mano.rotation.set(0.5, Math.PI + 0.45, 0); // entra desde abajo a la derecha (no tapa "Champión urbano")
     mano.updateMatrixWorld(true);
     const fw = V(0, 0, 1).applyQuaternion(mano.quaternion);
     mano.position.copy(objetivo).addScaledVector(fw, -0.18 * 1.15);
@@ -1104,7 +1106,7 @@ function zonaV(t) {
   }
   ondas.forEach((oo, j) => {
     const a = T.toque + j * 0.2 + 0.03, u = sg(t, a, a + 0.45);
-    oo.visible = t > a && u < 1;
+    oo.visible = false; // final: sin ondas (quedaban corridas del dedo)
     if (!oo.visible) return;
     oo.position.set(0.12, 1.36, zG + 0.006); oo.scale.setScalar(lerp(0.03, 0.28, eo(u))); oo.material.opacity = 0.9 * (1 - u);
   });
@@ -1228,7 +1230,7 @@ function zonaR(t) {
   viejoPiso.visible = nuevos || plano === "RV";
   if (plano === "RV") { ruben.raiz.visible = false; mateM.visible = false; }
   if (plano === "RV") { viejoPiso.position.copy(VP); viejoPiso.rotation.set(0, VROT, 0); }
-  else { viejoPiso.position.set(OR.x - 0.62, 0, RB.z + 0.05); viejoPiso.rotation.set(0, 0.2, 0); } // al lado del banquito, a la vista
+  else { viejoPiso.position.set(OR.x - 0.36, 0, RB.z + 0.12); viejoPiso.rotation.set(0, 0.2, 0); } // al lado del banquito, a la vista
   viejoPiso.userData.bis.rotation.x = plano === "RV" ? 0.08 + 0.75 * flap(t) : lerp(0.42, 0.0, eio(sg(t, T.talon, T.talon + 0.15))) + rebote(t, T.talon + 0.15, 10, 30, 0.05);
   viejoPiso.scale.setScalar(plano === "RV" ? 1.0 : 1.45);
   // contraplano: Rubén levanta el pie derecho y lo muestra (con los viejos, la suela aletea como una boca; con los nuevos,
@@ -1256,7 +1258,7 @@ function zonaR(t) {
   // el pulgar: entra desde abajo a la derecha y toca "Comprar" (y después "Pagar")
   pulgar.visible = false;
   const tq = t < T.paga - 0.02 ? T.compra : T.paga, uq = sg(t, tq - 0.02, tq + 0.18);
-  toqueR.visible = plano === "RC" && t > tq - 0.02 && uq < 1;
+  toqueR.visible = false; // final: sin aro (quedaba sobre el texto del botón)
   if (toqueR.visible) { toqueR.position.copy(enPant(celuR, PP[0] / 2, PP[1] - 195, 0.008)); toqueR.scale.setScalar(lerp(0.002, 0.008, eo(uq))); toqueR.material.opacity = 0.9 * (1 - uq); }
   const toque = 0;
   if (pulgar.visible) {
@@ -1269,16 +1271,13 @@ function zonaR(t) {
   nube.visible = kn > 0.01;
   if (nube.visible) {
     ruben.cabeza.getWorldPosition(_v);
-    nube.position.copy(_v).add(V(0.6, 0.5, 0.1)); nube.quaternion.copy(camera.quaternion);
-    nube.scale.setScalar(kn * 0.62 * (1 + 0.02 * Math.sin(t * 5)));
-    champNube.position.set(0.04, -0.27, 0.05); champNube.rotation.set(0.12, 1.57 + 0.35, 0); champNube.scale.setScalar(1.9);
-    // el pie baja, choca, el champión se aplasta, el pie rebota (dos veces)
-    const ciclo = (tt) => { const a = T.ysi + 0.25; if (tt < a) return 0; const f2 = ((tt - a) % 0.55) / 0.55; return Math.sin(Math.min(1, f2 / 0.5) * Math.PI / 2) * (f2 < 0.5 ? 1 : 1 - (f2 - 0.5) / 0.5); };
-    const baja = ciclo(t);
-    const choca = Math.max(0, baja - 0.75) / 0.25;
-    // el pie (de costado, como el champión) baja sobre la abertura del talón y no entra
-    pieNube.position.set(-0.12, lerp(0.08, -0.07, baja), 0.14); pieNube.rotation.set(0, 1.57, 0.1); pieNube.scale.setScalar(1.25);
-    champNube.scale.set(1.9 * (1 + 0.1 * choca), 1.9 * (1 - 0.28 * choca), 1.9 * (1 + 0.06 * choca));
+    nube.position.copy(_v).add(V(0.5, 0.56, 0.1)); nube.quaternion.copy(camera.quaternion);
+    nube.scale.setScalar(kn * 0.55 * (1 + 0.02 * Math.sin(t * 5)));
+    champNube.position.set(-0.14, -0.2, 0.05); champNube.rotation.set(0.12, 1.57 + 0.35, 0); champNube.scale.setScalar(1.75);
+    const kq = t < T.ysi + 0.15 ? 0 : popIn(t, T.ysi + 0.15, 0.3);
+    preguntaNube.visible = kq > 0.01;
+    preguntaNube.position.set(0.3, 0.02, 0.12); preguntaNube.rotation.set(0, 0, Math.sin((t - T.ysi) * 6) * 0.15);
+    preguntaNube.scale.setScalar(Math.max(0.001, kq * 0.4 * (1 + 0.1 * pulso(t, T.quedan, 0.3))));
   }
   // s11: la caja del gancho (MISMA) cae en el mostrador, rebota y se abre: seda, los championes y la etiqueta sin usar
   if (plano === "RM") {

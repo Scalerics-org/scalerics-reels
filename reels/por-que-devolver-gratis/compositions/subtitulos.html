@@ -97,7 +97,7 @@
         tl.fromTo(el.querySelector("p"), { scale: 0.94, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)" }, ini);
         for (const w of el.querySelectorAll(".w")) {
           const t = ini + Number(w.dataset.t);
-          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10, scale: 0.94 }, { y: 0, scale: 1, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
+          tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10 }, { y: 0, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out", immediateRender: false }, t + 0.02);
         }
