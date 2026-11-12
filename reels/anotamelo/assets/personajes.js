@@ -1599,8 +1599,8 @@ export function crearLibretaFiado({ W = 0.27, H = 0.35, paginaTex = null, hojaTe
       gomita.visible = gorda > 0.5 && ta < 0.01;
       const altoT = top + T2 + 0.006;
       gomita.children.forEach((b) => {
-        if (b.userData.y !== undefined) { b.position.set(W * 0.3, b.userData.y > 0 ? altoT + 0.002 : -0.002, H / 2 + 0.006); }
-        else { b.scale.y = altoT + 0.004; b.position.set(W * 0.3, altoT / 2, b.userData.s > 0 ? H + 0.024 : -0.012); }
+        if (b.userData.y !== undefined) { b.position.set(W * 0.42, b.userData.y > 0 ? altoT + 0.002 : -0.002, H / 2 + 0.006); }
+        else { b.scale.y = altoT + 0.004; b.position.set(W * 0.42, altoT / 2, b.userData.s > 0 ? H + 0.024 : -0.012); }
       });
     },
   };

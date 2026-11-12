@@ -29,12 +29,24 @@ azúcar, mate, termo, lápiz y sacapuntas genéricos; los billetes son el billet
   Rasalgethi. Tomas elegidas (12-11, en partes/tomas → partes/rec → assets/voice): g1 = 01-graciela-c (atempo 1,08; se reusa en Q1) · h1 = 02-hector-b · w1 = 03-walter-a (-2 dB) · m1 = 04-marta-b (atempo 1,12) · h2 = 05-hector-a · w2 = 06-walter-b (atempo 1,1) · g2 = 07-graciela-b (pausas internas acortadas a ~0,13 y ~0,2 s, atempo 1,08) · r1 = 08-ruben-a · h3 = 09-hector-a · narrador = 10-narrador-a · r2 = 11-ruben-a · h4 = 12-hector-c (atempo 1,1). Todas verificadas con tiempos.mjs ("oyó" coincide con el guion).
 
 ## Sonido
-Nada sintetizado con ffmpeg. Del repo (créditos en los fuentes.md de reels/hacen-envios, reels/me-haces-precio y
-anteriores): música `bgm/pizzicato.wav` ("Pizzicato Intrigue", younoise, CC0), ambiente `sfx/calle.wav` (Oper8, CC0),
-`campanita.wav` (775noise, CC0), `papel.wav` ("Paper slide", Kingofgamers_cz, CC0), `tic-real.mp3`, `vibra.wav`,
-`notification.mp3`, `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `ding.mp3`, `cero.mp3`,
-`stinger.wav`, `paso-0..4.wav` (Kenney, Impact Sounds, CC0), `puerta-abre.wav` (Kenney, RPG Audio, CC0),
-`zumbido.wav` (la heladera: "Room Tone Ambience Medium Control Low Hum", gchase, Freesound 144046, CC0 1.0).
+Nada sintetizado con ffmpeg. Del repo, con su crédito (copiado de los fuentes.md de reels/abren-hoy,
+abren-hoy-completo, abren-hoy-2, el-audio, hacen-envios y me-haces-precio):
+- Música `bgm/pizzicato.wav`: "Pizzicato Intrigue", younoise, CC0. Ambiente `sfx/calle.wav`: Oper8, CC0.
+- `campanita.wav`: 775noise, CC0. `papel.wav`: "Paper slide", Kingofgamers_cz, Freesound
+  (https://freesound.org/people/Kingofgamers_cz/sounds/352914/), CC0 1.0.
+- `tic-real.mp3`: recorte de "Clock ticking", olver, Freesound, CC0 1.0.
+- `vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound
+  (https://freesound.org/people/SpliceSound/sounds/369839/), CC0 1.0.
+- `cero.mp3`: "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald, Freesound
+  (https://freesound.org/people/GabFitzgerald/sounds/625174/), CC0 1.0.
+- `stinger.wav`: "Vibraphone Transition Music Cue", DanJFilms, Freesound, CC0 1.0 (primeros 2,2 s).
+- `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `ding.mp3`, `notification.mp3`: la biblioteca de
+  sonidos de HyperFrames que trae el molde del repo (los mismos de todos los reels).
+- `paso-0..4.wav`: "footstep_concrete_000..004", Kenney, "Impact Sounds" (https://kenney.nl/assets/impact-sounds),
+  CC0 1.0. `puerta-abre.wav`: "door_open_1", Kenney, "RPG Audio", CC0 1.0.
+- `zumbido.wav` (la heladera): "Room Tone Ambience Medium Control Low Hum", gchase, Freesound
+  (https://freesound.org/people/gchase/sounds/144046/), CC0 1.0.
+- Las tomas h1, r1 y r2 pasaron por `adeclip` (ronda 1: traían unas pocas muestras recortadas de origen).
 
 Nuevos, bajados el 12-11 (freesound.org está bloqueado desde la nube; espejos en GitHub que conservan la licencia):
 - Kenney, pack "RPG Audio" (https://kenney.nl/assets/rpg-audio), CC0 1.0. Espejo:

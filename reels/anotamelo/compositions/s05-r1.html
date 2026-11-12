@@ -26,7 +26,7 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".linea"), { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2)", immediateRender: true }, 0.02);
+      tl.set(q(".linea"), { opacity: 0 }, 0); tl.set(q(".linea"), { opacity: 1 }, Number(qa(".w")[0].dataset.t)); tl.fromTo(q(".linea"), { scale: 0.88 }, { scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, Number(qa(".w")[0].dataset.t));
       for (const w of qa(".w")) {
         const t = Number(w.dataset.t);
         tl.set(w, { opacity: 1 }, t);

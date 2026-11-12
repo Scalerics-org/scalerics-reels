@@ -72,3 +72,19 @@ corta) y la parte 2; duck de -6 dB debajo de cada voz.
 - Sacapuntas y lápiz escribiendo: sin CC0 real específico (ver fuentes.md): roce de cuchilla Kenney y papel real.
 - Portada: `portada.json` con t 19,9 (la pelada escrita); fondo limpio en `portada-src/fondo-limpio-19.9.png`
   (también `fondo-limpio-16.1.png`, el antebrazo).
+
+
+## Ronda 1 de correcciones (12-11) · ahora 33,45 s (P1 19,53 · cartel 19,53-22,53 · línea chica 31,85)
+Planos nuevos (s): P1 0,00 (desde la izquierda: el lápiz detrás de la oreja derecha a la vista; la mano lo saca 1,12;
+push-in a la libreta 1,42) · P2 2,12 (órbita alta; Héctor 2,56 · Walter 3,10 · Marta 3,58 · vecinos Beto 4,03 · Nelly
+4,27 · Fede 4,51) · P3 4,78 · P3b 5,36 · P4 5,90 (Héctor 6,05) · P4w 7,07 (Walter 7,17) · P4i 8,79 (gira 180° de una vez
+9,01-9,27) · P5 9,49 (Graciela entra; 9,84) · P5b 12,05 (dos hojas 12,10-12,55, contratapa 12,73, cierra 13,09-13,25) ·
+P5c 13,33 (quietud, brazo 13,88-14,23) · P5d 14,28 (corte al antebrazo; "Mil ochocientos cuarenta." 14,48) · P6 16,23 (la
+puerta: Graciela se va saludando, entra Héctor con la billetera; 16,73) · P6c 18,08 (agacha 18,20-18,58, golpe y música
+-10 dB) · cartel 19,53 · Q1 22,53 (22,73; mano a la oreja 23,82, se frena 24,37, toca 24,59: "+ $ 320 ✓" y el saldo pasa a
+$ 1.840; "Anotado." 24,71) · Q2 25,49 (almanaque 30; vibra y notificación fuera de cuadro) · Q2b 25,99 (Héctor entra ya
+leyendo el aviso) · Q2c 26,54 (inserto del celular: "¡Ah, mirá! Yo te debía." 26,69; toca Pagar 28,26; Pagado ✓ 28,40) ·
+Q3 28,85 (filas en verde 28,95-29,70, mismo orden que Q1) · Q3b 29,90 (la libreta gorda se acuesta en el estante del
+dulce de leche, 30,25) · Q4 30,75 (FIADO 31,20-31,85; línea chica 31,85).
+Mezcla: voz ≥ 6,7 LU sobre el resto en todos los tramos con voz (mín. 28,5 s = cola de h4 con el ding de Pagado);
+-14,0 LUFS integrado antes del loudnorm. Sin logo suelto (criterio parejo: la marca solo en la línea chica).

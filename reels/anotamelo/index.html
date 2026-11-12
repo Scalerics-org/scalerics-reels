@@ -21,18 +21,16 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="35.48" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="33.45" data-width="1080" data-height="1920">
       <div id="precarga">Rubén</div><div id="precarga2">FIADO</div>
-      <div id="fondo" class="clip" data-start="0" data-duration="35.48" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="20.18" data-duration="3" data-track-index="12" data-track-kind="graphics"></div>
-      <div id="capa3d" class="clip" data-start="0" data-duration="35.48" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="fondo" class="clip" data-start="0" data-duration="33.45" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="19.53" data-duration="3" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="33.45" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       <div id="el-s00-gancho" class="scene" style="z-index:3" data-composition-id="s00-gancho" data-composition-src="compositions/s00-gancho.html" data-start="0" data-duration="1.69" data-track-index="2" data-track-kind="graphics"></div>
-      <div id="el-s05-r1" class="scene" style="z-index:3" data-composition-id="s05-r1" data-composition-src="compositions/s05-r1.html" data-start="15.03" data-duration="1.83" data-track-index="3" data-track-kind="graphics"></div>
-      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="33.88" data-duration="1.6" data-track-index="4" data-track-kind="graphics"></div>
-      <img id="firma0" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="6.35" data-duration="2.89" data-track-index="9" />
-      <img id="firma1" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="17.43" data-duration="1.55" data-track-index="9" />
-      <img id="firma2" class="firma clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="28.01" data-duration="1.62" data-track-index="9" />
-      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="35.48" data-track-index="30" data-volume="1"></audio>
+      <div id="el-s05-r1" class="scene" style="z-index:3" data-composition-id="s05-r1" data-composition-src="compositions/s05-r1.html" data-start="14.38" data-duration="1.83" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="31.85" data-duration="1.6" data-track-index="4" data-track-kind="graphics"></div>
+
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="33.45" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -43,14 +41,14 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 35.48 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 33.45 }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
-      tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.26, ease: "power2.in", immediateRender: false }, 20.18);
-      tl.fromTo("#capa3d", { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "none", immediateRender: false }, 20.3);
+      tl.fromTo("#capa3d", { scale: 1, rotation: 0 }, { scale: 0.001, rotation: 540, duration: 0.26, ease: "power2.in", immediateRender: false }, 19.53);
+      tl.fromTo("#capa3d", { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "none", immediateRender: false }, 19.65);
       // la parte 2 entra por un iris que se abre desde la tablet
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1250px)" }, 20.45);
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1250px)" }, { clipPath: "circle(1900px at 540px 1250px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 22.86);
-      tl.set("#capa3d", { clipPath: "none" }, 23.19);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1250px)" }, 19.8);
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1250px)" }, { clipPath: "circle(1900px at 540px 1250px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 22.21);
+      tl.set("#capa3d", { clipPath: "none" }, 22.54);
       window.__timelines["main"] = tl;
     </script>
   </body>
