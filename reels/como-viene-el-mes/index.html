@@ -21,16 +21,16 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="33.79" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="35.43" data-width="1080" data-height="1920">
       <div id="precarga">Rubén</div><div id="precarga2">TICKETS</div>
-      <div id="fondo" class="clip" data-start="0" data-duration="33.79" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="18.05" data-duration="3" data-track-index="12" data-track-kind="graphics"></div>
-      <div id="capa3d" class="clip" data-start="0" data-duration="33.79" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="fondo" class="clip" data-start="0" data-duration="35.43" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="19.12" data-duration="2.7" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="35.43" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       <div id="el-s00-gancho" class="scene" style="z-index:3" data-composition-id="s00-gancho" data-composition-src="compositions/s00-gancho.html" data-start="0" data-duration="1.95" data-track-index="2" data-track-kind="graphics"></div>
-      <div id="el-s05-r2" class="scene" style="z-index:3" data-composition-id="s05-r2" data-composition-src="compositions/s05-r2.html" data-start="12.4" data-duration="0.98" data-track-index="3" data-track-kind="graphics"></div>
-      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="31.79" data-duration="2" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s05-r2" class="scene" style="z-index:3" data-composition-id="s05-r2" data-composition-src="compositions/s05-r2.html" data-start="12.05" data-duration="1.03" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="33.43" data-duration="2" data-track-index="4" data-track-kind="graphics"></div>
 
-      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="33.79" data-track-index="30" data-volume="1"></audio>
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="35.43" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -41,13 +41,13 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 33.79 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 35.43 }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
-      tl.set("#capa3d", { opacity: 0 }, 18.05);   // (ronda 2) corte seco al cartel (el giro pasaba por la pelada espejada)
+      tl.set("#capa3d", { opacity: 0 }, 19.12);   // (ronda 2) corte seco al cartel (el giro pasaba por la pelada espejada)
       // la parte 2 entra por un iris que se abre desde la tablet
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1150px)" }, 18.32);
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1150px)" }, { clipPath: "circle(1900px at 540px 1150px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 20.73);
-      tl.set("#capa3d", { clipPath: "none" }, 21.06);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1150px)" }, 19.39);
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1150px)" }, { clipPath: "circle(1900px at 540px 1150px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 21.5);
+      tl.set("#capa3d", { clipPath: "none" }, 21.83);
       window.__timelines["main"] = tl;
     </script>
   </body>
