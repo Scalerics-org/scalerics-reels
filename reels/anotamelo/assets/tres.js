@@ -362,19 +362,25 @@ function dibujarTablet(t) {
   x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 70); x.fillText("Cuentas", 36, 64);
   x.fillStyle = "#5ce611"; x.fillRect(0, 118, W, 10);
   // [nombre, saldo, lo que dice en verde, orden en que se pone verde en Q3]
-  const filas = [["Graciela", mas > 0 ? "$ 1.840" : "$ 1.520", "Avisado ✓", 3], ["Héctor", "$ 1.260", "Pagado ✓", 0], ["Walter", "$ 840", "Martes ✓", 1], ["Marta", "$ 610", "Pagado ✓", 2]];
+  const filas = [["Graciela", mas > 0 ? "$ 1.840" : "$ 1.520", "$ 1.840 · Avisado ✓", 3], ["Héctor", "$ 1.260", "Pagado ✓", 0], ["Walter", "$ 840", "Martes ✓", 1], ["Marta", "$ 610", "Pagado ✓", 2]];
   filas.forEach(([n, m, ok, ord], i) => {
     const y = 142 + i * 122, verde = !enQ1 && ord < verdes;
     x.fillStyle = verde ? "#5ce611" : i % 2 ? "#16243d" : "#1f3254"; x.beginPath(); x.roundRect(20, y, W - 40, 112, 22); x.fill();
     x.fillStyle = verde ? "#0b1220" : "#efeee5"; x.textAlign = "left"; x.font = F(800, 66); x.fillText(n, 44, y + 58);
     x.textAlign = "right";
-    if (verde) { x.font = F(900, 64); x.fillText(ok, W - 44, y + 58); }
+    if (verde) {
+      // (ronda 3) el texto verde entra entero entre el nombre y el borde (Graciela: "$ 1.840 · Avisado ✓")
+      const libre = W - 44 - (44 + x.measureText(n).width + 34);
+      let fs = 64; x.font = F(900, fs); while (fs > 40 && x.measureText(ok).width > libre) { fs -= 2; x.font = F(900, fs); }
+      x.fillText(ok, W - 44, y + 58);
+    }
     else { x.font = F(800, 64); x.fillStyle = i === 0 && mas > 0 ? "#5ce611" : "#efeee5"; x.fillText(m, W - 44, y + 58); }
   });
   if (enQ1 && mas > 0) {
-    x.save(); x.globalAlpha = Math.min(1, mas * 1.6); x.translate(W * 0.53, 142 + 56); x.scale(0.62 + 0.26 * mas, 0.62 + 0.26 * mas);
-    x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.beginPath(); x.roundRect(-150, -46, 300, 92, 46); x.fill(); x.stroke();
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 58); x.fillText("+ $ 320 ✓", 0, 3);
+    x.save(); x.globalAlpha = Math.min(1, mas * 1.6); x.translate(W - 44 - 200, 62); x.scale(0.7 + 0.3 * mas, 0.7 + 0.3 * mas);
+    // (ronda 3) el chip, grande, en la cabecera a la derecha (justo arriba del saldo de Graciela, sin tapar el nombre)
+    x.fillStyle = "#5ce611"; x.strokeStyle = "#efeee5"; x.lineWidth = 6; x.beginPath(); x.roundRect(-200, -54, 400, 108, 54); x.fill(); x.stroke();
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 74); x.fillText("+ $ 320 ✓", 0, 4);
     x.restore();
   }
   tabT.needsUpdate = true;
@@ -728,7 +734,7 @@ function desfile(t, tIn, tOut) {
 // ciclo: [a agarra, b escribe, c saca punta, d vuelve a la oreja, e en la oreja]
 function largoEn(t) {
   let L = T.largos[0];
-  T.ciclos.forEach(([, , c, d], i) => { if (t >= (c + d) / 2) L = T.largos[i + 1]; });
+  T.ciclos.forEach(([, , c, d], i) => { if (t >= (c + d) / 2) L = T.largos[i ? i + 1 : 0]; });
   if (t >= P2) L = T.largos[0];
   return L;
 }
@@ -759,6 +765,8 @@ function lapizEstado(t) {
     if (t < m) return { modo: "oreja", mano: "aOreja", k: eio(sg(t, a, m)) };
     if (t < b) return { modo: "mano", mano: "aLibreta", k: eio(sg(t, m, b)), i };
     if (t < c) return { modo: "mano", mano: "escribe", u: sg(t, b, c), i };
+    // (ronda 3) el primer ciclo no va al sacapuntas (quedaba en el borde durante la grúa): vuelve a la oreja desde la libreta
+    if (i === 0 && t < e) return { modo: "mano", mano: "vuelveLib", k: eio(sg(t, c, e)), i };
     if (t < d) { const s = sg(t, c, d); return { modo: "mano", mano: "sacaPunta", k: eio(cl(s / 0.35)), gira: cl((s - 0.35) / 0.65), i }; }
     if (t < e) return { modo: "mano", mano: "vuelve", k: eio(sg(t, d, e)), i };
     return { modo: "oreja", mano: "baja", k: 1 - eio(sg(t, e, e + 0.18)) };
@@ -793,7 +801,9 @@ function posarLapizYMano(t, pr) {
       const costado = oreja.mitad.clone().add(V3(-0.12, -0.12, 0.06));
       const alto = desde.clone().lerp(costado, Math.min(1, sube * 0.75 / 0.6)).lerp(oreja.mitad.clone().add(V3(-0.02, -0.03, 0)), Math.max(0, (sube * 0.75 - 0.6) / 0.4));
       const lado = oreja.mitad.clone().add(V3(-0.2, -0.42, 0.22));
-      const tp = tablet.localToWorld(V3(-0.2, 0.1, 0.03));
+      // (ronda 3) el índice cae en la fila de Graciela (la primera): sobre el nombre, en el plano de la pantalla
+      tablet.updateMatrixWorld(true);
+      const tp = tablet.userData.pivote.localToWorld(V3(-0.1, 0.3 / 2 + (0.5 - 198 / TH) * 0.3 * 0.88, 0.02));
       const tm = T.frena + 0.14;
       let obj = alto, kk = sube;
       if (t >= T.frena) obj = alto.clone().lerp(lado, eio(sg(t, T.frena, tm)));
@@ -822,6 +832,12 @@ function posarLapizYMano(t, pr) {
     const de = enLib(st.i, 1).ag, s = enSac();
     agarre = de.clone().lerp(s.ag, st.k).add(V3(0, 0.06, 0).multiplyScalar(Math.sin(Math.PI * st.k)));
     dir = DIR_ESCRIBE.clone().lerp(DIR_SACA, st.k).normalize();
+  } else if (mano === "vuelveLib") {
+    const de = enLib(st.i, 1).ag;
+    // por el costado de la cabeza (como cuando la saca), nunca por delante de la cara
+    const costado = oreja.mitad.clone().add(V3(-0.24, -0.16, 0.0)), k = st.k;
+    agarre = k < 0.6 ? de.clone().lerp(costado, eio(k / 0.6)) : costado.clone().lerp(oreja.mitad, eio((k - 0.6) / 0.4));
+    dir = DIR_ESCRIBE.clone().lerp(oreja.d, st.k).normalize();
   } else if (mano === "vuelve") {
     const s = enSac();
     agarre = s.ag.clone().lerp(oreja.mitad, st.k).add(V3(-0.1, 0.05, 0.05).multiplyScalar(Math.sin(Math.PI * st.k)));
@@ -1118,7 +1134,7 @@ function renderAt(tIn) {
   // las virutas: caen del sacapuntas en cada ciclo y se quedan en el mostrador
   for (const { v, c, i, fin, rot, ret } of VIRUTAS) {
     const d = T.ciclos[c][3], t0 = T.ciclos[c][2] + (d - T.ciclos[c][2]) * 0.45 + ret;
-    v.visible = t >= t0 && !parte2;
+    v.visible = t >= t0 && !parte2 && c > 0;
     if (!v.visible) continue;
     const u = sg(t, t0, t0 + 0.28);
     const ini = bocaSac();

@@ -77,7 +77,7 @@ T.q2b = r2(T.q2 + 0.5); T.entraH2 = [r2(T.q2b - 0.25), r2(T.q2b + 0.2)]; T.noti 
 T.q2c = r2(T.q2b + 0.55); T.h4 = r2(T.q2c + 0.15);
 T.pagar = r2(T.h4 + LEN.h4 + 0.05); T.pagado = r2(T.pagar + 0.14);
 // Q3 · la tablet de Rubén: las cuentas se ponen en verde una por una · Q3b el estante: la libreta se jubila
-T.q3 = r2(T.pagado + 0.45); T.filas = [0.1, 0.35, 0.6, 0.85].map((d) => r2(T.q3 + d));
+T.q3 = r2(T.pagado + 0.45); T.filas = [0, 0.35, 0.6, 0.85].map((d) => r2(T.q3 + d));
 T.q3b = r2(T.q3 + 1.05); T.grua = [T.q3b, T.q3b]; T.apoya = r2(T.q3b + 0.35);
 // Q4 · cierre: Rubén sentado, mate en la izquierda, el diario: saca el lápiz de la oreja y escribe FIADO; la línea chica
 T.q4 = r2(T.q3b + 0.6); T.sacaQ4 = [r2(T.q4 + 0.05), r2(T.q4 + 0.3)]; T.fiado = [r2(T.q4 + 0.32), r2(T.q4 + 0.95)];
@@ -271,7 +271,7 @@ const TECHO = -31;
 const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 const pop = (t, techo = -38) => s("sfx/pop.mp3", t, 0, { desde: 0.11, techo });
-const escribe = (a, b, techo = -44) => { for (let t = a; t < b - 0.05; t += 0.17) s("sfx/papel.wav", t, 0, { desde: r2(0.32 + ((t * 7) % 0.6)), dur: 0.12, fin: 0.05, techo, lp: 5000 }); };
+const escribe = (a, b, techo = -44) => { for (let t = a; t < b - 0.05; t += 0.17) s("sfx/papel.wav", t, 14, { desde: r2(0.30 + ((t * 7) % 0.16)), dur: 0.12, fin: 0.05, techo, lp: 5000 }); };
 const pasos = (a, b, n, techo = -44) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo }); };
 // las voces: en todas, duck de la música alrededor
 const VOZ = [];
@@ -289,7 +289,7 @@ T.ciclos.forEach(([a, b, c, d, e], i) => {
   s("sfx/k-cloth_2.wav", a, 0, { techo: -50 });
   s("sfx/k-cloth_1.wav", d + 0.02, 0, { techo: -52, dur: 0.25, fin: 0.08 });   // (ronda 1) roce al volver a la oreja
   escribe(b, c, i === 0 ? -42 : -45);
-  s(i % 2 ? "sfx/k-knife_slice_2.wav" : "sfx/k-knife_slice.wav", c + 0.01, 0, { dur: Math.max(0.12, d - c), fin: 0.05, techo: i < 4 ? -42 : -45, lp: 6000 });
+  if (i > 0) s(i % 2 ? "sfx/k-knife_slice_2.wav" : "sfx/k-knife_slice.wav", c + 0.01, 0, { dur: Math.max(0.12, d - c), fin: 0.05, techo: i < 4 ? -42 : -45, lp: 6000 });
 });
 // P2 · la órbita, los clientes (pop por burbuja, sus voces), la hoja de la libreta que pasa, el almanaque
 s("sfx/whoosh.mp3", T.p2 - 0.04, 0, { techo: -42, dur: 0.5, fin: 0.15 });
@@ -327,7 +327,7 @@ s("sfx/whoosh-short.mp3", T.push[0] - 0.02, 0, { techo: -50 });
 voz("r1", T.r1, -1);
 // P6 · los billetes, el saludo, la puerta, Héctor; la pelada
 s("sfx/whoosh-short.mp3", T.p6 - 0.04, 0, { techo: -46 });
-pasos(T.saleG[0], r2(T.saleG[1] - 0.2), 3, -50);   // (ronda 1) Graciela se va
+// (ronda 3) sin pasos cuando Graciela se va: tapaban la cola de la voz de Rubén (B2)
 s("sfx/campanita.wav", r2(T.entraH[0] - 0.12), 0, { techo: -45, dur: 0.5, fin: 0.25 });
 pasos(T.entraH[0], T.entraH[1], 3, -47);
 pop(T.h3 - 0.02); voz("h3", T.h3, -2);
@@ -360,12 +360,12 @@ pop(T.h4 - 0.08, -42); voz("h4", T.h4, -2);
 s("sfx/click-soft.mp3", T.pagar, 0, { techo: -42 });
 s("sfx/cero.mp3", T.pagado, 0, { techo: -41 });
 s("sfx/whoosh-short.mp3", T.q3 - 0.04, 0, { techo: -46 });
-T.filas.forEach((t) => pop(t, -40));
+T.filas.slice(1).forEach((t) => pop(t, -40));   // (ronda 3) Héctor ya entra en verde (pagó): sin pop
 s("sfx/whoosh-short.mp3", T.q3b - 0.04, 0, { techo: -46 });
 s("sfx/k-book_place_2.wav", T.apoya - 0.02, 0, { techo: -38 });
 s("sfx/whoosh-short.mp3", T.q4 - 0.04, 0, { techo: -46 });
 s("sfx/k-cloth_2.wav", T.sacaQ4[0], 0, { techo: -48 });
-escribe(T.fiado[0], T.fiado[1], -43);
+escribe(r2(T.fiado[0] + 0.2), T.fiado[1], -40);   // (ronda 3) la mano llega a la grilla ~0,2 s después
 pop(T.cierre + 0.05, -42);   // (ronda 1) la línea chica
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav") { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
@@ -422,6 +422,7 @@ if (!process.env.SINAUDIO) {
   if (process.env.MEDIR) {
     mezcla(S.filter((x) => x[3].voz), "assets/audio/stem-voz.wav", DUR);
     mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
+    mezcla(S.filter((x) => !x[3].voz && !(x[0] === "sfx/papel.wav" && x[3].dur === 0.12)), "assets/audio/stem-sinlapiz.wav", DUR);
   }
   const OBJ = Number(process.env.OBJ ?? -14);
   const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();

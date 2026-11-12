@@ -98,3 +98,11 @@ encuadre que P1, tablet más chica y acostada; mano sube 24,1, se frena, baja po
 $ 1.840 a 25,05; push-in a la tablet) · Q2 25,79 · Q2b 26,29 (Héctor entrando con el celular; vibra y notificación acá)
 · Q2c 26,84 ("¡Ah, mirá!…" 26,99 abajo, voz en off; Pagar 28,56) · Q3 29,15 (la tablet sola; Graciela "Avisado ✓") · Q3b
 30,20 · Q4 30,80 (mate, FIADO 31,12-31,75, el lápiz queda al costado de la grilla) · línea chica 31,75.
+
+## Ronda 3 (retoques)
+- B1 lápiz: escribe() con db 14 (el techo manda) y desde 0,30-0,46 de papel.wav (el roce); Q4 techo -40 desde fiado+0,2. Medido (aislado por diferencia de stems): P1 -38 LUFS M máx, Q4 -33 (antes -47/-48). Pico del lápiz -12,3 dBFS en la mezcla final.
+- Arte 1: el ciclo 0 ya no va al sacapuntas: de la libreta vuelve a la oreja por el costado de la cabeza (2,05-2,35); sin virutas ni sonido de sacapuntas en ese ciclo; el lápiz no se acorta en ese ciclo.
+- Arte 5: chip "+ $ 320 ✓" 400x108 (letra 74) en la cabecera a la derecha; el índice toca la fila de Graciela (24,89).
+- B3: fila verde de Graciela "$ 1.840 · Avisado ✓" (letra que se ajusta al espacio libre).
+- B4: Héctor entra en verde con el plano Q3 (29,15) y sin pop; quedan los pops 29,5 / 29,75 / 30,0.
+- B2: pasos de Graciela al irse sacados (a -46/-47 tapaban la cola de la voz de Rubén en 16,5: voz-resto bajaba a 4,9 LU).
