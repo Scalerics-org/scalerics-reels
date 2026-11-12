@@ -124,10 +124,10 @@ const POS = {
   vuelve: [540, 1690], vuelveLead: [560, 1635, 640, 1000],
   credEst: [540, 1680], reales: [540, 1690], realesLead: [700, 1635, 760, 1250],
   credPag: [540, 1690], antes: [560, 540], antesLead: [345, 560, 262, 606],
-  masAntes: [540, 1862], masAntesLead: [640, 1635, 560, 760],
+  masAntes: [222, 1120], masAntesLead: [640, 1635, 560, 760],
   credRiesgo: [540, 1830], riesgo: [540, 1830], riesgoLead: [0, 0, 0, 0],
   credRev: [540, 545], algo: [230, 1560], suben: [690, 1640], subenLead: [740, 1585, 740, 1100],
-  duda: [300, 1500], dudaLead: [360, 1445, 390, 1080],
+  duda: [372, 1500], dudaLead: [400, 1445, 400, 1300],
   vista: [540, 1790], vistaLead: [540, 1675, 540, 1500],
   sinUsar: [540, 1690], sinUsarLead: [540, 1635, 540, 1150],
 };
@@ -225,7 +225,8 @@ const POS = {
   const id = "s05-gratis";
   const [x, y] = POS.masAntes, [a, b, c, d] = POS.masAntesLead;
   escena(id, {
-    html: `${pill(1, x, y, "Más que antes de devolver", "lleno")}`,
+    css: `P .n1 { white-space: nowrap; text-align: center; font-size: 40px; line-height: 1.12; padding: 12px 24px 14px; justify-content: center; }`,
+    html: `${pill(1, x, y, "Más que antes<br>de devolver", "lleno")}`,
     js: `nota(1, ${rel(id, T.mas - 0.15)}); fuera([1], ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },

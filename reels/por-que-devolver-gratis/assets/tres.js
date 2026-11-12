@@ -369,8 +369,8 @@ function dibujarPagina(x, tipo, n = 0) {
   }
   // ficha: zona de la foto (el objeto 3D va encima), nombre, precio, botón
   const vit = tipo === "vitrina";
-  x.fillStyle = "#ffffff"; rr(x, 40, vit ? 250 : 270, w - 80, vit ? 700 : 620, 36);
-  x.fillStyle = "#e9e6d8"; x.beginPath(); x.ellipse(w / 2, vit ? 860 : 800, 250, 40, 0, 0, 7); x.fill();
+  x.fillStyle = "#ffffff"; rr(x, 40, vit ? 250 : 270, w - 80, vit ? 700 : 560, 36);
+  x.fillStyle = "#e9e6d8"; x.beginPath(); x.ellipse(w / 2, vit ? 860 : 770, 250, 36, 0, 0, 7); x.fill();
   if (tipo === "tu") {
     // la foto de la campera (dibujada): cuerpo crema con cierre, mangas, capucha navy, bolsillos
     x.save(); x.translate(w / 2, 560); x.lineJoin = "round"; x.lineWidth = 12; x.strokeStyle = NAV0;
@@ -386,12 +386,12 @@ function dibujarPagina(x, tipo, n = 0) {
   const nombre = tipo === "tu" ? "Campera de abrigo" : "Champión urbano";
   const precio = tipo === "tu" ? "$ 3.200" : "$ 2.490";
   if (tipo === "pago") {
-    x.fillStyle = NAV0; x.font = F(900, 66); x.textAlign = "left"; x.fillText("Tu compra", 50, 935);
-    x.fillStyle = "#4a5266"; x.font = F(700, 50); x.fillText(nombre, 50, 995);
-    x.fillStyle = NAV0; x.font = F(900, 80); x.fillText(precio, 50, 1070);
+    x.fillStyle = NAV0; x.font = F(900, 60); x.textAlign = "left"; x.fillText("Tu compra", 50, 890);
+    x.fillStyle = "#1f2840"; x.font = F(800, 58); x.fillText(nombre, 50, 952);
+    x.fillStyle = NAV0; x.font = F(900, 78); x.fillText(precio, 50, 1034);
   } else {
-    x.fillStyle = NAV0; ajustar(x, nombre, 800, 64, w - 100); x.textAlign = "left"; x.fillText(nombre, 50, vit ? 1015 : 945);
-    x.font = F(900, 100); x.fillText(precio, 50, vit ? 1125 : 1055);
+    x.fillStyle = NAV0; ajustar(x, nombre, 800, 64, w - 100); x.textAlign = "left"; x.fillText(nombre, 50, vit ? 1015 : 925);
+    x.font = F(900, vit ? 100 : 92); x.fillText(precio, 50, vit ? 1125 : 1028);
   }
   // botón
   const bt = tipo === "pago" ? "Pagar" : "Comprar";
@@ -1092,7 +1092,7 @@ function zonaV(t) {
   const entra = eio(sg(t, T.probar - 0.2, T.toque)), va = eio(sg(t, T.riesgo - 0.1, T.riesgo + 0.25));
   const tap = Math.max(pulso(t, T.toque, 0.12), pulso(t, T.toque + 0.2, 0.12));
   const zG = VIT.d / 2 - 0.01; // el vidrio (local)
-  const punta = V(0.36, 1.19, zG + 0.012 + tap * 0.05); // la punta del índice
+  const punta = V(0.5, 1.4, zG + 0.012 + tap * 0.05); // la punta del índice
   const desde = V(0.9, -0.3, 1.5);
   mano.visible = entra > 0.01 && va < 0.99;
   if (mano.visible) {
@@ -1229,10 +1229,16 @@ function zonaR(t) {
   // el viejo en el piso, al lado del banquito (con la boca abierta; se cierra después del talonazo)
   viejoPiso.visible = nuevos || plano === "RV";
   if (plano === "RV") { ruben.raiz.visible = false; mateM.visible = false; }
-  if (plano === "RV") { viejoPiso.position.copy(VP); viejoPiso.rotation.set(0, VROT, 0); }
-  else { viejoPiso.position.set(OR.x - 0.36, 0, RB.z + 0.12); viejoPiso.rotation.set(0, 0.2, 0); } // al lado del banquito, a la vista
-  viejoPiso.userData.bis.rotation.x = plano === "RV" ? 0.08 + 0.75 * flap(t) : lerp(0.42, 0.0, eio(sg(t, T.talon, T.talon + 0.15))) + rebote(t, T.talon + 0.15, 10, 30, 0.05);
-  viejoPiso.scale.setScalar(plano === "RV" ? 1.0 : 1.45);
+  // final: la "boca" se abre levantando la capellada desde el talón (que queda en el piso); la suela delantera cuelga de
+  // la bisagra hasta tocar el piso con la punta: un solo champión, la entresuela roja siempre a la vista en la boca
+  const kV = plano === "RV" ? 1.0 : 1.45;
+  const th = plano === "RV" ? 0.06 + 0.3 * flap(t) : lerp(0.3, 0.02, eio(sg(t, T.talon, T.talon + 0.15))) + Math.abs(rebote(t, T.talon + 0.15, 10, 30, 0.03));
+  const yR = kV * 0.15 * Math.sin(th), fiW = Math.asin(Math.min(1, (0.17 * Math.sin(th)) / 0.135));
+  if (plano === "RV") { viejoPiso.position.copy(VP); viejoPiso.rotation.set(-th, VROT, 0, "YXZ"); }
+  else { viejoPiso.position.set(OR.x - 0.36, 0, RB.z + 0.12); viejoPiso.rotation.set(-th, 0.2, 0, "YXZ"); } // al lado del banquito, a la vista
+  viejoPiso.position.y = yR;
+  viejoPiso.userData.bis.rotation.x = th + fiW;
+  viejoPiso.scale.setScalar(kV);
   // contraplano: Rubén levanta el pie derecho y lo muestra (con los viejos, la suela aletea como una boca; con los nuevos,
   // lo mueve contento). Se pisa la rodilla después de poner la pose.
   ruben.pies[0].rotation.x = 0; ruben.pies[1].rotation.x = 0;
@@ -1253,8 +1259,8 @@ function zonaR(t) {
   const ks = t < T.devolucion - 0.05 ? 0 : popIn(t, T.devolucion - 0.05, 0.28);
   const enPago = t > T.pago;
   selloR.visible = ks > 0.01;
-  selloR.position.copy(enPant(celuR, PP[0] / 2, 1192, 0.0078));
-  selloR.scale.setScalar(Math.max(0.001, ks * 0.062) * (1 + 0.12 * pulso(t, T.gratis10 - 0.05, 0.25)));
+  selloR.position.copy(enPant(celuR, PP[0] / 2, 1150, 0.0078));
+  selloR.scale.setScalar(Math.max(0.001, ks * 0.055) * (1 + 0.12 * pulso(t, T.gratis10 - 0.05, 0.25)));
   // el pulgar: entra desde abajo a la derecha y toca "Comprar" (y después "Pagar")
   pulgar.visible = false;
   const tq = t < T.paga - 0.02 ? T.compra : T.paga, uq = sg(t, tq - 0.02, tq + 0.18);
@@ -1271,7 +1277,7 @@ function zonaR(t) {
   nube.visible = kn > 0.01;
   if (nube.visible) {
     ruben.cabeza.getWorldPosition(_v);
-    nube.position.copy(_v).add(V(0.5, 0.56, 0.1)); nube.quaternion.copy(camera.quaternion);
+    nube.position.copy(_v).add(V(0.5, 0.66, 0.1)); nube.quaternion.copy(camera.quaternion);
     nube.scale.setScalar(kn * 0.55 * (1 + 0.02 * Math.sin(t * 5)));
     champNube.position.set(-0.14, -0.2, 0.05); champNube.rotation.set(0.12, 1.57 + 0.35, 0); champNube.scale.setScalar(1.75);
     const kq = t < T.ysi + 0.15 ? 0 : popIn(t, T.ysi + 0.15, 0.3);
@@ -1288,7 +1294,7 @@ function zonaR(t) {
     const ap = aperturaEn(t, T.abre, 0.3);
     ponerCaja(cajaG, t < T.abre ? [0, 0, 0, 0] : ap, t < T.abre ? 1 : 0);
     champCaja.forEach((cc, j) => {
-      cc.visible = ab > 0;
+      cc.visible = ab > 0 && t > T.abre + 0.16 + j * 0.06; // final: aparecen ya en el aire (no se ven de canto saliendo)
       // ronda 3: salen de la caja y quedan de perfil sobre el mostrador, delante de la caja (la etiqueta queda libre arriba)
       const sale = eio(sg(t, T.abre + 0.08 + j * 0.06, T.abre + 0.32 + j * 0.06));
       const dentro = cajaG.position.clone().add(V(0, CJ.H * 0.85 * 0.4, 0));
@@ -1315,7 +1321,7 @@ function zonaF(t) {
     campera.visible = false; // la campera va dibujada en la foto de la ficha
     const ks = t < T.tienda12 ? 0 : popIn(t, T.tienda12, 0.28);
     selloF.visible = ks > 0.01;
-    selloF.position.copy(enPant(celuF, PP[0] / 2, 1192, 0.0078)); selloF.scale.setScalar(Math.max(0.001, ks * 0.062));
+    selloF.position.copy(enPant(celuF, PP[0] / 2, 1150, 0.0078)); selloF.scale.setScalar(Math.max(0.001, ks * 0.055));
   }
   if (v2) {
     const kk = lerp(0.6, 1, bk(sg(t, T.fin - 0.02, T.fin + 0.3)));

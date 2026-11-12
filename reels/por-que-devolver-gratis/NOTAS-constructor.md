@@ -167,3 +167,10 @@ en el vidrio ni aro en los toques del celular · subtítulos: las palabras ya no
 de 1-3 cuadros) · champión viejo del piso entero en cuadro · guía de "Le gustan, pero duda" al celular · "Más que
 antes de devolver" más abajo · "Suben más las compras" separado del logo · plano medio de Rubén un poco más alto
 (píldora sin tocar la coronilla). Sonido de la nube: un pop bajo con el "?" (sin golpes del pie).
+
+## Verificación final 2
+Champión viejo: un solo champión; la boca se abre levantando la capellada desde el talón y la suela delantera cuelga de
+la bisagra hasta el piso (entresuela roja siempre en la boca) · "Le gustan, pero duda" con margen y la guía al celular ·
+"Más que antes de devolver" en dos líneas a la izquierda (y 1120), sin pisar cajas · "Tu compra": foto más baja,
+nombre 58 px oscuro, precio y sello separados del botón; sello a y 1150 en las tres pantallas · el dedo toca arriba a
+la derecha (no tapa "urbano") · nube más arriba · los championes de la caja aparecen ya en el aire.
