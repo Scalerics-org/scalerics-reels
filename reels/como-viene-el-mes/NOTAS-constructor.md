@@ -173,3 +173,26 @@ punto. `check`: 0 errores (warnings: GL de SwiftShader, dead_stretch del HTML so
 Dudoso: en P3t2 (6,45-7,05) la cabeza de Marta asoma grande en el borde izquierdo detrás de la torre; en P6x la torre
 queda fuera de cuadro (la tapa abierta de TICKETS la tapa), el sacudón se ve en P6c; la bolsa del pan sigue leyéndose un
 poco como caja; el tramo de 23,5 s mide voz -1,5 LU sobre el resto pero es solo la cola de "¿…el mes?" (nadie habla).
+
+## Ronda 2 de correcciones (12-11) · 35,28 s (parte 1 0-19,12 · cartel 19,12-21,82 · parte 2 21,82-35,28; línea chica desde 33,28)
+Final simplificado (decisión del coordinador): Rubén queda detrás del mostrador en su lugar (RI2, x 0,66), le saca el
+pocillo de arriba a la torre (32,03-32,38) y lo deja a la vista junto a él (CUP_R); Q5 (32,68): general desde la derecha
+del lado del cliente, Marta entera a la izquierda sumando con su caja CAFETERÍA, Rubén a la derecha toma mate (sorbo
+33,48: la mano agarra el mate por el costado y la punta de la bombilla queda bajo el bigote, calculada con `mateSorbo()`).
+Ya no se sienta ni cruza; sin cajón en el final.
+1. La bandeja: al llegar (23,12) Marta la sostiene arriba de su lugar (a su derecha, x 0,3) y la baja vertical (23,24-23,54),
+   con la torre arriba y el fondo visible desde el primer cuadro; nunca por delante de la cara.
+3-5. La tapa de CAFETERÍA se abre al 72 % hacia el lado de Rubén; los tickets saltan hacia Rubén (lejos de Marta); Marta se
+   inclina menos (0,25) al sacar la caja; el mate de Rubén ya no está cerca de ella.
+7. Insertos de la torre: sin la cabeza de Marta (solo la mano).
+8. Q3/Q4: contraplano desde la derecha de Rubén (fuera de su cabeza): la torre a un costado, sin calva ni mate en primer
+   plano; la lámpara se oculta en esos planos (quedaba pegada a la cámara).
+9. El tilde de la yerba se apaga con el corte a Q3. 10. P6c reencuadrado hacia la izquierda: Marta con la torre en cuadro.
+11. Bolsa de pan en kraft claro, fuelle con pliegues en V a los costados y boca doblada.
+12. P6m más abierto (la cara de Rubén entra). 13. Cartel 5-9 % más chico y vaivén menor. 14. Vapor más fino (6 bocanadas, ×0,8).
+15. "Pará que te digo." de Marta 0,15 s más; "¿Y comparado…?" sin achicarse al cortar. 16. Música en la pausa de "Ahí."
+   a -10,5 dB (sin el duck de la voz encima). 17. guion.txt y plan.md con "Una automatización más tarde…" y la línea chica.
+Tramo mudo 23,44-25,18 recortado 0,4 s ("Ocho por ciento…" entra a 24,77).
+Mezcla: -14,0 LUFS, pico -4,3 dBFS; voz ≥ 6 LU sobre el resto donde habla alguien (el tramo de 23,5 s es la cola de
+"¿…el mes?" con el vibrar).
+Dudoso: en Q5 la caja CAFETERÍA queda en parte detrás de la torre; Marta de 3/4 de espaldas (se le ve el perfil).
