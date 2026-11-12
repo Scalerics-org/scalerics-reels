@@ -7,7 +7,7 @@ apila en una montaña que lo tapa hasta el pecho, la **torre de pocillos** de Ma
 de parada a sentada en un cajón; por debajo de la persiana entra la luz de la mañana y **la bolsa del pan**. Rubén
 arranca la cinta, la lee hasta el piso, levanta la vista, mano "más o menos": **"Ahí."** Remate del remate: **"¿Y
 comparado con el mes pasado?"** → otra caja, más gorda, **"MES PASADO"**, "C" → 0, y Marta agarra la torre: **"Pongo
-otro café."** Cartel **"Un sistema más tarde…"**. Parte 2: la misma pregunta; vibra el celular con el resumen que llegó
+otro café."** Cartel **"Una automatización más tarde…"**. Parte 2: la misma pregunta; vibra el celular con el resumen que llegó
 solo; Rubén, mate en mano: **"Ocho por ciento arriba del mes pasado. Lo que más salió fue la yerba."**; Marta, que
 vino con la torre de siete pocillos para la noche larga, no sabe qué hacer; Rubén: **"¿Y a vos?"** y Marta: **"Pará que
 te digo."**, saca su propia caja de zapatos; Rubén se sienta en el cajón con el mate y un pocillo: ahora espera él.
@@ -18,7 +18,7 @@ te digo."**, saca su propia caja de zapatos; Rubén se sienta en el cajón con e
   calzado: nada de pipas ni tiras), yerba, pan, pocillos, mate y termo genéricos.
 - **Estructura** como `reels/anotamelo` / `reels/me-haces-precio`: parte 1 (~17,4 s, sin línea chica) + cartel (3,0 s)
   + parte 2 (~11,4 s, con la línea chica). Un proyecto 3D con gen.mjs (T1/T2) y `armar.mjs unir`. Cartel: el de
-  anotamelo tal cual (**"Un sistema"** / **"más tarde…"**) con su voz ya grabada
+  anotamelo tal cual (**"Una automatización"** / **"más tarde…"**) con su voz ya grabada
   (`reels/anotamelo/assets/voice/narrador.wav`, Rasalgethi): reusarla, no regenerar.
 - **Personajes** (copia local de `reels/anotamelo/assets/personajes.js`): Rubén (ELENCO.almacenero, Algenib) y Marta
   (ELENCO.duena, Aoede, rodete, delantal verde de marca, aros verdes). Nadie más (la mano del panadero es solo un
@@ -128,7 +128,7 @@ Sin Orus. Desde `reels/como-viene-el-mes`: `node ../../herramientas/voz.mjs part
 | 03-ruben.txt · "Ahí." | Rubén | Algenib | El mismo Rubén después de una noche entera sumando: seco, bajo, con total naturalidad, como contesta cualquier uruguayo; "Ahí" corto y cerrado, un poco descendente; ni ironía ni lamento. Probar 3 tomas y elegir la más seca. | ~0,5-0,7 s · es EL remate: va después de ~0,7 s de quietud, que se oiga solo. |
 | 04-marta.txt · "¿Y comparado con el mes pasado?" | Marta | Aoede | Marta de buena fe, interesada de verdad, con una sonrisa, sin picardía ni sorna: pregunta lo que preguntaría cualquier colega. | ~1,6 s · si pasa de 1,8, atempo 1,1 |
 | 05-marta.txt · "Pongo otro café." | Marta | Aoede | Marta resignada con cariño y sin queja, práctica, ya levantándose; como quien acepta que la noche sigue. Corto, cálido. | ~1,0 s |
-| 06-narrador.txt · "Un sistema más tarde." | Narrador del cartel | Rasalgethi | — | **No se genera:** reusar `reels/anotamelo/assets/voice/narrador.wav` (misma frase). |
+| 06-narrador.txt · "Una automatización más tarde." | Narrador del cartel | Rasalgethi | — | **No se genera:** reusar `reels/anotamelo/assets/voice/narrador.wav` (misma frase). |
 | (sin archivo) · "¿Y, cómo viene el mes?" en Q1 | Marta | Aoede | la misma toma de 01 | callback exacto |
 | 07-ruben.txt · "Ocho por ciento arriba del mes pasado. Lo que más salió fue la yerba." | Rubén | Algenib | El mismo Rubén grave, ahora tranquilo y al toque, leyendo de reojo el celular con el mate en la mano; seguro, casi orgulloso sin presumir, ritmo más ágil que en la parte 1. Pausa corta (0,15 s) entre las dos frases. | ~3,2 s · si pasa de 3,5, atempo 1,1 |
 | 08-ruben.txt · "¿Y a vos?" | Rubén | Algenib | Rubén amable y genuino, devolviendo la cortesía, con media sonrisa; nada de chicana. | ~0,6 s |
@@ -149,7 +149,7 @@ Si alguna voz de siempre no estuviera disponible, no cambiarla: avisar.
 
 Último cuadro (17,40) → `assets/img/fin-parte1.png` para el giro del cartel.
 
-## CARTEL · "Un sistema más tarde…" (17,40-20,40 s)
+## CARTEL · "Una automatización más tarde…" (17,40-20,40 s)
 El de anotamelo tal cual: **"Un sistema"** (línea a, 140 px) / **"más tarde…"** (línea b, 146 px), Lexend 900 crema
 con borde navy, letras que rebotan, -4°, fondo verde de marca con manchas y burbujas. Entra girando el último cuadro de
 la parte 1, sale con iris al primer cuadro de la parte 2. Voz: `reels/anotamelo/assets/voice/narrador.wav` (Rasalgethi).
@@ -162,7 +162,7 @@ Stinger y whooshes del ejemplar. Nunca dice "Scalerics".
 | 20,40-22,60 | **Q1 · callback de P1:** el mismo encuadre del cuadro 0. El mostrador **limpio** (ni caja ni pinche ni calculadora), la lámpara verde prendida, el **celular de Rubén en un atrilito** donde estaba la caja, el mate y el termo. Rubén detrás, tranquilo, mate en la mano izquierda. | 20,40 · Marta pasa agachada por debajo de la persiana, **preparada para la noche larga**: la **torre de siete pocillos sobre una bandeja** en las dos manos y el **cajón de refrescos colgando del antebrazo** (gag de imagen: viene con todo). 20,65 · **Marta: "¿Y, cómo viene el mes?"** (la misma toma de P1). 21,90 · apoya la bandeja en el mostrador (la torre se balancea) y deja el cajón en el piso, a su lado. | persiana 20,40 · voz 20,65 · clink de torre sobre bandeja 21,90 |
 | 22,10-25,90 | **Q2 · el resumen.** 22,10 **vibra el celular** en el atril (se sacude), y la cámara hace push-in rápido hasta el **inserto del celular** (llena ~60 % del cuadro, la lámpara verde detrás, desenfocada): la notificación **"Resumen del mes · 21:00"** se abre en la tarjeta con las cuatro filas. 23,30 corte a plano medio de Rubén de frente, mirándolo de reojo, sin dejar el mate. 25,00 paneo corto al estante: **la yerba**. | 22,15 · la tarjeta se arma fila por fila: "Hoy $ 18.450" (22,40), "Mes $ 412.300" (22,70), **"+8 % contra el mes pasado"** (23,00, verde con flecha). 23,40 · **Rubén: "Ocho por ciento arriba del mes pasado. Lo que más salió fue la yerba."** (al toque, sin levantarse). 25,00 · en el estante, el paquete de yerba hace pop y le aparece al costado un **tilde verde** grande; la fila **"Lo que más salió: Yerba"** se pinta de verde en el celular (inserto chico arriba a la derecha, o la cámara pasa de la yerba al celular en un mismo movimiento). | vibra 22,10 (`vibra.wav`) · notification 22,15 · pop por fila 22,40 / 22,70 / 23,00 · voz 23,40 · whoosh-short 25,00 · ding 25,10 |
 | 25,90-28,10 | **Q3 · "¿Y a vos?"** 25,90 contraplano a Marta (plano medio, por encima del hombro de Rubén: el mate en primer término), con la bandeja de siete pocillos todavía en las manos, mirándola: no sabe qué hacer con tanto café (los ojos van a la torre y vuelven). 26,90 vuelta a Rubén, plano medio. | 26,30 · Marta sube y baja apenas la bandeja (la torre tiembla). 27,00 · **Rubén**, amable: **"¿Y a vos?"** 27,60 · corte a Marta: **se congela** (0,5 s de quietud: la torre deja de temblar, ella abre grandes los ojos; la música baja a -8 dB, no se corta). | voz 27,00 · nada en la quietud salvo la heladera |
-| 28,10-31,80 | **Q4 · el espejo y el cierre.** 28,10 plano medio de Marta de frente; 29,00 grúa corta hacia atrás hasta el plano general de costado (el de P6): Marta a la izquierda con su caja, Rubén pasa al lado del cliente y se sienta en el cajón. | 28,15 · **Marta: "Pará que te digo."** (seria de golpe, el gesto de arremangarse de Rubén en P2). 29,00 · saca de su bolsa **su propia caja de zapatos, "CAFETERÍA"**, la apoya en el mostrador, levanta la tapa: **los tickets saltan como resorte** (el mismo pop de P2). 29,60 · Rubén sale de atrás del mostrador con el mate, **le saca un pocillo de arriba de la torre**, agarra el cajón de refrescos que trajo Marta y **se sienta** donde se sentaba Marta, mate en una mano y pocillo en la otra: ahora el que espera es él (sin guiño, cara tranquila, toma un sorbo del pocillo). 30,30 · **línea chica** (caja navy con borde verde, Lexend 600 ≥ 36 px, arriba, sin tapar la caja ni las caras): **"Un sistema te manda al celular cómo viene el mes"** / **"scalerics.com"** en verde (1,5 s, hasta el final). Sin tarjeta de videollamada. | voz 28,15 · pop + papel en ráfaga 29,05 (los mismos de P2) · clink de pocillo 29,80 · cajón de plástico al piso 21,95 y 30,00 (CC0 impacto de plástico) · la música cierra |
+| 28,10-31,80 | **Q4 · el espejo y el cierre.** 28,10 plano medio de Marta de frente; 29,00 grúa corta hacia atrás hasta el plano general de costado (el de P6): Marta a la izquierda con su caja, Rubén pasa al lado del cliente y se sienta en el cajón. | 28,15 · **Marta: "Pará que te digo."** (seria de golpe, el gesto de arremangarse de Rubén en P2). 29,00 · saca de su bolsa **su propia caja de zapatos, "CAFETERÍA"**, la apoya en el mostrador, levanta la tapa: **los tickets saltan como resorte** (el mismo pop de P2). 29,60 · Rubén sale de atrás del mostrador con el mate, **le saca un pocillo de arriba de la torre**, agarra el cajón de refrescos que trajo Marta y **se sienta** donde se sentaba Marta, mate en una mano y pocillo en la otra: ahora el que espera es él (sin guiño, cara tranquila, toma un sorbo del pocillo). 30,30 · **línea chica** (caja navy con borde verde, Lexend 600 ≥ 36 px, arriba, sin tapar la caja ni las caras): **"Una automatización te manda al celular cómo viene el mes"** / **"scalerics.com"** en verde (1,5 s, hasta el final). Sin tarjeta de videollamada. | voz 28,15 · pop + papel en ráfaga 29,05 (los mismos de P2) · clink de pocillo 29,80 · cajón de plástico al piso 21,95 y 30,00 (CC0 impacto de plástico) · la música cierra |
 
 ## Música y sonido
 Pizzicato del repo (`bgm/pizzicato.wav`, la firma de la línea) en las dos partes; en el time-lapse P3 el mismo tema con
@@ -195,3 +195,8 @@ no aparece una impresora de calculadora CC0, usar teclas reales + roce de papel 
 `t` ≈ 12,0 (Rubén enterrado en la montaña de cinta hasta el pecho, la cinta en las manos, la lámpara verde, la torre
 de pocillos) o ≈ 8,5 (plano general alto con la montaña y Marta en el cajón). `chica`: "¿Cómo viene el mes?" ·
 `grande`: "Ahí." · `sello`: "Fin de mes". Acento `#5ce611`. Fondo renderizado sin gancho, subtítulos ni burbujas.
+
+
+## Cambios de las rondas de corrección (constructor)
+- Cartel: "Una automatización / más tarde…" (anotamelo ya había usado "Un sistema…"), voz Rasalgethi nueva. Línea chica: "Una automatización te manda / al celular cómo viene el mes / scalerics.com".
+- Final (ronda 2, decisión del coordinador): Rubén se queda detrás del mostrador, le saca un pocillo a la torre, lo deja junto a él y toma mate; Marta suma con su caja CAFETERÍA. Ver NOTAS-constructor.md.

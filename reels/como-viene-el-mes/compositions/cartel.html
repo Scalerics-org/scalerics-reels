@@ -8,9 +8,9 @@
     [data-composition-id="cartel"] .fondo { position: absolute; inset: -200px; background: #5ce611; }
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 520px; text-align: center; transform: rotate(-4deg); }
-    [data-composition-id="cartel"] .linea { display: block; font: 900 190px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.c { font-size: 114px; letter-spacing: -0.025em; margin-top: 10px; }
-    [data-composition-id="cartel"] .linea.b { font-size: 160px; margin-top: 26px; }
+    [data-composition-id="cartel"] .linea { display: block; font: 900 180px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
+    [data-composition-id="cartel"] .linea.c { font-size: 108px; letter-spacing: -0.025em; margin-top: 10px; }
+    [data-composition-id="cartel"] .linea.b { font-size: 146px; margin-top: 26px; }   /* (ronda 2) 5-9 % más chico: los puntos no tocan el borde */
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
@@ -57,7 +57,7 @@
         tl.fromTo(l, { scale: t0 < 0.05 ? 0.55 : 0, y: t0 < 0.05 ? 30 : 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
-          tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
+          tl.to(l, { y: s * (6 + (i % 3) * 2), rotation: s * (i % 2 ? 3 : -3), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
       tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.22, ease: "power2.in" }, 2.46);   // se va debajo del iris (sin hueco verde vacío)

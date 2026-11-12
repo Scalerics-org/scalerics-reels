@@ -54,17 +54,17 @@ T.q1 = P2; T.m1b = r2(P2 + 0.2); T.levantaQ = [r2(P2 + 0.1), r2(P2 + 0.45)]; T.c
 // Q2 · vibra el celular: el resumen fila por fila · Q2b Rubén de frente con el mate: "Ocho por ciento…" · Q2c la yerba
 T.q2 = r2(P2 + 1.95); T.vibra = r2(T.q2 + 0.05); T.filas = [0.3, 0.5, 0.7, 0.9].map((d) => r2(T.q2 + d));
 // (ronda 1) el resumen se sostiene ~2 s; Rubén empieza a leerlo en off sobre el celular; la grúa a la yerba se acorta
-T.r3 = r2(T.q2 + 1.4); T.q2b = r2(T.q2 + 2.45); T.q2c = r2(T.r3 + 2.45); T.yerba = r2(T.r3 + 3.0);
+T.r3 = r2(T.q2 + 1.0); T.q2b = r2(T.q2 + 2.05); T.q2c = r2(T.r3 + 2.45); T.yerba = r2(T.r3 + 3.0);   // (ronda 2) 0,4 s menos de tramo mudo
 // Q3 · contraplano a Marta con la bandeja · Q3b Rubén: "¿Y a vos?" · Q3c Marta se congela
 T.q3 = r2(T.r3 + LEN.r3 + 0.12); T.tiembla = r2(T.q3 + 0.3); T.q3b = r2(T.q3 + 0.8); T.r4 = r2(T.q3b + 0.1);
 T.q3c = r2(T.r4 + LEN.r4 + 0.1); T.q4 = r2(T.q3c + 0.55);
 // Q4 · Marta de frente: "Pará que te digo." · Q4b grúa atrás: saca la caja CAFETERÍA del cajón, la abre (los tickets
 // saltan); Rubén saca un pocillo de la torre y se sienta en el banquito con el mate: ahora espera él · línea chica
-T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.08); T.sacaCaja = [r2(T.q4b + 0.05), r2(T.q4b + 0.45)]; T.abreQ = r2(T.q4b + 0.6);
+T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.23); T.sacaCaja = [r2(T.q4b + 0.05), r2(T.q4b + 0.45)]; T.abreQ = r2(T.q4b + 0.6);
 // (ronda 1) Q5: general: Rubén ya del lado del cliente, le saca un pocillo a la torre, se sienta en el cajón con el mate y
 // toma un sorbo; Marta suma con su caja CAFETERÍA
 T.pocillo = [r2(T.q4b + 0.5), r2(T.q4b + 0.85)];   // (ronda 1) en Q4b: Rubén se corre detrás del mostrador y le saca un pocillo a la torre
-T.q5 = r2(T.abreQ + 0.55); T.sientaR = [r2(T.q5 + 0.05), r2(T.q5 + 0.45)]; T.sorbo = r2(T.q5 + 1.0);
+T.q5 = r2(T.abreQ + 0.55); T.sorbo = r2(T.q5 + 0.8);   // (ronda 2) Rubén no se sienta: toma mate en su lugar
 T.cierre = r2(T.q5 + 0.6);
 const DUR = r2(T.cierre + 2.0);   // la línea chica 2 s (check: una línea de cierre necesita ~2 s)
 
@@ -187,9 +187,9 @@ linea("s05-r2", T.r2, [["Ahí.", 0.0]], 0, r2(T.p6 - 0.02), 200, 210, 250);
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
     P svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     P .texto { position: absolute; left: 0; right: 0; top: 520px; text-align: center; transform: rotate(-4deg); }
-    P .linea { display: block; font: 900 190px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    P .linea.c { font-size: 114px; letter-spacing: -0.025em; margin-top: 10px; }
-    P .linea.b { font-size: 160px; margin-top: 26px; }
+    P .linea { display: block; font: 900 180px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
+    P .linea.c { font-size: 108px; letter-spacing: -0.025em; margin-top: 10px; }
+    P .linea.b { font-size: 146px; margin-top: 26px; }   /* (ronda 2) 5-9 % más chico: los puntos no tocan el borde */
     P .l { display: inline-block; position: relative; color: ${CR}; -webkit-text-stroke: 16px ${NAVY}; paint-order: stroke fill; text-shadow: 0 16px 0 ${NAVY}, 10px 16px 0 ${NAVY}; }
     P .esp { display: inline-block; width: 0.32em; }`,
     html: `      <div class="fondo"></div>
@@ -224,7 +224,7 @@ linea("s05-r2", T.r2, [["Ahí.", 0.0]], 0, r2(T.p6 - 0.02), 200, 210, 250);
         tl.fromTo(l, { scale: t0 < 0.05 ? 0.55 : 0, y: t0 < 0.05 ? 30 : 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
-          tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
+          tl.to(l, { y: s * (6 + (i % 3) * 2), rotation: s * (i % 2 ? 3 : -3), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
       tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.24)});   // se va debajo del iris (sin hueco verde vacío)`,
@@ -263,7 +263,7 @@ const pasos = (a, b, n, techo = -46) => { for (let i = 0; i < n; i++) s(`sfx/pas
 const teclas = (a, b, cada = 0.13, techo = -44) => { let i = 0; for (let t = a; t < b - 0.03; t += cada * (0.85 + ((i * 7) % 5) * 0.08), i++) s("sfx/key-press.mp3", t, 0, { techo, dur: 0.12, fin: 0.04 }); };
 const impresora = (a, b, techo = -47) => { for (let t = a; t < b - 0.05; t += 0.21) s("sfx/papel.wav", t, 10, { desde: r2(0.3 + ((t * 5) % 0.2)), dur: 0.2, fin: 0.05, techo, lp: 4500 }); };
 const VOZ = [];
-const voz = (f, t, db = -2, arch = f) => { s(`voice/${arch}.wav`, t, db, { voz: true, fin: 0.04 }); VOZ.push([r2(t - 0.05), r2(t + LEN[f] + 0.3)]); };
+const voz = (f, t, db = -2, arch = f) => { s(`voice/${arch}.wav`, t, db, { voz: true, fin: 0.04 }); if (f !== "r2") VOZ.push([r2(t - 0.05), r2(t + LEN[f] + 0.3)]); };
 // ---- todo el reel: la heladera (zumbido) y la calle de noche muy lejos ----
 s("sfx/zumbido.wav", 0, 0, { dur: r2(P1 + 0.25), fi: 0.05, fin: 0.4, techo: -46, lp: 700 });
 s("sfx/zumbido.wav", P2, 0, { dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -47, lp: 700 });
@@ -273,7 +273,7 @@ s("sfx/calle.wav", P2, -6, { loop: true, desde: 3, dur: r2(DUR - P2), fin: 0.5, 
 // en la pausa baja ~12 dB en 0,4 s y vuelve (NO se corta) ----
 s("bgm/pizzicato.wav", 0, 0, { dur: r2(T.p3 + 0.2), fin: 0.25, techo: -33 });
 s("bgm/pizzicato.wav", T.p3, 0, { desde: r2(T.p3), dur: r2(T.p4 - T.p3 + 0.25), fi: 0.15, fin: 0.3, techo: -33, tempo: 1.2 });
-s("bgm/pizzicato.wav", T.p4, 0, { desde: 9.5, dur: r2(P1 - T.p4 + 0.2), fi: 0.2, fin: 0.4, techo: -33, duck: [[T.p5c - 0.1, T.r2 + LEN.r2 + 0.35, 0.75]] });   // (ronda 1) fundido más largo: sin hueco antes del whoosh del cartel
+s("bgm/pizzicato.wav", T.p4, 0, { desde: 9.5, dur: r2(P1 - T.p4 + 0.2), fi: 0.2, fin: 0.4, techo: -33, duck: [[T.p5c - 0.1, T.r2 + LEN.r2 + 0.35, 0.7]] });   // (ronda 2) -10,5 dB en la pausa (sin el duck de la voz de "Ahí." encima)   // (ronda 1) fundido más largo: sin hueco antes del whoosh del cartel
 // ---- parte 1 ----
 persiana(0.03);
 voz("m1", T.m1, -2);
@@ -356,7 +356,6 @@ s("sfx/k-book_place_1.wav", T.sacaCaja[1] - 0.03, 0, { techo: -40 });
 s("sfx/k-book_open.wav", T.abreQ - 0.03, 0, { techo: -42 });
 pop(T.abreQ, -38); s("sfx/papel.wav", T.abreQ + 0.02, 6, { techo: -40, dur: 0.5, fin: 0.2 });
 plato(T.pocillo[1] - 0.05, 2, -42);
-s("sfx/k-plastico.wav", T.sientaR[1] - 0.05, 0, { techo: -44 });
 pop(T.cierre + 0.05, -42);
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav") { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
