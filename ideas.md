@@ -250,6 +250,9 @@
 ## En curso
 <!-- corrida-activa: 2026-11-12T12:11 -->
 
+- 12-11 · `como-viene-el-mes` · Automatizaciones (el resumen de ventas del día y del mes llega solo al celular) · Para mandar completo con Rubén: Marta le pregunta "¿Y, cómo viene el mes?" y Rubén se pone a sumar tickets, cuaderno y calculadora · reservado por la corrida 12-11 12:11
+- 12-11 · `por-que-las-tarjetas` · CRM (seguir en contacto con cada cliente que ya compró, con mensajes que salen solos) · Explicador "¿Por qué…?": el vendedor de autos que le mandaba una tarjeta por mes a cada cliente (verificar con fuentes) · reservado por la corrida 12-11 12:11
+
 
 - 03-11 · `netflix-blockbuster` · caso de éxito con años (no publicar hasta que Juan lo vea) · primer reel con 3D real (Three.js) · gancho: "En el año 2000, Netflix se le ofreció a Blockbuster por 50 millones de dólares. Blockbuster dijo que no." · producto: tienda online
 - 28-10 · `el-juicio` · lo está haciendo la sesión de Juan (no tomar)
