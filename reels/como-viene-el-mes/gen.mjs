@@ -54,7 +54,7 @@ T.q1 = P2; T.m1b = r2(P2 + 0.2); T.levantaQ = [r2(P2 + 0.1), r2(P2 + 0.45)]; T.c
 // Q2 · vibra el celular: el resumen fila por fila · Q2b Rubén de frente con el mate: "Ocho por ciento…" · Q2c la yerba
 T.q2 = r2(P2 + 1.95); T.vibra = r2(T.q2 + 0.05); T.filas = [0.3, 0.5, 0.7, 0.9].map((d) => r2(T.q2 + d));
 // (ronda 1) el resumen se sostiene ~2 s; Rubén empieza a leerlo en off sobre el celular; la grúa a la yerba se acorta
-T.r3 = r2(T.q2 + 1.3); T.q2b = r2(T.q2 + 2.35); T.q2c = r2(T.r3 + 2.45); T.yerba = r2(T.r3 + 3.0);
+T.r3 = r2(T.q2 + 1.4); T.q2b = r2(T.q2 + 2.45); T.q2c = r2(T.r3 + 2.45); T.yerba = r2(T.r3 + 3.0);
 // Q3 · contraplano a Marta con la bandeja · Q3b Rubén: "¿Y a vos?" · Q3c Marta se congela
 T.q3 = r2(T.r3 + LEN.r3 + 0.12); T.tiembla = r2(T.q3 + 0.3); T.q3b = r2(T.q3 + 0.8); T.r4 = r2(T.q3b + 0.1);
 T.q3c = r2(T.r4 + LEN.r4 + 0.1); T.q4 = r2(T.q3c + 0.55);
@@ -63,7 +63,8 @@ T.q3c = r2(T.r4 + LEN.r4 + 0.1); T.q4 = r2(T.q3c + 0.55);
 T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.08); T.sacaCaja = [r2(T.q4b + 0.05), r2(T.q4b + 0.45)]; T.abreQ = r2(T.q4b + 0.6);
 // (ronda 1) Q5: general: Rubén ya del lado del cliente, le saca un pocillo a la torre, se sienta en el cajón con el mate y
 // toma un sorbo; Marta suma con su caja CAFETERÍA
-T.q5 = r2(T.abreQ + 0.55); T.pocillo = [r2(T.q5 + 0.1), r2(T.q5 + 0.45)]; T.sientaR = [r2(T.q5 + 0.45), r2(T.q5 + 0.85)]; T.sorbo = r2(T.q5 + 1.25);
+T.pocillo = [r2(T.q4b + 0.5), r2(T.q4b + 0.85)];   // (ronda 1) en Q4b: Rubén se corre detrás del mostrador y le saca un pocillo a la torre
+T.q5 = r2(T.abreQ + 0.55); T.sientaR = [r2(T.q5 + 0.05), r2(T.q5 + 0.45)]; T.sorbo = r2(T.q5 + 1.0);
 T.cierre = r2(T.q5 + 0.6);
 const DUR = r2(T.cierre + 2.0);   // la línea chica 2 s (check: una línea de cierre necesita ~2 s)
 
@@ -331,12 +332,12 @@ s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fin: 
 persiana(P2 + 0.03);
 voz("m1", T.m1b, -2);
 pasos(T.caminaQ[0], T.caminaQ[1], 4);
-plato(T.apoyaQ, 0, -40); plato(T.apoyaQ + 0.08, 2, -44);
-s("sfx/k-plastico.wav", T.apoyaQ + 0.08, 0, { techo: -44 });
+plato(T.apoyaQ + 0.05, 0, -46); plato(T.apoyaQ + 0.13, 2, -48);
+s("sfx/k-plastico.wav", T.apoyaQ + 0.1, 0, { techo: -48 });   // (ronda 1) bajos: no pisan la cola de "¿…el mes?"
 s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -46 });
 s("sfx/vibra.wav", T.vibra, 0, { dur: 0.45, fin: 0.08, techo: -38 });
-s("sfx/notification.mp3", r2(T.vibra + 0.08), 0, { techo: -40 });
-T.filas.forEach((t) => pop(t, -41));   // (ronda 1) también la 4.ª fila
+s("sfx/notification.mp3", r2(T.vibra + 0.08), 0, { techo: -43 });
+T.filas.forEach((t) => pop(t, -44));   // (ronda 1) también la 4.ª fila
 s("sfx/whoosh-short.mp3", T.q2b - 0.04, 0, { techo: -48 });
 voz("r3", T.r3, -1);
 s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -46 });
