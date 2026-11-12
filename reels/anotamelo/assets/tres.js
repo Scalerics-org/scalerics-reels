@@ -364,17 +364,29 @@ function dibujarTablet(t) {
   // [nombre, saldo, lo que dice en verde, orden en que se pone verde en Q3]
   const filas = [["Graciela", mas > 0 ? "$ 1.840" : "$ 1.520", "$ 1.840 · Avisado ✓", 3], ["Héctor", "$ 1.260", "Pagado ✓", 0], ["Walter", "$ 840", "Martes ✓", 1], ["Marta", "$ 610", "Pagado ✓", 2]];
   filas.forEach(([n, m, ok, ord], i) => {
-    const y = 142 + i * 122, verde = !enQ1 && ord < verdes;
-    x.fillStyle = verde ? "#5ce611" : i % 2 ? "#16243d" : "#1f3254"; x.beginPath(); x.roundRect(20, y, W - 40, 112, 22); x.fill();
-    x.fillStyle = verde ? "#0b1220" : "#efeee5"; x.textAlign = "left"; x.font = F(800, 66); x.fillText(n, 44, y + 58);
+    // (final2) en Q3 la fila de Graciela es más alta (dos renglones grandes); las otras un poco más bajas
+    const HS = enQ1 ? [112, 112, 112, 112] : [140, 106, 106, 106], GAP = enQ1 ? 10 : 8;
+    const y = 142 + HS.slice(0, i).reduce((a, b) => a + b + GAP, 0), hf = HS[i], verde = !enQ1 && ord < verdes;
+    x.fillStyle = verde ? "#5ce611" : i % 2 ? "#16243d" : "#1f3254"; x.beginPath(); x.roundRect(20, y, W - 40, hf, 22); x.fill();
+    x.fillStyle = verde ? "#0b1220" : "#efeee5"; x.textAlign = "left"; x.font = F(800, 66);
+    if (verde && ok.includes(" · ")) {
+      // (final2) Graciela en verde: nombre y "Avisado ✓" en dos renglones a la izquierda, el saldo a la derecha, todo a 62-64 px
+      const [l1, l2] = ok.split(" · ");
+      x.font = F(800, 64); x.fillText(n, 44, y + 40); x.font = F(900, 62); x.fillText(l2, 44, y + 102);
+      x.textAlign = "right"; x.font = F(900, 66); x.fillText(l1, W - 44, y + hf / 2);
+      return;
+    }
+    x.fillText(n, 44, y + hf / 2 + 2);
     x.textAlign = "right";
     if (verde) {
       // (ronda 3) el texto verde entra entero entre el nombre y el borde (Graciela: "$ 1.840 · Avisado ✓")
+      // (final2) si no entra en una línea (Graciela), saldo arriba y "Avisado ✓" abajo, las dos a 62 px (no se achica)
       const libre = W - 44 - (44 + x.measureText(n).width + 34);
-      let fs = 64; x.font = F(900, fs); while (fs > 40 && x.measureText(ok).width > libre) { fs -= 2; x.font = F(900, fs); }
-      x.fillText(ok, W - 44, y + 58);
+      x.font = F(900, 64);
+      if (x.measureText(ok).width <= libre) x.fillText(ok, W - 44, y + hf / 2 + 2);
+      else { const [l1, l2] = ok.split(" · "); x.font = F(900, 56); x.fillText(l1, W - 44, y + 37); x.fillText(l2, W - 44, y + 85); }
     }
-    else { x.font = F(800, 64); x.fillStyle = i === 0 && mas > 0 ? "#5ce611" : "#efeee5"; x.fillText(m, W - 44, y + 58); }
+    else { x.font = F(800, 64); x.fillStyle = i === 0 && mas > 0 ? "#5ce611" : "#efeee5"; x.fillText(m, W - 44, y + hf / 2 + 2); }
   });
   if (enQ1 && mas > 0) {
     x.save(); x.globalAlpha = Math.min(1, mas * 1.6); x.translate(W - 44 - 200, 62); x.scale(0.7 + 0.3 * mas, 0.7 + 0.3 * mas);
@@ -590,11 +602,11 @@ const DOS = (k = 0) => [0.6 - k * 0.04, 1.66, 0.9, 0.0, 1.25, -1.3, 60];   // P6
 const PUE = (k = 0) => [0.95, 1.6, -1.55, -1.0, 1.3, -0.3, 50 - k * 3];   // P6b: la puerta desde atrás del mostrador
 const ALTA = (k = 0) => [0.4, 2.35 - k * 0.15, -0.72 - k * 0.25, RI.x, 1.42, RI.z + 0.1, 42 - k * 4];   // P6c: cámara alta desde el lado de Héctor
 const TAB = (k = 0) => [0.18, 1.86, -0.72 - k * 0.04, 0.15, 1.0, -1.26, 44 - k];   // (final) con margen a los dos lados   // Q3: la tablet por encima del hombro
-const SENT = (k = 0) => [0.56, 1.44, -0.5 - k * 0.1, 0.46, 1.12, -1.72, 54 - k * 3];   // Q4: Rubén sentado, el crucigrama
+const SENT = (k = 0) => [0.41, 1.5, -0.45 - k * 0.04, 0.31, 1.2, -1.72, 58 - k];   // (final2) Rubén más abajo (la línea chica no le tapa la frente) y el crucigrama entero   // Q4: Rubén sentado, el crucigrama
 const PLANOS = [
-  ["P1", 0, [[0, ...AP1(0)], [T.ciclos[0][0], ...AP1(-0.03, 45.5)], [T.ciclos[0][1] - 0.05, ...AP1(-0.06, 45)], [T.ciclos[0][1] + 0.22, -0.05, 1.8, -0.5, 0.44, 1.05, -1.4, 46], [T.p2, -0.05, 1.78, -0.54, 0.44, 1.05, -1.4, 45]]],
+  ["P1", 0, [[0, ...AP1(0)], [T.ciclos[0][0], ...AP1(-0.03, 45.5)], [T.ciclos[0][1] - 0.05, ...AP1(-0.06, 45)], [T.ciclos[0][1] + 0.22, -0.02, 1.96, -0.66, 0.44, 1.0, -1.45, 46], [T.p2, -0.02, 1.95, -0.7, 0.44, 1.0, -1.45, 45]]],
   // la órbita de 140° hasta quedar por encima del hombro derecho de Rubén
-  ["P2", T.p2, [[T.p2, -0.05, 1.78, -0.54, 0.44, 1.05, -1.4, 45], [T.p2 + 0.15, -0.55, 2.2, -0.45, 0.3, 1.1, -1.5, 46], [T.p2 + 0.3, -1.0, 2.0, -1.75, 0.3, 1.25, -0.9, 50], [T.p2 + 0.45, ...HOMBRO(0)], [T.p3, ...HOMBRO(1)]]],
+  ["P2", T.p2, [[T.p2, -0.02, 1.95, -0.7, 0.44, 1.0, -1.45, 45], [T.p2 + 0.15, -0.55, 2.2, -0.45, 0.3, 1.1, -1.5, 46], [T.p2 + 0.3, -1.0, 2.0, -1.75, 0.3, 1.25, -0.9, 50], [T.p2 + 0.45, ...HOMBRO(0)], [T.p3, ...HOMBRO(1)]]],
   ["P3", T.p3, [[T.p3, ...ALM(0)], [T.p3b, ...ALM(-1)]]],
   ["P3b", T.p3b, [[T.p3b, ...LIBG(0)], [T.p4, ...LIBG(1)]]],
   ["P4", T.p4, [[T.p4, ...COB(0)], [T.p4w, ...COB(0.5)]]],
@@ -840,7 +852,7 @@ function posarLapizYMano(t, pr) {
     const de = enLib(st.i, 1).ag;
     // por el costado de la cabeza (como cuando la saca), nunca por delante de la cara
     const costado = oreja.mitad.clone().add(V3(-0.24, -0.16, 0.0)), k = st.k;
-    agarre = k < 0.6 ? de.clone().lerp(costado, eio(k / 0.6)) : costado.clone().lerp(oreja.mitad, eio((k - 0.6) / 0.4));
+    agarre = k < 0.6 ? de.clone().lerp(costado, k / 0.6) : costado.clone().lerp(oreja.mitad, eio((k - 0.6) / 0.4));   // (final2) sin doble ease: sale de la libreta en 3-4 cuadros visibles
     dir = DIR_ESCRIBE.clone().lerp(oreja.d, st.k).normalize();
   } else if (mano === "vuelve") {
     const s = enSac();
@@ -1072,7 +1084,8 @@ function ponerPersonajes(t, plano) {
 
   // ---- visibilidad por plano (los que no están en cuadro no tapan la cámara) ----
   ruben.raiz.visible = !["P3", "P5", "Q2", "Q2b", "Q2c", "Q3", "Q3b"].includes(plano);   // (ronda 2) Q3: la tablet sola (sin la cara cortada arriba)
-  graciela.raiz.visible = (["P1", "Q1"].includes(plano)) || (["P5", "P5c", "P6"].includes(plano) && t < T.saleG[1] + 0.05);
+  graciela.raiz.visible = (["P1", "Q1"].includes(plano)) || (plano === "P2" && t < T.p2 + 0.16) ||   // (final2) sigue hasta que la órbita la saca
+    (["P5", "P5c", "P6"].includes(plano) && t < T.saleG[1] + 0.05);
   hector.raiz.visible = hv && !["P3", "P3b", "P4i", "Q2", "Q3", "Q3b", "Q4"].includes(plano);
   walter.raiz.visible = wv && ["P2", "P4w"].includes(plano);
   marta.raiz.visible = mv && plano === "P2";
@@ -1157,7 +1170,7 @@ function renderAt(tIn) {
   libretaJ.visible = parte2 && t >= T.q3b;
   if (libretaJ.visible) { libretaJ.position.copy(libretaQ3(t)); libretaJ.rotation.set(0, -0.06, 0); }
   // la bolsa de Graciela (P1/Q1, en el mostrador a su lado), el monedero (P5), los billetes (P6)
-  bolsa.visible = ["P1", "Q1"].includes(plano);
+  bolsa.visible = ["P1", "Q1"].includes(plano) || (plano === "P2" && t < T.p2 + 0.16);
   bolsa.position.set(bolsaX(t), MY, BOLSA.z); bolsa.rotation.y = -0.4;
   monedero.visible = ["P5", "P5c"].includes(plano);
   if (monedero.visible) { const p = manoMundo(graciela, "D", _a); monedero.position.copy(p).add(V3(0, -0.1, 0.03)); monedero.rotation.set(0.2, graciela.raiz.rotation.y + Math.PI, 0); monedero.userData.abrir(1); }

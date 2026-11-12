@@ -113,3 +113,9 @@ $ 1.840 a 25,05; push-in a la tablet) · Q2 25,79 · Q2b 26,29 (Héctor entrando
 - Q1: tablet girada -0,2 (solo en Q1) de frente a la cámara: montos alineados con su nombre. Toque: la yema cae en la fila de Graciela sin tapar el nombre ni atravesar la pantalla (z 0,045); suelta en 24,94-25,02.
 - Q2b: cámara más atrás (Héctor de medio cuerpo, celular entero), sin la tablet ni Rubén en cuadro.
 - Q3: fov 44 (margen a los dos lados). Q4: la F sale a 31,22 con el lápiz ya en la grilla.
+
+## Verificación final 2
+- P2 2,12-2,28: Graciela y la bolsa siguen en cuadro hasta que la órbita las saca (se ocultan a 2,28 con la bolsa ya en el borde derecho; si siguen, a 2,4 Graciela vuelve a entrar entera y desaparecería en medio del cuadro). El brazo de Rubén sale de la libreta en línea recta hacia el costado (2,12-2,2, sin doble ease).
+- P1 1,77-2,15: la cámara de escritura más alta (y 1,96): "Graciela · yerba, galletitas $ 320" se lee por encima de la bolsa.
+- Q3: la fila de Graciela más alta (140) con "Graciela" / "Avisado ✓" en dos renglones (64/62) y "$ 1.840" a la derecha (66); las otras filas 106.
+- Q4: SENT reencuadrado (cámara más alta, a la izquierda, push más corto): la línea chica ya no tapa cejas y el crucigrama entra entero.
