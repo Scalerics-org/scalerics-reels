@@ -163,3 +163,13 @@ Lo corregido, por punto de la lista:
 
 Mezcla (MEDIR=1): -14,0 LUFS, pico -4,2 dBFS, voz ≥ 6 LU sobre el resto en todos los tramos con voz hablando (el único
 tramo "<6", 23,5 s, es la cola de "¿…el mes?" con el vibrar del celular: no habla nadie).
+20. Portada: `portada.png` armada con `herramientas/portada.mjs` desde un cuadro limpio (`portada-src/fondo-limpio-12.6.png`:
+   Rubén con la cinta, la palma y la montaña; también `fondo-limpio-7.6.png`, el general de la noche). Sello "Fin de mes",
+   "¿Y, cómo viene el mes?" / "Ahí." en verde; todo dentro del recorte 4:5.
+
+Verificación ronda 1: dos pasadas de snapshots cada 0,5 s (0-17,5 y 18-35,5) después de los arreglos + puntuales en cada
+punto. `check`: 0 errores (warnings: GL de SwiftShader, dead_stretch del HTML sobre el canvas, canvas en el borde,
+"automatización"/"más tarde…" del cartel y la línea chica 1,9 s bajo el piso de lectura del check, como en anotamelo).
+Dudoso: en P3t2 (6,45-7,05) la cabeza de Marta asoma grande en el borde izquierdo detrás de la torre; en P6x la torre
+queda fuera de cuadro (la tapa abierta de TICKETS la tapa), el sacudón se ve en P6c; la bolsa del pan sigue leyéndose un
+poco como caja; el tramo de 23,5 s mide voz -1,5 LU sobre el resto pero es solo la cola de "¿…el mes?" (nadie habla).
