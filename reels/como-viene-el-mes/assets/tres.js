@@ -276,7 +276,7 @@ function crearTira(N = 48, material = cintaM) {
     for (let i = 0; i <= N; i++) {
       const p = curva.getPoint(i / N);
       pos.set([p.x - lado.x * W / 2, p.y - lado.y * W / 2, p.z - lado.z * W / 2, p.x + lado.x * W / 2, p.y + lado.y * W / 2, p.z + lado.z * W / 2], i * 6);
-      uv.set([0, (i / N) * rep, 1, (i / N) * rep], i * 4);
+      uv.set([0, (1 - i / N) * rep, 1, (1 - i / N) * rep], i * 4);   // (ronda 1) el texto derecho (ni espejado ni al revés)
     }
     geo.attributes.position.needsUpdate = true; geo.attributes.uv.needsUpdate = true; geo.computeVertexNormals(); geo.computeBoundingSphere();
   };
@@ -316,7 +316,7 @@ function crearCalculadoraRollo() {
     TECLAS[lab] = k; return k;
   };
   const cx = [-0.09, -0.03, 0.03, 0.09], cz = [-0.035, 0.0, 0.035, 0.07, 0.105];
-  ["C", "÷", "×", "−"].forEach((l, i) => tecla(l, cx[i], cz[0], 0.046, 0.03, i === 0 ? "c" : "n"));
+  ["−", "×", "÷", "C"].forEach((l, i) => tecla(l, cx[i], cz[0], 0.046, 0.03, i === 3 ? "c" : "n"));   // (ronda 1) la C del lado de la mano derecha de Rubén
   ["7", "8", "9"].forEach((l, i) => tecla(l, cx[i], cz[1]));
   ["4", "5", "6"].forEach((l, i) => tecla(l, cx[i], cz[2]));
   ["1", "2", "3"].forEach((l, i) => tecla(l, cx[i], cz[3]));
@@ -592,7 +592,7 @@ function dibujarCelu(t) {
   if (!vib) { x.fillStyle = "#efeee5"; x.font = F(800, 120); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("21:00", W / 2, 200); pantR.needsUpdate = true; return; }
   x.textBaseline = "middle";
   x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(18, 40, W - 36, H - 80, 40); x.fill();
-  x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 64); x.fillText("Resumen del mes", 48, 120);
+  x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 54); x.fillText("Resumen del mes", 48, 120);
   x.fillStyle = "#2c4268"; x.font = F(700, 50); x.fillText("21:00", 48, 190);
   x.fillStyle = "#b4b2a3"; x.fillRect(48, 238, W - 96, 6);
   const fila = (i, dibujo) => { if (filas > i) dibujo(); };
@@ -605,7 +605,7 @@ function dibujarCelu(t) {
     x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(30, 520, W - 60, 250, 26); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.stroke();
     x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 120); x.fillText("+8 %", 140, 610);
     x.lineWidth = 16; x.lineCap = "round"; x.beginPath(); x.moveTo(84, 650); x.lineTo(84, 570); x.moveTo(58, 596); x.lineTo(84, 566); x.lineTo(110, 596); x.stroke();
-    x.font = F(800, 52); x.fillText("contra el mes pasado", 52, 715);
+    x.font = F(800, 44); x.fillText("contra el mes pasado", 52, 715);
   });
   fila(3, () => {
     if (verde) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(30, 800, W - 60, 300, 26); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.stroke(); }
@@ -622,6 +622,15 @@ const termo = crearTermo(); termo.scale.setScalar(1.3); scene.add(termo);
 const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [1.0, 5.2, 9.0, 14.2, 22.0, 26.0, 31.0] });
 const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.6, 6.5, 13.0, 23.5, 30.9] });
 const TODOS = [ruben, marta];
+// (ronda 1) la mano abierta de Rubén para el "más o menos": palma plana con cuatro dedos y el pulgar (en la mano derecha)
+const PALMA = new THREE.Group();
+{
+  const piel = mat(0xdba57f, 0.55);
+  PALMA.add(mesh(rbox(0.1, 0.11, 0.035, 0.015), piel, 0, -0.07, 0));
+  for (let i = 0; i < 4; i++) { const d = mesh(new THREE.CapsuleGeometry(0.0115, 0.055, 4, 8), piel, -0.036 + i * 0.024, -0.15 - (i === 1 || i === 2 ? 0.006 : 0), 0); PALMA.add(d); }
+  const pu = mesh(new THREE.CapsuleGeometry(0.012, 0.04, 4, 8), piel, 0.06, -0.06, 0.0); pu.rotation.z = 0.7; PALMA.add(pu);
+  PALMA.visible = false; ruben.brazos[1].mano.add(PALMA);
+}
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // la herradura de pelo de Rubén vista desde atrás se leía como una barra flotante: de espaldas no va (me-haces-precio)
 const HERR = ruben.cabeza.children.find((o) => o.isGroup && Math.abs(o.scale.y - 1.3) < 1e-6);
@@ -704,7 +713,7 @@ const GL = {
 const HOMBRO = (k = 0) => [-0.25 + k * 0.03, 1.75 - k * 0.03, -2.38 + k * 0.12, -0.14, 0.95, 0.8, 54 - k * 2];   // P1/Q1: desde atrás del mostrador, a la derecha de Rubén (fuera de cuadro), hacia la persiana
 const FRENTE = (k = 0) => [0.4, 1.42, 0.35 - k * 0.14, 0.4, 1.2, -1.75, 50 - k * 2];   // P2/Q2b/Q3b: Rubén de frente (lado del cliente)
 const ALTA = (k = 0) => [1.35 - k * 0.05, 2.4 - k * 0.04, 0.95 - k * 0.05, -0.15, 0.85, -1.05, 60 - k];   // P3: general alto desde la derecha (Rubén entero, la torre y Marta a la izquierda)
-const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.5 + lejos * 0.08, -1.82 - lejos * 0.2 + k * 0.04, -0.4, 1.22 + lejos * 0.1, -0.9, 42 + lejos * 6];   // desde atrás del mostrador: la torre adelante, Marta detrás   // P3t: inserto de la torre (desde la derecha: Marta fuera de cuadro, solo su mano)
+const TORRE_C = (k = 0, lejos = 0) => [-0.3, 1.52 + lejos * 0.12, -2.1 - lejos * 0.3 + k * 0.04, -0.4, 1.25 + lejos * 0.15, -0.9, 44 + lejos * 8];   // desde atrás del mostrador: la torre adelante, Marta detrás   // P3t: inserto de la torre (desde la derecha: Marta fuera de cuadro, solo su mano)
 const BAJO = (k = 0) => [0.75 - k * 0.04, 0.42, -0.15 + k * 0.05, -0.25, 0.45, FZ, 58];   // P4: al ras del piso, la persiana y la franja de luz
 const RUBEN_M = (k = 0) => [0.45, 1.12, 0.6 - k * 0.12, 0.33, 1.34, -1.8, 50 - k * 2];   // P5/P5c: Rubén por arriba de la montaña de cinta (la montaña en primer término)
 const COSTADO = (k = 0) => [1.35 - k * 0.04, 1.38, 1.0 - k * 0.05, 0.12, 1.02, -1.35, 56 - k];   // P6c: general del lado del cliente (cámara baja: el rollo no tapa a Rubén)
@@ -739,7 +748,7 @@ const PLANOS = [
   ["Q3c", T.q3c, [[T.q3c, ...MARTA_Q(0.6)], [T.q4, ...MARTA_Q(0.7)]]],
   ["Q4", T.q4, [[T.q4, ...MARTA_Q(0.9)], [T.q4b, ...MARTA_Q(1.4)]]],
   ["Q4b", T.q4b, [[T.q4b, ...MARTA_Q(1.4)], [T.q5, ...MARTA_Q(1.9)]]],
-  ["Q5", T.q5, [[T.q5, 0.35, 1.65, -2.35, -0.42, 1.0, -0.55, 52], [DUR, 0.3, 1.63, -2.25, -0.42, 1.0, -0.55, 50]]],   // (ronda 1) desde atrás del mostrador: Marta de frente con su caja, Rubén sentado en el cajón   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
+  ["Q5", T.q5, [[T.q5, 0.55, 1.6, -2.5, -0.42, 1.15, -0.55, 58], [DUR, 0.5, 1.6, -2.42, -0.42, 1.15, -0.55, 56]]],   // (ronda 1) desde atrás del mostrador: Marta de frente con su caja, Rubén sentado en el cajón   // (ronda 1) el remate: Rubén se sienta en el cajón, Marta suma
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -785,6 +794,17 @@ function manoConDedos(per, pose, lado, mundo) {
   const p1 = manoA(per, { ...pose }, lado, mundo); per.poner(p1);
   const tip = dedosMano(per, lado, new THREE.Vector3());
   return manoA(per, { ...pose }, lado, mundo.clone().add(mundo.clone().sub(tip)));
+}
+// (ronda 1) la yema del índice extendido (dedo de 0,12 m desde -0,1 de la mano): para apretar teclas con la punta
+function manoConPunta(per, pose, lado, mundo) {
+  let obj = mundo.clone(), p1 = null;
+  for (let i = 0; i < 3; i++) {
+    p1 = manoA(per, { ...pose }, lado, obj); per.poner({ ...p1, [`dedo${lado}`]: 1 });
+    per.raiz.updateMatrixWorld(true);
+    const tip = per.brazos[lado === "I" ? 0 : 1].mano.localToWorld(V3(0, -0.215, 0.01));
+    obj.add(mundo.clone().sub(tip));
+  }
+  return p1;
 }
 const bocaVoz = (p, t, t0, env, k = 0.7) => {
   if (t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta, cl(e * 1.1 - 0.05) * k); }
@@ -860,7 +880,7 @@ const MK = [
   [T.sacaCaja[0] + 0.2, { inclina: 0.45, ...aC(0, 0.35) }, 0.2],
   [T.sacaCaja[1], { inclina: 0.08, ...aC(0, 0.15), ...CARA.concentrada, ojos: { x: 0, y: -0.7, abiertos: 0.95 } }, 0.2],
   // Q5 · suma con su caja: de frente al mostrador, la cabeza baja
-  [T.q5 - 0.001, { giro: Math.PI - 0.35, inclina: 0.14, ...aC(0, 0.35), ...CARA.concentrada, ojos: { x: 0, y: -0.75, abiertos: 0.95 }, boca: { sonrisa: 0, abierta: 0, ancho: 0.8 } }, 0.001],
+  [T.q5 - 0.001, { giro: Math.PI - 0.35, inclina: 0.04, ...aC(0, 0.12), ...CARA.concentrada, ojos: { x: 0, y: -0.6, abiertos: 1 }, boca: { sonrisa: 0, abierta: 0, ancho: 0.8 } }, 0.001],
 ];
 
 // ================= ESCENA EN EL TIEMPO =================
@@ -927,7 +947,7 @@ function ponerPersonajes(t, plano) {
     if (en(t, T.p4b - 0.1, T.p5)) {
       const kT = eio(sg(t, T.p4b, T.total)) * (1 - eio(sg(t, T.total + 0.08, T.imprime[1])));
       const obj = calcu.userData.tecla("TOTAL").add(V3(0, 0.035 * (1 - kT), 0));
-      if (t < T.imprime[1]) { const p1 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", obj); mezclaMano(pr, p1, "D", 1); pr.dedoD = 1; }
+      if (t < T.imprime[1]) { const p1 = manoConPunta(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", obj); mezclaMano(pr, p1, "D", 1); pr.dedoD = 1; }
       else {
         const ku = eio(sg(t, T.imprime[1], T.arranca + 0.1));
         const sal = calcu.localToWorld(calcu.userData.salida.clone()).add(V3(0, 0.06 + ku * 0.25, 0));
@@ -943,7 +963,7 @@ function ponerPersonajes(t, plano) {
       if (t >= T.masomenos[0]) {
         const k = eio(sg(t, T.masomenos[0], T.masomenos[0] + 0.15)) * (1 - eio(sg(t, T.masomenos[1], T.masomenos[1] + 0.2)));
         const b = Math.sin(sg(t, T.masomenos[0] + 0.12, T.masomenos[1]) * Math.PI * 4) * 0.045;
-        pr.manoD = [lerp(-0.13, -0.26, k), lerp(0.45, 0.62, k), lerp(0.42, 0.5, k)]; pr.codoD = [-1, -0.3, -0.1];   // (ronda 1) delante del pecho, en cuadro
+        pr.manoD = [lerp(-0.13, -0.08, k), lerp(0.45, 0.52, k), lerp(0.42, 0.62, k)]; pr.codoD = [-1, -0.3, -0.1];   // (ronda 1) delante del pecho, en cuadro
       }
       if (t >= T.baja[0] - 0.1) { const k = eio(sg(t, T.baja[0] - 0.1, T.baja[0] + 0.1)); pr.manoI = pr.manoI.map((v, i) => lerp(v, APOYA.manoI[i], k)); pr.manoD = pr.manoD.map((v, i) => lerp(v, APOYA.manoD[i], k)); }
     }
@@ -959,9 +979,8 @@ function ponerPersonajes(t, plano) {
     // P6b · aprieta la C
     if (en(t, T.p6b - 0.1, T.p6c)) {
       const k = eio(sg(t, T.p6b, T.tc)) * (1 - eio(sg(t, T.tc + 0.08, T.tc + 0.25)));
-      const cW = calcu.userData.tecla("C"), sh = ruben.cuerpo.localToWorld(V3(-0.2, 0.55, 0));
-      const obj = cW.clone().add(cW.clone().sub(sh).setY(0).normalize().multiplyScalar(0.07)).add(V3(0, 0.035 * (1 - k), 0));   // (ronda 1) la yema llega a la C
-      const p1 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", obj); mezclaMano(pr, p1, "D", Math.min(1, k * 2)); pr.dedoD = 1;
+      const obj = calcu.userData.tecla("C").add(V3(0, 0.03 * (1 - k) - 0.004, 0));   // (ronda 1) la yema llega a la C
+      const p1 = manoConPunta(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", obj); mezclaMano(pr, p1, "D", Math.min(1, k * 2)); pr.dedoD = 1;
       calcu.userData.hundir("C", t >= T.tc - 0.03 && t < T.tc + 0.22 ? 1 : 0); pr.manoI = APOYA.manoI; pr.codoI = null;
     }
   } else {
@@ -990,8 +1009,13 @@ function ponerPersonajes(t, plano) {
   if (!parte2 && en(t, T.masomenos[0], T.masomenos[1] + 0.2)) {
     const k = eio(sg(t, T.masomenos[0], T.masomenos[0] + 0.15)) * (1 - eio(sg(t, T.masomenos[1], T.masomenos[1] + 0.2)));
     const v = Math.sin(sg(t, T.masomenos[0] + 0.12, T.masomenos[1]) * Math.PI * 4) * 0.55;
-    ruben.brazos[1].mano.rotateY(k * (1.2 + v));
-  }
+    const mano = ruben.brazos[1].mano;
+    mano.updateMatrixWorld(true);
+    const up = V3(0, 1, 0).transformDirection(mano.matrixWorld.clone().invert());   // el "arriba" del mundo en la mano
+    mano.rotateY(Math.atan2(up.x, up.z) + v * k);   // la palma (cara +z de la mano abierta) mira arriba: el dorso arriba, la palma abajo
+    for (const o of mano.children) o.visible = o === PALMA;
+    PALMA.visible = k > 0.05;
+  } else { for (const o of ruben.brazos[1].mano.children) o.visible = o !== PALMA; ruben.brazos[1].dedo.visible = ruben.brazos[1].dedo.scale.y > 0.02; }
 
   // ---- Marta ----
   const pm = poseEn(t, MK);
@@ -1158,7 +1182,7 @@ function renderAt(tIn) {
     const cima = MONTA.H * Math.pow(nivel, 1 / 0.8) + 0.08;
     const ond = Math.sin(t * 7) * 0.012;
     const pts = [s0, s0.clone().add(V3(0, 0.06, 0.05)), V3(CALC.x + 0.02, MY + 0.06, MZF + 0.05 + ond), V3(CALC.x + 0.05, MY - 0.05, MZF + 0.12), V3(MONTA.x - 0.02, Math.max(cima, 0.1) + 0.05, MONTA.z + 0.02)];
-    tiraCalc.userData.poner(pts, V3(-1, 0, 0), 0.07, 3);
+    tiraCalc.userData.poner(pts, V3(1, 0, 0), 0.07, 3);
     cintaT.offset.y = -t * 0.8;
   }
   // la cinta arrancada en las manos de Rubén (P4b-P6), que le cuelga hasta perderse en la montaña
@@ -1168,7 +1192,7 @@ function renderAt(tIn) {
     const suelta = t >= T.masomenos[0] + 0.1;
     const arriba = (suelta ? a.clone().add(V3(-0.05, 0.02, 0)) : a.clone().add(b).multiplyScalar(0.5)).add(V3(0, 0.02, 0.05));
     const pts = [arriba.clone().add(V3(0, 0.1, 0)), arriba, arriba.clone().add(V3(0, -0.18, 0.06)), V3(arriba.x, MY + 0.05, MZF + 0.1), V3(MONTA.x - 0.05, MONTA.H * 0.85, MONTA.z + 0.05)];
-    tiraLee.userData.poner(pts, V3(-1, 0, 0), 0.085, 1.2);
+    tiraLee.userData.poner(pts, V3(1, 0, 0), 0.085, 1.2);
     cintaLeeT.offset.y = 0.35 - eio(sg(t, T.lee[0], T.lee[1])) * 0.35;
   }
   // ---- la persiana: a la mañana la franja de abajo pasa a crema cálido (es por el pan) ----
@@ -1230,6 +1254,7 @@ function renderAt(tIn) {
     // la calculadora desde arriba (del lado de Rubén): llena el cuadro
     calcu.updateMatrixWorld(true);
     const c = calcu.localToWorld(V3(0, 0.08, 0.0));
+    if (plano === "P6b") c.lerp(calcu.userData.tecla("C"), 0.45);   // (ronda 1) la C entera en cuadro
     const zoom = plano === "P4b" ? lerp(0.66, 0.6, sg(t, T.p4b, T.p5)) : lerp(0.62, 0.58, sg(t, T.p6b, T.p6c));
     camera.position.copy(c).add(V3(0.0, zoom, 0.2)); camera.up.set(0, 0, 1); camera.fov = 40; camera.updateProjectionMatrix(); camera.lookAt(c);
     ruben.raiz.visible = true; ruben.cabeza.visible = false;
