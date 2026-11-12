@@ -1,5 +1,5 @@
 {
- "t": 12.4,
+ "t": 12.6,
  "chica": "¿Y, cómo viene el mes?",
  "grande": "Ahí.",
  "sello": "Fin de mes",
@@ -9,5 +9,5 @@
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-12.4.png"
+ "fondo_limpio": "portada-src/fondo-limpio-12.6.png"
 }
