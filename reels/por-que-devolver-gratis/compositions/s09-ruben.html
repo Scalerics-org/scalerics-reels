@@ -13,15 +13,15 @@
     [data-composition-id="s09-ruben"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
 
   </style>
-  <div id="root" data-composition-id="s09-ruben" data-width="1080" data-height="1920" data-duration="3.41">
-    <div id="s09-ruben-esc" class="esc clip" data-start="0" data-duration="3.41" data-track-index="0">
+  <div id="root" data-composition-id="s09-ruben" data-width="1080" data-height="1920" data-duration="3.71">
+    <div id="s09-ruben-esc" class="esc clip" data-start="0" data-duration="3.71" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M620 1595 L520 1260"/><circle class="dot  d1" cx="520" cy="1260" r="13"/></svg><div class="pill  n1" style="left:700px;top:1650px">Le gustan, pero duda</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-ruben";
-      const DUR = 3.41;
+      const DUR = 3.71;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -39,7 +39,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.12); fuera([1], 0.92);
+nota(1, 0.12); fuera([1], 0.93);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

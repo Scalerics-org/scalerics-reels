@@ -36,10 +36,10 @@ const T = {
   s12: INI["s12-tu-tienda"], tienda12: Wg(82),
   fin: INI["s13-llamada"],
 };
-T.v0 = T.s07 + 0.22; T.toque = T.probar + 0.05; T.sella = T.devolver2 + 0.25;
+T.v0 = T.s07 + 0.3; T.toque = T.probar + 0.05; T.sella = T.devolver2 + 0.25;
 T.pies = T.championes - 0.06; T.nubeR = T.ysi - 0.08;
-T.compra = T.gratis10 + 0.1; T.pago = T.compra + 0.18; T.paga = T.pago + 0.2;
-T.llega = T.s11 - 0.54; T.abre = T.llega + 0.34; T.piesN = T.quedaron - 0.03; T.talon = T.piesN + 0.18;
+T.compra = T.devolucion + 0.45; T.pago = T.compra + 0.17; T.paga = T.pago + 0.2;
+T.llega = T.s11 - 0.5; T.abre = T.llega + 0.3; T.piesN = T.quedaron - 0.03; T.talon = T.quedaron + 0.5;
 
 // ---------- piezas ----------
 const pill = (k, x, y, txt, kind = "") => `<div class="pill ${kind} n${k}" style="left:${x}px;top:${y}px">${txt}</div>`;
@@ -115,20 +115,20 @@ const CSS_MK = `
 const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${x}px;top:${y}px">${txt}${sub ? `<span class="sub">${sub}</span>` : ""}</div>`;
 const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: ${NAVY}; border: 5px solid ${G}; font: 600 44px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; }
     P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${G}; }`;
-// tramos sin logo (primeros planos de celulares): los lee armar.mjs
-const FIRMA = [];
+// tramos sin logo (primeros planos de celulares; tarimas de s03-s05; la pila en s08): los lee armar.mjs
+const FIRMA = [[INI["s03-estudio"], INI["s06-por-que"]], [INI["s08-giro"], r2(INI["s08-giro"] + 0.6)]];
 
 // posiciones en pantalla de los rótulos (medidas sobre los cuadros del 3D)
 const POS = {
   adentro: [540, 1700], adentroLead: [540, 1640, 560, 1250],
-  vuelve: [540, 1640], vuelveLead: [400, 1585, 300, 1300],
+  vuelve: [540, 1690], vuelveLead: [560, 1635, 640, 1000],
   credEst: [540, 1680], reales: [540, 1690], realesLead: [700, 1635, 760, 1250],
   credPag: [540, 1690], antes: [540, 790], antesLead: [700, 745, 820, 625],
   masAntes: [540, 1690], masAntesLead: [640, 1635, 560, 760],
   credRiesgo: [540, 1590], riesgo: [770, 860], riesgoLead: [770, 805, 700, 690],
   credRev: [540, 545], algo: [300, 1600], suben: [690, 1690], subenLead: [740, 1635, 740, 1100],
   duda: [700, 1650], dudaLead: [620, 1595, 520, 1260],
-  vista: [540, 1730], vistaLead: [540, 1675, 540, 1500],
+  vista: [540, 1790], vistaLead: [540, 1675, 540, 1500],
   sinUsar: [540, 1690], sinUsarLead: [540, 1635, 540, 1150],
 };
 
@@ -136,7 +136,7 @@ const POS = {
 {
   const id = "s01-gancho";
   const [x, y] = POS.adentro, [a, b, c, d] = POS.adentroLead;
-  const tCierra = T.gratisG + 0.12;
+  const tCierra = T.gratisG + 0.42; // las solapas se cierran después de "gratis?" (mismo valor que tres.js)
   escena(id, {
     css: `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 118px/1.04 "Lexend", sans-serif; letter-spacing: -0.04em; color: ${CR}; -webkit-text-stroke: 18px ${NAVY}; paint-order: stroke fill; white-space: nowrap; }
@@ -158,9 +158,10 @@ const POS = {
       { t: 0.05, sfx: "papel", vol: 0.25, max: 0.5 },
       { t: 0.75, sfx: "click-soft", vol: 0.15 },
       { t: w(id, 6), sfx: "pop", vol: 0.3 },
-      { t: T.gratisG - 0.2, sfx: "papel", vol: 0.25, max: 0.6 },
-      ...[0, 1, 2, 3].map((k) => ({ t: tCierra + 0.12 + k * 0.084, sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.35 })),
-      { t: tCierra + 0.42, sfx: "papel-fuerte", vol: 0.9, max: 0.3 },
+      { t: T.gratisG + 0.2, sfx: "papel", vol: 0.12, max: 0.4 },
+      // cartón: las solapas (golpecitos sordos) y la cinta, todo en el silencio después de "gratis?" y con el grupo bajo
+      ...[0, 1, 2, 3].map((k) => ({ t: tCierra + 0.08 + k * 0.076, sfx: "golpe", vol: 0.05, max: 0.18 })),
+      { t: tCierra + 0.4, sfx: "papel-fuerte", vol: 0.14, max: 0.25 },
     ],
   });
 }
@@ -171,9 +172,9 @@ const POS = {
   const [x, y] = POS.vuelve, [a, b, c, d] = POS.vuelveLead;
   escena(id, {
     html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Y vuelve a comprar", "lleno")}`,
-    js: `nota(1, ${rel(id, T.vuelve + 0.35)}); fuera([1], ${r2(ESC[id] - 0.22)});`,
+    js: `nota(1, ${rel(id, T.vuelve + 0.55)}); fuera([1], ${r2(ESC[id] - 0.22)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh", vol: 0.35, max: 0.6 },
+      { t: 0.0, sfx: "whoosh", vol: 0.2, max: 0.6 },
       ...[0, 1, 2, 3].map((k) => ({ t: 0.3 + k * 0.22, sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.1 })),
       { t: rel(id, T.vuelve) - 0.1, sfx: "whoosh-short", vol: 0.3 },
       { t: rel(id, T.vuelve), sfx: "pop", vol: 0.35 }, { t: rel(id, T.vuelve + 0.2), sfx: "pop", vol: 0.3 },
@@ -210,9 +211,11 @@ const POS = {
     sfx: [
       { t: 0.0, sfx: "whoosh-short", vol: 0.3 },
       { t: 0.12, sfx: "pop", vol: 0.3 },
-      ...[0, 1, 2].map((j) => ({ t: rel(id, T.pagaron + j * 0.15 + 0.36), sfx: j % 2 ? "tac-real" : "tic-real", vol: 0.4 })),
-      { t: rel(id, T.mucho), sfx: "glitch-1", vol: 0.03, max: 0.3 },
+      // monedas: un ping metálico corto y bajo por cada una
+      ...[0, 1, 2].map((j) => ({ t: rel(id, T.pagaron + j * 0.15 + 0.3), sfx: "ping", vol: 0.06, max: 0.22 })),
       ...[0, 1, 2, 3, 4].map((k) => ({ t: rel(id, T.mucho + k * 0.12 + 0.05), sfx: "pop", vol: 0.03 })),
+      // la columna termina de desarmarse: golpe sordo después de "menos."
+      { t: rel(id, Wg(32) + 0.56), sfx: "golpe", vol: 0.22, max: 0.4 },
     ],
   });
 }
@@ -227,7 +230,7 @@ const POS = {
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
       { t: 0.12, sfx: "pop", vol: 0.25 },
-      ...[0, 1, 2].map((k) => ({ t: rel(id, T.mas + k * 0.14), sfx: "pop", vol: 0.25 + k * 0.05 })),
+      ...[0, 1, 2].map((k) => ({ t: rel(id, T.mas + k * 0.14), sfx: "pop", vol: 0.7 * (0.25 + k * 0.05) })),
       { t: rel(id, T.antes + 0.05), sfx: "ding", vol: 0.05, max: 0.8 },
     ],
   });
@@ -247,15 +250,16 @@ vacia("s06-por-que", [
   escena(id, {
     css: CSS_CRED,
     html: `${cred(1, POS.credRiesgo[0], POS.credRiesgo[1], "Comprar a distancia:", "lo sabés recién cuando llega")}${leads(lead(2, a, b, c, d))}${pill(2, x, y, "Riesgo de comprar")}`,
-    js: `nota(1, ${rel(id, T.v0 + 0.3)}); fuera([1], ${rel(id, T.devolver2 - 0.1)}); nota(2, ${rel(id, T.riesgo + 0.15)}); fuera([2], ${r2(ESC[id] - 0.15)});`,
+    js: `nota(1, ${rel(id, T.v0 + 0.3)}); fuera([1], ${rel(id, T.devolver2 - 0.1)}); nota(2, ${rel(id, T.riesgo + 0.15)}); fuera([2], ${rel(id, T.achica - 0.05)});`,
     sfx: [
       { t: rel(id, T.v0) - 0.12, sfx: "whoosh", vol: 0.3, max: 0.5 },
       { t: rel(id, T.toque), sfx: "tic", vol: 0.4 }, { t: rel(id, T.toque + 0.2), sfx: "tic", vol: 0.4 },
       { t: rel(id, T.riesgo), sfx: "glitch-1", vol: 0.08, max: 0.25 },
       { t: rel(id, T.devolver2 - 0.05), sfx: "whoosh-short", vol: 0.3 },
       { t: rel(id, T.sella), sfx: "sello", vol: 0.5 },
-      { t: rel(id, T.achica - 0.1), sfx: "whoosh-short", vol: 0.05 },
-      { t: rel(id, T.achica + 0.42), sfx: "pop", vol: 0.25 },
+      { t: rel(id, T.achica - 0.12), sfx: "click", vol: 0.12 },
+      { t: rel(id, T.achica + 0.12), sfx: "whoosh-short", vol: 0.18 },
+      { t: rel(id, T.achica + 0.45), sfx: "pop", vol: 0.25 },
     ],
   });
 }
@@ -264,19 +268,19 @@ vacia("s06-por-que", [
 {
   const id = "s08-giro";
   const [x, y] = POS.suben, [a, b, c, d] = POS.subenLead;
-  const tc = T.s08 + 0.32;
+  const tc = T.masQ + 0.4; // las solapas se cierran después de "¿Devuelven más?" (mismo valor que tres.js)
   escena(id, {
     css: CSS_CRED + `P .pill.chico { font-size: 44px; }`,
     html: `${cred(1, POS.credRev[0], POS.credRev[1], "Revisión de estudios", "sobre devoluciones · 2016")}${pill(2, POS.algo[0], POS.algo[1], "Algo, sí", "chico")}${leads(lead(3, a, b, c, d))}${pill(3, x, y, "Suben más las compras", "lleno")}`,
     js: `nota(1, ${rel(id, T.masQ)}); fuera([1], ${rel(id, T.compran - 0.05)}); nota(2, ${rel(id, T.algo + 0.05)}); nota(3, ${rel(id, T.compran + 0.6)}); fuera([2, 3], ${r2(ESC[id] - 0.22)});`,
     sfx: [
-      { t: -0.05, sfx: "whoosh", vol: 0.3, max: 0.5 },
-      { t: 0.1, sfx: "papel", vol: 0.3, max: 0.6 },
-      ...[0, 1, 2, 3].map((k) => ({ t: rel(id, tc + 0.05 + k * 0.06), sfx: k % 2 ? "tac-real" : "tic-real", vol: 0.25 })),
-      { t: rel(id, tc + 0.32), sfx: "papel-fuerte", vol: 0.6, max: 0.2 },
+      { t: -0.05, sfx: "whoosh", vol: 0.2, max: 0.5 },
+      { t: 0.02, sfx: "papel", vol: 0.12, max: 0.35 },
+      ...[0, 1, 2, 3].map((k) => ({ t: rel(id, tc + 0.05 + k * 0.06), sfx: "golpe", vol: 0.05, max: 0.15 })),
+      { t: rel(id, tc + 0.32), sfx: "papel-fuerte", vol: 0.25, max: 0.2 },
       { t: rel(id, T.masQ + 0.15), sfx: "pop", vol: 0.35 },
       { t: rel(id, T.algo + 0.05), sfx: "tic", vol: 0.3 },
-      ...[0, 1, 2].map((k) => ({ t: rel(id, T.compran + k * 0.17 + 0.16), sfx: "pop", vol: 0.25 + k * 0.05 })),
+      ...[0, 1].map((k) => ({ t: rel(id, T.compran + k * 0.2 + 0.16), sfx: "pop", vol: 0.25 + k * 0.05 })),
       { t: rel(id, T.compran + 0.75), sfx: "ding", vol: 0.12, max: 0.8 },
     ],
   });
@@ -293,7 +297,8 @@ vacia("s06-por-que", [
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.25, max: 0.8 },
       { t: rel(id, T.pies) - 0.05, sfx: "whoosh-short", vol: 0.2 },
-      ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.12 + 0.26 * k + 0.13), sfx: "tac-real", vol: 0.35 })),
+      { t: rel(id, T.pies + 0.02), sfx: "whoosh-short", vol: 0.1 },
+      ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.28 + 0.233 * k + 0.1), sfx: "tac-real", vol: 0.3 })),
       { t: rel(id, T.nubeR) - 0.05, sfx: "whoosh-short", vol: 0.15 },
       { t: rel(id, T.nubeR + 0.05), sfx: "burbuja", vol: 0.3 },
       ...[0, 1].map((k) => ({ t: rel(id, a0 + 0.24 + k * 0.55), sfx: "golpe", vol: 0.12, max: 0.3 })),
@@ -308,15 +313,13 @@ vacia("s06-por-que", [
   const [x, y] = POS.vista, [a, b, c, d] = POS.vistaLead;
   FIRMA.push([INI[id], r2(T.llega)]);
   escena(id, {
-    html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "A la vista, en cada producto", "lleno")}`,
-    js: `nota(1, ${rel(id, T.devolucion + 0.02)}); fuera([1], ${rel(id, T.pago - 0.03)});`,
+    html: `${pill(1, x, y, "A la vista, en cada producto", "lleno")}`,
+    js: `nota(1, ${rel(id, T.devolucion + 0.02)}); fuera([1], ${rel(id, T.compra - 0.03)});`,
     sfx: [
       { t: -0.08, sfx: "whoosh-short", vol: 0.3 },
       { t: rel(id, T.devolucion - 0.05), sfx: "ping", vol: 0.3, max: 0.6 },
-      { t: rel(id, T.compra), sfx: "click-soft", vol: 0.35 },
-      { t: rel(id, T.pago), sfx: "whoosh-short", vol: 0.12 },
-      { t: rel(id, T.paga), sfx: "click-soft", vol: 0.35 },
-      { t: rel(id, T.paga + 0.05), sfx: "notification", vol: 0.25, max: 0.5 },
+      { t: rel(id, T.compra), sfx: "click-soft", vol: 0.12 },
+      { t: rel(id, T.paga), sfx: "click-soft", vol: 0.12 },
     ],
   });
 }
@@ -324,15 +327,16 @@ vacia("s06-por-que", [
 // ================= s11 · y le quedaron (llega la caja; los pies con los nuevos) =================
 {
   const id = "s11-quedaron";
+  FIRMA.push([r2(T.piesN), INI["s12-tu-tienda"]]); // el champión viejo del piso queda donde va el logo
   vacia(id, [
     { t: rel(id, T.llega - 0.04), sfx: "timbre", vol: 0.2, max: 0.6 },
     { t: rel(id, T.llega + 0.22), sfx: "golpe", vol: 0.35, max: 0.4 },
     { t: rel(id, T.abre), sfx: "papel", vol: 0.35, max: 0.4 },
     { t: rel(id, T.abre + 0.1), sfx: "pop", vol: 0.25 },
-    { t: rel(id, T.piesN) - 0.05, sfx: "whoosh-short", vol: 0.15 },
-    { t: rel(id, T.talon + 0.08), sfx: "tac-real", vol: 0.5 },
-    { t: rel(id, T.talon + 0.3), sfx: "pop", vol: 0.2 },
-    { t: rel(id, T.talon + 0.1), sfx: "sparkle", vol: 0.06, max: 0.5 },
+    { t: rel(id, T.piesN) - 0.05, sfx: "whoosh-short", vol: 0.1 },
+    // después de "quedaron": el viejo del piso cierra la boca
+    { t: rel(id, T.talon + 0.1), sfx: "tac-real", vol: 0.45 },
+    { t: rel(id, T.talon + 0.14), sfx: "sparkle", vol: 0.05, max: 0.45 },
   ]);
 }
 
@@ -342,7 +346,7 @@ vacia("s06-por-que", [
   FIRMA.push([INI[id], r2(INI[id] + ESC[id])]);
   vacia(id, [
     { t: -0.1, sfx: "whoosh", vol: 0.3, max: 0.5 },
-    { t: rel(id, T.tienda12 - 0.1), sfx: "ping", vol: 0.25, max: 0.6 },
+    { t: rel(id, T.tienda12 + 0.02), sfx: "ping", vol: 0.25, max: 0.6 },
   ]);
 }
 

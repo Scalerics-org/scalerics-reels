@@ -14,15 +14,15 @@
 [data-composition-id="s08-giro"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #0b1220; border: 5px solid #5ce611; font: 600 44px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; }
     [data-composition-id="s08-giro"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #5ce611; }[data-composition-id="s08-giro"] .pill.chico { font-size: 44px; }
   </style>
-  <div id="root" data-composition-id="s08-giro" data-width="1080" data-height="1920" data-duration="3.67">
-    <div id="s08-giro-esc" class="esc clip" data-start="0" data-duration="3.67" data-track-index="0">
+  <div id="root" data-composition-id="s08-giro" data-width="1080" data-height="1920" data-duration="3.66">
+    <div id="s08-giro-esc" class="esc clip" data-start="0" data-duration="3.66" data-track-index="0">
 <div class="cred n1" style="left:540px;top:545px">Revisión de estudios<span class="sub">sobre devoluciones · 2016</span></div><div class="pill chico n2" style="left:300px;top:1600px">Algo, sí</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l3" d="M740 1635 L740 1100"/><circle class="dot  d3" cx="740" cy="1100" r="13"/></svg><div class="pill lleno n3" style="left:690px;top:1690px">Suben más las compras</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s08-giro";
-      const DUR = 3.67;
+      const DUR = 3.66;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,7 +40,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.3); fuera([1], 1.7); nota(2, 1); nota(3, 2.35); fuera([2, 3], 3.45);
+nota(1, 0.31); fuera([1], 1.85); nota(2, 1); nota(3, 2.5); fuera([2, 3], 3.44);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -678,7 +678,7 @@ export function crearPersonaje(cfg) {
   }
   poner({});
   // por-que-devolver-gratis (12-11): `pies` = los grupos de cada pie [izquierdo, derecho] (para cambiar el calzado)
-  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, pies: piernas.map((q) => q.pie), campera, ponerCampera, ojoLejano, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
+  return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, pies: piernas.map((q) => q.pie), piernas, campera, ponerCampera, ojoLejano, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
 }
 
 // ---------- expresiones listas (se mezclan con mezclar()) ----------

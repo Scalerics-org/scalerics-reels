@@ -23,7 +23,7 @@ investigadores (nada de personas reales con nombre propio en la voz); los nombre
   https://sciencedaily.com/releases/2012/10/121009101344.htm ("Free product returns have major impact on future sales") ·
   NPR, 26-11-2012: https://www.npr.org/2012/11/26/165896139/is-charging-customers-for-mail-order-returns-bad-business
   (mismo estudio contado por la universidad y por NPR: dos tiendas online, 49 meses, los que pagaron la devolución
-  compraron mucho menos y los que no pagaron, más. ScienceDaily dice "74 %"; el abstract dice 75 %: se usa el del
+  compraron mucho menos y los que no pagaron, más. El comunicado de W&L lo cuenta como que el gasto "aumentó entre 58 % y 357 %", que equivale al 158-457 % del gasto anterior del abstract. ScienceDaily dice "74 %"; el abstract dice 75 %: se usa el del
   abstract.) Confirma [A], pero es el mismo estudio: la confirmación INDEPENDIENTE de la idea es [C].
 - **[C] Janakiraman, N., Syrdal, H. A. y Freling, R. (2016).** "The Effect of Return Policy Leniency on Consumer
   Purchase and Return Decisions: A Meta-analytic Review." *Journal of Retailing*, 92(2), 226-235.
@@ -64,7 +64,7 @@ investigadores (nada de personas reales con nombre propio en la voz); los nombre
 | Los que no, más que antes. | Devolución gratis: gasto posterior entre 158 % y 457 % del anterior, o sea, más que antes de devolver. | [A] [B] |
 | Comprar sin probar es un riesgo. Devolver gratis lo achica. | La política permisiva achica el riesgo de comprar a distancia; una buena devolución baja el riesgo percibido de las compras. Se dice "lo achica", no "lo elimina". Ojo: es la explicación de [D] y [E]; [A] la discute en términos de culpa y equidad, por eso la voz no le atribuye esta razón al mismo estudio. | [D] [E] |
 | ¿Devuelven más? Algo. Pero compran más todavía. | En general, la permisividad sube las compras más de lo que sube las devoluciones. "Algo" porque depende de la dimensión (alcance las sube; tiempo y cambio las bajan; en Wood no subieron). | [C], matiz [D] |
-| Rubén dudaba: championes online, ¿y si no le quedan? / La tienda decía, junto al precio: cambio gratis. / Y le quedaron. | Ficción (personaje recurrente), sin datos. Producto: tienda online con la política de cambios a la vista en cada producto y al pagar. | (ficción) |
+| Rubén dudaba: championes online, ¿y si no le quedan? / La tienda decía, junto al precio: devolución gratis. / Y le quedaron. | Ficción (personaje recurrente), sin datos. Producto: tienda online con la devolución gratis (y las condiciones de la tienda) a la vista en cada producto y al pagar. | (ficción) |
 | ¿Lo ponemos en tu tienda? Agendá una videollamada gratis en scalerics.com. | Cierre (CLAUDE.md punto 8). | (cierre) |
 
 ## Lo que puede ir en pantalla (chico, como crédito)

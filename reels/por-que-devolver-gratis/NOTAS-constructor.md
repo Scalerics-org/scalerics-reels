@@ -83,3 +83,44 @@ columna, glitch, ding, whoosh-cinematic de s03, whoosh de "achica"). Que el revi
   alternativa `portada-src/fondo-limpio-1.0.png` (la caja con la etiqueta). Como en recordatorio, portada.mjs no lee
   `fondo_limpio`: hay que pasárselo.
 - No se renderizó el mp4 ni se hizo commit.
+
+## Ronda 1 de corrección (lista de los 3 revisores, DEFECTOS-r1.md)
+Duración nueva 34,38 s (voz 34,26 s). Inicios: s02 2,79 · s03 5,22 · s04 8,11 · s05 11,24 · s06 13,14 · s07 14,03 ·
+s08 17,99 · s09 21,65 · s10 25,36 · s11 28,62 · s12 29,70 · s13 31,50.
+
+Voz: "Un estudio siguió a clientes de dos tiendas online." regenerada sola con dicción clara (partes/f3-1.wav,
+pegada en partes/armar-voz.mjs → orus2b.wav; el STT igual oye "si yo", es el STT). "lo achica" no se tocó (las tomas
+nuevas eran peores). Pausa después de "¿Por qué?" 0,58 s; el "?" queda 1,2 s. Tiempos rehechos a mano sobre
+silencedetect (partes/ajustar-tiempos.mjs) con las correcciones del revisor de sonido.
+
+Arte: 1-2 cabecera del celular debajo de los subtítulos (inserto y "Tu tienda" más lejos y centrados más abajo) · 3 sin
+pulgar (onda en el botón), foto del producto también en "Tu compra", precio arriba del sello, rótulo sin línea guía y
+se va antes del toque · 4 contraplano rehecho: primer plano limpio del champión viejo en el piso (la suela aletea como
+boca, con la entresuela roja) y en "quedaron" Rubén de cuerpo entero levanta el pie con los nuevos, el viejo en el piso
+· 5 vitrina 1,5 × 2,4 (≈ 70 % del ancho) · 6 brazo con manga navy que entra desde abajo · 7 champión rehecho: perfil
+lateral extruido (talón, cuello acolchado, lengüeta, cordones blancos con ojalillos, puntera y talonera blancas, suela
+gruesa con dibujo) · 8 ficha de vitrina propia, medidor sobre la foto (no tapa "Tienda"), crédito sobre el botón y se
+va antes de "devolver", "Riesgo de comprar" se va antes de "achica" · 9 el vidrio se desvanece (no sube) y el champión
+sale hacia cámara · 10 la cámara sigue a la caja por la U · 11 encuadre de las cajas que vuelven y guía a la caja ·
+12 s03 arranca con las primeras cajas ya caídas y cámara cerca · 13 monedas de canto, entran en la caja · 14 nube más
+grande, pie con media crema y puño verde, champión grande · 15 la caja cae desde más abajo, encuadre con la caja abajo
+del subtítulo · 16 caja de adelante más adelante y la solapa de atrás a medio abrir · 17 "4 años" sale con corte, sin
+achicarse · 18 la campera va dibujada en la foto (no sobresale) · 19 sin logo en s03-s05, inicio de s08 y el plano
+final de los pies · 20 el champión cae desde más abajo · 21 etiquetas de la pila = flecha grande; "LA PAGÁS VOS" parada
+en la caja, más grande; grillas de s03 sin el texto chico "Comprar", título "Tienda 1/2" más grande.
+
+Sonido: 2 solapas y cinta después de "gratis?" con golpecitos de cartón bajos · 3 la caja de s08 se cierra después de
+"¿Devuelven más?" · 4 el viejo cierra la boca en 29,8 (después de "quedaron") · 5 toques del celular en 27,38/27,75 con
+click bajo, sin notification, timbre en 28,12 · 6 voz · 7-8 tiempos · 9 golpe sordo después de "menos." · 10 monedas =
+ping corto bajo · 11 click de aguja + whoosh en "achica" · 12 ping alineado al sello (30,30) y el tilde late con el ding
+· 13 pops de 12,1-12,4 a -3 dB, whoosh de s08 más bajo · 14 ver Voz.
+Mezcla (medir.py): I -16,8 LUFS, pico -2,7 dBFS. Tramos < 6 dB: 2,5 (3,7; en 0,1 s la voz le gana por ~6,5 dB a la
+cinta), 12,5 / 17,5 / 21,0 (pausas: voz en silencio, whooshes de corte), 18,5 (5,5).
+
+Guion y datos: 1 descripcion.txt, fuentes.md y ganchos.md dicen "devolución gratis" · 3 compras 3 → 5 · 4 W&L "aumentó
+entre 58 % y 357 %" en fuentes.md · 6 = arte 21.
+
+Snapshots: dos pasadas completas cada 0,5 s + cuadros a ±0,04 y ±0,3 s de cada corte, y parciales en cada arreglo.
+`check --json`: ok, 0 errores.
+Queda: a 4,6 la caja grande que vuelve toca el borde izquierdo; en el primer plano del champión viejo el champión
+queda arriba del centro con piso abajo; los rótulos de 0,7-1,2 s siguen con aviso line_unread.

@@ -40,7 +40,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(2, 1.06); fuera([2], 1.84); nota(1, 1.91); fuera([1], 2.91);
+nota(2, 1.57); fuera([2], 1.94); nota(1, 2.01); fuera([1], 2.91);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

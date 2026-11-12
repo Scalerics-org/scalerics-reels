@@ -20,4 +20,4 @@
 **Elegido: el 1.** Ocho palabras, entra en 3 líneas a 120-140 px ("¿Por qué las tiendas" / "te dejan **devolver**" /
 "**gratis**?", con "devolver gratis" en recuadro verde). Se entiende sin sonido, y el mismo objeto (la caja con la
 cinta verde y la etiqueta) es el que vuelve en el callback: es la caja de los championes que le llega a Rubén, con
-la etiqueta de cambio adentro, sin usar.
+la etiqueta "DEVOLUCIÓN GRATIS" adentro, sin usar.
