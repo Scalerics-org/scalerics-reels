@@ -106,3 +106,10 @@ $ 1.840 a 25,05; push-in a la tablet) · Q2 25,79 · Q2b 26,29 (Héctor entrando
 - B3: fila verde de Graciela "$ 1.840 · Avisado ✓" (letra que se ajusta al espacio libre).
 - B4: Héctor entra en verde con el plano Q3 (29,15) y sin pop; quedan los pops 29,5 / 29,75 / 30,0.
 - B2: pasos de Graciela al irse sacados (a -46/-47 tapaban la cola de la voz de Rubén en 16,5: voz-resto bajaba a 4,9 LU).
+
+## Verificación final (arte)
+- P5 (10,2-12,0): Graciela levanta el monedero por encima de la tapa al llegar (manoD y 0,36→0,60 en entraG[1]-0,45..-0,05): brazo entero, nada atraviesa el mostrador.
+- P1 1,3-1,45: el ciclo 0 baja de la oreja a la libreta por el costado de la cabeza (sale de cuadro por la izquierda), no por delante de la cara.
+- Q1: tablet girada -0,2 (solo en Q1) de frente a la cámara: montos alineados con su nombre. Toque: la yema cae en la fila de Graciela sin tapar el nombre ni atravesar la pantalla (z 0,045); suelta en 24,94-25,02.
+- Q2b: cámara más atrás (Héctor de medio cuerpo, celular entero), sin la tablet ni Rubén en cuadro.
+- Q3: fov 44 (margen a los dos lados). Q4: la F sale a 31,22 con el lápiz ya en la grilla.

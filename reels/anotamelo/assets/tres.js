@@ -589,7 +589,7 @@ const FRENTE = (k = 0) => [0.5, 1.52, 0.1 - k * 0.1, 0.3, 1.3, -1.9, 44];   // P
 const DOS = (k = 0) => [0.6 - k * 0.04, 1.66, 0.9, 0.0, 1.25, -1.3, 60];   // P6: los dos
 const PUE = (k = 0) => [0.95, 1.6, -1.55, -1.0, 1.3, -0.3, 50 - k * 3];   // P6b: la puerta desde atrás del mostrador
 const ALTA = (k = 0) => [0.4, 2.35 - k * 0.15, -0.72 - k * 0.25, RI.x, 1.42, RI.z + 0.1, 42 - k * 4];   // P6c: cámara alta desde el lado de Héctor
-const TAB = (k = 0) => [0.18, 1.86, -0.72 - k * 0.04, 0.16, 1.0, -1.26, 40 - k];   // Q3: la tablet por encima del hombro
+const TAB = (k = 0) => [0.18, 1.86, -0.72 - k * 0.04, 0.15, 1.0, -1.26, 44 - k];   // (final) con margen a los dos lados   // Q3: la tablet por encima del hombro
 const SENT = (k = 0) => [0.56, 1.44, -0.5 - k * 0.1, 0.46, 1.12, -1.72, 54 - k * 3];   // Q4: Rubén sentado, el crucigrama
 const PLANOS = [
   ["P1", 0, [[0, ...AP1(0)], [T.ciclos[0][0], ...AP1(-0.03, 45.5)], [T.ciclos[0][1] - 0.05, ...AP1(-0.06, 45)], [T.ciclos[0][1] + 0.22, -0.05, 1.8, -0.5, 0.44, 1.05, -1.4, 46], [T.p2, -0.05, 1.78, -0.54, 0.44, 1.05, -1.4, 45]]],
@@ -609,7 +609,7 @@ const PLANOS = [
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...AP1(0)], [T.frena - 0.1, ...AP1(-0.03)], [T.toca + 0.05, -0.14, 1.66, -0.32, 0.22, 1.16, -1.5, 46], [T.q2, -0.14, 1.66, -0.36, 0.22, 1.16, -1.5, 45]]],
   ["Q2", T.q2, [[T.q2, ...ALM(0)], [T.q2b, ...ALM(-1)]]],
-  ["Q2b", T.q2b, [[T.q2b, -0.32, 1.78, -1.82, -0.12, 1.36, -0.6, 64], [T.q2c, -0.32, 1.78, -1.78, -0.12, 1.36, -0.6, 63]]],
+  ["Q2b", T.q2b, [[T.q2b, -0.25, 1.6, -2.6, -0.1, 1.22, -0.6, 48], [T.q2c, -0.25, 1.6, -2.5, -0.1, 1.22, -0.6, 47]]],   // (final) Héctor de medio cuerpo con el celular entero
   ["Q2c", T.q2c, [[T.q2c, ...CEN], [T.q3, ...CEN]]],          // inserto del celular: su línea y el toque a Pagar (se arma aparte)
   ["Q3", T.q3, [[T.q3, ...TAB(0)], [T.q3b, ...TAB(1)]]],
   ["Q3b", T.q3b, [[T.q3b, 1.2, 2.1, -2.0, 1.15, 1.5, BZ + 0.32, 42], [T.q4, 1.2, 2.06, -2.05, 1.15, 1.5, BZ + 0.32, 40]]],   // (ronda 1) corte al estante: la libreta baja y se acuesta
@@ -803,12 +803,12 @@ function posarLapizYMano(t, pr) {
       const lado = oreja.mitad.clone().add(V3(-0.2, -0.42, 0.22));
       // (ronda 3) el índice cae en la fila de Graciela (la primera): sobre el nombre, en el plano de la pantalla
       tablet.updateMatrixWorld(true);
-      const tp = tablet.userData.pivote.localToWorld(V3(-0.1, 0.3 / 2 + (0.5 - 198 / TH) * 0.3 * 0.88, 0.02));
+      const tp = tablet.userData.pivote.localToWorld(V3(0.0, 0.3 / 2 + (0.5 - 198 / TH) * 0.3 * 0.88 + 0.05, 0.045));   // (final) la mano encima: la yema queda en la fila, sin tapar el nombre ni atravesar la pantalla
       const tm = T.frena + 0.14;
       let obj = alto, kk = sube;
       if (t >= T.frena) obj = alto.clone().lerp(lado, eio(sg(t, T.frena, tm)));
       if (t >= tm) obj = lado.clone().lerp(tp, eio(sg(t, tm, T.toca)));
-      if (t >= T.toca) kk = 1 - eio(sg(t, T.toca + 0.02, T.toca + 0.16));
+      if (t >= T.toca) kk = 1 - eio(sg(t, T.toca + 0.05, T.toca + 0.13));   // (final) suelta más rápido (menos cuadros de la mano a medio camino)
       if (kk > 0.001) {
         const p1 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.3, -0.3] }, "D", obj);
         mezclaMano(pr, p1, "D", Math.min(1, kk * 1.5)); pr.dedoD = t >= tm ? kk : 0;
@@ -824,7 +824,11 @@ function posarLapizYMano(t, pr) {
     }
   } else if (mano === "aLibreta") {
     const de = oreja.mitad, a = enLib(st.i, 0).ag.add(V3(0, 0.05, 0));
-    agarre = de.clone().lerp(a, st.k).add(V3(-0.08, 0.05, 0.05).multiplyScalar(Math.sin(Math.PI * st.k)));
+    if (st.i === 0) {
+      // (final) baja por el costado de la cabeza, nunca por delante de la cara
+      const costado = oreja.mitad.clone().add(V3(-0.24, -0.16, 0.0)), k = st.k;
+      agarre = k < 0.4 ? de.clone().lerp(costado, eio(k / 0.4)) : costado.clone().lerp(a, eio((k - 0.4) / 0.6));
+    } else agarre = de.clone().lerp(a, st.k).add(V3(-0.08, 0.05, 0.05).multiplyScalar(Math.sin(Math.PI * st.k)));
     dir = oreja.d.clone().lerp(DIR_ESCRIBE, st.k).normalize();
   } else if (mano === "escribe") {
     const e = enLib(st.i, st.u); agarre = e.ag; dir = DIR_ESCRIBE.clone();
@@ -1006,7 +1010,8 @@ function ponerPersonajes(t, plano) {
   // ---- Graciela ----
   const pg = poseEn(t, GK);
   
-  if (en(t, T.p5, T.p6)) { pg.manoD = [-0.16, 0.36, 0.36]; pg.codoD = [-1, -0.6, -0.2]; }
+  // (final) en el mostrador levanta el monedero por encima de la tapa (antes el antebrazo la atravesaba)
+  if (en(t, T.p5, T.p6)) { const k = eio(sg(t, T.entraG[1] - 0.45, T.entraG[1] - 0.05)); pg.manoD = [-0.16, lerp(0.36, 0.6, k), lerp(0.36, 0.3, k)]; pg.codoD = [-1, -0.6, -0.2]; }
   if (en(t, T.p6, P2)) Object.assign(pg, mezclar(pg, saludo(t, "I", 0.8), eio(sg(t, T.p6, T.p6 + 0.2))));   // se va saludando
   if (t < T.p2 + 0.5 || en(t, P2, T.q2)) {
     graciela.poner(pg);
@@ -1066,7 +1071,7 @@ function ponerPersonajes(t, plano) {
   hector.poner(ph); walter.poner(pw); marta.poner(pm); ultimaPH = ph;
 
   // ---- visibilidad por plano (los que no están en cuadro no tapan la cámara) ----
-  ruben.raiz.visible = !["P3", "P5", "Q2", "Q2c", "Q3", "Q3b"].includes(plano);   // (ronda 2) Q3: la tablet sola (sin la cara cortada arriba)
+  ruben.raiz.visible = !["P3", "P5", "Q2", "Q2b", "Q2c", "Q3", "Q3b"].includes(plano);   // (ronda 2) Q3: la tablet sola (sin la cara cortada arriba)
   graciela.raiz.visible = (["P1", "Q1"].includes(plano)) || (["P5", "P5c", "P6"].includes(plano) && t < T.saleG[1] + 0.05);
   hector.raiz.visible = hv && !["P3", "P3b", "P4i", "Q2", "Q3", "Q3b", "Q4"].includes(plano);
   walter.raiz.visible = wv && ["P2", "P4w"].includes(plano);
@@ -1142,12 +1147,12 @@ function renderAt(tIn) {
     v.rotation.set(rot[0] + u * 4, rot[1], rot[2] + u * 3);
   }
   // la tablet: solo en la parte 2, donde estaba la libreta
-  tablet.visible = parte2 && !["Q2", "Q2c", "Q3b"].includes(plano);
+  tablet.visible = parte2 && !["Q2", "Q2b", "Q2c", "Q3b"].includes(plano);   // (final) Q2b sin la tablet ("Marta" al revés en la esquina)
   if (tablet.visible) dibujarTablet(t);
   // el diario: solo en Q4 (en el mostrador, delante de Rubén sentado)
   diario.visible = parte2 && plano === "Q4";
-  if (diario.visible) diario.userData.letras(Math.min(5, Math.floor(sg(t, T.fiado[0], T.fiado[1]) * 5.0 + 0.35)));
-  if (plano === "Q4") { tablet.position.set(1.0, MY, -1.3); tablet.rotation.y = -0.3; } else { tablet.position.set(0.16, MY, -1.2); tablet.rotation.y = 0.12; }
+  if (diario.visible) diario.userData.letras(Math.min(5, Math.floor(sg(t, T.fiado[0], T.fiado[1]) * 5.0 + 0.1)));   // (final) la F sale cuando llega el lápiz
+  if (plano === "Q4") { tablet.position.set(1.0, MY, -1.3); tablet.rotation.y = -0.3; } else { tablet.position.set(0.16, MY, -1.2); tablet.rotation.y = plano === "Q1" ? -0.2 : 0.12; }   // (final) en Q1 de frente a la cámara de Q1: los montos alineados con su nombre
   // la libreta jubilada (Q3: de debajo del mostrador al estante; Q4: queda en el estante)
   libretaJ.visible = parte2 && t >= T.q3b;
   if (libretaJ.visible) { libretaJ.position.copy(libretaQ3(t)); libretaJ.rotation.set(0, -0.06, 0); }
