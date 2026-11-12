@@ -148,3 +148,14 @@ pop de la pila después de "más?" · pops de s05 -6 dB · golpe+pop en cada toq
 No hecho: regenerar "Scálerics punto com" (el STT oye "escalerita/escaleras" en todos los reels con Orus; se oye bien).
 Mezcla (medir.py): I -18,1 LUFS pre-loudnorm, pico -4,0. Tramos < 6 dB solo en pausas (2,5 cinta; 21,0; 28,0 timbre) y
 11,0 (5,5) / 25,0 (5,9).
+
+## Ronda 3 (retoques)
+Arte: vitrina sin franjas de brillo (el "fantasma" eran los reflejos diagonales del vidrio; vidrio a 0,06) · estela de la
+nube más corta y nube más arriba (no toca la cara) · plano de la nube más abierto (cabeza entera) · pie de la nube navy
+claro 0x8fa3c7, más chico; champión de la nube girado a 3/4 · los championes nuevos salen de la caja y quedan de perfil
+sobre el mostrador, delante; la etiqueta más alta y libre · en el plano de los pies el mate queda apoyado en el
+mostrador · fuera la guarda verde del mostrador · rótulos de s04/s05/s08 corridos · la mano entra 0,15 s más tarde ·
+s08 arranca menos cenital · la vitrina entra 0,15 s más tarde (T.v0 = s07 + 0,45).
+Sonido: el silencio del clic de boca ahora con rampas por muestra (asetnsamples 48 + volume eval=frame), "Un" arranca
+limpio a 5,37 · burbuja −4 dB, golpe+pop de la nube −4 dB, tac-real/papel-fuerte de 18,5-19,5, 22,45-24,35 y
+29,15-30,15 −3 dB.

@@ -36,7 +36,7 @@ const T = {
   s12: INI["s12-tu-tienda"], tienda12: Wg(82),
   fin: INI["s13-llamada"],
 };
-T.v0 = T.s07 + 0.3; T.toque = T.probar + 0.05; T.sella = T.devolver2 + 0.25;
+T.v0 = T.s07 + 0.45; T.toque = T.probar + 0.05; T.sella = T.devolver2 + 0.25;
 T.pies = T.championes - 0.1; T.nubeR = T.ysi - 0.08;
 T.compra = T.devolucion + 0.45; T.pago = T.compra + 0.17; T.paga = T.pago + 0.2;
 T.llega = T.s11 - 0.5; T.abre = T.llega + 0.3; T.piesN = T.quedaron - 0.03; T.talon = T.quedaron + 0.5;
@@ -123,10 +123,10 @@ const POS = {
   adentro: [540, 1700], adentroLead: [540, 1640, 560, 1250],
   vuelve: [540, 1690], vuelveLead: [560, 1635, 640, 1000],
   credEst: [540, 1680], reales: [540, 1690], realesLead: [700, 1635, 760, 1250],
-  credPag: [540, 1690], antes: [540, 790], antesLead: [700, 745, 820, 625],
-  masAntes: [540, 1690], masAntesLead: [640, 1635, 560, 760],
+  credPag: [540, 1690], antes: [560, 540], antesLead: [345, 560, 262, 606],
+  masAntes: [540, 1835], masAntesLead: [640, 1635, 560, 760],
   credRiesgo: [540, 1830], riesgo: [540, 1830], riesgoLead: [0, 0, 0, 0],
-  credRev: [540, 545], algo: [300, 1600], suben: [690, 1690], subenLead: [740, 1635, 740, 1100],
+  credRev: [540, 545], algo: [230, 1560], suben: [690, 1690], subenLead: [740, 1635, 740, 1100],
   duda: [300, 1500], dudaLead: [380, 1445, 520, 1270],
   vista: [540, 1790], vistaLead: [540, 1675, 540, 1500],
   sinUsar: [540, 1690], sinUsarLead: [540, 1635, 540, 1150],
@@ -225,7 +225,7 @@ const POS = {
   const id = "s05-gratis";
   const [x, y] = POS.masAntes, [a, b, c, d] = POS.masAntesLead;
   escena(id, {
-    html: `${leads(lead(1, a, b, c, d))}${pill(1, x, y, "Más que antes de devolver", "lleno")}`,
+    html: `${pill(1, x, y, "Más que antes de devolver", "lleno")}`,
     js: `nota(1, ${rel(id, T.mas - 0.15)}); fuera([1], ${r2(ESC[id] - 0.3)});`,
     sfx: [
       { t: -0.05, sfx: "whoosh-short", vol: 0.35 },
@@ -277,7 +277,7 @@ vacia("s06-por-que", [
       { t: -0.05, sfx: "whoosh", vol: 0.025, max: 0.5 },
       { t: 0.14, sfx: "papel", vol: 0.06, max: 0.35 },
       ...[0, 1, 2, 3].map((k) => ({ t: rel(id, tc + 0.05 + k * 0.06), sfx: "golpe", vol: 0.03, max: 0.15 })),
-      { t: rel(id, tc + 0.32), sfx: "papel-fuerte", vol: 0.25, max: 0.2 },
+      { t: rel(id, tc + 0.32), sfx: "papel-fuerte", vol: 0.177, max: 0.2 },
       { t: rel(id, T.masQ + 0.32), sfx: "pop", vol: 0.06 },
       { t: rel(id, T.algo + 0.05), sfx: "tic", vol: 0.3 },
       ...[0, 1].map((k) => ({ t: rel(id, T.compran + k * 0.2 + 0.16), sfx: "pop", vol: 0.055 + k * 0.01 })),
@@ -298,10 +298,10 @@ vacia("s06-por-que", [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.25, max: 0.8 },
       { t: rel(id, T.pies) - 0.05, sfx: "whoosh-short", vol: 0.2 },
       { t: rel(id, T.pies + 0.02), sfx: "whoosh-short", vol: 0.1 },
-      ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.28 + 0.233 * k + 0.1), sfx: "tac-real", vol: 0.3 })),
+      ...[0, 1, 2].map((k) => ({ t: rel(id, T.pies + 0.28 + 0.233 * k + 0.1), sfx: "tac-real", vol: 0.177 })),
       { t: rel(id, T.nubeR) - 0.05, sfx: "whoosh-short", vol: 0.15 },
-      { t: rel(id, T.nubeR + 0.05), sfx: "burbuja", vol: 0.3 },
-      ...[0, 1, 2].filter((k) => a0 + 0.275 + k * 0.55 < T.s10).flatMap((k) => [{ t: rel(id, a0 + 0.275 + k * 0.55), sfx: "golpe", vol: 0.12, max: 0.3 }, { t: rel(id, a0 + 0.285 + k * 0.55), sfx: "pop", vol: 0.12 }]),
+      { t: rel(id, T.nubeR + 0.05), sfx: "burbuja", vol: 0.0455 },
+      ...[0, 1, 2].filter((k) => a0 + 0.275 + k * 0.55 < T.s10).flatMap((k) => [{ t: rel(id, a0 + 0.275 + k * 0.55), sfx: "golpe", vol: 0.0315, max: 0.3 }, { t: rel(id, a0 + 0.285 + k * 0.55), sfx: "pop", vol: 0.051 }]),
     ],
   });
 }
@@ -334,7 +334,7 @@ vacia("s06-por-que", [
     { t: rel(id, T.abre + 0.04), sfx: "pop", vol: 0.045 },
     { t: rel(id, T.piesN) - 0.05, sfx: "whoosh-short", vol: 0.02 },
     // después de "quedaron": el viejo del piso cierra la boca
-    { t: rel(id, T.talon + 0.1), sfx: "tac-real", vol: 0.45 },
+    { t: rel(id, T.talon + 0.1), sfx: "tac-real", vol: 0.177 },
     { t: rel(id, T.talon + 0.14), sfx: "sparkle", vol: 0.05, max: 0.45 },
   ]);
 }

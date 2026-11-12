@@ -43,6 +43,6 @@ trozo(0, a, FIN2);
 sil(0.12);
 trozo(1, DESDE1, 38.2, ",volume=0.6dB");
 sil(0.3 * TEMPO);
-f.push(`${seg.join("")}concat=n=${seg.length}:v=0:a=1,atempo=${TEMPO},aresample=48000,volume=enable='between(t,5.20,5.355)':volume=0,volume=-1.2dB[o]`); // ronda 2: sin el clic de boca antes de "Un" y con pico debajo de -1 dBFS
+f.push(`${seg.join("")}concat=n=${seg.length}:v=0:a=1,atempo=${TEMPO},aresample=48000,asetnsamples=n=48,volume='if(lt(t,5.20),1,if(lt(t,5.212),1-(t-5.20)/0.012,if(lt(t,5.34),0,min(1,(t-5.34)/0.01))))':eval=frame,volume=-1.2dB[o]`); // ronda 2: sin el clic de boca antes de "Un" y con pico debajo de -1 dBFS
 execSync(`ffmpeg -y -hide_banner -loglevel error -i partes/orus2b.wav -i partes/orus1.wav -filter_complex "${f.join(";")}" -map "[o]" -ar 48000 -ac 1 assets/voice/locucion.wav`);
 console.log("locucion.wav:", execSync("ffprobe -v error -show_entries format=duration -of csv=p=0 assets/voice/locucion.wav").toString().trim(), "s");

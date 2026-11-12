@@ -567,9 +567,9 @@ dibujarPagina(vitTv.x, "vitrina"); vitTv.t.needsUpdate = true;
 const vidrio = new THREE.Group(); vitrina.add(vidrio);
 {
   const { w: Wv, h: Hv, d: Dv, marco: m } = VIT;
-  vidrio.add(mesh(new THREE.PlaneGeometry(Wv - 2 * m, Hv - 2 * m), new THREE.MeshStandardMaterial({ color: 0xdfe8ff, roughness: 0.05, transparent: true, opacity: 0.1, depthWrite: false }), 0, 0, 0));
+  vidrio.add(mesh(new THREE.PlaneGeometry(Wv - 2 * m, Hv - 2 * m), new THREE.MeshStandardMaterial({ color: 0xdfe8ff, roughness: 0.05, transparent: true, opacity: 0.06, depthWrite: false }), 0, 0, 0));
   // reflejos diagonales recortados al vidrio (no salen del marco)
-  for (const [x, w] of [[-0.3, 0.12], [-0.1, 0.05]]) { const r = mesh(new THREE.PlaneGeometry(w, (Hv - 2 * m) * 0.62), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.12, depthWrite: false }), x, 0.15, 0.002); r.rotation.z = -0.3; vidrio.add(r); }
+  for (const [x, w] of []) { const r = mesh(new THREE.PlaneGeometry(w, (Hv - 2 * m) * 0.62), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.12, depthWrite: false }), x, 0.15, 0.002); r.rotation.z = -0.3; vidrio.add(r); }
   vidrio.userData.ops = vidrio.children.map((c) => c.material.opacity);
   vidrio.position.set(0, Hv / 2, Dv / 2 - 0.01);
 }
@@ -674,7 +674,6 @@ const ZP = -1.5;
   const frenteM = new THREE.MeshStandardMaterial({ map: tablas, roughness: 0.7 });
   almacen.add(mesh(rbox(MOST.w, MOST.y - 0.04, MOST.d - 0.08, 0.03), frenteM, MOST.x, (MOST.y - 0.04) / 2, MOST.z));
   almacen.add(mesh(rbox(MOST.w + 0.12, 0.06, MOST.d, 0.02), [M.madera, M.madera, tapaM, M.madera, M.madera, M.madera], MOST.x, MOST.y - 0.03, MOST.z));
-  almacen.add(mesh(rbox(MOST.w - 0.2, 0.06, 0.02, 0.01), M.g, MOST.x, 0.45, MOST.z + MOST.d / 2 - 0.035));
   sh(almacen);
 }
 const lamp = crearLamparita(0.7); scene.add(lamp); lamp.position.set(MOST.x - 0.25, 2.05, MOST.z + 0.05);
@@ -719,7 +718,7 @@ const nubeItems = new THREE.Group(); nubeItems.position.z = 0.22; nube.add(nubeI
     const b = mesh(esfGeo, nubeM, x, y, 0); b.scale.set(r, r, r * 0.55); nube.add(b);
     const o = mesh(esfGeo, nubeBordeM, x, y, -0.01); o.scale.set(r + 0.03, r + 0.03, r * 0.55 + 0.02); nube.add(o);
   }
-  for (const [x, y, r] of [[-0.5, -0.4, 0.085], [-0.68, -0.58, 0.055]]) {
+  for (const [x, y, r] of [[-0.44, -0.37, 0.08], [-0.56, -0.5, 0.05]]) { // ronda 3: estela más corta (no toca la cara)
     const b = mesh(esfGeo, nubeM, x, y, 0); b.scale.set(r, r, r * 0.8); nube.add(b);
     const o = mesh(esfGeo, nubeBordeM, x, y, -0.01); o.scale.set(r + 0.022, r + 0.022, r * 0.8 + 0.012); nube.add(o);
   }
@@ -728,7 +727,7 @@ const champNube = hacerChampion(); nubeItems.add(champNube);
 const pieNube = new THREE.Group(); nubeItems.add(pieNube);
 {
   // pie con media crema (puño verde) y la botamanga del pantalón: se lee como pie
-  const media = mat(C.edge, 0.8);
+  const media = mat(0x8fa3c7, 0.8); // ronda 3: navy claro (se separa del champión navy)
   const planta = mesh(esfGeo, media, 0, 0.045, 0.035); planta.scale.set(0.052, 0.045, 0.115); pieNube.add(planta);
   const talon = mesh(esfGeo, media, 0, 0.055, -0.06); talon.scale.set(0.05, 0.055, 0.05); pieNube.add(talon);
   for (let i = 0; i < 4; i++) { const d = mesh(esfGeo, media, -0.03 + i * 0.02, 0.05, 0.135 - Math.abs(i - 1.5) * 0.008); d.scale.setScalar(0.016); pieNube.add(d); }
@@ -773,7 +772,7 @@ const T = {
   fin: S["s13-llamada"],
 };
 T.q0 = T.s06 - 0.07;        // corte a la caja sola
-T.v0 = T.s07 + 0.3;         // corte a la vitrina (el "?" queda 1,2 s en pantalla)
+T.v0 = T.s07 + 0.45;        // corte a la vitrina (el "?" queda 1,2 s en pantalla)
 T.toque = T.probar + 0.05;  // la mano choca contra el vidrio
 T.sella = T.devolver2 + 0.25;
 T.pies = T.championes - 0.1; // contraplano al champión viejo (antes que el subtítulo)
@@ -854,8 +853,8 @@ function armarPlanos() {
     ]],
     // s08: el champión cae en la caja de arriba de la pila derecha; la cámara abre a las dos pilas
     ["P", T.s08, [
-      k(T.s08, pp(PILA.x + 0.05, 1.95, 2.35), pp(PILA.x, pilaY(2) + 0.38, 0)),
-      k(T.s08 + 0.45, pp(PILA.x, 2.0, 2.45), pp(PILA.x, pilaY(2) + 0.38, 0)),
+      k(T.s08, pp(PILA.x + 0.05, 1.45, 2.6), pp(PILA.x, pilaY(2) + 0.36, 0)),
+      k(T.s08 + 0.45, pp(PILA.x, 1.5, 2.7), pp(PILA.x, pilaY(2) + 0.36, 0)),
       k(T.algo, pp(0.03, 1.5, 4.55), pp(0.0, 0.7, 0)),
       k(T.s09, pp(0.0, 1.45, 4.25), pp(0.0, 0.72, 0)),
     ]],
@@ -872,8 +871,8 @@ function armarPlanos() {
     ]],
     // otra vez el plano medio, más abierto para la nube
     ["R", T.nubeR, [
-      k(T.nubeR, r(0.78, 1.62, 3.95), r(0.42, 1.32, RB.z)),
-      k(T.s10, r(0.76, 1.6, 3.8), r(0.42, 1.32, RB.z)),
+      k(T.nubeR, r(0.62, 1.66, 4.45), r(0.3, 1.36, RB.z)),
+      k(T.s10, r(0.6, 1.64, 4.3), r(0.3, 1.36, RB.z)),
     ]],
     // s10: el celular (inserto desde los ojos de Rubén) y push-in
     ["RC", T.s10, [
@@ -1088,7 +1087,7 @@ function zonaV(t) {
   vidrio.position.y = VIT.h / 2; vidrio.visible = fv > 0.01;
   vidrio.children.forEach((cc, i) => (cc.material.opacity = vidrio.userData.ops[i] * fv));
   // la mano: entra desde abajo a la derecha, choca dos veces contra el vidrio (sin atravesarlo) y se va
-  const entra = eio(sg(t, T.probar - 0.35, T.toque)), va = eio(sg(t, T.riesgo - 0.1, T.riesgo + 0.25));
+  const entra = eio(sg(t, T.probar - 0.2, T.toque)), va = eio(sg(t, T.riesgo - 0.1, T.riesgo + 0.25));
   const tap = Math.max(pulso(t, T.toque, 0.12), pulso(t, T.toque + 0.2, 0.12));
   const zG = VIT.d / 2 - 0.01; // el vidrio (local)
   const punta = V(0.12, 1.36, zG + 0.012 + tap * 0.05); // la punta del índice
@@ -1217,6 +1216,7 @@ function zonaR(t) {
   if (plano === "RC") { almacen.visible = false; for (const x of [lamp, termo, banquito]) x.visible = false; }
   // el mate en la mano izquierda, sobre el muslo
   ruben.mano("I").getWorldPosition(_v); mateM.position.copy(_v).add(V(0.0, -0.06, 0.02)); mateM.rotation.set(0, 0.4, 0);
+  if (plano === "RP") { mateM.position.set(MOST.x - 0.55, MOST.y, MOST.z + 0.1); } // ronda 3: apoyado en el mostrador (no flota)
   // calzado: viejos hasta "quedaron"; después los nuevos (y el viejo en el piso)
   const nuevos = t >= T.piesN;
   viejosR.forEach((cc) => (cc.visible = !nuevos)); nuevosR.forEach((cc) => (cc.visible = nuevos));
@@ -1269,15 +1269,15 @@ function zonaR(t) {
   nube.visible = kn > 0.01;
   if (nube.visible) {
     ruben.cabeza.getWorldPosition(_v);
-    nube.position.copy(_v).add(V(0.52, 0.4, 0.1)); nube.quaternion.copy(camera.quaternion);
+    nube.position.copy(_v).add(V(0.6, 0.5, 0.1)); nube.quaternion.copy(camera.quaternion);
     nube.scale.setScalar(kn * 0.62 * (1 + 0.02 * Math.sin(t * 5)));
-    champNube.position.set(0.04, -0.27, 0.05); champNube.rotation.set(0.2, 1.57, 0); champNube.scale.setScalar(1.9);
+    champNube.position.set(0.04, -0.27, 0.05); champNube.rotation.set(0.12, 1.57 + 0.35, 0); champNube.scale.setScalar(1.9);
     // el pie baja, choca, el champión se aplasta, el pie rebota (dos veces)
     const ciclo = (tt) => { const a = T.ysi + 0.25; if (tt < a) return 0; const f2 = ((tt - a) % 0.55) / 0.55; return Math.sin(Math.min(1, f2 / 0.5) * Math.PI / 2) * (f2 < 0.5 ? 1 : 1 - (f2 - 0.5) / 0.5); };
     const baja = ciclo(t);
     const choca = Math.max(0, baja - 0.75) / 0.25;
     // el pie (de costado, como el champión) baja sobre la abertura del talón y no entra
-    pieNube.position.set(-0.1, lerp(0.02, -0.1, baja), 0.14); pieNube.rotation.set(0, 1.57, 0.1); pieNube.scale.setScalar(1.55);
+    pieNube.position.set(-0.12, lerp(0.08, -0.07, baja), 0.14); pieNube.rotation.set(0, 1.57, 0.1); pieNube.scale.setScalar(1.25);
     champNube.scale.set(1.9 * (1 + 0.1 * choca), 1.9 * (1 - 0.28 * choca), 1.9 * (1 + 0.06 * choca));
   }
   // s11: la caja del gancho (MISMA) cae en el mostrador, rebota y se abre: seda, los championes y la etiqueta sin usar
@@ -1290,12 +1290,17 @@ function zonaR(t) {
     ponerCaja(cajaG, t < T.abre ? [0, 0, 0, 0] : ap, t < T.abre ? 1 : 0);
     champCaja.forEach((cc, j) => {
       cc.visible = ab > 0;
-      cc.position.copy(cajaG.position).add(V(j ? 0.02 : -0.02, CJ.H * 0.85 * 0.55 + (j ? 0.03 : 0.09), j ? -0.08 : 0.06)); cc.rotation.set(j ? 0 : -0.25, Math.PI / 2 + 0.15, j ? 0 : 0.08); cc.scale.setScalar(0.85 * 1.1);
+      // ronda 3: salen de la caja y quedan de perfil sobre el mostrador, delante de la caja (la etiqueta queda libre arriba)
+      const sale = eio(sg(t, T.abre + 0.08 + j * 0.06, T.abre + 0.32 + j * 0.06));
+      const dentro = cajaG.position.clone().add(V(0, CJ.H * 0.85 * 0.4, 0));
+      const fuera = cajaG.position.clone().add(V(j ? 0.13 : -0.13, 0, CJ.D * 0.85 / 2 + 0.13));
+      const pc = lerpV(dentro, fuera, sale); pc.y += Math.sin(Math.PI * sale) * 0.18; cc.position.copy(pc);
+      cc.rotation.set(0, Math.PI / 2 + 0.15, 0); cc.scale.setScalar(0.95);
     });
     ponerEtiqueta(etiG, "gratis", 1);
     etiG.visible = ab > 0;
     const ke = t < T.abre ? 0 : popIn(t, T.abre + 0.1, 0.28);
-    etiG.position.copy(cajaG.position).add(V(0.0, CJ.H * 0.85 + 0.06, -0.13)); etiG.rotation.set(-0.25, 0.15, 0.05); etiG.scale.setScalar(1.0 * ke);
+    etiG.position.copy(cajaG.position).add(V(0.0, CJ.H * 0.85 + 0.11, -0.14)); etiG.rotation.set(-0.25, 0.15, 0.05); etiG.scale.setScalar(1.0 * ke);
   }
 }
 
