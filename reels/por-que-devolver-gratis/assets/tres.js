@@ -232,6 +232,7 @@ function aperturaEn(t, a, d = 0.3) {
 const ET = { w: 0.3, h: 0.19, d: 0.008 };
 function flechaVuelta(x, cx, cy, r, col, lw, u = 1) {
   // arco de casi 300° que vuelve, con la punta
+  if (u <= 0.02) return; // sin dibujar: nada (el cap redondo dejaba un punto suelto)
   const a0 = -Math.PI * 0.15, a1 = a0 + Math.PI * 1.55 * u;
   x.strokeStyle = col; x.lineWidth = lw; x.lineCap = "round"; x.beginPath(); x.arc(cx, cy, r, a0, a1); x.stroke();
   if (u > 0.95) {
@@ -1094,7 +1095,7 @@ function zonaV(t) {
   const zG = VIT.d / 2 - 0.01; // el vidrio (local)
   const punta = V(0.5, 1.4, zG + 0.012 + tap * 0.05); // la punta del índice
   const desde = V(0.9, -0.3, 1.5);
-  mano.visible = entra > 0.01 && va < 0.99;
+  mano.visible = entra > 0.2 && va < 0.99; // (entra con el brazo ya en cuadro)
   if (mano.visible) {
     const objetivo = lerpV(desde, punta, entra * (1 - va)).add(OV);
     // el índice apunta hacia -z (al vidrio): la mano mira a -z con la punta del índice a 0.165 adelante
@@ -1300,6 +1301,7 @@ function zonaR(t) {
       const dentro = cajaG.position.clone().add(V(0, CJ.H * 0.85 * 0.4, 0));
       const fuera = cajaG.position.clone().add(V(j ? 0.13 : -0.13, 0, CJ.D * 0.85 / 2 + 0.13));
       const pc = lerpV(dentro, fuera, sale); pc.y += Math.sin(Math.PI * sale) * 0.18; cc.position.copy(pc);
+      if (sale < 0.72) cc.visible = false; // aparece recién delante de la pared de la caja // no atraviesa la pared de la caja
       cc.rotation.set(0, Math.PI / 2 + 0.15, 0); cc.scale.setScalar(0.95);
     });
     ponerEtiqueta(etiG, "gratis", 1);
