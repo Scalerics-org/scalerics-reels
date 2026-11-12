@@ -104,3 +104,62 @@ con fundidos de 0,15-0,3 s en los empalmes) y la parte 2; duck de -6 dB debajo d
 - Portada: `portada.json` con t 12,4 (Rubén de frente con la cinta en las manos, sin "Ahí."); fondo limpio en
   `portada-src/fondo-limpio-12.4.png` (también `fondo-limpio-8.3.png`: la montaña, la torre y Marta sentada). Falta
   correr `node herramientas/portada.mjs como-viene-el-mes` (con candado) después del render.
+
+## Ronda 1 de correcciones (12-11) · ahora 35,53 s (parte 1 0-19,12 · cartel 19,12-21,82 · parte 2 21,82-35,53; línea chica desde 33,53, 2 s)
+Más larga que antes (+1,7 s) por lo que pidieron los revisores: la quietud antes de "Ahí." (+0,45), la cara de nada antes
+de agacharse (+0,3), el primer plano de MES PASADO (1,1 s), el resumen del celular sostenido ~2 s. Se compensó con el
+time-lapse (5,2 → 4,4 s), el cartel (3,0 → 2,7 s) y la grúa a la yerba (Q2c: corte directo, 1,1 s; "Ocho por ciento…"
+arranca en off sobre el celular).
+
+Planos nuevos (s): P1 0 · P2 2,00 · P3 3,55 (general alto desde la derecha: Rubén entero) · P3t1 5,45 (inserto de la torre
+de costado: 3 → 4) · P3w 5,95 · P3t2 6,45 (4 → 7) · P3w2 7,05 · P4 7,95 (la franja ya encendida; "¡Buen día, Rubén!" 8,10) ·
+P4b 8,95 (TOTAL 9,08, rasgado 9,30) · P5 9,50 (por arriba de la montaña) · P5b 10,45 · P5c 11,05 (quietud 11,05-12,15,
+"Ahí." 12,15, palma 12,10-12,95) · P6 13,10 ("¿Y comparado…?" 13,20) · P6x 14,80 (cara de nada; baja 15,12; golpe 15,52) ·
+P6m 15,72 (MES PASADO de frente 1,1 s) · P6b 16,82 (C 17,00) · P6c 17,32 ("Pongo otro café." 17,72) · cartel 19,12 · Q1 21,82
+(apoya la bandeja 23,54) · Q2 23,77 (celular; filas 24,07-24,67; voz en off 25,17) · Q2b 26,22 · Q2c 27,62 (tilde 28,17) ·
+Q3 28,71 · Q3b 29,51 · Q3c 30,22 · Q4 30,77 · Q4b 31,78 (caja CAFETERÍA; Rubén se corre y saca un pocillo 32,28) · Q5 32,93
+(general desde atrás del mostrador: Marta suma con su caja, Rubén se sienta en el cajón con el mate y el pocillo; sorbo
+33,93) · línea chica 33,53.
+
+Lo corregido, por punto de la lista:
+1-2. El mate se agarra por el costado (la mano afuera, el mate 8 cm hacia adentro y 14 cm abajo). La bandeja va al
+   mostrador en Q1 (BANDEJA_M, a la izquierda de Marta); en Q3/Q4 está apoyada al costado, nunca delante de la cara; Marta
+   le da un toquecito (la torre tiembla). Bug: se habían comentado los codos de Marta en la parte 2 (arreglado).
+3. P4: la franja ya encendida al entrar (la mañana arranca en 7,65, antes del corte), afuera cielo de madrugada navy claro
+   (no una pared crema), la vereda y la franja sobre el piso en crema; bolsa de papel más alta con la boca arrugada y las
+   tres flautas adentro; la mano del panadero empuja por el costado que da a la cámara (manga + mano); burbuja "¡Buen día,
+   Rubén!" desde afuera.
+4. P5/P5c por arriba de la montaña (en primer término, hasta el pecho); la cinta de las manos cae hasta la montaña (texto
+   derecho: se arregló el UV que la mostraba espejada/al revés); la caja TICKETS queda abierta y vacía hasta el final; mano
+   abierta nueva (palma + cuatro dedos + pulgar, solo en ese gesto) delante del pecho, palma abajo, dos vaivenes;
+   quietud ~1,1 s con la música ya bajada.
+5. "Pongo otro café." regenerada (Aoede, toma 05-marta-d, 1,07 s; STT: "pongo otro café"); burbuja fija arriba que sigue a
+   Marta y se va con ella; el clink del plato 0,15 s antes; P6c con la cámara más baja (el rollo ya no tapa la boca).
+6. La tapa de TICKETS no se cierra nunca; abierta se acuesta hacia atrás y sin la etiqueta de arriba (nunca al revés).
+7. La C se aprieta con la punta del índice (IK nuevo `manoConPunta`, a la yema y no a la base del dedo); la C pasó a la
+   columna derecha del teclado (del lado de la mano derecha de Rubén); se hunde 9 mm durante 0,25 s; la otra mano apoyada.
+8. P6x: Rubén centrado, 0,32 s quieto con cara de nada después de "¿…el mes pasado?" antes de agacharse; la calculadora y
+   el pinche se corrieron a la derecha (la caja MES PASADO cae delante de él).
+9. MES PASADO: rótulo de frente en la cara larga, letras navy Caveat sobre papel crema (0,33 × 0,11 m), sin piolín ni
+   tickets encima, y el plano P6m de 1,1 s con la caja de frente (el rótulo ocupa ~70 % del ancho) antes de la C.
+10. Celular fino (×1,15) en un atril chico; entra llenando el ancho con la vibración; un solo "21:00" (en la cabecera); se
+   sostiene ~2,4 s; "contra el mes pasado" 44 px en el lienzo (~55 px en pantalla); sin ícono; pulso verde en "Mes
+   $ 412.300".
+11. Final: en Q4b Rubén se corre detrás del mostrador y le saca un pocillo a la torre; Q5 (corte) desde atrás del
+   mostrador: Marta de frente sumando con la caja CAFETERÍA abierta (las manos pasan los tickets), Rubén sentado en el
+   cajón a su lado con el mate y el pocillo, un sorbo (sorbo.wav real).
+12. Q2b sin la torre (la bandeja quedó a la izquierda, fuera de cuadro) ni el arco verde (era la bandeja sin Marta).
+13. Time-lapse: general alto desde la derecha (Rubén entero), Marta a la izquierda de la torre (MC -0,55), pocillos más
+   grandes (×1,6) y dos insertos de la torre de costado (de Marta entra solo la mano).
+14. Cartel "Una / automatización / más tarde…" (Rasalgethi nueva, toma 06-narrador-e, 2,35 s, STT "una automatización más
+   tarde"); la primera palabra visible desde el primer cuadro; texto más grande y centrado. Línea chica: "Una
+   automatización te manda / al celular cómo viene el mes / scalerics.com". descripcion.txt actualizada.
+15. P1: push-in menos cerrado y el encuadre corrido hacia Marta.
+16. Globos al mismo tamaño (70-78); "Ocho por ciento…" en off abajo del celular y arriba en Q2b; "Lo que más salió…"
+   nace arriba en Q2b y sigue en Q2c en el mismo lugar.
+17. Rasgado real CC0 (Luckius, OpenGameArt) a -34. 18. El cajón y los pocillos de Q1 a -46/-48 y 0,05-0,1 s después.
+19. Se levanta del cajón (roce + crujido), pop de la 4.ª fila, sorbo de mate real (Abir19, CC0), fundidos de la parte 1
+   0,1-0,15 s más largos (sin hueco antes del whoosh del cartel). Marta ya no parpadea mientras habla.
+
+Mezcla (MEDIR=1): -14,0 LUFS, pico -4,2 dBFS, voz ≥ 6 LU sobre el resto en todos los tramos con voz hablando (el único
+tramo "<6", 23,5 s, es la cola de "¿…el mes?" con el vibrar del celular: no habla nadie).
