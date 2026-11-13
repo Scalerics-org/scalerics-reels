@@ -154,3 +154,29 @@ Portada: fondo limpio regenerado (`portada-src/fondo-limpio-0.6.png`, `fondo-por
 Quedó flojo: 26,1-26,3 el celular y la tablet se cruzan un instante; 20,7 Walter entra cortado a la izquierda; 13,3 la
 revista asoma abajo al final de la grúa; el pelo de Rubén (casquete) es el del módulo `personajes.js` (no lo toqué,
 es el Rubén de siempre); 95 palabras (> 90).
+
+## Ronda 2 de corrección · 13-11
+**Duración 35,57 s** (voz 35,57 s), 95 palabras. Inicios: s05 8,78 · s06 11,95 · s07 14,03 · s08 16,82 · s09 19,26 ·
+s10 20,88 · s11 23,76 · s12 26,21 · s13 28,99 · s14 32,77 (todo lo de después de s05 se corrió +0,21 s).
+- Voz: n5-2 hasta 3,63 ("antes" entero; STT del recorte: "se llevaban los suyos antes", la s pegada de siempre).
+  Tiempos de 8,78-11,69 rehechos a mano sobre silencedetect: "después" 9,68-10,03, "se la" 10,1, "llevaban" ~10,35,
+  "lo suyo antes" 10,6-11,36. Boca de Rubén 23,66-25,91. Hoja de la revista detrás de "filas." y más baja; whoosh del
+  corte corrido; impact/pop del "?" bajados; pop del cierre y ding más bajos.
+- s13: Graciela entera a la derecha de 3/4 (x+0,78), Rubén a la vista, push-in lento de 4,0 a 3,3 m; le alcanza la
+  bolsa con la mano derecha.
+- s10: cámara más atrás y centrada: Rubén entero; rótulo "Walter · 9:10" abajo con guía al torso, aparece cuando
+  Walter ya llegó (s10+0,5) y se va con él.
+- "Agendá una" subtitulado (subHasta 91).
+- s09: arranca en plano medio de Graciela (cara entera bajo el subtítulo, sillón) y empuja al celular.
+- s11: sin mano a la nuca y sin rótulo RUBÉN.
+- s02/s03: corte al plano del display sin push-in que corte el 23; "?" más chico, de frente, sin bloques y sin tapar
+  TURNO. s04: plano más abierto (recibo entero).
+- s12: plano más abierto (tablet y numerador enteros), el celular se achica y desaparece antes de que salga la
+  tablet; display del almacén oculto en ese plano (quedaba bajo los subtítulos).
+- Cierre: numerador con carcasa navy y 1,1x.
+- Balanza: el reloj de arena ya está desde el corte (sin platillos vacíos).
+- Pasadas: r2-pasada1 (cada 0,5 s) → Graciela tapando la cara de Rubén en s13 (corregida), platillos vacíos en 13,9
+  (corregido); r2-pasada2 (desfasada 0,25 s) sin defectos altos. Mezcla: ningún tramo de 0,5 ni 0,1 s con voz < 6 dB;
+  I -16,8 LUFS, pico -4,0 dBFS. check ok, 0 errores. Portada: el cuadro de 0,6 s no cambió.
+Quedó flojo: 20,6-20,8 la burbuja chica llega al celular de Rubén por delante del mostrador; 22,9-23,7 Walter sale
+cortado por la izquierda (es la salida); etiquetas de los "?" ~35 px.
