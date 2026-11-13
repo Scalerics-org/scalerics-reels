@@ -1,13 +1,13 @@
 {
- "t": 5.3,
- "chica": "Fin de mes.",
- "grande": "¿Yo te debía?",
- "sello": "El fiado",
+ "t": 15.4,
+ "chica": "Rubén, al sótano.",
+ "grande": "¿Te queda polenta?",
+ "sello": "El depósito",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.0,
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-5.3.png"
+ "fondo_limpio": "portada-src/fondo-limpio-15.4.png"
 }

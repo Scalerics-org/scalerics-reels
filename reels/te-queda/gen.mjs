@@ -29,7 +29,7 @@ T.g1 = 0.25; T.r1 = r2(T.g1 + LEN.g1 + 0.1);
 T.va = [1.42, 1.86]; T.abre = [1.9, 2.3];
 // P2 · la zambullida: baja la escalera marinera (la cámara lo sigue por el hueco), la cadenita, el foco, la caja
 // POLENTA: la sacude, vacía
-T.p2 = 2.32; T.baja1 = [2.32, 2.86]; T.cadena = 3.0; T.luz = 3.06; T.agarra = [3.12, 3.38]; T.sacude = [3.42, 3.92];
+T.p2 = 2.32; T.baja1 = [2.32, 2.7]; T.cadena = 3.0; T.luz = 3.06; T.agarra = [3.12, 3.38]; T.sacude = [3.42, 3.92];
 // P3 · contraplano bajo: Rubén asoma por la trampa con polvo en los hombros: "No, no queda." · chip 1
 T.p3 = 4.02; T.sube1 = [4.02, 4.3]; T.r2 = 4.3; T.chip1 = 4.42; T.palmea = [4.6, 4.95];
 // P4 · el corte de casa de muñecas: Walter "¿Y fideos?" · baja, escalera tijera, avalancha, sube con la telaraña: "No." · chip 2
@@ -136,13 +136,13 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
 
 // P1 · el gancho ES la burbuja de Graciela: en el cuadro 0 ya está entero y grande ("polenta" en el recuadro verde de
 // selección); con la voz (0,25) late una vez. La cola baja hacia Graciela (abajo a la izquierda).
-const GANCHO = { cola: 230, rot: -16 };
+const GANCHO = { cola: 70, rot: 32 };
 {
   const id = "s00-gancho", ini = 0, fin = r2(T.g1 + LEN.g1 + 0.2), dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .glo { position: absolute; left: 70px; right: 70px; top: 150px; padding: 30px 36px 40px; border-radius: 46px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 #050a14; text-align: center; transform-origin: 25% 100%; }
+    P .glo { position: absolute; left: 70px; right: 70px; top: 150px; padding: 30px 36px 40px; border-radius: 46px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 #050a14; text-align: center; transform-origin: 10% 100%; }
     P .tx { font: 900 140px/1.08 "Lexend", sans-serif; letter-spacing: -0.025em; color: ${NAVY}; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; }
     P .sel b { position: absolute; inset: 6px 0 -2px; background: ${G}; border: 6px solid ${NAVY}; border-radius: 8px; }
@@ -279,8 +279,9 @@ s("sfx/k-metal-click.wav", T.abre[0], 0, { techo: -44 });          // la argolla
 s("sfx/k-creak.wav", T.abre[0] + 0.05, 0, { techo: -44 });         // la bisagra
 s("sfx/madera-golpe.wav", T.abre[1] - 0.02, 0, { techo: -45 });    // la tapa contra la pared
 // P2 · la zambullida
-s("sfx/whoosh.mp3", T.p2 - 0.04, 0, { techo: -40, dur: 0.6, fin: 0.2 });
-madera(T.baja1[0] + 0.05, T.baja1[1] - 0.05, 4, -42);
+s("sfx/whoosh.mp3", T.p2 - 0.04, 0, { techo: -43, dur: 0.6, fin: 0.2 });
+madera(T.baja1[0] + 0.05, T.baja1[1] - 0.05, 4, -45);
+s("sfx/whoosh-short.mp3", T.baja1[1] - 0.04, 0, { techo: -44 });   // corte al sótano
 s("sfx/k-metal-click.wav", T.cadena, 0, { techo: -40 });
 s("sfx/interruptor.wav", T.luz - 0.02, 0, { techo: -40 });
 s("sfx/zumbido.wav", T.luz, 0, { dur: r2(T.p3 - T.luz), fi: 0.05, fin: 0.1, techo: -46, lp: 2500 });   // el foco

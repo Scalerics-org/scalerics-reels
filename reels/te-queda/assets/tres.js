@@ -316,7 +316,7 @@ function crearFrasco(k = 1) {
   const brillo = new THREE.Mesh(new THREE.PlaneGeometry(R * 0.25, H * 0.7), new THREE.MeshBasicMaterial({ color: 0xf6ead2, transparent: true, opacity: 0.55, depthWrite: false })); brillo.position.set(R * 0.55, H * 0.5, R * 0.84); brillo.rotation.y = 0.55; g.add(brillo);
   const et = lienzo(1024, 256, (x, w, h) => {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 74); x.fillText("DULCE DE LECHE", w / 2, h / 2 + 4);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 50); x.fillText("DULCE DE LECHE", w / 2, h / 2 + 4);
     x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 12); x.fillRect(0, h - 12, w, 12);
   });
   const etiq = new THREE.Mesh(new THREE.CylinderGeometry(R * 1.008, R * 1.006, H * 0.46, 40, 1, true, -Math.PI, Math.PI * 2), new THREE.MeshStandardMaterial({ map: et, roughness: 0.6 }));
@@ -653,11 +653,11 @@ dibujarTablet(0);
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte seco; dentro de un
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P4→Q5, P9→Q3).
-const AP1 = (k = 0) => [0.6 + k * 0.15, 2.35 - k * 0.15, 1.15 - k * 0.35, 0.75 + k * 0.2, 0.85, -2.0, 60 - k * 5];
+const AP1 = (k = 0) => [0.42 + k * 0.25, 2.35 - k * 0.15, 1.15 - k * 0.35, 0.78 + k * 0.15, 0.85, -2.0, 62 - k * 6];
 const SEC = (yc, dist, fov = 38, x = 0.3) => [x, yc, FZ + dist, x, yc, -1, fov];
 const BAJO = (k = 0) => [1.45, 0.62 + k * 0.04, 0.3 - k * 0.15, 1.52, 0.38 + k * 0.03, -2.05, 48];
 const CERCA6 = (k = 0) => [0.9 - k * 0.04, 1.35, 0.25 - k * 0.15, 1.52, 0.78, -2.02, 46];
-const HECTOR = (k = 0) => [1.05, 1.42, -1.6 + k * 0.05, -0.32, 1.28, -0.72, 40 - k * 2];
+const HECTOR = (k = 0) => [1.05, 1.42, -1.6 + k * 0.05, -0.32, 1.32, -0.72, 50 - k * 2];
 const DOS = (k = 0) => [-0.85 + k * 0.05, 1.95, 1.15 - k * 0.05, 1.15, 0.85, -2.2, 52];
 const PUE = (k = 0) => [1.6 - k * 0.75, 1.55 - k * 0.05, 0.95 - k * 0.3, -1.0, 1.15 + k * 0.2, -0.05 + k * 0.25, 50 - k * 8];
 const DOS2 = (k = 0) => [-0.25 + k * 0.05, 1.5, 0.95, 0.75, 0.95, -1.3, 52];
@@ -666,7 +666,9 @@ const TAB = (k = 0) => [TAB_P.x + 0.42 - k * 0.04, MY + 0.55 - k * 0.04, TAB_P.z
 const PLANOS = [
   ["P1", 0, [[0, ...AP1(0)], [T.va[0], ...AP1(0.2)], [T.p2, ...AP1(0.5)]]],
   // la zambullida: arriba del hueco, baja con Rubén, atraviesa el hueco y entra al sótano; push-in a la caja
-  ["P2", T.p2, [[T.p2, 1.05, 2.05, -0.55, 1.52, -0.2, -2.05, 52], [T.p2 + 0.3, 1.3, 1.5, -1.1, 1.52, -1.0, -2.1, 54], [T.baja1[1] - 0.06, 1.55, 0.35, -1.75, 1.5, -2.2, -2.05, 58], [T.baja1[1] + 0.1, 1.55, -0.45, -1.8, 0.6, -1.7, -1.9, 56], [T.luz + 0.12, 1.75, -0.8, -0.35, 0.6, -1.5, -2.2, 54], [T.sacude[0], 1.75, -0.95, -0.25, 0.75, -1.55, -2.4, 48], [T.p3, 1.7, -1.0, -0.4, 0.75, -1.55, -2.4, 45]]],
+  ["P2", T.p2, [[T.p2, 1.05, 2.05, -0.55, 1.52, -0.2, -2.05, 52], [T.p2 + 0.3, 1.3, 1.5, -1.1, 1.52, -1.0, -2.1, 54], [T.baja1[1], 1.45, 0.75, -1.65, 1.52, -2.0, -2.05, 56]]],
+  // corte (whoosh) al sótano: plano general desde adelante, el foco se prende, la caja de polenta
+  ["P2b", T.baja1[1], [[T.baja1[1], 1.9, -0.75, -0.1, 0.35, -1.3, -2.0, 58], [T.luz + 0.12, 1.85, -0.85, -0.15, 0.45, -1.4, -2.2, 56], [T.sacude[0], 1.75, -0.95, -0.25, 0.75, -1.55, -2.4, 48], [T.p3, 1.7, -1.0, -0.4, 0.75, -1.55, -2.4, 45]]],
   ["P3", T.p3, [[T.p3, ...BAJO(0)], [T.p4, ...BAJO(1)]]],
   // la sección de casa de muñecas (dolly atrás)
   ["P4", T.p4, [[T.p4, 0.9, 0.35, FZ + 2.4, 0.9, 0.2, -1, 40], [T.p4 + 0.55, ...SEC(-0.05, 8.4)], [T.p5, ...SEC(-0.1, 8.4)]]],
@@ -762,7 +764,7 @@ k(T.abre[1], { inclina: 0.12, ...aC(0.1, 0.1) }, 0.2);
 // P2: a la escalera y abajo
 k(T.p2 - 0.001, { x: ESC.x, z: ESC.z, y: -0.05, giro: 0, inclina: 0.05, paso: 1, ...aC(0, -0.05), ...CARA.neutra, ojos: { x: 0, y: -0.3, abiertos: 0.9 } }, 0.001);
 k(T.baja1[1], { y: SY }, T.baja1[1] - T.p2, lin);
-k(T.cadena - 0.06, { x: 0.55, z: -1.8, giro: -1.3, paso: 0, ...aC(-0.1, -0.3), ojos: { x: 0, y: 0.5, abiertos: 0.95 } }, 0.12);
+k(T.cadena - 0.06, { x: 0.55, z: -1.8, giro: -1.3, paso: 0, ...aC(-0.1, -0.3), ojos: { x: 0, y: 0.5, abiertos: 0.95 } }, T.cadena - 0.06 - T.baja1[1]);
 k(T.agarra[0] + 0.15, { x: SHELF_P.x, z: SHELF_P.z, giro: Math.PI, paso: 1 }, 0.15, lin);
 k(T.agarra[1], { paso: 0, inclina: 0.1 }, 0.1);
 k(T.sacude[0], { giro: 0.4, inclina: 0.04, ...aC(0, 0.15), ...CARA.neutra, ojos: { x: 0, y: -0.5, abiertos: 0.9 }, cejas: { alto: 0.3, ang: 0.4 } }, 0.12);
@@ -807,7 +809,7 @@ k(T.bajaT4[1], { x: PIE_TJ.x, z: PIE_TJ.z, y: SY, paso: 1, ladea: 0, giro: Math.
 k(T.sube4[1], { x: ESC.x, z: ESC.z, giro: 0 }, T.sube4[1] - T.sube4[0], lin);
 k(T.sube4[2], { y: -1.5 }, T.sube4[2] - T.sube4[1], lin);
 // P7: asoma destruido y levanta el frasco
-k(T.p7 - 0.001, { x: ESC.x, z: ESC.z, y: -1.5, giro: 0, paso: 1, ladea: 0, inclina: 0.04, ...aC(0, 0.0), ...NADA }, 0.001);
+k(T.p7 - 0.001, { x: ESC.x, z: ESC.z, y: -1.1, giro: 0, paso: 1, ladea: 0, inclina: 0.04, ...aC(0, 0.0), ...NADA }, 0.001);
 k(T.asoma[1], { y: -0.58, paso: 0 }, T.asoma[1] - T.asoma[0], lin);
 k(T.trofeo[1], { inclina: -0.06, ...aC(0.05, -0.12), ...CARA.feliz, ojos: { x: 0, y: 0.2, abiertos: 0.85, feliz: 0.4 }, boca: { sonrisa: 0.7, abierta: 0.15, ancho: 1.1 } }, 0.2);
 // P8: la pausa (quieto, la sonrisa se le va)
@@ -870,7 +872,7 @@ function renderAt(tIn) {
   const tir = en(t, T.cadena - 0.1, T.cadena + 0.6) ? Math.sin((t - T.cadena) * 14) * 0.12 * Math.exp(-(t - T.cadena) * 4) : 0;
   foco.rotation.z = tir; conoFoco.rotation.z = tir * 0.5;
   // el hemisférico más bajo en los planos del sótano (penumbra)
-  const abajo = ["P2"].includes(plano);
+  const abajo = ["P2b"].includes(plano);
   cielo.intensity = abajo ? 0.55 : 1.0; sol.intensity = abajo ? 1.2 : 2.4;
   relleno.position.copy(camera.position).add(V3(0.4, 0.8, 0)); relleno.target.position.copy(camera.position).add(camera.getWorldDirection(_a).multiplyScalar(3));
 
@@ -1094,8 +1096,8 @@ function renderAt(tIn) {
   if (swap && t < T.calza[1] + 0.15) {
     const kk = eio(sg(t, T.sacaCasco[0] - 0.05, T.sacaCasco[0] + 0.1)) * (1 - eio(sg(t, T.calza[1], T.calza[1] + 0.15)));
     const c = casco.position.clone();
-    const p1 = manoConDedos(ruben, { ...pr, codoI: [1, -0.2, -0.3] }, "I", c.clone().add(V3(0, -0.02, 0.27).applyQuaternion(casco.quaternion)));
-    const p2 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.2, -0.3] }, "D", c.clone().add(V3(0, -0.02, -0.27).applyQuaternion(casco.quaternion)));
+    const p1 = manoConDedos(ruben, { ...pr, codoI: [1, -0.2, -0.3] }, "I", c.clone().add(V3(0.33, 0.06, 0).applyQuaternion(casco.quaternion)));
+    const p2 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.2, -0.3] }, "D", c.clone().add(V3(-0.33, 0.06, 0).applyQuaternion(casco.quaternion)));
     mezclaManos(pr, { ...p1, manoD: p2.manoD, codoD: p2.codoD }, kk);
     ruben.poner(pr);
   }
@@ -1111,7 +1113,7 @@ function renderAt(tIn) {
   graciela.raiz.visible = (plano === "P1" || plano === "Q1") && (parte2 ? t < T.q2 : true);
   walter.raiz.visible = W.vis && ["P4", "P5"].includes(plano);
   marta.raiz.visible = Ma.vis && ["P5", "P6"].includes(plano) && plano !== "P6";
-  hector.raiz.visible = hv && !["P2", "P3", "Q1", "Q3b", "Q4", "Q6"].includes(plano);
+  hector.raiz.visible = hv && !["P2", "P2b", "P3", "Q1", "Q3b", "Q4", "Q6"].includes(plano);
   if (plano === "P7") hector.raiz.visible = false;
   // en el sótano y en los primeros planos de Rubén, sin los clientes que taparían la cámara
   if (plano === "P6") { walter.raiz.visible = marta.raiz.visible = false; hector.raiz.visible = false; }
@@ -1186,7 +1188,7 @@ function renderAt(tIn) {
   if (!parte2 && en(t, T.sacaCaja[0], T.p7)) {
     const u = eio(sg(t, T.sacaCaja[0], T.sacaCaja[1]));
     ruben.cabeza.updateMatrixWorld(true);
-    const de = cabezaMundo(ruben, V3(0, 0.6, 0)), a = V3(0.88, 0.0, -2.35);
+    const de = cabezaMundo(ruben, V3(0, 0.6, 0)), a = V3(1.9, 0.0, -1.35);
     cajaAzucar.c.visible = true; cajaAzucar.c.position.copy(de.lerp(a, u)).add(V3(0, Math.sin(u * Math.PI) * 0.2 - (1 - u) * 0.3 * 0, 0)); cajaAzucar.c.rotation.set(Math.PI * (1 - u), 0.3, 0.2 * (1 - u));
   }
   // la caja que se le cae a Héctor (Q5)
@@ -1197,7 +1199,7 @@ function renderAt(tIn) {
   if (parte2) CAJAS.filter((o) => o.niv === 1 && o.x < 0).forEach((o) => (o.c.visible = false));   // ahí van los frascos
   // el frasco de dulce de leche (de la mano derecha de Rubén)
   frasco.visible = conFrasco;
-  if (frasco.visible) { const p = manoMundo(ruben, "D", _a); frasco.position.copy(p).add(V3(0, -0.04, 0.05)); frasco.rotation.set(0, 0.2, 0); }
+  if (frasco.visible) { const p = manoMundo(ruben, "D", _a); frasco.position.copy(p).add(V3(0, -0.04, 0.05)); frasco.rotation.set(0, Math.atan2(camera.position.x - frasco.position.x, camera.position.z - frasco.position.z), 0); }
   // la linterna de mano (P5)
   lintMano.visible = conLinterna;
   hazMano.userData.luz.intensity = conLinterna && t >= T.linterna ? 10 : 0; hazMano.userData.cono.visible = conLinterna && t >= T.linterna;
@@ -1213,12 +1215,12 @@ function renderAt(tIn) {
   {
     let n = 0;
     const pon = (x, y, z, r) => { if (n >= NP) return; _pp.set(x, y, z); _ps.setScalar(r); _pm.compose(_pp, _pq, _ps); polvo.setMatrixAt(n++, _pm); };
-    if (prendido && (plano === "P2" || seccion) && !parte2) for (let i = 0; i < 30; i++) { const h = hash(i + 3), h2 = hash(i + 50), h3 = hash(i + 90); const yy = FOCO.y - 0.2 - ((h2 * 1.6 + (t - T.luz) * 0.06 * (0.5 + h)) % 1.5); pon(FOCO.x - 0.6 + h * 1.0, yy, FOCO.z - 0.4 + h3 * 0.8, 0.007 + h * 0.006); }
+    if (prendido && (plano === "P2b" || seccion) && !parte2) for (let i = 0; i < 30; i++) { const h = hash(i + 3), h2 = hash(i + 50), h3 = hash(i + 90); const yy = FOCO.y - 0.2 - ((h2 * 1.6 + (t - T.luz) * 0.06 * (0.5 + h)) % 1.5); pon(FOCO.x - 0.6 + h * 1.0, yy, FOCO.z - 0.4 + h3 * 0.8, 0.007 + h * 0.006); }
     if (!parte2 && en(t, T.palmea[0], T.palmea[1] + 0.8)) { const c = manoMundo(ruben, "I", _a).clone(); for (let i = 0; i < 18; i++) { const u = sg(t, T.palmea[0] + (i % 3) * 0.1, T.palmea[1] + 0.8); if (u <= 0) continue; const a = hash(i + 7) * 6.28; pon(c.x + Math.cos(a) * u * 0.25, c.y + 0.05 + u * 0.15 - u * u * 0.2, c.z + Math.sin(a) * u * 0.2, 0.012 * (1 - u * 0.6)); } }
     const nube = (t0, cx, cz) => { if (!en(t, t0, t0 + 1.2)) return; for (let i = 0; i < 20; i++) { const u = sg(t, t0, t0 + 1.2); const a = hash(i + t0) * 6.28, r = 0.2 + hash(i + 11) * 0.5; pon(cx + Math.cos(a) * r * eo(u), SY + 0.1 + hash(i + 31) * 0.5 * eo(u), cz + Math.sin(a) * r * 0.5 * eo(u), 0.03 * (1 - u)); } };
     if (!parte2) { nube(T.aval + 0.3, TJ.x, TJ.z + 0.5); nube(T.crash + 0.3, TJ.x - 0.4, TJ.z + 0.6); }
     // el polvo que cae en el haz del casco (P7-P8): partículas opacas que flotan y bajan despacio delante de Rubén
-    if (!parte2 && en(t, T.p7, T.p9)) { const c = cabezaMundo(ruben, V3(0, 0.85, 0.65)); for (let i = 0; i < 20; i++) { const h = hash(i + 101), h2 = hash(i + 202); const yy = c.y + 0.5 - ((h2 + (t - T.p7) * (0.12 + h * 0.08)) % 1.0) * 1.1; pon(c.x - 0.35 + h * 0.7, yy, c.z + (h2 - 0.5) * 0.6 + 0.2, 0.008 + h * 0.008); } }
+    if (!parte2 && en(t, T.p7, T.p9)) { const c = cabezaMundo(ruben, V3(0, 0.85, 0.65)); for (let i = 0; i < 20; i++) { const h = hash(i + 101), h2 = hash(i + 202); const yy = c.y + 0.55 - ((h2 + (t - T.p7) * (0.12 + h * 0.08)) % 1.0) * 0.65; pon(c.x - 0.35 + h * 0.7, yy, c.z + (h2 - 0.5) * 0.6 + 0.2, 0.008 + h * 0.008); } }
     for (let i = n; i < NP; i++) { _ps.setScalar(0); _pm.compose(_pp.set(0, -50, 0), _pq, _ps); polvo.setMatrixAt(i, _pm); }
     polvo.instanceMatrix.needsUpdate = true; polvo.count = NP;
   }
