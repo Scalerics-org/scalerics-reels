@@ -1,0 +1,36 @@
+[sin narrador Orus: el chiste va en burbujas, el chip "Viajes al depósito", el estado de Rubén (polvo, telaraña, caja, casco con linterna) y la tablet; voces por archivo en partes/*.txt, ver plan.md (tabla de voces)]
+[parte 1 · almacén de Rubén a la siesta, pared navy3 con azulejos crema hasta media altura · cuadro 0: Graciela con la bolsa en el mostrador, Rubén con el mate, detrás del mostrador la tapa de la trampa del sótano con su argolla · gancho grande "¿Te queda polenta?"]
+GRACIELA: ¿Te queda polenta?
+RUBEN: Ya me fijo.
+[Rubén levanta la trampa del piso y baja por la escalera empinada · zambullida: la cámara atraviesa el piso al sótano en penumbra · Rubén tira de la cadenita, se prende el foco pelado, polvo en el aire · baja la caja kraft "POLENTA" y la sacude: vacía]
+[Rubén asoma por la trampa con polvo en los hombros · chip "Viajes al depósito: 1"]
+RUBEN: No, no queda.
+[corte de casa de muñecas: almacén arriba, sótano abajo, en un solo cuadro vertical]
+WALTER: ¿Y fideos?
+[Rubén baja · escalera tijera · avalancha de cajas (golpe) · sube con una telaraña colgando de la oreja · burbuja de Rubén "No." sin voz · chip 2]
+MARTA: ¿Azúcar te queda?
+[Rubén baja · el foco se quema con un chasquido, sigue con linterna de mano · una caja le cae en la cabeza y le queda calzada de sombrero · sube así · burbuja "No." sin voz · chip 3]
+HECTOR: ¿Te queda dulce de leche?
+[Rubén se saca la caja de la cabeza, saca de abajo del mostrador un casco de obra blanco con una linterna atada con cinta verde, se lo calza y baja · chip 4 · la expedición: lo más alto de la escalera tijera, la escalera se tambalea, el haz recorre los estantes, la última caja del fondo, crash y polvo · arriba Héctor espera, silba, mira el techo]
+[Rubén asoma por la trampa destruido (polvo, telaraña, casco torcido) y levanta el frasco de dulce de leche como un trofeo, la linterna del casco sobre él]
+RUBEN: Queda uno.
+[pausa: el polvo cae despacio en el haz de la linterna, la telaraña se descuelga de la oreja, el foco del sótano se balancea con un chirrido · la música sigue baja, no se corta]
+HECTOR: Ah, no. Era para saber.
+[Héctor se toca la boina y se va · en la puerta se da vuelta]
+HECTOR: ¿Y yerba?
+[remate del remate · Rubén, cara de nada, sale de atrás del mostrador, se saca el casco, se lo calza a Héctor y le prende la linterna en la cara · Héctor parpadea con la luz encima]
+NARRADOR: Un sistema más tarde.
+[parte 2 · otra siesta, mismo encuadre · la trampa cerrada y Rubén sentado en un banquito arriba de ella, con el mate · en el mostrador, la tablet "Stock"]
+GRACIELA: ¿Te queda polenta?
+[Rubén mira la tablet sin levantarse: "Polenta · 3"]
+RUBEN: Quedan tres.
+[entra Héctor CON EL CASCO PUESTO y la linterna prendida, listo para la expedición]
+HECTOR: ¿Y dulce de leche?
+RUBEN: Doce.
+HECTOR: Era para saber.
+RUBEN: Ahora sabés.
+[la tablet vibra sola: "Yerba · quedan 2" en rojo apagado → "Pedido al proveedor ✓ · Llega el jueves" en verde · chip "Viajes al depósito: 0" en verde]
+[Héctor entorna los ojos, desconfiado, le hace seña a Rubén de que se corra, abre la trampa y baja él con la linterna · ruido de cajas · chip "Viajes de Héctor: 1"]
+[Héctor asoma por la trampa con la telaraña en la boina, pulgar arriba]
+HECTOR: Doce.
+[Rubén levanta el mate · línea chica: "Un sistema te dice qué te queda / y te avisa antes de que se acabe" / "scalerics.com"]
