@@ -250,7 +250,7 @@
 - 12-11 · `como-viene-el-mes` · Automatizaciones (el resumen de ventas del día y del mes llega solo al celular) · Para mandar completo con Rubén: Marta le pregunta "¿Y, cómo viene el mes?"; Rubén: "Pará que te digo." y se pasa la noche con la caja de tickets, la calculadora con rollo y la montaña de cinta mientras la torre de cortados de Marta llega a 7; a la mañana: "Ahí."; "¿Y comparado con el mes pasado?" y aparece la caja MES PASADO; "Pongo otro café." · cartel "Una automatización más tarde…" · parte 2: el resumen llega solo al celular ("Ocho por ciento arriba del mes pasado. Lo que más salió fue la yerba."), "¿Y a vos?", Marta: "Pará que te digo." y saca su caja CAFETERÍA · 5 rondas de revisión (2 corridas) [formato Para mandar completo · 3D real con Rubén y Marta, almacén de noche con persiana, lámpara verde y fondo navy, cartel verde]
 
 ## En curso
-<!-- corrida-activa: 2026-11-13T09:14 -->
+<!-- corrida-activa: 2026-11-13T09:50 -->
 
 - 13-11 · `por-que-sacar-numero` · Sistema a medida (pedidos de mostrador, WhatsApp y web en una sola lista con número, por orden de llegada) · Explicador "¿Por qué en la fiambrería te hacen sacar número?" con Rubén (Larson 1987) · fondo crema liso · reservado por la corrida 13-11 05:11
 
