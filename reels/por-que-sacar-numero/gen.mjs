@@ -169,7 +169,7 @@ const GANCHO = `
   const [x, y] = POS.colado;
   escena(id, {
     html: `${L(1, POS.coladoLead, "malo")}${pill(1, x, y, "Llegó después", "malo")}`,
-    js: `nota(1, ${rel(id, T.cuela + 0.1)}); fuera([1], ${r2(ESC[id] - 0.2)});`,
+    js: `nota(1, ${rel(id, T.cuela + 0.1)}); fuera([1], ${rel(id, T.pase + 0.1)});`,
     sfx: [
       ...[0, 1, 2, 3].map((j) => ({ t: 0.05 + j * 0.07, sfx: "pop", vol: 0.04 })),
       { t: rel(id, T.llega - 0.05), sfx: "tac-real", vol: 0.12 },
@@ -254,7 +254,7 @@ vacia("s03-por-que", [
   const id = "s08-almacen";
   escena(id, {
     html: `${pill(1, POS.filas[0], POS.filas[1], "Tres filas. Ningún número.")}`,
-    js: `nota(1, ${rel(id, T.nosv + 0.1)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
+    js: `nota(1, ${rel(id, T.fila + 0.1)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.05, sfx: "whoosh-short", vol: 0.04 },
       { t: 0.5, sfx: "campanita", vol: 0.06, max: 0.8 },
@@ -313,7 +313,7 @@ vacia("s03-por-que", [
   const id = "s12-sistema";
   escena(id, {
     html: `${pill(1, POS.unaFila[0], POS.unaFila[1], "Una sola fila", "lleno")}`,
-    js: `nota(1, ${rel(id, T.tickets[2] + 0.45)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
+    js: `nota(1, ${rel(id, T.tickets[1] + 0.45)}); fuera([1], ${r2(ESC[id] - 0.08)});`,
     sfx: [
       { t: rel(id, T.s12 - 0.15), sfx: "whoosh-short", vol: 0.02 },
       { t: rel(id, T.tablet - 0.1), sfx: "pop", vol: 0.03 },

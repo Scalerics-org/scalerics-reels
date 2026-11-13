@@ -479,13 +479,13 @@ const VX = OR.x - 2.7; // vidriera y puerta
   sh(almacen);
 }
 const pisoR = pisoSombra(OR.x, 1.5, 10, 6, 0.0);
-const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 3.4 }); scene.add(ruben.raiz);
+const ruben = crearPersonaje({ ...ELENCO.almacenero, parpadeoCada: 999 }); scene.add(ruben.raiz);
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const mateR = crearMate(); scene.add(mateR); mateR.scale.setScalar(1.15);
 const termo = crearTermo(); scene.add(termo); termo.scale.setScalar(1.2); termo.position.set(MOST.x + 1.02, MOST.y, MOST.z - 0.2);
-const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 3.0 }); scene.add(graciela.raiz);
+const graciela = crearPersonaje({ ...ELENCO.clienta, parpadeoCada: 999 }); scene.add(graciela.raiz);
 graciela.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
-const walter = crearPersonaje({ ...ELENCO.walter, corbata: null, parpadeoCada: 2.9 }); scene.add(walter.raiz);
+const walter = crearPersonaje({ ...ELENCO.walter, corbata: null, parpadeoCada: 999 }); scene.add(walter.raiz);
 walter.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 walter.ponerCampera(true);
 // el numerador de Rubén (EL MISMO del gancho), apagado al lado de la caja; se prende en s12
@@ -549,14 +549,15 @@ function burbuja(x, X, Y, mio) {
   const bw = 600, bh = 420;
   x.fillStyle = mio ? "#d9f7c4" : "#ffffff"; rr(x, X, Y, bw, bh, 44);
   x.lineWidth = 8; x.strokeStyle = mio ? VERD : "#c9c7b9"; x.beginPath(); x.roundRect(X, Y, bw, bh, 44); x.stroke();
-  x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "alphabetic"; x.font = F(700, 62);
+  x.fillStyle = NAV0; x.textAlign = "left"; x.textBaseline = "alphabetic";
+  const px = Math.min(...MSJ.map((l) => ajustar(x, l, 700, 62, bw - 80))); x.font = F(700, px);
   MSJ.forEach((l, i) => x.fillText(l, X + 40, Y + 92 + i * 76));
   x.fillStyle = "#4a5263"; x.font = F(700, 46); x.textAlign = "right"; x.fillText("9:02", X + bw - 40, Y + bh - 34);
 }
 function dibujarCelu(x, tipo) {
   const [w, h] = PP;
   x.fillStyle = "#e9e6d8"; x.fillRect(0, 0, w, h);
-  if (tipo === "graciela") { cabecera(x, w, "Almacén de Rubén", "en línea"); burbuja(x, 130, 760, true); }
+  if (tipo === "graciela") { cabecera(x, w, "Almacén de Rubén", "en línea"); burbuja(x, 120, 760, true); }
   if (tipo === "ruben") { cabecera(x, w, "Graciela"); burbuja(x, 40, 520, false); }
   x.fillStyle = "#ffffff"; rr(x, 30, h - 150, w - 60, 110, 55); x.fillStyle = "#8e8c80"; x.font = F(600, 44); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Escribir", 80, h - 92);
 }
@@ -574,7 +575,7 @@ function hacerCelu(Wc = 0.08, Hc = 0.162, tipo = "ruben", funda = C.navy3) {
 const enPant = (g, px, py, z = 0.01) => V((px / PP[0] - 0.5) * g.userData.Wc, (0.5 - py / PP[1]) * g.userData.Hc, z);
 const celuR = hacerCelu(0.08, 0.162, "ruben", C.navy3); scene.add(celuR);
 const CELU_R = V(MOST.x + 0.12, MOST.y + 0.007, MOST.z + 0.12);
-const CELU_V = V(RX + 0.03, 1.14, -0.04), KCV = 2.4; // s11: el celular dado vuelta, de frente a cámara
+const CELU_V = V(RX + 0.03, 1.11, -0.03), KCV = 2.2; // s11: el celular dado vuelta, de frente a cámara
 // la tablet "Pedidos" (aparece donde estaba el celular)
 const tabTV = texViva(1024, 720);
 const PEDIDOS = [["23", "Graciela", "WhatsApp · 9:02"], ["24", "Walter", "mostrador · 9:10"], ["25", "Pedido web", "web · 9:14"]];
@@ -664,7 +665,7 @@ T.vuela = T.s02 - 0.35;            // el 23 vuela a la fila
 T.llega = T.s02 + 0.35;            // el 23 grande se para en su lugar
 T.cuela = T.despues - 0.1;         // el 31 se mete
 T.choca = T.cuela + 0.38;          // rebota en la cinta
-T.tapaQ = T.s04 - 0.22;            // el "?" crece y tapa la cámara
+T.tapaQ = T.s04 - 0.14;            // el "?" crece y tapa la cámara
 T.bicis = [T.llegaron - 0.15, T.llegaron + 0.45, T.llevaban + 0.15];
 T.revAbre = T.escribio + 0.05;
 T.corteRev = T.s07 - 0.12;         // la cámara entra a la página
@@ -699,7 +700,7 @@ function armarPlanos() {
     // s04-s05: del puño verde del manubrio a la ventanilla; el recibo N.º 2; pasan las bicis
     ["B", T.s04, [
       k(T.s04, [BICI_B.x + 0.33, 1.1, BICI_B.z - 0.25 + 0.55], [BICI_B.x + 0.33, 1.03, BICI_B.z - 0.25]),
-      k(T.s04 + 0.6, b(-0.6, 1.75, 4.4), b(-0.8, 1.38, -0.6)),
+      k(T.s04 + 0.35, b(-0.6, 1.75, 4.6), b(-0.8, 1.38, -0.6)),
       k(T.bici, b(-0.55, 1.8, 6.3), b(-0.75, 1.36, -0.3)),
       k(T.s05 + 0.2, b(-0.5, 1.75, 6.5), b(-0.72, 1.32, -0.2)),
       k(T.antes + 0.3, b(-0.55, 1.72, 6.1), b(-0.72, 1.3, -0.1)),
@@ -735,28 +736,30 @@ function armarPlanos() {
     })()],
     // s10: Walter entra, se lleva su bolsa y se va; el celular boca abajo vibra
     ["R2", T.s10, [
-      k(T.s10, r(0.9, 1.9, 4.5), r(-0.5, 1.12, 0.0)),
-      k(T.fue, r(0.8, 1.88, 4.45), r(-0.58, 1.12, 0.0)),
-      k(T.s11 - 0.05, r(0.7, 1.86, 4.4), r(-0.6, 1.12, 0.0)),
+      k(T.s10, r(0.95, 1.9, 4.5), r(-0.42, 1.12, 0.0)),
+      k(T.fue, r(0.88, 1.88, 4.45), r(-0.48, 1.12, 0.0)),
+      k(T.s11 - 0.05, r(0.8, 1.86, 4.4), r(-0.5, 1.12, 0.0)),
     ]],
     // s11: primer plano de Rubén con el celular dado vuelta
     ["R3", T.s11, [
-      k(T.s11, r(0.12, 1.9, 1.7), r(0.04, 1.32, -0.4)),
-      k(T.vos, r(0.1, 1.88, 1.58), r(0.04, 1.33, -0.4)),
-      k(T.s12, r(0.08, 1.87, 1.5), r(0.04, 1.33, -0.4)),
+      k(T.s11, r(0.12, 2.1, 1.7), r(0.04, 1.3, -0.4)),
+      k(T.vos, r(0.1, 2.08, 1.58), r(0.04, 1.31, -0.4)),
+      k(T.s12, r(0.08, 2.07, 1.5), r(0.04, 1.31, -0.4)),
     ]],
     // s12: el celular se vuelve la tablet "Pedidos"; el numerador se prende y le da número a cada pedido
     ["R4", T.s12, [
-      k(T.s12, r(-0.15, 2.2, 2.5), r(-0.2, 1.1, 0.0)),
-      k(T.tablet + 0.3, r(-0.18, 2.25, 2.8), r(-0.22, 1.1, 0.03)),
-      k(T.tickets[2] + 0.45, r(-0.18, 2.2, 2.65), r(-0.22, 1.1, 0.03)),
+      k(T.s12, r(-0.18, 2.45, 1.75), r(-0.2, 1.0, 0.05)),
+      k(T.tablet + 0.3, r(-0.2, 2.55, 2.2), r(-0.2, 1.0, 0.0)),
+      k(T.tickets[2] + 0.45, r(-0.2, 2.5, 2.1), r(-0.2, 1.0, 0.0)),
       k(T.s13, r(-0.03, 1.75, 1.3), r(-0.02, 1.17, 0.1)),
     ]],
     // s13: "Graciela, primera": LISTO en la tablet; plano general: Rubén le da la bolsa a Graciela
     ["R5", T.s13, [
       k(T.s13, r(-0.03, 1.75, 1.3), r(-0.02, 1.17, 0.1)),
-      k(T.primera + 0.3, r(-0.03, 1.73, 1.24), r(-0.02, 1.17, 0.1)),
-      k(T.primera + 0.6, r(-0.35, 2.0, 4.3), r(-0.35, 1.18, -0.1)),
+      k(T.primera + 0.4, r(-0.03, 1.73, 1.22), r(-0.02, 1.17, 0.1)),
+    ]],
+    ["R6", T.primera + 0.4, [
+      k(T.primera + 0.4, r(-0.35, 2.0, 4.2), r(-0.35, 1.18, -0.1)),
       k(T.fin, r(-0.35, 2.05, 4.7), r(-0.35, 1.18, -0.1)),
     ]],
     ["F", T.fin, [
@@ -891,9 +894,9 @@ function zonaA(t) {
   preguntaA.visible = kq > 0.01;
   if (preguntaA.visible) {
     const tapa = eio(sg(t, T.tapaQ, T.s04));
-    preguntaA.position.set(DISP_A.x, DISP_A.y - 0.08 + 0.1 * kq, DISP_A.z + 0.35 + 1.45 * tapa);
+    preguntaA.position.set(DISP_A.x, DISP_A.y - 0.08 + 0.1 * kq, DISP_A.z + 0.35 + 0.9 * tapa);
     preguntaA.rotation.set(0, Math.sin((t - T.que) * 2.4) * 0.25 + tapa * 2.2, 0);
-    preguntaA.scale.setScalar(0.75 * kq * (1 + tapa * 0.6));
+    preguntaA.scale.setScalar(0.75 * kq * (1 + tapa * 0.35));
   }
 }
 
@@ -1007,7 +1010,7 @@ function zonaR(t) {
     [T.primera + 0.4, { ...CARA.feliz, giro: -0.45, cabeza: { giro: -0.35, asiente: 0.0 }, ojos: { x: -0.4, y: 0, abiertos: 1, feliz: 0.5 }, manoI: [0.12, 0.45, 0.48], codoI: [0.8, -0.5, -0.1] }, 0.3],
   ]);
   pr.t = t;
-  pr.x = RX + 0.9 * eio(sg(t, T.s12 + 0.1, T.s12 + 0.5)) * (1 - eio(sg(t, T.primera + 0.3, T.primera + 0.6)));
+  pr.x = RX + 0.9 * eio(sg(t, T.s12 + 0.1, T.s12 + 0.5)) * (1 - eio(sg(t, T.primera + 0.05, T.primera + 0.38)));
   if (t > BOCA.t0 - 0.05 && t < T.s12) { const bb = bocaRuben(t); pr.boca.abierta = Math.max(pr.boca.abierta, bb * 0.6); pr.boca.ancho = lerp(pr.boca.ancho, 0.75, bb); }
   // s11: sostiene el celular con las dos manos (a los costados de la pantalla)
   const sost = eio(sg(t, T.daVuelta + 0.1, T.daVuelta + 0.45)) * (1 - eio(sg(t, T.s12, T.s12 + 0.3)));
@@ -1111,7 +1114,7 @@ function zonaR(t) {
     else { walter.mano("D").getWorldPosition(_v); bolsaW.position.copy(_v).add(V(0, -0.24, 0)); bolsaW.rotation.set(0, pw.giro, 0); }
   }
   // ---- s13: Graciela en el mostrador; Rubén le da su bolsa ----
-  if (plano === "R5" || plano === "R4") {
+  if (plano === "R6") {
     graciela.raiz.visible = true;
     const pg = poseEn(t, [[0, { x: OR.x - 0.8, z: 0.62, giro: 1.0, ...CARA.esperanza, manoI: [0.29, -0.08, 0.04], manoD: [-0.29, -0.08, 0.04], cabeza: { giro: 0.1, asiente: 0.0 } }], [T.primera + 0.35, { ...CARA.feliz, cabeza: { giro: 0.25, asiente: 0.0, ladea: 0.06 }, ojos: { feliz: 0.6 } }, 0.25], [T.entrega + 0.35, { manoI: [0.12, 0.42, 0.42], codoI: [0.8, -0.5, -0.1] }, 0.3]]);
     pg.t = t; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true); graciela.ojoLejano(camera.position);
