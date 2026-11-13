@@ -15,15 +15,15 @@
     [data-composition-id="s10-walter"] .dot.malo { fill: #c7655b; }
 [data-composition-id="s10-walter"] .n2 { opacity: 0; }
   </style>
-  <div id="root" data-composition-id="s10-walter" data-width="1080" data-height="1920" data-duration="2.15">
-    <div id="s10-walter-esc" class="esc clip" data-start="0" data-duration="2.15" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M330 650 L330 760"/><circle class="dot  d1" cx="330" cy="760" r="13"/></svg><div class="pill  n1" style="left:330px;top:600px">Walter · 9:10</div><div class="pill gris n2" style="left:540px;top:1720px">Graciela · 9:02 · esperando</div>
+  <div id="root" data-composition-id="s10-walter" data-width="1080" data-height="1920" data-duration="2.88">
+    <div id="s10-walter-esc" class="esc clip" data-start="0" data-duration="2.88" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M330 650 L330 760"/><circle class="dot  d1" cx="330" cy="760" r="13"/></svg><div class="pill  n1" style="left:330px;top:600px">Walter · 9:10</div><div class="pill gris n2" style="left:540px;top:1630px">Graciela · 9:02 · esperando</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s10-walter";
-      const DUR = 2.15;
+      const DUR = 2.88;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.05); fuera([1], 1.42); nota(2, 0.35); fuera([2], 2.03);
+nota(1, 0.05); fuera([1], 2.34); nota(2, 0.35); fuera([2], 2.76);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

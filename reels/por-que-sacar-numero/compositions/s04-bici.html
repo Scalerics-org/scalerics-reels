@@ -13,18 +13,18 @@
     [data-composition-id="s04-bici"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s04-bici"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
     [data-composition-id="s04-bici"] .dot.malo { fill: #c7655b; }
-[data-composition-id="s04-bici"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid #0b1220; font: 700 44px/1.1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
-    [data-composition-id="s04-bici"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #16243d; }
+[data-composition-id="s04-bici"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid #0b1220; font: 700 48px/1.1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
+    [data-composition-id="s04-bici"] .cred .sub { display: block; margin-top: 8px; font: 500 44px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #16243d; }
   </style>
-  <div id="root" data-composition-id="s04-bici" data-width="1080" data-height="1920" data-duration="3.18">
-    <div id="s04-bici-esc" class="esc clip" data-start="0" data-duration="3.18" data-track-index="0">
+  <div id="root" data-composition-id="s04-bici" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s04-bici-esc" class="esc clip" data-start="0" data-duration="3.12" data-track-index="0">
 <div class="cred n1" style="left:540px;top:1010px">Richard Larson · MIT<span class="sub">le dicen “Dr. Queue”</span></div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s04-bici";
-      const DUR = 3.18;
+      const DUR = 3.12;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -42,7 +42,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.99); fuera([1], 3.03);
+nota(1, 0.96); fuera([1], 2.97);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -2,471 +2,476 @@
  {
   "text": "¿Por",
   "start": 0.05,
-  "end": 0.15
+  "end": 0.145
  },
  {
   "text": "qué",
-  "start": 0.15,
-  "end": 0.25
+  "start": 0.145,
+  "end": 0.24
  },
  {
   "text": "en",
-  "start": 0.3,
-  "end": 0.453
+  "start": 0.28,
+  "end": 0.427
  },
  {
   "text": "la",
-  "start": 0.453,
-  "end": 0.606
+  "start": 0.427,
+  "end": 0.574
  },
  {
   "text": "fiambrería",
-  "start": 0.606,
-  "end": 1.065
+  "start": 0.574,
+  "end": 1.015
  },
  {
   "text": "te",
-  "start": 1.065,
-  "end": 1.218
+  "start": 1.015,
+  "end": 1.162
  },
  {
   "text": "hacen",
-  "start": 1.218,
-  "end": 1.525
+  "start": 1.162,
+  "end": 1.455
  },
  {
   "text": "sacar",
-  "start": 1.525,
-  "end": 1.831
+  "start": 1.455,
+  "end": 1.749
  },
  {
   "text": "número?",
-  "start": 1.831,
-  "end": 2.29
+  "start": 1.749,
+  "end": 2.19
  },
  {
   "text": "Para",
-  "start": 2.6,
-  "end": 2.934
+  "start": 2.45,
+  "end": 2.768
  },
  {
   "text": "que",
-  "start": 2.934,
-  "end": 3.101
+  "start": 2.768,
+  "end": 2.928
  },
  {
   "text": "nadie",
-  "start": 3.101,
-  "end": 3.435
+  "start": 2.928,
+  "end": 3.246
  },
  {
   "text": "que",
-  "start": 3.435,
-  "end": 3.602
+  "start": 3.246,
+  "end": 3.405
  },
  {
   "text": "llegó",
-  "start": 3.602,
-  "end": 3.935
+  "start": 3.405,
+  "end": 3.724
  },
  {
   "text": "después",
-  "start": 3.935,
-  "end": 4.269
+  "start": 3.724,
+  "end": 4.042
  },
  {
   "text": "te",
-  "start": 4.269,
-  "end": 4.436
+  "start": 4.042,
+  "end": 4.202
  },
  {
   "text": "pase.",
-  "start": 4.436,
-  "end": 4.77
+  "start": 4.202,
+  "end": 4.52
  },
  {
   "text": "¿Por",
-  "start": 5.29,
-  "end": 5.505
+  "start": 4.9,
+  "end": 5.105
  },
  {
   "text": "qué?",
-  "start": 5.505,
-  "end": 5.72
+  "start": 5.105,
+  "end": 5.31
  },
  {
   "text": "Un",
-  "start": 6.33,
-  "end": 6.509
+  "start": 5.66,
+  "end": 5.833
  },
  {
   "text": "profesor",
-  "start": 6.509,
-  "end": 7.045
+  "start": 5.833,
+  "end": 6.35
  },
  {
   "text": "del",
-  "start": 7.045,
-  "end": 7.224
+  "start": 6.35,
+  "end": 6.523
  },
  {
   "text": "MIT",
-  "start": 7.224,
-  "end": 7.76
+  "start": 6.523,
+  "end": 7.04
  },
  {
   "text": "hacía",
-  "start": 7.92,
-  "end": 8.222
+  "start": 7.2,
+  "end": 7.484
  },
  {
   "text": "fila",
-  "start": 8.222,
-  "end": 8.524
+  "start": 7.484,
+  "end": 7.769
  },
  {
   "text": "por",
-  "start": 8.524,
-  "end": 8.676
+  "start": 7.769,
+  "end": 7.911
  },
  {
   "text": "una",
-  "start": 8.676,
-  "end": 8.978
+  "start": 7.911,
+  "end": 8.196
  },
  {
   "text": "bici.",
-  "start": 8.978,
-  "end": 9.28
+  "start": 8.196,
+  "end": 8.48
  },
  {
   "text": "Los",
-  "start": 9.51,
-  "end": 9.683
+  "start": 8.78,
+  "end": 8.897
  },
  {
   "text": "que",
-  "start": 9.683,
-  "end": 9.856
+  "start": 8.897,
+  "end": 9.014
  },
  {
   "text": "llegaron",
-  "start": 9.856,
-  "end": 10.374
+  "start": 9.014,
+  "end": 9.366
  },
  {
   "text": "después",
-  "start": 10.374,
-  "end": 10.72
+  "start": 9.366,
+  "end": 9.6
  },
  {
   "text": "se",
-  "start": 10.86,
-  "end": 11.029
- },
- {
-  "text": "la",
-  "start": 11.029,
-  "end": 11.197
+  "start": 9.68,
+  "end": 9.867
  },
  {
   "text": "llevaban",
-  "start": 11.197,
-  "end": 11.703
- },
- {
-  "text": "antes.",
-  "start": 11.703,
-  "end": 12.04
- },
- {
-  "text": "Pasó",
-  "start": 12.27,
-  "end": 12.646
- },
- {
-  "text": "años",
-  "start": 12.646,
-  "end": 13.022
- },
- {
-  "text": "estudiando",
-  "start": 13.022,
-  "end": 13.774
- },
- {
-  "text": "filas.",
-  "start": 13.774,
-  "end": 14.15
- },
- {
-  "text": "Y",
-  "start": 14.29,
-  "end": 14.475
- },
- {
-  "text": "escribió:",
-  "start": 14.475,
-  "end": 15.03
- },
- {
-  "text": "que",
-  "start": 15.24,
-  "end": 15.44
- },
- {
-  "text": "te",
-  "start": 15.44,
-  "end": 15.64
- },
- {
-  "text": "pasen,",
-  "start": 15.64,
-  "end": 16.04
- },
- {
-  "text": "muchas",
-  "start": 16.2,
-  "end": 16.68
- },
- {
-  "text": "veces,",
-  "start": 16.68,
-  "end": 17.16
- },
- {
-  "text": "pesa",
-  "start": 17.52,
-  "end": 17.846
- },
- {
-  "text": "más",
-  "start": 17.846,
-  "end": 18.009
- },
- {
-  "text": "que",
-  "start": 18.009,
-  "end": 18.171
- },
- {
-  "text": "esperar.",
-  "start": 18.171,
-  "end": 18.66
- },
- {
-  "text": "En",
-  "start": 19.12,
-  "end": 19.31
+  "start": 9.867,
+  "end": 10.427
  },
  {
   "text": "lo",
-  "start": 19.31,
-  "end": 19.5
+  "start": 10.427,
+  "end": 10.613
  },
  {
-  "text": "de",
-  "start": 19.5,
-  "end": 19.69
- },
- {
-  "text": "Rubén,",
-  "start": 19.69,
-  "end": 20.07
- },
- {
-  "text": "la",
-  "start": 20.34,
-  "end": 20.533
- },
- {
-  "text": "fila",
-  "start": 20.533,
-  "end": 20.92
- },
- {
-  "text": "no",
-  "start": 20.92,
-  "end": 21.113
- },
- {
-  "text": "se",
-  "start": 21.113,
-  "end": 21.307
- },
- {
-  "text": "ve.",
-  "start": 21.307,
-  "end": 21.5
- },
- {
-  "text": "Graciela",
-  "start": 21.77,
-  "end": 22.295
- },
- {
-  "text": "pidió",
-  "start": 22.295,
-  "end": 22.645
- },
- {
-  "text": "por",
-  "start": 22.645,
-  "end": 22.82
- },
- {
-  "text": "WhatsApp.",
-  "start": 22.82,
-  "end": 23.17
- },
- {
-  "text": "Walter",
-  "start": 23.53,
-  "end": 23.713
- },
- {
-  "text": "vino",
-  "start": 23.713,
-  "end": 23.897
- },
- {
-  "text": "después",
-  "start": 23.897,
-  "end": 24.08
- },
- {
-  "text": "y",
-  "start": 24.29,
-  "end": 24.446
- },
- {
-  "text": "se",
-  "start": 24.446,
-  "end": 24.602
- },
- {
-  "text": "fue",
-  "start": 24.602,
-  "end": 24.758
+  "text": "suyo",
+  "start": 10.613,
+  "end": 10.987
  },
  {
   "text": "antes.",
-  "start": 24.758,
-  "end": 25.07
+  "start": 10.987,
+  "end": 11.36
  },
  {
-  "text": "¿Graciela?",
-  "start": 25.68,
-  "end": 26.38
+  "text": "Pasó",
+  "start": 11.74,
+  "end": 12.1
  },
  {
-  "text": "¿Vos",
-  "start": 26.69,
-  "end": 26.872
+  "text": "años",
+  "start": 12.1,
+  "end": 12.46
  },
  {
-  "text": "estabas",
-  "start": 26.872,
-  "end": 27.417
+  "text": "estudiando",
+  "start": 12.46,
+  "end": 13.18
  },
  {
-  "text": "antes?",
-  "start": 27.417,
-  "end": 27.78
+  "text": "filas.",
+  "start": 13.18,
+  "end": 13.54
  },
  {
-  "text": "Con",
-  "start": 28.28,
-  "end": 28.432
+  "text": "Que",
+  "start": 13.82,
+  "end": 13.991
  },
  {
-  "text": "un",
-  "start": 28.432,
-  "end": 28.584
+  "text": "te",
+  "start": 13.991,
+  "end": 14.163
  },
  {
-  "text": "sistema,",
-  "start": 28.584,
-  "end": 29.04
+  "text": "pasen,",
+  "start": 14.163,
+  "end": 14.505
  },
  {
-  "text": "cada",
-  "start": 29.18,
-  "end": 29.47
+  "text": "muchas",
+  "start": 14.505,
+  "end": 14.848
  },
  {
-  "text": "pedido",
-  "start": 29.47,
-  "end": 29.905
+  "text": "veces,",
+  "start": 14.848,
+  "end": 15.19
  },
  {
-  "text": "saca",
-  "start": 29.905,
-  "end": 30.195
+  "text": "pesa",
+  "start": 15.28,
+  "end": 15.534
  },
  {
-  "text": "número",
-  "start": 30.195,
-  "end": 30.63
+  "text": "más",
+  "start": 15.534,
+  "end": 15.661
  },
  {
-  "text": "solo.",
-  "start": 30.63,
-  "end": 30.92
+  "text": "que",
+  "start": 15.661,
+  "end": 15.789
  },
  {
-  "text": "Graciela,",
-  "start": 31.23,
-  "end": 31.77
+  "text": "esperar.",
+  "start": 15.789,
+  "end": 16.17
  },
  {
-  "text": "primera.",
-  "start": 31.82,
-  "end": 32.33
+  "text": "En",
+  "start": 16.61,
+  "end": 16.792
  },
  {
-  "text": "¿Ordenamos",
-  "start": 32.75,
-  "end": 33.27
+  "text": "lo",
+  "start": 16.792,
+  "end": 16.974
+ },
+ {
+  "text": "de",
+  "start": 16.974,
+  "end": 17.156
+ },
+ {
+  "text": "Rubén,",
+  "start": 17.156,
+  "end": 17.52
  },
  {
   "text": "la",
-  "start": 33.27,
-  "end": 33.4
+  "start": 17.73,
+  "end": 17.913
  },
  {
-  "text": "tuya?",
-  "start": 33.4,
-  "end": 33.66
+  "text": "fila",
+  "start": 17.913,
+  "end": 18.28
  },
  {
-  "text": "Agendá",
-  "start": 33.91,
-  "end": 34.307
+  "text": "no",
+  "start": 18.28,
+  "end": 18.463
  },
  {
-  "text": "una",
-  "start": 34.307,
-  "end": 34.572
+  "text": "se",
+  "start": 18.463,
+  "end": 18.647
  },
  {
-  "text": "videollamada",
-  "start": 34.572,
-  "end": 35.235
+  "text": "ve.",
+  "start": 18.647,
+  "end": 18.83
  },
  {
-  "text": "gratis",
-  "start": 35.235,
-  "end": 35.5
+  "text": "Graciela",
+  "start": 19.05,
+  "end": 19.549
+ },
+ {
+  "text": "pidió",
+  "start": 19.549,
+  "end": 19.881
+ },
+ {
+  "text": "por",
+  "start": 19.881,
+  "end": 20.047
+ },
+ {
+  "text": "WhatsApp.",
+  "start": 20.047,
+  "end": 20.38
+ },
+ {
+  "text": "Walter",
+  "start": 20.67,
+  "end": 21.21
+ },
+ {
+  "text": "vino",
+  "start": 21.4,
+  "end": 21.77
+ },
+ {
+  "text": "después",
+  "start": 21.77,
+  "end": 22.14
+ },
+ {
+  "text": "y",
+  "start": 22.35,
+  "end": 22.504
+ },
+ {
+  "text": "se",
+  "start": 22.504,
+  "end": 22.658
+ },
+ {
+  "text": "fue",
+  "start": 22.658,
+  "end": 22.812
+ },
+ {
+  "text": "antes.",
+  "start": 22.812,
+  "end": 23.12
+ },
+ {
+  "text": "¿Graciela?",
+  "start": 23.55,
+  "end": 24.24
+ },
+ {
+  "text": "¿Vos",
+  "start": 24.49,
+  "end": 24.672
+ },
+ {
+  "text": "estabas",
+  "start": 24.672,
+  "end": 25.217
+ },
+ {
+  "text": "antes?",
+  "start": 25.217,
+  "end": 25.58
+ },
+ {
+  "text": "Con",
+  "start": 26,
+  "end": 26.144
+ },
+ {
+  "text": "un",
+  "start": 26.144,
+  "end": 26.288
+ },
+ {
+  "text": "sistema,",
+  "start": 26.288,
+  "end": 26.72
+ },
+ {
+  "text": "cada",
+  "start": 26.86,
+  "end": 27.138
+ },
+ {
+  "text": "pedido",
+  "start": 27.138,
+  "end": 27.556
+ },
+ {
+  "text": "saca",
+  "start": 27.556,
+  "end": 27.834
+ },
+ {
+  "text": "número",
+  "start": 27.834,
+  "end": 28.252
+ },
+ {
+  "text": "solo.",
+  "start": 28.252,
+  "end": 28.53
+ },
+ {
+  "text": "Graciela,",
+  "start": 28.78,
+  "end": 29.29
+ },
+ {
+  "text": "primera.",
+  "start": 29.35,
+  "end": 29.83
+ },
+ {
+  "text": "¿Ponemos",
+  "start": 30.22,
+  "end": 30.61
+ },
+ {
+  "text": "número",
+  "start": 30.61,
+  "end": 31
  },
  {
   "text": "en",
-  "start": 35.74,
-  "end": 35.841
+  "start": 31,
+  "end": 31.13
+ },
+ {
+  "text": "tu",
+  "start": 31.13,
+  "end": 31.26
+ },
+ {
+  "text": "negocio?",
+  "start": 31.26,
+  "end": 31.65
+ },
+ {
+  "text": "Agendá",
+  "start": 31.92,
+  "end": 32.303
+ },
+ {
+  "text": "una",
+  "start": 32.303,
+  "end": 32.558
+ },
+ {
+  "text": "videollamada",
+  "start": 32.558,
+  "end": 33.195
+ },
+ {
+  "text": "gratis",
+  "start": 33.195,
+  "end": 33.45
+ },
+ {
+  "text": "en",
+  "start": 33.66,
+  "end": 33.841
  },
  {
   "text": "scalerics.com.",
-  "start": 35.841,
-  "end": 36.45
+  "start": 33.841,
+  "end": 34.93
  }
 ]

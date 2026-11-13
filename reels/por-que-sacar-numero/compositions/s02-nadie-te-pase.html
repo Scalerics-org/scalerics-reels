@@ -15,15 +15,15 @@
     [data-composition-id="s02-nadie-te-pase"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s02-nadie-te-pase" data-width="1080" data-height="1920" data-duration="2.69">
-    <div id="s02-nadie-te-pase-esc" class="esc clip" data-start="0" data-duration="2.69" data-track-index="0">
+  <div id="root" data-composition-id="s02-nadie-te-pase" data-width="1080" data-height="1920" data-duration="2.45">
+    <div id="s02-nadie-te-pase-esc" class="esc clip" data-start="0" data-duration="2.45" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead malo l1" d="M800 1460 L880 1270"/><circle class="dot malo d1" cx="880" cy="1270" r="13"/></svg><div class="pill malo n1" style="left:760px;top:1520px">Llegó después</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s02-nadie-te-pase";
-      const DUR = 2.69;
+      const DUR = 2.45;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1.34); fuera([1], 1.94);
+nota(1, 1.27); fuera([1], 1.85);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

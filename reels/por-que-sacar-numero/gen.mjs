@@ -24,16 +24,16 @@ const NAVY = "#0b1220", NAVY2 = "#16243d", CR = "#efeee5", G = "#5ce611", RED = 
 const T = {
   sacar: Wg(7), numero: Wg(8), s02: INI["s02-nadie-te-pase"], despues: Wg(14), pase: Wg(16),
   s03: INI["s03-por-que"], que: Wg(18), s04: INI["s04-bici"], mit: Wg(22), bici: Wg(27),
-  s05: INI["s05-se-la-llevaban"], llegaron: Wg(30), llevaban: Wg(34), antes: Wg(35),
-  s06: INI["s06-anos"], anios: Wg(37), filas: Wg(39), escribio: Wg(41),
-  s07: INI["s07-balanza"], pasen: Wg(44), muchas: Wg(45), pesa: Wg(47), esperar: Wg(50),
-  s08: INI["s08-almacen"], fila: Wg(56), nosv: Wg(57),
-  s09: INI["s09-graciela"], pidio: Wg(61), wapp: Wg(63),
-  s10: INI["s10-walter"], vino: Wg(65), despues2: Wg(66), fue: Wg(69),
-  s11: INI["s11-ruben"], vos: Wg(72), antes2: Wg(74),
-  s12: INI["s12-sistema"], sistema: Wg(77), cada: Wg(78), saca: Wg(80), solo: Wg(82),
-  s13: INI["s13-primera"], primera: Wg(84), ordenamos: Wg(85), agenda: Wg(88),
-  fin: INI["s14-cierre"], scalerics: Wg(93),
+  s05: INI["s05-se-la-llevaban"], llegaron: Wg(30), llevaban: Wg(33), antes: Wg(36),
+  s06: INI["s06-anos"], anios: Wg(38), filas: Wg(40), escribio: r2(Wg(40) + 0.1),
+  s07: INI["s07-balanza"], pasen: Wg(43), muchas: Wg(44), pesa: Wg(46), esperar: Wg(49),
+  s08: INI["s08-almacen"], fila: Wg(55), nosv: Wg(56),
+  s09: INI["s09-graciela"], pidio: Wg(60), wapp: Wg(62),
+  s10: INI["s10-walter"], vino: Wg(64), despues2: Wg(65), fue: Wg(68),
+  s11: INI["s11-ruben"], vos: Wg(71), antes2: Wg(73),
+  s12: INI["s12-sistema"], sistema: Wg(76), cada: Wg(77), saca: Wg(79), solo: Wg(81),
+  s13: INI["s13-primera"], primera: Wg(83), ordenamos: Wg(84), agenda: Wg(89),
+  fin: INI["s14-cierre"], scalerics: Wg(94),
 };
 T.tira = T.sacar + 0.05; T.vuela = T.s02 - 0.35; T.llega = T.s02 + 0.35; T.cuela = T.despues - 0.1; T.choca = T.cuela + 0.38;
 T.tapaQ = T.s04 - 0.22; T.bicis = [T.llegaron - 0.15, T.llegaron + 0.45, T.llevaban + 0.15];
@@ -112,8 +112,8 @@ const CSS_MK = `
     P .mk .fondo { position: absolute; left: 0; right: 0; top: 18px; bottom: 2px; background: ${G}; border-radius: 18px; border: 7px solid ${NAVY}; }
     P .mk em { position: relative; font-style: normal; color: ${NAVY}; -webkit-text-stroke: 0; }`;
 const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${x}px;top:${y}px">${txt}${sub ? `<span class="sub">${sub}</span>` : ""}</div>`;
-const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid ${NAVY}; font: 700 44px/1.1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
-    P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY2}; }`;
+const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid ${NAVY}; font: 700 48px/1.1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
+    P .cred .sub { display: block; margin-top: 8px; font: 500 44px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY2}; }`;
 // tramos sin logo (insertos de celular/tablet y primeros planos): los lee armar.mjs (assets/firma.json)
 const FIRMA = [[r2(T.s04), r2(T.s06)], [r2(T.s09), r2(T.s10)], [r2(T.s11), r2(T.primera + 0.45)]];
 
@@ -183,8 +183,8 @@ const GANCHO = `
 
 // ================= s03 · ¿Por qué? (los dígitos del display se vuelven un "?") =================
 vacia("s03-por-que", [
-  { t: rel("s03-por-que", pal[18].end + 0.03), sfx: "impact-bass-1", vol: 0.04, max: 0.5 },
-  { t: rel("s03-por-que", pal[18].end + 0.05), sfx: "pop", vol: 0.05 },
+  { t: rel("s03-por-que", pal[18].end + 0.03), sfx: "impact-bass-1", vol: 0.03, max: 0.5 },
+  { t: rel("s03-por-que", pal[18].end + 0.05), sfx: "pop", vol: 0.04 },
   { t: rel("s03-por-que", T.tapaQ), sfx: "whoosh-cine-corto", vol: 0.12, max: 0.5 },
 ]);
 
@@ -197,7 +197,7 @@ vacia("s03-por-que", [
     js: `nota(1, ${rel(id, T.mit + 0.1)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: rel(id, T.s04 + 0.45), sfx: "pop", vol: 0.08 },
-      { t: rel(id, pal[27].end + 0.03), sfx: "ring", vol: 0.025, max: 0.45 },
+      { t: rel(id, pal[27].end + 0.03), sfx: "ring", vol: 0.02, max: 0.45 },
     ],
   });
 }
@@ -212,7 +212,7 @@ vacia("s03-por-que", [
     sfx: [
       ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.25), sfx: "whoosh-short", vol: 0.02 })),
       ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.75), sfx: "pop", vol: 0.035 })),
-      { t: rel(id, pal[35].end + 0.04), sfx: "golpe", vol: 0.07, max: 0.3 },
+      { t: rel(id, pal[36].end + 0.04), sfx: "golpe", vol: 0.07, max: 0.3 },
     ],
   });
 }
@@ -271,8 +271,8 @@ vacia("s03-por-que", [
     js: `nota(1, ${rel(id, T.pidio)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.1, sfx: "typing", vol: 0.06, max: 0.5 },
-      { t: rel(id, pal[63].end + 0.03), sfx: "respuesta", vol: 0.05, max: 0.5 },
-      { t: rel(id, pal[63].end + 0.1), sfx: "whoosh-short", vol: 0.03 },
+      { t: rel(id, pal[62].end + 0.03), sfx: "respuesta", vol: 0.05, max: 0.5 },
+      { t: rel(id, pal[62].end + 0.1), sfx: "whoosh-short", vol: 0.03 },
     ],
   });
 }
@@ -283,7 +283,7 @@ vacia("s03-por-que", [
   const [x, y] = POS.walter;
   escena(id, {
     css: `P .n2 { opacity: 0; }`,
-    html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, POS.hora[0], POS.hora[1] + 30, "Graciela · 9:02 · esperando", "gris")}`,
+    html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, POS.hora[0], 1630, "Graciela · 9:02 · esperando", "gris")}`,
     js: `nota(1, 0.05); fuera([1], ${rel(id, T.fue + 0.35)}); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.0, sfx: "campanita", vol: 0.03, max: 0.7 },
@@ -317,7 +317,7 @@ vacia("s03-por-que", [
     sfx: [
       { t: rel(id, T.s12 - 0.15), sfx: "whoosh-short", vol: 0.02 },
       { t: rel(id, T.tablet - 0.1), sfx: "pop", vol: 0.03 },
-      { t: rel(id, pal[77].end + 0.02), sfx: "click", vol: 0.08 },
+      { t: rel(id, pal[76].end + 0.02), sfx: "click", vol: 0.08 },
       ...T.tickets.map((tt) => ({ t: rel(id, tt), sfx: "scan", vol: 0.04, max: 0.3 })),
       ...T.tickets.map((tt) => ({ t: rel(id, tt + 0.42), sfx: "pop", vol: 0.05 })),
     ],
@@ -328,7 +328,7 @@ vacia("s03-por-que", [
 vacia("s13-primera", [
   { t: rel("s13-primera", T.primera), sfx: "sparkle", vol: 0.06, max: 0.6 },
   { t: rel("s13-primera", T.primera + 0.05), sfx: "ping", vol: 0.12, max: 0.6 },
-  { t: rel("s13-primera", T.primera + 0.45), sfx: "whoosh-short", vol: 0.04 },
+  { t: rel("s13-primera", T.primera + 0.3), sfx: "whoosh-short", vol: 0.07 },
   { t: rel("s13-primera", T.entrega + 0.3), sfx: "papel", vol: 0.15, max: 0.4 },
 ]);
 
@@ -349,13 +349,13 @@ vacia("s13-primera", [
     js: `
       tl.fromTo(qa(".t1, .t2w"), { scale: 1.06, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.2, ease: "power3.out", immediateRender: true }, 0);
       tl.fromTo(q(".t3w"), { scale: 0.9, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.22, ease: "back.out(1.7)", immediateRender: true }, 0.04);
-      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 91) - 0.02)});
-      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 93) - 0.03)});
+      tl.fromTo(q(".t2"), { scale: 1 }, { scale: 1.14, transformOrigin: "50% 50%", duration: 0.13, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 92) - 0.02)});
+      tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 94) - 0.03)});
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
       { t: -0.14, sfx: "whoosh", vol: 0.08, max: 0.5 }, { t: 0.04, sfx: "pop", vol: 0.15 },
       { t: 0.3, sfx: "chime", vol: 0.04, max: 0.8 },
-      { t: rel(id, pal[93].end + 0.02), sfx: "ding", vol: 0.04, max: r2(Math.max(0.2, ESC[id] - rel(id, pal[93].end + 0.02) - 0.03)) },
+      { t: rel(id, pal[94].end + 0.02), sfx: "ding", vol: 0.04, max: r2(Math.max(0.2, ESC[id] - rel(id, pal[94].end + 0.02) - 0.03)) },
     ],
   });
 }

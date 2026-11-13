@@ -15,15 +15,15 @@
     [data-composition-id="s08-almacen"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s08-almacen" data-width="1080" data-height="1920" data-duration="2.65">
-    <div id="s08-almacen-esc" class="esc clip" data-start="0" data-duration="2.65" data-track-index="0">
+  <div id="root" data-composition-id="s08-almacen" data-width="1080" data-height="1920" data-duration="2.44">
+    <div id="s08-almacen-esc" class="esc clip" data-start="0" data-duration="2.44" data-track-index="0">
 <div class="pill  n1" style="left:540px;top:1620px">Tres filas. Ningún número.</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s08-almacen";
-      const DUR = 2.65;
+      const DUR = 2.44;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1.51); fuera([1], 2.53);
+nota(1, 1.4); fuera([1], 2.32);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

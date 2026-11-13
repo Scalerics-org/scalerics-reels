@@ -15,15 +15,15 @@
     [data-composition-id="s09-graciela"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s09-graciela" data-width="1080" data-height="1920" data-duration="1.76">
-    <div id="s09-graciela-esc" class="esc clip" data-start="0" data-duration="1.76" data-track-index="0">
+  <div id="root" data-composition-id="s09-graciela" data-width="1080" data-height="1920" data-duration="1.62">
+    <div id="s09-graciela-esc" class="esc clip" data-start="0" data-duration="1.62" data-track-index="0">
 <div class="pill lleno n1" style="left:540px;top:1690px">Graciela · 9:02</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-graciela";
-      const DUR = 1.76;
+      const DUR = 1.62;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.53); fuera([1], 1.64);
+nota(1, 0.5); fuera([1], 1.5);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

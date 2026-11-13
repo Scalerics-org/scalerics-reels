@@ -15,15 +15,15 @@
     [data-composition-id="s05-se-la-llevaban"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s05-se-la-llevaban" data-width="1080" data-height="1920" data-duration="2.76">
-    <div id="s05-se-la-llevaban-esc" class="esc clip" data-start="0" data-duration="2.76" data-track-index="0">
+  <div id="root" data-composition-id="s05-se-la-llevaban" data-width="1080" data-height="1920" data-duration="2.96">
+    <div id="s05-se-la-llevaban-esc" class="esc clip" data-start="0" data-duration="2.96" data-track-index="0">
 <div class="pill malo n1" style="left:790px;top:1330px">Llegaron después</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s05-se-la-llevaban";
-      const DUR = 2.76;
+      const DUR = 2.96;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1); fuera([1], 2.56);
+nota(1, 0.88); fuera([1], 2.76);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

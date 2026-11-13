@@ -13,18 +13,18 @@
     [data-composition-id="s07-balanza"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s07-balanza"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
     [data-composition-id="s07-balanza"] .dot.malo { fill: #c7655b; }
-[data-composition-id="s07-balanza"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid #0b1220; font: 700 44px/1.1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
-    [data-composition-id="s07-balanza"] .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #16243d; }
+[data-composition-id="s07-balanza"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid #0b1220; font: 700 48px/1.1 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
+    [data-composition-id="s07-balanza"] .cred .sub { display: block; margin-top: 8px; font: 500 44px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #16243d; }
   </style>
-  <div id="root" data-composition-id="s07-balanza" data-width="1080" data-height="1920" data-duration="3.88">
-    <div id="s07-balanza-esc" class="esc clip" data-start="0" data-duration="3.88" data-track-index="0">
+  <div id="root" data-composition-id="s07-balanza" data-width="1080" data-height="1920" data-duration="2.79">
+    <div id="s07-balanza-esc" class="esc clip" data-start="0" data-duration="2.79" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M180 1020 L165 950"/><circle class="dot  d1" cx="165" cy="950" r="13"/></svg><div class="pill  n1" style="left:180px;top:1075px">esperar</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead malo l2" d="M850 1020 L760 950"/><circle class="dot malo d2" cx="760" cy="950" r="13"/></svg><div class="pill malo n2" style="left:850px;top:1075px">que te pasen</div><div class="cred n3" style="left:540px;top:1660px">Larson, 1987<span class="sub">Operations Research</span></div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s07-balanza";
-      const DUR = 3.88;
+      const DUR = 2.79;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -42,7 +42,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.2); nota(2, 0.4); nota(3, 0.96); fuera([1, 2, 3], 3.68);
+nota(1, 0.2); nota(2, 0.34); nota(3, 0.69); fuera([1, 2, 3], 2.59);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
