@@ -38,7 +38,7 @@ const T = {
 T.tira = T.sacar + 0.05; T.vuela = T.s02 - 0.35; T.llega = T.s02 + 0.35; T.cuela = T.despues - 0.1; T.choca = T.cuela + 0.38;
 T.tapaQ = T.s04 - 0.22; T.bicis = [T.llegaron - 0.15, T.llegaron + 0.45, T.llevaban + 0.15];
 T.revAbre = T.escribio + 0.05; T.corteRev = T.s07 - 0.12; T.burbV = T.wapp + 0.2; T.vibra = T.s10 + 0.25;
-T.daVuelta = T.s11 + 0.05; T.tablet = T.s12 + 0.35; T.tickets = [T.cada - 0.05, T.cada + 0.35, T.saca + 0.1]; T.entrega = T.primera + 0.35;
+T.daVuelta = T.s11 + 0.05; T.tablet = T.s12 + 0.22; T.tickets = [T.cada - 0.05, T.cada + 0.35, T.saca + 0.1]; T.entrega = T.primera + 0.35;
 
 // ---------- piezas ----------
 const pill = (k, x, y, txt, kind = "") => `<div class="pill ${kind} n${k}" style="left:${x}px;top:${y}px">${txt}</div>`;

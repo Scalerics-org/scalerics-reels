@@ -11,7 +11,7 @@ Palabras (segundos relativos a la escena): ¿Por 0.00 · qué? 0.21
 Palabras (segundos relativos a la escena): Un 0.00 · profesor 0.17 · del 0.69 · MIT 0.86 · hacía 1.54 · fila 1.82 · por 2.11 · una 2.25 · bici. 2.54
 
 ### s05-se-la-llevaban — dura 3.17 s (inicio global 8.78)
-Palabras (segundos relativos a la escena): Los 0.00 · que 0.16 · llegaron 0.33 · después 0.90 · se 1.32 · llevaban 1.45 · lo 1.82 · suyo 2.07 · antes. 2.63
+Palabras (segundos relativos a la escena): Los 0.00 · que 0.16 · llegaron 0.33 · después 0.90 · se 1.32 · llevaban 1.45 · lo 1.82 · suyo 1.96 · antes. 2.24
 
 ### s06-anos — dura 2.08 s (inicio global 11.95)
 Palabras (segundos relativos a la escena): Pasó 0.00 · años 0.36 · estudiando 0.72 · filas. 1.44
