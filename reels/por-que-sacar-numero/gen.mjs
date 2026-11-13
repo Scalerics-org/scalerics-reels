@@ -313,7 +313,7 @@ vacia("s03-por-que", [
   const id = "s12-sistema";
   escena(id, {
     html: `${pill(1, POS.unaFila[0], POS.unaFila[1], "Una sola fila", "lleno")}`,
-    js: `nota(1, ${rel(id, T.tickets[1] + 0.45)}); fuera([1], ${r2(ESC[id] - 0.08)});`,
+    js: `nota(1, ${rel(id, T.tickets[1] + 0.3)}); fuera([1], ${r2(ESC[id] - 0.4)});`,
     sfx: [
       { t: rel(id, T.s12 - 0.15), sfx: "whoosh-short", vol: 0.02 },
       { t: rel(id, T.tablet - 0.1), sfx: "pop", vol: 0.03 },

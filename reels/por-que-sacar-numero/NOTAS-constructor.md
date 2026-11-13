@@ -102,3 +102,55 @@ el crema de la pared → `portada-src/fondo-portada.png` (la que usa portada.jso
   Walter entrando/saliendo).
 - "MIT" se oye en inglés ("em-ai-ti"); "se la llevaban" el STT lo oye "se las".
 - Las bicis que pasan quedan detrás del recibo (el recibo está adelante); se leen los recibos 5 y 7, el 9 casi no.
+
+## Ronda 1 de corrección (3 revisores sobre el MP4) · 13-11
+**Duración nueva 35,48 s** (voz 35,36 s), **95 palabras** (guion nuevo). Cierre 2,92 s desde "videollamada" (32,56).
+Inicios: s02 2,45 · s03 4,90 · s04 5,66 · s05 8,78 · s06 11,74 · s07 13,82 · s08 16,61 · s09 19,05 · s10 20,67 ·
+s11 23,55 · s12 26,00 · s13 28,78 · s14 32,56.
+
+Voz y guion (A):
+- `partes/armar-voz.mjs` rehecho por tramos: orus1-2 hasta 27,95 ("y se fue antes" entero) y orus2-1 hasta 10,30 ("com"
+  entero). Frases nuevas con Orus: "Los que llegaron después se llevaban lo suyo antes." (n5-2; la n5-1 decía "los
+  usuales"), "Que te pasen, muchas veces, pesa más que esperar." (n7-1; el STT oye "pesan" en las dos tomas: es la s
+  de "pasen" pegada) y "¿Ponemos número en tu negocio?" (n13-1). Orus con atempo 1,15 (antes 1,1); pausas más cortas
+  (después de "¿Por qué?" 0,6 → 0,36 s).
+- STT de la locución: "…y se fue antes…" y "…escalerita.com" (el "com" está; el dominio siempre lo oye así). En el
+  recorte de "se llevaban lo suyo antes" a tempo 1,15 el STT oye "los suyos han"; a tempo 1,0 lo oye perfecto: es el
+  STT con el habla rápida, se entiende. 95 palabras: no llegué a ≤ 90 sin sacar contenido aprobado (el pedido era ≤ 90
+  y ≤ ~35,5 s; la duración sí queda en 35,5 s).
+- Tiempos: `partes/ajustar-tiempos.mjs` con tramos nuevos de silencedetect; boca de Rubén 23,45-25,7.
+- `fuentes.md` filas 4 y 6 actualizadas al texto nuevo.
+- Chat (s09/s11): fondo crema #efeee5, burbuja blanca con borde verde #5ce611, barra de estado de Graciela 9:02.
+
+Visual (B):
+- ALTA bolsa de Walter: la agarra con la mano izquierda (la de cámara) y se va con ella en diagonal hacia cámara.
+- ALTA "?" verde liso: el "?" ya no viaja a la cámara; gira en el display y corte seco al plano abierto de RETIROS.
+- s01/s02: corte limpio del numerador (que no pisa más) al plano alto de la fila (todo dentro: display, 21-25, cinta).
+- Créditos 48 px con sublínea mono 44 px; tickets "?" con etiqueta navy 84 px (WHATSAPP/MOSTRADOR/WEB).
+- Balanza: brazo más alto, platillos más bajos y reloj de arena más bajo (no lo atraviesa); cámara centrada; sin Rubén
+  en el primer plano de la balanza; corte seco al plano general del almacén (s08).
+- s08: tickets "?" abajo, sobre el frente del mostrador (ya no tapan a Rubén ni al numerador); el cartel del
+  mostrador se esconde solo mientras están.
+- Cartel nuevo "ALMACÉN RUBÉN" en el frente del mostrador (llena el 40 % de abajo en s12 y da identidad).
+- s09: la cámara arranca en el celular (el subtítulo ya no cae en los ojos de Graciela); la burbuja que cruza el corte
+  es chica y va al celular de Rubén.
+- s10: cámara corrida; Walter de 3/4 sin brazo metido en el torso (se ve el de cámara).
+- s11: celular más bajo y más chico, cámara más alta: se ve la boca de Rubén en "¿Graciela?".
+- s12: la tablet aparece con las tres filas y "?" en el número; el numerador le da 23, 24, 25 (nunca en blanco); sin
+  Rubén en el inserto; s13: corte al general (R6) con Graciela a la derecha, de frente, sin la balanza detrás.
+- s05: los que llegaron después se llevan paquetes genéricos (caja de cartón con cinta verde y recibo 5, 7, 9) que
+  saltan y se van; la bici de Larson queda.
+- "Graciela · 9:02 · esperando" más arriba (no toca el logo); el display del almacén más chico y adentro.
+
+Sonido (C): ring de la bici 0,025 → 0,02; impact y pop del "?" bajados; whoosh audible (0,07) en el corte al general
+de s13; ding del cierre después de "com" (pal[94].end); typing de s09 bajado. Mezcla: I -16,8 LUFS, pico -4,2 dBFS;
+ningún tramo de 0,5 s ni de 0,1 s con voz por debajo de 6 dB.
+
+Pasadas: r1-pasada1 (cada 0,5 s) → cartel tapado por los "?", balanza detrás de Graciela, Walter cortado a la izquierda;
+r1-pasada2 (desfasada 0,25 s) → frente del mostrador vacío en s08 antes de los "?", "Una sola fila" pisando la tablet
+en el push-in, WEB tocando el borde. Todo corregido y verificado (r1-verif). `check --json`: ok, 0 errores.
+Portada: fondo limpio regenerado (`portada-src/fondo-limpio-0.6.png`, `fondo-portada.png`).
+
+Quedó flojo: 26,1-26,3 el celular y la tablet se cruzan un instante; 20,7 Walter entra cortado a la izquierda; 13,3 la
+revista asoma abajo al final de la grúa; el pelo de Rubén (casquete) es el del módulo `personajes.js` (no lo toqué,
+es el Rubén de siempre); 95 palabras (> 90).

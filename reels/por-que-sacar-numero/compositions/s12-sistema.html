@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 1.66); fuera([1], 2.7);
+nota(1, 1.51); fuera([1], 2.38);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

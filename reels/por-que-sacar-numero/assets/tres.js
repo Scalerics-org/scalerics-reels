@@ -992,7 +992,7 @@ function zonaR(t) {
   displayR.visible = balanza.visible = celuR.visible = laptop.visible = en; tablet.visible = false; tildeTab.visible = false;
   bolsaW.visible = bolsaG.visible = false; graciela.raiz.visible = false; walter.raiz.visible = false; burbujaV.visible = false;
   tkVuelan.forEach((x) => (x.visible = false)); sinNum.forEach((x) => (x.visible = false));
-  cartelR.visible = en && plano !== "R";
+  cartelR.visible = en && !(plano === "R" && t > T.fila - 0.05 && t < T.s09 - 0.1);
   balanza.visible = en && plano !== "R6";
   if (!en) return;
   // ---- el numerador y el display (apagados hasta "sistema") ----
@@ -1104,7 +1104,7 @@ function zonaR(t) {
   // ---- s08: tres filas que no se ven (celular, mostrador, laptop): un ticket "?" rojo apagado sobre cada una, sin número ----
   sinNum.forEach((o) => (o.visible = false));
   if (plano === "R" && t > T.s08) {
-    const lugares = [V(OR.x - 0.55, 0.66, 0.6), V(OR.x - 0.1, 0.68, 0.6), V(OR.x + 0.35, 0.66, 0.6)];
+    const lugares = [V(OR.x - 0.52, 0.66, 0.6), V(OR.x - 0.12, 0.68, 0.6), V(OR.x + 0.27, 0.66, 0.6)];
     lugares.forEach((p, j) => {
       const t0 = T.fila + j * 0.14;
       const kk = t < t0 ? 0 : popIn(t, t0, 0.3) * (1 - sg(t, T.s09 - 0.15, T.s09));
