@@ -43,6 +43,11 @@ export const ELENCO = {
   almacenero: { nombre: "Rubén", piel: PIEL.media, pelo: PELO.canoso, peinado: "pelado", bigote: PELO.gris, cejasColor: 0x5b5048,
     camisa: MARCA.cr, mangas: "cortas", delantal: MARCA.navy2, delantalBorde: MARCA.g, pantalon: 0x3a3f4a, zapatos: 0x2a2220,
     panza: 1.18, nariz: 0.068, mejillas: 0xd98a78, alto: 1.0 },
+  // Rubén desde el 13-11: el mismo (cara, bigote, panza) pero dueño de una distribuidora mayorista,
+  // no almacenero. Camisa navy de manga larga con cuello crema, sin delantal. Usar este, no `almacenero`.
+  ruben: { nombre: "Rubén", piel: PIEL.media, pelo: PELO.canoso, peinado: "pelado", bigote: PELO.gris, cejasColor: 0x5b5048,
+    camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr, pantalon: 0x3a3f4a, zapatos: 0x2a2220,
+    panza: 1.18, nariz: 0.068, mejillas: 0xd98a78, alto: 1.0 },
   // Graciela, la clienta: 65 años, batido de rulos lila-canoso, lentes, cárdigan verde, chismosa de feria.
   clienta: { nombre: "Graciela", piel: PIEL.clara, pelo: PELO.lila, peinado: "rulos", lentes: MARCA.navy2, cejasColor: 0x8a7f8f,
     camisa: MARCA.g, mangas: "largas", cuello: MARCA.cr, pollera: MARCA.navy3, pantalon: null, zapatos: 0x6b3f2e,

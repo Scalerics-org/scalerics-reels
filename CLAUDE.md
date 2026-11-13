@@ -37,6 +37,21 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    parado: se lo trata con respeto, como a un colega.
 5. Los reels de abajo marcados como ejemplos (vagos, ojala-te-fundas, el-golpe, el-juicio, infiel,
    negocio-zombi) sirven solo por el ritmo y la edición, NO por el tono ni por el estilo visual.
+6. **Rubén ya no es almacenero (Juan, 13-11):** "tiene que dejar de ser un almacenero de barrio,
+   entiendo que eso traiga gente pero no es nuestro público objetivo; puede seguir teniendo la
+   personalidad de Rubén pero más picante". Ahora es dueño de una distribuidora mayorista (ver 8d).
+   Nada de almacén, mostrador de barrio, fiado, libreta ni vecinas en ningún reel nuevo.
+7. **Lo que dicen los números de Instagram (13-11, 48 reels):** un reel queda en ~150-250 vistas
+   (solo seguidores) o salta a 1.000-4.500. Lo que decide el salto es el tiempo de visionado:
+   los que explotan tienen 17 s de media o más (en uno de 30 s, más de la mitad del video).
+   - Rubén con diálogo en burbujas y sin narrador: 4 de 4 explotaron. Es el formato a repetir.
+   - Casos de marcas extranjeras (Duolingo, Shopify, Airbnb, Netflix): 1 de 6. **No hacer más**
+     `caso-*` de marcas de afuera.
+   - Explicativos sin personaje: 0 de 5. "¿Por qué X hace Y?" con narrador: 3 de 9, y solo
+     funcionaron cuando el primer cuadro era una escena con Rubén, no la pregunta.
+   - El cuadro 0 tiene que ser una escena en curso, nunca una pregunta ni una frase general.
+   - Casi nadie comenta ni sigue (1 comentario en 48 reels): el cierre tiene que dar un motivo
+     para comentar o seguir (serie con capítulos, "¿cuál te pasó?", una palabra a cambio de algo).
 
 6. **El formato preferido ahora (Juan, 02-11): el motion persuasivo de TikTok.** Explicar por
    qué comprar mostrando DOS comercios del mismo rubro: uno con el sistema y otro sin. Siempre
@@ -246,16 +261,29 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    con "jaja este sos vos". Son los que traen alcance de dueños de comercio (y no de chicos); el
    perfil con los explicadores es el que después convence.
    - **Base: `reels/abren-hoy`**, `reels/abren-hoy-2` y `reels/abren-hoy-completo`. Personajes 3D
-     recurrentes en `reels/abren-hoy/assets/personajes.js`: Rubén el almacenero, Graciela la clienta,
-     Nico el empleado, Marta la de la cafetería. Usá SIEMPRE estos (se pueden sumar nuevos al módulo,
-     con el mismo estilo): que la gente los reconozca y espere el próximo.
-   - **RUBÉN ES LA ESTRELLA** (Juan, 05-11: "amo el personaje de Rubén"; "que en la rutina haya varios
-     Rubén"). Cada noche, **varios reels con Rubén**: protagonista en al menos 2 de los 3 "para mandar",
-     y además puede aparecer en los explicadores como el dueño que se hace la pregunta ("¿por qué el
-     súper me pregunta si tengo la tarjeta?") o que prueba la solución en su almacén. Mismo Rubén
-     siempre: el módulo de personajes, voz Gemini Algenib (grave, cansado, uruguayo), su almacén, su
-     mate, su "Hoy: N veces". Variá las situaciones y los compañeros (Graciela, Nico el empleado,
-     Marta de la cafetería de al lado, Sofi de Scalerics) para que no sea siempre el mismo chiste.
+     recurrentes en `reels/abren-hoy/assets/personajes.js`: Rubén (`ELENCO.ruben`, el dueño de la
+     distribuidora; `ELENCO.almacenero` es el Rubén viejo y ya NO se usa), Graciela la clienta, Nico
+     el vendedor, Sofi de Scalerics. Usá SIEMPRE estos (se pueden sumar nuevos al módulo, con el
+     mismo estilo): que la gente los reconozca y espere el próximo.
+   - **RUBÉN ES LA ESTRELLA, PERO YA NO ES ALMACENERO** (Juan, 05-11: "amo el personaje de Rubén";
+     13-11: "tiene que dejar de ser un almacenero de barrio [...] no es nuestro público objetivo;
+     puede seguir teniendo la personalidad de Rubén pero más picante"). Desde el 13-11 Rubén es
+     **dueño de una distribuidora mayorista**: unos 15 empleados, depósito con estanterías y
+     pallets, su oficina vidriada arriba del depósito, vendedores en la calle, clientes que son
+     otros comercios, la lista de precios en Excel, el contador, el banco. Misma cara, bigote y
+     panza; camisa navy de manga larga arremangada, sin delantal. Mismo Rubén por dentro: voz Gemini
+     Algenib (grave, cansado, uruguayo) y el mate en el escritorio. El almacén, el mostrador de
+     barrio, la libreta del fiado y las vecinas quedan afuera: traían alcance, pero no clientes.
+   - **Más picante.** Ya no es el almacenero resignado: es el dueño que dice en voz alta lo que
+     todos los dueños piensan y no se animan a decir. Sarcasmo seco, ironía filosa, remates con
+     mala leche contra las SITUACIONES (el cliente que paga a 90 días y pide descuento, el vendedor
+     que "ya lo cargo", la reunión que podía ser un mail, el proveedor, el banco, la DGI, el sobrino
+     que "sabe de computadoras"). Nunca contra el que mira (sigue valiendo el punto 4 de arriba): el
+     dueño que lo ve tiene que pensar "es exactamente así" y mandárselo a otro dueño.
+   - Cada noche, **varios reels con Rubén**: protagonista en al menos 2 de los 3 "para mandar", y
+     además puede aparecer en los explicadores como el dueño que se hace la pregunta o que prueba la
+     solución en su empresa. Variá las situaciones y los compañeros (Graciela, Nico el vendedor, Sofi
+     de Scalerics) para que no sea siempre el mismo chiste.
    - **10-16 s, una sola situación** que todo comerciante vivió, con timing de comedia: arranque ya en
      situación (cuadro 0 = la escena), una pausa antes del remate, remate fuerte, y si hay, un
      "remate del remate" (el contador que pasa a 48). Se entiende **sin sonido** (burbujas y carteles
@@ -275,11 +303,14 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
      ("Un agente de IA más tarde…", "Una tienda online más tarde…", "Un sistema más tarde…").
      Nada de Bob Esponja (ni su tipografía, ni sus fondos, ni su audio): es el meme hecho de cero.
      También vale la parte 1 sola (14 s, solo el problema) para alternar y medir cuál se comparte más.
-   - Situaciones para arrancar (inventá más): "¿abren hoy?" con el cartel en la puerta; "lo mismo
-     que la otra vez" sin decir qué; el audio de 4 minutos para preguntar un precio; "pasame precio"
-     sin decir de qué; el que pide descuento en algo de $200; "¿hacen envíos?" del vecino de enfrente;
-     el que llega 19:59; "te lo paso a buscar mañana" y nunca viene; "¿me lo guardás?"; el
-     presupuesto que pidió y no contesta nunca más.
+   - Situaciones para arrancar, todas de la distribuidora (inventá más): el presupuesto que mandaste
+     en el día y el cliente desaparece; "pasame la lista de precios actualizada" por quinta vez en la
+     semana; el vendedor que tomó el pedido por WhatsApp y nunca lo cargó; el Excel dice 40 y en el
+     depósito hay 3; "¿cuánto vendimos este mes?" y nadie sabe; el cliente que paga a 90 días y pide
+     descuento por pronto pago; el vendedor que se va y se lleva la cartera de clientes en su celular;
+     el contador pidiendo los números el último día; doce mails para confirmar un pedido; el cliente
+     grande que dejó de comprar hace tres meses y nadie se dio cuenta. Las de antes ("¿abren hoy?",
+     "¿me lo guardás?", el que llega 19:59) eran de almacén: ya no van.
    - Misma vara (8b 3D real, 8c revisión) y mismo equipo por reel. El revisor de "guion y datos"
      acá se pregunta: **¿un dueño se lo mandaría a otro? ¿el remate pega?** Si la respuesta es
      "más o menos", se reescribe el chiste antes de construir.
