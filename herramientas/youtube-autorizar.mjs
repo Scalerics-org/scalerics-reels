@@ -29,7 +29,7 @@ const url =
     prompt: "consent",
   });
 console.log("Abrí esta dirección y entrá con scalerics@gmail.com:\n" + url);
-try {
+if (!process.env.NO_ABRIR) try {
   execSync(`start "" "${url}"`, { shell: "cmd.exe", stdio: "ignore" });
 } catch {}
 
