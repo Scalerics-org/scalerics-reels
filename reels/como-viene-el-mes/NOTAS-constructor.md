@@ -196,3 +196,46 @@ Tramo mudo 23,44-25,18 recortado 0,4 s ("Ocho por ciento…" entra a 24,77).
 Mezcla: -14,0 LUFS, pico -4,3 dBFS; voz ≥ 6 LU sobre el resto donde habla alguien (el tramo de 23,5 s es la cola de
 "¿…el mes?" con el vibrar).
 Dudoso: en Q5 la caja CAFETERÍA queda en parte detrás de la torre; Marta de 3/4 de espaldas (se le ve el perfil).
+
+## Ronda 4 de correcciones (13-11) · 35,58 s (parte 1 0-18,57 · cartel 18,57-21,27 · parte 2 21,27-35,58; línea chica desde 33,58, 2 s)
+Lo de PENDIENTE.md (los 3 ALTOS del final y los medios 4-8). Voces sin tocar; la mezcla se regeneró con gen.mjs porque
+cambiaron los tiempos: -14,0 LUFS, pico -4,4 dBFS, voz ≥ 6 LU sobre el resto en todos los tramos donde alguien habla (el
+único "<6" es 23,0 s: la cola muda de "¿…el mes?" con el vibrar, como antes). Se agregaron dos whoosh-short (-48) en los
+cortes nuevos (Q4i, Q4c), nada más. `check`: 0 errores.
+
+Planos nuevos (s): … P6c 17,32 (Marta sale 18,17; corte al cartel 18,57) · cartel 18,57 · Q1 21,27 (llega 22,57, apoya la
+bandeja 22,99) · Q2 23,22 · Q2b 25,27 · Q2c 26,67 (tilde 27,22) · Q3 27,76 · Q3b 28,56 · Q3c 29,27 · Q4 29,82 · Q4b 30,98
+(saca la caja del cajón 31,03-31,40) · **Q4i 31,43** (inserto de la caja CAFETERÍA de frente, se abre 31,63: los tickets
+saltan hacia Rubén) · **Q4c 32,23** (Rubén de frente le saca el pocillo de arriba a la torre 32,53-32,85 y lo deja junto a
+él) · **Q5 33,13** (general desde atrás del mostrador, a la izquierda: Rubén se gira hacia Marta 33,18-33,53, sorbo de mate
+33,98; Marta de 3/4 sumando con su caja; la torre al costado) · línea chica 33,58.
+
+1. (ALTA, Q3/Q4) BANDEJA_M pasó a (0,38; -1,36), más hacia Rubén, y MARTA_Q apunta a (0,3; -0,98) con fov 54 fijo: la torre
+   queda entera a la derecha de Marta, separada de la cara en todo Q3-Q4b.
+2. (ALTA) El remate: Q4i, tele (fov 25) desde adelante a la izquierda: la caja CAFETERÍA con el rótulo de frente, la tapa se
+   abre del todo hacia Rubén (abrir(1)) y los tickets saltan hacia él; Marta saca las manos al apoyarla (brazos abajo, nada
+   delante del rótulo) y su cabeza se oculta en ese inserto (asomaba el borde). La etiqueta de la tapa de CAFETERÍA se lee
+   desde el lado del cliente (arribaCliente). CAF pasó a (-0,3; -1,18), a la izquierda de Marta, lejos de la torre. Q4c:
+   Rubén de frente (cámara POC_Q) agarra el pocillo de arriba, lo lleva a CUP_R (0,6; -1,44) y suena el plato en cuadro.
+3. (ALTA) Q5 nuevo (FINAL_Q, fov 76→74): Marta de frente-3/4 (giro 3,68, de cara a su caja, se gira fuera de cuadro en Q4c),
+   sumando con las manos en los tickets, la caja abierta delante con el rótulo legible; la torre a un costado, entre los dos,
+   sin tapar la caja ni caras; Rubén se gira hacia ella (giro -0,75) con el pocillo al lado y toma mate: la bombilla en la
+   boca (mateSorbo: la boca en (0; 0,24; 0,17) de la cabeza; antes quedaba 8 cm adelante, se notaba de 3/4) y la mano por el
+   costado del mate.
+4. P6c: COSTADO más abierto (fov 74, mira a -0,3): Marta, la torre y la cara de Rubén entran; al salir Marta lleva la torre a
+   su costado (no delante de la cara); la burbuja "Pongo otro café." se va a 18,45 y el corte al cartel es a 18,57 (Marta
+   saliendo por el borde), sin el plano vacío.
+5. Q1: la cámara abre y gira hacia la bandeja (Q1_FIN): se ve a Marta entera y cómo apoya la bandeja (la sube por encima del
+   mostrador al llegar; antes la atravesaba) con el borde verde desde el primer cuadro; el cajón baja aparte.
+6. P1: el push-in termina corrido hacia Marta (HOMBRO_P1, fov 54): su cara no se corta.
+7. P3w2 (ALTA2, fov 72, más a la derecha y corrido a la izquierda): Marta sentada entera; en los insertos de la torre el pocillo
+   que se apoya va en la mano derecha (la mano no flota vacía). P6m: más alto y fov 46 (la cabeza de Rubén no toca el borde).
+   Q2: el celular un poco más lejos: "Ocho por ciento…" queda debajo de la pantalla. Q2b/Q3b (FRENTE2): centrado en Rubén, fov
+   42: su cara entera y la torre fuera de cuadro.
+8. guion.txt: la acotación final describe lo que se ve (saca la caja de su cajón, los tickets saltan como resorte hacia Rubén,
+   el pocillo, se gira hacia Marta y toma mate mientras ella suma).
+Snapshots (scratchpad de la corrida, se pierden): mes-fix/p1, p2 (dos pasadas: cada 0,25 s de 22,25 al final + 1-2, 6-7,5,
+15,5-19,5) y los puntuales m1-m13, final, final2.
+Dudoso: P6c 17,32-17,6 Marta todavía junto al cajón en el borde izquierdo (se ve la cara de perfil, la nuca cortada); Q5
+Rubén queda pegado al borde izquierdo (entra la oreja justa) y abre de espaldas 0,1 s antes de girarse; en Q4i asoma una
+punta de la manga de Marta abajo a la derecha; Q3/Q4 en primer término abajo a la derecha el termo/mate de Rubén.

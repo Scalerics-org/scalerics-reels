@@ -46,7 +46,7 @@ T.p5 = 9.5; T.lee = [9.55, 10.4]; T.p5b = 10.45; T.p5c = 11.05; T.mira = [11.15,
 // calculadora: C → 0. · P6c Marta agarra la torre: "Pongo otro café." y sale por la persiana
 T.p6 = 13.1; T.m2 = 13.2; T.p6x = 14.8; T.baja = [15.12, 15.34]; T.sube = [15.34, 15.52]; T.golpe = 15.52; T.p6m = r2(T.golpe + 0.2);   // (ronda 1) cara de nada antes de agacharse; P6m: la caja MES PASADO de frente 1,1 s
 T.p6b = r2(T.p6m + 1.1); T.tc = r2(T.p6b + 0.18); T.p6c = r2(T.p6b + 0.5); T.levantaM = [r2(T.p6c + 0.05), r2(T.p6c + 0.35)]; T.agarra = r2(T.p6c + 0.35); T.m3 = r2(T.p6c + 0.4); T.saleM = [r2(T.p6c + 0.85), r2(T.p6c + 1.7)]; T.teclea2 = r2(T.p6c + 1.1);
-const P1 = r2(T.p6c + 1.8);               // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p6c + 1.25);   // (ronda 4) corte al cartel cuando Marta sale de cuadro (antes quedaba 0,5 s casi vacío)               // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 2.7);   // (ronda 1) cartel de 2,7 s        // arranca la parte 2 (termina el iris del cartel)
 // ---- parte 2 ----
 // Q1 · el encuadre de P1: el mostrador limpio, el celular en el atril; Marta entra con la torre en la bandeja y el cajón
@@ -60,12 +60,15 @@ T.q3 = r2(T.r3 + LEN.r3 + 0.12); T.tiembla = r2(T.q3 + 0.3); T.q3b = r2(T.q3 + 0
 T.q3c = r2(T.r4 + LEN.r4 + 0.1); T.q4 = r2(T.q3c + 0.55);
 // Q4 · Marta de frente: "Pará que te digo." · Q4b grúa atrás: saca la caja CAFETERÍA del cajón, la abre (los tickets
 // saltan); Rubén saca un pocillo de la torre y se sienta en el banquito con el mate: ahora espera él · línea chica
-T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.23); T.sacaCaja = [r2(T.q4b + 0.05), r2(T.q4b + 0.45)]; T.abreQ = r2(T.q4b + 0.6);
-// (ronda 1) Q5: general: Rubén ya del lado del cliente, le saca un pocillo a la torre, se sienta en el cajón con el mate y
-// toma un sorbo; Marta suma con su caja CAFETERÍA
-T.pocillo = [r2(T.q4b + 0.5), r2(T.q4b + 0.85)];   // (ronda 1) en Q4b: Rubén se corre detrás del mostrador y le saca un pocillo a la torre
-T.q5 = r2(T.abreQ + 0.55); T.sorbo = r2(T.q5 + 0.8);   // (ronda 2) Rubén no se sienta: toma mate en su lugar
-T.cierre = r2(T.q5 + 0.6);
+T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.23); T.sacaCaja = [r2(T.q4b + 0.05), r2(T.q4b + 0.42)];
+// (ronda 4) el remate de la parte 2 en tres planos: Q4i inserto de la caja CAFETERÍA de frente (se abre, los tickets saltan
+// hacia Rubén) · Q4c Rubén de frente le saca el pocillo de arriba a la torre, lo deja junto a él y se gira hacia Marta ·
+// Q5 general desde atrás del mostrador (izquierda): Marta de 3/4 sumando con su caja, la torre al costado, Rubén con el
+// pocillo y el mate (sorbo)
+T.q4i = r2(T.sacaCaja[1] + 0.03); T.abreQ = r2(T.q4i + 0.2);
+T.q4c = r2(T.abreQ + 0.6); T.pocillo = [r2(T.q4c + 0.3), r2(T.q4c + 0.62)];   // (ronda 4) la mano arranca recién en Q4c (no cruza el inserto) 
+T.q5 = r2(T.q4c + 0.9); T.gira = [r2(T.q5 + 0.05), r2(T.q5 + 0.4)]; T.sorbo = r2(T.q5 + 0.85);
+T.cierre = r2(T.q5 + 0.45);
 const DUR = r2(T.cierre + 2.0);   // la línea chica 2 s (check: una línea de cierre necesita ~2 s)
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -318,8 +321,8 @@ s("sfx/whoosh-short.mp3", T.p6c - 0.04, 0, { techo: -48 });
 s("sfx/k-cloth_2.wav", T.levantaM[0], 0, { techo: -46 }); s("sfx/k-creak.wav", T.levantaM[0] + 0.05, 0, { techo: -48 });   // (ronda 1) se levanta del cajón
 plato(T.agarra - 0.15, 1, -40);
 voz("m3", T.m3, -2);
-pasos(T.saleM[0], T.saleM[1] - 0.2, 4);
-persiana(T.saleM[1] - 0.15, -46);
+pasos(T.saleM[0], Math.min(T.saleM[1] - 0.2, P1 - 0.05), 3);
+persiana(Math.min(T.saleM[1] - 0.15, P1 - 0.12), -46);
 teclas(T.teclea2, P1 - 0.05, 0.14, -48);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
@@ -349,6 +352,7 @@ voz("r4", T.r4, -1);
 s("sfx/whoosh-short.mp3", T.q4 - 0.04, 0, { techo: -48 });
 voz("m4", T.m4, -2);
 s("sfx/whoosh.mp3", T.q4b - 0.04, 0, { techo: -44, dur: 0.5, fin: 0.15 });
+s("sfx/whoosh-short.mp3", T.q4i - 0.04, 0, { techo: -48 }); s("sfx/whoosh-short.mp3", T.q4c - 0.04, 0, { techo: -48 });   // (ronda 4) el inserto de la caja y Rubén con el pocillo
 s("sfx/whoosh-short.mp3", T.q5 - 0.04, 0, { techo: -46 });
 s("sfx/sorbo.wav", T.sorbo, 0, { desde: 0.45, dur: 0.95, fin: 0.2, techo: -40 });   // (ronda 1) el sorbo de mate (Abir19, CC0)
 s("sfx/k-plastico.wav", T.sacaCaja[0] + 0.05, 0, { techo: -46 });
