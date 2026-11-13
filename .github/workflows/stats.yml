@@ -1,0 +1,44 @@
+# Cada lunes saca las métricas de los reels en Instagram y actualiza stats.md en main
+# (ver herramientas/stats.mjs). La rutina lo lee antes de elegir temas.
+# A mano: Actions → "Estadísticas" → Run workflow.
+name: Estadísticas
+on:
+  schedule:
+    - cron: "17 12 * * 1" # lunes 09:17 de Uruguay
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: stats
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # main pesa 4 GB: de reels/ alcanza con la descripción (para emparejar), el guion (la primera
+      # línea) y el index.html (la duración)
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/reels/
+            /reels/*/descripcion.txt
+            /reels/*/guion.txt
+            /reels/*/index.html
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node herramientas/stats.mjs
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+      - name: Commit de stats.md
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.md
+          git diff --cached --quiet && { echo "sin cambios"; exit 0; }
+          git commit -m "stats: métricas de Instagram ($(date -u +%F))"
+          # la rutina también empuja a main: reintentar con rebase si se adelantó
+          for i in 1 2 3; do git pull --rebase --no-edit origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          exit 1

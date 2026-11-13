@@ -306,6 +306,30 @@ const info = await pedir(`${igBase}/${pub.id}?fields=permalink&access_token=${tk
 console.log("PUBLICADO: " + info.permalink);
 hechoEn.push("instagram");
 }
+
+// 5b. El mismo reel en la página de Facebook (Juan, 13-11: muchos dueños de pymes están más en Facebook).
+// Va atado a Instagram: sale cuando sale ahí, con el token de la página. Necesita el permiso
+// pages_manage_posts en ese token; sin él se anota en el log y sigue (no frena Instagram).
+if (hechoEn.includes("instagram") && estado?.pagina && !(pub.facebook || []).includes(slug)) {
+  try {
+    const G = "https://graph.facebook.com/v21.0";
+    const pagina = (await pedir(`${G}/me?fields=id&access_token=${tk}`)).id;
+    const ini = await pedir(`${G}/${pagina}/video_reels`, { method: "POST", body: new URLSearchParams({ upload_phase: "start", access_token: tk }) });
+    const sub = await pedir(`https://rupload.facebook.com/video-upload/v21.0/${ini.video_id}`, {
+      method: "POST",
+      headers: { Authorization: "OAuth " + tk, file_url: videoUrl },
+    });
+    if (!sub.success) throw new Error("la subida no terminó: " + JSON.stringify(sub).slice(0, 200));
+    await pedir(`${G}/${pagina}/video_reels`, {
+      method: "POST",
+      body: new URLSearchParams({ upload_phase: "finish", video_id: ini.video_id, video_state: "PUBLISHED", description: caption, access_token: tk }),
+    });
+    console.log(`FACEBOOK: publicado (video ${ini.video_id})`);
+    hechoEn.push("facebook");
+  } catch (e) {
+    console.log("FACEBOOK FALLÓ (¿falta pages_manage_posts en el token?): " + e.message);
+  }
+}
 if (hacerTT) {
   try {
     console.log("TIKTOK: " + (await publicarTikTokPanel(accesoTT, bytes, { ...autoTT, titulo: caption })));

@@ -41,7 +41,11 @@ Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy in
    entiendo que eso traiga gente pero no es nuestro público objetivo; puede seguir teniendo la
    personalidad de Rubén pero más picante". Ahora es dueño de una distribuidora mayorista (ver 8d).
    Nada de almacén, mostrador de barrio, fiado, libreta ni vecinas en ningún reel nuevo.
-7. **Lo que dicen los números de Instagram (13-11, 48 reels):** un reel queda en ~150-250 vistas
+7. **Antes de elegir temas, leé `stats.md`** (lo actualiza cada lunes el Action "Estadísticas"): los
+   10 mejores y los 10 peores de los últimos 30 días con su visionado medio y su primera línea.
+   Hacé más de lo que tienen en común los de arriba y no repitas lo de abajo. Si lo que ves ahí
+   contradice algo de este punto, manda `stats.md` (es más nuevo).
+   **Lo que dicen los números de Instagram (13-11, 48 reels):** un reel queda en ~150-250 vistas
    (solo seguidores) o salta a 1.000-4.500. Lo que decide el salto es el tiempo de visionado:
    los que explotan tienen 17 s de media o más (en uno de 30 s, más de la mitad del video).
    - Rubén con diálogo en burbujas y sin narrador: 4 de 4 explotaron. Es el formato a repetir.
