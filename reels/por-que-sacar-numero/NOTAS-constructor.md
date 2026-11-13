@@ -180,3 +180,19 @@ s10 20,88 · s11 23,76 · s12 26,21 · s13 28,99 · s14 32,77 (todo lo de despu�
   I -16,8 LUFS, pico -4,0 dBFS. check ok, 0 errores. Portada: el cuadro de 0,6 s no cambió.
 Quedó flojo: 20,6-20,8 la burbuja chica llega al celular de Rubén por delante del mostrador; 22,9-23,7 Walter sale
 cortado por la izquierda (es la salida); etiquetas de los "?" ~35 px.
+
+## Ronda 3 de corrección · 13-11 (voz, tiempos y mezcla sin cambios, salvo "antes")
+- s13: Graciela de frente (giro -0,1, cabeza -0,08) y más a la derecha (x+0,86): los dos aros de los anteojos con su
+  ojo, nada flotando, la cara de Rubén libre; cámara final corrida para que no se corte.
+- s02: fila con más separación (x −0,34 por ticket): el 23 se lee entero; el 31 entra y rebota poco, queda en cuadro
+  con el rótulo apuntándolo.
+- Display de la balanza "0,00" (antes "= =") y el TURNO ya no se aplasta al cambiar 22 → 23 (pulso de escala).
+- s11: el plano arranca con el celular ya en las dos manos de Rubén (sin giro flotando ni brazo tubo).
+- s09: sin la burbuja que volaba (era el panel blanco con la "s" detrás del celular).
+- s12: cámara más cerca (tablet y numerador grandes); el celular de s11 no aparece en el plano y la tablet sale en
+  s12+0,12.
+- "antes." con su recuadro desde 11,02 (tramo "lo suyo" 10,60-11,02).
+- Pasadas r3-pasada1 y r3-pasada2 (cada 0,5 s, desfasadas): sin defectos altos. check ok, 0 errores. Mezcla sin
+  tramos con voz < 6 dB.
+Quedó: 20,9-21,1 la burbuja chica cae al celular de Rubén en el plano de Walter; Walter entra/sale cortado por la
+izquierda (20,9 y 23,5); el rótulo de Larson sobre el estante (no tapa la bici en los cuadros revisados).
