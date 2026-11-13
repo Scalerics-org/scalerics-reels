@@ -16,6 +16,7 @@ import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
 import { accesoTikTok, mandarAlInboxTikTok, publicarTikTok, publicarTikTokPanel } from "./tiktok.mjs";
+import { accesoYouTube, subirShort, tituloDe } from "./youtube.mjs";
 
 const PRUEBA = process.argv.includes("--prueba");
 // PANEL (variable de entorno) = base64url de un JSON: lo eligió una persona en el panel de aprobación
@@ -328,6 +329,22 @@ if (hechoEn.includes("instagram") && estado?.pagina && !(pub.facebook || []).inc
     hechoEn.push("facebook");
   } catch (e) {
     console.log("FACEBOOK FALLÓ (¿falta pages_manage_posts en el token?): " + e.message);
+  }
+}
+
+// 5c. El mismo reel como Short en YouTube (@scalerics). Atado a Instagram, como Facebook. Sin la app
+// auditada por YouTube queda privado: se pasa a público a mano en YouTube Studio (YT_PRIVACIDAD).
+if (hechoEn.includes("instagram") && !(pub.youtube || []).includes(slug)) {
+  try {
+    const accesoYT = await accesoYouTube(conG);
+    if (!accesoYT) console.log("youtube: sin autorizar todavía (node herramientas/youtube-autorizar.mjs), se saltea");
+    else {
+      const yt = await subirShort(accesoYT, bytes, { titulo: tituloDe(caption), descripcion: caption, privacidad: process.env.YT_PRIVACIDAD || "private" });
+      console.log(`YOUTUBE: ${yt.url} (${yt.privacidad})`);
+      hechoEn.push("youtube");
+    }
+  } catch (e) {
+    console.log("YOUTUBE FALLÓ: " + e.message);
   }
 }
 if (hacerTT) {
