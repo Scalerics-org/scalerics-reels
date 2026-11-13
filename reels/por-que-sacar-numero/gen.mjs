@@ -227,8 +227,8 @@ vacia("s03-por-que", [
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.05, max: 0.7 },
       ...[0, 1, 2, 3].map((j) => ({ t: 0.4 + j * 0.3, sfx: "tic", vol: 0.04 })),
-      { t: rel(id, T.revAbre + 0.2), sfx: "hoja", vol: 0.18, max: 0.5 },
-      { t: rel(id, T.corteRev - 0.15), sfx: "whoosh-short", vol: 0.05 },
+      { t: rel(id, pal[40].end + 0.1), sfx: "hoja", vol: 0.12, max: 0.4 },
+      { t: rel(id, T.corteRev - 0.05), sfx: "whoosh-short", vol: 0.03 },
     ],
   });
 }
@@ -303,7 +303,7 @@ vacia("s03-por-que", [
     js: `nota(1, ${rel(id, T.daVuelta + 0.5)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: rel(id, T.daVuelta), sfx: "click-soft", vol: 0.1 },
-      { t: rel(id, T.daVuelta + 0.5), sfx: "pop", vol: 0.05 },
+      { t: rel(id, T.daVuelta + 0.5), sfx: "pop", vol: 0.02 },
     ],
   });
 }
@@ -353,9 +353,9 @@ vacia("s13-primera", [
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 94) - 0.03)});
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
-      { t: -0.14, sfx: "whoosh", vol: 0.08, max: 0.5 }, { t: 0.04, sfx: "pop", vol: 0.15 },
+      { t: -0.14, sfx: "whoosh", vol: 0.08, max: 0.5 }, { t: 0.04, sfx: "pop", vol: 0.07 },
       { t: 0.3, sfx: "chime", vol: 0.04, max: 0.8 },
-      { t: rel(id, pal[94].end + 0.02), sfx: "ding", vol: 0.04, max: r2(Math.max(0.2, ESC[id] - rel(id, pal[94].end + 0.02) - 0.03)) },
+      { t: rel(id, pal[94].end + 0.06), sfx: "ding", vol: 0.03, max: r2(Math.max(0.2, ESC[id] - rel(id, pal[94].end + 0.02) - 0.03)) },
     ],
   });
 }

@@ -782,8 +782,8 @@ function armarPlanos() {
       k(T.primera + 0.4, r(-0.03, 1.73, 1.22), r(-0.02, 1.17, 0.1)),
     ]],
     ["R6", T.primera + 0.4, [
-      k(T.primera + 0.4, r(0.12, 2.0, 5.8), r(0.12, 1.18, -0.05)),
-      k(T.fin, r(0.18, 1.9, 5.0), r(0.18, 1.2, 0.0)),
+      k(T.primera + 0.4, r(0.28, 2.0, 5.9), r(0.28, 1.18, -0.05)),
+      k(T.fin, r(0.3, 1.9, 5.15), r(0.3, 1.2, 0.0)),
     ]],
     ["F", T.fin, [
       k(T.fin, f(0.0, 0.45, 3.0), f(0.0, 0.17, 0)),
@@ -1011,10 +1011,10 @@ function zonaR(t) {
   const ang = Math.sin(t * 2.3) * 0.05 * (1 - baja) - 0.2 * baja + rebote(t, T.pesa + 0.35, 6, 18, 0.03);
   brazoBal.rotation.z = ang; platos.forEach((p) => (p.rotation.z = -ang));
   balanza.userData.disp.material.map = dispBalT[baja > 0.5 ? 1 : 0];
-  const kc0 = t < T.corteRev ? 0 : popIn(t, T.corteRev - 0.2, 0.2), kc1 = t < T.pasen - 0.1 ? 0 : popIn(t, T.pasen - 0.1, 0.3);
+  const kc0 = t < T.corteRev ? 0 : popIn(t, T.corteRev - 0.25, 0.25), kc1 = t < T.pasen - 0.1 ? 0 : popIn(t, T.pasen - 0.1, 0.3);
   const saleC = 1 - sg(t, T.s08 + 0.25, T.s08 + 0.5);
   ocultar(cargas[0], kc0 * saleC); ocultar(cargas[1], kc1 * saleC);
-  if (t < T.s07) { cargas[0].visible = cargas[1].visible = false; }
+  if (t < T.corteRev) { cargas[0].visible = cargas[1].visible = false; } else if (t < T.pasen - 0.1) cargas[1].visible = false;
   // ---- Rubén ----
   const aC = { x: RX, y: 0, z: RZ, giro: 0 };
   const pr = poseEn(t, [
@@ -1144,7 +1144,7 @@ function zonaR(t) {
   // ---- s13: Graciela en el mostrador; Rubén le da su bolsa ----
   if (plano === "R6") {
     graciela.raiz.visible = true;
-    const pg = poseEn(t, [[0, { x: OR.x + 0.52, z: 0.72, giro: -0.3, ...CARA.esperanza, manoI: [0.3, -0.06, 0.05], manoD: [-0.3, -0.06, 0.05], cabeza: { giro: 0.0, asiente: 0.0 } }], [T.primera + 0.35, { ...CARA.feliz, cabeza: { giro: -0.3, asiente: 0.0, ladea: 0.06 }, ojos: { x: -0.3, feliz: 0.6 } }, 0.25], [T.entrega + 0.35, { manoD: [-0.12, 0.42, 0.42], codoD: [-0.8, -0.5, -0.1] }, 0.3]]);
+    const pg = poseEn(t, [[0, { x: OR.x + 0.78, z: 0.62, giro: -0.45, ...CARA.esperanza, manoI: [0.3, -0.06, 0.05], manoD: [-0.3, -0.06, 0.05], cabeza: { giro: 0.0, asiente: 0.0 } }], [T.primera + 0.35, { ...CARA.feliz, cabeza: { giro: -0.3, asiente: 0.0, ladea: 0.06 }, ojos: { x: -0.3, feliz: 0.6 } }, 0.25], [T.entrega + 0.35, { manoD: [-0.12, 0.42, 0.42], codoD: [-0.8, -0.5, -0.1] }, 0.3]]);
     pg.t = t; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true); graciela.ojoLejano(camera.position);
     bolsaG.visible = t > T.primera;
     const u = eio(sg(t, T.entrega, T.entrega + 0.5));
