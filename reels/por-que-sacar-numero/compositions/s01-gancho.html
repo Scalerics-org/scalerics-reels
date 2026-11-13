@@ -1,0 +1,62 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s01-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s01-gancho"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s01-gancho"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #0b1220; font: 700 50px/1.05 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.25); }
+    [data-composition-id="s01-gancho"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s01-gancho"] .pill.malo { border-color: #c7655b; background: #c7655b; color: #efeee5; font-weight: 800; }
+    [data-composition-id="s01-gancho"] .pill.gris { border-color: #8e8c80; background: #d9d7c9; color: #0b1220; }
+    [data-composition-id="s01-gancho"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s01-gancho"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
+    [data-composition-id="s01-gancho"] .dot.malo { fill: #c7655b; }
+
+    [data-composition-id="s01-gancho"] .mk { position: relative; display: inline-block; padding: 0 24px; margin: 0 4px; }
+    [data-composition-id="s01-gancho"] .mk .fondo { position: absolute; left: 0; right: 0; top: 18px; bottom: 2px; background: #5ce611; border-radius: 18px; border: 7px solid #0b1220; }
+    [data-composition-id="s01-gancho"] .mk em { position: relative; font-style: normal; color: #0b1220; -webkit-text-stroke: 0; }
+    [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 128px/1.04 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; -webkit-text-stroke: 16px #efeee5; paint-order: stroke fill; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .h1 { top: 92px; font-size: 118px; } [data-composition-id="s01-gancho"] .h2 { top: 222px; font-size: 140px; } [data-composition-id="s01-gancho"] .h3 { top: 384px; font-size: 112px; } [data-composition-id="s01-gancho"] .h4 { top: 506px; font-size: 132px; }
+    [data-composition-id="s01-gancho"] .verde { color: #5ce611; -webkit-text-stroke: 16px #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="2.45">
+    <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="2.45" data-track-index="0">
+
+      <div class="h h1">¿Por qué en la</div>
+      <div class="h h2"><span class="verde">fiambrería</span></div>
+      <div class="h h3">te hacen sacar</div>
+      <div class="h h4"><span class="mk"><b class="fondo"></b><em>número?</em></span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s01-gancho";
+      const DUR = 2.45;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
+      const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+
+
+      tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
+      late(".h2 .verde", 0.57, 1.08); late(".h4 .mk", 1.75, 1.1);
+      tl.to(qa(".h"), { opacity: 0, y: -30, duration: 0.2, ease: "power1.in" }, 2.21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

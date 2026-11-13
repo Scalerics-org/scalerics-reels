@@ -1,0 +1,14 @@
+{
+ "t": 0.6,
+ "fondo_limpio": "portada-src/fondo-portada.png",
+ "chica": "¿Por qué te hacen",
+ "grande": "sacar número?",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.2,
+ "foco": "45%",
+ "fondo": "#efeee5",
+ "velo": "11,18,32",
+ "nota": "fondo limpio: cuadro 0,6 s con LIMPIO=1 (solo la capa 3D: el numerador con el ticket 23 y la vitrina, sin gancho, subtítulos ni logo), corrido 300 px hacia arriba (portada-src/fondo-portada.png); velo navy para que el texto se lea sobre crema"
+}
