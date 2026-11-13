@@ -446,6 +446,7 @@ const MOST = { x: OR.x, y: 0.95, z: 0.0, d: 0.7, w: 2.2 };
 const RZ = -0.6; // dónde está parado Rubén
 const RX = OR.x + 0.0;
 const almacen = new THREE.Group(); scene.add(almacen);
+const cartelR = new THREE.Group(); scene.add(cartelR); // ronda 1: el cartel ALMACÉN RUBÉN (se esconde en s08, donde van los tickets "?")
 const ZW = -1.6;
 const VX = OR.x - 2.7; // vidriera y puerta
 {
@@ -489,8 +490,8 @@ const VX = OR.x - 2.7; // vidriera y puerta
   almacen.add(mesh(rbox(MOST.w + 0.12, 0.06, MOST.d, 0.02), [M.madera, M.madera, tapaM, M.madera, M.madera, M.madera], MOST.x, MOST.y - 0.03, MOST.z));
   // ronda 1: cartel del almacén en el frente del mostrador (llena el plano de la tablet y da identidad)
   const cartelT = tex(1024, 300, (x, w, h) => { x.fillStyle = NAV; rr(x, 0, 0, w, h, 50); x.strokeStyle = VER; x.lineWidth = 16; x.beginPath(); x.roundRect(14, 14, w - 28, h - 28, 40); x.stroke(); x.fillStyle = CRE; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "ALMACÉN RUBÉN", 900, 150, w - 120); x.fillText("ALMACÉN RUBÉN", w / 2, h / 2 + 6); });
-  almacen.add(mesh(rbox(0.84, 0.3, 0.04, 0.03), M.navy, MOST.x - 0.2, 0.62, MOST.z + MOST.d / 2 - 0.02));
-  almacen.add(mesh(new THREE.PlaneGeometry(0.81, 0.275), matTex(cartelT, 0.2), MOST.x - 0.2, 0.62, MOST.z + MOST.d / 2 + 0.001));
+  cartelR.add(mesh(rbox(0.84, 0.3, 0.04, 0.03), M.navy, MOST.x - 0.2, 0.62, MOST.z + MOST.d / 2 - 0.02));
+  cartelR.add(mesh(new THREE.PlaneGeometry(0.81, 0.275), matTex(cartelT, 0.2), MOST.x - 0.2, 0.62, MOST.z + MOST.d / 2 + 0.001));
   sh(almacen);
 }
 const pisoR = pisoSombra(OR.x, 1.5, 10, 6, 0.0);
@@ -756,9 +757,9 @@ function armarPlanos() {
     })()],
     // s10: Walter entra, se lleva su bolsa y se va; el celular boca abajo vibra
     ["R2", T.s10, [
-      k(T.s10, r(0.85, 1.9, 4.6), r(-0.55, 1.12, 0.0)),
-      k(T.fue, r(0.8, 1.88, 4.6), r(-0.58, 1.12, 0.0)),
-      k(T.s11 - 0.05, r(0.75, 1.86, 4.6), r(-0.6, 1.12, 0.0)),
+      k(T.s10, r(0.7, 1.9, 4.7), r(-0.7, 1.12, 0.0)),
+      k(T.fue, r(0.62, 1.88, 4.7), r(-0.75, 1.12, 0.0)),
+      k(T.s11 - 0.05, r(0.6, 1.86, 4.7), r(-0.75, 1.12, 0.0)),
     ]],
     // s11: primer plano de Rubén con el celular dado vuelta
     ["R3", T.s11, [
@@ -991,6 +992,8 @@ function zonaR(t) {
   displayR.visible = balanza.visible = celuR.visible = laptop.visible = en; tablet.visible = false; tildeTab.visible = false;
   bolsaW.visible = bolsaG.visible = false; graciela.raiz.visible = false; walter.raiz.visible = false; burbujaV.visible = false;
   tkVuelan.forEach((x) => (x.visible = false)); sinNum.forEach((x) => (x.visible = false));
+  cartelR.visible = en && plano !== "R";
+  balanza.visible = en && plano !== "R6";
   if (!en) return;
   // ---- el numerador y el display (apagados hasta "sistema") ----
   const on = sg(t, T.sistema - 0.1, T.sistema + 0.15);
@@ -1101,7 +1104,7 @@ function zonaR(t) {
   // ---- s08: tres filas que no se ven (celular, mostrador, laptop): un ticket "?" rojo apagado sobre cada una, sin número ----
   sinNum.forEach((o) => (o.visible = false));
   if (plano === "R" && t > T.s08) {
-    const lugares = [V(OR.x - 0.5, 0.86, 0.75), V(OR.x - 0.1, 0.88, 0.75), V(OR.x + 0.3, 0.86, 0.75)];
+    const lugares = [V(OR.x - 0.55, 0.66, 0.6), V(OR.x - 0.1, 0.68, 0.6), V(OR.x + 0.35, 0.66, 0.6)];
     lugares.forEach((p, j) => {
       const t0 = T.fila + j * 0.14;
       const kk = t < t0 ? 0 : popIn(t, t0, 0.3) * (1 - sg(t, T.s09 - 0.15, T.s09));

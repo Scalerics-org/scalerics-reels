@@ -270,7 +270,7 @@ vacia("s03-por-que", [
     html: `${pill(1, POS.hora[0], POS.hora[1], "Graciela · 9:02", "lleno")}`,
     js: `nota(1, ${rel(id, T.pidio)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: 0.1, sfx: "typing", vol: 0.035, max: 0.5 },
+      { t: -0.3, sfx: "whoosh-short", vol: 0.012 }, { t: 0.1, sfx: "typing", vol: 0.035, max: 0.5 },
       { t: rel(id, pal[62].end + 0.03), sfx: "respuesta", vol: 0.05, max: 0.5 },
       { t: rel(id, pal[62].end + 0.1), sfx: "whoosh-short", vol: 0.03 },
     ],
