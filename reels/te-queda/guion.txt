@@ -29,8 +29,5 @@ HECTOR: ¿Y dulce de leche?
 RUBEN: Doce.
 HECTOR: Era para saber.
 RUBEN: Ahora sabés.
-[la tablet vibra sola: "Yerba · quedan 2" en rojo apagado → "Pedido al proveedor ✓ · Llega el jueves" en verde · chip "Viajes al depósito: 0" en verde]
-[Héctor entorna los ojos, desconfiado, le hace seña a Rubén de que se corra, abre la trampa y baja él con la linterna · ruido de cajas · chip "Viajes de Héctor: 1"]
-[Héctor asoma por la trampa con la telaraña en la boina, pulgar arriba]
-HECTOR: Doce.
-[Rubén levanta el mate · línea chica: "Un sistema te dice qué te queda / y te avisa antes de que se acabe" / "scalerics.com"]
+[la tablet vibra sola: "Yerba · quedan 2" en rojo apagado → "Pedido armado ✓" en verde · chip "Viajes al depósito: 0" en verde]
+[Rubén, sentado arriba de la trampa, levanta el mate detrás de la tablet · línea chica: "Un sistema te avisa / antes de que se acabe" / "scalerics.com"]

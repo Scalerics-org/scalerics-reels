@@ -8,8 +8,8 @@
     [data-composition-id="s06-chip0"] .chip { position: absolute; left: 44px; top: 64px; padding: 14px 30px 18px; border-radius: 60px; background: #0b1220; border: 7px solid #5ce611; box-shadow: 8px 10px 0 rgba(3,6,12,0.55); font: 800 50px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; color: #efeee5; transform-origin: 20% 50%; white-space: nowrap; }
     [data-composition-id="s06-chip0"] .n { display: inline-block; min-width: 0.7em; text-align: center; color: #5ce611; transform-origin: 50% 60%; }
   </style>
-  <div id="root" data-composition-id="s06-chip0" data-width="1080" data-height="1920" data-duration="2.07">
-    <div id="s06-chip0-esc" class="esc clip" data-start="0" data-duration="2.07" data-track-index="0">
+  <div id="root" data-composition-id="s06-chip0" data-width="1080" data-height="1920" data-duration="0.9">
+    <div id="s06-chip0-esc" class="esc clip" data-start="0" data-duration="0.9" data-track-index="0">
       <div class="chip">Viajes al depósito: <span class="n">0</span></div>
     </div>
   </div>
@@ -22,7 +22,7 @@
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".chip"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "back.out(2.2)", immediateRender: true }, 0.0);
 
-      tl.set(q(".chip"), { opacity: 0 }, 2.05);
+      tl.set(q(".chip"), { opacity: 0 }, 0.88);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

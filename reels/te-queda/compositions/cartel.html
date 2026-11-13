@@ -9,12 +9,12 @@
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 640px; text-align: center; transform: rotate(-4deg); }
     [data-composition-id="cartel"] .linea { display: block; font: 900 140px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.b { font-size: 146px; margin-top: 22px; }
+    [data-composition-id="cartel"] .linea.b { font-size: 128px; margin-top: 22px; }
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.7">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.7" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.4">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.4" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -35,8 +35,8 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l" data-t="0.25">U</span><span class="l" data-t="0.29">n</span><span class="esp"></span><span class="l" data-t="0.45">s</span><span class="l" data-t="0.49">i</span><span class="l" data-t="0.52">s</span><span class="l" data-t="0.56">t</span><span class="l" data-t="0.59">e</span><span class="l" data-t="0.63">m</span><span class="l" data-t="0.66">a</span></span>
-        <span class="linea b"><span class="l" data-t="1.15">m</span><span class="l" data-t="1.18">á</span><span class="l" data-t="1.22">s</span><span class="esp"></span><span class="l" data-t="1.75">t</span><span class="l" data-t="1.79">a</span><span class="l" data-t="1.82">r</span><span class="l" data-t="1.86">d</span><span class="l" data-t="1.89">e</span><span class="l" data-t="1.93">…</span></span>
+        <span class="linea a"><span class="l" data-t="0.15">U</span><span class="l" data-t="0.19">n</span><span class="esp"></span><span class="l" data-t="0.35">s</span><span class="l" data-t="0.39">i</span><span class="l" data-t="0.42">s</span><span class="l" data-t="0.45">t</span><span class="l" data-t="0.49">e</span><span class="l" data-t="0.53">m</span><span class="l" data-t="0.56">a</span></span>
+        <span class="linea b"><span class="l" data-t="1.05">m</span><span class="l" data-t="1.09">á</span><span class="l" data-t="1.12">s</span><span class="esp"></span><span class="l" data-t="1.65">t</span><span class="l" data-t="1.68">a</span><span class="l" data-t="1.72">r</span><span class="l" data-t="1.76">d</span><span class="l" data-t="1.79">e</span><span class="l" data-t="1.83">…</span></span>
       </div>
     </div>
   </div>
@@ -47,8 +47,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.7, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.7, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.4, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.4, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
@@ -58,7 +58,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.22, ease: "power2.in" }, 2.46);   // se va debajo del iris (sin hueco verde vacío)
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.22, ease: "power2.in" }, 2.16);   // se va debajo del iris (sin hueco verde vacío)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -21,18 +21,17 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="35.49" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="32.04" data-width="1080" data-height="1920">
       <div id="precarga">Rubén</div><div id="precarga2">POLENTA</div>
-      <div id="fondo" class="clip" data-start="0" data-duration="35.49" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="20.66" data-duration="2.7" data-track-index="12" data-track-kind="graphics"></div>
-      <div id="capa3d" class="clip" data-start="0" data-duration="35.49" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="fondo" class="clip" data-start="0" data-duration="32.04" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="19" data-duration="2.4" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="32.04" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       <div id="el-s00-gancho" class="scene" style="z-index:3" data-composition-id="s00-gancho" data-composition-src="compositions/s00-gancho.html" data-start="0" data-duration="1.49" data-track-index="2" data-track-kind="graphics"></div>
-      <div id="el-s01-chip" class="scene" style="z-index:3" data-composition-id="s01-chip" data-composition-src="compositions/s01-chip.html" data-start="4.42" data-duration="16.24" data-track-index="3" data-track-kind="graphics"></div>
-      <div id="el-s06-chip0" class="scene" style="z-index:3" data-composition-id="s06-chip0" data-composition-src="compositions/s06-chip0.html" data-start="30.53" data-duration="2.07" data-track-index="4" data-track-kind="graphics"></div>
-      <div id="el-s07-chiph" class="scene" style="z-index:3" data-composition-id="s07-chiph" data-composition-src="compositions/s07-chiph.html" data-start="32.6" data-duration="1.04" data-track-index="5" data-track-kind="graphics"></div>
-      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="33.69" data-duration="1.8" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s01-chip" class="scene" style="z-index:3" data-composition-id="s01-chip" data-composition-src="compositions/s01-chip.html" data-start="4.08" data-duration="14.92" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s06-chip0" class="scene" style="z-index:3" data-composition-id="s06-chip0" data-composition-src="compositions/s06-chip0.html" data-start="28.89" data-duration="0.9" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="29.79" data-duration="2.25" data-track-index="5" data-track-kind="graphics"></div>
 
-      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="35.49" data-track-index="30" data-volume="1"></audio>
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="32.04" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -43,13 +42,13 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 35.49 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 32.04 }, 0);
       // el último cuadro de la parte 1 se va girando 540° y achicándose (el giro clásico del cartel)
-      tl.set("#capa3d", { opacity: 0 }, 20.66);   // (ronda 2) corte seco al cartel (el giro pasaba por la pelada espejada)
+      tl.set("#capa3d", { opacity: 0 }, 19);   // (ronda 2) corte seco al cartel (el giro pasaba por la pelada espejada)
       // la parte 2 entra por un iris que se abre desde la tablet
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 700px 1150px)" }, 20.93);
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 700px 1150px)" }, { clipPath: "circle(1900px at 700px 1150px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 23.04);
-      tl.set("#capa3d", { clipPath: "none" }, 23.37);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 700px 1150px)" }, 19.27);
+      tl.fromTo("#capa3d", { clipPath: "circle(0px at 700px 1150px)" }, { clipPath: "circle(1900px at 700px 1150px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 21.08);
+      tl.set("#capa3d", { clipPath: "none" }, 21.41);
       window.__timelines["main"] = tl;
     </script>
   </body>

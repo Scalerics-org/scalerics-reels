@@ -18,68 +18,64 @@ const r2 = (n) => Math.round(n * 100) / 100;
 // ================= LOS BEATS (segundos del video final) =================
 // Voces (assets/voice, recortadas; tomas en partes/voces.md): g1 "¿Te queda polenta?" · r1 "Ya me fijo." · r2 "No, no
 // queda." ("no" +0,6) · w1 "¿Y fideos?" · m1 "¿Azúcar te queda?" · h1 "¿Te queda dulce de leche?" · r3 "Queda uno." ·
-// h2 "Ah, no. Era para saber." ("Era" +0,79) · h3 "¿Y yerba?" · narrador "Un sistema más tarde." · r4 "Quedan tres." ·
-// h4 "¿Y dulce de leche?" · r5 "Doce." · h5 "Era para saber." · r6 "Ahora sabés." · h6 "Doce."
-const LEN = { g1: 1.04, r1: 0.91, r2: 1.22, w1: 0.91, m1: 1.02, h1: 1.53, r3: 1.0, h2: 1.67, h3: 0.63, nar: 2.26, r4: 0.87, h4: 1.01, r5: 0.63, h5: 0.88, r6: 1.0, h6: 0.52 };
+// h2a "Ah, no." + h2b "Era para saber." (partida en dos: la pausa del remate la arma gen.mjs) · h3 "¿Y yerba?" · narrador "Un sistema más tarde." · r4 "Quedan tres." ·
+// h4 "¿Y dulce de leche?" · r5 "Doce." · h5 "Era para saber." · r6 "Ahora sabés."
+const LEN = { g1: 1.04, r1: 0.73, r2: 1.22, w1: 0.91, m1: 1.02, h1: 1.53, r3: 1.0, h2: 1.95, h2a: 0.56, h2b: 0.89, h3: 0.69, nar: 2.26, r4: 0.87, h4: 1.01, r5: 0.63, h5: 0.88, r6: 1.0, h6: 0.52 };
 const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: el mostrador a la siesta, Graciela con la bolsa, Rubén con el mate, la trampa del sótano con su
 // argolla. "¿Te queda polenta?" · "Ya me fijo." · deja el mate, va a la trampa y la levanta
 T.g1 = 0.25; T.r1 = r2(T.g1 + LEN.g1 + 0.1);
-T.va = [1.42, 1.86]; T.abre = [1.9, 2.3];
+T.va = [1.3, 1.7]; T.abre = [1.74, 2.12];
 // P2 · la zambullida: baja la escalera marinera (la cámara lo sigue por el hueco), la cadenita, el foco, la caja
 // POLENTA: la sacude, vacía
-T.p2 = 2.32; T.baja1 = [2.32, 2.7]; T.cadena = 3.0; T.luz = 3.06; T.agarra = [3.12, 3.38]; T.sacude = [3.42, 3.92];
+T.p2 = 2.15; T.baja1 = [2.15, 2.53]; T.cadena = 2.8; T.luz = 2.86; T.agarra = [2.9, 3.14]; T.sacude = [3.18, 3.6];
 // P3 · contraplano bajo: Rubén asoma por la trampa con polvo en los hombros: "No, no queda." · chip 1
-T.p3 = 4.02; T.sube1 = [4.02, 4.3]; T.r2 = 4.3; T.chip1 = 4.42; T.palmea = [4.6, 4.95];
+T.p3 = 3.68; T.sube1 = [3.68, 3.96]; T.r2 = 3.96; T.chip1 = 4.08; T.palmea = [4.26, 4.61];
 // P4 · el corte de casa de muñecas: Walter "¿Y fideos?" · baja, escalera tijera, avalancha, sube con la telaraña: "No." · chip 2
 T.p4 = r2(T.r2 + LEN.r2 + 0.06); T.entraW = [r2(T.p4 - 0.1), r2(T.p4 + 0.12)]; T.w1 = r2(T.p4 + 0.18);
-T.baja2 = [r2(T.w1 + 0.55), r2(T.w1 + 0.85)]; T.tij2 = [r2(T.baja2[1]), r2(T.baja2[1] + 0.16), r2(T.baja2[1] + 0.36)];   // camina, sube
-T.aval = r2(T.tij2[2] + 0.04); T.bajaT2 = [r2(T.aval + 0.36), r2(T.aval + 0.5)]; T.sube2 = [r2(T.bajaT2[1] + 0.02), r2(T.bajaT2[1] + 0.14), r2(T.bajaT2[1] + 0.44)];
+T.baja2 = [r2(T.w1 + 0.45), r2(T.w1 + 0.7)]; T.tij2 = [r2(T.baja2[1]), r2(T.baja2[1] + 0.13), r2(T.baja2[1] + 0.3)];   // camina, sube
+T.aval = r2(T.tij2[2] + 0.04); T.bajaT2 = [r2(T.aval + 0.34), r2(T.aval + 0.46)]; T.sube2 = [r2(T.bajaT2[1] + 0.02), r2(T.bajaT2[1] + 0.12), r2(T.bajaT2[1] + 0.38)];
 T.no2 = r2(T.sube2[2] + 0.04);
 // P5 · la misma sección, más abajo: Marta "¿Azúcar te queda?" · el foco se quema, la linterna, la caja en la cabeza: "No." · chip 3
-T.p5 = r2(T.no2 + 0.42); T.saleW = [r2(T.p5 - 0.18), r2(T.p5 + 0.02)]; T.entraM = [r2(T.p5 - 0.02), r2(T.p5 + 0.18)]; T.m1 = r2(T.p5 + 0.2);
-T.baja3 = [r2(T.m1 + 0.2), r2(T.m1 + 0.5)]; T.quema = r2(T.baja3[1] + 0.12); T.linterna = r2(T.quema + 0.18); T.camina3 = [r2(T.linterna), r2(T.linterna + 0.2)];
-T.cae = r2(T.camina3[1] + 0.12); T.sube3 = [r2(T.cae + 0.18), r2(T.cae + 0.3), r2(T.cae + 0.6)]; T.no3 = r2(T.sube3[2] + 0.04);
+// (ronda 1) P4 y P5 en un solo plano: Marta llega mientras Rubén sube (a otro lugar del mostrador) y Walter se va
+T.entraM = [r2(T.no2 - 0.3), r2(T.no2 + 0.0)]; T.saleW = [r2(T.no2 + 0.08), r2(T.no2 + 0.42)]; T.p5 = r2(T.no2 + 0.1); T.m1 = r2(T.no2 + 0.3);
+T.baja3 = [r2(T.m1 + 0.15), r2(T.m1 + 0.4)]; T.quema = r2(T.baja3[1] + 0.1); T.linterna = r2(T.quema + 0.16); T.camina3 = [r2(T.linterna), r2(T.linterna + 0.17)];
+T.cae = r2(T.camina3[1] + 0.1); T.sube3 = [r2(T.cae + 0.16), r2(T.cae + 0.26), r2(T.cae + 0.52)]; T.no3 = r2(T.sube3[2] + 0.04); T.saleM = [r2(T.no3 + 0.06), r2(T.no3 + 0.4)];
 // P6 · primer plano de Rubén con la caja de sombrero: Héctor "¿Te queda dulce de leche?" · se saca la caja, el casco con
 // la linterna atada con cinta verde, clic · P6b la expedición en la sección: escalera tijera arriba de todo, se
 // tambalea, la última caja del fondo, crash; arriba Héctor espera mirando el techo
-T.p6 = r2(T.no3 + 0.42); T.entraH = [r2(T.p6 - 0.25), r2(T.p6 + 0.05)]; T.h1 = r2(T.p6 + 0.1);
+T.p6a = r2(T.no3 + 0.42); T.entraH = [r2(T.p6a - 0.3), r2(T.p6a - 0.02)]; T.h1 = r2(T.p6a + 0.1); T.p6 = r2(T.h1 + 0.62);
 T.sacaCaja = [r2(T.h1 + 0.4), r2(T.h1 + 0.7)]; T.casco = [r2(T.sacaCaja[1] + 0.05), r2(T.sacaCaja[1] + 0.3), r2(T.sacaCaja[1] + 0.55)];   // agarra, sube, calza
 T.clic = r2(T.casco[2] + 0.06); T.p6b = r2(Math.max(T.clic + 0.25, T.h1 + LEN.h1 + 0.02)); T.chip4 = r2(T.p6b + 0.05);
-T.baja4 = [T.p6b, r2(T.p6b + 0.3)]; T.tij4 = [r2(T.baja4[1]), r2(T.baja4[1] + 0.16), r2(T.baja4[1] + 0.4)];
-T.tambalea = [r2(T.tij4[2]), r2(T.tij4[2] + 0.4)]; T.ultima = r2(T.tambalea[1]); T.crash = r2(T.ultima + 0.14);
-T.bajaT4 = [r2(T.crash + 0.2), r2(T.crash + 0.36)]; T.sube4 = [r2(T.bajaT4[1] + 0.02), r2(T.bajaT4[1] + 0.14), r2(T.bajaT4[1] + 0.42)];
+T.baja4 = [T.p6b, r2(T.p6b + 0.26)]; T.tij4 = [r2(T.baja4[1]), r2(T.baja4[1] + 0.13), r2(T.baja4[1] + 0.33)];
+T.tambalea = [r2(T.tij4[2]), r2(T.tij4[2] + 0.36)]; T.ultima = r2(T.tambalea[1]); T.crash = r2(T.ultima + 0.14);
+T.bajaT4 = [r2(T.crash + 0.18), r2(T.crash + 0.3)]; T.sube4 = [r2(T.bajaT4[1] + 0.02), r2(T.bajaT4[1] + 0.12), r2(T.bajaT4[1] + 0.36)];
 // P7 · grúa: Rubén asoma destruido y levanta el frasco: "Queda uno."
-T.p7 = r2(T.sube4[2] + 0.02); T.asoma = [T.p7, r2(T.p7 + 0.26)]; T.trofeo = [r2(T.p7 + 0.3), r2(T.p7 + 0.5)]; T.r3 = r2(T.p7 + 0.45); T.tada = r2(T.trofeo[1] - 0.05);
+T.p7 = r2(T.sube4[2] + 0.02); T.asoma = [T.p7, r2(T.p7 + 0.26)]; T.trofeo = [r2(T.p7 + 0.3), r2(T.p7 + 0.5)]; T.r3 = r2(T.p7 + 0.4); T.tada = r2(T.trofeo[1] - 0.05);
 // P8 · la pausa: el polvo que cae en el haz, la telaraña que se descuelga
 T.p8 = r2(T.r3 + LEN.r3 + 0.08); T.descuelga = [r2(T.p8 + 0.12), r2(T.p8 + 0.62)];
 // P9 · Héctor de frente: "Ah, no. Era para saber." (se toca la boina)
-T.p9 = r2(T.p8 + 0.78); T.h2 = r2(T.p9 + 0.08); T.boina = r2(T.h2 + 1.1);
+T.p9 = r2(T.p8 + 0.68); T.h2 = r2(T.p9 + 0.08); T.h2b = r2(T.h2 + LEN.h2a + 0.5); T.boina = r2(T.h2b + 0.35);
 // P10 · hacia la puerta: Héctor se da vuelta: "¿Y yerba?" · Rubén cruza, le calza el casco y le prende la linterna
-T.p10 = r2(T.h2 + LEN.h2 + 0.08); T.vaPuerta = [T.p10, r2(T.p10 + 0.4)]; T.h3 = r2(T.p10 + 0.48);
-T.cruza = [r2(T.h3 + 0.25), r2(T.h3 + 0.72)]; T.sacaCasco = [r2(T.cruza[0] + 0.1), r2(T.cruza[1])];
+T.p10 = r2(T.h2b + LEN.h2b + 0.08); T.vaPuerta = [T.p10, r2(T.p10 + 0.36)]; T.h3 = r2(T.p10 + 0.42);
+T.cruza = [r2(T.h3 + 0.1), r2(T.h3 + 0.57)]; T.sacaCasco = [r2(T.cruza[0] + 0.1), r2(T.cruza[1])];
 T.calza = [r2(T.cruza[1] + 0.02), r2(T.cruza[1] + 0.32)]; T.clic2 = r2(T.calza[1] + 0.06); T.parpadea = [r2(T.clic2 + 0.06), r2(T.clic2 + 0.3)];
-const P1 = r2(T.clic2 + 0.45);     // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + 2.7);          // arranca la parte 2
+const P1 = r2(T.clic2 + 0.38);     // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + 2.4);          // arranca la parte 2
 // ---- parte 2 ----
 // Q1 · el encuadre de P1: la trampa cerrada, Rubén sentado en el banquito arriba de ella, la tablet: "¿Te queda polenta?"
 // (la misma toma) · mira la tablet: "Quedan tres."
-T.q1 = P2; T.g1b = r2(P2 + 0.2); T.mira = r2(T.g1b + LEN.g1 - 0.15); T.fila = r2(T.mira + 0.12); T.r4 = r2(T.mira + 0.15);
+T.q1 = P2; T.g1b = r2(P2 + 0.12); T.mira = r2(T.g1b + LEN.g1 - 0.15); T.fila = r2(T.mira + 0.12); T.r4 = r2(T.mira + 0.24);
 // Q2 · hacia la puerta: entra Héctor con el casco puesto y la linterna prendida: "¿Y dulce de leche?" · "Doce."
-T.q2 = r2(T.r4 + LEN.r4 + 0.1); T.entraH2 = [r2(T.q2 - 0.1), r2(T.q2 + 0.4)]; T.h4 = r2(T.q2 + 0.36); T.r5 = r2(T.h4 + LEN.h4 + 0.1);
+T.q2 = r2(T.r4 + LEN.r4 + 0.1); T.entraH2 = [r2(T.q2 - 0.1), r2(T.q2 + 0.4)]; T.h4 = r2(T.q2 + 0.28); T.r5 = r2(T.h4 + LEN.h4 + 0.1);
 // Q3 · Héctor: "Era para saber." · Q3b Rubén con el mate: "Ahora sabés."
 T.q3 = r2(T.r5 + LEN.r5 + 0.08); T.h5 = r2(T.q3 + 0.05); T.q3b = r2(T.h5 + LEN.h5 + 0.06); T.r6 = r2(T.q3b + 0.05);
 // Q4 · la tablet: vibra sola "Yerba · quedan 2" → "Pedido al proveedor ✓ · Llega el jueves" · chip "Viajes al depósito: 0"
-T.q4 = r2(T.r6 + LEN.r6 + 0.06); T.vibra = r2(T.q4 + 0.1); T.pedido = r2(T.q4 + 0.55); T.chip0 = r2(T.q4 + 0.68);
-// Q5 · la sección: Héctor, desconfiado, le hace seña a Rubén de que se corra, abre la trampa y baja él con la linterna;
-// cuenta los frascos; se le cae una caja; chip "Viajes de Héctor: 1"; sube con la telaraña: pulgar arriba: "Doce."
-T.q5 = r2(T.q4 + 1.25); T.sena = [T.q5, r2(T.q5 + 0.3)]; T.corre = [r2(T.q5 + 0.25), r2(T.q5 + 0.5)]; T.abreH = [r2(T.q5 + 0.5), r2(T.q5 + 0.72)];
-T.bajaH = [r2(T.q5 + 0.72), r2(T.q5 + 1.0)]; T.cuenta = [r2(T.q5 + 1.04), r2(T.q5 + 1.4)]; T.caeH = r2(T.q5 + 1.44); T.chipH = r2(T.caeH + 0.06);
-T.subeH = [r2(T.caeH + 0.12), r2(T.caeH + 0.42)]; T.h6 = r2(T.subeH[1] + 0.08);
+T.q4 = r2(T.r6 + LEN.r6 + 0.06); T.vibra = r2(T.q4 + 0.1); T.pedido = r2(T.vibra + 0.85); T.chip0 = r2(T.pedido + 0.12);
 // Q6 · Rubén levanta el mate (y la línea chica)
-T.q6 = r2(T.h6 + LEN.h6 + 0.08); T.cierre = r2(T.q6 + 0.05);
-const DUR = r2(T.cierre + 1.8);
+T.q6 = r2(T.q4 + 1.92); T.cierre = r2(T.q6 + 0.05); T.levanta = r2(T.q6 + 0.25);
+const DUR = r2(T.q6 + 2.3);
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
   const pcm = execFileSync("ffmpeg", ["-loglevel", "error", "-i", archivo, "-f", "s16le", "-ac", "1", "-ar", "8000", "-"], { maxBuffer: 1e8 });
@@ -93,7 +89,7 @@ function envolvente(archivo) {
   return env.map((v) => { const k = v / mx; return r2(k < 0.1 ? 0 : Math.pow(k, 0.8)); });
 }
 
-const VOCES = ["g1", "r1", "r2", "w1", "m1", "h1", "r3", "h2", "h3", "r4", "h4", "r5", "h5", "r6", "h6"];
+const VOCES = ["g1", "r1", "r2", "w1", "m1", "h1", "r3", "h2a", "h2b", "h3", "r4", "h4", "r5", "h5", "r6"];
 const ENV = Object.fromEntries(VOCES.map((v) => [v, envolvente(`assets/voice/${v}.wav`)]));
 fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const LEN = ${JSON.stringify(LEN)};\nexport const ENV = ${JSON.stringify(ENV)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin globos ni rótulos (fondo de la portada)\nexport const VER = ${JSON.stringify(process.env.VER || "")};\n`);
 
@@ -172,8 +168,7 @@ ${pasos.slice(1).map(([t, n]) => `      tl.set(q(".n"), { textContent: "${n}" },
 }
 const RED = "#c7655b";
 chip("s01-chip", T.chip1, P1, [[T.chip1, 1], [T.no2, 2], [T.no3, 3], [T.chip4, 4]], { borde: RED, texto: "Viajes al depósito:" });
-chip("s06-chip0", T.chip0, T.chipH, [[T.chip0, 0]], { borde: G, texto: "Viajes al depósito:" });
-chip("s07-chiph", T.chipH, T.q6, [[T.chipH, 1]], { borde: "#d9a441", texto: "Viajes de Héctor:" });
+chip("s06-chip0", T.chip0, T.cierre, [[T.chip0, 0]], { borde: G, texto: "Viajes al depósito:" });
 
 // el cartel "Un sistema más tarde…" (time card de dibujito, de marca, hecho de cero; el mismo de me-haces-precio con el
 // texto nuevo en dos líneas). Va DEBAJO del canvas: el canvas se va girando (último cuadro de la parte 1) y vuelve
@@ -190,7 +185,7 @@ chip("s07-chiph", T.chipH, T.q6, [[T.chipH, 1]], { borde: "#d9a441", texto: "Via
     P svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     P .texto { position: absolute; left: 0; right: 0; top: 640px; text-align: center; transform: rotate(-4deg); }
     P .linea { display: block; font: 900 140px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    P .linea.b { font-size: 146px; margin-top: 22px; }
+    P .linea.b { font-size: 128px; margin-top: 22px; }
     P .l { display: inline-block; position: relative; color: ${CR}; -webkit-text-stroke: 16px ${NAVY}; paint-order: stroke fill; text-shadow: 0 16px 0 ${NAVY}, 10px 16px 0 ${NAVY}; }
     P .esp { display: inline-block; width: 0.32em; }`,
     html: `      <div class="fondo"></div>
@@ -213,8 +208,8 @@ chip("s07-chiph", T.chipH, T.q6, [[T.chipH, 1]], { borde: "#d9a441", texto: "Via
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        ${lin("a", [["Un", 0.25], ["sistema", 0.45]])}
-        ${lin("b", [["más", 1.15], ["tarde…", 1.75]])}
+        ${lin("a", [["Un", 0.15], ["sistema", 0.35]])}
+        ${lin("b", [["más", 1.05], ["tarde…", 1.65]])}
       </div>`,
     js: `      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: ${dur}, ease: "sine.inOut", immediateRender: true }, 0);
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: ${dur}, ease: "none", immediateRender: true }, 0));
@@ -238,9 +233,9 @@ chip("s07-chiph", T.chipH, T.q6, [[T.chipH, 1]], { borde: "#d9a441", texto: "Via
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 60px; right: 60px; top: 150px; padding: 26px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .a { font: 700 62px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Un sistema te dice qué te queda</div><div class="a">y te avisa antes de que se acabe</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Un sistema te avisa</div><div class="a">antes de que se acabe</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -269,8 +264,7 @@ s("sfx/calle.wav", P2, -6, { loop: true, desde: 3, dur: r2(DUR - P2), fin: 0.5, 
 s("sfx/zumbido.wav", 0, 0, { dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -48, lp: 700 });
 s("sfx/zumbido.wav", P2, 0, { dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -49, lp: 700 });
 // la música (pizzicato, la firma de la línea): toda la parte 1; en la pausa baja ~12 dB en 0,4 s (NO se corta)
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -33, duck: [[T.p8 - 0.1, T.h2 + LEN.h2 + 0.1, 0.75]] });
-s("sfx/campanita.wav", 0.02, 0, { techo: -46, dur: 0.6, fin: 0.25 });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -33, duck: [[T.p8 - 0.1, T.h2b + LEN.h2b + 0.1, 0.75]] });
 voz("g1", T.g1, -2);
 voz("r1", T.r1, -1);
 s("sfx/madera-tabla.wav", T.va[0] + 0.02, 0, { techo: -44 });   // deja el mate en el mostrador
@@ -299,8 +293,9 @@ s("sfx/campanita.wav", T.entraW[0], 0, { techo: -48, dur: 0.5, fin: 0.25 });
 voz("w1", T.w1, -2);
 madera(T.baja2[0], T.baja2[1], 3, -45);
 s("sfx/k-creak.wav", T.tij2[1], 0, { techo: -46, dur: 0.4, fin: 0.15 });
-[0, 0.09, 0.17, 0.26].forEach((d, i) => carton(T.aval + d, i, i ? -38 : -36));
-s("sfx/k-impact_wood_heavy_002.wav", T.aval + 0.3, 0, { techo: -40 });
+[0.07, 0.15, 0.23].forEach((d, i) => carton(T.aval + d, i, -43));   // se sueltan
+[0.32, 0.4, 0.48, 0.56].forEach((d, i) => carton(T.aval + d, i + 1, i ? -40 : -38));   // tocan el piso
+s("sfx/k-impact_wood_heavy_002.wav", T.aval + 0.41, 0, { techo: -43 });
 madera(T.sube2[1], T.sube2[2], 3, -46);
 pop(T.no2, -38);
 // P5 · Marta, el foco que se quema, la linterna, la caja en la cabeza
@@ -315,12 +310,13 @@ s("sfx/k-impact_soft_heavy_001.wav", T.cae, 0, { techo: -34 });   // la caja en 
 madera(T.sube3[1], T.sube3[2], 3, -46);
 pop(T.no3, -38);
 // P6 · Héctor, la caja que sale, el casco, la linterna; la expedición
-s("sfx/whoosh-short.mp3", T.p6 - 0.04, 0, { techo: -46 });
+s("sfx/whoosh-short.mp3", T.p6a - 0.04, 0, { techo: -46 });
 s("sfx/campanita.wav", T.entraH[0], 0, { techo: -47, dur: 0.5, fin: 0.25 });
+s("sfx/whoosh-short.mp3", T.p6 - 0.04, 0, { techo: -48 });
 voz("h1", T.h1, -2);
 s("sfx/k-impact_soft_medium_001.wav", T.sacaCaja[1] - 0.03, 0, { techo: -44 });
 s("sfx/k-cloth_1.wav", T.casco[0], 0, { techo: -46 });
-s("sfx/k-impact_plank_medium_002.wav", T.casco[2] - 0.02, 0, { techo: -42 });   // el casco calzado
+s("sfx/k-impact_plank_medium_002.wav", T.casco[2] - 0.12, 0, { techo: -42 });   // el casco calzado
 s("sfx/interruptor.wav", T.clic, 0, { techo: -38 });
 s("sfx/whoosh.mp3", T.p6b - 0.04, 0, { techo: -42, dur: 0.6, fin: 0.2 });
 pop(T.chip4, -40);
@@ -339,7 +335,8 @@ voz("r3", T.r3, -1);
 s("sfx/k-cloth_2.wav", T.descuelga[0], 0, { techo: -50 });
 // P9 · "Ah, no. Era para saber."
 s("sfx/whoosh-short.mp3", T.p9 - 0.04, 0, { techo: -50 });
-voz("h2", T.h2, -2);
+voz("h2a", T.h2, -2);
+voz("h2b", T.h2b, -2);
 // P10 · la puerta, "¿Y yerba?", el casco que cambia de cabeza, clic seco
 s("sfx/whoosh-short.mp3", T.p10 - 0.04, 0, { techo: -46 });
 pasos(T.vaPuerta[0] + 0.05, T.vaPuerta[1], 3, -47);
@@ -351,8 +348,8 @@ s("sfx/interruptor.wav", T.clic2, 0, { techo: -37 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.05, 0, { techo: -41, dur: 0.6, fin: 0.25 });
-voz("narrador", P1 + 0.25, -4);
-for (const d of [0.25, 0.45, 1.15, 1.75]) pop(P1 + d, -42);
+voz("narrador", P1 + 0.15, -4);
+for (const d of [0.15, 0.35, 1.05, 1.65]) pop(P1 + d, -42);
 s("sfx/whoosh.mp3", P2 - 0.3, 0, { techo: -40 });
 // ---- parte 2 ----
 s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fin: 0.8, techo: -33 });
@@ -375,15 +372,8 @@ s("sfx/vibra.wav", T.vibra, 0, { dur: 0.45, fin: 0.08, techo: -38 });
 s("sfx/notification.mp3", T.vibra + 0.06, 0, { techo: -40 });
 s("sfx/cero.mp3", T.pedido, 0, { techo: -39 });
 pop(T.chip0, -42);
-s("sfx/whoosh.mp3", T.q5 - 0.04, 0, { techo: -44, dur: 0.6, fin: 0.2 });
-s("sfx/k-creak.wav", T.abreH[0], 0, { techo: -42 });
-s("sfx/madera-golpe.wav", T.abreH[1] - 0.02, 0, { techo: -44 });
-madera(T.bajaH[0], T.bajaH[1], 3, -45);
-for (let i = 0; i < 3; i++) s("sfx/click-soft.mp3", T.cuenta[0] + 0.05 + i * 0.12, 0, { techo: -48 });
-carton(T.caeH, 2, -37);
-pop(T.chipH, -40);
-madera(T.subeH[0], T.subeH[1], 3, -46);
-pop(T.h6 - 0.05, -42); voz("h6", T.h6, -1);
+s("sfx/whoosh-short.mp3", T.q6 - 0.04, 0, { techo: -46 });
+s("sfx/k-cloth_2.wav", T.levanta, 0, { techo: -44 });   // levanta el mate
 s("sfx/chime.mp3", T.cierre + 0.05, 0, { techo: -42, dur: 1.2, fin: 0.5 });
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav") { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
