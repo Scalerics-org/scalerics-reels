@@ -46,7 +46,7 @@ T.p5 = 9.5; T.lee = [9.55, 10.4]; T.p5b = 10.45; T.p5c = 11.05; T.mira = [11.15,
 // calculadora: C → 0. · P6c Marta agarra la torre: "Pongo otro café." y sale por la persiana
 T.p6 = 13.1; T.m2 = 13.2; T.p6x = 14.8; T.baja = [15.12, 15.34]; T.sube = [15.34, 15.52]; T.golpe = 15.52; T.p6m = r2(T.golpe + 0.2);   // (ronda 1) cara de nada antes de agacharse; P6m: la caja MES PASADO de frente 1,1 s
 T.p6b = r2(T.p6m + 1.1); T.tc = r2(T.p6b + 0.18); T.p6c = r2(T.p6b + 0.5); T.levantaM = [r2(T.p6c + 0.05), r2(T.p6c + 0.35)]; T.agarra = r2(T.p6c + 0.35); T.m3 = r2(T.p6c + 0.4); T.saleM = [r2(T.p6c + 0.85), r2(T.p6c + 1.7)]; T.teclea2 = r2(T.p6c + 1.1);
-const P1 = r2(T.p6c + 1.25);   // (ronda 4) corte al cartel cuando Marta sale de cuadro (antes quedaba 0,5 s casi vacío)               // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p6c + 1.12);   // (ronda 5) corta antes de que Marta llegue al borde   // (ronda 4) corte al cartel cuando Marta sale de cuadro (antes quedaba 0,5 s casi vacío)               // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 2.7);   // (ronda 1) cartel de 2,7 s        // arranca la parte 2 (termina el iris del cartel)
 // ---- parte 2 ----
 // Q1 · el encuadre de P1: el mostrador limpio, el celular en el atril; Marta entra con la torre en la bandeja y el cajón
@@ -67,7 +67,7 @@ T.m4 = r2(T.q4 + 0.05); T.q4b = r2(T.m4 + LEN.m4 + 0.23); T.sacaCaja = [r2(T.q4b
 // pocillo y el mate (sorbo)
 T.q4i = r2(T.sacaCaja[1] + 0.03); T.abreQ = r2(T.q4i + 0.2);
 T.q4c = r2(T.abreQ + 0.6); T.pocillo = [r2(T.q4c + 0.3), r2(T.q4c + 0.62)];   // (ronda 4) la mano arranca recién en Q4c (no cruza el inserto) 
-T.q5 = r2(T.q4c + 0.9); T.gira = [r2(T.q5 + 0.05), r2(T.q5 + 0.4)]; T.sorbo = r2(T.q5 + 0.85);
+T.q5 = r2(T.q4c + 0.9); T.gira = [r2(T.pocillo[1] + 0.03), r2(T.q5 - 0.02)]; T.sorbo = r2(T.q5 + 0.85);   // (ronda 5) ya girado al cortar a Q5
 T.cierre = r2(T.q5 + 0.45);
 const DUR = r2(T.cierre + 2.0);   // la línea chica 2 s (check: una línea de cierre necesita ~2 s)
 

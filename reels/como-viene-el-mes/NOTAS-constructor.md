@@ -239,3 +239,24 @@ Snapshots (scratchpad de la corrida, se pierden): mes-fix/p1, p2 (dos pasadas: c
 Dudoso: P6c 17,32-17,6 Marta todavía junto al cajón en el borde izquierdo (se ve la cara de perfil, la nuca cortada); Q5
 Rubén queda pegado al borde izquierdo (entra la oreja justa) y abre de espaldas 0,1 s antes de girarse; en Q4i asoma una
 punta de la manga de Marta abajo a la derecha; Q3/Q4 en primer término abajo a la derecha el termo/mate de Rubén.
+
+## Ronda 5 de correcciones (13-11) · 35,45 s (parte 1 0-18,44 · cartel 18,44-21,14 · parte 2 21,14-35,45; línea chica desde 33,45)
+Planos de la parte 2 (s): Q1 21,14 · Q2 23,09 · Q2b 25,14 · Q2c 26,54 · Q3 27,63 · Q3b 28,43 · Q3c 29,14 · Q4 29,69 · Q4b 30,85 ·
+Q4i 31,30 (la caja se abre 31,50) · Q4c 32,10 (pocillo 32,40-32,72) · Q5 33,00 (sorbo 33,85) · línea chica 33,45.
+Mezcla regenerada (solo cambió el corte al cartel): -14,0 LUFS, pico -4,3 dBFS, voz ≥ 7,0 LU sobre el resto en todos los tramos con
+voz. `check` 0 errores. Voces sin tocar.
+1. ALTA rótulo: CAFETERÍA sin el dibujito del pocillo (pisaba la A) y con rótulo más grande (0,345 × 0,10 m, letra Caveat que llena
+   la cinta); la tapa ya no lleva rótulo (se leía al revés con la tapa cerrada).
+2. Q4c: Rubén da un paso a su izquierda en el corte (x 0,92; se queda ahí en Q5) y la cámara (POC_Q) es más frontal y abierta: la
+   torre queda a la izquierda, lejos de la cara. Agarra el pocillo de arriba por delante (la mano del lado de la cámara), lo levanta
+   recto (el plato sale limpio), lo saca hacia adelante (por delante de la torre, no a través), baja y lo deja a su lado (CUP_R
+   0,72/-1,28). Lámpara, atril y termo ocultos en ese plano.
+3. Q5 nuevo (FINAL_Q, desde el lado del cliente, alto): Marta en primer término con su caja CAFETERÍA levantada en las manos (el
+   rótulo ~200 px de ancho, de frente), mirando adentro; detrás la torre a un costado y Rubén de frente, ya girado, con el pocillo al
+   lado y tomando mate. Llenan de y ~300 a 1920; nada de techo negro ni piso vacío.
+4. Q3/Q4: termo, atril y Rubén ocultos (en primer término solo eran bultos cortados): Marta y la torre solas.
+5. P6m: cámara más alta: la tapa de MES PASADO ya no tapa la boca y se ve el piolín rojo.
+6. P3/P6c: cámaras corridas hacia Marta (sentada en 6,0 y 17,3 entera); al salir lleva la torre a su costado; corte al cartel a 18,44
+   (antes de que llegue al borde).
+Bajas: el celular no muestra pantalla de bloqueo (la tarjeta ya está al cortar); "21:00" 62 px y "vs. mes pasado" 60 px en el lienzo;
+la cola de "¿Y comparado…?" ya no toca el pelo; sin parpadeo de Rubén a 26,0; en Q4i Marta se oculta entera (la manga).
