@@ -443,7 +443,7 @@ function cajaEn(texto, x, niv, rol = "", op = {}) {
   // tercera
   cajaEn("LATAS", -1.22, 2, "crash"); cajaEn("ARROZ", -0.84, 2, "crash"); cajaEn("ACEITE", -0.44, 2, "crash"); cajaEn("HARINA", 0.0, 2, "aval"); cajaEn("JABÓN", 0.4, 2);
   // arriba: la última del fondo, la avalancha y el azúcar que cae
-  cajaEn("VELAS", -1.24, 3); cajaEn("DULCE DE LECHE", -0.84, 3, "dulce", { px: 70 }); cajaEn("ARROZ", -0.46, 3, "aval"); cajaEn("LATAS", -0.08, 3, "aval"); cajaEn("AZÚCAR", 0.32, 3, "azucar"); cajaEn("ACEITE", 0.72, 3);
+  cajaEn("VELAS", -1.24, 3); cajaEn("DULCE DE LECHE", -0.84, 3, "dulce", { px: 70 }); cajaEn("ARROZ", -0.46, 3, "aval"); cajaEn("LATAS", -0.08, 3, "aval"); cajaEn("VACÍA", 0.32, 3, "azucar");   // (ronda 2) la que le cae en la cabeza: escrita "VACÍA" (no se lee como azúcar que hay) cajaEn("ACEITE", 0.72, 3);
 }
 // parte 2: los frascos de dulce de leche ordenados en el segundo estante (12) y la caja que se le cae a Héctor
 const FRASCOS2 = [];
@@ -484,7 +484,7 @@ const polvo = new THREE.InstancedMesh(polvoG, polvoM, NP); polvo.castShadow = fa
 const _pm = new THREE.Matrix4(), _pq = new THREE.Quaternion(), _ps = new THREE.Vector3(), _pp = new THREE.Vector3();
 
 // ================= LOS PERSONAJES =================
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [2.0, 6.0, 11.8, 17.6, 24.2, 27.9, 31.4] });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [2.0, 6.0, 11.8, 17.6, 24.2, 28.4, 31.6] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.9, 24.9] });
 const hector = crearPersonaje({ ...ELENCO.hector, dedos: true, parpadeoCada: 999, parpadeosExtra: [11.6, 19.0, 26.5, 31.0] });
 const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
@@ -542,7 +542,7 @@ const telarana = crearTelarana(0.2, 0.0045, 9);
 const telaGr = new THREE.Group(); telaGr.add(telarana); ruben.cabeza.add(telaGr);
 telaGr.position.set(0.29, 0.25, 0.02); telaGr.rotation.set(0, Math.PI / 2, Math.PI * 1.05);   // de la oreja derecha hacia el hombro
 const telaH = crearTelarana(0.16, 0.0042, 13); const telaHG = new THREE.Group(); telaHG.add(telaH); scene.add(telaHG);   // la de Héctor (Q5), en el casco
-const cajaSombrero = crearCajaKraft("AZÚCAR", { W: 0.6, H: 0.3, D: 0.56 }); ruben.cabeza.add(cajaSombrero);
+const cajaSombrero = crearCajaKraft("VACÍA", { W: 0.6, H: 0.3, D: 0.56 }); ruben.cabeza.add(cajaSombrero);
 cajaSombrero.position.set(0.02, 0.74, 0.0); cajaSombrero.rotation.set(Math.PI + 0.05, 0.25, 0.2);   // boca abajo sobre la cabeza
 const CASCO_CAB = { p: V3(0, 0.39, 0.01), r: V3(-0.06, 0, 0) };   // el casco calzado (espacio de la cabeza)
 
@@ -578,7 +578,7 @@ function crearGlobo(lineas, px = 74, { cola = true, fondo = "#efeee5", tinta = "
 const halfK = () => (2 * Math.tan((camera.fov * D2R) / 2)) / 1920;
 let TOPE = 130;   // el borde de arriba mínimo de los globos (más abajo cuando está el chip)
 function ponerGlobo(g, cx, cy, s, objetivo, orden = 0, giro = 0) {
-  g.visible = s > 0.6;
+  g.visible = s > 0.75;
   if (!g.visible) return;
   const k = halfK();
   const { W, H, cola } = g.userData;
@@ -953,9 +953,11 @@ function renderAt(tIn) {
     ruben.poner(pr);
     const top = cabezaMundo(ruben, V3(0, 0.62, 0.0));
     if (en(t, T.sacaCaja[0] - 0.15, T.sacaCaja[1] + 0.15)) {
-      const kk = eio(sg(t, T.sacaCaja[0] - 0.15, T.sacaCaja[0])) * (1 - eio(sg(t, T.sacaCaja[1], T.sacaCaja[1] + 0.15)));
-      const lev = eio(sg(t, T.sacaCaja[0], T.sacaCaja[1]));
-      const izq = top.clone().add(V3(0.36, -0.08 + lev * 0.15, 0.05)), der = top.clone().add(V3(-0.36 - lev * 0.4, -0.08 + lev * 0.1, 0.05 + lev * 0.1));
+      const SUELTA = T.sacaCaja[0] + (T.sacaCaja[1] - T.sacaCaja[0]) * 0.45;
+      const kk = eio(sg(t, T.sacaCaja[0] - 0.15, T.sacaCaja[0])) * (1 - eio(sg(t, SUELTA, SUELTA + 0.12)));
+      const lev = eio(sg(t, T.sacaCaja[0], SUELTA));
+      // (ronda 2) las manos en los costados de la caja (por fuera) y la levantan derecho para arriba antes de tirarla
+      const izq = top.clone().add(V3(0.36, -0.1 + lev * 0.38, 0.03)), der = top.clone().add(V3(-0.36, -0.1 + lev * 0.38, 0.03));
       const p1 = manoConDedos(ruben, { ...pr, codoI: [1, 0, -0.3] }, "I", izq); const p2 = manoConDedos(ruben, { ...pr, codoD: [-1, 0, -0.3] }, "D", der);
       mezclaManos(pr, { ...p1, manoD: p2.manoD, codoD: p2.codoD }, kk);
     }
@@ -1157,7 +1159,7 @@ function renderAt(tIn) {
   }
   // la caja de polenta: en el estante, en las manos (P2), y vuelve (time-lapse)
   for (const p of PEDIDOS) p.visible = parte2; for (const p of SUSTITUTOS) p.visible = !parte2;
-  for (const o of CAJAS) { o.c.position.copy(o.base); o.c.rotation.set(0, o.rotBase, 0); o.c.visible = true; }
+  for (const o of CAJAS) { o.c.position.copy(o.base); o.c.rotation.set(0, o.rotBase, 0); o.c.scale.set(1, 1, 1); o.c.visible = true; }
   if (conPolenta) {
     const p = manoMundo(ruben, "I", _a).add(manoMundo(ruben, "D", _b)).multiplyScalar(0.5);
     const sac = en(t, T.sacude[0] + 0.05, T.sacude[1]) ? Math.sin((t - T.sacude[0]) * 38) : 0;
@@ -1182,19 +1184,29 @@ function renderAt(tIn) {
       ruben.cabeza.updateMatrixWorld(true);
       const dest = cabezaMundo(ruben, V3(0, 0.6, 0));
       cajaAzucar.c.position.copy(cajaAzucar.base.clone().lerp(dest, u)); cajaAzucar.c.position.y = lerp(cajaAzucar.base.y, dest.y, u * u);
-      cajaAzucar.c.rotation.set(u * Math.PI, 0, u * 0.3);
+      cajaAzucar.c.rotation.set(u * Math.PI, 0, u * 0.3); cajaAzucar.c.scale.set(lerp(1, 0.6 / 0.36, u), lerp(1, 0.3 / 0.26, u), lerp(1, 0.56 / 0.3, u));
       cajaAzucar.c.visible = t < T.cae;
     }
     // la última caja del fondo (DULCE DE LECHE): la tira al sacar el frasco
     if (t >= T.ultima) cae(cajaDulce, T.ultima, 2, V3(TJ.x - 0.25, SY + 0.12, TJ.z + 0.95));
   }
-  cajaSombrero.visible = sombrero && t < T.sacaCaja[0] + 0.02;
+  // (ronda 2) la caja de sombrero sube derecho (pegada a la cabeza, sin atravesarla) y al soltarla vuela al piso
+  const SUELTA = T.sacaCaja[0] + (T.sacaCaja[1] - T.sacaCaja[0]) * 0.45;
+  cajaSombrero.visible = sombrero && t < SUELTA;
+  cajaSombrero.position.y = 0.74 + (sombrero ? 0.38 * eio(sg(t, T.sacaCaja[0], SUELTA)) : 0);
   // la caja de sombrero que se saca (P6): de la cabeza al piso al costado de la trampa
   if (!parte2 && en(t, T.sacaCaja[0], T.p7)) {
-    const u = eio(sg(t, T.sacaCaja[0], T.sacaCaja[1]));
-    ruben.cabeza.updateMatrixWorld(true);
-    const de = cabezaMundo(ruben, V3(0, 0.6, 0)), a = V3(1.9, 0.0, -1.35);
-    cajaAzucar.c.visible = true; cajaAzucar.c.position.copy(de.lerp(a, u)).add(V3(0, Math.sin(u * Math.PI) * 0.2 - (1 - u) * 0.3 * 0, 0)); cajaAzucar.c.rotation.set(Math.PI * (1 - u), 0.3, 0.2 * (1 - u));
+    const SU = T.sacaCaja[0] + (T.sacaCaja[1] - T.sacaCaja[0]) * 0.45;
+    cajaAzucar.c.visible = t >= SU;
+    if (cajaAzucar.c.visible) {
+      // arranca exactamente donde quedó la de sombrero (misma pose y tamaño) y cae al piso a la derecha, por fuera
+      cajaSombrero.position.y = 0.74 + 0.38; ruben.cabeza.updateMatrixWorld(true); cajaSombrero.updateMatrixWorld(true);
+      const p0 = new THREE.Vector3(), q0 = new THREE.Quaternion(); cajaSombrero.getWorldPosition(p0); cajaSombrero.getWorldQuaternion(q0);
+      const u = eio(sg(t, SU, T.sacaCaja[1] + 0.12)), a = V3(1.6, 0.0, -2.78);   // (ronda 2) la tira para atrás, por arriba (nunca por delante de la cara)
+      cajaAzucar.c.position.copy(p0.clone().lerp(a, u)).add(V3(0, Math.sin(u * Math.PI) * 0.25, 0));
+      cajaAzucar.c.quaternion.copy(q0).slerp(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0.3, 0)), u);
+      cajaAzucar.c.scale.set(0.6 / 0.36, 0.3 / 0.26, 0.56 / 0.3);
+    }
   }
   // la caja que se le cae a Héctor (Q5)
   caeH.visible = false;
@@ -1240,7 +1252,8 @@ function renderAt(tIn) {
     for (const g in GL) GL[g].visible = false;
     const rb = () => bocaPx(ruben), hb = () => bocaPx(hector), gb = () => bocaPx(graciela), wb = () => bocaPx(walter), mb = () => bocaPx(marta);
     const arriba = (g, quien, t0, t1, dx = 0, dy = -420, orden = 0) => { if (!en(t, t0, t1)) return; const [bx, by] = quien(); ponerGlobo(g, bx + dx, by + dy, ent(t0) * sale(t1), [bx, by - 30], orden); };
-    if (plano === "P1" || plano === "P2") arriba(GL.r1, rb, T.r1, T.r1 + LEN.r1 + 0.15, 120, -400);
+    if (plano === "P1") arriba(GL.r1, rb, T.r1, T.r1 + LEN.r1 + 0.15, 120, -400);
+    if (plano === "P2") ponerGlobo(GL.r1, 700, 300, sale(T.r1 + LEN.r1 + 0.15), [700, 700]);   // (ronda 2) arriba, sin tapar la cara
     if (plano === "P3") arriba(GL.r2, rb, T.r2, T.p4, 0, -520);
     if (plano === "P4") arriba(GL.w1, wb, T.w1, T.n2, -60, -330);
     if (plano === "N2" || plano === "N3") { const [bx, by] = rb(); ponerGlobo(plano === "N2" ? GL.no2 : GL.no3, 260, 340, ent(plano === "N2" ? T.no2 : T.no3), [bx - 60, by - 20]); }
@@ -1250,7 +1263,7 @@ function renderAt(tIn) {
     if (plano === "P7") arriba(GL.r3, rb, T.r3, T.p8, -150, -560);
     if (plano === "P9") { arriba(GL.h2a, hb, T.h2, T.h2b - 0.02, 120, -600); arriba(GL.h2b, hb, T.h2b, T.p10, 60, -600); }
     if (plano === "P10") arriba(GL.h3, hb, T.h3, T.cruza[1] + 0.2, 160, -420);
-    if (plano === "Q1") { arriba(GL.g1b, gb, T.g1b, T.r4 - 0.05, 120, -300); arriba(GL.r4, rb, T.r4, T.q2, -60, -420); }
+    if (plano === "Q1") { if (en(t, T.g1b, T.r4 - 0.05)) { const [bx, by] = gb(); ponerGlobo(GL.g1b, 360, 1150, ent(T.g1b) * sale(T.r4 - 0.05), [bx + 30, by - 30]); } arriba(GL.r4, rb, T.r4, T.q2, -60, -420); }
     if (plano === "Q2") { arriba(GL.h4, hb, T.h4, T.r5, 140, -420); arriba(GL.r5, rb, T.r5, T.q3, 0, -330); }
     if (plano === "Q3") arriba(GL.h5, hb, T.h5, T.q3b, 60, -640);
     if (plano === "Q3b") arriba(GL.r6, rb, T.r6, T.q4, -40, -640);
@@ -1260,7 +1273,7 @@ function renderAt(tIn) {
 }
 // el casco en P6: del estante de abajo del mostrador (al costado de la trampa) a las manos y a la cabeza
 function cascoMundoP6(t) {
-  const desde = V3(1.06, 0.05, -2.08);   // (ronda 2) en el piso, a la derecha de Rubén (fuera de la cara)
+  const desde = V3(0.84, 0.05, -2.05);   // (ronda 2) en el piso, a la derecha de Rubén (fuera de la cara)
   ruben.cabeza.updateMatrixWorld(true);
   const sobre = ruben.cabeza.localToWorld(CASCO_CAB.p.clone().add(V3(0, 0.22, 0.05)));
   const cab = ruben.cabeza.localToWorld(CASCO_CAB.p.clone());

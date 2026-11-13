@@ -1,4 +1,4 @@
-# te-queda · PARA MANDAR completo (3D real), 32,0 s (ronda 1: sin Q5; planos y tiempos vigentes en NOTAS-constructor.md, "Ronda 1")
+# te-queda · PARA MANDAR completo (3D real), 32,2 s (ronda 2; planos y tiempos vigentes en NOTAS-constructor.md, "Ronda 2")
 
 **De qué trata.** "¿Te queda polenta?" y Rubén baja al sótano a fijarse: la caja vacía, "No, no queda." Walter (fideos:
 avalancha, telaraña) y Marta (azúcar: el foco se quema, la caja de sombrero). Héctor: "¿Te queda dulce de leche?":

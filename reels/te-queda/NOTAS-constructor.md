@@ -124,3 +124,42 @@ P9 15,14 · P10 17,25 · cartel 19,00 · Q1 21,40 · Q2 23,62 · Q3 25,72 · Q3b
 Flojo / dudoso: Graciela sigue de espaldas (pelo y espalda); en P10 al entrar (18,2) asoma un costado de la cara de Rubén en
 el borde derecho; el dolly de entrada a la sección (5,24-5,7) pasa por un encuadre partido almacén/losa/sótano; en la
 sección los personajes siguen siendo chicos (~300 px).
+
+## Ronda 2 de corrección (13-11) · ahora 32,17 s (parte 1 0-19,23 · cartel 19,23-21,63 · parte 2 21,63-32,17; línea chica desde 29,92)
+ALTA:
+- A1 (lo que "no queda" a la vista): en la parte 1 las góndolas no muestran yerba, polenta ni fideos: cada uno de esos
+  paquetes tiene un sustituto (lata de color o paquete neutro) en el mismo lugar, y en la parte 2 vuelven (PEDIDOS /
+  SUSTITUTOS en tres.js). En el sótano las cajas dicen ACEITE, ARROZ, LATAS, JABÓN, HARINA, FÓSFOROS, VELAS; solo quedan la
+  POLENTA abierta y vacía, el DULCE DE LECHE (el frasco que "queda uno") y la que le cae en la cabeza, que ahora dice
+  **"VACÍA"** (también la de sombrero).
+- A2 (el casco por la cara, 10,36): el casco sale del piso a la DERECHA de Rubén (x 0,84, por fuera del hombro), lo sube
+  la mano derecha por afuera, pasa por arriba de la cabeza y baja con las dos manos a los costados. La caja de sombrero se
+  levanta derecho para arriba con las manos por fuera y se tira para atrás (pasa por detrás de la cabeza, se lee "VACÍA").
+  Las dos cosas pasan ya en el plano de Rubén (sacaCaja p6+0,06; casco p6+0,36..0,86).
+MEDIA:
+- M1: el casco viaja por arriba hasta quedar sobre la boina y baja a la vista (0,45 s); la boina se aplasta (escala y
+  0,25) mientras baja y se va recién con el casco puesto.
+- M2/M6: cortes cortos N2 (7,30) y N3 (9,35) a Rubén asomado en la trampa para los "No." (telaraña / caja de sombrero,
+  primer plano), burbuja arriba a la izquierda; la sección vuelve en P5 (7,84) con Marta. Ningún plano pasa de 3 s.
+- M3: "Un" del cartel ya en el primer cuadro (narrador +0,15).
+- M4: el dedo de Rubén toca el marco de la tablet al lado de la fila (no tapa el "3"); tablet menos inclinada (-0,5).
+- M5: chip "Viajes al depósito: 0" desde 29,08 hasta el final (3,1 s, también en Q6); la línea chica bajó a top 205.
+- M7: r1 = 02-ruben-c ("ya me fijo", flat factor 0). M8: Marta en 3/4 hacia la cámara (delantal verde a la vista,
+  la cabeza a Rubén) y la cola de su burbuja a ella. M9: Q6 más abierto.
+BAJA: r3 recortado desde 0,22 s (sin clic ni silencio; "queda uno" verificado); m1 -1,5 dB (sin 0 dBFS); pasos en las
+salidas de Walter y Marta; la caja de sombrero se ve en las manos; polvo de los hombros en manchas chatas grisáceas (no
+púas); la burbuja de Graciela en Q1 abajo, sobre el mostrador, con la cola a ella (no tapa a Rubén); "Ya me fijo." en P2
+arriba (sin tapar la cara); burbujas visibles desde 75 % (sin la versión chiquita); docs: fuentes.md sin "Llega el
+jueves", voces.md con las tomas nuevas, coma en descripcion.txt.
+Mezcla: -14,0 LUFS, pico -4,0 dBFS. Voz ≥ +6,2 LU en todos los tramos con voz audible; los dos tramos marcados "<6"
+(2,0 y 14,5 s) son colas de voz a -35/-38 LUFS (fin de "Ya me fijo." y de "Queda uno.") bajo el whoosh y el ta-dá.
+Revisión: check 0 errores; pasada A cada 0,5 s desde 0, pasada B desde 0,25, los 21 cortes a -0,04/+0,01/+0,04 s y cuadro
+por cuadro (1/30) la caja en la cabeza (P5), la caja de sombrero y el casco (P6) y el casco a Héctor (P10). Entre pasadas
+se corrigió: la caja AZÚCAR del sótano que se leía antes de que Marta pregunte (ahora VACÍA), la caja de sombrero que
+cambiaba de tamaño y atravesaba la cabeza al salir, el casco que rozaba el brazo al subir, la burbuja de "No." sobre la
+cara en N2/N3, la boina que desaparecía antes de que bajara el casco.
+Planos (s): P1 0 · P2 2,15 · P2b 2,53 · P3 3,68 · P4 5,24 · N2 7,30 · P5 7,84 · N3 9,35 · P6a 9,77 · P6 10,49 · P6b 11,66 ·
+P7 13,43 · P8 14,69 · P9 15,31 · P10 17,38 · cartel 19,23 · Q1 21,63 · Q2 23,81 · Q3 25,91 · Q3b 26,90 · Q4 28,01 · Q6 29,87.
+Flojo: Graciela de espaldas; en P6 el casco asoma 1-2 cuadros en el borde izquierdo al subir; el casco al calzarse tapa un
+poco los ojos mientras Rubén baja la cabeza (11,2); la boina aplastada asoma un borde bajo el ala 0,1 s; en la sección los
+personajes siguen chicos (~300 px).
