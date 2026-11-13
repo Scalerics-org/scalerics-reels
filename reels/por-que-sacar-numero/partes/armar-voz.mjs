@@ -40,7 +40,7 @@ PARTES.forEach(([, desde, hasta, pausas, tempo], i) => {
   trozo(i, a, hasta, tempo, 0.03);
   if (i < ENTRE.length) sil(ENTRE[i]);
 });
-sil(0.25);
+sil(0.5);
 const ins = PARTES.map(([p]) => `-i ${p}`).join(" ");
 execSync(`ffmpeg -y -hide_banner -loglevel error ${ins} -filter_complex "${f.join(";")};${seg.join("")}concat=n=${seg.length}:v=0:a=1,aresample=48000[o]" -map "[o]" -ar 48000 -ac 1 assets/voice/locucion.wav`);
 console.log("locucion.wav:", dur("assets/voice/locucion.wav").toFixed(2), "s");

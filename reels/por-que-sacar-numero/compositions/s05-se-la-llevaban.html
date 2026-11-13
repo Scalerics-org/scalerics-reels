@@ -1,0 +1,49 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-se-la-llevaban"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-se-la-llevaban"] svg.full { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; }
+    [data-composition-id="s05-se-la-llevaban"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #0b1220; font: 700 50px/1.05 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.25); }
+    [data-composition-id="s05-se-la-llevaban"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; font-weight: 800; }
+    [data-composition-id="s05-se-la-llevaban"] .pill.malo { border-color: #c7655b; background: #c7655b; color: #efeee5; font-weight: 800; }
+    [data-composition-id="s05-se-la-llevaban"] .pill.gris { border-color: #8e8c80; background: #d9d7c9; color: #0b1220; }
+    [data-composition-id="s05-se-la-llevaban"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
+    [data-composition-id="s05-se-la-llevaban"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
+    [data-composition-id="s05-se-la-llevaban"] .dot.malo { fill: #c7655b; }
+
+  </style>
+  <div id="root" data-composition-id="s05-se-la-llevaban" data-width="1080" data-height="1920" data-duration="2.76">
+    <div id="s05-se-la-llevaban-esc" class="esc clip" data-start="0" data-duration="2.76" data-track-index="0">
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead malo l1" d="M700 1500 L640 1250"/><circle class="dot malo d1" cx="640" cy="1250" r="13"/></svg><div class="pill malo n1" style="left:700px;top:1560px">Llegaron después</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-se-la-llevaban";
+      const DUR = 2.76;
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      if (qa(".pill").length) gsap.set(qa(".pill"), { xPercent: -50, yPercent: -50 });
+      const pop = (s, t, d, desde) => { const el = typeof s === "string" ? qa(s) : s; tl.set(el, { opacity: 1 }, t); tl.fromTo(el, { scale: desde ?? 0.75, transformOrigin: "50% 50%" }, { scale: 1, duration: d ?? 0.3, ease: "back.out(1.8)", immediateRender: false }, t); };
+      const dibujar = (s, t, dur) => qa(s).forEach((el) => {
+        const L = el.getTotalLength();
+        gsap.set(el, { strokeDasharray: L, strokeDashoffset: L, opacity: 0 });
+        tl.set(el, { opacity: 1 }, t);
+        tl.to(el, { strokeDashoffset: 0, duration: dur ?? 0.3, ease: "power2.inOut" }, t);
+      });
+      const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
+      const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
+      const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
+
+nota(1, 1); fuera([1], 2.56);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
