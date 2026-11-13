@@ -1,0 +1,30 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 500; font-display: block; src: url("assets/fonts/IBMPlexMono-500.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-chip0"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-chip0"] .chip { position: absolute; left: 44px; top: 64px; padding: 14px 30px 18px; border-radius: 60px; background: #0b1220; border: 7px solid #5ce611; box-shadow: 8px 10px 0 rgba(3,6,12,0.55); font: 800 50px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; color: #efeee5; transform-origin: 20% 50%; white-space: nowrap; }
+    [data-composition-id="s06-chip0"] .n { display: inline-block; min-width: 0.7em; text-align: center; color: #5ce611; transform-origin: 50% 60%; }
+  </style>
+  <div id="root" data-composition-id="s06-chip0" data-width="1080" data-height="1920" data-duration="2.07">
+    <div id="s06-chip0-esc" class="esc clip" data-start="0" data-duration="2.07" data-track-index="0">
+      <div class="chip">Viajes al depósito: <span class="n">0</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-chip0";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".chip"), { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.22, ease: "back.out(2.2)", immediateRender: true }, 0.0);
+
+      tl.set(q(".chip"), { opacity: 0 }, 2.05);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
