@@ -994,7 +994,10 @@ function zonaR(t) {
   displayR.visible = balanza.visible = celuR.visible = laptop.visible = en; tablet.visible = false; tildeTab.visible = false;
   bolsaW.visible = bolsaG.visible = false; graciela.raiz.visible = false; walter.raiz.visible = false; burbujaV.visible = false;
   tkVuelan.forEach((x) => (x.visible = false)); sinNum.forEach((x) => (x.visible = false));
-  cartelR.visible = en && !(plano === "R" && t > T.fila - 0.05 && t < T.s09 - 0.1);
+  // QA final: el cartel ya no desaparece de golpe; se achica antes de los "?" y no vuelve hasta el corte
+  { const kc = plano === "R" && t > T.s08 ? eio(sg(t, T.fila - 0.35, T.fila - 0.02)) : 0;
+    const sc = Math.max(0.001, 1 - kc) * (plano === "R4" ? 0.7 : 1), CC = V(MOST.x - 0.2, 0.62, MOST.z + MOST.d / 2);
+    cartelR.scale.setScalar(sc); cartelR.position.copy(CC).multiplyScalar(1 - sc); cartelR.visible = en && kc < 0.999; }
   balanza.visible = en && plano !== "R6";
   displayR.visible = en && plano !== "R4"; // ronda 2: en el plano del sistema el display quedaba bajo los subtítulos
   if (!en) return;

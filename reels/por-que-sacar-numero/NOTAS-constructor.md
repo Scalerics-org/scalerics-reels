@@ -196,3 +196,10 @@ cortado por la izquierda (es la salida); etiquetas de los "?" ~35 px.
   tramos con voz < 6 dB.
 Quedó: 20,9-21,1 la burbuja chica cae al celular de Rubén en el plano de Walter; Walter entra/sale cortado por la
 izquierda (20,9 y 23,5); el rótulo de Larson sobre el estante (no tapa la bici en los cuadros revisados).
+
+## Verificación final de arte sobre el MP4 · 13-11 (corrida 12:12)
+Director de arte independiente sobre el render: 2 defectos altos, corregidos y verificados con snapshot:
+- Puente de los anteojos de Graciela metido dentro del lente derecho (`personajes.js`: `puente.position.x += 0.035` → `-= 0.035`, queda centrado entre los aros).
+- Cartel ALMACÉN RUBÉN que desaparecía y volvía de golpe en s08 → se achica sobre su centro antes de los "?" y no vuelve hasta el corte; en el plano del sistema (R4) va al 70 % para que no se corte en los bordes.
+Quedaron (medios/bajos, no bloquean): el platillo de la balanza atraviesa el termo (14-16,8 s), pantalla del celular de Rubén corrida (23,8-26,2), en el general final el monitor tapa la boca de Rubén (30-32,7), logo que aparece y desaparece entre escenas, textos de interfaz chicos.
+Render SwiftShader: ~18 min por render.
