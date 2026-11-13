@@ -1,6 +1,6 @@
 # Estadísticas de los reels (Instagram @scalerics_)
 
-Actualizado: 2026-11-13 14:43 UTC, por `herramientas/stats.mjs` (Action
+Actualizado: 2026-11-13 14:45 UTC, por `herramientas/stats.mjs` (Action
 "Estadísticas", cada lunes). No editar a mano: se pisa.
 
 **Cómo usarlo (la rutina, antes de elegir temas):** mirá qué tienen en común los de arriba (formato,
@@ -26,11 +26,11 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 | 11-12 | `por-que-las-tarjetas` | 2.124 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
 | 11-11 | `hacen-envios` | 1.838 | 20.5 s | 63 % | 16 | 0 | 0 | 0 | HECTOR: ¿Hacen envíos? |
 | 10-29 | `almacen` | 1.653 | 40.6 s | 69 % | 53 | 0 | 3 | 2 | Tengo que confesar algo. |
-| 11-08 | `dos-repuestos` | 1.538 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
+| 11-08 | `dos-repuestos` | 1.539 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
 | 11-09 | `lo-mismo-que-la-otra-vez` | 1.533 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
 | 11-09 | `me-lo-guardas` | 1.518 | 17.3 s | 58 % | 30 | 0 | 0 | 1 | RUBEN: Ya viene, Graciela. |
 | 10-30 | `empleado-del-mes` | 1.467 | 25.4 s | 35 % | 42 | 0 | 0 | 1 | Y el empleado del mes es... No, Marcelo. No sos vos. Sentate. |
-| 11-13 | `por-que-devolver-gratis` | 1.463 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
+| 11-13 | `por-que-devolver-gratis` | 1.465 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
 
 ### Los 10 peores
 | Fecha | Reel | Vistas | Visionado medio | % del video | Likes | Coment. | Compart. | Guard. | Primera línea del guion |
@@ -49,7 +49,7 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 ## Todos, por fecha
 | Fecha | Reel | Vistas | Visionado medio | % del video | Likes | Coment. | Compart. | Guard. | Primera línea del guion |
 |---|---|---|---|---|---|---|---|---|---|
-| 11-13 | `por-que-devolver-gratis` | 1.463 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
+| 11-13 | `por-que-devolver-gratis` | 1.465 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
 | 11-12 | `por-que-las-tarjetas` | 2.124 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
 | 11-12 | (sin carpeta) ¿Tu almacén pierde ventas por no contest | 409 | 26.2 s | - | 6 | 0 | 8 | 0 |  |
 | 11-12 | `anotamelo` | 4.542 | 24.5 s | 73 % | 82 | 0 | 1 | 2 | GRACIELA: Anotámelo, Rubén. |
@@ -61,7 +61,7 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 | 11-09 | `por-que-se-fue` | 222 | 12.1 s | 38 % | 0 | 0 | 0 | 0 | Vino por su yerba. No había. ¿Qué hizo? |
 | 11-09 | `lo-mismo-que-la-otra-vez` | 1.533 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
 | 11-08 | `las-siete-y-cincuenta-y-nueve` | 211 | 15.6 s | 49 % | 2 | 0 | 0 | 0 | Sacate la campera, Walter. |
-| 11-08 | `dos-repuestos` | 1.538 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
+| 11-08 | `dos-repuestos` | 1.539 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
 | 11-08 | `netflix-blockbuster` | 41 | 6.0 s | 20 % | 0 | 0 | 0 | 0 | Blockbuster pudo comprar Netflix por cincuenta millones de dólares. |
 | 11-07 | `el-diablito` | 1.075 | 19.3 s | 27 % | 29 | 0 | 0 | 0 | Esa venta la perdiste por mí. Soy tu diablito. |
 | 11-07 | `caso-duolingo` | 145 | 6.3 s | 18 % | 3 | 0 | 0 | 0 | ¿Por qué Duolingo te recuerda todos los días que practiques? |
