@@ -1,36 +1,36 @@
 # Estadísticas de los reels (Instagram @scalerics_)
 
-Actualizado: 2026-11-13 14:45 UTC, por `herramientas/stats.mjs` (Action
+Actualizado: 2026-11-13 17:06 UTC, por `herramientas/stats.mjs` (Action
 "Estadísticas", cada lunes). No editar a mano: se pisa.
 
 **Cómo usarlo (la rutina, antes de elegir temas):** mirá qué tienen en común los de arriba (formato,
 personaje, primera línea, duración) y hacé más de eso; lo de abajo, no lo repitas. Lo que decide si un
 reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas tienen una mediana de
-**19.4 s**; los que no, **11.0 s**.
+**19.3 s**; los que no, **11.0 s**.
 
 ## La cuenta, últimos 7 días
 
-- Seguidores: 296
+- Seguidores: 297
 - Seguidores nuevos: 10 (semana anterior: 21)
-- Visitas al perfil: 105 (semana anterior: 157)
+- Visitas al perfil: 116 (semana anterior: 157)
 - Clics a la web: 3 (semana anterior: 6)
-- Cuentas que interactuaron: 434 (semana anterior: 353)
+- Cuentas que interactuaron: 450 (semana anterior: 353)
 
-## Últimos 30 días: 20 de 51 reels salieron de los seguidores (≥ 600 vistas)
+## Últimos 30 días: 21 de 52 reels salieron de los seguidores (≥ 600 vistas)
 
 ### Los 10 mejores
 | Fecha | Reel | Vistas | Visionado medio | % del video | Likes | Coment. | Compart. | Guard. | Primera línea del guion |
 |---|---|---|---|---|---|---|---|---|---|
-| 11-12 | `anotamelo` | 4.542 | 24.5 s | 73 % | 82 | 0 | 1 | 2 | GRACIELA: Anotámelo, Rubén. |
+| 11-12 | `anotamelo` | 4.547 | 24.5 s | 73 % | 82 | 0 | 1 | 2 | GRACIELA: Anotámelo, Rubén. |
 | 11-05 | `abren-hoy-completo` | 2.180 | 18.5 s | - | 30 | 0 | 0 | 2 |  |
-| 11-12 | `por-que-las-tarjetas` | 2.124 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
-| 11-11 | `hacen-envios` | 1.838 | 20.5 s | 63 % | 16 | 0 | 0 | 0 | HECTOR: ¿Hacen envíos? |
+| 11-12 | `por-que-las-tarjetas` | 2.129 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
+| 11-11 | `hacen-envios` | 1.839 | 20.4 s | 63 % | 16 | 0 | 0 | 0 | HECTOR: ¿Hacen envíos? |
+| 11-13 | `por-que-sacar-numero` | 1.737 | 18.2 s | 51 % | 13 | 0 | 0 | 0 | ¿Por qué en la fiambrería te hacen sacar número? |
 | 10-29 | `almacen` | 1.653 | 40.6 s | 69 % | 53 | 0 | 3 | 2 | Tengo que confesar algo. |
-| 11-08 | `dos-repuestos` | 1.539 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
-| 11-09 | `lo-mismo-que-la-otra-vez` | 1.533 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
+| 11-08 | `dos-repuestos` | 1.539 | 17.4 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
+| 11-09 | `lo-mismo-que-la-otra-vez` | 1.534 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
 | 11-09 | `me-lo-guardas` | 1.518 | 17.3 s | 58 % | 30 | 0 | 0 | 1 | RUBEN: Ya viene, Graciela. |
-| 10-30 | `empleado-del-mes` | 1.467 | 25.4 s | 35 % | 42 | 0 | 0 | 1 | Y el empleado del mes es... No, Marcelo. No sos vos. Sentate. |
-| 11-13 | `por-que-devolver-gratis` | 1.465 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
+| 11-13 | `por-que-devolver-gratis` | 1.506 | 13.3 s | 39 % | 18 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
 
 ### Los 10 peores
 | Fecha | Reel | Vistas | Visionado medio | % del video | Likes | Coment. | Compart. | Guard. | Primera línea del guion |
@@ -49,19 +49,20 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 ## Todos, por fecha
 | Fecha | Reel | Vistas | Visionado medio | % del video | Likes | Coment. | Compart. | Guard. | Primera línea del guion |
 |---|---|---|---|---|---|---|---|---|---|
-| 11-13 | `por-que-devolver-gratis` | 1.465 | 13.2 s | 38 % | 17 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
-| 11-12 | `por-que-las-tarjetas` | 2.124 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
-| 11-12 | (sin carpeta) ¿Tu almacén pierde ventas por no contest | 409 | 26.2 s | - | 6 | 0 | 8 | 0 |  |
-| 11-12 | `anotamelo` | 4.542 | 24.5 s | 73 % | 82 | 0 | 1 | 2 | GRACIELA: Anotámelo, Rubén. |
-| 11-12 | `por-que-la-toalla` | 349 | 10.3 s | 33 % | 1 | 0 | 0 | 0 | ¿Por qué el hotel te dice que la mayoría reutiliza la toalla? |
-| 11-11 | `hacen-envios` | 1.838 | 20.5 s | 63 % | 16 | 0 | 0 | 0 | HECTOR: ¿Hacen envíos? |
+| 11-13 | `por-que-sacar-numero` | 1.737 | 18.2 s | 51 % | 13 | 0 | 0 | 0 | ¿Por qué en la fiambrería te hacen sacar número? |
+| 11-13 | `por-que-devolver-gratis` | 1.506 | 13.3 s | 39 % | 18 | 0 | 0 | 1 | ¿Por qué las tiendas te dejan devolver gratis? |
+| 11-12 | `por-que-las-tarjetas` | 2.129 | 17.2 s | 50 % | 36 | 0 | 0 | 3 | ¿Por qué el mejor vendedor de autos le mandaba tarjetas a los que ya le compraron? |
+| 11-12 | (sin carpeta) ¿Tu almacén pierde ventas por no contest | 437 | 25.4 s | - | 6 | 0 | 9 | 0 |  |
+| 11-12 | `anotamelo` | 4.547 | 24.5 s | 73 % | 82 | 0 | 1 | 2 | GRACIELA: Anotámelo, Rubén. |
+| 11-12 | `por-que-la-toalla` | 350 | 10.2 s | 33 % | 1 | 0 | 0 | 0 | ¿Por qué el hotel te dice que la mayoría reutiliza la toalla? |
+| 11-11 | `hacen-envios` | 1.839 | 20.4 s | 63 % | 16 | 0 | 0 | 0 | HECTOR: ¿Hacen envíos? |
 | 11-11 | `por-que-el-recordatorio` | 218 | 12.5 s | 37 % | 3 | 0 | 0 | 0 | ¿Por qué el dentista te manda un mensaje el día antes? |
 | 11-10 | `por-que-buscando` | 160 | 8.5 s | 25 % | 0 | 0 | 0 | 0 | ¿Por qué algunas páginas te muestran que están "buscando"? |
 | 11-09 | `me-lo-guardas` | 1.518 | 17.3 s | 58 % | 30 | 0 | 0 | 1 | RUBEN: Ya viene, Graciela. |
 | 11-09 | `por-que-se-fue` | 222 | 12.1 s | 38 % | 0 | 0 | 0 | 0 | Vino por su yerba. No había. ¿Qué hizo? |
-| 11-09 | `lo-mismo-que-la-otra-vez` | 1.533 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
+| 11-09 | `lo-mismo-que-la-otra-vez` | 1.534 | 16.4 s | 117 % | 27 | 0 | 1 | 1 | Todo es verde, Graciela. |
 | 11-08 | `las-siete-y-cincuenta-y-nueve` | 211 | 15.6 s | 49 % | 2 | 0 | 0 | 0 | Sacate la campera, Walter. |
-| 11-08 | `dos-repuestos` | 1.539 | 17.5 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
+| 11-08 | `dos-repuestos` | 1.539 | 17.4 s | 51 % | 33 | 0 | 0 | 3 | NARRADOR: Dos casas de repuestos. El mismo mensaje. Solo una le guardó la batería. |
 | 11-08 | `netflix-blockbuster` | 41 | 6.0 s | 20 % | 0 | 0 | 0 | 0 | Blockbuster pudo comprar Netflix por cincuenta millones de dólares. |
 | 11-07 | `el-diablito` | 1.075 | 19.3 s | 27 % | 29 | 0 | 0 | 0 | Esa venta la perdiste por mí. Soy tu diablito. |
 | 11-07 | `caso-duolingo` | 145 | 6.3 s | 18 % | 3 | 0 | 0 | 0 | ¿Por qué Duolingo te recuerda todos los días que practiques? |
@@ -77,7 +78,7 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 | 11-04 | `primer-dia` | 156 | 10.2 s | 15 % | 1 | 0 | 0 | 0 | Tu empleado nuevo empieza el lunes. ¿Dónde está escrito cómo se hace todo? |
 | 11-03 | `cadena-nacional` | 170 | 10.7 s | 14 % | 3 | 0 | 0 | 0 | Interrumpimos tu scroll. El dueño de este local tiene un anuncio. Y no te va a gustar. |
 | 11-03 | `el-adiestrador` | 1.045 | 20.2 s | 27 % | 32 | 0 | 0 | 0 | El problema no es el perro. Es el dueño. Y hoy vino uno que deja en visto. |
-| 11-03 | `el-ascensor` | 1.394 | 31.7 s | 44 % | 46 | 0 | 0 | 1 | Me quedé trancado en el ascensor con la clienta que nunca llamé. |
+| 11-03 | `el-ascensor` | 1.395 | 31.7 s | 44 % | 46 | 0 | 0 | 1 | Me quedé trancado en el ascensor con la clienta que nunca llamé. |
 | 11-03 | `el-guardavidas` | 413 | 12.2 s | 17 % | 8 | 0 | 0 | 0 | Bandera roja. Hay una clienta ahogándose en tu WhatsApp. Y vos, tomando mate. |
 | 11-02 | `el-grupo-de-los-agentes` | 187 | 17.2 s | 24 % | 6 | 0 | 0 | 0 | Nos metimos en el grupo de WhatsApp de los agentes de IA. Y se están riendo de vos. |
 | 11-02 | `storytime` | 168 | 14.1 s | 19 % | 2 | 0 | 0 | 0 | Storytime: casi me pierdo la mejor milanesa de mi vida. Y la culpa fue de su página web. |
@@ -100,3 +101,11 @@ reel sale de los seguidores es el **visionado medio**: los que pasan 600 vistas 
 | 10-26 | (sin carpeta) ¿Tus clientes vuelven… o se olvidan de v | 196 | 17.7 s | - | 5 | 0 | 2 | 1 |  |
 | 10-19 | (sin carpeta) ¿Cuánto vendiste ayer? Si tuviste que pe | 861 | 8.4 s | - | 3 | 0 | 142 | 0 |  |
 | 10-15 | (sin carpeta) Si tu negocio depende de un archivo con  | 214 | 11.0 s | - | 1 | 0 | 2 | 0 |  |
+
+## YouTube (@scalerics)
+
+0 suscriptores · 1 Shorts · **1 siguen privados** (sin la auditoría de la API salen así: pasarlos a público en YouTube Studio)
+
+| Fecha | Reel | Estado | Vistas | Likes | Coment. |
+|---|---|---|---|---|---|
+| 11-13 | `anotamelo` | privado | 0 | 0 | 0 |

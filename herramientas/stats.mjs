@@ -9,6 +9,7 @@
 import fs from "node:fs";
 import { execSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
+import { accesoYouTube, tituloDe } from "./youtube.mjs";
 
 const G = "https://graph.facebook.com/v21.0";
 const BUCKET_ESTADO = "scalerics-reels-estado";
@@ -138,6 +139,44 @@ const avgArriba = med(salieron.map((f) => f.avg));
 const avgAbajo = med(filas.filter((f) => f.vistas < UMBRAL).map((f) => f.avg));
 const comp = (k) => `${n(sem[k] ?? 0)} (semana anterior: ${n(ant[k] ?? 0)})`;
 
+// ---- YouTube (@scalerics): vistas de los Shorts, si el canal está autorizado ----
+let mdYT = "";
+try {
+  const acceso = await accesoYouTube({ Authorization: "Bearer " + g });
+  if (acceso) {
+    const H = { Authorization: "Bearer " + acceso };
+    const canal = (await pedir("https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&mine=true", { headers: H })).items[0];
+    const ids = [];
+    for (let u = `https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=${canal.contentDetails.relatedPlaylists.uploads}`; u; ) {
+      const d = await pedir(u, { headers: H });
+      ids.push(...(d.items || []).map((i) => i.contentDetails.videoId));
+      u = d.nextPageToken && ids.length < 200 ? u.replace(/&pageToken=[^&]*/, "") + "&pageToken=" + d.nextPageToken : null;
+    }
+    const vids = [];
+    for (let i = 0; i < ids.length; i += 50) {
+      const d = await pedir(`https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,status&id=${ids.slice(i, i + 50).join(",")}`, { headers: H });
+      vids.push(...(d.items || []));
+    }
+    // emparejar por título (el publicador lo arma con tituloDe(descripción))
+    const porTitulo = new Map(carpetas.filter((c) => fs.existsSync(`reels/${c}/descripcion.txt`)).map((c) => [tituloDe(fs.readFileSync(`reels/${c}/descripcion.txt`, "utf8").trim()), c]));
+    const filasYT = vids
+      .map((v) => ({ fecha: v.snippet.publishedAt, slug: porTitulo.get(v.snippet.title), titulo: v.snippet.title, priv: v.status.privacyStatus, vistas: +(v.statistics.viewCount || 0), likes: +(v.statistics.likeCount || 0), com: +(v.statistics.commentCount || 0), id: v.id }))
+      .sort((a, b) => b.fecha.localeCompare(a.fecha));
+    const privados = filasYT.filter((f) => f.priv !== "public").length;
+    mdYT = `
+## YouTube (@scalerics)
+
+${n(+canal.statistics.subscriberCount)} suscriptores · ${filasYT.length} Shorts${privados ? ` · **${privados} siguen privados** (sin la auditoría de la API salen así: pasarlos a público en YouTube Studio)` : ""}
+
+| Fecha | Reel | Estado | Vistas | Likes | Coment. |
+|---|---|---|---|---|---|
+${filasYT.map((f) => `| ${f.fecha.slice(5, 10)} | ${f.slug ? "`" + f.slug + "`" : f.titulo.slice(0, 50)} | ${f.priv === "public" ? "público" : "privado"} | ${n(f.vistas)} | ${f.likes} | ${f.com} |`).join("\n")}
+`;
+  }
+} catch (e) {
+  console.log("youtube: " + e.message);
+}
+
 const md = `# Estadísticas de los reels (Instagram @${cuenta.username})
 
 Actualizado: ${new Date().toISOString().slice(0, 16).replace("T", " ")} UTC, por \`herramientas/stats.mjs\` (Action
@@ -169,6 +208,6 @@ ${orden.slice(-10).reverse().map(linea).join("\n")}
 ## Todos, por fecha
 ${cab}
 ${[...filas].sort((a, b) => b.fecha.localeCompare(a.fecha)).map(linea).join("\n")}
-`;
+${mdYT}`;
 fs.writeFileSync("stats.md", md);
 console.log(`stats.md: ${filas.length} reels (${salieron.length} con ≥ ${UMBRAL} vistas), ${filas.filter((f) => !f.slug).length} sin carpeta`);
