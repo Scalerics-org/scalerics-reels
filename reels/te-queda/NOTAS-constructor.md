@@ -75,3 +75,52 @@ corta) y la parte 2, duck -6 dB debajo de cada voz.
 - La portada: `portada.json` (t 15,4, "Queda uno." con el frasco y el casco) con fondo limpio en
   `portada-src/fondo-limpio-15.4.png` (también `fondo-limpio-11.0.png`, la caja de sombrero). `herramientas/portada.mjs`
   necesita el mp4 renderizado en la rama: correrlo después del paso 10.
+
+## Ronda 1 de corrección (13-11) · ahora 32,04 s (parte 1 0-19,00 · cartel 19,00-21,40 · parte 2 21,40-32,04; línea chica desde 29,79)
+Decisiones del coordinador aplicadas:
+- **Se cortó Q5 entero** (Héctor no baja; sin "Viajes de Héctor" ni "Doce." final). La parte 2 cierra con "Era para saber." /
+  "Ahora sabés." + la tablet + chip 0 y Q6 (Rubén con el mate detrás de la tablet resuelta + línea chica).
+- **Tablet Q4:** tarjeta DENTRO de la pantalla que tapa toda la lista: rojo apagado "Yerba / quedan 2 / Avisando…" (27,92-28,77)
+  → verde "Pedido armado ✓" (28,77-29,74, la roja queda abajo mientras baja la verde). Sin "Llega el jueves" ni proveedor.
+  descripcion.txt: "te avisa antes de que se acabe y te deja el pedido armado". guion.txt actualizado.
+- **Línea final:** "Un sistema te avisa / antes de que se acabe" + scalerics.com (62 px); Q6 2,30 s.
+- **Duración 32,04 s:** time-lapses -0,3 s c/u, cartel 2,4 s (narrador +0,15, termina 21,41), P1/P2 más ágiles; **P4 y P5
+  fusionados en un solo plano de sección** (Marta llega a otro lugar del mostrador, CLI2, mientras Rubén sube; Walter sale
+  caminando después del "No."; nunca se cruzan en el mismo lugar).
+- **Remate:** h2 partida en "Ah, no." (h2a, 15,22) y "Era para saber." (h2b, 16,28): 0,5 s de silencio entre las dos
+  (+0,2 s respecto de antes), Héctor sonriendo (CARA.feliz) toda la línea.
+Arte ALTA:
+1. P6b: **sótano más alto (SY -2,35 → -2,70)**; en la tijera Rubén pisa el 2.º escalón en P4 (SY+0,48) y el de arriba en P6b
+   (SY+0,71, inclinado): la cabeza queda 10-30 cm debajo de la losa. La tijera se corrió al centro (x -0,32) y la última caja
+   (DULCE DE LECHE) quedó en cuadro (x -0,84, arriba).
+2. P10: Rubén queda 0,9 m atrás/al costado de Héctor (fuera de cuadro en el push-in; solo entran sus brazos con el casco);
+   las manos agarran el casco por los costados; la boina se va apenas empieza a bajar el casco (calza+0,08).
+3. P4: Walter no se convierte en Marta: Marta entra antes a otro lugar (7,04-7,34), Walter sale caminando (7,42-7,76).
+4. P5→P6: Marta se va (9,19-9,53) y hay un corte a **P6a (9,55)**: contraplano de Héctor en el mostrador preguntando
+   ("¿Te queda dulce de leche?", cola a él); a 10,27 corte a Rubén con la caja de sombrero (la burbuja sigue, cola hacia
+   afuera a la izquierda, del lado de Héctor).
+Arte MEDIA/BAJA: haces de linterna apagados mientras sube o baja la escalera (no atraviesan el piso); P8 nuevo: Rubén solo,
+de frente, frasco al costado de la cara (sin Héctor ni mate tapando); sección más cerrada (x 0,45, dist 7-7,7 m: losa cerca
+del centro, sótano hasta y≈1790, personajes ~1,3× más grandes); Héctor gira de a poco en P6b (0,28 s) y ya no silba;
+P2b arranca con Rubén en cuadro sobre la escalera; manos en los largueros más abiertas (no tocan la cara); manos por fuera
+de la caja-sombrero; cinta verde con la misma curva del casco (pegada); polvo más chico, tenue y numeroso; casco del P6 sube
+por el costado (no cruza la cara); P10 arranca con Héctor en cuadro y panea a la puerta; "más tarde…" 128 px; haz de Héctor
+en la parte 2 corto y tenue; Q3b más de frente (los dos ojos); el mate y el termo no se ven en los contraplanos de Héctor
+(P6a, P9, Q3); casco de P7-P8 menos torcido (se ven los ojos); burbujas sin estado "chiquito" (aparecen desde 60 %); "No." y
+"¿Azúcar te queda?" ya no se pisan. Graciela: sin cambio (en vertical de espaldas; queda como estaba).
+Sonido: r1 = 02-ruben-a (sin clipping); h2 = 08-hector-c partida (limpia); h3 = 09-hector-c ("Yerba", limpia); "Quedan tres."
++0,09 s; golpe del casco a casco[2]-0,12; avalancha: golpes cuando se sueltan (+0,07) y cuando tocan el piso (+0,32-0,56,
+más el golpe grande a +0,41); sin campanita al principio; el mate de Q6 suena con el roce de la manga (no toma: sin sorbo).
+Mezcla: -14,0 LUFS, pico -4,1 dBFS; voz ≥ +6,2 LU sobre el resto en todos los tramos con voz (6,0 s, cola de "¿Y fideos?" con
+la avalancha); el tramo 9,0 marcado "<6" no tiene voz (cola de Marta a -39 LUFS).
+Revisión: check --json 0 errores; pasada A (cada 0,5 s desde 0), pasada B (cada 0,5 s desde 0,25) y los 18 cortes a ±0,04 s.
+Lo que se corrigió entre pasadas: un crash de renderAt en toda la parte 2 (T.abreH borrado con Q5: la parte 2 quedaba
+congelada), el casco del P6 cruzando la cara, el mate de Rubén en los contraplanos de Héctor, el parpadeo en "Ahora sabés.",
+la tarjeta verde que dejaba ver la fila roja al bajar, Q6 reencuadrado (tablet entera, cabeza debajo de la línea chica),
+la burbuja de P6a que se achicaba antes del corte. Portada: `portada.json` (t 14,9, "Fue al sótano 4 veces." / "Era para
+saber.") con fondo limpio `portada-src/fondo-limpio-14.9.png` (Rubén destruido con el frasco).
+Planos (s): P1 0 · P2 2,15 · P2b 2,53 · P3 3,68 · P4 (con P5) 5,24 · P6a 9,55 · P6 10,27 · P6b 11,21 · P7 12,98 · P8 14,46 ·
+P9 15,14 · P10 17,25 · cartel 19,00 · Q1 21,40 · Q2 23,62 · Q3 25,72 · Q3b 26,71 · Q4 27,82 · Q6 29,74.
+Flojo / dudoso: Graciela sigue de espaldas (pelo y espalda); en P10 al entrar (18,2) asoma un costado de la cara de Rubén en
+el borde derecho; el dolly de entrada a la sección (5,24-5,7) pasa por un encuadre partido almacén/losa/sótano; en la
+sección los personajes siguen siendo chicos (~300 px).

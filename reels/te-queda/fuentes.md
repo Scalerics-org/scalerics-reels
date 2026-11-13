@@ -5,9 +5,8 @@ fijarse si queda algo). Los números de la tablet ("Polenta · 3", "Dulce de lec
 jueves") y el chip "Viajes al depósito" son parte del chiste, no estadísticas.
 
 Lo que hace el sistema en la parte 2 (cada venta descuenta del stock, se ve qué queda sin ir a mirar, aviso cuando algo
-queda poco y pedido al proveedor) está dentro de lo que vende Scalerics (CLAUDE.md, "Lo que se vende": sistemas a medida
-con stock, pedidos y proveedores; automatizaciones). A confirmar con Juan: "arma el pedido al proveedor" supone que el
-pedido sale solo (mail o WhatsApp al proveedor); se muestra genérico.
+queda poco y el pedido queda armado) está dentro de lo que vende Scalerics (CLAUDE.md, "Lo que se vende": sistemas a medida
+con stock, pedidos y proveedores; automatizaciones). (ronda 1) La tablet dice solo "Pedido armado ✓": no se promete integración con proveedores ni fecha de entrega.
 
 Sin marcas: polenta, fideos, azúcar, dulce de leche y yerba en cajas kraft escritas a mano; el frasco de dulce de leche
 casero sin etiqueta de marca; tablet, casco de obra, linterna, mate y termo genéricos.
@@ -32,7 +31,7 @@ como-viene-el-mes, trabajar-con-scalerics y me-lo-guardas):
   se tambalea), `k-creak.wav` ("creak_2", la bisagra de la trampa, la tijera), `k-metal-click.wav` ("metal_click", la
   argolla y la cadenita): Kenney, "RPG Audio", CC0. `interruptor.wav` / `interruptor2.wav` ("switch_002"/"switch_005", el
   foco y la linterna): Kenney, "Interface Sounds" (https://kenney.nl/assets/interface-sounds), CC0.
-- `sorbo.wav`: Abir19, Freesound, CC0 (copiado, no se usa).
+- `sorbo.wav`: Abir19, Freesound, CC0 (copiado, no se usa: Rubén levanta el mate sin tomar; suena el roce de la manga `k-cloth_2`).
 
 Nuevos, 13-11 (freesound bloqueado desde la nube): Kenney, "Impact Sounds" (https://kenney.nl/assets/impact-sounds), CC0
 1.0, espejo https://github.com/Boyquotes/kenney-impact-sounds-for-godot (pasados de .ogg a .wav):
@@ -41,5 +40,4 @@ caen: avalancha, crash, la caja en la cabeza), `k-impact_soft_medium_000..002.wa
 hueco), `k-impact_glass_light_000.wav` (el foco que se quema), `k-impact_wood_heavy_002.wav` (el golpe grande de la
 avalancha y del crash), `k-impact_plank_medium_002.wav` (el casco calzado), `k-impact_wood_light_000.wav` (copiado, no se
 usa).
-- **Sin silbido real CC0 accesible** (el `silbato.mp3` del repo es de árbitro): Héctor silba solo en imagen (boca en "o"
-  mirando el techo), sin sonido.
+- (ronda 1) Héctor ya no silba: espera mirando el techo con la boca cerrada (no había silbido CC0 real accesible).

@@ -1,4 +1,4 @@
-# te-queda · PARA MANDAR completo (3D real), 35,5 s
+# te-queda · PARA MANDAR completo (3D real), 32,0 s (ronda 1: sin Q5; planos y tiempos vigentes en NOTAS-constructor.md, "Ronda 1")
 
 **De qué trata.** "¿Te queda polenta?" y Rubén baja al sótano a fijarse: la caja vacía, "No, no queda." Walter (fideos:
 avalancha, telaraña) y Marta (azúcar: el foco se quema, la caja de sombrero). Héctor: "¿Te queda dulce de leche?":
@@ -7,9 +7,8 @@ todo, se tambalea, crash) y asoma destruido con el frasco en alto: **"Queda uno.
 **"Ah, no. Era para saber."** Remate del remate: "¿Y yerba?" y Rubén le calza el casco a Héctor y le prende la linterna en
 la cara. Cartel **"Un sistema / más tarde…"**. Parte 2: Rubén sentado arriba de la trampa cerrada con la tablet "Stock":
 "Quedan tres." · Héctor entra con el casco puesto: "¿Y dulce de leche?" / "Doce." / "Era para saber." / **"Ahora
-sabés."** · la tablet pide la yerba sola ("Yerba · quedan 2" → "Pedido al proveedor ✓ · Llega el jueves"), chip
-"Viajes al depósito: 0" · Héctor, desconfiado, baja él a contar, se le cae una caja ("Viajes de Héctor: 1") y asoma con
-la telaraña en el casco: **"Doce."** · Rubén levanta el mate detrás de la tablet resuelta · línea chica.
+sabés."** · la tablet avisa sola ("Yerba · quedan 2" → "Pedido armado ✓"), chip "Viajes al depósito: 0" · Rubén levanta el mate
+detrás de la tablet resuelta · línea chica.
 
 - **Producto:** sistema de stock a medida (cada venta descuenta, sabés qué queda sin ir a mirar, avisa y arma el pedido
   al proveedor). Solo en la línea chica ("Un sistema te dice qué te queda / y te avisa antes de que se acabe ·

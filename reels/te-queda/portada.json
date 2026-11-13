@@ -1,7 +1,7 @@
 {
- "t": 15.4,
- "chica": "Rubén, al sótano.",
- "grande": "¿Te queda polenta?",
+ "t": 14.9,
+ "chica": "Fue al sótano 4 veces.",
+ "grande": "Era para saber.",
  "sello": "El depósito",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
@@ -9,5 +9,5 @@
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-15.4.png"
+ "fondo_limpio": "portada-src/fondo-limpio-14.9.png"
 }

@@ -476,7 +476,7 @@ const polvo = new THREE.InstancedMesh(polvoG, polvoM, NP); polvo.castShadow = fa
 const _pm = new THREE.Matrix4(), _pq = new THREE.Quaternion(), _ps = new THREE.Vector3(), _pp = new THREE.Vector3();
 
 // ================= LOS PERSONAJES =================
-const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [2.0, 6.0, 11.8, 17.6, 24.2, 27.4, 33.0] });
+const ruben = crearPersonaje({ ...ELENCO.almacenero, dedos: true, mechones: true, parpadeoCada: 999, parpadeosExtra: [2.0, 6.0, 11.8, 17.6, 24.2, 27.9, 31.4] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.9, 24.9] });
 const hector = crearPersonaje({ ...ELENCO.hector, dedos: true, parpadeoCada: 999, parpadeosExtra: [11.6, 19.0, 26.5, 31.0] });
 const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
@@ -622,7 +622,7 @@ let claveT = "";
 function dibujarTablet(t) {
   const fila = t >= T.fila && t < T.q2 ? 1 : 0;
   const av = t >= T.vibra ? (t >= T.pedido ? 2 : 1) : 0;
-  const ka = av ? Math.round(sg(t, av === 1 ? T.vibra : T.pedido, (av === 1 ? T.vibra : T.pedido) + 0.18) * 4) / 4 : 0;
+  const ka = av ? Math.round(sg(t, av === 1 ? T.vibra : T.pedido, (av === 1 ? T.vibra : T.pedido) + 0.12) * 4) / 4 : 0;
   const clave = `${fila}|${av}|${ka}`; if (clave === claveT) return; claveT = clave;
   const { x } = tabT.userData, W = TW, H = TH;
   x.fillStyle = "#0b1220"; x.fillRect(0, 0, W, H);
@@ -1105,7 +1105,7 @@ function renderAt(tIn) {
   mateR.visible = true;
   if (mateEnMano) { const p = manoMundo(ruben, mateEnMano, _a); mateR.position.copy(p).add(V3(0, -0.13, 0.02)); mateR.rotation.set(0, ruben.raiz.rotation.y - Math.PI / 2, 0); }
   else { mateR.position.copy(MATE_C); mateR.rotation.set(0, -1.0, 0); }
-  termo.visible = plano !== "P6a"; if (plano === "P6a") mateR.visible = false;
+  termo.visible = !["P6a", "P9", "Q3"].includes(plano); if (["P6a", "P9", "Q3"].includes(plano) && !mateEnMano) mateR.visible = false;
   // la bolsa de Graciela
   bolsa.visible = graciela.raiz.visible; bolsa.position.set(G1.x - 0.02, MY, -1.0); bolsa.rotation.y = -0.4;
   // la mochila de Walter
@@ -1213,9 +1213,9 @@ function renderAt(tIn) {
     const arriba = (g, quien, t0, t1, dx = 0, dy = -420, orden = 0) => { if (!en(t, t0, t1)) return; const [bx, by] = quien(); ponerGlobo(g, bx + dx, by + dy, ent(t0) * sale(t1), [bx, by - 30], orden); };
     if (plano === "P1") arriba(GL.r1, rb, T.r1, T.p2, 120, -400);
     if (plano === "P3") arriba(GL.r2, rb, T.r2, T.p4, 0, -520);
-    if (plano === "P4") { arriba(GL.w1, wb, T.w1, T.no2 - 0.05, -60, -330); arriba(GL.no2, rb, T.no2, T.no2 + 0.55, 160, -250, 1); arriba(GL.m1, mb, T.m1, T.no3, 60, -360); arriba(GL.no3, rb, T.no3, T.p6a, 160, -250, 1); }
-    if (plano === "P6a") arriba(GL.h1, hb, T.h1, T.p6, 80, -560);
-    if (plano === "P6" && t >= T.h1) ponerGlobo(GL.h1, 380, 420, sale(T.p6b), [-200, 700]);
+    if (plano === "P4") { arriba(GL.w1, wb, T.w1, T.no2 - 0.05, -60, -330); arriba(GL.no2, rb, T.no2, T.no2 + 0.42, 160, -250, 1); arriba(GL.m1, mb, Math.max(T.m1, T.no2 + 0.42), T.no3, -120, -360); arriba(GL.no3, rb, T.no3, T.p6a, 160, -250, 1); }
+    if (plano === "P6a" && t >= T.h1) { const [bx, by] = hb(); ponerGlobo(GL.h1, bx + 80, by - 560, ent(T.h1), [bx, by - 30]); }
+    if (plano === "P6" && t >= T.h1) ponerGlobo(GL.h1, 380, 420, t < T.h1 + LEN.h1 + 0.1 ? 1 : sale(T.p6b), [-200, 700]);
     if (plano === "P7") arriba(GL.r3, rb, T.r3, T.p8, -150, -560);
     if (plano === "P9") { arriba(GL.h2a, hb, T.h2, T.h2b - 0.02, 120, -600); arriba(GL.h2b, hb, T.h2b, T.p10, 60, -600); }
     if (plano === "P10") arriba(GL.h3, hb, T.h3, T.cruza[1] + 0.2, 160, -420);
@@ -1233,8 +1233,11 @@ function cascoMundoP6(t) {
   ruben.cabeza.updateMatrixWorld(true);
   const sobre = ruben.cabeza.localToWorld(CASCO_CAB.p.clone().add(V3(0, 0.22, 0.05)));
   const cab = ruben.cabeza.localToWorld(CASCO_CAB.p.clone());
+  // (ronda 1) primero sube por el costado (nunca por delante de la cara), después pasa por arriba y baja a la cabeza
+  const alto = V3(desde.x + 0.05, sobre.y + 0.05, desde.z - 0.2);
   const u1 = eio(sg(t, T.casco[0], T.casco[1])), u2 = eio(sg(t, T.casco[1], T.casco[2]));
-  return t < T.casco[1] ? desde.clone().lerp(sobre, u1) : sobre.clone().lerp(cab, u2);
+  if (t < T.casco[1]) return u1 < 0.55 ? desde.clone().lerp(alto, u1 / 0.55) : alto.clone().lerp(sobre, (u1 - 0.55) / 0.45);
+  return sobre.clone().lerp(cab, u2);
 }
 
 window.__tresRender = renderAt;
