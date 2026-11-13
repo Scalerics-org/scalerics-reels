@@ -115,7 +115,7 @@ const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${
 const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid ${NAVY}; font: 700 48px/1.1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     P .cred .sub { display: block; margin-top: 8px; font: 500 44px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY2}; }`;
 // tramos sin logo (insertos de celular/tablet y primeros planos): los lee armar.mjs (assets/firma.json)
-const FIRMA = [[r2(T.s04), r2(T.s06)], [r2(T.s09), r2(T.s10)], [r2(T.s11), r2(T.primera + 0.45)]];
+const FIRMA = [[r2(T.s04), r2(T.s06)], [r2(T.s08), r2(T.s10)], [r2(T.s11), r2(T.primera + 0.45)]];
 
 // posiciones en pantalla de los rótulos y créditos (medidas sobre los cuadros del 3D)
 const POS = {
@@ -123,14 +123,14 @@ const POS = {
   credLarson: [540, 1010],
   llegaron: [790, 1330], llegaronLead: [700, 1500, 640, 1250],
   drQueue: [540, 1600],
-  esperar: [180, 1075], esperarLead: [180, 1020, 165, 950],
-  pasen: [850, 1075], pasenLead: [850, 1020, 760, 950],
+  esperar: [180, 1125], esperarLead: [180, 1070, 255, 905],
+  pasen: [850, 1125], pasenLead: [850, 1070, 845, 1010],
   credPaper: [540, 1660],
-  filas: [540, 1620],
-  hora: [540, 1690],
+  filas: [540, 1330],
+  hora: [540, 1780],
   walter: [330, 600], walterLead: [330, 650, 330, 760],
   sinNumero: [540, 1620],
-  unaFila: [540, 1640],
+  unaFila: [540, 1250],
 };
 
 // ---------- el gancho (cuadro 0 = portada en movimiento) ----------
@@ -270,7 +270,7 @@ vacia("s03-por-que", [
     html: `${pill(1, POS.hora[0], POS.hora[1], "Graciela · 9:02", "lleno")}`,
     js: `nota(1, ${rel(id, T.pidio)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: 0.1, sfx: "typing", vol: 0.06, max: 0.5 },
+      { t: 0.1, sfx: "typing", vol: 0.035, max: 0.5 },
       { t: rel(id, pal[62].end + 0.03), sfx: "respuesta", vol: 0.05, max: 0.5 },
       { t: rel(id, pal[62].end + 0.1), sfx: "whoosh-short", vol: 0.03 },
     ],
@@ -283,7 +283,7 @@ vacia("s03-por-que", [
   const [x, y] = POS.walter;
   escena(id, {
     css: `P .n2 { opacity: 0; }`,
-    html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, POS.hora[0], 1630, "Graciela · 9:02 · esperando", "gris")}`,
+    html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, 540, 1630, "Graciela · 9:02 · esperando", "gris")}`,
     js: `nota(1, 0.05); fuera([1], ${rel(id, T.fue + 0.35)}); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.0, sfx: "campanita", vol: 0.03, max: 0.7 },
