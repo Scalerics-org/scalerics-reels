@@ -218,15 +218,23 @@ const colores = [C.cr, C.red, C.mostaza, 0xffffff, C.cr2, 0xe8cf9f, 0x8a5a3c, 0x
 const mc = {}; const mm = (c, r) => (mc[c + "|" + r] ??= mat(c, r));
 const cuerpoFrasco = new THREE.CylinderGeometry(0.07, 0.07, 0.2, 14), tapaF = new THREE.CylinderGeometry(0.075, 0.075, 0.04, 14);
 const botella = new THREE.CylinderGeometry(0.045, 0.06, 0.3, 12), picoB = new THREE.CylinderGeometry(0.02, 0.03, 0.09, 10);
+const PEDIDOS = [], SUSTITUTOS = [];
 function llenar(gr, x0, x1, y) {
   for (let x = x0 + 0.14; x < x1 - 0.1; x += 0.17 + az() * 0.07) {
     const k = az(), c = colores[Math.floor(az() * colores.length)];
     if (k < 0.3) { const h = 0.22 + az() * 0.16; gr.add(mesh(rbox(0.13, h, 0.16, 0.012), mm(c, 0.6), x, y + 0.025 + h / 2, 0)); }
     else if (k < 0.48) { gr.add(mesh(cuerpoFrasco, mm(c, 0.35), x, y + 0.125, 0)); gr.add(mesh(tapaF, M.cr, x, y + 0.245, 0)); }
     else if (k < 0.62) { gr.add(mesh(botella, mm(c, 0.3), x, y + 0.175, 0)); gr.add(mesh(picoB, mm(C.cr3, 0.4), x, y + 0.37, 0)); }
-    else if (k < 0.74) { const yb = crearYerba(); yb.position.set(x, y + 0.025, 0); yb.scale.setScalar(0.85); gr.add(yb); x += 0.02; }
-    else if (k < 0.82) { const pl = crearPolenta(); pl.position.set(x, y + 0.025, 0); gr.add(pl); }
-    else if (k < 0.9) { const fi = crearFideos(); fi.position.set(x, y + 0.025, 0); gr.add(fi); }
+    else if (k < 0.9) {
+      // (ronda 2) lo que se pide (yerba, polenta, fideos) solo está en la góndola en la parte 2; en la parte 1, en su lugar,
+      // una lata o un paquete neutro (la góndola no puede mostrar lo que "no queda")
+      const pr = k < 0.74 ? crearYerba() : k < 0.82 ? crearPolenta() : crearFideos();
+      pr.position.set(x, y + 0.025, 0); if (k < 0.74) pr.scale.setScalar(0.85); gr.add(pr); PEDIDOS.push(pr);
+      const su = new THREE.Group(); su.position.set(x, y + 0.025, 0); gr.add(su); SUSTITUTOS.push(su);
+      if (az() < 0.5) { const lc = [C.red, C.navy3, C.gd, C.mostaza][Math.floor(az() * 4)]; su.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.13, 18), mm(lc, 0.35), 0, 0.065, 0)); su.add(mesh(new THREE.CylinderGeometry(0.061, 0.061, 0.05, 18), M.cr, 0, 0.07, 0)); }
+      else { const pc = [0xe8cf9f, C.cr2, 0xd98a5a][Math.floor(az() * 3)]; su.add(mesh(rbox(0.12, 0.24, 0.07, 0.01), mm(pc, 0.7), 0, 0.12, 0)); su.add(mesh(rbox(0.122, 0.05, 0.072, 0.008), M.navy3, 0, 0.15, 0)); }
+      x += 0.02;
+    }
     else { const ga = crearGalletitas(); ga.position.set(x + 0.06, y + 0.025, 0); ga.scale.setScalar(0.8); ga.rotation.y = 0.1; gr.add(ga); x += 0.12; }
   }
 }
@@ -429,13 +437,13 @@ function cajaEn(texto, x, niv, rol = "", op = {}) {
 }
 {
   // fila de abajo
-  cajaEn("YERBA", -1.22, 0); cajaEn("ARROZ", -0.82, 0); cajaEn("FIDEOS", -0.42, 0); cajaEn("YERBA", 0.38, 0); cajaEn("HARINA", 0.78, 0);
+  cajaEn("ACEITE", -1.22, 0); cajaEn("ARROZ", -0.82, 0); cajaEn("LATAS", -0.42, 0); cajaEn("JABÓN", 0.38, 0); cajaEn("HARINA", 0.78, 0);
   // segunda
-  cajaEn("FIDEOS", -1.22, 1); cajaEn("ARROZ", -0.4, 1); cajaEn("POLENTA", 0.72, 1, "polenta", { abierta: true });
+  cajaEn("FÓSFOROS", -1.22, 1); cajaEn("ARROZ", -0.4, 1); cajaEn("POLENTA", 0.72, 1, "polenta", { abierta: true });
   // tercera
-  cajaEn("FIDEOS", -1.22, 2, "crash"); cajaEn("ARROZ", -0.84, 2, "crash"); cajaEn("YERBA", -0.44, 2, "crash"); cajaEn("HARINA", 0.0, 2, "aval"); cajaEn("AZÚCAR", 0.4, 2);
+  cajaEn("LATAS", -1.22, 2, "crash"); cajaEn("ARROZ", -0.84, 2, "crash"); cajaEn("ACEITE", -0.44, 2, "crash"); cajaEn("HARINA", 0.0, 2, "aval"); cajaEn("JABÓN", 0.4, 2);
   // arriba: la última del fondo, la avalancha y el azúcar que cae
-  cajaEn("FIDEOS", -1.24, 3); cajaEn("DULCE DE LECHE", -0.84, 3, "dulce", { px: 70 }); cajaEn("FIDEOS", -0.46, 3, "aval"); cajaEn("ARROZ", -0.08, 3, "aval"); cajaEn("AZÚCAR", 0.32, 3, "azucar"); cajaEn("YERBA", 0.72, 3);
+  cajaEn("VELAS", -1.24, 3); cajaEn("DULCE DE LECHE", -0.84, 3, "dulce", { px: 70 }); cajaEn("ARROZ", -0.46, 3, "aval"); cajaEn("LATAS", -0.08, 3, "aval"); cajaEn("AZÚCAR", 0.32, 3, "azucar"); cajaEn("ACEITE", 0.72, 3);
 }
 // parte 2: los frascos de dulce de leche ordenados en el segundo estante (12) y la caja que se le cae a Héctor
 const FRASCOS2 = [];
@@ -520,10 +528,10 @@ function herraduraSegunCamara() {
 // ---- el estado de Rubén: polvo (manchas crema2 opacas en los hombros y la pelada), la telaraña de la oreja derecha
 // (-x) al hombro, la caja de sombrero (AZÚCAR), el casco. Todo pegado al cuerpo.
 const manchasPolvo = new THREE.Group(); ruben.cuerpo.add(manchasPolvo);
-const polvoMat = mat(0xd9d4c2, 0.95);
+const polvoMat = mat(0xb5ad98, 0.95);
 {
   semilla = 41;
-  for (const s of [-1, 1]) for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(polvoG, polvoMat); const a = az() * 0.9, b = az(); m.position.set(s * (0.13 + b * 0.09), 0.44 + a * 0.05, -0.04 + az() * 0.12); m.scale.set(0.022 + az() * 0.018, 0.006, 0.02 + az() * 0.015); m.rotation.z = s * 0.4; manchasPolvo.add(m); }
+  for (const s of [-1, 1]) for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(polvoG, polvoMat); const a = az() * 0.9, b = az(); m.position.set(s * (0.13 + b * 0.09), 0.44 + a * 0.05, -0.04 + az() * 0.12); m.scale.set(0.03 + az() * 0.02, 0.003, 0.028 + az() * 0.018); m.rotation.z = s * 0.25; manchasPolvo.add(m); }
 }
 const manchasPelada = new THREE.Group(); ruben.cabeza.add(manchasPelada);
 {
@@ -657,6 +665,7 @@ dibujarTablet(0);
 // plano, Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1→Q1, P4→Q5, P9→Q3).
 const AP1 = (k = 0) => [0.42 + k * 0.25, 2.35 - k * 0.15, 1.15 - k * 0.35, 0.78 + k * 0.15, 0.85, -2.0, 62 - k * 6];
 const SEC = (yc, dist, fov = 38, x = 0.45) => [x, yc, FZ + dist, x, yc, -1, fov];
+const TRAMPA = (k = 0) => [1.32, 0.9, 0.05 - k * 0.12, 1.52, 0.72, -2.0, 50 - k * 2];
 const BAJO = (k = 0) => [1.45, 0.62 + k * 0.04, 0.3 - k * 0.15, 1.52, 0.38 + k * 0.03, -2.05, 48];
 const CERCA6 = (k = 0) => [0.9 - k * 0.04, 1.35, 0.25 - k * 0.15, 1.52, 0.78, -2.02, 46];
 const HECTOR = (k = 0) => [1.05, 1.42, -1.6 + k * 0.05, -0.32, 1.32, -0.72, 50 - k * 2];
@@ -674,7 +683,11 @@ const PLANOS = [
   ["P3", T.p3, [[T.p3, ...BAJO(0)], [T.p4, ...BAJO(1)]]],
   // la sección de casa de muñecas (dolly atrás)
   // (ronda 1) P4 y P5 en un solo plano de sección (Walter se va, Marta llega a otro lugar del mostrador)
-  ["P4", T.p4, [[T.p4, 0.9, 0.35, FZ + 2.4, 0.9, 0.2, -1, 40], [T.p4 + 0.55, ...SEC(-0.4, 7.7)], [T.no2, ...SEC(-0.42, 7.7)], [T.p6a, ...SEC(-0.6, 7.3)]]],
+  ["P4", T.p4, [[T.p4, 0.9, 0.35, FZ + 2.4, 0.9, 0.2, -1, 40], [T.p4 + 0.55, ...SEC(-0.4, 7.7)], [T.n2, ...SEC(-0.42, 7.6)]]],
+  // (ronda 2) N2/N3: corte corto a Rubén asomado en la trampa para cada "No." (telaraña / caja de sombrero)
+  ["N2", T.n2, [[T.n2, ...TRAMPA(0)], [T.p5, ...TRAMPA(1)]]],
+  ["P5", T.p5, [[T.p5, ...SEC(-0.42, 7.6)], [T.n3, ...SEC(-0.6, 7.3)]]],
+  ["N3", T.n3, [[T.n3, ...TRAMPA(0)], [T.p6a, ...TRAMPA(1)]]],
   // P6a: Héctor en el mostrador pregunta (contraplano desde atrás de la trampa)
   ["P6a", T.p6a, [[T.p6a, 1.15, 1.45, -1.7, -0.32, 1.25, -0.72, 50], [T.p6, 1.12, 1.45, -1.65, -0.32, 1.28, -0.72, 48]]],
   ["P6", T.p6, [[T.p6, ...CERCA6(0)], [T.p6b, ...CERCA6(1)]]],
@@ -690,7 +703,7 @@ const PLANOS = [
   ["Q3", T.q3, [[T.q3, 1.1, 1.5, -1.65, -0.32, 1.35, -0.72, 48], [T.q3b, 1.08, 1.5, -1.6, -0.32, 1.35, -0.72, 46]]],
   ["Q3b", T.q3b, [[T.q3b, ...RUBEN2(0)], [T.q4, ...RUBEN2(1)]]],
   ["Q4", T.q4, [[T.q4, ...TAB(0)], [T.q6, ...TAB(1)]]],
-  ["Q6", T.q6, [[T.q6, 0.62, 1.55, 0.25, 1.12, 1.18, -2.0, 60], [DUR, 0.64, 1.53, 0.05, 1.12, 1.18, -2.0, 57]]],
+  ["Q6", T.q6, [[T.q6, 0.7, 1.6, 0.45, 1.2, 1.15, -2.0, 62], [DUR, 0.72, 1.58, 0.25, 1.2, 1.15, -2.0, 59]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -716,7 +729,7 @@ function ponerCamara(t) {
   _m.set(v[3], v[4], v[5]);
   camera.lookAt(_m);
 }
-const SECCIONES = ["P4", "P6b"];
+const SECCIONES = ["P4", "P5", "P6b"];
 
 // ================= POSES =================
 const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, ladea }, ojos: { x: giro * 0.6, y: 0.05 } });
@@ -855,7 +868,9 @@ const _a = new THREE.Vector3(), _b = new THREE.Vector3(), _q = new THREE.Quatern
 function cabezaMundo(per, local) { per.cabeza.updateMatrixWorld(true); return per.cabeza.localToWorld(local.clone()); }
 function ponerCascoEn(per) { per.cabeza.updateMatrixWorld(true); casco.position.copy(per.cabeza.localToWorld(CASCO_CAB.p.clone())); per.cabeza.getWorldQuaternion(casco.quaternion); casco.quaternion.multiply(_q.setFromEuler(new THREE.Euler(CASCO_CAB.r.x, 0, 0))); }
 
+let bajaCasco = 0;
 function renderAt(tIn) {
+  bajaCasco = 0;
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
   const parte2 = t >= P2;
   ponerCamara(t);
@@ -947,9 +962,10 @@ function renderAt(tIn) {
     if (en(t, T.casco[0] - 0.12, T.casco[2] + 0.12)) {
       const kk = eio(sg(t, T.casco[0] - 0.12, T.casco[0])) * (1 - eio(sg(t, T.casco[2], T.casco[2] + 0.12)));
       const hb = cascoMundoP6(t);
-      const p1 = manoConDedos(ruben, { ...pr, codoI: [1, -0.2, -0.3] }, "I", hb.clone().add(V3(0.26, 0.0, 0.0)));
-      const p2 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.2, -0.3] }, "D", hb.clone().add(V3(-0.26, 0.0, 0.0)));
-      const lados = t < T.casco[1] ? ["I"] : ["I", "D"];
+      const arriba2 = t >= T.casco[1];
+      const p1 = manoConDedos(ruben, { ...pr, codoI: [1, -0.1, -0.3] }, "I", hb.clone().add(V3(0.33, 0.02, 0.0)));
+      const p2 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.1, -0.3] }, "D", hb.clone().add(V3(arriba2 ? -0.33 : -0.3, arriba2 ? 0.02 : 0.05, 0.0)));
+      const lados = arriba2 ? ["I", "D"] : ["D"];   // (ronda 2) subiendo lo lleva la derecha por afuera; la izquierda entra recién arriba
       mezclaManos(pr, { ...p1, manoD: p2.manoD, codoD: p2.codoD, dedoD: 0 }, kk, lados);
     }
     if (en(t, T.clic - 0.12, T.clic + 0.2)) {
@@ -972,7 +988,7 @@ function renderAt(tIn) {
   // parte 2: el banquito (Q5 lo levanta), la mano derecha toca la tablet al mirar
   if (parte2 && en(t, T.mira - 0.1, T.r4 + 0.5)) {
     ruben.poner(pr); tablet.updateMatrixWorld(true);
-    const tp = tablet.userData.pivote.localToWorld(V3(-0.05, 0.31 * 0.82, 0.04));
+    const tp = tablet.userData.pivote.localToWorld(V3(0.245, 0.31 * 0.8, 0.02));   // (ronda 2) el dedo en el marco, al lado de la fila (no tapa el número)
     const p1 = manoConDedos(ruben, { ...pr, codoD: [-1, -0.5, -0.2] }, "D", tp);
     mezclaManos(pr, { ...p1, dedoD: 1 }, eio(sg(t, T.mira - 0.1, T.mira + 0.1)) * (1 - eio(sg(t, T.r4 + 0.3, T.r4 + 0.5))), ["D"]);
   }
@@ -1015,6 +1031,7 @@ function renderAt(tIn) {
   if (en(t, T.no2, T.p5 + 0.6)) Object.assign(pw, { ...CARA.sorpresa, cejas: { alto: 0.6, ang: 0.4 } });
   bocaVoz(pw, t, T.w1, ENV.w1, 0.55); walter.poner(pw);
   const pm = CLIP({ ...Ma, ...CARA.sonrisa, ...aC(0.1, -0.05) }); pm.giro = Ma.giro; pm.x = Ma.x; pm.z = Ma.z;
+  if (!Ma.paso && t < T.saleM[0]) { pm.giro = 0.95; Object.assign(pm, aC(-0.75, 0.0)); pm.manoI = [0.24, 0.43, 0.3]; pm.manoD = [-0.26, 0.2, 0.25]; }
   if (en(t, T.no3, T.p6a)) Object.assign(pm, { ...CARA.sorpresa });
   bocaVoz(pm, t, T.m1, ENV.m1, 0.6); marta.poner(pm);
 
@@ -1062,10 +1079,15 @@ function renderAt(tIn) {
     else if (t < T.sacaCasco[0] + 0.1) { ponerCascoEn(ruben); if (t >= T.sube4[2]) casco.quaternion.multiply(_q.setFromAxisAngle(V3(0, 0, 1), 0.16)).multiply(_q.setFromAxisAngle(V3(1, 0, 0), -0.12)); }
     else {
       // P10: de la cabeza de Rubén (en sus manos) a la de Héctor
-      const u = eio(sg(t, T.sacaCasco[0] + 0.1, T.calza[1]));
+      // (ronda 2) viaja por arriba hasta quedar sobre la boina de Héctor y baja a la vista (~0,3 s); la boina se va cuando el
+      // casco ya la tapa
+      const u = sg(t, T.sacaCasco[0] + 0.1, T.calza[1]);
       ponerCascoEn(ruben); const a = casco.position.clone(); const qa = casco.quaternion.clone();
       ponerCascoEn(hector); const b = casco.position.clone(); const qb = casco.quaternion.clone();
-      casco.position.copy(a.lerp(b, u)).add(V3(0, Math.sin(u * Math.PI) * 0.18, 0)); casco.quaternion.copy(qa.slerp(qb, u));
+      const sobreH = b.clone().add(V3(0, 0.32, 0));
+      if (u < 0.55) { const v = eio(u / 0.55); casco.position.copy(a.lerp(sobreH, v)).add(V3(0, Math.sin(v * Math.PI) * 0.12, 0)); casco.quaternion.copy(qa.slerp(qb, v)); }
+      else { const v = eio((u - 0.55) / 0.45); casco.position.copy(sobreH.lerp(b, v)); casco.quaternion.copy(qb); }
+      bajaCasco = u;
     }
   }
   if ((!parte2 && t >= T.calza[1]) || parte2) { casco.visible = true; ponerCascoEn(hector); }
@@ -1082,20 +1104,26 @@ function renderAt(tIn) {
   if (!parte2 && enEsc && !asomado) { hazCasco.userData.cono.visible = false; hazCasco.userData.luz.intensity = 0; }
   if (!parte2 && t >= T.sacaCasco[0] && t < T.clic2) { hazCasco.userData.luz.intensity = 0; hazCasco.userData.cono.visible = false; casco.userData.lente.material.color.setHex(0x9a9a92); }
 
-  if (hector.boina) { const fuera = t >= T.calza[0] + 0.08 || parte2; hector.boina.visible = !fuera; }
+  if (hector.boina) {
+    // (ronda 2) el casco baja y aplasta la boina (a la vista); se va cuando el casco ya está puesto
+    const fuera = parte2 || t >= T.calza[1] - 0.02;
+    hector.boina.visible = !fuera;
+    const ap = t >= T.sacaCasco[0] ? cl((bajaCasco - 0.6) / 0.35) : 0;
+    hector.boina.scale.set(1 - 0.12 * ap, 1 - 0.75 * ap, 1 - 0.12 * ap);
+  }
 
   // ---- visibilidad por plano ----
   ruben.raiz.visible = !["P9", "Q2", "Q3", "Q4"].includes(plano) || (plano === "Q2" && true);
   if (["Q3", "Q4", "P9", "P6a"].includes(plano)) ruben.raiz.visible = false;
   if (plano === "P10") ruben.raiz.visible = t >= T.cruza[0];
   graciela.raiz.visible = (plano === "P1" || plano === "Q1") && (parte2 ? t < T.q2 : true);
-  walter.raiz.visible = W.vis && plano === "P4";
-  marta.raiz.visible = Ma.vis && plano === "P4";
+  walter.raiz.visible = W.vis && ["P4", "P5"].includes(plano);
+  marta.raiz.visible = Ma.vis && ["P4", "P5"].includes(plano);
   hector.raiz.visible = hv && !["P2", "P2b", "P3", "Q1", "Q3b", "Q4", "Q6"].includes(plano);
   if (plano === "P7") hector.raiz.visible = false;
   // en el sótano y en los primeros planos de Rubén, sin los clientes que taparían la cámara
   if (plano === "P6") { walter.raiz.visible = marta.raiz.visible = false; hector.raiz.visible = false; }
-  if (plano === "P4") hector.raiz.visible = false;   // Héctor entra con el corte a P6a
+  if (["P4", "P5", "N2", "N3"].includes(plano)) hector.raiz.visible = false;   // Héctor entra con el corte a P6a
   for (const p of TODOS) p.ojoLejano(camera.position);
   for (const [per, aros] of LENTES) lenteLejano(per, aros);
   herraduraSegunCamara();
@@ -1121,13 +1149,14 @@ function renderAt(tIn) {
   }
   reloj.userData.poner(14, 25 + Math.floor(t / 60), Math.floor(t) % 60);   // la siesta
   // la tablet (parte 2) y el banquito
-  tablet.visible = parte2; tablet.position.copy(TAB_P); tablet.rotation.y = 0.55;
+  tablet.visible = parte2; tablet.position.copy(TAB_P); tablet.rotation.y = 0.55; tablet.userData.pivote.rotation.x = -0.5;   // (ronda 2) menos inclinada
   if (tablet.visible) dibujarTablet(t);
   banco.visible = parte2;
   if (parte2) {
     banco.position.set(SENT.x, 0, SENT.z - 0.02);
   }
   // la caja de polenta: en el estante, en las manos (P2), y vuelve (time-lapse)
+  for (const p of PEDIDOS) p.visible = parte2; for (const p of SUSTITUTOS) p.visible = !parte2;
   for (const o of CAJAS) { o.c.position.copy(o.base); o.c.rotation.set(0, o.rotBase, 0); o.c.visible = true; }
   if (conPolenta) {
     const p = manoMundo(ruben, "I", _a).add(manoMundo(ruben, "D", _b)).multiplyScalar(0.5);
@@ -1211,15 +1240,17 @@ function renderAt(tIn) {
     for (const g in GL) GL[g].visible = false;
     const rb = () => bocaPx(ruben), hb = () => bocaPx(hector), gb = () => bocaPx(graciela), wb = () => bocaPx(walter), mb = () => bocaPx(marta);
     const arriba = (g, quien, t0, t1, dx = 0, dy = -420, orden = 0) => { if (!en(t, t0, t1)) return; const [bx, by] = quien(); ponerGlobo(g, bx + dx, by + dy, ent(t0) * sale(t1), [bx, by - 30], orden); };
-    if (plano === "P1") arriba(GL.r1, rb, T.r1, T.p2, 120, -400);
+    if (plano === "P1" || plano === "P2") arriba(GL.r1, rb, T.r1, T.r1 + LEN.r1 + 0.15, 120, -400);
     if (plano === "P3") arriba(GL.r2, rb, T.r2, T.p4, 0, -520);
-    if (plano === "P4") { arriba(GL.w1, wb, T.w1, T.no2 - 0.05, -60, -330); arriba(GL.no2, rb, T.no2, T.no2 + 0.42, 160, -250, 1); arriba(GL.m1, mb, Math.max(T.m1, T.no2 + 0.42), T.no3, -120, -360); arriba(GL.no3, rb, T.no3, T.p6a, 160, -250, 1); }
+    if (plano === "P4") arriba(GL.w1, wb, T.w1, T.n2, -60, -330);
+    if (plano === "N2" || plano === "N3") { const [bx, by] = rb(); ponerGlobo(plano === "N2" ? GL.no2 : GL.no3, 260, 340, ent(plano === "N2" ? T.no2 : T.no3), [bx - 60, by - 20]); }
+    if (plano === "P5") arriba(GL.m1, mb, T.m1, T.n3, -60, -380);
     if (plano === "P6a" && t >= T.h1) { const [bx, by] = hb(); ponerGlobo(GL.h1, bx + 80, by - 560, ent(T.h1), [bx, by - 30]); }
     if (plano === "P6" && t >= T.h1) ponerGlobo(GL.h1, 380, 420, t < T.h1 + LEN.h1 + 0.1 ? 1 : sale(T.p6b), [-200, 700]);
     if (plano === "P7") arriba(GL.r3, rb, T.r3, T.p8, -150, -560);
     if (plano === "P9") { arriba(GL.h2a, hb, T.h2, T.h2b - 0.02, 120, -600); arriba(GL.h2b, hb, T.h2b, T.p10, 60, -600); }
     if (plano === "P10") arriba(GL.h3, hb, T.h3, T.cruza[1] + 0.2, 160, -420);
-    if (plano === "Q1") { arriba(GL.g1b, gb, T.g1b, T.r4 - 0.05, 260, -460); arriba(GL.r4, rb, T.r4, T.q2, -60, -420); }
+    if (plano === "Q1") { arriba(GL.g1b, gb, T.g1b, T.r4 - 0.05, 120, -300); arriba(GL.r4, rb, T.r4, T.q2, -60, -420); }
     if (plano === "Q2") { arriba(GL.h4, hb, T.h4, T.r5, 140, -420); arriba(GL.r5, rb, T.r5, T.q3, 0, -330); }
     if (plano === "Q3") arriba(GL.h5, hb, T.h5, T.q3b, 60, -640);
     if (plano === "Q3b") arriba(GL.r6, rb, T.r6, T.q4, -40, -640);
@@ -1229,12 +1260,12 @@ function renderAt(tIn) {
 }
 // el casco en P6: del estante de abajo del mostrador (al costado de la trampa) a las manos y a la cabeza
 function cascoMundoP6(t) {
-  const desde = V3(0.98, 0.55, -1.72);
+  const desde = V3(1.06, 0.05, -2.08);   // (ronda 2) en el piso, a la derecha de Rubén (fuera de la cara)
   ruben.cabeza.updateMatrixWorld(true);
   const sobre = ruben.cabeza.localToWorld(CASCO_CAB.p.clone().add(V3(0, 0.22, 0.05)));
   const cab = ruben.cabeza.localToWorld(CASCO_CAB.p.clone());
   // (ronda 1) primero sube por el costado (nunca por delante de la cara), después pasa por arriba y baja a la cabeza
-  const alto = V3(desde.x + 0.05, sobre.y + 0.05, desde.z - 0.2);
+  const alto = V3(desde.x - 0.02, sobre.y + 0.08, desde.z);
   const u1 = eio(sg(t, T.casco[0], T.casco[1])), u2 = eio(sg(t, T.casco[1], T.casco[2]));
   if (t < T.casco[1]) return u1 < 0.55 ? desde.clone().lerp(alto, u1 / 0.55) : alto.clone().lerp(sobre, (u1 - 0.55) / 0.45);
   return sobre.clone().lerp(cab, u2);

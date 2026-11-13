@@ -35,7 +35,7 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l" data-t="0.15">U</span><span class="l" data-t="0.19">n</span><span class="esp"></span><span class="l" data-t="0.35">s</span><span class="l" data-t="0.39">i</span><span class="l" data-t="0.42">s</span><span class="l" data-t="0.45">t</span><span class="l" data-t="0.49">e</span><span class="l" data-t="0.53">m</span><span class="l" data-t="0.56">a</span></span>
+        <span class="linea a"><span class="l" data-t="0">U</span><span class="l" data-t="0.04">n</span><span class="esp"></span><span class="l" data-t="0.3">s</span><span class="l" data-t="0.34">i</span><span class="l" data-t="0.37">s</span><span class="l" data-t="0.41">t</span><span class="l" data-t="0.44">e</span><span class="l" data-t="0.48">m</span><span class="l" data-t="0.51">a</span></span>
         <span class="linea b"><span class="l" data-t="1.05">m</span><span class="l" data-t="1.09">á</span><span class="l" data-t="1.12">s</span><span class="esp"></span><span class="l" data-t="1.65">t</span><span class="l" data-t="1.68">a</span><span class="l" data-t="1.72">r</span><span class="l" data-t="1.76">d</span><span class="l" data-t="1.79">e</span><span class="l" data-t="1.83">…</span></span>
       </div>
     </div>
@@ -52,7 +52,8 @@
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
-        tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        if (t0 < 0.05) tl.fromTo(l, { scale: 0.92 }, { scale: 1, duration: 0.2, ease: "back.out(2.6)", immediateRender: true }, 0);   // (ronda 2) "Un" ya en el primer cuadro
+        else tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);

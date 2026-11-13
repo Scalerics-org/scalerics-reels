@@ -1,8 +1,7 @@
 # te-queda · fuentes
 
 Ficción: sin datos ni afirmaciones de hechos para verificar. Situación inventada (Rubén baja al sótano del almacén a
-fijarse si queda algo). Los números de la tablet ("Polenta · 3", "Dulce de leche · 12", "Yerba · quedan 2", "Llega el
-jueves") y el chip "Viajes al depósito" son parte del chiste, no estadísticas.
+fijarse si queda algo). Los números de la tablet ("Polenta · 3", "Dulce de leche · 12", "Yerba · quedan 2", "Pedido armado ✓") y el chip "Viajes al depósito" son parte del chiste, no estadísticas.
 
 Lo que hace el sistema en la parte 2 (cada venta descuenta del stock, se ve qué queda sin ir a mirar, aviso cuando algo
 queda poco y el pedido queda armado) está dentro de lo que vende Scalerics (CLAUDE.md, "Lo que se vende": sistemas a medida
