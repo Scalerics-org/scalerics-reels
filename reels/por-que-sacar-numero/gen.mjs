@@ -128,7 +128,7 @@ const POS = {
   credPaper: [540, 1660],
   filas: [540, 1330],
   hora: [540, 1780],
-  walter: [330, 600], walterLead: [330, 650, 330, 760],
+  walter: [270, 1470], walterLead: [270, 1415, 262, 1190],
   sinNumero: [540, 1620],
   unaFila: [540, 1250],
 };
@@ -183,8 +183,8 @@ const GANCHO = `
 
 // ================= s03 · ¿Por qué? (los dígitos del display se vuelven un "?") =================
 vacia("s03-por-que", [
-  { t: rel("s03-por-que", pal[18].end + 0.03), sfx: "impact-bass-1", vol: 0.03, max: 0.5 },
-  { t: rel("s03-por-que", pal[18].end + 0.05), sfx: "pop", vol: 0.04 },
+  { t: rel("s03-por-que", pal[18].end + 0.03), sfx: "impact-bass-1", vol: 0.022, max: 0.5 },
+  { t: rel("s03-por-que", pal[18].end + 0.05), sfx: "pop", vol: 0.03 },
   { t: rel("s03-por-que", T.tapaQ), sfx: "whoosh-cine-corto", vol: 0.12, max: 0.5 },
 ]);
 
@@ -227,7 +227,7 @@ vacia("s03-por-que", [
     sfx: [
       { t: -0.05, sfx: "whoosh-cinematic", vol: 0.05, max: 0.7 },
       ...[0, 1, 2, 3].map((j) => ({ t: 0.4 + j * 0.3, sfx: "tic", vol: 0.04 })),
-      { t: rel(id, T.revAbre), sfx: "hoja", vol: 0.25, max: 0.5 },
+      { t: rel(id, T.revAbre + 0.2), sfx: "hoja", vol: 0.18, max: 0.5 },
       { t: rel(id, T.corteRev - 0.15), sfx: "whoosh-short", vol: 0.05 },
     ],
   });
@@ -284,7 +284,7 @@ vacia("s03-por-que", [
   escena(id, {
     css: `P .n2 { opacity: 0; }`,
     html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, 540, 1630, "Graciela · 9:02 · esperando", "gris")}`,
-    js: `nota(1, 0.05); fuera([1], ${rel(id, T.fue + 0.35)}); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
+    js: `nota(1, ${rel(id, T.s10 + 0.5)}); fuera([1], ${rel(id, T.fue + 0.1)}); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.0, sfx: "campanita", vol: 0.03, max: 0.7 },
       { t: rel(id, T.vibra), sfx: "vibra", vol: 0.12, max: 0.6 },
@@ -299,8 +299,8 @@ vacia("s03-por-que", [
   const id = "s11-ruben";
   escena(id, {
     css: `P .quien { position: absolute; left: 70px; top: 470px; padding: 6px 20px 8px; border-radius: 14px; background: ${NAVY}; font: 600 40px/1 "IBM Plex Mono", monospace; letter-spacing: 0.06em; color: ${G}; opacity: 0; }`,
-    html: `<div class="quien">RUBÉN</div>${pill(1, POS.sinNumero[0], POS.sinNumero[1], "Sin número", "malo")}`,
-    js: `pop(".quien", 0.0, 0.2); tl.to(q(".quien"), { opacity: 0, duration: 0.12 }, ${r2(ESC[id] - 0.15)}); nota(1, ${rel(id, T.daVuelta + 0.5)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
+    html: `${pill(1, POS.sinNumero[0], POS.sinNumero[1], "Sin número", "malo")}`,
+    js: `nota(1, ${rel(id, T.daVuelta + 0.5)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: rel(id, T.daVuelta), sfx: "click-soft", vol: 0.1 },
       { t: rel(id, T.daVuelta + 0.5), sfx: "pop", vol: 0.05 },

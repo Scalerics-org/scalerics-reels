@@ -2,7 +2,7 @@
 // Uso (desde la carpeta del reel, después de partes/armar-voz.mjs): node partes/boca.mjs → assets/boca.js
 import fs from "node:fs";
 import { execSync } from "node:child_process";
-const T0 = 23.45, T1 = 25.7;
+const T0 = 23.66, T1 = 25.91;
 const txt = execSync(`ffmpeg -hide_banner -ss ${T0} -t ${T1 - T0} -i assets/voice/locucion.wav -af "asetnsamples=1600,astats=metadata=1:reset=1,ametadata=print:key=lavfi.astats.Overall.RMS_level" -f null - 2>&1`).toString();
 const db = [...txt.matchAll(/RMS_level=(-?[\d.]+|-inf)/g)].map((m) => (m[1] === "-inf" ? -90 : Number(m[1])));
 const v = db.map((d) => Math.round(Math.min(1, Math.max(0, (d + 42) / 26)) * 100) / 100);

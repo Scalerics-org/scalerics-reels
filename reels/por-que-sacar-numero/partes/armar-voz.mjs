@@ -16,7 +16,7 @@ const GAN = [-1.5, -1.5, -1.5, 1.5, -1.2, -1.2]; // dB por archivo: Rubén viene
 const T = 1.15; // ronda 1: 1,1 → 1,15 para quedar en ~35,5 s
 const TRAMOS = [
   [0, 0.12, 10.04, [[2.664, 3.093, 0.24], [5.501, 5.915, 0.36], [6.392, 6.740, 0.36]], T, 0.2], // gancho → "bici."
-  [1, 0.2, 3.3, [[1.685, 1.793, 0.06]], T, 0.3],                       // "Los que llegaron después se llevaban lo suyo antes."
+  [1, 0.2, 3.63, [[1.685, 1.793, 0.06]], T, 0.22],                       // "Los que llegaron después se llevaban lo suyo antes."
   [0, 13.1, 15.25, [], T, 0.2],                     // "Pasó años estudiando filas."
   [2, 0.1, 2.97, [[1.687, 1.901, 0.12]], T, 0.34],                       // "Que te pasen, muchas veces, pesa más que esperar."
   [0, 20.36, 27.95, [[21.453, 21.771, 0.2], [23.061, 23.232, 0.2], [24.904, 25.120, 0.18]], T, 0.36], // "En lo de Rubén…" → "…se fue antes."
