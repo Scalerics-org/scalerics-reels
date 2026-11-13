@@ -249,7 +249,7 @@
 - 12-11 · `por-que-las-tarjetas` · CRM (quién te compró y cuándo; aviso cuando alguien deja de venir y mensaje que sale solo, sin oferta) · "¿Por qué el mejor vendedor de autos les mandaba tarjetas a los que ya le compraron?" Explicador con Rubén (Joe Girard, récord Guinness 1973; Cialdini y Goldstein 2002; joegirard.com; ver fuentes.md): porque volvían; ¿por qué? la tarjeta no vendía nada, decía cada mes «Me caés bien» ("I like you"); al que ya te compró no hay que convencerlo, hay que acordarse; callback: Rubén ("¿Walter? ¿Hace cuánto que no viene?", voz Algenib), el sistema sabe (tres semanas) y le escribe solo un mensaje con la forma de la tarjeta, sin oferta; el sábado Walter volvió · Videollamada gratis en scalerics.com [formato explicador ¿Por qué? · 3D real (auto de los 70 VENDIDO, buzón con banderita, sobres, calle de autos que vuelven, "1.425" sobre estacionamiento, "?" que sale del sobre, tarjeta "I like you" y abanico de 12, megáfono que se apaga, almacén de Rubén el sábado a la mañana con Walter), fondo navy oscuro #0b1220 liso con almacén crema y cierre verde] (corrida 12-11 12:11, 3 rondas de revisión + verificación final de arte sobre el MP4; render SwiftShader ~16 min; tarjeta con corazón, no hoja)
 
 ## En curso
-<!-- corrida-activa: 2026-11-13T07:21 -->
+<!-- corrida-activa: 2026-11-13T08:19 -->
 
 - 13-11 · `por-que-sacar-numero` · Sistema a medida (pedidos de mostrador, WhatsApp y web en una sola lista con número, por orden de llegada) · Explicador "¿Por qué en la fiambrería te hacen sacar número?" con Rubén (Larson 1987) · fondo crema liso · reservado por la corrida 13-11 05:11
 
