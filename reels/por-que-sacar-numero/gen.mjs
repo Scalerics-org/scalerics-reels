@@ -115,13 +115,13 @@ const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${
 const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #ffffff; border: 5px solid ${NAVY}; font: 700 44px/1.1 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.2); }
     P .cred .sub { display: block; margin-top: 8px; font: 500 38px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: ${NAVY2}; }`;
 // tramos sin logo (insertos de celular/tablet y primeros planos): los lee armar.mjs (assets/firma.json)
-const FIRMA = [[r2(T.s09), r2(T.s10)], [r2(T.s11), r2(T.primera + 0.45)]];
+const FIRMA = [[r2(T.s04), r2(T.s06)], [r2(T.s09), r2(T.s10)], [r2(T.s11), r2(T.primera + 0.45)]];
 
 // posiciones en pantalla de los rótulos y créditos (medidas sobre los cuadros del 3D)
 const POS = {
-  colado: [300, 1560], coladoLead: [300, 1500, 330, 1180],
+  colado: [760, 1520], coladoLead: [800, 1460, 880, 1270],
   credLarson: [540, 1010],
-  llegaron: [700, 1560], llegaronLead: [700, 1500, 640, 1250],
+  llegaron: [790, 1330], llegaronLead: [700, 1500, 640, 1250],
   drQueue: [540, 1600],
   esperar: [180, 1075], esperarLead: [180, 1020, 165, 950],
   pasen: [850, 1075], pasenLead: [850, 1020, 760, 950],
@@ -158,7 +158,7 @@ const GANCHO = `
       { t: 0.0, sfx: "pop", vol: 0.05 },
       { t: rel(id, T.tira), sfx: "papel", vol: 0.25, max: 0.35 },
       { t: rel(id, T.tira + 0.1), sfx: "tic-real", vol: 0.06 },
-      { t: rel(id, T.vuela - 0.1), sfx: "whoosh-short", vol: 0.05 },
+      { t: rel(id, pal[8].end + 0.05), sfx: "whoosh-short", vol: 0.04 },
     ],
   });
 }
@@ -183,8 +183,8 @@ const GANCHO = `
 
 // ================= s03 · ¿Por qué? (los dígitos del display se vuelven un "?") =================
 vacia("s03-por-que", [
-  { t: rel("s03-por-que", T.que) - 0.06, sfx: "impact-bass-1", vol: 0.05, max: 0.6 },
-  { t: rel("s03-por-que", T.que) + 0.05, sfx: "pop", vol: 0.06 },
+  { t: rel("s03-por-que", pal[18].end + 0.03), sfx: "impact-bass-1", vol: 0.04, max: 0.5 },
+  { t: rel("s03-por-que", pal[18].end + 0.05), sfx: "pop", vol: 0.05 },
   { t: rel("s03-por-que", T.tapaQ), sfx: "whoosh-cine-corto", vol: 0.12, max: 0.5 },
 ]);
 
@@ -197,7 +197,7 @@ vacia("s03-por-que", [
     js: `nota(1, ${rel(id, T.mit + 0.1)}); fuera([1], ${r2(ESC[id] - 0.15)});`,
     sfx: [
       { t: rel(id, T.s04 + 0.45), sfx: "pop", vol: 0.08 },
-      { t: rel(id, T.bici - 0.05), sfx: "ring", vol: 0.05, max: 0.6 },
+      { t: rel(id, pal[27].end + 0.03), sfx: "ring", vol: 0.025, max: 0.45 },
     ],
   });
 }
@@ -207,12 +207,12 @@ vacia("s03-por-que", [
   const id = "s05-se-la-llevaban";
   const [x, y] = POS.llegaron;
   escena(id, {
-    html: `${L(1, POS.llegaronLead, "malo")}${pill(1, x, y, "Llegaron después", "malo")}`,
+    html: `${pill(1, x, y, "Llegaron después", "malo")}`,
     js: `nota(1, ${rel(id, T.bicis[1] + 0.2)}); fuera([1], ${r2(ESC[id] - 0.2)});`,
     sfx: [
-      ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.25), sfx: "whoosh-short", vol: 0.04 })),
-      ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.75), sfx: "pop", vol: 0.06 })),
-      { t: rel(id, T.bicis[2] + 0.5), sfx: "golpe", vol: 0.1, max: 0.4 },
+      ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.25), sfx: "whoosh-short", vol: 0.02 })),
+      ...T.bicis.map((tb) => ({ t: rel(id, tb + 0.75), sfx: "pop", vol: 0.035 })),
+      { t: rel(id, pal[35].end + 0.04), sfx: "golpe", vol: 0.07, max: 0.3 },
     ],
   });
 }
@@ -271,8 +271,8 @@ vacia("s03-por-que", [
     js: `nota(1, ${rel(id, T.pidio)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.1, sfx: "typing", vol: 0.06, max: 0.5 },
-      { t: rel(id, T.burbV), sfx: "respuesta", vol: 0.08, max: 0.6 },
-      { t: rel(id, T.burbV + 0.1), sfx: "whoosh-short", vol: 0.04 },
+      { t: rel(id, pal[63].end + 0.03), sfx: "respuesta", vol: 0.05, max: 0.5 },
+      { t: rel(id, pal[63].end + 0.1), sfx: "whoosh-short", vol: 0.03 },
     ],
   });
 }
@@ -284,9 +284,9 @@ vacia("s03-por-que", [
   escena(id, {
     css: `P .n2 { opacity: 0; }`,
     html: `${L(1, POS.walterLead)}${pill(1, x, y, "Walter · 9:10")}${pill(2, POS.hora[0], POS.hora[1] + 30, "Graciela · 9:02 · esperando", "gris")}`,
-    js: `nota(1, 0.05); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([1, 2], ${r2(ESC[id] - 0.12)});`,
+    js: `nota(1, 0.05); fuera([1], ${rel(id, T.fue + 0.35)}); nota(2, ${rel(id, T.vibra + 0.1)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: 0.0, sfx: "campanita", vol: 0.12, max: 0.9 },
+      { t: 0.0, sfx: "campanita", vol: 0.03, max: 0.7 },
       { t: rel(id, T.vibra), sfx: "vibra", vol: 0.12, max: 0.6 },
       { t: rel(id, T.despues2 + 0.25), sfx: "papel", vol: 0.2, max: 0.4 },
       { t: rel(id, T.fue + 0.5), sfx: "puerta", vol: 0.05, max: 0.5 },
@@ -315,9 +315,9 @@ vacia("s03-por-que", [
     html: `${pill(1, POS.unaFila[0], POS.unaFila[1], "Una sola fila", "lleno")}`,
     js: `nota(1, ${rel(id, T.tickets[2] + 0.45)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: rel(id, T.s12 + 0.2), sfx: "whoosh-short", vol: 0.04 },
-      { t: rel(id, T.tablet - 0.1), sfx: "pop", vol: 0.1 },
-      { t: rel(id, T.sistema - 0.1), sfx: "click", vol: 0.1 },
+      { t: rel(id, T.s12 - 0.15), sfx: "whoosh-short", vol: 0.02 },
+      { t: rel(id, T.tablet - 0.1), sfx: "pop", vol: 0.03 },
+      { t: rel(id, pal[77].end + 0.02), sfx: "click", vol: 0.08 },
       ...T.tickets.map((tt) => ({ t: rel(id, tt), sfx: "scan", vol: 0.04, max: 0.3 })),
       ...T.tickets.map((tt) => ({ t: rel(id, tt + 0.42), sfx: "pop", vol: 0.05 })),
     ],
@@ -353,8 +353,8 @@ vacia("s13-primera", [
       tl.fromTo(q(".t3"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.15, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${r2(w(id, 93) - 0.03)});
       tl.fromTo(q(".esc"), { scale: 1 }, { scale: 1.03, transformOrigin: "50% 20%", duration: ${r2(ESC[id] - 0.2)}, ease: "none", immediateRender: false }, 0.2);`,
     sfx: [
-      { t: -0.14, sfx: "whoosh", vol: 0.2, max: 0.6 }, { t: 0.04, sfx: "pop", vol: 0.3 },
-      { t: 0.3, sfx: "chime", vol: 0.1, max: 0.8 },
+      { t: -0.14, sfx: "whoosh", vol: 0.08, max: 0.5 }, { t: 0.04, sfx: "pop", vol: 0.15 },
+      { t: 0.3, sfx: "chime", vol: 0.04, max: 0.8 },
       { t: rel(id, pal[93].end + 0.02), sfx: "ding", vol: 0.04, max: r2(Math.max(0.2, ESC[id] - rel(id, pal[93].end + 0.02) - 0.03)) },
     ],
   });

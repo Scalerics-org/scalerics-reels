@@ -151,6 +151,7 @@ const TKW = 360, TKH = 500;
 const texTk = {};
 function texTicket(n, tipo = "") {
   return (texTk[n + "|" + tipo] ??= tex(TKW, TKH, (x, w, h) => {
+    const [tipo0, etiqueta] = tipo.split("|"); tipo = tipo0;
     const borde = tipo === "malo" ? ROJ : tipo === "gris" ? "#b9b7aa" : tipo === "verde" ? VER : NAV0;
     x.fillStyle = tipo === "gris" ? "#dedcd0" : "#f7f6ee"; x.fillRect(0, 0, w, h);
     x.lineWidth = 26; x.strokeStyle = borde; x.strokeRect(13, 13, w - 26, h - 26);
@@ -158,7 +159,7 @@ function texTicket(n, tipo = "") {
     x.fillStyle = tipo === "gris" ? GRI : NAV0; x.textAlign = "center"; x.textBaseline = "middle";
     const txt = String(n);
     ajustar(x, txt, 900, txt.length > 2 ? 150 : 250, w - 70); x.fillText(txt, w / 2, h * 0.53);
-    x.font = F(700, 40, "IBM Plex Mono"); x.fillStyle = tipo === "gris" ? GRI : NAV; x.fillText(tipo === "recibo" || Number(n) < 10 ? "RETIRO" : "TURNO", w / 2, 70);
+    x.font = F(700, 40, "IBM Plex Mono"); x.fillStyle = tipo === "gris" ? GRI : NAV; if (etiqueta) ajustar(x, etiqueta, 500, 40, w - 70, "IBM Plex Mono"); x.fillText(etiqueta || (tipo === "recibo" || Number(n) < 10 ? "RETIRO" : "TURNO"), w / 2, 70);
   }));
 }
 const tkCanto = mat(0xe4e2d6, 0.7);
@@ -307,7 +308,7 @@ const colado = hacerTicket(31, "malo", 0.5, 0.7, 0.06); scene.add(colado);
 const postesA = [0, 1].map(() => { const p = hacerPoste(); scene.add(p); return p; });
 const cintaA = hacerCinta(); scene.add(cintaA);
 const displayA = hacerDisplay(1.1, 0.66); scene.add(displayA);
-const DISP_A = V(OA.x + 1.15, 2.0, -1.6);
+const DISP_A = V(OA.x + 1.15, 1.78, -1.6);
 const preguntaA = hacerPregunta();
 
 // ================= ZONA B: la ventanilla de RETIROS y la bici =================
@@ -315,7 +316,7 @@ const zonaBG = new THREE.Group(); scene.add(zonaBG);
 const pisoB = pisoSombra(OB.x, 0.5, 12, 10, 0.32);
 const PARED_B = -1.4;
 {
-  const pared = new THREE.Shape(); pared.moveTo(-4, 0); pared.lineTo(4, 0); pared.lineTo(4, 3.2); pared.lineTo(-4, 3.2); pared.lineTo(-4, 0);
+  const pared = new THREE.Shape(); pared.moveTo(-5, 0); pared.lineTo(5, 0); pared.lineTo(5, 5); pared.lineTo(-5, 5); pared.lineTo(-5, 0);
   const ven = new THREE.Path(); ven.moveTo(-1.45, 1.0); ven.lineTo(-0.15, 1.0); ven.lineTo(-0.15, 1.85); ven.lineTo(-1.45, 1.85); ven.lineTo(-1.45, 1.0); pared.holes.push(ven);
   const pue = new THREE.Path(); pue.moveTo(0.35, 0); pue.lineTo(1.35, 0); pue.lineTo(1.35, 2.1); pue.lineTo(0.35, 2.1); pue.lineTo(0.35, 0); pared.holes.push(pue);
   const pm = mesh(new THREE.ExtrudeGeometry(pared, { depth: 0.12, bevelEnabled: false }), M.navy2, OB.x, 0, PARED_B - 0.12); zonaBG.add(pm);
@@ -333,8 +334,8 @@ const PARED_B = -1.4;
   zonaBG.add(mesh(rbox(1.12, 0.08, 0.16, 0.02), marco, OB.x + 0.85, 2.13, PARED_B));
   // cartel RETIROS
   const ct = tex(900, 220, (x, w, h) => { x.fillStyle = CRE; rr(x, 0, 0, w, h, 40); x.fillStyle = NAV0; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "RETIROS", 900, 160, w - 100); x.fillText("RETIROS", w / 2, h / 2 + 8); });
-  zonaBG.add(mesh(rbox(1.5, 0.37, 0.05, 0.04), M.cr, OB.x - 0.8, 2.13, PARED_B + 0.03));
-  zonaBG.add(mesh(new THREE.PlaneGeometry(1.44, 0.35), matTex(ct, 0.25), OB.x - 0.8, 2.13, PARED_B + 0.057));
+  zonaBG.add(mesh(rbox(1.3, 0.3, 0.05, 0.04), M.cr, OB.x - 0.8, 2.08, PARED_B + 0.03));
+  zonaBG.add(mesh(new THREE.PlaneGeometry(1.25, 0.29), matTex(ct, 0.25), OB.x - 0.8, 2.08, PARED_B + 0.057));
   sh(zonaBG); pm.receiveShadow = true;
 }
 // la bici genérica (cuadro navy, manubrio con puños verdes, sin logo). Orientada a +x; origen en el piso entre ruedas
@@ -370,7 +371,7 @@ function hacerBici(cuadro = biciNum) {
 const BICI_B = V(OB.x - 0.85, 0, PARED_B + 0.5);
 const biciB = hacerBici(); scene.add(biciB);
 // el recibo nuestro (N.º 2), grande en primer plano; los de los demás en las bicis que salen
-const recibo = hacerTicket(2, "verde", 0.62, 0.86, 0.04); scene.add(recibo);
+const recibo = hacerTicket(2, "verde", 0.52, 0.72, 0.04); scene.add(recibo);
 const bicis = [5, 7, 9].map((n) => { const b = hacerBici(); scene.add(b); const t = hacerTicket(n, "recibo", 0.36, 0.5, 0.012); b.add(t); t.position.set(0.3, 0.84, -0.3); t.rotation.y = Math.PI; b.userData.tag = t; return b; });
 const flechas = [0, 1, 2].map(() => { const f = mesh(flechaGeo, [M.red, mat(0x8f3f37, 0.5)]); f.castShadow = true; scene.add(f); return f; });
 const preguntaB = hacerPregunta(); // el "?" que tapa la cámara y se vuelve el puño verde del manubrio
@@ -608,10 +609,10 @@ const laptop = new THREE.Group(); scene.add(laptop);
   sc.add(mesh(rbox(0.34, 0.23, 0.012, 0.01), M.navy3, 0, 0.115, 0));
   const wt = tex(512, 340, (x, w, h) => { x.fillStyle = "#f6f4ea"; x.fillRect(0, 0, w, h); x.fillStyle = NAV0; x.fillRect(0, 0, w, 60); x.fillStyle = VER; rr(x, 40, 100, 200, 140, 16); x.fillStyle = "#c9c7b9"; rr(x, 270, 110, 200, 24, 12); rr(x, 270, 160, 160, 24, 12); x.fillStyle = NAV; rr(x, 270, 220, 150, 50, 14); });
   sc.add(mesh(new THREE.PlaneGeometry(0.31, 0.2), new THREE.MeshBasicMaterial({ map: wt, toneMapped: false }), 0, 0.115, 0.0065));
-  laptop.position.set(MOST.x - 0.92, MOST.y, MOST.z - 0.02); laptop.rotation.y = 0.45;
+  laptop.position.set(MOST.x + 0.4, MOST.y, MOST.z - 0.12); laptop.rotation.y = -0.35;
   sh(laptop);
 }
-const sinNum = [0, 1, 2].map(() => { const t = hacerTicket("?", "malo", 0.3, 0.42, 0.02); scene.add(t); return t; });
+const sinNum = ["WHATSAPP", "MOSTRADOR", "WEB"].map((e) => { const t = hacerTicket("?", "malo|" + e, 0.3, 0.42, 0.02); scene.add(t); return t; });
 // la burbuja que vuela de la casa de Graciela al celular de Rubén
 const burbTex = tex(680, 480, (x, w, h) => burbuja(x, 40, 30, true));
 const burbujaV = mesh(new THREE.PlaneGeometry(0.68, 0.48), new THREE.MeshBasicMaterial({ map: burbTex, transparent: true, toneMapped: false, side: THREE.DoubleSide })); scene.add(burbujaV);
@@ -688,9 +689,9 @@ function armarPlanos() {
       k(0, [NUM_A.x + 0.3, 1.45, NUM_A.z + 2.15], [NUM_A.x, 1.4, NUM_A.z]),
       k(T.tira, [NUM_A.x + 0.25, 1.36, NUM_A.z + 1.85], [NUM_A.x, 1.28, NUM_A.z]),
       k(T.vuela + 0.05, [NUM_A.x + 0.3, 1.3, NUM_A.z + 1.85], [NUM_A.x + 0.1, 1.15, NUM_A.z + 0.1]),
-      k(T.llega + 0.15, a(1.5, 2.7, 5.2), a(1.05, 0.5, 0.35)),
-      k(T.choca, a(1.55, 2.75, 5.35), a(1.05, 0.55, 0.3)),
-      k(T.pase + 0.2, a(1.5, 2.8, 5.1), a(1.08, 0.8, 0.0)),
+      k(T.llega + 0.15, a(1.8, 2.7, 5.2), a(1.35, 0.5, 0.35)),
+      k(T.choca, a(1.85, 2.75, 5.35), a(1.35, 0.55, 0.3)),
+      k(T.pase + 0.2, a(1.75, 2.8, 5.1), a(1.3, 0.8, 0.0)),
       k(T.s03 + 0.05, a(1.6, 2.0, 3.4), [dsp.x, 1.55, dsp.z]),
       k(T.que + 0.3, [dsp.x + 0.05, dsp.y - 0.05, dsp.z + 2.6], [dsp.x, dsp.y - 0.05, dsp.z]),
       k(T.s04, [dsp.x + 0.02, dsp.y - 0.05, dsp.z + 2.0], [dsp.x, dsp.y - 0.05, dsp.z]),
@@ -698,11 +699,11 @@ function armarPlanos() {
     // s04-s05: del puño verde del manubrio a la ventanilla; el recibo N.º 2; pasan las bicis
     ["B", T.s04, [
       k(T.s04, [BICI_B.x + 0.33, 1.1, BICI_B.z - 0.25 + 0.55], [BICI_B.x + 0.33, 1.03, BICI_B.z - 0.25]),
-      k(T.s04 + 0.6, b(-0.6, 1.55, 3.2), b(-0.8, 1.05, -0.7)),
-      k(T.bici, b(-0.55, 1.75, 6.0), b(-0.75, 1.3, -0.3)),
-      k(T.s05 + 0.2, b(-0.5, 1.7, 6.2), b(-0.72, 1.25, -0.2)),
-      k(T.antes + 0.3, b(-0.55, 1.65, 5.8), b(-0.72, 1.22, -0.1)),
-      k(T.s06, b(-0.55, 1.65, 5.7), b(-0.72, 1.22, -0.1)),
+      k(T.s04 + 0.6, b(-0.6, 1.75, 4.4), b(-0.8, 1.38, -0.6)),
+      k(T.bici, b(-0.55, 1.8, 6.3), b(-0.75, 1.36, -0.3)),
+      k(T.s05 + 0.2, b(-0.5, 1.75, 6.5), b(-0.72, 1.32, -0.2)),
+      k(T.antes + 0.3, b(-0.55, 1.72, 6.1), b(-0.72, 1.3, -0.1)),
+      k(T.s06, b(-0.55, 1.72, 6.0), b(-0.72, 1.3, -0.1)),
     ]],
     // s06: grúa sobre la serpentina; baja a la revista y entra a la página
     ["C", T.s06, [
@@ -728,8 +729,8 @@ function armarPlanos() {
       const cam = (d) => { const p = PG.clone().addScaledVector(n, d); return [p.x, p.y, p.z]; };
       return [
         k(T.s09, g(0.3, 1.6, 3.0), [PG.x, PG.y, PG.z]),
-        k(T.pidio - 0.05, cam(0.62), [PG.x, PG.y, PG.z]),
-        k(T.s10, cam(0.55), [PG.x, PG.y, PG.z]),
+        k(T.pidio - 0.05, cam(0.62), [PG.x, PG.y + 0.05, PG.z]),
+        k(T.s10, cam(0.55), [PG.x, PG.y + 0.05, PG.z]),
       ];
     })()],
     // s10: Walter entra, se lleva su bolsa y se va; el celular boca abajo vibra
@@ -740,23 +741,23 @@ function armarPlanos() {
     ]],
     // s11: primer plano de Rubén con el celular dado vuelta
     ["R3", T.s11, [
-      k(T.s11, r(0.12, 1.78, 1.7), r(0.04, 1.32, -0.4)),
-      k(T.vos, r(0.1, 1.76, 1.58), r(0.04, 1.33, -0.4)),
-      k(T.s12, r(0.08, 1.75, 1.5), r(0.04, 1.33, -0.4)),
+      k(T.s11, r(0.12, 1.9, 1.7), r(0.04, 1.32, -0.4)),
+      k(T.vos, r(0.1, 1.88, 1.58), r(0.04, 1.33, -0.4)),
+      k(T.s12, r(0.08, 1.87, 1.5), r(0.04, 1.33, -0.4)),
     ]],
     // s12: el celular se vuelve la tablet "Pedidos"; el numerador se prende y le da número a cada pedido
     ["R4", T.s12, [
-      k(T.s12, r(-0.1, 2.55, 2.1), r(-0.15, 1.0, 0.0)),
-      k(T.tablet + 0.3, r(-0.15, 2.6, 2.2), r(-0.18, 0.98, 0.05)),
-      k(T.tickets[2] + 0.45, r(-0.15, 2.55, 2.1), r(-0.17, 0.98, 0.05)),
-      k(T.s13, r(-0.03, 2.05, 1.4), r(-0.03, 1.02, 0.1)),
+      k(T.s12, r(-0.15, 2.2, 2.5), r(-0.2, 1.1, 0.0)),
+      k(T.tablet + 0.3, r(-0.18, 2.25, 2.8), r(-0.22, 1.1, 0.03)),
+      k(T.tickets[2] + 0.45, r(-0.18, 2.2, 2.65), r(-0.22, 1.1, 0.03)),
+      k(T.s13, r(-0.03, 1.75, 1.3), r(-0.02, 1.17, 0.1)),
     ]],
     // s13: "Graciela, primera": LISTO en la tablet; plano general: Rubén le da la bolsa a Graciela
     ["R5", T.s13, [
-      k(T.s13, r(-0.03, 2.05, 1.4), r(-0.03, 1.02, 0.1)),
-      k(T.primera + 0.3, r(-0.03, 2.02, 1.34), r(-0.03, 1.02, 0.1)),
-      k(T.primera + 0.6, r(-0.48, 2.0, 4.3), r(-0.5, 1.18, -0.1)),
-      k(T.fin, r(-0.48, 2.05, 4.7), r(-0.5, 1.18, -0.1)),
+      k(T.s13, r(-0.03, 1.75, 1.3), r(-0.02, 1.17, 0.1)),
+      k(T.primera + 0.3, r(-0.03, 1.73, 1.24), r(-0.02, 1.17, 0.1)),
+      k(T.primera + 0.6, r(-0.35, 2.0, 4.3), r(-0.35, 1.18, -0.1)),
+      k(T.fin, r(-0.35, 2.05, 4.7), r(-0.35, 1.18, -0.1)),
     ]],
     ["F", T.fin, [
       k(T.fin, f(0.0, 0.45, 3.0), f(0.0, 0.17, 0)),
@@ -835,7 +836,7 @@ function zonaA(t) {
   numA.updateMatrixWorld(true);
   const pTk = numA.localToWorld(V(0, -0.33, 0.24));
   const pMano = lerpV(V(pTk.x - 0.7, pTk.y - 0.15, pTk.z + 0.3), V(pTk.x - 0.03, pTk.y - 0.02, pTk.z + 0.03), llegaMano);
-  pMano.add(V(0.05 * tira, -0.05 * tira, 0.28 * tira)).add(V(-0.9 * sale, -0.3 * sale, 0.2 * sale));
+  pMano.add(V(0.12 * tira, 0.06 * tira, 0.22 * tira)).add(V(-0.9 * sale, -0.2 * sale, 0.2 * sale));
   mano.position.copy(pMano); mano.rotation.set(0, 0.35 - 0.3 * tira, -0.2);
   // posiciones de la fila (fichas de dominó de pie)
   FILA.forEach(({ n, p }, i) => {
@@ -862,8 +863,8 @@ function zonaA(t) {
   // el 31 (borde rojo apagado) se mete por la izquierda entre el 22 y el 23 y rebota contra la cinta
   const p22 = FILA[1].p, p23 = FILA[2].p;
   const gap = V((p22.x + p23.x) / 2, 0.36, (p22.z + p23.z) / 2);
-  const desde = V(gap.x + 2.0, 0.36, gap.z + 0.9);
-  const contra = V(gap.x + 0.62, 0.36, gap.z + 0.15);
+  const desde = V(gap.x + 1.7, 0.36, gap.z + 0.8);
+  const contra = V(gap.x + 0.5, 0.36, gap.z + 0.12);
   const uc = eo(sg(t, T.cuela, T.choca));
   const rb = sg(t, T.choca, T.choca + 0.55);
   colado.visible = t > T.cuela - 0.05;
@@ -907,7 +908,7 @@ function zonaB(t) {
   const gris = t > T.bicis[2] + 0.45;
   recibo.userData.poner(2, gris ? "gris" : "verde");
   const kr = popIn(t, T.s04 + 0.45, 0.3);
-  recibo.position.set(OB.x - 0.72, 0.43 - (gris ? 0.03 * eo(sg(t, T.bicis[2] + 0.45, T.bicis[2] + 0.8)) : 0), 1.25);
+  recibo.position.set(OB.x - 0.72, 0.36 - (gris ? 0.03 * eo(sg(t, T.bicis[2] + 0.45, T.bicis[2] + 0.8)) : 0), 1.25);
   recibo.rotation.set(0, 0.05, gris ? -0.08 * eo(sg(t, T.bicis[2] + 0.45, T.bicis[2] + 0.8)) : 0);
   ocultar(recibo, kr);
   // las bicis de los que llegaron después: salen por la puerta, pasan por delante en diagonal y se van de cuadro
@@ -928,7 +929,7 @@ function zonaB(t) {
   flechas.forEach((fl, j) => {
     const kk = t < T.bicis[j] + 0.75 ? 0 : popIn(t, T.bicis[j] + 0.75, 0.25);
     fl.visible = kk > 0.01; if (!fl.visible) return;
-    fl.position.set(OB.x - 1.02 + j * 0.3, 1.12, 1.25); fl.rotation.set(0, 0, -Math.PI / 2 + 0.0); fl.scale.setScalar(0.3 * kk);
+    fl.position.set(OB.x - 0.98 + j * 0.26, 0.98, 1.25); fl.rotation.set(0, 0, -Math.PI / 2 + 0.0); fl.scale.setScalar(0.3 * kk);
   });
   // el "?" que tapó la cámara se aleja y queda como el puño verde
   const ab = sg(t, T.s04, T.s04 + 0.3);
@@ -1006,7 +1007,7 @@ function zonaR(t) {
     [T.primera + 0.4, { ...CARA.feliz, giro: -0.45, cabeza: { giro: -0.35, asiente: 0.0 }, ojos: { x: -0.4, y: 0, abiertos: 1, feliz: 0.5 }, manoI: [0.12, 0.45, 0.48], codoI: [0.8, -0.5, -0.1] }, 0.3],
   ]);
   pr.t = t;
-  pr.x = RX + 0.55 * eio(sg(t, T.s12 + 0.1, T.s12 + 0.5)) * (1 - eio(sg(t, T.primera + 0.3, T.primera + 0.6)));
+  pr.x = RX + 0.9 * eio(sg(t, T.s12 + 0.1, T.s12 + 0.5)) * (1 - eio(sg(t, T.primera + 0.3, T.primera + 0.6)));
   if (t > BOCA.t0 - 0.05 && t < T.s12) { const bb = bocaRuben(t); pr.boca.abierta = Math.max(pr.boca.abierta, bb * 0.6); pr.boca.ancho = lerp(pr.boca.ancho, 0.75, bb); }
   // s11: sostiene el celular con las dos manos (a los costados de la pantalla)
   const sost = eio(sg(t, T.daVuelta + 0.1, T.daVuelta + 0.45)) * (1 - eio(sg(t, T.s12, T.s12 + 0.3)));
@@ -1076,7 +1077,7 @@ function zonaR(t) {
   // ---- s08: tres filas que no se ven (celular, mostrador, laptop): un ticket "?" rojo apagado sobre cada una, sin número ----
   sinNum.forEach((o) => (o.visible = false));
   if (plano === "R" && t > T.s08) {
-    const lugares = [V(CELU_R.x + 0.05, MOST.y + 0.3, CELU_R.z + 0.05), V(OR.x - 0.78, 1.42, 0.55), V(MOST.x - 0.92, MOST.y + 0.42, MOST.z - 0.02)];
+    const lugares = [V(CELU_R.x + 0.02, MOST.y + 0.36, CELU_R.z + 0.08), V(OR.x - 0.5, 1.5, 0.45), V(OR.x + 0.42, MOST.y + 0.5, 0.0)];
     lugares.forEach((p, j) => {
       const t0 = T.fila + j * 0.14;
       const kk = t < t0 ? 0 : popIn(t, t0, 0.3) * (1 - sg(t, T.s09 - 0.15, T.s09));
@@ -1112,11 +1113,11 @@ function zonaR(t) {
   // ---- s13: Graciela en el mostrador; Rubén le da su bolsa ----
   if (plano === "R5" || plano === "R4") {
     graciela.raiz.visible = true;
-    const pg = poseEn(t, [[0, { x: OR.x - 0.9, z: 0.62, giro: 1.0, ...CARA.esperanza, manoI: [0.29, -0.08, 0.04], manoD: [-0.29, -0.08, 0.04], cabeza: { giro: 0.1, asiente: 0.0 } }], [T.primera + 0.35, { ...CARA.feliz, cabeza: { giro: 0.25, asiente: 0.0, ladea: 0.06 }, ojos: { feliz: 0.6 } }, 0.25], [T.entrega + 0.35, { manoI: [0.12, 0.42, 0.42], codoI: [0.8, -0.5, -0.1] }, 0.3]]);
+    const pg = poseEn(t, [[0, { x: OR.x - 0.8, z: 0.62, giro: 1.0, ...CARA.esperanza, manoI: [0.29, -0.08, 0.04], manoD: [-0.29, -0.08, 0.04], cabeza: { giro: 0.1, asiente: 0.0 } }], [T.primera + 0.35, { ...CARA.feliz, cabeza: { giro: 0.25, asiente: 0.0, ladea: 0.06 }, ojos: { feliz: 0.6 } }, 0.25], [T.entrega + 0.35, { manoI: [0.12, 0.42, 0.42], codoI: [0.8, -0.5, -0.1] }, 0.3]]);
     pg.t = t; graciela.poner(pg); graciela.raiz.updateMatrixWorld(true); graciela.ojoLejano(camera.position);
     bolsaG.visible = t > T.primera;
     const u = eio(sg(t, T.entrega, T.entrega + 0.5));
-    bolsaG.position.copy(lerpV(V(MOST.x - 0.45, MOST.y, MOST.z + 0.24), V(MOST.x - 0.72, MOST.y, MOST.z + 0.26), u)); bolsaG.rotation.set(0, 0.3, 0);
+    bolsaG.position.copy(lerpV(V(MOST.x - 0.45, MOST.y, MOST.z + 0.24), V(MOST.x - 0.58, MOST.y, MOST.z + 0.3), u)); bolsaG.rotation.set(0, 0.3, 0);
     bolsaG.scale.setScalar(0.85 * popIn(t, T.primera, 0.3));
   }
   // en el primer plano de la balanza y en el inserto de la tablet, sin personajes delante
