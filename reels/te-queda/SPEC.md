@@ -38,38 +38,21 @@ vueltas de cinta verde), crearLinternaMano, crearHaz (cono + SpotLight), el foco
 bisagras, argolla), la escalera marinera, la tijera de aluminio, los estantes ranurados, el panel de tierra y los bordes
 de maqueta, el polvo (InstancedMesh con semilla), la telaraña (crearTelarana del módulo) y la caja de sombrero.
 
-## Brief por plano (segundos globales; tiempos exactos en assets/tiempos3d.js)
-- **P1 0,00** general picado desde el lado del cliente: Graciela de espaldas abajo a la izquierda, Rubén con el mate,
-  la trampa con su argolla a la derecha. Gancho-burbuja HTML "¿Te queda **polenta?**" en el cuadro 0. "Ya me fijo." 1,39;
-  deja el mate 1,42, va a la trampa, tira de la argolla y la tapa sube contra la pared (1,9-2,3).
-- **P2 2,32** la zambullida: la cámara sube sobre el hueco y baja con Rubén por la escalera marinera.
-- **P2b 2,70** corte (whoosh) al sótano, general desde adelante: tira de la cadenita (3,0), el foco se prende (3,06) con
-  polvo en el cono; baja la caja POLENTA y la sacude frente al pecho: vacía (3,42-3,92).
-- **P3 4,02** contraplano bajo desde el piso: asoma con polvo en los hombros: "No, no queda." 4,30; chip 1 (4,42);
-  palmea el polvo (4,6).
-- **P4 5,58** casa de muñecas (dolly atrás): Walter "¿Y fideos?" 5,76; Rubén baja, tijera, avalancha (7,01), telaraña;
-  sube: burbuja "No." y chip 2 (7,99).
-- **P5 8,41** la misma sección más abajo: Marta "¿Azúcar te queda?" 8,61; el foco se quema (9,23), linterna de mano
-  (9,41), la caja AZÚCAR le cae en la cabeza (9,73); sube: "No." y chip 3 (10,37).
-- **P6 10,79** primer plano de Rubén con la caja de sombrero; Héctor (fuera de cuadro) "¿Te queda dulce de leche?"
-  10,89; se saca la caja, el casco del costado del mostrador a la cabeza, clic (12,2).
-- **P6b 12,45** la expedición en sección (travelling hacia abajo): chip 4; tijera arriba de todo, se tambalea, saca la
-  última caja (13,55), crash (13,69); arriba Héctor silba mirando el techo.
-- **P7 14,49** grúa: asoma destruido (polvo, telaraña, casco torcido) y levanta el frasco: "Queda uno." 14,94.
-- **P8 16,02** la pausa (0,78 s): Héctor de espaldas en primer término, Rubén al fondo con el frasco; la telaraña se
-  descuelga; música -12 dB.
-- **P9 16,80** Héctor de frente: "Ah, no." 16,88 / "Era para saber." (+0,74); se toca la boina.
-- **P10 18,63** hacia la puerta: Héctor se da vuelta: "¿Y yerba?" 19,11; Rubén entra de la derecha, le calza el casco
-  (19,85-20,15) y le prende la linterna (clic 20,21); Héctor parpadea; push-in a su cara.
-- **Cartel 20,66-23,36** "Un sistema / más tarde…" (verde con manchas, letras que rebotan; Rasalgethi); entra con corte
-  seco, sale con iris.
-- **Q1 23,36** el encuadre de P1: la trampa cerrada, Rubén en el banquito arriba, la tablet "Stock". "¿Te queda polenta?"
-  23,56 (misma toma); mira la tablet (la fila Polenta en verde) "Quedan tres." 24,60.
-- **Q2 25,57** el encuadre de P8 (callback): Héctor con el casco puesto y la linterna prendida: "¿Y dulce de leche?"
-  25,93; "Doce." 27,04.
-- **Q3 27,75** Héctor (con casco) "Era para saber." · **Q3b 28,74** Rubén con el mate: "Ahora sabés." 28,79.
-- **Q4 29,85** la tablet: vibra (29,95) "Yerba · quedan 2" → "Pedido al proveedor ✓ · Llega el jueves" (30,40); chip
-  "Viajes al depósito: 0" en verde (30,53).
-- **Q5 31,10** sección (callback de P4): seña, Rubén se corre con el banquito, Héctor abre la trampa y baja, cuenta los
-  frascos, se le cae una caja (32,54) "Viajes de Héctor: 1"; sube con la telaraña en el casco: "Doce." 33,04.
-- **Q6 33,64** Rubén detrás de la tablet resuelta levanta el mate; línea chica desde 33,69. Fin 35,49.
+## Brief por plano (ronda 1, segundos globales; tiempos exactos en assets/tiempos3d.js)
+- **P1 0,00** picado desde el lado del cliente: Graciela de espaldas abajo a la izquierda, Rubén con el mate, la trampa con
+  la argolla a la derecha. Gancho-burbuja "¿Te queda **polenta?**" (cola a Graciela). "Ya me fijo." 1,35; deja el mate,
+  va a la trampa, la tapa sube contra la pared (1,74-2,12).
+- **P2 2,15** la zambullida sobre el hueco · **P2b 2,53** corte al sótano: cadenita 2,80, foco 2,86, la caja POLENTA vacía.
+- **P3 3,68** asoma con polvo: "No, no queda." 3,96; chip 1.
+- **P4 5,24** casa de muñecas (un solo plano): Walter "¿Y fideos?" 5,42; tijera, avalancha 6,46; "No." + chip 2 7,34;
+  Marta (ya llegó) "¿Azúcar te queda?" 7,64; el foco se quema 8,14; linterna; la caja en la cabeza 8,57; "No." + chip 3 9,13.
+- **P6a 9,55** Héctor en el mostrador: "¿Te queda dulce de leche?" 9,65 · **P6 10,27** Rubén con la caja de sombrero; casco,
+  clic 10,96 · **P6b 11,21** la expedición: chip 4, tijera arriba, crash 12,30.
+- **P7 12,98** asoma destruido con el frasco: "Queda uno." 13,38 · **P8 14,46** la pausa (Rubén solo, polvo en el haz).
+- **P9 15,14** Héctor: "Ah, no." 15,22 · (0,5 s) · "Era para saber." 16,28.
+- **P10 17,25** a la puerta: "¿Y yerba?" 17,67; el casco a la cabeza de Héctor (18,26-18,56), clic 18,62.
+- **Cartel 19,00-21,40** "Un sistema / más tarde…".
+- **Q1 21,40** el encuadre de P1 con la tablet: "¿Te queda polenta?" / "Quedan tres." 22,65 · **Q2 23,62** Héctor con
+  casco: "¿Y dulce de leche?" / "Doce." 25,01 · **Q3 25,72** "Era para saber." · **Q3b 26,71** "Ahora sabés."
+- **Q4 27,82** la tablet: "Yerba · quedan 2" (27,92) → "Pedido armado ✓" (28,77); chip 0 (28,89).
+- **Q6 29,74** Rubén levanta el mate detrás de la tablet resuelta; línea chica 29,79-32,04.
