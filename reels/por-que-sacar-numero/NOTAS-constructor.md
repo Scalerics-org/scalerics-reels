@@ -55,3 +55,50 @@ de Graciela. Personajes: Rubén, Graciela, Walter de `assets/personajes.js`. Lar
 Todo de `assets/sfx` (copiado de por-que-las-tarjetas): papel, tic, whoosh, pop, tac, golpe, ding, impact, ring
 (bici), hoja, click, campanita, typing, respuesta, vibra, puerta, scan, sparkle, ping, chime. Nada nuevo.
 Mezcla: ver la sección de pasadas.
+
+## Mezcla (pre-loudnorm, `python3 partes/medir.py` + `python3 partes/medir-fino.py`)
+I -16,9 LUFS, pico -4,2 dBFS (el paso 10 lleva a -14 LUFS / -1,5 dBFS). TECHO -31 LUFS por efecto (armar.mjs).
+Tramos de 0,5 s con menos de 6 dB: 9,0 / 18,5 / 23,0, los tres son pausas (cola de palabra + silencio; la cama sube en
+la pausa). Medido de a 0,1 s donde la voz suena: un solo tramo, 34,7 s con 5,8 dB (arranque de "videollamada" con el
+whoosh del cierre, ya bajado a 0,08). Se corrieron detrás de la palabra: ring de la bici, impact/pop del "?", golpe de
+"antes.", respuesta del chat, click del sistema; se bajaron campanitas, pop de la tablet, pop/chime del cierre.
+
+## Pasadas de snapshots (PNG en scratchpad/numero-snaps/)
+- p0-p5 (cada 1 s, construcción): numerador demasiado cerca y pisando el gancho → cámara a 2 m; fila de tickets
+  con los números tapados → fila en profundidad y cámara alta; bici cortada y pared lisa navy → plano abierto,
+  estantes con cajas en la ventanilla; revista: la tapa abierta tapaba la página a la que entraba la cámara → entra a
+  la página derecha; balanza gigante → cámara a 2,3 m, brazo más corto; la cámara de Graciela atravesaba la cara →
+  mira fija al celular; Walter de espaldas tapando a Rubén → plano desde la derecha, Walter de 3/4; celular de Rubén
+  chico y tapándole la boca → 2,2x, adelante del mostrador, cámara más alta, manos a los costados; filas fantasma de
+  puntos (parecían un collar sobre Rubén) → tickets "?" rojo apagado con WHATSAPP / MOSTRADOR / WEB.
+- Pasada 1 (cada 0,5 s, 0-36,5): mano que sacaba el ticket fuera de cuadro; display TURNO cortado arriba → más bajo;
+  rótulo "Llegó después" apuntando al 24 → al 31, que entra más adentro; cartel RETIROS debajo del subtítulo → cartel
+  más chico y bajo, pared de 5 m (franja crema arriba); recibo cortado abajo → más chico; "Llegaron después" sin línea;
+  rótulo "Walter · 9:10" quedaba cuando Walter ya se había ido → sale en "fue"+0,35; tablet y numerador cortados en
+  s12; Graciela cortada en el plano general.
+- Pasada 2 (cada 0,5 s desfasada 0,25 s): "?" que tapaba la cámara 4 cuadros → menos recorrido; subtítulo sobre el
+  cartel en el arranque de s04 → la cámara abre en 0,35 s; burbuja del chat con "separás" cortado (texto fuera del
+  globo) → tipografía ajustada al ancho; ojos cerrados de Rubén y Walter en un parpadeo mientras hablan → sin
+  parpadeo automático; boca de Rubén tapada por el celular → cámara más alta y celular más chico; display "23" pisado
+  por el subtítulo en s12 y en el paso al general → s12 en picado (el display queda fuera) y corte seco al general en
+  s13 (R6); Rubén cortado a la derecha en s10 → cámara corrida.
+- Verificación de cada arreglo con cuadros puntuales (p6-p12). `check --json`: ok, 0 errores (warnings: canvas al
+  borde, estructura del #fondo, console de WebGL).
+
+## Portada
+`LIMPIO=1 node armar.mjs` + snapshot a 0,6 s → `portada-src/fondo-limpio-0.6.png`; corrida 300 px hacia arriba sobre
+el crema de la pared → `portada-src/fondo-portada.png` (la que usa portada.json). Falta correr
+`node herramientas/portada.mjs por-que-sacar-numero` después del render (pide el mp4 aunque haya fondo_limpio).
+
+## Dudoso / para el revisor
+- s12 (28,9-30,6): la mitad de abajo es el frente del mostrador (madera); el numerador, los tickets que vuelan y la
+  tablet quedan en la mitad de arriba. La tablet recién se lee grande en el push-in de 30,6-31,8.
+- 6,2-6,33: el "?" se acerca hasta casi tapar la cámara (2 cuadros casi todo verde, con volumen) antes del corte a la
+  bici.
+- s11: el texto del chat en el celular de Rubén es chico (~25 px en pantalla); el mismo mensaje ya se leyó grande en s09
+  y el rótulo "Sin número" es grande.
+- s08: el "?" WEB flota a la derecha sobre la laptop, que queda medio fuera de cuadro.
+- Transiciones con personaje cortado un instante en el borde (19,3 Rubén al alejarse de la balanza; 23,7 y 25,0
+  Walter entrando/saliendo).
+- "MIT" se oye en inglés ("em-ai-ti"); "se la llevaban" el STT lo oye "se las".
+- Las bicis que pasan quedan detrás del recibo (el recibo está adelante); se leen los recibos 5 y 7, el 9 casi no.
