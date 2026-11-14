@@ -252,7 +252,7 @@
 - 14-11 · `por-que-el-99` · Reportes de ventas automáticos (qué producto y a qué precio vendiste más, llega solo al celular) · "¿Por qué los precios terminan en 99?" Explicador con Rubén en su oficina de la distribuidora (Thomas y Morwitz 2005; Anderson y Simester 2003; Wadhwa y Zhang 2015; ver fuentes.md): porque el primer número pesa más (99 parece menos que 100); lo del cajero y el vuelto no está probado; lo que sí se comprobó: el mismo vestido vendió más a 39 que a 34; el 9 suena a oferta; a veces gana el redondo; callback: "¿Y mi 99 vendió más?" y el reporte automático en el celular · cierre videollamada ("¿Medimos los tuyos?") [formato explicador ¿Por qué? · 3D real (oficina vidriada sobre el depósito, 999 gigante sobre la planilla, etiquetas $ 99/$ 100, caja registradora con sello NO PROBADO, catálogo con 3 vestidos y pilas de cajas, etiqueta que gira a OFERTA, regalo, celular con el reporte), fondo navy claro #1f3254 con cierre verde] (corridas 14-11 05:20 y 10:09, 3 rondas de revisión + pulido y verificación final de arte; render SwiftShader ~17 min)
 
 ## En curso
-<!-- corrida-activa: 2026-11-14T14:44 -->
+<!-- corrida-activa: 2026-11-14T15:14 -->
 
 - 14-11 · `ya-lo-cargo` · Sistema de pedidos a medida + CRM (el vendedor carga el pedido en el celular en la calle y entra directo al depósito y a la ficha del cliente) · Para mandar completo con Rubén en la distribuidora y Nico el vendedor: "Ya lo cargo." · cartel "Un sistema más tarde…" · reservado por la corrida 14-11 05:20
 
