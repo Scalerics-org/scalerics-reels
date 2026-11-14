@@ -1,0 +1,442 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.156
+ },
+ {
+  "text": "qué",
+  "start": 0.156,
+  "end": 0.313
+ },
+ {
+  "text": "los",
+  "start": 0.313,
+  "end": 0.469
+ },
+ {
+  "text": "precios",
+  "start": 0.469,
+  "end": 0.782
+ },
+ {
+  "text": "terminan",
+  "start": 0.782,
+  "end": 1.251
+ },
+ {
+  "text": "en",
+  "start": 1.251,
+  "end": 1.407
+ },
+ {
+  "text": "noventa",
+  "start": 1.407,
+  "end": 1.876
+ },
+ {
+  "text": "y",
+  "start": 1.876,
+  "end": 2.032
+ },
+ {
+  "text": "nueve?",
+  "start": 2.032,
+  "end": 2.345
+ },
+ {
+  "text": "Porque",
+  "start": 2.765,
+  "end": 3.068
+ },
+ {
+  "text": "el",
+  "start": 3.068,
+  "end": 3.219
+ },
+ {
+  "text": "primer",
+  "start": 3.219,
+  "end": 3.521
+ },
+ {
+  "text": "número",
+  "start": 3.521,
+  "end": 3.975
+ },
+ {
+  "text": "pesa",
+  "start": 3.975,
+  "end": 4.278
+ },
+ {
+  "text": "más.",
+  "start": 4.278,
+  "end": 4.429
+ },
+ {
+  "text": "Noventa",
+  "start": 4.709,
+  "end": 5.192
+ },
+ {
+  "text": "y",
+  "start": 5.192,
+  "end": 5.352
+ },
+ {
+  "text": "nueve",
+  "start": 5.352,
+  "end": 5.674
+ },
+ {
+  "text": "parece",
+  "start": 5.674,
+  "end": 6.157
+ },
+ {
+  "text": "menos",
+  "start": 6.157,
+  "end": 6.478
+ },
+ {
+  "text": "que",
+  "start": 6.478,
+  "end": 6.639
+ },
+ {
+  "text": "cien.",
+  "start": 6.639,
+  "end": 6.8
+ },
+ {
+  "text": "¿Lo",
+  "start": 7.22,
+  "end": 7.364
+ },
+ {
+  "text": "del",
+  "start": 7.364,
+  "end": 7.509
+ },
+ {
+  "text": "cajero",
+  "start": 7.509,
+  "end": 7.942
+ },
+ {
+  "text": "y",
+  "start": 7.942,
+  "end": 8.087
+ },
+ {
+  "text": "el",
+  "start": 8.087,
+  "end": 8.231
+ },
+ {
+  "text": "vuelto?",
+  "start": 8.231,
+  "end": 8.52
+ },
+ {
+  "text": "No",
+  "start": 8.74,
+  "end": 8.901
+ },
+ {
+  "text": "está",
+  "start": 8.901,
+  "end": 9.222
+ },
+ {
+  "text": "probado.",
+  "start": 9.222,
+  "end": 9.704
+ },
+ {
+  "text": "Lo",
+  "start": 10.154,
+  "end": 10.33
+ },
+ {
+  "text": "que",
+  "start": 10.33,
+  "end": 10.505
+ },
+ {
+  "text": "sí",
+  "start": 10.505,
+  "end": 10.681
+ },
+ {
+  "text": "se",
+  "start": 10.681,
+  "end": 10.857
+ },
+ {
+  "text": "midió:",
+  "start": 10.857,
+  "end": 11.208
+ },
+ {
+  "text": "el",
+  "start": 11.348,
+  "end": 11.51
+ },
+ {
+  "text": "mismo",
+  "start": 11.51,
+  "end": 11.835
+ },
+ {
+  "text": "vestido,",
+  "start": 11.835,
+  "end": 12.321
+ },
+ {
+  "text": "a",
+  "start": 12.441,
+  "end": 12.618
+ },
+ {
+  "text": "treinta",
+  "start": 12.618,
+  "end": 12.973
+ },
+ {
+  "text": "y",
+  "start": 12.973,
+  "end": 13.15
+ },
+ {
+  "text": "cuatro",
+  "start": 13.15,
+  "end": 13.505
+ },
+ {
+  "text": "y",
+  "start": 13.605,
+  "end": 13.754
+ },
+ {
+  "text": "a",
+  "start": 13.754,
+  "end": 13.904
+ },
+ {
+  "text": "treinta",
+  "start": 13.904,
+  "end": 14.202
+ },
+ {
+  "text": "y",
+  "start": 14.202,
+  "end": 14.351
+ },
+ {
+  "text": "nueve.",
+  "start": 14.351,
+  "end": 14.65
+ },
+ {
+  "text": "Más",
+  "start": 14.95,
+  "end": 15.189
+ },
+ {
+  "text": "caro…",
+  "start": 15.189,
+  "end": 15.668
+ },
+ {
+  "text": "y",
+  "start": 16.088,
+  "end": 16.356
+ },
+ {
+  "text": "vendió",
+  "start": 16.356,
+  "end": 16.893
+ },
+ {
+  "text": "más.",
+  "start": 16.893,
+  "end": 17.161
+ },
+ {
+  "text": "El",
+  "start": 17.461,
+  "end": 17.637
+ },
+ {
+  "text": "nueve",
+  "start": 17.637,
+  "end": 17.988
+ },
+ {
+  "text": "suena",
+  "start": 17.988,
+  "end": 18.34
+ },
+ {
+  "text": "a",
+  "start": 18.34,
+  "end": 18.516
+ },
+ {
+  "text": "oferta.",
+  "start": 18.516,
+  "end": 19.043
+ },
+ {
+  "text": "A",
+  "start": 19.283,
+  "end": 19.422
+ },
+ {
+  "text": "veces",
+  "start": 19.422,
+  "end": 19.701
+ },
+ {
+  "text": "gana",
+  "start": 19.701,
+  "end": 19.98
+ },
+ {
+  "text": "el",
+  "start": 19.98,
+  "end": 20.119
+ },
+ {
+  "text": "redondo.",
+  "start": 20.119,
+  "end": 20.537
+ },
+ {
+  "text": "¿Y",
+  "start": 20.987,
+  "end": 21.15
+ },
+ {
+  "text": "mi",
+  "start": 21.15,
+  "end": 21.312
+ },
+ {
+  "text": "noventa",
+  "start": 21.312,
+  "end": 21.801
+ },
+ {
+  "text": "y",
+  "start": 21.801,
+  "end": 21.963
+ },
+ {
+  "text": "nueve",
+  "start": 21.963,
+  "end": 22.289
+ },
+ {
+  "text": "vendió",
+  "start": 22.289,
+  "end": 22.614
+ },
+ {
+  "text": "más?",
+  "start": 22.614,
+  "end": 22.777
+ },
+ {
+  "text": "Un",
+  "start": 23.177,
+  "end": 23.314
+ },
+ {
+  "text": "reporte",
+  "start": 23.314,
+  "end": 23.725
+ },
+ {
+  "text": "automático",
+  "start": 23.725,
+  "end": 24.409
+ },
+ {
+  "text": "le",
+  "start": 24.409,
+  "end": 24.546
+ },
+ {
+  "text": "dice",
+  "start": 24.546,
+  "end": 24.82
+ },
+ {
+  "text": "qué",
+  "start": 24.82,
+  "end": 24.957
+ },
+ {
+  "text": "precio",
+  "start": 24.957,
+  "end": 25.23
+ },
+ {
+  "text": "vende",
+  "start": 25.23,
+  "end": 25.504
+ },
+ {
+  "text": "más.",
+  "start": 25.504,
+  "end": 25.641
+ },
+ {
+  "text": "¿Medimos",
+  "start": 25.921,
+  "end": 26.398
+ },
+ {
+  "text": "los",
+  "start": 26.398,
+  "end": 26.557
+ },
+ {
+  "text": "tuyos?",
+  "start": 26.557,
+  "end": 26.875
+ },
+ {
+  "text": "Agendá",
+  "start": 27.055,
+  "end": 27.543
+ },
+ {
+  "text": "una",
+  "start": 27.543,
+  "end": 27.868
+ },
+ {
+  "text": "videollamada",
+  "start": 27.868,
+  "end": 28.682
+ },
+ {
+  "text": "gratis",
+  "start": 28.682,
+  "end": 29.007
+ },
+ {
+  "text": "en",
+  "start": 29.007,
+  "end": 29.17
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 29.17,
+  "end": 29.983
+ }
+]

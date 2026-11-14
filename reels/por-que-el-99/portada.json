@@ -1,0 +1,14 @@
+{
+ "t": 4.1,
+ "fondo_limpio": "portada-src/fondo-portada.png",
+ "chica": "¿Por qué los precios",
+ "grande": "terminan en 99?",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "50%",
+ "fondo": "#1f3254",
+ "velo": "31,50,84",
+ "nota": "fondo limpio: cuadro 4,1 s con LIMPIO=1 (solo la capa 3D: el 999 en la planilla con el primer 9 verde y grande, sin gancho, subtítulos ni logo), corrido 200 px hacia arriba (portada-src/fondo-portada.png). Correr node herramientas/portada.mjs por-que-el-99 después del render (pide el mp4 aunque haya fondo_limpio)."
+}
