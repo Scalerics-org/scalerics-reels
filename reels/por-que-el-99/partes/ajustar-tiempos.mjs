@@ -16,10 +16,11 @@ FR.forEach((fr, k) => {
   ws.forEach((w) => { const d = ((e - s) * sil(w)) / tot; out.push({ text: w, start: +t.toFixed(3), end: +(t + d).toFixed(3) }); t += d; });
 });
 // ronda 1: "Lo que sí se comprobó:" (toma suelta n7-3, atempo 1,1 desde 0,16 s) con los inicios del STT de esa toma
-{
-  const k = FR.findIndex((f) => f.startsWith("Lo que sí se comprobó")), i0 = FR.slice(0, k).reduce((n, f) => n + f.split(/\s+/).length, 0);
-  const crudo = [0.19, 0.3, 0.5, 0.7, 0.9], [s, e] = TR[k];
-  crudo.forEach((c, j) => { out[i0 + j].start = +Math.max(s, s + (c - 0.16) / 1.1).toFixed(3); });
+// ronda 2: "Porque el primer número pesa más." (toma suelta n8-3, desde 0,23 s) con los inicios medidos en su envolvente
+for (const [frase, crudo, desde] of [["Lo que sí se comprobó", [0.19, 0.3, 0.5, 0.7, 0.9], 0.16], ["Porque el primer número", [0.23, 0.58, 0.72, 1.12, 1.5, 1.76], 0.23]]) {
+  const k = FR.findIndex((f) => f.startsWith(frase)), i0 = FR.slice(0, k).reduce((n, f) => n + f.split(/\s+/).length, 0);
+  const [s, e] = TR[k];
+  crudo.forEach((c, j) => { out[i0 + j].start = +Math.max(s, s + (c - desde) / 1.1).toFixed(3); });
   crudo.forEach((c, j) => { out[i0 + j].end = j + 1 < crudo.length ? out[i0 + j + 1].start : e; });
   out[i0].start = s;
 }

@@ -143,8 +143,8 @@ const LP = { w: 1280, h: 800 };
 const FILAS = [["Yerba x10", "$ 1.200"], ["Aceite x12", "$ 1.000"], ["Arroz x10", "$ 640"], ["Fideos x20", "$ 980"]];
 const lista = texViva(LP.w, LP.h);
 // estado: precio del aceite (texto), sel (celda seleccionada verde), cursor, preg (el "?" rojo), ok (confirmado)
-function dibujarLista(precio, sel, cursor, preg, ok, titulo = true) {
-  const clave = [precio, sel, cursor, preg, ok, titulo].join("|");
+function dibujarLista(precio, sel, cursor, preg, ok, titulo = true, vacia = false) {
+  const clave = [precio, sel, cursor, preg, ok, titulo, vacia].join("|");
   if (lista.clave === clave) return; lista.clave = clave;
   const x = lista.x, w = LP.w, h = LP.h;
   x.fillStyle = NAV3; x.fillRect(0, 0, w, h);
@@ -161,7 +161,7 @@ function dibujarLista(precio, sel, cursor, preg, ok, titulo = true) {
   // celdas
   FILAS.forEach(([prod, pr], i) => {
     const y = Y0 + HH + RH * i;
-    if (i === 1) pr = precio;
+    if (i === 1) pr = vacia ? "" : precio; // ronda 2: la celda se vacía cuando el 999 se despega
     if (i === 1 && sel) { x.fillStyle = VER; x.fillRect(XB, y, w - XB, RH); }
     x.textAlign = "left"; x.fillStyle = CRE; x.font = F(700, 70); x.fillText(prod, XA + 34, y + RH / 2 + 4);
     x.fillStyle = i === 1 && sel ? NAV0 : i === 1 && ok ? VER : CRE; x.font = F(800, 82); x.fillText(pr, XB + 40, y + RH / 2 + 4);
@@ -289,25 +289,25 @@ function dibujarCelu(apagado, filas) {
   const x = celTV.x, [w, h] = PPC;
   if (apagado) { x.fillStyle = "#0a0f1a"; x.fillRect(0, 0, w, h); celTV.t.needsUpdate = true; return; }
   x.fillStyle = CRE; x.fillRect(0, 0, w, h);
-  x.fillStyle = NAV0; x.fillRect(0, 0, w, 300);
-  x.fillStyle = CRE; x.textBaseline = "middle"; x.textAlign = "left"; x.font = F(700, 44); x.fillText("9:00", 44, 52);
-  x.fillStyle = VER; x.font = F(600, 44, "IBM Plex Mono"); x.fillText("REPORTE", 44, 140);
-  x.fillStyle = CRE; ajustar(x, "Ventas de la semana", 800, 76, w - 88); x.fillText("Ventas de la semana", 44, 226);
+  // ronda 2: textos de ≥ 66 px de textura (≥ 36 px en el inserto); sin la hora
+  x.fillStyle = NAV0; x.fillRect(0, 0, w, 270);
+  x.fillStyle = VER; x.textBaseline = "middle"; x.textAlign = "left"; x.font = F(700, 66); x.fillText("REPORTE · LUNES", 44, 84);
+  x.fillStyle = CRE; ajustar(x, "Ventas de la semana", 800, 80, w - 88); x.fillText("Ventas de la semana", 44, 190);
   const tarjeta = (y, prod, precio, dice, u) => {
     if (u <= 0.001) return;
-    x.save(); x.globalAlpha = cl(u * 1.6); x.translate(w / 2, y + 230); const s = lerp(0.85, 1, bk(u)); x.scale(s, s); x.translate(-w / 2, -(y + 230));
-    x.fillStyle = "#ffffff"; rr(x, 34, y, w - 68, 460, 40); x.lineWidth = 8; x.strokeStyle = NAV0; x.beginPath(); x.roundRect(34, y, w - 68, 460, 40); x.stroke();
-    x.fillStyle = NAV0; x.textAlign = "left"; x.font = F(800, 78); x.fillText(prod, 76, y + 88);
-    x.fillStyle = NAV; x.font = F(800, 70); x.fillText(precio, 76, y + 196);
-    // píldora verde: triángulo ▲ dibujado + texto + tilde dibujada
-    x.fillStyle = VER; rr(x, 54, y + 270, w - 108, 150, 75);
-    x.fillStyle = NAV0; const px = ajustar(x, dice, 800, 64, w - 300); x.font = F(800, px); x.fillText(dice, 96, y + 347);
-    x.strokeStyle = NAV0; x.lineWidth = 16; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(w - 150, y + 345); x.lineTo(w - 124, y + 372); x.lineTo(w - 84, y + 318); x.stroke();
+    x.save(); x.globalAlpha = cl(u * 1.6); x.translate(w / 2, y + 210); const s = lerp(0.85, 1, bk(u)); x.scale(s, s); x.translate(-w / 2, -(y + 210));
+    x.fillStyle = "#ffffff"; rr(x, 34, y, w - 68, 420, 40); x.lineWidth = 8; x.strokeStyle = NAV0; x.beginPath(); x.roundRect(34, y, w - 68, 420, 40); x.stroke();
+    x.fillStyle = NAV0; x.textAlign = "left"; x.font = F(800, 80); x.fillText(prod, 70, y + 88);
+    x.fillStyle = NAV; x.font = F(800, 74); x.fillText(precio, 70, y + 196);
+    // tilde arriba a la derecha de la tarjeta; la píldora verde con el texto a todo el ancho
+    x.strokeStyle = NAV0; x.lineWidth = 18; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(w - 150, y + 150); x.lineTo(w - 120, y + 182); x.lineTo(w - 74, y + 118); x.stroke();
+    x.fillStyle = VER; rr(x, 54, y + 248, w - 108, 140, 70);
+    x.fillStyle = NAV0; x.textAlign = "center"; const px = ajustar(x, dice, 800, 76, w - 170); x.font = F(800, px); x.fillText(dice, w / 2, y + 320); x.textAlign = "left";
     x.restore();
   };
-  tarjeta(350, "Aceite x12", "a $ 999", "vendió más", filas[0]);
-  tarjeta(860, "Yerba x10", "a $ 1.200", "ganó el redondo", filas[1]);
-  x.fillStyle = "rgba(11,18,32,0.45)"; x.font = F(500, 40, "IBM Plex Mono"); x.textAlign = "center"; x.fillText("llega solo, todos los lunes", w / 2, 1400);
+  // ronda 2: las tarjetas arriba; el cuarto de abajo queda libre para las manos que lo sostienen
+  tarjeta(296, "Aceite x12", "a $ 999", "vendió más", filas[0]);
+  tarjeta(740, "Yerba x10", "a $ 1.200", "ganó el redondo", filas[1]);
   celTV.t.needsUpdate = true;
 }
 const CW = 0.08, CH = 0.162;
@@ -450,7 +450,7 @@ const BW = 1.3, BH = 0.3, BD = 0.95;
 }
 const monedas = [0, 1, 2, 3, 4].map((i) => { const m = mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.018, 24), i % 2 ? M.cromo : mat(0xc9a24a, 0.3, { metalness: 0.6 })); m.castShadow = true; scene.add(m); return m; });
 const azM = azarDe(41);
-const MON_V = monedas.map((_, i) => ({ vx: (i - 2) * 0.14 + (azM() - 0.5) * 0.08, vy: 1.4 + azM() * 0.4, vz: 0.12 + azM() * 0.18, rx: 4 + azM() * 6, rz: azM() * 4, d: i * 0.05 }));
+const MON_V = monedas.map((_, i) => ({ vx: (i - 2) * 0.14 + (azM() - 0.5) * 0.08, vy: 1.4 + azM() * 0.4, vz: 0.4 + azM() * 0.15, rx: 4 + azM() * 6, rz: azM() * 4, d: i * 0.05 }));
 // el sello de goma y la placa NO PROBADO
 const sello = new THREE.Group(); scene.add(sello);
 {
@@ -533,8 +533,8 @@ function hacerPrecio(n, i) {
   const borde = i === 1 ? M.g : M.navy2;
   g.add(mesh(rbox(ETW, ETH, 0.035, 0.04), [etqCuerpo[i], etqCuerpo[i], etqCuerpo[i], etqCuerpo[i], etqCuerpo[i], etqCuerpo[i]], 0, ETH / 2, 0));
   g.add(mesh(rbox(ETW + 0.04, 0.05, 0.05, 0.02), borde, 0, 0.02, 0)); // pinza que la agarra al riel
-  const us = mesh(new THREE.PlaneGeometry(0.3, 0.082), new THREE.MeshBasicMaterial({ map: texUS, transparent: true }), 0, ETH - 0.09, 0.019); g.add(us);
-  const num = new THREE.Mesh(textoGeo(String(n), 0.27, 0.06), [etqNum[i], mat(C.navy2, 0.5)]); num.position.set(0, ETH * 0.38, 0.04); g.add(num);
+  const us = null; // ronda 2: el "US$" chico (~20 px) sale de la etiqueta; va en el subtítulo ("a US$ 34")
+  const num = new THREE.Mesh(textoGeo(String(n), 0.32, 0.06), [etqNum[i], mat(C.navy2, 0.5)]); num.position.set(0, ETH * 0.5, 0.04); g.add(num);
   const dorso = mesh(new THREE.PlaneGeometry(ETW - 0.02, (ETW - 0.02) * 0.7), matTex(texOferta, 0.25), 0, ETH / 2, -0.019); dorso.rotation.y = Math.PI; g.add(dorso);
   g.userData = { num, us };
   return sh(g);
@@ -659,17 +659,17 @@ function armarPlanos() {
       k(T.vendio + 0.3, pz(P4, 0, 1.95, 7.5), pz(P4, 0, 1.68, 0)),
       k(T.s08 + 0.2, pz(P4, 0, 1.98, 7.45), pz(P4, 0, 1.7, 0)),
       k(T.gira - 0.1, pz(P4, 0, 1.98, 7.4), pz(P4, 0, 1.7, 0)),
-      k(T.oferta + 0.5, pz(P4, 0.0, 2.2, 2.35), pz(P4, 0, 2.08, 0)),
-      k(T.s09 + 0.05, pz(P4, 0.05, 2.2, 2.4), pz(P4, 0.05, 2.04, 0)),
-      k(T.s09 + 0.45, pz(P5, -0.35, 1.5, 4.2), pz(P5, -0.35, 0.5, 0)),
-      k(T.choque + 0.2, pz(P5, -0.35, 1.55, 4.1), pz(P5, -0.35, 0.45, 0.1)),
-      k(T.subeCam, pz(P5, -0.3, 2.3, 4.4), pz(P5, -0.3, 0.32, 0.2)),
-      k(T.corteO, pz(P5, -0.3, 2.9, 4.0), pz(P5, -0.3, 0.25, 0.25)),
+      k(T.oferta + 0.5, pz(P4, 0.0, 2.25, 2.35), pz(P4, 0, 2.16, 0)),
+      k(T.s09 + 0.05, pz(P4, 0.05, 2.25, 2.4), pz(P4, 0.05, 2.14, 0)),
+      k(T.s09 + 0.45, pz(P5, -0.18, 1.7, 5.75), pz(P5, -0.2, 0.5, 0)),
+      k(T.choque + 0.2, pz(P5, -0.18, 1.75, 5.65), pz(P5, -0.2, 0.45, 0.1)),
+      k(T.subeCam, pz(P5, -0.18, 2.55, 5.8), pz(P5, -0.2, 0.32, 0.2)),
+      k(T.corteO, pz(P5, -0.18, 3.1, 5.45), pz(P5, -0.2, 0.25, 0.25)),
     ]],
     // s10: la pantalla (celda del 999 con el "?"); en "noventa" corte limpio al contraplano de frente a Rubén
     ["O2", T.corteO, [
-      k(T.corteO, o(-0.25, MON.y + 0.01, MON.z - 1.22), o(-0.25, MON.y - 0.0, MON.z)),
-      k(T.cortaR, o(-0.24, MON.y + 0.02, MON.z - 1.3), o(-0.24, MON.y - 0.0, MON.z)),
+      k(T.corteO, o(-0.29, MON.y + 0.02, MON.z - 1.4), o(-0.29, MON.y + 0.01, MON.z)),
+      k(T.cortaR, o(-0.28, MON.y + 0.03, MON.z - 1.47), o(-0.28, MON.y + 0.01, MON.z)),
     ]],
     ["O2b", T.cortaR, [
       k(T.cortaR, o(1.28, 1.87, 1.52), o(0.2, 1.42, 0.05), 44),
@@ -754,7 +754,7 @@ function zonaO(t) {
   const ok = t >= T.enter;
   const cursor = !sel && !ok;
   const preg = plano === "O1" ? 0 : sg(t, T.corteO + 0.06, T.corteO + 0.26) * (1 - sg(t, T.filas[0], T.filas[0] + 0.25)); // ronda 1: el "?" entra apenas corta a la pantalla
-  dibujarLista(precio, sel, cursor, preg, ok, plano !== "O1");
+  dibujarLista(precio, sel, cursor, preg, ok, plano !== "O1", plano === "O1" && t >= T.sale999);
   // ---- Rubén ----
   const tecla = (x) => T.teclas.reduce((m, a) => m + pulso(x, a - 0.08, 0.16), 0);
   const pr = poseEn(t, [
@@ -765,7 +765,7 @@ function zonaO(t) {
     [T.vendio10, { ...CARA.esperanza, cabeza: { giro: -0.35, asiente: -0.05, ladea: 0.05 }, ojos: { x: -0.6, y: 0.1, abiertos: 1 }, cejas: { alto: 0.7, ang: 0.45 } }, 0.35],
     // s11: levanta el celular y lo muestra
     [T.levanta + 0.35, { ...CARA.sorpresa, cabeza: { giro: 0.0, asiente: 0.3, ladea: 0 }, ojos: { x: 0, y: -0.7, abiertos: 1 }, boca: { sonrisa: 0.3, abierta: 0.25, ancho: 0.8 } }, 0.3],
-    [T.filas[1], { ...CARA.feliz, cabeza: { giro: 0.0, asiente: 0.25, ladea: 0.08 }, ojos: { x: 0, y: -0.6, abiertos: 0.95, feliz: 0.4 } }, 0.3],
+    [T.filas[1], { ...CARA.feliz, boca: { sonrisa: 0.55, abierta: 0.22, ancho: 0.95 }, cabeza: { giro: 0.0, asiente: 0.25, ladea: 0.08 }, ojos: { x: 0, y: -0.6, abiertos: 0.95, feliz: 0.4 } }, 0.3],
     // s12: brindis con el mate, media sonrisa a cámara
     [T.brinda + 0.1, { ...CARA.sonrisa, cabeza: { giro: -0.08, asiente: 0.04, ladea: 0.1 }, ojos: { x: -0.1, y: 0.05, abiertos: 1, feliz: 0.35 }, boca: { sonrisa: 0.6, abierta: 0, ancho: 1.0 }, cejas: { alto: 0.25, asim: -0.5 } }, 0.3],
   ]);
@@ -785,7 +785,9 @@ function zonaO(t) {
   if (sube > 0.01) {
     ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
     const lat = V(Math.cos(GIRO_R), 0, -Math.sin(GIRO_R)), atr = V(-Math.sin(GIRO_R), 0, -Math.cos(GIRO_R)).multiplyScalar(0.04);
-    const hd = CELU_M.clone().addScaledVector(lat, -0.2).add(V(0, -0.12, 0)).add(atr), hi = CELU_M.clone().addScaledVector(lat, 0.2).add(V(0, -0.12, 0)).add(atr);
+    // ronda 2: las manos toman los bordes del teléfono (antes quedaban a ~4 cm y el celular flotaba)
+    const atr2 = V(-Math.sin(GIRO_R), 0, -Math.cos(GIRO_R)).multiplyScalar(0.035);
+    const hd = CELU_M.clone().addScaledVector(lat, -0.12).add(V(0, -0.15, 0)).add(atr2), hi = CELU_M.clone().addScaledVector(lat, 0.12).add(V(0, -0.15, 0)).add(atr2); // esquinas de abajo
     ruben.cuerpo.worldToLocal(hd); ruben.cuerpo.worldToLocal(hi);
     pr.manoD = pr.manoD.map((v, i) => lerp(v, [hd.x, hd.y, hd.z][i], sube)); pr.codoD = [-1, -0.5, -0.2];
     pr.manoI = pr.manoI.map((v, i) => lerp(v, [hi.x, hi.y, hi.z][i], sube)); pr.codoI = [1, -0.5, -0.2];
@@ -794,14 +796,16 @@ function zonaO(t) {
   const br = eio(sg(t, T.brinda - 0.3, T.brinda + 0.1));
   if (br > 0.01) {
     ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
-    const objetivo = V(RUB.x + 0.44, 1.36, RUB.z + 0.36);
+    const objetivo = V(RUB.x + 0.38, 1.3, RUB.z + 0.38);
     const h = objetivo.clone(); ruben.cuerpo.worldToLocal(h);
     pr.manoI = pr.manoI.map((v, i) => lerp(v, [h.x, h.y - 0.02, h.z][i], br)); pr.codoI = [1, -0.6, -0.1];
   }
   ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
   if (br > 0.01) {
     const mp = ruben.mano("I").getWorldPosition(new THREE.Vector3());
-    mateR.position.lerpVectors(MATE_ESC, mp.add(V(0, -0.06, 0.03)), br); mateR.rotation.set(0, 0, -0.1 * br);
+    // ronda 2: el mate al costado de la mano (afuera) y más abajo: la mano lo toma por el costado, nunca por la boca
+    const latM = V(Math.cos(GIRO_R), 0, -Math.sin(GIRO_R));
+    mateR.position.lerpVectors(MATE_ESC, mp.addScaledVector(latM, 0.11).add(V(0, -0.09, 0.02)), br); mateR.rotation.set(0, 0, -0.1 * br);
   } else { mateR.position.copy(MATE_ESC); mateR.rotation.set(0, 0, 0); }
 }
 
@@ -901,7 +905,7 @@ function zonaP(t) {
     const ab = eio(sg(t, T.abreLib, T.abreLib + 0.45));
     tapaLib.rotation.y = -Math.PI * 0.94 * ab;
     libro.scale.setScalar(popIn(t, T.s05 - 0.45, 0.35));
-    { const bajaR = eo(sg(t, T.s05 + 0.15, T.s05 + 0.5)); riel.position.set(P4.x, 2.6 * (1 - bajaR), P4.z); riel.visible = riel.visible && t > T.s05 + 0.15; } // ronda 1: el riel baja desde arriba y queda por encima del catálogo (antes subía y tachaba la tapa) // ronda 1: entra con el catálogo, ya en su lugar (antes subía y tachaba la tapa)
+    { const kr = popIn(t, T.s05 + 0.3, 0.3); riel.position.set(P4.x, RIEL_Y * (1 - kr), P4.z); riel.scale.setScalar(Math.max(kr, 0.001)); riel.visible = riel.visible && kr > 0; } // ronda 2: crece desde la barra (sin pata suelta) // ronda 1: el riel baja desde arriba y queda por encima del catálogo (antes subía y tachaba la tapa) // ronda 1: entra con el catálogo, ya en su lugar (antes subía y tachaba la tapa)
     // vestidos: el del medio sube del catálogo; en "mismo vestido" salen los otros dos a los costados
     vestidos.forEach((v, i) => {
       const t0 = i === 1 ? T.vestido1 : T.triple + (i === 0 ? 0 : 0.12);
@@ -953,16 +957,16 @@ function zonaP(t) {
     regalo.position.x -= rebote(t, T.choque, 8, 25, 0.03);
     // la OFERTA llega deslizando desde la izquierda, choca contra el regalo y cae acostada
     const u = sg(t, T.ofertaVuela, T.choque), ue = eio(u);
-    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.62, 0.28, P5.z + 0.35);
+    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.7, 0.28, P5.z + 0.4); // ronda 2: para justo antes de la placa del precio (no la atraviesa)
     const reb = t > T.choque ? eo(sg(t, T.choque, T.choque + 0.35)) : 0;
-    const x = lerp(A.x, B.x, ue) - 0.16 * reb;
+    const x = lerp(A.x, B.x, ue) - 0.03 * reb;
     const yC = lerp(A.y, B.y, ue) + Math.sin(Math.PI * u) * 0.12;
     const tumba = eio(sg(t, T.choque + 0.1, T.choque + 0.45));
     ofertaSuelta.position.set(x, lerp(yC, 0.03, tumba), lerp(A.z, B.z, ue) + 0.45 * Math.sin(Math.PI * Math.min(1, u * 1.6)) * (1 - ue) + 0.2 * reb);
     ofertaSuelta.rotation.set(-Math.PI / 2 * tumba, 0.25 * ue * (1 - tumba), (-0.3 * Math.sin(Math.PI * u)) * (1 - tumba) + 0.15 * tumba);
     ofertaSuelta.scale.setScalar(1);
     const tr = popIn(t, T.redondo, 0.3);
-    tildeReg.position.set(P5.x - 0.42, 0.6, P5.z + 0.5);
+    tildeReg.position.set(P5.x - 0.4, 0.98, P5.z + 0.45); // ronda 2: arriba a la izquierda, sin pisar la placa del precio
     ocultar(tildeReg, tr);
   }
 }

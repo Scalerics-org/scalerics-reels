@@ -9,13 +9,13 @@
 // Uso (desde la carpeta del reel): node partes/armar-voz.mjs
 import { execSync } from "node:child_process";
 const dur = (f) => Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString());
-const ARCH = ["partes/orus1-1.wav", "partes/n4-2.wav", "partes/ruben-3.wav", "partes/orus2-1.wav", "partes/n7-3.wav"];
-const GAN = [-1.5, -3.7, 0.5, -1.0, -3.0]; // dB por archivo para dejar todo parejo (~ -17 LUFS)
+const ARCH = ["partes/orus1-1.wav", "partes/n4-2.wav", "partes/ruben-3.wav", "partes/orus2-1.wav", "partes/n7-3.wav", "partes/n8-3.wav"];
+const GAN = [-1.5, -3.7, 0.5, -1.0, -3.0, -1.7]; // dB por archivo para dejar todo parejo (~ -17 LUFS)
 const T = 1.1;
 // [archivo, desde, hasta, tempo, silencio después]
 const TRAMOS = [
   [0, 0.21, 2.79, T, 0.42],   // ¿Por qué los precios terminan en noventa y nueve?
-  [0, 3.44, 5.27, T, 0.28],   // Porque el primer número pesa más.
+  [5, 0.23, 2.12, T, 0.28],   // Porque el primer número pesa más.  (ronda 2: toma suelta n8-3; en la larga el STT oía "pizza más")
   [0, 5.67, 7.97, T, 0.42],   // Noventa y nueve parece menos que cien.
   [0, 8.42, 9.85, T, 0.22],   // ¿Lo del cajero y el vuelto?
   [1, 0.23, 1.29, T, 0.45],   // No está probado.

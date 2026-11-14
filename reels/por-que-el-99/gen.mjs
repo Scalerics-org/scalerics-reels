@@ -93,7 +93,7 @@ const CSS_MK = `
     P .mk em { position: relative; font-style: normal; color: ${NAVY}; -webkit-text-stroke: 0; }`;
 const cred = (k, x, y, txt, sub = "") => `<div class="cred n${k}" style="left:${x}px;top:${y}px">${txt}${sub ? `<span class="sub">${sub}</span>` : ""}</div>`;
 const CSS_CRED = `P .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: ${NAVY}; border: 5px solid ${CR}; font: 700 46px/1.1 "Lexend", sans-serif; color: ${CR}; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.35); }
-    P .cred .sub { display: block; margin-top: 8px; font: 500 40px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.01em; color: ${G}; }`;
+    P .cred .sub { display: block; margin-top: 8px; font: 600 50px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.01em; color: ${G}; }`;
 // ---------- los mismos tiempos clave que tres.js ----------
 const T = {
   noventa: Wg(6), nueve: Wg(8), s02: INI["s02-primer-numero"], primer: Wg(11), numero: Wg(12), pesa: Wg(13),
@@ -118,7 +118,7 @@ T.subeCam = r2(pal[62].start + 0.33); T.corteO = r2(pal[62].start + 0.62);
 T.levanta = r2(T.s11 + 0.15); T.filas = [r2(T.automatico + 0.05), T.precio]; T.baja = r2(T.s12 + 0.1); T.brinda = r2(T.s12 + 0.55);
 
 // tramos sin logo (insertos del celular y primeros planos): los lee armar.mjs (assets/firma.json)
-const FIRMA = [[r2(T.s11 + 0.3), r2(T.s12 + 0.3)]];
+const FIRMA = [[r2(T.s11 + 0.3), r2(T.fin)]]; // ronda 2: sin logo hasta el cierre (tapaba el celular apoyado)
 
 // posiciones en pantalla de los rótulos y créditos (medidas sobre los cuadros del 3D)
 const POS = {
@@ -184,7 +184,7 @@ const GANCHO = `
     js: `nota(2, 0.12); fuera([2], ${r2(ESC[id] - 0.12)}); nota(1, ${rel(id, T.parece)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.0, sfx: "pop", vol: 0.05 }, { t: 0.1, sfx: "pop", vol: 0.04 },
-      { t: rel(id, T.cae100 + 0.2), sfx: "golpe", vol: 0.12, max: 0.35 },
+      { t: rel(id, T.cae100 + 0.2), sfx: "golpe", vol: 0.05, max: 0.3 },
       { t: rel(id, T.cae100 + 0.05), sfx: "tic", vol: 0.06 },
     ],
   });
@@ -235,8 +235,8 @@ vacia("s06-tres-precios", [
     html: `${pill(1, POS.vendio[0], POS.vendio[1], "vendió más", "lleno")}`,
     js: `nota(1, ${rel(id, T.vendio + 0.1)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
-      { t: 0.0, sfx: "whoosh-short", vol: 0.04 },
-      { t: rel(id, T.caro + 0.05), sfx: "whoosh-short", vol: 0.07, max: 0.4 },
+      { t: 0.0, sfx: "whoosh-short", vol: 0.025 },
+      { t: rel(id, T.caro + 0.05), sfx: "whoosh-short", vol: 0.045, max: 0.4 },
       { t: rel(id, T.cuarta + 0.15), sfx: "tac-real", vol: 0.14 },
       { t: rel(id, T.cuarta + 0.12), sfx: "impact-bass-1", vol: 0.016, max: 0.45 },
       { t: rel(id, T.cuarta + 0.2), sfx: "ding", vol: 0.02, max: 0.35 },

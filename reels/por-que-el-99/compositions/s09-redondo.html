@@ -14,17 +14,17 @@
     [data-composition-id="s09-redondo"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
     [data-composition-id="s09-redondo"] .dot.malo { fill: #c7655b; }
 [data-composition-id="s09-redondo"] .cred { position: absolute; transform: translate(-50%, -50%); padding: 14px 34px 16px; border-radius: 22px; background: #0b1220; border: 5px solid #efeee5; font: 700 46px/1.1 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; text-align: center; box-shadow: 0 8px 0 rgba(11,18,32,0.35); }
-    [data-composition-id="s09-redondo"] .cred .sub { display: block; margin-top: 8px; font: 500 40px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.01em; color: #5ce611; }
+    [data-composition-id="s09-redondo"] .cred .sub { display: block; margin-top: 8px; font: 600 50px/1.15 "IBM Plex Mono", monospace; letter-spacing: 0.01em; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s09-redondo" data-width="1080" data-height="1920" data-duration="1.7">
-    <div id="s09-redondo-esc" class="esc clip" data-start="0" data-duration="1.7" data-track-index="0">
+  <div id="root" data-composition-id="s09-redondo" data-width="1080" data-height="1920" data-duration="1.71">
+    <div id="s09-redondo-esc" class="esc clip" data-start="0" data-duration="1.71" data-track-index="0">
 <div class="cred n1" style="left:540px;top:1640px">Wadhwa y Zhang · 2015<span class="sub">compras por gusto</span></div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s09-redondo";
-      const DUR = 1.7;
+      const DUR = 1.71;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -42,7 +42,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.06); fuera([1], 1.28);
+nota(1, 0.06); fuera([1], 1.29);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -185,3 +185,25 @@ en c3 sale bien): es del snapshot, no de renderAt.
 **Dudoso:** el celular apoyado queda abajo a la derecha medio tapado por el logo en 26,6-28,1; en 2,2-2,77 el 999 3D
 sale de la celda y pisa el texto de la pantalla (es el "se despega"); en los travellings (4,6-4,9, 7,1-7,5, 10,1-10,3,
 19,4-19,7) hay objetos que entran y salen por los bordes durante el movimiento.
+
+## Ronda 2 de corrección (14-11, sobre el render de la ronda 1; cuadros en qa-99-r2/)
+Duración **30,88 s** (voz 30,76 s: "Porque el primer número pesa más." regenerada). Cierre desde "videollamada" (28,22),
+2,66 s. `check --json` ok, 0 errores. Mezcla: -17,2 LUFS, pico -4,5 dBFS; tramos de 0,5 y 0,1 s con voz < 6 dB: ninguno
+(golpe de la etiqueta de 100 0,12 → 0,05; whooshes de s07 más bajos).
+- ALTA mano en el mate (26,7): Rubén lo agarra por el costado: el mate va 11 cm afuera de la mano y 9 cm más abajo, y el
+  objetivo del brindis más bajo (1,30). Ni un cuadro de piel sobre la yerba en 26,3-28,2.
+- Celular flotando (23,8-26,5): las manos toman las dos esquinas de abajo del teléfono (±12 cm, -15 cm). La pantalla se
+  rearmó para que nada quede bajo las manos: encabezado "REPORTE · LUNES / Ventas de la semana", las dos tarjetas arriba
+  (tilde en la esquina, píldora con el texto centrado) y el cuarto de abajo libre. Sin "9:00" ni "llega solo…".
+- Regalo cortado / OFERTA cortada (20,0-20,9): cámara a 5,7 m y centrada en -0,18; la OFERTA para 0,70 m a la izquierda
+  (ya no atraviesa la placa "$ 4.000"); la tilde va arriba a la izquierda, sobre la tapa.
+- Bigote (26,45-26,65): la sonrisa "feliz" del reporte bajada (sonrisa 0,55, ancho 0,95): las comisuras ya no salen.
+- "?" y LED (21,07-21,6): cámara de la pantalla 0,18 m más lejos y corrida; el "?" y el LED con margen.
+- 999 sobre la celda (2,2-2,77): la celda del aceite se vacía cuando arranca el despegue.
+- Texto chico: celular ≥ 66 px de textura (≥ 36 en pantalla); el "US$" sale de las etiquetas y va al subtítulo
+  ("a US$ 34", "y a US$ 39."), números 3D más grandes; los subtítulos mono de los créditos 40 → 50 px.
+- BAJA: riel crece desde su barra (sin pata suelta en 10,33); monedas caen delante del cajón (vz mayor); "El 9 suena a
+  oferta." en un solo grupo; el logo se oculta desde 23,8 hasta el cierre (no tapa el celular apoyado); OFERTA del primer
+  plano más baja (no toca "A veces…"). "pesa más": 3 tomas nuevas (n8), el STT oye las tres bien; va la n8-3 suelta (borradas n8-1 y n8-2).
+  No tocados: los cuadros de piso en los travellings (4,7 / 7,25 / 19,8) siguen con objetos entrando por los bordes.
+Pasadas: r2a-r2g puntuales, q1 (cada 0,5 s), q2 (+0,25) y q3 (cortes y travellings) sobre la versión final.
