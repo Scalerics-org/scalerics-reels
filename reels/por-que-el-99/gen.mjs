@@ -165,7 +165,7 @@ const GANCHO = `
 {
   const id = "s02-primer-numero";
   escena(id, {
-    html: `${L(1, POS.primeroLead)}${pill(1, POS.primero[0], POS.primero[1], "el primero manda", "lleno")}`,
+    html: `${L(1, POS.primeroLead)}${pill(1, POS.primero[0], POS.primero[1], "no llega a mil", "lleno")}`,
     js: `nota(1, ${rel(id, T.primer + 0.12)}); fuera([1], ${rel(id, pal[14].end - 0.02)});`,
     sfx: [
       { t: 0.0, sfx: "tac-real", vol: 0.1 },
@@ -261,7 +261,7 @@ vacia("s06-tres-precios", [
   const id = "s09-redondo";
   escena(id, {
     css: CSS_CRED,
-    html: `${cred(1, POS.credWZ[0], POS.credWZ[1], "Wadhwa y Zhang · 2015", "en regalos")}`,
+    html: `${cred(1, POS.credWZ[0], POS.credWZ[1], "Wadhwa y Zhang · 2015", "compras por gusto")}`,
     js: `nota(1, 0.06); fuera([1], ${rel(id, T.subeCam + 0.12)});`,
     sfx: [
       { t: rel(id, T.ofertaVuela + 0.1), sfx: "whoosh-short", vol: 0.04 },
