@@ -144,3 +144,29 @@ Lista: scratchpad/ronda1/ya-lo-cargo.md. Todo sale igual de `node gen.mjs`.
   regeneré `portada-src/fondo-limpio-16.95.png` con LIMPIO=1 (el auto cambió de forma).
 - Pasadas: a1-a9 (puntuales), p1a+p1b (cada 0,5 s desde 0), cortes ±0,04 (38), p2a+p2b (cada 0,5 desde 0,25).
   `check --json`: 0 errores.
+
+## Ronda 2 de corrección (14-11)
+- **Pelo de Rubén (ALTA):** la `corona` (gajo de esfera: de costado, parche gris cuadrado) queda oculta; en su lugar una
+  herradura de bolitas canosas medio hundidas en el cráneo (24 de oreja a oreja, más gruesas atrás, + 11 en la nuca),
+  con tamaños y alturas irregulares: de costado son mechones detrás de la oreja, de espaldas una herradura de contorno
+  ondulado.
+- **Q4 rehecho en dos planos:** Q4 (32,14) en el eje del autoelevador desde la rampa: gira, la cara de Rubén entre los
+  dos parantes del mástil (nada le cruza la cara), horquillas abajo en cuadro, el camión se va atrás por el muelle, la
+  cabeza lejos de la línea final; Q4b (32,99) entre las horquillas levantadas (la punta abajo) apuntando al auto: Nico
+  en la ventanilla y el auto que se va marcha atrás (4 m: queda en cuadro). "Ya salió." termina en 32,14 (antes del
+  corte). Saqué el golpe de chapa de 32,16.
+- Globos: desde arriba (P4b, P5) se acuestan bajo el techo solar con el texto hacia arriba (`ARRIBA`); en P8 (desde atrás
+  del camión) se giran 180° (se leen por la luneta); P2 lleno con 7 globos repartidos contra parabrisas, techo,
+  ventanilla y el cachete de Nico (`LLENO`, el 1 corrido para no atravesar la cabeza de Nico).
+- P7 con Rubén en cuadro (cámara más cerca del eje, sin el rack en primer plano); P4c más bajo (abajo tablero y volante,
+  no capot blanco); Q2 más cerca del operario; P3 el teléfono entero.
+- Sonido/ritmo: "¡Nico!" 0,13 s antes (13,77; P5b sigue en 14,40): más aire hasta "¡Ya lo cargo!"; el camión de P8 se
+  ve moverse desde que arranca (21,09). Duración sin cambios: 34,04 s. medir.py: igual que la ronda 1 (solo el borde de
+  24,5 s, +0,7).
+- BAJA: la tarjeta de Q1 sale primero de costado (ya no nace delante de la cara; y su escala estaba dentro de un
+  comentario); el texto del cartel se va antes de que abra el iris; letras del cartel con menos escala inicial; visera
+  del operario más arriba; cartel del pallet 0,86×0,5 m y "GRACIELA" corrido a la izquierda de la tilde; pulgar de Nico
+  más grande; guion.txt y comentarios ("la harina", línea chica, Nico con la cabeza adentro). No hecho: la tarjeta que
+  entra al monitor en Q2b.
+- Portada: `portada-src/fondo-limpio-16.95.png` regenerado (cambió la cámara de P7).
+- Pasadas: r2a-r2d, q1a/q1b (cada 0,5 s), cortes ±0,04 (40 cuadros). `check --json`: 0 errores.

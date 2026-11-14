@@ -7,7 +7,7 @@
 //   LA DISTRIBUIDORA DE RUBÉN (x = OX): depósito de día, piso crema2, paredes navy claro, racks navy3 con largueros
 //     verdes, la oficina vidriada arriba (fondo, z < -8,5), la rampa y el muelle con el camión (frente, z > 4,5), el
 //     portón a la derecha (x = +12).
-//   PARTE 1: "Ya lo cargo." · los globos de chat que llenan el auto · "Rubén, ¿y mi harina?" · "Lo único que carga Nico
+//   PARTE 1: "Ya lo cargo." · los globos de chat que llenan el auto · "Rubén, ¿y la harina?" · "Lo único que carga Nico
 //            es el celular." · "¡Nico!" / "¡Ya lo cargo!" · el bip · el autoelevador mete el auto en el camión: "Ya lo
 //            cargué." · "Sí, sí. Ya lo cargo." desde adentro.
 //   PARTE 2: "Ya lo car…" + ding: la tarjeta "Cargado ✓" vuela por la calle hasta el pallet GRACIELA y la ficha ·
@@ -445,7 +445,7 @@ const palletG = new THREE.Group(); scene.add(palletG);
 palletG.add(crearPallet());
 const bolsasG = [0, 1, 2, 3].map((i) => { const b = crearBolsaHarina(); b.position.set(-0.27 + (i % 2) * 0.54, 0.15 + Math.floor(i / 2) * 0.16, 0); palletG.add(b); return b; });
 {
-  const c = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.36), new THREE.MeshStandardMaterial({ map: cartelPT, roughness: 0.85 })); c.position.set(0, 0.36, 0.61); c.rotation.x = -0.25; palletG.add(c);
+  const c = new THREE.Mesh(new THREE.PlaneGeometry(0.86, 0.5), new THREE.MeshStandardMaterial({ map: cartelPT, roughness: 0.85 })); c.position.set(0, 0.44, 0.61); c.rotation.x = -0.25; palletG.add(c);
   palletG.add(caja(0.025, 0.4, 0.025, M.navy3, 0, 0.2, 0.6));
 }
 let claveP = null;
@@ -453,7 +453,7 @@ function dibujarCartelP(ok) {
   if (claveP === ok) return; claveP = ok;
   const { x } = cartelPT.userData, w = 512, h = 300;
   x.fillStyle = "#c9a46b"; x.fillRect(0, 0, w, h); x.strokeStyle = "#8a6a3a"; x.lineWidth = 10; x.strokeRect(5, 5, w - 10, h - 10);
-  x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "GRACIELA", 900, 104, w - (ok ? 190 : 60)); x.fillText("GRACIELA", ok ? w / 2 - 50 : w / 2, h * 0.4);   // (ronda 1: Lexend; en Caveat la C se leía G)
+  x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "GRACIELA", 900, 104, w - (ok ? 220 : 60)); x.fillText("GRACIELA", ok ? w / 2 - 70 : w / 2, h * 0.4);   // (ronda 1: Lexend; en Caveat la C se leía G)
   x.font = F(800, 52); x.fillText("40 harina · lunes", w / 2, h * 0.78);
   if (ok) { x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 8; x.beginPath(); x.arc(w - 70, 66, 52, 0, 7); x.fill(); x.stroke(); x.strokeStyle = "#0b1220"; x.lineWidth = 16; x.lineCap = "round"; x.beginPath(); x.moveTo(w - 96, 66); x.lineTo(w - 76, 88); x.lineTo(w - 42, 44); x.stroke(); }
   cartelPT.needsUpdate = true;
@@ -593,13 +593,18 @@ const SLOTS = [
 // (ronda 1) el auto lleno de verdad: en T.lleno cada globo crece y se aplasta contra un vidrio (el 6, contra el cachete
 // de Nico). [x, y, z, sx, sy, sz, giro]
 const LLENO = [
-  [-0.43, 1.27, 0.37, 1.12, 1.0, 0.55, 0.0],    // 0 · contra el parabrisas, lado del acompañante
-  [0.42, 1.25, -1.05, 1.3, 1.3, 0.8, 0.25],     // 1 · atrás, conductor
-  [-0.42, 1.25, -1.05, 1.3, 1.3, 0.8, 0.6],     // 2 · atrás, acompañante
-  [0.0, 1.62, -1.1, 1.3, 0.7, 0.8, 0.45],       // 3 · atrás arriba, contra el techo
-  [-0.42, 1.61, 0.34, 1.1, 0.72, 0.5, 0.0],     // 4 · adelante arriba, contra el techo y el parabrisas
-  [0.05, 1.3, -0.62, 1.25, 1.2, 0.7, 0.45],     // 5 · en el medio
-  [-0.01, 1.42, 0.12, 0.55, 1.15, 0.7, -0.15],  // 6 · contra el cachete derecho de Nico
+  [-0.43, 1.27, 0.4, 1.12, 1.0, 0.45, 0.0],     // 0 · aplastado contra el parabrisas, lado del acompañante
+  [0.6, 1.5, -0.56, 0.8, 1.0, 0.6, 0.3],        // 1 · detrás de Nico, asoma a la derecha
+  [-0.18, 1.66, 0.24, 1.0, 0.6, 0.5, 0.0],      // 2 · arriba al medio, contra el techo
+  [-0.56, 1.5, 0.08, 0.9, 1.1, 0.5, 0.0],       // 3 · contra la ventanilla del acompañante (asoma a la izquierda)
+  [-0.42, 1.61, 0.37, 1.1, 0.72, 0.45, 0.0],    // 4 · adelante arriba, contra el techo y el parabrisas
+  [0.0, 1.13, 0.3, 0.9, 0.85, 0.5, 0.0],        // 5 · abajo al medio, sobre la palanca
+  [0.07, 1.42, 0.12, 0.6, 1.1, 0.7, -0.15],     // 6 · contra el cachete derecho de Nico (lo empuja)
+];
+// (ronda 2) desde arriba (P4b, P5): [x, y, z, escala, giro]; debajo del techo solar, Nico adelante a la derecha
+const ARRIBA = [
+  [-0.36, 1.62, 0.12, 1.15, 0.08], [0.34, 1.6, -0.72, 1.1, -0.1], [-0.33, 1.58, -0.62, 1.1, -0.06], [0.02, 1.52, -1.2, 1.1, 0.12],
+  [0.36, 1.48, -1.25, 0.95, -0.15], [-0.05, 1.5, -0.25, 0.9, 0.2], [0.05, 1.68, 0.42, 0.85, -0.05],
 ];
 const GLOBOS = [
   crearGloboChat("txt", "40 harina\nlunes"), crearGloboChat("txt", "2 azúcar"), crearGloboChat("txt", "agua con\ngas x6"),
@@ -772,42 +777,48 @@ const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999, 
 const barman = crearPersonaje({ ...DEFECTO, nombre: "Tito", piel: PIEL.clara, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x2a2220, camisa: 0xf7f7f2, mangas: "largas", cuello: 0xf7f7f2, chaleco: { color: C.navy3, botones: C.cr }, panza: 1.15, nariz: 0.064, parpadeoCada: 999 });
 const kiosquera = crearPersonaje({ ...DEFECTO, nombre: "Elsa", piel: PIEL.clara, pelo: 0xe8e4dc, peinado: "rodete", cejasColor: 0xb0aaa0, lentes: C.navy3, camisa: 0xd6c7a6, mangas: "largas", cuello: C.cr, panza: 1.05, nariz: 0.052, labios: 0xb5555a, alto: 0.95, parpadeoCada: 999 });
 const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
+let HERR_R = null;
 // (ronda 1) la corona canosa de Rubén (una cáscara lisa) de espaldas se leía como casco o venda: la reemplazo por
 // mechones canosos de distinto tamaño alrededor de la nuca y sobre las orejas, con el borde de abajo irregular
 {
   const corona = ruben.cabeza.children.find((o) => o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.phiLength || 0) - Math.PI * 1.14) < 1e-3);
   if (corona) {
-    corona.scale.multiplyScalar(0.985);   // queda debajo, rellena los huecos entre mechones
+    // (ronda 2) la cáscara de costado se veía como un parche gris cuadrado: herradura de pelo canoso con volumen (un
+    // anillo grueso alrededor de la nuca, de oreja a oreja, con las puntas redondeadas) + mechones chicos medio hundidos
+    // en el borde de abajo para que el contorno no sea una vincha lisa
+    corona.visible = false;
     const pm = mat(PELO.canoso, 0.85), pm2 = mat(0xa9a6a0, 0.85);
     const R0 = 0.3, CC0 = R0 * 0.92;
-    semilla = 21; ruben.raiz.updateMatrixWorld(true);
-    for (let fila = 0; fila < 2; fila++) {
-      const el = [0.24, -0.08][fila], n = [10, 11][fila], a0 = [1.7, 1.66][fila];
+    // bolitas grandes medio hundidas en el cráneo a lo largo de la herradura: más gruesa atrás, fina sobre las orejas;
+    // de la cáscara solo asoman los casquetes (contorno ondulado arriba y abajo, nada de vincha lisa)
+    semilla = 21;
+    const bola = new THREE.SphereGeometry(1, 16, 12);
+    const fila = (n, a0, a1, e0, eK, s0, sK, h) => {
       for (let i = 0; i < n; i++) {
-        const az0 = a0 + ((Math.PI * 2 - 2 * a0) * (i + 0.5 * (fila % 2))) / (n - 0.5);
-        const k = 1.0 + 0.02 * az();
-        const e2 = el + (az() - 0.5) * 0.1, a2 = az0 + (az() - 0.5) * 0.12;
+        const u = (i + 0.5) / n, w = Math.sin(Math.PI * u);
+        const a2 = lerp(a0, a1, u) + (az() - 0.5) * 0.07, e2 = e0 + eK * w + (az() - 0.5) * 0.09;
+        const sz = s0 + sK * w + 0.014 * az(), k = 0.965;
         const x = R0 * k * Math.sin(a2) * Math.cos(e2), y = CC0 + R0 * 0.97 * k * Math.sin(e2), z = R0 * 0.95 * k * Math.cos(a2) * Math.cos(e2);
-        const m = mesh(new THREE.SphereGeometry(1, 12, 9), (i + fila) % 3 ? pm : pm2, x, y, z);
-        const tam = 0.06 + 0.014 * az();
-        m.scale.set(tam * (1.2 + 0.3 * az()), tam * (1.35 + 0.35 * az()), tam * 0.5);
-        m.lookAt(ruben.cabeza.localToWorld(new THREE.Vector3(x * 3, CC0 + (y - CC0) * 3, z * 3))); m.rotateZ((az() - 0.5) * 0.8);
+        const m = mesh(bola, (i + n) % 4 ? pm : pm2, x, y, z);
+        m.scale.set(sz, sz * h, sz);
         ruben.cabeza.add(m);
       }
-    }
+    };
+    fila(24, 1.5, Math.PI * 2 - 1.5, -0.02, 0.04, 0.034, 0.03, 1.25);   // la herradura de oreja a oreja
+    fila(11, 2.2, Math.PI * 2 - 2.2, -0.2, -0.04, 0.03, 0.022, 1.15);   // la nuca, más abajo y solo atrás
   }
 }
-// (ronda 1) el operario tenía la cara de Nico: gorra navy con visera verde (y bigote)
+// (ronda 1) el operario tenía la cara de Nico: gorra navy con visera verde (y bigote); (ronda 2) visera más arriba
 {
   const R0 = 0.3, CC0 = R0 * 0.92, gm = mat(C.navy3, 0.7), vm = mat(C.g, 0.5);
   const copa = mesh(new THREE.SphereGeometry(R0 * 1.05, 28, 14, 0, Math.PI * 2, 0, Math.PI * 0.4), gm, 0, CC0 + 0.01, -0.01); operario.cabeza.add(copa);
-  const vis = mesh(new THREE.CylinderGeometry(R0 * 0.75, R0 * 0.75, 0.025, 24, 1, false, -Math.PI * 0.45, Math.PI * 0.9), vm, 0, CC0 + R0 * 0.36, R0 * 0.62); vis.scale.set(1.1, 1, 0.9); vis.rotation.x = 0.12; operario.cabeza.add(vis);
+  const vis = mesh(new THREE.CylinderGeometry(R0 * 0.75, R0 * 0.75, 0.025, 24, 1, false, -Math.PI * 0.45, Math.PI * 0.9), vm, 0, CC0 + R0 * 0.56, R0 * 0.52); vis.scale.set(1.1, 1, 0.85); vis.rotation.x = -0.15; operario.cabeza.add(vis);
   operario.cabeza.add(mesh(new THREE.SphereGeometry(0.03, 10, 8), vm, 0, CC0 + R0 * 1.06, 0));
 }
 const TODOS = [ruben, nico, graciela, marta, barman, kiosquera, operario];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // el pulgar arriba de Nico (un dedo gordo que sale del puño, hacia arriba cuando el antebrazo va adelante)
-const PULGAR = nico.brazos.map((b) => { const p = mesh(new THREE.CapsuleGeometry(0.024, 0.05, 4, 8), mat(ELENCO.empleado.piel, 0.55), b.s * -0.012, -0.05, 0.075); p.rotation.x = Math.PI / 2; p.visible = false; b.mano.add(p); return p; });
+const PULGAR = nico.brazos.map((b) => { const p = mesh(new THREE.CapsuleGeometry(0.03, 0.075, 4, 8), mat(ELENCO.empleado.piel, 0.55), b.s * -0.012, -0.05, 0.075); p.rotation.x = Math.PI / 2; p.visible = false; b.mano.add(p); return p; });
 // la herradura de pelo de Rubén vista desde atrás se leía como una barra flotante (me-haces-precio)
 const HERR = ruben.cabeza.children.find((o) => o.isGroup && Math.abs(o.scale.y - 1.3) < 1e-6);
 const _hc = new THREE.Vector3(), _hf2 = new THREE.Vector3(), _he = new THREE.Vector3();
@@ -917,7 +928,7 @@ const PLANOS = [
   // P1b: la vereda, desde el lado de la rotisería: la puerta a la derecha, el auto a la izquierda
   ["P1b", T.p1b, [[T.p1b, -2.7, 1.8, 2.25, 1.2, 1.3, -0.5, 50], [T.sale[1], -2.5, 1.75, 1.6, 1.6, 1.3, 1.5, 50], [T.p2, -2.5, 1.75, 1.5, 1.6, 1.25, 1.9, 49]]],
   ["P2", T.p2, null],                      // sigue al auto (se arma en renderAt)
-  ["P3", T.p3, [[T.p3, ...w3(3.2, 1.1, 3.0), ...w3(-9.0, 2.6, -4.5), 56], [T.p3 + 0.4, ...w3(4.4, 2.2, 0.2), ...w3(-1.2, 3.4, -8), 56], [T.grua[1], ...w3(-0.5, 4.72, -6.55), ...w3(-0.38, 4.38, -10.2), 50], [T.p4, ...w3(-0.5, 4.7, -6.85), ...w3(-0.38, 4.36, -10.2), 47]]],
+  ["P3", T.p3, [[T.p3, ...w3(3.2, 1.1, 3.0), ...w3(-9.0, 2.6, -4.5), 56], [T.p3 + 0.4, ...w3(4.4, 2.2, 0.2), ...w3(-1.2, 3.4, -8), 56], [T.grua[1], ...w3(-0.45, 4.72, -6.55), ...w3(-0.24, 4.38, -10.2), 50], [T.p4, ...w3(-0.45, 4.7, -6.85), ...w3(-0.24, 4.36, -10.2), 47]]],
   ["P4", T.p4, null],                     // inserto del monitor (de frente a la pantalla, se arma en renderAt)
   // P4b (ronda 1): por encima del hombro de Rubén, de pie contra el vidrio de la oficina: su nuca grande abajo y el auto
   // lleno de globos (se ven por el techo solar) entrando al depósito
@@ -937,7 +948,8 @@ const PLANOS = [
   ["Q3", T.q3, null],                      // (ronda 1) Q3: el autoelevador sube la rampa con el pallet (de costado, como P7)
   ["Q3b", Math.round((T.n6 - 0.05) * 100) / 100, null],   // desde el auto: Nico asomado, Rubén arriba en el muelle
   ["Q3c", Math.round((T.r4 - 0.08) * 100) / 100, null],   // Rubén 3/4 en el autoelevador: "Ya salió."
-  ["Q4", T.q4, null],
+  ["Q4", T.q4, null],                      // (ronda 2) de frente al autoelevador: gira, sube las horquillas; el camión se va atrás
+  ["Q4b", Math.round((T.atras[0] - 0.15) * 100) / 100, null],   // por encima del hombro de Rubén: las horquillas arriba y Nico que se va marcha atrás
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -1013,8 +1025,8 @@ function ponerElev(t) {
 // el camión: la cola en el muelle; se va hacia +z
 function ponerCamion(t) {
   // (ronda 1) en P8 el camión se va más lento y queda en cuadro (antes desaparecía y el plano quedaba vacío)
-  const sale = t < P2 ? sg(t, T.arranca, T.arranca + 1.1) : sg(t, T.sale2[0], T.sale2[1] + 0.6);
-  camion.position.set(OX + CAMX, 0, MUELLE.z1 + (t < P2 ? ei(sale) * 8 : eio(sale) * 14));
+  const sale = t < P2 ? sg(t, T.arranca, T.arranca + 1.0) : sg(t, T.sale2[0], T.sale2[1] + 0.6);
+  camion.position.set(OX + CAMX, 0, MUELLE.z1 + (t < P2 ? sale * sale * 8 : eio(sale) * 14));   // (ronda 2) se ve moverse desde que suena
   camion.visible = !(t >= P2 && t > T.sale2[1] + 0.7);
   // las puertas: abiertas (contra los costados) hasta que se cierran
   const cierra = t < P2 ? eio(sg(t, T.puertas[0], T.puertas[1])) : eio(sg(t, T.puerta2[0], T.puerta2[1]));
@@ -1213,7 +1225,7 @@ function ponerGlobosAuto(t, plano) {
       if (t < T.p1b) {
         // sale del celular y queda flotando arriba del hombro de Nico
         celuN.updateMatrixWorld(true); const c = celuN.getWorldPosition(_a);
-        const arriba = V3(NIC.x - 0.36, 1.9, NIC.z - 0.25), u = sg(t, T.globo1, T.globo1 + 0.35);
+        const arriba = V3(NIC.x - 0.24, 1.9, NIC.z - 0.25), u = sg(t, T.globo1, T.globo1 + 0.35);
         p = V3(lerp(c.x, arriba.x, eo(Math.min(1, u * 2.2))), lerp(c.y, arriba.y, eio(sg(u, 0.4, 1))), lerp(c.z, arriba.z, eo(Math.min(1, u * 2.2))));   // (ronda 1) primero de costado, después sube
         p.y += Math.sin(t * 3.1) * 0.02;
         g.rotation.set(0, Math.PI - 0.15, 0);
@@ -1247,6 +1259,13 @@ function ponerGlobosAuto(t, plano) {
     g.position.set(lerp(x, L[0], lleno), lerp(y, L[1], lleno) + Math.sin(t * 2.7 + i) * 0.012 * (1 - lleno), lerp(z, L[2], lleno));
     g.rotation.set(0, lerp(rot0, L[6], lleno), 0);   // el frente hacia adelante (se lee por el parabrisas)
     g.scale.set(lerp(s, L[3], lleno), lerp(s, L[4], lleno), lerp(s, L[5], lleno));
+    if (plano === "P4b" || plano === "P5") {
+      // (ronda 2) los planos desde arriba: los globos acostados bajo el techo solar, el texto hacia arriba y derecho
+      // visto desde atrás del auto (se lee "lleno" desde la oficina)
+      const A = ARRIBA[i];
+      g.position.set(A[0], A[1], A[2]); g.rotation.set(-Math.PI / 2, 0, Math.PI + A[4]); g.scale.set(A[3], A[3], 0.6 * A[3]);
+    }
+    if (plano === "P8") g.rotation.y += Math.PI;   // (ronda 2) desde atrás del camión: el frente de los globos hacia la cámara
   });
 }
 function ponerAuto(t) {
@@ -1282,7 +1301,7 @@ function ponerAuto(t) {
     else {
       const u = eo(sg(t, T.entra2[0], T.entra2[1]));
       let xx = lerp(13.5, AUTO_Q.x, u);
-      if (t >= T.atras[0]) xx += ei(sg(t, T.atras[0], T.atras[1])) * 9;   // marcha atrás, hacia el portón
+      if (t >= T.atras[0]) xx += ei(sg(t, T.atras[0], T.atras[1])) * 4;   // marcha atrás, hacia el portón (ronda 2: queda en cuadro)
       auto.position.set(OX + xx, 0, AUTO_Q.z); auto.rotation.set(0, -Math.PI / 2, 0);
       auto.visible = t >= T.entra2[0] - 0.01;
     }
@@ -1381,8 +1400,10 @@ function renderAt(tIn) {
     if (t < T.q2) {
       celuN.updateMatrixWorld(true); const c = celuN.getWorldPosition(_a).clone();
       const u = eio(sg(t, T.vuela[0], T.vuela[1]));
-      const p = c.lerp(V3(0.12, 2.3, -1.2), u); p.y += Math.sin(Math.PI * u) * 0.45;   // sale por la vidriera, detrás de Nico (en cuadro)
-      tarjeta.position.copy(p); tarjeta.rotation.set(0, Math.PI - 0.15 + u * 0.3, 0.1 * Math.sin(u * 6));   // el frente a la cámara tarjeta.scale.setScalar(0.3 + 0.7 * eo(sg(t, T.vuela[0], T.vuela[0] + 0.15)));
+      const f = V3(0.12, 2.3, -1.2), uu = sg(t, T.vuela[0], T.vuela[1]);   // (ronda 2) primero de costado (no nace delante de la cara), después sube y sale por la vidriera
+      const p = V3(lerp(c.x, f.x, eo(Math.min(1, uu * 2.2))), lerp(c.y, f.y, eio(sg(uu, 0.35, 1))) + Math.sin(Math.PI * uu) * 0.3, lerp(c.z, f.z, eio(sg(uu, 0.3, 1))));
+      tarjeta.position.copy(p); tarjeta.rotation.set(0, Math.PI - 0.15 + u * 0.3, 0.1 * Math.sin(u * 6));   // el frente a la cámara
+      tarjeta.scale.setScalar(0.3 + 0.7 * eo(sg(t, T.vuela[0], T.vuela[0] + 0.15)));
     } else if (t < T.q2w) {
       // por la calle: vuela hacia -x por la vereda, a la altura de las vidrieras
       const u = sg(t, T.q2, T.q2w);
@@ -1422,7 +1443,7 @@ function renderAt(tIn) {
     auto.updateMatrixWorld(true);
     const c = auto.userData.celu.getWorldPosition(_a).clone();
     // (ronda 1) un poco más atrás y más arriba: el celular en su soporte, el cable al puerto, el borde del tablero, el volante
-    const desde = auto.localToWorld(V3(0.3, 1.55, -0.3)), mira = auto.localToWorld(V3(0.19, 1.2, 0.45));
+    const desde = auto.localToWorld(V3(0.33, 1.34, -0.3)), mira = auto.localToWorld(V3(0.25, 1.27, 0.45));
     nico.raiz.visible = false; GLOBOS[6].visible = false; GLOBOS[5].visible = false;   // la cámara está donde va la cabeza de Nico
     ponerCam([desde.x, desde.y, desde.z, mira.x, mira.y, mira.z, lerp(50, 46, sg(t, T.p4c, T.p5))], t);
   } else if (planoActual === "P7") {
@@ -1433,13 +1454,13 @@ function renderAt(tIn) {
     const ze = elevEstado(t).z;
     // (ronda 1) el final: Rubén 3/4 desde la derecha, por debajo del techo de caños y por detrás del parante delantero
     if (t >= T.adentro[0]) { ponerCam([OX + lerp(4.6, 1.5, eio(fin)), lerp(3.2, 3.2, fin), lerp(4.0, 6.3, eio(fin)), OX + CAMX, lerp(2.35, 2.95, fin), lerp(7.0, 5.3, eio(fin)), lerp(54, 44, fin)], t); }
-    else ponerCam([OX + 5.4, lerp(2.0, 2.8, sg(t, T.viaje[0], T.adentro[0])), ze + 0.2, OX + CAMX, 1.5, ze + 1.9, 58], t);
+    else ponerCam([OX + 5.15, lerp(2.0, 2.8, sg(t, T.viaje[0], T.adentro[0])), ze + 0.5, OX + CAMX, 1.6, ze + 1.2, 62], t);   // (ronda 2) Rubén entra en cuadro
     if (false) ponerCam([OX + lerp(8.6, 4.2, eio(fin)), lerp(yc, 3.0, fin), lerp(zc - 1.4, ELEV_MUELLE - 0.3, eio(fin)), OX + CAMX, lerp(1.4, 2.4, fin), lerp(zc - 0.6, ELEV_MUELLE + 0.3, eio(fin)), lerp(58, 46, fin)], t);
   } else if (planoActual === "Q2") {
     if (t < T.q2w) { const p = tarjeta.position; ponerCam([p.x + 1.6, p.y + 0.15, p.z + 0.5, p.x - 0.5, p.y - 0.05, p.z - 0.15, 52], t); }
     else {
       const u = sg(t, T.q2w, T.q2b);
-      ponerCam([OX + lerp(8.5, 2.2, eio(u)), lerp(2.1, 2.3, u), lerp(-0.6, 0.4, eio(u)), OX + lerp(3.0, PALLET_G.x, eio(u)), lerp(1.6, 0.5, eio(u)), lerp(-2.1, PALLET_G.z, u), 54], t);
+      ponerCam([OX + lerp(8.5, 1.0, eio(u)), lerp(2.0, 1.75, u), lerp(-0.8, -0.35, eio(u)), OX + lerp(3.0, PALLET_G.x - 0.45, eio(u)), lerp(1.6, 0.85, eio(u)), lerp(-2.1, PALLET_G.z, u), 52], t);   // (ronda 2) más cerca
     }
   } else if (planoActual === "Q3") {
     // (ronda 1) el mismo eje que P7 (callback): de costado desde +x, acompaña al autoelevador con el pallet rampa arriba
@@ -1457,8 +1478,13 @@ function renderAt(tIn) {
   } else if (planoActual === "Q4") {
     // al costado de la rampa: el autoelevador gira hacia la cámara (hacia Nico) y levanta las horquillas; el camión se
     // va por el muelle atrás
-    const u = sg(t, T.q4, DUR);
-    ponerCam([OX + lerp(2.5, 2.2, eio(u)), lerp(2.5, 2.45, u), lerp(0.6, 1.3, eio(u)), OX + CAMX - 0.4, lerp(2.4, 2.3, u), 6.0, lerp(46, 42, u)], t);
+    // (ronda 2) en el eje del autoelevador, desde la rampa: la cara de Rubén entre los dos parantes del mástil, las
+    // horquillas hacia la cámara; atrás, por el muelle, el camión que se va
+    const u = sg(t, T.q4, T.atras[0]);
+    ponerCam([OX + CAMX, lerp(2.85, 2.8, u), lerp(1.5, 1.8, eio(u)), OX + CAMX, lerp(2.75, 2.8, u), 6.0, 50], t);
+  } else if (planoActual === "Q4b") {
+    const u = sg(t, T.atras[0] - 0.15, DUR);
+    ponerCam([OX + CAMX + 0.12, 2.15, 3.95, OX + lerp(-0.25, 1.1, eio(u)), 1.15, -1.75, 56], t);   // (ronda 2) entre las horquillas levantadas (la punta abajo): Nico que se va marcha atrás
   }
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
@@ -1497,7 +1523,7 @@ function renderAt(tIn) {
       ponerGlobo(GL.n4, sx, sy2 - 60, ent(T.n4) * sale(T.arranca + 0.05), [sx, sy], 0, -0.08, lerp(0.4, 0.78, sq));
     }
     if (planoActual === "Q3b" && t >= T.n6) { const [bx, by] = nb(); ponerGlobo(GL.n6, bx + 40, Math.max(330, by - 430), ent(T.n6), [bx, by - 40]); }
-    if ((planoActual === "Q3c" || planoActual === "Q4") && t >= T.r4) { const [bx, by] = rb(); ponerGlobo(GL.r4, bx + 60, Math.max(planoActual === "Q4" ? 640 : 330, by - 400), ent(T.r4) * sale(T.cierre), [bx, by - 40], 1); }
+    if (planoActual === "Q3c" && t >= T.r4) { const [bx, by] = rb(); ponerGlobo(GL.r4, bx + 60, Math.max(330, by - 400), ent(T.r4) * sale(T.q4), [bx, by - 40], 1); }   // (ronda 2) termina antes del corte
   }
   if (en(tIn, P1, P2) || LIMPIO) { for (const k in GL) { if (Array.isArray(GL[k])) GL[k].forEach((g) => (g.visible = false)); else GL[k].visible = false; } }
   renderer.render(scene, camera);

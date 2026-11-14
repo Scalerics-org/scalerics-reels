@@ -16,7 +16,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 
 // ================= LOS BEATS (segundos del video final) =================
 // Voces (assets/voice, recortadas; tomas en partes/voces.md): n1 0,74 ("cargo." +0,2) · m1 1,63 ("azúcar" +1,0) · n2 0,79
-// · g1 1,50 ("Rubén," 0 · "¿y mi harina?" +0,84) · r1 2,20 ("carga" +0,7 · "Nico" +1,0 · "es el celular." +1,3) · r2 0,94
+// · g1 1,64 ("Rubén," 0 · "¿y la harina?" +0,8) · r1 2,20 ("carga" +0,7 · "Nico" +1,0 · "es el celular." +1,3) · r2 0,94
 // (con la cola del galpón; la palabra 0,3) · n3 0,76 · r3 0,77 ("cargué." +0,3) · n4 1,96 (ahogada; "Ya lo cargo." +0,6) ·
 // narrador 2,26 · n5 0,43 ("Ya lo car…") · n6 1,63 ("Rubén," 0 · "¿lo de Graciela?" +0,58) · r4 0,65
 const LEN = { n1: 0.74, m1: 1.63, n2: 0.79, g1: 1.64, r1: 2.2, r2: 0.74, n3: 0.76, r3: 0.77, n4: 1.71, nar: 2.26, n5: 0.43, n6: 1.63, r4: 0.65 };
@@ -37,7 +37,7 @@ T.bar = [5.8, 5.98]; T.kio = [6.4, 6.58];
 T.globos = [T.mete[1], r2(T.n2 + 0.35), 6.08, 6.68, 7.12, 7.42, 7.72];
 T.lleno = 7.9;                                  // los globos se aplastan contra los vidrios; el cachete de Nico
 T.p3 = 8.4;                                     // la transición: el último globo tapa la lente y se destapa en el depósito
-// P3 · el depósito (lunes): grúa desde el piso hasta el ventanal de la oficina; el teléfono; "Rubén, ¿y mi harina?"
+// P3 · el depósito (lunes): grúa desde el piso hasta el ventanal de la oficina; el teléfono; "Rubén, ¿y la harina?"
 T.grua = [T.p3, r2(T.p3 + 0.85)]; T.ring = r2(T.p3 + 0.9); T.altavoz = r2(T.p3 + 1.15); T.g1 = r2(T.p3 + 1.25);
 // P4 · el monitor (ninguno) · por encima del hombro: entra el auto lleno · "Lo único que carga Nico es el celular." · inserto
 // del tablero (100 %)
@@ -46,7 +46,8 @@ T.p4b = r2(T.p4 + 0.6); T.entra = [r2(T.p4b - 0.4), r2(T.p4b + 0.85)]; T.r1 = r2
 T.p4c = r2(T.r1 + 1.2);                          // inserto del tablero (el celular cargando, 100 %) sobre "es el celular."
 T.p5 = r2(T.r1 + LEN.r1 + 0.1);
 // P5 · Rubén en la baranda: "¡Nico!" · contraplano desde el auto: baja la ventanilla, asoma un globo: "¡Ya lo cargo!"
-T.r2 = r2(T.p5 + 0.15); T.p5b = r2(T.r2 + 0.5); T.ventanilla = [T.p5b, r2(T.p5b + 0.22)]; T.n3 = r2(T.p5b + 0.2);
+// (ronda 2) "¡Nico!" antes: más aire hasta "¡Ya lo cargo!"
+T.r2 = r2(T.p5 + 0.02); T.p5b = r2(T.p5 + 0.65); T.ventanilla = [T.p5b, r2(T.p5b + 0.22)]; T.n3 = r2(T.p5b + 0.2);
 // P6 · la pausa: el bip del autoelevador, Rubén deja el mate en la baranda
 T.p6 = r2(T.n3 + LEN.n3 + 0.08); T.bips = [r2(T.p6 + 0.1), r2(T.p6 + 0.5), r2(T.p6 + 0.9)]; T.mateBaranda = r2(T.p6 + 0.55);
 // P7 · el remate: el autoelevador (Rubén) levanta el auto con Nico adentro, sube la rampa y lo mete en el camión
@@ -194,13 +195,13 @@ const GANCHO = { cola: 420, rot: 10 };
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
-        tl.fromTo(l, { scale: 0.6, y: 40, rotation: (i % 2 ? 1 : -1) * 8 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.85, y: 30, rotation: (i % 2 ? 1 : -1) * 5 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.22)});`,
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.52)});   // (ronda 2) se va antes de que abra el iris`,
   });
 }
 
@@ -334,7 +335,7 @@ s("sfx/k-creak.wav", T.entra2[1] - 0.15, 0, { dur: 0.3, fin: 0.1, techo: -50, ve
 voz("n6", T.n6, -2);
 s("sfx/k-metal-pesado-0.wav", T.puerta2[1] - 0.03, 0, { techo: -40 });
 voz("r4", T.r4, -1);
-s("sfx/k-metal-medio-1.wav", T.q4 + 0.02, 0, { techo: -43 });
+// (ronda 2) sin el golpe de chapa de 32,16 (no se veía nada que lo hiciera)
 motor(T.sale2[0] + 0.1, r2(T.sale2[1] - T.sale2[0]), -47, 0.72);
 s("sfx/k-neumatico-abre.wav", T.horquillas[0], 0, { techo: -44, lp: 1200, vel: 0.75, dur: 0.35, fin: 0.1 });
 bip(T.horquillas[0] + 0.05, -40); bip(T.horquillas[0] + 0.4, -40);

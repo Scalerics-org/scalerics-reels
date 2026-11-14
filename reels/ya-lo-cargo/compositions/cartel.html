@@ -51,13 +51,13 @@
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
-        tl.fromTo(l, { scale: 0.6, y: 40, rotation: (i % 2 ? 1 : -1) * 8 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.85, y: 30, rotation: (i % 2 ? 1 : -1) * 5 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.28);
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.98);   // (ronda 2) se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
