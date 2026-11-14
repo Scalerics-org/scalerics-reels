@@ -333,7 +333,7 @@ s("sfx/madera-tabla.wav", T.pallet[1] - 0.05, 0, { techo: -47 });
 motor(T.entra2[0], r2(T.entra2[1] - T.entra2[0]), -49, 0.95);
 s("sfx/k-creak.wav", T.entra2[1] - 0.15, 0, { dur: 0.3, fin: 0.1, techo: -50, vel: 1.25 });
 voz("n6", T.n6, -2);
-s("sfx/k-metal-pesado-0.wav", T.puerta2[1] - 0.03, 0, { techo: -40 });
+// (pulido) sin el golpe de chapa de 31,34 (no hay puerta en cuadro)
 voz("r4", T.r4, -1);
 // (ronda 2) sin el golpe de chapa de 32,16 (no se veía nada que lo hiciera)
 motor(T.sale2[0] + 0.1, r2(T.sale2[1] - T.sale2[0]), -47, 0.72);

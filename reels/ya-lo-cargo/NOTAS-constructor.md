@@ -170,3 +170,10 @@ Lista: scratchpad/ronda1/ya-lo-cargo.md. Todo sale igual de `node gen.mjs`.
   entra al monitor en Q2b.
 - Portada: `portada-src/fondo-limpio-16.95.png` regenerado (cambió la cámara de P7).
 - Pasadas: r2a-r2d, q1a/q1b (cada 0,5 s), cortes ±0,04 (40 cuadros). `check --json`: 0 errores.
+
+## Pulido final (14-11)
+- Burbujas del bar y del kiosco a 74 px ("¿Y el agua / con gas?" en dos líneas); P7 con Rubén entero (cámara más cerca
+  del eje, apunta a ze+0,75; el pallet suelto de agua que tapaba abajo pasó a x 2,2 z -6,9); pelo de Rubén con bolitas
+  más chicas y más bajas, finas a los costados, nuca mínima; Q2 arranca más cerca y más bajo (menos piso); Q4b la marcha
+  atrás de 2,2 m (el auto termina en cuadro con Nico); sin el golpe de chapa de 31,34; guion.txt sin "Nico, aliviado,
+  pulgar arriba". Fondo limpio de la portada (16,95) regenerado. medir.py igual (solo el borde de 24,5 s); check 0 errores.
