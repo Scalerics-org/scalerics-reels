@@ -1,0 +1,33 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s00-gancho"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s00-gancho"] .glo { position: absolute; left: 80px; right: 80px; top: 120px; padding: 34px 36px 44px; border-radius: 46px; background: #efeee5; border: 9px solid #0b1220; box-shadow: 14px 16px 0 #050a14; text-align: center; transform-origin: 22% 100%; }
+    [data-composition-id="s00-gancho"] .tx { font: 900 146px/1.06 "Lexend", sans-serif; letter-spacing: -0.025em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s00-gancho"] .sel { position: relative; display: inline-block; padding: 0 22px; }
+    [data-composition-id="s00-gancho"] .sel b { position: absolute; inset: 8px 0 -4px; background: #5ce611; border: 6px solid #0b1220; border-radius: 8px; }
+    [data-composition-id="s00-gancho"] .sel em { position: relative; font-style: normal; }
+    [data-composition-id="s00-gancho"] .cola { position: absolute; left: 420px; bottom: -86px; width: 0; height: 0; border-left: 46px solid transparent; border-right: 46px solid transparent; border-top: 90px solid #0b1220; transform: rotate(10deg); transform-origin: 50% 0; }
+    [data-composition-id="s00-gancho"] .cola::after { content: ""; position: absolute; left: -30px; top: -98px; border-left: 30px solid transparent; border-right: 30px solid transparent; border-top: 62px solid #efeee5; }
+  </style>
+  <div id="root" data-composition-id="s00-gancho" data-width="1080" data-height="1920" data-duration="1.15">
+    <div id="s00-gancho-esc" class="esc clip" data-start="0" data-duration="1.15" data-track-index="0">
+      <div class="glo"><div class="tx">Ya lo <span class="sel"><b></b><em>cargo.</em></span></div><div class="cola"></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s00-gancho";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".glo"), { scale: 1 }, { scale: 1.035, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.3);
+      tl.to(q(".glo"), { scale: 0.6, opacity: 0, y: -50, duration: 0.15, ease: "power2.in" }, 0.99);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
