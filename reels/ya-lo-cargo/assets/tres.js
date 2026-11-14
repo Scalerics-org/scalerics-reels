@@ -299,7 +299,7 @@ const RAMPA = { x0: -2.7, x1: 0.7, z0: 0.8, z1: 4.4, alto: 1.2 };   // la rampa 
 const MUELLE = { z0: 4.4, z1: 8.0 };
 const CAMX = -1.0;                                                  // el eje del camión, la rampa y el auto
 const OFI = { x0: -5.2, x1: 3.2, z0: -12, z1: -8.5, piso: 3.3, alto: 2.6 };
-const BAR_Z = -7.4;                                                 // la baranda del balcón de la oficina
+const BAR_Z = -7.4, BAR_H = 0.85;                                                 // la baranda del balcón de la oficina
 const PARK = { x: CAMX, z: -2.0 };                                  // donde frena el auto de Nico (de frente a la rampa)
 const PALLET_G = { x: CAMX, z: -2.0 };                              // el pallet GRACIELA (parte 2: en el mismo lugar)
 const sueloEn = (x, z) => (x >= RAMPA.x0 - 0.05 && x <= RAMPA.x1 + 0.05 ? (z <= RAMPA.z0 ? 0 : z >= MUELLE.z1 ? 0 : z >= RAMPA.z1 ? RAMPA.alto : (RAMPA.alto * (z - RAMPA.z0)) / (RAMPA.z1 - RAMPA.z0)) : 0);
@@ -357,9 +357,10 @@ let camion, puertasCam = [], monitor, telefono, mateR, termoR, mateBar;
   // la pared del fondo de la oficina (crema, con un cuadro de remitos)
   DEP.add(caja(OW, OFI.alto, 0.1, mat(C.cr, 0.8), OC, OFI.piso + OFI.alto / 2, OFI.z0 + 0.1));
   // el balcón con la baranda (caños navy3 y pasamanos verde)
-  DEP.add(caja(OW + 2.3, 0.06, 0.08, M.g, OC + 1.15, OFI.piso + 1.05, BAR_Z, 0.02));
-  DEP.add(caja(OW + 2.3, 0.05, 0.06, M.navy3, OC + 1.15, OFI.piso + 0.55, BAR_Z, 0.02));
-  for (let x = OFI.x0; x <= OFI.x1 + 2.31; x += 0.9) DEP.add(caja(0.06, 1.05, 0.06, M.navy3, x, OFI.piso + 0.52, BAR_Z));
+  // (ronda 1: pasamanos a 0,85: a 1,05 le cruzaba la boca a Rubén desde el contrapicado)
+  DEP.add(caja(OW + 2.3, 0.06, 0.08, M.g, OC + 1.15, OFI.piso + BAR_H, BAR_Z, 0.02));
+  DEP.add(caja(OW + 2.3, 0.05, 0.06, M.navy3, OC + 1.15, OFI.piso + 0.45, BAR_Z, 0.02));
+  for (let x = OFI.x0; x <= OFI.x1 + 2.31; x += 0.9) DEP.add(caja(0.06, BAR_H, 0.06, M.navy3, x, OFI.piso + BAR_H / 2, BAR_Z));
   // la escalera metálica (baja hacia +x desde el balcón)
   const n = 14;
   for (let i = 0; i < n; i++) DEP.add(caja(1.1, 0.06, 0.32, mat(0x8a8e98, 0.5, { metalness: 0.4 }), OFI.x1 + 2.9, OFI.piso - (i + 1) * (OFI.piso / n) + 0.05, BAR_Z - 0.6 + (i + 1) * 0.3).rotateY(0));
@@ -372,7 +373,7 @@ let camion, puertasCam = [], monitor, telefono, mateR, termoR, mateBar;
   monitor.add(caja(0.08, 0.32, 0.08, M.navy, 0, 0.16, -0.05)); monitor.add(caja(0.3, 0.02, 0.2, M.navy, 0, 0.01, -0.03));
   monitor.add(caja(0.86, 0.56, 0.05, M.navy, 0, 0.6, 0, 0.02));
   const pm = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 0.5), new THREE.MeshBasicMaterial({ map: pantM, toneMapped: false })); pm.position.set(0, 0.6, 0.027); monitor.add(pm);
-  telefono = new THREE.Group(); telefono.position.set(0.15, ESC_Y, ESC_Z + 0.1); telefono.rotation.y = -0.35; DEP.add(telefono);
+  telefono = new THREE.Group(); telefono.position.set(0.05, ESC_Y, ESC_Z + 0.2); telefono.rotation.y = -0.3; telefono.scale.setScalar(1.6); DEP.add(telefono);   // (ronda 1: más grande y más al centro: se ve en P3)
   telefono.add(caja(0.24, 0.07, 0.22, M.navy3, 0, 0.035, 0, 0.03));
   for (let i = 0; i < 12; i++) telefono.add(caja(0.03, 0.015, 0.025, M.cr, -0.05 + (i % 3) * 0.04, 0.075, 0.03 + Math.floor(i / 3) * 0.035 - 0.04, 0.005));
   const tubo = caja(0.26, 0.05, 0.07, M.navy3, 0, 0.1, -0.06, 0.025); telefono.add(tubo);
@@ -452,8 +453,8 @@ function dibujarCartelP(ok) {
   if (claveP === ok) return; claveP = ok;
   const { x } = cartelPT.userData, w = 512, h = 300;
   x.fillStyle = "#c9a46b"; x.fillRect(0, 0, w, h); x.strokeStyle = "#8a6a3a"; x.lineWidth = 10; x.strokeRect(5, 5, w - 10, h - 10);
-  x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = '700 118px "Caveat", cursive'; x.fillText("GRACIELA", w / 2, h * 0.42);
-  x.font = '700 64px "Caveat", cursive'; x.fillText("40 harina · lunes", w / 2, h * 0.78);
+  x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "GRACIELA", 900, 104, w - (ok ? 190 : 60)); x.fillText("GRACIELA", ok ? w / 2 - 50 : w / 2, h * 0.4);   // (ronda 1: Lexend; en Caveat la C se leía G)
+  x.font = F(800, 52); x.fillText("40 harina · lunes", w / 2, h * 0.78);
   if (ok) { x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 8; x.beginPath(); x.arc(w - 70, 66, 52, 0, 7); x.fill(); x.stroke(); x.strokeStyle = "#0b1220"; x.lineWidth = 16; x.lineCap = "round"; x.beginPath(); x.moveTo(w - 96, 66); x.lineTo(w - 76, 88); x.lineTo(w - 42, 44); x.stroke(); }
   cartelPT.needsUpdate = true;
 }
@@ -515,24 +516,27 @@ const celuAutoT = lienzo(400, 700, (x, w, h) => {
   x.strokeStyle = "#5ce611"; x.lineWidth = 16; x.beginPath(); x.roundRect(110, 120, 180, 340, 26); x.stroke();
   x.fillStyle = "#5ce611"; x.fillRect(130, 140, 140, 300); x.fillRect(160, 92, 80, 30);
   x.fillStyle = "#0b1220"; x.beginPath(); x.moveTo(215, 190); x.lineTo(160, 300); x.lineTo(205, 300); x.lineTo(185, 400); x.lineTo(245, 275); x.lineTo(200, 275); x.closePath(); x.fill();
-  x.fillStyle = "#5ce611"; x.font = F(900, 128); x.fillText("100 %", w / 2, 580);
+  x.fillStyle = "#5ce611"; x.font = F(800, 132); x.fillText("100%", w / 2, 585);
 });
 function crearAuto() {
   const g = new THREE.Group(), cue = mat(C.cr, 0.45, { metalness: 0.05 }), fr = M.navy3;
   const { L, W: AW, H } = AUTO;
   // la carrocería baja y el capot
-  g.add(caja(AW, 0.86, L, cue, 0, 0.73, 0, 0.2));
-  g.add(caja(AW - 0.04, 0.16, 1.05, cue, 0, 1.12, L / 2 - 0.55, 0.12));
+  g.add(caja(AW, 0.66, L, cue, 0, 0.63, 0, 0.2));
+  g.add(caja(AW - 0.04, 0.16, 1.05, cue, 0, 0.92, L / 2 - 0.55, 0.12));
   // la franja navy3 al costado y los paragolpes
-  for (const s of [-1, 1]) g.add(caja(0.02, 0.14, L - 0.4, fr, s * (AW / 2 + 0.002), 0.82, 0, 0.01));
+  for (const s of [-1, 1]) g.add(caja(0.02, 0.14, L - 0.4, fr, s * (AW / 2 + 0.002), 0.72, 0, 0.01));
   for (const s of [-1, 1]) g.add(caja(AW + 0.04, 0.16, 0.14, M.navy3, 0, 0.42, s * (L / 2 + 0.02), 0.05));
   // faros crema y luces de atrás rojo apagado
   for (const s of [-1, 1]) { g.add(mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.04, 18), mat(0xfff6dc, 0.2, { emissive: 0xfff2c8, emissiveIntensity: 0.25 }), s * 0.6, 0.86, L / 2 + 0.01).rotateX(Math.PI / 2)); g.add(caja(0.26, 0.16, 0.04, M.red, s * 0.62, 0.9, -L / 2 - 0.005, 0.03)); }
   g.add(caja(0.9, 0.2, 0.03, M.navy3, 0, 0.62, L / 2 + 0.01, 0.03));   // la parrilla
   // la cabina: parantes navy3, techo crema, vidrios
-  const cab = { z0: -L / 2 + 0.15, z1: L / 2 - 1.05, y0: 1.15, y1: H };
+  const cab = { z0: -L / 2 + 0.15, z1: L / 2 - 1.05, y0: 0.95, y1: H };
   const cz = (cab.z0 + cab.z1) / 2, cl2 = cab.z1 - cab.z0;
-  g.add(caja(AW - 0.04, 0.16, cl2 + 0.12, cue, 0, cab.y1 - 0.06, cz, 0.08));
+  // el techo con techo solar (ronda 1: desde arriba, P4b y P5, se ven los globos apretados adentro)
+  for (const s of [-1, 1]) g.add(caja(0.26, 0.16, cl2 + 0.12, cue, s * (AW / 2 - 0.15), cab.y1 - 0.06, cz, 0.06));
+  g.add(caja(AW - 0.04, 0.16, 0.3, cue, 0, cab.y1 - 0.06, cab.z1 - 0.09, 0.06)); g.add(caja(AW - 0.04, 0.16, 0.26, cue, 0, cab.y1 - 0.06, cab.z0 + 0.07, 0.06));
+  { const ts = new THREE.Mesh(new THREE.PlaneGeometry(AW - 0.5, cl2 - 0.42), M.vidrioAuto); ts.rotation.x = -Math.PI / 2; ts.position.set(0, cab.y1 - 0.02, cz - 0.02); ts.renderOrder = 6; g.add(ts); }
   for (const s of [-1, 1]) for (const [z, w] of [[cab.z0 + 0.08, 0.2], [cab.z1 - 0.06, 0.13], [-0.08, 0.13]]) g.add(caja(0.1, cab.y1 - cab.y0, w, cue, s * (AW / 2 - 0.06), (cab.y0 + cab.y1) / 2, z, 0.03));
   for (const s of [-1, 1]) g.add(caja(0.06, 0.06, cl2, fr, s * (AW / 2 - 0.05), cab.y0 + 0.02, cz, 0.02));
   const vid = (w, h, x, y, z, ry) => { const v = new THREE.Mesh(new THREE.PlaneGeometry(w, h), M.vidrioAuto); v.position.set(x, y, z); v.rotation.y = ry; v.renderOrder = 6; g.add(v); return v; };
@@ -545,9 +549,9 @@ function crearAuto() {
   vid(AW - 0.16, vH, 0, vY, cab.z0, Math.PI);
   // la puerta del acompañante (-x, adelante): bisagra en su borde delantero; se abre en P1b
   const puerta = new THREE.Group(); puerta.position.set(-AW / 2 - 0.01, 0, cab.z1 - 0.05); g.add(puerta);
-  puerta.add(caja(0.05, 0.82, 1.15, cue, -0.01, 0.73, -0.58, 0.03));
-  puerta.add(caja(0.02, 0.14, 1.1, fr, -0.035, 0.82, -0.58, 0.01));
-  puerta.add(caja(0.03, 0.04, 0.16, M.navy, -0.045, 1.0, -0.95, 0.01));
+  puerta.add(caja(0.05, 0.64, 1.15, cue, -0.01, 0.63, -0.58, 0.03));
+  puerta.add(caja(0.02, 0.14, 1.1, fr, -0.035, 0.72, -0.58, 0.01));
+  puerta.add(caja(0.03, 0.04, 0.16, M.navy, -0.045, 0.86, -0.95, 0.01));
   // ruedas navy con llanta crema
   for (const s of [-1, 1]) for (const z of [-L / 2 + 0.62, L / 2 - 0.62]) {
     const r = new THREE.Group(); r.position.set(s * (AW / 2 - 0.12), 0.34, z); g.add(r);
@@ -557,12 +561,20 @@ function crearAuto() {
   // el interior: asientos navy, el volante, el tablero con el celular enchufado (cable crema)
   for (const s of [-1, 1]) { g.add(caja(0.62, 0.16, 0.6, M.navy2, s * 0.42, AUTO.asiento - 0.06, -0.05, 0.05)); g.add(caja(0.62, 0.7, 0.14, M.navy2, s * 0.42, AUTO.asiento + 0.32, -0.4, 0.06)); }
   g.add(caja(AW - 0.2, 0.16, 0.6, M.navy2, 0, AUTO.asiento - 0.06, -1.05, 0.05)); g.add(caja(AW - 0.2, 0.62, 0.14, M.navy2, 0, AUTO.asiento + 0.28, -1.38, 0.06));
-  g.add(caja(AW - 0.12, 0.26, 0.4, M.navy3, 0, 0.98, cab.z1 - 0.12, 0.06));
-  const volante = mesh(new THREE.TorusGeometry(0.17, 0.025, 8, 24), M.navy, 0.42, 1.08, cab.z1 - 0.38); volante.rotation.x = -0.5; g.add(volante);
-  const celu = new THREE.Group(); celu.position.set(-0.05, 1.32, cab.z1 - 0.2); celu.rotation.x = -0.25; g.add(celu);
+  g.add(caja(AW - 0.12, 0.26, 0.3, M.navy3, 0, 0.98, cab.z1 - 0.07, 0.06));
+  const volante = mesh(new THREE.TorusGeometry(0.17, 0.025, 8, 24), M.navy, 0.42, 1.08, cab.z1 - 0.3); volante.rotation.x = -0.5; g.add(volante);
+  g.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.16, 10), M.navy, 0.42, 1.06, cab.z1 - 0.22).rotateX(Math.PI / 2 - 0.5));   // la columna
+  // el celular en su soporte sobre el tablero (al lado del volante), enchufado: cuna navy con dos pestañas, el cable
+  // crema que baja en curva hasta el puerto USB del tablero (P4c lo muestra de cerca)
+  g.add(caja(AW - 0.12, 0.05, 0.12, M.navy, 0, 1.12, cab.z1 - 0.06, 0.02));   // el borde de arriba del tablero, contra el parabrisas
+  const celu = new THREE.Group(); celu.position.set(0.16, 1.27, cab.z1 - 0.22); celu.rotation.x = -0.12; g.add(celu);
   celu.add(caja(0.15, 0.27, 0.025, M.navy, 0, 0, 0, 0.02));
   const cp = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.24), new THREE.MeshBasicMaterial({ map: celuAutoT, toneMapped: false })); cp.position.z = -0.014; cp.rotation.y = Math.PI; celu.add(cp);
-  const cable = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([V3(0, -0.13, 0), V3(0.0, -0.2, -0.02), V3(0.05, -0.18, -0.08), V3(0.08, -0.12, -0.05)]), 20, 0.008, 5), M.cr); celu.add(cable);
+  celu.add(caja(0.19, 0.03, 0.07, M.navy3, 0, -0.15, 0.0, 0.01));                       // la cuna
+  for (const sx of [-1, 1]) celu.add(caja(0.02, 0.09, 0.05, M.navy3, sx * 0.087, -0.1, 0.0, 0.006));   // las pestañas
+  celu.add(caja(0.06, 0.05, 0.06, M.navy3, 0, -0.17, 0.03, 0.01));                      // la base pegada al tablero
+  const cable = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([V3(-0.03, -0.13, -0.005), V3(-0.05, -0.17, -0.03), V3(-0.1, -0.175, -0.05), V3(-0.15, -0.165, -0.03), V3(-0.19, -0.17, 0.0)]), 24, 0.008, 6), M.cr); celu.add(cable);
+  celu.add(caja(0.05, 0.03, 0.04, M.navy3, -0.2, -0.175, 0.0, 0.008));                  // el puerto del tablero
   g.userData = { puerta, ventCond, ventY: vY, vH, celu, cab };
   return sombras(g);
 }
@@ -577,6 +589,17 @@ const SLOTS = [
   [-0.38, 1.66, 0.12, 0.9, [1.1, 0.72]],   // 4 · arriba adelante, contra el techo
   [0.1, 1.2, -0.5, 0.95, [0.85, 1.1]],     // 5 · en el medio
   [0.18, 1.58, -0.4, 0.9, [1.05, 0.8]],    // 6 · el último: contra la cabeza de Nico (el cachete)
+];
+// (ronda 1) el auto lleno de verdad: en T.lleno cada globo crece y se aplasta contra un vidrio (el 6, contra el cachete
+// de Nico). [x, y, z, sx, sy, sz, giro]
+const LLENO = [
+  [-0.43, 1.27, 0.37, 1.12, 1.0, 0.55, 0.0],    // 0 · contra el parabrisas, lado del acompañante
+  [0.42, 1.25, -1.05, 1.3, 1.3, 0.8, 0.25],     // 1 · atrás, conductor
+  [-0.42, 1.25, -1.05, 1.3, 1.3, 0.8, 0.6],     // 2 · atrás, acompañante
+  [0.0, 1.62, -1.1, 1.3, 0.7, 0.8, 0.45],       // 3 · atrás arriba, contra el techo
+  [-0.42, 1.61, 0.34, 1.1, 0.72, 0.5, 0.0],     // 4 · adelante arriba, contra el techo y el parabrisas
+  [0.05, 1.3, -0.62, 1.25, 1.2, 0.7, 0.45],     // 5 · en el medio
+  [-0.01, 1.42, 0.12, 0.55, 1.15, 0.7, -0.15],  // 6 · contra el cachete derecho de Nico
 ];
 const GLOBOS = [
   crearGloboChat("txt", "40 harina\nlunes"), crearGloboChat("txt", "2 azúcar"), crearGloboChat("txt", "agua con\ngas x6"),
@@ -639,7 +662,7 @@ function crearCamion() {
     return p;
   });
   // el remito pegado en la hoja derecha (la de -x, vista desde atrás queda a la derecha)
-  const rem = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.43), new THREE.MeshStandardMaterial({ map: remitoT, roughness: 0.85 }));
+  const rem = new THREE.Mesh(new THREE.PlaneGeometry(0.95, 0.66), new THREE.MeshStandardMaterial({ map: remitoT, roughness: 0.85 }));
   rem.position.set(CW / 4, H * 0.7, -0.075); rem.rotation.y = Math.PI; puertas[0].add(rem);
   // la cabina
   g.add(caja(CW, 2.3, 1.9, M.navy3, 0, 1.55, L + 1.1, 0.18));
@@ -660,9 +683,9 @@ function dibujarRemito(ok) {
   x.fillStyle = "#f7f6f0"; x.fillRect(0, 0, w, h);
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 92); x.fillStyle = "#efeee5"; x.font = F(800, 58); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("REMITO", w / 2, 50);
   x.fillStyle = "#0b1220"; ajustar(x, "GRACIELA", 900, 92, w - 60); x.fillText("GRACIELA", w / 2, 172);
-  x.font = F(800, 58); x.fillText("ROTISERÍA", w / 2, 258);
-  if (ok) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(60, 312, w - 120, 86, 43); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 56); x.fillText("40 harina ✓", w / 2, 357); }
-  else { x.strokeStyle = "#c7655b"; x.lineWidth = 8; x.beginPath(); x.roundRect(60, 312, w - 120, 86, 43); x.stroke(); x.fillStyle = "#c7655b"; x.font = F(800, 52); x.fillText("sin pedido", w / 2, 357); }
+  x.font = F(800, 60); x.fillText("ROTISERÍA", w / 2, 252);
+  if (ok) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(36, 302, w - 72, 100, 50); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 66); x.fillText("40 harina ✓", w / 2, 354); }
+  else { x.fillStyle = "#c7655b"; x.beginPath(); x.roundRect(36, 302, w - 72, 100, 50); x.fill(); x.fillStyle = "#f7f6f0"; x.font = F(900, 68); x.fillText("sin pedido", w / 2, 354); }
   remitoT.needsUpdate = true;
 }
 // ---- la tarjeta del pedido (parte 2): verde de marca, se parte en dos ----
@@ -742,13 +765,45 @@ function dibujarMonitor(t) {
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [8.9, 13.2, 17.9, 21.95, 29.2, 32.95] });
+const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [8.9, 13.2, 21.95, 29.2, 32.95] });
 const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.4, 6.4, 12.6, 16.2, 27.6, 33.9] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, delantal: C.cr, delantalBorde: C.navy3, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.25, 24.2] });
 const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999, parpadeosExtra: [3.9] });
 const barman = crearPersonaje({ ...DEFECTO, nombre: "Tito", piel: PIEL.clara, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x2a2220, camisa: 0xf7f7f2, mangas: "largas", cuello: 0xf7f7f2, chaleco: { color: C.navy3, botones: C.cr }, panza: 1.15, nariz: 0.064, parpadeoCada: 999 });
 const kiosquera = crearPersonaje({ ...DEFECTO, nombre: "Elsa", piel: PIEL.clara, pelo: 0xe8e4dc, peinado: "rodete", cejasColor: 0xb0aaa0, lentes: C.navy3, camisa: 0xd6c7a6, mangas: "largas", cuello: C.cr, panza: 1.05, nariz: 0.052, labios: 0xb5555a, alto: 0.95, parpadeoCada: 999 });
-const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
+const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
+// (ronda 1) la corona canosa de Rubén (una cáscara lisa) de espaldas se leía como casco o venda: la reemplazo por
+// mechones canosos de distinto tamaño alrededor de la nuca y sobre las orejas, con el borde de abajo irregular
+{
+  const corona = ruben.cabeza.children.find((o) => o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.phiLength || 0) - Math.PI * 1.14) < 1e-3);
+  if (corona) {
+    corona.scale.multiplyScalar(0.985);   // queda debajo, rellena los huecos entre mechones
+    const pm = mat(PELO.canoso, 0.85), pm2 = mat(0xa9a6a0, 0.85);
+    const R0 = 0.3, CC0 = R0 * 0.92;
+    semilla = 21; ruben.raiz.updateMatrixWorld(true);
+    for (let fila = 0; fila < 2; fila++) {
+      const el = [0.24, -0.08][fila], n = [10, 11][fila], a0 = [1.7, 1.66][fila];
+      for (let i = 0; i < n; i++) {
+        const az0 = a0 + ((Math.PI * 2 - 2 * a0) * (i + 0.5 * (fila % 2))) / (n - 0.5);
+        const k = 1.0 + 0.02 * az();
+        const e2 = el + (az() - 0.5) * 0.1, a2 = az0 + (az() - 0.5) * 0.12;
+        const x = R0 * k * Math.sin(a2) * Math.cos(e2), y = CC0 + R0 * 0.97 * k * Math.sin(e2), z = R0 * 0.95 * k * Math.cos(a2) * Math.cos(e2);
+        const m = mesh(new THREE.SphereGeometry(1, 12, 9), (i + fila) % 3 ? pm : pm2, x, y, z);
+        const tam = 0.06 + 0.014 * az();
+        m.scale.set(tam * (1.2 + 0.3 * az()), tam * (1.35 + 0.35 * az()), tam * 0.5);
+        m.lookAt(ruben.cabeza.localToWorld(new THREE.Vector3(x * 3, CC0 + (y - CC0) * 3, z * 3))); m.rotateZ((az() - 0.5) * 0.8);
+        ruben.cabeza.add(m);
+      }
+    }
+  }
+}
+// (ronda 1) el operario tenía la cara de Nico: gorra navy con visera verde (y bigote)
+{
+  const R0 = 0.3, CC0 = R0 * 0.92, gm = mat(C.navy3, 0.7), vm = mat(C.g, 0.5);
+  const copa = mesh(new THREE.SphereGeometry(R0 * 1.05, 28, 14, 0, Math.PI * 2, 0, Math.PI * 0.4), gm, 0, CC0 + 0.01, -0.01); operario.cabeza.add(copa);
+  const vis = mesh(new THREE.CylinderGeometry(R0 * 0.75, R0 * 0.75, 0.025, 24, 1, false, -Math.PI * 0.45, Math.PI * 0.9), vm, 0, CC0 + R0 * 0.36, R0 * 0.62); vis.scale.set(1.1, 1, 0.9); vis.rotation.x = 0.12; operario.cabeza.add(vis);
+  operario.cabeza.add(mesh(new THREE.SphereGeometry(0.03, 10, 8), vm, 0, CC0 + R0 * 1.06, 0));
+}
 const TODOS = [ruben, nico, graciela, marta, barman, kiosquera, operario];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // el pulgar arriba de Nico (un dedo gordo que sale del puño, hacia arriba cuando el antebrazo va adelante)
@@ -839,7 +894,7 @@ const GL = {
   bar: crearGlobo(["¿Y el agua con gas?"], 62), barN: crearGlobo(["Ya lo [cargo.]"], 62),
   kio: crearGlobo(["Lo de siempre."], 62), kioN: crearGlobo(["Ya lo [cargo.]"], 62),
   raf: [0, 1, 2].map(() => crearGlobo(["Ya lo [cargo.]"], 64)),
-  g1: crearGlobo(["Rubén,", "¿y mi harina?"], 76),
+  g1: crearGlobo(["Rubén,", "¿y la harina?"], 76),
   r1: crearGlobo(["Lo único que", "carga Nico es", "el [celular.]"], 74),
   r2: crearGlobo(["¡Nico!"], 92),
   n3: crearGlobo(["¡Ya lo [cargo!]"], 82),
@@ -862,20 +917,26 @@ const PLANOS = [
   // P1b: la vereda, desde el lado de la rotisería: la puerta a la derecha, el auto a la izquierda
   ["P1b", T.p1b, [[T.p1b, -2.7, 1.8, 2.25, 1.2, 1.3, -0.5, 50], [T.sale[1], -2.5, 1.75, 1.6, 1.6, 1.3, 1.5, 50], [T.p2, -2.5, 1.75, 1.5, 1.6, 1.25, 1.9, 49]]],
   ["P2", T.p2, null],                      // sigue al auto (se arma en renderAt)
-  ["P3", T.p3, [[T.p3, ...w3(3.2, 1.1, 3.0), ...w3(-9.0, 2.6, -4.5), 56], [T.p3 + 0.4, ...w3(4.4, 2.2, 0.2), ...w3(-1.2, 3.4, -8), 56], [T.grua[1], ...w3(-0.55, 4.72, -6.55), ...w3(-0.6, 4.42, -10.2), 50], [T.p4, ...w3(-0.55, 4.7, -6.85), ...w3(-0.6, 4.42, -10.2), 47]]],
+  ["P3", T.p3, [[T.p3, ...w3(3.2, 1.1, 3.0), ...w3(-9.0, 2.6, -4.5), 56], [T.p3 + 0.4, ...w3(4.4, 2.2, 0.2), ...w3(-1.2, 3.4, -8), 56], [T.grua[1], ...w3(-0.5, 4.72, -6.55), ...w3(-0.38, 4.38, -10.2), 50], [T.p4, ...w3(-0.5, 4.7, -6.85), ...w3(-0.38, 4.36, -10.2), 47]]],
   ["P4", T.p4, null],                     // inserto del monitor (de frente a la pantalla, se arma en renderAt)
-  ["P4b", T.p4b, [[T.p4b, ...w3(-0.1, 5.75, -10.6), ...w3(-0.9, 0.0, -0.6), 46], [T.p4c, ...w3(-0.15, 5.7, -10.45), ...w3(-0.95, 0.1, -0.9), 42]]],
+  // P4b (ronda 1): por encima del hombro de Rubén, de pie contra el vidrio de la oficina: su nuca grande abajo y el auto
+  // lleno de globos (se ven por el techo solar) entrando al depósito
+  ["P4b", T.p4b, [[T.p4b, ...w3(-0.05, 5.8, -9.95), ...w3(-0.95, 1.1, -0.9), 42], [T.p4c, ...w3(-0.08, 5.78, -9.85), ...w3(-1.0, 1.1, -0.8), 40]]],
   ["P4c", T.p4c, null],                    // inserto del tablero (se arma en renderAt)
-  ["P5", T.p5, [[T.p5, ...w3(-0.2, 5.75, -9.9), ...w3(-1.3, 0.4, -1.8), 50], [T.p5b, ...w3(-0.25, 5.7, -9.75), ...w3(-1.3, 0.4, -1.8), 48]]],
+  // P5 (ronda 1): desde el balcón, detrás y a la derecha de Rubén (él a la izquierda, entero), el auto abajo
+  ["P5", T.p5, [[T.p5, ...w3(-1.5, 5.6, -9.6), ...w3(-0.6, 0.7, -2.0), 48], [T.p5b, ...w3(-1.5, 5.55, -9.45), ...w3(-0.62, 0.7, -2.0), 46]]],
   ["P5b", T.p5b, [[T.p5b, ...w3(2.4, 0.95, 1.4), ...w3(-1.3, 2.9, -4.6), 52], [T.p6, ...w3(2.35, 0.95, 1.3), ...w3(-1.3, 2.9, -4.6), 50]]],
-  ["P6", T.p6, [[T.p6, ...w3(1.05, 0.8, 0.55), ...w3(-1.1, 3.0, -6.5), 56], [T.p7, ...w3(1.0, 0.82, 0.45), ...w3(-1.1, 3.0, -6.5), 54]]],
+  ["P6", T.p6, [[T.p6, ...w3(1.05, 0.8, 0.55), ...w3(-2.35, 3.0, -6.5), 56], [T.p7, ...w3(1.0, 0.82, 0.45), ...w3(-2.35, 3.0, -6.5), 54]]],
   ["P7", T.p7, null],                      // el viaje del autoelevador (sigue al auto)
-  ["P8", T.p8, [[T.p8, ...w3(-1.3, 2.75, 3.7), ...w3(-1.55, 2.35, 8.0), 52], [T.arranca, ...w3(-1.35, 2.7, 3.85), ...w3(-1.6, 2.3, 8.0), 50], [P1, ...w3(-1.4, 2.65, 3.95), ...w3(-1.8, 2.1, 8.0), 50]]],
+  // P8 (ronda 1): más atrás y corrido hacia Rubén (entero a la derecha); cuando el camión se va, la cámara se le acerca
+  ["P8", T.p8, [[T.p8, ...w3(-1.6, 2.75, 2.7), ...w3(-1.6, 2.3, 8.0), 50], [T.arranca, ...w3(-1.65, 2.72, 2.9), ...w3(-1.75, 2.3, 8.0), 50], [P1, ...w3(-2.15, 2.7, 4.7), ...w3(-2.4, 2.45, 7.6), 44]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...ROTI(0)], [T.vuela[0], ...ROTI(0.9)], [T.q2, ...ROTI(1)]]],
   ["Q2", T.q2, null],                      // sigue a la tarjeta
   ["Q2b", T.q2b, null],
-  ["Q3", T.q3, null],
+  ["Q3", T.q3, null],                      // (ronda 1) Q3: el autoelevador sube la rampa con el pallet (de costado, como P7)
+  ["Q3b", Math.round((T.n6 - 0.05) * 100) / 100, null],   // desde el auto: Nico asomado, Rubén arriba en el muelle
+  ["Q3c", Math.round((T.r4 - 0.08) * 100) / 100, null],   // Rubén 3/4 en el autoelevador: "Ya salió."
   ["Q4", T.q4, null],
 ];
 const _m = new THREE.Vector3();
@@ -918,7 +979,7 @@ function curvaPorton(u, fin) {
   const dx = 2 * (1 - u) * (P1c[0] - P0[0]) + 2 * u * (P2c[0] - P1c[0]), dz = 2 * (1 - u) * (P1c[1] - P0[1]) + 2 * u * (P2c[1] - P1c[1]);
   return { x, z, rot: Math.atan2(dx, dz) };
 }
-const AUTO_Q = { x: CAMX, z: -1.5 };        // parte 2: el auto limpio frena al lado del muelle
+const AUTO_Q = { x: CAMX + 0.4, z: -1.75 };  // parte 2 (ronda 1): el auto limpio entra derecho del portón y frena de costado, la ventanilla del conductor hacia la rampa
 // el autoelevador: posición (local del depósito), rumbo, altura de las horquillas
 const ELEV_LEVANTA = PARK.z - 2.85;         // detrás del auto, con las horquillas debajo
 const ELEV_MUELLE = 5.45;
@@ -951,9 +1012,10 @@ function ponerElev(t) {
 }
 // el camión: la cola en el muelle; se va hacia +z
 function ponerCamion(t) {
-  const sale = t < P2 ? sg(t, T.arranca, T.arranca + 0.6) : sg(t, T.sale2[0], T.sale2[1] + 0.6);
-  camion.position.set(OX + CAMX, 0, MUELLE.z1 + eio(sale) * 14);
-  camion.visible = !(t < P2 && t > T.arranca + 0.65) && !(t >= P2 && t > T.sale2[1] + 0.7);
+  // (ronda 1) en P8 el camión se va más lento y queda en cuadro (antes desaparecía y el plano quedaba vacío)
+  const sale = t < P2 ? sg(t, T.arranca, T.arranca + 1.1) : sg(t, T.sale2[0], T.sale2[1] + 0.6);
+  camion.position.set(OX + CAMX, 0, MUELLE.z1 + (t < P2 ? ei(sale) * 8 : eio(sale) * 14));
+  camion.visible = !(t >= P2 && t > T.sale2[1] + 0.7);
   // las puertas: abiertas (contra los costados) hasta que se cierran
   const cierra = t < P2 ? eio(sg(t, T.puertas[0], T.puertas[1])) : eio(sg(t, T.puerta2[0], T.puerta2[1]));
   const abre = t < P2 ? 1 : 1;
@@ -1011,7 +1073,7 @@ function poseNico(t) {
       bocaVoz(pr, t, T.n2, ENV.n2, 0.75);
       // el auto lleno: el cachete contra el último globo (la cabeza ladeada hacia la ventanilla, ojos apretados de un lado)
       const ap = eo(sg(t, T.lleno, T.lleno + 0.2));
-      if (ap > 0) { pr.ladea = -0.12 * ap; pr.cabeza = { giro: 0.25 * ap, asiente: 0.05, ladea: -0.3 * ap }; pr.ojos = { x: 0.3, y: 0, abiertos: 0.9, guiño: 0.6 * ap, feliz: 0.2 }; pr.boca = { sonrisa: 0.4, abierta: 0, ancho: 0.8 }; }
+      if (ap > 0) { pr.ladea = 0.06 * ap; pr.cabeza = { giro: -0.2 * ap, asiente: 0.05, ladea: 0.22 * ap }; pr.ojos = { x: 0.2, y: 0, abiertos: 0.95, guiño: -0.7 * ap, feliz: 0.2 }; pr.boca = { sonrisa: 0.45, abierta: 0, ancho: 0.8 }; }
       return pr;
     }
     // el depósito: llega, ventanilla, "¡Ya lo cargo!" asomado; sorpresa con sonrisa cuando lo levantan; adentro del camión
@@ -1019,9 +1081,10 @@ function poseNico(t) {
     if (t >= T.p5b - 0.05 && t < T.p7) {
       // asomado a la ventanilla: mira arriba a Rubén, pulgar arriba afuera
       pr.cabeza = { giro: 0.65, asiente: -0.45, ladea: 0.05 }; pr.ojos = { x: 0.3, y: 0.6, abiertos: 1, feliz: 0.2 };
-      const asoma = eio(sg(t, T.ventanilla[0], T.ventanilla[1] + 0.1)); pr.x = lerp(0.42, 0.6, asoma); pr.ladea = -0.32 * asoma;
+      // (ronda 1: la cabeza queda ADENTRO, contra la ventanilla baja, adelante del parante; el brazo sale por encima del marco)
+      const asoma = eio(sg(t, T.ventanilla[0], T.ventanilla[1] + 0.1)); pr.x = lerp(0.42, 0.45, asoma); pr.z = lerp(-0.08, 0.0, asoma); pr.ladea = -0.04 * asoma;
       pr.boca = { ...CARA.feliz.boca };
-      if (t >= T.n3 - 0.1) { pr.manoI = [0.42, 0.62, 0.22]; pr.codoI = [1, -0.6, 0]; }
+      if (t >= T.n3 - 0.1) { pr.manoI = [0.55, 0.78, 0.2]; pr.codoI = [1, 0.1, 0]; }
       bocaVoz(pr, t, T.n3, ENV.n3, 0.8);
       if (t >= T.p6) { pr.boca = { sonrisa: 0.7, abierta: 0, ancho: 1.05 }; pr.ojos = { x: 0.3, y: 0.6, abiertos: 1, feliz: 0.05 }; }
     }
@@ -1041,31 +1104,38 @@ function poseNico(t) {
   const pr = { ...sentarEn(nico, auto, 0.42, AUTO.asiento - 0.58, -0.08), inclina: 0.0, ...VOLANTE, ...aC(0.6, -0.2), ...BUENA, t };
   // asomado a la ventanilla (se ve desde atrás del auto), mirando arriba a Rubén en el muelle
   const asoma = eio(sg(t, T.entra2[1] - 0.1, T.entra2[1] + 0.2)) * (1 - eio(sg(t, T.atras[0] - 0.25, T.atras[0])));
-  pr.x = lerp(0.42, 0.6, asoma); pr.ladea = -0.32 * asoma; pr.cabeza = { giro: lerp(0, -0.35, asoma), asiente: -0.3 * asoma, ladea: 0 };
+  pr.x = lerp(0.42, 0.45, asoma); pr.z = lerp(-0.08, 0.0, asoma); pr.ladea = -0.04 * asoma; pr.cabeza = { giro: lerp(0, 0.75, asoma), asiente: -0.3 * asoma, ladea: 0 };
   bocaVoz(pr, t, T.n6, ENV.n6, 0.75);
-  if (t >= T.pulgar2 && t < T.atras[0]) { pr.manoI = [0.42, 0.62, 0.22]; pr.codoI = [1, -0.6, 0]; }
+  if (t >= T.pulgar2 && t < T.atras[0]) { pr.manoI = [0.55, 0.78, 0.2]; pr.codoI = [1, 0.1, 0]; }
   if (t >= T.horquillas[0]) { pr.cabeza = { giro: 0.45, asiente: -0.1, ladea: 0 }; pr.cejas = { alto: 0.8, ang: 0.3 }; pr.boca = { sonrisa: 0.35, abierta: 0.2, ancho: 0.8 }; }
   return pr;
 }
 // ---------- Rubén ----------
+// (ronda 1) las manos en el volante del autoelevador (antes quedaban a la altura de la boca)
+const MANOS_ELEV = { manoI: [0.14, 0.39, 0.47], manoD: [-0.14, 0.39, 0.47], codoI: [0.8, -0.7, -0.1], codoD: [-0.8, -0.7, -0.1], dedoI: 0, dedoD: 0 };
 const R_ESC = { x: -0.6, z: -10.3 };         // sentado al escritorio, mirando +z (al ventanal)
-const R_BAR = { x: -1.0, z: BAR_Z - 0.42 };  // en la baranda
+const R_BAR = { x: -1.0, z: BAR_Z - 0.37 };  // en la baranda
 function poseRuben(t) {
   const parte2 = t >= P2;
   if (!parte2 && t < T.p5) {
     aPie(ruben);
     const pr = { x: R_ESC.x, y: OFI.piso - 0.08, z: R_ESC.z, giro: 0, sentado: 1, inclina: 0.06, ...aC(0, 0.05), ...NADA, manoI: [0.26, 0.28, 0.4], manoD: [-0.26, 0.28, 0.4], codoI: null, codoD: null, t };
     if (t >= T.ring - 0.05) { pr.cabeza = { giro: -0.3, asiente: 0.15, ladea: 0 }; pr.ojos = { x: -0.4, y: -0.4, abiertos: 0.85 }; }
-    if (t >= T.altavoz - 0.2 && t < T.altavoz + 0.2) { const k = Math.sin(Math.PI * sg(t, T.altavoz - 0.2, T.altavoz + 0.2)); pr.manoD = [lerp(-0.26, -0.35, k), lerp(0.28, 0.22, k), lerp(0.4, 0.55, k)]; }
+    if (t >= T.altavoz - 0.2 && t < T.altavoz + 0.2) { const k = Math.sin(Math.PI * sg(t, T.altavoz - 0.2, T.altavoz + 0.2)); pr.manoI = [lerp(0.26, 0.4, k), lerp(0.28, 0.25, k), lerp(0.4, 0.56, k)]; }   // el teléfono está a su izquierda
     if (t >= T.p4 - 0.1) { pr.cabeza = { giro: 0.5, asiente: 0.1, ladea: 0 }; pr.ojos = { x: 0.6, y: -0.1, abiertos: 0.8, tension: 0.2 }; }
-    if (t >= T.p4b) { Object.assign(pr, SECO); pr.cabeza = { giro: 0.05, asiente: 0.45, ladea: 0 }; pr.ojos = { x: 0, y: -0.7, abiertos: 0.8, tension: 0.25 }; pr.inclina = 0.12; }
+    if (t >= T.p4b) {
+      // (ronda 1) se paró y fue al vidrio con el mate: mira abajo el auto que entra
+      Object.assign(pr, SECO, { y: OFI.piso, z: OFI.z1 - 0.32, sentado: 0, manoD: [-0.2, 0.36, 0.3], codoD: [-0.8, -0.6, -0.2], manoI: [0.27, -0.06, 0.06], codoI: null });
+      pr.cabeza = { giro: 0.05, asiente: 0.45, ladea: 0 }; pr.ojos = { x: 0, y: -0.7, abiertos: 0.8, tension: 0.25 }; pr.inclina = 0.08;
+    }
     bocaVoz(pr, t, T.r1, ENV.r1, 0.55);
     return pr;
   }
   if (!parte2 && t < T.p7) {
     // en la baranda: "¡Nico!"; cara de nada; deja el mate en la baranda
     aPie(ruben);
-    const pr = { x: R_BAR.x, y: OFI.piso, z: R_BAR.z, giro: 0, inclina: 0.18, ...aC(0.1, 0.5), ...SECO, manoI: [0.22, 0.42, 0.42], manoD: [-0.24, 0.5, 0.42], codoI: null, codoD: null, t };
+    const pr = { x: R_BAR.x, y: OFI.piso, z: R_BAR.z, giro: 0, inclina: 0.1, ...aC(0.1, 0.5), ...SECO, manoI: [0.22, 0.38, 0.33], manoD: [-0.26, 0.3, 0.3], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], t };
+    if (t >= T.mateBaranda) pr.manoD = [-0.24, 0.38, 0.33];
     pr.ojos = { x: 0.1, y: -0.75, abiertos: 0.85, tension: 0.2 };
     bocaVoz(pr, t, T.r2, ENV.r2, 0.85);
     if (t >= T.r2 && t < T.r2 + 0.45) { pr.cejas = { alto: 0.3, ang: 0.0 }; }
@@ -1075,9 +1145,9 @@ function poseRuben(t) {
   if (!parte2) {
     if (t < T.p8) {
       // al mando del autoelevador
-      const pr = { ...sentarEn(ruben, elev, 0, 0.5, -0.25), inclina: 0.05, ...aC(0, 0.15), ...SECO, manoI: [0.12, 0.62, 0.48], manoD: [-0.14, 0.62, 0.48], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], t };
+      const pr = { ...sentarEn(ruben, elev, 0, 0.5, -0.1), inclina: 0.05, ...aC(0, 0.15), ...SECO, ...MANOS_ELEV, t };
       pr.ojos = { x: 0, y: -0.1, abiertos: 0.82, tension: 0.2 };
-      if (t >= T.r3 - 0.1) { pr.cabeza = { giro: 0.0, asiente: 0.05, ladea: 0 }; }
+      if (t >= T.r3 - 0.25) { pr.cabeza = { giro: 0.45 * eio(sg(t, T.r3 - 0.25, T.r3 + 0.05)), asiente: 0.05, ladea: 0 }; pr.ojos = { x: 0.25, y: -0.05, abiertos: 0.85, tension: 0.2 }; }
       bocaVoz(pr, t, T.r3, ENV.r3, 0.6);
       return pr;
     }
@@ -1093,7 +1163,7 @@ function poseRuben(t) {
     aPie(ruben);
     return { x: R_ESC.x, y: OFI.piso - 0.08, z: R_ESC.z, giro: 0, sentado: 1, inclina: 0.06, ...aC(0.5, 0.1), ...BUENA, manoI: [0.26, 0.28, 0.4], manoD: [-0.26, 0.28, 0.4], codoI: null, codoD: null, t };
   }
-  const pr = { ...sentarEn(ruben, elev, 0, 0.5, -0.25), inclina: 0.05, ...aC(0, 0.12), ...NADA, manoI: [0.12, 0.62, 0.48], manoD: [-0.14, 0.62, 0.48], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], t };
+  const pr = { ...sentarEn(ruben, elev, 0, 0.5, -0.1), inclina: 0.05, ...aC(0, 0.12), ...NADA, ...MANOS_ELEV, t };
   if (t >= T.n6) { pr.cabeza = { giro: -0.1, asiente: 0.1, ladea: 0 }; pr.ojos = { x: -0.1, y: -0.1, abiertos: 0.82 }; }
   if (t >= T.r4 - 0.1) { pr.boca = { sonrisa: 0.3, abierta: 0, ancho: 0.95 }; }
   bocaVoz(pr, t, T.r4, ENV.r4, 0.6);
@@ -1115,10 +1185,10 @@ function ponerCliente(per, i, t, voz) {
   if (!vis) return;
   // salen al cordón, al lado de la trompa del auto (del lado del acompañante), mirando a Nico por el parabrisas
   const x0 = PARADAS_X[i] - 1.35;
-  const pr = { x: x0, y: CORDON, z: 2.05, giro: 0.75, inclina: 0.06, ...aC(-0.2, 0.05), ...CARA.sonrisa, ...BRAZOS.costado, t };
-  pr.ojos = { x: 0, y: -0.2, abiertos: 1, feliz: 0.3 };
-  if (i === 0) { pr.manoD = [-0.22, 0.55, 0.36]; pr.codoD = [-1, -0.5, -0.2]; }   // Marta levanta la mano: "¿Me sumás…?"
-  else { pr.manoI = [0.3, 0.75, 0.1]; pr.codoI = [1, -0.6, -0.2]; }
+  const pr = { x: x0, y: CORDON, z: 2.25, giro: -0.9, inclina: 0.06, ...aC(0.35, 0.05), ...CARA.sonrisa, ...BRAZOS.costado, t };   // (ronda 1) el cuerpo 3/4 a cámara, la cabeza hacia Nico (de perfil los ojos se leían cerrados)
+  pr.ojos = { x: 0, y: -0.2, abiertos: 1, feliz: 0.05 };   // (ronda 1: con feliz 0,3 los ojos de Elsa se leían cerrados)
+  if (i === 0) { pr.manoD = [-0.45, 0.88, 0.02]; pr.codoD = [-1, -0.2, -0.2]; }   // la mano arriba, al costado (no delante de la cara)   // Marta levanta la mano: "¿Me sumás…?"
+  else { pr.manoI = [0.44, 0.8, 0.02]; pr.codoI = [1, -0.2, -0.2]; }
   if (voz) bocaVoz(pr, t, voz[0], voz[1], 0.75);
   per.poner(pr);
 }
@@ -1143,8 +1213,8 @@ function ponerGlobosAuto(t, plano) {
       if (t < T.p1b) {
         // sale del celular y queda flotando arriba del hombro de Nico
         celuN.updateMatrixWorld(true); const c = celuN.getWorldPosition(_a);
-        const arriba = V3(NIC.x - 0.42, 1.9, NIC.z - 0.25);
-        p = c.clone().lerp(arriba, eo(sg(t, T.globo1, T.globo1 + 0.35)));
+        const arriba = V3(NIC.x - 0.36, 1.9, NIC.z - 0.25), u = sg(t, T.globo1, T.globo1 + 0.35);
+        p = V3(lerp(c.x, arriba.x, eo(Math.min(1, u * 2.2))), lerp(c.y, arriba.y, eio(sg(u, 0.4, 1))), lerp(c.z, arriba.z, eo(Math.min(1, u * 2.2))));   // (ronda 1) primero de costado, después sube
         p.y += Math.sin(t * 3.1) * 0.02;
         g.rotation.set(0, Math.PI - 0.15, 0);
       } else {
@@ -1171,11 +1241,12 @@ function ponerGlobosAuto(t, plano) {
     g.visible = true;
     const [x, y, z, sF, ap] = SLOTS[i];
     const inf = i === 0 ? 1 : bk(sg(t, t0, t0 + 0.25));
-    const lleno = eo(sg(t, T.lleno, T.lleno + 0.2));
-    const s = (0.3 + 0.7 * inf) * sF * (1 + 0.12 * lleno);
-    g.position.set(x, y + Math.sin(t * 2.7 + i) * 0.012 * (1 - lleno), z);
-    g.rotation.set(0, 0.45 + (i % 2 ? 0.1 : -0.1), 0);   // el frente hacia adelante y un poco al lado del conductor (se lee por el parabrisas y por la ventanilla)
-    g.scale.set(s * lerp(1, ap[0], lleno), s * lerp(1, ap[1], lleno), s * lerp(1, 0.85, lleno));
+    const lleno = bk(sg(t, T.lleno, T.lleno + 0.22));
+    const s = (0.3 + 0.7 * inf) * sF;
+    const L = LLENO[i], rot0 = 0.45 + (i % 2 ? 0.1 : -0.1);
+    g.position.set(lerp(x, L[0], lleno), lerp(y, L[1], lleno) + Math.sin(t * 2.7 + i) * 0.012 * (1 - lleno), lerp(z, L[2], lleno));
+    g.rotation.set(0, lerp(rot0, L[6], lleno), 0);   // el frente hacia adelante (se lee por el parabrisas)
+    g.scale.set(lerp(s, L[3], lleno), lerp(s, L[4], lleno), lerp(s, L[5], lleno));
   });
 }
 function ponerAuto(t) {
@@ -1204,22 +1275,21 @@ function ponerAuto(t) {
       const z0 = ELEV_MUELLE + 1.0 + 1.9, zc = lerp(z0, z0 + DESLIZA, u);
       const fuera = camion.position.z - CAM0.z;
       auto.position.set(OX + CAMX, CAJA.piso + lerp(0.25, 0, u), zc + fuera); auto.rotation.set(0, 0, 0);
-      auto.visible = t < T.arranca + 0.65;
+      auto.visible = true;
     }
   } else {
     if (t < T.q3) { auto.visible = false; auto.position.set(OX + 40, 0, 0); }
     else {
       const u = eo(sg(t, T.entra2[0], T.entra2[1]));
-      const c = t < T.entra2[0] ? curvaPorton(0, AUTO_Q) : curvaPorton(u, AUTO_Q);
-      let zz = c.z;
-      if (t >= T.atras[0]) zz -= ei(sg(t, T.atras[0], T.atras[1])) * 9;
-      auto.position.set(OX + c.x, 0, zz); auto.rotation.set(0, c.rot, 0);
+      let xx = lerp(13.5, AUTO_Q.x, u);
+      if (t >= T.atras[0]) xx += ei(sg(t, T.atras[0], T.atras[1])) * 9;   // marcha atrás, hacia el portón
+      auto.position.set(OX + xx, 0, AUTO_Q.z); auto.rotation.set(0, -Math.PI / 2, 0);
       auto.visible = t >= T.entra2[0] - 0.01;
     }
   }
   // la ventanilla del conductor baja en P5b (y queda baja en el depósito, en la parte 2 también)
   const baja = !parte2 ? sg(t, T.ventanilla[0], T.ventanilla[1]) : 1;
-  const v = auto.userData.ventCond; v.scale.y = 1 - 0.95 * baja; v.position.y = auto.userData.ventY - (auto.userData.vH * 0.95 * baja) / 2;
+  const v = auto.userData.ventCond; v.scale.y = 1 - 0.95 * baja; v.position.y = auto.userData.ventY - (auto.userData.vH * 0.95 * baja) / 2; v.visible = baja < 0.9;
   // la puerta del acompañante (P1b)
   const ab = !parte2 && t < T.p2 ? eio(sg(t, T.abre[0], T.abre[1])) * (1 - eio(sg(t, T.cierra - 0.12, T.cierra))) : 0;
   auto.userData.puerta.rotation.y = 1.15 * ab;
@@ -1243,7 +1313,7 @@ function renderAt(tIn) {
   const e = ponerElev(t);
   ponerAuto(t);
   // el teléfono de escritorio vibra; el altavoz se prende
-  telefono.position.x = -0.0 + 0.15 + (!parte2 && en(t, T.ring, T.altavoz) ? Math.sin(t * 90) * 0.004 : 0);
+  telefono.position.x = 0.05 + (!parte2 && en(t, T.ring, T.altavoz) ? Math.sin(t * 90) * 0.004 : 0);
   telefono.userData.boton.material.color.set(!parte2 && t >= T.altavoz && t < T.p5 ? C.g : 0x2a3b58);
   // el mate: en el escritorio (P3-P4), en la baranda (desde P6), en el portavasos (parte 2)
   // el pallet GRACIELA: parte 1 no está; parte 2 en el piso, se tilda, se apilan las bolsas, viaja en las horquillas
@@ -1296,9 +1366,9 @@ function renderAt(tIn) {
   // el mate: en el escritorio (P3-P4), en la mano de Rubén (P5), en la baranda (desde P6), en el portavasos (parte 2)
   mateElev.visible = parte2;
   mateR.visible = !parte2;
-  if (!parte2 && t >= T.mateBaranda) mateR.position.set(OX + R_BAR.x - 0.42, OFI.piso + 1.08, BAR_Z);
-  else if (!parte2 && t >= T.p5) { const m = manoMundo(ruben, "D", _a); mateR.position.copy(m).add(V3(0, -0.06, 0.02)); }
-  else mateR.position.set(OX - 0.05, OFI.piso + 0.76, -9.4);
+  if (!parte2 && t >= T.mateBaranda) mateR.position.set(OX + R_BAR.x - 0.42, OFI.piso + BAR_H + 0.03, BAR_Z);
+  else if (!parte2 && t >= T.p4b) { const m = manoMundo(ruben, "D", _a); mateR.position.copy(m).add(V3(0, -0.06, 0.02)); }
+  else mateR.position.set(OX + 0.62, OFI.piso + 0.76, -9.45);
   // los de la ronda
   ponerCliente(marta, 0, t, [T.m1, ENV.m1]); marta.raiz.position.x += 0;
   ponerCliente(barman, 1, t, null);
@@ -1337,8 +1407,9 @@ function renderAt(tIn) {
   if (pl[2]) ponerCam(catmull(pl[2], t), t);
   else if (planoActual === "P2") {
     // la ronda: travelling con el auto, del lado de la calle, picado (las fachadas y la vereda atrás)
-    const x = autoXCalle(t), push = sg(t, T.lleno - 0.2, T.p3);
-    ponerCam([x - lerp(7.2, 3.6, eio(push)), lerp(2.0, 1.75, eio(push)), lerp(3.0, 3.35, push), x + 0.2, lerp(1.2, 1.4, push), lerp(2.85, 3.4, push), lerp(44, 40, push)], t);
+    // (ronda 1) más tele y más bajo: menos calle vacía adelante, el auto más grande; push-in al parabrisas lleno
+    const x = autoXCalle(t), push = sg(t, T.lleno - 0.1, T.p3);
+    ponerCam([x - lerp(8.6, 4.7, eio(push)), lerp(1.5, 1.62, eio(push)), lerp(2.95, 3.3, push), x + 0.2, lerp(1.25, 1.45, push), lerp(2.85, 3.3, push), lerp(36, 36, push)], t);
   } else if (planoActual === "P4" || planoActual === "Q2b") {
     // inserto del monitor: la cámara de frente a la pantalla (llena ~70 % del ancho)
     monitor.updateMatrixWorld(true);
@@ -1350,16 +1421,18 @@ function renderAt(tIn) {
     // inserto: el tablero del auto (el celular cargando, 100 %) desde el asiento de atrás
     auto.updateMatrixWorld(true);
     const c = auto.userData.celu.getWorldPosition(_a).clone();
-    const desde = auto.localToWorld(V3(0.28, 1.52, -0.32));
-    nico.raiz.visible = false; GLOBOS[6].visible = false;   // la cámara está donde va la cabeza de Nico
-    ponerCam([desde.x, desde.y, desde.z, c.x, c.y, c.z, lerp(44, 40, sg(t, T.p4c, T.p5))], t);
+    // (ronda 1) un poco más atrás y más arriba: el celular en su soporte, el cable al puerto, el borde del tablero, el volante
+    const desde = auto.localToWorld(V3(0.3, 1.55, -0.3)), mira = auto.localToWorld(V3(0.19, 1.2, 0.45));
+    nico.raiz.visible = false; GLOBOS[6].visible = false; GLOBOS[5].visible = false;   // la cámara está donde va la cabeza de Nico
+    ponerCam([desde.x, desde.y, desde.z, mira.x, mira.y, mira.z, lerp(50, 46, sg(t, T.p4c, T.p5))], t);
   } else if (planoActual === "P7") {
     // el autoelevador: de costado (desde +x), acompaña el viaje hasta el camión
     const zc = lerp(PARK.z + 0.2, 7.2, eio(sg(t, T.viaje[0] - 0.1, T.adentro[1])));
     const yc = lerp(1.9, 2.6, sg(t, T.viaje[0], T.adentro[0]));
     const fin = sg(t, T.r3 - 0.2, T.r3 + 0.1);
     const ze = elevEstado(t).z;
-    if (t >= T.adentro[0]) { ponerCam([OX + lerp(4.6, 1.7, eio(fin)), lerp(3.2, 3.0, fin), lerp(4.0, 7.4, eio(fin)), OX + CAMX, 2.35, lerp(7.0, 5.2, eio(fin)), lerp(54, 46, fin)], t); }
+    // (ronda 1) el final: Rubén 3/4 desde la derecha, por debajo del techo de caños y por detrás del parante delantero
+    if (t >= T.adentro[0]) { ponerCam([OX + lerp(4.6, 1.5, eio(fin)), lerp(3.2, 3.2, fin), lerp(4.0, 6.3, eio(fin)), OX + CAMX, lerp(2.35, 2.95, fin), lerp(7.0, 5.3, eio(fin)), lerp(54, 44, fin)], t); }
     else ponerCam([OX + 5.4, lerp(2.0, 2.8, sg(t, T.viaje[0], T.adentro[0])), ze + 0.2, OX + CAMX, 1.5, ze + 1.9, 58], t);
     if (false) ponerCam([OX + lerp(8.6, 4.2, eio(fin)), lerp(yc, 3.0, fin), lerp(zc - 1.4, ELEV_MUELLE - 0.3, eio(fin)), OX + CAMX, lerp(1.4, 2.4, fin), lerp(zc - 0.6, ELEV_MUELLE + 0.3, eio(fin)), lerp(58, 46, fin)], t);
   } else if (planoActual === "Q2") {
@@ -1369,12 +1442,23 @@ function renderAt(tIn) {
       ponerCam([OX + lerp(8.5, 2.2, eio(u)), lerp(2.1, 2.3, u), lerp(-0.6, 0.4, eio(u)), OX + lerp(3.0, PALLET_G.x, eio(u)), lerp(1.6, 0.5, eio(u)), lerp(-2.1, PALLET_G.z, u), 54], t);
     }
   } else if (planoActual === "Q3") {
-    // el mismo eje que P7 (callback): de costado desde +x; entra el auto limpio por la derecha
-    // detrás del auto (que entra y frena donde en la parte 1 lo levantaron): el autoelevador sube la rampa al fondo
-    ponerCam([OX + 1.5, 2.6, -7.2, OX + CAMX - 0.1, 2.0, 3.5, 50], t);
+    // (ronda 1) el mismo eje que P7 (callback): de costado desde +x, acompaña al autoelevador con el pallet rampa arriba
+    const ze = elevEstado(t).z, u = sg(t, T.q3, T.n6);
+    ponerCam([OX + 4.3, lerp(1.9, 2.7, u), ze + 0.4, OX + CAMX, lerp(1.4, 2.1, u), ze + 0.3, 60], t);
+  } else if (planoActual === "Q3b") {
+    // desde el costado del conductor, bajo: Nico asomado adelante a la izquierda, Rubén arriba en el muelle
+    // (ronda 1) contraplano: desde el lado de la rampa, de frente a la ventanilla del conductor (Nico mira arriba, a Rubén)
+    const u = sg(t, T.n6 - 0.05, T.r4);
+    ponerCam([OX + AUTO_Q.x - 0.45, 1.5, lerp(1.25, 1.05, eio(u)), OX + AUTO_Q.x - 0.14, 1.55, AUTO_Q.z + 0.4, lerp(46, 44, u)], t);
+  } else if (planoActual === "Q3c") {
+    // Rubén 3/4 desde la derecha (el plano de "Ya lo cargué."), sin mirar a Nico
+    const ze = elevEstado(t).z, u = sg(t, T.r4 - 0.08, T.q4);
+    ponerCam([OX + 1.5, 3.2, ze + lerp(1.0, 0.95, u), OX + CAMX, 2.95, ze, lerp(44, 42, u)], t);
   } else if (planoActual === "Q4") {
+    // al costado de la rampa: el autoelevador gira hacia la cámara (hacia Nico) y levanta las horquillas; el camión se
+    // va por el muelle atrás
     const u = sg(t, T.q4, DUR);
-    ponerCam([OX + 1.5, 2.6, -7.2 + 0.6 * u, OX + CAMX - 0.1, 2.0, 3.5, 50 - 2 * u], t);
+    ponerCam([OX + lerp(2.5, 2.2, eio(u)), lerp(2.5, 2.45, u), lerp(0.6, 1.3, eio(u)), OX + CAMX - 0.4, lerp(2.4, 2.3, u), 6.0, lerp(46, 42, u)], t);
   }
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
@@ -1392,24 +1476,28 @@ function renderAt(tIn) {
       if (en(t, T.m1, T.n2 + 0.1)) { const [mx, my] = mb(); ponerGlobo(GL.m1, mx + 120, Math.max(300, my - 430), ent(T.m1) * sale(T.n2 + 0.1), [mx, my - 40]); }
       if (en(t, T.n2, T.paradas[0][1])) ponerGlobo(GL.n2, bx + 60, Math.max(560, by - 330), ent(T.n2) * sale(T.paradas[0][1]), [bx, by - 40], 1);
       if (en(t, T.bar[0], T.paradas[1][1])) { const [mx, my] = bocaPx(barman); ponerGlobo(GL.bar, mx + 60, Math.max(300, my - 420), ent(T.bar[0]) * sale(T.paradas[1][1]), [mx, my - 40]); }
-      if (en(t, T.bar[1], T.paradas[1][1])) ponerGlobo(GL.barN, bx + 80, Math.max(600, by - 300), ent(T.bar[1]) * sale(T.paradas[1][1]), [bx, by - 40], 1);
+      if (en(t, T.bar[1], T.paradas[1][1])) ponerGlobo(GL.barN, bx + 80, Math.max(700, by - 240), ent(T.bar[1]) * sale(T.paradas[1][1]), [bx, by - 40], 1);
       if (en(t, T.kio[0], T.paradas[2][1])) { const [mx, my] = bocaPx(kiosquera); ponerGlobo(GL.kio, mx + 40, Math.max(300, my - 420), ent(T.kio[0]) * sale(T.paradas[2][1]), [mx, my - 40]); }
-      if (en(t, T.kio[1], T.paradas[2][1])) ponerGlobo(GL.kioN, bx + 80, Math.max(600, by - 300), ent(T.kio[1]) * sale(T.paradas[2][1]), [bx, by - 40], 1);
+      if (en(t, T.kio[1], T.paradas[2][1])) ponerGlobo(GL.kioN, bx + 80, Math.max(700, by - 240), ent(T.kio[1]) * sale(T.paradas[2][1]), [bx, by - 40], 1);
       [3, 4, 5].forEach((i, k) => { const [a, b] = T.paradas[i]; if (en(t, a, b + 0.1)) ponerGlobo(GL.raf[k], 300 + k * 230, 420 + k * 70, ent(a) * sale(b + 0.1), [bx, by - 40], k); });
     }
     if (planoActual === "P3" && t >= T.g1) { telefono.updateMatrixWorld(true); const [px, py] = enPantalla(telefono.localToWorld(V3(0, 0.12, 0))); ponerGlobo(GL.g1, 540, 380, ent(T.g1), [px, py]); }
-    if (planoActual === "P4" && t >= T.g1) ponerGlobo(GL.g1, 540, 300, 1 * sale(T.p4b), [700, 1700]);
-    if ((planoActual === "P4b" || planoActual === "P4c") && t >= T.r1) { const [bx, by] = planoActual === "P4b" ? [180, 760] : [540, 2100]; ponerGlobo(GL.r1, 540, 330, ent(T.r1), [bx, by]); }
-    if (planoActual === "P5" && t >= T.r2) { const [bx, by] = rb(); ponerGlobo(GL.r2, bx - 60, Math.max(300, by - 380), ent(T.r2), [bx, by - 30]); }
+    if (planoActual === "P4" && t >= T.g1) ponerGlobo(GL.g1, 540, 300, 1 * sale(T.p4b), [1500, 1300]);   // el teléfono queda a la derecha, fuera de cuadro
+    if (planoActual === "P4b" && t >= T.r1) { ruben.raiz.updateMatrixWorld(true); const [bx, by] = enPantalla(ruben.cabeza.localToWorld(V3(0, 0.45, 0))); ponerGlobo(GL.r1, 540, 330, ent(T.r1), [bx, Math.max(by, 700)]); }
+    if (planoActual === "P4c") ponerGlobo(GL.r1, 540, 330, 1, [-600, -900]);   // Rubén está fuera de cuadro (arriba, en la oficina)
+    if (planoActual === "P5" && t >= T.r2) { const [bx, by] = rb(); ponerGlobo(GL.r2, bx - 60, Math.max(300, by - 560), ent(T.r2), [bx, by - 200]); }
     if (planoActual === "P5b" && t >= T.n3) { const [bx, by] = nb(); ponerGlobo(GL.n3, bx + 40, Math.max(330, by - 420), ent(T.n3), [bx, by - 40]); }
     if (planoActual === "P7" && t >= T.r3) { const [bx, by] = rb(); ponerGlobo(GL.r3, 540, Math.max(300, by - 480), ent(T.r3), [bx, by - 40]); }
     if (planoActual === "P8" && t >= T.n4) {
       // la burbuja aplastada asoma por la rendija entre las dos hojas
+      // (ronda 1) arriba de las puertas (no tapa el remito), con la cola a la rendija
       const sq = eo(sg(t, T.n4, T.n4 + 0.25));
-      ponerGlobo(GL.n4, 560, 760, ent(T.n4) * sale(T.arranca + 0.05), [560, 1100], 0, -0.08, lerp(0.4, 0.78, sq));
+      camion.updateMatrixWorld(true);
+      const [sx, sy] = enPantalla(camion.localToWorld(V3(0, CAJA.piso + CAJA.H * 0.5, -0.1))), [, sy2] = enPantalla(camion.localToWorld(V3(0, CAJA.piso + CAJA.H + 0.25, -0.1)));
+      ponerGlobo(GL.n4, sx, sy2 - 60, ent(T.n4) * sale(T.arranca + 0.05), [sx, sy], 0, -0.08, lerp(0.4, 0.78, sq));
     }
-    if (planoActual === "Q3" && t >= T.n6) { const [bx, by] = nb(); ponerGlobo(GL.n6, bx - 80, Math.max(330, by - 420), ent(T.n6) * sale(T.r4 + 0.1), [bx, by - 40]); }
-    if ((planoActual === "Q3" || planoActual === "Q4") && t >= T.r4) { const [bx, by] = rb(); ponerGlobo(GL.r4, bx + 60, Math.max(330, by - 400), ent(T.r4) * sale(T.cierre), [bx, by - 40], 1); }
+    if (planoActual === "Q3b" && t >= T.n6) { const [bx, by] = nb(); ponerGlobo(GL.n6, bx + 40, Math.max(330, by - 430), ent(T.n6), [bx, by - 40]); }
+    if ((planoActual === "Q3c" || planoActual === "Q4") && t >= T.r4) { const [bx, by] = rb(); ponerGlobo(GL.r4, bx + 60, Math.max(planoActual === "Q4" ? 640 : 330, by - 400), ent(T.r4) * sale(T.cierre), [bx, by - 40], 1); }
   }
   if (en(tIn, P1, P2) || LIMPIO) { for (const k in GL) { if (Array.isArray(GL[k])) GL[k].forEach((g) => (g.visible = false)); else GL[k].visible = false; } }
   renderer.render(scene, camera);

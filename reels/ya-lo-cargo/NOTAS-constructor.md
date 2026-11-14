@@ -7,10 +7,9 @@ La escena 3D entera está en `assets/tres.js`; `assets/personajes.js` = el de an
 Herramientas locales: `./snap.sh "t1,t2,…" nombre` (snapshot con el candado, PNG + hoja en renders/snap/<nombre>/),
 `python3 medir.py` (voz contra resto por tramos de 0,5 s; necesita `MEDIR=1 node gen.mjs` antes).
 
-**Duración: 33,74 s** (parte 1 0-21,49 · cartel 21,49-23,99 · parte 2 23,99-33,74; línea chica desde 32,14).
-Más largo que los ~31,4 del plan: la voz de Marta (1,63 s) y la de Rubén (2,20 s) son las tomas reales, y el remate
-del remate (1,73 s, ya acelerado 1,15) más las palmadas. Si hay que recortar: la ronda (bar/kiosco 0,2 s c/u), el
-cartel a 2,4 s, o 0,3 s de la grúa de P3.
+**Duración: 34,04 s** (parte 1 0-21,79 · cartel 21,79-24,29 · parte 2 24,29-34,04; línea chica desde 32,44).
+Ronda 1: +0,3 s porque las puertas del camión se cierran en 0,35 s (antes 0,17: saltaban) y el celular ahogado entra
+después de que cierran. Si hay que recortar: la ronda (bar/kiosco 0,2 s c/u), el cartel a 2,4 s, o 0,3 s de la grúa de P3.
 
 ## Comandos (desde reels/ya-lo-cargo)
 ```
@@ -25,27 +24,29 @@ cd ../.. && flock /tmp/hyperframes.lock node herramientas/portada.mjs ya-lo-carg
 ```
 Ojo: `node gen.mjs` reescribe index.html y tiempos3d.js: no correrlo mientras un snapshot/render está andando.
 
-## Planos (segundos globales)
+## Planos (segundos globales; ronda 1)
 | plano | desde | qué |
 |---|---|---|
-| P1 | 0,00 | detrás del mostrador: Graciela de espaldas abajo a la izquierda, Nico de frente, el spiedo en la vidriera, el auto afuera. Gancho-burbuja HTML "Ya lo **cargo.**" (cola a Nico) + burbuja de Graciela. "Ya lo cargo." 0,30, pulgar 0,75, el globo "40 harina · lunes" sale del celular 1,00; 1,45 se va hacia la puerta |
-| P1b | 1,72 | la vereda: sale con el globo al lado de la cabeza, abre la puerta del acompañante 2,05, el globo entra apretado 2,20-2,50, cierra 2,55 |
-| P2 | 2,70 | la ronda, el auto de frente (parabrisas: Nico y los globos): Marta 2,95 (voz 3,00) · "Ya lo cargo." 4,68 · bar 5,75 · kiosco 6,35 · ráfaga 6,95/7,25/7,55 · lleno 7,90 (aplastados, cachete) + push-in |
-| P3 | 8,40 | depósito: general bajo con racks, grúa al ventanal; teléfono 9,30, altavoz 9,55, "Rubén, ¿y mi harina?" 9,65 |
-| P4 | 10,75 | inserto del monitor ("ninguno" 10,90) |
-| P4b | 11,35 | desde detrás de la cabeza de Rubén, abajo entra el auto lleno; "Lo único que carga Nico es el celular." 11,45 |
-| P4c | 12,65 | inserto del tablero: el celular al 100 % (la cámara ocupa el lugar de la cabeza de Nico: Nico y el globo 6 ocultos) |
-| P5 | 13,75 | Rubén en la baranda, de espaldas, el auto abajo: "¡Nico!" 13,90 |
-| P5b | 14,40 | contrapicado: baja la ventanilla, Nico asomado con el pulgar: "¡Ya lo cargo!" 14,60 |
-| P6 | 15,44 | la pausa: bip ×3, mate en la baranda 15,99, música -12 dB |
-| P7 | 16,44 | de costado: levanta el auto 16,49, rampa 16,79-17,39, adentro 17,39-17,64; corte a Rubén 3/4 en el autoelevador: "Ya lo cargué." 17,69 |
-| P8 | 18,49 | las puertas se cierran; celular ahogado 18,54; "Sí, sí. Ya lo cargo." 18,74 (burbuja aplastada en la rendija); palmadas 20,47/20,67; el camión se va 20,79 y Rubén se da vuelta, cara de nada |
-| cartel | 21,49 | "Un sistema / más tarde…" (Rasalgethi +0,15); corte seco de entrada, iris de salida desde el celular de Nico |
-| Q1 | 23,99 | el encuadre de P1: toques 24,24/24,44, "Ya lo car…" 24,59, ding 24,97, la tarjeta "Cargado ✓" vuela |
-| Q2 | 25,47 | la tarjeta por la calle (sin globos) · 26,22 entra al depósito, se parte 26,52, tilde del cartel 26,77, el operario apila 4 bolsas 26,89-27,34 |
-| Q2b | 27,64 | inserto del monitor: la ficha 27,94 |
-| Q3 | 28,44 | detrás del auto limpio (frena donde lo levantaron en la parte 1); el autoelevador sube la rampa con el pallet; "Rubén, ¿lo de Graciela?" 29,34 (asomado); puertas 30,82; "Ya salió." 31,09 (de espaldas, sin mirarlo) |
-| Q4 | 31,84 | el camión sale; pulgar; Rubén gira el autoelevador 180° y sube las horquillas 32,29 (bip, bip); marcha atrás 32,84; línea chica 32,14 |
+| P1 | 0,00 | detrás del mostrador: Graciela de espaldas abajo a la izquierda, Nico de frente, el spiedo en la vidriera. Gancho-burbuja HTML "Ya lo **cargo.**" + burbuja de Graciela. "Ya lo cargo." 0,30, pulgar 0,75, el globo "40 harina / lunes" sale del celular 1,00 (primero de costado, después sube: no tapa la cara) |
+| P1b | 1,72 | la vereda: sale con el globo, abre la puerta del acompañante 2,05, el globo entra apretado 2,20-2,50, cierra 2,55 |
+| P2 | 2,70 | la ronda, el auto de frente con cámara tele y baja (menos calle vacía): Marta 2,95 · "Ya lo cargo." 4,68 · bar 5,75 · kiosco 6,35 · ráfaga 6,95/7,25/7,55 · lleno 7,90 (los globos crecen y se aplastan contra el parabrisas; "dale" contra el cachete de Nico) + push-in. Los clientes 3/4 a cámara, la cabeza hacia Nico |
+| P3 | 8,40 | depósito: grúa al ventanal; el teléfono (más grande, a la izquierda de Rubén, en cuadro) 9,30, altavoz 9,55, "Rubén, ¿y la harina?" 9,65 (cola al teléfono) |
+| P4 | 10,75 | inserto del monitor ("ninguno" 10,90); la cola de la burbuja sale a la derecha (el teléfono, fuera de cuadro) |
+| P4b | 11,35 | por encima del hombro de Rubén, de pie contra el vidrio con el mate (nuca abajo a la derecha); el auto ya viene entrando (10,95-12,20), los globos se ven por el techo solar; "Lo único que carga Nico es el celular." 11,45 (cola a Rubén) |
+| P4c | 12,65 | inserto del tablero: el celular al 100% en su cuna sobre el tablero, cable al puerto, volante; cola de la burbuja hacia arriba a la izquierda (fuera de cuadro) |
+| P5 | 13,75 | Rubén en la baranda (pasamanos a 0,85), de espaldas, desde adentro de la oficina; el auto abajo: "¡Nico!" 13,90 |
+| P5b | 14,40 | contrapicado: baja la ventanilla (el vidrio desaparece), Nico adentro contra la ventanilla, el brazo afuera por encima del marco con el pulgar: "¡Ya lo cargo!" 14,60 |
+| P6 | 15,44 | la pausa: bip ×3, mate en la baranda 15,99 |
+| P7 | 16,44 | de costado: levanta el auto 16,49, rampa 16,79-17,39, adentro 17,39-17,64; la cámara viaja a Rubén 3/4 por debajo del techo de caños (sin parante delante de la cara, manos al volante): "Ya lo cargué." 17,69 |
+| P8 | 18,49 | las puertas se cierran 18,51-18,86; celular ahogado 18,84; "Sí, sí. Ya lo cargo." 19,04 (burbuja aplastada arriba de las puertas, cola a la rendija; no tapa el remito); palmadas 20,77/20,97; el camión arranca 21,09 y se va despacio (queda en cuadro) mientras la cámara se acerca a Rubén |
+| cartel | 21,79 | "Un sistema / más tarde…" (Rasalgethi +0,15); letras con menos rebote |
+| Q1 | 24,29 | el encuadre de P1: toques 24,54/24,74, "Ya lo car…" 24,89, ding 25,27, la tarjeta vuela |
+| Q2 | 25,77 | la tarjeta por la calle · 26,52 depósito, se parte 26,82, tilde 27,07, el operario (gorra navy/visera verde, bigote) apila 4 bolsas |
+| Q2b | 27,94 | inserto del monitor: la ficha 28,24 |
+| Q3 | 28,74 | de costado (como P7): el autoelevador sube la rampa con el pallet de harina; el auto limpio entra derecho del portón 29,04-29,64 y frena de costado |
+| Q3b | 29,59 | contraplano desde la rampa a la ventanilla del conductor: Nico mira arriba: "Rubén, ¿lo de Graciela?" 29,64 |
+| Q3c | 31,31 | Rubén 3/4 en el autoelevador (el plano de "Ya lo cargué."): "Ya salió." 31,39 |
+| Q4 | 32,14 | al costado de la rampa: el camión se va por el muelle atrás; Rubén gira el autoelevador hacia la cámara (hacia Nico) y sube las horquillas 32,59 (bip, bip); Nico marcha atrás 33,14 (fuera de cuadro, se oye); línea chica 32,44 |
 
 ## Mezcla (MEDIR=1 + medir.py, momentánea por tramos de 0,5 s)
 -14,0 LUFS integrado, pico -4,4 dBFS antes del loudnorm del paso 10 (el bus pasa por un limitador, como anotamelo).
@@ -103,3 +104,43 @@ celular ni goma de globo reales: se resolvió con `motor.mp3` grave, `vibra.wav`
 - El auto en las horquillas: el piso del auto apoya en el carro (no se modeló el contacto exacto de las horquillas).
 - La voz de Graciela por teléfono (g1) y "¡Nico!" están entendibles para el STT a medias ("Rubén y Melina"); al oído
   conviene confirmarlas.
+
+## Ronda 1 de corrección (14-11, otro constructor)
+Lista: scratchpad/ronda1/ya-lo-cargo.md. Todo sale igual de `node gen.mjs`.
+- **Baranda (ALTA 1):** pasamanos de 1,05 a 0,85 (`BAR_H`), travesaño a 0,45; Rubén 5 cm más atrás, `inclina` 0,1 y las
+  manos apoyadas en el pasamanos. Desde el contrapicado de P5b/P6 el pasamanos queda debajo del mentón.
+- **Nico y el auto (ALTA 2):** carrocería más baja (cintura de 1,15 a 0,95: puerta, franja, capot), el vidrio de la
+  ventanilla se esconde al bajar, Nico NO saca la cabeza (no entraba por el hueco: la cabeza mide 0,62 m): queda adentro,
+  adelante del parante central, y saca el brazo por encima del marco con el pulgar. Volante y tablero corridos para que el
+  cuerpo no los atraviese. En la parte 2 el auto entra derecho y frena de costado (Q3b lo toma de frente a la ventanilla).
+- **P7b (ALTA 3):** la cámara final de P7 pasa a la derecha, por debajo del techo de caños y por detrás del parante
+  delantero; Rubén 15 cm más adelante en el asiento, manos en el volante (`MANOS_ELEV`, también en la parte 2), la cabeza
+  gira 0,45 hacia cámara en "cargué"; saqué el parpadeo de 17,9 (caía en la palabra).
+- **P4b (ALTA 4):** Rubén se para y va al vidrio con el mate (P4 inserto tapa el salto); plano por encima del hombro con
+  la nuca abajo a la derecha; techo solar en el auto (se ven los globos desde arriba); el auto ya viene entrando en el
+  corte (`T.entra` arranca 0,4 s antes); cola de la burbuja a la cabeza de Rubén.
+- **P4c (ALTA 5):** el celular en una cuna navy con pestañas apoyada en el tablero, borde del tablero contra el
+  parabrisas, cable crema en curva a un puerto, columna del volante; cámara apuntada al celular (sin cizalla: el "1" se
+  lee); cola de la burbuja hacia arriba a la izquierda (fuera de cuadro).
+- MEDIA: P5 reencuadrado desde adentro de la oficina (Rubén entero); pelo de atrás de Rubén = mechones canosos sobre la
+  corona achicada (ya no casco liso); P8 reencuadrado (Rubén entero), el camión queda en cuadro yéndose y la cámara se
+  acerca a Rubén (sin cuadro vacío); burbuja de P8 arriba de las puertas; puertas 0,35 s; operario con gorra y bigote;
+  cartel del pallet en Lexend ("GRACIELA"); P2 con cámara tele/baja y el auto lleno de verdad; burbujas del bar/kiosco
+  más abajo (no tapan); clientes 3/4 a cámara (los ojos ya no se leen cerrados), manos al costado, no delante de la
+  cara; P3 teléfono 1,6× en cuadro, cola al teléfono; P4 cola fuera de cuadro a la derecha; Q3/Q4 en 4 planos (Q3 de
+  costado con el pallet, Q3b contraplano a Nico, Q3c Rubén 3/4 en "Ya salió.", Q4 Rubén de frente levantando las
+  horquillas con el camión yéndose atrás).
+- Voces: g1 nueva toma (Gacrux, "Rubén, ¿y la harina?"; la burbuja dice lo mismo): con "mi harina" el STT oía
+  "Melina/marina" en 12 tomas (fonéticamente "miarina"); la 04-3d sola la oye bien ("Rubén y la harina"); en la mezcla
+  completa el STT a veces dice "la Lina". r2 "¡Nico!" con eco de 40 ms (antes 70) y +1 dB en la mezcla. Tomas en
+  partes/tomas2/ (g1-viejo.wav y r2-viejo.wav son las anteriores).
+- Mezcla: tonos del teléfono más cortos (terminan antes de la voz), teclas de Q1 más bajas, la música de la parte 2 entra
+  con fundido de 0,9 s. medir.py: todos los tramos con voz ≥ +6 LU salvo 24,5 s (+0,7: la ventana solo tiene los
+  primeros 0,1 s de "Ya lo car…"); 29,0 y 32,0 del reporte anterior ya pasan. -14,0 LUFS, pico -4,7 dBFS pre-loudnorm.
+- BAJA hechos: globo de P1 sale de costado y más lejos del borde; letras del cartel con menos rotación y rebote;
+  "sin pedido" del remito ~45 px (remito 0,95×0,66 m, letras más grandes). No hechos: la tarjeta que entra al monitor en
+  Q2b (27,9) sigue cortada al entrar; la mota verde de P4b ya no aparece (cambió el plano).
+- Portada: queda en 16,95 (el auto en las horquillas) porque el plano del auto lleno sigue siendo un auto de frente;
+  regeneré `portada-src/fondo-limpio-16.95.png` con LIMPIO=1 (el auto cambió de forma).
+- Pasadas: a1-a9 (puntuales), p1a+p1b (cada 0,5 s desde 0), cortes ±0,04 (38), p2a+p2b (cada 0,5 desde 0,25).
+  `check --json`: 0 errores.

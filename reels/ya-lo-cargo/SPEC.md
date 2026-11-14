@@ -2,7 +2,7 @@
 
 **De qué trata.** El vendedor que toma el pedido y no lo carga. Nico le dice "Ya lo cargo." a Graciela (rotisería) y a
 toda la ronda; cada pedido es un globo de chat 3D que se queda en su auto hasta llenarlo. El lunes Graciela llama a
-Rubén ("Rubén, ¿y mi harina?"), el monitor dice "ninguno", entra el auto lleno de globos con el celular al 100 %: "Lo
+Rubén ("Rubén, ¿y la harina?"), el monitor dice "ninguno", entra el auto lleno de globos con el celular al 100 %: "Lo
 único que carga Nico es el celular." · "¡Nico!" / "¡Ya lo cargo!" · el bip del autoelevador · Rubén levanta el auto con
 Nico adentro y lo mete en el camión: "Ya lo cargué." · desde adentro, ahogado: "Sí, sí. Ya lo cargo." · Cartel "Un
 sistema más tarde…" · Parte 2: "Ya lo car…" y el sistema lo carga antes (tarjeta "Cargado ✓" que vuela por la misma
@@ -46,7 +46,7 @@ crema/navy, carteles de bandera) y la rotisería (azulejo blanco, guarda verde, 
 | P1 | 0,00 | gancho-burbuja HTML "Ya lo **cargo.**" (cola a Nico) + globo de Graciela "Cuarenta de harina / para el lunes."; "Ya lo cargo." 0,30; pulgar 0,75; el globo de chat "40 harina · lunes" sale del celular 1,00 y flota a su derecha; 1,45 se da vuelta y va a la puerta |
 | P1b | 1,72 | la vereda: el globo lo sigue, abre la puerta 2,05, el globo entra 2,20-2,50, cierra 2,55 |
 | P2 | 2,70 | la ronda (travelling de frente): Marta 2,95 "¿Me sumás dos de azúcar?" 3,00 · "Ya lo cargo." 4,68 (globo "2 azúcar") · bar 5,75 · kiosco 6,35 · ráfaga 6,95/7,25/7,55 · lleno 7,90 (aplastados, cachete) y push-in |
-| P3 | 8,40 | el depósito: grúa al ventanal; Rubén al escritorio; teléfono 9,30; altavoz 9,55; "Rubén, ¿y mi harina?" 9,65 |
+| P3 | 8,40 | el depósito: grúa al ventanal; Rubén al escritorio; teléfono 9,30; altavoz 9,55; "Rubén, ¿y la harina?" 9,65 |
 | P4 | 10,75 | inserto del monitor: "ninguno" 10,90 |
 | P4b | 11,35 | detrás de la cabeza de Rubén: entra el auto lleno; "Lo único que carga Nico es el celular." 11,45 |
 | P4c | 12,65 | inserto del tablero: el celular enchufado, 100 % |

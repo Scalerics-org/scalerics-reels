@@ -19,7 +19,7 @@ const r2 = (n) => Math.round(n * 100) / 100;
 // · g1 1,50 ("Rubén," 0 · "¿y mi harina?" +0,84) · r1 2,20 ("carga" +0,7 · "Nico" +1,0 · "es el celular." +1,3) · r2 0,94
 // (con la cola del galpón; la palabra 0,3) · n3 0,76 · r3 0,77 ("cargué." +0,3) · n4 1,96 (ahogada; "Ya lo cargo." +0,6) ·
 // narrador 2,26 · n5 0,43 ("Ya lo car…") · n6 1,63 ("Rubén," 0 · "¿lo de Graciela?" +0,58) · r4 0,65
-const LEN = { n1: 0.74, m1: 1.63, n2: 0.79, g1: 1.5, r1: 2.2, r2: 0.94, n3: 0.76, r3: 0.77, n4: 1.71, nar: 2.26, n5: 0.43, n6: 1.63, r4: 0.65 };
+const LEN = { n1: 0.74, m1: 1.63, n2: 0.79, g1: 1.64, r1: 2.2, r2: 0.74, n3: 0.76, r3: 0.77, n4: 1.71, nar: 2.26, n5: 0.43, n6: 1.63, r4: 0.65 };
 const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: la rotisería. Graciela (detrás del mostrador) ya dictó; Nico: "Ya lo cargo." · pulgar · del celular sale
@@ -42,7 +42,7 @@ T.grua = [T.p3, r2(T.p3 + 0.85)]; T.ring = r2(T.p3 + 0.9); T.altavoz = r2(T.p3 +
 // P4 · el monitor (ninguno) · por encima del hombro: entra el auto lleno · "Lo único que carga Nico es el celular." · inserto
 // del tablero (100 %)
 T.p4 = r2(T.g1 + 1.1); T.ninguno = r2(T.p4 + 0.15);
-T.p4b = r2(T.p4 + 0.6); T.entra = [T.p4b, r2(T.p4b + 1.1)]; T.r1 = r2(T.p4b + 0.1);
+T.p4b = r2(T.p4 + 0.6); T.entra = [r2(T.p4b - 0.4), r2(T.p4b + 0.85)]; T.r1 = r2(T.p4b + 0.1);   // (el auto ya viene entrando en el corte)
 T.p4c = r2(T.r1 + 1.2);                          // inserto del tablero (el celular cargando, 100 %) sobre "es el celular."
 T.p5 = r2(T.r1 + LEN.r1 + 0.1);
 // P5 · Rubén en la baranda: "¡Nico!" · contraplano desde el auto: baja la ventanilla, asoma un globo: "¡Ya lo cargo!"
@@ -51,9 +51,9 @@ T.r2 = r2(T.p5 + 0.15); T.p5b = r2(T.r2 + 0.5); T.ventanilla = [T.p5b, r2(T.p5b 
 T.p6 = r2(T.n3 + LEN.n3 + 0.08); T.bips = [r2(T.p6 + 0.1), r2(T.p6 + 0.5), r2(T.p6 + 0.9)]; T.mateBaranda = r2(T.p6 + 0.55);
 // P7 · el remate: el autoelevador (Rubén) levanta el auto con Nico adentro, sube la rampa y lo mete en el camión
 T.p7 = r2(T.p6 + 1.0); T.levanta = [r2(T.p7 + 0.05), r2(T.p7 + 0.35)]; T.viaje = [r2(T.p7 + 0.35), r2(T.p7 + 0.95)];
-T.adentro = [r2(T.p7 + 0.95), r2(T.p7 + 1.2)]; T.r3 = r2(T.p7 + 1.25); T.puertas = [r2(T.r3 + LEN.r3 + 0.05), r2(T.r3 + LEN.r3 + 0.22)];
+T.adentro = [r2(T.p7 + 0.95), r2(T.p7 + 1.2)]; T.r3 = r2(T.p7 + 1.25); T.puertas = [r2(T.r3 + LEN.r3 + 0.05), r2(T.r3 + LEN.r3 + 0.4)];
 // P8 · remate del remate: las puertas cerradas; adentro suena un celular: "Sí, sí. Ya lo cargo." (ahogado); dos palmadas
-T.p8 = r2(T.puertas[0] - 0.02); T.ringCel = r2(T.p8 + 0.05); T.n4 = r2(T.p8 + 0.25);
+T.p8 = r2(T.puertas[0] - 0.02); T.ringCel = r2(T.puertas[1] - 0.02); T.n4 = r2(T.ringCel + 0.2);
 T.palmadas = [r2(T.n4 + LEN.n4 + 0.02), r2(T.n4 + LEN.n4 + 0.22)]; T.arranca = r2(T.palmadas[1] + 0.12);
 const P1 = r2(T.arranca + 0.7);   // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 2.5);           // arranca la parte 2
@@ -194,10 +194,10 @@ const GANCHO = { cola: 420, rot: 10 };
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
-        tl.fromTo(l, { scale: 0.6, y: 50, rotation: (i % 2 ? 1 : -1) * 18 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.6, y: 40, rotation: (i % 2 ? 1 : -1) * 8 }, { scale: 1, y: 0, rotation: 0, duration: 0.28, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 5; k++) {
           const s = k % 2 ? 1 : -1;
-          tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
+          tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
       tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.22)});`,
@@ -213,7 +213,7 @@ const GANCHO = { cola: 420, rot: 10 };
     P .caja { position: absolute; left: 60px; right: 60px; top: 190px; padding: 26px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 56px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 72px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">El vendedor lo carga en la calle</div><div class="a">y entra al depósito y a la ficha</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Sistema de pedidos: del celular</div><div class="a">al depósito y a la ficha</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -269,7 +269,7 @@ s("sfx/k-plastico.wav", T.lleno + 0.12, 0, { techo: -44, vel: 0.55 });
 // P3 · la transición del globo, el depósito, la grúa, el teléfono de escritorio (dos tonos, real CC0), el altavoz
 s("sfx/whoosh.mp3", T.p3 - 0.2, 0, { techo: -40, dur: 0.6, fin: 0.2 });
 s("sfx/whoosh-short.mp3", T.grua[0] + 0.3, 0, { techo: -48 });
-for (const d of [0, 0.32]) s("sfx/k-dos-tonos.wav", T.ring + d, 0, { techo: -38, dur: 0.3, fin: 0.06, hp: 400 });
+for (const d of [0, 0.19]) s("sfx/k-dos-tonos.wav", T.ring + d, 0, { techo: -38, dur: 0.17, fin: 0.05, hp: 400 });   // (ronda 1: terminan antes de la voz)
 s("sfx/click-soft.mp3", T.altavoz, 0, { techo: -40 });
 pop(T.g1 - 0.02, -40); voz("g1", T.g1, -1);
 // P4 · el monitor ("ninguno"), el auto que entra (motor + globos), el inserto del celular
@@ -281,7 +281,7 @@ voz("r1", T.r1, -1);
 s("sfx/whoosh-short.mp3", T.p4c - 0.04, 0, { techo: -50 });
 // P5 · la puerta de vidrio, "¡Nico!", la ventanilla, "¡Ya lo cargo!"
 s("sfx/puerta-abre.wav", T.p5 - 0.05, 0, { techo: -46, dur: 0.5, fin: 0.15 });
-pop(T.r2 - 0.02, -40); voz("r2", T.r2, -2);
+pop(T.r2 - 0.02, -40); voz("r2", T.r2, -1);
 s("sfx/whoosh-short.mp3", T.p5b - 0.04, 0, { techo: -48 });
 s("sfx/k-neumatico-abre.wav", T.ventanilla[0], 0, { techo: -46, lp: 3000, vel: 1.3, dur: 0.3, fin: 0.1 });
 s("sfx/k-plastico.wav", T.ventanilla[1], 0, { techo: -44, vel: 0.8 });
@@ -311,10 +311,10 @@ voz("narrador", P1 + 0.15, -4);
 for (const d of [0.0, 0.3, 0.95, 1.55]) pop(P1 + d + 0.02, -42);
 s("sfx/whoosh.mp3", P2 - 0.3, 0, { techo: -40 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fin: 0.8, techo: -33 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -33 });
 s("sfx/calle.wav", P2, -6, { desde: 4, dur: r2(T.q2w - P2), fin: 0.2, techo: -44, lp: 1500 });
 s("sfx/zumbido.wav", T.q2w, 0, { loop: true, dur: r2(DUR - T.q2w), fi: 0.1, fin: 0.5, techo: -47, lp: 900 });
-for (const t of T.toques) s("sfx/key-press.mp3", t, 0, { techo: -42 });
+for (const t of T.toques) s("sfx/key-press.mp3", t, 0, { techo: -47 });
 voz("n5", T.n5, -2);
 s("sfx/ding.mp3", T.ding, 0, { techo: -36, dur: 0.8, fin: 0.35 });
 s("sfx/whoosh-short.mp3", T.vuela[0], 0, { techo: -42 });
