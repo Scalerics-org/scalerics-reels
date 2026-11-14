@@ -115,10 +115,10 @@ T.abreLib = r2(T.s05 - 0.3); T.vestido1 = r2(T.midio - 0.1); T.triple = T.mismo;
 T.etq = [T.t34, T.t39, r2(T.t39 + 0.45)]; T.cajas = [r2(T.s06 + 0.15), r2(T.s06 + 0.55), r2(T.s06 + 0.95)];
 T.cuarta = r2(T.vendio + 0.05); T.gira = r2(T.oferta + 0.1); T.ofertaVuela = r2(T.s09 + 0.05); T.choque = r2(T.gana + 0.05);
 T.subeCam = r2(pal[62].start + 0.33); T.corteO = r2(pal[62].start + 0.62);
-T.levanta = r2(T.s11 + 0.15); T.filas = [r2(T.automatico + 0.05), T.precio]; T.baja = r2(T.s12 + 0.1); T.brinda = r2(T.s12 + 0.55);
+T.levanta = r2(T.s11 + 0.15); T.filas = [r2(T.levanta + 0.12), T.precio]; T.baja = r2(T.s12 + 0.1); T.brinda = r2(T.s12 + 0.55);
 
 // tramos sin logo (insertos del celular y primeros planos): los lee armar.mjs (assets/firma.json)
-const FIRMA = [[r2(T.s11 + 0.3), r2(T.fin)]]; // ronda 2: sin logo hasta el cierre (tapaba el celular apoyado)
+const FIRMA = [[r2(Wg(65)), r2(T.fin)]]; // pulido: sin logo desde el contraplano de Rubén (tapaba su mano) // ronda 2: sin logo hasta el cierre (tapaba el celular apoyado)
 
 // posiciones en pantalla de los rótulos y créditos (medidas sobre los cuadros del 3D)
 const POS = {
@@ -135,7 +135,7 @@ const POS = {
 // ---------- el gancho (cuadro 0 = portada en movimiento) ----------
 const CSS_GANCHO = `${CSS_MK}
     P .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 128px/1.04 "Lexend", sans-serif; letter-spacing: -0.04em; color: ${CR}; -webkit-text-stroke: 16px ${NAVY}; paint-order: stroke fill; white-space: nowrap; }
-    P .h1 { top: 96px; font-size: 132px; } P .h2 { top: 236px; font-size: 118px; } P .h3 { top: 366px; font-size: 150px; }
+    P .h1 { top: 100px; font-size: 124px; } P .h2 { top: 234px; font-size: 110px; } P .h3 { top: 356px; font-size: 141px; }
     P .mk .fondo { top: 14px; bottom: 0px; }`;
 const GANCHO = `
       <div class="h h1">¿Por qué los</div>

@@ -207,3 +207,14 @@ Duración **30,88 s** (voz 30,76 s: "Porque el primer número pesa más." regene
   plano más baja (no toca "A veces…"). "pesa más": 3 tomas nuevas (n8), el STT oye las tres bien; va la n8-3 suelta (borradas n8-1 y n8-2).
   No tocados: los cuadros de piso en los travellings (4,7 / 7,25 / 19,8) siguen con objetos entrando por los bordes.
 Pasadas: r2a-r2g puntuales, q1 (cada 0,5 s), q2 (+0,25) y q3 (cortes y travellings) sobre la versión final.
+
+## Pulido final (14-11, sobre qa-99-r3/)
+- 999 despegándose (2,3-2,77): durante el despegue se vacían también las celdas de $ 1.200 y $ 640 (queda solo $ 980).
+- Celular: las manos toman las esquinas de abajo del celular donde esté (también apoyado): llegan 0,25 s antes de que
+  suba y lo sueltan 0,25 s después de apoyarlo. La primera tarjeta ya está al levantarlo (T.filas[0] = levanta + 0,12).
+  Escala 2,1 → 2,4 (textos ~15 % más grandes).
+- Regalo/OFERTA: la OFERTA frena a 0,80 m (aire con la placa); el regalo entra 0,1 s antes; cámara corrida a -0,24.
+- Gancho 5-7 % más chico (124/110/141 px). Rubén con `mechones: true` (herradura con volumen en vez de la corona lisa).
+  El cuadro de portada (4,1) no cambió.
+- BAJA: el sello desaparece antes (sin astilla en 10,13); el logo se oculta desde "noventa" (21,61) hasta el cierre.
+- check --json ok, 0 errores; mezcla igual (ningún tramo con voz < 6 dB). Snapshots pf1-pf6.

@@ -162,6 +162,7 @@ function dibujarLista(precio, sel, cursor, preg, ok, titulo = true, vacia = fals
   FILAS.forEach(([prod, pr], i) => {
     const y = Y0 + HH + RH * i;
     if (i === 1) pr = vacia ? "" : precio; // ronda 2: la celda se vacía cuando el 999 se despega
+    else if (vacia && i !== 3) pr = ""; // pulido: también las vecinas (el 999 pasa por encima al salir)
     if (i === 1 && sel) { x.fillStyle = VER; x.fillRect(XB, y, w - XB, RH); }
     x.textAlign = "left"; x.fillStyle = CRE; x.font = F(700, 70); x.fillText(prod, XA + 34, y + RH / 2 + 4);
     x.fillStyle = i === 1 && sel ? NAV0 : i === 1 && ok ? VER : CRE; x.font = F(800, 82); x.fillText(pr, XB + 40, y + RH / 2 + 4);
@@ -320,11 +321,11 @@ const celu = new THREE.Group(); scene.add(celu);
   sh(celu); celu.children[2].castShadow = false;
 }
 const CELU_ESC = V(OO.x + 0.52, ESC.y + 0.008, ESC.z - 0.24); // ronda 1: delante de Rubén, debajo de donde lo muestra (lo baja en vertical, lejos de la cara)
-const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999 }); scene.add(ruben.raiz);
+const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999, mechones: true }); scene.add(ruben.raiz); // pulido: herradura de pelo con volumen (la corona lisa se leía como vincha)
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const RUB = V(OO.x + 0.2, 0, 0.0);
 const GIRO_R = 0.62; // s10-s12: Rubén girado hacia la cámara (a su izquierda)
-const CELU_M = V(RUB.x + Math.sin(GIRO_R) * 0.5, 1.13, RUB.z + Math.cos(GIRO_R) * 0.5); // ronda 1: más bajo (la cara mira por encima)
+const CELU_M = V(RUB.x + Math.sin(GIRO_R) * 0.5, 1.11, RUB.z + Math.cos(GIRO_R) * 0.5); // ronda 1: más bajo (la cara mira por encima)
 const pisoO = pisoSombra(OO.x, 0, 4.4, 4, 0.0);
 
 // ================= ZONA P: la planilla gigante =================
@@ -619,7 +620,7 @@ T.subeCam = W[62] + 0.33;           // la cámara sube a vista cenital de la pla
 T.corteO = W[62] + 0.62;            // corte a la pantalla del monitor (la grilla empalma)
 T.cortaR = W[65];                   // ronda 1: corte limpio de la pantalla al contraplano de Rubén (antes la órbita pasaba por su cabeza)
 T.levanta = T.s11 + 0.15;           // Rubén levanta el celular
-T.filas = [T.automatico + 0.05, T.precio];
+T.filas = [T.levanta + 0.12, T.precio]; // pulido: la primera tarjeta ya está al levantarlo
 T.baja = T.s12 + 0.1;
 T.brinda = T.s12 + 0.55;
 
@@ -661,10 +662,10 @@ function armarPlanos() {
       k(T.gira - 0.1, pz(P4, 0, 1.98, 7.4), pz(P4, 0, 1.7, 0)),
       k(T.oferta + 0.5, pz(P4, 0.0, 2.25, 2.35), pz(P4, 0, 2.16, 0)),
       k(T.s09 + 0.05, pz(P4, 0.05, 2.25, 2.4), pz(P4, 0.05, 2.14, 0)),
-      k(T.s09 + 0.45, pz(P5, -0.18, 1.7, 5.75), pz(P5, -0.2, 0.5, 0)),
-      k(T.choque + 0.2, pz(P5, -0.18, 1.75, 5.65), pz(P5, -0.2, 0.45, 0.1)),
-      k(T.subeCam, pz(P5, -0.18, 2.55, 5.8), pz(P5, -0.2, 0.32, 0.2)),
-      k(T.corteO, pz(P5, -0.18, 3.1, 5.45), pz(P5, -0.2, 0.25, 0.25)),
+      k(T.s09 + 0.45, pz(P5, -0.24, 1.7, 5.75), pz(P5, -0.2, 0.5, 0)),
+      k(T.choque + 0.2, pz(P5, -0.24, 1.75, 5.65), pz(P5, -0.2, 0.45, 0.1)),
+      k(T.subeCam, pz(P5, -0.24, 2.55, 5.8), pz(P5, -0.2, 0.32, 0.2)),
+      k(T.corteO, pz(P5, -0.24, 3.1, 5.45), pz(P5, -0.2, 0.25, 0.25)),
     ]],
     // s10: la pantalla (celda del 999 con el "?"); en "noventa" corte limpio al contraplano de frente a Rubén
     ["O2", T.corteO, [
@@ -775,22 +776,23 @@ function zonaO(t) {
   if (t > BOCA.t0 - 0.05 && t < BOCA.t0 + BOCA.v.length / BOCA.fps) { const bb = bocaRuben(t); pr.boca.abierta = Math.max(pr.boca.abierta, bb * 0.6); pr.boca.ancho = lerp(pr.boca.ancho, 0.75, bb); }
   // el celular: en el escritorio; en s11 sube a las dos manos de cara a la cámara; en s12 vuelve al escritorio
   const sube = eio(sg(t, T.levanta, T.levanta + 0.4)) * (1 - eio(sg(t, T.baja, T.baja + 0.35)));
-  const KC = 2.1;
+  const KC = 2.4; // pulido: 2,1 → 2,4 (textos del celular ~15 % más grandes en pantalla)
   celu.position.lerpVectors(CELU_ESC.clone().add(V(0, 0.006, 0)), CELU_M, sube);
   celu.rotation.set(lerp(-Math.PI / 2, -0.05, sube), lerp(0.2, GIRO_R, sube), 0, "YXZ");
   celu.scale.setScalar(lerp(1, KC, sube));
   const vib = t > T.s11 - 0.05 && t < T.levanta ? Math.sin(t * 90) * 0.004 : 0; celu.position.x += vib;
   const ap = t < T.s11 - 0.05;
   dibujarCelu(ap, [popIn(t, T.filas[0], 0.35) > 0 ? sg(t, T.filas[0], T.filas[0] + 0.3) : 0, sg(t, T.filas[1], T.filas[1] + 0.3)]);
-  if (sube > 0.01) {
-    ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
-    const lat = V(Math.cos(GIRO_R), 0, -Math.sin(GIRO_R)), atr = V(-Math.sin(GIRO_R), 0, -Math.cos(GIRO_R)).multiplyScalar(0.04);
-    // ronda 2: las manos toman los bordes del teléfono (antes quedaban a ~4 cm y el celular flotaba)
-    const atr2 = V(-Math.sin(GIRO_R), 0, -Math.cos(GIRO_R)).multiplyScalar(0.035);
-    const hd = CELU_M.clone().addScaledVector(lat, -0.12).add(V(0, -0.15, 0)).add(atr2), hi = CELU_M.clone().addScaledVector(lat, 0.12).add(V(0, -0.15, 0)).add(atr2); // esquinas de abajo
+  // pulido: las manos van a las esquinas de abajo del celular DONDE ESTÉ (también apoyado): llegan antes de que suba
+  // (0,25 s) y lo sueltan después de apoyarlo (0,25 s); el celular nunca se mueve sin manos
+  const agarra = eio(sg(t, T.levanta - 0.25, T.levanta)) * (1 - eio(sg(t, T.baja + 0.35, T.baja + 0.6)));
+  if (agarra > 0.01) {
+    ruben.poner(pr); ruben.raiz.updateMatrixWorld(true); celu.updateMatrixWorld(true);
+    const zc = lerp(0.03, -0.015, sube);
+    const hd = celu.localToWorld(V(-0.054, -0.068, zc)), hi = celu.localToWorld(V(0.054, -0.068, zc));
     ruben.cuerpo.worldToLocal(hd); ruben.cuerpo.worldToLocal(hi);
-    pr.manoD = pr.manoD.map((v, i) => lerp(v, [hd.x, hd.y, hd.z][i], sube)); pr.codoD = [-1, -0.5, -0.2];
-    pr.manoI = pr.manoI.map((v, i) => lerp(v, [hi.x, hi.y, hi.z][i], sube)); pr.codoI = [1, -0.5, -0.2];
+    pr.manoD = pr.manoD.map((v, i) => lerp(v, [hd.x, hd.y, hd.z][i], agarra)); pr.codoD = [-1, -0.5, -0.2];
+    pr.manoI = pr.manoI.map((v, i) => lerp(v, [hi.x, hi.y, hi.z][i], agarra)); pr.codoI = [1, -0.5, -0.2];
   }
   // el mate: en el escritorio; en s12 lo levanta con la mano derecha (brindis a cámara)
   const br = eio(sg(t, T.brinda - 0.3, T.brinda + 0.1));
@@ -892,7 +894,7 @@ function zonaP(t) {
     const yS = lerp(1.6, 0.0, baja) + lerp(0, 3.6, subeS); // ronda 1: baja desde más cerca (entraba cortado por arriba)
     sello.position.copy(centro).add(V(0, yS, 0)); sello.rotation.set(tec.rotation.x * baja * (1 - subeS), 0, -0.1);
     sello.scale.setScalar((1 + 0.08 * pulso(t, T.sella, 0.12)) * kk);
-    sello.visible = sello.visible && t > T.sella - 0.3 && t < T.sella + 0.55;
+    sello.visible = sello.visible && t > T.sella - 0.3 && t < T.sella + 0.3;
     const pl = t < T.sella ? 0 : lerp(1.1, 1, eo(sg(t, T.sella, T.sella + 0.15)));
     placaNP.visible = placaNP.visible && pl > 0;
     placaNP.position.copy(centro).add(V(0, 0.035, 0).applyQuaternion(tec.getWorldQuaternion(new THREE.Quaternion())));
@@ -952,12 +954,12 @@ function zonaP(t) {
   }
   // ---- P5: el regalo; la etiqueta OFERTA llega, choca y rebota ----
   {
-    const ent = eo(sg(t, T.s09 - 0.25, T.s09 + 0.3));
+    const ent = eo(sg(t, T.s09 - 0.35, T.s09 + 0.2));
     regalo.position.set(P5.x + 1.6 * (1 - ent), 0, P5.z); regalo.rotation.set(0, -0.25, 0);
     regalo.position.x -= rebote(t, T.choque, 8, 25, 0.03);
     // la OFERTA llega deslizando desde la izquierda, choca contra el regalo y cae acostada
     const u = sg(t, T.ofertaVuela, T.choque), ue = eio(u);
-    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.7, 0.28, P5.z + 0.4); // ronda 2: para justo antes de la placa del precio (no la atraviesa)
+    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.8, 0.28, P5.z + 0.4); // ronda 2: para justo antes de la placa del precio (no la atraviesa)
     const reb = t > T.choque ? eo(sg(t, T.choque, T.choque + 0.35)) : 0;
     const x = lerp(A.x, B.x, ue) - 0.03 * reb;
     const yC = lerp(A.y, B.y, ue) + Math.sin(Math.PI * u) * 0.12;
