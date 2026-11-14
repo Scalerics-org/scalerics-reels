@@ -33,3 +33,22 @@ globos, el monitor, el remito, la ficha ni la línea chica. Se tiene que entende
 | 13-ruben.txt · "Ya salió." | Rubén | Algenib | Rubén cerrando la puerta del camión sin mirarlo, tranquilo, seco, con media sonrisa que no se ve: el dueño al que ahora le sobra tiempo. ~0,6 s. | Sin filtro. |
 
 Si alguna voz de siempre no estuviera disponible, no cambiarla por otra de un personaje recurrente: avisar.
+
+## Tomas elegidas (14-11, constructor) · `assets/voice/`
+Generadas con `partes/voces.sh` (lee `partes/lineas.tsv`; `LINEAS=partes/lineas-extra.tsv TOMAS="c d"` para tomas extra),
+silencios recortados en `partes/rec/`. Verificadas con `tiempos.mjs` ("oyó:") y contando muestras recortadas (clip).
+| voz final | toma | dur | proceso |
+|---|---|---|---|
+| n1 | 01-nico-d | 0,74 | sin filtro (a y b tenían clipping; c decía "se lo cargo") |
+| m1 | 02-marta-a | 1,63 | sin filtro |
+| n2 | 03-nico-a | 0,79 | sin filtro (otra toma que n1) |
+| g1 | 04-graciela-c | 1,50 | teléfono: highpass 300, lowpass 3400, compresión |
+| r1 | 05-ruben-b | 2,20 | sin filtro (pausa natural antes de "es el celular") |
+| r2 | 06-ruben-b | 0,94 | eco corto de galpón (aecho 70 ms) |
+| n3 | 07-nico-b | 0,76 | sin filtro |
+| r3 | 08-ruben-a | 0,77 | -0,5 dB ("cargué" bien; la d decía "cargué" con 18 muestras recortadas, la b "cambié") |
+| n4 | 09-nico-b | 1,73 | atempo 1,15 + ahogado: lowpass 900, -6 dB, aecho 25 ms |
+| n5 | 11-nico-b | 0,43 | cortado a 0,425 s (antes de la "g", en el valle de energía) con fundido de 15 ms |
+| n6 | 12-nico-b | 1,63 | pausa entre "Rubén," y "¿lo de Graciela?" acortada de 0,43 a 0,12 s |
+| r4 | 13-ruben-b | 0,65 | sin filtro |
+| narrador | reels/anotamelo | 2,26 | Rasalgethi, la misma toma |

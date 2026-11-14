@@ -38,13 +38,26 @@ Reusados del repo, con el crédito que ya tienen en otros fuentes.md:
 - `cero.mp3` (el tilde del pallet y del remito en la parte 2): "[UI Sound] Approval - High Pitched Bell Synth",
   GabFitzgerald, Freesound, CC0 1.0 (anotamelo).
 
-A buscar, reales y CC0 (Kenney, OpenGameArt o espejos de GitHub que conserven la licencia; freesound.org está bloqueado
-desde la nube). Si alguno no aparece, se saca del plan y se anota acá:
-- Bip de marcha atrás de autoelevador (la pausa y el remate final).
-- Hidráulico de las horquillas subiendo/bajando; motor eléctrico del autoelevador.
-- Motor de camión que arranca y se aleja.
-- Puerta de auto que se abre y cierra; ventanilla eléctrica.
-- Ring de teléfono de escritorio (y ring de celular para el remate del remate, filtrado).
-- Palmada en chapa / portazo metálico de puerta trasera de camión.
-- Goma de globo que se infla y se aplasta (chirrido).
-- Bolsa de harina que cae sobre madera.
+Nuevos en este reel (reales, CC0 1.0), todos de Kenney (https://kenney.nl), bajados del espejo
+https://github.com/Daarko/sparkstream-sounds (convierte a .wav los packs originales de kenney.nl y guarda la licencia de
+cada pack en `credits/`; freesound.org, opengameart.org y kenney.nl no responden desde la nube):
+- `k-tono.wav` (el bip de marcha atrás del autoelevador, repetido; un poco más grave con asetrate): "tone1", pack
+  "Digital Audio" (https://kenney.nl/assets/digital-audio), CC0 1.0.
+- `k-dos-tonos.wav` (el teléfono de escritorio que suena, dos veces, con pasaaltos): "twoTone1", pack "Digital Audio", CC0 1.0.
+- `k-metal-pesado-0.wav`, `k-metal-pesado-2.wav` (las dos hojas de la puerta del camión que se cierran):
+  "impactMetal_heavy_000/002", pack "Impact Sounds" (https://kenney.nl/assets/impact-sounds), CC0 1.0.
+- `k-metal-medio-1.wav`, `k-metal-medio-3.wav` (las dos palmadas en la chapa): "impactMetal_medium_001/003", "Impact
+  Sounds", CC0 1.0.
+- `k-metal-liviano-2.wav` (la puerta del auto que se cierra): "impactMetal_light_002", "Impact Sounds", CC0 1.0.
+- `k-chapa-pesada.wav` (el auto que apoya en el piso de la caja): "impactPlate_heavy_000", "Impact Sounds", CC0 1.0.
+- `k-neumatico-abre.wav` (el hidráulico de las horquillas y la ventanilla eléctrica, con pasabajos y más lento):
+  "doorOpen_000", pack "Sci-Fi Sounds" (https://kenney.nl/assets/sci-fi-sounds), CC0 1.0.
+- `k-motor-bajo.wav` (el zumbido del motor eléctrico del autoelevador, con pasabajos): "spaceEngineLow_000", "Sci-Fi
+  Sounds", CC0 1.0.
+- De reels/como-viene-el-mes (Kenney, CC0, crédito en su fuentes.md): `k-plastico.wav` (globos que se inflan, se aplastan
+  y entran apretados; más lento = más grave), `k-creak.wav` (el freno corto del auto en cada parada, más rápido),
+  `k-metal-click.wav` (la manija de la puerta del auto).
+- `motor.mp3` también para el camión (más grave, asetrate 0,72) y el auto marcha atrás.
+
+No se consiguieron reales y se resolvieron con lo que había (nada sintetizado): motor de camión diésel (el arranque del
+auto más grave), ring de celular adentro del camión (`vibra.wav` con pasabajos), goma de globo (`k-plastico.wav`).
