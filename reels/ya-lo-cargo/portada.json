@@ -1,13 +1,14 @@
 {
- "t": 16.95,
+ "t": 8.2,
  "chica": "El vendedor:",
  "grande": "Ya lo cargo.",
  "sello": "Distribuidora",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.15,
- "foco": "35%",
+ "zoom": 1.0,
+ "foco": "50%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-16.95.png"
+ "fondo_limpio": "portada-src/fondo-portada-8.2.png",
+ "nota": "fondo: cuadro 8,2 s con LIMPIO=1 (el auto de Nico lleno de globos), subido 350 px (portada-src/fondo-portada-8.2.png)"
 }
