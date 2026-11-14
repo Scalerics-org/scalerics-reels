@@ -213,7 +213,7 @@ const GANCHO = { cola: 420, rot: 10 };
     P .caja { position: absolute; left: 60px; right: 60px; top: 190px; padding: 26px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 56px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 72px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Un sistema carga el pedido</div><div class="a">en la calle y va solo al depósito</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">El vendedor lo carga en la calle</div><div class="a">y entra al depósito y a la ficha</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });

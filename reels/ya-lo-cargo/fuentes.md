@@ -17,7 +17,7 @@ y teléfono de escritorio sin logo, autoelevador, zorra, camión y auto genéric
 - Nico: Fenrir (primera vez con voz para ELENCO.empleado) · Rubén: Algenib · Graciela: Gacrux · Marta: Aoede · narrador
   del cartel: Rasalgethi, reusando `reels/anotamelo/assets/voice/narrador.wav` ("Un sistema más tarde.").
 
-## Sonido planeado (a confirmar por el constructor; completar autor, sitio y licencia de cada uno nuevo)
+## Sonido usado
 Nada sintetizado con ffmpeg (los filtros de teléfono y de voz ahogada sobre las voces sí van: son procesamiento de
 voz, no sonidos inventados).
 
@@ -61,3 +61,9 @@ cada pack en `credits/`; freesound.org, opengameart.org y kenney.nl no responden
 
 No se consiguieron reales y se resolvieron con lo que había (nada sintetizado): motor de camión diésel (el arranque del
 auto más grave), ring de celular adentro del camión (`vibra.wav` con pasabajos), goma de globo (`k-plastico.wav`).
+
+Créditos que faltaban (mismos archivos que en otros reels del repo):
+- `k-cloth_1.wav`, `k-cloth_2.wav`: Kenney (kenney.nl), "RPG Audio", CC0 1.0 (como en como-viene-el-mes).
+- `madera-tabla.wav`: Kenney (kenney.nl), "Impact Sounds", CC0 1.0 (como en hacen-envios).
+- `puerta-abre.wav`: "door_open_1", Kenney, "RPG Audio", CC0 1.0 (como en anotamelo y hacen-envios).
+- `pop`, `whoosh`, `ding` y demás sin prefijo `k-`: biblioteca de sonidos que trae el repo (`assets/sfx` de los reels anteriores).

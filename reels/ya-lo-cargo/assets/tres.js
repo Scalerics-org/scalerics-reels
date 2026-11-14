@@ -140,7 +140,7 @@ const VEREDA = 2.4, CORDON = 0.12;
   const fondo = mesh(new THREE.PlaneGeometry(200, 200), mat(0xa6a294, 0.9), -20, -0.02, 0); fondo.rotation.x = -Math.PI / 2; fondo.castShadow = false; CALLE.add(fondo);
 }
 // ---- las fachadas: [x del centro, nombre, pared, letrero] ----
-const LOCALES = [[0, "ROTISERÍA", C.cr, "cr"], [-8, "CAFETERÍA", C.navy3, "cr"], [-16, "BAR", 0xe2d3c0, "navy"], [-24, "KIOSCO", C.cr, "navy"], [-32, "FERRETERÍA", C.navy3, "cr"], [-40, "PANADERÍA", 0xd6c7a6, "navy"], [-48, "FARMACIA", C.cr, "navy"], [-56, "ALMACENAJE", C.navy3, "cr"]];
+const LOCALES = [[0, "ROTISERÍA", C.cr, "cr"], [-8, "CAFETERÍA", C.navy3, "cr"], [-16, "BAR", 0xe2d3c0, "navy"], [-24, "KIOSCO", C.cr, "navy"], [-32, "FERRETERÍA", C.navy3, "cr"], [-40, "PANADERÍA", 0xd6c7a6, "navy"], [-48, "FARMACIA", C.cr, "navy"], [-56, "VERDULERÍA", C.navy3, "cr"]];
 const PUERTA_DX = 1.25, PUERTA_W = 1.3, PUERTA_H = 2.35, VID = { y0: 0.75, y1: 2.35 };
 function fachada([x0, nombre, pared, letrero], abierta) {
   const g = new THREE.Group(); g.position.x = x0; CALLE.add(g);
@@ -579,7 +579,7 @@ const SLOTS = [
   [0.18, 1.58, -0.4, 0.9, [1.05, 0.8]],    // 6 · el último: contra la cabeza de Nico (el cachete)
 ];
 const GLOBOS = [
-  crearGloboChat("txt", "40 harina\n· lunes ·"), crearGloboChat("txt", "2 azúcar"), crearGloboChat("txt", "agua con\ngas x6"),
+  crearGloboChat("txt", "40 harina\nlunes"), crearGloboChat("txt", "2 azúcar"), crearGloboChat("txt", "agua con\ngas x6"),
   crearGloboChat("audio"), crearGloboChat("foto"), crearGloboChat("txt", "lo mismo\n+ 2"), crearGloboChat("txt", "dale"),
 ];
 GLOBOS.forEach((g) => scene.add(g));
