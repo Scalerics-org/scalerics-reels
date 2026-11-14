@@ -218,3 +218,11 @@ Pasadas: r2a-r2g puntuales, q1 (cada 0,5 s), q2 (+0,25) y q3 (cortes y travellin
   El cuadro de portada (4,1) no cambió.
 - BAJA: el sello desaparece antes (sin astilla en 10,13); el logo se oculta desde "noventa" (21,61) hasta el cierre.
 - check --json ok, 0 errores; mezcla igual (ningún tramo con voz < 6 dB). Snapshots pf1-pf6.
+
+## Último arreglo (14-11, sobre qa-99-final/)
+- Pelo de Rubén de espaldas (0-2,55): la solución de reels/ya-lo-cargo, en tres.js: corona oculta y herradura de bolitas
+  canosas (dos tonos) medio hundidas en el cráneo, tamaños irregulares con semilla fija, contorno ondulado. Sin `mechones`.
+- 999 en el corte escondido (2,77): en la oficina la cara del 999 queda de espaldas a la luz principal y salía gris; en O1
+  lleva emisivo crema cálido (0xf3dfb8, 0,34) y queda del mismo crema que en la planilla. El cuadro de portada (4,1, plano P)
+  no cambia: no se rehizo el fondo.
+- check --json ok, 0 errores. Snapshots lf1-lf4.

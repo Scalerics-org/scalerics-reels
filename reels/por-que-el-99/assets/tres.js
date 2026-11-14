@@ -321,7 +321,31 @@ const celu = new THREE.Group(); scene.add(celu);
   sh(celu); celu.children[2].castShadow = false;
 }
 const CELU_ESC = V(OO.x + 0.52, ESC.y + 0.008, ESC.z - 0.24); // ronda 1: delante de Rubén, debajo de donde lo muestra (lo baja en vertical, lejos de la cara)
-const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999, mechones: true }); scene.add(ruben.raiz); // pulido: herradura de pelo con volumen (la corona lisa se leía como vincha)
+const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999 }); scene.add(ruben.raiz);
+// último arreglo (solución de reels/ya-lo-cargo): la corona lisa (o la herradura de tubo) de espaldas se leía como vincha.
+// Corona oculta y una herradura de bolitas canosas medio hundidas en el cráneo, de tamaños irregulares (semilla fija):
+// más gruesa atrás, fina sobre las orejas, con el contorno ondulado arriba y abajo.
+{
+  const corona = ruben.cabeza.children.find((o) => o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.phiLength || 0) - Math.PI * 1.14) < 1e-3);
+  if (corona) {
+    corona.visible = false;
+    const pm = mat(0xb9b6b0, 0.85), pm2 = mat(0xa9a6a0, 0.85);
+    const R0 = 0.3, CC0 = R0 * 0.92, az = azarDe(21);
+    const bola = new THREE.SphereGeometry(1, 16, 12);
+    const fila = (n, a0, a1, e0, eK, s0, sK, h) => {
+      for (let i = 0; i < n; i++) {
+        const u = (i + 0.5) / n, w = Math.sin(Math.PI * u);
+        const a2 = lerp(a0, a1, u) + (az() - 0.5) * 0.07, e2 = e0 + eK * w + (az() - 0.5) * 0.09;
+        const sz = s0 + sK * w + 0.014 * az(), k = 0.965;
+        const m = mesh(bola, (i + n) % 4 ? pm : pm2, R0 * k * Math.sin(a2) * Math.cos(e2), CC0 + R0 * 0.97 * k * Math.sin(e2), R0 * 0.95 * k * Math.cos(a2) * Math.cos(e2));
+        m.scale.set(sz, sz * h, sz); m.castShadow = true;
+        ruben.cabeza.add(m);
+      }
+    };
+    fila(24, 1.5, Math.PI * 2 - 1.5, -0.02, 0.04, 0.034, 0.03, 1.25);   // la herradura de oreja a oreja
+    fila(11, 2.2, Math.PI * 2 - 2.2, -0.2, -0.04, 0.03, 0.022, 1.15);   // la nuca, más abajo y solo atrás
+  }
+}
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const RUB = V(OO.x + 0.2, 0, 0.0);
 const GIRO_R = 0.62; // s10-s12: Rubén girado hacia la cámara (a su izquierda)
@@ -360,6 +384,7 @@ const lado9 = [mat(C.navy2, 0.5), mat(C.navy2, 0.5), mat(C.navy2, 0.5)];
 const num999 = new THREE.Group(); scene.add(num999);
 const nueves = [0, 1, 2].map((i) => { const m = new THREE.Mesh(geo9, [cara9[i], lado9[i]]); num999.add(m); m.castShadow = true; return m; });
 const P1 = V(0, 0, 0);
+const EMI999 = 0.34, EMI999C = 0xf3dfb8; // crema cálido: en la oficina la luz de relleno es fría
 
 // ---------- P2: las etiquetas colgantes $ 99 / $ 100 ----------
 const P2 = V(2.3, 0, 0);
@@ -823,6 +848,9 @@ function zonaP(t) {
     num999.position.set(OO.x - 0.17 - 0.06 * u, MON.y + 0.03 + 0.06 * u, MON.z - 0.04 - 0.3 * u); // ronda 1: termina centrado en cuadro
     num999.rotation.set(0, Math.PI, 0);
     num999.scale.setScalar(lerp(0.13, 0.17, u)); // ronda 1: 0,26 → 0,17 (en el corte quedaba cortado a los costados)
+    // último arreglo: en la oficina la cara del 999 mira a -z (la luz principal viene de +z) y salía gris; con emisivo crema
+    // queda del mismo crema que en la planilla, así el corte escondido de 2,77 no cambia de color
+    for (let i = 0; i < 3; i++) { cara9[i].color.setHex(C.cr); cara9[i].emissive.setHex(EMI999C); cara9[i].emissiveIntensity = EMI999; }
   } else if (en) {
     num999.visible = t < T.s04;
     num999.position.set(P1.x, ALTO9 / 2 + 0.003, P1.z); num999.rotation.set(0, 0, 0); num999.scale.setScalar(1);
@@ -834,7 +862,8 @@ function zonaP(t) {
     m.scale.setScalar(s);
     m.position.set((i - 1) * PASO9 + (i === 0 ? -0.12 * pv : i === 1 ? 0.02 * pv : 0.0), (s - 1) * ALTO9 / 2, 0);
     if (i === 0) { cara9[0].color.setHex(C.cr).lerp(new THREE.Color(C.g), pv); lado9[0].color.setHex(C.navy2).lerp(new THREE.Color(C.navy), pv); cara9[0].emissive.setHex(C.g); cara9[0].emissiveIntensity = 0.12 * pv; }
-    else { cara9[i].color.setHex(C.cr).lerp(new THREE.Color(0x8a93a6), pv * 0.8); }
+    else { cara9[i].color.setHex(C.cr).lerp(new THREE.Color(0x8a93a6), pv * 0.8); cara9[i].emissiveIntensity = 0; }
+    if (plano === "O1") { cara9[i].color.setHex(C.cr); cara9[i].emissive.setHex(EMI999C); cara9[i].emissiveIntensity = EMI999; } // (ver arriba: mismo crema a los dos lados del corte)
   });
   et99.visible = et100.visible = hilo99.visible = hilo100.visible = perchero.visible = en && t > T.s03 - 0.5 && t < T.s05;
   caja.visible = sello.visible = placaNP.visible = en && t > T.s04 - 0.6 && t < T.s05 + 0.34;
