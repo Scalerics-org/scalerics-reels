@@ -15,6 +15,14 @@ FR.forEach((fr, k) => {
   let t = s;
   ws.forEach((w) => { const d = ((e - s) * sil(w)) / tot; out.push({ text: w, start: +t.toFixed(3), end: +(t + d).toFixed(3) }); t += d; });
 });
+// ronda 1: "Lo que sí se comprobó:" (toma suelta n7-3, atempo 1,1 desde 0,16 s) con los inicios del STT de esa toma
+{
+  const k = FR.findIndex((f) => f.startsWith("Lo que sí se comprobó")), i0 = FR.slice(0, k).reduce((n, f) => n + f.split(/\s+/).length, 0);
+  const crudo = [0.19, 0.3, 0.5, 0.7, 0.9], [s, e] = TR[k];
+  crudo.forEach((c, j) => { out[i0 + j].start = +Math.max(s, s + (c - 0.16) / 1.1).toFixed(3); });
+  crudo.forEach((c, j) => { out[i0 + j].end = j + 1 < crudo.length ? out[i0 + j + 1].start : e; });
+  out[i0].start = s;
+}
 fs.writeFileSync("assets/voice/palabras.json", JSON.stringify(out, null, 1));
 console.log("palabras.json:", out.length, "palabras; fin", out.at(-1).end);
 out.forEach((w, i) => process.stdout.write(`${i}:${w.text}@${w.start.toFixed(2)} `)); console.log();

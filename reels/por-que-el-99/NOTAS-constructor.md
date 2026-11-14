@@ -1,7 +1,6 @@
 # Notas del constructor · por-que-el-99 (14-11)
 
-Duración: **30,52 s** (voz 30,40 s, 88 palabras de pantalla: "scalerics.com." es una). Cierre 2,65 s desde
-"videollamada" (27,87). No se renderizó el mp4 (lo hace el coordinador).
+Duración: **30,82 s** tras la ronda 1 (voz 30,70 s; ver "Ronda 1 de corrección" al final). Cierre 2,66 s desde "videollamada" (28,16). No se renderizó el mp4 (lo hace el coordinador).
 
 ## Render (desde reels/por-que-el-99)
 ```
@@ -114,3 +113,75 @@ el CLI dice "WebGL unavailable" en el probe pero el canvas renderiza bien).
 - Coins: dos monedas quedan en el borde inferior en 8,5-9,7.
 - En el inserto del celular (23,7-25,9) la cara de Rubén queda detrás del teléfono (se ven ojos y manos a los lados).
 - "Videollamada" del cierre: la etiqueta 3D tiene una sombra verde oscura a la derecha (sombra sobre el piso invisible).
+
+## Ronda 1 de corrección (14-11, sobre la lista de `ronda1/por-que-el-99.md`)
+Duración 30,52 → **30,82 s** (la frase nueva de la voz es 0,30 s más larga). Cierre 28,16 → 30,82 (2,66 s, arranca en
+"videollamada"). `check --json`: ok, 0 errores (warnings de siempre: estructura #fondo/#capa3d, ReadPixels de SwiftShader,
+canvas al borde). Mezcla (pre-loudnorm): I -17,3 LUFS, pico -4,5 dBFS; tramos de 0,5 s y de 0,1 s con voz < 6 dB sobre
+música+SFX: **ninguno**.
+
+**Voz.** "Lo que sí se midió:" → **"Lo que sí se comprobó:"** (3 tomas nuevas de "se midió" con el tono marcando la i: el
+STT las oyó "se murió / se me dio / se mide"; de 3 tomas de "se comprobó" la `partes/n7-3.wav` la oye exacta). Va como
+tramo suelto en `partes/armar-voz.mjs` (archivo 4, ganancia -3 dB, desde 0,16 s); `partes/ajustar-tiempos.mjs` pone los
+inicios de esa frase con el STT de la toma. Cambiado también en guion.txt, partes/texto.txt, partes/guion-voz.txt,
+descripcion.txt, fuentes.md (fila 4) y SPEC.md. Rehechos tiempos, boca de Rubén (21,28-23,07) y mezcla. STT de control de
+la locución entera: igual que antes ("aprobado" por "probado" y "suena oferta": sesgos del STT ya anotados).
+
+**ALTA**
+1. Celular frente a la cara al bajarlo (26,05): el celular ya no viaja al lado derecho de Rubén cruzando la cara. Lo
+   muestra más bajo (`CELU_M` y 1,27 → 1,13, a 0,5 m) y lo deja en el escritorio justo debajo (`CELU_ESC` = OO+0,52,
+   z 0,38, entre el teclado y el mate; el mate pasó a OO+0,74): baja en vertical, lejos de la cara. La mota del bigote
+   era de ese primer plano de costado: ya no hay ese ángulo.
+2. Órbita por dentro de la cabeza (21,2-21,6): sacada. s10 = primer plano de la pantalla (celda $ 999 con el "?" rojo,
+   que ahora entra apenas corta, 21,09) y **corte limpio en "noventa" (21,61)** al contraplano frontal ("O2b", push-in
+   lento). La pantalla se encuadra más lejos: entran el encabezado B y las 4 filas sin "$" cortado ni el logo encima.
+3. Subtítulos fantasma: la palabra acentuada va crema con borde navy como las demás (CSS con variables `--c`/`--sw`) y
+   pasa a navy en el mismo instante en que entra su recuadro (`tl.set` en armar.mjs). Mirado en 6,25 / 8,75 / 10,25 /
+   11,75 / 13,75 / 15,25 / 16,4 / 18,4 / 19,75 / 26,25.
+
+**MEDIA**
+- Título del monitor junto al gancho: "Lista de precios" no se dibuja mientras está el gancho (plano O1).
+- Costura en los 9: era el contorno del "9" en `vendor/three/lexend800.js`, que se cruzaba (la cola atravesaba la
+  panza) y la triangulación dejaba un arco. Corregido el contorno (unión: la cola sube hasta la panza y sigue por su
+  borde). curveSegments 10 → 16. Los demás glifos con cruces (1, 3, 4, $) van con cara navy y no se ve nada.
+- 999 cortado en el corte escondido: el 999 de O1 termina a escala 0,17 y centrado (cámara final corrida a la izquierda
+  de Rubén, sin su cabeza en cuadro); en la planilla arranca de frente a 4,2 m y la órbita a 3/4 es más corta y lejos
+  (los tres 9 con margen en 3,0-4,6). Rehechos `portada-src/fondo-limpio-4.1.png` y `fondo-portada.png` (LIMPIO=1).
+- Whip pan de 10,2: el catálogo pasó a x 6,2 (de 7,0) y la caja se achica y se va al llegar (10,27-10,49) con el sello,
+  la placa y las monedas; la tapa se abre antes (desde 9,85) para que no quede "CATÁL" cortado a mitad del travelling.
+- Riel tachando la tapa: el riel ya no sube desde el piso; baja desde arriba (10,30-10,65) y queda por encima del
+  catálogo. Más angosto (patas a ±1,06) para que no toque los bordes.
+- "OTOÑO": sacado de la tapa y de las páginas. La tapa (afuera) dice solo "CATÁLOGO" y se lee al abrirse; abierto se ve
+  la página (antes el libro abierto mostraba la tapa por dentro: estaban invertidas las caras). Libro más chico
+  (1,0 × 1,5) para que abierto entre entero.
+- Bordes: etiquetas $ 99 / $ 100 con la cámara a 6,2-6,4 m; vestidos ±0,74 y plano general de s06-s08 a 7,2-7,6 m (sin
+  el push-in cerrado a 34/39: la flecha entra igual debajo del subtítulo); el primer plano del 39 (OFERTA) a 2,35 m, y
+  el 34 y el 44 se achican durante el giro (ya no asoman ni cruzan detrás del subtítulo); monedas con menos velocidad
+  lateral y hacia cámara (caen delante del cajón, no en el borde).
+- Vuelo de la OFERTA y regalo: el regalo pasó a x 8,8 (de 10,6), la OFERTA queda más cerca de él; la grúa ya no termina
+  cenital: sube a un picado de 3/4 con regalo y OFERTA enteros hasta el corte; la tilde queda (sin disco aplastado).
+- Inserto del celular: ojos por encima del teléfono, celular entero en cuadro (cámara a ~1,25 m).
+- Subtítulos que destellaban: grupos unidos en reel.json ("Porque el primer número", "Lo que sí se comprobó:", "A veces
+  gana el redondo.", "¿Y mi 99 vendió más?", "le dice qué precio vende más."); los largos van a 64-74 px con
+  `text-wrap: balance` (dos líneas parejas).
+
+**BAJA**
+- Grilla de s10: corregida (ver ALTA 2). La etiqueta 44 detrás de "A veces": corregida (se achica antes).
+- Sello: baja desde 1,6 m (entraba cortado por arriba) y golpea en el hueco después de "probado." (9,73).
+- Ruedo hueco: el vestido con DoubleSide. "mismo 3": primero se dibujan las dos guías y después entra la placa, ahora
+  arriba de las etiquetas, con las guías a los dos "3".
+- Doble espacio tras "99": las palabras vacías (texto "") no generan span.
+- Cierre: sin la sombra flotante (pisoF 0); cámara más lejos, la etiqueta no toca "scalerics.com".
+- Vibración sin celular: el contraplano baja la mirada antes de s11 y el celular se ve en el escritorio cuando vibra.
+- Sonido: monedas con tic al salir (8,21) y tics al caer antes de "No" (8,58-8,72); whoosh en la flecha 34→39 (15,53);
+  roce y click suave al bajar el celular (26,34 / 26,68); sello en el hueco. El ding/tac de la caja (7,4-7,7) quedó
+  donde estaba (no hay hueco en "¿Lo del cajero…"; la mezcla da ≥ 6 dB).
+- "no llega a mil" (craft warning): ahora 3,24-4,57.
+
+**Pasadas propias:** a1 (0,5 s), p1 (+0,25), a2-a6 y b1/c1-c4 sueltos en cortes (2,73-2,83, 20,97-21,07, 21,57-21,67,
+23,43-23,50, 26,20-26,23, 28,13-28,20) y travellings (9,6-10,35); p2 (0,5 s) y p3 (+0,25) completas finales.
+Nota: en un lote de snapshot el PRIMER cuadro a veces sale con el 3D del estado anterior (visto en 9,85 de c2; repetido
+en c3 sale bien): es del snapshot, no de renderAt.
+**Dudoso:** el celular apoyado queda abajo a la derecha medio tapado por el logo en 26,6-28,1; en 2,2-2,77 el 999 3D
+sale de la celda y pisa el texto de la pantalla (es el "se despega"); en los travellings (4,6-4,9, 7,1-7,5, 10,1-10,3,
+19,4-19,7) hay objetos que entran y salen por los bordes durante el movimiento.

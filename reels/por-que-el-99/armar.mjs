@@ -112,10 +112,13 @@ CORTES.forEach((desde, g) => {
       const i = desde + k;
       const cls = ACENTO.has(i) ? " ac" : MALO.has(i) ? " ac malo" : "";
       const caja = cls ? `<b class="caja"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i></b>` : "";
-      return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(TEXTO[i] ?? w.text)}</em></span>`;
+      const txt = TEXTO[i] ?? w.text;
+      if (!txt) return ""; // "noventa y nueve" → "99": las palabras vacías no dejan span (ni doble espacio)
+      return `<span class="w${cls}" data-t="${r2(w.start - ini)}">${caja}<em>${esc(txt)}</em></span>`;
     })
+    .filter(Boolean)
     .join(" ");
-  const largoTxt = ws.map((w, k) => TEXTO[desde + k] ?? w.text).join(" ").length;
+  const largoTxt = ws.map((w, k) => TEXTO[desde + k] ?? w.text).filter(Boolean).join(" ").length;
   const claro = "";
   grupos += `    <div id="${id}" class="grupo clip" data-start="${ini}" data-duration="${r2(fin - ini)}" data-track-index="0"><p${claro}${largoTxt > 22 ? ' style="font-size: 64px"' : largoTxt > 17 ? ' style="font-size: 74px"' : ""}>${spans}</p></div>\n`;
   anim += `      ["${id}", ${ini}, ${r2(fin - ini)}],\n`;
@@ -127,8 +130,8 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; padding: 4px 30px 12px; -webkit-text-stroke: 14px #0b1220; paint-order: stroke fill; max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #efeee5; }
-    ${C} .w.ac em { color: #0b1220; -webkit-text-stroke: 0; }
+    ${C} p { margin: 0; padding: 4px 30px 12px; -webkit-text-stroke: 14px #0b1220; paint-order: stroke fill; max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #efeee5; text-wrap: balance; }
+    ${C} .w.ac em { color: var(--c, #efeee5); -webkit-text-stroke: var(--sw, 14px) #0b1220; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
     ${C} .w.ac { margin: 0; } ${C} p.claro { background: rgba(11,18,32,0.78); border-radius: 26px; }
@@ -157,6 +160,8 @@ ${anim}      ];
           tl.set(w, { opacity: 1 }, ini); tl.fromTo(w, { y: 10 }, { y: 0, duration: 0.12, ease: "power2.out", immediateRender: false }, ini);
           const caja = w.querySelector(".caja");
           if (caja) tl.fromTo(caja, { opacity: 0.5, scaleX: 1.2, scaleY: 1.3, transformOrigin: "50% 50%" }, { opacity: 1, scaleX: 1, scaleY: 1, duration: 0.12, ease: "power3.out", immediateRender: false }, t + 0.02);
+          // ronda 1: la palabra acentuada va crema con borde navy (como las demás) hasta que entra su recuadro; ahí pasa a navy
+          if (caja) { const em = w.querySelector("em"); tl.set(em, { "--c": "#efeee5", "--sw": "14px" }, 0); tl.set(em, { "--c": "#0b1220", "--sw": "0px" }, t + 0.02); }
         }
       }
       window.__timelines = window.__timelines || {};

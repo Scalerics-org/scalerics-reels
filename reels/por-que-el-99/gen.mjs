@@ -110,8 +110,8 @@ const T = {
   fin: INI["s13-cierre"],
 };
 T.teclas = [0.95, 1.3, 1.65]; T.enter = 2.0; T.sale999 = 2.2;
-T.cae100 = T.menos; T.abreCajon = r2(T.cajero + 0.05); T.monedas = r2(T.vuelto - 0.05); T.sella = r2(T.no + 0.25);
-T.abreLib = r2(T.s05 + 0.05); T.vestido1 = r2(T.midio - 0.1); T.triple = T.mismo;
+T.cae100 = T.menos; T.abreCajon = r2(T.cajero + 0.05); T.monedas = r2(T.vuelto - 0.05); T.sella = r2(Wg(31) - 0.42);
+T.abreLib = r2(T.s05 - 0.3); T.vestido1 = r2(T.midio - 0.1); T.triple = T.mismo;
 T.etq = [T.t34, T.t39, r2(T.t39 + 0.45)]; T.cajas = [r2(T.s06 + 0.15), r2(T.s06 + 0.55), r2(T.s06 + 0.95)];
 T.cuarta = r2(T.vendio + 0.05); T.gira = r2(T.oferta + 0.1); T.ofertaVuela = r2(T.s09 + 0.05); T.choque = r2(T.gana + 0.05);
 T.subeCam = r2(pal[62].start + 0.33); T.corteO = r2(pal[62].start + 0.62);
@@ -127,8 +127,8 @@ const POS = {
   credTM: [540, 540],
   cajero: [540, 1620],
   credAS: [540, 1660],
-  vendio: [540, 1640],
-  tres: [380, 830], tresLead1: [330, 790, 195, 625], tresLead2: [430, 790, 560, 625],
+  vendio: [540, 1300],
+  tres: [340, 560], tresLead1: [262, 602, 180, 738], tresLead2: [418, 602, 500, 738],
   credWZ: [540, 1640],
 };
 
@@ -166,7 +166,7 @@ const GANCHO = `
   const id = "s02-primer-numero";
   escena(id, {
     html: `${L(1, POS.primeroLead)}${pill(1, POS.primero[0], POS.primero[1], "no llega a mil", "lleno")}`,
-    js: `nota(1, ${rel(id, T.primer + 0.12)}); fuera([1], ${rel(id, pal[14].end - 0.02)});`,
+    js: `nota(1, ${rel(id, T.primer + 0.02)}); fuera([1], ${r2(ESC[id] - 0.14)});`, // ronda 1: más tiempo en pantalla (piso de lectura de 4 palabras)
     sfx: [
       { t: 0.0, sfx: "tac-real", vol: 0.1 },
       { t: rel(id, T.primer + 0.05), sfx: "pop", vol: 0.06 },
@@ -200,7 +200,8 @@ const GANCHO = `
       { t: 0.05, sfx: "pop", vol: 0.06 },
       { t: rel(id, T.abreCajon - 0.15), sfx: "ding", vol: 0.12, max: 0.6 },
       { t: rel(id, T.abreCajon + 0.12), sfx: "tac-real", vol: 0.14 },
-      ...[0, 1, 2].map((j) => ({ t: rel(id, T.monedas + 0.35 + j * 0.09), sfx: "tic-real", vol: 0.05 })),
+      { t: rel(id, T.monedas + 0.03), sfx: "tic-real", vol: 0.04 },
+      ...[0, 1, 2].map((j) => ({ t: rel(id, T.monedas + 0.4 + j * 0.07), sfx: "tic-real", vol: 0.05 })),
       { t: rel(id, T.sella - 0.02), sfx: "sello", vol: 0.05, max: 0.4 },
     ],
   });
@@ -235,9 +236,10 @@ vacia("s06-tres-precios", [
     js: `nota(1, ${rel(id, T.vendio + 0.1)}); fuera([1], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.0, sfx: "whoosh-short", vol: 0.04 },
+      { t: rel(id, T.caro + 0.05), sfx: "whoosh-short", vol: 0.07, max: 0.4 },
       { t: rel(id, T.cuarta + 0.15), sfx: "tac-real", vol: 0.14 },
-      { t: rel(id, T.cuarta + 0.12), sfx: "impact-bass-1", vol: 0.025, max: 0.45 },
-      { t: rel(id, T.cuarta + 0.2), sfx: "ding", vol: 0.03, max: 0.35 },
+      { t: rel(id, T.cuarta + 0.12), sfx: "impact-bass-1", vol: 0.016, max: 0.45 },
+      { t: rel(id, T.cuarta + 0.2), sfx: "ding", vol: 0.02, max: 0.35 },
     ],
   });
 }
@@ -247,10 +249,10 @@ vacia("s06-tres-precios", [
   const id = "s08-oferta";
   escena(id, {
     html: `${leads(lead(1, ...POS.tresLead1), lead(2, ...POS.tresLead2))}${pill(1, POS.tres[0], POS.tres[1], "mismo 3")}`,
-    js: `nota(1, 0.1); dibujar(".l2", 0.1, 0.28); pop(".d2", 0.3, 0.2); fuera([1, 2], ${rel(id, T.gira - 0.05)});`,
+    js: `dibujar(".l1, .l2", 0.04, 0.24); pop(".d1, .d2", 0.2, 0.2); pop(".n1", 0.16); fuera([1, 2], ${rel(id, T.gira - 0.05)});`,
     sfx: [
       { t: 0.1, sfx: "pop", vol: 0.05 },
-      { t: rel(id, T.gira), sfx: "whoosh-short", vol: 0.06 },
+      { t: rel(id, T.gira), sfx: "whoosh-short", vol: 0.035 },
       { t: rel(id, T.gira + 0.3), sfx: "sparkle", vol: 0.05, max: 0.6 },
     ],
   });
@@ -289,6 +291,8 @@ vacia("s11-reporte", [
 // ================= s12 · ¿medimos los tuyos? =================
 vacia("s12-medimos", [
   { t: -0.2, sfx: "whoosh-short", vol: 0.03 },
+  { t: rel("s12-medimos", T.baja + 0.02), sfx: "whoosh-short", vol: 0.03, max: 0.35 },
+  { t: rel("s12-medimos", T.baja + 0.36), sfx: "click-soft", vol: 0.04 },
   { t: rel("s12-medimos", pal[81].end + 0.02), sfx: "tic-real", vol: 0.03 },
 ]);
 

@@ -101,7 +101,9 @@ const sh = (o) => { o.traverse((m) => { if (m.isMesh) { m.castShadow = true; m.r
 const font = new FontLoader().parse(LEXEND);
 const geoCache = {};
 const textoGeo = (s, size, depth) => (geoCache[s + "|" + size + "|" + depth] ??= (() => {
-  const g = new TextGeometry(s, { font, size, depth, curveSegments: 10, bevelEnabled: true, bevelThickness: depth * 0.22, bevelSize: size * 0.022, bevelSegments: 3 });
+  // ronda 1: el "9" de lexend800.js tenía el contorno cruzado (la cola atravesaba la panza): la triangulación dejaba
+  // una costura en arco sobre la cara. Se corrigió el contorno en vendor/three/lexend800.js (unión de cola y panza).
+  const g = new TextGeometry(s, { font, size, depth, curveSegments: 16, bevelEnabled: true, bevelThickness: depth * 0.22, bevelSize: size * 0.022, bevelSegments: 3 });
   g.computeBoundingBox(); const b = g.boundingBox;
   g.translate(-(b.max.x + b.min.x) / 2, -(b.max.y + b.min.y) / 2, -(b.max.z + b.min.z) / 2);
   return g;
@@ -141,14 +143,14 @@ const LP = { w: 1280, h: 800 };
 const FILAS = [["Yerba x10", "$ 1.200"], ["Aceite x12", "$ 1.000"], ["Arroz x10", "$ 640"], ["Fideos x20", "$ 980"]];
 const lista = texViva(LP.w, LP.h);
 // estado: precio del aceite (texto), sel (celda seleccionada verde), cursor, preg (el "?" rojo), ok (confirmado)
-function dibujarLista(precio, sel, cursor, preg, ok) {
-  const clave = [precio, sel, cursor, preg, ok].join("|");
+function dibujarLista(precio, sel, cursor, preg, ok, titulo = true) {
+  const clave = [precio, sel, cursor, preg, ok, titulo].join("|");
   if (lista.clave === clave) return; lista.clave = clave;
   const x = lista.x, w = LP.w, h = LP.h;
   x.fillStyle = NAV3; x.fillRect(0, 0, w, h);
   // barra de título
   x.fillStyle = NAV0; x.fillRect(0, 0, w, 116);
-  x.fillStyle = CRE; x.textBaseline = "middle"; x.textAlign = "left"; x.font = F(800, 60); x.fillText("Lista de precios", 40, 60);
+  x.fillStyle = CRE; x.textBaseline = "middle"; x.textAlign = "left"; x.font = F(800, 60); if (titulo) x.fillText("Lista de precios", 40, 60); // ronda 1: sin título mientras está el gancho (asomaba pegado)
   x.fillStyle = VER; x.beginPath(); x.arc(w - 60, 58, 16, 0, 7); x.fill();
   // encabezados de columna (A, B) y de fila (1..)
   const X0 = 90, XA = 90, XB = 720, Y0 = 116, HH = 76, RH = 150;
@@ -236,7 +238,7 @@ const MONW = 0.98, MONH = 0.61;
 }
 // el mate y el termo en el escritorio (a la derecha de Rubén: -x)
 const mateR = crearMate(); scene.add(mateR); mateR.scale.setScalar(1.15);
-const MATE_ESC = V(OO.x + 0.62, ESC.y, ESC.z - 0.2);
+const MATE_ESC = V(OO.x + 0.74, ESC.y, ESC.z - 0.22); // ronda 1: más a la izquierda de Rubén (el celular queda entre el teclado y el mate)
 const termo = crearTermo(); scene.add(termo); termo.scale.setScalar(1.2); termo.position.set(OO.x - 0.74, ESC.y, ESC.z + 0.2);
 sh(termo);
 // ---- el depósito, abajo: racks navy claro con largueros crema, pallets, cajas kraft, bultos con film, una zorra ----
@@ -317,12 +319,12 @@ const celu = new THREE.Group(); scene.add(celu);
   celu.add(mesh(new THREE.PlaneGeometry(CW, CH), pm, 0, 0, 0.0066));
   sh(celu); celu.children[2].castShadow = false;
 }
-const CELU_ESC = V(OO.x - 0.36, ESC.y + 0.008, ESC.z - 0.2);
+const CELU_ESC = V(OO.x + 0.52, ESC.y + 0.008, ESC.z - 0.24); // ronda 1: delante de Rubén, debajo de donde lo muestra (lo baja en vertical, lejos de la cara)
 const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999 }); scene.add(ruben.raiz);
 ruben.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } });
 const RUB = V(OO.x + 0.2, 0, 0.0);
 const GIRO_R = 0.62; // s10-s12: Rubén girado hacia la cámara (a su izquierda)
-const CELU_M = V(RUB.x + Math.sin(GIRO_R) * 0.44, 1.27, RUB.z + Math.cos(GIRO_R) * 0.44);
+const CELU_M = V(RUB.x + Math.sin(GIRO_R) * 0.5, 1.13, RUB.z + Math.cos(GIRO_R) * 0.5); // ronda 1: más bajo (la cara mira por encima)
 const pisoO = pisoSombra(OO.x, 0, 4.4, 4, 0.0);
 
 // ================= ZONA P: la planilla gigante =================
@@ -448,7 +450,7 @@ const BW = 1.3, BH = 0.3, BD = 0.95;
 }
 const monedas = [0, 1, 2, 3, 4].map((i) => { const m = mesh(new THREE.CylinderGeometry(0.065, 0.065, 0.018, 24), i % 2 ? M.cromo : mat(0xc9a24a, 0.3, { metalness: 0.6 })); m.castShadow = true; scene.add(m); return m; });
 const azM = azarDe(41);
-const MON_V = monedas.map((_, i) => ({ vx: (i - 2) * 0.32 + (azM() - 0.5) * 0.1, vy: 2.4 + azM() * 0.7, vz: 0.6 + azM() * 0.35, rx: 4 + azM() * 6, rz: azM() * 4, d: i * 0.05 }));
+const MON_V = monedas.map((_, i) => ({ vx: (i - 2) * 0.14 + (azM() - 0.5) * 0.08, vy: 1.4 + azM() * 0.4, vz: 0.12 + azM() * 0.18, rx: 4 + azM() * 6, rz: azM() * 4, d: i * 0.05 }));
 // el sello de goma y la placa NO PROBADO
 const sello = new THREE.Group(); scene.add(sello);
 {
@@ -463,27 +465,26 @@ const placaNP = mesh(new THREE.PlaneGeometry(1.0, 0.293), new THREE.MeshStandard
 scene.add(placaNP);
 
 // ---------- P4: el catálogo abierto, los tres vestidos, las etiquetas 34 / 39 / 44 y las pilas de cajas ----------
-const P4 = V(7.0, 0, 0);
-const LIB = { w: 1.25, h: 1.65, z: -0.75 };
+const P4 = V(6.2, 0, 0); // ronda 1: más cerca de la caja (el whip pan pasaba por piso vacío)
+const LIB = { w: 1.0, h: 1.5, z: -0.75 }; // ronda 1: más chico (abierto entra entero en cuadro)
 const libro = new THREE.Group(); scene.add(libro);
 const tapaLib = new THREE.Group(); libro.add(tapaLib); // bisagra en el lomo (x 0); cerrada sobre la página derecha
 const texPag = (lado) => tex(640, 846, (x, w, h) => {
   x.fillStyle = "#f4f2e8"; x.fillRect(0, 0, w, h);
   x.fillStyle = NAV; x.fillRect(0, 0, w, 96);
   x.fillStyle = CRE; x.font = F(500, 44, "IBM Plex Mono"); x.textBaseline = "middle"; x.textAlign = lado ? "right" : "left";
-  x.fillText(lado ? "OTOÑO" : "CATÁLOGO", lado ? w - 40 : 40, 50);
   x.fillStyle = "rgba(22,36,61,0.18)"; for (let i = 0; i < 4; i++) rr(x, 40, 640 + i * 44, w - 80 - (i % 2) * 140, 22, 11);
   x.fillStyle = "rgba(22,36,61,0.5)"; x.font = F(500, 36, "IBM Plex Mono"); x.textAlign = "center"; x.fillText(lado ? "13" : "12", w / 2, h - 40);
 });
 const texTapa = tex(640, 846, (x, w, h) => {
   x.fillStyle = NAV; x.fillRect(0, 0, w, h); x.strokeStyle = VER; x.lineWidth = 14; x.strokeRect(34, 34, w - 68, h - 68);
-  x.fillStyle = CRE; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "CATÁLOGO", 900, 110, w - 120); x.fillText("CATÁLOGO", w / 2, h * 0.42);
-  x.fillStyle = VER; x.font = F(500, 64, "IBM Plex Mono"); x.fillText("OTOÑO", w / 2, h * 0.56);
+  x.fillStyle = CRE; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "CATÁLOGO", 900, 110, w - 120); x.fillText("CATÁLOGO", w / 2, h * 0.44);
+  x.fillStyle = VER; rr(x, w / 2 - 120, h * 0.53, 240, 16, 8);
 });
 {
   const hoja = (m) => new THREE.Mesh(rbox(LIB.w, LIB.h, 0.04, 0.012), m);
   const der = hoja([M.cr2, M.cr2, M.cr2, M.cr2, matTex(texPag(1), 0.25), M.cr2]); der.position.set(LIB.w / 2, LIB.h / 2 + 0.02, 0); libro.add(der);
-  const izq = hoja([M.navy2, M.navy2, M.navy2, M.navy2, matTex(texPag(0), 0.25), matTex(texTapa, 0.2)]); izq.position.set(LIB.w / 2, LIB.h / 2 + 0.02, 0.045); tapaLib.add(izq);
+  const izq = hoja([M.navy2, M.navy2, M.navy2, M.navy2, matTex(texTapa, 0.2), matTex(texPag(0), 0.25)]); izq.position.set(LIB.w / 2, LIB.h / 2 + 0.02, 0.045); tapaLib.add(izq); // ronda 1: la tapa afuera (cerrado) y la página adentro (abierto)
   libro.add(mesh(new THREE.CylinderGeometry(0.035, 0.035, LIB.h, 12), M.navy, 0, LIB.h / 2 + 0.02, 0.02));
   sh(libro);
 }
@@ -497,7 +498,7 @@ function hacerVestido() {
   const bg = new THREE.ExtrudeGeometry(barra, { depth: 0.03, bevelEnabled: true, bevelThickness: 0.006, bevelSize: 0.006, bevelSegments: 1 }); bg.translate(0, -0.08, -0.015);
   g.add(new THREE.Mesh(bg, M.madera));
   // cuerpo del vestido (torso + falda) con LatheGeometry, achatado en z
-  const verde = mat(C.g, 0.6, { emissive: C.g, emissiveIntensity: 0.06 });
+  const verde = mat(C.g, 0.6, { emissive: C.g, emissiveIntensity: 0.06, side: THREE.DoubleSide }); // ronda 1: el ruedo se veía hueco
   const perfil = [[0.0, -0.2], [0.13, -0.2], [0.14, -0.26], [0.12, -0.36], [0.105, -0.44], [0.11, -0.47], [0.16, -0.58], [0.22, -0.74], [0.27, -0.9], [0.285, -0.94], [0.0, -0.94]].map(([r, y]) => new THREE.Vector2(r, y));
   const cuerpo = new THREE.Mesh(new THREE.LatheGeometry(perfil, 40), verde); cuerpo.scale.z = 0.42; g.add(cuerpo);
   // escote en V (crema) y cinto navy
@@ -512,13 +513,13 @@ function hacerVestido() {
   g.userData = { cuerpo };
   return sh(g);
 }
-const VEST_X = [-0.68, 0, 0.68];
+const VEST_X = [-0.74, 0, 0.74]; // ronda 1: más separados (en el primer plano del 39 no asoman cortados el 34 y el 44)
 const vestidos = VEST_X.map(() => { const v = hacerVestido(); scene.add(v); return v; });
 const RIEL_Y = 1.92;
 const riel = new THREE.Group(); scene.add(riel);
 {
-  riel.add(mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.4, 14).rotateZ(Math.PI / 2), M.navy, 0, RIEL_Y, 0));
-  for (const s of [-1, 1]) { riel.add(mesh(new THREE.CylinderGeometry(0.025, 0.025, RIEL_Y, 12), M.navy, s * 1.2, RIEL_Y / 2, 0)); riel.add(mesh(rbox(0.06, 0.04, 0.45, 0.015), M.navy, s * 1.2, 0.02, 0)); }
+  riel.add(mesh(new THREE.CylinderGeometry(0.025, 0.025, 2.12, 14).rotateZ(Math.PI / 2), M.navy, 0, RIEL_Y, 0));
+  for (const s of [-1, 1]) { riel.add(mesh(new THREE.CylinderGeometry(0.025, 0.025, RIEL_Y, 12), M.navy, s * 1.06, RIEL_Y / 2, 0)); riel.add(mesh(rbox(0.06, 0.04, 0.45, 0.015), M.navy, s * 1.06, 0.02, 0)); }
   sh(riel);
 }
 // etiquetas de precio paradas sobre el riel (cara: "US$" + número 3D; dorso: OFERTA)
@@ -548,7 +549,7 @@ const PILA_Z = 0.42;
 // la flecha que sube del 34 al 39 (crema con borde navy) y la tilde del 39
 const flecha = new THREE.Group(); scene.add(flecha);
 {
-  const curva = new THREE.QuadraticBezierCurve3(V(-0.6, 0, 0), V(-0.34, 0.36, 0), V(-0.1, 0.06, 0));
+  const curva = new THREE.QuadraticBezierCurve3(V(-0.66, 0, 0), V(-0.37, 0.4, 0), V(-0.1, 0.06, 0));
   const tg = new THREE.TubeGeometry(curva, 30, 0.032, 10, false);
   flecha.add(new THREE.Mesh(tg, M.cr));
   const cab = mesh(new THREE.ConeGeometry(0.08, 0.16, 16), M.cr); cab.position.copy(V(-0.1, 0.06, 0)); cab.quaternion.setFromUnitVectors(_up, V(0.6, -0.8, 0).normalize()); flecha.add(cab);
@@ -558,7 +559,7 @@ const flecha = new THREE.Group(); scene.add(flecha);
 const tilde39 = hacerTilde(0.13);
 
 // ---------- P5: el regalo con el precio redondo ----------
-const P5 = V(10.6, 0, 0);
+const P5 = V(8.8, 0, 0); // ronda 1: más cerca (la OFERTA volaba sobre piso vacío)
 const regalo = new THREE.Group(); scene.add(regalo);
 {
   const R = { w: 0.95, h: 0.75, d: 0.85 };
@@ -578,7 +579,7 @@ const ofertaSuelta = new THREE.Group(); scene.add(ofertaSuelta);
 { ofertaSuelta.add(mesh(rbox(ETW, (ETW - 0.02) * 0.7 + 0.02, 0.035, 0.04), M.cr, 0, 0, 0)); const f = mesh(new THREE.PlaneGeometry(ETW - 0.02, (ETW - 0.02) * 0.7), matTex(texOferta, 0.25), 0, 0, 0.019); ofertaSuelta.add(f); sh(ofertaSuelta); }
 
 // ================= ZONA F: el cierre verde (la etiqueta "$ 999") =================
-const pisoF = pisoSombra(OF.x, 0, 8, 8, 0.12);
+const pisoF = pisoSombra(OF.x, 0, 8, 8, 0.0); // ronda 1: sin sombra (la etiqueta cuelga en el aire: la sombra verde flotaba)
 const etF = hacerEtiqueta("999", M.cr, [M.navy, M.navy2], 0.9, 1.15); scene.add(etF);
 
 // ================= TIEMPOS CLAVE =================
@@ -604,8 +605,8 @@ T.corteP = T.s02;                   // corte al 999 parado en la planilla
 T.cae100 = T.menos;                 // la de 100 cae pesada
 T.abreCajon = T.cajero + 0.05;
 T.monedas = T.vuelto - 0.05;
-T.sella = T.no + 0.25;              // el sello golpea
-T.abreLib = T.s05 + 0.05;
+T.sella = W[31] - 0.42;             // el sello golpea (ronda 1: en el hueco después de "probado.", no encima de "está")
+T.abreLib = T.s05 - 0.3;            // ronda 1: antes (a mitad del travelling la tapa ya gira: no queda "CATÁL" cortado)
 T.vestido1 = T.midio - 0.1;
 T.triple = T.mismo;
 T.etq = [T.t34, T.t39, T.t39 + 0.45];
@@ -616,6 +617,7 @@ T.ofertaVuela = T.s09 - 0.04;       // la etiqueta del 39 (ya OFERTA) salta del 
 T.choque = T.gana + 0.05;
 T.subeCam = W[62] + 0.33;           // la cámara sube a vista cenital de la planilla
 T.corteO = W[62] + 0.62;            // corte a la pantalla del monitor (la grilla empalma)
+T.cortaR = W[65];                   // ronda 1: corte limpio de la pantalla al contraplano de Rubén (antes la órbita pasaba por su cabeza)
 T.levanta = T.s11 + 0.15;           // Rubén levanta el celular
 T.filas = [T.automatico + 0.05, T.precio];
 T.baja = T.s12 + 0.1;
@@ -632,64 +634,64 @@ function armarPlanos() {
     ["O1", 0, [
       k(0, o(-0.3, 2.5, -1.6), o(-0.08, 1.2, MON.z)),
       k(T.sale999, o(-0.3, 2.3, -1.0), o(-0.06, 1.27, MON.z)),
-      k(T.s02, o(-0.22, 1.62, -0.05), o(-0.02, 1.36, MON.z)),
+      k(T.s02, o(-0.32, 1.52, -0.36), o(-0.24, 1.45, MON.z)),
     ]],
     // s02-s09: la planilla (travelling lateral de objeto en objeto)
     ["P", T.corteP, [
-      k(T.s02, pz(P1, 0, 0.42, 2.3), pz(P1, 0, 0.3, 0)),
-      k(T.s02 + 0.2, pz(P1, -0.05, 0.5, 2.95), pz(P1, -0.02, 0.3, 0)),
-      k(T.primer + 0.1, pz(P1, -0.85, 0.9, 3.2), pz(P1, -0.3, 0.32, 0)),
-      k(T.pesa, pz(P1, -1.45, 1.1, 3.55), pz(P1, -0.15, 0.3, 0)),
-      k(T.s03 - 0.12, pz(P1, -1.3, 1.15, 3.7), pz(P1, -0.1, 0.32, 0)),
-      k(T.s03 + 0.25, pz(P2, 0, 1.55, 5.4), pz(P2, 0, 1.3, 0)),
-      k(T.cien, pz(P2, 0, 1.5, 5.6), pz(P2, 0, 1.25, 0)),
-      k(T.s04 - 0.15, pz(P2, 0.1, 1.55, 5.6), pz(P2, 0.1, 1.2, 0)),
-      k(T.s04 + 0.35, pz(P3, 0, 2.2, 4.6), pz(P3, 0, 0.72, 0)),
-      k(T.vuelto, pz(P3, 0, 2.0, 4.2), pz(P3, 0, 0.66, 0.15)),
-      k(T.probado + 0.2, pz(P3, 0, 2.2, 4.4), pz(P3, 0, 0.72, 0)),
-      k(T.s05 - 0.12, pz(P3, 0.3, 2.2, 4.5), pz(P3, 0.3, 0.75, 0)),
-      k(T.s05 + 0.28, pz(P4, 0, 1.4, 5.6), pz(P4, 0, 1.15, -0.4)),
-      k(T.mismo, pz(P4, 0, 1.5, 5.8), pz(P4, 0, 1.25, -0.2)),
-      k(T.s06 + 0.3, pz(P4, 0, 1.55, 6.5), pz(P4, 0, 1.28, -0.1)),
-      k(T.s07 - 0.1, pz(P4, 0, 1.55, 6.6), pz(P4, 0, 1.28, -0.1)),
-      k(T.caro + 0.25, pz(P4, -0.3, 2.05, 4.2), pz(P4, -0.3, 1.95, 0)),
-      k(T.yv - 0.05, pz(P4, -0.3, 2.05, 4.1), pz(P4, -0.3, 1.95, 0)),
-      k(T.vendio + 0.3, pz(P4, -0.05, 1.55, 6.4), pz(P4, -0.05, 1.25, 0)),
-      k(T.s08 + 0.2, pz(P4, 0, 1.7, 5.9), pz(P4, 0, 1.45, 0)),
-      k(T.gira - 0.1, pz(P4, 0, 1.7, 5.85), pz(P4, 0, 1.45, 0)),
-      k(T.oferta + 0.5, pz(P4, 0.0, 2.1, 3.1), pz(P4, 0, 1.95, 0)),
-      k(T.s09 + 0.05, pz(P4, 0.1, 2.1, 3.1), pz(P4, 0.1, 1.9, 0)),
-      k(T.s09 + 0.45, pz(P5, -0.25, 1.55, 4.4), pz(P5, -0.25, 0.45, 0)),
-      k(T.choque + 0.2, pz(P5, -0.3, 1.6, 4.2), pz(P5, -0.3, 0.42, 0.1)),
-      k(T.subeCam, pz(P5, -0.3, 2.3, 3.4), pz(P5, -0.35, 0.25, 0.4)),
-      k(T.corteO, pz(P5, -0.85, 4.0, 0.62), pz(P5, -0.85, 0.0, 0.42)),
+      k(T.s02, pz(P1, 0, 0.5, 4.2), pz(P1, 0, 0.32, 0)),
+      k(T.s02 + 0.25, pz(P1, -0.1, 0.62, 4.5), pz(P1, -0.04, 0.32, 0)),
+      k(T.primer + 0.1, pz(P1, -0.75, 0.95, 4.5), pz(P1, -0.12, 0.34, 0)),
+      k(T.pesa, pz(P1, -1.1, 1.15, 4.45), pz(P1, -0.04, 0.33, 0)),
+      k(T.s03 - 0.12, pz(P1, -1.05, 1.2, 4.55), pz(P1, 0.0, 0.35, 0)),
+      k(T.s03 + 0.25, pz(P2, 0, 1.5, 6.2), pz(P2, 0, 1.25, 0)),
+      k(T.cien, pz(P2, 0, 1.45, 6.4), pz(P2, 0, 1.2, 0)),
+      k(T.s04 - 0.15, pz(P2, 0.1, 1.5, 6.4), pz(P2, 0.1, 1.18, 0)),
+      k(T.s04 + 0.35, pz(P3, 0, 2.3, 4.8), pz(P3, 0, 0.66, 0)),
+      k(T.vuelto, pz(P3, 0, 2.1, 4.4), pz(P3, 0, 0.6, 0.15)),
+      k(T.probado + 0.2, pz(P3, 0, 2.3, 4.6), pz(P3, 0, 0.66, 0)),
+      k(T.s05 - 0.12, pz(P3, 0.2, 2.2, 4.8), pz(P3, 0.2, 0.7, 0)),
+      k(T.s05 + 0.3, pz(P4, 0, 1.55, 6.9), pz(P4, 0, 1.22, -0.4)),
+      k(T.mismo, pz(P4, 0, 1.6, 7.1), pz(P4, 0, 1.28, -0.2)),
+      k(T.s06 + 0.3, pz(P4, 0, 1.95, 7.6), pz(P4, 0, 1.68, -0.1)),
+      k(T.s07 - 0.1, pz(P4, 0, 1.95, 7.65), pz(P4, 0, 1.68, -0.1)),
+      k(T.caro + 0.25, pz(P4, -0.05, 2.0, 7.3), pz(P4, -0.05, 1.74, 0)),
+      k(T.yv - 0.05, pz(P4, -0.05, 2.0, 7.25), pz(P4, -0.05, 1.74, 0)),
+      k(T.vendio + 0.3, pz(P4, 0, 1.95, 7.5), pz(P4, 0, 1.68, 0)),
+      k(T.s08 + 0.2, pz(P4, 0, 1.98, 7.45), pz(P4, 0, 1.7, 0)),
+      k(T.gira - 0.1, pz(P4, 0, 1.98, 7.4), pz(P4, 0, 1.7, 0)),
+      k(T.oferta + 0.5, pz(P4, 0.0, 2.2, 2.35), pz(P4, 0, 2.08, 0)),
+      k(T.s09 + 0.05, pz(P4, 0.05, 2.2, 2.4), pz(P4, 0.05, 2.04, 0)),
+      k(T.s09 + 0.45, pz(P5, -0.35, 1.5, 4.2), pz(P5, -0.35, 0.5, 0)),
+      k(T.choque + 0.2, pz(P5, -0.35, 1.55, 4.1), pz(P5, -0.35, 0.45, 0.1)),
+      k(T.subeCam, pz(P5, -0.3, 2.3, 4.4), pz(P5, -0.3, 0.32, 0.2)),
+      k(T.corteO, pz(P5, -0.3, 2.9, 4.0), pz(P5, -0.3, 0.25, 0.25)),
     ]],
-    // s10: de la pantalla (la misma grilla, en la celda del 999) a Rubén: la cámara sube por encima de su cabeza y baja
-    // del otro lado del escritorio (a su izquierda, +x), de frente a él
+    // s10: la pantalla (celda del 999 con el "?"); en "noventa" corte limpio al contraplano de frente a Rubén
     ["O2", T.corteO, [
-      k(T.corteO, o(-0.27, MON.y, MON.z - 0.9), o(-0.27, MON.y, MON.z)),
-      k(T.s10 + 0.1, o(-0.24, MON.y + 0.02, MON.z - 1.0), o(-0.25, MON.y, MON.z)),
-      k(T.s10 + 0.45, o(1.0, 2.45, -0.5), o(0.1, 1.3, 0.55), 38),
-      k(T.s10 + 0.8, o(1.55, 2.1, 0.55), o(0.2, 1.4, 0.1), 42),
-      k(T.s10 + 1.15, o(1.2, 1.85, 1.45), o(0.2, 1.42, 0.05), 44),
-      k(T.s11, o(1.18, 1.84, 1.42), o(0.2, 1.42, 0.05), 44),
+      k(T.corteO, o(-0.25, MON.y + 0.01, MON.z - 1.22), o(-0.25, MON.y - 0.0, MON.z)),
+      k(T.cortaR, o(-0.24, MON.y + 0.02, MON.z - 1.3), o(-0.24, MON.y - 0.0, MON.z)),
     ]],
-    // s11: push-in al celular que Rubén muestra
+    ["O2b", T.cortaR, [
+      k(T.cortaR, o(1.28, 1.87, 1.52), o(0.2, 1.42, 0.05), 44),
+      k(T.s11 - 0.3, o(1.2, 1.84, 1.44), o(0.22, 1.4, 0.05), 44),
+      k(T.s11, o(1.18, 1.78, 1.42), o(0.3, 1.2, 0.2), 44),
+    ]],
+    // s11: push-in al celular que Rubén muestra (la cara mira por encima del teléfono)
     ["O3", T.s11, [
-      k(T.s11, o(1.18, 1.84, 1.42), o(0.2, 1.42, 0.05), 44),
-      k(T.levanta + 0.4, o(1.05, 1.6, 1.25), o(0.36, 1.3, 0.3), 40),
-      k(T.automatico + 0.2, o(0.91, 1.37, 0.99), o(CELU_M.x - OO.x, CELU_M.y + 0.065, CELU_M.z)),
-      k(T.s12 - 0.05, o(0.9, 1.37, 0.97), o(CELU_M.x - OO.x, CELU_M.y + 0.065, CELU_M.z)),
+      k(T.s11, o(1.18, 1.78, 1.42), o(0.3, 1.2, 0.2), 44),
+      k(T.levanta + 0.4, o(1.12, 1.62, 1.3), o(0.38, 1.28, 0.3), 40),
+      k(T.automatico + 0.2, o(CELU_M.x - OO.x + 0.72, 1.36, CELU_M.z + 1.0), o(CELU_M.x - OO.x, CELU_M.y + 0.14, CELU_M.z), 36),
+      k(T.s12 - 0.05, o(CELU_M.x - OO.x + 0.71, 1.36, CELU_M.z + 0.98), o(CELU_M.x - OO.x, CELU_M.y + 0.14, CELU_M.z), 36),
     ]],
-    // s12: Rubén baja el celular y levanta el mate (brindis); la cámara se abre
+    // s12: Rubén baja el celular (en vertical, al escritorio) y levanta el mate (brindis); la cámara se abre
     ["O4", T.s12, [
-      k(T.s12, o(0.9, 1.37, 0.97), o(CELU_M.x - OO.x, CELU_M.y + 0.065, CELU_M.z)),
+      k(T.s12, o(CELU_M.x - OO.x + 0.71, 1.36, CELU_M.z + 0.98), o(CELU_M.x - OO.x, CELU_M.y + 0.14, CELU_M.z), 36),
       k(T.brinda, o(1.2, 1.8, 1.45), o(0.32, 1.4, 0.12), 44),
       k(T.fin, o(1.13, 1.76, 1.35), o(0.32, 1.42, 0.12), 42),
     ]],
     ["F", T.fin, [
-      k(T.fin, [OF.x, 0.75, 4.2], [OF.x, 0.75, 0]),
-      k(DUR, [OF.x, 0.75, 4.0], [OF.x, 0.75, 0]),
+      k(T.fin, [OF.x, 0.86, 4.55], [OF.x, 0.86, 0]),
+      k(DUR, [OF.x, 0.86, 4.4], [OF.x, 0.86, 0]),
     ]],
   ];
 }
@@ -751,8 +753,8 @@ function zonaO(t) {
   const sel = t < T.teclas[0];
   const ok = t >= T.enter;
   const cursor = !sel && !ok;
-  const preg = plano === "O1" ? 0 : sg(t, T.s10 + 0.2, T.s10 + 0.4) * (1 - sg(t, T.filas[0], T.filas[0] + 0.25));
-  dibujarLista(precio, sel, cursor, preg, ok);
+  const preg = plano === "O1" ? 0 : sg(t, T.corteO + 0.06, T.corteO + 0.26) * (1 - sg(t, T.filas[0], T.filas[0] + 0.25)); // ronda 1: el "?" entra apenas corta a la pantalla
+  dibujarLista(precio, sel, cursor, preg, ok, plano !== "O1");
   // ---- Rubén ----
   const tecla = (x) => T.teclas.reduce((m, a) => m + pulso(x, a - 0.08, 0.16), 0);
   const pr = poseEn(t, [
@@ -812,9 +814,9 @@ function zonaP(t) {
   if (plano === "O1") {
     const u = eo(sg(t, T.sale999, T.s02));
     num999.visible = t >= T.sale999;
-    num999.position.set(OO.x - 0.03, MON.y + 0.03 + 0.06 * u, MON.z - 0.04 - 0.3 * u);
+    num999.position.set(OO.x - 0.17 - 0.06 * u, MON.y + 0.03 + 0.06 * u, MON.z - 0.04 - 0.3 * u); // ronda 1: termina centrado en cuadro
     num999.rotation.set(0, Math.PI, 0);
-    num999.scale.setScalar(lerp(0.13, 0.26, u));
+    num999.scale.setScalar(lerp(0.13, 0.17, u)); // ronda 1: 0,26 → 0,17 (en el corte quedaba cortado a los costados)
   } else if (en) {
     num999.visible = t < T.s04;
     num999.position.set(P1.x, ALTO9 / 2 + 0.003, P1.z); num999.rotation.set(0, 0, 0); num999.scale.setScalar(1);
@@ -829,8 +831,8 @@ function zonaP(t) {
     else { cara9[i].color.setHex(C.cr).lerp(new THREE.Color(0x8a93a6), pv * 0.8); }
   });
   et99.visible = et100.visible = hilo99.visible = hilo100.visible = perchero.visible = en && t > T.s03 - 0.5 && t < T.s05;
-  caja.visible = sello.visible = placaNP.visible = en && t > T.s04 - 0.6 && t < T.s06;
-  monedas.forEach((m) => (m.visible = en && t > T.monedas && t < T.s06));
+  caja.visible = sello.visible = placaNP.visible = en && t > T.s04 - 0.6 && t < T.s05 + 0.34;
+  monedas.forEach((m) => (m.visible = en && t > T.monedas && t < T.s05 + 0.2));
   libro.visible = riel.visible = en && t > T.s05 - 0.5 && t < T.s09 + 0.7;
   vestidos.forEach((v) => (v.visible = libro.visible));
   precios.forEach((p) => (p.visible = libro.visible));
@@ -859,8 +861,8 @@ function zonaP(t) {
   // ---- P3: la caja registradora, el cajón, las monedas, el sello ----
   {
     caja.position.copy(P3);
-    const kk = popIn(t, T.s04 - 0.4, 0.35);
-    caja.scale.setScalar(kk); caja.rotation.set(0, 0, 0);
+    const kk = popIn(t, T.s04 - 0.4, 0.35) * (1 - eio(sg(t, T.s05 + 0.12, T.s05 + 0.34))); // ronda 1: se va al llegar al catálogo
+    caja.scale.setScalar(Math.max(kk, 0.001)); caja.rotation.set(0, 0, 0);
     dispCaja.material = dispM[t > T.s04 + 0.15 ? 1 : 0];
     const ab = eo(sg(t, T.abreCajon, T.abreCajon + 0.18)) + rebote(t, T.abreCajon + 0.18, 9, 30, 0.03);
     cajon.position.z = 0.42 * ab;
@@ -869,7 +871,7 @@ function zonaP(t) {
     // monedas: saltan del cajón (balística determinista), rebotan una vez y quedan en el piso
     monedas.forEach((m, i) => {
       const v = MON_V[i], t0 = T.monedas + v.d, dt = Math.max(0, t - t0);
-      const p0 = V(P3.x + (i - 2) * 0.18, BH - 0.02, P3.z + BD / 2 + 0.25);
+      const p0 = V(P3.x + (i - 2) * 0.13, BH - 0.02, P3.z + BD / 2 + 0.25);
       const g = 9.8;
       let x = p0.x + v.vx * dt, z = p0.z + v.vz * dt, y = p0.y + v.vy * dt - 0.5 * g * dt * dt;
       const tSuelo = (v.vy + Math.sqrt(v.vy * v.vy + 2 * g * p0.y)) / g;
@@ -883,15 +885,15 @@ function zonaP(t) {
     const tec = caja.userData.tec; tec.updateMatrixWorld(true);
     const centro = V(0, 0.08, 0).applyMatrix4(tec.matrixWorld);
     const baja = eio(sg(t, T.sella - 0.28, T.sella)), subeS = eio(sg(t, T.sella + 0.2, T.sella + 0.5));
-    const yS = lerp(3.4, 0.0, baja) + lerp(0, 3.6, subeS);
+    const yS = lerp(1.6, 0.0, baja) + lerp(0, 3.6, subeS); // ronda 1: baja desde más cerca (entraba cortado por arriba)
     sello.position.copy(centro).add(V(0, yS, 0)); sello.rotation.set(tec.rotation.x * baja * (1 - subeS), 0, -0.1);
-    sello.scale.setScalar(1 + 0.08 * pulso(t, T.sella, 0.12));
+    sello.scale.setScalar((1 + 0.08 * pulso(t, T.sella, 0.12)) * kk);
     sello.visible = sello.visible && t > T.sella - 0.3 && t < T.sella + 0.55;
     const pl = t < T.sella ? 0 : lerp(1.1, 1, eo(sg(t, T.sella, T.sella + 0.15)));
     placaNP.visible = placaNP.visible && pl > 0;
     placaNP.position.copy(centro).add(V(0, 0.035, 0).applyQuaternion(tec.getWorldQuaternion(new THREE.Quaternion())));
     placaNP.quaternion.copy(tec.getWorldQuaternion(new THREE.Quaternion())).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, 0.1)));
-    placaNP.scale.setScalar(pl);
+    placaNP.scale.setScalar(pl * kk);
   }
   // ---- P4: catálogo, vestidos, precios, pilas, flecha, tilde, OFERTA ----
   {
@@ -899,7 +901,7 @@ function zonaP(t) {
     const ab = eio(sg(t, T.abreLib, T.abreLib + 0.45));
     tapaLib.rotation.y = -Math.PI * 0.94 * ab;
     libro.scale.setScalar(popIn(t, T.s05 - 0.45, 0.35));
-    riel.position.copy(P4); { const kr = popIn(t, T.vestido1 - 0.1, 0.3); riel.scale.set(1, Math.max(kr, 0.001), 1); riel.visible = riel.visible && kr > 0.01; }
+    { const bajaR = eo(sg(t, T.s05 + 0.15, T.s05 + 0.5)); riel.position.set(P4.x, 2.6 * (1 - bajaR), P4.z); riel.visible = riel.visible && t > T.s05 + 0.15; } // ronda 1: el riel baja desde arriba y queda por encima del catálogo (antes subía y tachaba la tapa) // ronda 1: entra con el catálogo, ya en su lugar (antes subía y tachaba la tapa)
     // vestidos: el del medio sube del catálogo; en "mismo vestido" salen los otros dos a los costados
     vestidos.forEach((v, i) => {
       const t0 = i === 1 ? T.vestido1 : T.triple + (i === 0 ? 0 : 0.12);
@@ -918,7 +920,8 @@ function zonaP(t) {
       const zoom = i === 1 ? 1 + 0.1 * pulso(t, T.vendio, 0.3) : 1;
       p.position.set(P4.x + VEST_X[i], RIEL_Y + 0.03, P4.z);
       p.rotation.set(0, Math.PI * gira, 0);
-      ocultar(p, u * zoom);
+      const vaSe = i === 1 ? 1 : 1 - eio(sg(t, T.gira, T.gira + 0.25)); // ronda 1: fuera de cuadro en el primer plano del 39; ya no cruzan por detrás del subtítulo en el vuelo
+      ocultar(p, u * zoom * vaSe);
       if (i === 1 && t >= T.ofertaVuela) p.visible = false;
       if (i !== 1) { etqCuerpo[i].color.setHex(C.cr).lerp(new THREE.Color(0x9aa0ad), pierde * 0.7); etqNum[i].color.setHex(C.navy).lerp(new THREE.Color(0x4a5672), pierde); }
     });
@@ -934,7 +937,7 @@ function zonaP(t) {
     }));
     // flecha 34 → 39 en "Más caro…" (se dibuja de a poco)
     const fl = sg(t, T.caro + 0.05, T.caro + 0.4);
-    flecha.position.set(P4.x, RIEL_Y + ETH + 0.12, P4.z + 0.05);
+    flecha.position.set(P4.x - 0.03, RIEL_Y + ETH + 0.1, P4.z + 0.05);
     flecha.children[0].geometry.setDrawRange(0, Math.floor(fl * flecha.userData.tg.index.count / 3) * 3);
     flecha.children[1].visible = fl > 0.95;
     flecha.visible = flecha.visible && fl > 0 && t < T.yv - 0.08;
@@ -950,9 +953,9 @@ function zonaP(t) {
     regalo.position.x -= rebote(t, T.choque, 8, 25, 0.03);
     // la OFERTA llega deslizando desde la izquierda, choca contra el regalo y cae acostada
     const u = sg(t, T.ofertaVuela, T.choque), ue = eio(u);
-    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.74, 0.28, P5.z + 0.35);
+    const A = V(P4.x + VEST_X[1], RIEL_Y + 0.03 + ETH / 2, P4.z), B = V(P5.x - 0.62, 0.28, P5.z + 0.35);
     const reb = t > T.choque ? eo(sg(t, T.choque, T.choque + 0.35)) : 0;
-    const x = lerp(A.x, B.x, ue) - 0.3 * reb;
+    const x = lerp(A.x, B.x, ue) - 0.16 * reb;
     const yC = lerp(A.y, B.y, ue) + Math.sin(Math.PI * u) * 0.12;
     const tumba = eio(sg(t, T.choque + 0.1, T.choque + 0.45));
     ofertaSuelta.position.set(x, lerp(yC, 0.03, tumba), lerp(A.z, B.z, ue) + 0.45 * Math.sin(Math.PI * Math.min(1, u * 1.6)) * (1 - ue) + 0.2 * reb);

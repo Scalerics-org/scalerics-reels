@@ -17,7 +17,7 @@
   </style>
   <div id="root" data-composition-id="s08-oferta" data-width="1080" data-height="1920" data-duration="1.82">
     <div id="s08-oferta-esc" class="esc clip" data-start="0" data-duration="1.82" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M330 790 L195 625"/><circle class="dot  d1" cx="195" cy="625" r="13"/><path class="lead  l2" d="M430 790 L560 625"/><circle class="dot  d2" cx="560" cy="625" r="13"/></svg><div class="pill  n1" style="left:380px;top:830px">mismo 3</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M262 602 L180 738"/><circle class="dot  d1" cx="180" cy="738" r="13"/><path class="lead  l2" d="M418 602 L500 738"/><circle class="dot  d2" cx="500" cy="738" r="13"/></svg><div class="pill  n1" style="left:340px;top:560px">mismo 3</div>
     </div>
   </div>
   <script>
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.1); dibujar(".l2", 0.1, 0.28); pop(".d2", 0.3, 0.2); fuera([1, 2], 1.11);
+dibujar(".l1, .l2", 0.04, 0.24); pop(".d1, .d2", 0.2, 0.2); pop(".n1", 0.16); fuera([1, 2], 1.1);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
