@@ -157,7 +157,9 @@ if (video) {
   // y los dibujos de líneas planos del 03 y 04-11. Juan, 13-11: con TikTok a 10 por día se acabaron
   // los 3D y empezaron a salir los planos del 03-11 ("volvieron a ser como los viejos").
   // Lo viejo sale solo si alguien lo aprueba a mano. "Hechos" está en orden de llegada.
-  const desde = filas.findIndex((m) => m[3] === "caso-pedidosya");
+  // Juan, 15-11: aprobó la línea "el dolor de cada rubro y la solución" (CLAUDE.md, "ANTES QUE
+  // TODO"): desde ahí sale solo eso, 3 por día en Instagram. Arranca en dist-pedidos-lunes.
+  const desde = filas.findIndex((m) => m[3] === "dist-pedidos-lunes");
   const lineaNueva = new Set(desde < 0 ? [] : filas.slice(desde).map((m) => m[3]));
   const lugar = (s) => (Number.isFinite(revision[s].orden) ? revision[s].orden : Infinity);
   const aprobados = hechos
