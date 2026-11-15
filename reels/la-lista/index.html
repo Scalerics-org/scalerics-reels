@@ -19,13 +19,13 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="34.65" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="35.5" data-width="1080" data-height="1920">
       <div id="precarga">Rubén</div><div id="precarga2">lista_v7.xlsx</div>
-      <div id="fondo" class="clip" data-start="0" data-duration="34.65" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="25.15" data-duration="2.8" data-track-index="12" data-track-kind="graphics"></div>
-      <div id="capa3d" class="clip" data-start="0" data-duration="34.65" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
-      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="33.15" data-duration="1.5" data-track-index="2" data-track-kind="graphics"></div>
-      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="34.65" data-track-index="30" data-volume="1"></audio>
+      <div id="fondo" class="clip" data-start="0" data-duration="35.5" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="25.8" data-duration="2.85" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="35.5" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="el-s09-cierre" class="scene" style="z-index:3" data-composition-id="s09-cierre" data-composition-src="compositions/s09-cierre.html" data-start="33.8" data-duration="1.7" data-track-index="2" data-track-kind="graphics"></div>
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="35.5" data-track-index="30" data-volume="1"></audio>
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -36,12 +36,12 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 34.65 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 35.5 }, 0);
       // corte seco al cartel; la parte 2 entra por un iris que se abre desde el teléfono de escritorio
-      tl.set("#capa3d", { opacity: 0 }, 25.15);
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1180px)" }, 25.42);
-      tl.fromTo("#capa3d", { clipPath: "circle(0px at 540px 1180px)" }, { clipPath: "circle(1900px at 540px 1180px)", duration: 0.3, ease: "power2.in", immediateRender: false }, 27.65);
-      tl.set("#capa3d", { clipPath: "none" }, 27.96);
+      tl.set("#capa3d", { opacity: 0 }, 25.8);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1180px)" }, 26.07);   // (el iris: ver abajo)
+      tl.fromTo("#capa3d", { clipPath: "circle(90px at 540px 1180px)" }, { clipPath: "circle(1900px at 540px 1180px)", duration: 0.1, ease: "power2.in", immediateRender: false }, 28.55);
+      tl.set("#capa3d", { clipPath: "none" }, 28.66);
       window.__timelines["main"] = tl;
     </script>
   </body>

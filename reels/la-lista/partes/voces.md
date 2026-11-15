@@ -55,3 +55,8 @@ Gemini), recortadas en `partes/rec/`, verificadas con `tiempos.mjs` ("oyó:").
 | g3 | 05-graciela-f · "¿Cuál es la última? Tengo siete." | 1,85 | pausa acortada, atempo 1,08, teléfono | Cuál es la última Tengo 7 |
 | r4 | 09b-ruben-b · "Claro. En pe de efe no se mueve." (nueva, Algenib, seco, mirando a cámara) | 2,16 | pausa acortada, atempo 1,06 | Claro en PDF no se mueve (la "a" decía "no se muere") |
 | r2 | 07-ruben-a · "Ocho." | 0,48 | sin cambios: f0 155 → 129 → 103 → ~90 Hz, cae (afirmativo); la "b" también cae | ocho |
+
+## Ronda 2 (15-11)
+| r4 | 09b-ruben-f · "Claro. El pe de efe no se mueve. El aceite, sí." | 3,13 | pausa después de "Claro." estirada a ~0,4 s, atempo 1,05, -1 dB | claro el PDF no se mueve el aceite sí |
+La f es la más plana (f0 entre 95 y 163 Hz); la g subía a 320 Hz en "no se mueve" (sonaba entusiasta), la e oía "el
+aceite de sí". Tomas d-g en partes/tomas/ (partes/seq2.sh).

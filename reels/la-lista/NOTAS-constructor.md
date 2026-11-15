@@ -155,3 +155,53 @@ mallas, 1,2 s), las sombras PCFSoft (0,7 s), seis SpotLight de las campanas y el
 - Mezcla: -14,0 LUFS, voz ≥ +7,5 LU sobre el resto en todos los tramos con voz. `check --json`: 0 errores.
 - Portada: fondo limpio `portada-src/fondo-limpio-7.75.png` (la cinta v7 y Rubén agarrando el termo), alternativa
   `portada-src/fondo-limpio-24.8.png` (la cinta .pdf colgando).
+
+## Ronda 2 (15-11) · última corrección
+**Duración 35,50 s** (parte 1 0-25,80 · cartel 25,80-28,65, 2,85 s · parte 2 28,65-35,50; línea chica desde 33,80).
+Beats al día en `assets/tiempos3d.js`.
+
+Guion
+- G1: r4 = "Claro. El PDF no se mueve. El aceite, sí." (Algenib, toma f, la más plana; pausa ~0,4 s después de "Claro.";
+  el STT oye "claro el PDF no se mueve el aceite sí"). Burbuja en tres renglones con [PDF] y [aceite].
+- G2: chat con "Rubén" / "Distribuidora" en dos renglones; tarjetas más bajas, la v7 con margen abajo.
+- G3: "1 lista · la de hoy" en su propio renglón (píldora verde de 520 px, 46 px) debajo de "Precios de hoy".
+- G4: tríptico con letra grande (nombre 76, comercio 64, "1,5 L" / "x 12" 60, precio 130, "hoy" 74 px de lienzo; en
+  cuadro ×0,67) y cámara más cerca.
+- G5: "Graciela · aceite x 6 ✓", "Marta · azúcar x 10 ✓", "Walter · agua x 20 ✓".
+- G6: con el clac de la v8 la celda del aceite pasa a $ 1.240.
+- G7: ganchos.md, plan.md (nota al final) y el encabezado de tres.js sin el viaje de la etiqueta.
+
+Visual
+- A1: la cinta .pdf entera ("lista_v8_aceite_FINAL_ESTA_SI_(2).pdf") en cuadro ~0,5 s (v8+0,1 a v8+0,6), después
+  la cámara baja a la cola que cuelga. A3: escritorio de 2,2 m de fondo (el frente queda fuera de cuadro) y planos de
+  P3 final, P8 y la cinta .pdf más altos: sin franja navy abajo.
+- A2: la burbuja de Graciela aparece cuando la cámara ya salió de la pantalla (p4b + 0,42); la mano agarra el celular
+  más abajo; lo mismo en P5 (burbuja en p5 + 0,35).
+- M4: las colas llegan más lejos (lado ±0,8, giro ±1,15 rad): apuntan al celular / al teléfono. P2 con la burbuja arriba.
+- M5: anteojos pegados a la cara (k 1,12) y patillas que siguen la superficie de la cabeza (tubo por detrás de la
+  mejilla hasta la oreja).
+- M8: línea chica abajo (top 1420), opaca, entra deslizando desde abajo; Q3 encuadra los pedidos arriba a la izquierda.
+- M9: inserto del panel más bajo (menos techo). M10: Graciela en P6 baja el celular delante del pecho, inclinado: desde la
+  cámara (más baja) se ve la pantalla, no el canto.
+- M11: P1 termina a 3,3 m; la v8 .pdf entera a ~37 px de alto de letra; el resto de los planos de la cinta, 40-60 px.
+- B12: el texto del cartel sale en dur-0,3 y el iris abre en los últimos 0,1 s desde 90 px. B13: los globos salen con
+  fundido (no se achican). B14: ráfaga cada 238 px. B15: "Rotisería" / "llamando" a 62 px. B16: lámpara más baja y
+  adentro; P2 más abierta (termo y teléfono enteros).
+
+Sonido
+- S1: Q3 de 2,2 s con cada acción separada; el sorbo entra en 34,9 y termina con fundido antes del final.
+- S2: narrador en P1+0,02 (-1 dB, S9); whoosh de salida en P2-0,15; cama corta de pizzicato a -40 en el cartel (S10).
+- S3: "Dale…" 0,45 s después de "Ocho."; el clac de la v8 y la taza suenan solos entre medio.
+- S4: la mirada a cámara se sostiene 0,5 s antes de "Claro."
+- S5: tono de colgado a -38 sin pasabajos; whoosh del tríptico a -52. S6: campanas a -40 (pasabajos 2500), corridas
+  +0,07 s. S7: clacs v2-v4 a -34 y la música baja 3-4 dB alrededor de cada uno. S11: termo a -40. S12: tonos del
+  proveedor -41, page-turn -42, "Pedido ✓" -36. S13: el tic de la cinta después de la voz del proveedor.
+- Mezcla: -14,0 LUFS, pico -6,0 dBFS. medir.py marca un solo tramo (25,0 s, -4,1): la ventana de 400 ms que termina en
+  25,0 agarra la cola de "…sí." (termina en 24,68) y el máximo del tramo agarra la tecla y el clac de la v8 (24,98 y
+  25,06): no se pisan (0,3 s de aire entre la voz y la tecla). El resto de los tramos con voz, ≥ +6 LU.
+
+Pasadas (ronda 2): r2a-r2c (puntuales), r2p1 (cada 0,5 s), r2p2 (cortes ±0,04 + cada 0,15 s en 6,4-7,5 y 20,9-21,8 + el
+iris), r2p3/r2p4 (cada 0,5 s desde 0,25). Corregido en las pasadas: P2 seguía cortando a Rubén (bubble arriba, cámara
+centrada), P3 final cortaba la cabeza, el plano de la .pdf tenía franja abajo (escritorio más profundo), Q3 cortaba los
+nombres de los pedidos, el texto del cartel se veía dentro del iris. `check --json`: 0 errores.
+Portada: `portada-src/fondo-limpio-7.2.png` (t 7,2).

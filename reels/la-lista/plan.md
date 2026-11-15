@@ -164,3 +164,5 @@ tienda online" / "más tarde…"**, voz Rasalgethi reusada de `reels/hacen-envio
 "v7_FINAL_ESTA_SI_(2)" cruzando el escritorio, Rubén agarrando el termo). `chica`: "La lista de precios:" ·
 `grande`: "v7_FINAL_ESTA_SI" · `sello`: "Distribuidora". Acento `#5ce611`. Renderizar el fondo sin gancho,
 subtítulos ni burbujas.
+
+> **Ronda 1-2 (15-11, coordinador):** la etiqueta verde que viaja (Q2) se sacó (era el mecanismo de ya-lo-cargo). En su lugar, un tríptico con los celulares de Marta (cafetería), Walter (bar) y Graciela (rotisería): el precio cambia a la vez con la chapita "hoy", y después el pedido de Graciela con el chip "1 lista · la de hoy". Líneas nuevas: "Está en la lista. La última." · "¿Cuál es la última? Tengo siete." · "Claro. El PDF no se mueve. El aceite, sí." (Rubén a cámara, antes de la tecla). Sin perro (no hay ladrido CC0). Ver NOTAS-constructor.md.

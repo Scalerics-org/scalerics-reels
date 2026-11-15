@@ -9,12 +9,14 @@ T=/tmp/claude-0/lalista-voz; mkdir -p $T
 corte partes/rec/01-graciela-b.wav 0.50 0.60 $T/g1.wav;  ffmpeg -loglevel error -y -i $T/g1.wav -af "atempo=1.08,$CEL" -ar 48000 assets/voice/g1.wav
 ffmpeg -loglevel error -y -i partes/rec/02-proveedor-a.wav -af "$TEL" -ar 48000 assets/voice/p1.wav
 corte partes/rec/03-graciela-e.wav 0.66 0.82 $T/g2.wav;  ffmpeg -loglevel error -y -i $T/g2.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/g2.wav
-ffmpeg -loglevel error -y -i partes/rec/04-ruben-h.wav -ar 48000 assets/voice/r1.wav   # (ronda 1) "Está en la lista. La última."
+ffmpeg -loglevel error -y -i partes/rec/04-ruben-h.wav -af atempo=1.06 -ar 48000 assets/voice/r1.wav   # (ronda 1) "Está en la lista. La última."
 corte partes/rec/05-graciela-f.wav 1.08 1.14 $T/g3.wav;  ffmpeg -loglevel error -y -i $T/g3.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/g3.wav   # (ronda 1) "¿Cuál es la última? Tengo siete."
 ffmpeg -loglevel error -y -i partes/rec/06-proveedor-b.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/p2.wav
 ffmpeg -loglevel error -y -i partes/rec/07-ruben-a.wav -ar 48000 assets/voice/r2.wav
 corte partes/rec/08-graciela-a.wav 0.58 0.71 $T/g4.wav;  ffmpeg -loglevel error -y -i $T/g4.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/g4.wav
 ffmpeg -loglevel error -y -i partes/rec/10-ruben-a.wav -ar 48000 assets/voice/r3.wav
-corte partes/rec/09b-ruben-b.wav 0.76 0.86 $T/r4.wav; ffmpeg -loglevel error -y -i $T/r4.wav -af atempo=1.06 -ar 48000 assets/voice/r4.wav   # (ronda 1) "Claro. En pe de efe no se mueve."
+# (ronda 2) "Claro. El pe de efe no se mueve. El aceite, sí." (toma f: la más plana; la g subía a 320 Hz, entusiasta):
+# pausa después de "Claro." estirada a ~0,4 s (el STT juntaba "Claro que…"), -1 dB (5 muestras al tope)
+ffmpeg -loglevel error -y -i partes/rec/09b-ruben-f.wav -filter_complex "[0]atrim=0:0.54,afade=t=out:st=0.52:d=0.02[a];[0]atrim=start=0.54,asetpts=PTS-STARTPTS,afade=t=in:d=0.01[b];anullsrc=r=48000:cl=mono,atrim=0:0.14[s];[a][s][b]concat=n=3:v=0:a=1,atempo=1.05,volume=-1dB" -ar 48000 assets/voice/r4.wav
 cp ../hacen-envios/assets/voice/narrador.wav assets/voice/narrador.wav
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

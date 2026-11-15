@@ -99,3 +99,5 @@ con la misma toma, la cinta que ya no crece, el precio que cambia una vez y lleg
 pedido que entra sin que nadie pida la lista, y el celular que no suena (Rubén lo revisa como si estuviera roto). El
 producto (la lista vive en la tienda, siempre al día, y el cliente pide solo) se entiende por lo que el chiste ya
 mostró.
+
+> **Ronda 1-2 (15-11, coordinador):** la etiqueta verde que viaja (Q2) se sacó (era el mecanismo de ya-lo-cargo). En su lugar, un tríptico con los celulares de Marta (cafetería), Walter (bar) y Graciela (rotisería): el precio cambia a la vez con la chapita "hoy", y después el pedido de Graciela con el chip "1 lista · la de hoy". Líneas nuevas: "Está en la lista. La última." · "¿Cuál es la última? Tengo siete." · "Claro. El PDF no se mueve. El aceite, sí." (Rubén a cámara, antes de la tecla). Sin perro (no hay ladrido CC0). Ver NOTAS-constructor.md.

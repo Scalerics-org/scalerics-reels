@@ -537,16 +537,16 @@ export function crearPersonaje(cfg) {
     const cilC = new THREE.CylinderGeometry(1, 1, 1, 12, 1);   // centrado (G.cil cuelga del origen)
     const am = mat(c.anteojosLeer, 0.35), vm = new THREE.MeshStandardMaterial({ color: 0xdfeaf2, roughness: 0.05, transparent: true, opacity: 0.22, depthWrite: false });
     for (const s of [-1, 1]) {
-      const g = new THREE.Group(); sobre(g, s * 0.25, -0.07, 1.2); anteojosG.add(g);
-      const medio = mesh(new THREE.TorusGeometry(0.066, 0.011, 8, 24, Math.PI), am); medio.rotation.z = Math.PI; g.add(medio);   // la media luna (abajo)
-      const barra = mesh(cilC, am, 0, 0, 0, 0.011, 0.132, 0.011); barra.rotation.z = Math.PI / 2; g.add(barra);              // el borde de arriba, recto
-      const vid = new THREE.Mesh(new THREE.CircleGeometry(0.064, 20, Math.PI, Math.PI), vm); vid.position.z = -0.002; g.add(vid);
-      // la patilla hasta la oreja
-      const a = sup(s * 0.25, -0.07, 1.2).add(new THREE.Vector3(s * 0.06, 0, 0)), b = sup(s * 1.45, 0.0, 1.02);
-      const pat = mesh(cilC, am, 0, 0, 0, 0.009, a.distanceTo(b), 0.009); pat.position.copy(a).add(b).multiplyScalar(0.5);
-      pat.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize()); anteojosG.add(pat);
+      // (ronda 2) la montura pegada a la cara (k 1,12) y la patilla siguiendo la superficie de la cabeza (por detrás de la
+      // mejilla), no un palito recto en el aire
+      const g = new THREE.Group(); sobre(g, s * 0.24, -0.07, 1.12); anteojosG.add(g);
+      const medio = mesh(new THREE.TorusGeometry(0.064, 0.011, 8, 24, Math.PI), am); medio.rotation.z = Math.PI; g.add(medio);
+      const barra = mesh(cilC, am, 0, 0, 0, 0.011, 0.128, 0.011); barra.rotation.z = Math.PI / 2; g.add(barra);
+      const vid = new THREE.Mesh(new THREE.CircleGeometry(0.062, 20, Math.PI, Math.PI), vm); vid.position.z = -0.002; g.add(vid);
+      const pts = []; for (let i = 0; i <= 8; i++) { const u = i / 8; pts.push(sup(s * lerp(0.47, 1.48, u), lerp(-0.06, 0.0, u), lerp(1.06, 1.015, u))); }
+      anteojosG.add(mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 16, 0.008, 6), am));
     }
-    const pu = mesh(cilC, am, 0, 0, 0, 0.01, 0.07, 0.01); sobre(pu, 0, -0.04, 1.27); pu.rotateZ(Math.PI / 2); anteojosG.add(pu);   // el puente sobre la nariz
+    const pu = mesh(cilC, am, 0, 0, 0, 0.01, 0.07, 0.01); sobre(pu, 0, -0.04, 1.2); pu.rotateZ(Math.PI / 2); anteojosG.add(pu);   // el puente sobre la nariz
     anteojosG.traverse((o) => { if (o.isMesh) o.castShadow = true; });
   }
   if (c.auriculares && c.auricularFino) {
