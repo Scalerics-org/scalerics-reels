@@ -13,8 +13,8 @@
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.6">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.6" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.5">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.5" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -35,9 +35,9 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l" data-t="0.2">U</span><span class="l" data-t="0.23">n</span><span class="l" data-t="0.26">a</span><span class="esp"></span><span class="l" data-t="0.48">t</span><span class="l" data-t="0.51">i</span><span class="l" data-t="0.54">e</span><span class="l" data-t="0.57">n</span><span class="l" data-t="0.6">d</span><span class="l" data-t="0.63">a</span></span>
-        <span class="linea b"><span class="l" data-t="0.98">o</span><span class="l" data-t="1.01">n</span><span class="l" data-t="1.04">l</span><span class="l" data-t="1.07">i</span><span class="l" data-t="1.1">n</span><span class="l" data-t="1.13">e</span></span>
-        <span class="linea c"><span class="l" data-t="1.2">m</span><span class="l" data-t="1.23">á</span><span class="l" data-t="1.26">s</span><span class="esp"></span><span class="l" data-t="1.85">t</span><span class="l" data-t="1.88">a</span><span class="l" data-t="1.91">r</span><span class="l" data-t="1.94">d</span><span class="l" data-t="1.97">e</span><span class="l" data-t="2">…</span></span>
+        <span class="linea a"><span class="l" data-t="0.05">U</span><span class="l" data-t="0.08">n</span><span class="l" data-t="0.11">a</span><span class="esp"></span><span class="l" data-t="0.28">t</span><span class="l" data-t="0.31">i</span><span class="l" data-t="0.34">e</span><span class="l" data-t="0.37">n</span><span class="l" data-t="0.4">d</span><span class="l" data-t="0.43">a</span></span>
+        <span class="linea b"><span class="l" data-t="0.78">o</span><span class="l" data-t="0.81">n</span><span class="l" data-t="0.84">l</span><span class="l" data-t="0.87">i</span><span class="l" data-t="0.9">n</span><span class="l" data-t="0.93">e</span></span>
+        <span class="linea c"><span class="l" data-t="1">m</span><span class="l" data-t="1.03">á</span><span class="l" data-t="1.06">s</span><span class="esp"></span><span class="l" data-t="1.65">t</span><span class="l" data-t="1.68">a</span><span class="l" data-t="1.71">r</span><span class="l" data-t="1.74">d</span><span class="l" data-t="1.77">e</span><span class="l" data-t="1.8">…</span></span>
       </div>
     </div>
   </div>
@@ -48,8 +48,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.6, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.6, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.5, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.5, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
@@ -59,7 +59,7 @@
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.3);   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.2);   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
