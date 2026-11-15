@@ -228,7 +228,7 @@ const FLAP = 0.07;
 function pasosFlap(de, a) {
   const D = " 0123456789"; let n = 0;
   for (let i = 0; i < 2; i++) {
-    if (de[i] === " " || a[i] === " ") n = Math.max(n, Math.abs(D.indexOf(a[i]) - D.indexOf(de[i])));
+    if (de[i] === " " || a[i] === " ") n = Math.max(n, de[i] === a[i] ? 0 : 1);
     else { const f = (Number(a[i]) - Number(de[i]) + 10) % 10; n = Math.max(n, f <= 5 ? f : 10 - f); }
   }
   return Math.max(1, n);

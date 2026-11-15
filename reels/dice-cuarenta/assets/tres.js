@@ -367,7 +367,7 @@ const esquema = (t, v) => (t >= P2 ? "verde" : v === "37" ? "rojo" : "crema");
 // el camino de una paleta: entre dígitos, por el lado corto de la rueda (9 → 0 es un paso); con el blanco, derecho
 function camino(de, a) {
   const out = [de]; if (de === a) return out;
-  if (de === " " || a === " ") { const x = DIG.indexOf(de), y = DIG.indexOf(a), s = Math.sign(y - x); for (let i = x; i !== y; i += s) out.push(DIG[i + s]); return out; }
+  if (de === " " || a === " ") { out.push(a); return out; }   // del blanco a un dígito (o al revés): una paleta
   const x = Number(de), y = Number(a), f = (y - x + 10) % 10, s = f <= 5 ? 1 : -1, n = f <= 5 ? f : 10 - f;
   for (let i = 1; i <= n; i++) out.push(String((x + s * i + 100) % 10));
   return out;
@@ -446,7 +446,7 @@ function ponerRemitos(t, celuPos) {
     frente.map = t >= T.rojo ? tR : tN;
     const u = sg(t, a, b);
     if (u < 1 && celuPos) {
-      const ini = celuPos, ctrl = ini.clone().lerp(fin, 0.5).add(V3(0, 0.75, 0));
+      const ini = celuPos, ctrl = ini.clone().lerp(fin, 0.75).add(V3(0, 0.6, 0));
       const e = eio(u);
       g.position.set((1 - e) * (1 - e) * ini.x + 2 * e * (1 - e) * ctrl.x + e * e * fin.x, (1 - e) * (1 - e) * ini.y + 2 * e * (1 - e) * ctrl.y + e * e * fin.y, (1 - e) * (1 - e) * ini.z + 2 * e * (1 - e) * ctrl.z + e * e * fin.z);
       g.rotation.set(0, -Math.PI / 2 + (1 - e) * 1.6, (1 - e) * 0.5);
@@ -872,7 +872,7 @@ const PLANOS = [
   ["P2b", T.p2b, [[T.p2b, -1.15, 2.2, -4.45, 2.3, 2.35, -5.35, 56], [T.p3, -1.0, 2.2, -4.5, 2.3, 2.35, -5.35, 54]]],
   ["P3", T.p3, [[T.p3, 0.2, 2.3, -0.6, -0.6, 2.0, -12, 52], [T.grua[0], -1.0, 3.0, -5.2, 2.1, 3.0, -5.7, 52], [T.grua[0] + 0.45, -0.25, 3.1, -4.6, 2.1, 3.05, -5.7, 50], [T.grua[1], -2.0, 1.6, -5.5, 2.6, 1.75, -5.7, 54], [T.p4, -1.9, 1.58, -5.55, 2.6, 1.75, -5.7, 52]]],
   ["P4", T.p4, [[T.p4, 5.4, 1.15, -5.75, 0.6, 1.9, -5.75, 58], [T.p5, 5.25, 1.15, -5.75, 0.6, 1.9, -5.75, 56]]],
-  ["P5", T.p5, [[T.p5, 4.6, 1.6, -5.75, 1.25, 1.5, -5.32, 48], [T.gira[0], 4.55, 1.6, -5.75, 1.25, 1.5, -5.32, 47], [T.r2, 4.1, 1.62, -5.6, 1.25, 1.55, -5.15, 30], [T.p6, 4.05, 1.62, -5.6, 1.25, 1.55, -5.15, 29]]],
+  ["P5", T.p5, [[T.p5, 4.6, 1.6, -6.0, 1.25, 1.5, -5.32, 48], [T.gira[0], 4.55, 1.6, -6.0, 1.25, 1.5, -5.32, 47], [T.r2, 4.1, 1.62, -5.85, 1.25, 1.55, -5.15, 30], [T.p6, 4.05, 1.62, -5.85, 1.25, 1.55, -5.15, 29]]],
   ["P6", T.p6, [[T.p6, 5.6, 1.9, -5.75, 0.8, 1.8, -5.65, 66], [T.r3, 5.5, 1.9, -5.75, 0.9, 1.83, -5.65, 63], [P1, 5.3, 1.88, -5.75, 1.0, 1.85, -5.65, 60]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0)], [T.q1b, ...P1C(0.8)]]],
@@ -880,7 +880,7 @@ const PLANOS = [
   ["Q2", T.q2, [[T.q2, -1.9, 1.9, -4.5, 2.4, 1.85, -6.15, 56], [T.q2b, -1.8, 1.9, -4.6, 2.4, 1.85, -6.15, 54]]],
   ["Q2b", T.q2b, null],                     // inserto del monitor
   ["Q2c", T.q2c, [[T.q2c, -1.7, 2.4, -1.6, 2.0, 1.6, -6.2, 54], [T.q3, -1.55, 2.35, -1.85, 2.0, 1.6, -6.2, 52]]],
-  ["Q3", T.q3, [[T.q3, -0.75, 1.75, -7.9, 1.25, 2.15, -5.3, 64], [T.r5, -0.65, 1.75, -7.75, 1.28, 2.15, -5.25, 62], [DUR, -0.55, 1.75, -7.6, 1.3, 2.15, -5.2, 60]]],
+  ["Q3", T.q3, [[T.q3, -1.0, 1.8, -8.3, 1.05, 2.2, -5.55, 66], [T.r5, -0.9, 1.8, -8.15, 1.08, 2.2, -5.5, 64], [DUR, -0.8, 1.8, -8.0, 1.1, 2.2, -5.45, 62]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -1186,6 +1186,7 @@ function renderAt(tIn) {
   }
   const celuPos = celuN.visible ? celuN.position.clone() : V3(0.95, 1.2, -4.0);
   ponerRemitos(t, celuPos);
+  if (["P4", "P5", "P6"].includes(planoActual)) REMITOS.forEach((g) => (g.visible = false));   // desde atrás del rack el dorso blanco se leía como una placa gris
   // el mate: en la mano izquierda de Rubén (en la oficina y abajo)
   mateR.visible = true;
   { const m = manoMundo(ruben, "I", _a); mateR.position.copy(m).add(V3(0, -0.07, 0)); mateR.rotation.set(0, ruben.raiz.rotation.y, 0); const so = !parte2 ? sg(t, T.sorbo1 - 0.05, T.sorbo1 + 0.2) * (1 - sg(t, T.sorbo1 + 0.5, T.sorbo1 + 0.65)) : sg(t, T.sorbo2 - 0.05, T.sorbo2 + 0.2); if (so > 0) mateR.rotateX(-0.35 * so); }
