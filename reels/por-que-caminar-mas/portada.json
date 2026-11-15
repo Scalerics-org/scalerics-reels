@@ -1,0 +1,14 @@
+{
+ "t": 0.8,
+ "fondo_limpio": "portada-src/fondo-portada.png",
+ "chica": "Los hicieron caminar más",
+ "grande": "y se quejaron menos",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "fondo": "#efeee5",
+ "velo": "11,18,32",
+ "nota": "fondo limpio: cuadro 0,8 s con LIMPIO=1 (solo la capa 3D con la cámara de portada de tres.js, mirando más abajo para que Rubén quede arriba del título: Rubén con el mate en el pasillo y el cartel 'Valijas →'; sin gancho, subtítulos ni logo). Correr node herramientas/portada.mjs por-que-caminar-mas desde la raíz."
+}
