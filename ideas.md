@@ -254,6 +254,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-15T05:09 -->
+- 15-11 · `la-lista` · Tienda online mayorista (catálogo con la lista de precios siempre al día, el cliente ve y pide solo) · Para mandar completo con Rubén en la distribuidora: "Pasame la lista de precios actualizada" por quinta vez en la semana · corrida 15-11 05:09
+- 15-11 · `por-que-te-llaman` · CRM + automatización (seguimiento de presupuestos) · Explicador ¿Por qué? con Rubén: por qué las empresas te llaman enseguida después de pedir un presupuesto (tema a confirmar con fuentes) · corrida 15-11 05:09
 
 
 - 13-11 · `te-queda` · Sistema de stock a medida (sabés qué te queda sin ir a mirar y te avisa antes de que se acabe) · Para mandar completo con Rubén: "¿Te queda polenta?", viajes al sótano por la trampa, el cuarto viaje vuelve con el dulce de leche y Héctor: "Ah, no. Era para saber." · cartel "Un sistema más tarde…" · almacén a la siesta, pared navy #1f3254 con azulejos crema y sótano navy claro · EN PAUSA desde 14-11 (no tomar, no publicar): está ambientado en el almacén con ELENCO.almacenero y desde el 13-11 Rubén es dueño de distribuidora (CLAUDE.md, punto 6 de "LO PRIMERO"); el trabajo quedó en la rama reel/te-queda (ronda 2 de revisión). Si Juan quiere, se rehace en la distribuidora.
