@@ -1,0 +1,14 @@
+{
+ "t": 6.9,
+ "chica": "El Excel: 40.",
+ "grande": "Hay 3.",
+ "sello": "¿Te pasa?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-portada-6.9.png",
+ "nota": "fondo: cuadro 6,9 s (el 40 gigante y las 3 cajas en el pallet) renderizado con LIMPIO=1 en una copia del proyecto; armado en portada-src/fondo-portada-6.9.png: el cartel recortado arriba (sin los remitos) y debajo el pallet con las 3 cajas, sobre el mismo cuadro desenfocado; todo arriba del texto. Alternativa: portada-src/fondo-limpio-16.9.png (el 37 rojo sobre el pallet vacío)."
+}
