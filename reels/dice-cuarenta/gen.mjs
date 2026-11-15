@@ -239,7 +239,7 @@ function pasosFlap(de, a) {
 const flap = (t, de, a, techo = -38) => {
   const n = pasosFlap(de, a);
   for (let i = 0; i < n; i++) s(["sfx/k-tick-1.wav", "sfx/k-tick-4.wav", "sfx/k-tick-2.wav"][i % 3], t + i * FLAP, 0, { techo, vel: 0.9 + (i % 2) * 0.12 });
-  s("sfx/k-page-turn.wav", t + n * FLAP - 0.05, 0, { techo: techo - 4, vel: 1.25, dur: 0.25, fin: 0.08 });
+  s("sfx/k-page-turn.wav", t + n * FLAP - 0.05, 0, { techo: Math.min(-40, techo - 4), vel: 1.25, dur: 0.25, fin: 0.08 });
 };
 const cadenas = (t, techo = -40) => { s("sfx/k-metal-liviano-2.wav", t, 0, { techo, vel: 1.25, hp: 400 }); s("sfx/k-metal-click.wav", t + 0.09, 0, { techo: techo - 4, vel: 1.4 }); };
 const grampa = (t, k, techo = -38) => { pop(t - 0.03, techo - 2); s("sfx/k-metal-click.wav", t, 0, { techo, vel: 1.0 + k * 0.08 }); s("sfx/k-plato-001.wav", t + 0.01, 0, { techo: techo - 8, vel: 1.4 + k * 0.1, hp: 600 }); };
@@ -261,12 +261,12 @@ voz("n2", T.n2, -1); grampa(T.rem[1][1], 1, -37);
 voz("n3", T.n3, -1); grampa(T.rem[2][1], 2, -36);
 s("sfx/whoosh-short.mp3", T.p2b - 0.04, 0, { techo: -46 });
 // P3 · el camión entra al muelle (motor grave + freno de aire), la zorra rodando, la grúa (whoosh lento), remitos rojos
-s("sfx/k-plastico.wav", T.zorra[0] + 0.1, 0, { techo: -41, vel: 0.6, lp: 1200 });
-s("sfx/k-plastico.wav", T.zorra[0] + 0.55, 0, { techo: -43, vel: 0.55, lp: 1200 });
+s("sfx/k-plastico.wav", T.zorra[0] + 0.1, 0, { techo: -37, vel: 0.6, lp: 1200 });
+s("sfx/k-plastico.wav", T.zorra[0] + 0.55, 0, { techo: -38, vel: 0.55, lp: 1200 });
 s("sfx/whoosh.mp3", T.grua[0], 0, { techo: -46, vel: 0.8, dur: 0.9, fin: 0.3 });
 s("sfx/k-metal-click.wav", T.rojo, 0, { techo: -46, vel: 0.8 });
 // P4 · la pausa: el zumbido solo, la música abajo; la paloma (aleteos de tela, Kenney) que cruza
-[0, 0.16, 0.3, 0.46, 0.62, 0.8].forEach((d, i) => s(`sfx/k-ala-${[1, 3, 4][i % 3]}.wav`, T.paloma[0] + d, 0, { techo: -44 - (i > 3 ? 3 : 0), vel: 1.35, hp: 300, dur: 0.22, fin: 0.06 }));
+[0, 0.16, 0.3, 0.46, 0.62, 0.8].forEach((d, i) => s(`sfx/k-ala-${[1, 3, 4][i % 3]}.wav`, T.paloma[0] + d, 0, { techo: -39 - (i > 3 ? 3 : 0), vel: 1.35, hp: 300, dur: 0.22, fin: 0.06 }));
 // P5 · "Pero el Excel dice cuarenta." · Rubén gira · "El Excel nunca bajó al depósito."
 voz("n4", T.n4, -1);
 s("sfx/k-cloth_1.wav", T.gira[0], 0, { techo: -42, dur: 0.3, fin: 0.1 });
@@ -291,35 +291,36 @@ s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0
 s("sfx/zumbido-largo.wav", P2, 0, { desde: 30, dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -47, lp: 900 });
 pop(P2 + 0.03, -40); s("sfx/notification.mp3", P2 + 0.05, 0, { techo: -42, dur: 0.35, fin: 0.12 });   // (ronda 1) la burbuja de Graciela
 voz("n6", T.n6, -1);
-s("sfx/k-cloth_2.wav", T.senala - 0.1, 0, { techo: -44, dur: 0.3, fin: 0.1 });
+s("sfx/k-cloth_2.wav", T.senala - 0.1, 0, { techo: -39, dur: 0.3, fin: 0.1 });
+s("sfx/whoosh-short.mp3", T.q1r - 0.03, 0, { techo: -40 });   // (ronda 2) el corte a Rubén en la oficina
 voz("r4", T.r4, -1);
 s("sfx/cero.mp3", T.ok, 0, { techo: -40 });
 voz("n7", T.n7, -1);
 // Q2 · bip por capa + el marcador que baja; en 10 parpadea (dos dings) y vuela el aviso
-T.capas.forEach((t, i) => { bip(t, -38); caja(t + 0.12, -44, 1.1); flap(t + 0.08, ["40", "30", "20"][i], ["30", "20", "10"][i], -38); });
-s("sfx/campanita.wav", T.parpadea, 0, { techo: -42, dur: 0.5, fin: 0.2 });
+T.capas.forEach((t, i) => { bip(t, -33); caja(t + 0.12, -38, 1.1); flap(t + 0.08, ["40", "30", "20"][i], ["30", "20", "10"][i], -33); });
+s("sfx/campanita.wav", T.parpadea, 0, { techo: -33, dur: 0.5, fin: 0.2 });
 s("sfx/whoosh-short.mp3", T.aviso, 0, { techo: -44, vel: 1.1 });
 // Q2b · el aviso en el monitor, Pedir ✓
 s("sfx/notification.mp3", T.q2b + 0.05, 0, { techo: -44, dur: 0.35, fin: 0.12 });
-s("sfx/click-soft.mp3", T.pedir, 0, { techo: -40 });
+s("sfx/click-soft.mp3", T.pedir, 0, { techo: -33 });
 s("sfx/cero.mp3", T.pedido, 0, { techo: -40 });
 // Q2c · la última capa (0), el autoelevador (motor eléctrico + hidráulico) y el pallet nuevo al piso (40)
-bip(T.capa4, -40); flap(T.capa4 + 0.08, "10", " 0", -40);
+bip(T.capa4, -33); flap(T.capa4 + 0.08, "10", " 0", -33);
 s("sfx/k-motor-bajo.wav", T.q2c, 0, { dur: r2(T.elev[1] - T.q2c + 0.2), fi: 0.05, fin: 0.2, techo: -44, lp: 1400 });
-s("sfx/k-neumatico-abre.wav", T.elev[0] + 0.15, 0, { techo: -44, lp: 1200, vel: 0.75, dur: 0.5, fin: 0.15 });
-s("sfx/madera-tabla.wav", T.elev[1] - 0.02, 0, { techo: -38, vel: 0.9, lp: 2000 });
-flap(T.lleno, " 0", "40", -38);
+s("sfx/k-neumatico-abre.wav", T.elev[1] - 0.3, 0, { techo: -33, lp: 1200, vel: 0.75, dur: 0.5, fin: 0.15 });
+s("sfx/madera-tabla.wav", T.elev[1] - 0.02, 0, { techo: -33, vel: 0.9, lp: 2000 });
+flap(T.lleno, " 0", "40", -33);
 // Q3 · la caja que sale (39) y vuelve (40), "¿Y? ¿Cuántos hay?", "Los que dice.", el sorbo, la línea chica
-s("sfx/k-cloth_1.wav", T.saca[0], 0, { techo: -43, dur: 0.3, fin: 0.1 });
-bip(T.f39 - 0.05, -40); flap(T.f39, "40", "39", -40);
-caja(T.pone[1] - 0.03, -42, 0.95); bip(T.f40 - 0.05, -40); flap(T.f40, "39", "40", -40);
+s("sfx/k-cloth_1.wav", T.saca[0], 0, { techo: -39, dur: 0.3, fin: 0.1 });
+bip(T.f39 - 0.05, -36); flap(T.f39, "40", "39", -36);
+caja(T.pone[1] - 0.03, -42, 0.95); bip(T.f40 - 0.05, -36); flap(T.f40, "39", "40", -36);
 voz("n8", T.n8, -1);
 voz("r5", T.r5, -1);
 s("sfx/sorbo.wav", T.sorbo2, 0, { techo: -43, fin: 0.15 });
 pop(T.cierre + 0.05, -44);
 // (ronda 1) P3-P4 sin voz durante 4 s: la acción y el ambiente +5 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || f.startsWith("bgm/")) continue; if (t0 >= T.p2b - 0.1 && t0 < T.p5) o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 5); }
-s("sfx/zumbido-largo.wav", T.p3, 0, { desde: 12, dur: r2(T.p5 - T.p3), fi: 0.2, fin: 0.3, techo: -44, lp: 1200 });   // el galpón, más presente en la pausa
+s("sfx/zumbido-largo.wav", T.p3, 0, { desde: 12, dur: r2(T.p5 - T.p3), fi: 0.2, fin: 0.3, techo: -38, lp: 1200 });   // el galpón, más presente en la pausa
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 
@@ -390,7 +391,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1250px";   // el iris se abre desde el celular de Nico (Q1, el encuadre de P1)
+const IRIS_C = "520px 1560px";   // (ronda 2) desde el celular / la camiseta verde de Nico (no desde el pelo)   // el iris se abre desde el celular de Nico (Q1, el encuadre de P1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

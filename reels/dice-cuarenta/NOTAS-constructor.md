@@ -152,3 +152,32 @@ QUEDA
 - Q1: Nico sigue de espaldas cuando pregunta (mira a la oficina); el gesto de Rubén ahora se ve en Q1r.
 - P5/P6d: el celular de Nico asoma en el borde derecho del primer plano.
 - La paloma: mirar en el render si se lee (cruza 8,0-9,2 s, chica, por arriba de las cabezas).
+
+## Ronda 2 (15-11)
+Duración sin cambios: 33,30 s.
+- GUION: parte 2 "¿Tenés aceite? / Quiero 40." y el celular "Graciela pide 40" (otro día, stock real 40).
+- ALTA 1 mate: al tomar (sorbo1 en P6d y sorbo2 en Q3, los únicos dos) el mate se ubica calculando la punta REAL de la
+  bombilla (0,075; 0,305 en el mate: `userData.punta` de personajes.js tiene el signo de x al revés) en la comisura de
+  Rubén (cabeza local 0,05; 0,17; 0,30), la calabaza queda debajo del bigote inclinada 0,4 rad; la mano a la altura
+  del mentón. El yaw del mate es giro + 90° (la bombilla hacia la cara).
+- ALTA 2/8: Walter y Marta abajo a la derecha (no tapan la boca de Nico); "¡Vendido!" del lado opuesto al rack (no
+  tapa el cartel ni los remitos).
+- ALTA 3: P5, Nico muestra el celular a 20 cm de Rubén (sin tocarle el bigote).
+- 4 Q2c: cámara de costado; el autoelevador llega desde 4,2 m con el pallet levantado (0,85 m) y lo baja en la bahía,
+  recién ahí 40 (antes parecía que el pallet ya estaba).
+- 5: rótulo "STOCK · ..." a 7 mm de la placa con polygonOffset (sin z-fighting), en las dos caras.
+- 6: P4 con la cámara a 1,62 m: el cartel entero por encima del larguero.
+- 7: paloma fuera (queda el aleteo, -34).
+- 9: las 3 cajas pasan por las manos del operario (pallet → manos → zorra).
+- 10: inserto del monitor al 80 % de ancho, pantalla más alta (barra 10/40, lista de otros productos), escritorio de
+  madera abajo con el termo y el mate.
+- BAJAS: parpadeo de Rubén a 23,45 (fuera del corte); Q1r más abierta; P3 arranca con el cartel entero en cuadro; iris
+  desde (520, 1560) (la camiseta verde de Nico, no el pelo); cola de "Los que dice." 15 px más arriba.
+SONIDO: P3/P4 zorra -32, aleteo -34, segunda capa de galpón -38; parte 2 sin voz: bips, flaps, campanita, Pedir,
+hidráulico y tabla del autoelevador en -33; telas y gesto del mate -38/-39; page-turn a -40 como máximo; whoosh -40 en
+el corte a Q1r. Mezcla -14,0 LUFS, pico -5,7 dBFS, voz ≥ +7,0 LU. Ojo: cada efecto queda ≤ -31, pero la suma de varios
+a la vez (música + bip + flap + caja) llega a -28,9 momentáneo en Q2.
+PASADAS: r2a/r2b/r2c puntuales (mate, monitor, Q2c, P3), r2p1 (cada 0,5 s desde 0) y r2p2 (desde 0,25). `check`: 0.
+QUEDA: cara del operario un instante en el borde derecho en P3 (~6,0 s); Q2 operario contra el borde derecho; Q1r el
+monitor cortado a la derecha; Nico de espaldas en Q1; la losa negra bajo el larguero (no la encontré: no está en las
+hojas de esta ronda).
