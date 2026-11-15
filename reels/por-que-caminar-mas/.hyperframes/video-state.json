@@ -1,7 +1,7 @@
 {
   "version": 1,
   "historyId": "01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3",
-  "currentRevision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
+  "currentRevision": "6c8b4c8f-0811-43b5-9f71-98b807c760ae",
   "pendingChanges": false,
   "files": {
     "CLAUDE.md": {
@@ -249,8 +249,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/2e/2ea20b5e96f6911347c0588f94ccad7d0c0f2d02e7f9ddfe18a1a829f251116d"
     },
     "assets/tres.js": {
-      "hash": "34fe4d87af0c3e2d09830596eaa90ea54f910b32471206700babc01dfe342c72",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/34/34fe4d87af0c3e2d09830596eaa90ea54f910b32471206700babc01dfe342c72"
+      "hash": "6c3641471faeaba24ba5daa95dc7919aa53a4c856a6b914a6aa2399ddd4bd294",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6c/6c3641471faeaba24ba5daa95dc7919aa53a4c856a6b914a6aa2399ddd4bd294"
     },
     "assets/vendor/gsap.min.js": {
       "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
@@ -341,8 +341,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/e0/e0bfc16f805e5d05453556921912b973ecc78685f06b29b2cd983c0114452b50"
     },
     "compositions/s05-maister.sfx.json": {
-      "hash": "c7b0a15c750c5c716d49e2744e055d74e8ddeac96f02d0f7fc4b558c120de43f",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/c7/c7b0a15c750c5c716d49e2744e055d74e8ddeac96f02d0f7fc4b558c120de43f"
+      "hash": "99c1c45577f49a75233646b2430a324170e7e533eea6ec07d6a85ffd8dfaa72c",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/99/99c1c45577f49a75233646b2430a324170e7e533eea6ec07d6a85ffd8dfaa72c"
     },
     "compositions/s06-espera.html": {
       "hash": "e059c6b0e5e283f534842ec6dda4e4d3cf35143cf4c1911ce4218c446305edb3",
@@ -381,8 +381,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/49/49bcb18c2daec7d56ab8f64fa526abd474abcd8b4e8f06ce91c76859c6e0b6eb"
     },
     "compositions/s10-ruben-nadie.sfx.json": {
-      "hash": "ba026d41a42cfa3bc048e15d9469fc3df834800e9e687866405f5c9c4d2e25d3",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/ba/ba026d41a42cfa3bc048e15d9469fc3df834800e9e687866405f5c9c4d2e25d3"
+      "hash": "7f24736c8ccf8fec72ccb7afe53fe374f63d7f477d980b519672e6b23d44c00e",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/7f/7f24736c8ccf8fec72ccb7afe53fe374f63d7f477d980b519672e6b23d44c00e"
     },
     "compositions/s11-cierre.html": {
       "hash": "922f4fad86a91104382feae3389a59212396272d982b749edfe6dc09c611ac64",
@@ -409,8 +409,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/3b/3b984898949cc21c4bd5580ef41be7b653e906ec3453b80eb2af44ebd34a24db"
     },
     "gen.mjs": {
-      "hash": "38ec874d353cce27c585ad8fc680c481f1ad1f7dc1ddf64bae6af2c43d6ba532",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/38/38ec874d353cce27c585ad8fc680c481f1ad1f7dc1ddf64bae6af2c43d6ba532"
+      "hash": "c15684f6061d02bd66189816e292d722120c6acc44ddd29642bc29b9c4d3c9a6",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/c1/c15684f6061d02bd66189816e292d722120c6acc44ddd29642bc29b9c4d3c9a6"
     },
     "guion.txt": {
       "hash": "d335e0dd5fd7ad13ec18b8765abdc0c3708a9dc53392ece46efc0e0ac4703d02",
@@ -421,8 +421,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "5d9a5ef05c531b079ad541be3a96834dccf0aaf8561c12e2932224bdefbf0fa5",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/5d/5d9a5ef05c531b079ad541be3a96834dccf0aaf8561c12e2932224bdefbf0fa5"
+      "hash": "465996fead1cc2ebfc3c62240d5e0890bde95868dabdaa651bf28962e6c41a43",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/46/465996fead1cc2ebfc3c62240d5e0890bde95868dabdaa651bf28962e6c41a43"
     },
     "package.json": {
       "hash": "8ea3d84f5cc1d9bf4802ed9aee436eb680459bf5f84b9640b8d26ec91ee08226",
@@ -621,8 +621,8 @@
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/a7/a7332027044755f2577b8adc92099e2974c04503baf99950eda1328862a346c5"
     },
     "NOTAS-constructor.md": {
-      "hash": "d793c0d6c497e355603cea0f3943abbc16c713a62d8d07c51c98a83c92d14cb0",
-      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/d7/d793c0d6c497e355603cea0f3943abbc16c713a62d8d07c51c98a83c92d14cb0"
+      "hash": "f6b795add10ef8bcb5d65554b1f692cbd84f83a1f64f5b91b6d1a9c02928c220",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/f6/f6b795add10ef8bcb5d65554b1f692cbd84f83a1f64f5b91b6d1a9c02928c220"
     },
     "SPEC.md": {
       "hash": "fd49dbf71121933b9226feab83b21cba9546b5d177f7f2030a55a0aaf4c0e6ca",
@@ -691,6 +691,18 @@
     "partes/stt-orus4-3.json": {
       "hash": "9b65bea6adc1162310dd10a10487a04ecc922ae4cb0daca98106e43cc270b8fd",
       "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/9b/9b65bea6adc1162310dd10a10487a04ecc922ae4cb0daca98106e43cc270b8fd"
+    },
+    "portada-src/fondo-portada.png": {
+      "hash": "af845d88624a3ea2e4fda9bd57b1445af22c479cee866dfff828456956d3d6be",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/af/af845d88624a3ea2e4fda9bd57b1445af22c479cee866dfff828456956d3d6be"
+    },
+    "portada.json": {
+      "hash": "f9ec670153f12061a8f714218364620e16b3d043ac988a366d241ccf0a033dc3",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/f9/f9ec670153f12061a8f714218364620e16b3d043ac988a366d241ccf0a033dc3"
+    },
+    "portada.png": {
+      "hash": "bc9a57a3b345d7ead8155c07c09fdb1f77419ed06c1d074b9da4c950cb3c78e8",
+      "content": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/bc/bc9a57a3b345d7ead8155c07c09fdb1f77419ed06c1d074b9da4c950cb3c78e8"
     }
   },
   "revisions": {
@@ -1645,12 +1657,165 @@
           "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/34/34fe4d87af0c3e2d09830596eaa90ea54f910b32471206700babc01dfe342c72"
         }
       }
+    },
+    "e0c5c02d-5b26-491d-b75e-a180974f6c0c": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794762459545,
+      "endedAt": 1794762459557,
+      "files": {
+        "NOTAS-constructor.md": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/d7/d793c0d6c497e355603cea0f3943abbc16c713a62d8d07c51c98a83c92d14cb0",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/f6/f6b795add10ef8bcb5d65554b1f692cbd84f83a1f64f5b91b6d1a9c02928c220"
+        }
+      }
+    },
+    "372af9c6-05b6-4b75-9712-e37c8ad404e5": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794763732517,
+      "endedAt": 1794763732557,
+      "files": {
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/34/34fe4d87af0c3e2d09830596eaa90ea54f910b32471206700babc01dfe342c72",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/b7/b7f2a070c33dcdedddc6133b652cab52d39588e67fccae67ff6ec38463182537"
+        },
+        "compositions/s05-maister.sfx.json": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/c7/c7b0a15c750c5c716d49e2744e055d74e8ddeac96f02d0f7fc4b558c120de43f",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/99/99c1c45577f49a75233646b2430a324170e7e533eea6ec07d6a85ffd8dfaa72c"
+        },
+        "compositions/s10-ruben-nadie.sfx.json": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/ba/ba026d41a42cfa3bc048e15d9469fc3df834800e9e687866405f5c9c4d2e25d3",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/7f/7f24736c8ccf8fec72ccb7afe53fe374f63d7f477d980b519672e6b23d44c00e"
+        },
+        "gen.mjs": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/38/38ec874d353cce27c585ad8fc680c481f1ad1f7dc1ddf64bae6af2c43d6ba532",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/c1/c15684f6061d02bd66189816e292d722120c6acc44ddd29642bc29b9c4d3c9a6"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/5d/5d9a5ef05c531b079ad541be3a96834dccf0aaf8561c12e2932224bdefbf0fa5",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/46/465996fead1cc2ebfc3c62240d5e0890bde95868dabdaa651bf28962e6c41a43"
+        }
+      }
+    },
+    "f3d43cf0-b3a8-429a-a2a4-3da59968d90f": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794763781640,
+      "endedAt": 1794763781642,
+      "files": {
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/b7/b7f2a070c33dcdedddc6133b652cab52d39588e67fccae67ff6ec38463182537",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6e/6e13d163d7ed826ccbbcc95b75e48547a3d6d79fd9be4583cb21e50dede16b9c"
+        }
+      }
+    },
+    "19b4c766-a73f-4711-9f1e-eaf5f181279d": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794763831919,
+      "endedAt": 1794763831920,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/46/465996fead1cc2ebfc3c62240d5e0890bde95868dabdaa651bf28962e6c41a43",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/19/19f2701b0cf97689cc4a4e5c3cb7ee0876675300c07a9baa26399245ca9b6e1e"
+        }
+      }
+    },
+    "c295b844-59ba-4286-8368-7b1f621dfac6": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794763874360,
+      "endedAt": 1794763874394,
+      "files": {
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6e/6e13d163d7ed826ccbbcc95b75e48547a3d6d79fd9be4583cb21e50dede16b9c",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/55/557cd98cc3105bbd5f8e8a16830297c86819acd17d8f995eadacb1caec0b1593"
+        },
+        "portada-src/fondo-portada.png": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/3d/3db697226484cadb9cd2d6a74cc168ec453c973b1d83fd0a9c7daa90e17b39ec"
+        },
+        "portada.json": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/15/1530d8a7c119e6742cdb2d88fe798240d014892b1467982fa62d666b1bef4cf2"
+        },
+        "portada.png": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/31/319637d0fcc41e573363e8b40453bdfc4e24c22071c83317f842728cd8916daa"
+        }
+      }
+    },
+    "1cdc1dc5-b365-40d8-9a0b-874d51c1e9b7": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794765256479,
+      "endedAt": 1794765256510,
+      "files": {
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/55/557cd98cc3105bbd5f8e8a16830297c86819acd17d8f995eadacb1caec0b1593",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6c/6c3641471faeaba24ba5daa95dc7919aa53a4c856a6b914a6aa2399ddd4bd294"
+        },
+        "portada-src/fondo-portada.png": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/3d/3db697226484cadb9cd2d6a74cc168ec453c973b1d83fd0a9c7daa90e17b39ec",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6a/6aafe1d404aaba841f4c2864a987c7acbed75466d6b01370feb8bd98c688baa7"
+        },
+        "portada.json": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/15/1530d8a7c119e6742cdb2d88fe798240d014892b1467982fa62d666b1bef4cf2",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/f9/f9ec670153f12061a8f714218364620e16b3d043ac988a366d241ccf0a033dc3"
+        },
+        "portada.png": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/31/319637d0fcc41e573363e8b40453bdfc4e24c22071c83317f842728cd8916daa",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/bf/bf0679ef5ecd6d8eada4ab1ff5111c821da79b8b285920eb46f866866da6c0da"
+        }
+      }
+    },
+    "6c8b4c8f-0811-43b5-9f71-98b807c760ae": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1794765331950,
+      "endedAt": 1794765331975,
+      "files": {
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/19/19f2701b0cf97689cc4a4e5c3cb7ee0876675300c07a9baa26399245ca9b6e1e",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/46/465996fead1cc2ebfc3c62240d5e0890bde95868dabdaa651bf28962e6c41a43"
+        },
+        "portada-src/fondo-portada.png": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/6a/6aafe1d404aaba841f4c2864a987c7acbed75466d6b01370feb8bd98c688baa7",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/af/af845d88624a3ea2e4fda9bd57b1445af22c479cee866dfff828456956d3d6be"
+        },
+        "portada.png": {
+          "before": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/bf/bf0679ef5ecd6d8eada4ab1ff5111c821da79b8b285920eb46f866866da6c0da",
+          "after": "/root/.cache/hyperframes/history/01ac7327-7ef1-4a5e-bdda-d5128c8ddbe3/blobs/bc/bc9a57a3b345d7ead8155c07c09fdb1f77419ed06c1d074b9da4c950cb3c78e8"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
-      "id": "8003853b-ee69-4965-be9b-b0960c5f0f29"
+      "revision": "6c8b4c8f-0811-43b5-9f71-98b807c760ae",
+      "id": "ff1f2ffe-0640-4326-b818-5a1372a17a01"
     },
     "revisions": {
       "1cc06b01-848f-498d-bc72-53de52147127": [
@@ -1777,7 +1942,6 @@
         {
           "id": "b6fb0856-df9e-4d5e-9fb4-38cbd1282e81",
           "scope": "project",
-          "report": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/checks/b6fb0856-df9e-4d5e-9fb4-38cbd1282e81.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -1799,14 +1963,15 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979": [
         {
           "id": "8003853b-ee69-4965-be9b-b0960c5f0f29",
           "scope": "project",
-          "report": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/checks/8003853b-ee69-4965-be9b-b0960c5f0f29.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -1828,6 +1993,37 @@
           "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
           "inputFingerprint": "f71ff45c969f239dd45201df136091ab6ce7a513658a6e1420997292eb85f766",
           "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
+        }
+      ],
+      "6c8b4c8f-0811-43b5-9f71-98b807c760ae": [
+        {
+          "id": "ff1f2ffe-0640-4326-b818-5a1372a17a01",
+          "scope": "project",
+          "report": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/checks/ff1f2ffe-0640-4326-b818-5a1372a17a01.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1794765360720,
+          "contentHash": "e5e1a2f2611768d6881f9d96f1a092f764b3caf4cd9c6217fbcee2f828fe86ef",
+          "revision": "6c8b4c8f-0811-43b5-9f71-98b807c760ae",
+          "inputFingerprint": "86827d46a88b1872b6a1cbbca1d8cb89cdefc382db22beed5efe38258b677f53",
+          "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
       ]
@@ -1836,8 +2032,8 @@
   },
   "snapshots": {
     "latest": {
-      "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
-      "id": "dace4df7-9f5b-45ec-b75e-f3d17819de27-3"
+      "revision": "1cdc1dc5-b365-40d8-9a0b-874d51c1e9b7",
+      "id": "060b8f54-dc5a-44b6-b6e0-29371bb07ac5-0"
     },
     "revisions": {
       "2fb88c07-740e-421b-ab15-24c30af1f2b0": [
@@ -14482,7 +14678,6 @@
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-00-at-4.9s.png",
           "time": 4.9,
           "metadata": {
             "width": 1080,
@@ -14497,12 +14692,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-01-at-5.4s.png",
           "time": 5.4,
           "metadata": {
             "width": 1080,
@@ -14517,12 +14713,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-02-at-6.9s.png",
           "time": 6.9,
           "metadata": {
             "width": 1080,
@@ -14537,12 +14734,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-03-at-7.1s.png",
           "time": 7.1,
           "metadata": {
             "width": 1080,
@@ -14557,12 +14755,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-04-at-8.5s.png",
           "time": 8.5,
           "metadata": {
             "width": 1080,
@@ -14577,12 +14776,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-5",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-05-at-13.9s.png",
           "time": 13.9,
           "metadata": {
             "width": 1080,
@@ -14597,12 +14797,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-6",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-06-at-14.8s.png",
           "time": 14.8,
           "metadata": {
             "width": 1080,
@@ -14617,12 +14818,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-7",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-07-at-18.62s.png",
           "time": 18.62,
           "metadata": {
             "width": 1080,
@@ -14637,12 +14839,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-8",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-08-at-18.72s.png",
           "time": 18.72,
           "metadata": {
             "width": 1080,
@@ -14657,12 +14860,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-9",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-09-at-18.82s.png",
           "time": 18.82,
           "metadata": {
             "width": 1080,
@@ -14677,12 +14881,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-10",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-10-at-18.92s.png",
           "time": 18.92,
           "metadata": {
             "width": 1080,
@@ -14697,12 +14902,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-11",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-11-at-19.05s.png",
           "time": 19.05,
           "metadata": {
             "width": 1080,
@@ -14717,12 +14923,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-12",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-12-at-22.6s.png",
           "time": 22.6,
           "metadata": {
             "width": 1080,
@@ -14737,12 +14944,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-13",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-13-at-27.5s.png",
           "time": 27.5,
           "metadata": {
             "width": 1080,
@@ -14757,12 +14965,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-14",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-14-at-29.6s.png",
           "time": 29.6,
           "metadata": {
             "width": 1080,
@@ -14777,12 +14986,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-15",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-15-at-30.6s.png",
           "time": 30.6,
           "metadata": {
             "width": 1080,
@@ -14797,12 +15007,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-16",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-16-at-31.4s.png",
           "time": 31.4,
           "metadata": {
             "width": 1080,
@@ -14817,12 +15028,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-17",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-17-at-31.9s.png",
           "time": 31.9,
           "metadata": {
             "width": 1080,
@@ -14837,12 +15049,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-18",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-18-at-32.6s.png",
           "time": 32.6,
           "metadata": {
             "width": 1080,
@@ -14857,12 +15070,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-19",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-19-at-33.2s.png",
           "time": 33.2,
           "metadata": {
             "width": 1080,
@@ -14877,12 +15091,13 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "9cc56116-c910-42d4-a7e6-b8977e9b8528-20",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a2cdd9b7-997a-482e-af90-6a590e9f416a/frame-20-at-33.6s.png",
           "time": 33.6,
           "metadata": {
             "width": 1080,
@@ -14897,14 +15112,15 @@
           "revision": "a39f05ec-edf1-4e81-a05f-65760f8e8399",
           "inputFingerprint": "1dd0e7128b3fd47c41b666101972c7d86645d0b8a3e886d5f87c99dfc3d7efdd",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "82743f78-3ff3-46ee-9b42-853b0cfb43a9": [
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-00-at-8.5s.png",
           "time": 8.5,
           "metadata": {
             "width": 1080,
@@ -14919,12 +15135,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-01-at-22.3s.png",
           "time": 22.3,
           "metadata": {
             "width": 1080,
@@ -14939,12 +15156,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-02-at-29.6s.png",
           "time": 29.6,
           "metadata": {
             "width": 1080,
@@ -14959,12 +15177,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-03-at-30.6s.png",
           "time": 30.6,
           "metadata": {
             "width": 1080,
@@ -14979,12 +15198,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-04-at-31.9s.png",
           "time": 31.9,
           "metadata": {
             "width": 1080,
@@ -14999,12 +15219,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-5",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-05-at-32.6s.png",
           "time": 32.6,
           "metadata": {
             "width": 1080,
@@ -15019,12 +15240,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-6",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-06-at-33.2s.png",
           "time": 33.2,
           "metadata": {
             "width": 1080,
@@ -15039,12 +15261,13 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "5863217c-a75a-430f-8b53-5dcc3bfd0e2e-7",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/a41ac7dc-25c1-4f18-8822-3f00a6fc79f4/frame-07-at-33.9s.png",
           "time": 33.9,
           "metadata": {
             "width": 1080,
@@ -15059,14 +15282,15 @@
           "revision": "82743f78-3ff3-46ee-9b42-853b0cfb43a9",
           "inputFingerprint": "c1138773f3358767f22538edaf13fb1527b7b7e0d424cf2017f81bd989b867fe",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "00a58698-2d9b-4352-a338-05c6463b5270": [
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-00-at-21.6s.png",
           "time": 21.6,
           "metadata": {
             "width": 1080,
@@ -15081,12 +15305,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-01-at-22.6s.png",
           "time": 22.6,
           "metadata": {
             "width": 1080,
@@ -15101,12 +15326,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-02-at-23.3s.png",
           "time": 23.3,
           "metadata": {
             "width": 1080,
@@ -15121,12 +15347,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-03-at-29.4s.png",
           "time": 29.4,
           "metadata": {
             "width": 1080,
@@ -15141,12 +15368,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-04-at-30.6s.png",
           "time": 30.6,
           "metadata": {
             "width": 1080,
@@ -15161,12 +15389,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-5",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-05-at-31.9s.png",
           "time": 31.9,
           "metadata": {
             "width": 1080,
@@ -15181,12 +15410,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-6",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-06-at-33s.png",
           "time": 33,
           "metadata": {
             "width": 1080,
@@ -15201,12 +15431,13 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "76f73c20-9bed-4127-9028-73b17eb5c516-7",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/75dedf27-35e4-4fd4-b84e-3d9434d82246/frame-07-at-33.9s.png",
           "time": 33.9,
           "metadata": {
             "width": 1080,
@@ -15221,14 +15452,15 @@
           "revision": "00a58698-2d9b-4352-a338-05c6463b5270",
           "inputFingerprint": "d6c2be05f87b380ddb96527fbf8a34d48fbed33c692389b76830110797e9aeb1",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "cb973011-5e27-4722-a9d3-cc39afeb32d6": [
         {
           "scope": "full",
           "id": "3b860c4e-6fc1-4c9f-b2d3-e2afc001ae02-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/cf85e3e1-0956-4bd2-ad2a-4f606e48d1f0/frame-00-at-21.6s.png",
           "time": 21.6,
           "metadata": {
             "width": 1080,
@@ -15243,12 +15475,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "3b860c4e-6fc1-4c9f-b2d3-e2afc001ae02-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/cf85e3e1-0956-4bd2-ad2a-4f606e48d1f0/frame-01-at-30.6s.png",
           "time": 30.6,
           "metadata": {
             "width": 1080,
@@ -15263,12 +15496,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "3b860c4e-6fc1-4c9f-b2d3-e2afc001ae02-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/cf85e3e1-0956-4bd2-ad2a-4f606e48d1f0/frame-02-at-31.9s.png",
           "time": 31.9,
           "metadata": {
             "width": 1080,
@@ -15283,12 +15517,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-00-at-0s.png",
           "time": 0,
           "metadata": {
             "width": 1080,
@@ -15303,12 +15538,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-01-at-0.5s.png",
           "time": 0.5,
           "metadata": {
             "width": 1080,
@@ -15323,12 +15559,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-02-at-1s.png",
           "time": 1,
           "metadata": {
             "width": 1080,
@@ -15343,12 +15580,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-03-at-1.5s.png",
           "time": 1.5,
           "metadata": {
             "width": 1080,
@@ -15363,12 +15601,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-04-at-2s.png",
           "time": 2,
           "metadata": {
             "width": 1080,
@@ -15383,12 +15622,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-5",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-05-at-2.5s.png",
           "time": 2.5,
           "metadata": {
             "width": 1080,
@@ -15403,12 +15643,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-6",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-06-at-3s.png",
           "time": 3,
           "metadata": {
             "width": 1080,
@@ -15423,12 +15664,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-7",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-07-at-3.5s.png",
           "time": 3.5,
           "metadata": {
             "width": 1080,
@@ -15443,12 +15685,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-8",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-08-at-4s.png",
           "time": 4,
           "metadata": {
             "width": 1080,
@@ -15463,12 +15706,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-9",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-09-at-4.5s.png",
           "time": 4.5,
           "metadata": {
             "width": 1080,
@@ -15483,12 +15727,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-10",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-10-at-5s.png",
           "time": 5,
           "metadata": {
             "width": 1080,
@@ -15503,12 +15748,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-11",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-11-at-5.5s.png",
           "time": 5.5,
           "metadata": {
             "width": 1080,
@@ -15523,12 +15769,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-12",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-12-at-6s.png",
           "time": 6,
           "metadata": {
             "width": 1080,
@@ -15543,12 +15790,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-13",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-13-at-6.5s.png",
           "time": 6.5,
           "metadata": {
             "width": 1080,
@@ -15563,12 +15811,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-14",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-14-at-7s.png",
           "time": 7,
           "metadata": {
             "width": 1080,
@@ -15583,12 +15832,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-15",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-15-at-7.5s.png",
           "time": 7.5,
           "metadata": {
             "width": 1080,
@@ -15603,12 +15853,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-16",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-16-at-8s.png",
           "time": 8,
           "metadata": {
             "width": 1080,
@@ -15623,12 +15874,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-17",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-17-at-8.5s.png",
           "time": 8.5,
           "metadata": {
             "width": 1080,
@@ -15643,12 +15895,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-18",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-18-at-9s.png",
           "time": 9,
           "metadata": {
             "width": 1080,
@@ -15663,12 +15916,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-19",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-19-at-9.5s.png",
           "time": 9.5,
           "metadata": {
             "width": 1080,
@@ -15683,12 +15937,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-20",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-20-at-10s.png",
           "time": 10,
           "metadata": {
             "width": 1080,
@@ -15703,12 +15958,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-21",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-21-at-10.5s.png",
           "time": 10.5,
           "metadata": {
             "width": 1080,
@@ -15723,12 +15979,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-22",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-22-at-11s.png",
           "time": 11,
           "metadata": {
             "width": 1080,
@@ -15743,12 +16000,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-23",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-23-at-11.5s.png",
           "time": 11.5,
           "metadata": {
             "width": 1080,
@@ -15763,12 +16021,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-24",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-24-at-12s.png",
           "time": 12,
           "metadata": {
             "width": 1080,
@@ -15783,12 +16042,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-25",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-25-at-12.5s.png",
           "time": 12.5,
           "metadata": {
             "width": 1080,
@@ -15803,12 +16063,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-26",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-26-at-13s.png",
           "time": 13,
           "metadata": {
             "width": 1080,
@@ -15823,12 +16084,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-27",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-27-at-13.5s.png",
           "time": 13.5,
           "metadata": {
             "width": 1080,
@@ -15843,12 +16105,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-28",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-28-at-14s.png",
           "time": 14,
           "metadata": {
             "width": 1080,
@@ -15863,12 +16126,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-29",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-29-at-14.5s.png",
           "time": 14.5,
           "metadata": {
             "width": 1080,
@@ -15883,12 +16147,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-30",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-30-at-15s.png",
           "time": 15,
           "metadata": {
             "width": 1080,
@@ -15903,12 +16168,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-31",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-31-at-15.5s.png",
           "time": 15.5,
           "metadata": {
             "width": 1080,
@@ -15923,12 +16189,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-32",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-32-at-16s.png",
           "time": 16,
           "metadata": {
             "width": 1080,
@@ -15943,12 +16210,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-33",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-33-at-16.5s.png",
           "time": 16.5,
           "metadata": {
             "width": 1080,
@@ -15963,12 +16231,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-34",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-34-at-17s.png",
           "time": 17,
           "metadata": {
             "width": 1080,
@@ -15983,12 +16252,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-35",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-35-at-17.5s.png",
           "time": 17.5,
           "metadata": {
             "width": 1080,
@@ -16003,12 +16273,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-36",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-36-at-18s.png",
           "time": 18,
           "metadata": {
             "width": 1080,
@@ -16023,12 +16294,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-37",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-37-at-18.5s.png",
           "time": 18.5,
           "metadata": {
             "width": 1080,
@@ -16043,12 +16315,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-38",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-38-at-19s.png",
           "time": 19,
           "metadata": {
             "width": 1080,
@@ -16063,12 +16336,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-39",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-39-at-19.5s.png",
           "time": 19.5,
           "metadata": {
             "width": 1080,
@@ -16083,12 +16357,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-40",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-40-at-20s.png",
           "time": 20,
           "metadata": {
             "width": 1080,
@@ -16103,12 +16378,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-41",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-41-at-20.5s.png",
           "time": 20.5,
           "metadata": {
             "width": 1080,
@@ -16123,12 +16399,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-42",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-42-at-21s.png",
           "time": 21,
           "metadata": {
             "width": 1080,
@@ -16143,12 +16420,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-43",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-43-at-21.5s.png",
           "time": 21.5,
           "metadata": {
             "width": 1080,
@@ -16163,12 +16441,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-44",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-44-at-22s.png",
           "time": 22,
           "metadata": {
             "width": 1080,
@@ -16183,12 +16462,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-45",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-45-at-22.5s.png",
           "time": 22.5,
           "metadata": {
             "width": 1080,
@@ -16203,12 +16483,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-46",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-46-at-23s.png",
           "time": 23,
           "metadata": {
             "width": 1080,
@@ -16223,12 +16504,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-47",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-47-at-23.5s.png",
           "time": 23.5,
           "metadata": {
             "width": 1080,
@@ -16243,12 +16525,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-48",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-48-at-24s.png",
           "time": 24,
           "metadata": {
             "width": 1080,
@@ -16263,12 +16546,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-49",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-49-at-24.5s.png",
           "time": 24.5,
           "metadata": {
             "width": 1080,
@@ -16283,12 +16567,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-50",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-50-at-25s.png",
           "time": 25,
           "metadata": {
             "width": 1080,
@@ -16303,12 +16588,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-51",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-51-at-25.5s.png",
           "time": 25.5,
           "metadata": {
             "width": 1080,
@@ -16323,12 +16609,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-52",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-52-at-26s.png",
           "time": 26,
           "metadata": {
             "width": 1080,
@@ -16343,12 +16630,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-53",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-53-at-26.5s.png",
           "time": 26.5,
           "metadata": {
             "width": 1080,
@@ -16363,12 +16651,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-54",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-54-at-27s.png",
           "time": 27,
           "metadata": {
             "width": 1080,
@@ -16383,12 +16672,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-55",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-55-at-27.5s.png",
           "time": 27.5,
           "metadata": {
             "width": 1080,
@@ -16403,12 +16693,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-56",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-56-at-28s.png",
           "time": 28,
           "metadata": {
             "width": 1080,
@@ -16423,12 +16714,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-57",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-57-at-28.5s.png",
           "time": 28.5,
           "metadata": {
             "width": 1080,
@@ -16443,12 +16735,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-58",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-58-at-29s.png",
           "time": 29,
           "metadata": {
             "width": 1080,
@@ -16463,12 +16756,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-59",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-59-at-29.5s.png",
           "time": 29.5,
           "metadata": {
             "width": 1080,
@@ -16483,12 +16777,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-60",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-60-at-30s.png",
           "time": 30,
           "metadata": {
             "width": 1080,
@@ -16503,12 +16798,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-61",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-61-at-30.5s.png",
           "time": 30.5,
           "metadata": {
             "width": 1080,
@@ -16523,12 +16819,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-62",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-62-at-31s.png",
           "time": 31,
           "metadata": {
             "width": 1080,
@@ -16543,12 +16840,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-63",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-63-at-31.5s.png",
           "time": 31.5,
           "metadata": {
             "width": 1080,
@@ -16563,12 +16861,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-64",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-64-at-32s.png",
           "time": 32,
           "metadata": {
             "width": 1080,
@@ -16583,12 +16882,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-65",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-65-at-32.5s.png",
           "time": 32.5,
           "metadata": {
             "width": 1080,
@@ -16603,12 +16903,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-66",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-66-at-33s.png",
           "time": 33,
           "metadata": {
             "width": 1080,
@@ -16623,12 +16924,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-67",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-67-at-33.5s.png",
           "time": 33.5,
           "metadata": {
             "width": 1080,
@@ -16643,12 +16945,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-68",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-68-at-34s.png",
           "time": 34,
           "metadata": {
             "width": 1080,
@@ -16663,12 +16966,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-69",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-69-at-34.5s.png",
           "time": 34.5,
           "metadata": {
             "width": 1080,
@@ -16683,12 +16987,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-70",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-70-at-35s.png",
           "time": 35,
           "metadata": {
             "width": 1080,
@@ -16703,12 +17008,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-71",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-71-at-35.5s.png",
           "time": 35.5,
           "metadata": {
             "width": 1080,
@@ -16723,12 +17029,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-72",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-72-at-36s.png",
           "time": 36,
           "metadata": {
             "width": 1080,
@@ -16743,12 +17050,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "14ffcbdd-8416-4f1d-b2bf-6a732aa476cc-73",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/53e1c616-af56-4bc3-bfde-df08ce2fa972/frame-73-at-36.5s.png",
           "time": 36.5,
           "metadata": {
             "width": 1080,
@@ -16763,12 +17071,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-00-at-0.25s.png",
           "time": 0.25,
           "metadata": {
             "width": 1080,
@@ -16783,12 +17092,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-01-at-0.75s.png",
           "time": 0.75,
           "metadata": {
             "width": 1080,
@@ -16803,12 +17113,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-02-at-1.25s.png",
           "time": 1.25,
           "metadata": {
             "width": 1080,
@@ -16823,12 +17134,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-03-at-1.75s.png",
           "time": 1.75,
           "metadata": {
             "width": 1080,
@@ -16843,12 +17155,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-04-at-2.25s.png",
           "time": 2.25,
           "metadata": {
             "width": 1080,
@@ -16863,12 +17176,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-5",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-05-at-2.75s.png",
           "time": 2.75,
           "metadata": {
             "width": 1080,
@@ -16883,12 +17197,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-6",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-06-at-3.25s.png",
           "time": 3.25,
           "metadata": {
             "width": 1080,
@@ -16903,12 +17218,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-7",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-07-at-3.75s.png",
           "time": 3.75,
           "metadata": {
             "width": 1080,
@@ -16923,12 +17239,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-8",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-08-at-4.25s.png",
           "time": 4.25,
           "metadata": {
             "width": 1080,
@@ -16943,12 +17260,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-9",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-09-at-4.75s.png",
           "time": 4.75,
           "metadata": {
             "width": 1080,
@@ -16963,12 +17281,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-10",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-10-at-5.25s.png",
           "time": 5.25,
           "metadata": {
             "width": 1080,
@@ -16983,12 +17302,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-11",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-11-at-5.75s.png",
           "time": 5.75,
           "metadata": {
             "width": 1080,
@@ -17003,12 +17323,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-12",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-12-at-6.25s.png",
           "time": 6.25,
           "metadata": {
             "width": 1080,
@@ -17023,12 +17344,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-13",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-13-at-6.75s.png",
           "time": 6.75,
           "metadata": {
             "width": 1080,
@@ -17043,12 +17365,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-14",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-14-at-7.25s.png",
           "time": 7.25,
           "metadata": {
             "width": 1080,
@@ -17063,12 +17386,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-15",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-15-at-7.75s.png",
           "time": 7.75,
           "metadata": {
             "width": 1080,
@@ -17083,12 +17407,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-16",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-16-at-8.25s.png",
           "time": 8.25,
           "metadata": {
             "width": 1080,
@@ -17103,12 +17428,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-17",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-17-at-8.75s.png",
           "time": 8.75,
           "metadata": {
             "width": 1080,
@@ -17123,12 +17449,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-18",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-18-at-9.25s.png",
           "time": 9.25,
           "metadata": {
             "width": 1080,
@@ -17143,12 +17470,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-19",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-19-at-9.75s.png",
           "time": 9.75,
           "metadata": {
             "width": 1080,
@@ -17163,12 +17491,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-20",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-20-at-10.25s.png",
           "time": 10.25,
           "metadata": {
             "width": 1080,
@@ -17183,12 +17512,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-21",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-21-at-10.75s.png",
           "time": 10.75,
           "metadata": {
             "width": 1080,
@@ -17203,12 +17533,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-22",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-22-at-11.25s.png",
           "time": 11.25,
           "metadata": {
             "width": 1080,
@@ -17223,12 +17554,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-23",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-23-at-11.75s.png",
           "time": 11.75,
           "metadata": {
             "width": 1080,
@@ -17243,12 +17575,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-24",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-24-at-12.25s.png",
           "time": 12.25,
           "metadata": {
             "width": 1080,
@@ -17263,12 +17596,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-25",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-25-at-12.75s.png",
           "time": 12.75,
           "metadata": {
             "width": 1080,
@@ -17283,12 +17617,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-26",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-26-at-13.25s.png",
           "time": 13.25,
           "metadata": {
             "width": 1080,
@@ -17303,12 +17638,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-27",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-27-at-13.75s.png",
           "time": 13.75,
           "metadata": {
             "width": 1080,
@@ -17323,12 +17659,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-28",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-28-at-14.25s.png",
           "time": 14.25,
           "metadata": {
             "width": 1080,
@@ -17343,12 +17680,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-29",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-29-at-14.75s.png",
           "time": 14.75,
           "metadata": {
             "width": 1080,
@@ -17363,12 +17701,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-30",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-30-at-15.25s.png",
           "time": 15.25,
           "metadata": {
             "width": 1080,
@@ -17383,12 +17722,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-31",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-31-at-15.75s.png",
           "time": 15.75,
           "metadata": {
             "width": 1080,
@@ -17403,12 +17743,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-32",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-32-at-16.25s.png",
           "time": 16.25,
           "metadata": {
             "width": 1080,
@@ -17423,12 +17764,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-33",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-33-at-16.75s.png",
           "time": 16.75,
           "metadata": {
             "width": 1080,
@@ -17443,12 +17785,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-34",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-34-at-17.25s.png",
           "time": 17.25,
           "metadata": {
             "width": 1080,
@@ -17463,12 +17806,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-35",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-35-at-17.75s.png",
           "time": 17.75,
           "metadata": {
             "width": 1080,
@@ -17483,12 +17827,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-36",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-36-at-18.25s.png",
           "time": 18.25,
           "metadata": {
             "width": 1080,
@@ -17503,12 +17848,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-37",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-37-at-18.75s.png",
           "time": 18.75,
           "metadata": {
             "width": 1080,
@@ -17523,12 +17869,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-38",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-38-at-19.25s.png",
           "time": 19.25,
           "metadata": {
             "width": 1080,
@@ -17543,12 +17890,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-39",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-39-at-19.75s.png",
           "time": 19.75,
           "metadata": {
             "width": 1080,
@@ -17563,12 +17911,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-40",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-40-at-20.25s.png",
           "time": 20.25,
           "metadata": {
             "width": 1080,
@@ -17583,12 +17932,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-41",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-41-at-20.75s.png",
           "time": 20.75,
           "metadata": {
             "width": 1080,
@@ -17603,12 +17953,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-42",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-42-at-21.25s.png",
           "time": 21.25,
           "metadata": {
             "width": 1080,
@@ -17623,12 +17974,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-43",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-43-at-21.75s.png",
           "time": 21.75,
           "metadata": {
             "width": 1080,
@@ -17643,12 +17995,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-44",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-44-at-22.25s.png",
           "time": 22.25,
           "metadata": {
             "width": 1080,
@@ -17663,12 +18016,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-45",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-45-at-22.75s.png",
           "time": 22.75,
           "metadata": {
             "width": 1080,
@@ -17683,12 +18037,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-46",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-46-at-23.25s.png",
           "time": 23.25,
           "metadata": {
             "width": 1080,
@@ -17703,12 +18058,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-47",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-47-at-23.75s.png",
           "time": 23.75,
           "metadata": {
             "width": 1080,
@@ -17723,12 +18079,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-48",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-48-at-24.25s.png",
           "time": 24.25,
           "metadata": {
             "width": 1080,
@@ -17743,12 +18100,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-49",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-49-at-24.75s.png",
           "time": 24.75,
           "metadata": {
             "width": 1080,
@@ -17763,12 +18121,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-50",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-50-at-25.25s.png",
           "time": 25.25,
           "metadata": {
             "width": 1080,
@@ -17783,12 +18142,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-51",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-51-at-25.75s.png",
           "time": 25.75,
           "metadata": {
             "width": 1080,
@@ -17803,12 +18163,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-52",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-52-at-26.25s.png",
           "time": 26.25,
           "metadata": {
             "width": 1080,
@@ -17823,12 +18184,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-53",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-53-at-26.75s.png",
           "time": 26.75,
           "metadata": {
             "width": 1080,
@@ -17843,12 +18205,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-54",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-54-at-27.25s.png",
           "time": 27.25,
           "metadata": {
             "width": 1080,
@@ -17863,12 +18226,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-55",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-55-at-27.75s.png",
           "time": 27.75,
           "metadata": {
             "width": 1080,
@@ -17883,12 +18247,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-56",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-56-at-28.25s.png",
           "time": 28.25,
           "metadata": {
             "width": 1080,
@@ -17903,12 +18268,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-57",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-57-at-28.75s.png",
           "time": 28.75,
           "metadata": {
             "width": 1080,
@@ -17923,12 +18289,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-58",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-58-at-29.25s.png",
           "time": 29.25,
           "metadata": {
             "width": 1080,
@@ -17943,12 +18310,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-59",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-59-at-29.75s.png",
           "time": 29.75,
           "metadata": {
             "width": 1080,
@@ -17963,12 +18331,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-60",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-60-at-30.25s.png",
           "time": 30.25,
           "metadata": {
             "width": 1080,
@@ -17983,12 +18352,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-61",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-61-at-30.75s.png",
           "time": 30.75,
           "metadata": {
             "width": 1080,
@@ -18003,12 +18373,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-62",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-62-at-31.25s.png",
           "time": 31.25,
           "metadata": {
             "width": 1080,
@@ -18023,12 +18394,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-63",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-63-at-31.75s.png",
           "time": 31.75,
           "metadata": {
             "width": 1080,
@@ -18043,12 +18415,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-64",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-64-at-32.25s.png",
           "time": 32.25,
           "metadata": {
             "width": 1080,
@@ -18063,12 +18436,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-65",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-65-at-32.75s.png",
           "time": 32.75,
           "metadata": {
             "width": 1080,
@@ -18083,12 +18457,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-66",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-66-at-33.25s.png",
           "time": 33.25,
           "metadata": {
             "width": 1080,
@@ -18103,12 +18478,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-67",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-67-at-33.75s.png",
           "time": 33.75,
           "metadata": {
             "width": 1080,
@@ -18123,12 +18499,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-68",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-68-at-34.25s.png",
           "time": 34.25,
           "metadata": {
             "width": 1080,
@@ -18143,12 +18520,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-69",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-69-at-34.75s.png",
           "time": 34.75,
           "metadata": {
             "width": 1080,
@@ -18163,12 +18541,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-70",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-70-at-35.25s.png",
           "time": 35.25,
           "metadata": {
             "width": 1080,
@@ -18183,12 +18562,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-71",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-71-at-35.75s.png",
           "time": 35.75,
           "metadata": {
             "width": 1080,
@@ -18203,12 +18583,13 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "43b956be-0598-4026-bbaa-8131737f973d-72",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d5f29cf-2cc6-4b4e-b101-a46dbba61445/frame-72-at-36.25s.png",
           "time": 36.25,
           "metadata": {
             "width": 1080,
@@ -18223,14 +18604,15 @@
           "revision": "cb973011-5e27-4722-a9d3-cc39afeb32d6",
           "inputFingerprint": "826e0a829aff34f0fdad1b4bfc50aa8ab9785bfb141d555a14fe173d2177a77e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "f3f01889-5e08-4266-860a-311097cd6eee": [
         {
           "scope": "full",
           "id": "a6857f75-b33c-406d-9a2f-e4d49fe2ff88-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/e8a13f8a-abb5-454a-818e-ba6296639fa8/frame-00-at-18.68s.png",
           "time": 18.68,
           "metadata": {
             "width": 1080,
@@ -18245,12 +18627,13 @@
           "revision": "f3f01889-5e08-4266-860a-311097cd6eee",
           "inputFingerprint": "f2b67f8d54956329e973ca9b71718692b6b9be148a48d21e018f174cb4fd6685",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "a6857f75-b33c-406d-9a2f-e4d49fe2ff88-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/e8a13f8a-abb5-454a-818e-ba6296639fa8/frame-01-at-18.72s.png",
           "time": 18.72,
           "metadata": {
             "width": 1080,
@@ -18265,12 +18648,13 @@
           "revision": "f3f01889-5e08-4266-860a-311097cd6eee",
           "inputFingerprint": "f2b67f8d54956329e973ca9b71718692b6b9be148a48d21e018f174cb4fd6685",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "a6857f75-b33c-406d-9a2f-e4d49fe2ff88-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/e8a13f8a-abb5-454a-818e-ba6296639fa8/frame-02-at-18.75s.png",
           "time": 18.75,
           "metadata": {
             "width": 1080,
@@ -18285,12 +18669,13 @@
           "revision": "f3f01889-5e08-4266-860a-311097cd6eee",
           "inputFingerprint": "f2b67f8d54956329e973ca9b71718692b6b9be148a48d21e018f174cb4fd6685",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "a6857f75-b33c-406d-9a2f-e4d49fe2ff88-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/e8a13f8a-abb5-454a-818e-ba6296639fa8/frame-03-at-18.8s.png",
           "time": 18.8,
           "metadata": {
             "width": 1080,
@@ -18305,12 +18690,13 @@
           "revision": "f3f01889-5e08-4266-860a-311097cd6eee",
           "inputFingerprint": "f2b67f8d54956329e973ca9b71718692b6b9be148a48d21e018f174cb4fd6685",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "a6857f75-b33c-406d-9a2f-e4d49fe2ff88-4",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/e8a13f8a-abb5-454a-818e-ba6296639fa8/frame-04-at-18.85s.png",
           "time": 18.85,
           "metadata": {
             "width": 1080,
@@ -18325,14 +18711,15 @@
           "revision": "f3f01889-5e08-4266-860a-311097cd6eee",
           "inputFingerprint": "f2b67f8d54956329e973ca9b71718692b6b9be148a48d21e018f174cb4fd6685",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         }
       ],
       "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979": [
         {
           "scope": "full",
           "id": "dace4df7-9f5b-45ec-b75e-f3d17819de27-0",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/2d303c24-44ab-4b2d-970e-45d95a2f6741/frame-00-at-18.69s.png",
           "time": 18.69,
           "metadata": {
             "width": 1080,
@@ -18347,12 +18734,13 @@
           "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
           "inputFingerprint": "f71ff45c969f239dd45201df136091ab6ce7a513658a6e1420997292eb85f766",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "dace4df7-9f5b-45ec-b75e-f3d17819de27-1",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/2d303c24-44ab-4b2d-970e-45d95a2f6741/frame-01-at-18.72s.png",
           "time": 18.72,
           "metadata": {
             "width": 1080,
@@ -18367,12 +18755,13 @@
           "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
           "inputFingerprint": "f71ff45c969f239dd45201df136091ab6ce7a513658a6e1420997292eb85f766",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "dace4df7-9f5b-45ec-b75e-f3d17819de27-2",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/2d303c24-44ab-4b2d-970e-45d95a2f6741/frame-02-at-18.75s.png",
           "time": 18.75,
           "metadata": {
             "width": 1080,
@@ -18387,12 +18776,13 @@
           "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
           "inputFingerprint": "f71ff45c969f239dd45201df136091ab6ce7a513658a6e1420997292eb85f766",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
         },
         {
           "scope": "full",
           "id": "dace4df7-9f5b-45ec-b75e-f3d17819de27-3",
-          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/2d303c24-44ab-4b2d-970e-45d95a2f6741/frame-03-at-18.78s.png",
           "time": 18.78,
           "metadata": {
             "width": 1080,
@@ -18406,6 +18796,398 @@
           "contentHash": "ad3cfb1818b0de8f2d37dbfe7ea96af1792a4b5f3cdc942df51d813ec25a2ea7",
           "revision": "f71e3ecf-c0ba-4a4d-ad7d-20c0c0c10979",
           "inputFingerprint": "f71ff45c969f239dd45201df136091ab6ce7a513658a6e1420997292eb85f766",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "224ee65f-8936-40a0-9514-9218c5abb31d"
+        }
+      ],
+      "372af9c6-05b6-4b75-9712-e37c8ad404e5": [
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-0",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-00-at-6.55s.png",
+          "time": 6.55,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "0013b19b4abf7b107456aaaf013c77ac7598404411077b2ac15d4b6071f717e9",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-1",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-01-at-6.62s.png",
+          "time": 6.62,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "c902e5d793ca0b04b73e00abe3fb40cd82447ddabd52306000e9df670f110637",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-2",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-02-at-6.68s.png",
+          "time": 6.68,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "bfe89bc2dc88da20d8083433e98a1f83456e35b62d0783aad28a3f5a794ab4d2",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-3",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-03-at-6.75s.png",
+          "time": 6.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "b0a6e84e902239663e06008bb009e6de3631f11eb108c6703b3fb64b808a8af6",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-4",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-04-at-16.3s.png",
+          "time": 16.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "fbe2cd4baa67d5257b1a734bca53b8d9ab6f7c38674d1607190f694706c00172",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-5",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-05-at-16.45s.png",
+          "time": 16.45,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751823,
+          "contentHash": "0bf5e1479da9a3dff266b062c64e92fbe805666a9bde8d9fb5ff44f40b852786",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-6",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-06-at-16.58s.png",
+          "time": 16.58,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751824,
+          "contentHash": "59d947e2d89d30f65af59527f8cbbdff3d749d0c682a4b8a7600c8e529a6f09f",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-7",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-07-at-22.3s.png",
+          "time": 22.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751824,
+          "contentHash": "54f59a4e5e20dc14b25a903685dd1b629a6880bd8ea90af94fd48fe8e95f7499",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-8",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-08-at-30.8s.png",
+          "time": 30.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751824,
+          "contentHash": "f9d895b9a253ea45208f332942f1e2475fe0d1afb103240add99732e4a30a247",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-9",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-09-at-31.9s.png",
+          "time": 31.9,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751824,
+          "contentHash": "8d3d55dae68de2dbe8eed09333e303d2758690de8a4eeec6e2c1ad26140c0dc1",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "0c4423cb-581f-41e8-b552-2cf873f245e4-10",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/70ea6922-6bff-409b-ad2d-042465eaa750/frame-10-at-32.05s.png",
+          "time": 32.05,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763751824,
+          "contentHash": "71f9723193afafab8cf60ac48d5f85becc015a9336bbececa86ce464cf641c33",
+          "revision": "372af9c6-05b6-4b75-9712-e37c8ad404e5",
+          "inputFingerprint": "31a25a78372135db2fb9c702d50f49bfff794f2e3cfebf50ed737f7ee241966f",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "f3d43cf0-b3a8-429a-a2a4-3da59968d90f": [
+        {
+          "scope": "full",
+          "id": "21c9aaf4-e3c2-4128-9b1f-89c3af8fa574-0",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/553146ec-0988-4cd1-9f9e-3ccae649d1e2/frame-00-at-22.3s.png",
+          "time": 22.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763796523,
+          "contentHash": "3b6556b480261971ba3f006666e646d2f55dbefcec3236ece25ff4eb2061f0b0",
+          "revision": "f3d43cf0-b3a8-429a-a2a4-3da59968d90f",
+          "inputFingerprint": "79fb8c065c2249207964bc0c4a4226128bc69214d6b71110ba67665940552fe1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "21c9aaf4-e3c2-4128-9b1f-89c3af8fa574-1",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/553146ec-0988-4cd1-9f9e-3ccae649d1e2/frame-01-at-23.3s.png",
+          "time": 23.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763796523,
+          "contentHash": "fb7a2e5cbc144fc466502513ebb7df110b28f940efd2960bc590268db1c95db2",
+          "revision": "f3d43cf0-b3a8-429a-a2a4-3da59968d90f",
+          "inputFingerprint": "79fb8c065c2249207964bc0c4a4226128bc69214d6b71110ba67665940552fe1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "21c9aaf4-e3c2-4128-9b1f-89c3af8fa574-2",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/553146ec-0988-4cd1-9f9e-3ccae649d1e2/frame-02-at-30s.png",
+          "time": 30,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763796523,
+          "contentHash": "2b5d415eb58bf95b164eb52a5107bf71e46657dc46b888c333323615e4682fe4",
+          "revision": "f3d43cf0-b3a8-429a-a2a4-3da59968d90f",
+          "inputFingerprint": "79fb8c065c2249207964bc0c4a4226128bc69214d6b71110ba67665940552fe1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "21c9aaf4-e3c2-4128-9b1f-89c3af8fa574-3",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/553146ec-0988-4cd1-9f9e-3ccae649d1e2/frame-03-at-30.8s.png",
+          "time": 30.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763796523,
+          "contentHash": "8fe799d56a34b7f9b2d55c48125c728d6bce8f9f10734ea906c790c2fff58006",
+          "revision": "f3d43cf0-b3a8-429a-a2a4-3da59968d90f",
+          "inputFingerprint": "79fb8c065c2249207964bc0c4a4226128bc69214d6b71110ba67665940552fe1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "21c9aaf4-e3c2-4128-9b1f-89c3af8fa574-4",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/553146ec-0988-4cd1-9f9e-3ccae649d1e2/frame-04-at-33.3s.png",
+          "time": 33.3,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763796524,
+          "contentHash": "febe39711b31870f4486be6a4b7be2310a9b76e2e0c8a7284172793b67efae54",
+          "revision": "f3d43cf0-b3a8-429a-a2a4-3da59968d90f",
+          "inputFingerprint": "79fb8c065c2249207964bc0c4a4226128bc69214d6b71110ba67665940552fe1",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "19b4c766-a73f-4711-9f1e-eaf5f181279d": [
+        {
+          "scope": "full",
+          "id": "e394d5cd-249c-47b2-bb72-8478f88a7176-0",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/3d48ac6b-14ca-4dd0-aea6-2c8e8d96393d/frame-00-at-0.8s.png",
+          "time": 0.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763835740,
+          "contentHash": "3db697226484cadb9cd2d6a74cc168ec453c973b1d83fd0a9c7daa90e17b39ec",
+          "revision": "19b4c766-a73f-4711-9f1e-eaf5f181279d",
+          "inputFingerprint": "4f63a0d19751ce5ed1bf4d270df177d1510e14002274ee7f1a659dabbfc603db",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "c295b844-59ba-4286-8368-7b1f621dfac6": [
+        {
+          "scope": "full",
+          "id": "e9602d72-acb6-4908-8037-a509667e62d5-0",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/b98834f1-fffa-4f8a-9ca3-76522676d5c2/frame-00-at-0.8s.png",
+          "time": 0.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794763880293,
+          "contentHash": "6aafe1d404aaba841f4c2864a987c7acbed75466d6b01370feb8bd98c688baa7",
+          "revision": "c295b844-59ba-4286-8368-7b1f621dfac6",
+          "inputFingerprint": "975712573d1a6946b1f51dccf398ac71a1f9ff2913edc1db474f923402a080e9",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        }
+      ],
+      "1cdc1dc5-b365-40d8-9a0b-874d51c1e9b7": [
+        {
+          "scope": "full",
+          "id": "060b8f54-dc5a-44b6-b6e0-29371bb07ac5-0",
+          "image": "/home/user/scalerics-reels/reels/por-que-caminar-mas/.hyperframes/artifacts/snapshots/69f6eefc-65c6-425e-9f49-5c8dc5e9364e/frame-00-at-0.8s.png",
+          "time": 0.8,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1794765262252,
+          "contentHash": "af845d88624a3ea2e4fda9bd57b1445af22c479cee866dfff828456956d3d6be",
+          "revision": "1cdc1dc5-b365-40d8-9a0b-874d51c1e9b7",
+          "inputFingerprint": "eff80a43bd8a413832d9f6a970b62692a74e0f8ceb3f179172c6a1b10ca298c0",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
@@ -18936,15 +19718,15 @@
   },
   "renders": {
     "latest": {
-      "id": "4c5cd32f-7550-4382-a01a-27962d5c16b0",
-      "completedAt": 1794759862526,
+      "id": "224ee65f-8936-40a0-9514-9218c5abb31d",
+      "completedAt": 1794763361212,
       "output": "/home/user/scalerics-reels/reels/por-que-caminar-mas/renders/por-que-caminar-mas.mp4",
       "status": "completed",
-      "revision": "6ae566e1-83a7-4031-a2fe-e77fb9dc7c94"
+      "revision": "e0c5c02d-5b26-491d-b75e-a180974f6c0c"
     },
     "retainedRevisions": [
-      "6ae566e1-83a7-4031-a2fe-e77fb9dc7c94",
-      "62bf77f8-240c-4dbd-a42e-67e57348027f"
+      "e0c5c02d-5b26-491d-b75e-a180974f6c0c",
+      "6ae566e1-83a7-4031-a2fe-e77fb9dc7c94"
     ]
   },
   "pendingArtifactCleanup": []

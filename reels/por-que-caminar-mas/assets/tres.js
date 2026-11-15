@@ -680,6 +680,9 @@ const pisoO = pisoSombra(OO.x, 0, 4.4, 4, 0.0);
 
 // ================= personajes =================
 const ruben = crearPersonaje({ ...ELENCO.ruben, parpadeoCada: 999 }); scene.add(ruben.raiz);
+// ronda 3: las mejillas (discos transparentes de la cabeza) se inflan en el soplido
+const MEJILLAS = ruben.cabeza.children.filter((o2) => o2.isMesh && o2.material.transparent && Math.abs(o2.scale.z - 0.012) < 1e-4);
+const MEJ0 = MEJILLAS.map((o2) => o2.scale.clone());
 // pelo de Rubén (solución de reels/ya-lo-cargo y por-que-el-99): corona oculta y herradura de bolitas canosas
 {
   const corona = ruben.cabeza.children.find((o) => o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.phiLength || 0) - Math.PI * 1.14) < 1e-3);
@@ -930,7 +933,7 @@ function ponerCamara(t) {
   camera.up.set(0, 1, 0);
   const dir = _mira.clone().sub(camera.position).normalize();
   if (Math.abs(dir.y) > 0.97) camera.up.set(0, 0, -1);
-  if (window.__portada) { camera.position.set(0.15, 1.3, zRuben(0.8) + 5.4); camera.fov = 2 * THREE.MathUtils.radToDeg(Math.atan(K_RUB * 1.15 / 5.4)); camera.updateProjectionMatrix(); _mira.set(0, 1.0, zRuben(0.8)); }
+  if (window.__portada) { camera.position.set(0.15, 1.3, zRuben(0.8) + 5.4); camera.fov = 2 * THREE.MathUtils.radToDeg(Math.atan(K_RUB * 1.3 / 5.4)); camera.updateProjectionMatrix(); _mira.set(0, 0.55, zRuben(0.8)); } // ronda 3: Rubén arriba (el título va abajo)
   camera.lookAt(_mira);
   camera.updateMatrixWorld(true);
 }
@@ -1028,9 +1031,10 @@ function zonaRuben(t) {
         tuboT.rotation.set(lerp(0, 0.15, h), lerp(0.35, -0.45, h), lerp(0, -0.25, h), "YXZ");
         // ronda 2: el gesto de soplar: el tubo frente a la boca (sin tocar la cara) y vuelve al costado
         const sop = eio(sg(t, T.sopla, T.sopla + 0.2)) * (1 - eio(sg(t, T.sopla + 0.6, T.sopla + 0.8)));
+        MEJILLAS.forEach((o2, i) => o2.scale.set(MEJ0[i].x * (1 + 0.5 * sop), MEJ0[i].y * (1 + 0.6 * sop), MEJ0[i].z * (1 + 3.5 * sop)));
         if (sop > 0.001) {
           ruben.raiz.updateMatrixWorld(true);
-          const boca = V(-0.03, 0.14, 0.45); ruben.cabeza.localToWorld(boca);
+          const boca = V(-0.03, 0.04, 0.47); ruben.cabeza.localToWorld(boca); // ronda 3: a la altura del mentón
           tuboT.position.lerp(boca, sop);
           tuboT.rotation.set(lerp(0.15, 0.0, sop), lerp(-0.45, 0.0, sop), lerp(-0.25, 0.0, sop), "YXZ");
         }
@@ -1040,7 +1044,7 @@ function zonaRuben(t) {
     ponerTubo();
     const agarre = () => V(0.0, -0.05, -0.005).applyMatrix4(tuboT.matrixWorld);
     // el mate en la izquierda, a la altura del pecho (siempre a la vista: el monitor quedó más a la derecha)
-    manoA(ruben, pr, "I", V(RUB.x + 0.2, s07 ? 0.88 : lerp(0.88, 0.92, eio(sg(t, T.s10, T.s10 + 0.4))), RUB.z + 0.72), 1, [1, -0.7, -0.2]); // ronda 2: más baja y afuera
+    manoA(ruben, pr, "I", V(RUB.x + 0.02, s07 ? 0.86 : lerp(0.86, 0.9, eio(sg(t, T.s10, T.s10 + 0.4))), RUB.z + 0.76), 1, [1, -0.7, -0.2]); // ronda 2: más baja y afuera
     if (s07) manoA(ruben, pr, "D", agarre(), 1, [-1, -0.75, -0.15]);
     else {
       const wH = eio(sg(t, T.levanta - 0.3, T.levanta)) * (1 - eio(sg(t, T.cuelga + 0.35, T.cuelga + 0.65)));
@@ -1155,11 +1159,11 @@ function zonaB(t) {
   // el "?" cae en la isla y rebota; en "Esperaban" se achica y sale
   {
     const cae = sg(t, T.cae, T.cae + 0.3);
-    const y = t < T.cae ? 9 : lerp(1.5, 0, cae * cae) + Math.abs(rebote(t, T.cae + 0.3, 7, 16, 0.28));
+    const y = t < T.cae ? 9 : lerp(0.55, 0, cae * cae) + Math.abs(rebote(t, T.cae + 0.3, 7, 16, 0.2)); // ronda 3: cae de poco (no cruza la placa del subtítulo)
     const va = eio(sg(t, T.qVa, T.qVa + 0.22));
     preg.visible = enAB && t >= T.cae && va < 0.98;
     preg.position.set(CB.x, 0.66 + ALTO_Q / 2 + Math.max(0, y) + va * 0.6, CB.z);
-    preg.rotation.set(-0.35, (1 - cae) * 0.6, 0); preg.scale.setScalar(Math.max(0.01, 1 - va));
+    preg.rotation.set(-0.35, (1 - cae) * 0.6, 0); preg.scale.setScalar(Math.max(0.01, (1 - va) * lerp(0.4, 1, bk(cae))));
   }
   // "8 min" y la barra (HUD, arriba a la derecha de Rubén)
   {
@@ -1244,8 +1248,8 @@ function zonaM(t) {
   libro.visible = t < T.gira + 0.45; libro.position.y = OM.y - 2.6 * eio(sg(t, T.gira + 0.05, T.gira + 0.45)); // ronda 2: la página baja y sale (sin pop)
   pagIzq.visible = true;
   // "1985"
-  const k85 = popIn(t, T.n1985, 0.3) * (1 - sg(t, T.s06 - 0.2, T.s06 + 0.05));
-  n1985.visible = k85 > 0.02; if (n1985.visible) hud(n1985, 540, 545, k85 * 160);
+  const k85 = popIn(t, T.n1985, 0.3), f85 = 1 - sg(t, T.s06 - 0.4, T.s06 - 0.15); // ronda 3: se va con fundido (sin achicarse)
+  n1985.visible = k85 > 0.02 && f85 > 0.01; if (n1985.visible) { hud(n1985, 540, 545, k85 * 160); n1985.traverse((o2) => { if (o2.material) for (const m of [].concat(o2.material)) m.opacity = f85; }); }
   // el reloj de arena y el banquito
   const ka = lerp(0.3, 1, bk(sg(t, T.arena, T.arena + 0.4)));
   const sale = eio(sg(t, T.gira, T.gira + 0.22));

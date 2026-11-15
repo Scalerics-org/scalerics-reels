@@ -191,3 +191,19 @@ Duración sin cambios: 36,61 s. `check --json`: ok, 0 errores (craft 0). Pasadas
   `partes/guion-voz.txt` = voz final. Medido: tramos de 0,1 s con voz < 6 dB: ninguno; I −17,0 LUFS.
 - Quedan (bajos): Graciela grande a la izquierda en el último cuadro antes del corte (26,0); mitad de abajo del celular
   vacía 26,2-27,4; sin soplido audible.
+
+## Ronda 3
+- "?" de s03: cae de 0,55 m y crece desde 0,4 al caer (no cruza la placa del subtítulo; revisado 6,55-6,75).
+- Soplido: el tubo a la altura del mentón y las mejillas (discos de la cabeza) se inflan con el gesto (se nota poco: el
+  personaje no tiene mejillas de volumen).
+- "1985" 3D: se va con fundido de opacidad 16,1-16,35, sin achicarse (no queda flotando sobre el reloj de arena).
+- Mate de s07/s10: 0,18 m a la izquierda y un poco más adelante y abajo; se ve al costado del monitor, la bombilla
+  inclinada hacia afuera, lejos de la cara (recortes en 22,3 / 23,3 / 30,0 / 30,8 / 33,3).
+- Sonido: tercera hoja de s05 a 0,05; click de levantar el tubo en 0,93 de s10.
+- **Portada:** `portada-src/fondo-portada.png` = cuadro de 0,8 s con `LIMPIO=1` (cámara de portada de tres.js, que mira
+  más abajo: Rubén con el mate y el cartel "Valijas →" arriba del título; sin gancho, subtítulos ni logo).
+  `portada.json`: chica "Los hicieron caminar más", grande "y se quejaron menos", sello "¿Por qué?", acento y sello
+  #5ce611. Todo lo importante entre y 285 y 1635. Para regenerar: `LIMPIO=1 node armar.mjs`, snapshot a 0,8 s, copiar a
+  `portada-src/fondo-portada.png`, `node armar.mjs`; después `flock /tmp/hyperframes.lock node herramientas/portada.mjs
+  por-que-caminar-mas` desde la raíz (el script pide que exista `renders/por-que-caminar-mas-final.mp4`, aunque con
+  `fondo_limpio` no lo lee). index.html quedó en el estado normal.

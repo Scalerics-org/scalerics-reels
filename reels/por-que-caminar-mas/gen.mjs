@@ -227,7 +227,7 @@ const GANCHO = `
     js: `pop(".n1", ${rel(id, T.pliega + 0.5)}); fuera([1], ${r2(ESC[id] - 0.15)});`, // ronda 2: después de que se pliega la maqueta
     sfx: [
       { t: rel(id, T.pliega), sfx: "papel", vol: 0.36, max: 0.6 },
-      ...T.paginas.map((tp) => ({ t: rel(id, tp), sfx: "hoja", vol: 0.1, max: 0.7 })),
+      ...T.paginas.map((tp, i) => ({ t: rel(id, tp), sfx: "hoja", vol: i === 2 ? 0.05 : 0.1, max: 0.7 })),
       { t: rel(id, T.n1985), sfx: "pop", vol: 0.07 },
     ],
   });
@@ -300,7 +300,7 @@ const GANCHO = `
     js: ``,
     sfx: [
       { t: -0.32, sfx: "whoosh-short", vol: 0.03, max: 0.3 },
-      { t: rel(id, T.levanta + 0.17), sfx: "click", vol: 0.12 },
+      { t: rel(id, T.levanta + 0.25), sfx: "click", vol: 0.12 },
       // ronda 2: el soplido va sin efecto (no hay uno limpio en el repo y pisaba la cola de "teléfono?")
       ...T.toca.map((tt) => ({ t: rel(id, tt), sfx: "tac-real", vol: 0.11 })),
       { t: rel(id, T.cuelga + 0.33), sfx: "click", vol: 0.1 },
