@@ -257,6 +257,9 @@
 ## En curso
 <!-- corrida-activa: 2026-11-15T14:11 -->
 
+- 15-11 · `por-que-caminar-mas` · Automatización (aviso solo del estado del pedido: "sale hoy", "en camino", "entregado") · explicador ¿Por qué? con Rubén: "¿Por qué un aeropuerto hizo caminar más a los pasajeros… y dejaron de quejarse?" (Houston, NYT 2012; Maister 1985: la espera sin información se hace más larga) → los clientes de Rubén que llaman "¿y mi pedido?" · fondo crema #efeee5 · reservado por la corrida 15-11 14:11
+- 15-11 · `dice-cuarenta` · Sistema de stock a medida en la distribuidora · para mandar completo con Rubén y Nico: "El Excel dice 40." y en el depósito hay 3 · cartel "Un sistema más tarde…" · depósito de día, fondo navy claro #16243d · reservado por la corrida 15-11 14:11
+
 
 - 13-11 · `te-queda` · Sistema de stock a medida (sabés qué te queda sin ir a mirar y te avisa antes de que se acabe) · Para mandar completo con Rubén: "¿Te queda polenta?", viajes al sótano por la trampa, el cuarto viaje vuelve con el dulce de leche y Héctor: "Ah, no. Era para saber." · cartel "Un sistema más tarde…" · almacén a la siesta, pared navy #1f3254 con azulejos crema y sótano navy claro · EN PAUSA desde 14-11 (no tomar, no publicar): está ambientado en el almacén con ELENCO.almacenero y desde el 13-11 Rubén es dueño de distribuidora (CLAUDE.md, punto 6 de "LO PRIMERO"); el trabajo quedó en la rama reel/te-queda (ronda 2 de revisión). Si Juan quiere, se rehace en la distribuidora.
 
