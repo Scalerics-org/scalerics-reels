@@ -1,0 +1,14 @@
+{
+ "t": 7.2,
+ "chica": "La lista de precios:",
+ "grande": "v7_FINAL_ESTA_SI",
+ "sello": "Distribuidora",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.05,
+ "foco": "0%", "foco_x": "60%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-7.2.png",
+ "nota": "fondo: cuadro 7,2 s con LIMPIO=1 (Rubén agarra el termo que empuja la cinta lista_v7_FINAL_ESTA_SI_(2).xlsx). Si el texto tapa la cinta, subir el fondo ~300 px como ya-lo-cargo."
+}

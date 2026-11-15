@@ -1,0 +1,28 @@
+[sin narrador Orus: el chiste va en burbujas, la cinta con el nombre del archivo que crece en cada versión y el chat con los siete archivos; voces por archivo en partes/*.txt, ver partes/voces.md]
+[parte 1 · la distribuidora de Rubén, de noche · cuadro 0: la oficina vidriada arriba del depósito, solo la lámpara del escritorio y el monitor con la planilla "LISTA DE PRECIOS"; debajo del monitor, la cinta de rotuladora "lista_precios.xlsx"; el celular de Rubén vibrando con la burbuja de Graciela ya en pantalla; abajo, las campanas de luz del depósito y los racks · gancho grande "¿Me pasás la lista actualizada?"]
+GRACIELA: Rubén, ¿me pasás la lista actualizada?
+[Rubén arrastra el archivo al chat · enviado ✓✓ · suena el teléfono de escritorio, altavoz]
+PROVEEDOR: Rubén, subió el aceite.
+[Rubén cambia la celda del aceite, guarda: la cinta crece con un clac, "lista_precios_v2.xlsx"]
+[ráfaga, cada vez más rápido, solo burbujas: Marta "¿Me pasás la lista?" (enviar) · proveedor "Bajó el azúcar." (v3_azucar) · Walter "¿Tenés la lista nueva?" (enviar) · proveedor "Cambió el dólar." (v4_dolar) · Nico "¿La lista para el cliente nuevo?" (v5_FINAL) · v6_FINAL_ESTA_SI · v7_FINAL_ESTA_SI_(2) · la cinta cruza el escritorio y empuja el termo hasta el borde: Rubén lo agarra sin mirar · abajo, las campanas del depósito se apagan una por una]
+[suena el celular: Graciela llama desde la rotisería, que está cerrando (persiana a media altura, spiedo vacío)]
+GRACIELA: Rubén, ¿el aceite a cuánto está?
+RUBEN: Está en la lista. La última.
+GRACIELA: ¿Cuál es la última? Tengo siete.
+[inserto: el chat, siete archivos apilados, de "lista_precios.xlsx" a "lista_v7_FINAL_ESTA_SI_(2).xlsx"]
+[pausa de 0,4 s (la música baja, no se corta; sin perro: no hay ladrido CC0) · suena el teléfono de escritorio, altavoz]
+PROVEEDOR: Rubén, subió el aceite.
+[Rubén quieto, mirando al frente, 0,7 s]
+RUBEN: Ocho.
+[clac: la cinta, "lista_v8_aceite.xlsx"]
+GRACIELA: Dale. ¿Me la mandás en PDF?
+[remate del remate · cuando ella termina, Rubén gira despacio la cabeza hacia cámara]
+RUBEN: Claro. El PDF no se mueve. El aceite, sí.
+[sin mirar toca una tecla: la cinta crece una última vez, "lista_v8_aceite_FINAL_ESTA_SI_(2).pdf", llega al borde del escritorio y se dobla hacia el piso]
+NARRADOR: Una tienda online más tarde.
+[parte 2 · la misma oficina a las 18:30, el depósito trabajando con las luces prendidas · Rubén con el mate en la mano · la cinta debajo del monitor dice "tienda · precios de hoy" · suena el teléfono de escritorio, altavoz]
+PROVEEDOR: Rubén, subió el aceite.
+[Rubén cambia el precio una vez en el panel de la tienda: "Aceite 1,5 L x 12" · "Publicado ✓" · la cinta no crece]
+RUBEN: ¿Algo más?
+[tono de colgado · tríptico: los celulares de Marta (cafetería), Walter (bar) y Graciela (rotisería): el precio del aceite cambia a la vez, con la chapita verde "hoy" · el celular de Graciela: "1 lista · la de hoy", aceite x 6, "Pedir" · "Pedido ✓"]
+[la oficina: en el monitor de Rubén entran solos los pedidos "Graciela · aceite x 6 ✓", "Marta · azúcar x 10 ✓", "Walter · agua x 20 ✓" · el celular de Rubén, quieto sobre el escritorio · Rubén lo mira, lo levanta, lo toca, lo deja boca abajo y toma mate · línea chica: "Tienda online mayorista: el precio de hoy, sin mandar listas" / "scalerics.com"]
