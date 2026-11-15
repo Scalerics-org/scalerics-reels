@@ -298,3 +298,37 @@ Portada: `portada-src/fondo-limpio-7.2.png` regenerado en 7,41 s (la misma acci�
 cambios (t 7,2 sigue siendo cerca de la misma toma; el fondo limpio es el que manda).
 Queda para el revisor: la cinta v7/v8 en P7/P8 sigue cortada por el borde izquierdo (es más larga que el cuadro); P2
 arranca 0,45 s sin burbuja mientras suena el ring.
+
+## Ronda 5 (15-11)
+**Duración 36,39 s** (parte 1 0-26,20 · cartel 26,20-28,70 · parte 2 28,70-36,39; línea chica desde 34,39). Beats: P5 10,26 ·
+P7 15,08 · r4 21,61 · tecla 25,12 (P8b 25,24-26,20) · Q1b 30,75 · Q1c 31,37 · tríptico 32,29 (tachado 32,53, nuevo
+32,75) · Q2c 33,14 · Q3 34,24.
+ARTE
+- ALTA 1 bombilla sobre "(2)" en P7 → el mate no está en P7 (aparece en P1-P3 y en la parte 2).
+- 2 remate .pdf → P8b nuevo: cámara a la derecha y girada 0,4 rad: la cinta entera en diagonal de punta a punta
+  ("lista_v8_aceite_FINAL_ESTA_SI_(2).pdf" desde la rotuladora hasta ".pdf" rojo grande abajo a la derecha), con la
+  planilla del monitor, el termo y el teléfono llenando el resto; push-in corto a ".pdf". Rubén no se dibuja en P8b.
+- 3 bombilla debajo de la nariz en la parte 2 → el mate va a la altura del pecho (sube a la boca solo en el sorbo de Q3).
+- 4 globo "Claro…" sobre la coronilla/ceja → letra 66 px, globo más arriba (by - 750) y el final de P8 mira 8 cm más arriba.
+- 5 Rubén de espaldas con el celular en la nuca (10,17-10,40) → P5 es un corte directo al primer plano con push-in (sin la
+  salida por la pantalla).
+- 6 "$ 1.190" aplastado en el tríptico → se tacha con una línea roja 0,22 s y aparece "$ 1.240" + "hoy" (igual en el
+  celular de Graciela). El "ding" en flip + 0,2.
+- 7 tríptico chico / salto → celulares más juntos y la cámara 0,4 m más cerca (llenan ~80 % del ancho y ~95 % del alto). El
+  salto del primer cuadro no aparece en snapshots (probé el orden de los cuadros: siempre igual); si vuelve en el render,
+  revisar.
+- 8 rótulos de la ráfaga → el nombre del globo nunca menos de 42 px (`cabF`).
+- BAJAS: P4 arranca más cerca (la cinta no asoma arriba); la mano de Graciela ya no se oculta al salir (sin celular
+  flotando); "hoy" del celular 44 px; dibujitos de harina, azúcar y agua; termo de la parte 2 detrás del teléfono (no se
+  corta en Q1c); remitos ocultos en la parte 2. Sin tocar: el panel del monitor en Q1 (se ve "Publicar" cortado, es el
+  encuadre de P1).
+SONIDO
+- M1: el zumbido.wav tiene 0,5 s de silencio digital (0,5-1,0 s) que se repetía cada 8 s → `assets/sfx/zumbido-largo.wav`
+  (43 s, tramo 1,0-7,5 con crossfades de 0,4 s, sin huecos), sin loop. Los loops que quedan (pizzicato) van con
+  `-stream_loop -1`.
+- M2: g2 entra 0,22 s después de salir de la pantalla y su globo con la voz (g2 - 0,03); r1 igual (r1 - 0,03).
+- M3: SFX de la ráfaga +7 dB y del final (tríptico en adelante) +5 dB, con techo -31 por efecto.
+- Duración: la parte 2 arranca con 0,1 s antes del ring (ring3 P2 + 0,1, altavoz + 0,42, proveedor + 0,45).
+- Mezcla: -14,0 LUFS, pico -5,8 dBFS; voz ≥ +14,6 LU sobre el resto en todos los tramos con voz.
+Pasadas: r5a/r5b/r5c/r5d (puntuales), p5 (cada 0,5 s desde 0,25), c5 (±0,04 s en los 18 cortes), r4bub. `check --json`:
+0 errores.

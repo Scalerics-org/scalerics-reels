@@ -42,13 +42,13 @@ T.agarra = [r2(T.v[6] + 0.1), r2(T.v[6] + 0.46)];
 T.campanas = [0.32, 0.78, 1.2, 1.57, 1.92, 2.28].map((d) => r2(R0 + d));
 // P4 · suena el celular (llamada de Graciela), zambullida por la pantalla, salimos por la del celular de Graciela
 T.p4 = r2(T.agarra[1] + 0.06); T.llama = T.p4; T.zambulle = [r2(T.p4 + 0.06), r2(T.p4 + 0.36)];
-T.p4b = T.zambulle[1]; T.g2 = r2(T.p4b + 0.1);
+T.p4b = T.zambulle[1]; T.g2 = r2(T.p4b + 0.22);   // (ronda 5) la burbuja entra con la voz, ya fuera de la pantalla
 // P5 · Rubén: "Está en la lista. La última."
 T.p5 = r2(T.g2 + LEN.g2 + 0.05); T.r1 = r2(T.p5 + 0.06);
 // P6 · Graciela: "¿Cuál es la última? Tengo siete." · inserto del chat con los siete archivos
 T.p6 = r2(T.r1 + LEN.r1 + 0.06); T.g3 = r2(T.p6 + 0.04); T.chat = r2(T.g3 + LEN.g3 + 0.05); T.scroll = [r2(T.chat + 0.3), r2(T.chat + 0.8)];
 // P7 · la pausa (0,4 s) · el teléfono · el proveedor otra vez · Rubén quieto · "Ocho." · clac (v8, la taza) con aire
-T.p7 = r2(T.chat + 0.95); T.ring2 = r2(T.p7 + 0.4); T.alt2 = r2(T.ring2 + 0.34); T.p2v = r2(T.alt2 + 0.04);
+T.p7 = r2(T.chat + 0.95); T.ring2 = r2(T.p7 + 0.4); T.alt2 = r2(T.ring2 + 0.34); T.p2v = r2(T.alt2 + 0.1);
 T.r2 = r2(T.p2v + LEN.p2 + 0.66); T.v[7] = r2(T.r2 + LEN.r2 + 0.12);
 // P8 · "Dale. ¿Me la mandás en PDF?" (~0,5 s después de "Ocho.") · Rubén mira a cámara y lo sostiene · "Claro. El PDF
 // no se mueve. El aceite, sí." · la tecla · la cinta .pdf crece entera (se lee) y después se cae del escritorio
@@ -60,7 +60,7 @@ const P2 = r2(P1 + 2.5);   // (ronda 4) el narrador ya no tiene 0,2 s de silenci
 // ---- parte 2 ----
 // Q1 · el encuadre de P1 a las 18:30: el teléfono, la MISMA toma del proveedor · la cinta hace un tic y no crece · Q1b
 // inserto del panel: un precio, Publicar, "Publicado ✓" · Q1c Rubén con el mate: "¿Algo más?" · tono de colgado
-T.q1 = P2; T.ring3 = r2(P2 + 0.5); T.alt3 = r2(P2 + 0.84); T.p1b = r2(P2 + 0.88);   // (ronda 4) M3: aire al arrancar la parte 2
+T.q1 = P2; T.ring3 = r2(P2 + 0.1); T.alt3 = r2(P2 + 0.42); T.p1b = r2(P2 + 0.45);   // (ronda 5) sin los 0,5 s de oficina   // (ronda 4) M3: aire al arrancar la parte 2
 T.tic = r2(T.p1b + LEN.p1 + 0.02); T.q1b = r2(T.p1b + LEN.p1 + 0.12); T.escribe = r2(T.q1b + 0.08); T.publica = r2(T.q1b + 0.28); T.publicado = r2(T.q1b + 0.36);
 T.q1c = r2(T.q1b + 0.62); /* (ronda 4) "Publicado ✓" se lee */ T.r3 = r2(T.q1c + 0.03); T.colgado = r2(T.r3 + LEN.r3 + 0.03);
 // Q2 · el tríptico: tres celulares de clientes, el precio cambia a la vez con la chapita "hoy" · Q2c inserto del celular
@@ -216,7 +216,7 @@ const clac = (t, k, techo = -38) => { s("sfx/k-metal-click.wav", t, 0, { techo, 
 const ringEsc = (t, n = 2, techo = -38) => { for (let i = 0; i < n; i++) s("sfx/k-dos-tonos.wav", t + i * 0.19, 0, { techo, desde: 0.09, dur: 0.15, fin: 0.04, hp: 250 }); };   // (ronda 4) M1: dos pulsos de 0,17 s, pasaaltos 250   // (ronda 3) el archivo arranca con 0,1 s de silencio
 // ---- parte 1 ----
 // ambiente: el zumbido de la oficina de noche (pasabajos); la música (pizzicato): baja en la pausa (NO se corta)
-s("sfx/zumbido.wav", 0, 0, { loop: true, dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -45, lp: 900 });
+s("sfx/zumbido-largo.wav", 0, 0, { dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -45, lp: 900 });
 s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -33, duck: [[T.p2b - 0.2, T.p3 + 0.6, 0.6], [T.r4, P1 + 0.2, 0.6], [T.p7 - 0.1, T.v[7] + 0.1, 0.78], [T.g4 - 0.1, T.g4 + LEN.g4 + 0.1, 0.25], ...[1, 2, 3].map((k) => [T.v[k] - 0.1, T.v[k] + 0.2, 0.37])] });
 // P1 · el celular vibra, el audio de Graciela, el mouse, el envío
 s("sfx/vibra.wav", 0.02, 0, { dur: 0.4, fin: 0.1, techo: -42 });
@@ -278,7 +278,7 @@ for (const d of [0.05, 0.28, 0.78, 1.0, 1.65]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.15, 0, { techo: -42 });
 // ---- parte 2 ----
 s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -33, duck: [[T.q3, DUR + 1, 0.35], [P2 - 0.5, T.p1b + 0.2, 0.6]] });   // (ronda 3) -3,5 dB en Q3 (el sorbo)
-s("sfx/zumbido.wav", P2, 0, { loop: true, dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -47, lp: 900 });
+s("sfx/zumbido-largo.wav", P2, 0, { desde: 30, dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -47, lp: 900 });
 for (let i = 0; i < 4; i++) s(`sfx/paso-${i}.wav`, P2 + 0.2 + i * 0.45, 0, { techo: -50, lp: 1500 });   // el operario con la zorra, lejos
 ringEsc(T.ring3, 2, -40);
 s("sfx/click-soft.mp3", T.alt3, 0, { techo: -40 });
@@ -293,7 +293,7 @@ for (const d of [0, 0.18]) s("sfx/k-tono.wav", T.colgado + d, 0, { dur: 0.14, fi
 // Q2 · el tríptico: los tres precios se dan vuelta a la vez (tres hojas + ding) · Q2c el pedido de Graciela
 s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -52 });
 for (const d of [0, 0.03, 0.06]) s("sfx/k-page-turn.wav", T.flip + d, 0, { techo: -42, vel: 1 + d * 3 });
-s("sfx/cero.mp3", T.flip + 0.12, 0, { techo: -42 });
+s("sfx/cero.mp3", T.flip + 0.2, 0, { techo: -42 });
 s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -48 });
 for (const t of [...T.mas, T.pedir]) s("sfx/click-soft.mp3", t, 0, { techo: -44 });
 s("sfx/cero.mp3", T.pedido, 0, { techo: -36 });
@@ -306,6 +306,12 @@ s("sfx/k-cloth_1.wav", T.senal[0] + 0.1, 0, { techo: -50, dur: 0.3, fin: 0.1 });
 s("sfx/madera-golpe.wav", T.deja, 0, { techo: -44, vel: 1.4 });
 s("sfx/sorbo.wav", T.sorbo, 0, { techo: -42, fin: 0.15 });
 pop(T.cierre + 0.05, -44);   // la línea chica
+// (ronda 5) M3: la ráfaga y el final más presentes (+7 dB y +5 dB por efecto, nunca por encima del techo de -31)
+for (const x of S) {
+  const [f, t0, , o] = x; if (o.voz || o.loop || f.startsWith("bgm/")) continue;
+  const k = t0 >= T.p3 - 0.1 && t0 < T.p4 + 0.1 ? 7 : t0 >= T.q2 - 0.1 ? 5 : 0;
+  if (k) o.techo = Math.min(-31, (o.techo ?? TECHO) + k);
+}
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 // SFX: copias que terminan con la ventana de cada efecto (el archivo que no existe en assets falla acá, no en el render)
@@ -333,7 +339,7 @@ function mezcla(lista, salida, dur) {
   const filtros = [];
   lista.forEach((x, i) => {
     const [f, ini, , o] = x;
-    if (o.loop) args.push("-stream_loop", "2");
+    if (o.loop) args.push("-stream_loop", "-1");   // (ronda 5) loop sin fin: el zumbido (8 s) se cortaba a los 24 s
     args.push("-i", `assets/${f}`);
     let c = `[${i}:a]aresample=48000,${filtroVel(o)}aformat=channel_layouts=stereo`;
     if (o.desde || o.dur) c += `,atrim=start=${o.desde ?? 0}${o.dur ? `:duration=${o.dur}` : ""},asetpts=PTS-STARTPTS`;
