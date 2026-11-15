@@ -15,15 +15,15 @@
     [data-composition-id="s02-se-enfria"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s02-se-enfria" data-width="1080" data-height="1920" data-duration="1.69">
-    <div id="s02-se-enfria-esc" class="esc clip" data-start="0" data-duration="1.69" data-track-index="0">
+  <div id="root" data-composition-id="s02-se-enfria" data-width="1080" data-height="1920" data-duration="1.72">
+    <div id="s02-se-enfria-esc" class="esc clip" data-start="0" data-duration="1.72" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M380 1500 L480 1250"/><circle class="dot  d1" cx="480" cy="1250" r="13"/></svg><div class="pill  n1" style="left:380px;top:1560px">pedido de presupuesto</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s02-se-enfria";
-      const DUR = 1.69;
+      const DUR = 1.72;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.38); fuera([1], 1.45);
+nota(1, 0.38); fuera([1], 1.48);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

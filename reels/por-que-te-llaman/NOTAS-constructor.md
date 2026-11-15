@@ -1,6 +1,7 @@
 # Notas del constructor · por-que-te-llaman (15-11)
 
-Duración: **32,21 s** (voz 32,09 s). Cierre desde "videollamada" (29,25) hasta el final: **2,96 s**.
+Duración: **33,31 s** tras la ronda 1 (voz 33,19 s). Cierre desde "videollamada" (30,58) hasta el final: **2,73 s**.
+(La tabla de planos y las notas de abajo de "Ronda 1" mandan sobre las de la versión anterior.)
 No se renderizó el mp4 (lo hace el coordinador). Guion sin cambios respecto de `guion.txt` aprobado
 ("Un estudio les escribió a más de dos mil empresas.").
 
@@ -128,3 +129,104 @@ Tiempos: 65 cuadros ≈ 70-80 s; 5-20 cuadros 20-40 s; check ≈ 30 s.
 - La respuesta "¡Sí! Mandame 40 cajas." es ficción (no es dato); si el revisor de guion la ve como promesa de venta,
   se cambia por "¡Sí! Ahora lo veo." en `hacerBurbuja` de tres.js.
 - "decide" (fin de la frase 7): revisar de oído (el STT oye "decides").
+
+
+## Ronda 1 de corrección (15-11, sobre /home/user/revision/qa-llaman y snd-llaman)
+Duración **33,31 s** (voz 33,19). Cierre 30,58 → 33,31 (**2,73 s**, arranca en "videollamada"). `check --json`: ok,
+0 errores, craft 0 (warnings de siempre: estructura #fondo/#capa3d, track de subtítulos denso, ReadPixels, canvas al borde).
+
+**Guion (G1-G8).** Voz nueva del tramo de Orus (`partes/orus1b.txt` → `orus1b-4.wav`, ver partes/voces.md): "¿Qué tan
+rápido? Un estudio lo midió: llamar en la primera hora multiplicaba las chances de llegar al que decide. Pero cuando les
+escribió a más de dos mil empresas, casi una de cada cuatro nunca contestó. Las demás tardaron, en promedio, casi dos
+días." Escenas reordenadas (s04 lo-midio, s05 el-que-decide, s06 dos-mil, s07 nunca, s08 dos-dias). guion.txt,
+partes/orus1.txt, partes/texto.txt, fuentes.md (filas 3 y 6: la primera hora = otro análisis del mismo artículo),
+descripcion.txt actualizados. Burbuja "Graciela, te paso el presupuesto. ¿Lo vemos?" (G2), "Autoservicio Sur ·
+pedido" (G3), respuesta "¡Sí! ¿Me llamás?" (G4), la ficha mantiene "Presupuesto · ayer 18:40" (G5), crédito
+"Harvard Business Review · 2011 · EE. UU." mono 36 px (G6), subtítulo "dos mil" en letras y "2.241" más abajo (G8).
+
+### Planos (segundos globales, ronda 1)
+| # | escena | inicio | plano 3D |
+|---|---|---|---|
+| 1 | s01-gancho | 0,00 | O1: Rubén corrido a su izquierda (la nuca ya no tapa el formulario), mate en el escritorio, celular del atril 1,7× (vibra 1,21); push-in al celular, que termina entero y debajo del subtítulo |
+| 2 | s02-se-enfria | 2,55 | R: corte escondido al celular gigante; sube y se achica (2,63-2,79) mientras nace el mate (desde 2,69); vapor; "enfría" 3,18 |
+| 3 | s03-que-tan | 4,27 | paneo corto (4,05-4,37) al "?" (cae 3,97), grande y centrado |
+| 4 | s04-lo-midio | 5,32 | el "?" gira y en su lugar nace el reloj de pie (5,34); 12:00 en "llamar" (6,38); porción verde en "primera" (6,93), "1 h" |
+| 5 | s05-el-que-decide | 7,59 | cable verde 7,61-8,59 hasta la silla; cable gris desde afuera del aro; tildes 8,54-9,24 |
+| 6 | s06-dos-mil | 10,29 | el avión despega de la silla (10,24) y la cámara lo sigue; edificios desde 10,34; bandada 11,61; "2.241" 11,80 (se va 12,44) |
+| 7 | s07-nunca | 12,79 | buzones casi de frente; sobres 12,84-13,20; banderitas 13,35/13,50/13,65; rótulo 23 % 13,91; rojo 14,66; push-in a los tres de la derecha |
+| 8 | s08-dos-dias | 15,86 | el buzón rojo se va hacia atrás achicándose (15,56-15,86) y adelante nace el reloj (15,62); agujas 16,14-17,29; "42 h" 17,44 |
+| 9 | s09-ruben-compro | 18,88 | O2: corte seco a Rubén de frente en su silla (cabeza debajo del subtítulo); corta la llamada 19,23 |
+| 10 | s10-ruben-ayer | 21,06 | mira por encima del hombro (cabeza -0,4 rad + torso -0,42); corte en "ayer" (21,97) al inserto O3: monitor entero (90 % del ancho) |
+| 11 | s11-crm | 22,87 | R2: corte a la ficha entera (fila roja → navy 23,17); pasos en verde 23,65 / 25,35 / 25,84 |
+| 12 | s12-escribe-solo | 26,60 | paneo 26,48-26,98 al mate frío; termo 26,70 (entra por la derecha), ceba 27,87; burbuja 27,77 |
+| 13 | s13-llegar | 28,86 | la burbuja se achica, respuesta 29,36; el termo sale por la derecha |
+| 14 | s14-cierre | 30,58 | F: verde, "Videollamada / gratis / scalerics.com", mate humeando |
+
+### Visual (lista del director de arte)
+- ALTA 1 inserto: el monitor entero (cámara a 2,95 m, fov 34; push-in a 2,72 sin cortar texto), "Consultas" en y≈600.
+- ALTA 2 Rubén mirando atrás: cabeza -0,4 rad + torso -0,42 (antes -0,85 solo cabeza); ojos -0,75.
+- ALTA 3 primera hora: relojes más chicos (radio 0,85) y cámaras más lejos: el borde de arriba queda debajo del subtítulo
+  y no toca los costados; push-in frenado.
+- MEDIA 4 avión: despega de la silla y la mirada de la cámara lo sigue; edificios con escala 0 antes de brotar (sin
+  sombras sueltas); el "?" se oculta por debajo de 12 % de escala (sin mota).
+- MEDIA 5 "2.241" se va antes del paneo a los buzones.
+- MEDIA 6 números 3D: `textoGrupo` (tres.js): cada contorno del glifo en su extrusión, sin bisel, corrido 1,5 mm en z (los
+  contornos superpuestos de Lexend variable se pisaban y dejaban líneas). Usado en "?", "1 h", "2.241", "42 h".
+- MEDIA 7 el celular gigante sube y se achica en 0,16 s; el mate nace desde 2,69 (sin celular clavado ni resto oscuro).
+- MEDIA 8 el buzón rojo se va hacia atrás mientras el reloj nace adelante (no se atraviesan); el rótulo 23 % sale antes;
+  los buzones y tildes se ocultan por debajo de 45-50 % de escala (sin motas).
+- MEDIA 9 buzones 1,3× y juntos, casi de frente (los cuatro enteros); sobres desde más abajo; push-in a los tres de la
+  derecha (el izquierdo queda fuera entero); la línea guía termina en el buzón rojo.
+- MEDIA 10 s01: Rubén corrido 0,34 m a su izquierda, teclado delante de él, mouse a su derecha, mate en el escritorio a
+  la vista, celular 1,7×; la cámara ya no queda pegada a la nuca.
+- MEDIA 11 subtítulos: grupos de más de 17 caracteres a 78 px y de más de 26 a 72 px (antes 74/64), en dos líneas.
+- MEDIA 12 termo: la mitad de grande, entra y sale por la derecha (sin achicarse a mota), chorro fino y translúcido;
+  la burbuja aparece en su lugar (no cruza el borde), cola a la izquierda.
+- MEDIA 13 ficha: entera desde el corte, como lista de pasos (gris → verde): sin hueco ni texto cortado.
+- MEDIA 14 "?" 1,9 de alto, centrado. MEDIA 15 el cable gris nace afuera del aro.
+- BAJA 16-19: arco del sol más angosto; "1 hora después" en x 360; tildes más chicas, se van antes de s06 y por debajo de
+  30 %; "42 h" y "las que contestaron" salen antes; Rubén con los antebrazos sin cruzarse (su izquierda es -x cuando mira
+  a -z) y el mate tomado de costado; el subtítulo ya no apoya en su cabeza; vapor más bajo; mates grandes con 96
+  segmentos; agujas de los relojes de pie más cortas (no tapan el 12); agujas del piso ocultas mientras está el campo de
+  edificios (desde arriba se leían como una viga); logo oculto en 1,75-3,15 (celular), 7,59-10,29 (cable y silla) y
+  18,88-26,60 (Rubén, inserto, ficha); visible en el mate de s12-s13.
+
+### Sonido
+- S1 música: `bed.mp3` a 0,40 con sidechain suave (umbral 0,015, ratio 4) en vez del fuerte de antes; sin las bajadas de
+  la versión anterior; solo baja 80 % en dos colas de frase ("rápido." y "días."). Cama: -38,4 LUFS integrada (antes
+  ~-45), los huecos ya no quedan en silencio.
+- S2 SFX subidos: clic, sobres, banderitas, tics del reloj, pop del buzón rojo, golpe+tac del corte al CRM (momentánea
+  del resto en esos tramos: -30 a -33 LUFS). La vibración y el ring quedan más bajos (pisaban "enseguida": vibra
+  momentánea -38,6 con música).
+- S3 **no hay pour CC0**: freesound.org y commons.wikimedia.org dan 403 en el proxy; en el repo no hay agua con origen
+  anotado. El cebado suena con `burbuja.mp3` (Mafon2, CC0), anotado en fuentes.md.
+- S4 tramos de voz 60-120 ms más largos, fundido de 60 ms.
+- S6 cierre 2,73 s; el ding cae en el latido de "scalerics.com".
+- S7 subtítulos reagrupados: "Porque el interés se enfría rápido." · "¿Qué tan rápido?" · "Un estudio lo midió:" ·
+  "llamar en la primera hora" · "multiplicaba las chances" · "de llegar al que decide." · "Pero cuando les escribió" ·
+  "a más de dos mil empresas," · "casi una de cada cuatro" · "nunca contestó." · "Las demás tardaron," · "en promedio,
+  casi dos días." · Rubén · "Un CRM anota" · "cada consulta" · "y te avisa al instante." · "Si el cliente se enfría," ·
+  "le escribe solo." · "¿Querés llegar primero?". "Agendá una" sin subtítulo (0,55 s antes de la tarjeta).
+
+### Mezcla (pre-loudnorm)
+I -17,2 LUFS, pico -2,9 dBFS. RMS cada 0,5 s y cada 0,1 s con voz < 6 dB sobre música+SFX: **ninguno**. Sonoridad
+momentánea (`partes/medir-m.py`, como el revisor) cada 0,5 s con voz > -45: **ninguno**; cada 0,1 s con voz > -30: dos
+tramos (6,4: 5,2 LU, arranque de "llamar"; 15,7: 4,8 LU, cola de "contestó."), los dos solo con música.
+
+### Pasadas (renders/snap/)
+- Armado: r1a-r1d, c3 (s01, morph, avión, buzones, transición buzón→reloj, ficha, termo).
+- Pasada 1 (b1, cada 0,5 s) → arreglos: s01 (mate sobre el botón Enviar → al lado del atril), avión cortado (seguimiento
+  de cámara antes y avión 1,15×), buzones cortados y torcidos (de frente, sin giro), cuadro vacío 15,75 (el reloj nace
+  antes), viga de las agujas del piso en los edificios, "2.241" cerca del subtítulo, burbuja cortada en el borde (cámara
+  de s12 más lejos y burbuja 0,86×).
+- Cortes cuadro a cuadro (c2, c4: 2,55 / 18,88 / 21,97 / 22,87 / 30,58 ± 2 cuadros, morph 2,6-2,75 y buzón→reloj
+  15,55-15,8) → encabezado del celular gigante debajo del subtítulo (push-in más corto) y reloj antes.
+- Pasada 2 (b2, cada 0,5 s desde 0,25) → morph más corto (cuadro casi vacío en 2,75).
+
+### Dudoso / para el revisor
+- 2,63-2,79: el celular gigante sube encima del mate que nace (la bombilla pasa cerca del borde de abajo del celular).
+- 15,56-15,8: el buzón rojo, chico, se ve detrás y arriba del reloj que crece (no se tocan).
+- 4,05-4,37, 12,6-12,9, 26,48-26,98: paneos con objetos entrando por el borde un instante.
+- 10,25-10,5: el avión recién despegado arriba del cuadro antes de que la cámara lo alcance.
+- La vibración del celular (1,2-2,2) queda en -38,6 LUFS momentánea: más fuerte pisa "enseguida".
+- Los números 3D ya no tienen bisel (aristas rectas); las líneas de triangulación ya no están.

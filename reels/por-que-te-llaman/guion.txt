@@ -2,23 +2,24 @@
 NARRADOR: ¿Por qué pedís un presupuesto y te llaman enseguida?
 [El celular se transforma en un mate gigante humeando, con una etiqueta "pedido de presupuesto"; el vapor se apaga y la calabaza pasa de verde a gris.]
 NARRADOR: Porque el interés se enfría rápido.
-[Un "?" verde 3D grande y centrado.]
+[Un "?" verde 3D grande y centrado cae sobre el reloj-piso.]
 NARRADOR: ¿Qué tan rápido?
-[Un avión de papel cruza un campo de edificios chicos (las empresas). Crédito chico "Harvard Business Review · 2011".]
-NARRADOR: Un estudio les escribió a más de dos mil empresas.
-[Cuatro buzones grandes en fila; tres se abren con respuesta, uno queda cerrado en rojo apagado, con el sobre adentro.]
-NARRADOR: Casi una de cada cuatro nunca contestó.
-[Reloj de pared gigante: las agujas dan casi dos vueltas de día. Rótulo "promedio: 42 horas".]
+[El "?" gira y en su lugar nace un reloj de pie; las agujas llegan a las 12 y la porción de la primera hora sale verde ("1 h"). Crédito chico "Harvard Business Review · 2011 · EE. UU.".]
+NARRADOR: Un estudio lo midió: llamar en la primera hora multiplicaba las chances de llegar al que decide.
+[De la porción verde sale un cable de teléfono enrulado hasta una silla de director vacía; un cable gris "1 hora después" queda corto; tildes alrededor de la silla.]
+[De la silla despega un avión de papel que vuela sobre un campo de edificios chicos (las empresas); se multiplica en una bandada; "2.241" 3D.]
+NARRADOR: Pero cuando les escribió a más de dos mil empresas,
+[Cuatro buzones; tres levantan la banderita con una tilde; el cuarto queda cerrado, rojo apagado, con el sobre asomando y una telaraña. Rótulo "23 % · nunca contestó".]
+NARRADOR: casi una de cada cuatro nunca contestó.
+[El buzón rojo se vuelve un reloj de pie: las agujas dan casi dos vueltas de día, cruzan el sol y la luna. "42 h", rótulo "las que contestaron".]
 NARRADOR: Las demás tardaron, en promedio, casi dos días.
-[El reloj frena: la primera hora se pinta de verde y de ahí sale un cable de teléfono hasta una silla de director.]
-NARRADOR: Llamar en la primera hora multiplicaba las chances de llegar al que decide.
-[Callback: vuelta a la oficina; Rubén corta el teléfono con el mate en la mano, satisfecho.]
+[Corte a la oficina: Rubén en su silla, de frente, corta el teléfono con el mate en la mano, satisfecho.]
 RUBEN: Yo le compré al que llamó primero.
 [Mira el monitor: en la bandeja, "Graciela · Rotisería · Pedido de presupuesto · ayer 18:40 · sin responder", en rojo apagado.]
 RUBEN: ¿Y esta consulta de ayer?
-[El monitor se vuelve una ficha de CRM: "Pedido de presupuesto · Graciela · 18:40" y "Aviso a Nico ✓ 18:41".]
+[La pantalla se vuelve una ficha de CRM: "Graciela · Rotisería · Presupuesto · ayer 18:40" con los pasos "Anotado ✓", "Aviso a Nico ✓ 18:41" y "Seguimiento ✓".]
 NARRADOR: Un CRM anota cada consulta y te avisa al instante.
-[Vuelve el mate gigante, enfriándose; sale solo el mensaje "Graciela, ¿pudiste ver el presupuesto?" ✓✓, el termo cebe y el vapor vuelve.]
+[Vuelve el mate gigante, frío; sale solo el mensaje "Graciela, te paso el presupuesto. ¿Lo vemos?" ✓✓, el termo ceba y el vapor vuelve.]
 NARRADOR: Si el cliente se enfría, le escribe solo.
 [Tarjeta de cierre sobre "videollamada": "Videollamada gratis" / "scalerics.com" en verde.]
 NARRADOR: ¿Querés llegar primero? Agendá una videollamada gratis en scalerics.com.

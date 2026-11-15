@@ -75,33 +75,30 @@ pelo de herradura de bolitas (solución de ya-lo-cargo). Graciela y Nico solo co
   escena + relativo (están en `tiempos.md`).
 
 
-## Brief por escena (segundos globales; la tabla de planos real está en NOTAS-constructor.md)
-- **s01-gancho 0,00-2,51.** Por encima del hombro derecho de Rubén (sentado en su silla de director): el monitor con el
-  formulario "Pedir presupuesto · Autoelevador eléctrico" (Empresa / Teléfono / botón verde "Enviar"), clic a los 0,42 s
-  → "Enviado ✓"; el mate en la mano izquierda sube a la altura del pecho; a 1,21 s el celular del atril vibra
-  ("Llamada entrante · Ventas Autoelevadores") y Rubén gira la cabeza; push-in al celular.
-- **s02-se-enfria 2,51-4,20.** Corte escondido al celular GIGANTE sobre el reloj-piso (mismo encuadre), que gira, se
-  achica y deja el mate gigante (calabaza, virola, bombilla, yerba verde) con tres volutas de vapor verde claro. En
-  "enfría" (3,14) el vapor se despega hacia arriba y se afina, la yerba pasa a gris oliva y las agujas del piso corren.
-- **s03-que-tan 4,20-5,31.** Paneo rápido al "?" verde 3D que cae (3,90) y rebota sobre el reloj-piso.
-- **s04-estudio 5,31-7,74.** El "?" se pliega y sale un avión de papel crema (con un sobre verde en el ala) que la
-  cámara sigue; brota un campo de edificios chicos (ventanas crema); en "dos mil" el avión se vuelve una bandada que cae
-  sobre los edificios; "2.241" 3D arriba. Crédito mono abajo.
-- **s05-nunca 7,74-10,24.** Cuatro buzones en fila, un sobre a cada uno; tres levantan la banderita verde y suman una
-  tilde; en "nunca" (8,82) el cuarto se pone rojo apagado, el sobre queda asomando y crece una telaraña. Push-in al rojo.
-- **s06-dos-dias 10,24-13,46.** El buzón rojo gira y se achica mientras en su lugar nace un reloj de pie gigante; las
-  agujas dan 42 horas, el sol y la luna cruzan arriba; "42 h" 3D en "casi" (12,29); rótulo "las que contestaron".
-- **s07-primera-hora 13,46-14,94.** El reloj vuelve a las 12 y la porción de 12 a 1 sale en relieve verde ("1 h" 3D).
-- **s08-el-que-decide 14,94-17,77.** Un cable de teléfono enrulado verde sale de la porción y va por el piso hasta una
-  silla de director vacía; el cable gris "1 hora después" queda corto y flojo; tildes verdes alrededor de la silla
-  (de 1 a 7). Termina de frente a la silla.
-- **s09-ruben-compro 17,77-19,90.** Corte en la silla: Rubén sentado en la misma silla, girado hacia la cámara, mate en
-  la izquierda y celular en la derecha (corta la llamada, "Llamada finalizada"); "Yo le compré al que llamó primero."
-- **s10-ruben-ayer 19,90-21,67.** Rubén mira por encima del hombro la pantalla de atrás (la bandeja "Consultas" con la
-  fila de Graciela en rojo); en "ayer" (20,81) corte al inserto de la pantalla, push-in a la fila roja.
-- **s11-crm 21,67-25,34.** Corte escondido a la ficha del CRM (vertical): la fila roja pasa a navy ("Pedido de
-  presupuesto · 18:40"), entran "Anotado ✓" (22,45) y "Aviso a Nico ✓ 18:41" (24,15) con una campanita verde.
-- **s12-escribe-solo 25,34-27,60.** Paneo al mate gigante frío; el termo entra, se inclina y ceba; la burbuja
-  "Graciela, ¿pudiste ver el presupuesto?" ✓✓ vuela desde la ficha; el vapor vuelve. Rótulo "sale solo".
-- **s13-llegar 27,60-29,25.** La burbuja se va y entra la respuesta de Graciela: "¡Sí! Mandame 40 cajas."
-- **s14-cierre 29,25-32,21.** Fondo verde: "Videollamada / gratis / scalerics.com" y un mate humeando abajo.
+## Brief por escena (ronda 1, segundos globales; tabla de planos en NOTAS-constructor.md)
+- **s01-gancho 0,00-2,55.** Por encima del hombro derecho de Rubén (sentado, corrido a su izquierda): el formulario
+  "Pedir presupuesto · Autoelevador eléctrico", clic 0,42 → "Enviado ✓"; el mate en el escritorio; el celular grande del
+  atril vibra a 1,21 ("Llamada entrante"); push-in al celular.
+- **s02-se-enfria 2,55-4,27.** Corte escondido al celular gigante (mismo encuadre) que sube y se achica; nace el mate
+  gigante con volutas de vapor; en "enfría" el vapor se despega y la yerba pasa a gris.
+- **s03-que-tan 4,27-5,32.** El "?" verde cae (3,97) y queda grande y centrado.
+- **s04-lo-midio 5,32-7,59.** El "?" gira y en su lugar nace el reloj de pie; las agujas llegan a las 12 en "llamar" y la
+  porción de la primera hora sale verde en "primera" ("1 h"). Crédito "Harvard Business Review · 2011 · EE. UU.".
+- **s05-el-que-decide 7,59-10,29.** El cable enrulado verde va de la porción a la silla de director; el gris ("1 hora
+  después") queda corto; tildes alrededor de la silla; "el que decide".
+- **s06-dos-mil 10,29-12,79.** De la silla despega el avión de papel; la cámara lo sigue hasta las empresas; bandada en
+  "dos"; "2.241" en "mil". Crédito.
+- **s07-nunca 12,79-15,86.** Cuatro buzones casi de frente; sobres; tres banderitas y tildes; "23 % · nunca contestó"; en
+  "nunca" el cuarto se pone rojo, telaraña; push-in a los tres de la derecha.
+- **s08-dos-dias 15,86-18,88.** El buzón rojo se va hacia atrás achicándose y adelante nace el reloj de las 42 h; sol y
+  luna; "42 h"; "las que contestaron".
+- **s09-ruben-compro 18,88-21,06.** Corte a la oficina: Rubén de frente en su silla, celular en la derecha, mate en la
+  izquierda; corta la llamada.
+- **s10-ruben-ayer 21,06-22,87.** Mira por encima del hombro (cabeza 0,4 rad + torso) la bandeja de atrás; en "ayer"
+  (21,97) corte al inserto: el monitor entero con la fila roja de Graciela.
+- **s11-crm 22,87-26,60.** Corte a la ficha del CRM entera (vertical): la consulta pasa de rojo a navy, los pasos
+  "Anotado", "Aviso a Nico · 18:41" y "Seguimiento" pasan de gris a verde; campanita.
+- **s12-escribe-solo 26,60-28,86.** Paneo al mate frío; el termo entra por la derecha y ceba; aparece "Graciela, te paso
+  el presupuesto. ¿Lo vemos?" ✓✓; el vapor vuelve; "sale solo".
+- **s13-llegar 28,86-30,58.** La burbuja se achica y entra la respuesta "¡Sí! ¿Me llamás?".
+- **s14-cierre 30,58-33,31.** Fondo verde: "Videollamada / gratis / scalerics.com" y el mate humeando.

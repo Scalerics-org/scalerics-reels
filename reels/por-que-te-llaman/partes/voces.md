@@ -14,3 +14,12 @@ para `tiempos.mjs`.
 Pausas (las mete armar-voz): +0,3 s después del gancho; +0,3 s antes y después de "¿Qué tan rápido?"; +0,25 s después
 de "nunca contestó"; 0,45 s antes de Rubén, 0,5 s entre sus dos líneas y 0,4 s después.
 Si "CRM" sale en inglés ("si-ar-em") o "Scálerics" mal, regenerar SOLO esa frase y pegarla.
+
+## Ronda 1 (15-11)
+Cambio de guion del coordinador (G1): el tramo de Orus después del gancho pasa a "¿Qué tan rápido? Un estudio lo midió:
+llamar en la primera hora multiplicaba las chances de llegar al que decide. Pero cuando les escribió a más de dos mil
+empresas, casi una de cada cuatro nunca contestó. Las demás tardaron, en promedio, casi dos días." Texto en
+`partes/orus1b.txt` (con un "Listo." al final que se descarta: así Gemini no corta la última palabra). 4 tomas; va la
+`orus1b-4.wav` (el STT la oye entera; "decides" es el sesgo de siempre del STT). Las frases 1-2 siguen de `orus1-1.wav`;
+Rubén (`ruben-2.wav`) y el cierre (`orus2-4.wav`) no cambian. Los tramos terminan 60-120 ms más tarde con fundido de
+60 ms (S4: colas de "promedio," y "primero?").

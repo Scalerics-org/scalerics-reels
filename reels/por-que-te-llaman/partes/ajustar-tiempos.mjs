@@ -9,12 +9,12 @@ const FR = fs.readFileSync("partes/texto.txt", "utf8").split("\n").map((l) => l.
 const TR = JSON.parse(fs.readFileSync("partes/tramos.json", "utf8"));
 if (FR.length !== TR.length) throw new Error(`frases ${FR.length} != tramos ${TR.length}`);
 const stt = (n) => JSON.parse(fs.readFileSync(`partes/stt-${n}.json`, "utf8"));
-const O1 = stt("orus1-1"), N7 = stt("n7-3"), RB = stt("ruben-2"), O2 = stt("orus2-4");
-// por frase: [palabras STT de la toma (índices), desde, tempo]; en orus2 "CRM" = "ce erre eme" (3 palabras STT)
+const O1 = stt("orus1-1"), B = stt("orus1b-4"), RB = stt("ruben-2"), O2 = stt("orus2-4");
+// por frase: [STT de la toma, [desde, hasta) índices de palabra en ese STT, inicio del tramo en la toma, tempo]
 const T = 1.06;
 const FUENTE = [
-  [O1, [0, 9], 0.09, T], [O1, [9, 15], 2.83, T], [O1, [15, 18], 4.59, T], [O1, [18, 28], 5.85, T], [O1, [28, 35], 8.44, T],
-  [O1, [35, 40], 11.25, T], [O1, [40, 43], 13.64, T], [N7, [0, 13], 0.21, T], [RB, [0, 7], 0.2, 1], [RB, [7, 12], 2.21, 1],
+  [O1, [0, 9], 0.09, T], [O1, [9, 15], 2.83, T], [B, [0, 3], 0.25, T], [B, [3, 7], 1.4, T], [B, [7, 20], 2.62, T],
+  [B, [20, 30], 6.8, T], [B, [30, 37], 9.66, T], [B, [37, 45], 13.0, T], [RB, [0, 7], 0.2, 1], [RB, [7, 12], 2.21, 1],
   [O2, [0, 12], 0.27, T], [O2, [12, 20], 4.2, T], [O2, [20, 23], 6.74, T], [O2, [23, 31], 7.92, T],
 ];
 const SIL = { "scalerics.com.": 5, crm: 3 };
@@ -35,9 +35,12 @@ FR.forEach((fr, k) => {
   starts[0] = s;
   ws.forEach((w, j) => out.push({ text: w, start: +Math.max(s, starts[j]).toFixed(3), end: +(j + 1 < ws.length ? starts[j + 1] : e).toFixed(3) }));
 });
-// a mano (envolvente de la locución + STT de control): "cuatro" y "nunca" quedaban una sílaba antes
-const FIJO = { 32: 8.4, 33: 8.82 };
-for (const [i, v] of Object.entries(FIJO)) { out[i].start = v; out[i - 1].end = v; }
+// a mano (envolvente de orus1b-4): "casi dos días." empieza en 14,68 de la toma (el STT lo ponía en 14,50)
+{
+  const k = 7, i0 = FR.slice(0, k).reduce((n, f) => n + f.split(/\s+/).length, 0), [s0] = TR[k];
+  const fijo = { 5: 14.68, 6: 14.92, 7: 15.2 };
+  for (const [j, v] of Object.entries(fijo)) { out[i0 + +j].start = +(s0 + (v - 13.0) / T).toFixed(3); out[i0 + +j - 1].end = out[i0 + +j].start; }
+}
 fs.writeFileSync("assets/voice/palabras.json", JSON.stringify(out, null, 1));
 console.log("palabras.json:", out.length, "palabras; fin", out.at(-1).end);
 out.forEach((w, i) => process.stdout.write(`${i}:${w.text}@${w.start.toFixed(2)} `)); console.log();
