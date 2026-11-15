@@ -67,3 +67,10 @@ nadie. "WhatsApp" puede ir en texto; el chat es genérico, sin logo ni verde de 
 Los que no estén en `assets/sfx` (cinta transportadora, rueditas de valija, golpe de valija en la cinta, motor de
 camión): uno real CC0; el constructor anota acá autor, link y licencia. Si freesound da 403 (pasó el 15-11), usar los
 del repo (`whoosh`, `pop`, `tac-real`, `golpe`, `ding`, `notification`, `ring`, `vibra`, `tic-real`) y anotarlo.
+
+### SFX usados (constructor, 15-11)
+Todos de `assets/sfx` del repo (los mismos de `reels/por-que-te-llaman`): tac-real (pasos), whoosh / whoosh-short /
+whoosh-cinematic, pop, tic, tic-real, golpe, ding, sparkle, papel, hoja, ring, click, notification, chime, motor
+(el camión). Música: `assets/bgm/bed.mp3` (la cama de siempre) con sidechain de la voz. No se bajó ningún sonido nuevo
+(freesound dio 403 el 15-11, ver arriba) ni se sintetizó nada: no hay ambiente de aeropuerto ni ruido de cinta
+transportadora; la cinta se acompaña con los golpes de las valijas al caer.
