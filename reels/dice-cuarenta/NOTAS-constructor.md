@@ -181,3 +181,14 @@ PASADAS: r2a/r2b/r2c puntuales (mate, monitor, Q2c, P3), r2p1 (cada 0,5 s desde 
 QUEDA: cara del operario un instante en el borde derecho en P3 (~6,0 s); Q2 operario contra el borde derecho; Q1r el
 monitor cortado a la derecha; Nico de espaldas en Q1; la losa negra bajo el larguero (no la encontré: no está en las
 hojas de esta ronda).
+
+## Ronda 3 (15-11) y portada
+- P6 arranca con el pallet vacío: las 3 cajas pasan a la zorra durante el respiro del primer plano de P5 (T.cajas =
+  p6 - 0,5/-0,35/-0,2; solo se oye la carga).
+- P2b: cámara 20 cm más a la izquierda y fov 61: el cartel entero (al final del plano los remitos rozan el borde derecho).
+- Colas de "Los que dice." y "Fijate vos." 15 px más arriba. Aleteo de P4 (sin paloma) a -40; tics del giro 40 → 37 a -33.
+- Portada: `portada.json` (chica "El Excel: 40." en un renglón, grande "Hay 3.", sello "¿Te pasa?", verde de marca).
+  Fondo `portada-src/fondo-portada-6.9.png`: cuadro 6,9 s renderizado con LIMPIO=1 en una COPIA del proyecto (scratchpad,
+  para no tocar index.html durante el render), el cartel 40 recortado arriba y el pallet con las 3 cajas debajo, sobre
+  el mismo cuadro desenfocado; nada detrás del texto. Fuente: `portada-src/fondo-limpio-6.9.png`; alternativa
+  `portada-src/fondo-limpio-16.9.png` (37 rojo sobre el pallet vacío). gen.mjs quedó en estado normal (LIMPIO=false).

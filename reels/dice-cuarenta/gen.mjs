@@ -43,8 +43,9 @@ T.p4 = r2(T.p3 + 1.6); T.miran = [r2(T.p4 + 0.15), r2(T.p4 + 0.65), r2(T.p4 + 1.
 T.p5 = r2(T.p4 + 1.6); T.n4 = r2(T.p5 + 0.06); T.gira = [r2(T.n4 + LEN.n4 + 0.03), r2(T.n4 + LEN.n4 + 0.73)]; T.r2 = r2(T.gira[1] + 0.05);
 // P6 · el operario carga las 3 cajas y se va · "Tranqui, ya lo actualicé." · el cartel gira a 37 (rojo) · "Bárbaro.
 // Ahora miente actualizado." · mate
-// (ronda 1) el primer plano respira 0,6 s después de "depósito"
-T.p6 = r2(T.r2 + LEN.r2 + 0.6); T.cajas = [0.05, 0.25, 0.45].map((d) => r2(T.p6 + d)); T.seVa = [r2(T.p6 + 0.65), r2(T.p6 + 1.25)];
+// (ronda 1) el primer plano respira 0,6 s después de "depósito"; (ronda 3) las cajas pasan a la zorra durante el primer
+// plano (solo se oye la carga): P6 arranca con el pallet vacío
+T.p6 = r2(T.r2 + LEN.r2 + 0.6); T.cajas = [-0.5, -0.35, -0.2].map((d) => r2(T.p6 + d)); T.seVa = [r2(T.p6 + 0.65), r2(T.p6 + 1.25)];
 T.n5 = r2(T.p6 + 0.45); T.toca = r2(T.n5 + LEN.n5 - 0.25); T.flip37 = r2(T.n5 + LEN.n5 + 0.06);
 T.mira37 = r2(T.flip37 + 0.4); T.miraPal = r2(T.flip37 + 0.7); T.r3 = r2(T.flip37 + 0.9);
 T.p6b = r2(T.flip37 - 0.15); T.p6c = r2(T.flip37 + 0.7); T.p6d = r2(T.r3 + 0.95);   // inserto del giro · 37 sobre el pallet vacío · primer plano
@@ -266,7 +267,7 @@ s("sfx/k-plastico.wav", T.zorra[0] + 0.55, 0, { techo: -38, vel: 0.55, lp: 1200 
 s("sfx/whoosh.mp3", T.grua[0], 0, { techo: -46, vel: 0.8, dur: 0.9, fin: 0.3 });
 s("sfx/k-metal-click.wav", T.rojo, 0, { techo: -46, vel: 0.8 });
 // P4 · la pausa: el zumbido solo, la música abajo; la paloma (aleteos de tela, Kenney) que cruza
-[0, 0.16, 0.3, 0.46, 0.62, 0.8].forEach((d, i) => s(`sfx/k-ala-${[1, 3, 4][i % 3]}.wav`, T.paloma[0] + d, 0, { techo: -39 - (i > 3 ? 3 : 0), vel: 1.35, hp: 300, dur: 0.22, fin: 0.06 }));
+[0, 0.16, 0.3, 0.46, 0.62, 0.8].forEach((d, i) => s(`sfx/k-ala-${[1, 3, 4][i % 3]}.wav`, T.paloma[0] + d, 0, { techo: -45 - (i > 3 ? 3 : 0), vel: 1.35, hp: 300, dur: 0.22, fin: 0.06 }));
 // P5 · "Pero el Excel dice cuarenta." · Rubén gira · "El Excel nunca bajó al depósito."
 voz("n4", T.n4, -1);
 s("sfx/k-cloth_1.wav", T.gira[0], 0, { techo: -42, dur: 0.3, fin: 0.1 });
@@ -276,7 +277,7 @@ T.cajas.forEach((t, i) => caja(t + 0.12, -40, 1 + i * 0.08));
 s("sfx/k-plastico.wav", T.seVa[0], 0, { techo: -42, vel: 0.6, lp: 1200 });
 voz("n5", T.n5, -1);
 s("sfx/key-press.mp3", T.toca, 0, { techo: -44 });
-flap(T.flip37, "40", "37", -36); cadenas(T.flip37 + 0.05, -42);
+flap(T.flip37, "40", "37", -33); cadenas(T.flip37 + 0.05, -42);
 voz("r3", T.r3, -1);
 s("sfx/sorbo.wav", T.sorbo1, 0, { techo: -40, fin: 0.15 });
 // ---- cartel ----

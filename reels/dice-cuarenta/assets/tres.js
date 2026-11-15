@@ -879,7 +879,7 @@ const ZORRA = { x: 1.0, z: -7.05 };
 const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   ["P2", T.p2, null],                        // travelling con Nico (se arma en renderAt)
-  ["P2b", T.p2b, [[T.p2b, -1.15, 2.2, -4.45, 2.3, 2.35, -5.35, 56], [T.p3, -1.0, 2.2, -4.5, 2.3, 2.35, -5.35, 54]]],
+  ["P2b", T.p2b, [[T.p2b, -1.2, 2.2, -4.8, 2.3, 2.35, -5.6, 61], [T.p3, -1.05, 2.2, -4.85, 2.3, 2.35, -5.6, 59]]],
   ["P3", T.p3, [[T.p3, -1.45, 2.6, -3.5, 1.9, 2.85, -6.3, 56], [T.grua[0], -1.25, 3.0, -4.6, 2.1, 3.0, -5.7, 54], [T.grua[0] + 0.4, -1.1, 3.05, -4.75, 2.1, 3.0, -5.7, 52], [T.grua[1], -2.3, 1.65, -5.45, 2.6, 1.75, -5.75, 56], [T.p4, -2.2, 1.63, -5.5, 2.6, 1.75, -5.75, 54]]],
   ["P4", T.p4, [[T.p4, 5.4, 1.62, -5.75, 0.6, 1.82, -5.75, 64], [T.p5, 5.3, 1.62, -5.75, 0.6, 1.82, -5.75, 62]]],
   ["P5", T.p5, [[T.p5, 4.6, 1.6, -6.0, 1.25, 1.5, -5.32, 48], [T.gira[0], 4.55, 1.6, -6.0, 1.25, 1.5, -5.32, 47], [T.r2, 4.0, 1.62, -5.55, 1.25, 1.58, -5.1, 30], [T.p6, 3.95, 1.62, -5.55, 1.25, 1.58, -5.1, 29]]],
@@ -1286,12 +1286,12 @@ function renderAt(tIn) {
       ponerGlobo(GL.gra, 780, 1560, ent(P2 + 0.05), [cx, cy]);
       if (t >= T.n6) ponerGlobo(GL.n6, 560, 1150, ent(T.n6), [bx + 40, by - 60], 1);
     }
-    if (pa === "Q1r") { const [rx, ry] = rb(); ponerGlobo(GL.r4, 560, 330, ent(T.r4), [rx, ry - 30]); }
+    if (pa === "Q1r") { const [rx, ry] = rb(); ponerGlobo(GL.r4, 560, 315, ent(T.r4), [rx, ry - 45]); }
     if (pa === "Q1b" && t >= T.n7) ponerGlobo(GL.n7, 540, 260, ent(T.n7), null);
     if (pa === "Q3") {
       const [bx, by] = nb(), [rx, ry] = rb();
       if (en(t, T.n8, T.r5)) ponerGlobo(GL.n8, bx - 230, by - 290, ent(T.n8), [bx - 60, by - 90]);
-      if (t >= T.r5) ponerGlobo(GL.r5, rx - 60, ry - 270, ent(T.r5), [rx, ry - 105]);
+      if (t >= T.r5) ponerGlobo(GL.r5, rx - 60, ry - 285, ent(T.r5), [rx, ry - 120]);
     }
   }
   renderer.render(scene, camera);
