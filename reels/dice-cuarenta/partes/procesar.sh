@@ -12,9 +12,9 @@ v 06-ruben-c r2                  # "El Excel nunca bajó al depósito."
 v 07-nico-e  n5                  # "Tranqui, ya lo actualicé."
 v 08-ruben-c r3                  # "Bárbaro. Ahora miente actualizado." (pausa de 0,39 s después de "Bárbaro.")
 v 10-nico-b  n6                  # "Rubén, ¿hay aceite?"
-v 11-ruben-c r4 "$ECO"           # "Fijate vos."
+v 11-ruben-c r4                  # "Fijate vos." (ronda 1: sin eco, se comía el "vos")
 v 02-nico-b  n7                  # "¡Vendido!" (parte 2: la MISMA toma que la primera, callback)
 v 13-nico-c  n8                  # "¿Y? ¿Cuántos hay?"
-v 14-ruben-c r5                  # "Los que dice."
+v 14-ruben-d r5                  # "Los que dice." (ronda 1: la d, la de más "s" en "los")
 cp ../ya-lo-cargo/assets/voice/narrador.wav assets/voice/narrador.wav   # "Un sistema más tarde." (Rasalgethi)
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

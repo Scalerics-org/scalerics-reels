@@ -1,0 +1,497 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"capa3d\"> is a timeline element that contains nested <canvas id=\"tres\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#capa3d",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/scalerics-reels/reels/dice-cuarenta/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"capa3d\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 4
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x2f74001ad000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "33.3",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:44733/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x2f74001ad000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "33.3",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:44733/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x2f74001ad000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "33.3",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:44733/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x2f74001ad000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "33.3",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:44733/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "warning",
+        "time": 1.85,
+        "selector": "#tres",
+        "message": "Canvas content touches the frame edge (left, right, bottom).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 1.85,
+        "lastSeen": 31.45,
+        "occurrences": 7,
+        "heldMs": 0,
+        "times": [
+          1.85,
+          5.55,
+          9.25,
+          12.95,
+          16.65,
+          24.05,
+          31.45
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 1.85,
+        "selector": "#precarga",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9868.47,
+          "bottom": 50,
+          "width": 130.53,
+          "height": 50
+        },
+        "containerSelector": "#root",
+        "text": "Rubén",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 130.53,
+          "height": 50
+        },
+        "firstSeen": 1.85,
+        "lastSeen": 31.45,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          1.85,
+          5.55,
+          9.25,
+          12.95,
+          16.65,
+          20.35,
+          24.05,
+          27.75,
+          31.45
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 1.85,
+        "selector": "#precarga2",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9807,
+          "bottom": 52,
+          "width": 192,
+          "height": 52
+        },
+        "containerSelector": "#root",
+        "text": "GRACIELA",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 192,
+          "height": 52
+        },
+        "firstSeen": 1.85,
+        "lastSeen": 31.45,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          1.85,
+          5.55,
+          9.25,
+          12.95,
+          16.65,
+          20.35,
+          24.05,
+          27.75,
+          31.45
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 20.35,
+        "selector": "g.giraA",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -212.98,
+          "top": -221.3,
+          "right": 1256.19,
+          "bottom": 2169.79,
+          "width": 1469.17,
+          "height": 2391.09
+        },
+        "containerSelector": "svg.manchas",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": -200,
+          "top": -200,
+          "right": 1280,
+          "bottom": 2120,
+          "width": 1480,
+          "height": 2320
+        },
+        "overflow": {
+          "left": 12.98,
+          "top": 21.3,
+          "bottom": 49.79
+        },
+        "dataAttributes": {
+          "data-svg-origin": "861.6734008789062 1263.3272399902344"
+        },
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": -212.98,
+          "y": -221.3,
+          "width": 1469.17,
+          "height": 2391.09
+        },
+        "firstSeen": 20.35,
+        "lastSeen": 20.35,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          20.35
+        ]
+      }
+    ],
+    "duration": 33.3,
+    "samples": [
+      1.85,
+      5.55,
+      9.25,
+      12.95,
+      16.65,
+      20.35,
+      24.05,
+      27.75,
+      31.45
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      1.85,
+      9.25,
+      16.65,
+      24.05,
+      31.45
+    ],
+    "checked": 3,
+    "passed": 3
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 17.84 s (1.75–19.58 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 1.746,
+        "seconds": 17.835,
+        "floorSeconds": 3,
+        "until": 19.581
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"U n s i s t e m a\" (9 words) is on screen 2.14 s (±0.01 s), under its 2.40 s floor: hold it about 0.5 s + 0.3 s a word (3.20 s here) before it leaves or changes; see references/motion.md.",
+        "text": "U n s i s t e m a",
+        "selector": "span.linea.a",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 130.47,
+          "y": 642.42,
+          "width": 808.41,
+          "height": 196.68000000000006
+        },
+        "time": 19.667,
+        "words": 9,
+        "seconds": 2.136,
+        "floorSeconds": 2.4
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"m á s t a r d e …\" (8 words) is on screen 2.14 s (±0.01 s), under its 2.17 s floor: hold it about 0.5 s + 0.3 s a word (2.90 s here) before it leaves or changes; see references/motion.md.",
+        "text": "m á s t a r d e …",
+        "selector": "span.linea.b",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 132.56,
+          "y": 821.41,
+          "width": 832.98,
+          "height": 201.14999999999998
+        },
+        "time": 19.667,
+        "words": 8,
+        "seconds": 2.136,
+        "floorSeconds": 2.175
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 8.10 s (22.20–30.30 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 22.2,
+        "seconds": 8.1,
+        "floorSeconds": 3,
+        "until": 30.3
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"scalerics.com\" (2 words) is on screen 1.93 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "scalerics.com",
+        "selector": "div.b",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s09-cierre.html",
+        "bbox": {
+          "x": 342.03,
+          "y": 1710.62,
+          "width": 395.93000000000006,
+          "height": 74.40000000000009
+        },
+        "time": 31.374,
+        "words": 2,
+        "seconds": 1.93,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 267
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

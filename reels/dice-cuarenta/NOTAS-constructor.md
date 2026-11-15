@@ -99,3 +99,56 @@ pico -5,5 dBFS (antes del loudnorm del paso 10). TECHO -31 por efecto (cada uno 
 - Q3: el rótulo "STOCK · AL DÍA" del cartel queda cortado por el borde izquierdo (el número se lee entero).
 - Los remitos no se dibujan en P4-P6 (desde atrás del rack no se verían): continuidad a revisar si molesta.
 - Duración 34,55 s (pedido ~30-34).
+
+## Ronda 1 (15-11, sobre la revisión independiente del MP4)
+**Duración 33,30 s** (parte 1 0-19,66 · cartel 19,66-22,06 (2,4 s) · parte 2 22,06-33,30; línea chica desde 31,30, 2,0 s).
+Recortes sin tocar la pausa de P4 (1,6 s) ni el beat del remate: P3 2,1 → 1,6 s, gancho/P2/P2b más apretados, cartel
+2,4 s, Q1-Q3 más apretados. A cambio: 0,6 s de primer plano después de "depósito" y giro de cabeza de 0,7 s.
+GUION
+- Pedidos 15 + 15 + 10 = 40 (burbuja muda de Nico "Graciela quiere 15.", Marta "¿Tenés aceite? 15.", Walter "10 de
+  aceite, para mañana.", remitos "15/15/10 aceite", el chat del celular, Graciela "Quiero 15." / "pide 15" en la parte
+  2). El cartel sigue fijo en 40. descripcion.txt: primera línea sin "Nico ya vendió cuarenta a tres clientes".
+ARTE
+- ALTA 1/2: "¡Vendido!" arriba y al costado de la cabeza (cola al costado); pulgar a la altura del hombro, por delante.
+- ALTA 3: los remitos ya no vuelan desde el celular: aparecen clavados en el parante con pop + grampa.
+- ALTA 4: paloma más chica (escala 1,0), alas grises de dos tonos que aletean, vuela en x 0,9-1,1 (detrás del cartel
+  visto desde P4, sin intersecarlo).
+- ALTA 5: el cartel no proyecta ni recibe sombra (acné y cuña) y tiene brillo propio (emissive 0,32 sobre placa,
+  paletas y rótulo): las dos caras se ven iguales.
+- ALTA 6 (+ sonido 8): P6 se parte en P6 (general desde atrás del rack, 40 arriba, pallet con cajas abajo) · P6b inserto
+  push-in al cartel en el giro 40 → 37 · P6c 37 arriba y pallet vacío entero abajo, "Bárbaro." al costado de la cabeza
+  de Rubén · P6d primer plano de Rubén para "Bárbaro. Ahora miente actualizado." (burbuja arriba).
+- ALTA 7: Q3 desde el lado del fondo del pasillo: Rubén 3/4 de frente, cartel verde entero arriba, pallet lleno a la
+  izquierda, Nico a la derecha; la línea chica abajo no tapa caras. Rubén mira a Nico en "Los que dice.".
+- ALTA 8: Q1r inserto de Rubén en la oficina (desde el balcón, por el vidrio) para "Fijate vos.", señalando con el mate.
+- 9: P5 primer plano con dos ojos (giro de cabeza 0,5 en vez de 0,95, cámara corrida); Nico baja el celular después de
+  su frase. 10: Q1 "Rubén, ¿hay aceite?" a y 1150 y Graciela abajo a la derecha con cola al celular (sin tapar el
+  cartel). 11: Q2c cámara más abierta: el autoelevador trae el pallet y lo baja antes del 40. 12: la caja de Q3 va
+  pegada a la mano derecha de Rubén. 13: camión fuera (no se veía) y sin sus SFX; P3 arranca mirando el cartel y el
+  pasillo. 15: el operario de Q2 del otro lado del pallet, casi de frente (las capas van a la zorra por la izquierda).
+  16: monitor del inserto al 85 % y centrado. 17: Rubén de pie detrás del escritorio (sin baranda ni travesaño delante
+  del vidrio): se ve desde el pasillo; la cola del gancho apunta a él (x ≈ 327). 18: inserto del celular más grande y
+  más arriba.
+- BAJAS: sin fantasmas en las burbujas (n4, Marta y "¡Vendido!" con corte seco); los remitos se ponen rojos uno por uno
+  (0,12 s); paletas: del blanco a un dígito, una sola (no "00").
+SONIDO
+- 2: el techo se cumple después del +6 dB del bus (ganancia con -6) y la música 3 dB más baja (-36).
+- 3: "Fijate vos." sin eco (el STT oye "Fijate vos"). 4: 0,6 s de respiro después de "depósito", giro de 0,7 s.
+- 5: en el giro a 37 la música se va en 0,4 s: "Bárbaro." solo con el zumbido; vuelve con el cartel.
+- 7: P3 de 1,6 s; acción y ambiente de P2b-P4 +5 dB y una segunda capa de zumbido del galpón en P3-P4.
+- 9: pop + notificación en la burbuja de Graciela. 10: zorra, giro, gesto del mate y la caja +5-6 dB; fuera los whoosh
+  inaudibles (los de techo ≤ -48). 11: "Los que dice." = toma 14-ruben-d (la de más "s" en "los"; el STT oye "los
+  que dice"; LEN 1,17); el sorbo final corrido 0,13 s para no pisar la cola de la voz.
+- Mezcla: -14,0 LUFS, pico -5,7 dBFS; voz ≥ +7,0 LU sobre el resto en todos los tramos (medir.py).
+PASADAS: r1p1 (cada 0,5 s desde 0) → P2 burbujas sobre el cartel, P6b con cabezas cortadas abajo, Q1r demasiado cerca,
+Q3 con Nico cortado y Rubén chico; r1p2 (desde 0) → Q3 cartel cortado y Nico sobre Rubén; r1p3 (desde 0,25) → burbuja
+"¡Vendido!" semitransparente al salir (3,75), P6b cabezas cortadas; r1c/r1d/r1e puntuales → Rubén de nuca en "Los que
+dice." (giro de cabeza al revés), burbujas de Q3. `check --json`: 0 errores.
+QUEDA
+- P3: entre 6,0 y 6,4 s el operario pasa cerca del borde derecho (cara cortada un instante) y el arranque de P3 (0,35 s)
+  muestra el pasillo con la oficina.
+- Q2: el operario queda sobre el borde derecho (se ve de costado, con el celular en la mano; no se modeló un lector).
+- Q2c: el autoelevador ocupa la mitad izquierda del cuadro y el mástil cruza el cartelito "ACEITE".
+- Q1: Nico sigue de espaldas cuando pregunta (mira a la oficina); el gesto de Rubén ahora se ve en Q1r.
+- P5/P6d: el celular de Nico asoma en el borde derecho del primer plano.
+- La paloma: mirar en el render si se lee (cruza 8,0-9,2 s, chica, por arriba de las cabezas).
