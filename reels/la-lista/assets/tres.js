@@ -36,14 +36,14 @@ function claves(t, K, f = eio) {
 
 // ---------- render ----------
 const canvas = document.getElementById("tres");
-const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true, preserveDrawingBuffer: true, powerPreference: "high-performance" });
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: !VER.includes("noaa"), preserveDrawingBuffer: true, powerPreference: "high-performance" });
 renderer.setPixelRatio(1);
 renderer.setSize(1080, 1920, false);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NeutralToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.type = THREE.PCFShadowMap;   // (ronda 1: PCFSoft es mucho más caro en SwiftShader)
 renderer.localClippingEnabled = true;
 
 const scene = new THREE.Scene();
@@ -68,8 +68,8 @@ function entorno() {
   pm.dispose();
   return rt.texture;
 }
-scene.environment = entorno();
-scene.environmentIntensity = 0.35;
+// (ronda 1, rendimiento) sin entorno PMREM: en SwiftShader costaba ~2 s por cuadro; lo reemplazan las hemisféricas
+scene.environment = null;
 
 // ---------- paleta y materiales ----------
 const C = { navy: 0x0b1220, navy2: 0x16243d, navy3: 0x1f3254, edge: 0x2c4268, cr: 0xefeee5, cr2: 0xd9d7c9, cr3: 0xb4b2a3, g: 0x5ce611, gd: 0x3fa60a, red: 0xc7655b, kraft: 0xc9a46b, madera: 0xd7b98a, gris: 0xc9ccd2, celeste: 0xb9cde0, calida: 0xffe2b0 };
@@ -78,11 +78,12 @@ const M = {
   navy: mat(C.navy, 0.5), navy2: mat(C.navy2, 0.7), navy3: mat(C.navy3, 0.6), edge: mat(C.edge, 0.6),
   cr: mat(C.cr, 0.6), cr2: mat(C.cr2, 0.7), cr3: mat(C.cr3, 0.6), g: mat(C.g, 0.5), gd: mat(C.gd, 0.5), red: mat(C.red, 0.55),
   kraft: mat(C.kraft, 0.85), madera: mat(C.madera, 0.75), gris: mat(C.gris, 0.35, { metalness: 0.3 }), goma: mat(0x23262c, 0.8),
-  vidrio: new THREE.MeshPhysicalMaterial({ color: 0xcfe2f2, roughness: 0.05, transparent: true, opacity: 0.12, depthWrite: false }),
+  vidrio: new THREE.MeshBasicMaterial({ color: 0xcfe2f2, transparent: true, opacity: 0.08, depthWrite: false }),   // (ronda 1: Physical era caro y casi no se ve)
 };
 const rbox = (w, h, d, r = 0.03, seg = 3) => new RoundedBoxGeometry(w, h, d, seg, Math.min(r, w / 2 - 0.001, h / 2 - 0.001, d / 2 - 0.001));
 const mesh = (g, m, x = 0, y = 0, z = 0) => { const o = new THREE.Mesh(g, m); o.position.set(x, y, z); o.castShadow = true; o.receiveShadow = true; return o; };
 const caja = (w, h, d, m, x, y, z, r = 0.02) => mesh(rbox(w, h, d, r, 2), m, x, y, z);
+const cajaS = (w, h, d, m, x, y, z) => mesh(new THREE.BoxGeometry(w, h, d), m, x, y, z);   // (ronda 1) sin redondeo: el depósito lejano
 const lienzo = (w, h, dibujo) => {
   const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d");
   dibujo(x, w, h);
@@ -93,6 +94,35 @@ const MONO = (s) => `600 ${s}px "Plex", monospace`;
 const ajustar = (x, txt, peso, px, ancho) => { let s = px; x.font = F(peso, s); while (x.measureText(txt).width > ancho && s > 10) { s -= 2; x.font = F(peso, s); } return s; };
 const plano = (w, h, tex, x = 0, y = 0, z = 0, basic = false) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), basic ? new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }) : new THREE.MeshStandardMaterial({ map: tex, roughness: 0.7 })); m.position.set(x, y, z); m.receiveShadow = true; return m; };
 const sombras = (g) => { g.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); return g; };
+
+// ---------- rendimiento (ronda 1): fundir la geometría estática de un lugar en una malla por material ----------
+// En SwiftShader cada malla es un draw call (y otro más por cada sombra): los racks con sus pallets eran miles.
+function fusionar(grupo, excluir = []) {
+  grupo.updateMatrixWorld(true);
+  const inv = grupo.matrixWorld.clone().invert();
+  const fuera = new Set(); for (const e of excluir) e.traverse((o) => fuera.add(o));
+  const porMat = new Map(), quitar = [];
+  grupo.traverse((o) => {
+    if (!o.isMesh || fuera.has(o) || Array.isArray(o.material) || o.material.transparent || !o.visible) return;
+    let p = o.parent, oculto = false; while (p && p !== grupo) { if (!p.visible) oculto = true; p = p.parent; } if (oculto) return;
+    let g = o.geometry.index ? o.geometry.toNonIndexed() : o.geometry.clone();
+    for (const k of Object.keys(g.attributes)) if (!["position", "normal", "uv"].includes(k)) g.deleteAttribute(k);
+    if (!g.attributes.normal) g.computeVertexNormals();
+    if (!g.attributes.uv) g.setAttribute("uv", new THREE.Float32BufferAttribute(new Float32Array(g.attributes.position.count * 2), 2));
+    g.applyMatrix4(inv.clone().multiply(o.matrixWorld));
+    if (!porMat.has(o.material)) porMat.set(o.material, { geos: [], sombra: o.castShadow });
+    porMat.get(o.material).geos.push(g); quitar.push(o);
+  });
+  for (const o of quitar) o.parent.remove(o);
+  for (const [m, { geos, sombra }] of porMat) {
+    let n = 0; for (const g of geos) n += g.attributes.position.count;
+    const pos = new Float32Array(n * 3), nor = new Float32Array(n * 3), uv = new Float32Array(n * 2);
+    let i = 0; for (const g of geos) { pos.set(g.attributes.position.array, i * 3); nor.set(g.attributes.normal.array, i * 3); uv.set(g.attributes.uv.array, i * 2); i += g.attributes.position.count; }
+    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3)); geo.setAttribute("normal", new THREE.BufferAttribute(nor, 3)); geo.setAttribute("uv", new THREE.BufferAttribute(uv, 2));
+    geo.computeBoundingSphere();
+    const mm = new THREE.Mesh(geo, m); mm.castShadow = sombra; mm.receiveShadow = true; grupo.add(mm);
+  }
+}
 let semilla = 7;
 const az = () => ((semilla = (semilla * 16807) % 2147483647) / 2147483647);
 
@@ -144,26 +174,26 @@ const cieloPorton = new THREE.MeshBasicMaterial({ color: 0x16243d });
 // ---- racks selectivos (de ya-lo-cargo): parantes navy3, largueros verdes, 4 niveles con pallets ----
 function crearPallet() {
   const g = new THREE.Group(), m = M.madera, mo = mat(0xb89a6c, 0.8);
-  for (let i = 0; i < 5; i++) g.add(caja(1.2, 0.025, 0.14, m, 0, 0.135, -0.43 + i * 0.215, 0.006));
-  for (const z of [-0.43, 0, 0.43]) g.add(caja(1.2, 0.025, 0.14, mo, 0, 0.0125, z, 0.006));
-  for (const x of [-0.52, 0, 0.52]) for (const z of [-0.43, 0, 0.43]) g.add(caja(0.14, 0.1, 0.14, mo, x, 0.075, z, 0.006));
+  for (let i = 0; i < 5; i++) g.add(cajaS(1.2, 0.025, 0.14, m, 0, 0.135, -0.43 + i * 0.215));
+  for (const z of [-0.43, 0, 0.43]) g.add(cajaS(1.2, 0.025, 0.14, mo, 0, 0.0125, z));
+  for (const x of [-0.52, 0, 0.52]) for (const z of [-0.43, 0, 0.43]) g.add(cajaS(0.14, 0.1, 0.14, mo, x, 0.075, z));
   return g;
 }
 const bolsaT = lienzo(256, 320, (x, w, h) => { x.fillStyle = "#dcd9c8"; x.fillRect(0, 0, w, h); x.fillStyle = "#1f3254"; x.fillRect(0, h * 0.34, w, h * 0.3); x.fillStyle = "#5ce611"; x.fillRect(0, h * 0.86, w, h * 0.05); });
 function cargaPallet(g, tipo) {
   const p = crearPallet(); g.add(p);
-  if (tipo === 0) for (let i = 0; i < 4; i++) for (let k = 0; k < 2; k++) g.add(caja(0.55, 0.42, 0.42, mat(k % 2 ? C.kraft : 0xbf9a62, 0.85), -0.29 + (i % 2) * 0.58, 0.36 + k * 0.43, -0.22 + Math.floor(i / 2) * 0.44, 0.02));
-  else if (tipo === 1) { const fm = new THREE.MeshStandardMaterial({ map: bolsaT, roughness: 0.9 }), pm = mat(0xdcd9c8, 0.9); for (let k = 0; k < 4; k++) for (let i = 0; i < 2; i++) g.add(mesh(rbox(0.5, 0.16, 0.36, 0.07, 3), [pm, pm, fm, pm, pm, pm], -0.27 + i * 0.54, 0.23 + k * 0.16, 0)); }
-  else if (tipo === 2) { const fm = mat(0x7fc46a, 0.25, { transparent: true, opacity: 0.85 }); for (let k = 0; k < 2; k++) g.add(caja(1.1, 0.42, 0.85, fm, 0, 0.36 + k * 0.43, 0, 0.05)); }
-  else { for (let i = 0; i < 6; i++) g.add(caja(0.36, 0.34, 0.4, mat(C.kraft, 0.85), -0.38 + (i % 3) * 0.38, 0.32, -0.2 + Math.floor(i / 3) * 0.42, 0.02)); g.add(caja(1.1, 0.02, 0.8, mat(C.cr, 0.8), 0, 0.5, 0)); }
+  if (tipo === 0) for (let i = 0; i < 4; i++) for (let k = 0; k < 2; k++) g.add(cajaS(0.55, 0.42, 0.42, mat(k % 2 ? C.kraft : 0xbf9a62, 0.85), -0.29 + (i % 2) * 0.58, 0.36 + k * 0.43, -0.22 + Math.floor(i / 2) * 0.44));
+  else if (tipo === 1) { const fm = new THREE.MeshStandardMaterial({ map: bolsaT, roughness: 0.9 }), pm = mat(0xdcd9c8, 0.9); for (let k = 0; k < 4; k++) for (let i = 0; i < 2; i++) g.add(mesh(new THREE.BoxGeometry(0.5, 0.16, 0.36), [pm, pm, fm, pm, pm, pm], -0.27 + i * 0.54, 0.23 + k * 0.16, 0)); }
+  else if (tipo === 2) { const fm = mat(0x7fc46a, 0.25, { transparent: true, opacity: 0.85 }); for (let k = 0; k < 2; k++) g.add(cajaS(1.1, 0.42, 0.85, fm, 0, 0.36 + k * 0.43, 0)); }
+  else { for (let i = 0; i < 6; i++) g.add(cajaS(0.36, 0.34, 0.4, mat(C.kraft, 0.85), -0.38 + (i % 3) * 0.38, 0.32, -0.2 + Math.floor(i / 3) * 0.42)); g.add(cajaS(1.1, 0.02, 0.8, mat(C.cr, 0.8), 0, 0.5, 0)); }
   return g;
 }
 function crearRack(largo, bahias) {
   const g = new THREE.Group();
   const bw = largo / bahias, niveles = [0.0, 1.55, 3.1, 4.65];
   const par = mat(C.navy3, 0.55);
-  for (let i = 0; i <= bahias; i++) for (const z of [-0.5, 0.5]) g.add(caja(0.1, 6.2, 0.1, par, -largo / 2 + i * bw, 3.1, z, 0.01));
-  for (const y of niveles.slice(1)) for (const z of [-0.52, 0.52]) g.add(caja(largo, 0.14, 0.07, M.g, 0, y, z, 0.01));
+  for (let i = 0; i <= bahias; i++) for (const z of [-0.5, 0.5]) g.add(cajaS(0.1, 6.2, 0.1, par, -largo / 2 + i * bw, 3.1, z));
+  for (const y of niveles.slice(1)) for (const z of [-0.52, 0.52]) g.add(cajaS(largo, 0.14, 0.07, M.g, 0, y, z));
   for (let i = 0; i < bahias; i++) for (let n = 0; n < 4; n++) {
     if (az() < 0.1) continue;
     const pg = new THREE.Group(); pg.position.set(-largo / 2 + (i + 0.5) * bw, niveles[n] + (n ? 0.07 : 0), 0); pg.rotation.y = Math.PI / 2;
@@ -186,8 +216,12 @@ const CAMPANAS = [];
     g.add(caja(0.34, 0.12, 0.34, M.navy3, 0, 0.28, 0, 0.04));
     const focoM = new THREE.MeshBasicMaterial({ color: 0xfff1d6, toneMapped: false });
     const foco = new THREE.Mesh(new THREE.CircleGeometry(0.56, 24), focoM); foco.rotation.x = Math.PI / 2; foco.position.y = -0.24; g.add(foco);
-    const luz = new THREE.SpotLight(0xffe9c8, 0, 18, 0.75, 0.55, 1.2); luz.position.set(x, 6.6, z); luz.target.position.set(x, 0, z); DEP.add(luz, luz.target);
-    CAMPANAS.push({ focoM, luz, i });
+    // (ronda 1, rendimiento) sin SpotLight por campana (seis luces por píxel hacían el render 4 veces más lento): el charco
+    // de luz es un disco plano un poco más claro sobre el piso (color plano, sin degradé: no hace bandas en Instagram)
+    const charcoM = new THREE.MeshBasicMaterial({ color: 0x3a4c70, transparent: true, opacity: 1, depthWrite: false });
+    const charco = new THREE.Mesh(new THREE.CircleGeometry(2.3, 40), charcoM); charco.rotation.x = -Math.PI / 2; charco.position.set(x, 0.012, z); charco.renderOrder = 1; DEP.add(charco);
+    const luz = { intensity: 0, visible: true };
+    CAMPANAS.push({ focoM, luz, i, charcoM });
   });
 }
 const depAmb = new THREE.HemisphereLight(0x7f8fb0, 0x1a2234, 0.0); scene.add(depAmb);   // el depósito en penumbra (navy)
@@ -516,6 +550,50 @@ const luzRotF = new THREE.DirectionalLight(0xfff2e0, 0); luzRotF.position.set(RX
 luzRotF.castShadow = true; luzRotF.shadow.mapSize.set(1024, 1024); luzRotF.shadow.bias = -0.0008; Object.assign(luzRotF.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 1, far: 25 });
 const luzCalle = new THREE.HemisphereLight(0xc9d4ec, 0x3a3a40, 0); scene.add(luzCalle);
 
+
+// =====================================================================================================
+// EL TRÍPTICO (parte 2, ronda 1): tres celulares de clientes (cafetería, bar, rotisería) donde el precio cambia a la
+// vez, con la chapita verde "hoy". Todo en materiales planos (sin luces). x = TX.
+// =====================================================================================================
+const TX = -60;
+const TRIP = new THREE.Group(); TRIP.position.x = TX; scene.add(TRIP);
+const CLIENTES = [["Marta", "Cafetería", "#d9d7c9", "#0b1220"], ["Walter", "Bar", "#1f3254", "#efeee5"], ["Graciela", "Rotisería", "#efeee5", "#0b1220"]];
+const pantT = CLIENTES.map(() => lienzo(600, 1200, () => {}));
+const celT = [];
+{
+  const basic = (c) => new THREE.MeshBasicMaterial({ color: c });
+  // (ronda 1) en escalera, grandes: arriba la cafetería, al medio el bar, abajo la rotisería (cada uno delante del de arriba)
+  const fondo = new THREE.Mesh(new THREE.PlaneGeometry(4, 5), basic(C.navy2)); fondo.position.set(0, 1.45, -0.6); TRIP.add(fondo);
+  for (const [x, y, c] of [[-0.62, 2.35, C.navy3], [0.6, 1.2, C.navy3], [-0.5, 0.2, C.edge]]) { const m = new THREE.Mesh(new THREE.CircleGeometry(0.5, 40), basic(c)); m.position.set(x, y, -0.55); TRIP.add(m); }
+  CLIENTES.forEach(([n, l], i) => {
+    const c = crearCelular(pantT[i], [C.navy3, C.g, C.g][i], 0.08, 0.16); c.scale.setScalar(6.2);
+    c.position.set([-0.27, 0.27, -0.2][i], [2.15, 1.42, 0.69][i], i * 0.06); c.rotation.set(0, 0, [0.06, -0.05, 0.04][i]); TRIP.add(c); celT.push(c);
+  });
+}
+const claveT = ["", "", ""];
+function dibujarTrip(t) {
+  const fl = t >= T.flip + 0.1 ? 2 : t >= T.flip ? 1 : 0;
+  CLIENTES.forEach(([n, l], i) => {
+    const clave = String(fl); if (claveT[i] === clave) return; claveT[i] = clave;
+    const { x } = pantT[i].userData, w = 600, h = 1200;
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.textBaseline = "middle"; x.textAlign = "left";
+    x.fillStyle = "#1f3254"; x.fillRect(0, 0, w, 200); avatar(x, [AVATAR.marta, AVATAR.walter, AVATAR.graciela][i], 90, 100, 62);
+    x.fillStyle = "#efeee5"; x.font = F(800, 56); x.fillText(n, 170, 78); x.font = F(700, 40); x.fillStyle = "#b4b2a3"; x.fillText(l, 170, 138);
+    x.fillStyle = "#5ce611"; x.fillRect(0, 200, w, 10);
+    x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText("Precios de hoy", 34, 270);
+    x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(24, 330, w - 48, 520, 34); x.fill();
+    x.fillStyle = "#c9a46b"; x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.beginPath(); x.roundRect(60, 370, 150, 180, 16); x.fill(); x.stroke();
+    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(112, 400, 46, 120, 14); x.fill(); x.stroke();
+    x.fillStyle = "#0b1220"; x.font = F(800, 50); x.fillText("Aceite", 236, 420); x.font = F(700, 40); x.fillText("1,5 L x 12", 236, 482);
+    const p = fl >= 2 ? PRECIO_NUEVO : PRECIO_VIEJO;
+    x.font = F(900, 110);
+    if (fl === 1) { x.save(); x.translate(60, 690); x.scale(1, 0.25); x.fillText(p, 0, 0); x.restore(); } else x.fillText(p, 60, 690);
+    if (fl >= 2) { x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.beginPath(); x.roundRect(60, 760, 170, 72, 36); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.font = F(900, 46); x.textAlign = "center"; x.fillText("hoy", 145, 798); x.textAlign = "left"; }
+    x.fillStyle = "#1f3254"; x.beginPath(); x.roundRect(60, 960, w - 120, 130, 65); x.fill(); x.fillStyle = "#efeee5"; x.font = F(900, 64); x.textAlign = "center"; x.fillText("Pedir", w / 2, 1027);
+    pantT[i].needsUpdate = true;
+  });
+}
+
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
@@ -550,6 +628,7 @@ const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.moren
   operario.cabeza.add(mesh(new THREE.SphereGeometry(R0 * 1.05, 28, 14, 0, Math.PI * 2, 0, Math.PI * 0.4), gm, 0, CC0 + 0.01, -0.01));
   const vis = mesh(new THREE.CylinderGeometry(R0 * 0.75, R0 * 0.75, 0.025, 24, 1, false, -Math.PI * 0.45, Math.PI * 0.9), vm, 0, CC0 + R0 * 0.56, R0 * 0.52); vis.scale.set(1.1, 1, 0.85); vis.rotation.x = -0.15; operario.cabeza.add(vis);
 }
+fusionar(DEP); fusionar(AFUERA); fusionar(OF, [monitor, telefono, celR, mate, termo, taza, lampara, ...CINTAS, CINTA_T, COLA]); fusionar(ROT, [persiana, ...spiedoBarras]); fusionar(CALLE);
 const TODOS = [ruben, graciela, operario];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // la zorra (transpaleta) del operario, con un pallet de cajas
@@ -663,7 +742,7 @@ function dibujarMonitor(t) {
     // los pedidos de hoy que entran solos
     x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 96); x.fillStyle = "#5ce611"; x.fillRect(0, 96, w, 8);
     x.fillStyle = "#efeee5"; x.font = F(800, 50); x.fillText("Pedidos de hoy", 36, 50);
-    [["Graciela", "6 aceite"], ["Marta", "azúcar"], ["Walter", "agua"]].forEach(([n, p], i) => {
+    [["Graciela", "aceite x 6"], ["Marta", "azúcar x 10"], ["Walter", "agua x 20"]].forEach(([n, p], i) => {
       if (i >= ped) return;
       const y = 140 + i * 160;
       x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(30, y, w - 60, 136, 26); x.fill();
@@ -728,7 +807,7 @@ function dibujarCelG(t) {
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.textBaseline = "middle"; x.textAlign = "left";
   if (modo === "llamada") {
     avatar(x, AVATAR.ruben, w / 2, 460, 210); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(800, 92); x.fillText("Rubén", w / 2, 790);
-    x.font = F(700, 56); x.fillStyle = "#b4b2a3"; x.fillText("Distribuidora · 00:04", w / 2, 880);
+    x.font = F(700, 56); x.fillStyle = "#b4b2a3"; x.fillText("en llamada · 0:04", w / 2, 880);
     x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 1300, 100, 0, 7); x.fill(); tubo(x, w / 2, 1300, 66, "#c7655b");
   } else if (modo === "chat") {
     x.fillStyle = "#1f3254"; x.fillRect(0, 0, w, 210); avatar(x, AVATAR.ruben, 100, 110, 66); x.fillStyle = "#efeee5"; x.font = F(800, 58); x.fillText("Rubén · Distribuidora", 190, 112);
@@ -741,12 +820,14 @@ function dibujarCelG(t) {
       hojita(x, 62, y + 66, 76);
       x.fillStyle = "#0b1220"; x.font = MONO(38); let s = 38; while (x.measureText(n).width > w - 140 && s > 24) { s -= 1; x.font = MONO(s); }
       x.fillText(n, 110, y + 66);
-      x.font = F(700, 34); x.fillStyle = "#1f3254"; x.fillText(["lun", "lun", "mar", "mar", "mié", "jue", "hoy"][i] + " · ✓✓", 110, y + 132);
+      x.font = F(700, 34); x.fillStyle = "#1f3254"; x.fillText(["19:02", "19:40", "20:15", "21:03", "21:57", "22:31", "23:48"][i] + " · ✓✓", 110, y + 132);
     });
   } else {
     // la tienda mayorista: "Distribuidora · Precios de hoy", cuatro productos con su precio, + / contador, Pedir
     x.fillStyle = "#1f3254"; x.fillRect(0, 0, w, 220); x.fillStyle = "#5ce611"; x.fillRect(0, 220, w, 10);
     x.fillStyle = "#efeee5"; x.font = F(800, 58); x.fillText("Distribuidora", 44, 82); x.font = F(700, 50); x.fillStyle = "#5ce611"; x.fillText("Precios de hoy", 44, 162);
+    // (ronda 1) callback de "Tengo siete": una sola lista, la de hoy
+    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(w - 330, 120, 300, 76, 38); x.fill(); x.fillStyle = "#0b1220"; x.font = F(800, 34); x.textAlign = "center"; x.fillText("1 lista · la de hoy", w - 180, 160); x.textAlign = "left";
     const prods = [["Aceite 1,5 L x 12", fl >= 2 ? PRECIO_NUEVO : PRECIO_VIEJO], ["Harina 000 25 kg", "$ 1.020"], ["Azúcar 1 kg x 10", "$ 495"], ["Agua 2 L x 6", "$ 310"]];
     prods.forEach(([n, p], i) => {
       const y = 260 + i * 250;
@@ -756,8 +837,9 @@ function dibujarCelG(t) {
       if (i === 0) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(100, y + 60, 46, 110, 14); x.fill(); x.stroke(); }
       x.fillStyle = "#0b1220"; x.font = F(800, 46); x.fillText(n, 222, y + 72);
       const flip = i === 0 && fl === 1;
-      x.font = F(900, 60); x.fillStyle = i === 0 && fl >= 2 ? "#3fa60a" : "#0b1220";
+      x.font = F(900, 60); x.fillStyle = "#0b1220";
       if (!flip) x.fillText(p, 222, y + 160); else { x.save(); x.translate(222, y + 160); x.scale(1, 0.3); x.fillText(p, 0, 0); x.restore(); }
+      if (i === 0 && fl >= 2) { const pw = x.measureText(p).width; x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(232 + pw, y + 132, 92, 56, 28); x.fill(); x.fillStyle = "#0b1220"; x.font = F(800, 36); x.fillText("hoy", 247 + pw, y + 161); }
       if (i === 0) {
         x.fillStyle = "#5ce611"; x.beginPath(); x.arc(w - 100, y + 160, 50, 0, 7); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 70); x.textAlign = "center"; x.fillText("+", w - 100, y + 162);
         if (mas) { x.font = F(900, 66); x.fillText(String(mas === 3 ? 6 : mas * 2), w - 200, y + 160); }
@@ -852,7 +934,7 @@ function enPantalla(v) { _v.copy(v).project(camera); return [(_v.x + 1) * 540, (
 const bocaPx = (per) => { per.raiz.updateMatrixWorld(true); return enPantalla(per.cabeza.localToWorld(V3(0, 0.181, 0.3))); };
 const CAB = { gra: { cv: AVATAR.graciela, nombre: "Graciela · Rotisería" }, prov: { cv: null, nombre: "Proveedor" }, marta: { cv: AVATAR.marta, nombre: "Marta · Cafetería" }, walter: { cv: AVATAR.walter, nombre: "Walter · Bar" }, nico: { cv: AVATAR.nico, nombre: "Nico · Ventas" } };
 const GL = {
-  g1: crearGlobo(["¿Me pasás la", "[lista]", "actualizada?"], 100, { cab: CAB.gra }),
+  g1: crearGlobo(["¿Me pasás la", "[lista]", "actualizada?"], 112, { cab: CAB.gra }),
   p1: crearGlobo(["Rubén, subió", "el [aceite.]"], 80, { cab: CAB.prov }),
   marta: crearGlobo(["¿Me pasás la lista?"], 58, { cab: CAB.marta }),
   azucar: crearGlobo(["Bajó el azúcar."], 58, { cab: CAB.prov }),
@@ -860,23 +942,24 @@ const GL = {
   dolar: crearGlobo(["Cambió el dólar."], 58, { cab: CAB.prov }),
   nico: crearGlobo(["¿La lista para", "el cliente nuevo?"], 58, { cab: CAB.nico }),
   g2: crearGlobo(["Rubén, ¿el aceite", "a cuánto está?"], 76),
-  r1: crearGlobo(["Está en la [lista.]"], 84),
-  g3: crearGlobo(["¿En cuál?", "Tengo [siete.]"], 92),
+  r1: crearGlobo(["Está en la lista.", "[La última.]"], 84),
+  g3: crearGlobo(["¿Cuál es la última?", "Tengo [siete.]"], 82),
   p2: crearGlobo(["Rubén, subió", "el [aceite.]"], 80, { cab: CAB.prov }),
   r2: crearGlobo(["[Ocho.]"], 130),
   g4: crearGlobo(["Dale. ¿Me la", "mandás en [PDF?]"], 86, { cab: CAB.gra }),
   p3: crearGlobo(["Rubén, subió", "el [aceite.]"], 80, { cab: CAB.prov }),
   r3: crearGlobo(["¿Algo más?"], 96),
+  r4: crearGlobo(["Claro. En [PDF]", "no se mueve."], 92),
 };
 
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un plano,
 // Catmull-Rom continua. Los de la parte 2 repiten el encuadre de su par de la parte 1 (P1 → Q1).
-const CAM_P1 = (k) => [lerp(0.02, -0.04, k), lerp(5.3, 5.15, k), lerp(4.2, 3.8, k), lerp(-0.06, -0.12, k), lerp(4.5, 4.4, k), lerp(1.15, 1.3, k), 46];
+const CAM_P1 = (k) => [lerp(0.02, -0.06, k), lerp(5.25, 5.0, k), lerp(4.0, 3.45, k), lerp(-0.06, -0.12, k), lerp(4.45, 4.3, k), lerp(1.2, 1.35, k), 46];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   // P2: la cámara baja a la derecha, al teléfono de escritorio en primer término, Rubén detrás
-  ["P2", T.p2, [[T.p2, 0.22, 5.1, 3.5, 0.32, 4.2, 1.4, 44], [T.p2b, 0.28, 5.0, 3.15, 0.36, 4.15, 1.42, 42]]],
+  ["P2", T.p2, [[T.p2, 0.05, 4.95, 3.35, 0.18, 4.25, 1.3, 44], [T.p2b, 0.12, 4.88, 3.05, 0.22, 4.2, 1.35, 42]]],
   ["P2b", T.p2b, null],                     // inserto del monitor (se arma en renderAt)
   // P3: la ráfaga: de frente, la cámara sube como grúa y se corre a la izquierda (al final el escritorio entero desde
   // arriba, la cinta larga, Rubén y el depósito que se apaga atrás)
@@ -889,15 +972,15 @@ const PLANOS = [
   // P7: la pausa: desde la izquierda y abajo (la cinta larga cruzando, el teléfono a la derecha, la taza), push-in lento
   ["P7", T.p7, [[T.p7, 0.72, 4.85, 3.75, 0.15, 4.3, 1.3, 46], [T.p8, 0.62, 4.8, 3.45, 0.15, 4.3, 1.3, 46]]],
   // P8: de frente, más abierto (Rubén y el borde derecho del escritorio); se acerca cuando mira a cámara
-  ["P8", T.p8, [[T.p8, 0.5, 4.76, 4.35, 0.44, 4.18, 1.3, 50], [T.mira[0], 0.47, 4.74, 4.15, 0.42, 4.2, 1.3, 50], [T.v[8] + 0.05, 0.5, 4.7, 4.15, 0.46, 4.12, 1.3, 50], [T.v[8] + 0.5, 1.15, 4.6, 3.85, 0.5, 4.0, 1.5, 50], [P1, 1.2, 4.58, 3.8, 0.5, 3.98, 1.5, 50]]],
+  ["P8", T.p8, [[T.p8, 0.5, 4.76, 4.35, 0.44, 4.18, 1.3, 50], [T.mira[0], 0.42, 4.72, 4.0, 0.3, 4.25, 1.2, 48], [T.tecla, 0.36, 4.7, 3.7, 0.22, 4.28, 1.15, 46], [T.v[8] + 0.12, 0.42, 4.68, 3.75, 0.32, 4.15, 1.3, 46], [T.v[8] + 0.5, 1.0, 4.42, 3.25, 0.62, 3.98, 1.65, 46], [P1, 1.02, 4.4, 3.15, 0.64, 3.96, 1.65, 46]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...CAM_P1(0)], [T.q1b, ...CAM_P1(0.9)]]],
   ["Q1b", T.q1b, null],                     // inserto del panel
   ["Q1c", T.q1c, [[T.q1c, 0.5, 4.85, 3.5, 0.02, 4.3, 1.0, 42], [T.q2, 0.47, 4.82, 3.35, 0.02, 4.3, 1.0, 41]]],
-  ["Q2", T.q2, null],                       // el viaje de la etiqueta por el depósito
-  ["Q2b", T.q2b, null],                     // la calle y la rotisería
+  // Q2 (ronda 1): el tríptico de los tres celulares de clientes, push-in corto
+  ["Q2", T.q2, [[T.q2, TX, 1.45, 3.75, TX, 1.42, 0, 40], [T.q2c, TX, 1.43, 3.55, TX, 1.42, 0, 40]]],
   ["Q2c", T.q2c, null],                     // inserto del celular de Graciela
-  ["Q3", T.q3, [[T.q3, 0.75, 4.55, 3.2, -0.2, 4.25, 1.2, 46], [DUR, 0.6, 4.5, 2.9, -0.2, 4.25, 1.2, 44]]],
+  ["Q3", T.q3, [[T.q3, 0.75, 4.6, 3.35, -0.2, 4.2, 1.2, 46], [DUR, 0.62, 4.55, 3.05, -0.2, 4.2, 1.2, 44]]],
 ];
 const CAMDBG = VER.startsWith("cam:") ? VER.slice(4).split(",").map(Number) : null;   // depuración: VER=cam:px,py,pz,mx,my,mz,fov
 const _m = new THREE.Vector3();
@@ -1007,10 +1090,10 @@ function poseRuben(t) {
         const g = Math.atan2(d.x, d.z) - ruben.raiz.rotation.y, a = -Math.atan2(d.y - 0.1, Math.hypot(d.x, d.z));
         pr.cabeza = { giro: lerp(pr.cabeza.giro, g, m), asiente: lerp(pr.cabeza.asiente, a, m), ladea: lerp(-0.03, 0, m) };
         pr.ojos = { x: lerp(-0.6, 0, m), y: lerp(-0.05, 0.05, m), abiertos: 0.95, tension: 0.15 };
-        Object.assign(pr, { cejas: { alto: 0.05, ang: 0.0 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.95 } });
+        Object.assign(pr, { cejas: { alto: 0.05, ang: 0.0, asim: t >= T.r4 + 0.5 ? 0.6 : 0 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.95 } });
       }
     }
-    bocaVoz(pr, t, T.r1, ENV.r1, 0.6); bocaVoz(pr, t, T.r2, ENV.r2, 0.6);
+    bocaVoz(pr, t, T.r1, ENV.r1, 0.6); bocaVoz(pr, t, T.r2, ENV.r2, 0.6); bocaVoz(pr, t, T.r4, ENV.r4, 0.6);
     return pr;
   }
   // ---- parte 2: sin anteojos, el mate en la mano izquierda; tranquilo ----
@@ -1064,7 +1147,7 @@ function ponerLuces(t, lugar) {
   luzMon.intensity = enOf ? (parte2 ? 0.6 : 1.4) : 0;
   relleno.intensity = enOf ? (parte2 ? 1.5 : 0.75) : lugar === "dep" ? 0.4 : 0;
   rim.intensity = enOf ? (parte2 ? 0.7 : 0.55) : 0;
-  ambOf.intensity = enOf ? (parte2 ? 0.9 : 0.45) : 0;
+  ambOf.intensity = enOf ? (parte2 ? 1.5 : 0.95) : 0;
   // el depósito: de noche las campanas se apagan de a una (cada una deja su pasillo en navy plano); 18:30 todas prendidas
   let prendidas = 0;
   CAMPANAS.forEach((c) => {
@@ -1072,28 +1155,35 @@ function ponerLuces(t, lugar) {
     const k = off ? 1 - sg(t, T.campanas[c.i], T.campanas[c.i] + 0.1) : 1;
     c.luz.intensity = (enOf || lugar === "dep") ? (parte2 ? 60 : 38) * k : 0;
     c.focoM.color.setHex(k > 0.5 ? 0xfff1d6 : 0x4a5468);
+    c.charcoM.opacity = k; c.charcoM.color.setHex(parte2 ? 0xd9d5c4 : 0x3e5278);
     prendidas += k;
   });
-  depAmb.intensity = (enOf || lugar === "dep") ? (parte2 ? 2.4 : 0.35 + 0.25 * prendidas / 6) : 0;
+  depAmb.intensity = (enOf || lugar === "dep") ? (parte2 ? 3.2 : 0.45 + 0.75 * prendidas / 6) : 0;
   MAT_PISO.color.setHex(parte2 ? 0xbdb9aa : 0x2a3a56); MAT_PARED.color.setHex(parte2 ? 0x34507a : 0x1f3254);
   cieloPorton.color.setHex(parte2 ? 0x2c4268 : 0x0b1220);
   // la rotisería: de noche un tubo y poca luz; a la tarde abierta (el sol bajo por la vidriera) y la calle
   const enRot = lugar === "rot" || lugar === "calle";
   luzTubo.intensity = enRot ? (parte2 ? 3 : 4.5) : 0;
   luzRotF.intensity = enRot ? (parte2 ? (lugar === "calle" ? 2.6 : 1.7) : 0.7) : 0;
-  luzCalle.intensity = enRot ? (parte2 ? (lugar === "calle" ? 2.2 : 1.25) : 0.55) : 0;
-  scene.environmentIntensity = enOf ? 0.3 : enRot ? 0.4 : 0.25;
+  luzCalle.intensity = enRot ? (parte2 ? (lugar === "calle" ? 2.8 : 1.8) : 1.0) : 0;
+  // (ronda 1, rendimiento) cada luz encendida cuesta en cada píxel: solo existen las del lugar
+  const enDep = enOf || lugar === "dep";
+  for (const l of [luzLamp, luzMon, relleno, rim, ambOf]) l.visible = enOf;
+  CAMPANAS.forEach((c) => (c.luz.visible = enDep)); depAmb.visible = enDep;
+  for (const l of [luzTubo, luzRotF, luzCalle]) l.visible = enRot;
 }
 function renderAt(tIn) {
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
   const parte2 = t >= P2;
   const pl = planoEn(t); planoActual = pl[0];
   if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }   // (antes de las poses: la mirada a cámara de P8)
-  const lugar = ["P4b", "P6", "P6b", "Q2c"].includes(planoActual) ? "rot" : planoActual === "Q2b" ? "calle" : planoActual === "Q2" ? "dep" : "of";
+  const lugar = ["P4b", "P6", "P6b", "Q2c"].includes(planoActual) ? "rot" : planoActual === "Q2" ? "trip" : "of";
   ponerLuces(t, lugar);
   scene.background = parte2 ? TARDE : NOCHE;
   const enRot = lugar === "rot" || lugar === "calle";
-  DEP.visible = OF.visible = AFUERA.visible = !enRot; ROT.visible = CALLE.visible = enRot;
+  const enTrip = lugar === "trip";
+  DEP.visible = OF.visible = AFUERA.visible = !enRot && !enTrip; ROT.visible = CALLE.visible = enRot; TRIP.visible = enTrip;
+  if (parte2) dibujarTrip(t);
   // ---- objetos ----
   for (const [i, b] of spiedoBarras.entries()) b.rotation.x = parte2 ? t * 1.6 + i * 0.9 : i * 0.9;
   pollos.forEach((p) => (p.visible = parte2));
@@ -1134,7 +1224,7 @@ function renderAt(tIn) {
   // Rubén
   const inserto = ["P2b", "Q1b"].includes(planoActual);
   monitor.visible = !(planoActual === "P5" && t < T.p5 + 0.3);   // la salida por el celular de Rubén arranca donde está el monitor
-  ruben.raiz.visible = !enRot && !inserto; lampara.visible = !inserto;
+  ruben.raiz.visible = !enRot && !enTrip && !inserto; lampara.visible = !inserto;
   if (ruben.anteojos) ruben.anteojos.visible = !parte2;
   let pr = poseRuben(t);
   ruben.poner(pr);
@@ -1215,44 +1305,14 @@ function renderAt(tIn) {
   }
   celG.visible = enRot;
   // el operario con la zorra (parte 2, por el pasillo del depósito, se ve por el vidrio)
-  const opVis = parte2 && !enRot && t < T.q2b;
+  const opVis = parte2 && !enRot && !enTrip && t < T.q2;
   operario.raiz.visible = opVis; zorra.visible = opVis;
   if (opVis) {
     const zz = lerp(-14, -3.5, sg(t, P2 - 0.5, T.q2));
     operario.poner({ x: 0.3, z: zz - 1.3, giro: 0, paso: 1, inclina: 0.08, ...aC(0, 0.05), ...CARA.concentrada, manoI: [0.15, 0.25, 0.45], manoD: [-0.15, 0.25, 0.45], codoI: null, codoD: null, t });
     zorra.position.set(0.3, 0, zz - 0.4); zorra.rotation.y = Math.PI;
   }
-  // ---- la etiqueta de precio (parte 2): sale del monitor, viaja por el depósito, la calle y entra al celular ----
-  etiqueta.visible = false; estela.visible = false;
-  if (parte2 && t >= T.q2 - 0.05 && t < T.q2c + 0.15) {
-    etiqueta.visible = true;
-    let p, ry = 0, rz = 0, s = 1;
-    if (t < T.q2b) {
-      // el monitor → la hoja abierta del vidrio → baja por el pasillo del medio → el portón
-      monitor.updateMatrixWorld(true);
-      const c0 = monitor.localToWorld(V3(0, 0.72, 0.12));
-      const K = [c0, V3(0.6, 4.75, 1.0), V3(2.5, 4.6, 0.25), V3(2.3, 3.6, -2.0), V3(0.4, 2.4, -7), V3(0, 2.2, -14), V3(0, 2.3, -22.5)];
-      const curva = new THREE.CatmullRomCurve3(K);
-      const u = eio(sg(t, T.q2 - 0.05, T.q2b));
-      p = curva.getPointAt(Math.min(0.999, u));
-      const tg = curva.getTangentAt(Math.min(0.999, u));
-      ry = Math.atan2(tg.x, tg.z) + Math.PI; rz = Math.sin(u * 14) * 0.12;
-      s = 0.35 + 0.65 * eo(sg(t, T.q2 - 0.05, T.q2 + 0.25));
-    } else {
-      // la vereda → la puerta de la rotisería → el celular de Graciela
-      celG.updateMatrixWorld(true);
-      const cg = celG.localToWorld(V3(0, 0, 0.05));
-      const K = [V3(RX - 6, 2.3, 3.0), V3(RX - 2.5, 2.0, 2.2), V3(RX + 0.15, 1.7, 1.0), V3(RX + 0.2, 1.55, -1.5), cg];
-      const curva = new THREE.CatmullRomCurve3(K);
-      const u = eio(sg(t, T.q2b, T.q2c - 0.05));
-      p = curva.getPointAt(Math.min(0.999, u));
-      const tg = curva.getTangentAt(Math.min(0.999, u));
-      ry = Math.atan2(tg.x, tg.z) + Math.PI; rz = Math.sin(u * 12) * 0.1;
-      s = lerp(1, 0.12, ei(sg(u, 0.7, 1)));
-      if (t >= T.q2c) etiqueta.visible = false;
-    }
-    etiqueta.position.copy(p); etiqueta.rotation.set(0, ry, rz); etiqueta.scale.setScalar(s * 0.75);
-  }
+  etiqueta.visible = false; estela.visible = false;   // (ronda 1) sin el viaje de la etiqueta (era el mecanismo de ya-lo-cargo)
   // ---- cámara ----
   if (pl[2]) { /* ya está */ }
   else if (planoActual === "P2b" || planoActual === "Q1b") {
@@ -1293,26 +1353,17 @@ function renderAt(tIn) {
     const mira = c.clone().lerp(cara.clone().add(V3(0, -0.12, 0)), eo(u));
     ponerCam([p.x, p.y, p.z, mira.x, mira.y, mira.z, lerp(44, 40, u)], t, u < 1);
   } else if (planoActual === "P6") {
-    // contraplano a Graciela (desde su derecha, la persiana atrás) y push-in a su celular
+    // contraplano: de frente a la izquierda (ronda 1: por encima del hombro solo se veía el pelo)
     const u = eio(sg(t, T.p6, T.chat));
-    graciela.raiz.updateMatrixWorld(true);
-    const cara = graciela.cabeza.localToWorld(V3(0, 0.15, 0.1));
+    celG.updateMatrixWorld(true); const c = celG.getWorldPosition(_a).clone();
+    graciela.raiz.updateMatrixWorld(true); const cara = graciela.cabeza.localToWorld(V3(0, 0.15, 0.1));
     ponerCam([RX + lerp(-0.45, -0.3, u), lerp(1.95, 1.9, u), lerp(-0.2, -0.45, u), cara.x + 0.05, cara.y - lerp(0.35, 0.42, u), cara.z, lerp(44, 40, u)], t);
   } else if (planoActual === "P6b" || planoActual === "Q2c") {
     // inserto del celular de Graciela (llena ~90 % del alto)
     camPantalla(celG, V3(0, 0, 0), V3(0, 0, 1), 0.16 * 1.5, 0.9, 30, t);
-  } else if (planoActual === "Q2") {
-    // el depósito a las 18:30, desde el pasillo del medio: la etiqueta sale por la ventana de la oficina y baja hacia la
-    // cámara; la cámara retrocede hacia el portón siguiéndola
-    const p = etiqueta.position.clone(), u = eio(sg(t, T.q2, T.q2b));
-    ponerCam([p.x + lerp(0.7, 0.7, u), p.y + lerp(0.15, 0.55, u), p.z + lerp(1.1, 2.3, u), p.x, p.y - 0.1, p.z, 54], t, true);
-  } else if (planoActual === "Q2b") {
-    // la calle al atardecer: la etiqueta pasa por la vereda y entra por la puerta de la rotisería
-    const p = etiqueta.position.clone(), u = eio(sg(t, T.q2b, T.q2c));
-    ponerCam([RX + lerp(-1.6, 0.15, u), lerp(2.6, 1.8, u), lerp(7.5, 1.0, u), p.x, p.y - 0.1, p.z, lerp(56, 50, u)], t, true);
   }
   if (CAMDBG) ponerCam(CAMDBG, t, true);
-  if (etiqueta.visible && (planoActual === "Q2" || planoActual === "Q2b")) { camera.updateMatrixWorld(true); etiqueta.lookAt(camera.position); etiqueta.rotateZ(Math.sin(t * 9) * 0.1); }
+
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
 
@@ -1333,10 +1384,11 @@ function renderAt(tIn) {
     }
     if (pa === "P4b" && t >= T.g2) { const [bx, by] = bocaPx(graciela); ponerGlobo(GL.g2, 540, Math.max(330, by - 520), ent(T.g2), [bx, by - 40]); }
     if (pa === "P5" && t >= T.r1) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1, 540, Math.max(250, by - 620), ent(T.r1), [bx, by - 40]); }
-    if (pa === "P6" && t >= T.g3) { const [bx, by] = bocaPx(graciela); ponerGlobo(GL.g3, 540, 330, ent(T.g3), [bx, by - 40]); }
+    if (pa === "P6" && t >= T.g3) { const [bx, by] = bocaPx(graciela); ponerGlobo(GL.g3, 540, 300, ent(T.g3), [Math.min(bx, 900), by]); }
     if (pa === "P7" && t >= T.p2v - 0.05) ponerGlobo(GL.p2, 640, 360, ent(T.p2v) * sale(T.r2), px(telefono, V3(0, 0.12, 0)));
     if (pa === "P7" && t >= T.r2) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r2, 540, Math.max(300, by - 600), ent(T.r2), [bx, by - 40]); }
-    if (pa === "P8" && t >= T.g4) ponerGlobo(GL.g4, 540, 330, ent(T.g4) * sale(T.mira[1] + 0.15), px(celR));
+    if (pa === "P8" && t >= T.g4) ponerGlobo(GL.g4, 540, 330, ent(T.g4) * sale(T.r4 - 0.02), px(celR));
+    if (pa === "P8" && t >= T.r4) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r4, 540, Math.max(300, by - 560), ent(T.r4) * sale(T.tecla + 0.25), [bx, by - 40]); }
     if (pa === "Q1" && t >= T.p1b - 0.05) ponerGlobo(GL.p3, 540, 400, ent(T.p1b) * sale(T.q1b), px(telefono, V3(0, 0.12, 0)));
     if (pa === "Q1c" && t >= T.r3) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r3, 540, Math.max(330, by - 460), ent(T.r3), [bx, by - 40]); }
   }
@@ -1347,4 +1399,27 @@ function renderAt(tIn) {
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
 renderAt(window.__hfThreeTime || 0);
+if (VER === "perf2") {
+  const px = new Uint8Array(4), gl = renderer.getContext();
+  const med = (f) => { renderAt(17.3); f && f(); renderer.render(scene, camera); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); const a = performance.now(); for (let i = 0; i < 3; i++) { renderAt(17.3); f && f(); renderer.render(scene, camera); } gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); return Math.round((performance.now() - a) / 6); };
+  const r = [];
+  r.push(["base", med()]);
+  r.push(["sinDEP", med(() => { DEP.visible = false; })]);
+  r.push(["sinRuben", med(() => { ruben.raiz.visible = false; })]);
+  r.push(["sinOF", med(() => { OF.visible = false; })]);
+  r.push(["sinEnv", med(() => { scene.environment = null; })]);
+  const env = entorno(); scene.environment = env;
+  renderer.shadowMap.enabled = false; scene.traverse((o) => { if (o.material) [].concat(o.material).forEach((m) => (m.needsUpdate = true)); });
+  r.push(["sinSombra", med()]);
+  const d = document.createElement("div"); d.style.cssText = "position:absolute;left:20px;top:20px;z-index:99;font:700 34px monospace;color:#fff;background:#000;padding:10px;white-space:pre";
+  d.textContent = r.map(([a, b]) => a + " " + b).join("\n"); document.body.appendChild(d);
+}
+if (VER === "perf") {
+  // depuración: tiempo medio de renderAt (con readPixels para esperar a la GPU) en 20 tiempos repartidos
+  const px = new Uint8Array(4), gl = renderer.getContext(); const ts = Array.from({ length: 8 }, (_, i) => (i * DUR) / 8 + 0.13);
+  for (const t of ts) { renderAt(t); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); }
+  const r = []; for (const t of ts) { const a = performance.now(); renderAt(t); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); r.push([t, performance.now() - a]); }
+  const d = document.createElement("div"); d.style.cssText = "position:absolute;left:20px;top:20px;z-index:99;font:700 34px monospace;color:#fff;background:#000;padding:10px;white-space:pre";
+  d.textContent = "media " + Math.round(r.reduce((a, b) => a + b[1], 0) / r.length) + " ms\n" + r.map(([t, m]) => t.toFixed(1) + " s: " + Math.round(m)).join("\n"); document.body.appendChild(d);
+}
 if (window.__tresListo) window.__tresListo();

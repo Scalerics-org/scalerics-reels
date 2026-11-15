@@ -108,3 +108,50 @@ snapshot ~2 s por cuadro con el candado libre (69 cuadros ~3 min); con el otro c
 - Rubén "mira a cámara" calculado al lente: confirmar ojos y anteojos cuadro por cuadro en 19,9-20,6.
 - "Ocho." (r2) no lo pude escuchar: confirmar que no suene a pregunta.
 - La cinta en P1/P8 (planos abiertos) tiene letra de ~30-35 px; en P3 final, P7 y el chat, 40-48 px.
+
+## Ronda 1 (15-11) · rendimiento, guion nuevo, tríptico
+**Duración 34,65 s** (parte 1 0-25,15 · cartel 25,15-27,95, 2,8 s · parte 2 27,95-34,65; línea chica desde 33,15). Las
+tablas de arriba quedan viejas en segundos: los beats valen los de `assets/tiempos3d.js` (los imprime `node gen.mjs`).
+
+### Rendimiento (el render pasaba los 60 min)
+Medido dentro de la página (`VER=perf`: tiempo medio de `renderAt` + readPixels en 8 tiempos repartidos; snapshot con
+`--timeout 400000`): **2.949 ms → 852 ms por cuadro** (oficina: 5,3 s → 0,97 s). Estimado de render con `--workers 2`:
+~12-15 min. Qué pesaba (`VER=perf2` desglosa en 17,3 s): el entorno PMREM (~2 s por cuadro), el depósito (miles de
+mallas, 1,2 s), las sombras PCFSoft (0,7 s), seis SpotLight de las campanas y el vidrio con MeshPhysical.
+- `scene.environment = null` (lo reemplazan las hemisféricas, un poco más altas).
+- Las campanas sin SpotLight: el charco de luz es un disco plano un poco más claro en el piso (se apaga con la campana).
+- `fusionar()`: la geometría estática de cada lugar (depósito, oficina, rotisería, calle) en una malla por material
+  (de miles de draw calls a decenas). Racks y pallets con BoxGeometry sin redondeo.
+- Solo existen las luces del lugar del plano (`visible`), PCFShadowMap en vez de PCFSoft, vidrio MeshBasic.
+
+### Guion y voces (decisión del coordinador)
+- r1 "Está en la lista. La última." · g3 "¿Cuál es la última? Tengo siete." · r4 nueva "Claro. En PDF no se mueve."
+  (Algenib, mirando a cámara; la tecla y la cinta .pdf después). "Ocho." (07-ruben-a): f0 155 → 129 → 103 → ~90 Hz,
+  cae: afirmativo. Tomas y STT en partes/voces.md.
+- Pausas: 0,4 s antes del teléfono en P7; 0,72 s entre "…subió el aceite." y "Ocho." (Rubén quieto, mirando el monitor).
+- Ráfaga ~3,3 s que acelera (0,6 / 0,53 / 0,48 / 0,41 s entre burbujas, y 0,3 / 0,25 entre las últimas versiones).
+- Inserto del chat 1,3 s; horas de esa noche (19:02 … 23:48 · ✓✓).
+- La mirada a cámara arranca 0,1 s después del "¿PDF?"; P8 termina con la cámara que baja a la cinta .pdf que cuelga.
+- Parte 2: sin el viaje de la etiqueta (era el mecanismo de ya-lo-cargo). En su lugar el tríptico: los celulares de
+  Marta (cafetería), Walter (bar) y Graciela (rotisería) en escalera, el precio se da vuelta a la vez ($ 1.190 → $ 1.240
+  navy con chapita verde "hoy"); después el inserto de Graciela con el chip "1 lista · la de hoy", aceite x 6, Pedido ✓.
+- "aceite x 6" (y "azúcar x 10", "agua x 20"); la llamada de Graciela dice "en llamada · 0:04"; gancho a 112 px.
+- Línea chica: "Tienda online mayorista: / el precio de hoy, / sin mandar listas" + "scalerics.com" (58 px).
+- descripcion.txt: "La armamos nosotros, a la medida de tu distribuidora."
+- Q3 más corto: mira el celular, lo toca, lo deja boca abajo, mate (sin la búsqueda de señal larga).
+
+### Lo flojo de la entrega anterior
+- P2: cámara más al centro; Rubén centrado y grande, el teléfono a la derecha (la lámpara ya no tapa la cara).
+- Cinta en P1 y P8: P1 termina más cerca (3,45 m) y P8 cierra a ~1,6 m de la cinta .pdf (letra ~60 px).
+- Mirada a cámara: ojos abiertos y de frente, anteojos en la punta de la nariz sin atravesarla (revisado 22,3-23,8).
+- Persiana: intenté un contraplano por encima del hombro de Graciela para verla: solo se veía su pelo; volví al
+  contraplano de frente. La persiana sigue sin verse (el "cerrando" lo dan el spiedo vacío y apagado y la luz de tubo).
+
+### Pasadas (ronda 1)
+- r1a (cada 0,5 s desde 0): el contraplano por encima del hombro (P6) era solo pelo → de frente; el tríptico tenía los
+  celulares chicos entre paredes vacías → en escalera, más grandes, fondo navy con círculos planos.
+- Cortes ±0,04 s (32 cuadros, r1c): sin cuadros negros ni lisos; P5 arranca en la pantalla "en llamada" entera.
+- r1d (cada 0,5 s desde 0,25): sin cambios nuevos.
+- Mezcla: -14,0 LUFS, voz ≥ +7,5 LU sobre el resto en todos los tramos con voz. `check --json`: 0 errores.
+- Portada: fondo limpio `portada-src/fondo-limpio-7.75.png` (la cinta v7 y Rubén agarrando el termo), alternativa
+  `portada-src/fondo-limpio-24.8.png` (la cinta .pdf colgando).

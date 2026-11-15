@@ -18,62 +18,61 @@ const r2 = (n) => Math.round(n * 100) / 100;
 // Voces (assets/voice, ver partes/voces.md): g1 2,07 ("Rubén," 0 · "¿me pasás la lista actualizada?" +0,3) · p1 1,48 ·
 // g2 2,14 · r1 1,10 ("Está" +0,02) · g3 1,37 ("Tengo siete." +0,6) · p2 1,76 · r2 0,48 · g4 1,87 ("Dale." 0 ·
 // "¿Me la mandás" +0,3 · "pe de efe" +1,2) · narrador 2,81 · r3 0,66
-const LEN = { g1: 2.07, p1: 1.48, g2: 2.14, r1: 1.1, g3: 1.37, p2: 1.76, r2: 0.48, g4: 1.87, nar: 2.81, r3: 0.66 };
+const LEN = { g1: 2.07, p1: 1.48, g2: 2.14, r1: 1.92, g3: 1.85, p2: 1.76, r2: 0.48, g4: 1.87, r4: 2.15, nar: 2.81, r3: 0.66 };
 const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: la oficina de noche. Graciela (audio de chat): "Rubén, ¿me pasás la lista actualizada?" · Rubén
 // arrastra el archivo con el mouse · ✓✓
 T.g1 = 0.2; T.arrastra = [1.55, 2.15]; T.envia1 = r2(T.g1 + LEN.g1 + 0.02);
 // P2 · el teléfono de escritorio: suena, altavoz, el proveedor: "Rubén, subió el aceite." · inserto del monitor: la celda,
-// el número tachado, el nuevo · clac: la cinta crece (v2)
-T.p2 = r2(T.envia1 + 0.12); T.ring1 = r2(T.p2 + 0.05); T.alt1 = r2(T.p2 + 0.3); T.p1 = r2(T.p2 + 0.4);
-T.p2b = r2(T.p1 + LEN.p1 + 0.04); T.celda = r2(T.p2b + 0.08); T.tacha = r2(T.p2b + 0.22); T.nuevo = r2(T.p2b + 0.36);
-// P3 · arranca con el clac de la v2 (en el inserto no se ve la cinta) y sigue la ráfaga (cada vez más rápido): burbujas
-// sin voz; envíos; clacs; las campanas del depósito se apagan
-T.p3 = r2(T.p2b + 0.55);
+// el número tachado, el nuevo
+T.p2 = r2(T.envia1 + 0.06); T.ring1 = r2(T.p2 + 0.04); T.alt1 = r2(T.p2 + 0.22); T.p1 = r2(T.p2 + 0.3);
+T.p2b = r2(T.p1 + LEN.p1 + 0.04); T.celda = r2(T.p2b + 0.06); T.tacha = r2(T.p2b + 0.18); T.nuevo = r2(T.p2b + 0.3);
+// P3 · clac de la v2 y la ráfaga que acelera de verdad (ronda 1): las primeras ~0,6 s, las últimas ~0,25 s
+T.p3 = r2(T.p2b + 0.45);
 T.v = [0, r2(T.p3 + 0.08)];                       // v[k]: la cinta crece a la versión k (0 = la de arranque)
-const R0 = r2(T.p3 + 0.22);
-T.marta = r2(R0 + 0.05); T.envM = r2(R0 + 0.27);
-T.azucar = r2(R0 + 0.45); T.v[2] = r2(R0 + 0.63);
-T.walter = r2(R0 + 0.8); T.envW = r2(R0 + 0.98);
-T.dolar = r2(R0 + 1.12); T.v[3] = r2(R0 + 1.28);
-T.nico = r2(R0 + 1.42); T.v[4] = r2(R0 + 1.58);
-T.v[5] = r2(R0 + 1.78);                          // v6: la cinta toca el termo
-T.v[6] = r2(R0 + 1.98);                          // v7: empuja el termo, que se inclina en el borde
-T.agarra = [r2(R0 + 2.1), r2(R0 + 2.5)];          // Rubén agarra el termo sin mirar y lo deja del otro lado
-T.campanas = [0.2, 0.68, 1.12, 1.55, 1.95, 2.35].map((d) => r2(R0 + d));
+const R0 = r2(T.p3 + 0.2), E = [0, 0.6, 1.13, 1.61, 2.02];
+T.marta = r2(R0 + E[0]); T.envM = r2(R0 + 0.25);
+T.azucar = r2(R0 + E[1]); T.v[2] = r2(T.azucar + 0.15);
+T.walter = r2(R0 + E[2]); T.envW = r2(T.walter + 0.2);
+T.dolar = r2(R0 + E[3]); T.v[3] = r2(T.dolar + 0.12);
+T.nico = r2(R0 + E[4]); T.v[4] = r2(T.nico + 0.12);
+T.v[5] = r2(T.v[4] + 0.3);                        // v6: la cinta toca el termo
+T.v[6] = r2(T.v[5] + 0.25);                       // v7: empuja el termo, que cabecea
+T.agarra = [r2(T.v[6] + 0.1), r2(T.v[6] + 0.46)];
+T.campanas = [0.25, 0.85, 1.38, 1.85, 2.28, 2.7].map((d) => r2(R0 + d));
 // P4 · suena el celular (llamada de Graciela), zambullida por la pantalla, salimos por la del celular de Graciela
-T.p4 = r2(R0 + 2.62); T.llama = T.p4; T.zambulle = [r2(T.p4 + 0.12), r2(T.p4 + 0.5)];
-T.p4b = T.zambulle[1]; T.g2 = r2(T.p4b + 0.3);
-// P5 · Rubén: "Está en la lista." (salimos por su celular)
-T.p5 = r2(T.g2 + LEN.g2 + 0.05); T.r1 = r2(T.p5 + 0.12);
-// P6 · Graciela: "¿En cuál? Tengo siete." · inserto del chat con los siete archivos
-T.p6 = r2(T.r1 + LEN.r1 + 0.08); T.g3 = r2(T.p6 + 0.06); T.chat = r2(T.g3 + LEN.g3 + 0.06); T.scroll = [r2(T.chat + 0.2), r2(T.chat + 0.75)];
-// P7 · la pausa (sin música alta, solo el zumbido) · el teléfono · el proveedor otra vez · "Ocho." · clac (v8, la taza)
-T.p7 = r2(T.chat + 0.9); T.ring2 = r2(T.p7 + 0.9); T.alt2 = r2(T.ring2 + 0.25); T.p2v = r2(T.alt2 + 0.1);
-T.r2 = r2(T.p2v + LEN.p2 + 0.3); T.v[7] = r2(T.r2 + LEN.r2 + 0.07);
-// P8 · remate del remate: "Dale. ¿Me la mandás en PDF?" · Rubén mira a cámara · tecla · la cinta .pdf cae del escritorio
-T.p8 = r2(T.v[7] + 0.15); T.g4 = r2(T.p8 + 0.1); T.mira = [r2(T.g4 + 1.45), r2(T.g4 + 1.95)];
-T.tecla = r2(T.g4 + LEN.g4 + 0.25); T.v[8] = r2(T.tecla + 0.1);
-const P1 = r2(T.v[8] + 0.85);   // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + 2.9);         // arranca la parte 2
+T.p4 = r2(T.agarra[1] + 0.12); T.llama = T.p4; T.zambulle = [r2(T.p4 + 0.08), r2(T.p4 + 0.4)];
+T.p4b = T.zambulle[1]; T.g2 = r2(T.p4b + 0.12);
+// P5 · Rubén: "Está en la lista. La última."
+T.p5 = r2(T.g2 + LEN.g2 + 0.05); T.r1 = r2(T.p5 + 0.06);
+// P6 · Graciela: "¿Cuál es la última? Tengo siete." · inserto del chat con los siete archivos (~1,3 s)
+T.p6 = r2(T.r1 + LEN.r1 + 0.06); T.g3 = r2(T.p6 + 0.04); T.chat = r2(T.g3 + LEN.g3 + 0.05); T.scroll = [r2(T.chat + 0.3), r2(T.chat + 0.85)];
+// P7 · la pausa (0,4 s) · el teléfono · el proveedor otra vez · Rubén quieto 0,7 s · "Ocho." · clac (v8, la taza)
+T.p7 = r2(T.chat + 1.3); T.ring2 = r2(T.p7 + 0.4); T.alt2 = r2(T.ring2 + 0.22); T.p2v = r2(T.alt2 + 0.08);
+T.r2 = r2(T.p2v + LEN.p2 + 0.72); T.v[7] = r2(T.r2 + LEN.r2 + 0.07);
+// P8 · "Dale. ¿Me la mandás en PDF?" · Rubén mira a cámara (después del "¿PDF?") · "Claro. En PDF no se mueve." ·
+// la tecla · la cinta .pdf crece y se cae del escritorio
+T.p8 = r2(T.v[7] + 0.15); T.g4 = r2(T.p8 + 0.06); T.mira = [r2(T.g4 + LEN.g4 + 0.1), r2(T.g4 + LEN.g4 + 0.55)];
+T.r4 = r2(T.mira[0] + 0.2); T.tecla = r2(T.r4 + LEN.r4 + 0.08); T.v[8] = r2(T.tecla + 0.08);
+const P1 = r2(T.v[8] + 0.65);   // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + 2.8);         // arranca la parte 2
 // ---- parte 2 ----
-// Q1 · el encuadre de P1 a las 18:30: el teléfono, la MISMA toma del proveedor · la cinta hace un tic y no crece · inserto
-// del panel: cambia el precio una vez, Publicar, "Publicado ✓" · Q1b Rubén con el mate: "¿Algo más?" · tono de colgado
-T.q1 = P2; T.ring3 = r2(P2 + 0.1); T.alt3 = r2(P2 + 0.35); T.p1b = r2(P2 + 0.45);
-T.tic = r2(T.p1b + LEN.p1 + 0.05); T.q1b = r2(T.tic + 0.1); T.escribe = r2(T.q1b + 0.15); T.publica = r2(T.q1b + 0.45); T.publicado = r2(T.q1b + 0.55);
-T.q1c = r2(T.q1b + 0.8); T.r3 = r2(T.q1c + 0.1); T.colgado = r2(T.r3 + LEN.r3 + 0.05);   // (el tono suena sobre el arranque del viaje)
-// Q2 · el viaje del precio: la etiqueta verde sale del monitor, cruza el depósito, sale por el portón · la calle al
-// atardecer, entra a la rotisería abierta · inserto del celular de Graciela: el precio cambia, +6, Pedir, Pedido ✓
-T.q2 = r2(T.r3 + LEN.r3 + 0.12); T.q2b = r2(T.q2 + 1.0); T.q2c = r2(T.q2b + 0.85);
-T.flip = r2(T.q2c + 0.12); T.mas = [0.3, 0.42, 0.54].map((d) => r2(T.q2c + d)); T.pedir = r2(T.q2c + 0.78); T.pedido = r2(T.q2c + 0.92);
-// Q3 · la oficina: entran los pedidos; el celular de Rubén no suena: lo mira, lo levanta, lo toca, lo alza a la ventana
-// buscando señal, lo deja boca abajo y toma mate · la línea chica
-T.q3 = r2(T.pedido + 0.3); T.pedidos = [0.1, 0.3, 0.5].map((d) => r2(T.q3 + d));
-T.miraCel = r2(T.q3 + 0.6); T.levanta = [r2(T.q3 + 0.8), r2(T.q3 + 1.05)]; T.toca = r2(T.q3 + 1.2); T.senal = [r2(T.q3 + 1.35), r2(T.q3 + 1.95)];
-T.deja = r2(T.q3 + 2.1); T.sorbo = r2(T.q3 + 2.3);
-T.cierre = r2(T.q3 + 1.5);
-const DUR = r2(T.cierre + 1.55);
+// Q1 · el encuadre de P1 a las 18:30: el teléfono, la MISMA toma del proveedor · la cinta hace un tic y no crece · Q1b
+// inserto del panel: un precio, Publicar, "Publicado ✓" · Q1c Rubén con el mate: "¿Algo más?" · tono de colgado
+T.q1 = P2; T.ring3 = r2(P2 + 0.05); T.alt3 = r2(P2 + 0.22); T.p1b = r2(P2 + 0.3);
+T.tic = r2(T.p1b + LEN.p1 - 0.12); T.q1b = r2(T.p1b + LEN.p1 + 0.05); T.escribe = r2(T.q1b + 0.1); T.publica = r2(T.q1b + 0.32); T.publicado = r2(T.q1b + 0.4);
+T.q1c = r2(T.q1b + 0.6); T.r3 = r2(T.q1c + 0.03); T.colgado = r2(T.r3 + LEN.r3 + 0.03);
+// Q2 · el tríptico (ronda 1): tres celulares de clientes, el precio cambia a la vez con la chapita "hoy" · Q2c inserto
+// del celular de Graciela: "1 lista · la de hoy", +6, Pedir, Pedido ✓
+T.q2 = r2(T.r3 + LEN.r3 + 0.08); T.flip = r2(T.q2 + 0.3); T.q2c = r2(T.q2 + 0.95);
+T.mas = [0.15, 0.26, 0.37].map((d) => r2(T.q2c + d)); T.pedir = r2(T.q2c + 0.5); T.pedido = r2(T.q2c + 0.6);
+// Q3 · la oficina: entran los pedidos; el celular de Rubén no suena: lo mira, lo toca, lo deja boca abajo, mate
+T.q3 = r2(T.pedido + 0.15); T.pedidos = [0.08, 0.22, 0.36].map((d) => r2(T.q3 + d));
+T.miraCel = r2(T.q3 + 0.45); T.levanta = [r2(T.q3 + 0.6), r2(T.q3 + 0.78)]; T.toca = r2(T.q3 + 0.88); T.senal = [r2(T.q3 + 0.95), r2(T.q3 + 1.2)];
+T.deja = r2(T.q3 + 1.3); T.sorbo = r2(T.q3 + 1.45);
+T.cierre = r2(T.q3 + 0.3);
+const DUR = r2(T.cierre + 1.5);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -87,7 +86,7 @@ function envolvente(archivo) {
   const mx = Math.max(...env);
   return env.map((v) => { const k = v / mx; return r2(k < 0.1 ? 0 : Math.pow(k, 0.8)); });
 }
-const VOCES = ["g1", "p1", "g2", "r1", "g3", "p2", "r2", "g4", "r3"];
+const VOCES = ["g1", "p1", "g2", "r1", "g3", "p2", "r2", "g4", "r4", "r3"];
 const ENV = Object.fromEntries(VOCES.map((v) => [v, envolvente(`assets/voice/${v}.wav`)]));
 fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const LEN = ${JSON.stringify(LEN)};\nexport const ENV = ${JSON.stringify(ENV)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin burbujas ni rótulos (fondo de la portada)\nexport const VER = ${JSON.stringify(process.env.VER || "")};\n`);
 
@@ -191,9 +190,9 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 60px; right: 60px; top: 150px; padding: 24px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 50px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .a { font: 700 58px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 72px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Tu lista de precios, siempre al día:</div><div class="a">tus clientes ven el precio de hoy</div><div class="a">y piden solos</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">Tienda online mayorista:</div><div class="a">el precio de hoy,</div><div class="a">sin mandar listas</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)", immediateRender: true }, 0.05);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -264,6 +263,7 @@ s("sfx/k-plato-000.wav", T.v[7] + 0.06, 0, { techo: -44, vel: 0.9 });       // l
 // P8 · "Dale. ¿Me la mandás en PDF?" · la tecla · el clac largo · la cinta que cae
 s("sfx/whoosh-short.mp3", T.p8 - 0.04, 0, { techo: -52 });
 voz("g4", T.g4, -1);
+voz("r4", T.r4, -1);
 s("sfx/key-press.mp3", T.tecla, 0, { techo: -42 });
 clac(T.v[8], 8, -36);
 s("sfx/k-plastico.wav", T.v[8] + 0.15, 0, { techo: -42, vel: 0.8 });
@@ -288,13 +288,11 @@ s("sfx/click-soft.mp3", T.publica, 0, { techo: -42 });
 s("sfx/cero.mp3", T.publicado, 0, { techo: -42 });
 voz("r3", T.r3, -1);
 for (const d of [0, 0.22, 0.44]) s("sfx/k-tono.wav", T.colgado + d, 0, { dur: 0.14, fin: 0.04, techo: -48, lp: 1200, vel: 0.85 });   // tono de colgado
-// Q2 · el viaje del precio
-s("sfx/whoosh.mp3", T.q2, 0, { techo: -40, dur: 0.9, fin: 0.25 });
-s("sfx/whoosh-short.mp3", T.q2b - 0.04, 0, { techo: -44 });
-s("sfx/calle.wav", T.q2b, -6, { desde: 3, dur: r2(T.q2c - T.q2b + 0.2), fi: 0.05, fin: 0.2, techo: -44 });
-s("sfx/campanita.wav", T.q2b + 0.6, 0, { techo: -44 });
+// Q2 · el tríptico: los tres precios se dan vuelta a la vez (tres hojas + ding) · Q2c el pedido de Graciela
+s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -44 });
+for (const d of [0, 0.03, 0.06]) s("sfx/k-page-turn.wav", T.flip + d, 0, { techo: -48, vel: 1 + d * 3 });
+s("sfx/cero.mp3", T.flip + 0.12, 0, { techo: -42 });
 s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -48 });
-s("sfx/k-page-turn.wav", T.flip, 0, { techo: -46 });
 for (const t of [...T.mas, T.pedir]) s("sfx/click-soft.mp3", t, 0, { techo: -44 });
 s("sfx/cero.mp3", T.pedido, 0, { techo: -40 });
 // Q3 · los pedidos que entran; el celular que no suena

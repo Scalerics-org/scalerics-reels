@@ -13,8 +13,8 @@
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.9">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.9" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.8">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.8" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -48,8 +48,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.9, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.9, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.8, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.8, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = Number(l.dataset.t);
@@ -59,7 +59,7 @@
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.4);   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 2.3);   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
