@@ -13,7 +13,7 @@ ffmpeg -loglevel error -y -i partes/rec/04-ruben-h.wav -af atempo=1.06 -ar 48000
 corte partes/rec/05-graciela-f.wav 1.08 1.14 $T/g3.wav;  ffmpeg -loglevel error -y -i $T/g3.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/g3.wav   # (ronda 1) "¿Cuál es la última? Tengo siete."
 ffmpeg -loglevel error -y -i partes/rec/06-proveedor-b.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/p2.wav
 ffmpeg -loglevel error -y -i partes/rec/07-ruben-a.wav -ar 48000 assets/voice/r2.wav
-corte partes/rec/08-graciela-a.wav 0.58 0.71 $T/g4.wav;  ffmpeg -loglevel error -y -i $T/g4.wav -af "atempo=1.08,$TEL" -ar 48000 assets/voice/g4.wav
+corte partes/rec/08-graciela-a.wav 0.58 0.71 $T/g4.wav;  ffmpeg -loglevel error -y -i $T/g4.wav -af "atempo=1.08,highpass=f=280,lowpass=f=4600,acompressor=threshold=-24dB:ratio=4:attack=5:release=80:makeup=2,volume=4dB" -ar 48000 assets/voice/g4.wav
 ffmpeg -loglevel error -y -i partes/rec/10-ruben-a.wav -ar 48000 assets/voice/r3.wav
 # (ronda 2) "Claro. El pe de efe no se mueve. El aceite, sí." (toma f: la más plana; la g subía a 320 Hz, entusiasta):
 # pausa después de "Claro." estirada a ~0,4 s (el STT juntaba "Claro que…"), -1 dB (5 muestras al tope)

@@ -205,3 +205,42 @@ iris), r2p3/r2p4 (cada 0,5 s desde 0,25). Corregido en las pasadas: P2 seguía c
 centrada), P3 final cortaba la cabeza, el plano de la .pdf tenía franja abajo (escritorio más profundo), Q3 cortaba los
 nombres de los pedidos, el texto del cartel se veía dentro del iris. `check --json`: 0 errores.
 Portada: `portada-src/fondo-limpio-7.2.png` (t 7,2).
+
+## Ronda 3 (15-11) · última
+**Duración 35,49 s** (parte 1 0-25,66 · cartel 25,66-28,26, 2,6 s · parte 2 28,26-35,49; línea chica desde 33,79).
+
+ALTOS
+- A1 / M2: sin anteojos en todo el reel (Rubén sin `anteojosLeer`, Graciela con `lentes: null`); con el rig no quedaban
+  pegados a la cara. La opción `anteojosLeer` queda en personajes.js sin usar.
+- A2: el celular de Graciela en P6 va pegado a la mano (posición = mano + 0,1 m sobre su eje), a la altura del pecho y
+  debajo de la boca, inclinado hacia ella: desde la cámara se lee la pantalla del chat.
+- A3: Q3 desde más atrás (Rubén entero, monitor con "Pedidos de hoy" entero, celular y mate por encima de y 1420). En la
+  parte 2 el celular está al alcance (CEL2, x -0,3 z 1,6): lo levanta, lo toca, lo deja boca abajo y toma mate arriba de
+  la línea chica.
+- A4: los insertos del monitor (P2b y Q1b) son planos (pegados a la cámara): la pantalla entera de frente, 1000 px de
+  ancho, fondo navy liso, sin techo ni pie.
+- A5: corte a P8b en la tecla: la cinta de cerca ("…aceite_FINAL_ESTA_SI_(2).pdf", ~75 px) mientras crece y después la
+  cámara baja a la cola que se dobla y cuelga del borde; ~1,1 s en total.
+MEDIOS
+- M1: la cola del gancho baja por la izquierda hacia el celular (no a la cabeza); "Dale… ¿PDF?" con la cola al borde
+  izquierdo del cuadro (el celular está en la oreja, fuera de campo).
+- M3/M4: las salidas por las pantallas arrancan a 0,42-0,45 m y se abren hacia arriba y afuera (sin pasar por el brazo
+  ni la nuca).
+- M5: la ráfaga muestra como mucho 2 burbujas apiladas; P3 mira más arriba (la cara queda debajo); en P2 Rubén mira el
+  teléfono sin bajar la cabeza.
+- M6: P2 más abierta (teléfono, termo y lámpara adentro); mate más adentro.
+- M7: adelante en el escritorio, la pila de listas impresas tachadas ("LISTA DE PRECIOS", solo la de arriba con título) y
+  una calculadora: la franja de abajo tiene algo con sentido.
+- M8: P3 final más cerca; P8b de cerca (la cinta .pdf a ~75 px).
+- M9: "Pedido ✓" 0,6 s. M10: P8 con push-in marcado a la cara durante la mirada y "Claro…".
+- BAJA: globos salen en 2 cuadros; horas del chat a 44 px; P6 más abierto.
+SONIDO
+- S1: tonos de teléfono desde 0,09 s del archivo (ringEsc 0,4 s; ráfaga 0,2 s). S2: dos bips de colgado y el tríptico
+  0,2 s después; el giro de precios en q2+0,24. S3: sorbo entero (q3+1,18) y música -3,5 dB desde 33,3.
+- BAJA: campana 5 +0,15; termo -36; pop del proveedor de la parte 2 -0,05 s y -3 dB; whoosh del envío en envia1+0,03;
+  música -2,5 dB extra debajo de "Dale… ¿PDF?" y g4 con pasabajos 4600 (antes 3400); cama del cartel sin duck.
+- Mezcla: -14,0 LUFS, pico -5,9 dBFS; voz ≥ +12,1 LU sobre el resto en todos los tramos con voz.
+Pasadas: r3a (puntuales), r3p1 (cada 0,5 s desde 0), r3p2 (cortes ±0,04, P6 cada 0,4 s, Q3 cada 0,25 s), r3p3 (cada
+0,5 s desde 0,25). Corregido en las pasadas: la cola .pdf se veía demasiado cerca (cámara más atrás), P6 cortaba el pelo,
+los títulos de las hojas encimadas ("PRECIOOS": solo la de arriba lleva título). `check --json`: 0 errores.
+Portada: `portada-src/fondo-limpio-7.2.png` regenerado (sin anteojos, con la pila de listas).
