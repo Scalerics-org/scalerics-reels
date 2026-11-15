@@ -58,3 +58,8 @@ sí; lo que no coincide o solo vino de vendedores de software está abajo, en "L
 ## SFX
 Los que no estén en `assets/sfx` (vibración de celular, avión de papel, buzón, agua del termo): uno real CC0 de
 freesound.org; el constructor anota acá autor, link y licencia de cada uno.
+
+### SFX usados (constructor, 15-11)
+Todos de `assets/sfx` del repo (los mismos de `reels/por-que-el-99`): click, vibra, ring, whoosh-cinematic, pop,
+tic-real, whoosh-short, golpe, papel, tac-real, sparkle, tic, ding, chime, whoosh, whoosh-cine-corto, ping, notification,
+burbuja. Música: `assets/bgm/bed.mp3`. No se bajó ni se sintetizó ningún sonido nuevo.
