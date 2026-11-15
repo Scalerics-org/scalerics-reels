@@ -332,3 +332,27 @@ SONIDO
 - Mezcla: -14,0 LUFS, pico -5,8 dBFS; voz ≥ +14,6 LU sobre el resto en todos los tramos con voz.
 Pasadas: r5a/r5b/r5c/r5d (puntuales), p5 (cada 0,5 s desde 0,25), c5 (±0,04 s en los 18 cortes), r4bub. `check --json`:
 0 errores.
+
+## Ronda 6 (15-11) · última
+**Duración 36,39 s** (sin cambios: parte 1 0-26,20 · cartel 26,20-28,70 · parte 2 28,70-36,39; línea chica 34,39).
+ARTE
+- ALTA 1 (P7, brazo en pose de celular sin celular) → en P7 Rubén deja el celular en el escritorio (atiende el fijo) y el
+  brazo derecho descansa; lo vuelve a tener en la oreja en P8 (`celEnOreja`).
+- 2 (salida por la pantalla de Graciela: nuca, celular flotando) → P4b es un corte directo a Graciela casi de frente con
+  push-in lento; el celular en la oreja con la pantalla contra la cara (se ve el dorso). Globo a y 250.
+- 3 (3/4 "tuerta", labios, peto) → el mismo plano de frente (los dos ojos, labios y delantal de frente).
+- 4 (globo de P6 sobre el pelo) → contraplano más de frente y Graciela más abajo en el cuadro; globo a y 250.
+- 5 (cinta cortada abajo en P5) → P5 mira 8 cm más arriba: la cinta queda fuera.
+- 6 (Q1c cara cortada / solo "hoy") → Q1c centrado en Rubén (fov 36-37); el monitor y el celular no se dibujan en ese
+  plano (asomaban cortados en el borde); la cinta muestra "precios de hoy".
+- 7 (celular negro en Q3) → la pantalla de la parte 2 es una tilde verde grande y "Nada / nuevo" en 150 px.
+- 8 (fila "$ 1.240 hoy 6 +") → precio en 54 px, chapita de 112 px con "hoy" centrado (40 px), el contador más a la derecha.
+- 9 (mate atravesando el teclado / cable rulo) → en la parte 2 la mano del mate queda delante de la panza, 15 cm arriba
+  del escritorio y más al centro (no toca teclado ni teléfono). Q3 un poco más abierto (fov 54-55) para que no se corte.
+- BAJAS sin tocar (riesgo): "ista_" en P1, barra oscura en P8b, aro del cartel, tercio vacío del inserto, astilla en Q3.
+SONIDO
+- El duck de la música del inserto suelta en T.p3 (antes p3 + 0,6); whoosh de envío +4 dB; vibra de la llamada y sorbo
+  +5 dB; sin la tela de 25,5 (P8b). g2 vuelve a p4b + 0,22 (con el corte directo; así la cola de la vibra no cae en el
+  tramo de la voz). Mezcla -14,0 LUFS, pico -5,7 dBFS, voz ≥ +14,6 LU sobre el resto en todos los tramos con voz.
+Pasadas: r6 (cada 0,25 s en P4b, P5, P6, P7, Q1, Q1c, Q2c, Q3 y ±0,04 en sus cortes), p4b, q1c (×3), fin6 (cada 0,5 s +
+±0,04 en los 18 cortes). `check --json`: 0 errores.

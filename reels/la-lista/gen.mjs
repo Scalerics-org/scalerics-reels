@@ -217,7 +217,7 @@ const ringEsc = (t, n = 2, techo = -38) => { for (let i = 0; i < n; i++) s("sfx/
 // ---- parte 1 ----
 // ambiente: el zumbido de la oficina de noche (pasabajos); la música (pizzicato): baja en la pausa (NO se corta)
 s("sfx/zumbido-largo.wav", 0, 0, { dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -45, lp: 900 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -33, duck: [[T.p2b - 0.2, T.p3 + 0.6, 0.6], [T.r4, P1 + 0.2, 0.6], [T.p7 - 0.1, T.v[7] + 0.1, 0.78], [T.g4 - 0.1, T.g4 + LEN.g4 + 0.1, 0.25], ...[1, 2, 3].map((k) => [T.v[k] - 0.1, T.v[k] + 0.2, 0.37])] });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -33, duck: [[T.p2b - 0.2, T.p3, 0.6], [T.r4, P1 + 0.2, 0.6], [T.p7 - 0.1, T.v[7] + 0.1, 0.78], [T.g4 - 0.1, T.g4 + LEN.g4 + 0.1, 0.25], ...[1, 2, 3].map((k) => [T.v[k] - 0.1, T.v[k] + 0.2, 0.37])] });
 // P1 · el celular vibra, el audio de Graciela, el mouse, el envío
 s("sfx/vibra.wav", 0.02, 0, { dur: 0.4, fin: 0.1, techo: -42 });
 voz("g1", T.g1, -1);
@@ -236,14 +236,14 @@ clac(T.v[1], 1, -38);   // (ronda 4) más bajos: la cola de la voz del proveedor
 s("sfx/whoosh-short.mp3", T.p3 - 0.04, 0, { techo: -48 });
 for (const t of [T.marta, T.walter, T.nico]) { pop(t - 0.02, -40); s("sfx/notification.mp3", t, 0, { techo: -46, dur: 0.35, fin: 0.12 }); }
 for (const t of [T.azucar, T.dolar]) { pop(t - 0.02, -40); s("sfx/k-dos-tonos.wav", t - 0.02, 0, { techo: -40, desde: 0.09, dur: 0.2, fin: 0.04, hp: 400 }); }
-for (const t of [T.envM, T.envW]) s("sfx/whoosh-short.mp3", t, 0, { techo: -46, vel: 1.15 });
+for (const t of [T.envM, T.envW]) s("sfx/whoosh-short.mp3", t, 0, { techo: -42, vel: 1.15 });   // (ronda 6) +4 dB
 for (let k = 2; k <= 6; k++) clac(T.v[k], k, k <= 3 ? -34 : -37);
 T.campanas.forEach((t, i) => s(i % 2 ? "sfx/interruptor2.wav" : "sfx/interruptor.wav", t + (i === 4 ? 0.15 : 0.07), 0, { techo: -40, lp: 2500, vel: 0.8 }));
 s("sfx/k-plato-001.wav", T.v[6] + 0.05, 0, { techo: -36, vel: 0.85 });     // el termo que se inclina
 s("sfx/k-cloth_1.wav", T.agarra[0], 0, { techo: -40, dur: 0.35, fin: 0.1 });
 s("sfx/madera-golpe.wav", T.agarra[1] - 0.05, 0, { techo: -40, vel: 1.3 });
 // P4 · el celular suena (vibra), la zambullida
-s("sfx/vibra.wav", T.llama, 0, { dur: 0.6, fin: 0.12, techo: -42 });
+s("sfx/vibra.wav", T.llama, 0, { dur: 0.6, fin: 0.12, techo: -37 });
 s("sfx/whoosh.mp3", T.zambulle[0], 0, { techo: -45, dur: 0.6, fin: 0.2 });
 voz("g2", T.g2, -1);
 // P5 · de vuelta por la pantalla del celular de Rubén
@@ -268,7 +268,6 @@ voz("r4", T.r4, -1);
 s("sfx/key-press.mp3", T.tecla, 0, { techo: -46 });
 clac(T.v[8], 8, -40);
 s("sfx/k-plastico.wav", T.v[8] + 0.15, 0, { techo: -46, vel: 0.8 });
-s("sfx/k-cloth_2.wav", T.v[8] + 0.3, 0, { techo: -44, dur: 0.4, fin: 0.15 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
@@ -304,7 +303,7 @@ s("sfx/k-cloth_2.wav", T.levanta[0], 0, { techo: -48, dur: 0.3, fin: 0.1 });
 s("sfx/key-press.mp3", T.toca, 0, { techo: -46 });
 s("sfx/k-cloth_1.wav", T.senal[0] + 0.1, 0, { techo: -50, dur: 0.3, fin: 0.1 });
 s("sfx/madera-golpe.wav", T.deja, 0, { techo: -44, vel: 1.4 });
-s("sfx/sorbo.wav", T.sorbo, 0, { techo: -42, fin: 0.15 });
+s("sfx/sorbo.wav", T.sorbo, 0, { techo: -37, fin: 0.15 });
 pop(T.cierre + 0.05, -44);   // la línea chica
 // (ronda 5) M3: la ráfaga y el final más presentes (+7 dB y +5 dB por efecto, nunca por encima del techo de -31)
 for (const x of S) {
