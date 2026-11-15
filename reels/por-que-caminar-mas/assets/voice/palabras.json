@@ -1,0 +1,502 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.163
+ },
+ {
+  "text": "qué",
+  "start": 0.163,
+  "end": 0.326
+ },
+ {
+  "text": "un",
+  "start": 0.326,
+  "end": 0.42
+ },
+ {
+  "text": "aeropuerto",
+  "start": 0.42,
+  "end": 0.72
+ },
+ {
+  "text": "de",
+  "start": 0.72,
+  "end": 1
+ },
+ {
+  "text": "Houston",
+  "start": 1,
+  "end": 1.629
+ },
+ {
+  "text": "hizo",
+  "start": 1.67,
+  "end": 1.955
+ },
+ {
+  "text": "caminar",
+  "start": 1.955,
+  "end": 2.444
+ },
+ {
+  "text": "más",
+  "start": 2.444,
+  "end": 2.607
+ },
+ {
+  "text": "a",
+  "start": 2.607,
+  "end": 2.77
+ },
+ {
+  "text": "la",
+  "start": 2.77,
+  "end": 2.933
+ },
+ {
+  "text": "gente?",
+  "start": 2.933,
+  "end": 3.259
+ },
+ {
+  "text": "Seis",
+  "start": 3.51,
+  "end": 3.863
+ },
+ {
+  "text": "veces",
+  "start": 3.863,
+  "end": 4.131
+ },
+ {
+  "text": "más.",
+  "start": 4.131,
+  "end": 4.506
+ },
+ {
+  "text": "Las",
+  "start": 4.686,
+  "end": 4.963
+ },
+ {
+  "text": "quejas",
+  "start": 4.963,
+  "end": 5.141
+ },
+ {
+  "text": "casi",
+  "start": 5.141,
+  "end": 5.498
+ },
+ {
+  "text": "desaparecieron.",
+  "start": 5.498,
+  "end": 6.391
+ },
+ {
+  "text": "¿Por",
+  "start": 6.611,
+  "end": 6.837
+ },
+ {
+  "text": "qué?",
+  "start": 6.837,
+  "end": 6.968
+ },
+ {
+  "text": "Esperaban",
+  "start": 7.208,
+  "end": 7.726
+ },
+ {
+  "text": "ocho",
+  "start": 7.726,
+  "end": 7.904
+ },
+ {
+  "text": "minutos:",
+  "start": 7.904,
+  "end": 8.458
+ },
+ {
+  "text": "uno",
+  "start": 8.598,
+  "end": 8.794
+ },
+ {
+  "text": "caminando",
+  "start": 8.794,
+  "end": 9.152
+ },
+ {
+  "text": "y",
+  "start": 9.2,
+  "end": 9.419
+ },
+ {
+  "text": "siete",
+  "start": 9.73,
+  "end": 10.044
+ },
+ {
+  "text": "mirando",
+  "start": 10.044,
+  "end": 10.402
+ },
+ {
+  "text": "la",
+  "start": 10.402,
+  "end": 10.491
+ },
+ {
+  "text": "cinta.",
+  "start": 10.491,
+  "end": 10.973
+ },
+ {
+  "text": "Entonces",
+  "start": 11.173,
+  "end": 11.626
+ },
+ {
+  "text": "alejaron",
+  "start": 11.626,
+  "end": 12.231
+ },
+ {
+  "text": "las",
+  "start": 12.231,
+  "end": 12.382
+ },
+ {
+  "text": "puertas",
+  "start": 12.382,
+  "end": 12.684
+ },
+ {
+  "text": "de",
+  "start": 12.684,
+  "end": 12.836
+ },
+ {
+  "text": "llegada.",
+  "start": 12.836,
+  "end": 13.289
+ },
+ {
+  "text": "Un",
+  "start": 13.469,
+  "end": 13.514
+ },
+ {
+  "text": "profesor",
+  "start": 13.514,
+  "end": 14.049
+ },
+ {
+  "text": "ya",
+  "start": 14.049,
+  "end": 14.228
+ },
+ {
+  "text": "lo",
+  "start": 14.228,
+  "end": 14.317
+ },
+ {
+  "text": "había",
+  "start": 14.317,
+  "end": 14.496
+ },
+ {
+  "text": "explicado",
+  "start": 14.496,
+  "end": 14.674
+ },
+ {
+  "text": "en",
+  "start": 14.68,
+  "end": 14.84
+ },
+ {
+  "text": "1985:",
+  "start": 14.84,
+  "end": 16.514
+ },
+ {
+  "text": "la",
+  "start": 16.594,
+  "end": 16.752
+ },
+ {
+  "text": "espera",
+  "start": 16.752,
+  "end": 17.225
+ },
+ {
+  "text": "vacía",
+  "start": 17.225,
+  "end": 17.541
+ },
+ {
+  "text": "se",
+  "start": 17.541,
+  "end": 17.698
+ },
+ {
+  "text": "siente",
+  "start": 17.698,
+  "end": 18.014
+ },
+ {
+  "text": "más",
+  "start": 18.014,
+  "end": 18.172
+ },
+ {
+  "text": "larga.",
+  "start": 18.172,
+  "end": 18.487
+ },
+ {
+  "text": "La",
+  "start": 18.687,
+  "end": 18.964
+ },
+ {
+  "text": "que",
+  "start": 18.964,
+  "end": 19.142
+ },
+ {
+  "text": "no",
+  "start": 19.142,
+  "end": 19.232
+ },
+ {
+  "text": "sabés",
+  "start": 19.232,
+  "end": 19.5
+ },
+ {
+  "text": "cuánto",
+  "start": 19.5,
+  "end": 19.678
+ },
+ {
+  "text": "dura,",
+  "start": 19.678,
+  "end": 20.286
+ },
+ {
+  "text": "más",
+  "start": 20.286,
+  "end": 20.482
+ },
+ {
+  "text": "todavía.",
+  "start": 20.482,
+  "end": 21.151
+ },
+ {
+  "text": "Sale",
+  "start": 21.451,
+  "end": 21.711
+ },
+ {
+  "text": "hoy.",
+  "start": 21.711,
+  "end": 21.911
+ },
+ {
+  "text": "Te",
+  "start": 22.531,
+  "end": 22.511
+ },
+ {
+  "text": "lo",
+  "start": 22.621,
+  "end": 22.611
+ },
+ {
+  "text": "dije",
+  "start": 22.701,
+  "end": 22.811
+ },
+ {
+  "text": "hace",
+  "start": 22.881,
+  "end": 22.911
+ },
+ {
+  "text": "una",
+  "start": 22.971,
+  "end": 23.011
+ },
+ {
+  "text": "hora.",
+  "start": 23.101,
+  "end": 23.411
+ },
+ {
+  "text": "Tu",
+  "start": 23.681,
+  "end": 23.785
+ },
+ {
+  "text": "cliente",
+  "start": 23.785,
+  "end": 24.094
+ },
+ {
+  "text": "sin",
+  "start": 24.094,
+  "end": 24.248
+ },
+ {
+  "text": "noticias",
+  "start": 24.248,
+  "end": 24.71
+ },
+ {
+  "text": "está",
+  "start": 24.71,
+  "end": 25.019
+ },
+ {
+  "text": "frente",
+  "start": 25.019,
+  "end": 25.327
+ },
+ {
+  "text": "a",
+  "start": 25.327,
+  "end": 25.481
+ },
+ {
+  "text": "la",
+  "start": 25.481,
+  "end": 25.636
+ },
+ {
+  "text": "cinta.",
+  "start": 25.636,
+  "end": 25.944
+ },
+ {
+  "text": "Una",
+  "start": 26.144,
+  "end": 26.269
+ },
+ {
+  "text": "automatización",
+  "start": 26.269,
+  "end": 27.244
+ },
+ {
+  "text": "le",
+  "start": 27.292,
+  "end": 27.34
+ },
+ {
+  "text": "avisa",
+  "start": 27.412,
+  "end": 27.653
+ },
+ {
+  "text": "sola",
+  "start": 27.653,
+  "end": 27.965
+ },
+ {
+  "text": "cada",
+  "start": 27.965,
+  "end": 28.144
+ },
+ {
+  "text": "paso.",
+  "start": 28.144,
+  "end": 28.617
+ },
+ {
+  "text": "Nadie",
+  "start": 29.111,
+  "end": 29.367
+ },
+ {
+  "text": "llamó.",
+  "start": 29.441,
+  "end": 29.907
+ },
+ {
+  "text": "¿Se",
+  "start": 30.621,
+  "end": 30.727
+ },
+ {
+  "text": "cortó",
+  "start": 30.727,
+  "end": 30.827
+ },
+ {
+  "text": "el",
+  "start": 30.827,
+  "end": 30.927
+ },
+ {
+  "text": "teléfono?",
+  "start": 30.927,
+  "end": 31.997
+ },
+ {
+  "text": "¿Sin",
+  "start": 32.237,
+  "end": 32.469
+ },
+ {
+  "text": "esperas",
+  "start": 32.469,
+  "end": 32.826
+ },
+ {
+  "text": "a",
+  "start": 32.826,
+  "end": 32.916
+ },
+ {
+  "text": "ciegas?",
+  "start": 32.916,
+  "end": 33.424
+ },
+ {
+  "text": "Agendá",
+  "start": 33.648,
+  "end": 33.957
+ },
+ {
+  "text": "una",
+  "start": 33.957,
+  "end": 34.046
+ },
+ {
+  "text": "videollamada",
+  "start": 34.046,
+  "end": 34.403
+ },
+ {
+  "text": "gratis",
+  "start": 34.403,
+  "end": 34.939
+ },
+ {
+  "text": "en",
+  "start": 34.939,
+  "end": 35.296
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 35.296,
+  "end": 36.234
+ }
+]
