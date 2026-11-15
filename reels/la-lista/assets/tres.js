@@ -288,7 +288,7 @@ let monitor, telefono, botonAlt, celR, termo, mate, taza, lampara, pila, remitos
   botonAlt = caja(0.05, 0.016, 0.03, mat(0x2a3b58, 0.5), 0.07, 0.077, 0.08, 0.006); telefono.add(botonAlt);
   telefono.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(Array.from({ length: 40 }, (_, i) => V3(-0.13 - i * 0.004, 0.06 + Math.sin(i * 1.6) * 0.012, -0.06 + Math.cos(i * 1.6) * 0.012 + i * 0.002))), 120, 0.004, 5), M.navy3));
   // el celular de Rubén (apoyado boca arriba a su derecha, al lado del monitor)
-  celR = crearCelular(pantR, C.navy3, 0.08, 0.16); celR.scale.setScalar(1.9); OF.add(celR);
+  celR = crearCelular(pantR, C.g, 0.08, 0.16); /* (ronda 7) verde: se lee sobre el fondo oscuro */ celR.scale.setScalar(1.9); OF.add(celR);
   // el mate y el termo (crema, genéricos), la taza de lapiceras, los remitos con broche
   mate = crearMate(); mate.scale.setScalar(1.1); OF.add(mate);
   termo = crearTermo(); termo.scale.setScalar(1.15); OF.add(termo);
@@ -726,7 +726,7 @@ function dibujarMonitor(t) {
   const k = versionEn(t);
   const e = parte2 ? 0 : t >= T.v[7] ? 4 : t >= T.nuevo ? 3 : t >= T.tacha ? 2 : t >= T.celda ? 1 : 0;
   const pub = parte2 ? (t >= T.publicado ? 2 : t >= T.publica ? 1 : 0) : 0, esc = parte2 && t >= T.escribe ? 1 : 0;
-  const ped = parte2 ? T.pedidos.filter((a) => t >= a).length : 0, q3 = parte2 && t >= T.q3 ? 1 : 0;
+  const ped = parte2 ? Math.max(t >= T.q3 ? 1 : 0, T.pedidos.filter((a) => t >= a).length) : 0,   /* (ronda 7) Q3 arranca con la primera fila */ q3 = parte2 && t >= T.q3 ? 1 : 0;
   const clave = `${parte2}|${k}|${e}|${pub}|${esc}|${ped}|${q3}`; if (clave === claveM) return; claveM = clave;
   const { x } = pantM.userData, w = 1024, h = 640;
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
@@ -1087,7 +1087,7 @@ const PLANOS = [
   ["P7", T.p7, [[T.p7, 0.72, 4.85, 3.75, 0.15, 4.3, 1.3, 46], [T.p8, 0.62, 4.8, 3.45, 0.15, 4.3, 1.3, 46]]],
   // P8: de frente, más abierto (Rubén y el borde derecho del escritorio); se acerca cuando mira a cámara
   // P8 (ronda 3): de frente; push-in marcado a la cara durante la mirada y "Claro…"; corte a la cinta .pdf (P8b)
-  ["P8", T.p8, [[T.p8, 0.32, 4.9, 3.35, 0.15, 4.32, 1.2, 46], [T.mira[0], 0.26, 4.88, 3.15, 0.1, 4.36, 1.15, 46], /* (ronda 4) más cerca desde el arranque */ [T.r4 + 1.6, 0.16, 4.66, 2.85, 0.0, 4.5, 1.05, 43], [T.tecla, 0.12, 4.64, 2.75, 0.0, 4.5, 1.05, 42]]],
+  ["P8", T.p8, [[T.p8, 0.0, 4.9, 3.35, 0.05, 4.32, 1.2, 46], [T.mira[0], -0.06, 4.88, 3.15, 0.0, 4.36, 1.15, 46], /* (ronda 7) desde su derecha: se ve el celular */ [T.r4 + 1.6, -0.12, 4.8, 2.85, -0.04, 4.5, 1.05, 43], [T.tecla, -0.14, 4.78, 2.75, -0.04, 4.5, 1.05, 42]]],
   // P8b: la cinta .pdf de cerca (≥ 60 px) y la cámara baja a la cola que se dobla y cuelga del borde
   // (ronda 4) P8b: solo la cinta, de frente y de cerca; push-in a ".pdf" (sin el mate ni la lámpara)
   ["P8b", T.tecla + 0.12, [[T.tecla + 0.12, 1.32, 4.47, 2.55, 0.28, 4.0, ZT, 53], [T.pdfLee[0] + 0.35, 1.3, 4.45, 2.5, 0.3, 4.0, ZT, 52], [P1, 1.24, 4.41, 2.43, 0.38, 4.0, ZT, 50]]],   // (ronda 5) la cinta entera en diagonal (cámara a la derecha, girada), termina cerca de ".pdf"
@@ -1218,7 +1218,7 @@ function poseRuben(t) {
   // ---- parte 2: sin anteojos, el mate en la mano izquierda; tranquilo ----
   Object.assign(pr, BUENA);
   pr.cabeza = { giro: 0.45, asiente: 0.2, ladea: 0 }; pr.ojos = { x: 0.4, y: -0.3, abiertos: 0.95, feliz: 0.2 };
-  pr.manoI = [0.24, 0.42, 0.26]; pr.codoI = [1, -0.6, -0.2]; /* (ronda 6) delante de la panza, arriba del teclado */   // el mate en la mano (ronda 5: a la altura del pecho, la bombilla lejos de la nariz)
+  pr.manoI = [0.26, 0.38, 0.3]; pr.codoI = [1, -0.6, -0.2]; /* (ronda 6) delante de la panza, arriba del teclado */   // el mate en la mano (ronda 5: a la altura del pecho, la bombilla lejos de la nariz)
   if (t >= T.q1b) { pr.cabeza = { giro: MIRA_MON, asiente: 0.05, ladea: 0 }; pr.ojos = { x: -0.6, y: 0, abiertos: 0.95, feliz: 0.15 }; const k = Math.sin(Math.PI * sg(t, T.publica - 0.18, T.publica + 0.1)); pr.manoD = [lerp(-0.3, -0.2, k), 0.27 + 0.03 * k, lerp(0.3, 0.42, k)]; }
   if (t >= T.q1c) { pr.cabeza = { giro: 0.35, asiente: 0.22, ladea: 0.04 }; pr.ojos = { x: 0.35, y: -0.35, abiertos: 0.9, feliz: 0.1 }; pr.boca = { sonrisa: 0.3, abierta: 0, ancho: 1 }; pr.cejas = { alto: 0.15, ang: -0.1, asim: 0.5 }; }
   if (t >= T.q3) {
@@ -1355,13 +1355,16 @@ function renderAt(tIn) {
   {
     const vib = (!parte2 && (en(t, 0.0, 0.5) || en(t, T.marta, T.marta + 0.2) || en(t, T.walter, T.walter + 0.2) || en(t, T.nico, T.nico + 0.2) || en(t, T.llama, T.p5))) ? Math.sin(t * 95) * 0.004 : 0;
     if (celEnOreja(t)) {
+      // (ronda 7) pegado a la oreja y la mejilla, la pantalla contra la cara y el dorso (verde) girado hacia adelante: desde
+      // la cámara de frente se ve la cara ancha del celular, no el canto; la mano lo agarra por el dorso, abajo
       ruben.raiz.updateMatrixWorld(true);
-      const o = ruben.cabeza.localToWorld(OREJA_D.clone());
-      pr.manoD = aCuerpo(ruben, o.clone().add(V3(0.02, -0.17, 0.0))); pr.codoD = [-1, -0.7, 0.1];
+      ruben.cabeza.getWorldQuaternion(_q);
+      const qR = _q.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, Math.PI / 2 + 0.75, 0))).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, -0.3)));
+      const o2 = ruben.cabeza.localToWorld(V3(-0.36, 0.17, 0.12));
+      celR.position.copy(o2); celR.quaternion.copy(qR);
+      const abajo = V3(0, -1, 0).applyQuaternion(qR), dorso = V3(0, 0, -1).applyQuaternion(qR);
+      pr.manoD = aCuerpo(ruben, o2.clone().add(abajo.multiplyScalar(0.1)).add(dorso.multiplyScalar(0.045))); pr.codoD = [-1, -0.7, 0.1];
       ruben.poner(pr);
-      ruben.cabeza.updateMatrixWorld(true);
-      const o2 = ruben.cabeza.localToWorld(OREJA_D.clone());
-      celR.position.copy(o2); ruben.cabeza.getWorldQuaternion(_q); celR.quaternion.copy(_q); celR.rotateY(-Math.PI / 2); celR.rotateZ(0.25);
     } else if (parte2 && t >= T.levanta[0] && t < T.deja + 0.15) {
       // Q3: lo levanta, lo mira, lo toca, lo alza hacia la ventana buscando señal, lo deja boca abajo
       const u1 = eio(sg(t, T.levanta[0], T.levanta[1])), u2 = eio(sg(t, T.senal[0], T.senal[0] + 0.3)), u3 = eio(sg(t, T.deja - 0.2, T.deja));
@@ -1392,7 +1395,7 @@ function renderAt(tIn) {
       ruben.poner(pr);
     }
     const m2 = ruben.brazos[0].mano.getWorldPosition(_a).clone();
-    const uS = Math.sin(Math.PI * sg(t, T.sorbo - 0.3, T.sorbo + 0.6)); mate.position.copy(m2).add(V3(-0.06, -0.07, 0.01));   /* (ronda 4) la mano al costado, no adentro */ mate.rotation.set(0, 0, 0.12 + 0.35 * uS);   // (ronda 4) la bombilla va a la boca
+    const uS = Math.sin(Math.PI * sg(t, T.sorbo - 0.3, T.sorbo + 0.6)); mate.position.copy(m2).add(V3(-0.06, -0.07, 0.01));   /* (ronda 4) la mano al costado, no adentro */ mate.rotation.set(0, 0, lerp(-0.35, 0.47, uS));   /* (ronda 7) en reposo la bombilla se aleja de la cara; en el sorbo va a la boca */   // (ronda 4) la bombilla va a la boca
   }
   // Graciela (la rotisería)
   graciela.raiz.visible = enRot && !["P6b", "Q2c"].includes(planoActual);
@@ -1404,14 +1407,18 @@ function renderAt(tIn) {
     if (!parte2) {
       // en la oreja izquierda; en P6 lo separa para mirarlo (delante de la cara)
       const sep = eio(sg(t, T.p6 + 0.05, T.p6 + 0.45));
-      const o = graciela.cabeza.localToWorld(OREJA_I.clone());
+      // (ronda 7) en la oreja: la pantalla contra la cara y el dorso girado hacia adelante (se ve la cara ancha); la mano lo
+      // agarra por el dorso, abajo
+      graciela.cabeza.getWorldQuaternion(_q);
+      const qO = _q.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, -Math.PI / 2 - 0.75, 0))).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, 0, 0.3)));
+      const oE = graciela.cabeza.localToWorld(V3(0.36, 0.17, 0.12));
+      const abajoG = V3(0, -1, 0).applyQuaternion(qO), dorsoG = V3(0, 0, -1).applyQuaternion(qO);
       const pecho = graciela.raiz.localToWorld(V3(0.1, 0.9, 0.34));      // (ronda 3) a la altura del pecho, debajo de la boca
-      const p = o.clone().add(V3(0, -0.2, 0)).lerp(pecho, sep);
+      const p = oE.clone().add(abajoG.multiplyScalar(0.08)).add(dorsoG.multiplyScalar(0.04)).lerp(pecho, sep);
       pg.manoI = aCuerpo(graciela, p); pg.codoI = [1, -0.6, 0.1];
       graciela.poner(pg); graciela.raiz.position.x += RX; graciela.raiz.updateMatrixWorld(true);
       // en la oreja (sep 0): la pantalla hacia afuera; en la mano (sep 1): pegado a la mano, inclinado hacia ella
-      const o2 = graciela.cabeza.localToWorld(OREJA_I.clone());
-      graciela.cabeza.getWorldQuaternion(_q); const qO = _q.clone().multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, -Math.PI / 2, 0)));   // (ronda 6) la pantalla contra la cara: desde afuera se ve el dorso
+      const o2 = oE.clone();
       const mano = graciela.brazos[0].mano.getWorldPosition(_b).clone();
       const qM = new THREE.Quaternion(); graciela.raiz.getWorldQuaternion(qM); qM.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.95, -0.25, 0)));
       const enMano = mano.clone().add(V3(0, 0.1, 0.02).applyQuaternion(qM));
@@ -1470,7 +1477,7 @@ function renderAt(tIn) {
     const u = eio(sg(t, T.p5, T.p6));
     ruben.raiz.updateMatrixWorld(true);
     const cara = ruben.cabeza.localToWorld(V3(0, 0.22, 0.1));
-    ponerCam([0.3, 4.62, lerp(3.1, 2.95, u), cara.x, cara.y + 0.13, cara.z, 40], t);   // (ronda 6) la cinta fuera por abajo
+    ponerCam([-0.15, 4.78, lerp(3.1, 2.95, u), cara.x - 0.04, cara.y + 0.13, cara.z, 40], t);   /* (ronda 7) más alta: el bigote no tapa el ojo */   // (ronda 6) la cinta fuera por abajo
   } else if (planoActual === "P6") {
     // contraplano: de frente a la izquierda (ronda 1: por encima del hombro solo se veía el pelo)
     const u = eio(sg(t, T.p6, T.chat));

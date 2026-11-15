@@ -356,3 +356,17 @@ SONIDO
   tramo de la voz). Mezcla -14,0 LUFS, pico -5,7 dBFS, voz ≥ +14,6 LU sobre el resto en todos los tramos con voz.
 Pasadas: r6 (cada 0,25 s en P4b, P5, P6, P7, Q1, Q1c, Q2c, Q3 y ±0,04 en sus cortes), p4b, q1c (×3), fin6 (cada 0,5 s +
 ±0,04 en los 18 cortes). `check --json`: 0 errores.
+
+## Ronda 7 (15-11) · celulares y mate
+**Duración 36,39 s** (sin cambios en tiempos).
+- ALTA 1 (celular de Graciela de canto, flotando en P4b) → en la oreja con la pantalla contra la mejilla y el dorso girado
+  0,75 rad hacia adelante (se ve la cara ancha del dorso verde), apoyado en la oreja; la mano lo agarra por abajo del dorso.
+- 2 (celular de Rubén invisible en P5/P8) → mismo arreglo (dorso girado hacia adelante, pegado a la oreja, mano tocándolo) y
+  el celular de Rubén pasa a verde de marca (antes navy3, se perdía en el fondo). P5 y P8 desde un poco más a su derecha
+  para que se vea.
+- 3 (bigote sobre el ojo) → cámaras de P5 y del final de P8 14-16 cm más altas.
+- 4 (bombilla en el bigote en Q1/Q1c) → el mate en reposo se inclina 0,35 rad hacia afuera (la bombilla lejos de la cara) y
+  la mano un poco más baja y adelante; en el sorbo de Q3 se inclina hacia la boca.
+- BAJA 5 (monitor en blanco al arrancar Q3) → la primera fila ("Graciela · aceite x 6 ✓") ya está desde q3.
+Pasadas: r7a/r7b/r7c (puntuales), r7 (cada 0,25 s en 7,81-12,24, 21,4-25,2, 28,95-32,35, 34,2-34,5, ±0,04 en sus cortes, y
+cada 1 s del resto). `check --json`: 0 errores.
