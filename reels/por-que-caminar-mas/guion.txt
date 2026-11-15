@@ -4,12 +4,12 @@ NARRADOR: ¿Por qué un aeropuerto de Houston hizo caminar más a la gente?
 NARRADOR: Seis veces más. Las quejas casi desaparecieron.
 [Un "?" verde 3D grande cae y rebota sobre el centro de una cinta de valijas.]
 NARRADOR: ¿Por qué?
-[Flashback (tinte gris suave): la cinta de valijas ovalada, tablillas metálicas, boca con cortina de tiras; Rubén parado frente a ella golpeando el pie, mate frío. Arriba, barra 3D de 8 bloques: 1 verde "caminando", 7 rojo apagado "mirando la cinta". Rótulo: "8 min · ya era lo normal".]
+[Flashback (tinte gris suave): la cinta de valijas ovalada, tablillas metálicas, boca con cortina de tiras; Rubén parado frente a ella golpeando el pie, mate frío. Arriba, barra 3D de 8 bloques: 1 verde "caminando", 7 rojo apagado "mirando la cinta". Rótulos: "ya la habían bajado a 8 min" y después "y las quejas seguían".]
 NARRADOR: Esperaban ocho minutos: uno caminando y siete mirando la cinta.
 [Grúa arriba: maqueta cenital del aeropuerto; el bloque de las puertas de llegada se desliza lejos de la terminal y el pasillo se alarga; las valijas se mudan a la cinta más lejana. Rótulo: "puertas más lejos".]
 NARRADOR: Entonces alejaron las puertas de llegada.
 [La maqueta se pliega en un libro de tapa navy, grande y abierto; las páginas pasan. Crédito mono: "David Maister · Harvard · 1985".]
-NARRADOR: Lo explicó un profesor en 1985:
+NARRADOR: Un profesor ya lo había explicado en 1985:
 [Del libro sale un reloj de arena gigante, vidrio y marco navy, arena crema que cae lentísimo junto a un banquito vacío. Rótulo: "espera vacía".]
 NARRADOR: la espera vacía se siente más larga.
 [El reloj de arena gira y se transforma en un reloj de pared sin números: en cada hora, un "?" rojo apagado; las agujas giran sin parar. Rótulo: "sin saber cuánto falta".]
@@ -23,4 +23,4 @@ NARRADOR: Una automatización le avisa sola cada paso.
 [Oficina: Rubén toma mate tranquilo; el teléfono quieto. Pausa. Levanta el tubo, lo mira con sospecha y sopla el auricular.]
 RUBEN: Nadie llamó. ¿Se cortó el teléfono?
 [Tarjeta de cierre en fondo verde sobre "videollamada": "Videollamada gratis" / "scalerics.com".]
-NARRADOR: ¿Lo armamos? Agendá una videollamada gratis en scalerics.com.
+NARRADOR: ¿Sin esperas a ciegas? Agendá una videollamada gratis en scalerics.com.

@@ -1,7 +1,7 @@
 # Notas del constructor · por-que-caminar-mas (15-11)
 
-Duración: **35,65 s** (voz 35,20 s; la última palabra termina en 35,03; DUR = fin de voz + 0,45 para que la tarjeta de
-cierre dure 2,8 s). Tarjeta de cierre desde "videollamada" (32,84) hasta el final.
+Duración: ver "Ronda 1" al final (36,61 s).
+(Lo de esta parte es de la versión anterior a la ronda 1.)
 No se renderizó el mp4 (lo hace el coordinador). `check --json`: ok, 0 errores.
 
 ## Guion: un cambio
@@ -102,3 +102,67 @@ pisaba "gente?") cambiado por whoosh-short; el ding de scalerics.com después de
 - s07: el monitor queda al borde derecho; las tarjetas se leen bien recién en el push-in (23,6-24,0).
 - Rubén camina con el mate en la mano a la altura del pecho; en s03 lo tiene en la izquierda (no se lo lleva a la boca).
 - No hay ambiente de aeropuerto ni sonido de cinta (no hay en el repo y no se bajó nada).
+
+## Ronda 1 (revisión independiente sobre el MP4) · manda sobre lo de arriba
+Duración nueva: **36,61 s** (voz 36,41 s; última palabra 36,23 + 0,2). Tarjeta de cierre desde "videollamada" (34,05):
+2,56 s. Escenas: se sumó `s10b-ciegas` (palabra 90), para que s10 no pase de 3,1 s. `check --json`: ok, 0 errores (craft 0).
+
+### Guion y voz
+- **Maister:** "Un profesor ya lo había explicado en 1985:" (toma nueva `partes/orus1c-2.wav`, texto `partes/orus1c.txt`;
+  de la misma toma sale "la espera vacía se siente más larga.").
+- **Cierre ligado al tema:** "¿Sin esperas a ciegas? Agendá una videollamada gratis en scalerics.com." (pregunta de
+  `partes/orus4-2.wav`; "Agendá…" sigue siendo `orus3-2`).
+- **Pausa de comedia** antes de "¿Se cortó el teléfono?": ~0,7 s con la cola de "Nadie llamó." (silencio fijo 0,62).
+- **"Ya la habían bajado a 8 min / y las quejas seguían": NO entró en la voz** (con la frase de Maister y la pregunta del
+  cierre la voz ya llega a 36,4 s; sumar esa frase daba ~38 s). Va como rótulos en s03: "ya la habían bajado a 8 min"
+  (verde, 7,7-9,6) y "y las quejas seguían" (rojo, 9,65-10,97).
+- Rótulo "ya sabe cuánto falta" en s09 (reemplaza a "aviso automático": dos rótulos no llegaban a leerse).
+- `guion.txt`, `fuentes.md` (filas 4, 6, C y la nueva S9) y `descripcion.txt` (orden: personal → 8 min → las quejas
+  seguían → alejaron) actualizados. Índices de palabra corridos en reel.json, tres.js, gen.mjs y armar.mjs.
+
+### Visual
+- **A/B/C celular:** sin push-in a la cara de Graciela; corte seco a 26,14 al celular gigante, que es el MISMO chat
+  ("Distribuidora", "¿Y mi pedido?" arriba) con "Preparando ✓" ya presente al cortar; los avisos caen debajo. El
+  celular ocupa ~88 % del ancho (KG 11,6), encabezado debajo del subtítulo, globos dentro del celular, camioncito navy
+  que cruza por debajo de los globos; rótulo abajo, separado. Sin tildes cortadas en las cajas de los costados.
+- **D libro:** páginas crema con renglones (y emisivo, para que la hoja que gira no quede como placa gris); la textura de
+  la maqueta queda solo mientras está la maqueta; tapa y lomo navy.
+- **E remate de Rubén:** oficina rearmada: monitor más chico y a la derecha (no tapa la cara, entero en cuadro), faldón del
+  escritorio de madera y piso hasta la cámara (sin franja navy), sin la carpeta verde. El mate en la izquierda a la vista
+  en s07 y s10. El tubo pegado a la oreja de verdad (y 0,26 de la cabeza) en s07; en s10 lo levanta en la pausa, lo mira
+  con sospecha al costado de la cara, dos golpecitos, mira a cámara en "¿Sin esperas…?" y cuelga; la mano sigue al tubo
+  hasta que queda colgado (sin brazo de goma). Ojos entrecerrados (0,6) al hablar en s07; parpadeo después. Monitor
+  vacío con "Sin llamadas". No hice el soplido (no hay un SFX limpio en el repo).
+- s02: sin vigas en la vista aérea; globos dentro del pasillo; "× 6" arriba a la izquierda; medidor de quejas (6 bloques
+  rojos, en "quejas") que se vacía con los globos y "casi 0" verde en "casi", a la derecha sobre fondo libre.
+- s03: el "?" cae desde dentro del cuadro cuando la cámara ya encuadró la cinta; Rubén entra por el movimiento de cámara
+  (cambia de lugar con el pasillo fuera de cuadro); órbita y push-in visibles 7,5-10,5.
+- Gancho sobre banda crema lisa (sin vigas ni varillas detrás de las letras); "Un aeropuerto de Houston" justo debajo
+  (44 px); el cartel "Valijas →" más bajo y más chico.
+- Maqueta: más cerca al principio y encuadre más bajo (los aviones ya no quedan bajo el subtítulo); logo oculto en s04.
+- Reloj de arena más chico (la tapa no toca el subtítulo); escala cruzada limpia al reloj de "?"; la página del libro se
+  oculta bajo el reloj de "?".
+- Subtítulos con placa crema translúcida (se leen sobre fondo oscuro); créditos mono a 42 px.
+
+### Sonido
+whoosh-cine-corto en 1,4 (el cinematic arrancaba mudo); pasos tac-real a 0,15; grúa de s04 con whoosh (−0,35); papel 0,2
+/ hojas 0,03 con max 0,7; tics del reloj de "?" más fuertes (0,08-0,16) y solo hasta antes de "más todavía"; chime de
+"Entregado" a 0,1 (Entregado pasó a paso + 0,5, después de la voz); click-soft en las tildes; tac de "uno" 0,2 en 8,55;
+golpe del "?" al aterrizar; pops de los globos −3 dB; tac de los golpecitos −2 dB; whoosh del cierre antes (−0,3);
+bgm 0,22 → 0,3 con ducks en 12,0-12,4, colas de "gente?", "larga.", "todavía."→"Sale", "hora."→"Tu" y antes de
+"¿Se cortó". Cortes de subtítulos según la lista (grupos de menos de 0,4 s unidos). Medido: I −17,0 LUFS, pico −3,8;
+**tramos de 0,1 s con voz < 6 dB: ninguno**; de 0,5 s: 21,0 y 28,5 (son el hueco después de "todavía." y de "paso.",
+con el ring y el chime que arrancan cuando la voz ya terminó).
+
+### Pasadas (renders/snap/)
+- r1a (cada 0,5 s) y r1b-r1e (arreglos puntuales): oficina con Rubén chico y monitor cortado → cámara más cerca (fov 48),
+  monitor 0,66 m; globos tapando el medidor → globos dentro del pasillo y medidor abajo a la derecha; motas de globo al
+  final del desinflado → se ocultan antes; aviones bajo el subtítulo → encuadre de la maqueta más bajo.
+- **Pasada 1 (r1f, cada 0,5 s desde 0)** y **pasada 2 (r1g, cada 0,5 s desde 0,25)** sobre la versión final: sin
+  defectos altos. Corregido después: rótulos de menos de 1,3 s (craft) y el "?" que asomaba bajo el subtítulo al caer (r1h).
+
+### Quedan (bajos)
+- 26,0: el último cuadro del plano de Graciela la deja grande a la izquierda (la cámara se acerca antes del corte).
+- 32,0: el tubo levantado toca el borde izquierdo un instante.
+- 26,2-27,4: la mitad de abajo del celular gigante está vacía hasta que caen "Sale hoy" y "En camino".
+- Sin soplido en el tubo; sin ambiente de aeropuerto.

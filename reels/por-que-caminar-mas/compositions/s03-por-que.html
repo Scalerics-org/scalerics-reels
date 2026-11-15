@@ -13,11 +13,11 @@
     [data-composition-id="s03-por-que"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s03-por-que"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
     [data-composition-id="s03-por-que"] .dot.malo { fill: #c7655b; }
-[data-composition-id="s03-por-que"] .credm { position: absolute; transform: translate(-50%, -50%); padding: 12px 26px 14px; border-radius: 18px; background: #efeee5; border: 4px solid #0b1220; font: 500 36px/1.1 "IBM Plex Mono", monospace; color: #0b1220; white-space: nowrap; opacity: 0; }
+[data-composition-id="s03-por-que"] .credm { position: absolute; transform: translate(-50%, -50%); padding: 12px 26px 14px; border-radius: 18px; background: #efeee5; border: 4px solid #0b1220; font: 500 42px/1.1 "IBM Plex Mono", monospace; color: #0b1220; white-space: nowrap; opacity: 0; }
   </style>
   <div id="root" data-composition-id="s03-por-que" data-width="1080" data-height="1920" data-duration="4.56">
     <div id="s03-por-que-esc" class="esc clip" data-start="0" data-duration="4.56" data-track-index="0">
-<div class="pill tag n1" style="left:170px;top:540px">ANTES</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M700 820 L700 790"/><circle class="dot  d2" cx="700" cy="790" r="14"/></svg><div class="pill lleno n2" style="left:700px;top:870px">ya era lo normal</div><div class="credm n3" style="left:540px;top:1640px">The New York Times · 2012</div>
+<div class="pill tag n1" style="left:170px;top:540px">ANTES</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M700 820 L700 790"/><circle class="dot  d2" cx="700" cy="790" r="14"/></svg><div class="pill lleno n2" style="left:620px;top:870px">ya la habían bajado a 8 min</div><div class="pill malo n4" style="left:620px;top:870px">y las quejas seguían</div><div class="credm n3" style="left:540px;top:1640px">The New York Times · 2012</div>
     </div>
   </div>
   <script>
@@ -40,7 +40,7 @@
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
 
-pop(".n1", 0.6); pop(".n3", 0.7); nota(2, 1.27); fuera([2], 3.04); fuera([1, 3], 4.26);
+pop(".n1", 0.6); pop(".n3", 0.7); nota(2, 1.07); fuera([2], 3); pop(".n4", 3.04); fuera([1, 3, 4], 4.36);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

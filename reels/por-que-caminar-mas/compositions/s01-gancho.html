@@ -19,11 +19,13 @@
     [data-composition-id="s01-gancho"] .mk em { position: relative; font-style: normal; color: #0b1220; -webkit-text-stroke: 0; }
     [data-composition-id="s01-gancho"] .h { position: absolute; left: 0; right: 0; text-align: center; font: 900 122px/1.04 "Lexend", sans-serif; letter-spacing: -0.04em; color: #0b1220; -webkit-text-stroke: 14px #efeee5; paint-order: stroke fill; white-space: nowrap; }
     [data-composition-id="s01-gancho"] .h1 { top: 70px; } [data-composition-id="s01-gancho"] .h2 { top: 196px; } [data-composition-id="s01-gancho"] .h3 { top: 322px; }
-    [data-composition-id="s01-gancho"] .sub0 { position: absolute; left: 50%; top: 1630px; transform: translateX(-50%); padding: 10px 26px 12px; border-radius: 16px; background: #0b1220; font: 500 40px/1 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #efeee5; white-space: nowrap; }
+    [data-composition-id="s01-gancho"] .banda { position: absolute; left: 0; top: 0; width: 1080px; height: 540px; background: #efeee5; }
+    [data-composition-id="s01-gancho"] .sub0 { position: absolute; left: 50%; top: 462px; transform: translateX(-50%); padding: 10px 26px 12px; border-radius: 16px; background: #0b1220; font: 500 44px/1 "IBM Plex Mono", monospace; letter-spacing: 0.02em; color: #efeee5; white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="s01-gancho" data-width="1080" data-height="1920" data-duration="3.51">
     <div id="s01-gancho-esc" class="esc clip" data-start="0" data-duration="3.51" data-track-index="0">
 
+      <div class="banda"></div>
       <div class="h h1">¿Por qué los</div>
       <div class="h h2">hicieron</div>
       <div class="h h3">caminar <span class="mk"><b class="fondo"></b><em>más</em></span>?</div>
@@ -53,7 +55,7 @@
 
       tl.fromTo(qa(".h"), { scale: 1.03, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.45, ease: "power3.out" }, 0);
       tl.fromTo(q(".h3 .mk"), { scale: 1 }, { scale: 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, 2.44);
-      tl.to(qa(".h, .sub0"), { opacity: 0, y: -30, duration: 0.2, ease: "power1.in" }, 3.27);
+      tl.to(qa(".h, .sub0"), { opacity: 0, y: -30, duration: 0.2, ease: "power1.in" }, 3.27); tl.to(q(".banda"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 3.31);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

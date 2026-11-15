@@ -12,8 +12,8 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 const dur = (f) => Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString());
-const ARCH = ["partes/orus1aj-2.wav", "partes/orus1b-1.wav", "partes/ruben1-2.wav", "partes/orus2-1.wav", "partes/ruben2-2.wav", "partes/orus3-2.wav"];
-const GAN = [-1.7, -1.9, 1.2, -0.9, -0.4, -2.6]; // dB por archivo (todo parejo, ~ -17 LUFS)
+const ARCH = ["partes/orus1aj-2.wav", "partes/orus1b-1.wav", "partes/ruben1-2.wav", "partes/orus2-1.wav", "partes/ruben2-2.wav", "partes/orus3-2.wav", "partes/orus1c-2.wav", "partes/orus4-2.wav"];
+const GAN = [-1.7, -1.9, 1.2, -0.9, -0.4, -2.6, -1.9, -2.6]; // dB por archivo (todo parejo, ~ -17 LUFS)
 const T = 1.12;
 // [archivo, desde, hasta, tempo, silencio después]
 export const TRAMOS = [
@@ -24,14 +24,15 @@ export const TRAMOS = [
   [0, 9.42, 10.82, T, 0.14],  // Esperaban ocho minutos:
   [0, 11.18, 13.84, T, 0.2], // uno caminando y siete mirando la cinta.
   [1, 0.25, 2.62, T, 0.18],   // Entonces alejaron las puertas de llegada.
-  [1, 2.86, 6.12, T, 0.06],   // Lo explicó un profesor en 1985:
-  [1, 6.54, 9.1, T, 0.2],    // la espera vacía se siente más larga.
-  [1, 9.29, 12.05, T, 0.36],  // La que no sabés cuánto dura, más todavía.
-  [2, 0.24, 2.2, 1.0, 0.26],  // Sale hoy. Te lo dije hace una hora.
+  [6, 0.25, 3.66, T, 0.08],   // ronda 1: Un profesor ya lo había explicado en 1985:
+  [6, 4.05, 6.17, T, 0.2],    // ronda 1: la espera vacía se siente más larga. (misma toma)
+  [1, 9.29, 12.05, T, 0.3],  // La que no sabés cuánto dura, más todavía.
+  [2, 0.24, 2.2, 1.0, 0.22],  // Sale hoy. Te lo dije hace una hora.
   [3, 0.21, 2.8, T, 0.2],     // Tu cliente sin noticias está frente a la cinta.
   [3, 3.16, 5.93, T, 0.4],   // Una automatización le avisa sola cada paso.
-  [4, 0.25, 1.14, 1.0, 0.4], // Nadie llamó.
+  [4, 0.25, 1.14, 1.0, 0.62], // Nadie llamó. (ronda 1: pausa de comedia ~0,7 s con la cola)
   [4, 1.8, 3.27, 1.0, 0.24],  // ¿Se cortó el teléfono?
+  [7, 0.24, 1.57, T, 0.14],   // ronda 1: ¿Sin esperas a ciegas? (orus4-2)
   [5, 1.26, 4.25, T, 0.1],    // Agendá una videollamada gratis en Scálerics punto com.
 ];
 if (process.argv[1].endsWith("armar-voz.mjs")) {

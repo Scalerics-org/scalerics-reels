@@ -13,17 +13,17 @@
     [data-composition-id="s05-maister"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s05-maister"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
     [data-composition-id="s05-maister"] .dot.malo { fill: #c7655b; }
-[data-composition-id="s05-maister"] .credm { position: absolute; transform: translate(-50%, -50%); padding: 12px 26px 14px; border-radius: 18px; background: #efeee5; border: 4px solid #0b1220; font: 500 36px/1.1 "IBM Plex Mono", monospace; color: #0b1220; white-space: nowrap; opacity: 0; }
+[data-composition-id="s05-maister"] .credm { position: absolute; transform: translate(-50%, -50%); padding: 12px 26px 14px; border-radius: 18px; background: #efeee5; border: 4px solid #0b1220; font: 500 42px/1.1 "IBM Plex Mono", monospace; color: #0b1220; white-space: nowrap; opacity: 0; }
   </style>
-  <div id="root" data-composition-id="s05-maister" data-width="1080" data-height="1920" data-duration="3.03">
-    <div id="s05-maister-esc" class="esc clip" data-start="0" data-duration="3.03" data-track-index="0">
+  <div id="root" data-composition-id="s05-maister" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s05-maister-esc" class="esc clip" data-start="0" data-duration="3.12" data-track-index="0">
 <div class="credm n1" style="left:540px;top:1640px">David Maister · Harvard · 1985</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s05-maister";
-      const DUR = 3.03;
+      const DUR = 3.12;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,7 +40,7 @@
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
 
-pop(".n1", 0.66); fuera([1], 2.88);
+pop(".n1", 0.04); fuera([1], 2.97);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

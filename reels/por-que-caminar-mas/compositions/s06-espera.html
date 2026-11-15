@@ -15,15 +15,15 @@
     [data-composition-id="s06-espera"] .dot.malo { fill: #c7655b; }
 
   </style>
-  <div id="root" data-composition-id="s06-espera" data-width="1080" data-height="1920" data-duration="5.25">
-    <div id="s06-espera-esc" class="esc clip" data-start="0" data-duration="5.25" data-track-index="0">
+  <div id="root" data-composition-id="s06-espera" data-width="1080" data-height="1920" data-duration="4.86">
+    <div id="s06-espera-esc" class="esc clip" data-start="0" data-duration="4.86" data-track-index="0">
 <svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M790 1470 L700 1260"/><circle class="dot  d1" cx="700" cy="1260" r="14"/></svg><div class="pill  n1" style="left:800px;top:1530px">espera vacía</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead malo l2" d="M540 1570 L540 1560"/><circle class="dot malo d2" cx="540" cy="1560" r="14"/></svg><div class="pill malo n2" style="left:540px;top:1630px">sin saber cuánto falta</div>
     </div>
   </div>
   <script>
     (function () {
       const ID = "s06-espera";
-      const DUR = 5.25;
+      const DUR = 4.86;
       const root = document.querySelector('[data-composition-id="' + ID + '"]');
 
       const q = (s) => root.querySelector(s);
@@ -40,7 +40,7 @@
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
 
-nota(1, 0.7); fuera([1], 2.28); nota(2, 2.97); fuera([2], 5.13);
+nota(1, 0.64); fuera([1], 1.95); nota(2, 2.64); fuera([2], 4.74);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
