@@ -602,8 +602,8 @@ const celT = [];
   const fondo = new THREE.Mesh(new THREE.PlaneGeometry(4, 5), basic(C.navy2)); fondo.position.set(0, 1.45, -0.6); TRIP.add(fondo);
   for (const [x, y, c] of [[-0.62, 2.35, C.navy3], [0.6, 1.2, C.navy3], [-0.5, 0.2, C.edge]]) { const m = new THREE.Mesh(new THREE.CircleGeometry(0.5, 40), basic(c)); m.position.set(x, y, -0.55); TRIP.add(m); }
   CLIENTES.forEach(([n, l], i) => {
-    const c = crearCelular(pantT[i], [C.navy3, C.g, C.g][i], 0.08, 0.16); c.scale.setScalar(4.4); marcoCel(c);
-    c.position.set([-0.37, 0, 0.37][i], [2.0, 1.42, 0.84][i], i * 0.02); /* (ronda 8) en escalera de punta a punta, sin encimarse */ c.rotation.set(0, 0, [0.02, -0.02, 0.02][i]); TRIP.add(c); celT.push(c);
+    const c = crearCelular(pantT[i], [C.navy3, C.g, C.g][i], 0.08, 0.16); c.scale.setScalar(6.0); marcoCel(c);
+    c.position.set([-0.265, 0.265, 0][i], [1.925, 1.925, 0.915][i], i * 0.02); /* (ronda 9) dos arriba y uno abajo, grandes */ c.rotation.set(0, 0, 0); TRIP.add(c); celT.push(c);
   });
 }
 const claveT = ["", "", ""];
@@ -1250,7 +1250,7 @@ function poseGraciela(t) {
   const pr = { x: GRA.x, z: GRA.z, giro: -0.15, inclina: 0.04, ...aC(-0.05, 0.02), ...CARA.neutra, ...BRAZOS.costado, t };
   pr.ojos = { x: -0.1, y: 0, abiertos: 1, feliz: 0.1 };
   if (!parte2) {
-    if (t >= T.p6 + 0.15) { pr.cabeza = { giro: 0.2, asiente: 0.38, ladea: 0.05 }; pr.ojos = { x: 0.1, y: -0.75, abiertos: 1, feliz: 0 }; pr.cejas = { alto: 0.35, ang: 0.3 }; }
+    if (t >= T.p6 + 0.15) { pr.cabeza = { giro: 0.2, asiente: 0.22, ladea: 0.05 }; pr.ojos = { x: 0.1, y: -0.45, abiertos: 1, feliz: 0 };   /* (ronda 9) mira menos hacia abajo */ pr.cejas = { alto: 0.35, ang: 0.3 }; }
     bocaVoz(pr, t, T.g2, ENV.g2, 0.7); bocaVoz(pr, t, T.g3, ENV.g3, 0.7);
     if (t >= T.p6 + 0.1) pr.boca = { ...(pr.boca || {}), sonrisa: 0.15 };
   } else {
@@ -1269,12 +1269,12 @@ function poseGraciela(t) {
 // (inclinado 0,95 rad: la persona lo mira, la cámara de frente ve la pantalla de la llamada), un poco hacia el lado de la
 // mano. La mano va primero (IK) y el celular se pega a la mano real (nunca flota). Fuera de la mano: apoyado en el escritorio.
 const CELK = 1.6;   // el mismo tamaño para los dos celulares, en todos los planos
-function celEnPecho(per, cel, lado) {
+function celEnPecho(per, cel, lado, bajar = 0) {
   // lado: +1 mano izquierda (+x del personaje), -1 derecha. Devuelve la mano en el espacio del cuerpo (para el IK).
   per.raiz.updateMatrixWorld(true);
   const q = new THREE.Quaternion(); per.raiz.getWorldQuaternion(q);
   const cab = per.cabeza.getWorldPosition(new THREE.Vector3());
-  return aCuerpo(per, cab.add(V3(lado * 0.14, -0.14, 0.4).applyQuaternion(q)));
+  return aCuerpo(per, cab.add(V3(lado * 0.14, -0.14 - bajar, 0.4).applyQuaternion(q)));
 }
 function pegarCel(per, cel, lado, mano) {
   const q = new THREE.Quaternion(); per.raiz.getWorldQuaternion(q);
@@ -1417,7 +1417,7 @@ function renderAt(tIn) {
       const u = Math.sin(Math.PI * sg(t, T.sorbo - 0.3, T.sorbo + 0.6));
       ruben.raiz.updateMatrixWorld(true);
       const boca = ruben.cabeza.localToWorld(V3(0.0, 0.1, 0.42));
-      pr.manoI = aCuerpo(ruben, m.clone().lerp(boca.clone().add(V3(-0.05, -0.12, 0.1)), u)); pr.codoI = [1, -0.6, -0.2];
+      pr.manoI = aCuerpo(ruben, m.clone().lerp(boca.clone().add(V3(-0.05, -0.16, 0.1)), u)); pr.codoI = [1, -0.6, -0.2];
       ruben.poner(pr);
     }
     const m2 = ruben.brazos[0].mano.getWorldPosition(_a).clone();
@@ -1432,7 +1432,7 @@ function renderAt(tIn) {
     graciela.raiz.updateMatrixWorld(true);
     if (!parte2) {
       // (ronda 8) en llamada: la misma regla que Rubén (delante del pecho, en la mano izquierda); en P6 lo mira
-      pg.manoI = celEnPecho(graciela, celG, 1); pg.codoI = [1, -0.6, 0.1];
+      pg.manoI = celEnPecho(graciela, celG, 1, planoActual === "P6" ? 0.07 : 0);   /* (ronda 9) en P6 más abajo: no toca la boca */ pg.codoI = [1, -0.6, 0.1];
       graciela.poner(pg); graciela.raiz.position.x += RX; graciela.raiz.updateMatrixWorld(true);
       pegarCel(graciela, celG, 1, 0);
     } else {
@@ -1527,7 +1527,7 @@ function renderAt(tIn) {
     const crece = (g, top, s, obj) => ponerGlobo(g, 540, top + g.userData.H / 2, s, obj);
     if (pa === "P6" && t >= T.g3) { const [bx, by] = bocaPx(graciela); const g = t >= T.g3 + 1.05 ? GL.g3 : GL.g3a; crece(g, 250 - GL.g3.userData.H / 2, ent(T.g3), [Math.min(bx, 900), by]); }
     if (pa === "P7" && t >= T.p2v - 0.05) ponerGlobo(GL.p2, 640, 360, ent(T.p2v) * sale(T.r2), px(telefono, V3(0, 0.12, 0)));
-    if (pa === "P7" && t >= T.r2) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r2, 540, Math.max(300, by - 600), ent(T.r2), [bx, by - 40]); }
+    if (pa === "P7" && t >= T.r2) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r2, 540, Math.max(200, by - 740), ent(T.r2), [bx, by - 40]);   /* (ronda 9) más arriba: la cola no toca la coronilla */ }
     if (pa === "P8" && t >= T.g4) ponerGlobo(GL.g4, 540, 300, ent(T.g4) * sale(T.r4 - 0.02), null);   // (ronda 4) la voz sale del celular en la oreja: sin cola   // el celular está en la oreja, fuera de cuadro a la izquierda: la cola va al borde
     if (pa === "P8" && t >= T.r4) { const [bx, by] = bocaPx(ruben); const g = t >= T.r4 + 2.42 ? GL.r4 : t >= T.r4 + 0.74 ? GL.r4b : GL.r4a; crece(g, Math.max(230, by - 750) - GL.r4.userData.H / 2, ent(T.r4) * sale(T.tecla + 0.25), [bx, by - 40]); }
     if (pa === "Q1" && t >= T.p1b - 0.05) ponerGlobo(GL.p3, 540, 400, ent(T.p1b), px(telefono, V3(0, 0.12, 0)));   // (ronda 4) sigue igual en el inserto

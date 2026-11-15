@@ -391,3 +391,13 @@ con bisel navy alrededor de la pantalla y cámara en el dorso (`marcoCel`), tamb
   "Pedidos de hoy" a 64 px de lienzo.
 Pasadas: r8a/r8b/trip (puntuales), r8 (cada 0,2 s en 7,86-14,13, 15,08-26,2 y 28,72-36,39, ±0,04 en 14 cortes, cada
 0,5-1 s del resto; 168 cuadros). `check --json`: 0 errores.
+
+## Ronda 9 (15-11) · mínima
+**Duración 36,39 s** (sin cambios en tiempos ni cámaras).
+- Tríptico → dos arriba (Marta, Walter) y uno abajo (Graciela), escala 6,0, sin rotación: llenan ~80 % del cuadro con
+  ~80 px de margen; textos ≥ 43 px en cuadro.
+- Graciela en P6 → el celular 7 cm más abajo (debajo del mentón con aire; `celEnPecho(..., bajar)` solo en P6) y mira menos
+  hacia abajo (cabeza 0,22, ojos -0,45: párpados abiertos).
+- "Ocho." → globo más arriba (by - 740): la cola no toca la coronilla.
+- Sorbo de Q3 → la mano 4 cm más abajo: la bombilla llega a la boca.
+Pasada r9: cada 0,2 s en 12,2-14,1, 18,25-19,0, 32,3-33,2, 35,1-35,6 y ±0,04 en sus cortes. `check --json`: 0 errores.
