@@ -1,0 +1,32 @@
+[sin narrador Orus: el chiste va en burbujas, el cartel 3D "40" colgado sobre el rack del aceite, los remitos clavados en el parante y las tres cajas; voces por archivo en partes/*.txt, ver partes/voces.md]
+[parte 1 · la distribuidora de Rubén, de día · cuadro 0: plano general desde el piso del depósito, racks con pallets y largueros verdes, arriba la oficina vidriada con Rubén y el mate mirando el monitor; al pie de la escalera, Nico con el celular y su burbuja ya en pantalla "Rubén, ¿hay aceite? Graciela quiere 40." · gancho grande "El Excel dice cuarenta."]
+RUBEN: El Excel dice cuarenta.
+[en "cuarenta", pop: sobre el rack "ACEITE" baja colgado de dos cadenas un "40" 3D gigante crema con borde navy, como un cartel · Nico, pulgar arriba, al celular]
+NICO: ¡Vendido!
+[remito "GRACIELA · 40" que se clava en el parante del rack · Nico camina por el pasillo con el celular, travelling a su lado, el "40" siempre arriba en cuadro · burbuja de Marta · Cafetería "¿Tenés aceite? 40." · Nico mira el cartel]
+NICO: ¡Vendido!
+[remito "MARTA · 40" · burbuja de Walter · Bar "40 de aceite, para mañana." · Nico ni mira el cartel]
+NICO: ¡Vendido!
+[remito "WALTER · 40" · tres remitos clavados uno arriba del otro · el "40" no se mueve]
+[entra el camión de reparto al muelle · el operario va al rack con la zorra y los tres remitos en la mano · grúa: la cámara baja desde el "40" gigante hasta el pallet: tres cajas solas en el medio de un pallet vacío · push-in]
+[contraplano · Rubén (bajó con el mate), Nico y el operario en fila frente al rack · miran las tres cajas, miran el "40", miran las tres cajas · pausa: una paloma cruza el galpón por arriba (aleteo), la música baja, no se corta]
+NICO: Pero el Excel dice cuarenta.
+[Rubén gira la cabeza despacio hacia Nico · primer plano]
+RUBEN: El Excel nunca bajó al depósito.
+[el operario carga las tres cajas en la zorra y se va: el pallet queda vacío · Nico toca el celular, orgulloso]
+NICO: Tranqui, ya lo actualicé.
+[remate del remate · el cartel gira como un marcador de aeropuerto: "40" → "37", en rojo apagado, colgado sobre el pallet vacío · Rubén mira el 37, mira el pallet]
+RUBEN: Bárbaro. Ahora miente actualizado.
+[Rubén toma mate, cara de nada · stinger]
+NARRADOR: Un sistema más tarde.
+[parte 2 · otro día, el mismo encuadre del cuadro 0 · Nico al pie de la escalera con el celular y la misma burbuja de Graciela "¿Hay aceite? Quiere 40." · Rubén arriba, en la oficina, con el mate]
+NICO: Rubén, ¿hay aceite?
+[Rubén, sin levantar la vista del mate, le señala el celular con la bombilla]
+RUBEN: Fijate vos.
+[inserto del celular de Nico: "Aceite 1,5 L x 12 · En depósito: 40 ✓" en verde · sobre el rack, el cartel ahora es verde con "40" navy · grúa corta: el pallet lleno de verdad]
+NICO: ¡Vendido!
+[el operario carga con la zorra y escanea cada capa con el celular (bip): el cartel baja 40 → 30 → 20 → 10 · en 10 parpadea y vuela un aviso al monitor de Rubén "Aceite: quedan 10 · ¿Pedimos 40?" · Rubén toca "Pedir ✓" con el mate en la otra mano · entra el camión del proveedor, el autoelevador deja un pallet nuevo: el cartel sube a 40]
+[Rubén baja, se para frente al pallet nuevo · saca una caja: bip, "39" · la vuelve a poner: bip, "40" · Nico al lado]
+NICO: ¿Y? ¿Cuántos hay?
+RUBEN: Los que dice.
+[Rubén toma mate y se va por el pasillo · el cartel verde "40" sobre el pallet lleno · línea chica: "Un sistema de stock a medida" / "scalerics.com"]
