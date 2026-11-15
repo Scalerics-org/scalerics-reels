@@ -1,5 +1,5 @@
 {
- "t": 18.9,
+ "t": 7.4,
  "chica": "La lista de precios:",
  "grande": "v7_FINAL_ESTA_SI",
  "sello": "Distribuidora",
@@ -9,5 +9,6 @@
  "foco": "50%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "nota": "tentativa: t a ajustar con la hoja de cuadros del render. Fondo limpio (LIMPIO=1, sin gancho, subtítulos ni burbujas): Rubén mirando a cámara con los anteojos y la cinta .pdf colgando del escritorio (~18,9 s), o la cinta v7 cruzando el escritorio con Rubén agarrando el termo (~7,9 s). Si el fondo queda oscuro, subir el cuadro para que Rubén quede arriba del texto."
+ "fondo_limpio": "portada-src/fondo-limpio-7.4.png",
+ "nota": "fondo: cuadro 7,4 s con LIMPIO=1 (Rubén agarra el termo que empuja la cinta lista_v7_FINAL_ESTA_SI_(2).xlsx). Alternativa: portada-src/fondo-limpio-21.3.png (mirada a cámara, la cinta .pdf colgando). Si el texto tapa la cinta, subir el fondo ~300 px como ya-lo-cargo."
 }

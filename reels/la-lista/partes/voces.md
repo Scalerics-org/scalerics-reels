@@ -31,3 +31,19 @@ archivo de la cinta, el chat, la planilla, el panel, los pedidos ni la línea ch
 | 10-ruben.txt · "¿Algo más?" | Rubén | Algenib | Rubén a las 18:30, tranquilo, con el mate en la mano, al proveedor por el altavoz: seco y apenas desafiante, con media sonrisa que no se ve; el dueño al que un aumento ya no le arruina la tarde. ~0,7 s. | Sin filtro. |
 
 Si alguna voz de siempre no estuviera disponible, no cambiarla por otra de un personaje recurrente: avisar.
+
+## Tomas elegidas (15-11, constructor) · `assets/voice/` (las arma `partes/procesar.sh`)
+Tomas en `partes/tomas/` (voces.sh lee `partes/lineas.tsv`; `partes/seq.sh` = tomas extra de a una por la cuota de
+Gemini), recortadas en `partes/rec/`, verificadas con `tiempos.mjs` ("oyó:").
+| voz | toma | dur | proceso | oyó |
+|---|---|---|---|---|
+| g1 | 01-graciela-b | 2,07 | pausa tras "Rubén," acortada, atempo 1,08, filtro de celular (hp 250 / lp 5000) | Rubén me pasas la lista actualizada |
+| p1 | 02-proveedor-a | 1,48 | teléfono (hp 300 / lp 3400); la MISMA toma va en la parte 2 | Rubén subió el aceite |
+| g2 | 03-graciela-e | 2,14 | pausa acortada, atempo 1,08, teléfono (a/b/c/d/f se oían "a cuántos pa", "elástica") | Rubén el aceite A cuánto está |
+| r1 | 04-ruben-e | 1,10 | sin filtro, sin el ruido del arranque (a: "está la lista"; c: "en la disco") | está en la lista |
+| g3 | 05-graciela-c | 1,37 | pausa entre frases ~0,2 s, teléfono | En cuál Tengo 7 |
+| p2 | 06-proveedor-b | 1,76 | otra toma que p1, atempo 1,08, teléfono | Rubén subió el aceite |
+| r2 | 07-ruben-a | 0,48 | sin filtro (falta confirmar al oído que no suene a pregunta) | ocho |
+| g4 | 08-graciela-a | 1,87 | pausa acortada, atempo 1,08, teléfono | Dale me la mandas en pdf |
+| r3 | 10-ruben-a | 0,66 | sin filtro | algo más |
+| narrador | reels/hacen-envios | 2,81 | la misma toma de Rasalgethi (su narrador.json: "Una tienda online más tarde.") | |
