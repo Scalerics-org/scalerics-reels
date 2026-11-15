@@ -152,10 +152,12 @@ if (video) {
   const veto = fs.existsSync("no-publicar.txt") ? fs.readFileSync("no-publicar.txt", "utf8").split(/\s+/).filter(Boolean) : [];
   const filas = [...fs.readFileSync("ideas.md", "utf8").matchAll(/^- (\d\d)-(\d\d) · `([a-z0-9-]+)`/gm)];
   const hechos = filas.map((m) => m[3]);
-  // Lo de antes del 03-11 es de la línea vieja (piratas, lucha libre, cómic...: "llega a un público muy
-  // infantil", Juan 03-11). Eso sale solo si alguien lo aprueba a mano; sin revisar, no.
-  // "Hechos" está en orden de llegada: la línea nueva arranca en el primer reel del 03-11.
-  const desde = filas.findIndex((m) => m[1] === "03" && m[2] === "11");
+  // Sin aprobación sale solo el estilo 3D, que arranca en caso-pedidosya (04-11). Lo anterior es línea
+  // vieja: piratas, lucha libre y cómic hasta el 02-11 ("llega a un público muy infantil", Juan 03-11)
+  // y los dibujos de líneas planos del 03 y 04-11. Juan, 13-11: con TikTok a 10 por día se acabaron
+  // los 3D y empezaron a salir los planos del 03-11 ("volvieron a ser como los viejos").
+  // Lo viejo sale solo si alguien lo aprueba a mano. "Hechos" está en orden de llegada.
+  const desde = filas.findIndex((m) => m[3] === "caso-pedidosya");
   const lineaNueva = new Set(desde < 0 ? [] : filas.slice(desde).map((m) => m[3]));
   const lugar = (s) => (Number.isFinite(revision[s].orden) ? revision[s].orden : Infinity);
   const aprobados = hechos
