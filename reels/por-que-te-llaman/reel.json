@@ -1,0 +1,5 @@
+{"escenas": [["s01-gancho", 0], ["s02-se-enfria", 9], ["s03-que-tan", 15], ["s04-lo-midio", 18], ["s05-el-que-decide", 27], ["s06-dos-mil", 35], ["s07-nunca", 45], ["s08-dos-dias", 52], ["s09-ruben-compro", 60], ["s10-ruben-ayer", 67], ["s11-crm", 72], ["s12-escribe-solo", 82], ["s13-llegar", 90], ["s14-cierre", 95]],
+ "subDesde": 9, "subHasta": 93, "subFin": 93,
+ "cortes": [9, 15, 18, 22, 27, 30, 35, 39, 45, 50, 52, 55, 60, 63, 67, 72, 75, 77, 82, 87, 90],
+ "acento": [13, 17, 25, 26, 34, 42, 43, 59, 66, 73, 81, 89, 92],
+ "malo": [50, 71]}

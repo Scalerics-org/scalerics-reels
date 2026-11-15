@@ -1,0 +1,497 @@
+[
+ {
+  "text": "¿Por",
+  "start": 0,
+  "end": 0.057
+ },
+ {
+  "text": "qué",
+  "start": 0.057,
+  "end": 0.198
+ },
+ {
+  "text": "pedís",
+  "start": 0.198,
+  "end": 0.481
+ },
+ {
+  "text": "un",
+  "start": 0.481,
+  "end": 0.575
+ },
+ {
+  "text": "presupuesto",
+  "start": 0.575,
+  "end": 1.142
+ },
+ {
+  "text": "y",
+  "start": 1.142,
+  "end": 1.142
+ },
+ {
+  "text": "te",
+  "start": 1.142,
+  "end": 1.33
+ },
+ {
+  "text": "llaman",
+  "start": 1.33,
+  "end": 1.613
+ },
+ {
+  "text": "enseguida?",
+  "start": 1.613,
+  "end": 2.245
+ },
+ {
+  "text": "Porque",
+  "start": 2.545,
+  "end": 2.705
+ },
+ {
+  "text": "el",
+  "start": 2.705,
+  "end": 2.8
+ },
+ {
+  "text": "interés",
+  "start": 2.8,
+  "end": 2.988
+ },
+ {
+  "text": "se",
+  "start": 2.988,
+  "end": 3.177
+ },
+ {
+  "text": "enfría",
+  "start": 3.177,
+  "end": 3.46
+ },
+ {
+  "text": "rápido.",
+  "start": 3.46,
+  "end": 3.989
+ },
+ {
+  "text": "¿Qué",
+  "start": 4.269,
+  "end": 4.316
+ },
+ {
+  "text": "tan",
+  "start": 4.316,
+  "end": 4.505
+ },
+ {
+  "text": "rápido?",
+  "start": 4.505,
+  "end": 5.071
+ },
+ {
+  "text": "Un",
+  "start": 5.321,
+  "end": 5.415
+ },
+ {
+  "text": "estudio",
+  "start": 5.415,
+  "end": 5.698
+ },
+ {
+  "text": "lo",
+  "start": 5.698,
+  "end": 5.793
+ },
+ {
+  "text": "midió:",
+  "start": 5.793,
+  "end": 6.264
+ },
+ {
+  "text": "llamar",
+  "start": 6.384,
+  "end": 6.742
+ },
+ {
+  "text": "en",
+  "start": 6.742,
+  "end": 6.931
+ },
+ {
+  "text": "la",
+  "start": 6.931,
+  "end": 6.931
+ },
+ {
+  "text": "primera",
+  "start": 6.931,
+  "end": 7.403
+ },
+ {
+  "text": "hora",
+  "start": 7.403,
+  "end": 7.592
+ },
+ {
+  "text": "multiplicaba",
+  "start": 7.592,
+  "end": 8.346
+ },
+ {
+  "text": "las",
+  "start": 8.346,
+  "end": 8.535
+ },
+ {
+  "text": "chances",
+  "start": 8.535,
+  "end": 8.818
+ },
+ {
+  "text": "de",
+  "start": 8.818,
+  "end": 8.912
+ },
+ {
+  "text": "llegar",
+  "start": 8.912,
+  "end": 9.007
+ },
+ {
+  "text": "al",
+  "start": 9.007,
+  "end": 9.195
+ },
+ {
+  "text": "que",
+  "start": 9.195,
+  "end": 9.384
+ },
+ {
+  "text": "decide.",
+  "start": 9.384,
+  "end": 9.988
+ },
+ {
+  "text": "Pero",
+  "start": 10.288,
+  "end": 10.382
+ },
+ {
+  "text": "cuando",
+  "start": 10.382,
+  "end": 10.665
+ },
+ {
+  "text": "les",
+  "start": 10.665,
+  "end": 10.854
+ },
+ {
+  "text": "escribió",
+  "start": 10.854,
+  "end": 11.231
+ },
+ {
+  "text": "a",
+  "start": 11.231,
+  "end": 11.326
+ },
+ {
+  "text": "más",
+  "start": 11.326,
+  "end": 11.514
+ },
+ {
+  "text": "de",
+  "start": 11.514,
+  "end": 11.609
+ },
+ {
+  "text": "dos",
+  "start": 11.609,
+  "end": 11.797
+ },
+ {
+  "text": "mil",
+  "start": 11.797,
+  "end": 11.986
+ },
+ {
+  "text": "empresas,",
+  "start": 11.986,
+  "end": 12.665
+ },
+ {
+  "text": "casi",
+  "start": 12.785,
+  "end": 13.3
+ },
+ {
+  "text": "una",
+  "start": 13.3,
+  "end": 13.483
+ },
+ {
+  "text": "de",
+  "start": 13.483,
+  "end": 13.577
+ },
+ {
+  "text": "cada",
+  "start": 13.577,
+  "end": 13.86
+ },
+ {
+  "text": "cuatro",
+  "start": 13.86,
+  "end": 14.663
+ },
+ {
+  "text": "nunca",
+  "start": 14.663,
+  "end": 14.993
+ },
+ {
+  "text": "contestó.",
+  "start": 14.993,
+  "end": 15.559
+ },
+ {
+  "text": "Las",
+  "start": 15.859,
+  "end": 15.953
+ },
+ {
+  "text": "demás",
+  "start": 15.953,
+  "end": 16.236
+ },
+ {
+  "text": "tardaron,",
+  "start": 16.236,
+  "end": 16.519
+ },
+ {
+  "text": "en",
+  "start": 16.519,
+  "end": 16.802
+ },
+ {
+  "text": "promedio,",
+  "start": 16.802,
+  "end": 17.444
+ },
+ {
+  "text": "casi",
+  "start": 17.444,
+  "end": 17.67
+ },
+ {
+  "text": "dos",
+  "start": 17.67,
+  "end": 17.934
+ },
+ {
+  "text": "días.",
+  "start": 17.934,
+  "end": 18.425
+ },
+ {
+  "text": "Yo",
+  "start": 18.875,
+  "end": 19.075
+ },
+ {
+  "text": "le",
+  "start": 19.075,
+  "end": 19.175
+ },
+ {
+  "text": "compré",
+  "start": 19.175,
+  "end": 19.575
+ },
+ {
+  "text": "al",
+  "start": 19.575,
+  "end": 19.575
+ },
+ {
+  "text": "que",
+  "start": 19.575,
+  "end": 19.675
+ },
+ {
+  "text": "llamó",
+  "start": 19.675,
+  "end": 19.975
+ },
+ {
+  "text": "primero.",
+  "start": 19.975,
+  "end": 20.555
+ },
+ {
+  "text": "¿Y",
+  "start": 21.055,
+  "end": 21.145
+ },
+ {
+  "text": "esta",
+  "start": 21.145,
+  "end": 21.345
+ },
+ {
+  "text": "consulta",
+  "start": 21.345,
+  "end": 21.845
+ },
+ {
+  "text": "de",
+  "start": 21.845,
+  "end": 22.045
+ },
+ {
+  "text": "ayer?",
+  "start": 22.045,
+  "end": 22.465
+ },
+ {
+  "text": "Un",
+  "start": 22.865,
+  "end": 22.988
+ },
+ {
+  "text": "CRM",
+  "start": 22.988,
+  "end": 23.648
+ },
+ {
+  "text": "anota",
+  "start": 23.648,
+  "end": 24.308
+ },
+ {
+  "text": "cada",
+  "start": 24.308,
+  "end": 24.591
+ },
+ {
+  "text": "consulta",
+  "start": 24.591,
+  "end": 25.157
+ },
+ {
+  "text": "y",
+  "start": 25.157,
+  "end": 25.252
+ },
+ {
+  "text": "te",
+  "start": 25.252,
+  "end": 25.346
+ },
+ {
+  "text": "avisa",
+  "start": 25.346,
+  "end": 25.629
+ },
+ {
+  "text": "al",
+  "start": 25.629,
+  "end": 25.723
+ },
+ {
+  "text": "instante.",
+  "start": 25.723,
+  "end": 26.346
+ },
+ {
+  "text": "Si",
+  "start": 26.596,
+  "end": 26.69
+ },
+ {
+  "text": "el",
+  "start": 26.69,
+  "end": 26.785
+ },
+ {
+  "text": "cliente",
+  "start": 26.785,
+  "end": 26.973
+ },
+ {
+  "text": "se",
+  "start": 26.973,
+  "end": 27.162
+ },
+ {
+  "text": "enfría,",
+  "start": 27.162,
+  "end": 27.539
+ },
+ {
+  "text": "le",
+  "start": 27.539,
+  "end": 27.822
+ },
+ {
+  "text": "escribe",
+  "start": 27.822,
+  "end": 28.105
+ },
+ {
+  "text": "solo.",
+  "start": 28.105,
+  "end": 28.577
+ },
+ {
+  "text": "¿Querés",
+  "start": 28.857,
+  "end": 29.008
+ },
+ {
+  "text": "llegar",
+  "start": 29.008,
+  "end": 29.291
+ },
+ {
+  "text": "primero?",
+  "start": 29.291,
+  "end": 29.914
+ },
+ {
+  "text": "Agendá",
+  "start": 30.034,
+  "end": 30.392
+ },
+ {
+  "text": "una",
+  "start": 30.392,
+  "end": 30.581
+ },
+ {
+  "text": "videollamada",
+  "start": 30.581,
+  "end": 30.864
+ },
+ {
+  "text": "gratis",
+  "start": 30.864,
+  "end": 31.336
+ },
+ {
+  "text": "en",
+  "start": 31.336,
+  "end": 31.713
+ },
+ {
+  "text": "scalerics.com.",
+  "start": 31.713,
+  "end": 33.081
+ }
+]
