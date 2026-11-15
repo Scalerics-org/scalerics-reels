@@ -72,7 +72,7 @@ T.mas = [0.1, 0.2, 0.3].map((d) => r2(T.q2c + d)); T.pedir = r2(T.q2c + 0.4); T.
 T.q3 = r2(T.pedido + 0.62); T.pedidos = [0.06, 0.18, 0.3].map((d) => r2(T.q3 + d));   // (ronda 3) "Pedido ✓" 0,6 s
 T.miraCel = r2(T.q3 + 0.4); T.levanta = [r2(T.q3 + 0.55), r2(T.q3 + 0.72)]; T.toca = r2(T.q3 + 0.85); T.senal = [r2(T.q3 + 0.93), r2(T.q3 + 1.08)];
 T.deja = r2(T.q3 + 1.1); T.sorbo = r2(T.q3 + 1.18);
-T.cierre = r2(T.q3 + 0.45);
+T.cierre = r2(T.q3 + 0.15);   /* (ronda 4) la línea chica entra antes: 2 s en pantalla */
 const DUR = r2(T.q3 + 2.15);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------

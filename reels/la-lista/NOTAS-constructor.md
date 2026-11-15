@@ -244,3 +244,57 @@ Pasadas: r3a (puntuales), r3p1 (cada 0,5 s desde 0), r3p2 (cortes ±0,04, P6 cad
 0,5 s desde 0,25). Corregido en las pasadas: la cola .pdf se veía demasiado cerca (cámara más atrás), P6 cortaba el pelo,
 los títulos de las hojas encimadas ("PRECIOOS": solo la de arriba lleva título). `check --json`: 0 errores.
 Portada: `portada-src/fondo-limpio-7.2.png` regenerado (sin anteojos, con la pila de listas).
+
+## Ronda 4 (15-11) · los 2 ALTOS de PENDIENTE.md y los medios
+**Duración 36,64 s** (parte 1 0-26,02 · cartel 26,02-28,52, 2,5 s · parte 2 28,52-36,64; línea chica desde 34,64).
+Beats al día en `assets/tiempos3d.js`. Inserto del monitor P2b 4,20-4,56 y Q1b 31,00-31,62; P8b (la cinta .pdf) 25,06-26,02.
+
+ALTOS
+- Insertos del monitor (P2b, Q1b) → fondo navy de 8000 x 12000 px pegado a la cámara (tapa la escena entera, que
+  además no se dibuja en esos planos), sin pie, y su propio lienzo vertical de 1000 x 1300 px (`pantI`,
+  `dibujarInserto`): P2b = la planilla en dos columnas con letra 50-84 px (la celda del aceite, tachado, $ 1.190);
+  Q1b = "Tienda · Productos", precio en 104 px, Publicar/Publicado ✓ 84 px, "Lo ven todos / tus clientes" 62 px y las
+  caras de Marta, Walter y Graciela con tilde. La burbuja del proveedor sigue arriba (también en Q1b). Q1b dura 0,62 s
+  (antes 0,45: "Publicado ✓" no se leía).
+- Remate .pdf → P8b arranca 0,12 s después de la tecla (sin la mano en el borde), cámara alta y cerca, solo la cinta: sin
+  mate ni lámpara en ese plano, Rubén fuera de cuadro (mira desde arriba: atrás se ve el depósito). ".pdf" en un recuadro
+  rojo lleno con letra crema (~150 px de alto de letra al final). Sin la cola en blanco (la cinta termina en el borde).
+MEDIOS (arte)
+- Gancho sobre la cara → globo a 104 px y P1/Q1 miran 0,12 m más arriba (Rubén más abajo); el globo queda hasta el corte
+  (sin el flash 2,23-2,30).
+- "Cambió el dólar" sobre la cara → la grúa de P3 se queda arriba hasta que se van los globos (v5 + 0,08) y baja a la
+  cinta después.
+- "Dale… ¿PDF?" → sin cola (la voz sale del celular en la oreja) y P8 arranca cerca (Rubén ~40 % del ancho).
+- Continuidad 6,8-7,4 → el termo sube 26 cm cuando Rubén lo agarra (se lee "agarra el termo", no el teléfono).
+- Salida por la pantalla de Graciela → arranca a 0,5 m mirando arriba del celular, sale con ease-out y la mano no se
+  dibuja los primeros 0,1 s (sin puño pegado a la cámara).
+- P5 → mira más arriba: la cinta ya no asoma cortada abajo.
+- Cabeza con gorra en Q1c → el operario solo existe en Q1. Q1c desde más a la derecha: el monitor queda fuera ("…cado ✓").
+  "¿Algo más?" más arriba (no pisa la ceja).
+- Q3 → cámara a la derecha y más abierta (fov 50-51): monitor "Pedidos de hoy" entero y Rubén entero y más grande; el
+  mate sube hasta la boca (la mano va a boca - 0,12 m y el mate se inclina 0,35 rad hacia él). En la parte 2 no está la
+  pila de listas impresas. La línea chica entra en q3 + 0,15 (1,9-2 s en pantalla).
+- Textos < 36 px → tríptico sin "1,5 L x 12", nombre 84 / comercio 74 / "Aceite" 88 px de lienzo; el celular de la parte 2
+  queda en negro (sin "18:34" ni "Sin notificaciones"); en P6 el celular de Graciela muestra las siete tarjetas sin
+  texto (íconos y bordes rojo/verde); el texto va en el inserto P6b. Los del inserto del monitor, ≥ 50 px.
+- Pastilla "…cado ✓" cortada → resuelto con Q1c (arriba). La cinta en P5 → resuelto (arriba).
+SONIDO
+- M1: el ring son dos pulsos de 0,15 s separados 0,19, pasaaltos 250 (`ringEsc`); la voz del proveedor después.
+- M2: "Claro. / El PDF no se mueve. / El aceite, sí." aparece de a una línea (r4 + 0 / + 0,74 / + 2,42) y la pausa antes de
+  "El aceite, sí." pasa a 0,41 s (r4.wav con 0,16 s de silencio en 2,16; el original en `partes/r4-antes-ronda4.wav`;
+  LEN.r4 3,29). "¿Cuál es la última?" y después "Tengo siete." (g3 + 1,05).
+- M3: el narrador del cartel sin sus 0,2 s de silencio inicial (las letras y los pops corridos -0,15/-0,2) y el cartel
+  dura 2,5 s; la parte 2 arranca con 0,5 s de oficina antes del ring (ring3 P2 + 0,5, altavoz + 0,84, proveedor + 0,88).
+- Mezcla: -14,0 LUFS, pico -6,0 dBFS (antes del loudnorm). Voz ≥ +6,2 LU sobre el resto en todos los tramos con voz
+  (`medir.py`). Para eso: duck de la música más ancho alrededor de cada voz (-0,75/+0,7 s), música -8 dB en el inserto
+  P2b y en el remate (de "Claro." al cartel), y vibra/zambullida/tecla/clac v8/teclas del inserto 4 dB más bajos.
+BAJOS
+- Flash sin burbuja: corregido. Lámpara: el foco más chico y metido en el cono. Mano sobre el mate: el mate al costado de
+  la mano. Bombilla delante de la cinta en P7: el mate gira con la bombilla hacia la cámara (todavía cruza "(2)" un poco
+  en 15,5-18,5; si molesta, sacar el mate de P7). Sin tocar: iris 28,17-28,23, manchas del cartel, celular de canto en P6.
+Pasadas: base4 (los defectos de PENDIENTE), ins/pdf (insertos y remate, 3 vueltas), r4a/r4b/q3/mate/fix5 (puntuales),
+cortes (±0,04 s en los 18 cortes), p2 (cada 0,5 s desde 0,25). `check --json`: 0 errores.
+Portada: `portada-src/fondo-limpio-7.2.png` regenerado en 7,41 s (la misma acción, corrida 0,21 s); `portada.json` sin
+cambios (t 7,2 sigue siendo cerca de la misma toma; el fondo limpio es el que manda).
+Queda para el revisor: la cinta v7/v8 en P7/P8 sigue cortada por el borde izquierdo (es más larga que el cuadro); P2
+arranca 0,45 s sin burbuja mientras suena el ring.

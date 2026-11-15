@@ -1139,7 +1139,7 @@ const OREJA_D = V3(-0.37, 0.24, 0.03);            // en el espacio de la cabeza:
 const TERMO0 = { x: X0 + LARGOS[5] + 0.066, z: ZT + 0.004 };
 const TERMO1 = { x: 0.28, z: 1.6 };              // donde lo deja Rubén
 const TAZA0 = { x: TAZA_X, z: ZT - 0.03 };
-const MATE0 = { x: 0.52, z: 2.5 };   // (ronda 4) más adelante
+const MATE0 = { x: 0.5, z: 2.4 };   // (ronda 4) más adelante
 const CEL0 = { x: -0.22, z: 2.32 };
 const CEL2 = { x: -0.3, z: 1.6 };   // (ronda 3) parte 2: el celular al alcance, arriba de la línea chica
 function rubenBase(t) {
@@ -1508,7 +1508,7 @@ function renderAt(tIn) {
     if (pa === "P8" && t >= T.r4) { const [bx, by] = bocaPx(ruben); const g = t >= T.r4 + 2.42 ? GL.r4 : t >= T.r4 + 0.74 ? GL.r4b : GL.r4a; crece(g, Math.max(300, by - 560) - GL.r4.userData.H / 2, ent(T.r4) * sale(T.tecla + 0.25), [bx, by - 40]); }
     if (pa === "Q1" && t >= T.p1b - 0.05) ponerGlobo(GL.p3, 540, 400, ent(T.p1b), px(telefono, V3(0, 0.12, 0)));   // (ronda 4) sigue igual en el inserto
     if (pa === "Q1b") ponerGlobo(GL.p3, 540, 300, 1, null);
-    if (pa === "Q1c" && t >= T.r3) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r3, 540, Math.max(330, by - 460), ent(T.r3), [bx, by - 40]); }
+    if (pa === "Q1c" && t >= T.r3) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r3, 540, Math.max(300, by - 540), ent(T.r3), [bx, by - 40]); }   // (ronda 4) más arriba: no pisa la ceja
   }
   if (en(tIn, P1, P2) || LIMPIO) for (const k in GL) GL[k].visible = false;
   renderer.render(scene, camera);
