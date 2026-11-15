@@ -166,3 +166,28 @@ con el ring y el chime que arrancan cuando la voz ya terminó).
 - 32,0: el tubo levantado toca el borde izquierdo un instante.
 - 26,2-27,4: la mitad de abajo del celular gigante está vacía hasta que caen "Sale hoy" y "En camino".
 - Sin soplido en el tubo; sin ambiente de aeropuerto.
+
+## Ronda 2
+Duración sin cambios: 36,61 s. `check --json`: ok, 0 errores (craft 0). Pasadas cada 0,5 s sobre la versión final:
+`renders/snap/r2f/` (desde 0) y `renders/snap/r2g/` (desde 0,25), más cuadros puntuales (r2a-r2i).
+- **Bombilla en la oreja (alta):** el mate va más bajo y adelante (mano izquierda en x+0,2, y 0,88, z+0,72) e inclinado
+  hacia afuera (−0,55 rad): la bombilla apunta lejos de la cara en s07 y s10; revisado en recortes 21,6 / 30,6 / 31,9.
+- s10: monitor 0,09 m a la izquierda y cámara más abierta (fov 48-50): entra entero; "Sin llamadas" a ~130 px de textura
+  (≥ 40 px en pantalla). Remate: después de "¿Se cortó el teléfono?" (~31,7) lleva el tubo frente a la boca 0,6 s con la
+  boca en trompita (gesto de soplar, sin efecto: no hay uno limpio y pisaba la voz), ~1 s de mirada a cámara en "¿Sin
+  esperas a ciegas?" y cuelga en "scalerics.com".
+- Placa del subtítulo crema opaca (no queda franja gris sobre el bisel del celular).
+- "ya la habían bajado a 8 min" a 44 px, más abajo y a la derecha (no pisa a Rubén).
+- s02: el globo que tapaba a Rubén, más atrás; línea guía de "antes: 1 min caminando" corta, termina en el tramo verde;
+  el medidor lleva la etiqueta "QUEJAS" y se va cuando se vacía.
+- Renglones del libro navy al 38 %, 16 px de textura.
+- Subtítulos: "la espera vacía" / "se siente más larga.".
+- Bajas: la cámara de s03 llega un poco a la izquierda (Rubén entra por el movimiento); el reloj de "?" nace en el mismo
+  cuadro en que se va el reloj de arena (sin superposición ni cuadro vacío, 18,69-18,78); la página baja y sale en vez
+  de desaparecer; el crédito de Maister entra después de que se pliega la maqueta.
+- Sonido: whoosh de s04 a −0,15; golpes de s03 +0,09; hojas 0,1 / papel 0,36; tic-real ×2; tac-real 0,25; duck
+  11,95-12,75 con rampa 0,3 (en vez de 12,0-12,4); click-soft 0,1; whoosh del cierre −0,55; click del tubo +0,27 (en
+  0,85 de la escena) y el de colgar a 0,1; pops de los globos −3 dB. palabras.json: "en" 14,68 y "1985:" 14,84.
+  `partes/guion-voz.txt` = voz final. Medido: tramos de 0,1 s con voz < 6 dB: ninguno; I −17,0 LUFS.
+- Quedan (bajos): Graciela grande a la izquierda en el último cuadro antes del corte (26,0); mitad de abajo del celular
+  vacía 26,2-27,4; sin soplido audible.

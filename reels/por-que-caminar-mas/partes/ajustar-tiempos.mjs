@@ -34,7 +34,7 @@ FR.forEach((fr, k) => {
 // a mano (STT de la locución entera, partes/pal-stt.json, y los silencios de silencedetect -40 dB)
 // a mano (STT de la locución entera, partes/pal-stt.json, y los silencios de silencedetect -40 dB).
 // ronda 1: después de la frase 7 van relativos al inicio de su tramo ([tramo, segundos dentro del tramo])
-const FIJO = { 3: 0.42, 4: 0.72, 5: 1.0, 6: 1.67, 12: 3.51, 26: 9.2, 27: 9.73 };
+const FIJO = { 3: 0.42, 4: 0.72, 5: 1.0, 6: 1.67, 12: 3.51, 26: 9.2, 27: 9.73, 43: 14.68, 44: 14.84 }; // ronda 2: "en 1985"
 const REL = { 62: [10, 1.08], 63: [10, 1.17], 64: [10, 1.25], 65: [10, 1.43], 66: [10, 1.52], 67: [10, 1.65], 68: [11, 0.05], 79: [12, 1.148], 80: [12, 1.268],
   84: [13, 0.094], 85: [13, 0.424], 86: [14, 0.094], 94: [16, 0.084] };
 for (const [i, [k, d]] of Object.entries(REL)) FIJO[i] = +(TR[k][0] + d).toFixed(3);

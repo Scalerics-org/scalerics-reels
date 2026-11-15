@@ -11,7 +11,7 @@ Palabras (segundos relativos a la escena): ¿Por 0.00 · qué? 0.23 · Esperaban
 Palabras (segundos relativos a la escena): Entonces 0.00 · alejaron 0.46 · las 1.06 · puertas 1.21 · de 1.51 · llegada. 1.67 · Un 2.30
 
 ### s05-maister — dura 3.12 s (inicio global 13.47)
-Palabras (segundos relativos a la escena): Un -0.00 · profesor 0.04 · ya 0.58 · lo 0.76 · había 0.85 · explicado 1.03 · en 1.20 · 1985: 1.56
+Palabras (segundos relativos a la escena): Un -0.00 · profesor 0.04 · ya 0.58 · lo 0.76 · había 0.85 · explicado 1.03 · en 1.21 · 1985: 1.37
 
 ### s06-espera — dura 4.86 s (inicio global 16.59)
 Palabras (segundos relativos a la escena): la 0.00 · espera 0.16 · vacía 0.64 · se 0.95 · siente 1.11 · más 1.42 · larga. 1.58 · La 2.10 · que 2.37 · no 2.55 · sabés 2.64 · cuánto 2.91 · dura, 3.09 · más 3.70 · todavía. 3.89

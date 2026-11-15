@@ -183,9 +183,11 @@ T.push = T.s08 - 0.45;                           // push-in al monitor
 T.avisos = [T.s09 - 0.05, T.avisa - 0.08, T.sola + 0.3, T.paso + 0.5]; // ronda 1: el primero ya está al cortar // Preparando · Sale hoy · En camino · Entregado
 T.camion = T.avisos[2] + 0.02;
 T.levanta = T.llamo + 0.35;                    // ronda 1: levanta el tubo en la pausa de comedia
-T.miraCam = W[90] - 0.1;                         // ronda 1: mira a cámara ("¿Sin esperas a ciegas?")
+                         // ronda 1: mira a cámara ("¿Sin esperas a ciegas?")
 T.toca = [T.telefono + 0.35, T.telefono + 0.6];  // lo golpea con el dedo
-T.cuelga = W[90] + 0.45;                         // ronda 1: cuelga después de mirar a cámara
+T.sopla = W[89] + 0.75;                          // ronda 2: sopla el tubo (después de "¿Se cortó el teléfono?")
+T.cuelga = W[93] + 0.3;                          // ronda 2: cuelga después de ~1 s de mirada a cámara
+T.miraCam = T.sopla + 0.75;                      // ronda 2: después del soplido, ~1 s de mirada a cámara
 
 // ================= ZONA A: el pasillo del aeropuerto =================
 const pasillo = new THREE.Group(); scene.add(pasillo);
@@ -272,7 +274,7 @@ function hacerGlobo() {
   sh(g); scene.add(g); return g;
 }
 const globos = [0, 1, 2, 3, 4, 5].map(() => hacerGlobo());
-const GLOBO_POS = [[-0.7, 1.7, -11.5], [0.7, 1.9, -9.0], [-0.7, 1.8, -16], [0.7, 1.7, -20.5], [-0.7, 1.9, -25.5], [0.7, 1.8, -30]]; // ronda 1: dentro del pasillo (los costados quedan para los números)
+const GLOBO_POS = [[-0.7, 1.7, -11.5], [0.7, 1.9, -9.0], [-0.7, 1.8, -16], [0.7, 1.7, -24.0], [-0.7, 1.9, -25.5], [0.7, 1.8, -30]]; // ronda 1: dentro del pasillo (los costados quedan para los números)
 
 // ================= ZONA B: el hall y la cinta de valijas =================
 const CB = V(0, 0, 7.2);             // centro de la cinta (eje largo en z)
@@ -393,7 +395,7 @@ const paginaTex = tex(1024, 740, (x, w, h) => {
 });
 const renglones = tex(1024, 740, (x, w, h) => {
   x.fillStyle = "#f4f2e8"; x.fillRect(0, 0, w, h);
-  x.fillStyle = "rgba(22,36,61,0.22)"; for (let i = 0; i < 14; i++) x.fillRect(90, 80 + i * 44, w - 180 - ((i * 7) % 5) * 60, 12);
+  x.fillStyle = "rgba(22,36,61,0.38)"; for (let i = 0; i < 12; i++) x.fillRect(90, 80 + i * 50, w - 180 - ((i * 7) % 5) * 60, 16); // ronda 2: más marcados
 });
 const paginaFila = tex(1024, 740, (x, w, h) => {
   // ronda 0: la página donde se frena: una fila de gente esperando (siluetas navy) y una línea de puntos
@@ -537,7 +539,7 @@ const oficina = new THREE.Group(); scene.add(oficina);
 const PISO_DEP = -3.4;
 const RUB = V(OO.x, 0, -0.45);                   // Rubén sentado, mira a +z (a la cámara)
 const ESC = { y: 0.76, z: 0.32, w: 1.7, d: 0.78 }; // el escritorio, delante de Rubén
-const MONP = V(OO.x + 0.64, 1.07, ESC.z + 0.02), MONW = 0.66, MONH = 0.41, MON_RY = -0.35; // ronda 1: más a la derecha (no tapa la cara)
+const MONP = V(OO.x + 0.55, 1.07, ESC.z + 0.02), MONW = 0.66, MONH = 0.41, MON_RY = -0.35; // ronda 1: más a la derecha (no tapa la cara)
 const MP = { w: 1280, h: 800 };
 const monTV = texViva(MP.w, MP.h);
 const LLAM = [["Rotisería Graciela", "¿Y mi pedido?"], ["Panadería del Cerro", "¿Y mi pedido?"], ["Kiosco 18", "¿Y mi pedido?"]];
@@ -561,7 +563,7 @@ function dibujarMonitor(n, k) {
     x.fillStyle = j === 0 ? CRE : "rgba(22,36,61,0.75)"; ajustar(x, a, 600, 52, w - 140); x.fillText(a, 66, y + 142);
     x.restore();
   }
-  if (n === 0) { x.fillStyle = "rgba(22,36,61,0.4)"; x.textAlign = "center"; x.font = F(700, 64); x.fillText("Sin llamadas", w / 2, 470); x.textAlign = "left"; }
+  if (n === 0) { x.fillStyle = "rgba(22,36,61,0.5)"; x.textAlign = "center"; ajustar(x, "Sin llamadas", 800, 130, w - 160); x.fillText("Sin llamadas", w / 2, 470); x.textAlign = "left"; } // ronda 2: más grande
   monTV.t.needsUpdate = true;
 }
 {
@@ -831,7 +833,7 @@ function armarPlanos() {
       kk(T.s02 + 1.0, [1.3, 11.5, 5.5], [0, 0, -16.5], 40),
       kk(T.s03 - 0.4, [1.1, 11.0, 4.8], [0, 0, -17.0], 40),
       // picado que baja a la cinta (el "?" cae en la isla)
-      kk(T.s03 - 0.05, b(0.0, 5.0, 7.4), b(-0.25, 0.75, -0.3), 38),
+      kk(T.s03 - 0.05, b(-0.25, 5.0, 7.6), b(-0.45, 0.75, -0.3), 38),
       kk(T.espera + 0.25, b(0.7, 3.9, 8.6), b(-0.7, 0.85, -0.1), 38),
       // órbita corta mientras se llena la barra
       kk(T.siete, b(-0.4, 3.5, 7.8), b(-0.85, 0.85, -0.1), 38),
@@ -859,8 +861,8 @@ function armarPlanos() {
     ]],
     // corte seco a la oficina: Rubén de frente, plano medio
     ["O", T.s07, [
-      kk(T.s07, o(0.24, 1.45, 3.15), o(0.26, 1.18, -0.1), 48),
-      kk(T.push - 0.1, o(0.26, 1.43, 2.95), o(0.28, 1.18, -0.1), 48),
+      kk(T.s07, o(0.3, 1.45, 3.3), o(0.32, 1.18, -0.1), 50),
+      kk(T.push - 0.1, o(0.32, 1.43, 3.1), o(0.34, 1.18, -0.1), 50),
       // push-in al monitor (las tarjetas)
       kk(T.s08, o(0.45, 1.12, 1.05), [MONP.x, MONP.y, MONP.z], 45),
     ]],
@@ -877,9 +879,9 @@ function armarPlanos() {
       kk(T.s10, b(0, 1.0, 3.4 + 3.48), b(0, 1.0, 3.4), 34),
     ]],
     ["O2", T.s10, [
-      kk(T.s10, o(0.24, 1.45, 3.15), o(0.26, 1.18, -0.1), 48),
-      kk(T.se, o(0.12, 1.43, 2.9), o(0.12, 1.2, -0.15), 45),
-      kk(T.fin, o(0.08, 1.42, 2.7), o(0.08, 1.22, -0.2), 45),
+      kk(T.s10, o(0.3, 1.45, 3.3), o(0.32, 1.18, -0.1), 50),
+      kk(T.se, o(0.3, 1.44, 3.15), o(0.32, 1.19, -0.12), 49),
+      kk(T.fin, o(0.3, 1.43, 3.0), o(0.32, 1.2, -0.15), 48),
     ]],
     ["F", T.fin, [
       kk(T.fin, [OF.x, 1.7, 7.4], [OF.x, 1.45, 0]),
@@ -999,6 +1001,8 @@ function zonaRuben(t) {
         [T.s10, { ...base, ...CARA.neutra, inclina: -0.05, cabeza: { giro: 0.0, asiente: -0.02, ladea: 0.04 }, ojos: { x: 0, y: 0, abiertos: 0.75, feliz: 0.2 }, boca: { sonrisa: 0.4, abierta: 0, ancho: 1.0 } }],
         [T.llamo + 0.2, { cabeza: { giro: -0.35, asiente: 0.15, ladea: 0.02 }, ojos: { x: -0.7, y: -0.5, abiertos: 0.8 }, cejas: { alto: 0.25, ang: 0.1, asim: 0.5 }, boca: { sonrisa: 0.0, abierta: 0, ancho: 0.85 } }, 0.3],
         [T.levanta + 0.35, { ...CARA.incredula, cabeza: { giro: -0.32, asiente: 0.0, ladea: 0.1 }, ojos: { x: -0.7, y: 0.1, abiertos: 0.62 }, cejas: { alto: 0.1, ang: -0.2, asim: 0.9 } }, 0.3],
+        [T.sopla + 0.15, { cabeza: { giro: 0.0, asiente: 0.04, ladea: 0.0 }, ojos: { x: -0.2, y: -0.3, abiertos: 0.7 }, cejas: { alto: 0.2, ang: -0.3, asim: 0.4 }, boca: { sonrisa: -0.2, abierta: 0.12, ancho: 0.52 } }, 0.15],
+        [T.sopla + 0.6, { boca: { sonrisa: -0.2, abierta: 0.12, ancho: 0.52 } }, 0.05],
         [T.miraCam, { cabeza: { giro: 0.0, asiente: 0.02, ladea: 0.04 }, ojos: { x: 0, y: 0, abiertos: 0.8 }, cejas: { alto: 0.45, ang: 0.1, asim: 0.6 }, boca: { sonrisa: 0.1, abierta: 0, ancho: 0.9 } }, 0.3],
         [T.agenda + 0.1, { ...CARA.sonrisa, cabeza: { giro: 0.0, asiente: 0.0, ladea: 0.06 }, ojos: { x: 0, y: 0, abiertos: 0.85, feliz: 0.4 }, cejas: { alto: 0.3, asim: -0.5 }, boca: { sonrisa: 0.75, abierta: 0, ancho: 1.05 } }, 0.35],
       ]);
@@ -1010,7 +1014,7 @@ function zonaRuben(t) {
     // ronda 1: el tubo en la oreja de verdad (la oreja está a y 0,26 del origen de la cabeza); en s10 sube de la horquilla
     // al costado de la cara, la mano lo sigue entera (sin brazo de goma) y vuelve a la mesa recién cuando el tubo está colgado
     const horq = V(0, 0.105, -0.07).applyMatrix4(telefono.matrixWorld);
-    const frente = V(RUB.x - 0.4, 1.32, RUB.z + 0.62);
+    const frente = V(RUB.x - 0.34, 1.32, RUB.z + 0.62);
     const h = s07 ? 0 : eio(sg(t, T.levanta, T.levanta + 0.35)) * (1 - eio(sg(t, T.cuelga, T.cuelga + 0.35)));
     let golpe = 0; for (const tk of T.toca) golpe += pulso(t, tk - 0.08, 0.16);
     const ponerTubo = () => {
@@ -1022,13 +1026,21 @@ function zonaRuben(t) {
       } else {
         tuboT.position.copy(horq).lerp(frente, h); tuboT.position.y -= golpe * 0.012;
         tuboT.rotation.set(lerp(0, 0.15, h), lerp(0.35, -0.45, h), lerp(0, -0.25, h), "YXZ");
+        // ronda 2: el gesto de soplar: el tubo frente a la boca (sin tocar la cara) y vuelve al costado
+        const sop = eio(sg(t, T.sopla, T.sopla + 0.2)) * (1 - eio(sg(t, T.sopla + 0.6, T.sopla + 0.8)));
+        if (sop > 0.001) {
+          ruben.raiz.updateMatrixWorld(true);
+          const boca = V(-0.03, 0.14, 0.45); ruben.cabeza.localToWorld(boca);
+          tuboT.position.lerp(boca, sop);
+          tuboT.rotation.set(lerp(0.15, 0.0, sop), lerp(-0.45, 0.0, sop), lerp(-0.25, 0.0, sop), "YXZ");
+        }
       }
       tuboT.updateMatrixWorld(true);
     };
     ponerTubo();
     const agarre = () => V(0.0, -0.05, -0.005).applyMatrix4(tuboT.matrixWorld);
     // el mate en la izquierda, a la altura del pecho (siempre a la vista: el monitor quedó más a la derecha)
-    manoA(ruben, pr, "I", V(RUB.x + 0.2, s07 ? 1.0 : lerp(1.0, 1.06, eio(sg(t, T.s10, T.s10 + 0.4))), RUB.z + 0.5), 1, [1, -0.7, -0.2]);
+    manoA(ruben, pr, "I", V(RUB.x + 0.2, s07 ? 0.88 : lerp(0.88, 0.92, eio(sg(t, T.s10, T.s10 + 0.4))), RUB.z + 0.72), 1, [1, -0.7, -0.2]); // ronda 2: más baja y afuera
     if (s07) manoA(ruben, pr, "D", agarre(), 1, [-1, -0.75, -0.15]);
     else {
       const wH = eio(sg(t, T.levanta - 0.3, T.levanta)) * (1 - eio(sg(t, T.cuelga + 0.35, T.cuelga + 0.65)));
@@ -1039,7 +1051,7 @@ function zonaRuben(t) {
     ruben.poner(pr); ruben.raiz.updateMatrixWorld(true);
     ponerTubo();
     const mi = ruben.mano("I").getWorldPosition(V(0, 0, 0));
-    mateR.position.copy(mi).add(V(0.03, -0.08, 0.02)); mateR.rotation.set(0, -0.3, 0); mateR.scale.setScalar(1.1);
+    mateR.position.copy(mi).add(V(0.03, -0.08, 0.02)); mateR.rotation.set(0, 0, -0.55); mateR.scale.setScalar(1.1); // ronda 2: inclinado hacia afuera: la bombilla apunta lejos de la cara // ronda 2: la bombilla apunta hacia afuera (no a la oreja)
     tuboT.updateMatrixWorld(true); telefono.updateMatrixWorld(true);
     ponerCable();
     return;
@@ -1085,7 +1097,7 @@ function zonaA(t) {
   if (x6.visible) { hud(x6, 240, 620, k6 * 170); x6.rotation.y = 0.12 * Math.sin(t * 2); }
   // ronda 1: el medidor de quejas (en "quejas") se vacía con los globos hasta "casi 0"
   const fueraN = 1 - sg(t, T.s03 - 0.35, T.s03 - 0.15);
-  const km = popIn(t, T.quejas, 0.3) * fueraN;
+  const km = popIn(t, T.quejas, 0.3) * fueraN * (1 - sg(t, T.casi0 + 0.55, T.casi0 + 0.7)); // ronda 2: se va al vaciarse
   medidor.visible = (plano === "AB") && km > 0.02;
   if (medidor.visible) hud(medidor, 860, 1060, km * 80);
   medBloques.forEach((bq, i) => { const off = sg(t, T.casi0 + i * 0.07, T.casi0 + i * 0.07 + 0.12); bq.visible = i === 0 || off < 0.99; bq.scale.set(1, Math.max(0.05, 1 - off), 1); });
@@ -1229,7 +1241,7 @@ function zonaM(t) {
   });
   pagDer.material.map = t > T.paginas[2] + 0.2 ? paginaFila : t > T.pliega + 0.3 ? renglones : paginaTex;
   pagIzq.material.map = t > T.pliega + 0.3 ? renglones : paginaTex;
-  libro.visible = t < T.gira + 0.3; // ronda 1: bajo el reloj de "?" no queda la página
+  libro.visible = t < T.gira + 0.45; libro.position.y = OM.y - 2.6 * eio(sg(t, T.gira + 0.05, T.gira + 0.45)); // ronda 2: la página baja y sale (sin pop)
   pagIzq.visible = true;
   // "1985"
   const k85 = popIn(t, T.n1985, 0.3) * (1 - sg(t, T.s06 - 0.2, T.s06 + 0.05));
@@ -1251,7 +1263,7 @@ function zonaM(t) {
   banco.position.set(OM.x + 0.72, 0.25, OM.z + 0.75); banco.rotation.set(0, -0.45, 0);
   { const kb2 = popIn(t, T.arena + 0.12, 0.3) * (1 - eio(sg(t, T.gira, T.gira + 0.25))); banco.visible = banco.visible && kb2 > 0.3; banco.scale.setScalar(Math.max(0.001, kb2 * 0.62)); }
   // el reloj de "?"
-  const kq = t < T.gira + 0.08 ? 0 : bk(sg(t, T.gira + 0.08, T.gira + 0.42)); // nace mientras el reloj de arena se va (sin cuadro vacío)
+  const kq = t < T.gira + 0.155 ? 0 : lerp(0.35, 1, bk(sg(t, T.gira + 0.155, T.gira + 0.45))); // ronda 2: nace en el cuadro en que el reloj de arena se va (sin superposición ni cuadro vacío) // ronda 2: nace cuando el reloj de arena ya se fue // nace mientras el reloj de arena se va (sin cuadro vacío)
   relojQ.visible = kq > 0.12;
   relojQ.position.set(OM.x, 0.25 + Math.abs(rebote(t, T.todavia, 6, 40, 0.03)), OM.z - 0.1);
   relojQ.scale.setScalar(kq * 0.8);

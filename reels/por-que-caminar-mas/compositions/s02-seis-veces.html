@@ -9,6 +9,7 @@
     [data-composition-id="s02-seis-veces"] .pill { position: absolute; display: flex; align-items: center; gap: 16px; padding: 14px 32px 17px; border: 6px solid #5ce611; border-radius: 26px; background: #0b1220; font: 800 52px/1.05 "Lexend", sans-serif; color: #efeee5; white-space: nowrap; opacity: 0; box-shadow: 0 8px 0 rgba(11,18,32,0.25); }
     [data-composition-id="s02-seis-veces"] .pill.lleno { background: #5ce611; border-color: #0b1220; color: #0b1220; }
     [data-composition-id="s02-seis-veces"] .pill.malo { border-color: #0b1220; background: #c7655b; color: #efeee5; }
+    [data-composition-id="s02-seis-veces"] .pill.chica { font-size: 44px; padding: 12px 26px 15px; }
     [data-composition-id="s02-seis-veces"] .pill.tag { font: 600 40px/1 "IBM Plex Mono", monospace; letter-spacing: 0.12em; padding: 12px 24px 14px; border-width: 5px; border-radius: 16px; }
     [data-composition-id="s02-seis-veces"] .lead { fill: none; stroke: #0b1220; stroke-width: 7; stroke-linecap: round; }
     [data-composition-id="s02-seis-veces"] .dot { fill: #5ce611; stroke: #0b1220; stroke-width: 5; opacity: 0; }
@@ -17,7 +18,7 @@
   </style>
   <div id="root" data-composition-id="s02-seis-veces" data-width="1080" data-height="1920" data-duration="3.1">
     <div id="s02-seis-veces-esc" class="esc clip" data-start="0" data-duration="3.1" data-track-index="0">
-<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M420 1520 L500 1380"/><circle class="dot  d1" cx="500" cy="1380" r="14"/></svg><div class="pill  n1" style="left:420px;top:1580px">antes: 1 min caminando</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M420 1520 L430 1460"/><circle class="dot  d1" cx="430" cy="1460" r="14"/></svg><div class="pill  n1" style="left:420px;top:1580px">antes: 1 min caminando</div><div class="pill tag malo n2" style="left:860px;top:985px">QUEJAS</div>
     </div>
   </div>
   <script>
@@ -40,7 +41,7 @@
       const nota = (k, t) => { if (q(".l" + k)) { dibujar(".l" + k, t, 0.28); pop(".d" + k, t + 0.2, 0.2); } pop(".n" + k, t); };
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
 
-nota(1, 0.6); fuera([1], 1.97);
+nota(1, 0.6); fuera([1], 1.97); pop(".n2", 1.45); fuera([2], 2.18);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

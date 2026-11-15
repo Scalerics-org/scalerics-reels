@@ -131,7 +131,7 @@ const subtitulos = `<template>
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
     ${C} .grupo { position: absolute; left: 50px; top: 200px; width: 980px; height: 260px; display: flex; align-items: center; justify-content: center; }
-    ${C} p { margin: 0; padding: 4px 30px 12px; background: rgba(239,238,229,0.62); border-radius: 28px; -webkit-text-stroke: 16px #efeee5; paint-order: stroke fill; max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-wrap: balance; }
+    ${C} p { margin: 0; padding: 4px 30px 12px; background: #efeee5; border-radius: 28px; -webkit-text-stroke: 16px #efeee5; paint-order: stroke fill; max-width: 960px; text-align: center; font-family: "Lexend", sans-serif; font-weight: 800; font-size: 86px; line-height: 1.22; letter-spacing: -0.015em; color: #0b1220; text-wrap: balance; }
     ${C} .w.ac em { color: var(--c, #0b1220); -webkit-text-stroke: var(--sw, 16px) #efeee5; }
     ${C} .w { display: inline-block; position: relative; opacity: 0; }
     ${C} .w em { font-style: normal; position: relative; }
@@ -188,10 +188,10 @@ for (let i = 0; i < 0; i++) {
 // la cama baja en seco antes del remate de Rubén ("Nadie llamó." → "¿Se cortó el teléfono?": timing de comedia) y en la
 // cola de "más todavía." (corte seco a la oficina)
 const DUCKS = [[r2(palabras[85].end - 0.05), r2(palabras[86].start + 0.45)], [r2(palabras[59].end - 0.2), r2(palabras[60].start + 0.35)], [r2(palabras[51].end - 0.3), r2(palabras[52].start)],
-  [r2(palabras[11].end - 0.35), r2(palabras[12].start + 0.05)], [r2(palabras[67].end - 0.1), r2(palabras[69].start + 0.1)], [12.0, 12.4]]; // ronda 1: + 12,0-12,4 // + colas de "gente?" y "Tu cliente"
+  [r2(palabras[11].end - 0.35), r2(palabras[12].start + 0.05)], [r2(palabras[67].end - 0.1), r2(palabras[69].start + 0.1)], [11.95, 12.75, 0.3]]; // ronda 2: 11,95-12,75 con rampa de 0,3 s // + colas de "gente?" y "Tu cliente"
 // música recortada a la duración del reel, con fundido de 0,35 s al final
 // la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
-execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]atrim=start=0.02,asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.08:ratio=2.5:attack=15:release=450:makeup=1.0[d];[d]volume='${DUCKS.map(([a, b]) => `(1-0.8*min(max((t-${a})/0.15,0),1)*min(max((${b}-t)/0.15,0),1))`).join("*")}':eval=frame,afade=t=out:st=${r2(DUR - 0.46)}:d=0.46[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]atrim=start=0.02,asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.08:ratio=2.5:attack=15:release=450:makeup=1.0[d];[d]volume='${DUCKS.map(([a, b, r = 0.15]) => `(1-0.8*min(max((t-${a})/${r},0),1)*min(max((${b}-t)/${r},0),1))`).join("*")}':eval=frame,afade=t=out:st=${r2(DUR - 0.46)}:d=0.46[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
