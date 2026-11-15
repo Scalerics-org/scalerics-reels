@@ -255,7 +255,7 @@
 - 15-11 · `la-lista` · Tienda online mayorista (el precio de hoy, sin mandar listas) · Para mandar completo con Rubén en la distribuidora: "¿Me pasás la lista actualizada?" (Graciela, rotisería), la cinta de rotuladora con el nombre del archivo que crece hasta lista_v7_FINAL_ESTA_SI_(2), el proveedor: "Rubén, subió el aceite." / "Ocho." / "Dale. ¿Me la mandás en PDF?" / "Claro. El PDF no se mueve. El aceite, sí." y la cinta termina en .pdf rojo; cartel "Una tienda online más tarde…"; parte 2: el mismo aviso del proveedor, Rubén cambia el precio una vez, "Publicado ✓", los clientes lo ven en el celular y "Pedido ✓" (36,4 s, voces Algenib/Graciela/proveedor + narrador Rasalgethi en el cartel) [formato 8d completo con personajes · 3D real, oficina de noche #0b1220 / parte 2 navy claro #16243d, cartel verde] (terminado en la corrida 15-11 11:09: rondas 4-9 de corrección y 6 revisiones independientes sobre el render; 9 en total)
 
 ## En curso
-<!-- corrida-activa: 2026-11-15T14:11 -->
+<!-- corrida-activa: 2026-11-15T15:07 -->
 
 - 15-11 · `por-que-caminar-mas` · Automatización (aviso solo del estado del pedido: "sale hoy", "en camino", "entregado") · explicador ¿Por qué? con Rubén: "¿Por qué un aeropuerto hizo caminar más a los pasajeros… y dejaron de quejarse?" (Houston, NYT 2012; Maister 1985: la espera sin información se hace más larga) → los clientes de Rubén que llaman "¿y mi pedido?" · fondo crema #efeee5 · reservado por la corrida 15-11 14:11
 - 15-11 · `dice-cuarenta` · Sistema de stock a medida en la distribuidora · para mandar completo con Rubén y Nico: "El Excel dice 40." y en el depósito hay 3 · cartel "Un sistema más tarde…" · depósito de día, fondo navy claro #16243d · reservado por la corrida 15-11 14:11
