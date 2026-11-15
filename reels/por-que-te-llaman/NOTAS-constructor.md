@@ -276,3 +276,30 @@ s06 10,29 · s07 12,79 · s08 15,86 · s09 18,88 · s10 21,06 · s11 22,87 · s1
 - 15,45: el sobre del buzón rojo asoma arriba mientras el buzón gira (se va en 15,46).
 - 28,9-29,0: el termo sale por la derecha (cortado por el borde porque se está yendo).
 - Pour real CC0 sigue sin conseguirse (freesound/commons con 403): el cebado son tres burbujas (burbuja.mp3, Mafon2 CC0).
+
+## Ronda 3 (15-11, sobre /home/user/revision/qa-llaman-r3)
+
+Mismos inicios de escena y misma voz (33,31 s). Solo lo de la lista:
+
+| # | tramo | arreglo |
+|---|---|---|
+| 1 ALTA | 21,33-21,46 | rig de cejas (`assets/personajes.js`): con el párpado puesto la ceja no baja de alto 0,05, el ángulo de enojo se limita a -0,15 y la ceja se adelanta 0,012 sobre la cara; el párpado ya no la cruza en ningún gesto |
+| 2 | 29,37-29,43 | la burbuja blanca se va en el mismo cuadro en que entra la verde; la verde entra a 0,9 de su escala (sin crecer dentro de la blanca) |
+| 3 | 0,00-1,75 | el formulario no tiene título; la cámara de s01 mira 0,08 más arriba (el formulario baja); "Autoelevador eléctrico" se funde (T.vibra-0,05 a +0,1) antes de que el push-in lo lleve a la zona del gancho |
+| 4 | 2,63-2,85 | cruce: el celular sale de costado hacia la izquierda, de frente e inclinándose (sin quedar de canto ni sobre la bombilla) mientras el mate crece desde 2,67 |
+| 5 | 5,0-5,3 | el "?" se achica hasta desaparecer subiendo poco (5,0-5,11) y el reloj nace en 5,09 sin rebote (ya no toca el subtítulo); pop en el corte de s04 |
+| 6 | 15,3-15,5 | el buzón rojo se va antes (15,24-15,42) y el reloj nace en 15,36 creciendo desde su centro (no abajo, sobre el logo); pop movido |
+| 7 | 12,74-12,80 | corte directo (cámara en 12,78) y los cuatro buzones ya enteros al corte; edificios fuera en el corte; crédito HBR se va en 12,49 |
+| 8 | 7,6-9,0 | "1 h" debajo del centro de la esfera (lejos del cable y del 6); el cable gris va por adelante y abajo y se corta a mitad de camino, lejos de la silla; línea guía de "1 hora después" sobre el gris; rótulo 7,73-8,77; tildes sin ninguna del lado del cable ni sobre los rótulos ni el subtítulo |
+| baja | 3,7-33 | agujas del piso-reloj solo en s02 (hasta 3,67) |
+| baja | 14,25 | el buzón se pone rojo junto con el rótulo 23 % (T.cuatro+0,05) |
+| baja | 10,0 | "el que decide" se va en 9,93 (antes de que la silla salga del lugar) |
+
+Sin tocar: las astillas blancas del piso 13,0-14,5 son los bastones de hora de la textura del piso-reloj.
+
+Sonido: papel del despegue → whoosh-short al techo (10,18; se sacó el whoosh doble de 10,38); whoosh de s10 adelantado
+a 20,75; tics de s08 0,589 → 0,4; tercer tac (13,65) 0,448 → 0,252; pops del reloj 1 h y del reloj 42 h movidos a cuando
+nacen. Medido: voz < 6 LU por momentánea cada 0,5 s y 0,1 s: ninguno; -17,1 LUFS pre-loudnorm.
+
+Pasadas: e1 completa cada 0,5 s; cuadro por cuadro en d1-d11 (0-2,9; 5,0-5,45; 7,6-10,25; 12,73-12,8; 15,3-15,52;
+21,2-21,47; 29,33-29,43). check --json: 0 errores (lint 3, runtime 7, layout 1 warnings, los de siempre; craft 0).

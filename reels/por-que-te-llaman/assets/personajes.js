@@ -641,11 +641,18 @@ export function crearPersonaje(cfg) {
       o.cerrado.visible = cer; o.blanco.visible = o.pup.visible = o.lidPivote.visible = o.lidLow.visible = !cer;
     }
     // cejas
+    // por-que-te-llaman r3: con el párpado puesto (casquete más alto y más adelante que el globo) la ceja no baja
+    // hasta él ni se inclina tanto, y se adelanta un poco: el párpado nunca la atraviesa
+    const lidOn = ojos.some((o) => o.lid.visible);
     for (const e of cejas) {
       e.piv.position.copy(e.base);
-      const alto = p.cejas.alto + (p.cejas.asim * e.s > 0 ? Math.abs(p.cejas.asim) * 0.9 : 0);
-      e.piv.position.y += alto * 0.045 - Math.max(0, -p.cejas.ang) * 0.012;
-      e.b.rotation.z = e.s * -p.cejas.ang * 0.42 + (c.cejaFina ? -e.s * 0.14 : 0);
+      let alto = p.cejas.alto + (p.cejas.asim * e.s > 0 ? Math.abs(p.cejas.asim) * 0.9 : 0);
+      const ang = lidOn ? Math.max(p.cejas.ang, -0.15) : p.cejas.ang;
+      if (lidOn) alto = Math.max(alto, 0.05);
+      e.piv.position.y += alto * 0.045 - Math.max(0, -ang) * 0.012;
+      e.piv.rotation.copy(e.baseRot ??= e.piv.rotation.clone());
+      if (lidOn) e.piv.translateZ(0.012);
+      e.b.rotation.z = e.s * -ang * 0.42 + (c.cejaFina ? -e.s * 0.14 : 0);
     }
     ponerBoca(p.boca.sonrisa, p.boca.abierta, p.boca.ancho);
     for (const r of reflejos) { r.visible = p.reflejo > 0.01; r.material.opacity = 0.9 * cl(p.reflejo); }

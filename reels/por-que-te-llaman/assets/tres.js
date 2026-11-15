@@ -179,7 +179,7 @@ T.avion = T.s06 - 0.05;             // el avión despega de la silla
 T.bandada = T.dos;                  // el avión se multiplica
 T.cartas = [T.s07 + 0.25, T.s07 + 0.35, T.s07 + 0.45, T.s07 + 0.55]; // un sobre a cada buzón
 T.banderas = [T.una + 0.05, T.una + 0.2, T.una + 0.35];              // tres contestan
-T.rojo = T.nunca;                   // el cuarto se pone rojo
+T.rojo = T.cuatro + 0.05; // ronda 3: junto con el rótulo 23 %                // el cuarto se pone rojo
 T.reloj2 = T.s08 + 0.02;            // el buzón rojo se achica y nace el reloj de las 42 h
 T.gira = [T.tardaron - 0.1, T.casi - 0.15]; // las agujas dan casi dos días
 T.n42 = T.casi;                     // "42 h"
@@ -210,8 +210,9 @@ function dibujarMonitor(modo, u) {
     // u = [clic (0..1), enviado (0..1)]
     x.fillStyle = "#f4f2e8"; x.fillRect(0, 0, w, h);
     x.fillStyle = NAV0; x.fillRect(0, 0, w, 150);
-    x.fillStyle = CRE; x.font = F(800, 74); x.fillText("Pedir presupuesto", 50, 78);
-    x.fillStyle = NAV0; ajustar(x, "Autoelevador eléctrico", 800, 76, w - 100); x.fillText("Autoelevador eléctrico", 50, 228);
+    // ronda 3: sin título (quedaba debajo de la caja verde del gancho y asomaban pedazos)
+    // ronda 3: cuando empieza el push-in al celular el producto se borra (en el push-in asomaba al lado de la caja del gancho)
+    if (u[2] < 1) { x.globalAlpha = 1 - u[2]; x.fillStyle = NAV0; ajustar(x, "Autoelevador eléctrico", 800, 76, w - 100); x.fillText("Autoelevador eléctrico", 50, 228); x.globalAlpha = 1; }
     const campo = (y, rot, val) => {
       x.fillStyle = "rgba(22,36,61,0.6)"; x.font = F(600, 44); x.fillText(rot, 54, y);
       x.fillStyle = "#ffffff"; rr(x, 50, y + 30, w - 100, 96, 18); x.strokeStyle = NAV; x.lineWidth = 6; x.beginPath(); x.roundRect(50, y + 30, w - 100, 96, 18); x.stroke();
@@ -594,10 +595,11 @@ const cableGeo = new THREE.TubeGeometry(curvaRulo(CAM_CABLE, 62, 0.045), 2400, 0
 const cable = new THREE.Mesh(cableGeo, mat(C.g, 0.45, { emissive: C.g, emissiveIntensity: 0.15 })); cable.castShadow = true; scene.add(cable);
 // el cable gris "una hora después": ronda 1: nace afuera del aro (no atraviesa la esfera), corto y flojo
 // ronda 2: el gris sale de atrás del reloj y cae hacia atrás (no cruza el verde, que va por adelante)
-const CAM_GRIS = new THREE.CatmullRomCurve3([V(PR1.x + RR * 0.7, RY - 0.45, PR1.z - 0.12), V(PR1.x + RR + 0.12, RY - 0.75, PR1.z - 0.3), V(PR1.x + RR + 0.15, 0.3, PR1.z - 0.45), V(PR1.x + RR + 0.05, 0.04, PR1.z - 0.6), V(PR1.x + RR - 0.25, 0.04, PR1.z - 0.7)]);
+// ronda 3: el gris va por adelante y abajo (más cerca de cámara que el verde) y se corta a mitad de camino, lejos de la silla
+const CAM_GRIS = new THREE.CatmullRomCurve3([V(PR1.x + RR * 0.55, RY - 0.62, PR1.z + 0.12), V(PR1.x + RR * 0.62, 0.35, PR1.z + 0.55), V(PR1.x + RR * 0.7, 0.04, PR1.z + 1.0), V(PR1.x + RR + 0.05, 0.04, PR1.z + 1.2), V(PR1.x + RR + 0.3, 0.04, PR1.z + 1.25)]);
 const cableGris = new THREE.Mesh(new THREE.TubeGeometry(curvaRulo(CAM_GRIS, 22, 0.04), 900, 0.016, 8, false), mat(0x8a93a6, 0.6)); cableGris.castShadow = true; scene.add(cableGris);
 const tildesS = T.tildes.map(() => hacerTilde(0.12));
-const TILDE_POS = [[0.0, 1.5, 0.3], [-0.5, 1.12, 0.3], [0.52, 1.14, 0.3], [-0.54, 0.7, 0.45], [0.56, 0.72, 0.4], [-0.34, 1.44, 0.35], [0.36, 1.46, 0.35]];
+const TILDE_POS = [[0.0, 1.45, 0.3], [-0.36, 1.36, 0.35], [0.38, 1.38, 0.35], [-0.18, 1.64, 0.3], [0.2, 1.65, 0.3], [0.62, 1.18, 0.4], [0.66, 1.48, 0.4]]; // ronda 3: ninguna del lado del cable
 
 // ---------- R3: el avión de papel (despega de la silla), la bandada y las empresas ----------
 const texAla = tex(512, 512, (x, w, h) => {
@@ -782,8 +784,8 @@ function armarPlanos() {
   return [
     // s01: por encima del hombro derecho de Rubén: el formulario, el clic, el celular que vibra; push-in al celular
     ["O1", 0, [
-      k(0, o(-0.62, 1.95, -1.75), o(0.12, 1.02, MON.z - 0.1), 34),
-      k(T.vibra - 0.1, o(-0.7, 1.88, -1.5), o(-0.12, 1.0, MON.z), 34),
+      k(0, o(-0.62, 1.95, -1.75), o(0.12, 1.1, MON.z - 0.1), 34), // ronda 3: el formulario más abajo, fuera del gancho
+      k(T.vibra - 0.1, o(-0.7, 1.88, -1.5), o(-0.12, 1.16, MON.z), 34),
       k(T.s02 - 0.05, finO1, miraO1),
     ]],
     // s02-s08: el reloj-piso, una sola curva
@@ -808,7 +810,7 @@ function armarPlanos() {
       k(T.s06 + 0.3, r(PS.x + 1.0, 2.1, 4.4), r(PS.x + 1.3, 1.5, 0.0)),
       k(T.escribio + 0.15, r(PB.x - 1.6, 2.5, 3.9), r(PB.x - 1.1, 1.6, PB.z + 1.2)),
       k(T.empresas + 0.15, r(PB.x, 3.0, PB.z + 6.6), r(PB.x, 1.3, PB.z)),
-      k(T.s07 - 0.04, r(PB.x + 0.1, 3.0, PB.z + 6.45), r(PB.x + 0.1, 1.3, PB.z)), // ronda 3: casi corte a los buzones (sin paneo vacío)
+      k(T.s07 - 0.01, r(PB.x + 0.1, 3.0, PB.z + 6.45), r(PB.x + 0.1, 1.3, PB.z)), // ronda 3: casi corte a los buzones (sin paneo vacío)
       // buzones de 3/4: el rojo (el cuarto) adelante
       // buzones casi de frente (los cuatro enteros); push-in a 2, 3 y el rojo
       k(T.s07 + 0.0, r(PZ.x, 1.95, PZ.z + 8.3), r(PZ.x, 1.55, PZ.z)),
@@ -918,7 +920,7 @@ function zonaO(t) {
   if (!en) return;
   panelAtras.visible = false; // la cámara siempre queda de este lado (detrás de Rubén o frente a él)
   // ---- el monitor ----
-  if (plano === "O1") dibujarMonitor("form", [pulso(t, T.click - 0.05, 0.18), t >= T.click + 0.06 ? 1 : 0]);
+  if (plano === "O1") dibujarMonitor("form", [pulso(t, T.click - 0.05, 0.18), t >= T.click + 0.06 ? 1 : 0, sg(t, T.vibra - 0.05, T.vibra + 0.1)]);
   else dibujarMonitor(plano === "O3" ? "bandeja" : "lisa", [1]); // ronda 2: detrás de Rubén, la bandeja sin texto (no queda texto cortado)
   // ---- la silla y Rubén ----
   const s01 = plano === "O1";
@@ -1005,14 +1007,14 @@ function zonaR(t) {
     am = lerp(am, Math.ceil(base) * Math.PI * 2, doce); ah = lerp(ah, Math.ceil(ah / (Math.PI * 2)) * Math.PI * 2, doce);
     agujaM.rotation.y = -am; agujaH.rotation.y = -ah;
     // ronda 1: sin agujas del piso mientras está el campo de edificios (desde arriba se leían como una viga que lo cruzaba)
-    agujaM.visible = agujaH.visible = !(t > T.s06 - 0.3 && t < T.s07 + 0.3);
+    agujaM.visible = agujaH.visible = t < T.s03 - 0.6; // ronda 3: solo en s02 (después se leían como un palo suelto en el piso)
     hubG.visible = !(t > T.s06 - 0.3 && t < T.s08 + 0.4); // ronda 3: el centro del piso-reloj no queda como disco suelto entre edificios y buzones
   }
   // ---- R1: mate gigante y vapor ----
   {
     const vis = en;
-    const pop = R1 ? lerp(0.3, 1, bk(sg(t, T.morph + 0.1, T.morph + 0.42))) : 1;
-    mateG.visible = vis && (R2v || t >= T.morph + 0.1);
+    const pop = R1 ? lerp(0.45, 1, bk(sg(t, T.morph + 0.04, T.morph + 0.34))) : 1; // ronda 3: crece mientras el celular se va
+    mateG.visible = vis && (R2v || t >= T.morph + 0.04);
     mateG.position.copy(PM); mateG.scale.setScalar(KM * pop); mateG.rotation.set(0, 2.6 + (R1 ? (1 - sg(t, T.morph, T.morph + 0.5)) * -1.2 : 0), 0);
     // frío: en s02 desde "se enfría"; en s12 vuelve a calentar cuando ceba el termo
     const frio = R1 ? eio(sg(t, T.frio, T.frio + 0.5)) : 1 - eio(sg(t, T.ceba + 0.15, T.ceba + 0.6));
@@ -1026,12 +1028,11 @@ function zonaR(t) {
     vaporG.scale.setScalar(1.0);
     vaporG.userData.poner(t, kv, R1 ? 1.1 : 0.7, R1 ? frio : 0); // ronda 2: en s12-s13 más bajo (no entra en las burbujas) // ronda 1: más bajo (no llega al subtítulo)
     // celular gigante del corte escondido (s02, 0,5 s): gira y se achica mientras crece el mate
-    const fuera = sg(t, T.morph, T.morph + 0.14);
-    celuG.visible = R1 && t < T.morph + 0.16;
-    // ronda 2: se achica en su lugar, girando, y se apaga antes de que la bombilla llegue a su altura (sin mota)
-    celuG.position.set(PM.x, 0.11 * KCG, PM.z); celuG.rotation.set(-0.28 * (1 - fuera), 0, 0); celuG.rotateY(fuera * Math.PI * 1.2);
-    celuG.scale.setScalar(KCG * Math.max(0.001, 1 - eio(fuera)));
-    if (fuera > 0.7) celuG.visible = false;
+    // ronda 3: cruce: el celular sube y se achica de frente (sin quedar de canto) mientras el mate ya crece abajo
+    const fuera = sg(t, T.morph, T.morph + 0.22);
+    celuG.visible = R1 && fuera < 1;
+    celuG.position.set(PM.x - 3.2 * Math.pow(fuera, 1.5), 0.11 * KCG, PM.z - 0.5 * fuera); celuG.rotation.set(-0.28 * (1 - fuera), 0, 0.5 * fuera); // ronda 3: sale de costado, de frente
+    celuG.scale.setScalar(KCG);
     if (celuG.visible) dibujarCelu("llama");
   }
   // ---- R2: el "?" (cae, rebota y en "Un estudio" gira y se achica: en su lugar nace el reloj de la primera hora) ----
@@ -1039,14 +1040,15 @@ function zonaR(t) {
     const cae = sg(t, T.cae, T.cae + 0.3);
     const y = t < T.cae ? 9 : lerp(4.0, 0, cae * cae) + Math.abs(rebote(t, T.cae + 0.3, 7, 16, 0.35));
     // ronda 2: se achica de frente (sin girar: de canto se veían las capas) y desaparece antes de que nazca el reloj
-    const sube = eio(sg(t, T.reloj1 - 0.3, T.reloj1 - 0.02)), pl = 1 - 0.75 * sube;
+    const sube = eio(sg(t, T.reloj1 - 0.34, T.reloj1 - 0.23)), pl = 1 - 0.97 * sube; // ronda 3: se achica hasta desaparecer (no sube al subtítulo)
     preg.visible = R1 && t >= T.cae && sube < 0.98;
-    preg.position.set(PQ.x, ALTO_Q / 2 * pl + Math.max(0, y) + 3.2 * sube, PQ.z); // ronda 2: sube y sale por arriba mientras nace el reloj (no se cruzan) preg.rotation.set(0, (1 - cae) * 0.6, 0); preg.scale.setScalar(Math.max(0.01, pl));
+    preg.position.set(PQ.x, ALTO_Q / 2 * pl + Math.max(0, y) + 1.1 * sube, PQ.z); // ronda 2: sube y sale por arriba mientras nace el reloj (no se cruzan)
+    preg.rotation.set(0, (1 - cae) * 0.6, 0); preg.scale.setScalar(Math.max(0.01, pl));
   }
   // ---- R5a: reloj de la primera hora, "1 h", cable, silla, tildes ----
   {
-    const vis = R1 && t >= T.reloj1 - 0.12 && t < T.s07;
-    const kk = popIn(t, T.reloj1 - 0.12, 0.35);
+    const vis = R1 && t >= T.reloj1 - 0.25 && t < T.s07;
+    const kk = lerp(0.35, 1, eio(sg(t, T.reloj1 - 0.25, T.reloj1 + 0.08))); // ronda 3: sin rebote (tocaba el subtítulo) // ronda 3: nace mientras el "?" sale (sin cuadro vacío)
     reloj1.visible = vis; reloj1.position.copy(PR1); reloj1.scale.setScalar(Math.max(kk, 0.001));
     const { agH, agM, cuna } = reloj1.userData;
     // las agujas avanzan desde las 11:40 y quedan a las 12 en "llamar"
@@ -1055,7 +1057,7 @@ function zonaR(t) {
     const cu = eio(sg(t, T.cuna, T.cuna + 0.3));
     cuna.visible = cu > 0.01; cuna.scale.set(1, 1, Math.max(0.01, cu * 2.4)); cuna.position.z = 0.02 + cu * 0.05;
     const n1 = popIn(t, T.cuna + 0.08, 0.3) * (1 - sg(t, T.s05 + 0.25, T.s05 + 0.45));
-    ocultar(num1h, vis && n1 > 0.15 ? n1 : 0); num1h.position.set(PR1.x + 0.3, RY - 0.34, PR1.z + 0.24);
+    ocultar(num1h, vis && n1 > 0.15 ? n1 : 0); num1h.position.set(PR1.x, RY - 0.19, PR1.z + 0.24); // ronda 3: debajo del centro, sin tocar el 6 ni el cable // ronda 3: arriba a la izquierda de la esfera, lejos del cable y del 6
     // cable y silla
     const vis2 = R1 && t > T.s05 - 0.4 && t < T.s07;
     // ronda 3: cuando el avión ya despegó, la silla se va (no queda cortada en la esquina)
@@ -1080,7 +1082,7 @@ function zonaR(t) {
     avion.position.copy(p); avion.rotation.set(0.1 - 0.15 * Math.sin(Math.PI * u), Math.PI / 2 - 0.3, Math.sin(t * 6) * 0.12, "YXZ");
     avion.scale.setScalar(lerp(0.4, 1.15, bk(sg(t, T.avion, T.avion + 0.35))));
     // edificios: crecen del piso en ondas (ronda 1: escala 0 antes de brotar, sin sombras sueltas)
-    edificios.visible = R1 && t > T.s06 - 0.1 && t < T.s07 - 0.03; // ronda 3: se van con el corte
+    edificios.visible = R1 && t > T.s06 - 0.1 && t < T.s07 - 0.005; // ronda 3: se van con el corte
     EDIF.forEach((e, i) => {
       const t0 = T.s06 + 0.05 + e.f * 0.7, s2 = bk(sg(t, t0, t0 + 0.3));
       const h = e.h * s2, on = s2 > 0.02 ? 1 : 0;
@@ -1104,9 +1106,9 @@ function zonaR(t) {
   {
     const vis = R1 && t > T.s07 - 0.6 && t < T.s08 + 0.4;
     buzones.forEach((b, i) => {
-      const kk = popIn(t, T.s07 - 0.12 + i * 0.05, 0.3); // ronda 3: al corte ya están a medio crecer (sin cuadro vacío) // ronda 2: nacen cuando la cámara ya llegó (no entran cortados)
+      const kk = popIn(t, T.s07 - 0.34 + i * 0.03, 0.25); // ronda 3: al corte ya están enteros // ronda 3: al corte ya están a medio crecer (sin cuadro vacío) // ronda 2: nacen cuando la cámara ya llegó (no entran cortados)
       // el cuarto (rojo) se achica girando y en su lugar nace el reloj de las 42 h; los otros se van antes
-      const va = i === 3 ? 1 - eio(sg(t, T.reloj2 - 0.48, T.reloj2 - 0.28)) : 1 - eio(sg(t, T.s08 - 0.52, T.s08 - 0.3)); // ronda 3: se van antes de que nazca el reloj
+      const va = i === 3 ? 1 - eio(sg(t, T.reloj2 - 0.62, T.reloj2 - 0.44)) : 1 - eio(sg(t, T.s08 - 0.52, T.s08 - 0.3)); // ronda 3: se van antes de que nazca el reloj
       b.position.set(PZ.x + BZ_X[i] * KB, 0, PZ.z - (i === 3 ? 1.6 * (1 - va) : 0)); b.rotation.set(0, (i === 3 ? (1 - va) * 3 : 0), 0);
       const sc = kk * va * KB; ocultar(b, vis && sc > 0.45 * KB ? sc : 0);
       const { band, caja } = b.userData;
@@ -1123,7 +1125,7 @@ function zonaR(t) {
       const pp = ini.clone().lerp(slot, eio(u));
       const entra = i < 3 ? sg(t, t0 + 0.35, t0 + 0.55) : sg(t, t0 + 0.35, t0 + 0.5) * 0.45;
       pp.z -= entra * 0.2 * KB; pp.y -= entra * 0.06;
-      s2.visible = vis && t >= t0 && (i === 3 ? t < T.reloj2 - 0.42 : entra < 0.98);
+      s2.visible = vis && t >= t0 && (i === 3 ? t < T.reloj2 - 0.56 : entra < 0.98);
       s2.position.copy(pp); s2.rotation.set(-0.35 * (1 - u), -0.4 * (1 - u), -0.3 * (1 - u));
       s2.scale.setScalar(KB * (i < 3 ? 1 - 0.3 * entra : 1));
     });
@@ -1138,9 +1140,9 @@ function zonaR(t) {
   }
   // ---- R5b: reloj de las 42 h (sol y luna), "42 h" ----
   {
-    const vis = R1 && t > T.reloj2 - 0.44 && t < T.s09;
-    const kk = popIn(t, T.reloj2 - 0.43, 0.35); // ronda 3: nace apenas se va el buzón rojo (sin cuadro vacío)
-    reloj2.visible = vis; reloj2.position.copy(PR2); reloj2.scale.setScalar(Math.max(kk, 0.001));
+    const vis = R1 && t > T.reloj2 - 0.51 && t < T.s09;
+    const kk = popIn(t, T.reloj2 - 0.5, 0.35); // ronda 3: nace apenas se va el buzón rojo (sin cuadro vacío)
+    reloj2.visible = vis; reloj2.position.copy(PR2); reloj2.position.y += RY * (1 - kk); reloj2.scale.setScalar(Math.max(kk, 0.001)); // ronda 3: crece desde su centro (no nace abajo, sobre el logo)
     reloj2.position.y += rebote(t, T.gira[1], 8, 40, 0.02);
     const g = eio(sg(t, T.gira[0], T.gira[1]));
     const hh = 10.2 + g * 42;
@@ -1167,7 +1169,7 @@ function zonaR(t) {
     // burbuja: ronda 1: aparece en su lugar (arriba del mate) con un pop, sin cruzar el borde
     // ronda 2: a la derecha de la punta de la bombilla y por arriba del vapor; la respuesta la reemplaza de golpe
     const ub = popIn(t, T.burbuja, 0.32);
-    burbuja.visible = vis && t >= T.burbuja && t < T.resp + 0.05;
+    burbuja.visible = vis && t >= T.burbuja && t < T.resp; // ronda 3: se va en el mismo cuadro en que entra la verde
     burbuja.position.set(0.46, 2.15 + 0.04 * sg(t, T.burbuja, T.resp), 0.9); burbuja.scale.setScalar(Math.max(ub, 0.001) * 0.82); burbuja.rotation.set(0, 0.08, 0);
     // termo: entra desde la derecha, se inclina y ceba (pico sobre la boca del mate) y se va por la derecha
     const entra = eio(sg(t, T.termo, T.termo + 0.4)), sale = eio(sg(t, T.s13 + 0.05, T.s13 + 0.45));
@@ -1180,7 +1182,7 @@ function zonaR(t) {
     chorro.visible = kch > 0.01;
     if (chorro.visible) { const d = boca.clone().sub(pico), L = d.length(); chorro.position.copy(pico).addScaledVector(d, 0.5); chorro.quaternion.setFromUnitVectors(_up, d.normalize()); chorro.scale.set(kch, L, kch); }
     // respuesta de Graciela (a la derecha, cuando el termo ya se fue)
-    const kr = popIn(t, T.resp, 0.3);
+    const kr = t < T.resp ? 0 : lerp(0.9, 1, bk(sg(t, T.resp, T.resp + 0.2))); // ronda 3: entra casi a escala final (no crece dentro de la blanca)
     respG.visible = vis && t >= T.resp; respG.position.set(0.43, 2.2, 0.95); respG.scale.setScalar(Math.max(kr, 0.001) * 0.84); respG.rotation.set(0, -0.1, 0);
   }
 }
