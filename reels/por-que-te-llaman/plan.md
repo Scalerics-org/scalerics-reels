@@ -1,5 +1,7 @@
 # Plan de escenas · por-que-te-llaman (explicador "¿Por qué…?", ~33 s, 3D real)
 
+> **OBSOLETO (15-11):** este es el plan original, anterior a las rondas de corrección. Lo vigente está en SPEC.md (brief de la ronda 1) y en NOTAS-constructor.md (tablas de la ronda 1 y la ronda 2).
+
 "¿Por qué pedís un presupuesto y te llaman enseguida?" sobre **Rubén en su oficina vidriada arriba del depósito,
 tocando "Enviar" en un pedido de presupuesto de un autoelevador eléctrico, y el celular que ya vibra en el escritorio
 antes de que llegue a tomar el mate** (cuadro 0 = escena en curso). Desenlace en la frase 2: "Porque el interés se

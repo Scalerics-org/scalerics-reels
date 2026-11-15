@@ -1,4 +1,6 @@
-# SPEC · por-que-te-llaman (explicador "¿Por qué…?", 32,2 s, 3D real)
+# SPEC · por-que-te-llaman (explicador "¿Por qué…?", 33,31 s, 3D real)
+
+> **Nota (ronda 2, 15-11):** el encabezado y "El lenguaje visual" son del plan original y quedan como contexto; los segundos del brief son los de la ronda 1 y lo que cambió en la ronda 2 está en la tabla "Ronda 2" de NOTAS-constructor.md, que manda.
 
 **De qué trata.** "¿Por qué pedís un presupuesto y te llaman enseguida?": Rubén pide por la web el presupuesto de un
 autoelevador y el celular ya suena. Respuesta: el interés se enfría rápido. Dato (Oldroyd, McElheran y Elkington, HBR

@@ -17,7 +17,7 @@
   </style>
   <div id="root" data-composition-id="s05-el-que-decide" data-width="1080" data-height="1920" data-duration="2.7">
     <div id="s05-el-que-decide-esc" class="esc clip" data-start="0" data-duration="2.7" data-track-index="0">
-<div class="pill gris n1" style="left:360px;top:1650px">1 hora después</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M720 1420 L600 1240"/><circle class="dot  d2" cx="600" cy="1240" r="13"/></svg><div class="pill lleno n2" style="left:740px;top:1480px">el que decide</div>
+<svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l1" d="M400 1462 L650 1200"/><circle class="dot  d1" cx="650" cy="1200" r="13"/></svg><div class="pill gris n1" style="left:330px;top:1520px">1 hora después</div><svg class="full" viewBox="0 0 1080 1920" aria-hidden="true"><path class="lead  l2" d="M720 1420 L600 1240"/><circle class="dot  d2" cx="600" cy="1240" r="13"/></svg><div class="pill lleno n2" style="left:740px;top:1480px">el que decide</div>
     </div>
   </div>
   <script>
@@ -41,7 +41,7 @@
       const fuera = (ks, t) => tl.to(qa(ks.map((k) => ".n" + k + ", .l" + k + ", .d" + k).join(", ")), { opacity: 0, duration: 0.1, ease: "power1.in" }, t);
       const late = (s, t, k) => tl.fromTo(q(s), { scale: 1 }, { scale: k ?? 1.12, transformOrigin: "50% 50%", duration: 0.16, yoyo: true, repeat: 1, immediateRender: false }, t);
 
-nota(1, 0.17); fuera([1], 1.32); nota(2, 1.32); fuera([2], 2.58);
+nota(1, 0.32); fuera([1], 1.32); nota(2, 1.32); fuera([2], 2.58);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -43,7 +43,7 @@ Portada (desde la raíz, con el mp4 ya hecho): `flock /tmp/hyperframes.lock node
   escribe solo quieres llegar primero agenda una videollamada gratis en scaler ix.com" ("una década" = "una de cada",
   "quieres/agenda" sin tilde = STT).
 
-## Planos (segundos globales)
+## Planos (segundos globales) · OBSOLETA: es la versión original (32,2 s). La vigente es la de "Ronda 2" al final.
 | # | escena | inicio | plano 3D |
 |---|---|---|---|
 | 1 | s01-gancho | 0,00 | O1: por encima del hombro derecho de Rubén sentado; formulario "Pedir presupuesto · Autoelevador eléctrico", clic 0,42 → "Enviado ✓"; mate a la altura del pecho; vibra el celular del atril 1,21 ("Llamada entrante"); push-in al celular |
@@ -144,7 +144,7 @@ descripcion.txt actualizados. Burbuja "Graciela, te paso el presupuesto. ¿Lo ve
 pedido" (G3), respuesta "¡Sí! ¿Me llamás?" (G4), la ficha mantiene "Presupuesto · ayer 18:40" (G5), crédito
 "Harvard Business Review · 2011 · EE. UU." mono 36 px (G6), subtítulo "dos mil" en letras y "2.241" más abajo (G8).
 
-### Planos (segundos globales, ronda 1)
+### Planos (segundos globales, ronda 1) · los inicios de escena siguen valiendo; los cambios de la ronda 2 están abajo
 | # | escena | inicio | plano 3D |
 |---|---|---|---|
 | 1 | s01-gancho | 0,00 | O1: Rubén corrido a su izquierda (la nuca ya no tapa el formulario), mate en el escritorio, celular del atril 1,7× (vibra 1,21); push-in al celular, que termina entero y debajo del subtítulo |
@@ -230,3 +230,49 @@ tramos (6,4: 5,2 LU, arranque de "llamar"; 15,7: 4,8 LU, cola de "contestó."), 
 - 10,25-10,5: el avión recién despegado arriba del cuadro antes de que la cámara lo alcance.
 - La vibración del celular (1,2-2,2) queda en -38,6 LUFS momentánea: más fuerte pisa "enseguida".
 - Los números 3D ya no tienen bisel (aristas rectas); las líneas de triangulación ya no están.
+
+## Ronda 2 de corrección (= ronda 3 del coordinador, 15-11; sobre /home/user/revision/qa-llaman-r2 y snd-llaman-r2)
+
+Duración 33,31 s, mismos inicios de escena que la ronda 1 (s01 0,00 · s02 2,55 · s03 4,27 · s04 5,32 · s05 7,59 ·
+s06 10,29 · s07 12,79 · s08 15,86 · s09 18,88 · s10 21,06 · s11 22,87 · s12 26,60 · s13 28,86 · s14 30,58).
+
+### Planos que cambiaron (segundos globales)
+| tramo | antes | ahora |
+|---|---|---|
+| 5,0-5,4 (A2) | el "?" giraba y se achicaba dentro del reloj | el "?" sube y sale por arriba (5,04-5,32) sin girar; el reloj nace en 5,22 cuando el "?" ya no lo cruza |
+| 7,6-9,0 (M6) | cables cruzados, rótulo tapando la punta gris | silla corrida a la derecha y adelante (PS), cable gris detrás del reloj; "1 hora después" a la izquierda con línea guía |
+| 10,3-11,1 (B15) | la silla quedaba cortada en la esquina | la silla se achica y se va cuando el avión ya despegó (10,69-10,94) |
+| 12,4-12,8 (M8) | "2.241" se achicaba; paneo vacío a los buzones; disco blanco y verde suelto | "2.241" se funde (12,49-12,71); casi corte a los buzones (12,75), que ya están creciendo al corte; edificios fuera en el corte; el centro del piso-reloj oculto 10,0-16,3 |
+| 13,4-15,3 (M8/B12/B14) | banderas chicas; tildes subían al subtítulo | banderas más grandes; push-in más abierto (z +5,0, mira 1,64) y se queda hasta 15,24 |
+| 15,2-15,9 (A3) | buzones se desvanecían, tildes y sombras sueltas, cuadro vacío | rótulo 23 % fuera 15,18; los buzones blancos y sus tildes se van juntos 15,34-15,56; el rojo gira y se achica hacia atrás 15,40-15,60; el reloj nace adelante en 15,45 (pop con sonido) y la cámara ya llega encuadrada 15,81 |
+| 16,1-17,3 (B13) | sol/luna cortados | arco angosto por arriba del aro (0,72 × 0,45) |
+| 21,06-21,48 (A1) | giro de cabeza y cámara que lo rodeaba: ojo fuera de la silueta | torso 0,3 rad, cabeza 0,08 rad, ojos hacia el monitor; la cámara solo hace push-in corto; inserto antes, en 21,48 |
+| 21,48-22,87 (M10/B18) | franja oscura abajo; texto cortado | monitor "liso" (sin texto) en O2; inserto O3 desde más arriba: monitor entero, escritorio y teclado llenan abajo |
+| 26,6-30,6 (M11/B16/B17) | burbujas en la punta de la bombilla, vapor dentro de la burbuja verde, asa del termo detrás del mate | burbuja blanca (0,46; 2,15; esc. 0,82) y verde (0,43; 2,2; esc. 0,84) a la derecha de la bombilla y por arriba del vapor (alto 0,7 en R2); la verde reemplaza a la blanca de golpe; asa del termo afuera |
+| 2,63-2,79 (M4) | celular montado en la bombilla, mota | el celular se achica en su lugar y se apaga antes de que la bombilla llegue a su altura |
+| 0,00 (B19) | sin cambio de cámara en esta ronda: un perfil de Rubén y el formulario no entran juntos en 9:16 sin tapar el formulario; queda la nuca y el brazo (ver dudoso) | |
+
+### Sonido (S1-S3, B4-B6)
+- Música: sidechain sin adelanto (atrim 0,02), threshold 0,08, ratio 2,5, attack 15, release 450, makeup 1; cama
+  vol 0,27 → -36,8 LUFS integrada; fundido final desde ~32,85 (0,46 s).
+- Inaudibles subidos al techo -31/-33: vibración (vibra-medios 0,22), tics s04 y s08 ("tic" 0,25/0,3), pop rojo 0,3 +
+  golpe 0,12, pop "42 h" 0,3, notificación + tres burbujas del cebado (28,00/28,22/28,44 aprox., vols 0,075/0,05/0,06).
+- Aire muerto 20,55-21,05: whoosh-short suave al girar (T.insert-0,1). No se acortaron "Las demás tardaron," ni "Yo le compré".
+- Pop del reloj de las 42 h movido al momento en que nace (15,45, en s07).
+- Medición final (partes/medir.py + medir-m.py, stems pre-loudnorm): RMS por 0,5 s con voz < 6 dB: ninguno;
+  momentánea cada 0,5 s (voz > -45) y cada 0,1 s (voz > -30) con voz < 6 LU: ninguno. Mezcla -17,1 LUFS, pico
+  -2,9 dBTP antes del loudnorm a -14.
+
+### Pasadas
+- b3: cada 0,5 s desde 0 (67 cuadros, hojas s0-s4). b4: cada 0,5 s desde 0,25 (66 cuadros).
+- Cuadro por cuadro en cortes: c1/c2 (giro de Rubén 21,06-21,6), c4 (12,6-12,93, 2,5-2,77, 18,85-18,9, 21,45-21,5,
+  22,85-22,9, 30,55-30,6, 15,5-15,63), c5-c8 y c10-c11 (buzones → reloj 15,2-15,95), c3/c9 (burbujas 26,6-30,5),
+  c7 (silla 10,2-11,25).
+- check --json: 0 errores (warnings: lint 3, runtime 7, layout 1, los mismos de antes).
+
+### Dudoso / para el revisor
+- Cuadro 0: sigue siendo por encima del hombro (nuca, pelo y brazo de Rubén a la izquierda); la portada usa su propio encuadre.
+- 15,6: el reloj nace con rebote y por ~0,1 s roza el borde derecho mientras la cámara termina de abrirse.
+- 15,45: el sobre del buzón rojo asoma arriba mientras el buzón gira (se va en 15,46).
+- 28,9-29,0: el termo sale por la derecha (cortado por el borde porque se está yendo).
+- Pour real CC0 sigue sin conseguirse (freesound/commons con 403): el cebado son tres burbujas (burbuja.mp3, Mafon2 CC0).

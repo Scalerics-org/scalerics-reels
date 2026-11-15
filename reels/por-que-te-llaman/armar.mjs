@@ -184,10 +184,11 @@ for (let i = 0; i < 0; i++) {
 
 // ronda 1: la cama se oye todo el reel (sidechain suave); solo baja un poco en dos colas de frase donde la voz se apaga
 // ("rápido." antes de "¿Qué tan rápido?" y "días." antes de Rubén), para que la cola no quede debajo de la música
-const DUCKS = [[r2(palabras[14].end - 0.25), r2(palabras[15].start + 0.05)], [r2(palabras[59].end - 0.3), r2(palabras[60].start + 0.05)]];
+const DUCKS = [[r2(palabras[14].end - 0.25), r2(palabras[15].start + 0.05)], [r2(palabras[59].end - 0.3), r2(palabras[60].start + 0.05)],
+  [r2(palabras[21].end - 0.2), r2(palabras[22].start + 0.2)], [r2(palabras[51].end - 0.3), r2(palabras[52].start + 0.05)]]; // ronda 2: + "midió:"→"llamar" y "contestó."
 // música recortada a la duración del reel, con fundido de 0,35 s al final
 // la cama baja sola mientras habla la voz (sidechain): más presente en los silencios, nunca encima de la voz
-execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]atrim=start=0.2,asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.015:ratio=4:attack=10:release=350:makeup=1.0[d];[d]volume='${DUCKS.map(([a, b]) => `(1-0.8*min(max((t-${a})/0.15,0),1)*min(max((${b}-t)/0.15,0),1))`).join("*")}':eval=frame,afade=t=out:st=${r2(DUR - 0.35)}:d=0.35[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
+execSync(`ffmpeg -y -hide_banner -loglevel error -i assets/bgm/bed.mp3 -i assets/voice/locucion.wav -filter_complex "[0:a]atrim=0:${DUR},aresample=48000,aformat=channel_layouts=stereo[b];[1:a]atrim=start=0.02,asetpts=PTS-STARTPTS,aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur=${DUR}[v];[b][v]sidechaincompress=threshold=0.08:ratio=2.5:attack=15:release=450:makeup=1.0[d];[d]volume='${DUCKS.map(([a, b]) => `(1-0.8*min(max((t-${a})/0.15,0),1)*min(max((${b}-t)/0.15,0),1))`).join("*")}':eval=frame,afade=t=out:st=${r2(DUR - 0.46)}:d=0.46[o]" -map "[o]" assets/bgm/bed-corte.mp3`);
 const hosts = ESCENAS.map(
   ([id, a, b], i) => `      <div id="el-${id}" class="scene" data-composition-id="${id}" data-composition-src="compositions/${id}.html" data-start="${a}" data-duration="${r2(b - a)}" data-track-index="${2 + (i % 2)}" data-track-kind="graphics"></div>`,
 ).join("\n");
@@ -252,7 +253,7 @@ ${LIMPIO ? "" : hosts}
 ${LIMPIO ? "" : `      <div id="el-subtitulos" data-composition-id="subtitulos" data-composition-src="compositions/subtitulos.html" data-start="0" data-duration="${DUR}" data-track-index="5" data-track-kind="captions"></div>
       <img id="firma" class="clip" src="assets/logo-blanco.png" alt="Scalerics" data-start="${TODAS[1][1]}" data-duration="${r2(DUR - TODAS[1][1])}" data-track-index="9" />
       <audio id="voz" src="assets/voice/locucion.wav" data-start="0" data-duration="${VOZ}" data-track-index="30" data-volume="1"></audio>
-${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.4"></audio>\n` : ""}${sfxTags}`}
+${fs.existsSync("assets/bgm/bed.mp3") ? `      <audio id="bgm" src="assets/bgm/bed-corte.mp3" data-start="0" data-duration="${Math.min(DUR, 63.9)}" data-track-index="31" data-volume="0.27"></audio>\n` : ""}${sfxTags}`}
     </div>
     <script>
       window.__hf = window.__hf || {};

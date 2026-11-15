@@ -114,9 +114,9 @@ T.click = 0.42; T.vibra = r2(Wg(7) - 0.12); T.morph = r2(T.s02 + 0.08); T.frio =
 T.reloj1 = r2(T.s04 + 0.02); T.doce = r2(T.llamar - 0.1); T.cuna = T.primera;
 T.cable = [r2(T.s05 + 0.02), r2(T.s05 + 1.0)]; T.tildes = [0, 0.18, 0.32, 0.44, 0.54, 0.62, 0.7].map((d) => r2(T.chances + d));
 T.avion = r2(T.s06 - 0.05); T.bandada = T.dos;
-T.cartas = [0.05, 0.17, 0.29, 0.41].map((d) => r2(T.s07 + d)); T.banderas = [0.05, 0.2, 0.35].map((d) => r2(T.una + d)); T.rojo = T.nunca;
+T.cartas = [0.25, 0.35, 0.45, 0.55].map((d) => r2(T.s07 + d)); T.banderas = [0.05, 0.2, 0.35].map((d) => r2(T.una + d)); T.rojo = T.nunca;
 T.reloj2 = r2(T.s08 + 0.02); T.gira = [r2(T.tardaron - 0.1), r2(T.casi - 0.15)];
-T.corta = r2(T.s09 + 0.35); T.insert = r2(T.ayer - 0.08); T.fila1 = T.anota; T.fila2 = T.avisa; T.fila3 = r2(T.instante + 0.12);
+T.corta = r2(T.s09 + 0.35); T.mira = r2(T.s10 + 0.05); T.insert = r2(T.s10 + 0.42); T.fila1 = T.anota; T.fila2 = T.avisa; T.fila3 = r2(T.instante + 0.12);
 T.termo = r2(T.s12 + 0.1); T.burbuja = r2(T.escribe - 0.05); T.ceba = r2(T.escribe + 0.05); T.resp = r2(T.s13 + 0.5);
 
 // tramos sin logo (assets/firma.json): el celular del atril en s01, el cable y la silla en s05, Rubén y la pantalla
@@ -128,9 +128,9 @@ const POS = {
   cred: [540, 1650],
   nunca: [560, 1560], nuncaLead: [620, 1500, 880, 1040],
   contestaron: [540, 1580],
-  despues: [360, 1650],
+  despues: [330, 1520], despuesLead: [400, 1462, 650, 1200],
   decide: [740, 1480], decideLead: [720, 1420, 600, 1240],
-  solo: [760, 1500],
+  solo: [300, 1560],
 };
 const CRED = "Harvard Business Review · 2011 · EE. UU.";
 const CSS_CREDM = `P .credm { position: absolute; transform: translate(-50%, -50%); padding: 12px 26px 14px; border-radius: 18px; background: ${NAVY}; border: 4px solid ${CR}; font: 500 36px/1.1 "IBM Plex Mono", monospace; color: ${CR}; white-space: nowrap; opacity: 0; }`;
@@ -158,7 +158,7 @@ const GANCHO = `
       tl.to(qa(".h"), { opacity: 0, y: -30, duration: 0.2, ease: "power1.in" }, ${r2(ESC[id] - 0.24)});`,
     sfx: [
       { t: T.click, sfx: "click", vol: 0.25 },
-      { t: T.vibra, sfx: "vibra", vol: 0.085, max: 1.0 },
+      { t: T.vibra, sfx: "vibra-medios", vol: 0.22, max: 0.72 },
       { t: r2(T.vibra + 0.15), sfx: "ring", vol: 0.012, max: 0.8 },
     ],
   });
@@ -195,7 +195,7 @@ vacia("s03-que-tan", [
     sfx: [
       { t: -0.2, sfx: "whoosh-short", vol: 0.03 },
       { t: rel(id, T.reloj1 + 0.08), sfx: "pop", vol: 0.05 },
-      ...[0, 0.14, 0.28].map((d) => ({ t: rel(id, T.reloj1 + 0.35 + d), sfx: "tic-real", vol: 0.025, max: 0.15 })),
+      ...[0, 0.14, 0.28].map((d) => ({ t: rel(id, T.reloj1 + 0.35 + d), sfx: "tic", vol: 0.25, max: 0.15 })),
       { t: rel(id, T.cuna), sfx: "pop", vol: 0.07 },
       { t: rel(id, T.cuna + 0.1), sfx: "chime", vol: 0.03, max: 0.5 },
     ],
@@ -206,8 +206,8 @@ vacia("s03-que-tan", [
 {
   const id = "s05-el-que-decide";
   escena(id, {
-    html: `${pill(1, POS.despues[0], POS.despues[1], "1 hora después", "gris")}${L(2, POS.decideLead)}${pill(2, POS.decide[0], POS.decide[1], "el que decide", "lleno")}`,
-    js: `nota(1, ${rel(id, T.cable[0] + 0.15)}); fuera([1], ${rel(id, T.llegar)}); nota(2, ${rel(id, T.llegar)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
+    html: `${L(1, POS.despuesLead)}${pill(1, POS.despues[0], POS.despues[1], "1 hora después", "gris")}${L(2, POS.decideLead)}${pill(2, POS.decide[0], POS.decide[1], "el que decide", "lleno")}`,
+    js: `nota(1, ${rel(id, T.cable[0] + 0.3)}); fuera([1], ${rel(id, T.llegar)}); nota(2, ${rel(id, T.llegar)}); fuera([2], ${r2(ESC[id] - 0.12)});`,
     sfx: [
       { t: 0.05, sfx: "whoosh", vol: 0.06, max: 0.6 },
       ...T.tildes.map((tt, i) => ({ t: rel(id, tt), sfx: "pop", vol: 0.028 + i * 0.003 })),
@@ -238,13 +238,15 @@ vacia("s03-que-tan", [
   const id = "s07-nunca";
   escena(id, {
     html: `${L(1, POS.nuncaLead, "malo")}${pill(1, POS.nunca[0], POS.nunca[1], "23 % · nunca contestó", "malo")}`,
-    js: `nota(1, ${rel(id, T.cuatro + 0.05)}); fuera([1], ${r2(ESC[id] - 0.45)});`,
+    js: `nota(1, ${rel(id, T.cuatro + 0.05)}); fuera([1], ${r2(ESC[id] - 0.68)});`,
     sfx: [
       { t: 0.0, sfx: "whoosh-short", vol: 0.05 },
       ...T.cartas.map((tc) => ({ t: rel(id, tc + 0.3), sfx: "papel", vol: 0.07, max: 0.25 })),
       ...T.banderas.map((tb) => ({ t: rel(id, tb), sfx: "tac-real", vol: 0.16 })),
       ...T.banderas.map((tb) => ({ t: rel(id, tb + 0.12), sfx: "pop", vol: 0.05 })),
-      { t: rel(id, T.rojo + 0.02), sfx: "pop", vol: 0.05 },
+      { t: rel(id, T.rojo + 0.02), sfx: "pop", vol: 0.3 },
+      { t: rel(id, T.rojo + 0.04), sfx: "golpe", vol: 0.12, max: 0.25 },
+      { t: rel(id, T.reloj2 - 0.41), sfx: "pop", vol: 0.07 }, // ronda 3: con el pop del reloj de las 42 h
     ],
   });
 }
@@ -256,9 +258,8 @@ vacia("s03-que-tan", [
     html: `${pill(1, POS.contestaron[0], POS.contestaron[1], "las que contestaron")}`,
     js: `nota(1, ${rel(id, T.promedio)}); fuera([1], ${r2(ESC[id] - 0.3)});`,
     sfx: [
-      { t: rel(id, T.reloj2 + 0.05), sfx: "pop", vol: 0.07 },
-      ...Array.from({ length: 10 }, (_, i) => ({ t: rel(id, T.gira[0] + 0.05 + i * 0.13), sfx: "tic-real", vol: 0.05, max: 0.12 })),
-      { t: rel(id, T.casi + 0.02), sfx: "pop", vol: 0.04 },
+      ...Array.from({ length: 10 }, (_, i) => ({ t: rel(id, T.gira[0] + 0.05 + i * 0.13), sfx: "tic", vol: 0.3, max: 0.12 })),
+      { t: rel(id, T.casi + 0.02), sfx: "pop", vol: 0.3 },
       { t: rel(id, pal[59].end + 0.2), sfx: "ding", vol: 0.03, max: 0.35 },
     ],
   });
@@ -273,6 +274,7 @@ vacia("s09-ruben-compro", [
 // ================= s10 · Rubén: "¿Y esta consulta de ayer?" =================
 vacia("s10-ruben-ayer", [
   { t: 0.0, sfx: "whoosh-short", vol: 0.03 },
+  { t: rel("s10-ruben-ayer", T.mira), sfx: "whoosh-short", vol: 0.03 },
   { t: rel("s10-ruben-ayer", T.insert - 0.1), sfx: "whoosh-short", vol: 0.05 },
   { t: rel("s10-ruben-ayer", T.ayer + 0.05), sfx: "tic", vol: 0.06 },
 ]);
@@ -298,8 +300,8 @@ vacia("s11-crm", [
       { t: 0.05, sfx: "whoosh-short", vol: 0.03 },
       { t: rel(id, T.termo + 0.05), sfx: "whoosh-short", vol: 0.03 },
       { t: rel(id, T.burbuja + 0.02), sfx: "pop", vol: 0.06 },
-      { t: rel(id, T.burbuja + 0.12), sfx: "notification", vol: 0.035, max: 0.5 },
-      { t: rel(id, T.ceba + 0.15), sfx: "burbuja", vol: 0.035, max: 0.6 },
+      { t: rel(id, T.burbuja - 0.02), sfx: "notification", vol: 0.035, max: 0.5 },
+      ...[[0.08, 0.075], [0.26, 0.05], [0.44, 0.06]].map(([d, v]) => ({ t: rel(id, T.ceba + d), sfx: "burbuja", vol: v, max: 0.28 })),
     ],
   });
 }

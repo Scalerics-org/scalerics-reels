@@ -1,1 +1,1 @@
-[{"t":0.05,"sfx":"whoosh-short","vol":0.03},{"t":0.15,"sfx":"whoosh-short","vol":0.03},{"t":1.19,"sfx":"pop","vol":0.06},{"t":1.29,"sfx":"notification","vol":0.035,"max":0.5},{"t":1.42,"sfx":"burbuja","vol":0.035,"max":0.6}]
+[{"t":0.05,"sfx":"whoosh-short","vol":0.03},{"t":0.15,"sfx":"whoosh-short","vol":0.03},{"t":1.19,"sfx":"pop","vol":0.06},{"t":1.15,"sfx":"notification","vol":0.035,"max":0.5},{"t":1.35,"sfx":"burbuja","vol":0.075,"max":0.28},{"t":1.53,"sfx":"burbuja","vol":0.05,"max":0.28},{"t":1.71,"sfx":"burbuja","vol":0.06,"max":0.28}]
