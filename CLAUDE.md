@@ -5,7 +5,61 @@ Montevideo que vende a comercios: **agentes de IA** (el producto estrella), Scal
 (fidelización), tiendas online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
-## LO PRIMERO: la línea de Juan del 02-11 (MANDA SOBRE TODO LO DE ABAJO)
+## ANTES QUE TODO: el dolor del rubro y la solución (Juan, 15-11; manda sobre todo lo de abajo)
+
+Juan, 15-11, después del diagnóstico de `stats.md`: los reels se ven pero no traen clientes
+(1 comentario en 52 reels, 3 clics a la web por semana, 0 leads de Instagram en un mes). Los mira
+gente que se ríe con Rubén, no el dueño que nos compra. Su pedido: **"tocar más el dolor de la
+industria a la que le estamos vendiendo y ofrecer la solución"**.
+
+**Todo reel nuevo es así, sin excepción:**
+1. **Un rubro por reel, nombrado en el primer segundo.** El nombre del rubro en pantalla, grande,
+   en el cuadro 0 ("DISTRIBUIDORAS", "CENTROS DE ESTÉTICA", "PARRILLAS"), arriba de una escena del
+   dolor ya en curso. El dueño de ese rubro tiene que pensar "esto es mío" antes de los 2 s; el que
+   no es del rubro puede seguir de largo, no importa.
+   Rubros a rotar (los que nos compran): distribuidoras y mayoristas, centros de estética y
+   clínicas, gimnasios y estudios de pilates, restaurantes y parrillas, ferreterías y corralones,
+   talleres mecánicos, inmobiliarias, importadoras y tiendas online, estudios contables,
+   veterinarias. No repetir rubro en dos reels seguidos.
+2. **El dolor concreto de ese rubro, con su plata.** No "los mensajes" en general: la escena exacta
+   que el dueño vive (el lunes a las 8 con 40 pedidos por audio, el turno que no vino y la camilla
+   vacía, el presupuesto que mandó y nunca siguió), y lo que le cuesta en plata, horas o clientes.
+   Los números son del caso que se cuenta ("4 turnos que no vinieron = un día de camilla vacía"),
+   nunca estadísticas inventadas.
+3. **La solución de Scalerics funcionando, en pantalla.** La mitad del reel o más: el mismo momento
+   resuelto con lo que hacemos (catálogo de pedidos, agenda con seña y recordatorio, tarjeta de
+   puntos, seguimiento de presupuestos, tienda online, stock que avisa), como interfaz recreada
+   que se parezca al sistema de verdad: pantallas de celular y panel, tildes verdes, el número que
+   mejora. Que se entienda qué compra.
+4. **Cierre con una palabra para comentar:** "Comentá PEDIDOS y te mando cómo funciona para tu
+   distribuidora." Una palabra por reel, en mayúsculas, en pantalla y en la voz, y también en la
+   primera línea de `descripcion.txt` (antes del "Agendá una videollamada..."). Nada de "link en el
+   perfil" como único cierre.
+5. **Rubén sigue** (personaje, 3D, diálogo en burbujas, punto 6 de abajo) cuando el rubro es la
+   distribuidora; para los otros rubros, un dueño o dueña de ese rubro con el mismo estilo de
+   personajes. Sin caras reales ni avatares (no hay HeyGen ni ElevenLabs): personajes 3D y voces
+   de Gemini, como siempre.
+6. **No van más:** casos de marcas famosas, "¿Por qué…?" de curiosidades sin rubro, reels sin un
+   comercio en pantalla, almacén de barrio y fiado.
+
+**Los próximos 3, antes que cualquier otro tema** (Juan los quiere ver para aprobar la línea).
+Reservalos en este orden en "En curso" de `ideas.md`:
+- `dist-pedidos-lunes` · **Distribuidoras** · Rubén, lunes 8:00: 40 pedidos por WhatsApp entre
+  audios, fotos de listas en papel y "lo de siempre"; los pasa a mano a la planilla hasta las 11,
+  se le escapa uno y ese cliente le compra a otro. Solución: sus clientes piden desde un catálogo en
+  el celular con su lista de precios y el pedido cae ordenado, listo para armar. Cierre: "Comentá
+  PEDIDOS". Producto: sistema a medida / tienda mayorista.
+- `estetica-turnos` · **Centros de estética** · la dueña mira la agenda del jueves: tres turnos que
+  no vinieron y no avisaron, la camilla vacía, la cosmetóloga esperando. Solución: reserva online
+  con seña, recordatorio automático por WhatsApp el día antes y lista de espera que llena el hueco
+  sola. Cierre: "Comentá TURNOS". Producto: agenda online + automatizaciones.
+- `parrilla-no-vuelve` · **Restaurantes y parrillas** · el sábado el local lleno; el dueño no sabe
+  cómo se llama ninguno ni si va a volver, y en el mes flojo no tiene a quién avisarle. Solución:
+  Scalerics Puntos: el cliente suma con cada visita en el celular, el sistema le avisa al que dejó
+  de venir y el dueño ve quién vuelve y cada cuánto. Cierre: "Comentá VUELVE". Producto: Scalerics
+  Puntos.
+
+## LO PRIMERO: la línea de Juan del 02-11 (MANDA SOBRE TODO LO DE ABAJO, salvo "ANTES QUE TODO")
 
 Juan, 02-11: "nuestro Instagram es un zoológico hoy en día". Hay reels "muy infantiles", otros
 "como de jueguitos" y otros "para más maduros". Desde ahora:
