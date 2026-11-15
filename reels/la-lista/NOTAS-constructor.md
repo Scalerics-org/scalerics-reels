@@ -370,3 +370,24 @@ Pasadas: r6 (cada 0,25 s en P4b, P5, P6, P7, Q1, Q1c, Q2c, Q3 y ±0,04 en sus co
 - BAJA 5 (monitor en blanco al arrancar Q3) → la primera fila ("Graciela · aceite x 6 ✓") ya está desde q3.
 Pasadas: r7a/r7b/r7c (puntuales), r7 (cada 0,25 s en 7,81-12,24, 21,4-25,2, 28,95-32,35, 34,2-34,5, ±0,04 en sus cortes, y
 cada 1 s del resto). `check --json`: 0 errores.
+
+## Ronda 8 (15-11) · los celulares con UNA regla
+**Duración 36,39 s** (sin cambios en tiempos).
+Regla (`celEnPecho` + `pegarCel` en tres.js, la misma para Rubén y Graciela): en llamada el celular va en altavoz, en la
+mano, delante del pecho y debajo del mentón, inclinado 0,95 rad (pantalla hacia arriba y adelante: el personaje la mira,
+la cámara ve la pantalla de la llamada), un poco hacia el lado de la mano. Primero la mano (IK) y después el celular pegado
+a la mano real: nunca flota. Fuera de la mano, apoyado en el escritorio. Mismo tamaño para los dos (`CELK` 1,6) y los dos
+con bisel navy alrededor de la pantalla y cámara en el dorso (`marcoCel`), también los del tríptico.
+- ALTA 1 (celular colgando en P8b) → en P7 y P8b el celular de Rubén está apoyado en el escritorio (CEL2, al alcance).
+- 2 (aparece de golpe en la mano en P8, de canto) → P8 arranca con Rubén levantándolo del escritorio (0,3 s) y después la
+  regla.
+- 3 (separado de la oreja, brazo raro, borde izquierdo) → la regla (delante del pecho); P5 y P8 vuelven a estar centrados
+  (la altura de cámara de la ronda 7 se mantiene: el bigote no tapa el ojo).
+- 4 y 6 (Graciela: tamaño distinto, placa verde, atraviesa la cara al bajarlo) → la misma regla en P4b y P6 (ya no lo
+  baja: lo tiene siempre delante del pecho y en P6 lo mira); pantalla de llamada / chat visible, bisel y cámara.
+- 5 (tríptico) → celulares de escala 4,4 en escalera de punta a punta (x ±0,37, sin encimarse), márgenes ~120 px arriba
+  y abajo, bisel y cámara; cámara 3,04 → 2,98.
+- BAJAS: en Q3 el celular sube menos (no tapa el bigote) y la mano lo agarra más abajo y atrás (no tapa "Nada nuevo");
+  "Pedidos de hoy" a 64 px de lienzo.
+Pasadas: r8a/r8b/trip (puntuales), r8 (cada 0,2 s en 7,86-14,13, 15,08-26,2 y 28,72-36,39, ±0,04 en 14 cortes, cada
+0,5-1 s del resto; 168 cuadros). `check --json`: 0 errores.
