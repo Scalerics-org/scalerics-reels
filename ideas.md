@@ -256,7 +256,7 @@
 - 15-11 · `por-que-caminar-mas` · Automatización (aviso solo del estado del pedido: Preparando / Sale hoy 14:00 / En camino / Entregado) · "¿Por qué los hicieron caminar más?" Explicador con Rubén (Alex Stone, NYT 2012, vía APS; David Maister, "The Psychology of Waiting Lines", 1985; ver fuentes.md): un aeropuerto de Houston ya había bajado la espera de valijas a 8 min (1 caminando, 7 mirando la cinta) y las quejas seguían; alejaron las puertas, caminaban seis veces más y las quejas casi desaparecieron; la espera vacía y la que no sabés cuánto dura se sienten más largas → los clientes de Rubén llamando "¿Y mi pedido?", la automatización le avisa sola cada paso, "Nadie llamó. ¿Se cortó el teléfono?"; cierre "¿Sin esperas a ciegas?" + videollamada (36,6 s, Orus + Rubén Algenib) [formato explicador ¿Por qué? · 3D real (pasillo de aeropuerto con cartel Valijas, pasillo ×6 con globos de queja, cinta de valijas, maqueta con puertas más lejos, libro 1985, reloj de arena, reloj de "?", oficina de Rubén con contador de llamadas, cinta con cajas y Graciela, celular con los avisos, camión), fondo crema #efeee5 liso con cierre verde] (corrida 15-11 14:11: 3 rondas de revisión independiente + retoques y pasada final del director de arte)
 
 ## En curso
-<!-- corrida-activa: 2026-11-15T17:59 -->
+<!-- corrida-activa: 2026-11-15T18:15 -->
 
 - 15-11 · `dice-cuarenta` · Sistema de stock a medida en la distribuidora · para mandar completo con Rubén y Nico: "El Excel dice 40." y en el depósito hay 3 · cartel "Un sistema más tarde…" · depósito de día, fondo navy claro #16243d · reservado por la corrida 15-11 14:11
 
