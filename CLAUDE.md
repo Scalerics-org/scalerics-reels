@@ -42,6 +42,20 @@ industria a la que le estamos vendiendo y ofrecer la solución"**.
 6. **No van más:** casos de marcas famosas, "¿Por qué…?" de curiosidades sin rubro, reels sin un
    comercio en pantalla, almacén de barrio y fiado.
 
+7. **La portada, como las que pasaron las 2.000 vistas** (Juan, 15-11): `anotamelo` (4.547),
+   `abren-hoy-completo` (2.180), `por-que-las-tarjetas` (2.129) y `hacen-envios` (1.839). Lo que
+   tienen en común y es obligatorio:
+   - **Personajes o la escena del dolor llenando la mitad de arriba** (Rubén, la clienta, el dueño,
+     el objeto con el número que duele), sacados de un cuadro limpio del reel (`fondo_limpio`,
+     como en esos cuatro). Nunca un celular solo ni una pantalla de interfaz.
+   - **`grande` = la frase que el dueño escucha o se dice, entre signos y en 2-3 palabras:**
+     "¿Hacen envíos?", "¿Abren hoy?", "¿Yo te debía?". Para la línea nueva: "¿Y mi pedido?",
+     "No vino nadie", "¿Quién era?". Nada de "¿Por qué…?" largo ni de preguntas de 5 palabras o más.
+   - **`chica` = el contexto en 2-4 palabras** ("Lunes, 8 de la mañana.", "Jueves a las 15.").
+   - **`sello` = el rubro**, en mayúsculas cortas ("DISTRIBUIDORAS", "ESTÉTICA", "PARRILLAS").
+   - Fondo navy `#0b1220`, `velo` "11,18,32", acento y sello en verde `#5ce611`. Copiá el
+     `portada.json` de `anotamelo` y cambiá solo `t`, los textos y el `fondo_limpio`.
+
 **Los próximos 3, antes que cualquier otro tema** (Juan los quiere ver para aprobar la línea).
 Reservalos en este orden en "En curso" de `ideas.md`:
 - `dist-pedidos-lunes` · **Distribuidoras** · Rubén, lunes 8:00: 40 pedidos por WhatsApp entre
