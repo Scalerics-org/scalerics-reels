@@ -1,0 +1,14 @@
+{
+ "t": 1.6,
+ "fondo_limpio": "portada-src/fondo-portada.png",
+ "chica": "¿Por qué te llaman",
+ "grande": "enseguida?",
+ "sello": "¿Por qué?",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.2,
+ "foco": "50%",
+ "fondo": "#16243d",
+ "velo": "22,36,61",
+ "nota": "TENTATIVO. Fondo limpio: cuadro ~1,6 s con LIMPIO=1 (solo la capa 3D: Rubén con el mate a medio camino y el celular vibrando con 'Llamada entrante' grande, sin gancho, subtítulos ni logo), corrido hacia arriba para que la escena quede entre y 285 y 1100. Alternativa: s05 con los cuatro buzones y el rojo. Correr node herramientas/portada.mjs por-que-te-llaman después del render."
+}
