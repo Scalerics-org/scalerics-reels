@@ -254,7 +254,7 @@
 - 15-11 · `por-que-te-llaman` · CRM + automatización (cada consulta anotada, aviso al instante y seguimiento que sale solo) · "¿Por qué pedís un presupuesto y te llaman enseguida?" Explicador con Rubén en la distribuidora (Oldroyd, McElheran y Elkington, "The Short Life of Online Sales Leads", HBR 2011; ver fuentes.md): el interés se enfría rápido; intentar contactar en la primera hora multiplicaba las chances de llegar al que decide; pero de 2.241 empresas de EE. UU. casi una de cada cuatro nunca contestó y las demás tardaron casi dos días; giro: Rubén "le compró al que llamó primero" y encuentra la consulta de Graciela de ayer sin responder; callback: el CRM la anota, avisa a Nico y el seguimiento sale solo, el mate frío vuelve a humear, "¡Sí! ¿Me llamás?" · ¿Querés llegar primero? Videollamada gratis (33,3 s, 94 palabras) [formato explicador ¿Por qué? · 3D real (oficina de Rubén, celular gigante, mate con vapor, "?", reloj con la primera hora, cables a la silla de quien decide, avión de papel y ciudad, buzones, reloj de 42 h, bandeja, ficha CRM, termo), fondo navy claro #16243d con piso reloj y cierre verde] (corrida 15-11 05:09, 3 rondas de revisión + pasada final de arte sobre el render)
 
 ## En curso
-<!-- corrida-activa: 2026-11-15T09:26 -->
+<!-- corrida-activa: 2026-11-15T09:58 -->
 - 15-11 · `la-lista` · Tienda online mayorista (catálogo con la lista de precios siempre al día, el cliente ve y pide solo) · Para mandar completo con Rubén en la distribuidora: "Pasame la lista de precios actualizada" por quinta vez en la semana · corrida 15-11 05:09
 
 
