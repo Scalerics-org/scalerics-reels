@@ -1117,12 +1117,12 @@ function camGrua(t) {
   const K = [
     [T.q3, p0.x, p0.y, p0.z, c.x, c.y, c.z, FOV],
     [T.grua[0], p0.x, p0.y, p0.z, c.x, c.y, c.z, FOV],
-    [r2(T.grua[0] + 0.3), p0.x - 0.15, OY + 2.6, p0.z + 0.25, -1.0, OY + 0.2, -2.5, 52],
-    [r2(T.grua[0] + 0.62), -1.0, OY + 2.35, -1.3, W_PAL.x, 1.0, W_PAL.z, 54],
+    [r2(T.grua[0] + 0.3), -1.75, OY + 2.0, 2.3, -1.6, OY + 0.4, -3.0, 52],
+    [r2(T.grua[0] + 0.62), -1.45, OY + 2.3, -1.3, W_PAL.x, 1.0, W_PAL.z, 54],
     [T.grua[1], W_PAL.x + 0.2, 2.75, W_PAL.z + 3.95, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 52],
     [T.q4, W_PAL.x + 0.19, 2.7, W_PAL.z + 3.8, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 51],
   ];
-  const v = t < T.grua[0] ? K[0].slice(1) : catmull(K.slice(1), t);
+  const v = t < T.grua[0] ? K[0].slice(1) : t < T.grua[1] ? catmull(K.slice(1, 5), t) : K[4].slice(1).map((a, j) => lerp(a, K[5][j + 1], eio(sg(t, T.grua[1], T.q4))));
   ponerCam(v, t, t < T.grua[0]);
 }
 
