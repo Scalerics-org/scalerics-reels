@@ -383,10 +383,10 @@ palletW.add(crearPallet());
 // el cartel kraft "WALTER" clavado en el pallet (de ya-lo-cargo)
 const carW = lienzo(640, 300, (x, w, h) => { x.fillStyle = "#c9a46b"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 16; x.strokeRect(8, 8, w - 16, h - 16); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "WALTER", 900, 170, w - 70); x.fillText("WALTER", w / 2, h / 2 + 4); });
 {
-  const g = new THREE.Group(); g.position.set(0.3, 0.16, 0.56); palletW.add(g);   // (ronda 1: más bajo, no tapa al operario)
+  const g = new THREE.Group(); g.position.set(0.1, 0.16, 0.56); palletW.add(g);   // (ronda 1: más bajo, no tapa al operario)
   g.add(caja(0.04, 0.8, 0.04, M.navy3, 0, 0.4, -0.02, 0.01));
-  const pc = plano(0.72, 0.34, carW, 0, 0.75, 0.005); pc.material.emissive = new THREE.Color(0xffffff); pc.material.emissiveMap = carW; pc.material.emissiveIntensity = 0.25; g.add(pc);
-  g.add(caja(0.76, 0.38, 0.02, M.navy, 0, 0.75, -0.008, 0.01));
+  const pc = plano(0.56, 0.265, carW, 0, 0.75, 0.005); pc.material.emissive = new THREE.Color(0xffffff); pc.material.emissiveMap = carW; pc.material.emissiveIntensity = 0.25; g.add(pc);
+  g.add(caja(0.6, 0.3, 0.02, M.navy, 0, 0.75, -0.008, 0.01));
 }
 sombras(palletW);
 // el pallet de aceite de donde salen las cajas (a la izquierda del de Walter)
