@@ -81,3 +81,38 @@ Mezcla final: voz ≥ +11,3 LU sobre el resto en todos los tramos con voz, -14,0
 - Los comensales de fondo son siluetas simples (sin piernas, tapadas por el mantel); en el plano general del sábado hay
   cabezas de espaldas abajo del cuadro.
 - Duración 37,93 s (pedido ≤ 38): la toma de "Walter. Tira y morcilla dulce. Faltaste dos sábados." dura 3,6 s aun con atempo.
+
+## Ronda 1 (16-11, sobre qa-ronda-r1.md)
+**Duración 36,83 s** (1105/30). Parte 1 0-16,25 · cartel 16,25-18,38 · **parte 2 18,38-36,83 = 18,45 s, 50,1 %** · 0,4 s
+de aire después de "parrilla". Recorte: Q1 sin voz -0,25, ráfaga en dos pares, pausas de P2/P6/P7, Q2/Q3/Q4 más justos.
+Arte (altas):
+- A1 sin travelling a la pizarra: corte seco con push-in corto (la cámara atravesaba la cabeza de un comensal); el salón se
+  oculta en ese plano.
+- A2 la pizarra es vertical (0,95 × 1,45 m) y llena el cuadro; sin brazo: el trapo borra solo "SÁBADO" (se ve el borrón) y
+  la tiza escribe sola "MARTES · / FEBRERO". Material sin luz (la lámpara la partía en dos).
+- A3 la puerta abre a 90° antes de que Walter aparezca; Walter arranca en el vano (sin atravesar hoja ni marco) en P7 y Q4.
+- A4 "¡Obvio, maestro!": brazos abiertos a los costados (la pinza hacia afuera, lejos de la cara); el delantal es un torno
+  que sigue el torso (personajes.js: antes era un cilindro abierto más ancho que de costado flotaba); Raúl gira la cabeza
+  hacia Fabián (fuera de cuadro, junto a la cámara) y el contraplano P7b muestra a Fabián encogiéndose.
+Arte (medias): pinza en alto al costado en P1/Q1c · el celular de P6b ya no se hunde (cambio de pose instantáneo en el
+corte) · Q5 abre con la tablet y el celular de Sofi juntos (rótulo "Walter volvió ✓" con línea guía) y después va a Sofi ·
+Sofi sin franjas en el torso, cuello crema y vincha con auriculares (cámara más abierta para que se vean) · Q1c más abierto
+(Raúl y la tablet enteros) · Q4 se acerca a Walter mientras entra (de 3/4, no de espaldas) · insertos sin la mano y la
+tarjeta de puntos con el premio siempre visible (gris hasta la visita) · el atril entra con un pop chico (sin aparecer de la
+nada) y el celular de Walter tiene las cámaras atrás · la tira: carne marrón con los huesos redondos al ras del corte (ya no
+palitos blancos), chorizos más oscuros; el brasero con los troncos y las llamas sobre la base, a la izquierda de la parrilla
+(entra en el cuadro 0).
+Arte (bajas): panel con las filas desde el arranque · filtro de febrero al instante · botón "Aviso enviado" entero · sin el
+círculo navy de los insertos · sin las burbujas del borde del cartel · "3" tachado fino · textos de "Buscar" y "última visita"
+más grandes. NO: la línea guía de "112 cubiertos" sigue pasando cerca de cabezas de comensales (cualquier lugar abajo del
+plano general las cruza; es baja).
+Sonido: Q4b hace un push-in sobre Raúl en "Faltaste dos sábados" (el corte a Walter, Q4c, quedaba detrás de la tablet o adentro de su cabeza) · 0,26 s con la cara de Raúl antes de "¡Obvio,
+maestro!" · palmada, pinza y tela +3 dB.
+Guion: la ficha dice "4ª visita · viene cada 2 semanas" (sin "Pide") y descripcion.txt "quién vuelve y cada cuánto viene" ·
+Graciela "hace 5 semanas" · la ráfaga en dos pares que entran y salen juntos, misma letra (72 px) · chip "Un mes después"
+antes del contador · "¿Quién" en el recuadro verde · "PARRILLAS" sale con fundido. NO: "Faltaste dos sábados" queda (está en
+la voz grabada y cuadra: viene cada 2 semanas y faltó 5 → dos visitas).
+Revisado: pasada completa cada 0,5 s de 0 a 36,5 (renders/snap/r1p1-r1p4) y zonas retocadas después (r1c, r1d, r1e: P7,
+Q1c, Q4, Q4b). Mezcla: voz ≥ +10,0 LU, -14,0 LUFS, pico -6,2 dBFS. `check --json`: 0 errores. Portada rehecha (mismo plano,
+delantal nuevo). Q4: el empuje hacia Walter es casi todo de zoom (alto, por encima de las cabezas; el movimiento bajaba
+sobre la mesa de Graciela).

@@ -237,15 +237,19 @@ export function crearPersonaje(cfg) {
   const delantalMs = [];
   const _n0 = cuerpo.children.length;
   if (c.delantal) {
-    // delantal: un panel curvo por delante, con tira al cuello y borde de color
+    // (parrilla-no-vuelve r1) delantal pegado al torso: un torno parcial que sigue el perfil del cuerpo (antes era un
+    // cilindro abierto más ancho que el torso y de costado se veía como un panel despegado), con pechera y borde de color
     const dm = mat(c.delantal, 0.72);
-    const del = mesh(new THREE.CylinderGeometry(0.245 * P, 0.25 * P, 0.4, 28, 1, true, -1.05, 2.1), dm, 0, 0.17, 0.0);
-    del.scale.z = 0.9; del.material.side = THREE.DoubleSide; cuerpo.add(del);
-    const pecho = mesh(rbox(0.22, 0.17, 0.03, 0.012), dm, 0, 0.42, 0.155); pecho.rotation.x = -0.2; cuerpo.add(pecho);
+    const rEn = (y) => { for (let i = 1; i < perfil.length; i++) { const a = perfil[i - 1], b = perfil[i]; if (y <= b.y) return lerp(a.x, b.x, cl((y - a.y) / Math.max(1e-6, b.y - a.y))); } return 0; };
+    const PH = 1.0;
+    const pts = []; for (let k = 0; k <= 16; k++) { const y = -0.02 + (k / 16) * 0.47; pts.push(new THREE.Vector2(rEn(Math.max(0.005, y)) * 1.035 + 0.006, y)); }
+    const del = mesh(new THREE.LatheGeometry(pts, 24, -PH, 2 * PH), dm); del.scale.z = 0.86; del.material.side = THREE.DoubleSide; cuerpo.add(del);
     if (c.delantalBorde) {
       const bm = mat(c.delantalBorde, 0.55);
-      const borde = mesh(new THREE.TorusGeometry(0.25 * P, 0.012, 6, 40, 2.1), bm, 0, -0.025, 0); borde.rotation.set(Math.PI / 2, 0, -1.05 + Math.PI / 2 - Math.PI / 2); borde.rotation.z = Math.PI / 2 - 1.05; borde.scale.y = 0.9; cuerpo.add(borde);
-      const bolsillo = mesh(rbox(0.12, 0.07, 0.02, 0.01), bm, 0, 0.1, 0.23 * P); cuerpo.add(bolsillo);
+      const r0 = pts[0].x + 0.004, bp = []; for (let k = 0; k <= 20; k++) { const ph = -PH + (k / 20) * 2 * PH; bp.push(new THREE.Vector3(r0 * Math.sin(ph), -0.02, r0 * Math.cos(ph) * 0.86)); }
+      cuerpo.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(bp), 24, 0.012, 6), bm));
+      const zb = (rEn(0.12) * 1.035 + 0.012) * 0.86;
+      const bolsillo = mesh(rbox(0.12, 0.07, 0.012, 0.006), bm, 0, 0.12, zb); cuerpo.add(bolsillo);
     }
   }
   for (let i = _n0; i < cuerpo.children.length; i++) delantalMs.push(cuerpo.children[i]);

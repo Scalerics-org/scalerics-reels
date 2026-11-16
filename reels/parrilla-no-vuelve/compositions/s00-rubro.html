@@ -24,7 +24,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.2);
-      tl.to(q(".caja"), { y: -460, duration: 0.22, ease: "power2.in" }, 3.04);
+      tl.to(q(".caja"), { opacity: 0, y: -40, duration: 0.2, ease: "power1.in" }, 3.06);   // (r1) sale con fundido (no queda cortada contra el borde)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

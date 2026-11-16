@@ -33,43 +33,45 @@ T.w1 = 0.25; T.palmada = r2(T.w1 + LEN.w1 - 0.35); T.r1 = r2(T.w1 + LEN.w1 - 0.0
 T.p2 = r2(T.r1 + LEN.r1 + 0.02); T.r2 = r2(T.p2 + 0.12); T.campana1 = r2(T.p2 + 0.05);
 T.encoge1 = r2(T.r2 + LEN.r2 + 0.02); T.niIdea = r2(T.encoge1 + 0.12);
 // P3 · la ráfaga muda: tres mesas que se van, pares de burbujas cada vez más rápido · el rótulo de los 112 cubiertos
-T.p3 = r2(T.niIdea + 0.5);
-T.raf = [[0.06, 0.26], [0.5, 0.66], [0.9, 1.04]].map(([a, b]) => [r2(T.p3 + a), r2(T.p3 + b)]);
-T.rot112 = r2(T.p3 + 1.22); T.rot0 = r2(T.p3 + 1.38);
+T.p3 = r2(T.niIdea + 0.4);
+// (r1) dos pares legibles: cada par (cliente + respuesta de Raúl) entra y sale junto
+T.raf = [[0.05, 0.28], [0.68, 0.9]].map(([a, b]) => [r2(T.p3 + a), r2(T.p3 + b)]);
+T.rot112 = r2(T.p3 + 1.32); T.rot0 = r2(T.p3 + 1.46);
 // P4 · de sábado a febrero: la cámara va a la pizarra; Fabián borra "SÁBADO" y escribe "MARTES · FEBRERO"
-T.p4 = r2(T.p3 + 2.05); T.borra = [r2(T.p4 + 0.05), r2(T.p4 + 0.28)]; T.escribe = [r2(T.p4 + 0.3), r2(T.p4 + 0.72)];
+T.p4 = r2(T.p3 + 2.0); T.borra = [r2(T.p4 + 0.05), r2(T.p4 + 0.28)]; T.escribe = [r2(T.p4 + 0.3), r2(T.p4 + 0.72)];
 // P5 · el salón vacío (el mismo plano de la ráfaga): los rótulos · "¿Y si les avisás a los del sábado?"
-T.p5 = r2(T.p4 + 0.8); T.rot3 = r2(T.p5 + 0.1); T.rotLena = r2(T.p5 + 0.28); T.f1 = r2(T.p5 + 0.4);
+T.p5 = r2(T.p4 + 0.8); T.rot3 = r2(T.p5 + 0.1); T.rotLena = r2(T.p5 + 0.28); T.f1 = r2(T.p5 + 0.35);
 // P6 · la pausa: el celular de Raúl, "Contactos" (el scroll llega al final y rebota) · primer plano: "¿A quién? ¿A maestro?"
 T.p6 = r2(T.f1 + LEN.f1 + 0.05); T.scroll = [r2(T.p6 + 0.08), r2(T.p6 + 0.5)]; T.rebote = r2(T.p6 + 0.52);
-T.p6b = r2(T.p6 + 0.7); T.r3 = r2(T.p6b + 0.08);
+T.p6b = r2(T.p6 + 0.6); T.r3 = r2(T.p6b + 0.08);
 // P7 · remate del remate: la campanita, entra Walter: "¡Raúl! ¿Te acordás de mí?" · "¡Obvio, maestro!" (abrazo) · Raúl
 // mira a Fabián por encima del hombro · Fabián se encoge de hombros otra vez
 T.p7 = r2(T.r3 + LEN.r3 + 0.1); T.campana2 = r2(T.p7 + 0.04); T.entra = [r2(T.p7), r2(T.p7 + 0.8)]; T.w2 = r2(T.p7 + 0.22);
-T.r4 = r2(T.w2 + LEN.w2 + 0.02); T.abrazo = [r2(T.r4 - 0.25), r2(T.r4 + 0.25)]; T.mira = r2(T.r4 + LEN.r4 - 0.1); T.encoge2 = r2(T.mira + 0.18);
-const P1 = r2(T.encoge2 + 0.5);    // termina la parte 1 (arranca el cartel)
+T.r4 = r2(T.w2 + LEN.w2 + 0.26); /* (r1) pausa con la cara de Raúl antes del remate */ T.abrazo = [r2(T.r4 - 0.25), r2(T.r4 + 0.25)]; T.mira = r2(T.r4 + LEN.r4 - 0.1); T.encoge2 = r2(T.mira + 0.18);
+const P1 = r2(T.encoge2 + 0.4);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.12, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · otro sábado, la mesa de Walter: el atril con el QR (pop), Walter lo escanea
 T.q1 = P2; T.atril = r2(P2 + 0.1); T.escanea = r2(P2 + 0.4);
 // Q1b · el celular de Walter: la tarjeta de puntos (el 4º círculo se llena: "+1 visita ✓") · la provoleta de regalo
-T.q1b = r2(P2 + 0.65); T.visita = r2(T.q1b + 0.3); T.premio = r2(T.q1b + 0.7);
+T.q1b = r2(P2 + 0.5); T.visita = r2(T.q1b + 0.3); T.premio = r2(T.q1b + 0.7);
 // Q1c · el cuadro 0 otra vez: en la tablet entra la ficha de Walter · "¡Impecable, Raúl! ¡Volvemos!" · "¡Te espero, Walter!"
-T.q1c = r2(T.q1b + 1.2); T.ficha = r2(T.q1c + 0.1); T.w1b = r2(T.q1c + 0.2); T.palmada2 = r2(T.w1b + LEN.w1 - 0.35);
+T.q1c = r2(T.q1b + 0.9); T.ficha = r2(T.q1c + 0.1); T.w1b = r2(T.q1c + 0.12); T.palmada2 = r2(T.w1b + LEN.w1 - 0.35);
 T.r5 = r2(T.w1b + LEN.w1 + 0.06);
 // Q2 · la tablet: "Quién vuelve y cada cuánto" · las filas · "Nombres que sabe Raúl: 0 → 112"
-T.q2 = r2(T.r5 + LEN.r5 + 0.12); T.filas = [0.15, 0.3, 0.45, 0.6].map((d) => r2(T.q2 + d)); T.cuenta = [r2(T.q2 + 0.7), r2(T.q2 + 1.2)];
+T.q2 = r2(T.r5 + LEN.r5 + 0.12); T.filas = [0.02, 0.12, 0.22, 0.32].map((d) => r2(T.q2 + d)); T.cuenta = [r2(T.q2 + 0.55), r2(T.q2 + 1.0)];
 // Q3 · febrero: el filtro (38 que no vienen), la fila de Walter en rojo, "Enviado ✓ · 38" solo; el aviso vuela a Graciela
-T.q3 = r2(T.q2 + 1.7); T.filtro = r2(T.q3 + 0.25); T.enviado = r2(T.q3 + 0.8); T.vuela = [r2(T.q3 + 0.95), r2(T.q3 + 1.3)];
-T.q3b = r2(T.q3 + 1.25); T.aviso = r2(T.q3b + 0.05); T.g1 = r2(T.q3b + 0.5);
+T.q3 = r2(T.q2 + 1.45); T.filtro = r2(T.q3 + 0.05); T.enviado = r2(T.q3 + 0.7); T.vuela = [r2(T.q3 + 0.85), r2(T.q3 + 1.15)];
+T.q3b = r2(T.q3 + 1.15); T.aviso = r2(T.q3b + 0.05); T.g1 = r2(T.q3b + 0.4);
 // Q4 · martes de febrero, el plano del salón: 17 mesas · la campanita, entra Walter: "¡Raúl! ¿Te acordás de mí?" ·
 // primer plano: "Walter. Tira y morcilla dulce. Faltaste dos sábados."
-T.q4 = r2(T.g1 + LEN.g1 + 0.12); T.chip17 = r2(T.q4 + 0.1); T.campana3 = r2(T.q4 + 0.4); T.entra2 = [r2(T.q4 + 0.35), r2(T.q4 + 1.1)];
-T.w2b = r2(T.q4 + 0.5); T.q4b = r2(T.w2b + LEN.w2 + 0.04); T.r6 = r2(T.q4b + 0.08);
+T.q4 = r2(T.g1 + LEN.g1 + 0.12); T.chip17 = r2(T.q4 + 0.1); T.campana3 = r2(T.q4 + 0.3); T.entra2 = [r2(T.q4 + 0.25), r2(T.q4 + 1.0)];
+T.w2b = r2(T.q4 + 0.4); T.q4b = r2(T.w2b + LEN.w2 + 0.04); T.r6 = r2(T.q4b + 0.04);
 // Q5 · la mesada: la tablet (Walter ✓ volvió) y Sofi en videollamada · "Comentá VUELVE…" · la línea chica
-T.q5 = r2(T.r6 + LEN.r6 + 0.12); T.volvio = r2(T.q5 + 0.15); T.viaje = [r2(T.q5 + 0.4), r2(T.q5 + 0.8)]; T.s1 = r2(T.q5 + 0.45);
+T.q4c = r2(T.r6 + 2.25);   // (r1) corte a Walter culposo en "Faltaste dos sábados"
+T.q5 = r2(T.r6 + LEN.r6 + 0.08); T.volvio = r2(T.q5 + 0.05); T.viaje = [r2(T.q5 + 1.2), r2(T.q5 + 1.7)]; T.s1 = r2(T.q5 + 0.35);
 T.vuelve = r2(T.s1 + Number(process.env.VUELVE ?? 0.4));
-const DUR = Math.ceil((Math.ceil((T.s1 + LEN.s1 + 0.1) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
+const DUR = Math.ceil((Math.ceil((T.s1 + LEN.s1 + 0.4) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
 T.cierre = r2(DUR - 2.05);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -138,7 +140,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .sel em { position: relative; font-style: normal; }`,
     html: `      <div class="caja"><div class="tx"><span class="sel"><b></b><em>PARRILLAS</em></span></div><div class="sub">Sábado, 21:30.</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.2);
-      tl.to(q(".caja"), { y: -460, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.24)});`,
+      tl.to(q(".caja"), { opacity: 0, y: -40, duration: 0.2, ease: "power1.in" }, ${r2(dur - 0.22)});   // (r1) sale con fundido (no queda cortada contra el borde)`,
   });
 }
 
@@ -170,10 +172,6 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           <path d="M700 120 C 820 70, 920 140, 890 230 C 860 320, 720 320, 680 250 C 650 200, 640 150, 700 120 Z" fill="#16243d" opacity="0.85"/>
         </g>
         <g class="burbujas">
-          <circle class="bu" cx="240" cy="1500" r="34" fill="none" stroke="${CR}" stroke-width="10"/>
-          <circle class="bu" cx="1270" cy="1560" r="26" fill="none" stroke="${CR}" stroke-width="9"/>
-          <circle class="bu" cx="330" cy="1620" r="18" fill="none" stroke="${NAVY}" stroke-width="8"/>
-          <circle class="bu" cx="1290" cy="1400" r="40" fill="none" stroke="${NAVY}" stroke-width="10"/>
           <circle class="bu" cx="500" cy="1960" r="22" fill="none" stroke="${CR}" stroke-width="8"/>
           <circle class="bu" cx="560" cy="560" r="30" fill="none" stroke="${CR}" stroke-width="9"/>
         </g>
@@ -250,8 +248,8 @@ const tela = (t, techo = -38, k = 1) => s(`sfx/k-cloth_${k}.wav`, t, 0, { techo,
 const tic = (t, techo = -42, k = 0) => s(["sfx/k-tick-1.wav", "sfx/k-tick-2.wav", "sfx/k-tick-4.wav"][k % 3], t, 0, { techo, hp: 900 });
 const ding = (t, techo = -38) => s("sfx/cero.mp3", t, 0, { techo });
 const toque = (t, techo = -36) => s("sfx/click-soft.mp3", t, 0, { techo });
-const palmada = (t, techo = -36) => { s("sfx/k-cloth_2.wav", t, 0, { techo, dur: 0.2, fin: 0.06, vel: 1.15 }); };
-const pinza = (t, techo = -38) => s("sfx/k-metal-click.wav", t, 0, { techo });
+const palmada = (t, techo = -33) => { s("sfx/k-cloth_2.wav", t, 0, { techo, dur: 0.2, fin: 0.06, vel: 1.15 }); };
+const pinza = (t, techo = -35) => s("sfx/k-metal-click.wav", t, 0, { techo });
 const campana = (t, techo = -35) => { s("sfx/campanita.wav", t, 0, { techo, dur: 0.9, fin: 0.3 }); s("sfx/puerta-abre.wav", t - 0.05, 0, { techo: -42, dur: 0.6, fin: 0.2 }); };
 const amb = (f, a, b, techo, o = {}) => s(f, a, 0, { loop: true, dur: r2(b - a), fi: o.fi ?? 0.15, fin: o.fin ?? 0.3, techo, ...o });
 // ---- parte 1 ----
@@ -269,7 +267,8 @@ voz("w1", T.w1, -1); palmada(T.palmada); voz("r1", T.r1, -1); pinza(T.pinza1);
 // P2 · la campanita (Walter se va), "¿Quién era?", el encogerse (tela) y "Ni idea." (pop)
 campana(T.campana1, -38); voz("r2", T.r2, -1); tela(T.encoge1, -40, 1); pop(T.niIdea, -40);
 // P3 · la ráfaga: pop por burbuja (cliente / Raúl en dos tonos), campanita por mesa, pasos, el rótulo
-T.raf.forEach(([a, b], i) => { pop(a, -39); s("sfx/pop.mp3", b, 0, { desde: 0.11, techo: -39, vel: 0.85 }); pinza(b + 0.03, -42); campana(a + 0.25, -41); });
+T.raf.forEach(([a, b], i) => { pop(a, -39); s("sfx/pop.mp3", b, 0, { desde: 0.11, techo: -39, vel: 0.85 }); pinza(b + 0.03, -42); });
+[0.45, 1.1, 1.55].forEach((d) => campana(T.p3 + d, -41));   // la puerta de cada grupo que se va
 pasos(T.p3, T.p3 + 1.8, 8, -42);
 pop(T.rot112, -38); pop(T.rot0, -37);
 // P4 · whoosh a la pizarra, el trapo que borra, la tiza que escribe
@@ -287,7 +286,7 @@ voz("r3", T.r3, -1);
 // encogerse y el stinger
 campana(T.campana2, -35); pasos(T.entra[0] + 0.1, T.entra[1] + 0.2, 4, -40);
 voz("w2", T.w2, -1);
-voz("r4", T.r4, -1); tela(T.abrazo[0], -40, 2);
+voz("r4", T.r4, -1); tela(T.abrazo[0], -37, 2);
 tela(T.encoge2, -40, 2);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
