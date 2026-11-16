@@ -51,23 +51,27 @@ const P2 = r2(P1 + 2.4);      // arranca la parte 2
 // ---- parte 2 (otro lunes, 8:00 → 8:05) ----
 // Q1 · la rotisería de Graciela: el chip "Lunes, 8:00." (callback) · inserto de su celular: el catálogo de la
 // distribuidora · "Lo de siempre." · un toque en "Repetir lo de siempre" · el carrito se llena · Pedir · Pedido ✓
-T.q1 = P2; T.q1b = r2(P2 + 0.62); T.g2 = r2(T.q1b + 0.2); T.toca = r2(T.g2 + LEN.g2 - 0.05);
+// (ronda 1) el iris abre sobre Graciela; push-in continuo hasta su celular (en la mano), que llega en q1b
+T.q1 = P2; T.q1push = r2(P2 + 0.42); T.q1b = r2(P2 + 0.95); T.g2 = r2(T.q1b + 0.12); T.toca = r2(T.g2 + LEN.g2 - 0.05);
 T.filas = [0.15, 0.3, 0.45, 0.6].map((d) => r2(T.toca + d)); T.pedir = r2(T.filas[3] + 0.35); T.pedido = r2(T.pedir + 0.2);
 // Q2 · la cafetería de Marta: inserto de su celular, "+" en Café en grano: 1 · 4 · 7 (enorme, verde) · Pedir ✓
-T.q2 = r2(T.pedido + 0.42); T.mas = [0.25, 0.5, 0.75].map((d) => r2(T.q2 + d)); T.pedirM = r2(T.q2 + 1.05); T.pedidoM = r2(T.pedirM + 0.15);
+// (ronda 1) primero Marta en su cafetería (plano general: máquina de espresso, pizarra CAFÉ), push-in a su celular
+T.q2 = r2(T.pedido + 0.42); T.q2push = r2(T.q2 + 0.5); T.q2i = r2(T.q2 + 1.0);
+T.mas = [0.12, 0.37, 0.62].map((d) => r2(T.q2i + d)); T.pedirM = r2(T.q2i + 0.92); T.pedidoM = r2(T.pedirM + 0.15);
 // Q2b · Rubén en la oficina con el mate, de perfil al monitor: entra la fila de Marta · "Siete. Sin mosca."
 T.q2b = r2(T.pedidoM + 0.32); T.filaM = r2(T.q2b + 0.12); T.r4 = r2(T.q2b + 0.32);
 // Q3 · el panel (inserto del monitor): los pedidos caen ordenados, 12 → 27 → 40 de 40 ✓, Walter se ilumina, "Mandar a
 // armar" · grúa por el ventanal al depósito: el operario arma el pallet WALTER
-T.q3 = r2(T.r4 + LEN.r4 + 0.12); T.cuenta = [0.12, 0.45, 0.78].map((d) => r2(T.q3 + d)); T.walterOk = r2(T.q3 + 0.98);
-T.mandar = r2(T.q3 + 1.38); T.grua = [r2(T.q3 + 1.55), r2(T.q3 + 2.6)]; T.cajasW = [0.0, 0.3, 0.6].map((d) => r2(T.grua[1] - 0.25 + d));
+T.q3 = r2(T.r4 + LEN.r4 + 0.12); T.cuenta = [0.15, 0.55, 0.95].map((d) => r2(T.q3 + d)); T.walterOk = r2(T.q3 + 1.2);
+T.mandar = r2(T.q3 + 1.65); T.grua = [r2(T.q3 + 1.82), r2(T.q3 + 2.95)]; T.cajasW = [0.0, 0.3, 0.6].map((d) => r2(T.grua[1] - 0.25 + d));
 // Q4 · la oficina como en el cuadro 0: el mate lleno, el termo con vapor, el reloj en 8:05 · "Ocho y cinco. ¿Y ahora
 // qué hago hasta las once?" · Nico asoma por la puerta: "¿Vender?" · Rubén lo mira
-T.q4 = r2(T.cajasW[2] + 0.45); T.r5 = r2(T.q4 + 0.2); T.puerta = r2(T.r5 + LEN.r5 - 0.15); T.n1 = r2(T.r5 + LEN.r5 + 0.12);
+T.q4 = r2(T.cajasW[2] + 0.55); T.r5 = r2(T.q4 + 0.2); T.puerta = r2(T.r5 + LEN.r5 - 0.15); T.n1 = r2(T.r5 + LEN.r5 + 0.12);
 T.miraNico = r2(T.n1 - 0.1);
 // C · Rubén a cámara: "Comentá PEDIDOS y te mando cómo funciona para tu distribuidora." + la tarjeta (entra en "PEDIDOS")
-T.c = r2(T.n1 + LEN.n1 + 0.4); T.r6 = r2(T.c + 0.15); T.tarjeta = r2(T.r6 + 0.45);
-const DUR = r2(T.r6 + LEN.r6 + 0.65);
+// (ronda 1) la tarjeta entra al terminar "PEDIDOS" y dura ~3 s
+T.c = r2(T.n1 + LEN.n1 + 0.4); T.r6 = r2(T.c + 0.12); T.tarjeta = r2(T.r6 + 0.8);
+const DUR = r2(T.r6 + LEN.r6 + 0.3);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -148,7 +152,7 @@ const RUBRO = { top: 120 };
     P .sub { display: inline-block; margin-top: 16px; padding: 8px 26px 12px; border-radius: 18px; background: ${CR}; border: 5px solid ${NAVY}; font: 700 50px/1 "Lexend", sans-serif; color: ${NAVY}; }`,
     html: `      <div class="chip"><div class="t2">Lunes, 8:00.</div><br><div class="sub">Rotisería de Graciela</div></div>`,
     js: `      tl.fromTo(q(".chip"), { y: -300 }, { y: 0, duration: 0.25, ease: "back.out(1.6)", immediateRender: true }, 0);
-      tl.to(q(".chip"), { y: -420, duration: 0.18, ease: "power2.in" }, ${r2(dur - 0.2)});`,
+      tl.to(q(".chip"), { opacity: 0, scale: 0.92, duration: 0.2, ease: "power1.in" }, ${r2(dur - 0.22)});   // (ronda 1) fundido: subiendo quedaba cortado por el borde`,
   });
 }
 
@@ -268,6 +272,7 @@ T.rafaga.forEach((t, i) => pop(t, -41 + Math.min(3, i * 0.5), 1 + i * 0.05));
 [0.1, 0.3, 0.38, 0.62, 0.7, 0.95, 1.05, 1.13, 1.33, 1.42, 1.6, 1.68].forEach((d, i) => tecla(T.p4 + d, i, -41));
 { let t = T.lapse[0], k = 0; while (t < T.lapse[1]) { tic(t, k, -40); const u = (t - T.lapse[0]) / (T.lapse[1] - T.lapse[0]); t += 0.24 - 0.17 * Math.sin(Math.PI * Math.min(1, u * 1.2)); k++; } }
 T.ceba.forEach((t, i) => s("sfx/k-plastico.wav", t, 0, { techo: -42, vel: 0.75 + i * 0.05, lp: 1500 }));
+s("sfx/madera-golpe.wav", T.ceba[2] + 0.3, 0, { techo: -42, lp: 1500, vel: 0.9 });   // (ronda 2) el termo vacío se acuesta en el escritorio
 // P5 · 11:00: el reloj se frena (un tic), la burbuja de Walter, el scroll, el "tuc" seco del mensaje perdido (rojo)
 tic(T.p5, 0, -36);
 pop(T.walter - 0.02, -39); notif(T.walter, -43);
@@ -295,14 +300,14 @@ s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0
 s("sfx/zumbido-largo.wav", P2, 0, { desde: 30, dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -48, lp: 900 });
 // Q1 · la campanita de la puerta de la rotisería; el toque en "Repetir lo de siempre"; un pop por fila; Pedir; Pedido ✓
 s("sfx/campanita.wav", P2 + 0.05, 0, { techo: -40, dur: 0.6, fin: 0.25 });
-s("sfx/whoosh-short.mp3", T.q1b - 0.04, 0, { techo: -44 });
+s("sfx/whoosh-short.mp3", T.q1push - 0.02, 0, { techo: -44 });
 voz("g2", T.g2, -1);
 s("sfx/click-soft.mp3", T.toca, 0, { techo: -36 });
 T.filas.forEach((t, i) => pop(t, -41, 1 + i * 0.07));
 s("sfx/click-soft.mp3", T.pedir, 0, { techo: -36 });
 s("sfx/cero.mp3", T.pedido, 0, { techo: -38 });
 // Q2 · Marta: tres "+", Pedir ✓; el viaje al monitor de Rubén (whoosh) y la fila nueva
-s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -44 });
+s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -44 }); s("sfx/whoosh-short.mp3", T.q2push - 0.02, 0, { techo: -46, vel: 1.1 });
 T.mas.forEach((t, i) => s("sfx/click-soft.mp3", t, 0, { techo: -37, vel: 1 + i * 0.06 }));
 s("sfx/cero.mp3", T.pedidoM, 0, { techo: -38 });
 s("sfx/whoosh-short.mp3", T.q2b - 0.05, 0, { techo: -42 });
@@ -321,6 +326,8 @@ s("sfx/whoosh-short.mp3", T.q4 - 0.04, 0, { techo: -42 });
 voz("r5", T.r5, -1);
 s("sfx/puerta-abre.wav", T.puerta, 0, { techo: -38, dur: 0.6, fin: 0.2 });
 voz("n1", T.n1, -1);
+s("sfx/k-cloth_1.wav", T.n1 - 0.12, 0, { techo: -42, dur: 0.3, fin: 0.1 });   // (ronda 2) Nico levanta el maletín
+s("sfx/whoosh-short.mp3", T.n1 - 0.14, 0, { techo: -46 });   // el contraplano a Nico
 // C · Rubén a cámara; la tarjeta (pop + whoosh)
 s("sfx/whoosh-short.mp3", T.c - 0.04, 0, { techo: -44 });
 voz("r6", T.r6, -1);
@@ -395,7 +402,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "680px 1240px";   // el celular verde de Graciela (Q1)   // el iris se abre desde el celular de Graciela (Q1)
+const IRIS_C = "560px 860px";   // (ronda 1) el iris se abre desde la cara de Graciela (Q1, plano general)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

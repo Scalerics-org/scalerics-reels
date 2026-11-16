@@ -1,6 +1,6 @@
 {
- "t": 12.6,
- "chica": "Lunes, 8 de la mañana.",
+ "t": 11.8,
+ "chica": "Lunes, 11:00.",
  "grande": "¿Y mi pedido?",
  "sello": "DISTRIBUIDORAS",
  "acento": "#5ce611",
@@ -9,6 +9,6 @@
  "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-portada-12.6.png",
- "nota": "fondo: cuadro 12,6 s (primer plano de Rubén mirando el celular, el reloj de pared en 11:00 arriba) renderizado con LIMPIO=1 en una copia del proyecto (sin rubro, globos ni tarjeta) en portada-src/fondo-limpio-12.6.png; armado en portada-src/fondo-portada-12.6.png: el cuadro corrido 120 px hacia arriba (reloj y cara en la mitad de arriba) sobre el mismo cuadro desenfocado. Alternativa: portada-src/fondo-limpio-7.05.png (el time-lapse)."
+ "fondo_limpio": "portada-src/fondo-portada-11.8.png",
+ "nota": "(ronda 2) fondo: cuadro 11,8 s (P6, primer plano frontal de Rubén mirando el celular, el reloj en 11:00 arriba) renderizado con LIMPIO=1 en portada-src/fondo-limpio-11.8.png; en portada-src/fondo-portada-11.8.png está a tamaño completo (sin inserto achicado ni bordes) y subido 400 px; los 400 px de abajo, detrás del texto, son el mismo cuadro desenfocado. chica = 'Lunes, 11:00.' (el reloj marca las 11)."
 }

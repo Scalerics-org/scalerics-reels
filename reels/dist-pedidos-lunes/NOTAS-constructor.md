@@ -8,8 +8,8 @@ cafetería nueva). `assets/personajes.js` = el de dice-cuarenta. Rubén = `ELENC
 canoso), Graciela = `ELENCO.clienta` con delantal crema, Nico = `ELENCO.empleado` con el maletín (crearMochila navy),
 el operario de dice-cuarenta. Marta, Walter, Beto, Nelly, Fede y Sergio solo como avatar.
 
-**Duración: 36,27 s** (parte 1 0-15,34 · cartel 15,34-17,74 · parte 2 17,74-31,91 · cierre 31,91-36,27).
-Solución + cierre = 18,5 s (51 %). El cartel arranca antes de los 16,3 s.
+**Duración: 37,46 s** desde la ronda 1 (parte 1 0-15,34 · cartel 15,34-17,74 · parte 2 17,74-33,48 · cierre 33,48-37,46).
+Solución + cierre = 19,72 s (53 %). El cartel arranca antes de los 16,3 s.
 
 ## Comandos (desde reels/dist-pedidos-lunes)
 ```
@@ -78,3 +78,77 @@ lo sostiene y un índice suelto toca (los dedos son 3D, hijos del celular).
 - El sorbo de P7: el mate llega a la altura del mentón, no a la boca (para que la bombilla no cruce la cara).
 - Los dedos de los insertos tapan a veces parte de la interfaz (el pulgar sobre el borde, el índice al tocar).
 - Q4 es un plano general (Rubén chico) para que entren Rubén, el reloj y Nico en la puerta.
+
+## Ronda 1 corrida 11:11
+**Duración nueva: 37,46 s** (parte 1 0-15,34 · cartel 15,34-17,74 · parte 2 17,74-33,48 · cierre 33,48-37,46; tarjeta
+34,40-37,46 = 3,06 s). Parte 2 + cierre = 19,72 s (53 %); la solución sola (17,74-33,48) pasó de 14,2 a 15,7 s.
+Mezcla rehecha: -14,0 LUFS, pico -6,2 dBFS, voz ≥ +8,9 LU sobre el resto en todos los tramos (medir.py). `check --json`
+0 errores. Barrido completo cada 0,5 s (renders/snap/s1, s2) y zonas tocadas (a1-a9).
+Corregido:
+1. ALTA, termo: se inclina hacia el mate en cada cebada y en la tercera se ACUESTA sobre el escritorio (la pose de P7) y
+   queda así P4-P7; ya no vuelve a pararse antes del corte.
+2. ALTA, Q4: cámara más atrás y centrada (0,5; z 5,45, mira a la altura de la cabeza): Rubén entero, reloj y Nico en la
+   puerta; los biblioratos de adelante (el bloque navy y verde) pasan al grupo de los remitos y no están en la parte 2.
+3. El iris abre sobre la cara de Graciela (IRIS_C 560,860). Q1 nuevo: plano general 0,42 s y push-in continuo (Q1b,
+   `camAlCel`) por el eje de la pantalla hasta el celular EN SU MANO (sin corte a un POV); ella lo levanta para leer
+   (celEnPecho baja 0,1 → -0,08) y baja la mano derecha; toca el dedo suelto. Lo mismo con Marta (Q2 general + Q2i).
+4. Chip "Lunes, 8:00.": sale con fundido (antes subía y quedaba cortado).
+5. Cartel WALTER corrido a x +0,4 del pallet y el operario a -0,62: la cara se ve.
+6. Q2b: cámara desde el frente del monitor (fov 58): el panel se lee, Rubén entero a la derecha, el globo arriba sobre
+   el vidrio (no tapa el encabezado). Queda cortada la palabra "Pedidos" del encabezado por el borde izquierdo.
+7. Ráfaga: los globos a la izquierda (sobre el vidrio del depósito), apilados por altura real; Nelly en 3 líneas.
+8. P6: cámara más baja y frontal, cabeza menos agachada (asiente 0,2): cara entera, boca lejos del borde; el globo
+   (84 px) a la izquierda, el reloj entero a la derecha.
+9. Chat de Walter: el audio que suena es una barra de reproducción fija abajo, ya no una burbuja montada sobre la de Beto.
+10. Q2 con Marta en cuadro (pizarra CAFÉ · MEDIALUNAS, máquina de espresso, tazas); "Café en grano" ajustado al ancho;
+    el "+" se toca desde la derecha (la mano no tapa Azúcar ni Leche).
+11. Sin damero detrás del celular de Graciela: el fondo del inserto es ella (delantal, manga), el piso no se ve.
+12. Nico: maletín nuevo (caja navy3 con franja y manija verdes, sin correas) en la mano derecha, delante, y lo levanta en
+    "¿Vender?". crearMochila ya no se usa.
+13. La baranda del balcón y los perfiles del vidrio van en un grupo aparte (PASO, sin fusionar) que se esconde mientras la
+    grúa cruza; la grúa cruza más alta y mirando menos hacia abajo.
+14. Encabezado del chat ajustado al ancho (con el "40" no se pisa).
+15. Cierre: el mate baja al escritorio al empezar C (la bombilla ya no asoma junto a la cara).
+16. Cierre: tarjeta 3,06 s (entra en r6 + 0,8, al terminar "PEDIDOS"; cola 0,3 s). Sin gesto extra.
+19. Portada: fondo LIMPIO 11,8 s (P6 nuevo, reloj en 11:00) achicado al 80 % y subido 200 px sobre el mismo cuadro
+    desenfocado (portada-src/fondo-portada-11.8.png): cara entera con bigote arriba del texto; `chica` "Lunes, 11:00.".
+20. Cuadro 0: arriba del chat, Sergio · Bar "Lo de siempre." a las 7:52 (ya no Walter a las 8:04).
+21. Solución más larga: Q1 +0,33 s (push-in), Q2 +0,6 s (Marta en su cafetería + push-in), Q3 +0,4 s (contador más
+    lento, el pallet armado se ve 0,1 s más). La parte 1 no se tocó.
+22. Catálogo de Marta: debajo del número, "bolsas de 1 kg" (ya no "Siete. Clarito.").
+23. Encabezado del chat de P5: "Pedidos · Lunes".
+24. Panel: "Lo de siempre + 2 de aceite" (igual que el chat).
+Además: parpadeos de Rubén en la parte 2 atados a los beats (antes caían en medio de r4/r5/r6 al moverse los tiempos);
+el globo de r5 se va antes de que entre "¿Vender?" (se pisaban 1 cuadro); "Pedido ✓ · Lo armamos hoy" ajustado al botón.
+No corregido:
+17. Ambientes de spiedo/espresso: no hay CC0 en assets/sfx y no se agregó nada nuevo.
+18. "¿Y lo mío?" de Beto: a propósito (variedad en la ráfaga).
+Para mirar en la ronda 2: en los push-in de Q1b/Q2i la cara del personaje pasa grande por arriba del cuadro durante
+~0,2 s (es el push-in sobre su celular); en el inserto de Graciela asoma su nariz arriba, debajo del globo.
+
+## Ronda 2 corrida 11:11
+Duración sin cambios: **37,46 s**. Parte 2 de 17,74 a 33,48 s; cierre de 33,48 a 37,46 s; parte 2 + cierre = 53 %.
+Mezcla rehecha (SFX nuevos): -14,0 LUFS, pico -6,2 dBFS, voz al menos +8,9 LU sobre el resto. `check --json` sin
+errores. Snapshots de cada zona tocada (renders/snap/b1-b5) y pasada completa cada 0,5 s (renders/snap/t1, t2).
+1. ALTA, el mate en el cierre: confirmé en un snapshot que en la ronda 1 se hundía (la mano bajaba a y 0,1 del cuerpo,
+   debajo del escritorio). Ahora la mano lleva el mate y lo apoya entero en el escritorio (0,3; 1,86), al lado del
+   teclado: se ve el mate con la bombilla (33,6-34,4 verificado).
+2-3. Push-in a Graciela y a Marta: el celular lo sostiene la mano suelta del celular (dedos por los bordes, pegada al
+   antebrazo; la mano de verdad se oculta), así no queda flotando ni el puño tapa la pantalla. La pantalla mira más
+   hacia adelante (incl 0,5); el celular sube hasta despejar el mostrador o la barra mientras la cámara se acerca, y
+   la cabeza baja (asiente 0,62/0,6): la cara sale por arriba del cuadro. Queda un instante (~0,2 s, 18,4 y 22,0 s)
+   en que se ven grandes la frente o un ojo arriba del celular.
+   Damero: el piso de la rotisería pasa a baldosas crema en dos tonos.
+4. Q2b: fov 62 y la cámara mira 0,12 más a la izquierda: el panel entra entero ("Pedidos · Lunes", los nombres).
+5. Grúa: el pasamanos verde de la escalera va también al grupo PASO, que se esconde mientras la grúa cruza.
+6. Operario: visera más arriba (le despeja los ojos); cartel WALTER en x 0,28 para que la tablet no tape la R.
+7. Cebadas: la mano agarra el cuerpo del termo (sigue la inclinación); el termo ya no ceba solo.
+8 y 11. Q4: push-in lento sobre Rubén durante "Ocho y cinco…" (de z 5,45 a 4,2) y contraplano a Nico en la puerta
+   (plano medio, maletín a la vista) para "¿Vender?" desde T.n1 - 0,12. El globo de r5 sube a cy 270.
+9. Barra de audio del chat más arriba (y 900-1060) y más angosta: no la corta el borde ni la pisa el pulgar.
+10. Portada: el cuadro a tamaño completo subido 400 px (sin inserto achicado, sin marco doble); los 400 px de abajo,
+    detrás del texto, son el mismo cuadro desenfocado. Se ven la cara entera con el bigote y el reloj en 11:00 (cortado arriba).
+12. SFX: k-cloth_1 cuando Nico levanta el maletín y whoosh-short en el corte a Nico.
+13. SFX: madera-golpe suave (lp 1500, techo -42) cuando el termo se acuesta.
+14. La planilla de la parte 1 se titula "Pedidos · Lunes".
+Además: los dedos de la mano suelta del celular van más afuera (ya no tapan el principio de "Azúcar" y "Leche").
