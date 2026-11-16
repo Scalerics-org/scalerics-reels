@@ -10,5 +10,6 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-portada-4.2.png",
- "nota": "Fondo: cuadro 4,2 s (P2) renderizado con LIMPIO=1 y VER=cam:-0.62,1.78,0.45,-0.62,1.12,-2.5,58 (un poco más abierto que el plano del reel, los dos personajes en la mitad de arriba): Raúl con la sonrisa congelada y Fabián encogiéndose de hombros. Alternativa de grande: \"¿Te acordás?\"."
+ "nota": "Fondo: cuadro 4,2 s (P2) renderizado con LIMPIO=1 y VER=cam:-0.62,1.78,0.45,-0.62,1.12,-2.5,58 (un poco más abierto que el plano del reel, los dos personajes en la mitad de arriba): Raúl con la sonrisa congelada y Fabián encogiéndose de hombros. Alternativa de grande: \"¿Te acordás?\".",
+ "separacion": 34
 }

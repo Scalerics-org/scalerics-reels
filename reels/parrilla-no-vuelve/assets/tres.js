@@ -1089,7 +1089,7 @@ function recorrido(t, K) {
   const L = K[K.length - 1]; return { x: L[1], z: L[2], giro: null, anda: false };
 }
 const W_P1 = { x: -0.02, z: -2.12 }, F_PASO = { x: 0.0, z: -2.3 }, F_IZQ = { x: -1.85, z: -2.68 };
-const RAUL_P7 = [[T.p7, RAUL0.x, RAUL0.z], [r2(T.p7 + 0.5), -0.1, -2.42], [r2(T.p7 + 1.1), -0.05, -1.55], [r2(T.r4 - 0.1), 0.32, -1.66]];
+const RAUL_P7 = [[T.p7, RAUL0.x, RAUL0.z], [r2(T.p7 + 0.5), -0.1, -2.42], [r2(T.p7 + 1.1), -0.05, -1.55], [r2(T.r4 - 0.1), 0.24, -1.64]];
 const WALTER_P7 = [[T.entra[0], PUERTA.x + 0.2, GZ + 0.3], [T.entra[1], 1.38, -1.86]];
 const WALTER_Q4 = [[T.entra2[0], PUERTA.x + 0.2, GZ + 0.3], [T.entra2[1], 1.3, -1.6]];
 const F_P5 = { x: 1.05, z: -0.3 }, F_P7 = { x: 1.6, z: 1.0 };
@@ -1112,13 +1112,14 @@ function poseRaul(t) {
       [T.p5, { giro: 0.35, ...aC(0.55, 0.0), ...SECO, ...PARRILLA }, 0.01],
       [T.p6b, { giro: 0, ...aC(0, 0.32), ...SECO, manoI: [0.1, 0.36, 0.34], codoI: [0.8, -0.6, -0.2], manoD: [-0.25, 0.1, 0.25] }, 0.01],
       [T.r3 + 0.05, { ...aC(0.05, 0.08) }, 0.25],
-      [T.p7, { ...BUENA, ...BRAZOS.costado, manoD: [-0.42, 0.55, 0.18], codoD: [-0.6, -1, 0], ...aC(0, 0) }, 0.01],
-      [T.r4 - 0.15, { manoI: [0.5, 0.22, 0.24], manoD: [-0.5, 0.22, 0.24], codoI: [1, -0.8, -0.3], codoD: [-1, -0.8, -0.3], inclina: -0.04, ...CARA.feliz }, 0.25],
+      [T.p7, { ...BUENA, ...BRAZOS.costado, manoD: [-0.38, 0.6, 0.02], codoD: [-0.6, -1, 0], ...aC(0, 0) }, 0.01],   // (retoque) la pinza vertical al costado mientras camina
+      [T.r4 - 0.15, { manoI: [0.5, 0.22, 0.24], manoD: [-0.52, 0.2, 0.04], codoI: [1, -0.8, -0.3], codoD: [-1, -0.8, 0.2], inclina: -0.04, ...CARA.feliz }, 0.3],   // (retoque) la derecha (pinza) hacia el costado, no hacia Walter
       [T.mira, { ...aC(-0.7, 0.05), ...CONGELADA }, 0.2],
     ]);
     if (t >= T.p7) {
       const r = recorrido(t, RAUL_P7); p.x = r.x; p.z = r.z; p.paso = r.anda ? 1 : 0;
       p.giro = r.giro ?? (t >= RAUL_P7.at(-1)[0] ? Math.PI / 2 - 0.45 : 0);
+      { const tL = RAUL_P7.at(-1)[0], a = RAUL_P7.at(-2), b = RAUL_P7.at(-1), gSeg = giroA(a[1], a[2], b[1], b[2]); if (t >= tL - 0.15) p.giro = lerp(gSeg, Math.PI / 2 - 0.45, eio(sg(t, tL - 0.15, tL + 0.2))); }   // (retoque) el giro final en 0,35 s, sin salto
       
     }
     bocaVoz(p, t, T.r1, ENV.r1, 0.7); bocaVoz(p, t, T.r2, ENV.r2, 0.45); bocaVoz(p, t, T.r3, ENV.r3, 0.6); bocaVoz(p, t, T.r4, ENV.r4, 0.75);
@@ -1189,7 +1190,7 @@ function poseWalter(t) {
     bocaVoz(p, t, T.w1b, ENV.w1, 0.8);
   } else if (t < T.q4b) {
     const r = recorrido(t, WALTER_Q4);
-    p = poseEn(t, [[0, { x: r.x, z: r.z, giro: r.giro ?? -1.25, ...aC(-0.45, 0), ...CARA.feliz, manoI: [0.4, 0.55, 0.2], manoD: [-0.4, 0.55, 0.2], codoI: [1, -0.4, 0], codoD: [-1, -0.4, 0] }]]);
+    p = poseEn(t, [[0, { x: r.x, z: r.z, giro: r.giro ?? -1.25, ...aC(-0.45, 0), ...CARA.feliz, manoI: [0.44, 0.18, 0.2], manoD: [-0.44, 0.18, 0.2], codoI: [1, -0.7, 0], codoD: [-1, -0.7, 0] }]]);   // (retoque) las manos abajo, lejos de la boca
     p.paso = r.anda ? 1 : 0; if (r.giro !== null) p.giro = r.giro;
     bocaVoz(p, t, T.w2b, ENV.w2, 0.8);
   } else {

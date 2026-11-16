@@ -144,3 +144,13 @@ sobre la mesa de Graciela).
 Revisado: pasada completa cada 0,5 s (renders/snap/r2p1-r2p4) y, después del ajuste final del pelo (sin los parches de las
 sienes, que se veían como un disco claro) y del logo de Sofi (más chico y adentro del cuadro), r2b. Mezcla: voz ≥ +14,5 LU,
 -14,0 LUFS. `check --json`: 0 errores. Portada regenerada.
+
+## Retoque final (16-11, después de la ronda 3)
+1. Portada: el acento de "¿QUIÉN" pisaba el "3" de "21:30." → `portada.json` con `"separacion": 34` (opción nueva y
+   opcional de herramientas/portada.mjs: margen entre la línea chica y la grande; sin la clave, nada cambia para los otros
+   reels). portada.png regenerada y revisada.
+2. 14,1-14,8: Raúl gira hacia Walter en 0,35 s (mezcla del rumbo de la caminata al de frente, sin salto en un cuadro);
+   camina con la pinza vertical al costado y al abrir los brazos la derecha (la de la pinza) va al costado, no hacia Walter:
+   la pinza no toca la mano de Walter. Llega 8 cm más lejos.
+3. Q4 (28,8-29,8): Walter dice "¿Te acordás de mí?" con las manos abajo, lejos de la boca.
+Revisado cuadro por cuadro: renders/snap/ret2 (14,1-14,8 a 30 fps) y ret3 (28,8-29,8 cada 0,1 s). `check --json`: 0 errores.
