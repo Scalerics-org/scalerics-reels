@@ -260,7 +260,7 @@
 - 16-11 · `parrilla-no-vuelve` · Restaurantes y parrillas · Scalerics Puntos (suma por visita con QR, quién vuelve y cada cuánto, aviso automático al que dejó de venir) · Línea "ANTES QUE TODO", completo con Raúl (dueño nuevo, voz Iapetus) y Fabián el mozo (Achird): sábado 21:30, 112 cubiertos, todos le dicen "Raúl" y él les dice "maestro"; "¿Quién era?"; martes de febrero, 3 mesas de 25: "¿Y si les avisás a los del sábado?" / "¿A quién? ¿A 'maestro'?"; Walter vuelve: "¡Obvio, maestro!" · cartel "Una tarjeta de puntos más tarde…" · parte 2: Walter escanea el QR (4 de 5, provoleta de regalo), panel "Quién vuelve y cada cuánto" 0 → 112, aviso a los 38 que no vienen (Graciela: "¡Vamos el martes!"), 3 → 17 mesas, "Walter. Tira y morcilla dulce. Faltaste dos sábados." · cierre Sofi en videollamada "Comentá VUELVE" · portada "¿Quién era?" · 37,3 s · 3 rondas de revisión independiente + retoque final · [formato completo · estilo 3D parrilla de noche, paredes navy claro, madera oscura, manteles a cuadros y brasero]
 
 ## En curso
-<!-- corrida-activa: 2026-11-16T18:19 -->
+<!-- corrida-activa: 2026-11-16T19:19 -->
 - 16-11 · `taller-presupuestos` · Talleres mecánicos · CRM / seguimiento de presupuestos · el mecánico manda presupuestos por WhatsApp, nadie contesta, nunca los sigue y el auto se arregla en otro taller · Comentá PRESUPUESTO · reservado 14:14
 
 
