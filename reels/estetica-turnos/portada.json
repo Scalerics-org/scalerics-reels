@@ -1,0 +1,14 @@
+{
+ "t": 8.7,
+ "chica": "Jueves, 17:00.",
+ "grande": "¿Era hoy?",
+ "sello": "ESTÉTICA",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-portada-8.7.png",
+ "nota": "(r2 11:11) fondo: cuadro 8,7 s del plano de la pausa renderizado con LIMPIO=1 y VER=cam:0.15,2.0,3.3,-0.05,1.15,-1.6,54 (un poco más abierto: el brazo de Vale no toca el borde), en una copia del proyecto; subido 160 px (el reloj queda debajo de y 285). Pelo nuevo de Lorena, cisnes en corazón de frente. Alternativa de grande: \"Me surgió algo\"."
+}
