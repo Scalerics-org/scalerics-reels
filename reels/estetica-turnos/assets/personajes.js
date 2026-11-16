@@ -101,7 +101,8 @@ export const ELENCO = {
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr, mangas: "largas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.cr, panza: 0.97, nariz: 0.046, mejillas: 0xe39282, labios: 0xb5555a,
     alto: 0.97 },
-  jimena: { nombre: "Jimena", piel: PIEL.clara, pelo: PELO.castaño, peinado: "rulos", cejasColor: 0x4a3222, cejaFina: true,
+  // (estetica-turnos, ronda 1 indep.: con "rulos" castaño corto el avatar parecía un varón) coleta al costado cobriza
+  jimena: { nombre: "Jimena", piel: PIEL.clara, pelo: 0x9a4a2a, peinado: "coletaLado", cejasColor: 0x6a3222, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: 0xb9cde0, mangas: "largas", cuello: null, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.navy, panza: 0.96, nariz: 0.048, mejillas: 0xf0a090, labios: 0xc25a62,
     aros: MARCA.cr, alto: 0.96 },

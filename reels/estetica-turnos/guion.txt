@@ -8,7 +8,7 @@ LORENA: Tranqui.
 [5,30-7,60 · el reloj marca 17:00 en punto · vibra: audio de Jimena, hora "17:00"]
 JIMENA (audio de WhatsApp): ¿Era hoy? Lo tenía para el jueves que viene.
 [Lorena tacha "17:00 Jimena · depilación" · Vale termina el segundo cisne y junta los dos cuellos en un corazón]
-[7,60-8,80 · pausa · plano general del gabinete: la camilla vacía, Vale con los dos cisnes, Lorena con la agenda tachada · la música sigue bajita, solo el zumbido de la lámpara lupa y el tic del reloj · rótulo con línea guía a la agenda: "3 turnos · 3 horas de camilla vacía · $ 5.400 que no entraron" · otro a Vale: "A Vale se le paga igual"]
+[7,60-8,80 · pausa · plano general del gabinete: la camilla vacía, Vale con los dos cisnes, Lorena con la agenda tachada · la música sigue bajita, solo el zumbido de la lámpara lupa y el tic del reloj · rótulo con línea guía a la agenda: "3 turnos · 3 horas de camilla vacía · $ 5.400 que no entraron" · otro a Vale: "La cosmetóloga cobra igual"]
 [8,80-10,90 · primer plano de Lorena, seca, sin levantar la voz]
 LORENA: Lo único puntual hoy fueron las excusas.
 [10,90-14,40 · remate del remate · vibra otra vez el celular: Carolina, "17:52"]
@@ -26,9 +26,9 @@ LORENA: Te mando el link.
 GRACIELA: ¡Me lo quedo!
 [en la agenda: "16:00 Graciela ✓ · lista de espera" · chip "Hueco cubierto en 2 minutos" · rótulo: "Lista de espera"]
 [Q4 26,40-30,80 · jueves, el gabinete del cuadro 0 · el reloj de pared marca 15:00 en punto · suena el timbre de la puerta: entra Carolina, sonriente, con la cartera · Vale ya tiene la camilla lista, la toalla estirada (ni un cisne)]
-CAROLINA: ¡Llegué! Pagué la seña, ¿cómo no voy a venir?
+CAROLINA: ¡Llegué! Pagué la seña.
 [Lorena, en la puerta del gabinete, a Vale, en voz baja, media sonrisa · 29,20-30,70]
 LORENA: Mirá vos. Hoy le surgió venir.
 [Q5 30,80-34,40 · la cámara se va a la tablet de la recepción: el jueves lleno, todo en verde: "15:00 Carolina ✓ seña" · "16:00 Graciela ✓ lista de espera" · "17:00 Jimena ✓ confirmó" · abajo "Camilla vacía: 0 h" · en el estante, los dos cisnes de la otra semana, de adorno · al lado de la tablet, un celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá TURNOS" (TURNOS en el recuadro verde)]
 SOFI: Comentá TURNOS y te mando cómo funciona para tu centro de estética.
-[33,60-34,40 · abajo, chico: "Agenda online con seña y recordatorios" / "scalerics.com" en verde]
+[33,60-34,40 · abajo, chico: "Agenda online · seña · recordatorio · lista de espera" / "scalerics.com" en verde]

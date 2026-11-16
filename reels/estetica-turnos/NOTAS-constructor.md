@@ -5,9 +5,10 @@ assets/audio/mezcla.wav). La escena 3D entera está en `assets/tres.js`. `assets
 `ELENCO.lorena`, `ELENCO.vale`, `ELENCO.carolina`, `ELENCO.jimena`, `ELENCO.mariana` (peinados existentes: mediaCola,
 coletaAlta, coleta, rulos, rodete). Graciela = `ELENCO.clienta`, Sofi = `ELENCO.sofi` (render target al celular parado).
 
-**Duración: 42,54 s** (parte 1 0-17,95 · cartel 17,95-20,53 · parte 2 20,53-42,54; "Comentá TURNOS" desde 38,70;
-línea chica desde 40,74). Más largo que el plan (34,4 s): las tomas reales son más largas (Sofi 3,77 s ya con atempo 1,1).
-Si hay que recortar: el P4 (1,75 s de pausa), Q2 (2,6 s) o Q3 (3 tramos).
+**Duración: 36,41 s** (ronda 1 de revisión independiente). Parte 1 0-16,91 (insertos de la agenda tachándose en
+3,18 / 4,96 / 8,35, 0,38 s cada uno; pausa P4 8,73-10,13; P6b desde 16,15) · cartel 16,91-19,36 (el iris abre 19,31-19,61
+desde la cara de Lorena, 557/1100 px) · parte 2 19,36-36,41 (Q1b 21,03 · Q2 22,73 · Q3 24,63 · Q3b 25,28 · Q4 27,53 · Q4b 29,84 ·
+Q5 32,6 · "Comentá TURNOS" 33,1 · línea chica 33,71). Los tiempos exactos salen de `assets/tiempos3d.js`.
 
 ## Comandos (desde reels/estetica-turnos)
 ```
@@ -21,10 +22,10 @@ python3 medir.py                 # voz contra resto por tramos de 0,5 s (despué
 `window.__cam = [px,py,pz,mx,my,mz,fov]` fija la cámara (depuración).
 
 ## Voces (partes/procesar.sh)
-c1 01-carolina-a (atempo 1,06 + celular) · l1 02-lorena-b · j1 03-jimena-a (atempo 1,08 + celular; la única con "era
+c1 01-carolina-a (atempo 1,06 + celular) · l1 02-lorena-b · j1 03-jimena-a (sin atempo, solo highpass 250 / lowpass 5000: con el filtro de celular el STT oía "lotería"; la única con "era
 hoy") · l2 04-lorena-c · c2 05-carolina-b (atempo 1,06 + celular; las c/d decían "guardaste") · l3 06-lorena-a ·
 narrador 07-narrador-c (Rasalgethi, toma nueva, 2,33 s) · l4 08-lorena-a · g1 09-graciela-e (el STT oye "me lo quedó";
-las otras 6 tomas el STT las oía "creo/quito/pido/tiro/bloqueo") · c3 10-carolina-d (atempo 1,06) · l5 11-lorena-a
+las otras 6 tomas el STT las oía "creo/quito/pido/tiro/bloqueo") · c3 10-carolina-d recortada a "¡Llegué! Pagué la seña." (pausa acortada, atempo 1,06; oyó: "llegué pagué la seña") · l5 11-lorena-a
 (-1 dB) · s1 12-sofi-a (atempo 1,1, lowpass 7 kHz). Todas con "oyó:" igual al texto salvo g1 (acento) y s1/c2 (el STT no
 marca la tilde de "comentá"/"guardás").
 
@@ -52,3 +53,23 @@ tablet) son pegados a la cámara como en dice-cuarenta.
 - Las transformaciones de las toallas son escala + vaivén de manos, no manipulación detallada.
 - P6: Lorena mira la agenda (ojos casi cerrados, sin hablar).
 - Duración 42,5 s (pedido ~34).
+
+## Ronda 1 de revisión independiente (16-11)
+- Arte: Q5 reencuadrado (tablet y celular de Sofi enteros entre "Comentá TURNOS" y la línea de abajo, push-in lento;
+  celular de Sofi en x 0,64); Q1 nuevo (Lorena en x -0,5, la tablet fuera de cuadro, notificación de Carolina sin cola
+  arriba, "Te mando el link." debajo de la cara, el link abajo, celular escala 1,6); sin carteles "Lorena Estética" en la
+  pared ni en el mostrador (en la pared, el cuadrito de la hoja); los cisnes de la parte 2 en el estante de la pared;
+  rótulo de la plata solo en P4; agujas del reloj más distintas; insertos de la agenda (I1-I3: cámara pegada a la hoja,
+  brazos de Lorena ocultos, la lapicera sola con la punta en la tachadura); cisnes del regazo de perfil (alineados con x
+  del mundo); P6 con ojos abiertos, la mano se corre y se lee "15:00 Carolina" antes de "Te lo guardo." (que ahora va en
+  P6 y P6b); avatar de Jimena con coleta al costado cobriza; tablet con etiquetas en pastilla y "Facturado jueves: $ 5.400";
+  tríptico con márgenes y servicio en dos renglones; Graciela con un cuadro de paisaje; Vale agarra la toalla doblada que
+  está sobre la camilla desde el cuadro 0; audios y chats sin cola (son notificaciones).
+- Sonido: cartel con whoosh -35 en P1-0,15 y stinger -33; duck de la música bajo voz 0,3; pausa 0,5; whoosh en cada inserto.
+- Guion: "La cosmetóloga cobra igual", "audio", línea chica "Agenda online · seña · / recordatorio · lista de espera",
+  "y te mando cómo funciona" debajo de TURNOS.
+- Ojo al verificar: `hyperframes snapshot` con tiempos muy juntos (cuadro a cuadro) captura el canvas 3D atrasado
+  (muestra el estado de un pedido anterior); para los cortes usé un puppeteer propio que llama `__tresDbg(t)` (en el
+  scratchpad de la sesión, probe/probar.mjs). Las pasadas cada 0,5 s y los cuadros sueltos sí salen bien.
+- Pendiente (BAJA, no tocado): Lorena de espaldas en P1/P4/P6b sigue siendo la masa de pelo en el tercio izquierdo
+  (la placa y el push-in la mejoran poco); la boca cerrada sigue siendo una línea fina.
