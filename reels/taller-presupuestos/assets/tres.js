@@ -143,14 +143,14 @@ function crearAuto() {
   const L = 3.3, W = 1.5;
   // la carrocería de abajo y el capot / baúl (más bajos que la cabina)
   g.add(caja(W, 0.5, L, ML.carro, 0, 0.53, 0, 0.16));
-  g.add(caja(W - 0.04, 0.12, 1.05, ML.carro, 0, 0.8, 1.05, 0.06));          // el capot
+  g.add(caja(W - 0.04, 0.08, 1.05, ML.carro, 0, 0.77, 1.08, 0.04));          // el capot (más bajo que la cabina)
   g.add(caja(W - 0.04, 0.1, 0.75, ML.carro, 0, 0.79, -1.22, 0.05));        // el baúl
   // la cabina: techo, parantes y vidrios (la ventanilla de adelante de cada lado es aparte: se puede bajar)
   const cab = new THREE.Group(); g.add(cab);
-  cab.add(caja(W - 0.12, 0.08, 1.55, ML.carro, 0, 1.24, -0.15, 0.04));
+  cab.add(caja(W - 0.1, 0.14, 1.45, ML.carro, 0, 1.28, -0.15, 0.06));   // (r1) el techo, grueso: que no parezca descapotable
   for (const sx of [-1, 1]) for (const [z, inc] of [[0.58, 0.35], [-0.12, 0], [-0.88, -0.3]]) { const p = caja(0.07, 0.44, 0.08, ML.carro, sx * (W / 2 - 0.08), 1.02, z, 0.02); p.rotation.x = inc; cab.add(p); }
-  const para = caja(W - 0.18, 0.4, 0.03, ML.vidrio, 0, 1.02, 0.58, 0.02); para.rotation.x = 0.35; cab.add(para);   // parabrisas
-  const luneta = caja(W - 0.18, 0.4, 0.03, ML.vidrio, 0, 1.02, -0.88, 0.02); luneta.rotation.x = -0.3; cab.add(luneta);
+  const para = caja(W - 0.18, 0.46, 0.03, ML.vidrio, 0, 1.02, 0.62, 0.02); para.rotation.x = 0.6; cab.add(para);   // parabrisas
+  const luneta = caja(W - 0.18, 0.44, 0.03, ML.vidrio, 0, 1.02, -0.92, 0.02); luneta.rotation.x = -0.5; cab.add(luneta);
   const vent = {};
   for (const sx of [-1, 1]) {
     const tras = caja(0.03, 0.36, 0.66, ML.vidrio, sx * (W / 2 - 0.08), 1.02, -0.5, 0.02); cab.add(tras);
@@ -224,8 +224,9 @@ const cartelT = lienzo(1200, 260, (x, w, h) => { x.fillStyle = "#efeee5"; x.fill
   SET.add(caja(PORTON.x1 - PORTON.x0 + 0.32, 0.16, 0.3, M.navy3, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto + 0.04, ZF + 0.08, 0.02));
   { const rollo = mesh(new THREE.CylinderGeometry(0.22, 0.22, PORTON.x1 - PORTON.x0 + 0.2, 28), M.cr, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto - 0.16, ZF + 0.42); rollo.rotation.z = Math.PI / 2; SET.add(rollo); SET.add(caja(PORTON.x1 - PORTON.x0 + 0.3, 0.08, 0.5, M.cr2, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto + 0.08, ZF + 0.38, 0.02)); }
   // el cartel "MECÁNICA ÓSCAR" arriba del portón (placa crema con borde navy; se lee de frente)
-  SET.add(caja(2.7, 0.66, 0.06, M.navy3, (PORTON.x0 + PORTON.x1) / 2, 3.72, ZF + 0.14, 0.03));
-  SET.add(plano(2.56, 0.555, cartelT, (PORTON.x0 + PORTON.x1) / 2, 3.72, ZF + 0.175));
+  // (r1) a la derecha del portón, lejos del travesaño del elevador (detrás del travesaño se perdían las tildes)
+  SET.add(caja(2.7, 0.66, 0.06, M.navy3, 4.15, 2.75, ZF + 0.14, 0.03));
+  SET.add(plano(2.56, 0.555, cartelT, 4.15, 2.75, ZF + 0.175));
   // ---- afuera: la vereda crema con su cordón, la calle, la vereda de enfrente y la fachada crema con ventanas navy ----
   const af = (w, d, x, z, m, y = 0) => { const p = mesh(new THREE.PlaneGeometry(w, d), m, x, y, z); p.rotation.x = -Math.PI / 2; p.castShadow = false; SET.add(p); };
   af(30, 1.8, 0, ZF - 1.0, M.cr, 0.12); SET.add(caja(30, 0.12, 0.14, M.cr3, 0, 0.06, ZF - 1.93, 0.02));
@@ -366,7 +367,7 @@ const PILA = new THREE.Group(); PILA.position.set(CUB.x, 0, CUB.z); scene.add(PI
 { for (let i = 0; i < 4; i++) { const c = crearCubierta(); c.position.set((i % 2) * 0.03, 0.1 + i * 0.2, -(i % 2) * 0.02); c.rotation.y = i * 0.7; PILA.add(c); } sombras(PILA); }
 // la rueda que le sacaron al sedán (P1), parada contra la columna derecha
 const RUEDA_SUELTA = new THREE.Group();
-{ const cub = mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.22, 28), [M.goma, ML.llanta, ML.llanta]); cub.rotation.z = Math.PI / 2; RUEDA_SUELTA.add(cub); RUEDA_SUELTA.position.set(COL[1] + 0.3, 0.3, LZ + 0.55); RUEDA_SUELTA.rotation.set(0, 0.3, 0.18); scene.add(sombras(RUEDA_SUELTA)); }
+{ const cub = mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.22, 28), [M.goma, ML.llanta, ML.llanta]); cub.rotation.z = Math.PI / 2; RUEDA_SUELTA.add(cub); RUEDA_SUELTA.position.set(COL[1] + 0.55, 0.11, LZ - 0.7); RUEDA_SUELTA.rotation.set(0, 0, Math.PI / 2); scene.add(sombras(RUEDA_SUELTA)); }
 // ---- el gato carrito (navy3 con la manija verde), al lado del elevador ----
 {
   const g = new THREE.Group(); g.position.set(1.75, 0, -0.95); g.rotation.y = -0.5; SET.add(g);
@@ -561,7 +562,7 @@ function papelEnPincho(pap, pincho, i, k, u = 1) {
 // =====================================================================================================
 const oscar = crearPersonaje({ ...ELENCO.oscar, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.1, r2(T.p3 + 0.3), r2(T.p5 + 0.7), r2(T.p7 + 0.55), r2(T.q1 + 0.05), r2(T.q4b + 0.02)] });
 const maxi = crearPersonaje({ ...ELENCO.maxi, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.05), r2(T.p5 + 0.6), r2(T.q3b + 0.9)] });
-const sergio = crearPersonaje({ ...ELENCO.sergio, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.s1 + LEN.s1 + 0.1), r2(T.q2b + 0.05), r2(T.q4b + 0.7)] });
+const sergio = crearPersonaje({ ...ELENCO.sergio, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.s1 + LEN.s1 + 0.1), r2(T.q4b + 1.6)] });
 const TODOS = [oscar, maxi, sergio];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 const GRASA = new THREE.MeshStandardMaterial({ color: 0x2a2d33, roughness: 0.6, transparent: true, opacity: 0.75, depthWrite: false });
@@ -630,7 +631,7 @@ const tilde = (x, cx, cy, s, color = "#0b1220", lw = null) => { x.strokeStyle = 
 function renglones(x, txt, ancho) { const ws = txt.split(" "), out = []; let l = ""; for (const w of ws) { const p = l ? l + " " + w : w; if (x.measureText(p).width > ancho && l) { out.push(l); l = w; } else l = p; } if (l) out.push(l); return out; }
 
 // ---- Sofi en videollamada: una escena aparte que se renderiza a una textura cada cuadro (Q5) ----
-const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: MARCA.cr, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: null, cuello: MARCA.cr, cuelloBotones: false, cuelloFino: true, auricularFino: false, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });   // (r1) sin los aros crema en el torso; auriculares verdes grandes
 const SOFI = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(432, 768), cam: new THREE.PerspectiveCamera(28, 432 / 768, 0.05, 20) };
 {
   SOFI.rt.texture.colorSpace = THREE.SRGBColorSpace;
@@ -758,7 +759,7 @@ const INSO = { g: new THREE.Group() };
 const CELO = crearCelInserto(680, 1010, 540, 620, 30, { camara: true, funda: 0x1a1c20 }); INSO.g.add(CELO.g);
 // Q1b / Q2 / Q2c · el celular de Sergio a pantalla
 const INS1 = { g: new THREE.Group() }; crearFondoInserto(INS1.g);
-const CEL1 = crearCelInserto(740, 1290, 560, 1010, 34, { camara: true, mano: PIEL.media, funda: 0x1f3254, sinPulgar: true }); INS1.g.add(CEL1.g);
+const CEL1 = crearCelInserto(740, 1290, 540, 1010, 34, { camara: true, funda: 0x1f3254 }); INS1.g.add(CEL1.g);
 // Q3 · la tablet a pantalla (el tablero)
 const INS3 = { g: new THREE.Group() }; crearFondoInserto(INS3.g);
 const TAB = crearCelInserto(1040, 1200, 540, 1110, 16, { camara: false }); INS3.g.add(TAB.g);
@@ -784,7 +785,7 @@ function filaSemana(x, W, y, f, k = 1) {
     x.globalAlpha = k; x.fillStyle = "#cfeebc"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(bx, by, bw, 142, [30, 30, 8, 30]); x.fill(); x.stroke();
     x.fillStyle = "#f7f5ec"; x.strokeStyle = "#b4b2a3"; x.lineWidth = 3; x.beginPath(); x.roundRect(bx + 16, by + 16, 70, 108, 6); x.fill(); x.stroke(); x.fillStyle = "#16243d"; x.fillRect(bx + 16, by + 16, 70, 16); x.fillStyle = "#b4b2a3"; for (let i = 0; i < 4; i++) x.fillRect(bx + 24, by + 46 + i * 18, 52, 5);
     x.fillStyle = "#0b1220"; ajustar(x, f.yo[0], 800, 38, bw - 120); x.fillText(f.yo[0], bx + 102, by + 48); x.font = F(900, 46); x.fillText(f.yo[1], bx + 102, by + 102);
-    x.textAlign = "right"; x.fillStyle = "#7d8291"; x.font = F(700, 38); x.fillText(f.visto, W - 30, by + 178); x.globalAlpha = 1;
+    x.textAlign = "right"; x.fillStyle = "#6b7080"; x.font = F(800, 42); x.fillText(f.visto, W - 30, by + 180); x.globalAlpha = 1;
     h = 150 + 142 + 60;
   } else {
     x.font = F(800, 44); const ls = renglones(x, f.txt, W - 190);
@@ -805,7 +806,7 @@ function dibujarCeluOscar(t) {
   const hs = SEMANA.slice(0, n).map((f, i) => { const c = document.createElement("canvas").getContext("2d"); return filaSemana(c, W, 0, f, 1); });
   let y = H - 30 - hs.reduce((a, b) => a + b, 0); y = Math.min(y, 170);
   SEMANA.slice(0, n).forEach((f, i) => { filaSemana(x, W, y, f, i === n - 1 ? k : 1); y += hs[i]; });
-  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 150); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 56); x.fillText("Presupuestos", 36, 62); x.font = F(700, 38); x.fillText("enviados esta semana", 38, 116);
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 150); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 56); x.fillText("Presupuestos", 36, 62); x.font = F(700, 42); x.fillText("enviados esta semana", 38, 116);
   // las huellas de grasa en la pantalla (semitransparentes, sin tapar el texto)
   x.fillStyle = "rgba(58,63,74,0.13)"; for (const [cx, cy, r, a] of [[W - 120, 300, 70, 0.4], [150, H - 160, 60, -0.6]]) { x.beginPath(); x.ellipse(cx, cy, r, r * 0.7, a, 0, 7); x.fill(); }
   CELO.tex.needsUpdate = true;
@@ -900,6 +901,7 @@ const GL = {
   m1b: crearGlobo(["Jefe, ¿a esos", "no los [llamamos?]"], 62, { cab: { cv: AVATAR.maxi, nombre: "Maxi" } }),
   o4: crearGlobo(["Ya les escribió", "el [sistema.]"], 78),
   jueves: chip("JUEVES · 8:30", 60),
+  viernes: chip("VIERNES", 56),
   s4: crearGlobo(["Lo [pensé.]"], 84),
   o5: crearGlobo(["Y me [avisaste.]"], 84),
 };
@@ -938,16 +940,18 @@ const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   // P1b: el chac, de cerca, desde atrás del banco (Óscar de frente clava la copia)
   ["P1b", r2(T.clava[0] + 0.12), [[r2(T.clava[0] + 0.12), -3.35, 1.62, 2.75, -1.4, 1.22, 0.75, 44], [T.p2, -3.3, 1.62, 2.68, -1.4, 1.22, 0.75, 42]]],
-  ["P2", T.p2, [[T.p2, PINCHO.x + 0.85, 1.72, PINCHO.z + 0.7, PINCHO.x, 1.32, PINCHO.z, 44], [T.p3, PINCHO.x + 0.8, 1.7, PINCHO.z + 0.66, PINCHO.x, 1.3, PINCHO.z, 42]]],
+  ["P2", T.p2, [[T.p2, PINCHO.x + 0.9, 1.62, PINCHO.z + 0.72, PINCHO.x, 1.52, PINCHO.z, 46], [T.p3, PINCHO.x + 0.86, 1.6, PINCHO.z + 0.68, PINCHO.x, 1.5, PINCHO.z, 44]]],
   ["P3", T.p3, [[T.p3, 0.85, 1.55, 5.6, -0.55, 1.22, 0.6, 48], [T.p4, 0.82, 1.55, 5.35, -0.55, 1.22, 0.6, 46]]],
   ["P4", T.p4, [[T.p4, 0.2, 1.55, 4.3, -0.15, 1.4, -7.5, 42], [T.p5, 0.2, 1.55, 4.1, -0.05, 1.4, -7.5, 41]]],
+  // (r1) P4b: de cerca, desde la vereda del taller, la cámara acompaña a Sergio asomado por la ventanilla
+  ["P4b", r2(T.s2 + 0.05), "sergio"],
   ["P5", T.p5, [[T.p5, -1.98, 1.5, 2.3, -0.9, 0.95, -4.0, 50], [T.p6, -1.98, 1.5, 2.22, -0.9, 0.95, -4.0, 48]]],
   ["P6", T.p6, [[T.p6, -0.45, 1.6, -2.75, -0.8, 1.45, -4.35, 42], [T.p7, -0.47, 1.58, -2.85, -0.8, 1.45, -4.35, 40]]],
-  ["P7", T.p7, [[T.p7, -1.95, 1.62, 3.15, -1.55, 1.05, -2.0, 50], [P1, -1.95, 1.61, 3.05, -1.55, 1.05, -2.0, 48]]],
+  ["P7", T.p7, [[T.p7, -0.55, 1.62, 1.75, -2.05, 1.28, 1.18, 46], [P1, -0.62, 1.6, 1.72, -2.05, 1.28, 1.18, 43]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0)], [r2(T.enviar - 0.4), ...P1C(0.6)]]],
   // Q1t: por encima del hombro de Óscar, toca Enviar en la tablet
-  ["Q1t", r2(T.enviar - 0.4), [[r2(T.enviar - 0.4), -0.72, 1.72, 2.4, -1.9, 1.18, 1.6, 38], [T.q1b, -0.74, 1.7, 2.3, -1.9, 1.18, 1.6, 35]]],
+  ["Q1t", r2(T.enviar - 0.4), [[r2(T.enviar - 0.4), -0.62, 1.72, 2.45, -1.95, 1.2, 1.5, 40], [T.q1b, -0.66, 1.7, 2.38, -1.95, 1.2, 1.5, 38]]],
   ["Q1b", T.q1b, null],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, 30.6, 1.55, 2.6, 29.85, 1.42, 0.0, 40], [T.q2c, 30.55, 1.55, 2.4, 29.85, 1.42, 0.0, 37]]],
@@ -957,7 +961,7 @@ const PLANOS = [
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.q4b, ...P1C(0.3)]]],
   ["Q4b", T.q4b, [[T.q4b, -0.22, 1.62, 3.4, -0.2, 1.42, -0.6, 44], [T.q4c, -0.22, 1.62, 3.2, -0.2, 1.42, -0.6, 42]]],
   ["Q4c", T.q4c, [[T.q4c, 1.2, 1.8, 5.4, -1.4, 1.65, -3.0, 50], [T.q5, 1.15, 1.85, 5.2, -1.4, 1.7, -3.0, 49]]],
-  ["Q5", T.q5, [[T.q5, -0.72, 1.3, 1.66, -1.9, 1.2, 1.66, 42], [T.viaje[0], -0.75, 1.3, 1.67, -1.9, 1.2, 1.66, 42], [T.viaje[1], -1.33, 1.16, 2.2, -1.9, 1.14, 2.22, 40], [DUR, -1.36, 1.16, 2.21, -1.9, 1.14, 2.22, 39]]],
+  ["Q5", T.q5, [[T.q5, -0.5, 1.3, 1.66, -1.9, 1.2, 1.66, 44], [T.viaje[0], -0.55, 1.3, 1.66, -1.9, 1.2, 1.66, 43], [T.viaje[1], -1.33, 1.16, 2.2, -1.9, 1.14, 2.22, 40], [DUR, -1.36, 1.16, 2.21, -1.9, 1.14, 2.22, 39]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -998,8 +1002,8 @@ function aCuerpo(per, p, w) { per.poner(p); per.raiz.updateMatrixWorld(true); co
 const dirGiro = (x0, z0, x1, z1) => Math.atan2(x1 - x0, z1 - z0);
 const OSC1 = { x: -0.98, z: 0.95 };   // Óscar en el cuadro 0
 const SER1 = { x: 0.38, z: 1.1 };    // Sergio en el cuadro 0
-const OSC4 = { x: -0.8, z: -4.35 };   // Óscar en el portón, mirando la calle (P4-P7)
-const MAX4 = { x: 0.6, z: -4.45 };
+const OSC4 = { x: -0.5, z: -4.35 };   // Óscar en el portón, mirando la calle (P4-P7)
+const MAX4 = { x: 0.8, z: -4.45 };
 const OSCQ4 = { x: -0.68, z: -0.55 }, SERQ4 = { x: 0.38, z: -0.45 };
 const topePincho = () => V3(PINCHO.x, BANCO.alto + PIN.base + PIN.alto + 0.02, PINCHO.z);
 function poseOscar(t) {
@@ -1058,7 +1062,7 @@ function poseOscar(t) {
       p.t = t; bocaVoz(p, t, T.o3, ENV.o3, 0.55); return p;
     }
     // Q3b: en el banco frente a la tablet, sin levantar la vista: "Ya les escribió el sistema."
-    const p = poseEn(t, [[0, { x: -1.13, z: 1.66, giro: -Math.PI / 2 - 0.05, inclina: 0.06, ...aC(0.0, 0.32), ...MEDIA, ...BRAZOS.apoyado, manoI: [0.24, 0.3, 0.34], manoD: [-0.24, 0.3, 0.34] }], [T.o4 + 0.4, { ...aC(0.35, 0.22), ...MEDIA }, 0.3]]);
+    const p = poseEn(t, [[0, { x: -1.13, z: 1.66, giro: -Math.PI / 2 - 0.05, inclina: 0.06, ...aC(0.0, 0.32), ...MEDIA, ...BRAZOS.apoyado, manoI: [0.24, 0.3, 0.34], manoD: [-0.24, 0.3, 0.34] }], [T.o4 - 0.05, { ...aC(0.15, 0.08), ...MEDIA, ojos: { abiertos: 0.9, y: -0.6 } }, 0.25]]);
     p.t = t; bocaVoz(p, t, T.o4, ENV.o4, 0.55); return p;
   }
   // Q4: el auto entra; Q4b frente a Sergio, recibe la llave; Q4c se da vuelta y aprieta el botón del elevador
@@ -1135,13 +1139,15 @@ function poseSergio(t) {
     const p = poseEn(t, [[0, { x: 29.85, z: 0.0, giro: 0.35, ...aC(0, 0.3), ...CARA.sorpresa, ...BRAZOS.celular }], [T.s3, { ...aC(-0.15, 0.05), ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.3 } }, 0.2]]);
     p.t = t; bocaVoz(p, t, T.s3, ENV.s3, 0.65); return p;
   }
-  // Q4b: se bajó del auto, con la llave del llavero verde: "Lo pensé." y se la da a Óscar
+  // Q4: se baja del lado del conductor y camina hasta Óscar; Q4b: con la llave del llavero verde: "Lo pensé." y se la da
+  const u = sg(t, T.baja[0], T.baja[1]);
   const p = poseEn(t, [
     [0, { x: SERQ4.x, z: SERQ4.z, giro: -1.45, ...aC(-0.1, 0.05), ...BUENA, ...BRAZOS.costado, manoI: [0.2, 0.18, 0.3], codoI: [0.8, -0.6, -0.2] }],
     [T.llave + 0.05, { manoI: [0.12, 0.25, 0.45] }, 0.25],
     [T.llave + 0.5, { manoI: [0.29, -0.06, 0.06] }, 0.3],
     [T.q4c + 0.3, { ...aC(0.6, -0.2) }, 0.3],
   ]);
+  if (t < T.baja[1]) { Object.assign(p, { x: lerp(LX + 1.0, SERQ4.x, eio(u)), z: lerp(LZ + 0.3, SERQ4.z, eio(u)), giro: lerp(0.2, -1.45, sg(t, T.baja[1] - 0.2, T.baja[1])), paso: u < 1 ? 1 : 0 }); }
   p.t = t; bocaVoz(p, t, T.s4, ENV.s4, 0.65); return p;
 }
 function poseSofi(t) {
@@ -1188,9 +1194,9 @@ function claves(t, K, f = eio) {
 // Sergio dentro del auto (P4): sentado del lado de la vereda, asomado por la ventanilla baja, saludando
 function sergioEnAuto(t) {
   auto.updateMatrixWorld(true);
-  const p = poseEn(t, [[0, { sentado: 1, inclina: 0.35, ladea: 0.0, ...aC(0, -0.05), ...BUENA, cejas: { alto: 0.6, ang: 0.3 }, ...BRAZOS.costado }]]);
+  const p = poseEn(t, [[0, { sentado: 1, inclina: 0.5, ladea: 0.0, ...aC(0, -0.2), ...BUENA, cejas: { alto: 0.6, ang: 0.3 }, ...BRAZOS.costado }]]);
   Object.assign(p, saludo(t, "D", 1));
-  const w = auto.localToWorld(V3(-0.32, -0.05, 0.15));
+  const w = auto.localToWorld(V3(-0.42, 0.02, 0.2));
   Object.assign(p, { x: w.x, y: w.y, z: w.z, giro: auto.rotation.y - Math.PI / 2, t });
   bocaVoz(p, t, T.s2, ENV.s2, 0.7);
   return p;
@@ -1250,7 +1256,7 @@ function ponerManos(t) {
   TRAPO_MANO.visible = !TRAPO_BOLSILLO.visible;
   if (TRAPO_MANO.visible) { const a = manoMundo(oscar, "I", _a), b = manoMundo(oscar, "D", _b); oscar.cuerpo.getWorldQuaternion(_q); TRAPO_MANO.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, -0.02, 0)); TRAPO_MANO.quaternion.copy(_q); TRAPO_MANO.rotateX(-0.2); }
   // la llave: Sergio (Q4b) hasta que se la da a Óscar
-  LLAVE.visible = p2 && t >= T.q4b;
+  LLAVE.visible = p2 && t >= T.baja[0];
   if (LLAVE.visible) { const quien = t < T.llave + 0.15 ? [sergio, "I"] : [oscar, "D"]; const m = manoMundo(quien[0], quien[1], _a); LLAVE.position.copy(m).add(V3(0, -0.05, 0.02)); LLAVE.rotation.set(0.3, 0, 0.2); }
 }
 
@@ -1264,7 +1270,7 @@ function renderAt(tIn) {
   ponerSol(0, -1.5);
   dibujarTablet(t); dibujarCeluOscar(t); dibujarCeluO3(t); dibujarCeluSergio(t); dibujarTabInserto(t);
   // ---- cámara primero (el vuelo de los papeles usa la cámara) ----
-  if (pl[2]) ponerCam(catmull(pl[2], t), t);
+  if (pl[2] && pl[2] !== "sergio") ponerCam(catmull(pl[2], t), t);
   if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
@@ -1273,8 +1279,17 @@ function renderAt(tIn) {
   maxi.raiz.visible = !(planoActual === "Q4" || planoActual === "Q4b" || (!p2 && t < T.p3) || planoActual === "P6"); maxi.poner(poseMaxi(t));
   ponerAuto(t);
   const enAuto = !p2 && t >= T.auto[0] - 0.05 && t < T.auto[1] + 0.05;
-  sergio.raiz.visible = (!p2 && (t < T.p3 || enAuto)) || (p2 && (t < T.q3 || t >= T.q4b));
+  sergio.raiz.visible = (!p2 && (t < T.p3 || enAuto)) || (p2 && (t < T.q3 || t >= T.baja[0]));
+  for (const k of [0, 1]) sergio.raiz.children[0].children[k].visible = !enAuto;   // (r1) en el auto, sin piernas (atravesaban el piso)
   if (sergio.raiz.visible) sergio.poner(enAuto ? sergioEnAuto(t) : poseSergio(t));
+  if (pl[2] === "sergio") {
+    // P4b: desde la vereda del taller, acompaña la cabeza de Sergio en la ventanilla
+    sergio.raiz.updateMatrixWorld(true); const h = sergio.cabeza.localToWorld(V3(0, 0.25, 0));
+    ponerCam([h.x + 0.3, 1.4, ZF - 0.55, h.x + 0.1, h.y - 0.35, h.z, 58], t);
+    if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
+    if (window.__cam) ponerCam(window.__cam, t);
+    camera.updateMatrixWorld(true);
+  }
   ponerPinchos(t); ponerManos(t);
   tablet.visible = p2; celuS.visible = p2 && t >= T.q5 - 0.1;
   PILA.visible = !p2 && t >= T.p3;
@@ -1297,6 +1312,14 @@ function renderAt(tIn) {
   if (INSO.g.visible) { const kk = halfK(); INSO.g.position.set(0, 0, -1); INSO.g.scale.setScalar(kk * PXK * lerp(1.0, 1.02, eo(sg(t, T.p2, T.p3)))); }
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
 
+  // ---- portada (VER=portada): Óscar y Maxi detrás del banco, de frente, con el pincho lleno adelante ----
+  if (VER === "portada") {
+    sergio.raiz.visible = false; PINCHO2.visible = false; celuO.visible = false; TRAPO_MANO.visible = false; TRAPO_BOLSILLO.visible = true;
+    oscar.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.62, z: 1.42, giro: Math.PI / 2 + 0.25, ...aC(-0.05, 0.12), ...SECO, cejas: { alto: 0.1, ang: 0.25 }, ...BRAZOS.costado, manoI: [0.22, 0.32, 0.3], manoD: [-0.22, 0.32, 0.3] }]]), t });
+    maxi.raiz.visible = true; maxi.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.6, z: 0.62, giro: Math.PI / 2 + 0.45, ...aC(-0.25, 0.08), ...CARA.incredula, ojos: { abiertos: 0.95 }, ...BRAZOS.costado }]]), t });
+    ponerCam([-0.5, 1.42, 1.32, -2.2, 1.42, 1.0, 46], t); camera.updateMatrixWorld(true);
+    for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
+  }
   // ---- tarjetas ----
   for (const k in GL) GL[k].visible = false;
   for (const g of GUIAS) g.visible = false;
@@ -1322,12 +1345,12 @@ function renderAt(tIn) {
       const u0 = ent(T.rot[0]), u1 = ent(T.rot[1]), u2 = ent(T.rot[2]);
       ponerGlobo(GL.r1, 330, 1180, u0, null, 1); if (u0 > 0) ponerGuia(GUIAS[0], 330, 1250, ax, ay, eo(sg(t, T.rot[0], T.rot[0] + 0.25)));
       ponerGlobo(GL.r2, 330, 1360, u1, null, 1);
-      ponerGlobo(GL.r3, 700, 430, u2, null, 1); if (u2 > 0) ponerGuia(GUIAS[1], 700, 500, ex, ey, eo(sg(t, T.rot[2], T.rot[2] + 0.25)));
+      ponerGlobo(GL.r3, 330, 600, u2, null, 1); if (u2 > 0) ponerGuia(GUIAS[1], 330, 670, ex, ey, eo(sg(t, T.rot[2], T.rot[2] + 0.25)));
     }
     if (pa === "P6" && t >= T.o2) { const [bx, by] = boca(oscar); verGlobo(GL.o2, t >= T.o2b ? 6 : 2); ponerGlobo(GL.o2, 540, 330, ent(T.o2), [bx, by - 40]); }
-    if (pa === "P7" && t >= T.vibra) { const [cx, cy] = objPx(celuO); ponerGlobo(GL.nuevo, 540, 300, ent(T.vibra), [cx, cy]); }
+    if (pa === "P7" && t >= T.vibra) ponerGlobo(GL.nuevo, 540, 300, ent(T.vibra), null);
     if (pa === "Q1") {
-      if (t >= T.s1b) { const [bx, by] = boca(sergio); ponerGlobo(GL.s1, 640, 640, ent(T.s1b) * sale(T.o3), [bx, by - 30], 1); }
+      if (t >= T.s1b) { const [bx, by] = boca(sergio); if (t < T.o3) ponerGlobo(GL.s1, 640, 640, ent(T.s1b), [bx, by - 30], 1); }
       if (t >= T.o3) { const [bx, by] = boca(oscar); ponerGlobo(GL.o3, 400, 520, ent(T.o3), [bx, by - 30], 2); }
     }
     if (pa === "Q1b") {
@@ -1337,6 +1360,7 @@ function renderAt(tIn) {
     }
     if (pa === "Q2" || pa === "Q2c") { ponerGlobo(GL.miercoles, 540, 140, ent(T.q2), null); ponerGlobo(GL.rSeg, 540, 262, ent(T.seg + 0.25), null, 1); }
     if (pa === "Q2b") { const [bx, by] = boca(sergio); if (t >= T.s3) ponerGlobo(GL.s3, 540, 360, ent(T.s3), [bx, by - 40]); }
+    if (pa === "Q3") ponerGlobo(GL.viernes, 540, 1815, ent(T.q3 + 0.05), null);
     if (pa === "Q3" && t >= T.m1b) ponerGlobo(GL.m1b, 540, 230, ent(T.m1b), null);
     if (pa === "Q3b") {
       if (t < T.o4) { const [bx, by] = boca(maxi); ponerGlobo(GL.m1, 700, 400, 1, [bx, by - 30], 1); }

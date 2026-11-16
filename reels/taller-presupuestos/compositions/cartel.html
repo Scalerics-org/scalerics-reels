@@ -51,8 +51,9 @@
       tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.63, ease: "sine.inOut", immediateRender: true }, 0);
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.63, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
+      const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
-        const t0 = 0.0 + i * 0.03;
+        const t0 = i < nAB ? i * 0.03 : 1.42 + (i - nAB) * 0.03;   // (r1) "más tarde…" entra cuando el narrador dice "más"
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;

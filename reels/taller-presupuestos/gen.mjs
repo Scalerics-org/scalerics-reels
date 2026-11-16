@@ -30,9 +30,9 @@ const T = {};
 T.s1 = 0.25; T.clava = [r2(T.s1 + LEN.s1 - 0.3), r2(T.s1 + LEN.s1 + 0.17)]; T.chac0 = T.clava[1];
 T.vaSe = [r2(T.s1 + 0.7), r2(T.s1 + LEN.s1 + 0.6)];   // Sergio se da vuelta hacia el portón
 // P2 · la semana en el celular de Óscar: MARTES a VIERNES; cada respuesta, chac (el papel vuela del celular al pincho)
-const DIA = 0.68;
-T.p2 = r2(T.chac0 + 0.4);
-T.dia = [0, 1, 2, 3].map((i) => r2(T.p2 + 0.08 + i * DIA)); T.msg = T.dia.map((d) => r2(d + 0.1)); T.chacs = T.dia.map((d) => r2(d + 0.47));
+const DIA = 0.62;
+T.p2 = r2(T.chac0 + 0.34);
+T.dia = [0, 1, 2, 3].map((i) => r2(T.p2 + i * DIA)); T.msg = T.dia.map((d) => r2(d + 0.1)); T.chacs = T.dia.map((d) => r2(d + 0.47));
 // P3 · sábado: el elevador vacío, Maxi en las cubiertas, Óscar con el trapo · "Jefe…" · "Si les interesa, llaman."
 T.p3 = r2(T.chacs[3] + 0.28); T.m1 = r2(T.p3 + 0.12); T.o1 = r2(T.m1 + LEN.m1 + 0.1); T.trapo = r2(T.o1 + LEN.o1 - 0.35);
 // P4 · bocina: pasa Sergio con el auto arreglado · "¡Óscar! … ¡Me llamaron!"
@@ -41,32 +41,33 @@ T.auto = [r2(T.p4 - 0.35), r2(T.s2 + LEN.s2 + 0.35)];   // el auto cruza el port
 // P5 · la pausa: el pincho lleno adelante, el elevador vacío; los rótulos del costo
 T.p5 = r2(T.s2 + LEN.s2 + 0.1); T.rot = [r2(T.p5 + 0.12), r2(T.p5 + 0.3), r2(T.p5 + 0.5)]; T.vuelta = [r2(T.p5 + 0.05), r2(T.p5 + 0.55)];
 // P6 · el remate: "Lo pensó. Y me avisó." (la burbuja por frase)
-T.p6 = r2(T.p5 + 0.95); T.o2 = r2(T.p6 + 0.15); T.o2b = r2(T.o2 + 1.08);
+T.p6 = r2(T.p5 + 0.8); T.o2 = r2(T.p6 + 0.15); T.o2b = r2(T.o2 + 1.08);
 // P7 · remate del remate: vibra el celular ("¿me pasás presupuesto de embrague?"), Maxi apoya el segundo pincho
 T.p7 = r2(T.o2 + LEN.o2 + 0.08); T.vibra = r2(T.p7 + 0.1); T.pincho2 = [r2(T.p7 + 0.5), r2(T.p7 + 0.8)];
-const P1 = r2(T.p7 + 1.25);    // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p7 + 1.2);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, otro lunes: "Lo pienso y te aviso." (el mismo audio) · "Pensalo tranquilo." · Enviar
 T.q1 = P2; T.s1b = r2(P2 + 0.15); T.o3 = r2(T.s1b + LEN.s1 + 0.1); T.enviar = r2(T.o3 + LEN.o3 - 0.2);
 // Q1b · inserto: el celular de Sergio recibe el presupuesto con botones; en la tablet pasa a VISTO
-T.q1b = r2(T.enviar + 0.22); T.llega = r2(T.q1b + 0.12); T.visto = r2(T.q1b + 0.8);
+T.q1b = r2(T.enviar + 0.22); T.llega = r2(T.q1b + 0.02); T.visto = r2(T.q1b + 0.65);
 // Q2 · miércoles: el seguimiento automático llega solo · Sergio: "Justo lo estaba pensando." · Aceptar · Jue 8:30 · agendado
-T.q2 = r2(T.q1b + 1.15); T.seg = r2(T.q2 + 0.12);
-T.q2b = r2(T.q2 + 0.8); T.s3 = r2(T.q2b + 0.08);
-T.q2c = r2(T.s3 + LEN.s3 + 0.06); T.acepta = r2(T.q2c + 0.15); T.jue = r2(T.q2c + 0.45); T.agendado = r2(T.q2c + 0.75);
+T.q2 = r2(T.q1b + 0.88); T.seg = r2(T.q2 + 0.02);
+T.q2b = r2(T.q2 + 0.55); T.s3 = r2(T.q2b + 0.08);
+T.q2c = r2(T.s3 + LEN.s3 + 0.2); T.acepta = r2(T.q2c + 0.15); T.jue = r2(T.q2c + 0.45); T.agendado = r2(T.q2c + 0.82);
 // Q3 · el tablero: las tarjetas pasan a ACEPTADO (inserto); Maxi repite su pregunta (el mismo audio) · Óscar, en la
 // bench, sin levantar la vista: "Ya les escribió el sistema."
-T.q3 = r2(T.q2c + 1.22); T.cards = [0.15, 0.35, 0.55, 0.75].map((d) => r2(T.q3 + d)); T.m1b = r2(T.q3 + 0.95);
-T.q3b = r2(T.m1b + LEN.m1 - 0.2); T.o4 = r2(T.m1b + LEN.m1 + 0.08);
+T.q3 = r2(T.q2c + 1.0); T.cards = [0.1, 0.28, 0.46, 0.62].map((d) => r2(T.q3 + d)); T.m1b = r2(T.q3 + 0.8);
+T.q3b = r2(T.m1b + LEN.m1 + 0.05); T.o4 = r2(T.m1b + LEN.m1 + 0.42);   // (r1) beat antes del remate: corte a Óscar y medio segundo
 // Q4 · jueves 8:30, el encuadre del cuadro 0: entra el sedán · "Lo pensé." · "Y me avisaste." · sube el elevador y Maxi
 // cuelga el pincho en el panel
 T.q4 = r2(T.o4 + LEN.o4 + 0.1); T.entra = [T.q4, r2(T.q4 + 0.85)]; T.puerta = r2(T.q4 + 0.92);
-T.q4b = r2(T.q4 + 1.0); T.s4 = r2(T.q4b + 0.08); T.o5 = r2(T.s4 + LEN.s4 + 0.12); T.llave = r2(T.o5 - 0.05);
-T.q4c = r2(T.o5 + LEN.o5 + 0.08); T.sube = [r2(T.q4c + 0.1), r2(T.q4c + 1.05)]; T.cuelga = [r2(T.q4c + 0.15), r2(T.q4c + 0.65)];
+T.baja = [r2(T.q4 + 0.95), r2(T.q4 + 1.45)];   // (r1) Sergio se baja y camina hasta Óscar (en el plano general)
+T.q4b = r2(T.q4 + 1.45); T.s4 = r2(T.q4b + 0.14); T.o5 = r2(T.s4 + LEN.s4 + 0.42); T.llave = r2(T.o5 - 0.05);
+T.q4c = r2(T.o5 + LEN.o5 + 0.08); T.sube = [r2(T.q4c + 0.08), r2(T.q4c + 0.85)]; T.cuelga = [r2(T.q4c + 0.12), r2(T.q4c + 0.6)];
 // Q5 · el banco: la tablet con la semana en verde y Sofi en videollamada al lado · "Comentá PRESUPUESTO…"
-T.q5 = r2(T.q4c + 1.15); T.cero = r2(T.q5 + 0.25);
-T.viaje = [r2(T.q5 + 0.5), r2(T.q5 + 0.88)]; T.f1 = r2(T.q5 + 0.55); T.palabra = r2(T.f1 + 0.32);
+T.q5 = r2(T.q4c + 0.9); T.cero = r2(T.q5 + 0.25);
+T.viaje = [r2(T.q5 + 0.62), r2(T.q5 + 0.97)]; T.f1 = r2(T.q5 + 0.57); T.palabra = r2(T.f1 + 0.32);   // (r1) la tablet entera antes del viaje T.palabra = r2(T.f1 + 0.32);
 const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.1) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
 T.cierre = r2(DUR - 2.05);
 
@@ -183,8 +184,9 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     js: `      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: ${dur}, ease: "sine.inOut", immediateRender: true }, 0);
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: ${dur}, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
+      const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
-        const t0 = 0.0 + i * 0.03;
+        const t0 = i < nAB ? i * 0.03 : 1.42 + (i - nAB) * 0.03;   // (r1) "más tarde…" entra cuando el narrador dice "más"
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
@@ -239,7 +241,7 @@ const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 const pop = (t, techo = -40) => s("sfx/pop.mp3", t, 0, { desde: 0.11, techo });
 const VOZ = [];
-const voz = (f, t, db = -1) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04 }); VOZ.push([r2(t - 0.75), r2(t + LEN[f] + 0.7)]); };
+const voz = (f, t, db = -1) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04 }); VOZ.push([r2(t - 0.75), r2(t + LEN[f] + 0.95)]); };
 const pasos = (a, b, n, techo = -46) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo, lp: 2500 }); };
 const noti = (t, techo = -40) => { techo = Math.min(-33, techo + 5); s("sfx/vibra.wav", t - 0.2, 0, { techo: techo - 2, dur: 0.4, fin: 0.1 }); s("sfx/notification.mp3", t - 0.18, 0, { techo, dur: 0.35, fin: 0.12 }); };
 const tacha = (t, techo = -36) => { s("sfx/k-page-turn.wav", t, 0, { techo, vel: 1.6, dur: 0.22, fin: 0.06, hp: 1200 }); s("sfx/k-page-turn.wav", t + 0.12, 0, { techo: techo - 2, vel: 1.9, dur: 0.18, fin: 0.06, hp: 1500 }); };
@@ -260,13 +262,13 @@ pasos(T.vaSe[0] + 0.1, T.vaSe[1], 3, -44);
 s("sfx/k-cloth_1.wav", T.clava[0], 0, { techo: -42, dur: 0.3, fin: 0.1 });
 chac(T.chac0, -36, 0);
 // P2 · la semana: whoosh en cada salto de día, la notificación, el papel que vuela y el chac (cada vez un poco más fuerte)
-T.dia.forEach((d, i) => { s("sfx/whoosh-short.mp3", d - 0.04, 0, { techo: -42, vel: 1.15 }); noti(T.msg[i], -40); s("sfx/whoosh-short.mp3", T.chacs[i] - 0.22, 0, { techo: -44, vel: 1.5 }); chac(T.chacs[i], -37 + i, i + 1); });
+T.dia.forEach((d, i) => { s("sfx/whoosh-short.mp3", d - 0.04, 0, { techo: -42, vel: 1.15 }); noti(T.msg[i], -37); s("sfx/whoosh-short.mp3", T.chacs[i] - 0.22, 0, { techo: -44, vel: 1.5 }); chac(T.chacs[i], -35 + i * 0.7, i + 1); });
 // P3 · Maxi y Óscar; el trapo
 voz("m1", T.m1, -1);
 voz("o1", T.o1, -1);
 tela(T.o1 - 0.2, -42, 2); tela(T.trapo, -40, 1);
 // P4 · la bocina (doble), el auto que pasa (paneo), Sergio desde la ventanilla
-s("sfx/bocina.wav", T.bocina[0], 0, { techo: -33 }); s("sfx/bocina.wav", T.bocina[1], 0, { techo: -33 });
+s("sfx/bocina.wav", T.bocina[0], 0, { techo: -31 }); s("sfx/bocina.wav", T.bocina[1], 0, { techo: -31 });
 s("sfx/auto-pasa.wav", T.auto[0], 0, { techo: -36, dur: r2(T.auto[1] - T.auto[0] + 0.3), desde: 0.6, fi: 0.2, fin: 0.6 });
 voz("s2", T.s2, -1);
 // P5 · la pausa: el zumbido de la lámpara, una gota de aceite; pop chico por rótulo
@@ -277,10 +279,10 @@ T.rot.forEach((t) => pop(t, -42));
 voz("o2", T.o2, -1);
 // P7 · vibra el celular; el segundo pincho sobre el banco (tac)
 noti(T.vibra, -37);
-s("sfx/k-metal-pesado-0.wav", T.pincho2[1], 0, { techo: -35, dur: 0.4, fin: 0.12 });
+s("sfx/k-metal-pesado-0.wav", T.pincho2[1], 0, { techo: -31, dur: 0.4, fin: 0.12 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
-s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
+s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -33, dur: 0.6, fin: 0.25 });
 s("voice/narrador.wav", P1 + 0.02, -1, { voz: true, fin: 0.04 }); VOZ.push([r2(P1 - 0.3), r2(P1 + 0.02 + LEN.nar + 0.45)]);
 s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3, techo: -40, sinDuck: true });
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
@@ -291,25 +293,25 @@ s("sfx/calle.wav", P2, 0, { loop: true, desde: 8, dur: r2(DUR - P2), fi: 0.1, fi
 // Q1 · el mismo "Lo pienso y te aviso.", "Pensalo tranquilo.", Enviar en la tablet
 voz("s1", T.s1b, -1);
 voz("o3", T.o3, -1);
-toque(T.enviar, -37); s("sfx/whoosh-short.mp3", T.enviar + 0.06, 0, { techo: -40, vel: 1.2 });
+toque(T.enviar, -40); s("sfx/whoosh-short.mp3", T.enviar + 0.06, 0, { techo: -44, vel: 1.2 });
 // Q1b · le llega a Sergio el presupuesto con botones; la tarjeta pasa a VISTO
-s("sfx/whoosh-short.mp3", T.q1b - 0.04, 0, { techo: -42 }); noti(T.llega, -38); pop(T.q1b + 0.2, -42); pop(T.visto, -40);
+s("sfx/whoosh-short.mp3", T.q1b - 0.04, 0, { techo: -42 }); noti(T.llega, -45); pop(T.q1b + 0.2, -42); pop(T.visto, -40);
 // Q2 · miércoles: el seguimiento llega solo; Sergio; Aceptar, Jue 8:30, agendado
 s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -42 }); pop(T.q2 + 0.04, -42); noti(T.seg, -37); pop(T.seg + 0.25, -42);
 voz("s3", T.s3, -1);
-s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -42 });
-toque(T.acepta, -36); toque(T.jue, -37); ding(T.agendado, -35);
+s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -47 });
+toque(T.acepta, -48); toque(T.jue, -43); ding(T.agendado, -35);
 // Q3 · el tablero: las tarjetas se mueven (whoosh), ding por cada ACEPTADO, el contador; Maxi y Óscar
 s("sfx/whoosh-short.mp3", T.q3 - 0.04, 0, { techo: -42 }); pop(T.q3 + 0.1, -42);
 T.cards.forEach((t, i) => { const v = t + 0.1 > T.m1b - 0.2; s("sfx/whoosh-short.mp3", t - 0.08, 0, { techo: v ? -48 : -44, vel: 1.3 }); if (i < 2) { ding(t + 0.12, -38 + i); for (let k = 0; k < 4; k++) tic(t + 0.12 + k * 0.05, -44, k); } else pop(t + 0.1, v ? -48 : -44); });
 voz("m1", T.m1b, -1);
 voz("o4", T.o4, -1);
 // Q4 · el auto entra y se apaga, la puerta, "Lo pensé.", las llaves, "Y me avisaste.", el elevador sube, el pincho en el panel
-s("sfx/auto-entra.wav", T.q4 + 0.05, 0, { techo: -40, desde: 1.5, dur: 1.4, fi: 0.15, fin: 0.5 });
-s("sfx/puerta-auto.wav", T.puerta, 0, { techo: -36, dur: 0.6, fin: 0.15 });
-pasos(T.puerta + 0.1, T.q4b + 0.05, 2, -44);
+s("sfx/auto-entra.wav", T.q4 + 0.05, 0, { techo: -33, desde: 1.5, dur: 1.4, fi: 0.15, fin: 0.5 });
+s("sfx/puerta-auto.wav", T.puerta, 0, { techo: -37, dur: 0.6, fin: 0.15 });
+pasos(T.baja[0] + 0.05, T.baja[1] - 0.1, 3, -44);
 voz("s4", T.s4, -1);
-s("sfx/llaves.wav", T.llave, 0, { techo: -38, dur: 0.7, fin: 0.2 });
+s("sfx/llaves.wav", T.llave, 0, { techo: -33, dur: 0.7, fin: 0.2 });
 voz("o5", T.o5, -1);
 s("sfx/k-switch-3.wav", T.sube[0] - 0.05, 0, { techo: -40 });
 s("sfx/elevador.wav", T.sube[0], 0, { techo: -38, dur: r2(T.sube[1] - T.sube[0] + 0.3), fi: 0.1, fin: 0.3, hp: 120 });
@@ -324,9 +326,9 @@ pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz (la semana, los insertos de la interfaz, la entrada del auto), los SFX +6 dB
 // (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.p2, T.p3) || en(t0, T.q1b, T.s3 - 0.3) || en(t0, T.q2c, T.m1b - 0.45) || en(t0, T.q4, T.s4 - 0.2) || en(t0, T.q4c, T.q5 + 0.4)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
+  if (en(t0, T.p2, T.p3) || en(t0, T.q1b + 0.3, T.s3 - 0.3) || en(t0, T.q2c + 0.35, T.m1b - 0.45) || en(t0, T.q4c, T.q5 + 0.4)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.35])]; }
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render

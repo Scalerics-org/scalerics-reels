@@ -9,7 +9,7 @@ pausa() { local m=$(python3 -c "print(($3+$4)/2)"); local h=$(python3 -c "print(
   ffmpeg -loglevel error -y -i $1 -filter_complex "[0]atrim=0:$(python3 -c "print($3+$h)"),asetpts=PTS-STARTPTS[a];[0]atrim=$(python3 -c "print($4-$h)"),asetpts=PTS-STARTPTS[b];[a][b]concat=n=2:v=0:a=1" $2; }
 v() { ffmpeg -loglevel error -y -i ${4:-partes/rec/$1.wav} -af "${3:-anull}" -ar 48000 -ac 1 assets/voice/$2.wav; }
 v 01-sergio-a s1                                   # "Lo pienso y te aviso." (se reusa igual en Q1)
-pausa partes/rec/02-maxi-a.wav partes/tmp/m1.wav 0.58 0.79 0.1
+pausa partes/rec/02-maxi-g.wav partes/tmp/m1.wav 0.57 1.03 0.12
 v x m1 "anull" partes/tmp/m1.wav                   # "Jefe, ¿a esos no los llamamos?" (pausa después de "Jefe," 0,1 s; se reusa igual en Q3)
 v 03-oscar-c  o1 "atempo=1.08"                     # "Si les interesa, llaman."
 pausa partes/rec/04-sergio-a.wav partes/tmp/s2a.wav 0.49 0.94 0.16; pausa partes/tmp/s2a.wav partes/tmp/s2b.wav 2.20 2.43 0.12
