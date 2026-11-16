@@ -113,3 +113,34 @@ Portada rehecha: fondo LIMPIO del cuadro 8,7 s (corazón de frente, pelo nuevo) 
   cabecera ("Hola, Carolina" a lo ancho quedaba a ~30 px).
 - Revisado: snapshots cada 0,5 s de 0 a 37 (renders/snap/f1, f2) + zonas tocadas (a-g). Pendiente para el revisor: el
   surco del pelo es sutil a distancia; la tablet de Q5 deja aire arriba/abajo por proporción.
+
+## Ronda 2 corrida 11:11 (sobre qa-ronda-r2.md)
+**Duración 37,03 s** (1111/30). Parte 1 0-15,54 · cartel 15,54-17,71 · **parte 2 17,71-37,03 = 19,3 s, 52,2 %**. Q5: tablet
+32,65 · "Camilla vacía: 0 h" 33,05 · viaje 33,25-33,63 · s1 33,31 · "Comentá TURNOS" 33,83 · línea chica 34,98.
+Mezcla: voz ≥ +8,9 LU, -14,0 LUFS, pico -5,2. `check --json` 0 errores. Pasada completa cada 0,5 s (renders/snap/r2a, r2b) +
+zonas tocadas a resolución completa (renders/snap/h).
+1. (ALTA) Sofi: mientras habla la sonrisa baja a 0,15 → el labio queda pegado sobre la boca abierta; una sola boca (visto a
+   resolución completa a 34,2).
+2. (ALTA) P6: las dos manos sostienen la agenda por detrás (z 0,24-0,26) y la lapicera no se ve en P6; ni puño ni dedo
+   atraviesan las hojas (visto a 12,2 / 13,0 / 14,5).
+3. Agenda de P6 a 1,15x y paneo de la cámara (mira x -0,53→-0,55): no se corta a la derecha.
+4. Q1: la mano izquierda de Lorena abajo, detrás del mostrador (no queda el puño suelto).
+5. "Comentá TURNOS" sube 64 px (top 56): no tapa la coronilla ni el borde de la pantalla.
+6. "¡Llegué!…" arriba (cy 300) con la cola a la boca de Carolina.
+7. Vale mira al frente al girar en el banquito (no queda de 3/4 deformada).
+8. Graciela menos agachada (asiente 0,22): la patilla ya no cruza la pupila.
+9. "Te lo guardo.": ojos 0,92; en P6 mira la agenda con la cabeza, no con los párpados (incredula los cerraba a 0,55 y
+   quedaban bultos de piel).
+10. Sin la franja verde del fondo de Sofi (era la mota).
+11. A7: manos de Vale a ±0,33 / 0,14 (en las colas). A8: melena con vetas de color por vértice (surco oscuro, cresta clara)
+    en cortina y casquete; el borde delantero del casquete ya no es recto (puntas de flequillo desparejas, sube un poco);
+    cejas de Lorena 0x6a3f27 (donde asomaban por el flequillo eran la "mota" oscura). A10: "Reprogramar" 38 px con ajuste
+    a W-50; la tarjeta del link en dos renglones grandes (sin "turnos · Lorena Estética"). A13: el texto del cartel sale en
+    dur-0,22 y el iris abre con power1.in (sin verde vacío; visto a 17,47 / 17,53).
+12. Portada: fondo LIMPIO 8,7 s con cámara un poco más abierta (VER=cam), subido 160 px: el reloj queda debajo de y 285 y
+    el brazo de Vale lejos del borde.
+13. j1: highpass 300 / lowpass 5000 (como el corte bajo de c1/c2). Con el compresor o lowpass 3400 del filtro de celular el STT
+    oye "lotería" 3 de 3 veces; así oye "era hoy lo tenía…" 3 de 3.
+14. Cola final 0,25 s más corta (DUR = fin de Sofi + 0,1): la tarjeta queda 3,2 s.
+15. "Camilla vacía: 0 h" entra a q5+0,4 con ding y pop propios (el chip "Cubierto" ya no aparece en Q5).
+16. "Lo único puntual hoy" también se revela palabra por palabra (las 7 palabras).

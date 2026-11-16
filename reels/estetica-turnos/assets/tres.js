@@ -457,7 +457,7 @@ const SOFI = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(432, 768)
   SOFI.esc.add(sofi.raiz);
   // la pared de atrás: navy con una franja verde y el logo de Scalerics chico
   const fondo = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.MeshBasicMaterial({ color: 0x1f3254 })); fondo.position.set(0, 1.4, -0.9); SOFI.esc.add(fondo);
-  const fr = new THREE.Mesh(new THREE.PlaneGeometry(4, 0.05), new THREE.MeshBasicMaterial({ color: 0x5ce611 })); fr.position.set(0, 1.12, -0.89); SOFI.esc.add(fr);
+  const fr = new THREE.Mesh(new THREE.PlaneGeometry(4, 0.05), new THREE.MeshBasicMaterial({ color: 0x5ce611 })); fr.position.set(0, 1.12, -0.89); fr.visible = false;   // (r2 11:11) asomaba como mota verde a la izquierda
   const logoT = await new THREE.TextureLoader().loadAsync("assets/logo-blanco.png"); logoT.colorSpace = THREE.SRGBColorSpace;
   const ar = logoT.image.width / logoT.image.height;
   const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34 / ar), new THREE.MeshBasicMaterial({ map: logoT, transparent: true })); logo.position.set(0.24, 1.86, -0.88); SOFI.esc.add(logo);
@@ -580,7 +580,7 @@ function dibujarTablaJueves(x, W, H, e) {
 let claveT = "";
 function dibujarTablet(t) {
   const p2 = t >= P2;
-  const e = { carolina: t >= T.reservado, jimena: t >= T.conf[1] + 0.1, libre: t >= T.libre, avisando: t >= T.avisa && t < T.q4, graciela: t >= T.cubierto, cubierto: t >= T.chip, filas: null, cero: t >= T.cero };
+  const e = { carolina: t >= T.reservado, jimena: t >= T.conf[1] + 0.1, libre: t >= T.libre, avisando: t >= T.avisa && t < T.q4, graciela: t >= T.cubierto, cubierto: t >= T.chip && t < T.q5, filas: null, cero: t >= T.cero };
   const clave = JSON.stringify(e) + p2;
   if (clave === claveT) return; claveT = clave;
   dibujarTablaJueves(pantT.userData.x, 720, 1000, e); pantT.needsUpdate = true;
@@ -766,9 +766,9 @@ const GL = {
   link: crearTarjeta(860, 250, (x, W, H) => {
     x.fillStyle = "#16243d"; rr(x, 22, 22, 206, 206, 30);
     x.strokeStyle = "#5ce611"; x.lineWidth = 12; x.lineCap = "round"; x.beginPath(); x.moveTo(125, 190); x.quadraticCurveTo(55, 125, 125, 55); x.quadraticCurveTo(195, 125, 125, 190); x.stroke(); x.beginPath(); x.moveTo(125, 190); x.lineTo(125, 80); x.stroke();
-    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 56); x.fillText("Lorena Estética", 262, 82);
-    x.fillStyle = "#16243d"; x.font = F(700, 46); x.fillText("Reservá tu turno", 264, 150);
-    x.fillStyle = "#3fa60a"; x.font = F(700, 38); x.fillText("turnos · Lorena Estética", 264, 206);
+    // (r2 11:11) dos renglones grandes (el tercero quedaba a ~25 px en pantalla)
+    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "Lorena Estética", 800, 66, W - 290); x.fillText("Lorena Estética", 262, 92);
+    x.fillStyle = "#3fa60a"; ajustar(x, "Reservá tu turno", 800, 60, W - 290); x.fillText("Reservá tu turno", 264, 172);
   }, { fondo: "#ffffff" }),
   g1: crearGlobo(["¡Me lo [quedo!]"], 92),
   c3: crearGlobo(["¡Llegué! Pagué la [seña,]", "¿cómo no voy a venir?"], 70),
@@ -877,7 +877,7 @@ function dibujarRecordatorios(t) {
       x.fillStyle = toca && !repro ? "#3fa60a" : "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(12, 620, W - 24, 104, 52); x.fill(); x.stroke();
       x.textAlign = "center"; x.fillStyle = "#0b1220"; ajustar(x, "Confirmar", 800, 42, W - 70); x.fillText("Confirmar", W / 2, 672);
       x.fillStyle = toca && repro ? "#d9d7c9" : "#ffffff"; x.beginPath(); x.roundRect(12, 742, W - 24, 104, 52); x.fill(); x.stroke();
-      x.fillStyle = "#0b1220"; ajustar(x, "Reprogramar", 800, 37, W - 90); x.fillText("Reprogramar", W / 2, 794);
+      x.fillStyle = "#0b1220"; ajustar(x, "Reprogramar", 800, 38, W - 50); x.fillText("Reprogramar", W / 2, 794);
     } else if (resp === "ok") {
       x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(12, 620, W - 24, 226, 34); x.fill(); x.stroke();
       tilde(x, W / 2, 682, 64); fit("Confirmado", 900, 46, 790);
@@ -941,7 +941,7 @@ const PLANOS = [
   ["P4", T.p4, [[T.p4, 0.15, 2.0, 3.3, -0.1, 1.15, -1.6, 50], [T.p5, 0.15, 2.0, 3.2, -0.1, 1.15, -1.6, 49]]],
   ["P5", T.p5, [[T.p5, -0.35, 1.6, -2.2, -0.5, 1.45, 0.3, 44], [T.l2 + 0.6, -0.35, 1.6, -2.05, -0.5, 1.47, 0.3, 37], [T.p6, -0.35, 1.6, -1.9, -0.5, 1.48, 0.3, 31]]],
   // (r1 11:11) "Te lo guardo." de frente (push-in durante el audio) y recién después el general con Vale (P6b)
-  ["P6", T.p6, [[T.p6, 0.1, 1.65, -2.2, -0.45, 1.3, 0.3, 46], [T.p6b, 0.1, 1.65, -2.05, -0.45, 1.32, 0.3, 38]]],
+  ["P6", T.p6, [[T.p6, 0.1, 1.65, -2.2, -0.53, 1.3, 0.3, 46], [T.p6b, 0.1, 1.65, -2.05, -0.55, 1.32, 0.3, 38]]],   // (r2 11:11) paneo: la agenda no se corta a la derecha
   ["P6b", T.p6b, [[T.p6b, 0.15, 2.2, 3.4, -0.1, 1.0, -1.6, 50], [P1, 0.15, 2.2, 3.3, -0.1, 1.0, -1.6, 49]]],
   // ---- parte 2 ----
   // (r1 11:11) Lorena más abajo en el cuadro (las dos burbujas arriba, sin pisarle la frente) y menos mostrador vacío
@@ -1010,21 +1010,24 @@ function poseLorena(t) {
       [T.p4 + 0.3, { ...mira(0.05, -0.2), ...SECO }, 0.4],                          // mira la camilla vacía
       [T.p5, { giro: Math.PI + 0.15, ...mira(0.05, 0.05), ...SECO, manoI: [0.2, -0.14, 0.3], manoD: [-0.06, -0.1, 0.34] }, 0.01],
       [T.p6, { ...AGENDA_POSE, manoI: [0.24, 0.32, 0.32], manoD: [-0.02, 0.38, 0.38] }, 0.01],
-      [T.carolina2 + 0.1, { ...mira(0.5), ...CARA.incredula }, 0.25],
+      // (r2 11:11) mira la agenda con la cabeza, no con los párpados (bajar tanto los ojos dejaba bultos de piel)
+      [T.carolina2 + 0.1, { ...CARA.incredula, cabeza: { giro: 0, asiente: 0.42, ladea: 0.02 }, ojos: { x: 0, y: -0.12, abiertos: 1, tension: 0, feliz: 0 } }, 0.25],
       [T.hoja[0], { manoD: [0.0, 0.42, 0.36] }, 0.15], [T.hoja[1], { manoD: [0.18, 0.4, 0.33] }, 0.3],
       [T.anota[0], { ...ESCRIBE(0) }, 0.1], [T.anota[1], { ...ESCRIBE(1) }, T.anota[1] - T.anota[0]],
-      [T.l3, { ...mira(0.35), ...CARA.resignado, ojos: { abiertos: 0.75 } }, 0.2],
+      [T.l3, { ...mira(0.35), ...CARA.resignado, ojos: { abiertos: 0.92 } }, 0.2],
     ]);
     p.t = t;
     // la lapicera tacha: un vaivén chico mientras escribe
     for (const a of [T.tacha1, T.tacha2, T.tacha3, T.anota[0]]) { const k = sg(t, a, a + 0.32); if (k > 0 && k < 1) p.manoD = [p.manoD[0], p.manoD[1] + Math.sin(k * Math.PI * 4) * 0.01, p.manoD[2]]; }
+    // (r2 11:11) en P6 las manos sostienen la agenda por detrás (el puño y un dedo atravesaban las hojas)
+    if (t >= T.p6) { p.manoI = [0.22, 0.26, 0.26]; p.manoD = [p.manoD[0] - 0.06, Math.min(p.manoD[1], 0.34) - 0.04, 0.24]; }
     bocaVoz(p, t, T.l1, ENV.l1, 0.6); bocaVoz(p, t, T.l2, ENV.l2, 0.6); bocaVoz(p, t, T.l3, ENV.l3, 0.6);
     return p;
   }
   // parte 2
   if (t < T.q4) {
     const p = poseEn(t, [
-      [0, { x: MOSTR.x - 0.12, z: MOSTR.z + 0.45, giro: Math.PI + 0.1, inclina: 0.02, ...aC(0, 0.08), ...CARA.neutra, ...BRAZOS.apoyado, manoD: [-0.12, 0.36, 0.3], codoD: [-0.8, -0.6, -0.2] }],
+      [0, { x: MOSTR.x - 0.12, z: MOSTR.z + 0.45, giro: Math.PI + 0.1, inclina: 0.02, ...aC(0, 0.08), ...CARA.neutra, ...BRAZOS.apoyado, manoD: [-0.12, 0.36, 0.3], codoD: [-0.8, -0.6, -0.2], manoI: [0.24, -0.12, 0.1], codoI: [0.9, -0.5, 0] }],   // (r2 11:11) la izquierda abajo, detrás del mostrador
       [T.l4 - 0.1, { ...aC(0.0, 0.1), ...MEDIA }, 0.3],
     ]);
     p.t = t; bocaVoz(p, t, T.l4, ENV.l4, 0.6); return p;
@@ -1044,8 +1047,8 @@ function poseVale(t) {
     const m = mov(T.rollo[0], T.rollo[1]) + mov(T.cisne1[0], T.cisne1[1]) + mov(T.cisne2[0], T.cisne2[1]) + mov(T.corazon[0], T.corazon[1]);
     const p = poseEn(t, [
       [0, { x: VALE0.x, y: -0.03, z: VALE0.z, giro: -Math.PI / 2 + 0.85, sentado: 1, inclina: 0.1, ...aC(0.45, 0.32), ...CARA.concentrada, ...REG }],
-      [T.cisne2[0] + 0.2, { manoI: [0.37, 0.1, 0.3], manoD: [-0.37, 0.1, 0.3], codoI: [0.9, -0.5, -0.1], codoD: [-0.9, -0.5, -0.1] }, 0.3],
-      [T.p4, { ...aC(-0.35, 0.1), ...NADA, ojos: { abiertos: 0.75, x: -0.4, y: 0 } }, 0.4],
+      [T.cisne2[0] + 0.2, { manoI: [0.33, 0.14, 0.31], manoD: [-0.33, 0.14, 0.31], codoI: [0.9, -0.5, -0.1], codoD: [-0.9, -0.5, -0.1] }, 0.3],
+      [T.p4, { ...aC(0, 0.12), ...NADA, ojos: { abiertos: 0.8, x: 0, y: 0 } }, 0.4],   // (r2 11:11) mira al frente al girar
       [T.corazon[1], { giro: -Math.PI / 2 + 1.55 }, T.corazon[1] - T.corazon[0]],
       [T.p6, { ...aC(0, 0.32), ...CARA.concentrada }, 0.3],
       [T.vale[0], { inclina: 0.3, manoI: [0.12, 0.2, 0.45], manoD: [-0.12, 0.2, 0.45] }, 0.3],
@@ -1082,7 +1085,7 @@ function poseCarolina(t) {
 function poseGraciela(t) {
   const toca = Math.sin(Math.PI * sg(t, T.quiero - 0.12, T.quiero + 0.12));
   const p = poseEn(t, [
-    [0, { x: 29.8, y: 0.06, z: -0.55, giro: 0, sentado: 1, inclina: 0.06, ...aC(0, 0.42), ...CARA.esperanza, ...BRAZOS.celular, codoI: [0.6, -0.8, -0.3], codoD: [-0.6, -0.8, -0.3] }],
+    [0, { x: 29.8, y: 0.06, z: -0.55, giro: 0, sentado: 1, inclina: 0.06, ...aC(0, 0.22), ...CARA.esperanza, ...BRAZOS.celular, codoI: [0.6, -0.8, -0.3], codoD: [-0.6, -0.8, -0.3] }],
     [T.g1, { ...aC(0.1, 0.0), ...CARA.feliz }, 0.2],
   ]);
   if (toca > 0) { p.manoD = [0.0, 0.36 + 0.03 * (1 - toca), 0.34]; p.dedoD = 1; }
@@ -1090,6 +1093,9 @@ function poseGraciela(t) {
 }
 function poseSofi(t) {
   const p = poseEn(t, [[0, { x: 0, z: 0, giro: 0, ...aC(0, 0.05), ...CARA.sonrisa, ...BRAZOS.costado }], [T.s1 + 1.2, { ...aC(0.08, 0.02), manoD: [-0.2, 0.4, 0.32], codoD: [-0.8, -0.6, 0] }, 0.4], [T.s1 + LEN.s1 - 0.3, { ...BRAZOS.costado }, 0.4]]);
+  // (r2 11:11) mientras habla, la sonrisa casi plana: el labio queda pegado sobre la boca abierta (eran dos bocas)
+  const habla = sg(t, T.s1 - 0.15, T.s1) * (1 - sg(t, T.s1 + LEN.s1, T.s1 + LEN.s1 + 0.2));
+  p.boca.sonrisa = lerp(p.boca.sonrisa, 0.15, habla);
   p.t = t; bocaVoz(p, t, T.s1, ENV.s1, 0.6); return p;
 }
 
@@ -1106,9 +1112,9 @@ function ponerAgenda(t) {
   // (r1 11:11) en el primer plano del remate (P5) la agenda baja a la cintura (no queda cortada por el borde); en P6 de
   // frente y 1,3 veces más grande (las manuscritas se leen)
   const enP5 = t >= T.p5 && t < T.p6, deFrente = t >= T.p6;
-  agenda.position.set(0.06, enP5 ? -0.12 : deFrente ? 0.38 : 0.33, deFrente ? 0.42 : 0.36); agenda.rotation.set(deFrente ? -0.45 : -1.05, 0, 0.05); agenda.scale.setScalar(deFrente ? 1.3 : 1);
+  agenda.position.set(0.06, enP5 ? -0.12 : deFrente ? 0.38 : 0.33, deFrente ? 0.42 : 0.36); agenda.rotation.set(deFrente ? -0.45 : -1.05, 0, 0.05); agenda.scale.setScalar(deFrente ? 1.15 : 1);
   // la lapicera en la mano derecha, la punta hacia la hoja
-  manoMundo(lorena, "D", _a); lapicera.visible = true;
+  manoMundo(lorena, "D", _a); lapicera.visible = t < T.p6;   // (r2 11:11) en P6 la mano va detrás de la hoja
   lapicera.position.copy(_a).add(V3(0, -0.04, 0)); lapicera.quaternion.copy(lorena.raiz.quaternion); lapicera.rotateX(-0.5); lapicera.rotateZ(0.6);
   // el celular apoyado sobre la hoja izquierda
   if (celuL.parent !== agenda) agenda.add(celuL);
@@ -1232,7 +1238,7 @@ function renderAt(tIn) {
       ponerGlobo(GL.r3, 800, 1500, u2, null, 1); if (u2 > 0) ponerGuia(GUIAS[1], 800, 1440, vx, vy, eo(sg(t, T.rot[2], T.rot[2] + 0.25)));
     }
     // (r1 11:11) el remate solo (sin el rótulo de la plata) y se revela palabra por palabra: "fueron" · "las" · "excusas."
-    if (pa === "P5") { const [bx, by] = lb(); if (t >= T.l2) { verGlobo(GL.l2, 4 + T.l2pal.filter((a) => t >= a).length); ponerGlobo(GL.l2, 540, 330, ent(T.l2), [bx, by - 40]); } }
+    if (pa === "P5") { const [bx, by] = lb(); if (t >= T.l2) { verGlobo(GL.l2, T.l2pal.filter((a) => t >= a).length); ponerGlobo(GL.l2, 540, 330, ent(T.l2), [bx, by - 40]); } }
     // (r1 11:11) el audio arriba sin cola; "Te lo guardo." de frente, en el mismo lugar, con la cola a la boca
     if (pa === "P6") {
       const [bx, by] = lb();
@@ -1253,7 +1259,7 @@ function renderAt(tIn) {
       ponerGlobo(GL_G, 540, 230, ent(T.aviso), null);
       if (t >= T.g1) ponerGlobo(GL.g1, 540, 540, ent(T.g1), [bx, by - 30], 1);
     }
-    if (pa === "Q4") { const [bx, by] = bocaPx(carolina); if (t >= T.c3) ponerGlobo(GL.c3, 540, 1660, ent(T.c3), [bx, by + 60]); }
+    if (pa === "Q4") { const [bx, by] = bocaPx(carolina); if (t >= T.c3) ponerGlobo(GL.c3, 540, 300, ent(T.c3), [bx, by - 40]); }   // (r2 11:11) arriba: la cola iba a la cadera
     if (pa === "Q4b") { const [bx, by] = lb(); if (t >= T.l5) { verGlobo(GL.l5, 2 + (t >= T.l5pal[0] ? 3 : 0) + (t >= T.l5pal[1] ? 1 : 0)); ponerGlobo(GL.l5, 540, 340, ent(T.l5), [bx, by - 40]); } }
   }
   renderer.render(scene, camera);

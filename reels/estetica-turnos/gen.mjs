@@ -43,7 +43,7 @@ T.p4 = r2(T.tacha3 + 0.3); T.rot = [r2(T.p4 + 0.1), r2(T.p4 + 0.3), r2(T.p4 + 0.
 // P5 · primer plano de Lorena: "Lo único puntual hoy fueron las excusas."
 T.p5 = r2(T.p4 + 0.8); T.l2 = r2(T.p5 + 0.15);   // (r1 11:11) pausa antes del remate ~1,3 s (era 2,3)
 // la burbuja del remate se revela por palabra: "fueron" · "las" · "excusas." (segundos dentro de l2, del STT y la envolvente)
-T.l2pal = [1.3, 1.55, 1.75].map((d) => r2(T.l2 + d));
+T.l2pal = [0, 0.2, 0.5, 1.05, 1.3, 1.55, 1.75].map((d) => r2(T.l2 + d));   // (r2 11:11) las 7 palabras
 // P6 · remate del remate: Carolina otra vez (17:52) · Lorena da vuelta la hoja y anota · "Te lo guardo." · Vale deja los
 // cisnes y agarra otra toalla
 T.p6 = r2(T.l2 + LEN.l2 - 0.05); T.carolina2 = r2(T.p6 + 0.04); T.c2 = r2(T.p6 + 0.1);
@@ -73,11 +73,11 @@ T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25); T.l5pal = [1.1, 1.75].
 // Q5 · la recepción: la tablet con el jueves lleno, Sofi en videollamada al lado · "Comentá TURNOS…" · la línea chica
 // (ronda 2) "Camilla vacía: 0 h" desde el corte y 1,6 s quieto en la tablet; la cámara va a Sofi y recién ahí entra
 // "Comentá TURNOS" (tarjeta ≤ 3 s)
-T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = T.q5;
+T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = r2(T.q5 + 0.4);   // (r2 11:11) "Camilla vacía: 0 h" entra con su ding
 // (r1 11:11) la tablet 0,7 s sola; la cámara viaja a Sofi y ella arranca a hablar en el viaje: "TURNOS" (0,53 s dentro de
 // s1) se oye cuando ya está en cuadro y el cartel entra justo en esa palabra, después del barrido
 T.viaje = [r2(T.q5 + 0.6), r2(T.q5 + 0.98)]; T.s1 = r2(T.q5 + 0.66); T.turnos = r2(T.s1 + 0.52);
-const DUR = Math.ceil((Math.ceil((T.s1 + LEN.s1 + 0.35) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro: el audio no queda más largo que el video
+const DUR = Math.ceil((Math.ceil((T.s1 + LEN.s1 + 0.1) * 30) / 30) * 1e4) / 1e4;   // (r2 11:11) cola 0,25 s más corta   // múltiplo de un cuadro: el audio no queda más largo que el video
 T.cierre = r2(DUR - 2.05);   // (r1 11:11) la línea final ≥ 2 s en pantalla
 // el reloj de pared [t, hora decimal]: 15:00 · corre a 16:00 · 17:00 en punto · (parte 2) 15:00 en punto
 T.relojK = [[0, 15.0], [T.reloj1[0], 15.0], [T.reloj1[1], 16.0], [T.reloj2[0], 16.97], [T.reloj2[1], 17.0], [T.p5, 17.0], [T.p6, 17.86]];
@@ -203,7 +203,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.36)});   // (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.22)});   // (r2 11:11) sale mientras crece el iris; (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris`,
   });
 }
 
@@ -213,7 +213,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 120px; padding: 26px 10px 36px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 56px; padding: 26px 10px 36px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 92px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 150px/1.05 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 26px; margin-top: 6px; }
@@ -333,7 +333,7 @@ tela(T.pasa[0] + 0.2, -40, 2);
 voz("l5", T.l5, -2);
 // Q5 · la agenda llena (ding por fila), "Camilla vacía: 0 h", Sofi, el pop de TURNOS, la línea chica
 s("sfx/whoosh.mp3", T.q5 - 0.1, 0, { techo: -42 });
-T.filas.forEach((t, i) => ding(t, -38 + i));
+T.filas.forEach((t, i) => ding(t, -38 + i)); ding(T.cero, -35); pop(T.cero + 0.02, -40);
 s("sfx/whoosh-short.mp3", T.viaje[0], 0, { techo: -42 });
 voz("s1", T.s1, -1);
 pop(T.turnos + 0.02, -38);
@@ -456,7 +456,7 @@ ${arriba}
       // corte seco al cartel; la parte 2 entra por un iris que se abre desde el mostrador
       tl.set("#capa3d", { opacity: 0 }, ${ROT});
       tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.27)});
-      tl.fromTo("#capa3d", { clipPath: "circle(90px at ${IRIS_C})" }, { clipPath: "circle(1900px at ${IRIS_C})", duration: 0.3, ease: "power2.in", immediateRender: false }, ${IRIS});
+      tl.fromTo("#capa3d", { clipPath: "circle(90px at ${IRIS_C})" }, { clipPath: "circle(1900px at ${IRIS_C})", duration: 0.3, ease: "power1.in", immediateRender: false }, ${IRIS});
       tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 + 0.01)});
       window.__timelines["main"] = tl;
     </script>

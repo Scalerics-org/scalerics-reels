@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-portada-8.7.png",
- "nota": "(r1 11:11) fondo: cuadro 8,7 s (los cisnes ya en corazón de frente, el pelo nuevo de Lorena), el plano general de la pausa (reloj en 17:00, camilla vacía, Vale con los dos cisnes, Lorena de espaldas con la agenda), renderizado con LIMPIO=1 en una copia del proyecto (sin rubro, audios ni rótulos). Alternativa de grande: \"Me surgió algo\". Armado en portada-src/fondo-portada-8.7.png: el cuadro subido 300 px (reloj, camilla y Vale con los cisnes en la mitad de arriba)."
+ "nota": "(r2 11:11) fondo: cuadro 8,7 s del plano de la pausa renderizado con LIMPIO=1 y VER=cam:0.15,2.0,3.3,-0.05,1.15,-1.6,54 (un poco más abierto: el brazo de Vale no toca el borde), en una copia del proyecto; subido 160 px (el reloj queda debajo de y 285). Pelo nuevo de Lorena, cisnes en corazón de frente. Alternativa de grande: \"Me surgió algo\"."
 }

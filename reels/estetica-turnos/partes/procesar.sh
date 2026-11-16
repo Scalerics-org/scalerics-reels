@@ -6,7 +6,7 @@ LLAM="lowpass=f=7000"                                                           
 v() { ffmpeg -loglevel error -y -i partes/rec/$1.wav -af "${3:-anull}" -ar 48000 -ac 1 assets/voice/$2.wav; }
 v 01-carolina-a c1 "atempo=1.06,$CEL"     # "Ay, Lore, justo me surgió algo." (audio)
 v 02-lorena-b   l1                        # "Tranqui."
-v 03-jimena-a   j1 "highpass=f=200,lowpass=f=6000,volume=-1dB"     # "¿Era hoy? Lo tenía para el jueves que viene." (audio; sin atempo: con atempo el STT oía "irá hoy lotería")
+v 03-jimena-a   j1 "highpass=f=300,lowpass=f=5000,volume=-1dB"     # "¿Era hoy? Lo tenía para el jueves que viene." (audio; sin atempo: con atempo el STT oía "irá hoy lotería") (r2: highpass 300 como c1/c2; con compresor o lowpass 3400 el STT oye "lotería")
 v 04-lorena-c   l2                        # "Lo único puntual hoy fueron las excusas."
 v 05-carolina-b c2 "atempo=1.12,$CEL"     # "Lore, ¿me guardás el jueves que viene? Esta vez voy." (audio)
 v 06-lorena-a   l3                        # "Te lo guardo."

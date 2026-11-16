@@ -89,7 +89,7 @@ export const ELENCO = {
   // chaqueta de estética navy con franja verde); Vale, la cosmetóloga (~25, coleta alta negra, ambo verde de marca);
   // Carolina, la clienta (~32, rubia de coleta baja, campera corta crema con cuello navy); Jimena y Mariana, clientas que
   // solo salen como avatar (que no se parezcan a las otras tres).
-  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "melena", cejasColor: 0x4a2e1e, cejaFina: true,
+  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "melena", cejasColor: 0x6a3f27,   /* (r2 11:11) cerca del pelo: donde la ceja asoma por el flequillo no queda una mota oscura */ cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.navy3, mangas: "largas", cuello: null, cuelloBotones: false, franja: MARCA.g, cuelloAlto: 0.08,
     labiosPegados: true, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 1.02, nariz: 0.05, mejillas: 0xd98a7a, labios: 0xa8484f,
     aros: MARCA.cr, alto: 0.98 },
@@ -511,16 +511,29 @@ export function crearPersonaje(cfg) {
     // mechón irregulares en la cortina y en el casquete (desplazamiento por ángulo, sin período fijo), puntas desparejas y
     // una media cola con pinza verde atrás que corta la silueta
     const surco = (phi, k) => 1 + k * (0.55 * Math.sin(phi * 13 + 0.8 * Math.sin(phi * 4)) + 0.3 * Math.sin(phi * 23 + 1.7) + 0.15 * Math.sin(phi * 7 + 0.4));
-    { const ps = cort.geometry.attributes.position, y0 = perfilM[0].y, y1 = perfilM[perfilM.length - 1].y;
+    // (r2 11:11) además de los surcos, vetas de color por vértice (más oscuro en el surco, más claro en la cresta): de
+    // espaldas ya no se lee como casquete liso
+    const base = new THREE.Color(c.pelo), veta = (k0, k) => { const u = Math.max(-1, Math.min(1, (k - 1) / Math.max(1e-4, k0))); const f = 1 + 0.2 * u; return [base.r * f, base.g * f, base.b * f]; };
+    { const ps = cort.geometry.attributes.position, y0 = perfilM[0].y, y1 = perfilM[perfilM.length - 1].y, col = [];
       for (let i = 0; i < ps.count; i++) {
         const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), phi = Math.atan2(x, z), d = (y0 - y) / (y0 - y1);
-        const k = surco(phi, 0.03 + 0.045 * d);
+        const k0 = 0.03 + 0.045 * d, k = surco(phi, k0);
         const punta = d > 0.8 ? (d - 0.8) / 0.2 * R * (0.06 * (0.5 + 0.5 * Math.sin(phi * 9 + 2.1)) + 0.04 * (0.5 + 0.5 * Math.sin(phi * 17))) : 0;
-        ps.setXYZ(i, x * k, y - punta, z * k);
+        ps.setXYZ(i, x * k, y - punta, z * k); col.push(...veta(k0 * 0.8, k));
       }
+      cort.geometry.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); cort.material.color.set(0xffffff); cort.material.vertexColors = true;
       cort.geometry.computeVertexNormals(); }
-    { const cap = cabeza.children[cabeza.children.length - 2]; const g = cap.geometry, ps = g.attributes.position;
-      for (let i = 0; i < ps.count; i++) { const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), phi = Math.atan2(x, z), lat = Math.max(0, 1 - y); const k = surco(phi + 0.3, 0.012 * lat * Math.min(1, Math.abs(Math.cos(phi / 2)) < 0.97 ? 1 : 0.3)); ps.setXYZ(i, x * k, y, z * k); }
+    // (r2 11:11) el casquete: el borde de adelante ya no es una recta (losa): sube un poco (deja ver las cejas) y baja en
+    // puntas desparejas de flequillo; vetas de color como la cortina
+    { const cap = cabeza.children[cabeza.children.length - 2]; cap.rotation.x = -0.02; const g = cap.geometry, ps = g.attributes.position, col = [];
+      for (let i = 0; i < ps.count; i++) {
+        let x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i); const phi = Math.atan2(x, z), lat = Math.max(0, 1 - y);
+        const k0 = 0.02 * lat, k = surco(phi + 0.3, k0);
+        const frente = Math.max(0, Math.cos(phi)) ** 2, borde = Math.max(0, (0.25 - y) / 0.25);
+        if (frente > 0 && borde > 0) y -= borde * frente * 0.16 * Math.pow(0.5 + 0.5 * Math.sin(phi * 11 + 0.6 + 0.7 * Math.sin(phi * 3)), 1.5);
+        ps.setXYZ(i, x * k, y, z * k); col.push(...veta(Math.max(k0, 0.004) * 0.8, k));
+      }
+      g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); cap.material = pm.clone(); cap.material.color.set(0xffffff); cap.material.vertexColors = true;
       g.computeVertexNormals(); }
     { // la media cola: un mechón juntado arriba atrás con la pinza verde
       const pinza = mat(MARCA.g, 0.45);
