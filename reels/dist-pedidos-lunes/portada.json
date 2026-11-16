@@ -1,0 +1,14 @@
+{
+ "t": 11.8,
+ "chica": "Lunes, 11:00.",
+ "grande": "¿Y mi pedido?",
+ "sello": "DISTRIBUIDORAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-portada-11.8.png",
+ "nota": "(ronda 2) fondo: cuadro 11,8 s (P6, primer plano frontal de Rubén mirando el celular, el reloj en 11:00 arriba) renderizado con LIMPIO=1 en portada-src/fondo-limpio-11.8.png; en portada-src/fondo-portada-11.8.png está a tamaño completo (sin inserto achicado ni bordes) y subido 400 px; los 400 px de abajo, detrás del texto, son el mismo cuadro desenfocado. chica = 'Lunes, 11:00.' (el reloj marca las 11)."
+}
