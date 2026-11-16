@@ -1,0 +1,35 @@
+[sin narrador Orus: el chiste va en burbujas y en los apodos (todos le dicen "Raúl", Raúl les dice "maestro", "campeón", "genio", "jefe"), la pizarra que pasa de SÁBADO a MARTES · FEBRERO y el salón que se vacía; voces por archivo en partes/*.txt, ver partes/voces.md · objetivo ~36,4 s: parte 1 0,00-15,20 · cartel 15,20-17,60 · parte 2 (la solución) 17,60-36,40 = 18,8 s, el 52 %]
+[parte 1 · 0,00-15,20 · la parrilla de Raúl, sábado 21:30, el salón lleno · cuadro 0: "PARRILLAS" grande arriba y "Sábado, 21:30." · la parrilla a leña llena: la tira de asado con los huesitos a la vista, chorizos, morcillas y una provoleta, el brasero con los troncos ardiendo, la campana · Raúl detrás con la pinza · la pizarra de tiza "SÁBADO" · Walter, ya con la campera puesta, saliendo]
+WALTER: ¡Impecable, Raúl! ¡Volvemos!
+[le da una palmada en el hombro · Raúl levanta la pinza, sonrisa de anfitrión]
+RAUL: ¡Cuando quieras, maestro!
+[3,00-4,30 · primer plano de Raúl · Walter se va por la puerta (campanita) · Raúl, a Fabián el mozo, bajito, sin mover la sonrisa]
+RAUL: ¿Quién era?
+[Fabián se encoge de hombros · burbuja muda: "Ni idea."]
+[4,30-6,80 · ráfaga muda, se van tres mesas · burbujas de a pares, el nombre en verde y el apodo en rojo apagado: "¡Abrazo, Raúl!" → "¡Grande, campeón!" · "¡Hasta el sábado, Raúl!" → "¡Te espero, genio!" · "¡Gracias, Raúl!" → "¡Un lujo, jefe!" · la sonrisa de Raúl cada vez más dura · rótulo: "Sábado: 112 cubiertos" / "Nombres que sabe Raúl: 0"]
+[6,80-7,60 · la cámara va a la pizarra: Fabián borra "SÁBADO" con el trapo y escribe "MARTES · FEBRERO" · el murmullo se apaga, el ventilador de techo empieza a girar]
+[7,60-10,00 · el mismo salón, vacío: 3 mesas de 25, la parrilla prendida con una sola tira · rótulos: "Martes de febrero: 3 mesas de 25" · "La leña, la tira y el mozo se pagan igual" · Fabián, con el trapo al hombro]
+FABIAN: ¿Y si les avisás a los del sábado?
+[10,00-10,70 · pausa · Raúl saca el celular: "Contactos": Carnicería Don Tito, Leña, Mamá, Contador, Plomero; el scroll llega al final y rebota · primer plano de Raúl, seco]
+RAUL: ¿A quién? ¿A "maestro"?
+[12,00-15,20 · remate del remate · suena la campanita: entra Walter, el del sábado, contento]
+WALTER: ¡Raúl! ¿Te acordás de mí?
+[Raúl sale de atrás de la parrilla con los brazos abiertos, sonrisa enorme]
+RAUL: ¡Obvio, maestro!
+[en el abrazo, Raúl mira a Fabián por encima del hombro de Walter, con la sonrisa congelada · Fabián se encoge de hombros otra vez · stinger]
+[cartel · 15,20-17,60 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una tarjeta" / "de puntos" / "más tarde…" · nunca "Scalerics"]
+NARRADOR: Una tarjeta de puntos más tarde.
+[parte 2 · 17,60-36,40 · Q1 17,60-22,00 · chip "Sábado, 21:30." · la mesa de Walter: la tira, la morcilla, el sifón y el atril con el QR "Sumá tu visita · Parrilla Raúl" · Walter escanea · inserto de su celular: "Hola, Walter" · el 4º círculo se llena: "+1 visita ✓" · "Visita 4 de 5" · "A la 5ª: provoleta de regalo" · rótulo: "Suma con cada visita" · en la tablet de Raúl entra la ficha "Walter · 4ª visita · tira + morcilla dulce" · Walter se va, como en el cuadro 0 (la misma toma)]
+WALTER: ¡Impecable, Raúl! ¡Volvemos!
+[Raúl mira la tablet de reojo, contento · Fabián levanta las cejas]
+RAUL: ¡Te espero, Walter!
+[Q2 22,00-24,80 · la tablet a casi toda la pantalla: "Quién vuelve y cada cuánto" · "Graciela · cada sábado · ✓ vino" · "Walter · cada 2 semanas · ✓ vino" · "Familia Pereira · 1 vez al mes" · "Martín · cada 3 semanas" · arriba: "Nombres que sabe Raúl: 0 → 112" (el 0 rojo gira y queda el 112 verde)]
+[Q3 24,80-28,60 · chip "Febrero" · el panel: "Hace más de 4 semanas que no vienen: 38" · "Walter · última visita: hace 5 semanas" en rojo · "Aviso automático" → "Enviado ✓ · 38" (Raúl no toca nada) · el aviso vuela al celular de Graciela, en su living: "Hola, Graciela. Hace un mes que no te vemos. Tenés una provoleta de regalo esperándote. · Parrilla Raúl" · rótulo: "Aviso al que dejó de venir"]
+GRACIELA: ¡Vamos el martes!
+[Q4 28,60-33,00 · martes de febrero, el mismo encuadre del salón vacío: la pizarra "MARTES · FEBRERO", el ventilador, pero 17 mesas de 25 ocupadas; Graciela y dos amigas con la provoleta · chip: "Martes de febrero: 3 → 17 mesas" · suena la campanita: entra Walter (la misma toma)]
+WALTER: ¡Raúl! ¿Te acordás de mí?
+[Raúl, sin mirar la tablet, lo señala con la pinza, seco y con media sonrisa · Walter, cara de culpa simpática · Fabián se ríe por lo bajo]
+RAUL: Walter. Tira y morcilla dulce. Faltaste dos sábados.
+[Q5 33,00-36,40 · la cámara va a la barra: la tablet con la fila de Walter otra vez en verde ("✓ volvió") y al lado un celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá VUELVE" (VUELVE en el recuadro verde)]
+SOFI: Comentá VUELVE y te mando cómo funciona para tu parrilla.
+[35,60-36,40 · abajo, chico: "Tarjeta de puntos con aviso al que deja de venir" / "scalerics.com" en verde]
