@@ -96,7 +96,7 @@ export const ELENCO = {
   vale: { nombre: "Vale", piel: PIEL.clara, pelo: PELO.negro, peinado: "coletaAlta", cejasColor: 0x2a2220, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.g, mangas: "cortas", cuello: null, cuelloBotones: false, franja: MARCA.navy, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 0.96, nariz: 0.045, mejillas: 0xf2a094, labios: 0xc0606a,
-    aros: MARCA.g, alto: 0.95 },
+    aros: MARCA.g, alto: 0.95, flequilloAlto: 0.16 },
   carolina: { nombre: "Carolina", piel: PIEL.media, pelo: PELO.rubio, peinado: "coleta", cejasColor: 0x8a6a40, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr, mangas: "largas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.cr, panza: 0.97, nariz: 0.046, mejillas: 0xe39282, labios: 0xb5555a,
@@ -472,7 +472,7 @@ export function crearPersonaje(cfg) {
     const tie = mat(MARCA.g, 0.45);
     if (c.peinado !== "mediaCola") {
       // flequillo de costado: tres mechas que barren la frente
-      for (const [az, el, sx, sy, rz] of [[-0.62, 0.48, 0.12, 0.05, 0.75], [-0.35, 0.58, 0.16, 0.06, 0.45], [-0.05, 0.64, 0.16, 0.06, 0.32], [0.28, 0.62, 0.14, 0.055, 0.3], [0.58, 0.52, 0.11, 0.05, 0.55], [0.85, 0.38, 0.07, 0.045, 0.9]]) mecha(az, el, sx, sy, 0.07, 1.04, rz);
+      for (const [az, el, sx, sy, rz] of [[-0.62, 0.48, 0.12, 0.05, 0.75], [-0.35, 0.58, 0.16, 0.06, 0.45], [-0.05, 0.64, 0.16, 0.06, 0.32], [0.28, 0.62, 0.14, 0.055, 0.3], [0.58, 0.52, 0.11, 0.05, 0.55], [0.85, 0.38, 0.07, 0.045, 0.9]]) mecha(az, el + (c.flequilloAlto || 0), sx, sy, 0.07, 1.04, rz);   // flequilloAlto (estetica-turnos): el flequillo más arriba, sin tapar el ojo
     } else {
       // flequillo cortina, abierto al medio
       for (const sg of [-1, 1]) { mecha(sg * 0.28, 0.6, 0.15, 0.065, 0.08, 1.04, -sg * 0.5); mecha(sg * 0.62, 0.45, 0.1, 0.06, 0.07, 1.04, -sg * 0.8); }

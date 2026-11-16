@@ -29,47 +29,47 @@ const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: el gabinete listo y vacío desde la puerta, Lorena con la agenda y el celular; el reloj 15:00. El audio
 // de Carolina ya está en pantalla (15:00). "Tranqui." · tacha 15:00 · Vale enrolla la toalla
-T.c1 = 0.2; T.l1 = r2(T.c1 + LEN.c1 + 0.12); T.tacha1 = r2(T.l1 + LEN.l1 + 0.04); T.rollo = [r2(T.tacha1 - 0.1), r2(T.tacha1 + 0.4)];
+T.c1 = 0.2; T.l1 = r2(T.c1 + LEN.c1 + 0.08); T.tacha1 = r2(T.l1 + LEN.l1 + 0.04); T.rollo = [r2(T.tacha1 - 0.1), r2(T.tacha1 + 0.4)];
 // P2 · el reloj corre a 16:00 · el mensaje a Mariana (✓✓ 16:05) · "escribiendo…" que se apaga · tacha 16:00 · cisne
 T.p2 = r2(T.tacha1 + 0.18); T.reloj1 = [r2(T.p2 + 0.1), r2(T.p2 + 1.1)];
-T.msj = r2(T.p2 + 0.35); T.escribe = [r2(T.msj + 0.55), r2(T.msj + 1.25)]; T.tacha2 = r2(T.escribe[1] + 0.25);
+T.msj = r2(T.p2 + 0.3); T.escribe = [r2(T.msj + 0.45), r2(T.msj + 1.0)]; T.tacha2 = r2(T.escribe[1] + 0.15);
 T.cisne1 = [r2(T.p2 + 0.75), r2(T.p2 + 1.45)];
 // P3 · 17:00 en punto: el audio de Jimena · tacha 17:00 · el segundo cisne y el corazón
-T.p3 = r2(T.tacha2 + 0.25); T.reloj2 = [r2(T.p3 - 0.05), r2(T.p3 + 0.15)]; T.jimena = r2(T.p3 + 0.05); T.j1 = r2(T.p3 + 0.2);
+T.p3 = r2(T.tacha2 + 0.2); T.reloj2 = [r2(T.p3 - 0.05), r2(T.p3 + 0.15)]; T.jimena = r2(T.p3 + 0.05); T.j1 = r2(T.p3 + 0.2);
 T.tacha3 = r2(T.j1 + LEN.j1 + 0.08); T.cisne2 = [r2(T.j1 + 0.6), r2(T.j1 + 1.4)]; T.corazon = [r2(T.tacha3 - 0.05), r2(T.tacha3 + 0.4)];
 // P4 · la pausa: plano general quieto; los rótulos del costo
-T.p4 = r2(T.tacha3 + 0.3); T.rot = [r2(T.p4 + 0.2), r2(T.p4 + 0.55), r2(T.p4 + 0.9)];
+T.p4 = r2(T.tacha3 + 0.3); T.rot = [r2(T.p4 + 0.12), r2(T.p4 + 0.4), r2(T.p4 + 0.7)];
 // P5 · primer plano de Lorena: "Lo único puntual hoy fueron las excusas."
-T.p5 = r2(T.p4 + 1.75); T.l2 = r2(T.p5 + 0.15);
+T.p5 = r2(T.p4 + 1.8); T.l2 = r2(T.p5 + 0.15);
 // P6 · remate del remate: Carolina otra vez (17:52) · Lorena da vuelta la hoja y anota · "Te lo guardo." · Vale deja los
 // cisnes y agarra otra toalla
-T.p6 = r2(T.l2 + LEN.l2 + 0.3); T.carolina2 = r2(T.p6 + 0.05); T.c2 = r2(T.p6 + 0.2);
+T.p6 = r2(T.l2 + LEN.l2 + 0.2); T.carolina2 = r2(T.p6 + 0.05); T.c2 = r2(T.p6 + 0.12);
 T.hoja = [r2(T.c2 + LEN.c2 - 0.55), r2(T.c2 + LEN.c2 - 0.2)]; T.anota = [r2(T.hoja[1] + 0.05), r2(T.hoja[1] + 0.5)];
-T.l3 = r2(T.c2 + LEN.c2 + 0.12); T.vale = [r2(T.l3 + 0.15), r2(T.l3 + 0.65), r2(T.l3 + 1.05)];   // deja los cisnes · agarra la toalla · empieza
-const P1 = r2(T.l3 + LEN.l3 + 0.75);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.5, LEN.nar + 0.25));
+T.l3 = r2(T.c2 + LEN.c2 + 0.12); T.vale = [r2(T.l3 - 0.25), r2(T.l3 + 0.2), r2(T.l3 + 0.6)];   // deja los cisnes · agarra la toalla · empieza
+const P1 = r2(T.l3 + LEN.l3 + 0.35);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.12));
 // ---- parte 2 ----
 // Q1 · la recepción otra semana: la burbuja de Carolina ("¿me guardás el jueves que viene?") · "Te mando el link." ·
 // la tarjeta del link
-T.q1 = P2; T.carolina3 = r2(P2 + 0.1); T.l4 = r2(P2 + 0.6); T.link = r2(T.l4 + LEN.l4 + 0.05);
+T.q1 = P2; T.carolina3 = r2(P2 + 0.05); T.l4 = r2(P2 + 0.35); T.link = r2(T.l4 + LEN.l4 + 0.05);
 // Q1b · inserto del celular de Carolina: la página de reserva · Jue · 15:00 · Pagar seña · Turno reservado ✓
 T.q1b = r2(T.link + 0.35); T.jue = r2(T.q1b + 0.35); T.hora = r2(T.q1b + 0.7); T.paga = r2(T.q1b + 1.25); T.reservado = r2(T.q1b + 1.45);
 // Q2 · el miércoles a las 15:00: el recordatorio a los tres celulares · Confirmar · Confirmar · Reprogramar → Martes 10:00
-T.q2 = r2(T.reservado + 0.85); T.llega = r2(T.q2 + 0.25); T.conf = [r2(T.q2 + 0.85), r2(T.q2 + 1.25), r2(T.q2 + 1.65)]; T.martes = r2(T.q2 + 2.0);
+T.q2 = r2(T.reservado + 0.75); T.llega = r2(T.q2 + 0.05); T.conf = [r2(T.q2 + 0.6), r2(T.q2 + 0.95), r2(T.q2 + 1.3)]; T.martes = r2(T.q2 + 1.6);
 // Q3 · la tablet: 16:00 libre, avisando a la lista de espera · Graciela en su living toca "Lo quiero" · "¡Me lo quedo!"
 // · la tablet: 16:00 Graciela ✓ · hueco cubierto en 2 minutos
-T.q3 = r2(T.martes + 0.6); T.libre = r2(T.q3 + 0.1); T.avisa = r2(T.q3 + 0.45);
+T.q3 = r2(T.martes + 0.45); T.libre = r2(T.q3 + 0.1); T.avisa = r2(T.q3 + 0.45);
 T.q3b = r2(T.q3 + 0.85); T.aviso = r2(T.q3b + 0.1); T.quiero = r2(T.q3b + 0.45); T.g1 = r2(T.q3b + 0.55);
-T.q3c = r2(T.g1 + LEN.g1 + 0.1); T.cubierto = r2(T.q3c + 0.15); T.chip = r2(T.q3c + 0.4);
+T.q3c = r2(T.g1 + LEN.g1 + 0.1); T.cubierto = r2(T.q3c + 0.05); T.chip = r2(T.q3c + 0.2);
 // Q4 · jueves 15:00, el encuadre del cuadro 0: la campanita, entra Carolina · "¡Llegué! …" · "Mirá vos. Hoy le surgió venir."
-T.q4 = r2(T.chip + 0.55); T.campanita = r2(T.q4 + 0.05); T.entra = [r2(T.q4 + 0.05), r2(T.q4 + 1.0)];
-T.c3 = r2(T.q4 + 0.85); T.pasa = [r2(T.c3 + LEN.c3 - 0.3), r2(T.c3 + LEN.c3 + 0.7)];
+T.q4 = r2(T.chip + 0.5); T.campanita = r2(T.q4 + 0.02); T.entra = [r2(T.q4 + 0.0), r2(T.q4 + 0.9)];
+T.c3 = r2(T.q4 + 0.47); T.pasa = [r2(T.c3 + LEN.c3 - 0.3), r2(T.c3 + LEN.c3 + 0.7)];
 T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25);
 // Q5 · la recepción: la tablet con el jueves lleno, Sofi en videollamada al lado · "Comentá TURNOS…" · la línea chica
-T.q5 = r2(T.l5 + LEN.l5 + 0.2); T.filas = [0, 0.18, 0.36].map((d) => r2(T.q5 + 0.25 + d)); T.cero = r2(T.q5 + 0.85);
-T.s1 = r2(T.q5 + 0.6); T.turnos = r2(T.s1 + 0.45);
-T.cierre = r2(T.s1 + LEN.s1 - 1.1);
-const DUR = r2(Math.max(T.s1 + LEN.s1 + 0.6, T.cierre + 1.8));
+T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = r2(T.q5 + 0.45);
+T.s1 = r2(T.q5 + 0.2); T.turnos = r2(T.s1 + 0.45);
+T.cierre = r2(T.s1 + LEN.s1 - 1.6);
+const DUR = r2(T.s1 + LEN.s1 + 0.4);
 // el reloj de pared [t, hora decimal]: 15:00 · corre a 16:00 · 17:00 en punto · (parte 2) 15:00 en punto
 T.relojK = [[0, 15.0], [T.reloj1[0], 15.0], [T.reloj1[1], 16.0], [T.reloj2[0], 16.97], [T.reloj2[1], 17.0], [T.p5, 17.0], [T.p6, 17.86]];
 
@@ -134,7 +134,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .caja { position: absolute; left: 40px; right: 40px; top: 96px; padding: 22px 10px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
     P .tx { font: 900 118px/1.06 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 8px; }
-    P .sel b { position: absolute; inset: 6px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
+    P .sel b { position: absolute; inset: -14px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
     P .sel em { position: relative; font-style: normal; }`,
     html: `      <div class="caja"><div class="tx">CENTROS DE</div><div class="tx"><span class="sel"><b></b><em>ESTÉTICA</em></span></div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
@@ -187,7 +187,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
       qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: ${dur}, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
-        const t0 = 0.12 + i * 0.035;
+        const t0 = 0.0 + i * 0.03;
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
@@ -244,7 +244,7 @@ const pop = (t, techo = -40) => s("sfx/pop.mp3", t, 0, { desde: 0.11, techo });
 const VOZ = [];
 const voz = (f, t, db = -1) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04 }); VOZ.push([r2(t - 0.75), r2(t + LEN[f] + 0.7)]); };
 const pasos = (a, b, n, techo = -46) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo, lp: 2500 }); };
-const noti = (t, techo = -40) => { s("sfx/vibra.wav", t, 0, { techo: techo - 2, dur: 0.4, fin: 0.1 }); s("sfx/notification.mp3", t + 0.02, 0, { techo, dur: 0.35, fin: 0.12 }); };
+const noti = (t, techo = -40) => { techo = Math.min(-33, techo + 5); s("sfx/vibra.wav", t - 0.2, 0, { techo: techo - 2, dur: 0.4, fin: 0.1 }); s("sfx/notification.mp3", t - 0.18, 0, { techo, dur: 0.35, fin: 0.12 }); };
 const tacha = (t, techo = -36) => { s("sfx/k-page-turn.wav", t, 0, { techo, vel: 1.6, dur: 0.22, fin: 0.06, hp: 1200 }); s("sfx/k-page-turn.wav", t + 0.12, 0, { techo: techo - 2, vel: 1.9, dur: 0.18, fin: 0.06, hp: 1500 }); };
 const tela = (t, techo = -38, k = 1) => s(`sfx/k-cloth_${k}.wav`, t, 0, { techo, dur: 0.35, fin: 0.1 });
 const tic = (t, techo = -42, k = 0) => s(["sfx/k-tick-1.wav", "sfx/k-tick-2.wav", "sfx/k-tick-4.wav"][k % 3], t, 0, { techo, hp: 900 });
@@ -314,19 +314,23 @@ voz("g1", T.g1, -1);
 s("sfx/whoosh-short.mp3", T.q3c - 0.04, 0, { techo: -42 });
 ding(T.cubierto, -36); pop(T.chip, -40);
 // Q4 · la campanita de la puerta, los pasos de Carolina, "¡Llegué!…", Vale la hace pasar (tela), "Mirá vos."
-s("sfx/campanita.wav", T.campanita, 0, { techo: -34, dur: 0.9, fin: 0.3 });
+s("sfx/campanita.wav", T.campanita, 0, { techo: -35, dur: 0.9, fin: 0.3 });
 s("sfx/puerta-abre.wav", T.campanita - 0.05, 0, { techo: -42, dur: 0.6, fin: 0.2 });
-pasos(T.entra[0] + 0.1, T.entra[1], 4, -44);
+pasos(T.entra[0] + 0.1, T.entra[1], 4, -38);
 voz("c3", T.c3, -1);
 tela(T.pasa[0] + 0.2, -40, 2);
 voz("l5", T.l5, -2);
 // Q5 · la agenda llena (ding por fila), "Camilla vacía: 0 h", Sofi, el pop de TURNOS, la línea chica
 s("sfx/whoosh.mp3", T.q5 - 0.1, 0, { techo: -42 });
-T.filas.forEach((t, i) => ding(t, -40 + i));
+T.filas.forEach((t, i) => ding(t, -38 + i));
 pop(T.cero, -38);
 voz("s1", T.s1, -1);
 pop(T.turnos + 0.02, -38);
 pop(T.cierre + 0.05, -44);
+// (ronda 1) la cama +4 dB y, en los tramos sin voz (el reloj que corre, la demo de la interfaz, la entrada de Carolina), los
+// SFX +6 dB (nunca por encima del techo)
+for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
+  if (en(t0, T.p2, T.p3) || en(t0, T.link, T.g1 - 0.2) || en(t0, T.q3c - 0.2, T.q4 - 0.05)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 function en(t, a, b) { return t >= a && t < b; }
@@ -398,7 +402,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1100px";   // el iris se abre desde el mostrador de la recepción (Q1)
+const IRIS_C = "540px 1500px";   // el iris se abre desde el mostrador de la recepción (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>
