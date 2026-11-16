@@ -112,7 +112,7 @@ export const ELENCO = {
   // parrilla-no-vuelve (16-11): Raúl, dueño de la parrilla (~52, pelo corto entrecano y barba corta canosa completa,
   // camisa navy claro de manga corta, delantal de parrillero crema gastado con borde verde oscuro; nada de Rubén: Rubén
   // es pelado con bigote y camisa navy3). Fabián, el mozo (~28, jopo negro, camisa blanca con chaleco navy).
-  raul: { nombre: "Raúl", piel: PIEL.trigueña, pelo: 0x5e5048, peinado: "corto", cejasColor: 0x3a2f2a, cejaGruesa: true,
+  raul: { nombre: "Raúl", piel: PIEL.trigueña, pelo: 0x77706a, peloSienes: 0x9d978f, peinado: "cortoCano", cejasColor: 0x4a3f38,
     barba: 0x9a948c, barbaLarga: 0.45, barbaOpacidad: 0.8, barbaBigote: true, bigoteColor: 0x8a847c,
     camisa: MARCA.navy2, mangas: "cortas", cuello: MARCA.navy2, cuelloBotones: true, delantal: MARCA.cr2, delantalBorde: MARCA.gd,
     pantalon: 0x3a3f4a, zapatos: 0x2a2220, panza: 1.14, nariz: 0.066, mejillas: 0xc9785e, alto: 1.02 },
@@ -467,6 +467,12 @@ export function crearPersonaje(cfg) {
   } else if (c.peinado === "corto") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.42), M.pelo, 0, CC + 0.01, -0.01, R * 1.05, R * 1.02, R * 1.02));
     const flequillo = mesh(rbox(0.36, 0.08, 0.12, 0.035), M.pelo); sobre(flequillo, 0, 0.72, 1.0); flequillo.rotation.x -= 0.4; cabeza.add(flequillo);
+  } else if (c.peinado === "cortoCano") {
+    // (parrilla-no-vuelve r2) Raúl: pelo corto entrecano pegado al cráneo, la frente despejada (sin flequillo ni visera),
+    // las sienes y la nuca más canosas
+    const cap = mesh(new THREE.SphereGeometry(1, 40, 18, 0, Math.PI * 2, 0, Math.PI * 0.4), M.pelo, 0, CC + 0.004, -0.012, R * 1.03, R * 1.015, R * 1.03); cap.rotation.x = -0.32; cabeza.add(cap);
+    const cano = mat(c.peloSienes ?? 0xa39d94, 0.8);
+    const nuca = mesh(new THREE.SphereGeometry(1, 32, 12, Math.PI + 0.35, Math.PI - 0.7, Math.PI * 0.3, Math.PI * 0.28), cano, 0, CC, -0.005, R * 1.02, R * 0.99, R * 1.0); cabeza.add(nuca);
   } else if (c.peinado === "coleta") {
     // casquete con raya al costado, flequillo de lado y coleta alta que cae atrás
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.44), M.pelo, 0, CC + 0.008, -0.012, R * 1.05, R * 1.03, R * 1.03));

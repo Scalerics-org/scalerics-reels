@@ -116,3 +116,31 @@ Revisado: pasada completa cada 0,5 s de 0 a 36,5 (renders/snap/r1p1-r1p4) y zona
 Q1c, Q4, Q4b). Mezcla: voz ≥ +10,0 LU, -14,0 LUFS, pico -6,2 dBFS. `check --json`: 0 errores. Portada rehecha (mismo plano,
 delantal nuevo). Q4: el empuje hacia Walter es casi todo de zoom (alto, por encima de las cabezas; el movimiento bajaba
 sobre la mesa de Graciela).
+
+## Ronda 2 (16-11, sobre qa-ronda-r2.md)
+**Duración 37,27 s** (1118/30). Parte 1 0-16,45 · cartel 16,45-18,58 · **parte 2 18,58-37,27 = 18,69 s, 50,1 %**.
+- ALTA puerta: la hoja abre 1,2 rad (no toca la mesada ni los platos, que pasaron al fondo de la mesada), ya está abierta en
+  el corte a P7 y se queda abierta hasta que Walter pasó (después se ve cerrarse detrás); Walter está en el vano desde el
+  primer cuadro y entra caminando (P7 y Q4). Sin aparecer de golpe.
+- Abrazo: brazos abiertos a la altura del pecho, lejos de la cara (Raúl y Walter); Raúl mira a Fabián 0,4 s antes del
+  contraplano (P7b más largo).
+- Pelo de Raúl: peinado nuevo `cortoCano` (personajes.js): casquete pegado al cráneo con la frente despejada, sienes y nuca
+  canosas; sin flequillo ni ceja gruesa (la "doble ceja" era el flequillo). Portada regenerada.
+- La tira: carne abultada entre hueso y hueso, marrón dorado tostado, con los cortes de hueso como óvalos crema y la médula
+  arriba, y la grasa dorada en un canto; sin la textura a rayas.
+- Q5: la tablet de cerca llenando el ancho (la fila verde "Walter volvió hoy" se lee) con el rótulo abajo sin línea guía;
+  después paneo a Sofi.
+- Sofi: render target 864×1536 (sin dientes de sierra) y el logo más abajo (no se corta).
+- Graciela: cabeza derecha (la patilla no cruza el ojo) y "¡Vamos el martes!" debajo de la tarjeta del aviso.
+- Bajas: la ficha de Q1c apunta a Walter (la tablet era diminuta) y sin la lámpara que pasaba pegada a la cámara · panel
+  con filas desde el primer cuadro y febrero sin filas viejas · pinza más gruesa · la burbuja de Walter desde el cuadro 0 ·
+  pizarra más cerca · textos chicos subidos ("Tu tarjeta de puntos", "aviso automático", "5 contactos", la ficha).
+- Sonido: pausa de 0,3 s antes de "Faltaste dos sábados." (silencio insertado en la toma, procesar.sh) y whoosh en el
+  push-in · respiro de 0,22 s antes de Q5 · pinza +5 dB · música +2 dB hasta el techo en los tramos sin voz · pasos de Raúl.
+- Guion: portada.json con foco 30 %; guion.txt y plan.md sin "qué pide".
+- NO (bajas): el cierre de la campera de Walter (es la tapeta del modelo de Walter, recurrente en otros reels) · el sliver a
+  12,27 · los brazos de Fabián al encogerse · la línea guía de 112 · la banda navy bajo la pizarra (más cerca se corta el
+  marco).
+Revisado: pasada completa cada 0,5 s (renders/snap/r2p1-r2p4) y, después del ajuste final del pelo (sin los parches de las
+sienes, que se veían como un disco claro) y del logo de Sofi (más chico y adentro del cuadro), r2b. Mezcla: voz ≥ +14,5 LU,
+-14,0 LUFS. `check --json`: 0 errores. Portada regenerada.

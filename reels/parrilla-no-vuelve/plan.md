@@ -10,7 +10,7 @@ sábado?"** Pausa. Raúl, con el celular: **"¿A quién? ¿A 'maestro'?"** Remat
 Walter: **"¡Raúl! ¿Te acordás de mí?"** / Raúl, brazos abiertos: **"¡Obvio, maestro!"** y mira de reojo a Fabián, que se
 encoge de hombros otra vez. Cartel **"Una tarjeta de puntos más tarde…"**. Parte 2 (más de la mitad del reel): otro
 sábado, Walter escanea el QR de la mesa y suma su visita ("Visita 4 de 5 · a la 5ª, provoleta de regalo"); en la tablet
-de Raúl aparece "Walter · tira + morcilla dulce"; el mismo "¡Impecable, Raúl! ¡Volvemos!" ahora tiene nombre: **"¡Te
+de Raúl aparece "Walter · 4ª visita · viene cada 2 semanas"; el mismo "¡Impecable, Raúl! ¡Volvemos!" ahora tiene nombre: **"¡Te
 espero, Walter!"**. El panel "Quién vuelve y cada cuánto" ("Nombres que sabe Raúl: 0 → 112"). En febrero, el sistema
 detecta a los 38 que hace más de un mes que no vienen y les manda solo el aviso (Graciela: **"¡Vamos el martes!"**). Martes
 de febrero, el mismo encuadre del salón vacío: 17 mesas de 25. Entra Walter: "¡Raúl! ¿Te acordás de mí?" y Raúl, sin
@@ -18,8 +18,8 @@ mirar nada: **"Walter. Tira y morcilla dulce. Faltaste dos sábados."** Cierre: 
 **"Comentá VUELVE y te mando cómo funciona para tu parrilla."**
 
 - **Producto:** Scalerics Puntos: el cliente **suma con cada visita escaneando el QR de la mesa** y lleva la tarjeta en
-  el celular, con un premio a la vista (a la 5ª visita, provoleta de regalo); el dueño ve **quién vuelve, cada cuánto y
-  qué pide** en un panel; y al que **dejó de venir le llega solo un aviso** con su premio. Se muestra funcionando en la
+  el celular, con un premio a la vista (a la 5ª visita, provoleta de regalo); el dueño ve **quién vuelve y cada cuánto
+  viene** en un panel; y al que **dejó de venir le llega solo un aviso** con su premio. Se muestra funcionando en la
   parte 2 (interfaz recreada) y se nombra en la línea chica final y en `descripcion.txt`. El cartel nunca dice
   "Scalerics".
 - **Sin marcas:** chat y avisos genéricos (burbujas crema/navy, sin el verde ni el logo de WhatsApp; la palabra
@@ -133,8 +133,8 @@ MARTES · FEBRERO; parte 2 igual + interfaz de tarjeta de puntos / panel / aviso
 "Hola, Walter" · tarjeta verde grande con **5 círculos de visita** (3 llenos, el 4º se llena con pop: **"+1 visita ✓"**) ·
 "Visita 4 de 5" · debajo, con un dibujito plano de la provoleta: **"A la 5ª: provoleta de regalo"**. Rótulo HTML: "Suma
 con cada visita".
-**Parte 2 · Q1 · tablet de Raúl** (en el atril de la parrilla/barra): entra una ficha **"Walter · 4ª visita · tira +
-morcilla dulce · viene cada 2 semanas"**.
+**Parte 2 · Q1 · tablet de Raúl** (en el atril de la parrilla/barra): entra una ficha **"Walter · 4ª visita · viene cada 2
+semanas"** (r1: sin "qué pide", Puntos no lo registra; el pedido lo dice Raúl de memoria).
 **Parte 2 · Q2 · el panel (tablet a ≥ 70 % del cuadro): "Quién vuelve y cada cuánto"**, lista con avatar redondo:
 - "Graciela · cada sábado · ✓ vino"
 - "Walter · cada 2 semanas · ✓ vino"
@@ -173,7 +173,7 @@ Nunca "Scalerics".
 
 | t (s) | plano y cámara | qué pasa | objetos 3D | SFX |
 |---|---|---|---|---|
-| 17,60-22,00 | **Q1 · el mismo sábado, ahora con nombre.** Chip arriba "Sábado, 21:30." (callback del cuadro 0). Plano de la mesa de Walter: el plato con la tira y la morcilla, el sifón, y el **atril con el QR** que entra grande con pop. Inserto del celular de Walter (≥ 60 %). Después, el cuadro 0 otra vez: la parrilla, Raúl, Walter saliendo. | 17,80 · Walter apunta el celular al QR · 18,20-19,40 · inserto: "Hola, Walter" · el 4º círculo se llena: **"+1 visita ✓"** · "Visita 4 de 5" · "A la 5ª: provoleta de regalo". 19,40 · en la tablet de Raúl junto a la parrilla entra la ficha "Walter · 4ª visita · tira + morcilla dulce". 19,60-21,00 · **Walter (la misma toma de 01): "¡Impecable, Raúl! ¡Volvemos!"** · 21,00-21,90 · Raúl mira la tablet de reojo: **"¡Te espero, Walter!"** (con nombre, contento) y Fabián levanta las cejas. | mesa, plato, sifón, atril QR, celular de Walter, tablet, parrilla, Raúl, Walter, Fabián | murmullo del sábado + chisporroteo (vuelve) · pop del atril 17,70 · bip del escaneo (click-soft agudo) 18,10 · ding (`cero.mp3`) 18,90 · whoosh-short 19,40 · palmada 20,80 |
+| 17,60-22,00 | **Q1 · el mismo sábado, ahora con nombre.** Chip arriba "Sábado, 21:30." (callback del cuadro 0). Plano de la mesa de Walter: el plato con la tira y la morcilla, el sifón, y el **atril con el QR** que entra grande con pop. Inserto del celular de Walter (≥ 60 %). Después, el cuadro 0 otra vez: la parrilla, Raúl, Walter saliendo. | 17,80 · Walter apunta el celular al QR · 18,20-19,40 · inserto: "Hola, Walter" · el 4º círculo se llena: **"+1 visita ✓"** · "Visita 4 de 5" · "A la 5ª: provoleta de regalo". 19,40 · en la tablet de Raúl junto a la parrilla entra la ficha "Walter · 4ª visita · viene cada 2 semanas". 19,60-21,00 · **Walter (la misma toma de 01): "¡Impecable, Raúl! ¡Volvemos!"** · 21,00-21,90 · Raúl mira la tablet de reojo: **"¡Te espero, Walter!"** (con nombre, contento) y Fabián levanta las cejas. | mesa, plato, sifón, atril QR, celular de Walter, tablet, parrilla, Raúl, Walter, Fabián | murmullo del sábado + chisporroteo (vuelve) · pop del atril 17,70 · bip del escaneo (click-soft agudo) 18,10 · ding (`cero.mp3`) 18,90 · whoosh-short 19,40 · palmada 20,80 |
 | 22,00-24,80 | **Q2 · quién vuelve y cada cuánto.** Push-in a la tablet hasta ≥ 70 % del cuadro (la parrilla desenfocada atrás). | 22,20 · las filas entran de a una con pop (Graciela, Walter, Familia Pereira, Martín) con su "cada cuánto" · 23,40 · arriba, **"Nombres que sabe Raúl: 0 → 112"**: el 0 rojo gira como contador y queda el 112 verde. | tablet, parrilla atrás | pop por fila · tic de contador al girar · ding en el 112 |
 | 24,80-28,60 | **Q3 · febrero: el aviso sale solo.** Chip **"Febrero"**; la misma tablet: el filtro "Hace más de 4 semanas que no vienen: **38**", la fila de Walter "última visita: hace 5 semanas" (rojo). "Aviso automático" → **"Enviado ✓ · 38"**. El aviso vuela (la cámara lo sigue) al celular de Graciela en su living. | 25,00 · el filtro cae · 25,80 · "Enviado ✓ · 38" (Raúl no toca nada: está en la parrilla) · 26,20 · inserto del celular de Graciela: "Hola, Graciela. Hace un mes que no te vemos. Tenés una provoleta de regalo esperándote. · Parrilla Raúl" · 27,40-28,30 · **Graciela: "¡Vamos el martes!"** (se saca los lentes, ya decidida). | tablet, living de Graciela, Graciela, su celular | whoosh-short 25,80 · notification 26,20 · el aviso volando (whoosh) · pop en la burbuja de Graciela |
 | 28,60-33,00 | **Q4 · martes de febrero, el mismo encuadre de P5.** La pizarra dice "MARTES · FEBRERO", el ventilador gira, pero **17 mesas de 25 ocupadas**; en una, Graciela y dos amigas con la provoleta; la parrilla llena otra vez. Chip **"Martes de febrero: 3 → 17 mesas"**. Suena la campanita: entra Walter. Push-in a Raúl. | 28,70 · chip del número · 29,40 · campanita · 29,60-30,90 · **Walter (la misma toma de 06): "¡Raúl! ¿Te acordás de mí?"** · 31,10-33,00 · **Raúl, sin mirar la tablet, señalándolo con la pinza: "Walter. Tira y morcilla dulce. Faltaste dos sábados."** (seco, con media sonrisa) · Walter, cara de culpa simpática; Fabián se ríe por lo bajo. | salón con 17 mesas, pizarra, ventilador, parrilla llena, Graciela y amigas, provoletera, Walter, Raúl, Fabián | murmullo de salón medio lleno (más bajo que el sábado) + chisporroteo + ventilador · campanita 29,40 · pinza 31,20 |

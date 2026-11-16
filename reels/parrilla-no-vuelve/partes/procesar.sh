@@ -19,4 +19,7 @@ v 12-sofi-b     s1 "atempo=1.15,$LLAM"    # "Comentá VUELVE y te mando cómo fu
 corta() { ffmpeg -loglevel error -y -i assets/voice/$1.wav -af "aselect='not(between(t,$2,$3))',asetpts=N/SR/TB" -ar 48000 -ac 1 /tmp/claude-0/c-$1.wav && mv /tmp/claude-0/c-$1.wav assets/voice/$1.wav; }
 corta r3 0.75 0.95        # "¿A quién?" … "¿A maestro?": la pausa de 0,5 a 0,3 s
 corta w2 1.0 1.3          # "¡Raúl!" … "¿Te acordás de mí?": de 0,41 a 0,15 s
+# (r2) estira la pausa antes de "Faltaste dos sábados." (0,13 → 0,3 s)
+estira() { ffmpeg -loglevel error -y -i assets/voice/$1.wav -filter_complex "[0:a]atrim=0:$2,asetpts=N/SR/TB[a];[0:a]atrim=$2,asetpts=N/SR/TB[b];anullsrc=r=48000:cl=mono,atrim=0:$3[s];[a][s][b]concat=n=3:v=0:a=1" -ar 48000 -ac 1 /tmp/claude-0/e-$1.wav && mv /tmp/claude-0/e-$1.wav assets/voice/$1.wav; }
+estira r6 2.26 0.17
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done
