@@ -1,0 +1,36 @@
+[sin narrador Orus: el chiste va en las burbujas del celular, el pincho de presupuestos que se llena y el elevador vacío; voces por archivo en partes/*.txt, ver partes/voces.md · total real 38,4 s: parte 1 0,00-15,60 · cartel 15,60-18,00 · parte 2 (la solución) 18,29-38,40 = 20,1 s, el 52,4 %; tiempos reales del reel armado]
+[parte 1 · 0,00-15,66 · "Mecánica Óscar", un taller de día con el portón abierto y la luz de mediodía · cuadro 0: "TALLERES MECÁNICOS" grande arriba, chip "LUNES" · el sedán crema de Sergio levantado en el elevador, la rueda apoyada en la columna · Óscar (mameluco navy con franja verde, trapo en el bolsillo) le acaba de dar a Sergio el presupuesto de papel con la huella de grasa: "Embrague completo · $ 38.000"]
+SERGIO: Lo pienso y te aviso.
+[1,67 · Óscar clava la copia en el pincho del banco: chac]
+[2,01-4,62 · la semana en el celular de Óscar, con huellas de grasa en la pantalla · MARTES: Óscar le manda a Fabián "Frenos y discos · $ 14.500" → "Visto 10:12" y nada · MIÉRCOLES: Pablo, "Lo hablo con mi señora." · JUEVES: Silvia, "Te confirmo el lunes." · VIERNES: Andrés, "Dale, cualquier cosa te escribo." · después de cada uno, chac: el pincho llega a cinco papeles]
+[4,62-8,40 · SÁBADO · el elevador vacío con los brazos abiertos · Maxi (mameluco verde oscuro) sentado en la pila de cubiertas mira el pincho lleno · Óscar se limpia las manos con el trapo]
+MAXI: Jefe, ¿a esos no los llamamos?
+ÓSCAR: Si les interesa, llaman.
+[8,40-11,75 · bocina · por la calle, frente al portón, pasa el sedán crema arreglado, andando, ventanilla baja, Sergio asomado y saludando, contento]
+SERGIO: ¡Óscar! Al final lo hice acá a la vuelta. ¡Me llamaron!
+[11,75-12,55 · pausa · el pincho lleno en primer plano, el elevador vacío, Óscar y Maxi en el portón · la música baja, el zumbido de la lámpara, una gota de aceite · rótulos con línea guía: "5 presupuestos esta semana · $ 90.800 en el pincho" y al elevador: "Embrague $ 38.000: a la vuelta"]
+[12,55-14,46 · primer plano de Óscar mirando el pincho, seco, sin levantar la voz]
+ÓSCAR: Lo pensó. Y me avisó.
+[14,46-15,66 · remate del remate · vibra el celular: "Hola, ¿me pasás presupuesto de embrague?" · Óscar mira el celular, mira el pincho · la mano de Maxi apoya al lado, sin decir nada, un segundo pincho vacío: tac · stinger]
+[cartel · 15,66-18,29 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "de presupuestos" / "más tarde…" · nunca "Scalerics"]
+NARRADOR: Un sistema de presupuestos más tarde.
+[parte 2 · 18,29-38,40 · el mismo taller, otro lunes, la misma luz · Q1 18,29-21,66 · el encuadre del cuadro 0: Óscar y Sergio frente al sedán en el elevador · en el banco, la tablet en su atril y el pincho vacío]
+SERGIO: Lo pienso y te aviso.
+[el mismo audio de la parte 1 · Óscar, con media sonrisa, toca "Enviar" en la tablet]
+ÓSCAR: Pensalo tranquilo.
+[20,78-21,66 · inserto del celular de Sergio (≥ 60 % del cuadro): "Mecánica Óscar · Presupuesto · Embrague completo · $ 38.000 · Válido 7 días" con los botones "Aceptar y agendar" y "Tengo una duda" · en la tablet la tarjeta de Sergio pasa de ENVIADO a VISTO · rótulo: "Presupuesto con botón"]
+[Q2 21,66-24,96 · chip "Miércoles · 2 días después" · a Sergio le llega solo el seguimiento: "Hola, Sergio. ¿Pudiste ver el presupuesto del embrague? Si querés, te lo agendamos." · rótulo: "Seguimiento automático · a los 2 días"]
+SERGIO: Justo lo estaba pensando.
+[toca "Aceptar y agendar" · elige "Lun 8:30" · "Turno agendado ✓ · Lunes 8:30"]
+[Q3 24,96-29,42 · push-in a la tablet del banco: el tablero de la semana, columnas ENVIADO · VISTO · ACEPTADO · Fabián y Pablo pasan a ACEPTADO, Silvia "Tiene una duda · te toca a vos", Andrés "Seguimiento: mañana" · abajo "Abiertos: $ 16.300" y "Aceptados: $ 74.500" en verde, el contador subiendo]
+MAXI: Jefe, ¿a esos no los llamamos?
+[el mismo audio de la parte 1 · Óscar, sin levantar la vista de la tablet]
+ÓSCAR: Ya les escribió el sistema.
+[Q4 29,42-34,09 · chip "LUNES · 8:30" · el encuadre del cuadro 0 con el elevador vacío · por el portón entra el sedán crema y se acomoda entre las columnas · Sergio baja con la llave del llavero verde]
+SERGIO: Lo pensé.
+[Óscar le recibe la llave, media sonrisa]
+ÓSCAR: Y me avisaste.
+[Maxi aprieta el botón verde y el elevador sube el auto · al fondo, Maxi cuelga el pincho vacío en el panel de herramientas, en su silueta, jubilado]
+[Q5 34,09-38,40 · push-in a la tablet: "Aceptados: $ 74.500" en verde y "Seguimientos a mano: 0" · al lado, un celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá PRESUPUESTO" (PRESUPUESTO en el recuadro verde)]
+SOFI: Comentá PRESUPUESTO y te mando cómo funciona para tu taller.
+[36,35-38,40 · abajo, chico: "Presupuestos con seguimiento automático" / "scalerics.com" en verde]
