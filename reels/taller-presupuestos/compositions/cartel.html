@@ -60,7 +60,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, 2.41);   // (r2 11:11) sale mientras crece el iris; (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, 2.23);   // (r1) se va antes del iris   // (r2 11:11) sale mientras crece el iris; (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

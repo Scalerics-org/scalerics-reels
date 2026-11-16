@@ -225,8 +225,8 @@ const cartelT = lienzo(1200, 260, (x, w, h) => { x.fillStyle = "#efeee5"; x.fill
   { const rollo = mesh(new THREE.CylinderGeometry(0.22, 0.22, PORTON.x1 - PORTON.x0 + 0.2, 28), M.cr, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto - 0.16, ZF + 0.42); rollo.rotation.z = Math.PI / 2; SET.add(rollo); SET.add(caja(PORTON.x1 - PORTON.x0 + 0.3, 0.08, 0.5, M.cr2, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto + 0.08, ZF + 0.38, 0.02)); }
   // el cartel "MECÁNICA ÓSCAR" arriba del portón (placa crema con borde navy; se lee de frente)
   // (r1) a la derecha del portón, lejos del travesaño del elevador (detrás del travesaño se perdían las tildes)
-  SET.add(caja(2.7, 0.66, 0.06, M.navy3, 4.15, 2.75, ZF + 0.14, 0.03));
-  SET.add(plano(2.56, 0.555, cartelT, 4.15, 2.75, ZF + 0.175));
+  // (r1) sin cartel en la pared: detrás del travesaño perdía las tildes y en los costados quedaba cortado; el nombre
+  // "Mecánica Óscar" va en los presupuestos, el chat, la tablet y el celular de Sergio
   // ---- afuera: la vereda crema con su cordón, la calle, la vereda de enfrente y la fachada crema con ventanas navy ----
   const af = (w, d, x, z, m, y = 0) => { const p = mesh(new THREE.PlaneGeometry(w, d), m, x, y, z); p.rotation.x = -Math.PI / 2; p.castShadow = false; SET.add(p); };
   af(30, 1.8, 0, ZF - 1.0, M.cr, 0.12); SET.add(caja(30, 0.12, 0.14, M.cr3, 0, 0.06, ZF - 1.93, 0.02));
@@ -631,7 +631,9 @@ const tilde = (x, cx, cy, s, color = "#0b1220", lw = null) => { x.strokeStyle = 
 function renglones(x, txt, ancho) { const ws = txt.split(" "), out = []; let l = ""; for (const w of ws) { const p = l ? l + " " + w : w; if (x.measureText(p).width > ancho && l) { out.push(l); l = w; } else l = p; } if (l) out.push(l); return out; }
 
 // ---- Sofi en videollamada: una escena aparte que se renderiza a una textura cada cuadro (Q5) ----
-const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: null, cuello: MARCA.cr, cuelloBotones: false, cuelloFino: true, auricularFino: false, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });   // (r1) sin los aros crema en el torso; auriculares verdes grandes
+const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: null, cuello: MARCA.cr, cuelloBotones: false, cuelloFino: true, auricularFino: true, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });   // (r1) sin los aros crema en el torso
+// (r1) las copas verdes de los auriculares más grandes y por fuera del pelo: que se vean de frente en la videollamada
+for (const sx of [-1, 1]) { const c = mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.07, 24).rotateZ(Math.PI / 2), M.g, sx * 0.37, 0.24, 0.02); sofi.cabeza.add(c); const v = mesh(new THREE.TorusGeometry(0.36, 0.02, 8, 32, Math.PI), M.navy, 0, 0.27, 0.0); if (sx > 0) sofi.cabeza.add(v); }
 const SOFI = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(432, 768), cam: new THREE.PerspectiveCamera(28, 432 / 768, 0.05, 20) };
 {
   SOFI.rt.texture.colorSpace = THREE.SRGBColorSpace;
@@ -940,18 +942,18 @@ const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   // P1b: el chac, de cerca, desde atrás del banco (Óscar de frente clava la copia)
   ["P1b", r2(T.clava[0] + 0.12), [[r2(T.clava[0] + 0.12), -3.35, 1.62, 2.75, -1.4, 1.22, 0.75, 44], [T.p2, -3.3, 1.62, 2.68, -1.4, 1.22, 0.75, 42]]],
-  ["P2", T.p2, [[T.p2, PINCHO.x + 0.9, 1.62, PINCHO.z + 0.72, PINCHO.x, 1.52, PINCHO.z, 46], [T.p3, PINCHO.x + 0.86, 1.6, PINCHO.z + 0.68, PINCHO.x, 1.5, PINCHO.z, 44]]],
+  ["P2", T.p2, [[T.p2, PINCHO.x + 1.0, 1.66, PINCHO.z + 0.8, PINCHO.x, 1.42, PINCHO.z, 46], [T.p3, PINCHO.x + 0.96, 1.64, PINCHO.z + 0.76, PINCHO.x, 1.4, PINCHO.z, 44]]],
   ["P3", T.p3, [[T.p3, 0.85, 1.55, 5.6, -0.55, 1.22, 0.6, 48], [T.p4, 0.82, 1.55, 5.35, -0.55, 1.22, 0.6, 46]]],
   ["P4", T.p4, [[T.p4, 0.2, 1.55, 4.3, -0.15, 1.4, -7.5, 42], [T.p5, 0.2, 1.55, 4.1, -0.05, 1.4, -7.5, 41]]],
   // (r1) P4b: de cerca, desde la vereda del taller, la cámara acompaña a Sergio asomado por la ventanilla
   ["P4b", r2(T.s2 + 0.05), "sergio"],
   ["P5", T.p5, [[T.p5, -1.98, 1.5, 2.3, -0.9, 0.95, -4.0, 50], [T.p6, -1.98, 1.5, 2.22, -0.9, 0.95, -4.0, 48]]],
-  ["P6", T.p6, [[T.p6, -0.45, 1.6, -2.75, -0.8, 1.45, -4.35, 42], [T.p7, -0.47, 1.58, -2.85, -0.8, 1.45, -4.35, 40]]],
+  ["P6", T.p6, [[T.p6, -0.12, 1.6, -2.75, -0.5, 1.45, -4.35, 42], [T.p7, -0.15, 1.58, -2.85, -0.5, 1.45, -4.35, 38]]],
   ["P7", T.p7, [[T.p7, -0.55, 1.62, 1.75, -2.05, 1.28, 1.18, 46], [P1, -0.62, 1.6, 1.72, -2.05, 1.28, 1.18, 43]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0)], [r2(T.enviar - 0.4), ...P1C(0.6)]]],
   // Q1t: por encima del hombro de Óscar, toca Enviar en la tablet
-  ["Q1t", r2(T.enviar - 0.4), [[r2(T.enviar - 0.4), -0.62, 1.72, 2.45, -1.95, 1.2, 1.5, 40], [T.q1b, -0.66, 1.7, 2.38, -1.95, 1.2, 1.5, 38]]],
+  ["Q1t", r2(T.enviar - 0.4), [[r2(T.enviar - 0.4), -0.6, 1.72, 2.6, -1.95, 1.2, 1.74, 42], [T.q1b, -0.64, 1.7, 2.55, -1.95, 1.2, 1.74, 40]]],
   ["Q1b", T.q1b, null],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, 30.6, 1.55, 2.6, 29.85, 1.42, 0.0, 40], [T.q2c, 30.55, 1.55, 2.4, 29.85, 1.42, 0.0, 37]]],
@@ -1285,7 +1287,7 @@ function renderAt(tIn) {
   if (pl[2] === "sergio") {
     // P4b: desde la vereda del taller, acompaña la cabeza de Sergio en la ventanilla
     sergio.raiz.updateMatrixWorld(true); const h = sergio.cabeza.localToWorld(V3(0, 0.25, 0));
-    ponerCam([h.x + 0.3, 1.4, ZF - 0.55, h.x + 0.1, h.y - 0.35, h.z, 58], t);
+    ponerCam([h.x + 0.3, 1.5, ZF - 0.5, h.x + 0.1, h.y - 0.4, h.z, 64], t);
     if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
     if (window.__cam) ponerCam(window.__cam, t);
     camera.updateMatrixWorld(true);
@@ -1297,7 +1299,7 @@ function renderAt(tIn) {
   if (planoActual === "Q5") {
     sofi.poner(poseSofi(t)); sofi.raiz.updateMatrixWorld(true);
     const c = sofi.cabeza.localToWorld(V3(0, 0.2, 0));
-    SOFI.cam.position.set(c.x + 0.05, c.y + 0.0, c.z + 2.1); SOFI.cam.lookAt(c.x, c.y - 0.2, c.z);
+    SOFI.cam.position.set(c.x + 0.05, c.y + 0.02, c.z + 2.75); SOFI.cam.lookAt(c.x, c.y - 0.28, c.z);
     renderer.setRenderTarget(SOFI.rt); renderer.render(SOFI.esc, SOFI.cam); renderer.setRenderTarget(null);
   }
   // ---- insertos ----
@@ -1317,7 +1319,8 @@ function renderAt(tIn) {
     sergio.raiz.visible = false; PINCHO2.visible = false; celuO.visible = false; TRAPO_MANO.visible = false; TRAPO_BOLSILLO.visible = true;
     oscar.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.62, z: 1.42, giro: Math.PI / 2 + 0.25, ...aC(-0.05, 0.12), ...SECO, cejas: { alto: 0.1, ang: 0.25 }, ...BRAZOS.costado, manoI: [0.22, 0.32, 0.3], manoD: [-0.22, 0.32, 0.3] }]]), t });
     maxi.raiz.visible = true; maxi.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.6, z: 0.62, giro: Math.PI / 2 + 0.45, ...aC(-0.25, 0.08), ...CARA.incredula, ojos: { abiertos: 0.95 }, ...BRAZOS.costado }]]), t });
-    ponerCam([-0.5, 1.42, 1.32, -2.2, 1.42, 1.0, 46], t); camera.updateMatrixWorld(true);
+    PINCHO1.position.set(BANCO.x + 0.27, BANCO.alto, 1.02); PINCHO1.rotation.set(0, 0, 0); for (let i = 0; i < 5; i++) papelEnPincho(PAPELES[i], PINCHO1, i, i, 1);
+    ponerCam([0.2, 1.36, 1.02, -2.3, 1.12, 1.02, 47], t); camera.updateMatrixWorld(true);
     for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   }
   // ---- tarjetas ----
@@ -1339,9 +1342,9 @@ function renderAt(tIn) {
       if (t >= T.m1) { const [bx, by] = boca(maxi); ponerGlobo(GL.m1, 720, 420, ent(T.m1) * sale(T.o1), [bx, by - 30], 1); }
       if (t >= T.o1) { const [bx, by] = boca(oscar); ponerGlobo(GL.o1, 330, 480, ent(T.o1), [bx, by - 30], 2); }
     }
-    if (pa === "P4" && t >= T.s2) { const [bx, by] = boca(sergio); ponerGlobo(GL.s2, 540, 330, ent(T.s2), bx > -50 && bx < 1130 ? [bx, by - 30] : null); }
+    if ((pa === "P4" || pa === "P4b") && t >= T.s2) { const [bx, by] = boca(sergio); ponerGlobo(GL.s2, 540, 330, ent(T.s2), pa === "P4b" ? [bx, by - 60] : null); }
     if (pa === "P5") {
-      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = enPantalla(V3(LX + 0.4, 0.4, LZ + 1.0));
+      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = enPantalla(V3(LX - 0.55, 0.4, LZ + 0.6));
       const u0 = ent(T.rot[0]), u1 = ent(T.rot[1]), u2 = ent(T.rot[2]);
       ponerGlobo(GL.r1, 330, 1180, u0, null, 1); if (u0 > 0) ponerGuia(GUIAS[0], 330, 1250, ax, ay, eo(sg(t, T.rot[0], T.rot[0] + 0.25)));
       ponerGlobo(GL.r2, 330, 1360, u1, null, 1);

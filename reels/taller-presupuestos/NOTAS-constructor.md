@@ -79,3 +79,47 @@ mp4 provisorio (borrado); cuando esté el render, se puede volver a correr igual
 - La tarjeta que se mueve en el tablero pasa un instante por encima de la de Sergio (0,28 s).
 - 38,57 s (objetivo ≤ 38): si hay que recortar, la pausa de P5 (0,95 s) o Q2 (0,8 s antes de Sergio).
 - Revisión de arte sobre el MP4 renderizado: no hecha (no se renderizó, lo hace el coordinador).
+
+## Ronda 1 (16-11, sobre qa-ronda-r1.md)
+**Duración 38,0 s** (1140/30). Parte 1 0-15,66 · cartel 15,66-18,29 · **parte 2 18,29-38,0 = 19,71 s, 51,9 %**. Mezcla: voz
+≥ +6,1 LU en todos los tramos de 0,5 s (los tramos justos son colas de voz contra el toque de "Aceptar" y la puerta del auto),
+-14,0 LUFS, pico -5,9 dBFS. La música baja 0,5 (antes 0,35) debajo de cada voz y la cola del duck es 0,95 s.
+- **Arte 1 / Guion 1 (ALTA):** P4 se parte: P4 general (bocina, el auto entra) y **P4b** desde la vereda del taller
+  acompañando a Sergio asomado por la ventanilla, grande, saludando, con la cola de la burbuja a su boca. Sin piernas
+  dentro del auto (ya no atraviesan el piso); más inclinado hacia la ventanilla.
+- **Arte 2 (ALTA):** sin cartel de pared: detrás del travesaño del elevador se le perdían las tildes y movido a un costado
+  quedaba cortado en P1b y Q3b. "Mecánica Óscar" queda escrito, siempre con tildes, en los presupuestos de papel, el chat,
+  la tablet y el celular de Sergio. Tampoco queda el cartel vacío detrás del travesaño (arte 4).
+- **Guion 2 (portada):** VER=portada en tres.js: Óscar y Maxi de frente detrás del banco con el pincho lleno adelante;
+  grande "¡Me llamaron!", chica "Lo hizo a la vuelta.", sello TALLERES; sin botonera ni cartel.
+- Guion 3 / arte 17: P7 plano corto del banco, Maxi detrás del banco apoya el segundo pincho al lado del lleno.
+- Guion 4: Q5 con la tablet entera 0,62 s ("Seguimientos a mano: 0" se lee) antes del viaje a Sofi.
+- Guion 5: chip "VIERNES" en el tablero (Q3). Guion 8: descripcion.txt con el sujeto ("Sergio pasa por la puerta").
+- Arte 3: P2 con el pincho más abajo (el clavo ya no entra en el celular). Arte 9: el chat arranca con MARTES en P2.
+- Arte 5: Óscar y Maxi más a la derecha en el portón (Óscar no queda detrás de la columna); rótulo "a la vuelta" a la
+  izquierda con la guía al elevador vacío.
+- Arte 6: en Q4 Sergio se baja y camina hasta Óscar (0,5 s, pasos) antes del plano de la llave.
+- Arte 7 / 8: el presupuesto y el seguimiento llegan al instante (sin pantallas vacías).
+- Arte 10: la burbuja de Sergio en Q1 corta seco (sin fantasma). Arte 11: Q1t con la tablet entera.
+- Arte 12: la rueda suelta acostada en el piso al costado de la columna derecha (ya no parece una mochila ni flota).
+- Arte 13: sedán con techo grueso, parabrisas y luneta más inclinados, capó más bajo.
+- Arte 15: sin parpadeo de Sergio en "Justo lo estaba pensando." Arte 16: Óscar levanta la cabeza al hablar en Q3b
+  (se le ve la boca) y Maxi ya terminó (hay corte y pausa antes).
+- Arte 18: "Visto 10:12" y "enviados esta semana" a 42 px. Arte 19: el celular de Sergio sin la mano de cartón.
+- Arte 20: Sofi sin los aros crema en el torso (sin franja; cuello crema), copas verdes de auriculares grandes por fuera
+  del pelo y la cámara de la videollamada más abierta (se ven la vincha y las copas).
+- Arte 14 / 21 / sonido 10: resueltos con P4b.
+- Sonido 1: corte a Q3b y 0,42 s antes de "Ya les escribió el sistema." · 2: 0,42 s entre "Lo pensé." y "Y me
+  avisaste." · 3: bocina al techo (-31) · 4: tac del segundo pincho -31 y stinger -33 · 5: auto que entra -33 (puerta
+  -37 para no pisar a Sergio) · 6: el primer chac/notificación más fuertes · 7: llaves -33 · 8: "más tarde…" entra en "más"
+  (1,42 s) · STT: m1 nueva toma (02-maxi-g), el STT oye "jefe a esos no los llamamos".
+- Recortes para 38 s: semana 0,62 s por día, pausa P5 0,8, Q1b 0,88, Q2 0,55 antes de Sergio, tablero 0,8 antes de
+  Maxi, Q4c 0,9, Q5 0,62.
+- No hecho: arte 18 "$ 22.0" con la huella encima (es la huella de grasa del papel, se deja); sonido 9 (el último plano
+  dura lo que dura la línea de Sofi).
+- OJO: para correr `portada.mjs` (pide el mp4) se reemplazó un momento `renders/taller-presupuestos-final.mp4`; se
+  volvió a generar desde `renders/taller-presupuestos.mp4` con el ffmpeg del paso 10 (igual queda viejo: hay que
+  renderizar de nuevo).
+- Pasadas: renders/snap/r1 (cada 0,5 s desde 0) y renders/snap/r1b (desde 0,25) después de corregir; en r1 faltaba la
+  burbuja de Sergio en P4b, la guía de "a la vuelta" se iba de cuadro, P6 descentrado, Q1t cortado, el iris abría sobre el
+  texto del cartel (el texto sale ahora 0,4 s antes) → corregidos y vistos en r1b. `check --json` 0 errores.
