@@ -8,9 +8,27 @@ cafetería nueva). `assets/personajes.js` = el de dice-cuarenta. Rubén = `ELENC
 canoso), Graciela = `ELENCO.clienta` con delantal crema, Nico = `ELENCO.empleado` con el maletín (crearMochila navy),
 el operario de dice-cuarenta. Marta, Walter, Beto, Nelly, Fede y Sergio solo como avatar.
 
-**Duración: 34,44 s** (parte 1 0-14,17 · cartel 14,17-16,57 · parte 2 16,57-30,74 · cierre 30,74-34,44; tarjeta
-31,49-34,44 = 2,95 s). Solución + cierre = 17,87 s (52 %); en el cierre el monitor detrás de Rubén muestra el resumen
-"40 de 40 ✓" (layout propio del panel desde T.c, plano C desde la derecha).
+**Duración: 36,0 s** (parte 1 0-14,79 · cartel 14,79-17,19 · parte 2 17,19-31,8 · cierre 31,8-36,0; tarjeta
+33,05-36,0 = 2,95 s). Solución + cierre = 18,81 s (52 %). Planos de la parte 2: Q1 general de la rotisería (17,19) ·
+Q1b POV de Graciela (17,99) · Q2 POV de Marta (21,01) · Q2b el panel de frente, "Siete." (22,45) · Q2c Rubén de tres
+cuartos, "Sin mosca." (23,57) · Q3 el panel → grúa (26,47) → la tablet y el operario · Q4 Rubén y el reloj (28,28) ·
+Q4b contraplano de la puerta, Nico (30,71) · C Rubén con el monitor "40 de 40 ✓" detrás (31,8).
+
+### Ronda 1 de revisión independiente (16-11, sobre el render de 34,47 s)
+- Voces: g1 a atempo 1,5 (a 2x no se entendía; "oyó: Rubén, así que mandame lo de siempre, besos"), r4 = toma nueva
+  08-ruben-c ("oyó: siete sin mosca", "sin" con la misma fuerza), nar = 06-narrador-c con adeclip (la d recortaba).
+- Insertos POV: las manos más abajo (no tapan "Pedir · $ 12.440" ni "Pedido ✓"), el índice sin el pulgar (no hace la V),
+  el dedo entra 0,22 s antes del toque y se va enseguida; celulares casi verticales (fondo = pared, no el piso);
+  piso de la rotisería de bajo contraste.
+- Panel de la parte 2 rehecho (letras de 44-92 px, sin columna de hora, "Mandar a armar" arriba); fila 4 "Graciela ·
+  Editó su pedido ✓"; P5b/Q2b/Q3 sin la cabeza de Rubén detrás del monitor; el monitor se corre a x −0,82 en la parte 2.
+- Tablet más grande (0,6 × 0,43) y mirando hacia arriba, letras de 66-84 px; el final de la grúa la encuadra con el
+  operario (visera navy, cabeza levantada) y el pallet; cartel WALTER más bajo; agua con textura.
+- Termo siempre parado (saltaba entre planos). La pila de biblioratos se esconde en la parte 2 y en P5b.
+- Cuadro 0 sin el pedido de Walter (Sergio · Club 7:56); la foto de Marta 7:58; la planilla "Pedidos · Lunes" y
+  "Falta 1 · $ 9.360"; catálogo con encabezado de tres renglones ("Rotisería de Graciela", "Tus precios ✓").
+- Sonido: música al techo (-31), pops/teclas/tics/cajas/whoosh de la grúa/clicks más arriba, el clic de "Pedir" de Marta,
+  sorbo -31, golpe del celular -36, camión -42; voz ≥ 7,8 LU sobre el resto en todos los tramos.
 
 ### Ronda 1 de correcciones de guion (16-11)
 - Parte 1 −1,17 s: gaps de voz más cortos (r1 +0,16, p3/p4 +0,06), ráfaga comprimida (K4 = 0,88), P5 más corto (w1 en
@@ -37,9 +55,9 @@ cortó la segunda tanda) generan tomas; `partes/recortar.sh` recorta silencios y
 `/tmp/claude-0/dbg/probar.mjs` y `cam.mjs` (con el candado).
 
 ## Voces (partes/procesar.sh)
-g1 01-graciela-c (atempo 2,0 = el audio a 2x + filtro de chat) · r1 02-ruben-b (atempo 1,08) · r2 03-ruben-a (1,08) ·
-w1 04-walter-b (1,06 + chat) · r3 05-ruben-d · nar 06-narrador-d (1,12; entra en 2,28 s: el cartel dice "Un catálogo de
-pedidos más tarde…", sin el fallback) · g2 07-graciela-b · r4 08-ruben-a (0,38 s de pausa natural después de "Siete.") ·
+g1 01-graciela-c (atempo 1,5 + filtro de chat; a 2x no se entendía) · r1 02-ruben-b (atempo 1,08) · r2 03-ruben-a (1,08) ·
+w1 04-walter-b (1,06 + chat) · r3 05-ruben-d · nar 06-narrador-c (adeclip + 1,12; entra en P1 + 0,08: el cartel dice "Un catálogo de
+pedidos más tarde…", sin el fallback) · g2 07-graciela-b · r4 08-ruben-c (toma de la ronda 1; 0,33 s de pausa después de "Siete.") ·
 r5 09-ruben-b (1,08) · n1 10-nico-a · r6 11-ruben-d (1,155; generado con "pedidos" en minúscula; es la única toma en la que
 el STT oye "comentá" con tilde). Todas con "oyó:" igual al texto, salvo g1, donde el STT no oye el "Y" inicial de "Y nada"
 (se oye "nada, Rubén…"). Las tomas c/d de 01, 02, 05, 06, 09 y 11 están en partes/rec.

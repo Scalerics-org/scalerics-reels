@@ -5,11 +5,11 @@
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
     [data-composition-id="s00-rubro"] .esc { position: absolute; inset: 0; }
     [data-composition-id="s00-rubro"] .rubro { position: absolute; left: 0; right: 0; top: 120px; text-align: center; }
-    [data-composition-id="s00-rubro"] .t1 { display: inline-block; font: 900 114px/1 "Lexend", sans-serif; letter-spacing: -0.05em; color: #efeee5; -webkit-text-stroke: 14px #0b1220; paint-order: stroke fill; text-shadow: 10px 12px 0 #0b1220; }
+    [data-composition-id="s00-rubro"] .t1 { display: inline-block; font: 900 104px/1 "Lexend", sans-serif; letter-spacing: -0.05em; color: #efeee5; -webkit-text-stroke: 14px #0b1220; paint-order: stroke fill; text-shadow: 10px 12px 0 #0b1220; }
     [data-composition-id="s00-rubro"] .t2 { display: inline-block; margin-top: 26px; padding: 10px 34px 16px; border-radius: 22px; background: #0b1220; border: 6px solid #5ce611; font: 800 76px/1 "Lexend", sans-serif; letter-spacing: -0.01em; color: #5ce611; }
   </style>
-  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="1.9">
-    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="1.9" data-track-index="0">
+  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="2.46">
+    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="2.46" data-track-index="0">
       <div class="rubro"><div class="t1">DISTRIBUIDORAS</div><br><div class="t2">Lunes, 8:00.</div></div>
     </div>
   </div>
@@ -21,7 +21,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".t1"), { scale: 1 }, { scale: 1.03, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.5);
-      tl.to(q(".rubro"), { y: -560, duration: 0.22, ease: "power2.in" }, 1.66);
+      tl.to(q(".rubro"), { y: -560, duration: 0.22, ease: "power2.in" }, 2.22);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

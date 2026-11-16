@@ -34,9 +34,9 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l" data-t="0.15">U</span><span class="l" data-t="0.18">n</span><span class="esp"></span><span class="l" data-t="0.25">c</span><span class="l" data-t="0.28">a</span><span class="l" data-t="0.31">t</span><span class="l" data-t="0.34">á</span><span class="l" data-t="0.37">l</span><span class="l" data-t="0.4">o</span><span class="l" data-t="0.43">g</span><span class="l" data-t="0.46">o</span></span>
-        <span class="linea b"><span class="l" data-t="0.95">d</span><span class="l" data-t="0.98">e</span><span class="esp"></span><span class="l" data-t="1.05">p</span><span class="l" data-t="1.08">e</span><span class="l" data-t="1.11">d</span><span class="l" data-t="1.14">i</span><span class="l" data-t="1.17">d</span><span class="l" data-t="1.2">o</span><span class="l" data-t="1.23">s</span></span>
-        <span class="linea c"><span class="l" data-t="1.45">m</span><span class="l" data-t="1.48">á</span><span class="l" data-t="1.51">s</span><span class="esp"></span><span class="l" data-t="1.85">t</span><span class="l" data-t="1.88">a</span><span class="l" data-t="1.91">r</span><span class="l" data-t="1.94">d</span><span class="l" data-t="1.97">e</span><span class="l" data-t="2">…</span></span>
+        <span class="linea a"><span class="l" data-t="0.08">U</span><span class="l" data-t="0.11">n</span><span class="esp"></span><span class="l" data-t="0.28">c</span><span class="l" data-t="0.31">a</span><span class="l" data-t="0.34">t</span><span class="l" data-t="0.37">á</span><span class="l" data-t="0.4">l</span><span class="l" data-t="0.43">o</span><span class="l" data-t="0.46">g</span><span class="l" data-t="0.49">o</span></span>
+        <span class="linea b"><span class="l" data-t="0.68">d</span><span class="l" data-t="0.71">e</span><span class="esp"></span><span class="l" data-t="0.98">p</span><span class="l" data-t="1.01">e</span><span class="l" data-t="1.04">d</span><span class="l" data-t="1.07">i</span><span class="l" data-t="1.1">d</span><span class="l" data-t="1.13">o</span><span class="l" data-t="1.16">s</span></span>
+        <span class="linea c"><span class="l" data-t="1.58">m</span><span class="l" data-t="1.61">á</span><span class="l" data-t="1.64">s</span><span class="esp"></span><span class="l" data-t="1.83">t</span><span class="l" data-t="1.86">a</span><span class="l" data-t="1.89">r</span><span class="l" data-t="1.92">d</span><span class="l" data-t="1.95">e</span><span class="l" data-t="1.98">…</span></span>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.98);   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.16, ease: "power2.in" }, 2.1);   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
