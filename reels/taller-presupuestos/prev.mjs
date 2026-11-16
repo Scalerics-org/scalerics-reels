@@ -31,7 +31,7 @@ for (const t of lista) {
   const b64 = await pg.evaluate(() => document.getElementById("tres").toDataURL("image/png").split(",")[1]);
   const f = path.join(out, `t-${t.toFixed(2).padStart(6, "0")}.png`);
   fs.writeFileSync(f, Buffer.from(b64, "base64"));
-  execSync(`ffmpeg -loglevel error -y -i ${f} -vf scale=540:-1 ${f}.s.png && mv ${f}.s.png ${f}`);
+  if (!process.env.FULL) execSync(`ffmpeg -loglevel error -y -i ${f} -vf scale=540:-1 ${f}.s.png && mv ${f}.s.png ${f}`);
   console.log(t, JSON.stringify(dbg));
 }
 await nav.close(); srv.close();

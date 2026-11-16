@@ -25,3 +25,17 @@ constructor los busca en `assets/sfx` de otros reels antes; si no están, uno re
 sitio y licencia): **bocina de auto**, **auto que pasa / motor que entra y se apaga**, **puerta de auto**, **motor
 eléctrico del elevador**, **chac del pincho** (golpe metálico seco + papel; puede salir de un golpe metálico CC0 de
 Kenney + `k-page-turn`), **llaves**, **gota**. Nada sintetizado con ffmpeg.
+
+### Efectos nuevos de este reel (reales, CC0 1.0)
+Bajados el 16-11 de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia CC0 1.0 / dominio público
+(https://bigsoundbank.com/licenses.html). Recortados y pasados a WAV 48 kHz con ffmpeg (solo corte y fundidos, nada
+sintetizado):
+- `assets/sfx/bocina.wav` (la bocina doble de Sergio, P4): "Car horn #4", https://bigsoundbank.com/car-horn-4-s0260.html
+- `assets/sfx/auto-pasa.wav` (el auto que cruza el portón, P4): "Car passing 50 km/h #3", https://bigsoundbank.com/car-passing-50km-h-3-s2987.html
+- `assets/sfx/puerta-auto.wav` (Sergio se baja, Q4): "Car door #1", https://bigsoundbank.com/car-door-1-s0971.html
+- `assets/sfx/llaves.wav` (la llave del llavero verde, Q4b): "Keys in a hand", https://bigsoundbank.com/keys-in-a-hand-s0445.html
+- `assets/sfx/gota.wav` (la gota en la pausa, P5): "Drops of water #1", https://bigsoundbank.com/drops-of-water-1-s1384.html
+- `assets/sfx/auto-entra.wav` (el sedán entra y frena, Q4): "Car arrival, stop, departure", https://bigsoundbank.com/car-arrival-stop-departure-s0187.html
+- `assets/sfx/elevador.wav` (el motor del elevador, Q4c): "Elevator (3 floors)", https://bigsoundbank.com/elevator-3-floors-s1711.html
+El chac del pincho es `k-metal-medio-1/3.wav` + `k-page-turn.wav` (Kenney, CC0, crédito en reels/dice-cuarenta/fuentes.md);
+la calle por el portón es `calle.wav` (crédito en reels/estetica-turnos/fuentes.md).

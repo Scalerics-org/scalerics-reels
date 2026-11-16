@@ -668,10 +668,10 @@ function dibujarTablero(x, W, H, e) {
   const cw = (W - 16) / 3, cx = (c) => 8 + c * cw;
   ["ENVIADO", "VISTO", "ACEPTADO"].forEach((n, c) => { x.fillStyle = c === 2 ? "#5ce611" : "#1f3254"; rr(x, cx(c) + 6, 158, cw - 12, 74, 18); x.fillStyle = c === 2 ? "#0b1220" : "#efeee5"; x.textAlign = "center"; ajustar(x, n, 900, 40, cw - 30); x.fillText(n, cx(c) + cw / 2, 196); });
   // dónde va cada tarjeta: apiladas por columna en el orden de CARDS
-  const alto = (i) => 180 + (i === 3 && e.duda ? 100 : 0) + (i === 4 && e.manana ? 100 : 0);
+  const alto = (i) => 166 + (i === 3 && e.duda ? 100 : 0) + (i === 4 && e.manana ? 100 : 0);
   const pos = CARDS.map(() => null), cuenta = [0, 0, 0], yCol = [250, 250, 250];
   const destino = CARDS.map((_, i) => Math.round(e.col[i]));
-  CARDS.forEach((_, i) => { const c = destino[i]; pos[i] = { c, y: yCol[c] }; yCol[c] += alto(i) + 14; cuenta[c]++; });
+  CARDS.forEach((_, i) => { const c = destino[i]; pos[i] = { c, y: yCol[c] }; yCol[c] += alto(i) + 10; cuenta[c]++; });
   // el origen (de dónde viene la que se mueve): columna entera de abajo
   CARDS.forEach(([nom, trab, monto], i) => {
     const f = e.col[i], c0 = Math.floor(f), u = f - c0;
@@ -683,9 +683,9 @@ function dibujarTablero(x, W, H, e) {
     x.textAlign = "left"; x.fillStyle = "#0b1220"; ajustar(x, nom, 800, 50, w - 76); x.fillText(nom, X + 16, Y + 42);
     if (ok) { x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(X + w - 34, Y + 38, 22, 0, 7); x.fill(); tilde(x, X + w - 33, Y + 39, 22, "#0b1220"); }
     x.fillStyle = "#16243d"; ajustar(x, trab, 700, 40, w - 24); x.fillText(trab, X + 14, Y + 94);
-    x.fillStyle = "#0b1220"; ajustar(x, plata(monto), 900, 52, w - 28); x.fillText(plata(monto), X + 16, Y + 146);
-    if (i === 3 && e.duda) { x.fillStyle = "#16243d"; rr(x, X + 8, Y + 178, w - 16, 92, 16); x.fillStyle = "#efeee5"; x.textAlign = "center"; ajustar(x, "Tiene una duda", 800, 38, w - 30); x.fillText("Tiene una duda", X + w / 2, Y + 204); x.fillStyle = "#5ce611"; ajustar(x, "te toca a vos", 800, 38, w - 30); x.fillText("te toca a vos", X + w / 2, Y + 246); }
-    if (i === 4 && e.manana) { x.fillStyle = "#3fa60a"; x.textAlign = "center"; ajustar(x, "Seguimiento:", 800, 38, w - 24); x.fillText("Seguimiento:", X + w / 2, Y + 204); ajustar(x, "mañana", 800, 38, w - 24); x.fillText("mañana", X + w / 2, Y + 246); }
+    x.fillStyle = "#0b1220"; ajustar(x, plata(monto), 900, 52, w - 28); x.fillText(plata(monto), X + 16, Y + 138);
+    if (i === 3 && e.duda) { x.fillStyle = "#16243d"; rr(x, X + 8, Y + 166, w - 16, 92, 16); x.fillStyle = "#efeee5"; x.textAlign = "center"; ajustar(x, "Tiene una duda", 800, 38, w - 30); x.fillText("Tiene una duda", X + w / 2, Y + 192); x.fillStyle = "#5ce611"; ajustar(x, "te toca a vos", 800, 38, w - 30); x.fillText("te toca a vos", X + w / 2, Y + 234); }
+    if (i === 4 && e.manana) { x.fillStyle = "#3fa60a"; x.textAlign = "center"; ajustar(x, "Seguimiento:", 800, 38, w - 24); x.fillText("Seguimiento:", X + w / 2, Y + 194); ajustar(x, "mañana", 800, 38, w - 24); x.fillText("mañana", X + w / 2, Y + 236); }
   });
   if (cuenta[0] === 0) { x.strokeStyle = "#b4b2a3"; x.lineWidth = 5; x.setLineDash([18, 14]); x.beginPath(); x.roundRect(cx(0) + 5, 250, cw - 10, 180, 22); x.stroke(); x.setLineDash([]); x.fillStyle = "#16243d"; x.textAlign = "center"; ajustar(x, "Nada", 800, 42, cw - 60); x.fillText("Nada", cx(0) + cw / 2, 318); ajustar(x, "sin ver", 800, 42, cw - 60); x.fillText("sin ver", cx(0) + cw / 2, 366); }
   // los totales
@@ -704,7 +704,7 @@ function estadoTablero(t) {
   const u = (a) => sg(t, a, a + 0.28);
   const col = [2, 1 + u(T.cards[0]), 1 + u(T.cards[1]), 1, 1];
   const ac = 38000 + 14500 * (t >= T.cards[0] + 0.14 ? 1 : 0) + 22000 * (t >= T.cards[1] + 0.14 ? 1 : 0);
-  return { col, duda: t >= T.cards[2], manana: t >= T.cards[3], aceptados: ac, cero: t >= T.cero, desdeY: [0, 250, 444, 0, 0] };
+  return { col, duda: t >= T.cards[2], manana: t >= T.cards[3], aceptados: ac, cero: t >= T.cero, desdeY: [0, 250, 426, 0, 0] };
 }
 // Q1: el formulario "Nuevo presupuesto" en la tablet del banco, con el botón Enviar → Enviado ✓
 function dibujarNuevo(x, W, H, e) {
@@ -747,8 +747,8 @@ function crearCelInserto(IW, IH, cx, cy, marcoR = 30, opc = {}) {
   if (opc.mano) {
     const piel = new THREE.MeshBasicMaterial({ color: opc.mano }), sombraP = new THREE.MeshBasicMaterial({ color: new THREE.Color(opc.mano).multiplyScalar(0.82) });
     const palma = new THREE.Mesh(rbox(330 / PXK, 420 / PXK, 0.01, 120 / PXK, 3), piel); palma.position.set((cx - 540 - IW / 2 + 90) / PXK, (960 - cy - IH / 2 - 120) / PXK, -0.045); palma.rotation.z = -0.35; g.add(palma);
-    const pulgar = new THREE.Mesh(rbox(86 / PXK, 250 / PXK, 0.01, 43 / PXK, 3), piel); pulgar.position.set((cx - 540 - IW / 2 + 20) / PXK, (960 - cy - IH / 2 + 160) / PXK, -0.015); pulgar.rotation.z = -0.5; g.add(pulgar);
-    const una = new THREE.Mesh(rbox(50 / PXK, 60 / PXK, 0.01, 22 / PXK, 3), sombraP); una.position.set((cx - 540 - IW / 2 + 70) / PXK, (960 - cy - IH / 2 + 250) / PXK, -0.014); una.rotation.z = -0.5; g.add(una);
+    const pulgar = new THREE.Mesh(rbox(86 / PXK, 250 / PXK, 0.01, 43 / PXK, 3), piel); pulgar.position.set((cx - 540 - IW / 2 + 20) / PXK, (960 - cy - IH / 2 + 160) / PXK, -0.015); pulgar.rotation.z = -0.5; if (!opc.sinPulgar) g.add(pulgar);
+    const una = new THREE.Mesh(rbox(50 / PXK, 60 / PXK, 0.01, 22 / PXK, 3), sombraP); una.position.set((cx - 540 - IW / 2 + 70) / PXK, (960 - cy - IH / 2 + 250) / PXK, -0.014); una.rotation.z = -0.5; if (!opc.sinPulgar) g.add(una);
     if (opc.grasa) { const gm = new THREE.MeshBasicMaterial({ color: 0x3a3f4a, transparent: true, opacity: 0.7 }); const m = new THREE.Mesh(new THREE.CircleGeometry(26 / PXK, 16), gm); m.position.set(pulgar.position.x + 0.01, pulgar.position.y + 0.09, -0.013); m.scale.set(1, 0.7, 1); g.add(m); }
   }
   return { g, tex, IW, IH };
@@ -758,7 +758,7 @@ const INSO = { g: new THREE.Group() };
 const CELO = crearCelInserto(680, 1010, 540, 620, 30, { camara: true, funda: 0x1a1c20 }); INSO.g.add(CELO.g);
 // Q1b / Q2 / Q2c · el celular de Sergio a pantalla
 const INS1 = { g: new THREE.Group() }; crearFondoInserto(INS1.g);
-const CEL1 = crearCelInserto(740, 1290, 560, 1010, 34, { camara: true, mano: PIEL.media, funda: 0x1f3254 }); INS1.g.add(CEL1.g);
+const CEL1 = crearCelInserto(740, 1290, 560, 1010, 34, { camara: true, mano: PIEL.media, funda: 0x1f3254, sinPulgar: true }); INS1.g.add(CEL1.g);
 // Q3 · la tablet a pantalla (el tablero)
 const INS3 = { g: new THREE.Group() }; crearFondoInserto(INS3.g);
 const TAB = crearCelInserto(1040, 1200, 540, 1110, 16, { camara: false }); INS3.g.add(TAB.g);
@@ -937,13 +937,13 @@ const P1C = (k) => [-0.2, lerp(2.15, 2.12, k), lerp(5.5, 5.05, k), -0.2, 2.45, -
 const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   // P1b: el chac, de cerca, desde atrás del banco (Óscar de frente clava la copia)
-  ["P1b", r2(T.clava[0] + 0.12), [[r2(T.clava[0] + 0.12), -3.0, 1.55, 2.45, -1.45, 1.25, 0.8, 40], [T.p2, -2.95, 1.55, 2.38, -1.45, 1.25, 0.8, 37]]],
+  ["P1b", r2(T.clava[0] + 0.12), [[r2(T.clava[0] + 0.12), -3.35, 1.62, 2.75, -1.4, 1.22, 0.75, 44], [T.p2, -3.3, 1.62, 2.68, -1.4, 1.22, 0.75, 42]]],
   ["P2", T.p2, [[T.p2, PINCHO.x + 0.85, 1.72, PINCHO.z + 0.7, PINCHO.x, 1.32, PINCHO.z, 44], [T.p3, PINCHO.x + 0.8, 1.7, PINCHO.z + 0.66, PINCHO.x, 1.3, PINCHO.z, 42]]],
   ["P3", T.p3, [[T.p3, 0.85, 1.55, 5.6, -0.55, 1.22, 0.6, 48], [T.p4, 0.82, 1.55, 5.35, -0.55, 1.22, 0.6, 46]]],
   ["P4", T.p4, [[T.p4, 0.2, 1.55, 4.3, -0.15, 1.4, -7.5, 42], [T.p5, 0.2, 1.55, 4.1, -0.05, 1.4, -7.5, 41]]],
-  ["P5", T.p5, [[T.p5, -2.2, 1.3, 2.0, -0.55, 1.12, -4.0, 46], [T.p6, -2.2, 1.3, 1.95, -0.55, 1.12, -4.0, 45]]],
+  ["P5", T.p5, [[T.p5, -1.98, 1.5, 2.3, -0.9, 0.95, -4.0, 50], [T.p6, -1.98, 1.5, 2.22, -0.9, 0.95, -4.0, 48]]],
   ["P6", T.p6, [[T.p6, -0.45, 1.6, -2.75, -0.8, 1.45, -4.35, 42], [T.p7, -0.47, 1.58, -2.85, -0.8, 1.45, -4.35, 40]]],
-  ["P7", T.p7, [[T.p7, -2.1, 1.5, 2.45, -1.45, 1.08, -2.2, 46], [P1, -2.1, 1.49, 2.35, -1.45, 1.08, -2.2, 44]]],
+  ["P7", T.p7, [[T.p7, -1.95, 1.62, 3.15, -1.55, 1.05, -2.0, 50], [P1, -1.95, 1.61, 3.05, -1.55, 1.05, -2.0, 48]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0)], [r2(T.enviar - 0.4), ...P1C(0.6)]]],
   // Q1t: por encima del hombro de Óscar, toca Enviar en la tablet
@@ -953,7 +953,7 @@ const PLANOS = [
   ["Q2b", T.q2b, [[T.q2b, 30.6, 1.55, 2.6, 29.85, 1.42, 0.0, 40], [T.q2c, 30.55, 1.55, 2.4, 29.85, 1.42, 0.0, 37]]],
   ["Q2c", T.q2c, null],
   ["Q3", T.q3, null],
-  ["Q3b", T.q3b, [[T.q3b, -3.0, 1.95, 0.35, -0.95, 1.35, 1.35, 46], [T.q4, -2.9, 1.93, 0.45, -0.95, 1.35, 1.35, 43]]],
+  ["Q3b", T.q3b, [[T.q3b, -4.25, 1.95, 2.95, -1.05, 1.38, 0.98, 46], [T.q4, -4.1, 1.94, 2.9, -1.05, 1.38, 0.98, 44]]],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.q4b, ...P1C(0.3)]]],
   ["Q4b", T.q4b, [[T.q4b, -0.22, 1.62, 3.4, -0.2, 1.42, -0.6, 44], [T.q4c, -0.22, 1.62, 3.2, -0.2, 1.42, -0.6, 42]]],
   ["Q4c", T.q4c, [[T.q4c, 1.2, 1.8, 5.4, -1.4, 1.65, -3.0, 50], [T.q5, 1.15, 1.85, 5.2, -1.4, 1.7, -3.0, 49]]],
@@ -999,7 +999,7 @@ const dirGiro = (x0, z0, x1, z1) => Math.atan2(x1 - x0, z1 - z0);
 const OSC1 = { x: -0.98, z: 0.95 };   // Óscar en el cuadro 0
 const SER1 = { x: 0.38, z: 1.1 };    // Sergio en el cuadro 0
 const OSC4 = { x: -0.8, z: -4.35 };   // Óscar en el portón, mirando la calle (P4-P7)
-const MAX4 = { x: 0.95, z: -4.45 };
+const MAX4 = { x: 0.6, z: -4.45 };
 const OSCQ4 = { x: -0.68, z: -0.55 }, SERQ4 = { x: 0.38, z: -0.45 };
 const topePincho = () => V3(PINCHO.x, BANCO.alto + PIN.base + PIN.alto + 0.02, PINCHO.z);
 function poseOscar(t) {
@@ -1102,7 +1102,7 @@ function poseMaxi(t) {
   if (t < T.q4) {
     // parte 2: de pie, trabajando (al lado del gato); Q3b: en el banco, al lado de Óscar, mira la tablet
     if (t < T.q3) { const p = poseEn(t, [[0, { x: 1.55, z: -0.3, giro: -2.2, ...aC(0, 0.3), ...CARA.concentrada, ...BRAZOS.costado }]]); p.t = t; return p; }
-    const p = poseEn(t, [[0, { x: -0.95, z: 0.85, giro: -Math.PI / 2 - 0.9, ...aC(-0.3, 0.25), ...CARA.esperanza, ...BRAZOS.costado }], [T.o4 + 0.2, { ...aC(0.2, 0.25), ...CARA.sorpresa }, 0.3]]);
+    const p = poseEn(t, [[0, { x: -1.08, z: 0.5, giro: -1.25, ...aC(-0.3, 0.25), ...CARA.esperanza, ...BRAZOS.costado }], [T.o4 + 0.2, { ...aC(0.2, 0.25), ...CARA.sorpresa }, 0.3]]);
     p.t = t; bocaVoz(p, t, T.m1b, ENV.m1, 0.65); return p;
   }
   // Q4c: en el panel de herramientas, cuelga el pincho vacío en su silueta
@@ -1229,12 +1229,12 @@ function ponerPinchos(t) {
     if (t >= c - 0.08) { papelEnPincho(pap, PINCHO1, i + 1, i + 1, sg(t, c - 0.08, c)); continue; }
     // el vuelo: del borde de abajo del celular (en la pantalla) al tope del clavo, girando
     const u = eio(sg(t, c - 0.34, c - 0.08));
-    const ini = new THREE.Vector3(0.05, -0.32, 0.5).unproject(camera);
+    const ini = new THREE.Vector3(0.05, -0.3, 0.5).unproject(camera).sub(camera.position).normalize().multiplyScalar(0.9).add(camera.position);
     papelEnPincho(pap, PINCHO1, i + 1, i + 1, 0);
     const fin = pap.position.clone(), qf = pap.quaternion.clone();
     pap.position.lerpVectors(ini, fin, u).add(V3(0, Math.sin(u * Math.PI) * 0.08, 0));
     const q0 = camera.quaternion.clone().multiply(new THREE.Quaternion().setFromAxisAngle(V3(1, 0, 0), -0.3)); pap.quaternion.slerpQuaternions(q0, qf, u);
-    pap.scale.setScalar(lerp(0.55, 1, u));
+    pap.scale.setScalar(lerp(0.4, 1, u));
   }
 }
 // el presupuesto de papel en la mano de Sergio (P1), el celular de Óscar (P7), el de Sergio (Q1 y Q2b), la llave
@@ -1276,7 +1276,7 @@ function renderAt(tIn) {
   sergio.raiz.visible = (!p2 && (t < T.p3 || enAuto)) || (p2 && (t < T.q3 || t >= T.q4b));
   if (sergio.raiz.visible) sergio.poner(enAuto ? sergioEnAuto(t) : poseSergio(t));
   ponerPinchos(t); ponerManos(t);
-  tablet.visible = celuS.visible = p2;
+  tablet.visible = p2; celuS.visible = p2 && t >= T.q5 - 0.1;
   PILA.visible = !p2 && t >= T.p3;
   // ---- Sofi: su escena a la textura del celular parado ----
   if (planoActual === "Q5") {
@@ -1307,18 +1307,18 @@ function renderAt(tIn) {
     const boca = (per) => bocaPx(per);
     if (pa === "P1") {
       const [px, py] = objPx(PRESU_MANO);
-      ponerGlobo(GL.lunes, 200, 470, 1, null);
-      ponerGlobo(GL.presu, 330, 880, 1 * sale(T.vaSe[0] + 0.3), null, 1); ponerGuia(GUIAS[0], 470, 1000, px, py, 1 * sale(T.vaSe[0] + 0.3) > 0.5 ? 1 : 0);
+      ponerGlobo(GL.lunes, 170, 535, 1, null);
+      ponerGlobo(GL.presu, 320, 1770, 1 * sale(T.vaSe[0] + 0.3), null, 1); ponerGuia(GUIAS[0], 470, 1660, px, py, 1 * sale(T.vaSe[0] + 0.3) > 0.5 ? 1 : 0);
       if (t >= T.s1) { const [bx, by] = boca(sergio); ponerGlobo(GL.s1, 640, 640, ent(T.s1), [bx, by - 30], 2); }
     }
     if (pa === "P3") {
       ponerGlobo(GL.sabado, 540, 150, 1, null);
-      if (t >= T.m1) { const [bx, by] = boca(maxi); ponerGlobo(GL.m1, 720, 420, ent(T.m1) * (t < T.o1 + 0.2 ? 1 : sale(T.o1 + 0.2)), [bx, by - 30], 1); }
+      if (t >= T.m1) { const [bx, by] = boca(maxi); ponerGlobo(GL.m1, 720, 420, ent(T.m1) * sale(T.o1), [bx, by - 30], 1); }
       if (t >= T.o1) { const [bx, by] = boca(oscar); ponerGlobo(GL.o1, 330, 480, ent(T.o1), [bx, by - 30], 2); }
     }
     if (pa === "P4" && t >= T.s2) { const [bx, by] = boca(sergio); ponerGlobo(GL.s2, 540, 330, ent(T.s2), bx > -50 && bx < 1130 ? [bx, by - 30] : null); }
     if (pa === "P5") {
-      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = enPantalla(V3(LX, 0.6, LZ));
+      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = enPantalla(V3(LX + 0.4, 0.4, LZ + 1.0));
       const u0 = ent(T.rot[0]), u1 = ent(T.rot[1]), u2 = ent(T.rot[2]);
       ponerGlobo(GL.r1, 330, 1180, u0, null, 1); if (u0 > 0) ponerGuia(GUIAS[0], 330, 1250, ax, ay, eo(sg(t, T.rot[0], T.rot[0] + 0.25)));
       ponerGlobo(GL.r2, 330, 1360, u1, null, 1);
@@ -1327,7 +1327,7 @@ function renderAt(tIn) {
     if (pa === "P6" && t >= T.o2) { const [bx, by] = boca(oscar); verGlobo(GL.o2, t >= T.o2b ? 6 : 2); ponerGlobo(GL.o2, 540, 330, ent(T.o2), [bx, by - 40]); }
     if (pa === "P7" && t >= T.vibra) { const [cx, cy] = objPx(celuO); ponerGlobo(GL.nuevo, 540, 300, ent(T.vibra), [cx, cy]); }
     if (pa === "Q1") {
-      if (t >= T.s1b) { const [bx, by] = boca(sergio); ponerGlobo(GL.s1, 640, 640, ent(T.s1b) * sale(T.o3 + 0.25), [bx, by - 30], 1); }
+      if (t >= T.s1b) { const [bx, by] = boca(sergio); ponerGlobo(GL.s1, 640, 640, ent(T.s1b) * sale(T.o3), [bx, by - 30], 1); }
       if (t >= T.o3) { const [bx, by] = boca(oscar); ponerGlobo(GL.o3, 400, 520, ent(T.o3), [bx, by - 30], 2); }
     }
     if (pa === "Q1b") {
