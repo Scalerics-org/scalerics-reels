@@ -257,6 +257,10 @@
 - 15-11 · `dice-cuarenta` · Sistema de stock a medida (cada venta y cada entrada mueven el stock solas, el vendedor lo ve en el celular y avisa cuando quedan pocos) · Para mandar completo con Rubén en la distribuidora y Nico: "El Excel dice cuarenta." y baja un "40" 3D gigante colgado de cadenas sobre el rack del aceite; Nico vende 15 a Graciela, 15 a Marta y 10 a Walter ("¡Vendido!" ×3, remitos clavados); el operario va al pallet: hay 3 cajas; pausa; Nico: "Pero el Excel dice cuarenta." / Rubén: "El Excel nunca bajó al depósito."; remate del remate: "Tranqui, ya lo actualicé." y el cartel gira a 37 rojo sobre el pallet vacío: "Bárbaro. Ahora miente actualizado."; cartel "Un sistema más tarde…"; parte 2: "Fijate vos.", el celular dice 40 ✓, el cartel verde baja con cada escaneo, aviso "quedan 10 · ¿Pedimos 40?", entra el pallet nuevo, "¿Y? ¿Cuántos hay?" / "Los que dice." (33,3 s, voces Algenib/Fenrir + narrador Rasalgethi de ya-lo-cargo) [formato para mandar completo · 3D real (depósito con racks y largueros verdes, cartel flip 40/37 colgado, remitos, pallet con 3 cajas, zorra, autoelevador, oficina vidriada, insertos de celular y monitor), fondo depósito de día navy claro #16243d, cartel verde de marca] (corrida 15-11 14:11: 3 rondas de revisión independiente + retoques y pasada final del director de arte; falta que una persona confirme al oído que "Excel" suena bien)
 
 ## En curso
+<!-- corrida-activa: 2026-11-16T05:10 -->
+
+- 16-11 · `dist-pedidos-lunes` · Distribuidoras · Sistema a medida / tienda mayorista (catálogo de pedidos con su lista de precios) · Rubén, lunes 8:00: 40 pedidos por WhatsApp (audios, fotos de listas, "lo de siempre"), a mano a la planilla hasta las 11, se le escapa uno · cierre "Comentá PEDIDOS" · reservado por la corrida 16-11 05:10
+- 16-11 · `estetica-turnos` · Centros de estética · Agenda online con seña + recordatorio + lista de espera · jueves: tres turnos que no vinieron, camilla vacía · cierre "Comentá TURNOS" · reservado por la corrida 16-11 05:10
 
 
 
