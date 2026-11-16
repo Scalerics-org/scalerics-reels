@@ -1,0 +1,14 @@
+{
+ "t": 11.6,
+ "chica": "Embrague, $ 38.000.",
+ "grande": "Lo pienso…",
+ "sello": "TALLERES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-portada-11.6.png",
+ "nota": "BORRADOR del guionista: t y fondo_limpio los completa el constructor. Fondo: P5 (el pincho lleno de presupuestos en primer término, el elevador vacío, Óscar y Maxi) renderizado con LIMPIO=1, sin gancho, rótulos, subtítulos ni burbujas; personajes y pincho en la mitad de arriba, todo entre y 285 y 1635. Si en P5 Óscar queda de espaldas o chico, usar P6 abierto (Óscar de frente con el pincho). Alternativa de grande: \"¡Me llamaron!\" con chica \"Lo hizo a la vuelta.\""
+}
