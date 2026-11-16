@@ -137,7 +137,7 @@ function fusionar(grupo, excluir = []) {
 // =====================================================================================================
 const patenteT = lienzo(512, 150, (x, w, h) => { x.fillStyle = "#f8f7f2"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.strokeRect(5, 5, w - 10, h - 10); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "STR 4581", 800, 104, w - 50); x.fillText("STR 4581", w / 2, h / 2 + 4); });
 const llantaT = lienzo(256, 256, (x, w) => { x.fillStyle = "#23262c"; x.fillRect(0, 0, w, w); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(w / 2, w / 2, w * 0.3, 0, 7); x.fill(); x.fillStyle = "#b4b2a3"; for (let i = 0; i < 5; i++) { const a = (i / 5) * Math.PI * 2; x.beginPath(); x.arc(w / 2 + Math.cos(a) * w * 0.17, w / 2 + Math.sin(a) * w * 0.17, w * 0.045, 0, 7); x.fill(); } x.fillStyle = "#0b1220"; x.beginPath(); x.arc(w / 2, w / 2, w * 0.07, 0, 7); x.fill(); });
-const ML = { carro: mat(C.cr, 0.45), vidrio: mat(0x16243d, 0.15, { metalness: 0.2 }), interior: mat(0x1f3254, 0.9), faro: new THREE.MeshStandardMaterial({ color: 0xfffbea, emissive: 0xfff4d0, emissiveIntensity: 0.6, roughness: 0.2 }), llanta: new THREE.MeshStandardMaterial({ map: llantaT, roughness: 0.6 }) };
+const ML = { carro: mat(C.cr, 0.45), vidrio: mat(0x3a5480, 0.12, { metalness: 0.25 }), interior: mat(0x1f3254, 0.9), faro: new THREE.MeshStandardMaterial({ color: 0xfffbea, emissive: 0xfff4d0, emissiveIntensity: 0.6, roughness: 0.2 }), llanta: new THREE.MeshStandardMaterial({ map: llantaT, roughness: 0.6 }) };
 function crearAuto() {
   const g = new THREE.Group();
   const L = 3.3, W = 1.5;
@@ -147,7 +147,7 @@ function crearAuto() {
   g.add(caja(W - 0.04, 0.1, 0.75, ML.carro, 0, 0.79, -1.22, 0.05));        // el baúl
   // la cabina: techo, parantes y vidrios (la ventanilla de adelante de cada lado es aparte: se puede bajar)
   const cab = new THREE.Group(); g.add(cab);
-  cab.add(caja(W - 0.1, 0.14, 1.45, ML.carro, 0, 1.28, -0.15, 0.06));   // (r1) el techo, grueso: que no parezca descapotable
+  cab.add(caja(W - 0.06, 0.13, 1.5, M.navy3, 0, 1.26, -0.15, 0.06));   // (r2) techo navy: el sedán se lee con techo   // (r1) el techo, grueso: que no parezca descapotable
   for (const sx of [-1, 1]) for (const [z, inc] of [[0.58, 0.35], [-0.12, 0], [-0.88, -0.3]]) { const p = caja(0.07, 0.44, 0.08, ML.carro, sx * (W / 2 - 0.08), 1.02, z, 0.02); p.rotation.x = inc; cab.add(p); }
   const para = caja(W - 0.18, 0.46, 0.03, ML.vidrio, 0, 1.02, 0.62, 0.02); para.rotation.x = 0.6; cab.add(para);   // parabrisas
   const luneta = caja(W - 0.18, 0.44, 0.03, ML.vidrio, 0, 1.02, -0.92, 0.02); luneta.rotation.x = -0.5; cab.add(luneta);
@@ -237,7 +237,7 @@ const cartelT = lienzo(1200, 260, (x, w, h) => { x.fillStyle = "#efeee5"; x.fill
   for (let i = -4; i <= 4; i++) { SET.add(caja(1.1, 1.3, 0.08, M.navy3, i * 2.6 + 0.6, 2.4, ZF - 8.02, 0.03)); SET.add(caja(0.96, 1.16, 0.06, mat(0x2c4268, 0.3), i * 2.6 + 0.6, 2.4, ZF - 7.99, 0.02)); }
   SET.add(caja(30, 0.5, 0.1, M.g, 0, 0.25, ZF - 8.02, 0.02));
   // el árbol de la vereda (low-poly verde), a la izquierda del portón
-  { const g = new THREE.Group(); g.position.set(PORTON.x0 + 0.35, 0.12, ZF - 1.35); SET.add(g);
+  { const g = new THREE.Group(); g.position.set(PORTON.x1 + 0.4, 0.12, ZF - 7.0);   // (r2) en la vereda de enfrente, detrás del auto SET.add(g);
     g.add(mesh(new THREE.CylinderGeometry(0.08, 0.11, 1.9, 8), mat(0x6b4a32, 0.9), 0, 0.95, 0));
     semilla = 5; for (let i = 0; i < 5; i++) { const b = mesh(new THREE.IcosahedronGeometry(0.55 + az() * 0.2, 0), i % 2 ? M.gd : M.g, (az() - 0.5) * 0.7, 2.25 + az() * 0.55, (az() - 0.5) * 0.5); g.add(b); } }
 }
@@ -700,7 +700,7 @@ function dibujarTablero(x, W, H, e) {
   x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.beginPath(); x.roundRect(W / 2 + 10, yT, W / 2 - 30, 170, 26); x.fill(); x.stroke();
   x.fillStyle = "#0b1220"; ajustar(x, "Aceptados", 800, 40, W / 2 - 80); x.fillText("Aceptados", W / 2 + 10 + (W / 2 - 30) / 2, yT + 50);
   ajustar(x, plata(e.aceptados), 900, 66, W / 2 - 70); x.fillText(plata(e.aceptados), W / 2 + 10 + (W / 2 - 30) / 2, yT + 118);
-  if (e.cero) { x.fillStyle = "#16243d"; rr(x, 20, yT + 190, W - 40, 96, 30); x.fillStyle = "#5ce611"; ajustar(x, "Seguimientos a mano: 0", 900, 54, W - 100); x.fillText("Seguimientos a mano: 0", W / 2, yT + 240); }
+  if (e.cero) { x.fillStyle = "#16243d"; rr(x, 20, yT + 182, W - 40, 128, 30); x.fillStyle = "#5ce611"; ajustar(x, "Seguimientos a mano: 0", 900, 76, W - 70); x.fillText("Seguimientos a mano: 0", W / 2, yT + 248); }
 }
 // el estado del tablero en t (Q3 en adelante): Fabián y Pablo pasan a ACEPTADO, Silvia con duda, Andrés mañana
 function estadoTablero(t) {
@@ -714,11 +714,11 @@ function dibujarNuevo(x, W, H, e) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle"; x.textAlign = "left";
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 132); x.fillStyle = "#5ce611"; x.fillRect(0, 132, W, 10);
   x.fillStyle = "#efeee5"; ajustar(x, "Nuevo presupuesto", 800, 60, W - 60); x.fillText("Nuevo presupuesto", 34, 68);
-  const fila = (y, a, b, px = 54) => { x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, y, W - 60, 150, 24); x.fill(); x.stroke(); x.fillStyle = "#16243d"; ajustar(x, a, 700, 40, W - 120); x.fillText(a, 60, y + 44); x.fillStyle = "#0b1220"; ajustar(x, b, 800, px, W - 120); x.fillText(b, 60, y + 104); };
+  const fila = (y, a, b, px = 54) => { x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, y, W - 60, 150, 24); x.fill(); x.stroke(); x.fillStyle = "#16243d"; ajustar(x, a, 800, 50, W - 120); x.fillText(a, 60, y + 44); x.fillStyle = "#0b1220"; ajustar(x, b, 800, px, W - 120); x.fillText(b, 60, y + 104); };
   fila(180, "Cliente", "Sergio · STR 4581"); fila(350, "Trabajo", "Embrague completo"); fila(520, "Total", "$ 38.000", 74);
   if (e < 2) { x.fillStyle = e === 1 ? "#3fa60a" : "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 8; x.beginPath(); x.roundRect(30, 730, W - 60, 190, 95); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "Enviar", 900, 96, W - 120); x.fillText("Enviar", W / 2, 828); }
   else { x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(30, 730, W - 60, 190, 40); x.fill(); x.fillStyle = "#5ce611"; x.textAlign = "center"; ajustar(x, "Enviado ✓", 900, 92, W - 120); x.fillText("Enviado ✓", W / 2, 828); }
-  x.fillStyle = "#16243d"; x.textAlign = "center"; ajustar(x, "Por WhatsApp, con botón", 700, 46, W - 80); x.fillText("Por WhatsApp, con botón", W / 2, 1010);
+  x.fillStyle = "#16243d"; x.textAlign = "center"; ajustar(x, "Por WhatsApp, con botón", 800, 64, W - 70); x.fillText("Por WhatsApp, con botón", W / 2, 1010);
 }
 let claveTab = "";
 function dibujarTablet(t) {
@@ -758,7 +758,7 @@ function crearCelInserto(IW, IH, cx, cy, marcoR = 30, opc = {}) {
 }
 // P2 · el celular de Óscar con el chat de la semana (arriba; el pincho queda abajo, en 3D)
 const INSO = { g: new THREE.Group() };
-const CELO = crearCelInserto(680, 1010, 540, 620, 30, { camara: true, funda: 0x1a1c20 }); INSO.g.add(CELO.g);
+const CELO = crearCelInserto(560, 880, 340, 560, 26, { camara: true, funda: 0x1a1c20 }); INSO.g.add(CELO.g);   // (r2) a la izquierda y más chico: el pincho queda aparte, abajo a la derecha
 // Q1b / Q2 / Q2c · el celular de Sergio a pantalla
 const INS1 = { g: new THREE.Group() }; crearFondoInserto(INS1.g);
 const CEL1 = crearCelInserto(740, 1290, 540, 1010, 34, { camara: true, funda: 0x1f3254 }); INS1.g.add(CEL1.g);
@@ -815,6 +815,15 @@ function dibujarCeluOscar(t) {
 }
 // el celular 3D de Óscar (P7): el mensaje nuevo
 let claveO3 = "";
+let claveS3 = "";
+function dibujarCeluS3(t) {
+  const e = t >= T.q2 ? 1 : 0; if (`${e}` === claveS3) return; claveS3 = `${e}`;
+  const { x } = pantS.userData, w = 600, h = 975;
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#efeee5"; x.textBaseline = "middle"; x.textAlign = "left"; x.font = F(800, 52); x.fillText("Mecánica Óscar", 30, 80);
+  x.fillStyle = "#ffffff"; rr(x, 20, 190, w - 40, 300, 30); x.fillStyle = "#0b1220"; x.font = F(800, 48); (e ? ["¿Pudiste ver el", "presupuesto?"] : ["Presupuesto", "$ 38.000"]).forEach((l, i) => x.fillText(l, 44, 270 + i * 70));
+  x.fillStyle = "#5ce611"; rr(x, 20, 530, w - 40, 130, 65); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 50); x.fillText("Aceptar", w / 2, 597);
+  pantS.needsUpdate = true;
+}
 function dibujarCeluO3(t) {
   const e = t >= T.vibra ? 1 : 0; if (`${e}` === claveO3) return; claveO3 = `${e}`;
   const { x } = pantO.userData, w = 600, h = 975;
@@ -865,11 +874,11 @@ function dibujarCeluSergio(t) {
   else {
     // la tira de turnos y el agendado
     x.fillStyle = "#16243d"; x.font = F(800, 44); x.textAlign = "left"; x.fillText("Elegí el turno:", 40, yb + 30);
-    [["Mié", "16:00"], ["Jue", "8:30"], ["Vie", "10:00"]].forEach(([d, h], i) => { const xx = 24 + i * 234, sel = i === 1; x.fillStyle = sel ? "#5ce611" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(xx, yb + 70, 218, 150, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 48); x.fillText(d, xx + 109, yb + 118); x.font = F(900, 52); x.fillText(h, xx + 109, yb + 182); });
+    [["Vie", "16:00"], ["Lun", "8:30"], ["Mar", "10:00"]].forEach(([d, h], i) => { const xx = 24 + i * 234, sel = i === 1; x.fillStyle = sel ? "#5ce611" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(xx, yb + 70, 218, 150, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(800, 48); x.fillText(d, xx + 109, yb + 118); x.font = F(900, 52); x.fillText(h, xx + 109, yb + 182); });
     if (fase === 5) {
       x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(24, yb + 250, W - 48, 190, 40); x.fill();
       x.fillStyle = "#5ce611"; x.beginPath(); x.arc(110, yb + 345, 56, 0, 7); x.fill(); tilde(x, 112, yb + 347, 58, "#0b1220");
-      x.fillStyle = "#efeee5"; x.textAlign = "left"; ajustar(x, "Turno agendado", 900, 60, W - 240); x.fillText("Turno agendado", 190, yb + 312); x.fillStyle = "#5ce611"; x.font = F(800, 54); x.fillText("Jueves 8:30", 190, yb + 380);
+      x.fillStyle = "#efeee5"; x.textAlign = "left"; ajustar(x, "Turno agendado", 900, 60, W - 240); x.fillText("Turno agendado", 190, yb + 312); x.fillStyle = "#5ce611"; x.font = F(800, 54); x.fillText("Lunes 8:30", 190, yb + 380);
     }
   }
   CEL1.tex.needsUpdate = true;
@@ -889,11 +898,11 @@ const GL = {
   m1: crearGlobo(["Jefe, ¿a esos", "no los [llamamos?]"], 72),
   o1: crearGlobo(["Si les interesa,", "[llaman.]"], 76),
   s2: crearGlobo(["¡Óscar! Al final lo", "hice acá a la vuelta.", "[¡Me llamaron!]"], 66),
-  r1: crearRotulo([["5 presupuestos"], ["esta semana"]], 50),
+  r1: crearRotulo([["5 presupuestos"], ["esta semana"]], 58),
   r2: crearRotulo([["$ 90.800", "#ff9d92", 70], ["en el pincho", "#ff9d92"]], 52),
-  r3: crearRotulo([["Embrague $ 38.000:", "#ff9d92"], ["a la vuelta", "#ff9d92"]], 50),
+  r3: crearRotulo([["Embrague $ 38.000:", "#ff9d92"], ["a la vuelta", "#ff9d92"]], 56),
   o2: crearGlobo(["Lo pensó.", "Y me [avisó.]"], 84),
-  nuevo: crearTarjeta(880, 270, (x, W) => { avatar(x, AVATAR.gris, 80, 80, 54); x.fillStyle = "#16243d"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(700, 40); x.fillText("Mensaje nuevo · ahora", 152, 80); x.fillStyle = "#0b1220"; x.font = F(800, 52); x.fillText("Hola, ¿me pasás presupuesto", 34, 168); x.fillText("de embrague?", 34, 230); }, { fondo: "#ffffff" }),
+  nuevo: crearTarjeta(880, 270, (x, W) => { avatar(x, AVATAR.gris, 80, 80, 54); x.fillStyle = "#16243d"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(700, 40); x.fillText("Celular de Óscar · ahora", 152, 80); x.fillStyle = "#0b1220"; x.font = F(800, 52); x.fillText("Hola, ¿me pasás presupuesto", 34, 168); x.fillText("de embrague?", 34, 230); }, { fondo: "#ffffff" }),
   o3: crearGlobo(["Pensalo [tranquilo.]"], 80),
   rBoton: crearRotulo([["Presupuesto con botón"]], 50),
   estado: crearTarjeta(620, 120, (x, W, H) => dibujarEstado(x, W, H, 0), { fondo: "#efeee5" }),
@@ -902,7 +911,7 @@ const GL = {
   s3: crearGlobo(["Justo lo estaba", "[pensando.]"], 78),
   m1b: crearGlobo(["Jefe, ¿a esos", "no los [llamamos?]"], 62, { cab: { cv: AVATAR.maxi, nombre: "Maxi" } }),
   o4: crearGlobo(["Ya les escribió", "el [sistema.]"], 78),
-  jueves: chip("JUEVES · 8:30", 60),
+  jueves: chip("LUNES · 8:30", 60),
   viernes: chip("VIERNES", 56),
   s4: crearGlobo(["Lo [pensé.]"], 84),
   o5: crearGlobo(["Y me [avisaste.]"], 84),
@@ -942,7 +951,7 @@ const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   // P1b: el chac, de cerca, desde atrás del banco (Óscar de frente clava la copia)
   ["P1b", r2(T.clava[0] + 0.12), [[r2(T.clava[0] + 0.12), -3.35, 1.62, 2.75, -1.4, 1.22, 0.75, 44], [T.p2, -3.3, 1.62, 2.68, -1.4, 1.22, 0.75, 42]]],
-  ["P2", T.p2, [[T.p2, PINCHO.x + 1.0, 1.66, PINCHO.z + 0.8, PINCHO.x, 1.42, PINCHO.z, 46], [T.p3, PINCHO.x + 0.96, 1.64, PINCHO.z + 0.76, PINCHO.x, 1.4, PINCHO.z, 44]]],
+  ["P2", T.p2, [[T.p2, PINCHO.x + 1.0, 1.62, PINCHO.z + 0.8, PINCHO.x - 0.06, 1.34, PINCHO.z + 0.08, 44], [T.p3, PINCHO.x + 0.96, 1.6, PINCHO.z + 0.76, PINCHO.x - 0.06, 1.33, PINCHO.z + 0.08, 42]]],
   ["P3", T.p3, [[T.p3, 0.85, 1.55, 5.6, -0.55, 1.22, 0.6, 48], [T.p4, 0.82, 1.55, 5.35, -0.55, 1.22, 0.6, 46]]],
   ["P4", T.p4, [[T.p4, 0.2, 1.55, 4.3, -0.15, 1.4, -7.5, 42], [T.p5, 0.2, 1.55, 4.1, -0.05, 1.4, -7.5, 41]]],
   // (r1) P4b: de cerca, desde la vereda del taller, la cámara acompaña a Sergio asomado por la ventanilla
@@ -959,10 +968,10 @@ const PLANOS = [
   ["Q2b", T.q2b, [[T.q2b, 30.6, 1.55, 2.6, 29.85, 1.42, 0.0, 40], [T.q2c, 30.55, 1.55, 2.4, 29.85, 1.42, 0.0, 37]]],
   ["Q2c", T.q2c, null],
   ["Q3", T.q3, null],
-  ["Q3b", T.q3b, [[T.q3b, -4.25, 1.95, 2.95, -1.05, 1.38, 0.98, 46], [T.q4, -4.1, 1.94, 2.9, -1.05, 1.38, 0.98, 44]]],
+  ["Q3b", T.q3b, [[T.q3b, -4.0, 2.25, 2.6, -1.1, 1.38, 1.28, 46], [T.q4, -3.88, 2.22, 2.55, -1.1, 1.38, 1.28, 44]]],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.q4b, ...P1C(0.3)]]],
   ["Q4b", T.q4b, [[T.q4b, -0.22, 1.62, 3.4, -0.2, 1.42, -0.6, 44], [T.q4c, -0.22, 1.62, 3.2, -0.2, 1.42, -0.6, 42]]],
-  ["Q4c", T.q4c, [[T.q4c, 1.2, 1.8, 5.4, -1.4, 1.65, -3.0, 50], [T.q5, 1.15, 1.85, 5.2, -1.4, 1.7, -3.0, 49]]],
+  ["Q4c", T.q4c, [[T.q4c, 0.3, 1.6, 4.6, -1.8, 1.35, -3.4, 50], [T.q5, 0.28, 1.62, 4.4, -1.8, 1.38, -3.4, 48]]],
   ["Q5", T.q5, [[T.q5, -0.5, 1.3, 1.66, -1.9, 1.2, 1.66, 44], [T.viaje[0], -0.55, 1.3, 1.66, -1.9, 1.2, 1.66, 43], [T.viaje[1], -1.33, 1.16, 2.2, -1.9, 1.14, 2.22, 40], [DUR, -1.36, 1.16, 2.21, -1.9, 1.14, 2.22, 39]]],
 ];
 const _m = new THREE.Vector3();
@@ -1108,16 +1117,16 @@ function poseMaxi(t) {
   if (t < T.q4) {
     // parte 2: de pie, trabajando (al lado del gato); Q3b: en el banco, al lado de Óscar, mira la tablet
     if (t < T.q3) { const p = poseEn(t, [[0, { x: 1.55, z: -0.3, giro: -2.2, ...aC(0, 0.3), ...CARA.concentrada, ...BRAZOS.costado }]]); p.t = t; return p; }
-    const p = poseEn(t, [[0, { x: -1.08, z: 0.5, giro: -1.25, ...aC(-0.3, 0.25), ...CARA.esperanza, ...BRAZOS.costado }], [T.o4 + 0.2, { ...aC(0.2, 0.25), ...CARA.sorpresa }, 0.3]]);
+    const p = poseEn(t, [[0, { x: -1.08, z: 0.5, giro: -1.25, ...aC(-0.3, 0.25), ...CARA.esperanza, ...BRAZOS.costado }], [T.o4 + 0.2, { ...aC(0.2, 0.25), ...CARA.esperanza, cejas: { alto: 0.7, ang: 0.4 } }, 0.3]]);
     p.t = t; bocaVoz(p, t, T.m1b, ENV.m1, 0.65); return p;
   }
   // Q4c: en el panel de herramientas, cuelga el pincho vacío en su silueta
-  const p = poseEn(t, [[0, { x: SILUETA.x + 0.2, z: ZF + 0.75, giro: Math.PI + 0.15, ...aC(0, -0.15), ...CARA.sonrisa, ...BRAZOS.costado }]]);
+  const p = poseEn(t, [[0, { x: SILUETA.x - 0.38, z: ZF + 0.7, giro: Math.PI + 0.15, ...aC(0, -0.15), ...CARA.sonrisa, ...BRAZOS.costado }]]);
   const k = sg(t, T.q4c - 0.1, T.cuelga[0]) * (1 - sg(t, T.cuelga[1] + 0.15, T.cuelga[1] + 0.45));
   if (k > 0) { const w = V3(SILUETA.x, SILUETA.y + 0.05 + 0.12 * (1 - sg(t, T.cuelga[0], T.cuelga[1])), ZF + 0.3); const m = aCuerpo(maxi, p, w); p.manoD = p.manoD.map((v, i) => lerp(v, m[i], eio(k))); p.codoD = [-0.8, -0.5, -0.2]; }
   p.t = t; return p;
 }
-const pincho2Lugar = () => V3(PINCHO.x - 0.3, BANCO.alto, PINCHO.z + 0.06);
+const pincho2Lugar = () => V3(PINCHO.x - 0.02, BANCO.alto, PINCHO.z + 0.42);
 function poseSergio(t) {
   const p2 = t >= P2;
   if (!p2) {
@@ -1153,7 +1162,7 @@ function poseSergio(t) {
   p.t = t; bocaVoz(p, t, T.s4, ENV.s4, 0.65); return p;
 }
 function poseSofi(t) {
-  const p = poseEn(t, [[0, { x: 0, z: 0, giro: 0, ...aC(0, 0.05), ...CARA.sonrisa, ...BRAZOS.costado }], [T.f1 + 1.2, { ...aC(0.08, 0.02), manoD: [-0.2, 0.4, 0.32], codoD: [-0.8, -0.6, 0] }, 0.4], [T.f1 + LEN.f1 - 0.3, { ...BRAZOS.costado }, 0.4]]);
+  const p = poseEn(t, [[0, { x: 0, z: 0, giro: 0, ...aC(0, 0.05), ...CARA.sonrisa, ...BRAZOS.costado }], [T.f1 + 1.2, { ...aC(0.08, 0.02), manoD: [-0.2, 0.4, 0.32], codoD: [-0.8, -0.6, 0] }, 0.4]]);
   const habla = sg(t, T.f1 - 0.15, T.f1) * (1 - sg(t, T.f1 + LEN.f1, T.f1 + LEN.f1 + 0.2));
   p.boca.sonrisa = lerp(p.boca.sonrisa, 0.15, habla);
   p.t = t; bocaVoz(p, t, T.f1, ENV.f1, 0.6); return p;
@@ -1207,7 +1216,7 @@ function sergioEnAuto(t) {
 function ponerPinchos(t) {
   const p2 = t >= P2;
   PINCHO1.visible = true; PINCHO1.position.set(PINCHO.x, BANCO.alto, PINCHO.z); PINCHO1.rotation.set(0, 0, 0);
-  PINCHO2.visible = !p2 && t >= T.pincho2[0] - 0.35;
+  PINCHO2.visible = !p2 && t >= T.pincho2[0] - 0.12;
   for (const p of PAPELES) p.visible = false;
   // el rebote: cada chac sacude el pincho un instante
   const chacs = [T.chac0, ...T.chacs];
@@ -1221,7 +1230,7 @@ function ponerPinchos(t) {
     return;
   }
   // el segundo pincho: en la mano de Maxi, después en el banco
-  if (PINCHO2.visible) { const L = pincho2Lugar(); if (t < T.pincho2[1]) { const m = manoMundo(maxi, "D", _a); PINCHO2.position.set(m.x, Math.max(L.y, m.y - 0.12), m.z); } else PINCHO2.position.copy(L); }
+  if (PINCHO2.visible) { const L = pincho2Lugar(); if (t < T.pincho2[1]) { const m = manoMundo(maxi, "D", _a); PINCHO2.position.set(m.x + 0.1, Math.max(L.y, m.y - 0.06), m.z); } else PINCHO2.position.copy(L); }
   // la copia (papel 0): en la mano de Óscar hasta que la clava
   if (t < T.chac0) {
     const m = manoMundo(oscar, "D", _a);
@@ -1237,7 +1246,7 @@ function ponerPinchos(t) {
     if (t >= c - 0.08) { papelEnPincho(pap, PINCHO1, i + 1, i + 1, sg(t, c - 0.08, c)); continue; }
     // el vuelo: del borde de abajo del celular (en la pantalla) al tope del clavo, girando
     const u = eio(sg(t, c - 0.34, c - 0.08));
-    const ini = new THREE.Vector3(0.05, -0.3, 0.5).unproject(camera).sub(camera.position).normalize().multiplyScalar(0.9).add(camera.position);
+    const ini = new THREE.Vector3(-0.1, -0.05, 0.5).unproject(camera).sub(camera.position).normalize().multiplyScalar(0.9).add(camera.position);
     papelEnPincho(pap, PINCHO1, i + 1, i + 1, 0);
     const fin = pap.position.clone(), qf = pap.quaternion.clone();
     pap.position.lerpVectors(ini, fin, u).add(V3(0, Math.sin(u * Math.PI) * 0.08, 0));
@@ -1270,15 +1279,15 @@ function renderAt(tIn) {
   const p2 = t >= P2;
   const pl = planoEn(t); planoActual = pl[0];
   ponerSol(0, -1.5);
-  dibujarTablet(t); dibujarCeluOscar(t); dibujarCeluO3(t); dibujarCeluSergio(t); dibujarTabInserto(t);
+  dibujarTablet(t); dibujarCeluOscar(t); dibujarCeluO3(t); dibujarCeluS3(t); dibujarCeluSergio(t); dibujarTabInserto(t);
   // ---- cámara primero (el vuelo de los papeles usa la cámara) ----
   if (pl[2] && pl[2] !== "sergio") ponerCam(catmull(pl[2], t), t);
   if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
   // ---- personajes ----
-  oscar.raiz.visible = true; oscar.poner(poseOscar(t));
-  maxi.raiz.visible = !(planoActual === "Q4" || planoActual === "Q4b" || (!p2 && t < T.p3) || planoActual === "P6"); maxi.poner(poseMaxi(t));
+  oscar.raiz.visible = planoActual !== "P2"; oscar.poner(poseOscar(t));
+  maxi.raiz.visible = !(planoActual === "Q4" || planoActual === "Q4b" || (!p2 && t < T.p3) || planoActual === "P6" || planoActual === "Q1"); maxi.poner(poseMaxi(t));
   ponerAuto(t);
   const enAuto = !p2 && t >= T.auto[0] - 0.05 && t < T.auto[1] + 0.05;
   sergio.raiz.visible = (!p2 && (t < T.p3 || enAuto)) || (p2 && (t < T.q3 || t >= T.baja[0]));
@@ -1320,7 +1329,7 @@ function renderAt(tIn) {
     oscar.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.62, z: 1.42, giro: Math.PI / 2 + 0.25, ...aC(-0.05, 0.12), ...SECO, cejas: { alto: 0.1, ang: 0.25 }, ...BRAZOS.costado, manoI: [0.22, 0.32, 0.3], manoD: [-0.22, 0.32, 0.3] }]]), t });
     maxi.raiz.visible = true; maxi.poner({ ...poseEn(t, [[0, { x: BANCO.x - 0.6, z: 0.62, giro: Math.PI / 2 + 0.45, ...aC(-0.25, 0.08), ...CARA.incredula, ojos: { abiertos: 0.95 }, ...BRAZOS.costado }]]), t });
     PINCHO1.position.set(BANCO.x + 0.27, BANCO.alto, 1.02); PINCHO1.rotation.set(0, 0, 0); for (let i = 0; i < 5; i++) papelEnPincho(PAPELES[i], PINCHO1, i, i, 1);
-    ponerCam([0.2, 1.36, 1.02, -2.3, 1.12, 1.02, 47], t); camera.updateMatrixWorld(true);
+    ponerCam([0.45, 1.42, 1.0, -2.3, 1.32, 1.0, 50], t); camera.updateMatrixWorld(true);
     for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   }
   // ---- tarjetas ----
@@ -1334,17 +1343,17 @@ function renderAt(tIn) {
     if (pa === "P1") {
       const [px, py] = objPx(PRESU_MANO);
       ponerGlobo(GL.lunes, 170, 535, 1, null);
-      ponerGlobo(GL.presu, 320, 1770, 1 * sale(T.vaSe[0] + 0.3), null, 1); ponerGuia(GUIAS[0], 470, 1660, px, py, 1 * sale(T.vaSe[0] + 0.3) > 0.5 ? 1 : 0);
+      if (t < T.vaSe[0] + 0.3) ponerGlobo(GL.presu, 320, 1770, 1, null, 1); ponerGuia(GUIAS[0], 470, 1660, px, py, t < T.vaSe[0] + 0.3 ? 1 : 0);
       if (t >= T.s1) { const [bx, by] = boca(sergio); ponerGlobo(GL.s1, 640, 640, ent(T.s1), [bx, by - 30], 2); }
     }
     if (pa === "P3") {
       ponerGlobo(GL.sabado, 540, 150, 1, null);
-      if (t >= T.m1) { const [bx, by] = boca(maxi); ponerGlobo(GL.m1, 720, 420, ent(T.m1) * sale(T.o1), [bx, by - 30], 1); }
+      if (t >= T.m1) { const [bx, by] = boca(maxi); if (t < T.o1) ponerGlobo(GL.m1, 720, 420, ent(T.m1), [bx, by - 30], 1); }
       if (t >= T.o1) { const [bx, by] = boca(oscar); ponerGlobo(GL.o1, 330, 480, ent(T.o1), [bx, by - 30], 2); }
     }
-    if ((pa === "P4" || pa === "P4b") && t >= T.s2) { const [bx, by] = boca(sergio); ponerGlobo(GL.s2, 540, 330, ent(T.s2), pa === "P4b" ? [bx, by - 60] : null); }
+    if (pa === "P4b" && t >= T.s2) { const [bx, by] = boca(sergio); ponerGlobo(GL.s2, 540, 330, ent(T.s2), pa === "P4b" ? [bx, by - 60] : null); }
     if (pa === "P5") {
-      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = enPantalla(V3(LX - 0.55, 0.4, LZ + 0.6));
+      const [ax, ay] = objPx(PINCHO1, V3(0, 0.12, 0)), [ex, ey] = objPx(ELEV.brazos[1].carro, V3(0, 0.25, 0));
       const u0 = ent(T.rot[0]), u1 = ent(T.rot[1]), u2 = ent(T.rot[2]);
       ponerGlobo(GL.r1, 330, 1180, u0, null, 1); if (u0 > 0) ponerGuia(GUIAS[0], 330, 1250, ax, ay, eo(sg(t, T.rot[0], T.rot[0] + 0.25)));
       ponerGlobo(GL.r2, 330, 1360, u1, null, 1);

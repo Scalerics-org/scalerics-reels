@@ -118,11 +118,11 @@ export const ELENCO = {
     camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false, cuelloAlto: 0.07, franja: MARCA.g,
     pantalon: MARCA.navy2, zapatos: 0x2a2220, panza: 1.12, nariz: 0.064, mejillas: 0xc9785e, alto: 1.02 },
   maxi: { nombre: "Maxi", piel: PIEL.morena, pelo: PELO.negro, peinado: "jopo", jopoAlto: 1.1, cejasColor: 0x1e1a18,
-    camisa: MARCA.gd, mangas: "cortas", cuello: null, cuelloBotones: false, cuelloAlto: 0.06, franja: MARCA.navy,
-    pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 0.95, nariz: 0.052, mejillas: 0xb8644e, alto: 1.0 },
+    camisa: MARCA.gd, mangas: "cortas", cuello: MARCA.navy, cuelloFino: true, cuelloBotones: false, cuelloAlto: 0.06, franja: null,
+    pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 1.0, nariz: 0.052, mejillas: 0xb8644e, alto: 1.0 },   // (r2) sin franja: quedaba como un aro despegado en la cintura
   sergio: { nombre: "Sergio", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x4a3222,
     camisa: MARCA.cr, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, pantalon: 0x3a3f4a, zapatos: 0x3b2a20,
-    campera: { color: MARCA.navy3, cuello: MARCA.cr, cierre: 0xb4b2a3, abierta: true }, panza: 1.0, nariz: 0.058, mejillas: 0xe39282, alto: 1.0 },
+    campera: { color: MARCA.navy3, cuello: MARCA.cr, cierre: MARCA.navy2, abierta: true }, panza: 1.0, nariz: 0.058, mejillas: 0xe39282, alto: 1.0 },
 };
 
 // valores neutros para lo que un personaje no define (sin bigote, sin lentes, sin delantal...)

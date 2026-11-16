@@ -123,3 +123,35 @@ mp4 provisorio (borrado); cuando esté el render, se puede volver a correr igual
 - Pasadas: renders/snap/r1 (cada 0,5 s desde 0) y renders/snap/r1b (desde 0,25) después de corregir; en r1 faltaba la
   burbuja de Sergio en P4b, la guía de "a la vuelta" se iba de cuadro, P6 descentrado, Q1t cortado, el iris abría sobre el
   texto del cartel (el texto sale ahora 0,4 s antes) → corregidos y vistos en r1b. `check --json` 0 errores.
+
+## Ronda 2 (16-11, sobre qa-ronda-r2.md)
+**Duración 38,4 s** (0,4 s de aire al final). Parte 1 0-15,66 · cartel 15,66-18,29 · parte 2 18,29-38,4 (52,4 %). Mezcla:
+voz ≥ +8,5 LU en todos los tramos, -14,0 LUFS. `check --json` 0 errores. Pasada completa cada 0,5 s (renders/snap/r2) y
+cuadro por cuadro (±2 cuadros) en P1b→P2, P4→P4b, P6→P7, Q2→Q2b, Q2b→Q2c, Q3→Q3b, Q4→Q4b, Q4b→Q4c y Q4c→Q5
+(renders/snap/cortes).
+- Arte 1: el celular 3D de Sergio con pantalla dibujada (presupuesto / "¿Pudiste ver el presupuesto?" + Aceptar); los
+  puños de la campera navy (eran grises, parecían esposas).
+- Arte 2: el celular de la semana más chico y a la izquierda (560×880), el pincho aparte abajo a la derecha; los
+  papeles salen del borde de abajo del celular y bajan hasta la base. Óscar oculto en P2 (asomaba un bulto). OJO: en la
+  primera prueba el comentario se había comido el `INSO.g.add(CELO.g)`; arreglado y visto.
+- Guion 2: el turno pasa a "Lun 8:30" (tira Vie 16:00 · Lun 8:30 · Mar 10:00), "Turno agendado · Lunes 8:30", chip Q4
+  "LUNES · 8:30".
+- Portada: chica "Sábado.", cámara más abierta (Maxi entero hasta abajo del torso), sello sobre el pelo de Óscar sin
+  taparle la cara, sin el aro de Maxi.
+- Arte 3: Q3b desde más alto y centrado en Óscar (boca por encima de la tablet); Maxi reacciona con la boca cerrada.
+- Arte 4: techo navy y vidrios azul claro: el sedán se lee con techo (también de costado).
+- Arte 5: Maxi a la izquierda de la silueta y cámara de Q4c corrida: se lo ve colgar el pincho, sin la botonera
+  delante; el árbol pasó a la vereda de enfrente (ya no parece sostener el auto ni tapa a Sergio en P4b).
+- Arte 7: Maxi sin la franja del mameluco (era el aro en la cintura), cuello navy fino.
+- Arte 6: el segundo pincho aparece con la mano, agarrado de la base (el clavo no atraviesa el puño), 0,42 m al costado
+  del primero.
+- Sonido 1-4, 6, 9: tac -31 con pico -14 (antes lo limitaba PICO), auto que entra -31, puerta -33, pasos -36, primer chac
+  -31, toque de Aceptar -38, stinger -31; "Justo lo estaba pensando." = toma 08-sergio-a con atempo 1,08 (el STT oye "justo
+  lo estaba pensando").
+- Bajas: "Seguimientos a mano: 0" a 76 px; tablet de Q1 con rótulos a 50 px y "Por WhatsApp, con botón" a 64; rótulos
+  de P5 a 56-58 px; guía de "a la vuelta" al carro del elevador; notificación "Celular de Óscar · ahora"; salidas secas
+  del rótulo PRESUPUESTO y de "Jefe…" (sin fantasma gris); la burbuja de Sergio solo en P4b (no asoma antes del corte);
+  Sofi mantiene el gesto hasta el final; Maxi fuera del Q1 (quedaba cortado en el borde).
+- No hecho: sonido 5 ("¡Óscar!" con pasaaltos: regenerar arriesga el resto de la toma) y 8 (contraplano en P3); arte 11
+  (la tarjeta que vuela 0,28 s), 13 (tercio de abajo de la tarjeta del presupuesto), 15 (cabeza de espaldas en el
+  latigazo), 16 (la "m" del cartel) y la patilla/boca de Maxi (arte 7, segunda parte).

@@ -18,7 +18,7 @@ pausa partes/rec/05-oscar-a.wav partes/tmp/o2.wav 0.69 1.38 0.42
 v x o2 "anull" partes/tmp/o2.wav                   # "Lo pensó. Y me avisó." (pausa interna 0,42 s)
 v 06-narrador-b narrador "atempo=${NARV:-1.1}"     # "Un sistema de presupuestos más tarde." (Rasalgethi)
 v 07-oscar-b  o3                                   # "Pensalo tranquilo."
-v 08-sergio-b s3                                   # "Justo lo estaba pensando."
+v 08-sergio-a s3 "atempo=1.08"                    # "Justo lo estaba pensando." (r2: la toma a, la b se comía el "lo")
 v 09-oscar-e  o4                                   # "Ya les escribió el sistema."
 v 10-sergio-b s4                                   # "Lo pensé."
 v 11-oscar-c  o5                                   # "Y me avisaste."

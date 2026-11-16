@@ -1,6 +1,6 @@
 {
  "t": 12.6,
- "chica": "Lo hizo a la vuelta.",
+ "chica": "Sábado.",
  "grande": "¡Me llamaron!",
  "sello": "TALLERES",
  "acento": "#5ce611",
@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-portada-r1.png",
- "nota": "(r1) Fondo: VER=portada (tres.js): Óscar y Maxi de frente detrás del banco y el pincho lleno de presupuestos adelante, LIMPIO=1, t 12,6, prev.mjs FULL=1; subido 150 px (personajes y pincho en la mitad de arriba, sin la botonera ni el cartel)."
+ "nota": "(r2: cámara más abierta, Maxi entero, chica \"Sábado.\") (r1) Fondo: VER=portada (tres.js): Óscar y Maxi de frente detrás del banco y el pincho lleno de presupuestos adelante, LIMPIO=1, t 12,6, prev.mjs FULL=1; subido 230 px (personajes y pincho en la mitad de arriba, sin la botonera ni el cartel)."
 }
