@@ -11,7 +11,7 @@ v 05-ruben-d    r3                          # "Lo de siempre era yo."
 v 06-narrador-d nar "atempo=1.12"           # "Un catálogo de pedidos más tarde." (Rasalgethi, cabe en el cartel de 2,4 s)
 v 07-graciela-b g2                          # "Lo de siempre."
 v 08-ruben-a    r4                          # "Siete. Sin mosca." (0,38 s de pausa natural después de "Siete.")
-v 09-ruben-b    r5 "atempo=1.05"            # "Ocho y cinco. ¿Y ahora qué hago hasta las once?"
+v 09-ruben-b    r5 "atempo=1.08"            # "Ocho y cinco. ¿Y ahora qué hago hasta las once?"
 v 10-nico-a     n1                          # "¿Vender?"
-v 11-ruben-d    r6 "atempo=1.06"            # "Comentá PEDIDOS y te mando cómo funciona para tu distribuidora." (la d: el STT oye "comentá")
+v 11-ruben-d    r6 "atempo=1.1"            # "Comentá PEDIDOS y te mando cómo funciona para tu distribuidora." (la d: el STT oye "comentá")
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done
