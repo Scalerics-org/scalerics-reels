@@ -291,7 +291,7 @@ const paredM = mat(0xe6e3d4, 0.9);
   for (let i = 0; i < 3; i++) for (let k = 0; k < 12; k++) teclado.add(caja(0.032, 0.012, 0.032, M.cr2, -0.21 + k * 0.038, 0.03, -0.045 + i * 0.042, 0.004));
   OF.add(caja(0.065, 0.035, 0.1, M.navy3, 0.38, MESA_Y + 0.018, 1.62, 0.03));
   // el teléfono de escritorio (de la-lista)
-  telefono = new THREE.Group(); telefono.position.set(0.72, MESA_Y, 2.35); telefono.rotation.y = -0.45; telefono.scale.setScalar(1.25); OF.add(telefono);
+  telefono = new THREE.Group(); telefono.position.set(-0.62, MESA_Y, 2.35); telefono.rotation.y = 0.45; telefono.scale.setScalar(1.25); OF.add(telefono);
   telefono.add(caja(0.24, 0.07, 0.22, M.navy3, 0, 0.035, 0, 0.03));
   for (let i = 0; i < 12; i++) telefono.add(caja(0.03, 0.015, 0.025, M.cr, -0.05 + (i % 3) * 0.04, 0.075, 0.03 + Math.floor(i / 3) * 0.035 - 0.04, 0.005));
   telefono.add(caja(0.26, 0.05, 0.07, M.navy3, 0, 0.1, -0.06, 0.025));
@@ -1066,7 +1066,7 @@ const PLANOS = [
   // P6: la pausa y el remate: primer plano frontal, el reloj arriba
   ["P6", T.p6, [[T.p6, 0.08, OY + 1.58, 3.6, 0.06, OY + 1.6, 1.0, 40], [T.p7, 0.06, OY + 1.56, 3.3, 0.05, OY + 1.6, 1.0, 39]]],
   // P7: plano medio desde el costado del escritorio: Rubén, el celular, el termo volcado
-  ["P7", T.p7, [[T.p7, 1.45, OY + 1.72, 3.05, 0.1, OY + 1.42, 1.25, 46], [P1, 1.38, OY + 1.7, 2.9, 0.1, OY + 1.42, 1.25, 45]]],
+  ["P7", T.p7, [[T.p7, 0.75, OY + 1.68, 3.2, 0.12, OY + 1.42, 1.2, 46], [P1, 0.7, OY + 1.66, 3.05, 0.12, OY + 1.42, 1.2, 45]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, RX + 0.25, 1.62, -1.05, RX + 0.3, 1.25, -3.85, 44], [T.q1b, RX + 0.28, 1.6, -1.35, RX + 0.32, 1.25, -3.85, 43]]],
   ["Q1b", T.q1b, null],    // inserto del celular de Graciela (POV)
@@ -1122,7 +1122,7 @@ function camGrua(t) {
     [T.grua[1], W_PAL.x + 0.2, 2.75, W_PAL.z + 3.95, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 52],
     [T.q4, W_PAL.x + 0.19, 2.7, W_PAL.z + 3.8, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 51],
   ];
-  const v = catmull(K, t);
+  const v = t < T.grua[0] ? K[0].slice(1) : catmull(K.slice(1), t);
   ponerCam(v, t, t < T.grua[0]);
 }
 
@@ -1369,7 +1369,7 @@ function renderAt(tIn) {
       mate.rotation.set(0, yaw, 0.4 * so); mate.position.copy(m).add(V3(0, -0.07, 0));
       if (so > 0) {
         ruben.raiz.updateMatrixWorld(true);
-        const boca = ruben.cabeza.localToWorld(V3(0.05, 0.17, 0.3));
+        const boca = ruben.cabeza.localToWorld(V3(0.06, 0.13, 0.33));
         mate.updateMatrixWorld(true);
         const punta = V3(0.075, 0.305, 0).multiplyScalar(1.12).applyEuler(mate.rotation);
         mate.position.lerp(boca.sub(punta), so);
@@ -1450,7 +1450,7 @@ function renderAt(tIn) {
     if (pa === "P4") {
       // la ráfaga: se apilan arriba (sin voz), cada una empuja a las anteriores
       const n = T.rafaga.filter((a) => t >= a).length;
-      for (let i = 0; i < n; i++) { const pos = n - 1 - i; if (pos > 2) continue; ponerGlobo(GL.raf[i], i % 2 ? 620 : 460, 240 + pos * 262, ent(T.rafaga[i]) * (pos > 1 ? 0.95 : 1), null, 4 - pos); }
+      for (let i = 0; i < n; i++) { const pos = n - 1 - i; if (pos > 1) continue; ponerGlobo(GL.raf[i], i % 2 ? 620 : 460, 240 + pos * 262, ent(T.rafaga[i]) * (pos > 1 ? 0.95 : 1), null, 4 - pos); }
     }
     if (pa === "P5") {
       if (t < T.w1) ponerGlobo(GL.wal, 540, 260, ent(T.walter), null);
