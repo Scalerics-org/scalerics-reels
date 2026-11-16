@@ -378,7 +378,7 @@ const LIV = new THREE.Group(); LIV.position.set(30, 0, 0); scene.add(LIV);
   const l = new THREE.Group(); l.position.set(-1.25, 0, -0.75); LIV.add(l);
   l.add(mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.03, 20), M.navy3, 0, 0.015, 0)); l.add(mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.5, 8), M.navy3, 0, 0.77, 0));
   l.add(mesh(new THREE.CylinderGeometry(0.16, 0.24, 0.3, 24, 1, true), new THREE.MeshStandardMaterial({ color: 0xf6efd8, emissive: 0xfff2d0, emissiveIntensity: 0.5, side: THREE.DoubleSide }), 0, 1.6, 0));
-  const cuadro = new THREE.Group(); cuadro.position.set(-0.2, 1.75, -1.14); LIV.add(cuadro); cuadro.add(caja(0.7, 0.5, 0.03, M.navy3, 0, 0, 0, 0.01)); cuadro.add(caja(0.6, 0.4, 0.02, M.g, 0, 0, 0.012, 0.01));
+  const cuadro = new THREE.Group(); cuadro.position.set(-0.2, 1.75, -1.14); LIV.add(cuadro); cuadro.add(caja(0.7, 0.5, 0.03, M.navy3, 0, 0, 0, 0.01)); cuadro.add(caja(0.6, 0.4, 0.02, M.cr2, 0, 0, 0.012, 0.01));
   sombras(LIV);
 }
 fusionar(LIV);
@@ -931,7 +931,7 @@ const PLANOS = [
   ["Q3c", T.q3c, null],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.c3 + 0.5, ...P1C(0.5)], [T.q4b, 0.3, 1.85, 1.75, 0.1, 1.15, -1.3, 46]]],
   ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 44], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 37]]],
-  ["Q5", T.q5, [[T.q5, 0.34, 1.3, 2.08, 0.34, 1.2, 3.22, 40], [T.viaje[0], 0.34, 1.3, 2.0, 0.34, 1.2, 3.22, 40], [T.viaje[1], 0.74, 1.2, 2.42, 0.74, 1.12, 3.1, 42], [DUR, 0.74, 1.2, 2.47, 0.74, 1.12, 3.1, 41]]],
+  ["Q5", T.q5, [[T.q5, 0.32, 1.3, 2.08, 0.32, 1.2, 3.22, 40], [T.viaje[0], 0.32, 1.3, 2.0, 0.32, 1.2, 3.22, 40], [T.viaje[1], 0.74, 1.2, 2.42, 0.74, 1.12, 3.1, 42], [DUR, 0.74, 1.2, 2.47, 0.74, 1.12, 3.1, 41]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
