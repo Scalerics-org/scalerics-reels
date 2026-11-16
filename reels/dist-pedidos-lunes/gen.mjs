@@ -205,7 +205,7 @@ const RUBRO = { top: 120 };
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.42)});   // se va antes de que abra el iris`,
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.18, ease: "power2.in" }, ${r2(dur - 0.52)});   // se va antes de que abra el iris`,
   });
 }
 
@@ -395,7 +395,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 760px";   // el iris se abre desde el celular de Graciela (Q1)
+const IRIS_C = "680px 1240px";   // el celular verde de Graciela (Q1)   // el iris se abre desde el celular de Graciela (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

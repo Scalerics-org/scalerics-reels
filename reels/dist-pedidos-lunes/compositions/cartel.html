@@ -58,7 +58,7 @@
           tl.to(l, { y: s * (4 + (i % 3) * 2), rotation: s * (i % 2 ? 1.5 : -1.5), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.3 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, 1.98);   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.18, ease: "power2.in" }, 1.88);   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
