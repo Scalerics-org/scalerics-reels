@@ -907,7 +907,7 @@ const PLANOS = [
   ["Q3c", T.q3c, null],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.q4b, ...P1C(0.7)]]],
   ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 42], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 38]]],
-  ["Q5", T.q5, [[T.q5, 0.3, 1.5, 1.3, 0.42, 1.25, 3.2, 50], [T.q5 + 1.2, 0.42, 1.44, 1.72, 0.42, 1.3, 3.2, 43], [DUR, 0.42, 1.43, 1.8, 0.42, 1.3, 3.2, 42]]],
+  ["Q5", T.q5, [[T.q5, 0.3, 1.5, 1.3, 0.42, 1.25, 3.2, 50], [T.q5 + 1.2, 0.46, 1.45, 1.55, 0.46, 1.3, 3.2, 47], [DUR, 0.46, 1.44, 1.62, 0.46, 1.3, 3.2, 46]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -1183,8 +1183,8 @@ function renderAt(tIn) {
     if (pa === "Q1") {
       const [cx, cy] = celPx(), [bx, by] = lb();
       ponerGlobo(GL.q1c, 540, 420, ent(T.carolina3), [cx, cy]);
-      if (t >= T.l4) ponerGlobo(GL.l4, 700, 1480, ent(T.l4), [bx + 20, by + 40], 1);
-      if (t >= T.link) ponerGlobo(GL.link, 540, 1700, ent(T.link), [cx, cy], 2);
+      if (t >= T.l4) ponerGlobo(GL.l4, 700, 1380, ent(T.l4), [bx + 20, by + 40], 1);
+      if (t >= T.link) ponerGlobo(GL.link, 540, 1660, ent(T.link), [cx, cy], 2);
     }
     if (pa === "Q1b") ponerGlobo(GL.rReserva, 540, 190, ent(T.q1b + 0.15), null);
     if (pa === "Q2") { ponerGlobo(GL.chipMie, 540, 330, ent(T.q2 + 0.05), null); ponerGlobo(GL.rRecord, 540, 1600, ent(T.q2 + 0.35), null); }
