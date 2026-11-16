@@ -52,3 +52,19 @@ tablet) son pegados a la cámara como en dice-cuarenta.
 - Las transformaciones de las toallas son escala + vaivén de manos, no manipulación detallada.
 - P6: Lorena mira la agenda (ojos casi cerrados, sin hablar).
 - Duración 42,5 s (pedido ~34).
+
+## Ronda 1 (16-11, sobre la revisión independiente del MP4 de 42,6 s)
+**Duración 38,75 s** (parte 1 0-16,87 · cartel 16,87-19,32 · parte 2 19,32-38,75 = 50,1 %). Render 1876 s.
+A1 tablet y celular de Sofi invisibles en la parte 1 · A2 mostrador a 0,9 m, Lorena más adelante, cámara alta (se le ve
+el torso), cisnes sobre el mostrador a su derecha · A3 la tablet arranca "15:00 Libre / 16:00 Mariana / 17:00 Jimena" en
+blanco; Carolina en verde al reservar, Jimena al confirmar · A4 aviso de Graciela arriba sin cola, cámara más baja ·
+A5/A6 rótulos abajo sobre el piso: "3 turnos…" a la camilla, "A Vale se le paga igual" a su regazo, "$ 5.400 que no
+entraron" se queda durante "Lo único puntual…"; P4 1,8 s · M1 "Cubierto en 2 minutos" con ajuste · M2 tríptico rehecho
+(300 px, textos con ajuste, "Reprogramó / Martes / 10:00 ✓" a 54 px, llega a q2 + 0,05) · M3 sin círculos · M4 celular
+con cámara, reborde y mano; tablet con cámara; pie de texto · M5 Q5: tablet ~85 % con "Camilla vacía: 0 h" a 76 px,
+después push a Sofi (celular 1,9x); s1 a q5 + 0,2, atempo 1,15, cola 0,4 · M6 la tablet de Q5 ya verde · M7 el cartel no
+entra en Q5 · M8 cielorraso crema (sin luz) · M9 P4 más alto y rótulos abajo · M10 horas en Lexend, agenda de frente en
+P5/P6 · M11 "¡Llegué!" abajo · M12 pinza verde y mechas en la nuca de Lorena, coleta de Carolina con volumen,
+`flequilloAlto` en Vale · M13 Carolina entra por la puerta · M14 cama +4 dB, SFX +6 dB sin voz (techo -31) · M15 push-ins
+más marcados en P5, Q4, Q4b · M16 chat de Mariana blanco con tildes verdes · M17 portada desde el plano general (8,9 s).
+Bajas: B1 B2 B3 B5 B7 B8 B9 B10 B11 B12. Mezcla: voz ≥ +8,5 LU, -14,2 LUFS, pico -5,2 dBFS.
