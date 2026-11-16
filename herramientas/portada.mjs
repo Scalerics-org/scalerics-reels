@@ -62,7 +62,7 @@ let html = fs.readFileSync(path.resolve("herramientas/portada.html"), "utf8")
   .replaceAll("__CUADRO__", url(cuadro))
   .replace("__SELLO__", esc(cfg.sello))
   .replace("__CHICA__", `<span style="font-size:${tam(cfg.chica, 112)}px">${esc(cfg.chica)}</span>`)
-  .replace("__GRANDE__", `<span style="font-size:${tam(cfg.grande, 190)}px">${esc(cfg.grande)}</span>`)
+  .replace("__GRANDE__", `<span style="font-size:${tam(cfg.grande, 190)}px${cfg.separacion ? `;display:inline-block;margin-top:${Number(cfg.separacion)}px` : ""}">${esc(cfg.grande)}</span>`)   // "separacion": px extra entre la chica y la grande (opcional; para que un acento no pise la chica)
   .replace("__EXTRAS__", extras(cfg));
 const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo], ["--foco-x", cfg.foco_x], ["--brillo-y", cfg.brillo_y]]
   .filter(([, v]) => v != null).map(([k, v]) => `${k}: ${v};`).join(" ");
