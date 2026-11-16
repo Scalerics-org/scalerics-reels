@@ -61,6 +61,15 @@ lo sostiene y un índice suelto toca (los dedos son 3D, hijos del celular).
   clave siguiente: ahora quieto hasta "Mandar a armar"); la bombilla cruzaba el ojo de Rubén en P7 (plano más de frente,
   la bombilla por debajo del bigote); tres globos de la ráfaga tapaban la cabeza de Rubén (quedan dos); el teléfono de
   escritorio en el medio del plano de Q4 (al otro lado del escritorio).
+- Pasada 3 (sobre el MP4 renderizado, cada 0,5 s + cuadro por cuadro en cada corte): la grúa daba un tirón al final
+  (Catmull-Rom entre claves casi iguales: ahora la grúa termina con un fundido lineal) y al arrancar pasaba por la pared
+  crema y el reloj o rozando la cabeza de Rubén (ahora sale por la izquierda del monitor y cruza el vidrio); el iris de
+  la parte 2 abría sobre el pelo de Graciela con el texto del cartel todavía visible (ahora abre desde su celular y el
+  texto se va antes). Segunda vuelta sobre el render nuevo: sin defectos nuevos en los cortes ni en la grúa.
+- Render: 831 s el primero, 851 s y 857 s los siguientes (SwiftShader, --workers 2, sin contar la espera del candado);
+  re-codificación 72 s. Final: 36,4 s, -14,0 LUFS integrado, pico -5,9 dBFS, sin clipping.
+- Portada: fondo LIMPIO del cuadro 12,6 s (copia del proyecto en el scratchpad), achicado y subido para que el reloj en
+  11:00 y la cara de Rubén queden en la mitad de arriba (portada-src/fondo-portada-12.6.png).
 `check --json`: 0 errores (warnings: canvas anidado en capa3d, canvas en el borde, "GPU stall" de SwiftShader).
 
 ## Pendiente / para los revisores
