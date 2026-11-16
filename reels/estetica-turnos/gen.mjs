@@ -46,8 +46,8 @@ T.p5 = r2(T.p4 + 1.8); T.l2 = r2(T.p5 + 0.15);
 T.p6 = r2(T.l2 + LEN.l2 + 0.2); T.carolina2 = r2(T.p6 + 0.05); T.c2 = r2(T.p6 + 0.12);
 T.hoja = [r2(T.c2 + LEN.c2 - 0.55), r2(T.c2 + LEN.c2 - 0.2)]; T.anota = [r2(T.hoja[1] + 0.05), r2(T.hoja[1] + 0.5)];
 T.l3 = r2(T.c2 + LEN.c2 + 0.12); T.vale = [r2(T.l3 - 0.25), r2(T.l3 + 0.2), r2(T.l3 + 0.6)];   // deja los cisnes · agarra la toalla · empieza
-const P1 = r2(T.l3 + LEN.l3 + 0.35);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.12));
+const P1 = r2(T.l3 + LEN.l3 + 0.3);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.35, LEN.nar + 0.06));
 // ---- parte 2 ----
 // Q1 · la recepción otra semana: la burbuja de Carolina ("¿me guardás el jueves que viene?") · "Te mando el link." ·
 // la tarjeta del link
@@ -66,10 +66,12 @@ T.q4 = r2(T.chip + 0.5); T.campanita = r2(T.q4 + 0.02); T.entra = [r2(T.q4 + 0.0
 T.c3 = r2(T.q4 + 0.47); T.pasa = [r2(T.c3 + LEN.c3 - 0.3), r2(T.c3 + LEN.c3 + 0.7)];
 T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25);
 // Q5 · la recepción: la tablet con el jueves lleno, Sofi en videollamada al lado · "Comentá TURNOS…" · la línea chica
-T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = r2(T.q5 + 0.45);
-T.s1 = r2(T.q5 + 0.2); T.turnos = r2(T.s1 + 0.45);
-T.cierre = r2(T.s1 + LEN.s1 - 1.6);
+// (ronda 2) "Camilla vacía: 0 h" desde el corte y 1,6 s quieto en la tablet; la cámara va a Sofi y recién ahí entra
+// "Comentá TURNOS" (tarjeta ≤ 3 s)
+T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = T.q5;
+T.s1 = r2(T.q5 + 0.05); T.viaje = [r2(T.q5 + 1.6), r2(T.q5 + 2.1)]; T.turnos = r2(T.viaje[1] - 0.1);
 const DUR = r2(T.s1 + LEN.s1 + 0.4);
+T.cierre = r2(DUR - 1.7);
 // el reloj de pared [t, hora decimal]: 15:00 · corre a 16:00 · 17:00 en punto · (parte 2) 15:00 en punto
 T.relojK = [[0, 15.0], [T.reloj1[0], 15.0], [T.reloj1[1], 16.0], [T.reloj2[0], 16.97], [T.reloj2[1], 17.0], [T.p5, 17.0], [T.p6, 17.86]];
 
@@ -194,7 +196,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.15, opacity: 0, duration: 0.2, ease: "power2.in" }, ${r2(dur - 0.42)});   // se va antes de que abra el iris`,
+      tl.to(q(".texto"), { scale: 1.6, y: -900, duration: 0.18, ease: "power2.in" }, ${r2(dur - 0.36)});   // se va antes de que abra el iris`,
   });
 }
 
@@ -323,7 +325,7 @@ voz("l5", T.l5, -2);
 // Q5 · la agenda llena (ding por fila), "Camilla vacía: 0 h", Sofi, el pop de TURNOS, la línea chica
 s("sfx/whoosh.mp3", T.q5 - 0.1, 0, { techo: -42 });
 T.filas.forEach((t, i) => ding(t, -38 + i));
-pop(T.cero, -38);
+s("sfx/whoosh-short.mp3", T.viaje[0], 0, { techo: -42 });
 voz("s1", T.s1, -1);
 pop(T.turnos + 0.02, -38);
 pop(T.cierre + 0.05, -44);
@@ -332,7 +334,7 @@ pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
   if (en(t0, T.p2, T.p3) || en(t0, T.link, T.g1 - 0.2) || en(t0, T.q3c - 0.2, T.q4 - 0.05)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.35])]; }
 function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render
@@ -402,7 +404,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1500px";   // el iris se abre desde el mostrador de la recepción (Q1)
+const IRIS_C = "540px 260px";   // el iris se abre desde el mostrador de la recepción (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

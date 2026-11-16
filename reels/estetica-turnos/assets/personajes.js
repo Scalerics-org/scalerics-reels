@@ -89,19 +89,19 @@ export const ELENCO = {
   // chaqueta de estética navy con franja verde); Vale, la cosmetóloga (~25, coleta alta negra, ambo verde de marca);
   // Carolina, la clienta (~32, rubia de coleta baja, campera corta crema con cuello navy); Jimena y Mariana, clientas que
   // solo salen como avatar (que no se parezcan a las otras tres).
-  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "mediaCola", cejasColor: 0x4a2e1e, cejaFina: true,
+  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "melena", cejasColor: 0x4a2e1e, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.navy3, mangas: "largas", cuello: null, cuelloBotones: false, franja: MARCA.g, cuelloAlto: 0.08,
     labiosPegados: true, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 1.02, nariz: 0.05, mejillas: 0xd98a7a, labios: 0xa8484f,
     aros: MARCA.cr, alto: 0.98 },
   vale: { nombre: "Vale", piel: PIEL.clara, pelo: PELO.negro, peinado: "coletaAlta", cejasColor: 0x2a2220, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.g, mangas: "cortas", cuello: null, cuelloBotones: false, franja: MARCA.navy, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 0.96, nariz: 0.045, mejillas: 0xf2a094, labios: 0xc0606a,
-    aros: MARCA.g, alto: 0.95, flequilloAlto: 0.16 },
+    aros: MARCA.g, alto: 0.95, sinFlequillo: true },
   carolina: { nombre: "Carolina", piel: PIEL.media, pelo: PELO.rubio, peinado: "coleta", cejasColor: 0x8a6a40, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr, mangas: "largas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.cr, panza: 0.97, nariz: 0.046, mejillas: 0xe39282, labios: 0xb5555a,
     alto: 0.97 },
-  jimena: { nombre: "Jimena", piel: PIEL.clara, pelo: PELO.castaño, peinado: "rulos", cejasColor: 0x4a3222, cejaFina: true,
+  jimena: { nombre: "Jimena", piel: PIEL.clara, pelo: PELO.castaño, peinado: "mediaCola", cejasColor: 0x4a3222, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: 0xb9cde0, mangas: "largas", cuello: null, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.navy, panza: 0.96, nariz: 0.048, mejillas: 0xf0a090, labios: 0xc25a62,
     aros: MARCA.cr, alto: 0.96 },
@@ -470,7 +470,10 @@ export function crearPersonaje(cfg) {
     // mechones a los costados de la cara (caen delante de la oreja hasta la mandíbula)
     for (const sg of [-1, 1]) { mecha(sg * 1.2, 0.02, 0.034, 0.16, 0.04, 1.02, sg * 0.18); mecha(sg * 1.32, -0.12, 0.03, 0.12, 0.035, 1.0, sg * 0.1); }
     const tie = mat(MARCA.g, 0.45);
-    if (c.peinado !== "mediaCola") {
+    if (c.sinFlequillo) {
+      // (estetica-turnos r2) sin flequillo: dos mechas altas que no tapan los ojos de 3/4
+      for (const sg of [-1, 1]) mecha(sg * 0.35, 0.82, 0.16, 0.06, 0.07, 1.04, -sg * 0.4);
+    } else if (c.peinado !== "mediaCola") {
       // flequillo de costado: tres mechas que barren la frente
       for (const [az, el, sx, sy, rz] of [[-0.62, 0.48, 0.12, 0.05, 0.75], [-0.35, 0.58, 0.16, 0.06, 0.45], [-0.05, 0.64, 0.16, 0.06, 0.32], [0.28, 0.62, 0.14, 0.055, 0.3], [0.58, 0.52, 0.11, 0.05, 0.55], [0.85, 0.38, 0.07, 0.045, 0.9]]) mecha(az, el + (c.flequilloAlto || 0), sx, sy, 0.07, 1.04, rz);   // flequilloAlto (estetica-turnos): el flequillo más arriba, sin tapar el ojo
     } else {
@@ -493,6 +496,23 @@ export function crearPersonaje(cfg) {
       cabeza.add(mesh(G.esfera, M.pelo, 0, CC + R * 0.85, -R * 0.55, 0.085));
       cabeza.add(mesh(new THREE.TorusGeometry(0.05, 0.016, 8, 18), tie, 0, CC + R * 0.78, -R * 0.5).rotateX(-0.6));
     }
+  } else if (c.peinado === "melena") {
+    // estetica-turnos (ronda 2): melena con caída hasta los hombros. Casquete liso arriba con raya al costado, una cortina
+    // que cae por detrás y a los costados (abierta adelante, sin tapar la cara) y que se abre hacia abajo en las puntas,
+    // y un flequillo de costado. De espaldas tiene silueta (cae y se abre), no es una bola.
+    const pm = M.pelo, pm2 = mat(new THREE.Color(c.pelo).multiplyScalar(1.18).getHex(), 0.7);
+    { const cap = mesh(new THREE.SphereGeometry(1, 48, 20, 0, Math.PI * 2, 0, Math.PI * 0.5), pm, 0, CC + 0.01, -0.015, R * 1.06, R * 1.05, R * 1.06); cap.rotation.x = -0.18; cabeza.add(cap); }
+    // la cortina: un torno (perfil que baja desde la sien y se abre en las puntas), abierta adelante
+    const perfilM = [[1.06, 0.15], [1.08, 0.0], [1.08, -0.2], [1.06, -0.42], [1.08, -0.62], [1.16, -0.8], [1.2, -0.9], [1.12, -0.95]].map(([r, y]) => new THREE.Vector2(r * R, y * R));
+    const abre = 1.05;   // radianes libres adelante (la cara)
+    const cort = mesh(new THREE.LatheGeometry(perfilM, 48, abre, Math.PI * 2 - 2 * abre), pm, 0, CC - 0.02, -0.01);   // phi 0 = adelante (+z)
+    cort.material = pm.clone(); cort.material.side = THREE.DoubleSide; cort.scale.set(1, 1, 0.98); cabeza.add(cort);
+    // mechas con luz sobre la espalda de la melena (rompen la superficie lisa)
+    for (const [az, el, sy] of [[Math.PI, -0.45, 0.16], [Math.PI - 0.45, -0.4, 0.15], [Math.PI + 0.45, -0.4, 0.15], [Math.PI - 0.9, -0.3, 0.13], [Math.PI + 0.9, -0.3, 0.13]]) { const m = mesh(G.esfera, pm2, 0, 0, 0, 0.045, sy, 0.03); sobre(m, az, el, 1.08); cabeza.add(m); }
+    // flequillo de costado (barre la frente hacia la derecha del personaje, alto: no tapa los ojos)
+    for (const [az, el, sx, sy, rz] of [[-0.45, 0.72, 0.15, 0.055, 0.5], [-0.1, 0.78, 0.17, 0.06, 0.3], [0.25, 0.76, 0.15, 0.055, 0.25], [0.6, 0.62, 0.11, 0.05, 0.6]]) { const m = mesh(G.esfera, pm, 0, 0, 0, sx, sy, 0.07); sobre(m, az, el, 1.04); m.rotation.z += rz; cabeza.add(m); }
+    // las puntas a los costados de la cara, delante de la oreja hasta la mandíbula
+    for (const sg of [-1, 1]) { const m = mesh(G.esfera, pm, 0, 0, 0, 0.05, 0.2, 0.06); sobre(m, sg * 1.18, -0.25, 1.03); m.rotation.z += sg * 0.12; cabeza.add(m); }
   } else if (c.peinado === "jopo") {
     const JA = c.jopoAlto ?? 1; // volumen del jopo (0.5 = corto y prolijo, 1.5 = bien alto)
     // varón: casquete corto con costados rebajados y un jopo con volumen arriba, peinado hacia atrás y a un costado

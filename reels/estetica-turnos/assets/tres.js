@@ -315,9 +315,7 @@ const vinT = lienzo(1024, 256, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillSty
     for (const sx of [-1, 1]) e.add(caja(0.035, 0.12, 0.25, M.navy3, sx * 0.6, 1.36, 0.0, 0.01));
     for (let i = 0; i < 3; i++) { const r = crearRollo(0.055, 0.26, i % 2 ? TOALLA_V : TOALLA); r.rotation.y = Math.PI / 2; r.position.set(0.48 + (i % 2) * 0.12, 1.49 + Math.floor(i / 2) * 0.1, 0); e.add(r); }
     for (let i = 0; i < 3; i++) e.add(mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.12 + i * 0.02, 14), mat([C.gp, C.cr, C.gp][i], 0.3), 0.1 + i * 0.09, 1.5 + i * 0.01, 0));
-    const placa = new THREE.Group(); placa.position.set(0, 2.0, 0.1); placa.rotation.y = Math.PI; e.add(placa);
-    placa.add(caja(1.3, 0.36, 0.03, M.navy3, 0, 0, 0, 0.02));
-    const pv = plano(1.12, 0.28, vinT, 0, 0, 0.017); pv.material.transparent = true; placa.add(pv);
+    // (ronda 2) sin cartel en la pared del fondo: quedaba cortado en los primeros planos y "hablaba" sobre Lorena
   }
   // la puerta de calle (pared derecha de la recepción): vidrio con marco navy, vinilo, campanita colgada
   {
@@ -376,7 +374,7 @@ const LIV = new THREE.Group(); LIV.position.set(30, 0, 0); scene.add(LIV);
   const s = new THREE.Group(); s.position.set(-0.2, 0, -0.65); LIV.add(s);
   s.add(caja(1.7, 0.4, 0.75, M.cr, 0, 0.3, 0, 0.1)); s.add(caja(1.7, 0.55, 0.2, M.cr, 0, 0.72, -0.3, 0.1));
   for (const sx of [-1, 1]) s.add(caja(0.2, 0.3, 0.75, M.cr, sx * 0.85, 0.58, 0, 0.09));
-  s.add(caja(0.42, 0.42, 0.12, M.g, -0.55, 0.7, -0.15, 0.05)); s.add(caja(0.38, 0.38, 0.12, M.navy3, 0.55, 0.68, -0.15, 0.05));
+  s.add(caja(0.42, 0.42, 0.12, M.cr2, -0.55, 0.7, -0.15, 0.05)); s.add(caja(0.38, 0.38, 0.12, M.navy3, 0.55, 0.68, -0.15, 0.05));
   const l = new THREE.Group(); l.position.set(-1.25, 0, -0.75); LIV.add(l);
   l.add(mesh(new THREE.CylinderGeometry(0.15, 0.15, 0.03, 20), M.navy3, 0, 0.015, 0)); l.add(mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.5, 8), M.navy3, 0, 0.77, 0));
   l.add(mesh(new THREE.CylinderGeometry(0.16, 0.24, 0.3, 24, 1, true), new THREE.MeshStandardMaterial({ color: 0xf6efd8, emissive: 0xfff2d0, emissiveIntensity: 0.5, side: THREE.DoubleSide }), 0, 1.6, 0));
@@ -397,9 +395,7 @@ const TODOS = [lorena, vale, carolina, graciela];
 // volumen (se ve de frente, por encima del hombro)
 {
   const R0 = 0.3, CC0 = R0 * 0.92, pm = mat(0x7a4a2e, 0.75), pm2 = mat(0x8f5a38, 0.75);
-  const pinza = new THREE.Group(); pinza.position.set(0, CC0 + R0 * 0.72, -R0 * 0.82); pinza.rotation.x = -0.7; lorena.cabeza.add(pinza);
-  for (const s2 of [-1, 1]) { const d = mesh(rbox(0.16, 0.035, 0.05, 0.015, 2), M.g, 0, s2 * 0.025, 0); d.rotation.z = s2 * 0.12; pinza.add(d); }
-  for (const [x2, y2, z2, r2] of [[-0.1, CC0 - 0.05, -R0 * 0.95, 0.07], [0.1, CC0 - 0.07, -R0 * 0.93, 0.07], [0, CC0 - 0.12, -R0 * 0.98, 0.075], [-0.2, CC0 - 0.1, -R0 * 0.82, 0.06], [0.2, CC0 - 0.12, -R0 * 0.8, 0.06]]) { const m = mesh(new THREE.SphereGeometry(1, 16, 12), x2 ? pm2 : pm, x2, y2, z2); m.scale.set(r2, r2 * 1.5, r2 * 0.8); lorena.cabeza.add(m); }
+  // (ronda 2) Lorena usa el peinado "melena" de personajes.js
   const pc = mat(0xd8b56f, 0.75);
   const co = new THREE.Group(); co.position.set(0.12, CC0 - 0.02, -R0 * 0.85); co.rotation.set(0.2, 0, -0.35); carolina.cabeza.add(co);
   co.add(mesh(new THREE.TorusGeometry(0.045, 0.016, 8, 16), M.navy3, 0, 0.0, 0).rotateX(Math.PI / 2));
@@ -555,9 +551,9 @@ function dibujarTablaJueves(x, W, H, e) {
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 150); x.fillStyle = "#5ce611"; x.fillRect(0, 150, W, 12);
   x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 46); x.fillText("Lorena Estética", 40, 52); x.font = F(900, 74); x.fillText("JUEVES", 40, 112);
   const filas = [
-    e.carolina === false ? { h: "15:00", n: "Libre", s: "disponible", libre: true, gris: true } : { h: "15:00", n: "Carolina", s: "limpieza facial", tag: "· seña ✓", ok: true },
-    e.graciela ? { h: "16:00", n: "Graciela", s: "peeling", tag: "· lista de espera", ok: true } : e.libre ? { h: "16:00", n: "Libre", s: e.avisando ? "avisando a la lista…" : "Mariana reprogramó", libre: true } : { h: "16:00", n: "Mariana", s: "peeling", tag: "", ok: false },
-    { h: "17:00", n: "Jimena", s: "depilación", tag: "· confirmó ✓", ok: e.jimena !== false },
+    e.carolina === false ? { h: "15:00", n: "Libre", s: "disponible", libre: true, gris: true } : { h: "15:00", n: "Carolina", s: "limpieza facial · seña ✓", ok: true },
+    e.graciela ? { h: "16:00", n: "Graciela", s: "peeling · lista de espera", ok: true } : e.libre ? { h: "16:00", n: "Libre", s: e.avisando ? "avisando a la lista…" : "Mariana reprogramó", libre: true } : { h: "16:00", n: "Mariana", s: "peeling", tag: "", ok: false },
+    e.jimena === false ? { h: "17:00", n: "Jimena", s: "depilación", ok: false } : { h: "17:00", n: "Jimena", s: "depilación · confirmó ✓", ok: true },
   ];
   filas.forEach((f, i) => {
     const y = 200 + i * 210, verde = f.ok && (e.filas == null || e.filas > i);
@@ -565,7 +561,7 @@ function dibujarTablaJueves(x, W, H, e) {
     if (f.libre) x.setLineDash([22, 16]); x.beginPath(); x.roundRect(28, y, W - 56, 186, 30); x.fill(); x.stroke(); x.setLineDash([]);
     x.fillStyle = "#0b1220"; x.font = F(900, 52); x.fillText(f.h, 46, y + 62);
     x.font = F(800, 56); x.fillText(f.n, 236, y + 62);
-    x.font = F(700, 38); x.fillStyle = f.gris ? "#16243d" : f.libre ? "#c7655b" : "#16243d"; x.fillText(f.s, 236, y + 134);
+    x.fillStyle = f.gris ? "#16243d" : f.libre ? "#c7655b" : "#16243d"; ajustar(x, f.s, 700, 38, W - 236 - 44); x.fillText(f.s, 236, y + 134);
     if (f.tag && verde) { x.fillStyle = "#0b1220"; x.font = F(800, 36); x.textAlign = "right"; x.fillText(f.tag, W - 50, y + 134); x.textAlign = "left"; }
   });
   if (e.cero) {
@@ -845,7 +841,7 @@ const claves3 = ["", "", ""];
 function dibujarRecordatorios(t) {
   RECS.forEach(([cv, nom, hora, serv, resp], i) => {
     const tc = T.conf[[0, 2, 1][i]];   // Carolina, Jimena (segunda), Mariana (tercera)
-    const llego = t >= T.llega + i * 0.08, toca = t >= tc, fin = resp === "repro" ? t >= T.martes : t >= tc + 0.1;
+    const llego = t >= T.q2 - 0.01, toca = t >= tc, fin = resp === "repro" ? t >= T.martes : t >= tc + 0.1;
     const e = `${llego}|${toca}|${fin}`; if (claves3[i] === e) return; claves3[i] = e;
     const { x } = CEL3[i].tex.userData, W = CEL3[i].IW, H = CEL3[i].IH;
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle"; x.textAlign = "center";
@@ -854,15 +850,16 @@ function dibujarRecordatorios(t) {
     fit(nom, 800, 42, 168, "#efeee5");
     if (!llego) { CEL3[i].tex.needsUpdate = true; return; }
     x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(12, 222, W - 24, 372, [26, 26, 26, 6]); x.fill(); x.stroke();
-    fit("¡Hola!", 800, 42, 270, "#0b1220", "left", 30);
-    fit("Te esperamos", 700, 38, 324, "#0b1220", "left", 30); fit("mañana jueves", 700, 38, 372, "#0b1220", "left", 30);
-    fit(hora, 900, 72, 450, "#0b1220", "left", 30); fit(serv, 700, 38, 532, "#16243d", "left", 30);
+    x.textAlign = "left"; x.fillStyle = "#0b1220";
+    x.font = F(800, 42); x.fillText("¡Hola!", 30, 268); x.font = F(700, 40); x.fillText("Mañana", 30, 322);
+    x.font = F(900, 74); x.fillText(hora, 28, 400);
+    x.fillStyle = "#16243d"; x.font = F(700, 38); serv.split(" ").forEach((w, k) => x.fillText(w, 30, 474 + k * 46));
     if (!fin) {
       const repro = resp === "repro";
       x.fillStyle = toca && !repro ? "#3fa60a" : "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(12, 620, W - 24, 104, 52); x.fill(); x.stroke();
       x.textAlign = "center"; x.fillStyle = "#0b1220"; ajustar(x, "Confirmar", 800, 42, W - 70); x.fillText("Confirmar", W / 2, 672);
       x.fillStyle = toca && repro ? "#d9d7c9" : "#ffffff"; x.beginPath(); x.roundRect(12, 742, W - 24, 104, 52); x.fill(); x.stroke();
-      x.fillStyle = "#0b1220"; ajustar(x, "Reprogramar", 800, 40, W - 70); x.fillText("Reprogramar", W / 2, 794);
+      x.fillStyle = "#0b1220"; x.font = F(800, 37); x.fillText("Reprogramar", W / 2, 794);
     } else if (resp === "ok") {
       x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(12, 620, W - 24, 226, 34); x.fill(); x.stroke();
       tilde(x, W / 2, 682, 64); fit("Confirmado", 900, 46, 790);
@@ -926,7 +923,7 @@ const PLANOS = [
   ["P6", T.p6, [[T.p6, 0.1, 1.65, -2.2, -0.45, 1.3, 0.3, 44], [T.l3, 0.1, 1.65, -2.1, -0.45, 1.3, 0.3, 42]]],
   ["P6b", T.l3, [[T.l3, 0.15, 2.2, 3.4, -0.1, 1.0, -1.6, 50], [P1, 0.15, 2.2, 3.3, -0.1, 1.0, -1.6, 50]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, 0.0, 2.05, 1.0, -0.1, 1.3, 3.6, 44], [T.q1b, 0.0, 2.02, 1.2, -0.1, 1.3, 3.6, 42]]],
+  ["Q1", P2, [[P2, -0.12, 1.62, 1.75, -0.12, 1.25, 3.6, 52], [T.q1b, -0.12, 1.61, 1.88, -0.12, 1.25, 3.6, 50]]],
   ["Q1b", T.q1b, null],
   ["Q2", T.q2, null],
   ["Q3", T.q3, null],
@@ -934,7 +931,7 @@ const PLANOS = [
   ["Q3c", T.q3c, null],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.c3 + 0.5, ...P1C(0.5)], [T.q4b, 0.3, 1.85, 1.75, 0.1, 1.15, -1.3, 46]]],
   ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 44], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 37]]],
-  ["Q5", T.q5, [[T.q5, 0.34, 1.3, 2.05, 0.34, 1.2, 3.22, 40], [T.s1 + 1.0, 0.34, 1.3, 2.0, 0.34, 1.2, 3.22, 40], [T.s1 + 1.6, 0.74, 1.2, 2.42, 0.74, 1.12, 3.1, 42], [DUR, 0.74, 1.2, 2.47, 0.74, 1.12, 3.1, 41]]],
+  ["Q5", T.q5, [[T.q5, 0.34, 1.3, 2.08, 0.34, 1.2, 3.22, 40], [T.viaje[0], 0.34, 1.3, 2.0, 0.34, 1.2, 3.22, 40], [T.viaje[1], 0.74, 1.2, 2.42, 0.74, 1.12, 3.1, 42], [DUR, 0.74, 1.2, 2.47, 0.74, 1.12, 3.1, 41]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -1004,8 +1001,8 @@ function poseLorena(t) {
   // parte 2
   if (t < T.q4) {
     const p = poseEn(t, [
-      [0, { x: MOSTR.x - 0.12, z: MOSTR.z + 0.45, giro: Math.PI + 0.1, inclina: 0.02, ...aC(0, 0.25), ...CARA.neutra, ...BRAZOS.apoyado, manoD: [-0.12, 0.36, 0.3], codoD: [-0.8, -0.6, -0.2] }],
-      [T.l4 - 0.1, { ...aC(0.0, 0.4), ...MEDIA }, 0.3],
+      [0, { x: MOSTR.x - 0.12, z: MOSTR.z + 0.45, giro: Math.PI + 0.1, inclina: 0.02, ...aC(0, 0.08), ...CARA.neutra, ...BRAZOS.apoyado, manoD: [-0.12, 0.36, 0.3], codoD: [-0.8, -0.6, -0.2] }],
+      [T.l4 - 0.1, { ...aC(0.0, 0.1), ...MEDIA }, 0.3],
     ]);
     p.t = t; bocaVoz(p, t, T.l4, ENV.l4, 0.6); return p;
   }
@@ -1023,11 +1020,11 @@ function poseVale(t) {
     const mov = (a, b) => { const k = sg(t, a, b); return k > 0 && k < 1 ? Math.sin(k * Math.PI * 5) : 0; };
     const m = mov(T.rollo[0], T.rollo[1]) + mov(T.cisne1[0], T.cisne1[1]) + mov(T.cisne2[0], T.cisne2[1]) + mov(T.corazon[0], T.corazon[1]);
     const p = poseEn(t, [
-      [0, { x: VALE0.x, y: -0.03, z: VALE0.z, giro: -Math.PI / 2 + 0.85, sentado: 1, inclina: 0.1, ...aC(0, 0.32), ...CARA.concentrada, ...REG }],
+      [0, { x: VALE0.x, y: -0.03, z: VALE0.z, giro: -Math.PI / 2 + 0.85, sentado: 1, inclina: 0.1, ...aC(0.45, 0.32), ...CARA.concentrada, ...REG }],
       [T.p4, { ...aC(-0.35, 0.1), ...NADA, ojos: { abiertos: 0.75, x: -0.4, y: 0 } }, 0.4],
       [T.p6, { ...aC(0, 0.32), ...CARA.concentrada }, 0.3],
       [T.vale[0], { inclina: 0.3, manoI: [0.12, 0.2, 0.45], manoD: [-0.12, 0.2, 0.45] }, 0.3],
-      [T.vale[1], { giro: -Math.PI / 2 + 1.6, inclina: 0.15, manoD: [-0.25, 0.65, 0.3], codoD: [-0.9, -0.3, 0], ...aC(0.2, -0.2) }, 0.4],
+      [T.vale[1], { giro: -Math.PI / 2 + 1.6, inclina: 0.15, manoD: [-0.48, 0.42, 0.25], codoD: [-1, -0.3, 0], dedoD: 0, ...aC(0.5, -0.1) }, 0.4],
       [T.vale[2], { giro: -Math.PI / 2 + 0.85, inclina: 0.1, ...aC(0, 0.32), ...CARA.concentrada, ...REG }, 0.4],
     ]);
     p.manoI = [p.manoI[0] + m * 0.03, p.manoI[1] + Math.abs(m) * 0.03, p.manoI[2]]; p.manoD = [p.manoD[0] - m * 0.03, p.manoD[1] + Math.abs(m) * 0.02, p.manoD[2]];
@@ -1045,7 +1042,7 @@ function poseVale(t) {
 // Carolina: entra por la recepción (Q4) y camina hasta la camilla
 function poseCarolina(t) {
   const u = sg(t, T.entra[0], T.entra[1]), w = sg(t, T.pasa[0], T.pasa[1]);
-  const x = lerp(1.75, 0.2, eo(u)) + lerp(0, 0.15, eio(w)), z = lerp(1.5, -0.25, eo(u)) + lerp(0, -0.95, eio(w));
+  const x = lerp(2.35, 0.2, eo(u)) + lerp(0, 0.15, eio(w)), z = lerp(1.5, -0.25, eo(u)) + lerp(0, -0.95, eio(w));
   const andando = (u > 0 && u < 1) || (w > 0 && w < 1);
   const p = poseEn(t, [
     [0, { giro: -Math.PI / 2 - 0.5, ...aC(0, 0), ...BUENA, manoI: [0.25, 0.05, 0.08], codoI: [1, -0.2, 0], manoD: [-0.29, -0.08, 0.04] }],
@@ -1144,7 +1141,7 @@ function renderAt(tIn) {
   carolina.raiz.visible = p2 && t >= T.q4; if (carolina.raiz.visible) carolina.poner(poseCarolina(t));
   graciela.raiz.visible = planoActual === "Q3b"; if (graciela.raiz.visible) graciela.poner(poseGraciela(t));
   ponerAgenda(t); ponerToallas(t);
-  tablet.visible = celuS.visible = p2;   // (ronda 1) la solución no asoma en la parte 1
+  tablet.visible = celuS.visible = t >= T.q4;   // (ronda 2) en Q1 tampoco: tapaba a Lorena y quedaba cortada   // (ronda 1) la solución no asoma en la parte 1
   if (p2) { lapicera.visible = false; if (celuL.parent !== scene) scene.add(celuL); if (t < T.q4) { const m = manoMundo(lorena, "D", _a); celuL.visible = true; celuL.position.copy(m).add(V3(0, 0.07, 0)); celuL.rotation.set(-0.9, lorena.raiz.rotation.y, 0); celuL.scale.setScalar(1.2); } else celuL.visible = false; }
   celuG.visible = graciela.raiz.visible;
   if (celuG.visible) { const a = manoMundo(graciela, "I", _a), b = manoMundo(graciela, "D", _b); celuG.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08, 0.02)); celuG.rotation.set(-0.55, 0, 0); }
@@ -1192,7 +1189,7 @@ function renderAt(tIn) {
     }
     if (pa === "P3") {
       const [cx, cy] = celPx();
-      ponerGlobo(GL.j1, 540, 1620, ent(T.jimena), [cx, cy]); progAudio(GL.j1, sg(t, T.j1, T.j1 + LEN.j1));
+      ponerGlobo(GL.j1, 540, t < T.p3 + 0.45 ? 1620 : 330, ent(T.jimena), [cx, cy]); progAudio(GL.j1, sg(t, T.j1, T.j1 + LEN.j1));
     }
     if (pa === "P4") {
       // los rótulos del costo: a la agenda (abajo) y a Vale
@@ -1204,7 +1201,7 @@ function renderAt(tIn) {
       ponerGlobo(GL.r2, 300, 1640, u1, null, 1);
       ponerGlobo(GL.r3, 800, 1500, u2, null, 1); if (u2 > 0) ponerGuia(GUIAS[1], 800, 1440, vx, vy, eo(sg(t, T.rot[2], T.rot[2] + 0.25)));
     }
-    if (pa === "P5") { const [bx, by] = lb(); if (t >= T.l2) ponerGlobo(GL.l2, 540, 330, ent(T.l2), [bx, by - 40]); ponerGlobo(GL.r2, 820, 1760, 1, null, 1); }   // (ronda 1) la plata queda en pantalla durante el remate
+    if (pa === "P5") { const [bx, by] = lb(); if (t >= T.l2) ponerGlobo(GL.l2, 540, 330, ent(T.l2), [bx, by - 40]); ponerGlobo(GL.r2, 840, 640, 1, null, 1); }   // (ronda 1) la plata queda en pantalla durante el remate
     if (pa === "P6") {
       const [cx, cy] = celPx(), [bx, by] = lb();
       ponerGlobo(GL.c2, 540, 380, ent(T.carolina2), [cx, cy]); progAudio(GL.c2, sg(t, T.c2, T.c2 + LEN.c2));
@@ -1213,7 +1210,7 @@ function renderAt(tIn) {
     if (pa === "Q1") {
       const [cx, cy] = celPx(), [bx, by] = lb();
       ponerGlobo(GL.q1c, 540, 420, ent(T.carolina3), [cx, cy]);
-      if (t >= T.l4) ponerGlobo(GL.l4, 700, 1380, ent(T.l4), [bx + 20, by + 40], 1);
+      if (t >= T.l4) ponerGlobo(GL.l4, 540, 720, ent(T.l4), [bx, by - 30], 1);
       if (t >= T.link) ponerGlobo(GL.link, 540, 1660, ent(T.link), [cx, cy], 2);
     }
     if (pa === "Q1b") ponerGlobo(GL.rReserva, 540, 190, ent(T.q1b + 0.15), null);
