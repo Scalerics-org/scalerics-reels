@@ -129,7 +129,7 @@ const RUBRO = { top: 120 };
   escena(id, dur, {
     css: `
     P .rubro { position: absolute; left: 0; right: 0; top: ${RUBRO.top}px; text-align: center; }
-    P .t1 { display: inline-block; font: 900 128px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${CR}; -webkit-text-stroke: 14px ${NAVY}; paint-order: stroke fill; text-shadow: 10px 12px 0 ${NAVY}; }
+    P .t1 { display: inline-block; font: 900 106px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${CR}; -webkit-text-stroke: 14px ${NAVY}; paint-order: stroke fill; text-shadow: 10px 12px 0 ${NAVY}; }
     P .t2 { display: inline-block; margin-top: 26px; padding: 10px 34px 16px; border-radius: 22px; background: ${NAVY}; border: 6px solid ${G}; font: 800 76px/1 "Lexend", sans-serif; letter-spacing: -0.01em; color: ${G}; }`,
     html: `      <div class="rubro"><div class="t1">DISTRIBUIDORAS</div><br><div class="t2">Lunes, 8:00.</div></div>`,
     js: `      tl.fromTo(q(".t1"), { scale: 1 }, { scale: 1.03, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.5);
@@ -395,7 +395,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "560px 1080px";   // el iris se abre desde el celular de Graciela (Q1)
+const IRIS_C = "540px 760px";   // el iris se abre desde el celular de Graciela (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

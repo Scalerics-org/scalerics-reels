@@ -19,7 +19,10 @@ cartel = Rasalgethi (toma nueva "Un catálogo de pedidos más tarde."; fallback:
 Los de siempre del repo (copiados de `reels/dice-cuarenta/assets/` y `reels/la-lista/assets/`, con su crédito en
 `reels/la-lista/fuentes.md`, `reels/ya-lo-cargo/fuentes.md` y `reels/dice-cuarenta/fuentes.md`).
 
-Nuevos en este reel (reales, CC0; completar con autor, sitio y licencia al bajarlos; nunca sintetizados con ffmpeg):
-- tic-tac de reloj de pared: _(pendiente)_
-- chorro de termo / agua en el mate: _(pendiente)_
-- sorbo de mate en vacío (si `sorbo.wav` no alcanza): _(pendiente)_
+Nuevos en este reel: ninguno. Desde la nube no se pudo bajar nada (opengameart.org y el espejo de Kenney en GitHub
+devuelven error por el proxy), así que no hay archivos nuevos y nada se sintetizó con ffmpeg. Los tres sonidos pendientes
+se resolvieron con los del repo:
+- tic-tac del reloj de pared: `k-tick-1.wav`, `k-tick-2.wav`, `k-tick-4.wav` (Kenney, CC0 1.0, ya acreditados en
+  `reels/dice-cuarenta/fuentes.md`), más graves (asetrate 0,62-0,70) y con pasabajos; el time-lapse los acelera.
+- chorro de termo: no hay; las tres cebadas suenan con `k-plastico.wav` (Kenney, CC0) del termo que se inclina.
+- sorbo de mate en vacío: `sorbo.wav` del repo con pasaaltos (suena más hueco, a bombilla en vacío).

@@ -543,7 +543,7 @@ const cieloCaf = new THREE.HemisphereLight(0xf6f2e8, 0x5a4a3a, 1.8); scene.add(c
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [3.95, 9.0, 11.85, 15.0, 23.7, 29.4, 33.6] });
+const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [4.42, 9.0, 11.85, 15.0, 24.5, 30.5, 34.0] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, lentes: null, delantal: C.cr, delantalBorde: C.navy3, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999 });
 const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true, parpadeoCada: 999, parpadeosExtra: [T.n1 + 0.8] });
@@ -722,14 +722,15 @@ function dibujarCelR(t) {
   } else if (modo === "walter") {
     // el chat de Walter: sube hasta las 8:04 (el mensaje perdido entre dos audios, borde rojo apagado)
     cabChat(x, w, "Walter · Bar", null);
-    const off = -scr * 46;   // sube 460 px
+    const off = scr * 46;   // el contenido baja 460 px (subimos en el chat)
     x.save(); x.beginPath(); x.rect(0, 170, w, h - 170); x.clip(); x.translate(0, off);
     // (de arriba abajo) audio 3:20 · 8:04 "Lo de siempre + 2 de aceite" · audio 1:58 · ... · 11:00 "Rubén, ¿y mi pedido?"
-    burbujaAudio(x, 650, w, AVATAR.sergio, "Sergio · Bar", "3:20", 0, { H: 280 });
-    burbujaTexto(x, 950, w, AVATAR.walter, "Walter · Bar", "Lo de siempre + 2 de aceite", { px: 50, hora: "8:04", borde: rojo ? "#c7655b" : null, horaColor: rojo ? "#c7655b" : "#1f3254" });
-    burbujaAudio(x, 1230, w, AVATAR.beto, "Beto · Kiosco", "1:58", 0, { H: 280 });
+    burbujaAudio(x, -350, w, AVATAR.sergio, "Sergio · Bar", "3:20", 0, { H: 280 });
+    burbujaTexto(x, -50, w, AVATAR.walter, "Walter · Bar", "Lo de siempre + 2 de aceite", { px: 50, hora: "8:04", borde: rojo ? "#c7655b" : null, horaColor: rojo ? "#c7655b" : "#1f3254" });
+    burbujaAudio(x, 230, w, AVATAR.beto, "Beto · Kiosco", "1:58", 0, { H: 280 });
+    burbujaTexto(x, 560, w, AVATAR.walter, "Walter · Bar", "Rubén, ¿y mi pedido?", { px: 56, hora: "11:00" });
     x.restore();
-    if (scr < 10) { x.save(); x.translate(0, scr * 46); burbujaTexto(x, 760, w, AVATAR.walter, "Walter · Bar", "Rubén, ¿y mi pedido?", { px: 56, hora: "11:00" }); x.restore(); }
+    cabChat(x, w, "Walter · Bar", null);
     if (wa >= 0) {
       // el audio de Walter que entra abajo (sonando)
       x.fillStyle = "#16243d"; x.fillRect(0, 880, w, 320);
@@ -884,9 +885,9 @@ function dibujarMonitor(t) {
       if (i >= vis) { x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(30, y, w - 60, 98, 22); x.fill(); continue; }
       const luz = (i === 2 && wOk) || (i === 1 && hl);
       x.fillStyle = luz ? "#5ce611" : "#efeee5"; x.beginPath(); x.roundRect(30, y, w - 60, 98, 22); x.fill();
-      x.fillStyle = "#0b1220"; x.font = F(800, 46); x.fillText(row[0], 56, y + 51); x.fillText(row[1], 200, y + 51);
-      x.fillStyle = "#1f3254"; x.font = F(700, 40); x.fillText(row[2], 700, y + 51);
-      if (man >= 2) { x.fillStyle = "#0b1220"; x.beginPath(); x.roundRect(w - 280, y + 20, 170, 58, 29); x.fill(); x.fillStyle = "#5ce611"; x.font = F(800, 30); x.textAlign = "center"; x.fillText("Para armar", w - 195, y + 50); x.textAlign = "left"; }
+      x.fillStyle = "#0b1220"; x.font = F(800, 52); x.fillText(row[0], 56, y + 51); x.fillText(row[1].split(" · ")[0], 210, y + 51);
+      x.fillStyle = "#1f3254"; x.font = F(700, 46); ajustar(x, row[2], 700, 46, man >= 2 ? 430 : 600); x.fillText(row[2], 470, y + 51);
+      if (man >= 2) { x.fillStyle = "#0b1220"; x.beginPath(); x.roundRect(w - 360, y + 18, 252, 62, 31); x.fill(); x.fillStyle = "#5ce611"; x.font = F(800, 38); x.textAlign = "center"; x.fillText("Para armar", w - 234, y + 50); x.textAlign = "left"; }
       x.fillStyle = luz ? "#0b1220" : "#5ce611"; x.beginPath(); x.arc(w - 74, y + 49, 32, 0, 7); x.fill(); tilde(x, w - 74, y + 50, 26, luz ? "#5ce611" : "#0b1220");
     }
     // Mandar a armar
@@ -1073,7 +1074,7 @@ const PLANOS = [
   // Q2b: Rubén de perfil al monitor, con el mate
   ["Q2b", T.q2b, [[T.q2b, -1.6, OY + 1.72, 3.05, -0.38, OY + 1.4, 1.2, 46], [T.q3, -1.52, OY + 1.7, 2.9, -0.38, OY + 1.4, 1.2, 45]]],
   ["Q3", T.q3, null],      // inserto del panel → grúa al depósito (se arma en renderAt)
-  ["Q4", T.q4, [[T.q4, 0.78, OY + 1.62, 3.55, 0.62, OY + 1.55, 0.6, 48], [T.c, 0.74, OY + 1.6, 3.35, 0.62, OY + 1.55, 0.6, 47]]],
+  ["Q4", T.q4, [[T.q4, 0.62, OY + 1.7, 4.75, 0.6, OY + 1.42, 0.6, 50], [T.c, 0.6, OY + 1.68, 4.5, 0.6, OY + 1.42, 0.6, 49]]],
   // C: Rubén a cámara (primer plano frontal, push-in suave; la cara arriba de la tarjeta)
   ["C", T.c, [[T.c, 0.02, OY + 1.42, 3.5, 0.02, OY + 1.08, 1.0, 40], [DUR, 0.02, OY + 1.41, 3.25, 0.02, OY + 1.08, 1.0, 39]]],
 ];
@@ -1116,10 +1117,10 @@ function camGrua(t) {
   const K = [
     [T.q3, p0.x, p0.y, p0.z, c.x, c.y, c.z, FOV],
     [T.grua[0], p0.x, p0.y, p0.z, c.x, c.y, c.z, FOV],
-    [r2(T.grua[0] + 0.3), -0.95, OY + 2.5, 1.9, -1.1, OY + 0.3, -2.5, 52],
-    [r2(T.grua[0] + 0.62), -0.9, OY + 2.2, -1.6, W_PAL.x, 1.0, W_PAL.z, 54],
-    [T.grua[1], W_PAL.x + 0.15, 2.75, W_PAL.z + 3.7, W_PAL.x + 0.05, 0.65, W_PAL.z - 0.25, 46],
-    [T.q4, W_PAL.x + 0.12, 2.68, W_PAL.z + 3.45, W_PAL.x + 0.05, 0.65, W_PAL.z - 0.25, 45],
+    [r2(T.grua[0] + 0.3), p0.x - 0.15, OY + 2.6, p0.z + 0.25, -1.0, OY + 0.2, -2.5, 52],
+    [r2(T.grua[0] + 0.62), -1.0, OY + 2.35, -1.3, W_PAL.x, 1.0, W_PAL.z, 54],
+    [T.grua[1], W_PAL.x + 0.2, 2.75, W_PAL.z + 3.95, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 52],
+    [T.q4, W_PAL.x + 0.19, 2.7, W_PAL.z + 3.8, W_PAL.x + 0.12, 0.72, W_PAL.z - 0.3, 51],
   ];
   const v = catmull(K, t);
   ponerCam(v, t, t < T.grua[0]);
@@ -1235,7 +1236,7 @@ function poseNico(t) {
     [0, { x: (PUERTA.x0 + PUERTA.x1) / 2 + 0.05, z: -0.75, giro: -0.25, inclina: 0.0, cabeza: { giro: -0.3, asiente: 0.05, ladea: 0 }, ...CARA.sonrisa, ojos: { x: -0.3, y: 0, abiertos: 1, feliz: 0.2 }, ...BRAZOS.costado, manoI: [0.22, 0.1, 0.06], t }],
     [T.n1, { cabeza: { giro: -0.45, asiente: 0.08, ladea: 0.12 }, ...BUENA, ojos: { x: -0.4, y: 0, abiertos: 1, feliz: 0.35 }, cejas: { alto: 0.45, ang: 0.15 } }, 0.2],
   ]);
-  p.z = lerp(-0.85, -0.12, u); p.x = lerp(1.25, 1.3, u); p.inclina = 0.14 * u; p.t = t;
+  p.y = OFI.piso; p.z = lerp(-0.85, -0.12, u); p.x = lerp(1.25, 1.3, u); p.inclina = 0.14 * u; p.t = t;
   bocaVoz(p, t, T.n1, ENV.n1, 0.75);
   return p;
 }
@@ -1423,7 +1424,7 @@ function renderAt(tIn) {
     const tgt = t < T.toca + 0.3 ? [470, 380] : [470, 1130];
     ponerDedo(DEDO_G, tgt[0], tgt[1], toq, en(t, T.toca - 0.45, T.toca + 0.3) || en(t, T.pedir - 0.45, T.pedido + 0.25));
   } else if (pa === "Q2") {
-    insertoCel(celMa, V3(CX + 0.05, 1.36, -3.55), 0.62, 0.0, 0.6, t, 0.03 * sg(t, pl[1], T.q2b), 0.02);
+    insertoCel(celMa, V3(CX + 0.05, 1.4, -2.85), 0.5, 0.0, 0.6, t, 0.03 * sg(t, pl[1], T.q2b), 0.02);
     MANO_MA.visible = true; MANO_MA.position.set(0, 0, 0);
     const toq = Math.max(...T.mas.map((a) => Math.sin(Math.PI * sg(t, a - 0.12, a + 0.06))), Math.sin(Math.PI * sg(t, T.pedirM - 0.12, T.pedirM + 0.06)));
     const tgt = t < T.mas[2] + 0.15 ? [w2(470), 590] : [470, 1135];
@@ -1449,7 +1450,7 @@ function renderAt(tIn) {
     if (pa === "P4") {
       // la ráfaga: se apilan arriba (sin voz), cada una empuja a las anteriores
       const n = T.rafaga.filter((a) => t >= a).length;
-      for (let i = 0; i < n; i++) { const pos = n - 1 - i; if (pos > 2) continue; ponerGlobo(GL.raf[i], i % 2 ? 640 : 440, 250 + pos * 215, ent(T.rafaga[i]) * (pos > 1 ? 0.95 : 1), null, 4 - pos); }
+      for (let i = 0; i < n; i++) { const pos = n - 1 - i; if (pos > 2) continue; ponerGlobo(GL.raf[i], i % 2 ? 620 : 460, 240 + pos * 262, ent(T.rafaga[i]) * (pos > 1 ? 0.95 : 1), null, 4 - pos); }
     }
     if (pa === "P5") {
       if (t < T.w1) ponerGlobo(GL.wal, 540, 260, ent(T.walter), null);
@@ -1469,6 +1470,6 @@ function w2(v) { return v; }
 
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
-window.__tresDbg = (t) => { renderAt(t); return { ruben: bocaPx(ruben), plano: planoActual, cam: camera.position.toArray().map((v) => +v.toFixed(2)), fov: camera.fov }; };
+window.__tresDbg = (t) => { renderAt(t); return { ruben: bocaPx(ruben), plano: planoActual, nico: [nico.raiz.visible, ...nico.raiz.position.toArray().map((v) => +v.toFixed(2))], nicoPx: bocaPx(nico), cam: camera.position.toArray().map((v) => +v.toFixed(2)), fov: camera.fov }; };
 renderAt(window.__hfThreeTime || 0);
 if (window.__tresListo) window.__tresListo();
