@@ -1,32 +1,33 @@
-[sin narrador Orus: el chiste va en burbujas, el celular de Rubén, el reloj de pared, la planilla y el termo; la solución va en la interfaz recreada (catálogo en el celular del cliente, panel de pedidos de Rubén, lista de armado del depósito); voces por archivo en partes/*.txt, ver partes/voces.md · total estimado ~32,6 s: parte 1 0,0-13,6 · cartel 13,6-16,0 · parte 2 16,0-28,8 · cierre 28,8-32,6 (solución: 16,6 s, más de la mitad)]
-[parte 1 · el problema · 0,0-13,6 s]
-[0,0-1,6 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" (Lexend 900 crema con borde navy, ya entero en el cuadro 0) y abajo chico "Lunes, 8:00." · la oficina vidriada de Rubén un lunes temprano: luz de mañana por la persiana, el reloj de pared grande en 8:00, el monitor con la planilla vacía, el termo y el mate · Rubén sentado con el celular en la mano, el globito "40" sin leer, el celular vibrando sin parar · en la pantalla corre un audio de Graciela a 2x, la barrita en 4:05 de 4:12 · abajo, por el vidrio, el depósito y el camión de reparto esperando]
+[sin narrador Orus: el chiste va en burbujas, el celular de Rubén, el reloj de pared, la planilla y el termo; la solución va en la interfaz recreada (catálogo en el celular del cliente, panel de pedidos de Rubén, lista de armado del depósito); voces por archivo en partes/*.txt, ver partes/voces.md · total real 34,44 s: parte 1 0,0-14,17 · cartel 14,17-16,57 · parte 2 16,57-30,74 · cierre 30,74-34,44 (solución + cierre con el panel "40 de 40 ✓": 17,87 s, 52 %)]
+[parte 1 · el problema · 0,0-14,17 s]
+[0,0-1,88 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" (Lexend 900 crema con borde navy, ya entero en el cuadro 0) y abajo chico "Lunes, 8:00." · la oficina vidriada de Rubén un lunes temprano: luz de mañana por la persiana, el reloj de pared grande en 8:00, el monitor con la planilla vacía, el termo y el mate · Rubén sentado con el celular en la mano, el globito "40" sin leer, el celular vibrando sin parar · en la pantalla corre un audio de Graciela a 2x, la barrita en 4:05 de 4:12 · abajo, por el vidrio, el depósito y el camión de reparto esperando]
 GRACIELA: Y nada, Rubén, así que mandame lo de siempre. ¡Besos!
-[1,6-3,8 · el audio llega a 4:12 · Rubén mira la duración, cara de nada · push-in a Rubén]
+[1,88-4,32 · el audio llega a 4:12 · Rubén mira la duración, cara de nada · push-in a Rubén]
 RUBEN: Cuatro minutos para decir lo de siempre.
-[3,8-5,4 · entra la foto de Marta · Cafetería: una lista en papel cuadriculado, torcida, con una mancha de café; inserto del celular ≥ 60 % del cuadro, Rubén hace zoom con dos dedos sobre "Café en grano x ?": el número es un garabato con una mancha negra al lado]
+[4,32-6,6 · entra la foto de Marta · Cafetería: una lista en papel cuadriculado, torcida, con una mancha de café; inserto del celular ≥ 60 % del cuadro, Rubén hace zoom con dos dedos sobre "Café en grano x ?": el número es un garabato con una mancha negra al lado]
 RUBEN: ¿Eso es un siete o una mosca?
-[5,4-7,6 · ráfaga muda, cada vez más rápido: burbujas que caen en el celular con pop ("Lo de siempre." Beto · Kiosco, "Lo mismo que el lunes, sin azúcar." Nelly · Panadería, "▶ 2:51" Fede · Rotisería, otra foto torcida, "Lo de siempre." otra vez) · Rubén tipea con dos dedos en la planilla · time-lapse: el reloj de pared gira de 8:00 a 11:00, la luz de la persiana cambia de ángulo, el termo se inclina cada vez más · contadores: el chat "40" y la planilla "Cargados: 12… 27… 39"]
-[7,6-8,4 · 11:00 · pop: burbuja de Walter · Bar "Rubén, ¿y mi pedido?" · Rubén sube en el chat (inserto): el mensaje de Walter de las 8:04, "Lo de siempre + 2 de aceite", aplastado entre dos audios, sin leer, con el borde rojo apagado]
-[8,4-10,5 · sale del celular como audio (onda y avatar de Walter) · en la planilla, "39 de 40" en rojo apagado]
+[6,6-8,03 · ráfaga muda, cada vez más rápido: burbujas que caen en el celular con pop ("Lo de siempre." Beto · Kiosco, "Lo mismo que la semana pasada, más harina." Nelly · Panadería, "▶ 2:51" Fede · Restorán, otra foto torcida, "Lo de siempre." otra vez) · Rubén tipea con dos dedos en la planilla · time-lapse: el reloj de pared gira de 8:00 a 11:00, la luz de la persiana cambia de ángulo, el termo se inclina cada vez más · contadores: el chat "40" y la planilla "Cargados: 12… 27… 39"]
+[8,03-8,79 · 11:00 · pop: burbuja de Walter · Bar "Rubén, ¿y mi pedido?" · Rubén sube en la bandeja "Pedidos · Lunes" (inserto): el mensaje de Walter de las 8:04, "Lo de siempre + 2 de aceite", aplastado entre dos audios, sin leer, con el borde rojo apagado]
+[8,79-11,15 · sale del celular como audio (onda y avatar de Walter) · en la planilla, "39 de 40" en rojo apagado]
 WALTER: Dejá, Rubén. Lo de siempre se lo pedí a otro.
-[10,5-11,0 · pausa: Rubén quieto mirando el celular · solo el tic del reloj de pared en 11:00 y el celular que vibra una vez más · la música baja, no se corta]
-[11,0-12,3 · primer plano, seco, sin levantar la vista]
+[11,15-11,55 · pausa: Rubén quieto mirando el celular · solo el tic del reloj de pared en 11:00 y el celular que vibra una vez más · la música baja, no se corta]
+[11,55-13,05 · primer plano, seco, sin levantar la vista]
 RUBEN: Lo de siempre era yo.
-[12,3-13,6 · remate del remate · pop: burbuja de Graciela "Rubén, cambié todo. Te mando audio." y debajo un audio de "▶ 6:40" · Rubén, sin cambiar la cara, deja el celular boca abajo y toma mate: la bombilla suena en vacío (el mate lavado) · el termo, volcado en el escritorio, sin una gota · stinger]
+[13,05-14,17 · remate del remate · pop: burbuja de Graciela "Rubén, cambié todo. Te mando audio." y debajo un audio de "▶ 6:40" · Rubén, sin cambiar la cara, deja el celular boca abajo y toma mate: la bombilla suena en vacío (el mate lavado) · el termo, volcado en el escritorio, sin una gota · stinger]
 NARRADOR: Un catálogo de pedidos más tarde.
-[cartel · 13,6-16,0 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un catálogo de pedidos" / "más tarde…" (nunca "Scalerics")]
-[parte 2 · la solución · 16,0-28,8 s · otro lunes, 8:00]
-[16,0-18,8 · la rotisería de Graciela, el spiedo girando · Graciela abre en el celular el catálogo de la distribuidora: "Distribuidora Rubén · Tus precios · Rotisería Graciela"; inserto ≥ 60 %: el botón verde grande "Repetir lo de siempre"]
+[cartel · 14,17-16,57 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un catálogo de pedidos" / "más tarde…" (nunca "Scalerics")]
+[parte 2 · la solución · 16,57-30,74 s · otro lunes, 8:00]
+[16,57-19,83 · la rotisería de Graciela, el spiedo girando · Graciela abre en el celular el catálogo de la distribuidora: "Distribuidora Rubén · Tus precios · Rotisería Graciela"; inserto ≥ 60 %: el botón verde grande "Repetir lo de siempre"]
 GRACIELA: Lo de siempre.
-[un toque: el carrito se llena solo con pop por fila (Aceite 1,5 L x 12 · 4 · Harina 000 25 kg · 2 · Azúcar 1 kg x 10 · 1 · Agua 2 L x 6 · 3), "Pedir" · "Pedido ✓ · Lo armamos hoy" · Graciela vuelve al spiedo]
-[18,8-21,4 · la cafetería de Marta · inserto de su celular, el mismo catálogo con sus precios: toca "+" en "Café en grano 1 kg" hasta 7, el número enorme y verde · "Pedir ✓" · la cámara viaja al monitor de Rubén: entra la fila "8:02 · Marta · Cafetería · Café en grano 1 kg x 7 ✓"]
+[un toque: el carrito se llena solo con pop por fila (Aceite 1,5 L x 12 $ 2.300 · 4 · Harina 000 25 kg $ 900 · 2 · Azúcar 1 kg x 10 $ 450 · 1 · Agua 2 L x 6 $ 330 · 3), "Pedir · $ 12.440" · "Pedido ✓ · Lo armamos hoy" · Graciela vuelve al spiedo]
+[19,83-21,35 · la cafetería de Marta · inserto de su celular, el mismo catálogo con sus precios: toca "+" en "Café en grano 1 kg · $ 1.300" hasta 7 ("Café en grano · 7 kg"), el número enorme y verde · "Pedir ✓" · la cámara viaja al monitor de Rubén: entra la fila "8:02 · Marta · Cafetería · Café en grano 1 kg x 7 ✓"]
 RUBEN: Siete. Sin mosca.
-[21,4-25,0 · el panel de pedidos de Rubén (inserto ≥ 60 %): los pedidos caen solos, ordenados, cada uno con su tilde verde · el contador "Pedidos de hoy" sube 12 → 27 → 40 de 40 ✓ · "Cargados a mano: 0" · el reloj de pared en 8:05 · la fila de Walter "8:04 · Walter · Bar · Lo de siempre + 2 de aceite ✓" se ilumina en verde · Rubén toca "Mandar a armar" · la cámara baja por el ventanal al depósito: el operario con la lista en la tablet ("Para armar · Walter · Bar · Pasillo 2 · Aceite 1,5 L x 12 · 6 ✓") y el pallet "WALTER" que se llena]
-[25,0-28,8 · la grúa vuelve a subir a la oficina · Rubén con el mate lleno, el termo parado y humeando, la planilla vieja cerrada · el reloj en 8:05]
+[21,35-23,67 · Rubén de perfil al monitor: entra la fila de Marta · "Siete. Sin mosca." (21,67)]
+[23,67-27,07 · el panel de pedidos de Rubén (inserto ≥ 60 %): los pedidos caen solos, ordenados, cada uno con su tilde verde · el contador "Pedidos de hoy" sube 12 → 27 → 40 de 40 ✓ · "Cargados a mano: 0" · el reloj de pared en 8:05 · la fila de Walter "8:04 · Walter · Bar · Lo de siempre + 2 de aceite ✓" se ilumina en verde · debajo, "8:05 · Graciela · Editó su pedido ✓" · Rubén toca "Mandar a armar" · la grúa (25,22) baja por el ventanal al depósito: el operario con la lista en la tablet ("Para armar · Walter · Bar" · Pasillo 2 · Aceite x 3 ✓) y el pallet "WALTER" que se llena]
+[27,07-30,74 · corte a la oficina (Q4) · Rubén con el mate lleno, el termo parado y humeando, la planilla vieja cerrada · el reloj en 8:05]
 RUBEN: Ocho y cinco. ¿Y ahora qué hago hasta las once?
 [Nico asoma por la puerta de la oficina con el maletín de muestras y el celular]
 NICO: ¿Vender?
 [Rubén lo mira un segundo, cara de nada · gira despacio hacia cámara]
-[cierre · 28,8-32,6 · Rubén a cámara con el mate, push-in suave · tarjeta: "Comentá" / "PEDIDOS" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "scalerics.com" en verde]
+[cierre · 30,74-34,44 · Rubén a cámara con el mate, push-in suave, el monitor detrás a la izquierda con "40 de 40 ✓" · voz 30,89 · tarjeta (31,49-34,44, 2,95 s, entra sobre "PEDIDOS"): "Comentá" / "PEDIDOS" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "scalerics.com" en verde]
 RUBEN: Comentá PEDIDOS y te mando cómo funciona para tu distribuidora.

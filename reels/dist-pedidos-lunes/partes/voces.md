@@ -8,7 +8,7 @@ Medir cada línea con `tiempos.mjs` ("oyó:" tiene que coincidir con el texto de
 Voces de siempre: **Rubén = Algenib**, **Graciela = Gacrux**, **Walter = Umbriel**, **Nico = Fenrir**, **narrador del
 cartel = Rasalgethi**. Marta, Beto, Nelly y Fede no hablan en este reel (solo burbujas).
 
-Burbujas SIN voz (solo pop): la foto de Marta, la ráfaga ("Lo de siempre.", "Lo mismo que el lunes, sin azúcar.", "▶
+Burbujas SIN voz (solo pop): la foto de Marta, la ráfaga ("Lo de siempre.", "Lo mismo que la semana pasada, más harina.", "▶
 2:51", la foto torcida), **"Rubén, ¿y mi pedido?"** de Walter, el mensaje perdido de las 8:04, **"Rubén, cambié todo.
 Te mando audio." + "▶ 6:40"** de Graciela, y todo lo de las interfaces (catálogo, panel, tablet) y la tarjeta de
 cierre. Se tiene que entender sin sonido.

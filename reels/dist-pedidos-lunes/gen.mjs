@@ -29,24 +29,25 @@ const T = {};
 // P1 · cuadro 0: Rubén al escritorio con el celular (40 sin leer); el audio de Graciela a 2x ya corriendo
 T.g1 = 0.12; T.fin1 = r2(T.g1 + LEN.g1 + 0.02);
 // P2 · primer plano: "Cuatro minutos para decir lo de siempre."
-T.p2 = r2(T.fin1 + 0.06); T.r1 = r2(T.fin1 + 0.2);
+T.p2 = r2(T.fin1 + 0.06); T.r1 = r2(T.fin1 + 0.16);
 // P3 · la foto de la lista de Marta (inserto del celular): zoom con dos dedos · "¿Eso es un siete o una mosca?"
-T.p3 = r2(T.r1 + LEN.r1 + 0.1); T.zoom = [r2(T.p3 + 0.2), r2(T.p3 + 0.7)]; T.r2 = r2(T.p3 + 0.35);
+T.p3 = r2(T.r1 + LEN.r1 + 0.06); T.zoom = [r2(T.p3 + 0.2), r2(T.p3 + 0.7)]; T.r2 = r2(T.p3 + 0.35);
 // P4 · la ráfaga y las tres horas: burbujas mudas que caen cada vez más rápido; Rubén tipea con dos dedos; el reloj de
 // 8:00 a 11:00, las franjas de la persiana se corren, el termo se inclina (ceba tres veces), la planilla 12 · 27 · 39
-T.p4 = r2(T.r2 + LEN.r2 + 0.1);
-T.rafaga = [0.06, 0.36, 0.62, 0.84, 1.03, 1.2, 1.34].map((d) => r2(T.p4 + d));
-T.lapse = [r2(T.p4 + 0.12), r2(T.p4 + 1.5)];
-T.ceba = [0.3, 0.72, 1.14].map((d) => r2(T.p4 + d));
+T.p4 = r2(T.r2 + LEN.r2 + 0.06);
+const K4 = 0.88;   // la ráfaga, comprimida (ronda 1 de guion: la parte 1 más corta)
+T.rafaga = [0.06, 0.36, 0.62, 0.84, 1.03, 1.2, 1.34].map((d) => r2(T.p4 + d * K4));
+T.lapse = [r2(T.p4 + 0.12 * K4), r2(T.p4 + 1.5 * K4)];
+T.ceba = [0.3, 0.72, 1.14].map((d) => r2(T.p4 + d * K4));
 // P5 · 11:00: "Rubén, ¿y mi pedido?" (Walter, muda) · sube en el chat: el mensaje de las 8:04 aplastado entre dos audios
 // (borde rojo) · el audio de Walter · corte al monitor: "39 de 40"
-T.p5 = r2(T.p4 + 1.62); T.walter = r2(T.p5 + 0.06); T.scroll = [r2(T.p5 + 0.4), r2(T.p5 + 0.65)]; T.rojo = r2(T.p5 + 0.78);
-T.w1 = r2(T.p5 + 0.92); T.p5b = r2(T.w1 + LEN.w1 - 0.7);
-// P6 · la pausa (el tic del reloj, el celular vibra una vez) · "Lo de siempre era yo."
-T.p6 = r2(T.w1 + LEN.w1 + 0.05); T.tics = [r2(T.p6 + 0.1), r2(T.p6 + 0.6)]; T.vibra = r2(T.p6 + 0.35); T.r3 = r2(T.p6 + 0.7);
+T.p5 = r2(T.p4 + 1.62 * K4); T.walter = r2(T.p5 + 0.05); T.scroll = [r2(T.p5 + 0.28), r2(T.p5 + 0.5)]; T.rojo = r2(T.p5 + 0.6);
+T.w1 = r2(T.p5 + 0.76); T.p5b = r2(T.w1 + LEN.w1 - 0.7);
+// P6 · la pausa (un tic del reloj, el celular vibra una vez) · "Lo de siempre era yo."
+T.p6 = r2(T.w1 + LEN.w1 + 0.05); T.tics = [r2(T.p6 + 0.06)]; T.vibra = r2(T.p6 + 0.2); T.r3 = r2(T.p6 + 0.4);
 // P7 · remate del remate: "Rubén, cambié todo. Te mando audio." (▶ 6:40) · deja el celular boca abajo · mate lavado
-T.p7 = r2(T.r3 + LEN.r3 + 0.12); T.cambie = r2(T.p7 + 0.08); T.bocaAbajo = [r2(T.p7 + 0.45), r2(T.p7 + 0.72)]; T.sorbo = [r2(T.p7 + 0.85), r2(T.p7 + 1.35)];
-const P1 = r2(T.p7 + 1.5);   // termina la parte 1 (arranca el cartel)
+T.p7 = r2(T.r3 + LEN.r3 + 0.1); T.cambie = r2(T.p7 + 0.06); T.bocaAbajo = [r2(T.p7 + 0.34), r2(T.p7 + 0.58)]; T.sorbo = [r2(T.p7 + 0.66), r2(T.p7 + 1.02)];
+const P1 = r2(T.p7 + 1.12);   // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 2.4);      // arranca la parte 2
 // ---- parte 2 (otro lunes, 8:00 → 8:05) ----
 // Q1 · la rotisería de Graciela: el chip "Lunes, 8:00." (callback) · inserto de su celular: el catálogo de la
@@ -66,8 +67,9 @@ T.mandar = r2(T.q3 + 1.38); T.grua = [r2(T.q3 + 1.55), r2(T.q3 + 2.6)]; T.cajasW
 T.q4 = r2(T.cajasW[2] + 0.45); T.r5 = r2(T.q4 + 0.2); T.puerta = r2(T.r5 + LEN.r5 - 0.15); T.n1 = r2(T.r5 + LEN.r5 + 0.12);
 T.miraNico = r2(T.n1 - 0.1);
 // C · Rubén a cámara: "Comentá PEDIDOS y te mando cómo funciona para tu distribuidora." + la tarjeta (entra en "PEDIDOS")
-T.c = r2(T.n1 + LEN.n1 + 0.4); T.r6 = r2(T.c + 0.15); T.tarjeta = r2(T.r6 + 0.45);
-const DUR = r2(T.r6 + LEN.r6 + 0.65);
+T.c = r2(T.n1 + LEN.n1 + 0.4); T.r6 = r2(T.c + 0.15);
+const DUR = r2(T.r6 + LEN.r6 + 0.15);
+T.tarjeta = r2(Math.max(T.r6 + 0.45, DUR - 2.95));   // la tarjeta: 2,5-3 s, entra sobre "PEDIDOS"
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -129,7 +131,7 @@ const RUBRO = { top: 120 };
   escena(id, dur, {
     css: `
     P .rubro { position: absolute; left: 0; right: 0; top: ${RUBRO.top}px; text-align: center; }
-    P .t1 { display: inline-block; font: 900 106px/1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${CR}; -webkit-text-stroke: 14px ${NAVY}; paint-order: stroke fill; text-shadow: 10px 12px 0 ${NAVY}; }
+    P .t1 { display: inline-block; font: 900 114px/1 "Lexend", sans-serif; letter-spacing: -0.05em; color: ${CR}; -webkit-text-stroke: 14px ${NAVY}; paint-order: stroke fill; text-shadow: 10px 12px 0 ${NAVY}; }
     P .t2 { display: inline-block; margin-top: 26px; padding: 10px 34px 16px; border-radius: 22px; background: ${NAVY}; border: 6px solid ${G}; font: 800 76px/1 "Lexend", sans-serif; letter-spacing: -0.01em; color: ${G}; }`,
     html: `      <div class="rubro"><div class="t1">DISTRIBUIDORAS</div><br><div class="t2">Lunes, 8:00.</div></div>`,
     js: `      tl.fromTo(q(".t1"), { scale: 1 }, { scale: 1.03, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.5);
@@ -265,7 +267,7 @@ voz("r2", T.r2, -1);
 // P4 · la ráfaga: un pop por burbuja (cada uno más agudo), el tecleo con dos dedos (irregular), el tic-tac del reloj que
 // se acelera (tres horas en 1,6 s), el termo que se inclina (tres cebadas)
 T.rafaga.forEach((t, i) => pop(t, -41 + Math.min(3, i * 0.5), 1 + i * 0.05));
-[0.1, 0.3, 0.38, 0.62, 0.7, 0.95, 1.05, 1.13, 1.33, 1.42, 1.6, 1.68].forEach((d, i) => tecla(T.p4 + d, i, -41));
+[0.1, 0.3, 0.38, 0.62, 0.7, 0.95, 1.05, 1.13, 1.33, 1.42, 1.6, 1.68].forEach((d, i) => tecla(T.p4 + d * K4, i, -41));
 { let t = T.lapse[0], k = 0; while (t < T.lapse[1]) { tic(t, k, -40); const u = (t - T.lapse[0]) / (T.lapse[1] - T.lapse[0]); t += 0.24 - 0.17 * Math.sin(Math.PI * Math.min(1, u * 1.2)); k++; } }
 T.ceba.forEach((t, i) => s("sfx/k-plastico.wav", t, 0, { techo: -42, vel: 0.75 + i * 0.05, lp: 1500 }));
 // P5 · 11:00: el reloj se frena (un tic), la burbuja de Walter, el scroll, el "tuc" seco del mensaje perdido (rojo)

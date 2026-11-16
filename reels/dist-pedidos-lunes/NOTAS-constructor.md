@@ -8,8 +8,21 @@ cafetería nueva). `assets/personajes.js` = el de dice-cuarenta. Rubén = `ELENC
 canoso), Graciela = `ELENCO.clienta` con delantal crema, Nico = `ELENCO.empleado` con el maletín (crearMochila navy),
 el operario de dice-cuarenta. Marta, Walter, Beto, Nelly, Fede y Sergio solo como avatar.
 
-**Duración: 36,27 s** (parte 1 0-15,34 · cartel 15,34-17,74 · parte 2 17,74-31,91 · cierre 31,91-36,27).
-Solución + cierre = 18,5 s (51 %). El cartel arranca antes de los 16,3 s.
+**Duración: 34,44 s** (parte 1 0-14,17 · cartel 14,17-16,57 · parte 2 16,57-30,74 · cierre 30,74-34,44; tarjeta
+31,49-34,44 = 2,95 s). Solución + cierre = 17,87 s (52 %); en el cierre el monitor detrás de Rubén muestra el resumen
+"40 de 40 ✓" (layout propio del panel desde T.c, plano C desde la derecha).
+
+### Ronda 1 de correcciones de guion (16-11)
+- Parte 1 −1,17 s: gaps de voz más cortos (r1 +0,16, p3/p4 +0,06), ráfaga comprimida (K4 = 0,88), P5 más corto (w1 en
+  p5 + 0,76), pausa de P6 0,7 → 0,4 s (un solo tic), P7 1,5 → 1,12 s (mate y celular boca abajo solapados).
+- Cierre: r6 a atempo 1,155 (era 1,1; procesar.sh actualizado), cola 0,65 → 0,15 s, la tarjeta entra en DUR − 2,95 (sobre
+  "PEDIDOS"). Plano C: cámara (0,95; OY+1,5; 3,6) → (0,9; OY+1,49; 3,42), mirando a (−0,3/−0,25; OY+1,05; 1,2): Rubén a
+  la derecha, el monitor a la izquierda con "40 de 40 ✓" en su mitad derecha (la que se ve).
+- Bandeja "Pedidos · Lunes" (no "Walter · Bar") en el inserto de P5; Fede → Restorán; Sergio → Club; Nelly "Lo mismo que
+  la semana pasada, más harina."; Marta "Café en grano · 7 kg" (sin "Siete. Clarito."); precios 2026 (aceite $ 2.300,
+  harina $ 900, azúcar $ 450, agua $ 330 → $ 12.440; café $ 1.300 → $ 9.100; leche x 12 $ 520); panel: Walter "Lo de
+  siempre / + 2 de aceite" en dos renglones, 4.ª fila "8:05 · Graciela · Editó su pedido ✓"; tablet "Para armar · Walter
+  · Bar"; DISTRIBUIDORAS 106 → 114 px con letter-spacing −0,05em; parpadeos de Rubén atados a T.
 
 ## Comandos (desde reels/dist-pedidos-lunes)
 ```
@@ -27,7 +40,7 @@ cortó la segunda tanda) generan tomas; `partes/recortar.sh` recorta silencios y
 g1 01-graciela-c (atempo 2,0 = el audio a 2x + filtro de chat) · r1 02-ruben-b (atempo 1,08) · r2 03-ruben-a (1,08) ·
 w1 04-walter-b (1,06 + chat) · r3 05-ruben-d · nar 06-narrador-d (1,12; entra en 2,28 s: el cartel dice "Un catálogo de
 pedidos más tarde…", sin el fallback) · g2 07-graciela-b · r4 08-ruben-a (0,38 s de pausa natural después de "Siete.") ·
-r5 09-ruben-b (1,08) · n1 10-nico-a · r6 11-ruben-d (1,1; generado con "pedidos" en minúscula; es la única toma en la que
+r5 09-ruben-b (1,08) · n1 10-nico-a · r6 11-ruben-d (1,155; generado con "pedidos" en minúscula; es la única toma en la que
 el STT oye "comentá" con tilde). Todas con "oyó:" igual al texto, salvo g1, donde el STT no oye el "Y" inicial de "Y nada"
 (se oye "nada, Rubén…"). Las tomas c/d de 01, 02, 05, 06, 09 y 11 están en partes/rec.
 

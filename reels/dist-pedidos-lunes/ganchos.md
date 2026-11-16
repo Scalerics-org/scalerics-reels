@@ -31,7 +31,7 @@ Lo que NO se repite (la-lista, dice-cuarenta, ya-lo-cargo, anotamelo):
 - **Rubén:** **"Cuatro minutos para decir lo de siempre."**
 - **Escalada (se entiende sin sonido):** la foto de la lista en papel de Marta (cafetería), torcida, con una mancha de
   café y un número que puede ser cualquier cosa; Rubén hace zoom con dos dedos: **"¿Eso es un siete o una mosca?"**
-  Ráfaga muda de burbujas ("Lo de siempre.", "Lo mismo que el lunes, sin azúcar.", "▶ 2:51", otra foto) mientras Rubén
+  Ráfaga muda de burbujas ("Lo de siempre.", "Lo mismo que la semana pasada, más harina.", "▶ 2:51", otra foto) mientras Rubén
   tipea con dos dedos; time-lapse: el reloj 8:00 → 11:00, el termo se vacía, la planilla llega a **39**.
 - **El que se escapó:** burbuja de Walter (bar): **"Rubén, ¿y mi pedido?"**. Rubén sube en el chat: el mensaje de Walter
   de las 8:04, "Lo de siempre + 2 de aceite", aplastado entre dos audios. Audio de Walter: **"Dejá, Rubén. Lo de
