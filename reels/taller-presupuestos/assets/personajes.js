@@ -109,6 +109,20 @@ export const ELENCO = {
     pestanas: 0x1a1414, lentes: MARCA.navy, camisa: MARCA.red, mangas: "largas", cuello: null, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.navy, panza: 1.0, nariz: 0.05, mejillas: 0xb8644e, labios: 0x8e3f3c,
     alto: 0.97 },
+  // taller-presupuestos (16-11): "Mecánica Óscar". Óscar, el dueño (~52, pelo gris corto y parejo, barba candado gris,
+  // mameluco navy con la franja verde de marca); Maxi, el ayudante (~22, jopo negro, mameluco verde oscuro con franja
+  // navy); Sergio, el cliente del embrague (~40, castaño corto, camisa crema y campera navy abierta). El trapo, la grasa
+  // y la llave con el llavero verde se agregan en el tres.js del reel.
+  oscar: { nombre: "Óscar", piel: PIEL.trigueña, pelo: PELO.gris, peinado: "texturado", texturaAlto: 0.4, cejasColor: 0x5a5550, cejaGruesa: true,
+    barba: 0x6d6a66, barbaLarga: 0.55, barbaOpacidad: 0.75, barbaBigote: true, bigoteColor: 0x5f5c58,
+    camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false, cuelloAlto: 0.07, franja: MARCA.g,
+    pantalon: MARCA.navy2, zapatos: 0x2a2220, panza: 1.12, nariz: 0.064, mejillas: 0xc9785e, alto: 1.02 },
+  maxi: { nombre: "Maxi", piel: PIEL.morena, pelo: PELO.negro, peinado: "jopo", jopoAlto: 1.1, cejasColor: 0x1e1a18,
+    camisa: MARCA.gd, mangas: "cortas", cuello: null, cuelloBotones: false, cuelloAlto: 0.06, franja: MARCA.navy,
+    pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 0.95, nariz: 0.052, mejillas: 0xb8644e, alto: 1.0 },
+  sergio: { nombre: "Sergio", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", cejasColor: 0x4a3222,
+    camisa: MARCA.cr, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, pantalon: 0x3a3f4a, zapatos: 0x3b2a20,
+    campera: { color: MARCA.navy3, cuello: MARCA.cr, cierre: 0xb4b2a3, abierta: true }, panza: 1.0, nariz: 0.058, mejillas: 0xe39282, alto: 1.0 },
 };
 
 // valores neutros para lo que un personaje no define (sin bigote, sin lentes, sin delantal...)

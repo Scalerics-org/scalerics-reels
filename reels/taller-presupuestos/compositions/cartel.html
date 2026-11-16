@@ -8,13 +8,13 @@
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 640px; text-align: center; transform: rotate(-4deg); }
     [data-composition-id="cartel"] .linea { display: block; font: 900 150px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.b { font-size: 166px; margin-top: 10px; }
+    [data-composition-id="cartel"] .linea.b { font-size: 104px; margin-top: 14px; -webkit-text-stroke-width: 13px; }
     [data-composition-id="cartel"] .linea.c { font-size: 136px; margin-top: 22px; }
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.17">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.17" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.63">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.63" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -35,8 +35,8 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="l">a</span><span class="esp"></span><span class="l">a</span><span class="l">g</span><span class="l">e</span><span class="l">n</span><span class="l">d</span><span class="l">a</span></span>
-        <span class="linea b"><span class="l">o</span><span class="l">n</span><span class="l">l</span><span class="l">i</span><span class="l">n</span><span class="l">e</span></span>
+        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="esp"></span><span class="l">s</span><span class="l">i</span><span class="l">s</span><span class="l">t</span><span class="l">e</span><span class="l">m</span><span class="l">a</span></span>
+        <span class="linea b"><span class="l">d</span><span class="l">e</span><span class="esp"></span><span class="l">p</span><span class="l">r</span><span class="l">e</span><span class="l">s</span><span class="l">u</span><span class="l">p</span><span class="l">u</span><span class="l">e</span><span class="l">s</span><span class="l">t</span><span class="l">o</span><span class="l">s</span></span>
         <span class="linea c"><span class="l">m</span><span class="l">á</span><span class="l">s</span><span class="esp"></span><span class="l">t</span><span class="l">a</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">…</span></span>
       </div>
     </div>
@@ -48,8 +48,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.17, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.17, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.63, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.63, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       letras.forEach((l, i) => {
         const t0 = 0.0 + i * 0.03;
@@ -59,7 +59,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, 1.95);   // (r2 11:11) sale mientras crece el iris; (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, 2.41);   // (r2 11:11) sale mientras crece el iris; (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
