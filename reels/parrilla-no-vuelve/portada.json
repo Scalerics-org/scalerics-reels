@@ -1,5 +1,5 @@
 {
- "t": 3.5,
+ "t": 4.2,
  "chica": "Sábado, 21:30.",
  "grande": "¿Quién era?",
  "sello": "PARRILLAS",
@@ -9,6 +9,6 @@
  "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-portada-3.5.png",
- "nota": "BORRADOR del guionista: t y fondo_limpio los completa el constructor. Fondo: P2 renderizado con LIMPIO=1 (sin gancho, rótulos, subtítulos ni burbujas): Raúl en primer plano con la sonrisa congelada y la pinza, Fabián encogido de hombros al lado y la parrilla con la tira, los chorizos y las morcillas en la mitad de abajo del cuadro de fondo, todo lo importante entre y 285 y 1635. Alternativa de fondo: el cuadro 0 limpio (la parrilla llena, Raúl y Walter). Alternativa de grande: \"¿Te acordás?\"."
+ "fondo_limpio": "portada-src/fondo-portada-4.2.png",
+ "nota": "Fondo: cuadro 4,2 s (P2) renderizado con LIMPIO=1 y VER=cam:-0.62,1.78,0.45,-0.62,1.12,-2.5,58 (un poco más abierto que el plano del reel, los dos personajes en la mitad de arriba): Raúl con la sonrisa congelada y Fabián encogiéndose de hombros. Alternativa de grande: \"¿Te acordás?\"."
 }

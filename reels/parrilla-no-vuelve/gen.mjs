@@ -412,7 +412,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1000px";   // el iris se abre desde el atril del QR (Q1)
+const IRIS_C = "540px 1560px";   // el iris se abre desde el atril del QR (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

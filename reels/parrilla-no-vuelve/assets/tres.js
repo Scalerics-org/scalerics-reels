@@ -498,7 +498,7 @@ fusionar(LIV);
 // =====================================================================================================
 const raul = crearPersonaje({ ...ELENCO.raul, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.0, r2(T.p3 + 0.9), r2(T.p5 + 0.3), r2(T.q2 - 0.5), r2(T.q4 + 0.4)] });
 const fabian = crearPersonaje({ ...ELENCO.fabian, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.2), r2(T.p7 + 0.6), r2(T.q4 + 0.9)] });
-const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q1 + 0.3)] });
+const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q1b + 0.5)] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999 });
 const EXTRA_CFG = [
   { nombre: "Extra1", piel: PIEL.clara, pelo: 0x3a2f2a, peinado: "texturado", texturaAlto: 0.6, camisa: 0x6b7a8f, mangas: "largas", cuello: 0x6b7a8f, pantalon: C.navy, zapatos: 0x2a2220, panza: 1.06, nariz: 0.06 },
@@ -600,7 +600,7 @@ const SOFI = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(432, 768)
 // GRACIELA (Q3b), LA PIZARRA
 // =====================================================================================================
 const pantT = lienzo(720, 1000, () => {});
-const tablet = crearTablet(pantT, 0.3, 0.42, 0.25); tablet.position.set(MESADA.x - 0.19, MESADA.alto, MESADA.z - 0.05); tablet.scale.setScalar(1.35); scene.add(tablet);
+const tablet = crearTablet(pantT, 0.3, 0.42, 0.25); tablet.position.set(MESADA.x - 0.25, MESADA.alto, MESADA.z - 0.05); tablet.scale.setScalar(1.35); scene.add(tablet);
 const celuS = new THREE.Group(); celuS.position.set(MESADA.x + 0.19, MESADA.alto, MESADA.z + 0.1); celuS.rotation.y = -0.15; scene.add(celuS);
 {
   const S = 1.9, W = 0.08 * S, H = 0.165 * S;
@@ -812,7 +812,7 @@ const CONTACTOS = [["C", "Carnicería Don Tito"], ["C", "Contador"], ["L", "Leñ
 function dibujarContactos(x, W, H, off = 0, celu = false) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle"; x.textAlign = "left";
   const k = W / 740;
-  x.save(); x.translate(0, -off * k);
+  x.save(); x.beginPath(); x.rect(0, 300 * k, W, H - 300 * k); x.clip(); x.translate(0, -off * k);
   let y = 330 * k, letra = "";
   for (const [l, n] of CONTACTOS) {
     if (l !== letra) { letra = l; x.fillStyle = "#3fa60a"; x.font = F(900, 52 * k); x.fillText(l, 44 * k, y + 10 * k); y += 76 * k; }
@@ -1022,7 +1022,7 @@ const PLANOS = [
   // ---- parte 2 ----
   ["Q1", P2, [[P2, 1.75, 1.7, 2.3, 2.42, 0.95, 0.1, 46], [T.q1b, 1.8, 1.66, 2.1, 2.42, 0.95, 0.1, 42]]],
   ["Q1b", T.q1b, null],
-  ["Q1c", T.q1c, [[T.q1c, -0.4, 2.15, 0.85, -0.3, 1.06, -2.2, 57], [T.q2, -0.4, 2.12, 0.65, -0.3, 1.08, -2.2, 57]]],
+  ["Q1c", T.q1c, [[T.q1c, -0.55, 2.15, 0.9, -0.4, 1.06, -2.2, 58], [T.q2, -0.55, 2.12, 0.7, -0.4, 1.08, -2.2, 58]]],
   ["Q2", T.q2, null],
   ["Q3", T.q3, null],
   ["Q3b", T.q3b, [[T.q3b, 30.0, 1.42, 2.6, 29.8, 1.47, -0.55, 40], [T.q4, 29.98, 1.42, 2.4, 29.8, 1.47, -0.55, 38]]],
@@ -1106,7 +1106,7 @@ function poseRaul(t) {
       [T.p5, { giro: 0.35, ...aC(0.55, 0.0), ...SECO, ...PARRILLA }, 0.01],
       [T.p6b, { giro: 0, ...aC(0, 0.32), ...SECO, manoI: [0.1, 0.36, 0.34], codoI: [0.8, -0.6, -0.2], manoD: [-0.25, 0.1, 0.25] }, 0.01],
       [T.r3 + 0.05, { ...aC(0.05, 0.08) }, 0.25],
-      [T.p7, { ...BUENA, ...BRAZOS.costado, ...aC(0, 0) }, 0.2],
+      [T.p7, { ...BUENA, ...BRAZOS.costado, manoD: [-0.3, 0.36, 0.3], codoD: [-0.6, -1, 0], ...aC(0, 0) }, 0.2],
       [T.r4 - 0.15, { manoI: [0.5, 0.62, 0.2], manoD: [-0.5, 0.62, 0.2], codoI: [1, -0.5, 0], codoD: [-1, -0.5, 0], inclina: -0.05, ...CARA.feliz }, 0.25],
       [T.mira, { ...aC(-0.55, 0.05), ...CONGELADA }, 0.2],
     ]);
@@ -1120,9 +1120,9 @@ function poseRaul(t) {
     p = poseEn(t, [
       [0, { x: RAUL0.x, z: RAUL0.z, giro: 0.25, inclina: 0.06, ...aC(0.45, 0.05), ...BUENA, ...PARRILLA }],
       [T.r5 - 0.35, { ...aC(1.0, 0.18) }, 0.2],                      // mira la tablet de reojo
-      [T.r5, { ...aC(0.5, 0.0), ...CARA.feliz, ...PINZA_ARRIBA }, 0.2],
+      [T.r5, { ...aC(0.5, 0.0), ...BUENA, ...PINZA_ARRIBA }, 0.2],
       [T.q4, { giro: 0.3, ...aC(0.4, 0.05), ...MEDIA, ...PARRILLA }, 0.01],
-      [T.q4b, { giro: 0.45, ...aC(0.1, 0.0), ...MEDIA, manoD: [-0.12, 0.5, 0.56], codoD: [-0.7, -0.6, 0] }, 0.25],
+      [T.q4b, { giro: 0.45, ...aC(0.1, 0.0), ...MEDIA, manoD: [-0.2, 0.64, 0.5], codoD: [-0.3, -0.4, -1] }, 0.25],
       [T.r6 + 2.2, { ...aC(0.12, 0.04), ...BUENA, boca: { sonrisa: 0.55 } }, 0.3],
       [T.q5, { giro: 0.25, ...aC(0.45, 0.05), ...BUENA, ...PARRILLA }, 0.01],
     ]);
@@ -1176,7 +1176,7 @@ function poseWalter(t) {
     bocaVoz(p, t, T.w2, ENV.w2, 0.8);
   } else if (t < T.q1c) {
     // Q1: sentado en su mesa, apunta el celular al QR
-    p = poseEn(t, [[0, { x: MESAS[W_MESA][0], y: -0.08, z: MESAS[W_MESA][1] - MESA_D / 2 - 0.12, giro: 0, sentado: 1, inclina: 0.12, ...aC(-0.2, 0.3), ...CARA.sonrisa, ...BRAZOS.celular }], [T.escanea - 0.2, { manoI: [0.06, 0.4, 0.42], manoD: [-0.06, 0.4, 0.42] }, 0.25]]);
+    p = poseEn(t, [[0, { x: MESAS[W_MESA][0], y: -0.08, z: MESAS[W_MESA][1] - MESA_D / 2 - 0.12, giro: 0, sentado: 1, inclina: 0.06, ...aC(-0.2, 0.12), ...CARA.sonrisa, cejas: { alto: 0.35, ang: 0.35 }, ...BRAZOS.celular }], [T.escanea - 0.2, { manoI: [0.06, 0.4, 0.42], manoD: [-0.06, 0.4, 0.42] }, 0.25]]);
   } else if (t < T.q4) {
     p = poseEn(t, [[0, { x: W_P1.x, z: W_P1.z, giro: gR, ...aC(0, -0.02), ...CARA.feliz, ...BRAZOS.costado }], [T.palmada2 - 0.25, { manoD: [-0.1, 0.45, 0.5] }, 0.25], [T.palmada2 + 0.2, { ...BRAZOS.costado }, 0.3], [T.r5 + 0.2, { ...BUENA }, 0.3]]);
     const k = Math.sin(Math.PI * sg(t, T.palmada2 - 0.2, T.palmada2 + 0.2)); if (k > 0) manoA(walter, p, "D", raul.cuerpo.localToWorld(V3(0.21, 0.44, 0.02)), k);
