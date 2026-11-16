@@ -259,8 +259,8 @@
 ## En curso
 <!-- corrida-activa: 2026-11-16T08:08 -->
 
-- 16-11 · `dist-pedidos-lunes` · Distribuidoras · Sistema a medida / tienda mayorista (catálogo de pedidos con su lista de precios) · Rubén, lunes 8:00: 40 pedidos por WhatsApp (audios, fotos de listas, "lo de siempre"), a mano a la planilla hasta las 11, se le escapa uno · cierre "Comentá PEDIDOS" · reservado por la corrida 16-11 05:10
-- 16-11 · `estetica-turnos` · Centros de estética · Agenda online con seña + recordatorio + lista de espera · jueves: tres turnos que no vinieron, camilla vacía · cierre "Comentá TURNOS" · reservado por la corrida 16-11 05:10
+- 16-11 · `dist-pedidos-lunes` · Distribuidoras · Sistema a medida / tienda mayorista (catálogo de pedidos con su lista de precios) · Rubén, lunes 8:00: 40 pedidos por WhatsApp (audios, fotos de listas, "lo de siempre"), a mano a la planilla hasta las 11, se le escapa uno · cierre "Comentá PEDIDOS" · reservado por la corrida 16-11 05:10, QUE SIGUE TRABAJANDO (ya renderizado, en rondas de revisión; no retomar)
+- 16-11 · `estetica-turnos` · Centros de estética · Agenda online con seña + recordatorio + lista de espera · jueves: tres turnos que no vinieron, camilla vacía · cierre "Comentá TURNOS" · reservado por la corrida 16-11 05:10, QUE SIGUE TRABAJANDO (ya renderizado, en rondas de revisión; no retomar)
 
 
 
