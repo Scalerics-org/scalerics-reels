@@ -388,7 +388,7 @@ fusionar(LIV);
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const lorena = crearPersonaje({ ...ELENCO.lorena, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.4, 6.3, 9.9, 13.0, 18.8, 24.0, 30.4, 34.3] });
+const lorena = crearPersonaje({ ...ELENCO.lorena, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.4, 6.3, 9.9, 14.6, 30.4] });
 const vale = crearPersonaje({ ...ELENCO.vale, dedos: true, parpadeoCada: 4.3 });
 const carolina = crearPersonaje({ ...ELENCO.carolina, dedos: true, parpadeoCada: 999, parpadeosExtra: [31.0, 35.2] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999 });
@@ -933,8 +933,8 @@ const PLANOS = [
   ["Q3b", T.q3b, [[T.q3b, 30.0, 1.3, 2.6, 29.8, 1.2, -0.55, 40], [T.q3c, 29.98, 1.28, 2.4, 29.8, 1.2, -0.55, 38]]],
   ["Q3c", T.q3c, null],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.c3 + 0.5, ...P1C(0.5)], [T.q4b, 0.3, 1.85, 1.75, 0.1, 1.15, -1.3, 46]]],
-  ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 44], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 33]]],
-  ["Q5", T.q5, [[T.q5, 0.3, 1.3, 2.05, 0.3, 1.2, 3.22, 38], [T.s1 + 0.4, 0.3, 1.3, 2.0, 0.3, 1.2, 3.22, 38], [T.s1 + 1.1, 0.6, 1.2, 2.1, 0.6, 1.12, 3.1, 42], [DUR, 0.6, 1.2, 2.18, 0.6, 1.12, 3.1, 41]]],
+  ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 44], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 37]]],
+  ["Q5", T.q5, [[T.q5, 0.34, 1.3, 2.05, 0.34, 1.2, 3.22, 40], [T.s1 + 1.0, 0.34, 1.3, 2.0, 0.34, 1.2, 3.22, 40], [T.s1 + 1.6, 0.74, 1.2, 2.42, 0.74, 1.12, 3.1, 42], [DUR, 0.74, 1.2, 2.47, 0.74, 1.12, 3.1, 41]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
