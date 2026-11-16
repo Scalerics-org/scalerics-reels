@@ -62,13 +62,13 @@ T.q3 = r2(T.martes + 0.6); T.libre = r2(T.q3 + 0.1); T.avisa = r2(T.q3 + 0.45);
 T.q3b = r2(T.q3 + 0.85); T.aviso = r2(T.q3b + 0.1); T.quiero = r2(T.q3b + 0.45); T.g1 = r2(T.q3b + 0.55);
 T.q3c = r2(T.g1 + LEN.g1 + 0.1); T.cubierto = r2(T.q3c + 0.15); T.chip = r2(T.q3c + 0.4);
 // Q4 · jueves 15:00, el encuadre del cuadro 0: la campanita, entra Carolina · "¡Llegué! …" · "Mirá vos. Hoy le surgió venir."
-T.q4 = r2(T.chip + 0.75); T.campanita = r2(T.q4 + 0.05); T.entra = [r2(T.q4 + 0.05), r2(T.q4 + 1.0)];
+T.q4 = r2(T.chip + 0.55); T.campanita = r2(T.q4 + 0.05); T.entra = [r2(T.q4 + 0.05), r2(T.q4 + 1.0)];
 T.c3 = r2(T.q4 + 0.85); T.pasa = [r2(T.c3 + LEN.c3 - 0.3), r2(T.c3 + LEN.c3 + 0.7)];
 T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25);
 // Q5 · la recepción: la tablet con el jueves lleno, Sofi en videollamada al lado · "Comentá TURNOS…" · la línea chica
 T.q5 = r2(T.l5 + LEN.l5 + 0.2); T.filas = [0, 0.18, 0.36].map((d) => r2(T.q5 + 0.25 + d)); T.cero = r2(T.q5 + 0.85);
 T.s1 = r2(T.q5 + 0.6); T.turnos = r2(T.s1 + 0.45);
-T.cierre = r2(T.s1 + LEN.s1 - 0.6);
+T.cierre = r2(T.s1 + LEN.s1 - 1.1);
 const DUR = r2(Math.max(T.s1 + LEN.s1 + 0.6, T.cierre + 1.8));
 // el reloj de pared [t, hora decimal]: 15:00 · corre a 16:00 · 17:00 en punto · (parte 2) 15:00 en punto
 T.relojK = [[0, 15.0], [T.reloj1[0], 15.0], [T.reloj1[1], 16.0], [T.reloj2[0], 16.97], [T.reloj2[1], 17.0], [T.p5, 17.0], [T.p6, 17.86]];

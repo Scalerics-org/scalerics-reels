@@ -525,9 +525,9 @@ const pantL = lienzo(600, 975, () => {});
 const celuL = crearCelular(pantL, C.navy3, 0.08, 0.162); scene.add(celuL);
 // la tablet de la recepción (vertical, en atril) y su pantalla: la agenda del jueves
 const pantT = lienzo(720, 1000, () => {});
-const tablet = crearTablet(pantT, 0.3, 0.42, 0.25); tablet.position.set(0.3, MOSTR.alto, MOSTR.z + 0.02); tablet.rotation.y = Math.PI; scene.add(tablet);
+const tablet = crearTablet(pantT, 0.3, 0.42, 0.25); tablet.position.set(0.3, MOSTR.alto, MOSTR.z + 0.02); tablet.rotation.y = Math.PI; tablet.scale.setScalar(1.35); scene.add(tablet);
 // el celular parado con la videollamada de Sofi (en su soporte, al lado de la tablet)
-const celuS = new THREE.Group(); celuS.position.set(0.6, MOSTR.alto, MOSTR.z - 0.06); celuS.rotation.y = Math.PI + 0.2; scene.add(celuS);
+const celuS = new THREE.Group(); celuS.position.set(0.66, MOSTR.alto, MOSTR.z - 0.06); celuS.rotation.y = Math.PI + 0.15; scene.add(celuS);
 {
   const S = 1.35, W = 0.08 * S, H = 0.165 * S;
   const piv = new THREE.Group(); piv.position.y = 0.035; piv.rotation.x = -0.18; celuS.add(piv);
@@ -730,7 +730,7 @@ const GL = {
   mar: crearTarjeta(900, 400, (x, W, H) => dibujarMariana(x, W, H, 0), { fondo: "#efeee5" }),
   j1: crearAudio({ cv: AVATAR.jimena, nombre: "Jimena", hora: "17:00", dur: "0:03", lineas: ["¿Era [hoy?] Lo tenía para", "el jueves que viene."] }),
   l2: crearGlobo(["Lo único puntual hoy", "fueron las [excusas.]"], 78),
-  c2: crearAudio({ cv: AVATAR.carolina, nombre: "Carolina", hora: "17:52", dur: "0:03", horaRoja: false, lineas: ["Lore, ¿me guardás el", "jueves que viene? Esta vez [voy.]"] }),
+  c2: crearAudio({ cv: AVATAR.carolina, nombre: "Carolina", hora: "17:52", dur: "0:03", horaRoja: false, lineas: ["Lore, ¿me guardás el", "jueves que viene?", "Esta vez [voy.]"] }),
   l3: crearGlobo(["Te lo [guardo.]"], 88),
   q1c: crearGlobo(["Lore, ¿me guardás el", "jueves que viene?"], 62, { cab: { cv: AVATAR.carolina, nombre: "Carolina" } }),
   l4: crearGlobo(["Te mando el [link.]"], 84),
@@ -826,7 +826,7 @@ function dibujarRecordatorios(t) {
     x.fillStyle = "#efeee5"; x.font = F(800, 42); x.fillText(nom, W / 2, 180);
     if (!llego) { CEL3[i].tex.needsUpdate = true; return; }
     x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(14, 236, W - 28, 300, [26, 26, 26, 6]); x.fill(); x.stroke();
-    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 38); x.fillText(`Hola, ${nom}.`, 32, 282);
+    x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 40); x.fillText("¡Hola!", 32, 282);
     x.font = F(700, 36); x.fillText("Te esperamos", 32, 336); x.fillText("mañana jueves", 32, 380);
     x.font = F(900, 58); x.fillText(hora, 32, 442); x.font = F(700, 36); x.fillStyle = "#16243d"; x.fillText(serv, 32, 500);
     x.textAlign = "center";
@@ -841,7 +841,7 @@ function dibujarRecordatorios(t) {
       tilde(x, W / 2, 610, 54); x.fillStyle = "#0b1220"; x.font = F(900, 46); x.fillText("Confirmado", W / 2, 694);
     } else {
       x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(14, 562, W - 28, 180, 34); x.fill();
-      x.fillStyle = "#efeee5"; x.font = F(800, 38); x.fillText("Reprogramado", W / 2, 604); x.fillStyle = "#5ce611"; x.font = F(900, 44); x.fillText("Martes 10:00 ✓", W / 2, 676);
+      x.fillStyle = "#efeee5"; ajustar(x, "Reprogramado", 800, 38, W - 50); x.fillText("Reprogramado", W / 2, 604); x.fillStyle = "#5ce611"; ajustar(x, "Martes 10:00 ✓", 900, 44, W - 44); x.fillText("Martes 10:00 ✓", W / 2, 676);
     }
     CEL3[i].tex.needsUpdate = true;
   });
@@ -893,13 +893,13 @@ const PLANOS = [
   ["P1", 0, [[0, ...P1C(0)], [T.p2, ...P1C(1)]]],
   ["P2", T.p2, [[T.p2, 0.0, 1.45, 1.4, 0.2, 1.45, -2.4, 46], [T.p3, 0.0, 1.45, 1.25, 0.2, 1.45, -2.4, 45]]],
   // 17:00 en punto: apretado al reloj y baja a Vale con el segundo cisne
-  ["P3", T.p3, [[T.p3, 0.0, 1.95, 0.4, -0.42, 2.0, -3.0, 26], [T.p3 + 0.45, 0.0, 1.95, 0.4, -0.42, 2.0, -3.0, 26], [T.p3 + 1.2, -0.35, 1.4, 1.0, 0.55, 1.0, -1.85, 42], [T.p4, -0.35, 1.4, 0.9, 0.55, 1.0, -1.85, 41]]],
+  ["P3", T.p3, [[T.p3, 0.0, 1.95, 0.4, -0.42, 2.0, -3.0, 26], [T.p3 + 0.45, 0.0, 1.95, 0.4, -0.42, 2.0, -3.0, 26], [T.p3 + 1.2, 1.0, 1.45, 0.75, 0.55, 1.0, -1.85, 42], [T.p4, 1.0, 1.45, 0.65, 0.55, 1.0, -1.85, 41]]],
   ["P4", T.p4, [[T.p4, 0.15, 2.2, 3.4, -0.1, 1.0, -1.6, 50], [T.p5, 0.15, 2.2, 3.35, -0.1, 1.0, -1.6, 50]]],
   ["P5", T.p5, [[T.p5, -0.35, 1.6, -2.2, -0.5, 1.45, 0.3, 40], [T.l2 + 0.6, -0.35, 1.6, -2.0, -0.5, 1.47, 0.3, 34], [T.p6, -0.35, 1.6, -1.9, -0.5, 1.48, 0.3, 32]]],
   ["P6", T.p6, [[T.p6, 0.1, 1.65, -2.2, -0.45, 1.3, 0.3, 44], [T.l3, 0.1, 1.65, -2.1, -0.45, 1.3, 0.3, 42]]],
   ["P6b", T.l3, [[T.l3, 0.15, 2.2, 3.4, -0.1, 1.0, -1.6, 50], [P1, 0.15, 2.2, 3.3, -0.1, 1.0, -1.6, 50]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, 0.0, 1.45, 1.6, -0.15, 1.35, 3.7, 46], [T.q1b, 0.0, 1.45, 1.8, -0.15, 1.35, 3.7, 44]]],
+  ["Q1", P2, [[P2, 0.05, 1.5, 0.7, -0.05, 1.3, 3.7, 46], [T.q1b, 0.05, 1.5, 0.95, -0.05, 1.3, 3.7, 44]]],
   ["Q1b", T.q1b, null],
   ["Q2", T.q2, null],
   ["Q3", T.q3, null],
@@ -907,7 +907,7 @@ const PLANOS = [
   ["Q3c", T.q3c, null],
   ["Q4", T.q4, [[T.q4, ...P1C(0)], [T.q4b, ...P1C(0.7)]]],
   ["Q4b", T.q4b, [[T.q4b, -0.95, 1.6, -2.1, -0.5, 1.4, 0.3, 42], [T.q5, -0.92, 1.6, -1.9, -0.5, 1.42, 0.3, 38]]],
-  ["Q5", T.q5, [[T.q5, 0.3, 1.5, 1.3, 0.42, 1.25, 3.2, 50], [T.q5 + 1.2, 0.4, 1.42, 2.0, 0.42, 1.24, 3.2, 44], [DUR, 0.41, 1.4, 2.08, 0.46, 1.24, 3.2, 45]]],
+  ["Q5", T.q5, [[T.q5, 0.3, 1.5, 1.3, 0.42, 1.25, 3.2, 50], [T.q5 + 1.2, 0.42, 1.44, 1.72, 0.42, 1.3, 3.2, 43], [DUR, 0.42, 1.43, 1.8, 0.42, 1.3, 3.2, 42]]],
 ];
 const _m = new THREE.Vector3();
 let planoActual = "P1";
@@ -1018,11 +1018,11 @@ function poseVale(t) {
 // Carolina: entra por la recepción (Q4) y camina hasta la camilla
 function poseCarolina(t) {
   const u = sg(t, T.entra[0], T.entra[1]), w = sg(t, T.pasa[0], T.pasa[1]);
-  const x = lerp(1.25, 0.2, eo(u)) + lerp(0, 0.15, eio(w)), z = lerp(1.25, -0.25, eo(u)) + lerp(0, -0.95, eio(w));
+  const x = lerp(1.7, 0.2, eo(u)) + lerp(0, 0.15, eio(w)), z = lerp(0.7, -0.25, eo(u)) + lerp(0, -0.95, eio(w));
   const andando = (u > 0 && u < 1) || (w > 0 && w < 1);
   const p = poseEn(t, [
     [0, { giro: -Math.PI + 0.5, ...aC(0, 0), ...BUENA, manoI: [0.25, 0.05, 0.08], codoI: [1, -0.2, 0], manoD: [-0.29, -0.08, 0.04] }],
-    [T.c3, { giro: 0.25, ...aC(0.1, -0.05), ...BUENA }, 0.4],
+    [T.c3, { giro: 0.25, ...aC(0.1, -0.05), ...BUENA, cejas: { alto: 0.45, ang: 0.35, asim: 0 } }, 0.4],
     [T.c3 + LEN.c3 - 0.2, { giro: -0.2 }, 0.4],
     [T.pasa[1], { giro: -Math.PI + 0.3, ...aC(0, 0.1), ...CARA.sonrisa }, 0.5],
   ]);
