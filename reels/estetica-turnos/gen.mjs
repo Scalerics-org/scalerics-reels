@@ -196,7 +196,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.6, y: -1100, duration: 0.15, ease: "power2.in" }, ${r2(dur - 0.5)});   // se va antes de que abra el iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.45)});   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris`,
   });
 }
 
