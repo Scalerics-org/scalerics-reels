@@ -31,23 +31,28 @@ const T = {};
 // de Carolina ya está en pantalla (15:00). "Tranqui." · tacha 15:00 · Vale enrolla la toalla
 T.c1 = 0.2; T.l1 = r2(T.c1 + LEN.c1 + 0.08); T.tacha1 = r2(T.l1 + LEN.l1 + 0.04); T.rollo = [r2(T.tacha1 - 0.1), r2(T.tacha1 + 0.4)];
 // P2 · el reloj corre a 16:00 · el mensaje a Mariana (✓✓ 16:05) · "escribiendo…" que se apaga · tacha 16:00 · cisne
-T.p2 = r2(T.tacha1 + 0.18); T.reloj1 = [r2(T.p2 + 0.1), r2(T.p2 + 1.1)];
-T.msj = r2(T.p2 + 0.3); T.escribe = [r2(T.msj + 0.45), r2(T.msj + 1.0)]; T.tacha2 = r2(T.escribe[1] + 0.15);
-T.cisne1 = [r2(T.p2 + 0.75), r2(T.p2 + 1.45)];
+// (r1 11:11) más corto: el reloj corre en 0,75 s y "escribiendo…" dura 0,45 s
+T.p2 = r2(T.tacha1 + 0.18); T.reloj1 = [r2(T.p2 + 0.08), r2(T.p2 + 0.83)];
+T.msj = r2(T.p2 + 0.25); T.escribe = [r2(T.msj + 0.35), r2(T.msj + 0.8)]; T.tacha2 = r2(T.escribe[1] + 0.12);
+T.cisne1 = [r2(T.p2 + 0.55), r2(T.p2 + 1.15)];
 // P3 · 17:00 en punto: el audio de Jimena · tacha 17:00 · el segundo cisne y el corazón
-T.p3 = r2(T.tacha2 + 0.2); T.reloj2 = [r2(T.p3 - 0.05), r2(T.p3 + 0.15)]; T.jimena = r2(T.p3 + 0.05); T.j1 = r2(T.p3 + 0.2);
+T.p3 = r2(T.tacha2 + 0.12); T.reloj2 = [r2(T.p3 - 0.05), r2(T.p3 + 0.15)]; T.jimena = r2(T.p3 + 0.05); T.j1 = r2(T.p3 + 0.2);
 T.tacha3 = r2(T.j1 + LEN.j1 + 0.08); T.cisne2 = [r2(T.j1 + 0.6), r2(T.j1 + 1.4)]; T.corazon = [r2(T.tacha3 - 0.05), r2(T.tacha3 + 0.4)];
 // P4 · la pausa: plano general quieto; los rótulos del costo
-T.p4 = r2(T.tacha3 + 0.3); T.rot = [r2(T.p4 + 0.12), r2(T.p4 + 0.4), r2(T.p4 + 0.7)];
+T.p4 = r2(T.tacha3 + 0.3); T.rot = [r2(T.p4 + 0.1), r2(T.p4 + 0.3), r2(T.p4 + 0.5)];
 // P5 · primer plano de Lorena: "Lo único puntual hoy fueron las excusas."
-T.p5 = r2(T.p4 + 1.8); T.l2 = r2(T.p5 + 0.15);
+T.p5 = r2(T.p4 + 0.8); T.l2 = r2(T.p5 + 0.15);   // (r1 11:11) pausa antes del remate ~1,3 s (era 2,3)
+// la burbuja del remate se revela por palabra: "fueron" · "las" · "excusas." (segundos dentro de l2, del STT y la envolvente)
+T.l2pal = [1.3, 1.55, 1.75].map((d) => r2(T.l2 + d));
 // P6 · remate del remate: Carolina otra vez (17:52) · Lorena da vuelta la hoja y anota · "Te lo guardo." · Vale deja los
 // cisnes y agarra otra toalla
-T.p6 = r2(T.l2 + LEN.l2 + 0.2); T.carolina2 = r2(T.p6 + 0.05); T.c2 = r2(T.p6 + 0.12);
+T.p6 = r2(T.l2 + LEN.l2 - 0.05); T.carolina2 = r2(T.p6 + 0.04); T.c2 = r2(T.p6 + 0.1);
 T.hoja = [r2(T.c2 + LEN.c2 - 0.55), r2(T.c2 + LEN.c2 - 0.2)]; T.anota = [r2(T.hoja[1] + 0.05), r2(T.hoja[1] + 0.5)];
-T.l3 = r2(T.c2 + LEN.c2 + 0.12); T.vale = [r2(T.l3 - 0.25), r2(T.l3 + 0.2), r2(T.l3 + 0.6)];   // deja los cisnes · agarra la toalla · empieza
-const P1 = r2(T.l3 + LEN.l3 + 0.3);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.35, LEN.nar + 0.06));
+// (r1 11:11) "Te lo guardo." de frente (sigue el plano P6) y recién después el general con Vale y la toalla nueva (P6b)
+T.l3 = r2(T.c2 + LEN.c2 + 0.1); T.p6b = r2(T.l3 + LEN.l3 + 0.03);
+T.vale = [r2(T.p6b - 0.25), r2(T.p6b + 0.05), r2(T.p6b + 0.3)];   // deja los cisnes · agarra la toalla · empieza
+const P1 = r2(T.p6b + 0.52);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.12, LEN.nar + 0.08));   // (r1 11:11) toma d: arranca con 0,13 s de silencio, entra en P1 + 0,02
 // ---- parte 2 ----
 // Q1 · la recepción otra semana: la burbuja de Carolina ("¿me guardás el jueves que viene?") · "Te mando el link." ·
 // la tarjeta del link
@@ -55,23 +60,25 @@ T.q1 = P2; T.carolina3 = r2(P2 + 0.05); T.l4 = r2(P2 + 0.35); T.link = r2(T.l4 +
 // Q1b · inserto del celular de Carolina: la página de reserva · Jue · 15:00 · Pagar seña · Turno reservado ✓
 T.q1b = r2(T.link + 0.35); T.jue = r2(T.q1b + 0.35); T.hora = r2(T.q1b + 0.7); T.paga = r2(T.q1b + 1.25); T.reservado = r2(T.q1b + 1.45);
 // Q2 · el miércoles a las 15:00: el recordatorio a los tres celulares · Confirmar · Confirmar · Reprogramar → Martes 10:00
-T.q2 = r2(T.reservado + 0.75); T.llega = r2(T.q2 + 0.05); T.conf = [r2(T.q2 + 0.6), r2(T.q2 + 0.95), r2(T.q2 + 1.3)]; T.martes = r2(T.q2 + 1.6);
+T.q2 = r2(T.reservado + 0.62); T.llega = r2(T.q2 + 0.05); T.conf = [r2(T.q2 + 0.6), r2(T.q2 + 0.95), r2(T.q2 + 1.3)]; T.martes = r2(T.q2 + 1.6);
 // Q3 · la tablet: 16:00 libre, avisando a la lista de espera · Graciela en su living toca "Lo quiero" · "¡Me lo quedo!"
 // · la tablet: 16:00 Graciela ✓ · hueco cubierto en 2 minutos
-T.q3 = r2(T.martes + 0.45); T.libre = r2(T.q3 + 0.1); T.avisa = r2(T.q3 + 0.45);
+T.q3 = r2(T.martes + 0.38); T.libre = r2(T.q3 + 0.1); T.avisa = r2(T.q3 + 0.45);
 T.q3b = r2(T.q3 + 0.85); T.aviso = r2(T.q3b + 0.1); T.quiero = r2(T.q3b + 0.45); T.g1 = r2(T.q3b + 0.55);
 T.q3c = r2(T.g1 + LEN.g1 + 0.1); T.cubierto = r2(T.q3c + 0.05); T.chip = r2(T.q3c + 0.2);
 // Q4 · jueves 15:00, el encuadre del cuadro 0: la campanita, entra Carolina · "¡Llegué! …" · "Mirá vos. Hoy le surgió venir."
-T.q4 = r2(T.chip + 0.5); T.campanita = r2(T.q4 + 0.02); T.entra = [r2(T.q4 + 0.0), r2(T.q4 + 0.9)];
+T.q4 = r2(T.chip + 0.42); T.campanita = r2(T.q4 + 0.02); T.entra = [r2(T.q4 + 0.0), r2(T.q4 + 0.9)];
 T.c3 = r2(T.q4 + 0.47); T.pasa = [r2(T.c3 + LEN.c3 - 0.3), r2(T.c3 + LEN.c3 + 0.7)];
-T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25);
+T.q4b = r2(T.c3 + LEN.c3 + 0.1); T.l5 = r2(T.q4b + 0.25); T.l5pal = [1.1, 1.75].map((d) => r2(T.l5 + d));   // "Hoy le surgió" · "venir."
 // Q5 · la recepción: la tablet con el jueves lleno, Sofi en videollamada al lado · "Comentá TURNOS…" · la línea chica
 // (ronda 2) "Camilla vacía: 0 h" desde el corte y 1,6 s quieto en la tablet; la cámara va a Sofi y recién ahí entra
 // "Comentá TURNOS" (tarjeta ≤ 3 s)
 T.q5 = r2(T.l5 + LEN.l5 + 0.15); T.filas = [0, 0.12, 0.24].map((d) => r2(T.q5 + 0.1 + d)); T.cero = T.q5;
-T.s1 = r2(T.q5 + 0.05); T.viaje = [r2(T.q5 + 1.6), r2(T.q5 + 2.1)]; T.turnos = r2(T.viaje[1] - 0.1);
-const DUR = r2(T.s1 + LEN.s1 + 0.4);
-T.cierre = r2(DUR - 1.7);
+// (r1 11:11) la tablet 0,7 s sola; la cámara viaja a Sofi y ella arranca a hablar en el viaje: "TURNOS" (0,53 s dentro de
+// s1) se oye cuando ya está en cuadro y el cartel entra justo en esa palabra, después del barrido
+T.viaje = [r2(T.q5 + 0.6), r2(T.q5 + 0.98)]; T.s1 = r2(T.q5 + 0.66); T.turnos = r2(T.s1 + 0.52);
+const DUR = Math.ceil((Math.ceil((T.s1 + LEN.s1 + 0.35) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro: el audio no queda más largo que el video
+T.cierre = r2(DUR - 2.05);   // (r1 11:11) la línea final ≥ 2 s en pantalla
 // el reloj de pared [t, hora decimal]: 15:00 · corre a 16:00 · 17:00 en punto · (parte 2) 15:00 en punto
 T.relojK = [[0, 15.0], [T.reloj1[0], 15.0], [T.reloj1[1], 16.0], [T.reloj2[0], 16.97], [T.reloj2[1], 17.0], [T.p5, 17.0], [T.p6, 17.86]];
 
@@ -196,7 +203,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.45)});   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.36)});   // (r1 11:11) sale justo cuando abre el iris (no queda el verde vacío)   // (ronda 2) se va entero antes del iris   // se va antes de que abra el iris`,
   });
 }
 
@@ -288,7 +295,7 @@ tela(T.vale[0], -40, 2); tela(T.vale[1], -39, 1); tela(T.vale[2], -40, 2);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
-s("voice/narrador.wav", P1 + 0.12, -1, { voz: true, fin: 0.04 }); VOZ.push([r2(P1 - 0.3), r2(P1 + 0.12 + LEN.nar + 0.45)]);
+s("voice/narrador.wav", P1 + 0.02, -1, { voz: true, fin: 0.04 }); VOZ.push([r2(P1 - 0.3), r2(P1 + 0.02 + LEN.nar + 0.45)]);
 s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3, techo: -40, sinDuck: true });
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
@@ -301,14 +308,16 @@ voz("l4", T.l4, -1);
 s("sfx/whoosh-short.mp3", T.link, 0, { techo: -42, vel: 1.2 }); pop(T.link + 0.02, -42);
 // Q1b · la página de reserva: Jue, 15:00, Pagar seña, Turno reservado ✓
 s("sfx/whoosh-short.mp3", T.q1b - 0.04, 0, { techo: -42 });
+pop(T.q1b + 0.15, -40);   // (r1 11:11) el rótulo "Reserva online con seña"
 toque(T.jue, -38); toque(T.hora, -38); toque(T.paga, -36); ding(T.reservado, -36);
 // Q2 · el recordatorio a los tres celulares (escalonado), tres toques, dos dings, el reprogramado
 s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -42 });
 [0, 0.08, 0.16].forEach((d, i) => noti(T.llega + d, -40 - i));
 T.conf.forEach((t, i) => { toque(t, -37); if (i < 2) ding(t + 0.1, -38); });
-ding(T.martes, -38);
+ding(T.martes, -38); pop(T.q2 + 0.35, -42);
 // Q3 · la tablet: libre (whoosh), avisando; el aviso a Graciela, "Lo quiero", "¡Me lo quedo!", Graciela ✓, el chip
 s("sfx/whoosh-short.mp3", T.q3 - 0.04, 0, { techo: -42 });
+pop(T.q3 + 0.1, -40);   // el rótulo "Lista de espera"
 s("sfx/k-page-turn.wav", T.libre, 0, { techo: -40, vel: 1.3, dur: 0.25, fin: 0.08 });
 s("sfx/whoosh.mp3", T.avisa + 0.1, 0, { techo: -40, vel: 1.1 });
 noti(T.aviso, -38); toque(T.quiero, -36);
@@ -332,7 +341,7 @@ pop(T.cierre + 0.05, -44);
 // (ronda 1) la cama +4 dB y, en los tramos sin voz (el reloj que corre, la demo de la interfaz, la entrada de Carolina), los
 // SFX +6 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.p2, T.p3) || en(t0, T.link, T.g1 - 0.2) || en(t0, T.q3c - 0.2, T.q4 - 0.05)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
+  if (en(t0, T.p2, T.p3) || en(t0, T.link, T.g1 - 0.2) || en(t0, T.g1 + LEN.g1 + 0.4, T.q4 - 0.05)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.35])]; }
 function en(t, a, b) { return t >= a && t < b; }

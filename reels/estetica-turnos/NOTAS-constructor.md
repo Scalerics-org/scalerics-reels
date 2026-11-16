@@ -68,3 +68,48 @@ P5/P6 · M11 "¡Llegué!" abajo · M12 pinza verde y mechas en la nuca de Lorena
 `flequilloAlto` en Vale · M13 Carolina entra por la puerta · M14 cama +4 dB, SFX +6 dB sin voz (techo -31) · M15 push-ins
 más marcados en P5, Q4, Q4b · M16 chat de Mariana blanco con tildes verdes · M17 portada desde el plano general (8,9 s).
 Bajas: B1 B2 B3 B5 B7 B8 B9 B10 B11 B12. Mezcla: voz ≥ +8,5 LU, -14,2 LUFS, pico -5,2 dBFS.
+
+## Ronda 1 corrida 11:11 (sobre qa-ronda-r1.md)
+**Duración 37,30 s** (era 38,6). Parte 1 0-15,54 · cartel 15,54-17,71 · **parte 2 17,71-37,30 = 19,6 s, 52,5 %**.
+Q5: tablet 32,63 · viaje a Sofi 33,23-33,61 · s1 desde 33,29 ("TURNOS" ~33,82) · "Comentá TURNOS" 33,81 · línea chica 35,25.
+Mezcla: voz ≥ +8,9 LU sobre el resto en todos los tramos, -14,0 LUFS, pico -5,2 dBFS. `check --json`: 0 errores.
+Portada rehecha: fondo LIMPIO del cuadro 8,7 s (corazón de frente, pelo nuevo) en portada-src/fondo-portada-8.7.png.
+- **S1** el viaje a Sofi arranca en q5+0,6 y aterriza en q5+0,98; Sofi empieza a hablar en el viaje (q5+0,66) y "TURNOS" se
+  oye ya en cuadro; el cartel entra en la palabra (s1+0,52), después del barrido (sin fantasma, A11). La tablet sola 0,6 s.
+- **S2** j1 sin atempo (el atempo hacía oír "irá hoy lotería"): highpass 200 / lowpass 6000. STT: "era hoy lo tenía para el
+  jueves que viene". +0,12 s.
+- **S3** l2 y l5 se revelan por palabra (textoSel/verGlobo, el armado no se mueve): "fueron" 1,3 · "las" 1,55 · "excusas."
+  1,75 s dentro de l2; "Hoy le surgió" 1,1 · "venir." 1,75 dentro de l5 (STT + envolvente).
+- **S4** pausa antes del remate 1,33 s (P5 = P4 + 0,8).
+- **S5** push-ins en P6 (46→38) y Q4b (44→33); P3 con push al reloj.
+- **S6/A1** sin "$ 5.400" en P5; la cola del remate va a la boca.
+- **S7** DUR redondeado hacia arriba a un cuadro (37,3 = 1119/30) y la mezcla recortada a DUR.
+- **S8** pop en "Reserva online con seña", "Recordatorio automático" y "Lista de espera".
+- **Recorte**: reloj/"escribiendo…" -0,36 · pausa -1,0 · hueco antes del audio de Carolina (c2) -0,25 · narrador toma d
+  (2,09 s; cartel 2,17) · Q1b/Q2 -0,2 · Q3c -0,08. NO: el hueco tras "¿Era hoy?" (cortado, el STT pasaba a oír "lotería" en
+  todas las variantes probadas, con y sin fundido) · +0,12 de j1 y +0,5 por A9 y S1: por eso 37,3 y no 36.
+- **A2** el celular no va sobre la agenda en P5/P6; en P5 la agenda baja a la cintura (fuera de cuadro, no cortada); en P6
+  la agenda 1,3x (las manuscritas ~55 px).
+- **A3** los audios de Jimena (P3) y Carolina (P1, P6) sin cola y arriba (cy 280-330); ya no tapan a Vale.
+- **A4** P3 = corte seco reloj (0,6 s) → Vale (P3b); el audio fijo arriba, sin salto.
+- **A5** Q1: cámara mira más alto (Lorena más abajo, menos mostrador vacío); burbuja de Carolina arriba sin cola, "Te mando el
+  link." debajo, sin encimarse ni tapar la frente; los cisnes de la recepción no se ven en Q1 (quedaban cortados).
+- **A6** el cuadro del living corrido y más chico (los "parantes"); Q3b con Graciela más abajo, "¡Me lo quedo!" debajo del
+  aviso con la cola a la boca, no tapa las manos.
+- **A7** los cisnes enfrentados (antes de espaldas): los cuellos forman el corazón; Vale gira en el banquito hacia cámara
+  y los sostiene de las colas (manos a ±0,37).
+- **A8** melena (solo `peinado: "melena"`, la usa solo Lorena): sin los bultos; surcos de mechón irregulares en cortina y
+  casquete, puntas desparejas, media cola con pinza verde atrás. Ningún otro personaje cambia.
+- **A9** "Te lo guardo." de frente (sigue P6, con boca) y después P6b (Vale y la toalla nueva) 0,52 s.
+- **A10** textos secundarios de la tablet en su renglón a lo ancho, 46 px; Q5 fov 38 (la tablet llena el ancho; el vacío
+  vertical es por la proporción de la tablet).
+- **A12** Sofi con buzo navy claro y franja crema (override en tres.js); la varilla del micrófono separada de la mejilla
+  (personajes.js, rama auricularFino: solo Sofi en este reel).
+- **A13** el texto del cartel sale cuando abre el iris (no queda verde vacío).
+- **A14** sin los tres dedos sueltos (palma + pulgar).
+- **A15** "Reprogramar" con ajuste; la cartera verde de Carolina a la cadera, delante (se ve en Q4); sin el parpadeo al
+  terminar de hablar; cejas alegres al llegar. Parpadeos de Lorena fuera de sus frases.
+- **G1** "Audio" en vez de "audio de WhatsApp". **G2** recordatorio con "con Vale" y el servicio; el nombre queda en la
+  cabecera ("Hola, Carolina" a lo ancho quedaba a ~30 px).
+- Revisado: snapshots cada 0,5 s de 0 a 37 (renders/snap/f1, f2) + zonas tocadas (a-g). Pendiente para el revisor: el
+  surco del pelo es sutil a distancia; la tablet de Q5 deja aire arriba/abajo por proporción.

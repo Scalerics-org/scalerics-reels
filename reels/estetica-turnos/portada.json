@@ -1,5 +1,5 @@
 {
- "t": 8.9,
+ "t": 8.7,
  "chica": "Jueves, 17:00.",
  "grande": "¿Era hoy?",
  "sello": "ESTÉTICA",
@@ -9,6 +9,6 @@
  "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-portada-8.9.png",
- "nota": "(ronda 1) fondo: cuadro 8,9 s, el plano general de la pausa (reloj en 17:00, camilla vacía, Vale con los dos cisnes, Lorena de espaldas con la agenda), renderizado con LIMPIO=1 en una copia del proyecto (sin rubro, audios ni rótulos). Alternativa de grande: \"Me surgió algo\". Armado en portada-src/fondo-portada-8.9.png: el cuadro subido 300 px (reloj, camilla y Vale con los cisnes en la mitad de arriba)."
+ "fondo_limpio": "portada-src/fondo-portada-8.7.png",
+ "nota": "(r1 11:11) fondo: cuadro 8,7 s (los cisnes ya en corazón de frente, el pelo nuevo de Lorena), el plano general de la pausa (reloj en 17:00, camilla vacía, Vale con los dos cisnes, Lorena de espaldas con la agenda), renderizado con LIMPIO=1 en una copia del proyecto (sin rubro, audios ni rótulos). Alternativa de grande: \"Me surgió algo\". Armado en portada-src/fondo-portada-8.7.png: el cuadro subido 300 px (reloj, camilla y Vale con los cisnes en la mitad de arriba)."
 }

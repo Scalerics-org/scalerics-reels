@@ -6,11 +6,11 @@ LLAM="lowpass=f=7000"                                                           
 v() { ffmpeg -loglevel error -y -i partes/rec/$1.wav -af "${3:-anull}" -ar 48000 -ac 1 assets/voice/$2.wav; }
 v 01-carolina-a c1 "atempo=1.06,$CEL"     # "Ay, Lore, justo me surgió algo." (audio)
 v 02-lorena-b   l1                        # "Tranqui."
-v 03-jimena-a   j1 "atempo=1.04,highpass=f=250,lowpass=f=5000,volume=-1dB"     # "¿Era hoy? Lo tenía para el jueves que viene." (audio)
+v 03-jimena-a   j1 "highpass=f=200,lowpass=f=6000,volume=-1dB"     # "¿Era hoy? Lo tenía para el jueves que viene." (audio; sin atempo: con atempo el STT oía "irá hoy lotería")
 v 04-lorena-c   l2                        # "Lo único puntual hoy fueron las excusas."
 v 05-carolina-b c2 "atempo=1.12,$CEL"     # "Lore, ¿me guardás el jueves que viene? Esta vez voy." (audio)
 v 06-lorena-a   l3                        # "Te lo guardo."
-v 07-narrador-c narrador                  # "Una agenda online más tarde." (Rasalgethi, toma nueva)
+v 07-narrador-d narrador                  # "Una agenda online más tarde." (Rasalgethi, toma d: 2,09 s)
 v 08-lorena-a   l4                        # "Te mando el link."
 v ${GRA:-09-graciela-e} g1                # "¡Me lo quedo!"
 v 10-carolina-d c3 "atempo=1.06"          # "¡Llegué! Pagué la seña, ¿cómo no voy a venir?" (en persona)

@@ -507,8 +507,27 @@ export function crearPersonaje(cfg) {
     const abre = 1.05;   // radianes libres adelante (la cara)
     const cort = mesh(new THREE.LatheGeometry(perfilM, 48, abre, Math.PI * 2 - 2 * abre), pm, 0, CC - 0.02, -0.01);   // phi 0 = adelante (+z)
     cort.material = pm.clone(); cort.material.side = THREE.DoubleSide; cort.scale.set(1, 1, 0.98); cabeza.add(cort);
-    // mechas con luz sobre la espalda de la melena (rompen la superficie lisa)
-    for (const [az, el, sy] of [[Math.PI, -0.45, 0.16], [Math.PI - 0.45, -0.4, 0.15], [Math.PI + 0.45, -0.4, 0.15], [Math.PI - 0.9, -0.3, 0.13], [Math.PI + 0.9, -0.3, 0.13]]) { const m = mesh(G.esfera, pm2, 0, 0, 0, 0.045, sy, 0.03); sobre(m, az, el, 1.08); cabeza.add(m); }
+    // (r1 11:11) de espaldas no era pelo sino un casquete con bultos regulares: sin las mechas-bulto; en cambio, surcos de
+    // mechón irregulares en la cortina y en el casquete (desplazamiento por ángulo, sin período fijo), puntas desparejas y
+    // una media cola con pinza verde atrás que corta la silueta
+    const surco = (phi, k) => 1 + k * (0.55 * Math.sin(phi * 13 + 0.8 * Math.sin(phi * 4)) + 0.3 * Math.sin(phi * 23 + 1.7) + 0.15 * Math.sin(phi * 7 + 0.4));
+    { const ps = cort.geometry.attributes.position, y0 = perfilM[0].y, y1 = perfilM[perfilM.length - 1].y;
+      for (let i = 0; i < ps.count; i++) {
+        const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), phi = Math.atan2(x, z), d = (y0 - y) / (y0 - y1);
+        const k = surco(phi, 0.03 + 0.045 * d);
+        const punta = d > 0.8 ? (d - 0.8) / 0.2 * R * (0.06 * (0.5 + 0.5 * Math.sin(phi * 9 + 2.1)) + 0.04 * (0.5 + 0.5 * Math.sin(phi * 17))) : 0;
+        ps.setXYZ(i, x * k, y - punta, z * k);
+      }
+      cort.geometry.computeVertexNormals(); }
+    { const cap = cabeza.children[cabeza.children.length - 2]; const g = cap.geometry, ps = g.attributes.position;
+      for (let i = 0; i < ps.count; i++) { const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), phi = Math.atan2(x, z), lat = Math.max(0, 1 - y); const k = surco(phi + 0.3, 0.012 * lat * Math.min(1, Math.abs(Math.cos(phi / 2)) < 0.97 ? 1 : 0.3)); ps.setXYZ(i, x * k, y, z * k); }
+      g.computeVertexNormals(); }
+    { // la media cola: un mechón juntado arriba atrás con la pinza verde
+      const pinza = mat(MARCA.g, 0.45);
+      const nudo = mesh(G.esfera, pm2, 0, CC + R * 0.5, -R * 0.98, 0.08, 0.06, 0.06); nudo.rotation.x = 0.5; cabeza.add(nudo);
+      const pz = mesh(new THREE.TorusGeometry(0.07, 0.024, 8, 18, Math.PI * 1.3), pinza, 0, CC + R * 0.36, -R * 1.13); pz.rotation.set(0.35, 0, Math.PI * 1.15); cabeza.add(pz);
+      const cola = mesh(G.esfera, pm, 0, CC + R * 0.12, -R * 1.1, 0.075, 0.15, 0.05); cola.rotation.x = -0.25; cabeza.add(cola);
+    }
     // flequillo de costado (barre la frente hacia la derecha del personaje, alto: no tapa los ojos)
     for (const [az, el, sx, sy, rz] of [[-0.45, 0.72, 0.15, 0.055, 0.5], [-0.1, 0.78, 0.17, 0.06, 0.3], [0.25, 0.76, 0.15, 0.055, 0.25], [0.6, 0.62, 0.11, 0.05, 0.6]]) { const m = mesh(G.esfera, pm, 0, 0, 0, sx, sy, 0.07); sobre(m, az, el, 1.04); m.rotation.z += rz; cabeza.add(m); }
     // las puntas a los costados de la cara, delante de la oreja hasta la mandíbula
@@ -597,9 +616,10 @@ export function crearPersonaje(cfg) {
     const am = mat(MARCA.navy, 0.35), ag = mat(c.auriculares, 0.45);
     const vincha = mesh(new THREE.TorusGeometry(R * 1.11, 0.011, 8, 40, Math.PI), am, 0, CC + 0.005, -0.01); cabeza.add(vincha);
     for (const s of [-1, 1]) { const copa = mesh(new THREE.CylinderGeometry(0.048, 0.048, 0.032, 24), ag, s * R * 1.04, CC - 0.03, -0.005); copa.rotation.z = Math.PI / 2; cabeza.add(copa); cabeza.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.036, 20).rotateZ(Math.PI / 2), am, s * R * 1.06, CC - 0.03, -0.005)); }
-    const vara = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(R * 1.06, CC - 0.06, 0.01), new THREE.Vector3(R * 1.0, CC - 0.15, R * 0.55), new THREE.Vector3(R * 0.42, CC - 0.115, R * 0.98)]), 20, 0.0065, 6);
+    // (estetica-turnos r1 11:11) la varilla separada de la mejilla (la tocaba)
+    const vara = new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(R * 1.06, CC - 0.06, 0.01), new THREE.Vector3(R * 1.1, CC - 0.16, R * 0.6), new THREE.Vector3(R * 0.46, CC - 0.13, R * 1.1)]), 20, 0.0065, 6);
     cabeza.add(mesh(vara, am));
-    cabeza.add(mesh(G.esferaLow, am, R * 0.4, CC - 0.115, R * 0.99, 0.017));
+    cabeza.add(mesh(G.esferaLow, am, R * 0.44, CC - 0.13, R * 1.11, 0.017));
   } else if (c.auriculares) {
     // vincha de auriculares con micrófono (un arco por arriba, dos copas y la varilla al costado de la boca)
     const am = mat(MARCA.navy, 0.4), ag = mat(c.auriculares, 0.45);
