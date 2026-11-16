@@ -864,7 +864,7 @@ function dibujarCeluSergio(t) {
   x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(24, 220, W - 48, 120, 26); x.fill(); x.stroke();
   x.fillStyle = "#0b1220"; ajustar(x, "Presupuesto · Embrague", 800, 42, W - 110); x.fillText("Presupuesto · Embrague", 50, 258); x.font = F(900, 46); x.fillText("$ 38.000", 50, 310);
   if (fase === 1) { CEL1.tex.needsUpdate = true; return; }
-  const msg = "Hola, Sergio. ¿Pudiste ver el presupuesto del embrague? Si querés, te lo agendamos esta semana.";
+  const msg = "Hola, Sergio. ¿Pudiste ver el presupuesto del embrague? Si querés, te lo agendamos.";   // (retoque) sin "esta semana": el turno es el lunes
   x.font = F(800, 46); const ls = renglones(x, msg, W - 120);
   const by = 370, bh = 40 + ls.length * 58;
   x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(24, by, W - 48, bh, [10, 34, 34, 34]); x.fill(); x.stroke();
@@ -1082,7 +1082,7 @@ function poseOscar(t) {
     [0, { x: OSCQ4.x, z: OSCQ4.z, giro: 1.3, ...aC(0.1, 0.0), ...MEDIA, ...BRAZOS.costado }],
     [T.o5 - 0.1, { ...aC(0.15, 0.05), ...CARA.sonrisa }, 0.3],
     [T.llave + 0.12, { manoD: [-0.2, 0.25, 0.4], codoD: [-0.8, -0.6, -0.2] }, 0.2],
-    [T.q4c + 0.08, { giro: gB, ...aC(0.0, 0.1), manoD: [-0.16, 0.12, 0.3] }, 0.25],
+    [T.q4c + 0.3, { giro: gB, ...aC(0.0, 0.1), manoD: [-0.16, 0.12, 0.3] }, 0.25],   // (retoque) gira recién en Q4c
   ]);
   const k = sg(t, T.sube[0] - 0.25, T.sube[0] - 0.05) * (1 - sg(t, T.sube[0] + 0.1, T.sube[0] + 0.35));
   if (k > 0) { const w = V3(BOTONERA.x, 1.16, BOTONERA.z + 0.13); const m = aCuerpo(oscar, p, w); p.manoD = p.manoD.map((v, i) => lerp(v, m[i], eio(k))); p.dedoD = k; }
@@ -1126,7 +1126,7 @@ function poseMaxi(t) {
   if (k > 0) { const w = V3(SILUETA.x, SILUETA.y + 0.05 + 0.12 * (1 - sg(t, T.cuelga[0], T.cuelga[1])), ZF + 0.3); const m = aCuerpo(maxi, p, w); p.manoD = p.manoD.map((v, i) => lerp(v, m[i], eio(k))); p.codoD = [-0.8, -0.5, -0.2]; }
   p.t = t; return p;
 }
-const pincho2Lugar = () => V3(PINCHO.x - 0.02, BANCO.alto, PINCHO.z + 0.42);
+const pincho2Lugar = () => V3(PINCHO.x - 0.15, BANCO.alto, PINCHO.z - 0.22);   // (retoque) al costado del lleno, dentro del cuadro de P7
 function poseSergio(t) {
   const p2 = t >= P2;
   if (!p2) {
@@ -1230,7 +1230,7 @@ function ponerPinchos(t) {
     return;
   }
   // el segundo pincho: en la mano de Maxi, después en el banco
-  if (PINCHO2.visible) { const L = pincho2Lugar(); if (t < T.pincho2[1]) { const m = manoMundo(maxi, "D", _a); PINCHO2.position.set(m.x + 0.1, Math.max(L.y, m.y - 0.06), m.z); } else PINCHO2.position.copy(L); }
+  if (PINCHO2.visible) { const L = pincho2Lugar(); if (t < T.pincho2[1]) { const m = manoMundo(maxi, "D", _a); const u = eio(sg(t, T.pincho2[0] - 0.12, T.pincho2[1])); PINCHO2.position.set(lerp(m.x + 0.1, L.x, u), Math.max(L.y, lerp(m.y - 0.06, L.y, u)), lerp(m.z, L.z, u)); } else PINCHO2.position.copy(L); }   // (retoque) sin salto al soltarlo
   // la copia (papel 0): en la mano de Óscar hasta que la clava
   if (t < T.chac0) {
     const m = manoMundo(oscar, "D", _a);
@@ -1365,6 +1365,7 @@ function renderAt(tIn) {
       if (t >= T.s1b) { const [bx, by] = boca(sergio); if (t < T.o3) ponerGlobo(GL.s1, 640, 640, ent(T.s1b), [bx, by - 30], 1); }
       if (t >= T.o3) { const [bx, by] = boca(oscar); ponerGlobo(GL.o3, 400, 520, ent(T.o3), [bx, by - 30], 2); }
     }
+    if (pa === "Q1t" && t >= T.o3 && t < T.o3 + LEN.o3 + 0.15) ponerGlobo(GL.o3, 400, 520, 1, null, 2);   // (retoque) sigue en el plano de la tablet
     if (pa === "Q1b") {
       ponerGlobo(GL.rBoton, 540, 190, ent(T.q1b + 0.12), null);
       const e = t >= T.visto ? 1 : 0; if (GL.estado.userData.e !== e) { GL.estado.userData.e = e; redibujar(GL.estado, (x, W, H) => dibujarEstado(x, W, H, e)); }

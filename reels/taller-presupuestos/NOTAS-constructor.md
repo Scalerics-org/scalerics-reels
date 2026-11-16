@@ -155,3 +155,14 @@ cuadro por cuadro (±2 cuadros) en P1b→P2, P4→P4b, P6→P7, Q2→Q2b, Q2b→
 - No hecho: sonido 5 ("¡Óscar!" con pasaaltos: regenerar arriesga el resto de la toma) y 8 (contraplano en P3); arte 11
   (la tarjeta que vuela 0,28 s), 13 (tercio de abajo de la tarjeta del presupuesto), 15 (cabeza de espaldas en el
   latigazo), 16 (la "m" del cartel) y la patilla/boca de Maxi (arte 7, segunda parte).
+
+## Retoque final (16-11, ronda 3: solo estos puntos)
+1. (ALTA) Segundo pincho: lugar nuevo al costado del lleno, dentro del cuadro de P7 (PINCHO.x − 0,15, z − 0,22); mientras
+   Maxi lo baja se interpola de la mano a ese lugar, así que al soltarlo no salta; queda quieto hasta el corte al cartel.
+2. Q4b→Q4c: Óscar ya no gira antes del corte; empieza a darse vuelta hacia la botonera en q4c + 0,05.
+3. "Pensalo tranquilo.": la burbuja sigue en el plano de la tablet (Q1t), en el mismo lugar, hasta que termina la frase.
+4. El seguimiento del miércoles dice "Si querés, te lo agendamos." (sin "esta semana": el turno es el lunes).
+5. "Comentá PRESUPUESTO" entra con escala, sin fundido (no hay cuadros grises semitransparentes).
+6. guion.txt: acotaciones con LUNES 8:30 / Lun 8:30 y los tiempos reales (parte 1 0-15,66, cartel 15,66-18,29, parte 2
+   18,29-38,40).
+Verificado cuadro por cuadro a 30 fps en 15,0-15,8, 32,9-33,4, 19,6-21,0 y 34,8-35,4 (renders/snap/retoque). Nada más se tocó.

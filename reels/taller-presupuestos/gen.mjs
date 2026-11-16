@@ -210,7 +210,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .sel b { position: absolute; inset: 8px 0 -6px; background: ${G}; border: 8px solid ${NAVY}; border-radius: 12px; }
     P .sel em { position: relative; font-style: normal; }`,
     html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>PRESUPUESTO</em></span></div></div>`,
-    js: `      tl.fromTo(q(".caja"), { scale: 0.4, opacity: 0, y: -60 }, { scale: 1, opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
+    js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: -60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);   // (retoque) sin fundido: entra con escala
       tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.35);`,
   });
 }
