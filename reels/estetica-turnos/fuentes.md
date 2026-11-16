@@ -21,7 +21,7 @@ Los de siempre del repo (con su crédito en `reels/la-lista/fuentes.md`, `reels/
 `reels/dice-cuarenta/fuentes.md`): pop, whoosh, whoosh-short, notification, cero, campanita, click-soft, key-press,
 k-page-turn, k-cloth_1/2, k-tick-1/2/4, paso-0..4, stinger, música de cama.
 
-Nuevos en este reel (reales, CC0; completar autor, sitio y licencia si se agregan; nunca sintetizados con ffmpeg):
-- campanita de puerta de local:
-- rasguido de lapicera (tachadura):
-- zumbido de lámpara / tic de reloj de pared:
+No se agregó ningún sonido nuevo: todo sale de `assets/sfx` y `assets/bgm` (copiados de `reels/dice-cuarenta`, con su
+crédito en los fuentes.md de ese reel, la-lista y ya-lo-cargo). Campanita de la puerta = `campanita.wav` + `puerta-abre.wav`;
+tachadura de la lapicera = `k-page-turn.wav` acelerado y con pasaaltos (dos rasguidos); zumbido de la lámpara =
+`zumbido-largo.wav` / `zumbido.wav` con pasabajos; tic del reloj = `k-tick-1/2/4.wav` (Kenney, CC0). Nada sintetizado.

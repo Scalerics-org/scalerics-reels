@@ -1,14 +1,14 @@
 {
- "t": 7.9,
- "chica": "Jueves a las 17.",
+ "t": 8.6,
+ "chica": "Jueves, 17:00.",
  "grande": "¿Era hoy?",
  "sello": "ESTÉTICA",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.0,
- "foco": "30%",
+ "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "",
- "nota": "t estimado: P4, la pausa (camilla vacía al centro, Vale con los dos cisnes de toalla en corazón, Lorena con la agenda tachada, reloj en 17:00), que llene la mitad de arriba. El constructor renderiza ese cuadro con LIMPIO=1 (sin CENTROS DE ESTÉTICA, rótulos, subtítulos ni burbujas) y completa fondo_limpio. Alternativa de grande: \"Me surgió algo\"."
+ "fondo_limpio": "portada-src/fondo-portada-8.6.png",
+ "nota": "fondo: cuadro 8,6 s (P3: Vale aburrida con los dos cisnes de toalla, la camilla vacía, el reloj y la persiana) renderizado con LIMPIO=1 en una copia del proyecto (sin rubro, audios ni rótulos). Alternativa de grande: \"Me surgió algo\". Armado en portada-src/fondo-portada-8.6.png: el cuadro subido 200 px (Vale y los cisnes en la mitad de arriba)."
 }
