@@ -259,6 +259,9 @@
 - 16-11 · `estetica-turnos` · Centros de estética · Agenda online con seña + recordatorio automático + lista de espera · Línea "ANTES QUE TODO", completo con Lorena (dueña nueva) y Vale la cosmetóloga: jueves, 15:00 Carolina "me surgió algo", 16:00 Mariana en visto, 17:00 Jimena "¿Era hoy?"; Vale dobla toallas en cisnes; "Lo único puntual hoy fueron las excusas."; Carolina vuelve a pedir el jueves que viene: "Te lo guardo." · cartel "Una agenda online más tarde…" · parte 2: reserva con seña, recordatorio que confirma/reprograma, lista de espera (Graciela: "¡Me lo quedo!"), Carolina llega: "Mirá vos. Hoy le surgió venir." · cierre Sofi en videollamada "Comentá TURNOS" · portada "¿Era hoy?" · 37,1 s · 3 rondas de revisión independiente (más 2 de la corrida anterior) · [formato completo · estilo 3D gabinete crema con persiana y recepción]
 
 ## En curso
+<!-- corrida-activa: 2026-11-16T14:14 -->
+- 16-11 · `parrilla-no-vuelve` · Restaurantes y parrillas · Scalerics Puntos · el sábado lleno y el dueño no sabe quién vuelve; en el mes flojo no tiene a quién avisar · Comentá VUELVE · reservado 14:14
+- 16-11 · `taller-presupuestos` · Talleres mecánicos · CRM / seguimiento de presupuestos · el mecánico manda presupuestos por WhatsApp, nadie contesta, nunca los sigue y el auto se arregla en otro taller · Comentá PRESUPUESTO · reservado 14:14
 
 
 
