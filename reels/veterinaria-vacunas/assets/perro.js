@@ -141,7 +141,8 @@ export function crearPerro(cfg) {
       // (r1) con volumen: un cono redondeado de base ancha, hundido en el cráneo, aplanado adelante-atrás, con el interior
       // rosado de frente y la punta más oscura (de costado ya no se lee como una tabla)
       const lat = new THREE.LatheGeometry([[0, -0.03], [0.058, -0.03], [0.06, 0.02], [0.05, 0.08], [0.03, 0.13], [0.012, 0.165], [0, 0.172]].map(([r, y]) => new THREE.Vector2(r, y)), 20);
-      const o = mesh(lat, M.pelo, 0, 0, 0, 1, 1, 0.55); piv.add(o);
+      const o = mesh(lat, M.pelo, 0, 0, 0, 1, 1, 0.72); piv.add(o);   // (r3) más volumen: de atrás ya no es un disco plano
+      const lomo = mesh(G.esfL, M.oscuro, 0, 0.06, -0.022, 0.034, 0.07, 0.02); piv.add(lomo);
       const inn = mesh(new THREE.LatheGeometry([[0, -0.01], [0.04, -0.01], [0.038, 0.05], [0.022, 0.11], [0, 0.135]].map(([r, y]) => new THREE.Vector2(r, y)), 16), M.oreja, 0, 0.0, 0.018, 1, 1, 0.3); piv.add(inn);
       if (c.oscuro && lado === "D") { const punta = mesh(G.esfL, M.oscuro, 0, 0.152, 0, 0.016, 0.022, 0.011); piv.add(punta); }
     } else {
@@ -159,7 +160,7 @@ export function crearPerro(cfg) {
   const panuelo = new THREE.Group(); collar.add(panuelo);
   { const s = new THREE.Shape(); s.moveTo(-0.11, 0); s.lineTo(0.11, 0); s.quadraticCurveTo(0.02, -0.1, 0, -0.15); s.quadraticCurveTo(-0.02, -0.1, -0.11, 0);
     const g = new THREE.ExtrudeGeometry(s, { depth: 0.012, bevelEnabled: true, bevelSize: 0.006, bevelThickness: 0.006, bevelSegments: 1 });
-    const p = mesh(g, M.panuelo, 0, -0.01, 0.105, 1.3, 1.45, 1); p.rotation.x = -0.45; panuelo.add(p);
+    const p = mesh(g, M.panuelo, 0, -0.01, 0.108, 1.6, 1.75, 1); p.rotation.x = -0.4; panuelo.add(p);   // (r3) más grande
     const nudo = mesh(G.esfL, M.panuelo, 0, -0.005, -0.1, 0.03, 0.025, 0.02); panuelo.add(nudo); }
   panuelo.visible = false;
 

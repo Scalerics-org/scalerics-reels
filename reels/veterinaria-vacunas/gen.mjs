@@ -41,7 +41,7 @@ T.p2c = r2(T.mes[2] + MES + 0.02); T.tono = r2(T.p2c + 0.05); T.ladra = r2(T.p2c
 T.p3 = r2(T.p2c + 1.5);
 T.b1 = r2(T.p3 + 0.12); T.i2 = r2(T.b1 + LEN.b1 + 0.12); T.p3b = r2(T.i2 - 0.08); T.apoya = r2(T.i2 + LEN.i2 - 0.35); T.caen = r2(T.apoya + 0.1);
 // P4 · JULIO: campanita, entra Vero con Toto (pañuelo nuevo) · "A Toto le escribieron…" · P4b contraplano en "de la vuelta"
-T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 1.15)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 0.3); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);   // (r2) el contraplano de Vero entra apenas empieza a hablar
+T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 0.6)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 0.3); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);   // (r2) el contraplano de Vero entra apenas empieza a hablar
 // P5 · la pausa: el fichero lleno adelante, Inés detrás, Toto abajo; los rótulos del costo
 T.p5 = r2(T.v2 + LEN.v2 + 0.08); T.rot = [r2(T.p5 + 0.1), r2(T.p5 + 0.28), r2(T.p5 + 0.46)];
 // P6 · el remate: Inés mira a Toto desde arriba del mostrador · "¿Vos también, Toto?"

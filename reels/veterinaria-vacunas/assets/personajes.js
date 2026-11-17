@@ -397,8 +397,8 @@ export function crearPersonaje(cfg) {
     return { piv, b, s, base: piv.position.clone() };
   });
   // boca: curva de tubo (se rehace si cambia) + interior oscuro cuando se abre
-  const bocaG = new THREE.Group(); sobre(bocaG, 0, -0.34, 0.985); cabeza.add(bocaG);
-  const bocaLinea = new THREE.Mesh(new THREE.BufferGeometry(), c.labios ? M.labio : M.boca); bocaG.add(bocaLinea);
+  const bocaG = new THREE.Group(); sobre(bocaG, 0, -0.32, 0.985); cabeza.add(bocaG);   // (veterinaria r3) un poco más arriba: de 3/4 no cae fuera de la mandíbula
+  const bocaLinea = new THREE.Mesh(new THREE.BufferGeometry(), c.labios ? M.labio : M.boca); bocaG.add(bocaLinea); bocaLinea.scale.z = 0.55;
   const bocaAbierta = mesh(G.esfera, M.boca, 0, 0, 0.0, 0.07, 0.04, 0.02); bocaG.add(bocaAbierta);
   const lengua = mesh(G.esferaLow, M.lengua, 0, -0.012, 0.008, 0.04, 0.016, 0.014); bocaG.add(lengua);
   let bocaClave = "";
@@ -408,13 +408,16 @@ export function crearPersonaje(cfg) {
     if (clave !== bocaClave) {
       bocaClave = clave;
       const yAb = -abierta * 0.045;
-      const curva = new THREE.QuadraticBezierCurve3(new THREE.Vector3(-w, k + yAb * 0.3, 0.004), new THREE.Vector3(0, -k + yAb * 0.2, 0.012), new THREE.Vector3(w, k + yAb * 0.3, 0.004));
+      // (veterinaria r3) la curva sigue la esfera de la cabeza (los extremos se hunden x²/2R): de perfil ya no sale del
+      // contorno como una lengüeta; el tubo va aplastado contra la cara (scale.z)
+      const q = new THREE.QuadraticBezierCurve3(new THREE.Vector3(-w, k + yAb * 0.3, 0), new THREE.Vector3(0, -k + yAb * 0.2, 0), new THREE.Vector3(w, k + yAb * 0.3, 0));
+      const pts = q.getPoints(16).map((v) => new THREE.Vector3(v.x, v.y, 0.006 - (v.x * v.x) / (2 * 0.29)));
       bocaLinea.geometry.dispose();
-      bocaLinea.geometry = new THREE.TubeGeometry(curva, 16, c.labios ? 0.014 : 0.011, 6, false);
+      bocaLinea.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 20, c.labios ? 0.013 : 0.011, 6, false);
     }
     const ab = cl(abierta);
     bocaAbierta.visible = lengua.visible = ab > 0.04;
-    bocaAbierta.scale.set(w * 0.85, 0.008 + ab * 0.05, 0.02);
+    bocaAbierta.scale.set(w * 0.85, 0.008 + ab * 0.05, 0.012);
     bocaAbierta.position.y = c.labiosPegados ? (-ab * 0.045 * 0.25 - 0.004) - (0.008 + ab * 0.05) * 0.75 : -ab * 0.028 - sonrisa * 0.008;
     lengua.position.y = bocaAbierta.position.y - ab * 0.022;
     lengua.scale.set(w * 0.5, 0.012 + ab * 0.01, 0.014);
@@ -806,6 +809,8 @@ export function crearPersonaje(cfg) {
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
     ojos[0].g.visible = ojos[1].g.visible = true; cejas[0].piv.visible = cejas[1].piv.visible = true;
     if (ang > 0.62) { ojos[lejos].g.visible = false; if (ang > 0.8) cejas[lejos].piv.visible = false; }
+    // (veterinaria r3) de 3/4 o perfil (> ~30°) la boca se aplasta contra la cara: no asoma del contorno
+    { const k = cl((ang - 0.4) / 0.6); bocaG.scale.set(lerp(1, 0.62, k), lerp(1, 0.8, k), lerp(1, 0.3, k)); }
     for (const L of lentesLado) { L.a.visible = L.pat.visible = true; if (ang > 0.62 && L.s === ojos[lejos].s) L.a.visible = false; if (ang > 0.5 && L.s !== ojos[lejos].s && c.lentesCerca) L.pat.visible = false; if (ang > 0.62 && L.s === ojos[lejos].s && c.lentesCerca) L.pat.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
