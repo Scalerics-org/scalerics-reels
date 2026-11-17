@@ -1,0 +1,14 @@
+{
+ "t": 12.0,
+ "chica": "Viernes, 18:00.",
+ "grande": "¿Hubo visitas?",
+ "sello": "INMOBILIARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "20%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "sello_top": "300px"
+}
