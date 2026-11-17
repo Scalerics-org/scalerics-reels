@@ -137,3 +137,34 @@ sumaron 0,15 s a la sala de Q4 y 0,14 s antes de Bruno en Q3, y se sacaron 0,05 
 - Bajos: techo navy (sin franja crema arriba); panel con letras de 48-52 px; sala con las cabezas separadas.
 - OJO (bug encontrado): en gen.mjs un comentario se había comido `T.bolsa` (la pose de Vero quedaba NaN en P4b). Arreglado.
 - Portada: Inés sin lentes, Toto parado de frente con el pañuelo arriba del texto, cámara a 3,9 m y recorte de 420 px.
+
+## Ronda 3 (17-11, sobre qa-ronda-r3.md)
+**Duración 39,83 s** (sin cambios de voz ni guion). Parte 1 0-17,45 · cartel 17,45-19,90 · parte 2 19,90-39,83. Mezcla rehecha
+(cambió la entrada de Vero): voz ≥ +6,2 LU sobre el resto en todos los tramos de 0,5 s, -14,0 LUFS, pico -5,9 dBFS.
+`check --json` ok, 0 errores. Dos pasadas completas de snapshots cada 0,5 s (renders/snap/p2 y p3) y cuadro por cuadro
+(1/30 s, ±2 cuadros) alrededor de cada corte con prev.mjs (renders/prev/cortes).
+- Cortes (general): en tres.js ningún plano puede durar menos de 0,3 s (se saca y avisa por consola). Q4b duraba 2 cuadros
+  (era el flash de 34,37 s): se sacó; Q4 sigue a Toto hasta Q4c. P4b (10,43): Vero ya terminó de entrar y está de frente en
+  el corte (entrada 0,55 s, `T.entra = [p4+0,05, p4+0,6]`, giros por el lado corto: antes daba una vuelta de 300°).
+- N2 boca (personajes.js): la curva de los labios sigue la esfera de la cabeza (extremos hundidos x²/2R), tubo aplastado
+  contra la cara, interior más fino, la boca 2° más arriba; con la cabeza girada > ~25° respecto de la cámara la boca se
+  angosta y se aplasta (ojoLejano). Q4c pasó de primer plano de perfil a plano medio de 3/4 frontal.
+- A3 (P1/Q1): Toto 14 cm más a la derecha en la mesa, Inés 12 cm más a la izquierda, Vero detrás de la mesa de 3/4 (ya no de
+  espaldas); cámara más abierta (z 3,9 → 3,65); "Yo le aviso." más chico y arriba (la cola termina sobre el pelo).
+  Fichero 2,3x en el cuadro 0, más adentro, con "Vencidas: 12" encima; la ficha de Toto ya no cruza la cara al guardarla.
+- N1 (P6): cámara baja desde la vidriera; Inés derecha detrás del mostrador (cara entera por encima), Toto sentado de 3/4
+  con el pañuelo de frente mirando hacia arriba; burbuja a la boca. En P4b Toto se sienta mirando a Vero (pañuelo de
+  frente) y en la pausa (P5) se da vuelta hacia Inés.
+- A5 (P7): de costado desde la vidriera, Inés entera, la pata y la mano a la vista; sin la bolsa ni la correa en ese plano
+  (Vero no está en cuadro).
+- Medios: Q1b desde la izquierda (Inés y Toto enteros, Vero detrás de Toto); Q4d con la cabeza de Inés entera; oreja de
+  Toto con volumen (0,72) y lomo oscuro; pañuelo más grande y con punta redonda; cartel "VETERINARIA INÉS" escondido en
+  P4, P6, P7 y Q4 (donde quedaba cortado).
+- Bajos: la cifra de vencidas cambia con el mes; "Ya está vacunado." en 12,15 s; Coco "mar 10:15"; Pendientes baja a la
+  par que suben los turnos (63 - turnos); el chat del celular con la fecha, la tarjeta de Toto en el mensaje y botones
+  grandes; portada: Inés más a la derecha (el sello ya no toca el pelo), pañuelo sin chapita.
+- No hecho: el panel del cierre (Q5) sigue con letras de ~25-30 px (acercar la cámara corta el panel o a Sofi); el cierre
+  sigue en 3,43 s (lo marca la voz de Sofi, 3,18 s).
+- Cortes (s): P2 3,21 · P2c 4,54 · P3 6,04 · P3b 8,18 · P4 9,88 · P4b 10,43 · P5 13,73 · P6 14,68 · P7 16,67 · cartel 17,45 ·
+  Q1 19,90 · Q1b 22,08 · Q1t 23,65 · Q2 25,15 · Q2b 25,80 · Q2c 27,78 · Q3 29,28 · Q3c 31,62 · Q4 33,20 · Q4c 34,42 ·
+  Q4d 35,56 · Q5 36,28.
