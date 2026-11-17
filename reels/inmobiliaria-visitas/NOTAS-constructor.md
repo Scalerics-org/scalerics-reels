@@ -145,3 +145,17 @@ cuadro: sin cuadros sueltos, último cuadro quieto (renders/qa6/hoja.png cada 0,
 - Flojo: la "N" de VENDE en las fichas chicas del fondo todavía se ve fina; el monitor sigue cortado en el borde en P6
   ("nta"); franja de escritorio abajo en P1; en Q4b la franja VENDIDO cae en parte detrás de Graciela; el sello de la portada
   apoya sobre el borde de arriba del pelo.
+
+## Ronda 3 (17-11, sobre qa-arte-r3 y qa-sg-r3)
+**36,43 s (1094 cuadros).** Parte 1 0-15,72 · cartel 15,72-18,02 · parte 2 18,02-36,43 = 18,41 s (51 %); cierre 33,51-36,43
+(2,92 s). Render 487 s; final -14,1 LUFS, pico -4,5 dBFS; voz ≥ +14,8 LU. `check --json` 0 errores; sin cuadros sueltos,
+último cuadro quieto (renders/qa7/).
+- Burbujas: las del altavoz (P1, Q3, Q3c, P6) centradas en y 1440 y "La llave la tengo yo." en 1420 (borde de abajo ≤ ~1560);
+  rótulos de Q1/Q2 arriba; tarjeta del cierre en 1080 y la línea chica en 1425 (termina ~1610). Nada de texto bajo 1640.
+- P3 sin Silvana (el antebrazo suelto). P8: "Ah. Era el de Malvín." arriba a la derecha, en la pared, con la cola a la boca.
+- Q2: Graciela 0,65 s antes del inserto (ya no es un flash); en el inserto se ven las manos y el cárdigan verde abajo.
+- Q4b: el cartel VENDE del lado de adentro de la baranda (sin barrotes delante), Graciela corrida; VENDIDO entero y 0,9 s.
+- Llave del balcón con la cabeza de bronce de frente, en el marco derecho; "Visitas: n" sube con los tildes; el iris
+  termina 0,02 s antes (sin restos verdes).
+- No hecho: borde serruchado de la pared de la llave, "nta" del monitor en P6, "AV" de LLAVES en el inserto del tablero,
+  ficha cortada arriba en el último cuadro, la N de VENDE en las fichas chicas.

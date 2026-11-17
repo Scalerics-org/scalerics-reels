@@ -54,10 +54,10 @@ const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.08));
 // Q1 · el apartamento de Pocitos: la pareja se va saludando; Diego carga la visita en el celular (push-in ≥ 60 %)
 T.q1 = P2; T.q1i = r2(P2 + 0.55); T.filasD = [0, 1, 2, 3, 4].map((i) => r2(P2 + 0.75 + i * 0.22)); T.guarda = r2(P2 + 1.85); T.d3 = r2(T.guarda + 0.05);   // (r1) Diego: "Cargada."
 // Q2 · viernes 18:00, el balcón: a Graciela le llega solo el resumen (push-in ≥ 60 %); toca "Llamar" igual
-T.q2 = r2(T.d3 + LEN.d3 + 0.2); T.vibra = r2(T.q2 + 0.1); T.q2i = r2(T.q2 + 0.22); T.filasG = [0, 1, 2, 3].map((i) => r2(T.q2 + 0.55 + i * 0.22)); T.llamaG = r2(T.q2 + 1.7);
+T.q2 = r2(T.d3 + LEN.d3 + 0.2); T.vibra = r2(T.q2 + 0.1); T.q2i = r2(T.q2 + 0.65); T.filasG = [0, 1, 2, 3].map((i) => r2(T.q2 + 0.85 + i * 0.2)); T.llamaG = r2(T.q2 + 1.8);   // (r3) Graciela 0,65 s antes del inserto
 // Q3 · el encuadre del cuadro 0, el mismo "¿Y? ¿Hubo visitas?"; Silvana mira el monitor (push-in a la ficha) "Cuatro.
 // Y el martes vuelve una pareja." · Q3c el encuadre del cuadro 0: "Ya sé. Llamaba para chusmear."
-T.q3 = r2(T.q2 + 2.05); T.g1b = r2(T.q3 + 0.06); T.mon = r2(T.g1b + LEN.g1 - 0.15);
+T.q3 = r2(T.q2 + 2.2); T.g1b = r2(T.q3 + 0.06); T.mon = r2(T.g1b + LEN.g1 - 0.15);
 T.tildes = [0, 1, 2, 3].map((i) => r2(T.mon + 0.25 + i * 0.16)); T.s3 = r2(T.g1b + LEN.g1 + 0.08);
 T.q3c = r2(T.s3 + LEN.s3 + 0.02); T.g4 = r2(T.q3c + 0.08); T.q3cc = r2(T.q3c + 0.75);   // (r1) Q3c: el gancho POCITOS con su llave, después el encuadre del cuadro 0
 // Q4 · tres semanas después: la ficha (RESERVADO ✓, la comisión de rojo a verde) · Q4b el balcón: "Mañana paso a buscar
@@ -65,7 +65,7 @@ T.q3c = r2(T.s3 + LEN.s3 + 0.02); T.g4 = r2(T.q3c + 0.08); T.q3cc = r2(T.q3c + 0
 T.q4 = r2(T.g4 + LEN.g4 + 0.08); T.reserva = r2(T.q4 + 0.35); T.comision = r2(T.q4 + 0.7);
 T.q4b = r2(T.q4 + 1.55); T.g5 = r2(T.q4b + 0.1); T.vendido = r2(T.g5 + LEN.g5 + 0.04);
 // Q5 · el cierre: el monitor en verde y el celular parado con Sofi en videollamada
-T.q5 = r2(T.vendido + 0.5); T.so = r2(T.q5 + 0.08);
+T.q5 = r2(T.vendido + 0.9); T.so = r2(T.q5 + 0.08);   // (r3) la franja VENDIDO ≥ 0,8 s
 T.palabra = r2(T.so - 0.02);
 const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.4) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.5, DUR - 2.05));
@@ -222,7 +222,7 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04)
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1110px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1080px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 128px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
@@ -240,7 +240,7 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04)
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1460px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1425px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Visitas anotadas y resumen</div><div class="a">automático al propietario</div><div class="b">scalerics.com</div></div>`,
@@ -464,7 +464,7 @@ ${arriba}
       tl.set("#capa3d", { opacity: 0 }, ${ROT});
       tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.27)});
       tl.fromTo("#capa3d", { clipPath: "circle(90px at ${IRIS_C})" }, { clipPath: "circle(1900px at ${IRIS_C})", duration: 0.3, ease: "power1.in", immediateRender: false }, ${IRIS});
-      tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 + 0.01)});
+      tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 - 0.02)});
       window.__timelines["main"] = tl;
     </script>
   </body>
