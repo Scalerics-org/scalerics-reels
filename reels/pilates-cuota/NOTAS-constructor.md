@@ -95,3 +95,41 @@ renders/cortes/todo.png: sin flashes ni saltos en los 19 cortes)
 - El chip "Pagaron 23 de 40" tapa la fila "Caro" de la pizarra en P2b.
 - El panel del cierre (Q5) tiene "Mensajes de cobro a mano" a ~40-48 px; el resto de los textos ≥ 50 px.
 - 44,6 s: más largo que los ~37,6 s del plan (las tomas reales); la parte 2 queda en 49,9 %.
+
+## Ronda 1 (17-11, sobre renders/qa-arte-r1, qa-sonido-r1, qa-guion-r1)
+**Duración 40,90 s** (final 41,0). Parte 1 0-19,93 · cartel 19,93-22,16 · parte 2 22,16-40,90 = 18,74 s (45,8 %). "Comentá CUOTA"
+desde 37,77 (tarjeta 3,1 s con la cola de 0,15). Mezcla: voz ≥ +6,1 LU en todos los tramos, final -14,0 LUFS, pico -4,9 dBFS.
+Cortes: P2 2,58 · P2b 3,73 · P3 4,58 · P3j 5,48 · P3b 7,34 · P4 9,37 · P4i 12,65 · P5 14,35 · P6 15,25 · P6b 17,33 · cartel 19,93 ·
+Q1 22,16 · Q1i 22,66 · Q1b 24,57 · Q2 26,49 · Q2b 28,69 · Q3 32,34 · Q3b 33,87 · Q4 35,94 · Q5 37,75.
+- Guion: sin "Uy. Entonces las mechas las debo."; Q2b Ceci "Sale sola, el día uno." (10b-ceci-a, Vindemiatrix); a2 =
+  "¡Ceci! Te transferí el dos de marzo. ¡Mirá!" (05e-alicia-b, atempo 1,12): con "el dos" a secas (05c a/b/c, también con
+  0,3 s de pausa y sin atempo, y "Mirá: te transferí el dos") el STT oía "2000" en TODAS; con "el dos de marzo" oye "el 2 de
+  marzo mira". Rótulo "Le llega sola el día 1". Burbuja "Ceci, ¿te pagué marzo?" entera desde el cuadro 0.
+- Comprobante 1,7 s, "CECILIA ·" / "PELUQUERÍA" en dos renglones de 100-112 px, subrayado rojo desde que entra, sin el
+  número de comprobante. Gabi: 1,5 s en pantalla, 50-58 px. Chat: "Te pago el viernes" lo manda Caro (tiene "?" en la
+  pizarra); nombres en navy. Chip "Pagaron 23 de 40" más grande, arriba a la derecha (no tapa renglones). Chip "DÍA 10 ·
+  8:00" de Q3 arriba (y 170): ninguna burbuja lo tapa.
+- Arte ALTA: 1) P5 con dos rótulos de tamaño fijo (60 px): el costo arriba a la izquierda anclado en la columna derecha de
+  la pizarra, "Pagado a la peluquera" abajo a la derecha anclado en el celular; sin "La noche en el home banking". 2) P3b:
+  Ceci a la izquierda del cuadro, panel "Enviados" más chico abajo a la derecha (3 burbujas, el contador siempre visible).
+  3-4) Cierre: "Cobros a mano: 0", tablet y celular de Sofi juntos y enteros, la pizarra oculta (no asoman letras), capas
+  HTML un cuadro más (el último cuadro mantiene "Comentá CUOTA" y scalerics.com), tarjeta ≤ 3,1 s. 5) personajes.js:
+  `rodeteAtras` (Alicia: casquete inclinado atrás, la frente libre, cejas sobre la piel, rodete arriba atrás con gomita
+  verde) y `cortoMechas` (Joaco: casquete inclinado + mechones redondos, sin el bloque de flequillo). 6) la mano de Alicia
+  va al costado del pelo, por fuera de la cabeza (y solo en P6: el gesto de Q3 se fue con la línea).
+- Arte MEDIA: celular de Alicia hacia su derecha y hacia cámara (no tapa la boca de Ceci); P6b palmas separadas y sin el
+  celular flotando; remo más amplio, asas verdes delante del puño, apoyahombros bajos y navy; P3 con la pantalla del home
+  banking como tarjeta y "No cierra" debajo (la laptop se ve de atrás); el chat entra con el primer mensaje en el corte (sin
+  tirón); inserto de la cuota más grande; toalla doblada y fina; iris desde el celular de Alicia; Q4 sin Alicia (quedaba
+  cortada) y los rótulos a la izquierda; sin la planta (el bulto facetado detrás de Ceci). BAJA: alumna del borde fuera,
+  sombra sin dientes de sierra (bias), sin tiradores en la cocina y el celular de Alicia por encima de las manos, Ceci de
+  noche sin párpados a media asta, mochila de Joaco colgada a la vista.
+- Sonido: Q3 con contraplano Q3b a Ceci; tono de sala continuo de día (zumbido-largo, pasabajos, -44) y el duck de la pausa
+  0,8 → 0,5; SFX del producto (chat, pizarra, cuota, panel) más arriba (-31 a -36) y sin duck de música ahí; duck de voz
+  0,5 → 0,3; el segundo toque en "Confirmar"; tic cuando Ceci abre el ojo; sin el interruptor; f1 atempo 1,17 y cola 0,15.
+- Portada: fondo del cuadro 0 (la clase del día 10, VER=portada con la cámara más cerca), chica "Día 10 del mes.", sello
+  26 px más abajo (`sello_top` nuevo y opcional en herramientas/portada.mjs/.html, sin cambiar las demás portadas).
+- Render final de la ronda: ~1600 s (26-27 min). Revisado sobre el MP4: cuadros cada 0,5 s (renders/qa3), P3b cada 0,25 s (contador "Enviados" visible, cara libre), Q3b (chip entero) y el último cuadro (con "Comentá CUOTA" y scalerics.com).
+- No hecho: "Ceci" suena "si" en el STT (Laomedeia) y el "Un" del narrador débil (BAJA, tomas viejas); Q2b: "HORARIOS"
+  sigue cortado en el borde izquierdo de la pizarra; el inserto de la cuota deja ~150 px lisos abajo en los estados 0-1;
+  ~40,9 s (pedido 38-39; la toma de "el dos de marzo" y el comprobante de 1,7 s suman 1,3 s).
