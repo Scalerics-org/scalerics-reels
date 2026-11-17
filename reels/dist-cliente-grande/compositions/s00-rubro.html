@@ -12,8 +12,8 @@
     [data-composition-id="s00-rubro"] .chip { position: absolute; left: 44px; padding: 14px 30px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #efeee5; font: 900 62px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.01em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); }
     [data-composition-id="s00-rubro"] .chip { top: 352px; }
   </style>
-  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="4.49">
-    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="4.49" data-track-index="0">
+  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="4.68">
+    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="4.68" data-track-index="0">
       <div class="caja"><div class="tx"><span class="sel"><b></b><em>DISTRIBUIDORAS</em></span></div></div>
       <div class="chip">Noviembre.</div>
     </div>
@@ -26,8 +26,8 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
-      tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, 4.19);
-      tl.to(q(".chip"), { x: -560, duration: 0.24, ease: "power2.in" }, 4.19);
+      tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, 4.38);
+      tl.to(q(".chip"), { x: -560, duration: 0.24, ease: "power2.in" }, 4.38);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

@@ -476,7 +476,7 @@ let semaforoLuz;
 // cartel crema "SÚPER HÉCTOR · AUTOSERVICIO" ----
 const SUPER = new THREE.Group(); CA.add(SUPER);
 const PUERTA_S = { x0: -0.8, x1: 0.8, alto: 2.3 };
-let hojasSuper = [];
+let hojasSuper = [], cartelSuper;
 {
   const fm = mat(C.navy3, 0.8);
   const SW = 8, SH = 4.6;
@@ -517,7 +517,7 @@ let hojasSuper = [];
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 16; x.strokeRect(8, 8, w - 16, h - 16);
     x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SÚPER HÉCTOR", 900, 150, w - 140); x.fillText("SÚPER HÉCTOR", w / 2, h * 0.43); x.font = F(800, 52); x.fillStyle = "#3a5a2c"; x.fillText("AUTOSERVICIO", w / 2, h * 0.83);
   });
-  const cp = plano(6.2, 1.15, cart, 0, VER + 3.55, FZ + 0.02); cp.material.emissive = new THREE.Color(0xffffff); cp.material.emissiveMap = cart; cp.material.emissiveIntensity = 0.2; SUPER.add(cp);
+  const cp = plano(3.9, 0.72, cart, 0, VER + 3.85, FZ + 0.02); /* (r1) más angosto: entra entero en el plano general */ cp.material.emissive = new THREE.Color(0xffffff); cp.material.emissiveMap = cart; cp.material.emissiveIntensity = 0.2; cp.renderOrder = 2; SUPER.add(cp); cartelSuper = cp;
   // los cajones de fruta (kraft) con naranjas y peras, y la pila de canastos crema
   const naranja = mat(0xe08a3a, 0.6), pera = mat(0xd9c25a, 0.6), frutaG = new THREE.SphereGeometry(0.06, 10, 8);
   for (const [cx, fm2] of [[-2.85, naranja], [-2.25, pera]]) {
@@ -531,11 +531,11 @@ let hojasSuper = [];
   SUPER.traverse((o) => { if (o.isMesh && o.material.transparent) { o.castShadow = false; o.receiveShadow = false; } });
 }
 fusionar(CA, [SUPER]);
-fusionar(SUPER, hojasSuper);
+fusionar(SUPER, [...hojasSuper, cartelSuper]);
 // ---- el camión gris sin nombre (furgón, de otra distribuidora: nadie lo nombra): estacionado en el cordón delante del
 // súper, la caja hacia +x (las puertas traseras miran al auto de Nico), la cabina hacia -x ----
 const camionGris = crearFurgon({ cue: mat(0xb9bcc2, 0.55), cab: mat(0x9aa0a8, 0.55), franja: null, conCarga: true });
-camionGris.rotation.y = -Math.PI / 2; camionGris.position.set(VX - 1.25, 0, 1.45); scene.add(camionGris);
+camionGris.rotation.y = -Math.PI / 2; camionGris.position.set(VX - 1.9, 0, 1.45); scene.add(camionGris);   // (r1) más a la izquierda: no tapa el cartel
 // la zorra del chofer (carretilla de dos ruedas) con cajas kraft
 function crearZorra(n = 3) {
   const g = new THREE.Group(), gm = mat(0x8d97a8, 0.4, { metalness: 0.35 });
@@ -604,7 +604,7 @@ const AUTO_EST = V3(VX + 2.95, 0, 1.35);          // estacionado detrás del cam
 const AUTO_SEM = V3(VX - 24, 0, 2.7);            // parado en el semáforo (Q1), en el carril
 // el post-it crema con la letra de Nico (Caveat navy)
 const postT = lienzo(256, 256, (x, w, h) => { x.fillStyle = "#f4ecc6"; x.fillRect(0, 0, w, h); x.fillStyle = "#e6dcae"; x.fillRect(0, 0, w, 26); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = CAV(84); x.fillText("HÉCTOR", w / 2, 108); x.font = CAV(78); x.fillText("MARTES", w / 2, 192); });
-const postit = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.13), new THREE.MeshStandardMaterial({ map: postT, roughness: 0.8, side: THREE.DoubleSide })); postit.castShadow = true; scene.add(postit);
+const postit = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.13), new THREE.MeshStandardMaterial({ map: postT, roughness: 0.8, side: THREE.DoubleSide })); postit.castShadow = false; scene.add(postit);
 // ---- luces de la calle: el sol de media mañana (con sombra) y el cielo ----
 const solCa = new THREE.DirectionalLight(0xfff4e2, 2.1);
 solCa.castShadow = true; solCa.shadow.mapSize.set(2048, 2048); solCa.shadow.bias = -0.0008; solCa.shadow.radius = 2;
@@ -617,7 +617,7 @@ scene.add(solCa, solCa.target);
 // =====================================================================================================
 const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.0, r2(T.p3 + 0.15), r2(T.p5 + 0.2), r2(T.q4 + 0.5)] });
 const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p4 + 1.5), r2(T.q1 + 0.6)] });
-const hector = crearPersonaje({ ...ELENCO.hector, lentesCerca: 1.05, campera: { color: C.cr, cuello: C.cr2, cierre: C.cr3, abierta: true }, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.35), r2(T.q2 + 0.05)] });
+const hector = crearPersonaje({ ...ELENCO.hector, lentesCerca: 1.05, campera: { color: C.cr, cuello: C.cr2, cierre: C.cr3, abierta: true }, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.2), r2(T.q2i + 0.3)] });
 const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
 const chofer = crearPersonaje({ ...DEFECTO, nombre: "Chofer", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", camisa: 0x9aa0a8, mangas: "cortas", cuello: 0x9aa0a8, pantalon: 0x5a5e66, zapatos: 0x2a2220, panza: 1.05, parpadeoCada: 999 });
 // el pelo de Rubén: la herradura de bolitas canosas (de dist-pedidos-lunes)
@@ -659,8 +659,31 @@ const maletin = (() => {
 })();
 scene.add(maletin);
 // el celular de Héctor (Q2, en la oreja) y el de Nico en la mano (P3)
-const celH = new THREE.Group(); celH.add(caja(0.075, 0.15, 0.012, mat(0xd9a441, 0.6), 0, 0, 0, 0.012)); sombras(celH); scene.add(celH);
+const celH = new THREE.Group(); celH.add(caja(0.075, 0.15, 0.014, M.navy, 0, 0, 0, 0.012)); { const sc = new THREE.Mesh(new THREE.PlaneGeometry(0.064, 0.13), new THREE.MeshBasicMaterial({ color: 0x2c4268 })); sc.position.z = 0.0075; celH.add(sc); const cm = caja(0.016, 0.016, 0.004, M.gris, 0.018, 0.055, -0.008, 0.004); celH.add(cm); } sombras(celH); scene.add(celH);
 const celNmano = new THREE.Group(); celNmano.add(caja(0.075, 0.15, 0.012, M.navy, 0, 0, 0, 0.012)); sombras(celNmano); scene.add(celNmano);
+// (r1) los lentes de Héctor: aros cerrados (360°) 4,5 cm delante de la cara (antes quedaban medio hundidos y se leían
+// como "C"), sin patillas (cruzaban el ojo de 3/4) y un puente nuevo entre los aros, por encima de la nariz
+{
+  const aros = hector.cabeza.children.filter((o) => o.isMesh && o.geometry.type === "TorusGeometry" && Math.abs(o.geometry.parameters.radius - 0.088) < 1e-3);
+  const lm = aros[0]?.material;
+  for (const o of hector.cabeza.children) if (o.isMesh && o.material === lm && o.geometry.type !== "TorusGeometry") o.scale.setScalar(0.0001);
+  for (const a of aros) { a.geometry = new THREE.TorusGeometry(0.09, 0.012, 10, 44); a.translateZ(0.045); }
+  if (aros.length === 2) {
+    const [p0, p1] = aros.map((a) => a.position.clone()), dir = p1.clone().sub(p0).normalize();
+    const q0 = p0.clone().add(dir.clone().multiplyScalar(0.09)), q1 = p1.clone().sub(dir.clone().multiplyScalar(0.09));
+    const L = q0.distanceTo(q1), mid = q0.clone().add(q1).multiplyScalar(0.5).add(V3(0, 0.025, 0.012));
+    const pu = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, L + 0.01, 8), lm); pu.position.copy(mid); pu.quaternion.setFromUnitVectors(V3(0, 1, 0), dir); hector.cabeza.add(pu);
+  }
+}
+// (r1) el bigote de Rubén se esconde cuando la cámara le ve la nuca (asomaba por los costados de la cabeza)
+const BIGOTE_R = []; ruben.cabeza.traverse((o) => { if (o.isMesh && o.material.color && o.material.color.getHex() === PELO.gris) BIGOTE_R.push(o); });
+function bigoteSegunCamara() {
+  ruben.cabeza.updateMatrixWorld(true);
+  const h = ruben.cabeza.getWorldPosition(new THREE.Vector3()), f = V3(0, 0, 1).transformDirection(ruben.cabeza.matrixWorld), c = camera.position.clone().sub(h);
+  f.y = 0; c.y = 0; f.normalize(); c.normalize();
+  const vis = f.dot(c) > -0.2;
+  for (const b of BIGOTE_R) b.visible = vis;
+}
 const TODOS = [ruben, nico, hector, operario, chofer];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 
@@ -769,23 +792,23 @@ function dibujarMonitor(t) {
       const y = 150 + i * 112, ok = i < nt, luz = i === 0 && th;
       x.fillStyle = luz ? "#5ce611" : "#efeee5"; x.beginPath(); x.roundRect(30, y, w - 60, 98, 22); x.fill();
       avatar(x, cv, 84, y + 49, 38);
-      x.fillStyle = "#0b1220"; x.font = F(800, 54); x.fillText(nom, 140, y + 51);
-      x.fillStyle = "#1f3254"; x.font = F(800, 50); x.textAlign = "right"; x.fillText(m, 860, y + 51); x.textAlign = "left";
+      x.fillStyle = "#0b1220"; x.font = F(800, 58); x.fillText(nom, 140, y + 51);
+      x.fillStyle = "#1f3254"; x.font = F(800, 54); x.textAlign = "right"; x.fillText(m, 870, y + 51); x.textAlign = "left";
       x.fillStyle = ok ? (luz ? "#0b1220" : "#5ce611") : "#c9ccd2"; x.beginPath(); x.roundRect(890, y + 14, 330, 70, 35); x.fill();
-      x.fillStyle = ok ? (luz ? "#5ce611" : "#0b1220") : "#6d727b"; x.font = F(900, 44); x.textAlign = "center"; x.fillText(ok ? "Pidió ✓" : "Llamado…", 1055, y + 50); x.textAlign = "left";
+      x.fillStyle = ok ? (luz ? "#5ce611" : "#0b1220") : "#6d727b"; x.font = F(900, 50); x.textAlign = "center"; x.fillText(ok ? "Pidió ✓" : "Llamado…", 1055, y + 50); x.textAlign = "left";
     });
     const yc = 610;
     x.fillStyle = cero ? "#5ce611" : "#16243d"; x.beginPath(); x.roundRect(30, yc, 520, 160, 30); x.fill();
     x.fillStyle = cero ? "#0b1220" : "#efeee5"; x.font = F(800, 50); x.fillText("Sin pedir:", 60, yc + 80);
     x.fillStyle = cero ? "#0b1220" : "#c7655b"; x.font = F(900, 120); x.fillText(cero ? "0" : String(4 - nt), 340, yc + 86);
-    x.fillStyle = "#5ce611"; x.font = F(900, 72); x.textAlign = "right"; x.fillText(cero ? "$ 61.000" : "", w - 40, yc + 52); x.font = F(800, 44); x.fillStyle = "#efeee5"; x.fillText(cero ? "que no se fueron" : "", w - 40, yc + 122); x.textAlign = "left";
+    x.fillStyle = "#5ce611"; x.font = F(900, 72); x.textAlign = "right"; x.fillText(cero ? "$ 61.000" : "", w - 40, yc + 52); x.font = F(800, 50); x.fillStyle = "#efeee5"; x.fillText(cero ? "que no se fueron" : "", w - 40, yc + 124); x.textAlign = "left";
   }
   pantM.needsUpdate = true;
 }
 // ---- el celular de Nico en el soporte del auto (parte 2): el aviso → llamando → en llamada → Pedido ✓ ----
 let claveN = "";
 function dibujarCelN(t) {
-  const modo = t < T.vibra ? "mapa" : t < T.llamar ? "aviso" : t < T.n2 + 0.2 ? "llama" : t < T.pedido ? "habla" : "pedido";
+  const modo = t < T.vibra ? "mapa" : t < T.llamar + 0.06 ? "aviso" : t < T.n2 + 0.2 ? "llama" : t < T.pedido ? "habla" : "pedido";
   const seg = modo === "habla" ? Math.floor(t - T.n2) : 0, toq = modo === "aviso" && t >= T.llamar - 0.15 ? 1 : 0;
   const clave = `${modo}|${seg}|${toq}`; if (clave === claveN) return; claveN = clave;
   const { x } = pantN.userData, w = 600, h = 1110;
@@ -820,7 +843,7 @@ function dibujarCelN(t) {
     cab();
     x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(22, 200, w - 44, 860, 36); x.fill();
     x.fillStyle = "#0b1220"; x.beginPath(); x.arc(w / 2, 400, 130, 0, 7); x.fill(); tilde(x, w / 2, 405, 150, "#5ce611");
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 92); x.fillText("Pedido ✓", w / 2, 640);
+    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 92); x.fillText("Pedido", w / 2, 640);
     x.font = F(800, 52); x.fillText("Súper Héctor", w / 2, 760); x.font = F(900, 64); x.fillText("$ 38.000", w / 2, 860); x.font = F(800, 52); x.fillText("Sale hoy", w / 2, 960);
   }
   pantN.needsUpdate = true;
@@ -980,7 +1003,19 @@ function crearDedo(piel) {
   g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
   return g;
 }
-const DEDO_N = crearDedo(ELENCO.empleado.piel); DEDO_N.scale.setScalar(0.5); auto.userData.celu.add(DEDO_N);
+// (r1) la mano de Nico que toca "Llamar": el índice estirado, los otros dedos cerrados, la manga verde; el origen en la
+// yema (entra desde abajo a la derecha del cuadro)
+const DEDO_N = (() => {
+  const g = new THREE.Group(), m = mat(ELENCO.empleado.piel, 0.55), ms = mat(new THREE.Color(ELENCO.empleado.piel).multiplyScalar(0.9).getHex(), 0.6);
+  const idx = mesh(new THREE.CapsuleGeometry(0.0095, 0.04, 4, 10), m, 0, -0.028, 0); g.add(idx);
+  const palma = mesh(new THREE.SphereGeometry(1, 18, 12), m, 0.004, -0.085, 0.006); palma.scale.set(0.03, 0.034, 0.016); g.add(palma);
+  for (let i = 0; i < 3; i++) { const d = mesh(new THREE.SphereGeometry(1, 10, 8), ms, -0.018, -0.062 - i * 0.014, 0.014); d.scale.set(0.011, 0.009, 0.01); g.add(d); }
+  const pul = mesh(new THREE.CapsuleGeometry(0.0075, 0.022, 4, 8), m, 0.026, -0.072, 0.004); pul.rotation.z = -0.8; g.add(pul);
+  const manga = mesh(new THREE.CylinderGeometry(0.03, 0.034, 0.07, 14), mat(C.g, 0.6), 0.004, -0.14, 0.006); g.add(manga);
+  g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
+  return g;
+})();
+auto.userData.celu.add(DEDO_N);
 // la mano de Nico que pega el post-it (P7b): una palma con el pulgar arriba
 const MANO_POST = (() => {   // (no se usa: el post-it cae solo)
   const g = new THREE.Group(), m = mat(ELENCO.empleado.piel, 0.55);
@@ -997,9 +1032,9 @@ scene.add(MANO_POST);
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
 const OY = OFI.piso;
-const CAM_P1 = (k) => [lerp(-0.52, -0.49, k), lerp(OY + 1.8, OY + 1.77, k), lerp(4.25, 3.95, k), -0.58, OY + 1.08, 1.3, 52];
+const CAM_P1 = (k) => [lerp(-0.47, -0.44, k), lerp(OY + 1.8, OY + 1.77, k), lerp(4.45, 4.15, k), -0.52, OY + 1.08, 1.3, 57];   // (r1) más abierto: el monitor y el mate enteros
 const HZ = V3(SLOT.HECTOR, 0, ZA);
-const P2_FIN = [HZ.x - 0.3, 1.95, HZ.z + 4.0, HZ.x - 0.78, 0.95, HZ.z - 0.2, 50];
+const P2_FIN = [HZ.x - 0.15, 1.95, HZ.z + 4.5, HZ.x - 0.55, 1.0, HZ.z - 0.2, 53];
 const K_GRUA = () => [
   [T.p2, ...CAM_P1(1)],
   [r2(T.p2 + 0.3), -1.1, OY + 2.25, 2.4, -1.4, OY + 0.4, -2.0, 52],
@@ -1013,12 +1048,14 @@ const PLANOS = [
   // P3: de frente a la puerta: Rubén en primer término de 3/4, Nico asomado
   ["P3", T.p3, [[T.p3, -0.4, OY + 1.7, 4.5, 0.55, OY + 1.15, 0.55, 52], [T.p4, -0.37, OY + 1.68, 4.25, 0.55, OY + 1.15, 0.55, 51]]],
   // P4: la vereda desde la calle: el camión gris a la izquierda, el auto a la derecha, la puerta del súper al medio
-  ["P4", T.p4, [[T.p4, VX + 0.1, 1.7, 7.6, VX + 0.1, 1.35, FZ, 54], [T.p4b, VX + 0.1, 1.68, 7.0, VX + 0.12, 1.35, FZ, 53]]],
+  ["P4", T.p4, [[T.p4, VX - 0.3, 1.75, 5.4, VX - 0.25, 2.1, FZ, 56], [T.p4b, VX - 0.28, 1.75, 5.0, VX - 0.25, 2.05, FZ, 55]]],   // (r1) más bajo y cerca: el cartel entero, el camión y la zorra
   // P4b: push-in a Héctor y Rubén (dos personas en cuadro, la burbuja arriba de Héctor)
   ["P4b", T.p4b, [[T.p4b, VX + 1.05, 1.62, 0.15, VX - 0.35, 1.55, -2.0, 50], [T.p5, VX + 1.0, 1.61, 0.0, VX - 0.35, 1.55, -2.0, 49]]],
   // P5: la pausa desde atrás de Héctor: Rubén de frente, el camión gris detrás a la izquierda
   ["P5", T.p5, [[T.p5, VX - 1.9, 1.8, -1.75, VX + 0.85, 1.42, -1.35, 46], [T.p6, VX - 1.82, 1.79, -1.73, VX + 0.85, 1.42, -1.35, 45]]],
   // P6: el remate: primer plano de Rubén de frente, el camión gris desenfocado atrás
+  // (r1) P5b contraplano: el camión gris descargando en el súper; el chofer cierra las puertas
+  ["P5b", T.p5b, [[T.p5b, VX + 0.5, 1.75, -2.6, VX - 2.9, 1.5, 1.4, 58], [T.p6, VX + 0.45, 1.75, -2.5, VX - 2.9, 1.5, 1.4, 57]]],
   ["P6", T.p6, [[T.p6, VX - 0.85, 1.55, -2.5, VX + 0.85, 1.52, -1.35, 54], [T.p7, VX - 0.72, 1.55, -2.42, VX + 0.85, 1.52, -1.35, 53]]],
   // P7: Héctor entrando con la caja, por encima del hombro; Nico junto al auto con el post-it
   ["P7", T.p7, [[T.p7, VX + 0.95, 1.6, -0.15, VX - 0.3, 1.45, -2.3, 54], [T.p7b, VX + 0.9, 1.6, -0.3, VX - 0.3, 1.45, -2.3, 53]]],
@@ -1027,12 +1064,13 @@ const PLANOS = [
   // ---- parte 2 ----
   ["Q1", P2, null],       // el auto en el semáforo: push-in al celular del soporte
   // Q2: Héctor en la puerta con el celular en la oreja (la misma vereda, sin camión)
-  ["Q2", T.q2, [[T.q2, VX + 1.3, 1.62, -0.2, VX + 0.05, 1.45, -2.35, 46], [T.q2i, VX + 1.22, 1.61, -0.4, VX + 0.05, 1.45, -2.35, 45]]],
+  ["Q2", T.q2, [[T.q2, VX + 1.15, 1.62, -0.35, VX - 0.2, 1.55, -2.2, 48], [T.q2i, VX + 1.08, 1.61, -0.5, VX - 0.2, 1.55, -2.2, 47]]],
   ["Q2i", T.q2i, null],   // el inserto: Pedido ✓
   ["Q3", T.q3, [[T.q3, ...P2_FIN.map((v, i) => v + [0.2, 0.1, 0.35, 0.2, 0, 0, 2][i])], [r2(T.grua2[0] - 0.05), ...P2_FIN.map((v, i) => v + [0.25, 0.08, 0.1, 0.15, 0, 0, 1][i])]]],
   ["Q3b", r2(T.grua2[0] - 0.05), null],   // la ficha en el monitor (inserto)
-  ["Q4", T.q4, [[T.q4, ...CAM_P1(0)], [T.q4b, ...CAM_P1(0.6)]]],
-  ["Q4b", T.q4b, null],   // push al monitor con Rubén en cuadro
+  ["Q4", T.q4, null],     // (r1) el panel en grande mientras cuenta 4 → 0 y el contador pregunta
+  ["Q4r", T.q4r, [[T.q4r, ...CAM_P1(0)], [T.q4b, ...CAM_P1(0.5)]]],   // el encuadre del cuadro 0: el mismo "¿Héctor? Compra…"
+  ["Q4b", T.q4b, null],   // el panel en grande: "Compra."
   ["C", T.c, [[T.c, 0.02, OY + 1.3, 3.5, 0.02, OY + 1.0, 1.0, 40], [DUR, 0.02, OY + 1.29, 3.3, 0.02, OY + 1.0, 1.0, 39]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
@@ -1129,7 +1167,7 @@ function rubenVereda(t) {
     const u = eio(sg(t, T.p5 + 0.05, T.p5 + 0.3)) * (1 - eio(sg(t, T.cierra[1], T.cierra[1] + 0.25)));
     pr.cabeza = { giro: lerp(0, 0.95, u), asiente: 0.03, ladea: 0 }; pr.ojos = { x: lerp(0, 0.8, u), y: 0, abiertos: 0.85, tension: 0.2 };
   }
-  if (t >= T.p6) { Object.assign(pr, { ...SECO, ojos: { x: 0, y: -0.05, abiertos: 0.7, tension: 0.3 }, cejas: { alto: -0.05, ang: 0.05, asim: 0.35 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.9 } }); pr.cabeza = { giro: -0.05, asiente: 0.06, ladea: 0.03 }; }
+  if (t >= T.p6) { Object.assign(pr, { ...SECO, ojos: { x: 0, y: -0.05, abiertos: 0.88, tension: 0.15 }, cejas: { alto: -0.05, ang: 0.05, asim: 0.35 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.9 } }); pr.cabeza = { giro: -0.05, asiente: 0.06, ladea: 0.03 }; }
   bocaVoz(pr, t, T.r2, ENV.r2, 0.6);
   if (t >= T.p7) { pr.cabeza = { giro: -0.35, asiente: 0.0, ladea: 0 }; Object.assign(pr, { ...NADA }); }
   return pr;
@@ -1144,7 +1182,7 @@ function poseHector(t) {
     const ab = sg(t, T.sale[0] + 0.1, T.sale[1]) * (1 - sg(t, T.h1 + 0.9, T.h1 + 1.3));
     if (ab > 0) { pr.manoI = lerpV([0.29, -0.08, 0.04], [0.55, 0.75, 0.18], ab); pr.manoD = lerpV([-0.29, -0.08, 0.04], [-0.55, 0.75, 0.18], ab); pr.codoI = [1, 0, 0]; pr.codoD = [-1, 0, 0]; }
     // en "nadie me llamó": la mano en el hombro de Rubén (la derecha, hacia adelante)
-    const hb = sg(t, T.h1 + 1.5, T.h1 + 1.8) * (1 - sg(t, T.p5 + 0.2, T.p5 + 0.5));
+    const hb = sg(t, T.h1 + 1.5, T.h1 + 1.8) * (1 - sg(t, T.p5 - 0.3, T.p5));   // (r1) baja las manos antes de la pausa
     if (hb > 0) { pr.manoD = lerpV(pr.manoD ?? [-0.29, -0.08, 0.04], [-0.24, 0.42, 0.34], hb); pr.manoI = lerpV(pr.manoI ?? [0.29, -0.08, 0.04], [0.24, 0.42, 0.34], hb); pr.codoD = [-1, -0.5, 0]; pr.codoI = [1, -0.5, 0]; }
     if (t >= T.h1 + 1.3) { pr.cejas = { alto: 0.45, ang: 0.4 }; pr.boca = { sonrisa: 0.5, abierta: 0, ancho: 1.05 }; pr.ojos = { abiertos: 1, feliz: 0.25, x: 0.1, y: 0.05 }; }
     bocaVoz(pr, t, T.h1, ENV.h1, 0.7);
@@ -1159,8 +1197,8 @@ function poseHector(t) {
   }
   // Q2: en la puerta, el celular en la oreja derecha; "¡Uh, se me pasó!": la palmada en la frente con la izquierda
   const pr = { x: H_VER.x, y: VER, z: H_VER.z - 0.2, giro: 0.4, inclina: 0.03, ...aC(0.15, 0.0), ...CARA.feliz, ojos: { abiertos: 1, feliz: 0.3, x: 0.1, y: 0.05 }, ...BRAZOS.costado, t };
-  pr.manoD = [-0.12, 0.3, 0.36]; pr.codoD = [-1, -0.6, -0.1]; pr.cabeza = { giro: 0.0, asiente: 0.18, ladea: 0.03 }; pr.ojos = { abiertos: 1, feliz: 0.35, x: -0.1, y: -0.4 };
-  const fp = 0.8 * Math.sin(Math.PI * sg(t, T.h3 + 0.05, T.h3 + 0.65));
+  pr.cabeza = { giro: 0.25, asiente: 0.0, ladea: 0.08 }; pr.ojos = { abiertos: 1, feliz: 0.2, x: 0.25, y: 0.05 };
+  const fp = 0;   // (r1) sin palmada en la frente (la mano tapaba la boca y los ojos)
   if (fp > 0) { pr.manoI = lerpV([0.29, -0.08, 0.04], [0.01, 0.72, 0.43], fp); pr.codoI = [0.8, -0.5, 0.1]; pr.inclina = 0.03 + 0.12 * fp; pr.cabeza = { giro: 0.15, asiente: lerp(0, 0.25, fp), ladea: 0.05 }; pr.ojos = { abiertos: lerp(1, 0.5, fp), feliz: 0.6, x: 0, y: 0 }; }
   bocaVoz(pr, t, T.h3, ENV.h3, 0.7);
   return pr;
@@ -1212,10 +1250,10 @@ function poseOperario(t) {
 }
 // ---------- el chofer del camión gris (extra sin voz, de espaldas o de 3/4) ----------
 function poseChofer(t) {
-  if (t < T.p5) return { x: VX - 0.95, y: VER, z: -0.35, giro: -Math.PI / 2 - 0.4, inclina: 0.15, ...aC(0, 0.2), ...CARA.concentrada, manoI: [0.22, 0.55, 0.35], manoD: [-0.22, 0.55, 0.35], codoI: null, codoD: null, t };
+  if (t < T.p5) return { x: VX - 1.4, y: 0, z: 0.55, giro: -Math.PI / 2, inclina: 0.15, ...aC(0, 0.2), ...CARA.concentrada, manoI: [0.22, 0.55, 0.35], manoD: [-0.22, 0.55, 0.35], codoI: null, codoD: null, t };
   // P5: cierra las puertas del camión (al cordón, de espaldas)
   const k = sg(t, T.cierra[0] - 0.2, T.cierra[1]);
-  return { x: VX - 0.6, y: 0, z: 1.45, giro: -Math.PI / 2, inclina: 0.05, ...aC(0, 0.0), ...CARA.concentrada, manoI: [0.3, lerp(0.4, 0.7, k), 0.4], manoD: [-0.3, lerp(0.7, 0.4, k), 0.4], codoI: null, codoD: null, t };
+  return { x: VX - 1.27, y: 0, z: 1.45, giro: -Math.PI / 2, inclina: 0.05, ...aC(0, 0.0), ...CARA.concentrada, manoI: [0.3, lerp(0.4, 0.7, k), 0.4], manoD: [-0.3, lerp(0.7, 0.4, k), 0.4], codoI: null, codoD: null, t };
 }
 
 // ================= RENDER =================
@@ -1237,7 +1275,7 @@ function ponerAuto(t, lugar) {
   if (t >= T.arranca) {
     // P7c: arranca, sale del cordón (hacia +z) y pasa al camión gris
     const u = sg(t, T.arranca, P1);
-    x = AUTO_EST.x - 4.2 * u * u * 1.3; z = AUTO_EST.z + 1.5 * eio(cl(u * 1.4)); giro = -Math.PI / 2 - 0.35 * Math.sin(Math.PI * cl(u * 1.2));
+    x = AUTO_EST.x - 4.2 * u * u * 1.3; z = AUTO_EST.z + 2.5 * eio(cl(u * 1.6)); giro = -Math.PI / 2 - 0.35 * Math.sin(Math.PI * cl(u * 1.2));
   }
   auto.position.set(x, 0, z); auto.rotation.set(0, giro, 0);
 }
@@ -1269,13 +1307,14 @@ function renderAt(tIn) {
   const parte2 = t >= P2;
   const pl = planoEn(t); planoActual = pl[0];
   const pa = planoActual;
-  const lugar = ["P1", "P3", "Q3b", "Q4", "Q4b", "C"].includes(pa) ? "of" : pa === "P2" ? (t < T.p2 + 0.32 ? "of" : "dep") : pa === "Q3" ? "dep" : ["P7b", "Q1", "Q2i"].includes(pa) ? "auto" : "ca";
+  const lugar = ["P1", "P3", "Q3b", "Q4", "Q4r", "Q4b", "C"].includes(pa) ? "of" : pa === "P2" ? (t < T.p2 + 0.32 ? "of" : "dep") : pa === "Q3" ? "dep" : ["P7b", "Q1", "Q2i"].includes(pa) ? "auto" : "ca";
   ponerLuces(lugar);
   scene.background = new THREE.Color(lugar === "dep" ? 0xe8edf0 : lugar === "ca" || lugar === "auto" ? 0xd9e6ef : 0x16243d);
   OF.visible = DEP.visible = lugar === "of" || lugar === "dep";
   CA.visible = camionGris.visible = lugar === "ca" || lugar === "auto";
   camionPropio.visible = lugar === "dep" || lugar === "of";
   if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }
+  if (["Q3b", "Q4", "Q4b"].includes(pa)) DEP.visible = camionPropio.visible = false;   // (r1) en los insertos del monitor, sin las lámparas del depósito asomando
   // ---- pantallas y objetos ----
   dibujarMonitor(t);
   if (parte2) dibujarCelN(t);
@@ -1290,12 +1329,12 @@ function renderAt(tIn) {
     const ci = sg(t, T.cierra[0] - 0.15, T.cierra[1] + 0.05);
     camionGris.userData.puertas.forEach((p, i) => { const u = eio(sg(t, T.cierra[i] - 0.18, T.cierra[i])); p.rotation.y = p.userData.s * -(Math.PI * 0.92) * (1 - u); });
     const arr = sg(t, T.vuela[1] - 0.05, P1 + 0.3);
-    camionGris.position.set(VX - 1.25 - 1.2 * arr * arr, 0, 1.45);
+    camionGris.position.set(VX - 1.9 - 1.2 * arr * arr, 0, 1.45);
     void ci;
   }
   // la zorra del chofer: entre el camión y la puerta (P4-P7); la caja que Héctor lleva en P7
   zorra.visible = lugar === "ca" && !parte2;
-  zorra.position.set(VX - 1.05, VER, -2.35); zorra.rotation.set(0, 0.7, 0);
+  zorra.position.set(VX - 1.25, VER, -0.85); zorra.rotation.set(0, 1.0, 0);
   zorra.userData.cajas[2].visible = t < T.p7;
   // ---- personajes ----
   for (const p of TODOS) p.raiz.visible = false;
@@ -1309,8 +1348,8 @@ function renderAt(tIn) {
     if (!parte2) so = 0.55 * eio(sg(t, T.r1 + LEN.r1 - 0.25, T.c2 + 0.05));
     else so = Math.sin(Math.PI * sg(t, T.r1b + LEN.r1 - 0.05, T.r1b + LEN.r1 + 0.75)) * 0.95;
     if (pa === "C" || (parte2 && t >= T.c)) {
-      const k = eio(sg(t, T.c, T.c + 0.3)), apoyo = aCuerpo(ruben, V3(0.32, MESA_Y + 0.08, 1.75));
-      pr.manoI = pr.manoI.map((v, i) => lerp(v, apoyo[i], k)); ruben.poner(pr);
+      // (r1) en el cierre el mate ya está apoyado en el escritorio y la mano descansa al lado (antes la mano lo atravesaba)
+      pr.manoI = aCuerpo(ruben, V3(0.16, MESA_Y + 0.05, 1.62)); pr.codoI = [1, -0.6, -0.2]; ruben.poner(pr);
     }
     ruben.raiz.updateMatrixWorld(true);
     const m = ruben.brazos[0].mano.getWorldPosition(_w).clone();
@@ -1321,28 +1360,28 @@ function renderAt(tIn) {
       const punta = V3(0.075, 0.305, 0).multiplyScalar(1.12).applyEuler(mate.rotation);
       mate.position.lerp(boca.sub(punta), so);
     }
+    if (pa === "C" || (parte2 && t >= T.c)) { mate.position.set(0.36, MESA_Y, 1.8); mate.rotation.set(0, -Math.PI / 2, 0); }
     if (pa === "P3") { mate.position.set(0.32, MESA_Y, 1.85); mate.rotation.set(0, -Math.PI / 2, 0); pr.manoI = [0.24, 0.3, 0.3]; ruben.poner(pr); }
   } else if (lugar === "ca" && !parte2) {
-    ruben.raiz.visible = pa !== "P7"; ruben.poner(rubenVereda(t));
+    ruben.raiz.visible = pa !== "P7" && pa !== "P5b"; ruben.poner(rubenVereda(t));
   }
   // Héctor
   if (lugar === "ca") {
-    hector.raiz.visible = pa !== "P6"; hector.poner(poseHector(t));
+    hector.raiz.visible = pa !== "P6" && pa !== "P5b"; hector.poner(poseHector(t));
     if (t >= T.p7 && !parte2) {
       hector.raiz.updateMatrixWorld(true);
       cajaHector.visible = true; hector.brazos[0].mano.getWorldPosition(_w); const b = hector.brazos[1].mano.getWorldPosition(new THREE.Vector3());
       cajaHector.position.copy(_w.add(b).multiplyScalar(0.5)).add(V3(0, 0.06, 0)); cajaHector.rotation.set(0, hector.raiz.rotation.y, 0);
     }
     if (parte2) {
-      // el celular en altavoz delante del pecho (la regla de los celulares de la-lista: nunca en la oreja, que la mano no
-      // cruce la boina ni la cara)
+      // (r1) el celular navy en la oreja derecha: pegado a la cabeza (se mueve con ella); la mano lo sostiene desde abajo,
+      // lejos de la boca
       const ph = poseHector(t); hector.poner(ph); hector.raiz.updateMatrixWorld(true);
-      const q = new THREE.Quaternion(); hector.raiz.getWorldQuaternion(q);
-      const cab = hector.cabeza.getWorldPosition(new THREE.Vector3());
-      const objetivo = cab.clone().add(V3(-0.1, -0.1, 0.4).applyQuaternion(q));
-      ph.manoD = aCuerpo(hector, objetivo); ph.codoD = [-1, -0.6, -0.1]; hector.poner(ph); hector.raiz.updateMatrixWorld(true);
-      celH.visible = true; hector.brazos[1].mano.getWorldPosition(celH.position); celH.position.add(V3(0, 0.08, 0.02).applyQuaternion(q));
-      celH.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-0.55, 0.2, 0)));
+      const oreja = hector.cabeza.localToWorld(V3(0.385, 0.2, 0.05));   // (r1) la oreja izquierda: la que mira a la cámara
+      ph.manoI = aCuerpo(hector, hector.cabeza.localToWorld(V3(0.4, 0.02, -0.04))); ph.codoI = [1, -0.35, 0.2]; hector.poner(ph); hector.raiz.updateMatrixWorld(true);
+      celH.visible = true; celH.position.copy(oreja);
+      const q = new THREE.Quaternion(); hector.cabeza.getWorldQuaternion(q);
+      celH.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.15, Math.PI / 2, -0.25)));
     }
   }
   // Nico
@@ -1352,7 +1391,7 @@ function renderAt(tIn) {
     nico.brazos[1].mano.getWorldPosition(_w); maletin.position.copy(_w).add(V3(0, -0.02, 0.0)); maletin.rotation.set(0, nico.raiz.rotation.y, 0);
     nico.brazos[0].mano.getWorldPosition(_w); celNmano.position.copy(_w).add(V3(0, 0.06, 0)); celNmano.rotation.set(-0.3, nico.raiz.rotation.y, 0.3);
   } else if (lugar === "ca" && !parte2 && pa !== "P7c") {
-    nico.raiz.visible = pa !== "P7"; if (nico.raiz.parent !== scene) scene.add(nico.raiz); nico.poner(poseNico(t, "ca"));
+    nico.raiz.visible = pa !== "P7" && pa !== "P6" && pa !== "P5b"; if (nico.raiz.parent !== scene) scene.add(nico.raiz); nico.poner(poseNico(t, "ca"));
   } else if (lugar === "auto" || pa === "P7c") {
     if (nico.raiz.parent !== auto) auto.add(nico.raiz);
     nico.raiz.visible = true; nico.poner(poseNico(t, "auto"));
@@ -1375,25 +1414,33 @@ function renderAt(tIn) {
     const cab = auto.userData.cab;
     const tablero = auto.localToWorld(V3(-0.35, 1.118, cab.z1 - 0.19));
     if (pa === "P7b") {
-      // cae desde arriba (Nico lo pega con el pulgar, fuera de cuadro) y queda pegado: pop
-      const u = eio(sg(t, T.p7b + 0.05, T.pega)), pp = bk(sg(t, T.pega - 0.05, T.pega + 0.15));
+      // (r1) Nico lo baja con la mano (entra desde su lado, el izquierdo del cuadro) y lo pega con el pulgar: pop; la mano
+      // se va. El post-it se lee entero todo el plano.
+      const u = eio(sg(t, T.p7b, T.pega)), pp = bk(sg(t, T.pega - 0.05, T.pega + 0.15)), va = eio(sg(t, T.pega + 0.12, T.pega + 0.4));
       postit.visible = true;
       const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-      postit.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2 + 0.25 * (1 - u), 0.25 * (1 - u), Math.PI)));
-      postit.position.copy(tablero).add(V3(0, 0.14 * (1 - u), -0.05 * (1 - u)).applyQuaternion(q)).add(V3(0, 0.004, 0));
-      postit.scale.setScalar(t >= T.pega - 0.05 ? 0.9 + 0.1 * pp : 1);
+      postit.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2 + 0.12 * (1 - u), 0, Math.PI)));
+      postit.position.copy(tablero).add(V3(0, 0.09 * (1 - u), 0).applyQuaternion(q)).add(V3(0, 0.004, 0));
+      postit.scale.setScalar(t >= T.pega - 0.05 ? 0.92 + 0.08 * pp : 1);
+      MANO_POST.visible = va < 1;
+      MANO_POST.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI / 2, 0, Math.PI / 2)));
+      MANO_POST.position.copy(postit.position).add(V3(0.14 + 0.3 * va, 0.03 + 0.04 * va, -0.01).applyQuaternion(q));
     } else if (pa === "P7c") {
       postit.visible = true; postit.scale.setScalar(1);
-      const dest = V3(camionGris.position.x + 0.13, 1.85, 1.0);
+      const dest = V3(camionGris.position.x + 0.16, 1.82, 1.0);
       const u = sg(t, T.vuela[0], T.vuela[1]);
-      if (t < T.vuela[0]) { postit.position.copy(tablero); const q = new THREE.Quaternion(); auto.getWorldQuaternion(q); postit.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, Math.PI))); }
+      const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
+      if (t < T.vuela[0]) { postit.position.copy(tablero); postit.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, Math.PI))); }
       else {
-        const sale = auto.localToWorld(V3(-0.95, 1.35, cab.z1 - 0.4));
-        const a = u < 0.3 ? tablero.clone().lerp(sale, u / 0.3) : sale.clone().lerp(dest, eo((u - 0.3) / 0.7));
-        a.y += Math.sin(Math.PI * u) * 0.35 + Math.sin(u * 18) * 0.04 * (1 - u);
+        // sale por la ventanilla del acompañante (hacia la vereda, de frente a la cámara), da vueltas y se pega en la
+        // puerta del camión gris
+        const sale = auto.localToWorld(V3(-1.15, 1.3, cab.z1 - 0.35));
+        const a = u < 0.22 ? tablero.clone().lerp(sale, u / 0.22) : sale.clone().lerp(dest, eio((u - 0.22) / 0.78));
+        a.y += Math.sin(Math.PI * u) * 0.3;
         postit.position.copy(a);
-        postit.rotation.set(Math.sin(u * 14) * 0.9 * (1 - u), lerp(0, Math.PI / 2, eo(u)), Math.cos(u * 11) * 0.8 * (1 - u));
-        if (u >= 1) { postit.position.copy(dest); postit.rotation.set(0, Math.PI / 2, 0.12); }
+        const g = 1 - eo(u);
+        postit.rotation.set(Math.sin(u * 12) * 0.9 * g, lerp(0.4, Math.PI / 2, eo(u)) + Math.sin(u * 9) * 0.5 * g, Math.cos(u * 10) * 0.7 * g);
+        if (u >= 1) { postit.position.copy(dest); postit.rotation.set(0, Math.PI / 2, 0.08); }
       }
     }
   }
@@ -1405,13 +1452,20 @@ function renderAt(tIn) {
   if (pa === "P7b") {
     // dentro del auto, desde el asiento del acompañante: el post-it en el tablero, el camión gris por el parabrisas
     const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-    const ojo = auto.localToWorld(V3(-0.36, 1.38, auto.userData.cab.z1 - 0.85)), mira = auto.localToWorld(V3(-0.35, 1.12, auto.userData.cab.z1 + 0.3));
+    const ojo = auto.localToWorld(V3(-0.36, 1.5, auto.userData.cab.z1 - 0.6)), mira = auto.localToWorld(V3(-0.35, 1.1, auto.userData.cab.z1 + 0.12));
     const u = eio(sg(t, T.p7b, T.p7c)); ojo.lerp(mira, 0.08 * u);
     ponerCam([ojo.x, ojo.y, ojo.z, mira.x, mira.y, mira.z, 46], t, true);
   }
   if (pa === "P7c") {
-    // desde la vereda, detrás del auto: arranca, pasa al camión gris; el post-it vuela a la puerta del camión
-    { const u = eio(sg(t, T.p7c + 0.1, P1)), d = V3(camionGris.position.x + 0.13, 1.8, 1.0); ponerCam([lerp(VX + 5.3, d.x + 2.0, u), lerp(1.45, d.y - 0.05, u), lerp(-1.35, d.z - 1.0, u), lerp(VX - 0.7, d.x, u), lerp(1.45, d.y - 0.1, u), lerp(1.2, d.z + 0.1, u), lerp(46, 40, u)], t); }
+    // (r1) desde la vereda, al lado del auto: el post-it sale por la ventanilla hacia la cámara; la cámara lo sigue por la
+    // vereda hasta la puerta del camión gris y termina de frente, cerca: "HÉCTOR / MARTES" se lee
+    const d = V3(camionGris.position.x + 0.16, 1.82, 1.0);
+    const u = eio(sg(t, T.p7c + 0.05, T.vuela[1] + 0.1));
+    const p0 = V3(VX + 2.2, 1.45, -1.15), p1 = V3(VX + 0.9, 1.7, -0.4), p2 = V3(d.x + 0.72, 1.81, d.z - 0.14);
+    const pos = u < 0.5 ? p0.clone().lerp(p1, u / 0.5) : p1.clone().lerp(p2, (u - 0.5) / 0.5);
+    const ventana = auto.localToWorld(V3(-1.0, 1.3, auto.userData.cab.z1 - 0.35));
+    const mira = t < T.vuela[0] ? ventana : t < T.vuela[1] ? postit.position.clone() : d.clone();
+    ponerCam([pos.x, pos.y, pos.z, mira.x, mira.y, mira.z, lerp(48, 40, u)], t, true);
   }
   if (pa === "Q1" || pa === "Q2i") {
     // Q1: desde el asiento del acompañante; push-in continuo al celular del soporte (inserto ≥ 60 %)
@@ -1421,26 +1475,29 @@ function renderAt(tIn) {
     const pIns = c.clone().add(n.clone().multiplyScalar(dIns));
     const p0 = auto.localToWorld(V3(-0.42, 1.55, -1.0)), m0 = auto.localToWorld(V3(0.2, 1.3, 0.4));
     const u = pa === "Q2i" ? 1 : eio(sg(t, T.q1i, T.q1i + 1.0));
-    const pos = p0.clone().lerp(pIns, u), mira = m0.clone().lerp(c, eo(cl(u * 1.3)));
+    const cS = c.clone().add(up.clone().multiplyScalar(0.022 * u)), pos = p0.clone().lerp(pIns.clone().add(up.clone().multiplyScalar(0.022)), u), mira = m0.clone().lerp(cS, eo(cl(u * 1.3)));
     camera.position.copy(pos); camera.fov = lerp(52, fov, u); camera.updateProjectionMatrix(); camera.up.copy(V3(0, 1, 0).lerp(up, u).normalize()); camera.lookAt(mira);
     // el índice de Nico toca "Llamar"
-    const toq = Math.sin(Math.PI * sg(t, T.llamar - 0.22, T.llamar + 0.1));
+    const toq = Math.sin(Math.PI * sg(t, T.llamar - 0.25, T.llamar + 0.04));
     DEDO_N.visible = pa === "Q1" && toq > 0.01;
-    if (DEDO_N.visible) { DEDO_N.position.set(-0.01, -0.085, -0.03 - 0.02 * (1 - toq)); DEDO_N.rotation.set(-0.2, Math.PI, -0.3); }
+    if (DEDO_N.visible) { DEDO_N.position.set(0.0, -0.093, -0.022 - 0.03 * (1 - toq)); DEDO_N.rotation.set(0.15, Math.PI, 0.6); }
+    nico.raiz.visible = nico.raiz.visible && u < 0.5;   // (r1) Nico fuera del inserto (su brazo era una masa marrón)
   } else DEDO_N.visible = false;
   if (pa === "Q3b") {
     // la ficha de Héctor en el monitor (inserto que llena el ancho)
-    const FOV = 44, d = (MON.W * 1.04) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
+    const FOV = 44, d = (MON.W * 0.97) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
     monitor.updateMatrixWorld(true);
     const c = monitor.localToWorld(monitor.userData.centro.clone()), n = V3(0, 0, 1).transformDirection(monitor.matrixWorld);
     const p = c.clone().add(n.multiplyScalar(d * lerp(1.08, 1.0, eio(sg(t, pl[1], T.q4)))));
-    ponerCam([p.x, p.y + 0.06, p.z, c.x, c.y + 0.06, c.z, FOV], t, true);
+    ponerCam([p.x, p.y - 0.05, p.z, c.x, c.y - 0.05, c.z, FOV], t, true);
   }
-  if (pa === "Q4b") {
-    // push al monitor con el panel; Rubén sigue en cuadro a la derecha
-    const u = eio(sg(t, T.q4b, T.q4b + 0.7));
-    const v0 = CAM_P1(0.6), v1 = [0.24, OY + 1.45, 3.18, -0.95, OY + 1.41, 1.45, 48];
-    ponerCam(lerpV(v0, v1, u), t);
+  if (pa === "Q4" || pa === "Q4b") {
+    // (r1) el panel de frente, lleno de ancho (push-in suave)
+    const FOV = 46, d = (MON.W * 1.03) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
+    monitor.updateMatrixWorld(true);
+    const c = monitor.localToWorld(monitor.userData.centro.clone()), n = V3(0, 0, 1).transformDirection(monitor.matrixWorld);
+    const p = c.clone().add(n.multiplyScalar(d * lerp(1.06, 1.0, eio(sg(t, pl[1], pl[1] + 1.2)))));
+    ponerCam([p.x, p.y - 0.05, p.z, c.x, c.y - 0.05, c.z, FOV], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
@@ -1448,6 +1505,7 @@ function renderAt(tIn) {
   if (lugar === "ca" || lugar === "auto") ponerSolCa(lugar === "auto" && parte2 ? AUTO_SEM.clone() : V3(VX, 0, -1));
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
+  bigoteSegunCamara();
 
   // ---- globos de diálogo y rótulos ----
   for (const k in GL) GL[k].visible = false;
@@ -1457,22 +1515,19 @@ function renderAt(tIn) {
     const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
     const tel = () => objPx(telefono, V3(-0.06, 0.09, 0.05));
     // P1 / Q4: el contador sale del teléfono (cola al parlante), Rubén arriba de su cabeza
-    if (pa === "P1" || pa === "Q4") {
-      const b = parte2;
-      const c1 = b ? GL.c1b : GL.c1, r1 = b ? GL.r1b : GL.r1, c2 = b ? GL.c3 : GL.c2;
-      const tc1 = b ? T.c1b : T.c1, tr1 = b ? T.r1b : T.r1, tc2 = b ? T.c3 : T.c2;
+    if (pa === "P1") {
+      // (r1) una burbuja a la vez: la del contador se va cuando habla Rubén
       const [tx, ty] = tel();
-      if (t >= tc1 - 0.05 && t < tc2 - 0.02) ponerGlobo(c1, 600, ty - 300, ent(tc1 - 0.05), [tx, ty], 1);
-      if (t >= tc2 - 0.05) ponerGlobo(c2, 600, ty - 300, ent(tc2 - 0.05), [tx, ty], 1);
-      if (t >= tr1 - 0.04 && t < tc2 - 0.05) { const [bx, by] = bocaPx(ruben); ponerGlobo(r1, 330, 600, ent(tr1 - 0.04), [bx - 40, by - 10], 2); }
+      if (t >= T.c1 - 0.05 && t < T.r1 - 0.04) ponerGlobo(GL.c1, 600, ty - 300, ent(T.c1 - 0.05), [tx, ty], 1);
+      if (t >= T.c2 - 0.05) ponerGlobo(GL.c2, 600, ty - 300, ent(T.c2 - 0.05), [tx, ty], 1);
+      if (t >= T.r1 - 0.04 && t < T.c2 - 0.05) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1, 330, 600, ent(T.r1 - 0.04), [bx - 40, by - 10], 2); }
     }
-    if (pa === "Q4b") {
-      const [tx, ty] = tel();
-      if (t >= T.c3 - 0.05) ponerGlobo(GL.c3, 540, 420, ent(T.c3 - 0.05), null, 1);
-    }
+    if (pa === "Q4" && t >= T.c1b - 0.05) ponerGlobo(GL.c1b, 540, 330, ent(T.c1b - 0.05), null, 1);
+    if (pa === "Q4r") { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1b, 330, 600, ent(T.r1b - 0.04), [bx - 40, by - 10], 2); }
+    if (pa === "Q4b" && t >= T.c3 - 0.05) ponerGlobo(GL.c3, 540, 330, ent(T.c3 - 0.05), null, 1);
     // P2: los rótulos de la plata (a la izquierda, guías al cartel HÉCTOR · MARTES y al rincón)
     if (pa === "P2") {
-      const cartelPx = objPx(DEP, V3(SLOT.HECTOR - 0.5, 2.15, ZA - 0.83)), rinPx = objPx(RIN, V3(0, 0.45, 0));
+      const cartelPx = objPx(DEP, V3(SLOT.HECTOR - 0.5, 2.15, ZA - 0.83)), rinPx = objPx(RIN, V3(-0.15, 0.02, 0.62));   // (r1) la guía al borde del lugar pintado, lejos de Darío
       const pos = [[300, 560], [300, 790], [320, 1040]];
       ROT.forEach((r, i) => {
         if (t < T.rot[i]) return;
@@ -1482,7 +1537,8 @@ function renderAt(tIn) {
       });
     }
     if (pa === "P3" && t >= T.n1 - 0.04) hablar(GL.n1, nico, ent(T.n1 - 0.04), 1, 0, 300);
-    if ((pa === "P4" || pa === "P4b") && t >= T.h1 - 0.04) {
+    if (pa === "P4" && t >= T.h1 - 0.04) { const [bx, by] = bocaPx(hector); const [hx, hy] = coronillaPx(hector); ponerGlobo(GL.h1a, 560, Math.min(760, hy - 180), ent(T.h1 - 0.04), [hx, hy + 6], 2); }   // (r1) abajo: no tapa el cartel
+    if (pa === "P4b" && t >= T.h1 - 0.04) {
       const k = 2;   // "¡Rubén! ¿Cerraste?" y después "Dejé de pedir y nadie me llamó."
       const corte = T.h1 + LEN.h1 * 0.36;
       if (t < corte) hablar(GL.h1a, hector, ent(T.h1 - 0.04), k, 0, 300); else hablar(GL.h1, hector, ent(corte), k, 0, 300);

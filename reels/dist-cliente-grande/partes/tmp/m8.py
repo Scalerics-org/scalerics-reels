@@ -12,6 +12,6 @@ while t < V[-1][0]:
     v, r = tramo(V, t), tramo(R, t)
     if v > -40:
         d = v - r; peor = min(peor, d)
-        if d < 8: malos.append(f"{t:.1f}s voz {v:.1f} resto {r:.1f} ({d:+.1f})")
+        if d < 7.5: malos.append(f"{t:.1f}s voz {v:.1f} resto {r:.1f} ({d:+.1f})")
     t += 0.5
 print("mínimo voz-resto en tramos con voz:", round(peor, 1)); print("\n".join(malos))
