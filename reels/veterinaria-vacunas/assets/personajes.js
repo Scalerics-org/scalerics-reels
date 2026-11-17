@@ -808,7 +808,8 @@ export function crearPersonaje(cfg) {
     ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
     ojos[0].g.visible = ojos[1].g.visible = true; cejas[0].piv.visible = cejas[1].piv.visible = true;
-    if (ang > 0.62) { ojos[lejos].g.visible = false; if (ang > 0.8) cejas[lejos].piv.visible = false; }
+    if (ang > 0.62) { ojos[lejos].g.visible = false; cejas[lejos].piv.visible = false; }   // (veterinaria r4) la ceja de atrás se va con el ojo
+    mejillas.forEach((m, i) => (m.visible = !(ang > 0.45 && i === lejos)));   // (veterinaria r4) el rubor de atrás salía del contorno
     // (veterinaria r3) de 3/4 o perfil (> ~30°) la boca se aplasta contra la cara: no asoma del contorno
     { const k = cl((ang - 0.4) / 0.6); bocaG.scale.set(lerp(1, 0.62, k), lerp(1, 0.8, k), lerp(1, 0.3, k)); }
     for (const L of lentesLado) { L.a.visible = L.pat.visible = true; if (ang > 0.62 && L.s === ojos[lejos].s) L.a.visible = false; if (ang > 0.5 && L.s !== ojos[lejos].s && c.lentesCerca) L.pat.visible = false; if (ang > 0.62 && L.s === ojos[lejos].s && c.lentesCerca) L.pat.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta

@@ -43,12 +43,12 @@ T.b1 = r2(T.p3 + 0.12); T.i2 = r2(T.b1 + LEN.b1 + 0.12); T.p3b = r2(T.i2 - 0.08)
 // P4 · JULIO: campanita, entra Vero con Toto (pañuelo nuevo) · "A Toto le escribieron…" · P4b contraplano en "de la vuelta"
 T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 0.6)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 0.3); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);   // (r2) el contraplano de Vero entra apenas empieza a hablar
 // P5 · la pausa: el fichero lleno adelante, Inés detrás, Toto abajo; los rótulos del costo
-T.p5 = r2(T.v2 + LEN.v2 + 0.08); T.rot = [r2(T.p5 + 0.1), r2(T.p5 + 0.28), r2(T.p5 + 0.46)];
+T.p5 = r2(T.v2 + LEN.v2 + 0.08); T.rot = [r2(T.p5 + 0.0), r2(T.p5 + 0.08), r2(T.p5 + 0.16)];   // (r4) entran juntos al principio de la pausa
 // P6 · el remate: Inés mira a Toto desde arriba del mostrador · "¿Vos también, Toto?"
-T.p6 = r2(T.p5 + 0.95); T.i3 = r2(T.p6 + 0.3);
+T.p6 = r2(T.p5 + 1.7); T.i3 = r2(T.p6 + 0.3);   // (r4) los rótulos quedan ≥ 1,5 s (la pausa antes del remate, 0,95 → 1,7 s)
 // P7 · remate del remate: Toto se para y le da la pata; Inés se la da, seca
-T.p7 = r2(T.i3 + LEN.i3 + 0.05); T.pata = [r2(T.p7 + 0.15), r2(T.p7 + 0.45)]; T.apreton = r2(T.p7 + 0.55);
-const P1 = r2(T.p7 + 0.78);    // termina la parte 1 (arranca el cartel)
+T.p7 = r2(T.i3 + LEN.i3 + 0.05); T.pata = [r2(T.p7 + 0.3), r2(T.p7 + 0.55)]; T.apreton = r2(T.p7 + 0.62);   // (r4) primero se da vuelta y se para
+const P1 = r2(T.p7 + 0.9);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.05));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, un año después: el mismo "¿y cuándo le toca la próxima?" · "Le vamos a escribir a él."
@@ -56,18 +56,18 @@ T.q1 = P2; T.v1b = r2(P2 + 0.12); T.i4 = r2(T.v1b + LEN.v1 + 0.08);
 // Q1t · inserto: la ficha de Toto en la tablet, Guardar → Guardado ✓ (1,5 s)
 T.q1t = r2(T.i4 + LEN.i4 + 0.3); T.guardar = r2(T.q1t + 0.7); T.guardado = r2(T.guardar + 0.14);
 // Q2 · un año después, 5 días antes: el recordatorio llega solo (inserto) · Q2b el living · Q2c: Sí → reservado (1 s)
-T.q2 = r2(T.q1t + 1.5); T.llega = r2(T.q2 + 0.05);
+T.q2 = r2(T.q1t + 1.75); T.llega = r2(T.q2 + 0.05);   // (r4) +0,25 (compensa la pausa más larga de la parte 1)
 T.q2b = r2(T.q2 + 0.65); T.v3 = r2(T.q2b + 0.1);
 T.q2c = r2(T.v3 + LEN.v3 + 0.12); T.si = r2(T.q2c + 0.2); T.reservado = r2(T.q2c + 0.45);
 // Q3 · Bruno con su tablet repite su pregunta (el mismo audio) · Q3c el panel (inserto) cuenta mientras Inés: "Ya salieron solos."
-T.q3 = r2(T.reservado + 1.05); T.b1b = r2(T.q3 + 0.24);
+T.q3 = r2(T.reservado + 1.25); T.b1b = r2(T.q3 + 0.24);   // (r4) +0,2
 T.q3c = r2(T.b1b + LEN.b1 + 0.12); T.i5 = r2(T.q3c + 0.1);
 T.tildes = [0.0, 0.12, 0.24, 0.36, 0.48].map((d) => r2(T.i5 + d)); T.cuenta = [r2(T.i5 + 0.05), r2(T.i5 + 0.95)]; T.gira = r2(T.i5 + 0.5);
 // Q4 · MARTES 10:00: la sala llena; entra Vero con Toto, que va solo al consultorio · "¿Vos también, Toto?" · la pata
-T.q4 = r2(T.i5 + LEN.i5 + 0.5); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.25), r2(T.q4 + 1.15)];
+T.q4 = r2(T.i5 + LEN.i5 + 0.92); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.25), r2(T.q4 + 1.15)];   // (r4) +0,3: el panel respira
 T.q4b = r2(T.q4 + 1.15); T.i6 = r2(T.q4b + 0.12); T.q4c = r2(T.i6 - 0.05); T.pata2 = [r2(T.i6 + LEN.i6 - 0.05), r2(T.i6 + LEN.i6 + 0.25)]; T.q4d = r2(T.pata2[0] - 0.12);
 // Q5 · el panel en verde y Sofi en videollamada al lado · "Comentá VACUNA…"
-T.q5 = r2(T.pata2[1] + 0.3); T.cero = r2(T.q5 + 0.05);
+T.q5 = r2(T.pata2[1] + 0.3); T.cero = r2(T.q5 - 0.02);   // (r4) el panel ya en cero desde el primer cuadro de Q5
 T.viaje = [r2(T.q5 + 0.35), r2(T.q5 + 1.1)]; T.f1 = r2(T.q5 + 0.1); T.palabra = r2(T.f1 + 0.02);
 const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.25) * 30) / 30) * 1e4) / 1e4;   // (r1) 0,25 s de aire al final, múltiplo de un cuadro
 T.cierre = r2(DUR - 1.5);
