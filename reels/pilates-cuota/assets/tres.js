@@ -788,8 +788,8 @@ function dibujarEnvios(x, W, H, n) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle";
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 100); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(800, 46); x.fillText("Enviados:", 28, 52);
   x.fillStyle = "#c7655b"; x.font = F(900, 66); x.textAlign = "right"; x.fillText(String(n), W - 28, 54);
-  const vis = Math.min(n, 4);
-  for (let i = 0; i < vis; i++) { const y = H - 30 - (i + 1) * 132; x.fillStyle = "#cfeebc"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(24, y, W - 48, 116, [30, 30, 8, 30]); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 42); x.fillText("Hola, ¿pudiste ver", 50, y + 38); x.fillText("lo de la cuota?", 50, y + 82); }
+  const vis = Math.min(n, 3);   // (r1) tres burbujas: el contador "Enviados" siempre a la vista
+  for (let i = 0; i < vis; i++) { const y = H - 30 - (i + 1) * 132; x.fillStyle = "#cfeebc"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(24, y, W - 48, 116, [30, 30, 8, 30]); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, "Hola, ¿pudiste ver", 800, 40, W - 100); x.fillText("Hola, ¿pudiste ver", 46, y + 38); x.fillText("lo de la cuota?", 46, y + 82); }   // (r1) el texto entra en la tarjeta
 }
 const GL = {
   dia10: chip("DÍA 10 · 8:00", 56, "#16243d", "#efeee5"),
