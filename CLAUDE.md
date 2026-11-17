@@ -547,7 +547,7 @@ dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo de
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
-## Cuántos por corrida: 2 reels, con un equipo entero para cada uno
+## Cuántos por corrida: 2 reels, con un equipo entero para cada uno (meta: al menos 5 por día)
 
 **PRIMERO TERMINAR, DESPUÉS EMPEZAR (regla desde el 06-11).** La noche del 05 al 06-11 las corridas se
 pisaron: cada una retomó o reservó 2 reels nuevos mientras la anterior seguía trabajando, el límite de
@@ -565,6 +565,15 @@ uso del plan se agotó a mitad de camino y **no se terminó ninguno** (8 reels a
 3. **Guardá el avance seguido** en la rama `reel/<slug>` (commit "wip: <slug> (<en qué paso
    quedó>)" después de cada etapa: guion, voz, escenas, cada ronda de QA), para que si el límite de
    uso corta la corrida, la próxima siga desde ahí y no desde cero.
+
+**Meta desde el 17-11 (Juan): al menos 5 reels terminados por día, sin bajar el esfuerzo.** Desde el
+17-11 los reels los hace una sola rutina (la de contacto@); la de Juan está apagada. Al entregar los 2
+de tu corrida, contá en "Hechos" los entregados hoy (día de Uruguay). Si son menos de 5, no cierres:
+renová `corrida-activa`, tomá el siguiente (primero lo que haya En curso; si no hay, uno nuevo) y hacelo
+con el mismo equipo completo de abajo (guion, construcción, 3 revisores independientes, hasta 3 rondas).
+Seguí así hasta llegar a 5 o hasta que te corte el límite de uso; para eso está el commit "wip:" de cada
+etapa. **Nunca** saques revisores, rondas ni la vara de 8c para llegar al número: si el uso no da, mejor
+4 sin un bug que 5 con errores.
 
 Cada corrida hace **2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
 que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
