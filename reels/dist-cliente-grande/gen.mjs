@@ -66,7 +66,7 @@ T.grua2 = [r2(T.q3 + 1.3), r2(T.q3 + 1.95)]; T.hueco = r2(T.q3 + 2.2);
 // Q4 · la oficina, el mismo encuadre del cuadro 0: el panel; el mismo "Rubén, ¿y Héctor?" y el mismo "¿Héctor? Compra
 // todos los martes."; "Compra." con la tilde verde en la fila de Héctor
 T.q4 = r2(T.q3 + 2.8); T.c1b = r2(T.q4 + 0.12); T.tildes = [0, 1, 2, 3].map((i) => r2(T.q4 + 0.2 + i * 0.2)); T.cero = r2(T.q4 + 1.0);
-T.r1b = r2(T.c1b + LEN.c1 + 0.12); T.q4b = r2(T.r1b + 0.5); T.c3 = r2(T.r1b + LEN.r1 + 0.3); T.tildeH = r2(T.c3 + 0.05);
+T.r1b = r2(T.c1b + LEN.c1 + 0.12); T.q4b = r2(T.r1b + LEN.r1 + 0.02); T.c3 = r2(T.r1b + LEN.r1 + 0.3); T.tildeH = r2(T.c3 + 0.05);
 // C · Rubén a cámara: "Comentá CLIENTES y te mando cómo funciona para tu distribuidora."
 T.c = r2(T.c3 + LEN.c3 + 0.3); T.r3 = r2(T.c + 0.25);
 T.palabra = r2(T.r3 + Math.max(0.4, PAL.find((p) => /client/i.test(p.w))?.a ?? 0.45) - 0.05);
