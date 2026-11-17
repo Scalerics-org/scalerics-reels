@@ -649,8 +649,8 @@ function hablar(g, per, s, orden = 1, dx = 0, minArriba = 260) {
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ceci = crearPersonaje({ ...ELENCO.ceci, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2 - 0.4), r2(T.p5 + 0.5), r2(T.q2b + 0.3), r2(T.q3 + 0.4)] });
-const alicia = crearPersonaje({ ...ELENCO.alicia, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.7), r2(T.q1 + 0.3), r2(T.q3 + 0.9)] });
+const ceci = crearPersonaje({ ...ELENCO.ceci, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.5), r2(T.q2b + 0.3), r2(T.q3 + 0.4)] });
+const alicia = crearPersonaje({ ...ELENCO.alicia, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.7), r2(T.q3 + 0.9)] });
 const joaco = crearPersonaje({ ...ELENCO.joaco, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.2)] });
 // las alumnas de la clase (sin voz), en los otros cuatro reformers
 const ALUMNAS = [
@@ -855,9 +855,9 @@ const PLANOS = [
   ["Q1i", T.q1i, null],
   ["Q1b", T.q1b, [[T.q1b, ALI_COC.x + 0.42, 1.45, 2.0, ALI_COC.x + 0.05, 1.35, ALI_COC.z, 44], [T.q2, ALI_COC.x + 0.4, 1.44, 1.88, ALI_COC.x + 0.05, 1.35, ALI_COC.z, 43]]],
   ["Q2", T.q2, null],
-  ["Q2b", T.q2b, [[T.q2b, MOS.x + 0.22, 1.55, MOS.z + 2.65, MOS.x + 0.42, 1.3, MOS.z - 0.1, 48], [T.q3, MOS.x + 0.24, 1.54, MOS.z + 2.55, MOS.x + 0.42, 1.3, MOS.z - 0.1, 47]]],
+  ["Q2b", T.q2b, [[T.q2b, MOS.x + 0.42, 1.68, MOS.z + 2.35, MOS.x + 0.52, 1.5, MOS.z - 0.3, 50], [T.q3, MOS.x + 0.43, 1.67, MOS.z + 2.25, MOS.x + 0.52, 1.5, MOS.z - 0.3, 49]]],
   ["Q3", T.q3, [[T.q3, ...P1C(0)], [T.q4, ...P1C(1)]]],
-  ["Q4", T.q4, [[T.q4, 2.72, 1.52, 1.45, CECI_CLASE.x - 0.05, 1.42, CECI_CLASE.z, 46], [T.q5, 2.72, 1.51, 1.32, CECI_CLASE.x - 0.05, 1.42, CECI_CLASE.z, 45]]],
+  ["Q4", T.q4, [[T.q4, 2.72, 1.5, 2.0, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 48], [T.q5, 2.72, 1.5, 1.85, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 47]]],
   ["Q5", T.q5, [[T.q5, MOS.x + 0.3, 1.3, MOS.z + 1.42, MOS.x + 0.3, 1.21, MOS.z, 42], [DUR, MOS.x + 0.34, 1.3, MOS.z + 1.32, MOS.x + 0.34, 1.21, MOS.z, 41]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
@@ -964,7 +964,7 @@ function poseAlicia(t) {
   }
   // Q1 / Q1b: en la cocina, con el celular en las dos manos; "¿Ya? ¿Así nomás?"
   const p = poseEn(t, [
-    [0, { x: ALI_COC.x, z: ALI_COC.z, giro: -0.15, ...aC(0.0, 0.42), ...CARA.neutra, ojos: { abiertos: 1, y: -0.6 }, ...BRAZOS.celular }],
+    [0, { x: ALI_COC.x, z: ALI_COC.z, giro: -0.15, ...aC(0.0, 0.3), ...CARA.neutra, ojos: { abiertos: 1, y: -0.35 }, ...BRAZOS.celular }],
     [T.pagado + 0.1, { ...aC(0.0, 0.3), ...CARA.sorpresa, boca: { sonrisa: 0.2, abierta: 0.1, ancho: 0.8 } }, 0.2],
     [T.a4 + 0.05, { ...aC(0.2, 0.0, 0.08), ...CARA.sorpresa, cejas: { alto: 0.9, ang: 0.35 } }, 0.25],
     [T.a4 + LEN.a4 * 0.5, { ...aC(0.15, 0.05, 0.1), ...FELIZ }, 0.3],
@@ -980,8 +980,8 @@ function poseCeci(t) {
       const p = poseEn(t, [
         [0, { x: CECI_CLASE.x, z: CECI_CLASE.z, giro: gA, ...aC(0.15, 0.05), ...CARA.sonrisa, ...BRAZOS.costado, manoI: [0.2, 0.3, 0.3], codoI: [0.9, -0.6, -0.2], manoD: [-0.27, -0.05, 0.08] }],
         [T.a1 + 0.5, { ...aC(0.2, 0.0), ...SEGURO }, 0.3],
-        [T.vibra1 + 0.25, { ...aC(0.0, 0.32), ...CARA.sonrisa, ojos: { abiertos: 0.95, y: -0.7 }, manoD: [-0.08, 0.36, 0.34], codoD: [-0.8, -0.6, -0.2] }, 0.3],
-        [T.c1 + 0.1, { ...aC(0.25, 0.12), ...CARA.sonrisa }, 0.25],
+        [T.vibra1 + 0.25, { ...aC(0.0, 0.22), ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.15, y: -0.4 }, manoD: [-0.08, 0.36, 0.34], codoD: [-0.8, -0.6, -0.2] }, 0.3],
+        [T.c1 + 0.1, { ...aC(0.25, 0.12), ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.2 } }, 0.25],
       ]);
       p.t = t; bocaVoz(p, t, T.c1, ENV.c1, 0.55); return p;
     }
@@ -997,7 +997,7 @@ function poseCeci(t) {
     // Q4: las manos al pecho, feliz: "Y exhalamos."
     const p = poseEn(t, [
       [0, { x: CECI_CLASE.x, z: CECI_CLASE.z, giro: gA + 0.25, ...aC(0.0, 0.05), ...BUENA, manoI: [0.08, 0.4, 0.2], manoD: [-0.08, 0.4, 0.2], codoI: [0.9, -0.7, -0.2], codoD: [-0.9, -0.7, -0.2] }],
-      [T.c6, { ...aC(0.0, -0.08, 0.05), ...FELIZ, ojos: { abiertos: 0.9, feliz: 0.6 }, manoI: [0.32, 0.18, 0.2], manoD: [-0.32, 0.18, 0.2] }, 0.5],
+      [T.c6, { ...aC(0.0, -0.08, 0.05), ...FELIZ, ojos: { abiertos: 0.9, feliz: 0.6 }, cejas: { alto: 0.25, ang: -0.05, asim: 0 }, manoI: [0.32, 0.18, 0.2], manoD: [-0.32, 0.18, 0.2] }, 0.5],
     ]);
     p.t = t; bocaVoz(p, t, T.c6, ENV.c6, 0.55); return p;
   }
@@ -1035,7 +1035,7 @@ function poseCeci(t) {
 function poseJoaco(t) {
   if (t < P2) {
     // 22:40: con la mochila al hombro, del lado de la sala, la pregunta al pasar
-    const g = dirGiro(JOACO_N.x, JOACO_N.z, CECI_MOS.x, CECI_MOS.z) + 0.35;
+    const g = dirGiro(JOACO_N.x, JOACO_N.z, CECI_MOS.x, CECI_MOS.z) - 0.65;
     const p = poseEn(t, [[0, { x: JOACO_N.x, z: JOACO_N.z, giro: g, ...aC(-0.1, 0.05), ...CARA.esperanza, ...BRAZOS.costado, manoI: [0.16, 0.42, 0.04], codoI: [0.9, -0.3, -0.3] }], [T.j1 + LEN.j1, { ...aC(-0.15, 0.08), ...CARA.sonrisa }, 0.3], [T.c2 + 0.5, { ...aC(-0.1, 0.0), ...CARA.esperanza, cejas: { alto: 0.6, ang: 0.4 } }, 0.3]]);
     p.t = t; bocaVoz(p, t, T.j1, ENV.j1, 0.6); return p;
   }
@@ -1170,7 +1170,7 @@ function tarjetas(t) {
   if (pa === "P2b") { ponerGlobo(GL.pagaron, 540, 1500, ent(T.p2b + 0.1), null, 1); }
   if (pa === "P3" || pa === "P3j" || pa === "P3b") {
     ponerGlobo(GL.noche, 300, 200, 1, null);
-    if (pa === "P3") { LAPTOP.updateMatrixWorld(true); const [lx, ly] = objPx(LAPTOP, V3(0, 0.13, -0.12)); ponerGlobo(GL.noCierra, 300, 1520, ent(T.noCierra), null, 1); if (t >= T.noCierra) ponerGuia(GUIAS[0], 300, 1460, lx, ly, eo(sg(t, T.noCierra, T.noCierra + 0.25))); }
+    if (pa === "P3") { LAPTOP.updateMatrixWorld(true); const [lx, ly] = objPx(LAPTOP, V3(0, 0.13, -0.12)); ponerGlobo(GL.noCierra, 300, 1380, ent(T.noCierra), null, 1); if (t >= T.noCierra) ponerGuia(GUIAS[0], 300, 1320, lx, ly, eo(sg(t, T.noCierra, T.noCierra + 0.25))); }
     if (pa === "P3j" && t >= T.j1) hablar(GL.j1, joaco, ent(T.j1), 1, 0);
     if (pa === "P3b" && t >= T.c2) hablar(GL.c2, ceci, ent(T.c2), 1, -40);
     if (pa === "P3b" && t >= T.envios[0] - 0.1) { CEL_CECI.updateMatrixWorld(true); const [cx, cy] = objPx(CEL_CECI); ponerEnvios(t, 760, 1240, ent(T.envios[0] - 0.1)); ponerGuia(GUIAS[1], 640, 1300, cx, cy, eo(sg(t, T.envios[0] - 0.1, T.envios[0] + 0.15))); }
@@ -1207,7 +1207,7 @@ function tarjetas(t) {
     if (t >= T.a5) hablar(GL.a5, alicia, ent(T.a5), 2, 40);
   }
   if (pa === "Q4") {
-    if (t >= T.flor) { ponerGlobo(GL.noti, 540, 1200, ent(T.flor), null, 2); ponerGlobo(GL.p40, 540, 1370, ent(T.flor + 0.15), null, 2); }
+    if (t >= T.flor) { ponerGlobo(GL.noti, 620, 1300, ent(T.flor), null, 2); ponerGlobo(GL.p40, 620, 1445, ent(T.flor + 0.15), null, 2); }
     if (t >= T.c6) hablar(GL.c6, ceci, ent(T.c6), 1, 0);
   }
 }
