@@ -266,7 +266,7 @@
 - 17-11 · `mesa-doce` · Scalerics Puntos · Rubén, cliente de los viernes de una pizzería: "Dos años. Todos los viernes. Mesa doce." y el dueño le pregunta "¿Primera vez por acá?" a las 90 visitas; se va a la de la vuelta que da puntos; rebobina y la misma pizzería con Puntos (QR en la mesa, tarjeta 8/10, regalo de cumple, panel del dueño): "¡Rubén! ¿La de siempre?" "Ahora sí." · Comentá PUNTOS [formato POV en primera persona del cliente (sobre un reel de menu4d, historia propia) · estilo 3D pizzería cálida con HUD de Puntos · hecho a mano en la sesión de Juan, 38,7 s]
 
 ## En curso
-<!-- corrida-activa: 2026-11-17T20:35 -->
+<!-- corrida-activa: 2026-11-17T21:15 -->
 
 - 17-11 · `inmobiliaria-visitas` · Inmobiliarias · Sistema a medida / CRM de propiedades (cada visita queda registrada con la devolución del interesado, y el propietario recibe solo un resumen semanal) · Línea "ANTES QUE TODO", completo con la dueña de la inmobiliaria: el propietario que llama "¿Y? ¿Hubo visitas?" y nadie sabe · Comentá VISITAS · reservado por la corrida 17-11 14:15 (para llegar a 5 en el día)
 
