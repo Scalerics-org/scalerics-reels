@@ -544,7 +544,8 @@ function ponerFichero(t) {
     else if (f.tipo === "toto") { slot = n; vis = enCaja; cae = 1 - sg(t, T.guarda - 0.05, T.guarda); }
     else { const e = ENTRA[f.m]; vis = t >= e - 0.14; slot = ENTRA.reduce((a, x) => a + (x > e ? sg(t, x - 0.04, x + 0.06) : 0), 0); cae = 1 - sg(t, e - 0.14, e - 0.02); }
     const g = f.g; g.visible = vis; if (!vis) return;
-    g.position.set(0, FIC.H * 0.08 + cae * 0.2, zSlot(slot) + cae * 0.04);
+    const kc = f.tipo === "toto" ? 0.25 : 1;   // (r3) la de Toto cae desde poco (con el fichero a 2,3x pasaba por la cara de Inés)
+    g.position.set(0, FIC.H * 0.08 + cae * 0.2 * kc, zSlot(slot) + cae * 0.04 * kc);
     g.rotation.set(-0.1 - cae * 0.4, 0, cae * 0.15 * (f.m % 2 ? 1 : -1));
     // pestaña roja
     const totoRoja = t >= T.mes[2] && t < P2, ir = ROJAS.indexOf(f);
@@ -1067,7 +1068,7 @@ function ponerFicheroLugar(t) {
   FICHERO.visible = true; FICHERO.rotation.set(0, 0, 0); PLANTA.visible = p2; FICHERO.scale.setScalar(t < T.p2 ? 2.3 : t < T.p3 ? 1.7 : 1.15);   // (r3) más grande en el cuadro 0
   if (p2) { FICHERO.visible = false; PLANTA.visible = false; return; }
   if (planoActual === "P2c") { FICHERO.scale.setScalar(1.15); FICHERO.position.set(MOS.x - 0.42, MOS.alto, MOS.z + 0.12); FICHERO.rotation.y = 0.35; return; }
-  if (t < T.p3) { FICHERO.position.copy(FICH_CARRO); return; }
+  if (t < T.p3) { FICHERO.position.copy(FICH_CARRO); if (t < T.p2) FICHERO.position.x += 0.14; return; }   // (r3) en el cuadro 0, más adentro (no cortado a la izquierda)
   if (t < T.p4) {
     // en los brazos de Bruno, hasta que lo apoya en la mesada
     const a = manoMundo(bruno, "I", _a), b = manoMundo(bruno, "D", _b);
@@ -1101,7 +1102,7 @@ function ponerManos(t) {
       // la tira al fichero: un arco corto de la mano a la ficha de adelante
       const u = eio(sg(t, T.guarda - 0.32, T.guarda - 0.05));
       FICHERO.updateMatrixWorld(true); const dst = FICHERO.localToWorld(V3(0, 0.06, zSlot(0)));
-      FICHA_MANO.position.lerp(dst, u); FICHA_MANO.position.y += Math.sin(u * Math.PI) * 0.12;
+      FICHA_MANO.position.lerp(dst, u); FICHA_MANO.position.y -= Math.sin(u * Math.PI) * 0.1;   // (r3) por abajo: no cruza la cara de Inés
       FICHERO.getWorldQuaternion(_q); FICHA_MANO.quaternion.slerp(_q, u);
     }
     dibujarFichaMano(pa === "P2c" ? 1 : sg(t, T.escribe[0], T.escribe[1]));
@@ -1211,8 +1212,8 @@ function renderAt(tIn) {
 
   // ---- portada (VER=portada): Inés detrás del mostrador y Toto parado con las patas en el mostrador, de frente ----
   if (VER === "portada") {
-    vero.raiz.visible = false; BOLSA.visible = false; ponerCorrea(null, null, false); toto.raiz.visible = true; ines.raiz.visible = true;
-    ines.poner({ ...poseEn(t, [[0, { x: MOS.x + 0.42, z: INES_MOS.z + 0.05, giro: -0.3, inclina: 0.3, ...aC(-0.1, 0.22), ...SECO, ojos: { abiertos: 1, y: -0.5, x: -0.3 }, cejas: { alto: 0.05, ang: 0.35 }, ...BRAZOS.apoyado }]]), t });
+    vero.raiz.visible = false; BOLSA.visible = false; toto.panuelo.visible = true; toto.chapitaM.visible = false; ponerCorrea(null, null, false); toto.raiz.visible = true; ines.raiz.visible = true;
+    ines.poner({ ...poseEn(t, [[0, { x: MOS.x + 0.6, z: INES_MOS.z + 0.0, giro: -0.3, inclina: 0.3, ...aC(-0.1, 0.22), ...SECO, ojos: { abiertos: 1, y: -0.5, x: -0.3 }, cejas: { alto: 0.05, ang: 0.35 }, ...BRAZOS.apoyado }]]), t });
     toto.poner({ x: MOS.x - 0.02, y: 0, z: MOS.z + MOS.d / 2 + 0.16, giro: 0.05, erguido: 0.85, orejas: 0, cejas: -1, cola: 0.05, colaAlta: 0.2, cabeza: { giro: 0.05, asiente: 0.15, ladea: 0.14 }, t });
     FICHERO.position.copy(FICH_MOS).add(V3(-0.05, 0, 0)); FICHERO.rotation.y = -0.2;
     ponerCam([MOS.x + 0.1, 1.3, MOS.z + 3.9, MOS.x + 0.1, 1.12, MOS.z + 0.1, 40], t); camera.updateMatrixWorld(true);

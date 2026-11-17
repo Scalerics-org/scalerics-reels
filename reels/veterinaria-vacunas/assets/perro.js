@@ -158,9 +158,9 @@ export function crearPerro(cfg) {
   const argolla = mesh(new THREE.TorusGeometry(0.011, 0.003, 6, 12), mat(0xb4b2a3, 0.3, { metalness: 0.5 }), 0, -0.012, 0.112); collar.add(argolla);
   const chapita = mesh(new THREE.CylinderGeometry(0.024, 0.024, 0.006, 20), M.chapita, 0, -0.04, 0.115); chapita.rotation.x = Math.PI / 2 - 0.15; collar.add(chapita);
   const panuelo = new THREE.Group(); collar.add(panuelo);
-  { const s = new THREE.Shape(); s.moveTo(-0.11, 0); s.lineTo(0.11, 0); s.quadraticCurveTo(0.02, -0.1, 0, -0.15); s.quadraticCurveTo(-0.02, -0.1, -0.11, 0);
+  { const s = new THREE.Shape(); s.moveTo(-0.11, 0); s.lineTo(0.11, 0); s.quadraticCurveTo(0.08, -0.12, 0, -0.14); s.quadraticCurveTo(-0.08, -0.12, -0.11, 0);   // (r3) punta redonda: ya no parece una flecha
     const g = new THREE.ExtrudeGeometry(s, { depth: 0.012, bevelEnabled: true, bevelSize: 0.006, bevelThickness: 0.006, bevelSegments: 1 });
-    const p = mesh(g, M.panuelo, 0, -0.01, 0.108, 1.6, 1.75, 1); p.rotation.x = -0.4; panuelo.add(p);   // (r3) más grande
+    const p = mesh(g, M.panuelo, 0, -0.01, 0.108, 1.45, 1.5, 1); p.rotation.x = -0.4; panuelo.add(p);   // (r3) más grande
     const nudo = mesh(G.esfL, M.panuelo, 0, -0.005, -0.1, 0.03, 0.025, 0.02); panuelo.add(nudo); }
   panuelo.visible = false;
 
