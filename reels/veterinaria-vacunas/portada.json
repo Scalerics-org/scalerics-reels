@@ -1,0 +1,14 @@
+{
+ "t": 13.9,
+ "chica": "Le escribió otra veterinaria.",
+ "grande": "¿Vos también, Toto?",
+ "sello": "VETERINARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-13.9.png",
+ "nota": "BORRADOR del guionista: t y fondo_limpio los completa el constructor. Fondo: P6 (Inés asomada por el mostrador arriba, Toto abajo con las orejas gachas y el pañuelo rojo apagado), o un plano propio VER=portada con los dos de frente en la mitad de arriba, como taller-presupuestos. Renderizar sin gancho, rótulos, subtítulos ni burbujas. Alternativa de grande: \"Yo le aviso.\" con chica \"Marzo. Vacuna de Toto.\""
+}
