@@ -1173,7 +1173,7 @@ function renderAt(tIn) {
     celuS.updateMatrixWorld(true);
     const cs = celuS.userData.piv.localToWorld(celuS.userData.centro.clone());
     const u = eio(sg(t, T.q5, DUR));
-    ponerCam([cs.x + 0.02, cs.y, cs.z + lerp(0.64, 0.6, u), cs.x + 0.01, cs.y - 0.066, cs.z, 44], t);   // (r1) el celular ≥ 60 % del ancho, arriba de la tarjeta
+    ponerCam([cs.x + 0.02, cs.y, cs.z + lerp(0.68, 0.64, u), cs.x + 0.01, cs.y - 0.035, cs.z, 44], t);   // (r1) el celular ≥ 60 % del ancho, arriba de la tarjeta
   }
   if (t >= T.q5 - 0.6) {
     // Sofi: su escena a la textura del celular parado (desde antes del plano: el primer cuadro ya la tiene)
@@ -1186,7 +1186,7 @@ function renderAt(tIn) {
     // la portada: Silvana de frente con cara de "¿y ahora?", el celular en altavoz cerca, el tablero con el gancho vacío
     silvana.raiz.visible = true;
     silvana.poner({ ...poseSilvana(T.p6 + 0.2), ...CARA.incredula, ojos: { abiertos: 0.95, x: 0.0, y: 0.05, tension: 0.2 }, cejas: { alto: 0.35, ang: 0.45, asim: 0.5 }, boca: { sonrisa: -0.3, abierta: 0.05, ancho: 0.85 }, cabeza: { giro: 0.05, asiente: 0.0, ladea: 0.05 }, t: 1 });
-    ponerCam([0.18, 1.18, 2.2, 0.12, 1.12, 0.35, 46], t, true);
+    ponerCam([0.22, 1.1, 2.45, 0.18, 0.98, 0.35, 46], t, true);   // (r1) el celular en altavoz y el tablero en la mitad de arriba
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);

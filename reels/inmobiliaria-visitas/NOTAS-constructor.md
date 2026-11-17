@@ -84,3 +84,35 @@ llaves detrás (portada-src/fondo-limpio.png). chica "Viernes, 18:00.", grande "
 - La comisión gira de rojo a verde con un cuadro casi plano (la tarjeta de canto) en 31,25.
 - Silvana, Diego y Romina son nuevos: las manos son puños redondeados (como el resto del elenco), la melena de Silvana
   es el peinado "melena" de Lorena en canoso.
+
+## Ronda 1 de revisión (17-11, sobre qa-arte-r1, qa-sonido-r1, qa-guion-r1)
+**35,77 s (1073 cuadros).** Parte 1 0-15,6 · cartel 15,6-17,9 · parte 2 17,9-35,77 = 17,87 s (50 %); cierre (Sofi) 32,84-35,77 =
+2,93 s, tarjeta VISITAS desde 32,9. Render 527 s; final -14,2 LUFS, pico -4,8 dBFS; voz ≥ +8,8 LU sobre el resto en todos los
+tramos. `check --json` 0 errores. Diferencias cuadro a cuadro: sin cuadros sueltos, último cuadro quieto (renders/qa4/).
+- Silvana: peinado "rodete" con rodeteAtras 0,42 (el de Alicia de pilates-cuota): sin flequillo ni melena sobre la cara,
+  cejas y ojos limpios de frente, 3/4 y cerrados. Portada nueva (fondo limpio con el celular en altavoz y el tablero).
+- Resumen de Graciela (Q2) sin el reloj grande, textos de 42-66 px en el lienzo (≥ 40 px en cuadro).
+- Cierre 2,93 s: toma nueva de Sofi "Comentá VISITAS y te mando cómo funciona." (Achernar, atempo 1,05); el celular más grande
+  (≈ 55 % del ancho, la tarjeta abajo sin taparle la cara), la línea chica debajo de la tarjeta ("Visitas anotadas y resumen
+  automático al propietario · scalerics.com"). No entró el monitor al lado.
+- P6 1,9 s: plano general con "Apartamento de Graciela · USD 180.000" y "USD 5.400 de comisión" con guía a la ficha POCITOS;
+  P6b inserto del tablero con "Visitas anotadas: 0" y guía al gancho POCITOS vacío (POCITOS pasó a la esquina de arriba a la
+  derecha, lejos de la cabeza de Silvana). En Q3 (Q3t) el mismo inserto con la llave colgada. Llaves con la paleta a la
+  vista (la etiqueta cuelga al costado), rótulo LLAVES crema con letras navy. Sin MALVÍN ni MALVÍN NORTE en el tablero.
+- Burbujas del altavoz al lado del celular con la cola a la pantalla (P1, Q3, Q3c, P6). P8: "Ah." y en "Era" la burbuja
+  completa (al costado, cola a la boca); cámara más arriba. Llave MALVÍN colgando de la taza, legible.
+- Balcón: llave de verdad en la cerradura (cabeza de bronce que sale del cilindro); P5 desde el living por la puerta-ventana
+  (Graciela de frente, el río y la rambla detrás; calle a -3,6); sin la grúa de la fachada; "La llave" corta a la llave. Cartel
+  VENDE a la derecha de Graciela. Celulares al pecho. Insertos de celular al 72 % del alto (≈ 62 % del ancho), sin la masa de
+  dedos (la persona se oculta cuando el celular llena el cuadro), primer renglón desde el primer cuadro.
+- Pareja de Q1: se va por el pasillo, él con pelo texturado; la puerta de entrada abierta hacia el living.
+- Silvana tapa con la palma arriba del celular y mira a los corredores; en Q3 la cámara va al monitor cuando ella gira.
+- Nombre de la pared escondido en el cuadro 0 y P2. VENDIDO ✓ en el monitor (igual a la franja). Llave "con Diego desde 17:10".
+  Ficha de la vidriera de Pocitos en alquiler → Aguada. Comisión gira sin quedar vacía. Chips entran con escala (no cortados).
+  Cartel: el texto se va 0,12 s antes del iris.
+- Sonido: Diego "Cargada." en Q1 (Achird) y Q1/Q2 más cortos (sin tramos sin voz > ~2,3 s); Romina 0,3 s después y paneo
+  izq./der.; sin crujido de silla ni puerta; "Ya sé." toma b (el STT lo oye); pasos de la pareja con la pareja caminando.
+- descripcion.txt: la llave cuelga de la puerta de la propietaria. guion.txt: "Cargada." y el cierre corto.
+- No hecho / flojo: el STT del stem de voz sigue oyendo "un mongola" en "Un montón." / "Ninguna." (se superponen 0,4 s;
+  con el paneo se separan en estéreo); la coleta de Romina se sigue leyendo como rodete; la franja de escritorio abajo en P1;
+  el tablero en P1 sigue chico (se lee en los insertos P6b y Q3t).
