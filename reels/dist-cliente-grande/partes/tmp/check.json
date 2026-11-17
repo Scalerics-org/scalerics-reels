@@ -1,0 +1,872 @@
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/303
+[hyperframes] check: craft 2/303
+[hyperframes] check: craft 3/303
+[hyperframes] check: craft 4/303
+[hyperframes] check: craft 5/303
+[hyperframes] check: craft 6/303
+[hyperframes] check: craft 7/303
+[hyperframes] check: craft 8/303
+[hyperframes] check: craft 9/303
+[hyperframes] check: craft 10/303
+[hyperframes] check: craft 11/303
+[hyperframes] check: craft 12/303
+[hyperframes] check: craft 13/303
+[hyperframes] check: craft 14/303
+[hyperframes] check: craft 15/303
+[hyperframes] check: craft 16/303
+[hyperframes] check: craft 17/303
+[hyperframes] check: craft 18/303
+[hyperframes] check: craft 19/303
+[hyperframes] check: craft 20/303
+[hyperframes] check: craft 21/303
+[hyperframes] check: craft 22/303
+[hyperframes] check: craft 23/303
+[hyperframes] check: craft 24/303
+[hyperframes] check: craft 25/303
+[hyperframes] check: craft 26/303
+[hyperframes] check: craft 27/303
+[hyperframes] check: craft 28/303
+[hyperframes] check: craft 29/303
+[hyperframes] check: craft 30/303
+[hyperframes] check: craft 31/303
+[hyperframes] check: craft 32/303
+[hyperframes] check: craft 33/303
+[hyperframes] check: craft 34/303
+[hyperframes] check: craft 35/303
+[hyperframes] check: craft 36/303
+[hyperframes] check: craft 37/303
+[hyperframes] check: craft 38/303
+[hyperframes] check: craft 39/303
+[hyperframes] check: craft 40/303
+[hyperframes] check: craft 41/303
+[hyperframes] check: craft 42/303
+[hyperframes] check: craft 43/303
+[hyperframes] check: craft 44/303
+[hyperframes] check: craft 45/303
+[hyperframes] check: craft 46/303
+[hyperframes] check: craft 47/303
+[hyperframes] check: craft 48/303
+[hyperframes] check: craft 49/303
+[hyperframes] check: craft 50/303
+[hyperframes] check: craft 51/303
+[hyperframes] check: craft 52/303
+[hyperframes] check: craft 53/303
+[hyperframes] check: craft 54/303
+[hyperframes] check: craft 55/303
+[hyperframes] check: craft 56/303
+[hyperframes] check: craft 57/303
+[hyperframes] check: craft 58/303
+[hyperframes] check: craft 59/303
+[hyperframes] check: craft 60/303
+[hyperframes] check: craft 61/303
+[hyperframes] check: craft 62/303
+[hyperframes] check: craft 63/303
+[hyperframes] check: craft 64/303
+[hyperframes] check: craft 65/303
+[hyperframes] check: craft 66/303
+[hyperframes] check: craft 67/303
+[hyperframes] check: craft 68/303
+[hyperframes] check: craft 69/303
+[hyperframes] check: craft 70/303
+[hyperframes] check: craft 71/303
+[hyperframes] check: craft 72/303
+[hyperframes] check: craft 73/303
+[hyperframes] check: craft 74/303
+[hyperframes] check: craft 75/303
+[hyperframes] check: craft 76/303
+[hyperframes] check: craft 77/303
+[hyperframes] check: craft 78/303
+[hyperframes] check: craft 79/303
+[hyperframes] check: craft 80/303
+[hyperframes] check: craft 81/303
+[hyperframes] check: craft 82/303
+[hyperframes] check: craft 83/303
+[hyperframes] check: craft 84/303
+[hyperframes] check: craft 85/303
+[hyperframes] check: craft 86/303
+[hyperframes] check: craft 87/303
+[hyperframes] check: craft 88/303
+[hyperframes] check: craft 89/303
+[hyperframes] check: craft 90/303
+[hyperframes] check: craft 91/303
+[hyperframes] check: craft 92/303
+[hyperframes] check: craft 93/303
+[hyperframes] check: craft 94/303
+[hyperframes] check: craft 95/303
+[hyperframes] check: craft 96/303
+[hyperframes] check: craft 97/303
+[hyperframes] check: craft 98/303
+[hyperframes] check: craft 99/303
+[hyperframes] check: craft 100/303
+[hyperframes] check: craft 101/303
+[hyperframes] check: craft 102/303
+[hyperframes] check: craft 103/303
+[hyperframes] check: craft 104/303
+[hyperframes] check: craft 105/303
+[hyperframes] check: craft 106/303
+[hyperframes] check: craft 107/303
+[hyperframes] check: craft 108/303
+[hyperframes] check: craft 109/303
+[hyperframes] check: craft 110/303
+[hyperframes] check: craft 111/303
+[hyperframes] check: craft 112/303
+[hyperframes] check: craft 113/303
+[hyperframes] check: craft 114/303
+[hyperframes] check: craft 115/303
+[hyperframes] check: craft 116/303
+[hyperframes] check: craft 117/303
+[hyperframes] check: craft 118/303
+[hyperframes] check: craft 119/303
+[hyperframes] check: craft 120/303
+[hyperframes] check: craft 121/303
+[hyperframes] check: craft 122/303
+[hyperframes] check: craft 123/303
+[hyperframes] check: craft 124/303
+[hyperframes] check: craft 125/303
+[hyperframes] check: craft 126/303
+[hyperframes] check: craft 127/303
+[hyperframes] check: craft 128/303
+[hyperframes] check: craft 129/303
+[hyperframes] check: craft 130/303
+[hyperframes] check: craft 131/303
+[hyperframes] check: craft 132/303
+[hyperframes] check: craft 133/303
+[hyperframes] check: craft 134/303
+[hyperframes] check: craft 135/303
+[hyperframes] check: craft 136/303
+[hyperframes] check: craft 137/303
+[hyperframes] check: craft 138/303
+[hyperframes] check: craft 139/303
+[hyperframes] check: craft 140/303
+[hyperframes] check: craft 141/303
+[hyperframes] check: craft 142/303
+[hyperframes] check: craft 143/303
+[hyperframes] check: craft 144/303
+[hyperframes] check: craft 145/303
+[hyperframes] check: craft 146/303
+[hyperframes] check: craft 147/303
+[hyperframes] check: craft 148/303
+[hyperframes] check: craft 149/303
+[hyperframes] check: craft 150/303
+[hyperframes] check: craft 151/303
+[hyperframes] check: craft 152/303
+[hyperframes] check: craft 153/303
+[hyperframes] check: craft 154/303
+[hyperframes] check: craft 155/303
+[hyperframes] check: craft 156/303
+[hyperframes] check: craft 157/303
+[hyperframes] check: craft 158/303
+[hyperframes] check: craft 159/303
+[hyperframes] check: craft 160/303
+[hyperframes] check: craft 161/303
+[hyperframes] check: craft 162/303
+[hyperframes] check: craft 163/303
+[hyperframes] check: craft 164/303
+[hyperframes] check: craft 165/303
+[hyperframes] check: craft 166/303
+[hyperframes] check: craft 167/303
+[hyperframes] check: craft 168/303
+[hyperframes] check: craft 169/303
+[hyperframes] check: craft 170/303
+[hyperframes] check: craft 171/303
+[hyperframes] check: craft 172/303
+[hyperframes] check: craft 173/303
+[hyperframes] check: craft 174/303
+[hyperframes] check: craft 175/303
+[hyperframes] check: craft 176/303
+[hyperframes] check: craft 177/303
+[hyperframes] check: craft 178/303
+[hyperframes] check: craft 179/303
+[hyperframes] check: craft 180/303
+[hyperframes] check: craft 181/303
+[hyperframes] check: craft 182/303
+[hyperframes] check: craft 183/303
+[hyperframes] check: craft 184/303
+[hyperframes] check: craft 185/303
+[hyperframes] check: craft 186/303
+[hyperframes] check: craft 187/303
+[hyperframes] check: craft 188/303
+[hyperframes] check: craft 189/303
+[hyperframes] check: craft 190/303
+[hyperframes] check: craft 191/303
+[hyperframes] check: craft 192/303
+[hyperframes] check: craft 193/303
+[hyperframes] check: craft 194/303
+[hyperframes] check: craft 195/303
+[hyperframes] check: craft 196/303
+[hyperframes] check: craft 197/303
+[hyperframes] check: craft 198/303
+[hyperframes] check: craft 199/303
+[hyperframes] check: craft 200/303
+[hyperframes] check: craft 201/303
+[hyperframes] check: craft 202/303
+[hyperframes] check: craft 203/303
+[hyperframes] check: craft 204/303
+[hyperframes] check: craft 205/303
+[hyperframes] check: craft 206/303
+[hyperframes] check: craft 207/303
+[hyperframes] check: craft 208/303
+[hyperframes] check: craft 209/303
+[hyperframes] check: craft 210/303
+[hyperframes] check: craft 211/303
+[hyperframes] check: craft 212/303
+[hyperframes] check: craft 213/303
+[hyperframes] check: craft 214/303
+[hyperframes] check: craft 215/303
+[hyperframes] check: craft 216/303
+[hyperframes] check: craft 217/303
+[hyperframes] check: craft 218/303
+[hyperframes] check: craft 219/303
+[hyperframes] check: craft 220/303
+[hyperframes] check: craft 221/303
+[hyperframes] check: craft 222/303
+[hyperframes] check: craft 223/303
+[hyperframes] check: craft 224/303
+[hyperframes] check: craft 225/303
+[hyperframes] check: craft 226/303
+[hyperframes] check: craft 227/303
+[hyperframes] check: craft 228/303
+[hyperframes] check: craft 229/303
+[hyperframes] check: craft 230/303
+[hyperframes] check: craft 231/303
+[hyperframes] check: craft 232/303
+[hyperframes] check: craft 233/303
+[hyperframes] check: craft 234/303
+[hyperframes] check: craft 235/303
+[hyperframes] check: craft 236/303
+[hyperframes] check: craft 237/303
+[hyperframes] check: craft 238/303
+[hyperframes] check: craft 239/303
+[hyperframes] check: craft 240/303
+[hyperframes] check: craft 241/303
+[hyperframes] check: craft 242/303
+[hyperframes] check: craft 243/303
+[hyperframes] check: craft 244/303
+[hyperframes] check: craft 245/303
+[hyperframes] check: craft 246/303
+[hyperframes] check: craft 247/303
+[hyperframes] check: craft 248/303
+[hyperframes] check: craft 249/303
+[hyperframes] check: craft 250/303
+[hyperframes] check: craft 251/303
+[hyperframes] check: craft 252/303
+[hyperframes] check: craft 253/303
+[hyperframes] check: craft 254/303
+[hyperframes] check: craft 255/303
+[hyperframes] check: craft 256/303
+[hyperframes] check: craft 257/303
+[hyperframes] check: craft 258/303
+[hyperframes] check: craft 259/303
+[hyperframes] check: craft 260/303
+[hyperframes] check: craft 261/303
+[hyperframes] check: craft 262/303
+[hyperframes] check: craft 263/303
+[hyperframes] check: craft 264/303
+[hyperframes] check: craft 265/303
+[hyperframes] check: craft 266/303
+[hyperframes] check: craft 267/303
+[hyperframes] check: craft 268/303
+[hyperframes] check: craft 269/303
+[hyperframes] check: craft 270/303
+[hyperframes] check: craft 271/303
+[hyperframes] check: craft 272/303
+[hyperframes] check: craft 273/303
+[hyperframes] check: craft 274/303
+[hyperframes] check: craft 275/303
+[hyperframes] check: craft 276/303
+[hyperframes] check: craft 277/303
+[hyperframes] check: craft 278/303
+[hyperframes] check: craft 279/303
+[hyperframes] check: craft 280/303
+[hyperframes] check: craft 281/303
+[hyperframes] check: craft 282/303
+[hyperframes] check: craft 283/303
+[hyperframes] check: craft 284/303
+[hyperframes] check: craft 285/303
+[hyperframes] check: craft 286/303
+[hyperframes] check: craft 287/303
+[hyperframes] check: craft 288/303
+[hyperframes] check: craft 289/303
+[hyperframes] check: craft 290/303
+[hyperframes] check: craft 291/303
+[hyperframes] check: craft 292/303
+[hyperframes] check: craft 293/303
+[hyperframes] check: craft 294/303
+[hyperframes] check: craft 295/303
+[hyperframes] check: craft 296/303
+[hyperframes] check: craft 297/303
+[hyperframes] check: craft 298/303
+[hyperframes] check: craft 299/303
+[hyperframes] check: craft 300/303
+[hyperframes] check: craft 301/303
+[hyperframes] check: craft 302/303
+[hyperframes] check: craft 303/303
+[hyperframes] check: overlap 1/23
+[hyperframes] check: overlap 2/23
+[hyperframes] check: overlap 3/23
+[hyperframes] check: overlap 4/23
+[hyperframes] check: overlap 5/23
+[hyperframes] check: overlap 6/23
+[hyperframes] check: overlap 7/23
+[hyperframes] check: overlap 8/23
+[hyperframes] check: overlap 9/23
+[hyperframes] check: overlap 10/23
+[hyperframes] check: overlap 11/23
+[hyperframes] check: overlap 12/23
+[hyperframes] check: overlap 13/23
+[hyperframes] check: overlap 14/23
+[hyperframes] check: overlap 15/23
+[hyperframes] check: overlap 16/23
+[hyperframes] check: overlap 17/23
+[hyperframes] check: overlap 18/23
+[hyperframes] check: overlap 19/23
+[hyperframes] check: overlap 20/23
+[hyperframes] check: overlap 21/23
+[hyperframes] check: overlap 22/23
+[hyperframes] check: overlap 23/23
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"capa3d\"> is a timeline element that contains nested <canvas id=\"tres\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#capa3d",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/wt-dist/reels/dist-cliente-grande/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"capa3d\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"el-s05-palabra\"> runs from 34.52s to 37.83s, past the root composition's data-duration of 37.73s, so it is cut off in previews, posters and renders.",
+        "selector": "#el-s05-palabra",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/wt-dist/reels/dist-cliente-grande/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 37.83, or make <div id=\"el-s05-palabra\"> end at or before 37.73s."
+      },
+      {
+        "code": "clip_ends_past_root_duration",
+        "severity": "warning",
+        "message": "<div id=\"el-s09-cierre\"> runs from 35.43s to 37.83s, past the root composition's data-duration of 37.73s, so it is cut off in previews, posters and renders.",
+        "selector": "#el-s09-cierre",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/wt-dist/reels/dist-cliente-grande/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Extend the root data-duration to 37.83, or make <div id=\"el-s09-cierre\"> end at or before 37.73s."
+      }
+    ],
+    "filesScanned": 6
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x370400179600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.7334",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:45537/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x370400179600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.7334",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:45537/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x370400179600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.7334",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:45537/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x370400179600]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "37.7334",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:45537/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "warning",
+        "time": 2.096,
+        "selector": "#tres",
+        "message": "Canvas content touches the frame edge (left).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 2.096,
+        "lastSeen": 35.637,
+        "occurrences": 8,
+        "heldMs": 0,
+        "times": [
+          2.096,
+          6.289,
+          10.482,
+          14.674,
+          23.059,
+          27.252,
+          31.445,
+          35.637
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.096,
+        "selector": "#precarga",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9860.83,
+          "bottom": 50,
+          "width": 138.17,
+          "height": 50
+        },
+        "containerSelector": "#root",
+        "text": "Héctor",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 138.17,
+          "height": 50
+        },
+        "firstSeen": 2.096,
+        "lastSeen": 35.637,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.096,
+          6.289,
+          10.482,
+          14.674,
+          18.867,
+          23.059,
+          27.252,
+          31.445,
+          35.637
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.096,
+        "selector": "#precarga2",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9870.67,
+          "bottom": 50,
+          "width": 128.33,
+          "height": 50
+        },
+        "containerSelector": "#root",
+        "text": "MARTES",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 128.33,
+          "height": 50
+        },
+        "firstSeen": 2.096,
+        "lastSeen": 35.637,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.096,
+          6.289,
+          10.482,
+          14.674,
+          18.867,
+          23.059,
+          27.252,
+          31.445,
+          35.637
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 2.096,
+        "selector": "#s00-rubro-esc > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1)",
+        "message": "Nowrap text is wider than its container.",
+        "rect": {
+          "left": 45,
+          "top": 173,
+          "right": 1056.78,
+          "bottom": 283.23,
+          "width": 1011.78,
+          "height": 110.23
+        },
+        "containerSelector": "#s00-rubro-esc > div:nth-of-type(1) > div:nth-of-type(1)",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 45,
+          "top": 165,
+          "right": 1035,
+          "bottom": 283.23,
+          "width": 990,
+          "height": 118.23
+        },
+        "overflow": {
+          "right": 21.78
+        },
+        "dataAttributes": {},
+        "sourceFile": "compositions/s00-rubro.html",
+        "bbox": {
+          "x": 45,
+          "y": 173,
+          "width": 1011.78,
+          "height": 110.23
+        },
+        "firstSeen": 2.096,
+        "lastSeen": 2.096,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2.096
+        ]
+      }
+    ],
+    "duration": 37.7334,
+    "samples": [
+      2.096,
+      6.289,
+      10.482,
+      14.674,
+      18.867,
+      23.059,
+      27.252,
+      31.445,
+      35.637
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 4,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.096,
+      10.482,
+      18.867,
+      27.252,
+      35.637
+    ],
+    "checked": 34,
+    "passed": 34
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.87 s (0.50–4.37 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0.5,
+        "seconds": 3.873,
+        "floorSeconds": 3,
+        "until": 4.373
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 12.87 s (4.75–17.62 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 4.748,
+        "seconds": 12.869,
+        "floorSeconds": 3,
+        "until": 17.617
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"a u t o m á t i c o\" (10 words) is on screen 1.87 s (±0.01 s), under its 2.63 s floor: hold it about 0.5 s + 0.3 s a word (3.50 s here) before it leaves or changes; see references/motion.md.",
+        "text": "a u t o m á t i c o",
+        "selector": "span.linea.b",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 165.73,
+          "y": 796.57,
+          "width": 212.57000000000002,
+          "height": 157.87
+        },
+        "time": 17.906,
+        "words": 10,
+        "seconds": 1.866,
+        "floorSeconds": 2.625
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"m á s t a r d e …\" (8 words) is on screen 1.26 s (±0.01 s), under its 2.17 s floor: hold it about 0.5 s + 0.3 s a word (2.90 s here) before it leaves or changes; see references/motion.md.",
+        "text": "m á s t a r d e …",
+        "selector": "span.linea.c",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 80.64,
+          "y": 913.26,
+          "width": 510.43000000000006,
+          "height": 234.17000000000007
+        },
+        "time": 18.508,
+        "words": 8,
+        "seconds": 1.265,
+        "floorSeconds": 2.175
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 12.75 s (21.74–34.48 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 21.74,
+        "seconds": 12.745,
+        "floorSeconds": 3,
+        "until": 34.485
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 303
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "44a45118-c9e4-466e-9bd4-cda7cf2b60fc",
+    "revision": null,
+    "report": "/home/user/wt-dist/reels/dist-cliente-grande/.hyperframes/artifacts/checks/44a45118-c9e4-466e-9bd4-cda7cf2b60fc.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.8.206",
+    "latestVersion": "0.9.61",
+    "updateAvailable": true
+  }
+}
