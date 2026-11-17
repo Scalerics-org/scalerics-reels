@@ -229,6 +229,9 @@ const AFUERA = mesh(new THREE.PlaneGeometry(1.2, 2.3), VID.material, XR + 0.4, 1
 const HOJA = new THREE.Group(); HOJA.position.set(XR - 0.02, 0, PUERTA.z0 + 0.04); scene.add(HOJA);
 { HOJA.add(caja(0.05, 2.18, 0.94, M.navy3, 0, 1.09, 0.47, 0.01)); HOJA.add(caja(0.055, 1.9, 0.78, mat(0xb9cde0, 0.15, { transparent: true, opacity: 0.55 }), 0, 1.15, 0.47, 0.005)); HOJA.add(caja(0.08, 0.04, 0.18, M.g, -0.05, 1.05, 0.82, 0.01)); }
 fusionar(SET);
+// (r3) el cartel (su malla con la textura) para esconderlo en los planos donde quedaría cortado en el borde
+const CARTEL = SET.children.find((o) => o.isMesh && o.material && o.material.map && o.material.map.image && o.material.map.image.width === 1400 && o.material.map.image.height === 300);
+if (!CARTEL) console.error("no encontré el cartel");
 function avatar(x, cv, cx, cy, r) {
   x.save(); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.closePath(); x.clip(); x.drawImage(cv, cx - r, cy - r, 2 * r, 2 * r); x.restore();
   x.strokeStyle = "#0b1220"; x.lineWidth = Math.max(4, r * 0.1); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.stroke();
@@ -790,13 +793,13 @@ const PLANOS = [
   ["P4b", T.p4b, [[T.p4b, MOS.x - 1.7, 1.52, MOS.z + 2.1, VERO_MOS.x - 0.12, 1.1, VERO_MOS.z - 0.05, 50], [T.p5, MOS.x - 1.65, 1.51, MOS.z + 2.0, VERO_MOS.x - 0.12, 1.1, VERO_MOS.z - 0.05, 48]]],
   ["P5", T.p5, [[T.p5, 0.85, 2.0, 0.7, MOS.x - 0.12, 0.95, MOS.z - 0.15, 52], [T.p6, 0.87, 1.98, 0.65, MOS.x - 0.12, 0.95, MOS.z - 0.15, 50]]],
   // (r3) P6: cámara baja desde el costado de Toto (lado de la vidriera): Toto de 3/4-perfil abajo, Inés derecha arriba
-  ["P6", T.p6, [[T.p6, 4.3, 1.05, 0.7, MOS.x - 0.05, 0.95, MOS.z + 0.16, 52], [T.p7, 4.25, 1.05, 0.64, MOS.x - 0.05, 0.95, MOS.z + 0.16, 50]]],
+  ["P6", T.p6, [[T.p6, 4.3, 1.05, 0.7, MOS.x - 0.05, 0.92, MOS.z + 0.24, 56], [T.p7, 4.25, 1.05, 0.64, MOS.x - 0.05, 0.92, MOS.z + 0.24, 54]]],
   // (r3) P7: de costado, más alto: Inés entera detrás del mostrador, la pata y la mano a la vista
   ["P7", T.p7, [[T.p7, 4.2, 1.35, 0.5, MOS.x - 0.05, 1.12, MOS.z + 0.12, 47], [P1, 4.15, 1.34, 0.45, MOS.x - 0.05, 1.12, MOS.z + 0.12, 45]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0)], [T.q1t, ...P1C(0.7)]]],
   // (r1) Q1b: más cerca de Inés y Toto en "Le vamos a escribir a él." (el plano general duraba 3,7 s)
-  ["Q1b", r2(T.i4 - 0.05), [[r2(T.i4 - 0.05), -0.95, 1.5, 2.95, -0.55, 1.15, -0.4, 46], [T.q1t, -0.94, 1.49, 2.85, -0.55, 1.15, -0.4, 45]]],
+  ["Q1b", r2(T.i4 - 0.05), [[r2(T.i4 - 0.05), -2.3, 1.5, 2.3, -0.72, 1.15, -0.3, 44], [T.q1t, -2.24, 1.49, 2.22, -0.72, 1.15, -0.3, 43]]],   // (r3) desde la izquierda: Inés y Toto enteros, Vero detrás de Toto (ya no cortada a la derecha)
   ["Q1t", T.q1t, null],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, 29.95, 1.25, 2.0, 29.9, 0.82, -0.85, 46], [T.q2c, 29.93, 1.22, 1.85, 29.9, 0.82, -0.85, 44]]],
@@ -807,7 +810,7 @@ const PLANOS = [
   // (r3) sin Q4b: duraba 2 cuadros (el flash de 34,37 s); Q4 sigue a Toto hasta el contraplano Q4c
   // (r2) Q4c: contraplano de 3/4 sobre Inés en "¿Vos también, Toto?"; Q4d la pata
   ["Q4c", T.q4c, [[T.q4c, 1.2, 1.5, 1.32, -0.72, 1.22, 0.42, 40], [T.q4d, 1.13, 1.49, 1.28, -0.72, 1.22, 0.42, 39]]],   // (r3) plano medio de 3/4 frontal (no el primer plano de perfil)
-  ["Q4d", T.q4d, [[T.q4d, 0.8, 1.38, 2.85, -0.3, 1.0, 0.45, 46], [T.q5, 0.77, 1.36, 2.75, -0.3, 1.0, 0.45, 44]]],
+  ["Q4d", T.q4d, [[T.q4d, 0.9, 1.45, 3.1, -0.3, 1.12, 0.45, 46], [T.q5, 0.87, 1.44, 3.0, -0.3, 1.12, 0.45, 45]]],   // (r3) Inés con la cabeza entera
   ["Q5", T.q5, "q5"],
 ];
 // (r3) ningún plano de menos de 0,3 s: un plano más corto es un flash de 1-2 cuadros en el corte; se saca (el anterior
@@ -1119,7 +1122,7 @@ function ponerManos(t) {
   celuV.visible = pa === "Q2b";
   if (celuV.visible) { const a = manoMundo(vero, "I", _a), b = manoMundo(vero, "D", _b); vero.cuerpo.getWorldQuaternion(_q); celuV.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08, 0)); celuV.quaternion.copy(_q); celuV.rotateX(-0.7); }
   // la correa (P4-P7 y Q4): de la mano izquierda de Vero al collar de Toto
-  const conCorrea = (!p2 && t >= T.p4 && pa !== "P6") || (pa === "Q4" && t < T.corre[0] + 0.1);
+  const conCorrea = (!p2 && t >= T.p4 && pa !== "P6" && pa !== "P7") || (pa === "Q4" && t < T.corre[0] + 0.1);
   if (conCorrea) { toto.collar.updateMatrixWorld(true); ponerCorrea(manoMundo(vero, "I", _a).clone().add(V3(0, -0.05, 0)), toto.collar.localToWorld(V3(0, -0.02, 0.1)), true); } else ponerCorrea(null, null, false);
 }
 function ponerPuerta(t) {
@@ -1165,6 +1168,7 @@ function renderAt(tIn) {
     coco.poner({ x: BANCO.x - 0.5, z: -0.2, giro: -Math.PI / 2 - 0.3, sentado: 1, cola: 0.5, orejas: 0.9, cabeza: { giro: 0.4 }, t });
     const lap = toW(donaMora, [0, 0.03, 0.2]); mora.poner({ x: lap.x, y: lap.y - 0.02, z: lap.z, giro: -Math.PI / 2, sentado: 1, cola: 0.4, orejas: 0.5, cabeza: { giro: 0.3, asiente: -0.1 }, t });
   }
+  if (CARTEL) CARTEL.visible = !(pa === "P4" || pa === "P6" || pa === "P7" || pa === "Q4");
   ponerFicheroLugar(t); ponerFichero(t); ponerCaidas(t); ponerPuerta(t);
   // ---- cámara ----
   if (pl[2] === "fichero") {
