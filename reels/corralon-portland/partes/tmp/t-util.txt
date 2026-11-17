@@ -1,0 +1,30 @@
+import * as THREE from "./vendor/three/three.module.js";
+import { RoundedBoxGeometry } from "./vendor/three/RoundedBoxGeometry.js";
+import { crearPersonaje, ELENCO, CARA, BRAZOS, MARCA, PIEL, PELO, poseEn, pegarACamara, crearCelular, crearTablet, saludo } from "./personajes.js";
+import { T, DUR, P1, P2, ENV, LEN, LIMPIO, VER } from "./tiempos3d.js";
+await Promise.all([...["500", "600", "700", "800", "900"].map((w) => document.fonts.load(w + ' 60px "Lexend"')), document.fonts.load('700 60px "Caveat"')]);
+
+// ---------- utilidades ----------
+const D2R = Math.PI / 180;
+const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const sg = (t, a, b) => cl((t - a) / (b - a));
+const eo = (x) => 1 - Math.pow(1 - x, 3);
+const ei = (x) => x * x * x;
+const eio = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const bk = (x) => { const c1 = 1.7, c3 = c1 + 1; return x <= 0 ? 0 : x >= 1 ? 1 : 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+const r2 = (n) => Math.round(n * 100) / 100;
+const en = (t, a, b) => t >= a && t < b;
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
+const plata = (n) => "$ " + Math.round(n).toLocaleString("es-UY").replace(/,/g, ".");
+
+// ---------- render ----------
+const canvas = document.getElementById("tres");
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: true, preserveDrawingBuffer: true, powerPreference: "high-performance" });
+renderer.setPixelRatio(1);
+renderer.setSize(1080, 1920, false);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.NeutralToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;

@@ -1,0 +1,42 @@
+[sin narrador Orus: el chiste va en los audios de WhatsApp de Beto, la pila de bolsas de portland que Gustavo cuenta para nadie y el contador de mensajes sin leer; voces por archivo en partes/*.txt (ver partes/voces.md y partes/procesar.sh) · total 38,9 s: parte 1 0,00-16,32 · cartel 16,32-18,82 · parte 2 (la solución) 18,82-38,90 = 20,08 s, el 51,6 % · tiempos reales del reel armado (gen.mjs)]
+[parte 1 · 0,00-4,34 · P1 · "Materiales Gustavo", un corralón en un galpón de chapa navy, lunes 6:45 · cuadro 0: "CORRALONES" grande arriba (segundo renglón "Y BARRACAS"), chip "LUNES · 6:45" · Gustavo (chaleco acolchado navy, lápiz de carpintero en la oreja) atrás del mostrador con el tubo del teléfono de pared en la oreja · en el mostrador, el celular parado en su atril: "20 sin leer" (21 desde 1,6 s) · arriba, el pizarrón de precios con tiza · a la izquierda asoma la fila (un casco) · la tarjeta del audio de Beto ya en pantalla desde el cuadro 0]
+BETO (audio de WhatsApp, sale del celular, 0,12): Gustavo, ¿tenés portland? Cuarenta bolsas. Hoy llenamos la losa.
+[3,32 · Gustavo cuelga el tubo]
+GUSTAVO (3,40): ¡Ya te digo!
+[4,34-6,54 · P2 · escalada sin voz · el patio al amanecer: Gustavo, detrás de la pila, cuenta con el dedo las bolsas de arriba: "37…" (4,44) "38…" (4,92) "39…" (5,44) · cortes de 0,3 s al celular del mostrador (4,64 · 5,16 · 5,68): "6:47 · Luis · ¿A cuánto el portland?" · "6:48 · Ana · ¿Tenés arena gruesa?" · "6:49 · Ramón · ¿Llevan a obra hoy?" · "6:50 · Marcos · ¿Hola?" · el contador sube 21 → 27 · la música sube · "¡40!" (6,12): palmea la última bolsa, nube de polvo]
+[6,54-7,00 · P3i · inserto: Gustavo escribe "Tengo las 40. ¿Te las mando?" (un tilde gris)]
+[7,00-9,22 · P3 · plano medio: Gustavo de vuelta atrás del mostrador con el celular ("6:50 · 27 sin leer"), levanta un dedo, tranquilo, seguro]
+GUSTAVO (7,14): Beto espera.
+GUSTAVO (8,06): Es de la casa.
+[9,22-11,87 · P4 · el golpe · inserto del chat con Beto (≥ 60 % del cuadro), cada audio con su transcripción grande arriba]
+BETO (audio de WhatsApp, 9,36): Me contestó otro.
+BETO (audio de WhatsApp, 10,41): Ya las están bajando.
+[10,49 · entra la FOTO: un camión gris sin nombre descargando bolsas en la vereda de una obra, Beto adelante, flechita rojo apagado]
+[11,87-12,79 · P5 · la pausa · desde el mostrador hacia el patio: la pila de 40 bolsas en el pallet, intacta; Gustavo de espaldas en el portón, quieto · la música baja, el zumbido del tubo, un pájaro · rótulos rojo apagado: "40 bolsas · $ 20.800 / se las compró a otro" (con línea guía a la pila) y "27 mensajes sin contestar"]
+[12,79-14,06 · P6 · primer plano de Gustavo mirando la pila, seco, sin levantar la voz]
+GUSTAVO (12,94): Era de la casa.
+[14,06-15,90 · P7 · remate del remate · contraplano desde atrás del mostrador: Tito, el más veterano de la fila (gorro de lana, campera crema empolvada), con las manos sobre la mesada · burbuja grande]
+TITO (14,18): ¿Me das una bolsita de portland?
+[15,90-16,32 · P7b · Gustavo gira despacio la cabeza hacia el portón; al fondo, la pila de 40]
+[cartel · 16,32-18,82 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un agente / de IA / más tarde…" · nunca "Scalerics" · audio reusado de reels/abren-hoy-completo · sale con un barrido de arriba hacia abajo]
+NARRADOR (16,34): Un agente de IA más tarde.
+[parte 2 · 18,82-38,90 · Q1 18,82-19,77 · el encuadre del cuadro 0, otro lunes, la misma hora: chip "LUNES · 6:45", el celular parado en su soporte verde y el monitor del mostrador (protector "MATERIALES GUSTAVO")]
+BETO (audio de WhatsApp, 18,97): Gustavo, ¿tenés portland? Cuarenta bolsas. Hoy llenamos la losa.
+[19,77-22,07 · Q1i · inserto del chat, rótulo "Contesta con tu stock y tus precios" · mientras Beto todavía habla: "Agente escribiendo…" (19,89) → el agente (20,27, etiqueta "Agente de IA · Materiales Gustavo"): "Hola, Beto. Sí: 40 bolsas de portland en stock, $ 20.800. ¿Te las llevamos hoy a la obra?" → Beto (21,02): "Dale. A las 9, Rivera 2340." → tarjeta verde (21,47): "Pedido confirmado · 40 portland · $ 20.800 · Entrega hoy 9:00 · Rivera 2340"]
+[22,07-23,07 · Q1g · Gustavo junto al teléfono de pared, ya con el tubo en la mano, por costumbre]
+GUSTAVO (22,27): ¡Ya te digo!
+[23,07-24,68 · Q1h · con el ding (23,11), corte a Gustavo mirando el celular parado, que muestra "Pedido confirmado" con tilde verde]
+GUSTAVO (23,41): Ya le dijo.
+[24,68-27,63 · Q2 · inserto (≥ 60 %): la lista de chats, cada uno con su respuesta del agente y tilde verde: "6:30 · Marcos · ¿Tenés hierro del 8?" → "Sí, $ 380 la barra. ¿Cuántas?" (chip "antes de abrir") · "6:47 · Luis · ¿A cuánto el portland?" → "$ 520 la bolsa de 25 kg." · "6:48 · Ana · ¿Tenés arena gruesa?" → "Sí, $ 2.400 el m³." · "6:49 · Ramón · ¿Llevan a obra hoy?" → "Sí, de 9 a 17. ¿Dirección?" · "Sin contestar" baja 27 → 0 (el 0 en verde, 26,18) · Facundo, 6:52, "300 bolsas para un edificio, ¿qué precio me hacés?" → chip "Para vos, Gustavo" · rótulos: "Toma el pedido con dirección y día" / "Te pasa lo que es para vos"]
+[27,63-31,23 · Q3 · el mostrador libre: Gustavo atiende tranquilo; Tito, de espaldas, con las manos en la mesada]
+TITO (27,83): ¿Me das una bolsita de portland?
+GUSTAVO (29,75): Las que quieras, Tito.
+[30,98 · Gustavo le apoya una bolsa en el mostrador, polvo]
+[31,23-32,43 · Q3m · inserto del monitor, chip "LUNES · 7:58": el panel "Hoy · antes de las 8": "Pedidos por WhatsApp: 1 → 5" · "$ 20.800 → 28.500 → 36.100 → 43.900 → 48.900" en verde · "Sin contestar: 0" · "Para vos: 1" · "Entregas a obra: 9:00 Beto · 10:30 Luis / 11:00 Marcos · 12:00 Ramón"]
+[32,43-34,40 · Q4 · inserto del chat con Beto, ya armado: el pedido confirmado, "9:01", el audio y la FOTO: el camión navy de "Materiales Gustavo" descargando en la misma vereda de obra, Beto saludando · "Entregado 9:02 · 40 bolsas en Rivera 2340" (33,90, entra deslizando)]
+BETO (audio de WhatsApp, 32,61): Ya las están bajando.
+[34,40-35,71 · Q4g · Gustavo en la punta del mostrador, media sonrisa; atrás, por el portón, el pallet vacío]
+GUSTAVO (34,52): Es de la casa.
+[35,71-38,90 · Q5 · cierre: el celular a pantalla con la videollamada de Sofi (barra "Videollamada · Sofi · Scalerics", auriculares verdes, botones) · texto grande desde 35,84: "Comentá OBRA" (OBRA en el recuadro verde)]
+SOFI (35,79): Comentá OBRA y te mando cómo funciona para tu corralón.
+[37,40-38,90 · abajo, chico: "Un agente de IA que atiende tu WhatsApp" / "scalerics.com" en verde]

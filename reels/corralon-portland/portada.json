@@ -1,0 +1,14 @@
+{
+ "t": 6.08,
+ "chica": "Lunes, 6:45.",
+ "grande": "¿Tenés portland?",
+ "sello": "CORRALONES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-r3.png",
+ "nota": "(r3) Fondo LIMPIO de P2 un instante antes de la palmada de la 40 (de frente, los dos ojos, la mano sobre las bolsas, sin polvo): LIMPIO=1 + prev2.mjs FULL=1, t 6,08, cam 1.9,1.7,-2.5 → 1.95,1.25,-5.0 fov 46, subido 120 px."
+}

@@ -1,0 +1,259 @@
+
+// =====================================================================================================
+// LAS PANTALLAS (chat genérico: encabezado navy, fondo crema, burbujas blancas / verde pálido; "WhatsApp" solo en texto)
+// =====================================================================================================
+const CW = 740, CH = 1290;   // el celular a pantalla (inserto)
+// encabezado de un chat: avatar, nombre y subtítulo (o "escribiendo…" en verde)
+function cabecera(x, W, cv, nombre, sub, subVerde = false) {
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 176); x.fillStyle = "#5ce611"; x.fillRect(0, 176, W, 8);
+  x.strokeStyle = "#efeee5"; x.lineWidth = 9; x.lineCap = "round"; x.beginPath(); x.moveTo(52, 70); x.lineTo(30, 92); x.lineTo(52, 114); x.stroke();
+  avatar(x, cv, 124, 92, 54);
+  x.textAlign = "left"; x.textBaseline = "middle"; x.fillStyle = "#efeee5"; ajustar(x, nombre, 800, 52, W - 230); x.fillText(nombre, 196, 70);
+  x.fillStyle = subVerde ? "#5ce611" : "#b9c3d3"; x.font = F(700, 38); x.fillText(sub, 198, 126);
+}
+// la onda del audio (barras), el play y la duración
+function burbujaAudio(x, X, Y, w, dur, avance = 0, cv = null) {
+  x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(X, Y, w, 132, [8, 32, 32, 32]); x.fill(); x.stroke();
+  let x0 = X + 30; if (cv) { avatar(x, cv, X + 70, Y + 66, 44); x0 = X + 128; }
+  x.fillStyle = "#16243d"; x.beginPath(); x.moveTo(x0, Y + 40); x.lineTo(x0 + 44, Y + 66); x.lineTo(x0, Y + 92); x.closePath(); x.fill();
+  const b0 = x0 + 70, b1 = X + w - 120; semilla = 77;
+  for (let bx = b0, i = 0; bx < b1; bx += 14, i++) { const hh = 12 + Math.abs(Math.sin(i * 0.9) * 26) + az() * 18; x.fillStyle = (bx - b0) / (b1 - b0) < avance ? "#3fa60a" : "#8a93a3"; rr(x, bx, Y + 66 - hh / 2, 8, hh, 4); }
+  x.fillStyle = "#16243d"; x.textAlign = "right"; x.textBaseline = "middle"; x.font = F(800, 38); x.fillText(dur, X + w - 22, Y + 68);
+  return 132;
+}
+function burbujaTexto(x, X, Y, w, lineas, { yo = false, px = 46, tilde: tl = null, etiqueta = null } = {}) {
+  let h = 34 + lineas.length * px * 1.24 + (tl ? 36 : 0), y0 = Y;
+  if (etiqueta) { x.fillStyle = "#3fa60a"; x.font = F(800, 36); x.textAlign = yo ? "right" : "left"; x.textBaseline = "middle"; x.fillText(etiqueta, yo ? X + w - 6 : X + 6, Y + 18); y0 = Y + 48; }
+  x.fillStyle = yo ? "#cfeebc" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(X, y0, w, h, yo ? [32, 8, 32, 32] : [8, 32, 32, 32]); x.fill(); x.stroke();
+  x.fillStyle = "#0b1220"; x.font = F(800, px); x.textAlign = "left"; x.textBaseline = "middle";
+  lineas.forEach((l, i) => x.fillText(l, X + 26, y0 + 17 + px * 0.62 + i * px * 1.24));
+  if (tl) { const cx = X + w - 46, cy = y0 + h - 30; tilde(x, cx, cy, 30, tl === "gris" ? "#8a93a3" : "#3fa60a", 7); if (tl === "doble") tilde(x, cx + 16, cy, 30, "#3fa60a", 7); }
+  return h + (y0 - Y);
+}
+function fotoChat(x, X, Y, w, cv) {
+  const h = Math.round((w * cv.height) / cv.width);
+  x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(X, Y, w + 24, h + 24, [8, 30, 30, 30]); x.fill(); x.stroke();
+  x.save(); x.beginPath(); x.roundRect(X + 12, Y + 12, w, h, 20); x.clip(); x.drawImage(cv, X + 12, Y + 12, w, h); x.restore();
+  return h + 24;
+}
+function tarjetaVerde(x, X, Y, w, titulo, lineas, px = 40) {
+  const h = 104 + lineas.length * px * 1.3;
+  x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(X, Y, w, h, 30); x.fill();
+  x.fillStyle = "#5ce611"; x.beginPath(); x.arc(X + 62, Y + 58, 36, 0, 7); x.fill(); tilde(x, X + 63, Y + 60, 38, "#0b1220", 9);
+  x.fillStyle = "#5ce611"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, titulo, 900, 52, w - 140); x.fillText(titulo, X + 116, Y + 60);
+  x.fillStyle = "#efeee5"; lineas.forEach((l, i) => { ajustar(x, l, 800, px, w - 60); x.fillText(l, X + 34, Y + 120 + i * px * 1.3); });
+  return h;
+}
+// un chat con los mensajes apilados desde abajo (el último siempre entero abajo)
+function dibujarChat(x, W, H, { cv, nombre, sub, subVerde, msgs, input = "" }) {
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
+  const medir = document.createElement("canvas").getContext("2d");
+  const alto = (m) => m.dibujar(medir, 0);
+  const hs = msgs.map(alto), gap = 26;
+  const piso = H - (input !== null ? 150 : 30);
+  let y = piso - hs.reduce((a, b) => a + b + gap, 0) + gap; y = Math.min(y, 210);
+  msgs.forEach((m, i) => { m.dibujar(x, y); y += hs[i] + gap; });
+  if (input !== null) {
+    x.fillStyle = "#d9d7c9"; x.fillRect(0, H - 130, W, 130);
+    x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 4; x.beginPath(); x.roundRect(24, H - 108, W - 160, 86, 43); x.fill(); x.stroke();
+    x.fillStyle = input ? "#0b1220" : "#8a93a3"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 38); x.fillText(input || "Mensaje", 52, H - 64);
+    x.fillStyle = "#5ce611"; x.beginPath(); x.arc(W - 70, H - 65, 44, 0, 7); x.fill(); x.fillStyle = "#0b1220"; x.beginPath(); x.moveTo(W - 88, H - 88); x.lineTo(W - 46, H - 65); x.lineTo(W - 88, H - 42); x.closePath(); x.fill();
+  }
+  cabecera(x, W, cv, nombre, sub, subVerde);
+}
+const M_ = {   // los mensajes (cada uno sabe dibujarse y devuelve su alto)
+  audio: (dur, avance = 1, cv = AVATAR.beto) => ({ dibujar: (x, y) => burbujaAudio(x, 24, y, 560, dur, avance, cv) }),
+  yo: (ls, o = {}) => ({ dibujar: (x, y) => { x.font = F(800, o.px ?? 46); const w = Math.max(...ls.map((l) => x.measureText(l).width)) + 110; return burbujaTexto(x, CW - 24 - w, y, w, ls, { yo: true, ...o }); } }),
+  el: (ls, o = {}) => ({ dibujar: (x, y) => { x.font = F(800, o.px ?? 46); const w = Math.max(...ls.map((l) => x.measureText(l).width)) + 60; return burbujaTexto(x, 24, y, w, ls, o); } }),
+  foto: (cv, w = 560) => ({ dibujar: (x, y) => fotoChat(x, 24, y, w, cv) }),
+  verde: (titulo, ls, w = 640) => ({ dibujar: (x, y) => tarjetaVerde(x, CW - 24 - w, y, w, titulo, ls) }),
+  escribe: () => ({ dibujar: (x, y) => { x.fillStyle = "#cfeebc"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(CW - 24 - 190, y, 190, 92, [32, 8, 32, 32]); x.fill(); x.stroke(); x.fillStyle = "#16243d"; for (let i = 0; i < 3; i++) { x.beginPath(); x.arc(CW - 24 - 140 + i * 45, y + 46, 12, 0, 7); x.fill(); } return 92; } }),
+};
+// P2 · la lista de chats que se llena (20 → 27 sin leer)
+const NUEVOS = [{ h: "6:47", cv: AVATAR.luis, nom: "Luis", q: "¿A cuánto el portland?" }, { h: "6:48", cv: AVATAR.ana, nom: "Ana", q: "¿Tenés arena gruesa?" }, { h: "6:49", cv: AVATAR.ramon, nom: "Ramón", q: "¿Llevan a obra hoy?" }, { h: "6:50", cv: AVATAR.marcos, nom: "Marcos", q: "¿Hola?", n: 2 }];
+const VIEJOS = [{ h: "6:45", cv: AVATAR.beto, nom: "Beto (obra)", q: "Audio · 0:03", leido: true }, { h: "6:41", cv: AVATAR.cli, nom: "Cliente nuevo", q: "¿Abren a las 7?" }, { h: "6:30", cv: AVATAR.marcos, nom: "Marcos", q: "¿Tenés hierro del 8?" }, { h: "6:22", cv: AVATAR.obra, nom: "Obra Pocitos", q: "¿Mañana traen la arena?" }];
+function filaChat(x, W, y, f, resaltar = 0) {
+  if (resaltar) { x.fillStyle = `rgba(199,101,91,${0.18 * resaltar})`; x.fillRect(0, y, W, 168); }
+  avatar(x, f.cv, 82, y + 84, 54);
+  x.textAlign = "left"; x.textBaseline = "middle"; x.fillStyle = "#0b1220"; ajustar(x, f.nom, 800, 46, W - 360); x.fillText(f.nom, 156, y + 56);
+  x.fillStyle = "#3a4256"; ajustar(x, f.q, 700, 40, W - 290); x.fillText(f.q, 156, y + 118);
+  x.textAlign = "right"; x.fillStyle = f.leido ? "#6b7080" : "#c7655b"; x.font = F(800, 40); x.fillText(f.h, W - 28, y + 54);
+  if (!f.leido) { x.fillStyle = "#c7655b"; x.beginPath(); x.arc(W - 62, y + 116, 28, 0, 7); x.fill(); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(900, 34); x.fillText(String(f.n ?? 1), W - 62, y + 118); }
+  x.fillStyle = "#d9d7c9"; x.fillRect(150, y + 166, W - 150, 3);
+}
+function dibujarLista(x, W, H, n, k) {
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
+  const visibles = [...NUEVOS.slice(0, n).reverse(), ...VIEJOS.filter((v) => !(n >= 4 && v.nom === "Marcos"))];
+  visibles.slice(0, 7).forEach((f, i) => filaChat(x, W, 200 + i * 170, f, i === 0 && n > 0 ? 1 - k * 0.5 : 0));
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 176); x.fillStyle = "#5ce611"; x.fillRect(0, 176, W, 8);
+  x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 60); x.fillText("Chats", 34, 74); x.font = F(700, 36); x.fillStyle = "#b9c3d3"; x.fillText("WhatsApp · Materiales Gustavo", 36, 136);
+  const cnt = [20, 22, 24, 26, 27][n], txt = `${cnt} sin leer`;
+  x.font = F(900, 46); const w = x.measureText(txt).width + 44;
+  x.fillStyle = "#c7655b"; rr(x, W - 24 - w, 40, w, 72, 36); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.fillText(txt, W - 24 - w / 2, 78);
+}
+// Q2 · los chats contestados (cada fila: hora, nombre, pregunta y la respuesta del agente con ✓), el contador a 0 y el de
+// 300 bolsas marcado "Para vos, Gustavo"
+const RESP = [
+  { h: "6:30", cv: AVATAR.marcos, nom: "Marcos", q: "¿Tenés hierro del 8?", a: "Sí, $ 380 la barra. ¿Cuántas?", antes: true },
+  { h: "6:47", cv: AVATAR.luis, nom: "Luis", q: "¿A cuánto el portland?", a: "$ 520 la bolsa de 25 kg." },
+  { h: "6:48", cv: AVATAR.ana, nom: "Ana", q: "¿Tenés arena gruesa?", a: "Sí, $ 2.400 el m³." },
+  { h: "6:49", cv: AVATAR.ramon, nom: "Ramón", q: "¿Llevan a obra hoy?", a: "Sí, de 9 a 17. ¿Dirección?" },
+];
+function dibujarRespondidos(x, W, H, e) {
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
+  RESP.forEach((f, i) => {
+    const y = 196 + i * 202, k = e.filas[i];
+    avatar(x, f.cv, 72, y + 62, 46);
+    x.textAlign = "left"; x.textBaseline = "middle"; x.fillStyle = "#0b1220"; x.font = F(800, 44); x.fillText(f.nom, 136, y + 44);
+    x.fillStyle = "#16243d"; x.font = F(900, 42); x.fillText(f.h, 136 + x.measureText(f.nom).width + 24 + 0, y + 44);
+    if (f.antes) { x.font = F(800, 36); const tx = "antes de abrir"; const w = x.measureText(tx).width + 34; const x0 = W - 24 - w; x.fillStyle = "#efeee5"; x.strokeStyle = "#16243d"; x.lineWidth = 4; x.beginPath(); x.roundRect(x0, y + 18, w, 54, 27); x.fill(); x.stroke(); x.fillStyle = "#16243d"; x.textAlign = "center"; x.fillText(tx, x0 + w / 2, y + 46); x.textAlign = "left"; }
+    x.fillStyle = "#3a4256"; ajustar(x, f.q, 700, 40, W - 170); x.fillText(f.q, 136, y + 98);
+    if (k > 0) { x.globalAlpha = Math.min(1, k * 1.5); x.fillStyle = "#cfeebc"; x.strokeStyle = "#16243d"; x.lineWidth = 4; x.beginPath(); x.roundRect(120, y + 128, W - 144, 62, 18); x.fill(); x.stroke(); x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(156, y + 159, 22, 0, 7); x.fill(); tilde(x, 157, y + 160, 22, "#0b1220", 6); x.fillStyle = "#0b1220"; ajustar(x, f.a, 800, 40, W - 240); x.fillText(f.a, 192, y + 160); x.globalAlpha = 1; }
+  });
+  // el de 300 bolsas: se separa con borde verde y el chip "Para vos, Gustavo"
+  if (e.paraVos > 0) {
+    const y = 1012 - (1 - e.paraVos) * 30; x.globalAlpha = Math.min(1, e.paraVos * 1.6);
+    x.fillStyle = "#ffffff"; x.strokeStyle = "#5ce611"; x.lineWidth = 10; x.beginPath(); x.roundRect(16, y, W - 32, 258, 26); x.fill(); x.stroke();
+    avatar(x, AVATAR.facundo, 70, y + 62, 42); x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 42); x.fillText("Facundo · 6:52", 128, y + 62);
+    x.font = F(800, 40); x.fillText("300 bolsas para un edificio,", 40, y + 128); x.fillText("¿qué precio me hacés?", 40, y + 176);
+    x.font = F(900, 40); const tx = "Para vos, Gustavo"; const w = x.measureText(tx).width + 50; x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.beginPath(); x.roundRect(W - 34 - w, y + 198, w, 50, 25); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.fillText(tx, W - 34 - w / 2, y + 224);
+    x.globalAlpha = 1;
+  }
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 176); x.fillStyle = "#5ce611"; x.fillRect(0, 176, W, 8);
+  x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 60); x.fillText("Chats", 34, 74); x.font = F(700, 36); x.fillStyle = "#b9c3d3"; x.fillText("Agente de IA atendiendo", 36, 136);
+  const txt = `Sin contestar: ${e.cuenta}`; x.font = F(900, 42); const w = x.measureText(txt).width + 44;
+  x.fillStyle = e.cuenta === 0 ? "#5ce611" : "#c7655b"; rr(x, W - 24 - w, 44, w, 70, 35); x.fillStyle = e.cuenta === 0 ? "#0b1220" : "#efeee5"; x.textAlign = "center"; x.fillText(txt, W - 24 - w / 2, 80);
+}
+// el panel del mostrador (Q3, monitor): "Hoy · antes de las 8"
+const SUMAS = [20800, 28500, 36100, 43900, 48900];
+const MW = 1000, MH = 760;
+function dibujarPanel(x, W, H, n) {
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 120); x.fillStyle = "#5ce611"; x.fillRect(0, 120, W, 9);
+  x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 58); x.fillText("Hoy · antes de las 8", 34, 62);
+  x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(28, 156, W - 56, 250, 30); x.fill();
+  x.fillStyle = "#efeee5"; x.font = F(800, 44); x.fillText("Pedidos por WhatsApp: " + n, 62, 212);
+  x.fillStyle = "#5ce611"; x.font = F(900, 150); x.fillText(plata(n ? SUMAS[n - 1] : 0), 54, 324);
+  const caja2 = (X, Y, w, a, b, verde) => { x.fillStyle = verde ? "#5ce611" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(X, Y, w, 116, 24); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, a, 800, 40, w - 30); x.fillText(a, X + w / 2, Y + 40); ajustar(x, b, 900, 46, w - 30); x.fillText(b, X + w / 2, Y + 86); };
+  caja2(28, 430, (W - 76) / 2, "Sin contestar", "0", true);
+  caja2(48 + (W - 76) / 2, 430, (W - 76) / 2, "Para vos", "1", false);
+  x.fillStyle = "#16243d"; x.textAlign = "left"; x.font = F(800, 42); x.fillText("Entregas a obra:", 34, 606);
+  x.fillStyle = "#0b1220"; ajustar(x, "9:00 Beto · 10:30 Luis · 11:00 Marcos", 800, 42, W - 70); x.fillText("9:00 Beto · 10:30 Luis · 11:00 Marcos", 34, 668);
+}
+
+// ---- los insertos a pantalla (pegados a la cámara): el celular y el monitor, con el galpón desenfocado atrás ----
+function crearFondoInserto(g) {
+  const bg = new THREE.Mesh(new THREE.PlaneGeometry(1400 / PXK, 2400 / PXK), new THREE.MeshBasicMaterial({ color: 0x1f3254 })); bg.position.z = -0.06; g.add(bg);
+  for (let i = -8; i <= 8; i++) { const o = new THREE.Mesh(new THREE.PlaneGeometry(26 / PXK, 2400 / PXK), new THREE.MeshBasicMaterial({ color: 0x2c4268 })); o.position.set((i * 84) / PXK, 0, -0.059); g.add(o); }
+  const pi = new THREE.Mesh(new THREE.PlaneGeometry(1400 / PXK, 560 / PXK), new THREE.MeshBasicMaterial({ color: 0xb08a5e })); pi.position.set(0, -1000 / PXK, -0.058); g.add(pi);
+  const fr = new THREE.Mesh(new THREE.PlaneGeometry(1400 / PXK, 26 / PXK), new THREE.MeshBasicMaterial({ color: 0x5ce611 })); fr.position.set(0, -720 / PXK, -0.057); g.add(fr);
+}
+//@@INS
+const INS1 = { g: new THREE.Group() }; crearFondoInserto(INS1.g);
+const CEL = crearCelInserto(CW, CH, 540, 1010, 34, { camara: true, funda: 0x1a1c20 }); INS1.g.add(CEL.g);
+const INS3 = { g: new THREE.Group() }; crearFondoInserto(INS3.g);
+const MON = crearCelInserto(MW, MH, 540, 1000, 26, { camara: false, funda: 0x0b1220 }); INS3.g.add(MON.g);
+{ const pie = new THREE.Mesh(new THREE.PlaneGeometry(140 / PXK, 260 / PXK), new THREE.MeshBasicMaterial({ color: 0x0b1220 })); pie.position.set(0, (960 - 1520) / PXK, -0.035); INS3.g.add(pie); const base = new THREE.Mesh(rbox(420 / PXK, 40 / PXK, 0.005, 16 / PXK, 2), new THREE.MeshBasicMaterial({ color: 0x0b1220 })); base.position.set(0, (960 - 1650) / PXK, -0.034); INS3.g.add(base); }
+for (const I of [INS1, INS3]) { pegarACamara(I.g, camera, 10); I.g.visible = false; }
+
+// el estado del celular a pantalla en t (qué chat y en qué momento)
+function estadoCel(t, pa) {
+  const b1msg = M_.audio("0:03", 1);
+  if (pa === "P2i") { const n = T.fila.filter((f) => t >= f).length; return { lista: true, n, k: n ? Math.round(sg(t, T.fila[n - 1], T.fila[n - 1] + 0.25) * 4) / 4 : 1 }; }
+  if (pa === "P3i") {
+    const txt = "Tengo las 40. ¿Te las mando?", c = Math.round(cl((t - T.tipea) / (T.manda - 0.05 - T.tipea)) * txt.length);
+    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: "en línea", msgs: t >= T.manda ? [b1msg, M_.yo(["Tengo las 40.", "¿Te las mando?"], { tilde: "gris" })] : [b1msg], input: t >= T.manda ? "" : txt.slice(0, c) };
+  }
+  if (pa === "P4") {
+    const msgs = [b1msg, M_.yo(["Tengo las 40.", "¿Te las mando?"], { tilde: "gris" })];
+    if (t >= T.b2) msgs.push(M_.audio("0:02", sg(t, T.b2, T.b2 + LEN.b2)));
+    if (t >= T.b3) msgs.push(M_.audio("0:01", sg(t, T.b3, T.b3 + LEN.b3)));
+    if (t >= T.foto) msgs.push(M_.foto(FOTO.cv.gris));
+    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: "en línea", msgs, input: "" };
+  }
+  if (pa === "Q1i") {
+    const msgs = [M_.audio("0:03", sg(t, T.b1b, T.b1b + LEN.b1))];
+    if (t >= T.escr && t < T.resp) msgs.push(M_.escribe());
+    if (t >= T.resp) msgs.push(M_.yo(["Hola, Beto. Sí: 40 bolsas", "de portland en stock,", "$ 20.800. ¿Te las llevamos", "hoy a la obra?"], { tilde: "doble", px: 42, etiqueta: "Agente de IA · Materiales Gustavo" }));
+    if (t >= T.dale) msgs.push(M_.el(["Dale. A las 9,", "Rivera 2340."]));
+    if (t >= T.conf) msgs.push(M_.verde("Pedido confirmado", ["40 portland · $ 20.800", "Entrega hoy 9:00 · Rivera 2340"]));
+    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: t >= T.escr && t < T.resp ? "Agente escribiendo…" : "en línea", subVerde: t >= T.escr && t < T.resp, msgs, input: "" };
+  }
+  if (pa === "Q2") {
+    const u = sg(t, T.q2 + 0.2, T.cero);
+    return { resp: true, filas: T.filas.map((f) => Math.round(sg(t, f, f + 0.2) * 4) / 4), cuenta: Math.round(27 * (1 - u)), paraVos: Math.round(sg(t, T.paraVos, T.paraVos + 0.25) * 4) / 4 };
+  }
+  if (pa === "Q4") {
+    const msgs = [M_.verde("Pedido confirmado", ["40 portland · $ 20.800", "Entrega hoy 9:00 · Rivera 2340"])];
+    if (t >= T.b3b) msgs.push(M_.audio("0:01", sg(t, T.b3b, T.b3b + LEN.b3)));
+    if (t >= T.foto2) msgs.push(M_.foto(FOTO.cv.navy));
+    if (t >= T.entregado) msgs.push(M_.verde("Entregado 9:02", ["40 bolsas en Rivera 2340"]));
+    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: "en línea", msgs, input: "" };
+  }
+  return null;
+}
+let claveCel = "";
+function dibujarCel(t, pa) {
+  const e = estadoCel(t, pa); if (!e) return;
+  const k = pa + "|" + (e.lista ? `${e.n}|${e.k}` : e.resp ? JSON.stringify(e) : Math.round(t * 15));
+  if (k === claveCel) return; claveCel = k;
+  const x = CEL.tex.userData.x;
+  if (e.lista) dibujarLista(x, CW, CH, e.n, e.k); else if (e.resp) dibujarRespondidos(x, CW, CH, e); else dibujarChat(x, CW, CH, e);
+  CEL.tex.needsUpdate = true;
+}
+let clavePanel = "";
+function dibujarMonInserto(t) { const n = T.suma.filter((s) => t >= s).length; if (`${n}` === clavePanel) return; clavePanel = `${n}`; dibujarPanel(MON.tex.userData.x, MW, MH, n); MON.tex.needsUpdate = true; }
+
+// =====================================================================================================
+// LOS OBJETOS DEL MOSTRADOR: el celular acostado (parte 1), el celular parado y el monitor (parte 2)
+// =====================================================================================================
+// parte 1: la pantalla bloqueada con "20 sin leer" y la notificación del audio de Beto
+const pantA = lienzo(600, 975, (x, w, h) => {
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h);
+  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 150); x.fillText("6:45", w / 2, 190); x.font = F(700, 44); x.fillText("lunes", w / 2, 300);
+  x.fillStyle = "#c7655b"; x.beginPath(); x.roundRect(40, 380, w - 80, 120, 60); x.fill(); x.fillStyle = "#efeee5"; x.font = F(900, 56); x.fillText("20 sin leer", w / 2, 442);
+  x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(30, 540, w - 60, 230, 30); x.fill();
+  avatar(x, AVATAR.beto, 110, 640, 56); x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 46); x.fillText("Beto (obra)", 186, 610); x.fillStyle = "#3a4256"; x.font = F(700, 40); x.fillText("Audio · 0:03", 186, 672);
+});
+const celuA = crearCelular(pantA, 0x1a1c20, 0.08, 0.162); celuA.scale.setScalar(1.3); celuA.rotation.set(-Math.PI / 2, 0, 0.35); celuA.position.set(-0.42, MOS.alto + 0.01, 0.1); scene.add(celuA);
+// parte 2: el celular parado en su soporte verde (el chat del agente; en el cierre, Sofi en videollamada)
+const pantS = lienzo(600, 1100, (x, w, h) => {
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 56); x.fillText("Chats", 30, 78);
+  for (let i = 0; i < 5; i++) { const y = 190 + i * 180; x.fillStyle = "#ffffff"; rr(x, 20, y, w - 40, 150, 24); x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(80, y + 75, 34, 0, 7); x.fill(); tilde(x, 81, y + 76, 34, "#0b1220", 8); x.fillStyle = "#0b1220"; x.font = F(800, 42); x.fillText(["Beto (obra)", "Luis", "Ana", "Ramón", "Marcos"][i], 136, y + 56); x.fillStyle = "#3fa60a"; x.font = F(800, 36); x.fillText("Contestado", 136, y + 106); }
+});
+const SOFI_RT = new THREE.WebGLRenderTarget(432, 768); SOFI_RT.texture.colorSpace = THREE.SRGBColorSpace;
+const celuP = new THREE.Group(); celuP.position.set(-0.62, MOS.alto, 0.08); celuP.rotation.y = 0.12; scene.add(celuP);
+let pantP;
+{
+  const S = 1.9, W = 0.08 * S, H = 0.165 * S;
+  const piv = new THREE.Group(); piv.position.y = 0.035; piv.rotation.x = -0.18; celuP.add(piv);
+  piv.add(mesh(rbox(W + 0.008, H + 0.008, 0.014, 0.014), mat(0x1a1c20, 0.4), 0, H / 2, 0));
+  pantP = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.004, H - 0.006), new THREE.MeshBasicMaterial({ map: pantS, toneMapped: false })); pantP.position.set(0, H / 2, 0.0076); piv.add(pantP);
+  celuP.add(caja(0.17, 0.02, 0.13, M.g, 0, 0.01, 0.0, 0.008)); celuP.add(caja(0.14, 0.08, 0.02, M.g, 0, 0.05, -0.06, 0.006));
+  sombras(celuP);
+}
+// el monitor del mostrador (parte 2) en su brazo, con el panel
+const pantMon = lienzo(1000, 760, (x, w, h) => dibujarPanel(x, w, h, 5));
+const monitor = new THREE.Group(); monitor.position.set(-0.02, MOS.alto, -0.02); monitor.rotation.y = -0.18; scene.add(monitor);
+{
+  const W = 0.62, H = W * 0.76;
+  monitor.add(caja(0.26, 0.02, 0.18, M.navy, 0, 0.01, 0, 0.008)); monitor.add(caja(0.05, 0.22, 0.04, M.navy, 0, 0.12, -0.02, 0.01));
+  const p = new THREE.Group(); p.position.set(0, 0.22 + H / 2, 0); p.rotation.x = -0.08; monitor.add(p);
+  p.add(mesh(rbox(W + 0.03, H + 0.03, 0.03, 0.01), mat(0x0b1220, 0.4), 0, 0, -0.012));
+  const s = new THREE.Mesh(new THREE.PlaneGeometry(W, H), new THREE.MeshBasicMaterial({ map: pantMon, toneMapped: false })); s.position.z = 0.0045; p.add(s);
+  sombras(monitor);
+}
+
+// ---- Sofi en videollamada: una escena aparte que se renderiza a la textura del celular parado (Q5) ----
+const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: null, cuello: MARCA.cr, cuelloBotones: false, cuelloFino: true, auricularFino: true, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+for (const sx of [-1, 1]) { const c = mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.07, 24).rotateZ(Math.PI / 2), M.g, sx * 0.37, 0.24, 0.02); sofi.cabeza.add(c); const v = mesh(new THREE.TorusGeometry(0.36, 0.02, 8, 32, Math.PI), M.navy, 0, 0.27, 0.0); if (sx > 0) sofi.cabeza.add(v); }
+const SOFI = { esc: new THREE.Scene(), cam: new THREE.PerspectiveCamera(28, 432 / 768, 0.05, 20) };
+{
+  SOFI.esc.background = new THREE.Color(0x16243d);
+  SOFI.esc.add(new THREE.HemisphereLight(0xffffff, 0x6a7080, 2.0)); const dl = new THREE.DirectionalLight(0xfff4e8, 1.7); dl.position.set(1.2, 2.2, 3); SOFI.esc.add(dl);
+  SOFI.esc.add(sofi.raiz);
+  const fondo = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.MeshBasicMaterial({ color: 0x1f3254 })); fondo.position.set(0, 1.4, -0.9); SOFI.esc.add(fondo);
+  const logoT = await new THREE.TextureLoader().loadAsync("assets/logo-blanco.png"); logoT.colorSpace = THREE.SRGBColorSpace;
+  const ar = logoT.image.width / logoT.image.height;
+  const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34 / ar), new THREE.MeshBasicMaterial({ map: logoT, transparent: true })); logo.position.set(0.24, 1.86, -0.88); SOFI.esc.add(logo);
+}

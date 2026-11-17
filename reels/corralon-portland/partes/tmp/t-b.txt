@@ -1,0 +1,179 @@
+
+// =====================================================================================================
+// LOS PERSONAJES (Gustavo, Tito y los albañiles de la fila; Beto solo en las fotos y el avatar; Sofi en la videollamada)
+// =====================================================================================================
+// accesorios de cabeza (hijos de per.cabeza; el cráneo tiene centro (0, CC, 0) y radio R = 0.3)
+const R0 = 0.3, CC0 = R0 * 0.92;
+function casco(per, color = C.cr) {
+  const g = new THREE.Group(); g.position.set(0, CC0 + 0.085, -0.012); g.rotation.x = -0.1; per.cabeza.add(g);
+  const m = mat(color, 0.4);
+  g.add(mesh(new THREE.SphereGeometry(R0 * 1.09, 32, 14, 0, Math.PI * 2, 0, Math.PI * 0.5), m, 0, 0, 0));
+  const ala = mesh(new THREE.CylinderGeometry(R0 * 1.24, R0 * 1.26, 0.022, 36), m, 0, 0.005, 0.025); ala.scale.z = 1.08; g.add(ala);
+  g.add(caja(0.05, 0.06, R0 * 1.9, m, 0, R0 * 1.06, 0, 0.02));   // la cresta
+  return sombras(g);
+}
+function gorro(per, color = C.navy3) {
+  const g = new THREE.Group(); g.position.set(0, CC0 + 0.03, -0.01); g.rotation.x = -0.08; per.cabeza.add(g);
+  const m = mat(color, 0.95);
+  g.add(mesh(new THREE.SphereGeometry(R0 * 1.07, 32, 14, 0, Math.PI * 2, 0, Math.PI * 0.5), m, 0, 0.02, 0));
+  const dob = mesh(new THREE.CylinderGeometry(R0 * 1.1, R0 * 1.12, 0.1, 32, 1, true), m, 0, 0.04, 0); dob.material = m.clone(); dob.material.side = THREE.DoubleSide; dob.material.color.multiplyScalar(0.85); g.add(dob);
+  for (let i = 0; i < 18; i++) { const a = (i / 18) * Math.PI * 2; g.add(caja(0.012, 0.09, 0.012, dob.material, Math.sin(a) * R0 * 1.115, 0.04, Math.cos(a) * R0 * 1.115, 0.004)); }   // el punto del doblez
+  return sombras(g);
+}
+function gorra(per, color = C.navy3) {
+  const g = new THREE.Group(); g.position.set(0, CC0 + 0.05, -0.01); g.rotation.x = -0.12; per.cabeza.add(g);
+  const m = mat(color, 0.7);
+  g.add(mesh(new THREE.SphereGeometry(R0 * 1.06, 32, 14, 0, Math.PI * 2, 0, Math.PI * 0.5), m, 0, 0, 0));
+  const vis = mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.02, 24, 1, false, -Math.PI / 2, Math.PI), m, 0, 0.01, R0 * 0.98); vis.scale.set(1.1, 1, 0.9); g.add(vis);
+  return sombras(g);
+}
+// el lápiz de carpintero apoyado sobre la oreja izquierda (prisma octogonal chato crema con punta navy, a lo largo)
+function lapizOreja(per) {
+  const g = new THREE.Group(); g.position.set(R0 * 1.03, CC0 + 0.07, 0.01); g.rotation.set(Math.PI / 2 - 0.12, 0, 0.08); per.cabeza.add(g);
+  const cu = mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.17, 8), mat(0xe9d8a6, 0.6), 0, 0, 0); cu.scale.x = 0.7; g.add(cu);
+  const pu = mesh(new THREE.ConeGeometry(0.0125, 0.035, 8), mat(0xd9c7a0, 0.7), 0, 0.102, 0); pu.scale.x = 0.7; g.add(pu);
+  g.add(mesh(new THREE.ConeGeometry(0.005, 0.014, 6), M.navy, 0, 0.116, 0));
+  return sombras(g);
+}
+const gustavo = crearPersonaje({ nombre: "Gustavo", piel: PIEL.media, pelo: 0x3a3330, peinado: "costados", cejasColor: 0x2e2724, cejaGruesa: true,
+  barba: 0x3a3330, barbaLarga: 0.35, barbaOpacidad: 0.35, barbaBigote: false,
+  camisa: MARCA.cr, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06, chaleco: { color: MARCA.navy2, botones: MARCA.g },
+  pantalon: 0x3a3f4a, zapatos: 0x3b2a20, panza: 1.08, nariz: 0.062, mejillas: 0xd08a72, alto: 1.03,
+  dedos: true, parpadeoCada: 999, parpadeosExtra: [1.4, r2(T.p3b + 0.05), r2(T.p5 + 0.4), r2(T.p7 + 0.1), r2(T.q1 + 0.3), r2(T.q3 + 0.5), r2(T.q4g + 0.6)] });
+lapizOreja(gustavo);
+// el chaleco acolchado: tres costuras horizontales (aros navy un poco más oscuros) sobre el chaleco
+{ const mq = mat(0x0f1a2e, 0.8); for (const [y, r] of [[0.12, 0.262], [0.24, 0.266], [0.35, 0.252]]) { const a = mesh(new THREE.TorusGeometry(r, 0.008, 5, 40, Math.PI * 2 - 0.75), mq, 0, y, 0); a.rotation.set(Math.PI / 2, 0, Math.PI / 2 + 0.375); a.scale.y = 0.86; gustavo.cuerpo.add(a); } }
+const tito = crearPersonaje({ nombre: "Tito", piel: PIEL.morena, pelo: 0xb9b6b0, peinado: "costados", cejasColor: 0xd8d4cc, cejaGruesa: true,
+  camisa: MARCA.cr2, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false, cuelloAlto: 0.04,
+  campera: { color: MARCA.cr, cuello: MARCA.navy3, cierre: 0xb4b2a3, abierta: false },
+  pantalon: 0x5a5550, zapatos: 0x3b2a20, panza: 1.05, nariz: 0.066, mejillas: 0xa8604a, alto: 0.97,
+  dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p7 + 1.1), r2(T.q3 + 1.2)] });
+gorro(tito, C.navy3);
+// el polvo de portland en la campera de Tito (discos chatos gris claro en el pecho, la panza y las mangas)
+{ const mp = mat(0xc9c6bd, 0.95); for (const [x, y, z, s] of [[0.11, 0.24, 0.225, 0.05], [-0.07, 0.1, 0.245, 0.04], [0.05, -0.02, 0.25, 0.035], [-0.15, 0.3, 0.18, 0.03]]) { const d = mesh(new THREE.SphereGeometry(1, 12, 8), mp, x, y, z); d.scale.set(s, s * 0.75, 0.012); d.lookAt(d.position.clone().multiplyScalar(3)); d.scale.set(s, s * 0.75, 0.012); tito.cuerpo.add(d); }
+  for (const b of tito.brazos) { const d = mesh(new THREE.SphereGeometry(1, 12, 8), mp, 0, -0.05, 0.05); d.scale.set(0.04, 0.03, 0.03); b.ante?.add?.(d); } }
+// los albañiles de la fila (sin voz): variantes con casco, gorro o gorra; ninguno se parece al elenco
+const ALB = [
+  crearPersonaje({ nombre: "a1", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "costados", cejasColor: 0x2a2220, camisa: MARCA.navy3, mangas: "largas", cuello: null, cuelloBotones: false, pantalon: 0x4a4f5a, zapatos: 0x3b2a20, panza: 1.04, nariz: 0.06, alto: 1.02, dedos: true, parpadeoCada: 999 }),
+  crearPersonaje({ nombre: "a2", piel: PIEL.clara, pelo: PELO.castaño, peinado: "costados", cejasColor: 0x4a3222, camisa: 0x8a8f98, mangas: "largas", cuello: null, cuelloBotones: false, pantalon: MARCA.navy2, zapatos: 0x2a2220, panza: 1.0, nariz: 0.056, alto: 0.99, parpadeoCada: 999 }),
+  crearPersonaje({ nombre: "a3", piel: PIEL.media, pelo: PELO.negro, peinado: "rulos", cejasColor: 0x2a2220, camisa: MARCA.cr2, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false, pantalon: 0x4a4f5a, zapatos: 0x2a2220, panza: 1.02, nariz: 0.058, alto: 1.0, parpadeoCada: 999 }),
+  crearPersonaje({ nombre: "a4", piel: PIEL.trigueña, pelo: PELO.castaño, peinado: "costados", cejasColor: 0x3a2f2a, camisa: MARCA.navy2, mangas: "largas", cuello: null, cuelloBotones: false, pantalon: 0x5a5550, zapatos: 0x3b2a20, panza: 1.06, nariz: 0.06, alto: 1.01, parpadeoCada: 999 }),
+  crearPersonaje({ nombre: "a5", piel: PIEL.media, pelo: PELO.negro, peinado: "costados", cejasColor: 0x2a2220, camisa: MARCA.gd, mangas: "largas", cuello: null, cuelloBotones: false, pantalon: MARCA.navy2, zapatos: 0x2a2220, panza: 1.0, nariz: 0.055, alto: 1.0, parpadeoCada: 999 }),
+];
+casco(ALB[0], C.cr); gorro(ALB[1], C.gd); gorra(ALB[3], C.navy3); casco(ALB[4], C.cr);
+const TODOS = [gustavo, tito, ...ALB];
+for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
+// Beto, el maestro de obra (solo en las fotos y en el avatar): casco crema, barba de tres días, chaleco reflectivo verde
+// con dos bandas crema sobre campera navy
+const beto = crearPersonaje({ nombre: "Beto", piel: PIEL.trigueña, pelo: PELO.castaño, peinado: "costados", cejasColor: 0x3a2618,
+  barba: 0x3a2a20, barbaLarga: 0.4, barbaOpacidad: 0.55, barbaBigote: true, camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false,
+  chaleco: { color: MARCA.g, botones: MARCA.cr }, pantalon: 0x4a4f5a, zapatos: 0x3b2a20, panza: 1.03, nariz: 0.058, mejillas: 0xb8644e, alto: 1.0, parpadeoCada: 999 });
+casco(beto, C.cr);
+{ const mb = mat(C.cr, 0.5); for (const y of [0.1, 0.22]) { const a = mesh(new THREE.TorusGeometry(0.262, 0.014, 5, 40, Math.PI * 2 - 0.75), mb, 0, y, 0); a.rotation.set(Math.PI / 2, 0, Math.PI / 2 + 0.375); a.scale.y = 0.86; beto.cuerpo.add(a); } }
+const PER_PX = (per) => per;
+
+// ---- avatares: la cara del personaje 3D renderizada chica en un círculo (para los chats y las burbujas) ----
+const AVATAR = {};
+{
+  const rt = new THREE.WebGLRenderTarget(256, 256); rt.texture.colorSpace = THREE.SRGBColorSpace;
+  const esc = new THREE.Scene();
+  esc.add(new THREE.HemisphereLight(0xffffff, 0x8a8a8a, 2.2)); const dl = new THREE.DirectionalLight(0xffffff, 1.6); dl.position.set(1, 2, 3); esc.add(dl);
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.05, 20);
+  const leer = (per, fondo, alto = 0.25, lejos = 1.6) => {
+    esc.background = new THREE.Color(fondo);
+    const padre = per.raiz.parent; esc.add(per.raiz);
+    per.poner({ x: 0, y: 0, z: 0, giro: 0, ...CARA.sonrisa, ...BRAZOS.costado, t: 0 });
+    per.raiz.updateMatrixWorld(true);
+    const c = per.cabeza.localToWorld(V3(0, alto, 0));
+    cam.position.set(c.x + 0.12, c.y + 0.04, c.z + lejos); cam.lookAt(c.x, c.y - 0.03, c.z);
+    renderer.setRenderTarget(rt); renderer.render(esc, cam); renderer.setRenderTarget(null);
+    const px = new Uint8Array(256 * 256 * 4); renderer.readRenderTargetPixels(rt, 0, 0, 256, 256, px);
+    const cv = document.createElement("canvas"); cv.width = cv.height = 256; const x = cv.getContext("2d");
+    const id = x.createImageData(256, 256);
+    for (let y = 0; y < 256; y++) id.data.set(px.subarray((255 - y) * 1024, (256 - y) * 1024), y * 1024);
+    x.putImageData(id, 0, 0);
+    if (padre) padre.add(per.raiz); else esc.remove(per.raiz);
+    return cv;
+  };
+  AVATAR.beto = leer(beto, 0xd9d7c9, 0.3, 1.75);
+  AVATAR.tito = leer(tito, 0xcfeebc, 0.27, 1.7);
+  AVATAR.gustavo = leer(gustavo, 0x5ce611, 0.25, 1.6);
+  // los que escriben sin cara: la inicial en un círculo de color
+  const ini = (l, fondo, tinta = "#efeee5") => { const cv = document.createElement("canvas"); cv.width = cv.height = 256; const x = cv.getContext("2d"); x.fillStyle = fondo; x.fillRect(0, 0, 256, 256); x.fillStyle = tinta; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 140); x.fillText(l, 128, 140); return cv; };
+  AVATAR.marcos = ini("M", "#1f3254"); AVATAR.luis = ini("L", "#3fa60a"); AVATAR.ana = ini("A", "#8a8f98"); AVATAR.ramon = ini("R", "#16243d"); AVATAR.facundo = ini("F", "#b4b2a3", "#0b1220"); AVATAR.cli = ini("C", "#d9d7c9", "#0b1220"); AVATAR.obra = ini("O", "#2c4268");
+  rt.dispose();
+}
+function avatar(x, cv, cx, cy, r) {
+  x.save(); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.closePath(); x.clip(); x.drawImage(cv, cx - r, cy - r, 2 * r, 2 * r); x.restore();
+  x.strokeStyle = "#0b1220"; x.lineWidth = Math.max(4, r * 0.1); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.stroke();
+}
+const tilde = (x, cx, cy, s, color = "#0b1220", lw = null) => { x.strokeStyle = color; x.lineWidth = lw ?? s * 0.28; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(cx - s * 0.5, cy); x.lineTo(cx - s * 0.12, cy + s * 0.38); x.lineTo(cx + s * 0.55, cy - s * 0.42); x.stroke(); };
+function renglones(x, txt, ancho) { const ws = txt.split(" "), out = []; let l = ""; for (const w of ws) { const p = l ? l + " " + w : w; if (x.measureText(p).width > ancho && l) { out.push(l); l = w; } else l = p; } if (l) out.push(l); return out; }
+
+// =====================================================================================================
+// LAS FOTOS DEL CHAT: un camión plataforma descargando bolsas en la vereda de la obra (escena aparte, render a canvas)
+//   gris: el de "otro" (sin nombre), Beto de espaldas · navy: el de Materiales Gustavo, Beto de frente saludando
+// =====================================================================================================
+function crearCamion(color, conNombre) {
+  const g = new THREE.Group(), mc = mat(color, 0.5), mv = mat(0x2c4268, 0.15, { metalness: 0.3 });
+  // la cabina (adelante, +x) y el chasis
+  g.add(caja(4.6, 0.25, 1.9, M.paragolpe ?? M.navy, 0.0, 0.62, 0, 0.04));
+  g.add(caja(1.55, 1.55, 2.0, mc, 1.65, 1.55, 0, 0.12));
+  const pb = caja(0.05, 0.75, 1.7, mv, 2.43, 1.85, 0, 0.03); pb.rotation.z = -0.12; g.add(pb);
+  for (const s of [-1, 1]) g.add(caja(0.8, 0.6, 0.04, mv, 1.75, 1.85, s * 1.0, 0.02));
+  g.add(caja(0.1, 0.45, 1.7, M.navy, 2.43, 1.05, 0, 0.02)); for (const s of [-1, 1]) g.add(caja(0.06, 0.16, 0.3, mat(0xfffbea, 0.2, { emissive: 0xfff4d0, emissiveIntensity: 0.4 }), 2.46, 1.0, s * 0.68, 0.02));
+  g.add(caja(0.18, 0.2, 2.06, M.navy, 2.45, 0.62, 0, 0.04));
+  // la plataforma con barandas bajas (crema en el navy, gris oscuro en el gris)
+  const mb = mat(conNombre ? C.cr : 0x6d727b, 0.6);
+  g.add(caja(3.0, 0.14, 2.0, mb, -0.75, 0.82, 0, 0.02));
+  for (const s of [-1, 1]) g.add(caja(3.0, 0.42, 0.06, mb, -0.75, 1.1, s * 0.98, 0.02));
+  g.add(caja(0.06, 0.42, 2.0, mb, -2.22, 1.1, 0, 0.02));
+  if (conNombre) {
+    const t = lienzo(1200, 160, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "MATERIALES GUSTAVO", 900, 118, w - 60); x.fillText("MATERIALES GUSTAVO", w / 2, h / 2 + 4); });
+    const p = plano(2.9, 0.38, t, -0.75, 1.1, 1.015); g.add(p);
+    const pc = plano(1.3, 0.2, t, 1.65, 1.2, 1.005); g.add(pc);
+  }
+  for (const [x, z] of [[1.5, 1], [1.5, -1], [-1.1, 1], [-1.1, -1], [-1.75, 1], [-1.75, -1]]) { const r = mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.3, 24), M.goma, x, 0.42, z * 0.88); r.rotation.x = Math.PI / 2; g.add(r); const ll = mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.31, 16), mat(0xb4b2a3, 0.5), x, 0.42, z * 0.88); ll.rotation.x = Math.PI / 2; g.add(ll); }
+  // las bolsas en la plataforma (dos hileras, a medio bajar)
+  for (let k = 0; k < 3; k++) for (let i = 0; i < 4; i++) for (let j = 0; j < 3; j++) { if (k === 2 && (i + j) % 2) continue; const b = crearBolsaPortland(); b.position.set(-1.9 + i * 0.6, 0.96 + k * 0.135, -0.4 + j * 0.4); g.add(b); }
+  return sombras(g);
+}
+const FOTO = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(1200, 820), cam: new THREE.PerspectiveCamera(36, 1200 / 820, 0.1, 80), cv: {} };
+{
+  const E = FOTO.esc; FOTO.rt.texture.colorSpace = THREE.SRGBColorSpace;
+  E.background = new THREE.Color(0x16243d);
+  E.add(new THREE.HemisphereLight(0xf8f6ee, 0x8a8678, 1.9)); const dl = new THREE.DirectionalLight(0xfff0d8, 1.6); dl.position.set(6, 8, 6); dl.castShadow = true; dl.shadow.mapSize.set(1024, 1024); Object.assign(dl.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8 }); E.add(dl);
+  E.environment = scene.environment;
+  const calle = mesh(new THREE.PlaneGeometry(40, 20), M.asfalto ?? mat(0x50545c, 0.95), 0, 0, 2); calle.rotation.x = -Math.PI / 2; E.add(calle);
+  const vereda = mesh(new THREE.PlaneGeometry(40, 3.2), M.cr2, 0, 0.12, -2.6); vereda.rotation.x = -Math.PI / 2; E.add(vereda);
+  E.add(caja(40, 0.12, 0.16, M.cr3, 0, 0.06, -1.0, 0.02));
+  // el cerco de chapa crema de la obra, el andamio navy, la mezcladora y el edificio en obra (losa gris)
+  const cerco = new THREE.Group(); cerco.position.set(0, 0, -4.2); E.add(cerco);
+  cerco.add(caja(16, 2.2, 0.05, M.cr, 0, 1.1, 0, 0.01)); for (let x = -7.9; x < 8; x += 0.18) cerco.add(caja(0.06, 2.2, 0.04, M.cr2, x, 1.1, 0.04, 0.01));
+  E.add(caja(9, 0.3, 4, M.hormigon ?? M.cr2, -1, 3.4, -6.5, 0.02)); for (const x of [-5, -2, 1, 3.4]) E.add(caja(0.3, 3.3, 0.3, M.cr3, x, 1.7, -4.8, 0.02));
+  for (const x of [3.6, 5.0]) for (const y of [0, 1.2, 2.4]) { E.add(caja(0.06, 1.2, 0.06, M.navy3, x, y + 0.6, -3.7, 0.01)); E.add(caja(1.4, 0.05, 0.05, M.navy3, 4.3, y + 1.2, -3.7, 0.01)); }
+  const mez = new THREE.Group(); mez.position.set(-4.6, 0.12, -2.6); E.add(mez); const tam = mesh(new THREE.CylinderGeometry(0.42, 0.62, 0.95, 18), M.navy3, 0, 1.05, 0); tam.rotation.z = 0.6; mez.add(tam); mez.add(caja(0.9, 0.5, 0.5, M.navy, 0.1, 0.4, 0, 0.03)); sombras(mez);
+  // las bolsas ya bajadas en la vereda
+  for (let k = 0; k < 3; k++) for (let i = 0; i < 2; i++) for (let j = 0; j < 3; j++) { const b = crearBolsaPortland(); b.position.set(-2.6 + i * 0.6 + (k % 2) * 0.05, 0.12 + 0.07 + k * 0.13, -2.5 + j * 0.4); E.add(b); }
+  sombras(E);
+}
+const _fotoPer = beto;
+function sacarFoto(color, conNombre, frente) {
+  const cam = crearCamion(color, conNombre); cam.position.set(1.2, 0, 0.6); FOTO.esc.add(cam);
+  const padre = beto.raiz.parent; FOTO.esc.add(beto.raiz);
+  if (frente) beto.poner({ x: -1.35, y: 0.12, z: -1.4, giro: 0.35, ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.5 }, ...BRAZOS.costado, ...saludo(0.3, "D", 0.6), t: 0 });
+  else beto.poner({ x: -0.9, y: 0.12, z: -1.2, giro: Math.PI - 0.5, ...CARA.neutra, ...BRAZOS.costado, manoD: [-0.2, 0.3, 0.3], manoI: [0.2, 0.3, 0.3], t: 0 });
+  FOTO.cam.position.set(-0.6, 2.3, 7.4); FOTO.cam.lookAt(-0.2, 1.05, -0.9);
+  renderer.setRenderTarget(FOTO.rt); renderer.render(FOTO.esc, FOTO.cam); renderer.setRenderTarget(null);
+  const W = 1200, H = 820, px = new Uint8Array(W * H * 4); renderer.readRenderTargetPixels(FOTO.rt, 0, 0, W, H, px);
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H; const x = cv.getContext("2d"); const id = x.createImageData(W, H);
+  for (let y = 0; y < H; y++) id.data.set(px.subarray((H - 1 - y) * W * 4, (H - y) * W * 4), y * W * 4);
+  x.putImageData(id, 0, 0);
+  FOTO.esc.remove(cam); if (padre) padre.add(beto.raiz); else FOTO.esc.remove(beto.raiz);
+  return cv;
+}
+FOTO.cv.gris = sacarFoto(0x8a8f98, false, false);
+FOTO.cv.navy = sacarFoto(0x1f3254, true, true);
+FOTO.rt.dispose();
+
+//@@TARJ
