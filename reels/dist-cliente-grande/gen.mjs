@@ -49,12 +49,12 @@ T.p6 = r2(T.p5b + 0.6); T.r2 = r2(T.p6 + 0.12);
 T.p7 = r2(T.r2 + LEN.r2 + 0.1); T.h2 = r2(T.p7 + 0.05);
 T.p7b = r2(T.h2 + LEN.h2 + 0.02); T.pega = r2(T.p7b + 0.35);
 T.p7c = r2(T.p7b + 0.68); T.arranca = r2(T.p7c); T.vuela = [r2(T.p7c + 0.12), r2(T.p7c + 0.68)];
-const P1 = r2(T.p7c + 1.12);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.15, LEN.nar + 0.08));
+const P1 = r2(T.p7c + 1.42);   // (r2) +0,3 s: el post-it pegado en el camión, plano abierto    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.08));   // (r2) "más tarde…" entero ≥ 0,6 s antes del iris
 // ---- parte 2 ----
 // Q1 · miércoles 8:10, el auto de Nico en el semáforo: el celular del soporte avisa solo; Nico toca Llamar; "tuu"
 T.q1 = P2; T.vibra = r2(P2 + 0.25); T.q1i = r2(P2 + 0.2); T.noti = r2(P2 + 0.62);
-T.llamar = r2(P2 + 1.3); T.n2 = r2(T.llamar + 0.5);
+T.llamar = r2(P2 + 1.3); T.n2 = r2(T.llamar + 0.43);
 // Q2 · la vereda (sin camión): Héctor atiende en la puerta "¡Uh, se me pasó!…" · Q2i inserto: Pedido
 T.q2 = r2(T.n2 + LEN.n2 + 0.06); T.h3 = r2(T.q2 + 0.1);
 T.q2i = r2(T.h3 + LEN.h3 + 0.03); T.pedido = r2(T.q2i + 0.12);
@@ -165,7 +165,7 @@ const CHIP = `
   ESC.push([id, P1, dur, "abajo"]);
   const palabra = (w) => [...w].map((ch) => `<span class="l">${ch}</span>`).join("");
   const lin = (cls, ws) => `<span class="linea ${cls}">${ws.map(palabra).join('<span class="esp"></span>')}</span>`;
-  const MAS = r2(Math.min(dur - 0.5, LEN.nar * 0.62));   // "más tarde…" entra cuando el narrador dice "más"
+  const MAS = 0.8;   // (r2) "más tarde…" entra antes (entero en ~1,4 s)   // "más tarde…" entra cuando el narrador dice "más"
   escena(id, dur, {
     css: `
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
@@ -240,7 +240,7 @@ const CHIP = `
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 64px; padding: 16px 22px 20px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 222px; padding: 16px 22px 20px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 40px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 58px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">CRM: la ficha de cada cliente</div><div class="a">y el aviso cuando deja de pedir</div><div class="b">scalerics.com</div></div>`,
@@ -280,7 +280,8 @@ voz("c2", T.c2, -1);
 s("sfx/sorbo.wav", T.frena + LEN.c2 - 0.1, 0, { techo: -38, dur: 0.14, fin: 0.03, hp: 700 });
 // P2 · la grúa (whoosh), la radio de Darío (la cama filtrada como radio portátil), pop por rótulo, tic en el $ 456.000
 s("sfx/whoosh.mp3", T.p2 - 0.05, 0, { techo: -31 });   // (r1) la zambullida más presente: tapa el hueco
-s("bgm/pizzicato.wav", T.p2 + 0.05, 0, { desde: 6, dur: r2(T.p3 - T.p2 + 0.05), fi: 0.05, fin: 0.25, techo: -40, hp: 500, lp: 2600, sinDuck: true });
+s("bgm/pizzicato.wav", T.p2, 0, { desde: 6, dur: r2(T.p3 - T.p2 + 0.1), fin: 0.25, techo: -34, hp: 500, lp: 2600, sinDuck: true });   // (r2) la radio de Darío más fuerte y sin fundido
+s("sfx/whoosh-short.mp3", T.llega - 0.15, 0, { techo: -36 });   // (r2) el aterrizaje de la grúa
 T.rot.forEach((t, i) => pop(t, -40 + i));
 for (let k = 0; k < 8; k++) tic(T.rot[2] + 0.04 + k * 0.05, -44, k);
 // P3 · la grúa vuelve (whoosh corto), el picaporte de la puerta
@@ -297,8 +298,8 @@ s("sfx/k-neumatico-abre.wav", T.p4 + 0.1, 0, { techo: -48, lp: 1500 });
 voz("h1", T.h1, -1);
 // P5 · la pausa: las puertas del camión gris (dos hojas)
 s("sfx/whoosh-short.mp3", T.p5b - 0.05, 0, { techo: -44 });
-s("sfx/k-metal-pesado-0.wav", T.cierra[0], 0, { techo: -37 });
-s("sfx/k-metal-pesado-2.wav", T.cierra[1], 0, { techo: -38 });
+s("sfx/k-metal-pesado-0.wav", T.cierra[0], 0, { techo: -34 });
+s("sfx/k-metal-pesado-2.wav", T.cierra[1], 0, { techo: -35 });
 // P6 · el remate
 voz("r2", T.r2, -1);
 // P7 · remate del remate: "Llamame el martes."; el post-it (pop), el motor, el aleteo del papel, el pop seco en la chapa
@@ -327,7 +328,7 @@ voz("n2", T.n2, -1);
 // Q2 · Héctor en la puerta (pájaros), el inserto: Pedido ✓ (ding)
 s("sfx/pajaro.wav", T.q2 + 0.3, 0, { techo: -46 });
 voz("h3", T.h3, -1);
-s("sfx/whoosh-short.mp3", T.q2i - 0.04, 0, { techo: -44 }); ding(T.pedido, -35);
+s("sfx/whoosh-short.mp3", T.q2i - 0.04, 0, { techo: -44 }); ding(T.pedido, -35); s("sfx/k-cloth_1.wav", T.pedido + 0.35, 0, { techo: -38, dur: 0.35, fin: 0.1 });   // (r2) sin bajón antes del corte
 // Q3 · la reposera que se pliega (tres clac), pop por capa del pallet, whoosh de la grúa, ding del hueco verde
 s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, dur: r2(DUR - T.q3), fi: 0.1, fin: 0.5, techo: -54, lp: 600 });
 T.pliega.forEach((t, i) => clac(t, -37 + i));
@@ -350,10 +351,10 @@ voz("r3", T.r3, -1);
 pop(T.palabra + 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz (la grúa, la pausa del auto, el pallet), los SFX +5 dB (nunca por encima del techo)
-for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
+for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }   // (r2) la cama +3 dB
   if (en(t0, T.p2, T.p3 - 0.2) || en(t0, T.p7b, P1) || en(t0, T.q3, T.c1b - 0.3)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.32])]; }   // (r1) la cama más presente bajo la voz
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.55])]; }   // (r1) la cama más presente bajo la voz
 function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render
