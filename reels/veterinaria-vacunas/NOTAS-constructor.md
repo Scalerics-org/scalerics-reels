@@ -195,3 +195,17 @@ en todos los tramos de 0,5 s, -14,0 LUFS, pico -5,8 dBFS. `check --json` ok. Dos
 - Cortes (s): P2 3,21 · P2c 4,54 · P3 6,04 · P3b 8,18 · P3c 9,30 · P4 9,88 · P4b 10,43 · P5 13,73 · P6 15,43 · P7 17,42 ·
   cartel 18,32 · Q1 20,77 · Q1b 22,95 · Q1t 24,52 · Q2 26,27 · Q2b 26,92 · Q2c 28,90 · Q3 30,60 · Q3c 32,94 · Q4 34,94 ·
   Q4c 36,16 · Q4d 37,30 · Q5 38,02.
+
+## Ronda 5 (17-11, pulido sobre qa-ronda-r5.md)
+Sin tocar tiempos ni audio (SINAUDIO=1): 41,57 s, mismos cortes que la ronda 4. `check --json` ok. Pasada de snapshots cada 0,5 s
+(renders/snap/r5p1) y cuadro por cuadro en los cortes tocados (renders/prev/cortes5: 9,88 · 10,43 · 17,42 · 20,77 · 22,95 ·
+24,52 · 36,16 · 37,30). Portada sin cambios (no cambió nada de su pose).
+- M1 Q1 más abierto y corrido 10 cm a la derecha: Vero entera mientras habla.
+- M2 Q1b: 3/4 frontal de Inés desde adelante a la derecha, con la tablet de la ficha en primer término y Toto entero.
+- M3 correa: nace del collar del lado de la mano de Vero y por detrás (nunca de la boca).
+- M4 tubos del techo ocultos también en P4, P4b y Q3.
+- Bajas: "El que quiere a su perro se acuerda." sin coma; P4 con las claves de cámara en orden (la del medio caía después
+  del corte) y más abierta: Toto con la cabeza en cuadro y Vero entera desde 10,13, con su burbuja desde que empieza a
+  hablar; ruedo crema de la campera de Vero fuera (las astillas); Toto oculto en Q4c (la mancha abajo a la derecha);
+  en P7 Toto girado 30° más hacia la cámara (la pata de perfil y el pañuelo a la vista); cejas de Inés más bajas en Q4c.
+- No hecho: lengua de Toto, panel del cierre ~28 px, ojo lejano de Toto en 37,7, franja oscura del techo, portada.
