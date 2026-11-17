@@ -38,3 +38,11 @@ y `reels/ya-lo-cargo/fuentes.md`). Sonidos que probablemente haya que sumar (el 
 `assets/sfx` de otros reels; si no están, uno real con licencia CC0 y anota acá autor, sitio y licencia; nada sintetizado
 con ffmpeg): **tintineo de llaves**, **rueditas de silla de oficina**, **viento suave de balcón / gaviota lejana**,
 **tono de llamada colgada** (`k-dos-tonos.wav`, Kenney CC0, ya registrado en ya-lo-cargo), **reloj de pared**.
+
+## Sonidos usados (constructor, 17-11)
+- `assets/sfx/gaviota.wav` (la gaviota lejana del balcón): recorte de 1,8 s de "Gulls on the Harbor" (2573),
+  BigSoundBank, CC0 1.0: https://bigsoundbank.com/gulls-on-the-harbor-s2573.html (licencia: https://bigsoundbank.com/licenses.html).
+- `llaves.wav` ("Keys in a hand", BigSoundBank, ya acreditado en reels/taller-presupuestos), `k-dos-tonos.wav` (Kenney,
+  CC0), `tic-real.mp3`, `key-press.mp3`, `ding.mp3`, `cero.mp3`, `notification.mp3`, `vibra.wav`, `puerta-abre.wav`,
+  `paso-*.wav`, `calle.wav`, `zumbido-largo.wav`, whoosh/pop/stinger y `bgm/pizzicato.wav`: los de siempre del repo
+  (créditos en reels/dist-cliente-grande, ya-lo-cargo y veterinaria-vacunas). Nada sintetizado.

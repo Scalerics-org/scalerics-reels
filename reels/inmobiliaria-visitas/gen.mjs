@@ -334,9 +334,9 @@ voz("g4", T.g4, -1);
 // Q4 · la ficha tres semanas después (RESERVADO ✓, la comisión gira a verde), el balcón y la franja VENDIDO
 s("sfx/whoosh-short.mp3", T.q4 - 0.05, 0, { techo: -42 });
 pop(T.reserva, -38); ding(T.reserva + 0.03, -37);
-s("sfx/whoosh-short.mp3", T.comision - 0.04, 0, { techo: -42 }); ding(T.comision + 0.06, -39);
-s("sfx/whoosh-short.mp3", T.q4b - 0.05, 0, { techo: -44 });
-s("sfx/calle.wav", T.q4b, 0, { loop: true, desde: 2, dur: r2(T.q5 - T.q4b + 0.05), fi: 0.1, fin: 0.15, techo: -48, lp: 1200 });
+s("sfx/whoosh-short.mp3", T.comision - 0.04, 0, { techo: -44 }); ding(T.comision + 0.06, -42);
+s("sfx/whoosh-short.mp3", T.q4b - 0.12, 0, { techo: -47 });
+s("sfx/calle.wav", T.q4b, 0, { loop: true, desde: 2, dur: r2(T.q5 - T.q4b + 0.05), fi: 0.45, fin: 0.15, techo: -48, lp: 1200 });
 s("sfx/gaviota.wav", T.q4b + 0.2, 0, { techo: -46 });
 voz("g5", T.g5, -1);
 s("sfx/whoosh-short.mp3", T.vendido - 0.08, 0, { techo: -38 }); pop(T.vendido + 0.08, -34); ding(T.vendido + 0.12, -34);

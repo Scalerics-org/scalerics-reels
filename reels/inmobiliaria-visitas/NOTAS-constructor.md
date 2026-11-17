@@ -1,0 +1,65 @@
+# inmobiliaria-visitas · notas del constructor (17-11)
+
+Proyecto copiado de dist-cliente-grande: todo sale de `node gen.mjs` (assets/tiempos3d.js, compositions/*.html,
+index.html, assets/audio/mezcla.wav). La escena 3D entera está en `assets/tres.js` (escrita de cero para este reel, con
+la infraestructura de dist-cliente-grande: tarjetas pegadas a la cámara, regla de burbujas, catmull() quieto después de
+la última clave, sin NaN en el último cuadro). `assets/personajes.js` = el de pilates-cuota (el más corregido: cuello,
+`bocaVoz` sin boca doble, `mejillasBajas`). Silvana, Diego y Romina se arman en tres.js con DEFECTO + parámetros del
+plan (`mejillasBajas: true`); Graciela = ELENCO.clienta + una cartera crema; Sofi = la de veterinaria-vacunas
+(videollamada por render target); la pareja de Q1 = dos DEFECTO.
+
+## Comandos (desde reels/inmobiliaria-visitas)
+```
+TOMAS="a b c" bash partes/reintentar.sh   # tomas (partes/lineas.tsv)
+bash partes/medir-tomas.sh                # recorta y mide "oyó:" (partes/rec/medidas.tsv)
+bash partes/procesar.sh                   # assets/voice/ desde las tomas elegidas (+ palabras-g2.json, palabras-so.json)
+node gen.mjs                              # todo; SINAUDIO=1 no rehace la mezcla; MEDIR=1 stems; LIMPIO=1 sin capa plana; VER=portada
+python3 medir.py                          # voz contra resto por tramos (después de MEDIR=1 node gen.mjs)
+./snap.sh "t1,t2,…" nombre                # snapshots con el candado
+flock /tmp/hyperframes.lock node prev.mjs "t1,t2" renders/prev/x [px,py,pz,mx,my,mz,fov]   # solo la capa 3D
+```
+
+## Voces (partes/voces.md, partes/procesar.sh)
+Silvana Erinome · Diego Achird · Romina Pulcherrima · Graciela Gacrux · Sofi Achernar · narrador Rasalgethi (atempo
+1,07). g1 "¿Y? ¿Hubo visitas?" (altavoz) se reusa idéntico en Q3. g3 (altavoz, seca) y g5 (balcón, contenta) son dos
+tomas distintas de "Mañana paso a buscar el cartel.". Huecos internos acortados en g1, g2, d2, s3, g4. "oyó:" igual al
+guion en todas (el STT no oye el "¿Y?" suelto en 2 de 3 tomas de g1: se eligió la b, que sí; en d2 no oye el "Ah.").
+
+## Mundo
+Oficina (origen, piso y = 0): pared del fondo z = -0,6 de ladrillo crema, franja verde a 1,6 m, "SILVANA PROPIEDADES"
+navy a 2,62 m (arriba, fuera de los encuadres de la parte 2); tablero de llaves en x 0,5 (gancho POCITOS vacío en la
+parte 1, con su llave en la 2); panel de fichas en x -0,78 (la de Graciela grande, con borde verde). Silvana sentada en
+(0; 0,3) mirando a +z; monitor a su derecha (-0,72; 0,98); su celular en altavoz en un soporte (0,3; 1,02). Diego
+(0,64; 3,62) y Romina (-0,64; 3,62) enfrentados a ella; panelito de post-its de Diego, agenda tachada de Romina; la llave
+MALVÍN colgando del borde de la taza de Diego. Vidriera con 8 fichas en z = 5,15.
+Pocitos (x = 60): fachada crema en z = 0, balcón con baranda navy, cartel VENDE en la baranda de adelante, la puerta-
+ventana con la llave POCITOS (péndulo), la maceta; abajo la calle, la rambla y el río navy2; edificios low-poly. Detrás
+de la fachada, el living vacío (parquet en espiga) con la puerta de entrada abierta al pasillo (la pareja).
+
+Planos: P1 cuadro 0 (Silvana, el celular, el tablero) · P2 push-in mientras pregunta · P3 por detrás de Silvana: Diego
+y Romina, dos burbujas a la vez · P4 primer plano · P5 grúa desde la rambla al balcón y push-in a la llave · P6 la
+pausa (rótulos) · P7 el celular de cerca ("Llamada finalizada") · P8 Diego y la llave MALVÍN · P8b Silvana cierra los
+ojos · cartel · Q1 living: la pareja saluda, push-in al celular de Diego · Q2 balcón: push-in al resumen · Q3 encuadre
+del cuadro 0 · Q3m push-in a la ficha · Q3c el encuadre del cuadro 0 · Q4 la ficha tres semanas después · Q4b balcón y
+VENDIDO · Q5 Sofi en el celular parado (el tablero con las llaves detrás).
+
+## Duración y mezcla
+37,8 s (1134 cuadros). Parte 1 0-16,51 · cartel 16,51-18,91 · parte 2 18,91-37,8 = 18,89 s (50 %); cierre (Sofi)
+33,86-37,8, tarjeta VISITAS 33,94 (3,9 s, entra con "Comentá"), línea chica 35,7. Mezcla: duck de la cama 0,3 bajo la
+voz; voz ≥ +7,2 LU sobre el resto en todos los tramos de 0,5 s; -14,0 LUFS. SFX de assets/sfx; nuevo: `gaviota.wav`
+(BigSoundBank 2573, CC0, en fuentes.md).
+
+## Pasadas
+- Armado (prev.mjs, renders/prev/a-k): P1 (Silvana cortada / tablero tapado por la burbuja → tablero más chico y más
+  cerca, cámara más alta y abierta, burbuja a la izquierda); monitor fuera del cuadro 0; teléfono más cerca de Silvana
+  (el brazo estirado); P3 corredores más juntos y más cerca, burbujas escalonadas; P5 cartel VENDE delante de Graciela;
+  P8 la llave MALVÍN tapada por el panelito → colgando de la taza, de frente; celulares en la mano por delante y arriba
+  de las manos (las manos tapaban la pantalla en el inserto); Q5 sin Silvana (su cabeza quedaba cortada detrás de Sofi).
+- Pasada 1 (MP4 render 1, cuadros cada 0,25 s en renders/qa1/hoja-*.png y diferencia cuadro a cuadro de los 1134):
+  sin cuadros sueltos, último cuadro quieto. Corregido: P2 era una órbita que dejaba la burbuja de Silvana sin Silvana
+  (2,3-3,6) → push-in sobre ella; el nombre de la pared cortado en los bordes en Q3/Q3c → más arriba; la franja VENDIDO
+  pasaba por la cara de Graciela → entra de costado a la altura del cartel; primer cuadro de Q5 con otra cámara y la
+  textura de Sofi vieja → la escena de Sofi se renderiza desde 0,6 s antes y scene.updateMatrixWorld antes de la cámara;
+  P7 con la mano de Silvana asomando en el borde → celular más grande en cuadro; Q1 la pareja tapada por Diego y techo
+  oscuro → cámara nueva (la pareja en la puerta, saludando), techo claro; mezcla 31,5 s (+6,0 → +7,2).
+- Render 1: 627 s (10,5 min, SwiftShader).

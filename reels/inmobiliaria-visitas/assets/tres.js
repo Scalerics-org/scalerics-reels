@@ -182,8 +182,8 @@ function crearLlave(nombre, R = 0.035) {
   OF.add(caja(OW, 0.25, 0.025, M.g, 0, 1.725, OFI.z0 + 0.012, 0.004));
   const nombreT = lienzo(2048, 200, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SILVANA PROPIEDADES", 800, 150, w - 40); x.fillText("SILVANA PROPIEDADES", w / 2, h / 2 + 6); });
   const nombreS = nombreT.clone(); nombreS.needsUpdate = true;
-  const nm = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0, 2.62, OFI.z0 + 0.05); OF.add(nm);
-  const ns = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshBasicMaterial({ map: nombreS, transparent: true, opacity: 0.22, color: 0x000000 })); ns.position.set(0.012, 2.608, OFI.z0 + 0.02); OF.add(ns);
+  const nm = new THREE.Mesh(new THREE.PlaneGeometry(1.3, 0.127), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0.17, 2.0, OFI.z0 + 0.05); OF.add(nm);
+  const ns = new THREE.Mesh(new THREE.PlaneGeometry(1.3, 0.127), new THREE.MeshBasicMaterial({ map: nombreS, transparent: true, opacity: 0.22, color: 0x000000 })); ns.position.set(0.176, 1.994, OFI.z0 + 0.02); OF.add(ns);
   // paredes de los costados (crema lisa) con zócalo navy
   for (const x of [OFI.x0, OFI.x1]) { const p = mesh(new THREE.BoxGeometry(0.12, OFI.alto, OD), paredM, x, OFI.alto / 2, OZ); p.castShadow = false; OF.add(p); OF.add(caja(0.03, 0.12, OD, M.navy3, x - Math.sign(x) * 0.07, 0.06, OZ)); }
   OF.add(caja(OW, 0.12, 0.03, M.navy3, 0, 0.06, OFI.z0 + 0.02));
@@ -424,7 +424,7 @@ const PUERTA_E = { x0: -1.35, x1: -0.45 };
   parquetT.wrapS = parquetT.wrapT = THREE.RepeatWrapping; parquetT.repeat.set(4, 4);
   const LW = LIV.x1 - LIV.x0, LD = -LIV.z0;
   const p = mesh(new THREE.PlaneGeometry(LW, LD), new THREE.MeshStandardMaterial({ map: parquetT, roughness: 0.6 }), 0, 0.001, LIV.z0 / 2); p.rotation.x = -Math.PI / 2; p.castShadow = false; living.add(p);
-  living.add(cajaS(LW, 0.1, LD, mat(0xf2f0e8, 0.95), 0, LIV.alto + 0.05, LIV.z0 / 2));
+  living.add(cajaS(LW, 0.1, LD, mat(0xf2f0e8, 0.95, { emissive: 0xb8b6ac, emissiveIntensity: 0.8 }), 0, LIV.alto + 0.05, LIV.z0 / 2));
   const pm = mat(0xefeee5, 0.92);
   for (const x of [LIV.x0, LIV.x1]) living.add(cajaS(0.12, LIV.alto, LD, pm, x, LIV.alto / 2, LIV.z0 / 2));
   // la pared del fondo con la puerta de entrada abierta
@@ -1034,7 +1034,7 @@ function poseGraciela(t) {
   return pr;
 }
 // ---------- Diego en el living de Pocitos (Q1, parado con el celular) y la pareja que se va por el pasillo ----------
-const D_LIV = { x: BX + 0.42, z: -2.2 };
+const D_LIV = { x: BX + 0.12, z: -3.0 };
 function poseDiegoLiv(t) {
   const pr = { x: D_LIV.x, y: 0, z: D_LIV.z, giro: 0.15, inclina: 0.03, ...aC(0, 0.3), ...CARA.sonrisa, ojos: { abiertos: 1, x: 0, y: -0.7, feliz: 0.2 }, ...BRAZOS.celular, t };
   if (t < T.q1i) { pr.cabeza = { giro: -0.5, asiente: 0.0, ladea: 0.03 }; pr.ojos = { abiertos: 1, x: -0.5, y: 0, feliz: 0.3 }; }
@@ -1042,7 +1042,7 @@ function poseDiegoLiv(t) {
 }
 function posePareja(per, t) {
   const E = per === ella, u = sg(t, P2 - 0.2, T.q2);
-  const pr = { x: BX + (E ? -1.55 : -1.15), y: 0, z: LIV.z0 - 0.7 - u * 1.6 - (E ? 0 : 0.3), giro: Math.PI + (E ? 0.15 : -0.1), paso: 1, inclina: 0.02, ...aC(0, 0), ...CARA.sonrisa, ...BRAZOS.costado, t };
+  const pr = { x: BX + (E ? -1.05 : -0.7), y: 0, z: LIV.z0 - 0.9 - u * 1.4 - (E ? 0 : 0.3), giro: Math.PI + (E ? 0.15 : -0.1), paso: 1, inclina: 0.02, ...aC(0, 0), ...CARA.sonrisa, ...BRAZOS.costado, t };
   if (E) { const s = 1 - sg(t, P2 + 0.9, P2 + 1.2); if (s > 0) { Object.assign(pr, saludo(t, "D", s)); pr.cabeza = { giro: 2.4, asiente: 0, ladea: 0 }; } }
   return pr;
 }
@@ -1117,7 +1117,7 @@ function renderAt(tIn) {
     const k = BK();
     const A = [BX - 3.2, 2.6, 15.5, BX - 0.2, 0.2, 0.5, 52], B = [BX + 0.78, 1.42, 3.95, BX - 0.22, 0.92, 0.7, 47], Cc = [BX + 0.74, 1.4, 3.75, BX - 0.2, 0.92, 0.7, 46];
     const Dk = [k.x + 0.22, k.y + 0.06, k.z + 0.62, k.x - 0.02, k.y + 0.0, k.z, 40];
-    const u = eio(sg(t, T.p5, T.g2 + 0.15)), w = eio(sg(t, T.llave - 0.3, T.llave + 0.35));
+    const u = eio(sg(t, T.p5, T.g2 + 0.15)), w = eio(sg(t, T.llave - 0.18, T.llave + 0.17));
     const v = u < 1 ? lerpV(A, B, u) : lerpV(B, Cc, sg(t, T.g2 + 0.15, T.llave - 0.3));
     ponerCam(lerpV(v, Dk, w), t);
   }
@@ -1128,7 +1128,7 @@ function renderAt(tIn) {
   }
   if (pa === "Q1") {
     celEnManos(celD, diego, camera.position, 0.2, 0.1); celD.visible = true;
-    const A = [BX + 1.1, 1.5, -0.35, BX - 0.75, 1.15, -4.6, 50];
+    const A = [BX - 0.12, 1.45, -0.3, BX - 0.36, 1.1, -4.6, 52];
     ponerCam(A, t, true); camera.updateMatrixWorld(true);
     celEnManos(celD, diego, camera.position, 0.2, 0.1);
     const { v, up } = vistaPantalla(celD, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.2, 0.62, 40);
@@ -1136,7 +1136,7 @@ function renderAt(tIn) {
     ponerVista(A, v, u, V3(0, 1, 0), up);
   }
   if (pa === "Q2") {
-    const A = [BX + 1.75, 1.45, 2.75, G_BAL.x - 0.05, 1.15, G_BAL.z, 46];
+    const A = [BX + 0.8, 1.45, 3.5, G_BAL.x + 0.05, 1.1, G_BAL.z, 46];
     ponerCam(A, t, true); camera.updateMatrixWorld(true);
     celEnManos(celG, graciela, camera.position, 0.2, 0.1); celG.visible = true;
     const { v, up } = vistaPantalla(celG, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, 0.62, 40);
@@ -1212,7 +1212,7 @@ function tarjetas(t, pa) {
   if (pa === "P7" && t >= T.g3 - 0.04) ponerGlobo(GL.g3, 540, 330, ent(T.g3 - 0.04), null, 1);
   if (pa === "P8" && t >= T.d2 - 0.04) { const [hx, hy] = coronillaPx(diego); ponerGlobo(GL.d2, 330, 340, ent(T.d2 - 0.04), [hx - 30, hy + 10], 1); }
   if (pa === "Q1" && t >= T.q1i + 0.3) ponerGlobo(ROT_Q[0], 540, 250, ent(T.q1i + 0.3), null, 2);
-  if (pa === "Q2" && t >= T.q2i + 0.4) ponerGlobo(ROT_Q[1], 540, 290, ent(T.q2i + 0.4), null, 2);
+  if (pa === "Q2" && t >= T.q2i + 0.4 && t < T.llamaG + 0.12) ponerGlobo(ROT_Q[1], 540, 290, ent(T.q2i + 0.4), null, 2);
   if (pa === "Q3m") { ponerGlobo(ROT_Q[2], 540, 300, ent(T.mon + 0.3), null, 2); if (t >= T.s3 - 0.04) ponerGlobo(GL.s3, 540, 1500, ent(T.s3 - 0.04), null, 1); }
   if (pa === "Q3c" && t >= T.g4 - 0.04) { const [tx, ty] = tel(); ponerGlobo(GL.g4, 560, 600, ent(T.g4 - 0.04), [tx, ty], 1); }
   if (pa === "Q4b" && t >= T.g5 - 0.04) { const [hx, hy] = coronillaPx(graciela); ponerGlobo(GL.g5, 560, 330, ent(T.g5 - 0.04), [hx, hy + 6], 1); }
