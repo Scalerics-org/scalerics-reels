@@ -1,6 +1,6 @@
 {
- "t": 14.2,
- "chica": "Día 10.",
+ "t": 1.0,
+ "chica": "Día 10 del mes.",
  "grande": "¿Te pagué marzo?",
  "sello": "PILATES",
  "acento": "#5ce611",
@@ -9,5 +9,6 @@
  "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-portada.png"
+ "fondo_limpio": "portada-src/fondo-limpio-portada.png",
+ "sello_top": "336px"
 }

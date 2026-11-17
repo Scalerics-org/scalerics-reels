@@ -7,15 +7,14 @@ v() { rec $1; ffmpeg -loglevel error -y -i partes/tmp/r-$1.wav -af "${3:-anull}"
 v 01-alicia-f  a1                          # Alicia (Laomedeia) "Ceci, ¿te pagué marzo?" (se reusa igual en Q3)
 v 02-ceci-b    c1                          # Ceci (Vindemiatrix) "Ahora me fijo."
 v 03-joaco-b   j1 "atempo=1.08"            # Joaco (Zubenelgenubi) "¿Y si les mandamos un link de pago?" (se reusa igual en Q2b)
-v 04-ceci-a    c2 "atempo=1.08"            # Ceci "No. Yo no persigo a nadie."
-v 05-alicia-b  a2 "atempo=1.15"            # Alicia "¡Ceci! Te transferí el 2. Mirá."
+v 04-ceci-a    c2 "atempo=1.14"            # Ceci "No. Yo no persigo a nadie."
+v 05e-alicia-b a2 "atempo=1.12"            # (r1) Alicia "¡Ceci! Te transferí el dos de marzo. ¡Mirá!" (con "el dos" a secas el STT oía "2000" en todas las tomas)
 v 06-alicia-b  a3                          # Alicia "¡Con razón me hizo las mechas gratis!"
 v 07-ceci-a    c3                          # Ceci "Inhalamos." (casi en susurro)
 v 08-narrador-a narrador "atempo=1.05"     # Rasalgethi "Un cobro automático más tarde."
 v 09-alicia-a  a4                          # Alicia "¿Ya? ¿Así nomás?"
-v 10-ceci-b    c4                          # Ceci "Ya pagaron treinta y nueve."
+v 10b-ceci-a   c4                          # (r1) Ceci "Sale sola, el día uno."
 v 11-ceci-b    c5                          # Ceci "El uno, a las siete y dos."
-v 12-alicia-b  a5 "atempo=1.18"            # Alicia "Uy. Entonces las mechas las debo."
 v 13-ceci-b    c6                          # Ceci "Y exhalamos."
-v 14-sofi-a    f1 "atempo=1.1,$LLAM"       # Sofi (Achernar) "Comentá CUOTA y te mando cómo funciona para tu estudio."
+v 14-sofi-a    f1 "atempo=1.17,$LLAM"       # Sofi (Achernar) "Comentá CUOTA y te mando cómo funciona para tu estudio."
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

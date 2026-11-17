@@ -144,11 +144,11 @@ export const ELENCO = {
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.gd, mangas: "largas", cuello: null, cuelloBotones: false, cuelloAlto: 0.07, franja: null,
     labiosPegados: true, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 0.94, nariz: 0.047, mejillas: 0xd98a7a, labios: 0xa8484f,
     aros: MARCA.cr, alto: 1.0 },
-  alicia: { nombre: "Alicia", piel: PIEL.clara, pelo: 0xcdb07a, peinado: "rodete", cejasColor: 0x8a6a40, cejaFina: true,
+  alicia: { nombre: "Alicia", piel: PIEL.clara, pelo: 0xcdb07a, peinado: "rodete", rodeteAtras: 0.42, cejasColor: 0x8a6a40, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr, mangas: "largas", cuello: MARCA.navy2, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.cr2, panza: 1.04, nariz: 0.05, mejillas: 0xe39282, labios: 0xb5555a,
     aros: MARCA.g, alto: 0.95 },
-  joaco: { nombre: "Joaco", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", cejasColor: 0x1e1a18,
+  joaco: { nombre: "Joaco", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", cortoMechas: true, cejasColor: 0x1e1a18,
     barba: 0x2a2220, barbaLarga: 0.3, barbaOpacidad: 0.55, camisa: MARCA.navy3, mangas: "cortas", cuello: MARCA.cr, cuelloFino: true, cuelloBotones: false, cuelloAlto: 0.05,
     franja: null, pantalon: 0x3a3f4a, zapatos: MARCA.cr, panza: 0.96, nariz: 0.056, mejillas: 0xb8644e, alto: 1.04 },
 
@@ -496,6 +496,11 @@ export function crearPersonaje(cfg) {
       }
     }
     for (const sg of [-1, 1]) { const p = mesh(G.esfera, pm, 0, 0, 0, 0.03, 0.065, 0.026); sobre(p, sg * 1.28, 0.1, 0.99); cabeza.add(p); }
+  } else if (c.peinado === "corto" && c.cortoMechas) {
+    // (pilates-cuota r1) corto con textura: casquete inclinado hacia atrás (la frente libre) y mechones redondos en la línea
+    // del pelo, sin el bloque de flequillo que se leía como casco con gorro
+    const cap = mesh(new THREE.SphereGeometry(1, 36, 16, 0, Math.PI * 2, 0, Math.PI * 0.44), M.pelo, 0, CC + 0.01, -0.012, R * 1.045, R * 1.03, R * 1.03); cap.rotation.x = -0.32; cabeza.add(cap);
+    for (const [az, el, sx] of [[-0.75, 0.5, 0.075], [-0.38, 0.6, 0.085], [0.0, 0.64, 0.09], [0.38, 0.6, 0.085], [0.75, 0.5, 0.075], [-1.15, 0.35, 0.06], [1.15, 0.35, 0.06]]) { const m = mesh(G.esfera, M.pelo, 0, 0, 0, sx, 0.05, 0.06); sobre(m, az, el, 1.02); cabeza.add(m); }
   } else if (c.peinado === "corto") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.42), M.pelo, 0, CC + 0.01, -0.01, R * 1.05, R * 1.02, R * 1.02));
     const flequillo = mesh(rbox(0.36, 0.08, 0.12, 0.035), M.pelo); sobre(flequillo, 0, 0.72, 1.0); flequillo.rotation.x -= 0.4; cabeza.add(flequillo);
@@ -600,6 +605,12 @@ export function crearPersonaje(cfg) {
     for (const sg of [-1, 1]) { mecha(sg * 1.5, 0.5, 0.1, 0.07, 0.022, 1.0, 0); mecha(sg * 1.34, 0.2, 0.024, 0.06, 0.016, 1.0, sg * 0.05); }
     // el jopo: mechones que suben desde la frente y se van hacia atrás, el del medio más alto
     for (const [az, el, sx, sy, sz, rz] of [[-0.4, 0.84, 0.1, 0.06, 0.11, 0.35], [-0.13, 0.9, 0.12, 0.075, 0.12, 0.12], [0.15, 0.91, 0.12, 0.08, 0.12, -0.08], [0.42, 0.85, 0.1, 0.06, 0.11, -0.3], [0.0, 1.12, 0.16, 0.07, 0.15, 0], [-0.3, 1.08, 0.11, 0.06, 0.12, 0.2], [0.3, 1.08, 0.11, 0.06, 0.12, -0.2]]) mecha(az, el, sx, sy * JA, sz, 1.0 + 0.06 * JA, rz, -0.35);
+  } else if (c.peinado === "rodete" && c.rodeteAtras) {
+    // (pilates-cuota r1) rodete alto de clase: casquete inclinado hacia atrás (el borde de adelante bien arriba de las cejas,
+    // la frente libre), ondas a los costados que tapan el borde y el rodete arriba atrás
+    const cap = mesh(new THREE.SphereGeometry(1, 40, 18, 0, Math.PI * 2, 0, Math.PI * 0.47), M.pelo, 0, CC + 0.005, -0.015, R * 1.045, R * 1.03, R * 1.04); cap.rotation.x = -c.rodeteAtras; cabeza.add(cap);
+    cabeza.add(mesh(G.esfera, M.pelo, 0, CC + R * 0.98, -R * 0.42, 0.13));
+    cabeza.add(mesh(new THREE.TorusGeometry(0.1, 0.018, 8, 20), mat(MARCA.g, 0.45), 0, CC + R * 0.9, -R * 0.36).rotateX(-0.9));
   } else if (c.peinado === "rodete") {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.45), M.pelo, 0, CC + 0.005, -0.008, R * 1.04, R * 1.02, R * 1.02));
     cabeza.add(mesh(G.esfera, M.pelo, 0, CC + R * 0.95, -R * 0.45, 0.13));
