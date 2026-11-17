@@ -1,0 +1,14 @@
+{
+ "t": 7.7,
+ "chica": "Visita 90.",
+ "grande": "¿Primera vez?",
+ "sello": "PIZZERÍAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-7.7.png",
+ "nota": "fondo: cuadro limpio del propio reel (LIMPIO=1 node gen.mjs y snapshot en 7,7 s: sin HUD, subtítulos ni logo). Rubén en primer plano con cara de piedra y la porción doblada, justo después de que Tito le pregunta si es la primera vez."
+}

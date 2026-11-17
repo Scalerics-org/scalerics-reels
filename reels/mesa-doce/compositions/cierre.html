@@ -1,0 +1,42 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    [data-composition-id="cierre"] { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; }
+    [data-composition-id="cierre"] .esc { position: absolute; inset: 0; background: #0b1220; }
+    [data-composition-id="cierre"] .logo { position: absolute; left: 50%; top: 360px; height: 92px; width: auto; transform: translateX(-50%); }
+    [data-composition-id="cierre"] .a { position: absolute; left: 0; right: 0; top: 640px; text-align: center; font: 800 96px/1.1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.02em; }
+    [data-composition-id="cierre"] .pal { position: absolute; left: 0; right: 0; top: 770px; text-align: center; }
+    [data-composition-id="cierre"] .pal span { display: inline-block; padding: 18px 46px 24px; border-radius: 30px; background: #5ce611; color: #0b1220; font: 900 170px/1 "Lexend", sans-serif; letter-spacing: -0.02em; box-shadow: 0 14px 0 rgba(0,0,0,0.45); }
+    [data-composition-id="cierre"] .b { position: absolute; left: 90px; right: 90px; top: 1060px; text-align: center; font: 700 62px/1.25 "Lexend", sans-serif; color: #efeee5; }
+    [data-composition-id="cierre"] .web { position: absolute; left: 0; right: 0; top: 1400px; text-align: center; font: 800 76px/1 "Lexend", sans-serif; color: #5ce611; letter-spacing: -0.01em; }
+    [data-composition-id="cierre"] .linea { position: absolute; left: 340px; right: 340px; top: 1340px; height: 6px; border-radius: 3px; background: #1f3254; }
+  </style>
+  <div id="root" data-composition-id="cierre" data-width="1080" data-height="1920" data-duration="3.19">
+    <div id="cierre-esc" class="esc clip" data-start="0" data-duration="3.19" data-track-index="0">
+      <img class="logo" src="assets/logo-blanco.png" alt="Scalerics" />
+      <div class="a">Comentá</div>
+      <div class="pal"><span>PUNTOS</span></div>
+      <div class="b">y te mando cómo funciona para tu pizzería</div>
+      <div class="linea"></div>
+      <div class="web">scalerics.com</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "cierre";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".esc"), { yPercent: 100 }, { yPercent: 0, duration: 0.3, ease: "power3.out", immediateRender: true }, 0); // sube como un telón navy (el iris arrancaba como un agujero negro en la cara)
+      tl.fromTo(q(".logo"), { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.2);
+      tl.fromTo(q(".a"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: true }, 0.06);
+      tl.fromTo(q(".pal span"), { scale: 0.4, opacity: 0, rotation: -6 }, { scale: 1, opacity: 1, rotation: -2, duration: 0.36, ease: "back.out(2.6)", immediateRender: true }, 0.07);
+      tl.fromTo(q(".b"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out", immediateRender: true }, 0.51);
+      tl.fromTo(q(".linea"), { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "power2.out", immediateRender: true }, 0.5);
+      tl.fromTo(q(".web"), { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: true }, 0.55);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

@@ -16,6 +16,7 @@ import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 import { tokenGoogle } from "./google.mjs";
 import { accesoTikTok, mandarAlInboxTikTok, publicarTikTok, publicarTikTokPanel } from "./tiktok.mjs";
+import { canalTikTokBuffer, publicarTikTokBuffer } from "./buffer.mjs";
 import { accesoYouTube, subirShort, tituloDe } from "./youtube.mjs";
 
 const PRUEBA = process.argv.includes("--prueba");
@@ -108,12 +109,16 @@ const autoTT = (await estadoJson("tiktok-auto.json")) || {};
 const ttOn = !!accesoTT && process.env.TIKTOK_PAUSADO !== "1" && !!autoTT.activo;
 // Con TikTok en pausa igual tiene sus horarios: en cada uno manda un reel a la bandeja de la app, para
 // publicarlo a mano desde el celular (Juan, 03-11: 10 por día en TikTok, 3 en Instagram).
-const ttInbox = !!accesoTT && !ttOn;
+// Desde el 17-11, con BUFFER_API_KEY, TikTok sale publicado directo por Buffer (app ya aprobada por
+// TikTok; la nuestra la rechazaron el 09-11 por ser de uso interno) y deja de ir a la bandeja.
+const BUFFER = process.env.BUFFER_API_KEY || "";
+const ttBuffer = !!BUFFER && !ttOn;
+const ttInbox = !!accesoTT && !ttOn && !ttBuffer;
 // En la corrida de cada hora, el workflow manda en REDES_HORA a qué redes les toca ahora (según
 // horarios.json, que se edita en el CRM). A mano, sin REDES_HORA, van todas.
 const deHora = (process.env.REDES_HORA || "").split(",").filter(Boolean);
 const toca = (r) => !deHora.length || deHora.includes(r);
-const redes = [...((ttOn || ttInbox) && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
+const redes = [...((ttOn || ttInbox || ttBuffer) && toca("tiktok") ? ["tiktok"] : []), ...(igOn && toca("instagram") ? ["instagram"] : [])];
 // El horario se anota como atendido ANTES de publicar: si algo falla se pierde ese turno, pero
 // nunca sale dos veces el mismo (la próxima corrida de la hora vería el turno pendiente).
 if (deHora.length && !PRUEBA) {
@@ -237,9 +242,10 @@ if (!estado?.token && process.env.IG_TOKEN) estado = { token: process.env.IG_TOK
 const hayIG = !!estado?.token && falta(slug).includes("instagram");
 const hacerTT = ttOn && falta(slug).includes("tiktok");
 const inboxTT = ttInbox && falta(slug).includes("tiktok");
+const bufferTT = ttBuffer && falta(slug).includes("tiktok");
 const hechoEn = [];
 if (!estado?.token) console.log("instagram: sin IG_TOKEN todavía, se saltea");
-if (!hayIG && !hacerTT && !inboxTT) { console.log(`nada que hacer: ninguna red activa para ${slug}`); process.exit(0); }
+if (!hayIG && !hacerTT && !inboxTT && !bufferTT) { console.log(`nada que hacer: ninguna red activa para ${slug}`); process.exit(0); }
 let tk, igBase, uid;
 if (hayIG) {
   tk = estado.token;
@@ -283,7 +289,8 @@ if (hayIG) {
   console.log(`instagram: @${cuenta.username}`);
 }
 if (hacerTT && PRUEBA) await publicarTikTok(accesoTT, bytes, caption, true);
-console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok", inboxTT && "bandeja de tiktok"].filter(Boolean).join(", ")}`);
+if (bufferTT && PRUEBA) console.log(`buffer: canal de TikTok "${(await canalTikTokBuffer(BUFFER)).name}"`);
+console.log(`redes para ${slug}: ${[hayIG && "instagram", hacerTT && "tiktok", inboxTT && "bandeja de tiktok", bufferTT && "tiktok por buffer"].filter(Boolean).join(", ")}`);
 if (PRUEBA) {
   console.log("PRUEBA: no publico ni muevo nada.");
   process.exit(0);
@@ -368,6 +375,18 @@ if (inboxTT && (hechoEn.includes("instagram") || !hayIG)) {
     pub.tiktok_inbox = [...(pub.tiktok_inbox || []), slug];
   } catch (e) {
     console.log("TIKTOK (bandeja) FALLÓ: " + e.message);
+  }
+}
+
+// TikTok por Buffer: lo que sale en Instagram sale también en TikTok, ya publicado y marcado como
+// contenido generado por IA. En una hora solo de TikTok va igual. Buffer baja el video del bucket.
+if (bufferTT && (hechoEn.includes("instagram") || !hayIG)) {
+  try {
+    const p = await publicarTikTokBuffer(BUFFER, { videoUrl, caption });
+    console.log(`TIKTOK (Buffer): post ${p.id} · ${p.status} · ${p.canal}`);
+    hechoEn.push("tiktok");
+  } catch (e) {
+    console.log("TIKTOK (Buffer) FALLÓ: " + e.message);
   }
 }
 

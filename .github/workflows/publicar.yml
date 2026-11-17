@@ -76,8 +76,11 @@ jobs:
           GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           IG_USER_ID: ${{ vars.IG_USER_ID }}
           TIKTOK_PAUSADO: "1"
+          # YouTube cerró la revisión el 17-11: lo subido por API no queda privado solo; sale público
+          YT_PRIVACIDAD: public
           PANEL: ${{ inputs.panel }}
           REDES_HORA: ${{ steps.toca.outputs.redes }}
           TURNOS: ${{ steps.toca.outputs.turnos }}
