@@ -33,3 +33,13 @@ Los de siempre del repo (con su crédito en `reels/taller-presupuestos/fuentes.m
 constructor los busca primero en `assets/sfx` de otros reels; si no están, uno real con licencia CC0 y anota acá autor,
 sitio y licencia): **carro del reformer rodando y clac de resortes**, **marcador en pizarra**, **vibración de
 celular**, **interruptor de luz**, **teclado de laptop**, **puerta/pasos**. Nada sintetizado con ffmpeg.
+
+## Sonidos usados (todos grabaciones reales del repo, nada sintetizado)
+- Música: `assets/bgm/musica.wav` = "Ukulele", Astounded, Freesound (https://freesound.org/people/Astounded/sounds/484844/), como en `reels/trabajar-con-scalerics/fuentes.md`.
+- `vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound (https://freesound.org/people/SpliceSound/sounds/369839/), CC0 1.0.
+- `paso-0..4.wav`: "footstep_concrete_000..004", Kenney, "Impact Sounds" (https://kenney.nl/assets/impact-sounds), CC0 1.0.
+- Carro del reformer: `k-creak.wav` ("creak_2", Kenney, "RPG Audio", CC0 1.0) lento y con pasabajos; clac de los resortes: `k-metal-click.wav` (Kenney, CC0 1.0).
+- Marcador en la pizarra y subrayado: `k-page-turn.wav` (Kenney, CC0 1.0) acelerado y con pasaaltos (roce corto). No había una grabación CC0 de marcador.
+- `interruptor.wav` ("switch_002", Kenney, CC0 1.0), `k-cloth_1/2.wav`, `k-tick-1/2/4.wav` (Kenney, CC0 1.0), `tipeo.mp3` ("Typing on an iPhone.mp3", Caitlin_100, Freesound, CC0: https://freesound.org/people/Caitlin_100/sounds/365543/).
+- De la biblioteca de HyperFrames del repo: pop, whoosh, whoosh-short, notification, cero, click-soft, key-press, stinger, zumbido-largo (ver `reels/veterinaria-vacunas/fuentes.md`).
+- Sin risita de alumna ni inhalación aparte: no hay grabación CC0 en el repo (la respiración es la de la toma de Ceci).

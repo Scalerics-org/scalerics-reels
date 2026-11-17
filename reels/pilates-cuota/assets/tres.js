@@ -192,7 +192,7 @@ pisoT.wrapS = pisoT.wrapT = THREE.RepeatWrapping; pisoT.repeat.set(5, 6);
   for (const sx of [-0.73, 0.73]) es.add(caja(0.035, 1.07, 0.36, M.maderaC, sx, 0.535, 0, 0.01));
   for (let i = 0; i < 6; i++) { const c = mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.32, 20).rotateX(Math.PI / 2), i % 2 ? M.navy2 : M.gd, -0.6 + i * 0.16, 0.65, 0); es.add(c); }
   for (let i = 0; i < 4; i++) es.add(mesh(new THREE.SphereGeometry(0.1, 20, 14), M.cr, -0.45 + i * 0.3, 1.17, 0));
-  const aro = mesh(new THREE.TorusGeometry(0.19, 0.022, 10, 36), M.navy2, 0.95, 1.95, 0.03); SET.add(aro); aro.position.set(1.95, 1.9, ZF + 0.05);
+  const aro = mesh(new THREE.TorusGeometry(0.19, 0.022, 10, 36), M.navy2, 0.95, 1.95, 0.03); SET.add(aro); aro.position.set(0.15, 1.75, ZF + 0.05);
   // ---- la recepción: mostrador (tapa de madera clara, frente crema con canto verde) ----
   const mo = new THREE.Group(); mo.position.set(MOS.x, 0, MOS.z); SET.add(mo);
   mo.add(caja(MOS.w + 0.08, 0.05, MOS.d + 0.08, M.maderaC, 0, MOS.alto - 0.025, 0, 0.012));
@@ -851,14 +851,14 @@ const PLANOS = [
   ["P6", T.p6, [[T.p6, -1.45, 1.45, 0.75, -1.85, 1.5, -1.25, 50], [T.p6b, -1.46, 1.45, 0.65, -1.85, 1.5, -1.25, 49]]],
   ["P6b", T.p6b, [[T.p6b, -2.55, 1.55, -0.2, -2.8, 1.6, -2.27, 47], [P1, -2.56, 1.55, -0.35, -2.8, 1.6, -2.27, 46]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, ALI_COC.x + 0.55, 1.45, 2.55, ALI_COC.x + 0.15, 1.2, ALI_COC.z - 0.3, 48], [T.q1i, ALI_COC.x + 0.52, 1.44, 2.35, ALI_COC.x + 0.15, 1.2, ALI_COC.z - 0.3, 47]]],
+  ["Q1", P2, [[P2, ALI_COC.x + 0.3, 1.45, 2.55, ALI_COC.x + 0.12, 1.22, ALI_COC.z - 0.3, 48], [T.q1i, ALI_COC.x + 0.28, 1.44, 2.35, ALI_COC.x + 0.12, 1.22, ALI_COC.z - 0.3, 47]]],
   ["Q1i", T.q1i, null],
   ["Q1b", T.q1b, [[T.q1b, ALI_COC.x + 0.42, 1.45, 2.0, ALI_COC.x + 0.05, 1.35, ALI_COC.z, 44], [T.q2, ALI_COC.x + 0.4, 1.44, 1.88, ALI_COC.x + 0.05, 1.35, ALI_COC.z, 43]]],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, MOS.x + 0.22, 1.55, MOS.z + 2.65, MOS.x + 0.42, 1.3, MOS.z - 0.1, 48], [T.q3, MOS.x + 0.24, 1.54, MOS.z + 2.55, MOS.x + 0.42, 1.3, MOS.z - 0.1, 47]]],
   ["Q3", T.q3, [[T.q3, ...P1C(0)], [T.q4, ...P1C(1)]]],
   ["Q4", T.q4, [[T.q4, 2.72, 1.52, 1.45, CECI_CLASE.x - 0.05, 1.42, CECI_CLASE.z, 46], [T.q5, 2.72, 1.51, 1.32, CECI_CLASE.x - 0.05, 1.42, CECI_CLASE.z, 45]]],
-  ["Q5", T.q5, [[T.q5, MOS.x + 0.3, 1.3, MOS.z + 1.42, MOS.x + 0.3, 1.25, MOS.z, 42], [DUR, MOS.x + 0.34, 1.3, MOS.z + 1.32, MOS.x + 0.34, 1.25, MOS.z, 41]]],
+  ["Q5", T.q5, [[T.q5, MOS.x + 0.3, 1.3, MOS.z + 1.42, MOS.x + 0.3, 1.21, MOS.z, 42], [DUR, MOS.x + 0.34, 1.3, MOS.z + 1.32, MOS.x + 0.34, 1.21, MOS.z, 41]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
 const _m = new THREE.Vector3();

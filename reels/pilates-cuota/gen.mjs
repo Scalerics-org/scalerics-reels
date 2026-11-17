@@ -216,10 +216,10 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 70px; right: 70px; top: 1240px; padding: 24px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
-    P .b { margin-top: 12px; font: 800 74px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Cobro de cuotas</div><div class="a">automático</div><div class="b">scalerics.com</div></div>`,
+    P .caja { position: absolute; left: 90px; right: 90px; top: 1300px; padding: 18px 26px 22px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .a { font: 700 50px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
+    html: `      <div class="caja"><div class="a">Cobro de cuotas automático</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { y: 520 }, { y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: true }, 0.0);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
