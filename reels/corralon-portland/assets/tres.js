@@ -239,7 +239,7 @@ function crearCarretilla() {
   for (const s of [-1, 1]) { const m = caja(0.04, 0.04, 1.35, M.madera, s * 0.24, 0.4, -0.25, 0.012); m.rotation.x = 0.22; g.add(m); g.add(caja(0.035, 0.32, 0.035, M.navy3, s * 0.22, 0.16, -0.45, 0.01)); }
   return sombras(g);
 }
-{ const c1 = crearCarretilla(); c1.position.set(0.25, 0, -3.3); c1.rotation.y = 0.9; SET.add(c1); const c2 = crearCarretilla(); c2.position.set(3.4, 0, -5.0); c2.rotation.y = -2.2; SET.add(c2); }
+{ const c1 = crearCarretilla(); c1.position.set(0.25, 0, -3.3); c1.rotation.y = 0.9; SET.add(c1);  }
 fusionar(SET);
 
 // =====================================================================================================
@@ -683,13 +683,13 @@ function tarjetaVerde(x, X, Y, w, titulo, lineas, px = 40) {
   return h;
 }
 // un chat con los mensajes apilados desde abajo (el último siempre entero abajo)
-function dibujarChat(x, W, H, { cv, nombre, sub, subVerde, msgs, input = "" }) {
+function dibujarChat(x, W, H, { cv, nombre, sub, subVerde, msgs, input = "", ult = 1 }) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
   const medir = document.createElement("canvas").getContext("2d");
   const alto = (m) => m.dibujar(medir, 0);
   const hs = msgs.map(alto), gap = 26;
   const piso = H - (input !== null ? 150 : 30);
-  let y = piso - hs.reduce((a, b) => a + b + gap, 0) + gap;
+  let y = piso - hs.reduce((a, b) => a + b + gap, 0) + gap + (1 - eo(ult)) * (hs[hs.length - 1] + gap);   // (r3) el último entra deslizando (scroll)
   msgs.forEach((m, i) => { m.dibujar(x, y); y += hs[i] + gap; });
   if (input !== null) {
     x.fillStyle = "#d9d7c9"; x.fillRect(0, H - 130, W, 130);
@@ -819,10 +819,10 @@ const INS5 = { g: new THREE.Group() }; crearFondoInserto(INS5.g);
   const ov = lienzo(W, H, (x, w, h) => { x.clearRect(0, 0, w, h);
     x.fillStyle = "rgba(11,18,32,0.82)"; x.fillRect(0, 0, w, 150); x.fillStyle = "#5ce611"; x.beginPath(); x.arc(52, 75, 16, 0, 7); x.fill();
     x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 46); x.fillText("Videollamada", 86, 56); x.font = F(700, 38); x.fillStyle = "#b9c3d3"; x.fillText("Sofi · Scalerics", 88, 110);
-    for (const [cx, col] of [[w / 2 - 130, "#16243d"], [w / 2, "#c7655b"], [w / 2 + 130, "#16243d"]]) { x.fillStyle = col; x.beginPath(); x.arc(cx, h - 300, 52, 0, 7); x.fill(); }
-    x.strokeStyle = "#efeee5"; x.lineWidth = 9; x.lineCap = "round"; x.beginPath(); x.moveTo(w / 2 - 26, h - 300); x.lineTo(w / 2 + 26, h - 300); x.stroke();
-    x.fillStyle = "#efeee5"; rr(x, w / 2 - 152, h - 318, 34, 36, 6); x.beginPath(); x.moveTo(w / 2 - 118, h - 300); x.lineTo(w / 2 - 102, h - 314); x.lineTo(w / 2 - 102, h - 286); x.closePath(); x.fill();
-    rr(x, w / 2 + 120, h - 330, 20, 40, 10); x.lineWidth = 6; x.strokeStyle = "#efeee5"; x.beginPath(); x.arc(w / 2 + 130, h - 300, 24, 0.2, Math.PI - 0.2); x.stroke(); });
+    for (const [cx, col] of [[w / 2 - 130, "#16243d"], [w / 2, "#c7655b"], [w / 2 + 130, "#16243d"]]) { x.fillStyle = col; x.beginPath(); x.arc(cx, h - 440, 52, 0, 7); x.fill(); }
+    x.strokeStyle = "#efeee5"; x.lineWidth = 9; x.lineCap = "round"; x.beginPath(); x.moveTo(w / 2 - 26, h - 440); x.lineTo(w / 2 + 26, h - 440); x.stroke();
+    x.fillStyle = "#efeee5"; rr(x, w / 2 - 152, h - 458, 34, 36, 6); x.beginPath(); x.moveTo(w / 2 - 118, h - 440); x.lineTo(w / 2 - 102, h - 454); x.lineTo(w / 2 - 102, h - 426); x.closePath(); x.fill();
+    rr(x, w / 2 + 120, h - 470, 20, 40, 10); x.lineWidth = 6; x.strokeStyle = "#efeee5"; x.beginPath(); x.arc(w / 2 + 130, h - 300, 24, 0.2, Math.PI - 0.2); x.stroke(); });
   const po = new THREE.Mesh(new THREE.PlaneGeometry(W / PXK, H / PXK), new THREE.MeshBasicMaterial({ map: ov, transparent: true, toneMapped: false })); po.position.set(0, (960 - cy) / PXK, -0.019); po.userData.orden = 2; g.add(po); }
 for (const I of [INS1, INS3, INS5]) { pegarACamara(I.g, camera, 10); I.g.visible = false; }
 
@@ -856,17 +856,16 @@ function estadoCel(t, pa) {
   }
   if (pa === "Q4") {
     const msgs = [M_.audio("0:03", 1), M_.yo(["Hola, Beto. Sí: 40 bolsas", "de portland en stock,", "$ 20.800. ¿Te las llevamos", "hoy a la obra?"], { tilde: "doble", px: 42, etiqueta: "Agente de IA · Materiales Gustavo" }), M_.el(["Dale. A las 9,", "Rivera 2340."]), M_.verde("Pedido confirmado", ["40 portland · $ 20.800", "Entrega hoy 9:00 · Rivera 2340"]), M_.dia("9:01")];
-    msgs.push(M_.audio("0:01", sg(t, T.b3b, T.b3b + LEN.b3)));   // (r2) entra ya armado
-    if (t >= T.foto2) msgs.push(M_.foto(FOTO.cv.navy, 660));
+    msgs.push(M_.audio("0:01", sg(t, T.b3b, T.b3b + LEN.b3)), M_.foto(FOTO.cv.navy, 660));   // (r3) entra ya armado, con la foto
     if (t >= T.entregado) msgs.push(M_.verde("Entregado 9:02", ["40 bolsas en Rivera 2340"]));
-    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: "en línea", msgs, input: "" };
+    return { chat: true, cv: AVATAR.beto, nombre: "Beto (obra)", sub: "en línea", msgs, input: "", ult: t >= T.entregado ? sg(t, T.entregado, T.entregado + 0.25) : 1 };
   }
   return null;
 }
 let claveCel = "";
 function dibujarCel(t, pa) {
   const e = estadoCel(t, pa); if (!e) return;
-  const k = pa + "|" + (e.lista ? `${e.n}|${e.k}` : e.resp ? JSON.stringify(e) : Math.round(t * 15));
+  const k = pa + "|" + (e.lista ? `${e.n}|${e.k}` : e.resp ? JSON.stringify(e) : Math.round(t * 30));
   if (k === claveCel) return; claveCel = k;
   const x = CEL.tex.userData.x;
   if (e.lista) dibujarLista(x, CW, CH, e.n, e.k); else if (e.resp) dibujarRespondidos(x, CW, CH, e); else dibujarChat(x, CW, CH, e);
@@ -1008,14 +1007,14 @@ const PLANOS = [
   ["P3", T.p3b, [[T.p3b, 0.35, 1.75, 1.85, -0.9, 1.3, -0.6, 44], [T.p4, 0.3, 1.73, 1.72, -0.9, 1.32, -0.6, 42]]],
   ["P4", T.p4, null],
   ["P5", T.p5, [[T.p5, 0.12, 1.62, 0.75, 2.02, 0.95, -3.6, 47], [T.p6, 0.14, 1.62, 0.65, 2.02, 0.95, -3.6, 46]]],
-  ["P6", T.p6, [[T.p6, 1.75, 1.75, -4.15, 2.08, 1.45, -2.2, 37], [T.p7, 1.75, 1.74, -4.0, 2.08, 1.47, -2.2, 34]]],
+  ["P6", T.p6, [[T.p6, 1.78, 1.75, -4.3, 1.98, 1.47, -2.2, 40], [T.p7, 1.78, 1.74, -4.15, 1.98, 1.48, -2.2, 37]]],
   ["P7", T.p7, [[T.p7, -1.05, 1.62, -1.3, -1.38, 1.3, 0.7, 46], [T.gira, -1.05, 1.62, -1.22, -1.38, 1.3, 0.7, 44]]],
   // P7b: Gustavo de frente, gira despacio la cabeza hacia el portón (la pila al fondo)
   ["P7b", T.gira, [[T.gira, -1.0, 1.65, 1.75, 0.75, 1.15, -2.6, 44], [P1, -0.95, 1.65, 1.65, 0.75, 1.15, -2.6, 42]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...P1C(0).map((v, i) => (i === 3 ? -0.42 : i === 0 ? 0.3 : v))], [T.q1i, ...P1C(0.75).map((v, i) => (i === 3 ? -0.42 : i === 0 ? 0.15 : v))]]],
   ["Q1i", T.q1i, null],
-  ["Q1g", T.q1g, [[T.q1g, -0.55, 1.68, 1.55, -1.55, 1.45, -1.0, 44], [T.q1h, -0.6, 1.68, 1.45, -1.55, 1.45, -1.0, 42]]],
+  ["Q1g", T.q1g, [[T.q1g, -0.45, 1.7, 2.15, -1.32, 1.45, -1.0, 46], [T.q1h, -0.47, 1.7, 2.08, -1.32, 1.45, -1.0, 45]]],
   // (r2) Q1h: con el ding, Gustavo y el celular parado que ya confirmó
   ["Q1h", T.q1h, [[T.q1h, -0.95, 1.72, 2.4, -0.68, 1.25, -0.3, 50], [T.q2, -0.94, 1.72, 2.36, -0.68, 1.25, -0.3, 49.5]]],
   ["Q2", T.q2, null],
@@ -1204,7 +1203,7 @@ function renderAt(tIn) {
   if (!p2) ponerPolvo(t, T.n40, BOLSA_TOP(3).add(V3(0, -0.02, 0))); else ponerPolvo(t, T.apoya, V3(-1.32, MOS.alto + 0.06, 0.12));
   // ---- los objetos del mostrador: el celular acostado (parte 1), el parado y el monitor (parte 2) ----
   celuA.visible = !p2 && !(t >= T.sale[0] && t < T.p5);   // se lo lleva al patio
-  if (!p2 && t >= T.p3b && t < T.p4) { celuA.visible = true; const a = manoMundo(gustavo, "I", _a); gustavo.cuerpo.getWorldQuaternion(_q); celuA.position.copy(a).add(V3(0, 0.06, 0)); celuA.quaternion.copy(_q); celuA.rotateX(-0.9); }
+  if (!p2 && t >= T.p3b && t < T.p4) { celuA.visible = true; const a = manoMundo(gustavo, "I", _a); gustavo.cuerpo.getWorldQuaternion(_q); celuA.position.copy(a).add(V3(0, 0.17, 0.02)); /* (r3) arriba del pulgar: el contador se ve */ celuA.quaternion.copy(_q); celuA.rotateX(-0.9); }
   else if (!p2 && t >= T.p5) { celuA.position.set(0.18, MOS.alto + 0.19, -0.12); celuA.rotation.set(-0.22, -0.7, -0.4); }
   else { celuA.position.set(-0.36, MOS.alto + 0.19, 0.14); celuA.rotation.set(-0.22, 0.25, 0); }   // (r2) parado contra el vaso, la pantalla al frente
   if (pa === "P5" || pa === "P7b") celuA.visible = false;   // (r2) asomaba cortado en el borde

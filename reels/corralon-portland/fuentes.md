@@ -54,8 +54,7 @@ bigsoundbank.com, freesound.org y kenney.nl no responden desde la nube):
 - `assets/sfx/k-bolsa-m.wav` (el toque en cada bolsa que cuenta Gustavo): "impactSoft_medium_001".
 - `assets/sfx/k-tierra-0/2/4.wav` (pasos en el patio de tierra): "footstep_grass_000/002/004".
 De otros reels del repo (crédito en sus fuentes.md): `pajaro.wav` ("Bird Chirp", swiftoid, Freesound, CC0; hacen-envios),
-`k-dos-tonos.wav` (el teléfono de pared que suena solo: "twoTone1", Kenney Digital Audio, CC0; ya-lo-cargo),
 `k-metal-liviano-2.wav` (martillazos lejanos de la obra dentro de los audios de Beto, con pasabajos; Kenney, CC0),
 `motor.mp3` más grave (el camión que arranca lejos; looneybits, OpenGameArt, CC0; por-que-las-tarjetas).
-No se consiguió un timbre mecánico de teléfono de pared real CC0 (bigsoundbank bloqueado): se usó `k-dos-tonos.wav`.
+No se consiguió un timbre mecánico de teléfono de pared real CC0 (bigsoundbank bloqueado): el teléfono de pared no suena (ronda 1).
 Nada sintetizado con ffmpeg.

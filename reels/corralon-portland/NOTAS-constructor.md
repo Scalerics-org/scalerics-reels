@@ -145,3 +145,15 @@ La pausa antes de "Era de la casa." no se tocó; los callbacks siguen todos.
 - Panel: arranca en el primer pedido (sin "$ 0" de 3 cuadros).
 - No hecho: N8 (restos del pizarrón alrededor de "¡Ya te digo!"), N10 (Tito sigue con los puños sin el dedo), N13 primera
   parte (Tito de espaldas en Q3), 15 (sombra plana de los insertos), B6 (no se regeneró "Beto espera").
+
+## Pulido final (17-11, ronda 3)
+**Duración 38,9 s** (sin cambios de tiempos salvo los números del conteo). Re-render completo.
+- Portada: fondo limpio nuevo `portada-src/fondo-limpio-r3.png` (t 6,08, un instante antes de la palmada: de frente, los
+  dos ojos, la mano sobre las bolsas, sin polvo; cámara frontal propia). Portada regenerada y mirada.
+- N-2: "Era de la casa." centrado (cámara un poco más abierta). N-3: Q1g más abierto: la cabeza entera y el teléfono de pared.
+- N-4: Q4 entra con la foto ya puesta; "Entregado 9:02" entra deslizando (scroll animado de 0,25 s).
+- N-7: 38… y 39… entran justo al volver del inserto (sin la burbuja vieja un cuadro).
+- N-9: sacada la segunda carretilla (su rueda quedaba suelta junto al pallet).
+- N-10: en P3 el celular va arriba del pulgar: "27 sin leer" se lee.
+- N-8 / sonido 5: los botones de la videollamada subieron por encima de la placa "scalerics.com".
+- guion.txt reescrito con el reel tal como quedó (tiempos reales); fuentes.md sin k-dos-tonos.

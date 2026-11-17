@@ -34,7 +34,7 @@ T.sale = [r2(T.g1 + 0.25), r2(T.g1 + LEN.g1 + 0.2)];
 // P2 · la escalada: en el patio Gustavo cuenta la pila (37… 38… 39…), cortes al celular del mostrador (6:47, 6:48,
 // 6:49 y 6:50; el contador 20 → 27), el teléfono de pared suena solo; "¡40!" y la palmada en la bolsa
 T.p2 = r2(T.g1 + LEN.g1 + 0.22);
-T.cuenta = [0.1, 0.62, 1.14].map((d) => r2(T.p2 + d)); T.n40 = r2(T.p2 + 1.78);   // (r1) escalada más corta
+T.cuenta = [0.1, 0.58, 1.1].map((d) => r2(T.p2 + d)); T.n40 = r2(T.p2 + 1.78);   // (r3) cada número entra justo al volver del inserto; (r1) escalada más corta
 T.ins = [[0.3, 0.58], [0.82, 1.1], [1.34, 1.66]].map(([a, b]) => [r2(T.p2 + a), r2(T.p2 + b)]);
 T.fila = [r2(T.ins[0][0] + 0.05), r2(T.ins[1][0] + 0.05), r2(T.ins[2][0] + 0.05), r2(T.ins[2][0] + 0.2)];
 // P3 · inserto: "Tengo las 40. ¿Te las mando?" (un tilde gris) · plano medio: el primero de la fila le señala el
