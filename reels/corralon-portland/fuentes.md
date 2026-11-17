@@ -44,3 +44,18 @@ Los de siempre del repo (con su crédito en `reels/taller-presupuestos/fuentes.m
 (el constructor busca primero en `assets/sfx` de otros reels; si no están, uno real con licencia CC0, y anota acá autor,
 sitio y licencia): timbre de teléfono de pared (campanilla mecánica), bolsa de papel pesada que se apoya, ambiente de
 obra, camión diésel que arranca lejos, carretilla sobre tierra. Nada sintetizado con ffmpeg.
+
+### Efectos nuevos de este reel (reales, CC0 1.0; agregados por el constructor, 17-11)
+De Kenney (https://kenney.nl), pack "Impact Sounds" (https://kenney.nl/assets/impact-sounds), CC0 1.0, bajados del espejo
+https://github.com/Daarko/sparkstream-sounds (guarda la licencia del pack en `credits/impact-sounds-License.txt`;
+bigsoundbank.com, freesound.org y kenney.nl no responden desde la nube):
+- `assets/sfx/k-bolsa-0.wav`, `k-bolsa-2.wav` (la bolsa de portland que se palmea / se apoya en el mostrador):
+  "impactSoft_heavy_000/002".
+- `assets/sfx/k-bolsa-m.wav` (el toque en cada bolsa que cuenta Gustavo): "impactSoft_medium_001".
+- `assets/sfx/k-tierra-0/2/4.wav` (pasos en el patio de tierra): "footstep_grass_000/002/004".
+De otros reels del repo (crédito en sus fuentes.md): `pajaro.wav` ("Bird Chirp", swiftoid, Freesound, CC0; hacen-envios),
+`k-dos-tonos.wav` (el teléfono de pared que suena solo: "twoTone1", Kenney Digital Audio, CC0; ya-lo-cargo),
+`k-metal-liviano-2.wav` (martillazos lejanos de la obra dentro de los audios de Beto, con pasabajos; Kenney, CC0),
+`motor.mp3` más grave (el camión que arranca lejos; looneybits, OpenGameArt, CC0; por-que-las-tarjetas).
+No se consiguió un timbre mecánico de teléfono de pared real CC0 (bigsoundbank bloqueado): se usó `k-dos-tonos.wav`.
+Nada sintetizado con ffmpeg.

@@ -4,15 +4,16 @@
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
     [data-composition-id="s00-rubro"] .esc { position: absolute; inset: 0; }
-    [data-composition-id="s00-rubro"] .caja { position: absolute; left: 40px; right: 40px; top: 96px; padding: 22px 10px 30px; border-radius: 40px; background: #efeee5; border: 9px solid #0b1220; box-shadow: 14px 16px 0 #0b1220; text-align: center; }
-    [data-composition-id="s00-rubro"] .tx { font: 900 118px/1.06 "Lexend", sans-serif; letter-spacing: -0.03em; color: #0b1220; white-space: nowrap; }
-    [data-composition-id="s00-rubro"] .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 8px; }
-    [data-composition-id="s00-rubro"] .sel b { position: absolute; inset: -14px 0 -6px; background: #5ce611; border: 7px solid #0b1220; border-radius: 10px; }
+    [data-composition-id="s00-rubro"] .caja { position: absolute; left: 40px; right: 40px; top: 96px; padding: 26px 10px 26px; border-radius: 40px; background: #efeee5; border: 9px solid #0b1220; box-shadow: 14px 16px 0 #0b1220; text-align: center; }
+    [data-composition-id="s00-rubro"] .tx { font: 900 112px/1.06 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s00-rubro"] .tx2 { font: 900 84px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; white-space: nowrap; margin-top: 18px; }
+    [data-composition-id="s00-rubro"] .sel { position: relative; display: inline-block; padding: 0 20px; }
+    [data-composition-id="s00-rubro"] .sel b { position: absolute; inset: -6px 0 -10px; background: #5ce611; border: 7px solid #0b1220; border-radius: 12px; }
     [data-composition-id="s00-rubro"] .sel em { position: relative; font-style: normal; }
   </style>
-  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="1.99">
-    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="1.99" data-track-index="0">
-      <div class="caja"><div class="tx">TALLERES</div><div class="tx"><span class="sel"><b></b><em>MECÁNICOS</em></span></div></div>
+  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="4.59">
+    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="4.59" data-track-index="0">
+      <div class="caja"><div class="tx"><span class="sel"><b></b><em>CORRALONES</em></span></div><div class="tx2">Y BARRACAS</div></div>
     </div>
   </div>
   <script>
@@ -23,7 +24,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
-      tl.to(q(".caja"), { y: -420, duration: 0.22, ease: "power2.in" }, 1.75);
+      tl.to(q(".caja"), { y: -460, duration: 0.22, ease: "power2.in" }, 4.35);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

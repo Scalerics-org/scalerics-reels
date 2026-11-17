@@ -1,14 +1,14 @@
 {
- "t": 1.0,
+ "t": 6.3,
  "chica": "Lunes, 6:45.",
  "grande": "¿Tenés portland?",
  "sello": "CORRALONES",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.0,
- "foco": "30%",
+ "foco": "0%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-COMPLETAR.png",
- "nota": "Borrador del guionista. t y fondo_limpio los completa el constructor. Fondo sugerido: el cuadro 0 limpio (sin CORRALONES, chip ni burbuja): Gustavo atrás del mostrador con el tubo en el hombro, el celular con '20 sin leer', la fila de cascos en primer término y la pila de bolsas por el portón; personajes y pila en la mitad de arriba. Alternativa: P5 (la pila de 40 intacta con Gustavo de espaldas) con chica 'Lunes, 7:00.' y grande '¿Tenés portland?'."
+ "fondo_limpio": "portada-src/fondo-limpio-6.3.png",
+ "nota": "Fondo LIMPIO de P2 (Gustavo contando la pila detrás de las bolsas), cámara propia más abierta (prev2.mjs FULL=1 con LIMPIO=1, t 6,3, cam 1.15,1.55,-1.95 → 1.9,1.45,-4.6 fov 50), subido 350 px: Gustavo y la pila en la mitad de arriba."
 }

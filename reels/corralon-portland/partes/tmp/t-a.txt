@@ -1,0 +1,249 @@
+// Capa 3D de corralon-portland (Three.js r170 local). Base técnica: reels/taller-presupuestos (globos pegados a la cámara
+// en píxeles de pantalla, avatares por render target, poses por claves, bocas por envolvente, PLANOS con Catmull-Rom,
+// insertos a pantalla completa). renderAt(t) es una función pura del tiempo del timeline (hf-seek): nada de rAF,
+// Date.now ni azar sin semilla.
+// UN lugar: "Materiales Gustavo", un corralón en un galpón de chapa navy, lunes 6:45. Adentro, los tubos prendidos, el
+// mostrador de madera con el celular, el pizarrón de precios con tiza y el teléfono de pared; afuera, por el portón, el
+// patio de tierra con la pila de 40 bolsas de portland, la arena, el pedregullo, los hierros y el cielo de amanecer navy
+// claro con una franja crema en el horizonte. Las fotos del chat (los dos camiones en la vereda de la obra) son una
+// escena aparte que se renderiza una vez a un canvas.
+//   PARTE 1: el audio de Beto ("¿Tenés portland? Cuarenta bolsas.") · "¡Ya te digo!" · Gustavo cuenta la pila (37, 38,
+//            39, ¡40!) mientras el celular se llena (20 → 27) · "Beto espera. Es de la casa." · "Ya está, Gustavo. Me
+//            contestó otro." + la foto del camión gris · la pausa con el costo · "Era de la casa." · Tito: "¿Me das una
+//            bolsita de portland?"
+//   PARTE 2: el mismo audio y el agente contesta antes de que termine · "¡Ya te digo!" · "Ya le dijo." · los 27 chats
+//            contestados · Tito / "Las que quieras, Tito." · el panel ($ 48.900) · "Ya las están bajando." + la foto del
+//            camión navy de Materiales Gustavo · "Es de la casa." · Sofi: "Comentá OBRA…"
+//@@UTIL
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x16243d);   // el cielo de amanecer por el portón: navy claro liso, sin degradé
+const camera = new THREE.PerspectiveCamera(46, 1080 / 1920, 0.03, 200);
+camera.layers.enable(1);
+scene.add(camera);
+
+function entorno() {
+  const env = new THREE.Scene();
+  env.background = new THREE.Color(0x5a5e66);
+  const tira = (w, h, x, y, z, ry, c, k) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(k), side: THREE.DoubleSide }));
+    m.position.set(x, y, z); m.rotation.y = ry; env.add(m);
+  };
+  tira(10, 1.2, 0, 7, 0, 0, 0xf4f2ea, 1.4);
+  tira(4, 6, 0, 2, -6, 0, 0xf6f0e2, 1.2);
+  tira(1.4, 8, -4, 1, 6, 0, 0xe8eeff, 0.6);
+  const pm = new THREE.PMREMGenerator(renderer);
+  const rt = pm.fromScene(env, 0.035);
+  pm.dispose();
+  return rt.texture;
+}
+scene.environment = entorno();
+scene.environmentIntensity = 0.5;
+
+// ---------- luces: los tubos del galpón (cielo + relleno de frente) y el amanecer que entra bajo desde el patio ----------
+const sol = new THREE.DirectionalLight(0xfff0d8, 1.45);
+sol.castShadow = true; sol.shadow.mapSize.set(2048, 2048); sol.shadow.bias = -0.0006; sol.shadow.radius = 4;
+Object.assign(sol.shadow.camera, { left: -7, right: 7, top: 7, bottom: -7, near: 0.5, far: 40 });
+scene.add(sol, sol.target);
+const cielo = new THREE.HemisphereLight(0xf7f4ea, 0x8a8678, 1.7); scene.add(cielo);
+const relleno = new THREE.DirectionalLight(0xf4f6ff, 0.75); relleno.position.set(1.5, 3.6, 9); relleno.target.position.set(0, 1, 0); scene.add(relleno, relleno.target);
+const rim = new THREE.DirectionalLight(0xfff6e6, 0.4); rim.position.set(-4, 5, -10); scene.add(rim);
+function ponerSol(cx, cz) { sol.position.set(cx + 7, 6.5, cz - 9); sol.target.position.set(cx, 0.6, cz); sol.target.updateMatrixWorld(); }
+
+// ---------- paleta y materiales ----------
+//@@MAT
+M.chapa = mat(0x1f3254, 0.5, { metalness: 0.25 }); M.onda = mat(0x2c4268, 0.45, { metalness: 0.25 });
+M.kraft = mat(0xe8dcc0, 0.85); M.tierra = mat(0xcfc9b6, 0.95); M.piso = mat(0xd9d7c9, 0.8); M.arena = mat(0xd8c7a0, 0.95, { flatShading: true });
+M.pedre = mat(0x8f8c86, 0.9, { flatShading: true }); M.pallet = mat(0xa9845a, 0.85); M.polvo = mat(0xd6d3ca, 0.95);
+M.mesada = mat(0xb08a5e, 0.75); M.marco = mat(0x8a6542, 0.8);
+
+// =====================================================================================================
+// EL GALPÓN
+// =====================================================================================================
+const SET = new THREE.Group(); scene.add(SET);
+const ZF = -1.6, HW = 4.6;                         // la pared del fondo (chapa) y el alto del galpón
+const PORTON = { x0: 0.55, x1: 3.15, alto: 3.0 };  // el portón al patio
+const MOS = { x0: -2.4, x1: 0.3, alto: 1.0, z0: -0.33, z1: 0.33 };   // el mostrador
+const PILA_P = { x: 1.85, z: -4.3 };               // el pallet con las bolsas de portland, en el patio
+const TEL = { x: -1.85, y: 1.45, z: ZF + 0.07 };   // el teléfono de pared
+const G1 = { x: -1.0, z: -0.8 };                   // Gustavo atrás del mostrador
+// chapa acanalada: placa navy con las ondas marcadas con geometría (una costilla cada 16 cm)
+function chapa(grupo, w, h, cx, cy, ondas = true) {
+  const g = new THREE.Group(); g.position.set(cx, cy, 0); grupo.add(g);
+  const b = mesh(new THREE.BoxGeometry(w, h, 0.06), M.chapa, 0, 0, 0); b.castShadow = false; g.add(b);
+  if (ondas) for (let x = -w / 2 + 0.08; x < w / 2 - 0.04; x += 0.16) { const o = mesh(new THREE.BoxGeometry(0.055, h, 0.04), M.onda, x, 0, 0.045); o.castShadow = false; g.add(o); }
+  return g;
+}
+const cartelT = lienzo(1400, 270, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "MATERIALES GUSTAVO", 800, 170, w - 90); x.fillText("MATERIALES GUSTAVO", w / 2, h / 2 - 4); x.fillStyle = "#5ce611"; x.fillRect(90, h - 36, w - 180, 16); });
+const PRECIOS = [["PORTLAND 25 kg", "$ 520"], ["ARENA GRUESA m³", "$ 2.400"], ["PEDREGULLO m³", "$ 2.900"], ["HIERRO DEL 8", "$ 380"]];
+const pizarraT = lienzo(1520, 800, (x, w, h) => {
+  x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h);
+  x.fillStyle = "rgba(239,238,229,0.07)"; for (const [cx, cy, r] of [[300, 200, 160], [1100, 520, 200], [700, 700, 150]]) { x.beginPath(); x.ellipse(cx, cy, r, r * 0.5, 0.3, 0, 7); x.fill(); }
+  x.fillStyle = "#efeee5"; x.textBaseline = "middle"; x.textAlign = "center"; x.font = CAV(110); x.fillText("PRECIOS", w / 2, 92);
+  x.strokeStyle = "#efeee5"; x.lineWidth = 6; x.beginPath(); x.moveTo(w / 2 - 210, 150); x.lineTo(w / 2 + 210, 152); x.stroke();
+  PRECIOS.forEach(([a, b], i) => { const y = 250 + i * 150; x.textAlign = "left"; x.font = CAV(96); x.fillText(a, 60, y); x.textAlign = "right"; x.font = CAV(110); x.fillStyle = "#5ce611"; x.fillText(b, w - 60, y); x.fillStyle = "#efeee5"; });
+});
+{
+  // piso de portland alisado (adentro) y el patio de tierra (afuera)
+  const piso = mesh(new THREE.PlaneGeometry(12, 11), M.piso, 0.5, 0, ZF + 5.5); piso.rotation.x = -Math.PI / 2; piso.castShadow = false; SET.add(piso);
+  const pat = mesh(new THREE.PlaneGeometry(40, 30), M.tierra, 2, -0.004, ZF - 15); pat.rotation.x = -Math.PI / 2; pat.castShadow = false; SET.add(pat);
+  // la pared del fondo de chapa (con el hueco del portón), las de los costados y el techo con las cerchas
+  const fondo = new THREE.Group(); fondo.position.z = ZF; SET.add(fondo);
+  chapa(fondo, PORTON.x0 + 5.0, HW, (PORTON.x0 - 5.0) / 2, HW / 2);
+  chapa(fondo, 6.2 - PORTON.x1, HW, (PORTON.x1 + 6.2) / 2, HW / 2);
+  chapa(fondo, PORTON.x1 - PORTON.x0, HW - PORTON.alto, (PORTON.x0 + PORTON.x1) / 2, (HW + PORTON.alto) / 2);
+  for (const [x, ry] of [[-5.0, Math.PI / 2], [6.2, -Math.PI / 2]]) { const g = new THREE.Group(); g.position.set(x, 0, ZF + 5); g.rotation.y = ry; SET.add(g); chapa(g, 10, HW, 0, HW / 2); }
+  const techo = mesh(new THREE.PlaneGeometry(12, 11), new THREE.MeshBasicMaterial({ color: 0x16243d }), 0.6, HW, ZF + 5.5); techo.rotation.x = Math.PI / 2; techo.castShadow = false; SET.add(techo);
+  for (const z of [ZF + 0.4, 1.4, 4.0]) {
+    SET.add(caja(11.2, 0.14, 0.12, M.navy3, 0.6, HW - 0.45, z, 0.01)); SET.add(caja(11.2, 0.1, 0.1, M.navy3, 0.6, HW - 0.08, z, 0.01));
+    for (let i = 0; i < 9; i++) { const x = -4.4 + i * 1.25; const d = caja(0.07, 0.5, 0.07, M.navy3, x + 0.3, HW - 0.26, z, 0.01); d.rotation.z = i % 2 ? 0.9 : -0.9; SET.add(d); }
+  }
+  // los dos tubos fluorescentes colgados (emisivos crema, sin halo)
+  const tuboM = new THREE.MeshStandardMaterial({ color: 0xfffbea, emissive: 0xfff4d8, emissiveIntensity: 1.2, roughness: 0.3 });
+  for (const z of [0.1, 2.7]) {
+    const g = new THREE.Group(); g.position.set(-0.8, 3.45, z); SET.add(g);
+    g.add(caja(1.32, 0.06, 0.16, M.navy3, 0, 0.05, 0, 0.01));
+    for (const dz of [-0.04, 0.04]) { const tu = mesh(new THREE.CylinderGeometry(0.022, 0.022, 1.24, 12), tuboM, 0, -0.01, dz); tu.rotation.z = Math.PI / 2; tu.castShadow = false; g.add(tu); }
+    for (const dx of [-0.55, 0.55]) g.add(mesh(new THREE.CylinderGeometry(0.004, 0.004, HW - 3.5, 4), M.navy, dx, (HW - 3.45) / 2 + 0.05, 0));
+  }
+  // el cartel "MATERIALES GUSTAVO" (placa crema con borde navy) arriba del pizarrón
+  SET.add(caja(2.72, 0.58, 0.05, M.navy, -1.0, 3.5, ZF + 0.07, 0.02));
+  SET.add(plano(2.62, 0.5, cartelT, -1.0, 3.5, ZF + 0.1));
+  // el pizarrón de precios (marco de madera, tiza)
+  SET.add(caja(1.98, 1.1, 0.05, M.marco, -1.05, 2.45, ZF + 0.07, 0.02));
+  SET.add(plano(1.86, 0.98, pizarraT, -1.05, 2.45, ZF + 0.1));
+  SET.add(caja(1.7, 0.04, 0.08, M.marco, -1.05, 1.88, ZF + 0.12, 0.01));
+  SET.add(caja(0.09, 0.025, 0.025, M.cr, -0.6, 1.915, ZF + 0.12, 0.01));   // la tiza en el borde
+  // el portón: marco navy3 y la hoja enrollada arriba (caja crema)
+  for (const x of [PORTON.x0 - 0.08, PORTON.x1 + 0.08]) SET.add(caja(0.16, PORTON.alto + 0.1, 0.3, M.navy3, x, (PORTON.alto + 0.1) / 2, ZF + 0.04, 0.02));
+  SET.add(caja(PORTON.x1 - PORTON.x0 + 0.32, 0.16, 0.3, M.navy3, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto + 0.04, ZF + 0.04, 0.02));
+  { const rollo = mesh(new THREE.CylinderGeometry(0.22, 0.22, PORTON.x1 - PORTON.x0 + 0.2, 28), M.cr, (PORTON.x0 + PORTON.x1) / 2, PORTON.alto - 0.16, ZF + 0.38); rollo.rotation.z = Math.PI / 2; SET.add(rollo); }
+  // el umbral: la franja verde de seguridad en el piso del portón
+  { const f = mesh(new THREE.PlaneGeometry(PORTON.x1 - PORTON.x0, 0.12), new THREE.MeshBasicMaterial({ color: C.g }), (PORTON.x0 + PORTON.x1) / 2, 0.004, ZF + 0.12); f.rotation.x = -Math.PI / 2; f.castShadow = false; SET.add(f); }
+}
+// ---- el mostrador: mesada de madera gastada, frente de chapa navy3; talonario de remitos y el vaso de biromes ----
+{
+  const g = new THREE.Group(); SET.add(g);
+  const L = MOS.x1 - MOS.x0, cx = (MOS.x0 + MOS.x1) / 2, P = MOS.z1 - MOS.z0;
+  g.add(caja(L + 0.08, 0.07, P + 0.08, M.mesada, cx, MOS.alto - 0.035, 0, 0.015));
+  const fr = new THREE.Group(); fr.position.z = MOS.z1 - 0.01; g.add(fr); chapa(fr, L - 0.02, MOS.alto - 0.08, cx, (MOS.alto - 0.08) / 2);
+  g.add(caja(L - 0.04, MOS.alto - 0.08, P - 0.08, M.navy3, cx, (MOS.alto - 0.08) / 2, -0.02, 0.02));
+  g.add(caja(L + 0.02, 0.06, 0.05, M.g, cx, MOS.alto - 0.11, MOS.z1 + 0.035, 0.01));   // el canto verde de marca
+  // el talonario de remitos y el vaso con biromes (punta izquierda)
+  g.add(caja(0.2, 0.03, 0.28, M.cr, -2.05, MOS.alto + 0.015, 0.02, 0.005)); g.add(caja(0.2, 0.012, 0.06, M.navy3, -2.05, MOS.alto + 0.034, -0.09, 0.004));
+  g.add(mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.11, 14), M.navy3, -1.8, MOS.alto + 0.055, -0.08));
+  for (const [dx, dz, c] of [[-0.01, 0, M.g], [0.015, 0.01, M.navy], [0, -0.015, M.cr]]) { const b = mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.16, 6), c, -1.8 + dx, MOS.alto + 0.12, -0.08 + dz); b.rotation.z = dx * 6; g.add(b); }
+}
+// ---- el patio: la montaña de arena, la de pedregullo, los hierros en el caballete, dos carretillas, el tacho, el cerco ----
+{
+  const ar = mesh(new THREE.ConeGeometry(1.35, 1.05, 9), M.arena, 4.35, 0.52, -6.6); ar.rotation.y = 0.4; SET.add(ar);
+  const pe = mesh(new THREE.ConeGeometry(1.05, 0.75, 7), M.pedre, 0.05, 0.37, -7.4); pe.rotation.y = 0.2; SET.add(pe);
+  // los hierros: dos caballetes navy3 y las barras largas encima
+  for (const z of [-2.7, -4.3]) { const cb = new THREE.Group(); cb.position.set(5.1, 0, z); SET.add(cb); for (const s of [-1, 1]) { const p = caja(0.07, 0.95, 0.07, M.navy3, s * 0.22, 0.45, 0, 0.01); p.rotation.z = -s * 0.35; cb.add(p); } cb.add(caja(0.6, 0.06, 0.08, M.navy3, 0, 0.86, 0, 0.01)); }
+  for (let i = 0; i < 9; i++) { const b = mesh(new THREE.CylinderGeometry(0.014, 0.014, 3.4, 6), M.navy3, 5.0 + (i - 4) * 0.045, 0.92 + (i % 2) * 0.02, -3.5); b.rotation.x = Math.PI / 2; SET.add(b); }
+  // el tacho de 200 L navy
+  SET.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.88, 22), M.navy3, 3.7, 0.44, -2.55)); SET.add(mesh(new THREE.TorusGeometry(0.3, 0.015, 6, 22).rotateX(Math.PI / 2), M.navy, 3.7, 0.3, -2.55)); SET.add(mesh(new THREE.TorusGeometry(0.3, 0.015, 6, 22).rotateX(Math.PI / 2), M.navy, 3.7, 0.6, -2.55));
+  // el cerco del fondo del patio (muro bajo de bloques gris claro)
+  SET.add(caja(40, 1.25, 0.25, M.cr3, 2, 0.62, -11.5, 0.02));
+  // el cielo: una sola franja crema baja en el horizonte (plana, sin degradé)
+  const franja = mesh(new THREE.PlaneGeometry(400, 7), new THREE.MeshBasicMaterial({ color: 0xefeee5, fog: false }), 0, 1.8, -90); franja.castShadow = false; franja.receiveShadow = false; SET.add(franja);
+  const tierraLej = mesh(new THREE.PlaneGeometry(400, 80), new THREE.MeshBasicMaterial({ color: 0xbfb9a6 }), 0, -0.02, -60); tierraLej.rotation.x = -Math.PI / 2; tierraLej.castShadow = false; SET.add(tierraLej);
+}
+// una carretilla (batea gris, rueda negra, manijas de madera); origen en el piso, mira a +z (la rueda adelante)
+function crearCarretilla() {
+  const g = new THREE.Group();
+  const bat = new THREE.Group(); bat.position.set(0, 0.42, -0.05); bat.rotation.x = 0.12; g.add(bat);
+  bat.add(caja(0.56, 0.04, 0.7, M.cr3, 0, 0, 0, 0.02));
+  for (const s of [-1, 1]) { const l = caja(0.04, 0.26, 0.72, M.cr3, s * 0.3, 0.12, 0, 0.015); l.rotation.z = s * 0.25; bat.add(l); }
+  const fr = caja(0.62, 0.26, 0.04, M.cr3, 0, 0.12, 0.37, 0.015); fr.rotation.x = -0.4; bat.add(fr); bat.add(caja(0.62, 0.26, 0.04, M.cr3, 0, 0.12, -0.37, 0.015));
+  const ru = mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.08, 18), M.goma, 0, 0.17, 0.5); ru.rotation.z = Math.PI / 2; g.add(ru);
+  for (const s of [-1, 1]) { const m = caja(0.04, 0.04, 1.35, M.madera, s * 0.24, 0.4, -0.25, 0.012); m.rotation.x = 0.22; g.add(m); g.add(caja(0.035, 0.32, 0.035, M.navy3, s * 0.22, 0.16, -0.45, 0.01)); }
+  return sombras(g);
+}
+{ const c1 = crearCarretilla(); c1.position.set(0.25, 0, -3.3); c1.rotation.y = 0.9; SET.add(c1); const c2 = crearCarretilla(); c2.position.set(3.4, 0, -5.0); c2.rotation.y = -2.2; SET.add(c2); }
+fusionar(SET);
+
+// =====================================================================================================
+// LAS BOLSAS DE PORTLAND: papel kraft crema con una franja navy y "PORTLAND · 25 kg" (genéricas, sin marca)
+// =====================================================================================================
+const BOL = { w: 0.58, h: 0.135, d: 0.38 };
+const bolsaLadoT = lienzo(1160, 270, (x, w, h) => { x.fillStyle = "#e8dcc0"; x.fillRect(0, 0, w, h); x.fillStyle = "#1f3254"; x.fillRect(0, h * 0.28, w, h * 0.44); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "PORTLAND · 25 kg", 800, 92, w - 120); x.fillText("PORTLAND · 25 kg", w / 2, h / 2 + 4); });
+const bolsaTapaT = lienzo(1160, 760, (x, w, h) => {
+  x.fillStyle = "#e8dcc0"; x.fillRect(0, 0, w, h);
+  x.strokeStyle = "rgba(160,140,100,0.5)"; x.lineWidth = 8; x.setLineDash([22, 16]); x.strokeRect(40, 40, w - 80, h - 80); x.setLineDash([]);
+  x.fillStyle = "#1f3254"; x.fillRect(0, h * 0.34, w, h * 0.32);
+  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "PORTLAND", 900, 190, w - 160); x.fillText("PORTLAND", w / 2, h / 2 + 8);
+  x.fillStyle = "#1f3254"; x.font = F(800, 110); x.fillText("25 kg", w / 2, h * 0.84);
+});
+const MB = { lado: new THREE.MeshStandardMaterial({ map: bolsaLadoT, roughness: 0.85 }), tapa: new THREE.MeshStandardMaterial({ map: bolsaTapaT, roughness: 0.85 }) };
+const geoBolsa = rbox(BOL.w, BOL.h, BOL.d, 0.055, 3);
+function crearBolsaPortland(mats = MB) { const m = new THREE.Mesh(geoBolsa, [M.kraft, M.kraft, mats.tapa, M.kraft, mats.lado, mats.lado]); m.castShadow = true; m.receiveShadow = true; return m; }
+// el pallet y las 40 bolsas trabadas: 6 hileras de 6 (alternando el sentido) y 4 arriba (las que cuenta Gustavo: 37-40)
+const PILA = new THREE.Group(); PILA.position.set(PILA_P.x, 0, PILA_P.z); scene.add(PILA);
+const BOLSAS = [];
+const MTOP = []; // materiales propios de las 4 de arriba (el brillo cuando las toca)
+{
+  for (const z of [-0.5, 0, 0.5]) PILA.add(caja(1.22, 0.035, 0.12, M.pallet, 0, 0.125, z, 0.008));
+  for (const x of [-0.52, 0, 0.52]) PILA.add(caja(0.1, 0.09, 1.16, M.pallet, x, 0.06, 0, 0.008));
+  for (const z of [-0.5, 0.5]) PILA.add(caja(1.22, 0.025, 0.12, M.pallet, 0, 0.013, z, 0.008));
+  semilla = 21;
+  const y0 = 0.142 + BOL.h / 2;
+  for (let k = 0; k < 7; k++) {
+    const pos = [];
+    if (k % 2 === 0) { for (const x of [-0.295, 0.295]) for (const z of [-0.39, 0, 0.39]) pos.push([x, z, 0]); }
+    else { for (const x of [-0.39, 0, 0.39]) for (const z of [-0.295, 0.295]) pos.push([x, z, Math.PI / 2]); }
+    const usar = k < 6 ? pos : [pos[3], pos[0], pos[4], pos[1]];   // arriba: 4 (la de 40 queda al frente)
+    for (const [x, z, ry] of usar) {
+      let mats = MB;
+      if (k === 6) { mats = { lado: MB.lado.clone(), tapa: MB.tapa.clone() }; MTOP.push(mats); }
+      const b = crearBolsaPortland(mats);
+      b.position.set(x + (az() - 0.5) * 0.02, y0 + k * BOL.h * 0.97, z + (az() - 0.5) * 0.02); b.rotation.y = ry + (az() - 0.5) * 0.05;
+      PILA.add(b); BOLSAS.push(b);
+    }
+  }
+}
+// la bolsa que Gustavo le carga a Tito (Q3) y la del inserto del costo
+const BOLSA_MANO = crearBolsaPortland(); scene.add(BOLSA_MANO);
+// el polvo de portland: copitos chatos gris claro (con semilla) que salen de un punto y se apagan
+const POLVO = new THREE.Group(); scene.add(POLVO);
+const polvoM = new THREE.MeshStandardMaterial({ color: 0xdedbd2, roughness: 1, transparent: true, opacity: 0.8, depthWrite: false });
+{ semilla = 33; for (let i = 0; i < 16; i++) { const p = new THREE.Mesh(new THREE.IcosahedronGeometry(0.035 + az() * 0.035, 0), polvoM); p.userData = { dx: (az() - 0.5) * 2, dy: 0.3 + az() * 0.8, dz: (az() - 0.5) * 2, s: 0.7 + az() * 0.8 }; POLVO.add(p); } }
+function ponerPolvo(t, t0, centro) {
+  const u = (t - t0) / 0.75; POLVO.visible = u >= 0 && u < 1; if (!POLVO.visible) return;
+  POLVO.position.copy(centro); polvoM.opacity = 0.85 * (1 - u);
+  for (const p of POLVO.children) { const d = p.userData, e = eo(u); p.position.set(d.dx * 0.35 * e, d.dy * 0.25 * e, d.dz * 0.35 * e); p.scale.setScalar(d.s * (0.6 + u)); }
+}
+
+// =====================================================================================================
+// EL TELÉFONO DE PARED: aparato crema con teclado navy, el tubo y el cable en espiral (se rehace si se mueve)
+// =====================================================================================================
+const TELEF = new THREE.Group(); TELEF.position.set(TEL.x, TEL.y, TEL.z); scene.add(TELEF);
+{
+  TELEF.add(caja(0.2, 0.28, 0.09, M.cr, 0, 0, 0.045, 0.03));
+  for (let i = 0; i < 4; i++) for (let j = 0; j < 3; j++) TELEF.add(caja(0.03, 0.022, 0.012, M.navy, 0.02 + (j - 1) * 0.042, 0.06 - i * 0.036, 0.094, 0.005));
+  TELEF.add(caja(0.035, 0.08, 0.04, M.navy3, -0.095, 0.075, 0.07, 0.01));   // la horquilla
+  sombras(TELEF);
+}
+// el tubo: mango con auricular y micrófono; origen en el medio, largo en y
+const TUBO = new THREE.Group(); scene.add(TUBO);
+{
+  TUBO.add(caja(0.045, 0.2, 0.04, M.cr, 0, 0, 0, 0.018));
+  for (const s of [-1, 1]) { const c = mesh(new THREE.CylinderGeometry(0.036, 0.03, 0.04, 16), M.cr, 0, s * 0.105, 0.025); c.rotation.x = Math.PI / 2; TUBO.add(c); TUBO.add(mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.005, 14).rotateX(Math.PI / 2), M.navy, 0, s * 0.105, 0.047)); }
+  sombras(TUBO);
+}
+const cableM = mat(0xefeee5, 0.6);
+const CABLE = new THREE.Mesh(new THREE.BufferGeometry(), cableM); CABLE.castShadow = true; scene.add(CABLE);
+let claveCable = "";
+function ponerCable(a, b) {
+  const k = `${a.x.toFixed(3)},${a.y.toFixed(3)},${a.z.toFixed(3)},${b.x.toFixed(3)},${b.y.toFixed(3)},${b.z.toFixed(3)}`; if (k === claveCable) return; claveCable = k;
+  const L = a.distanceTo(b), caida = Math.max(0.08, 0.55 - L * 0.4);
+  const m = a.clone().add(b).multiplyScalar(0.5); m.y -= caida;
+  const base = new THREE.QuadraticBezierCurve3(a, m, b);
+  const pts = [], N = 120, vueltas = 26, r = 0.014;
+  for (let i = 0; i <= N; i++) {
+    const u = i / N, p = base.getPoint(u), tg = base.getTangent(u);
+    const n1 = new THREE.Vector3(0, 0, 1).cross(tg).normalize(); if (n1.lengthSq() < 0.1) n1.set(1, 0, 0); const n2 = tg.clone().cross(n1).normalize();
+    const th = u * vueltas * Math.PI * 2, rr = r * Math.min(1, u * 12, (1 - u) * 12);
+    pts.push(p.add(n1.multiplyScalar(Math.cos(th) * rr)).add(n2.multiplyScalar(Math.sin(th) * rr)));
+  }
+  CABLE.geometry.dispose(); CABLE.geometry = new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), N * 2, 0.0045, 5, false);
+}
