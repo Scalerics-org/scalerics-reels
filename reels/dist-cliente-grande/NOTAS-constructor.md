@@ -122,3 +122,34 @@ cama más presente (duck 0,5 → 0,32), -14,0 LUFS.
   plano general de la vereda (P4) los personajes siguen chicos (para que entren el cartel entero y la zorra) y el camión
   se ve solo de costado en el borde; el panel en el encuadre del cuadro 0 (Q4r) sigue chico (el contador se ve en Q4/Q4b,
   en grande).
+
+## Ronda 2 (17-11, sobre renders/qa-arte-r2 y qa-sg-r2)
+**Duración 37,73 s.** Parte 1 0-17,67 (+0,3 s del post-it pegado en el camión) · cartel 17,67-20,07 (2,4 s: "más tarde…"
+entero ~0,6 s antes del iris, entra en 0,8 s) · parte 2 20,07-37,73 (47 %). Mezcla: duck 0,55 bajo la voz y la cama
++3 dB; voz ≥ +13,1 LU sobre el resto en todos los tramos; -14,0 LUFS.
+- A1 cuadro suelto de 5,367 y franja navy 4,83-5,23: era el piso del balcón (la cámara bajaba a través de él y terminaba
+  debajo). La grúa termina fuera del balcón (z -1,3) y el piso del balcón se esconde con la baranda mientras cruza.
+- A2 celular de Héctor: en altavoz delante de la cara, a su izquierda, cuerpo navy de 9 × 17,5 cm con la pantalla
+  encendida ("En llamada · Nico · Distribuidora"), siempre girado hacia la cámara, agarrado por la mano izquierda.
+- M lentes: aros a 2,8 cm de la cara (radio 8,4 cm), el de atrás ya no sale de la silueta en 3/4; Héctor gira 0,3 rad
+  hacia la cámara en P4b. Chaleco 6 % más angosto (no asoma por el guardapolvo) y sin cuello de camisa (el borde
+  serruchado era la camisa contra el cuello del guardapolvo).
+- M post-it: el brazo (manga verde larga) entra desde el borde; el inserto muestra el parabrisas y el camión por delante,
+  el post-it más al centro del tablero; en P7c no se ve hasta que sale por la ventanilla (antes nacía en la cara de
+  Nico); al final la cámara se abre a la cola del furgón (puertas, manijas, chasis) con el post-it pegado, 0,3 s más.
+- M guía de "12 martes": a la esquina izquierda del lugar pintado (no cruza a Darío ni la reposera); la de arriba al
+  borde del cartel. Rótulos más angostos; el plano de llegada más abierto (cartel HÉCTOR · MARTES entero).
+- M chofer sin visera y centrado en P5b. Q1 arranca más cerca del celular (menos techo y sin el brazo de Nico).
+- B burbuja "Dejé de pedir…" cambia en "Dejé" (10,0); "Sin pedir" verde al llegar a 0; panel: "Llamado…" 56 px y "que
+  no se fueron" 58 px; "AUTOSERVICIO" 66 px; "$ 0" más chico en la facturación (no se pega al $ 114.000); el teléfono no
+  aparece en los insertos del monitor (era la masa navy); el mate entra en el cierre; la línea CRM bajó a y 222 y la
+  cámara del cierre baja la cara para no tocarla.
+- Sonido: la radio de Darío a -34 sin fundido desde la grúa + whoosh de aterrizaje (sin agujero en 4,8-5,6); puertas del
+  camión más fuertes; roce de tela después del ding de "Pedido" (sin bajón en 27,1).
+- No hecho: el plano general de la vereda sigue con los personajes chicos (para que entren el cartel y la zorra); la
+  boina de Héctor tapa en parte un ojo de Rubén en P5 (plano por encima del hombro); la astilla del toldo y las franjas
+  oscuras de techo/escritorio en la oficina; la pantalla de llamada de Q1 sigue 3,2 s (la marca la voz de Nico).
+- Render ronda 2: 581 s; re-codificación ~65 s. Final 37,73 s, -14,0 LUFS, pico -5,1 dBFS. Pasada de diferencia entre
+  cuadros consecutivos en los 1133 cuadros (busca saltos de ida y vuelta de un cuadro): ninguno. Cuadros de las zonas
+  tocadas en renders/qa4/z.png. Portada nueva: fondo LIMPIO de 10,3 s con Héctor de frente (lentes y chaleco bien).
+- Flojo: al arrancar Q1 (20,0-20,3) el antebrazo de Nico entra grande abajo a la izquierda antes del push-in.
