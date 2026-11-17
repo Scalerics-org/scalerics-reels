@@ -168,3 +168,30 @@ sumaron 0,15 s a la sala de Q4 y 0,14 s antes de Bruno en Q3, y se sacaron 0,05 
 - Cortes (s): P2 3,21 · P2c 4,54 · P3 6,04 · P3b 8,18 · P4 9,88 · P4b 10,43 · P5 13,73 · P6 14,68 · P7 16,67 · cartel 17,45 ·
   Q1 19,90 · Q1b 22,08 · Q1t 23,65 · Q2 25,15 · Q2b 25,80 · Q2c 27,78 · Q3 29,28 · Q3c 31,62 · Q4 33,20 · Q4c 34,42 ·
   Q4d 35,56 · Q5 36,28.
+
+## Ronda 4 (17-11, sobre qa-ronda-r4.md)
+**Duración 41,57 s.** Parte 1 0-18,32 · cartel 18,32-20,77 · parte 2 20,77-41,57 = 20,8 s (50,0 %). Mezcla rehecha: voz ≥ +7,2 LU
+en todos los tramos de 0,5 s, -14,0 LUFS, pico -5,8 dBFS. `check --json` ok. Dos pasadas completas (renders/snap/r4p1 cada
+0,5 s y r4p2 desfasada 0,25 s) y cuadro por cuadro en todos los cortes (renders/prev/cortes4).
+- Regla de burbujas (todas): `hablar(globo, personaje, …)` en tres.js pone la burbuja arriba del que habla, con el borde de
+  abajo ~100 px sobre la coronilla y la cola terminando en el pelo; si no entra o el que habla queda cortado, lo anota en
+  AVISOS y prev.mjs lo imprime. Cámaras abiertas hasta que no quede ningún aviso grave (P3, P4b, Q1b, Q2b, Q3, Q4c).
+- ALTA 1 P3 20 % más abierto (Bruno entero). P3b sin push-in; P3c nuevo (vuelve a Bruno desde 9,30 para ver caer las fichas).
+- ALTA 2 P4b: Vero 20 cm más lejos de Toto (VERO_MOS x +0,92), bolsa a +0,62; Toto sentado de frente a cámara (pañuelo de
+  frente) y entero; correa desde el collar por detrás; cámara más abierta.
+- ALTA 3 / R1 P5: los tres rótulos entran entre 13,73 y 13,89 y quedan 1,7 s (pausa 0,95 → 1,7 s); r1/r2 apilados con aire,
+  "Vacunado a la vuelta" al costado de Toto, nunca sobre su cabeza. Compensado en la parte 2: Q1t +0,25, Q2c +0,2, Q3c +0,42.
+- ALTA 4 Q1b: Vero de la parte 2 en VERO2 (no queda detrás de Toto), cámara desde la izquierda con Inés y Toto enteros.
+- ALTA 5 Q2b más abierto: la burbuja sobre la cabeza de Vero.
+- M1 P2c: "¡Guau!" abajo a la derecha (de la sala, lejos de la cara), cámara más alta, sin el cartel. M2 ver ALTA 1.
+  M3 rig: con giro > ~36° se esconden la ceja y el rubor del lado de atrás (personajes.js). M5 Toto gira la cabeza en 0,55 s.
+  M6 P6 de frente y bajo (Toto culpable con el pañuelo de frente, Inés arriba), P7 diagonal más abierto (Inés ~25 %, la
+  pata y la mano juntas); Toto se para recién en P7. M8 Q5: Sofi y el panel enteros.
+- G1 "Toto · Próxima vacuna". B4 descripcion.txt "decenas de fichas".
+- Bajas: tubos del techo ocultos en P1/Q1 (la placa crema flotando); póster lejos del cuello de Vero; tablet de Q1 sin tapar a
+  Inés; chip JUNIO abajo; el panel de Q5 en cero desde el primer cuadro.
+- No hecho: texto de las tablets de Q3 (~16 px, son objetos chicos en mano), panel del cierre ~25 px, lengua de Toto,
+  sello de la portada (la portada no cambió en esta ronda), cierre 3,55 s (voz de Sofi).
+- Cortes (s): P2 3,21 · P2c 4,54 · P3 6,04 · P3b 8,18 · P3c 9,30 · P4 9,88 · P4b 10,43 · P5 13,73 · P6 15,43 · P7 17,42 ·
+  cartel 18,32 · Q1 20,77 · Q1b 22,95 · Q1t 24,52 · Q2 26,27 · Q2b 26,92 · Q2c 28,90 · Q3 30,60 · Q3c 32,94 · Q4 34,94 ·
+  Q4c 36,16 · Q4d 37,30 · Q5 38,02.
