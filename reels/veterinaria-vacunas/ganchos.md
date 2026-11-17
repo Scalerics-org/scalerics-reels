@@ -8,7 +8,7 @@ automático por WhatsApp unos días antes, con botón para reservar el turno + p
 (automatización + sistema a medida). Cierre: **"Comentá VACUNA"**.
 
 Elenco: **Inés** (nueva, la doctora, dueña de "Veterinaria Inés", ~45; Sulafat), **Vero** (nueva, la dueña de Toto,
-~38; Callirrhoe), **Bruno** (nuevo, ayudante y recepción, ~24; Sadachbia), **Toto** (nuevo, perro mestizo caramelo de
+~38; Callirrhoe), **Bruno** (nuevo, ayudante y recepción, ~24; Schedar), **Toto** (nuevo, perro mestizo caramelo de
 6 años, oreja derecha parada y la izquierda caída; sin voz, solo ladrido y gestos), **Sofi** (ELENCO.sofi, dice el
 cierre; Achernar). Narrador del cartel: Rasalgethi. Rubén no aparece.
 

@@ -9,8 +9,8 @@ Voces: **Inés = Sulafat** (nueva, la doctora, dueña de la veterinaria, ~45; Su
 usada en estetica-turnos. Si suena a locutora, a jueza o demasiado dulce, probar **Autonoe** con el mismo tono),
 **Vero = Callirrhoe** (nueva, la dueña de Toto, ~38; Callirrhoe solo hizo una voz de fondo en el coro de hacen-envios.
 Que no suene igual a Inés: más liviana, más rápida y más aguda. Alternativa: Laomedeia, bajándole la energía),
-**Bruno = Sadachbia** (nuevo, ayudante y recepción, ~24; Sadachbia solo hizo al conductor de `quien-es-quien`, línea
-vieja. Alternativa: Schedar), **Sofi = Achernar** (la de siempre, `reels/estetica-turnos`, `reels/taller-presupuestos`),
+**Bruno = Schedar** (nuevo, ayudante y recepción, ~24; decisión del coordinador del 17-11: Sadachbia la usa otro reel
+de esta noche), **Sofi = Achernar** (la de siempre, `reels/estetica-turnos`, `reels/taller-presupuestos`),
 **narrador del cartel = Rasalgethi**. Ninguna de estas es de un personaje recurrente de la línea ni de los reels de la
 semana (Algenib = Rubén, Gacrux = Graciela, Fenrir = Nico, Umbriel = Walter, Sadaltager = Héctor, Kore = Lorena, Leda =
 Carolina, Despina = Jimena, Charon/Iapetus/Puck/Achird/Zubenelgenubi = taller y parrilla): no usarlas. Si el reel que se
@@ -31,7 +31,7 @@ línea chica. Se tiene que entender sin sonido.
 |---|---|---|---|---|
 | 01-vero.txt · "Doctora, ¿y cuándo le toca la próxima?" | Vero | Callirrhoe | Dueña de un perro, uruguaya de 38 años, en el consultorio de la veterinaria, acariciando a su perro recién vacunado; pregunta de buena fe, cariñosa y práctica, como quien quiere hacer las cosas bien: "doctora" corto, la pregunta clara. ~1,6 s. | Sin filtro. Es el gancho (entra a ~0,30 s). Se reusa idéntica en Q1. |
 | 02-ines.txt · "Yo le aviso." | Inés | Sulafat | Veterinaria uruguaya de 45 años, dueña de su clínica, escribiendo la ficha sin levantar la vista; segura, cálida y rápida, la promesa que hace diez veces por día y que de verdad piensa cumplir. Nada de soberbia. ~0,8 s. | Sin filtro. |
-| 03-bruno.txt · "Doctora, ¿y los avisos de las vacunas?" | Bruno | Sadachbia | Ayudante y recepcionista de 24 años de una veterinaria, con un fichero de cartón que ya no cierra en los brazos; pregunta de buena fe, medio en broma, sin sobrar a nadie. ~1,5 s. | Sin filtro. Se reusa idéntica en Q3. |
+| 03-bruno.txt · "Doctora, ¿y los avisos de las vacunas?" | Bruno | Schedar | Ayudante y recepcionista de 24 años de una veterinaria, con un fichero de cartón que ya no cierra en los brazos; pregunta de buena fe, medio en broma, sin sobrar a nadie. ~1,5 s. | Sin filtro. Se reusa idéntica en Q3. |
 | 04-ines.txt · "El que quiere a su perro, se acuerda." | Inés | Sulafat | Inés secándose las manos, tranquila y convencida, con cariño por sus clientes: lo dice como una verdad del oficio, casi un elogio a los dueños. Nada de enojo ni de desprecio. ~1,5 s. | Sin filtro. |
 | 05-vero.txt · "¡Doctora! A Toto le escribieron de la de la vuelta. Ya está vacunado." | Vero | Callirrhoe | La misma Vero entrando con el perro, contenta y buena onda, sin ninguna culpa, como quien da una buena noticia: "¡doctora!" de saludo, "le escribieron" con sorpresa simpática (le escribieron al perro), "ya está vacunado" orgullosa. ~2,8 s. | Sin filtro. Si pasa de 3,0 s, atempo 1,08. Que "de la de la vuelta" se entienda (si el STT oye otra cosa, regenerar). |
 | 06-ines.txt · "¿Vos también, Toto?" | Inés | Sulafat | Inés mirando al perro desde arriba del mostrador, después de una pausa; seca, grave, sin levantar la voz, dolida en broma, como una traición de película dicha en voz baja; una pausita antes de "Toto". Nada de enojo de verdad: es el chiste. ~1,0 s. | Sin filtro. Es EL remate: va después de la pausa, con la cama baja. Si suena enojada o a reto, regenerar. Es la frase de la portada. |

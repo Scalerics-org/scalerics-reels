@@ -31,7 +31,7 @@ pañuelo liso); vacuna genérica sin laboratorio; ración en bolsa kraft lisa; c
 texto, sin su verde ni su logo).
 
 ## Voces
-Gemini TTS con `herramientas/voz.mjs`: Inés = Sulafat, Vero = Callirrhoe, Bruno = Sadachbia, Sofi = Achernar, narrador
+Gemini TTS con `herramientas/voz.mjs`: Inés = Sulafat, Vero = Callirrhoe, Bruno = Schedar, Sofi = Achernar, narrador
 del cartel = Rasalgethi (toma nueva: "Un recordatorio automático más tarde."). Tomas en `partes/tomas/`, recortes en
 `partes/rec/`.
 
@@ -42,3 +42,20 @@ Los de siempre del repo (con su crédito en `reels/taller-presupuestos/fuentes.m
 corto de perro mediano** (dos o tres: lejano, ladridito contento), **gemidito de perro**, **uñas de perro en piso
 vinílico**, **maullido corto**, **campanita de puerta de comercio** (ver parrilla-no-vuelve), **canilla**, **teléfono
 inalámbrico que se cuelga**, **ficha de cartón que entra en una caja**. Nada sintetizado con ffmpeg.
+
+### Sonidos sumados por el constructor (17-11)
+- **Ladridos** (`assets/sfx/ladrido-*.wav`, convertidos a wav mono 48 kHz, sin otro cambio): todos CC0 1.0 de Freesound,
+  tomados recortados (un ladrido por archivo) del repo `robwizzie/fetch` (assets/audio/sfx/bark*/, ver su
+  `assets/audio/CREDITS.md`, que verificó la licencia CC0 de cada página), porque freesound.org no responde desde la nube:
+  - `ladrido-fs277058.wav`: "Single Dog Bark", kwahmah_02, https://freesound.org/people/kwahmah_02/sounds/277058/ (CC0)
+  - `ladrido-fs535457.wav`: "Single bark of a dog", exe2be, https://freesound.org/people/exe2be/sounds/535457/ (CC0)
+  - `ladrido-fs261286_1.wav`: "dog-bark.WAV", mcginnster, https://freesound.org/people/mcginnster/sounds/261286/ (CC0)
+  - `ladrido-spaniel_fs502655.wav` / `ladrido-spaniel_fs502656_2.wav`: "Single/Multiple Dog Barks (King Charles Spaniel)",
+    JovianSounds, https://freesound.org/people/JovianSounds/sounds/502655/ y /502656/ (CC0)
+  - `ladrido-golden_fs146343_1/2.wav`: "Animal - Dog, Retriever (Teen)", colinpoh, https://freesound.org/people/colinpoh/sounds/146343/ (CC0)
+  - `ladrido-corgi_fs630648.wav`: "single bark - small to medium dog", haulaway, https://freesound.org/people/haulaway/sounds/630648/ (CC0)
+- **Uñas de Toto en el piso**: recortes de `k-tick-1/2/4.wav` (Kenney, CC0, ya registrados en taller-presupuestos) con
+  pasaaltos y 1,35x de velocidad. Ficha que entra al fichero ("plac"): `k-book_place_1/2.wav` (Kenney, CC0, registrados en
+  anotamelo). Lapicera en la ficha: tramo filtrado de `papel.wav` ("Paper slide", Kingofgamers_cz, Freesound, CC0).
+- **Sin gemidito ni maullido ni canilla**: no hay grabaciones CC0 accesibles desde la nube (freesound/wikimedia/openverse
+  bloqueados); el `splash.mp3` del repo no tiene origen anotado y no se usa. Esos momentos van con la música y el zumbido.

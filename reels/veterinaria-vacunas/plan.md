@@ -81,7 +81,7 @@ parte 2 igual + ficha/recordatorio/panel; cartel verde".
   `cejaFina: true`, aros crema, mejillas `0xb8644e`, labios `0x8e3f3c`. Buzo crema `MARCA.cr2` con **campera** `{ color:
   MARCA.navy2, cuello: MARCA.cr, abierta: true }`, jean `0x3a4a66`, zapatillas crema. `panza: 0.98, alto: 0.97`. Siempre
   con **la correa verde oscuro** de Toto en la mano (en P4 además la bolsa de ración). Buena onda total, nunca culpable.
-- **Bruno · `ELENCO.bruno`** (ayudante y recepción, ~24, voz Sadachbia). Piel `PIEL.media`, pelo castaño `PELO.castaño` en
+- **Bruno · `ELENCO.bruno`** (ayudante y recepción, ~24, voz Schedar). Piel `PIEL.media`, pelo castaño `PELO.castaño` en
   `peinado: "texturado"` con `texturaAlto: 0.8`, barba de pocos días (`barba: 0x4a3222, barbaLarga: 0.35, barbaOpacidad:
   0.4`), cejas `0x4a3222`. **Chaqueta de recepción navy** `camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr`,
   `franja: MARCA.g`, pantalón `MARCA.navy`, zapatillas crema. `panza: 0.95, alto: 1.02`. Que no se parezca a Nico ni a
