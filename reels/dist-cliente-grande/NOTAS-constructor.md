@@ -153,3 +153,16 @@ entero ~0,6 s antes del iris, entra en 0,8 s) · parte 2 20,07-37,73 (47 %). Mez
   cuadros consecutivos en los 1133 cuadros (busca saltos de ida y vuelta de un cuadro): ninguno. Cuadros de las zonas
   tocadas en renders/qa4/z.png. Portada nueva: fondo LIMPIO de 10,3 s con Héctor de frente (lentes y chaleco bien).
 - Flojo: al arrancar Q1 (20,0-20,3) el antebrazo de Nico entra grande abajo a la izquierda antes del push-in.
+
+## Ronda 3 (17-11, sobre qa-arte-r3 y qa-sg-r3)
+37,73 s, 1133 cuadros. Render 596 s; final -13,9 LUFS, pico -5,1 dBFS. `check --json` ok, 0 errores. Pasada de diferencias
+entre cuadros consecutivos en todo el MP4: sin cuadros sueltos; los últimos 5 cuadros cambian < 0,5 (el último ya no salta).
+- A el último cuadro: catmull() devolvía NaN después de la última clave (la cámara se rompía en t = DUR); ahora queda quieta.
+  La tarjeta CLIENTES y la caja CRM duran hasta el final (+0,1 s de margen).
+- M el inserto de Q2i entra directo en "Pedido"; Héctor sin chaleco (vivos y botones fuera), solo el guardapolvo; duck de
+  la música 0,3 (la cama al 70 % bajo la voz), voz ≥ +12,9 LU.
+- B notificación del aviso 0,3 s antes y +3 dB; la tarjeta CLIENTES entra en "Comentá"; clacs y capas del pallet +4 dB;
+  el camión gris arranca con su motor (sin hueco antes del stinger) y el plano se abre a la cola del furgón antes; la
+  burbuja de Rubén en Q4r arriba a la derecha (no tapa el panel); el mate entra en el cierre; el soporte del celular no
+  se ve en P7c; portada nueva sin chaleco y con la imagen 30 px más abajo (el sello está fijo en la plantilla y sigue
+  rozando el borde de la boina).
