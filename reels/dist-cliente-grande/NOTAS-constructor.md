@@ -87,3 +87,30 @@ recortado 420 px de arriba con navy abajo (portada-src/fondo-limpio-10.15.png). 
 - En P1 y Q4 la burbuja del contador queda en pantalla mientras habla Rubén (las dos a la vez).
 - Duración 39,1 s (más que los 36,4 del plan): las tomas de Héctor (3,08 s) y "Te extrañó el contador." (1,7 s) son más
   largas; la solución sigue siendo el 50 %.
+
+## Ronda 1 (17-11, sobre renders/qa-arte-r1, qa-sonido-r1, qa-guion-r1)
+**Duración 37,27 s** (era 39,13). Parte 1 0-17,37 · cartel 17,37-19,52 · parte 2 19,52-37,27 = 17,75 s (48 %); cierre
+33,86-37,27, tarjeta CLIENTES 34,41-37,27 (2,86 s). Voces más rápidas sin cambiar tomas: h1 atempo 1,16, n2 1,18, h3 1,14,
+r3 1,1 ("oyó:" igual). Pausa antes de "Compraba." y de "Compra." 0,55 s. Mezcla: voz ≥ +12,9 LU sobre el resto con la
+cama más presente (duck 0,5 → 0,32), -14,0 LUFS.
+- A1 lentes de Héctor: aros cerrados de 360° 4,5 cm delante de la cara, sin patillas, puente nuevo por encima de la nariz.
+- A2 post-it: P7b la mano de Nico (manga verde) lo baja y lo pega con el pulgar, se lee entero; P7c la cámara al lado del
+  auto: el post-it sale por la ventanilla del acompañante dando vueltas, la cámara lo sigue por la vereda y termina de
+  frente a la puerta del camión gris (el post-it ~45 % del ancho, "HÉCTOR / MARTES" de ~100 px); sin sombra (la mancha).
+- A3 el salto de 29,53 (Q3b): plano rehecho (cámara fija desde el primer cuadro, sin las lámparas del depósito).
+- A4 cierre: el mate ya está en el escritorio y la mano descansa al lado (no lo atraviesa).
+- A5 Héctor en la llamada: celular navy con pantalla en la oreja izquierda (la que ve la cámara), la mano debajo, sin la
+  palmada, ojos abiertos, sin parpadeo mientras habla; cámara centrada en la cara.
+- M bigote de Rubén: se esconde cuando la cámara le ve la nuca. Mano de Héctor: baja las manos antes de la pausa. Dedo de
+  "Llamar": mano nueva (índice, nudillos, pulgar, manga verde) y Nico oculto en el inserto. Vereda: cartel "SÚPER
+  HÉCTOR" más angosto y más alto (entra entero), cámara más cerca, camión gris corrido a la izquierda, zorra entre el
+  camión y la puerta, burbuja debajo del cartel; P5b nuevo: contraplano del camión gris descargando y el chofer cerrando
+  las puertas. Panel: Q4 arranca con el panel en grande (contador 4 → 0 y "Rubén, ¿y Héctor?"), Q4r el encuadre del
+  cuadro 0 para "¿Héctor? Compra…", Q4b el panel en grande con "Compra."; letras del panel ≥ 46 px. Guía del rótulo
+  rojo al borde pintado del lugar. Cartel HÉCTOR · MARTES entero en P2. P6 sin Nico detrás y con los ojos más abiertos.
+  Línea chica del cierre más arriba y más chica (no pisa la cabeza).
+- B cuadro 0 más abierto (monitor entero con "Súper Héctor" y el mate en cuadro); rótulo del aviso sobre el celular sin
+  pisarlo; "Pedido" con una sola tilde; una sola burbuja a la vez en P1; descripcion.txt "a la mañana siguiente".
+- Sonido: notificación + whoosh + pop cuando entra el aviso en grande (20,1); whoosh de la grúa al techo y la radio desde
+  el arranque de la grúa (sin hueco en 4,5); "tuu" de llamada (k-tono más largo y grave) entre Llamar y la voz; crujido
+  de silla en el giro de Rubén; pasos de Darío; whoosh en el corte a Q3; motor, hoja y el pop del post-it al techo.

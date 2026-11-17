@@ -1466,6 +1466,13 @@ function renderAt(tIn) {
     const ventana = auto.localToWorld(V3(-1.0, 1.3, auto.userData.cab.z1 - 0.35));
     const mira = t < T.vuela[0] ? ventana : t < T.vuela[1] ? postit.position.clone() : d.clone();
     ponerCam([pos.x, pos.y, pos.z, mira.x, mira.y, mira.z, lerp(48, 40, u)], t, true);
+    // (r1) en vuelo el post-it mira a la cámara (se lee, no de canto ni espejado), girando sobre sí mismo, y un poco más
+    // grande en el medio del vuelo
+    if (en(t, T.vuela[0], T.vuela[1])) {
+      const v = sg(t, T.vuela[0], T.vuela[1]);
+      camera.updateMatrixWorld(true); postit.lookAt(camera.position); postit.rotateZ(Math.sin(v * 9) * 0.6 * (1 - v)); postit.rotateX(Math.sin(v * 7) * 0.4 * (1 - v));
+      postit.scale.setScalar(1 + 1.2 * Math.sin(Math.PI * cl(v * 1.15)) * (1 - eo(v)) );
+    }
   }
   if (pa === "Q1" || pa === "Q2i") {
     // Q1: desde el asiento del acompañante; push-in continuo al celular del soporte (inserto ≥ 60 %)
