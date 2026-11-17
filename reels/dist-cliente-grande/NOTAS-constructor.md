@@ -114,3 +114,11 @@ cama más presente (duck 0,5 → 0,32), -14,0 LUFS.
 - Sonido: notificación + whoosh + pop cuando entra el aviso en grande (20,1); whoosh de la grúa al techo y la radio desde
   el arranque de la grúa (sin hueco en 4,5); "tuu" de llamada (k-tono más largo y grave) entre Llamar y la voz; crujido
   de silla en el giro de Rubén; pasos de Darío; whoosh en el corte a Q3; motor, hoja y el pop del post-it al techo.
+- Render ronda 1: 694 s y 605 s (el segundo por el post-it en vuelo, que ahora mira a cámara, gira y crece un poco a mitad
+  del vuelo); re-codificación ~65 s. Final 37,3 s, -14,0 LUFS, pico -4,9 dBFS. Revisado cuadro a cuadro (±1 cuadro) en
+  23 cortes y zonas tocadas (renders/qa3/cortes.png) y cada 0,5 s (renders/qa3/h1.png): sin defectos nuevos.
+- Portada nueva (lentes arreglados): fondo LIMPIO de 10,3 s (Héctor con las palmas abiertas), recortado 360 px de arriba.
+- Pendiente/flojo: la mano de Nico en P7b es una manopla con dedos de salchicha y tapa un poco la H al bajar; en el
+  plano general de la vereda (P4) los personajes siguen chicos (para que entren el cartel entero y la zorra) y el camión
+  se ve solo de costado en el borde; el panel en el encuadre del cuadro 0 (Q4r) sigue chico (el contador se ve en Q4/Q4b,
+  en grande).
