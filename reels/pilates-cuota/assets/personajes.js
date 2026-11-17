@@ -140,15 +140,15 @@ export const ELENCO = {
   // pilates-cuota (17-11): "Estudio Ceci". Ceci, dueña e instructora (~42, trigueña, castaño oscuro en coleta alta sin
   // flequillo, buzo verde apagado, calza navy, medias crema); Alicia, la alumna de años (~60, rubio ceniza en rodete, remera
   // crema de manga larga, calza navy claro); Joaco, el otro instructor (~27, moreno, pelo corto con barba, remera navy).
-  ceci: { nombre: "Ceci", piel: PIEL.trigueña, pelo: 0x3b2a22, peinado: "coletaAlta", sinFlequillo: true, cejasColor: 0x3b2a22, cejaFina: true,
+  ceci: { nombre: "Ceci", mejillasBajas: true, piel: PIEL.trigueña, pelo: 0x3b2a22, peinado: "coletaAlta", sinFlequillo: true, cejasColor: 0x3b2a22, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.gd, mangas: "largas", cuello: null, cuelloBotones: false, cuelloAlto: 0.07, franja: null,
     labiosPegados: true, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 0.94, nariz: 0.047, mejillas: 0xd98a7a, labios: 0xa8484f,
     aros: MARCA.cr, alto: 1.0 },
-  alicia: { nombre: "Alicia", piel: PIEL.clara, pelo: 0xcdb07a, peinado: "rodete", rodeteAtras: 0.42, cejasColor: 0x8a6a40, cejaFina: true,
+  alicia: { nombre: "Alicia", mejillasBajas: true, piel: PIEL.clara, pelo: 0xcdb07a, peinado: "rodete", rodeteAtras: 0.42, cejasColor: 0x8a6a40, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr, mangas: "largas", cuello: MARCA.navy2, cuelloBotones: false, cuelloAlto: 0.06,
-    labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.cr2, panza: 1.04, nariz: 0.05, mejillas: 0xe39282, labios: 0xb5555a,
+    labiosPegados: true, pantalon: MARCA.navy2, zapatos: MARCA.navy3, panza: 1.04, nariz: 0.05, mejillas: 0xe39282, labios: 0xb5555a,
     aros: MARCA.g, alto: 0.95 },
-  joaco: { nombre: "Joaco", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", cortoMechas: true, cejasColor: 0x1e1a18,
+  joaco: { nombre: "Joaco", mejillasBajas: true, piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", cortoMechas: true, cejasColor: 0x1e1a18,
     barba: 0x2a2220, barbaLarga: 0.3, barbaOpacidad: 0.55, camisa: MARCA.navy3, mangas: "cortas", cuello: MARCA.cr, cuelloFino: true, cuelloBotones: false, cuelloAlto: 0.05,
     franja: null, pantalon: 0x3a3f4a, zapatos: MARCA.cr, panza: 0.96, nariz: 0.056, mejillas: 0xb8644e, alto: 1.04 },
 
@@ -353,7 +353,7 @@ export function crearPersonaje(cfg) {
   }
   const CA = c.cuelloAlto || 0;
   // cuelloAlto: la cabeza sube y se ve un cuello de verdad (sin el aro de la camisa haciendo de pedestal)
-  const cuello = CA ? mesh(G.cil, M.piel, 0, 0.53 + CA * 0.5, 0, 0.056, 0.1 + CA, 0.05) : mesh(G.cil, M.piel, 0, 0.58, 0, 0.065, 0.1, 0.065); cuerpo.add(cuello);
+  const cuello = CA ? mesh(G.cil, M.piel, 0, 0.54 + CA + 0.1, 0, 0.056, 0.17 + CA, 0.05) : mesh(G.cil, M.piel, 0, 0.58, 0, 0.065, 0.1, 0.065); cuerpo.add(cuello);   // (pilates-cuota r2) el cuello entra en la cabeza: no queda la tapa del cilindro ni una franja de fondo bajo la barbilla
 
   // ---- cabeza (pivote en el cuello) ----
   const R = 0.3;
@@ -369,7 +369,7 @@ export function crearPersonaje(cfg) {
   // orejas, nariz, mejillas
   for (const s of [-1, 1]) { const o = mesh(G.esferaLow, M.piel, 0, 0, 0, 0.05, 0.075, 0.035); sobre(o, s * 1.5, -0.05, 0.98); cabeza.add(o); }
   const nariz = mesh(G.esfera, M.pielSombra, 0, 0, 0, c.nariz ?? 0.06, (c.nariz ?? 0.06) * 0.9, (c.nariz ?? 0.06) * 0.85); sobre(nariz, 0, -0.1, 1.0); cabeza.add(nariz);
-  const mejillas = [-1, 1].map((s) => { const m = mesh(G.esferaLow, M.mejilla, 0, 0, 0, 0.065, 0.045, 0.012); sobre(m, s * 0.55, c.barba ? -0.18 : -0.24, 1.0); cabeza.add(m); return m; });
+  const mejillas = [-1, 1].map((s) => { const m = mesh(G.esferaLow, M.mejilla, 0, 0, 0, 0.065, 0.045, 0.012); sobre(m, s * (c.mejillasBajas ? 0.62 : 0.55), (c.barba ? -0.18 : -0.24) - (c.mejillasBajas ? 0.07 : 0), 1.0); cabeza.add(m); return m; });   // mejillasBajas (pilates-cuota r2): el rubor no pisa el blanco de los ojos
 
   if (c.ojeras) for (const s of [-1, 1]) { const m = mesh(G.esferaLow, new THREE.MeshStandardMaterial({ color: c.ojeras, roughness: 0.8, transparent: true, opacity: 0.5, depthWrite: false }), 0, 0, 0, 0.06, 0.02, 0.01); sobre(m, s * 0.34, -0.1, 0.99); cabeza.add(m); }
   // ojos: blanco + pupila + brillo, con párpado superior que rota (abre/cierra) y se inclina (humor)
