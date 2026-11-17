@@ -63,3 +63,24 @@ voz; voz ≥ +7,2 LU sobre el resto en todos los tramos de 0,5 s; -14,0 LUFS. SF
   P7 con la mano de Silvana asomando en el borde → celular más grande en cuadro; Q1 la pareja tapada por Diego y techo
   oscuro → cámara nueva (la pareja en la puerta, saludando), techo claro; mezcla 31,5 s (+6,0 → +7,2).
 - Render 1: 627 s (10,5 min, SwiftShader).
+- Render 2: 616 s. Pasada 2 (MP4 render 2, cuadros cada 0,25 s desfasados 0,125 s en renders/qa2/, diferencias cuadro a
+  cuadro de los 1134: sin sueltos, último cuadro quieto; Q5 ya entra con la cámara y Sofi correctas): corregido el nombre
+  "SILVANA PROPIEDADES" cortado arriba en P1 y en los dos bordes en Q3/Q3c (placa de 1,3 m a 2,0 m, entra entera); el
+  push-in a la llave pasaba por la cara de Graciela (ahora 0,35 s); Q2 con el cartel VENDE cortado (cámara de P5); el
+  rótulo del resumen quedaba en el plano abierto después de "Llamar" (se va).
+- Render 3: 585 s; re-codificación del paso 10 ~70 s. Final 37,9 s (1134 cuadros), -14,1 LUFS, pico -6,3 dBFS. Revisado
+  cada 0,5 s (renders/qa3/hoja.png) y diferencia cuadro a cuadro: sin defectos nuevos de gravedad alta.
+
+## Portada
+Plano propio VER=portada (LIMPIO=1): Silvana de frente con cara de "¿y ahora?", el celular en altavoz y el tablero de
+llaves detrás (portada-src/fondo-limpio.png). chica "Viernes, 18:00.", grande "¿Hubo visitas?", sello INMOBILIARIAS.
+
+## Flojo / para los revisores
+- P3 (3,65-4,8): Diego y Romina en plano general, caras de ~150 px; las dos burbujas a la vez entran escalonadas.
+- P5: la grúa desde la rambla (6,8-7,3) muestra la fachada y los balcones; el río casi no se ve.
+- Q1: la pareja se ve chica en la puerta del fondo (0,7 s antes del push-in); en los insertos de celular las manos
+  ocupan la franja de abajo (no tapan la pantalla).
+- Q4 (30,5-31,8): el monitor llena el ancho pero queda en la mitad de arriba (abajo, pared y la planta).
+- La comisión gira de rojo a verde con un cuadro casi plano (la tarjeta de canto) en 31,25.
+- Silvana, Diego y Romina son nuevos: las manos son puños redondeados (como el resto del elenco), la melena de Silvana
+  es el peinado "melena" de Lorena en canoso.

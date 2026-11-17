@@ -1,14 +1,13 @@
 {
- "t": null,
+ "t": 12.0,
  "chica": "Viernes, 18:00.",
  "grande": "¿Hubo visitas?",
  "sello": "INMOBILIARIAS",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
  "zoom": 1.0,
- "foco": "0%",
+ "foco": "20%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": null,
- "nota": "PENDIENTE t y fondo_limpio (los pone el constructor). Fondo: plano propio VER=portada en tres.js, LIMPIO=1: Silvana de frente en su escritorio con cara de \"¿y ahora?\", el celular en altavoz enorme en primer término, el tablero de llaves con el gancho POCITOS vacío detrás, Diego y Romina a los costados mirándose; todo en la mitad de arriba. Alternativa: Graciela en el balcón con el cartel VENDE y la llave POCITOS colgando en primer plano."
+ "fondo_limpio": "portada-src/fondo-limpio.png"
 }
