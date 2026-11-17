@@ -1,0 +1,38 @@
+[sin narrador Orus: el chiste va en burbujas, la fila de facturación con ceros, el lugar vacío de Héctor en la zona de armado y el post-it que se vuela; la solución va en la interfaz recreada (aviso en el celular de Nico, ficha del cliente, panel de clientes que dejaron de pedir); voces por archivo en partes/*.txt · total estimado ~36,4 s: parte 1 0,00-16,40 · cartel 16,40-18,80 · parte 2 18,80-32,70 · cierre 32,70-36,40 (solución + cierre: 17,6 s, 48 %)]
+[parte 1 · el problema · 0,00-16,40 s]
+[0,00-4,50 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" (ya entero en el cuadro 0) y chico "Noviembre." · la oficina vidriada de Rubén de tarde, Rubén recostado con el mate · el teléfono de escritorio en altavoz, pantallita "CONTADOR" · en el monitor, "Facturación por cliente": la fila "Súper Héctor · AGO $ 114.000 · SET $ 0 · OCT $ 0 · NOV $ 0" con los ceros en rojo apagado · por el vidrio, el depósito]
+CONTADOR: Rubén, ¿y Héctor?
+[Rubén, tranquilo, sin mirar el monitor]
+RUBEN: ¿Héctor? Compra todos los martes.
+[pausa corta]
+CONTADOR: Compraba.
+[el sorbo de mate se frena · 4,50-7,20 · la cámara se zambulle por el vidrio a la zona de armado: carteles kraft colgados por cliente, "GRACIELA · LUNES", "MARTA · LUNES", "WALTER · JUEVES" con su pallet lleno, y "HÉCTOR · MARTES" sin pallet: en su lugar, la reposera del operario, la radio, el termo y una planta crecida · rótulos: "Súper Héctor: $ 38.000 por semana" · "Último pedido: martes 18 de agosto" · "12 martes sin pedir · $ 456.000" (rojo apagado)]
+[7,20-9,20 · grúa de vuelta a la oficina: Nico asomado a la puerta con el maletín de muestras y el celular]
+NICO: Yo pensé que lo llamabas vos.
+[Rubén gira la cabeza despacio hacia Nico · corte]
+[9,20-12,80 · la vereda del Súper Héctor (autoservicio de barrio, toldo verde apagado, cajones de fruta, baldosas de vereda) · un camión gris sin nombre descargando con la zorra · el auto de Nico estaciona · Héctor en la puerta, con boina, contento de verlos]
+HECTOR: ¡Rubén! ¿Cerraste? Dejé de pedir y nadie me llamó.
+[12,80-13,40 · pausa: Rubén mira el camión gris, una caja entra al súper en la zorra ajena, portazo de la caja del camión · la música baja, no se corta]
+[13,40-14,70 · primer plano de Rubén, seco]
+RUBEN: Te extrañó el contador.
+[14,70-16,40 · remate del remate · Héctor, ya entrando con una caja]
+HECTOR: Llamame el martes.
+[Nico, pulgar arriba, escribe un post-it "HÉCTOR · MARTES" y lo pega en el tablero · el auto arranca · el post-it se despega, sale volando por la ventanilla y se pega en la puerta del camión gris · stinger]
+NARRADOR: Un aviso automático más tarde.
+[cartel · 16,40-18,80 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un aviso automático" / "más tarde…" (nunca "Scalerics")]
+[parte 2 · la solución · 18,80-32,70 s · otra semana]
+[18,80-23,10 · chip "Miércoles, 8:10." · el auto de Nico, el tablero sin post-it, el celular en el soporte vibra · inserto ≥ 60 %: el aviso "Súper Héctor no pidió ayer · Compra cada 7 días · Último pedido: hace 8 días · $ 38.000 por semana" y el botón verde "Llamar" · rótulo "Aviso automático: dejó de pedir" · Nico toca Llamar]
+NICO: ¡Héctor! Ayer no pediste. ¿Todo bien?
+[23,10-26,10 · la vereda del Súper Héctor, sin camión gris · Héctor con el celular en la oreja]
+HECTOR: ¡Uh, se me pasó! Mandame lo de los martes.
+[inserto del celular de Nico: "Pedido ✓ · Súper Héctor · $ 38.000 · Sale hoy" en verde]
+[26,10-28,60 · la zona de armado: el pallet "HÉCTOR · MARTES" se llena (cajas de aceite, bolsas de harina, agua) · el operario pliega la reposera, se pone la radio bajo el brazo y se lleva la planta, resignado · la grúa sube al monitor de Rubén: la ficha "Súper Héctor · Compra cada 7 días · Último pedido: hoy ✓" con la tira de martes, el hueco rojo que se llena de verde · rótulo "La ficha de cada cliente: cada cuánto compra"]
+[28,60-32,70 · la oficina, el mismo encuadre del cuadro 0 · en el monitor, "Dejaron de pedir esta semana": Súper Héctor, Panadería Nelly, Rotisería Fede, Kiosco Beto, cada uno "Llamado ✓ · Pidió ✓" · "Sin pedir: 4 → 0" · "$ 61.000 que no se fueron" en verde · el teléfono en altavoz, "CONTADOR"]
+CONTADOR: Rubén, ¿y Héctor?
+[el mismo audio de la parte 1]
+RUBEN: ¿Héctor? Compra todos los martes.
+[el mismo audio de la parte 1 · Rubén con el mate, tranquilo de verdad]
+CONTADOR: Compra.
+[tilde verde en la fila de Héctor del panel]
+[cierre · 32,70-36,40 · Rubén a cámara con el mate, push-in suave · tarjeta: "Comentá" / "CLIENTES" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "CRM: la ficha de cada cliente y el aviso cuando deja de pedir" / "scalerics.com" en verde]
+RUBEN: Comentá CLIENTES y te mando cómo funciona para tu distribuidora.

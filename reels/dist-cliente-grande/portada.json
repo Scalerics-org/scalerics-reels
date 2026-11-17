@@ -1,0 +1,14 @@
+{
+ "t": 11.0,
+ "chica": "Tres meses sin pedir.",
+ "grande": "¿Cerraste, Rubén?",
+ "sello": "DISTRIBUIDORAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-11.0.png",
+ "nota": "PENDIENTE (constructor): t (11.0 es estimado) y fondo_limpio (ruta provisoria, generarlo). Fondo: P4, la vereda del Súper Héctor (~10,5-11,5 s): Héctor saliendo por la doble puerta con los brazos abiertos y la boina, Rubén de 3/4 con las manos en los bolsillos, el camión gris liso descargando detrás y el toldo verde apagado; personajes llenando la mitad de arriba. Renderizar con LIMPIO=1 (sin DISTRIBUIDORAS, burbujas, subtítulos ni rótulos) a portada-src/fondo-limpio-<t>.png. Alternativa de grande: '¿Y Héctor?' con fondo P1 (Rubén con el mate y el teléfono CONTADOR)."
+}
