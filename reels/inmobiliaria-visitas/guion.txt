@@ -1,0 +1,35 @@
+[sin narrador Orus: el chiste va en las burbujas, en la llave que cuelga de la puerta del balcón y en los dos corredores que dicen lo contrario a la vez; la solución va en la interfaz recreada (visita cargada en el celular del corredor, resumen semanal en el celular de Graciela, ficha de la propiedad en el monitor) · voces por archivo en partes/*.txt · total estimado ~36,3 s: parte 1 0,00-15,00 · cartel 15,00-17,50 · parte 2 17,50-32,50 · cierre 32,50-36,30 (solución + cierre: 18,8 s, 52 %)]
+[parte 1 · el problema · 0,00-15,00 s · "Silvana Propiedades", viernes de tarde]
+[0,00-3,40 · cuadro 0: arriba, gigante, "INMOBILIARIAS" (entero desde el cuadro 0) y el chip "Viernes, 18:00." · la oficina: Silvana (blazer navy, melena platinada) en su escritorio, el celular en altavoz sobre la mesa, pantalla "Graciela · Pocitos" · detrás, el tablero de llaves de madera con etiquetas kraft · a los costados, Diego (escritorio tapado de post-its) y Romina (agenda de papel abierta) · la burbuja sale del celular]
+GRACIELA (por el altavoz): ¿Y? ¿Hubo visitas?
+[Silvana tapa el celular con la mano, sobre el escritorio, y gira la silla hacia los corredores]
+SILVANA: ¿Hubo visitas en lo de Graciela?
+[3,40-5,40 · la cámara barre de un escritorio al otro: los post-its de Diego ("Pocitos ¿6?", "llamar a la de Malvín", "visita ¿jueves?") y la agenda de Romina con todo tachado · contestan los dos a la vez, dos burbujas encimadas]
+DIEGO: Un montón.
+ROMINA: Ninguna.
+[Silvana mira a uno, mira a la otra · 5,40-7,30 · destapa el celular, segura]
+SILVANA: Me dicen que varias, Graciela.
+[7,30-9,60 · corte al balcón del apartamento de Pocitos (vacío, a la venta), el cartel crema "VENDE · SILVANA PROPIEDADES" atado a la baranda, la rambla y el río detrás · Graciela (rulos lila, lentes, cárdigan verde) con el celular en altavoz a la altura del pecho · pausita · push-in a la puerta del balcón: colgando de la cerradura, la llave con la etiqueta kraft "POCITOS"]
+GRACIELA: Qué raro. La llave la tengo yo.
+[9,60-10,80 · pausa · la oficina: Silvana quieta, el celular en la mano · la música baja, no se corta · rótulos con línea guía: al tablero, el gancho vacío "POCITOS": "Visitas anotadas: 0" · al cartel de la vidriera: "Apartamento de Graciela · USD 180.000" y en rojo apagado "USD 5.400 de comisión"]
+GRACIELA: Mañana paso a buscar el cartel.
+[tu-tu-tu · la pantalla del celular: "Llamada finalizada" · 12,40-15,00 · remate del remate · silencio · Diego baja la vista a la llave que tiene sobre el escritorio, etiqueta "MALVÍN"]
+DIEGO: Ah. Era el de Malvín.
+[Silvana cierra los ojos · stinger]
+NARRADOR: Un registro de visitas más tarde.
+[cartel · 15,00-17,50 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un registro" / "de visitas" / "más tarde…" · nunca "Scalerics"]
+[parte 2 · la solución · 17,50-32,50 s]
+[17,50-20,60 · Q1 · el apartamento de Pocitos, viernes de tarde · en la puerta, una pareja se va por el pasillo saludando · Diego carga la visita en su celular, inserto ≥ 60 %: "Visita · Pocitos, 2 dorm. · Vie 17:30" · "Martín y Ana" · "Interés: ALTO" (verde) · "Dijeron: «Muy luminoso» · «¿Tiene cochera?»" · "Llave: Diego 17:10 → oficina 18:05 ✓" · botón "Guardar" → "Visita cargada ✓" · rótulo: "Cada visita, cargada en el momento"]
+[20,60-24,00 · Q2 · chip "Viernes, 18:00." · el balcón de Pocitos, Graciela con el celular a la altura del pecho · vibra · inserto ≥ 60 %: "Silvana Propiedades · Resumen de la semana" · "Tu apartamento de Pocitos" · "Visitas: 4 ✓" · "Interés alto: 2" · "Lo que dijeron: «Muy luminoso» · «¿Tiene cochera?»" · "Segunda visita: martes 11:00 ✓" · rótulo: "Resumen automático a la propietaria · todos los viernes" · Graciela sonríe y marca igual]
+[24,00-29,00 · Q3 · la oficina, el encuadre del cuadro 0 · en el celular de Silvana "Graciela · Pocitos"]
+GRACIELA (por el altavoz): ¿Y? ¿Hubo visitas?
+[el mismo audio de la parte 1 · Silvana va a tapar el celular, Diego y Romina levantan la cabeza listos para contestar, y Silvana no pregunta: mira el monitor · inserto ≥ 70 %: la ficha "Pocitos · 2 dorm. · USD 180.000 · Propietaria: Graciela" con las 4 visitas (fecha, corredor, interesados, interés), "Llave: en el tablero ✓", "Resumen enviado: vie 18:00 ✓", "Visitas sin anotar: 0"]
+SILVANA: Cuatro. Y el martes vuelve una pareja.
+GRACIELA (por el altavoz): Ya sé. Llamaba para chusmear.
+[Diego y Romina vuelven a lo suyo · en el tablero, el gancho POCITOS con su llave]
+[29,00-32,50 · Q4 · chip "Tres semanas después." · el monitor: la ficha "Visitas: 11 · Segundas visitas: 3 · RESERVADO ✓" y "USD 5.400 de comisión" ahora en verde · corte al balcón: Graciela en altavoz, contenta]
+GRACIELA: Mañana paso a buscar el cartel.
+[toma nueva, contenta · sobre el cartel VENDE cae en diagonal la franja verde "VENDIDO": pop]
+[32,50-36,30 · cierre · el monitor con la ficha en verde y al lado el celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá VISITAS" (VISITAS en el recuadro verde de selección)]
+SOFI: Comentá VISITAS y te mando cómo funciona para tu inmobiliaria.
+[35,00-36,30 · abajo, chico: "Cada visita anotada y el resumen al propietario, solo" / "scalerics.com" en verde]
