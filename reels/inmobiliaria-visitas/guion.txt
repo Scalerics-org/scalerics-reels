@@ -20,6 +20,7 @@ NARRADOR: Un registro de visitas más tarde.
 [cartel · 15,00-17,50 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un registro" / "de visitas" / "más tarde…" · nunca "Scalerics"]
 [parte 2 · la solución · 17,50-32,50 s]
 [17,50-20,60 · Q1 · el apartamento de Pocitos, viernes de tarde · en la puerta, una pareja se va por el pasillo saludando · Diego carga la visita en su celular, inserto ≥ 60 %: "Visita · Pocitos, 2 dorm. · Vie 17:30" · "Martín y Ana" · "Interés: ALTO" (verde) · "Dijeron: «Muy luminoso» · «¿Tiene cochera?»" · "Llave: Diego 17:10 → oficina 18:05 ✓" · botón "Guardar" → "Visita cargada ✓" · rótulo: "Cada visita, cargada en el momento"]
+DIEGO: Cargada.
 [20,60-24,00 · Q2 · chip "Viernes, 18:00." · el balcón de Pocitos, Graciela con el celular a la altura del pecho · vibra · inserto ≥ 60 %: "Silvana Propiedades · Resumen de la semana" · "Tu apartamento de Pocitos" · "Visitas: 4 ✓" · "Interés alto: 2" · "Lo que dijeron: «Muy luminoso» · «¿Tiene cochera?»" · "Segunda visita: martes 11:00 ✓" · rótulo: "Resumen automático a la propietaria · todos los viernes" · Graciela sonríe y marca igual]
 [24,00-29,00 · Q3 · la oficina, el encuadre del cuadro 0 · en el celular de Silvana "Graciela · Pocitos"]
 GRACIELA (por el altavoz): ¿Y? ¿Hubo visitas?
@@ -31,5 +32,5 @@ GRACIELA (por el altavoz): Ya sé. Llamaba para chusmear.
 GRACIELA: Mañana paso a buscar el cartel.
 [toma nueva, contenta · sobre el cartel VENDE cae en diagonal la franja verde "VENDIDO": pop]
 [32,50-36,30 · cierre · el monitor con la ficha en verde y al lado el celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá VISITAS" (VISITAS en el recuadro verde de selección)]
-SOFI: Comentá VISITAS y te mando cómo funciona para tu inmobiliaria.
+SOFI: Comentá VISITAS y te mando cómo funciona.
 [35,00-36,30 · abajo, chico: "Cada visita anotada y el resumen al propietario, solo" / "scalerics.com" en verde]
