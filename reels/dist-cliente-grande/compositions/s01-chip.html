@@ -5,10 +5,10 @@
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
     [data-composition-id="s01-chip"] .esc { position: absolute; inset: 0; }
     [data-composition-id="s01-chip"] .chip { position: absolute; left: 44px; padding: 14px 30px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #efeee5; font: 900 62px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.01em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); }
-    [data-composition-id="s01-chip"] .chip { top: 120px; }
+    [data-composition-id="s01-chip"] .chip { top: 96px; }
   </style>
-  <div id="root" data-composition-id="s01-chip" data-width="1080" data-height="1920" data-duration="0.55">
-    <div id="s01-chip-esc" class="esc clip" data-start="0" data-duration="0.55" data-track-index="0">
+  <div id="root" data-composition-id="s01-chip" data-width="1080" data-height="1920" data-duration="2.1">
+    <div id="s01-chip-esc" class="esc clip" data-start="0" data-duration="2.1" data-track-index="0">
       <div class="chip">Miércoles, 8:10.</div>
     </div>
   </div>
@@ -20,7 +20,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".chip"), { x: -560 }, { x: 0, duration: 0.28, ease: "back.out(1.6)", immediateRender: true }, 0.12);
-      tl.to(q(".chip"), { x: -560, duration: 0.22, ease: "power2.in" }, 0.31);
+      tl.to(q(".chip"), { x: -560, duration: 0.22, ease: "power2.in" }, 1.86);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

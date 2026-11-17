@@ -148,11 +148,11 @@ const CHIP = `
 }
 // Q1 · el chip "Miércoles, 8:10." (entra con el iris, se va antes de Q2)
 {
-  const id = "s01-chip", ini = r2(P2 - 0.05), dur = r2(T.vibra + 0.2 - ini);
+  const id = "s01-chip", ini = r2(P2 - 0.05), dur = r2(T.n2 - 0.12 - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `${CHIP}
-    P .chip { top: 120px; }`,
+    P .chip { top: 96px; }`,
     html: `      <div class="chip">Miércoles, 8:10.</div>`,
     js: `      tl.fromTo(q(".chip"), { x: -560 }, { x: 0, duration: 0.28, ease: "back.out(1.6)", immediateRender: true }, 0.12);
       tl.to(q(".chip"), { x: -560, duration: 0.22, ease: "power2.in" }, ${r2(dur - 0.24)});`,

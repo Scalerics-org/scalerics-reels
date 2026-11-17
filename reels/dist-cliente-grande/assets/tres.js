@@ -615,7 +615,7 @@ scene.add(solCa, solCa.target);
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.0, r2(T.p3 + 0.15), r2(T.p5 + 0.2), r2(T.q4 + 0.5), r2(T.r3 + 2.0)] });
+const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.0, r2(T.p3 + 0.15), r2(T.p5 + 0.2), r2(T.q4 + 0.5)] });
 const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p4 + 1.5), r2(T.q1 + 0.6)] });
 const hector = crearPersonaje({ ...ELENCO.hector, lentesCerca: 1.05, campera: { color: C.cr, cuello: C.cr2, cierre: C.cr3, abierta: true }, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.35), r2(T.q2 + 0.05)] });
 const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
@@ -968,7 +968,7 @@ const ROT = [
   crearRotulo([["Último pedido:", null, 44], ["martes 18 de agosto", null, 50]], 46),
   crearRotulo([["12 martes sin pedir", "#c7655b", 56], ["$ 456.000", "#c7655b", 88]], 50),
 ];
-const ROT_Q = [crearRotulo([["Aviso automático:", null, 50], ["dejó de pedir", "#5ce611", 60]]), crearRotulo([["La ficha de cada cliente:", null, 48], ["cada cuánto compra", "#5ce611", 56]])];
+const ROT_Q = [crearRotulo([["Aviso automático:", null, 44], ["dejó de pedir", "#5ce611", 52]], 44), crearRotulo([["La ficha de cada cliente:", null, 48], ["cada cuánto compra", "#5ce611", 56]])];
 const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
 
 // ================= MANO SUELTA (inserto del celular: el índice de Nico que toca) =================
@@ -1011,7 +1011,7 @@ const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, null],   // la grúa (se arma en renderAt)
   // P3: de frente a la puerta: Rubén en primer término de 3/4, Nico asomado
-  ["P3", T.p3, [[T.p3, -0.25, OY + 1.7, 4.4, 0.75, OY + 1.15, 0.55, 50], [T.p4, -0.22, OY + 1.68, 4.15, 0.75, OY + 1.15, 0.55, 49]]],
+  ["P3", T.p3, [[T.p3, -0.4, OY + 1.7, 4.5, 0.55, OY + 1.15, 0.55, 52], [T.p4, -0.37, OY + 1.68, 4.25, 0.55, OY + 1.15, 0.55, 51]]],
   // P4: la vereda desde la calle: el camión gris a la izquierda, el auto a la derecha, la puerta del súper al medio
   ["P4", T.p4, [[T.p4, VX + 0.1, 1.7, 7.6, VX + 0.1, 1.35, FZ, 54], [T.p4b, VX + 0.1, 1.68, 7.0, VX + 0.12, 1.35, FZ, 53]]],
   // P4b: push-in a Héctor y Rubén (dos personas en cuadro, la burbuja arriba de Héctor)
@@ -1160,7 +1160,7 @@ function poseHector(t) {
   // Q2: en la puerta, el celular en la oreja derecha; "¡Uh, se me pasó!": la palmada en la frente con la izquierda
   const pr = { x: H_VER.x, y: VER, z: H_VER.z - 0.2, giro: 0.4, inclina: 0.03, ...aC(0.15, 0.0), ...CARA.feliz, ojos: { abiertos: 1, feliz: 0.3, x: 0.1, y: 0.05 }, ...BRAZOS.costado, t };
   pr.manoD = [-0.12, 0.3, 0.36]; pr.codoD = [-1, -0.6, -0.1]; pr.cabeza = { giro: 0.0, asiente: 0.18, ladea: 0.03 }; pr.ojos = { abiertos: 1, feliz: 0.35, x: -0.1, y: -0.4 };
-  const fp = Math.sin(Math.PI * sg(t, T.h3 + 0.05, T.h3 + 0.9));
+  const fp = 0.8 * Math.sin(Math.PI * sg(t, T.h3 + 0.05, T.h3 + 0.65));
   if (fp > 0) { pr.manoI = lerpV([0.29, -0.08, 0.04], [0.01, 0.72, 0.43], fp); pr.codoI = [0.8, -0.5, 0.1]; pr.inclina = 0.03 + 0.12 * fp; pr.cabeza = { giro: 0.15, asiente: lerp(0, 0.25, fp), ladea: 0.05 }; pr.ojos = { abiertos: lerp(1, 0.5, fp), feliz: 0.6, x: 0, y: 0 }; }
   bocaVoz(pr, t, T.h3, ENV.h3, 0.7);
   return pr;
@@ -1256,13 +1256,10 @@ function ponerRincon(t) {
   reposera.position.y = 0; reposera.rotation.z = lerp(0, -1.45, eio(sg(f, 0.66, 1))); reposera.position.x = lerp(-0.05, -0.45, eio(sg(f, 0.66, 1)));
   cajon.visible = !parte2 || t < T.q3 + 0.6;
   const enMano = parte2 && t >= T.q3 + 0.3;
-  if (enMano) {
-    operario.raiz.updateMatrixWorld(true);
-    operario.brazos[0].mano.getWorldPosition(_w); RIN.worldToLocal(_w); radio.position.copy(_w).add(V3(0, -0.15, 0)); radio.rotation.set(0, operario.raiz.rotation.y, 0);
-    operario.brazos[1].mano.getWorldPosition(_w); RIN.worldToLocal(_w); planta.position.copy(_w).add(V3(0, -0.2, 0));
-  } else { radio.position.copy(RADIO0); radio.rotation.set(0, -0.3, 0); planta.position.copy(PLANTA0); }
+  if (enMano) { /* se pone después de posar a Darío (en renderAt) */ } else { radio.position.copy(RADIO0); radio.rotation.set(0, -0.3, 0); planta.position.copy(PLANTA0); }
   // el pallet de Héctor: no está en la parte 1; en Q3 entra y se llena por capas
-  palletH.visible = parte2 && t >= T.q3 + 0.35;
+  palletH.visible = parte2 && t >= T.capas[0] - 0.1;
+  reposera.visible = !(parte2 && t >= T.capas[0] - 0.1);
   CAPAS_H.forEach((capa, i) => capa.forEach((o) => { const s = t >= T.capas[i] ? 0.75 + 0.25 * bk(sg(t, T.capas[i], T.capas[i] + 0.2)) : 0; o.visible = s > 0; o.scale.setScalar(Math.max(0.001, s)); }));
   if (!parte2) { palletH.visible = false; }
 }
@@ -1363,6 +1360,13 @@ function renderAt(tIn) {
   if (nico.raiz.parent === auto && !(lugar === "auto" || pa === "P7c")) scene.add(nico.raiz);
   // Darío y el chofer
   if (lugar === "dep") { operario.raiz.visible = !(parte2 && t > T.q3 + 2.1); operario.poner(poseOperario(t)); }
+  if (parte2 && t >= T.q3 + 0.3) {
+    // la radio y la planta en las manos de Darío (después de posarlo: si no, quedaban flotando un cuadro atrás)
+    operario.raiz.updateMatrixWorld(true); RIN.updateMatrixWorld(true);
+    operario.brazos[0].mano.getWorldPosition(_w); RIN.worldToLocal(_w); radio.position.copy(_w).add(V3(0, -0.15, 0)); radio.rotation.set(0, operario.raiz.rotation.y, 0);
+    operario.brazos[1].mano.getWorldPosition(_w); RIN.worldToLocal(_w); planta.position.copy(_w).add(V3(0, -0.2, 0));
+    radio.visible = planta.visible = operario.raiz.visible;
+  } else radio.visible = planta.visible = true;
   if (lugar === "ca" && !parte2 && pa !== "P7c" && pa !== "P7b") { chofer.raiz.visible = true; chofer.poner(poseChofer(t)); }
   // el post-it: en la mano de Nico (P7), pegado en el tablero (P7b), vuela (P7c) y queda en la puerta del camión gris
   postit.visible = false; MANO_POST.visible = false;
@@ -1413,7 +1417,7 @@ function renderAt(tIn) {
     // Q1: desde el asiento del acompañante; push-in continuo al celular del soporte (inserto ≥ 60 %)
     const celu = auto.userData.celu; celu.updateMatrixWorld(true);
     const c = celu.localToWorld(V3(0, 0, -0.014)), n = V3(0, 0, -1).transformDirection(celu.matrixWorld), up = V3(0, 1, 0).transformDirection(celu.matrixWorld);
-    const fov = 40, dIns = 0.24 / 0.66 / (2 * Math.tan((fov * D2R) / 2));
+    const fov = 40, dIns = 0.24 / 0.62 / (2 * Math.tan((fov * D2R) / 2));
     const pIns = c.clone().add(n.clone().multiplyScalar(dIns));
     const p0 = auto.localToWorld(V3(-0.42, 1.55, -1.0)), m0 = auto.localToWorld(V3(0.2, 1.3, 0.4));
     const u = pa === "Q2i" ? 1 : eio(sg(t, T.q1i, T.q1i + 1.0));
@@ -1486,7 +1490,7 @@ function renderAt(tIn) {
     if (pa === "P6" && t >= T.r2 - 0.04) hablar(GL.r2, ruben, ent(T.r2 - 0.04), 1, 0, 280);
     if (pa === "P7" && t >= T.h2 - 0.04) hablar(GL.h2, hector, ent(T.h2 - 0.04), 1, 0, 300);
     if (pa === "Q1" && t >= T.n2 - 0.04) ponerGlobo(GL.n2, 540, 280, ent(T.n2 - 0.04), null, 1);
-    if (pa === "Q1" && en(t, T.vibra + 0.2, T.n2 - 0.1)) { ponerGlobo(ROT_Q[0], 540, 250, ent(T.vibra + 0.2), null, 2); }
+    if (pa === "Q1" && en(t, T.vibra + 0.2, T.n2 - 0.1)) { ponerGlobo(ROT_Q[0], 330, 305, ent(T.vibra + 0.2), null, 2); }
     if (pa === "Q2" && t >= T.h3 - 0.04) hablar(GL.h3, hector, ent(T.h3 - 0.04), 1, 0, 280);
     if (pa === "Q3b") ponerGlobo(ROT_Q[1], 540, 420, ent(pl[1] + 0.15), null, 2);
   }
