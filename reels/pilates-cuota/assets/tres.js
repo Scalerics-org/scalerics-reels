@@ -285,7 +285,7 @@ const TABURETE = new THREE.Group();
 { TABURETE.add(mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.05, 22), M.navy3, 0, 0.7, 0)); TABURETE.add(mesh(new THREE.CylinderGeometry(0.025, 0.03, 0.68, 10), M.acero, 0, 0.35, 0)); TABURETE.add(mesh(new THREE.TorusGeometry(0.15, 0.012, 8, 24).rotateX(Math.PI / 2), M.acero, 0, 0.28, 0)); TABURETE.add(mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.025, 22), M.acero, 0, 0.012, 0)); scene.add(sombras(TABURETE)); }
 TABURETE.position.set(MOS.x + 0.1, 0, MOS.z - 0.5);
 // la lámpara de escritorio navy (cono de luz crema plano de noche) y la planilla impresa con resaltador
-const LAMP = new THREE.Group(); LAMP.position.set(MOS.x - 0.62, MOS.alto, MOS.z - 0.12); scene.add(LAMP);
+const LAMP = new THREE.Group(); LAMP.userData.portada = 1; LAMP.position.set(MOS.x - 0.62, MOS.alto, MOS.z - 0.12); scene.add(LAMP);
 { LAMP.add(mesh(new THREE.CylinderGeometry(0.08, 0.09, 0.025, 20), M.navy, 0, 0.012, 0)); const b1 = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.36, 8), M.navy, 0.05, 0.19, 0); b1.rotation.z = -0.3; LAMP.add(b1); const b2 = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.26, 8), M.navy, 0.18, 0.4, 0); b2.rotation.z = -1.25; LAMP.add(b2);
   const pan = mesh(new THREE.ConeGeometry(0.085, 0.12, 20, 1, true), mat(C.navy, 0.5, { side: THREE.DoubleSide }), 0.3, 0.42, 0); pan.rotation.z = 0.5; LAMP.add(pan); sombras(LAMP); }
 const CONO = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.62, 28, 1, true), new THREE.MeshBasicMaterial({ color: 0xfff1cc, transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide }));
@@ -829,7 +829,7 @@ const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
 const REF_A = REFS[4];                                         // el reformer de Alicia
 const CECI_CLASE = { x: 2.55, z: -0.55 };                      // Ceci de pie a la derecha del reformer de Alicia (junto al ventanal)
 const CECI_MOS = { x: MOS.x + 0.1, z: MOS.z - 0.52 };          // Ceci detrás del mostrador
-const ALI_MOS = { x: MOS.x + 1.05, z: MOS.z + 0.5 };           // Alicia frente al mostrador (P4-P6)
+const ALI_MOS = { x: MOS.x + 1.05, z: MOS.z + 0.38 };           // Alicia frente al mostrador (P4-P6)
 const JOACO_N = { x: MOS.x + 0.75, z: MOS.z + 1.45 };          // Joaco de noche (P3j), del lado de la sala
 const JOACO_D = { x: MOS.x + 0.95, z: MOS.z - 0.42 };           // Joaco de día (Q2b), con la botella
 const ALI_COC = { x: 30.05, z: -0.22 };                        // Alicia en su cocina (Q1)
@@ -949,17 +949,17 @@ function poseAlicia(t) {
     const u = sg(t, T.entra[0], T.entra[1]);
     const gC = 0.1;   // mira a Ceci (la cabeza), abierta a cámara
     const p = poseEn(t, [
-      [0, { giro: Math.PI, ...aC(0, 0.05), ...BUENA, ...BRAZOS.costado }],
+      [0, { giro: -1.2, ...aC(-0.3, 0.05), ...BUENA, ...BRAZOS.costado }],
       [T.entra[1] - 0.1, { giro: gC, ...aC(-0.55, -0.05), ...BUENA, cejas: { alto: 0.5, ang: 0.3 } }, 0.35],
       [T.p5 + 0.3, { ...aC(-0.55, 0.0), ...FELIZ }, 0.3],
       [T.a3, { giro: 0.0, ...aC(0.0, -0.05, 0.08), ...CARA.sorpresa, boca: { sonrisa: 0.5, abierta: 0.2, ancho: 0.9 }, cejas: { alto: 0.9, ang: 0.3 } }, 0.25],
       [T.a3 + 0.6, { ...aC(0.05, -0.02, 0.1), ...CARA.feliz }, 0.3],
     ]);
-    Object.assign(p, { x: lerp(ALI_MOS.x + 0.05, ALI_MOS.x, eio(u)), z: lerp(ALI_MOS.z + 1.7, ALI_MOS.z, eio(u)), paso: u > 0.02 && u < 0.98 ? 1 : 0 });
+    Object.assign(p, { x: lerp(ALI_MOS.x + 0.75, ALI_MOS.x, eio(u)), z: ALI_MOS.z, paso: u > 0.02 && u < 0.98 ? 1 : 0 });   // (pasada 2) entra de la derecha, no pegada a la cámara
     // el celular en alto hacia Ceci (mano izquierda) hasta el remate; la derecha al pelo en "mechas"
     const muestra = sg(t, T.entra[1] - 0.45, T.entra[1]) * (1 - sg(t, T.a3 - 0.1, T.a3 + 0.2));
-    manoA(alicia, p, "I", V3(MOS.x + 0.68, 1.38, MOS.z + 0.32), muestra, [0.9, -0.5, -0.2]);
-    if (t >= T.a3 - 0.1) { manoA(alicia, p, "D", cabezaW(alicia, [-0.24, 0.32, 0.02]), sg(t, T.a3 - 0.1, T.a3 + 0.25), [-0.9, -0.2, -0.3]); p.manoI = [0.2, 0.25, 0.3]; }
+    manoA(alicia, p, "D", V3(ALI_MOS.x - 0.36, 1.18, ALI_MOS.z + 0.02), muestra, [-0.9, -0.5, -0.2]);
+    if (t >= T.a3 - 0.1) { manoA(alicia, p, "I", cabezaW(alicia, [0.24, 0.32, 0.02]), sg(t, T.a3 - 0.1, T.a3 + 0.25), [0.9, -0.2, -0.3]); p.manoD = [-0.2, 0.25, 0.3]; }
     p.t = t; bocaVoz(p, t, T.a2, ENV.a2, 0.6); bocaVoz(p, t, T.a3, ENV.a3, 0.65); return p;
   }
   // Q1 / Q1b: en la cocina, con el celular en las dos manos; "¿Ya? ¿Así nomás?"
@@ -1070,7 +1070,7 @@ function ponerObjetos(t) {
   CEL_ALI.visible = (!p2 && (pa === "P4" || pa === "P5" || pa === "P6") && t < T.a3 + 0.3) || pa === "Q1" || pa === "Q1b";
   if (CEL_ALI.visible) {
     if (p2) { const a = manoMundo(alicia, "I", _a), b = manoMundo(alicia, "D", _b); alicia.cuerpo.getWorldQuaternion(_q); CEL_ALI.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.07, 0)); CEL_ALI.quaternion.copy(_q); CEL_ALI.rotateX(-0.75); }
-    else { enMano(CEL_ALI, alicia, "I", 0, 0, 0, 0.08, 0.02); const c = V3(CECI_MOS.x, 1.5, CECI_MOS.z); CEL_ALI.lookAt(c); CEL_ALI.rotateY(0); }
+    else { enMano(CEL_ALI, alicia, "D", 0, 0, 0, 0.08, 0.02); const c = V3(CECI_MOS.x, 1.5, CECI_MOS.z); CEL_ALI.lookAt(c); }
   }
   TOALLA.visible = !p2 && (pa === "P4" || pa === "P5" || pa === "P6");
   // la laptop, la planilla, la lámpara: siempre en el mostrador (la laptop cerrada de día no hace falta: queda abierta)
@@ -1146,10 +1146,10 @@ function renderAt(tIn) {
     noche(false); planoActual = "P5";
     ceci.poner({ ...poseEn(t, [[0, { x: CECI_MOS.x + 0.15, z: CECI_MOS.z, giro: 0.35, ...aC(0.15, 0.12), ...INCRE, ...BRAZOS.apoyado }]]), t });
     alicia.poner({ ...poseEn(t, [[0, { x: ALI_MOS.x - 0.05, z: ALI_MOS.z, giro: -0.5, ...aC(0.0, -0.05, 0.08), ...FELIZ, ...BRAZOS.costado, manoD: [-0.2, 0.25, 0.3] }]]), t });
-    { const p = alicia.poner({ ...poseEn(t, [[0, { x: ALI_MOS.x - 0.05, z: ALI_MOS.z, giro: -0.5, ...aC(0.0, -0.05, 0.08), ...FELIZ, ...BRAZOS.costado }]]), t }); manoA(alicia, p, "I", V3(MOS.x + 0.75, 1.45, MOS.z + 0.35), 1, [0.9, -0.5, -0.2]); alicia.poner(p); }
-    CEL_ALI.visible = true; enMano(CEL_ALI, alicia, "I", 0, 0, 0, 0.08, 0.02); CEL_ALI.lookAt(V3(CECI_MOS.x, 1.5, CECI_MOS.z)); TOALLA.visible = true; CEL_CECI.visible = false; TABLILLA.visible = false;
+    { const p = alicia.poner({ ...poseEn(t, [[0, { x: ALI_MOS.x - 0.05, z: ALI_MOS.z, giro: -0.5, ...aC(0.0, -0.05, 0.08), ...FELIZ, ...BRAZOS.costado }]]), t }); manoA(alicia, p, "D", V3(ALI_MOS.x - 0.38, 1.42, ALI_MOS.z + 0.05), 1, [-0.9, -0.5, -0.2]); alicia.poner(p); }
+    LAMP.visible = false; CEL_ALI.visible = true; enMano(CEL_ALI, alicia, "D", 0, 0, 0, 0.08, 0.02); CEL_ALI.lookAt(V3(CECI_MOS.x, 1.5, CECI_MOS.z)); TOALLA.visible = true; CEL_CECI.visible = false; TABLILLA.visible = false;
     ponerPizarra(T.p5); LAPTOP.visible = PLANILLA.visible = true; tablet.visible = celuS.visible = false;
-    ponerCam([MOS.x + 0.55, 1.62, MOS.z + 3.2, MOS.x + 0.42, 1.32, MOS.z - 0.3, 46], t); camera.updateMatrixWorld(true);
+    ponerCam([MOS.x + 0.75, 1.5, MOS.z + 3.3, MOS.x + 0.6, 0.86, MOS.z - 0.3, 46], t); camera.updateMatrixWorld(true);
     for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   }
   // ---- tarjetas ----
