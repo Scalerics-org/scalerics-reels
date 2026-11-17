@@ -53,7 +53,7 @@ const P1 = r2(T.p7c + 1.42);   // (r2) +0,3 s: el post-it pegado en el camión, 
 const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.08));   // (r2) "más tarde…" entero ≥ 0,6 s antes del iris
 // ---- parte 2 ----
 // Q1 · miércoles 8:10, el auto de Nico en el semáforo: el celular del soporte avisa solo; Nico toca Llamar; "tuu"
-T.q1 = P2; T.vibra = r2(P2 + 0.25); T.q1i = r2(P2 + 0.2); T.noti = r2(P2 + 0.62);
+T.q1 = P2; T.vibra = r2(P2 + 0.25); T.q1i = r2(P2 + 0.2); T.noti = r2(P2 + 0.32);
 T.llamar = r2(P2 + 1.3); T.n2 = r2(T.llamar + 0.43);
 // Q2 · la vereda (sin camión): Héctor atiende en la puerta "¡Uh, se me pasó!…" · Q2i inserto: Pedido
 T.q2 = r2(T.n2 + LEN.n2 + 0.06); T.h3 = r2(T.q2 + 0.1);
@@ -68,7 +68,7 @@ T.q4 = r2(T.q3 + 2.15); T.c1b = r2(T.q4 + 0.1); T.tildes = [0, 1, 2, 3].map((i) 
 T.r1b = r2(T.c1b + LEN.c1 + 0.12); T.q4r = r2(T.r1b - 0.12); T.q4b = r2(T.r1b + LEN.r1 + 0.05); T.c3 = r2(T.r1b + LEN.r1 + 0.55); T.tildeH = r2(T.c3 + 0.05);
 // C · Rubén a cámara: "Comentá CLIENTES y te mando cómo funciona para tu distribuidora."
 T.c = r2(T.c3 + LEN.c3 + 0.25); T.r3 = r2(T.c + 0.2);
-T.palabra = r2(T.r3 + Math.max(0.4, PAL.find((p) => /client/i.test(p.w))?.a ?? 0.45) - 0.05);
+T.palabra = r2(T.r3 - 0.02);   // (r3) la tarjeta entra en "Comentá"
 const DUR = Math.ceil((Math.ceil((T.r3 + LEN.r3 + 0.3) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 2.3));
 
@@ -218,7 +218,7 @@ const CHIP = `
 
 // C · "Comentá CLIENTES" + "y te mando cómo funciona para tu distribuidora", debajo de la cara de Rubén (y 1000-1480)
 {
-  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra);
+  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra + 0.1);   // (r3) hasta el último cuadro
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -236,7 +236,7 @@ const CHIP = `
 }
 // la línea chica final (arriba, sobre la cabeza de Rubén): qué es y la web
 {
-  const id = "s09-cierre", ini = T.cierre, dur = r2(DUR - T.cierre);
+  const id = "s09-cierre", ini = T.cierre, dur = r2(DUR - T.cierre + 0.1);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -310,6 +310,7 @@ s("sfx/motor.mp3", T.arranca - 0.05, 0, { techo: -31, dur: 1.0, fin: 0.3 });
 s("sfx/k-page-turn.wav", T.vuela[0], 0, { techo: -40, vel: 1.3 });
 s("sfx/hoja.mp3", T.vuela[0] + 0.15, 0, { techo: -33 });
 pop(T.vuela[1], -33); s("sfx/k-plastico.wav", T.vuela[1], 0, { techo: -38 });
+s("sfx/motor.mp3", T.vuela[1] + 0.05, 0, { techo: -34, vel: 0.72, dur: r2(P1 - T.vuela[1] + 0.1), fin: 0.15 }); s("sfx/whoosh-short.mp3", T.vuela[1] + 0.1, 0, { techo: -40 });   // (r3) el camión gris arranca: sin hueco antes del stinger
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -31, dur: 0.6, fin: 0.25 });
@@ -322,7 +323,7 @@ s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0
 // Q1 · el auto en el semáforo (calle de fondo), el aviso (vibra + notificación), el toque en Llamar, el tono
 s("sfx/calle.wav", P2, 0, { loop: true, desde: 3, dur: r2(T.q3 - P2), fi: 0.2, fin: 0.25, techo: -46, lp: 1800 });
 s("sfx/vibra.wav", T.vibra, 0, { techo: -38, dur: 0.5, fin: 0.1 });
-s("sfx/whoosh-short.mp3", T.noti - 0.12, 0, { techo: -40 }); noti(T.noti, -34); pop(T.noti + 0.04, -38);   // (r1) la notificación cuando entra el aviso en grande
+s("sfx/whoosh-short.mp3", T.noti - 0.12, 0, { techo: -40 }); noti(T.noti, -31); pop(T.noti + 0.04, -38);   // (r1) la notificación cuando entra el aviso en grande
 toque(T.llamar, -36); s("sfx/k-tono.wav", T.llamar + 0.06, 0, { techo: -37, vel: 0.85, dur: 0.3, fin: 0.06, lp: 2600, hp: 300 });   // (r1) el "tuu" de la llamada
 voz("n2", T.n2, -1);
 // Q2 · Héctor en la puerta (pájaros), el inserto: Pedido ✓ (ding)
@@ -331,8 +332,8 @@ voz("h3", T.h3, -1);
 s("sfx/whoosh-short.mp3", T.q2i - 0.04, 0, { techo: -44 }); ding(T.pedido, -35); s("sfx/k-cloth_1.wav", T.pedido + 0.35, 0, { techo: -38, dur: 0.35, fin: 0.1 });   // (r2) sin bajón antes del corte
 // Q3 · la reposera que se pliega (tres clac), pop por capa del pallet, whoosh de la grúa, ding del hueco verde
 s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, dur: r2(DUR - T.q3), fi: 0.1, fin: 0.5, techo: -54, lp: 600 });
-T.pliega.forEach((t, i) => clac(t, -37 + i));
-T.capas.forEach((t, i) => { caja(t, -36); pop(t + 0.02, -42 + i); });
+T.pliega.forEach((t, i) => clac(t, -33 + i));
+T.capas.forEach((t, i) => { caja(t, -32); pop(t + 0.02, -38 + i); });
 s("sfx/whoosh-short.mp3", T.q3 - 0.05, 0, { techo: -40 }); pasos(T.q3 + 0.45, T.q3 + 1.3, 5, -42);   // (r1) el corte a la zona y los pasos de Darío
 s("sfx/whoosh-short.mp3", T.grua2[0] - 0.02, 0, { techo: -40 });
 ding(T.hueco, -35);
@@ -354,7 +355,7 @@ pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }   // (r2) la cama +3 dB
   if (en(t0, T.p2, T.p3 - 0.2) || en(t0, T.p7b, P1) || en(t0, T.q3, T.c1b - 0.3)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.55])]; }   // (r1) la cama más presente bajo la voz
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.3])]; }   // (r3) duck ~0,7 (la cama baja 30 %)   // (r1) la cama más presente bajo la voz
 function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render

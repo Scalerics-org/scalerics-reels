@@ -684,7 +684,8 @@ const celNmano = new THREE.Group(); celNmano.add(caja(0.075, 0.15, 0.012, M.navy
   }
 }
 // (r2) el chaleco mostaza un 5 % más angosto (asomaba en astillas a través del guardapolvo)
-hector.cuerpo.children.forEach((o) => { if (!o.isMesh || !o.material.color) return; const h = o.material.color.getHex(); if (h === 0xd9a441 || h === new THREE.Color(0xd9a441).multiplyScalar(0.8).getHex()) { o.scale.x *= 0.94; o.scale.z *= 0.94; o.position.x *= 0.94; o.position.z *= 0.94; } });
+// (r3) sin chaleco: asomaba por los hombros y el ruedo del guardapolvo (se esconden el chaleco, sus vivos y sus botones)
+hector.cuerpo.children.forEach((o) => { if (!o.isMesh || !o.material.color) return; const h = o.material.color.getHex(); if (h === 0xd9a441 || h === new THREE.Color(0xd9a441).multiplyScalar(0.8).getHex() || (o.geometry.type === "SphereGeometry" && Math.abs(o.scale.x - 0.017) < 1e-4)) o.visible = false; });
 // (r1) el bigote de Rubén se esconde cuando la cámara le ve la nuca (asomaba por los costados de la cabeza)
 const BIGOTE_R = []; ruben.cabeza.traverse((o) => { if (o.isMesh && o.material.color && o.material.color.getHex() === PELO.gris) BIGOTE_R.push(o); });
 function bigoteSegunCamara() {
@@ -818,7 +819,7 @@ function dibujarMonitor(t) {
 // ---- el celular de Nico en el soporte del auto (parte 2): el aviso → llamando → en llamada → Pedido ✓ ----
 let claveN = "";
 function dibujarCelN(t) {
-  const modo = t < T.vibra ? "mapa" : t < T.llamar + 0.06 ? "aviso" : t < T.n2 + 0.2 ? "llama" : t < T.pedido ? "habla" : "pedido";
+  const modo = t < T.vibra ? "mapa" : t < T.llamar + 0.06 ? "aviso" : t < T.n2 + 0.2 ? "llama" : t < T.q2i ? "habla" : "pedido";   // (r3) el inserto entra directo en "Pedido"
   const seg = modo === "habla" ? Math.floor(t - T.n2) : 0, toq = modo === "aviso" && t >= T.llamar - 0.15 ? 1 : 0;
   const clave = `${modo}|${seg}|${toq}`; if (clave === claveN) return; claveN = clave;
   const { x } = pantN.userData, w = 600, h = 1110;
@@ -1089,6 +1090,7 @@ let planoActual = "P1";
 function catmull(CAM, t) {
   let i = 0; while (i + 1 < CAM.length - 1 && CAM[i + 1][0] <= t) i++;
   const a = CAM[i], b = CAM[i + 1] || a;
+  if (b === a || b[0] <= a[0]) return a.slice(1, 8);   // (r3) después de la última clave (el último cuadro) quieta, sin NaN
   const u = sg(t, a[0], b[0]);
   const p1 = a.slice(1, 8), p2 = b.slice(1, 8);
   const p0 = i > 0 ? CAM[i - 1].slice(1, 8) : p1;
@@ -1325,7 +1327,8 @@ function renderAt(tIn) {
   camionPropio.visible = lugar === "dep" || lugar === "of";
   if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }
   if (["Q3b", "Q4", "Q4b"].includes(pa)) DEP.visible = camionPropio.visible = false;
-  telefono.visible = !["Q3b", "Q4", "Q4b"].includes(pa);   // (r2) el tubo del teléfono era la masa navy bajo el monitor   // (r1) en los insertos del monitor, sin las lámparas del depósito asomando
+  telefono.visible = !["Q3b", "Q4", "Q4b"].includes(pa);
+  auto.userData.celu.visible = pa !== "P7c";   // (r3) el soporte no cruza la cara de Nico desde la vereda   // (r2) el tubo del teléfono era la masa navy bajo el monitor   // (r1) en los insertos del monitor, sin las lámparas del depósito asomando
   // ---- pantallas y objetos ----
   dibujarMonitor(t);
   if (parte2) dibujarCelN(t);
@@ -1360,7 +1363,7 @@ function renderAt(tIn) {
     else so = Math.sin(Math.PI * sg(t, T.r1b + LEN.r1 - 0.05, T.r1b + LEN.r1 + 0.75)) * 0.95;
     if (pa === "C" || (parte2 && t >= T.c)) {
       // (r1) en el cierre el mate ya está apoyado en el escritorio y la mano descansa al lado (antes la mano lo atravesaba)
-      pr.manoI = aCuerpo(ruben, V3(0.1, MESA_Y + 0.05, 1.62)); pr.codoI = [1, -0.6, -0.2]; ruben.poner(pr);
+      pr.manoI = aCuerpo(ruben, V3(0.02, MESA_Y + 0.05, 1.6)); pr.codoI = [1, -0.6, -0.2]; ruben.poner(pr);
     }
     ruben.raiz.updateMatrixWorld(true);
     const m = ruben.brazos[0].mano.getWorldPosition(_w).clone();
@@ -1371,7 +1374,7 @@ function renderAt(tIn) {
       const punta = V3(0.075, 0.305, 0).multiplyScalar(1.12).applyEuler(mate.rotation);
       mate.position.lerp(boca.sub(punta), so);
     }
-    if (pa === "C" || (parte2 && t >= T.c)) { mate.position.set(0.24, MESA_Y, 1.9); mate.rotation.set(0, -Math.PI / 2, 0); }
+    if (pa === "C" || (parte2 && t >= T.c)) { mate.position.set(0.15, MESA_Y, 1.72); mate.rotation.set(0, -Math.PI / 2, 0); }
     if (pa === "P3") { mate.position.set(0.32, MESA_Y, 1.85); mate.rotation.set(0, -Math.PI / 2, 0); pr.manoI = [0.24, 0.3, 0.3]; ruben.poner(pr); }
   } else if (lugar === "ca" && !parte2) {
     ruben.raiz.visible = pa !== "P7" && pa !== "P5b"; ruben.poner(rubenVereda(t));
@@ -1469,7 +1472,7 @@ function renderAt(tIn) {
     // (r1) desde la vereda, al lado del auto: el post-it sale por la ventanilla hacia la cámara; la cámara lo sigue por la
     // vereda hasta la puerta del camión gris y termina de frente, cerca: "HÉCTOR / MARTES" se lee
     const d = V3(camionGris.position.x + 0.16, 1.82, 1.0);
-    const u = eio(sg(t, T.p7c + 0.05, T.vuela[1] + 0.1)), w = eio(sg(t, T.vuela[1] + 0.35, T.vuela[1] + 0.85));
+    const u = eio(sg(t, T.p7c + 0.05, T.vuela[1] + 0.1)), w = eio(sg(t, T.vuela[1] + 0.12, T.vuela[1] + 0.62));   // (r3) se abre antes
     const p0 = V3(VX + 2.2, 1.45, -1.15), p1 = V3(VX + 0.9, 1.7, -0.4), p2 = V3(d.x + 0.72, 1.81, d.z - 0.14), p3 = V3(d.x + 1.85, 1.55, d.z - 0.95);
     const pos = (u < 0.5 ? p0.clone().lerp(p1, u / 0.5) : p1.clone().lerp(p2, (u - 0.5) / 0.5)).lerp(p3, w);   // (r2) después se abre: la cola del furgón, la rueda
     const ventana = auto.localToWorld(V3(-1.0, 1.3, auto.userData.cab.z1 - 0.35));
@@ -1540,7 +1543,7 @@ function renderAt(tIn) {
       if (t >= T.r1 - 0.04 && t < T.c2 - 0.05) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1, 330, 600, ent(T.r1 - 0.04), [bx - 40, by - 10], 2); }
     }
     if (pa === "Q4" && t >= T.c1b - 0.05) ponerGlobo(GL.c1b, 540, 330, ent(T.c1b - 0.05), null, 1);
-    if (pa === "Q4r") { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1b, 330, 600, ent(T.r1b - 0.04), [bx - 40, by - 10], 2); }
+    if (pa === "Q4r") { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1b, 720, 470, ent(T.r1b - 0.04), [bx, by - 60], 2); }   // (r3) arriba a la derecha: no tapa el panel
     if (pa === "Q4b" && t >= T.c3 - 0.05) ponerGlobo(GL.c3, 540, 330, ent(T.c3 - 0.05), null, 1);
     // P2: los rótulos de la plata (a la izquierda, guías al cartel HÉCTOR · MARTES y al rincón)
     if (pa === "P2") {
