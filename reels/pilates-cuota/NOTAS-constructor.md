@@ -161,3 +161,19 @@ Q1 21,40 · Q1i 22,00 · Q1b 23,96 · Q2 26,08 · Q2b 28,38 · Q2c 30,20 · Q3 3
 - No hecho: el pelo de Ceci (casquete de la coleta alta) sin cambios; P5: la mano izquierda de Alicia cerca del borde; el
   inserto de la cuota mantiene algo de navy abajo; "Ceci" suena "si" (STT); "SCALERICS" de la portada en y≈1655 (es del
   molde de todas las portadas).
+
+## Ronda 3 (17-11, sobre renders/qa-arte-r3 y qa-sg-r3)
+Sin cambios de tiempos ni de audio (40,73 s; final 40,8, -13,9 LUFS, pico -4,8 dBFS). Render ~27 min.
+- MEDIA 1 Q2c: la tablet al pecho (la boca entera a la vista mientras dice "Sale sola, el día 1.").
+- MEDIA 2 reformer: había un bug en ponerCorreas (entre() reusa _cB y pisaba la posición del asa: las asas quedaban
+  cerca del origen del mundo, por eso nunca se vieron). Ahora el asa verde rodea cada puño, la correa va de la polea de
+  atrás al asa, y los puños van adelante y más bajos (sin palmas hacia arriba).
+- Bajas: chip "DÍA 10 · 22:40" a la derecha en P3 (no tapa "CUOTAS"); guía de "17 cuotas" a un "?" (sin el aro sobre
+  "MARZO"); chip "DÍA 1 · 7:00" en el mismo lugar en Q1 y Q1i; pizarra "HORARIOS" sin "Lun · Mié · Vie"; burbuja de Joaco
+  más abajo en Q2b; Sofi un poco más lejos dentro del celular; sin sombras en P6b (la mancha de la esquina); home
+  banking con textos de 48-52 px; cierre desde un poco más arriba.
+- Portada regenerada con el rig actual: caras más arriba (el texto no toca el mentón), sin el celular asomando.
+- Revisión: diferencia entre cuadros consecutivos (24 picos: cortes, mensajes del chat, iris; ningún cuadro suelto),
+  último cuadro con "Comentá CUOTA" y scalerics.com, cuadros tocados vistos sobre el MP4. `check --json` ok, 0 errores.
+- No hecho: pelo de Ceci; textos de la tablet en mano de Q2b/Q2c (~22-26 px, las cifras se leen); Joaco roza el borde
+  derecho en Q2b; el sello de la portada roza la punta del rodete; "SCALERICS" de la portada (molde común) fuera del 4:5.
