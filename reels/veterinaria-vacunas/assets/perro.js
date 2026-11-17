@@ -223,7 +223,7 @@ export function crearPerro(cfg) {
       if (s < 0) estado.pataD.copy(pie);
       // la caña (caramelo) hasta la mitad de abajo, la media crema y la pata
       const dir = _c.copy(pie).sub(h); const Lt = dir.length(); dir.normalize();
-      const corte = h.clone().addScaledVector(dir, Lt * 0.55);
+      const corte = h.clone().addScaledVector(dir, Lt * 0.74);   // (r2) media crema más corta: no quedan columnas blancas
       entre(L.caña, h, corte.clone().addScaledVector(dir, 0.02), 0.045 * tc);
       entre(L.media, corte, pie, 0.04 * tc);
       L.pie.position.copy(pie);

@@ -128,7 +128,7 @@ export const ELENCO = {
   // abierta); Bruno, ayudante y recepción (~24, castaño texturado, barba de pocos días, chaqueta navy con franja verde).
   // El estetoscopio, la lapicera y Toto (assets/perro.js) se agregan en el tres.js del reel.
   ines: { nombre: "Inés", piel: PIEL.clara, pelo: 0x7d6a5c, peinado: "coleta", cejasColor: 0x5a4636, cejaFina: true,
-    pestanas: 0x1a1414, cuelloFino: true, lentes: MARCA.navy3, lentesFinos: true, lentesCerca: 1.05, camisa: MARCA.gd, mangas: "cortas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
+    pestanas: 0x1a1414, cuelloFino: true, lentes: null, camisa: MARCA.gd, mangas: "cortas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 1.0, nariz: 0.05, mejillas: 0xe39282, labios: 0xa8484f, alto: 0.98 },
   vero: { nombre: "Vero", piel: PIEL.morena, pelo: PELO.negro, peinado: "rulos", cejasColor: 0x1e1a18, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr2, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
@@ -403,7 +403,7 @@ export function crearPersonaje(cfg) {
   const lengua = mesh(G.esferaLow, M.lengua, 0, -0.012, 0.008, 0.04, 0.016, 0.014); bocaG.add(lengua);
   let bocaClave = "";
   function ponerBoca(sonrisa, abierta, ancho) {
-    const w = 0.075 * ancho, k = sonrisa * 0.045 * (c.labiosPegados ? 1 - 0.75 * cl(abierta) : 1); // con labios: al abrir, el labio se aplana sobre la boca (no queda una sonrisa flotando)
+    const w = 0.075 * ancho, k = sonrisa * 0.045 * (c.labiosPegados ? Math.max(0, 1 - 2.6 * cl(abierta)) : 1);   // (veterinaria r2) con labios, al hablar la sonrisa se aplana del todo: no queda una segunda boca arriba // con labios: al abrir, el labio se aplana sobre la boca (no queda una sonrisa flotando)
     const clave = `${Math.round(sonrisa * 40)}|${Math.round(abierta * 30)}|${Math.round(ancho * 30)}`;
     if (clave !== bocaClave) {
       bocaClave = clave;
@@ -415,7 +415,7 @@ export function crearPersonaje(cfg) {
     const ab = cl(abierta);
     bocaAbierta.visible = lengua.visible = ab > 0.04;
     bocaAbierta.scale.set(w * 0.85, 0.008 + ab * 0.05, 0.02);
-    bocaAbierta.position.y = c.labiosPegados ? (-k - ab * 0.009) - (0.008 + ab * 0.05) * 0.8 : -ab * 0.028 - sonrisa * 0.008;
+    bocaAbierta.position.y = c.labiosPegados ? (-ab * 0.045 * 0.25 - 0.004) - (0.008 + ab * 0.05) * 0.75 : -ab * 0.028 - sonrisa * 0.008;
     lengua.position.y = bocaAbierta.position.y - ab * 0.022;
     lengua.scale.set(w * 0.5, 0.012 + ab * 0.01, 0.014);
   }

@@ -3,10 +3,11 @@
 Reel de la línea "ANTES QUE TODO" (rubro + dolor + solución), comedia de situación con personajes inventados (Inés,
 Vero, Bruno, Toto; Sofi del elenco). **No afirma datos externos, estadísticas, años ni empresas reales.** Los números son
 del caso que se cuenta, no estadísticas:
-- 63 fichas con la vacuna vencida en el fichero de "Veterinaria Inés" (contador 12 → 31 → 63 de abril a junio).
+- 63 fichas con la vacuna vencida en el fichero de "Veterinaria Inés" (contador 12 → 25 → 41 → 63 de agosto a junio del año
+  siguiente; chips AGOSTO, DICIEMBRE, "JUNIO · un año después").
 - $ 94.500 que no volvieron = 63 × $ 1.500 (precio inventado de la vacuna en "Veterinaria Inés", verosímil para
   Montevideo; no se presenta como promedio de nada).
-- Parte 2: 63 recordatorios enviados, 48 turnos reservados (48 × $ 1.500 = $ 72.000), 15 vencidas con "segundo aviso:
+- Parte 2: 63 recordatorios enviados, 48 turnos reservados (48 × $ 1.500 = $ 72.000), 15 pendientes con "segundo aviso:
   mañana". Recordatorio "5 días antes", turno "martes 10:00", Toto "mestizo, 6 años": parte de la ficción del caso.
 
 ## Lo que se verificó y por qué el guion NO lo dice
@@ -23,7 +24,7 @@ revacuna con la polivalente:
   https://wsava.org/global-guidelines/vaccination-guidelines/
 
 **Decisión:** el guion no dice "anual", "obligatoria" ni nombra una vacuna específica. Dice "la próxima", "la vacuna" y
-"le toca la vacuna", y la fecha de la próxima ("marzo") es la que la doctora anota en la ficha de ESTE perro. Lo mismo
+"le toca la vacuna", y la fecha de la próxima ("junio", en la ficha "Próxima: JUNIO") es la que la doctora anota en la ficha de ESTE perro. Lo mismo
 la desparasitación: solo un ✓ en la ficha, sin intervalo.
 
 Sin marcas: "Veterinaria Inés" es inventado; la otra veterinaria nunca se nombra ni se muestra ("la de la vuelta", un

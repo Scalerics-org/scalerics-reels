@@ -28,7 +28,7 @@ const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: Toto vacunado en la mesa; "Doctora, ¿y cuándo le toca la próxima?" · Inés escribe la ficha · "Yo le
 // aviso." · la guarda adelante de todo en el fichero: plac
-T.v1 = 0.15; T.escribe = [r2(T.v1 + LEN.v1 - 0.55), r2(T.v1 + LEN.v1 + 0.2)]; T.i1 = r2(T.v1 + LEN.v1 + 0.08);
+T.v1 = 0.1; T.escribe = [r2(T.v1 + LEN.v1 - 0.55), r2(T.v1 + LEN.v1 + 0.2)]; T.i1 = r2(T.v1 + LEN.v1 + 0.08);
 T.guarda = r2(T.i1 + LEN.i1 + 0.08);   // la ficha entra al fichero: plac
 // P2 · la escalada en el fichero: AGOSTO, DICIEMBRE, JUNIO; fichas nuevas que entran adelante; las pestañas rojas que crecen
 const MES = 0.42;   // (r1) 0,6 → 0,45
@@ -36,19 +36,19 @@ T.p2 = r2(T.guarda + 0.15);
 T.mes = [0, 1, 2].map((i) => r2(T.p2 + 0.05 + i * MES));
 T.fichas = T.mes.flatMap((m) => [r2(m + 0.1), r2(m + 0.27)]);
 // P2c · JUNIO · 21:40: Inés con el teléfono y la ficha (suena el tono); ladra la sala; cuelga
-T.p2c = r2(T.mes[2] + MES + 0.02); T.tono = r2(T.p2c + 0.02); T.ladra = r2(T.p2c + 0.25); T.cuelga = r2(T.p2c + 0.55);
+T.p2c = r2(T.mes[2] + MES + 0.02); T.tono = r2(T.p2c + 0.05); T.ladra = r2(T.p2c + 0.65); T.cuelga = r2(T.p2c + 1.15);   // (r2) la noche dura 1,5 s
 // P3 · Bruno con el fichero que no cierra · "Doctora, ¿y los avisos…?" · P3b contraplano a Inés: "El que quiere a su perro…"
-T.p3 = r2(T.p2c + 0.72);
+T.p3 = r2(T.p2c + 1.5);
 T.b1 = r2(T.p3 + 0.12); T.i2 = r2(T.b1 + LEN.b1 + 0.12); T.p3b = r2(T.i2 - 0.08); T.apoya = r2(T.i2 + LEN.i2 - 0.35); T.caen = r2(T.apoya + 0.1);
 // P4 · JULIO: campanita, entra Vero con Toto (pañuelo nuevo) · "A Toto le escribieron…" · P4b contraplano en "de la vuelta"
-T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 1.15)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 1.05); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);
+T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 1.15)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 0.3); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);   // (r2) el contraplano de Vero entra apenas empieza a hablar
 // P5 · la pausa: el fichero lleno adelante, Inés detrás, Toto abajo; los rótulos del costo
 T.p5 = r2(T.v2 + LEN.v2 + 0.08); T.rot = [r2(T.p5 + 0.1), r2(T.p5 + 0.28), r2(T.p5 + 0.46)];
 // P6 · el remate: Inés mira a Toto desde arriba del mostrador · "¿Vos también, Toto?"
 T.p6 = r2(T.p5 + 0.95); T.i3 = r2(T.p6 + 0.3);
 // P7 · remate del remate: Toto se para y le da la pata; Inés se la da, seca
 T.p7 = r2(T.i3 + LEN.i3 + 0.05); T.pata = [r2(T.p7 + 0.15), r2(T.p7 + 0.45)]; T.apreton = r2(T.p7 + 0.55);
-const P1 = r2(T.p7 + 0.85);    // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p7 + 0.78);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.05));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, un año después: el mismo "¿y cuándo le toca la próxima?" · "Le vamos a escribir a él."
@@ -60,12 +60,12 @@ T.q2 = r2(T.q1t + 1.5); T.llega = r2(T.q2 + 0.05);
 T.q2b = r2(T.q2 + 0.65); T.v3 = r2(T.q2b + 0.1);
 T.q2c = r2(T.v3 + LEN.v3 + 0.12); T.si = r2(T.q2c + 0.2); T.reservado = r2(T.q2c + 0.45);
 // Q3 · Bruno con su tablet repite su pregunta (el mismo audio) · Q3c el panel (inserto) cuenta mientras Inés: "Ya salieron solos."
-T.q3 = r2(T.reservado + 1.05); T.b1b = r2(T.q3 + 0.1);
+T.q3 = r2(T.reservado + 1.05); T.b1b = r2(T.q3 + 0.24);
 T.q3c = r2(T.b1b + LEN.b1 + 0.12); T.i5 = r2(T.q3c + 0.1);
 T.tildes = [0.0, 0.12, 0.24, 0.36, 0.48].map((d) => r2(T.i5 + d)); T.cuenta = [r2(T.i5 + 0.05), r2(T.i5 + 0.95)]; T.gira = r2(T.i5 + 0.5);
 // Q4 · MARTES 10:00: la sala llena; entra Vero con Toto, que va solo al consultorio · "¿Vos también, Toto?" · la pata
-T.q4 = r2(T.i5 + LEN.i5 + 0.5); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.2), r2(T.q4 + 1.0)];
-T.q4b = r2(T.q4 + 1.0); T.i6 = r2(T.q4b + 0.12); T.pata2 = [r2(T.i6 + LEN.i6 - 0.05), r2(T.i6 + LEN.i6 + 0.25)];
+T.q4 = r2(T.i5 + LEN.i5 + 0.5); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.25), r2(T.q4 + 1.15)];
+T.q4b = r2(T.q4 + 1.15); T.i6 = r2(T.q4b + 0.12); T.q4c = r2(T.i6 - 0.05); T.pata2 = [r2(T.i6 + LEN.i6 - 0.05), r2(T.i6 + LEN.i6 + 0.25)]; T.q4d = r2(T.pata2[0] - 0.12);
 // Q5 · el panel en verde y Sofi en videollamada al lado · "Comentá VACUNA…"
 T.q5 = r2(T.pata2[1] + 0.3); T.cero = r2(T.q5 + 0.05);
 T.viaje = [r2(T.q5 + 0.35), r2(T.q5 + 1.1)]; T.f1 = r2(T.q5 + 0.1); T.palabra = r2(T.f1 + 0.02);

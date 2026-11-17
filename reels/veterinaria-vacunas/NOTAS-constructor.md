@@ -110,3 +110,30 @@ AGOSTO → DICIEMBRE → JUNIO, parte 2 "Un año después · 5 días antes". Ven
   corte, campanita con la puerta, pasos de Vero en Q4, roce de tela en la mano.
 - Portada: chica "Vino vacunado.", Inés corrida a la derecha (el sello no le tapa la cara), lentes bien, pañuelo de
   frente, cámara más abierta y recortada 300 px.
+
+## Ronda 2 (17-11, sobre qa-ronda-r2.md)
+**Duración 39,83 s.** Parte 1 0-17,45 · cartel 17,45-19,90 · parte 2 19,90-39,83 = 19,93 s (50,0 %). Mezcla: voz ≥ +6,2 LU,
+-14 LUFS. `check --json` 0 errores. (+0,97 s sobre la ronda 1: la noche pasó de 0,72 a 1,5 s; para sostener el 50 % se
+sumaron 0,15 s a la sala de Q4 y 0,14 s antes de Bruno en Q3, y se sacaron 0,05 s al arranque y 0,07 s a P7.)
+- A1: Inés sin lentes en todo el reel, el avatar y la portada (`ELENCO.ines.lentes: null`).
+- A2: `personajes.js` · con labios pegados, al hablar la sonrisa se aplana del todo y la boca abierta queda en la línea
+  de los labios (ya no hay dos bocas). Vero sin el parpadeo en "¡Toto!".
+- A3: Toto 15 cm más cerca de Vero y Vero 8 cm más a la derecha (Toto lejos de la cara de Inés); la burbuja de Vero más
+  chica (52 px) y sin pisar el chip; Q1b más abierto, con la burbuja arriba.
+- A4: rótulos de P5 abajo a la izquierda (guía al fichero sin cruzar la cara) y "Vacunado a la vuelta" a la derecha;
+  P5 con Inés y el fichero enteros.
+- A5: P7 de costado (el perfil de Toto con las patas en el mostrador y la cara de Inés); la media crema de las patas
+  más corta (ya no son columnas blancas).
+- M1: P6 desde el costado y abajo: Toto mirando arriba, el frente del mostrador e Inés asomada (sin la bolsa delante).
+- M2: la noche dura 1,5 s (tono, ladrido a +0,65, cuelga a +1,15), con el fichero en el mostrador y sin el cartel cortado.
+- M3: P3b centrado en Inés. M4: Q1b (ver A3). M5: Q4c contraplano de 3/4 sobre Inés en el segundo "¿Vos también,
+  Toto?" (sin parpadeo) y Q4d abierto para la pata. M6: panel del cierre más grande y más arriba (la línea final ya no
+  tapa "Llamadas a mano: 0"); Sofi al lado. M7: la burbuja de Vero solo en el plano de frente (P4b entra a los 0,3 s de
+  su línea) y la de Bruno solo en P3. M8: la guía "Ficha de Toto" aparece en AGOSTO, cuando la pestaña TOTO ya asoma.
+  M9: el pañuelo de frente se ve en P4b, P5, P6 y P7.
+- Sonido/guion: guion.txt reescrito con los tiempos reales (`node partes/guion-real.mjs`); fuentes.md con 12 → 25 → 41 →
+  63, "Próxima: JUNIO" y 15 pendientes; último chip "JUNIO · un año después"; Luna "mar 9:45" y Mora "mar 10:30"; la
+  tercera línea de la burbuja de v2 se revela en "Ya".
+- Bajos: techo navy (sin franja crema arriba); panel con letras de 48-52 px; sala con las cabezas separadas.
+- OJO (bug encontrado): en gen.mjs un comentario se había comido `T.bolsa` (la pose de Vero quedaba NaN en P4b). Arreglado.
+- Portada: Inés sin lentes, Toto parado de frente con el pañuelo arriba del texto, cámara a 3,9 m y recorte de 420 px.
