@@ -267,6 +267,8 @@
 ## En curso
 <!-- corrida-activa: 2026-11-17T19:25 -->
 
+- 17-11 · `inmobiliaria-visitas` · Inmobiliarias · Sistema a medida / CRM de propiedades (cada visita queda registrada con la devolución del interesado, y el propietario recibe solo un resumen semanal) · Línea "ANTES QUE TODO", completo con la dueña de la inmobiliaria: el propietario que llama "¿Y? ¿Hubo visitas?" y nadie sabe · Comentá VISITAS · reservado por la corrida 17-11 14:15 (para llegar a 5 en el día)
+
 - 17-11 · `pilates-cuota` · Gimnasios y estudios de pilates · Automatización de cobro de cuota y aviso a la alumna que dejó de venir · Línea "ANTES QUE TODO", completo con la dueña del estudio · Comentá CUOTA · reservado por la corrida 17-11 14:15
 
 
