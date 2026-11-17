@@ -118,3 +118,30 @@ La pausa antes de "Era de la casa." no se tocó; los callbacks siguen todos.
 - No hecho: arte 15 (sombra de los insertos), arte 17 (el iris sigue abriendo desde el centro); la fila en el cuadro 0 sigue
   siendo un casco al borde izquierdo (meterla tapaba a Gustavo); medir.py marca -3,9 en 4,5 s y +1,0 en 12,5 s: son colas de
   la ventana de 400 ms (la voz ya terminó; el SFX arranca 0,3 s después).
+
+## Ronda 2 (17-11, sobre qa-ronda-r2.md)
+**Duración 38,9 s** (mp4 39,0). Parte 1 0-16,32 · cartel 16,32-18,82 · **parte 2 18,82-38,9 = 20,08 s (51,6 %)** · cierre
+35,71-38,9 (3,2 s, sin el aire final). Final -13,8 LUFS, pico -4,3 dBFS. Render ~26-27 min.
+- N1 (ALTA): pelo de Gustavo hasta la nuca (cáscara más baja + 17 mechones chatos con semilla en el borde, irregular); el
+  lápiz bajó y va apoyado sobre la oreja hacia adelante. Mirado en P5 de espaldas.
+- 5 / N6: pausa reencuadrada (pila ~45 % del ancho, Gustavo entero en el portón); el celular que asomaba cortado se oculta
+  en P5 y "27 mensajes sin contestar" queda abajo a la derecha sin guía.
+- 7 / N3 / N7: el celular del cuadro 0 parado en un atril navy, 2,3× y "20/21 sin leer" a 88 px (se lee); el tubo pegado
+  a la cabeza (auricular en la oreja, micrófono hacia la boca) con la mano agarrándolo; la tarjeta del audio de Beto entera
+  desde el cuadro 0; el chip "LUNES · 6:45" a la izquierda; el inserto de la escalada arranca en 21.
+- N2: en Q1 el celular parado y el monitor a la derecha (no tapan la cara) y cámara corrida: monitor entero.
+- N4: Q1g encuadra el teléfono de pared con el tubo en la mano; corte nuevo Q1h con el ding: Gustavo y el celular parado
+  con "Pedido confirmado" ("Ya le dijo." mirando el celular). B7: la burbuja sale 0,08 s antes del corte.
+- N5: el chat de Q4 entra ya armado (todo el pedido + "9:01" + el audio).
+- 13: boca más chica en SECO; P6 centrado. 14: Q4g sin monitor ni celular delante; Gustavo entero.
+- 17: la salida del cartel es un barrido de arriba hacia abajo (inset), sin iris ni agujero negro; el texto queda hasta el
+  barrido (no hay verde vacío).
+- N9: P3 corrido (la cara no toca el borde; el primero de la fila oculto). N11: horas de la lista a 46 px, subtítulo 40.
+- N12: Sofi con interfaz de videollamada (barra "Videollamada · Sofi · Scalerics", botones) y fondo crema (el buzo navy se
+  separa); placa navy detrás del logo. N13: cejas de Gustavo en media sonrisa.
+- B1: parte 1 apretada (audio de Beto desde 0,12 s, huecos de P3/P4/P7 más cortos): 17,10 → 16,32; Q2 +0,25 y Q4g +0,15.
+- B2: la música sube +4 dB (agachado negativo) en la escalada, Q2 y el panel; los pozos quedaron en -26/-29 LUFS.
+- B3: push-in más marcado en Q3. B4: el motor del camión ahora suena sobre la foto (no en el corralón). B5: sin el aire final.
+- Panel: arranca en el primer pedido (sin "$ 0" de 3 cuadros).
+- No hecho: N8 (restos del pizarrón alrededor de "¡Ya te digo!"), N10 (Tito sigue con los puños sin el dedo), N13 primera
+  parte (Tito de espaldas en Q3), 15 (sombra plana de los insertos), B6 (no se regeneró "Beto espera").

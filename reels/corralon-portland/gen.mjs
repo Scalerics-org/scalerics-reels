@@ -29,27 +29,27 @@ const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: Gustavo atrás del mostrador con el tubo del teléfono de pared en el hombro; el celular vibra ("20 sin
 // leer"); el audio de Beto sale del celular · Gustavo cuelga el tubo: "¡Ya te digo!" y sale hacia el portón
-T.b1 = 0.25; T.cuelga = r2(T.b1 + LEN.b1 + 0.02); T.g1 = r2(T.b1 + LEN.b1 + 0.12);
+T.b1 = 0.12; T.cuelga = r2(T.b1 + LEN.b1 + 0.0); T.g1 = r2(T.b1 + LEN.b1 + 0.08);   // (r2) más apretado
 T.sale = [r2(T.g1 + 0.25), r2(T.g1 + LEN.g1 + 0.2)];
 // P2 · la escalada: en el patio Gustavo cuenta la pila (37… 38… 39…), cortes al celular del mostrador (6:47, 6:48,
 // 6:49 y 6:50; el contador 20 → 27), el teléfono de pared suena solo; "¡40!" y la palmada en la bolsa
-T.p2 = r2(T.g1 + LEN.g1 + 0.3);
+T.p2 = r2(T.g1 + LEN.g1 + 0.22);
 T.cuenta = [0.1, 0.62, 1.14].map((d) => r2(T.p2 + d)); T.n40 = r2(T.p2 + 1.78);   // (r1) escalada más corta
 T.ins = [[0.3, 0.58], [0.82, 1.1], [1.34, 1.66]].map(([a, b]) => [r2(T.p2 + a), r2(T.p2 + b)]);
 T.fila = [r2(T.ins[0][0] + 0.05), r2(T.ins[1][0] + 0.05), r2(T.ins[2][0] + 0.05), r2(T.ins[2][0] + 0.2)];
 // P3 · inserto: "Tengo las 40. ¿Te las mando?" (un tilde gris) · plano medio: el primero de la fila le señala el
 // celular; Gustavo levanta un dedo: "Beto espera." · "Es de la casa."
 T.p3 = r2(T.n40 + 0.42); T.tipea = r2(T.p3 + 0.05); T.manda = r2(T.p3 + 0.38);
-T.p3b = r2(T.p3 + 0.52); T.g2 = r2(T.p3b + 0.22); T.g3 = r2(T.g2 + LEN.g2 + 0.22);
+T.p3b = r2(T.p3 + 0.46); T.g2 = r2(T.p3b + 0.14); T.g3 = r2(T.g2 + LEN.g2 + 0.14);
 // P4 · el golpe: inserto del chat con Beto: "Ya está, Gustavo. Me contestó otro." · "Ya las están bajando." + la FOTO
-T.p4 = r2(T.g3 + LEN.g3 + 0.18); T.b2 = r2(T.p4 + 0.2); T.b3 = r2(T.b2 + LEN.b2 + 0.15); T.foto = r2(T.b3 + 0.08);
+T.p4 = r2(T.g3 + LEN.g3 + 0.12); T.b2 = r2(T.p4 + 0.14); T.b3 = r2(T.b2 + LEN.b2 + 0.1); T.foto = r2(T.b3 + 0.08);
 // P5 · la pausa: la pila de 40 intacta, Gustavo de espaldas en el portón; los rótulos del costo
 T.p5 = r2(T.b3 + LEN.b3 + 0.22); T.rot = [r2(T.p5 + 0.15), r2(T.p5 + 0.42)];
 // P6 · el remate: "Era de la casa."
 T.p6 = r2(T.p5 + 0.92); T.g4 = r2(T.p6 + 0.15);
 // P7 · remate del remate: Tito apoya los codos: "¿Me das una bolsita de portland?"; Gustavo gira la cabeza a la pila
-T.p7 = r2(T.g4 + LEN.g4 + 0.12); T.t1 = r2(T.p7 + 0.18); T.gira = r2(T.t1 + LEN.t1 + 0.02); T.dedo = r2(T.t1 + LEN.t1 - 0.2);
-const P1 = r2(T.gira + 0.48);    // termina la parte 1 (arranca el cartel)
+T.p7 = r2(T.g4 + LEN.g4 + 0.1); T.t1 = r2(T.p7 + 0.12); T.gira = r2(T.t1 + LEN.t1 + 0.02); T.dedo = r2(T.t1 + LEN.t1 - 0.2);
+const P1 = r2(T.gira + 0.42);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.12));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, otro lunes: el mismo audio de Beto; el agente contesta antes de que termine
@@ -57,19 +57,19 @@ T.q1 = P2; T.b1b = r2(P2 + 0.15);
 T.q1i = r2(P2 + 0.95); T.escr = r2(T.q1i + 0.12); T.resp = r2(T.q1i + 0.5);   // el agente contesta mientras Beto todavía habla
 T.dale = r2(T.resp + 0.75); T.conf = r2(T.dale + 0.45);
 // Q1g · Gustavo, por costumbre: "¡Ya te digo!" (el mismo audio), el ding y "Ya le dijo."
-T.q1g = r2(Math.max(T.conf + 0.45, T.b1b + LEN.b1 - 0.1)); T.g1b = r2(Math.max(T.q1g + 0.1, T.b1b + LEN.b1 + 0.1)); T.ding = r2(T.g1b + LEN.g1 + 0.12); T.g5 = r2(T.ding + 0.3);
+T.q1g = r2(Math.max(T.conf + 0.45, T.b1b + LEN.b1 - 0.1)); T.g1b = r2(Math.max(T.q1g + 0.1, T.b1b + LEN.b1 + 0.1)); T.ding = r2(T.g1b + LEN.g1 + 0.12); T.q1h = r2(T.ding - 0.04); T.g5 = r2(T.ding + 0.3);   // (r2) Q1h: corte al celular parado con el ding
 // Q2 · los 27 contestados (inserto): fila por fila, el contador baja a 0, el de 300 bolsas "Para vos, Gustavo"
 T.q2 = r2(T.g5 + LEN.g5 + 0.32); T.filas = [0.15, 0.5, 0.85, 1.2].map((d) => r2(T.q2 + d));
 T.cero = r2(T.q2 + 1.5); T.paraVos = r2(T.q2 + 1.75); T.rq2 = [r2(T.q2 + 0.45), r2(T.paraVos + 0.12)];
 // Q3 · el mostrador libre: Tito (el mismo audio), "Las que quieras, Tito." y la bolsa en el mostrador · el panel
-T.q3 = r2(T.q2 + 2.7); T.t1b = r2(T.q3 + 0.2); T.g6 = r2(T.t1b + LEN.t1 + 0.22); T.apoya = r2(T.g6 + LEN.g6 + 0.05);
+T.q3 = r2(T.q2 + 2.95); T.t1b = r2(T.q3 + 0.2); T.g6 = r2(T.t1b + LEN.t1 + 0.22); T.apoya = r2(T.g6 + LEN.g6 + 0.05);
 T.q3m = r2(T.apoya + 0.25); T.suma = [0.08, 0.24, 0.4, 0.56, 0.72].map((d) => r2(T.q3m + d));
 // Q4 · la misma foto, otro camión: "Ya las están bajando." (el mismo audio) · Gustavo, el pallet vacío: "Es de la casa."
 T.q4 = r2(T.q3m + 1.2); T.b3b = r2(T.q4 + 0.18); T.foto2 = r2(T.b3b + 0.08); T.entregado = r2(T.b3b + LEN.b3 + 0.05);
-T.q4g = r2(T.entregado + 0.35); T.g3b = r2(T.q4g + 0.12); T.arranca = r2(T.q4g + 0.05);
+T.q4g = r2(T.entregado + 0.5); T.g3b = r2(T.q4g + 0.12); T.arranca = r2(T.q4g + 0.05);
 // Q5 · cierre: el monitor y el celular parado con Sofi en videollamada: "Comentá OBRA…"
 T.q5 = r2(T.g3b + LEN.g3 + 0.15); T.f1 = r2(T.q5 + 0.08); T.palabra = r2(T.f1 + 0.05);   // (r1) cierre ≤ 3,4 s
-const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.3) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
+const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.1) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
 T.cierre = r2(DUR - 1.5);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -194,7 +194,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, ${r2(dur - 0.4)});   // se va entero antes del iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, ${r2(dur - 0.08)});   // (r2) el barrido lo tapa; no queda verde vacío   // se va entero antes del iris`,
   });
 }
 
@@ -257,7 +257,7 @@ const ring = (t, techo = -36, n = 2) => { for (let i = 0; i < n; i++) s("sfx/k-d
 // ambiente: el zumbido de los tubos del galpón, un pájaro afuera; la música baja en la pausa
 s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -48, lp: 700 });
 s("sfx/pajaro.wav", 0.6, 0, { techo: -45, dur: 1.6, fin: 0.4 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.p5 - 0.1, T.p7, 0.8]] });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.p5 - 0.1, T.p7, 0.8], [T.p2 + 0.3, T.p3, -0.6]] });   // (r2) la música sube en la escalada
 // P1 · el celular vibra en el mostrador; el audio de Beto (con la obra adentro); cuelga el tubo; "¡Ya te digo!"; pasos
 s("sfx/vibra.wav", 0.02, 0, { techo: -37, dur: 0.5, fin: 0.1 }); s("sfx/vibra.wav", 1.6, 0, { techo: -40, dur: 0.45, fin: 0.1 });
 voz("b1", T.b1, -1); obra(T.b1, T.b1 + LEN.b1, -42);
@@ -297,7 +297,7 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34, duck: [[T.q2 + 0.5, T.q3 - 0.1, -0.6], [T.q3m + 0.1, T.q4, -0.6]] });   // (r2) sube en los tramos sin voz
 s("sfx/zumbido-largo.wav", P2, 0, { loop: true, desde: 3, dur: r2(DUR - P2), fi: 0.1, fin: 0.5, techo: -49, lp: 700 });
 s("sfx/pajaro.wav", P2 + 0.5, 0, { techo: -46, dur: 1.4, fin: 0.4 });
 // Q1 · el mismo audio de Beto; el agente escribe y contesta; Beto confirma; la tarjeta verde
@@ -325,7 +325,7 @@ T.suma.forEach((t, i) => { tic(t, -40, i); if (i === 4) ding(t + 0.05, -34); });
 noti(T.q4 + 0.05, -40);
 voz("b3", T.b3b, -1); obra(T.b3b, T.b3b + LEN.b3, -41);
 pop(T.foto2, -38); ding(T.entregado, -36);
-s("sfx/motor.mp3", T.arranca, 0, { techo: -35, vel: 0.72, lp: 1500, dur: 1.6, fin: 0.5 });
+s("sfx/motor.mp3", T.foto2 + 0.1, 0, { techo: -38, vel: 0.72, lp: 1500, dur: 1.6, fin: 0.5 });
 voz("g3", T.g3b, -1);
 // Q5 · Sofi, el pop de OBRA, la línea chica
 s("sfx/whoosh.mp3", T.q5 - 0.1, 0, { techo: -42 });
@@ -451,8 +451,8 @@ ${arriba}
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
       // corte seco al cartel; la parte 2 entra por un iris que se abre desde el mostrador
       tl.set("#capa3d", { opacity: 0 }, ${ROT});
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.27)});
-      tl.fromTo("#capa3d", { clipPath: "circle(90px at ${IRIS_C})" }, { clipPath: "circle(1900px at ${IRIS_C})", duration: 0.3, ease: "power1.in", immediateRender: false }, ${IRIS});
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "inset(0% 0% 100% 0%)" }, ${r2(ROT + 0.27)});
+      tl.fromTo("#capa3d", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.3, ease: "power2.inOut", immediateRender: false }, ${IRIS});   // (r2) barrido de arriba hacia abajo (sin agujero negro)
       tl.set("#capa3d", { clipPath: "none" }, ${r2(P2 + 0.01)});
       window.__timelines["main"] = tl;
     </script>
