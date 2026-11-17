@@ -182,8 +182,8 @@ function crearLlave(nombre, R = 0.035) {
   OF.add(caja(OW, 0.25, 0.025, M.g, 0, 1.725, OFI.z0 + 0.012, 0.004));
   const nombreT = lienzo(2048, 200, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SILVANA PROPIEDADES", 800, 150, w - 40); x.fillText("SILVANA PROPIEDADES", w / 2, h / 2 + 6); });
   const nombreS = nombreT.clone(); nombreS.needsUpdate = true;
-  const nm = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0, 2.2, OFI.z0 + 0.05); OF.add(nm);
-  const ns = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshBasicMaterial({ map: nombreS, transparent: true, opacity: 0.22, color: 0x000000 })); ns.position.set(0.012, 2.188, OFI.z0 + 0.02); OF.add(ns);
+  const nm = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0, 2.62, OFI.z0 + 0.05); OF.add(nm);
+  const ns = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshBasicMaterial({ map: nombreS, transparent: true, opacity: 0.22, color: 0x000000 })); ns.position.set(0.012, 2.608, OFI.z0 + 0.02); OF.add(ns);
   // paredes de los costados (crema lisa) con zócalo navy
   for (const x of [OFI.x0, OFI.x1]) { const p = mesh(new THREE.BoxGeometry(0.12, OFI.alto, OD), paredM, x, OFI.alto / 2, OZ); p.castShadow = false; OF.add(p); OF.add(caja(0.03, 0.12, OD, M.navy3, x - Math.sign(x) * 0.07, 0.06, OZ)); }
   OF.add(caja(OW, 0.12, 0.03, M.navy3, 0, 0.06, OFI.z0 + 0.02));
@@ -316,7 +316,7 @@ let llaveMalvin, sillaD, sillaR;
   // LA LLAVE "MALVÍN" en el escritorio de Diego (plantada desde P3), la etiqueta de frente a la cámara
   const taza2 = new THREE.Group(); taza2.position.set(DIE.x - 0.32, MESA_Y, DIE.z - 0.78); OF.add(taza2);
   taza2.add(mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.11, 18), M.navy3, 0, 0.055, 0)); taza2.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.005, 18), mat(0x4a2e1c, 0.4), 0, 0.106, 0));
-  llaveMalvin = crearLlave("MALVÍN", 0.07); llaveMalvin.position.set(DIE.x - 0.32, MESA_Y + 0.112, DIE.z - 0.828); llaveMalvin.rotation.set(-0.12, Math.PI + 0.5, 0.0); OF.add(llaveMalvin);
+  llaveMalvin = crearLlave("MALVÍN", 0.07); llaveMalvin.position.set(DIE.x - 0.33, MESA_Y + 0.112, DIE.z - 0.845); llaveMalvin.rotation.set(-0.12, Math.PI + 0.5, 0.0); OF.add(llaveMalvin);
   // Romina: la agenda de papel abierta, tachada, y la lapicera
   const agT = lienzo(800, 520, (x, w, h) => {
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#d9d7c9"; x.fillRect(w / 2 - 6, 0, 12, h);
@@ -859,7 +859,7 @@ const BK = () => { llaveBalcon.updateMatrixWorld(true); return llaveBalcon.userD
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   // P2: la cámara gira con Silvana (por su izquierda) hasta quedar detrás de su hombro
-  ["P2", T.p2, [[T.p2, ...CAM_P1(1)], [r2(T.p2 + 0.55), 1.2, 1.45, 1.2, 0.0, 1.1, 0.3, 50], [r2(T.p3 - 0.35), 0.95, 1.62, -0.2, 0.0, 1.05, 1.5, 47], [T.p3, ...CAM_ATRAS]]],
+  ["P2", T.p2, [[T.p2, ...CAM_P1(1)], [T.p3, 0.16, 1.36, 1.95, 0.1, 1.16, 0.3, 46]]],   // Silvana tapa el celular y pregunta (la cámara se acerca)
   ["P3", T.p3, [[T.p3, ...CAM_ATRAS], [T.p4, CAM_ATRAS[0] - 0.02, CAM_ATRAS[1], CAM_ATRAS[2] + 0.12, ...CAM_ATRAS.slice(3, 6), 49]]],
   // P4: primer plano de Silvana de frente; destapa el celular
   ["P4", T.p4, [[T.p4, 0.2, 1.22, 1.95, 0.08, 1.06, 0.3, 42], [T.p5, 0.19, 1.21, 1.82, 0.08, 1.06, 0.3, 41]]],
@@ -869,7 +869,7 @@ const PLANOS = [
   ["P6", T.p6, [[T.p6, -0.16, 1.42, 2.45, -0.16, 1.16, -0.6, 62], [T.p7, -0.16, 1.42, 2.4, -0.16, 1.16, -0.6, 62]]],
   ["P7", T.p7, null],   // el celular de Silvana de cerca
   // P8: Diego en su escritorio desde el pasillo; la llave MALVÍN en primer término
-  ["P8", T.p8, [[T.p8, -0.32, 1.38, 1.6, 0.42, 1.0, 3.3, 46], [T.p8b, -0.29, 1.37, 1.7, 0.42, 0.99, 3.3, 45]]],
+  ["P8", T.p8, [[T.p8, -0.34, 1.36, 1.55, 0.4, 0.93, 3.3, 47], [T.p8b, -0.31, 1.35, 1.65, 0.4, 0.92, 3.3, 46]]],
   ["P8b", T.p8b, [[T.p8b, 0.2, 1.24, 2.05, 0.06, 1.06, 0.3, 40], [P1, 0.19, 1.24, 1.95, 0.06, 1.06, 0.3, 39]]],
   // ---- parte 2 ----
   ["Q1", P2, null],     // el living de Pocitos: Diego y la pareja; push-in al celular de Diego
@@ -1088,7 +1088,7 @@ function renderAt(tIn) {
   llavePocitosTab.visible = parte2;                                  // el gancho POCITOS: vacío en la parte 1
   celuS.visible = pa === "Q5"; telS.visible = pa !== "Q5";
   franjaVendido.visible = t >= T.vendido;
-  if (franjaVendido.visible) { const u = sg(t, T.vendido, T.vendido + 0.22); franjaVendido.position.set(lerp(-0.5, 0, eo(u)), lerp(0.55, 0, eo(u)), 0.012); franjaVendido.rotation.z = lerp(0.9, 0.32, eo(u)); franjaVendido.scale.setScalar(lerp(1.5, 1, eo(u)) * (1 + 0.06 * Math.sin(Math.PI * sg(t, T.vendido + 0.2, T.vendido + 0.4)))); }
+  if (franjaVendido.visible) { const u = sg(t, T.vendido, T.vendido + 0.22); franjaVendido.position.set(lerp(-0.7, 0, eo(u)), lerp(0.05, 0, eo(u)), 0.012); franjaVendido.rotation.z = lerp(0.5, 0.32, eo(u)); franjaVendido.scale.setScalar(lerp(1.5, 1, eo(u)) * (1 + 0.06 * Math.sin(Math.PI * sg(t, T.vendido + 0.2, T.vendido + 0.4)))); }
   // la llave del balcón: péndulo chico (función del tiempo)
   llaveBalcon.rotation.z = Math.sin(t * 2.6) * 0.07 * (t >= T.llave ? 1 : 0.6);
   // ---- personajes ----
@@ -1109,6 +1109,7 @@ function renderAt(tIn) {
     diego.raiz.visible = true; diego.poner(poseDiegoLiv(t));
     for (const p of [ella, el]) { p.raiz.visible = true; p.poner(posePareja(p, t)); }
   }
+  scene.updateMatrixWorld(true);
   // ---- cámara ----
   if (pl[2] && pa !== "portada") ponerCam(catmull(pl[2], t), t);
   if (pa === "P5") {
@@ -1121,7 +1122,7 @@ function renderAt(tIn) {
     ponerCam(lerpV(v, Dk, w), t);
   }
   if (pa === "P7") {
-    const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, 0.5, 40, -0.004);
+    const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, 0.58, 40, -0.004);
     const u = eio(sg(t, T.p7, T.p8)); const v2 = v.slice(); v2[0] += 0.0; v2[1] += 0.02 * (1 - u);
     ponerVista(v2, v2, 0, up, up);
   }
@@ -1157,7 +1158,9 @@ function renderAt(tIn) {
     const cs = celuS.userData.piv.localToWorld(celuS.userData.centro.clone());
     const u = eio(sg(t, T.q5, DUR));
     ponerCam([cs.x + lerp(0.08, 0.06, u), cs.y + 0.15, cs.z + lerp(0.92, 0.8, u), cs.x + 0.02, cs.y + 0.03, cs.z, 44], t);
-    // Sofi: su escena a la textura del celular parado
+  }
+  if (t >= T.q5 - 0.6) {
+    // Sofi: su escena a la textura del celular parado (desde antes del plano: el primer cuadro ya la tiene)
     sofi.poner(poseSofi(t)); sofi.raiz.updateMatrixWorld(true);
     const c = sofi.cabeza.localToWorld(V3(0, 0.2, 0));
     SOFI.cam.position.set(c.x + 0.05, c.y + 0.02, c.z + 2.75); SOFI.cam.lookAt(c.x, c.y - 0.28, c.z);
@@ -1189,7 +1192,7 @@ function tarjetas(t, pa) {
     const g = pa === "P1" ? GL.g1 : GL.g1b, t0 = pa === "P1" ? T.g1 : T.g1b;
     if (t >= t0 - 0.05) ponerGlobo(g, 370, 590, ent(t0 - 0.05), [tx, ty], 1);
   }
-  if (pa === "P2" && t >= T.s1 - 0.04) ponerGlobo(GL.s1, 560, 560, ent(T.s1 - 0.04), bocaPx(silvana), 1);
+  if (pa === "P2" && t >= T.s1 - 0.04) ponerGlobo(GL.s1, 560, 520, ent(T.s1 - 0.04), bocaPx(silvana), 1);
   if (pa === "P3") {
     if (t >= T.d1 - 0.04) { const [hx, hy] = coronillaPx(diego); ponerGlobo(GL.d1, 330, Math.min(290, hy - 260), ent(T.d1 - 0.04), [hx, hy + 6], 1); }
     if (t >= T.ro1 - 0.04) { const [hx, hy] = coronillaPx(romina); ponerGlobo(GL.ro1, 770, Math.min(470, hy - 120), ent(T.ro1 - 0.04), [hx, hy + 6], 2); }
