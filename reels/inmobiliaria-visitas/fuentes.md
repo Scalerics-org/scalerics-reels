@@ -7,7 +7,7 @@ reales.** Los números son del caso que se cuenta:
   presenta como promedio de nada).
 - "USD 5.400 de comisión": la comisión de ESTA venta en "Silvana Propiedades" (equivale al 3 % de USD 180.000, pero el
   guion no dice el porcentaje ni que sea la comisión habitual). Parte 2: 4 visitas en la semana, 2 con interés alto, una
-  segunda visita el martes 11:00; tres semanas después, 11 visitas, 3 segundas visitas, RESERVADO. Todo ficción del caso.
+  segunda visita el martes 11:00; tres semanas después, 11 visitas, 3 segundas visitas, VENDIDO. Todo ficción del caso.
 - Pocitos y Malvín son barrios de Montevideo (nombres de lugar, no marcas).
 
 ## Lo que se verificó y por qué el guion NO lo dice

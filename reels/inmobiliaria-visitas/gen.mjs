@@ -34,17 +34,17 @@ T.g1 = 0.12;
 // P2 · Silvana tapa el celular con la palma sobre la mesa y gira la silla; la cámara gira con ella hasta quedar detrás
 T.tapa = r2(T.g1 + LEN.g1 + 0.04); T.p2 = T.tapa; T.s1 = r2(T.tapa + 0.1);
 // P3 · desde atrás de Silvana: Diego "Un montón." y Romina "Ninguna." a la vez; Silvana mira a uno y a la otra
-T.p3 = r2(T.s1 + LEN.s1 + 0.04); T.d1 = r2(T.p3 + 0.12); T.ro1 = r2(T.d1 + 0.3);   // (r1) Romina 0,3 s después: se oyen las dos
+T.p3 = r2(T.s1 + LEN.s1 + 0.04); T.d1 = r2(T.p3 + 0.12); T.ro1 = r2(T.d1 + 0.55);   // (r1) Romina 0,3 s después: se oyen las dos
 T.miraD = r2(T.d1 + 0.12); T.miraR = r2(T.ro1 + 0.05);
 // P4 · primer plano de Silvana, destapa el celular: "Me dicen que varias, Graciela."
-T.p4 = r2(T.ro1 + LEN.ro1 + 0.35); T.destapa = r2(T.p4 + 0.03); T.s2 = r2(T.p4 + 0.08);
+T.p4 = r2(T.ro1 + LEN.ro1 + 0.22); T.destapa = r2(T.p4 + 0.03); T.s2 = r2(T.p4 + 0.08);
 // P5 · el balcón de Pocitos: la grúa desde la rambla hasta Graciela; "Qué raro." · push-in a la llave POCITOS en "La llave"
 T.p5 = r2(T.s2 + LEN.s2 + 0.06); T.g2 = r2(T.p5 + 0.3);   // (r1) corte directo al balcón (sin la grúa)
 T.llave = r2(T.g2 + palabra("g2", 2) - 0.05);
 // P6 · la pausa: la oficina quieta, rótulos de la plata (fichas y el gancho vacío)
 T.p6 = r2(T.g2 + LEN.g2 + 0.08); T.rot = [r2(T.p6 + 0.08), r2(T.p6 + 0.3), r2(T.p6 + 0.52)];
 // P7 · el celular en altavoz, de cerca: "Mañana paso a buscar el cartel." · tu-tu-tu · "Llamada finalizada"
-T.g3 = r2(T.p6 + 0.8); T.p6b = r2(T.p6 + 0.95); T.p7 = r2(T.g3 + 1.0); T.cuelga = r2(T.g3 + LEN.g3 + 0.06);   // (r1) la pausa dura 1,9 s (P6 + P6b el gancho vacío); "Mañana paso…" arranca sobre la pausa
+T.g3 = r2(T.p6 + 0.8); T.p6b = r2(T.p6 + 1.5); T.p7 = r2(T.g3 + 1.4); T.cuelga = r2(T.g3 + LEN.g3 + 0.06);   // (r1) la pausa dura 1,9 s (P6 + P6b el gancho vacío); "Mañana paso…" arranca sobre la pausa
 // P8 · remate del remate: Diego mira la llave de su escritorio "Ah. Era el de Malvín." · P8b Silvana cierra los ojos
 T.p8 = r2(T.cuelga + 0.16); T.mira = r2(T.p8 + 0.05); T.d2 = r2(T.p8 + 0.3); T.d2b = r2(T.d2 + 1.04);   // (r1) la burbuja suma "Era el de Malvín." cuando lo dice
 T.p8b = r2(T.d2 + LEN.d2 + 0.06);
@@ -222,7 +222,7 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04)
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1320px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1110px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 128px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
@@ -240,7 +240,7 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04)
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1690px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1460px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Visitas anotadas y resumen</div><div class="a">automático al propietario</div><div class="b">scalerics.com</div></div>`,
@@ -280,7 +280,7 @@ s("sfx/whoosh-short.mp3", T.p2 + 0.1, 0, { techo: -42 });
 voz("s1", T.s1, -1);
 // P3 · "Un montón." y "Ninguna." a la vez (pop doble)
 pop(T.d1 - 0.02, -38); pop(T.ro1 - 0.02, -39);
-voz("d1", T.d1, -1, -0.55); voz("ro1", T.ro1, -1, 0.55);   // (r1) paneo como las burbujas
+voz("d1", T.d1, -1, -0.85); voz("ro1", T.ro1, -1, 0.85);   // (r1) paneo como las burbujas
 // P4 · Silvana destapa el celular
 s("sfx/whoosh-short.mp3", T.p4 - 0.06, 0, { techo: -44 });
 s("sfx/k-cloth_1.wav", T.destapa, 0, { techo: -42, dur: 0.25, fin: 0.08 });
@@ -420,7 +420,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1100px";   // el iris se abre desde el celular de Diego (Q1)
+const IRIS_C = "540px 1600px";   // el iris se abre desde el celular de Diego (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

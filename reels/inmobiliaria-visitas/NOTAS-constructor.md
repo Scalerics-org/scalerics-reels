@@ -116,3 +116,32 @@ tramos. `check --json` 0 errores. Diferencias cuadro a cuadro: sin cuadros suelt
 - No hecho / flojo: el STT del stem de voz sigue oyendo "un mongola" en "Un montón." / "Ninguna." (se superponen 0,4 s;
   con el paneo se separan en estéreo); la coleta de Romina se sigue leyendo como rodete; la franja de escritorio abajo en P1;
   el tablero en P1 sigue chico (se lee en los insertos P6b y Q3t).
+
+## Ronda 2 de revisión (17-11, sobre qa-arte-r2 y qa-sg-r2)
+**35,9 s (1077 cuadros).** Parte 1 0-15,72 · cartel 15,72-18,02 · parte 2 18,02-35,9 = 17,88 s (50 %); cierre 32,96-35,9 (2,94 s).
+Render 484 s; final -14,1 LUFS, pico -4,3 dBFS; voz ≥ +9,1 LU sobre el resto. `check --json` 0 errores. Diferencias cuadro a
+cuadro: sin cuadros sueltos, último cuadro quieto (renders/qa6/hoja.png cada 0,5 s).
+- Balcón rehecho: la puerta-ventana abierta (sin el parante del medio ni el vidrio), la cámara desde el living con el marco
+  fuera del cuadro; balcón de 2,3 m de fondo; Graciela entera de frente (los lentes de frente, sin patilla flotante), el
+  cartel VENDE de dos caras en la baranda a su derecha, detrás el río navy, la costa de enfrente con edificios crema bajos y
+  el cielo celeste (sin los edificios en arco que tapaban); la cartera sin la correa ni el cierre negro. La llave en la
+  cerradura del marco izquierdo con la cabeza de bronce, la etiqueta de dos caras; la burbuja "La llave la tengo yo." abajo.
+- Burbujas: las del altavoz abajo, sobre la mesa, con la cola al celular (nunca sobre Silvana); "Me dicen que varias" arriba
+  del pelo con la cola a la coronilla (P4 más abierto); "¿Hubo visitas…?" entra después de que sale el chip.
+- Insertos de celular: corte directo al celular grande (sin el push-in con la persona desapareciendo), con un push suave; de
+  Q2 se corta directo a la oficina (el toque en "Llamar" se ve en la pantalla y pasa a "En llamada").
+- P6 1,5 s + inserto del tablero 0,7 s; el letrero de la pared solo en la parte 2 (más alto, sin el cable); el panel de
+  fichas arriba y a la derecha (la ficha de Pocitos libre del monitor); la guía de "Visitas anotadas: 0" llega al borde del
+  círculo punteado del gancho vacío (POCITOS impreso en la madera, sin etiqueta fantasma; en la parte 2 lo tapa la llave).
+  Fichas al doble de resolución.
+- P3 desde más arriba y al costado (Diego entero, la nuca chica en la esquina). P8 sin el contraplano de 0,2 s; cámara más a la
+  derecha, burbuja al costado con la cola a la boca. Pelo de Silvana gris platino frío (contraste con la piel). Romina con
+  coleta baja (silueta distinta de Diego). Sofi sin el puño. La pareja camina por el pasillo.
+- Cierre: el celular arriba, tarjeta en y 1110 y la línea chica en 1460-1650 (todo por encima de y ≈ 1650).
+- Iris desde abajo del cartel (no se come "más tarde…"). fuentes.md y comentario de tres.js: VENDIDO.
+- "Un montón." / "Ninguna.": Romina 0,55 s después (4,25), paneo ±0,85; el STT oye las dos en estéreo y en mono.
+- Portada: fondo limpio sin el letrero, Silvana centrada, el celular en altavoz y el tablero; `sello_top` 300 px
+  (herramientas/portada.mjs y portada.html traídos de main, que ya lo soportan).
+- Flojo: la "N" de VENDE en las fichas chicas del fondo todavía se ve fina; el monitor sigue cortado en el borde en P6
+  ("nta"); franja de escritorio abajo en P1; en Q4b la franja VENDIDO cae en parte detrás de Graciela; el sello de la portada
+  apoya sobre el borde de arriba del pelo.
