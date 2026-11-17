@@ -159,3 +159,11 @@ cuadro: sin cuadros sueltos, último cuadro quieto (renders/qa6/hoja.png cada 0,
   termina 0,02 s antes (sin restos verdes).
 - No hecho: borde serruchado de la pared de la llave, "nta" del monitor en P6, "AV" de LLAVES en el inserto del tablero,
   ficha cortada arriba en el último cuadro, la N de VENDE en las fichas chicas.
+
+## Revisión final (17-11, qa-arte-final)
+36,43 s, 1094 cuadros; render 476 s; -14,1 LUFS, pico -4,5 dBFS; `check --json` 0 errores; sin cuadros sueltos, último quieto.
+- Burbujas del altavoz (P1, Q3, Q3c, P6) más chicas, a la izquierda sobre el teclado, con la cola al celular; el celular en
+  altavoz corrido a la derecha (x 0,44) y entero en cuadro. Bordes de abajo ≤ ~1600.
+- Q2: el chip "Viernes, 18:00." se va con el inserto; el rótulo del resumen arriba (no tapa el encabezado del celular).
+- P3: cámara más a la derecha y abierta (Diego entero). P6: la guía de la comisión llega al borde izquierdo de la ficha
+  (no cruza VENDE). "Visitas anotadas: 0" más abajo. Soporte del celular de Sofi en navy (no una losa verde).

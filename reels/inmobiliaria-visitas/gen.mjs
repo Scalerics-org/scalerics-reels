@@ -145,7 +145,7 @@ const CHIP = `
   });
 }
 // Q2 · el chip "Viernes, 18:00." (el balcón) · Q4 · "Tres semanas después."
-for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04), "Viernes, 18:00."], ["s02-chip", r2(T.q4 - 0.02), r2(T.q4b - 0.02), "Tres semanas después."]]) {
+for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q2i - 0.02), "Viernes, 18:00."], ["s02-chip", r2(T.q4 - 0.02), r2(T.q4b - 0.02), "Tres semanas después."]]) {
   const dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {

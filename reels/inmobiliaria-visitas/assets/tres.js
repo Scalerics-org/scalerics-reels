@@ -282,7 +282,7 @@ const sillaS = silla(); sillaS.position.set(SIL.x, 0, SIL.z - 0.02); OF.add(sill
   tec.add(caja(0.42, 0.02, 0.14, M.navy3, 0, 0.01, 0, 0.008));
   for (let i = 0; i < 3; i++) for (let k = 0; k < 10; k++) tec.add(caja(0.028, 0.01, 0.028, M.cr2, -0.17 + k * 0.038, 0.024, -0.04 + i * 0.038, 0.004));
   // el celular de Silvana en altavoz, parado en un soporte (funda crema), la pantalla a la cámara
-  telS = new THREE.Group(); telS.position.set(0.3, MESA_Y, 1.02); telS.rotation.y = -0.18; OF.add(telS);
+  telS = new THREE.Group(); telS.position.set(0.44, MESA_Y, 1.02); telS.rotation.y = -0.18; OF.add(telS);
   telS.add(caja(0.12, 0.012, 0.1, M.navy3, 0, 0.006, 0, 0.004)); telS.add(caja(0.1, 0.07, 0.012, M.navy3, 0, 0.04, -0.035, 0.004));
   const piv = new THREE.Group(); piv.position.set(0, 0.018, 0.0); piv.rotation.x = -0.42; telS.add(piv);
   const S = 1.35, W = 0.08 * S, H = 0.162 * S;
@@ -517,7 +517,7 @@ const celuS = new THREE.Group(); celuS.position.set(0.24, MESA_Y, 1.3); celuS.ro
   const piv = new THREE.Group(); piv.position.y = 0.035; piv.rotation.x = -0.18; celuS.add(piv);
   piv.add(mesh(rbox(W + 0.008, H + 0.008, 0.014, 0.014), mat(C.navy, 0.4), 0, H / 2, 0));
   const pan = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.004, H - 0.006), new THREE.MeshBasicMaterial({ map: SOFI.rt.texture, toneMapped: false })); pan.position.set(0, H / 2, 0.0076); piv.add(pan);
-  celuS.add(caja(0.17, 0.02, 0.13, M.g, 0, 0.01, 0.0, 0.008)); celuS.add(caja(0.14, 0.08, 0.02, M.g, 0, 0.05, -0.06, 0.006));
+  celuS.add(caja(0.17, 0.02, 0.13, M.navy3, 0, 0.01, 0.0, 0.008)); celuS.add(caja(0.14, 0.08, 0.02, M.navy3, 0, 0.05, -0.06, 0.006));   // (final) soporte navy (no una losa verde)
   celuS.userData = { piv, centro: V3(0, H / 2, 0.0076), H };
   sombras(celuS);
 }
@@ -839,7 +839,7 @@ function hablar(g, per, s, orden = 1, dx = 0, minY = 250) {
 
 const CEL = { icono: "parlante", nombre: "Graciela · altavoz" };
 const GL = {
-  g1: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 78, { cab: CEL }),
+  g1: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 64, { cab: CEL }),
   s1: crearGlobo(["¿Hubo visitas en", "lo de [Graciela?]"], 74),
   d1: crearGlobo(["Un [montón.]"], 82),
   ro1: crearGlobo(["{Ninguna.}"], 82),
@@ -849,9 +849,9 @@ const GL = {
   g3: crearGlobo(["Mañana paso a", "buscar [el cartel.]"], 80, { cab: CEL, minW: 700 }),
   d2a: crearGlobo(["Ah."], 96),
   d2: crearGlobo(["Ah. Era el", "de [Malvín.]"], 88),
-  g1b: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 78, { cab: CEL }),
+  g1b: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 64, { cab: CEL }),
   s3: crearGlobo(["[Cuatro.] Y el martes", "vuelve una pareja."], 70),
-  g4: crearGlobo(["Ya sé. Llamaba", "para [chusmear.]"], 80, { cab: CEL, minW: 700 }),
+  g4: crearGlobo(["Ya sé. Llamaba", "para [chusmear.]"], 66, { cab: CEL }),
   g5: crearGlobo(["Mañana paso a", "buscar [el cartel.]"], 80),
 };
 const ROT = [
@@ -870,7 +870,7 @@ const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
 const CAM_P1 = (k) => [lerp(0.22, 0.21, k), lerp(1.44, 1.43, k), lerp(2.5, 2.35, k), 0.17, 1.2, 0.1, 54];
-const CAM_ATRAS = [0.82, 1.8, -0.45, -0.05, 0.92, 3.6, 46];
+const CAM_ATRAS = [0.98, 1.8, -0.5, 0.1, 0.92, 3.6, 49];
 const BK = () => { llaveBalcon.updateMatrixWorld(true); return llaveBalcon.userData.et.getWorldPosition(new THREE.Vector3()); };
 // (r2) la cámara en el balcón, contra la puerta, mirando en diagonal al río: Graciela, el cartel (de dos caras) y la rambla detrás
 const CAM_B2 = (k) => [BX + 0.8, 1.45, lerp(-1.05, -0.85, k), BX + 0.62, 1.08, 2.0, 56];   // (r2) desde el living, por la puerta abierta (el marco queda fuera del cuadro)
@@ -1214,7 +1214,7 @@ function tarjetas(t, pa) {
   if (pa === "P1" || pa === "Q3") {
     const [tx, ty] = tel();
     const g = pa === "P1" ? GL.g1 : GL.g1b, t0 = pa === "P1" ? T.g1 : T.g1b;
-    if (t >= t0 - 0.05) ponerGlobo(g, 330, 1440, ent(t0 - 0.05), [tx - 30, ty + 20], 1);   // (r2) abajo, sobre la mesa: no tapa a Silvana
+    if (t >= t0 - 0.05) ponerGlobo(g, 315, 1520, ent(t0 - 0.05), [tx - 60, ty + 110], 1);   // (final) al costado, sobre el teclado: el celular entero   // (r2) abajo, sobre la mesa: no tapa a Silvana
   }
   if (pa === "P2" && t >= T.s1 - 0.04) { const [hx, hy] = coronillaPx(silvana); ponerGlobo(GL.s1, 600, Math.min(560, hy - 150), ent(T.s1 + 0.12), [hx + 40, hy + 10], 1); }
   if (pa === "P3") {
@@ -1227,27 +1227,27 @@ function tarjetas(t, pa) {
     else ponerGlobo(GL.g2, 540, 1420, ent(T.llave - 0.05), null, 1);   // (r2) abajo: la llave en la cerradura a la vista
   }
   if (pa === "P6") {
-    const fPx = objPx(fichaGraciela, V3(0.13, 0.05, 0.01)), hPx = objPx(tablero, ganchoPocitos.clone().add(V3(0, -0.06, 0)));
+    const fPxL = objPx(fichaGraciela, V3(-0.13, -0.08, 0.01)), fPx = objPx(fichaGraciela, V3(0.13, 0.05, 0.01)), hPx = objPx(tablero, ganchoPocitos.clone().add(V3(0, -0.06, 0)));
     void hPx;
     const pos = [[330, 360], [330, 530]];
     [0, 1].forEach((i) => { if (t >= T.rot[i]) ponerGlobo(ROT[i], pos[i][0], pos[i][1], ent(T.rot[i]), null, 3 + i); });
-    if (t >= T.rot[1]) ponerGuia(GUIAS[0], 330, 575, fPx[0], fPx[1], sg(t, T.rot[1], T.rot[1] + 0.25));
+    if (t >= T.rot[1]) ponerGuia(GUIAS[0], 330, 575, fPxL[0], fPxL[1], sg(t, T.rot[1], T.rot[1] + 0.25));
   }
   if (pa === "P6b") {
     const hPx = objPx(tablero, ganchoPocitos.clone().add(V3(0, 0.0, 0.02)));
-    ponerGlobo(ROT[2], 330, 1500, ent(T.p6b + 0.05), null, 3);
+    ponerGlobo(ROT[2], 330, 1570, ent(T.p6b + 0.05), null, 3);
     const vPx = objPx(vacioPocitos, V3(-0.036, 0, 0));   // (r2) la guía llega al borde izquierdo del círculo punteado, sin cruzar POCITOS
-    ponerGuia(GUIAS[2], 330, 1450, vPx[0] - 6, vPx[1], sg(t, T.p6b + 0.05, T.p6b + 0.3));
+    ponerGuia(GUIAS[2], 330, 1525, vPx[0] - 6, vPx[1], sg(t, T.p6b + 0.05, T.p6b + 0.3));
     if (t >= T.g3 - 0.04) ponerGlobo(GL.g3, 540, 330, ent(T.g3 - 0.04), null, 1);
   }
-  if (pa === "P6" && t >= T.g3 - 0.04) { const [tx, ty] = tel(); ponerGlobo(GL.g3, 380, 1440, ent(T.g3 - 0.04), [tx - 30, ty + 20], 2); }
+  if (pa === "P6" && t >= T.g3 - 0.04) { const [tx, ty] = tel(); ponerGlobo(GL.g3, 335, 1500, ent(T.g3 - 0.04), [tx - 60, ty + 110], 2); }
   if (pa === "P7") ponerGlobo(GL.g3, 540, 330, 1, null, 1);
   if (pa === "P8" && t >= T.d2 - 0.04) { const [bx, by] = bocaPx(diego); const g = t < T.d2b - 0.02 ? GL.d2a : GL.d2; ponerGlobo(g, 790, 300, t < T.d2b - 0.02 ? ent(T.d2 - 0.04) : ent(T.d2b - 0.02), [bx + 70, by + 10], 1); }
   if (pa === "Q1" && t >= T.q1i + 0.3) ponerGlobo(ROT_Q[0], 540, 215, ent(T.q1i + 0.3), null, 2);
-  if (pa === "Q2" && t >= T.q2i + 0.4 && t < T.llamaG + 0.12) ponerGlobo(ROT_Q[1], 540, 280, ent(T.q2i + 0.4), null, 2);
+  if (pa === "Q2" && t >= T.q2i + 0.4 && t < T.llamaG + 0.12) ponerGlobo(ROT_Q[1], 540, 215, ent(T.q2i + 0.4), null, 2);
   if (pa === "Q3m") { ponerGlobo(ROT_Q[2], 540, 300, ent(T.mon + 0.3), null, 2); if (t >= T.s3 - 0.04) ponerGlobo(GL.s3, 540, 1500, ent(T.s3 - 0.04), null, 1); }
   if (pa === "Q3t" && t >= T.g4 - 0.04) ponerGlobo(GL.g4, 540, 330, ent(T.g4 - 0.04), null, 1);
-  if (pa === "Q3c") { const [tx, ty] = tel(); ponerGlobo(GL.g4, 330, 1440, 1, [tx - 30, ty + 20], 1); }
+  if (pa === "Q3c") { const [tx, ty] = tel(); ponerGlobo(GL.g4, 315, 1500, 1, [tx - 60, ty + 110], 1); }
   if (pa === "Q4b" && t >= T.g5 - 0.04) { const [hx, hy] = coronillaPx(graciela); ponerGlobo(GL.g5, 560, 330, ent(T.g5 - 0.04), [hx, hy + 6], 1); }
 }
 
