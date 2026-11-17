@@ -1,0 +1,37 @@
+[sin narrador Orus: el chiste va en las burbujas, en el celular de Ceci que se llena de comprobantes, en la pizarra de cuotas con "?" rojos y en la respiración de pilates; voces por archivo en partes/*.txt · duración estimada ~37,6 s: parte 1 0,00-17,00 · cartel 17,00-19,50 · parte 2 (la solución) 19,50-37,60 = 18,1 s, 48 %; tiempos estimados, los reales los da el constructor]
+[parte 1 · 0,00-17,00 · "Estudio Ceci", planta alta, mañana: piso de madera clara, pared navy con listones crema, ventanal, cinco reformers · cuadro 0: "ESTUDIOS DE PILATES" grande arriba, chip "DÍA 10 · 8:00" · Alicia sentada en el carro del reformer tirando de las correas · Ceci (calza navy, buzo verde de marca) adelante, con el celular que vibra en la mano · al fondo, en la recepción, la pizarra de cuotas]
+ALICIA: Ceci, ¿te pagué marzo?
+[1,70 · Ceci mira el celular, sonrisa de instructora]
+CECI: Ahora me fijo.
+[2,90-5,00 · la escalada, sin voz · inserto del celular de Ceci (≥ 60 %): caen comprobantes en fotos (uno torcido, uno de otra pantalla sacado con flash, uno cortado sin el monto), "Te pago el viernes", "¿Me pasás el número de cuenta?", "Ceci, ¿esto llegó?" · corte a la pizarra de cuotas de recepción: 40 nombres, columna MARZO, ✓ y "?" rojos que se multiplican · chip "Pagaron 23 de 40"]
+[5,00 · DÍA 10 · 22:40 · la recepción de noche, la lámpara prendida · Ceci con la laptop (home banking genérico) y la planilla; rótulo "No cierra" · Joaco, con la mochila al hombro, apaga las luces de la sala]
+JOACO: ¿Y si les mandamos un link de pago?
+[mientras Ceci contesta, en su celular sale 17 veces "Hola, ¿pudiste ver lo de la cuota?" · contador "Enviados: 17"]
+CECI: No. Yo no persigo a nadie.
+[8,80 · DÍA 11 · la recepción de mañana · entra Alicia con la toalla al hombro y el celular en alto, contenta]
+ALICIA: ¡Ceci! Te transferí el 2. Mirá.
+[11,00-11,80 · inserto del celular de Alicia: "Transferencia realizada · $ 3.000 · 2 de marzo · Destinatario: CECILIA · PELUQUERÍA"]
+[11,80-12,80 · pausa · la pizarra con los "?" en primer plano, Ceci detrás, Alicia con el celular · rótulos: "17 cuotas sin cobrar · $ 51.000" / "La noche en el home banking" y al celular de Alicia "Pagado a la peluquera" (rojo apagado)]
+ALICIA: ¡Con razón me hizo las mechas gratis!
+[pausa · primer plano de Ceci: cierra los ojos, las manos al pecho como en la clase]
+CECI: Inhalamos.
+[15,90-17,00 · remate del remate · vibra el celular de Ceci, burbuja: "Flor: Ceci, ¿me pasás el número de cuenta de nuevo?" · Ceci abre un ojo · stinger]
+[cartel · 17,00-19,50 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un cobro" / "automático" / "más tarde…" · nunca "Scalerics"]
+NARRADOR: Un cobro automático más tarde.
+[parte 2 · 19,50-37,60 · Q1 19,50-23,20 · chip "DÍA 1 · 7:00" · la cocina de Alicia, taza de café · inserto del celular de Alicia (≥ 60 %): "Estudio Ceci · Hola, Alicia. Tu cuota de marzo: $ 3.000." con el botón "Pagar con tarjeta o débito" · toca · "Pagado ✓ · a Estudio Ceci" · rótulo "Te cobra solo el día 1"]
+ALICIA: ¿Ya? ¿Así nomás?
+[Q2 23,20-27,40 · la recepción · push-in a la tablet en su atril: el panel "Cuotas de marzo" · "Pagaron" 0 → 34 (chips "DÍA 1" → "DÍA 4") · chip "DÍA 5 · recordatorio automático a 6" · 34 → 39 de 40 · "Cobrado: $ 117.000" en verde · "Comprobantes para revisar: 0" · fila "Gabi · 3 semanas sin venir · aviso enviado ✓ · vuelve el jueves" · rótulo "Cuotas y asistencia en un panel" · la pizarra de atrás ya dice "HORARIOS"]
+JOACO: ¿Y si les mandamos un link de pago?
+[el mismo audio de la parte 1 · Ceci, sin levantar la vista de la tablet]
+CECI: Ya pagaron treinta y nueve.
+[Q3 27,40-32,00 · DÍA 10 · 8:00 · el encuadre del cuadro 0: la clase en los reformers, Alicia remando]
+ALICIA: Ceci, ¿te pagué marzo?
+[el mismo audio de la parte 1 · Ceci, sin mirar el celular]
+CECI: El uno, a las siete y dos.
+[Alicia se toca el pelo, se le borra la sonrisa]
+ALICIA: Uy. Entonces las mechas las debo.
+[Q4 32,00-34,00 · Ceci adelante de la clase, las manos al pecho · vibra el celular: "Pago recibido ✓ · Flor · $ 3.000" y el panel pasa a "Pagaron 40 de 40" · Ceci sonríe]
+CECI: Y exhalamos.
+[Q5 34,00-37,60 · el panel en verde ("40 de 40 ✓", "Cobrado: $ 120.000", "Mensajes de cobro a mano: 0") y al lado el celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá CUOTA" (CUOTA en el recuadro verde)]
+SOFI: Comentá CUOTA y te mando cómo funciona para tu estudio.
+[36,10-37,60 · abajo, chico: "Cobro de cuotas automático" / "scalerics.com" en verde]

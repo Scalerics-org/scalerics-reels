@@ -1,0 +1,14 @@
+{
+ "t": 12.3,
+ "chica": "Día 10, en clase.",
+ "grande": "¿Te pagué marzo?",
+ "sello": "PILATES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-portada.png",
+ "nota": "PENDIENTE (constructor): `t` y `fondo_limpio` son provisorios. Fondo: plano propio VER=portada en tres.js (Ceci de frente detrás del mostrador, cara incredula, y Alicia sonriente con el celular en alto, los dos en la mitad de arriba; la pizarra con los '?' rojos detrás), LIMPIO=1, sin gancho, rótulos, subtítulos ni burbujas; o el cuadro de P5 (~12,3 s). Alternativa de grande: \"Inhalamos.\" con chica \"Pagó a la peluquera.\""
+}
