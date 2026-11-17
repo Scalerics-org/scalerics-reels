@@ -82,3 +82,31 @@ escribió otra veterinaria." tapaba el hocico de Toto), sello VETERINARIAS (qued
 ## Render
 `hyperframes render --workers 2`: 1333 s (22 min, SwiftShader, con el otro constructor en paralelo); re-codificación del
 paso 10: 88 s. renders/veterinaria-vacunas-final.mp4, 39,9 s.
+
+## Ronda 1 (17-11, sobre qa-ronda-r1.md)
+**Duración 38,87 s.** Parte 1 0-16,79 · cartel 16,79-19,24 · **parte 2 19,24-38,87 = 19,63 s, 50,5 %**. Mezcla: voz ≥ +6,4 LU en
+todos los tramos, -14 LUFS. `check --json` 0 errores. Guion 6 hecho: cuadro 0 JUNIO, ficha "Próxima: JUNIO", escalada
+AGOSTO → DICIEMBRE → JUNIO, parte 2 "Un año después · 5 días antes". Vencidas 12 → 25 → 41 → 63.
+- Rig: `personajes.js` · la cabeza respetaba mal `cuelloAlto` (poner() la bajaba 6 cm); lentes de Inés finos y pegados a la
+  cara (`lentesCerca: 1,05`); en 3/4 y perfil se esconden el aro y las patillas del lado de atrás (ya no flota un aro ni
+  cruza la patilla el ojo); Inés filmada de 3/4 o de frente y con la cabeza menos baja (el ojo de perfil quedaba como
+  rayita). Bruno sin franja (era el aro verde de la cintura). Toto: oreja parada de volumen (lathe, base ancha, interior
+  rosado), pañuelo triangular grande de frente y la chapita escondida bajo el pañuelo.
+- Colocaciones: Inés detrás de la mesa (P1/Q1) y Q1b más abierto desde la izquierda: Toto ya no la toca; Bruno lleva el
+  fichero con el largo hacia adelante y las manos por fuera; P7 Toto con las dos patas en el canto y la derecha sube 10 cm
+  hacia la mano de Inés (cámara en diagonal); Q4b Toto se para y da la pata a la altura de la mano, Inés más lejos; en Q3
+  las tablets bajas (con el panel en pantalla) y Bruno en cuadro; P3b contraplano de Inés en su remate.
+- Duración (sonido 1): v2 nueva sin "¡Doctora!" (05b-vero-e, atempo 1,1, 3,52 s), MES 0,42, P2c 0,72, v1 en 0,15,
+  P7 0,85, cartel nar + 0,05, Q1t i4 + 0,3, ficha 1,5 s, "Turno reservado" 1,05 s, el panel cuenta sobre "Ya salieron
+  solos." (Q3c, burbuja con avatar de Inés), aire final 0,25 s, "Comentá VACUNA" entra en "Comentá". i3 con 0,14 s de
+  pausa antes de "Toto".
+- Cuadro 0: el fichero 1,7x, en primer término a la izquierda, con 12 pestañas rojas; VETERINARIAS 54 px más abajo.
+- Planos: P3b, P4b (Vero de frente, Toto con pañuelo), Q1b nuevos; P6 picado con el mostrador; P2c más abajo; Q5 panel
+  entero junto a Sofi con push-in suave (sin barrido); la ficha de P1 en y ≤ 1490, la línea final en y 1240-1500, el rótulo
+  "Vacunado a la vuelta" en 1390.
+- Interfaz: "Vencidas" → "Pendientes" en el panel; "A los 15: segundo aviso mañana" a 46 px; el inserto del celular
+  860×1400; el toque sin aro sobre "10:00"; burbuja de Vero entera (sin cortes de "de").
+- Sonido: tono de teléfono (k-dos-tonos, auricular), escalada más fuerte con un plac por ficha, ladrido contento antes del
+  corte, campanita con la puerta, pasos de Vero en Q4, roce de tela en la mano.
+- Portada: chica "Vino vacunado.", Inés corrida a la derecha (el sello no le tapa la cara), lentes bien, pañuelo de
+  frente, cámara más abierta y recortada 300 px.

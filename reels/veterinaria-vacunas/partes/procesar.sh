@@ -8,8 +8,9 @@ v 01-vero-b    v1 "atempo=1.12"            # Vero "Doctora, ¿y cuándo le toca 
 v 02-ines-b    i1                          # Inés "Yo le aviso."
 v 03-bruno-a   b1 "atempo=1.12"            # Bruno (Schedar) "Doctora, ¿y los avisos de las vacunas?" (se reusa igual en Q3)
 v 04-ines-b    i2 "atempo=1.06"            # Inés "El que quiere a su perro, se acuerda."
-v 05-vero-a    v2 "atempo=1.18"            # Vero "¡Doctora! A Toto le escribieron de la de la vuelta. Ya está vacunado."
+v 05b-vero-e   v2 "atempo=1.1"             # (r1) Vero "A Toto le escribieron de la de la vuelta. Ya está vacunado." (sin "¡Doctora!")
 v 06-ines-b    i3                          # Inés "¿Vos también, Toto?" (seca)
+ffmpeg -loglevel error -y -i partes/tmp/r-06-ines-b.wav -filter_complex "[0]atrim=0:0.57,afade=t=out:st=0.54:d=0.03,asetpts=PTS-STARTPTS[a];[0]atrim=0.57,afade=t=in:st=0:d=0.02,asetpts=PTS-STARTPTS[b];anullsrc=r=48000:cl=mono,atrim=0:0.14[s];[a][s][b]concat=n=3:v=0:a=1" -ar 48000 -ac 1 assets/voice/i3.wav   # (r1) pausita de 0,14 s antes de "Toto"
 v 07-narrador-a narrador "atempo=1.1"      # Rasalgethi "Un recordatorio automático más tarde."
 v 08-ines-a    i4                          # Inés "Le vamos a escribir a él."
 v 09-vero-c    v3 "atempo=1.1"             # Vero "¡Toto! ¡Te escribieron!"

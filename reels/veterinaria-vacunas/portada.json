@@ -1,6 +1,6 @@
 {
  "t": 15.6,
- "chica": "Julio.",
+ "chica": "Vino vacunado.",
  "grande": "¿Vos también, Toto?",
  "sello": "VETERINARIAS",
  "acento": "#5ce611",
@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio-portada.png",
- "nota": "Fondo: VER=portada en tres.js (Inés asomada sobre el mostrador mirando abajo, Toto sentado de frente con las orejas gachas y el pañuelo), LIMPIO=1, prev.mjs FULL=1, recortado 380 px arriba. Alternativa de grande: \"Yo le aviso.\" con chica \"Marzo. Vacuna de Toto.\""
+ "nota": "(r1) Fondo: VER=portada en tres.js (Inés asomada sobre el mostrador, lentes en la cara; Toto parado de frente con las orejas gachas y el pañuelo rojo apagado de frente), LIMPIO=1, prev.mjs FULL=1, recortado 300 px arriba. Alternativa de grande: \"Yo le aviso.\""
 }

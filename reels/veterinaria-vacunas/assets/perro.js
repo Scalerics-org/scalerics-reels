@@ -137,13 +137,13 @@ export function crearPerro(cfg) {
   const orejas = [["D", -1, c.orejaD], ["I", 1, c.orejaI]].map(([lado, s, tipo]) => {
     const piv = new THREE.Group(); hk.add(piv);
     if (tipo === "parada") {
-      piv.position.set(s * 0.088, 0.105, -0.005);
-      const e = new THREE.Shape(); e.moveTo(-0.055, 0); e.quadraticCurveTo(-0.03, 0.12, 0.0, 0.165); e.quadraticCurveTo(0.03, 0.12, 0.055, 0); e.quadraticCurveTo(0, -0.02, -0.055, 0);
-      const ext = new THREE.ExtrudeGeometry(e, { depth: 0.022, bevelEnabled: true, bevelSize: 0.008, bevelThickness: 0.008, bevelSegments: 2, curveSegments: 10 }); ext.translate(0, 0, -0.011);
-      const o = mesh(ext, M.pelo); piv.add(o);
-      const i = new THREE.Shape(); i.moveTo(-0.032, 0.012); i.quadraticCurveTo(-0.016, 0.09, 0.0, 0.122); i.quadraticCurveTo(0.016, 0.09, 0.032, 0.012); i.quadraticCurveTo(0, 0.0, -0.032, 0.012);
-      const inn = mesh(new THREE.ShapeGeometry(i), M.oreja, 0, 0, 0.0205); piv.add(inn);
-      if (c.oscuro && lado === "D") { const punta = mesh(G.esfL, M.oscuro, 0, 0.145, 0, 0.018, 0.022, 0.017); piv.add(punta); }
+      piv.position.set(s * 0.085, 0.095, -0.005);
+      // (r1) con volumen: un cono redondeado de base ancha, hundido en el cráneo, aplanado adelante-atrás, con el interior
+      // rosado de frente y la punta más oscura (de costado ya no se lee como una tabla)
+      const lat = new THREE.LatheGeometry([[0, -0.03], [0.058, -0.03], [0.06, 0.02], [0.05, 0.08], [0.03, 0.13], [0.012, 0.165], [0, 0.172]].map(([r, y]) => new THREE.Vector2(r, y)), 20);
+      const o = mesh(lat, M.pelo, 0, 0, 0, 1, 1, 0.55); piv.add(o);
+      const inn = mesh(new THREE.LatheGeometry([[0, -0.01], [0.04, -0.01], [0.038, 0.05], [0.022, 0.11], [0, 0.135]].map(([r, y]) => new THREE.Vector2(r, y)), 16), M.oreja, 0, 0.0, 0.018, 1, 1, 0.3); piv.add(inn);
+      if (c.oscuro && lado === "D") { const punta = mesh(G.esfL, M.oscuro, 0, 0.152, 0, 0.016, 0.022, 0.011); piv.add(punta); }
     } else {
       piv.position.set(s * 0.13, 0.085, 0.0);
       const o = mesh(G.esf, M.oscuro, s * 0.012, -0.085, 0.01, 0.034, 0.098, 0.058); piv.add(o);
@@ -159,7 +159,7 @@ export function crearPerro(cfg) {
   const panuelo = new THREE.Group(); collar.add(panuelo);
   { const s = new THREE.Shape(); s.moveTo(-0.11, 0); s.lineTo(0.11, 0); s.quadraticCurveTo(0.02, -0.1, 0, -0.15); s.quadraticCurveTo(-0.02, -0.1, -0.11, 0);
     const g = new THREE.ExtrudeGeometry(s, { depth: 0.012, bevelEnabled: true, bevelSize: 0.006, bevelThickness: 0.006, bevelSegments: 1 });
-    const p = mesh(g, M.panuelo, 0, -0.035, 0.092, 1.25, 1.35, 1); p.rotation.x = 0.5; panuelo.add(p);
+    const p = mesh(g, M.panuelo, 0, -0.01, 0.105, 1.3, 1.45, 1); p.rotation.x = -0.45; panuelo.add(p);
     const nudo = mesh(G.esfL, M.panuelo, 0, -0.005, -0.1, 0.03, 0.025, 0.02); panuelo.add(nudo); }
   panuelo.visible = false;
 
@@ -264,7 +264,7 @@ export function crearPerro(cfg) {
   }
   poner({});
   return {
-    raiz, cabeza, torso, collar, panuelo, curita, poner, estado, cfg: c,
+    raiz, cabeza, torso, collar, panuelo, curita, poner, estado, cfg: c, chapitaM: chapita,
     chapita: (color) => chapita.material.color.set(color),
     // el punto de la nariz en el mundo (para la cola de las burbujas y para apuntar)
     nariz: (out = new THREE.Vector3()) => { raiz.updateMatrixWorld(true); return nariz.getWorldPosition(out); },

@@ -1,5 +1,5 @@
 [sin narrador Orus: el chiste va en las burbujas, en la ficha de Toto que se hunde en el fichero y en la cara de Toto; voces por archivo en partes/*.txt, ver partes/voces.md · objetivo ~37,2 s: parte 1 0,00-15,80 · cartel 15,80-18,30 · parte 2 (la solución) 18,30-37,20 = 18,9 s, el 51 %; tiempos estimados, los reales los fija el constructor]
-[parte 1 · 0,00-15,80 · "Veterinaria Inés", consultorio de mañana, luz fría y pareja · cuadro 0: "VETERINARIAS" grande arriba, chip "MARZO" · Toto (mestizo caramelo, oreja derecha parada y la izquierda caída, hocico blanco, collar navy con chapita) sentado sobre la mesa de acero, recién vacunado: la jeringa ya en la bandeja, una curita en el lomo · Vero lo acaricia · Inés (guardapolvo verde de marca) con la ficha de cartón en la mano · en la mesada, el fichero de cartón desbordado, con pestañas rojas asomando]
+[parte 1 · 0,00-15,80 · "Veterinaria Inés", consultorio de mañana, luz fría y pareja · cuadro 0: "VETERINARIAS" grande arriba, chip "JUNIO" · Toto (mestizo caramelo, oreja derecha parada y la izquierda caída, hocico blanco, collar navy con chapita) sentado sobre la mesa de acero, recién vacunado: la jeringa ya en la bandeja, una curita en el lomo · Vero lo acaricia · Inés (guardapolvo verde de marca) con la ficha de cartón en la mano · en la mesada, el fichero de cartón desbordado, con pestañas rojas asomando]
 VERO: Doctora, ¿y cuándo le toca la próxima?
 [Inés escribe en la ficha "Próxima: JUNIO" (constructor: JUNIO y no MARZO, para que en JULIO la vacuna de Toto ya esté vencida) sin levantar la vista]
 INES: Yo le aviso.
@@ -10,18 +10,18 @@ BRUNO: Doctora, ¿y los avisos de las vacunas?
 INES: El que quiere a su perro, se acuerda.
 [se seca las manos, segura; Bruno vuelve a apoyar el fichero, que escupe dos fichas]
 [9,20-12,30 · JULIO · campanita de la puerta · entra Vero con Toto, que trae un pañuelo nuevo al cuello, rojo apagado, de otra veterinaria · Vero contenta, buena onda total, con una bolsa de ración en la mano]
-VERO: ¡Doctora! A Toto le escribieron de la de la vuelta. Ya está vacunado.
+VERO: A Toto le escribieron de la de la vuelta. Ya está vacunado.
 [12,30-13,40 · pausa · Inés detrás del mostrador, el fichero lleno en primer plano, Toto sentado abajo · la música baja, el zumbido del tubo de luz, el tic de las uñas de Toto en el piso · rótulos con línea guía: "63 vacunas vencidas en el fichero" / "$ 94.500 que no volvieron" (rojo apagado) y al pañuelo: "Vacunado a la vuelta" (rojo apagado)]
 [13,40-14,60 · Inés se asoma por encima del mostrador y mira a Toto · Toto la mira desde abajo con las orejas gachas]
 INES: ¿Vos también, Toto?
 [14,60-15,80 · remate del remate · Toto, culpable, levanta la pata y se la ofrece · Inés, seca, se la da · Vero no entiende nada · stinger]
 [cartel · 15,80-18,30 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un recordatorio" / "automático" / "más tarde…" · nunca "Scalerics"]
 NARRADOR: Un recordatorio automático más tarde.
-[parte 2 · 18,30-37,20 · el mismo consultorio, otro marzo, la misma luz · Q1 18,30-21,90 · el encuadre del cuadro 0: Toto vacunado en la mesa, la curita, Vero · el fichero ya no está: en su lugar, la tablet de Inés en un atril]
+[parte 2 · 18,30-37,20 · el mismo consultorio, un año después, la misma luz · Q1 18,30-21,90 · el encuadre del cuadro 0: Toto vacunado en la mesa, la curita, Vero · el fichero ya no está: en su lugar, la tablet de Inés en un atril]
 VERO: Doctora, ¿y cuándo le toca la próxima?
 [el mismo audio de la parte 1 · Inés, con media sonrisa, toca "Guardar" en la tablet: la ficha de Toto (foto, "Mestizo · 6 años", "Vacuna ✓ hoy", "Próxima: junio", "Desparasitación ✓", "Aviso por WhatsApp: activado ✓") · rótulo: "La ficha de cada paciente"]
 INES: Le vamos a escribir a él.
-[Q2 21,90-26,00 · chip "JUNIO · 5 días antes" · el living de Vero, Toto echado en el sillón · inserto del celular de Vero (≥ 60 % del cuadro): "Veterinaria Inés · Hola, Vero. A Toto le toca la vacuna. ¿Te reservo el martes a las 10:00?" con los botones "Sí, martes 10:00" y "Elegir otro día" · rótulo: "Recordatorio automático · 5 días antes"]
+[Q2 21,90-26,00 · chip "Un año después · 5 días antes" · el living de Vero, Toto echado en el sillón · inserto del celular de Vero (≥ 60 % del cuadro): "Veterinaria Inés · Hola, Vero. A Toto le toca la vacuna. ¿Te reservo el martes a las 10:00?" con los botones "Sí, martes 10:00" y "Elegir otro día" · rótulo: "Recordatorio automático · 5 días antes"]
 VERO: ¡Toto! ¡Te escribieron!
 [Toto levanta la cabeza y la ladea · Vero toca "Sí, martes 10:00" · "Turno reservado ✓ · Martes 10:00"]
 [Q3 26,00-29,80 · el consultorio · push-in a la tablet: "Vacunas de junio" · "Recordatorios enviados: 63 ✓" · "Turnos reservados: 48" (sube de a uno, con tildes verdes al lado de Luna, Coco, Mora, Simón, Toto) · "Vencidas: 63 → 15" (el 63 rojo apagado gira y queda el 15) · "$ 72.000 en turnos reservados" en verde, el contador subiendo · "Segundo aviso: mañana" a los 15 que faltan · Bruno al lado, con la tablet y no con el fichero]

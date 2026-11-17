@@ -28,49 +28,49 @@ const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: Toto vacunado en la mesa; "Doctora, ¿y cuándo le toca la próxima?" · Inés escribe la ficha · "Yo le
 // aviso." · la guarda adelante de todo en el fichero: plac
-T.v1 = 0.3; T.escribe = [r2(T.v1 + LEN.v1 - 0.55), r2(T.v1 + LEN.v1 + 0.2)]; T.i1 = r2(T.v1 + LEN.v1 + 0.08);
-T.guarda = r2(T.i1 + LEN.i1 + 0.12);   // la ficha entra al fichero: plac
-// P2 · la escalada en el fichero: ABRIL, MAYO, JUNIO; fichas nuevas que entran adelante; las pestañas rojas que crecen
-const MES = 0.6;
-T.p2 = r2(T.guarda + 0.25);
+T.v1 = 0.15; T.escribe = [r2(T.v1 + LEN.v1 - 0.55), r2(T.v1 + LEN.v1 + 0.2)]; T.i1 = r2(T.v1 + LEN.v1 + 0.08);
+T.guarda = r2(T.i1 + LEN.i1 + 0.08);   // la ficha entra al fichero: plac
+// P2 · la escalada en el fichero: AGOSTO, DICIEMBRE, JUNIO; fichas nuevas que entran adelante; las pestañas rojas que crecen
+const MES = 0.42;   // (r1) 0,6 → 0,45
+T.p2 = r2(T.guarda + 0.15);
 T.mes = [0, 1, 2].map((i) => r2(T.p2 + 0.05 + i * MES));
-T.fichas = T.mes.flatMap((m) => [r2(m + 0.14), r2(m + 0.34)]);
-// P2c · JUNIO · 21:40: Inés con el teléfono y la ficha; ladra la sala; cuelga
-T.p2c = r2(T.mes[2] + MES + 0.02); T.ladra = r2(T.p2c + 0.35); T.cuelga = r2(T.p2c + 0.72);
-// P3 · Bruno con el fichero que no cierra · "Doctora, ¿y los avisos…?" · "El que quiere a su perro, se acuerda." · caen 2
-T.p3 = r2(T.p2c + 0.95);
-T.b1 = r2(T.p3 + 0.12); T.i2 = r2(T.b1 + LEN.b1 + 0.12); T.apoya = r2(T.i2 + LEN.i2 - 0.35); T.caen = r2(T.apoya + 0.1);
-// P4 · JULIO: campanita, entra Vero con Toto (pañuelo nuevo) · "¡Doctora! A Toto le escribieron…"
-T.p4 = r2(T.i2 + LEN.i2 + 0.12); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 1.15)]; T.v2 = r2(T.p4 + 0.25); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);
+T.fichas = T.mes.flatMap((m) => [r2(m + 0.1), r2(m + 0.27)]);
+// P2c · JUNIO · 21:40: Inés con el teléfono y la ficha (suena el tono); ladra la sala; cuelga
+T.p2c = r2(T.mes[2] + MES + 0.02); T.tono = r2(T.p2c + 0.02); T.ladra = r2(T.p2c + 0.25); T.cuelga = r2(T.p2c + 0.55);
+// P3 · Bruno con el fichero que no cierra · "Doctora, ¿y los avisos…?" · P3b contraplano a Inés: "El que quiere a su perro…"
+T.p3 = r2(T.p2c + 0.72);
+T.b1 = r2(T.p3 + 0.12); T.i2 = r2(T.b1 + LEN.b1 + 0.12); T.p3b = r2(T.i2 - 0.08); T.apoya = r2(T.i2 + LEN.i2 - 0.35); T.caen = r2(T.apoya + 0.1);
+// P4 · JULIO: campanita, entra Vero con Toto (pañuelo nuevo) · "A Toto le escribieron…" · P4b contraplano en "de la vuelta"
+T.p4 = r2(T.i2 + LEN.i2 + 0.08); T.entra = [r2(T.p4 + 0.05), r2(T.p4 + 1.15)]; T.v2 = r2(T.p4 + 0.25); T.p4b = r2(T.v2 + 1.05); T.bolsa = r2(T.v2 + LEN.v2 - 0.8);
 // P5 · la pausa: el fichero lleno adelante, Inés detrás, Toto abajo; los rótulos del costo
 T.p5 = r2(T.v2 + LEN.v2 + 0.08); T.rot = [r2(T.p5 + 0.1), r2(T.p5 + 0.28), r2(T.p5 + 0.46)];
 // P6 · el remate: Inés mira a Toto desde arriba del mostrador · "¿Vos también, Toto?"
 T.p6 = r2(T.p5 + 0.95); T.i3 = r2(T.p6 + 0.3);
 // P7 · remate del remate: Toto se para y le da la pata; Inés se la da, seca
-T.p7 = r2(T.i3 + LEN.i3 + 0.05); T.pata = [r2(T.p7 + 0.1), r2(T.p7 + 0.42)]; T.apreton = r2(T.p7 + 0.55);
-const P1 = r2(T.p7 + 1.15);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.12));
+T.p7 = r2(T.i3 + LEN.i3 + 0.05); T.pata = [r2(T.p7 + 0.15), r2(T.p7 + 0.45)]; T.apreton = r2(T.p7 + 0.55);
+const P1 = r2(T.p7 + 0.85);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.05));
 // ---- parte 2 ----
-// Q1 · el encuadre del cuadro 0, otro marzo: el mismo "¿y cuándo le toca la próxima?" · "Le vamos a escribir a él."
-T.q1 = P2; T.v1b = r2(P2 + 0.15); T.i4 = r2(T.v1b + LEN.v1 + 0.08);
-// Q1t · inserto: la ficha de Toto en la tablet, Guardar → Guardado ✓
-T.q1t = r2(T.i4 + LEN.i4 + 0.05); T.guardar = r2(T.q1t + 0.4); T.guardado = r2(T.guardar + 0.14);
-// Q2 · junio, 5 días antes: el recordatorio llega solo (inserto) · Q2b el living: "¡Toto! ¡Te escribieron!" · Q2c: Sí → reservado
-T.q2 = r2(T.q1t + 0.85); T.llega = r2(T.q2 + 0.05);
-T.q2b = r2(T.q2 + 0.75); T.v3 = r2(T.q2b + 0.1);
-T.q2c = r2(T.v3 + LEN.v3 + 0.12); T.si = r2(T.q2c + 0.2); T.reservado = r2(T.q2c + 0.5);
-// Q3 · el panel (inserto): tildes, turnos 0 → 48, vencidas 63 → 15, $; Bruno repite su pregunta (el mismo audio) · Q3b:
-// Inés con la tablet en la mano, sin levantar la vista: "Ya salieron solos."
-T.q3 = r2(T.q2c + 0.95); T.tildes = [0.05, 0.17, 0.29, 0.41, 0.53].map((d) => r2(T.q3 + d)); T.cuenta = [r2(T.q3 + 0.1), r2(T.q3 + 0.9)]; T.gira = r2(T.q3 + 0.55);
-T.b1b = r2(T.q3 + 0.5); T.q3b = r2(T.b1b + LEN.b1 + 0.02); T.i5 = r2(T.b1b + LEN.b1 + 0.38);
+// Q1 · el encuadre del cuadro 0, un año después: el mismo "¿y cuándo le toca la próxima?" · "Le vamos a escribir a él."
+T.q1 = P2; T.v1b = r2(P2 + 0.12); T.i4 = r2(T.v1b + LEN.v1 + 0.08);
+// Q1t · inserto: la ficha de Toto en la tablet, Guardar → Guardado ✓ (1,5 s)
+T.q1t = r2(T.i4 + LEN.i4 + 0.3); T.guardar = r2(T.q1t + 0.7); T.guardado = r2(T.guardar + 0.14);
+// Q2 · un año después, 5 días antes: el recordatorio llega solo (inserto) · Q2b el living · Q2c: Sí → reservado (1 s)
+T.q2 = r2(T.q1t + 1.5); T.llega = r2(T.q2 + 0.05);
+T.q2b = r2(T.q2 + 0.65); T.v3 = r2(T.q2b + 0.1);
+T.q2c = r2(T.v3 + LEN.v3 + 0.12); T.si = r2(T.q2c + 0.2); T.reservado = r2(T.q2c + 0.45);
+// Q3 · Bruno con su tablet repite su pregunta (el mismo audio) · Q3c el panel (inserto) cuenta mientras Inés: "Ya salieron solos."
+T.q3 = r2(T.reservado + 1.05); T.b1b = r2(T.q3 + 0.1);
+T.q3c = r2(T.b1b + LEN.b1 + 0.12); T.i5 = r2(T.q3c + 0.1);
+T.tildes = [0.0, 0.12, 0.24, 0.36, 0.48].map((d) => r2(T.i5 + d)); T.cuenta = [r2(T.i5 + 0.05), r2(T.i5 + 0.95)]; T.gira = r2(T.i5 + 0.5);
 // Q4 · MARTES 10:00: la sala llena; entra Vero con Toto, que va solo al consultorio · "¿Vos también, Toto?" · la pata
-T.q4 = r2(T.i5 + LEN.i5 + 0.1); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.2), r2(T.q4 + 1.05)];
-T.q4b = r2(T.q4 + 1.05); T.i6 = r2(T.q4b + 0.15); T.pata2 = [r2(T.i6 + LEN.i6 - 0.05), r2(T.i6 + LEN.i6 + 0.25)];
+T.q4 = r2(T.i5 + LEN.i5 + 0.5); T.campana = r2(T.q4 + 0.08); T.corre = [r2(T.q4 + 0.2), r2(T.q4 + 1.0)];
+T.q4b = r2(T.q4 + 1.0); T.i6 = r2(T.q4b + 0.12); T.pata2 = [r2(T.i6 + LEN.i6 - 0.05), r2(T.i6 + LEN.i6 + 0.25)];
 // Q5 · el panel en verde y Sofi en videollamada al lado · "Comentá VACUNA…"
-T.q5 = r2(T.pata2[1] + 0.45); T.cero = r2(T.q5 + 0.15);
-T.viaje = [r2(T.q5 + 0.55), r2(T.q5 + 0.9)]; T.f1 = r2(T.q5 + 0.45); T.palabra = r2(T.f1 + 0.32);
-const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.4) * 30) / 30) * 1e4) / 1e4;   // 0,4 s de aire al final, múltiplo de un cuadro
-T.cierre = r2(DUR - 1.6);
+T.q5 = r2(T.pata2[1] + 0.3); T.cero = r2(T.q5 + 0.05);
+T.viaje = [r2(T.q5 + 0.35), r2(T.q5 + 1.1)]; T.f1 = r2(T.q5 + 0.1); T.palabra = r2(T.f1 + 0.02);
+const DUR = Math.ceil((Math.ceil((T.f1 + LEN.f1 + 0.25) * 30) / 30) * 1e4) / 1e4;   // (r1) 0,25 s de aire al final, múltiplo de un cuadro
+T.cierre = r2(DUR - 1.5);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -130,7 +130,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 30px; right: 30px; top: 96px; padding: 30px 6px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
+    P .caja { position: absolute; left: 30px; right: 30px; top: 150px; padding: 30px 6px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
     P .tx { font: 900 112px/1.06 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 8px; }
     P .sel b { position: absolute; inset: -14px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
@@ -223,7 +223,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 70px; right: 70px; top: 1500px; padding: 24px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 70px; right: 70px; top: 1240px; padding: 24px 30px 30px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 54px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 12px; font: 800 74px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Ficha de cada mascota con</div><div class="a">recordatorio automático</div><div class="b">scalerics.com</div></div>`,
@@ -267,12 +267,15 @@ s("sfx/whoosh-short.mp3", T.guarda - 0.2, 0, { techo: -46, vel: 1.4 });
 plac(T.guarda, -32, 1);
 unas(T.guarda + 0.12, T.guarda + 0.42, 4, -44);
 // P2 · el fichero: whoosh en cada mes, una ficha que entra (plac) por cada ficha nueva, cada vez más fuerte; pop del contador
-T.mes.forEach((m) => { s("sfx/whoosh-short.mp3", m - 0.05, 0, { techo: -42, vel: 1.15 }); pop(m + 0.05, -42); });
-T.fichas.forEach((f, i) => plac(f, -38 + i * 0.9, (i % 2) + 1));
+T.mes.forEach((m) => { s("sfx/whoosh-short.mp3", m - 0.05, 0, { techo: -38, vel: 1.15 }); pop(m + 0.05, -38); });
+T.fichas.forEach((f, i) => plac(f, -34 + i * 0.6, (i % 2) + 1));
+for (let k = 0; k < 14; k++) plac(T.mes[0] + 0.06 + k * 0.095, -42, (k % 2) + 1);
+pop(T.p2c + 0.03, -38);
 // P2c · JUNIO 21:40: el ladrido en la sala de internación y el teléfono que se cuelga
-lad("golden_fs146343_2", T.ladra, -34);
-lad("golden_fs146343_1", T.ladra + 0.24, -36);
-s("sfx/k-plastico.wav", T.cuelga, 0, { techo: -36 });
+s("sfx/k-dos-tonos.wav", T.tono, 0, { techo: -36, lp: 3200, hp: 300, dur: 0.5, fin: 0.1 });
+lad("golden_fs146343_2", T.ladra, -35);
+lad("golden_fs146343_1", T.ladra + 0.2, -38);
+s("sfx/k-plastico.wav", T.cuelga, 0, { techo: -40 });
 // P3 · Bruno con el fichero; la toalla de papel; el fichero en la mesada; las dos fichas al piso
 voz("b1", T.b1, -1);
 voz("i2", T.i2, -1);
@@ -308,36 +311,38 @@ s("sfx/zumbido-largo.wav", P2, 0, { loop: true, desde: 3, dur: r2(DUR - P2), fi:
 voz("v1", T.v1b, -1);
 voz("i4", T.i4, -1);
 unas(T.i4 + LEN.i4 - 0.2, T.i4 + LEN.i4 + 0.1, 3, -46);
-s("sfx/whoosh-short.mp3", T.q1t - 0.04, 0, { techo: -42 }); toque(T.guardar, -42); ding(T.guardado, -40);
+s("sfx/whoosh-short.mp3", T.q1t - 0.04, 0, { techo: -44 }); toque(T.guardar, -40); ding(T.guardado, -38);
 // Q2 · el recordatorio llega solo; "¡Toto! ¡Te escribieron!"; el ladridito contento; Sí, martes 10:00; reservado
 s("sfx/whoosh-short.mp3", T.q2 - 0.04, 0, { techo: -44 }); noti(T.llega + 0.1, -37);
 voz("v3", T.v3, -1);
-lad("golden_fs146343_1", T.v3 + LEN.v3 + 0.02, -34);
+lad("golden_fs146343_1", T.v3 + LEN.v3 - 0.2, -36);
 s("sfx/whoosh-short.mp3", T.q2c - 0.04, 0, { techo: -46 });
 toque(T.si, -36); ding(T.reservado, -34);
 // Q3 · el panel: ding por tilde, el contador, el 63 que gira; Bruno (el mismo audio) y "Ya salieron solos."
 s("sfx/whoosh-short.mp3", T.q3 - 0.04, 0, { techo: -42 });
-T.tildes.forEach((t, i) => { if (t + 0.1 < T.b1b - 0.2) ding(t + 0.02, -40 + i * 0.5); else pop(t + 0.02, -46); });
-for (let k = 0; k < 4; k++) tic(T.cuenta[0] + k * 0.06, -44, k);
+T.tildes.forEach((t) => pop(t + 0.02, -46));
+for (let k = 0; k < 12; k++) tic(T.cuenta[0] + k * 0.075, -46, k);
 s("sfx/whoosh-short.mp3", T.gira - 0.05, 0, { techo: -46, vel: 1.4 });
 voz("b1", T.b1b, -1);
 voz("i5", T.i5, -1);
 // Q4 · MARTES 10:00: la campanita, las uñas de Toto que corre, "¿Vos también, Toto?" (feliz), el ladridito con la pata
-s("sfx/campanita.wav", T.campana, 0, { techo: -33 });
+s("sfx/campanita.wav", T.campana + 0.12, 0, { techo: -33 });
+pasos(T.campana + 0.2, T.campana + 0.9, 3, -42);
 unas(T.corre[0], T.corre[1], 9, -40);
 voz("i6", T.i6, -1);
 lad("corgi_fs630648", T.pata2[0] + 0.02, -34);
+tela(T.pata2[1], -40, 2);
 // Q5 · el panel en verde (ding), Sofi, el pop de VACUNA, la línea chica
-s("sfx/whoosh.mp3", T.q5 - 0.1, 0, { techo: -42 });
+s("sfx/whoosh-short.mp3", T.q5 - 0.06, 0, { techo: -44 });
 ding(T.cero, -35); pop(T.cero + 0.02, -40);
-s("sfx/whoosh-short.mp3", T.viaje[0], 0, { techo: -44 });
+
 voz("f1", T.f1, -1);
 pop(T.palabra + 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz (la semana, los insertos de la interfaz, la entrada del auto), los SFX +6 dB
 // (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.p2, T.p3 - 0.2) || en(t0, T.q1t + 0.7, T.q2b - 0.1) || en(t0, T.q2c + 0.2, T.b1b - 0.6)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
+  if (en(t0, T.p2, T.p3 - 0.6) || en(t0, T.q1t + 0.5, T.q2b - 0.1) || en(t0, T.q2c + 0.2, T.b1b - 0.4)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 function en(t, a, b) { return t >= a && t < b; }

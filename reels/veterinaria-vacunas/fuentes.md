@@ -59,3 +59,7 @@ inalámbrico que se cuelga**, **ficha de cartón que entra en una caja**. Nada s
   anotamelo). Lapicera en la ficha: tramo filtrado de `papel.wav` ("Paper slide", Kingofgamers_cz, Freesound, CC0).
 - **Sin gemidito ni maullido ni canilla**: no hay grabaciones CC0 accesibles desde la nube (freesound/wikimedia/openverse
   bloqueados); el `splash.mp3` del repo no tiene origen anotado y no se usa. Esos momentos van con la música y el zumbido.
+- (r1) Tono del teléfono en la llamada de noche: `k-dos-tonos.wav` ("twoTone1", Kenney, Digital Audio, CC0; registrado en
+  ya-lo-cargo), con pasaaltos y pasabajos de auricular.
+- (r1) Vero en P4 dice "A Toto le escribieron de la de la vuelta. Ya está vacunado." (sin "¡Doctora!", toma nueva
+  05b-vero-e, para acortar la parte 1).

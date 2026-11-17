@@ -128,7 +128,7 @@ export const ELENCO = {
   // abierta); Bruno, ayudante y recepción (~24, castaño texturado, barba de pocos días, chaqueta navy con franja verde).
   // El estetoscopio, la lapicera y Toto (assets/perro.js) se agregan en el tres.js del reel.
   ines: { nombre: "Inés", piel: PIEL.clara, pelo: 0x7d6a5c, peinado: "coleta", cejasColor: 0x5a4636, cejaFina: true,
-    pestanas: 0x1a1414, cuelloFino: true, lentes: MARCA.navy3, camisa: MARCA.gd, mangas: "cortas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
+    pestanas: 0x1a1414, cuelloFino: true, lentes: MARCA.navy3, lentesFinos: true, lentesCerca: 1.05, camisa: MARCA.gd, mangas: "cortas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
     labiosPegados: true, pantalon: MARCA.gd, zapatos: MARCA.cr, panza: 1.0, nariz: 0.05, mejillas: 0xe39282, labios: 0xa8484f, alto: 0.98 },
   vero: { nombre: "Vero", piel: PIEL.morena, pelo: PELO.negro, peinado: "rulos", cejasColor: 0x1e1a18, cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.cr2, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
@@ -136,7 +136,7 @@ export const ELENCO = {
     labiosPegados: true, pantalon: 0x3a4a66, zapatos: MARCA.cr, panza: 0.98, nariz: 0.046, mejillas: 0xb8644e, labios: 0x8e3f3c, aros: MARCA.cr, alto: 0.97 },
   bruno: { nombre: "Bruno", piel: PIEL.media, pelo: PELO.castaño, peinado: "texturado", texturaAlto: 0.8, cejasColor: 0x4a3222,
     barba: 0x4a3222, barbaLarga: 0.35, barbaOpacidad: 0.4, camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06,
-    franja: MARCA.g, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 0.95, nariz: 0.056, mejillas: 0xd98a78, alto: 1.02 },
+    franja: null, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 0.95, nariz: 0.056, mejillas: 0xd98a78, alto: 1.02 },   // (r1) sin franja: se leía como un aro en la cintura
 
 };
 
@@ -618,11 +618,11 @@ export function crearPersonaje(cfg) {
     const bm = mat(c.bigote, 0.7);
     for (const s of [-1, 1]) { const b = mesh(G.esferaLow, bm, 0, 0, 0, 0.075, 0.032, 0.03); sobre(b, s * 0.17, -0.2, 0.995); b.rotation.z += s * -0.32; bocaG.parent.add(b); }
   }
-  const reflejos = [];
+  const reflejos = [], lentesLado = [];
   if (c.lentes) {
     const lm = mat(c.lentes, 0.35);
     const aro = new THREE.TorusGeometry(0.088, c.lentesFinos ? 0.008 : 0.013, 8, 28);
-    for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); }
+    for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, c.lentesCerca ?? 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); lentesLado.push({ s, a, pat }); }
     const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
     // reflejo de una pantalla en los vidrios (pose.reflejo 0..1): un rectángulo de luz fría con renglones
     const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
@@ -748,7 +748,7 @@ export function crearPersonaje(cfg) {
     cuerpo.rotation.set(p.inclina, p.torso, p.ladea);
     cuerpo.scale.set(1 + p.aplasta * 0.5, 1 - p.aplasta + resp, 1 + p.aplasta * 0.5);
     cabeza.rotation.set(p.cabeza.asiente, p.cabeza.giro, p.cabeza.ladea, "YXZ");
-    cabeza.position.y = 0.54 + resp * 0.5;
+    cabeza.position.y = 0.54 + CA + resp * 0.5;   // (veterinaria r1) respeta cuelloAlto
     // ojos
     let parp = parpadeo(p.t, c.nombre.length, c.parpadeoCada, c.parpadeoDur);
     // parpadeos puestos a mano (momentos sin hablar en los primeros planos)
@@ -805,7 +805,8 @@ export function crearPersonaje(cfg) {
     ojos[0].g.getWorldPosition(_e0); ojos[1].g.getWorldPosition(_e1);
     const lejos = _e0.distanceTo(cam) > _e1.distanceTo(cam) ? 0 : 1;
     ojos[0].g.visible = ojos[1].g.visible = true; cejas[0].piv.visible = cejas[1].piv.visible = true;
-    if (ang > 0.62) { ojos[lejos].g.visible = false; if (ang > 0.8) cejas[lejos].piv.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
+    if (ang > 0.62) { ojos[lejos].g.visible = false; if (ang > 0.8) cejas[lejos].piv.visible = false; }
+    for (const L of lentesLado) { L.a.visible = L.pat.visible = true; if (ang > 0.62 && L.s === ojos[lejos].s) L.a.visible = false; if (ang > 0.5 && L.s !== ojos[lejos].s && c.lentesCerca) L.pat.visible = false; if (ang > 0.62 && L.s === ojos[lejos].s && c.lentesCerca) L.pat.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
   return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, anteojos: anteojosG, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
