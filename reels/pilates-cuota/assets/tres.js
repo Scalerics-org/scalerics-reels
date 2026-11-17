@@ -863,7 +863,7 @@ const PLANOS = [
   // (r1) Q3b: contraplano a Ceci en "El 1, a las 7:02." (Q3 duraba 6,2 s en un plano)
   ["Q3b", T.q3b, [[T.q3b, 2.62, 1.55, 1.75, CECI_CLASE.x - 0.12, 1.45, CECI_CLASE.z, 44], [T.q4, 2.62, 1.55, 1.62, CECI_CLASE.x - 0.12, 1.45, CECI_CLASE.z, 43]]],
   ["Q4", T.q4, [[T.q4, 2.72, 1.5, 2.0, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 48], [T.q5, 2.72, 1.5, 1.85, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 47]]],
-  ["Q5", T.q5, [[T.q5, MOS.x + 0.34, 1.8, MOS.z + 1.42, MOS.x + 0.34, 1.13, MOS.z - 0.02, 42], [DUR, MOS.x + 0.34, 1.78, MOS.z + 1.36, MOS.x + 0.34, 1.13, MOS.z - 0.02, 41.5]]   /* (r2) desde más arriba: abajo se ve la tapa del mostrador con la planilla y la taza, no el frente liso */],
+  ["Q5", T.q5, [[T.q5, MOS.x + 0.32, 1.82, MOS.z + 1.52, MOS.x + 0.32, 1.13, MOS.z - 0.02, 42], [DUR, MOS.x + 0.32, 1.8, MOS.z + 1.47, MOS.x + 0.32, 1.13, MOS.z - 0.02, 41.5]]   /* (r2) desde más arriba: abajo se ve la tapa del mostrador con la planilla y la taza, no el frente liso */],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
 const _m = new THREE.Vector3();
