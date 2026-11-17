@@ -1294,7 +1294,7 @@ function tarjetas(t) {
   }
   if (pa === "P6" && t >= T.i3) hablar(GL.i3, ines, ent(T.i3), 0, -40);
   if (pa === "Q1" || pa === "Q1b") {
-    if (pa === "Q1") ponerGlobo(GL.marzo, 160, 1180, 1, null);
+    if (pa === "Q1") ponerGlobo(GL.marzo, 160, 1560, 1, null);   // (r4) abajo, sin tapar la tablet
     if (pa === "Q1" && t >= T.v1b && t < T.i4) hablar(GL.v1, vero, ent(T.v1b), 2, -40);
     if (t >= T.i4) hablar(GL.i4, ines, ent(T.i4), 2, 60);
   }
