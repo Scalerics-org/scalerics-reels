@@ -52,7 +52,7 @@ const P1 = r2(T.p8b + 0.42);                            // termina la parte 1 (a
 const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · el apartamento de Pocitos: la pareja se va saludando; Diego carga la visita en el celular (push-in ≥ 60 %)
-T.q1 = P2; T.q1i = r2(P2 + 0.35); T.filasD = [0, 1, 2, 3, 4].map((i) => r2(P2 + 0.85 + i * 0.22)); T.guarda = r2(P2 + 2.0);
+T.q1 = P2; T.q1i = r2(P2 + 0.7); T.filasD = [0, 1, 2, 3, 4].map((i) => r2(P2 + 1.15 + i * 0.2)); T.guarda = r2(P2 + 2.3);
 // Q2 · viernes 18:00, el balcón: a Graciela le llega solo el resumen (push-in ≥ 60 %); toca "Llamar" igual
 T.q2 = r2(P2 + 2.8); T.vibra = r2(T.q2 + 0.12); T.q2i = r2(T.q2 + 0.3); T.filasG = [0, 1, 2, 3].map((i) => r2(T.q2 + 0.75 + i * 0.24)); T.llamaG = r2(T.q2 + 2.2);
 // Q3 · el encuadre del cuadro 0, el mismo "¿Y? ¿Hubo visitas?"; Silvana mira el monitor (push-in a la ficha) "Cuatro.
@@ -68,7 +68,7 @@ T.q4b = r2(T.q4 + 1.25); T.g5 = r2(T.q4b + 0.1); T.vendido = r2(T.g5 + LEN.g5 + 
 T.q5 = r2(T.vendido + 0.5); T.so = r2(T.q5 + 0.1);
 T.palabra = r2(T.so - 0.02);
 const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.3) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.4));
+T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 2.1));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca y el led del altavoz) ----------
 function envolvente(archivo) {
@@ -145,7 +145,7 @@ const CHIP = `
   });
 }
 // Q2 · el chip "Viernes, 18:00." (el balcón) · Q4 · "Tres semanas después."
-for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q2i + 0.45), "Viernes, 18:00."], ["s02-chip", r2(T.q4 - 0.02), r2(T.q4b - 0.02), "Tres semanas después."]]) {
+for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q3 - 0.04), "Viernes, 18:00."], ["s02-chip", r2(T.q4 - 0.02), r2(T.q4b - 0.02), "Tres semanas después."]]) {
   const dur = r2(fin - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
@@ -334,7 +334,7 @@ voz("g4", T.g4, -1);
 // Q4 · la ficha tres semanas después (RESERVADO ✓, la comisión gira a verde), el balcón y la franja VENDIDO
 s("sfx/whoosh-short.mp3", T.q4 - 0.05, 0, { techo: -42 });
 pop(T.reserva, -38); ding(T.reserva + 0.03, -37);
-s("sfx/whoosh-short.mp3", T.comision - 0.04, 0, { techo: -40 }); ding(T.comision + 0.1, -36);
+s("sfx/whoosh-short.mp3", T.comision - 0.04, 0, { techo: -42 }); ding(T.comision + 0.06, -39);
 s("sfx/whoosh-short.mp3", T.q4b - 0.05, 0, { techo: -44 });
 s("sfx/calle.wav", T.q4b, 0, { loop: true, desde: 2, dur: r2(T.q5 - T.q4b + 0.05), fi: 0.1, fin: 0.15, techo: -48, lp: 1200 });
 s("sfx/gaviota.wav", T.q4b + 0.2, 0, { techo: -46 });
@@ -348,7 +348,7 @@ pop(T.palabra + 0.02, -38); pop(T.so + palabra("so", 1) + 0.02, -40);
 pop(T.cierre + 0.05, -44);
 // la cama +3 dB; en los tramos sin voz (la grúa al balcón, la pausa, Q1, Q2, la ficha) los SFX +5 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }
-  if (en(t0, T.p5 - 0.2, T.g2) || en(t0, T.p6 - 0.1, T.g3) || en(t0, P2, T.q3) || en(t0, T.q4 - 0.1, T.g5)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
+  if (en(t0, T.p5 - 0.2, T.g2) || en(t0, T.p6 - 0.1, T.g3) || en(t0, P2, T.q3) || en(t0, T.q4 - 0.1, T.q4b - 0.25)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
 // la música: duck debajo de cada voz (~0,7) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.3])]; }
 function en(t, a, b) { return t >= a && t < b; }

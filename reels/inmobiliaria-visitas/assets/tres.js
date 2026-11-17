@@ -1,24 +1,22 @@
-// Capa 3D de dist-cliente-grande (Three.js r170 local). Base técnica: reels/dist-pedidos-lunes (oficina vidriada y
-// depósito), reels/ya-lo-cargo (el auto de Nico), reels/veterinaria-vacunas (tarjetas, rótulos con guía, regla de
-// burbujas, planos de menos de 0,3 s). renderAt(t) es una función pura del tiempo del timeline (hf-seek): nada de rAF,
-// Date.now ni azar sin semilla.
+// Capa 3D de inmobiliaria-visitas (Three.js r170 local). Base técnica: reels/dist-cliente-grande (gen.mjs, tarjetas
+// pegadas a la cámara, regla de burbujas, cámara por planos con Catmull-Rom) y reels/veterinaria-vacunas (Sofi en
+// videollamada). renderAt(t) es una función pura del tiempo del timeline (hf-seek): nada de rAF, Date.now ni azar sin
+// semilla.
 // Lugares del mismo mundo, lejos uno del otro:
-//   LA OFICINA DE RUBÉN DE TARDE (alrededor del origen, arriba del depósito): piso y = 3,2. Rubén se sienta de espaldas a
-//     la pared del fondo (z = 0) mirando a +z (a la cámara). El monitor a su derecha (-x, la facturación por cliente), el
-//     teléfono de escritorio en altavoz delante a su izquierda (+x, primer término a la derecha del cuadro), la puerta de
-//     vidrio esmerilado detrás a su izquierda (Nico). El sol bajo entra por la persiana de la pared derecha.
-//   EL DEPÓSITO (abajo, y = 0): la ZONA DE ARMADO por cliente (z = ZA): GRACIELA · LUNES, MARTA · LUNES, WALTER · JUEVES y
-//     HÉCTOR · MARTES, este último sin pallet: el rincón del operario (reposera, radio, termo, táper, planta en lata).
-//   LA CALLE DEL SÚPER HÉCTOR (x = VX): la vereda de baldosas de 9 panes, la fachada con el toldo verde apagado, el camión
-//     gris sin nombre (furgón) estacionado, el auto de Nico detrás; más allá, la misma calle con el semáforo (Q1).
-//   PARTE 1: "Rubén, ¿y Héctor?" · "¿Héctor? Compra todos los martes." · "Compraba." · la grúa al lugar vacío de Héctor ·
-//            "Yo pensé que lo llamabas vos." · la vereda: "¡Rubén! ¿Cerraste?…" · "Te extrañó el contador." · "Llamame el
-//            martes." · el post-it en el tablero que se vuela y se pega en el camión gris
-//   PARTE 2: el aviso en el celular del auto · "¡Héctor! Ayer no pediste." · "¡Uh, se me pasó!" · Pedido ✓ · el pallet
-//            HÉCTOR vuelve · la ficha · el panel · "Rubén, ¿y Héctor?" · "Compra." · Rubén a cámara
+//   LA OFICINA DE "SILVANA PROPIEDADES" (alrededor del origen): ladrillo pintado crema con la franja verde y el nombre,
+//     el tablero de llaves (el gancho POCITOS vacío en la parte 1), el panel de fichas, el escritorio de Silvana con el
+//     celular en altavoz, los escritorios de Diego (post-its, la llave MALVÍN) y Romina (la agenda tachada), la vidriera
+//   POCITOS (x = 60): el balcón de Graciela con el cartel VENDE y la llave POCITOS en la cerradura de la puerta-ventana,
+//     la rambla y el río abajo; detrás de la fachada, el apartamento vacío (parquet en espiga) y el pasillo
+//   PARTE 1: "¿Y? ¿Hubo visitas?" · "¿Hubo visitas en lo de Graciela?" · "Un montón." / "Ninguna." · "Me dicen que
+//            varias, Graciela." · el balcón: "Qué raro. La llave la tengo yo." · la pausa (rótulos) · "Mañana paso a
+//            buscar el cartel." · "Ah. Era el de Malvín."
+//   PARTE 2: la visita cargada en el celular de Diego · el resumen en el de Graciela · "¿Y? ¿Hubo visitas?" · la ficha ·
+//            "Cuatro. Y el martes vuelve una pareja." · "Ya sé. Llamaba para chusmear." · RESERVADO · "Mañana paso a
+//            buscar el cartel." · VENDIDO · Sofi
 import * as THREE from "./vendor/three/three.module.js";
 import { RoundedBoxGeometry } from "./vendor/three/RoundedBoxGeometry.js";
-import { crearPersonaje, ELENCO, DEFECTO, PIEL, PELO, poseEn, CARA, BRAZOS, FACEPALM, saludo, pegarACamara, crearMate, crearTermo } from "./personajes.js";
+import { crearPersonaje, ELENCO, DEFECTO, PIEL, PELO, MARCA, poseEn, CARA, BRAZOS, saludo, pegarACamara, crearCelular } from "./personajes.js";
 import { T, DUR, P1, P2, ENV, LEN, LIMPIO, VER as VERM } from "./tiempos3d.js";
 await Promise.all([...["500", "600", "700", "800", "900"].map((w) => document.fonts.load(w + ' 60px "Lexend"')), document.fonts.load('700 60px "Caveat"')]);
 
@@ -107,598 +105,409 @@ function fusionar(grupo, excluir = []) {
   }
 }
 
-// =====================================================================================================
-// EL DEPÓSITO (de día): piso gris-crema, paredes navy claro, racks, la zona de armado por cliente
-// =====================================================================================================
-const DEP = new THREE.Group(); scene.add(DEP);
-const PASO = new THREE.Group(); DEP.add(PASO);   // lo que se esconde mientras la grúa cruza (baranda, perfiles, pasamanos)
-const DX0 = -10, DX1 = 10, DZ0 = -16, DZ1 = 0, DH = 8.5;
-const OFI = { x0: -3.6, x1: 3.6, z0: 0, z1: 6.2, piso: 3.2, alto: 2.8 };
-const MESA_Y = OFI.piso + 0.76;
-{
-  const piso = mesh(new THREE.PlaneGeometry(DX1 - DX0 + 2, DZ1 - DZ0 + 2), mat(0xc4c0b0, 0.9), 0, 0, (DZ0 + DZ1) / 2); piso.rotation.x = -Math.PI / 2; piso.castShadow = false; DEP.add(piso);
-  const paredM = mat(0x34507a, 0.92);
-  const pared = (w, h, x, y, z, ry) => { const p = mesh(new THREE.BoxGeometry(w, h, 0.3), paredM, x, y, z); p.rotation.y = ry; p.castShadow = false; DEP.add(p); };
-  for (const x of [DX0 - 0.15, DX1 + 0.15]) pared(DZ1 + OFI.z1 - DZ0 + 0.3, DH, x, DH / 2, (DZ0 + DZ1 + OFI.z1) / 2, Math.PI / 2);
-  pared(DX1 - DX0, DH, 0, DH / 2, OFI.z1 + 0.15, 0);
-  pared(DX1 - 2.2, DH, (DX1 + 2.2) / 2, DH / 2, DZ0 - 0.15, 0); pared(-2.2 - DX0, DH, (DX0 - 2.2) / 2, DH / 2, DZ0 - 0.15, 0);
-  pared(4.4, DH - 4.6, 0, 4.6 + (DH - 4.6) / 2, DZ0 - 0.15, 0);
-  DEP.add(caja(0.3, 4.7, 0.4, M.navy3, -2.3, 2.35, DZ0)); DEP.add(caja(0.3, 4.7, 0.4, M.navy3, 2.3, 2.35, DZ0)); DEP.add(caja(4.9, 0.35, 0.4, M.navy3, 0, 4.65, DZ0));
-  const afuera = mesh(new THREE.PlaneGeometry(30, 14), new THREE.MeshBasicMaterial({ color: 0xe8edf0 }), 0, 6, DZ0 - 14); afuera.castShadow = false; DEP.add(afuera);
-  const patio = mesh(new THREE.PlaneGeometry(20, 14), mat(0xb7b3a6, 0.9), 0, 0.0, DZ0 - 7); patio.rotation.x = -Math.PI / 2; DEP.add(patio);
-  const techo = mesh(new THREE.BoxGeometry(DX1 - DX0 + 0.6, 0.2, DZ1 + OFI.z1 - DZ0 + 0.6), mat(0x4a5b78, 0.95), 0, DH + 0.1, (DZ0 + DZ1 + OFI.z1) / 2); techo.castShadow = false; DEP.add(techo);
-  for (let z = -14; z < 0; z += 4) for (const x of [-5, 0, 5]) { const c = mesh(new THREE.PlaneGeometry(2.6, 1.3), new THREE.MeshBasicMaterial({ color: 0xf2f4ee }), x, DH - 0.01, z); c.rotation.x = Math.PI / 2; c.castShadow = false; DEP.add(c); }
-}
-function crearPallet() {
-  const g = new THREE.Group(), m = M.madera, mo = mat(0xb89a6c, 0.8);
-  for (let i = 0; i < 5; i++) g.add(cajaS(1.2, 0.025, 0.14, m, 0, 0.135, -0.43 + i * 0.215));
-  for (const z of [-0.43, 0, 0.43]) g.add(cajaS(1.2, 0.025, 0.14, mo, 0, 0.0125, z));
-  for (const x of [-0.52, 0, 0.52]) for (const z of [-0.43, 0, 0.43]) g.add(cajaS(0.14, 0.1, 0.14, mo, x, 0.075, z));
-  return g;
-}
-const bolsaT = lienzo(256, 320, (x, w, h) => { x.fillStyle = "#dcd9c8"; x.fillRect(0, 0, w, h); x.fillStyle = "#1f3254"; x.fillRect(0, h * 0.34, w, h * 0.3); x.fillStyle = "#efeee5"; x.font = F(900, 56); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("000", w / 2, h * 0.49); x.fillStyle = "#5ce611"; x.fillRect(0, h * 0.86, w, h * 0.05); });
-// la caja de aceite (kraft con la botella dibujada) y el pack de agua crema liso
-const botella = (x, cx, top, alto, ancho) => {
-  x.fillStyle = "#efeee5"; x.strokeStyle = "#1f3254"; x.lineWidth = Math.max(6, ancho * 0.08);
-  x.beginPath(); x.moveTo(cx - ancho * 0.16, top); x.lineTo(cx + ancho * 0.16, top); x.lineTo(cx + ancho * 0.16, top + alto * 0.18);
-  x.quadraticCurveTo(cx + ancho * 0.5, top + alto * 0.26, cx + ancho * 0.5, top + alto * 0.4); x.lineTo(cx + ancho * 0.5, top + alto); x.lineTo(cx - ancho * 0.5, top + alto); x.lineTo(cx - ancho * 0.5, top + alto * 0.4);
-  x.quadraticCurveTo(cx - ancho * 0.5, top + alto * 0.26, cx - ancho * 0.16, top + alto * 0.18); x.closePath(); x.fill(); x.stroke();
-  x.fillStyle = "#5ce611"; x.fillRect(cx - ancho * 0.5 + x.lineWidth / 2, top + alto * 0.55, ancho - x.lineWidth, alto * 0.22);
-  x.fillStyle = "#1f3254"; x.fillRect(cx - ancho * 0.2, top - alto * 0.07, ancho * 0.4, alto * 0.08);
-};
-const kraftCara = (x, w, h) => { x.fillStyle = "#c9a46b"; x.fillRect(0, 0, w, h); x.fillStyle = "#b8935a"; x.fillRect(0, 0, w, h * 0.06); x.fillRect(0, h * 0.94, w, h * 0.06); };
-const cajaGrandeT = lienzo(512, 320, (x, w, h) => { kraftCara(x, w, h); for (const cx of [70, 150]) botella(x, cx, 70, 200, 66); x.fillStyle = "#16243d"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "ACEITE", 900, 86, 280); x.fillText("ACEITE", 210, 130); x.font = F(800, 50); x.fillText("1,5 L x 12", 212, 215); });
-const cajaChicaT = lienzo(256, 320, (x, w, h) => { kraftCara(x, w, h); botella(x, w / 2, 50, 190, 92); });
-const CAJA_A = { x: 0.48, y: 0.3, z: 0.24 };
-const CAJA_MAT = (() => { const k = mat(C.kraft, 0.85); const ch = new THREE.MeshStandardMaterial({ map: cajaChicaT, roughness: 0.85 }), gr = new THREE.MeshStandardMaterial({ map: cajaGrandeT, roughness: 0.85 }); return [ch, ch, k, k, gr, gr]; })();
-const CAJA_GEO = rbox(CAJA_A.x, CAJA_A.y, CAJA_A.z, 0.015, 2);
-function crearCajaAceite() { const m = new THREE.Mesh(CAJA_GEO, CAJA_MAT); m.castShadow = true; m.receiveShadow = true; return m; }
-const HARINA_MAT = (() => { const hm = new THREE.MeshStandardMaterial({ map: bolsaT, roughness: 0.9 }), pm = mat(0xdcd9c8, 0.9); return [pm, pm, hm, pm, hm, pm]; })();
-function crearBolsaHarina() { const m = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.16, 0.36), HARINA_MAT); m.castShadow = true; m.receiveShadow = true; return m; }
-const AGUA_M = mat(0xe6e3d4, 0.35);
-function crearPackAgua() { const g = new THREE.Group(); g.add(caja(0.36, 0.3, 0.26, AGUA_M, 0, 0.15, 0, 0.03)); for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++) g.add(mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.04, 10), M.navy3, -0.12 + i * 0.12, 0.32, -0.065 + j * 0.13)); return sombras(g); }
-// las tres capas de un pallet de cliente: aceite, harina, agua (orden de llenado de la parte 2)
-function cargarCapas(g, capas = 3) {
-  const out = [[], [], []];
-  for (let i = 0; i < 2; i++) for (let j = 0; j < 4; j++) { const c = crearCajaAceite(); c.position.set((i - 0.5) * 0.49, 0.15 + CAJA_A.y / 2, (j - 1.5) * 0.25); g.add(c); out[0].push(c); }
-  if (capas > 1) for (let k = 0; k < 2; k++) for (let i = 0; i < 2; i++) { const b = crearBolsaHarina(); b.position.set(-0.26 + i * 0.52, 0.15 + CAJA_A.y + 0.08 + k * 0.16, (k ? -0.19 : 0.19)); g.add(b); out[1].push(b); }
-  if (capas > 2) for (let i = 0; i < 3; i++) { const a = crearPackAgua(); a.position.set(-0.38 + i * 0.38, 0.15 + CAJA_A.y + 0.32, 0.0); g.add(a); out[2].push(a); }
-  return out;
-}
-function cargaPallet(g, tipo) {
-  const p = crearPallet(); g.add(p);
-  if (tipo === 0) for (let i = 0; i < 4; i++) for (let k = 0; k < 2; k++) g.add(cajaS(0.55, 0.42, 0.42, mat(k % 2 ? C.kraft : 0xbf9a62, 0.85), -0.29 + (i % 2) * 0.58, 0.36 + k * 0.43, -0.22 + Math.floor(i / 2) * 0.44));
-  else if (tipo === 1) { for (let k = 0; k < 4; k++) for (let i = 0; i < 2; i++) g.add(mesh(new THREE.BoxGeometry(0.5, 0.16, 0.36), HARINA_MAT, -0.27 + i * 0.54, 0.23 + k * 0.16, 0)); }
-  else if (tipo === 2) { const fm = mat(0x7fc46a, 0.25); for (let k = 0; k < 2; k++) g.add(cajaS(1.1, 0.42, 0.85, fm, 0, 0.36 + k * 0.43, 0)); }
-  else { for (let i = 0; i < 6; i++) g.add(cajaS(0.36, 0.34, 0.4, mat(C.kraft, 0.85), -0.38 + (i % 3) * 0.38, 0.32, -0.2 + Math.floor(i / 3) * 0.42)); g.add(cajaS(1.1, 0.02, 0.8, mat(C.cr, 0.8), 0, 0.5, 0)); }
-  return g;
-}
-function crearRack(largo, bahias) {
-  const g = new THREE.Group();
-  const bw = largo / bahias, niveles = [0.0, 1.55, 3.1, 4.65];
-  const par = mat(C.navy3, 0.55);
-  for (let i = 0; i <= bahias; i++) for (const z of [-0.5, 0.5]) g.add(cajaS(0.1, 6.2, 0.1, par, -largo / 2 + i * bw, 3.1, z));
-  for (const y of niveles.slice(1)) for (const z of [-0.52, 0.52]) g.add(cajaS(largo, 0.14, 0.07, M.g, 0, y, z));
-  for (let i = 0; i < bahias; i++) for (let n = 0; n < 4; n++) {
-    if (az() < 0.1) continue;
-    const pg = new THREE.Group(); pg.position.set(-largo / 2 + (i + 0.5) * bw, niveles[n] + (n ? 0.07 : 0), 0); pg.rotation.y = Math.PI / 2;
-    cargaPallet(pg, Math.floor(az() * 4)); g.add(pg);
-  }
-  return g;
-}
-semilla = 5;
-for (const x of [-7.6, -4.6, 4.6, 7.6]) { const r = crearRack(12, 8); r.rotation.y = Math.PI / 2; r.position.set(x, 0, -8.5); DEP.add(r); }
-for (const [x, z, tp] of [[2.6, -11.5, 3], [-2.9, -12.8, 0], [0.4, -12.0, 1]]) { const p = new THREE.Group(); p.position.set(x, 0, z); cargaPallet(p, tp); DEP.add(p); }
-for (const [x, z] of [[-2.5, -4], [2.5, -4], [-2.5, -11], [2.5, -11]]) {
-  const g = new THREE.Group(); g.position.set(x, 7.0, z); DEP.add(g);
-  g.add(mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.4, 6), M.navy3, 0, 0.7, 0));
-  g.add(mesh(new THREE.CylinderGeometry(0.16, 0.62, 0.5, 24, 1, true), mat(C.navy3, 0.5, { side: THREE.DoubleSide })));
-  const foco = new THREE.Mesh(new THREE.CircleGeometry(0.56, 24), new THREE.MeshBasicMaterial({ color: 0xfff1d6, toneMapped: false })); foco.rotation.x = Math.PI / 2; foco.position.y = -0.24; g.add(foco);
-}
-{
-  const n = 12, ez = -0.6;
-  for (let i = 0; i < n; i++) DEP.add(caja(0.95, 0.06, 0.3, mat(0x8a8e98, 0.5, { metalness: 0.4 }), -3.0, OFI.piso - (i + 1) * (OFI.piso / n) + 0.05, ez - (i + 1) * 0.28 + 0.1));
-  const L = Math.hypot(OFI.piso, n * 0.28), ang = Math.atan2(OFI.piso, n * 0.28);
-  for (const dx of [-0.5, 0.5]) { const l = caja(0.06, 0.1, L, M.navy3, -3.0 + dx, OFI.piso / 2 + 0.06, ez - n * 0.14); l.rotation.x = -ang; DEP.add(l); }
-  for (const dx of [-0.5, 0.5]) { const l = caja(0.05, 0.05, L, M.g, -3.0 + dx, OFI.piso / 2 + 0.95, ez - n * 0.14); l.rotation.x = -ang; PASO.add(l); }
-}
-DEP.add(caja(OFI.x1 - OFI.x0 + 0.4, 0.3, OFI.z1 - OFI.z0 + 0.4, M.navy3, 0, OFI.piso - 0.15, (OFI.z0 + OFI.z1) / 2));
-for (const x of [OFI.x0, 0, OFI.x1]) DEP.add(caja(0.28, OFI.piso - 0.3, 0.28, M.navy3, x, (OFI.piso - 0.3) / 2, 0.2));
-PASO.add(caja(OFI.x1 - OFI.x0, 0.12, 1.0, M.navy3, 0, OFI.piso - 0.06, -0.5));   // (r2) el piso del balcón también se esconde en la grúa (era la franja navy)
-for (let x = OFI.x0 + 0.05; x <= OFI.x1; x += 0.9) PASO.add(caja(0.05, 0.95, 0.05, M.navy3, x, OFI.piso + 0.47, -0.97));
-PASO.add(caja(OFI.x1 - OFI.x0, 0.06, 0.08, M.g, 0, OFI.piso + 0.95, -0.97));
-
-// ---- LA ZONA DE ARMADO: un rectángulo crema pintado por cliente y el cartel kraft colgado de una viga con cadenitas ----
-const ZA = -5.0;                                        // la fila de pallets de clientes
-const SLOT = { GRACIELA: -3.05, MARTA: -1.25, WALTER: 0.55, HECTOR: 2.35 };
-const CARTELES = [["GRACIELA · LUNES", SLOT.GRACIELA], ["MARTA · LUNES", SLOT.MARTA], ["WALTER · JUEVES", SLOT.WALTER], ["HÉCTOR · MARTES", SLOT.HECTOR]];
-{
-  const linea = (x, z, w, d) => { const l = mesh(new THREE.PlaneGeometry(w, d), mat(0xf2efe2, 0.85), x, 0.006, z); l.rotation.x = -Math.PI / 2; l.castShadow = false; DEP.add(l); };
-  for (const [, x] of CARTELES) { const W = 1.45, D = 1.2; linea(x, ZA - D / 2, W, 0.08); linea(x, ZA + D / 2, W, 0.08); linea(x - W / 2, ZA, 0.08, D + 0.08); linea(x + W / 2, ZA, 0.08, D + 0.08); }
-  // la viga con los carteles (detrás de la fila, a 2,85 m), dos parantes navy3
-  const vz = ZA - 0.95;
-  DEP.add(caja(0.12, 2.95, 0.12, M.navy3, -4.0, 1.47, vz)); DEP.add(caja(0.12, 2.95, 0.12, M.navy3, 3.5, 1.47, vz));
-  DEP.add(caja(7.62, 0.14, 0.14, M.navy3, -0.25, 2.92, vz));
-  for (const [txt, x] of CARTELES) {
-    const t = lienzo(900, 300, (c, w, h) => { c.fillStyle = "#c9a46b"; c.fillRect(0, 0, w, h); c.strokeStyle = "#0b1220"; c.lineWidth = 18; c.strokeRect(9, 9, w - 18, h - 18); c.fillStyle = "#0b1220"; c.textAlign = "center"; c.textBaseline = "middle"; ajustar(c, txt, 900, 118, w - 80); c.fillText(txt, w / 2, h / 2 + 6); });
-    const g = new THREE.Group(); g.position.set(x, 2.15, vz + 0.12); DEP.add(g);
-    const pc = plano(1.32, 0.44, t, 0, 0, 0.012); pc.material.emissive = new THREE.Color(0xffffff); pc.material.emissiveMap = t; pc.material.emissiveIntensity = 0.3; g.add(pc);
-    g.add(caja(1.36, 0.48, 0.02, M.navy, 0, 0, 0, 0.01));
-    for (const s of [-1, 1]) g.add(mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.55, 6), M.gris, s * 0.55, 0.5, 0));
-  }
-  // los pallets de los otros clientes: GRACIELA y MARTA armados, WALTER a medio armar
-  for (const [x, capas] of [[SLOT.GRACIELA, 3], [SLOT.MARTA, 3], [SLOT.WALTER, 2]]) { const g = new THREE.Group(); g.position.set(x, 0, ZA); g.add(crearPallet()); cargarCapas(g, capas); DEP.add(g); }
-}
-// ---- el camión de reparto propio (cabina navy3, caja crema con franja verde) en el portón del fondo ----
-const CAJA_C = { L: 6.0, W: 2.5, H: 2.6, piso: 1.2 };
-function crearFurgon({ cue, cab, franja, conCarga = true }) {
-  const g = new THREE.Group(), fr = cab;
-  const { L, W: CW, H, piso } = CAJA_C;
-  g.add(caja(CW, 0.12, L, M.navy3, 0, piso - 0.06, L / 2));
-  g.add(caja(0.08, H, L, cue, -CW / 2 + 0.04, piso + H / 2, L / 2, 0.02)); g.add(caja(0.08, H, L, cue, CW / 2 - 0.04, piso + H / 2, L / 2, 0.02));
-  g.add(caja(CW, 0.08, L, cue, 0, piso + H - 0.04, L / 2, 0.02)); g.add(caja(CW, H, 0.08, cue, 0, piso + H / 2, L - 0.04, 0.02));
-  if (franja) for (const s of [-1, 1]) g.add(caja(0.02, 0.32, L - 0.2, franja, s * (CW / 2 + 0.005), piso + H * 0.5, L / 2, 0.01));
-  g.add(caja(CW + 0.06, 0.12, 0.12, fr, 0, piso + H, 0.02, 0.02)); for (const s of [-1, 1]) g.add(caja(0.12, H + 0.1, 0.12, fr, s * CW / 2, piso + H / 2, 0.02, 0.02));
-  g.add(caja(CW + 0.1, 0.18, 0.2, M.navy, 0, piso - 0.2, 0.0, 0.03));
-  const puertas = [];
-  for (const s of [-1, 1]) { const p = new THREE.Group(); p.position.set(s * CW / 2, piso, -0.04); p.rotation.y = s * -(Math.PI * 0.92); g.add(p); p.add(caja(CW / 2 - 0.02, H - 0.04, 0.06, cue, -s * (CW / 4), H / 2, -0.03, 0.02)); p.add(caja(0.05, 0.4, 0.03, fr, -s * (CW / 2 - 0.12), H * 0.45, -0.07, 0.01)); p.userData.s = s; puertas.push(p); }
-  g.add(caja(CW, 2.3, 1.9, cab, 0, 1.55, L + 1.1, 0.18));
-  g.add(caja(CW - 0.3, 0.8, 0.05, mat(0x2c4268, 0.15, { metalness: 0.3 }), 0, 2.15, L + 2.06, 0.02));
-  for (const s of [-1, 1]) for (const z of [1.0, 2.3, L + 1.2]) g.add(mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.36, 22), M.goma, s * (CW / 2 - 0.2), 0.5, z).rotateZ(Math.PI / 2));
-  const carga = [];
-  if (conCarga) for (let i = 0; i < 4; i++) { const p = new THREE.Group(); p.position.set(i % 2 ? 0.6 : -0.6, piso, L - 0.8 - Math.floor(i / 2) * 1.3); p.rotation.y = Math.PI / 2; cargaPallet(p, i % 2 ? 3 : 0); g.add(p); carga.push(p); }
-  g.userData = { carga, puertas };
-  return sombras(g);
-}
-const camionPropio = crearFurgon({ cue: mat(C.cr, 0.55), cab: M.navy3, franja: M.g }); camionPropio.rotation.y = Math.PI; camionPropio.position.set(0, 0, DZ0 - 0.3); scene.add(camionPropio);
-fusionar(DEP, [PASO]);
-
-// ---- EL RINCÓN DEL OPERARIO en el lugar de HÉCTOR (parte 1) · el pallet de Héctor (parte 2) ----
-const RIN = new THREE.Group(); RIN.position.set(SLOT.HECTOR, 0, ZA); scene.add(RIN);
-// la reposera: caño navy, lona a rayas crema y verde apagado; el respaldo es un grupo que se pliega (Q3)
-const lonaT = lienzo(256, 256, (x, w, h) => { for (let i = 0; i < 8; i++) { x.fillStyle = i % 2 ? "#5d7d4a" : "#efeee5"; x.fillRect(i * 32, 0, 32, h); } });
-const reposera = new THREE.Group(); reposera.position.set(-0.05, 0, 0.1); reposera.rotation.y = -0.35; RIN.add(reposera);
-const respaldo = new THREE.Group(); respaldo.position.set(0, 0.36, -0.22); reposera.add(respaldo);
-{
-  const cm = mat(C.navy, 0.4, { metalness: 0.3 }), lm = new THREE.MeshStandardMaterial({ map: lonaT, roughness: 0.85, side: THREE.DoubleSide });
-  const tubo = (a, b, padre = reposera) => { const d = b.clone().sub(a), L = d.length(); const m = mesh(new THREE.CylinderGeometry(0.018, 0.018, L, 8), cm); m.position.copy(a.clone().add(b).multiplyScalar(0.5)); m.quaternion.setFromUnitVectors(V3(0, 1, 0), d.normalize()); padre.add(m); return m; };
-  for (const s of [-1, 1]) { tubo(V3(s * 0.27, 0.0, 0.32), V3(s * 0.27, 0.36, -0.22)); tubo(V3(s * 0.27, 0.0, -0.3), V3(s * 0.27, 0.34, 0.3)); tubo(V3(s * 0.27, 0.0, 0.0), V3(s * 0.27, 0.62, -0.05), respaldo); }
-  const asiento = mesh(new THREE.PlaneGeometry(0.54, 0.56), lm, 0, 0.33, 0.04); asiento.rotation.x = -Math.PI / 2 + 0.12; reposera.add(asiento);
-  const lr = mesh(new THREE.PlaneGeometry(0.54, 0.62), lm, 0, 0.31, -0.03); lr.rotation.x = -0.08; respaldo.add(lr);
-  respaldo.rotation.x = -0.45;
-  // el almohadón crema
-  const al = caja(0.4, 0.08, 0.26, M.cr, 0, 0.42, -0.1, 0.04); al.rotation.x = -0.5; respaldo.add(al);
-}
-sombras(reposera);
-// el cajón de plástico crema dado vuelta con el termo y el táper, la radio portátil, la planta en la lata de aceite
-const cajon = new THREE.Group(); cajon.position.set(0.52, 0, 0.0); RIN.add(cajon);
-cajon.add(caja(0.42, 0.3, 0.32, mat(C.cr2, 0.6), 0, 0.15, 0, 0.02));
-for (let i = 0; i < 3; i++) cajon.add(caja(0.08, 0.16, 0.01, M.cr3, -0.12 + i * 0.12, 0.16, 0.165, 0.004));
-const termoR = crearTermo(); termoR.scale.setScalar(0.85); termoR.position.set(0.1, 0.3, 0.02); cajon.add(termoR);
-const taper = caja(0.16, 0.06, 0.12, mat(0xe8ecef, 0.3), -0.1, 0.33, 0.04, 0.02); cajon.add(taper); cajon.add(caja(0.17, 0.015, 0.13, M.g, -0.1, 0.365, 0.04, 0.006));
-const radio = new THREE.Group(); RIN.add(radio);
-{
-  radio.add(caja(0.34, 0.2, 0.1, M.navy, 0, 0.1, 0, 0.03));
-  const dial = new THREE.Mesh(new THREE.CircleGeometry(0.055, 24), mat(C.cr, 0.5)); dial.position.set(0.08, 0.1, 0.052); radio.add(dial);
-  for (let i = 0; i < 5; i++) radio.add(caja(0.012, 0.09, 0.005, M.cr3, -0.13 + i * 0.03, 0.1, 0.051, 0.002));
-  const ant = mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.38, 6), M.gris, -0.1, 0.36, 0); ant.rotation.z = 0.35; radio.add(ant);
-  radio.add(caja(0.2, 0.02, 0.03, M.navy3, 0, 0.215, 0, 0.01));
-  sombras(radio);
-}
-const RADIO0 = V3(0.42, 0.3, 0.12);   // sobre el cajón, al lado del termo (en RIN)
-const planta = new THREE.Group(); RIN.add(planta);
-{
-  // la lata de aceite vieja (cilindro crema con la franja navy) y la planta crecida, que cuelga por el borde
-  planta.add(mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.22, 18), mat(0xd9d2b8, 0.5, { metalness: 0.2 }), 0, 0.11, 0));
-  planta.add(mesh(new THREE.CylinderGeometry(0.102, 0.102, 0.05, 18), M.navy3, 0, 0.13, 0));
-  semilla = 41;
-  const hm = M.hoja, hm2 = mat(0x6a8f4f, 0.8);
-  const hojaG = new THREE.SphereGeometry(1, 8, 6);
-  for (let i = 0; i < 22; i++) {
-    const a = i * 2.4, r = 0.04 + (i % 5) * 0.035, y = 0.24 + (i % 7) * 0.05, cae = i % 4 === 0 ? -0.18 - (i % 3) * 0.06 : 0;
-    const h = mesh(hojaG, i % 3 ? hm : hm2, Math.cos(a) * (r + (cae ? 0.12 : 0)), y + cae, Math.sin(a) * (r + (cae ? 0.12 : 0)));
-    h.scale.set(0.055, 0.016, 0.035); h.rotation.set(az() * 0.8, a, 0.4 + az() * 0.4); planta.add(h);
-  }
-  for (const s of [-1, 1]) { const tallo = mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.3, 5), hm, s * 0.06, 0.32, 0); tallo.rotation.z = s * 0.3; planta.add(tallo); }
-  sombras(planta);
-}
-const PLANTA0 = V3(-0.5, 0, -0.32);
-// el pallet de HÉCTOR (parte 2): entra vacío y se llena por capas (aceite, harina, agua)
-const palletH = new THREE.Group(); palletH.position.set(SLOT.HECTOR, 0, ZA); scene.add(palletH);
-palletH.add(crearPallet());
-const CAPAS_H = cargarCapas(palletH, 3);
-sombras(palletH);
 
 // =====================================================================================================
-// LA OFICINA DE RUBÉN DE TARDE (pared del fondo: vidrio a la izquierda, crema a la derecha con la puerta)
+// LA OFICINA DE "SILVANA PROPIEDADES" (alrededor del origen, piso y = 0), viernes de tarde, luz pareja
+//   pared del fondo (z = -0.6): ladrillo pintado crema, franja verde a 1,6 m, "SILVANA PROPIEDADES" en letras navy,
+//   el TABLERO DE LLAVES a la derecha de Silvana (+x) y el PANEL DE FICHAS a su izquierda (-x)
+//   Silvana sentada en (0, 0.32) mirando a +z; su escritorio delante; el monitor a su derecha (-x), el celular en altavoz
+//   parado en su soporte a su izquierda (+x)
+//   Diego (x = +0.85) y Romina (x = -0.85) en sus escritorios enfrentados a Silvana (z = 4.25, mirando a -z); detrás de
+//   ellos, la vidriera a la calle (z = 5.15) con las fichas de propiedades colgadas adentro, mirando a la sala
 // =====================================================================================================
 const OF = new THREE.Group(); scene.add(OF);
-const VXG = -0.15;                                // donde termina el vidrio y empieza la pared crema
-const pantM = lienzo(1280, 800, () => {});        // el monitor
-const DESK = { x0: -0.95, x1: 0.95, z0: 1.25, z1: 2.75 };
-const PUERTA = { x0: 0.95, x1: 1.75, alto: 2.15 };
-const MON = { x: -0.95, z: 1.45, ry: 0.6, W: 0.92, H: 0.575 };   // el monitor grande a su derecha, girado hacia la cámara
-let monitor, termo, mate, telefono, puerta, franjas, franjasMesa, ledTel;
+const OFI = { x0: -2.8, x1: 2.8, z0: -0.6, z1: 5.15, alto: 3.0 };
+const MESA_Y = 0.76;
+const SIL = { x: 0, z: 0.3 };                         // Silvana sentada
+const DIE = { x: 0.64, z: 3.62 }, ROM = { x: -0.64, z: 3.62 };
+const DESK_S = { x0: -0.72, x1: 0.72, z0: 0.78, z1: 1.52 };
+const MON = { x: -0.72, z: 0.98, ry: 0.62, W: 0.66, H: 0.41 };
+const pantM = lienzo(1280, 800, () => {});        // el monitor de Silvana
+const pantS = lienzo(600, 1110, () => {});        // el celular de Silvana (altavoz)
+const pantD = lienzo(600, 1110, () => {});        // el celular de Diego (la visita)
+const pantG = lienzo(600, 1110, () => {});        // el celular de Graciela
+let monitor, telS, tablero, ganchoPocitos, llavePocitosTab;
 const paredM = mat(0xefeee5, 0.9);
+// ---- ladrillo pintado crema (relieve bajo, juntas cr2, color plano) ----
+const ladrilloT = lienzo(1024, 1024, (x, w, h) => {
+  x.fillStyle = "#d9d7c9"; x.fillRect(0, 0, w, h);
+  const bh = 64, bw = 200;
+  for (let r = 0; r < h / bh; r++) for (let c = -1; c < w / bw + 1; c++) {
+    const ox = (r % 2) * (bw / 2);
+    x.fillStyle = (r * 7 + c * 3) % 5 === 0 ? "#ebe9df" : "#efeee5"; x.fillRect(c * bw + ox + 6, r * bh + 6, bw - 12, bh - 12);
+  }
+});
+ladrilloT.wrapS = ladrilloT.wrapT = THREE.RepeatWrapping; ladrilloT.repeat.set(5.6 / 2.2, 3.0 / 2.2);
+// ---- llaves con etiqueta kraft redonda ----
+const BARRIOS = ["CENTRO", "CORDÓN", "BUCEO", "PUNTA CARRETAS", "PARQUE RODÓ", "MALVÍN", "PRADO", "CARRASCO", "POCITOS", "AGUADA", "LA BLANQUEADA", "UNIÓN", "TRES CRUCES", "PALERMO", "LA COMERCIAL", "JACINTO VERA", "LARRAÑAGA", "BRAZO ORIENTAL", "ATAHUALPA", "SAYAGO", "PEÑAROL", "COLÓN", "CASAVALLE", "MALVÍN NORTE"];
+const etiquetaT = {};
+function texEtiqueta(nombre) {
+  if (etiquetaT[nombre]) return etiquetaT[nombre];
+  return (etiquetaT[nombre] = lienzo(256, 256, (x, w, h) => {
+    x.clearRect(0, 0, w, h);
+    x.fillStyle = "#c9a46b"; x.beginPath(); x.arc(w / 2, h / 2, w / 2 - 4, 0, 7); x.fill();
+    x.strokeStyle = "#a9864f"; x.lineWidth = 8; x.stroke();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.arc(w / 2, 34, 13, 0, 7); x.fill(); x.strokeStyle = "#8a6a3a"; x.lineWidth = 4; x.stroke();
+    x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle";
+    const pal = nombre.split(" ");
+    if (pal.length === 1) { ajustar(x, nombre, 800, 64, 210); x.fillText(nombre, w / 2, h / 2 + 12); }
+    else { const s = Math.min(ajustar(x, pal[0], 800, 54, 200), ajustar(x, pal.slice(1).join(" "), 800, 54, 200)); x.font = F(800, s); x.fillText(pal[0], w / 2, h / 2 - 8); x.fillText(pal.slice(1).join(" "), w / 2, h / 2 + 46); }
+  }));
+}
+// una llave de bronce con argolla y etiqueta (origen en la argolla; cuelga hacia -y)
+const bronce = mat(0xb08d57, 0.35, { metalness: 0.55 });
+function crearLlave(nombre, R = 0.035) {
+  const g = new THREE.Group();
+  const arg = mesh(new THREE.TorusGeometry(R * 0.32, R * 0.06, 8, 20), M.gris); g.add(arg);
+  const k = new THREE.Group(); k.position.set(0, -R * 0.3, 0); k.rotation.z = 0.25; g.add(k);
+  k.add(mesh(new THREE.TorusGeometry(R * 0.28, R * 0.09, 8, 18), bronce, 0, -R * 0.25, 0));
+  k.add(cajaS(R * 0.13, R * 1.3, R * 0.06, bronce, 0, -R * 1.15, 0));
+  for (let i = 0; i < 3; i++) k.add(cajaS(R * 0.16, R * 0.1, R * 0.06, bronce, R * 0.12, -R * (1.25 + i * 0.22), 0));
+  const et = new THREE.Mesh(new THREE.CircleGeometry(R, 28), new THREE.MeshStandardMaterial({ map: texEtiqueta(nombre), roughness: 0.85, transparent: true, side: THREE.DoubleSide }));
+  et.position.set(-R * 0.15, -R * 1.25, R * 0.06); et.rotation.z = -0.1; g.add(et);
+  g.userData.et = et; g.userData.k = k;
+  return sombras(g);
+}
 {
-  const OW = OFI.x1 - OFI.x0, OC = (OFI.x0 + OFI.x1) / 2, OZ = (OFI.z0 + OFI.z1) / 2;
-  const pisoT = lienzo(512, 512, (x, w, h) => { x.fillStyle = "#b08a5e"; x.fillRect(0, 0, w, h); x.strokeStyle = "#977350"; x.lineWidth = 6; for (let i = 0; i <= 8; i++) { x.beginPath(); x.moveTo(0, i * 64); x.lineTo(w, i * 64); x.stroke(); } });
-  pisoT.wrapS = pisoT.wrapT = THREE.RepeatWrapping; pisoT.repeat.set(3, 2);
-  const p2 = mesh(new THREE.PlaneGeometry(OW, OFI.z1 - OFI.z0), new THREE.MeshStandardMaterial({ map: pisoT, roughness: 0.7 }), OC, OFI.piso + 0.005, OZ); p2.rotation.x = -Math.PI / 2; p2.castShadow = false; OF.add(p2);
-  OF.add(caja(OW, 0.15, OFI.z1 - OFI.z0, M.navy3, OC, OFI.piso + OFI.alto + 0.07, OZ));
-  OF.add(caja(OW, OFI.alto, 0.12, paredM, OC, OFI.piso + OFI.alto / 2, OFI.z1));
-  OF.add(caja(0.12, OFI.alto, OFI.z1 - OFI.z0, paredM, OFI.x0, OFI.piso + OFI.alto / 2, OZ));
-  const WZ0 = 1.4, WZ1 = 3.6, WY0 = 0.9, WY1 = 2.5;
-  OF.add(caja(0.12, OFI.alto, WZ0, paredM, OFI.x1, OFI.piso + OFI.alto / 2, WZ0 / 2));
-  OF.add(caja(0.12, OFI.alto, OFI.z1 - WZ1, paredM, OFI.x1, OFI.piso + OFI.alto / 2, (WZ1 + OFI.z1) / 2));
-  OF.add(caja(0.12, WY0, WZ1 - WZ0, paredM, OFI.x1, OFI.piso + WY0 / 2, (WZ0 + WZ1) / 2));
-  OF.add(caja(0.12, OFI.alto - WY1, WZ1 - WZ0, paredM, OFI.x1, OFI.piso + WY1 + (OFI.alto - WY1) / 2, (WZ0 + WZ1) / 2));
-  const cielo = new THREE.Mesh(new THREE.PlaneGeometry(WZ1 - WZ0, WY1 - WY0), new THREE.MeshBasicMaterial({ color: 0xf7e4bf, toneMapped: false })); cielo.position.set(OFI.x1 + 0.2, OFI.piso + (WY0 + WY1) / 2, (WZ0 + WZ1) / 2); cielo.rotation.y = -Math.PI / 2; OF.add(cielo);
-  for (let i = 0; i < 20; i++) { const l = caja(0.012, 0.055, WZ1 - WZ0 - 0.04, mat(C.cr, 0.6), OFI.x1 - 0.1, OFI.piso + WY1 - 0.06 - i * 0.078, (WZ0 + WZ1) / 2, 0.004); l.rotation.z = 0.5; OF.add(l); }
-  OF.add(caja(0.08, 0.07, WZ1 - WZ0 + 0.1, M.navy3, OFI.x1 - 0.1, OFI.piso + WY1 + 0.04, (WZ0 + WZ1) / 2));
-  OF.add(caja(OW, 0.14, 0.03, M.navy3, OC, OFI.piso + 0.07, OFI.z1 - 0.07));
-  for (const x of [OFI.x0 + 0.07, OFI.x1 - 0.07]) OF.add(caja(0.03, 0.14, OFI.z1 - OFI.z0, M.navy3, x, OFI.piso + 0.07, OZ));
-  const v = new THREE.Mesh(new THREE.PlaneGeometry(VXG - OFI.x0, OFI.alto), M.vidrio); v.position.set((OFI.x0 + VXG) / 2, OFI.piso + OFI.alto / 2, 0); v.renderOrder = 3; OF.add(v);
-  for (const x of [OFI.x0 + 0.04, -2.35, -1.15, VXG]) PASO.add(caja(0.07, OFI.alto, 0.09, M.navy, x, OFI.piso + OFI.alto / 2, 0));
-  PASO.add(caja(VXG - OFI.x0, 0.08, 0.1, M.navy, (OFI.x0 + VXG) / 2, OFI.piso + OFI.alto - 0.04, 0)); PASO.add(caja(VXG - OFI.x0, 0.12, 0.1, M.navy, (OFI.x0 + VXG) / 2, OFI.piso + 0.06, 0));
-  const tramo = (a, b, y0, y1) => OF.add(caja(b - a, y1 - y0, 0.12, paredM, (a + b) / 2, OFI.piso + (y0 + y1) / 2, -0.03));
-  tramo(VXG, PUERTA.x0, 0, OFI.alto); tramo(PUERTA.x1, OFI.x1, 0, OFI.alto); tramo(PUERTA.x0, PUERTA.x1, PUERTA.alto, OFI.alto);
-  OF.add(caja(OFI.x1 - VXG, 0.14, 0.03, M.navy3, (VXG + OFI.x1) / 2, OFI.piso + 0.07, 0.04));
-  for (const x of [PUERTA.x0 - 0.03, PUERTA.x1 + 0.03]) OF.add(caja(0.06, PUERTA.alto, 0.16, M.navy3, x, OFI.piso + PUERTA.alto / 2, 0.0));
-  OF.add(caja(PUERTA.x1 - PUERTA.x0 + 0.12, 0.06, 0.16, M.navy3, (PUERTA.x0 + PUERTA.x1) / 2, OFI.piso + PUERTA.alto + 0.03, 0.0));
-  // el pizarrón chico con la ruta de los vendedores (a la derecha de la puerta) y el almanaque de la distribuidora
-  const piz = lienzo(560, 380, (x, w, h) => { x.fillStyle = "#f7f6f0"; x.fillRect(0, 0, w, h); x.strokeStyle = "#1f3254"; x.lineWidth = 28; x.strokeRect(0, 0, w, h); x.fillStyle = "#16243d"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = CAV(96); x.fillText("Ruta Nico", 50, 110); x.font = CAV(80); x.fillText("lun · mié · vie", 50, 230); });
-  OF.add(plano(0.7, 0.475, piz, 2.45, OFI.piso + 1.7, 0.04));
-  const DW = DESK.x1 - DESK.x0, DD = DESK.z1 - DESK.z0, DCX = (DESK.x0 + DESK.x1) / 2, DCZ = (DESK.z0 + DESK.z1) / 2;
-  OF.add(caja(DW, 0.05, DD, mat(0xc89a64, 0.55), DCX, MESA_Y - 0.025, DCZ, 0.012));
-  for (const x of [DESK.x0 + 0.06, DESK.x1 - 0.06]) OF.add(caja(0.06, 0.72, DD - 0.1, M.navy3, x, OFI.piso + 0.36, DCZ));
-  OF.add(caja(DW - 0.15, 0.5, 0.03, M.navy3, DCX, OFI.piso + 0.45, DESK.z1 - 0.08));
-  const silla = new THREE.Group(); silla.position.set(0, OFI.piso, 0.62); OF.add(silla);
-  silla.add(caja(0.52, 0.08, 0.5, M.navy, 0, 0.5, 0.18)); silla.add(caja(0.5, 0.7, 0.08, M.navy, 0, 0.92, -0.08)); silla.add(caja(0.06, 0.48, 0.06, M.gris, 0, 0.25, 0.15));
+  const OW = OFI.x1 - OFI.x0, OD = OFI.z1 - OFI.z0, OZ = (OFI.z0 + OFI.z1) / 2;
+  // piso de porcelanato navy2 en placas grandes (mate)
+  const pisoT = lienzo(512, 512, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.strokeStyle = "#22355a"; x.lineWidth = 5; x.strokeRect(0, 0, w, h); });
+  pisoT.wrapS = pisoT.wrapT = THREE.RepeatWrapping; pisoT.repeat.set(OW / 0.9, OD / 0.9);
+  const piso = mesh(new THREE.PlaneGeometry(OW, OD), new THREE.MeshStandardMaterial({ map: pisoT, roughness: 0.85 }), 0, 0, OZ); piso.rotation.x = -Math.PI / 2; piso.castShadow = false; OF.add(piso);
+  OF.add(cajaS(OW, 0.1, OD, mat(0xe4e2d6, 0.95), 0, OFI.alto + 0.05, OZ));
+  for (const [x, z] of [[-1.2, 1.2], [1.2, 1.2], [-1.2, 3.6], [1.2, 3.6]]) { const l = mesh(new THREE.PlaneGeometry(1.0, 0.5), new THREE.MeshBasicMaterial({ color: 0xfbfaf4 }), x, OFI.alto - 0.005, z); l.rotation.x = Math.PI / 2; l.castShadow = false; OF.add(l); }
+  // pared del fondo: ladrillo crema
+  const fondo = mesh(new THREE.BoxGeometry(OW, OFI.alto, 0.12), new THREE.MeshStandardMaterial({ map: ladrilloT, roughness: 0.92 }), 0, OFI.alto / 2, OFI.z0 - 0.06); fondo.castShadow = false; OF.add(fondo);
+  // la franja verde de marca (25 cm a 1,6 m) y el nombre en letras navy corpóreas (dos planos: la sombra y la cara)
+  OF.add(caja(OW, 0.25, 0.025, M.g, 0, 1.725, OFI.z0 + 0.012, 0.004));
+  const nombreT = lienzo(2048, 200, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SILVANA PROPIEDADES", 800, 150, w - 40); x.fillText("SILVANA PROPIEDADES", w / 2, h / 2 + 6); });
+  const nombreS = nombreT.clone(); nombreS.needsUpdate = true;
+  const nm = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0, 2.2, OFI.z0 + 0.05); OF.add(nm);
+  const ns = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.254), new THREE.MeshBasicMaterial({ map: nombreS, transparent: true, opacity: 0.22, color: 0x000000 })); ns.position.set(0.012, 2.188, OFI.z0 + 0.02); OF.add(ns);
+  // paredes de los costados (crema lisa) con zócalo navy
+  for (const x of [OFI.x0, OFI.x1]) { const p = mesh(new THREE.BoxGeometry(0.12, OFI.alto, OD), paredM, x, OFI.alto / 2, OZ); p.castShadow = false; OF.add(p); OF.add(caja(0.03, 0.12, OD, M.navy3, x - Math.sign(x) * 0.07, 0.06, OZ)); }
+  OF.add(caja(OW, 0.12, 0.03, M.navy3, 0, 0.06, OFI.z0 + 0.02));
+  // la vidriera a la calle (z1): parantes navy3, vidrio, la vereda de enfrente clara
+  for (const x of [-2.75, -1.4, 0, 1.4, 2.75]) OF.add(caja(0.09, OFI.alto, 0.12, M.navy3, x, OFI.alto / 2, OFI.z1));
+  OF.add(caja(OW, 0.12, 0.14, M.navy3, 0, 0.06, OFI.z1)); OF.add(caja(OW, 0.14, 0.14, M.navy3, 0, 2.55, OFI.z1));
+  const calle = mesh(new THREE.PlaneGeometry(14, 6), new THREE.MeshBasicMaterial({ color: 0xe6ebec }), 0, 2.5, OFI.z1 + 3.5); calle.rotation.y = Math.PI; calle.castShadow = false; OF.add(calle);
+  const enfrente = mesh(new THREE.PlaneGeometry(14, 2.3), new THREE.MeshBasicMaterial({ color: 0xcfd6da }), 0, 1.15, OFI.z1 + 3.4); enfrente.rotation.y = Math.PI; enfrente.castShadow = false; OF.add(enfrente);
+  const vid = new THREE.Mesh(new THREE.PlaneGeometry(OW, 2.5), M.vidrio); vid.position.set(0, 1.27, OFI.z1 + 0.02); vid.rotation.y = Math.PI; vid.renderOrder = 3; OF.add(vid);
+}
+// ---- las fichas de propiedades (A4 crema con encabezado VENDE navy / ALQUILA verde oscuro, la casita y el precio) ----
+function texFicha(tipo, barrio, dorm, precio, grande = false) {
+  return lienzo(420, 594, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+    x.fillStyle = tipo === "VENDE" ? "#16243d" : "#3fa60a"; x.fillRect(0, 0, w, 120);
+    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, tipo, 900, 92, w - 40); x.fillText(tipo, w / 2, 64);
+    // la casita en líneas navy
+    x.strokeStyle = "#16243d"; x.lineWidth = 12; x.lineJoin = "round";
+    x.beginPath(); x.moveTo(90, 300); x.lineTo(210, 190); x.lineTo(330, 300); x.moveTo(115, 280); x.lineTo(115, 390); x.lineTo(305, 390); x.lineTo(305, 280); x.stroke();
+    x.strokeRect(185, 315, 50, 75);
+    x.fillStyle = "#16243d"; ajustar(x, barrio, 900, 64, w - 30); x.fillText(barrio, w / 2, 448);
+    x.font = F(700, 42); x.fillText(dorm, w / 2, 502);
+    x.fillStyle = tipo === "VENDE" ? "#0b1220" : "#3fa60a"; ajustar(x, precio, 900, 54, w - 30); x.fillText(precio, w / 2, 556);
+    if (grande) { x.strokeStyle = "#5ce611"; x.lineWidth = 14; x.strokeRect(7, 7, w - 14, h - 14); }
+  });
+}
+let fichaGraciela;
+{
+  // el panel de la pared del fondo (izquierda de Silvana): marco navy3, cable y broches; la de Graciela grande, al frente
+  const P = new THREE.Group(); P.position.set(-0.78, 0, OFI.z0 + 0.02); OF.add(P);
+  P.add(caja(0.92, 0.035, 0.03, M.navy3, 0, 1.6, 0.02, 0.008));
+  const fich = [["ALQUILA", "CORDÓN", "1 dorm.", "$ 24.000", -0.3, 1.33, 0.16], ["VENDE", "BUCEO", "3 dorm.", "USD 245.000", 0.3, 1.33, 0.16], ["ALQUILA", "CENTRO", "2 dorm.", "$ 28.500", -0.3, 1.02, 0.16]];
+  for (const [tp, b, d, p, x, y, w] of fich) { const f = plano(w, w * 1.414, texFicha(tp, b, d, p), x, y, 0.035); P.add(f); P.add(caja(0.025, 0.02, 0.012, M.navy, x, y + w * 0.707 - 0.01, 0.045, 0.004)); }
+  fichaGraciela = plano(0.26, 0.26 * 1.414, texFicha("VENDE", "POCITOS", "2 dorm.", "USD 180.000", true), 0.14, 1.19, 0.05); P.add(fichaGraciela);
+  P.add(caja(0.03, 0.022, 0.012, M.navy, 0.14, 1.19 + 0.18, 0.06, 0.004));
+  // las de la vidriera (miran a la sala, -z)
+  const V = new THREE.Group(); V.position.set(0, 0, OFI.z1 - 0.08); V.rotation.y = Math.PI; OF.add(V);
+  V.add(cajaS(5.4, 0.012, 0.012, M.navy, 0, 2.38, 0));
+  const vf = [["VENDE", "PUNTA CARRETAS", "2 dorm.", "USD 310.000"], ["ALQUILA", "PARQUE RODÓ", "1 dorm.", "$ 26.000"], ["VENDE", "MALVÍN", "3 dorm.", "USD 198.000"], ["ALQUILA", "POCITOS", "2 dorm.", "$ 35.000"], ["VENDE", "CARRASCO", "4 dorm.", "USD 520.000"], ["VENDE", "PRADO", "3 dorm.", "USD 230.000"], ["ALQUILA", "CORDÓN", "2 dorm.", "$ 27.000"], ["VENDE", "BUCEO", "2 dorm.", "USD 205.000"]];
+  vf.forEach(([tp, b, d, p], i) => { const x = -2.25 + (i % 4) * 0.52 + (i >= 4 ? 2.45 : 0) - (i >= 4 ? 0 : 0); const xx = i < 4 ? -2.35 + i * 0.5 : 0.85 + (i - 4) * 0.5; const f = plano(0.34, 0.48, texFicha(tp, b, d, p), xx, 2.08, 0.0); V.add(f); V.add(cajaS(0.003, 0.06, 0.003, M.navy, xx, 2.35, 0)); void x; });
+}
+// ---- EL TABLERO DE LLAVES (madera clara, 4 filas de 6 ganchos, etiquetas kraft); POCITOS: la etiqueta en la madera y
+// el gancho vacío en la parte 1, con su llave en la parte 2 ----
+{
+  tablero = new THREE.Group(); tablero.position.set(0.5, 1.24, OFI.z0 + 0.02); OF.add(tablero);
+  const TW = 0.64, TH = 0.56;
+  tablero.add(caja(TW, TH, 0.03, mat(0xc9a774, 0.7), 0, 0, 0.015, 0.01));
+  tablero.add(caja(TW + 0.04, 0.03, 0.04, mat(0xa98754, 0.7), 0, TH / 2 + 0.01, 0.02, 0.006));
+  const tituloT = lienzo(512, 64, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "LLAVES", 900, 54, w); x.fillText("LLAVES", w / 2, h / 2 + 3); });
+  tablero.add(plano(0.3, 0.0375, tituloT, 0, TH / 2 - 0.035, 0.031));
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) {
+    const i = r * 6 + c, nombre = BARRIOS[i], x = -TW / 2 + 0.062 + c * 0.103, y = TH / 2 - 0.11 - r * 0.124;
+    const gancho = mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.035, 6), bronce, x, y, 0.045); gancho.rotation.x = Math.PI / 2; tablero.add(gancho);
+    if (nombre === "POCITOS") {
+      ganchoPocitos = new THREE.Vector3(x, y, 0.045);
+      const et = new THREE.Mesh(new THREE.CircleGeometry(0.03, 28), new THREE.MeshStandardMaterial({ map: texEtiqueta(nombre), roughness: 0.85, transparent: true })); et.position.set(x, y - 0.05, 0.032); tablero.add(et);
+      llavePocitosTab = crearLlave("POCITOS", 0.026); llavePocitosTab.position.set(x, y, 0.06); tablero.add(llavePocitosTab);
+      continue;
+    }
+    const ll = crearLlave(nombre, 0.026); ll.position.set(x, y, 0.06); ll.rotation.z = ((i * 37) % 7 - 3) * 0.02; tablero.add(ll);
+  }
+}
+// ---- EL ESCRITORIO DE SILVANA: tapa crema, patas navy3; el monitor, el teclado, el celular en altavoz en su soporte,
+// el portalápices y una planta chica ----
+const MADERA_CR = mat(0xe8e2d0, 0.6);
+function escritorio(x0, x1, z0, z1, frente = true) {
+  const g = new THREE.Group();
+  const DW = x1 - x0, DD = z1 - z0, CX = (x0 + x1) / 2, CZ = (z0 + z1) / 2;
+  g.add(caja(DW, 0.045, DD, MADERA_CR, CX, MESA_Y - 0.022, CZ, 0.01));
+  for (const x of [x0 + 0.04, x1 - 0.04]) g.add(caja(0.045, MESA_Y - 0.045, DD - 0.08, M.navy3, x, (MESA_Y - 0.045) / 2, CZ));
+  if (frente) g.add(caja(DW - 0.1, 0.42, 0.02, M.navy3, CX, MESA_Y - 0.28, z0 + 0.05));
+  return g;
+}
+function silla() {
+  const g = new THREE.Group();
+  g.add(caja(0.5, 0.07, 0.48, M.navy, 0, 0.47, 0)); g.add(caja(0.46, 0.55, 0.07, M.navy, 0, 0.82, -0.24));
+  g.add(cajaS(0.05, 0.4, 0.05, M.gris, 0, 0.24, 0));
+  for (let i = 0; i < 5; i++) { const a = (i / 5) * Math.PI * 2; const p = cajaS(0.3, 0.03, 0.04, M.gris, Math.cos(a) * 0.15, 0.04, Math.sin(a) * 0.15); p.rotation.y = -a; g.add(p); }
+  return sombras(g);
+}
+const sillaS = silla(); sillaS.position.set(SIL.x, 0, SIL.z - 0.02); OF.add(sillaS);
+{
+  OF.add(escritorio(DESK_S.x0, DESK_S.x1, DESK_S.z0, DESK_S.z1));
   monitor = new THREE.Group(); monitor.position.set(MON.x, MESA_Y, MON.z); monitor.rotation.y = MON.ry; OF.add(monitor);
-  monitor.add(caja(0.1, 0.32, 0.1, M.navy, 0, 0.16, -0.05)); monitor.add(caja(0.36, 0.03, 0.28, M.navy, 0, 0.015, -0.03));
-  monitor.add(caja(MON.W + 0.07, MON.H + 0.07, 0.06, M.navy, 0, 0.36 + MON.H / 2, 0, 0.025));
-  const pm = new THREE.Mesh(new THREE.PlaneGeometry(MON.W, MON.H), new THREE.MeshBasicMaterial({ map: pantM, toneMapped: false })); pm.position.set(0, 0.36 + MON.H / 2, 0.032); monitor.add(pm);
-  monitor.userData.centro = V3(0, 0.36 + MON.H / 2, 0.032);
-  const teclado = new THREE.Group(); teclado.position.set(-0.05, MESA_Y, 1.6); OF.add(teclado);
-  teclado.add(caja(0.5, 0.025, 0.17, M.navy3, 0, 0.012, 0, 0.01));
-  for (let i = 0; i < 3; i++) for (let k = 0; k < 12; k++) teclado.add(caja(0.032, 0.012, 0.032, M.cr2, -0.21 + k * 0.038, 0.03, -0.045 + i * 0.042, 0.004));
-  // EL TELÉFONO DE ESCRITORIO EN ALTAVOZ (primer término, a la derecha del cuadro): pantallita crema "CONTADOR" y el led
-  // verde del altavoz
-  telefono = new THREE.Group(); telefono.position.set(-0.22, MESA_Y, 2.45); telefono.rotation.y = -0.12; telefono.scale.setScalar(1.45); OF.add(telefono);
-  telefono.add(caja(0.26, 0.07, 0.24, M.navy3, 0, 0.035, 0, 0.03));
-  const cuna = caja(0.24, 0.045, 0.08, M.navy, 0, 0.095, -0.075, 0.02); telefono.add(cuna);
-  const tubo = caja(0.27, 0.05, 0.075, M.navy3, 0, 0.13, -0.075, 0.03); telefono.add(tubo);
-  for (let i = 0; i < 12; i++) telefono.add(caja(0.026, 0.012, 0.022, M.cr, 0.04 + (i % 3) * 0.032, 0.075, 0.0 + Math.floor(i / 3) * 0.028, 0.004));
-  const pantT = lienzo(320, 120, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "CONTADOR", 900, 70, w - 30); x.fillText("CONTADOR", w / 2, h / 2 + 3); });
-  const pantTel = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.05), new THREE.MeshBasicMaterial({ map: pantT, toneMapped: false })); pantTel.rotation.x = -Math.PI / 2 + 0.25; pantTel.position.set(-0.055, 0.073, 0.025); telefono.add(pantTel);
-  // el parlante (rejilla de rayitas) y el led
-  for (let i = 0; i < 4; i++) telefono.add(caja(0.075, 0.004, 0.006, M.navy, -0.06, 0.071, 0.065 + i * 0.012, 0.002));
-  ledTel = new THREE.Mesh(new THREE.SphereGeometry(0.009, 10, 8), new THREE.MeshBasicMaterial({ color: C.g, toneMapped: false })); ledTel.position.set(-0.115, 0.074, 0.075); telefono.add(ledTel);
-  const cable = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([V3(0.13, 0.13, -0.075), V3(0.17, 0.08, -0.06), V3(0.16, 0.03, -0.0), V3(0.14, 0.02, 0.05), V3(0.135, 0.06, 0.02)]), 30, 0.005, 6), M.navy); telefono.add(cable);
-  mate = crearMate(); mate.scale.setScalar(1.12); OF.add(mate);
-  termo = crearTermo(); termo.scale.setScalar(1.15); termo.position.set(0.72, MESA_Y, 2.3); termo.rotation.y = 0.4; OF.add(termo);
-  // la pila de remitos con el broche y los biblioratos (atrás, a la izquierda del teclado)
-  for (let i = 0; i < 6; i++) OF.add(caja(0.21, 0.006, 0.29, mat(i % 2 ? C.cr : 0xe8e4d6, 0.9), 0.05 + i * 0.004, MESA_Y + 0.004 + i * 0.006, 2.45, 0.002).rotateY(0.1 * i - 0.3));
-  OF.add(caja(0.08, 0.02, 0.04, M.gris, 0.06, MESA_Y + 0.05, 2.35, 0.006));
-  OF.add(caja(0.5, 1.1, 0.5, M.navy3, -3.1, OFI.piso + 0.55, 3.6));
-  OF.add(caja(0.3, 0.05, 1.4, M.navy3, -3.42, OFI.piso + 1.6, 3.0));
-  for (let i = 0; i < 7; i++) OF.add(caja(0.26, 0.34, 0.12, [M.navy3, M.g, M.cr2, M.red][i % 4], -3.42, OFI.piso + 1.8, 2.45 + i * 0.17, 0.01));
+  monitor.add(caja(0.08, 0.26, 0.08, M.navy, 0, 0.13, -0.05)); monitor.add(caja(0.28, 0.02, 0.2, M.navy, 0, 0.01, -0.03));
+  monitor.add(caja(MON.W + 0.05, MON.H + 0.05, 0.045, M.navy, 0, 0.28 + MON.H / 2, 0, 0.018));
+  const pm = new THREE.Mesh(new THREE.PlaneGeometry(MON.W, MON.H), new THREE.MeshBasicMaterial({ map: pantM, toneMapped: false })); pm.position.set(0, 0.28 + MON.H / 2, 0.024); monitor.add(pm);
+  monitor.userData.centro = V3(0, 0.28 + MON.H / 2, 0.024);
+  const tec = new THREE.Group(); tec.position.set(-0.12, MESA_Y, 1.12); tec.rotation.y = 0.25; OF.add(tec);
+  tec.add(caja(0.42, 0.02, 0.14, M.navy3, 0, 0.01, 0, 0.008));
+  for (let i = 0; i < 3; i++) for (let k = 0; k < 10; k++) tec.add(caja(0.028, 0.01, 0.028, M.cr2, -0.17 + k * 0.038, 0.024, -0.04 + i * 0.038, 0.004));
+  // el celular de Silvana en altavoz, parado en un soporte (funda crema), la pantalla a la cámara
+  telS = new THREE.Group(); telS.position.set(0.3, MESA_Y, 1.02); telS.rotation.y = -0.18; OF.add(telS);
+  telS.add(caja(0.12, 0.012, 0.1, M.navy3, 0, 0.006, 0, 0.004)); telS.add(caja(0.1, 0.07, 0.012, M.navy3, 0, 0.04, -0.035, 0.004));
+  const piv = new THREE.Group(); piv.position.set(0, 0.018, 0.0); piv.rotation.x = -0.42; telS.add(piv);
+  const S = 1.35, W = 0.08 * S, H = 0.162 * S;
+  piv.add(caja(W + 0.008, H + 0.008, 0.013, mat(0xe0dccb, 0.5), 0, H / 2, 0, 0.012));
+  const sp = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.004, H - 0.006), new THREE.MeshBasicMaterial({ map: pantS, toneMapped: false })); sp.position.set(0, H / 2, 0.0072); piv.add(sp);
+  telS.userData = { piv, sp, centro: V3(0, H / 2, 0.0072), H, W };
+  // portalápices y planta chica
+  const pl = new THREE.Group(); pl.position.set(0.6, MESA_Y, 0.92); OF.add(pl);
+  pl.add(mesh(new THREE.CylinderGeometry(0.035, 0.03, 0.1, 16), M.navy3, 0, 0.05, 0));
+  for (const [dx, c] of [[-0.01, M.g], [0.012, M.cr], [0.0, M.red]]) { const l = mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.15, 6), c, dx, 0.1, 0.005); l.rotation.z = dx * 8; pl.add(l); }
+  const mac = new THREE.Group(); mac.position.set(-0.6, MESA_Y, 1.35); OF.add(mac);
+  mac.add(mesh(new THREE.CylinderGeometry(0.05, 0.04, 0.09, 16), M.cr2, 0, 0.045, 0));
+  for (let i = 0; i < 6; i++) { const h = mesh(new THREE.SphereGeometry(0.035, 10, 8), M.hoja, Math.cos(i) * 0.03, 0.11 + (i % 3) * 0.02, Math.sin(i * 1.7) * 0.03); h.scale.set(1, 1.6, 0.6); h.rotation.z = (i - 3) * 0.3; mac.add(h); }
+  sombras(OF);
 }
-puerta = new THREE.Group(); puerta.position.set(PUERTA.x1, OFI.piso, 0.0); OF.add(puerta);
+// ---- los escritorios de Diego (post-its en el panelito del frente, la llave MALVÍN, la notebook, la taza) y de Romina
+// (la agenda de papel tachada, la lapicera) ----
+const postT = (txt, k) => lienzo(256, 256, (x, w, h) => { x.fillStyle = "#f3e9b8"; x.fillRect(0, 0, w, h); x.fillStyle = "#e6dba6"; x.fillRect(0, 0, w, 22); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; const l = txt.split("|"); l.forEach((s, i) => { x.font = CAV(l.length > 1 ? 78 : 86); let px = l.length > 1 ? 78 : 86; while (x.measureText(s).width > w - 20 && px > 30) { px -= 4; x.font = CAV(px); } const y = h / 2 + 12 + (i - (l.length - 1) / 2) * 76; x.fillText(s, w / 2, y); if (s.includes("¿")) { x.fillStyle = "#c7655b"; } }); void k; });
+let llaveMalvin, sillaD, sillaR;
 {
-  const PW = PUERTA.x1 - PUERTA.x0;
-  puerta.add(caja(PW, PUERTA.alto - 0.02, 0.05, M.navy3, -PW / 2, PUERTA.alto / 2, 0, 0.01));
-  const esm = new THREE.Mesh(new THREE.PlaneGeometry(PW - 0.16, PUERTA.alto - 0.5), mat(0xdfe7ee, 0.3, { emissive: 0xdfe7ee, emissiveIntensity: 0.25 })); esm.position.set(-PW / 2, PUERTA.alto / 2 + 0.12, 0.028); puerta.add(esm);
-  const esm2 = esm.clone(); esm2.position.z = -0.028; esm2.rotation.y = Math.PI; puerta.add(esm2);
-  puerta.add(caja(0.12, 0.03, 0.06, M.gris, -PW + 0.1, 1.0, 0.05, 0.01));
-  sombras(puerta);
+  for (const [P, nombre] of [[DIE, "D"], [ROM, "R"]]) {
+    const z0 = P.z - 0.95, z1 = P.z - 0.3;
+    OF.add(escritorio(P.x - 0.46, P.x + 0.46, z0, z1));
+    const s = silla(); s.position.set(P.x, 0, P.z + 0.02); s.rotation.y = Math.PI; OF.add(s);
+    if (nombre === "D") sillaD = s; else sillaR = s;
+  }
+  // Diego: el panelito navy del frente de su escritorio, tapado de post-its crema con letra Caveat
+  const pan = new THREE.Group(); pan.position.set(DIE.x, MESA_Y, DIE.z - 0.93); OF.add(pan);
+  pan.add(caja(0.72, 0.36, 0.025, M.navy3, 0.07, 0.18, 0, 0.01));
+  const PS = [["Pocitos|¿6?", -0.2, 0.22, 0.08], ["llamar a la|de Malvín", 0.0, 0.24, -0.06], ["visita|¿jueves?", 0.2, 0.21, 0.05], ["Martín ¿?", 0.36, 0.24, -0.1], ["Pocitos|¿llave?", -0.12, 0.08, -0.04], ["¿?", 0.26, 0.08, 0.12]];
+  for (const [tx, x, y, r] of PS) { const p = new THREE.Mesh(new THREE.PlaneGeometry(0.11, 0.11), new THREE.MeshStandardMaterial({ map: postT(tx), roughness: 0.85 })); p.position.set(x, y, -0.016); p.rotation.set(0, Math.PI, r); pan.add(p); }
+  // la notebook de Diego (abierta hacia él) y la taza navy
+  const nb = new THREE.Group(); nb.position.set(DIE.x + 0.22, MESA_Y, DIE.z - 0.62); nb.rotation.y = Math.PI - 0.3; OF.add(nb);
+  nb.add(caja(0.32, 0.015, 0.22, M.gris, 0, 0.008, 0, 0.006)); const tapa = caja(0.32, 0.22, 0.012, M.gris, 0, 0.11, -0.115, 0.006); tapa.rotation.x = -0.25; nb.add(tapa);
+  const taza = new THREE.Group(); taza.position.set(DIE.x + 0.36, MESA_Y, DIE.z - 0.45); OF.add(taza);
+  taza.add(mesh(new THREE.CylinderGeometry(0.04, 0.035, 0.1, 18), M.navy3, 0, 0.05, 0)); const asa = mesh(new THREE.TorusGeometry(0.025, 0.008, 8, 14), M.navy3, 0.045, 0.055, 0); taza.add(asa);
+  // LA LLAVE "MALVÍN" en el escritorio de Diego (plantada desde P3), la etiqueta de frente a la cámara
+  const taza2 = new THREE.Group(); taza2.position.set(DIE.x - 0.32, MESA_Y, DIE.z - 0.78); OF.add(taza2);
+  taza2.add(mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.11, 18), M.navy3, 0, 0.055, 0)); taza2.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.005, 18), mat(0x4a2e1c, 0.4), 0, 0.106, 0));
+  llaveMalvin = crearLlave("MALVÍN", 0.07); llaveMalvin.position.set(DIE.x - 0.32, MESA_Y + 0.112, DIE.z - 0.828); llaveMalvin.rotation.set(-0.12, Math.PI + 0.5, 0.0); OF.add(llaveMalvin);
+  // Romina: la agenda de papel abierta, tachada, y la lapicera
+  const agT = lienzo(800, 520, (x, w, h) => {
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#d9d7c9"; x.fillRect(w / 2 - 6, 0, 12, h);
+    x.strokeStyle = "#b9cde0"; x.lineWidth = 3; for (let y = 70; y < h; y += 54) { x.beginPath(); x.moveTo(20, y); x.lineTo(w - 20, y); x.stroke(); }
+    x.fillStyle = "#16243d"; x.textAlign = "left"; x.textBaseline = "alphabetic";
+    const L = ["mar 10 Pocitos", "mié 18 Pocitos", "jue 12 ¿Pocitos?", "vie 17:30 ?"]; L.forEach((s, i) => { x.font = CAV(52); x.fillText(s, 34, 108 + i * 108); x.strokeStyle = "#16243d"; x.lineWidth = 7; x.beginPath(); x.moveTo(28, 92 + i * 108); x.lineTo(34 + x.measureText(s).width + 10, 90 + i * 108 + (i % 2 ? 6 : -4)); x.stroke(); });
+    x.font = CAV(56); x.fillText("¡llamar a", 430, 140); x.fillText("Graciela!", 440, 200); x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.moveTo(430, 260); x.lineTo(560, 360); x.lineTo(540, 330); x.moveTo(560, 360); x.lineTo(525, 362); x.stroke();
+  });
+  const ag = plano(0.42, 0.273, agT, ROM.x + 0.05, MESA_Y + 0.006, ROM.z - 0.66); ag.rotation.set(-Math.PI / 2, 0, Math.PI); OF.add(ag);
+  const lap = mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.15, 8), M.navy, ROM.x - 0.3, MESA_Y + 0.008, ROM.z - 0.6); lap.rotation.set(Math.PI / 2, 0, 0.8); OF.add(lap);
+  sombras(OF);
 }
-// las franjas de sol de la persiana (de tarde: cálidas, bajas y largas)
-const rayasT = lienzo(512, 512, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#ffe2b0"; for (let i = 0; i < 8; i++) x.fillRect(0, i * 64 + 6, w, 30); });
-rayasT.wrapS = rayasT.wrapT = THREE.RepeatWrapping;
-{
-  const m = new THREE.MeshBasicMaterial({ map: rayasT, transparent: true, opacity: 0.45, depthWrite: false, toneMapped: false, polygonOffset: true, polygonOffsetFactor: -2 });
-  franjas = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.4), m); franjas.position.set(1.4, OFI.piso + 1.0, 0.065); franjas.rotation.z = -0.1; franjas.renderOrder = 2; OF.add(franjas);
-  const m2 = m.clone(); m2.map = rayasT.clone(); m2.map.needsUpdate = true; m2.opacity = 0.3;
-  franjasMesa = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 1.4), m2); franjasMesa.rotation.x = -Math.PI / 2; franjasMesa.rotation.z = 0.12; franjasMesa.position.set(0.3, MESA_Y + 0.003, 1.95); franjasMesa.renderOrder = 2; OF.add(franjasMesa);
-}
-sombras(OF);
-OF.traverse((o) => { if (o.isMesh && (o.material === M.vidrio || o.material.transparent)) { o.castShadow = false; o.receiveShadow = false; } });
-// ---- luces de la oficina de tarde: el sol bajo y cálido por la persiana (con sombra), el cielo, un relleno frío ----
-const solOf = new THREE.DirectionalLight(0xffdcae, 2.4);
-solOf.castShadow = true; solOf.shadow.mapSize.set(2048, 2048); solOf.shadow.bias = -0.0008; solOf.shadow.radius = 2;
-Object.assign(solOf.shadow.camera, { left: -3, right: 3, top: 3, bottom: -3, near: 1, far: 20 });
-solOf.position.set(7.0, OFI.piso + 2.6, 2.6); solOf.target.position.set(0, OFI.piso + 0.9, 1.4); scene.add(solOf, solOf.target);
-const cieloOf = new THREE.HemisphereLight(0xf4efe4, 0x6a5a48, 1.6); scene.add(cieloOf);
-const rellenoOf = new THREE.DirectionalLight(0xe2eafa, 0.85); rellenoOf.position.set(-1.5, OFI.piso + 3.5, 7); rellenoOf.target.position.set(0, OFI.piso + 1.2, 1); scene.add(rellenoOf, rellenoOf.target);
-const solDep = new THREE.DirectionalLight(0xfffaf2, 1.6);
-solDep.castShadow = true; solDep.shadow.mapSize.set(2048, 2048); solDep.shadow.bias = -0.0006; solDep.shadow.radius = 2;
-Object.assign(solDep.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 1, far: 40 });
-solDep.position.set(-2, 13, 0); solDep.target.position.set(0, 0, -5); scene.add(solDep, solDep.target);
-const cieloDep = new THREE.HemisphereLight(0xe6edf5, 0x5a5048, 2.0); scene.add(cieloDep);
+OF.traverse((o) => { if (o.isMesh && (o.material === M.vidrio || o.material.transparent)) { o.castShadow = false; } });
+// ---- luces de la oficina: tarde pareja, ventanal claro, sin sol directo ----
+const solOf = new THREE.DirectionalLight(0xfff6ea, 1.5);
+solOf.castShadow = true; solOf.shadow.mapSize.set(2048, 2048); solOf.shadow.bias = -0.0008; solOf.shadow.radius = 3;
+Object.assign(solOf.shadow.camera, { left: -3.5, right: 3.5, top: 3.5, bottom: -3.5, near: 0.5, far: 20 });
+solOf.position.set(1.2, 4.5, 7.5); solOf.target.position.set(0, 0.8, 1.5); scene.add(solOf, solOf.target);
+const cieloOf = new THREE.HemisphereLight(0xf7f4ec, 0x4a4e5a, 2.0); scene.add(cieloOf);
+const rellenoOf = new THREE.DirectionalLight(0xe8eefa, 0.7); rellenoOf.position.set(-3, 2.5, 3); rellenoOf.target.position.set(0, 1, 1); scene.add(rellenoOf, rellenoOf.target);
 
 // =====================================================================================================
-// LA CALLE DEL SÚPER HÉCTOR (x = VX): vereda de baldosas de 9 panes, la fachada con el toldo verde apagado, el camión gris
-// sin nombre, el auto de Nico, los vecinos; la calle sigue hacia -x (el semáforo de Q1)
+// POCITOS (x = BX): el edificio de Graciela con el balcón (piso del balcón y = 0, la fachada en z = 0 mirando a +z, el
+// río hacia +z), el apartamento vacío detrás de la fachada (living con parquet en espiga, la puerta de entrada al
+// pasillo), la calle abajo (y = -8,4), la rambla y el río; edificios low-poly a los costados
 // =====================================================================================================
-const VX = 60;
-const CA = new THREE.Group(); CA.position.x = VX; scene.add(CA);
-const VER = 0.14;                                  // el alto de la vereda
-const FZ = -3.0;                                   // el frente de las casas
-let semaforoLuz;
+const BX = 60;
+const PO = new THREE.Group(); PO.position.x = BX; scene.add(PO);
+const PUERTA_B = { x0: 0.25, x1: 1.35, alto: 2.2 };            // la puerta-ventana del balcón (en la fachada)
+const BAL = { x0: -1.9, x1: 1.9, z1: 1.5 };
+const CALLE_Y = -8.4;
+let cartelVende, franjaVendido, llaveBalcon, puertaEnt, living;
+const ventanasT = (base, ven, cols, filas) => { const t = lienzo(512, 512, (x, w, h) => { x.fillStyle = base; x.fillRect(0, 0, w, h); x.fillStyle = ven; const cw = w / cols, rh = h / filas; for (let i = 0; i < cols; i++) for (let j = 0; j < filas; j++) x.fillRect(i * cw + cw * 0.18, j * rh + rh * 0.22, cw * 0.64, rh * 0.5); x.fillStyle = "rgba(0,0,0,0.06)"; for (let j = 0; j < filas; j++) x.fillRect(0, j * rh + rh * 0.86, w, rh * 0.08); }); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; };
 {
-  // la calle (asfalto liso, una raya crema discontinua al medio) y la vereda de enfrente
-  const calle = mesh(new THREE.PlaneGeometry(120, 12), M.asfalto, -30, 0, 5.5); calle.rotation.x = -Math.PI / 2; calle.castShadow = false; CA.add(calle);
-  for (let x = -88; x < 28; x += 3) { const r = mesh(new THREE.PlaneGeometry(1.4, 0.12), mat(0xe6e2cf, 0.8), x, 0.005, 5.6); r.rotation.x = -Math.PI / 2; r.castShadow = false; CA.add(r); }
-  // las baldosas de 9 panes (gris claro, cuadrícula de 3x3 con líneas gruesas: que no haga moiré)
-  const bal = lienzo(512, 512, (x, w, h) => {
-    x.fillStyle = "#cfccc0"; x.fillRect(0, 0, w, h);
-    x.strokeStyle = "#b3b0a4"; x.lineWidth = 14; x.strokeRect(0, 0, w, h);
-    x.lineWidth = 8; x.strokeStyle = "#bdbaae";
-    for (let i = 1; i < 3; i++) { x.beginPath(); x.moveTo((i * w) / 3, 10); x.lineTo((i * w) / 3, h - 10); x.stroke(); x.beginPath(); x.moveTo(10, (i * h) / 3); x.lineTo(w - 10, (i * h) / 3); x.stroke(); }
-  });
-  bal.wrapS = bal.wrapT = THREE.RepeatWrapping; bal.repeat.set(120 / 0.6, 3 / 0.6);
-  const ver = mesh(new THREE.BoxGeometry(120, VER, 3.0), [M.cr3, M.cr3, new THREE.MeshStandardMaterial({ map: bal, roughness: 0.85 }), M.cr3, M.cr3, M.cr3], -30, VER / 2, FZ / 2); CA.add(ver);
-  CA.add(caja(120, VER + 0.02, 0.2, mat(0xa9a69a, 0.8), -30, VER / 2, 0.05, 0.03));   // el cordón
-  const ver2 = mesh(new THREE.BoxGeometry(120, VER, 3.0), mat(0xc4c1b5, 0.9), -30, VER / 2, 12.5); CA.add(ver2);
-  // los vecinos (cuadras de casas bajas de colores de la paleta), a los dos lados
-  const colores = [0xd9d7c9, 0xb9cde0, 0xd8c9a8, 0xe6e3d4, 0x9fb3c9, 0xd9d7c9, 0xc9b99a];
-  const vecinos = (z0, cara) => {
-    let i = 0;
-    for (let x = -90; x < 26; i++) {
-      const w = 5 + (i % 3) * 1.5, h = 3.6 + ((i * 7) % 4) * 0.7;
-      if (z0 < 0 && x + w > -4.2 && x < 4.2) { x = 4.2; continue; }   // el lugar del Súper Héctor
-      const cx = x + w / 2, m = mat(colores[i % colores.length], 0.9);
-      CA.add(caja(w - 0.1, h, 3, m, cx, h / 2, z0 + cara * -1.5, 0.02));
-      CA.add(caja(w - 0.05, 0.25, 3.1, M.navy3, cx, h + 0.1, z0 + cara * -1.5, 0.02));
-      const vm = mat(0x2c4268, 0.3);
-      for (const dx of [-w / 4, w / 4]) CA.add(caja(1.0, 1.2, 0.05, vm, cx + dx, 1.7, z0 + cara * 0.03, 0.01));
-      CA.add(caja(0.9, 2.1, 0.05, M.navy3, cx + (i % 2 ? w / 4 : -w / 4) * 0.0, 1.05, z0 + cara * 0.035, 0.01));
-      x += w;
+  // la fachada de Graciela (crema) en 4 paños alrededor de la puerta-ventana
+  const fm = new THREE.MeshStandardMaterial({ color: 0xefeee5, roughness: 0.9 });
+  const pano = (x0, x1, y0, y1) => { const p = mesh(new THREE.PlaneGeometry(x1 - x0, y1 - y0), fm, (x0 + x1) / 2, (y0 + y1) / 2, 0); p.castShadow = false; PO.add(p); };
+  pano(-7, PUERTA_B.x0, -0.2, 2.9); pano(PUERTA_B.x1, 7, -0.2, 2.9); pano(PUERTA_B.x0, PUERTA_B.x1, PUERTA_B.alto, 2.9);
+  // los otros pisos con ventanas (arriba y abajo del balcón)
+  const vt = ventanasT("#efeee5", "#3a5578", 4, 3); vt.repeat.set(3, 2);
+  const arriba = mesh(new THREE.PlaneGeometry(14, 12), new THREE.MeshStandardMaterial({ map: vt, roughness: 0.9 }), 0, 2.9 + 6, 0); arriba.castShadow = false; PO.add(arriba);
+  const vt2 = vt.clone(); vt2.needsUpdate = true; vt2.repeat.set(3, 1.4);
+  const abajo = mesh(new THREE.PlaneGeometry(14, 8.4), new THREE.MeshStandardMaterial({ map: vt2, roughness: 0.9 }), 0, -0.2 - 4.1, 0); abajo.castShadow = false; PO.add(abajo);
+  // los balcones de los otros pisos (losa y baranda), sin gente
+  const losa = (y, x0, x1) => { PO.add(caja(x1 - x0, 0.16, BAL.z1, M.cr2, (x0 + x1) / 2, y - 0.08, BAL.z1 / 2, 0.01)); PO.add(caja(x1 - x0, 0.05, 0.05, M.navy3, (x0 + x1) / 2, y + 1.0, BAL.z1 - 0.03)); for (let x = x0 + 0.05; x <= x1; x += 0.32) PO.add(caja(0.03, 1.0, 0.03, M.navy3, x, y + 0.5, BAL.z1 - 0.03)); };
+  for (const y of [-2.9, 2.9, 5.8, 8.7]) losa(y, BAL.x0, BAL.x1);
+  // EL BALCÓN: losa crema clara, baranda de caño navy (adelante y a los costados)
+  PO.add(caja(BAL.x1 - BAL.x0, 0.16, BAL.z1, mat(0xdcd8c8, 0.85), 0, -0.08, BAL.z1 / 2, 0.01));
+  const cano = (x0, y0, z0, x1, y1, z1, r = 0.024) => { const a = V3(x0, y0, z0), b = V3(x1, y1, z1), L = a.distanceTo(b); const c = mesh(new THREE.CylinderGeometry(r, r, L, 10), M.navy3, (x0 + x1) / 2, (y0 + y1) / 2, (z0 + z1) / 2); c.quaternion.setFromUnitVectors(V3(0, 1, 0), b.clone().sub(a).normalize()); PO.add(c); };
+  const ZB = BAL.z1 - 0.04;
+  cano(BAL.x0, 1.0, ZB, BAL.x1, 1.0, ZB, 0.03); cano(BAL.x0, 0.5, ZB, BAL.x1, 0.5, ZB, 0.018);
+  for (const x of [BAL.x0 + 0.03, BAL.x1 - 0.03]) { cano(x, 1.0, 0.02, x, 1.0, ZB, 0.03); cano(x, 0.5, 0.02, x, 0.5, ZB, 0.018); }
+  for (let x = BAL.x0 + 0.03; x <= BAL.x1; x += 0.38) cano(x, 0, ZB, x, 1.0, ZB, 0.018);
+  for (const x of [BAL.x0 + 0.03, BAL.x1 - 0.03]) for (let z = 0.4; z < ZB; z += 0.4) cano(x, 0, z, x, 1.0, z, 0.018);
+  // la puerta-ventana: marco navy3, dos hojas de vidrio; la hoja izquierda tiene la cerradura (con la llave POCITOS)
+  const PW = PUERTA_B.x1 - PUERTA_B.x0, PC = (PUERTA_B.x0 + PUERTA_B.x1) / 2;
+  for (const x of [PUERTA_B.x0, PC, PUERTA_B.x1]) PO.add(caja(0.07, PUERTA_B.alto, 0.09, M.navy3, x, PUERTA_B.alto / 2, 0.02));
+  PO.add(caja(PW + 0.07, 0.08, 0.09, M.navy3, PC, PUERTA_B.alto, 0.02)); PO.add(caja(PW + 0.07, 0.06, 0.1, M.navy3, PC, 0.03, 0.02));
+  for (const x of [(PUERTA_B.x0 + PC) / 2, (PC + PUERTA_B.x1) / 2]) { const v = new THREE.Mesh(new THREE.PlaneGeometry(PW / 2 - 0.07, PUERTA_B.alto - 0.1), new THREE.MeshBasicMaterial({ color: 0xbcd0de, transparent: true, opacity: 0.32, depthWrite: false })); v.position.set(x, PUERTA_B.alto / 2, 0.02); PO.add(v); }
+  // la cerradura con la llave colgando (péndulo)
+  PO.add(caja(0.05, 0.12, 0.03, M.navy, PC - 0.07, 1.02, 0.075, 0.008));
+  PO.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.02, 12).rotateX(Math.PI / 2), M.gris, PC - 0.07, 1.0, 0.095));
+  llaveBalcon = crearLlave("POCITOS", 0.075); llaveBalcon.position.set(PC - 0.07, 1.0, 0.11); PO.add(llaveBalcon);
+  // la maceta con una planta en el balcón (la que riega Graciela)
+  const mac = new THREE.Group(); mac.position.set(1.55, 0, 0.42); PO.add(mac);
+  mac.add(mesh(new THREE.CylinderGeometry(0.17, 0.13, 0.3, 18), mat(0xb5653d, 0.8), 0, 0.15, 0));
+  for (let i = 0; i < 9; i++) { const h = mesh(new THREE.SphereGeometry(0.1, 10, 8), M.hoja, Math.cos(i * 1.3) * 0.09, 0.36 + (i % 3) * 0.07, Math.sin(i * 2.1) * 0.08); h.scale.set(1, 1.5, 0.7); h.rotation.z = (i - 4) * 0.25; mac.add(h); }
+  // EL CARTEL VENDE (crema, atado con alambre a la baranda de adelante, mirando al río)
+  cartelVende = new THREE.Group(); cartelVende.position.set(-0.12, 0.6, BAL.z1 + 0.01); PO.add(cartelVende);
+  const vT = lienzo(800, 500, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#16243d"; x.lineWidth = 26; x.strokeRect(13, 13, w - 26, h - 26); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "VENDE", 900, 260, w - 120); x.fillText("VENDE", w / 2, h * 0.42); x.fillStyle = "#16243d"; ajustar(x, "SILVANA PROPIEDADES", 800, 56, w - 160); x.fillText("SILVANA PROPIEDADES", w / 2, h * 0.8); });
+  cartelVende.add(caja(0.82, 0.52, 0.02, M.cr, 0, 0, -0.012, 0.008));
+  cartelVende.add(plano(0.8, 0.5, vT, 0, 0, 0.0));
+  for (const [x, y] of [[-0.36, 0.22], [0.36, 0.22], [-0.36, -0.22], [0.36, -0.22]]) cartelVende.add(mesh(new THREE.TorusGeometry(0.018, 0.004, 6, 12), M.gris, x, y, -0.01));
+  // la franja VENDIDO (verde de marca, Lexend 900 navy) que cae en diagonal en Q4
+  const fT = lienzo(1000, 200, (x, w, h) => { x.fillStyle = "#5ce611"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 14; x.strokeRect(7, 7, w - 14, h - 14); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "VENDIDO", 900, 150, w - 80); x.fillText("VENDIDO", w / 2, h / 2 + 6); });
+  franjaVendido = plano(0.95, 0.19, fT, 0, 0, 0.012, true); franjaVendido.rotation.z = 0.32; cartelVende.add(franjaVendido);
+  // la calle, la rambla y el río (abajo); el cielo es el fondo
+  const suelo = (w, d, color, x, y, z) => { const p = mesh(new THREE.PlaneGeometry(w, d), mat(color, 0.95), x, y, z); p.rotation.x = -Math.PI / 2; p.castShadow = false; PO.add(p); };
+  suelo(120, 4, 0xd9d7c9, 0, CALLE_Y, 2); suelo(120, 8, 0x8b9099, 0, CALLE_Y - 0.01, 8); suelo(120, 4, 0xe6e2d2, 0, CALLE_Y, 14);
+  PO.add(caja(120, 0.6, 0.3, M.cr2, 0, CALLE_Y + 0.3, 16.1, 0.02));
+  suelo(260, 160, 0x16243d, 0, CALLE_Y - 1.2, 96);
+  for (let x = -54; x <= 54; x += 6) PO.add(caja(0.12, 0.12, 6, mat(0xefeee5, 0.9), x, CALLE_Y + 0.0, 8, 0.01));
+  // los edificios de la rambla (bloques crema y cr2 con ventanas), a los dos lados, y la curva de la bahía a lo lejos
+  semilla = 11;
+  const edif = (x, ancho, alto, z, color) => { const vtE = ventanasT(color, "#3a5578", Math.max(2, Math.round(ancho / 2.4)), Math.max(3, Math.round(alto / 3))); const b = mesh(new THREE.BoxGeometry(ancho, alto, 10), new THREE.MeshStandardMaterial({ map: vtE, roughness: 0.9 }), x, CALLE_Y + alto / 2, z - 5); b.castShadow = false; PO.add(b); };
+  for (const [x, an, al, z, c] of [[-10.5, 7, 34, -0.6, "#d9d7c9"], [-18, 8, 26, -0.2, "#efeee5"], [-26, 7, 38, -0.8, "#e4e0d0"], [-34, 8, 22, 0, "#d9d7c9"], [-42, 7, 30, -0.5, "#efeee5"], [10.5, 7, 30, -0.4, "#e4e0d0"], [18, 8, 36, -0.8, "#d9d7c9"], [26, 7, 24, 0, "#efeee5"], [34, 8, 32, -0.4, "#d9d7c9"]]) edif(x, an, al, z, c);
+  for (let i = 0; i < 18; i++) { const a = -0.9 + i * 0.1, R = 70; const x = Math.sin(a) * R - 40, z = 60 - Math.cos(a) * R + 30; const al = 14 + az() * 20; const b = mesh(new THREE.BoxGeometry(6, al, 6), mat(i % 2 ? 0xe4e0d0 : 0xd2cfbf, 0.9), x, CALLE_Y + al / 2, z); b.rotation.y = a; b.castShadow = false; PO.add(b); }
+}
+// ---- EL APARTAMENTO VACÍO (detrás de la fachada): living con parquet en espiga miel, paredes crema, la puerta de
+// entrada abierta al pasillo del edificio ----
+const LIV = { x0: -2.4, x1: 2.4, z0: -4.6, alto: 2.6 };
+const PUERTA_E = { x0: -1.35, x1: -0.45 };
+{
+  living = new THREE.Group(); PO.add(living);
+  const parquetT = lienzo(512, 512, (x, w, h) => {
+    x.fillStyle = "#b8874f"; x.fillRect(0, 0, w, h);
+    const L = 128, A = 32;
+    x.strokeStyle = "#9a6d3c"; x.lineWidth = 3;
+    for (let i = -8; i < 16; i++) for (let j = -8; j < 16; j++) {
+      const ox = i * A * 2 + j * A, oy = j * A - i * 0;
+      x.save(); x.translate(ox, oy + i * A * 2); x.rotate(Math.PI / 4); x.fillStyle = (i + j) % 3 ? "#b8874f" : "#c0905a"; x.fillRect(0, 0, L * 0.7, A * 0.7); x.strokeRect(0, 0, L * 0.7, A * 0.7); x.restore();
+      x.save(); x.translate(ox + A * 0.5, oy + i * A * 2 + A * 0.5); x.rotate(-Math.PI / 4); x.fillStyle = (i + j) % 2 ? "#b28149" : "#bd8c54"; x.fillRect(0, 0, L * 0.7, A * 0.7); x.strokeRect(0, 0, L * 0.7, A * 0.7); x.restore();
     }
-  };
-  vecinos(FZ, 1); vecinos(14.0, -1);
-  // árboles de vereda (tronco + copa low-poly), uno cada tanto
-  const copaG = new THREE.IcosahedronGeometry(1, 0);
-  for (const [x, z] of [[-4.7, -0.55], [-16, -0.55], [-30, -0.55], [-44, -0.55], [9, -0.55], [-10, 12.0], [-26, 12.0], [5, 12.0]]) {
-    CA.add(mesh(new THREE.CylinderGeometry(0.09, 0.12, 2.6, 8), mat(0x6b4f3a, 0.9), x, 1.3, z));
-    const c = mesh(copaG, M.hoja, x, 3.1, z); c.scale.set(1.15, 1.0, 1.15); CA.add(c);
-    const c2 = mesh(copaG, mat(0x5d8846, 0.85), x + 0.4, 3.6, z - 0.2); c2.scale.setScalar(0.75); CA.add(c2);
-  }
-  // el semáforo (Q1) en la esquina, del lado del cordón
-  const sem = new THREE.Group(); sem.position.set(-30, 0, -0.3); CA.add(sem);
-  sem.add(mesh(new THREE.CylinderGeometry(0.06, 0.06, 3.2, 10), M.navy3, 0, 1.6, 0));
-  sem.add(caja(0.34, 0.95, 0.3, M.navy, 0, 3.4, 0.0, 0.05));
-  for (let i = 0; i < 3; i++) { const l = new THREE.Mesh(new THREE.CircleGeometry(0.1, 18), new THREE.MeshBasicMaterial({ color: i === 0 ? C.red : 0x2c3446, toneMapped: false })); l.position.set(0.171, 3.7 - i * 0.3, 0); l.rotation.y = Math.PI / 2; sem.add(l); if (i === 0) semaforoLuz = l; }
-}
-// ---- EL SÚPER HÉCTOR: fachada navy3, dos vidrieras con góndolas, doble puerta de vidrio, persiana, toldo verde apagado,
-// cartel crema "SÚPER HÉCTOR · AUTOSERVICIO" ----
-const SUPER = new THREE.Group(); CA.add(SUPER);
-const PUERTA_S = { x0: -0.8, x1: 0.8, alto: 2.3 };
-let hojasSuper = [], cartelSuper;
-{
-  const fm = mat(C.navy3, 0.8);
-  const SW = 8, SH = 4.6;
-  const tr = (x0, x1, y0, y1) => SUPER.add(caja(x1 - x0, y1 - y0, 0.3, fm, (x0 + x1) / 2, VER + (y0 + y1) / 2, FZ - 0.15, 0.01));
-  tr(-SW / 2, -3.65, 0, SH); tr(3.65, SW / 2, 0, SH); tr(-1.05, -0.8, 0, SH); tr(0.8, 1.05, 0, SH);
-  tr(-3.65, -1.05, 0, 0.55); tr(1.05, 3.65, 0, 0.55); tr(-3.65, 3.65, 2.35, SH);
-  SUPER.add(caja(SW + 0.2, 0.3, 3.4, M.navy, 0, VER + SH + 0.15, FZ - 1.6, 0.02));
-  // adentro: las góndolas (lienzo plano detrás del vidrio, con productos de colores planos)
-  const gond = lienzo(1024, 512, (x, w, h) => {
-    x.fillStyle = "#e9e6d8"; x.fillRect(0, 0, w, h);
-    const cols = ["#5ce611", "#c9a46b", "#efeee5", "#b9cde0", "#1f3254", "#d8c9a8", "#c7655b"];
-    for (let k = 0; k < 4; k++) { const y = 70 + k * 110; x.fillStyle = "#1f3254"; x.fillRect(0, y + 70, w, 16);
-      for (let i = 0; i < 26; i++) { x.fillStyle = cols[(i * 3 + k * 5) % cols.length]; const hh = 40 + ((i * 7 + k) % 3) * 14; x.fillRect(10 + i * 39, y + 70 - hh, 30, hh); } }
-    x.fillStyle = "rgba(31,50,84,0.18)"; x.fillRect(0, 0, w, h);
   });
-  for (const [x0, x1] of [[-3.65, -1.05], [1.05, 3.65], [-0.8, 0.8]]) {
-    const p = plano(x1 - x0, x0 === -0.8 ? 2.3 : 1.8, gond, (x0 + x1) / 2, VER + (x0 === -0.8 ? 1.15 : 1.45), FZ - 0.7); SUPER.add(p);
-    if (x0 !== -0.8) { const v = new THREE.Mesh(new THREE.PlaneGeometry(x1 - x0, 1.8), M.vidrio); v.position.set((x0 + x1) / 2, VER + 1.45, FZ - 0.02); v.renderOrder = 3; SUPER.add(v); SUPER.add(caja(x1 - x0, 0.06, 0.08, M.navy, (x0 + x1) / 2, VER + 0.57, FZ, 0.01)); }
-  }
-  // el piso de adentro y las paredes del hueco de la puerta (que no se vea el vacío)
-  const pa = mesh(new THREE.PlaneGeometry(8, 1.0), mat(0xd9d7c9, 0.8), 0, VER + 0.005, FZ - 0.5); pa.rotation.x = -Math.PI / 2; SUPER.add(pa);
-  // la doble puerta de vidrio (dos hojas que se abren hacia adentro)
-  for (const s of [-1, 1]) {
-    const h = new THREE.Group(); h.position.set(s * 0.8, VER, FZ - 0.05); SUPER.add(h);
-    h.add(caja(0.8, 2.28, 0.05, M.navy, -s * 0.4, 1.14, 0, 0.01));
-    const vh = new THREE.Mesh(new THREE.PlaneGeometry(0.64, 2.0), mat(0xb9cde0, 0.15, { transparent: true, opacity: 0.35 })); vh.position.set(-s * 0.4, 1.16, 0.03); vh.renderOrder = 4; h.add(vh);
-    h.add(caja(0.04, 0.45, 0.06, M.gris, -s * 0.72, 1.05, 0.05, 0.01));
-    h.userData.s = s; hojasSuper.push(h);
-  }
-  // la persiana enrollada arriba
-  SUPER.add(caja(7.4, 0.24, 0.32, mat(0x8d97a8, 0.5, { metalness: 0.2 }), 0, VER + 2.48, FZ + 0.05, 0.08));
-  // el toldo verde apagado liso (inclinado), con el faldón
-  const toldo = caja(7.6, 0.04, 1.35, M.toldo, 0, VER + 2.72, FZ + 0.62, 0.01); toldo.rotation.x = 0.32; SUPER.add(toldo);
-  SUPER.add(caja(7.6, 0.24, 0.03, M.toldo, 0, VER + 2.4, FZ + 1.27, 0.01));
-  for (const s of [-1, 1]) { const b = mesh(new THREE.CylinderGeometry(0.015, 0.015, 1.4, 6), M.navy, s * 3.7, VER + 2.68, FZ + 0.62); b.rotation.x = Math.PI / 2 - 0.32; SUPER.add(b); }
-  // el cartel crema
-  const cart = lienzo(1400, 260, (x, w, h) => {
-    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#0b1220"; x.lineWidth = 16; x.strokeRect(8, 8, w - 16, h - 16);
-    x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SÚPER HÉCTOR", 900, 138, w - 140); x.fillText("SÚPER HÉCTOR", w / 2, h * 0.4); x.font = F(800, 66); x.fillStyle = "#3a5a2c"; x.fillText("AUTOSERVICIO", w / 2, h * 0.83);
-  });
-  const cp = plano(3.9, 0.72, cart, 0, VER + 3.85, FZ + 0.02); /* (r1) más angosto: entra entero en el plano general */ cp.material.emissive = new THREE.Color(0xffffff); cp.material.emissiveMap = cart; cp.material.emissiveIntensity = 0.2; cp.renderOrder = 2; SUPER.add(cp); cartelSuper = cp;
-  // los cajones de fruta (kraft) con naranjas y peras, y la pila de canastos crema
-  const naranja = mat(0xe08a3a, 0.6), pera = mat(0xd9c25a, 0.6), frutaG = new THREE.SphereGeometry(0.06, 10, 8);
-  for (const [cx, fm2] of [[-2.85, naranja], [-2.25, pera]]) {
-    const cj = new THREE.Group(); cj.position.set(cx, VER, FZ + 0.55); SUPER.add(cj);
-    cj.add(caja(0.56, 0.08, 0.4, M.kraft, 0, 0.42, 0, 0.01)); for (const s of [-1, 1]) { cj.add(caja(0.56, 0.12, 0.02, M.kraft, 0, 0.5, s * 0.2, 0.005)); cj.add(caja(0.02, 0.12, 0.4, M.kraft, s * 0.28, 0.5, 0, 0.005)); }
-    for (const s of [-1, 1]) for (const z of [-0.17, 0.17]) cj.add(caja(0.04, 0.42, 0.04, mat(0x6b4f3a, 0.8), s * 0.24, 0.21, z, 0.01));
-    for (let i = 0; i < 4; i++) for (let j = 0; j < 3; j++) cj.add(mesh(frutaG, fm2, -0.2 + i * 0.13, 0.52 + ((i + j) % 2) * 0.03, -0.12 + j * 0.12));
-  }
-  for (let k = 0; k < 5; k++) { const c = new THREE.Group(); c.position.set(2.75, VER + k * 0.12, FZ + 0.45); c.rotation.y = 0.15 * (k % 2); SUPER.add(c); c.add(caja(0.5, 0.2, 0.34, mat(C.cr, 0.5), 0, 0.1, 0, 0.03)); for (const s of [-1, 1]) c.add(caja(0.02, 0.06, 0.12, M.navy3, s * 0.25, 0.2, 0, 0.005)); }
-  sombras(SUPER);
-  SUPER.traverse((o) => { if (o.isMesh && o.material.transparent) { o.castShadow = false; o.receiveShadow = false; } });
+  parquetT.wrapS = parquetT.wrapT = THREE.RepeatWrapping; parquetT.repeat.set(4, 4);
+  const LW = LIV.x1 - LIV.x0, LD = -LIV.z0;
+  const p = mesh(new THREE.PlaneGeometry(LW, LD), new THREE.MeshStandardMaterial({ map: parquetT, roughness: 0.6 }), 0, 0.001, LIV.z0 / 2); p.rotation.x = -Math.PI / 2; p.castShadow = false; living.add(p);
+  living.add(cajaS(LW, 0.1, LD, mat(0xf2f0e8, 0.95), 0, LIV.alto + 0.05, LIV.z0 / 2));
+  const pm = mat(0xefeee5, 0.92);
+  for (const x of [LIV.x0, LIV.x1]) living.add(cajaS(0.12, LIV.alto, LD, pm, x, LIV.alto / 2, LIV.z0 / 2));
+  // la pared del fondo con la puerta de entrada abierta
+  const tramo = (a, b, y0, y1) => living.add(cajaS(b - a, y1 - y0, 0.14, pm, (a + b) / 2, (y0 + y1) / 2, LIV.z0));
+  tramo(LIV.x0, PUERTA_E.x0, 0, LIV.alto); tramo(PUERTA_E.x1, LIV.x1, 0, LIV.alto); tramo(PUERTA_E.x0, PUERTA_E.x1, 2.1, LIV.alto);
+  for (const x of [PUERTA_E.x0, PUERTA_E.x1]) living.add(caja(0.06, 2.1, 0.18, M.navy3, x, 1.05, LIV.z0));
+  living.add(caja(PUERTA_E.x1 - PUERTA_E.x0 + 0.1, 0.06, 0.18, M.navy3, (PUERTA_E.x0 + PUERTA_E.x1) / 2, 2.12, LIV.z0));
+  puertaEnt = new THREE.Group(); puertaEnt.position.set(PUERTA_E.x0 + 0.03, 0, LIV.z0 - 0.02); living.add(puertaEnt);
+  puertaEnt.add(caja(PUERTA_E.x1 - PUERTA_E.x0 - 0.06, 2.06, 0.05, mat(0x8a5a32, 0.6), (PUERTA_E.x1 - PUERTA_E.x0 - 0.06) / 2, 1.03, 0, 0.01));
+  puertaEnt.add(caja(0.12, 0.03, 0.04, M.gris, PUERTA_E.x1 - PUERTA_E.x0 - 0.16, 1.0, 0.04, 0.008));
+  puertaEnt.rotation.y = 1.45;
+  // el pasillo del edificio (cr2, más oscuro), detrás de la puerta
+  const pa = mesh(new THREE.PlaneGeometry(4, 6), mat(0xc9c3b0, 0.9), -0.9, 0.0, LIV.z0 - 3.1); pa.rotation.x = -Math.PI / 2; pa.castShadow = false; living.add(pa);
+  living.add(cajaS(0.1, 2.6, 6, mat(0xd9d7c9, 0.9), -2.0, 1.3, LIV.z0 - 3.1)); living.add(cajaS(0.1, 2.6, 6, mat(0xd9d7c9, 0.9), 0.2, 1.3, LIV.z0 - 3.1));
+  living.add(cajaS(2.4, 2.6, 0.1, mat(0xcfc9b6, 0.9), -0.9, 1.3, LIV.z0 - 6.0)); living.add(cajaS(2.4, 0.1, 6, mat(0xe8e6dc, 0.9), -0.9, 2.6, LIV.z0 - 3.1));
+  // un zócalo navy y el marco del ventanal visto de adentro
+  living.add(caja(LW, 0.1, 0.02, M.navy3, 0, 0.05, LIV.z0 + 0.08));
+  sombras(living);
 }
-fusionar(CA, [SUPER]);
-fusionar(SUPER, [...hojasSuper, cartelSuper]);
-// ---- el camión gris sin nombre (furgón, de otra distribuidora: nadie lo nombra): estacionado en el cordón delante del
-// súper, la caja hacia +x (las puertas traseras miran al auto de Nico), la cabina hacia -x ----
-const camionGris = crearFurgon({ cue: mat(0xb9bcc2, 0.55), cab: mat(0x9aa0a8, 0.55), franja: null, conCarga: true });
-camionGris.rotation.y = -Math.PI / 2; camionGris.position.set(VX - 1.9, 0, 1.45); scene.add(camionGris);   // (r1) más a la izquierda: no tapa el cartel
-// la zorra del chofer (carretilla de dos ruedas) con cajas kraft
-function crearZorra(n = 3) {
-  const g = new THREE.Group(), gm = mat(0x8d97a8, 0.4, { metalness: 0.35 });
-  for (const s of [-1, 1]) { const l = caja(0.04, 1.2, 0.04, gm, s * 0.2, 0.62, -0.02, 0.01); g.add(l); }
-  g.add(caja(0.44, 0.03, 0.04, gm, 0, 1.2, -0.02, 0.01)); g.add(caja(0.46, 0.02, 0.24, gm, 0, 0.03, 0.12, 0.005));
-  for (const s of [-1, 1]) g.add(mesh(new THREE.CylinderGeometry(0.1, 0.1, 0.05, 16), M.goma, s * 0.25, 0.1, -0.05).rotateZ(Math.PI / 2));
-  const cajas = [];
-  for (let i = 0; i < n; i++) { const c = caja(0.4, 0.3, 0.3, mat(i % 2 ? C.kraft : 0xbf9a62, 0.85), 0, 0.2 + i * 0.31, 0.15, 0.015); g.add(c); cajas.push(c); }
-  g.userData.cajas = cajas;
-  return sombras(g);
-}
-const zorra = crearZorra(3); scene.add(zorra);
-const cajaHector = caja(0.4, 0.3, 0.3, mat(0xbf9a62, 0.85), 0, 0, 0, 0.015); scene.add(cajaHector);
-// ---- el auto de Nico (de ya-lo-cargo, limpio): carrocería crema, franja navy3, el celular en el soporte del tablero ----
-const AUTO = { L: 3.4, W: 1.8, H: 1.75, piso: 0.32, asiento: 0.6 };
-const pantN = lienzo(600, 1110, () => {});       // el celular de Nico en el soporte
-function crearAuto() {
-  const g = new THREE.Group(), cue = mat(C.cr, 0.45, { metalness: 0.05 }), fr = M.navy3;
-  const { L, W: AW, H } = AUTO;
-  g.add(caja(AW, 0.66, L, cue, 0, 0.63, 0, 0.2));
-  g.add(caja(AW - 0.04, 0.16, 1.05, cue, 0, 0.92, L / 2 - 0.55, 0.12));
-  for (const s of [-1, 1]) g.add(caja(0.02, 0.14, L - 0.4, fr, s * (AW / 2 + 0.002), 0.72, 0, 0.01));
-  for (const s of [-1, 1]) g.add(caja(AW + 0.04, 0.16, 0.14, M.navy3, 0, 0.42, s * (L / 2 + 0.02), 0.05));
-  for (const s of [-1, 1]) { g.add(mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.04, 18), mat(0xfff6dc, 0.2, { emissive: 0xfff2c8, emissiveIntensity: 0.25 }), s * 0.6, 0.86, L / 2 + 0.01).rotateX(Math.PI / 2)); g.add(caja(0.26, 0.16, 0.04, M.red, s * 0.62, 0.9, -L / 2 - 0.005, 0.03)); }
-  g.add(caja(0.9, 0.2, 0.03, M.navy3, 0, 0.62, L / 2 + 0.01, 0.03));
-  const cab = { z0: -L / 2 + 0.15, z1: L / 2 - 1.05, y0: 0.95, y1: H };
-  const cz = (cab.z0 + cab.z1) / 2, cl2 = cab.z1 - cab.z0;
-  for (const s of [-1, 1]) g.add(caja(0.26, 0.12, cl2 + 0.12, cue, s * (AW / 2 - 0.15), cab.y1 - 0.06, cz, 0.05));
-  g.add(caja(AW - 0.04, 0.12, cl2 - 0.1, cue, 0, cab.y1 - 0.04, cz, 0.05));
-  for (const s of [-1, 1]) for (const [z, w] of [[cab.z0 + 0.08, 0.2], [cab.z1 - 0.06, 0.13], [-0.08, 0.13]]) g.add(caja(0.1, cab.y1 - cab.y0, w, cue, s * (AW / 2 - 0.06), (cab.y0 + cab.y1) / 2, z, 0.03));
-  for (const s of [-1, 1]) g.add(caja(0.06, 0.06, cl2, fr, s * (AW / 2 - 0.05), cab.y0 + 0.02, cz, 0.02));
-  const vid = (w, h, x, y, z, ry) => { const v = new THREE.Mesh(new THREE.PlaneGeometry(w, h), M.vidrioAuto); v.position.set(x, y, z); v.rotation.y = ry; v.renderOrder = 6; g.add(v); return v; };
-  const vH = cab.y1 - cab.y0 - 0.12, vY = (cab.y0 + cab.y1) / 2 - 0.02;
-  vid(cl2 - 0.1, vH, AW / 2 - 0.04, vY, cz, Math.PI / 2);
-  // la ventanilla del acompañante (-x local = el lado del cordón): BAJA (por ahí sale volando el post-it)
-  const parab = vid(AW - 0.16, vH, 0, vY, cab.z1, 0); parab.rotation.x = -0.12;
-  vid(AW - 0.16, vH, 0, vY, cab.z0, Math.PI);
-  const puertaA = new THREE.Group(); puertaA.position.set(-AW / 2 - 0.01, 0, cab.z1 - 0.05); g.add(puertaA);
-  puertaA.add(caja(0.05, 0.64, 1.15, cue, -0.01, 0.63, -0.58, 0.03));
-  puertaA.add(caja(0.02, 0.14, 1.1, fr, -0.035, 0.72, -0.58, 0.01));
-  puertaA.add(caja(0.03, 0.04, 0.16, M.navy, -0.045, 0.86, -0.95, 0.01));
-  for (const s of [-1, 1]) for (const z of [-L / 2 + 0.62, L / 2 - 0.62]) {
-    const r = new THREE.Group(); r.position.set(s * (AW / 2 - 0.12), 0.34, z); g.add(r);
-    r.add(mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.26, 24), M.goma).rotateZ(Math.PI / 2));
-    r.add(mesh(new THREE.CylinderGeometry(0.17, 0.17, 0.27, 16), M.cr2).rotateZ(Math.PI / 2));
-  }
-  for (const s of [-1, 1]) { g.add(caja(0.62, 0.16, 0.6, M.navy2, s * 0.42, AUTO.asiento - 0.06, -0.05, 0.05)); g.add(caja(0.62, 0.7, 0.14, M.navy2, s * 0.42, AUTO.asiento + 0.32, -0.4, 0.06)); }
-  g.add(caja(AW - 0.2, 0.16, 0.6, M.navy2, 0, AUTO.asiento - 0.06, -1.05, 0.05)); g.add(caja(AW - 0.2, 0.62, 0.14, M.navy2, 0, AUTO.asiento + 0.28, -1.38, 0.06));
-  g.add(caja(AW - 0.12, 0.26, 0.3, M.navy3, 0, 0.98, cab.z1 - 0.07, 0.06));
-  const volante = mesh(new THREE.TorusGeometry(0.17, 0.025, 8, 24), M.navy, 0.42, 1.08, cab.z1 - 0.3); volante.rotation.x = -0.5; g.add(volante);
-  g.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.16, 10), M.navy, 0.42, 1.06, cab.z1 - 0.22).rotateX(Math.PI / 2 - 0.5));
-  g.add(caja(AW - 0.12, 0.05, 0.12, M.navy, 0, 1.12, cab.z1 - 0.06, 0.02));
-  // el celular en su soporte (al medio del tablero), la pantalla mirando hacia atrás (a los asientos)
-  const celu = new THREE.Group(); celu.position.set(0.05, 1.27, cab.z1 - 0.22); celu.rotation.x = -0.12; g.add(celu);
-  celu.add(caja(0.15, 0.27, 0.025, M.navy, 0, 0, 0, 0.02));
-  const cp = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.24), new THREE.MeshBasicMaterial({ map: pantN, toneMapped: false })); cp.position.z = -0.014; cp.rotation.y = Math.PI; celu.add(cp);
-  celu.add(caja(0.19, 0.03, 0.07, M.navy3, 0, -0.15, 0.0, 0.01));
-  for (const sx of [-1, 1]) celu.add(caja(0.02, 0.09, 0.05, M.navy3, sx * 0.087, -0.1, 0.0, 0.006));
-  celu.add(caja(0.06, 0.05, 0.06, M.navy3, 0, -0.17, 0.03, 0.01));
-  g.userData = { puertaA, celu, cab };
-  return sombras(g);
-}
-const auto = crearAuto(); scene.add(auto);
-auto.traverse((o) => { if (o.isMesh && o.material === M.vidrioAuto) o.castShadow = false; });
-const AUTO_EST = V3(VX + 2.95, 0, 1.35);          // estacionado detrás del camión gris (mirando a -x)
-const AUTO_SEM = V3(VX - 24, 0, 2.7);            // parado en el semáforo (Q1), en el carril
-// el post-it crema con la letra de Nico (Caveat navy)
-const postT = lienzo(256, 256, (x, w, h) => { x.fillStyle = "#f4ecc6"; x.fillRect(0, 0, w, h); x.fillStyle = "#e6dcae"; x.fillRect(0, 0, w, 26); x.fillStyle = "#16243d"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = CAV(84); x.fillText("HÉCTOR", w / 2, 108); x.font = CAV(78); x.fillText("MARTES", w / 2, 192); });
-const postit = new THREE.Mesh(new THREE.PlaneGeometry(0.13, 0.13), new THREE.MeshStandardMaterial({ map: postT, roughness: 0.8, side: THREE.DoubleSide })); postit.castShadow = false; scene.add(postit);
-// ---- luces de la calle: el sol de media mañana (con sombra) y el cielo ----
-const solCa = new THREE.DirectionalLight(0xfff4e2, 2.1);
-solCa.castShadow = true; solCa.shadow.mapSize.set(2048, 2048); solCa.shadow.bias = -0.0008; solCa.shadow.radius = 2;
-Object.assign(solCa.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8, near: 1, far: 40 });
-const cieloCa = new THREE.HemisphereLight(0xeaf0f6, 0x6a6458, 1.9); scene.add(cieloCa);
-scene.add(solCa, solCa.target);
+// ---- luces de Pocitos: el sol de tarde (con sombra) y el cielo; adentro del living, una luz del ventanal ----
+const solPo = new THREE.DirectionalLight(0xfff1dc, 2.0);
+solPo.castShadow = true; solPo.shadow.mapSize.set(2048, 2048); solPo.shadow.bias = -0.0008; solPo.shadow.radius = 2;
+Object.assign(solPo.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4, near: 1, far: 30 });
+solPo.position.set(BX + 5, 7, 8); solPo.target.position.set(BX, 0.5, 0.5); scene.add(solPo, solPo.target);
+const cieloPo = new THREE.HemisphereLight(0xeef3f6, 0x7a7466, 1.9); scene.add(cieloPo);
+const luzLiv = new THREE.DirectionalLight(0xfff4e6, 1.3); luzLiv.position.set(BX + 0.8, 2.6, 3); luzLiv.target.position.set(BX - 0.6, 0.6, -3.4); luzLiv.castShadow = true; luzLiv.shadow.mapSize.set(1024, 1024); Object.assign(luzLiv.shadow.camera, { left: -3, right: 3, top: 3, bottom: -3, near: 0.5, far: 12 }); scene.add(luzLiv, luzLiv.target);
 
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [2.0, r2(T.p3 + 0.15), r2(T.p5 + 0.2), r2(T.q4 + 0.5)] });
-const nico = crearPersonaje({ ...ELENCO.empleado, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p4 + 1.5), r2(T.q1 + 0.6)] });
-const hector = crearPersonaje({ ...ELENCO.hector, cuello: null, lentesCerca: 1.05, campera: { color: C.cr, cuello: C.cr2, cierre: C.cr3, abierta: true }, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p5 + 0.2), r2(T.q2i + 0.3)] });
-const operario = crearPersonaje({ ...DEFECTO, nombre: "Darío", piel: PIEL.morena, pelo: PELO.negro, peinado: "corto", bigote: PELO.negro, cejasColor: 0x1e1a18, camisa: C.navy3, mangas: "largas", cuello: C.g, pantalon: C.navy3, zapatos: 0x2a2220, panza: 1.0, nariz: 0.058, parpadeoCada: 999 });
-const chofer = crearPersonaje({ ...DEFECTO, nombre: "Chofer", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", camisa: 0x9aa0a8, mangas: "cortas", cuello: 0x9aa0a8, pantalon: 0x5a5e66, zapatos: 0x2a2220, panza: 1.05, parpadeoCada: 999 });
-// el pelo de Rubén: la herradura de bolitas canosas (de dist-pedidos-lunes)
+const silvana = crearPersonaje({ ...DEFECTO, nombre: "Silvana", mejillasBajas: true, piel: PIEL.clara, pelo: 0xc9c2b4, peinado: "melena", cejasColor: 0x8a7f72, cejaFina: true, pestanas: 0x1a1414, cuelloFino: true,
+  camisa: C.cr, mangas: "largas", cuello: C.cr, cuelloBotones: false, campera: { color: C.navy3, cuello: C.navy3, cierre: C.navy2, abierta: true },
+  pantalon: C.navy, zapatos: C.navy2, aros: C.g, labiosPegados: true, labios: 0xb5555a, mejillas: 0xe8968a, panza: 1.02, nariz: 0.05, alto: 0.98, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const diego = crearPersonaje({ ...DEFECTO, nombre: "Diego", mejillasBajas: true, piel: PIEL.clara, pelo: PELO.castaño, peinado: "jopo", jopoAlto: 0.7, barba: 0x4a3222, barbaLarga: 0.4, barbaOpacidad: 0.6, cejasColor: 0x4a3222,
+  camisa: 0xf7f7f2, mangas: "largas", cuello: 0xf7f7f2, cuelloBotones: false, campera: { color: C.navy2, cuello: C.navy2, cierre: C.navy3, abierta: true },
+  pantalon: 0x3a3f4a, zapatos: 0x3b2a20, panza: 0.98, nariz: 0.056, mejillas: 0xe39282, alto: 1.03, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const romina = crearPersonaje({ ...DEFECTO, nombre: "Romina", mejillasBajas: true, piel: PIEL.trigueña, pelo: 0x3a2418, peinado: "coletaAlta", cejasColor: 0x2a1e18, cejaFina: true, pestanas: 0x1a1414, cuelloFino: true,
+  camisa: C.navy3, mangas: "largas", cuello: C.cr, cuelloBotones: false, cuelloAlto: 0.06, pantalon: C.cr2, zapatos: C.navy, aros: C.cr, labiosPegados: true, labios: 0x9a4a4a, mejillas: 0xc9785e,
+  panza: 0.96, nariz: 0.046, alto: 0.96, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const ella = crearPersonaje({ ...DEFECTO, nombre: "Ana", piel: PIEL.clara, pelo: PELO.rubio, peinado: "coleta", camisa: C.cr, mangas: "largas", campera: { color: C.cr, cuello: C.cr2, cierre: C.cr3, abierta: false }, pantalon: C.navy2, zapatos: C.cr, alto: 0.96, parpadeoCada: 999 });
+const el = crearPersonaje({ ...DEFECTO, nombre: "Martín", piel: PIEL.media, pelo: PELO.negro, peinado: "corto", camisa: C.navy3, mangas: "largas", pantalon: 0x3a3f4a, zapatos: 0x2a2220, alto: 1.03, parpadeoCada: 999 });
+// la cartera crema de Graciela (al hombro izquierdo, colgando a la altura de la cadera)
 {
-  const corona = ruben.cabeza.children.find((o) => o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.phiLength || 0) - Math.PI * 1.14) < 1e-3);
-  if (corona) {
-    corona.visible = false;
-    const pm = mat(PELO.canoso, 0.85), pm2 = mat(0xa9a6a0, 0.85);
-    const R0 = 0.3, CC0 = R0 * 0.92;
-    semilla = 21;
-    const bola = new THREE.SphereGeometry(1, 16, 12);
-    const fila = (n, a0, a1, e0, eK, s0, sK, h) => {
-      for (let i = 0; i < n; i++) {
-        const u = (i + 0.5) / n, w = Math.sin(Math.PI * u);
-        const a2 = lerp(a0, a1, u) + (az() - 0.5) * 0.07, e2 = e0 + eK * w + (az() - 0.5) * 0.09;
-        const sz = s0 + sK * w + 0.008 * az(), k = 0.975;
-        const x = R0 * k * Math.sin(a2) * Math.cos(e2), y = CC0 + R0 * 0.97 * k * Math.sin(e2), z = R0 * 0.95 * k * Math.cos(a2) * Math.cos(e2);
-        const m = mesh(bola, (i + n) % 4 ? pm : pm2, x, y, z); m.scale.set(sz, sz * h, sz); ruben.cabeza.add(m);
-      }
-    };
-    fila(26, 1.5, Math.PI * 2 - 1.5, -0.1, 0.0, 0.02, 0.017, 1.3);
-    fila(9, 2.4, Math.PI * 2 - 2.4, -0.25, -0.02, 0.019, 0.01, 1.15);
-  }
+  const g = new THREE.Group(); g.position.set(0.31, 0.02, -0.02); graciela.cuerpo.add(g);
+  g.add(caja(0.08, 0.2, 0.26, mat(0xe6dfc8, 0.6), 0, 0, 0, 0.03)); g.add(caja(0.085, 0.05, 0.27, mat(0xcfc6aa, 0.6), 0, 0.07, 0, 0.012));
+  g.add(caja(0.09, 0.02, 0.03, M.gris, 0, 0.04, 0.0, 0.006));
+  const L = 0.5, tira = mesh(new THREE.CylinderGeometry(0.008, 0.008, L, 6), mat(0xcfc6aa, 0.6), -0.05, 0.1 + L / 2 - 0.02, 0.0); tira.rotation.z = 0.28; g.add(tira);
+  sombras(g);
 }
-// gorras: el operario (navy, visera verde) y el chofer (gris)
-for (const [per, gc, vc] of [[operario, C.navy3, C.g], [chofer, 0x8d939c, 0x6d727b]]) {
-  const R0 = 0.3, CC0 = R0 * 0.92, gm = mat(gc, 0.7), vm = mat(vc, 0.5);
-  per.cabeza.add(mesh(new THREE.SphereGeometry(R0 * 1.05, 28, 14, 0, Math.PI * 2, 0, Math.PI * 0.4), gm, 0, CC0 + 0.01, -0.01));
-  const vis = mesh(new THREE.CylinderGeometry(R0 * 0.75, R0 * 0.75, 0.025, 24, 1, false, -Math.PI * 0.45, Math.PI * 0.9), vm, 0, CC0 + R0 * 0.66, R0 * 0.5); vis.scale.set(1.1, 1, 0.85); vis.rotation.x = -0.32; if (per !== chofer) per.cabeza.add(vis);   // (r2) el chofer sin visera (de espaldas se veía hueca y dada vuelta)
-}
-// el maletín de muestras de Nico (navy3, franja y manija verdes; el origen en la manija)
-const maletin = (() => {
-  const g = new THREE.Group();
-  g.add(caja(0.42, 0.3, 0.1, M.navy3, 0, -0.2, 0, 0.03));
-  g.add(caja(0.425, 0.04, 0.105, M.g, 0, -0.13, 0, 0.01));
-  for (const s of [-1, 1]) g.add(caja(0.04, 0.03, 0.11, M.cr, s * 0.12, -0.08, 0, 0.008));
-  g.add(mesh(new THREE.TorusGeometry(0.055, 0.014, 8, 18, Math.PI), M.g, 0, -0.05, 0));
-  return sombras(g);
-})();
-scene.add(maletin);
-// el celular de Héctor (Q2, en la oreja) y el de Nico en la mano (P3)
-const pantH = lienzo(300, 600, (x, w, h) => {
-  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120);
-  x.fillStyle = "#efeee5"; x.font = F(800, 40); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("En llamada", w / 2, 62);
-  x.fillStyle = "#5ce611"; x.beginPath(); x.arc(w / 2, 270, 100, 0, 7); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 110); x.fillText("N", w / 2, 276);
-  x.fillStyle = "#0b1220"; x.font = F(900, 54); x.fillText("Nico", w / 2, 430); x.fillStyle = "#3fa60a"; x.font = F(800, 40); x.fillText("Distribuidora", w / 2, 490);
-  x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 560, 28, 0, 7); x.fill();
-});
-const celH = new THREE.Group(); celH.add(caja(0.09, 0.175, 0.014, M.navy, 0, 0, 0, 0.012)); { const sc = new THREE.Mesh(new THREE.PlaneGeometry(0.078, 0.156), new THREE.MeshBasicMaterial({ map: pantH, toneMapped: false })); sc.position.z = 0.0075; celH.add(sc); }
-celH.add(caja(0.0001, 0.0001, 0.0001, M.navy, 0, 0, 0)); { const sc = new THREE.Mesh(new THREE.PlaneGeometry(0.064, 0.13), new THREE.MeshBasicMaterial({ color: 0x2c4268 })); sc.position.z = 0.0075; celH.add(sc); const cm = caja(0.016, 0.016, 0.004, M.gris, 0.018, 0.055, -0.008, 0.004); celH.add(cm); } sombras(celH); scene.add(celH);
-const celNmano = new THREE.Group(); celNmano.add(caja(0.075, 0.15, 0.012, M.navy, 0, 0, 0, 0.012)); sombras(celNmano); scene.add(celNmano);
-// (r1) los lentes de Héctor: aros cerrados (360°) 4,5 cm delante de la cara (antes quedaban medio hundidos y se leían
-// como "C"), sin patillas (cruzaban el ojo de 3/4) y un puente nuevo entre los aros, por encima de la nariz
-{
-  const aros = hector.cabeza.children.filter((o) => o.isMesh && o.geometry.type === "TorusGeometry" && Math.abs(o.geometry.parameters.radius - 0.088) < 1e-3);
-  const lm = aros[0]?.material;
-  for (const o of hector.cabeza.children) if (o.isMesh && o.material === lm && o.geometry.type !== "TorusGeometry") o.scale.setScalar(0.0001);
-  for (const a of aros) { a.geometry = new THREE.TorusGeometry(0.084, 0.012, 10, 44); a.translateZ(0.028); }   // (r2) 2,8 cm: en 3/4 el aro de atrás no sale de la cara
-  if (aros.length === 2) {
-    const [p0, p1] = aros.map((a) => a.position.clone()), dir = p1.clone().sub(p0).normalize();
-    const q0 = p0.clone().add(dir.clone().multiplyScalar(0.084)), q1 = p1.clone().sub(dir.clone().multiplyScalar(0.084));
-    const L = q0.distanceTo(q1), mid = q0.clone().add(q1).multiplyScalar(0.5).add(V3(0, 0.025, 0.012));
-    const pu = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, L + 0.01, 8), lm); pu.position.copy(mid); pu.quaternion.setFromUnitVectors(V3(0, 1, 0), dir); hector.cabeza.add(pu);
-  }
-}
-// (r2) el chaleco mostaza un 5 % más angosto (asomaba en astillas a través del guardapolvo)
-// (r3) sin chaleco: asomaba por los hombros y el ruedo del guardapolvo (se esconden el chaleco, sus vivos y sus botones)
-hector.cuerpo.children.forEach((o) => { if (!o.isMesh || !o.material.color) return; const h = o.material.color.getHex(); if (h === 0xd9a441 || h === new THREE.Color(0xd9a441).multiplyScalar(0.8).getHex() || (o.geometry.type === "SphereGeometry" && Math.abs(o.scale.x - 0.017) < 1e-4)) o.visible = false; });
-// (r1) el bigote de Rubén se esconde cuando la cámara le ve la nuca (asomaba por los costados de la cabeza)
-const BIGOTE_R = []; ruben.cabeza.traverse((o) => { if (o.isMesh && o.material.color && o.material.color.getHex() === PELO.gris) BIGOTE_R.push(o); });
-function bigoteSegunCamara() {
-  ruben.cabeza.updateMatrixWorld(true);
-  const h = ruben.cabeza.getWorldPosition(new THREE.Vector3()), f = V3(0, 0, 1).transformDirection(ruben.cabeza.matrixWorld), c = camera.position.clone().sub(h);
-  f.y = 0; c.y = 0; f.normalize(); c.normalize();
-  const vis = f.dot(c) > -0.2;
-  for (const b of BIGOTE_R) b.visible = vis;
-}
-const TODOS = [ruben, nico, hector, operario, chofer];
+const TODOS = [silvana, diego, romina, graciela, ella, el];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
+// los celulares en la mano: el de Diego (funda navy2) y el de Graciela (funda verde oscuro); se ponen entre las manos y
+// siempre con la pantalla hacia la cámara
+const celD = crearCelular(pantD, C.navy2, 0.08 * 1.2, 0.162 * 1.2); scene.add(celD);
+const celG = crearCelular(pantG, C.gd, 0.08 * 1.25, 0.162 * 1.25); scene.add(celG);
 
-// ---- avatares: la cara del personaje 3D renderizada chica en un círculo (el aviso, la ficha, el panel) ----
+// ---- Sofi en videollamada: una escena aparte que se renderiza a una textura cada cuadro (Q5) ----
+const sofi = crearPersonaje({ ...ELENCO.sofi, camisa: 0x2c4268, franja: null, cuello: MARCA.cr, cuelloBotones: false, cuelloFino: true, auricularFino: true, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+for (const sx of [-1, 1]) { const c = mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.07, 24).rotateZ(Math.PI / 2), M.g, sx * 0.37, 0.24, 0.02); sofi.cabeza.add(c); const v = mesh(new THREE.TorusGeometry(0.36, 0.02, 8, 32, Math.PI), M.navy, 0, 0.27, 0.0); if (sx > 0) sofi.cabeza.add(v); }
+const SOFI = { esc: new THREE.Scene(), rt: new THREE.WebGLRenderTarget(432, 768), cam: new THREE.PerspectiveCamera(28, 432 / 768, 0.05, 20) };
+{
+  SOFI.rt.texture.colorSpace = THREE.SRGBColorSpace;
+  SOFI.esc.background = new THREE.Color(0x16243d);
+  SOFI.esc.add(new THREE.HemisphereLight(0xffffff, 0x6a7080, 2.0)); const dl = new THREE.DirectionalLight(0xfff4e8, 1.7); dl.position.set(1.2, 2.2, 3); SOFI.esc.add(dl);
+  SOFI.esc.add(sofi.raiz);
+  const fondo = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.MeshBasicMaterial({ color: 0x1f3254 })); fondo.position.set(0, 1.4, -0.9); SOFI.esc.add(fondo);
+  const logoT = await new THREE.TextureLoader().loadAsync("assets/logo-blanco.png"); logoT.colorSpace = THREE.SRGBColorSpace;
+  const ar = logoT.image.width / logoT.image.height;
+  const logo = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34 / ar), new THREE.MeshBasicMaterial({ map: logoT, transparent: true })); logo.position.set(0.24, 1.86, -0.88); SOFI.esc.add(logo);
+}
+const celuS = new THREE.Group(); celuS.position.set(0.24, MESA_Y, 1.3); celuS.rotation.y = -0.25; OF.add(celuS);
+{
+  const S = 1.9, W = 0.08 * S, H = 0.165 * S;
+  const piv = new THREE.Group(); piv.position.y = 0.035; piv.rotation.x = -0.18; celuS.add(piv);
+  piv.add(mesh(rbox(W + 0.008, H + 0.008, 0.014, 0.014), mat(C.navy, 0.4), 0, H / 2, 0));
+  const pan = new THREE.Mesh(new THREE.PlaneGeometry(W - 0.004, H - 0.006), new THREE.MeshBasicMaterial({ map: SOFI.rt.texture, toneMapped: false })); pan.position.set(0, H / 2, 0.0076); piv.add(pan);
+  celuS.add(caja(0.17, 0.02, 0.13, M.g, 0, 0.01, 0.0, 0.008)); celuS.add(caja(0.14, 0.08, 0.02, M.g, 0, 0.05, -0.06, 0.006));
+  celuS.userData = { piv, centro: V3(0, H / 2, 0.0076), H };
+  sombras(celuS);
+}
+
+// ---- avatares: la cara del personaje 3D renderizada chica en un círculo (los celulares y la ficha) ----
 const AVATAR = {};
 {
   const rt = new THREE.WebGLRenderTarget(256, 256); rt.texture.colorSpace = THREE.SRGBColorSpace;
@@ -722,10 +531,7 @@ const AVATAR = {};
     if (padre) padre.add(per.raiz); else esc.remove(per.raiz);
     return cv;
   };
-  AVATAR.hector = leer(hector, 0xb9cde0); AVATAR.nico = leer(nico, 0xefeee5);
-  AVATAR.nelly = leer(crearPersonaje({ ...DEFECTO, nombre: "Nelly", piel: PIEL.media, pelo: PELO.rubio, peinado: "rodete", camisa: C.cr, mangas: "largas", labios: 0xb5555a, aros: C.g, parpadeoCada: 999 }), 0xefeee5);
-  AVATAR.fede = leer(crearPersonaje({ ...DEFECTO, nombre: "Fede", piel: PIEL.trigueña, pelo: PELO.negro, peinado: "texturado", camisa: C.g, mangas: "cortas", parpadeoCada: 999 }), 0xb9cde0);
-  AVATAR.beto = leer(crearPersonaje({ ...DEFECTO, nombre: "Beto", piel: PIEL.clara, pelo: PELO.castaño, peinado: "corto", bigote: PELO.castaño, camisa: C.navy3, mangas: "cortas", parpadeoCada: 999 }), 0x5ce611);
+  AVATAR.graciela = leer(graciela, 0xb9cde0); AVATAR.silvana = leer(silvana, 0xefeee5); AVATAR.diego = leer(diego, 0xb9cde0); AVATAR.romina = leer(romina, 0xefeee5);
   rt.dispose();
 }
 function avatar(x, cv, cx, cy, r) {
@@ -733,7 +539,7 @@ function avatar(x, cv, cx, cy, r) {
   x.strokeStyle = "#0b1220"; x.lineWidth = Math.max(4, r * 0.1); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.stroke();
 }
 const tilde = (x, cx, cy, s, color = "#0b1220", lw = null) => { x.strokeStyle = color; x.lineWidth = lw ?? s * 0.28; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(cx - s * 0.5, cy); x.lineTo(cx - s * 0.12, cy + s * 0.38); x.lineTo(cx + s * 0.55, cy - s * 0.42); x.stroke(); };
-// el íconito del parlante (para la cabecera de la burbuja del contador)
+// el íconito del parlante (para la cabecera de la burbuja del altavoz)
 function parlante(x, cx, cy, r) {
   x.fillStyle = "#16243d"; x.beginPath(); x.arc(cx, cy, r, 0, 7); x.fill();
   x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(cx - r * 0.5, cy - r * 0.2); x.lineTo(cx - r * 0.22, cy - r * 0.2); x.lineTo(cx + r * 0.1, cy - r * 0.5); x.lineTo(cx + r * 0.1, cy + r * 0.5); x.lineTo(cx - r * 0.22, cy + r * 0.2); x.lineTo(cx - r * 0.5, cy + r * 0.2); x.closePath(); x.fill();
@@ -741,125 +547,159 @@ function parlante(x, cx, cy, r) {
 }
 
 // ================= PANTALLAS =================
-// ---- el monitor de Rubén: la facturación por cliente (parte 1) · la ficha de Héctor (Q3b) · el panel (Q4) ----
+const cabCel = (x, w, t1, t2) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#5ce611"; x.fillRect(0, 150, w, 8); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, t1, 800, 50, w - 60); x.fillText(t1, 30, 56); x.fillStyle = "#5ce611"; ajustar(x, t2, 700, 38, w - 60); x.fillText(t2, 30, 112); };
+function pantLlamada(x, w, h, cv, nombre, sub, seg, fin = false) {
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.textAlign = "center"; x.textBaseline = "middle";
+  avatar(x, cv, w / 2, 330, 150);
+  x.fillStyle = "#efeee5"; ajustar(x, nombre, 900, 66, w - 50); x.fillText(nombre, w / 2, 570);
+  x.fillStyle = fin ? "#c7655b" : "#5ce611"; ajustar(x, sub, 800, 52, w - 50); x.fillText(sub, w / 2, 655);
+  if (!fin) {
+    // el altavoz prendido (verde) y el botón rojo de colgar
+    x.fillStyle = "#5ce611"; x.beginPath(); x.arc(w / 2 - 120, 860, 70, 0, 7); x.fill(); parlante(x, w / 2 - 120, 860, 52);
+    x.fillStyle = "#efeee5"; x.font = F(700, 36); x.fillText("altavoz", w / 2 - 120, 968);
+    x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2 + 120, 860, 70, 0, 7); x.fill();
+    x.strokeStyle = "#efeee5"; x.lineWidth = 18; x.lineCap = "round"; x.beginPath(); x.arc(w / 2 + 120, 880, 36, Math.PI * 1.15, Math.PI * 1.85); x.stroke();
+    x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText(`0:${String(Math.min(59, seg)).padStart(2, "0")}`, w / 2, 735);
+  } else {
+    x.fillStyle = "#c7655b"; x.beginPath(); x.roundRect(60, 780, w - 120, 150, 40); x.fill();
+    x.fillStyle = "#efeee5"; ajustar(x, "Llamada finalizada", 900, 52, w - 160); x.fillText("Llamada finalizada", w / 2, 856);
+  }
+}
+// ---- el monitor de Silvana: la planilla (parte 1) · la ficha de la propiedad (Q3) · tres semanas después (Q4, Q5) ----
 let claveM = "";
 function dibujarMonitor(t) {
-  const modo = t < P2 ? "fact" : t < T.q4 ? "ficha" : "panel";
-  const hueco = modo === "ficha" && t >= T.hueco ? 1 : 0;
-  const nt = modo === "panel" ? T.tildes.filter((a) => t >= a).length : 0, cero = modo === "panel" && t >= T.cero ? 1 : 0, th = modo === "panel" && t >= T.tildeH ? 1 : 0;
-  const clave = `${modo}|${hueco}|${nt}|${cero}|${th}`; if (clave === claveM) return; claveM = clave;
+  const modo = t < P2 ? "planilla" : t < T.q4 ? "ficha" : "despues";
+  const nt = modo === "ficha" ? T.tildes.filter((a) => t >= a).length : 4;
+  const res = modo === "despues" && t >= T.reserva ? 1 : 0, com = modo === "despues" ? cl((t - T.comision) / 0.3) : 0;
+  const comK = Math.round(com * 6);
+  const clave = `${modo}|${nt}|${res}|${comK}`; if (clave === claveM) return; claveM = clave;
   const { x } = pantM.userData, w = 1280, h = 800;
   x.textBaseline = "middle"; x.textAlign = "left";
-  if (modo === "fact") {
-    // la planilla genérica: grilla crema con encabezado navy (sin ícono de ningún programa); la fila de Héctor grande
+  if (modo === "planilla") {
+    // la planilla genérica de propiedades (sin ícono de ningún programa): la fila de Pocitos con "?" en las visitas
     x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 130); x.fillStyle = "#efeee5"; ajustar(x, "Facturación por cliente", 800, 74, w - 80); x.fillText("Facturación por cliente", 40, 68);
-    const cols = [20, 400, 620, 840, 1060, w - 20];
-    x.fillStyle = "#1f3254"; x.fillRect(cols[0], 146, cols[5] - cols[0], 86);
-    x.fillStyle = "#efeee5"; x.font = F(800, 54); ["Cliente", "AGO", "SET", "OCT", "NOV"].forEach((c, i) => x.fillText(c, cols[i] + 20, 190));
-    const filas = [["Graciela", "62.400", "60.900", "63.100", "31.200", 0], ["Súper Héctor", "114.000", "0", "0", "0", 1], ["Marta", "48.300", "47.900", "49.500", "24.100", 0]];
-    let y = 232;
-    filas.forEach(([n, ...v], i) => {
-      const hh = v[4] ? 250 : 130, big = v[4];
-      x.fillStyle = big ? "#f7f6f0" : i % 2 ? "#e2e0d4" : "#f7f6f0"; x.fillRect(cols[0], y, cols[5] - cols[0], hh);
-      if (big) { x.strokeStyle = "#c7655b"; x.lineWidth = 10; x.strokeRect(cols[0] + 5, y + 5, cols[5] - cols[0] - 10, hh - 10); }
-      x.fillStyle = "#0b1220";
-      if (big) { x.font = F(900, 66); x.fillText("Súper", cols[0] + 22, y + hh / 2 - 38); x.fillText("Héctor", cols[0] + 22, y + hh / 2 + 40); }
-      else { x.font = F(700, 52); x.fillText(n, cols[0] + 22, y + hh / 2); }
-      for (let k = 0; k < 4; k++) {
-        const cero = big && v[k] === "0";
-        x.fillStyle = cero ? "#c7655b" : "#0b1220"; x.font = F(big ? 900 : 700, big ? (cero ? 80 : 50) : 46);
-        x.textAlign = "center"; x.fillText(cero ? "$ 0" : (big ? "$ " : "") + v[k], (cols[k + 1] + cols[k + 2]) / 2, y + hh / 2 + 2); x.textAlign = "left";
-      }
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 130); x.fillStyle = "#efeee5"; ajustar(x, "Propiedades en venta", 800, 74, w - 80); x.fillText("Propiedades en venta", 40, 68);
+    const cols = [20, 560, 900, w - 20];
+    x.fillStyle = "#1f3254"; x.fillRect(cols[0], 146, cols[3] - cols[0], 90);
+    x.fillStyle = "#efeee5"; x.font = F(800, 56); ["Propiedad", "Precio", "Visitas"].forEach((c, i) => x.fillText(c, cols[i] + 22, 192));
+    const filas = [["Buceo · 3 dorm.", "245.000", "2"], ["Pocitos · 2 dorm.", "180.000", "?"], ["Prado · 3 dorm.", "230.000", "1"]];
+    let y = 236;
+    filas.forEach(([n, p, v], i) => {
+      const big = v === "?", hh = big ? 230 : 140;
+      x.fillStyle = big ? "#f7f6f0" : i % 2 ? "#e2e0d4" : "#f7f6f0"; x.fillRect(cols[0], y, cols[3] - cols[0], hh);
+      if (big) { x.strokeStyle = "#c7655b"; x.lineWidth = 10; x.strokeRect(cols[0] + 5, y + 5, cols[3] - cols[0] - 10, hh - 10); }
+      x.fillStyle = "#0b1220"; x.font = F(big ? 900 : 700, big ? 66 : 54); x.fillText(n, cols[0] + 24, y + hh / 2);
+      x.font = F(big ? 900 : 700, big ? 62 : 52); x.fillText(p, cols[1] + 24, y + hh / 2);
+      x.fillStyle = big ? "#c7655b" : "#0b1220"; x.font = F(900, big ? 120 : 56); x.textAlign = "center"; x.fillText(v, (cols[2] + cols[3]) / 2, y + hh / 2 + 4); x.textAlign = "left";
       y += hh;
     });
     x.strokeStyle = "#1f3254"; x.lineWidth = 4; for (const c of cols) { x.beginPath(); x.moveTo(c, 146); x.lineTo(c, y); x.stroke(); }
-  } else if (modo === "ficha") {
-    // la ficha del cliente: cada cuánto compra, la tira de los martes, el último pedido
-    x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h);
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120); x.fillStyle = "#5ce611"; x.fillRect(0, 120, w, 10);
-    x.fillStyle = "#efeee5"; x.font = F(800, 62); x.fillText("Clientes · Súper Héctor", 40, 62);
-    avatar(x, AVATAR.hector, 130, 260, 92);
-    x.fillStyle = "#efeee5"; x.font = F(900, 70); x.fillText("Héctor · dueño", 250, 222);
-    x.fillStyle = "#5ce611"; x.font = F(800, 56); x.fillText("Compra cada 7 días · martes", 250, 300);
-    x.fillStyle = "#b9cde0"; x.font = F(700, 48); x.fillText("Promedio: $ 38.000 · Vendedor: Nico", 40, 420);
-    // la tira de 8 martes
-    const n = 8, cw = 128, gap = 18, x0 = (w - (n * cw + (n - 1) * gap)) / 2;
-    for (let i = 0; i < n; i++) {
-      const ok = i < n - 1 || hueco, xx = x0 + i * (cw + gap);
-      x.fillStyle = ok ? "#5ce611" : "#16243d"; x.beginPath(); x.roundRect(xx, 480, cw, 120, 20); x.fill();
-      if (!ok) { x.strokeStyle = "#c7655b"; x.lineWidth = 10; x.setLineDash([22, 14]); x.stroke(); x.setLineDash([]); }
-      else tilde(x, xx + cw / 2, 540, 62, "#0b1220");
-    }
-    x.fillStyle = hueco ? "#5ce611" : "#c7655b"; x.beginPath(); x.roundRect(40, 650, w - 80, 120, 30); x.fill();
-    x.fillStyle = "#0b1220"; x.font = F(900, 68); x.textAlign = "center"; x.fillText(hueco ? "Último pedido: hoy ✓" : "No pidió ayer", w / 2, 712); x.textAlign = "left";
   } else {
-    // el panel: "Dejaron de pedir esta semana"
-    x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h);
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120); x.fillStyle = "#5ce611"; x.fillRect(0, 120, w, 10);
-    x.fillStyle = "#efeee5"; ajustar(x, "Dejaron de pedir esta semana", 800, 62, w - 80); x.fillText("Dejaron de pedir esta semana", 40, 62);
-    const filas = [[AVATAR.hector, "Súper Héctor", "$ 38.000"], [AVATAR.nelly, "Panadería Nelly", "$ 9.500"], [AVATAR.fede, "Rotisería Fede", "$ 7.200"], [AVATAR.beto, "Kiosco Beto", "$ 6.300"]];
-    filas.forEach(([cv, nom, m], i) => {
-      const y = 150 + i * 112, ok = i < nt, luz = i === 0 && th;
-      x.fillStyle = luz ? "#5ce611" : "#efeee5"; x.beginPath(); x.roundRect(30, y, w - 60, 98, 22); x.fill();
-      avatar(x, cv, 84, y + 49, 38);
-      x.fillStyle = "#0b1220"; x.font = F(800, 58); x.fillText(nom, 140, y + 51);
-      x.fillStyle = "#1f3254"; x.font = F(800, 54); x.textAlign = "right"; x.fillText(m, 870, y + 51); x.textAlign = "left";
-      x.fillStyle = ok ? (luz ? "#0b1220" : "#5ce611") : "#c9ccd2"; x.beginPath(); x.roundRect(890, y + 14, 330, 70, 35); x.fill();
-      x.fillStyle = ok ? (luz ? "#5ce611" : "#0b1220") : "#6d727b"; x.font = F(900, 56); x.textAlign = "center"; x.fillText(ok ? "Pidió ✓" : "Llamado…", 1055, y + 50); x.textAlign = "left";
-    });
-    const yc = 610;
-    x.fillStyle = cero ? "#5ce611" : "#16243d"; x.beginPath(); x.roundRect(30, yc, 520, 160, 30); x.fill();
-    x.fillStyle = cero ? "#0b1220" : "#efeee5"; x.font = F(800, 50); x.fillText("Sin pedir:", 60, yc + 80);
-    const n0 = cero || nt >= 4; x.fillStyle = n0 ? (cero ? "#0b1220" : "#5ce611") : "#c7655b"; x.font = F(900, 120); x.fillText(cero ? "0" : String(4 - nt), 340, yc + 86);
-    x.fillStyle = "#5ce611"; x.font = F(900, 72); x.textAlign = "right"; x.fillText(cero ? "$ 61.000" : "", w - 40, yc + 52); x.font = F(800, 58); x.fillStyle = "#efeee5"; x.fillText(cero ? "que no se fueron" : "", w - 40, yc + 128); x.textAlign = "left";
+    // la ficha de la propiedad: encabezado navy, las visitas con su tilde, la llave, el resumen
+    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#5ce611"; x.fillRect(0, 150, w, 10);
+    x.fillStyle = "#efeee5"; ajustar(x, "Pocitos · 2 dorm. · USD 180.000", 900, 64, w - 220); x.fillText("Pocitos · 2 dorm. · USD 180.000", 30, 54);
+    x.fillStyle = "#5ce611"; ajustar(x, "Propietaria: Graciela", 800, 48, w - 220); x.fillText("Propietaria: Graciela", 30, 116);
+    avatar(x, AVATAR.graciela, w - 90, 76, 58);
+    if (modo === "ficha") {
+      const filas = [[AVATAR.romina, "Mar 10:00", "Sergio y Lu", "alto"], [AVATAR.diego, "Mié 18:00", "Jorge", "bajo"], [AVATAR.romina, "Jue 12:00", "Paula", "medio"], [AVATAR.diego, "Vie 17:30", "Martín y Ana", "alto"]];
+      filas.forEach(([cv, d, q, i2], k) => {
+        const y = 180 + k * 112, ok = k < nt;
+        x.fillStyle = ok ? "#ffffff" : "#e2e0d4"; x.beginPath(); x.roundRect(20, y, w - 40, 100, 20); x.fill();
+        if (!ok) { x.globalAlpha = 0.35; }
+        avatar(x, cv, 72, y + 50, 38);
+        x.fillStyle = "#0b1220"; x.font = F(800, 52); x.fillText(d, 128, y + 52);
+        x.font = F(800, 52); x.fillText(q, 420, y + 52);
+        const cI = i2 === "alto" ? "#5ce611" : i2 === "medio" ? "#b9cde0" : "#d9d7c9";
+        x.fillStyle = cI; x.beginPath(); x.roundRect(880, y + 18, 220, 64, 32); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 46); x.textAlign = "center"; x.fillText(i2, 990, y + 51); x.textAlign = "left";
+        x.globalAlpha = 1;
+        if (ok) { x.fillStyle = "#16243d"; x.beginPath(); x.arc(1180, y + 50, 38, 0, 7); x.fill(); tilde(x, 1180, y + 52, 44, "#5ce611"); }
+      });
+      x.fillStyle = nt >= 4 ? "#5ce611" : "#16243d"; x.beginPath(); x.roundRect(20, 636, w - 40, 140, 30); x.fill();
+      x.fillStyle = nt >= 4 ? "#0b1220" : "#efeee5"; x.textAlign = "center"; ajustar(x, "Visitas: 4 ✓ · Llave en el tablero ✓", 900, 64, w - 100); x.fillText("Visitas: 4 ✓ · Llave en el tablero ✓", w / 2, 706); x.textAlign = "left";
+    } else {
+      // tres semanas después: las cifras grandes, RESERVADO y la comisión que gira de rojo a verde
+      const caja2 = (cx, cy, cw, ch, fondo, l1, l2, c1, c2, s2) => { x.fillStyle = fondo; x.beginPath(); x.roundRect(cx, cy, cw, ch, 30); x.fill(); x.textAlign = "center"; x.fillStyle = c1; x.font = F(800, 48); x.fillText(l1, cx + cw / 2, cy + 58); x.fillStyle = c2; x.font = F(900, s2); x.fillText(l2, cx + cw / 2, cy + ch - 78); x.textAlign = "left"; };
+      caja2(20, 182, 610, 230, "#16243d", "Visitas", "11", "#efeee5", "#5ce611", 130);
+      caja2(650, 182, 610, 230, "#16243d", "Segundas visitas", "3", "#efeee5", "#5ce611", 130);
+      x.fillStyle = res ? "#5ce611" : "#d9d7c9"; x.beginPath(); x.roundRect(20, 432, w - 40, 160, 30); x.fill();
+      x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 104); x.fillText(res ? "RESERVADO ✓" : "En venta", w / 2, 516);
+      // la comisión: rojo apagado → verde (gira sobre su eje horizontal)
+      const k = comK / 6, esc = Math.abs(Math.cos(Math.PI * k)), verde = k >= 0.5;
+      x.save(); x.translate(w / 2, 700); x.scale(1, Math.max(0.04, esc));
+      x.fillStyle = verde ? "#5ce611" : "#c7655b"; x.beginPath(); x.roundRect(-(w - 40) / 2, -86, w - 40, 172, 30); x.fill();
+      x.fillStyle = "#0b1220"; x.font = F(900, 92); x.fillText("USD 5.400 de comisión", 0, 6);
+      x.restore(); x.textAlign = "left";
+    }
   }
   pantM.needsUpdate = true;
 }
-// ---- el celular de Nico en el soporte del auto (parte 2): el aviso → llamando → en llamada → Pedido ✓ ----
-let claveN = "";
-function dibujarCelN(t) {
-  const modo = t < T.vibra ? "mapa" : t < T.llamar + 0.06 ? "aviso" : t < T.n2 + 0.2 ? "llama" : t < T.q2i ? "habla" : "pedido";   // (r3) el inserto entra directo en "Pedido"
-  const seg = modo === "habla" ? Math.floor(t - T.n2) : 0, toq = modo === "aviso" && t >= T.llamar - 0.15 ? 1 : 0;
-  const clave = `${modo}|${seg}|${toq}`; if (clave === claveN) return; claveN = clave;
-  const { x } = pantN.userData, w = 600, h = 1110;
-  x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h); x.textBaseline = "middle"; x.textAlign = "left";
-  const cab = () => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#5ce611"; x.fillRect(0, 150, w, 8); x.fillStyle = "#efeee5"; ajustar(x, "Distribuidora Rubén", 800, 48, w - 60); x.fillText("Distribuidora Rubén", 30, 56); x.fillStyle = "#5ce611"; x.font = F(700, 38); x.fillText("Clientes", 30, 112); };
-  if (modo === "mapa") {
-    // la ruta del día (mapita plano) antes del aviso
-    cab(); x.fillStyle = "#1f3254"; x.fillRect(0, 158, w, h - 158);
-    x.strokeStyle = "#2c4268"; x.lineWidth = 26; for (let i = 0; i < 5; i++) { x.beginPath(); x.moveTo(0, 260 + i * 200); x.lineTo(w, 220 + i * 200); x.stroke(); x.beginPath(); x.moveTo(80 + i * 130, 158); x.lineTo(60 + i * 130, h); x.stroke(); }
-    x.strokeStyle = "#5ce611"; x.lineWidth = 14; x.beginPath(); x.moveTo(110, 1000); x.lineTo(190, 640); x.lineTo(450, 560); x.lineTo(470, 300); x.stroke();
-    x.fillStyle = "#efeee5"; x.font = F(900, 96); x.textAlign = "center"; x.fillText("8:10", w / 2, 860);
-  } else if (modo === "aviso") {
-    cab();
-    // la tarjeta del aviso (crema), el chip rojo apagado, los datos y el botón verde
-    x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(22, 190, w - 44, 890, 36); x.fill();
-    avatar(x, AVATAR.hector, 102, 282, 64);
-    x.fillStyle = "#0b1220"; ajustar(x, "Súper Héctor", 900, 56, w - 230); x.fillText("Súper Héctor", 186, 262);
-    x.fillStyle = "#c7655b"; x.beginPath(); x.roundRect(186, 296, 300, 60, 30); x.fill(); x.fillStyle = "#efeee5"; x.font = F(800, 36); x.fillText("No pidió ayer", 206, 328);
-    const datos = [["Compra cada 7 días", 48, "#0b1220", 900], ["los martes", 46, "#1f3254", 800], ["Último pedido:", 40, "#1f3254", 700], ["hace 8 días", 46, "#c7655b", 900], ["$ 38.000 por semana", 44, "#0b1220", 800], ["Vendedor: Nico", 40, "#1f3254", 700]];
-    let y = 420; for (const [s, p, c, wgt] of datos) { x.fillStyle = c; ajustar(x, s, wgt, p, w - 100); x.fillText(s, 52, y); y += p * 1.45; }
-    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(46, 920, w - 92, 130, 65); x.fill();
-    if (toq) { x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.stroke(); }
-    x.fillStyle = "#0b1220"; x.font = F(900, 66); x.textAlign = "center"; x.fillText("Llamar", w / 2, 987);
-  } else if (modo === "llama" || modo === "habla") {
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h);
-    avatar(x, AVATAR.hector, w / 2, 380, 150);
-    x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(900, 64); x.fillText("Súper Héctor", w / 2, 620);
-    x.fillStyle = "#5ce611"; x.font = F(800, 52); x.fillText(modo === "llama" ? "Llamando…" : `0:0${Math.min(9, seg)}`, w / 2, 710);
-    x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 940, 74, 0, 7); x.fill();
-    x.strokeStyle = "#efeee5"; x.lineWidth = 18; x.lineCap = "round"; x.beginPath(); x.arc(w / 2, 960, 40, Math.PI * 1.15, Math.PI * 1.85); x.stroke();
-  } else {
-    cab();
-    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(22, 200, w - 44, 860, 36); x.fill();
-    x.fillStyle = "#0b1220"; x.beginPath(); x.arc(w / 2, 400, 130, 0, 7); x.fill(); tilde(x, w / 2, 405, 150, "#5ce611");
-    x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 92); x.fillText("Pedido", w / 2, 640);
-    x.font = F(800, 52); x.fillText("Súper Héctor", w / 2, 760); x.font = F(900, 64); x.fillText("$ 38.000", w / 2, 860); x.font = F(800, 52); x.fillText("Sale hoy", w / 2, 960);
-  }
-  pantN.needsUpdate = true;
+// ---- el celular de Silvana en el soporte: en llamada con Graciela (altavoz) · "Llamada finalizada" ----
+let claveS = "";
+function dibujarTelS(t) {
+  const fin = t >= T.cuelga && t < P2;
+  const t0 = t < P2 ? 0 : T.g1b - 0.2, seg = Math.max(0, Math.floor(t - t0)) + (t < P2 ? 41 : 2);
+  const clave = `${fin}|${seg}`; if (clave === claveS) return; claveS = clave;
+  const { x } = pantS.userData;
+  pantLlamada(x, 600, 1110, AVATAR.graciela, "Graciela · Pocitos", fin ? "" : "En llamada", seg, fin);
+  pantS.needsUpdate = true;
 }
-
+// ---- el celular de Diego (Q1): la visita que se carga por renglones → Guardar → "Visita cargada ✓" ----
+let claveD = "";
+function dibujarCelD(t) {
+  const nf = T.filasD.filter((a) => t >= a).length, ok = t >= T.guarda ? 1 : 0, toca = t >= T.guarda - 0.25 && !ok ? 1 : 0;
+  const clave = `${nf}|${ok}|${toca}`; if (clave === claveD) return; claveD = clave;
+  const { x } = pantD.userData, w = 600, h = 1110;
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
+  cabCel(x, w, "Visitas · Pocitos, 2 dorm.", "Silvana Propiedades");
+  const R = [
+    () => { x.fillStyle = "#1f3254"; x.font = F(700, 40); x.fillText("Vie 17:30", 36, 210); x.fillStyle = "#0b1220"; ajustar(x, "Martín y Ana", 900, 58, w - 72); x.fillText("Martín y Ana", 36, 268); },
+    () => { x.fillStyle = "#0b1220"; x.font = F(800, 44); x.fillText("Interés:", 36, 360); x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(230, 322, 200, 76, 38); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 48); x.fillText("ALTO", 268, 362); },
+    () => { x.fillStyle = "#1f3254"; x.font = F(700, 40); x.fillText("Dijeron:", 36, 450); x.fillStyle = "#0b1220"; ajustar(x, "«Muy luminoso»", 800, 46, w - 72); x.fillText("«Muy luminoso»", 36, 504); ajustar(x, "«¿Tiene cochera?»", 800, 46, w - 72); x.fillText("«¿Tiene cochera?»", 36, 558); },
+    () => { x.fillStyle = "#1f3254"; x.font = F(700, 40); x.fillText("Segunda visita:", 36, 646); x.fillStyle = "#0b1220"; x.font = F(900, 50); x.fillText("martes 11:00", 36, 700); },
+    () => { x.fillStyle = "#1f3254"; x.font = F(700, 40); x.fillText("Llave:", 36, 788); x.fillStyle = "#0b1220"; ajustar(x, "Diego → oficina 18:05 ✓", 800, 44, w - 72); x.fillText("Diego → oficina 18:05 ✓", 36, 842); },
+  ];
+  x.textAlign = "left"; x.textBaseline = "middle";
+  for (let i = 0; i < nf; i++) { R[i](); x.fillStyle = "#d9d7c9"; x.fillRect(36, [300, 410, 600, 740, 885][i], w - 72, 4); }
+  x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 940, w - 80, 130, 65); x.fill();
+  if (toca) { x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.stroke(); }
+  x.fillStyle = "#0b1220"; x.font = F(900, 64); x.textAlign = "center"; x.fillText("Guardar", w / 2, 1006);
+  if (ok) {
+    x.fillStyle = "rgba(11,18,32,0.55)"; x.fillRect(0, 158, w, h - 158);
+    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 380, w - 80, 380, 40); x.fill();
+    x.fillStyle = "#0b1220"; x.beginPath(); x.arc(w / 2, 500, 80, 0, 7); x.fill(); tilde(x, w / 2, 505, 92, "#5ce611");
+    ajustar(x, "Visita cargada", 900, 66, w - 120); x.fillText("Visita cargada", w / 2, 660);
+  }
+  pantD.needsUpdate = true;
+}
+// ---- el celular de Graciela: en llamada con la inmobiliaria (P5, Q4b) · Q2: el resumen de la semana → Llamar ----
+let claveG = "";
+function dibujarCelG(t) {
+  const modo = t < P2 ? "llamada" : t < T.vibra ? "inicio" : t < T.llamaG + 0.15 ? "resumen" : "llamada";
+  const nf = modo === "resumen" ? T.filasG.filter((a) => t >= a).length : 0, toca = modo === "resumen" && t >= T.llamaG - 0.2 ? 1 : 0;
+  const seg = modo === "llamada" ? (t < P2 ? 40 + Math.floor(t - T.p5) : Math.floor(t - T.llamaG)) : 0;
+  const clave = `${modo}|${nf}|${toca}|${seg}`; if (clave === claveG) return; claveG = clave;
+  const { x } = pantG.userData, w = 600, h = 1110;
+  if (modo === "llamada") { pantLlamada(x, w, h, AVATAR.silvana, "Silvana Propiedades", "En llamada", Math.max(0, seg)); pantG.needsUpdate = true; return; }
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.textAlign = "center"; x.textBaseline = "middle";
+  x.fillStyle = "#efeee5"; x.font = F(800, 120); x.fillText("18:00", w / 2, 190); x.font = F(700, 42); x.fillText("viernes", w / 2, 280);
+  if (modo === "resumen") {
+    x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(22, 330, w - 44, 760, 36); x.fill();
+    x.textAlign = "left"; x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(22, 330, w - 44, 120, [36, 36, 0, 0]); x.fill();
+    x.fillStyle = "#efeee5"; ajustar(x, "Silvana Propiedades", 800, 46, w - 100); x.fillText("Silvana Propiedades", 50, 372); x.fillStyle = "#5ce611"; x.font = F(700, 34); x.fillText("Resumen de la semana", 50, 420);
+    x.fillStyle = "#1f3254"; ajustar(x, "Tu apartamento de Pocitos:", 700, 40, w - 100); x.fillText("Tu apartamento de Pocitos:", 50, 492);
+    const L = [["Visitas: 4", true, 62], ["Interés alto: 2", false, 52], ["«Muy luminoso» · «¿Tiene cochera?»", false, 38], ["Segunda visita: martes 11:00", true, 44]];
+    for (let i = 0; i < nf; i++) {
+      const [s, ok, px] = L[i], y = 570 + i * 92 + (i === 3 ? 6 : 0);
+      x.fillStyle = "#0b1220"; ajustar(x, s, 900, px, ok ? w - 170 : w - 100); x.fillText(s, 50, y);
+      if (ok) { x.fillStyle = "#5ce611"; x.beginPath(); x.arc(w - 82, y, 34, 0, 7); x.fill(); tilde(x, w - 82, y + 2, 38, "#0b1220"); }
+    }
+    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(60, 960, w - 120, 106, 53); x.fill();
+    if (toca) { x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.stroke(); }
+    x.fillStyle = "#0b1220"; x.font = F(900, 56); x.textAlign = "center"; x.fillText("Llamar", w / 2, 1015);
+  }
+  pantG.needsUpdate = true;
+}
 // ================= TARJETAS PEGADAS A LA CÁMARA: globos, rótulos, guías (de veterinaria-vacunas) =================
 const PXK = 1000;
 function crearTarjeta(Wg, H, dibujo, { fondo = "#efeee5", borde = C.navy, sombraC = 0x050a14 } = {}) {
@@ -981,116 +821,73 @@ function hablar(g, per, s, orden = 1, dx = 0, minY = 250) {
   if (mx < 70 || mx > 1010 || hy < 0 || my > 1850) AVISOS.push(`${per.cfg.nombre} cortado/afuera mientras habla: boca ${Math.round(mx)},${Math.round(my)}`);
   ponerGlobo(g, hx + dx, Math.max(cy, H / 2 + minY), s, [hx, hy + 6], orden);
 }
-const CONT = { icono: "parlante", nombre: "Contador · altavoz" };
+
+const CEL = { icono: "parlante", nombre: "Graciela · altavoz" };
 const GL = {
-  c1: crearGlobo(["Rubén, ¿y [Héctor?]"], 76, { cab: CONT, minW: 760 }),
-  r1: crearGlobo(["¿Héctor? Compra", "[todos los martes.]"], 72),
-  c2: crearGlobo(["{Compraba.}"], 104, { cab: CONT, minW: 760 }),
-  n1: crearGlobo(["Yo pensé que lo", "llamabas [vos.]"], 78),
-  h1a: crearGlobo(["¡Rubén!", "¿[Cerraste?]"], 84),
-  h1: crearGlobo(["Dejé de pedir", "y [nadie me llamó.]"], 72),
-  r2: crearGlobo(["Te extrañó", "el [contador.]"], 92),
-  h2: crearGlobo(["Llamame", "el [martes.]"], 84),
-  n2: crearGlobo(["¡Héctor! Ayer no", "pediste. ¿[Todo bien?]"], 68),
-  h3: crearGlobo(["¡Uh, se me pasó!", "Mandame [lo de los martes.]"], 62),
-  c1b: crearGlobo(["Rubén, ¿y [Héctor?]"], 76, { cab: CONT, minW: 760 }),
-  r1b: crearGlobo(["¿Héctor? Compra", "[todos los martes.]"], 72),
-  c3: crearGlobo(["[Compra.]"], 104, { cab: CONT, minW: 760 }),
+  g1: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 78, { cab: CEL }),
+  s1: crearGlobo(["¿Hubo visitas en", "lo de [Graciela?]"], 74),
+  d1: crearGlobo(["Un [montón.]"], 82),
+  ro1: crearGlobo(["{Ninguna.}"], 82),
+  s2: crearGlobo(["Me dicen que", "[varias,] Graciela."], 76),
+  g2a: crearGlobo(["Qué raro."], 90),
+  g2: crearGlobo(["La llave", "[la tengo yo.]"], 92),
+  g3: crearGlobo(["Mañana paso a", "buscar [el cartel.]"], 80, { cab: CEL, minW: 700 }),
+  d2: crearGlobo(["Ah. Era el", "de [Malvín.]"], 88),
+  g1b: crearGlobo(["¿Y? ¿Hubo [visitas?]"], 78, { cab: CEL }),
+  s3: crearGlobo(["[Cuatro.] Y el martes", "vuelve una pareja."], 70),
+  g4: crearGlobo(["Ya sé. Llamaba", "para [chusmear.]"], 80, { cab: CEL, minW: 700 }),
+  g5: crearGlobo(["Mañana paso a", "buscar [el cartel.]"], 80),
 };
 const ROT = [
-  crearRotulo([["Súper Héctor:", null, 42], ["$ 38.000 por semana", null, 46]], 42),
-  crearRotulo([["Último pedido:", null, 40], ["martes 18 de agosto", null, 44]], 42),
-  crearRotulo([["12 martes sin pedir", "#c7655b", 48], ["$ 456.000", "#c7655b", 80]], 46),
+  crearRotulo([["Apartamento de Graciela", null, 44], ["USD 180.000", null, 60]], 44),
+  crearRotulo([["USD 5.400 de comisión", "#c7655b", 54]], 54),
+  crearRotulo([["Visitas anotadas: 0", "#c7655b", 54]], 54),
 ];
-const ROT_Q = [crearRotulo([["Aviso automático:", null, 44], ["dejó de pedir", "#5ce611", 52]], 44), crearRotulo([["La ficha de cada cliente:", null, 48], ["cada cuánto compra", "#5ce611", 56]])];
+const ROT_Q = [
+  crearRotulo([["Cada visita, cargada", null, 50], ["en el momento", "#5ce611", 56]], 50),
+  crearRotulo([["Resumen automático", null, 48], ["a la propietaria · cada viernes", "#5ce611", 46]], 46),
+  crearRotulo([["La ficha de", null, 50], ["cada propiedad", "#5ce611", 58]], 50),
+];
 const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
-
-// ================= MANO SUELTA (inserto del celular: el índice de Nico que toca) =================
-function crearDedo(piel) {
-  const g = new THREE.Group(), m = mat(piel, 0.55);
-  const d = mesh(new THREE.CapsuleGeometry(0.0105, 0.07, 4, 10), m, 0, -0.035, 0); g.add(d);
-  const pu = mesh(new THREE.SphereGeometry(1, 16, 12), m, 0.006, -0.105, -0.004); pu.scale.set(0.034, 0.036, 0.024); g.add(pu);
-  const pulg = mesh(new THREE.CapsuleGeometry(0.01, 0.035, 4, 8), m, 0.03, -0.085, 0.004); pulg.rotation.z = -0.7; g.add(pulg);
-  g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
-  return g;
-}
-// (r1) la mano de Nico que toca "Llamar": el índice estirado, los otros dedos cerrados, la manga verde; el origen en la
-// yema (entra desde abajo a la derecha del cuadro)
-const DEDO_N = (() => {
-  const g = new THREE.Group(), m = mat(ELENCO.empleado.piel, 0.55), ms = mat(new THREE.Color(ELENCO.empleado.piel).multiplyScalar(0.9).getHex(), 0.6);
-  const idx = mesh(new THREE.CapsuleGeometry(0.0095, 0.04, 4, 10), m, 0, -0.028, 0); g.add(idx);
-  const palma = mesh(new THREE.SphereGeometry(1, 18, 12), m, 0.004, -0.085, 0.006); palma.scale.set(0.03, 0.034, 0.016); g.add(palma);
-  for (let i = 0; i < 3; i++) { const d = mesh(new THREE.SphereGeometry(1, 10, 8), ms, -0.018, -0.062 - i * 0.014, 0.014); d.scale.set(0.011, 0.009, 0.01); g.add(d); }
-  const pul = mesh(new THREE.CapsuleGeometry(0.0075, 0.022, 4, 8), m, 0.026, -0.072, 0.004); pul.rotation.z = -0.8; g.add(pul);
-  const manga = mesh(new THREE.CylinderGeometry(0.03, 0.034, 0.07, 14), mat(C.g, 0.6), 0.004, -0.14, 0.006); g.add(manga);
-  g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
-  return g;
-})();
-auto.userData.celu.add(DEDO_N);
-// la mano de Nico que pega el post-it (P7b): una palma con el pulgar arriba
-const MANO_POST = (() => {   // (no se usa: el post-it cae solo)
-  const g = new THREE.Group(), m = mat(ELENCO.empleado.piel, 0.55);
-  const palma = mesh(new THREE.SphereGeometry(1, 18, 12), m, 0, 0, 0); palma.scale.set(0.045, 0.055, 0.02); g.add(palma);
-  for (let i = 0; i < 4; i++) { const d = mesh(new THREE.CapsuleGeometry(0.009, 0.04, 4, 8), m, -0.03 + i * 0.02, 0.06, 0); g.add(d); }
-  const pul = mesh(new THREE.CapsuleGeometry(0.01, 0.035, 4, 8), m, 0.05, 0.0, 0.01); pul.rotation.z = -0.9; g.add(pul);
-  const manga = mesh(new THREE.CylinderGeometry(0.05, 0.06, 0.6, 14), mat(C.g, 0.6), 0, -0.36, 0); g.add(manga);   // (r2) con brazo: la manga verde sale del borde del cuadro
-  g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
-  return g;
-})();
-scene.add(MANO_POST);
 
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
-const OY = OFI.piso;
-const CAM_P1 = (k) => [lerp(-0.47, -0.44, k), lerp(OY + 1.8, OY + 1.77, k), lerp(4.45, 4.15, k), -0.52, OY + 1.08, 1.3, 57];   // (r1) más abierto: el monitor y el mate enteros
-const HZ = V3(SLOT.HECTOR, 0, ZA);
-const P2_FIN = [HZ.x - 0.1, 1.85, HZ.z + 3.7, HZ.x - 0.46, 1.02, HZ.z - 0.2, 62];   // (r2) z -1,3: fuera del balcón (la placa navy)
-const K_GRUA = () => [
-  [T.p2, ...CAM_P1(1)],
-  [r2(T.p2 + 0.3), -1.75, OY + 2.35, 2.2, -1.6, OY + 0.4, -2.0, 52],
-  [r2(T.p2 + 0.62), -1.3, OY + 1.25, -1.7, 0.6, 1.2, ZA, 56],
-  [T.llega, ...P2_FIN],
-  [T.p3, P2_FIN[0] - 0.05, P2_FIN[1] - 0.05, P2_FIN[2] - 0.35, ...P2_FIN.slice(3, 6), 49],
-];
+const CAM_P1 = (k) => [lerp(0.22, 0.21, k), lerp(1.44, 1.43, k), lerp(2.5, 2.35, k), 0.17, 1.2, 0.1, 54];
+const CAM_ATRAS = [0.5, 1.68, -0.42, -0.02, 0.92, 3.6, 43];
+const BK = () => { llaveBalcon.updateMatrixWorld(true); return llaveBalcon.userData.et.getWorldPosition(new THREE.Vector3()); };
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
-  ["P2", T.p2, null],   // la grúa (se arma en renderAt)
-  // P3: de frente a la puerta: Rubén en primer término de 3/4, Nico asomado
-  ["P3", T.p3, [[T.p3, -0.4, OY + 1.7, 4.5, 0.55, OY + 1.15, 0.55, 52], [T.p4, -0.37, OY + 1.68, 4.25, 0.55, OY + 1.15, 0.55, 51]]],
-  // P4: la vereda desde la calle: el camión gris a la izquierda, el auto a la derecha, la puerta del súper al medio
-  ["P4", T.p4, [[T.p4, VX - 0.3, 1.75, 5.4, VX - 0.25, 2.1, FZ, 56], [T.p4b, VX - 0.28, 1.75, 5.0, VX - 0.25, 2.05, FZ, 55]]],   // (r1) más bajo y cerca: el cartel entero, el camión y la zorra
-  // P4b: push-in a Héctor y Rubén (dos personas en cuadro, la burbuja arriba de Héctor)
-  ["P4b", T.p4b, [[T.p4b, VX + 1.05, 1.62, 0.15, VX - 0.35, 1.55, -2.0, 50], [T.p5, VX + 1.0, 1.61, 0.0, VX - 0.35, 1.55, -2.0, 49]]],
-  // P5: la pausa desde atrás de Héctor: Rubén de frente, el camión gris detrás a la izquierda
-  ["P5", T.p5, [[T.p5, VX - 1.9, 1.8, -1.75, VX + 0.85, 1.42, -1.35, 46], [T.p6, VX - 1.82, 1.79, -1.73, VX + 0.85, 1.42, -1.35, 45]]],
-  // P6: el remate: primer plano de Rubén de frente, el camión gris desenfocado atrás
-  // (r1) P5b contraplano: el camión gris descargando en el súper; el chofer cierra las puertas
-  ["P5b", T.p5b, [[T.p5b, VX + 0.5, 1.75, -2.6, VX - 2.2, 1.45, 1.4, 58], [T.p6, VX + 0.45, 1.75, -2.5, VX - 2.2, 1.45, 1.4, 57]]],
-  ["P6", T.p6, [[T.p6, VX - 0.85, 1.55, -2.5, VX + 0.85, 1.52, -1.35, 54], [T.p7, VX - 0.72, 1.55, -2.42, VX + 0.85, 1.52, -1.35, 53]]],
-  // P7: Héctor entrando con la caja, por encima del hombro; Nico junto al auto con el post-it
-  ["P7", T.p7, [[T.p7, VX + 0.95, 1.6, -0.15, VX - 0.3, 1.45, -2.3, 54], [T.p7b, VX + 0.9, 1.6, -0.3, VX - 0.3, 1.45, -2.3, 53]]],
-  ["P7b", T.p7b, null],  // el post-it en el tablero (dentro del auto)
-  ["P7c", T.p7c, null],  // el auto arranca; el post-it vuela al camión gris
+  // P2: la cámara gira con Silvana (por su izquierda) hasta quedar detrás de su hombro
+  ["P2", T.p2, [[T.p2, ...CAM_P1(1)], [r2(T.p2 + 0.55), 1.2, 1.45, 1.2, 0.0, 1.1, 0.3, 50], [r2(T.p3 - 0.35), 0.95, 1.62, -0.2, 0.0, 1.05, 1.5, 47], [T.p3, ...CAM_ATRAS]]],
+  ["P3", T.p3, [[T.p3, ...CAM_ATRAS], [T.p4, CAM_ATRAS[0] - 0.02, CAM_ATRAS[1], CAM_ATRAS[2] + 0.12, ...CAM_ATRAS.slice(3, 6), 49]]],
+  // P4: primer plano de Silvana de frente; destapa el celular
+  ["P4", T.p4, [[T.p4, 0.2, 1.22, 1.95, 0.08, 1.06, 0.3, 42], [T.p5, 0.19, 1.21, 1.82, 0.08, 1.06, 0.3, 41]]],
+  // P5: la grúa desde la rambla hasta el balcón (Graciela), y el push-in a la llave POCITOS en "La llave"
+  ["P5", T.p5, null],
+  // P6: la pausa: la oficina quieta, abierta (Silvana, el panel de fichas y el tablero de llaves)
+  ["P6", T.p6, [[T.p6, -0.16, 1.42, 2.45, -0.16, 1.16, -0.6, 62], [T.p7, -0.16, 1.42, 2.4, -0.16, 1.16, -0.6, 62]]],
+  ["P7", T.p7, null],   // el celular de Silvana de cerca
+  // P8: Diego en su escritorio desde el pasillo; la llave MALVÍN en primer término
+  ["P8", T.p8, [[T.p8, -0.32, 1.38, 1.6, 0.42, 1.0, 3.3, 46], [T.p8b, -0.29, 1.37, 1.7, 0.42, 0.99, 3.3, 45]]],
+  ["P8b", T.p8b, [[T.p8b, 0.2, 1.24, 2.05, 0.06, 1.06, 0.3, 40], [P1, 0.19, 1.24, 1.95, 0.06, 1.06, 0.3, 39]]],
   // ---- parte 2 ----
-  ["Q1", P2, null],       // el auto en el semáforo: push-in al celular del soporte
-  // Q2: Héctor en la puerta con el celular en la oreja (la misma vereda, sin camión)
-  ["Q2", T.q2, [[T.q2, VX + 1.15, 1.62, -0.35, VX - 0.2, 1.55, -2.2, 48], [T.q2i, VX + 1.08, 1.61, -0.5, VX - 0.2, 1.55, -2.2, 47]]],
-  ["Q2i", T.q2i, null],   // el inserto: Pedido ✓
-  ["Q3", T.q3, [[T.q3, ...P2_FIN.map((v, i) => v + [0.2, 0.1, 0, 0.2, 0, 0, -2][i])], [r2(T.grua2[0] - 0.05), ...P2_FIN.map((v, i) => v + [0.25, 0.08, -0.2, 0.15, 0, 0, -3][i])]]],
-  ["Q3b", r2(T.grua2[0] - 0.05), null],   // la ficha en el monitor (inserto)
-  ["Q4", T.q4, null],     // (r1) el panel en grande mientras cuenta 4 → 0 y el contador pregunta
-  ["Q4r", T.q4r, [[T.q4r, ...CAM_P1(0)], [T.q4b, ...CAM_P1(0.5)]]],   // el encuadre del cuadro 0: el mismo "¿Héctor? Compra…"
-  ["Q4b", T.q4b, null],   // el panel en grande: "Compra."
-  ["C", T.c, [[T.c, 0.02, OY + 1.3, 3.5, 0.02, OY + 1.14, 1.0, 40], [DUR, 0.02, OY + 1.29, 3.3, 0.02, OY + 1.14, 1.0, 39]]],
+  ["Q1", P2, null],     // el living de Pocitos: Diego y la pareja; push-in al celular de Diego
+  ["Q2", T.q2, null],   // el balcón: el resumen en el celular de Graciela
+  ["Q3", T.q3, [[T.q3, ...CAM_P1(0)], [T.mon, ...CAM_P1(0.4)]]],   // el encuadre del cuadro 0
+  ["Q3m", T.mon, null], // push-in a la ficha del monitor
+  ["Q3c", T.q3c, [[T.q3c, ...CAM_P1(0.3)], [T.q4, ...CAM_P1(0.7)]]],
+  ["Q4", T.q4, null],   // la ficha tres semanas después
+  ["Q4b", T.q4b, [[T.q4b, BX + 0.72, 1.36, 3.95, BX - 0.24, 0.98, 0.8, 48], [T.q5, BX + 0.7, 1.35, 3.8, BX - 0.24, 0.98, 0.8, 47]]],
+  ["Q5", T.q5, null],   // el cierre: la ficha en verde y Sofi en el celular parado
 ];
-for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
+for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
 const _m = new THREE.Vector3();
 let planoActual = "P1";
 function catmull(CAM, t) {
   let i = 0; while (i + 1 < CAM.length - 1 && CAM[i + 1][0] <= t) i++;
   const a = CAM[i], b = CAM[i + 1] || a;
-  if (b === a || b[0] <= a[0]) return a.slice(1, 8);   // (r3) después de la última clave (el último cuadro) quieta, sin NaN
+  if (b === a || b[0] <= a[0]) return a.slice(1, 8);   // después de la última clave (el último cuadro) quieta, sin NaN
   const u = sg(t, a[0], b[0]);
   const p1 = a.slice(1, 8), p2 = b.slice(1, 8);
   const p0 = i > 0 ? CAM[i - 1].slice(1, 8) : p1;
@@ -1106,471 +903,316 @@ function ponerCam(v, t, quieta = false) {
   camera.lookAt(_m.set(v[3], v[4], v[5]));
 }
 function planoEn(t) { let pi = 0; while (pi + 1 < PLANOS.length && PLANOS[pi + 1][1] <= t) pi++; return PLANOS[pi]; }
-// una cámara de frente a una pantalla (plano local del objeto): llena `llena` del alto (o del ancho) del cuadro
-function camPantalla(obj, centroLocal, normalLocal, alto, llena, fov, t, extra = 0) {
+// la cámara de frente a una pantalla (plano local del objeto) que llena `llena` del alto del cuadro: [px..mz, fov]
+function vistaPantalla(obj, centroLocal, normalLocal, alto, llena, fov, dy = 0) {
   obj.updateMatrixWorld(true);
   const c = obj.localToWorld(centroLocal.clone()), n = normalLocal.clone().transformDirection(obj.matrixWorld);
-  const d = alto / llena / (2 * Math.tan((fov * D2R) / 2)) + extra;
+  const d = alto / llena / (2 * Math.tan((fov * D2R) / 2));
+  const up = V3(0, 1, 0).transformDirection(obj.matrixWorld);
+  c.add(up.clone().multiplyScalar(dy));
   const p = c.clone().add(n.multiplyScalar(d));
-  ponerCam([p.x, p.y, p.z, c.x, c.y, c.z, fov], t, true);
-  camera.up.copy(V3(0, 1, 0).transformDirection(obj.matrixWorld)); camera.lookAt(c);
-  return { c, p, d };
+  return { v: [p.x, p.y, p.z, c.x, c.y, c.z, fov], up };
+}
+function ponerVista(a, b, u, upA, upB) {
+  const v = a.map((x, i) => lerp(x, b[i], u));
+  camera.position.set(v[0], v[1], v[2]); camera.fov = v[6]; camera.updateProjectionMatrix();
+  camera.up.copy((upA || V3(0, 1, 0)).clone().lerp(upB || V3(0, 1, 0), u).normalize()); camera.lookAt(v[3], v[4], v[5]);
 }
 const lerpV = (a, b, u) => a.map((v, i) => lerp(v, b[i], u));
 
 // ================= POSES =================
-const NADA = { ...CARA.neutra, ojos: { abiertos: 0.88, tension: 0.15, feliz: 0 }, cejas: { alto: 0.05, ang: 0.1 }, boca: { sonrisa: -0.15, abierta: 0, ancho: 0.95 } };
-const SECO = { ...CARA.neutra, ojos: { abiertos: 0.8, tension: 0.25, feliz: 0 }, cejas: { alto: -0.1, ang: -0.2 }, boca: { sonrisa: -0.1, abierta: 0, ancho: 0.9 } };
+const NADA = { ...CARA.neutra, ojos: { abiertos: 0.9, tension: 0.12, feliz: 0 }, cejas: { alto: 0.05, ang: 0.1 }, boca: { sonrisa: -0.1, abierta: 0, ancho: 0.95 } };
 const BUENA = { ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.25 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1.05 } };
 const bocaVoz = (p, t, t0, env, k = 0.7) => {
-  if (env && t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca = { ...(p.boca || {}), abierta: Math.max(p.boca?.abierta ?? 0, cl(e * 1.1 - 0.05) * k) }; }
+  if (!p.boca) p.boca = { sonrisa: 0.1, abierta: 0, ancho: 1 }; if (!p.ojos) p.ojos = { abiertos: 1 };
+  if (env && t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta ?? 0, cl(e * 1.1 - 0.05) * k); }
+  { const h = sg(t, t0 - 0.12, t0) * (1 - sg(t, t0 + env.length / 30, t0 + env.length / 30 + 0.15)); if (h > 0) p.boca.sonrisa = lerp(p.boca.sonrisa ?? 0, Math.min(p.boca.sonrisa ?? 0, 0.08), h); }   // hablando, el arco de la sonrisa se apaga (sin boca doble)
+  if (t >= t0 - 0.05 && t < t0 + env.length / 30 + 0.05) p.ojos.abiertos = Math.max(p.ojos.abiertos ?? 1, 0.85);   // hablando, nunca con los ojos cerrados
 };
-const envEn = (t, t0, env) => { if (!env || t < t0 || t >= t0 + env.length / 30) return 0; const i = Math.floor((t - t0) * 30); return env[i] ?? 0; };
 const _w = new THREE.Vector3();
 function aCuerpo(per, w) { per.raiz.updateMatrixWorld(true); const v = per.cuerpo.worldToLocal(w.clone()); return [v.x, v.y, v.z]; }
 const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, ladea }, ojos: { x: giro * 0.6, y: 0.05 } });
-// ---------- Rubén en la oficina (sentado de espaldas a la pared del fondo, mirando a +z) ----------
-const R_POS = { x: 0, y: OFI.piso - 0.08, z: 1.02 };
-const MIRA_MON = -0.55;
-function rubenOficina(t) {
-  const parte2 = t >= P2;
-  const pr = { ...R_POS, giro: 0.12, sentado: 1, inclina: -0.04, cabeza: { giro: 0.18, asiente: 0.06, ladea: 0.04 }, ...NADA, ojos: { x: 0.2, y: -0.1, abiertos: 0.95, tension: 0.05, feliz: 0 }, manoI: [0.22, 0.4, 0.3], codoI: [1, -0.6, -0.2], manoD: [-0.3, 0.24, 0.32], codoD: null, dedoI: 0, dedoD: 0, t };
-  if (!parte2) {
-    if (t < T.p3) {
-      // P1: relajado, mirando el teléfono (a su izquierda, +x); "Compraba.": la bombilla se frena, cara de incrédulo, los
-      // ojos al monitor
-      Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0.35, y: -0.25, abiertos: 0.92, feliz: 0.15 }, cejas: { alto: 0.1, ang: 0 }, boca: { sonrisa: 0.25, abierta: 0, ancho: 1 } });
-      pr.cabeza = { giro: 0.32, asiente: 0.1, ladea: 0.05 };
-      if (t >= T.frena) {
-        const u = eio(sg(t, T.frena, T.frena + 0.35));
-        pr.cabeza = { giro: lerp(0.32, MIRA_MON, u), asiente: 0.06, ladea: 0.0 }; pr.ojos = { x: lerp(0.35, -0.6, u), y: -0.05, abiertos: 0.62, tension: 0 };
-        pr.cejas = { alto: 0.1, ang: 0, asim: 0.9 }; pr.boca = { sonrisa: -0.35, abierta: 0, ancho: 0.8 };
+// ---------- Silvana en su escritorio (sentada, mirando a +z) ----------
+function poseSilvana(t) {
+  const p2 = t >= P2;
+  const pr = { x: SIL.x, y: -0.08, z: SIL.z, giro: 0, sentado: 1, inclina: 0.02, ...aC(0.12, 0.08), ...NADA, manoI: [0.2, 0.32, 0.36], codoI: [1, -0.6, -0.2], manoD: [-0.2, 0.32, 0.36], codoD: [-1, -0.6, -0.2], dedoI: 0, dedoD: 0, t };
+  if (!p2) {
+    // P1: segura, mirando el celular (a su izquierda, +x)
+    Object.assign(pr, { ...CARA.neutra, ojos: { abiertos: 1, x: 0.3, y: -0.35, feliz: 0.05 }, cejas: { alto: 0.15, ang: 0.05 }, boca: { sonrisa: 0.15, abierta: 0, ancho: 1 } });
+    pr.cabeza = { giro: 0.3, asiente: 0.12, ladea: 0.04 };
+    if (t >= T.tapa - 0.25) {
+      // P2-P3: tapa el celular con la palma (la mano izquierda arriba del celular, apoyada) y mira a los corredores
+      const u = eio(sg(t, T.tapa - 0.25, T.tapa + 0.1)), un = 1 - eio(sg(t, T.destapa - 0.05, T.destapa + 0.3));
+      pr.inclina = 0.02 + 0.1 * u * un;
+      pr.tapa = u * un;
+      const mira = eio(sg(t, T.tapa, T.tapa + 0.35));
+      pr.cabeza = { giro: lerp(0.3, 0.0, mira), asiente: lerp(0.12, -0.05, mira), ladea: 0.02 }; pr.ojos = { abiertos: 1, x: 0, y: lerp(-0.35, 0.1, mira), feliz: 0 };
+      if (t >= T.d1) {
+        // la contradicción: mira a Diego (+x) y a Romina (-x), cara de nada
+        const a = eio(sg(t, T.miraD - 0.1, T.miraD + 0.15)), b = eio(sg(t, T.miraR - 0.1, T.miraR + 0.15));
+        const g = lerp(lerp(0, 0.28, a), -0.28, b);
+        pr.cabeza = { giro: g, asiente: -0.05, ladea: 0 }; pr.ojos = { abiertos: 0.92, x: g * 0.9, y: 0.1, feliz: 0 };
+        Object.assign(pr, { cejas: { alto: 0.2, ang: 0.0, asim: 0.7 }, boca: { sonrisa: -0.25, abierta: 0, ancho: 0.85 } });
       }
-      bocaVoz(pr, t, T.r1, ENV.r1, 0.6);
-    } else {
-      // P3: Nico en la puerta (detrás, a su izquierda): Rubén gira la silla y la cabeza despacio
-      const u = eio(sg(t, T.gira, T.gira + 0.45));
-      Object.assign(pr, { cejas: { alto: 0.1, ang: 0, asim: 0.6 }, boca: { sonrisa: -0.3, abierta: 0, ancho: 0.85 } });
-      pr.giro = lerp(0.12, 0.85, u); pr.cabeza = { giro: lerp(MIRA_MON, 0.95, u), asiente: 0.04, ladea: 0 }; pr.ojos = { x: lerp(-0.6, 0.5, u), y: 0.05, abiertos: 0.72, tension: 0.2 };
+      if (t >= T.p4) {
+        // P4: destapa y sonríe segura (forzada) al celular
+        pr.cabeza = { giro: 0.22, asiente: 0.1, ladea: 0.05 }; pr.ojos = { abiertos: 0.95, x: 0.25, y: -0.3, feliz: 0.3 };
+        Object.assign(pr, { cejas: { alto: 0.3, ang: 0.15 }, boca: { sonrisa: 0.7, abierta: 0, ancho: 1.1 } });
+      }
+    }
+    bocaVoz(pr, t, T.s1, ENV.s1, 0.6); bocaVoz(pr, t, T.s2, ENV.s2, 0.6);
+    if (t >= T.p6) {
+      // la pausa: quieta, cara de nada, mirando el celular; P8b: cierra los ojos
+      Object.assign(pr, { ...NADA, ojos: { abiertos: 0.85, x: 0.25, y: -0.3, tension: 0.1 }, boca: { sonrisa: -0.1, abierta: 0, ancho: 0.95 } });
+      pr.cabeza = { giro: 0.22, asiente: 0.1, ladea: 0.02 };
+      if (t >= T.p8b) { const c = eio(sg(t, T.p8b + 0.1, T.p8b + 0.3)); pr.ojos = { abiertos: lerp(0.85, 0.02, c), x: 0, y: -0.2 }; pr.cejas = { alto: 0.25, ang: 0.5 }; pr.boca = { sonrisa: -0.35, abierta: 0, ancho: 0.9 }; pr.cabeza = { giro: 0.05, asiente: 0.04, ladea: 0.0 }; pr.cierraHablando = true; }
     }
     return pr;
   }
-  // parte 2 (Q4): tranquilo de verdad, el mate; mira el teléfono; "¿Héctor? Compra todos los martes."
-  Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0.35, y: -0.25, abiertos: 0.95, feliz: 0.25 }, cejas: { alto: 0.15, ang: 0 }, boca: { sonrisa: 0.45, abierta: 0, ancho: 1.05 } });
-  pr.cabeza = { giro: 0.32, asiente: 0.1, ladea: 0.05 };
-  bocaVoz(pr, t, T.r1b, ENV.r1, 0.6);
-  if (t >= T.c3) { pr.boca.sonrisa = 0.7; pr.ojos.feliz = 0.45; }
-  if (t >= T.c) {
-    // C: a cámara, media sonrisa, de colega
-    Object.assign(pr, { ...CARA.sonrisa, ojos: { abiertos: 0.95, feliz: 0.2, x: 0, y: 0.05 }, cejas: { alto: 0.15, ang: 0.0, asim: 0.25 }, boca: { sonrisa: 0.5, abierta: 0, ancho: 1.0 } });
-    pr.giro = 0; pr.inclina = 0.06; pr.cabeza = { giro: 0, asiente: 0.0, ladea: 0.0 };
-    bocaVoz(pr, t, T.r3, ENV.r3, 0.6);
+  // parte 2: tranquila; "¿Y? ¿Hubo visitas?": va a tapar el celular, no pregunta, mira el monitor (a su derecha, -x)
+  Object.assign(pr, { ...CARA.sonrisa, ojos: { abiertos: 1, x: 0.3, y: -0.35, feliz: 0.2 }, cejas: { alto: 0.2, ang: 0 }, boca: { sonrisa: 0.45, abierta: 0, ancho: 1.05 } });
+  pr.cabeza = { giro: 0.3, asiente: 0.12, ladea: 0.04 };
+  if (t >= T.q3) {
+    const va = eio(sg(t, T.g1b + 0.6, T.g1b + 0.95)) * (1 - eio(sg(t, T.mon - 0.3, T.mon)));
+    pr.tapa = 0.45 * va;
+    const m = eio(sg(t, T.mon - 0.3, T.mon + 0.05));
+    pr.cabeza = { giro: lerp(0.3, -0.42, m), asiente: 0.1, ladea: 0.02 }; pr.ojos = { abiertos: 1, x: lerp(0.3, -0.55, m), y: -0.2, feliz: 0.25 };
+    if (t >= T.q3c) { pr.cabeza = { giro: 0.25, asiente: 0.08, ladea: 0.05 }; pr.ojos = { abiertos: 1, x: 0.3, y: -0.3, feliz: 0.45 }; pr.boca = { sonrisa: 0.75, abierta: 0, ancho: 1.1 }; }
   }
+  bocaVoz(pr, t, T.s3, ENV.s3, 0.6);
   return pr;
 }
-// ---------- Rubén en la vereda (parado, las manos en los bolsillos) ----------
-const R_VER = V3(VX + 0.85, VER, -1.35);
-function rubenVereda(t) {
-  const pr = { x: R_VER.x, y: VER, z: R_VER.z, giro: -2.15, inclina: 0.0, ...aC(0, 0.02), ...NADA, manoI: [0.24, -0.02, -0.02], manoD: [-0.24, -0.02, -0.02], codoI: [1, 0.2, -0.3], codoD: [-1, 0.2, -0.3], dedoI: 0, dedoD: 0, t };
-  if (t < T.p4 + 0.55) { const u = sg(t, T.p4, T.p4 + 0.55); pr.x = lerp(VX + 1.45, R_VER.x, eo(u)); pr.z = lerp(-0.6, R_VER.z, eo(u)); pr.paso = u < 1 ? 1 : 0; pr.giro = lerp(-2.6, -2.15, u); }
-  if (t >= T.h1) { Object.assign(pr, { ...NADA, cejas: { alto: 0.25, ang: 0.3, asim: 0.4 } }); }
-  if (t >= T.p5) {
-    // la pausa: mira el camión gris (a su izquierda, -x), después vuelve los ojos a Héctor
-    const u = eio(sg(t, T.p5 + 0.05, T.p5 + 0.3)) * (1 - eio(sg(t, T.cierra[1], T.cierra[1] + 0.25)));
-    pr.cabeza = { giro: lerp(0, 0.95, u), asiente: 0.03, ladea: 0 }; pr.ojos = { x: lerp(0, 0.8, u), y: 0, abiertos: 0.85, tension: 0.2 };
-  }
-  if (t >= T.p6) { Object.assign(pr, { ...SECO, ojos: { x: 0, y: -0.05, abiertos: 0.88, tension: 0.15 }, cejas: { alto: -0.05, ang: 0.05, asim: 0.35 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.9 } }); pr.cabeza = { giro: -0.05, asiente: 0.06, ladea: 0.03 }; }
-  bocaVoz(pr, t, T.r2, ENV.r2, 0.6);
-  if (t >= T.p7) { pr.cabeza = { giro: -0.35, asiente: 0.0, ladea: 0 }; Object.assign(pr, { ...NADA }); }
-  return pr;
-}
-// ---------- Héctor en la vereda (parte 1: sale con los brazos abiertos; parte 2: en la puerta con el celular) ----------
-const H_VER = V3(VX - 0.15, VER, -2.0);
-function poseHector(t) {
-  if (t < P2) {
-    const sale = eo(sg(t, T.sale[0], T.sale[1]));
-    const pr = { x: H_VER.x, y: VER, z: lerp(FZ - 0.25, H_VER.z, sale), giro: t >= T.p4b ? 0.65 : 0.95, paso: sale < 1 && sale > 0 ? 1 : 0, inclina: 0.02, ...aC(0.1, -0.02), ...CARA.feliz, ojos: { abiertos: 1, feliz: 0.35, x: 0.1, y: 0.05 }, ...BRAZOS.costado, t };
-    // los brazos abiertos al salir y en "¡Rubén!"
-    const ab = sg(t, T.sale[0] + 0.1, T.sale[1]) * (1 - sg(t, T.h1 + 0.9, T.h1 + 1.3));
-    if (ab > 0) { pr.manoI = lerpV([0.29, -0.08, 0.04], [0.55, 0.75, 0.18], ab); pr.manoD = lerpV([-0.29, -0.08, 0.04], [-0.55, 0.75, 0.18], ab); pr.codoI = [1, 0, 0]; pr.codoD = [-1, 0, 0]; }
-    // en "nadie me llamó": la mano en el hombro de Rubén (la derecha, hacia adelante)
-    const hb = sg(t, T.h1 + 1.5, T.h1 + 1.8) * (1 - sg(t, T.p5 - 0.3, T.p5));   // (r1) baja las manos antes de la pausa
-    if (hb > 0) { pr.manoD = lerpV(pr.manoD ?? [-0.29, -0.08, 0.04], [-0.24, 0.42, 0.34], hb); pr.manoI = lerpV(pr.manoI ?? [0.29, -0.08, 0.04], [0.24, 0.42, 0.34], hb); pr.codoD = [-1, -0.5, 0]; pr.codoI = [1, -0.5, 0]; }
-    if (t >= T.h1 + 1.3) { pr.cejas = { alto: 0.45, ang: 0.4 }; pr.boca = { sonrisa: 0.5, abierta: 0, ancho: 1.05 }; pr.ojos = { abiertos: 1, feliz: 0.25, x: 0.1, y: 0.05 }; }
-    bocaVoz(pr, t, T.h1, ENV.h1, 0.7);
-    if (t >= T.p7) {
-      // P7: entrando con la caja en brazos, la cabeza por encima del hombro
-      const u = sg(t, T.p7, T.p7b + 0.3);
-      Object.assign(pr, { x: VX - 0.35, z: lerp(-2.25, -2.4, u), giro: lerp(0.55, 0.35, u), paso: 0, ...BUENA, ojos: { abiertos: 1, feliz: 0.3, x: 0.4, y: 0 } });
-      pr.cabeza = { giro: 0.25, asiente: 0.0, ladea: 0.05 }; pr.manoI = [0.2, 0.22, 0.4]; pr.manoD = [-0.2, 0.22, 0.4]; pr.codoI = [1, -0.6, 0]; pr.codoD = [-1, -0.6, 0];
-      bocaVoz(pr, t, T.h2, ENV.h2, 0.7);
+// ---------- Diego y Romina en sus escritorios (sentados, mirando a -z) ----------
+function poseCorredor(per, t) {
+  const D = per === diego, P = D ? DIE : ROM;
+  const pr = { x: P.x, y: -0.08, z: P.z, giro: Math.PI, sentado: 1, inclina: 0.06, ...aC(D ? 0.12 : -0.1, 0.25), ...NADA, manoI: [0.2, 0.32, 0.38], codoI: [1, -0.6, -0.2], manoD: [-0.2, 0.32, 0.38], codoD: [-1, -0.6, -0.2], dedoI: 0, dedoD: 0, t };
+  pr.ojos = { abiertos: 0.85, x: 0, y: -0.6, tension: 0.05 };
+  if (D) {
+    // Diego: canchero, reclinado; "Un montón." mirando a Silvana; P8: baja la vista a la llave MALVÍN
+    const lev = eio(sg(t, T.s1 + 0.6, T.s1 + 0.9));
+    pr.inclina = lerp(0.06, -0.06, lev); pr.cabeza = { giro: lerp(0.12, 0.05, lev), asiente: lerp(0.25, -0.02, lev), ladea: 0.06 }; pr.ojos = { abiertos: 1, x: 0, y: lerp(-0.6, 0.05, lev), feliz: 0.2 };
+    Object.assign(pr, { cejas: { alto: 0.25, ang: -0.05, asim: -0.4 }, boca: { sonrisa: lerp(0.1, 0.5, lev), abierta: 0, ancho: 1.05 } });
+    if (lev > 0) { pr.manoD = [-0.3, 0.55, 0.05]; pr.codoD = [-1, 0.2, -0.4]; }   // la mano detrás de la nuca (canchero)
+    if (t >= T.p8) {
+      const b = eio(sg(t, T.mira, T.mira + 0.3));
+      Object.assign(pr, { ...NADA, cejas: { alto: lerp(0.1, 0.45, b), ang: 0.3 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.85 } });
+      pr.inclina = lerp(-0.02, 0.12, b); pr.cabeza = { giro: lerp(0.05, 0.4, b), asiente: lerp(0.0, 0.42, b), ladea: 0.02 }; pr.ojos = { abiertos: 0.95, x: lerp(0, 0.5, b), y: lerp(0, -0.85, b), tension: 0.15 };
+      pr.manoD = [-0.2, 0.32, 0.38]; pr.codoD = [-1, -0.6, -0.2];
     }
-    return pr;
+    bocaVoz(pr, t, T.d1, ENV.d1, 0.65); bocaVoz(pr, t, T.d2, ENV.d2, 0.55);
+  } else {
+    // Romina: seca, sin levantar la vista de la agenda; la lapicera en la mano
+    pr.cabeza = { giro: -0.08, asiente: 0.3, ladea: -0.03 }; pr.ojos = { abiertos: 0.75, x: 0, y: -0.85, tension: 0 };
+    Object.assign(pr, { cejas: { alto: -0.05, ang: -0.1 }, boca: { sonrisa: -0.05, abierta: 0, ancho: 0.9 } });
+    if (t >= T.ro1 + 0.5 && t < P2) { const u = eio(sg(t, T.ro1 + 0.5, T.ro1 + 0.75)); pr.cabeza.asiente = lerp(0.3, 0.1, u); pr.ojos.y = lerp(-0.85, -0.2, u); }
+    bocaVoz(pr, t, T.ro1, ENV.ro1, 0.6);
   }
-  // Q2: en la puerta, el celular en la oreja derecha; "¡Uh, se me pasó!": la palmada en la frente con la izquierda
-  const pr = { x: H_VER.x, y: VER, z: H_VER.z - 0.2, giro: 0.4, inclina: 0.03, ...aC(0.15, 0.0), ...CARA.feliz, ojos: { abiertos: 1, feliz: 0.3, x: 0.1, y: 0.05 }, ...BRAZOS.costado, t };
-  pr.cabeza = { giro: 0.25, asiente: 0.0, ladea: 0.08 }; pr.ojos = { abiertos: 1, feliz: 0.2, x: 0.25, y: 0.05 };
-  const fp = 0;   // (r1) sin palmada en la frente (la mano tapaba la boca y los ojos)
-  if (fp > 0) { pr.manoI = lerpV([0.29, -0.08, 0.04], [0.01, 0.72, 0.43], fp); pr.codoI = [0.8, -0.5, 0.1]; pr.inclina = 0.03 + 0.12 * fp; pr.cabeza = { giro: 0.15, asiente: lerp(0, 0.25, fp), ladea: 0.05 }; pr.ojos = { abiertos: lerp(1, 0.5, fp), feliz: 0.6, x: 0, y: 0 }; }
-  bocaVoz(pr, t, T.h3, ENV.h3, 0.7);
   return pr;
 }
-// ---------- Nico ----------
-function poseNico(t, lugar) {
-  if (lugar === "of") {
-    // P3: asomado en la puerta (adentro), el celular en la izquierda señalando a Rubén, el maletín en la derecha
-    const p = { x: 1.4, y: OFI.piso, z: 0.35, giro: -1.15, inclina: 0.1, ...aC(-0.15, 0.06), ...CARA.sorpresa, ojos: { abiertos: 1, x: -0.1, y: 0.05 }, cejas: { alto: 0.55, ang: 0.4 }, boca: { sonrisa: 0.0, abierta: 0, ancho: 0.9 }, ...BRAZOS.costado, t };
-    p.manoD = [-0.14, 0.18, 0.3]; p.codoD = [-1, -0.6, 0.2];
-    p.manoI = [0.18, 0.12, 0.42]; p.codoI = [1, -0.6, -0.2];
-    bocaVoz(p, t, T.n1, ENV.n1, 0.75);
-    return p;
-  }
-  if (lugar === "ca") {
-    // P4-P7: en la vereda junto al auto (cierra la puerta del acompañante en el portazo); P7: el post-it
-    const p = { x: VX + 1.55, y: VER, z: -0.55, giro: Math.PI + 0.5, inclina: 0.02, ...aC(0.1, 0.0), ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.15, x: 0.1, y: 0 }, ...BRAZOS.costado, t };
-    p.manoD = [-0.14, 0.18, 0.3]; p.codoD = [-1, -0.6, 0.2];
-    const cie = Math.sin(Math.PI * sg(t, T.portazo - 0.25, T.portazo + 0.1)); if (cie > 0) { p.manoI = lerpV([0.29, -0.08, 0.04], [0.42, 0.28, 0.4], cie); p.codoI = [1, -0.4, 0]; }
-    if (t >= T.h1 + 1.0) Object.assign(p, { ...NADA, cejas: { alto: 0.3, ang: 0.4 }, ojos: { abiertos: 0.95, x: -0.2, y: 0 } });
-    if (t >= T.p7) { Object.assign(p, BUENA); p.manoI = [0.12, 0.42, 0.42]; p.codoI = [1, -0.6, -0.2]; p.manoD = [-0.05, 0.45, 0.4]; p.cabeza = { giro: 0, asiente: 0.4, ladea: 0 }; p.ojos = { abiertos: 1, feliz: 0.25, x: 0, y: -0.6 }; }
-    return p;
-  }
-  // en el auto (Q1, P7b): sentado al volante
-  const p = { x: 0.42, y: AUTO.asiento - 0.58, z: -0.08, giro: 0, sentado: 1, inclina: 0.0, ...aC(0.0, 0.05), ...CARA.sonrisa, manoI: [0.2, 0.42, 0.42], manoD: [-0.2, 0.42, 0.42], codoI: [0.8, -0.6, -0.2], codoD: [-0.8, -0.6, -0.2], dedoI: 0, dedoD: 0, t };
-  if (t >= P2) {
-    // mira el celular del soporte (a su derecha, -x local) cuando vibra; lo toca
-    const m = eio(sg(t, T.vibra, T.vibra + 0.35)); p.cabeza = { giro: lerp(0, -0.55, m), asiente: lerp(0.05, 0.25, m), ladea: 0 }; p.ojos = { x: lerp(0, -0.5, m), y: -0.3, abiertos: 1, feliz: 0.1 };
-    const k = Math.sin(Math.PI * sg(t, T.llamar - 0.3, T.llamar + 0.15)); if (k > 0) { p.manoD = lerpV(p.manoD, [-0.3, 0.6, 0.55], k); p.dedoD = 1; }
-    if (t >= T.n2) { Object.assign(p, BUENA); p.cabeza = { giro: -0.4, asiente: 0.15, ladea: 0.03 }; p.ojos = { x: -0.4, y: -0.1, abiertos: 1, feliz: 0.3 }; }
-    bocaVoz(p, t, T.n2, ENV.n2, 0.75);
-  }
-  return p;
-}
-// ---------- Darío, el operario ----------
-const DARIO_SENT = { x: SLOT.HECTOR - 0.05, z: ZA + 0.12 };
-function poseOperario(t) {
+// ---------- Graciela en el balcón (parada, el celular en altavoz a la altura del pecho) ----------
+const G_BAL = { x: BX - 0.3, z: 0.8 };
+function poseGraciela(t) {
+  const pr = { x: G_BAL.x, y: 0, z: G_BAL.z, giro: 0.75, inclina: 0.02, ...aC(0.0, 0.05), ...CARA.neutra, ojos: { abiertos: 1, x: 0, y: -0.25 }, ...BRAZOS.celular, t };
   if (t < P2) {
-    // P2: en su reposera, contento (su descanso del mediodía); levanta el mate y saluda a cámara cuando llega la grúa
-    const pr = { x: DARIO_SENT.x, y: -0.2, z: DARIO_SENT.z, giro: -0.35 + 0.3, sentado: 1, inclina: -0.12, ...aC(-0.05, -0.12), ...CARA.feliz, ojos: { abiertos: 1, feliz: 0.4, x: 0, y: 0.1 }, manoI: [0.2, 0.3, 0.32], manoD: [-0.2, 0.3, 0.32], codoI: null, codoD: null, t };
-    const s = eio(sg(t, T.saluda, T.saluda + 0.3));
-    if (s > 0) Object.assign(pr, saludo(t, "D", s));
+    // P5: "Qué raro." pensativa; "La llave la tengo yo." seca y filosa (sin gritar)
+    Object.assign(pr, { ojos: { abiertos: 0.85, x: 0.2, y: -0.3, tension: 0.1 }, cejas: { alto: 0.3, ang: 0.35, asim: 0.5 }, boca: { sonrisa: -0.2, abierta: 0, ancho: 0.85 } });
+    pr.cabeza = { giro: 0.1, asiente: 0.1, ladea: 0.08 };
+    if (t >= T.llave - 0.2) { Object.assign(pr, { ojos: { abiertos: 0.9, x: 0, y: -0.35, tension: 0.2 }, cejas: { alto: -0.1, ang: -0.2, asim: 0.2 }, boca: { sonrisa: -0.25, abierta: 0, ancho: 0.85 } }); }
+    bocaVoz(pr, t, T.g2, ENV.g2, 0.6);
     return pr;
   }
-  // Q3: se para, agarra la radio y la planta y se va hacia la derecha, resignado
-  const u = sg(t, T.q3 + 0.05, T.q3 + 0.4), v = sg(t, T.q3 + 0.5, T.q3 + 2.1);
-  const pr = { x: lerp(DARIO_SENT.x, DARIO_SENT.x + 0.15, u) + v * 2.2, y: lerp(-0.2, 0, u), z: lerp(DARIO_SENT.z, ZA + 0.85, u), giro: lerp(-0.05, Math.PI / 2 + 0.15, sg(t, T.q3 + 0.35, T.q3 + 0.55)), sentado: 1 - u, paso: v > 0 && v < 1 ? 1 : 0, inclina: 0.03, ...aC(-0.4, 0.05), ...CARA.resignado, ojos: { abiertos: 0.6, tension: 0.4, x: -0.3, y: 0 }, manoI: [0.24, 0.18, 0.2], manoD: [-0.24, 0.2, 0.22], codoI: [1, -0.5, -0.1], codoD: [-1, -0.5, -0.1], t };
+  if (t < T.q3) {
+    // Q2: le llega el resumen; sonríe; toca "Llamar" igual
+    Object.assign(pr, { ...CARA.sonrisa, ojos: { abiertos: 1, x: 0, y: -0.4, feliz: 0.3 }, boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 } });
+    pr.cabeza = { giro: 0.0, asiente: 0.22, ladea: 0.06 };
+    return pr;
+  }
+  // Q4b: contentísima, en altavoz
+  Object.assign(pr, { ...CARA.feliz, ojos: { abiertos: 1, x: 0.1, y: -0.1, feliz: 0.4 }, cejas: { alto: 0.4, ang: 0.15 }, boca: { sonrisa: 0.8, abierta: 0, ancho: 1.1 } });
+  pr.cabeza = { giro: 0.15, asiente: 0.0, ladea: 0.08 };
+  bocaVoz(pr, t, T.g5, ENV.g5, 0.6);
   return pr;
 }
-// ---------- el chofer del camión gris (extra sin voz, de espaldas o de 3/4) ----------
-function poseChofer(t) {
-  if (t < T.p5) return { x: VX - 1.4, y: 0, z: 0.55, giro: -Math.PI / 2, inclina: 0.15, ...aC(0, 0.2), ...CARA.concentrada, manoI: [0.22, 0.55, 0.35], manoD: [-0.22, 0.55, 0.35], codoI: null, codoD: null, t };
-  // P5: cierra las puertas del camión (al cordón, de espaldas)
-  const k = sg(t, T.cierra[0] - 0.2, T.cierra[1]);
-  return { x: VX - 1.27, y: 0, z: 1.45, giro: -Math.PI / 2, inclina: 0.05, ...aC(0, 0.0), ...CARA.concentrada, manoI: [0.3, lerp(0.4, 0.7, k), 0.4], manoD: [-0.3, lerp(0.7, 0.4, k), 0.4], codoI: null, codoD: null, t };
+// ---------- Diego en el living de Pocitos (Q1, parado con el celular) y la pareja que se va por el pasillo ----------
+const D_LIV = { x: BX + 0.42, z: -2.2 };
+function poseDiegoLiv(t) {
+  const pr = { x: D_LIV.x, y: 0, z: D_LIV.z, giro: 0.15, inclina: 0.03, ...aC(0, 0.3), ...CARA.sonrisa, ojos: { abiertos: 1, x: 0, y: -0.7, feliz: 0.2 }, ...BRAZOS.celular, t };
+  if (t < T.q1i) { pr.cabeza = { giro: -0.5, asiente: 0.0, ladea: 0.03 }; pr.ojos = { abiertos: 1, x: -0.5, y: 0, feliz: 0.3 }; }
+  return pr;
+}
+function posePareja(per, t) {
+  const E = per === ella, u = sg(t, P2 - 0.2, T.q2);
+  const pr = { x: BX + (E ? -1.55 : -1.15), y: 0, z: LIV.z0 - 0.7 - u * 1.6 - (E ? 0 : 0.3), giro: Math.PI + (E ? 0.15 : -0.1), paso: 1, inclina: 0.02, ...aC(0, 0), ...CARA.sonrisa, ...BRAZOS.costado, t };
+  if (E) { const s = 1 - sg(t, P2 + 0.9, P2 + 1.2); if (s > 0) { Object.assign(pr, saludo(t, "D", s)); pr.cabeza = { giro: 2.4, asiente: 0, ladea: 0 }; } }
+  return pr;
+}
+// ---------- Sofi (en su escena) ----------
+function poseSofi(t) {
+  const p = poseEn(t, [[0, { x: 0, z: 0, giro: 0, ...aC(0, 0.05), ...CARA.sonrisa, ...BRAZOS.costado }], [T.so + 1.2, { ...aC(0.08, 0.02), manoD: [-0.2, 0.4, 0.32], codoD: [-0.8, -0.6, 0] }, 0.4]]);
+  p.t = t; bocaVoz(p, t, T.so, ENV.so, 0.6); return p;
 }
 
 // ================= RENDER =================
 function ponerLuces(lugar) {
-  const of = lugar === "of", dep = lugar === "dep", ca = lugar === "ca" || lugar === "auto";
+  const of = lugar === "of", po = lugar === "po" || lugar === "liv";
   for (const l of [solOf, cieloOf, rellenoOf]) l.visible = of;
-  solDep.visible = dep; cieloDep.visible = dep || of; cieloDep.intensity = of ? 0.0 : 2.0;
-  solCa.visible = cieloCa.visible = ca;
+  solPo.visible = cieloPo.visible = po; luzLiv.visible = lugar === "liv";
+  cieloPo.intensity = lugar === "liv" ? 1.5 : 1.9;
 }
-function ponerSolCa(centro) { solCa.position.set(centro.x + 5, 9, centro.z + 6); solCa.target.position.copy(centro); }
-// el auto: estacionado (parte 1), arrancando (P7c), en el semáforo (Q1, Q2i)
-function ponerAuto(t, lugar) {
-  auto.visible = lugar === "ca" || lugar === "auto";
-  const { puertaA } = auto.userData;
-  puertaA.rotation.y = 0;
-  if (lugar === "auto" && t >= P2) { auto.position.copy(AUTO_SEM); auto.rotation.set(0, -Math.PI / 2, 0); return; }
-  let x = AUTO_EST.x, z = AUTO_EST.z, giro = -Math.PI / 2;
-  if (t < T.portazo) puertaA.rotation.y = -1.0 * (1 - eio(sg(t, T.portazo - 0.3, T.portazo)));
-  if (t >= T.arranca) {
-    // P7c: arranca, sale del cordón (hacia +z) y pasa al camión gris
-    const u = sg(t, T.arranca, P1);
-    x = AUTO_EST.x - 4.2 * u * u * 1.3; z = AUTO_EST.z + 2.5 * eio(cl(u * 1.6)); giro = -Math.PI / 2 - 0.35 * Math.sin(Math.PI * cl(u * 1.2));
-  }
-  auto.position.set(x, 0, z); auto.rotation.set(0, giro, 0);
+// el celular en la mano de un personaje parado: entre las dos manos, mirando a la cámara (o a `mira`)
+function celEnManos(cel, per, mira, alto = 0.07, adelante = 0.07) {
+  per.raiz.updateMatrixWorld(true);
+  const a = per.brazos[0].mano.getWorldPosition(new THREE.Vector3()), b = per.brazos[1].mano.getWorldPosition(new THREE.Vector3());
+  cel.position.copy(a.add(b).multiplyScalar(0.5)).add(V3(0, alto, 0));
+  cel.position.add(mira.clone().sub(cel.position).setY(0).normalize().multiplyScalar(adelante));
+  cel.lookAt(mira);
 }
-// las hojas de la puerta del súper (se abren cuando sale Héctor; en Q2 quedan abiertas)
-function ponerSuper(t) {
-  const ab = t >= P2 ? 1 : eio(sg(t, T.sale[0] - 0.3, T.sale[0])) * (t < T.p7 ? 1 : 1);
-  for (const h of hojasSuper) h.rotation.y = h.userData.s * -1.35 * ab;
-}
-// la reposera que se pliega en 3 tiempos (Q3); la radio y la planta: en el rincón (parte 1) o en las manos de Darío (Q3)
-function ponerRincon(t) {
-  const parte2 = t >= P2;
-  RIN.visible = true;
-  const k = parte2 ? T.pliega.filter((a) => t >= a).length + sg(t, T.pliega[Math.min(2, T.pliega.filter((a) => t >= a).length)] - 0.08, T.pliega[Math.min(2, T.pliega.filter((a) => t >= a).length)]) : 0;
-  const f = Math.min(3, k) / 3;
-  respaldo.rotation.x = lerp(-0.45, 1.25, eio(Math.min(1, f * 1.5)));
-  reposera.position.y = 0; reposera.rotation.z = lerp(0, -1.45, eio(sg(f, 0.66, 1))); reposera.position.x = lerp(-0.05, -0.45, eio(sg(f, 0.66, 1)));
-  cajon.visible = !parte2 || t < T.q3 + 0.6;
-  const enMano = parte2 && t >= T.q3 + 0.3;
-  if (enMano) { /* se pone después de posar a Darío (en renderAt) */ } else { radio.position.copy(RADIO0); radio.rotation.set(0, -0.3, 0); planta.position.copy(PLANTA0); }
-  // el pallet de Héctor: no está en la parte 1; en Q3 entra y se llena por capas
-  palletH.visible = parte2 && t >= T.capas[0] - 0.1;
-  reposera.visible = !(parte2 && t >= T.capas[0] - 0.1);
-  CAPAS_H.forEach((capa, i) => capa.forEach((o) => { const s = t >= T.capas[i] ? 0.75 + 0.25 * bk(sg(t, T.capas[i], T.capas[i] + 0.2)) : 0; o.visible = s > 0; o.scale.setScalar(Math.max(0.001, s)); }));
-  if (!parte2) { palletH.visible = false; }
-}
+let sofiRender = 0;
 function renderAt(tIn) {
   AVISOS.length = 0;
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
   const parte2 = t >= P2;
   const pl = planoEn(t); planoActual = pl[0];
-  const pa = planoActual;
-  const lugar = ["P1", "P3", "Q3b", "Q4", "Q4r", "Q4b", "C"].includes(pa) ? "of" : pa === "P2" ? (t < T.p2 + 0.32 ? "of" : "dep") : pa === "Q3" ? "dep" : ["P7b", "Q1", "Q2i"].includes(pa) ? "auto" : "ca";
+  let pa = planoActual;
+  if (VERM === "portada") pa = "portada";
+  const lugar = ["P5", "Q2", "Q4b"].includes(pa) ? "po" : pa === "Q1" ? "liv" : "of";
   ponerLuces(lugar);
-  scene.background = new THREE.Color(lugar === "dep" ? 0xe8edf0 : lugar === "ca" || lugar === "auto" ? 0xd9e6ef : 0x16243d);
-  OF.visible = DEP.visible = lugar === "of" || lugar === "dep";
-  CA.visible = camionGris.visible = lugar === "ca" || lugar === "auto";
-  camionPropio.visible = lugar === "dep" || lugar === "of";
-  if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }
-  if (["Q3b", "Q4", "Q4b"].includes(pa)) DEP.visible = camionPropio.visible = false;
-  telefono.visible = !["Q3b", "Q4", "Q4b"].includes(pa);
-  auto.userData.celu.visible = pa !== "P7c";   // (r3) el soporte no cruza la cara de Nico desde la vereda   // (r2) el tubo del teléfono era la masa navy bajo el monitor   // (r1) en los insertos del monitor, sin las lámparas del depósito asomando
+  scene.background = new THREE.Color(lugar === "po" ? 0xdde7ec : lugar === "liv" ? 0xdde7ec : 0x16243d);
+  OF.visible = lugar === "of";
+  PO.visible = lugar === "po" || lugar === "liv";
+  living.visible = lugar === "liv" || pa === "P5";
   // ---- pantallas y objetos ----
-  dibujarMonitor(t);
-  if (parte2) dibujarCelN(t);
-  ponerSuper(t); ponerAuto(t, lugar); ponerRincon(t);
-  RIN.visible = lugar === "dep" || lugar === "of"; palletH.visible = palletH.visible && RIN.visible;
-  // el led del altavoz: titila con la voz del contador
-  const ledK = Math.max(envEn(t, T.c1, ENV.c1), envEn(t, T.c2, ENV.c2), envEn(t, T.c1b, ENV.c1), envEn(t, T.c3, ENV.c3));
-  ledTel.material.color.setHex(ledK > 0.15 ? C.g : 0x2c4a22); ledTel.scale.setScalar(ledK > 0.15 ? 1.3 : 1);
-  // el camión gris: en la parte 1 está (puertas abiertas hasta que el chofer las cierra; arranca al final); en la 2, no
-  camionGris.visible = camionGris.visible && !parte2;
-  {
-    const ci = sg(t, T.cierra[0] - 0.15, T.cierra[1] + 0.05);
-    camionGris.userData.puertas.forEach((p, i) => { const u = eio(sg(t, T.cierra[i] - 0.18, T.cierra[i])); p.rotation.y = p.userData.s * -(Math.PI * 0.92) * (1 - u); });
-    const arr = sg(t, T.vuela[1] - 0.05, P1 + 0.3);
-    camionGris.position.set(VX - 1.9 - 1.2 * arr * arr, 0, 1.45);
-    void ci;
-  }
-  // la zorra del chofer: entre el camión y la puerta (P4-P7); la caja que Héctor lleva en P7
-  zorra.visible = lugar === "ca" && !parte2;
-  zorra.position.set(VX - 1.25, VER, -0.85); zorra.rotation.set(0, 1.0, 0);
-  zorra.userData.cajas[2].visible = t < T.p7;
+  dibujarMonitor(t); dibujarTelS(t);
+  if (pa === "Q1") dibujarCelD(t);
+  if (lugar === "po") dibujarCelG(t);
+  llavePocitosTab.visible = parte2;                                  // el gancho POCITOS: vacío en la parte 1
+  celuS.visible = pa === "Q5"; telS.visible = pa !== "Q5";
+  franjaVendido.visible = t >= T.vendido;
+  if (franjaVendido.visible) { const u = sg(t, T.vendido, T.vendido + 0.22); franjaVendido.position.set(lerp(-0.5, 0, eo(u)), lerp(0.55, 0, eo(u)), 0.012); franjaVendido.rotation.z = lerp(0.9, 0.32, eo(u)); franjaVendido.scale.setScalar(lerp(1.5, 1, eo(u)) * (1 + 0.06 * Math.sin(Math.PI * sg(t, T.vendido + 0.2, T.vendido + 0.4)))); }
+  // la llave del balcón: péndulo chico (función del tiempo)
+  llaveBalcon.rotation.z = Math.sin(t * 2.6) * 0.07 * (t >= T.llave ? 1 : 0.6);
   // ---- personajes ----
   for (const p of TODOS) p.raiz.visible = false;
-  maletin.visible = celH.visible = celNmano.visible = cajaHector.visible = false;
-  // Rubén
+  celD.visible = celG.visible = false;
   if (lugar === "of") {
-    ruben.raiz.visible = !["Q3b"].includes(pa);
-    const pr = rubenOficina(t); ruben.poner(pr);
-    // el mate: en la mano izquierda (P1, Q4), con el sorbo; en C, apoyado en el escritorio
-    let so = 0;
-    if (!parte2) so = 0.55 * eio(sg(t, T.r1 + LEN.r1 - 0.25, T.c2 + 0.05));
-    else so = Math.sin(Math.PI * sg(t, T.r1b + LEN.r1 - 0.05, T.r1b + LEN.r1 + 0.75)) * 0.95;
-    if (pa === "C" || (parte2 && t >= T.c)) {
-      // (r1) en el cierre el mate ya está apoyado en el escritorio y la mano descansa al lado (antes la mano lo atravesaba)
-      pr.manoI = aCuerpo(ruben, V3(0.02, MESA_Y + 0.05, 1.6)); pr.codoI = [1, -0.6, -0.2]; ruben.poner(pr);
-    }
-    ruben.raiz.updateMatrixWorld(true);
-    const m = ruben.brazos[0].mano.getWorldPosition(_w).clone();
-    mate.rotation.set(0, ruben.raiz.rotation.y + Math.PI / 2, 0.35 * so); mate.position.copy(m).add(V3(0, -0.07, 0));
-    if (so > 0 && pa !== "C") {
-      const boca = ruben.cabeza.localToWorld(V3(0.05, 0.12, 0.34));
-      mate.updateMatrixWorld(true);
-      const punta = V3(0.075, 0.305, 0).multiplyScalar(1.12).applyEuler(mate.rotation);
-      mate.position.lerp(boca.sub(punta), so);
-    }
-    if (pa === "C" || (parte2 && t >= T.c)) { mate.position.set(0.15, MESA_Y, 1.72); mate.rotation.set(0, -Math.PI / 2, 0); }
-    if (pa === "P3") { mate.position.set(0.32, MESA_Y, 1.85); mate.rotation.set(0, -Math.PI / 2, 0); pr.manoI = [0.24, 0.3, 0.3]; ruben.poner(pr); }
-  } else if (lugar === "ca" && !parte2) {
-    ruben.raiz.visible = pa !== "P7" && pa !== "P5b"; ruben.poner(rubenVereda(t));
+    silvana.raiz.visible = pa !== "Q5"; sillaS.visible = pa !== "Q5"; const ps = poseSilvana(t);
+    // la palma sobre el celular (tapa): la mano izquierda va arriba del celular
+    if (ps.tapa > 0) { telS.updateMatrixWorld(true); const w = telS.userData.piv.localToWorld(V3(0, telS.userData.H * 0.78, 0.06)); ps.manoI = lerpV(ps.manoI, aCuerpo(silvana, w), ps.tapa); ps.codoI = [1, -0.2, -0.4]; ps.dedoI = 0; }
+    silvana.poner(ps);
+    sillaS.rotation.y = silvana.raiz.rotation.y;
+    for (const p of [diego, romina]) { p.raiz.visible = true; p.poner(poseCorredor(p, t)); }
   }
-  // Héctor
-  if (lugar === "ca") {
-    hector.raiz.visible = pa !== "P6" && pa !== "P5b"; hector.poner(poseHector(t));
-    if (t >= T.p7 && !parte2) {
-      hector.raiz.updateMatrixWorld(true);
-      cajaHector.visible = true; hector.brazos[0].mano.getWorldPosition(_w); const b = hector.brazos[1].mano.getWorldPosition(new THREE.Vector3());
-      cajaHector.position.copy(_w.add(b).multiplyScalar(0.5)).add(V3(0, 0.06, 0)); cajaHector.rotation.set(0, hector.raiz.rotation.y, 0);
-    }
-    if (parte2) {
-      // (r2) en altavoz delante de la cara, a su izquierda, con la pantalla encendida hacia la cámara ("En llamada · Nico");
-      // la mano izquierda lo agarra desde abajo (se orienta a la cámara más abajo, cuando la cámara ya está puesta)
-      const ph = poseHector(t); hector.poner(ph); hector.raiz.updateMatrixWorld(true);
-      const pc = hector.cabeza.localToWorld(V3(0.25, 0.14, 0.42));
-      ph.manoI = aCuerpo(hector, pc.clone().add(V3(0, -0.1, 0))); ph.codoI = [1, -0.6, 0.1]; hector.poner(ph); hector.raiz.updateMatrixWorld(true);
-      celH.visible = true; celH.position.copy(pc);
-    }
+  if (lugar === "po" && (pa !== "P5" || true)) {
+    graciela.raiz.visible = true; const pg = poseGraciela(t); graciela.poner(pg);
   }
-  // Nico
-  if (pa === "P3") {
-    nico.raiz.visible = true; nico.poner(poseNico(t, "of"));
-    nico.raiz.updateMatrixWorld(true); maletin.visible = celNmano.visible = true;
-    nico.brazos[1].mano.getWorldPosition(_w); maletin.position.copy(_w).add(V3(0, -0.02, 0.0)); maletin.rotation.set(0, nico.raiz.rotation.y, 0);
-    nico.brazos[0].mano.getWorldPosition(_w); celNmano.position.copy(_w).add(V3(0, 0.06, 0)); celNmano.rotation.set(-0.3, nico.raiz.rotation.y, 0.3);
-  } else if (lugar === "ca" && !parte2 && pa !== "P7c") {
-    nico.raiz.visible = pa !== "P7" && pa !== "P6" && pa !== "P5b"; if (nico.raiz.parent !== scene) scene.add(nico.raiz); nico.poner(poseNico(t, "ca"));
-  } else if (lugar === "auto" || pa === "P7c") {
-    if (nico.raiz.parent !== auto) auto.add(nico.raiz);
-    nico.raiz.visible = true; nico.poner(poseNico(t, "auto"));
+  if (lugar === "liv") {
+    diego.raiz.visible = true; diego.poner(poseDiegoLiv(t));
+    for (const p of [ella, el]) { p.raiz.visible = true; p.poner(posePareja(p, t)); }
   }
-  if (nico.raiz.parent === auto && !(lugar === "auto" || pa === "P7c")) scene.add(nico.raiz);
-  // Darío y el chofer
-  if (lugar === "dep") { operario.raiz.visible = !(parte2 && t > T.q3 + 2.1); operario.poner(poseOperario(t)); }
-  if (parte2 && t >= T.q3 + 0.3) {
-    // la radio y la planta en las manos de Darío (después de posarlo: si no, quedaban flotando un cuadro atrás)
-    operario.raiz.updateMatrixWorld(true); RIN.updateMatrixWorld(true);
-    operario.brazos[0].mano.getWorldPosition(_w); RIN.worldToLocal(_w); radio.position.copy(_w).add(V3(0, -0.15, 0)); radio.rotation.set(0, operario.raiz.rotation.y, 0);
-    operario.brazos[1].mano.getWorldPosition(_w); RIN.worldToLocal(_w); planta.position.copy(_w).add(V3(0, -0.2, 0));
-    radio.visible = planta.visible = operario.raiz.visible;
-  } else radio.visible = planta.visible = true;
-  if (lugar === "ca" && !parte2 && pa !== "P7c" && pa !== "P7b") { chofer.raiz.visible = true; chofer.poner(poseChofer(t)); }
-  // el post-it: en la mano de Nico (P7), pegado en el tablero (P7b), vuela (P7c) y queda en la puerta del camión gris
-  postit.visible = false; MANO_POST.visible = false;
-  {
-    auto.updateMatrixWorld(true);
-    const cab = auto.userData.cab;
-    const tablero = auto.localToWorld(V3(-0.2, 1.118, cab.z1 - 0.19));
-    if (pa === "P7b") {
-      // (r1) Nico lo baja con la mano (entra desde su lado, el izquierdo del cuadro) y lo pega con el pulgar: pop; la mano
-      // se va. El post-it se lee entero todo el plano.
-      const u = eio(sg(t, T.p7b, T.pega)), pp = bk(sg(t, T.pega - 0.05, T.pega + 0.15)), va = eio(sg(t, T.pega + 0.12, T.pega + 0.4));
-      postit.visible = true;
-      const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-      postit.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2 + 0.12 * (1 - u), 0, Math.PI)));
-      postit.position.copy(tablero).add(V3(0, 0.09 * (1 - u), 0).applyQuaternion(q)).add(V3(0, 0.004, 0));
-      postit.scale.setScalar(t >= T.pega - 0.05 ? 0.92 + 0.08 * pp : 1);
-      MANO_POST.visible = va < 1;
-      MANO_POST.quaternion.copy(q).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(Math.PI / 2, 0, Math.PI / 2)));
-      MANO_POST.position.copy(postit.position).add(V3(0.14 + 0.3 * va, 0.03 + 0.04 * va, -0.01).applyQuaternion(q));
-    } else if (pa === "P7c") {
-      postit.visible = true; postit.scale.setScalar(1);
-      const dest = V3(camionGris.position.x + 0.16, 1.82, 1.0);
-      const u = sg(t, T.vuela[0], T.vuela[1]);
-      const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-      if (t < T.vuela[0]) postit.visible = false;   // (r2) adentro del auto no se ve (nacía en la cara de Nico)
-      else {
-        // sale por la ventanilla del acompañante (hacia la vereda, de frente a la cámara), da vueltas y se pega en la
-        // puerta del camión gris
-        const sale = auto.localToWorld(V3(-1.15, 1.3, cab.z1 - 0.35));
-        const a = sale.clone().lerp(dest, eio(u));
-        a.y += Math.sin(Math.PI * u) * 0.3;
-        postit.position.copy(a);
-        const g = 1 - eo(u);
-        postit.rotation.set(Math.sin(u * 12) * 0.9 * g, lerp(0.4, Math.PI / 2, eo(u)) + Math.sin(u * 9) * 0.5 * g, Math.cos(u * 10) * 0.7 * g);
-        if (u >= 1) { postit.position.copy(dest); postit.rotation.set(0, Math.PI / 2, 0.08); }
-      }
-    }
+  // ---- cámara ----
+  if (pl[2] && pa !== "portada") ponerCam(catmull(pl[2], t), t);
+  if (pa === "P5") {
+    // la grúa desde la rambla (el río abajo) hasta el balcón; en "La llave", push-in a la llave POCITOS
+    const k = BK();
+    const A = [BX - 3.2, 2.6, 15.5, BX - 0.2, 0.2, 0.5, 52], B = [BX + 0.78, 1.42, 3.95, BX - 0.22, 0.92, 0.7, 47], Cc = [BX + 0.74, 1.4, 3.75, BX - 0.2, 0.92, 0.7, 46];
+    const Dk = [k.x + 0.22, k.y + 0.06, k.z + 0.62, k.x - 0.02, k.y + 0.0, k.z, 40];
+    const u = eio(sg(t, T.p5, T.g2 + 0.15)), w = eio(sg(t, T.llave - 0.3, T.llave + 0.35));
+    const v = u < 1 ? lerpV(A, B, u) : lerpV(B, Cc, sg(t, T.g2 + 0.15, T.llave - 0.3));
+    ponerCam(lerpV(v, Dk, w), t);
   }
-  // ---- cámara (planos armados a mano) ----
-  if (pa === "P2") {
-    ponerCam(t < T.p3 ? catmull(K_GRUA(), t) : catmull(K_GRUA(), t), t);
-    PASO.visible = !en(t, T.p2 + 0.15, T.p2 + 0.75);
-  } else PASO.visible = true;
-  if (pa === "P7b") {
-    // dentro del auto, desde el asiento del acompañante: el post-it en el tablero, el camión gris por el parabrisas
-    const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-    const ojo = auto.localToWorld(V3(-0.32, 1.55, auto.userData.cab.z1 - 0.72)), mira = auto.localToWorld(V3(-0.05, 1.12, auto.userData.cab.z1 + 0.12));   // (r2) se ven el parabrisas, el soporte del celular y el volante: es el tablero
-    const u = eio(sg(t, T.p7b, T.p7c)); ojo.lerp(mira, 0.08 * u);
-    ponerCam([ojo.x, ojo.y, ojo.z, mira.x, mira.y, mira.z, 52], t, true);
+  if (pa === "P7") {
+    const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, 0.5, 40, -0.004);
+    const u = eio(sg(t, T.p7, T.p8)); const v2 = v.slice(); v2[0] += 0.0; v2[1] += 0.02 * (1 - u);
+    ponerVista(v2, v2, 0, up, up);
   }
-  if (pa === "P7c") {
-    // (r1) desde la vereda, al lado del auto: el post-it sale por la ventanilla hacia la cámara; la cámara lo sigue por la
-    // vereda hasta la puerta del camión gris y termina de frente, cerca: "HÉCTOR / MARTES" se lee
-    const d = V3(camionGris.position.x + 0.16, 1.82, 1.0);
-    const u = eio(sg(t, T.p7c + 0.05, T.vuela[1] + 0.1)), w = eio(sg(t, T.vuela[1] + 0.12, T.vuela[1] + 0.62));   // (r3) se abre antes
-    const p0 = V3(VX + 2.2, 1.45, -1.15), p1 = V3(VX + 0.9, 1.7, -0.4), p2 = V3(d.x + 0.72, 1.81, d.z - 0.14), p3 = V3(d.x + 1.85, 1.55, d.z - 0.95);
-    const pos = (u < 0.5 ? p0.clone().lerp(p1, u / 0.5) : p1.clone().lerp(p2, (u - 0.5) / 0.5)).lerp(p3, w);   // (r2) después se abre: la cola del furgón, la rueda
-    const ventana = auto.localToWorld(V3(-1.0, 1.3, auto.userData.cab.z1 - 0.35));
-    const mira = t < T.vuela[0] ? ventana : t < T.vuela[1] ? postit.position.clone() : d.clone().add(V3(-0.3, -0.35, 0.25).multiplyScalar(w));
-    ponerCam([pos.x, pos.y, pos.z, mira.x, mira.y, mira.z, lerp(48, 40, u) + 6 * w], t, true);
-    // (r1) en vuelo el post-it mira a la cámara (se lee, no de canto ni espejado), girando sobre sí mismo, y un poco más
-    // grande en el medio del vuelo
-    if (en(t, T.vuela[0], T.vuela[1])) {
-      const v = sg(t, T.vuela[0], T.vuela[1]);
-      camera.updateMatrixWorld(true); postit.lookAt(camera.position); postit.rotateZ(Math.sin(v * 9) * 0.6 * (1 - v)); postit.rotateX(Math.sin(v * 7) * 0.4 * (1 - v));
-      postit.scale.setScalar(1 + 1.2 * Math.sin(Math.PI * cl(v * 1.15)) * (1 - eo(v)) );
-    }
+  if (pa === "Q1") {
+    celEnManos(celD, diego, camera.position, 0.2, 0.1); celD.visible = true;
+    const A = [BX + 1.1, 1.5, -0.35, BX - 0.75, 1.15, -4.6, 50];
+    ponerCam(A, t, true); camera.updateMatrixWorld(true);
+    celEnManos(celD, diego, camera.position, 0.2, 0.1);
+    const { v, up } = vistaPantalla(celD, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.2, 0.62, 40);
+    const u = eio(sg(t, T.q1i, T.q1i + 0.6));
+    ponerVista(A, v, u, V3(0, 1, 0), up);
   }
-  if (pa === "Q1" || pa === "Q2i") {
-    // Q1: desde el asiento del acompañante; push-in continuo al celular del soporte (inserto ≥ 60 %)
-    const celu = auto.userData.celu; celu.updateMatrixWorld(true);
-    const c = celu.localToWorld(V3(0, 0, -0.014)), n = V3(0, 0, -1).transformDirection(celu.matrixWorld), up = V3(0, 1, 0).transformDirection(celu.matrixWorld);
-    const fov = 40, dIns = 0.24 / 0.62 / (2 * Math.tan((fov * D2R) / 2));
-    const pIns = c.clone().add(n.clone().multiplyScalar(dIns));
-    const p0 = auto.localToWorld(V3(-0.3, 1.38, -0.5)), m0 = auto.localToWorld(V3(0.1, 1.25, 0.45));   // (r2) más cerca: sin el techo ni el brazo de Nico
-    const u = pa === "Q2i" ? 1 : eio(sg(t, T.q1i, T.q1i + 1.0));
-    const cS = c.clone().add(up.clone().multiplyScalar(0.022 * u)), pos = p0.clone().lerp(pIns.clone().add(up.clone().multiplyScalar(0.022)), u), mira = m0.clone().lerp(cS, eo(cl(u * 1.3)));
-    camera.position.copy(pos); camera.fov = lerp(52, fov, u); camera.updateProjectionMatrix(); camera.up.copy(V3(0, 1, 0).lerp(up, u).normalize()); camera.lookAt(mira);
-    // el índice de Nico toca "Llamar"
-    const toq = Math.sin(Math.PI * sg(t, T.llamar - 0.25, T.llamar + 0.04));
-    DEDO_N.visible = pa === "Q1" && toq > 0.01;
-    if (DEDO_N.visible) { DEDO_N.position.set(0.0, -0.093, -0.022 - 0.03 * (1 - toq)); DEDO_N.rotation.set(0.15, Math.PI, 0.6); }
-    nico.raiz.visible = nico.raiz.visible && u < 0.5;   // (r1) Nico fuera del inserto (su brazo era una masa marrón)
-  } else DEDO_N.visible = false;
-  if (pa === "Q3b") {
-    // la ficha de Héctor en el monitor (inserto que llena el ancho)
-    const FOV = 44, d = (MON.W * 0.97) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
+  if (pa === "Q2") {
+    const A = [BX + 1.75, 1.45, 2.75, G_BAL.x - 0.05, 1.15, G_BAL.z, 46];
+    ponerCam(A, t, true); camera.updateMatrixWorld(true);
+    celEnManos(celG, graciela, camera.position, 0.2, 0.1); celG.visible = true;
+    const { v, up } = vistaPantalla(celG, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, 0.62, 40);
+    const u = eio(sg(t, T.q2i, T.q2i + 0.6)) * (1 - eio(sg(t, T.llamaG + 0.1, T.q3)));
+    ponerVista(A, v, u, V3(0, 1, 0), up);
+  } else if (lugar === "po") { camera.updateMatrixWorld(true); celEnManos(celG, graciela, camera.position, 0.2, 0.1); celG.visible = true; }
+  if (pa === "Q3m" || pa === "Q4") {
+    const { v } = vistaPantalla(monitor, monitor.userData.centro, V3(0, 0, 1), MON.H, 0.5, 44);
+    const FOV = 44, d = (MON.W * 1.04) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
     monitor.updateMatrixWorld(true);
     const c = monitor.localToWorld(monitor.userData.centro.clone()), n = V3(0, 0, 1).transformDirection(monitor.matrixWorld);
-    const p = c.clone().add(n.multiplyScalar(d * lerp(1.08, 1.0, eio(sg(t, pl[1], T.q4)))));
-    ponerCam([p.x, p.y - 0.05, p.z, c.x, c.y - 0.05, c.z, FOV], t, true);
+    const p = c.clone().add(n.multiplyScalar(d * (pa === "Q4" ? lerp(1.05, 1.0, eio(sg(t, T.q4, T.q4b))) : 1)));
+    const ins = [p.x, p.y, p.z, c.x, c.y, c.z, FOV];
+    if (pa === "Q3m") ponerVista(CAM_P1(0.4), ins, eio(sg(t, T.mon, T.mon + 0.55))); else ponerCam(ins, t, true);
+    void v;
   }
-  if (pa === "Q4" || pa === "Q4b") {
-    // (r1) el panel de frente, lleno de ancho (push-in suave)
-    const FOV = 46, d = (MON.W * 1.03) / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
-    monitor.updateMatrixWorld(true);
-    const c = monitor.localToWorld(monitor.userData.centro.clone()), n = V3(0, 0, 1).transformDirection(monitor.matrixWorld);
-    const p = c.clone().add(n.multiplyScalar(d * lerp(1.06, 1.0, eio(sg(t, pl[1], pl[1] + 1.2)))));
-    ponerCam([p.x, p.y - 0.05, p.z, c.x, c.y - 0.05, c.z, FOV], t, true);
+  if (pa === "Q5") {
+    celuS.updateMatrixWorld(true);
+    const cs = celuS.userData.piv.localToWorld(celuS.userData.centro.clone());
+    const u = eio(sg(t, T.q5, DUR));
+    ponerCam([cs.x + lerp(0.08, 0.06, u), cs.y + 0.15, cs.z + lerp(0.92, 0.8, u), cs.x + 0.02, cs.y + 0.03, cs.z, 44], t);
+    // Sofi: su escena a la textura del celular parado
+    sofi.poner(poseSofi(t)); sofi.raiz.updateMatrixWorld(true);
+    const c = sofi.cabeza.localToWorld(V3(0, 0.2, 0));
+    SOFI.cam.position.set(c.x + 0.05, c.y + 0.02, c.z + 2.75); SOFI.cam.lookAt(c.x, c.y - 0.28, c.z);
+    renderer.setRenderTarget(SOFI.rt); renderer.render(SOFI.esc, SOFI.cam); renderer.setRenderTarget(null);
+  }
+  if (pa === "portada") {
+    // la portada: Silvana de frente con cara de "¿y ahora?", el celular en altavoz cerca, el tablero con el gancho vacío
+    silvana.raiz.visible = true;
+    silvana.poner({ ...poseSilvana(T.p6 + 0.2), ...CARA.incredula, ojos: { abiertos: 0.95, x: 0.0, y: 0.05, tension: 0.2 }, cejas: { alto: 0.35, ang: 0.45, asim: 0.5 }, boca: { sonrisa: -0.3, abierta: 0.05, ancho: 0.85 }, cabeza: { giro: 0.05, asiente: 0.0, ladea: 0.05 }, t: 1 });
+    ponerCam([0.18, 1.18, 2.2, 0.12, 1.12, 0.35, 46], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
-  if (celH.visible) { camera.updateMatrixWorld(true); celH.lookAt(camera.position); celH.rotateZ(-0.12); }
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
-  // el sol de la calle sigue al plano
-  if (lugar === "ca" || lugar === "auto") ponerSolCa(lugar === "auto" && parte2 ? AUTO_SEM.clone() : V3(VX, 0, -1));
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
-  bigoteSegunCamara();
 
   // ---- globos de diálogo y rótulos ----
   for (const k in GL) GL[k].visible = false;
   for (const r of [...ROT, ...ROT_Q]) r.visible = false;
   for (const g of GUIAS) g.visible = false;
-  if (!LIMPIO && !en(tIn, P1, P2)) {
-    const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
-    const tel = () => objPx(telefono, V3(-0.06, 0.09, 0.05));
-    // P1 / Q4: el contador sale del teléfono (cola al parlante), Rubén arriba de su cabeza
-    if (pa === "P1") {
-      // (r1) una burbuja a la vez: la del contador se va cuando habla Rubén
-      const [tx, ty] = tel();
-      if (t >= T.c1 - 0.05 && t < T.r1 - 0.04) ponerGlobo(GL.c1, 600, ty - 300, ent(T.c1 - 0.05), [tx, ty], 1);
-      if (t >= T.c2 - 0.05) ponerGlobo(GL.c2, 600, ty - 300, ent(T.c2 - 0.05), [tx, ty], 1);
-      if (t >= T.r1 - 0.04 && t < T.c2 - 0.05) { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1, 330, 600, ent(T.r1 - 0.04), [bx - 40, by - 10], 2); }
-    }
-    if (pa === "Q4" && t >= T.c1b - 0.05) ponerGlobo(GL.c1b, 540, 330, ent(T.c1b - 0.05), null, 1);
-    if (pa === "Q4r") { const [bx, by] = bocaPx(ruben); ponerGlobo(GL.r1b, 720, 470, ent(T.r1b - 0.04), [bx, by - 60], 2); }   // (r3) arriba a la derecha: no tapa el panel
-    if (pa === "Q4b" && t >= T.c3 - 0.05) ponerGlobo(GL.c3, 540, 330, ent(T.c3 - 0.05), null, 1);
-    // P2: los rótulos de la plata (a la izquierda, guías al cartel HÉCTOR · MARTES y al rincón)
-    if (pa === "P2") {
-      const cartelPx = objPx(DEP, V3(SLOT.HECTOR - 0.66, 1.93, ZA - 0.83)), rinPx = objPx(RIN, V3(-0.72, 0.02, 0.62));   // (r2) al borde del cartel y a la esquina del lugar pintado   // (r1) la guía al borde del lugar pintado, lejos de Darío
-      const pos = [[300, 560], [300, 790], [320, 1040]];
-      ROT.forEach((r, i) => {
-        if (t < T.rot[i]) return;
-        const s = ent(T.rot[i]); ponerGlobo(r, pos[i][0], pos[i][1], s, null, 3 + i);
-        if (i === 0) ponerGuia(GUIAS[0], pos[0][0] + r.userData.W / 2 - 10, pos[0][1], cartelPx[0], cartelPx[1] + 30, sg(t, T.rot[0], T.rot[0] + 0.25));
-        if (i === 2) ponerGuia(GUIAS[2], pos[2][0] + r.userData.W / 2 - 10, pos[2][1], rinPx[0], rinPx[1], sg(t, T.rot[2], T.rot[2] + 0.25));
-      });
-    }
-    if (pa === "P3" && t >= T.n1 - 0.04) hablar(GL.n1, nico, ent(T.n1 - 0.04), 1, 0, 300);
-    if (pa === "P4" && t >= T.h1 - 0.04) { const [bx, by] = bocaPx(hector); const [hx, hy] = coronillaPx(hector); ponerGlobo(GL.h1a, 560, Math.min(760, hy - 180), ent(T.h1 - 0.04), [hx, hy + 6], 2); }   // (r1) abajo: no tapa el cartel
-    if (pa === "P4b" && t >= T.h1 - 0.04) {
-      const k = 2;   // "¡Rubén! ¿Cerraste?" y después "Dejé de pedir y nadie me llamó."
-      const corte = r2(T.h1 + 1.37);   // (r2) cambia cuando dice "Dejé"
-      if (t < corte) hablar(GL.h1a, hector, ent(T.h1 - 0.04), k, 0, 300); else hablar(GL.h1, hector, ent(corte), k, 0, 300);
-    }
-    if (pa === "P6" && t >= T.r2 - 0.04) hablar(GL.r2, ruben, ent(T.r2 - 0.04), 1, 0, 280);
-    if (pa === "P7" && t >= T.h2 - 0.04) hablar(GL.h2, hector, ent(T.h2 - 0.04), 1, 0, 300);
-    if (pa === "Q1" && t >= T.n2 - 0.04) ponerGlobo(GL.n2, 540, 280, ent(T.n2 - 0.04), null, 1);
-    if (pa === "Q1" && en(t, T.vibra + 0.2, T.n2 - 0.1)) { ponerGlobo(ROT_Q[0], 330, 305, ent(T.vibra + 0.2), null, 2); }
-    if (pa === "Q2" && t >= T.h3 - 0.04) hablar(GL.h3, hector, ent(T.h3 - 0.04), 1, 0, 280);
-    if (pa === "Q3b") ponerGlobo(ROT_Q[1], 540, 420, ent(pl[1] + 0.15), null, 2);
-  }
+  if (!LIMPIO && !en(tIn, P1, P2) && pa !== "portada") tarjetas(t, pa);
   renderer.render(scene, camera);
+}
+function tarjetas(t, pa) {
+  const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
+  const tel = () => objPx(telS.userData.piv, V3(0, telS.userData.H * 0.9, 0.01));
+  if (pa === "P1" || pa === "Q3") {
+    const [tx, ty] = tel();
+    const g = pa === "P1" ? GL.g1 : GL.g1b, t0 = pa === "P1" ? T.g1 : T.g1b;
+    if (t >= t0 - 0.05) ponerGlobo(g, 370, 590, ent(t0 - 0.05), [tx, ty], 1);
+  }
+  if (pa === "P2" && t >= T.s1 - 0.04) ponerGlobo(GL.s1, 560, 560, ent(T.s1 - 0.04), bocaPx(silvana), 1);
+  if (pa === "P3") {
+    if (t >= T.d1 - 0.04) { const [hx, hy] = coronillaPx(diego); ponerGlobo(GL.d1, 330, Math.min(290, hy - 260), ent(T.d1 - 0.04), [hx, hy + 6], 1); }
+    if (t >= T.ro1 - 0.04) { const [hx, hy] = coronillaPx(romina); ponerGlobo(GL.ro1, 770, Math.min(470, hy - 120), ent(T.ro1 - 0.04), [hx, hy + 6], 2); }
+  }
+  if (pa === "P4" && t >= T.s2 - 0.04) ponerGlobo(GL.s2, 560, 400, ent(T.s2 - 0.04), bocaPx(silvana), 1);
+  if (pa === "P5" && t >= T.g2 - 0.04) {
+    if (t < T.llave - 0.05) hablar(GL.g2a, graciela, ent(T.g2 - 0.04), 1, 0, 280);
+    else ponerGlobo(GL.g2, 560, 330, ent(T.llave - 0.05), null, 1);
+  }
+  if (pa === "P6") {
+    const fPx = objPx(fichaGraciela, V3(0.13, 0.05, 0.01)), hPx = objPx(tablero, ganchoPocitos.clone().add(V3(0, -0.06, 0)));
+    const pos = [[300, 420], [300, 590], [770, 760]];
+    ROT.forEach((r, i) => { if (t >= T.rot[i]) ponerGlobo(r, pos[i][0], pos[i][1], ent(T.rot[i]), null, 3 + i); });
+    if (t >= T.rot[0]) ponerGuia(GUIAS[0], 200, 640, fPx[0], fPx[1], sg(t, T.rot[0], T.rot[0] + 0.25));
+    if (t >= T.rot[2]) ponerGuia(GUIAS[2], 770, 815, hPx[0], hPx[1], sg(t, T.rot[2], T.rot[2] + 0.25));
+  }
+  if (pa === "P7" && t >= T.g3 - 0.04) ponerGlobo(GL.g3, 540, 330, ent(T.g3 - 0.04), null, 1);
+  if (pa === "P8" && t >= T.d2 - 0.04) { const [hx, hy] = coronillaPx(diego); ponerGlobo(GL.d2, 330, 340, ent(T.d2 - 0.04), [hx - 30, hy + 10], 1); }
+  if (pa === "Q1" && t >= T.q1i + 0.3) ponerGlobo(ROT_Q[0], 540, 250, ent(T.q1i + 0.3), null, 2);
+  if (pa === "Q2" && t >= T.q2i + 0.4) ponerGlobo(ROT_Q[1], 540, 290, ent(T.q2i + 0.4), null, 2);
+  if (pa === "Q3m") { ponerGlobo(ROT_Q[2], 540, 300, ent(T.mon + 0.3), null, 2); if (t >= T.s3 - 0.04) ponerGlobo(GL.s3, 540, 1500, ent(T.s3 - 0.04), null, 1); }
+  if (pa === "Q3c" && t >= T.g4 - 0.04) { const [tx, ty] = tel(); ponerGlobo(GL.g4, 560, 600, ent(T.g4 - 0.04), [tx, ty], 1); }
+  if (pa === "Q4b" && t >= T.g5 - 0.04) { const [hx, hy] = coronillaPx(graciela); ponerGlobo(GL.g5, 560, 330, ent(T.g5 - 0.04), [hx, hy + 6], 1); }
 }
 
 window.__tresRender = renderAt;
