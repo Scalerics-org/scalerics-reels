@@ -276,9 +276,10 @@ function ponerCorreas(r, manos, on = true) {
     c.visible = asa.visible = on && !!manos; if (!c.visible) continue;
     const p = r.localToWorld(_cA.set(s * POLEA.x, POLEA.y, POLEA.z - 0.03));
     const m = manos[0].distanceTo(p) < manos[1].distanceTo(p) ? manos[0] : manos[1];   // (r2) la mano del mismo lado
-    const ma = _cB.copy(p).sub(m).normalize().multiplyScalar(0.06).add(m);   // (r1) el asa asoma delante del puño
-    entre(c, p, ma.clone(), 0.0085);
-    asa.position.copy(ma); asa.lookAt(p); asa.rotateY(Math.PI / 2); asa.scale.setScalar(1.25);
+    // (r3) el asa verde rodea el puño (de frente se ve el aro alrededor de la mano cerrada) y la correa llega hasta el asa
+    const ma = m.clone();   // (r3) clone: entre() usa _cB y pisaba la posición del asa (por eso no se veía)
+    entre(c, p, ma.clone(), 0.012);
+    asa.position.copy(ma); asa.lookAt(p); asa.scale.setScalar(1.8);
   }
 }
 const REFS = REF_X.map((x) => { const r = crearReformer(); r.position.set(x, 0, REF_Z(x)); r.rotation.y = Math.PI; ponerCarro(r, 0); return r; });   // (r2) dado vuelta: las poleas detrás de la alumna, la barra de pies hacia cámara
@@ -313,7 +314,7 @@ function dibujarPizarra(x, W, H, nQ, pop = 1, horarios = false) {
   if (horarios) {
     x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 86); x.fillText("HORARIOS", W / 2 + 60, 140);   // (r2) más chico y adentro: el borde del cuadro no lo corta
     x.fillStyle = "#5ce611"; x.fillRect(W / 2 + 60 - 230, 196, 460, 12);
-    x.fillStyle = "#16243d"; x.font = CAV(100); x.fillText("Lun · Mié · Vie", W / 2 + 60, 320); x.fillText("8:00 · 19:00", W / 2 + 60, 440);
+    x.fillStyle = "#16243d"; x.font = CAV(100); x.fillText("8:00 · 19:00", W / 2 + 60, 440);   // (r3) sin "Lun · Mié · Vie": asomaba cortado sobre la burbuja
     x.font = CAV(84); x.fillText("Mar · Jue  9:00", W / 2 + 60, 570);
     return;
   }
@@ -353,7 +354,7 @@ const bancoT = lienzo(900, 580, (x, W, H) => {
   x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(44, 62); x.lineTo(70, 34); x.lineTo(96, 62); x.closePath(); x.fill(); x.fillRect(52, 60, 36, 24);
   x.font = F(800, 46); x.textBaseline = "middle"; x.textAlign = "left"; x.fillText("Movimientos · marzo", 120, 52);
   const fil = ["Transferencia recibida", "Transferencia recibida", "Transferencia recibida", "Transferencia recibida", "Transferencia recibida"];
-  fil.forEach((f, i) => { const y = 150 + i * 86; x.fillStyle = i % 2 ? "#ffffff" : "#f6f4ea"; x.fillRect(20, y - 38, W - 40, 76); x.fillStyle = "#16243d"; x.font = F(700, 38); x.fillText(f, 40, y); x.textAlign = "right"; x.font = F(800, 40); x.fillText("$ 3.000", W - 40, y); x.textAlign = "left"; });
+  fil.slice(0, 4).forEach((f, i) => { const y = 160 + i * 104; x.fillStyle = i % 2 ? "#ffffff" : "#f6f4ea"; x.fillRect(20, y - 48, W - 40, 96); x.fillStyle = "#16243d"; x.font = F(700, 48); x.fillText(f, 40, y); x.textAlign = "right"; x.font = F(800, 52); x.fillText("$ 3.000", W - 40, y); x.textAlign = "left"; });   // (r3) textos más grandes
 });
 const LAPTOP = new THREE.Group();
 { LAPTOP.add(caja(0.36, 0.018, 0.25, M.cr2, 0, 0.009, 0, 0.008)); LAPTOP.add(caja(0.31, 0.003, 0.12, mat(0xc9c6b6, 0.7), 0, 0.019, -0.03, 0.002));
@@ -863,7 +864,7 @@ const PLANOS = [
   // (r1) Q3b: contraplano a Ceci en "El 1, a las 7:02." (Q3 duraba 6,2 s en un plano)
   ["Q3b", T.q3b, [[T.q3b, 2.62, 1.55, 1.75, CECI_CLASE.x - 0.12, 1.45, CECI_CLASE.z, 44], [T.q4, 2.62, 1.55, 1.62, CECI_CLASE.x - 0.12, 1.45, CECI_CLASE.z, 43]]],
   ["Q4", T.q4, [[T.q4, 2.72, 1.5, 2.0, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 48], [T.q5, 2.72, 1.5, 1.85, CECI_CLASE.x - 0.1, 1.42, CECI_CLASE.z, 47]]],
-  ["Q5", T.q5, [[T.q5, MOS.x + 0.32, 1.82, MOS.z + 1.52, MOS.x + 0.32, 1.13, MOS.z - 0.02, 42], [DUR, MOS.x + 0.32, 1.8, MOS.z + 1.47, MOS.x + 0.32, 1.13, MOS.z - 0.02, 41.5]]   /* (r2) desde más arriba: abajo se ve la tapa del mostrador con la planilla y la taza, no el frente liso */],
+  ["Q5", T.q5, [[T.q5, MOS.x + 0.32, 1.86, MOS.z + 1.48, MOS.x + 0.32, 1.2, MOS.z - 0.02, 42], [DUR, MOS.x + 0.32, 1.84, MOS.z + 1.43, MOS.x + 0.32, 1.2, MOS.z - 0.02, 41.5]]   /* (r2) desde más arriba: abajo se ve la tapa del mostrador con la planilla y la taza, no el frente liso */],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
 const _m = new THREE.Vector3();
@@ -898,6 +899,8 @@ const bocaVoz = (p, t, t0, env, k = 0.7) => {
   if (t >= t0 - 0.05 && t < t0 + env.length / 30 + 0.05 && !p.cierraHablando) p.ojos.abiertos = Math.max(p.ojos.abiertos, 0.85);   // hablando, nunca con los ojos cerrados
 };
 const manoMundo = (per, lado, out = new THREE.Vector3()) => { per.raiz.updateMatrixWorld(true); return per.brazos[lado === "I" ? 0 : 1].mano.getWorldPosition(out); };
+// (r3) el centro del puño (la mano cuelga 0,05 a lo largo del antebrazo): ahí va el asa
+const punoMundo = (per, lado) => { per.raiz.updateMatrixWorld(true); const m = per.brazos[lado === "I" ? 0 : 1].mano; return m.localToWorld(new THREE.Vector3(0, -0.05, 0.005)); };
 function aCuerpo(per, p, w) { per.poner(p); per.raiz.updateMatrixWorld(true); const v = per.cuerpo.worldToLocal(w.clone()); return [v.x, v.y, v.z]; }
 const dirGiro = (x0, z0, x1, z1) => Math.atan2(x1 - x0, z1 - z0);
 const toW = (per, local) => { per.raiz.updateMatrixWorld(true); return per.cuerpo.localToWorld(V3(...local)); };
@@ -915,8 +918,8 @@ function poseRemo(per, ref, t, u, extra = {}) {
     x: ref.position.x, y: 0.415 - per.CADERA * al, z: ref.position.z - (CARRO.z0 + dz - 0.2), giro: 0, sentado: 1, piernasRectas: 1, inclina: lerp(0.04, -0.03, u),
     ...aC(0, 0.05), ...CARA.neutra,
     // (r2) "abrazar el árbol": las manos se juntan adelante y se abren a los costados; las correas van a las poleas de atrás
-    manoI: [lerp(0.27, 0.5, u), lerp(0.38, 0.36, u), lerp(0.46, 0.08, u)], manoD: [-lerp(0.27, 0.5, u), lerp(0.38, 0.36, u), lerp(0.46, 0.08, u)],
-    codoI: [1, -0.2, -0.3], codoD: [-1, -0.2, -0.3], dedoI: 0, dedoD: 0, t,
+    manoI: [lerp(0.2, 0.42, u), lerp(0.3, 0.28, u), lerp(0.46, 0.2, u)], manoD: [-lerp(0.2, 0.42, u), lerp(0.3, 0.28, u), lerp(0.46, 0.2, u)],   // (r3) puños adelante, más bajos (no palmas arriba)
+    codoI: [1, -0.6, -0.4], codoD: [-1, -0.6, -0.4], dedoI: 0, dedoD: 0, t,
   };
   return { ...p, ...extra };
 }
@@ -929,7 +932,7 @@ function ponerClase(t) {
     const p = poseRemo(a, ref, t, u * (1 - b), { ...aC(0.05 * Math.sin(i), 0.05), ...CARA.neutra, ojos: { abiertos: 0.95, y: -0.2 } });
     if (b > 0) { p.manoI = p.manoI.map((v, k) => lerp(v, [0.26, -0.02, 0.12][k], b)); p.manoD = p.manoD.map((v, k) => lerp(v, [-0.26, -0.02, 0.12][k], b)); p.boca.sonrisa = lerp(p.boca.sonrisa, 0.6, b); }
     a.poner(p);
-    ponerCorreas(ref, b > 0.9 ? null : [manoMundo(a, "I", new THREE.Vector3()), manoMundo(a, "D", new THREE.Vector3())]);
+    ponerCorreas(ref, b > 0.9 ? null : [punoMundo(a, "I"), punoMundo(a, "D")]);
   });
 }
 function poseAlicia(t) {
@@ -1037,7 +1040,7 @@ function poseCeci(t) {
   // Q2b: detrás del mostrador con la tablet en las manos: "Ya pagaron 39." sin levantar la vista
   // (r2) la tablet en alto (se ve sobre el mostrador); en "Sale sola, el día uno." la da vuelta y la muestra
   const p = poseEn(t, [[0, { x: CECI_MOS.x, z: CECI_MOS.z, giro: 0.35, ...aC(0.0, 0.3), ...CARA.sonrisa, ojos: { abiertos: 0.95, y: -0.35, x: 0 }, ...BRAZOS.celular, manoI: [0.12, 0.4, 0.34], manoD: [-0.12, 0.4, 0.34] }],
-    [T.c4, { ...aC(0.1, 0.05), ...BUENA, ojos: { abiertos: 0.95, y: 0, x: 0.1 }, manoI: [0.12, 0.52, 0.42], manoD: [-0.12, 0.52, 0.42] }, 0.35]]);
+    [T.c4, { ...aC(0.1, 0.05), ...BUENA, ojos: { abiertos: 0.95, y: 0, x: 0.1 }, manoI: [0.12, 0.41, 0.42], manoD: [-0.12, 0.41, 0.42] }, 0.35]]);   // (r3) la tablet al pecho: la boca a la vista
   p.t = t; bocaVoz(p, t, T.c4, ENV.c4, 0.55); return p;
 }
 function poseJoaco(t) {
@@ -1083,7 +1086,7 @@ function ponerObjetos(t) {
   TOALLA.visible = !p2 && (pa === "P4" || pa === "P5" || pa === "P6");
   // la laptop, la planilla, la lámpara: siempre en el mostrador (la laptop cerrada de día no hace falta: queda abierta)
   // la tablet en mano de Ceci (Q2b) = el celular de Ceci con la pantalla del panel, más grande
-  if (pa === "Q2b" || pa === "Q2c") { CEL_CECI.visible = true; const a = manoMundo(ceci, "I", _a), b = manoMundo(ceci, "D", _b); ceci.cuerpo.getWorldQuaternion(_q); const g = eio(sg(t, T.c4 - 0.25, T.c4 + 0.15)); CEL_CECI.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08 + 0.1 * g, 0.02)); CEL_CECI.quaternion.copy(_q); CEL_CECI.rotateX(lerp(-1.05, -0.2, g)); CEL_CECI.rotateZ(Math.PI / 2); CEL_CECI.scale.setScalar(1.9); } else CEL_CECI.scale.setScalar(1.15);   // (r2) la da vuelta hacia cámara: el panel a la vista
+  if (pa === "Q2b" || pa === "Q2c") { CEL_CECI.visible = true; const a = manoMundo(ceci, "I", _a), b = manoMundo(ceci, "D", _b); ceci.cuerpo.getWorldQuaternion(_q); const g = eio(sg(t, T.c4 - 0.25, T.c4 + 0.15)); CEL_CECI.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08 + 0.02 * g, 0.02)); CEL_CECI.quaternion.copy(_q); CEL_CECI.rotateX(lerp(-1.05, -0.2, g)); CEL_CECI.rotateZ(Math.PI / 2); CEL_CECI.scale.setScalar(1.9); } else CEL_CECI.scale.setScalar(1.15);   // (r2) la da vuelta hacia cámara: el panel a la vista
   BOTELLA.visible = pa === "Q2b"; if (BOTELLA.visible) enMano(BOTELLA, joaco, "I", 0, 0, 0, -0.05, 0.0);
   MOCHILA.visible = false;   // (r2) sin mochila: no se leía
   TAZA_A.visible = VAPOR.visible = pa === "Q1" || pa === "Q1b";
@@ -1103,6 +1106,7 @@ function renderAt(tIn) {
   noche(pa === "P3" || pa === "P3j" || pa === "P3b");
   ponerSol(pa === "Q1" || pa === "Q1b" ? 30 : pa === "P1" || pa.startsWith("Q3") || pa === "Q4" ? 1.2 : -2.2, -0.6);
   dibujarInterfaz(t); ponerPizarra(t);
+  sol.castShadow = pa !== "P6b";   // (r3) en el primer plano de Ceci la sombra suelta del mostrador era una mancha en la esquina
   const clase = pa === "P1" || pa === "Q3" || pa === "Q3b" || pa === "Q4";
   const mos = ["P4", "P5", "P6", "P6b"].includes(pa);
   const vis = {
@@ -1118,7 +1122,7 @@ function renderAt(tIn) {
   if (vis.ceci) ceci.poner(poseCeci(t));
   if (vis.alicia) alicia.poner(poseAlicia(t));
   if (vis.joaco) joaco.poner(poseJoaco(t));
-  if (vis.alicia && clase) ponerCorreas(REF_A, [manoMundo(alicia, "I", new THREE.Vector3()), manoMundo(alicia, "D", new THREE.Vector3())]);
+  if (vis.alicia && clase) ponerCorreas(REF_A, [punoMundo(alicia, "I"), punoMundo(alicia, "D")]);
   else { if (!clase) ponerCarro(REF_A, 0); ponerCorreas(REF_A, null); }
   // ---- cámara ----
   if (pl[2] === "q5") {
@@ -1136,7 +1140,7 @@ function renderAt(tIn) {
   if (pa === "Q5") {
     sofi.poner(poseSofi(t)); sofi.raiz.updateMatrixWorld(true);
     const c = sofi.cabeza.localToWorld(V3(0, 0.2, 0));
-    SOFI.cam.position.set(c.x + 0.04, c.y - 0.05, c.z + 1.75); SOFI.cam.lookAt(c.x, c.y - 0.2, c.z);   // (r2) Sofi en plano medio
+    SOFI.cam.position.set(c.x + 0.04, c.y - 0.05, c.z + 2.15); SOFI.cam.lookAt(c.x, c.y - 0.2, c.z);   // (r3) un poco más lejos: el marco no le corta la cabeza   // (r2) Sofi en plano medio
     renderer.setRenderTarget(SOFI.rt); renderer.render(SOFI.esc, SOFI.cam); renderer.setRenderTarget(null);
   }
   // ---- insertos ----
@@ -1150,7 +1154,7 @@ function renderAt(tIn) {
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): Ceci detrás del mostrador, incrédula, y Alicia sonriente con el celular en alto ----
   // (r1) portada (VER=portada, t en la clase del día 10): el mismo cuadro 0 más cerca, las dos caras en la mitad de arriba
-  if (VER === "portada") { ponerCam([1.95, 1.42, 3.25, 2.18, 0.9, -0.3, 46], t); camera.updateMatrixWorld(true); ponerObjetos(t); for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([1.95, 1.42, 3.25, 2.18, 0.8, -0.3, 46], t); camera.updateMatrixWorld(true); ponerObjetos(t); CEL_CECI.visible = false;   /* (r3) sin el celular asomando; las caras más arriba */ for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false;
@@ -1168,7 +1172,7 @@ function tarjetas(t) {
   }
   if (pa === "P2b") { ponerGlobo(GL.pagaron, 770, 330, ent(T.p2b + 0.1), null, 1); }   // (r1) arriba a la derecha, sin tapar renglones
   if (pa === "P3" || pa === "P3j" || pa === "P3b") {
-    ponerGlobo(GL.noche, 300, 200, 1, null);
+    ponerGlobo(GL.noche, pa === "P3" ? 760 : 300, pa === "P3" ? 120 : 200, 1, null);   // (r3) en P3 a la derecha: no tapa "CUOTAS"
     if (pa === "P3") { LAPTOP.updateMatrixWorld(true); const [lx, ly] = objPx(LAPTOP, V3(0, 0.13, -0.12)); ponerGlobo(GL.banco, 540, 1240, ent(T.p3), null, 1); ponerGlobo(GL.noCierra, 540, 1500 - 70, ent(T.noCierra + 0.15), null, 2); if (t >= T.noCierra) ponerGuia(GUIAS[0], 540, 1040, lx, ly, eo(sg(t, T.noCierra, T.noCierra + 0.25))); }
     if (pa === "P3j" && t >= T.j1) hablar(GL.j1, joaco, ent(T.j1), 1, 0);
     if (pa === "P3b" && t >= T.c2) hablar(GL.c2, ceci, ent(T.c2), 1, -40);
@@ -1181,7 +1185,7 @@ function tarjetas(t) {
   if (pa === "P5") {
     // (r1) dos rótulos fijos en pantalla: el costo arriba a la izquierda (franja navy), anclado en la columna derecha de la
     // pizarra (que no queda detrás de Ceci); "Pagado a la peluquera" abajo a la derecha, anclado en el celular de Alicia
-    PIZARRA.updateMatrixWorld(true); const [zx, zy] = objPx(PIZARRA, V3(0.39, 0.2, 0));   // (r2) en un "?" rojo (Pao)
+    PIZARRA.updateMatrixWorld(true); const [zx, zy] = objPx(PIZARRA, V3(0.39, 0.09, 0));   // (r2) en un "?" rojo (Pao)
     CEL_ALI.updateMatrixWorld(true); const [ax, ay] = objPx(CEL_ALI, V3(0, -0.05, 0));
     const u0 = ent(T.rot[0]), u2 = ent(T.rot[2]);
     ponerGlobo(GL.r1, 300, 210, u0, null, 1); if (u0 > 0) ponerGuia(GUIAS[0], 300 + GL.r1.userData.W / 2 - 40, 210 + GL.r1.userData.H / 2, zx, zy, eo(sg(t, T.rot[0], T.rot[0] + 0.25)));
@@ -1193,11 +1197,11 @@ function tarjetas(t) {
     if (t >= T.florMsg) ponerGlobo(GL.florMsg, 540, 380, ent(T.florMsg), null, 2);
   }
   if (pa === "Q1" || pa === "Q1b") ponerGlobo(GL.dia1, 250, 200, 1, null);
-  if (pa === "Q1i") { ponerGlobo(GL.dia1, 250, 120, 1, null); ponerGlobo(GL.rCobra, 560, 296, ent(T.q1i + 0.3), null, 1); }
+  if (pa === "Q1i") { ponerGlobo(GL.dia1, 250, 200, 1, null); ponerGlobo(GL.rCobra, 640, 330, ent(T.q1i + 0.3), null, 1); }
   if (pa === "Q1b" && t >= T.a4) hablar(GL.a4, alicia, ent(T.a4), 1, 0);
   if (pa === "Q2") ponerGlobo(GL.rPanel, 540, 200, ent(T.q2 + 0.1), null, 1);
   if (pa === "Q2b" || pa === "Q2c") {
-    if (pa === "Q2b" && t >= T.j1b && t < T.c4) hablar(GL.j1, joaco, ent(T.j1b), 1, 0);
+    if (pa === "Q2b" && t >= T.j1b && t < T.c4) hablar(GL.j1, joaco, ent(T.j1b), 1, 0, 520);   // (r3) más abajo: no corta "HORARIOS"
     if (pa === "Q2c" && t >= T.c4) hablar(GL.c4, ceci, ent(T.c4), 1, -120, 330);
   }
   if (pa === "Q3" || pa === "Q3b") {
@@ -1212,6 +1216,6 @@ function tarjetas(t) {
 }
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
-window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice() }; };
+window.__tresDbg = (t) => { renderAt(t); const c = REF_A.userData.correas.map(({ c, asa }) => [c.visible, asa.visible, asa.position.toArray().map((v) => +v.toFixed(2)), c.scale.y.toFixed(2)]); return { plano: planoActual, avisos: AVISOS.slice(), correas: c }; };
 renderAt(window.__hfThreeTime || 0);
 if (window.__tresListo) window.__tresListo();
