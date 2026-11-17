@@ -264,7 +264,7 @@
 - 17-11 · `mesa-doce` · Scalerics Puntos · Rubén, cliente de los viernes de una pizzería: "Dos años. Todos los viernes. Mesa doce." y el dueño le pregunta "¿Primera vez por acá?" a las 90 visitas; se va a la de la vuelta que da puntos; rebobina y la misma pizzería con Puntos (QR en la mesa, tarjeta 8/10, regalo de cumple, panel del dueño): "¡Rubén! ¿La de siempre?" "Ahora sí." · Comentá PUNTOS [formato POV en primera persona del cliente (sobre un reel de menu4d, historia propia) · estilo 3D pizzería cálida con HUD de Puntos · hecho a mano en la sesión de Juan, 38,7 s]
 
 ## En curso
-<!-- corrida-activa: 2026-11-17T18:24 -->
+<!-- corrida-activa: 2026-11-17T18:54 -->
 
 - 17-11 · `pilates-cuota` · Gimnasios y estudios de pilates · Automatización de cobro de cuota y aviso a la alumna que dejó de venir · Línea "ANTES QUE TODO", completo con la dueña del estudio · Comentá CUOTA · reservado por la corrida 17-11 14:15
 - 17-11 · `dist-cliente-grande` · Distribuidoras · CRM (cada cliente con su frecuencia de compra; aviso cuando el que compraba todas las semanas deja de pedir) · Línea "ANTES QUE TODO", completo con Rubén: el cliente grande que dejó de comprar hace tres meses y nadie se dio cuenta · Comentá CLIENTES · reservado por la corrida 17-11 14:15
