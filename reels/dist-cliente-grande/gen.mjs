@@ -71,7 +71,7 @@ T.r1b = r2(T.c1b + LEN.c1 + 0.12); T.q4b = r2(T.r1b + LEN.r1 + 0.02); T.c3 = r2(
 T.c = r2(T.c3 + LEN.c3 + 0.3); T.r3 = r2(T.c + 0.25);
 T.palabra = r2(T.r3 + Math.max(0.4, PAL.find((p) => /client/i.test(p.w))?.a ?? 0.45) - 0.05);
 const DUR = Math.ceil((Math.ceil((T.r3 + LEN.r3 + 0.45) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(Math.max(T.palabra + 1.0, DUR - 1.6));
+T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 2.3));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca y el led del altavoz) ----------
 function envolvente(archivo) {
@@ -148,7 +148,7 @@ const CHIP = `
 }
 // Q1 · el chip "Miércoles, 8:10." (entra con el iris, se va antes de Q2)
 {
-  const id = "s01-chip", ini = r2(P2 - 0.05), dur = r2(T.q2 - 0.1 - ini);
+  const id = "s01-chip", ini = r2(P2 - 0.05), dur = r2(T.vibra + 0.2 - ini);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `${CHIP}
@@ -223,7 +223,7 @@ const CHIP = `
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1010px; padding: 22px 10px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1060px; padding: 22px 10px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 128px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
@@ -296,8 +296,8 @@ s("sfx/puerta-auto.wav", T.portazo, 0, { techo: -36 });
 s("sfx/k-neumatico-abre.wav", T.p4 + 0.1, 0, { techo: -48, lp: 1500 });
 voz("h1", T.h1, -1);
 // P5 · la pausa: las puertas del camión gris (dos hojas)
-s("sfx/k-metal-pesado-0.wav", T.cierra[0], 0, { techo: -34 });
-s("sfx/k-metal-pesado-2.wav", T.cierra[1], 0, { techo: -35 });
+s("sfx/k-metal-pesado-0.wav", T.cierra[0], 0, { techo: -37 });
+s("sfx/k-metal-pesado-2.wav", T.cierra[1], 0, { techo: -38 });
 // P6 · el remate
 voz("r2", T.r2, -1);
 // P7 · remate del remate: "Llamame el martes."; el post-it (pop), el motor, el aleteo del papel, el pop seco en la chapa

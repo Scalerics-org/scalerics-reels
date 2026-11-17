@@ -964,9 +964,9 @@ const GL = {
   c3: crearGlobo(["[Compra.]"], 104, { cab: CONT, minW: 760 }),
 };
 const ROT = [
-  crearRotulo([["Súper Héctor:", null, 50], ["$ 38.000 por semana", null, 56]]),
-  crearRotulo([["Último pedido:", null, 48], ["martes 18 de agosto", null, 54]]),
-  crearRotulo([["12 martes sin pedir", "#c7655b", 62], ["$ 456.000", "#c7655b", 96]]),
+  crearRotulo([["Súper Héctor:", null, 46], ["$ 38.000 por semana", null, 52]], 46),
+  crearRotulo([["Último pedido:", null, 44], ["martes 18 de agosto", null, 50]], 46),
+  crearRotulo([["12 martes sin pedir", "#c7655b", 56], ["$ 456.000", "#c7655b", 88]], 50),
 ];
 const ROT_Q = [crearRotulo([["Aviso automático:", null, 50], ["dejó de pedir", "#5ce611", 60]]), crearRotulo([["La ficha de cada cliente:", null, 48], ["cada cuánto compra", "#5ce611", 56]])];
 const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
@@ -999,7 +999,7 @@ scene.add(MANO_POST);
 const OY = OFI.piso;
 const CAM_P1 = (k) => [lerp(-0.52, -0.49, k), lerp(OY + 1.8, OY + 1.77, k), lerp(4.25, 3.95, k), -0.58, OY + 1.08, 1.3, 52];
 const HZ = V3(SLOT.HECTOR, 0, ZA);
-const P2_FIN = [HZ.x + 0.15, 1.75, HZ.z + 3.1, HZ.x - 0.1, 0.85, HZ.z - 0.2, 50];
+const P2_FIN = [HZ.x - 0.3, 1.95, HZ.z + 4.0, HZ.x - 0.78, 0.95, HZ.z - 0.2, 50];
 const K_GRUA = () => [
   [T.p2, ...CAM_P1(1)],
   [r2(T.p2 + 0.3), -1.1, OY + 2.25, 2.4, -1.4, OY + 0.4, -2.0, 52],
@@ -1015,7 +1015,7 @@ const PLANOS = [
   // P4: la vereda desde la calle: el camión gris a la izquierda, el auto a la derecha, la puerta del súper al medio
   ["P4", T.p4, [[T.p4, VX + 0.1, 1.7, 7.6, VX + 0.1, 1.35, FZ, 54], [T.p4b, VX + 0.1, 1.68, 7.0, VX + 0.12, 1.35, FZ, 53]]],
   // P4b: push-in a Héctor y Rubén (dos personas en cuadro, la burbuja arriba de Héctor)
-  ["P4b", T.p4b, [[T.p4b, VX + 0.95, 1.6, -0.1, VX - 0.15, 1.5, -2.0, 46], [T.p5, VX + 0.9, 1.59, -0.25, VX - 0.15, 1.5, -2.0, 45]]],
+  ["P4b", T.p4b, [[T.p4b, VX + 1.05, 1.62, 0.15, VX - 0.35, 1.55, -2.0, 50], [T.p5, VX + 1.0, 1.61, 0.0, VX - 0.35, 1.55, -2.0, 49]]],
   // P5: la pausa desde atrás de Héctor: Rubén de frente, el camión gris detrás a la izquierda
   ["P5", T.p5, [[T.p5, VX - 1.9, 1.8, -1.75, VX + 0.85, 1.42, -1.35, 46], [T.p6, VX - 1.82, 1.79, -1.73, VX + 0.85, 1.42, -1.35, 45]]],
   // P6: el remate: primer plano de Rubén de frente, el camión gris desenfocado atrás
@@ -1033,7 +1033,7 @@ const PLANOS = [
   ["Q3b", r2(T.grua2[0] - 0.05), null],   // la ficha en el monitor (inserto)
   ["Q4", T.q4, [[T.q4, ...CAM_P1(0)], [T.q4b, ...CAM_P1(0.6)]]],
   ["Q4b", T.q4b, null],   // push al monitor con Rubén en cuadro
-  ["C", T.c, [[T.c, 0.02, OY + 1.36, 3.45, 0.02, OY + 1.12, 1.0, 40], [DUR, 0.02, OY + 1.35, 3.2, 0.02, OY + 1.12, 1.0, 39]]],
+  ["C", T.c, [[T.c, 0.02, OY + 1.3, 3.5, 0.02, OY + 1.0, 1.0, 40], [DUR, 0.02, OY + 1.29, 3.3, 0.02, OY + 1.0, 1.0, 39]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
 const _m = new THREE.Vector3();
@@ -1369,7 +1369,7 @@ function renderAt(tIn) {
   {
     auto.updateMatrixWorld(true);
     const cab = auto.userData.cab;
-    const tablero = auto.localToWorld(V3(-0.35, 1.115, cab.z1 - 0.13));
+    const tablero = auto.localToWorld(V3(-0.35, 1.118, cab.z1 - 0.19));
     if (pa === "P7b") {
       // cae desde arriba (Nico lo pega con el pulgar, fuera de cuadro) y queda pegado: pop
       const u = eio(sg(t, T.p7b + 0.05, T.pega)), pp = bk(sg(t, T.pega - 0.05, T.pega + 0.15));
@@ -1401,13 +1401,13 @@ function renderAt(tIn) {
   if (pa === "P7b") {
     // dentro del auto, desde el asiento del acompañante: el post-it en el tablero, el camión gris por el parabrisas
     const q = new THREE.Quaternion(); auto.getWorldQuaternion(q);
-    const ojo = auto.localToWorld(V3(-0.36, 1.3, auto.userData.cab.z1 - 0.42)), mira = auto.localToWorld(V3(-0.35, 1.15, auto.userData.cab.z1 + 0.2));
+    const ojo = auto.localToWorld(V3(-0.36, 1.38, auto.userData.cab.z1 - 0.85)), mira = auto.localToWorld(V3(-0.35, 1.12, auto.userData.cab.z1 + 0.3));
     const u = eio(sg(t, T.p7b, T.p7c)); ojo.lerp(mira, 0.08 * u);
     ponerCam([ojo.x, ojo.y, ojo.z, mira.x, mira.y, mira.z, 46], t, true);
   }
   if (pa === "P7c") {
     // desde la vereda, detrás del auto: arranca, pasa al camión gris; el post-it vuela a la puerta del camión
-    { const u = eio(sg(t, T.p7c + 0.1, P1)), d = V3(camionGris.position.x + 0.13, 1.8, 1.0); ponerCam([lerp(VX + 5.3, d.x + 2.1, u), lerp(1.45, d.y - 0.05, u), lerp(-1.35, d.z - 0.75, u), lerp(VX - 0.7, d.x, u), lerp(1.45, d.y - 0.1, u), lerp(1.2, d.z + 0.1, u), lerp(46, 40, u)], t); }
+    { const u = eio(sg(t, T.p7c + 0.1, P1)), d = V3(camionGris.position.x + 0.13, 1.8, 1.0); ponerCam([lerp(VX + 5.3, d.x + 2.0, u), lerp(1.45, d.y - 0.05, u), lerp(-1.35, d.z - 1.0, u), lerp(VX - 0.7, d.x, u), lerp(1.45, d.y - 0.1, u), lerp(1.2, d.z + 0.1, u), lerp(46, 40, u)], t); }
   }
   if (pa === "Q1" || pa === "Q2i") {
     // Q1: desde el asiento del acompañante; push-in continuo al celular del soporte (inserto ≥ 60 %)
@@ -1464,12 +1464,12 @@ function renderAt(tIn) {
     }
     if (pa === "Q4b") {
       const [tx, ty] = tel();
-      if (t >= T.c3 - 0.05) ponerGlobo(GL.c3, 560, 1380, ent(T.c3 - 0.05), [Math.min(1000, tx), Math.max(1700, ty)], 1);
+      if (t >= T.c3 - 0.05) ponerGlobo(GL.c3, 540, 420, ent(T.c3 - 0.05), null, 1);
     }
     // P2: los rótulos de la plata (a la izquierda, guías al cartel HÉCTOR · MARTES y al rincón)
     if (pa === "P2") {
       const cartelPx = objPx(DEP, V3(SLOT.HECTOR - 0.5, 2.15, ZA - 0.83)), rinPx = objPx(RIN, V3(0, 0.45, 0));
-      const pos = [[300, 620], [300, 860], [350, 1150]];
+      const pos = [[300, 560], [300, 790], [320, 1040]];
       ROT.forEach((r, i) => {
         if (t < T.rot[i]) return;
         const s = ent(T.rot[i]); ponerGlobo(r, pos[i][0], pos[i][1], s, null, 3 + i);

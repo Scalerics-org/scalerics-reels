@@ -27,7 +27,16 @@ Rasalgethi (toma nueva: "Un aviso automático más tarde."; fallback: la de `ree
 (tabla de voces).
 
 ## Música y efectos
-Los de siempre del repo (con su crédito en `reels/dist-pedidos-lunes/fuentes.md` y `reels/veterinaria-vacunas/fuentes.md`:
-`auto-entra.wav`, `puerta-auto.wav`, `calle.wav`, `papel.wav`, `k-*` de Kenney CC0, etc.). Si el constructor suma un
-efecto nuevo (reposera que se pliega, aleteo de papel), va acá con autor, sitio y licencia CC0. Nada sintetizado con
-ffmpeg.
+Todo de `assets/sfx` y `assets/bgm` del repo, con su crédito en los `fuentes.md` de los reels de donde vienen; no se bajó
+ni se sintetizó nada:
+- `pizzicato.wav` (la cama), `calle.wav` (Oper8, CC0), `auto-entra.wav`, `puerta-auto.wav`, `motor.mp3` ("Car engine Start
+  Up 02", looneybits, OpenGameArt, CC0), `sorbo.wav`, `papel.wav`, `whoosh*.mp3`, `pop.mp3`, `cero.mp3`, `vibra.wav`,
+  `notification.mp3`, `click-soft.mp3`, `stinger.wav`, `zumbido-largo.wav`, `k-*` (Kenney, CC0: `k-metal-click` para
+  los tres clac de la reposera que se pliega, `k-metal-pesado-0/2` para las dos hojas de la puerta del camión,
+  `k-neumatico-abre`, `k-tono`, `k-plastico`, `k-page-turn` y `k-book_place_1` para las capas del pallet, `k-tick-*`):
+  ver `reels/dist-pedidos-lunes/fuentes.md` y `reels/veterinaria-vacunas/fuentes.md`.
+- `pajaro.wav` ("Bird Chirp", swiftoid, Freesound, CC0; viene de hacen-envios por corralon-portland).
+- `hoja.mp3` (el aleteo del post-it): del `assets/sfx` del repo (por-que-caminar-mas, que lo lista entre los SFX del
+  repo).
+No hay radio portátil real: la "radio" de Darío es la misma cama de pizzicato con pasaaltos y pasabajos (suena a parlante
+chico), no un sonido sintetizado.
