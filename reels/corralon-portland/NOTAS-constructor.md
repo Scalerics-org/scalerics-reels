@@ -84,3 +84,37 @@ subido 350 px (portada-src/fondo-limpio-6.3.png). chica "Lunes, 6:45.", grande "
 - Tito en Q3 se ve de espaldas (su línea es el mismo audio de P7, donde sí se le ve la cara).
 - Duración 43,2 s (más que los 37,2 del plan).
 - La revisión de arte cuadro por cuadro alrededor de cada corte sobre el MP4 la tienen que hacer los revisores.
+
+## Ronda 1 (17-11, sobre qa-ronda-r1.md)
+**Duración 39,47 s** (mp4 39,6). Parte 1 0-17,10 · cartel 17,10-19,60 · **parte 2 19,60-39,47 = 19,87 s (50,3 %)** · cierre
+(Q5) 35,99-39,47 = 3,5 s (Sofi 2,99 s + 0,08 + 0,3 de aire). Final -13,9 LUFS, pico -5,1 dBFS. `check --json` 0 errores.
+Render 27 min 40 s (+ ffmpeg final ~1 min). Recortes: sin "Ya está, Gustavo." en b2 (queda "Me contestó otro."), escalada
+3,0 → 2,2 s, inserto del tipeo 0,64 → 0,52, Q2 3,12 → 2,7, Q3m 1,5 → 1,2, cierre más corto, b1 atempo 1,12, Sofi atempo 1,13.
+La pausa antes de "Era de la casa." no se tocó; los callbacks siguen todos.
+- Arte 1: P7 cámara detrás del mostrador hacia la cara de Tito; Gustavo a la punta del mostrador (fuera de cuadro), la fila
+  oculta en P7/P7b; manos de Tito apoyadas arriba de la mesada (IK al tablero), el "una" con el dedo sobre la mesada.
+- Arte 2: "¡40!" y 37/38/39 arriba (y 250), lejos de la cabeza; polvo = nube chata translúcida que se abre y se apaga.
+- Arte 3: Q1g desde el otro lado (la fila oculta): el celular parado ya no tapa la boca.
+- Arte 4: cámara de P2 más alta: la mano sobre las bolsas, se ve el torso.
+- Arte 5: el celular del mostrador pasa a "6:50 · 27 sin leer" (desde P2); P5 reencuadrado (pila, Gustavo en el portón).
+- Arte 6: pelo en la nuca y costados de Gustavo; P7b con la pila al fondo.
+- Arte 7: cuadro 0 con cámara más baja, celular más grande (1,75×), chip "LUNES · 6:45" sobre el mostrador (no pisa el
+  pizarrón), sin el cartel de pared que asomaba arriba; la pantalla pasa de 20 a 21 sin leer a 1,6 s.
+- Arte 8 / guion 1: en Q1 el monitor muestra un protector "MATERIALES GUSTAVO" hasta Q3; el celular parado muestra solo el
+  chat de Beto (audio sin contestar → "Pedido confirmado") y la lista entera recién desde Q2.
+- Arte 9 / sonido 3: cierre = inserto del celular a pantalla con Sofi en plano medio (fondo navy, auriculares, logo).
+- Arte 10: el canto verde del mostrador separado de las costillas de chapa (sin z-fighting).
+- Arte 11: manos de Tito en Q3 arriba de la mesada. Arte 12: Beto delante del camión en las dos fotos; flechita rojo apagado en
+  la del camión gris. Arte 13: "Era de la casa" centrado, mirando abajo a la pila. Arte 14: Q4g con Gustavo y el pallet
+  vacío enteros. Arte 16: teléfono de pared más lejos de la cabeza.
+- Sonido 1: SFX de los tramos sin voz +8 (al techo -31), una notificación + vibración por cada mensaje, música -34 con
+  agachado 0,4. Sonido 2: sin timbre de teléfono (no hay uno real CC0 accesible). Sonido 6: golpe de la bolsa adelantado
+  0,22 s. Sonido 7: la obra dentro de los audios +6 dB y el camión +5. Sonido 8: k-plastico al agarrar el tubo. Sonido 9:
+  roce de ropa + zumbido en el giro.
+- Guion 3: entregas "9:00 Beto · 10:30 Luis / 11:00 Marcos · 12:00 Ramón". Guion 4: "¿Tienen pedregullo?". Guion 5:
+  burbujas salientes blancas con borde verde; sin "WhatsApp" en el encabezado de la lista. Guion 6: "40 bolsas · $ 20.800 /
+  se las compró a otro". Guion 7: subtextos de la lista a 42 px; el monitor chico del cierre ya no está.
+- Portada: fondo limpio nuevo en la palmada de la 40 (mano sobre las bolsas), portada-src/fondo-limpio-r1.png.
+- No hecho: arte 15 (sombra de los insertos), arte 17 (el iris sigue abriendo desde el centro); la fila en el cuadro 0 sigue
+  siendo un casco al borde izquierdo (meterla tapaba a Gustavo); medir.py marca -3,9 en 4,5 s y +1,0 en 12,5 s: son colas de
+  la ventana de 400 ms (la voz ya terminó; el SFX arranca 0,3 s después).

@@ -1,4 +1,4 @@
-[sin narrador Orus: el chiste va en los audios de WhatsApp de Beto, la pila de bolsas de portland que Gustavo cuenta para nadie y el contador de mensajes sin leer; voces por archivo en partes/*.txt, ver partes/voces.md · total estimado 37,2 s: parte 1 0,00-15,80 · cartel 15,80-18,20 · parte 2 (la solución) 18,20-37,20 = 19,0 s, el 51 %; tiempos estimados, el constructor los ajusta con el reel armado]
+[sin narrador Orus: el chiste va en los audios de WhatsApp de Beto, la pila de bolsas de portland que Gustavo cuenta para nadie y el contador de mensajes sin leer; voces por archivo en partes/*.txt, ver partes/voces.md · total 39,47 s (r1): parte 1 0,00-17,10 · cartel 17,10-19,60 · parte 2 (la solución) 19,60-39,47 = 19,87 s, el 50,3 %]
 [parte 1 · 0,00-15,80 · "Materiales Gustavo", un corralón en un galpón abierto, lunes de madrugada: tubos fluorescentes prendidos adentro y, por el portón al patio, el cielo de amanecer navy claro plano · cuadro 0: "CORRALONES" grande arriba (segundo renglón "Y BARRACAS"), chip "LUNES · 6:45" · Gustavo (chaleco acolchado navy, lápiz de carpintero en la oreja) atrás del mostrador de madera, el tubo del teléfono de pared apretado entre el hombro y la oreja, el cable en rulos estirado · enfrente, la fila: cuatro albañiles con casco, gorro de lana y campera con polvo de portland · en el mostrador, el celular vibrando: "20 sin leer" · arriba, el pizarrón de precios con tiza · al fondo, por el portón, la pila de bolsas de portland sobre el pallet]
 BETO (audio de WhatsApp, sale del celular): Gustavo, ¿tenés portland? Cuarenta bolsas. Hoy llenamos la losa.
 [3,05 · Gustavo cuelga el tubo, agarra el celular, ya caminando hacia el portón]
@@ -8,7 +8,7 @@ GUSTAVO: ¡Ya te digo!
 GUSTAVO: Beto espera.
 GUSTAVO: Es de la casa.
 [9,00-12,00 · el golpe · inserto del celular (≥ 60 % del cuadro): llega un audio de Beto y, abajo, una foto: un camión que no es de Gustavo descargando bolsas de portland en la vereda de una obra · se escucha la obra de fondo en el audio]
-BETO (audio de WhatsApp): Ya está, Gustavo. Me contestó otro.
+BETO (audio de WhatsApp): Me contestó otro.
 BETO (audio de WhatsApp): Ya las están bajando.
 [12,00-13,00 · pausa · plano general desde el mostrador hacia el patio: la pila de 40 bolsas en el pallet, intacta, con la luz del amanecer; Gustavo de espaldas, quieto · la música baja, el zumbido del tubo fluorescente · rótulos con línea guía, rojo apagado: a la pila "40 bolsas · $ 20.800: con otro"; al celular "27 mensajes sin contestar"]
 [13,00-14,10 · primer plano de Gustavo mirando la pila, seco, sin levantar la voz]
