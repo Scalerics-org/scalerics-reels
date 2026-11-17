@@ -1,0 +1,14 @@
+{
+ "t": 15.6,
+ "chica": "Vino vacunado.",
+ "grande": "¿Vos también, Toto?",
+ "sello": "VETERINARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-portada.png",
+ "nota": "(r2) Fondo: VER=portada en tres.js (Inés sin lentes asomada sobre el mostrador; Toto parado de frente con las orejas gachas y el pañuelo rojo apagado de frente), cámara a 3,9 m, LIMPIO=1, prev.mjs FULL=1, recortado 420 px arriba (sin el cartel). Alternativa de grande: \"Yo le aviso.\""
+}
