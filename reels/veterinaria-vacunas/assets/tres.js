@@ -382,6 +382,8 @@ function hablar(g, per, s, orden = 1, dx = 0) {
 // =====================================================================================================
 const ines = crearPersonaje({ ...ELENCO.ines, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.4), r2(T.p5 + 0.6), r2(T.q1 + 1.4)] });
 const vero = crearPersonaje({ ...ELENCO.vero, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.i1 + 0.4), r2(T.p5 + 0.3)] });
+// (r5) el ruedo crema de la campera abierta se veía como astillas en las puntas: fuera
+if (vero.campera) vero.campera.traverse((o) => { if (o.isMesh && o.geometry.type === "TorusGeometry") o.visible = false; });
 const bruno = crearPersonaje({ ...ELENCO.bruno, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.i2 + 0.3), r2(T.q3b + 0.5)] });
 // la sala de espera de la parte 2 (sin voz): el dueño de Coco (canoso) y la dueña de Mora (coleta castaña)
 const donCoco = crearPersonaje({ ...DEFECTO, nombre: "Coco", piel: PIEL.clara, pelo: PELO.canoso, peinado: "corto", cejasColor: 0xb9b6b0, camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, pantalon: 0x3a3f4a, nariz: 0.062, alto: 1.0, parpadeoCada: 999 });
@@ -756,7 +758,7 @@ const GL = {
   noche: chip("JUNIO · 21:40", 58, "#16243d", "#efeee5"),
   guau: crearGlobo(["¡Guau! [¡Guau!]"], 64),
   b1: crearGlobo(["Doctora, ¿y los avisos", "de las [vacunas?]"], 66),
-  i2: crearGlobo(["El que quiere a su", "perro, se [acuerda.]"], 68),
+  i2: crearGlobo(["El que quiere a su", "perro se [acuerda.]"], 68),   // (r5) sin coma
   julio: chip("JULIO", 62),
   v2: crearGlobo(["A Toto le escribieron", "de la de la vuelta.", "[Ya está vacunado.]"], 64),
   r1: crearRotulo([["63 vacunas vencidas"], ["en el fichero"]], 54),
@@ -807,7 +809,7 @@ const PLANOS = [
   ["P3b", T.p3b, [[T.p3b, -2.7, 1.6, 1.45, -2.3, 1.38, -0.95, 44], [T.apoya - 0.15, -2.7, 1.6, 1.4, -2.3, 1.38, -0.95, 43]]],   // (r4) sin push-in que meta la burbuja en el pelo
   // (r4) P3c: vuelve al plano de Bruno para ver caer las fichas
   ["P3c", r2(T.apoya - 0.15), [[r2(T.apoya - 0.15), -1.31, 1.58, 2.6, -1.72, 1.15, -0.55, 54], [T.p4, -1.32, 1.57, 2.5, -1.72, 1.1, -0.55, 54]]],
-  ["P4", T.p4, [[T.p4, 1.55, 1.5, 2.85, 3.45, 0.98, -0.3, 50], [r2(T.entra[1] + 0.2), 1.35, 1.48, 2.7, 3.0, 0.98, -0.55, 48], [T.p4b, 1.3, 1.46, 2.6, 2.95, 0.98, -0.6, 47]]],
+  ["P4", T.p4, [[T.p4, 1.6, 1.52, 3.2, 3.45, 1.0, -0.3, 56], [T.p4b, 1.45, 1.52, 3.1, 2.85, 0.98, -0.5, 54]]],   // (r5) claves en orden (la del medio caía después del corte) y Toto con la cabeza en cuadro
   // (r1) P4b: contraplano desde atrás del mostrador: Vero de frente y Toto con el pañuelo
   ["P4b", T.p4b, [[T.p4b, MOS.x - 1.75, 1.5, MOS.z + 3.0, VERO_MOS.x - 0.38, 1.18, VERO_MOS.z - 0.1, 56], [T.p5, MOS.x - 1.71, 1.49, MOS.z + 2.9, VERO_MOS.x - 0.38, 1.18, VERO_MOS.z - 0.1, 55]]],
   ["P5", T.p5, [[T.p5, 0.85, 2.05, 1.45, MOS.x - 0.2, 0.8, MOS.z + 0.15, 54], [T.p6, 0.88, 2.03, 1.38, MOS.x - 0.2, 0.8, MOS.z + 0.15, 53]]],
@@ -816,9 +818,10 @@ const PLANOS = [
   // (r3) P7: de costado, más alto: Inés entera detrás del mostrador, la pata y la mano a la vista
   ["P7", T.p7, [[T.p7, 4.3, 1.36, 0.95, MOS.x - 0.1, 1.1, MOS.z + 0.05, 50], [P1, 4.25, 1.35, 0.9, MOS.x - 0.1, 1.1, MOS.z + 0.05, 49]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, ...P1C(0)], [T.q1t, ...P1C(0.7)]]],
+  // (r5) Q1 un poco más abierto y corrido a la derecha: Vero (más a la derecha en la parte 2) ya no queda cortada
+  ["Q1", P2, [[P2, ...P1C(0).map((v, i) => v + [0.1, 0.02, 0.3, 0.1, 0, 0, 2][i])], [T.q1t, ...P1C(0.7).map((v, i) => v + [0.1, 0.02, 0.3, 0.1, 0, 0, 2][i])]]],
   // (r1) Q1b: más cerca de Inés y Toto en "Le vamos a escribir a él." (el plano general duraba 3,7 s)
-  ["Q1b", r2(T.i4 - 0.05), [[r2(T.i4 - 0.05), -2.5, 1.55, 2.5, -0.84, 1.3, -0.31, 44], [T.q1t, -2.46, 1.54, 2.44, -0.84, 1.3, -0.31, 43.5]]],   // (r3) desde la izquierda: Inés y Toto enteros, Vero detrás de Toto (ya no cortada a la derecha)
+  ["Q1b", r2(T.i4 - 0.05), [[r2(T.i4 - 0.05), -0.05, 1.6, 2.75, -0.78, 1.22, -0.5, 50], [T.q1t, -0.06, 1.59, 2.65, -0.78, 1.22, -0.5, 49]]   /* (r5) 3/4 frontal de Inés, con la tablet adelante y Toto entero */],   // (r3) desde la izquierda: Inés y Toto enteros, Vero detrás de Toto (ya no cortada a la derecha)
   ["Q1t", T.q1t, null],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, 29.95, 1.3, 2.5, 29.9, 1.02, -0.85, 50], [T.q2c, 29.93, 1.29, 2.4, 29.9, 1.02, -0.85, 49]]],   // (r4) más abierto: la burbuja entra sobre la cabeza
@@ -952,7 +955,7 @@ function poseInes(t) {
   const gT = dirGiro(INES_Q4.x, INES_Q4.z, TOTO_PIE.x, TOTO_PIE.z);
   const p = poseEn(t, [
     [0, { x: INES_Q4.x, z: INES_Q4.z, giro: gT - 0.55, ...aC(0.35, 0.2), ...CARA.sonrisa, ...BRAZOS.costado }],
-    [T.i6, { inclina: 0.06, ...aC(0.4, 0.2, 0.08), ...FELIZ }, 0.3],
+    [T.i6, { inclina: 0.06, ...aC(0.4, 0.2, 0.08), ...FELIZ, cejas: { alto: -0.15, ang: 0.1 } }, 0.3],   // (r5) cejas más bajas: no flotan sobre el flequillo
     [T.pata2[1], { inclina: 0.12, ...aC(0.2, 0.25, 0.08), ...FELIZ }, 0.3],
   ]);
   if (t >= T.pata2[0]) { const w = toto.pataD(_a).add(V3(0, 0.03, 0)); manoA(ines, p, "D", w, sg(t, T.pata2[0], T.pata2[1] + 0.05), [-0.8, -0.6, -0.3]); if (t > T.pata2[1] + 0.05) p.manoD[1] += Math.sin((t - T.pata2[1]) * 14) * 0.03; }
@@ -1052,7 +1055,7 @@ function poseToto(t) {
     const er = sg(t, T.p7, T.p7 + 0.25);
     const gP6 = lerp(-0.3, 0.05, eio(sg(t, T.p5 + 0.05, T.p5 + 0.45)));   // (r4) sentado de frente a la cámara (P4b, P5, P6: el pañuelo de frente); en P7 se da vuelta al mostrador
     const gLlega = lerp(dirGiro(PUERTA_C.x - 0.4, PUERTA_C.z - 0.25, TOTO_MOS.x, TOTO_MOS.z), -0.3, eio(sg(t, T.entra[1] - 0.3, T.entra[1] + 0.3)));
-    const P = { ...B, x, y: 0, z, giro: t < T.entra[1] + 0.3 ? gLlega : lerp(gP6, Math.PI - 0.45, er), sentado: sent, erguido: er, paso: anda ? 1 : 0, pasoVel: 14, cola: c.orejas > 0.7 && anda ? 0.8 : c.cola, colaAlta: lerp(0.15, 0.6, c.orejas), orejas: c.orejas, cejas: c.cejas, cabeza: { giro: c.cab[0], asiente: c.cab[1], ladea: c.cab[2] }, t };
+    const P = { ...B, x, y: 0, z, giro: t < T.entra[1] + 0.3 ? gLlega : lerp(gP6, Math.PI - 0.95, er), sentado: sent, erguido: er, paso: anda ? 1 : 0, pasoVel: 14, cola: c.orejas > 0.7 && anda ? 0.8 : c.cola, colaAlta: lerp(0.15, 0.6, c.orejas), orejas: c.orejas, cejas: c.cejas, cabeza: { giro: c.cab[0], asiente: c.cab[1], ladea: c.cab[2] }, t };
     P.x = x; P.z = lerp(z, MOS.z + MOS.d / 2 + 0.24, er);
     if (er > 0) { toto.raiz.position.set(P.x, 0, P.z); toto.raiz.rotation.set(0, P.giro, 0); P.apoyo = enPerro(toto, V3(P.x - 0.09, MOS.alto + 0.035, MOS.z + MOS.d / 2 + 0.05)); const ap = sg(t, T.pata[0], T.pata[1]); P.pataA = enPerro(toto, V3(P.x + 0.08, MOS.alto + 0.035 + 0.1 * ap, MOS.z + MOS.d / 2 + 0.05 - 0.1 * ap)); P.pata = Math.min(1, er * 1.2); }
     return P;
@@ -1143,7 +1146,7 @@ function ponerManos(t) {
   if (celuV.visible) { const a = manoMundo(vero, "I", _a), b = manoMundo(vero, "D", _b); vero.cuerpo.getWorldQuaternion(_q); celuV.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08, 0)); celuV.quaternion.copy(_q); celuV.rotateX(-0.7); }
   // la correa (P4-P7 y Q4): de la mano izquierda de Vero al collar de Toto
   const conCorrea = (!p2 && t >= T.p4 && pa !== "P6" && pa !== "P7") || (pa === "Q4" && t < T.corre[0] + 0.1);
-  if (conCorrea) { toto.collar.updateMatrixWorld(true); ponerCorrea(manoMundo(vero, "I", _a).clone().add(V3(0, -0.05, 0)), toto.collar.localToWorld(V3(0, 0.02, -0.1))   /* (r4) la correa nace del collar por detrás, no del pañuelo */, true); } else ponerCorrea(null, null, false);
+  if (conCorrea) { toto.collar.updateMatrixWorld(true); const mv = manoMundo(vero, "I", _a).clone().add(V3(0, -0.05, 0)); const ml = toto.collar.worldToLocal(mv.clone()); ml.y = 0; ml.z = Math.min(ml.z, -0.02); ml.setLength(0.1); ml.y = 0.02; ponerCorrea(mv, toto.collar.localToWorld(ml), true);   /* (r5) nace del collar del lado de la mano y por detrás (nunca de la boca) */ } else ponerCorrea(null, null, false);
 }
 function ponerPuerta(t) {
   const u = Math.max(sg(t, T.entra[0] - 0.1, T.entra[0] + 0.3) * (1 - sg(t, T.entra[0] + 0.9, T.entra[0] + 1.3)), sg(t, T.campana - 0.1, T.campana + 0.3) * (1 - sg(t, T.campana + 0.9, T.campana + 1.3)));
@@ -1168,7 +1171,7 @@ function renderAt(tIn) {
     ines: pa !== "P2" && pa !== "P4b" && pa !== "Q2b" && pa !== "Q3c" && pa !== "Q5",
     vero: (!p2 && (t < T.p2 || t >= T.p4) && pa !== "P6" && pa !== "P7") || (p2 && (t < T.q2 || pa === "Q2b" || pa === "Q4")),
     bruno: pa === "P3" || pa === "P3b" || pa === "P3c" || pa === "Q3",
-    toto: pa !== "P2" && pa !== "P2c" && pa !== "P3" && pa !== "P3b" && pa !== "Q3" && pa !== "Q3c" && pa !== "Q5",
+    toto: pa !== "Q4c" && pa !== "P2" && pa !== "P2c" && pa !== "P3" && pa !== "P3b" && pa !== "Q3" && pa !== "Q3c" && pa !== "Q5",
     sala: pa === "Q4" || pa === "Q4c" || pa === "Q4d",
   };
   ines.raiz.visible = vis.ines; vero.raiz.visible = vis.vero; bruno.raiz.visible = vis.bruno; toto.raiz.visible = vis.toto;
@@ -1188,7 +1191,7 @@ function renderAt(tIn) {
     coco.poner({ x: BANCO.x - 0.5, z: -0.2, giro: -Math.PI / 2 - 0.3, sentado: 1, cola: 0.5, orejas: 0.9, cabeza: { giro: 0.4 }, t });
     const lap = toW(donaMora, [0, 0.03, 0.2]); mora.poner({ x: lap.x, y: lap.y - 0.02, z: lap.z, giro: -Math.PI / 2, sentado: 1, cola: 0.4, orejas: 0.5, cabeza: { giro: 0.3, asiente: -0.1 }, t });
   }
-  if (TUBOS) TUBOS.visible = !(pa === "P1" || pa === "Q1");
+  if (TUBOS) TUBOS.visible = !(pa === "P1" || pa === "Q1" || pa === "P4" || pa === "P4b" || pa === "Q3");   // (r5) también P4b y Q3 (asomaban cortados)
   if (CARTEL) CARTEL.visible = !(pa === "P2c" || pa === "P4" || pa === "P4b" || pa === "P5" || pa === "P6" || pa === "P7" || pa === "Q4");
   ponerFicheroLugar(t); ponerFichero(t); ponerCaidas(t); ponerPuerta(t);
   // ---- cámara ----
@@ -1280,7 +1283,7 @@ function tarjetas(t) {
   }
   if (pa === "P4" || pa === "P4b") {
     ponerGlobo(GL.julio, 540, 200, 1, null);
-    if (pa === "P4b" && t >= T.v2) { verGlobo(GL.v2, t >= T.v2 + 2.02 ? 99 : 9); /* (r3) "Ya está vacunado." entra en "Ya" (12,15 s) */ hablar(GL.v2, vero, ent(T.p4b), 1, -80); }
+    if (t >= T.v2) { verGlobo(GL.v2, t >= T.v2 + 2.02 ? 99 : 9); /* (r3) "Ya está vacunado." entra en "Ya" (12,15 s); (r5) desde que empieza a hablar, también en P4 */ hablar(GL.v2, vero, ent(T.v2), 1, -80); }
   }
   if (pa === "P5") {
     const [fx, fy] = objPx(FICHERO, V3(0, 0.1, 0)); toto.raiz.updateMatrixWorld(true); const [px, py] = objPx(toto.collar, V3(0, -0.1, 0.12));
