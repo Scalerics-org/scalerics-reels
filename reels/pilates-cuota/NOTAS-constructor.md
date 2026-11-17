@@ -133,3 +133,31 @@ Q1 22,16 · Q1i 22,66 · Q1b 24,57 · Q2 26,49 · Q2b 28,69 · Q3 32,34 · Q3b 3
 - No hecho: "Ceci" suena "si" en el STT (Laomedeia) y el "Un" del narrador débil (BAJA, tomas viejas); Q2b: "HORARIOS"
   sigue cortado en el borde izquierdo de la pizarra; el inserto de la cuota deja ~150 px lisos abajo en los estados 0-1;
   ~40,9 s (pedido 38-39; la toma de "el dos de marzo" y el comprobante de 1,7 s suman 1,3 s).
+
+## Ronda 2 (17-11, sobre renders/qa-arte-r2 y qa-sg-r2)
+**Duración 40,73 s** (final 40,8). Parte 1 0-19,17 · cartel 19,17-21,40 · parte 2 21,40-40,73 = 19,33 s (47,5 % del total; la
+solución ya es más larga que el problema: 19,33 vs 19,17). Mezcla: voz ≥ +6,4 LU, final -13,9 LUFS, pico -4,8 dBFS.
+Cortes: P2 2,52 · P2b 3,57 · P3 4,35 · P3j 5,15 · P3b 6,98 · P4 8,96 · P4i 12,09 · P5 13,69 · P6 14,59 · P6b 16,67 · cartel 19,17 ·
+Q1 21,40 · Q1i 22,00 · Q1b 23,96 · Q2 26,08 · Q2b 28,38 · Q2c 30,20 · Q3 32,20 · Q3b 33,73 · Q4 35,80 · Q5 37,61.
+- personajes.js: el cuello (cuelloAlto) entra en la cabeza (no queda la tapa del cilindro ni la franja de fondo bajo la
+  barbilla; vale para todos los que usan cuelloAlto); `mejillasBajas` (Ceci, Alicia, Joaco: el rubor no pisa el blanco
+  de los ojos); Alicia con medias navy (antes eran "bloques crema" en el carro).
+- Boca doble: en bocaVoz la sonrisa se apaga mientras hablan (todos los personajes).
+- Reformer dado vuelta: las poleas detrás de la alumna y la barra de pies hacia cámara; postes por fuera del marco;
+  ejercicio "abrazar el árbol" (manos que se juntan adelante y se abren), las correas van a las poleas de atrás, asas
+  verdes en las manos; cada correa a la mano del mismo lado.
+- P6: el celular sigue en la mano de Alicia, lejos de la toalla (más corta). Q2b: pupilas paralelas, la tablet en alto
+  (se ve sobre el mostrador con el panel); Q2c nuevo (push-in a Ceci en "Sale sola, el día uno.", la tablet hacia cámara
+  con "39 de 40 · $ 117.000"). Q1b: el celular de Alicia muestra "Pagado ✓". Q4: las tarjetas al pecho. Q3b sin Alicia.
+- Cierre: cámara desde más arriba (abajo la tapa del mostrador con la planilla, no el frente liso), Sofi en plano medio,
+  tablet y celular enteros con margen. Joaco sin mochila. Sin el aro negro.
+- Bajas: chip "Pagaron 23 de 40" más chico y "MARZO" de la columna izquierda bajo el título (no lo tapa); "HORARIOS" más
+  chico y adentro; inserto de la cuota con textos ≥ 44 px; P3b desde más arriba (tapa del mostrador con laptop y planilla);
+  sombra con el frustum ajustado; guía de "17 cuotas" a un "?" (Pao); dos pops para dos rótulos; iris desde el celular;
+  panel del inserto 5 % más chico; P6b sin taza ni lámpara; Alicia entra más adentro del cuadro.
+- Revisión sobre el MP4: cuadros cada 0,5 s (renders/qa4) y diferencia entre cuadros consecutivos (renders/qa4/difs.txt):
+  los 25 picos son los cortes, los mensajes del chat, el iris, "Confirmar" y la línea chica; ningún cuadro suelto.
+- Render final: ~1600 s (26-27 min). Cierre revisado cada 0,5 s: tablet y Sofi enteros; la tarjeta "Comentá CUOTA" tapa el encabezado "Cuotas de marzo" de la tablet (los tres números se leen); abajo queda ~25 % de frente del mostrador.
+- No hecho: el pelo de Ceci (casquete de la coleta alta) sin cambios; P5: la mano izquierda de Alicia cerca del borde; el
+  inserto de la cuota mantiene algo de navy abajo; "Ceci" suena "si" (STT); "SCALERICS" de la portada en y≈1655 (es del
+  molde de todas las portadas).
