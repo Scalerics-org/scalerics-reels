@@ -1,0 +1,104 @@
+# dist-quien-debe · notas del constructor (18-11)
+
+Proyecto con la forma de dist-cliente-grande / contable-papeles: todo sale de `node gen.mjs` (assets/tiempos3d.js,
+compositions/*.html, index.html, assets/audio/mezcla.wav). La escena 3D entera está en `assets/tres.js`, armada de cero
+para este reel con la infraestructura de dist-cliente-grande (utilidades, `fusionar`, tarjetas pegadas a la cámara,
+rótulos con guía, catmull() quieto después de la última clave, avatares por render target, la herradura de pelo de Rubén
+y el bigote que se esconde de nuca) y la rotisería con el spiedo de ya-lo-cargo. `assets/personajes.js` = el de
+contable-papeles (lentes finos centrados, `sinPatillas`, `rodeteAtras`) + **Patricia** nueva en ELENCO (castaño oscuro en
+rodete, lentes finos navy sin patillas, blazer navy2 abierto = `campera` sobre camisa crema, aros crema; la credencial
+crema lisa con cinta navy la cuelga tres.js).
+
+## Comandos (desde reels/dist-quien-debe)
+```
+TOMAS="a b c" bash partes/reintentar.sh   # tomas (partes/lineas.tsv)
+bash partes/medir-tomas.sh                # recorta y mide "oyó:" (partes/rec/medidas.tsv)
+bash partes/procesar.sh                   # assets/voice/ desde las tomas elegidas (+ palabras-r7.json)
+node gen.mjs                              # todo; SINAUDIO=1 no rehace la mezcla; MEDIR=1 stems; LIMPIO=1 sin capa plana
+python3 medir.py                          # voz contra resto por tramos de 0,5 s (después de MEDIR=1 node gen.mjs)
+./snap.sh "t1,t2,…" nombre                # snapshots con el candado
+flock /tmp/hyperframes.lock node prev.mjs "t1,t2" renders/prev/x [px,py,pz,mx,my,mz,fov]   # solo la capa 3D (FULL=1 a 1080)
+bash paso10.sh                            # paso 10: loudnorm en DOS pasadas, lineal
+LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 1.6 renders/prev/por   # fondo de la portada (después: node gen.mjs)
+```
+
+## Voces (partes/procesar.sh, partes/voces.md)
+Patricia Pulcherrima · Rubén Algenib · Graciela Gacrux · Nico Fenrir · narrador Rasalgethi (09-b, atempo 1,06, 2,29 s:
+entra "Una cobranza automática más tarde." sin fallback). Tomas: pa1 01-c (atempo 1,03: con 1,07-1,08 el STT oía "ahí
+paga") · r1 02-c (1,1) · r2 03-b (hueco interno 0,57 → 0,3, 1,08, fundido final: Graciela lo pisa 0,32 s) · g1 04-a (tres
+huecos internos acortados, 1,12) · r3 05-a ("…Dale." resignado) · pa2 06-a (se reusa idéntico en Q4) · r4 07-c (pausa
+"Mejor." · "ahora…" 0,32 s; sin atempo: con 1,04 el STT oía "debes") · pa3/pa4: **08b-g / 15b-h**, tomas de "Bueno. Te paso
+con …" con el "Bueno." cortado: sin contexto el STT oye "qué pasó" en TODAS las tomas de Patricia (6 normales + 6 con un
+tono que pide la t clara); con el "Bueno." delante oye "te pasó", así que es el STT y no la voz · g2 10-b · n1 11-a · g3
+12-b (dos huecos, 1,12) · r5 13-c ("Dale." firme) · r6 14-a (el STT oye "bendy" = vendí) · r7 16-c (1,1). "oyó:" igual al
+texto en el resto.
+
+## Mundo
+Banco (origen, alfombra gris azulado): escritorio crema con canto navy en x ±0,56; Patricia en (-0,86; 0,02) y Rubén en
+(0,88; 0,06), los dos girados 0,5 rad hacia la cámara; el monitor en brazo giratorio (gira de -0,2 a 0,36 rad en los
+primeros 0,55 s: "− $ 140.000" en rojo apagado; en Q4 "+ $ 320.000" y "Sueldos $ 780.000 ✓" en verde); el timbre crema con
+aro navy delante de Patricia (se hunde 6 mm); bowl de caramelos, plantita, portalápices, teclado; mampara esmerilada a la
+izquierda (x -2,25), pared crema con cuadro abstracto al fondo, el turnero navy colgado a la derecha (E-051 · BOX 2 →
+E-051 → BOX 3 / COBRANZAS rojo → E-051 → BOX 1 / INVERSIONES verde, con un flip de 2 cuadros), la sala de espera hacia
++x (sillas navy3, dispensador, cartel ATENCIÓN EMPRESAS, planta, un cliente de espaldas). Rubén con el termo bajo el
+brazo izquierdo y el mate en la mano izquierda (sorbo al final de "un millón", sorbo vacío antes del remate).
+Box de inversiones (x 20): pared navy2, sillón capitoné, cuadro verde apagado con manchas crema, lámpara de pie de bronce,
+mesita con el café (la taza se corre 7 cm al arrancar C), el termo y el mate.
+Rotisería (x 40): azulejo con guarda verde, mostrador con vitrina, spiedo de 3 barras con pollos que giran (función del
+tiempo), pizarra; Graciela detrás del mostrador; su celular (funda verde) en un soporte, en altavoz, mirando hacia ella.
+Muelle (x 60): pared navy claro, portón a medio subir, cartel DISTRIBUIDORA RUBÉN, camioneta crema con franja verde.
+Oficina de Rubén (x 80): el monitor grande con el panel "Cuentas por cobrar".
+
+Planos: P1 cuadro 0 (los dos, el monitor girando, el turnero) · P2 contraplano de Rubén por encima del hombro de Patricia ·
+P3 inserto de la planilla (el pulgar baja, "fila n de 312", frena en Rotisería Graciela 94 · 186.000, Llamar) · P4
+pantalla partida (dos cámaras con scissor + una pasada de las burbujas pegadas a la cámara principal) · P5 Patricia ·
+P6 Rubén de frente · P7 Patricia con el timbre · P7t tilt al turnero (COBRANZAS) · cartel · Q1 rotisería · Q1i el
+recordatorio ("¿Por favor?" ya sobre el inserto) · Q1g Graciela · Q1p Pagar → Pagado ✓ · Q2 el panel (el chip 3D "Pagado
+✓" vuela a la fila de Graciela, Vencido 1.012.000 → 96.400, Quién y desde cuándo) · Q3i el aviso de Nico · Q3 Nico · Q4 =
+P1 en verde · Q4s pantalla partida · Q4p5/Q4p6/Q4p7 = P5/P6/P7 · Q4t turnero INVERSIONES · C Rubén a cámara en el sillón.
+
+## Duración y mezcla
+47,53 s (1426 cuadros). Parte 1 0-21,95 · cartel 21,95-24,38 · parte 2 24,38-47,53 = 23,15 s (49 %); cierre (C) 44,0-47,53,
+tarjeta COBRAR desde 44,25 ("COBRAR"), línea chica desde 46,13. Más largo que los 39,8 del plan: 16 parlamentos reales
+(33,6 s de voz sola aun con atempo 1,04-1,13 y huecos internos acortados). Mezcla: bus +6 dB → compresor → ganancia a
+-14 LUFS → limitador 0,675 (≈ -3,4 dBFS); mezcla.wav -14,1 LUFS, LRA 5,7, pico -2,9 dBFS, muestra máxima 22118 (sin
+recortes); voz ≥ +13,8 LU sobre el resto en todos los tramos con voz (medir.py, ventanas pareadas).
+
+## Pasada propia (prev + snapshots cada 0,5 s: renders/snap/p1, p2)
+- P1 con los dos cortados en los bordes → personajes más juntos (escritorio de 1,12 m), cámara más atrás y fov 58.
+- P2 el dorso del monitor tapaba a Rubén → cámara por delante del monitor, sobre el hombro de Patricia.
+- P3 "Rotisería Graciela94186.000" encimado → columnas corridas y nombre ajustado; "va por 94" arriba con guía a la fila
+  (tapaba Llamar); el encabezado ya no repite "Te deben".
+- Pantalla partida: la burbuja de Rubén le tapaba la frente y Graciela quedaba detrás de la vitrina → Graciela a la
+  derecha del mostrador, cámaras con más aire arriba.
+- Burbujas: "{rojo.}" salía literal → textoSel parte en [verde] y {rojo}. Colas a la boca.
+- Q1i duraba 0,4 s (no se leía) → el inserto sigue con "¿Por favor?" encima; Q1g para "Esto no lo escribió Rubén.".
+- Q1p: el brazo del soporte cruzaba la pantalla (detrás ahora); la mano sin manga, el pulgar llega a Pagar.
+- P7i (el dedo en el timbre, 0,4 s) era una mancha de mano → sacado; el timbre se ve en P7.
+- Turnero cortado a la derecha → cámara de frente, lo llena al ~90 %.
+- DISTRIBUIDORAS se salía de la caja → 98 px; el chip "Martes, 9:00." pisaba el rótulo del recordatorio → se va antes.
+- Contadores HTML "Te deben" con números intermedios raros → de a mil.
+- Q3: el cartel DISTRIBUIDORA RUBÉN cortado → corrido; Nico sale de cuadro hacia la cabina, el portazo cae en el corte a Q4.
+- `check --json`: 0 errores.
+
+## Render y pasada 2 (MP4 final, renders/qa1 y qa2: cada 0,5 s)
+- Render 1: 682 s (SwiftShader, --workers 2); paso 10 (paso10.sh, loudnorm en dos pasadas, "linear") 49 s.
+- Pasada sobre el MP4 1: Graciela con los ojos cerrados en "Esto no lo escribió Rubén" (feliz 0,55) → abiertos; Patricia
+  de perfil con un solo lente en P7/Q4p7 → cabeza girada a cámara; 0,3 s de camioneta sola al final de Q3 → el corte a Q4
+  cae mientras Nico sale de cuadro (el portazo suena sobre el corte).
+- Render 2: 659 s; paso 10 lineal. Final: renders/dist-quien-debe-final.mp4, 47,57 s, -14,0 LUFS, pico -2,7 dBFS
+  (true peak -3,1); mezcla: voz ≥ +15,8 LU sobre el resto (pareado). Pasada 2 cada 0,5 s sin defectos nuevos.
+
+## Portada
+Fondo LIMPIO del cuadro 0 a 1,6 s (portada-src/fondo-limpio.png: Patricia, el monitor "− $ 140.000" y Rubén con el mate;
+el turnero E-051 · BOX 2 arriba). chica "Viernes, 16:00.", grande "¿Y? ¿Cobraste?", sello DISTRIBUIDORAS.
+
+## Flojo / para los revisores
+- 47,5 s, más largo que el plan (39,8); solución + cierre 49 % (no 54 %).
+- P1/Q4: Rubén roza el borde derecho (hombro y termo); los dos personajes quedan medianos (plano general del box).
+- P3 y Q1p: el pulgar suelto es grande (manopla) y tapa parte del texto al tocar.
+- Q1: debajo de Graciela, el frente navy del mostrador ocupa la mitad de abajo del cuadro (0,45 s).
+- Pantalla partida: Patricia no entra en la mitad de arriba (solo Rubén con el celular); el celular de Rubén es chico.
+- El "corre la taza" del cierre es solo la taza que se desliza 7 cm (sin la mano).
+- El ka-ching es bip de caja + monedas (no hay timbre de cajón CC0 en BigSoundBank).
+- El turnero se ve ~1 s por vez; el dedo en el timbre no tiene inserto (se sacó por feo).

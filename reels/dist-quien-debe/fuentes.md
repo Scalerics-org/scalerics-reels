@@ -29,6 +29,16 @@ De `assets/sfx` y `assets/bgm` del repo, con su crédito en los `fuentes.md` de 
 (`k-dos-tonos`, `k-tono`, `k-switch-3`, `k-creak`, `k-tick-*`, `k-cloth_*`, `k-plato-000`: Kenney, CC0; `sorbo.wav`,
 `vibra.wav`, `notification.mp3`, `puerta-auto.wav`, `motor.mp3`, `whoosh*`, `pop.mp3`, `stinger.wav`, `cero.mp3`,
 `key-press.mp3`: ver `reels/dist-cliente-grande/fuentes.md` y `reels/dist-pedidos-lunes/fuentes.md`).
-**Faltan y los busca el constructor (reales, CC0, con autor, sitio y licencia anotados acá):** caja registradora
-("ka-ching"), ding-dong de turnero de banco y chisporroteo de pollo al spiedo. Si no aparece un ding-dong CC0, se usa
-`k-dos-tonos.wav` con pasabajos. Nunca sintetizados con ffmpeg.
+**Los que no estaban y se sumaron (reales, BigSoundBank, licencia CC0 1.0, https://bigsoundbank.com/licenses.html):**
+- `assets/sfx/bsb-1604.mp3` (el ding-dong del turnero, recortado a 3,2 s): "Doorbell 4" (#1604), https://bigsoundbank.com/doorbell-4-s1604.html
+- `assets/sfx/bsb-1417.mp3` (el bip de caja registradora del "ka-ching" tras el "…Dale."): "Beep of a cash register" (#1417), https://bigsoundbank.com/beep-of-a-cash-register-s1417.html
+- `assets/sfx/bsb-0193.mp3` (las monedas del "ka-ching", recortado a 2,2 s): "Coins 1" (#0193), https://bigsoundbank.com/coins-1-s0193.html
+- `assets/sfx/chisporroteo.wav` (el spiedo de la rotisería; de reels/parrilla-no-vuelve): "Frying pan 2" (#0144), https://bigsoundbank.com/frying-pan-2-s0144.html
+- `assets/sfx/bsb-0160.mp3` (copiado de contable-papeles, no se usa): "Doorbell 2" (#0160).
+Del repo, por archivo (autor · sitio · licencia según los fuentes.md de donde vienen): `k-creak`, `k-tick-1`, `k-page-turn`,
+`k-tono`, `k-dos-tonos`, `k-switch-3`, `k-cloth_1`, `k-cloth_2`, `k-plato-000` (Kenney · kenney.nl · CC0 1.0);
+`zumbido-largo.wav`, `calle.wav`, `sorbo.wav`, `vibra.wav`, `notification.mp3`, `puerta-auto.wav`, `motor.mp3`,
+`whoosh*.mp3`, `pop.mp3`, `stinger.wav`, `cero.mp3`, `click-soft.mp3`, `key-press.mp3` (ver reels/dist-cliente-grande/fuentes.md
+y reels/dist-pedidos-lunes/fuentes.md). Música: `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado, de
+reels/tienda-tenes-stock; la música de espera del banco es el mismo pizzicato con pasaaltos 450 Hz y pasabajos 2,8 kHz).
+Nada sintetizado con ffmpeg. "Ka-ching" = bip de caja + monedas (BigSoundBank no tiene un timbre de cajón CC0).

@@ -1040,9 +1040,9 @@ function posePatricia(t) {
     bocaVoz(pr, t, T.pa1, ENV.pa1, 0.6);
   }
   if (!parte2 && t >= T.p5 && t < T.p7) { Object.assign(pr, { ...CARA.neutra, ojos: { x: 0, y: 0, abiertos: 1, feliz: 0 }, cejas: { alto: 0.75, ang: 0.15 }, boca: { sonrisa: 0.05, abierta: 0, ancho: 0.95 } }); pr.cabeza = { giro: 0.05, asiente: -0.02, ladea: 0.05 }; bocaVoz(pr, t, T.pa2, ENV.pa2, 0.6); }
-  if (!parte2 && t >= T.p7) { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0.1, y: 0, abiertos: 1, feliz: 0.25 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1 } }); pr.cabeza = { giro: 0.1, asiente: 0.02, ladea: 0.04 }; bocaVoz(pr, t, T.pa3, ENV.pa3, 0.6); }
+  if (!parte2 && t >= T.p7) { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: -0.2, y: 0, abiertos: 1, feliz: 0.2 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1 } }); pr.cabeza = { giro: -0.45, asiente: 0.02, ladea: 0.04 }; bocaVoz(pr, t, T.pa3, ENV.pa3, 0.6); }
   if (parte2 && t >= T.q4p5 && t < T.q4p7) { Object.assign(pr, { ...CARA.neutra, ojos: { x: 0, y: 0, abiertos: 1, feliz: 0 }, cejas: { alto: 0.75, ang: 0.15 }, boca: { sonrisa: 0.05, abierta: 0, ancho: 0.95 } }); pr.cabeza = { giro: 0.05, asiente: -0.02, ladea: 0.05 }; bocaVoz(pr, t, T.pa2b, ENV.pa2, 0.6); if (t >= T.q4p6 + 0.6) { pr.cejas = { alto: 0.6, ang: 0.05 }; pr.boca = { sonrisa: 0.5, abierta: 0, ancho: 1 }; } }
-  if (parte2 && t >= T.q4p7) { Object.assign(pr, { ...CARA.feliz, ojos: { x: 0.1, y: 0, abiertos: 1, feliz: 0.35 }, boca: { sonrisa: 0.75, abierta: 0, ancho: 1.1 } }); pr.cabeza = { giro: 0.1, asiente: 0.02, ladea: 0.04 }; bocaVoz(pr, t, T.pa4, ENV.pa4, 0.6); }
+  if (parte2 && t >= T.q4p7) { Object.assign(pr, { ...CARA.feliz, ojos: { x: -0.2, y: 0, abiertos: 1, feliz: 0.25 }, boca: { sonrisa: 0.75, abierta: 0, ancho: 1.1 } }); pr.cabeza = { giro: -0.45, asiente: 0.02, ladea: 0.04 }; bocaVoz(pr, t, T.pa4, ENV.pa4, 0.6); }
   return pr;
 }
 // ---------- Graciela en la rotisería (detrás del mostrador, mirando a +z) ----------
@@ -1054,7 +1054,7 @@ function poseGraciela(t) {
     // Q1: el celular vibra en el soporte (a su izquierda), lo lee, se ríe, toca Pagar
     Object.assign(pr, { ...CARA.sorpresa, ojos: { x: 0.45, y: -0.6, abiertos: 1, feliz: 0 }, cejas: { alto: 0.8, ang: 0.2 }, boca: { sonrisa: 0.3, abierta: 0, ancho: 0.9 } });
     pr.cabeza = { giro: 0.4, asiente: 0.3, ladea: 0.05 };
-    if (t >= T.g2 + 0.6) { Object.assign(pr, { ...CARA.feliz, ojos: { x: 0.45, y: -0.5, abiertos: 0.8, feliz: 0.55 }, cejas: { alto: 0.45, ang: 0.3 } }); }
+    if (t >= T.g2 + 0.6) { Object.assign(pr, { ...CARA.feliz, ojos: { x: 0.45, y: -0.4, abiertos: 1, feliz: 0.25 }, cejas: { alto: 0.45, ang: 0.3 } }); }
     bocaVoz(pr, t, T.g2, ENV.g2, 0.7);
     const k = Math.sin(Math.PI * sg(t, T.pagar - 0.3, T.pagar + 0.2));
     if (k > 0) pr.manoI = lerpV(pr.manoI, aCuerpoG(celG, V3(0, -0.02, 0.05)), k);
@@ -1065,7 +1065,7 @@ function aCuerpoG(obj, local) { obj.updateMatrixWorld(true); graciela.poner({ x:
 // ---------- Nico en el muelle (Q3): el celular en la izquierda, el maletín en la derecha; se va a la cabina ----------
 const NIC = V3(60.75, 0, 1.15);
 function poseNico(t) {
-  const va = sg(t, T.sube - 0.05, T.portazo - 0.05);
+  const va = sg(t, T.sube - 0.05, T.portazo + 0.25);
   const pr = { x: lerp(NIC.x, 58.7, va), y: 0, z: lerp(NIC.z, 1.25, va), giro: lerp(-0.25, -Math.PI / 2, eio(sg(t, T.sube - 0.1, T.sube + 0.2))), paso: va > 0 && va < 1 ? 1 : 0, inclina: 0.03, cabeza: { giro: 0, asiente: 0.25, ladea: 0 }, ...CARA.concentrada, ojos: { x: 0, y: -0.6, abiertos: 0.9 }, manoI: [0.12, 0.42, 0.38], codoI: [1, -0.6, -0.2], manoD: [-0.29, -0.06, 0.04], codoD: [-1, 0.2, -0.2], dedoI: 0, dedoD: 0, t };
   if (t >= T.n1 - 0.05) { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0, y: -0.1, abiertos: 1, feliz: 0.25 }, cejas: { alto: 0.3, ang: 0 } }); pr.cabeza = { giro: 0.0, asiente: 0.05, ladea: 0.03 }; }
   if (t >= T.sube - 0.1) { pr.manoI = [0.29, -0.06, 0.04]; pr.codoI = [1, 0.2, -0.2]; }

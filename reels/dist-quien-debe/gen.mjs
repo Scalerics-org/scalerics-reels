@@ -65,7 +65,7 @@ T.q3 = r2(T.q2 + 2.75); T.aviso = r2(T.q3 + 0.1); T.n1 = r2(T.q3 + 0.65); T.sube
 // Q4 · viernes 16:00, el mismo encuadre del cuadro 0: Saldo + $ 320.000 · vibra · pantalla partida: "¡Rubén! Ya te
 // pagué. Mandame veinte cajas." · "Dale." · "¿Y? ¿Cobraste?" (el mismo audio) · "Mejor. Cobré y vendí." · "Te paso con
 // inversiones." · el turnero: INVERSIONES · BOX 1
-T.q4 = r2(T.portazo + 0.04); T.vibraR = r2(T.q4 + 0.6); T.q4s = r2(T.q4 + 0.8); T.g3 = r2(T.q4s + 0.15);
+T.q4 = r2(T.portazo - 0.08); T.vibraR = r2(T.q4 + 0.6); T.q4s = r2(T.q4 + 0.8); T.g3 = r2(T.q4s + 0.15);
 T.r5 = r2(T.g3 + LEN.g3 + 0.12); T.cuelga2 = r2(T.r5 + LEN.r5 + 0.06);
 T.q4p5 = r2(T.r5 + LEN.r5 + 0.25); T.pa2b = r2(T.q4p5 + 0.1);
 T.q4p6 = r2(T.pa2b + LEN.pa2 + 0.12); T.r6 = r2(T.q4p6 + 0.25);
