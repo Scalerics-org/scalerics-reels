@@ -158,3 +158,17 @@ COBRAR desde 40,05. `check --json` 0 errores.
   (los dos enteros, sin tocar los bordes).
 - Flojo: el primer cuadro del tilt al turnero muestra a Patricia cortada (0,1 s); el STT sigue oyendo "qué pasó con
   inversiones".
+
+## Pulido final (ronda 3 aprobada)
+- Recordatorio "Hola, Graciela. Tenés $ 208.000 vencidos. Podés pagarlo acá:" ("vencidos" subrayado); rótulo "Recordatorio
+  automático de lo vencido"; burbuja "de la fac…"; planilla Beto 42, Tito 35, Dante 33 días; fuentes.md con las citas por
+  archivo (Freesound/BigSoundBank CC0) y los $ 302.400 de contado.
+- Contraplano de Patricia: sin el mate (el dedo lo atravesaba) y las cejas/bigote de Rubén se esconden de nuca. Graciela
+  sin inclinar la cabeza y parada en un escalón (se le ve el pecho, los lentes derechos). Timbre más cerca de Patricia. Guía
+  de "va por 94" a la fila. Chip "Pagado ✓" entra dentro del cuadro. Burbuja de Rubén con aire sobre la cabeza en la
+  pantalla partida. Cierre: pies en el piso y sin la viñeta de la lámpara (luz sin caída); línea chica a 44 px.
+- Sonido: música de espera a -32 sobre COBRANZAS; ding-dong 0,15 s después; +0,13 s de aire antes del "Dale." de la parte 2;
+  sin el crujido del monitor.
+- Render 587 s; paso10.sh lineal. Final 44,07 s, parte 2 51 %, tarjeta 2,97 s, -14,0 LUFS, true peak -3,1 dBTP.
+  Cuadros a tamaño completo: renders/final-cuadros/t13.5.png, t23.5.png, t7.0.png.
+- Flojo: en el contraplano de Patricia (13,5) asoma un ojo de Rubén en el borde de su cabeza.

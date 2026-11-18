@@ -65,7 +65,7 @@ T.q3 = r2(T.q2 + 2.25); T.aviso = r2(T.q3 + 0.08); T.n1 = r2(T.q3 + 0.68); T.sub
 // cajas." · "Dale." · "¿Y? ¿Cobraste?" (el mismo audio) · "Mejor. Cobré y vendí." · pausa · "Te paso con inversiones." ·
 // el turnero: INVERSIONES · BOX 1
 T.q4 = r2(T.portazo + 0.05); T.q4s = T.q4; T.vibraR = r2(T.q4 + 0.05); T.g3 = r2(T.q4 + 0.35);
-T.r5 = r2(T.g3 + LEN.g3 + 0.12); T.cuelga2 = r2(T.r5 + LEN.r5 + 0.06);
+T.r5 = r2(T.g3 + LEN.g3 + 0.25); T.cuelga2 = r2(T.r5 + LEN.r5 + 0.06);
 T.q4p5 = r2(T.r5 + LEN.r5 + 0.2); T.pa2b = r2(T.q4p5 + 0.1);
 T.q4p6 = r2(T.pa2b + LEN.pa2 + 0.12); T.r6 = r2(T.q4p6 + 0.25);
 T.q4p7 = r2(T.r6 + LEN.r6 + 0.12); T.pa4 = r2(T.r6 + LEN.r6 + 0.42); T.timbre2 = r2(T.pa4 + LEN.pa4 - 0.12); T.flip2 = r2(T.timbre2 + 0.04);
@@ -287,7 +287,7 @@ for (const [id, ini0, fin, txt, cambio, txt2] of SPLITS) {
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 50px; right: 50px; top: 1590px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 40px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .a { font: 700 44px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.015em; }
     P .b { margin-top: 8px; font: 800 58px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Cobranza automática: estado de cuenta,</div><div class="a">recordatorio y link de pago</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.0);
@@ -314,7 +314,7 @@ const tic = (t, techo = -42) => s("sfx/k-tick-1.wav", t, 0, { techo });
 const whoosh = (t, techo = -44) => s("sfx/whoosh-short.mp3", t, 0, { techo });
 const dingdong = (t, techo = -33) => s("sfx/bsb-1604.mp3", t, 0, { desde: 0.2, dur: 2.4, fin: 0.6, techo });
 const kaching = (t, techo = -33) => { s("sfx/bsb-1417.mp3", t, 0, { techo: techo - 2 }); s("sfx/bsb-0193.mp3", t + 0.1, 0, { desde: 0.14, dur: 0.75, fin: 0.25, techo }); };
-const espera = (a, b) => s("bgm/pizzicato.wav", a, 0, { desde: 2.0, dur: r2(b - a), fi: 0.08, fin: 0.15, techo: -38, hp: 450, lp: 2800, sinDuck: true });   // la música de espera del banco (parlante de techo)
+const espera = (a, b) => s("bgm/pizzicato.wav", a, 0, { desde: 2.0, dur: r2(b - a), fi: 0.08, fin: 0.15, techo: -32, hp: 450, lp: 2800, sinDuck: true });   // la música de espera del banco (parlante de techo)
 // ---- parte 1 ----
 // ambiente: el banco (murmullo bajo, el zumbido del aire, un teclado lejano) y la cama
 s("sfx/zumbido.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fi: 0.05, fin: 0.2, techo: -46, lp: 900 });
@@ -322,7 +322,6 @@ s("sfx/calle.wav", 0, 0, { loop: true, dur: r2(T.p4 + 0.05), fi: 0.05, fin: 0.2,
 for (let k = 0; k < 6; k++) s("sfx/key-press.mp3", 0.4 + k * 0.17 + (k > 2 ? 0.35 : 0), 0, { techo: -50, dur: 0.12, fin: 0.04, lp: 3000 });
 s("bgm/pizzicato-lleno.wav", 0, 0, { loop: true, dur: r2(T.flip + 0.05), fin: 0.12, techo: -36, duck: [[T.p6 - 0.1, T.r4 + LEN.r4 + 0.1, 0.75]] });
 // P1 · el brazo del monitor (creak), la lapicera en la pantalla
-s("sfx/k-creak.wav", 0.05, 0, { techo: -44, dur: 0.5, fin: 0.15 });
 voz("pa1", T.pa1, -1);
 tic(T.tic, -40);
 // P2 · el contraplano; sorbo; saca el celular
@@ -353,7 +352,7 @@ voz("r4", T.r4, -1);
 voz("pa3", T.pa3, -1);
 s("sfx/k-switch-3.wav", T.timbre, 0, { techo: -38 });
 whoosh(T.flip - 0.15, -46);
-dingdong(T.flip, -34);
+dingdong(T.flip + 0.15, -34);
 espera(T.flip + 0.05, P1);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
@@ -398,7 +397,7 @@ voz("r6", T.r6, -1);
 voz("pa4", T.pa4, -1);
 s("sfx/k-switch-3.wav", T.timbre2, 0, { techo: -38 });
 whoosh(T.flip2 - 0.15, -46);
-dingdong(T.flip2, -34);
+dingdong(T.flip2 + 0.15, -34);
 // C · el sillón de cuero, la taza en el platito, pop en COBRAR, la línea chica
 whoosh(T.c - 0.08, -44);
 s("sfx/k-cloth_2.wav", T.c + 0.02, 0, { techo: -42, dur: 0.35, fin: 0.1 });

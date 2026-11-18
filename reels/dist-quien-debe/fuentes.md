@@ -8,13 +8,13 @@ así que no hubo nada que verificar con WebSearch. Los números son del caso que
 - La calle le debe **$ 1.012.000** ("un millón") repartidos en **38 clientes**, en una planilla de **312 filas**.
 - Rotisería Graciela: factura a **30 días** que va por **94**; saldo **$ 186.000**. El pedido de la llamada:
   **20 cajas de aceite × $ 1.100 = $ 22.000** → Graciela $ 208.000; "Te deben" $ 1.012.000 + $ 22.000 = **$ 1.034.000**.
-- Parte 2 (r2): el recordatorio a Graciela es por su saldo, **$ 208.000** (el de la parte 1), "vence hoy"; "Pagado ✓ ·
-  Saldo al día · $ 208.000". El panel arranca en "Te deben **$ 1.034.000**" (donde terminó la parte 1) y cobra de a uno
+- Parte 2 (r2): el recordatorio a Graciela: "Tenés **$ 208.000** vencidos. Podés pagarlo acá:" (el saldo de la parte 1);
+  "Pagado ✓ · Saldo al día · $ 208.000". El panel arranca en "Te deben **$ 1.034.000**" (donde terminó la parte 1) y cobra de a uno
   Rotisería Graciela $ 208.000 + Súper Héctor $ 312.000 + Cafetería Marta $ 205.400 + Panadería Nelly $ 161.000 + Bar
   Walter $ 51.200 = **$ 937.600** → queda **$ 96.400** = Kiosco Beto $ 22.400 (12 días) + Panadería Tito $ 31.000 (5 días)
   + Pizzería Dante $ 43.000 (3 días). En la planilla de la parte 1 (una semana antes) esos clientes tienen los mismos
-  saldos y Beto 33, Tito 26 y Dante 24 días.
-- Viernes de la parte 2: entró en la semana **$ 1.240.000** (los $ 937.600 del panel y otros cobros); − $ 140.000 + $ 1.240.000 − $ 780.000 de sueldos =
+  saldos y Beto 42, Tito 35 y Dante 33 días (al martes siguiente, 12, 5 y 3 días vencidos de su plazo de 30).
+- Viernes de la parte 2: entró en la semana **$ 1.240.000** (los $ 937.600 del panel y $ 302.400 de ventas de contado); − $ 140.000 + $ 1.240.000 − $ 780.000 de sueldos =
   **saldo + $ 320.000**.
 
 Sin marcas: "Distribuidora Rubén", "Rotisería Graciela", "Súper Héctor", "Bar Walter", "Kiosco Beto", "Panadería
@@ -41,8 +41,15 @@ De `assets/sfx` y `assets/bgm` del repo, con su crédito en los `fuentes.md` de 
 - `assets/sfx/bsb-0160.mp3` (copiado de contable-papeles, no se usa): "Doorbell 2" (#0160).
 Del repo, por archivo (autor · sitio · licencia según los fuentes.md de donde vienen): `k-creak`, `k-tick-1`, `k-page-turn`,
 `k-tono`, `k-dos-tonos`, `k-switch-3`, `k-cloth_1`, `k-cloth_2`, `k-plato-000` (Kenney · kenney.nl · CC0 1.0);
-`zumbido.wav` ("Room Tone Ambience Medium", gchase · Freesound · CC0 1.0, de reels/tienda-tenes-stock), `calle.wav`, `sorbo.wav`, `vibra.wav`, `notification.mp3`, `puerta-auto.wav`, `motor.mp3`,
-`whoosh*.mp3`, `pop.mp3`, `stinger.wav`, `cero.mp3`, `click-soft.mp3` y `key-press.mp3` (efectos del banco de HyperFrames, `molde/assets/sfx` del repo; ver reels/dist-cliente-grande/fuentes.md
-y reels/dist-pedidos-lunes/fuentes.md). Música: `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado, de
+`zumbido.wav` ("Room Tone Ambience Medium", gchase · Freesound · CC0 1.0, de reels/tienda-tenes-stock).
+Freesound y BigSoundBank, CC0 1.0 (según los fuentes.md de los reels de donde vienen):
+- `calle.wav`: "Small quiet street ambience", Oper8, https://freesound.org/people/Oper8/sounds/241135/
+- `sorbo.wav`: "drink;slurps;small.wav", Abir19, https://freesound.org/people/Abir19/sounds/629505/
+- `vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, https://freesound.org/people/SpliceSound/sounds/369839/
+- `puerta-auto.wav`: "Car door #1", BigSoundBank #0971, https://bigsoundbank.com/car-door-1-s0971.html
+- `stinger.wav`: "Vibraphone Transition Music Cue", DanJFilms, Freesound, CC0 1.0
+- `cero.mp3`: "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald, https://freesound.org/people/GabFitzgerald/sounds/625174/
+Banco de SFX de HyperFrames (`molde/assets/sfx` del repo): `notification.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `pop.mp3`,
+`click-soft.mp3`, `key-press.mp3`. Música: `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado, de
 reels/tienda-tenes-stock; la música de espera del banco es el mismo pizzicato con pasaaltos 450 Hz y pasabajos 2,8 kHz).
 Nada sintetizado con ffmpeg. "Ka-ching" = bip de caja + monedas (BigSoundBank no tiene un timbre de cajón CC0).
