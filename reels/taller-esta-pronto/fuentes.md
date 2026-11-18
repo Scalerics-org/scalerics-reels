@@ -45,3 +45,15 @@ reels; si no están, uno real con licencia CC0, con autor, sitio y licencia anot
 - **ambiente de ómnibus** (motor de ómnibus urbano por dentro, frenada, el timbre de parada),
 - **llave de crique / matraca** (ratchet) y **pistola neumática** para el trabajo del taller (`k-neumatico-abre` ya está),
 - **la radio del taller** (la cama de `bgm` con pasabajos, como la radio de dist-cliente-grande).
+
+### Efectos nuevos de este reel (reales, CC0 1.0) · agregados por el constructor (18-11)
+Bajados de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia CC0 1.0 / dominio público
+(https://bigsoundbank.com/licenses.html). Solo recortados, fundidos y pasados a WAV 48 kHz con ffmpeg (nada sintetizado):
+- `assets/sfx/bsb-ring.wav` (el celular que suena en el banquito; 0,2-3,0 s): "Phone Ring #5" (#0375), https://bigsoundbank.com/phone-ring-5-s0375.html (timbre electrónico genérico de un inalámbrico, no el tono de ninguna marca de celulares)
+- `assets/sfx/bsb-rueditas.wav` (las rueditas de la camilla y la ruedita suelta, con cambio de velocidad; 7,5-13 s): "Trash can rolling on a road #1" (#1287), https://bigsoundbank.com/trash-can-rolling-on-a-road-1-s1287.html
+- `assets/sfx/bsb-fibron.wav` (los tachones y los tildes en la pizarra; 0,8-2,7 s): "Whiteboard marker" (#0807), https://bigsoundbank.com/whiteboard-marker-s0807.html
+- `assets/sfx/bsb-omnibus.wav` (el ómnibus por dentro; 30-52 s): "London bus" (#0644), https://bigsoundbank.com/london-bus-s0644.html (ambiente sin voces reconocibles ni anuncios)
+- `assets/sfx/bsb-timbre-parada.wav` (el timbre de parada): "Small bell #1" (#0292), https://bigsoundbank.com/small-bell-1-s0292.html
+- `assets/sfx/bsb-foto.wav` (el obturador de la tablet de Maxi): "Trigger of camera #1" (#2394), https://bigsoundbank.com/trigger-of-camera-1-s2394.html
+- `assets/sfx/bsb-neumatica.wav` (la pistola neumática cuando baja el auto; 0,25-1,9 s): "Impact wrench #1" (#0964), https://bigsoundbank.com/impact-wrench-1-s0964.html
+- `assets/sfx/bsb-matraca.wav` (matraca; copiada, sin usar en esta versión): "Small ratchet" (#0794), https://bigsoundbank.com/small-ratchet-s0794.html
