@@ -48,3 +48,23 @@ de `reels/dist-quien-debe` (`vibra.wav`, `notification.mp3`, `k-tono`, `k-dos-to
 `cero.mp3`, `pop.mp3`, `whoosh*`, `click-soft.mp3`). Si hace falta alguno que no esté (birome sobre papel, cubiertos que
 se apoyan en la mesa, sillas que se suben a la mesa, fósforo/vela), uno real con licencia CC0 (BigSoundBank o Freesound
 CC0) y se anota acá autor, sitio y licencia. Nada sintetizado con ffmpeg.
+
+## Efectos nuevos (constructor, 18-11)
+Bajados de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia **CC0 1.0** (dominio público; ver
+https://bigsoundbank.com/licenses.html). Solo recortados, remuestreados a 48 kHz y con nivel/filtro en la mezcla; nada
+sintetizado con ffmpeg.
+- `assets/sfx/birome.wav` (la birome sobre el cuaderno en P1, 3,2 s desde 0,15 s): "Pencil signature 1" (#3236),
+  https://bigsoundbank.com/pencil-signature-1-s3236.html
+- `assets/sfx/cubiertos.wav` (Fabián reparte y junta los cubiertos, 1,6 s desde 0,38 s): "6 forks taken in hands 1"
+  (#1174), https://bigsoundbank.com/6-forks-taken-in-hands-1-s1174.html
+- `assets/sfx/tenedor.wav` (el tenedor que vuelve a la mesa, 0,45 s desde 0,18 s): "Fork placed on table" (#1197),
+  https://bigsoundbank.com/fork-placed-on-table-s1197.html
+- `assets/sfx/silla.wav` (la silla que sube a la mesa a las 23:40, 0,6 s desde 1,35 s): "Chair" (#0666),
+  https://bigsoundbank.com/chair-s0666.html
+- `assets/sfx/copas.wav` (el brindis de Walter en Q4): "Cheers small wineglass 1" (#1325),
+  https://bigsoundbank.com/cheers-small-wineglass-1-s1325.html
+Los demás (`salon.wav`, `chisporroteo.wav`, `fuego.wav`, `grillos.wav`, `calle.wav`, `campanita.wav`, `puerta-abre.wav`,
+`vibra.wav`, `notification.mp3`, `cero.mp3`, `pop.mp3`, `whoosh*`, `click-soft.mp3`, `key-press.mp3`, `stinger.wav`,
+`k-*`, `bgm/pizzicato.wav`) vienen de `reels/parrilla-no-vuelve/assets` con su crédito en el `fuentes.md` de ese reel.
+El narrador del cartel ("Un agente de IA más tarde.") es `reels/abren-hoy-completo/assets/voice/narrador.wav` (Gemini
+Rasalgethi), reusado como en corralon-portland.

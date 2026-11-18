@@ -1,5 +1,5 @@
 {
- "t": 6.6,
+ "t": 6.3,
  "chica": "Viernes, 21:40.",
  "grande": "¿Tenés mesa?",
  "sello": "PARRILLAS",
@@ -9,6 +9,5 @@
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio.png",
- "nota": "t provisorio: P3, Walter con la familia en la puerta y Raúl señalando con la pinza la mesa 7 puesta y vacía con el RESERVADO (personajes + el objeto que duele en la mitad de arriba). Renderizar ese cuadro LIMPIO (sin gancho, burbujas, chips, rótulos ni logo) en portada-src/fondo-limpio.png. Alternativa si en el render se ve mejor: cuadro 0 (Raúl con el celular en el hombro anotando, ~1,6 s) con chica \"Viernes, 21:00.\"."
+ "fondo_limpio": "portada-src/fondo-limpio.png"
 }
