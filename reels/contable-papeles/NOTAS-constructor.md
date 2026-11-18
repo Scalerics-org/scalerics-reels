@@ -149,3 +149,10 @@ ffmpeg -y -i renders/contable-papeles.mp4 -c:v libx264 -preset slow -crf 16 -tun
 ```
 - No hecho: el saco de Adriana en Q4; "~0,1 s de aire" entre "¿Ah, sí?" y "Ni" (la toma ya trae 0,25 s); el estante de
   sobres de la parte 2 sigue con sobres llenos (no biblioratos).
+
+## Pulido final (18-11, ronda 3 aprobada)
+- "¿Y este?": el ticket (más grande, 0,095 × 0,36) en la mano IZQUIERDA, del lado opuesto a la lámpara: entero delante, al
+  costado de la cara; push-in fov 38. P7c más lejos (el ojo cerrado detrás del lente). Repartidor con pelo corto bajo la
+  gorra y de 3/4 en el mostrador (no de nuca). Chip "Último día · 18:00" sale con fade. m5 +1,5 dB, m3 -1 dB.
+  Portada: cámara corrida (la lámpara no invade el borde a la altura de la cara). descripcion.txt "automáticamente".
+- Render 928 s; paso10.sh lineal. Final 39,8 s, -14,1 LUFS, LRA 8,2, true peak -2,7 dBTP. Cuadros: renders/pulido/.
