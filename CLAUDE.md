@@ -5,6 +5,14 @@ Montevideo que vende a comercios: **agentes de IA** (el producto estrella), Scal
 (fidelización), tiendas online y sitios web. Los hace un agente, de punta a punta: guion, voz, escenas animadas con
 HyperFrames, render. Este archivo es el proceso; seguilo en orden.
 
+## LO PRIMERO DE CADA CORRIDA: tope de 4 reels por día (Juan, 18-11)
+
+Juan, 18-11: "consume demasiados tokens": **máximo 4 reels terminados por día** (día de Uruguay,
+UTC-3). Antes de leer nada más ni de tocar el repo, contá en `ideas.md`, sección "## Hechos", las
+líneas con la fecha de hoy (`- DD-MM ·`). **Si ya son 4 o más, terminá ya:** no escribas
+`corrida-activa`, no retomes lo que está En curso, no hagas commits; respondé "tope del día (4)" y
+cerrá. Lo En curso queda para mañana y cuenta para el día en que se entrega.
+
 ## ANTES QUE TODO: el dolor del rubro y la solución (Juan, 15-11; manda sobre todo lo de abajo)
 
 Juan, 15-11, después del diagnóstico de `stats.md`: los reels se ven pero no traen clientes
@@ -547,7 +555,7 @@ dueño en la cara; tratarlo como a un colega), con humor y con un giro que lo de
 nada sobre personas reales con nombre propio, ni marcas reales atacadas. Cada reel lleva `reels/<slug>/descripcion.txt`: la descripción para
 Instagram/TikTok (gancho, 2-3 líneas, la acción del cierre y 5-6 hashtags), que usa el publicador.
 
-## Cuántos por corrida: 2 reels, con un equipo entero para cada uno (meta: al menos 5 por día)
+## Cuántos por corrida: hasta 2 reels, con un equipo entero para cada uno (tope: 4 por día)
 
 **PRIMERO TERMINAR, DESPUÉS EMPEZAR (regla desde el 06-11).** La noche del 05 al 06-11 las corridas se
 pisaron: cada una retomó o reservó 2 reels nuevos mientras la anterior seguía trabajando, el límite de
@@ -566,20 +574,24 @@ uso del plan se agotó a mitad de camino y **no se terminó ninguno** (8 reels a
    quedó>)" después de cada etapa: guion, voz, escenas, cada ronda de QA), para que si el límite de
    uso corta la corrida, la próxima siga desde ahí y no desde cero.
 
-**Meta desde el 17-11 (Juan): al menos 5 reels terminados por día, sin bajar el esfuerzo.** Desde el
-17-11 los reels los hace una sola rutina (la de contacto@); la de Juan está apagada. Al entregar los 2
-de tu corrida, contá en "Hechos" los entregados hoy (día de Uruguay). Si son menos de 5, no cierres:
-renová `corrida-activa`, tomá el siguiente (primero lo que haya En curso; si no hay, uno nuevo) y hacelo
-con el mismo equipo completo de abajo (guion, construcción, 3 revisores independientes, hasta 3 rondas).
-Seguí así hasta llegar a 5 o hasta que te corte el límite de uso; para eso está el commit "wip:" de cada
-etapa. **Nunca** saques revisores, rondas ni la vara de 8c para llegar al número: si el uso no da, mejor
-4 sin un bug que 5 con errores.
+**Tope desde el 18-11 (Juan): 4 reels terminados por día, ni uno más** (reemplaza la meta de "al
+menos 5" del 17-11, que gastaba demasiados tokens). Desde el 17-11 los reels los hace una sola rutina
+(la de contacto@); la de Juan está apagada. Al arrancar ya contaste los de hoy (sección "LO PRIMERO"
+al principio de este archivo). Con eso:
+- Trabajá **solo los que faltan para llegar a 4**: si hoy van 3, hacé 1 (el más avanzado de En curso,
+  o uno nuevo si En curso está vacío), aunque haya otro En curso; si van 2 o menos, hasta 2.
+- **No reserves temas nuevos para adelantar el día siguiente** ni empieces un reel que no vas a
+  entregar hoy. Al entregar los de tu corrida, cerrá: borrá `corrida-activa` y terminá. No encadenes
+  otro reel aunque sobre uso.
+- El tope no cambia el esfuerzo por reel: el mismo equipo completo de abajo (guion, construcción, 3
+  revisores independientes, hasta 3 rondas) y la vara de 8c. Si el uso no da, mejor 3 sin un bug que
+  4 con errores.
 
-Cada corrida hace **2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
+Cada corrida hace **hasta 2 reels** a la vara de `reels/abren-hoy-completo` (punto 8c), **con el mismo esfuerzo
 que antes iba a 5**. Juan, 04-11: "mejor calidad que cantidad"; y enseguida: "menos agentes no va a ser
 mejor calidad: la idea es que use la misma cantidad de muchísimo esfuerzo que usaba para hacer 25
 videos, pero para hacer menos". O sea: **no ahorres agentes ni pasadas**, repartilos en menos reels.
-Con las 5 corridas de la noche salen ~10. Las reglas que dicen "por tanda de 5" se cuentan **por
+Con el tope salen 4 por día. Las reglas que dicen "por tanda de 5" se cuentan **por
 noche**: mirá en "Hechos" lo que ya hicieron las corridas anteriores de la misma noche. Vos sos el
 coordinador, y cada reel pasa por un equipo, no por un solo subagente:
 
