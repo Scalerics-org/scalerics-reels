@@ -172,3 +172,23 @@ Ver la lista en el reporte final de abajo (sección "Pasadas").
   Raúl y Walter enteros, caras en y ≈ 430-800.
 - Flojo: en la portada el sello PARRILLAS roza la coronilla de Raúl y queda navy arriba (~400 px); en Q4 la abuela y la
   mujer siguen rozando los bordes.
+
+## Ronda 4 (solo arte)
+- Q4 (copa, ALTA): la copa de Walter ya no va en la mano dada vuelta: está en la escena, derecha siempre, ubicada en la
+  mano izquierda en cada cuadro (escala 1,4, vidrio más opaco y vino que llena la copa); el brindis la sube al frente del
+  pecho (manoI 0.14, 0.4, 0.46), sin cruzar ninguna cara (ni la de Fabián ni la de la abuela).
+- Q4/Q4c (encuadre): cámara más baja y lejana (0.36, 1.75, 3.9 → 1.74, 3.77; mira a 1.0; fov 66): la mujer y la abuela
+  enteras, nadie de la familia toca los bordes. Mesa nueva de adelante (MESA_FG, solo en Q4/Q4c: mantel, 3 platos con
+  tira/chorizo/morcilla, botella, sifón, copa) que llena el tercio de abajo. Fabián corrido a x 0.08 (no tapa a Raúl).
+- Q4b ("Llegaron."): plano medio de Raúl de frente, desde arriba de la mesa 7 (Fabián y la bandeja ocultos solo en ese
+  plano porque tapaban la cámara); cara ~450 px; Raúl gira hacia la mesa y la señala con la pinza (IK de manoD).
+- Cuadro 0: el celular está en altavoz apoyado en el mostrador (la cola de Pablo apunta ahí). Birome: la mano la agarra
+  de arriba (objetivo de la mano a 0,05 de la punta), piolín de 3,2 mm.
+- Tablet Q2: fila de Pablo más alta (112), "no confirmó · liberada" 40 px. Rótulo $9.000: la guía se apaga con Walter.
+- Bajas: "agente de IA" en el encabezado del chat de Q3; chip "Jueves, 20:05." en el living (s18-chip); el chip
+  "Viernes, 21:40." termina justo cuando entra el de 22:45 (se encimaban 0,1 s en 9,85); "escribiendo…" desde el primer
+  cuadro del chat (T.escribiendo = q1i − 0,05); línea chica final 1,35 s (T.cierre = DUR − 1,35); nudo de la corbata de
+  Walter más claro y pegado al cuello.
+- Portada: vinilo de la puerta oculto en VER=portada, zoom 1,04, sello_top 250px: PARRILLAS a ~130 px de la cabeza de
+  Raúl, su oreja a ~65 px del borde.
+- Duración 40,4 s (sin cambios). medir.py: mínimo voz-resto 7,4 LU. check: 0 errores.

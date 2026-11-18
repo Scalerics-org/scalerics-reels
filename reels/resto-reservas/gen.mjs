@@ -57,7 +57,7 @@ const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.02));
 // Q1 · miércoles 2:14: el salón a oscuras, el celular del local se prende; la MISMA nota de voz de Pablo (con "el
 // viernes") suena sobre el plano 3D · Q1i el chat del agente: contesta con la mesa real; "Dale"; "Listo ✓"; el plano
 T.q1 = P2; T.prende = r2(P2 - 0.45); T.nota = r2(P2 + 0.3);   // (r3) el celular ya está prendido cuando abre el iris
-T.escribiendo = r2(T.nota + LEN.p1 - 0.6); T.resp1 = r2(T.nota + LEN.p1 - 0.32); T.q1i = r2(T.resp1 - 0.3); T.dale = r2(T.resp1 + 0.5); T.listo = r2(T.dale + 0.28);
+T.resp1 = r2(T.nota + LEN.p1 - 0.32); T.q1i = r2(T.resp1 - 0.3); T.escribiendo = r2(T.q1i - 0.05); T.dale = r2(T.resp1 + 0.5); T.listo = r2(T.dale + 0.28);
 T.plano = r2(T.listo + 0.32); T.mesa7 = r2(T.plano + 0.25);
 // Q2 · jueves: la tablet "Viernes · reservas" (3,7 s, el chip de hora avanza 12:00 → 18:00 → 20:00): las tildes de a una
 // (11 de 12), Pablo sin confirmar; 18:00 segundo aviso; 20:00 la mesa 7 se libera y se le ofrece a Walter · Q2b el living
@@ -77,7 +77,7 @@ T.q5 = NUNCA; T.ding5 = NUNCA; T.r8 = NUNCA; T.tenedor2 = NUNCA;
 // C · Raúl a cámara: "Comentá RESERVA y te mando cómo funciona para tu restaurante." · la tarjeta entra en "RESERVA"
 T.c = r2(T.rotQ4 + 1.2); T.r9 = r2(T.c + 0.06); T.palabra = r2(T.r9 - 0.02);   // (r3) la tarjeta entra con la voz
 const DUR = Math.ceil((Math.ceil((T.r9 + LEN.r9 + 0.25) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
-T.cierre = r2(DUR - 1.0);
+T.cierre = r2(DUR - 1.35);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -152,13 +152,14 @@ const CHIP = `
 }
 // los chips de día y hora (arriba a la izquierda): la noche avanza
 const CHIPS = [
-  ["s01-chip", T.p3, T.p3c + 1.4, "Viernes, 21:40."],
+  ["s01-chip", T.p3, T.p4, "Viernes, 21:40."],
   ["s02-chip", T.p4, T.p5, "Viernes, 22:45."],
   ["s03-chip", T.p5, P1, "Viernes, 23:40."],
   ["s11-chip", T.q1, T.q2, "Miércoles, 2:14."],
   ["s12-chip", T.q2, T.aviso18 - 0.12, "Jueves, 12:00."],
   ["s16-chip", T.aviso18 - 0.12, T.libera - 0.12, "Jueves, 18:00."],
   ["s17-chip", T.libera - 0.12, T.q2b, "Jueves, 20:00."],
+  ["s18-chip", T.q2b, T.q3, "Jueves, 20:05."],
   ["s13-chip", T.q3, T.q4, "Viernes, 21:00."],
   ["s14-chip", T.q4, T.c, "Viernes, 22:30."],
 ];
@@ -362,7 +363,7 @@ tic(T.q4 + 0.02, -40);
 voz("f1", T.f1b, -1);
 pinza(T.r7 - 0.12, -39);
 voz("r7", T.r7, -1);
-s("sfx/copas.wav", T.copa + 0.3, 0, { techo: -36 });
+s("sfx/copas.wav", T.rotQ4 + 0.4, 0, { techo: -36 });
 pop(T.r7 + 0.1, -41); pop(T.rotQ4, -40);
 // C · whoosh al primer plano, pop en RESERVA, la línea chica
 whoosh(T.c - 0.06, -44);

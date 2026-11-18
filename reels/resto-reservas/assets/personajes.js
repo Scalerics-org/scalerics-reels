@@ -291,7 +291,7 @@ export function crearPersonaje(cfg) {
   if (c.corbata) {
     // corbata floja: nudo bajo y un poco torcido, la pala cae sobre la panza
     const cm = mat(c.corbata, 0.5);
-    const nudo = mesh(rbox(0.055, 0.045, 0.03, 0.012), cm, 0.012, 0.425, radioEn(0.425) * 0.86 + 0.012); nudo.rotation.set(-0.35, 0, 0.18); cuerpo.add(nudo);
+    const nudo = mesh(rbox(0.06, 0.05, 0.036, 0.016), mat(new THREE.Color(c.corbata).multiplyScalar(1.6).getHex(), 0.45), 0.012, 0.435, radioEn(0.435) * 0.86 + 0.016);   // (r4) más claro y pegado al cuello: no se lee como un agujero nudo.rotation.set(-0.35, 0, 0.18); cuerpo.add(nudo);
     const pts = [0.4, 0.33, 0.26, 0.19, 0.14].map((y, i) => new THREE.Vector3(0.015 + i * 0.008, y, radioEn(y) * 0.86 + 0.012));
     const pala = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 16, 0.026, 6), cm); pala.scale.set(1.25, 1, 0.45); pala.position.z = pts[2].z * 0.55; cuerpo.add(pala);
   }
