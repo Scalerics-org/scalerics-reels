@@ -87,3 +87,7 @@ chica "Último día, 22:10.", grande "¿Y esta?", sello ESTUDIOS CONTABLES.
 - Los sobres en la parte 2 quedan llenos y sin pestaña (no se reemplazaron por biblioratos como decía el plan).
 - Marcelo golpea la puerta (madera-golpe) en vez del timbre del plan; `bsb-0160.mp3` (timbre) está descargado si se prefiere.
 - Manos-puño del elenco: el dedo de Adriana sobre el celular en Q3 se lee como una bola.
+
+## Render de revisión (18-11)
+Render 941 s (15,7 min, SwiftShader, --workers 2); re-codificación del paso 10: 171 s. Final 42,6 s, 1275 cuadros,
+-14,1 LUFS, pico -5,4 dBFS (renders/contable-papeles-final.mp4; hoja cada 0,5 s en renders/hoja-final.png).
