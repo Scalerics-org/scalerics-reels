@@ -309,6 +309,8 @@ const frFoto = crearFreidora("verde"); scene.add(frFoto);      // la verde de la
 const frFoto2 = crearFreidora("crema"); scene.add(frFoto2);    // la de muestra de la parte 2 (Q1-Q3)
 const frFoto3 = crearFreidora("verde"); scene.add(frFoto3);    // Q4-Q5: la verde vuelve a la mesa
 const FR_MESA = V3(0.08, PT, 0.18);
+const marcaT = lienzo(256, 256, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "rgba(120,100,70,0.22)"; x.beginPath(); x.ellipse(w / 2, h / 2, 104, 104, 0, 0, 7); x.fill(); x.fillStyle = "rgba(239,238,229,1)"; x.beginPath(); x.ellipse(w / 2, h / 2, 84, 84, 0, 0, 7); x.fill(); x.fillStyle = "rgba(120,100,70,0.12)"; x.beginPath(); x.ellipse(w / 2, h / 2, 84, 84, 0, 0, 7); x.fill(); });
+const marcaFr = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 0.34), new THREE.MeshStandardMaterial({ map: marcaT, transparent: true, roughness: 0.95, depthWrite: false })); marcaFr.rotation.x = -Math.PI / 2; marcaFr.position.set(FR_MESA.x, PT + 0.002, FR_MESA.z); marcaFr.receiveShadow = true; scene.add(marcaFr);
 for (const f of [frFoto, frFoto2, frFoto3]) { f.position.copy(FR_MESA); f.rotation.y = 0.32; }
 
 // ---- el aro de luz (anillo crema emisivo) en su pie, con el soporte del celular en el centro ----
@@ -389,6 +391,7 @@ const cajaWalter = new THREE.Mesh(geoCaja, MAT_CAJA.verde); cajaWalter.castShado
 // el contenedor que llega (Q4): dos pilas de cajas verdes delante de la pared, a la derecha de la mesa
 const LLEGA = []; { for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) LLEGA.push([1.3 + i * 0.47, 0.2 + j * 0.404, -0.95, (i - 1) * 0.02]); }
 const pilaLlega = cajas("verdeNov", LLEGA);
+const pilaCierre = cajas("verdeNov", [[-1.18, 0.2, -1.5, 0.12], [-0.72, 0.2, -1.5, 0.06], [-0.95, 0.602, -1.5, 0.1]]);   // (r3) las nuevas, detrás de Paola en el cierre
 // la pistola lectora de Mica (Q4): navy con gatillo crema, sin cable
 const pistola = new THREE.Group(); scene.add(pistola);
 let rayo;
@@ -487,7 +490,7 @@ const paola = crearPersonaje({ ...DEFECTO, nombre: "Paola", mejillasBajas: true,
   camisa: MARCA.g, mangas: "largas", cuello: MARCA.g, cuelloBotones: false, cuelloAlto: 0.07, pantalon: MARCA.navy2, zapatos: MARCA.cr, aros: MARCA.cr,
   labiosPegados: true, labios: 0xa8524f, mejillas: 0xd08470, panza: 1.0, nariz: 0.048, alto: 1.0, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const mica = crearPersonaje({ ...DEFECTO, nombre: "Mica", mejillasBajas: true, piel: PIEL.clara, pelo: 0x8a5a34, peinado: "coleta", cejasColor: 0x6a4428, cejaFina: true, pestanas: 0x1a1414, cuelloFino: true,
-  camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.1, chaleco: { color: MARCA.cr2, botones: MARCA.navy3 },
+  camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.14, chaleco: { color: MARCA.cr2, botones: MARCA.navy3 },
   pantalon: 0x3a3f4a, zapatos: MARCA.navy, labiosPegados: true, labios: 0xb35a5a, mejillas: 0xe8968a, panza: 0.96, nariz: 0.045, alto: 0.95, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, pantalon: MARCA.navy3, zapatos: 0x6b3f2e, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const walter = crearPersonaje({ ...ELENCO.walter, corbata: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
@@ -914,7 +917,7 @@ const CAM_P1 = (k) => [lerp(0.98, 0.84, k), lerp(1.78, 1.72, k), lerp(2.15, 1.95
 const CAM_CUAD = (k) => [lerp(-1.3, -1.34, k), 1.5, lerp(2.08, 2.0, k), -1.2, 1.34, 0.2, 50];
 const CAM_GEN = (k) => [lerp(0.15, 0.1, k), lerp(1.72, 1.68, k), lerp(4.45, 4.3, k), 0.05, 0.95, 0.0, 56];
 const CAM_P4 = (k) => [lerp(-1.12, -1.14, k), 1.42, lerp(1.72, 1.58, k), -1.12, 1.22, -0.66, 40];
-const CAM_HUECO = (k) => [lerp(0.92, 0.86, k), lerp(1.72, 1.68, k), lerp(2.32, 2.2, k), -0.38, 0.98, 0.0, 50];
+const CAM_HUECO = (k) => [lerp(-0.08, -0.1, k), lerp(1.95, 1.9, k), lerp(2.5, 2.4, k), -0.4, 0.92, -0.4, 52];
 const CAM_P6 = (k) => [lerp(-0.05, 0.0, k), lerp(1.5, 1.48, k), lerp(3.0, 2.85, k), 0.4, 0.98, 0.3, 46];
 const CAM_P7 = (k) => [lerp(0.3, 0.24, k), 1.42, lerp(3.02, 2.92, k), -0.8, 1.24, 0.86, 40];
 const CAM_PARED = (k) => [lerp(-0.25, 1.25, k), 1.2, -0.68, lerp(-0.25, 1.25, k) + 0.1, 1.05, -2.0, 64];
@@ -1169,8 +1172,9 @@ function celEnManos(cel, per, mira, alto = 0.07, adelante = 0.07) {
   cel.lookAt(mira);
 }
 const FR_MESA2 = V3(-0.22, PT, 0.06);
+let celSost = false;
 function renderAt(tIn) {
-  AVISOS.length = 0;
+  AVISOS.length = 0; celSost = false;
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
   const parte2 = t >= P2;
   const pl = planoEn(t); planoActual = pl[0];
@@ -1182,7 +1186,7 @@ function renderAt(tIn) {
   DEP.visible = LOC.visible = lugar === "dep"; LIV.visible = lugar === "liv";
   // ---- objetos de la parte 1 / parte 2 ----
   mesaCajas.visible = !parte2; papelLados.visible = !parte2; mesaPatas.visible = parte2;
-  const up = parte2 ? 1 : t >= T.p6 ? lerp(0.4, 1, eio(sg(t, T.sube, T.subeFin))) : 0;
+  const up = parte2 ? 1 : t >= T.p6 ? lerp(0.36, 1, eio(sg(t, T.sube, T.subeFin))) : 0;   // Mica parada alcanza el rollo desde la rodilla (el plano anterior no ve el ruedo del papel)
   papelFrente.visible = !parte2 && up < 0.99; papelFrente.scale.y = Math.max(0.001, 1 - up);
   papelRollo.visible = !parte2 && t >= T.p6 - 0.01 && up < 0.995; papelRollo.position.y = PT - 0.012 - PT * (1 - up) + 0.03;
   papelRollo.rotation.x = up * 9;
@@ -1190,11 +1194,11 @@ function renderAt(tIn) {
   cuaderno.visible = !parte2;
   tabP.visible = pilaTab.visible = IMP.visible = parte2;
   const p7 = !parte2 && t >= T.p7b; for (const m of pilas) m.visible = !parte2 && !p7; for (const m of pilasP7) m.visible = p7; for (const m of pilas2) m.visible = parte2;
-  pilaLlega.visible = parte2 && t >= T.q4 - 0.01;
+  pilaLlega.visible = parte2 && t >= T.q4 - 0.01; pilaCierre.visible = parte2 && t >= T.q4b - 0.01;
   plantita.position.set(parte2 ? -0.38 : 0.36, PT, -0.22);
   IMP.position.set(0.36, PT, -0.25); IMP.rotation.y = -0.2;
   // las freidoras: la verde de la parte 1 (en la mesa hasta que Mica la levanta), la crema de muestra (Q1-Q3), la verde (Q4-Q5)
-  frFoto.visible = !parte2 && t < T.p4 + 0.01; frFoto2.visible = parte2 && t < T.q4; frFoto3.visible = parte2 && t >= T.q4;
+  frFoto.visible = !parte2 && t < T.p4 + 0.01; marcaFr.visible = !parte2 && t >= T.agarra + 0.3; frFoto2.visible = parte2 && t < T.q4; frFoto3.visible = parte2 && t >= T.q4;
   for (const f of [frFoto2, frFoto3]) { f.position.copy(FR_MESA2); f.rotation.y = 0.5; }
   if (frFoto.parent !== scene) scene.add(frFoto);
   frFoto.position.copy(FR_MESA); frFoto.rotation.set(0, 0.32, 0);
@@ -1218,6 +1222,20 @@ function renderAt(tIn) {
     // la mano derecha en el celular del aro (P1-P3)
     if (pp.toca) { ARO.userData.cab.updateMatrixWorld(true); const w = ARO.userData.cab.localToWorld(V3(0.0, -0.02, -0.06)); pp.manoD = aCuerpo(paola, w); pp.codoD = [-1, -0.5, -0.3]; pp.manoI = [0.27, -0.06, 0.06]; }
     paola.poner(pp);
+    // (r3) el celular SOSTENIDO: va delante de las manos (separado del pecho) y las manos se ponen en sus bordes
+    celSost = !contra && ((!parte2 && t >= T.p3) || (parte2 && t >= T.q1i)) && pp.manoI && pp.manoD;
+    if (celSost) {
+      const selfie = (t >= T.p8 && !parte2) || (parte2 && t >= T.q4b && t < T.q5);
+      const mi = pp.manoI, md = pp.manoD, ym = (mi[1] + md[1]) / 2, zm = Math.max(0.36, (mi[2] + md[2]) / 2);
+      paola.raiz.updateMatrixWorld(true);
+      celP.position.copy(paola.cuerpo.localToWorld(selfie ? V3(0, ym + 0.2, zm + 0.1) : V3(0, ym + 0.08, zm + 0.04)));
+      celP.lookAt(selfie ? caraDe(paola).add(V3(0, -0.05, 0)) : caraDe(paola).add(V3(0.25, -0.25, 0.9)));
+      celP.updateMatrixWorld(true);
+      const W2 = (0.08 * CEL_K) / 2 + 0.008, a = aCuerpo(paola, celP.localToWorld(V3(W2, -0.03, -0.006))), b = aCuerpo(paola, celP.localToWorld(V3(-W2, -0.03, -0.006)));
+      const [izq, der] = a[0] > b[0] ? [a, b] : [b, a];
+      pp.manoI = izq; pp.manoD = der; pp.codoI = [0.9, -0.8, -0.1]; pp.codoD = [-0.9, -0.8, -0.1]; pp.dedoI = 0; pp.dedoD = 0;
+      paola.poner(pp);
+    }
     const enMica = !parte2 ? (t >= T.p3 - 0.01 && t < T.p4) || (t >= T.p6 && t < T.p7) : (t < T.q1b) || (t >= T.q4 && t < T.q4b);
     if (enMica) {
       mica.raiz.visible = true; const pm = poseMica(t);
@@ -1287,7 +1305,7 @@ function renderAt(tIn) {
       celP.position.copy(cab.localToWorld(V3(0, 0.0, -0.01))); celP.lookAt(caraDe(paola));
     } else {
       const selfie = (t >= T.p8 && !parte2) || (parte2 && t >= T.q4b);
-      celEnManos(celP, paola, selfie ? caraDe(paola).add(V3(0.0, -0.05, 0.0)) : caraDe(paola).add(V3(0.25, -0.25, 0.9)), selfie ? 0.17 : 0.1, selfie ? 0.06 : 0.08);
+      if (!celSost) celEnManos(celP, paola, selfie ? caraDe(paola).add(V3(0.0, -0.05, 0.0)) : caraDe(paola).add(V3(0.25, -0.25, 0.9)), selfie ? 0.17 : 0.1, selfie ? 0.06 : 0.08);
       if (parte2 && t < T.q1i) { celEnManos(celP, paola, FR_MESA2.clone().add(V3(0, 0.15, 0)), 0.08, 0.06); celP.rotateY(Math.PI); }
     }
   }
@@ -1309,7 +1327,7 @@ function renderAt(tIn) {
   ARO.visible = !["Q1i", "Q3", "Q4t"].includes(pa);
   if (pa === "Q4t") { mica.raiz.visible = false; pistola.visible = false; }
   if (pa === "Q2i") graciela.raiz.visible = false;
-  if (pa === "Q1i") insertoCel(celP, T.q1i, T.q2);
+  if (pa === "Q1i") insertoCel(celP, T.q1i, T.q2, 0.76);
   if (pa === "Q2i") insertoCel(celG, T.q2i, T.q3);
   if (pa === "Q3") insertoTab(T.q3, T.q4);
   if (pa === "Q4t") insertoTab(T.q4t, T.q4b);
@@ -1326,7 +1344,7 @@ function renderAt(tIn) {
     paola.raiz.visible = true;
     paola.poner({ ...posePaola(T.p7 + 0.3), x: 0.82, z: 0.78, giro: -0.25, ...CARA.incredula, ojos: { abiertos: 0.95, x: 0.0, y: 0.05, tension: 0.2 }, cejas: { alto: 0.35, ang: 0.45, asim: 0.5 }, boca: { sonrisa: -0.3, abierta: 0.05, ancho: 0.85 }, cabeza: { giro: 0.0, asiente: 0.0, ladea: 0.05 }, t: 1 });
     papelFrente.visible = false; papelRollo.visible = true; papelRollo.position.y = PT + 0.02;
-    ponerCam([0.25, 1.7, 4.45, 0.36, 0.6, 0.35, 44], t, true);
+    ponerCam([0.25, 1.7, 4.55, 0.36, 0.72, 0.35, 44], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
@@ -1359,9 +1377,9 @@ function tarjetas(t, pa) {
   }
   if (pa === "P5b") {
     ponerGlobo(GL.g2, 540, 1560, 1, null, 1);
-    const h = objPx(MESA, V3(0.0, PT + 0.12, 0.05)), c = celPx();
-    if (t >= T.rot[0]) { ponerGlobo(ROT.dos, 640, 330, ent(T.rot[0]), null, 3); ponerGuia(GUIAS[0], 640, 380, h[0], h[1], sg(t, T.rot[0] + 0.05, T.rot[0] + 0.3)); }
-    if (t >= T.rot[1]) { ponerGlobo(ROT.perdida, 420, 490, ent(T.rot[1]), null, 4); ponerGuia(GUIAS[1], 300, 535, c[0], c[1], sg(t, T.rot[1] + 0.05, T.rot[1] + 0.3)); }
+    const h = objPx(MESA, V3(FR_MESA.x, PT + 0.01, FR_MESA.z)), c = celPx();
+    if (t >= T.rot[0]) { ponerGlobo(ROT.dos, 760, 330, ent(T.rot[0]), null, 3); ponerGuia(GUIAS[0], 760, 380, h[0], h[1], sg(t, T.rot[0] + 0.05, T.rot[0] + 0.3)); }
+    if (t >= T.rot[1]) { ponerGlobo(ROT.perdida, 740, 1350, ent(T.rot[1]), null, 4); ponerGuia(GUIAS[1], 600, 1310, c[0], c[1], sg(t, T.rot[1] + 0.05, T.rot[1] + 0.3)); }
   }
   if (pa === "P6b" && t >= T.mi2 - 0.04) hablar(GL.mi2, mica, ent(T.mi2 - 0.04), 1, -40, 200);
   if (pa === "P7" && t >= T.pa3 - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa3, 560, Math.min(400, hy - 160), ent(T.pa3 - 0.04), [hx, hy + 6], 1); }

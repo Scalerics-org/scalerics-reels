@@ -1,3 +1,7 @@
+> **Nota (18-11, después de tres rondas de revisión):** este es el plan ORIGINAL. Lo construido difiere en: 36 verdes
+> ($ 179.640 sin vender desde marzo; Verde 0 → 36; Quedan 36 → 24), contenedor de noviembre, línea nueva de Mica
+> ("¡Diez azules para el Bazar!"), sin la impresora de etiquetas, Paola = Aoede. Ver NOTAS-constructor.md y fuentes.md.
+
 # tienda-tenes-stock · plan plano por plano · línea "ANTES QUE TODO" (rubro + dolor + solución + palabra), 3D real, ~38,6 s
 
 **De qué trata.** IMPORTADORAS. Lunes 10:00 en el depósito de "Casa Pao · Importados": Paola importa freidoras de aire

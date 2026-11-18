@@ -160,3 +160,22 @@ dura 3,49 s, no entra en ≤ 3,3 sin acelerarla de nuevo). `check --json` 0 erro
 - No hecho: el "Pao" de g1/mi2 que el STT no oye (en la forma de onda está); el pelo de Paola sigue siendo rodete
   (rodeteAtras 0,42; cambiar el peinado del personaje a esta altura arriesga más de lo que arregla).
 - Render r2: captura 13 min 21 s (809 s); remux con assets/audio/mezcla.wav y paso 10 con loudnorm lineal en dos pasadas (ver ronda 1): normalization_type "linear", final -13,9 LUFS, pico -4,8 dBFS, final menos crudo ±0,1 LU, 42,4 s.
+
+## Pulido final (18-11, ronda 3 aprobada)
+**42,0 s.** Parte 1 0-18,43 · cartel 18,43-20,88 · parte 2 20,88-42,0 = 21,12 s (50,3 %). `check --json` 0 errores. Mezcla
+-14 LUFS, pico -4,7 dBTP; voz ≥ +7,8 LU sobre el resto en todos los tramos.
+- El celular de Paola sostenido: se ubica delante de las manos (separado del pecho) y las manos van a sus bordes
+  (`celSost` en renderAt); en el selfie más alto, de frente a ella (P4-P7, P8, Q1i, Q4b, Q4d).
+- P5b: cámara alta desde la izquierda: la marca de la base de la freidora en el papel (anillo, `marcaFr`, desde que Mica
+  se la lleva) y el aro prendido detrás de Paola; "Vendida dos veces" arriba a la derecha con la guía a la marca, "Venta a
+  Graciela: perdida" abajo con la guía al celular.
+- P6: Mica parada e inclinada; el papel sube desde la rodilla (no se puede abrir con el papel en el piso: parada no
+  llega; el plano anterior no ve el ruedo). Mica con el cuello del chaleco más alto (cuelloAlto 0,14).
+- Q1i: el catálogo al 76 % del alto. Chip "Lunes, 10:00." se va con fundido. Tres cajas VERDE · CONT. NOVIEMBRE detrás
+  de Paola desde Q4b (`pilaCierre`). Portada: fondo más abajo (cámara más baja), sello a 300 px.
+- Sonido: `bgm/pizzicato-lleno.wav` en la parte 2 (derivado: eco 110/230/420/680 ms + compresor; el aecho del pedido no
+  parsea con "0.35:0.22", va "0.35|0.22"); ambiente de la parte 2 más alto (calle a su techo); g1 sin whoosh ni tic;
+  la música arranca en 0,3 s; 4 tics mientras el contador sube; "Sin stock" 0,9 s; cola del cierre 0,1 s.
+  Pasaaltos 300 Hz por tramos de 100 ms (medir100.sh): quedan ~15 tramos de 100 ms entre -43 y -48 dBFS en la parte 2
+  (eran decenas por debajo de -50); el pizzicato tiene silencios propios entre frases que el eco no llena del todo.
+- Render pulido: captura 12 min 44 s (771 s); remux + paso 10 lineal en dos pasadas: "linear", -13,9 LUFS, pico -4,7, 42,0 s.

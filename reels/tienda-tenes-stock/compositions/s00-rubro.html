@@ -27,7 +27,7 @@
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
       tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, 1.76);
-      tl.to(q(".chip"), { x: -560, duration: 0.24, ease: "power2.in" }, 1.76);
+      tl.to(q(".chip"), { opacity: 0, duration: 0.18, ease: "power1.in" }, 1.76);   // (r3) fundido (no se desliza cortado)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

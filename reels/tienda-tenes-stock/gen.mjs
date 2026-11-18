@@ -35,21 +35,21 @@ T.g1 = 0.06;
 // P2 · el cuaderno colgado del pilar ("VERDE: 1") y Paola detrás, segura: "¡Sí! La última. Hoy te la mando."
 T.p2 = r2(T.g1 + LEN.g1 - 0.25); T.pa1 = r2(T.g1 + LEN.g1 + 0.02);
 // P3 · plano general: "Pagado ✓" en el celular; Mica entra del local, levanta la verde de la mesa y se la lleva
-T.p3 = r2(T.pa1 + LEN.pa1 + 0.04); T.pagado = r2(T.p3 + 0.02); T.mi1 = r2(T.p3 + 0.12);
+T.p3 = r2(T.pa1 + LEN.pa1 + 0.04); T.pagado = r2(T.p3 + 0.02); T.mi1 = r2(T.p3 + 0.08);
 T.agarra = r2(T.p3 + 0.85); T.sale = r2(T.agarra + 0.35);
 // P4 · primer plano de Paola con el celular al pecho: "Graciela, perdoname: se me agotó." · "Reintegro" · (r1) el audio
 // de vuelta de Graciela arranca sobre P4 (sin el inserto del chat); P5b el hueco iluminado y, después de "lado.", los rótulos
 T.p4 = r2(T.mi1 + LEN.mi1 + 0.05); T.pa2 = r2(T.p4 + 0.06); T.reint = r2(T.pa2 + LEN.pa2 - 0.55);
-T.g2 = r2(T.pa2 + LEN.pa2 + 0.06); T.p5 = r2(T.g2 + 1.0); T.p5b = T.p5;
+T.g2 = r2(T.pa2 + LEN.pa2 + 0.03); T.p5 = r2(T.g2 + 1.0); T.p5b = T.p5;
 T.rot = [r2(T.g2 + LEN.g2 + 0.05), r2(T.g2 + LEN.g2 + 0.3)];
 // P6 · el remate: plano bajo de la mesa de fotos; Mica levanta el papel desde abajo: 8 cajas VERDE · "Pao. ¿Y estas cajas?"
-T.p6 = r2(T.rot[1] + 0.42); T.sube = r2(T.p6 + 0.05); T.subeFin = r2(T.sube + 0.55); T.p6b = T.p6; T.mi2 = r2(T.subeFin - 0.05);   // (r2) un solo plano: Mica parada e inclinada sube el papel
+T.p6 = r2(T.rot[1] + 0.3); T.sube = r2(T.p6 + 0.05); T.subeFin = r2(T.sube + 0.6); T.p6b = T.p6; T.mi2 = r2(T.subeFin - 0.05);   // (r2) un solo plano: Mica parada e inclinada sube el papel
 // P7 · primer plano de Paola, cara de nada: "Del contenedor de marzo." · P7b la pared de cajas verdes (rótulos)
-T.p7 = r2(T.mi2 + LEN.mi2 + 0.06); T.pa3 = r2(T.p7 + 0.28); T.p7b = r2(T.pa3 + LEN.pa3 - 0.4);
+T.p7 = r2(T.mi2 + LEN.mi2 + 0.06); T.pa3 = r2(T.p7 + 0.24); T.p7b = r2(T.pa3 + LEN.pa3 - 0.4);
 T.rot2 = [r2(T.p7b + 0.1), r2(T.p7b + 0.35)];
 // P8 · remate del remate: Paola levanta el celular en modo historia: "¡Hola! ¡Ingreso nuevo!" · P8b contraplano (la historia)
-T.p8 = r2(T.p7b + 0.92); T.levanta = r2(T.p8 + 0.1); T.pa4 = r2(T.p8 + 0.42); T.p8b = r2(T.pa4 + 0.62);
-const P1 = r2(T.pa4 + LEN.pa4 + 0.12);                 // termina la parte 1 (arranca el cartel)
+T.p8 = r2(T.p7b + 0.8); T.levanta = r2(T.p8 + 0.1); T.pa4 = r2(T.p8 + 0.42); T.p8b = r2(T.pa4 + 0.62);
+const P1 = r2(T.pa4 + LEN.pa4 + 0.08);                 // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + 2.45);                               // (r1) cartel de 2,45 s (el narrador con atempo 1,1)
 // ---- parte 2 ----
 // Q1 · "Otro lunes." El local: Mica le da a Walter una caja verde (el MISMO "¡Pao! La verde la vendí en el local.");
@@ -58,11 +58,11 @@ const P2 = r2(P1 + 2.45);                               // (r1) cartel de 2,45 s
 T.q1 = P2; T.mi1b = r2(P2 + 0.2); T.entrega = r2(P2 + 0.3); T.ventaL = r2(P2 + 1.3);
 T.q1b = r2(T.mi1b + LEN.mi1 + 0.4); T.pa5 = r2(T.q1b + 0.1); T.q1i = r2(T.pa5 + 0.5); T.baja = r2(T.q1i + 0.3);
 // Q2 · el living de Graciela: "Queda una. ¡Mía!" · Comprar · envío · Pagar · Pagado ✓ · "Sin stock" sola (0,3-0,45 s por paso)
-T.q2 = r2(T.baja + 1.0); T.g3 = r2(T.q2 + 0.15); T.q2i = r2(T.q2 + 0.7);
+T.q2 = r2(T.baja + 1.42); T.g3 = r2(T.q2 + 0.15); T.q2i = r2(T.q2 + 0.7);
 T.comprar = r2(T.g3 + 1.25); T.envio = r2(T.comprar + 0.35); T.pagar = r2(T.envio + 0.35); T.pagadoG = r2(T.pagar + 0.25); T.sinStock = r2(T.pagadoG + 0.45);
 // Q3 · (r1) un solo plano de la tablet: el pedido #214 pago (Listo para despachar ✓) y el pedido por mayor (Azul 25 → 15);
 // Mica: "¡Diez azules para el Bazar!"
-T.q3 = r2(T.sinStock + 1.3); T.listo = r2(T.q3 + 0.4); T.mayor = r2(T.q3 + 0.85); T.mi3 = r2(T.mayor + 0.05); T.azul = r2(T.mayor + 0.5);
+T.q3 = r2(T.sinStock + 0.9); T.listo = r2(T.q3 + 0.4); T.mayor = r2(T.q3 + 0.85); T.mi3 = r2(T.mayor + 0.05); T.azul = r2(T.mayor + 0.5);
 // Q4 · "Llegó el contenedor." Mica lee las cajas (3 lecturas); Q4t la tablet: Verde 0 → 36, "Sin stock" → "Quedan 36" ·
 // Q4b Paola levanta el celular, el mismo encuadre de P8: el MISMO "¡Hola! ¡Ingreso nuevo!" · Q4c la historia: le llueven
 // 12 pedidos pagos (Quedan 36 → 24) · Q4d baja el celular: "Ya se enteraron."
@@ -73,7 +73,7 @@ T.q4d = r2(Math.max(T.notis[11] + 0.45, T.pa4b + LEN.pa4 + 0.05)); T.pa6 = r2(T.
 // Q5 · el cierre: Paola graba su historia, de frente: "Comentá STOCK y te mando cómo funciona…"
 T.q5 = r2(T.pa6 + LEN.pa6 - 0.12); T.pa7 = r2(T.pa6 + LEN.pa6 + 0.02);
 T.palabra = r2(T.pa7 - 0.02);
-const DUR = Math.ceil((Math.ceil((T.pa7 + LEN.pa7 + 0.18) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.pa7 + LEN.pa7 + 0.1) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.pa7 + 0.9, DUR - 2.1));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca y el led del altavoz) ----------
@@ -147,7 +147,7 @@ const CHIP = `
       <div class="chip">Lunes, 10:00.</div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
       tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});
-      tl.to(q(".chip"), { x: -560, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});`,
+      tl.to(q(".chip"), { opacity: 0, duration: 0.18, ease: "power1.in" }, ${r2(dur - 0.3)});   // (r3) fundido (no se desliza cortado)`,
   });
 }
 // Q1 · el chip "Otro lunes." · Q4 · "Llegó el contenedor."
@@ -278,10 +278,10 @@ const audioEntra = (t) => { s("sfx/whoosh-short.mp3", t - 0.12, 0, { techo: -46 
 // ambiente: el depósito (zumbido de los tubos, la calle lejana por el local) y la música
 s("sfx/zumbido.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fi: 0.05, fin: 0.2, techo: -50, lp: 900 });
 s("sfx/calle.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fi: 0.05, fin: 0.2, techo: -52, lp: 1100 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -36, duck: [[T.rot[0] - 0.3, T.p6 + 0.2, 0.6], [T.p7 - 0.1, T.p8, 0.6], [T.p8, P1, 0.5]] });
+s("bgm/pizzicato.wav", 0.3, 0, { loop: true, dur: r2(P1 + 0.05 - 0.3), fi: 0.2, fin: 0.3, techo: -36, duck: [[T.rot[0] - 0.3, T.p6 + 0.2, 0.6], [T.p7 - 0.1, T.p8, 0.6], [T.p8, P1, 0.5]] });
 // P1 · el click de la foto, el audio que entra
 s("sfx/k-switch-3.wav", 0.05, 0, { techo: -40 });   // el click de la foto (Kenney, CC0)
-audioEntra(T.g1); voz("g1", T.g1, -1);
+voz("g1", T.g1, -1);   // (r3) sin whoosh ni tic: el primer "Pao" se oye limpio
 // P2 · la cámara va al cuaderno; Paola contesta; "Pagado ✓"
 s("sfx/whoosh-short.mp3", T.p2 + 0.05, 0, { techo: -46 });
 voz("pa1", T.pa1, -1);
@@ -324,9 +324,9 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 5.85, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -33 });
-s("sfx/zumbido.wav", P2, 0, { loop: true, dur: r2(DUR - P2), fi: 0.3, fin: 0.4, techo: -44, lp: 900 });
-s("sfx/calle.wav", P2, 0, { loop: true, desde: 8, dur: r2(DUR - P2), fi: 0.3, fin: 0.4, techo: -40, lp: 1300 });
+s("bgm/pizzicato-lleno.wav", P2, 0, { loop: true, desde: 5.85, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -33 });   // (r3) la versión más llena (eco + compresor) del mismo archivo
+s("sfx/zumbido.wav", P2, 10, { loop: true, dur: r2(DUR - P2), fi: 0.3, fin: 0.4, techo: -35, lp: 1400 });
+s("sfx/calle.wav", P2, 14, { loop: true, desde: 8, dur: r2(DUR - P2), fi: 0.3, fin: 0.4, techo: -31, lp: 2200 });
 // Q1 · el local: la campanita, la caja que pasa por el mostrador, el tic de la tablet; el depósito; el número que baja
 s("sfx/campanita.wav", P2 + 0.05, 0, { techo: -42 });
 s("sfx/calle.wav", P2, 0, { loop: true, desde: 3, dur: r2(T.q1b - P2 + 0.05), fi: 0.2, fin: 0.15, techo: -48, lp: 1400 });
@@ -351,6 +351,7 @@ s("sfx/whoosh-short.mp3", T.q4 - 0.06, 0, { techo: -52 });
 T.scan.forEach((t, i) => s("sfx/k-pep.wav", t - 0.1, 0, { techo: -38 + (i % 2), vel: 1.15 }));   // (r2) el bip del lector (Kenney, CC0)
 s("sfx/whoosh-short.mp3", T.q4t - 0.06, 0, { techo: -46 });
 ding(T.quedan40, -38);
+for (let i = 0; i < 4; i++) tic(T.q4t + 0.08 + i * 0.11, -44, i);   // (r3) tics suaves mientras el contador sube 0 → 36
 s("sfx/k-cloth_1.wav", T.levanta2, 0, { techo: -44, dur: 0.3, fin: 0.1 });
 s("sfx/click-soft.mp3", T.pa4b - 0.12, 0, { techo: -38 });
 voz("pa4", T.pa4b, -1);
@@ -366,7 +367,7 @@ pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }
   if (en(t0, T.p6 - 0.1, T.mi2 - 0.05) || en(t0, T.p7b - 0.1, T.p8) || en(t0, T.q4 - 0.1, T.q4b)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
 // la música: duck debajo de cada voz (~0,7) para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, x[1] >= P2 - 0.1 ? 0.12 : 0.3])]; }
+for (const x of S) if (x[0].startsWith("bgm/pizzicato") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, x[1] >= P2 - 0.1 ? 0.12 : 0.3])]; }
 function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render

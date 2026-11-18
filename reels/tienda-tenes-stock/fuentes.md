@@ -7,7 +7,7 @@ Los números son del caso que se cuenta:
   local chico adelante del depósito. Precio del caso: **$ 4.990** cada una (inventado; no se presenta como precio de
   mercado).
 - Parte 1: el cuaderno dice "VERDE: 1"; la última verde se vende dos veces (a Graciela por chat, pagada, y en el local);
-  reintegro de $ 4.990; debajo de la mesa de fotos (8) y en la pared (28, de espaldas) hay **36 verdes del contenedor de
+  reintegro de $ 4.990; debajo de la mesa de fotos (8) y en la pared (28: de espaldas hasta el descubrimiento, de frente en el recorrido de la pared) hay **36 verdes del contenedor de
   marzo sin cargar** → 36 × $ 4.990 = **$ 179.640 sin vender desde marzo** (a precio de venta del caso).
 - Parte 2: Verde quedan 2 → 1 → sin stock; envío a domicilio $ 190 (total $ 5.180); pedido #214; pedido por mayor de
   "Bazar del Puerto" (inventado) de 10 azules (Azul 25 → 15; Mica: "¡Diez azules para el Bazar!"); el contenedor de
@@ -39,6 +39,9 @@ local." (P3 y Q1) y "¡Hola! ¡Ingreso nuevo!" (P8 y Q4).
 
 ## Música y efectos (todos reales, ninguno sintetizado; copiados de otros reels del repo, con su crédito de origen)
 - Música `bgm/pizzicato.wav`: "Pizzicato Intrigue", younoise, Freesound, CC0 1.0 (https://freesound.org/people/younoise/sounds/569642/).
+  En la parte 2, `bgm/pizzicato-lleno.wav`: derivado del mismo archivo (mismo crédito y licencia), con
+  `ffmpeg -i pizzicato.wav -af "aecho=0.8:0.75:110|230|420|680:0.5|0.38|0.28|0.2,acompressor=threshold=-30dB:ratio=4:attack=5:release=350:makeup=2"`
+  (eco y compresor: llena los silencios entre notas).
 - Ambiente `sfx/calle.wav`: "Small quiet street ambience", Oper8, Freesound, CC0 (https://freesound.org/people/Oper8/sounds/241135/).
 - `sfx/zumbido.wav` (la cama del depósito en loop con pasabajos, y el zumbido de la pausa): "Room Tone Ambience Medium
   Control Low Hum", gchase, Freesound, CC0. (r2: reemplaza a zumbido-largo.wav, que no tenía origen claro.)
