@@ -223,3 +223,13 @@ Revisados cuadro por cuadro los 3 cuadros de cada corte tocado (18,5 · 19,6 · 
 - P5: la cámara arranca mirando más a la derecha (Óscar entero en el primer cuadro). Q1: el primer encuadre más cerrado.
 - Mezcla: el duck de la música arranca 0,25 s antes de cada voz y vuelve 0,3 s después; gota -42, rueditas -37, pop del
   chip -40. medir.py: mínimo 6,1 LU; -14,1 LUFS, pico -3,0 dBFS. check: 0 errores.
+
+## Ronda 5 (42,1 s; sin cambios de tiempos)
+- "Cada auto y su estado, en un panel" a y 1565 (termina ~1640) con el panel de Q2 al 58 %.
+- Cierre: tarjeta PRONTO más compacta (top 1065, termina ~1485, debajo del mentón) y la franja "Avisos automáticos del
+  estado del auto · scalerics.com" en una línea + la web, top 1490 (termina ~1645). El mate más alto, por encima de la tarjeta.
+- Q4: sin el auto de Graciela, la camilla ni Óscar en ese plano; fov 70 → 67 y mira a -0,68 → -0,78: el auto de Daniel
+  entero con la patente legible, sin tocar los bordes.
+- "A la tarde." (P4c2) 80 px más arriba (minY 660). Parpadeo de Óscar en Q5 a q5 + 0,38 (antes +0,08).
+- Contador: "Óscar salió a atender" a 42 px. Portada: sello_top 286 px, zoom 1,08 con foco arriba (aire entre el sello y el pelo).
+- check: 0 errores. La mezcla no cambió (medir.py 6,1 LU).

@@ -557,7 +557,7 @@ const FONDO = { taller: 0xe9ece6, rot: 0xf4f4ef, bus: 0xcfdbe6 };
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const oscar = crearPersonaje({ ...ELENCO.oscar, franja: null, cuelloAlto: 0.03, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [r2(T.cortes[1] + 0.06), r2(T.q5 + 0.08)] });
+const oscar = crearPersonaje({ ...ELENCO.oscar, franja: null, cuelloAlto: 0.03, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [r2(T.cortes[1] + 0.06), r2(T.q5 + 0.38)] });
 const maxi = crearPersonaje({ ...ELENCO.maxi, mangas: "largas", dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
 const daniel = crearPersonaje({ ...ELENCO.daniel, lentesFinos: true, sinPatillas: true, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, lentesFinos: true, sinPatillas: true, delantal: C.cr, delantalBorde: C.navy3, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
@@ -1005,7 +1005,7 @@ const CAM_P2 = (k) => [1.95 - 0.15 * k, 0.75, -0.75 - 0.1 * k, -1.42 + 0.05 * k,
 const CAM_PIZ = (k) => [PIZ.x, 1.75, lerp(0.6, 0.45, k), PIZ.x, 1.62, -4.8, 46];
 const CAM_P5 = (k) => [1.25 - 0.1 * k, 0.95, 6.3 - 0.15 * k, lerp(0.05, -0.2, Math.min(1, k * 3)), 0.92, 3.4, 46];
 const CAM_P6A = (k) => [0.05, 2.2, 3.0 - 0.25 * k, -0.2, 2.45, -3.05, 30 - 3 * k];
-const CAM_Q4 = (k) => [lerp(1.75, 1.65, k), lerp(3.05, 2.95, k), lerp(1.0, 0.85, k), -0.9, lerp(1.3, 1.1, k), -2.9, 58];
+const CAM_Q4 = (k) => [lerp(1.75, 1.65, k), lerp(3.05, 2.95, k), lerp(1.0, 0.85, k), lerp(-0.68, -0.78, k), lerp(1.3, 1.1, k), -2.9, lerp(70, 67, k)];
 const CAM_P6 = (k) => [0.12, 1.15, lerp(6.35, 6.15, k), 0.12, 1.02, 3.5, 34];
 const CAM_C = (k) => [0.15, 1.2, lerp(6.5, 6.3, k), 0.12, 0.84, 3.4, 44];
 const CAM_Q3O = (k) => [0.12, 1.3, lerp(7.3, 7.1, k), 0.12, 0.62, 3.7, 38];
@@ -1296,7 +1296,7 @@ function renderAt(tIn) {
     if (p2 && t >= T.sale6[1] - 0.05) {
       // Óscar con el mate (Q5 tras salir y en el cierre)
       oscar.raiz.updateMatrixWorld(true);
-      po.manoI = pa === "C" ? [0.28, 0.46, 0.3] : [0.24, 0.16, 0.34]; po.codoI = [0.8, -0.6, -0.2]; oscar.poner(po);
+      po.manoI = pa === "C" ? [0.3, 0.6, 0.28] : [0.24, 0.16, 0.34]; po.codoI = [0.8, -0.6, -0.2]; oscar.poner(po);
       mate.visible = true; oscar.brazos[0].mano.getWorldPosition(_w); mate.position.copy(_w).add(V3(0, -0.07, 0.0)); mate.rotation.set(0, 0.3, 0);
     }
     // Maxi
@@ -1343,6 +1343,8 @@ function renderAt(tIn) {
   if (ROT.visible) { graciela.raiz.visible = pa !== "Q1i"; const pg = poseGraciela(t); if (pa === "Q1g") { const yaw = Math.atan2(GRA.x - 0.12 - GRA.x, 0.7 - GRA.z); pg.cabeza = { ...(pg.cabeza || {}), giro: cl(yaw * 0.9, -0.6, 0.6) }; } if (pa === "Q1g") { pg.cabeza = { ...(pg.cabeza || {}), giro: -0.25, asiente: 0.18 }; pg.ojos = { ...(pg.ojos || {}), x: -0.5, y: -0.5, abiertos: 1 }; } if (pa === "Q1g") { pg.manoD = [-0.1, 0.4, 0.36]; pg.codoD = [-0.8, -0.6, -0.2]; pg.manoI = [0.08, 0.36, 0.36]; pg.codoI = [0.8, -0.6, -0.2]; pg.cabeza = { ...(pg.cabeza || {}), giro: 0.05, asiente: 0.3 }; pg.ojos = { ...(pg.ojos || {}), x: 0, y: -0.75, abiertos: 1 }; }
     graciela.poner(pg);
     if (pa === "Q1g") { graciela.raiz.updateMatrixWorld(true); celG.visible = false; celGm.visible = true; const a = new THREE.Vector3(), b = new THREE.Vector3(); graciela.brazos[1].mano.getWorldPosition(a); graciela.brazos[0].mano.getWorldPosition(b); celGm.position.copy(a).lerp(b, 0.5).add(V3(0, 0.1, 0.02)); celGm.lookAt(graciela.cabeza.localToWorld(V3(0, 0.1, 0.3))); } }
+  // Q4: sin el auto de Graciela (ni la camilla) en primer plano, para que el de Daniel se vea entero
+  if (pa === "Q4") { autoG.visible = false; CAMILLA.g.visible = false; oscar.raiz.visible = false; celO.visible = false; mate.visible = false; }
   // ---- cámara ----
   if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }
   if (pa === "P3") {
@@ -1361,7 +1363,7 @@ function renderAt(tIn) {
   if (pa === "Q2") {
     tablet.updateMatrixWorld(true);
     const piv = tablet.children[0];
-    camPantalla(piv, V3(0, 0.2, 0.0065), V3(0, 0, 1), 0.36 * 1.45, 0.64, 40, t, 0.08 * (1 - eo(sg(t, T.q2, T.q2 + 0.7))));
+    camPantalla(piv, V3(0, 0.2, 0.0065), V3(0, 0, 1), 0.36 * 1.45, 0.58, 40, t, 0.08 * (1 - eo(sg(t, T.q2, T.q2 + 0.7))));
   }
   if (pa === "Q3d" || pa === "Q3a" || pa === "Q4bi") {
     // el inserto del celular de Daniel (sostenido delante, en el ómnibus)
@@ -1404,7 +1406,7 @@ function renderAt(tIn) {
     if (pa === "P1") { delCel("g1", T.g1, T.p2, 540, 640); di("o1", oscar, T.o1, T.p2, 2, 120, 820); }
     if (pa === "P2" || pa === "Q3") di("m1", maxi, pa === "P2" ? T.m1 : T.m1b, pa === "P2" ? T.p3 : T.q3o, 1, 0, 330);
     T.cortes.forEach((c, i) => { if (pa === `P4c${i}`) delCel(`k${i}`, c + 0.02, i < 2 ? c + 0.5 : T.piz, 540, 560); });
-    if (pa === "P4c2") di("o2", oscar, T.o2, T.piz, 2, 120, 740);
+    if (pa === "P4c2") di("o2", oscar, T.o2, T.piz, 2, 120, 660);
     if (pa === "P3" && t >= T.foto + 0.02) ponerGlobo(ROT_.sinfoto, 540, 150, ent(T.foto + 0.02), null, 2);
     if (pa === "Ppiz") {
       const [px2, py2] = enPantalla(V3(PIZ.x, PIZ.y - PIZ.h / 2 + 0.05, ZF + 0.2));
@@ -1421,7 +1423,7 @@ function renderAt(tIn) {
     if (pa === "Q1" && t >= T.aviso) { const r = ROT_.enviado; const [bx, by] = objPx(celO, V3(0, 0.092, 0.008)); ponerGlobo(r, 540, 420, ent(T.aviso), null, 2); ponerGuia(GUIAS[0], 540, 420 + r.userData.H / 2 - 4, bx, by, sg(t, T.aviso, T.aviso + 0.2)); }
     if (pa === "Q1i") ponerGlobo(ROT_.aviso, 540, 175, ent(T.q1i), null, 2);
     if (pa === "Q1g") di("g2", graciela, T.g2, T.q2, 1, 0, 230);
-    if (pa === "Q2" && t >= T.tarj[0] + 0.3) ponerGlobo(ROT_.panel, 540, 1790, ent(T.tarj[0] + 0.3), null, 2);
+    if (pa === "Q2" && t >= T.tarj[0] + 0.3) ponerGlobo(ROT_.panel, 540, 1565, ent(T.tarj[0] + 0.3), null, 2);
     if (pa === "Q3o" && t >= T.o5 - 0.04) { const [lx, ly] = enPantalla(CAMILLA.g.localToWorld(V3(0, 0.2, -0.2))); ponerGlobo(GL.o5, 540, 330, ent(T.o5 - 0.04), [lx, ly], 1); }
     if (pa === "Q3d") ponerGlobo(ROT_.extra, 540, 175, ent(T.q3d), null, 2);
     if (pa === "Q3e") di("d2", daniel, T.d2, T.q3a, 1, 0, 230);

@@ -150,7 +150,7 @@ const CHIP = `
 // el contador: caja con "Salió a atender" arriba y el número grande; crema hasta 9, rojo apagado desde 10, verde en la parte 2
 const CONT = `
     P .cont { position: absolute; right: 40px; width: 330px; padding: 12px 10px 14px; border-radius: 24px; border: 6px solid ${CR}; text-align: center; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); transform-origin: 50% 50%; }
-    P .cont .a { font: 800 38px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
+    P .cont .a { font: 800 42px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
     P .cont .n { font: 900 96px/1 "Lexend", sans-serif; letter-spacing: -0.03em; margin-top: 4px; }
     P .cont.c0 { background: ${NAVY}; color: ${CR}; }
     P .cont.c1 { background: ${RED}; color: ${CR}; border-color: ${CR}; }
@@ -300,13 +300,13 @@ for (const [id, ini0, fin, txt, conCont] of CHIPS2) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1120px; padding: 14px 10px 22px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
-    P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
-    P .tx { font: 900 164px/1.08 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1065px; padding: 10px 10px 18px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .a { font: 800 76px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
+    P .tx { font: 900 146px/1.08 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
     P .sel b { position: absolute; inset: 8px 0 -6px; background: ${G}; border: 8px solid ${NAVY}; border-radius: 12px; }
     P .sel em { position: relative; font-style: normal; }
-    P .c { margin-top: 10px; font: 700 48px/1.2 "Lexend", sans-serif; color: ${NAVY}; } P .c + .c { margin-top: 0; }`,
+    P .c { margin-top: 8px; font: 700 44px/1.18 "Lexend", sans-serif; color: ${NAVY}; } P .c + .c { margin-top: 0; }`,
     html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>PRONTO</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu taller</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
       tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.32);`,
@@ -318,10 +318,10 @@ for (const [id, ini0, fin, txt, conCont] of CHIPS2) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1600px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 46px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.015em; }
-    P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Avisos automáticos</div><div class="a">del estado del auto</div><div class="b">scalerics.com</div></div>`,
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1490px; padding: 10px 18px 14px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .a { font: 700 40px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.015em; white-space: nowrap; }
+    P .b { margin-top: 6px; font: 800 58px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
+    html: `      <div class="caja"><div class="a">Avisos automáticos del estado del auto</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.85, y: 40 }, { scale: 1, y: 0, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.0);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
