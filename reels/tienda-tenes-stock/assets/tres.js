@@ -167,13 +167,13 @@ const nombreT = lienzo(2048, 256, (x, w, h) => {
 const COLOR_CAJA = { verde: ["#8fc7a0", "VERDE", "#0b1220"], azul: ["#1f3254", "AZUL", "#efeee5"], crema: ["#efeee5", "CREMA", "#0b1220"] };
 function dibujoFreidora(x, cx, cy, s, tinta = "#0b1220") {
   x.strokeStyle = tinta; x.lineWidth = s * 0.07; x.lineJoin = "round"; x.lineCap = "round";
-  x.beginPath(); x.roundRect(cx - s * 0.45, cy - s * 0.5, s * 0.9, s, s * 0.28); x.stroke();
-  x.beginPath(); x.moveTo(cx - s * 0.45, cy - s * 0.22); x.lineTo(cx + s * 0.45, cy - s * 0.22); x.stroke();
-  x.beginPath(); x.roundRect(cx - s * 0.36, cy - s * 0.08, s * 0.72, s * 0.46, s * 0.1); x.stroke();
-  x.beginPath(); x.moveTo(cx - s * 0.18, cy + s * 0.12); x.lineTo(cx + s * 0.18, cy + s * 0.12); x.stroke();
-  x.beginPath(); x.arc(cx, cy - s * 0.36, s * 0.07, 0, 7); x.stroke();
+  x.beginPath(); x.moveTo(cx - s * 0.36, cy - s * 0.28); x.bezierCurveTo(cx - s * 0.52, cy, cx - s * 0.46, cy + s * 0.46, cx - s * 0.3, cy + s * 0.5); x.lineTo(cx + s * 0.3, cy + s * 0.5); x.bezierCurveTo(cx + s * 0.46, cy + s * 0.46, cx + s * 0.52, cy, cx + s * 0.36, cy - s * 0.28); x.stroke();
+  x.beginPath(); x.ellipse(cx, cy - s * 0.28, s * 0.36, s * 0.16, 0, Math.PI, 0); x.closePath(); x.stroke();
+  x.beginPath(); x.arc(cx, cy - s * 0.4, s * 0.07, 0, 7); x.stroke();
+  x.beginPath(); x.moveTo(cx - s * 0.42, cy - s * 0.02); x.lineTo(cx + s * 0.42, cy - s * 0.02); x.stroke();
+  x.beginPath(); x.roundRect(cx - s * 0.24, cy + s * 0.12, s * 0.48, s * 0.12, s * 0.06); x.stroke();
 }
-function texCajaFrente(color, marzo) {
+function texCajaFrente(color, cont) {
   const [fc, nombre, tc] = COLOR_CAJA[color];
   return lienzo(512, 456, (x, w, h) => {
     x.fillStyle = "#c49a6c"; x.fillRect(0, 0, w, h);
@@ -187,13 +187,16 @@ function texCajaFrente(color, marzo) {
     ajustar(x, "DE AIRE 4 L", 900, 56, 300); x.fillText("DE AIRE 4 L", 166, 182);
     x.fillStyle = fc; x.beginPath(); x.roundRect(30, 232, w - 60, 112, [0, 0, 16, 16]); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 5; x.stroke();
     x.fillStyle = tc; x.textAlign = "center"; x.font = F(900, 88); x.fillText(nombre, w / 2, 292);
-    if (marzo) { x.save(); x.translate(w / 2 + 20, 400); x.rotate(-0.04); x.fillStyle = "#0b1220"; x.font = CAV(78); x.fillText("CONT. MARZO", 0, 0); x.restore(); }
+    if (cont) { x.save(); x.translate(w / 2 + 10, 400); x.rotate(-0.04); x.fillStyle = "#0b1220"; x.font = CAV(cont.length > 5 ? 66 : 78); x.fillText("CONT. " + cont, 0, 0); x.restore(); }
   });
 }
 const cajaTopT = lienzo(256, 228, (x, w, h) => { x.fillStyle = "#c8a070"; x.fillRect(0, 0, w, h); x.fillStyle = "rgba(90,60,30,0.4)"; x.fillRect(0, h / 2 - 2, w, 4); x.fillStyle = "#dcc092"; x.fillRect(w / 2 - 23, 0, 46, h); });
 const kraftM = mat(KRAFT, 0.9), kraftTopM = new THREE.MeshStandardMaterial({ map: cajaTopT, roughness: 0.9 });
 const MAT_CAJA = {};
-for (const c of ["verde", "azul", "crema"]) { const fr = new THREE.MeshStandardMaterial({ map: texCajaFrente(c, c === "verde"), roughness: 0.88 }); MAT_CAJA[c] = [kraftM, kraftM, kraftTopM, kraftM, fr, kraftM]; }
+for (const [k, c, cont] of [["verde", "verde", "MARZO"], ["verdeNov", "verde", "NOVIEMBRE"], ["azul", "azul", null], ["crema", "crema", null]]) { const fr = new THREE.MeshStandardMaterial({ map: texCajaFrente(c, cont), roughness: 0.88 }); MAT_CAJA[k] = [kraftM, kraftM, kraftTopM, kraftM, fr, kraftM]; }
+// (r1) las verdes de la pared, de espaldas: kraft con la cinta y una marca chica a mano (el rótulo grande se ve recién bajo el papel)
+{ const esp = lienzo(512, 456, (x, w, h) => { x.fillStyle = "#c49a6c"; x.fillRect(0, 0, w, h); semilla = 9; for (let i = 0; i < 260; i++) { x.strokeStyle = `rgba(${az() > 0.5 ? "120,82,44" : "226,190,140"},0.18)`; x.lineWidth = 1 + az() * 2; const y = az() * h, xx = az() * w; x.beginPath(); x.moveTo(xx, y); x.lineTo(xx + 20 + az() * 60, y + (az() - 0.5) * 4); x.stroke(); } x.strokeStyle = "rgba(90,60,30,0.35)"; x.lineWidth = 8; x.strokeRect(4, 4, w - 8, h - 8); x.fillStyle = "#dcc092"; x.fillRect(w / 2 - 46, 0, 92, 62); x.fillStyle = "rgba(22,36,61,0.75)"; x.font = CAV(44); x.textAlign = "right"; x.fillText("v · marzo", w - 40, h - 40); x.fillStyle = "rgba(90,60,30,0.35)"; x.fillRect(60, h / 2 - 3, w - 120, 6); });
+  MAT_CAJA.verdeEsp = [kraftM, kraftM, kraftTopM, kraftM, new THREE.MeshStandardMaterial({ map: esp, roughness: 0.9 }), kraftM]; }
 const geoCaja = new THREE.BoxGeometry(CJ.w, CJ.h, CJ.d);
 function cajas(color, lista, padre = DEP) {
   const im = new THREE.InstancedMesh(geoCaja, MAT_CAJA[color], lista.length);
@@ -201,23 +204,28 @@ function cajas(color, lista, padre = DEP) {
   lista.forEach(([x, y, z, ry = 0], i) => { o.position.set(x, y, z); o.rotation.set(0, ry, 0); o.updateMatrix(); im.setMatrixAt(i, o.matrix); });
   im.castShadow = true; im.receiveShadow = true; padre.add(im); return im;
 }
-// la pared del contenedor: columnas de 4-5 cajas contra el fondo; en el medio, casi todas verdes (las de marzo)
-const PILA = { verde: [], azul: [], crema: [] };
+// la pared del contenedor: columnas de 4-5 cajas contra el fondo. Parte 1: en el medio, 28 verdes de espaldas (las de marzo;
+// con las 8 de la mesa son 36); parte 2: en esos lugares azules y cremas (las verdes ya se vendieron; llega otro contenedor)
+const PILA = { verdeEsp: [], azul: [], crema: [] }, PILA2 = { azul: [], crema: [] };
 {
   semilla = 21;
+  const medio = [];
   for (let i = 0; i < 15; i++) {
     const x = -3.2 + i * (CJ.w + 0.012);
     const alto = 4 + (i % 3 === 1 ? 1 : 0);
     for (let j = 0; j < alto; j++) {
-      const medio = x > -1.9 && x < 2.0;
-      const c = medio ? (az() < 0.86 ? "verde" : "crema") : (az() < 0.6 ? "azul" : "crema");
-      PILA[c].push([x + (az() - 0.5) * 0.02, CJ.h / 2 + j * (CJ.h + 0.004), -2.15, (az() - 0.5) * 0.03]);
+      const p = [x + (az() - 0.5) * 0.02, CJ.h / 2 + j * (CJ.h + 0.004), -2.15, (az() - 0.5) * 0.03];
+      if (x > -1.9 && x < 2.0) medio.push(p);
+      else { const c = az() < 0.6 ? "azul" : "crema"; PILA[c].push(p); PILA2[c].push(p); }
     }
   }
+  const sobran = medio.length - 28;
+  medio.forEach((p, k) => { const crema = sobran > 0 && Math.floor(((k + 1) * sobran) / medio.length) > Math.floor((k * sobran) / medio.length); (crema ? PILA.crema : PILA.verdeEsp).push(p); PILA2[k % 3 === 1 ? "crema" : "azul"].push(p); });
   // una segunda fila más baja, delante, a los costados (profundidad en los planos abiertos)
-  for (const [x0, n, alto, c] of [[-3.0, 3, 3, "azul"], [1.75, 2, 2, "verde"]]) for (let i = 0; i < n; i++) for (let j = 0; j < alto; j++) PILA[(i + j) % 3 === 2 ? "crema" : c].push([x0 + i * (CJ.w + 0.012), CJ.h / 2 + j * (CJ.h + 0.004), -1.68, (az() - 0.5) * 0.04]);
+  for (const [x0, n, alto] of [[-3.0, 3, 3], [1.75, 2, 2]]) for (let i = 0; i < n; i++) for (let j = 0; j < alto; j++) { const p = [x0 + i * (CJ.w + 0.012), CJ.h / 2 + j * (CJ.h + 0.004), -1.68, (az() - 0.5) * 0.04], c = (i + j) % 3 === 2 ? "crema" : "azul"; PILA[c].push(p); PILA2[c].push(p); }
 }
-const pilas = ["verde", "azul", "crema"].map((c) => cajas(c, PILA[c]));
+const pilas = ["verdeEsp", "azul", "crema"].map((c) => cajas(c, PILA[c]));
+const pilas2 = ["azul", "crema"].map((c) => cajas(c, PILA2[c]));
 // la estantería de ángulo ranurado navy3 a la izquierda, con cajas azules y crema
 {
   const g = new THREE.Group(); g.position.set(-2.95, 0, -0.5); g.rotation.y = Math.PI / 2; DEP.add(g);
@@ -232,21 +240,30 @@ const pilas = ["verde", "azul", "crema"].map((c) => cajas(c, PILA[c]));
 // ---- la freidora de aire (EL objeto): cuerpo redondeado, tapa navy, cajón al frente con la manija crema, dos perillas ----
 const CUERPO_FR = { verde: MENTA, azul: 0x2c4268, crema: 0xefeee5 };
 function crearFreidora(color = "verde", esc = 1) {
+  // (r1) cuerpo redondeado tipo "huevo cortado" (torno), cúpula navy con la perilla grande arriba, el canasto al frente con
+  // la manija larga que sobresale: que se lea freidora de aire (no archivero ni impresora)
   const g = new THREE.Group();
-  const cm = mat(CUERPO_FR[color], 0.55), osc = mat(new THREE.Color(CUERPO_FR[color]).multiplyScalar(0.84).getHex(), 0.55);
-  const nv = mat(0x0b1220, 0.45), cr = mat(0xf4f2e8, 0.5);
+  const cm = mat(CUERPO_FR[color], 0.5), osc = mat(new THREE.Color(CUERPO_FR[color]).multiplyScalar(0.8).getHex(), 0.5);
+  const nv = mat(0x0b1220, 0.4), cr = mat(0xf4f2e8, 0.45);
   const s = new THREE.Group(); s.scale.setScalar(esc); g.add(s);
-  s.add(mesh(rbox(0.27, 0.27, 0.28, 0.075, 4), cm, 0, 0.165, 0));                 // el cuerpo
-  s.add(mesh(rbox(0.25, 0.06, 0.26, 0.03, 3), nv, 0, 0.3, -0.005));                 // la tapa navy
-  s.add(mesh(rbox(0.2, 0.05, 0.03, 0.012, 2), nv, 0, 0.265, 0.13));                 // el panel de las perillas
-  { const k = mesh(new THREE.CylinderGeometry(0.02, 0.022, 0.024, 20).rotateX(Math.PI / 2), cr, -0.055, 0.265, 0.15); s.add(k); s.add(mesh(new THREE.BoxGeometry(0.004, 0.016, 0.004), nv, -0.055, 0.271, 0.163)); }
-  s.add(mesh(rbox(0.07, 0.026, 0.006, 0.004, 1), new THREE.MeshBasicMaterial({ color: 0x5ce611 }), 0.045, 0.265, 0.147));   // el visor digital
-  s.add(mesh(rbox(0.235, 0.15, 0.03, 0.03, 3), osc, 0, 0.115, 0.13));              // el cajón-canasto
-  s.add(mesh(rbox(0.24, 0.008, 0.012, 0.003, 1), nv, 0, 0.195, 0.14));              // la junta del cajón
-  for (const x of [-0.055, 0.055]) s.add(mesh(rbox(0.026, 0.03, 0.06, 0.008, 2), cr, x, 0.13, 0.165));
-  s.add(mesh(rbox(0.16, 0.034, 0.03, 0.012, 2), cr, 0, 0.13, 0.2));                  // la manija horizontal (sobresale)
-  for (const [x, z] of [[-0.09, -0.09], [0.09, -0.09], [-0.09, 0.09], [0.09, 0.09]]) s.add(mesh(new THREE.CylinderGeometry(0.014, 0.016, 0.03, 10), nv, x, 0.015, z));
-  for (let i = 0; i < 5; i++) s.add(mesh(new THREE.BoxGeometry(0.15, 0.008, 0.006), nv, 0, 0.18 + i * 0.02, -0.14));   // rejilla de atrás
+  const perfil = [[0.0, 0.0], [0.118, 0.0], [0.13, 0.012], [0.142, 0.05], [0.148, 0.12], [0.146, 0.2], [0.138, 0.25], [0.128, 0.275]].map(([r, y]) => new THREE.Vector2(r, y));
+  s.add(mesh(new THREE.LatheGeometry(perfil, 40), cm, 0, 0.012, 0));                       // el cuerpo
+  const cup = new THREE.SphereGeometry(0.128, 40, 14, 0, Math.PI * 2, 0, Math.PI / 2); cup.scale(1, 0.42, 1);
+  s.add(mesh(cup, nv, 0, 0.286, 0));                                                        // la cúpula navy
+  s.add(mesh(new THREE.CylinderGeometry(0.129, 0.129, 0.012, 40), nv, 0, 0.283, 0));
+  // la perilla grande arriba al frente, inclinada, con su marca; el visor verde detrás
+  { const k = new THREE.Group(); k.position.set(0, 0.32, 0.045); k.rotation.x = 0.55; s.add(k);
+    k.add(mesh(new THREE.CylinderGeometry(0.036, 0.04, 0.03, 28), cr, 0, 0.012, 0)); k.add(mesh(new THREE.BoxGeometry(0.006, 0.006, 0.03), nv, 0, 0.028, 0.012)); }
+  { const v = mesh(rbox(0.07, 0.03, 0.006, 0.004, 1), new THREE.MeshBasicMaterial({ color: 0x5ce611 }), 0, 0.318, -0.045); v.rotation.x = -0.5; s.add(v); }
+  // el canasto: un frente curvo (segmento de cilindro) un poco más oscuro, con la junta navy arriba
+  const fr = new THREE.CylinderGeometry(0.152, 0.146, 0.15, 32, 1, false, -0.85, 1.7);
+  s.add(mesh(fr, osc, 0, 0.1, 0.004));
+  s.add(mesh(new THREE.CylinderGeometry(0.153, 0.153, 0.01, 32, 1, false, -0.88, 1.76), nv, 0, 0.18, 0.004));
+  // la manija larga y saliente (dos brazos y la barra horizontal crema)
+  for (const x of [-0.05, 0.05]) s.add(mesh(rbox(0.024, 0.03, 0.09, 0.008, 2), cr, x, 0.12, 0.185));
+  s.add(mesh(rbox(0.15, 0.038, 0.034, 0.014, 2), cr, 0, 0.115, 0.235));
+  for (const [x, z] of [[-0.09, -0.09], [0.09, -0.09], [-0.09, 0.09], [0.09, 0.09]]) s.add(mesh(new THREE.CylinderGeometry(0.014, 0.016, 0.014, 10), nv, x, 0.006, z));
+  for (let i = 0; i < 4; i++) s.add(mesh(new THREE.BoxGeometry(0.12, 0.008, 0.008), nv, 0, 0.17 + i * 0.022, -0.146));   // rejilla de atrás
   return sombras(g);
 }
 
@@ -293,7 +310,7 @@ const FR_MESA = V3(0.08, PT, 0.18);
 for (const f of [frFoto, frFoto2, frFoto3]) { f.position.copy(FR_MESA); f.rotation.y = 0.32; }
 
 // ---- el aro de luz (anillo crema emisivo) en su pie, con el soporte del celular en el centro ----
-const ARO = new THREE.Group(); ARO.position.set(-0.6, 0, -0.4); DEP.add(ARO);
+const ARO = new THREE.Group(); ARO.position.set(-0.72, 0, -1.0); DEP.add(ARO);
 const ARO_C = V3(0, 0.96, 0);
 let aroAnillo, soporteCel, luzAro;
 {
@@ -314,20 +331,20 @@ const PILAR = new THREE.Group(); PILAR.position.set(-1.42, 0, 0.66); PILAR.rotat
 const cuadT = lienzo(600, 780, () => {});
 let cuaderno;
 function dibujarCuaderno(circulo) {
+  // (r1) "VERDE:" en su renglón; abajo "3  2  1": el 3 y el 2 tachados con raya gruesa rojo apagado, el 1 grande con círculo
   const { x } = cuadT.userData, w = 600, h = 780;
   x.fillStyle = "#f7f6ee"; x.fillRect(0, 0, w, h);
-  x.strokeStyle = "#b9cde0"; x.lineWidth = 3; for (let y = 150; y < h; y += 92) { x.beginPath(); x.moveTo(0, y); x.lineTo(w, y); x.stroke(); }
-  x.strokeStyle = "#e3a39b"; x.lineWidth = 3; x.beginPath(); x.moveTo(70, 60); x.lineTo(70, h); x.stroke();
+  x.strokeStyle = "#b9cde0"; x.lineWidth = 3; for (let y = 140; y < h; y += 118) { x.beginPath(); x.moveTo(0, y); x.lineTo(w, y); x.stroke(); }
+  x.strokeStyle = "#e3a39b"; x.lineWidth = 3; x.beginPath(); x.moveTo(62, 40); x.lineTo(62, h); x.stroke();
   x.fillStyle = "#16243d"; x.textBaseline = "alphabetic"; x.textAlign = "left";
-  x.font = CAV(96); x.fillText("STOCK", 110, 128);
-  x.font = CAV(108); x.fillText("VERDE:", 92, 316);
-  // "3" y "2" tachados, el "1" grande
-  x.font = CAV(108); x.fillText("3", 382, 316); x.fillText("2", 448, 316);
-  x.strokeStyle = "#16243d"; x.lineWidth = 9; for (const xx of [378, 444]) { x.beginPath(); x.moveTo(xx - 4, 300); x.lineTo(xx + 56, 252); x.stroke(); }
-  x.font = CAV(150); x.fillText("1", 514, 326);
-  if (circulo) { x.strokeStyle = "#c7655b"; x.lineWidth = 12; x.beginPath(); x.ellipse(540, 278, 54, 74, 0, 0, 7); x.stroke(); }
-  x.font = CAV(100); x.fillText("AZUL: ¿?", 92, 500);
-  x.fillText("CREMA: 4", 92, 684);
+  x.font = CAV(84); x.fillText("STOCK", 88, 118);
+  x.font = CAV(124); x.fillText("VERDE:", 84, 248);
+  x.font = CAV(128); x.fillText("3", 100, 380); x.fillText("2", 220, 380);
+  x.strokeStyle = "#c7655b"; x.lineWidth = 16; x.lineCap = "round"; for (const xx of [96, 216]) { x.beginPath(); x.moveTo(xx - 6, 372); x.lineTo(xx + 66, 286); x.stroke(); }
+  x.fillStyle = "#16243d"; x.font = CAV(190); x.fillText("1", 372, 396);
+  if (circulo || true) { x.strokeStyle = "#c7655b"; x.lineWidth = 12; x.beginPath(); x.ellipse(408, 330, 76, 96, 0, 0, 7); x.stroke(); }
+  x.font = CAV(104); x.fillText("AZUL: ¿?", 84, 590);
+  x.fillText("CREMA: 4", 84, 712);
   cuadT.needsUpdate = true;
 }
 dibujarCuaderno(false);
@@ -368,7 +385,7 @@ const cajaPedido = new THREE.Mesh(geoCaja, MAT_CAJA.verde); cajaPedido.castShado
 const cajaWalter = new THREE.Mesh(geoCaja, MAT_CAJA.verde); cajaWalter.castShadow = true; scene.add(cajaWalter);
 // el contenedor que llega (Q4): dos pilas de cajas verdes delante de la pared, a la derecha de la mesa
 const LLEGA = []; { for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) LLEGA.push([1.3 + i * 0.47, 0.2 + j * 0.404, -0.95, (i - 1) * 0.02]); }
-const pilaLlega = cajas("verde", LLEGA);
+const pilaLlega = cajas("verdeNov", LLEGA);
 // la pistola lectora de Mica (Q4): navy con gatillo crema, sin cable
 const pistola = new THREE.Group(); scene.add(pistola);
 let rayo;
@@ -394,7 +411,7 @@ let tabL;
   const piso = plano(4.0, 6.0, bal, 4.6, 0.002, 0.2); piso.rotation.x = -Math.PI / 2; LOC.add(piso);
   const fondo = mesh(new THREE.PlaneGeometry(4.0, 4.2), mat(0xe9e7dc, 0.9), 4.6, 2.1, -1.7); LOC.add(fondo);
   const verdeF = mesh(new THREE.PlaneGeometry(4.0, 0.5), M.g, 4.6, 2.55, -1.69); LOC.add(verdeF);
-  const nom = plano(2.4, 0.3, nombreT, 4.6, 3.05, -1.69); LOC.add(nom);
+  const nom = plano(1.8, 0.225, nombreT, 4.3, 3.05, -1.69); LOC.add(nom);
   const lado = mesh(new THREE.PlaneGeometry(6, 4.2), mat(0xe9e7dc, 0.9), 4.6, 2.1, 3.0); lado.rotation.y = Math.PI; LOC.add(lado);
   const techo = mesh(new THREE.PlaneGeometry(4.2, 6), mat(0xdcdad0, 0.95), 4.6, 4.2, 0.6); techo.rotation.x = Math.PI / 2; LOC.add(techo);
   // el mostrador crema con la tapa navy y la tablet del local
@@ -463,13 +480,13 @@ const cieloLiv = new THREE.HemisphereLight(0xf3f5f6, 0x7a7466, 1.7); scene.add(c
 // =====================================================================================================
 // Paola, la dueña (~38): piel media, morocha de rodete alto, buzo canguro verde de marca (la única que viste verde), jean
 // oscuro, zapatillas crema. Mica (~23): clara, castaño claro de coleta baja, remera navy3 y chaleco de depósito crema.
-const paola = crearPersonaje({ ...DEFECTO, nombre: "Paola", mejillasBajas: true, piel: PIEL.media, pelo: 0x2a1a12, peinado: "rodete", cejasColor: 0x22160f, pestanas: 0x1a1414, cuelloFino: true,
+const paola = crearPersonaje({ ...DEFECTO, nombre: "Paola", mejillasBajas: true, piel: PIEL.media, pelo: 0x2a1a12, peinado: "rodete", rodeteAtras: 0.42, cejasColor: 0x22160f, pestanas: 0x1a1414, cuelloFino: true,
   camisa: MARCA.g, mangas: "largas", cuello: MARCA.g, cuelloBotones: false, cuelloAlto: 0.07, pantalon: MARCA.navy2, zapatos: MARCA.cr, aros: MARCA.cr,
   labiosPegados: true, labios: 0xa8524f, mejillas: 0xd08470, panza: 1.0, nariz: 0.048, alto: 1.0, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const mica = crearPersonaje({ ...DEFECTO, nombre: "Mica", mejillasBajas: true, piel: PIEL.clara, pelo: 0x8a5a34, peinado: "coleta", cejasColor: 0x6a4428, cejaFina: true, pestanas: 0x1a1414, cuelloFino: true,
   camisa: MARCA.navy3, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.05, chaleco: { color: MARCA.cr2, botones: MARCA.navy3 },
   pantalon: 0x3a3f4a, zapatos: MARCA.navy, labiosPegados: true, labios: 0xb35a5a, mejillas: 0xe8968a, panza: 0.96, nariz: 0.045, alto: 0.95, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
-const graciela = crearPersonaje({ ...ELENCO.clienta, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
+const graciela = crearPersonaje({ ...ELENCO.clienta, pantalon: MARCA.navy3, zapatos: 0x6b3f2e, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const walter = crearPersonaje({ ...ELENCO.walter, corbata: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 // el cúter navy colgado del bolsillo del chaleco de Mica (sin hoja)
 { const c = caja(0.022, 0.1, 0.012, M.navy, -0.13, 0.2, 0.17, 0.005); c.rotation.z = 0.15; mica.cuerpo.add(c); }
@@ -478,8 +495,9 @@ for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMes
 // los celulares: el de Paola (funda verde de marca) y el de Graciela (funda verde oscuro)
 const pantP = lienzo(600, 1110, () => {});
 const pantG = lienzo(600, 1110, () => {});
-const celP = crearCelular(pantP, MARCA.g, 0.08 * 1.25, 0.162 * 1.25); scene.add(celP);
-const celG = crearCelular(pantG, C.gd, 0.08 * 1.25, 0.162 * 1.25); scene.add(celG);
+const CEL_K = 1.55;   // (r1) celulares más grandes; funda crema (Paola) y navy (Graciela): que se vean contra el buzo verde
+const celP = crearCelular(pantP, MARCA.cr, 0.08 * CEL_K, 0.162 * CEL_K); scene.add(celP);
+const celG = crearCelular(pantG, MARCA.navy3, 0.08 * CEL_K, 0.162 * CEL_K); scene.add(celG);
 
 // ---- avatares: la cara del personaje 3D renderizada chica en un círculo (los celulares y las burbujas) ----
 const AVATAR = {};
@@ -535,7 +553,11 @@ function catalogo(x, w, h, verde, { boton = null } = {}) {
   x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 182, w - 48, 380, 30); x.fill();
   // la foto de la freidora (dibujo plano con los colores del 3D)
   x.fillStyle = "#e3e9e4"; x.beginPath(); x.roundRect(44, 202, w - 88, 230, 22); x.fill();
-  { const cx = w / 2, cy = 318, s = 170; x.fillStyle = "#8fc7a0"; x.beginPath(); x.roundRect(cx - s * 0.45, cy - s * 0.5, s * 0.9, s, s * 0.26); x.fill(); x.fillStyle = "#0b1220"; x.beginPath(); x.roundRect(cx - s * 0.44, cy - s * 0.56, s * 0.88, s * 0.2, s * 0.08); x.fill(); x.fillStyle = "#79ad89"; x.beginPath(); x.roundRect(cx - s * 0.36, cy - s * 0.04, s * 0.72, s * 0.44, s * 0.1); x.fill(); x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(cx - s * 0.2, cy + s * 0.06, s * 0.4, s * 0.1, s * 0.05); x.fill(); }
+  { const cx = w / 2, cy = 330, s = 170; x.fillStyle = "#8fc7a0"; x.beginPath(); x.moveTo(cx - s * 0.38, cy - s * 0.3); x.bezierCurveTo(cx - s * 0.56, cy, cx - s * 0.5, cy + s * 0.48, cx - s * 0.32, cy + s * 0.52); x.lineTo(cx + s * 0.32, cy + s * 0.52); x.bezierCurveTo(cx + s * 0.5, cy + s * 0.48, cx + s * 0.56, cy, cx + s * 0.38, cy - s * 0.3); x.closePath(); x.fill();
+    x.fillStyle = "#0b1220"; x.beginPath(); x.ellipse(cx, cy - s * 0.3, s * 0.38, s * 0.2, 0, Math.PI, 0); x.closePath(); x.fill();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.arc(cx, cy - s * 0.42, s * 0.09, 0, 7); x.fill();
+    x.fillStyle = "#79ad89"; x.beginPath(); x.roundRect(cx - s * 0.44, cy - s * 0.02, s * 0.88, s * 0.3, s * 0.12); x.fill();
+    x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(cx - s * 0.3, cy + s * 0.08, s * 0.6, s * 0.12, s * 0.06); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 4; x.stroke(); }
   x.fillStyle = "#0b1220"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, "Freidora de aire 4 L", 900, 48, w - 90); x.fillText("Freidora de aire 4 L", 46, 476);
   x.font = F(900, 56); x.fillText("$ 4.990", 46, 532);
   // los tres colores con su stock
@@ -626,9 +648,9 @@ function dibujarCelG(t) {
       x.fillStyle = "#0b1220"; x.beginPath(); x.arc(w / 2, 500, 80, 0, 7); x.fill(); tilde(x, w / 2, 505, 92, "#5ce611");
       x.textAlign = "center"; ajustar(x, "Pagado", 900, 76, w - 120); x.fillText("Pagado", w / 2, 660);
     } else {
-      x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 940, w - 80, 130, 65); x.fill();
+      x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 900, w - 80, 180, 60); x.fill();
       if (toca) { x.strokeStyle = "#0b1220"; x.lineWidth = 10; x.stroke(); }
-      x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "Pagar con tarjeta o débito", 900, 46, w - 130); x.fillText("Pagar con tarjeta o débito", w / 2, 1006);
+      x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 70); x.fillText("Pagar", w / 2, 960); ajustar(x, "con crédito o débito", 800, 46, w - 130); x.fillText("con crédito o débito", w / 2, 1032);
     }
   }
   pantG.needsUpdate = true;
@@ -639,38 +661,36 @@ function dibujarTablet(t) {
   const w = 1280, h = 800;
   const modo = t < T.q4 ? "pedido" : "ingreso";
   const listo = t >= T.listo ? 1 : 0, mayor = t >= T.mayor ? 1 : 0, azul = t >= T.azul ? 1 : 0;
-  const nScan = T.scan.filter((a) => t >= a).length, verde = Math.min(40, Math.round((nScan / T.scan.length) * 40)), q40 = t >= T.quedan40 ? 1 : 0;
+  const nScan = T.scan.filter((a) => t >= a).length, verde = Math.min(36, Math.round((nScan / T.scan.length) * 36)), q40 = t >= T.quedan40 ? 1 : 0;
   const clave = `${modo}|${listo}|${mayor}|${azul}|${verde}|${q40}`; if (clave === claveT) return; claveT = clave;
   const { x } = pantT.userData;
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.textBaseline = "middle"; x.textAlign = "left";
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120); x.fillStyle = "#5ce611"; x.fillRect(0, 120, w, 8);
   x.fillStyle = "#efeee5"; ajustar(x, "Casa Pao · Pedidos y stock", 800, 64, w - 80); x.fillText("Casa Pao · Pedidos y stock", 40, 62);
   if (modo === "pedido") {
-    // el pedido de Graciela, pago y listo para despachar
-    x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 152, w - 48, mayor ? 300 : 420, 30); x.fill();
-    avatar(x, AVATAR.graciela, 104, 236, 62);
-    x.fillStyle = "#0b1220"; ajustar(x, "Pedido #214 · Graciela", 900, 68, 860); x.fillText("Pedido #214 · Graciela", 196, 210);
-    x.fillStyle = "#1f3254"; ajustar(x, "Freidora 4 L verde · Envío a domicilio", 800, 56, 1040); x.fillText("Freidora 4 L verde · Envío a domicilio", 196, 276);
-    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(52, 330, 350, 90, 45); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 54); x.fillText("Pagado ✓", 84, 377);
-    if (listo) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(424, 330, 800, 90, 45); x.fill(); x.fillStyle = "#0b1220"; ajustar(x, "Listo para despachar ✓", 900, 54, 740); x.fillText("Listo para despachar ✓", 456, 377); }
-    if (!mayor && listo) { x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(52, 460, 520, 84, 42); x.fill(); x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText("Imprimir etiqueta", 92, 503); }
+    // (r1) el pedido de Graciela (pago, listo para despachar) y el pedido por mayor en la misma pantalla; textos ≥ 60 px
+    x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 146, w - 48, 316, 30); x.fill();
+    avatar(x, AVATAR.graciela, 100, 226, 60);
+    x.fillStyle = "#0b1220"; ajustar(x, "Pedido #214 · Graciela", 900, 74, 1000); x.fillText("Pedido #214 · Graciela", 186, 200);
+    x.fillStyle = "#1f3254"; ajustar(x, "Verde · Envío a domicilio", 800, 62, 1000); x.fillText("Verde · Envío a domicilio", 186, 268);
+    x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(44, 330, 330, 100, 50); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 62); x.fillText("Pagado ✓", 74, 382);
+    if (listo) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(392, 330, 842, 100, 50); x.fill(); x.fillStyle = "#0b1220"; ajustar(x, "Listo para despachar ✓", 900, 62, 790); x.fillText("Listo para despachar ✓", 420, 382); }
     if (mayor) {
-      x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 476, w - 48, 300, 30); x.fill(); x.strokeStyle = "#5ce611"; x.lineWidth = 8; x.stroke();
-      x.fillStyle = "#0b1220"; ajustar(x, "Pedido por mayor · Bazar del Puerto", 900, 60, w - 120); x.fillText("Pedido por mayor · Bazar del Puerto", 56, 540);
-      x.fillStyle = "#1f3254"; x.font = F(800, 52); x.fillText("10 azules · Pagado ✓", 56, 610);
-      x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(56, 652, 640, 100, 50); x.fill();
-      x.fillStyle = "#efeee5"; x.font = F(900, 60); x.fillText(azul ? "Azul: 25 → 15" : "Azul: 25", 92, 704);
-      if (azul) { x.fillStyle = "#5ce611"; x.font = F(800, 46); x.fillText("un solo stock ✓", 740, 704); }
+      x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 482, w - 48, 300, 30); x.fill(); x.strokeStyle = "#5ce611"; x.lineWidth = 8; x.stroke();
+      x.fillStyle = "#0b1220"; ajustar(x, "Por mayor · Bazar del Puerto", 900, 68, w - 110); x.fillText("Por mayor · Bazar del Puerto", 52, 546);
+      x.fillStyle = "#1f3254"; x.font = F(800, 62); x.fillText("10 azules · Pagado ✓", 52, 622);
+      x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(52, 662, 700, 100, 50); x.fill();
+      x.fillStyle = "#efeee5"; x.font = F(900, 66); x.fillText(azul ? "Azul: 25 → 15" : "Azul: 25", 86, 714);
     }
   } else {
     // el ingreso del contenedor: el contador sube con cada lectura; el catálogo vuelve a tener verdes
     x.fillStyle = "#ffffff"; x.beginPath(); x.roundRect(24, 152, w - 48, 330, 30); x.fill();
-    x.fillStyle = "#1f3254"; ajustar(x, "Ingreso · Contenedor", 800, 56, 900); x.fillText("Ingreso · Contenedor", 56, 214);
+    x.fillStyle = "#1f3254"; ajustar(x, "Ingreso · Contenedor de noviembre", 800, 62, 1100); x.fillText("Ingreso · Contenedor de noviembre", 56, 214);
     x.fillStyle = "#0b1220"; x.font = F(900, 150); x.fillText(`Verde: ${verde}`, 56, 370);
-    x.fillStyle = "#d9d7c9"; x.beginPath(); x.roundRect(56, 438, w - 112, 22, 11); x.fill(); x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(56, 438, Math.max(22, ((w - 112) * verde) / 40), 22, 11); x.fill();
+    x.fillStyle = "#d9d7c9"; x.beginPath(); x.roundRect(56, 438, w - 112, 22, 11); x.fill(); x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(56, 438, Math.max(22, ((w - 112) * verde) / 36), 22, 11); x.fill();
     x.fillStyle = q40 ? "#5ce611" : "#5a6478"; x.beginPath(); x.roundRect(24, 506, w - 48, 130, 30); x.fill();
-    x.fillStyle = q40 ? "#0b1220" : "#efeee5"; ajustar(x, q40 ? "Tienda · Verde: Quedan 40 ✓" : "Tienda · Verde: Sin stock", 900, 64, w - 110); x.fillText(q40 ? "Tienda · Verde: Quedan 40 ✓" : "Tienda · Verde: Sin stock", 56, 572);
-    if (q40) { x.fillStyle = "#0b1220"; ajustar(x, "Les avisamos a 12 que esperaban", 800, 54, w - 110); x.fillText("Les avisamos a 12 que esperaban", 56, 700); }
+    x.fillStyle = q40 ? "#0b1220" : "#efeee5"; ajustar(x, q40 ? "Tienda · Verde: Quedan 36 ✓" : "Tienda · Verde: Sin stock", 900, 72, w - 110); x.fillText(q40 ? "Tienda · Verde: Quedan 36 ✓" : "Tienda · Verde: Sin stock", 56, 572);
+    if (q40) { x.fillStyle = "#0b1220"; ajustar(x, "Les avisamos a 12 que esperaban", 900, 70, w - 110); x.fillText("Les avisamos a 12 que esperaban", 56, 712); }
   }
   pantT.needsUpdate = true;
 }
@@ -821,6 +841,7 @@ const GL = {
   pa3: crearGlobo(["Del contenedor", "de [marzo.]"], 84),
   pa4: crearGlobo(["¡Hola! ¡Ingreso [nuevo!]"], 74),
   mi1b: crearGlobo(["¡Pao! La verde la", "vendí [en el local.]"], 72),
+  mi3: crearGlobo(["¡Diez azules", "[para el Bazar!]"], 76, { cab: { cv: AVATAR.mica, nombre: "Mica · depósito" } }),
   pa5: crearGlobo(["Ya lo sabe [la tienda.]"], 76),
   g3: crearGlobo(["Queda una. [¡Mía!]"], 84),
   pa4b: crearGlobo(["¡Hola! ¡Ingreso [nuevo!]"], 74),
@@ -830,12 +851,12 @@ const ROT = {
   pagado: crearRotulo([["Pagado ✓ · $ 4.990", "#5ce611", 56]], 56),
   reint: crearRotulo([["Reintegro · $ 4.990", "#c7655b", 56]], 56),
   dos: crearRotulo([["Vendida dos veces", "#c7655b", 60]], 60),
-  perdida: crearRotulo([["Venta perdida: $ 4.990", "#c7655b", 56]], 56),
-  verdes: crearRotulo([["40 verdes sin cargar", "#c7655b", 62]], 62),
-  parados: crearRotulo([["$ 199.600 parados", "#c7655b", 60], ["desde marzo", "#c7655b", 60]], 60),
+  perdida: crearRotulo([["Venta a Graciela: perdida", "#c7655b", 56]], 56),
+  verdes: crearRotulo([["36 verdes sin cargar", "#c7655b", 62]], 62),
+  parados: crearRotulo([["$ 179.640 sin vender", "#c7655b", 60], ["desde marzo", "#c7655b", 60]], 60),
   q1: crearRotulo([["El stock real,", null, 54], ["a la vista", "#5ce611", 64]], 54),
   local: crearRotulo([["Venta en el local", null, 50], ["Verde −1 ✓", "#5ce611", 62]], 50),
-  q2: crearRotulo([["Ve, paga y elige el envío.", null, 50], ["Sin preguntar.", "#5ce611", 62]], 50),
+  q2: crearRotulo([["Ve el stock, paga", null, 56], ["y elige el envío.", "#5ce611", 62]], 56),
   q3: crearRotulo([["Un solo stock:", null, 54], ["tienda, local y por mayor", "#5ce611", 52]], 52),
   q4: crearRotulo([["Avisa sola", null, 56], ["cuando vuelve", "#5ce611", 64]], 56),
 };
@@ -854,11 +875,10 @@ function crearDinamico(Wg, H, fondo) {
 }
 const contador = crearDinamico(560, 130, "#16243d");
 // las 12 notificaciones "Pedido pagado ✓" que le llueven a Paola en la historia
-const NOTIS = Array.from({ length: 12 }, (_, i) => crearTarjeta(860, 118, (x, w, h) => {
-  x.fillStyle = "#5ce611"; x.beginPath(); x.arc(64, h / 2, 40, 0, 7); x.fill(); tilde(x, 64, h / 2 + 2, 42, "#0b1220");
-  x.fillStyle = "#0b1220"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 50); x.fillText("Pedido pagado ✓", 124, 42);
-  x.fillStyle = "#1f3254"; x.font = F(700, 36); x.fillText(["Freidora verde · Envío", "Freidora verde · Retiro", "Freidora verde · Envío"][i % 3], 124, 88);
-  x.fillStyle = "#5a6478"; x.font = F(700, 34); x.textAlign = "right"; x.fillText("ahora", w - 30, 42);
+const NOTIS = Array.from({ length: 12 }, (_, i) => crearTarjeta(900, 112, (x, w, h) => {
+  x.fillStyle = "#5ce611"; x.beginPath(); x.arc(60, h / 2, 38, 0, 7); x.fill(); tilde(x, 60, h / 2 + 2, 40, "#0b1220");
+  x.fillStyle = "#0b1220"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 54); x.fillText("Pedido pagado ✓", 116, 56);
+  x.fillStyle = "#1f3254"; x.font = F(800, 40); x.textAlign = "right"; x.fillText(["Verde · Envío", "Verde · Retiro", "Verde · Envío"][i % 3], w - 26, 56);
 }));
 // el marco de la historia (genérico: barras arriba, el avatar, el botón de grabar abajo; sin logos)
 const histT = lienzo(540, 960, (x, w, h) => {
@@ -891,7 +911,7 @@ const CAM_CUAD = (k) => [lerp(-1.3, -1.34, k), 1.5, lerp(2.08, 2.0, k), -1.2, 1.
 const CAM_GEN = (k) => [lerp(0.25, 0.2, k), lerp(1.7, 1.66, k), lerp(4.05, 3.9, k), 0.25, 0.95, 0.1, 56];
 const CAM_P4 = (k) => [lerp(-1.12, -1.14, k), 1.42, lerp(1.72, 1.58, k), -1.12, 1.22, -0.66, 40];
 const CAM_HUECO = (k) => [lerp(0.92, 0.86, k), lerp(1.72, 1.68, k), lerp(2.32, 2.2, k), -0.38, 0.98, 0.0, 50];
-const CAM_P6 = (k) => [lerp(-0.3, -0.26, k), lerp(0.62, 0.64, k), lerp(2.85, 2.7, k), 0.5, 0.8, 0.3, 58];
+const CAM_P6 = (k) => [lerp(-0.28, -0.24, k), lerp(0.72, 0.74, k), lerp(3.05, 2.9, k), 0.45, 0.92, 0.3, 58];
 const CAM_P7 = (k) => [lerp(0.3, 0.24, k), 1.42, lerp(3.02, 2.92, k), -0.8, 1.24, 0.86, 40];
 const CAM_PARED = (k) => [lerp(-1.2, 1.1, k), 1.2, -0.72, lerp(-1.2, 1.1, k) + 0.15, 1.05, -2.0, 64];
 const CAM_P8 = (k) => [lerp(0.62, 0.55, k), 1.42, lerp(3.4, 3.25, k), -0.62, 1.12, 0.86, 42];
@@ -905,8 +925,7 @@ const PLANOS = [
   ["P2", T.p2, [[T.p2, ...CAM_P1(1)], [T.p2 + 0.45, ...CAM_CUAD(0)], [T.p3, ...CAM_CUAD(1)]]],
   ["P3", T.p3, [[T.p3, ...CAM_GEN(0)], [T.p4, ...CAM_GEN(1)]]],
   ["P4", T.p4, [[T.p4, ...CAM_P4(0)], [T.p5, ...CAM_P4(1)]]],
-  ["P5", T.p5, null],   // el celular de Paola de cerca (el audio de Graciela, el chat con el reintegro)
-  ["P5b", T.p5b, [[T.p5b, ...CAM_HUECO(0)], [T.p6, ...CAM_HUECO(1)]]],
+  ["P5b", T.p5, [[T.p5, ...CAM_HUECO(0)], [T.p6, ...CAM_HUECO(1)]]],
   ["P6", T.p6, [[T.p6, ...CAM_P6(0)], [T.p7, ...CAM_P6(1)]]],
   ["P7", T.p7, [[T.p7, ...CAM_P7(0)], [T.p7b, ...CAM_P7(1)]]],
   ["P7b", T.p7b, [[T.p7b, ...CAM_PARED(0)], [T.p8, ...CAM_PARED(1)]]],
@@ -918,9 +937,7 @@ const PLANOS = [
   ["Q1i", T.q1i, null],   // el catálogo en el celular de Paola
   ["Q2", T.q2, [[T.q2, ...CAM_LIV(0)], [T.q2i, ...CAM_LIV(1)]]],
   ["Q2i", T.q2i, null],   // la compra en el celular de Graciela
-  ["Q3", T.q3, null],     // la tablet: el pedido #214
-  ["Q3b", T.q3b, [[T.q3b, ...CAM_ETQ(0)], [T.q3c, ...CAM_ETQ(1)]]],
-  ["Q3c", T.q3c, null],   // la tablet: el pedido por mayor
+  ["Q3", T.q3, null],     // (r1) la tablet: el pedido #214 y el pedido por mayor en un solo plano
   ["Q4", T.q4, [[T.q4, ...CAM_SCAN(0)], [T.q4t, ...CAM_SCAN(1)]]],
   ["Q4t", T.q4t, null],   // la tablet: el ingreso del contenedor
   ["Q4b", T.q4b, [[T.q4b, ...CAM_P8(0)], [T.q4c, ...CAM_P8(0.6)]]],
@@ -996,8 +1013,8 @@ function posePaola(t) {
   if (t < P2) {
     if (t < T.p4) {
       // P1-P3: trabajando en el aro de luz (la mano derecha en el celular del aro), segura
-      Object.assign(pr, mirar(PA.x, PA.z, PA.giro, ring, 1.48), { ojos: { abiertos: 1, x: 0, y: -0.4, feliz: 0.15 }, boca: { sonrisa: 0.3, abierta: 0, ancho: 1 }, cejas: { alto: 0.1, ang: 0 } });
-      pr.toca = 1;
+      Object.assign(pr, mirar(PA.x, PA.z, PA.giro, FR_MESA.clone().add(V3(0, 0.2, 0.2)), 1.48), { ojos: { abiertos: 1, x: 0.2, y: -0.35, feliz: 0.15 }, boca: { sonrisa: 0.3, abierta: 0, ancho: 1 }, cejas: { alto: 0.1, ang: 0 } });
+      pr.toca = 0;
       if (t >= T.p2) { const u = eio(sg(t, T.p2, T.p2 + 0.35)); pr.giro = lerp(PA.giro, 0.05, u); pr.toca = u < 0.4 ? 1 : 0; const m = mirar(PA.x, PA.z, pr.giro, cuaderno.getWorldPosition(new THREE.Vector3()), 1.48); pr.cabeza = { giro: lerp(pr.cabeza.giro, m.cabeza.giro, u), asiente: lerp(pr.cabeza.asiente, m.cabeza.asiente, u), ladea: 0.04 }; pr.ojos = { abiertos: 1, x: m.ojos.x * u, y: lerp(-0.4, m.ojos.y, u), feliz: 0.3 }; Object.assign(pr, { boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 }, cejas: { alto: 0.3, ang: 0.05 } }); }
       if (t >= T.p3) { pr.giro = lerp(0.05, 0.42, eio(sg(t, T.p3, T.p3 + 0.5))); Object.assign(pr, mirar(PA.x, PA.z, pr.giro, V3(0.5, 1.2, 0.6), 1.48)); pr.ojos = { abiertos: 0.95, x: 0, y: -0.45, feliz: 0.1 }; pr.boca = { sonrisa: 0.25, abierta: 0, ancho: 1 }; }
       bocaVoz(pr, t, T.pa1, ENV.pa1, 0.65);
@@ -1081,11 +1098,11 @@ function poseMica(t) {
     // P6: agachada al lado de la mesa: levanta el papel desde abajo (las manos siguen al rollo)
     Object.assign(pr, { x: MC.x, z: MC.z, giro: -1.35, paso: 0 });
     const up = eio(sg(t, T.sube, T.subeFin));
-    const s = lerp(0.85, 0.35, up);
-    pr.sentado = s; pr.y = -0.25 * (1 - Math.cos((s * Math.PI) / 2)) * 0.95; pr.inclina = lerp(0.32, 0.1, up);
+    const s = lerp(0.95, 0.45, up);
+    pr.sentado = s; pr.y = -0.25 * (1 - Math.cos((s * Math.PI) / 2)) * 0.95; pr.inclina = lerp(0.14, 0.06, up);
     pr.agarraRollo = 1;
     const mira = t >= T.mi2 - 0.1 ? 1 : 0;
-    Object.assign(pr, { cabeza: { giro: mira ? 0.55 : 0.1, asiente: mira ? -0.25 : 0.25, ladea: 0.05 }, ojos: { abiertos: 1, x: mira ? 0.5 : 0, y: mira ? 0.4 : -0.4, feliz: 0 }, cejas: { alto: mira ? 0.7 : 0.3, ang: 0.35 }, boca: { sonrisa: 0.0, abierta: 0, ancho: 0.9 } });
+    Object.assign(pr, { cabeza: { giro: mira ? 0.5 : 0.1, asiente: mira ? -0.1 : 0.2, ladea: 0.05 }, ojos: { abiertos: 1, x: mira ? 0.5 : 0, y: mira ? 0.4 : -0.4, feliz: 0 }, cejas: { alto: mira ? 0.7 : 0.3, ang: 0.35 }, boca: { sonrisa: 0.0, abierta: 0, ancho: 0.9 } });
     bocaVoz(pr, t, T.mi2, ENV.mi2, 0.65);
     return pr;
   }
@@ -1120,6 +1137,12 @@ function poseGraciela(t) {
   bocaVoz(pr, t, T.g3, ENV.g3, 0.65);
   return pr;
 }
+// (r1) la manta tejida crema sobre la falda de Graciela, que cae hasta el piso: tapa las rodillas y los pies
+const mantaG = new THREE.Group(); graciela.raiz.add(mantaG);
+{ const tej = lienzo(256, 256, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#d9d4c0"; x.lineWidth = 6; for (let i = 0; i < 16; i++) { x.beginPath(); for (let y = 0; y <= h; y += 16) x.lineTo(i * 16 + 8 + ((y / 16) % 2) * 6, y); x.stroke(); } });
+  const mm = new THREE.MeshStandardMaterial({ map: tej, roughness: 0.95 });
+  mantaG.add(mesh(rbox(0.5, 0.06, 0.44, 0.03, 2), mm, 0, 0.6, 0.2)); mantaG.add(mesh(rbox(0.52, 0.6, 0.06, 0.03, 2), mm, 0, 0.32, 0.43));
+  mantaG.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.52, 10).rotateZ(Math.PI / 2), mm, 0, 0.62, 0.42)); sombras(mantaG); }
 // ---------- Walter en el local (Q1) ----------
 function poseWalter(t) {
   const pr = { x: WLOC.x, y: 0, z: WLOC.z, giro: -Math.PI / 2, inclina: 0.03, ...CARA.sonrisa, ...BRAZOS.costado, t };
@@ -1161,8 +1184,9 @@ function renderAt(tIn) {
   papelRollo.visible = !parte2 && t >= T.p6 - 0.01 && up < 0.995; papelRollo.position.y = PT - 0.012 - PT * (1 - up) + 0.03;
   papelRollo.rotation.x = up * 9;
   rolloNuevo.visible = !parte2 && t >= T.p6 - 0.01; rolloNuevo.position.set(1.22, 0.05, 0.28); rolloNuevo.rotation.set(0, 0.4, Math.PI / 2);
-  cuaderno.visible = !parte2; dibujarCuaderno(!parte2 && t >= T.rot[0] && t < T.p6);
+  cuaderno.visible = !parte2;
   tabP.visible = pilaTab.visible = IMP.visible = parte2;
+  for (const m of pilas) m.visible = !parte2; for (const m of pilas2) m.visible = parte2;
   pilaLlega.visible = parte2 && t >= T.q4 - 0.01;
   plantita.position.set(parte2 ? -0.38 : 0.36, PT, -0.22);
   IMP.position.set(0.36, PT, -0.25); IMP.rotation.y = -0.2;
@@ -1172,10 +1196,10 @@ function renderAt(tIn) {
   if (frFoto.parent !== scene) scene.add(frFoto);
   frFoto.position.copy(FR_MESA); frFoto.rotation.set(0, 0.32, 0);
   // la caja del pedido (Q3), la de Walter (Q1), la etiqueta
-  cajaPedido.visible = parte2 && t >= T.q3 && t < T.q4; cajaPedido.position.set(0.25, PT + 0.2, 0.16); cajaPedido.rotation.set(0, -0.15, 0);
+  cajaPedido.visible = false; cajaPedido.position.set(0.25, PT + 0.2, 0.16); cajaPedido.rotation.set(0, -0.15, 0);
   cajaWalter.visible = parte2 && t < T.q1b;
-  etiqueta.scale.y = parte2 ? cl(sg(t, T.imprime, T.imprime + 0.45)) + 0.001 : 0.001; etiqueta.visible = parte2 && t >= T.imprime && t < T.pega - 0.32;
-  etiquetaCaja.visible = parte2 && t >= T.pega - 0.32 && t < T.q4;
+  etiqueta.visible = false;
+  etiquetaCaja.visible = false;
   pistola.visible = parte2 && t >= T.q4 && t < T.q4b; rayo.visible = false;
   // ---- pantallas ----
   dibujarCelP(t);
@@ -1191,7 +1215,7 @@ function renderAt(tIn) {
     // la mano derecha en el celular del aro (P1-P3)
     if (pp.toca) { ARO.userData.cab.updateMatrixWorld(true); const w = ARO.userData.cab.localToWorld(V3(0.0, -0.02, -0.06)); pp.manoD = aCuerpo(paola, w); pp.codoD = [-1, -0.5, -0.3]; pp.manoI = [0.27, -0.06, 0.06]; }
     paola.poner(pp);
-    const enMica = !parte2 ? (t >= T.p3 - 0.01 && t < T.p4) || (t >= T.p6 && t < T.p7) : (t < T.q1b) || (t >= T.q3b && t < T.q3c) || (t >= T.q4 && t < T.q4b);
+    const enMica = !parte2 ? (t >= T.p3 - 0.01 && t < T.p4) || (t >= T.p6 && t < T.p7) : (t < T.q1b) || (t >= T.q4 && t < T.q4b);
     if (enMica) {
       mica.raiz.visible = true; const pm = poseMica(t);
       if (pm.lleva) {
@@ -1257,15 +1281,15 @@ function renderAt(tIn) {
       celP.position.copy(cab.localToWorld(V3(0, 0.0, -0.01))); celP.lookAt(caraDe(paola));
     } else {
       const selfie = (t >= T.p8 && !parte2) || (parte2 && t >= T.q4b);
-      celEnManos(celP, paola, selfie ? caraDe(paola) : caraDe(paola), selfie ? 0.06 : 0.08, selfie ? 0.05 : 0.07);
+      celEnManos(celP, paola, selfie ? caraDe(paola) : caraDe(paola).add(V3(0.25, -0.25, 0.9)), selfie ? 0.06 : 0.1, selfie ? 0.05 : 0.08);
       if (parte2 && t < T.q1i) { celEnManos(celP, paola, FR_MESA2.clone().add(V3(0, 0.15, 0)), 0.08, 0.06); celP.rotateY(Math.PI); }
     }
   }
-  if (lugar === "liv") { graciela.raiz.updateMatrixWorld(true); celEnManos(celG, graciela, caraDe(graciela), 0.1, 0.1); celG.visible = true; }
+  if (lugar === "liv") { graciela.raiz.updateMatrixWorld(true); celEnManos(celG, graciela, caraDe(graciela).add(V3(0.2, -0.2, 0.9)), 0.12, 0.1); celG.visible = true; }
   // ---- cámara ----
   if (pl[2] && pa !== "portada") ponerCam(catmull(pl[2], t), t);
   const insertoCel = (cel, t0, t1, llena = 0.64) => {
-    const { v, up } = vistaPantalla(cel, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, llena, 40, 0.014);
+    const { v, up } = vistaPantalla(cel, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * CEL_K, llena, 40, 0.014);
     const k = sg(t, t0, t1); const v2 = v.slice(); for (let i = 0; i < 3; i++) v2[i] += (v[i] - v[i + 3]) * 0.06 * (1 - k);
     ponerVista(v2, v2, 0, up, up);
   };
@@ -1275,30 +1299,28 @@ function renderAt(tIn) {
     const k = sg(t, t0, t1); const v2 = v.slice(); for (let i = 0; i < 3; i++) v2[i] += (v[i] - v[i + 3]) * 0.05 * (1 - k);
     ponerVista(v2, v2, 0, up, up); void W;
   };
-  if (["P5", "Q1i"].includes(pa)) paola.raiz.visible = false;
-  ARO.visible = !["P5", "Q1i", "Q3", "Q3c", "Q4t"].includes(pa);
+  if (pa === "Q1i") paola.raiz.visible = false;
+  ARO.visible = !["Q1i", "Q3", "Q4t"].includes(pa);
   if (pa === "Q4t") mica.raiz.visible = false;
   if (pa === "Q2i") graciela.raiz.visible = false;
-  if (pa === "P5") insertoCel(celP, T.p5, T.p5b);
   if (pa === "Q1i") insertoCel(celP, T.q1i, T.q2);
   if (pa === "Q2i") insertoCel(celG, T.q2i, T.q3);
-  if (pa === "Q3") insertoTab(T.q3, T.q3b);
-  if (pa === "Q3c") insertoTab(T.q3c, T.q4);
+  if (pa === "Q3") insertoTab(T.q3, T.q4);
   if (pa === "Q4t") insertoTab(T.q4t, T.q4b);
   if (pa === "P8b" || pa === "Q4c" || pa === "Q5") {
     // contraplano: la cámara es el celular en modo historia (la cara de Paola, la mesa y el aro detrás)
     celP.updateMatrixWorld(true); const c = caraDe(paola), p = celP.getWorldPosition(new THREE.Vector3());
     const dir = p.clone().sub(c).setY(0).normalize();
     const k = pa === "Q5" ? eio(sg(t, T.q5, DUR)) : sg(t, pl[1], pl[1] + 1.2);
-    const pos = c.clone().add(dir.multiplyScalar(lerp(1.25, 1.12, k))).add(V3(0, 0.04, 0));
+    const pos = c.clone().add(dir.multiplyScalar(pa === "Q5" ? lerp(1.6, 1.48, k) : lerp(1.25, 1.12, k))).add(V3(0, pa === "Q5" ? 0.12 : 0.04, 0));
     camera.up.set(0, 1, 0); camera.position.copy(pos); camera.fov = pa === "Q5" ? 50 : 52; camera.updateProjectionMatrix();
-    camera.lookAt(c.x, c.y - (pa === "Q5" ? 0.12 : 0.06), c.z); celP.visible = false;
+    camera.lookAt(c.x, c.y + (pa === "Q5" ? 0.08 : -0.06), c.z); celP.visible = false;
   }
   if (pa === "portada") {
     paola.raiz.visible = true;
     paola.poner({ ...posePaola(T.p7 + 0.3), ...CARA.incredula, ojos: { abiertos: 0.95, x: 0.0, y: 0.05, tension: 0.2 }, cejas: { alto: 0.35, ang: 0.45, asim: 0.5 }, boca: { sonrisa: -0.3, abierta: 0.05, ancho: 0.85 }, cabeza: { giro: 0.0, asiente: 0.0, ladea: 0.05 }, t: 1 });
-    papelFrente.visible = true; papelFrente.scale.y = 0.45; papelRollo.visible = true; papelRollo.position.y = PT - 0.012 - PT * 0.45 + 0.03;
-    ponerCam([-0.02, 1.45, 3.15, -0.42, 1.0, 0.3, 50], t, true);
+    papelFrente.visible = false; papelRollo.visible = true; papelRollo.position.y = PT + 0.02;
+    ponerCam([-0.02, 1.62, 3.15, -0.42, 0.95, 0.3, 50], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
@@ -1317,24 +1339,24 @@ function tarjetas(t, pa) {
   const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
   const celPx = () => objPx(celP, V3(0, 0.05, 0.01));
   if (pa === "P1" && t >= T.g1 - 0.05) { const [cx, cy] = celPx(); ponerGlobo(GL.g1, 600, 1500, ent(T.g1 - 0.05), [cx, cy + 20], 1); }
-  if (pa === "P2" && t >= T.pa1 - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa1, 560, 560, ent(T.pa1 - 0.04), [hx, hy + 6], 1); }
+  if (pa === "P2" && t >= T.pa1 - 0.04) hablar(GL.pa1, paola, ent(T.pa1 - 0.04), 1, 0, 220);   // (r1) la cola a Paola, nunca hacia arriba
   if (pa === "P3") {
     const [cx, cy] = celPx();
     if (t < T.mi1 + 0.6) { ponerGlobo(ROT.pagado, 400, 1560, ent(T.pagado), null, 2); ponerGuia(GUIAS[0], 400, 1500, cx, cy + 30, sg(t, T.pagado + 0.05, T.pagado + 0.25)); }
     if (t >= T.mi1 - 0.04) hablar(GL.mi1, mica, ent(T.mi1 - 0.04), 1, 0, 260);
   }
   if (pa === "P4") {
-    if (t >= T.pa2 - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa2, 540, 330, ent(T.pa2 - 0.04), [hx, hy + 6], 1); }
-    if (t >= T.reint) ponerGlobo(ROT.reint, 540, 1600, ent(T.reint), null, 2);
+    if (t >= T.pa2 - 0.04 && t < T.g2) hablar(GL.pa2, paola, ent(T.pa2 - 0.04), 1, 0, 200);
+    if (t >= T.reint) ponerGlobo(ROT.reint, 540, 1660, ent(T.reint), null, 2);
+    if (t >= T.g2 - 0.05) { const [cx, cy] = celPx(); ponerGlobo(GL.g2, 540, 300, ent(T.g2 - 0.05), [cx, cy], 1); }
   }
-  if (pa === "P5" && t >= T.g2 - 0.05) ponerGlobo(GL.g2, 540, 300, ent(T.g2 - 0.05), null, 1);
   if (pa === "P5b") {
     ponerGlobo(GL.g2, 540, 1560, 1, null, 1);
     const h = objPx(MESA, V3(0.0, PT + 0.12, 0.05)), c = celPx();
     if (t >= T.rot[0]) { ponerGlobo(ROT.dos, 640, 330, ent(T.rot[0]), null, 3); ponerGuia(GUIAS[0], 640, 380, h[0], h[1], sg(t, T.rot[0] + 0.05, T.rot[0] + 0.3)); }
     if (t >= T.rot[1]) { ponerGlobo(ROT.perdida, 420, 490, ent(T.rot[1]), null, 4); ponerGuia(GUIAS[1], 300, 535, c[0], c[1], sg(t, T.rot[1] + 0.05, T.rot[1] + 0.3)); }
   }
-  if (pa === "P6" && t >= T.mi2 - 0.04) hablar(GL.mi2, mica, ent(T.mi2 - 0.04), 1, -60, 260);
+  if (pa === "P6" && t >= T.mi2 - 0.04) hablar(GL.mi2, mica, ent(T.mi2 - 0.04), 1, -60, 160);
   if (pa === "P7" && t >= T.pa3 - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa3, 560, Math.min(400, hy - 160), ent(T.pa3 - 0.04), [hx, hy + 6], 1); }
   if (pa === "P7b") {
     ponerGlobo(GL.pa3, 540, 1600, 1, null, 1);
@@ -1351,18 +1373,18 @@ function tarjetas(t, pa) {
   if (pa === "Q1i") { ponerGlobo(GL.pa5, 540, 1700, 1, null, 1); ponerGlobo(ROT.q1, 540, 215, ent(T.q1i + 0.15), null, 2); }
   if (pa === "Q2" && t >= T.g3 - 0.04) hablar(GL.g3, graciela, ent(T.g3 - 0.04), 1, 0, 260);
   if (pa === "Q2i") { if (t < T.g3 + LEN.g3 + 0.2) ponerGlobo(GL.g3, 540, 1700, 1, null, 1); ponerGlobo(ROT.q2, 540, 215, ent(T.q2i + 0.2), null, 2); }
-  if (pa === "Q3c") ponerGlobo(ROT.q3, 540, 330, ent(T.q3c + 0.3), null, 2);
+  if (pa === "Q3") { if (t >= T.mayor + 0.35) ponerGlobo(ROT.q3, 540, 330, ent(T.mayor + 0.35), null, 2); if (t >= T.mi3 - 0.04 && t < T.mi3 + LEN.mi3 + 0.4) ponerGlobo(GL.mi3, 540, 1560, ent(T.mi3 - 0.04), null, 3); }
   if (pa === "Q4t" && t >= T.quedan40) ponerGlobo(ROT.q4, 540, 330, ent(T.quedan40), null, 2);
   if (pa === "Q4b" && t >= T.pa4b - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa4b, 560, Math.min(420, hy - 150), ent(T.pa4b - 0.04), [hx, hy + 6], 1); }
   if (pa === "Q4c") {
     ponerGlobo(GL.pa4b, 540, 1560, 1, null, 1);
     const n = T.notis.filter((a) => t >= a).length;
-    for (let i = 0; i < n; i++) { const k = n - 1 - i; if (k > 3) continue; ponerGlobo(NOTIS[i], 540, 240 + k * 126, k === 0 ? ent(T.notis[i]) : 1, null, 6 + (6 - k)); }
-    if (n > 0) { contador.userData.poner(`Quedan ${40 - n}`, "#5ce611"); ponerGlobo(contador, 540, 1330, ent(T.notis[0]), null, 5); }
+    for (let i = 0; i < n; i++) { const k = n - 1 - i; if (k > 2) continue; ponerGlobo(NOTIS[i], 540, 205 + k * 118, k === 0 ? ent(T.notis[i]) : 1, null, 6 + (6 - k)); }
+    if (n > 0) { contador.userData.poner(`Quedan ${36 - n}`, "#5ce611"); ponerGlobo(contador, 540, 1330, ent(T.notis[0]), null, 5); }
   }
   if (pa === "Q4d") {
-    contador.userData.poner("Quedan 28", "#5ce611"); ponerGlobo(contador, 300, 1650, 1, null, 2);
-    if (t >= T.pa6 - 0.04) { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa6, 560, Math.min(420, hy - 150), ent(T.pa6 - 0.04), [hx, hy + 6], 1); }
+    contador.userData.poner("Quedan 24", "#5ce611"); ponerGlobo(contador, 300, 1650, 1, null, 2);
+    { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa6, 560, Math.min(420, hy - 150), ent(T.q4d), [hx, hy + 6], 1); }   // (r1) la burbuja entra con el corte
   }
 }
 

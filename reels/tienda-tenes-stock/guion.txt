@@ -14,7 +14,7 @@ GRACIELA (audio): Ay. Bueno, la compro en otro lado.
 MICA: Pao. ¿Y estas cajas?
 [12,70-14,30 · primer plano de Paola, cara de nada · pausita]
 PAOLA: Del contenedor de marzo.
-[13,70 · la cámara recorre la pared del fondo: muchas más cajas con la franja verde · rótulos: "40 verdes sin cargar" / "$ 199.600 parados desde marzo" (rojo apagado)]
+[13,70 · la cámara recorre la pared del fondo: muchas más cajas con la franja verde · rótulos: "36 verdes sin cargar" / "$ 179.640 sin vender desde marzo" (rojo apagado)]
 [14,30-16,20 · remate del remate · Paola, sin pestañear, levanta el celular en modo historia delante del pecho, sonrisa de vendedora de redes, las cajas detrás]
 PAOLA: ¡Hola! ¡Ingreso nuevo!
 [stinger]
@@ -29,10 +29,11 @@ PAOLA: Ya lo sabe la tienda.
 [22,60-26,40 · Q2 · el living de Graciela, en el sillón, celular a la altura del pecho · inserto: Verde "Queda 1"]
 GRACIELA: Queda una. ¡Mía!
 [toca "Comprar" → "Envío a domicilio · $ 190" → "Pagar con tarjeta o débito" → "Pagado ✓" · el catálogo: Verde "Sin stock" sola, con "Avisarme cuando vuelva" · rótulo "Ve, paga y elige el envío. Sin preguntar."]
-[26,40-29,80 · Q3 · el depósito · la tablet de Paola: "Pedido #214 · Graciela · Freidora 4 L verde · Pagado ✓ · Envío a domicilio · Listo para despachar ✓" · la impresora escupe la etiqueta, Mica la pega en la caja · entra "Pedido por mayor · Bazar del Puerto · 10 azules" y "Azul: 25 → 15" · rótulo "Un solo stock: tienda, local y por mayor"]
-[29,80-34,60 · Q4 · chip "Llegó el contenedor." · Mica pasa la pistola lectora por las cajas verdes: "Verde: 0 → 40" · el catálogo: "Sin stock" → "Quedan 40" · Paola levanta el celular en modo historia, el mismo encuadre de la parte 1]
+[26,40-29,80 · Q3 · el depósito · la tablet de Paola: "Pedido #214 · Graciela · Freidora 4 L verde · Pagado ✓ · Envío a domicilio · Listo para despachar ✓" · (r1, sin la impresora: un solo plano de la tablet) · entra "Pedido por mayor · Bazar del Puerto · 10 azules" y "Azul: 25 → 15" · rótulo "Un solo stock: tienda, local y por mayor"]
+MICA: ¡Diez azules para el Bazar!
+[29,80-34,60 · Q4 · chip "Llegó el contenedor." · Mica pasa la pistola lectora por las cajas verdes: "Verde: 0 → 36" · el catálogo: "Sin stock" → "Quedan 36" · Paola levanta el celular en modo historia, el mismo encuadre de la parte 1]
 PAOLA: ¡Hola! ¡Ingreso nuevo!
-[el MISMO audio de la parte 1 · le llueven 12 "Pedido pagado ✓" · "Les avisamos a 12 que esperaban" · "Quedan 40 → 28" · rótulo "Avisa sola cuando vuelve" · Paola baja el celular]
+[el MISMO audio de la parte 1 · le llueven 12 "Pedido pagado ✓" · "Les avisamos a 12 que esperaban" · "Quedan 36 → 24" · rótulo "Avisa sola cuando vuelve" · Paola baja el celular]
 PAOLA: Ya se enteraron.
 [34,60-38,60 · cierre · Paola en la mesa de fotos con patas, la freidora verde al lado, el aro de luz · graba su historia, de frente · texto grande: "Comentá STOCK" (STOCK en el recuadro verde de selección) · el panel chico: "Ventas dobles: 0" · "Cajas sin cargar: 0"]
 PAOLA: Comentá STOCK y te mando cómo funciona para tu importadora.

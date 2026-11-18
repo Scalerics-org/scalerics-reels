@@ -1,6 +1,6 @@
 # medir.py: momentánea (LUFS, ventana 400 ms) de stem-voz y stem-resto por tramos de 0,5 s, con la ganancia final aplicada
 import subprocess, re, sys
-g = float(open("assets/audio/ganancia.txt").read()) + 6  # el bus pasa por +6 dB antes del limitador
+g = float(open("assets/audio/ganancia.txt").read())  # (r1) la ganancia del bus, aplicada antes del limitador
 def mom(f):
     out = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", f, "-af", f"volume={g}dB,ebur128", "-f", "null", "-"], capture_output=True, text=True).stderr
     return [(float(a), float(b)) for a, b in re.findall(r"t:\s*([\d.]+)\s+TARGET.*?M:\s*(-?[\d.]+)", out)]
