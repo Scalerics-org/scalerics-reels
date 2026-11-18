@@ -162,7 +162,7 @@ function crearAuto(color, patente) {
   { const esc = mesh(new THREE.CylinderGeometry(0.035, 0.035, 2.2, 10), M.acero, -0.35, 0.22, -0.4); esc.rotation.x = Math.PI / 2; g.add(esc); g.add(caja(0.3, 0.12, 0.45, M.acero, -0.35, 0.21, -1.25, 0.04)); }
   const ruedas = [];
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) { const r = crearRueda(); r.position.set(sx * (W / 2 - 0.08), 0.3, sz * 1.05); g.add(r); r.userData = { sx, sz }; ruedas.push(r); }
-  g.userData = { ruedas, capot, rueda: (sx, sz) => ruedas.find((r) => r.userData.sx === sx && r.userData.sz === sz) };
+  g.userData = { patentes: g.children.filter((o) => o.isMesh && o.material.map === patenteT), ruedas, capot, rueda: (sx, sz) => ruedas.find((r) => r.userData.sx === sx && r.userData.sz === sz) };
   return sombras(g);
 }
 
@@ -179,7 +179,7 @@ const BANCO = { x: -1.82, z0: 0.9, z1: 3.3, alto: 0.94, prof: 0.7 };
 const ALTO_EL = 2.05;
 const PANEL = { x0: -4.6, x1: -2.5, y0: 0.95, y1: 2.15 };
 const BOTONERA = { x: -1.62, z: -1.35 };
-const PIZ = { x: 2.75, y: 1.62, w: 1.5, h: 1.0 };   // la pizarra de turnos (pared del fondo, a la derecha del portón)
+const PIZ = { x: 2.7, y: 1.62, w: 2.1, h: 1.4 };   // la pizarra de turnos (pared del fondo, a la derecha del portón)
 const bloqueT = lienzo(512, 512, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#1f3254"; for (let i = 0; i < 4; i++) { x.fillRect(0, i * 128, w, 6); for (let j = 0; j < 3; j++) x.fillRect(((j * 2 + (i % 2)) * 256) / 2 % w, i * 128, 6, 128); } });
 bloqueT.wrapS = bloqueT.wrapT = THREE.RepeatWrapping;
 let luzPorton;
@@ -333,7 +333,7 @@ dibujarPizarra(0, 0);
 // ---- el tablero de llaves (madera navy3 con ganchos y etiquetas kraft), a la derecha de la pizarra ----
 const LLAVES = ["GRACIELA", "WALTER", "SERGIO", "DANIEL", "FABIÁN"];
 {
-  const g = new THREE.Group(); g.position.set(4.25, 1.55, ZF + 0.12); SET.add(g);
+  const g = new THREE.Group(); g.position.set(4.55, 1.55, ZF + 0.12); SET.add(g);
   g.add(caja(0.9, 0.62, 0.04, M.navy3, 0, 0, 0, 0.02));
   LLAVES.forEach((n, i) => {
     const cx = -0.34 + (i % 3) * 0.34, cy = 0.15 - Math.floor(i / 3) * 0.3;
@@ -355,19 +355,24 @@ const autoD = crearAuto(0x4d6a96, "STR 7720"); scene.add(autoD);
 const RUEDA_D = autoD.userData.rueda(1, 1);          // la delantera izquierda: está apoyada contra la columna
 const ruedaSuelta = crearRueda(); ruedaSuelta.position.set(COL[1] + 0.5, 0.3, LZ + 0.55); ruedaSuelta.rotation.set(0, 0.25, -0.12); scene.add(ruedaSuelta);
 // la bomba de agua (vista desde abajo del motor): el bloque, la bomba gris con la polea, la correa, dos mangueras
-const BOMBA = new THREE.Group(); autoD.add(BOMBA); BOMBA.position.set(0.3, 0.12, 1.36); BOMBA.scale.setScalar(1.35);
-const bombaM = mat(0xc4c8cf, 0.45, { metalness: 0.15 }), bombaNueva = mat(0xdfe3e8, 0.3, { metalness: 0.3 });
+const BOMBA = new THREE.Group(); autoD.add(BOMBA); BOMBA.position.set(0.5, 0.13, 1.22); BOMBA.rotation.y = Math.PI / 2; BOMBA.scale.setScalar(1.45);
+const bombaM = mat(0xb9c0c8, 0.4, { metalness: 0.25 }), bombaNueva = mat(0xe4e8ec, 0.25, { metalness: 0.35 });
 {
   autoD.add(caja(0.8, 0.22, 0.6, mat(0x3a3f4a, 0.55), 0, 0.2, 1.0, 0.04));   // el bloque del motor
-  const cuerpo = mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.12, 20), bombaM, 0, 0, 0); cuerpo.rotation.x = Math.PI / 2; BOMBA.add(cuerpo); BOMBA.userData.cuerpo = cuerpo;
-  const polea = mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.03, 24), M.navy3, 0, 0, 0.08); polea.rotation.x = Math.PI / 2; BOMBA.add(polea);
-  const humedo = mesh(new THREE.SphereGeometry(1, 14, 10), new THREE.MeshStandardMaterial({ color: 0x3d6e2c, roughness: 0.15, transparent: true, opacity: 0.8 }), 0, -0.07, 0.0); humedo.scale.set(0.06, 0.025, 0.05); BOMBA.add(humedo); BOMBA.userData.humedo = humedo;
-  const correa = mesh(new THREE.TorusGeometry(0.1, 0.012, 6, 30), M.navy, -0.04, 0.03, 0.09); BOMBA.add(correa);
-  for (const [dx, rz] of [[-0.12, 0.6], [0.1, -0.5]]) { const m = mesh(new THREE.CylinderGeometry(0.025, 0.025, 0.3, 10), M.goma, dx, 0.02, -0.12); m.rotation.set(Math.PI / 2, 0, rz); BOMBA.add(m); }
+  // la brida atornillada al bloque, el cuerpo de aluminio, la polea navy con cuatro tornillos crema y el cubo
+  BOMBA.add(caja(0.22, 0.2, 0.03, M.acero, 0, 0, -0.07, 0.03));
+  const cuerpo = mesh(new THREE.CylinderGeometry(0.075, 0.09, 0.12, 22), bombaM, 0, 0, 0); cuerpo.rotation.x = Math.PI / 2; BOMBA.add(cuerpo); BOMBA.userData.cuerpo = cuerpo;
+  const polea = mesh(new THREE.CylinderGeometry(0.12, 0.12, 0.035, 28), M.navy3, 0, 0, 0.08); polea.rotation.x = Math.PI / 2; BOMBA.add(polea);
+  const ranura = mesh(new THREE.TorusGeometry(0.12, 0.01, 6, 28), M.navy, 0, 0, 0.08); BOMBA.add(ranura);
+  for (let k = 0; k < 4; k++) { const a = (k / 4) * Math.PI * 2 + 0.4; BOMBA.add(mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.02, 10).rotateX(Math.PI / 2), M.cr, Math.cos(a) * 0.06, Math.sin(a) * 0.06, 0.1)); }
+  BOMBA.add(mesh(new THREE.CylinderGeometry(0.028, 0.028, 0.03, 14).rotateX(Math.PI / 2), M.acero, 0, 0, 0.11));
+  // dos mangueras negras que salen del cuerpo hacia el motor
+  for (const [dx, dy, rz] of [[-0.1, 0.06, 0.9], [0.1, 0.07, -0.9]]) { const m = mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.22, 10), M.goma, dx, dy, -0.02); m.rotation.set(0, 0, rz); BOMBA.add(m); }
+  const humedo = mesh(new THREE.SphereGeometry(1, 14, 10), new THREE.MeshStandardMaterial({ color: 0x7fc4dd, roughness: 0.1, transparent: true, opacity: 0.85 }), 0, -0.08, 0.0); humedo.scale.set(0.06, 0.02, 0.06); BOMBA.add(humedo); BOMBA.userData.humedo = humedo;
 }
 const BANDEJA = caja(0.5, 0.05, 0.36, M.navy3, LX + 0.28, 0.025, LZ + 1.15, 0.02); scene.add(BANDEJA);
-const charco = mesh(new THREE.CircleGeometry(0.1, 20), mat(0x365f28, 0.2, { transparent: true, opacity: 0.85 }), LX + 0.28, 0.052, LZ + 1.15); charco.rotation.x = -Math.PI / 2; scene.add(charco);
-const GOTA = mesh(new THREE.SphereGeometry(0.026, 12, 10), new THREE.MeshStandardMaterial({ color: 0x5fae3c, emissive: 0x2f6a1e, emissiveIntensity: 0.4, roughness: 0.1, transparent: true, opacity: 0.9 })); GOTA.scale.set(1, 1.5, 1); scene.add(GOTA);
+const charco = mesh(new THREE.CircleGeometry(0.11, 20), mat(0x7fc4dd, 0.15, { transparent: true, opacity: 0.85 }), LX + 0.28, 0.052, LZ + 1.15); charco.rotation.x = -Math.PI / 2; scene.add(charco);
+const GOTA = mesh(new THREE.SphereGeometry(0.02, 12, 10), new THREE.MeshStandardMaterial({ color: 0x9fd8ec, emissive: 0x4a8aa0, emissiveIntensity: 0.35, roughness: 0.05, transparent: true, opacity: 0.92 })); GOTA.scale.set(1, 1.5, 1); scene.add(GOTA);
 // el auto de Graciela (crema, en cuatro caballetes navy)
 const autoG = crearAuto(0xefeee5, "SAB 3315"); scene.add(autoG);
 const GZ = 1.0, GX = 0.15, LIFT = 0.42;
@@ -553,8 +558,8 @@ const FONDO = { taller: 0xe9ece6, rot: 0xf4f4ef, bus: 0xcfdbe6 };
 // LOS PERSONAJES
 // =====================================================================================================
 const oscar = crearPersonaje({ ...ELENCO.oscar, franja: null, cuelloAlto: 0.03, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [r2(T.cortes[1] + 0.06), r2(T.q5 + 0.08)] });
-const maxi = crearPersonaje({ ...ELENCO.maxi, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
-const daniel = crearPersonaje({ ...ELENCO.daniel, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
+const maxi = crearPersonaje({ ...ELENCO.maxi, mangas: "largas", dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
+const daniel = crearPersonaje({ ...ELENCO.daniel, lentesFinos: true, sinPatillas: true, dedos: true, parpadeoCada: 999, parpadeoDur: 0.08, parpadeosExtra: [] });
 const graciela = crearPersonaje({ ...ELENCO.clienta, lentesFinos: true, sinPatillas: true, delantal: C.cr, delantalBorde: C.navy3, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const pasajeros = [
   crearPersonaje({ ...DEFECTO, nombre: "Pasajera", piel: PIEL.media, pelo: PELO.negro, peinado: "rodete", camisa: 0x9fb3c9, mangas: "largas", pantalon: C.navy2, labios: 0xb5555a, parpadeoCada: 999 }),
@@ -797,10 +802,9 @@ const GL = {
   w1: crearGlobo(["¿Está [pronto?]"], 72, { ...CAB("walter", "Walter"), minW: 560 }),
   o2: crearGlobo(["A la tarde."], 80),
   k0: crearGlobo(["¿Está [pronto?]"], 72, { ...CAB("walter", "Walter"), minW: 560 }),
-  k1: crearGlobo(["¿Y? ¿Está [pronto?]"], 70, CAB("sergio", "Sergio")),
-  k2: crearGlobo(["¿Está [pronto?]"], 72, { ...CAB("silvia", "Silvia"), minW: 560 }),
-  k3: crearGlobo(["Óscar, ¿[y?]"], 74, { ...CAB("graciela", "Graciela"), minW: 560 }),
-  m1: crearGlobo(["Jefe, el de Daniel:", "pierde la", "[bomba de agua.]"], 64),
+  k1: crearGlobo(["¿Está [pronto?]"], 72, { ...CAB("silvia", "Silvia"), minW: 560 }),
+  k2: crearGlobo(["Óscar, ¿[y?]"], 74, { ...CAB("graciela", "Graciela"), minW: 560 }),
+  m1: crearGlobo(["Jefe, el de Daniel:", "pierde la", "[bomba de agua.]"], 56),
   o3: crearGlobo(["¡[Daniel!]"], 96),
   d1: crearGlobo(["Óscar, ¿está [pronto?]"], 72, { ...CAB("daniel", "Daniel"), minW: 720 }),
   o4: crearGlobo(["Está pronto", "para [empezar.]"], 84),
@@ -812,7 +816,7 @@ const GL = {
 };
 const ROT_ = {
   elev: crearRotulo([["Elevador ocupado:", null, 46], ["martes y miércoles", "#e08377", 56]], 46),
-  serv: crearRotulo([["4 services que no entraron:", null, 44], ["$ 26.000", "#e08377", 70]], 44),
+  serv: crearRotulo([["4 services que no entran:", null, 46], ["$ 26.000", "#e08377", 74]], 46),
   enviado: crearRotulo([["Aviso enviado ✓", "#5ce611", 52]], 52),
   aviso: crearRotulo([["Lo marcás con un toque", null, 48], ["y le avisa solo", "#5ce611", 58]], 48),
   panel: crearRotulo([["Cada auto y su estado,", null, 48], ["en un panel", "#5ce611", 58]], 48),
@@ -830,7 +834,7 @@ const GUIAS = [crearGuia(), crearGuia()];
 // ---- el celular de Óscar: la llamada entrante, en llamada, P3 (llamando / no contesta / el chat), la parte 2 ----
 const LLAMADAS = [
   [T.ring1, T.o1 + LEN.o1 + 0.1, "graciela", "Graciela"],
-  ...T.cortes.map((c, i) => [c, i < 3 ? c + 0.42 : T.piz, ["walter", "sergio", "silvia", "graciela"][i], ["Walter", "Sergio", "Silvia", "Graciela"][i]]),
+  ...T.cortes.map((c, i) => [c, i < 2 ? c + 0.42 : T.piz, ["walter", "silvia", "graciela"][i], ["Walter", "Silvia", "Graciela"][i]]),
   [T.p5 - 0.1, T.p6 + 3, "daniel", "Daniel"], [T.ring7, P1, "graciela", "Graciela"],
 ];
 const ATIENDE = [T.g1 - 0.08, ...T.cortes.map((c) => c + 0.05), T.o3 - 0.1, P1 + 1];   // desde cuándo está en llamada
@@ -863,7 +867,7 @@ function dibujarCelO(t) {
     const no = estado.startsWith("no");
     avatar(x, AVATAR.daniel, W / 2, 380, 170);
     x.fillStyle = "#efeee5"; x.font = F(900, 92); x.fillText("DANIEL", W / 2, 650);
-    if (no) { x.fillStyle = "#c7655b"; rr(x, 50, 760, W - 100, 150, 75); x.fillStyle = "#efeee5"; x.font = F(900, 78); x.fillText("No contesta", W / 2, 838); }
+    if (no) { x.fillStyle = "#c7655b"; rr(x, 40, 760, W - 80, 150, 75); x.fillStyle = "#efeee5"; x.font = F(900, 66); x.fillText("No contesta", W / 2, 838); }
     else { x.fillStyle = "#efeee5"; x.font = F(800, 62); x.fillText("Llamando…", W / 2, 830); }
     x.fillStyle = "#c7655b"; x.beginPath(); x.arc(W / 2, 1060, 80, 0, 7); x.fill();
   } else if (estado.startsWith("chat")) {
@@ -885,7 +889,6 @@ function dibujarCelO(t) {
     x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, "Aviso enviado", 900, 58, W - 230); x.fillText("Aviso enviado", 180, 470);
     x.font = F(800, 48); x.fillText("Graciela", 60, 590); x.fillStyle = "#3fa60a"; x.fillText("En diagnóstico", 60, 680);
   }
-  if (estado !== "apagado") huellas(x, W, H);
   pantO.needsUpdate = true;
 }
 // ---- el celular de Graciela: "Mecánica Óscar · Tu auto: En diagnóstico" con la foto y los pasos ----
@@ -946,7 +949,7 @@ function dibujarCelD(t) {
     x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(40, 830, W - 80, 200, 40); x.fill();
     x.fillStyle = "#5ce611"; x.beginPath(); x.arc(130, 930, 54, 0, 7); x.fill(); tilde(x, 132, 932, 56, "#0b1220");
     x.fillStyle = "#efeee5"; x.textAlign = "left"; ajustar(x, "para retirar", 900, 56, W - 250); x.fillText("Pronto", 210, 895); x.fillText("para retirar", 210, 960);
-    x.fillStyle = "#16243d"; ajustar(x, "Te esperamos hasta las 19:00.", 700, 40, W - 90); x.fillText("Te esperamos hasta las 19:00.", 50, 1100);
+    x.fillStyle = "#16243d"; ajustar(x, "Retiralo hasta las 19:00.", 800, 46, W - 90); x.fillText("Retiralo hasta las 19:00.", 50, 1100);
   }
   pantD.needsUpdate = true;
 }
@@ -954,7 +957,7 @@ function dibujarCelD(t) {
 const TAB_W = 1040, TAB_H = 1200;
 const pantT = lienzo(TAB_W, TAB_H, () => {});
 const tablet = crearTablet(pantT, 0.3, 0.4, 0.22); tablet.position.set(BANCO.x - 0.04, BANCO.alto, 1.75); tablet.rotation.y = Math.PI / 2; tablet.scale.setScalar(1.45); scene.add(tablet);
-const AUTOS = [["graciela", "Graciela", "Sedán SAB 3315", "En diagnóstico", "#5ce611"], ["walter", "Walter", "Repuesto: mañana 9:00", "Esperando repuesto", "#d9d7c9"], ["sergio", "Sergio", "Sedán STR 4581", "Pronto para retirar ✓", "#5ce611"], ["daniel", "Daniel", "Sedán STR 7720", "En el elevador", "#d9d7c9"]];
+const AUTOS = [["graciela", "Graciela", "Sedán SAB 3315", "En diagnóstico", "#5ce611"], ["walter", "Walter", "Sedán SCD 2210", "Esperando repuesto", "#d9d7c9"], ["sergio", "Sergio", "Sedán STR 4581", "Pronto para retirar ✓", "#5ce611"], ["daniel", "Daniel", "Sedán STR 7720", "En el elevador", "#d9d7c9"]];
 let claveT = "";
 function dibujarTablet(t) {
   const n = t >= T.q2 - 0.05 ? 4 : T.tarj.filter((a) => t >= a).length, av = T.tarj.filter((a) => t >= a + 0.12).length, ceros = t >= T.ceros ? 1 : 0;
@@ -986,8 +989,7 @@ function dibujarTablet(t) {
   pantT.needsUpdate = true;
 }
 // la tablet de Maxi (Q3): la cámara apuntando a la bomba
-function dibujarTabM() { const { x } = pantTM.userData; x.fillStyle = "#16243d"; x.fillRect(0, 0, 400, 300); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(200, 250, 26, 0, 7); x.fill(); pantTM.needsUpdate = true; }
-dibujarTabM();
+function dibujarTabM() { const { x } = pantTM.userData; x.fillStyle = "#0b1220"; x.fillRect(0, 0, 400, 300); if (FOTO.bomba) x.drawImage(FOTO.bomba, 20, 20, 300, 260); x.strokeStyle = "#efeee5"; x.lineWidth = 4; x.strokeRect(70, 70, 200, 160); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(362, 150, 26, 0, 7); x.fill(); pantTM.needsUpdate = true; }
 
 // =====================================================================================================
 // CÁMARA
@@ -996,8 +998,8 @@ dibujarTabM();
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
 const CAM_P1 = (k) => [lerp(0.25, 0.15, k), lerp(1.55, 1.45, k), lerp(6.3, 5.7, k), -0.25, lerp(1.15, 1.05, k), -0.6, 50];
 const CAM_P4 = (k) => [lerp(0.05, -0.05, k), 1.35, lerp(6.5, 6.25, k), 0.0, 1.05, 2.6, 44];
-const CAM_P2 = (k) => [1.75 - 0.2 * k, 0.55, -0.7 - 0.15 * k, -1.4 + 0.1 * k, 1.12 + 0.05 * k, -2.2, 56 - 4 * k];
-const CAM_PIZ = (k) => [1.25, 2.3, lerp(2.2, 1.95, k), 1.2, 1.95, -4.0, 60];
+const CAM_P2 = (k) => [1.9 - 0.15 * k, 0.7, -0.4 - 0.1 * k, -1.2 + 0.05 * k, 1.45 + 0.03 * k, -2.3, 60 - 3 * k];
+const CAM_PIZ = (k) => [lerp(2.15, 2.25, k), 1.9, lerp(0.7, 0.5, k), lerp(2.15, 2.25, k), 1.72, -4.8, 46];
 const CAM_P5 = (k) => [1.25 - 0.1 * k, 0.95, 6.3 - 0.15 * k, -0.2, 0.92, 3.4, 46];
 const CAM_P6A = (k) => [0.05, 2.2, 3.0 - 0.25 * k, -0.2, 2.45, -3.05, 30 - 3 * k];
 const CAM_Q4 = (k) => [-0.2, 3.7, lerp(1.9, 1.7, k), -0.2, 1.0, -3.05, 44];
@@ -1010,7 +1012,7 @@ const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
   ["P3", T.p3, null],
-  ...T.cortes.map((c, i) => [`P4c${i}`, c, [[c, ...CAM_P4(0.3 + i * 0.15)], [i < 3 ? c + 0.42 : T.piz, ...CAM_P4(0.4 + i * 0.15)]]]),
+  ...T.cortes.map((c, i) => [`P4c${i}`, c, [[c, ...CAM_P4(0.3 + i * 0.15)], [i < 2 ? c + 0.42 : T.piz, ...CAM_P4(0.4 + i * 0.2)]]]),
   ["Ppiz", T.piz, [[T.piz, ...CAM_PIZ(0)], [T.p5, ...CAM_PIZ(1)]]],
   ["P5", T.p5, [[T.p5, ...CAM_P5(0)], [T.split, ...CAM_P5(1)]]],
   ["P5s", T.split, null],
@@ -1018,7 +1020,7 @@ const PLANOS = [
   ["P6", T.p6b, [[T.p6b, ...CAM_P6(0)], [T.p7, ...CAM_P6(1)]]],
   ["P7", T.p7, [[T.p7, ...CAM_P1(0.5)], [T.sueltaR, 0.2, 1.3, 5.9, 0.05, 0.7, 1.6, 50], [P1, 0.35, 1.0, 6.1, 0.45, 0.3, 3.3, 50]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, ...CAM_P1(0)], [T.q1i, ...CAM_P1(0.4)]]],
+  ["Q1", P2, [[P2, ...CAM_P1(0.1)], [T.q1i, -0.15, 1.05, 5.4, -0.55, 0.55, 3.4, 42]]],
   ["Q1i", T.q1i, null],
   ["Q1g", T.q1g, [[T.q1g, ...CAM_G(0)], [T.q2, ...CAM_G(1)]]],
   ["Q2", T.q2, null],
@@ -1028,12 +1030,11 @@ const PLANOS = [
   ["Q3d", T.q3d, null],
   ["Q3e", T.q3e, [[T.q3e, ...CAM_BUS(0)], [T.q3a, ...CAM_BUS(1)]]],
   ["Q3a", T.q3a, null],
-  ["Q4", T.q4, [[T.q4, ...CAM_Q4(0)], [r2(T.q4 + 0.85), ...CAM_Q4(1)]]],
-  ["Q4p", r2(T.q4 + 0.88), [[r2(T.q4 + 0.88), ...CAM_PIZ(0.4)], [T.q4b, ...CAM_PIZ(1)]]],
+  ["Q4", T.q4, [[T.q4, ...CAM_Q4(0)], [T.q4p, ...CAM_Q4(1)]]],
+  ["Q4p", T.q4p, [[T.q4p, ...CAM_PIZ(0.4)], [T.q4b, ...CAM_PIZ(1)]]],
   ["Q4bi", T.q4b, null],
-  ["Q4b", T.q4bd, [[T.q4bd, ...CAM_BUS(0.3)], [T.q5, ...CAM_BUS(1)]]],
   ["Q5", T.q5, [[T.q5, ...CAM_P1(0.2)], [T.q5b, ...CAM_P1(0.5)]]],
-  ["Q5b", T.q5b, [[T.q5b, 0.35, 1.4, 6.9, -0.1, 0.95, 2.8, 46], [T.c, 0.35, 1.38, 6.75, -0.1, 0.95, 2.8, 45]]],
+  ["Q5b", T.q5b, [[T.q5b, -0.25, 1.4, 7.4, -0.45, 0.95, 2.8, 56], [T.c, -0.25, 1.38, 7.25, -0.45, 0.95, 2.8, 55]]],
   ["C", T.c, [[T.c, ...CAM_C(0)], [DUR, ...CAM_C(1)]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.25) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
@@ -1158,7 +1159,7 @@ function poseMaxi(t) {
   // Q5: entra con el termo bajo el brazo y el mate; canchero
   const u = sg(t, T.q5 - 0.2, T.o6);
   const p = poseEn(t, [[0, { giro: -0.35, ...aC(0.2, 0.05), ...MEDIA, ...BRAZOS.costado, manoD: [-0.2, 0.25, 0.32], codoD: [-0.8, -0.6, -0.2] }], [T.m2 - 0.05, { ...aC(0.35, 0.1), ...MEDIA, cejas: { alto: 0.4, ang: 0.1, asim: 0.8 } }, 0.2]]);
-  Object.assign(p, { x: lerp(-1.3, -0.5, eio(u)), z: lerp(3.1, 3.0, eio(u)), paso: u > 0 && u < 1 ? 1 : 0 });
+  Object.assign(p, { x: lerp(-1.6, -1.05, eio(u)), z: lerp(3.65, 3.5, eio(u)), paso: u > 0 && u < 1 ? 1 : 0 });
   p.t = t; bocaVoz(p, t, T.m2, ENV.m2, 0.65); return p;
 }
 // ---------- Daniel en el ómnibus: de pie, colgado del pasamanos con la izquierda, el celular en la derecha ----------
@@ -1196,7 +1197,7 @@ function ponerAutoD(t) {
   BOMBA.userData.cuerpo.material = t >= T.q4 ? bombaNueva : bombaM; BOMBA.userData.humedo.visible = t < T.q4;
   // la gota: cae de la bomba a la bandeja cada 0,9 s (parte 1 y Q3); en Q4 no
   autoD.updateMatrixWorld(true);
-  const src = BOMBA.localToWorld(V3(0, -0.09, 0));
+  const src = BOMBA.localToWorld(V3(0, -0.1, 0));
   const fase = ((t + 0.3) % 0.9) / 0.9;
   GOTA.visible = t < T.q4 && h > 1;
   BANDEJA.position.set(src.x, 0.025, src.z); charco.position.set(src.x, 0.052, src.z);
@@ -1211,7 +1212,7 @@ function ponerCamilla(t) {
   g.position.set(CZ.x, 0, z); g.rotation.set(0, 0, 0);
   const sinRueda = t < P2 && t >= T.sueltaR;
   // sin la ruedita: la esquina de adelante a la izquierda se ladea
-  if (sinRueda) { const k = eo(sg(t, T.sueltaR, T.sueltaR + 0.12)); g.rotation.z = -0.11 * k; g.rotation.x = 0.07 * k; g.position.y = -0.025 * k; }
+  if (sinRueda) { const k = eo(sg(t, T.sueltaR, T.sueltaR + 0.12)); g.rotation.z = -0.19 * k; g.rotation.x = 0.1 * k; g.position.y = -0.04 * k; }
   CAMILLA.ruedas.forEach((r, i) => {
     r.fork.rotation.y = vel < 0 ? Math.PI : 0;
     r.rueda.rotation.x = (z / RR) * (vel < 0 ? -1 : 1);
@@ -1289,7 +1290,7 @@ function renderAt(tIn) {
     if (p2 && t >= T.sale6[1] - 0.05) {
       // Óscar con el mate (Q5 tras salir y en el cierre)
       oscar.raiz.updateMatrixWorld(true);
-      po.manoI = [0.2, 0.32, 0.36]; po.codoI = [0.8, -0.6, -0.2]; oscar.poner(po);
+      po.manoI = [0.24, 0.16, 0.34]; po.codoI = [0.8, -0.6, -0.2]; oscar.poner(po);
       mate.visible = true; oscar.brazos[0].mano.getWorldPosition(_w); mate.position.copy(_w).add(V3(0, -0.07, 0.0)); mate.rotation.set(0, 0.3, 0);
     }
     // Maxi
@@ -1306,7 +1307,7 @@ function renderAt(tIn) {
         maxi.poner(pm); maxi.raiz.updateMatrixWorld(true);
         LAMPARA.visible = true; maxi.brazos[0].mano.getWorldPosition(_w); LAMPARA.position.copy(_w); LAMPARA.lookAt(destBomba); LAMPARA.rotateX(Math.PI / 2);
         luzLampara.position.copy(_w).lerp(destBomba, 0.5); luzLampara.intensity = ["P2", "Q3", "Q3f"].includes(pa) ? 2.5 : 0;
-        if (pa === "Q3f") { LAMPARA.visible = false; tabletM.visible = true; maxi.brazos[0].mano.getWorldPosition(_w); tabletM.position.copy(_w).add(V3(0, 0.06, 0)); tabletM.lookAt(destBomba.clone().lerp(V3(1.6, 1.4, -0.7), 0.55)); }
+        if (pa === "Q3f") { LAMPARA.visible = false; tabletM.visible = true; maxi.brazos[0].mano.getWorldPosition(_w); tabletM.position.copy(_w).add(V3(0, 0.07, 0)); tabletM.lookAt(tabletM.position.clone().multiplyScalar(2).sub(V3(1.6, 0.9, -0.8))); }
       } else {
         // el mate en la mano derecha (hasta que Óscar se lo saca) y el termo bajo el brazo izquierdo
         termo.visible = true; maxi.cuerpo.updateMatrixWorld(true); termo.position.copy(maxi.cuerpo.localToWorld(V3(0.27, 0.05, 0.05))); termo.quaternion.copy(maxi.cuerpo.getWorldQuaternion(_q)); termo.rotateZ(0.25);
@@ -1333,7 +1334,7 @@ function renderAt(tIn) {
     pasajeros[0].poner({ x: 58.35, y: 0.0, z: -0.62, giro: 0.15, sentado: 1, ...CARA.neutra, ojos: { abiertos: 0.8, y: -0.6 }, cabeza: { giro: 0.2, asiente: 0.3 }, manoI: [0.12, 0.3, 0.32], manoD: [-0.12, 0.3, 0.32], t });
     pasajeros[1].poner({ x: 61.35, y: 0.0, z: -0.62, giro: -0.1, sentado: 1, ...CARA.neutra, ojos: { abiertos: 0.85 }, cabeza: { giro: -0.4, asiente: 0.0 }, manoI: [0.15, 0.3, 0.3], manoD: [-0.15, 0.3, 0.3], t });
   }
-  if (ROT.visible) { graciela.raiz.visible = pa !== "Q1i"; const pg = poseGraciela(t); if (pa === "Q1g") { const yaw = Math.atan2(GRA.x - 0.12 - GRA.x, 0.7 - GRA.z); pg.cabeza = { ...(pg.cabeza || {}), giro: cl(yaw * 0.9, -0.6, 0.6) }; } if (pa === "Q1g") { graciela.poner(pg); celGsoporte.updateMatrixWorld(true); pg.manoD = aCuerpo(graciela, celG.getWorldPosition(new THREE.Vector3()).add(V3(0.02, -0.04, -0.03))); pg.codoD = [-0.8, -0.6, -0.2]; } graciela.poner(pg); }
+  if (ROT.visible) { graciela.raiz.visible = pa !== "Q1i"; const pg = poseGraciela(t); if (pa === "Q1g") { const yaw = Math.atan2(GRA.x - 0.12 - GRA.x, 0.7 - GRA.z); pg.cabeza = { ...(pg.cabeza || {}), giro: cl(yaw * 0.9, -0.6, 0.6) }; } if (pa === "Q1g") { pg.cabeza = { ...(pg.cabeza || {}), giro: -0.25, asiente: 0.18 }; pg.ojos = { ...(pg.ojos || {}), x: -0.5, y: -0.5, abiertos: 1 }; } graciela.poner(pg); }
   // ---- cámara ----
   if (pl[2]) { ponerCam(catmull(pl[2], t), t); camera.updateMatrixWorld(true); }
   if (pa === "P3") {
@@ -1379,6 +1380,7 @@ function renderAt(tIn) {
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t, true);
   camera.updateMatrixWorld(true);
+  for (const pt of autoG.userData.patentes) pt.visible = !(pa === "P6" || pa === "C" || pa === "P5s" || VER === "portada");
   const camOjo = split ? camA : camera;
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camOjo.position);
 
@@ -1392,10 +1394,10 @@ function renderAt(tIn) {
     // las llamadas: la burbuja sale del celular (con el avatar y el nombre)
     const delCel = (k, ti, fin, cx = 540, cy = 640, orden = 1) => { if (t >= ti - 0.04 && t < fin) { celO.updateMatrixWorld(true); ponerGlobo(GL[k], cx, cy, ent(ti - 0.04), enPantalla(celO.getWorldPosition(new THREE.Vector3())), orden); } };
     if (pa === "P1") { delCel("g1", T.g1, T.p2, 540, 640); di("o1", oscar, T.o1, T.p2, 2, 120, 820); }
-    if (pa === "P2" || pa === "Q3") di("m1", maxi, pa === "P2" ? T.m1 : T.m1b, pa === "P2" ? T.p3 : T.q3o, 1, -60, 230);
-    T.cortes.forEach((c, i) => { if (pa === `P4c${i}`) delCel(`k${i}`, c + 0.02, i < 3 ? c + 0.5 : T.piz, 540, 560); });
-    if (pa === "P4c3") di("o2", oscar, T.o2, T.piz, 2, 120, 740);
-    if (pa === "P3" && t >= T.entregado + 0.08) ponerGlobo(ROT_.sinfoto, 540, 190, ent(T.entregado + 0.08), null, 2);
+    if (pa === "P2" || pa === "Q3") di("m1", maxi, pa === "P2" ? T.m1 : T.m1b, pa === "P2" ? T.p3 : T.q3o, 1, 0, 330);
+    T.cortes.forEach((c, i) => { if (pa === `P4c${i}`) delCel(`k${i}`, c + 0.02, i < 2 ? c + 0.5 : T.piz, 540, 560); });
+    if (pa === "P4c2") di("o2", oscar, T.o2, T.piz, 2, 120, 740);
+    if (pa === "P3" && t >= T.foto + 0.02) ponerGlobo(ROT_.sinfoto, 540, 150, ent(T.foto + 0.02), null, 2);
     if (pa === "Ppiz") {
       const [ex, ey] = enPantalla(V3(COL[1], 2.3, LZ + 0.17)), [px2, py2] = enPantalla(V3(PIZ.x - 0.2, PIZ.y + 0.1, ZF + 0.2));
       const r0 = ROT_.elev, r1 = ROT_.serv;
@@ -1407,8 +1409,8 @@ function renderAt(tIn) {
       if (t >= T.d1 - 0.04) { PROY = [camB, 1]; const b = aPx(bocaW(daniel)); PROY = null; ponerGlobo(GL.d1, 540, 1230, ent(T.d1 - 0.04), b, 2); }
     }
     if (pa === "P6") { if (t >= T.o4 - 0.04) { const b = enPantalla(bocaW(oscar)); ponerGlobo(GL.o4, 540, 1540, ent(T.o4 - 0.04), b, 1); } }
-    if (pa === "P7" && t >= T.ring7 && t < P1) delCel("k3", T.ring7, P1, 540, 560);
-    if (pa === "Q1" && t >= T.aviso) { const r = ROT_.enviado; ponerGlobo(r, 640, 1240, ent(T.aviso), null, 2); const [bx, by] = objPx(celO); ponerGuia(GUIAS[0], 640 - r.userData.W / 2 + 10, 1240, bx, by, sg(t, T.aviso, T.aviso + 0.2)); }
+    if (pa === "P7" && t >= T.ring7 && t < P1) ponerGlobo(GL.k2, 540, 560, ent(T.ring7), enPantalla(V3(BANQ.x, 0.55, BANQ.z)), 1);
+    if (pa === "Q1" && t >= T.aviso) { const r = ROT_.enviado; const [bx, by] = objPx(celO); ponerGlobo(r, 540, 1720, ent(T.aviso), null, 2); ponerGuia(GUIAS[0], 540, 1720 - r.userData.H / 2 + 4, bx, by, sg(t, T.aviso, T.aviso + 0.2)); }
     if (pa === "Q1i") ponerGlobo(ROT_.aviso, 540, 175, ent(T.q1i + 0.1), null, 2);
     if (pa === "Q1g") di("g2", graciela, T.g2, T.q2, 1, 0, 230);
     if (pa === "Q2" && t >= T.tarj[0] + 0.3) ponerGlobo(ROT_.panel, 540, 1790, ent(T.tarj[0] + 0.3), null, 2);
@@ -1426,7 +1428,7 @@ function renderAt(tIn) {
     if (pa === "Q4bi") ponerGlobo(ROT_.pronto, 540, 175, ent(T.q4b + 0.05), null, 2);
     if (pa === "Q5" || pa === "Q5b") {
       if (t >= T.o6 - 0.04 && t < T.m2 - 0.08) { celO.updateMatrixWorld(true); const [lx, ly] = enPantalla(CAMILLA.g.localToWorld(V3(0, 0.2, -0.2))); ponerGlobo(GL.o6, 560, 640, ent(T.o6 - 0.04), [lx, ly], 1); }
-      di("m2", maxi, T.m2, T.c, 2, -40, 470);
+      if (t >= T.m2 - 0.04) { const b = enPantalla(bocaW(maxi)); ponerGlobo(GL.m2, b[0] + 400, b[1] - 230, ent(T.m2 - 0.04), [b[0] + 60, b[1] - 20], 2); }
     }
   }
   // pizarra: los tachones (P4) y los tildes (Q4)
@@ -1456,6 +1458,7 @@ function renderAt(tIn) {
   sacarFoto("sedan", [LX + 2.4, 1.2, LZ + 3.6, LX, 0.6, LZ, 40], () => { ponerAutoD(T.q4 + 1.5); });
   oscar.raiz.visible = false;
 }
+dibujarTabM();
 
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));

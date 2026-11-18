@@ -149,3 +149,28 @@ retirar" (arte 12) sumaron ~1,5 s; se recortó lo que se pudo de P3, Q2, Q4, Q5 
 - Sonido 4: "Salió por el mate: 1" entra cuando Óscar sale rodando y queda 1,45 s antes del cierre. Sonido 6: Q5 tiene
   push-in y un segundo plano (Q5b) para "A la tarde." y el mate. Bajas: "Aviso enviado" con click a -36 y ding a -38;
   la burbuja de "¿está pronto el mate?" se va 0,08 s antes de la de Maxi.
+
+## Ronda 2 (18-11, sobre /home/user/qa/taller-r2.mp4: guion, arte; sonido pasó)
+**41,6 s.** Parte 1 0-16,65 · cartel 16,65-19,02 · parte 2 19,02-41,57 = 22,6 s (54 %); C 38,57-41,57 (3,0 s).
+- Rótulos más largos: P3 "Un audio sin escuchar. / Sin foto ni precio" desde que aparece el audio, 1,3 s (llamadas más
+  rápidas, P3 1,9 s); pizarra 1,55 s con "Elevador ocupado" 1,45 s y "4 services que no entran" 1,25 s; panel con los
+  ceros 1,05 s; Q4 en dos planos de ~1,1 s ("Extra aprobado en 2 minutos" al auto que baja, "Mañana entran 4 services"
+  a la pizarra con los tildes). Para no pasar de 41,5: sale el corte de Sergio (cortes Walter 5, Silvia 14, Graciela 22),
+  sale el plano de Daniel tocando el timbre (Q4b; el inserto "Pronto para retirar" queda), huecos de P7, Q1, Q3, Q5 y C.
+- Bomba de agua nueva y de costado a la cámara: brida, cuerpo de aluminio, polea navy con cuatro tornillos crema y cubo,
+  dos mangueras; gotas celestes de refrigerante cayendo a la bandeja (charco celeste). Cámara de P2/Q3 nueva: Maxi entero
+  a la izquierda con la burbuja más angosta arriba, la bomba arriba a la derecha.
+- Q3f: la tablet en la mano izquierda de Maxi, con la pantalla de la cámara (la foto de la bomba, el recuadro y el botón)
+  hacia la cámara; Maxi con mangas largas (sin el antebrazo palito).
+- Q4b (Daniel con el dedo y el timbre) sacado. Lentes de Daniel finos sin patillas (la barra navy era la patilla).
+- Pizarra 2,1 × 1,4 m, el tablero de llaves corrido; Ppiz/Q4p de frente (la pizarra ~70 % del ancho).
+- P3 sin las huellas grises; "No contesta" con aire. Patente del auto de Graciela oculta en P6, C y la portada.
+- Q1: chip y contador desde que abre el iris; push-in al banquito; "Aviso enviado ✓" abajo con guía al celular.
+- Q5: Maxi adelante a la izquierda (no lo tapa Óscar al sentarse), burbuja "A la tarde." al costado de la cabeza;
+  Q5b más abierto. Mate más bajo en el cierre. Graciela en Q1g sin el brazo estirado, mirando el celular. Camilla más
+  ladeada en P7; la burbuja de Graciela en P7 apunta al banquito. TALLERES a 172 px.
+- Guion bajas: panel parejo (Walter "Sedán SCD 2210"); "4 services que no entran"; guion.txt y partes/lineas.tsv
+  (12-daniel "hacelo") al día; portada chica "Miércoles, 14:30." (el fondo es el corte de las 14:30, t 8,2); créditos de
+  zumbido, chisporroteo, Kenney y pizzicato en fuentes.md.
+- medir.py marca -0,4 LU a 34,0 s: es el primer 0,1 s de "Maxi, ¿está pronto el mate?" (voz -27 LUFS) contra la cama
+  antes del duck; desde 34,5 s la voz está ~20 LU arriba. El resto de los tramos ≥ +13 LU.

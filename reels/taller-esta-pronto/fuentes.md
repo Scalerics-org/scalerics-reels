@@ -59,3 +59,10 @@ Bajados de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia CC0 
 - `assets/sfx/bsb-foto.wav` (el obturador de la tablet de Maxi): "Trigger of camera #1" (#2394), https://bigsoundbank.com/trigger-of-camera-1-s2394.html
 - `assets/sfx/bsb-neumatica.wav` (la pistola neumática cuando baja el auto; 0,25-1,9 s): "Impact wrench #1" (#0964), https://bigsoundbank.com/impact-wrench-1-s0964.html
 - `assets/sfx/bsb-matraca.wav` (matraca; copiada, sin usar en esta versión): "Small ratchet" (#0794), https://bigsoundbank.com/small-ratchet-s0794.html
+
+### Créditos de los efectos y la música reusados del repo (copiados de los fuentes.md que los acreditan)
+- `assets/bgm/pizzicato.wav`: "Pizzicato Intrigue.wav", younoise, Freesound, CC0 1.0. https://freesound.org/people/younoise/sounds/569642/ (de reels/abren-hoy).
+- `assets/bgm/pizzicato-lleno.wav`: derivado del mismo archivo (mismo crédito y licencia), con eco y compresor de ffmpeg sobre la grabación real (de reels/dist-quien-debe).
+- `assets/sfx/zumbido.wav`: "Room Tone Ambience Medium", gchase, Freesound, CC0 1.0 (de reels/tienda-tenes-stock / dist-quien-debe).
+- `assets/sfx/chisporroteo.wav` (el spiedo de la rotisería): "Frying pan 2" (#0144), BigSoundBank, CC0 1.0. https://bigsoundbank.com/frying-pan-2-s0144.html (de reels/parrilla-no-vuelve).
+- `assets/sfx/k-switch-3.wav`, `k-tick-*`, `k-tono`, `k-dos-tonos`, `k-cloth_*`, `k-plastico`: Kenney (kenney.nl), CC0 1.0.
