@@ -1,44 +1,37 @@
-[sin narrador Orus: el chiste va en burbujas, el cuaderno de reservas engrasado, la mesa 7 con el cartelito RESERVADO y 8 cubiertos puestos, la vela que se consume y los chips de hora; la solución va en la interfaz recreada (chat genérico con el agente de IA, plano de mesas, panel de confirmaciones, aviso de lista de espera); voces por archivo en partes/*.txt, ver partes/voces.md · objetivo ~40,0 s: parte 1 0,00-16,00 · cartel 16,00-18,40 · parte 2 18,40-40,00 (solución + cierre: 21,6 s, 54 %)]
-[parte 1 · el problema · 0,00-16,00 s · la parrilla de Raúl, viernes, el salón lleno]
-[0,00-3,80 · cuadro 0: arriba, gigante, "PARRILLAS" y el chip "Viernes, 21:00." · la parrilla a leña llena (tira, chorizos, morcillas, provoleta), el brasero ardiendo · Raúl con el celular apretado entre el hombro y la oreja, la pinza en la derecha y en la izquierda la birome atada con piolín al cuaderno de reservas engrasado sobre el mostrador · burbuja del teléfono ya asomando]
-PABLO: Raúl, ¿tenés mesa para ocho a las diez? Soy Pablo.
-[Raúl anota "PABLO · 8 · 22:00" en el cuaderno, sin mirar]
+[sin narrador Orus: el chiste va en burbujas, el cuaderno de reservas engrasado, la mesa 7 con el cartelito RESERVADO y 8 cubiertos puestos, la vela que se consume y los chips de hora; la solución va en la interfaz recreada (chat genérico con el agente de IA, plano de mesas, panel de confirmaciones, aviso de lista de espera); voces por archivo en partes/*.txt, ver partes/voces.md · construido (ronda 1): 40,2 s · parte 1 0,00-16,28 · cartel 16,28-18,68 · parte 2 18,68-40,23 (21,6 s, 54 %)]
+[parte 1 · el problema · 0,00-16,28 s · la parrilla de Raúl]
+[0,00-4,45 · cuadro 0: arriba, gigante, "PARRILLAS" y el chip "Miércoles, 20:00." · la parrilla a leña llena, el brasero ardiendo · Raúl con el celular en la oreja, la pinza en la derecha y en la izquierda la birome atada con piolín al cuaderno de reservas engrasado, abierto en "VIERNES" · burbuja del teléfono ya asomando]
+PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho el viernes a las diez?
+[Raúl anota "PABLO · 8 · 22:00" en la hoja del viernes, sin mirar]
 RAUL: ¡Anotado, Pablo!
-[3,80-5,40 · escalada muda: Fabián planta el cartelito RESERVADO en la mesa 7 (la grande, para 8) y pone los 8 cubiertos · el celular en el mostrador vibra y vibra: "¿Tenés mesa?" · "¿Para dos a las 21:30?" · "¿Hacen cumpleaños?" · "¿Hola?" · chip "Sin contestar: 14" (rojo apagado) · inserto del cuaderno: renglones tachados, una mancha de grasa y otra de chimichurri]
-[5,40-8,70 · chip "Viernes, 21:40." · la puerta de vidrio con la campanita: Walter con su familia (mujer y tres hijos, uno en brazos), el salón lleno detrás de Raúl y, en el medio, la mesa 7 puesta y vacía con el RESERVADO]
+[4,51-9,30 · chip "Viernes, 21:40." · desde el salón: la mesa 7 (para 8) puesta y vacía con el RESERVADO en primer plano; a la izquierda Raúl en la parrilla; a la derecha, en la puerta, Walter con su familia (su mujer, la abuela y tres chicos: seis)]
 WALTER: Raúl, ¿tenés mesa para seis?
-[Raúl señala la mesa 7 con la pinza]
+[contraplano: Raúl señala la mesa 7 con la pinza]
 RAUL: No, Walter. Esa es de Pablo.
-[la familia se va, campanita · rótulo: "Familia de 6 que se fue: $ 9.000" (rojo apagado)]
-[8,70-11,10 · chip "Viernes, 22:45." · plano de la mesa 7: 8 cubiertos, copas, el RESERVADO, la vela entera encendida · Fabián con la bandeja bajo el brazo]
+[la familia se va saludando, campanita · rótulo: "Familia de 6 que se fue: $ 9.000" (rojo apagado)]
+[9,32-12,57 · chip "Viernes, 22:45." · plano de la mesa 7: 8 cubiertos, copas, el RESERVADO, la vela entera encendida · Fabián con la bandeja bajo el brazo · nadie avisó nada desde el miércoles]
 FABIAN: Raúl, ¿y los de las diez?
-[inserto del celular de Raúl: "Pablo · 21:58 · ¡Estamos llegando!"]
 RAUL: Están llegando.
-[11,10-13,50 · chip "Viernes, 23:40." · el mismo encuadre: la vela por la mitad, las sillas de las otras mesas ya arriba, el salón casi vacío · Fabián con una silla en la mano]
+[12,59-16,28 · chip "Viernes, 23:40." · el mismo encuadre: la vela por la mitad, las sillas de las otras mesas ya arriba · Fabián con una silla en la mano]
 FABIAN: ¿Y?
 [pausa · primer plano de Raúl, seco]
 RAUL: Siguen llegando.
-[rótulo: "Mesa de 8 vacía: 22:00 → 00:00" · "Cubiertos puestos: 8 · usados: 0" (rojo apagado)]
-[13,50-16,00 · remate del remate · chip "Viernes, 23:58." · Fabián junta los cubiertos de la mesa 7 · vibra el celular de Raúl: "Pablo · Raúl, perdón, se nos complicó. ¿Mañana a las diez, para ocho?" · pausa · Raúl, sin mirar a Fabián]
-RAUL: Dejá los cubiertos.
-[Fabián se congela con el tenedor en el aire y lo vuelve a poner en su lugar · Raúl abre el cuaderno en "SÁBADO" y anota · stinger]
+[la mesa: rótulos "Mesa de 8 vacía: 22:00 → 23:40" · "Cubiertos puestos: 8 · usados: 0" (rojo apagado)]
 NARRADOR: Un agente de IA más tarde.
-[cartel · 16,00-18,40 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un agente de IA" / "más tarde…" (nunca "Scalerics") · audio reusado de abren-hoy-completo]
-[parte 2 · la solución · 18,40-36,40 s]
-[18,40-22,60 · chip "Miércoles, 2:14." · la parrilla cerrada, a oscuras, las sillas arriba; en el mostrador, el celular del local se prende solo · inserto del chat (encabezado "Parrilla Raúl · agente de IA"): llega la nota de voz de Pablo (el mismo audio de la parte 1)]
-PABLO: Raúl, ¿tenés mesa para ocho a las diez? Soy Pablo.
-[el agente contesta enseguida: "¡Hola, Pablo! El viernes a las 22:00 tengo la mesa 7, para 8. ¿Te la reservo?" · "Dale" · "Listo ✓ Mesa 7 · viernes 22:00 · 8 personas. El jueves te pido que confirmes." · el plano de mesas: la mesa 7 se pinta "Pablo · 8 · 22:00" · rótulo: "Contesta a cualquier hora, con tus mesas reales"]
-[22,60-27,00 · chip "Jueves, 12:00." · la tablet con el panel "Reservas de mañana": "¿Confirmás tu mesa de mañana?" sale a las 12 reservas; las tildes verdes caen de a una: "Confirmadas: 11 de 12" · "Mesa 7 · Pablo · 8 · sin confirmar" (rojo apagado) · "18:00 · segundo aviso" · "20:00 · Mesa 7 liberada" · "Lista de espera: Walter · 6 → Ofrecida ✓" · rótulo: "Si no confirman, la mesa se libera sola" · el aviso vuela al celular de Walter, en el living: "Walter, se liberó una mesa para 6 mañana a las 22:00. ¿La querés?" · toca "Sí" → "Reservada ✓"]
+[cartel · 16,28-18,68 · time card de dibujito, fondo verde de marca: "Un agente de IA" / "más tarde…" (nunca "Scalerics") · audio reusado de abren-hoy-completo]
+[parte 2 · la solución · 18,68-40,23 s]
+[18,68-21,69 · chip "Miércoles, 2:14." · la parrilla cerrada, a oscuras, las sillas arriba; el celular del local se prende solo y llega la nota de voz de Pablo (el mismo audio de la parte 1)]
+PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho el viernes a las diez?
+[inserto del chat (encabezado "Parrilla Raúl · agente de IA"): "¡Hola, Pablo! El viernes a las 22:00 tengo la mesa 7, para 8. ¿Te la reservo?" · "Dale" · "Listo ✓ Mesa 7 · viernes 22:00 · 8 personas. El jueves te pido que confirmes." · rótulo "Contesta a cualquier hora, con tus mesas reales" · el plano de mesas: la mesa 7 se pinta "Pablo · 8 · 22:00"]
+[24,21-27,71 · la tablet "Viernes · reservas" · chip "Jueves, 12:00.": las tildes caen de a una, "Confirmadas: 11 de 12", "Pablo · 8 · 22:00 · sin confirmar" · chip "Jueves, 18:00.": "18:00 · segundo aviso" · chip "Jueves, 20:00.": "20:00 · Mesa 7 liberada" (Pablo tachado) · "Lista de espera: Walter · 6 → Ofrecida ✓" · rótulo "Si no confirman, la mesa se libera sola"]
+[27,71-29,98 · el living de Walter: "Walter, se liberó una mesa para 6 mañana a las 22:00. ¿La querés?" · toca "Sí" → "Reservada ✓ Mesa 7 · viernes 22:00 · 6"]
 WALTER: ¡Esta vez sí entramos!
-[27,00-30,60 · chip "Viernes, 21:00." · el mismo encuadre del cuadro 0: Raúl con las dos manos en la parrilla (pinza y pala), sin celular en el hombro; el celular parado en el mostrador contesta solo: "¿Mesa para 2 a las 21:30?" → "Sí: mesa 3 ✓" · "Sin contestar: 14 → 0" (verde) · entra una tarjeta: "Para vos, Raúl · Cumpleaños de 20 · sábado · quiere menú cerrado"]
-RAUL: Ese es para mí.
-[30,60-33,80 · chip "Viernes, 22:00." · el mismo encuadre de la mesa 7: llena, Walter y su familia con la tira, la vela recién prendida · Fabián con la bandeja (el mismo audio de la parte 1)]
+[29,98-32,24 · chip "Viernes, 21:00." · el mismo encuadre del cuadro 0: Raúl con las dos manos en la parrilla, sin celular en la oreja; el agente contesta solo ("¿Mesa para 2 a las 21:30?" → "Sí: mesa 4 ✓"; "Hoy: 12 reservas confirmadas ✓") · entra una tarjeta: "Para vos, Raúl · Cumpleaños de 20 · sábado · quiere menú cerrado" · rótulo "Un cumpleaños de 20: lo cerrás vos"]
+RAUL: Ese, para mí.
+[32,26-36,28 · chip "Viernes, 22:30." · el mismo encuadre de la mesa 7: llena, Walter y su familia con la tira, la vela prendida · Fabián con la bandeja (el mismo audio de la parte 1)]
 FABIAN: Raúl, ¿y los de las diez?
 [Raúl señala la mesa 7 con la pinza, media sonrisa · Walter levanta la copa]
 RAUL: Llegaron.
 [rótulos: "Mesa 7 · Walter · 6 · $ 9.000 ✓" · "Mesas vacías por reservas que no vinieron: 0" (verde)]
-[33,80-36,40 · chip "Viernes, 23:58." · Fabián junta los cubiertos de la mesa 7, que ya se vació · la tablet hace ding: "Sábado 22:00 · Mesa 7 · Pablo · 8 · Confirmada ✓" · Raúl, contento]
-RAUL: Dejá los cubiertos.
-[Fabián vuelve a poner el tenedor, ahora sonriendo]
-[cierre · 36,40-40,00 · Raúl a cámara detrás de la parrilla, la pinza en la mano, el brasero detrás · tarjeta: "Comentá" / "RESERVA" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu restaurante" · abajo, chico, "Agente de IA de reservas: confirma y libera la mesa solo" / "scalerics.com" en verde]
+[cierre · 36,28-40,23 · Raúl a cámara detrás de la parrilla, la pinza en la mano · tarjeta debajo de la cara: "Comentá" / "RESERVA" (en el recuadro verde de selección) / "y te mando cómo funciona para tu restaurante" · el último segundo, abajo: "Un agente de IA que confirma las reservas y libera las mesas" / "scalerics.com" en verde]
 RAUL: Comentá RESERVA y te mando cómo funciona para tu restaurante.

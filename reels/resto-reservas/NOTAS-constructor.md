@@ -89,3 +89,34 @@ Ver la lista en el reporte final de abajo (sección "Pasadas").
 - El piolín de la birome es fino (casi no se ve en el plano general).
 - Q2b sin chip de hora (el living va directo con la tarjeta del aviso).
 - No hay render mp4 todavía (ni de prueba); portada.png se armó con un mp4 de un cuadro provisorio (borrado).
+
+## Ronda 1 de corrección (sobre revision-guion-r1.md; decisiones del coordinador)
+**40,2 s.** Parte 1 0-16,28 · cartel 16,28-18,68 · parte 2 18,68-40,23 = 21,6 s (54 %). Cierre (C) desde 36,28.
+- Lógica de la reserva (altos 1 y 5): el cuadro 0 es el MIÉRCOLES 20:00 (chip) y Pablo pide el día: toma nueva
+  `partes/01b-pablo.txt` "Raúl, soy Pablo. ¿Me guardás mesa para ocho el viernes a las diez?" (Schedar, toma 01b-b,
+  atempo 1,12 + filtro de teléfono; STT "…para 8 o el viernes a las 10": la "o" es del STT). Raúl lo anota en la hoja del
+  VIERNES. Sin "¡Estamos llegando!": Pablo no vuelve a escribir después del miércoles, así que en la parte 2 "no
+  confirma" es coherente. La nota de voz de Q1 es la misma toma nueva (dice "el viernes": el agente ya no inventa el día).
+- Duración (alto 2): fuera la escalada muda (P2 inserto de mensajes y P2b, la mesa ya está puesta cuando entra P3), fuera
+  el remate del remate P6 ("Dejá los cubiertos.", el mismo esqueleto de estetica-turnos) y su callback Q5; huecos más
+  cortos; r9 atempo 1,17. La parte 1 termina en "Siguen llegando." + los rótulos.
+- Q2 (medio 4): 3,5 s; los chips avanzan "Jueves, 12:00." → "Jueves, 18:00." (segundo aviso) → "Jueves, 20:00." (mesa 7
+  liberada, lista de espera); el rótulo arriba.
+- Mesa 3 doble (7): el agente contesta "Sí: mesa 4 ✓". "Ese es para mí" (6): las tres tomas se oyen "ese para mí"; el globo
+  dice ahora "Ese, para mí.". Rótulo de Q3 y frase de la descripción reescritos ("Un cumpleaños de 20: lo cerrás vos";
+  "te los deja anotados para que los cierres vos"). En Q3 ya no está el contador "Sin contestar" (13: el dolor de
+  corralon): chip verde "Hoy: 12 reservas confirmadas ✓".
+- Bajos: rótulo "22:00 → 23:40"; Q4 "Viernes, 22:30."; cuaderno "PÉREZ · 2 · 21:30" (no "MESA 3"); "Miércoles, 2:14"
+  con coma en el chat; línea chica "Un agente de IA que confirma / las reservas y libera las mesas", ahora abajo de la
+  tarjeta (no sobre la frente); guion.txt y fuentes.md alineados con lo construido.
+- Lo flojo propio: Q4 con Fabián a la derecha de Walter y la vela más cerca del borde de la mesa (baja en el cuadro, no
+  cruza caras); P2b y el tenedor salen con los planos que se sacaron; Q1: la nota de voz suena en el plano 3D y el chat
+  entra 0,55 s antes de la respuesta; sin parpadeos mientras habla Pablo (P1) ni en P4.
+- Portada: fondo limpio nuevo de P3 a 7,4 s con la cámara más cerca y baja (Raúl, Walter y la familia en la mitad de
+  arriba): `FULL=1 flock /tmp/hyperframes.lock node prev.mjs 7.4 renders/prev/por "<cam>"` con LIMPIO=1 (la cámara
+  usada está en portada.json → "cam").
+- medir.py: voz ≥ +8,4 LU sobre el resto; check sin errores (ver abajo).
+- Ronda 1, verificación: snapshots cada 0,5 s desde 0,25 de los 40,2 s mirados; `check --json` 0 errores (había uno: la
+  capa PARRILLAS quedaba todo el reel porque su duración dependía de P2, ya corregido). Queda flojo: en Q4 Fabián sigue
+  fuera de cuadro (su voz es la misma toma de P4, donde sí se lo ve; la cola del globo va al borde derecho); en Q3 el
+  globo "Ese, para mí." roza el pelo de Raúl; Q1 son ~3 s en el plano del celular a oscuras con la tarjeta de la nota de voz.

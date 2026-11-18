@@ -443,7 +443,7 @@ const lugarXZ = ([x, s]) => (s === 0 ? [x * 0.82, 0] : [x, s * 0.27]);
   }
   // panera de mimbre y sifón
   g.add(mesh(new THREE.CylinderGeometry(0.075, 0.06, 0.05, 14), mat(0xa8824e, 0.85), -0.32, H + 0.04, 0.02));
-  const sf = crearSifon(); sf.position.set(0.32, H + 0.012, 0.06); g.add(sf);
+  const sf = crearSifon(); sf.position.set(0.56, H + 0.012, -0.04); g.add(sf);
   sombras(g);
 }
 fusionar(MESA7);
@@ -510,13 +510,13 @@ const VELA_C = new THREE.Group(), LLAMA = new THREE.Group();
 }
 // dónde están: el RESERVADO al medio (un poco a la izquierda), la vela a la derecha
 RESERVADO.position.set(M7.x - 0.1, M7.H + 0.012, M7.z - 0.02);
-VELA.position.set(M7.x + 0.12, M7.H + 0.012, M7.z + 0.03);
+VELA.position.set(M7.x + 0.3, M7.H + 0.012, M7.z + 0.2);
 function alturaVela(t) {
   // 1 = entera, 0 = consumida
   if (t < T.p5) return 1;
   if (t < T.p6) return 0.5;
   if (t < P2) return 0.16;
-  if (t < T.q5) return 1;
+  if (t >= P2) return 1;
   return 0.3;
 }
 // la comida de la familia en Q4 (la tira en la tabla, el pan) y en Q5 los platos usados
@@ -553,7 +553,7 @@ fusionar(LIV);
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const raul = crearPersonaje({ ...ELENCO.raul, dedos: true, parpadeoCada: 999, parpadeosExtra: [1.9, r2(T.p4 + 0.1), r2(T.p6 + 0.9), r2(T.q3 + 0.5), r2(T.c - 0.25)] });
+const raul = crearPersonaje({ ...ELENCO.raul, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3c + 0.5), r2(T.p5 + 0.15), r2(T.q3 + 0.5), r2(T.c - 0.25)] });
 const fabian = crearPersonaje({ ...ELENCO.fabian, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2b + 0.6), r2(T.p6 + 0.5), r2(T.q4 + 1.6)] });
 const walter = crearPersonaje({ ...ELENCO.walter, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const FAM_CFG = [ELENCO.walterMujer, ELENCO.walterAdo, ELENCO.walterNena, ELENCO.walterNene, ELENCO.walterAbuela];
@@ -653,7 +653,7 @@ const RED = "#c7655b", RED_T = "#e98a7f";
 // la izquierda pasa a "SÁBADO" con "PABLO · 8 · 22:00" otra vez
 const CUAD = { x: MOS.x - 0.17, z: MOS.z + 0.06, w: 0.4, d: 0.28, giro: 0.42 };
 const cuadT = lienzo(1024, 720, () => {});
-const LINEAS_CUAD = [["GONZÁLEZ · 4 · 21:00", false], ["MESA 3 · 2 · 21:30", true], ["SOSA · 2 · 21:30", false], ["FERREIRA · 5 · 21:45", false]];
+const LINEAS_CUAD = [["GONZÁLEZ · 4 · 21:00", false], ["PÉREZ · 2 · 21:30", true], ["SOSA · 2 · 21:30", false], ["FERREIRA · 5 · 21:45", false]];
 function dibujarCuaderno(x, W, H, { k = 1, sabado = 0 }) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
   // renglones navy
@@ -687,7 +687,7 @@ const CUADERNO = new THREE.Group(); CUADERNO.position.set(CUAD.x, MOS.alto + 0.0
 }
 let claveCuad = "";
 function ponerCuaderno(t) {
-  const k = t >= T.p2 ? 1 : Math.round(sg(t, T.escribe[0], T.escribe[1]) * 17) / 17;
+  const k = t >= T.p3 ? 1 : Math.round(sg(t, T.escribe[0], T.escribe[1]) * 17) / 17;
   const sab = t >= T.p6b ? Math.round(sg(t, T.r5 + 0.25, T.r5 + 0.25 + 0.6) * 17) / 17 + 0.001 : 0;
   const c = `${k}|${sab}`; if (c === claveCuad) return; claveCuad = c;
   dibujarCuaderno(cuadT.userData.x, 1024, 720, { k, sabado: sab }); cuadT.needsUpdate = true;
@@ -960,7 +960,7 @@ dibujarCelM(pantM.userData.x, 600, 975, false); pantM.needsUpdate = true;
 // Q1i · el chat del agente a las 2:14: la nota de voz de Pablo (la misma), "escribiendo…", la respuesta con la mesa
 // real, "Dale", "Listo ✓"
 function dibujarAgente(x, W, H, t) {
-  const msgs = [M_.dia("Miércoles 2:14")];
+  const msgs = [M_.dia("Miércoles, 2:14")];
   const av = cl((t - T.nota) / LEN.p1);
   msgs.push(M_.audio("0:03", av));
   let ult = 1;
@@ -1046,7 +1046,7 @@ function ponerTablet3D(t) {
 // TARJETAS: globos, rótulos, chats pegados a la cámara
 // =====================================================================================================
 const GL = {
-  p1: crearGlobo(["Raúl, ¿tenés mesa para", "[ocho] a las [diez?] Soy Pablo."], 58, { cab: { cv: AVATAR.tel, nombre: "Pablo · llamada" } }),
+  p1: crearGlobo(["Raúl, soy Pablo. ¿Me guardás", "mesa para [ocho] el [viernes]", "a las diez?"], 56, { cab: { cv: AVATAR.tel, nombre: "Pablo · llamada" } }),
   r1: crearGlobo(["¡Anotado, [Pablo!]"], 84),
   w1: crearGlobo(["Raúl, ¿tenés mesa", "para [seis?]"], 74),
   r2a: crearGlobo(["No, Walter."], 80), r2: crearGlobo(["No, Walter.", "Esa es de [Pablo.]"], 80),
@@ -1055,15 +1055,15 @@ const GL = {
   r3: crearGlobo(["Están llegando."], 84),
   f2: crearGlobo(["¿Y?"], 110),
   r4: crearGlobo(["{Siguen} llegando."], 84),
-  rotA: crearRotulo([["Mesa de 8 vacía:", "#efeee5", 46], ["22:00 → 00:00", RED_T, 64]], 46),
+  rotA: crearRotulo([["Mesa de 8 vacía:", "#efeee5", 46], ["22:00 → 23:40", RED_T, 64]], 46),
   rotB: crearRotulo([["Cubiertos puestos: 8 ·", "#efeee5", 46], ["usados: 0", RED_T, 64]], 46),
   r5: crearGlobo(["Dejá los cubiertos."], 78),
   // parte 2
   rotQ1: crearRotulo([["Contesta a cualquier hora,"], ["con tus mesas reales"]], 48),
   rotQ2: crearRotulo([["Si no confirman, la mesa", "#efeee5"], ["se libera sola", "#5ce611"]], 50),
   w2: crearGlobo(["¡Esta vez sí [entramos!]"], 76),
-  rotQ3: crearRotulo([["Lo que es para vos,"], ["te lo pasa", "#5ce611"]], 50),
-  r6: crearGlobo(["Ese es [para mí.]"], 84),
+  rotQ3: crearRotulo([["Un cumpleaños de 20:"], ["lo cerrás vos", "#5ce611"]], 50),
+  r6: crearGlobo(["Ese, [para mí.]"], 84),
   r7: crearGlobo(["[Llegaron.]"], 96),
   rotQ4a: crearRotulo([["Mesa 7 · Walter · 6 ·", "#efeee5", 46], ["$ 9.000 ✓", "#5ce611", 64]], 46),
   rotQ4b: crearRotulo([["Mesas vacías por reservas", "#efeee5", 44], ["que no vinieron: 0", "#5ce611", 58]], 44),
@@ -1109,13 +1109,13 @@ function ponerAvisoW(t) {
 GL.chatQ3 = crearTarjeta(960, 600, () => {}, { fondo: "#efeee5" });
 let claveQ3 = "";
 function ponerChatQ3(t) {
-  const n = T.rq.filter((a) => t >= a).length, cero = t >= T.cero, cnt = cero ? 0 : 14 - Math.round(sg(t, T.cero - 0.3, T.cero) * 14);
-  const c = `${n}|${cnt}`; if (c === claveQ3) return; claveQ3 = c;
+  const n = T.rq.filter((a) => t >= a).length;
+  const c = `${n}`; if (c === claveQ3) return; claveQ3 = c;
   redibujar(GL.chatQ3, (x, W, H) => {
     x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 116); avatar(x, AVATAR.local, 66, 58, 42); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 44); x.fillText("Parrilla Raúl · agente de IA", 124, 58);
-    const txt = `Sin contestar: ${cnt}`; x.font = F(900, 52); const w = x.measureText(txt).width + 56;
-    x.fillStyle = cnt === 0 ? "#5ce611" : "#c7655b"; rr(x, (W - w) / 2, 136, w, 88, 44); x.fillStyle = cnt === 0 ? "#0b1220" : "#efeee5"; x.textAlign = "center"; x.fillText(txt, W / 2, 182); x.textAlign = "left";
-    const items = [["¿Mesa para 2 a las 21:30?", false], ["Sí: mesa 3 ✓", true], ["¿Tenés mesa para cuatro?", false], ["A las 22:30, mesa 5 ✓", true]];
+    const txt = "Hoy: 12 reservas confirmadas ✓"; x.font = F(900, 44); const w = x.measureText(txt).width + 56;
+    x.fillStyle = "#5ce611"; rr(x, (W - w) / 2, 136, w, 88, 44); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.fillText(txt, W / 2, 182); x.textAlign = "left";
+    const items = [["¿Mesa para 2 a las 21:30?", false], ["Sí: mesa 4 ✓", true], ["¿Tenés mesa para cuatro?", false], ["A las 22:30, mesa 5 ✓", true]];
     items.slice(0, n).forEach(([l, yo], i) => {
       const y = 240 + i * 88; x.font = F(800, 42); const bw = x.measureText(l).width + 60, bx = yo ? W - 30 - bw : 30;
       x.fillStyle = yo ? "#ffffff" : "#ffffff"; x.strokeStyle = yo ? "#3fa60a" : "#16243d"; x.lineWidth = yo ? 7 : 5; x.beginPath(); x.roundRect(bx, y, bw, 76, yo ? [30, 8, 30, 30] : [8, 30, 30, 30]); x.fill(); x.stroke();
@@ -1153,9 +1153,7 @@ const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
 const CAM0 = (k) => [lerp(0.36, 0.3, k), lerp(1.78, 1.76, k), lerp(0.05, -0.2, k), -0.42, lerp(1.13, 1.16, k), -2.3, 54];
 const MESA_CAM = (k, d = 0, sube = 0) => [lerp(1.02, 0.97, k), 1.72 + sube * 0.2, lerp(1.95, 1.82, k) - d + sube * 0.3, lerp(0.12, 0.14, k), 0.95 + sube, -1.3, 54];
 const PLANOS = [
-  ["P1", 0, [[0, ...CAM0(0)], [T.p2, ...CAM0(1)]]],
-  ["P2", T.p2, null],
-  ["P2b", T.p2b, [[T.p2b, 0.35, 1.95, 2.0, 0.7, 0.85, -0.45, 52], [T.p3, 0.37, 1.9, 1.85, 0.7, 0.86, -0.45, 50]]],
+  ["P1", 0, [[0, ...CAM0(0)], [T.p3, ...CAM0(1)]]],
   ["P3", T.p3, [[T.p3, 0.32, 1.85, 1.55, 0.38, 1.05, -2.2, 64], [T.p3b, 0.32, 1.83, 1.43, 0.38, 1.05, -2.2, 63]]],
   ["P3b", T.p3b, [[T.p3b, -0.05, 1.62, -0.5, -0.62, 1.3, -2.62, 50], [T.p3c, -0.08, 1.6, -0.62, -0.62, 1.3, -2.62, 48]]],
   ["P3c", T.p3c, [[T.p3c, 0.32, 1.83, 1.43, 0.38, 1.05, -2.2, 63], [T.p4, 0.32, 1.8, 1.3, 0.38, 1.05, -2.2, 62]]],
@@ -1163,16 +1161,13 @@ const PLANOS = [
   ["P5", T.p5, [[T.p5, ...MESA_CAM(0)], [T.p5b, ...MESA_CAM(0.5)]]],
   ["P5b", T.p5b, [[T.p5b, -0.6, 1.56, -0.75, -0.66, 1.33, -2.62, 46], [T.p5c, -0.61, 1.55, -0.9, -0.66, 1.33, -2.62, 44]]],
   ["P5c", T.p5c, [[T.p5c, ...MESA_CAM(1)], [T.p6, ...MESA_CAM(1, 0.05)]]],
-  ["P6", T.p6, [[T.p6, ...MESA_CAM(0, 0.1, 0.16)], [T.p6b, ...MESA_CAM(1, 0.15, 0.16)]]],
-  ["P6b", T.p6b, [[T.p6b, 0.72, 1.5, 1.25, 0.42, 1.2, -0.75, 44], [P1, 0.72, 1.48, 1.12, 0.42, 1.2, -0.75, 42]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, 0.2, 1.32, -1.25, -0.1, 1.0, -2.15, 42], [T.q1i, 0.08, 1.22, -1.55, -0.1, 1.0, -2.15, 38]]],
   ["Q1i", T.q1i, null],
   ["Q2", T.q2, null],
   ["Q2b", T.q2b, [[T.q2b, 30.0, 1.5, 2.7, 29.8, 1.72, -0.55, 42], [T.q3, 29.98, 1.5, 2.55, 29.8, 1.72, -0.55, 40]]],
   ["Q3", T.q3, [[T.q3, ...CAM0(0)], [T.q4, ...CAM0(1)]]],
-  ["Q4", T.q4, [[T.q4, ...MESA_CAM(0)], [T.q5, ...MESA_CAM(1)]]],
-  ["Q5", T.q5, [[T.q5, ...MESA_CAM(0, 0.1, 0.16)], [T.c, ...MESA_CAM(1, 0.15, 0.16)]]],
+  ["Q4", T.q4, [[T.q4, ...MESA_CAM(0)], [T.c, ...MESA_CAM(1)]]],
   ["C", T.c, [[T.c, -0.6, 1.62, -0.7, -0.66, 0.95, -2.62, 50], [DUR, -0.61, 1.6, -0.85, -0.66, 0.97, -2.62, 48]]],
 ];
 const _m = new THREE.Vector3();
@@ -1241,7 +1236,7 @@ function poseRaul(t) {
       [T.pinza + 0.18, { manoD: [-0.44, 0.5, 0.46], codoD: [-0.9, -0.6, 0], ...aC(0.3, 0.02, 0.02) }, 0.22],
       [T.p3c + 0.3, { ...PARRILLA }, 0.3],
       // P4: mira el celular en la izquierda, confiado
-      [T.p4, { giro: 0.25, inclina: 0.06, ...aC(0.2, 0.25, 0.02), ...MEDIA, manoI: [0.12, 0.38, 0.36], codoI: [0.8, -0.6, -0.2], manoD: [-0.2, 0.36, 0.44] }, 0.01],
+      [T.p4, { giro: 0.3, inclina: 0.06, ...aC(0.35, 0.05, 0.02), ...MEDIA, ...PARRILLA }, 0.01],
       [T.r3 - 0.15, { ...aC(0.35, 0.05, 0.02) }, 0.2],
       // P5: seco, de frente
       [T.p5, { giro: 0.2, inclina: 0.04, ...aC(0.3, 0.08, 0.02), ...SECO, ...PARRILLA }, 0.01],
@@ -1250,12 +1245,12 @@ function poseRaul(t) {
       [T.p6, { giro: 0.25, ...aC(0.2, 0.3, 0.02), ...SECO, manoI: [0.12, 0.38, 0.36], codoI: [0.8, -0.6, -0.2], manoD: [-0.2, 0.36, 0.44] }, 0.01],
       [T.r5 - 0.3, { ...aC(0.4, 0.1, 0.02), ...AMARGA }, 0.3],
     ]);
-    if (t < T.p2) {
+    if (t < T.p3) {
       // la birome por el renglón: la mano izquierda arriba de la punta
       const u = sg(t, T.escribe[0], T.escribe[1]), w = puntoCuad(lerp(0.05, 0.92, u)).add(V3(0.02, 0.075, 0.05));
       manoA(raul, p, "I", w, 1);
     }
-    bocaVoz(p, t, T.r1, ENV.r1, 0.7); bocaVoz(p, t, T.r2, ENV.r2, 0.6); bocaVoz(p, t, T.r3, ENV.r3, 0.6); bocaVoz(p, t, T.r4, ENV.r4, 0.55); bocaVoz(p, t, T.r5, ENV.r5, 0.55);
+    bocaVoz(p, t, T.r1, ENV.r1, 0.7); bocaVoz(p, t, T.r2, ENV.r2, 0.6); bocaVoz(p, t, T.r3, ENV.r3, 0.6); bocaVoz(p, t, T.r4, ENV.r4, 0.55);
   } else {
     p = poseEn(t, [
       [0, { x: RAUL0.x, z: RAUL0.z, giro: 0.25, inclina: 0.08, ...aC(0.3, 0.15, 0.02), ...BUENA, ...DOS_MANOS }],
@@ -1263,11 +1258,9 @@ function poseRaul(t) {
       [T.r6 + 0.1, { ...aC(0.55, 0.1, 0.02), ...BUENA }, 0.2],
       [T.q4, { giro: 0.3, inclina: 0.04, ...aC(0.35, 0.02, 0.02), ...MEDIA, ...PARRILLA }, 0.01],
       [T.r7 - 0.05, { manoD: [-0.44, 0.5, 0.46], codoD: [-0.9, -0.6, 0], ...BUENA }, 0.22],
-      [T.q5, { giro: 0.3, ...aC(0.55, 0.1, 0.02), ...BUENA, ...PARRILLA }, 0.01],
-      [T.r8 - 0.1, { ...aC(0.35, 0.05, 0.02), ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.4 } }, 0.2],
       [T.c, { giro: 0.0, inclina: 0.03, ...aC(0.0, 0.02, 0.02), ...MEDIA, boca: { sonrisa: 0.55 }, manoD: [-0.3, 0.46, 0.4], codoD: [-0.9, -0.6, 0], manoI: [0.27, 0.12, 0.22] }, 0.01],
     ]);
-    bocaVoz(p, t, T.r6, ENV.r6, 0.6); bocaVoz(p, t, T.r7, ENV.r7, 0.6); bocaVoz(p, t, T.r8, ENV.r8, 0.65); bocaVoz(p, t, T.r9, ENV.r9, 0.6);
+    bocaVoz(p, t, T.r6, ENV.r6, 0.6); bocaVoz(p, t, T.r7, ENV.r7, 0.6); bocaVoz(p, t, T.r9, ENV.r9, 0.6);
   }
   p.t = t; return p;
 }
@@ -1300,7 +1293,7 @@ function poseFabian(t) {
     ]);
   } else {
     p = poseEn(t, [
-      [0, { x: 1.18, z: -1.32, giro: giroA(1.18, -1.32, RAUL0.x, RAUL0.z) + 0.7, ...aC(-0.3, 0.0), ...CARA.sonrisa, manoD: [-0.3, 0.12, 0.08], codoD: [-1, -0.3, 0], manoI: [0.29, -0.08, 0.04] }],
+      [0, { x: 1.24, z: -1.05, giro: giroA(1.24, -1.05, RAUL0.x, RAUL0.z) + 1.3, ...aC(-0.3, 0.0), ...CARA.sonrisa, manoD: [-0.3, 0.12, 0.08], codoD: [-1, -0.3, 0], manoI: [0.29, -0.08, 0.04] }],
       [T.q5, { x: F_MESA.x, z: F_MESA.z, giro: 0, inclina: 0.2, ...aC(0, 0.35), ...CARA.sonrisa, manoD: [-0.18, 0.2, 0.5], manoI: [0.22, 0.12, 0.5], codoD: [-0.8, -0.6, 0], codoI: [0.8, -0.6, 0] }, 0.01],
       [T.q5 + 0.5, { manoD: [-0.1, 0.35, 0.42], inclina: 0.1, ...aC(-0.3, 0.1) }, 0.25],
       [T.r8 + 0.2, { ...aC(-0.4, 0.05), ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.3 }, manoI: [0.18, 0.38, 0.45], codoI: [0.8, -0.6, 0] }, 0.2],
@@ -1421,7 +1414,7 @@ function renderAt(tIn) {
   // objetos en las manos
   PINZA.visible = !oscuro; PALA.visible = p2 && (pa === "Q3");
   // el celular de Raúl: en el hombro (P1), en la mano izquierda (P4, P6)
-  celuR.visible = pa === "P1" || ((pa === "P4" || pa === "P6" || pa === "P5") && t < T.p5) || pa === "P6";
+  celuR.visible = pa === "P1";
   if (pa === "P1") {
     raul.raiz.updateMatrixWorld(true);
     const pos = raul.cabeza.localToWorld(V3(-0.31, 0.15, 0.0));
@@ -1434,8 +1427,8 @@ function renderAt(tIn) {
   }
   // la birome y el piolín (P1, P2, P6)
   if (!p2) {
-    const u = t < T.p2 ? sg(t, T.escribe[0], T.escribe[1]) : 1;
-    const escribiendo = t >= T.escribe[0] - 0.2 && t < T.p2;
+    const u = t < T.p3 ? sg(t, T.escribe[0], T.escribe[1]) : 1;
+    const escribiendo = t >= T.escribe[0] - 0.2 && t < T.p3;
     let tip;
     if (escribiendo) { tip = puntoCuad(lerp(0.05, 0.92, u)); tip.y += 0.004 + Math.abs(Math.sin(u * 60)) * 0.006; }
     else tip = puntoCuad(1.05, 6.4, 1).add(V3(0, 0.0, 0));

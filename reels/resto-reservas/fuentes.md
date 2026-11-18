@@ -22,8 +22,9 @@ porcentaje: es lo que le pasa a Raúl ese viernes.
   la lista de espera. Viernes: **"Sin contestar: 14 → 0"**; **"Mesa 7 · Walter · 6 · $ 9.000 ✓"**; **"Mesas vacías por
   reservas que no vinieron: 0"** (ese viernes, en la ficción del caso). El cumpleaños de 20 del sábado es un pedido que
   el agente le pasa a Raúl (no lo cierra solo).
-- Horarios del caso: viernes 21:00 (cuadro 0), 21:40 (Walter en la puerta), 21:58 ("¡Estamos llegando!"), 22:45, 23:40,
-  23:58; parte 2: miércoles 2:14 (Pablo reserva), jueves 12:00 / 18:00 / 20:00, viernes 21:00, 22:00, 23:58.
+- Horarios del caso (ronda 1): miércoles 20:00 (cuadro 0: Pablo reserva para el viernes), viernes 21:40 (Walter en la
+  puerta), 22:45, 23:40; parte 2: miércoles 2:14 (Pablo reserva con el agente), jueves 12:00 / 18:00 / 20:00, viernes
+  21:00, 22:30. Pablo no vuelve a escribir después del miércoles (ni en la parte 1 ni en la 2).
 
 ## Lo que se dice del producto
 Que el agente de IA contesta por WhatsApp a cualquier hora con las mesas reales, toma la reserva, la anota en el plano de
