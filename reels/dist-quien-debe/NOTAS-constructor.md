@@ -130,3 +130,31 @@ COBRAR desde 40,05. `check --json` 0 errores.
   mechones; monitor sin textos chicos; importes sin pagar en crema.
 - Flojos del coordinador: tarjeta COBRAR 2,99 s (r7 atempo 1,06, entra 0,06 s después del inicio de "COBRAR", cola 0,02 s); la burbuja de Patricia más abajo (minY 640): no toca el turnero. Ding-dong sin la entrada antes del flip (no pisa "Te paso con…").
 - Render ronda 1: 566 s; paso10.sh lineal. Final 43,0 s, parte 2 50,0 %, -14,0 LUFS, true peak -3,2 dBTP (pico de muestra -2,4 dBFS), final vs crudo -0,3/+0,1 LU; voz ≥ +15,1 LU sobre el resto. Portada con el fondo limpio nuevo (Patricia, el monitor rojo y Rubén enteros arriba).
+
+## Ronda 2 (18-11, sobre d2/guion.md, d2/arte.md, d2/sonido.md)
+**44,0 s.** Parte 1 0-19,33 · cartel 19,33-21,56 · parte 2 21,56-44,0 = 22,44 s (51 %); tarjeta COBRAR 2,99 s.
+- Números: recordatorio "Tu saldo vence hoy: $ 208.000", Pagado "Saldo al día · $ 208.000"; el panel arranca en $ 1.034.000
+  y cobra $ 937.600 (Graciela 208.000, Héctor 312.000, Marta 205.400, Nelly 161.000, Walter 51.200) → $ 96.400; planilla
+  con Beto 33, Tito 26, Dante 24 días y Walter 51.200; guion.txt y fuentes.md al día.
+- Burbujas: "…Dale." en el primer plano de Rubén (parte 1) y "Dale." en la parte 2; Rubén "…de la fac—".
+- Cortes: la pantalla partida corta a Graciela de pecho (P4g/Q4g) cuando entra "¡Rubén!…" y al primer plano de Rubén en
+  "Dale." (Q4d); la línea "En llamada" se va con la pantalla partida.
+- Q1: el mensaje ya está escrito al abrir el iris; el rótulo "Recordatorio automático" abajo del celular (no lo tapa el
+  chip), 1,2 s; el "Pagado ✓" vuela desde abajo a la izquierda (no pasa por "Te deben").
+- Turnero: cambia a COBRANZAS cuando Patricia aprieta el timbre y el tilt arranca ahí: ~0,9 s legible (INVERSIONES igual);
+  el turnero más chico y más a la izquierda, entero en el cuadro 0.
+- Cuadro 0 (mirado a 1080): cámara más baja y atrás, los dos enteros; monitor más grande (0,84 m) con "Distribuidora Rubén",
+  "− $ 140.000" y "Sueldos hoy: $ 780.000" grandes; burbuja de Patricia de 3 líneas a la izquierda (no tapa caras ni
+  monitor ni turnero); el termo apoyado en el escritorio atrás (bajo el brazo salía por el borde).
+- Pantalla partida: arriba el monitor entero ("+ $ 320.000 · Sueldos ✓" en Q4), sin el turnero; abajo Graciela más cerca.
+- Graciela con lentes finos centrados y la cabeza a cámara; sin el parpadeo que caía en "Mirá vos".
+- Muelle: aviso de Nico 0,6 s, cartel corrido (la persiana lo tapaba). Cierre: Rubén sentado en el sillón con el mate,
+  más chico y alto (la tarjeta no le tapa el torso entero).
+- Sonido: "Te paso con…" con 70 ms más antes del corte del "Bueno." (STT: "te pasó"; el de inversiones el STT lo sigue
+  oyendo "qué pasó" aunque el empalme es el mismo audio); ka-ching a -33; cola final +0,3 s. Voz ≥ +10,1 LU.
+- Texto fantasma del cuadro 3,12: DISTRIBUIDORAS se va 0,04 s antes del corte.
+- INVERSIONES cambia con el timbre (como COBRANZAS) y queda ~1 s. Render r2: 461 s; paso10.sh lineal. Final 43,97 s, parte 2
+  50,9 %, -14,0 LUFS, true peak -3,1 dBTP (pico -3,0 dBFS), final vs crudo -0,2/+0,1 LU. Portada con fondo limpio nuevo
+  (los dos enteros, sin tocar los bordes).
+- Flojo: el primer cuadro del tilt al turnero muestra a Patricia cortada (0,1 s); el STT sigue oyendo "qué pasó con
+  inversiones".

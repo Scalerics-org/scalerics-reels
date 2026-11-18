@@ -38,29 +38,29 @@ T.pa1 = 0.15; T.tic = r2(T.pa1 + LEN.pa1 * 0.72); T.rotD = 0.35;
 // P2 · contraplano: Rubén, canchero: "Tranquila. La calle me debe un millón."
 T.p2 = r2(T.pa1 + LEN.pa1 + 0.06); T.r1 = r2(T.p2 + 0.08);
 // P3 · la planilla entra sobre "un millón": el pulgar baja y baja, frena en Graciela; toca "Llamar"
-T.p3 = r2(T.r1 + LEN.r1 - 0.75); T.rotA = r2(T.p3 + 0.1); T.frena = r2(T.p3 + 0.75); T.rotB = r2(T.p3 + 0.85); T.llamar = r2(T.p3 + 1.1);
+T.p3 = r2(T.r1 + LEN.r1 - 0.85); T.rotA = r2(T.p3 + 0.1); T.frena = r2(T.p3 + 0.7); T.rotB = r2(T.p3 + 0.78); T.llamar = r2(T.p3 + 1.0);
 // P4 · la llamada (pantalla partida): "Graciela, querida… te llamaba por lo de la fac—" · Graciela lo corta: "¡Rubén!
 // Justo. Mandame veinte cajas." · P4d primer plano de Rubén: pausa · "…Dale." · cuelga · el contador "Te deben" sube
-T.p4 = r2(T.p3 + 1.32); T.r2 = r2(T.p4 + 0.1); T.g1 = r2(T.r2 + LEN.r2 - 0.04);
+T.p4 = r2(T.p3 + 1.2); T.r2 = r2(T.p4 + 0.1); T.g1 = r2(T.r2 + LEN.r2 - 0.04);
 T.p4d = r2(T.g1 + LEN.g1 + 0.08); T.r3 = r2(T.g1 + LEN.g1 + 0.38); T.cuelga = r2(T.r3 + LEN.r3 + 0.04); T.kaching = r2(T.r3 + LEN.r3 + 0.06);
 // P5 · Patricia, cejas arriba: "¿Y? ¿Cobraste?" (el contador llega en 0,45 s y queda quieto 0,7 s antes del corte)
-T.p5 = r2(T.kaching + 1.15); T.pa2 = r2(T.p5 + 0.1);
+T.p5 = r2(T.kaching + 1.1); T.pa2 = r2(T.p5 + 0.1);
 // P6 · el remate: primer plano de Rubén; pausa (la bombilla, nada sale) · "Mejor. Ahora me deben más."
-T.p6 = r2(T.pa2 + LEN.pa2 + 0.12); T.sorbo = r2(T.p6 + 0.06); T.r4 = r2(T.p6 + 0.38);
+T.p6 = r2(T.pa2 + LEN.pa2 + 0.12); T.sorbo = r2(T.p6 + 0.06); T.r4 = r2(T.p6 + 0.35);
 // P7 · remate del remate: pausa · Patricia aprieta el timbre: "Te paso con cobranzas." · el turnero: COBRANZAS · BOX 3
-T.p7 = r2(T.r4 + LEN.r4 + 0.12); T.pa3 = r2(T.r4 + LEN.r4 + 0.42); T.timbre = r2(T.pa3 + LEN.pa3 - 0.12); T.flip = r2(T.pa3 + LEN.pa3 + 0.12);
-const P1 = r2(T.pa3 + LEN.pa3 + 0.45);                      // termina la parte 1 (arranca el cartel)
+T.p7 = r2(T.r4 + LEN.r4 + 0.12); T.pa3 = r2(T.r4 + LEN.r4 + 0.38); T.timbre = r2(T.pa3 + LEN.pa3 - 0.3); T.flip = r2(T.timbre + 0.04);
+const P1 = r2(T.timbre + 1.1);                              // (r2) COBRANZAS legible ~0,9 s                      // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.02));
 // ---- parte 2 ----
 // Q1i · martes 9:00: el iris se abre al celular de Graciela en el mostrador: vibra, el recordatorio con "vence hoy"
 // subrayado y Pagar · Q1g Graciela: "Mirá vos. Rubén nunca me cobra." · Q1p toca Pagar → Pagado ✓
-T.q1 = P2; T.vibra = r2(P2 + 0.12); T.llega = r2(P2 + 0.06); T.q1i = P2; T.g2 = r2(P2 + 0.95); T.q1g = r2(T.g2 - 0.05);
+T.q1 = P2; T.vibra = r2(P2 + 0.05); T.llega = r2(P2 - 0.3); T.q1i = P2; T.g2 = r2(P2 + 1.3); T.q1g = r2(T.g2 - 0.05);
 T.pagar = r2(T.g2 + LEN.g2 + 0.15); T.pagado = r2(T.pagar + 0.14);
 // Q2 · el panel de Rubén: el "Pagado ✓" vuela a su fila; los otros de a uno; Te deben baja a $ 96.400; "Quién y desde
 // cuándo"
 T.q2 = r2(T.pagado + 0.3); T.fila = [0.15, 0.35, 0.55, 0.75, 0.95].map((d) => r2(T.q2 + d)); T.quien = r2(T.q2 + 1.3);
 // Q3 · el muelle: el aviso "Visitar hoy · Kiosco Beto" · Nico: "Beto. Hoy paso." · se va a la cabina; portazo
-T.q3 = r2(T.q2 + 2.25); T.aviso = r2(T.q3 + 0.08); T.n1 = r2(T.q3 + 0.45); T.sube = r2(T.n1 + LEN.n1 + 0.05); T.portazo = r2(T.sube + 0.25);
+T.q3 = r2(T.q2 + 2.25); T.aviso = r2(T.q3 + 0.08); T.n1 = r2(T.q3 + 0.68); T.sube = r2(T.n1 + LEN.n1 + 0.05); T.portazo = r2(T.sube + 0.25);
 // Q4 · viernes 16:00, directo a la pantalla partida (arriba el monitor en verde): "¡Rubén! Ya te pagué. Mandame veinte
 // cajas." · "Dale." · "¿Y? ¿Cobraste?" (el mismo audio) · "Mejor. Cobré y vendí." · pausa · "Te paso con inversiones." ·
 // el turnero: INVERSIONES · BOX 1
@@ -68,11 +68,11 @@ T.q4 = r2(T.portazo + 0.05); T.q4s = T.q4; T.vibraR = r2(T.q4 + 0.05); T.g3 = r2
 T.r5 = r2(T.g3 + LEN.g3 + 0.12); T.cuelga2 = r2(T.r5 + LEN.r5 + 0.06);
 T.q4p5 = r2(T.r5 + LEN.r5 + 0.2); T.pa2b = r2(T.q4p5 + 0.1);
 T.q4p6 = r2(T.pa2b + LEN.pa2 + 0.12); T.r6 = r2(T.q4p6 + 0.25);
-T.q4p7 = r2(T.r6 + LEN.r6 + 0.12); T.pa4 = r2(T.r6 + LEN.r6 + 0.42); T.timbre2 = r2(T.pa4 + LEN.pa4 - 0.12); T.flip2 = r2(T.pa4 + LEN.pa4 + 0.12);
+T.q4p7 = r2(T.r6 + LEN.r6 + 0.12); T.pa4 = r2(T.r6 + LEN.r6 + 0.42); T.timbre2 = r2(T.pa4 + LEN.pa4 - 0.12); T.flip2 = r2(T.timbre2 + 0.04);
 // C · Rubén a cámara en el box de inversiones: "Comentá COBRAR y te mando cómo funciona para tu distribuidora."
-T.c = r2(T.flip2 + 0.88); T.r7 = r2(T.c + 0.1);
-T.palabra = r2(T.r7 + palabra("r7", 1) + 0.06);           // la tarjeta entra sobre "COBRAR"
-const DUR = Math.ceil((Math.ceil((T.r7 + LEN.r7 + 0.02) * 30) / 30) * 1e4) / 1e4;
+T.c = r2(T.flip2 + 1.04); T.r7 = r2(T.c + 0.1);
+T.palabra = r2(T.r7 + palabra("r7", 1) + 0.36);           // la tarjeta entra sobre "COBRAR"
+const DUR = Math.ceil((Math.ceil((T.r7 + LEN.r7 + 0.3) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.4));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -132,7 +132,7 @@ const CHIP = `
 // P1 · el rubro: "DISTRIBUIDORAS" enorme arriba (navy en el recuadro verde de selección, caja navy con borde crema), entero
 // desde el cuadro 0, y el chip "Viernes, 16:00." debajo; se van con el corte al contraplano
 {
-  const id = "s00-rubro", ini = 0, dur = r2(T.p2 + 0.02);
+  const id = "s00-rubro", ini = 0, dur = r2(T.p2 - 0.04);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -163,7 +163,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
   });
 }
 // la línea de la pantalla partida (navy de 10 px al medio) con el chip "Llamando · Graciela" / "En llamada · Graciela"
-const SPLITS = [["s03-split", T.p4, T.p4d, "Llamando · Graciela", T.r2 - 0.05, "En llamada"], ["s04-split", T.q4s, T.q4p5, "Graciela", T.g3 - 0.05, "En llamada"]];
+const SPLITS = [["s03-split", T.p4, r2(T.g1 - 0.03), "Llamando · Graciela", T.r2 - 0.05, "En llamada"], ["s04-split", T.q4s, r2(T.g3 + 0.4), "Graciela", T.g3 - 0.05, "En llamada"]];
 for (const [id, ini0, fin, txt, cambio, txt2] of SPLITS) {
   const ini = r2(ini0), dur = r2(fin - ini0);
   ESC.push([id, ini, dur, "arriba"]);
@@ -341,7 +341,7 @@ voz("g1", T.g1, -1);
 whoosh(T.p4d - 0.04, -48);
 voz("r3", T.r3, 0);
 s("sfx/k-dos-tonos.wav", T.cuelga, 0, { techo: -42, lp: 2200 });
-kaching(T.kaching + 0.04, -37);
+kaching(T.kaching + 0.04, -33);
 for (let k = 0; k < 4; k++) tic(T.kaching + 0.14 + k * 0.1, -46);
 // P5 · "¿Y? ¿Cobraste?"
 whoosh(T.p5 - 0.04, -48);

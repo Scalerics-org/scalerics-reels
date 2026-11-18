@@ -19,7 +19,7 @@ corta partes/tmp/g1a.wav assets/voice/g1.wav 0.63 0.83 0.08 "atempo=1.08"
 ffmpeg -loglevel error -y -i partes/rec/05-ruben-a.wav -ar 48000 -ac 1 assets/voice/r3.wav   # "…Dale." (resignado)
 ffmpeg -loglevel error -y -i partes/rec/06-patricia-a.wav -ar 48000 -ac 1 assets/voice/pa2.wav   # "¿Y? ¿Cobraste?" (se reusa en Q4)
 hueco 07-ruben-c    r4  0.61 1.06 0.32                         # "Mejor. Ahora me deben más." (EL remate)
-ffmpeg -loglevel error -y -i partes/rec/${PA3:-08b-g-c}.wav -ar 48000 -ac 1 assets/voice/pa3.wav   # "Te paso con cobranzas."
+ffmpeg -loglevel error -y -i partes/rec/08b-g.wav -af "atrim=start=0.86,asetpts=PTS-STARTPTS,afade=t=in:d=0.01" -ar 48000 -ac 1 assets/voice/pa3.wav   # (r2) el "Bueno." cortado 70 ms antes: entra la "t" entera (STT: "te pasó")   # "Te paso con cobranzas."
 ffmpeg -loglevel error -y -i partes/rec/09-narrador-b.wav -af "atempo=1.1" -ar 48000 -ac 1 assets/voice/narrador.wav   # Rasalgethi "Una cobranza automática más tarde."
 hueco 10-graciela-d g2  0.72 1.23 0.25 "atempo=1.05"            # (r1) "Mirá vos. Rubén nunca me cobra."
 hueco 11-nico-a     n1  0.44 0.89 0.22                          # Nico (Fenrir) "Beto. Hoy paso."
@@ -28,7 +28,7 @@ corta partes/tmp/g3a.wav assets/voice/g3.wav 0.59 0.98 0.14 "atempo=1.18"
 ffmpeg -loglevel error -y -i partes/rec/13-ruben-c.wav -ar 48000 -ac 1 assets/voice/r5.wav   # "Dale." (firme)
 hueco 14-ruben-a    r6  0.67 1.03 0.26 "atempo=1.04"                          # "Mejor. Cobré y vendí."
 # (r1) "Te paso" de la toma de cobranzas (hasta el hueco de 0,39 s) + "con inversiones." de la de inversiones (desde 0,38)
-ffmpeg -loglevel error -y -i assets/voice/pa3.wav -i partes/rec/${PA4:-15b-h-c}.wav -filter_complex "[0]atrim=0:0.39,afade=t=out:st=0.37:d=0.02[a];[1]atrim=0.38,asetpts=PTS-STARTPTS,afade=t=in:d=0.02[b];[a][b]concat=n=2:v=0:a=1" -ar 48000 -ac 1 assets/voice/pa4.wav
+ffmpeg -loglevel error -y -i assets/voice/pa3.wav -i partes/rec/${PA4:-15b-h-c}.wav -filter_complex "[0]atrim=0:0.46,afade=t=out:st=0.44:d=0.02[a];[1]atrim=0.38,asetpts=PTS-STARTPTS,afade=t=in:d=0.02[b];[a][b]concat=n=2:v=0:a=1" -ar 48000 -ac 1 assets/voice/pa4.wav
 hueco 16-ruben-c    r7  1.03 1.24 0.1 "atempo=1.06"            # "Comentá COBRAR y te mando cómo funciona para tu distribuidora."
 node ../../herramientas/tiempos.mjs assets/voice/r7.wav partes/16-ruben.txt assets/voice/palabras-r7.json 2>&1 | grep -i "oyó"
 for k in pa1:01-patricia r1:02-ruben r2:03-ruben g1:04-graciela r4:07-ruben g2:10-graciela g3:12-graciela r6:14-ruben pa4:15-patricia; do f=${k%%:*}; t=${k##*:}; echo "$f $(node ../../herramientas/tiempos.mjs assets/voice/$f.wav partes/$t.txt partes/tmp/pal-$f.json 2>&1 | grep -i "oyó")"; done
