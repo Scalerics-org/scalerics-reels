@@ -1,7 +1,7 @@
 {
- "t": 14.6,
- "chica": "Último día, 22:10.",
- "grande": "¿Y esta?",
+ "t": 0.5,
+ "chica": "Último día, 18:00.",
+ "grande": "¿Mañana sin falta?",
  "sello": "ESTUDIOS CONTABLES",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
@@ -11,5 +11,5 @@
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
  "sello_top": "300px",
- "nota": "Fondo: plano propio VER=portada en tres.js (LIMPIO=1, t 14.6): Adriana de frente con el ticket en blanco en alto contra la lámpara verde, la montaña de tickets delante (sin Marcelo: en vertical tapaba la pila). Alternativa de grande: \"¿Ordenadito?\""
+ "nota": "(r1) Fondo: plano propio VER=portada en tres.js (LIMPIO=1, t 0.5): Adriana de frente, cansada, con el celular del audio de Marcelo y la lámpara verde al costado (sin taparle la cara)."
 }

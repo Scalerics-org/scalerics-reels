@@ -7,8 +7,8 @@
     [data-composition-id="s01-chip"] .chip { position: absolute; left: 44px; padding: 14px 30px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #efeee5; font: 900 62px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.01em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); white-space: nowrap; }
     [data-composition-id="s01-chip"] .chip { top: 96px; }
   </style>
-  <div id="root" data-composition-id="s01-chip" data-width="1080" data-height="1920" data-duration="0.58">
-    <div id="s01-chip-esc" class="esc clip" data-start="0" data-duration="0.58" data-track-index="0">
+  <div id="root" data-composition-id="s01-chip" data-width="1080" data-height="1920" data-duration="0.44">
+    <div id="s01-chip-esc" class="esc clip" data-start="0" data-duration="0.44" data-track-index="0">
       <div class="chip">19:40</div>
     </div>
   </div>
@@ -20,7 +20,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".chip"), { scale: 0.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "back.out(1.6)", immediateRender: true }, 0.02);
-      tl.to(q(".chip"), { scale: 0.6, opacity: 0, duration: 0.12, ease: "power2.in" }, 0.44);
+      tl.to(q(".chip"), { scale: 0.6, opacity: 0, duration: 0.12, ease: "power2.in" }, 0.3);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
