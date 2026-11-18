@@ -29,7 +29,7 @@ ffmpeg -loglevel error -y -i partes/rec/13-ruben-c.wav -ar 48000 -ac 1 assets/vo
 hueco 14-ruben-a    r6  0.67 1.03 0.26 "atempo=1.04"                          # "Mejor. Cobré y vendí."
 # (r1) "Te paso" de la toma de cobranzas (hasta el hueco de 0,39 s) + "con inversiones." de la de inversiones (desde 0,38)
 ffmpeg -loglevel error -y -i assets/voice/pa3.wav -i partes/rec/${PA4:-15b-h-c}.wav -filter_complex "[0]atrim=0:0.39,afade=t=out:st=0.37:d=0.02[a];[1]atrim=0.38,asetpts=PTS-STARTPTS,afade=t=in:d=0.02[b];[a][b]concat=n=2:v=0:a=1" -ar 48000 -ac 1 assets/voice/pa4.wav
-hueco 16-ruben-c    r7  1.03 1.24 0.1 "atempo=1.03"            # "Comentá COBRAR y te mando cómo funciona para tu distribuidora."
+hueco 16-ruben-c    r7  1.03 1.24 0.1 "atempo=1.06"            # "Comentá COBRAR y te mando cómo funciona para tu distribuidora."
 node ../../herramientas/tiempos.mjs assets/voice/r7.wav partes/16-ruben.txt assets/voice/palabras-r7.json 2>&1 | grep -i "oyó"
 for k in pa1:01-patricia r1:02-ruben r2:03-ruben g1:04-graciela r4:07-ruben g2:10-graciela g3:12-graciela r6:14-ruben pa4:15-patricia; do f=${k%%:*}; t=${k##*:}; echo "$f $(node ../../herramientas/tiempos.mjs assets/voice/$f.wav partes/$t.txt partes/tmp/pal-$f.json 2>&1 | grep -i "oyó")"; done
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

@@ -128,3 +128,5 @@ COBRAR desde 40,05. `check --json` 0 errores.
   el turnero termina arriba con Rubén entero abajo mirándolo (sin el monitor cortado); cierre sin la franja verde que nacía
   de la cabeza y sin la mesita (taza y mate cortados); muelle con el cartel entero, Nico de cuerpo entero y pelo de
   mechones; monitor sin textos chicos; importes sin pagar en crema.
+- Flojos del coordinador: tarjeta COBRAR 2,99 s (r7 atempo 1,06, entra 0,06 s después del inicio de "COBRAR", cola 0,02 s); la burbuja de Patricia más abajo (minY 640): no toca el turnero. Ding-dong sin la entrada antes del flip (no pisa "Te paso con…").
+- Render ronda 1: 566 s; paso10.sh lineal. Final 43,0 s, parte 2 50,0 %, -14,0 LUFS, true peak -3,2 dBTP (pico de muestra -2,4 dBFS), final vs crudo -0,3/+0,1 LU; voz ≥ +15,1 LU sobre el resto. Portada con el fondo limpio nuevo (Patricia, el monitor rojo y Rubén enteros arriba).

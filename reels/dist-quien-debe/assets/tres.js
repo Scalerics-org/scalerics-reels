@@ -1279,7 +1279,7 @@ function renderAt(tIn) {
     const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
     const di = (k, per, ti, fin, orden = 1, dx = 0, minY = 250, maxY = 1860, sobre = 110) => { if (t >= ti - 0.04 && t < fin) hablar(GL[k], per, ent(ti - 0.04), orden, dx, minY, maxY, sobre); };
     if (pa === "P1") {
-      di("pa1", patricia, T.pa1, T.p2, 1, -40, 430);
+      di("pa1", patricia, T.pa1, T.p2, 1, -120, 640);
       const r = ROT_.dist, rx = 690, ry = 1560; ponerGlobo(r, rx, ry, ent(T.rotD), null, 2);
       const [bx, by] = enPantalla(ruben.cuerpo.localToWorld(V3(0, 0.15, 0.3)));
       ponerGuia(GUIAS[1], rx, ry - r.userData.H / 2 + 4, bx, by, sg(t, T.rotD, T.rotD + 0.25));
