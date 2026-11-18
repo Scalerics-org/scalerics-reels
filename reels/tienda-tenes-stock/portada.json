@@ -1,0 +1,15 @@
+{
+ "t": 11.8,
+ "chica": "Lunes, 10:00.",
+ "grande": "¿Tenés stock?",
+ "sello": "IMPORTADORAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "20%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "sello_top": "312px",
+ "separacion": 34
+}
