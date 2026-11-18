@@ -4,8 +4,10 @@ Reel de la línea "ANTES QUE TODO" (rubro + dolor + solución), comedia de situa
 Marcelo, Lucas; Sofi del elenco). **No afirma datos externos, estadísticas, porcentajes, fechas de vencimiento, multas,
 recargos ni empresas reales.** Los números son del caso que se cuenta:
 - "Estudio Adriana" tiene 60 clientes (inventado). Parte 1: "Mandaron 33 → 41 de 60" el último día, "Cuarta noche hasta
-  las 2", "Un mes en una caja de zapatos". Parte 2: "Mandaron 0 → 38 → 52 de 60", "Recordatorio automático enviado a 22",
-  "Marcelo · Noviembre · 14", "60 de 60", "Noches hasta las 2: 0". Todo ficción del caso, ninguna cifra se presenta como
+  las 2", "Un mes en una caja de zapatos". Parte 2 (r2): el 1 de noviembre el estudio pide los comprobantes de
+  octubre; "Mandaron 0 → 38 de 60" (Día 3), "Recordatorio automático enviado a 22" y 38 → 52 (Día 5), 52 → 60 de 60 ✓
+  (Día 8, TALLER ROLO 9 ✓); Marcelo sube "Octubre completo · 14 ✓" el día 3 ("Marcelo · Octubre · 14 ✓", del 3 al 31 de
+  octubre); el último día el panel ya está en "60 de 60 ✓" y a las 18:05 "Noches hasta las 2: 0". Todo ficción del caso, ninguna cifra se presenta como
   promedio de nada.
 - "Último día" y "Vence hoy" van **sin fecha y sin nombrar el impuesto** a propósito (pedido del coordinador: no poner
   vencimientos de DGI/BPS sin verificarlos con dos fuentes; el chiste no los necesita). Los lomos de los biblioratos

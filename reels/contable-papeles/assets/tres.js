@@ -8,7 +8,7 @@
 //     con tickets, la puerta de calle; de noche (parte 1) y de tarde (parte 2)
 //   "PANADERÍA MARCELO" (x = 40): azulejo blanco con guarda verde, mostrador con vitrina, bolsas de harina
 //   PARTE 1: el audio "Adri, las facturas te las mando mañana sin falta." · "Marcelo. Vence hoy." · las fotos · el
-//            piolín · los sobres · "Acá está todo, Adri. Ordenadito." · la avalancha · "¿Y esta?" · "Esa es la más
+//            piolín · los sobres · "Acá está todo, Adri. Ordenadito." · la avalancha · "¿Y este?" · "Ese es el más
 //            importante." · la pausa (rótulos) · "Si querés, te mando una foto." · la foto en blanco
 //   PARTE 2: el WhatsApp del estudio en la panadería · la foto de la factura · "Listo. Ordenadito." · el panel · el
 //            mismo audio · "Marcelo, las mandaste el día tres." · "¿Yo? Qué ordenadito." · 60 de 60 · la lámpara se
@@ -1014,7 +1014,7 @@ const GL = {
   a1: crearGlobo(["Marcelo. [Vence hoy.]"], 80),
   m2: crearGlobo(["Acá está todo, Adri.", "[Ordenadito.]"], 78),
   a2: crearGlobo(["¿Y [este?]"], 100),
-  m3: crearGlobo(["Esa es la", "[más importante.]"], 86),
+  m3: crearGlobo(["Ese es el", "[más importante.]"], 86),
   m4: crearGlobo(["Si querés, te", "mando [una foto.]"], 80),
   m5: crearGlobo(["Listo. [Ordenadito.]"], 80),
   m1b: crearAudio(["Adri, las facturas te las", "mando [mañana s…]"], "0:03", 58),   // (r2) Adriana lo corta

@@ -19,7 +19,7 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // ================= LOS BEATS (segundos del video final) =================
 // Voces (assets/voice, ver partes/voces.md y partes/procesar.sh): m1 Marcelo (audio) "Adri, las facturas te las mando
 // mañana sin falta." (se reusa igual en Q3) · a1 Adriana "Marcelo. Vence hoy." · m2 Marcelo "Acá está todo, Adri.
-// Ordenadito." · a2 Adriana "¿Y esta?" · m3 Marcelo "Esa es la más importante." · m4 Marcelo "Si querés, te mando una
+// Ordenadito." · a2 Adriana "¿Y este?" · m3 Marcelo "Ese es el más importante." · m4 Marcelo "Si querés, te mando una
 // foto." · nar "Una automatización más tarde." · m5 Marcelo "Listo. Ordenadito." · a3 Adriana "Marcelo, las mandaste el
 // día tres." · m6 Marcelo (audio) "¿Yo? Qué ordenadito." · so Sofi "Comentá PAPELES y te mando cómo funciona para tu
 // estudio."
