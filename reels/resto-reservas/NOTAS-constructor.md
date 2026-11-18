@@ -147,3 +147,28 @@ Ver la lista en el reporte final de abajo (sección "Pasadas").
 - Flojo: la mujer de Walter roza el borde derecho en la portada; "SCALERICS" de la plantilla de portada queda en y≈1655
   (es de herramientas/portada.html, común a todos los reels: no lo toqué); en Q4 la abuela y la mujer rozan los bordes;
   Q1 no muestra salón con sillas arriba (el celular grande delante del mostrador a oscuras).
+
+## Ronda 3 de corrección (arte r2 + bajas de guion y sonido)
+**40,4 s.** Parte 1 0-16,99 · cartel 16,99-19,39 · parte 2 19,39-40,40 = 21,0 s (52 %); cierre 36,91-40,40.
+- Q3: el globo "Ese, para mí." arriba de la cabeza con la cola al pelo (ya no tapa el ojo); cámara que baja a Raúl; chat
+  más angosto a la derecha; el celular parado muestra la lista de chats del viernes (Martín, Laura, Sergio, Carla).
+- Q4: Walter levanta la copa (con vino, 1,3×) con la derecha, al costado y arriba de su cara, sin cruzar al adolescente;
+  cámara un poco más abierta.
+- Q1i: el chat ya no salta: cada mensaje nuevo lleva la lista del lugar de antes al de ahora (siempre para arriba); la
+  transcripción en dos renglones dentro de la burbuja; la respuesta entra 0,34 s antes (sale de la nota casi sin hueco).
+- Q1: el celular ya está prendido cuando abre el iris (la notificación suena con el iris).
+- Q2: "no confirmó · liberada" a 36 px; la lista de espera en dos renglones (38/36 px) entra con "20:00 · Mesa 7 liberada"
+  y queda 1,38 s; filas de 96 px.
+- Q2b: el celular en la mano derecha de Walter; la lámpara de pie (la pieza navy del borde) fuera de cuadro.
+- P3c: el plano dura 1,3 s y el rótulo de $ 9.000 entra al cortar (1,26 s). P5c: rótulos casi juntos (1,3 y 1,2 s),
+  "Cubiertos puestos: 8" sin "·" colgando. Q4: "Mesas vacías…: 0" 1,2 s. Raúl sin parpadeo en Q4; la mano de la pinza
+  más arriba en el cuadro 0.
+- Sonido: la tarjeta RESERVA entra con la voz; cama propia desde el "Listo ✓" hasta el living; duck de la cama desde
+  0,6 s antes de cada voz (medir.py marcaba +4,9 en 9,5 s: la cama entraba sin bajar antes de "¿y los de las diez?");
+  medir.py ≥ +7,4 LU; check 0 errores. fuentes.md: calle.wav (Oper8, Freesound, CC0) y key-press.mp3 acreditados.
+- Limpieza: sin el celular de mensajes de P2 (código muerto), sin "Dejá los cubiertos" ni "Sin contestar" en tres.js y
+  gen.mjs, lineas.tsv con las tomas que se usan (01c, 15b), guion.txt con los tiempos de ahora.
+- Portada: VER=portada (Walter y su mujer más cerca de Raúl, los chicos fuera, solo para el fondo); zoom 1,12, foco 62 %:
+  Raúl y Walter enteros, caras en y ≈ 430-800.
+- Flojo: en la portada el sello PARRILLAS roza la coronilla de Raúl y queda navy arriba (~400 px); en Q4 la abuela y la
+  mujer siguen rozando los bordes.

@@ -18,12 +18,12 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString()));
 
 // ================= LOS BEATS (segundos del video final) =================
-// Voces (assets/voice, ver partes/voces.md y partes/procesar.sh):
-//   p1 Pablo (teléfono) "Raúl, ¿tenés mesa para ocho a las diez? Soy Pablo." (P1 y, como nota de voz, Q1) · r1 Raúl
-//   "¡Anotado, Pablo!" · w1 Walter "Raúl, ¿tenés mesa para seis?" · r2 "No, Walter. Esa es de Pablo." · f1 Fabián "Raúl,
-//   ¿y los de las diez?" (P4 y Q4) · r3 "Están llegando." · f2 "¿Y?" · r4 "Siguen llegando." · r5 "Dejá los cubiertos."
-//   (resignado) · nar "Un agente de IA más tarde." · w2 Walter "¡Esta vez sí entramos!" · r6 "Ese es para mí." · r7
-//   "Llegaron." · r8 "Dejá los cubiertos." (contento) · r9 "Comentá RESERVA y te mando cómo funciona para tu restaurante."
+// Voces (assets/voice, ver partes/procesar.sh):
+//   p1 Pablo (teléfono) "Raúl, soy Pablo. ¿Me guardás mesa para ocho, el viernes, a las diez?" (P1 y, como nota de voz, Q1)
+//   · r1 Raúl "¡Anotado, Pablo!" · w1 Walter "Raúl, ¿tenés mesa para seis?" · r2 "No, Walter. Esa es de Pablo." · f1 Fabián
+//   "Raúl, ¿y los de las diez?" (P4 y Q4) · r3 "Están llegando." · f2 "¿Y?" · r4 "Siguen llegando." · nar "Un agente de IA
+//   más tarde." · w2 Walter "¡Esta vez sí entramos!" · r6 "Ese, para mí." · r7 "Llegaron." · r9 "Comentá RESERVA y te mando
+//   cómo funciona para tu restaurante."
 const VOCES = ["p1", "r1", "w1", "r2", "f1", "r3", "f2", "r4", "w2", "r6", "r7", "r9"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
 const PAL9 = JSON.parse(fs.readFileSync("assets/voice/palabras-r9.json", "utf8"));
@@ -41,29 +41,29 @@ T.p2 = NUNCA; T.burb = []; T.p2b = NUNCA; T.reservado = -1; T.cubiertos = [-1, -
 // de Raúl, la pinza hacia la mesa 7: "No, Walter. Esa es de Pablo." · P3c se van saludando; "Familia de 6 que se fue: $ 9.000"
 T.p3 = r2(T.r1 + LEN.r1 + 0.06); T.campana1 = r2(T.p3 + 0.02); T.w1 = r2(T.p3 + 0.14);
 T.p3b = r2(T.w1 + LEN.w1 + 0.04); T.pinza = r2(T.p3b + 0.04); T.r2 = r2(T.p3b + 0.14);
-T.p3c = r2(T.r2 + LEN.r2 + 0.04); T.rot9 = r2(T.p3c + 0.1); T.campana2 = r2(T.p3c + 0.55);
+T.p3c = r2(T.r2 + LEN.r2 + 0.04); T.rot9 = r2(T.p3c + 0.04); T.campana2 = r2(T.p3c + 0.35);
 // P4 · la mesa 7, 22:45 (la vela entera): "Raúl, ¿y los de las diez?" · Raúl, confiado (nadie avisó nada desde el
 // miércoles): "Están llegando."
-T.p4 = r2(T.p3c + 0.9); T.f1 = r2(T.p4 + 0.12); T.msj = NUNCA; T.r3 = r2(T.f1 + LEN.f1 + 0.18);
+T.p4 = r2(T.p3c + 1.3); /* (r3) el rótulo de $ 9.000 queda 1,25 s */ T.f1 = r2(T.p4 + 0.12); T.msj = NUNCA; T.r3 = r2(T.f1 + LEN.f1 + 0.18);
 // P5 · el mismo encuadre, 23:40 (la vela por la mitad, sillas arriba): "¿Y?" · pausa · P5b primer plano: "Siguen
 // llegando." · P5c la mesa: los rótulos en rojo (el final de la parte 1)
 T.p5 = r2(T.r3 + LEN.r3 + 0.28); T.f2 = r2(T.p5 + 0.26); T.p5b = r2(T.f2 + LEN.f2 + 0.42); T.r4 = r2(T.p5b + 0.2);
-T.p5c = r2(T.r4 + LEN.r4 + 0.1); T.rotA = r2(T.p5c + 0.06); T.rotB = r2(T.p5c + 0.3);
+T.p5c = r2(T.r4 + LEN.r4 + 0.1); T.rotA = r2(T.p5c + 0.06); T.rotB = r2(T.p5c + 0.16);
 // (r1) sin el remate del remate (era la misma mecánica de estetica-turnos: el que faltó vuelve a reservar)
 T.p6 = NUNCA; T.junta = [NUNCA, NUNCA]; T.msj2 = NUNCA; T.r5 = NUNCA; T.p6b = NUNCA; T.tenedor = NUNCA;
-const P1 = r2(T.p5c + 1.2);   // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p5c + 1.38);   // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.02));
 // ---- parte 2 ----
 // Q1 · miércoles 2:14: el salón a oscuras, el celular del local se prende; la MISMA nota de voz de Pablo (con "el
 // viernes") suena sobre el plano 3D · Q1i el chat del agente: contesta con la mesa real; "Dale"; "Listo ✓"; el plano
-T.q1 = P2; T.prende = r2(P2 + 0.1); T.nota = r2(P2 + 0.3); T.q1i = r2(T.nota + LEN.p1 - 0.55);
-T.escribiendo = r2(T.nota + LEN.p1 - 0.3); T.resp1 = r2(T.nota + LEN.p1 + 0.02); T.dale = r2(T.resp1 + 0.5); T.listo = r2(T.dale + 0.28);
+T.q1 = P2; T.prende = r2(P2 - 0.45); T.nota = r2(P2 + 0.3);   // (r3) el celular ya está prendido cuando abre el iris
+T.escribiendo = r2(T.nota + LEN.p1 - 0.6); T.resp1 = r2(T.nota + LEN.p1 - 0.32); T.q1i = r2(T.resp1 - 0.3); T.dale = r2(T.resp1 + 0.5); T.listo = r2(T.dale + 0.28);
 T.plano = r2(T.listo + 0.32); T.mesa7 = r2(T.plano + 0.25);
 // Q2 · jueves: la tablet "Viernes · reservas" (3,7 s, el chip de hora avanza 12:00 → 18:00 → 20:00): las tildes de a una
 // (11 de 12), Pablo sin confirmar; 18:00 segundo aviso; 20:00 la mesa 7 se libera y se le ofrece a Walter · Q2b el living
 T.q2 = r2(T.plano + 0.85); T.tildes = Array.from({ length: 11 }, (_, i) => r2(T.q2 + 0.25 + i * 0.08));
-T.aviso18 = r2(T.q2 + 1.4); T.libera = r2(T.q2 + 2.15); T.espera = r2(T.q2 + 2.65);
-T.q2b = r2(T.q2 + 3.5); T.notiW = r2(T.q2b + 0.08); T.si = r2(T.q2b + 0.5); T.reservada = r2(T.si + 0.1); T.w2 = r2(T.q2b + 0.66);
+T.aviso18 = r2(T.q2 + 1.35); T.libera = r2(T.q2 + 2.05); T.espera = r2(T.libera + 0.08);
+T.q2b = r2(T.espera + 1.3); T.notiW = r2(T.q2b + 0.08); T.si = r2(T.q2b + 0.5); T.reservada = r2(T.si + 0.1); T.w2 = r2(T.q2b + 0.66);
 // Q3 · viernes 21:00 (callback del cuadro 0): las dos manos en la parrilla; el celular contesta solo; la tarjeta "Para vos,
 // Raúl · Cumpleaños de 20" · "Ese, para mí."
 T.q3 = r2(T.w2 + LEN.w2 + 0.12); T.rq = [0.08, 0.28, 0.5, 0.7].map((d) => r2(T.q3 + d)); T.cero = NUNCA;
@@ -75,7 +75,7 @@ T.rotQ4 = r2(T.r7 + LEN.r7 + 0.06);
 // (r1) sin Q5 (callback de P6)
 T.q5 = NUNCA; T.ding5 = NUNCA; T.r8 = NUNCA; T.tenedor2 = NUNCA;
 // C · Raúl a cámara: "Comentá RESERVA y te mando cómo funciona para tu restaurante." · la tarjeta entra en "RESERVA"
-T.c = r2(T.rotQ4 + 1.0); T.r9 = r2(T.c + 0.06); T.palabra = r2(T.r9 + palabra9(1) - 0.02);
+T.c = r2(T.rotQ4 + 1.2); T.r9 = r2(T.c + 0.06); T.palabra = r2(T.r9 - 0.02);   // (r3) la tarjeta entra con la voz
 const DUR = Math.ceil((Math.ceil((T.r9 + LEN.r9 + 0.25) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
 T.cierre = r2(DUR - 1.0);
 
@@ -274,7 +274,7 @@ const S = [];
 const s = (f, t, db, o = {}) => S.push([f, r2(t), db, o]);
 const pop = (t, techo = -40) => s("sfx/pop.mp3", t, 0, { desde: 0.11, techo });
 const VOZ = [];
-const voz = (f, t, db = -1, o = {}) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04, ...o }); VOZ.push([r2(t - 0.3), r2(t + LEN[f] + 0.4)]); };
+const voz = (f, t, db = -1, o = {}) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04, ...o }); VOZ.push([r2(t - 0.6), r2(t + LEN[f] + 0.4)]); };
 const noti = (t, techo = -36) => { s("sfx/vibra.wav", t - 0.2, 0, { techo: techo - 2, dur: 0.5, fin: 0.1 }); s("sfx/notification.mp3", t - 0.05, 0, { techo, dur: 0.35, fin: 0.12 }); };
 const vibra = (t, techo = -38) => s("sfx/vibra.wav", t, 0, { techo, dur: 0.45, fin: 0.1 });
 const ding = (t, techo = -38) => s("sfx/cero.mp3", t, 0, { techo });
@@ -307,7 +307,7 @@ voz("w1", T.w1, -1);
 whoosh(T.p3b - 0.04, -46); pinza(T.pinza + 0.08, -39);
 voz("r2", T.r2, -1);
 pop(T.rot9, -39);
-campana(T.campana2, -37);
+campana(T.campana2, -40);
 // P4 · el chip (tic), "¿y los de las diez?", el mensaje (notificación), "Están llegando."
 tic(T.p4 + 0.02, -40);
 voz("f1", T.f1, -1);
@@ -332,7 +332,7 @@ s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0
 // burbuja; el ✓
 amb("sfx/grillos.wav", P2, T.q2, -46, { fi: 0.2, lp: 5000, hp: 1500 });
 amb("sfx/calle.wav", P2, T.q2, -47, { fi: 0.2, lp: 1500 });
-noti(T.prende, -37);
+noti(P2 + 0.06, -37);
 whoosh(T.q1i - 0.04, -44);
 voz("p1", T.nota, -2);
 s("sfx/key-press.mp3", T.escribiendo, 0, { techo: -46, dur: 0.12, fin: 0.04 });
@@ -363,7 +363,7 @@ voz("f1", T.f1b, -1);
 pinza(T.r7 - 0.12, -39);
 voz("r7", T.r7, -1);
 s("sfx/copas.wav", T.copa + 0.3, 0, { techo: -36 });
-pop(T.r7 + 0.1, -41); pop(T.rotQ4 + 0.15, -40);
+pop(T.r7 + 0.1, -41); pop(T.rotQ4, -40);
 // C · whoosh al primer plano, pop en RESERVA, la línea chica
 whoosh(T.c - 0.06, -44);
 voz("r9", T.r9, -1);
@@ -373,7 +373,7 @@ pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.loop || f.startsWith("bgm/")) continue;
   if (en(t0, T.q2, T.q2b) || en(t0, T.q3, T.r6 - 0.2)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 4); }
 // (r2) la cama arriba en la demo sin voz de Q2 (un tramo propio, sin duck)
-s("bgm/pizzicato.wav", T.q2 + 0.1, 0, { desde: 6, dur: r2(T.q2b - T.q2 - 0.1), fi: 0.3, fin: 0.3, techo: -37, sinDuck: true });
+s("bgm/pizzicato.wav", T.listo, 0, { desde: 6, dur: r2(T.q2b - T.listo), fi: 0.3, fin: 0.3, techo: -37, sinDuck: true });
 // la cama +6 dB (con su duck)
 for (const x of S) { const [f, , , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (~0,6) para que la voz quede ≥ 6 LU arriba

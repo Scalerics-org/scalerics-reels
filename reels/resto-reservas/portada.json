@@ -5,11 +5,11 @@
  "sello": "PARRILLAS",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.0,
- "foco": "40%",
+ "zoom": 1.12,
+ "foco": "62%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
- "cam": "VER=portada LIMPIO=1 (la familia más cerca de Raúl, solo para el fondo), t 7,4 · cam 0.06,1.66,0.85,0.04,1.1,-2.2,63",
+ "cam": "VER=portada LIMPIO=1 (Walter y su mujer más cerca de Raúl, los chicos fuera; solo para el fondo), t 7,4 · cam 0.06,1.62,0.95,0.04,0.82,-2.2,62",
  "separacion": 34
 }

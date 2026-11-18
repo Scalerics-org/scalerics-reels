@@ -65,8 +65,12 @@ sintetizado con ffmpeg.
   https://bigsoundbank.com/chair-s0666.html
 - `assets/sfx/copas.wav` (el brindis de Walter en Q4): "Cheers small wineglass 1" (#1325),
   https://bigsoundbank.com/cheers-small-wineglass-1-s1325.html
-Los demás (`salon.wav`, `chisporroteo.wav`, `fuego.wav`, `grillos.wav`, `calle.wav`, `campanita.wav`, `puerta-abre.wav`,
-`vibra.wav`, `notification.mp3`, `cero.mp3`, `pop.mp3`, `whoosh*`, `click-soft.mp3`, `key-press.mp3`, `stinger.wav`,
+- `calle.wav` (la calle de noche en Q1): "Small quiet street ambience", Oper8, Freesound,
+  https://freesound.org/people/Oper8/sounds/241135/, CC0 1.0 (como lo acredita reels/dist-quien-debe).
+- `key-press.mp3` ("escribiendo…" en Q1i): de la biblioteca base del repo (`molde/assets/sfx`, usados en todos los reels
+  aprobados), como lo acredita reels/dist-quien-debe.
+Los demás (`salon.wav`, `chisporroteo.wav`, `fuego.wav`, `grillos.wav`, `campanita.wav`, `puerta-abre.wav`,
+`vibra.wav`, `notification.mp3`, `cero.mp3`, `pop.mp3`, `whoosh*`, `click-soft.mp3`, `stinger.wav`,
 `k-*`, `bgm/pizzicato.wav`) vienen de `reels/parrilla-no-vuelve/assets` con su crédito en el `fuentes.md` de ese reel.
 El narrador del cartel ("Un agente de IA más tarde.") es `reels/abren-hoy-completo/assets/voice/narrador.wav` (Gemini
 Rasalgethi), reusado como en corralon-portland.
