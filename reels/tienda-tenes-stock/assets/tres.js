@@ -886,19 +886,19 @@ const GS = { x: LX - 0.42, z: -0.42 };                   // Graciela en el sill�
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
-const CAM_P1 = (k) => [lerp(0.98, 0.84, k), lerp(1.55, 1.5, k), lerp(2.15, 1.95, k), -0.36, 1.05, -0.2, 50];
+const CAM_P1 = (k) => [lerp(0.98, 0.84, k), lerp(1.78, 1.72, k), lerp(2.15, 1.95, k), -0.36, 1.0, -0.2, 50];
 const CAM_CUAD = (k) => [lerp(-1.3, -1.34, k), 1.5, lerp(2.08, 2.0, k), -1.2, 1.34, 0.2, 50];
 const CAM_GEN = (k) => [lerp(0.25, 0.2, k), lerp(1.7, 1.66, k), lerp(4.05, 3.9, k), 0.25, 0.95, 0.1, 56];
-const CAM_P4 = (k) => [lerp(-0.84, -0.88, k), 1.42, lerp(1.72, 1.58, k), -1.02, 1.22, -0.66, 40];
-const CAM_HUECO = (k) => [lerp(0.92, 0.86, k), lerp(1.46, 1.42, k), lerp(2.32, 2.2, k), -0.38, 1.0, 0.12, 50];
+const CAM_P4 = (k) => [lerp(-1.12, -1.14, k), 1.42, lerp(1.72, 1.58, k), -1.12, 1.22, -0.66, 40];
+const CAM_HUECO = (k) => [lerp(0.92, 0.86, k), lerp(1.72, 1.68, k), lerp(2.32, 2.2, k), -0.38, 0.98, 0.0, 50];
 const CAM_P6 = (k) => [lerp(-0.3, -0.26, k), lerp(0.62, 0.64, k), lerp(2.85, 2.7, k), 0.5, 0.8, 0.3, 58];
-const CAM_P7 = (k) => [lerp(0.46, 0.4, k), 1.42, lerp(2.98, 2.88, k), -0.66, 1.24, 0.86, 40];
+const CAM_P7 = (k) => [lerp(0.3, 0.24, k), 1.42, lerp(3.02, 2.92, k), -0.8, 1.24, 0.86, 40];
 const CAM_PARED = (k) => [lerp(-1.2, 1.1, k), 1.2, -0.72, lerp(-1.2, 1.1, k) + 0.15, 1.05, -2.0, 64];
 const CAM_P8 = (k) => [lerp(0.62, 0.55, k), 1.42, lerp(3.4, 3.25, k), -0.62, 1.12, 0.86, 42];
 const CAM_LOC = (k) => [lerp(MOST.x + 0.5, MOST.x + 0.4, k), 1.7, lerp(3.7, 3.5, k), MOST.x - 0.05, 1.1, MOST.z - 0.2, 52];
 const CAM_Q1B = (k) => [lerp(0.7, 0.58, k), 1.5, lerp(2.15, 1.95, k), -0.62, 1.1, -0.35, 50];
 const CAM_LIV = (k) => [LX + lerp(0.62, 0.5, k), 1.32, lerp(2.25, 2.05, k), GS.x + 0.1, 0.92, GS.z, 46];
-const CAM_ETQ = (k) => [lerp(-0.55, -0.48, k), 1.55, lerp(2.4, 2.25, k), 0.5, 1.02, 0.35, 50];
+const CAM_ETQ = (k) => [lerp(-1.15, -1.05, k), 1.48, lerp(0.95, 0.9, k), 0.55, 1.0, 0.45, 46];
 const CAM_SCAN = (k) => [lerp(2.5, 2.42, k), 1.5, lerp(1.35, 1.22, k), 1.25, 0.95, -0.55, 52];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
@@ -1071,7 +1071,7 @@ function poseMica(t) {
         pr.inclina = lerp(0.22, 0.04, lev); pr.lleva = 1;
         const vuelta = eio(sg(t, T.sale, T.sale + 0.3));
         pr.giro = lerp(GA, Math.PI / 2 - 0.35 - 2 * Math.PI, vuelta);
-        const v = sg(t, T.sale + 0.2, T.sale + 1.5);
+        const v = sg(t, T.sale + 0.2, T.sale + 4.2);
         pr.x = lerp(MI1.x, MI0.x + 0.3, v); pr.z = lerp(MI1.z, MI0.z + 0.2, v); pr.paso = v > 0 && v < 1 ? 1 : 0;
         Object.assign(pr, { cabeza: { giro: lerp(0, 0.5, vuelta), asiente: 0.0, ladea: 0.05 }, ojos: { abiertos: 1, x: lerp(0, 0.6, vuelta), y: 0, feliz: 0.4 }, boca: { sonrisa: 0.8, abierta: 0, ancho: 1.1 }, cejas: { alto: 0.45, ang: 0.0 } });
       }
@@ -1265,7 +1265,7 @@ function renderAt(tIn) {
   // ---- cámara ----
   if (pl[2] && pa !== "portada") ponerCam(catmull(pl[2], t), t);
   const insertoCel = (cel, t0, t1, llena = 0.64) => {
-    const { v, up } = vistaPantalla(cel, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, llena, 40, -0.004);
+    const { v, up } = vistaPantalla(cel, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, llena, 40, 0.014);
     const k = sg(t, t0, t1); const v2 = v.slice(); for (let i = 0; i < 3; i++) v2[i] += (v[i] - v[i + 3]) * 0.06 * (1 - k);
     ponerVista(v2, v2, 0, up, up);
   };
@@ -1298,7 +1298,7 @@ function renderAt(tIn) {
     paola.raiz.visible = true;
     paola.poner({ ...posePaola(T.p7 + 0.3), ...CARA.incredula, ojos: { abiertos: 0.95, x: 0.0, y: 0.05, tension: 0.2 }, cejas: { alto: 0.35, ang: 0.45, asim: 0.5 }, boca: { sonrisa: -0.3, abierta: 0.05, ancho: 0.85 }, cabeza: { giro: 0.0, asiente: 0.0, ladea: 0.05 }, t: 1 });
     papelFrente.visible = true; papelFrente.scale.y = 0.45; papelRollo.visible = true; papelRollo.position.y = PT - 0.012 - PT * 0.45 + 0.03;
-    ponerCam([-0.1, 1.2, 2.35, -0.25, 1.05, 0.2, 48], t, true);
+    ponerCam([-0.02, 1.45, 3.15, -0.42, 1.0, 0.3, 50], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
@@ -1339,7 +1339,7 @@ function tarjetas(t, pa) {
   if (pa === "P7b") {
     ponerGlobo(GL.pa3, 540, 1600, 1, null, 1);
     if (t >= T.rot2[0]) ponerGlobo(ROT.verdes, 540, 330, ent(T.rot2[0]), null, 3);
-    if (t >= T.rot2[1]) ponerGlobo(ROT.parados, 540, 500, ent(T.rot2[1]), null, 4);
+    if (t >= T.rot2[1]) ponerGlobo(ROT.parados, 540, 560, ent(T.rot2[1]), null, 4);
   }
   if ((pa === "P8" || pa === "P8b") && t >= T.pa4 - 0.04) { if (pa === "P8") { const [hx, hy] = coronillaPx(paola); ponerGlobo(GL.pa4, 560, Math.min(420, hy - 150), ent(T.pa4 - 0.04), [hx, hy + 6], 1); } else ponerGlobo(GL.pa4, 540, 1500, 1, null, 1); }
   // ---- parte 2 ----

@@ -219,7 +219,7 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q1 + 0.02), r2(T.q1 + 1.55)
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, ${r2(dur - 0.12)});   // se va antes del iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, ${r2(dur - 0.38)});   // se va antes del iris`,
   });
 }
 
