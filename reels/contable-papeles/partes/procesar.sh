@@ -17,6 +17,6 @@ v 07-narrador-c narrador "atempo=1.05"                    # Rasalgethi "Una auto
 hueco 08-marcelo-b m5 0.52 1.03 0.2 "atempo=1.04"         # Marcelo en la panadería "Listo. Ordenadito."
 v 09-adriana-b a3 "atempo=1.1"                            # Adriana "Marcelo, las mandaste el día tres."
 hueco 10-marcelo-a m6 0.62 0.9 0.28 "atempo=1.05,$ALT"   # Marcelo (audio) "¿Yo? Qué ordenadito."
-v 11-sofi-c so "atempo=1.08,lowpass=f=7000"               # Sofi (Achernar) "Comentá PAPELES y te mando cómo funciona para tu estudio."
+v 11-sofi-c so "atempo=1.12,lowpass=f=7000"               # Sofi (Achernar) "Comentá PAPELES y te mando cómo funciona para tu estudio."
 for k in m1:01-marcelo m6:10-marcelo so:11-sofi a3:09-adriana; do f=${k%%:*}; t=${k##*:}; echo "$f $(node ../../herramientas/tiempos.mjs assets/voice/$f.wav partes/$t.txt assets/voice/palabras-$f.json 2>&1 | grep -i "oyó")"; done
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

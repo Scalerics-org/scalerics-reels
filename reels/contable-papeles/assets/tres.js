@@ -124,7 +124,7 @@ const DESK = { x0: -0.7, x1: 0.7, z0: 0.7, z1: 1.36 };
 const LAMP = { x: -0.36, z: 0.8 };            // la lámpara de banquero (a la derecha de Adriana)
 const SUM = { x: 0.42, z: 1.12 };              // la sumadora
 const SOP = { x: -0.1, z: 1.18 };            // el soporte del celular
-const MON = { x: 0.32, z: 0.84, ry: -0.55, W: 0.6, H: 0.37 };   // el monitor (parte 2)
+const MON = { x: 0.4, z: 0.84, ry: -0.4, W: 0.6, H: 0.37 };   // el monitor (parte 2)
 const PUERTA = { x0: -0.95, x1: -0.05 };        // la puerta de calle (pared de adelante)
 const PIOL = { x: 1.6, z0: -0.7, z1: 3.6, y: 1.32 };   // el piolín (a lo largo de z)
 const LUC1 = { x: 1.12, z: 2.1 };             // Lucas en el banquito (parte 1)
@@ -1031,7 +1031,8 @@ const PLANOS = [
   ["P3", T.p3, null],   // el celular en el soporte, de cerca (las fotos)
   ["P3b", T.p3b, [[T.p3b, 0.55, 1.5, 4.15, 1.3, 0.85, 1.85, 56], [T.p3c, 0.65, 1.5, 4.1, 1.32, 0.85, 1.85, 55]]],   // Lucas y el piolín, la tira en el piso
   ["P3c", T.p3c, [[T.p3c, 0.86, 1.3, 1.0, 0.7, 1.08, -0.55, 46], [T.p4, 0.84, 1.28, 0.82, 0.7, 1.08, -0.55, 46]]],   // los sobres
-  ["P4", T.p4, [[T.p4, ...CAM_ATRAS(0)], [T.vuelca - 0.15, ...CAM_ATRAS(0.8)], [T.vuelca + 0.35, 0.42, 1.92, -0.3, 0.15, 0.95, 2.2, 50], [T.p5, 0.41, 1.92, -0.26, 0.15, 0.93, 2.1, 50]]],   // desde atrás de Adriana: la puerta, Marcelo, la caja
+  ["P4", T.p4, [[T.p4, ...CAM_ATRAS(0)], [T.vuelca - 0.1, ...CAM_ATRAS(1)]]],
+  ["P4v", r2(T.vuelca - 0.1), [[r2(T.vuelca - 0.1), -0.95, 1.6, 2.35, 0.22, 0.92, 1.08, 46], [T.p5, -0.88, 1.55, 2.25, 0.22, 0.92, 1.08, 44]]],   // la avalancha, de costado   // desde atrás de Adriana: la puerta, Marcelo, la caja
   ["P5", T.p5, null],   // Adriana levanta el ticket contra la lámpara, push-in al ticket
   ["P5c", T.p5c, [[T.p5c, 0.5, 1.58, -0.3, 0.24, 1.45, 2.0, 38], [T.p6, 0.48, 1.58, -0.22, 0.24, 1.47, 2.0, 36]]],   // contraplano de Marcelo
   ["P6", T.p6, [[T.p6, -1.25, 2.0, 3.45, 0.35, 0.9, 0.85, 54], [T.p7, -1.2, 1.98, 3.38, 0.35, 0.9, 0.85, 54]]],   // la pausa
@@ -1048,7 +1049,7 @@ const PLANOS = [
   ["Q2m", T.q2i, null],   // push-in al panel
   ["Q3", T.q3, [[T.q3, ...CAM_P1(0)], [T.q4, ...CAM_P1(1)]]],
   ["Q4", T.q4, null],    // el panel en 60 de 60
-  ["Q4b", T.q4b, [[T.q4b, -0.1, 1.35, 2.4, -0.2, 1.1, 0.6, 42], [T.q5, -0.1, 1.35, 2.3, -0.2, 1.1, 0.6, 41]]],
+  ["Q4b", T.q4b, [[T.q4b, -0.06, 1.35, 2.4, -0.1, 1.1, 0.6, 42], [T.q5, -0.06, 1.35, 2.3, -0.1, 1.1, 0.6, 41]]],
   ["Q5", T.q5, null],    // Sofi en el celular parado
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
@@ -1322,7 +1323,7 @@ function renderAt(tIn) {
     if (parte2 && t >= T.a3 - 0.35 && t < T.a3 + LEN.a3 + 0.1) { telA.updateMatrixWorld(true); const w = telA.userData.piv.localToWorld(V3(0, telA.userData.H * 0.12, 0.03)); const u = eio(sg(t, T.a3 - 0.35, T.a3 - 0.1)) * (1 - eio(sg(t, T.a3 + LEN.a3 - 0.15, T.a3 + LEN.a3 + 0.1))); pr.manoD = lerpV(pr.manoD, aCuerpo(adriana, w), u); pr.codoD = [-1, -0.4, -0.3]; pr.dedoD = u; }
     // Q4b: tira de la cadenita
     if (parte2 && t >= T.q4b) { lampara.updateMatrixWorld(true); const w = cadena.localToWorld(V3(0, -0.105, 0)); const u = eio(sg(t, T.q4b + 0.05, T.cadena - 0.05)); const v = V3(0, -0.03 * Math.sin(Math.PI * sg(t, T.cadena - 0.1, T.cadena + 0.15)), 0); pr.manoD = lerpV(pr.manoD, aCuerpo(adriana, w.add(v).add(V3(0, -0.05, 0))), u); pr.codoD = [-1, -0.2, -0.3]; pr.dedoD = 0; }
-    adriana.poner(pr);
+    adriana.poner(pr); adriana.ultimaPose = pr;
     sillaA.rotation.y = adriana.raiz.rotation.y;
     // P2: el celular en las manos (el del soporte queda vacío)
     if (!parte2 && t >= T.p2 && t < T.p3) { telA.userData.piv.visible = false; celA.visible = true; celEnManos(celA, adriana, V3(0.12, 1.2, 1.9), 0.08, 0.05); }
@@ -1385,7 +1386,7 @@ function renderAt(tIn) {
     ponerCam(lerpV(A, B, eio(sg(t, T.a2 - 0.25, T.a2 + 0.25))), t);
   }
   if (pa === "Q1i" || pa === "Q1c") {
-    const { v, up } = vistaPantalla(celM, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, pa === "Q1i" ? 0.66 : 0.72, 40, pa === "Q1i" ? 0.012 : -0.004);
+    const { v, up } = vistaPantalla(celM, V3(0, 0, 0.007), V3(0, 0, 1), 0.162 * 1.25, pa === "Q1i" ? 0.72 : 0.72, 40, pa === "Q1i" ? 0.0 : -0.004);
     const t0 = pa === "Q1i" ? T.q1i : T.cam, t1 = pa === "Q1i" ? T.q1d3 : T.q1w, k = sg(t, t0, t1);
     const v2 = v.slice(); v2[0] += (v[0] - v[3]) * 0.06 * (1 - k); v2[1] += (v[1] - v[4]) * 0.06 * (1 - k); v2[2] += (v[2] - v[5]) * 0.06 * (1 - k);
     ponerVista(v2, v2, 0, up, up);
@@ -1412,9 +1413,14 @@ function renderAt(tIn) {
     renderer.setRenderTarget(SOFI.rt); renderer.render(SOFI.esc, SOFI.cam); renderer.setRenderTarget(null);
   }
   if (pa === "portada") {
-    // la portada: Adriana de frente con el ticket en blanco en alto contra la lámpara, la montaña de tickets delante,
-    // Marcelo de 3/4 a un costado
-    ponerCam([0.05, 1.3, 2.75, -0.05, 1.12, 0.6, 46], t, true);
+    // la portada: Adriana de frente con el ticket en blanco en alto contra la lámpara, la montaña de tickets delante
+    // (sin Marcelo: en el formato vertical tapaba la pila o quedaba cortado)
+    adriana.poner({ ...adriana.ultimaPose, ...CARA.incredula, ojos: { abiertos: 0.85, x: -0.2, y: 0.2, tension: 0.1 }, cejas: { alto: 0.3, ang: 0.1, asim: 0.9 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.8 }, cabeza: { giro: -0.12, asiente: 0.0, ladea: 0.06 } });
+    marcelo.raiz.visible = false; cajaZ.visible = tapaZ.visible = false;
+    scene.updateMatrixWorld(true);
+    { const h = manoW(adriana, "D"); ticketBlanco.position.copy(h).add(V3(0, 0, 0.035)); }
+    ponerCam([-0.02, 1.42, 2.75, -0.08, 1.02, 0.6, 50], t, true);
+    ticketBlanco.lookAt(camera.position.x, ticketBlanco.position.y, camera.position.z); ticketBlanco.rotateZ(0.12);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
@@ -1435,12 +1441,12 @@ function tarjetas(t, pa) {
   if (pa === "Q3" && t >= T.m1b - 0.08) { const [tx, ty] = tel(); ponerGlobo(GL.m1b, 560, 1570, t < T.a3 - 0.1 ? ent(T.m1b - 0.08) : 0, [tx, ty + 30], 1); }
   if (pa === "P2" && t >= T.a1 - 0.04) hablar(GL.a1, adriana, ent(T.a1 - 0.04), 1, 0, 300);
   if (pa === "P3b" || pa === "P3c") { const n = Math.round(lerp(33, 41, sg(t, T.sob0, T.sob1))); ponerGlobo(CNT[n], 300, 300, pa === "P3b" ? 0 : ent(T.p3c), null, 3); }
-  if (pa === "P4" && t >= T.m2 - 0.04) { const [hx, hy] = coronillaPx(marcelo); ponerGlobo(GL.m2, 560, Math.min(420, hy - 170), ent(T.m2 - 0.04), [hx, hy + 6], 1); }
+  if (pa === "P4" && t >= T.m2 - 0.04) { const [hx, hy] = coronillaPx(marcelo); ponerGlobo(GL.m2, 560, Math.max(330, Math.min(420, hy - 170)), ent(T.m2 - 0.04), [hx, hy + 6], 1); }
   if (pa === "P5" && t >= T.a2 - 0.04) ponerGlobo(GL.a2, 700, 330, ent(T.a2 - 0.04), null, 1);
   if (pa === "P5c" && t >= T.m3 - 0.04) hablar(GL.m3, marcelo, ent(T.m3 - 0.04), 1, 0, 280);
   if (pa === "P6") {
-    const objs = [objPx(ticketBlanco, V3(0, 0.2, 0)), objPx(cajaZ, V3(0, 0.12, 0)), objPx(sobresG, V3(0, 1.2, 0.05)), cabezaW(adriana, 0.25)];
-    const pos = [[300, 250], [770, 1500], [770, 250], [300, 1500]];
+    const objs = [objPx(ticketBlanco, V3(0, 0.2, 0)), objPx(cajaZ, V3(0, 0.12, 0)), objPx(sobresG, V3(-0.38, 1.95, 0.05)), cabezaW(adriana, 0.25)];
+    const pos = [[720, 420], [770, 1500], [300, 230], [300, 1500]];
     objs[3] = enPantalla(objs[3]);
     ROT.forEach((r, i) => { if (t < T.rot[i]) return; ponerGlobo(r, pos[i][0], pos[i][1], ent(T.rot[i]), null, 3 + i); const { H } = r.userData; const y0 = pos[i][1] + (pos[i][1] < 900 ? H / 2 : -H / 2); ponerGuia(GUIAS[i], pos[i][0], y0, objs[i][0], objs[i][1], sg(t, T.rot[i], T.rot[i] + 0.22)); });
   }

@@ -68,7 +68,7 @@ T.q4 = r2(T.m6 + LEN.m6 + 0.15); T.q4b = r2(T.q4 + 0.8); T.cadena = r2(T.q4b + 0
 // Q5 · el cierre: Sofi en el celular parado al lado del monitor
 T.q5 = r2(T.cadena + 0.55); T.so = r2(T.q5 + 0.1);
 T.palabra = r2(T.so - 0.02);
-const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.4) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.3) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.5, DUR - 2.05));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------

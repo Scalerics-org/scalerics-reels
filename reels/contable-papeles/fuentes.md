@@ -54,3 +54,12 @@ y `reels/ya-lo-cargo/fuentes.md`). Sonidos que probablemente haya que sumar (el 
 con ffmpeg): **teclas de sumadora / máquina de sumar**, **papel que cae / crujido de tickets** (avalancha), **timbre de
 puerta**, **"tuc" de audio de chat y audio enviado**, **obturador de cámara de celular**, **clic de cadenita de
 lámpara**, **campanita de puerta de comercio** (panadería), **golpe sordo de bolsa de harina**, **reloj de pared**.
+
+## Sonidos usados (constructor, 18-11)
+Nuevos, de BigSoundBank, licencia CC0 1.0 (https://bigsoundbank.com/licenses.html), recortados en gen.mjs:
+- `assets/sfx/bsb-0307.mp3` (el obturador del celular de Marcelo): "Triggering camera" (0307), https://bigsoundbank.com/triggering-camera-s0307.html
+- `assets/sfx/bsb-3553.mp3` (la ráfaga de la sumadora en P3): "Calculator-printer" (3553), https://bigsoundbank.com/calculator-printer-1-s3553.html
+- `assets/sfx/bsb-0036.mp3` (el clic de la cadenita de la lámpara): "Switch desk lamp" (0036), https://bigsoundbank.com/switch-desk-lamp-s0036.html
+- `assets/sfx/bsb-0576.mp3` (el golpe sordo de la bolsa de harina en el mostrador): "Canvas bag on floor" (0576), https://bigsoundbank.com/canvas-bag-on-floor-s0576.html
+- `assets/sfx/bsb-0160.mp3` (timbre de puerta; descargado, no se usó: Marcelo golpea la puerta con `madera-golpe.wav`): "Doorbell" (0160), https://bigsoundbank.com/doorbell-2-s0160.html
+Del repo (crédito en sus reels): `papel-fuerte.mp3`, `papel.wav`, `cruje.wav`, `hoja.mp3`, `k-page-turn.wav` (la avalancha), `campanita.wav` (la puerta de la panadería), `madera-golpe.wav`, `puerta-abre.wav`, `pajaro.wav`, `vibra.wav`, `notification.mp3`, `k-pep.wav` (el "tuc" del audio de chat) y los de siempre (inmobiliaria-visitas).

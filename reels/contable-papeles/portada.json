@@ -1,5 +1,5 @@
 {
- "t": 11.0,
+ "t": 14.6,
  "chica": "Último día, 22:10.",
  "grande": "¿Y esta?",
  "sello": "ESTUDIOS CONTABLES",
@@ -11,5 +11,5 @@
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
  "sello_top": "300px",
- "nota": "t provisional. Fondo: plano propio VER=portada en tres.js, LIMPIO=1: Adriana de frente con el ticket en blanco en alto contra la lámpara verde, la montaña de tickets y la caja de zapatos vacía adelante, Marcelo de 3/4 orgulloso. Alternativa de grande: \"¿Ordenadito?\""
+ "nota": "Fondo: plano propio VER=portada en tres.js (LIMPIO=1, t 14.6): Adriana de frente con el ticket en blanco en alto contra la lámpara verde, la montaña de tickets delante (sin Marcelo: en vertical tapaba la pila). Alternativa de grande: \"¿Ordenadito?\""
 }
