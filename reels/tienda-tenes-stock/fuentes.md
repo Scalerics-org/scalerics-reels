@@ -40,10 +40,12 @@ local." (P3 y Q1) y "¡Hola! ¡Ingreso nuevo!" (P8 y Q4).
 ## Música y efectos (todos reales, ninguno sintetizado; copiados de otros reels del repo, con su crédito de origen)
 - Música `bgm/pizzicato.wav`: "Pizzicato Intrigue", younoise, Freesound, CC0 1.0 (https://freesound.org/people/younoise/sounds/569642/).
 - Ambiente `sfx/calle.wav`: "Small quiet street ambience", Oper8, Freesound, CC0 (https://freesound.org/people/Oper8/sounds/241135/).
-- `sfx/zumbido.wav` (zumbido del tubo en la pausa): "Room Tone Ambience Medium Control Low Hum", gchase, Freesound, CC0.
-- `sfx/zumbido-largo.wav` (la cama del depósito), `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`,
-  `notification.mp3`, `glitch-1.mp3` ("Reintegro"), `scan.mp3` (el lector de códigos): la biblioteca de sonidos de
-  HyperFrames del repo (molde/assets/sfx, como en reels/caso-pedidosya y reels/anotamelo).
+- `sfx/zumbido.wav` (la cama del depósito en loop con pasabajos, y el zumbido de la pausa): "Room Tone Ambience Medium
+  Control Low Hum", gchase, Freesound, CC0. (r2: reemplaza a zumbido-largo.wav, que no tenía origen claro.)
+- `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `notification.mp3`, `glitch-1.mp3` ("Reintegro"): la
+  biblioteca de sonidos de HyperFrames que vino con el repo (los mismos de reels/caso-pedidosya y reels/anotamelo).
+- El bip del lector de códigos: `k-pep.wav` ("pepSound1", Kenney, "Digital Audio", kenney.nl, CC0 1.0), con
+  asetrate 1,15 (r2: reemplaza a scan.mp3, que casi no sonaba y no tenía origen claro).
 - `sfx/vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound (https://freesound.org/people/SpliceSound/sounds/369839/), CC0.
 - `sfx/cero.mp3` (los ding de "Pagado ✓", "Listo", "Quedan 36"): "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald, Freesound, CC0 (https://freesound.org/people/GabFitzgerald/sounds/625174/).
 - `sfx/campanita.wav` (la puerta del local): "Shop door bell.wav", 775noise, Freesound, CC0 (https://freesound.org/people/775noise/sounds/494565/).
@@ -55,3 +57,4 @@ local." (P3 y Q1) y "¡Hola! ¡Ingreso nuevo!" (P8 y Q4).
   (tics de los números y del audio que entra, en lugar del blip sin origen); `k-cloth_1/2.wav` (RPG Audio: el buzo al
   levantar el celular); `k-switch-3.wav` ("switch_003", Interface Sounds: el click de la foto, en lugar de flash.mp3).
 - `rasgado.wav` y `k-motor-bajo.wav` quedaron en assets pero ya no se usan (se fue el plano de la etiqueta).
+- Ambiente de la parte 2: `calle.wav` (Oper8) más alto, para que no queden huecos mudos entre las notas del pizzicato.

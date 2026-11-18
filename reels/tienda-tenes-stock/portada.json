@@ -10,5 +10,6 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
- "sello_top": "300px"
+ "sello_top": "300px",
+ "separacion": 34
 }

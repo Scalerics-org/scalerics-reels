@@ -132,3 +132,31 @@ habría que cortar parlamentos.
   normalization_type "linear"; final -14,0 LUFS, pico -4,7 dBFS; final menos crudo por tramos: ±0,1 LU (parejo). 42,2 s.
 - Portada: fondo limpio nuevo (Paola con el celular, el papel arriba y las 8 cajas VERDE a la vista abajo a la derecha);
   portada.png armada con herramientas/portada.mjs (mp4 local).
+
+## Ronda 2 de revisión (18-11)
+**42,4 s.** Parte 1 0-18,77 · cartel 18,77-21,22 · parte 2 21,22-42,4 = 21,18 s (50 %); cierre 38,57-42,4 (3,8 s: pa7
+dura 3,49 s, no entra en ≤ 3,3 sin acelerarla de nuevo). `check --json` 0 errores. Mezcla -14 LUFS, pico -4,8 dBTP, LRA
+4,3; voz ≥ +11 LU sobre el resto en los tramos con voz real (medir.py marca 32,5 s: es la cola del ventaneo de 400 ms de
+"¡Diez azules…", que terminó en 32,15, contra la música).
+- Q1: la caja cruza el mostrador alta y baja al pecho de Walter del otro lado; Walter más atrás (x 5,38) la agarra de los
+  costados con los codos afuera y abajo (nada sube a la cara); cámara más abierta.
+- P6: un solo plano; Mica parada e inclinada (sin cuclillas) sube el papel desde la rodilla (en el corte el papel ya está
+  a 0,32 m: el que mira ve las cajas aparecer igual); cuello más alto (cuelloAlto 0,1). Mirado a tamaño completo.
+- P4: burbuja de Paola con la cola fija a la boca; "Reintegro" y "Ay. Bueno…" no se enciman (la de Graciela abajo, con la
+  cola al celular). P3: el celular ya en la mano (la guía de "Pagado" llega al celular), plano más abierto (Paola entera).
+- P7b: la pared del medio con VERDE · CONT. MARZO de frente (sin cremas) y el recorrido sin rozar el aro.
+- Cierre: la tarjeta bajo el mentón (y 1190), la línea chica en 1610, la historia sin botón de grabar; Q5 arranca sobre el
+  final de "Ya se enteraron.".
+- IMPORTADORAS 104 px con 44 px de margen. Letrero del depósito en una placa de 3,4 m (se lee entero en el general);
+  letrero del local a la derecha (fuera del chip). Manta de Graciela verde menta tejida. Cajas lisas bajo la tablet.
+- Notificaciones "Pedido pagado" (sin tilde doble), debajo del encabezado; tablet con "Pagado ✓" adentro de la píldora;
+  en Q4t el contador sube 0 → 36 en pantalla y la pistola no flota.
+- Selfie: el celular más arriba (se ve la funda, no el canto).
+- Sonido: lector con k-pep (Kenney); cama con zumbido.wav (gchase) en vez de zumbido-largo; calle más alta en la parte 2;
+  pizzicato desde 5,85 y casi sin duck en la parte 2; los toques de Q2i en el cambio de pantalla (sin el de envío) y el
+  ding en "Pagado"; "Pagado ✓" del P3 0,15-0,28 s después de "Hoy te la mando."; golpe de las cajas 0,1 s antes del fin.
+- Portada: fondo limpio nuevo (Paola a la derecha, entera; a la izquierda la mesa con las 8 cajas VERDE y la pared; el
+  sello arriba a la izquierda sobre la pared), "separacion" 34 px entre la chica y la grande.
+- No hecho: el "Pao" de g1/mi2 que el STT no oye (en la forma de onda está); el pelo de Paola sigue siendo rodete
+  (rodeteAtras 0,42; cambiar el peinado del personaje a esta altura arriesga más de lo que arregla).
+- Render r2: captura 13 min 21 s (809 s); remux con assets/audio/mezcla.wav y paso 10 con loudnorm lineal en dos pasadas (ver ronda 1): normalization_type "linear", final -13,9 LUFS, pico -4,8 dBFS, final menos crudo ±0,1 LU, 42,4 s.
