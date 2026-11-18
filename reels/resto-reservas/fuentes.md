@@ -13,15 +13,16 @@ porcentaje: es lo que le pasa a Raúl ese viernes.
   [Quanto Custa Viajar, Montevideo](https://quantocustaviajar.com/uruguai/montevideu/alimentacao)). Esas guías se usaron
   solo para calibrar; el reel NO cita ningún precio como dato: el número es el ticket de Raúl.
 - **Familia de 6 que se fue: $ 9.000** = 6 × $ 1.500.
-- **Mesa 7, para 8**, puesta (8 cubiertos) y vacía de **22:00 a 00:00** (dos horas de la mesa más grande del salón un
+- **Mesa 7, para 8**, puesta (8 cubiertos) y vacía de **22:00 a 23:40** (el rótulo de la parte 1; la mesa más grande del salón un
   viernes). Si se pone en plata en un rótulo: "8 lugares vacíos · $ 12.000" = 8 × $ 1.500 (lo que esa mesa factura llena
   en un turno; no se suma a los $ 9.000 de la familia para no contar dos veces la misma mesa).
-- **"¿Tenés mesa?" ×14 sin contestar** en el celular a las 21:00 (el celular de Raúl, esa noche).
 - Parte 2: el jueves, **"Confirmadas 11 de 12"** reservas del viernes (la que falta es la de Pablo); la mesa 7 se libera a
   las **20:00** del jueves tras el aviso de las 12:00 y el segundo de las 18:00; se le ofrece a **Walter · 6**, primero en
-  la lista de espera. Viernes: **"Sin contestar: 14 → 0"**; **"Mesa 7 · Walter · 6 · $ 9.000 ✓"**; **"Mesas vacías por
-  reservas que no vinieron: 0"** (ese viernes, en la ficción del caso). El cumpleaños de 20 del sábado es un pedido que
-  el agente le pasa a Raúl (no lo cierra solo).
+  la lista de espera (pidió el martes). La tablet muestra 6 de las 12 reservas ("+ 6 reservas más"); mesas del plano
+  coherentes con la tablet (2 González, 3 Ferreira, 5 Sosa, 7 Pablo, 8 Rodríguez, 10 Méndez); el viernes el agente da la
+  mesa 4 (para 2) y la 6 (para 4), libres. Viernes 21:00: **"Hoy: 12 reservas confirmadas ✓"**; **"Mesa 7 · Walter · 6 · $ 9.000 ✓"**; **"Mesas vacías por
+  reservas que no vinieron: 0"** (ese viernes, en la ficción del caso). El cumpleaños de 20 del sábado (Carla) es un pedido
+  que el agente le pasa a Raúl (no lo cierra solo).
 - Horarios del caso (ronda 1): miércoles 20:00 (cuadro 0: Pablo reserva para el viernes), viernes 21:40 (Walter en la
   puerta), 22:45, 23:40; parte 2: miércoles 2:14 (Pablo reserva con el agente), jueves 12:00 / 18:00 / 20:00, viernes
   21:00, 22:30. Pablo no vuelve a escribir después del miércoles (ni en la parte 1 ni en la 2).

@@ -75,9 +75,9 @@ T.rotQ4 = r2(T.r7 + LEN.r7 + 0.06);
 // (r1) sin Q5 (callback de P6)
 T.q5 = NUNCA; T.ding5 = NUNCA; T.r8 = NUNCA; T.tenedor2 = NUNCA;
 // C · Raúl a cámara: "Comentá RESERVA y te mando cómo funciona para tu restaurante." · la tarjeta entra en "RESERVA"
-T.c = r2(T.rotQ4 + 1.0); T.r9 = r2(T.c + 0.12); T.palabra = r2(T.r9 + palabra9(1) - 0.02);
-const DUR = Math.ceil((Math.ceil((T.r9 + LEN.r9 + 0.4) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
-T.cierre = r2(DUR - 1.1);
+T.c = r2(T.rotQ4 + 1.0); T.r9 = r2(T.c + 0.06); T.palabra = r2(T.r9 + palabra9(1) - 0.02);
+const DUR = Math.ceil((Math.ceil((T.r9 + LEN.r9 + 0.25) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
+T.cierre = r2(DUR - 1.0);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -135,7 +135,7 @@ const CHIP = `
 // P1 · el rubro: "PARRILLAS" enorme arriba (navy en el recuadro verde de selección, caja navy con borde crema), entero
 // desde el cuadro 0, y el chip "Viernes, 21:00." debajo; se van con el corte a la escalada
 {
-  const id = "s00-rubro", ini = 0, dur = r2(T.p3 - 0.04);
+  const id = "s00-rubro", ini = 0, dur = r2(T.p3);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -158,7 +158,7 @@ const CHIPS = [
   ["s11-chip", T.q1, T.q2, "Miércoles, 2:14."],
   ["s12-chip", T.q2, T.aviso18 - 0.12, "Jueves, 12:00."],
   ["s16-chip", T.aviso18 - 0.12, T.libera - 0.12, "Jueves, 18:00."],
-  ["s17-chip", T.libera - 0.12, T.q2b + 0.6, "Jueves, 20:00."],
+  ["s17-chip", T.libera - 0.12, T.q2b, "Jueves, 20:00."],
   ["s13-chip", T.q3, T.q4, "Viernes, 21:00."],
   ["s14-chip", T.q4, T.c, "Viernes, 22:30."],
 ];
@@ -232,7 +232,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
 // C · la tarjeta de cierre abajo de la cara de Raúl: "Comentá" / RESERVA (recuadro verde) / "y te mando cómo funciona para
 // tu restaurante"; entra en la palabra "RESERVA" y queda hasta el final
 {
-  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra);
+  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra + 0.05);   // (r2) hasta el último cuadro
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -250,7 +250,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
 }
 // la línea chica final (abajo de la tarjeta, nunca sobre la cara): qué es y la web
 {
-  const id = "s09-cierre", ini = T.cierre, dur = r2(DUR - T.cierre);
+  const id = "s09-cierre", ini = T.cierre, dur = r2(DUR - T.cierre + 0.05);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -299,6 +299,7 @@ s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(T.p5 + 0.02), fin: 0.08, tech
 // P1 · el teléfono (Pablo con filtro), la birome sobre el papel, "¡Anotado, Pablo!"
 voz("p1", T.p1, -2);
 birome(T.escribe[0], T.escribe[1], -37);
+pinza(1.75, -38); s("sfx/k-cloth_1.wav", 1.6, 0, { techo: -41, dur: 0.3, fin: 0.1 });   // (r2) algo pasa a mitad del cuadro 0
 voz("r1", T.r1, -1);
 // P3 · la campanita (entran), Walter, la pinza, Raúl, el rótulo, la campanita (se van)
 campana(T.campana1, -36);
@@ -316,7 +317,8 @@ tic(T.p5 + 0.02, -40);
 s("sfx/silla.wav", T.p5 + 0.06, 0, { techo: -37, dur: 0.5, fin: 0.12 });
 voz("f2", T.f2, -1);
 voz("r4", T.r4, -1);
-pop(T.rotA, -45); pop(T.rotB, -44);
+pop(T.rotA + 0.12, -41); pop(T.rotB + 0.1, -40);   // (r2) audibles, después de la cola de la voz
+amb("sfx/fuego.wav", T.p5c, P1 + 0.05, -40, { desde: 14, fi: 0.3, fin: 0.2 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
@@ -339,7 +341,7 @@ whoosh(T.plano - 0.04, -44); pop(T.plano, -40); ding(T.mesa7, -38);
 // Q2 · la tablet: un tic por tilde, el ding de 11 de 12, el segundo aviso, la mesa que se libera (papel), la lista de
 // espera; el whoosh al living; la notificación de Walter, el toque en "Sí", el ✓
 whoosh(T.q2 - 0.04, -44);
-T.tildes.forEach((t, i) => tic(t, -41, i));
+T.tildes.forEach((t, i) => tic(t, -45, i));
 ding(T.tildes.at(-1) + 0.08, -37);
 pop(T.aviso18, -39);
 s("sfx/k-page-turn.wav", T.libera, 0, { techo: -38, vel: 1.4, dur: 0.25, fin: 0.08 }); pop(T.libera + 0.02, -40);
@@ -351,16 +353,17 @@ voz("w2", T.w2, -1);
 amb("sfx/salon.wav", T.q3, T.c - 0.05, -38, { desde: 12, fi: 0.15, fin: 0.3, lp: 5000 });
 amb("sfx/chisporroteo.wav", T.q3, DUR, -42, { desde: 2 });
 amb("sfx/fuego.wav", T.q3, DUR, -46, { desde: 10 });
-whoosh(T.q3 - 0.04, -44);
+whoosh(T.q3 - 0.04, -44); tic(T.q3 + 0.02, -40);
 T.rq.forEach((t, i) => pop(t, i % 2 ? -38 : -40));
 s("sfx/notification.mp3", T.paraVos, 0, { techo: -37, vel: 0.84, dur: 0.4, fin: 0.12 });
 voz("r6", T.r6, -1);
 // Q4 · la mesa llena: "¿y los de las diez?" (el mismo audio), la pinza, "Llegaron.", el brindis, los rótulos
+tic(T.q4 + 0.02, -40);
 voz("f1", T.f1b, -1);
 pinza(T.r7 - 0.12, -39);
 voz("r7", T.r7, -1);
 s("sfx/copas.wav", T.copa + 0.3, 0, { techo: -36 });
-pop(T.rotQ4, -39); pop(T.rotQ4 + 0.22, -40);
+pop(T.r7 + 0.1, -41); pop(T.rotQ4 + 0.15, -40);
 // C · whoosh al primer plano, pop en RESERVA, la línea chica
 whoosh(T.c - 0.06, -44);
 voz("r9", T.r9, -1);
@@ -369,6 +372,8 @@ pop(T.cierre + 0.05, -44);
 // en los tramos sin voz (la escalada muda, la demo de la interfaz) los SFX +4 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.loop || f.startsWith("bgm/")) continue;
   if (en(t0, T.q2, T.q2b) || en(t0, T.q3, T.r6 - 0.2)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 4); }
+// (r2) la cama arriba en la demo sin voz de Q2 (un tramo propio, sin duck)
+s("bgm/pizzicato.wav", T.q2 + 0.1, 0, { desde: 6, dur: r2(T.q2b - T.q2 - 0.1), fi: 0.3, fin: 0.3, techo: -37, sinDuck: true });
 // la cama +6 dB (con su duck)
 for (const x of S) { const [f, , , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (~0,6) para que la voz quede ≥ 6 LU arriba

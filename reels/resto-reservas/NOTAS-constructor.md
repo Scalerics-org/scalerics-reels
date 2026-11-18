@@ -120,3 +120,30 @@ Ver la lista en el reporte final de abajo (sección "Pasadas").
   capa PARRILLAS quedaba todo el reel porque su duración dependía de P2, ya corregido). Queda flojo: en Q4 Fabián sigue
   fuera de cuadro (su voz es la misma toma de P4, donde sí se lo ve; la cola del globo va al borde derecho); en Q3 el
   globo "Ese, para mí." roza el pelo de Raúl; Q1 son ~3 s en el plano del celular a oscuras con la tarjeta de la nota de voz.
+
+## Ronda 2 de corrección (sobre los 3 revisores del render r1)
+**40,03 s.** Parte 1 0-16,41 · cartel 16,41-18,81 · parte 2 18,81-40,03 = 21,2 s (53 %); cierre (C) 36,54-40,03 (3,5 s).
+- Voces: p1 = toma nueva 01c-a ("…¿Me guardás mesa para ocho, el viernes, a las diez?", tono con voseo marcado; el STT
+  nunca pone tildes, así que se eligió por prosodia: en "guardás" la segunda mitad sube +85 Hz; sin la "o" de la 01b),
+  atempo 1,1. r9 = toma nueva 15b-a ("Comentá" con la última mitad +0,8 dB y +64 Hz: la única de 8 tomas con la "tá"
+  más fuerte), dos pausas internas recortadas, atempo 1,15 (3,17 s). Medición: scratch acento.py (como prosodia.py del
+  revisor, por la mitad de la palabra según tiempos.mjs).
+- Arte: P4 sin las dos burbujas a la vez (la de Fabián se va cuando habla Raúl; "Están llegando." arriba a la izquierda
+  con la cola a la boca); P3c rótulo abajo con la guía al pecho de Walter; Q4 con cámara más alta y abierta: Raúl,
+  Fabián (de pie entre el adolescente y Walter, de frente), Walter entero con la copa al costado, la familia y la mesa;
+  el rótulo de Walter entra con "Llegaron."; Q1 el celular a 2,5× con la nota de voz y la transcripción en la pantalla,
+  la tarjeta de la nota sin cola; Q1i el chat sube y el plano entra animado desde abajo (sin deshacer la conversación,
+  el rótulo se queda); Q3 cámara más abierta (se ven la parrilla, las manos y la tablet), tarjeta "Para vos, Raúl" arriba
+  con avatar "C" (Carla, la del cumple) y "lo cerrás vos", chat más chico abajo, Raúl a 3/4 al decir "Ese, para mí.";
+  cierre con aire arriba de la cabeza; "Siguen" en el recuadro verde; "+ 6 reservas más" bajo la lista (cierra con 11 de
+  12); chip "Jueves, 20:00." se va antes del living; plano y tablet coherentes (2 González, 3 Ferreira, 5 Sosa, 7, 8, 10;
+  el agente da la 4 y la 6); "Walter · 6 (pidió el martes)"; alfombra navy delante del mostrador (la cuña crema del
+  cuadro 0); "Pablo · llamada" a 46 px; PARRILLAS hasta el corte exacto.
+- Sonido: cierre 3,5 s; tarjeta y línea chica hasta el último cuadro (+0,05 s); paso10.sh con TP=-1.7; tics de Q2 a -45;
+  pinza y roce a mitad del cuadro 0; pops de los rótulos de P5c audibles y fuego que sube; cama propia en la demo de Q2;
+  tics en los chips "Viernes, 21:00." y "Viernes, 22:30.". medir.py ≥ +17 LU; mezcla -14,0 LUFS, pico -2,5 dBFS.
+- Portada: fondo con VER=portada (solo para el fondo limpio, la familia se corre hacia Raúl) y cámara más cerca: Raúl y
+  Walter llenan la mitad de arriba; "separacion": 34 (la tilde de TENÉS ya no pisa la línea chica).
+- Flojo: la mujer de Walter roza el borde derecho en la portada; "SCALERICS" de la plantilla de portada queda en y≈1655
+  (es de herramientas/portada.html, común a todos los reels: no lo toqué); en Q4 la abuela y la mujer rozan los bordes;
+  Q1 no muestra salón con sillas arriba (el celular grande delante del mostrador a oscuras).

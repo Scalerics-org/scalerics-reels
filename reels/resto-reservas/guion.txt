@@ -1,7 +1,7 @@
-[sin narrador Orus: el chiste va en burbujas, el cuaderno de reservas engrasado, la mesa 7 con el cartelito RESERVADO y 8 cubiertos puestos, la vela que se consume y los chips de hora; la solución va en la interfaz recreada (chat genérico con el agente de IA, plano de mesas, panel de confirmaciones, aviso de lista de espera); voces por archivo en partes/*.txt, ver partes/voces.md · construido (ronda 1): 40,2 s · parte 1 0,00-16,28 · cartel 16,28-18,68 · parte 2 18,68-40,23 (21,6 s, 54 %)]
+[sin narrador Orus: el chiste va en burbujas, el cuaderno de reservas engrasado, la mesa 7 con el cartelito RESERVADO y 8 cubiertos puestos, la vela que se consume y los chips de hora; la solución va en la interfaz recreada (chat genérico con el agente de IA, plano de mesas, panel de confirmaciones, aviso de lista de espera); voces por archivo en partes/*.txt, ver partes/voces.md · construido (ronda 2): 40,0 s · tiempos de los corchetes de la ronda 1, corridos ±0,3 s · parte 1 0,00-16,28 · cartel 16,28-18,68 · parte 2 18,68-40,23 (21,6 s, 54 %)]
 [parte 1 · el problema · 0,00-16,28 s · la parrilla de Raúl]
 [0,00-4,45 · cuadro 0: arriba, gigante, "PARRILLAS" y el chip "Miércoles, 20:00." · la parrilla a leña llena, el brasero ardiendo · Raúl con el celular en la oreja, la pinza en la derecha y en la izquierda la birome atada con piolín al cuaderno de reservas engrasado, abierto en "VIERNES" · burbuja del teléfono ya asomando]
-PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho el viernes a las diez?
+PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho, el viernes, a las diez?
 [Raúl anota "PABLO · 8 · 22:00" en la hoja del viernes, sin mirar]
 RAUL: ¡Anotado, Pablo!
 [4,51-9,30 · chip "Viernes, 21:40." · desde el salón: la mesa 7 (para 8) puesta y vacía con el RESERVADO en primer plano; a la izquierda Raúl en la parrilla; a la derecha, en la puerta, Walter con su familia (su mujer, la abuela y tres chicos: seis)]
@@ -20,13 +20,13 @@ RAUL: Siguen llegando.
 NARRADOR: Un agente de IA más tarde.
 [cartel · 16,28-18,68 · time card de dibujito, fondo verde de marca: "Un agente de IA" / "más tarde…" (nunca "Scalerics") · audio reusado de abren-hoy-completo]
 [parte 2 · la solución · 18,68-40,23 s]
-[18,68-21,69 · chip "Miércoles, 2:14." · la parrilla cerrada, a oscuras, las sillas arriba; el celular del local se prende solo y llega la nota de voz de Pablo (el mismo audio de la parte 1)]
-PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho el viernes a las diez?
+[18,81-21,95 · chip "Miércoles, 2:14." · la parrilla cerrada, a oscuras; el celular del local se prende solo y llega la nota de voz de Pablo (el mismo audio de la parte 1), con la transcripción «mesa para 8 el viernes a las 10» en la tarjeta y en el chat]
+PABLO: Raúl, soy Pablo. ¿Me guardás mesa para ocho, el viernes, a las diez?
 [inserto del chat (encabezado "Parrilla Raúl · agente de IA"): "¡Hola, Pablo! El viernes a las 22:00 tengo la mesa 7, para 8. ¿Te la reservo?" · "Dale" · "Listo ✓ Mesa 7 · viernes 22:00 · 8 personas. El jueves te pido que confirmes." · rótulo "Contesta a cualquier hora, con tus mesas reales" · el plano de mesas: la mesa 7 se pinta "Pablo · 8 · 22:00"]
 [24,21-27,71 · la tablet "Viernes · reservas" · chip "Jueves, 12:00.": las tildes caen de a una, "Confirmadas: 11 de 12", "Pablo · 8 · 22:00 · sin confirmar" · chip "Jueves, 18:00.": "18:00 · segundo aviso" · chip "Jueves, 20:00.": "20:00 · Mesa 7 liberada" (Pablo tachado) · "Lista de espera: Walter · 6 → Ofrecida ✓" · rótulo "Si no confirman, la mesa se libera sola"]
 [27,71-29,98 · el living de Walter: "Walter, se liberó una mesa para 6 mañana a las 22:00. ¿La querés?" · toca "Sí" → "Reservada ✓ Mesa 7 · viernes 22:00 · 6"]
 WALTER: ¡Esta vez sí entramos!
-[29,98-32,24 · chip "Viernes, 21:00." · el mismo encuadre del cuadro 0: Raúl con las dos manos en la parrilla, sin celular en la oreja; el agente contesta solo ("¿Mesa para 2 a las 21:30?" → "Sí: mesa 4 ✓"; "Hoy: 12 reservas confirmadas ✓") · entra una tarjeta: "Para vos, Raúl · Cumpleaños de 20 · sábado · quiere menú cerrado" · rótulo "Un cumpleaños de 20: lo cerrás vos"]
+[29,98-32,24 · chip "Viernes, 21:00." · el mismo encuadre del cuadro 0: Raúl con las dos manos en la parrilla, sin celular en la oreja; el agente contesta solo ("¿Mesa para 2 a las 21:30?" → "Sí: mesa 4 ✓"; "¿Tenés mesa para cuatro?" → "A las 22:30, mesa 6 ✓"; "Hoy: 12 reservas confirmadas ✓") · entra una tarjeta: "Para vos, Raúl · Carla · cumpleaños de 20 · sábado · quiere menú cerrado: lo cerrás vos"]
 RAUL: Ese, para mí.
 [32,26-36,28 · chip "Viernes, 22:30." · el mismo encuadre de la mesa 7: llena, Walter y su familia con la tira, la vela prendida · Fabián con la bandeja (el mismo audio de la parte 1)]
 FABIAN: Raúl, ¿y los de las diez?
