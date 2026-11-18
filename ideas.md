@@ -267,7 +267,7 @@
 - 17-11 · `mesa-doce` · Scalerics Puntos · Rubén, cliente de los viernes de una pizzería: "Dos años. Todos los viernes. Mesa doce." y el dueño le pregunta "¿Primera vez por acá?" a las 90 visitas; se va a la de la vuelta que da puntos; rebobina y la misma pizzería con Puntos (QR en la mesa, tarjeta 8/10, regalo de cumple, panel del dueño): "¡Rubén! ¿La de siempre?" "Ahora sí." · Comentá PUNTOS [formato POV en primera persona del cliente (sobre un reel de menu4d, historia propia) · estilo 3D pizzería cálida con HUD de Puntos · hecho a mano en la sesión de Juan, 38,7 s]
 
 ## En curso
-<!-- corrida-activa: 2026-11-18T02:23 -->
+<!-- corrida-activa: 2026-11-18T02:55 -->
 - 18-11 · `contable-papeles` · Estudios contables · Automatización (pedido automático de comprobantes por WhatsApp a cada cliente con recordatorio, carga ordenada por cliente y mes, panel de quién mandó y quién falta) · reservado por la corrida de las 00:15 UTC
 - 18-11 · `tienda-tenes-stock` · Importadoras y tiendas online · Tienda online (catálogo con stock real, compra y pago sin preguntar, envío) · reservado por la corrida de las 00:15 UTC
 
