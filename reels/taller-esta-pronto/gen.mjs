@@ -43,50 +43,50 @@ T.p2 = r2(T.o1 + LEN.o1 + 0.2); T.m1 = r2(T.p2 + 0.1);
 // sin escuchar: Entregado ✓✓ 10:16 y nada (sin foto ni precio: Daniel no sabe qué aprobar)
 T.p3 = r2(T.m1 + LEN.m1 + 0.08);
 T.llama = [r2(T.p3 + 0.02), r2(T.p3 + 0.3)]; T.nocont = [r2(T.p3 + 0.18), r2(T.p3 + 0.46)];
-T.foto = r2(T.p3 + 0.56); T.entregado = r2(T.p3 + 0.7);
+T.foto = r2(T.p3 + 0.52); T.entregado = r2(T.p3 + 0.64);
 // P4 · la escalada: cortes rápidos con el chip del día (Walter, Sergio, Silvia, Graciela), una burbuja por salida; en el
 // último, Óscar, cansado: "A la tarde." · la pizarra con los services del miércoles tachados y los rótulos del costo
-T.p4 = r2(T.p3 + 1.9); T.c0 = T.p4; T.sale4 = [r2(T.p4 - 0.01), T.p4];
+T.p4 = r2(T.p3 + 1.7); T.c0 = T.p4; T.sale4 = [r2(T.p4 - 0.01), T.p4];
 const CORTE = 0.42;
 T.cortes = [0, 1, 2].map((i) => r2(T.c0 + i * CORTE));
 T.o2 = r2(T.cortes[2] + 0.2); T.vuelve4 = r2(T.o2 + LEN.o2 + 0.05);
-T.piz = r2(T.o2 + LEN.o2 + 0.12); T.tacha = [0.1, 0.25, 0.4, 0.55].map((d) => r2(T.piz + d)); T.rotP = [r2(T.piz + 0.1), r2(T.piz + 0.3)];
+T.piz = r2(T.o2 + LEN.o2 + 0.12); T.tacha = [0.1, 0.25, 0.4, 0.55].map((d) => r2(T.piz + d)); T.rotP = [r2(T.piz + 0.05), r2(T.piz + 0.22)];
 // P5 · miércoles 18:00: el celular dice DANIEL; la camilla sale disparada; Óscar se sienta: "¡Daniel!" · pantalla partida
 // con Daniel en el ómnibus: "Óscar, ¿está pronto?"
-T.p5 = r2(T.piz + 1.55); T.sale5 = [r2(T.p5 + 0.1), r2(T.p5 + 0.32)]; T.sienta = [r2(T.p5 + 0.18), r2(T.p5 + 0.5)];
+T.p5 = r2(T.piz + 1.45); T.sale5 = [r2(T.p5 + 0.1), r2(T.p5 + 0.32)]; T.sienta = [r2(T.p5 + 0.18), r2(T.p5 + 0.5)];
 T.o3 = r2(T.p5 + 0.42); T.split = r2(T.o3 + LEN.o3 + 0.02); T.d1 = r2(T.o3 + LEN.o3 + 0.14);
 // P6 · el remate: la mirada al auto clavado arriba · primer plano de Óscar, pausa: "Está pronto para empezar."
-T.p6 = r2(T.d1 + LEN.d1 + 0.06); T.gota6 = r2(T.p6 + 0.18); T.p6b = r2(T.p6 + 0.42); T.o4 = r2(T.p6b + 0.38);
+T.p6 = r2(T.d1 + LEN.d1 + 0.06); T.gota6 = r2(T.p6 + 0.18); T.p6b = r2(T.p6 + 0.38); T.o4 = r2(T.p6b + 0.38);
 // P7 · remate del remate: se acuesta y rueda abajo; suena otra vez (GRACIELA); se empuja para salir y una ruedita se sale
 T.p7 = r2(T.o4 + LEN.o4 + 0.1); T.vuelve7 = [r2(T.p7 + 0.0), r2(T.p7 + 0.38)]; T.ring7 = r2(T.p7 + 0.44); T.empuja = r2(T.p7 + 0.66);
 T.sueltaR = r2(T.p7 + 0.74); T.frena = r2(T.p7 + 1.3);
-const P1 = r2(T.p7 + 1.26);                              // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p7 + 1.2);                              // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, martes 10:00: el celular del banquito, quieto, se prende solo ("Aviso enviado ✓") · Q1i
 // el celular de Graciela en su mostrador: "Tu auto: En diagnóstico" con la foto y los pasos · Q1g Graciela: "¡Ay, mi
 // autito! Ya lo están mirando."
-T.q1 = P2; T.aviso = r2(P2 + 0.2); T.q1i = r2(P2 + 0.58); T.llegaG = r2(T.q1i - 0.03); T.q1g = r2(T.q1i + 0.75); T.g2 = r2(T.q1g + 0.1);
+T.q1 = P2; T.aviso = r2(P2 + 0.0); T.q1i = r2(P2 + 1.0); T.llegaG = r2(T.q1i - 0.03); T.q1g = r2(T.q1i + 1.1); T.g2 = r2(T.q1g + 0.1);
 // Q2 · el panel "Autos en el taller": las tarjetas de a una, "Avisado ✓", los ceros
-T.q2 = r2(T.g2 + LEN.g2 + 0.12); T.tarj = [0.0, 0.2, 0.4, 0.6].map((d) => r2(T.q2 + d)); T.ceros = r2(T.q2 + 0.45);
+T.q2 = r2(T.g2 + LEN.g2 + 0.12); T.tarj = [0.0, 0.2, 0.4, 0.6].map((d) => r2(T.q2 + d)); T.ceros = r2(T.q2 + 0.26);
 // Q3 · el mismo plano de P2, el mismo audio de Maxi · Q3o Óscar desde abajo del auto: "Mandale la foto." · Q3f la foto
 // (flash) · Q3d el celular de Daniel en el ómnibus: el extra con Aprobar · Q3e Daniel: "Dale, cambiala." · Q3a Aprobado ✓
-T.q3 = r2(T.q2 + 1.42); T.m1b = r2(T.q3 + 0.1);
+T.q3 = r2(T.q2 + 1.38); T.m1b = r2(T.q3 + 0.1);
 T.q3o = r2(T.m1b + LEN.m1 + 0.04); T.o5 = r2(T.q3o + 0.08);
 T.q3f = r2(T.o5 + LEN.o5 + 0.04); T.flash = r2(T.q3f + 0.38);
 T.q3d = r2(T.q3f + 0.46); T.llegaD = r2(T.q3d - 0.03);
-T.q3e = r2(T.q3d + 0.72); T.d2 = r2(T.q3e + 0.1);
+T.q3e = r2(T.q3d + 0.9); T.d2 = r2(T.q3e + 0.1);
 T.q3a = r2(T.d2 + LEN.d2 + 0.06); T.aprueba = r2(T.q3a + 0.22); T.aprobado = r2(T.q3a + 0.36);
 // Q4 · martes 12:30: el plano del elevador y la pizarra; baja el auto de Daniel arreglado; la pizarra con tildes; los
 // rótulos · Q4b el ómnibus: "Pronto para retirar ✓" y Daniel toca el timbre de parada
-T.q4 = r2(T.q3a + 0.8); T.baja = [r2(T.q4 + 0.05), r2(T.q4 + 0.9)]; T.q4p = r2(T.q4 + 1.15); T.tilde = [0.08, 0.2, 0.32, 0.44].map((d) => r2(T.q4p + d)); T.rotQ = [r2(T.q4 + 0.12), r2(T.q4p + 0.08)];
-T.q4b = r2(T.q4p + 1.1); T.llegaP = r2(T.q4b - 0.03);
+T.q4 = r2(T.q3a + 0.56); T.baja = [r2(T.q4 + 0.05), r2(T.q4 + 0.9)]; T.q4p = r2(T.q4 + 1.15); T.tilde = [0.08, 0.2, 0.32, 0.44].map((d) => r2(T.q4p + d)); T.rotQ = [r2(T.q4 + 0.03), r2(T.q4p + 0.0)];
+T.q4b = r2(T.q4p + 1.13); T.llegaP = r2(T.q4b - 0.03);
 // Q5 · martes 17:30, el encuadre del cuadro 0 con la luz de tarde: "Maxi, ¿está pronto el mate?" / "A la tarde." y Óscar
 // sale rodando por el mate
-T.q5 = r2(T.q4b + 0.72); T.o6 = r2(T.q5 + 0.16); T.m2 = r2(T.o6 + LEN.o6 + 0.18);
+T.q5 = r2(T.q4b + 1.02); T.o6 = r2(T.q5 + 0.16); T.m2 = r2(T.o6 + LEN.o6 + 0.18);
 T.q5b = r2(T.m2 - 0.12); T.sale6 = [r2(T.m2 + LEN.m2 + 0.05), r2(T.m2 + LEN.m2 + 0.5)]; T.chipMate = r2(T.m2 + LEN.m2 + 0.12);
 // C · Óscar sentado en la camilla, a cámara, con el mate: "Comentá PRONTO y te mando cómo funciona para tu taller."
-T.c = r2(T.chipMate + 1.45); T.sorbo = r2(T.c - 0.1); T.o7 = r2(T.c + 0.08);
+T.c = r2(T.chipMate + 1.3); T.sorbo = r2(T.c - 0.1); T.o7 = r2(T.c + 0.08);
 T.palabra = r2(T.o7 + palabraO7(1));                   // la tarjeta entra sobre "PRONTO"
 const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.18) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.35));

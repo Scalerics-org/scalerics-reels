@@ -13,8 +13,8 @@
     [data-composition-id="s01-cont"] .cont.c2 { background: #0b1220; color: #5ce611; border-color: #5ce611; }
     [data-composition-id="s01-cont"] .chip { top: 92px; display: none; } [data-composition-id="s01-cont"] .cont { top: 74px; }
   </style>
-  <div id="root" data-composition-id="s01-cont" data-width="1080" data-height="1920" data-duration="13.95">
-    <div id="s01-cont-esc" class="esc clip" data-start="0" data-duration="13.95" data-track-index="0">
+  <div id="root" data-composition-id="s01-cont" data-width="1080" data-height="1920" data-duration="13.43">
+    <div id="s01-cont-esc" class="esc clip" data-start="0" data-duration="13.43" data-track-index="0">
       <div class="cont c0"><div class="a">Óscar salió<br>a atender</div><div class="n">1</div></div>
       <div class="chip k0">Martes, 12:10.</div>
       <div class="chip k1">Miércoles, 9:00.</div>
@@ -29,31 +29,31 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.set(q(".cont .n"), { textContent: "5" }, 4.58);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.58);
-      tl.set(q(".cont .n"), { textContent: "14" }, 5);
-      tl.set(q(".cont"), { className: "cont c1" }, 5);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 5);
-      tl.set(q(".cont .n"), { textContent: "22" }, 5.42);
-      tl.set(q(".cont"), { className: "cont c1" }, 5.42);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 5.42);
-      tl.set(q(".cont .n"), { textContent: "23" }, 8.24);
-      tl.set(q(".cont"), { className: "cont c1" }, 8.24);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 8.24);
-      tl.set(q(".cont .n"), { textContent: "24" }, 13.41);
-      tl.set(q(".cont"), { className: "cont c1" }, 13.41);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 13.41);
+      tl.set(q(".cont .n"), { textContent: "5" }, 4.26);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.26);
+      tl.set(q(".cont .n"), { textContent: "14" }, 4.68);
+      tl.set(q(".cont"), { className: "cont c1" }, 4.68);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.68);
+      tl.set(q(".cont .n"), { textContent: "22" }, 5.1);
+      tl.set(q(".cont"), { className: "cont c1" }, 5.1);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 5.1);
+      tl.set(q(".cont .n"), { textContent: "23" }, 7.82);
+      tl.set(q(".cont"), { className: "cont c1" }, 7.82);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 7.82);
+      tl.set(q(".cont .n"), { textContent: "24" }, 12.95);
+      tl.set(q(".cont"), { className: "cont c1" }, 12.95);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 12.95);
       // el contador se esconde en el inserto del celular (P3), en la pantalla partida y en el primer plano del remate
-      tl.set(q(".cont"), { display: "none" }, 2.68); tl.set(q(".cont"), { display: "block" }, 4.58);
-      tl.set(q(".cont"), { display: "none" }, 9.12); tl.set(q(".cont"), { display: "block" }, 12.69);
-      tl.set(q(".k0"), { display: "block" }, 4.58); tl.set(q(".k0"), { display: "none" }, 5);
-      tl.fromTo(q(".k0"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.58);
-      tl.set(q(".k1"), { display: "block" }, 5); tl.set(q(".k1"), { display: "none" }, 5.42);
-      tl.fromTo(q(".k1"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 5);
-      tl.set(q(".k2"), { display: "block" }, 5.42); tl.set(q(".k2"), { display: "none" }, 6.54);
-      tl.fromTo(q(".k2"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 5.42);
-      tl.set(q(".k3"), { display: "block" }, 8.09); tl.set(q(".k3"), { display: "none" }, 9.12);
-      tl.fromTo(q(".k3"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 8.09);
+      tl.set(q(".cont"), { display: "none" }, 2.56); tl.set(q(".cont"), { display: "block" }, 4.26);
+      tl.set(q(".cont"), { display: "none" }, 8.7); tl.set(q(".cont"), { display: "block" }, 12.23);
+      tl.set(q(".k0"), { display: "block" }, 4.26); tl.set(q(".k0"), { display: "none" }, 4.68);
+      tl.fromTo(q(".k0"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.26);
+      tl.set(q(".k1"), { display: "block" }, 4.68); tl.set(q(".k1"), { display: "none" }, 5.1);
+      tl.fromTo(q(".k1"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.68);
+      tl.set(q(".k2"), { display: "block" }, 5.1); tl.set(q(".k2"), { display: "none" }, 6.22);
+      tl.fromTo(q(".k2"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 5.1);
+      tl.set(q(".k3"), { display: "block" }, 7.67); tl.set(q(".k3"), { display: "none" }, 8.7);
+      tl.fromTo(q(".k3"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 7.67);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

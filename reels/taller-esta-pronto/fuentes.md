@@ -5,7 +5,7 @@ Maxi, Daniel; Graciela y Walter del elenco; Sergio y Silvia solo como avatar). *
 estadísticas, años ni empresas reales, así que no hubo nada que verificar con WebSearch.** Tampoco afirma nada del
 producto que no esté en el brief (aviso del estado del auto por WhatsApp con foto, extra con botón para aprobar, panel
 del taller). Los números son del caso que se cuenta, no estadísticas:
-- **"Óscar salió a atender"**: 0 → 1 (Graciela, martes 10:00) → 5 (Walter, martes 12:10) → 9 (Sergio, 15:40) → 14
+- **"Óscar salió a atender"**: 1 (Graciela, martes 10:00) → 5 (Walter, martes 12:10) → 14
   (Silvia, miércoles 9:00) → 22 (Graciela, miércoles 14:30) → 23 (Daniel, miércoles 18:00) → 24 (la ruedita). Unas 11-12 llamadas por día en un taller lleno: creíble para
   "Mecánica Óscar", no se presenta como promedio de nada.
 - **El extra de Daniel:** cambio de la bomba de agua, **$ 11.500** (repuesto + mano de obra; precio inventado de
@@ -13,7 +13,8 @@ del taller). Los números son del caso que se cuenta, no estadísticas:
 - **El elevador ocupado:** martes 10:00 → miércoles 18:00 ("Elevador ocupado: martes y miércoles"). El miércoles había
   **4 services** en la pizarra (9:00 Pablo, 10:30 Andrés, 14:00 Nelly, 16:00 Ramón: ninguno de los que llaman) que necesitaban el elevador y no entraron: **4 × $ 6.500 = $ 26.000** (el mismo precio de
   service de `reels/taller-presupuestos`, para que el taller sea coherente).
-- **Parte 2:** el extra sale a las 10:02 y Daniel lo aprueba a las 10:04 ("Extra aprobado en 2 minutos"); el auto de
+- **Parte 2:** el extra sale con foto y precio y Daniel lo aprueba con un botón desde el ómnibus
+  ("Extra aprobado desde el ómnibus"; el rótulo ya no dice cuántos minutos, para no afirmar algo que no se ve); el auto de
   Daniel baja a las 12:30 del martes y los 4 services del miércoles pueden entrar: "Mañana entran 4 services: $ 26.000" en
   verde. En la parte 1 Óscar solo lo llama dos veces y le deja un audio de 0:47 sin foto ni precio (queda sin escuchar);
   en la parte 2 le llega el extra con la foto, el precio y el botón Aprobar. "Llamadas '¿está pronto?': 0" y "Salió a
@@ -66,3 +67,12 @@ Bajados de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia CC0 
 - `assets/sfx/zumbido.wav`: "Room Tone Ambience Medium", gchase, Freesound, CC0 1.0 (de reels/tienda-tenes-stock / dist-quien-debe).
 - `assets/sfx/chisporroteo.wav` (el spiedo de la rotisería): "Frying pan 2" (#0144), BigSoundBank, CC0 1.0. https://bigsoundbank.com/frying-pan-2-s0144.html (de reels/parrilla-no-vuelve).
 - `assets/sfx/k-switch-3.wav`, `k-tick-*`, `k-tono`, `k-dos-tonos`, `k-cloth_*`, `k-plastico`: Kenney (kenney.nl), CC0 1.0.
+- `assets/sfx/elevador.wav`: "Elevator (3 floors)" (#1711), BigSoundBank (Joseph Sardin), CC0 1.0. https://bigsoundbank.com/elevator-3-floors-s1711.html (de reels/taller-presupuestos).
+- `assets/sfx/gota.wav`: "Drops of water #1" (#1384), BigSoundBank, CC0 1.0. https://bigsoundbank.com/drops-of-water-1-s1384.html (de reels/taller-presupuestos).
+- `assets/sfx/llaves.wav`: "Keys in a hand" (#0445), BigSoundBank, CC0 1.0. https://bigsoundbank.com/keys-in-a-hand-s0445.html · `puerta-auto.wav`: "Car door #1", https://bigsoundbank.com/car-door-1-s0971.html · `auto-entra.wav`: https://bigsoundbank.com/car-arrival-stop-departure-s0187.html · `auto-pasa.wav`: https://bigsoundbank.com/car-passing-50km-h-3-s2987.html · `bocina.wav`: https://bigsoundbank.com/car-horn-4-s0260.html (BigSoundBank, CC0 1.0; de reels/taller-presupuestos).
+- `assets/sfx/calle.wav` (tramo 46-61,5 s): "Small quiet street ambience", Oper8, Freesound, CC0 1.0. https://freesound.org/people/Oper8/sounds/241135/ (de reels/estetica-turnos).
+- `assets/sfx/vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound, CC0 1.0. https://freesound.org/people/SpliceSound/sounds/369839/
+- `assets/sfx/sorbo.wav` (tramo 0,45-1,4 s): "drink;slurps;small.wav", Abir19, Freesound, CC0 1.0. https://freesound.org/people/Abir19/sounds/629505/
+- `assets/sfx/stinger.wav` (primeros 2,2 s): "Vibraphone Transition Music Cue", DanJFilms, Freesound, CC0 1.0. https://freesound.org/people/DanJFilms/sounds/528980/
+- `assets/sfx/cero.mp3`: "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald, Freesound, CC0 1.0. https://freesound.org/people/GabFitzgerald/sounds/625174/
+- `assets/sfx/notification.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `pop.mp3`, `click-soft.mp3`, `ding.mp3`, `key-press.mp3`, `zumbido-largo.wav`: banco de SFX de HyperFrames (como en reels/abren-hoy y reels/ya-lo-cargo).

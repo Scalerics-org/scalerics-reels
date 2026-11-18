@@ -13,7 +13,7 @@ hueco ${G1:-01-graciela-a} g1 0.6 0.73 0.08 "atempo=1.1,$TEL"            # Graci
 v ${O1:-02-oscar-d} o1                                                       # Óscar (Charon) "A la tarde."
 v ${W1:-03-walter-c} w1 "atempo=1.04,$TEL"                                   # Walter (Umbriel, por teléfono) "¿Está pronto?"
 v ${O2:-04-oscar-c} o2                                                       # Óscar "A la tarde." (cansado)
-hueco ${M1:-05-maxi-a} m1 1.42 1.55 0.09 "atempo=1.18"                       # Maxi (Puck) "Jefe, el de Daniel: pierde la bomba de agua." (se reusa en Q3)
+hueco ${M1:-05-maxi-a} m1 1.42 1.55 0.08 "atempo=1.24"                       # Maxi (Puck) "Jefe, el de Daniel: pierde la bomba de agua." (se reusa en Q3)
 v ${O3:-06-oscar-a} o3                                                       # Óscar "¡Daniel!"
 hueco ${D1:-07-daniel-c} d1 0.44 0.80 0.1 "$TEL2"                              # Daniel (Schedar, en el ómnibus) "Óscar, ¿está pronto?"
 v ${O4:-08-oscar-c} o4                                                       # Óscar "Está pronto para empezar." (EL remate)

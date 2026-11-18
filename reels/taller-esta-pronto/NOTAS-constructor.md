@@ -174,3 +174,34 @@ retirar" (arte 12) sumaron ~1,5 s; se recortó lo que se pudo de P3, Q2, Q4, Q5 
   zumbido, chisporroteo, Kenney y pizzicato en fuentes.md.
 - medir.py marca -0,4 LU a 34,0 s: es el primer 0,1 s de "Maxi, ¿está pronto el mate?" (voz -27 LUFS) contra la cama
   antes del duck; desde 34,5 s la voz está ~20 LU arriba. El resto de los tramos ≥ +13 LU.
+
+## Ronda 3 (41,8 s · P1 16,13 · P2 18,50 · cierre 38,78 · parte 2 23,3 s, 56 %)
+Revisado con prev.mjs a tamaño completo (FULL=1) de cada plano tocado y con snapshots de HyperFrames de los 3 cuadros
+alrededor de cada uno de los 28 cortes (cuadro anterior, primero y segundo, a 30 fps).
+- Pizarra: CAM_PIZ centrada en la pizarra (x 2,7, mira a su centro): entra entera (~117-980 px) en Ppiz y Q4p; texto
+  CAV 96 con ancho máximo y los tildes corridos para que no pisen "ANDRÉS"/"RAMÓN". El auto verde del fondo se corrió
+  (3,75 / 2,7) para que no tape. "Elevador ocupado" sin guía, centrado a y 480 (abajo del contador); las guías de
+  "4 services" y "Mañana entran" van al pie de la pizarra, sin cruzar el texto.
+- Q1: plano cerrado del banquito con push-in (pantalla del celular legible); "Aviso enviado ✓" (1,0 s, desde el corte) arriba con la guía al
+  borde superior del celular. Q1i: "Lo marcás con un toque…" entra 0,02 s después del corte (1,08 s en pantalla).
+- Q5b: sin la burbuja de Óscar (solo en Q5); "A la tarde." se va 0,3 s después de la voz.
+- Graciela (Q1g): una sola boca (sonrisa sin la boca de CARA.feliz); el celular en las dos manos, a la altura del
+  pecho, mirándolo; cámara más baja y cerrada.
+- P2/Q3/Q3f: cámara nueva (más adelante y más arriba en la mira): Maxi entero, la bomba más abajo, libre del contador;
+  el auto de Graciela ya no entra por la izquierda (eran su luz trasera roja y su cola blanca: el "bulto" y la astilla).
+  Lámpara nueva: mango navy, aro verde y tubo emisivo, sin alambres.
+- Q3f: tablet 1,6×, de espalda a cámara apuntando a la bomba (la pantalla mira a Maxi), agarrada del borde de abajo.
+- Botonera del elevador a la columna (-2,05 / -2,85); Maxi fuera de P1, P4, P7 y Q1 (generales): ni bloque crema en la
+  cara ni capó cortándolo; la cola de la burbuja de Graciela ya no termina en él.
+- Split: la burbuja de Daniel con hablar() proyectada con la cámara de abajo: la cola a la boca, no a las cejas.
+- P3: sin la mano; el chat lleno (dos "Llamada sin respuesta", el audio, Entregado, "Sin escuchar", barra de escribir).
+- Q4: plano cenital alto (sin calle de fondo); rótulo "Extra aprobado / desde el ómnibus" abajo a la izquierda con la
+  guía al guardabarros delantero izquierdo (no cruza la patente). fuentes.md al día.
+- Q3o: Óscar se asoma en la camilla (rueda 0,9 m afuera y se incorpora un poco) y la cámara lo toma de frente.
+- Bajas: "Con foto y precio" solo en Q3d (0,9 s, entra a +0,05); "Pronto para retirar ✓" desde el corte (1,0 s);
+  PARADA a 0,43; panel de Q2 al 64 %; termo más afuera del brazo; Maxi en Q5 más a la derecha (el cable de la lámpara
+  colgante ya no le toca el pelo); patente oculta en Q5b; la burbuja de Graciela en P7 apunta al celular.
+- fuentes.md: contador 1 → 5 → 14 → 22 → 23 → 24 (sin Sergio); créditos completos copiados de elevador, gota, llaves,
+  calle, vibra, sorbo, stinger, cero y el banco de HyperFrames; "Aprobado desde el ómnibus".
+- Portada: fondo limpio nuevo (VER=portada, t 7,95, último corte), portada.json t 7,95, portada.png regenerada.
+- Mezcla: medir.py mínimo voz-resto 6,1 LU; -14,2 LUFS, pico -3,0 dBFS. check: 0 errores.
