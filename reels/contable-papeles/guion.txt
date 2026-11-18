@@ -1,0 +1,33 @@
+[sin narrador Orus: el chiste va en las burbujas, en la caja de zapatos que se vuelca, en el ticket en blanco y en la foto del papel en blanco; la solución va en la interfaz recreada (el WhatsApp del día 1 con el link, la foto de la factura el mismo día, el panel por cliente y por mes) · voces por archivo en partes/*.txt · total estimado ~38,6 s: parte 1 0,00-16,50 · cartel 16,50-19,00 · parte 2 19,00-35,00 · cierre 35,00-38,60 (solución + cierre: 19,6 s, 51 %) · tiempos estimados, los reales los da el constructor]
+[parte 1 · el problema · 0,00-16,50 s · "Estudio Adriana", casona del Cordón, de noche]
+[0,00-3,30 · cuadro 0: arriba, gigante, "ESTUDIOS CONTABLES" (entero desde el cuadro 0) y el chip "Último día · 18:00" · Adriana (lentes, camisa blanca, cárdigan navy) en su escritorio bajo la lámpara de banquero verde · la sumadora con la tira de papel hasta el piso · detrás, los biblioratos y el estante de 60 sobres de papel madera, muchos chatos con pestaña roja · el celular sobre la mesa con el chat "Marcelo · panadería": burbuja de audio "0:04"]
+MARCELO (audio de WhatsApp): Adri, las facturas te las mando mañana sin falta.
+[Adriana levanta el celular a la altura del pecho y graba]
+ADRIANA: Marcelo. Vence hoy.
+[4,70-7,40 · la escalada, sin voz · inserto del celular: "19:40" foto con un pulgar tapando el total · "20:30" factura doblada en cuatro y "¿esto sirve?" · plano general: Lucas (asistente, lentes redondos) en el piso cuelga tickets en un piolín con broches de ropa · la tira de la sumadora llega al piso · los sobres se abultan de a uno · contador "Mandaron 33 → 41 de 60" en rojo apagado]
+[7,40 · chip "22:10" · timbre · entra Marcelo (campera verde oscuro, barba candado) con una caja de zapatos bajo el brazo, orgulloso]
+MARCELO: Acá está todo, Adri. Ordenadito.
+[vuelca la caja sobre el escritorio: avalancha de tickets, un boleto, una servilleta escrita, una figurita]
+[10,20 · Adriana saca un ticket de la pila y lo levanta contra la lámpara: está en blanco]
+ADRIANA: ¿Y este?
+MARCELO: Ese es el más importante.
+[12,80-13,90 · pausa · la música baja, no se corta · rótulos con línea guía: al ticket "Ticket térmico · se borró" · a la caja "Un mes en una caja de zapatos" · al estante "Mandaron 41 de 60" · a Adriana "Cuarta noche hasta las 2"]
+[13,90 · Marcelo, ya en la puerta, se da vuelta, generoso, con el celular en la mano]
+MARCELO: Si querés, te mando una foto.
+[se va · 15,80 · vibra el celular de Adriana: llega la foto "22:16": el ticket en blanco y el pulgar de Marcelo · Adriana cierra los ojos · stinger]
+NARRADOR: Una automatización más tarde.
+[cartel · 16,50-19,00 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una" / "automatización" / "más tarde…" · nunca "Scalerics"]
+[parte 2 · la solución · 19,00-38,60 s]
+[19,00-23,40 · Q1 · chip "Día 1 · 9:00" · "Panadería Marcelo" (azulejo blanco con guarda verde, vitrina con medialunas y bolas de fraile) · vibra el celular de Marcelo, inserto: "Estudio Adriana · Hola, Marcelo. Subí acá las facturas y tickets de octubre. Una foto alcanza." · botón "Subir fotos" · rótulo "Cada cliente, su link" · chip "Día 3" · el repartidor deja la bolsa de harina y la factura · Marcelo le saca la foto en el momento (se lee entera) · "Subido ✓"]
+MARCELO: Listo. Ordenadito.
+[23,40-27,40 · Q2 · el estudio de tarde, sin pilas ni piolín · Lucas en su escritorio con un café · el monitor de Adriana: "Comprobantes · Octubre" · chip "Día 3" · "Mandaron 0 → 38 de 60" · chip "Día 5" · "Recordatorio automático enviado a 22 ✓" · 38 → 52 · chip "Día 8" · 52 → 60 de 60 ✓ (TALLER ROLO ✓) · la carpeta "Marcelo · Octubre · 14 ✓" con las fotos por fecha · rótulo "Todo ordenado por cliente y por mes"]
+[27,40-33,60 · Q3 · chip "Último día · 18:00" · el encuadre del cuadro 0, el escritorio despejado, el monitor con el panel]
+MARCELO (audio de WhatsApp): Adri, las facturas te las mando mañana s…
+[el mismo audio de la parte 1; Adriana lo corta en "mañana s…"]
+[el mismo audio de la parte 1 · Adriana sonríe mirando el monitor y graba con el celular apoyado]
+ADRIANA: Marcelo, las mandaste el día tres.
+MARCELO (audio de WhatsApp): ¿Ah, sí? Ni me di cuenta.
+[Q4 · chip "18:05" · el panel: "Noches hasta las 2: 0" · Adriana se pone el saco y apaga la lámpara verde con la cadenita]
+[35,00-38,60 · cierre · el monitor con el panel en verde y al lado el celular parado con la videollamada de Sofi (de Scalerics, auriculares verdes) · texto grande: "Comentá PAPELES" (PAPELES en el recuadro verde de selección)]
+SOFI: Comentá PAPELES y te mando cómo funciona para tu estudio.
+[37,20-38,60 · abajo, chico: "Pedido de comprobantes automático, cliente por cliente" / "scalerics.com" en verde]

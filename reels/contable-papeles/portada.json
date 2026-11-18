@@ -1,0 +1,15 @@
+{
+ "t": 0.5,
+ "chica": "Último día, 18:00.",
+ "grande": "¿Mañana sin falta?",
+ "sello": "ESTUDIOS CONTABLES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "20%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "sello_top": "325px",
+ "nota": "(r1) Fondo: plano propio VER=portada en tres.js (LIMPIO=1, t 0.5): Adriana de frente, cansada, con el celular del audio de Marcelo y la lámpara verde al costado (sin taparle la cara)."
+}

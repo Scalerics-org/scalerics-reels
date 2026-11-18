@@ -1,0 +1,36 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s00-rubro"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s00-rubro"] .caja { position: absolute; left: 60px; right: 60px; top: 92px; padding: 22px 4px 30px; border-radius: 40px; background: #0b1220; border: 7px solid #efeee5; box-shadow: 14px 16px 0 rgba(3,6,12,0.6); text-align: center; }
+    [data-composition-id="s00-rubro"] .tx { font: 900 118px/1.12 "Lexend", sans-serif; letter-spacing: -0.03em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s00-rubro"] .tx + .tx { margin-top: 18px; }
+    [data-composition-id="s00-rubro"] .sel { position: relative; display: inline-block; padding: 0 18px; margin-top: 6px; }
+    [data-composition-id="s00-rubro"] .sel b { position: absolute; inset: -12px 0 -6px; background: #5ce611; border: 7px solid #efeee5; border-radius: 10px; }
+    [data-composition-id="s00-rubro"] .sel em { position: relative; font-style: normal; }
+    [data-composition-id="s00-rubro"] .chip { position: absolute; left: 44px; padding: 14px 30px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #efeee5; font: 900 62px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.01em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); white-space: nowrap; }
+    [data-composition-id="s00-rubro"] .chip { top: 440px; }
+  </style>
+  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="2.63">
+    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="2.63" data-track-index="0">
+      <div class="caja"><div class="tx"><span class="sel"><b></b><em>ESTUDIOS</em></span></div><div class="tx"><span class="sel"><b></b><em>CONTABLES</em></span></div></div>
+      <div class="chip">Último día · 18:00</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s00-rubro";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
+      tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, 2.33);
+      tl.to(q(".chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 2.35);   // (pulido) fade, sin cortarse en el borde
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
