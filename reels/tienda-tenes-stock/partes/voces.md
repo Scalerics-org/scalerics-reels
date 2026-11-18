@@ -1,6 +1,6 @@
 # tienda-tenes-stock · voces (Gemini TTS, 3 tomas por línea en partes/tomas/, tonos en partes/lineas.tsv)
 
-Sin Orus. Paola = **Autonoe** · Mica = **Zephyr** · Graciela = Gacrux (la de siempre) · narrador del cartel = Rasalgethi
+Sin Orus. Paola = **Aoede** (cambio del coordinador, 18-11: Autonoe la usa contable-papeles) · Mica = **Zephyr** · Graciela = Gacrux (la de siempre) · narrador del cartel = Rasalgethi
 (toma reusada). Generar cada una desde `reels/tienda-tenes-stock` con
 `node ../../herramientas/voz.mjs partes/<x>.txt partes/tomas/<x>-a.wav --voz <Voz> --tono "<tono de lineas.tsv>"`
 (o copiar `reintentar.sh` / `medir-tomas.sh` / `procesar.sh` de `reels/inmobiliaria-visitas/partes`). Recortar silencios
@@ -33,3 +33,10 @@ resto sin filtro.
 Burbujas SIN voz (solo pop): "Pagado ✓", "Reintegro", el cuaderno, los rótulos de la pausa, el catálogo, la compra de
 Graciela, el pedido en la tablet, el pedido por mayor, los 12 "Pedido pagado ✓", el panel del cierre, la línea chica. Se
 tiene que entender sin sonido.
+
+**Tomas elegidas (partes/procesar.sh):** g1 01-graciela-c (hueco tras "Pao," a 0,16 s, pasabanda de chat) · pa1 02-paola-c ·
+mi1 03-mica-e (de la segunda tanda d-f, con el tono que pide "el local" claro: en a-c el STT oía "el upel"/"ella cae") ·
+pa2 04-paola-b · g2 05-graciela-c (hueco tras "Ay." a 0,3 s, pasabanda) · mi2 06-mica-e (hueco tras "Pao." a 0,32 s) ·
+pa3 07-paola-c · pa4 08-paola-c · pa5 10-paola-a · g3 11-graciela-b (la única donde el STT oye "mía") · pa6 12-paola-c ·
+pa7 13-paola-a (atempo 1,1: 3,29 s; la única donde el STT oye "stock"). El STT no oye los "Pao" sueltos del principio
+(palabra aislada de una sílaba), pero están en la forma de onda (ráfaga y pausa).
