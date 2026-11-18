@@ -62,4 +62,21 @@ Nuevos, de BigSoundBank, licencia CC0 1.0 (https://bigsoundbank.com/licenses.htm
 - `assets/sfx/bsb-0036.mp3` (el clic de la cadenita de la lámpara): "Switch desk lamp" (0036), https://bigsoundbank.com/switch-desk-lamp-s0036.html
 - `assets/sfx/bsb-0576.mp3` (el golpe sordo de la bolsa de harina en el mostrador): "Canvas bag on floor" (0576), https://bigsoundbank.com/canvas-bag-on-floor-s0576.html
 - `assets/sfx/bsb-0160.mp3` (timbre de puerta; descargado, no se usó: Marcelo golpea la puerta con `madera-golpe.wav`): "Doorbell" (0160), https://bigsoundbank.com/doorbell-2-s0160.html
-Del repo (crédito en sus reels): `papel-fuerte.mp3`, `papel.wav`, `cruje.wav`, `hoja.mp3`, `k-page-turn.wav` (la avalancha), `campanita.wav` (la puerta de la panadería), `madera-golpe.wav`, `puerta-abre.wav`, `pajaro.wav`, `vibra.wav`, `notification.mp3`, `k-pep.wav` (el "tuc" del audio de chat) y los de siempre (inmobiliaria-visitas).
+Del repo, por archivo (autor · sitio · licencia, según los fuentes.md de los reels de donde vienen):
+- `papel.wav`, `papel-fuerte.mp3` (la avalancha, el ticket que cruje, el ticket al piolín): "Paper slide", Kingofgamers_cz · Freesound · CC0 1.0.
+- `cruje.wav` (avalancha): "creak_1", Kenney · kenney.nl (RPG Audio) · CC0 1.0.
+- `hoja.mp3` (avalancha): `book_flip_1`, Kenney · kenney.nl (RPG Audio) · CC0 1.0.
+- `k-page-turn.wav` (la caja que se vuelca): "Page turn", Kenney · kenney.nl · CC0 1.0.
+- `puerta-abre.wav` (la puerta del estudio): "door_open_1", Kenney · kenney.nl (RPG Audio) · CC0 1.0.
+- `madera-golpe.wav` (los golpes a la puerta, la puerta que cierra), `paso-0..4.wav` (pasos): Kenney · kenney.nl (Impact Sounds) · CC0 1.0.
+- `k-cloth_1.wav` (Adriana levanta el celular): Kenney · kenney.nl (RPG Audio) · CC0 1.0.
+- `k-pep.wav` (el "tuc" del audio de chat): pepSound1, Kenney · kenney.nl (Digital Audio) · CC0 1.0.
+- `campanita.wav` (la puerta de la panadería): "Shop door bell", 775noise · Freesound · CC0.
+- `pajaro.wav` (la tarde en el estudio): "Bird Chirp", swiftoid · Freesound · CC0.
+- `vibra.wav` (el celular que vibra): "Cell phone vibrate, on table hard surface", SpliceSound · Freesound · CC0.
+- `tic-real.mp3` (el reloj en la pausa): "Clock ticking", olver · Freesound · CC0 1.0.
+- `calle.wav` (la calle de noche, la panadería): "Small quiet street ambience", Oper8 · Freesound · CC0.
+- `cero.mp3` (los dings del panel): "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald · Freesound · CC0.
+- `stinger.wav` (el cartel): "Vibraphone Transition Music Cue", DanJFilms · Freesound · CC0 1.0.
+- `bgm/pizzicato.wav` (la música): "Pizzicato Intrigue", younoise · Freesound · CC0.
+- `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `ding.mp3`, `notification.mp3`, `click-soft.mp3`, `key-press.mp3`, `zumbido-largo.wav`: banco de SFX de HyperFrames (como en reels/abren-hoy, reels/ya-lo-cargo e inmobiliaria-visitas).

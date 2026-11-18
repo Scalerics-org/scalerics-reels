@@ -91,3 +91,30 @@ chica "Último día, 22:10.", grande "¿Y esta?", sello ESTUDIOS CONTABLES.
 ## Render de revisión (18-11)
 Render 941 s (15,7 min, SwiftShader, --workers 2); re-codificación del paso 10: 171 s. Final 42,6 s, 1275 cuadros,
 -14,1 LUFS, pico -5,4 dBFS (renders/contable-papeles-final.mp4; hoja cada 0,5 s en renders/hoja-final.png).
+
+## Ronda 1 de corrección (18-11, sobre contable-arte, contable-sonido, contable-guion)
+**39,8 s (1192 cuadros).** Parte 1 0-17,65 · cartel 17,65-19,95 · parte 2 19,95-39,73 (50 %); cierre (Sofi) 36,52-39,73 (3,2 s).
+Render 837 s; paso 10 75 s; final -14,2 LUFS, LRA 7,7, pico -1,2 dBFS. `check --json` 0 errores. medir.py ahora compara
+ventanas pareadas (voz y resto en el mismo cuadro): mínimo +12,7 LU (criterio viejo de máximos del tramo: +8,8).
+- Guion: todo en octubre (el Día 1 pide las de octubre, factura 31/10, "Subido · 14 fotos · día 3 · Octubre: 14
+  comprobantes", panel "Comprobantes · Octubre", carpeta "Marcelo · Octubre · 14 ✓" del 3 al 31 de octubre, sin "harina");
+  "¿Y este?" (toma nueva Autonoe a); "¿Ah, sí? Ni me di cuenta." (toma nueva Enceladus a); rótulo "Cada cliente, su link";
+  carpeta 1,65 s; portada "¿Mañana sin falta?" / "Último día, 18:00." / ESTUDIOS CONTABLES (fondo: el cuadro 0 limpio).
+- Lámpara: más chica (0,85), de costado (la pantalla apunta a la cámara) y en (-0,37; 1,0): no toca la cara en ningún
+  plano. P5: el ticket al costado de la cara, la mano abajo; plano más abierto (fov 40).
+- P7: el celular de Marcelo muestra su chat con "Adri · estudio" y la foto en blanco (nada de la solución); la caja vacía
+  queda en el piso con la tapa desde la pausa (rótulo con guía a la caja).
+- Puerta: Marcelo golpea afuera con la puerta cerrada, se abre y entra; en P7 la puerta se cierra detrás de él (sonido
+  ajustado). Relleno de luz en la puerta; pelo de Marcelo gris oscuro en todo el reel; repartidor con gorra crema.
+- Q3 de 7,6 s → tres planos: el encuadre del cuadro 0 (el audio, cortado por Adriana en "mañana s…", m1b.wav), primer
+  plano de Adriana de 3/4 con el monitor entero, pausa de 0,45 s, inserto del celular con "¿Ah, sí? Ni me di cuenta.".
+- "Ilandaron": Adriana se oculta en los insertos del monitor (su pelo pisaba la M). Monitor más chico (0,5 m) y entero
+  en Q3; fuera de cuadro en Q5. Monitor de Lucas al costado. Luz de tarde más cálida + luz de ventana.
+- Lámpara apagada: pantalla verde oscura no emisiva + foco y luz apagados; clic de la cadenita a -37 con hueco en la música.
+- P6: 1,28 s con rótulos escalonados; guía de Adriana al hombro (no cruza la cara), del ticket a la punta, sobres y caja.
+- Burbuja de Adriana en P2 con aire arriba (la cola baja a la cabeza); en Q3a al costado.
+- Audio m1 "0:03"; filtro de altavoz más suave (200-5000 Hz) para "Adri"; "¿Y este?" +1,5 dB. Compresor suave en el bus
+  (LRA 13,1 → 7,7) para que el loudnorm del paso 10 no bombee. Rubro "ESTUDIOS CONTABLES" se va antes de la burbuja.
+- Cartel de la panadería entero en Q1; inserto Q1i con el chat lleno (textos de 46-64 px); Q1c al 80 %.
+- No hecho: el saco de Adriana en Q4 (solo tira de la cadenita); el estante de sobres en la parte 2 sigue con los sobres
+  llenos (no biblioratos); los 0,1 s de audio de más los agrega el AAC del paso 10.

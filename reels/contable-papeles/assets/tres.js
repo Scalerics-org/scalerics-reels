@@ -1439,7 +1439,7 @@ function renderAt(tIn) {
     // (r1) "¿Mañana sin falta?": Adriana de frente, cansada, el celular con el audio de Marcelo, la lámpara al costado
     adriana.poner({ ...adriana.ultimaPose, ...CARA.incredula, ojos: { abiertos: 0.8, x: -0.1, y: -0.35, tension: 0.15 }, cejas: { alto: 0.25, ang: 0.35, asim: 0.7 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.85 }, cabeza: { giro: -0.08, asiente: 0.15, ladea: 0.05 } });
     ticketBlanco.visible = false; for (const p of PILA) p.g.visible = false;
-    ponerCam([-0.04, 1.36, 2.15, -0.06, 1.1, 0.5, 50], t, true);
+    ponerCam([-0.04, 1.3, 2.3, -0.06, 0.86, 0.5, 50], t, true);
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
