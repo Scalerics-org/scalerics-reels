@@ -1,0 +1,39 @@
+[sin narrador Orus: el chiste va en las burbujas, en el cuaderno "VERDE: 1", en el aro de luz que ilumina el hueco y en la mesa de fotos que en realidad son cajas; la solución va en la interfaz recreada (catálogo con stock por color, compra con envío, pedido pago en la tablet, ingreso del contenedor) · voces por archivo en partes/*.txt (partes/voces.md) · total estimado ~38,6 s: parte 1 0,00-16,20 · cartel 16,20-18,70 · parte 2 18,70-34,60 · cierre 34,60-38,60 (solución + cierre: 19,9 s, 51,6 %); tiempos estimados, los reales los da el constructor]
+[parte 1 · el problema · 0,00-16,20 s · el depósito de "Casa Pao · Importados", lunes de mañana]
+[0,00-2,00 · cuadro 0: arriba, gigante, "IMPORTADORAS" (entero desde el cuadro 0) y el chip "Lunes, 10:00." · paredes de cajas kraft del contenedor · la mesa de fotos con el rollo de papel crema hasta el piso y el aro de luz prendido · Paola (buzo verde, rodete) le saca la foto a la freidora de aire verde menta con el celular en el aro · la burbuja de audio sale del celular]
+GRACIELA (audio): Pao, ¿tenés stock de la verde?
+[2,00-3,80 · el cuaderno colgado del clavo: "VERDE: 3 2 1" (tachados) · Paola, segura]
+PAOLA: ¡Sí! La última. Hoy te la mando.
+[3,65 · en el celular: "Pagado ✓ · $ 4.990" · 3,80-5,90 · Mica (chaleco crema, coleta) entra desde el local, levanta la freidora verde de la mesa de fotos y se la lleva, sin frenar · el aro de luz queda iluminando el hueco]
+MICA: ¡Pao! La verde la vendí en el local.
+[5,90-8,00 · primer plano de Paola con el celular a la altura del pecho · en el chat: "Reintegro · $ 4.990" (rojo apagado)]
+PAOLA: Graciela, perdoname: se me agotó.
+GRACIELA (audio): Ay. Bueno, la compro en otro lado.
+[10,00 · pausa · rótulos: al hueco iluminado "Vendida dos veces", al celular "Venta perdida: $ 4.990" (rojo apagado) · la música baja]
+[10,20-12,70 · plano bajo de la mesa de fotos · Mica vuelve con un rollo de papel nuevo, levanta el papel viejo desde abajo: la "mesa" son 8 cajas apiladas "FREIDORA DE AIRE 4 L · VERDE · CONT. MARZO"]
+MICA: Pao. ¿Y estas cajas?
+[12,70-14,30 · primer plano de Paola, cara de nada · pausita]
+PAOLA: Del contenedor de marzo.
+[13,70 · la cámara recorre la pared del fondo: muchas más cajas con la franja verde · rótulos: "40 verdes sin cargar" / "$ 199.600 parados desde marzo" (rojo apagado)]
+[14,30-16,20 · remate del remate · Paola, sin pestañear, levanta el celular en modo historia delante del pecho, sonrisa de vendedora de redes, las cajas detrás]
+PAOLA: ¡Hola! ¡Ingreso nuevo!
+[stinger]
+NARRADOR: Una tienda online más tarde.
+[cartel · 16,20-18,70 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una tienda" / "online" / "más tarde…" · nunca "Scalerics" · toma reusada de reels/hacen-envios]
+[parte 2 · la solución · 18,70-38,60 s]
+[18,70-22,60 · Q1 · chip "Otro lunes." · el local: Mica le da a Walter una caja verde por arriba del mostrador · en la tablet del local: "Venta en el local · Verde −1"]
+MICA: ¡Pao! La verde la vendí en el local.
+[el MISMO audio de la parte 1 · travelling al depósito: Paola sacando fotos en la mesa (ahora una mesa con patas), sin levantar la vista]
+PAOLA: Ya lo sabe la tienda.
+[inserto ≥ 60 %: el catálogo "Casa Pao · Importados · Freidora de aire 4 L · $ 4.990": Verde "Quedan 2" → "Queda 1" · Azul "Quedan 25" · Crema "Quedan 4" · rótulo "El stock real, a la vista"]
+[22,60-26,40 · Q2 · el living de Graciela, en el sillón, celular a la altura del pecho · inserto: Verde "Queda 1"]
+GRACIELA: Queda una. ¡Mía!
+[toca "Comprar" → "Envío a domicilio · $ 190" → "Pagar con tarjeta o débito" → "Pagado ✓" · el catálogo: Verde "Sin stock" sola, con "Avisarme cuando vuelva" · rótulo "Ve, paga y elige el envío. Sin preguntar."]
+[26,40-29,80 · Q3 · el depósito · la tablet de Paola: "Pedido #214 · Graciela · Freidora 4 L verde · Pagado ✓ · Envío a domicilio · Listo para despachar ✓" · la impresora escupe la etiqueta, Mica la pega en la caja · entra "Pedido por mayor · Bazar del Puerto · 10 azules" y "Azul: 25 → 15" · rótulo "Un solo stock: tienda, local y por mayor"]
+[29,80-34,60 · Q4 · chip "Llegó el contenedor." · Mica pasa la pistola lectora por las cajas verdes: "Verde: 0 → 40" · el catálogo: "Sin stock" → "Quedan 40" · Paola levanta el celular en modo historia, el mismo encuadre de la parte 1]
+PAOLA: ¡Hola! ¡Ingreso nuevo!
+[el MISMO audio de la parte 1 · le llueven 12 "Pedido pagado ✓" · "Les avisamos a 12 que esperaban" · "Quedan 40 → 28" · rótulo "Avisa sola cuando vuelve" · Paola baja el celular]
+PAOLA: Ya se enteraron.
+[34,60-38,60 · cierre · Paola en la mesa de fotos con patas, la freidora verde al lado, el aro de luz · graba su historia, de frente · texto grande: "Comentá STOCK" (STOCK en el recuadro verde de selección) · el panel chico: "Ventas dobles: 0" · "Cajas sin cargar: 0"]
+PAOLA: Comentá STOCK y te mando cómo funciona para tu importadora.
+[37,30-38,60 · abajo, chico: "Tu tienda online con el stock real" / "scalerics.com" en verde]
