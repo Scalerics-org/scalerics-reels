@@ -46,49 +46,49 @@ T.llama = [r2(T.p3 + 0.02), r2(T.p3 + 0.4)]; T.nocont = [r2(T.p3 + 0.26), r2(T.p
 T.foto = r2(T.p3 + 0.74); T.entregado = r2(T.p3 + 0.98);
 // P4 · la escalada: cortes rápidos con el chip del día (Walter, Sergio, Silvia, Graciela), una burbuja por salida; en el
 // último, Óscar, cansado: "A la tarde." · la pizarra con los services del miércoles tachados y los rótulos del costo
-T.p4 = r2(T.p3 + 1.42); T.c0 = T.p4; T.sale4 = [r2(T.p4 - 0.01), T.p4];
+T.p4 = r2(T.p3 + 1.32); T.c0 = T.p4; T.sale4 = [r2(T.p4 - 0.01), T.p4];
 const CORTE = 0.42;
 T.cortes = [0, 1, 2, 3].map((i) => r2(T.c0 + i * CORTE));
 T.o2 = r2(T.cortes[3] + 0.2); T.vuelve4 = r2(T.o2 + LEN.o2 + 0.05);
 T.piz = r2(T.o2 + LEN.o2 + 0.12); T.tacha = [0.1, 0.25, 0.4, 0.55].map((d) => r2(T.piz + d)); T.rotP = [r2(T.piz + 0.3), r2(T.piz + 0.5)];
 // P5 · miércoles 18:00: el celular dice DANIEL; la camilla sale disparada; Óscar se sienta: "¡Daniel!" · pantalla partida
 // con Daniel en el ómnibus: "Óscar, ¿está pronto?"
-T.p5 = r2(T.piz + 0.92); T.sale5 = [r2(T.p5 + 0.1), r2(T.p5 + 0.32)]; T.sienta = [r2(T.p5 + 0.26), r2(T.p5 + 0.44)];
+T.p5 = r2(T.piz + 0.92); T.sale5 = [r2(T.p5 + 0.1), r2(T.p5 + 0.32)]; T.sienta = [r2(T.p5 + 0.18), r2(T.p5 + 0.5)];
 T.o3 = r2(T.p5 + 0.42); T.split = r2(T.o3 + LEN.o3 + 0.02); T.d1 = r2(T.o3 + LEN.o3 + 0.14);
 // P6 · el remate: la mirada al auto clavado arriba · primer plano de Óscar, pausa: "Está pronto para empezar."
 T.p6 = r2(T.d1 + LEN.d1 + 0.06); T.gota6 = r2(T.p6 + 0.18); T.p6b = r2(T.p6 + 0.42); T.o4 = r2(T.p6b + 0.38);
 // P7 · remate del remate: se acuesta y rueda abajo; suena otra vez (GRACIELA); se empuja para salir y una ruedita se sale
 T.p7 = r2(T.o4 + LEN.o4 + 0.1); T.vuelve7 = [r2(T.p7 + 0.0), r2(T.p7 + 0.38)]; T.ring7 = r2(T.p7 + 0.44); T.empuja = r2(T.p7 + 0.66);
 T.sueltaR = r2(T.p7 + 0.74); T.frena = r2(T.p7 + 1.3);
-const P1 = r2(T.p7 + 1.48);                              // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p7 + 1.42);                              // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, martes 10:00: el celular del banquito, quieto, se prende solo ("Aviso enviado ✓") · Q1i
 // el celular de Graciela en su mostrador: "Tu auto: En diagnóstico" con la foto y los pasos · Q1g Graciela: "¡Ay, mi
 // autito! Ya lo están mirando."
-T.q1 = P2; T.aviso = r2(P2 + 0.2); T.q1i = r2(P2 + 0.65); T.llegaG = r2(T.q1i + 0.05); T.q1g = r2(T.q1i + 0.8); T.g2 = r2(T.q1g + 0.1);
+T.q1 = P2; T.aviso = r2(P2 + 0.2); T.q1i = r2(P2 + 0.62); T.llegaG = r2(T.q1i - 0.03); T.q1g = r2(T.q1i + 0.8); T.g2 = r2(T.q1g + 0.1);
 // Q2 · el panel "Autos en el taller": las tarjetas de a una, "Avisado ✓", los ceros
 T.q2 = r2(T.g2 + LEN.g2 + 0.12); T.tarj = [0.0, 0.2, 0.4, 0.6].map((d) => r2(T.q2 + d)); T.ceros = r2(T.q2 + 1.3);
 // Q3 · el mismo plano de P2, el mismo audio de Maxi · Q3o Óscar desde abajo del auto: "Mandale la foto." · Q3f la foto
 // (flash) · Q3d el celular de Daniel en el ómnibus: el extra con Aprobar · Q3e Daniel: "Dale, cambiala." · Q3a Aprobado ✓
-T.q3 = r2(T.q2 + 1.72); T.m1b = r2(T.q3 + 0.1);
+T.q3 = r2(T.q2 + 1.5); T.m1b = r2(T.q3 + 0.1);
 T.q3o = r2(T.m1b + LEN.m1 + 0.04); T.o5 = r2(T.q3o + 0.14);
 T.q3f = r2(T.o5 + LEN.o5 + 0.04); T.flash = r2(T.q3f + 0.38);
-T.q3d = r2(T.q3f + 0.5); T.llegaD = r2(T.q3d + 0.04);
+T.q3d = r2(T.q3f + 0.5); T.llegaD = r2(T.q3d - 0.03);
 T.q3e = r2(T.q3d + 0.72); T.d2 = r2(T.q3e + 0.1);
 T.q3a = r2(T.d2 + LEN.d2 + 0.06); T.aprueba = r2(T.q3a + 0.22); T.aprobado = r2(T.q3a + 0.36);
 // Q4 · martes 12:30: el plano del elevador y la pizarra; baja el auto de Daniel arreglado; la pizarra con tildes; los
 // rótulos · Q4b el ómnibus: "Pronto para retirar ✓" y Daniel toca el timbre de parada
-T.q4 = r2(T.q3a + 0.85); T.baja = [r2(T.q4 + 0.1), r2(T.q4 + 1.0)]; T.tilde = [0.95, 1.1, 1.25, 1.4].map((d) => r2(T.q4 + d)); T.rotQ = [r2(T.q4 + 1.0), r2(T.q4 + 1.3)];
-T.q4b = r2(T.q4 + 1.5); T.llegaP = r2(T.q4b + 0.05); T.timbre = r2(T.q4b + 0.6);
+T.q4 = r2(T.q3a + 0.85); T.baja = [r2(T.q4 + 0.1), r2(T.q4 + 1.0)]; T.tilde = [0.95, 1.1, 1.25, 1.4].map((d) => r2(T.q4 + d)); T.rotQ = [r2(T.q4 + 0.35), r2(T.q4 + 1.05)];
+T.q4b = r2(T.q4 + 1.5); T.llegaP = r2(T.q4b - 0.03); T.q4bd = r2(T.q4b + 0.6); T.timbre = r2(T.q4b + 0.85);
 // Q5 · martes 17:30, el encuadre del cuadro 0 con la luz de tarde: "Maxi, ¿está pronto el mate?" / "A la tarde." y Óscar
 // sale rodando por el mate
-T.q5 = r2(T.q4b + 0.95); T.o6 = r2(T.q5 + 0.22); T.m2 = r2(T.o6 + LEN.o6 + 0.22);
-T.sale6 = [r2(T.m2 + LEN.m2 + 0.08), r2(T.m2 + LEN.m2 + 0.5)]; T.chipMate = r2(T.m2 + LEN.m2 + 0.4);
+T.q5 = r2(T.q4b + 1.08); T.o6 = r2(T.q5 + 0.22); T.m2 = r2(T.o6 + LEN.o6 + 0.22);
+T.q5b = r2(T.m2 - 0.12); T.sale6 = [r2(T.m2 + LEN.m2 + 0.05), r2(T.m2 + LEN.m2 + 0.5)]; T.chipMate = r2(T.m2 + LEN.m2 + 0.12);
 // C · Óscar sentado en la camilla, a cámara, con el mate: "Comentá PRONTO y te mando cómo funciona para tu taller."
-T.c = r2(T.m2 + LEN.m2 + 0.55); T.sorbo = r2(T.c - 0.02); T.o7 = r2(T.c + 0.3);
+T.c = r2(T.chipMate + 1.45); T.sorbo = r2(T.c - 0.02); T.o7 = r2(T.c + 0.24);
 T.palabra = r2(T.o7 + palabraO7(1));                   // la tarjeta entra sobre "PRONTO"
-const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.3) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.26) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.35));
 // el contador "Salió a atender" (parte 1): [t, n]
 T.cont = [[T.cont1, 1], [T.cortes[0], 5], [T.cortes[1], 9], [T.cortes[2], 14], [T.cortes[3], 22], [r2(T.sale5[0] + 0.05), 23], [r2(T.empuja + 0.06), 24]];
@@ -158,7 +158,7 @@ const CONT = `
 // P1 · el rubro: "TALLERES" enorme arriba (navy en el recuadro verde, caja navy con borde crema), entero desde el cuadro 0;
 // debajo el chip "Martes, 10:00." y el contador; se van con el corte a P2
 {
-  const id = "s00-rubro", ini = 0, dur = r2(T.p2 - 0.04);
+  const id = "s00-rubro", ini = 0, dur = r2(T.p2);
   ESC.push([id, ini, dur, "arriba"]);
   const vals = T.cont.filter(([t]) => t < T.p2);
   escena(id, dur, {
@@ -179,7 +179,7 @@ ${vals.map(([t, n]) => `      tl.set(q(".cont .n"), { textContent: "${n}" }, ${t
 }
 // el contador en el resto de la parte 1 (arriba a la derecha), con los chips de día y hora a la izquierda
 {
-  const id = "s01-cont", ini = r2(T.p2 - 0.04), dur = r2(P1 - ini);
+  const id = "s01-cont", ini = r2(T.p2), dur = r2(P1 - ini);
   ESC.push([id, ini, dur, "arriba"]);
   const vals = T.cont.filter(([t]) => t >= T.p2);
   const n0 = T.cont.filter(([t]) => t < T.p2).at(-1)[1];
@@ -268,7 +268,7 @@ for (const [id, ini0, fin, txt, conCont] of CHIPS2) {
           <circle class="bu" cx="240" cy="1500" r="34" fill="none" stroke="${CR}" stroke-width="10"/>
           <circle class="bu" cx="1270" cy="1560" r="26" fill="none" stroke="${CR}" stroke-width="9"/>
           <circle class="bu" cx="330" cy="1620" r="18" fill="none" stroke="${NAVY}" stroke-width="8"/>
-          <circle class="bu" cx="1290" cy="1400" r="40" fill="none" stroke="${NAVY}" stroke-width="10"/>
+          <circle class="bu" cx="1290" cy="1760" r="40" fill="none" stroke="${NAVY}" stroke-width="10"/>
           <circle class="bu" cx="500" cy="1960" r="22" fill="none" stroke="${CR}" stroke-width="8"/>
           <circle class="bu" cx="560" cy="560" r="30" fill="none" stroke="${CR}" stroke-width="9"/>
         </g>
@@ -406,7 +406,7 @@ s("bgm/pizzicato-lleno.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(T.c - P2),
 s("bgm/pizzicato-lleno.wav", T.c - 0.05, 0, { desde: 8.0, dur: r2(DUR - T.c + 0.05), fi: 0.1, fin: 0.6, techo: -37 });
 s("sfx/calle.wav", P2, 0, { loop: true, desde: 6, dur: r2(T.q1i - P2 + 0.1), fi: 0.1, fin: 0.1, techo: -47, lp: 1800 });
 // Q1 · el celular del banquito se prende sin sonar; el de Graciela recibe el aviso; la rotisería (spiedo); Graciela
-toque(T.aviso, -44);
+toque(T.aviso, -36); ding(T.aviso + 0.06, -38);
 whoosh(T.q1i - 0.05, -44);
 noti(T.llegaG + 0.05, -35);
 s("sfx/chisporroteo.wav", T.q1i, 0, { loop: true, desde: 1.0, dur: r2(T.q2 - T.q1i), fi: 0.2, fin: 0.15, techo: -45, lp: 3500 });

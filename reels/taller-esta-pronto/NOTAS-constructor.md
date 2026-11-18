@@ -114,8 +114,38 @@ desde ~37,8. medir.py: voz ≥ +13,2 LU sobre el resto en todos los tramos con v
 - **Flojos:** remate más seco (SECO: boca -0,55, ojos 0,62); la camilla se ladea visible al perder la ruedita (0,11 rad,
   baja 2,5 cm); tablet de Q2 más grande (69 % del alto); la pasajera fuera del borde; la bomba más clara; Q4 más abierto
   (se ve el auto bajando y la pizarra). El celular en la oreja más pegado a la cabeza.
-- **Portada:** fondo limpio nuevo con VER=portada (sin Maxi, cámara propia) en el último corte (t 8,16: Óscar incorporado,
+- **Portada:** fondo limpio nuevo con VER=portada (sin Maxi, cámara propia) en el último corte (t 8,06: Óscar incorporado,
   cansado, celular en la oreja, el auto de Daniel arriba): ver abajo. Para regenerarlo:
-  `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 8.16 renders/prev/por && cp renders/prev/por/t-008.16.png portada-src/fondo-limpio.png && SINAUDIO=1 node gen.mjs`
+  `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 8.06 renders/prev/por && cp renders/prev/por/t-008.06.png portada-src/fondo-limpio.png && SINAUDIO=1 node gen.mjs`
 - No tocado: el cierre lo dice Óscar con "te mando" (decisión del coordinador). Repite el ángulo de `dos-talleres`
   (avisos del estado): aviso para el coordinador, no se cambió el tema.
+
+## Ronda 1, parte B (18-11, listas de arte y sonido sobre el render de 45,6 s)
+**41,2 s.** Parte 1 0-16,02 · cartel 16,02-18,39 · parte 2 18,39-41,2 = 22,8 s (55 %); C 37,97-41,2. medir.py: voz ≥ +13,2 LU.
+(Queda 1,2 s por encima de los ~40: el chip "Salió por el mate: 1" a 1,45 s (sonido 4) y el inserto de "Pronto para
+retirar" (arte 12) sumaron ~1,5 s; se recortó lo que se pudo de P3, Q2, Q4, Q5 y la cola.)
+- Arte 1: el elevador sube a 2,05 m, la bomba más chica (×1,35) y más arriba con la correa chica; Maxi corrido fuera de
+  debajo del auto (delante, a la izquierda) y la cámara corrida: la pieza ya no se proyecta sobre su cabeza.
+- Arte 2: en Q3f la tablet va en la mano derecha al costado de la cara, inclinada hacia la bomba (no la atraviesa).
+- Arte 3: P6a desde arriba del techo del auto de Graciela, fov 30: el auto de Daniel clavado llena el plano.
+- Arte 4: Q4 es un plano general alto del elevador (el auto bajando, Maxi fuera) con "Extra aprobado en 2 minutos" y la
+  guía al auto; a los 0,88 s corta a Q4p, la pizarra con los tildes y "Mañana entran 4 services" con guía a la pizarra.
+- Arte 5: parpadeos de 0,08 s y nunca durante una frase (Daniel sin parpadeos, Maxi sin, Óscar en el segundo corte y en
+  Q5); Daniel con los ojos abiertos (sin "feliz"/mirada abajo que se leían como guiño).
+- Arte 6: incorporarse con curva coseno en 0,35-0,4 s (cuadro 0, P5 al sentarse, P7 al acostarse, Q5 al salir).
+- Arte 7: el cuello de Óscar más corto (cuelloAlto 0,03). Arte 8: sin el parpadeo antes del remate.
+- Arte 9: Ppiz con el auto arriba en el elevador a la izquierda, la columna y la pizarra a la derecha, guías a cada uno.
+- Arte 11: los pasos del celular de Graciela con ajuste de ancho (no se cortan); en Q1g la mano derecha de Graciela en el
+  celular del soporte. Arte 12: Q4bi, inserto del celular de Daniel con "Pronto para retirar ✓" (rótulo arriba) y después
+  Q4b con el timbre; la mano izquierda de Daniel en la argolla. Arte 13: sin la burbuja "¡Daniel!" en la pantalla partida.
+- Bajas: los insertos de celular ya tienen el mensaje en el primer cuadro; "Mandale la foto." más arriba (no asoma la
+  patente); TALLERES y el contador hasta el corte exacto; la llamada de Walter es el primer corte, con chip; PARADA más
+  adentro; Q5 con Q5b más abierto; la burbuja del cartel lejos de "tarde…"; el panel dice "Sedán SAB 3315" (los tres son
+  sedanes) y textos de 44-56 px; el panel arranca con las cuatro tarjetas (sin pantalla blanca).
+- Sonido 2: "Mandale la foto." toma 11-oscar-o con tono man-DÁ-le (STT "mandale la foto"), pasabajos más suave.
+- Sonido 3: "Comentá PRONTO…" toma 15-oscar-o con tono co-men-TÁ marcado. El STT escribe "Comenta" sin tilde en las 4
+  tomas nuevas y en TODAS las tomas de "Comentá" de los otros reels (partes/rec/medidas.tsv de taller-presupuestos,
+  estetica-turnos, veterinaria-vacunas, parrilla, corralón, importadora): es el STT, no prueba tuteo. No se escuchó.
+- Sonido 4: "Salió por el mate: 1" entra cuando Óscar sale rodando y queda 1,45 s antes del cierre. Sonido 6: Q5 tiene
+  push-in y un segundo plano (Q5b) para "A la tarde." y el mate. Bajas: "Aviso enviado" con click a -36 y ding a -38;
+  la burbuja de "¿está pronto el mate?" se va 0,08 s antes de la de Maxi.
