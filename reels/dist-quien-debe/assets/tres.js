@@ -391,7 +391,7 @@ let camioneta, puertaCam;
   for (let k = 0; k < 3; k++) for (let i = 0; i < 6; i++) MUE.add(caja(0.5, 0.36, 0.4, mat(i % 2 ? C.kraft : 0xbf9a62, 0.85), -4.1 + i * 0.6, 0.2 + k * 0.38, -3.35, 0.01));
   // el cartel de la distribuidora en la pared (crema sobre navy)
   const cT = lienzo(1400, 260, (x, w, h) => { x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h); x.strokeStyle = "#5ce611"; x.lineWidth = 12; x.strokeRect(14, 14, w - 28, h - 28); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "DISTRIBUIDORA RUBÉN", 900, 130, w - 120); x.fillText("DISTRIBUIDORA RUBÉN", w / 2, h / 2 + 6); });
-  MUE.add(plano(3.4, 0.63, cT, 2.4, 3.5, -3.03, true));
+  MUE.add(plano(2.6, 0.48, cT, 1.1, 3.15, -3.03, true));
   // la camioneta de reparto (furgón chico): caja crema con franja verde, cabina navy3, la puerta del conductor se cierra
   camioneta = new THREE.Group(); camioneta.position.set(1.7, 0, -0.6); camioneta.rotation.y = -Math.PI / 2; MUE.add(camioneta);
   const cue = mat(C.cr, 0.5), cab = M.navy3;
@@ -532,15 +532,15 @@ function crearManoInserto(piel, manga) {
   const g = new THREE.Group(), m = mat(piel, 0.55);
   const palma = mesh(new THREE.SphereGeometry(1, 18, 12), m, 0.035, -0.02, -0.03); palma.scale.set(0.045, 0.06, 0.026); g.add(palma);
   const pul = new THREE.Group(); g.add(pul); pul.position.set(0.02, -0.0, 0.0);
-  const p1 = mesh(new THREE.CapsuleGeometry(0.0105, 0.05, 4, 10), m, 0, 0.035, 0); pul.add(p1);
+  const p1 = mesh(new THREE.CapsuleGeometry(0.0092, 0.048, 4, 10), m, 0, 0.035, 0); pul.add(p1);
   const yema = mesh(new THREE.SphereGeometry(1, 10, 8), mat(0xf0d2bf, 0.4), 0, 0.062, 0.006); yema.scale.set(0.007, 0.009, 0.003); pul.add(yema);
-  const mg = mesh(new THREE.CylinderGeometry(0.05, 0.055, 0.22, 16), mat(manga, 0.6), 0.05, -0.12, -0.035); mg.rotation.z = 0.25; g.add(mg);
+  const mg = mesh(new THREE.CylinderGeometry(0.05, 0.055, 0.22, 16), mat(manga, 0.6), 0.05, -0.14, -0.035); mg.rotation.z = 0.25; g.add(mg); g.userData.manga = mg;
   g.traverse((o) => { if (o.isMesh) { o.castShadow = false; o.receiveShadow = false; } });
   g.userData.pulgar = pul;
   return g;
 }
 const manoR = crearManoInserto(ELENCO.ruben.piel, C.navy3); scene.add(manoR);
-const manoG = crearManoInserto(ELENCO.clienta.piel, C.g); scene.add(manoG);
+const manoG = crearManoInserto(ELENCO.clienta.piel, C.g); manoG.userData.manga.visible = false; scene.add(manoG);
 const TODOS = [ruben, patricia, graciela, nico, cliente];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 
@@ -905,7 +905,7 @@ const GUIAS = [crearGuia(), crearGuia()];
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt. "split" = pantalla partida.
 const FRENTE_R = V3(Math.sin(RUB.giro), 0, Math.cos(RUB.giro)), FRENTE_P = V3(Math.sin(PAT.giro), 0, Math.cos(PAT.giro));
-const CAM_P1 = (k) => [lerp(0.3, 0.26, k), lerp(1.5, 1.47, k), lerp(3.95, 3.7, k), lerp(0.1, 0.1, k), 1.12, -0.05, 54];
+const CAM_P1 = (k) => [lerp(0.2, 0.18, k), lerp(1.5, 1.47, k), lerp(3.95, 3.7, k), lerp(0.04, 0.04, k), 1.12, -0.05, 58];
 const CAM_P2 = (k) => [-1.45 + 0.06 * k, 1.5, 0.78 - 0.04 * k, RUB.x, 1.17, RUB.z, 40 - 2 * k];   // por encima del hombro de Patricia
 const CAM_P5 = (k) => [1.82 - 0.05 * k, 1.58, 0.82 - 0.05 * k, PAT.x, 1.14, PAT.z, 40 - 2 * k];      // por encima del hombro de Rubén
 const CAM_P6 = (k) => { const d = 2.25 - 0.25 * k; return [RUB.x + FRENTE_R.x * d, 1.33, RUB.z + FRENTE_R.z * d, RUB.x, 1.17, RUB.z, 38]; };
@@ -918,8 +918,7 @@ const PLANOS = [
   ["P4", T.p4, null],                          // pantalla partida: arriba el banco, abajo la rotisería
   ["P5", T.p5, [[T.p5, ...CAM_P5(0)], [T.p6, ...CAM_P5(1)]]],
   ["P6", T.p6, [[T.p6, ...CAM_P6(0)], [T.p7, ...CAM_P6(1)]]],
-  ["P7", T.p7, [[T.p7, ...CAM_P7(0)], [r2(T.timbre - 0.3), ...CAM_P7(1)]]],
-  ["P7i", r2(T.timbre - 0.3), null],           // el dedo en el timbre
+  ["P7", T.p7, [[T.p7, ...CAM_P7(0)], [r2(T.timbre + 0.12), ...CAM_P7(1)]]],
   ["P7t", r2(T.timbre + 0.12), null],          // tilt al turnero: COBRANZAS
   // ---- parte 2 ----
   ["Q1", P2, null],                            // la rotisería: el celular vibra en el mostrador
@@ -933,8 +932,7 @@ const PLANOS = [
   ["Q4s", T.q4s, null],                        // pantalla partida otra vez
   ["Q4p5", T.q4p5, [[T.q4p5, ...CAM_P5(0)], [T.q4p6, ...CAM_P5(1)]]],
   ["Q4p6", T.q4p6, [[T.q4p6, ...CAM_P6(0)], [T.q4p7, ...CAM_P6(1)]]],
-  ["Q4p7", T.q4p7, [[T.q4p7, ...CAM_P7(0)], [r2(T.timbre2 - 0.3), ...CAM_P7(1)]]],
-  ["Q4i", r2(T.timbre2 - 0.3), null],
+  ["Q4p7", T.q4p7, [[T.q4p7, ...CAM_P7(0)], [r2(T.timbre2 + 0.12), ...CAM_P7(1)]]],
   ["Q4t", r2(T.timbre2 + 0.12), null],         // tilt al turnero: INVERSIONES
   ["C", T.c, [[T.c, ...CAM_C(0)], [DUR, ...CAM_C(1)]]],
 ];
@@ -1199,7 +1197,7 @@ function renderAt(tIn) {
     turnero.updateMatrixWorld(true);
     const c = turnero.localToWorld(turnero.userData.centro.clone());
     const u = eio(sg(t, pl[1], pl[1] + 0.4));
-    const n = V3(0, 0, 1).transformDirection(turnero.matrixWorld), FOV = 46, d = 0.86 / (Math.tan((FOV * D2R) / 2) * (1080 / 1920));
+    const n = V3(0, 0, 1).transformDirection(turnero.matrixWorld), FOV = 46, d = 0.95 / (Math.tan((FOV * D2R) / 2) * (1080 / 1920));
     const fin = c.clone().add(n.multiplyScalar(d)).add(V3(0, -0.35, 0));
     const desde = V3(0.1, 1.05, 0.0), mira = desde.clone().lerp(c, u);
     const pos = V3(0.2, 1.5, 2.0).lerp(fin, u);
@@ -1207,12 +1205,12 @@ function renderAt(tIn) {
   }
   if (pa === "Q1") {
     const u = eio(sg(t, P2, T.q1i));
-    ponerCam([lerp(40.3, 40.32, u), lerp(1.45, 1.42, u), lerp(1.1, 0.8, u), 40.55, 1.3, -1.5, 46], t);
+    ponerCam([lerp(40.02, 40.08, u), lerp(1.32, 1.3, u), lerp(1.35, 1.05, u), 40.56, 1.42, -1.5, 52], t);
   }
   if (pa === "Q1i" || pa === "Q1p") {
     celGsoporte.updateMatrixWorld(true);
     const ex = pa === "Q1i" ? 0.03 * (1 - eo(sg(t, T.q1i, T.q1i + 0.5))) : 0;
-    camPantalla(celG, V3(0, 0.0, 0.0075), V3(0, 0, 1), 0.172, 0.78, 36, t, ex);
+    camPantalla(celG, V3(0, 0.012, 0.0075), V3(0, 0, 1), 0.172, 0.7, 36, t, ex);
     if (pa === "Q1p") {
       manoG.visible = true; celG.updateMatrixWorld(true);
       const toca = Math.sin(Math.PI * sg(t, T.pagar - 0.2, T.pagar + 0.12)) * (t < T.pagado + 0.05 ? 1 : 0);
@@ -1246,7 +1244,7 @@ function renderAt(tIn) {
   if (pa === "Q3i") {
     // el aviso en el celular de Nico (sin Nico: el celular sostenido, de frente)
     celN.visible = true; celN.position.set(60.55, 1.25, 1.25); celN.rotation.set(-0.1, 0.15, 0.03);
-    camPantalla(celN, V3(0, 0.0, 0.0075), V3(0, 0, 1), 0.172, 0.8, 36, t, 0.02 * (1 - eo(sg(t, T.q3, T.q3 + 0.5))));
+    camPantalla(celN, V3(0, 0.012, 0.0075), V3(0, 0, 1), 0.172, 0.7, 36, t, 0.02 * (1 - eo(sg(t, T.q3, T.q3 + 0.5))));
   }
   if (pa === "Q3") {
     const u = sg(t, pl[1], T.q4);
@@ -1290,17 +1288,17 @@ function renderAt(tIn) {
     }
     if (pa === "P5") di("pa2", patricia, T.pa2, T.p6, 1, 0, 280);
     if (pa === "P6") di("r4", ruben, T.r4, T.p7, 1, 0, 260);
-    if (pa === "P7" || pa === "P7i") di("pa3", patricia, T.pa3, P1, 1, 0, 280);
+    if (pa === "P7") di("pa3", patricia, T.pa3, P1, 1, 0, 280);
     if (pa === "P7i" && t >= T.pa3 - 0.04) ponerGlobo(GL.pa3, 540, 420, 1, null, 1);
-    if (pa === "Q1i" && t >= T.llega + 0.15) ponerGlobo(ROT_.recordatorio, 540, 250, ent(T.llega + 0.15), null, 2);
-    if (pa === "Q1i" && t >= T.g2 - 0.04) ponerGlobo(GL.g2, 540, 1600, ent(T.g2 - 0.04), null, 3);
+    if (pa === "Q1i" && t >= T.llega + 0.15) ponerGlobo(ROT_.recordatorio, 540, 175, ent(T.llega + 0.15), null, 2);
+    if (pa === "Q1i" && t >= T.g2 - 0.04) ponerGlobo(GL.g2, 540, 1720, ent(T.g2 - 0.04), null, 3);
     if (pa === "Q1g") di("g2", graciela, T.g2, T.pagar, 1, 0, 260);
     if (pa === "Q2" && t >= T.fila[0] + 0.1) ponerGlobo(ROT_.solo, 540, 1700, ent(T.fila[0] + 0.1), null, 2);
-    if (pa === "Q3i") ponerGlobo(ROT_.visitar, 540, 250, ent(T.q3 + 0.1), null, 2);
+    if (pa === "Q3i") ponerGlobo(ROT_.visitar, 540, 175, ent(T.q3 + 0.1), null, 2);
     if (pa === "Q3") di("n1", nico, T.n1, T.n1 + LEN.n1 + 0.15, 1, 0, 260);
     if (pa === "Q4p5") di("pa2b", patricia, T.pa2b, T.q4p6, 1, 0, 280);
     if (pa === "Q4p6") di("r6", ruben, T.r6, T.q4p7, 1, 0, 260);
-    if (pa === "Q4p7" || pa === "Q4i") di("pa4", patricia, T.pa4, T.c, 1, 0, 280);
+    if (pa === "Q4p7") di("pa4", patricia, T.pa4, T.c, 1, 0, 280);
     if (pa === "Q4i" && t >= T.pa4 - 0.04) ponerGlobo(GL.pa4, 540, 420, 1, null, 1);
   }
   if (split) {

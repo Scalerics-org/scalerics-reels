@@ -26,7 +26,7 @@
       tl.fromTo(q(".r1"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0);
       tl.fromTo(q(".r2"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0.08);
       const o = { a: 1012000, b: 186000 };
-      tl.to(o, { a: 1034000, b: 208000, duration: 0.45, ease: "power1.inOut", onUpdate: () => { q(".v1").textContent = fmt(o.a); q(".v2").textContent = fmt(o.b); } }, 0.12);
+      tl.to(o, { a: 1034000, b: 208000, duration: 0.45, ease: "power1.inOut", onUpdate: () => { q(".v1").textContent = fmt(Math.round(o.a / 1000) * 1000); q(".v2").textContent = fmt(Math.round(o.b / 1000) * 1000); } }, 0.12);
       tl.fromTo(q(".r1 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.58);
       tl.fromTo(q(".r2 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.62);
       window.__timelines = window.__timelines || {};

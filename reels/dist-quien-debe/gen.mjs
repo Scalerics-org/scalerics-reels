@@ -138,7 +138,7 @@ const CHIP = `
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 50px; right: 50px; top: 84px; padding: 24px 4px 30px; border-radius: 40px; background: ${NAVY}; border: 7px solid ${CR}; box-shadow: 14px 16px 0 rgba(3,6,12,0.6); text-align: center; }
-    P .tx { font: 900 112px/1.12 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
+    P .tx { font: 900 98px/1.12 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 18px; }
     P .sel b { position: absolute; inset: -10px 0 -6px; background: ${G}; border: 7px solid ${CR}; border-radius: 10px; }
     P .sel em { position: relative; font-style: normal; }${CHIP}
@@ -150,7 +150,7 @@ const CHIP = `
 }
 // los chips de día y hora (arriba a la izquierda)
 const CHIPS = [
-  ["s01-chip", T.q1 + 0.02, T.g2 - 0.02, "Martes, 9:00."],
+  ["s01-chip", T.q1 + 0.02, T.q1i - 0.02, "Martes, 9:00."],
   ["s02-chip", T.q4 + 0.0, T.q4s - 0.02, "Viernes, 16:00."],
 ];
 for (const [id, ini0, fin, txt] of CHIPS) {
@@ -199,7 +199,7 @@ for (const [id, ini0, fin, txt, cambio, txt2] of SPLITS) {
       tl.fromTo(q(".r1"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0);
       tl.fromTo(q(".r2"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0.08);
       const o = { a: 1012000, b: 186000 };
-      tl.to(o, { a: 1034000, b: 208000, duration: 0.45, ease: "power1.inOut", onUpdate: () => { q(".v1").textContent = fmt(o.a); q(".v2").textContent = fmt(o.b); } }, 0.12);
+      tl.to(o, { a: 1034000, b: 208000, duration: 0.45, ease: "power1.inOut", onUpdate: () => { q(".v1").textContent = fmt(Math.round(o.a / 1000) * 1000); q(".v2").textContent = fmt(Math.round(o.b / 1000) * 1000); } }, 0.12);
       tl.fromTo(q(".r1 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.58);
       tl.fromTo(q(".r2 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.62);`,
   });
