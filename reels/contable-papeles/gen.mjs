@@ -61,18 +61,20 @@ T.q1d3 = r2(T.q1i + 1.18); T.bolsa = r2(T.q1d3 + 0.3); T.cam = r2(T.q1d3 + 0.85)
 T.q1w = r2(T.subido + 0.5); T.m5 = r2(T.q1w + 0.05);
 // Q2 · el estudio de tarde: el panel (0 → 38 de 60, Día 5: recordatorio a 22, 38 → 52) y la carpeta de Marcelo (más
 // tiempo en la carpeta)
-T.q2 = r2(T.m5 + LEN.m5 + 0.1); T.q2i = r2(T.q2 + 0.45); T.cnt1 = r2(T.q2i + 0.08); T.dia5 = r2(T.q2i + 0.7); T.cnt2 = r2(T.dia5 + 0.2);
-T.clickM = r2(T.dia5 + 0.7);
+T.q2 = r2(T.m5 + LEN.m5 + 0.1); T.q2i = r2(T.q2 + 0.45); T.cnt1 = r2(T.q2i + 0.06); T.dia5 = r2(T.q2i + 0.6); T.cnt2 = r2(T.dia5 + 0.12);
+// (r2) Día 8: 52 → 60 de 60 (el último día ya está todo)
+T.dia8 = r2(T.dia5 + 0.55); T.cnt3 = r2(T.dia8 + 0.08);
+T.clickM = r2(T.dia8 + 0.6);
 // Q3 · el encuadre del cuadro 0: el mismo audio, que Adriana corta en "mañana…" · primer plano: "Marcelo, las mandaste
 // el día tres." · pausa mirándola · el celular: "¿Ah, sí? Ni me di cuenta."
-T.q3 = r2(T.clickM + 1.65); T.m1b = r2(T.q3 + 0.12); T.a3 = r2(T.m1b + LEN.m1b - 0.02); T.q3a = r2(T.a3 - 0.08);
+T.q3 = r2(T.clickM + 1.5); T.m1b = r2(T.q3 + 0.12); T.a3 = r2(T.m1b + LEN.m1b - 0.02); T.q3a = r2(T.a3 - 0.08);
 T.m6 = r2(T.a3 + LEN.a3 + 0.45); T.q3m = r2(T.m6 - 0.14);
 // Q4 · 18:05: el panel en 60 de 60 · Adriana tira de la cadenita: la lámpara se apaga
 T.q4 = r2(T.m6 + LEN.m6 + 0.15); T.q4b = r2(T.q4 + 0.7); T.cadena = r2(T.q4b + 0.4);
 // Q5 · el cierre: Sofi en el celular parado
 T.q5 = r2(T.cadena + 0.35); T.so = r2(T.q5 + 0.08);
 T.palabra = r2(T.so - 0.02);
-const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.3) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.12) * 30) / 30) * 1e4) / 1e4;   // (r2) cierre ≤ 3 s
 T.cierre = r2(Math.max(T.palabra + 0.5, DUR - 2.05));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -158,7 +160,8 @@ const CHIPS = [
   ["s04-chip", T.q1 + 0.02, T.q1d3 - 0.02, "Día 1 · 9:00"],
   ["s05-chip", T.q1d3 - 0.02, T.q1w - 0.02, "Día 3"],
   ["s06-chip", T.cnt1 - 0.06, T.dia5 - 0.02, "Día 3"],
-  ["s07-chip", T.dia5 - 0.02, T.q3 - 0.02, "Día 5"],
+  ["s07-chip", T.dia5 - 0.02, T.dia8 - 0.02, "Día 5"],
+  ["s07b-chip", T.dia8 - 0.02, T.clickM - 0.02, "Día 8"],
   ["s08-chip", T.q3 - 0.0, T.a3 - 0.02, "Último día · 18:00"],
   ["s09-chip", T.q4 - 0.0, T.q5 - 0.02, "18:05"],
 ];
@@ -169,8 +172,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
     css: `${CHIP}
     P .chip { top: 96px; }`,
     html: `      <div class="chip">${txt}</div>`,
-    js: `      tl.fromTo(q(".chip"), { scale: 0.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.18, ease: "back.out(1.6)", immediateRender: true }, 0.02);
-      tl.to(q(".chip"), { scale: 0.6, opacity: 0, duration: 0.12, ease: "power2.in" }, ${r2(dur - 0.14)});`,
+    js: `      tl.fromTo(q(".chip"), { scale: 0.9, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.14, ease: "back.out(1.6)", immediateRender: true }, 0);   // (r2) sin fundido: entra y sale entero`,
   });
 }
 
@@ -228,7 +230,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, ${r2(dur - 0.12)});   // se va antes del iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, ${r2(dur - 0.4)});   // se va antes del iris`,
   });
 }
 
@@ -244,8 +246,8 @@ for (const [id, ini0, fin, txt] of CHIPS) {
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
     P .sel b { position: absolute; inset: 8px 0 -6px; background: ${G}; border: 8px solid ${NAVY}; border-radius: 12px; }
     P .sel em { position: relative; font-style: normal; }
-    P .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; }`,
-    html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>PAPELES</em></span></div><div class="c">y te mando cómo funciona</div></div>`,
+    P .c { margin-top: 10px; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; } P .c + .c { margin-top: 0; }`,
+    html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>PAPELES</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu estudio</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
       tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(palabra("so", 1) + 0.02)});`,
   });
@@ -256,11 +258,11 @@ for (const [id, ini0, fin, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1505px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1575px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Pedido de comprobantes automático,</div><div class="a">cliente por cliente</div><div class="b">scalerics.com</div></div>`,
-    js: `      tl.fromTo(q(".caja"), { y: 420 }, { y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: true }, 0.0);
+    js: `      tl.fromTo(q(".caja"), { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.0);   // (r2) entra en su lugar
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
 }
@@ -350,16 +352,17 @@ s("sfx/pajaro.wav", T.q2 + 0.1, 0, { techo: -50, dur: 1.5, fin: 0.4 });
 for (let k = 0; k < 3; k++) tecla(T.q2 + 0.12 + k * 0.11, -42);
 s("sfx/whoosh-short.mp3", T.q2i - 0.06, 0, { techo: -44 });
 s("sfx/whoosh-short.mp3", T.cnt1 + 0.05, 0, { techo: -46 }); ding(T.cnt1 + 0.6, -40);
-ding(T.dia5 + 0.05, -38); s("sfx/whoosh-short.mp3", T.cnt2 + 0.05, 0, { techo: -46 }); ding(T.cnt2 + 0.6, -38);
+ding(T.dia5 + 0.05, -38); s("sfx/whoosh-short.mp3", T.cnt2 + 0.05, 0, { techo: -46 }); ding(T.cnt2 + 0.4, -40);
+ding(T.dia8 + 0.05, -38); s("sfx/whoosh-short.mp3", T.cnt3 + 0.03, 0, { techo: -46 }); ding(T.cnt3 + 0.4, -36);
 toque(T.clickM - 0.05, -36); pop(T.clickM + 0.1, -42);
 // Q3 · el mismo audio · Adriana graba (toque) · audio enviado · el audio de Marcelo
-s("sfx/whoosh-short.mp3", T.q3 - 0.06, 0, { techo: -46 });
-tuc(T.m1b - 0.08); voz("m1b", T.m1b, -1);
+s("sfx/whoosh-short.mp3", T.q3 - 0.2, 0, { techo: -50 });
+tuc(T.m1b - 0.22, -46); voz("m1b", T.m1b, -1);
 s("sfx/whoosh-short.mp3", T.q3a - 0.04, 0, { techo: -48 }); toque(T.a3 - 0.12, -42); voz("a3", T.a3, -1);
 s("sfx/whoosh-short.mp3", T.a3 + LEN.a3 + 0.02, 0, { techo: -48 }); s("sfx/whoosh-short.mp3", T.q3m - 0.04, 0, { techo: -50 }); tuc(T.m6 - 0.1, -44);
 voz("m6", T.m6, -1);
 // Q4 · el panel en 60 de 60 (ding) · el clic de la cadenita (la lámpara se apaga)
-s("sfx/whoosh-short.mp3", T.q4 - 0.05, 0, { techo: -44 }); pop(T.q4 + 0.15, -40); ding(T.q4 + 0.2, -36); ding(T.q4 + 0.45, -38);
+s("sfx/whoosh-short.mp3", T.q4 - 0.02, 0, { techo: -52 }); pop(T.q4 + 0.4, -40); ding(T.q4 + 0.45, -36);
 s("sfx/whoosh-short.mp3", T.q4b - 0.05, 0, { techo: -46 });
 s("sfx/bsb-0036.mp3", T.cadena - 0.01, 0, { desde: 0.86, dur: 0.22, fin: 0.05, techo: -37 });
 // Q5 · el cierre: Sofi; pop en PAPELES; la línea chica
@@ -423,18 +426,24 @@ if (process.env.LISTA) for (const x of S) if (!x[3].voz && x[1] + (x[3].dur ?? 3
 if (!process.env.SINAUDIO) {
   fs.mkdirSync("assets/audio", { recursive: true });
   mezcla(S, "assets/audio/mezcla-cruda.wav", DUR);
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", "volume=6dB,acompressor=threshold=-24dB:ratio=2.5:attack=30:release=400:makeup=1,alimiter=limit=0.5:attack=2:release=60:level=false"   /* (r1) baja el LRA: el loudnorm del paso 10 bombeaba los tramos sin voz */, "-ar", "48000", "-c:a", "pcm_s16le", "assets/audio/mezcla-lim.wav"]);
-  fs.renameSync("assets/audio/mezcla-lim.wav", "assets/audio/mezcla-cruda.wav");
+  // (r2) el bus: +6 dB y compresor suave (LRA ≤ 8); después la ganancia a -14 LUFS y RECIÉN AHÍ el limitador (techo -4 dBFS),
+  // así no queda nada recortado ni el loudnorm del paso 10 tiene que tocar (va lineal)
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", "volume=6dB,acompressor=threshold=-24dB:ratio=2.5:attack=30:release=400:makeup=1", "-ar", "48000", "-c:a", "pcm_f32le", "assets/audio/mezcla-bus.wav"]);
   if (process.env.MEDIR) {
     mezcla(S.filter((x) => x[3].voz), "assets/audio/stem-voz.wav", DUR);
     mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
   }
   const OBJ = Number(process.env.OBJ ?? -14);
-  const txt = execSync(`ffmpeg -hide_banner -i assets/audio/mezcla-cruda.wav -af ebur128 -f null - 2>&1`).toString();
-  const I = Number([...txt.matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", `volume=${r2(OBJ - I)}dB,atrim=duration=${DUR}`, "-ar", "48000", "assets/audio/mezcla.wav"]);
-  fs.writeFileSync("assets/audio/ganancia.txt", String(r2(OBJ - I)));
-  fs.unlinkSync("assets/audio/mezcla-cruda.wav");
+  const medirI = (f) => Number([...execSync(`ffmpeg -hide_banner -i ${f} -af ebur128 -f null - 2>&1`).toString().matchAll(/I:\s+(-?[\d.]+) LUFS/g)].at(-1)[1]);
+  let gan = r2(OBJ - medirI("assets/audio/mezcla-bus.wav"));
+  let usada = gan;
+  for (let k = 0; k < 2; k++) {
+    usada = gan;
+    execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-bus.wav", "-af", `volume=${gan}dB,alimiter=limit=0.63:attack=1:release=50:level=false,atrim=duration=${DUR}`, "-ar", "48000", "-c:a", "pcm_s16le", "assets/audio/mezcla.wav"]);
+    gan = r2(gan + (OBJ - medirI("assets/audio/mezcla.wav")));
+  }
+  fs.writeFileSync("assets/audio/ganancia.txt", String(usada));   // medir.py le suma los +6 del bus
+  fs.unlinkSync("assets/audio/mezcla-bus.wav"); fs.unlinkSync("assets/audio/mezcla-cruda.wav");
 }
 
 // ================= INDEX =================

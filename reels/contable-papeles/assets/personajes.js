@@ -651,7 +651,7 @@ export function crearPersonaje(cfg) {
     const lm = mat(c.lentes, 0.35);
     const aro = new THREE.TorusGeometry(0.088, c.lentesFinos ? 0.008 : 0.013, 8, 28);
     for (const s of [-1, 1]) { const a = mesh(aro, lm); sobre(a, s * 0.34, 0.06, c.lentesCerca ?? 1.13); cabeza.add(a); const pat = mesh(G.cil, lm, 0, 0, 0, 0.01, 0.26, 0.01); sobre(pat, s * 1.12, 0.08, 1.05); pat.rotation.set(Math.PI / 2, 0, 0); pat.position.z -= 0.08; cabeza.add(pat); lentesLado.push({ s, a, pat }); }
-    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += 0.035; cabeza.add(puente);
+    const puente = mesh(G.cil, lm, 0, 0, 0, 0.011, c.lentesFinos ? 0.05 : 0.07, 0.011); sobre(puente, 0, 0.08, 1.11); puente.rotation.z = Math.PI / 2; puente.position.x += c.lentesFinos ? -0.025 : 0.035; cabeza.add(puente);   // (contable-papeles r2) con lentes finos el puente quedaba metido dentro del lente derecho: centrado (G.cil cuelga desde su punta y rotado va hacia +x)
     // reflejo de una pantalla en los vidrios (pose.reflejo 0..1): un rectángulo de luz fría con renglones
     const cv = document.createElement("canvas"); cv.width = cv.height = 128; const x = cv.getContext("2d");
     const gr = x.createRadialGradient(64, 64, 4, 64, 64, 64); gr.addColorStop(0, "rgba(190,225,255,0.55)"); gr.addColorStop(1, "rgba(190,225,255,0.12)");
@@ -837,7 +837,7 @@ export function crearPersonaje(cfg) {
     mejillas.forEach((m, i) => (m.visible = !(ang > 0.45 && i === lejos)));   // (veterinaria r4) el rubor de atrás salía del contorno
     // (veterinaria r3) de 3/4 o perfil (> ~30°) la boca se aplasta contra la cara: no asoma del contorno
     { const k = cl((ang - 0.4) / 0.6); bocaG.scale.set(lerp(1, 0.62, k), lerp(1, 0.8, k), lerp(1, 0.3, k)); }
-    for (const L of lentesLado) { L.a.visible = L.pat.visible = true; if (ang > 0.62 && L.s === ojos[lejos].s) L.a.visible = false; if (ang > 0.5 && L.s !== ojos[lejos].s && c.lentesCerca) L.pat.visible = false; if (ang > 0.62 && L.s === ojos[lejos].s && c.lentesCerca) L.pat.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
+    for (const L of lentesLado) { L.a.visible = true; L.pat.visible = !c.sinPatillas; if (ang > 0.62 && L.s === ojos[lejos].s) L.a.visible = false; if (ang > 0.5 && L.s !== ojos[lejos].s && c.lentesCerca) L.pat.visible = false; if (ang > 0.62 && L.s === ojos[lejos].s && c.lentesCerca) L.pat.visible = false; }   // (me-haces-precio r2: de 3/4 se ven los dos ojos)   // la ceja de atrás sobresalía de la silueta
   }
   poner({});
   return { raiz, cuerpo, cabeza, poner, cfg: c, CADERA, brazos, campera, ponerCampera, ojoLejano, anteojos: anteojosG, boina: boinaG, mano: (lado) => brazos[lado === "I" ? 0 : 1].mano };
