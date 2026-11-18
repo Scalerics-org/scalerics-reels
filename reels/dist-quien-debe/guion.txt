@@ -1,0 +1,43 @@
+[sin narrador Orus: el chiste va en burbujas, el monitor girado del banco, la planilla en el celular de Rubén, la pantalla partida de la llamada, el contador "Te deben" y el turnero; la solución va en la interfaz recreada (recordatorio en el celular de Graciela, panel de cuentas por cobrar, aviso de visita en el celular de Nico); voces por archivo en partes/*.txt, ver partes/voces.md · total 44,0 s: parte 1 0,00-19,33 · cartel 19,33-21,56 · parte 2 21,56-44,00 (solución + cierre: 22,4 s, 51 %)]
+[parte 1 · el problema · 0,00-19,33 s]
+[0,00-3,12 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" y el chip "Viernes, 16:00." · el box de atención a empresas de un banco genérico (sin nombre ni logo) · el monitor ya girado hacia Rubén: "Distribuidora Rubén · Saldo − $ 140.000" en rojo apagado · "Sueldos hoy: $ 780.000" · rótulo "Distribuidora Rubén · 15 empleados" con guía a Rubén · arriba, el turnero: "E-051 · BOX 2"]
+PATRICIA: Rubén, estás en rojo. Y hoy pagás sueldos.
+[3,12-4,67 · contraplano: Rubén, tranquilo, con el mate]
+RUBEN: Tranquila. La calle me debe un millón.
+[4,67-5,87 · entra sobre "un millón": la planilla de cuentas corrientes en el celular de Rubén (312 filas · 38 clientes), el pulgar baja y frena en "Rotisería Graciela · 94 días · 186.000" (rojo) · rótulos "Te deben $ 1.012.000 · 38 clientes" y "Factura a 30 días: va por 94" · toca Llamar]
+[5,87-8,55 · pantalla partida: arriba Rubén en el banco con el celular en altavoz · abajo la rotisería de Graciela, el spiedo girando · chip "Llamando · Graciela" → "En llamada · Graciela"]
+RUBEN: Graciela, querida… te llamaba por lo de la fac—
+[8,55-10,97 · Graciela lo corta, feliz (plano de Graciela en la rotisería)]
+GRACIELA: ¡Rubén! Justo. Mandame veinte cajas.
+[10,97-13,07 · primer plano de Rubén: pausa, abre la boca, la cierra]
+RUBEN: …Dale.
+[caja registradora: "Te deben $ 1.034.000" y "Rotisería Graciela $ 208.000", en rojo apagado, quietos ~0,7 s]
+[13,07-14,42 · Patricia, cejas arriba]
+PATRICIA: ¿Y? ¿Cobraste?
+[14,42-16,91 · pausa · primer plano de Rubén, seco]
+RUBEN: Mejor. Ahora me deben más.
+[16,91-19,33 · remate del remate · pausa · Patricia aprieta el timbre]
+PATRICIA: Te paso con cobranzas.
+[ding-dong del turnero: "E-051 → BOX 3 · COBRANZAS" en rojo apagado, con Rubén mirando para arriba con la bombilla en la boca · música de espera · stinger]
+NARRADOR: Una cobranza automática más tarde.
+[cartel · 19,33-21,56 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una cobranza automática" / "más tarde…" (nunca "Scalerics")]
+[parte 2 · la solución · 21,56-44,00 s]
+[21,56-22,81 · chip "Martes, 9:00." · el iris se abre al celular de Graciela en el mostrador, que vibra: "Distribuidora Rubén · Hola, Graciela. Tu saldo vence hoy: $ 208.000. Por favor, podés pagarla acá:" ("vence hoy" subrayado en verde) botón verde "Pagar" · "o por transferencia: Cuenta 00-123456" · "Ver estado de cuenta" · rótulo "Recordatorio automático cuando vence"]
+[22,81-25,41 · Graciela, de pecho, se ríe]
+GRACIELA: Mirá vos. Rubén nunca me cobra.
+[25,41-25,85 · toca "Pagar" → "Pagado ✓ · Saldo al día · $ 208.000" en verde]
+[25,85-28,10 · el "Pagado ✓" vuela al panel de Rubén: "Cuentas por cobrar" · "Te deben: $ 1.034.000" · Rotisería Graciela $ 208.000, Súper Héctor $ 312.000, Cafetería Marta $ 205.400, Panadería Nelly $ 161.000, Bar Walter $ 51.200: "Pagado ✓" de a uno · "Te deben" baja a $ 96.400 · "Quién y desde cuándo": "Kiosco Beto · 12 días · $ 22.400 · Visitar hoy → Nico" · "Panadería Tito · 5 días · $ 31.000 · Recordatorio enviado ✓" · "Pizzería Dante · 3 días · $ 43.000 · Recordatorio enviado ✓" · rótulo "El pago se marca solo"]
+[28,10-30,30 · el aviso en el celular de Nico: "Visitar hoy · Kiosco Beto · vencida hace 12 días · $ 22.400" · rótulo "El vendedor sabe a quién visitar" · el muelle de la distribuidora: Nico junto a la camioneta de reparto]
+NICO: Beto. Hoy paso.
+[30,30-34,05 · chip "Viernes, 16:00." · pantalla partida: arriba el banco, el monitor "+ $ 320.000 · Sueldos $ 780.000 ✓" · abajo la rotisería · después Graciela de pecho y Rubén en primer plano]
+GRACIELA: ¡Rubén! Ya te pagué. Mandame veinte cajas.
+RUBEN: Dale.
+[34,05-35,40 · Patricia, cejas arriba, el mismo encuadre]
+PATRICIA: ¿Y? ¿Cobraste?
+[el mismo audio de la parte 1 · 35,40-37,68 · primer plano de Rubén, el mismo encuadre del remate]
+RUBEN: Mejor. Cobré y vendí.
+[37,68-40,35 · pausa · Patricia aprieta el timbre]
+PATRICIA: Te paso con inversiones.
+[ding-dong del turnero: "E-051 → BOX 1 · INVERSIONES" en verde]
+[cierre · 40,35-44,00 · el box de inversiones: sillón de cuero navy, un cuadro verde apagado con manchas crema, lámpara de pie · Rubén sentado a cámara con el mate · tarjeta: "Comentá" / "COBRAR" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "Cobranza automática: estado de cuenta, recordatorio y link de pago" / "scalerics.com" en verde]
+RUBEN: Comentá COBRAR y te mando cómo funciona para tu distribuidora.
