@@ -22,8 +22,8 @@ PATRICIA: Te paso con cobranzas.
 NARRADOR: Una cobranza automática más tarde.
 [cartel · 15,90-18,30 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una cobranza automática" / "más tarde…" (nunca "Scalerics")]
 [parte 2 · la solución · 18,30-36,20 s]
-[18,30-22,60 · chip "Martes, 9:00." · la rotisería, el spiedo girando · vibra el celular de Graciela en el mostrador · inserto ≥ 60 %: "Distribuidora Rubén · Hola, Graciela. Tu factura 0517 vence hoy: $ 48.600. Por favor, podés pagarla acá:" botón verde "Pagar" · "o por transferencia: Cuenta 00-123456" · "Ver estado de cuenta" · Graciela levanta las cejas]
-GRACIELA: ¿"Por favor"? Esto no lo escribió Rubén.
+[18,30-22,60 · chip "Martes, 9:00." · la rotisería, el spiedo girando · vibra el celular de Graciela en el mostrador · inserto ≥ 60 %: "Distribuidora Rubén · Hola, Graciela. Tu factura 0517 vence hoy: $ 48.600. Por favor, podés pagarla acá:" ("vence hoy" subrayado en verde) botón verde "Pagar" · "o por transferencia: Cuenta 00-123456" · "Ver estado de cuenta" · Graciela levanta las cejas]
+GRACIELA: Mirá vos. Rubén nunca me cobra.
 [toca "Pagar" → "Pagado ✓ · Factura 0517 · $ 48.600" en verde]
 [22,60-27,00 · el "Pagado ✓" vuela al panel de Rubén (inserto ≥ 60 %): "Cuentas por cobrar" · la fila de Graciela "Pagado ✓ · se marcó solo" · después Súper Héctor, Bar Walter, Panadería Nelly, Cafetería Marta: "Pagado ✓" de a uno · contador "Vencido: $ 1.012.000 → $ 96.400" · "Quién y desde cuándo": "Kiosco Beto · 12 días · $ 22.400 · Visitar hoy → Nico" · "Bar Walter · 5 días · $ 31.000 · Recordatorio enviado ✓" · "Súper Héctor · 3 días · $ 43.000 · Recordatorio enviado ✓" · rótulo "Recordatorio automático cuando vence · el pago se marca solo"]
 [27,00-29,20 · el muelle de la distribuidora: Nico junto a la camioneta de reparto, el celular avisa "Visitar hoy: Kiosco Beto · vencida hace 12 días · $ 22.400"]

@@ -102,3 +102,29 @@ el turnero E-051 · BOX 2 arriba). chica "Viernes, 16:00.", grande "¿Y? ¿Cobra
 - El "corre la taza" del cierre es solo la taza que se desliza 7 cm (sin la mano).
 - El ka-ching es bip de caja + monedas (no hay timbre de cajón CC0 en BigSoundBank).
 - El turnero se ve ~1 s por vez; el dedo en el timbre no tiene inserto (se sacó por feo).
+
+## Ronda 1 (18-11, sobre d1/arte.md, d1/sonido.md, d1/guion.md)
+**43,3 s.** Parte 1 0-19,36 · cartel 19,36-21,65 · parte 2 21,65-43,3 = 21,65 s (50,0 %); cierre (C) 39,79-43,3, tarjeta
+COBRAR desde 40,05. `check --json` 0 errores.
+- Guion: Graciela "Mirá vos. Rubén nunca me cobra." (Gacrux, toma 10-d) y en el recordatorio se subraya "vence hoy"; panel
+  coherente ("Te deben", Quién y desde cuándo: Kiosco Beto · Panadería Tito · Pizzería Dante; Héctor/Marta/Nelly/Walter
+  con los mismos saldos en la planilla de la parte 1); planilla con nombres únicos y sin "almacén"; rótulo "Distribuidora
+  Rubén · 15 empleados" con guía a Rubén en el cuadro 0; contador "Te deben" llega en 0,4 s y queda quieto ~0,7 s (en el
+  primer plano nuevo de Rubén, centrado, entero); fuentes.md sin la factura 0431, con Tito y Dante.
+- Ritmo: la planilla entra sobre "un millón"; Rubén cortado en "la fac—" (r2 a 2,62 s, atempo 1,12, hueco 0,18) y Graciela
+  entra encima; g1 toma nueva más seca (2,34 s); una sola pausa de 0,42 s antes de "…Dale." en un PRIMER PLANO de Rubén
+  (P4d, sale de la pantalla partida); pausas de 0,30 s antes de los dos "Te paso con…"; sin el plano general del Q1 ni el
+  del banco en Q4 (el iris abre al celular; Q4 entra directo a la pantalla partida con el chip "Viernes, 16:00."); panel
+  2,25 s; "Te paso con inversiones" = "Te paso" de la toma de cobranzas + "con inversiones."; narrador atempo 1,10; r7
+  atempo 1,03; INVERSIONES +0,3 s.
+- Sonido: ventanas de duck 0,3 s antes / 0,4 s después de cada voz (sin huecos mudos), ambiente +3-4 dB en banco, rotisería
+  y Q4; zumbido.wav (gchase, CC0) en vez de zumbido-largo; sorbo vacío a -34; sin motor sobre el banco; sin el tintineo de
+  la taza. medir.py marca 12,5 s: es la cola de "…Dale." contra el ka-ching que sigue (no se pisan).
+- Arte: monitor ya girado en el cuadro 0, la mano de Patricia fuera de la pantalla (la lapicera señala "Sueldos hoy" del
+  lado derecho; el "−" se lee); Patricia con la cabeza a cámara en P1/P5/P7 y sus repeticiones (lentes de frente, sin
+  aro flotando); Graciela sin patillas y de frente; box más cerrado (personajes más juntos, dentro del 90 %); pantalla
+  partida con el turnero fuera (no queda cortado), Graciela con el celular y la caja a la vista; planilla más chica con
+  los rótulos arriba, fuera del celular; columna de nombres más ancha; el timbre: Patricia lo aprieta en P7 a la vista;
+  el turnero termina arriba con Rubén entero abajo mirándolo (sin el monitor cortado); cierre sin la franja verde que nacía
+  de la cabeza y sin la mesita (taza y mate cortados); muelle con el cartel entero, Nico de cuerpo entero y pelo de
+  mechones; monitor sin textos chicos; importes sin pagar en crema.

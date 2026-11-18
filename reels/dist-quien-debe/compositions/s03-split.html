@@ -9,8 +9,8 @@
     [data-composition-id="s03-split"] .chipL i { width: 22px; height: 22px; border-radius: 50%; background: #5ce611; display: inline-block; }
     [data-composition-id="s03-split"] .t2 { display: none; }
   </style>
-  <div id="root" data-composition-id="s03-split" data-width="1080" data-height="1920" data-duration="8.37">
-    <div id="s03-split-esc" class="esc clip" data-start="0" data-duration="8.37" data-track-index="0">
+  <div id="root" data-composition-id="s03-split" data-width="1080" data-height="1920" data-duration="5.1">
+    <div id="s03-split-esc" class="esc clip" data-start="0" data-duration="5.1" data-track-index="0">
       <div class="linea"></div>
       <div class="chipL"><i></i><span class="t1">Llamando · Graciela</span><span class="t2">En llamada · Graciela</span></div>
     </div>
@@ -24,8 +24,8 @@
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".chipL"), { scale: 0.7 }, { scale: 1, duration: 0.18, ease: "back.out(2)", immediateRender: true }, 0);
       tl.fromTo(q(".chipL i"), { opacity: 1 }, { opacity: 0.25, duration: 0.25, ease: "none", yoyo: true, repeat: 3, immediateRender: false }, 0.05);
-      tl.set(q(".t1"), { display: "none" }, 0.23);
-      tl.set(q(".t2"), { display: "inline" }, 0.23);
+      tl.set(q(".t1"), { display: "none" }, 0.05);
+      tl.set(q(".t2"), { display: "inline" }, 0.05);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

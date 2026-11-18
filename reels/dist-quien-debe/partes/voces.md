@@ -33,10 +33,13 @@ Gemini TTS es por minuto y reintenta sola), medir con `medir-tomas.sh` ("oyó:")
 | 07-ruben · "Mejor. Ahora me deben más." | Rubén | Algenib | 1,4 s | cama baja |
 | 08-patricia · "Te paso con cobranzas." | Patricia | Pulcherrima | 1,1 s | sin filtro |
 | 09-narrador · "Una cobranza automática más tarde." | Narrador | Rasalgethi | 2,2 s | atempo 1,1 si > 2,4 s |
-| 10-graciela · "¿Por favor? Esto no lo escribió Rubén." | Graciela | Gacrux | 2,2 s | sin filtro |
+| 10-graciela · "Mirá vos. Rubén nunca me cobra." (r1, toma 10-graciela-d) | Graciela | Gacrux | 2,4 s | sin filtro |
 | 11-nico · "Beto. Hoy paso." | Nico | Fenrir | 1,0 s | sin filtro |
 | 12-graciela · "¡Rubén! Ya te pagué. Mandame veinte cajas." | Graciela | Gacrux | 2,0 s | igual que 04 |
 | 13-ruben · "Dale." | Rubén | Algenib | 0,4 s | sin filtro |
 | 14-ruben · "Mejor. Cobré y vendí." | Rubén | Algenib | 1,4 s | sin filtro |
 | 15-patricia · "Te paso con inversiones." | Patricia | Pulcherrima | 1,1 s | sin filtro |
 | 16-ruben · "Comentá COBRAR y te mando cómo funciona para tu distribuidora." | Rubén | Algenib | 3,1 s | sin filtro |
+
+
+**Ronda 1:** 10 es ahora "Mirá vos. Rubén nunca me cobra." (tomas r/d/e/f en partes/lineas-r1.tsv, elegida d); 04 toma nueva más seca (04-graciela-d); r2 cortado en "la fac—"; pa4 = "Te paso" de la toma de cobranzas + "con inversiones."; narrador atempo 1,10; r7 atempo 1,03.

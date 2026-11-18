@@ -6,15 +6,15 @@ así que no hubo nada que verificar con WebSearch. Los números son del caso que
 - Cuenta de la Distribuidora Rubén el viernes de la parte 1: **saldo − $ 140.000**; **sueldos de hoy $ 780.000** (unos
   15 empleados; monto del caso, no un promedio de nada).
 - La calle le debe **$ 1.012.000** ("un millón") repartidos en **38 clientes**, en una planilla de **312 filas**.
-- Rotisería Graciela: factura **0431** a **30 días** que va por **94**; saldo **$ 186.000**. El pedido de la llamada:
+- Rotisería Graciela: factura a **30 días** que va por **94**; saldo **$ 186.000**. El pedido de la llamada:
   **20 cajas de aceite × $ 1.100 = $ 22.000** → Graciela $ 208.000; "Te deben" $ 1.012.000 + $ 22.000 = **$ 1.034.000**.
 - Parte 2: factura **0517** de Graciela, **$ 48.600**, vence el martes. Panel: "Vencido" baja de $ 1.012.000 a
-  **$ 96.400** = Kiosco Beto $ 22.400 (12 días) + Bar Walter $ 31.000 (5 días) + Súper Héctor $ 43.000 (3 días).
+  **$ 96.400** = Kiosco Beto $ 22.400 (12 días) + Panadería Tito $ 31.000 (5 días) + Pizzería Dante $ 43.000 (3 días) (r1: Walter y Héctor ya pagaron arriba; Súper Héctor $ 312.000, Cafetería Marta $ 205.400, Panadería Nelly $ 161.000, Bar Walter $ 188.600, los mismos saldos en la planilla de la parte 1).
 - Viernes de la parte 2: entró en la semana **$ 1.240.000**; − $ 140.000 + $ 1.240.000 − $ 780.000 de sueldos =
   **saldo + $ 320.000**.
 
 Sin marcas: "Distribuidora Rubén", "Rotisería Graciela", "Súper Héctor", "Bar Walter", "Kiosco Beto", "Panadería
-Nelly", "Cafetería Marta" son inventados. **El banco no tiene nombre, logo ni colores de ningún banco real** (box crema
+Nelly", "Cafetería Marta", "Panadería Tito", "Pizzería Dante" son inventados. **El banco no tiene nombre, logo ni colores de ningún banco real** (box crema
 y navy, turnero navy). Chat, botón de pago, planilla y celulares genéricos, sin el color ni el logo de ninguna app o
 programa. Productos sin marca (aceite en caja kraft). WhatsApp se nombra solo en `descripcion.txt`, como canal.
 
@@ -37,8 +37,8 @@ De `assets/sfx` y `assets/bgm` del repo, con su crédito en los `fuentes.md` de 
 - `assets/sfx/bsb-0160.mp3` (copiado de contable-papeles, no se usa): "Doorbell 2" (#0160).
 Del repo, por archivo (autor · sitio · licencia según los fuentes.md de donde vienen): `k-creak`, `k-tick-1`, `k-page-turn`,
 `k-tono`, `k-dos-tonos`, `k-switch-3`, `k-cloth_1`, `k-cloth_2`, `k-plato-000` (Kenney · kenney.nl · CC0 1.0);
-`zumbido-largo.wav`, `calle.wav`, `sorbo.wav`, `vibra.wav`, `notification.mp3`, `puerta-auto.wav`, `motor.mp3`,
-`whoosh*.mp3`, `pop.mp3`, `stinger.wav`, `cero.mp3`, `click-soft.mp3`, `key-press.mp3` (ver reels/dist-cliente-grande/fuentes.md
+`zumbido.wav` ("Room Tone Ambience Medium", gchase · Freesound · CC0 1.0, de reels/tienda-tenes-stock), `calle.wav`, `sorbo.wav`, `vibra.wav`, `notification.mp3`, `puerta-auto.wav`, `motor.mp3`,
+`whoosh*.mp3`, `pop.mp3`, `stinger.wav`, `cero.mp3`, `click-soft.mp3` y `key-press.mp3` (efectos de HyperFrames, ver reels/dist-cliente-grande/fuentes.md
 y reels/dist-pedidos-lunes/fuentes.md). Música: `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado, de
 reels/tienda-tenes-stock; la música de espera del banco es el mismo pizzicato con pasaaltos 450 Hz y pasabajos 2,8 kHz).
 Nada sintetizado con ffmpeg. "Ka-ching" = bip de caja + monedas (BigSoundBank no tiene un timbre de cajón CC0).
