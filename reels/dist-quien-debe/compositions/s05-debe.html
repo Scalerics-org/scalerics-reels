@@ -1,0 +1,36 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-debe"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-debe"] .r { position: absolute; right: 40px; padding: 14px 28px 18px; border-radius: 26px; background: #0b1220; border: 6px solid #efeee5; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); color: #efeee5; text-align: right; }
+    [data-composition-id="s05-debe"] .r .a { font: 800 44px/1.1 "Lexend", sans-serif; }
+    [data-composition-id="s05-debe"] .r .n { font: 900 76px/1.1 "Lexend", sans-serif; color: #c7655b; letter-spacing: -0.02em; }
+    [data-composition-id="s05-debe"] .r1 { top: 600px; } [data-composition-id="s05-debe"] .r2 { top: 1060px; }
+  </style>
+  <div id="root" data-composition-id="s05-debe" data-width="1080" data-height="1920" data-duration="0.74">
+    <div id="s05-debe-esc" class="esc clip" data-start="0" data-duration="0.74" data-track-index="0">
+      <div class="r r1"><div class="a">Te deben</div><div class="n">$ <span class="v1">1.012.000</span></div></div>
+      <div class="r r2"><div class="a">Rotisería Graciela</div><div class="n">$ <span class="v2">186.000</span></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-debe";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      const fmt = (n) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      tl.fromTo(q(".r1"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0);
+      tl.fromTo(q(".r2"), { scale: 0.4, x: 80 }, { scale: 1, x: 0, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 0.08);
+      const o = { a: 1012000, b: 186000 };
+      tl.to(o, { a: 1034000, b: 208000, duration: 0.45, ease: "power1.inOut", onUpdate: () => { q(".v1").textContent = fmt(o.a); q(".v2").textContent = fmt(o.b); } }, 0.12);
+      tl.fromTo(q(".r1 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.58);
+      tl.fromTo(q(".r2 .n"), { scale: 1 }, { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "100% 50%", immediateRender: false }, 0.62);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
