@@ -28,7 +28,7 @@
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
       tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, 2.33);
-      tl.to(q(".chip"), { x: -760, duration: 0.24, ease: "power2.in" }, 2.33);
+      tl.to(q(".chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, 2.35);   // (pulido) fade, sin cortarse en el borde
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

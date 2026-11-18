@@ -463,7 +463,7 @@ const blancoT = lienzo(160, 640, (x, w, h) => {
   x.fillStyle = "rgba(150,150,150,0.13)"; x.font = F(800, 30); x.textAlign = "left"; x.fillText("TOTAL", 18, h * 0.78);
 });
 const ticketBlanco = new THREE.Group();
-{ const p = new THREE.Mesh(new THREE.PlaneGeometry(0.08, 0.3), new THREE.MeshStandardMaterial({ map: blancoT, transparent: true, alphaTest: 0.5, roughness: 0.8, side: THREE.DoubleSide, emissive: 0xfff6e0, emissiveIntensity: 0.55 })); p.position.y = 0.11; ticketBlanco.add(p); p.castShadow = true; ticketBlanco.userData.p = p; OF.add(ticketBlanco); }
+{ const p = new THREE.Mesh(new THREE.PlaneGeometry(0.095, 0.36), new THREE.MeshStandardMaterial({ map: blancoT, transparent: true, alphaTest: 0.5, roughness: 0.8, side: THREE.DoubleSide, emissive: 0xfff6e0, emissiveIntensity: 0.55 })); p.position.y = 0.14; ticketBlanco.add(p); p.castShadow = true; ticketBlanco.userData.p = p; OF.add(ticketBlanco); }
 sombras(OF);
 for (const o of [pantallaLamp]) o.castShadow = false;
 // ---- luces del estudio: de noche (parte 1) la pileta cálida de la lámpara y una general navy baja; de tarde (parte 2)
@@ -554,7 +554,7 @@ const marcelo = crearPersonaje({ ...DEFECTO, nombre: "Marcelo", mejillasBajas: t
 const lucas = crearPersonaje({ ...DEFECTO, nombre: "Lucas", mejillasBajas: true, piel: PIEL.trigueña, pelo: PELO.negro, peinado: "corto", cortoMechas: true, cejasColor: 0x1e1a18,
   lentes: MARCA.navy2, camisa: 0xb9cde0, mangas: "largas", cuello: 0xb9cde0, cuelloBotones: false, pantalon: MARCA.cr2, zapatos: MARCA.navy,
   panza: 0.95, nariz: 0.054, mejillas: 0xb8644e, alto: 1.02, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
-const repartidor = crearPersonaje({ ...DEFECTO, nombre: "Repartidor", piel: PIEL.media, pelo: PELO.castaño, peinado: "pelado", boina: 0xe6dfc8, camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.navy2,
+const repartidor = crearPersonaje({ ...DEFECTO, nombre: "Repartidor", piel: PIEL.media, pelo: PELO.castaño, peinado: "corto", boina: 0xe6dfc8, camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.navy2,
   cuelloBotones: false, pantalon: 0x3a3f4a, zapatos: 0x2a2220, alto: 1.02, dedos: true, parpadeoCada: 999 });
 const TODOS = [adriana, marcelo, lucas, repartidor];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
@@ -1052,7 +1052,7 @@ const PLANOS = [
   ["P6", T.p6, [[T.p6, -1.25, 2.0, 3.45, 0.35, 0.9, 0.85, 54], [T.p7, -1.2, 1.98, 3.38, 0.35, 0.9, 0.85, 54]]],   // la pausa
   ["P7", T.p7, [[T.p7, 0.5, 1.8, -0.4, -0.5, 1.25, 3.9, 36], [T.vib, 0.48, 1.8, -0.3, -0.5, 1.25, 3.9, 34]]],   // Marcelo en la puerta
   ["P7i", T.vib, null],   // la foto en blanco en el celular
-  ["P7c", T.p7c, [[T.p7c, 0.1, 1.28, 2.35, 0.0, 1.15, 0.45, 34], [P1, 0.1, 1.28, 2.25, 0.0, 1.15, 0.45, 33]]],   // Adriana cierra los ojos
+  ["P7c", T.p7c, [[T.p7c, 0.1, 1.3, 2.75, 0.0, 1.12, 0.45, 38], [P1, 0.1, 1.3, 2.65, 0.0, 1.12, 0.45, 37]]],   // (pulido) más lejos: el ojo cerrado detrás del lente   // Adriana cierra los ojos
   // ---- parte 2 ----
   ["Q1", P2, [[P2, PX + 0.2, 1.48, 2.5, PX + 0.25, 1.25, 0.3, 44], [T.q1i, PX + 0.2, 1.47, 2.4, PX + 0.25, 1.25, 0.3, 44]]],
   ["Q1i", T.q1i, null],   // el WhatsApp del estudio en el celular de Marcelo
@@ -1125,7 +1125,7 @@ const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, 
 const manoW = (per, lado) => { per.raiz.updateMatrixWorld(true); return per.brazos[lado === "I" ? 0 : 1].mano.getWorldPosition(new THREE.Vector3()); };
 const cabezaW = (per, y = 0.2) => { per.raiz.updateMatrixWorld(true); return per.cabeza.localToWorld(V3(0, y, 0.05)); };
 // donde Adriana sostiene el ticket en blanco (delante de la pantalla de la lámpara, visto desde P5)
-const TICKET_ALTO = V3(-0.36, 1.04, 0.74);   // (r1) al lado de la cara, delante de la lámpara (no la tapa)
+const TICKET_ALTO = V3(0.27, 1.04, 0.78);   // (pulido) en la mano izquierda, del lado opuesto a la lámpara: el ticket entero delante
 const PICK = V3(0.12, MESA_Y + 0.12, 1.08);   // de dónde lo saca (arriba de la pila)
 // ---------- Adriana en su escritorio (sentada, mirando a +z) ----------
 function poseAdriana(t) {
@@ -1152,7 +1152,7 @@ function poseAdriana(t) {
     if (t >= T.p5) {
       // P5: saca un ticket de la pila y lo levanta contra la lámpara: incrédula
       Object.assign(pr, { ...CARA.incredula, ojos: { abiertos: 0.8, x: -0.45, y: 0.1, tension: 0.1 }, cejas: { alto: 0.25, ang: 0.1, asim: 0.8 } });
-      pr.cabeza = { giro: lerp(0.0, -0.42, eio(sg(t, T.saca + 0.15, T.saca + 0.45))), asiente: lerp(0.25, -0.05, eio(sg(t, T.saca + 0.15, T.saca + 0.45))), ladea: 0.05 };
+      pr.cabeza = { giro: lerp(0.0, 0.3, eio(sg(t, T.saca + 0.15, T.saca + 0.45))), asiente: lerp(0.25, -0.05, eio(sg(t, T.saca + 0.15, T.saca + 0.45))), ladea: 0.05 };
       pr.inclina = lerp(0.04, 0.2, eio(sg(t, T.saca, T.saca + 0.3)));
       bocaVoz(pr, t, T.a2, ENV.a2, 0.5);
     }
@@ -1211,7 +1211,7 @@ function poseMarceloPan(t) {
 function poseRepartidor(t) {
   const a = T.q1d3 - 0.35, b = T.q1d3 + 0.2, s0 = T.bolsa + 0.35;
   const u = eio(sg(t, a, b)), v = eio(sg(t, s0, s0 + 0.6));
-  const pr = { x: PX + lerp(2.0, 0.98, u) + v * 1.2, y: 0, z: lerp(1.5, 1.38, u), giro: v > 0 ? lerp(-Math.PI / 2 - 0.3, Math.PI / 2, v) : lerp(-Math.PI / 2, -Math.PI + 0.35, sg(t, b - 0.2, b)), paso: (t > a && t < b) || v > 0.02 ? 1 : 0, inclina: 0.05, ...aC(0, 0.1), ...CARA.sonrisa, ...BRAZOS.ofrece(0.44, 0.22, 0.34), t };
+  const pr = { x: PX + lerp(2.0, 0.98, u) + v * 1.2, y: 0, z: lerp(1.5, 1.38, u), giro: v > 0 ? lerp(-Math.PI / 2 - 0.3, Math.PI / 2, v) : lerp(-Math.PI / 2, -Math.PI + 0.85, sg(t, b - 0.2, b))   /* (pulido) de 3/4: no de nuca */, paso: (t > a && t < b) || v > 0.02 ? 1 : 0, inclina: 0.05, ...aC(0, 0.1), ...CARA.sonrisa, ...BRAZOS.ofrece(0.44, 0.22, 0.34), t };
   if (t >= T.bolsa + 0.25) Object.assign(pr, BRAZOS.costado);
   return pr;
 }
@@ -1341,8 +1341,8 @@ function renderAt(tIn) {
     if (!parte2 && t >= T.saca) {
       const u1 = eio(sg(t, T.saca, T.saca + 0.18)), u2 = eio(sg(t, T.saca + 0.22, T.saca + 0.55));
       const w = PICK.clone().lerp(TICKET_ALTO, u2);
-      const rest = pr.manoD.slice();
-      pr.manoD = lerpV(rest, aCuerpo(adriana, w), u1); pr.codoD = [-1, -0.3, -0.3]; pr.dedoD = 0;
+      const rest = pr.manoI.slice();
+      pr.manoI = lerpV(rest, aCuerpo(adriana, w), u1); pr.codoI = [1, -0.3, -0.3]; pr.dedoI = 0;
     }
     // Q3: el dedo en el celular del soporte mientras graba
     if (parte2 && t >= T.a3 - 0.35 && t < T.a3 + LEN.a3 + 0.1) { telA.updateMatrixWorld(true); const w = telA.userData.piv.localToWorld(V3(0, telA.userData.H * 0.12, 0.03)); const u = eio(sg(t, T.a3 - 0.35, T.a3 - 0.1)) * (1 - eio(sg(t, T.a3 + LEN.a3 - 0.15, T.a3 + LEN.a3 + 0.1))); pr.manoD = lerpV(pr.manoD, aCuerpo(adriana, w), u); pr.codoD = [-1, -0.4, -0.3]; pr.dedoD = u; }
@@ -1356,7 +1356,7 @@ function renderAt(tIn) {
     ticketBlanco.visible = !parte2 && t >= T.vuelca + 0.5;
     if (ticketBlanco.visible) {
       if (t < T.saca + 0.18) { ticketBlanco.position.copy(PICK).add(V3(0, -0.105, 0.02)); ticketBlanco.rotation.set(-Math.PI / 2 + 0.05, 0, 0.4); ticketBlanco.position.y = PICK.y - 0.02; }
-      else { const h = manoW(adriana, "D"); ticketBlanco.position.copy(h).add(V3(0.0, 0.0, 0.035)); ticketBlanco.lookAt(camera.position.x, ticketBlanco.position.y, camera.position.z); ticketBlanco.rotateZ(0.12); }
+      else { const h = manoW(adriana, "I"); ticketBlanco.position.copy(h).add(V3(0.0, 0.0, 0.035)); ticketBlanco.lookAt(camera.position.x, ticketBlanco.position.y, camera.position.z); ticketBlanco.rotateZ(-0.1); }
     }
     if (!parte2) {
       lucas.raiz.visible = true; const pl2 = poseLucas(t);
@@ -1407,7 +1407,7 @@ function renderAt(tIn) {
     const A = [-0.08, 1.3, 2.2, -0.12, 1.12, 0.55, 42];
     ticketBlanco.updateMatrixWorld(true);
     const c = ticketBlanco.localToWorld(V3(0, 0.11, 0));
-    const B = [-0.1, 1.28, 2.1, lerp(c.x, -0.08, 0.45), c.y - 0.03, c.z, 40];   // (r1) el ticket y la cara juntos (la mano abajo, chica)
+    const B = [0.0, 1.27, 2.1, lerp(c.x, 0.0, 0.45), c.y - 0.04, c.z, 38];   // (pulido) el ticket grande y la cara al lado   // (r1) el ticket y la cara juntos (la mano abajo, chica)
     ponerCam(lerpV(A, B, eio(sg(t, T.a2 - 0.25, T.a2 + 0.25))), t);
   }
   if (pa === "Q1i" || pa === "Q1c") {
@@ -1445,7 +1445,7 @@ function renderAt(tIn) {
     adriana.poner({ ...adriana.ultimaPose, ...CARA.incredula, ojos: { abiertos: 0.8, x: -0.1, y: -0.35, tension: 0.15 }, cejas: { alto: 0.25, ang: 0.35, asim: 0.7 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.85 }, cabeza: { giro: -0.08, asiente: 0.15, ladea: 0.05 } });
     ticketBlanco.visible = false; for (const p of PILA) p.g.visible = false;
     telA.visible = false;   // (r2) el chat asomaba entre los textos de la portada
-    ponerCam([-0.04, 1.3, 2.3, -0.06, 0.86, 0.5, 50], t, true);
+    ponerCam([0.03, 1.3, 2.3, 0.01, 0.86, 0.5, 50], t, true);   // (pulido) la lámpara no invade el borde a la altura de la cara
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);

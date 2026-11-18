@@ -21,7 +21,7 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // mañana sin falta." (se reusa igual en Q3) · a1 Adriana "Marcelo. Vence hoy." · m2 Marcelo "Acá está todo, Adri.
 // Ordenadito." · a2 Adriana "¿Y este?" · m3 Marcelo "Ese es el más importante." · m4 Marcelo "Si querés, te mando una
 // foto." · nar "Una automatización más tarde." · m5 Marcelo "Listo. Ordenadito." · a3 Adriana "Marcelo, las mandaste el
-// día tres." · m6 Marcelo (audio) "¿Yo? Qué ordenadito." · so Sofi "Comentá PAPELES y te mando cómo funciona para tu
+// día tres." · m6 Marcelo (audio) "¿Ah, sí? Ni me di cuenta." · so Sofi "Comentá PAPELES y te mando cómo funciona para tu
 // estudio."
 const VOCES = ["m1", "m1b", "a1", "m2", "a2", "m3", "m4", "m5", "a3", "m6", "so"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
@@ -149,7 +149,7 @@ const CHIP = `
       <div class="chip">Último día · 18:00</div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
       tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});
-      tl.to(q(".chip"), { x: -760, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});`,
+      tl.to(q(".chip"), { opacity: 0, duration: 0.2, ease: "power1.in" }, ${r2(dur - 0.28)});   // (pulido) fade, sin cortarse en el borde`,
   });
 }
 // los chips de hora y de día (arriba a la izquierda)
@@ -317,7 +317,7 @@ s("sfx/papel-fuerte.mp3", T.saca, 0, { techo: -40, dur: 0.45, fin: 0.12 });
 s("sfx/whoosh-short.mp3", T.a2 - 0.2, 0, { techo: -46 });
 voz("a2", T.a2, -1);
 s("sfx/whoosh-short.mp3", T.p5c - 0.05, 0, { techo: -46 });
-voz("m3", T.m3, -1);
+voz("m3", T.m3, -2);
 // P6 · la pausa: el reloj de pared y un pop chico por rótulo
 reloj(T.p6, T.p7, -44);
 T.rot.forEach((t, i) => pop(t, -40 + (i % 2)));
@@ -345,7 +345,7 @@ s("sfx/bsb-0576.mp3", T.bolsa + 0.28, 0, { desde: 0.07, dur: 0.32, fin: 0.1, tec
 s("sfx/whoosh-short.mp3", T.cam - 0.05, 0, { techo: -46 });
 s("sfx/bsb-0307.mp3", T.click - 0.02, 0, { techo: -36 });
 ding(T.subido, -36);
-voz("m5", T.m5, -1);
+voz("m5", T.m5, 0.5);
 // Q2 · el estudio de tarde (un pájaro lejano por la ventana); el panel: tecleo suave, ding por chip, whoosh del contador
 s("sfx/zumbido-largo.wav", T.q2, 0, { loop: true, dur: r2(DUR - T.q2), fi: 0.1, fin: 0.4, techo: -54, lp: 700 });
 s("sfx/pajaro.wav", T.q2 + 0.1, 0, { techo: -50, dur: 1.5, fin: 0.4 });
