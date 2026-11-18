@@ -36,64 +36,62 @@ const T = {};
 // P1 · cuadro 0: martes 10:00, el taller lleno; suena el celular en el banquito (GRACIELA) y Óscar sale rodando de abajo
 // del auto de Graciela en la camilla; "Óscar, ¿está pronto?" / "A la tarde." y vuelve a rodar abajo
 T.ring1 = 0.0; T.sale1 = [0.0, 0.42]; T.cont1 = 0.12;
-T.g1 = 0.12; T.o1 = r2(T.g1 + LEN.g1 + 0.18); T.vuelve1 = r2(T.o1 + LEN.o1 + 0.05);
+T.g1 = 0.12; T.o1 = r2(T.g1 + LEN.g1 + 0.15); T.vuelve1 = r2(T.o1 + LEN.o1 + 0.05);
 // P2 · abajo del elevador: Maxi con la lámpara, la bomba de agua que gotea: "Jefe, el de Daniel: pierde la bomba de agua."
-T.p2 = r2(T.o1 + LEN.o1 + 0.35); T.m1 = r2(T.p2 + 0.12);
-// P3 · el celular de Óscar: Llamando a Daniel… No contesta (×2) · la foto de la bomba y "¿Te la cambio? $ 11.500" ·
-// Entregado ✓✓ 10:16 y nada
-T.p3 = r2(T.m1 + LEN.m1 + 0.1);
-T.llama = [r2(T.p3 + 0.02), r2(T.p3 + 0.46)]; T.nocont = [r2(T.p3 + 0.3), r2(T.p3 + 0.72)];
-T.foto = r2(T.p3 + 0.86); T.entregado = r2(T.p3 + 1.16);
-// P4 · la escalada: suena (WALTER), sale, "¿Está pronto?" / "A la tarde." (cansado), vuelve; cortes rápidos con el chip del
-// día (Sergio, Fabián, Silvia, Graciela); la pizarra con los services del miércoles tachados y los rótulos del costo
-T.p4 = r2(T.p3 + 1.6); T.sale4 = [T.p4, r2(T.p4 + 0.3)]; T.w1 = r2(T.p4 + 0.22); T.o2 = r2(T.w1 + LEN.w1 + 0.14); T.vuelve4 = r2(T.o2 + LEN.o2 + 0.03);
-T.c0 = r2(T.o2 + LEN.o2 + 0.3);
-const CORTE = 0.44;
+T.p2 = r2(T.o1 + LEN.o1 + 0.2); T.m1 = r2(T.p2 + 0.1);
+// P3 · el celular de Óscar: Llamando a Daniel… No contesta (×2) · le deja un audio de 0:47 ("Daniel, llamame") que queda
+// sin escuchar: Entregado ✓✓ 10:16 y nada (sin foto ni precio: Daniel no sabe qué aprobar)
+T.p3 = r2(T.m1 + LEN.m1 + 0.08);
+T.llama = [r2(T.p3 + 0.02), r2(T.p3 + 0.4)]; T.nocont = [r2(T.p3 + 0.26), r2(T.p3 + 0.62)];
+T.foto = r2(T.p3 + 0.74); T.entregado = r2(T.p3 + 0.98);
+// P4 · la escalada: cortes rápidos con el chip del día (Walter, Sergio, Silvia, Graciela), una burbuja por salida; en el
+// último, Óscar, cansado: "A la tarde." · la pizarra con los services del miércoles tachados y los rótulos del costo
+T.p4 = r2(T.p3 + 1.42); T.c0 = T.p4; T.sale4 = [r2(T.p4 - 0.01), T.p4];
+const CORTE = 0.42;
 T.cortes = [0, 1, 2, 3].map((i) => r2(T.c0 + i * CORTE));
-T.piz = r2(T.c0 + 4 * CORTE); T.tacha = [0.12, 0.3, 0.48, 0.66].map((d) => r2(T.piz + d)); T.rotP = [r2(T.piz + 0.35), r2(T.piz + 0.6)];
+T.o2 = r2(T.cortes[3] + 0.2); T.vuelve4 = r2(T.o2 + LEN.o2 + 0.05);
+T.piz = r2(T.o2 + LEN.o2 + 0.12); T.tacha = [0.1, 0.25, 0.4, 0.55].map((d) => r2(T.piz + d)); T.rotP = [r2(T.piz + 0.3), r2(T.piz + 0.5)];
 // P5 · miércoles 18:00: el celular dice DANIEL; la camilla sale disparada; Óscar se sienta: "¡Daniel!" · pantalla partida
 // con Daniel en el ómnibus: "Óscar, ¿está pronto?"
-T.p5 = r2(T.piz + 1.12); T.sale5 = [r2(T.p5 + 0.12), r2(T.p5 + 0.36)]; T.sienta = [r2(T.p5 + 0.3), r2(T.p5 + 0.5)];
-T.o3 = r2(T.p5 + 0.5); T.split = r2(T.o3 + LEN.o3 + 0.02); T.d1 = r2(T.o3 + LEN.o3 + 0.16);
-// P6 · el remate: la mirada al auto clavado arriba (contrapicado, la gota) · primer plano de Óscar, pausa: "Está pronto
-// para empezar."
-T.p6 = r2(T.d1 + LEN.d1 + 0.08); T.gota6 = r2(T.p6 + 0.22); T.p6b = r2(T.p6 + 0.5); T.o4 = r2(T.p6b + 0.42);
-// P7 · remate del remate: se acuesta y rueda abajo; suena otra vez (GRACIELA); se empuja para salir y una ruedita se sale y
-// rueda sola hasta el portón
-T.p7 = r2(T.o4 + LEN.o4 + 0.12); T.vuelve7 = [r2(T.p7 + 0.0), r2(T.p7 + 0.42)]; T.ring7 = r2(T.p7 + 0.5); T.empuja = r2(T.p7 + 0.78);
-T.sueltaR = r2(T.p7 + 0.86); T.frena = r2(T.p7 + 1.52);
-const P1 = r2(T.p7 + 1.78);                              // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.12));
+T.p5 = r2(T.piz + 0.92); T.sale5 = [r2(T.p5 + 0.1), r2(T.p5 + 0.32)]; T.sienta = [r2(T.p5 + 0.26), r2(T.p5 + 0.44)];
+T.o3 = r2(T.p5 + 0.42); T.split = r2(T.o3 + LEN.o3 + 0.02); T.d1 = r2(T.o3 + LEN.o3 + 0.14);
+// P6 · el remate: la mirada al auto clavado arriba · primer plano de Óscar, pausa: "Está pronto para empezar."
+T.p6 = r2(T.d1 + LEN.d1 + 0.06); T.gota6 = r2(T.p6 + 0.18); T.p6b = r2(T.p6 + 0.42); T.o4 = r2(T.p6b + 0.38);
+// P7 · remate del remate: se acuesta y rueda abajo; suena otra vez (GRACIELA); se empuja para salir y una ruedita se sale
+T.p7 = r2(T.o4 + LEN.o4 + 0.1); T.vuelve7 = [r2(T.p7 + 0.0), r2(T.p7 + 0.38)]; T.ring7 = r2(T.p7 + 0.44); T.empuja = r2(T.p7 + 0.66);
+T.sueltaR = r2(T.p7 + 0.74); T.frena = r2(T.p7 + 1.3);
+const P1 = r2(T.p7 + 1.48);                              // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.2, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · el encuadre del cuadro 0, martes 10:00: el celular del banquito, quieto, se prende solo ("Aviso enviado ✓") · Q1i
 // el celular de Graciela en su mostrador: "Tu auto: En diagnóstico" con la foto y los pasos · Q1g Graciela: "¡Ay, mi
 // autito! Ya lo están mirando."
-T.q1 = P2; T.aviso = r2(P2 + 0.2); T.q1i = r2(P2 + 0.75); T.llegaG = r2(T.q1i + 0.05); T.q1g = r2(T.q1i + 0.9); T.g2 = r2(T.q1g + 0.1);
+T.q1 = P2; T.aviso = r2(P2 + 0.2); T.q1i = r2(P2 + 0.65); T.llegaG = r2(T.q1i + 0.05); T.q1g = r2(T.q1i + 0.8); T.g2 = r2(T.q1g + 0.1);
 // Q2 · el panel "Autos en el taller": las tarjetas de a una, "Avisado ✓", los ceros
 T.q2 = r2(T.g2 + LEN.g2 + 0.12); T.tarj = [0.0, 0.2, 0.4, 0.6].map((d) => r2(T.q2 + d)); T.ceros = r2(T.q2 + 1.3);
 // Q3 · el mismo plano de P2, el mismo audio de Maxi · Q3o Óscar desde abajo del auto: "Mandale la foto." · Q3f la foto
 // (flash) · Q3d el celular de Daniel en el ómnibus: el extra con Aprobar · Q3e Daniel: "Dale, cambiala." · Q3a Aprobado ✓
-T.q3 = r2(T.q2 + 2.1); T.m1b = r2(T.q3 + 0.1);
+T.q3 = r2(T.q2 + 1.72); T.m1b = r2(T.q3 + 0.1);
 T.q3o = r2(T.m1b + LEN.m1 + 0.04); T.o5 = r2(T.q3o + 0.14);
 T.q3f = r2(T.o5 + LEN.o5 + 0.04); T.flash = r2(T.q3f + 0.38);
 T.q3d = r2(T.q3f + 0.5); T.llegaD = r2(T.q3d + 0.04);
-T.q3e = r2(T.q3d + 0.8); T.d2 = r2(T.q3e + 0.1);
+T.q3e = r2(T.q3d + 0.72); T.d2 = r2(T.q3e + 0.1);
 T.q3a = r2(T.d2 + LEN.d2 + 0.06); T.aprueba = r2(T.q3a + 0.22); T.aprobado = r2(T.q3a + 0.36);
 // Q4 · martes 12:30: el plano del elevador y la pizarra; baja el auto de Daniel arreglado; la pizarra con tildes; los
 // rótulos · Q4b el ómnibus: "Pronto para retirar ✓" y Daniel toca el timbre de parada
 T.q4 = r2(T.q3a + 0.85); T.baja = [r2(T.q4 + 0.1), r2(T.q4 + 1.0)]; T.tilde = [0.95, 1.1, 1.25, 1.4].map((d) => r2(T.q4 + d)); T.rotQ = [r2(T.q4 + 1.0), r2(T.q4 + 1.3)];
-T.q4b = r2(T.q4 + 1.9); T.llegaP = r2(T.q4b + 0.05); T.timbre = r2(T.q4b + 0.6);
+T.q4b = r2(T.q4 + 1.5); T.llegaP = r2(T.q4b + 0.05); T.timbre = r2(T.q4b + 0.6);
 // Q5 · martes 17:30, el encuadre del cuadro 0 con la luz de tarde: "Maxi, ¿está pronto el mate?" / "A la tarde." y Óscar
 // sale rodando por el mate
-T.q5 = r2(T.q4b + 1.05); T.o6 = r2(T.q5 + 0.3); T.m2 = r2(T.o6 + LEN.o6 + 0.28);
+T.q5 = r2(T.q4b + 0.95); T.o6 = r2(T.q5 + 0.22); T.m2 = r2(T.o6 + LEN.o6 + 0.22);
 T.sale6 = [r2(T.m2 + LEN.m2 + 0.08), r2(T.m2 + LEN.m2 + 0.5)]; T.chipMate = r2(T.m2 + LEN.m2 + 0.4);
 // C · Óscar sentado en la camilla, a cámara, con el mate: "Comentá PRONTO y te mando cómo funciona para tu taller."
-T.c = r2(T.m2 + LEN.m2 + 0.85); T.sorbo = r2(T.c + 0.02); T.o7 = r2(T.c + 0.15);
+T.c = r2(T.m2 + LEN.m2 + 0.55); T.sorbo = r2(T.c - 0.02); T.o7 = r2(T.c + 0.3);
 T.palabra = r2(T.o7 + palabraO7(1));                   // la tarjeta entra sobre "PRONTO"
-const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.35) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.3) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.35));
 // el contador "Salió a atender" (parte 1): [t, n]
-T.cont = [[T.cont1, 1], [r2(T.sale4[0] + 0.1), 2], [T.cortes[0], 5], [T.cortes[1], 9], [T.cortes[2], 14], [T.cortes[3], 22], [r2(T.sale5[0] + 0.05), 23], [r2(T.empuja + 0.06), 24]];
+T.cont = [[T.cont1, 1], [T.cortes[0], 5], [T.cortes[1], 9], [T.cortes[2], 14], [T.cortes[3], 22], [r2(T.sale5[0] + 0.05), 23], [r2(T.empuja + 0.06), 24]];
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -152,7 +150,7 @@ const CHIP = `
 // el contador: caja con "Salió a atender" arriba y el número grande; crema hasta 9, rojo apagado desde 10, verde en la parte 2
 const CONT = `
     P .cont { position: absolute; right: 40px; width: 330px; padding: 12px 10px 14px; border-radius: 24px; border: 6px solid ${CR}; text-align: center; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); transform-origin: 50% 50%; }
-    P .cont .a { font: 800 40px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
+    P .cont .a { font: 800 38px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
     P .cont .n { font: 900 96px/1 "Lexend", sans-serif; letter-spacing: -0.03em; margin-top: 4px; }
     P .cont.c0 { background: ${NAVY}; color: ${CR}; }
     P .cont.c1 { background: ${RED}; color: ${CR}; border-color: ${CR}; }
@@ -173,7 +171,7 @@ const CONT = `
     P .chip { top: 318px; } P .cont { top: 300px; }`,
     html: `      <div class="caja"><div class="tx"><span class="sel"><b></b><em>TALLERES</em></span></div></div>
       <div class="chip">Martes, 10:00.</div>
-      <div class="cont c0"><div class="a">Salió a atender</div><div class="n">0</div></div>`,
+      <div class="cont c0"><div class="a">Óscar salió<br>a atender</div><div class="n">0</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.3);
 ${vals.map(([t, n]) => `      tl.set(q(".cont .n"), { textContent: "${n}" }, ${t});
       tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.14, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, ${t});`).join("\n")}`,
@@ -185,11 +183,11 @@ ${vals.map(([t, n]) => `      tl.set(q(".cont .n"), { textContent: "${n}" }, ${t
   ESC.push([id, ini, dur, "arriba"]);
   const vals = T.cont.filter(([t]) => t >= T.p2);
   const n0 = T.cont.filter(([t]) => t < T.p2).at(-1)[1];
-  const chips = [[T.cortes[0], "Martes, 15:10"], [T.cortes[1], "Martes, 17:40"], [T.cortes[2], "Miércoles, 9:00"], [T.cortes[3], "Miércoles, 14:30"], [T.p5, "Miércoles, 18:00."]];
+  const chips = [[T.cortes[0], "Martes, 12:10."], [T.cortes[1], "Martes, 15:40."], [T.cortes[2], "Miércoles, 9:00."], [T.cortes[3], "Miércoles, 14:30."], [T.p5, "Miércoles, 18:00."]];
   escena(id, dur, {
     css: `${CHIP}${CONT}
     P .chip { top: 92px; display: none; } P .cont { top: 74px; }`,
-    html: `      <div class="cont c0"><div class="a">Salió a atender</div><div class="n">${n0}</div></div>
+    html: `      <div class="cont c0"><div class="a">Óscar salió<br>a atender</div><div class="n">${n0}</div></div>
 ${chips.map((_, i) => `      <div class="chip k${i}">${chips[i][1]}</div>`).join("\n")}`,
     js: `${vals.map(([t, n]) => `      tl.set(q(".cont .n"), { textContent: "${n}" }, ${r2(t - ini)});${n >= 10 ? `
       tl.set(q(".cont"), { className: "cont c1" }, ${r2(t - ini)});` : ""}
@@ -216,7 +214,7 @@ for (const [id, ini0, fin, txt, conCont] of CHIPS2) {
     P .chip { top: 92px; } P .cont { top: 74px; }
     P .mate { position: absolute; right: 40px; top: 330px; padding: 12px 24px 16px; border-radius: 22px; background: ${G}; border: 6px solid ${NAVY}; font: 900 44px/1.05 "Lexend", sans-serif; color: ${NAVY}; text-align: center; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); }`,
     html: `      <div class="chip">${txt}</div>${conCont ? `
-      <div class="cont c2"><div class="a">Salió a atender</div><div class="n">0</div></div>` : ""}${mate ? `
+      <div class="cont c2"><div class="a">Óscar salió<br>a atender</div><div class="n">0</div></div>` : ""}${mate ? `
       <div class="mate">Salió por el mate: 1</div>` : ""}`,
     js: `      tl.fromTo(q(".chip"), { scale: 0.9, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.14, ease: "back.out(1.6)", immediateRender: true }, 0);${mate ? `
       tl.fromTo(q(".mate"), { scale: 0, transformOrigin: "100% 0%" }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: true }, ${r2(T.chipMate - ini)});` : ""}`,
@@ -245,7 +243,7 @@ for (const [id, ini0, fin, txt, conCont] of CHIPS2) {
   ESC.push([id, P1, dur, "abajo"]);
   const palabraL = (w) => [...w].map((ch) => `<span class="l">${ch}</span>`).join("");
   const lin = (cls, ws) => `<span class="linea ${cls}">${ws.map(palabraL).join('<span class="esp"></span>')}</span>`;
-  const MAS = 1.25;   // "más tarde…" entra cuando el narrador dice "más"
+  const MAS = 1.18;   // "más tarde…" entra cuando el narrador dice "más"
   escena(id, dur, {
     css: `
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
@@ -369,15 +367,10 @@ s("sfx/gota.wav", T.m1 + LEN.m1 - 0.1, 0, { techo: -40, dur: 0.5, fin: 0.15 });
 // P3 · el celular: tono de llamada cortado ×2, no contesta ×2, la foto que vuela, enviado
 whoosh(T.p3 - 0.04, -46);
 for (let i = 0; i < 2; i++) { s("sfx/k-tono.wav", T.llama[i] + 0.04, 0, { techo: -40, dur: 0.3, fin: 0.06, lp: 2200 }); s("sfx/k-dos-tonos.wav", T.nocont[i], 0, { techo: -40, lp: 2200 }); }
-whoosh(T.foto - 0.05, -42);
+s("sfx/k-tick-2.wav", T.foto, 0, { techo: -42 }); whoosh(T.foto + 0.05, -46);
 s("sfx/notification.mp3", T.entregado, 0, { techo: -40, dur: 0.35, fin: 0.12 });
-// P4 · suena WALTER, sale, Walter, Óscar, vuelve; los cortes (cada uno su timbre corto, rueditas y tic); la pizarra
-ring(T.p4 - 0.02, 0.45, -34);
-rueda(T.sale4[0], 0.32, -36, 3.0);
-tic(T.sale4[0] + 0.1, -40);
-voz("w1", T.w1, -1);
+// P4 · los cortes (cada uno su timbre corto, rueditas y tic); en el último, "A la tarde." cansado; la pizarra
 voz("o2", T.o2, -1);
-rueda(T.vuelve4, 0.3, -38, 1.5);
 T.cortes.forEach((c, i) => { whoosh(c - 0.03, -46); ring(c, 0.3 - i * 0.04, -36); rueda(c + 0.08, 0.22, -38, 2 + i * 0.6); tic(c, -40); pop(c + 0.06, -42); });
 whoosh(T.piz - 0.04, -44);
 T.tacha.forEach((t, i) => s("sfx/bsb-fibron.wav", t - 0.02, 0, { techo: -38, desde: 0.05 + i * 0.35, dur: 0.22, fin: 0.06 }));
@@ -451,7 +444,7 @@ voz("m2", T.m2, -1);
 rueda(T.sale6[0], 0.42, -36, 1.2);
 pop(T.chipMate, -38);
 // C · el sorbo, Óscar a cámara, pop en PRONTO, la línea chica
-s("sfx/sorbo.wav", T.sorbo, 0, { techo: -38, dur: 0.38, fin: 0.12 });
+s("sfx/sorbo.wav", T.sorbo, 0, { techo: -40, dur: 0.3, fin: 0.1 });
 voz("o7", T.o7, -1);
 pop(T.palabra + 0.02, -38);
 pop(T.cierre + 0.05, -44);

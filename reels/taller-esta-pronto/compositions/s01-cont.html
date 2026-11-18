@@ -6,20 +6,20 @@
     [data-composition-id="s01-cont"] .esc { position: absolute; inset: 0; }
     [data-composition-id="s01-cont"] .chip { position: absolute; left: 40px; padding: 14px 28px 18px; border-radius: 22px; background: #0b1220; border: 6px solid #efeee5; font: 900 58px/1 "Lexend", sans-serif; color: #efeee5; letter-spacing: -0.015em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); white-space: nowrap; }
     [data-composition-id="s01-cont"] .cont { position: absolute; right: 40px; width: 330px; padding: 12px 10px 14px; border-radius: 24px; border: 6px solid #efeee5; text-align: center; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); transform-origin: 50% 50%; }
-    [data-composition-id="s01-cont"] .cont .a { font: 800 40px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
+    [data-composition-id="s01-cont"] .cont .a { font: 800 38px/1.05 "Lexend", sans-serif; letter-spacing: -0.02em; }
     [data-composition-id="s01-cont"] .cont .n { font: 900 96px/1 "Lexend", sans-serif; letter-spacing: -0.03em; margin-top: 4px; }
     [data-composition-id="s01-cont"] .cont.c0 { background: #0b1220; color: #efeee5; }
     [data-composition-id="s01-cont"] .cont.c1 { background: #c7655b; color: #efeee5; border-color: #efeee5; }
     [data-composition-id="s01-cont"] .cont.c2 { background: #0b1220; color: #5ce611; border-color: #5ce611; }
     [data-composition-id="s01-cont"] .chip { top: 92px; display: none; } [data-composition-id="s01-cont"] .cont { top: 74px; }
   </style>
-  <div id="root" data-composition-id="s01-cont" data-width="1080" data-height="1920" data-duration="16.35">
-    <div id="s01-cont-esc" class="esc clip" data-start="0" data-duration="16.35" data-track-index="0">
-      <div class="cont c0"><div class="a">Salió a atender</div><div class="n">1</div></div>
-      <div class="chip k0">Martes, 15:10</div>
-      <div class="chip k1">Martes, 17:40</div>
-      <div class="chip k2">Miércoles, 9:00</div>
-      <div class="chip k3">Miércoles, 14:30</div>
+  <div id="root" data-composition-id="s01-cont" data-width="1080" data-height="1920" data-duration="13.52">
+    <div id="s01-cont-esc" class="esc clip" data-start="0" data-duration="13.52" data-track-index="0">
+      <div class="cont c0"><div class="a">Óscar salió<br>a atender</div><div class="n">1</div></div>
+      <div class="chip k0">Martes, 12:10.</div>
+      <div class="chip k1">Martes, 15:40.</div>
+      <div class="chip k2">Miércoles, 9:00.</div>
+      <div class="chip k3">Miércoles, 14:30.</div>
       <div class="chip k4">Miércoles, 18:00.</div>
     </div>
   </div>
@@ -30,37 +30,35 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.set(q(".cont .n"), { textContent: "2" }, 4.6);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.6);
-      tl.set(q(".cont .n"), { textContent: "5" }, 6.83);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 6.83);
-      tl.set(q(".cont .n"), { textContent: "9" }, 7.27);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 7.27);
-      tl.set(q(".cont .n"), { textContent: "14" }, 7.71);
-      tl.set(q(".cont"), { className: "cont c1" }, 7.71);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 7.71);
-      tl.set(q(".cont .n"), { textContent: "22" }, 8.15);
-      tl.set(q(".cont"), { className: "cont c1" }, 8.15);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 8.15);
-      tl.set(q(".cont .n"), { textContent: "23" }, 9.88);
-      tl.set(q(".cont"), { className: "cont c1" }, 9.88);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 9.88);
-      tl.set(q(".cont .n"), { textContent: "24" }, 15.41);
-      tl.set(q(".cont"), { className: "cont c1" }, 15.41);
-      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 15.41);
+      tl.set(q(".cont .n"), { textContent: "5" }, 4.14);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.14);
+      tl.set(q(".cont .n"), { textContent: "9" }, 4.56);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.56);
+      tl.set(q(".cont .n"), { textContent: "14" }, 4.98);
+      tl.set(q(".cont"), { className: "cont c1" }, 4.98);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 4.98);
+      tl.set(q(".cont .n"), { textContent: "22" }, 5.4);
+      tl.set(q(".cont"), { className: "cont c1" }, 5.4);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 5.4);
+      tl.set(q(".cont .n"), { textContent: "23" }, 7.59);
+      tl.set(q(".cont"), { className: "cont c1" }, 7.59);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 7.59);
+      tl.set(q(".cont .n"), { textContent: "24" }, 12.76);
+      tl.set(q(".cont"), { className: "cont c1" }, 12.76);
+      tl.fromTo(q(".cont"), { scale: 1 }, { scale: 1.16, duration: 0.08, ease: "power2.out", yoyo: true, repeat: 1, immediateRender: false }, 12.76);
       // el contador se esconde en el inserto del celular (P3), en la pantalla partida y en el primer plano del remate
-      tl.set(q(".cont"), { display: "none" }, 2.9); tl.set(q(".cont"), { display: "block" }, 4.5);
-      tl.set(q(".cont"), { display: "none" }, 10.82); tl.set(q(".cont"), { display: "block" }, 14.57);
-      tl.set(q(".k0"), { display: "block" }, 6.83); tl.set(q(".k0"), { display: "none" }, 7.27);
-      tl.fromTo(q(".k0"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 6.83);
-      tl.set(q(".k1"), { display: "block" }, 7.27); tl.set(q(".k1"), { display: "none" }, 7.71);
-      tl.fromTo(q(".k1"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 7.27);
-      tl.set(q(".k2"), { display: "block" }, 7.71); tl.set(q(".k2"), { display: "none" }, 8.15);
-      tl.fromTo(q(".k2"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 7.71);
-      tl.set(q(".k3"), { display: "block" }, 8.15); tl.set(q(".k3"), { display: "none" }, 8.59);
-      tl.fromTo(q(".k3"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 8.15);
-      tl.set(q(".k4"), { display: "block" }, 9.71); tl.set(q(".k4"), { display: "none" }, 10.82);
-      tl.fromTo(q(".k4"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 9.71);
+      tl.set(q(".cont"), { display: "none" }, 2.72); tl.set(q(".cont"), { display: "block" }, 4.14);
+      tl.set(q(".cont"), { display: "none" }, 8.47); tl.set(q(".cont"), { display: "block" }, 12.04);
+      tl.set(q(".k0"), { display: "block" }, 4.14); tl.set(q(".k0"), { display: "none" }, 4.56);
+      tl.fromTo(q(".k0"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.14);
+      tl.set(q(".k1"), { display: "block" }, 4.56); tl.set(q(".k1"), { display: "none" }, 4.98);
+      tl.fromTo(q(".k1"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.56);
+      tl.set(q(".k2"), { display: "block" }, 4.98); tl.set(q(".k2"), { display: "none" }, 5.4);
+      tl.fromTo(q(".k2"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 4.98);
+      tl.set(q(".k3"), { display: "block" }, 5.4); tl.set(q(".k3"), { display: "none" }, 6.52);
+      tl.fromTo(q(".k3"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 5.4);
+      tl.set(q(".k4"), { display: "block" }, 7.44); tl.set(q(".k4"), { display: "none" }, 8.47);
+      tl.fromTo(q(".k4"), { scale: 0.85, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.12, ease: "back.out(1.6)", immediateRender: false }, 7.44);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

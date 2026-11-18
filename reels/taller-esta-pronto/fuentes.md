@@ -1,20 +1,22 @@
 # taller-esta-pronto · fuentes
 
 Reel de la línea "ANTES QUE TODO" (rubro + dolor + solución), comedia de situación con personajes inventados (Óscar,
-Maxi, Daniel; Graciela y Walter del elenco; Sergio, Fabián y Silvia solo como avatar). **No afirma datos externos,
+Maxi, Daniel; Graciela y Walter del elenco; Sergio y Silvia solo como avatar). **No afirma datos externos,
 estadísticas, años ni empresas reales, así que no hubo nada que verificar con WebSearch.** Tampoco afirma nada del
 producto que no esté en el brief (aviso del estado del auto por WhatsApp con foto, extra con botón para aprobar, panel
 del taller). Los números son del caso que se cuenta, no estadísticas:
-- **"Salió a atender"**: 0 → 1 (Graciela, martes 10:00) → 2 (Walter) → 22 (los cortes rápidos hasta el miércoles
-  14:30) → 23 (Daniel, miércoles 18:00) → 24 (la ruedita). Unas 11-12 llamadas por día en un taller lleno: creíble para
+- **"Óscar salió a atender"**: 0 → 1 (Graciela, martes 10:00) → 5 (Walter, martes 12:10) → 9 (Sergio, 15:40) → 14
+  (Silvia, miércoles 9:00) → 22 (Graciela, miércoles 14:30) → 23 (Daniel, miércoles 18:00) → 24 (la ruedita). Unas 11-12 llamadas por día en un taller lleno: creíble para
   "Mecánica Óscar", no se presenta como promedio de nada.
 - **El extra de Daniel:** cambio de la bomba de agua, **$ 11.500** (repuesto + mano de obra; precio inventado de
   "Mecánica Óscar", verosímil para Montevideo).
-- **El elevador ocupado:** martes 10:00 → miércoles 18:00 ("2 días"). El miércoles había **4 services** en la pizarra
-  (9:00, 10:30, 14:00, 16:00) que necesitaban el elevador y no entraron: **4 × $ 6.500 = $ 26.000** (el mismo precio de
+- **El elevador ocupado:** martes 10:00 → miércoles 18:00 ("Elevador ocupado: martes y miércoles"). El miércoles había
+  **4 services** en la pizarra (9:00 Pablo, 10:30 Andrés, 14:00 Nelly, 16:00 Ramón: ninguno de los que llaman) que necesitaban el elevador y no entraron: **4 × $ 6.500 = $ 26.000** (el mismo precio de
   service de `reels/taller-presupuestos`, para que el taller sea coherente).
 - **Parte 2:** el extra sale a las 10:02 y Daniel lo aprueba a las 10:04 ("Extra aprobado en 2 minutos"); el auto de
-  Daniel baja a las 12:30 y los mismos 4 services entran: "$ 26.000" en verde. "Llamadas '¿está pronto?': 0" y "Salió a
+  Daniel baja a las 12:30 del martes y los 4 services del miércoles pueden entrar: "Mañana entran 4 services: $ 26.000" en
+  verde. En la parte 1 Óscar solo lo llama dos veces y le deja un audio de 0:47 sin foto ni precio (queda sin escuchar);
+  en la parte 2 le llega el extra con la foto, el precio y el botón Aprobar. "Llamadas '¿está pronto?': 0" y "Salió a
   atender: 0" son del día del caso.
 
 Sin marcas: "Mecánica Óscar" es inventado (de `reels/taller-presupuestos`). Autos genéricos sin logo ni frente

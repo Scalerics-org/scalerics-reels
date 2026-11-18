@@ -91,3 +91,31 @@ después del render.
   más seco (revisar SECO).
 - Pasajera del ómnibus asoma cortada a la izquierda en la pantalla partida y en Q3e.
 - Las voces no se escucharon (ver Voces).
+
+## Ronda 1, parte A (18-11, sobre revision-guion-r1.md y las decisiones del coordinador)
+**40,5 s.** Parte 1 0-16,18 · cartel 16,18-18,55 · parte 2 18,55-40,53 = 22,0 s (54 %); C 37,16-40,53 (o7 en C + 0,3 s: el sorbo ya no pisa el arranque de la voz), tarjeta PRONTO
+desde ~37,8. medir.py: voz ≥ +13,2 LU sobre el resto en todos los tramos con voz; -14 LUFS.
+- **Alto 1 (Daniel):** en P3 Óscar ya no le manda foto ni precio: lo llama dos veces (No contesta) y le deja un audio de
+  0:47, "Entregado ✓✓ 10:16" / "Sin escuchar", con el rótulo "Un audio sin escuchar. / Sin foto ni precio". En la parte 2
+  le llega la foto, el precio y Aprobar; rótulo "Con foto y precio, / aprueba con un botón".
+- **Duración:** sin la llamada de Walter con voz (Walter pasa a ser el primer corte, sin voz); cuatro cortes de 0,42 s y
+  el "A la tarde." cansado (o2) va en el último (Graciela, 22); P3 1,42 s; pizarra 0,92 s; pausas de P5/P6/P7 un poco más
+  cortas (el beat antes del remate queda: mirada 0,42 s + 0,38 s); m1 atempo 1,18, g2 1,2, narrador 1,15 (cartel "más
+  tarde…" en 1,18 s), o7 1,09; Q1i/Q1g, Q2 (1,72 s), Q3e, Q4 (1,5 s), Q5 y C más ajustados.
+- **Pizarra:** 9:00 Pablo, 10:30 Andrés, 14:00 Nelly, 16:00 Ramón (ninguno de los que llaman: Walter, Sergio, Silvia,
+  Graciela; Fabián salió del reel).
+- **Tiempo verbal:** Q4 "Mañana entran 4 services: $ 26.000"; elevador "Elevador ocupado: martes y miércoles".
+- **d2:** las 7 tomas de "Dale, cambiala." (con el tono que pide cam-BIÁ-la) el STT las oye "cámbiala"/"cambiarla"/
+  "cámbiale": no se pudo escuchar ni confirmar el voseo, así que la línea pasó a **"Dale, hacelo."** (voseo sin ambigüedad;
+  toma 12-daniel-l, STT "Dale hacelo"); burbuja y guion igual. partes/12-daniel.txt cambiado (el viejo en partes/tmp).
+- **Chips** todos con punto: "Martes, 12:10.", "Martes, 15:40.", "Miércoles, 9:00.", "Miércoles, 14:30.".
+- **Contador:** "Óscar salió / a atender"; en el panel "Óscar salió a atender: 0".
+- **Q1:** rótulo "Lo marcás con un toque / y le avisa solo" (el taller marca el estado; no promete que el sistema adivina).
+- **Flojos:** remate más seco (SECO: boca -0,55, ojos 0,62); la camilla se ladea visible al perder la ruedita (0,11 rad,
+  baja 2,5 cm); tablet de Q2 más grande (69 % del alto); la pasajera fuera del borde; la bomba más clara; Q4 más abierto
+  (se ve el auto bajando y la pizarra). El celular en la oreja más pegado a la cabeza.
+- **Portada:** fondo limpio nuevo con VER=portada (sin Maxi, cámara propia) en el último corte (t 8,16: Óscar incorporado,
+  cansado, celular en la oreja, el auto de Daniel arriba): ver abajo. Para regenerarlo:
+  `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 8.16 renders/prev/por && cp renders/prev/por/t-008.16.png portada-src/fondo-limpio.png && SINAUDIO=1 node gen.mjs`
+- No tocado: el cierre lo dice Óscar con "te mando" (decisión del coordinador). Repite el ángulo de `dos-talleres`
+  (avisos del estado): aviso para el coordinador, no se cambió el tema.
