@@ -14,8 +14,8 @@
     [data-composition-id="s04-chip"] .chip { top: 92px; } [data-composition-id="s04-chip"] .cont { top: 74px; }
     [data-composition-id="s04-chip"] .mate { position: absolute; right: 40px; top: 330px; padding: 12px 24px 16px; border-radius: 22px; background: #5ce611; border: 6px solid #0b1220; font: 900 44px/1.05 "Lexend", sans-serif; color: #0b1220; text-align: center; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); }
   </style>
-  <div id="root" data-composition-id="s04-chip" data-width="1080" data-height="1920" data-duration="4.2">
-    <div id="s04-chip-esc" class="esc clip" data-start="0" data-duration="4.2" data-track-index="0">
+  <div id="root" data-composition-id="s04-chip" data-width="1080" data-height="1920" data-duration="4.5">
+    <div id="s04-chip-esc" class="esc clip" data-start="0" data-duration="4.5" data-track-index="0">
       <div class="chip">Martes, 17:30.</div>
       <div class="cont c2"><div class="a">Óscar salió<br>a atender</div><div class="n">0</div></div>
       <div class="mate">Salió por el mate: 1</div>
@@ -29,7 +29,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".chip"), { scale: 0.9, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.14, ease: "back.out(1.6)", immediateRender: true }, 0);
-      tl.fromTo(q(".mate"), { scale: 0, transformOrigin: "100% 0%" }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 2.9);
+      tl.fromTo(q(".mate"), { scale: 0, transformOrigin: "100% 0%" }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: true }, 3.4);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

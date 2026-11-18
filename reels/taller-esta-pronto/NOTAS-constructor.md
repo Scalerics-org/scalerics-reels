@@ -205,3 +205,21 @@ alrededor de cada uno de los 28 cortes (cuadro anterior, primero y segundo, a 30
   calle, vibra, sorbo, stinger, cero y el banco de HyperFrames; "Aprobado desde el ómnibus".
 - Portada: fondo limpio nuevo (VER=portada, t 7,95, último corte), portada.json t 7,95, portada.png regenerada.
 - Mezcla: medir.py mínimo voz-resto 6,1 LU; -14,2 LUFS, pico -3,0 dBFS. check: 0 errores.
+
+## Ronda 4 (42,1 s · P1 16,13 · P2 18,50 · cierre 39,09 · parte 2 23,6 s, 56 %)
+Revisados cuadro por cuadro los 3 cuadros de cada corte tocado (18,5 · 19,6 · 20,7 · 28,81 · 29,93 · 30,96 · 31,62 ·
+32,76 · 33,87 · 34,99 · 36,61 · 39,09) y Q4/Q5/C a tamaño completo.
+- Q4: plano 3/4 alto del elevador (cámara 1,75/3,05/1,0 → 1,65/2,95/0,85, mira a -0,9; fov 58): el auto entero bajando
+  con ruedas y patente entre las columnas, sin navy liso en ningún cuadro (primer cuadro 31,63 incluido). Rótulo
+  "Extra aprobado ✓ / desde el ómnibus" arriba con la guía al capó. Por el portón abierto se ve un poco de la calle al
+  final (es el mismo portón de los generales).
+- Q3a: Aprobar a +0,14 y "Aprobado ✓ 10:04" a +0,26: queda 0,40 s en el celular y el ✓ sigue en el rótulo de Q4.
+- Q5: plano abierto (el mismo de Q5b, continuo, sin salto en el corte): Maxi entero; Óscar se asoma en la camilla
+  (0,9 m afuera, incorporado a medias) y la burbuja va a su boca. De ahí sale rodando a buscar el mate.
+- "Con foto y precio" 1,12 s desde el primer cuadro de Q3d; "Aviso enviado ✓" 1,1 s (y a 420 px, lejos del contador);
+  "Lo marcás con un toque" desde el corte; "Pronto para retirar ✓" 1,12 s; "Mañana entran" y "Extra aprobado" 1,11-1,14 s.
+- "Salió por el mate: 1" entra cuando la camilla termina de salir y Óscar tiene el mate (sale6[1]) y sigue 1,1 s,
+  entrando 0,4 s en C. Cierre: el mate más alto, por encima de la tarjeta.
+- P5: la cámara arranca mirando más a la derecha (Óscar entero en el primer cuadro). Q1: el primer encuadre más cerrado.
+- Mezcla: el duck de la música arranca 0,25 s antes de cada voz y vuelve 0,3 s después; gota -42, rueditas -37, pop del
+  chip -40. medir.py: mínimo 6,1 LU; -14,1 LUFS, pico -3,0 dBFS. check: 0 errores.

@@ -1,4 +1,4 @@
-[sin narrador Orus: el chiste va en burbujas, el celular que suena en el banquito, el contador "Óscar salió a atender", la camilla con rueditas, el elevador clavado con el auto de Daniel y la pizarra de turnos; la solución va en la interfaz recreada (el estado del auto con foto en el celular de Graciela, el panel "Autos en el taller", el extra con foto, precio y botón Aprobar en el celular de Daniel); voces por archivo en partes/*.txt, ver partes/voces.md · total 41,8 s: parte 1 0,00-16,13 · cartel 16,13-18,50 · parte 2 18,50-41,80 (solución + cierre: 23,3 s, 56 %)]
+[sin narrador Orus: el chiste va en burbujas, el celular que suena en el banquito, el contador "Óscar salió a atender", la camilla con rueditas, el elevador clavado con el auto de Daniel y la pizarra de turnos; la solución va en la interfaz recreada (el estado del auto con foto en el celular de Graciela, el panel "Autos en el taller", el extra con foto, precio y botón Aprobar en el celular de Daniel); voces por archivo en partes/*.txt, ver partes/voces.md · total 42,1 s: parte 1 0,00-16,13 · cartel 16,13-18,50 · parte 2 18,50-42,10 (solución + cierre: 23,6 s, 56 %)]
 [parte 1 · el problema · 0,00-16,13 s · "Mecánica Óscar", el taller de día de taller-presupuestos, lleno]
 [0,00-2,70 · cuadro 0: arriba, gigante, "TALLERES", el chip "Martes, 10:00." y el contador "Óscar salió a atender: 0" que pasa a 1 · el auto de Daniel arriba en el elevador sin una rueda; en primer plano el de Graciela en caballetes y Óscar saliendo de abajo en la camilla con rueditas, el celular en la oreja]
 GRACIELA: Óscar, ¿está pronto?
@@ -20,23 +20,24 @@ DANIEL: Óscar, ¿está pronto?
 [14,93-16,13 · remate del remate: se acuesta y rueda abajo · vuelve a sonar (GRACIELA) · se empuja para salir, la camilla se ladea y una ruedita se sale y rueda sola por el piso (24)]
 NARRADOR: Un aviso automático más tarde.
 [cartel · 16,13-18,50 · time card de dibujito, fondo verde de marca: "Un aviso" / "automático" / "más tarde…" (nunca "Scalerics")]
-[parte 2 · la solución · 18,50-41,80 s]
-[18,50-19,50 · chip "Martes, 10:00." · plano cerrado del banquito con push-in: el celular quieto se prende "Aviso enviado ✓" (rótulo arriba, 1 s) · 19,50-20,60 · el celular de Graciela en su rotisería: "Mecánica Óscar · Hola, Graciela. Tu auto: En diagnóstico" con la foto y los pasos · rótulo "Lo marcás con un toque y le avisa solo" (1,1 s) · 20,60 Graciela en el mostrador lo mira en su celular, en la mano]
+[parte 2 · la solución · 18,50-42,10 s]
+[18,50-19,60 · chip "Martes, 10:00." · plano cerrado del banquito con push-in: el celular quieto se prende "Aviso enviado ✓" (rótulo arriba, 1,1 s) · 19,60-20,70 · el celular de Graciela en su rotisería: "Mecánica Óscar · Hola, Graciela. Tu auto: En diagnóstico" con la foto y los pasos · rótulo "Lo marcás con un toque y le avisa solo" (1,1 s) · 20,70 Graciela en el mostrador lo mira en su celular, en la mano]
 GRACIELA: ¡Ay, mi autito! Ya lo están mirando.
-[23,32-24,70 · la tablet: "Autos en el taller · Martes": Graciela, Walter, Sergio y Daniel, cada uno "Avisado ✓" · "Llamadas '¿está pronto?': 0" y "Óscar salió a atender: 0" (1 s) · rótulo "Cada auto y su estado, en un panel"]
-[24,70 · el mismo plano de abajo del elevador, el mismo audio]
+[23,38-24,76 · la tablet: "Autos en el taller · Martes": Graciela, Walter, Sergio y Daniel, cada uno "Avisado ✓" · "Llamadas '¿está pronto?': 0" y "Óscar salió a atender: 0" (1 s) · rótulo "Cada auto y su estado, en un panel"]
+[24,76 · el mismo plano de abajo del elevador, el mismo audio]
 MAXI: Jefe, el de Daniel: pierde la bomba de agua.
 [Óscar se asoma en la camilla, se le ve la cara]
 ÓSCAR: Mandale la foto.
 [desde abajo del auto · Maxi saca la foto con la tablet (en la pantalla, la bomba) · a Daniel, en el ómnibus, le llega el extra: "Bomba de agua · $ 11.500" con la foto, "Encontramos esto. Si lo aprobás, sale hoy." y los botones Aprobar / Llamame · rótulo "Con foto y precio, aprueba con un botón"]
 DANIEL: Dale, hacelo.
-[toca Aprobar → "Aprobado ✓ 10:04"]
-[31,28-32,43 · chip "Martes, 12:30." · plano alto: baja el auto de Daniel arreglado · rótulo "Extra aprobado desde el ómnibus" (1,1 s)]
-[32,43-33,56 · la pizarra del miércoles con tildes verdes · rótulo "Mañana entran 4 services: $ 26.000" (1,1 s)]
-[33,56-34,58 · el celular de Daniel: "Tu auto: Pronto para retirar ✓" con la foto · "Retiralo hasta las 19:00."]
-[34,58 · chip "Martes, 17:30." · el taller tranquilo, la luz de la tarde, el celular quieto · Óscar abajo del auto, Maxi con el termo y el mate]
+[toca Aprobar → "Aprobado ✓ 10:04" (0,4 s en el celular; el ✓ sigue en el rótulo de Q4)]
+[31,62-32,76 · chip "Martes, 12:30." · plano 3/4 alto del elevador: baja el auto de Daniel arreglado, entero, con ruedas y patente · rótulo "Extra aprobado ✓ desde el ómnibus" con guía al capó (1,1 s)]
+[32,76-33,87 · la pizarra del miércoles con tildes verdes · rótulo "Mañana entran 4 services: $ 26.000" (1,1 s)]
+[33,87-34,99 · el celular de Daniel: "Tu auto: Pronto para retirar ✓" con la foto · "Retiralo hasta las 19:00."]
+[34,99 · chip "Martes, 17:30." · el taller tranquilo, la luz de la tarde, el celular quieto · Óscar abajo del auto, Maxi con el termo y el mate]
+[Óscar se asoma en la camilla, se le ve la cara; Maxi entero a la izquierda]
 ÓSCAR: Maxi, ¿está pronto el mate?
 MAXI: A la tarde.
 [Óscar sale rodando solo y le saca el mate · "Óscar salió a atender: 0" y el chip "Salió por el mate: 1" (1,45 s)]
-[cierre · 38,78-41,80 · Óscar sentado en la camilla, a cámara, con el mate · tarjeta: "Comentá" / "PRONTO" / "y te mando cómo funciona para tu taller" · abajo, "Avisos automáticos del estado del auto" / "scalerics.com" en verde]
+[cierre · 39,09-42,10 · Óscar sentado en la camilla, a cámara, con el mate · tarjeta: "Comentá" / "PRONTO" / "y te mando cómo funciona para tu taller" · abajo, "Avisos automáticos del estado del auto" / "scalerics.com" en verde]
 ÓSCAR: Comentá PRONTO y te mando cómo funciona para tu taller.
