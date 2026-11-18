@@ -118,3 +118,34 @@ ventanas pareadas (voz y resto en el mismo cuadro): mínimo +12,7 LU (criterio v
 - Cartel de la panadería entero en Q1; inserto Q1i con el chat lleno (textos de 46-64 px); Q1c al 80 %.
 - No hecho: el saco de Adriana en Q4 (solo tira de la cadenita); el estante de sobres en la parte 2 sigue con los sobres
   llenos (no biblioratos); los 0,1 s de audio de más los agrega el AAC del paso 10.
+
+## Ronda 2 de corrección (18-11, sobre r2/contable-arte, contable-sonido, contable-guion)
+**39,8 s.** Parte 1 0-17,65 · cartel 17,65-19,95 · parte 2 19,95-39,73 (50 %); cierre 36,72-39,73 (3,0 s). Render 892 s; paso 10 ~65 s (lineal). Final: -14,1 LUFS, LRA 8,4, true peak -2,9 dBTP; final menos crudo por cuadro entre -0,3 y +0,1 dB (sin bombeo); voz ≥ +12,7 LU (pareado).
+- Guion: el panel llega a 60 en un chip "Día 8" (52 → 60, TALLER ROLO 9 ✓); el último día a las 18:00 ya dice "60 de 60 ✓"
+  con todos en ✓; a las 18:05 solo suma "Noches hasta las 2: 0". "Ese es el más importante." (toma nueva Enceladus c,
+  burbuja, guion.txt, lineas.tsv). Q1: el visor muestra la pila de octubre (cuatro facturas, "14") y "Subido · Octubre
+  completo · 14 ✓ · Subidas el día 3". Tarjeta "y te mando cómo funciona / para tu estudio"; la línea chica entra en su
+  lugar (sin subir). fuentes.md con los números del reel. Portada: sello_top 325 px, sin el celular detrás del texto.
+  El texto del cartel se va antes de que se abra el iris.
+- Arte: monitor más chico (0,42 m), a la derecha (x 0,48) y casi de frente (ry -0,2): no tapa la cara en Q2/Q3 y los
+  valores quedan en su fila; Q3 y Q3a con el monitor entero; inserto del monitor un 10 % más lejos. Lentes: el puente
+  estaba corrido dentro del lente derecho (G.cil cuelga de su punta) → centrado en personajes.js; Adriana sin patillas
+  (`sinPatillas`, atravesaban el pelo). Burbuja de "las mandaste el día tres" con la cola a la boca. Panel con "—" antes de
+  contar, mismos números siempre (Susana 22), recordatorio cuando el contador está en 38. Chats llenos (Q1i con letra
+  de 74 px; Q3m con el historial "Día 3 · Marcelo subió 14 fotos ✓"); tarjeta de audio más ancha. Adriana oculta en los
+  insertos del celular (P3, P7i, Q3m); Marcelo oculto en P5 (su cabeza tapaba la esquina). Cartel de la panadería oculto
+  en Q1w. Chips sin fundido (no quedan semitransparentes). Exposición 1,18 en el estudio de tarde. Q4b más abierto.
+  P6: guías sin cruzarse (Adriana: al costado de la cabeza). Audio de P1 más abajo; tarjetas del cierre más abajo.
+- Sonido: la mezcla ahora es bus (+6 dB, compresor) → ganancia a -14 LUFS → limitador a -4 dBFS (antes el limitador iba
+  antes de +8 dB: recortaba). Paso 10 con loudnorm en dos pasadas lineal (paso10.sh). Q3: whoosh y "tuc" antes y más
+  bajos (no pisan "Adri"); burbuja del audio cortado "mañana s…". medir.py: voz activa > -30 LUFS (las colas no cuentan).
+
+### Paso 10 (r2): `bash paso10.sh` (desde reels/contable-papeles)
+```
+J=$(ffmpeg -hide_banner -nostats -i renders/contable-papeles.mp4 -vn -af loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
+ffmpeg -y -i renders/contable-papeles.mp4 -c:v libx264 -preset slow -crf 16 -tune animation -profile:v high -pix_fmt yuv420p -g 60 -maxrate 14M -bufsize 28M -movflags +faststart \
+  -af "loudnorm=I=-14:TP=-1.5:LRA=11:measured_I=<input_i>:measured_TP=<input_tp>:measured_LRA=<input_lra>:measured_thresh=<input_thresh>:offset=<target_offset>:linear=true:print_format=json" \
+  -ar 48000 -c:a aac -b:a 192k renders/contable-papeles-final.mp4
+```
+- No hecho: el saco de Adriana en Q4; "~0,1 s de aire" entre "¿Ah, sí?" y "Ni" (la toma ya trae 0,25 s); el estante de
+  sobres de la parte 2 sigue con sobres llenos (no biblioratos).
