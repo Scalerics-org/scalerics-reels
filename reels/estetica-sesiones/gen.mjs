@@ -39,25 +39,27 @@ T.extiende = [r2(T.c2 + 1.0), r2(T.c2 + 1.5)];
 // P3b · inserto de la tarjetita (7 sellos, 3 vacíos) · rótulo
 T.p3b = r2(T.c2 + LEN.c2 + 0.02); T.rotT = r2(T.p3b + 0.18);
 // P4 · la pausa muda (plano general): Lorena mira a Vale · Vale señala el post-it · rótulo · los tres rótulos juntos
-T.p4 = r2(T.p3b + 0.92); T.mira = r2(T.p4 + 0.15); T.senala = [r2(T.p4 + 0.3), r2(T.p4 + 0.65)]; T.rotP = r2(T.p4 + 0.6); T.tres3 = r2(T.p4 + 0.95);
+T.p4 = r2(T.p3b + 0.8); T.mira = r2(T.p4 + 0.15); T.senala = [r2(T.p4 + 0.3), r2(T.p4 + 0.6)];
+// (r1) P4b · el post-it de cerca (8 palitos) con su rótulo; vuelve el general con los tres rótulos
+T.p4b = r2(T.p4 + 0.62); T.rotP = r2(T.p4b + 0.15); T.p4c = r2(T.p4b + 0.75); T.tres3 = r2(T.p4c + 0.08);
 // P5 · primer plano de Lorena: "Hagamos el promedio." · contraplano de Carolina: "¿Y cuánto da?" · Lorena cierra el
 // cuaderno · pausa · "Tres." · los rótulos del promedio y de la plata
-T.p5 = r2(T.p4 + 1.45); T.l3 = r2(T.p5 + 0.12);
+T.p5 = r2(T.p4c + 0.55); T.l3 = r2(T.p5 + 0.12);
 T.p5b = r2(T.l3 + LEN.l3 + 0.08); T.c3 = r2(T.p5b + 0.06);
 T.p5c = r2(T.c3 + LEN.c3 + 0.04); T.cierra = [r2(T.p5c + 0.05), r2(T.p5c + 0.4)]; T.l4 = r2(T.c3 + LEN.c3 + 0.62);
 T.rotProm = r2(T.l4 + LEN.l4 + 0.05); T.rotPlata = r2(T.rotProm + 0.3);
 // P6 · remate del remate: "Vale, ¿y la de Jimena?" · Vale se levanta y gira el equipo: el costado de post-its · rótulo
-T.p6 = r2(T.rotPlata + 0.95); T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];
+T.p6 = r2(T.rotPlata + 0.7); T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];   // (r1) -0,25 s
 T.gira = [r2(T.l5 + LEN.l5 - 0.15), r2(T.l5 + LEN.l5 + 0.45)]; T.rotPost = r2(T.gira[1] + 0.05);
-const P1 = r2(T.rotPost + 0.9);    // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.rotPost + 0.75);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el mismo encuadre del cuadro 0: Vale toca "Asistió" en su tablet · inserto de la ficha (el 7.º círculo, "Te quedan:
 // 4 → 3", "Enviado a Carolina ✓") · vibra el celular de Carolina · "Lore, ¿cuántas me quedan?" (el mismo audio) mientras
 // lo mira · inserto del celular · "Ah. Tres." · primer plano de Lorena: "Tres. Sin promedio."
-T.q1 = P2; T.asistio = r2(P2 + 0.3); T.q1f = r2(P2 + 0.5); T.circulo = r2(T.q1f + 0.25); T.cuenta2 = r2(T.q1f + 0.55); T.enviado = r2(T.q1f + 0.9);
+T.q1 = P2; T.asistio = r2(P2 + 0.3); T.q1f = r2(P2 + 0.5); T.circulo = r2(T.q1f + 0.4); T.cuenta2 = r2(T.q1f + 0.4); /* (r1) la tilde y el 4 → 3 en el mismo cuadro */ T.enviado = r2(T.q1f + 0.9);
 T.q1b = r2(T.q1f + 1.25); T.vibra = r2(T.q1b + 0.05); T.c1b = r2(T.q1b + 0.15);
-T.q1c = r2(T.c1b + LEN.c1 + 0.05); T.msg = r2(T.q1c + 0.12); T.rotSola = r2(T.q1c + 0.45);
+T.q1c = r2(T.c1b + LEN.c1 + 0.05); T.msg = r2(T.q1c); /* (r1) el chat arranca con la burbuja */ T.rotSola = r2(T.q1c + 0.45);
 T.c4 = r2(T.q1c + 0.85); T.q1d = r2(T.q1c + 1.3);
 T.q1e = r2(T.c4 + LEN.c4 + 0.06); T.l6 = r2(T.q1e + 0.08);
 // Q2 · el mismo plano de P6 (18:30): "Vale, ¿y la de Jimena?" (el mismo audio) · Vale gira la tablet · inserto de la ficha
@@ -72,11 +74,11 @@ T.q3i = r2(T.q3 + 0.45); T.renovar = r2(T.q3i + 0.85); T.confirmar = r2(T.q3i + 
 T.q3b = r2(T.q3i + 2.25); T.sacaT = [r2(T.q3b + 0.0), r2(T.q3b + 0.4)]; T.c5 = r2(T.q3b + 0.35);
 T.cajon = [r2(T.c5 + LEN.c5 - 0.2), r2(T.c5 + LEN.c5 + 0.1)]; T.guarda = [r2(T.cajon[1]), r2(T.cajon[1] + 0.3)]; T.cierraCajon = [r2(T.guarda[1] + 0.02), r2(T.guarda[1] + 0.3)];
 // Q4 · la recepción: el panel "Paquetes" en la tablet del atril (las filas de a una, el 0 grande al final)
-T.q4 = r2(T.cierraCajon[1] + 0.15); T.filas = [0, 1, 2, 3].map((i) => r2(T.q4 + 0.25 + i * 0.28)); T.cero = r2(T.q4 + 1.45);
+T.q4 = r2(T.cierraCajon[1] + 0.15); T.filas = [0, 1, 2, 3].map((i) => r2(T.q4 - 0.05)); T.cero = r2(T.q4 + 1.1); /* (r1) entra con las filas ya cargando */
 // C · Lorena a cámara: "Comentá SESIONES…" · la tarjeta entra en "SESIONES" · la línea chica el último tramo
 T.c = r2(T.q4 + 2.25); T.l7 = r2(T.c + 0.15); T.palabra = r2(T.l7 + 0.32);
-const DUR = Math.ceil((Math.ceil((T.l7 + LEN.l7 + 0.3) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
-T.cierre = r2(DUR - 1.35);
+const DUR = Math.ceil((Math.ceil((T.l7 + LEN.l7 + 0.15) * 30) / 30) * 1e4) / 1e4;   // (r1) cola corta: la tarjeta ≤ 3,2 s   // múltiplo de un cuadro
+T.cierre = r2(T.palabra + 0.9);   // (r1) la línea chica llena la franja de abajo antes
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -227,7 +229,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1010px; padding: 22px 10px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 100%; }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1170px; padding: 18px 10px 24px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 100%; }
     P .a { font: 800 88px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 142px/1.08 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 26px; margin-top: 6px; }
@@ -245,9 +247,9 @@ for (const [id, ini0, fin, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1560px; padding: 20px 26px 26px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 44px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
-    P .b { margin-top: 10px; font: 800 70px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1680px; padding: 16px 26px 20px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .a { font: 700 42px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .b { margin-top: 8px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">La ficha de cada clienta con su</div><div class="a">paquete, que se descuenta sola</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { y: 420 }, { y: 0, duration: 0.28, ease: "back.out(1.4)", immediateRender: true }, 0.0);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: true }, 0.25);`,
@@ -290,15 +292,16 @@ voz("l1", T.l1, -1);
 whoosh(T.p2 - 0.04, -46);
 for (let i = 0; i < 4; i++) tic(T.cuenta[0] + 0.05 + i * 0.12, -45, i);
 pop(T.rotC, -40);
+whoosh(T.p4b - 0.03, -48); pop(T.rotP, -41); whoosh(T.p4c - 0.03, -50);
 voz("l2", T.l2, -1);
 // P3 · el cierre de la cartera, la tarjetita, "¿Una? Acá tengo siete sellos.", el inserto y su rótulo
-s("sfx/bsb-cierre.wav", T.cartera, 0, { techo: -38, dur: 0.6, fin: 0.15 });
+s("sfx/bsb-cierre.wav", T.cartera - 0.3, 0, { techo: -44, dur: 0.45, fin: 0.15 });   // (r1) antes y más bajo: tapaba "¿Una?"
 voz("c2", T.c2, -1);
 s("sfx/papel.wav", T.extiende[0], 0, { techo: -41, dur: 0.35, fin: 0.1 }); tela(T.saca[0] + 0.3, -42, 2);
 whoosh(T.p3b - 0.04, -49); pop(T.rotT + 0.05, -40);
 // P4 · la pausa muda: el zumbido del equipo, un pop chico por rótulo, nada encima
 s("sfx/zumbido.wav", T.p4, 0, { dur: r2(T.p5 - T.p4 + 0.2), fi: 0.15, fin: 0.2, techo: -41, lp: 900 });
-tela(T.senala[0], -42, 1); pop(T.rotP, -40); pop(T.tres3, -41);
+tela(T.senala[0], -42, 1); pop(T.tres3, -41);
 // P5 · "Hagamos el promedio.", "¿Y cuánto da?", el cuaderno que se cierra, "Tres.", los rótulos
 voz("l3", T.l3, -1);
 voz("c3", T.c3, -1);
@@ -309,8 +312,8 @@ pop(T.rotProm + 0.04, -41); pop(T.rotPlata + 0.04, -40);
 voz("l5", T.l5, -1);
 tela(T.levanta[0], -41, 2); s("sfx/k-plastico.wav", T.levanta[1] - 0.1, 0, { techo: -44 });
 s("sfx/bsb-rueditas.wav", T.gira[0] + 0.1, 0, { desde: 7.6, dur: r2(T.gira[1] - T.gira[0]), fi: 0.08, fin: 0.15, techo: -42 });
-s("sfx/papel.wav", T.gira[1] + 0.02, 0, { techo: -47, dur: 0.35, fin: 0.12, vel: 1.2 });
-pop(T.rotPost + 0.1, -46);
+s("sfx/papel.wav", T.gira[1] - 0.05, 0, { techo: -40, dur: 0.45, fin: 0.12, vel: 1.2 });
+s("sfx/madera-golpe.wav", T.rotPost, 0, { techo: -36, dur: 0.4, fin: 0.1 }); pop(T.rotPost + 0.05, -42);   // (r1) el acento de la revelación
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
@@ -332,7 +335,7 @@ voz("c4", T.c4, -1);
 voz("l6", T.l6, -1);
 // Q2 · el mismo "Vale…", la tablet que gira, el inserto, el post-it que se despega, el bollito, la tapa del tacho
 voz("l5", T.l5b, -1);
-whoosh(T.q2i - 0.04, -52); pop(T.q2i + 0.7, -44);
+whoosh(T.q2i - 0.04, -52); tic(T.q2i + 0.02, -46, 1); pop(T.q2i + 0.7, -44);
 s("sfx/papel.wav", T.despega[0], 0, { techo: -39, dur: 0.35, fin: 0.1, vel: 1.3 });
 s("sfx/bsb-bollito.wav", T.bollo[0], 0, { techo: -38, dur: 0.5, fin: 0.12 });
 s("sfx/bsb-tapa.wav", T.tapa - 0.05, 0, { techo: -37 });
@@ -345,7 +348,7 @@ s("sfx/bsb-cajon-abre.wav", T.cajon[0], 0, { techo: -38, dur: 0.6, fin: 0.12 });
 s("sfx/bsb-cajon-cierra.wav", T.cierraCajon[0], 0, { techo: -37, dur: 0.7, fin: 0.15 });
 // Q4 · el whoosh de la cámara, un tic por fila, el ding del 0
 s("sfx/whoosh.mp3", T.q4 - 0.06, 0, { techo: -43 });
-T.filas.forEach((t, i) => tic(t, -40, i)); ding(T.cero, -35); pop(T.cero + 0.02, -40);
+tic(T.q4 + 0.02, -40, 0); ding(T.cero, -35); pop(T.cero + 0.02, -40);
 // C · Lorena a cámara: el pop de SESIONES y de la línea chica
 s("sfx/whoosh-short.mp3", T.c - 0.05, 0, { techo: -45 });
 voz("l7", T.l7, -1);
@@ -362,6 +365,7 @@ function en(t, a, b) { return t >= a && t < b; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);
+for (const x of S) if (x[1] < 0) throw new Error(`tiempo negativo: ${x[0]} ${x[1]}`);
 
 for (const x of S) { const o = x[3]; if (o.fin && !o.dur) o.dur = r2(Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 assets/${x[0]}`).toString()) / (o.vel ?? 1) - (o.desde ?? 0)); }
 const filtroVel = (o) => (o.vel && o.vel !== 1 ? `asetrate=${Math.round(48000 * o.vel)},aresample=48000,` : "");

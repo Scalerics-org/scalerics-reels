@@ -74,3 +74,46 @@ cajón, tapa, bollito, pip; ver fuentes.md). Duck de la cama hasta 0,95 s despu�
 - medir.py: mínimo -1,7 por dos tramos de 0,5 s (16,5 y 30,0 s) que son la cola (-35 LUFS momentáneo, los últimos 60 ms)
   de "Vale, ¿y la de Jimena?" contra la cama que vuelve; con umbral de voz -30 el mínimo es +7,4 LU. Mezcla -14,2 LUFS,
   pico -2,5 dBFS.
+- Render: 20 min 12 s (hyperframes render --workers 2, con el candado). paso10.sh → renders/estetica-sesiones-final.mp4: 43,2 s,
+  -14,1 LUFS, pico -2,4 dBFS. Hoja del final mirada: sin globos faltantes ni cortes.
+- Portada: fondo LIMPIO=1 de P4 (9,4 s) con cámara propia (ver "cam" en portada.json): Carolina con las gafas y la tarjetita,
+  Lorena con el cuaderno, el equipo con el post-it CARO, en la mitad de arriba; "¿Cuántas me quedan?" / "Jueves, 18:00." /
+  ESTÉTICA.
+
+## Flojo / para los revisores
+- 43,2 s (plan 39,4): parte 2 + cierre 23,3 s (54 %).
+- En el cuadro 0 Vale queda medio cortada en el borde izquierdo (de espaldas, con el cabezal); el equipo se ve detrás de ella.
+- El post-it CARO en el plano general (P4) se lee chico (los 8 palitos no se cuentan ahí; sí el rótulo "Post-it: quedan 2").
+- P2: abajo del cuaderno asoma la manga de Lorena (navy con la franja verde) como un arco grande.
+- P6: Vale "gira" el equipo con las manos arriba y después las suelta; no camina con él.
+- Q2b: el despegue del post-it y el bollito al tacho son chicos en el plano.
+- medir.py marca dos tramos de cola de voz (ver arriba).
+
+## Ronda 1 de corrección (3 revisores, 19-11)
+**43,0 s.** Parte 1 0-17,51 · cartel 17,51-19,87 · parte 2 19,87-43,0 = 23,1 s (54 %). C desde 39,36; SESIONES 39,83; línea
+chica 40,73; cola 0,15 s después de la voz (tarjeta 3,17 s).
+- A1 guías de P4: los tres rótulos abajo (Post-it izq., Tarjetita centro, Cuaderno der.) y las guías suben a cada papel
+  sin cruzar caras; la de la tarjetita ya no baja desde arriba por el reloj y la cara.
+- A2 el panel entra con las 4 filas cargadas (T.filas = q4 − 0,05), cámara ya cerca, Lorena oculta en Q4.
+- A3 el chat de Carolina arranca con la burbuja (T.msg = q1c).
+- M4 Vale suelta el equipo antes del giro; post-its en 4 columnas × 9 filas dentro del costado, más pegados, nombres que
+  entran en el papel; el push-in de P6 termina antes (Vale entera).
+- M5 inserto nuevo P4b (8,70-9,45): el post-it CARO de cerca con "Post-it: quedan 2"; P1/P4 más abiertos y cerrados sobre
+  los personajes (Vale y Lorena enteras, menos piso).
+- M6 la mesita al lado de la rodilla con el cajón hacia Carolina; la tarjetita va de la mano al cajón abierto (vuela los
+  últimos cm) y queda adentro cuando se cierra; cabeza menos girada.
+- M7 cierre: tarjeta más abajo (top 1170) y línea chica abajo (1680); cámara que deja la cara arriba y el panel con el "0"
+  verde visible arriba de la tarjeta; ojos a cámara; la línea chica entra 0,9 s después de SESIONES; cola 0,15 s.
+- M8 "Vale, ¿y la de Jimena?" con cabecera "Lorena" (avatar) y la cola hacia afuera del cuadro a la derecha (P6 y Q2).
+- M9 rótulo "El promedio daba 2. / Le dio 3 para no discutir.".
+- M10 el cierre de la cartera 0,3 s antes y -6 dB: el STT sobre la mezcla oye "una acá tengo 7 sellos".
+- M11 acento en la revelación: papel a -40 + madera-golpe a -36 + pop.
+- B12 generales más abiertos. B13 la tablet de Vale agarrada del borde (el puño no tapa); Vale con sonrisa en Q2.
+- B14 primeros planos más abiertos (fov 48-54). B15 insertos de interfaz ×1,18 (tablets) y ×1,1 (celulares);
+  "Arranca después…" 46 px; los globos salen sin fundido. B16 tilde y 4 → 3 en el mismo cuadro. B17 tic al aparecer la
+  ficha de Jimena. B18 parte 1 −0,05 s neto (+0,75 del inserto del post-it, −0,8 en pausas y P3b).
+- medir.py: mínimo +7,4 LU (ya sin las colas).
+- Render r1: 18 min 52 s; final 43,0 s, -14,0 LUFS, pico -2,6 dBFS; check 0 errores; hoja del final mirada.
+- B19 portada rehecha: fondo LIMPIO de P4c (9,9 s) más abierto (cam en portada.json): Vale, Carolina y Lorena enteras arriba;
+  la coma de "JUEVES, 18:00." sobre el fondo oscuro.
+- No hecho: el "pelo tipo casquete" de Lorena (es el peinado "melena" de personajes.js, el mismo de estetica-turnos).
