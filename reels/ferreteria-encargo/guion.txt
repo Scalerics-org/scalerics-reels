@@ -1,0 +1,46 @@
+[sin narrador Orus: el chiste va en burbujas, el papelito del rollo de papel de envolver pegado en la caja registradora que termina envolviendo los tornillos de Tito, el cajón ENCARGOS con nueve piezas sin nombre y los chips de hora; la solución va en la interfaz recreada (tablet "Nuevo encargo", la entrada de mercadería que se cruza con los encargos, el WhatsApp automático a la clienta, panel "Encargos"); voces por archivo en partes/*.txt, ver partes/voces.md · estimado: 40,8 s · parte 1 0,00-16,20 · cartel 16,20-18,60 · parte 2 + cierre 18,60-40,80 (22,2 s, 54 %)]
+[parte 1 · el problema · 0,00-16,20 s · "Materiales Gustavo", el lado ferretería del mostrador]
+[0,00-4,70 · P1 · cuadro 0: arriba, gigante, "FERRETERÍAS" y el chip "Sábado, 10:00." · Gustavo atrás del mostrador (chaleco acolchado navy, lápiz de carpintero en la oreja), detrás la pared de cajoncitos de tornillos y el panel con piezas colgadas · en el mostrador la caja registradora y el rollo de papel de envolver · Susana (clienta, ~60) levanta una bolsita de nylon con el cartucho viejo de la canilla, blanco de sarro · la burbuja ya asomando]
+SUSANA (0,15): Gustavo, ¿tenés este cartucho? Me gotea la canilla.
+[Gustavo saca el cartucho de la bolsita, lo mide con el calibre: "35"]
+GUSTAVO (2,95): Ese no me queda. Te lo encargo.
+[4,70-6,30 · P1b · Gustavo arranca un pedazo del rollo de papel de envolver (la cuchilla dentada hace "rrrac") y escribe con el lápiz de carpintero]
+GUSTAVO (4,80): Dejame tu número.
+[inserto: el papelito "SUSANA · CARTUCHO 35 · 099 4…" · Gustavo lo pega con cinta en el costado de la caja registradora]
+[6,30-8,40 · P2 · Tito, el veterano (gorro de lana, campera empolvada), apoya los codos en el mostrador]
+TITO (6,40): Seis tornillos del ocho.
+[Gustavo saca los tornillos del cajoncito "8" y, sin mirar, despega el papelito de la caja registradora, hace el cucurucho, mete los tornillos y se lo da · inserto de 0,4 s: "SUSANA · CARTUCHO 35" se enrolla · Tito se va con el cucurucho]
+[8,40-10,60 · P3 · chip "Martes, 9:00." · llega la caja del proveedor; Gustavo levanta el cartucho 35 nuevo en su blíster y mira la caja registradora: solo un pedazo de cinta · burbuja muda "?" · abre el cajón ENCARGOS: un flotador, una llave de paso, bisagras, un sifón… ninguno con nombre · mete el cartucho · rótulo: "Llegaron y nadie avisó: 9 · $ 14.300" (rojo apagado)]
+[10,60-13,20 · P4 · chip "Tres semanas después." · Susana en el mostrador, de nuevo]
+SUSANA (10,75): Gustavo, ¿llegó lo mío?
+[Gustavo abre el cajón ENCARGOS hacia ella: las nueve piezas · pausa]
+GUSTAVO (12,65): Elegí.
+[13,20-16,20 · P5 · remate del remate · Susana, amable, sin enojo]
+SUSANA (13,35): Ya lo compré.
+[rótulo: "Cartucho 35 · $ 780: lo compró en otro lado" (rojo apagado) · Susana levanta otra bolsita: el flotador de la cisterna]
+SUSANA (14,35): ¿Me encargás este?
+[Gustavo ya está arrancando otro pedazo de papel]
+GUSTAVO (15,35): Dejame tu número.
+[16,15 · stinger]
+NARRADOR (16,25): Un sistema más tarde.
+[cartel · 16,20-18,60 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/ya-lo-cargo/assets/voice/narrador.wav]
+[parte 2 · la solución · 18,60-37,20 s]
+[18,60-23,00 · Q1 · chip "Sábado, 10:00." · el mismo encuadre del cuadro 0; al lado de la caja registradora, una tablet en un atril (el panel de encargos) · el mismo audio de Susana]
+SUSANA (18,75): Gustavo, ¿tenés este cartucho? Me gotea la canilla.
+[Gustavo mide con el calibre ("35") y toca "Nuevo encargo" en la tablet]
+GUSTAVO (21,45): Dejame tu número.
+[inserto de la tablet: "Nuevo encargo · Susana · 099 4·· ··· · Cartucho monocomando 35 mm · Proveedor: martes" → "Guardar ✓" · ding: el celular de Susana en su mano: "Ferretería Gustavo: Anotamos tu encargo ✓ Cartucho 35 mm. Te avisamos cuando llegue." · rótulo: "Cada encargo, con nombre y celular"]
+[23,00-25,00 · Q2 · Tito apoya los codos, el mismo audio]
+TITO (23,10): Seis tornillos del ocho.
+[Gustavo arranca papel del rollo y hace el cucurucho: el papel está en blanco (inserto 0,4 s) · Tito se va]
+[25,00-29,80 · Q3 · chip "Martes, 9:00." · la caja del proveedor; Gustavo carga la entrada en la tablet ("Entró: Cartucho monocomando 35 mm × 1") → "Coincide con 1 encargo: Susana" → "Aviso enviado ✓" · rótulo: "Cuando entra la mercadería, avisa solo" · corte: la cocina de Susana, la canilla monocomando goteando en la pileta · su celular: "Susana, llegó tu cartucho de 35 ✓ Te lo guardamos hasta el sábado. · Ferretería Gustavo"]
+SUSANA (28,60): ¡Llegó lo mío!
+[29,80-33,00 · Q4 · la tablet a pantalla (≥ 70 %): "Encargos" · Pendientes 4 · Avisados 3 · Retirados 12 · la fila "Susana · Cartucho 35 · Avisada ✓" · "Jueves: recordatorio a los que no retiraron ✓" · contador "Llegaron y nadie avisó: 9 → 0" (verde) · rótulo: "Si no lo retira, se lo recuerda"]
+[33,00-37,20 · Q5 · chip "Miércoles, 18:00." · Susana en el mostrador · Gustavo abre el cajón ENCARGOS, ahora con cada pieza en su bolsita con etiqueta y nombre, y le da la suya sin buscar: "SUSANA · CARTUCHO 35" · la tablet: "Retirado ✓" · Susana levanta otra bolsita: el flotador · el mismo audio]
+SUSANA (34,00): ¿Me encargás este?
+GUSTAVO (35,10): Dejame tu número.
+[Susana, con media sonrisa, señala la tablet]
+SUSANA (36,20): Ya lo tenés.
+[la tablet: "Nuevo encargo · Susana · Flotador de cisterna ✓" · Gustavo se ríe]
+[cierre · 37,20-40,80 · Gustavo a cámara atrás del mostrador, la pared de cajoncitos detrás · tarjeta debajo de la cara: "Comentá" / "ENCARGO" (en el recuadro verde de selección) / "y te mando cómo funciona para tu ferretería" · el último segundo, abajo: "Registro de encargos con aviso automático por WhatsApp" / "scalerics.com" en verde]
+GUSTAVO (37,35): Comentá ENCARGO y te mando cómo funciona para tu ferretería.
