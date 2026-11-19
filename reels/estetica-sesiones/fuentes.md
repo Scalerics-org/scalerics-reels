@@ -48,3 +48,18 @@ De `assets/sfx` y `assets/bgm` de `reels/estetica-turnos` (con su crédito en el
 vengan) y de `reels/resto-reservas` (BigSoundBank, CC0). Si hace falta alguno que no esté (pip del cabezal láser, cierre
 de cartera, ruedas de la torre, papel que se arruga, tapa de tacho, cajón), uno real con licencia CC0 (BigSoundBank o
 Freesound CC0) y se anota acá autor, sitio y licencia. Nada sintetizado con ffmpeg.
+
+## Efectos de sonido nuevos (constructor, 19-11)
+Bajados de BigSoundBank (Joseph Sardin, https://bigsoundbank.com), licencia CC0 1.0 / dominio público
+(https://bigsoundbank.com/licenses.html). Solo recortados, con fundidos y pasados a WAV 48 kHz con ffmpeg (nada sintetizado):
+- `assets/sfx/bsb-cierre.wav` (el cierre de la cartera, P3; 0,14-1,32 s): "Zip #1" (#0014), https://bigsoundbank.com/zip-1-s0014.html
+- `assets/sfx/bsb-cajon-abre.wav` (el cajón de la mesita que se abre, Q3; 0-0,95 s): "Wooden drawer #1" (#1267), https://bigsoundbank.com/wooden-drawer-1-s1267.html
+- `assets/sfx/bsb-cajon-cierra.wav` (el cajón que se cierra, Q3): "Wooden drawer, closing" (#1500), https://bigsoundbank.com/wooden-drawer-closing-s1500.html
+- `assets/sfx/bsb-tapa.wav` (la tapa del tacho, Q2; 0,27-0,72 s): "Plastic cover #1" (#2895), https://bigsoundbank.com/plastic-cover-1-s2895.html
+- `assets/sfx/bsb-bollito.wav` (el post-it que se hace un bollito, Q2; 0,15-1,2 s): "Newspaper ball" (#0670), https://bigsoundbank.com/newspaper-ball-s0670.html
+- `assets/sfx/bsb-pip.wav` (el pip del cabezal láser, P1, más agudo con asetrate): "Beep of a Cash Register #2" (#3527), https://bigsoundbank.com/beep-of-a-cash-register-2-s3527.html
+- `assets/sfx/bsb-pip2.wav` (copiado, sin usar): "Answering Machine Beep" (#1616), https://bigsoundbank.com/answering-machine-beep-s1616.html
+Copiados de otros reels, con su crédito allí: `bsb-rueditas.wav` (las ruedas del equipo láser; "Trash can rolling on a road
+#1", BigSoundBank #1287, CC0; de reels/taller-esta-pronto), `k-book_close.wav`, `k-book_flip_1/2.wav` (Kenney, CC0; de
+reels/anotamelo), `papel.wav` ("Paper slide", Kingofgamers_cz, Freesound, https://freesound.org/people/Kingofgamers_cz/sounds/352914/, CC0 1.0; de reels/anotamelo). El resto (pop, tic,
+notification, vibra, cero, click-soft, whoosh, zumbido, stinger, k-cloth, k-plastico, pizzicato) es de reels/estetica-turnos.
