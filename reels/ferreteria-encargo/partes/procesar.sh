@@ -16,8 +16,9 @@ pausa partes/rec/05-susana-a.wav partes/tmp/s5.wav 0.73 0.95 0.12
 v x s5 "atempo=1.1" partes/tmp/s5.wav                          # Susana: "Gustavo, ¿llegó lo mío?"
 v 06-gustavo-a g6                                               # Gustavo: "Elegí."
 v 07-susana-a s7                                                # Susana: "Ya lo compré."
-v ${S8:-08-susana-a} s8 "atempo=${S8T:-1.0}"                    # Susana: "¿Me encargás este?" (P5 y Q5)
+pausa partes/rec/08b-susana-c.wav partes/tmp/s8.wav 1.46 1.885 0.12   # (r1) "¿Me encargás... este?": la única toma donde el STT oye "este"
+v x s8 "atempo=1.16" partes/tmp/s8.wav                          # Susana (P5 y Q5)
 v ${S10:-10-susana-d} s10 "atempo=${S10T:-1.0}"                # Susana: "¡Llegó lo mío!"
 v 11-susana-a s11                                               # Susana: "Ya lo tenés."
-v 12-gustavo-c g12 "atempo=1.07"                                # Gustavo: "Comentá ENCARGO y te mando cómo funciona para tu ferretería."
+v 12-gustavo-c g12 "atempo=1.09"                                # Gustavo: "Comentá ENCARGO y te mando cómo funciona para tu ferretería."
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

@@ -91,3 +91,32 @@ semanas después.", grande "¿Llegó lo mío?", sello FERRETERÍAS.
 - El cucurucho del inserto: los tornillos caen grandes (1,5×) y en el último cuadro el cono ya se lee "SANA / TUCHO".
 - "Elegí." queda pegado arriba de la cabeza de Gustavo (le roza el pelo) por el push-in.
 - La gota de la canilla es chica en el plano de la cocina.
+
+## Ronda 1 de corrección (3 revisores)
+**45,47 s.** Parte 1 0-19,10 · cartel 19,10-21,48 · parte 2 + cierre 21,48-45,47 = 24,0 s (53 %). Cierre (C) 42,25-45,47
+(3,2 s; g12 atempo 1,09, 0,15 s de cola). Más largo por la toma nueva de s8 (1,9 s) y la pausa antes de "Ya lo compré.".
+- Rótulos de la parte 2: la parte sin recuadro en crema (textoSel con tinta propia para el texto plano).
+- Lápiz de carpintero detrás de la oreja (ya no llega al ojo en P3/Q3).
+- Tito: al recibir el cucurucho la mano va al borde del mostrador y después baja delante de la panza (no cruza la cabeza).
+- Tornillos a 0,55× (antes 1,5×), caen por el eje del cono y quedan adentro siguiéndolo en la mano.
+- El cucurucho gira de cara a la cámara de P2 al pasar a la mano ("SUSANA" derecho); el papelito pegado se lee derecho.
+- Una sola vez el cartucho: al agarrarlo, en el mostrador queda la bolsita vacía.
+- La bolsita del cuadro 0 más abajo y al costado: ya no tapa la cara.
+- "¿Me encargás este?": toma nueva 08b-susana-c ("¿Me encargás... este?", pausa interna a 0,12 s, atempo 1,16; STT "me
+  encargas este"); la bolsita del FLOTADOR levantada en cuadro (P5 y Q5), más grande.
+- Cajón: las 9 piezas en grilla 3 × 3 (1,15×), "ENCARGOS" entero (más alto en P4, push-in corrido para que no lo tape la
+  cabeza de Susana).
+- Tablet vertical en el mostrador en toda la parte 2 (también en reposo, con "Encargos"); oculta solo en Q2 (tapaba a Tito).
+- Insertos de la tablet verticales (940 × 1344 px, 70 % del alto), textos ≥ 44 px; globo arriba, rótulo abajo.
+- "Ferretería Gustavo" en el cartel del galpón, la tablet y el chat; sin el mensaje de AGOSTO; chat anclado arriba.
+- Cocina: Q3k es la canilla entera goteando en primer plano; Susana en Q3s.
+- P1b termina al pegar (sin mostrador vacío); P2 algo más abierto (el papelito entero).
+- Cajón de Q5: LUCÍA · LLAVE 3/4 y OMAR · BISAGRAS x4; la bolsita SUSANA · CARTUCHO 35 a 1,45×.
+- Mezcla: la cama +9 dB (duck -2,0) en los tres tramos sin voz y los efectos ahí al techo -31; pausa de 0,3 s antes de
+  "Ya lo compré." y el cajón se cierra de golpe (bsb-cajon-madera + madera-golpe); tic en el chip de Q1 y pop en los
+  rótulos de Q1t, Q3t y Q4.
+- Bajas: cartel del galpón más alto (no asoma), "Elegí." arriba a la derecha y el chip "Tres semanas después." se va con
+  él, globos de Q5 arriba de la cabeza, brazo de Susana doblado al señalar.
+- Portada: fondo con VER=portada (Susana oculta).
+- No hecho: medir.py sigue marcando +0,5 en 34,5 s (cola de la ventana de 400 ms: "¡Llegó lo mío!" ya terminó en 34,18
+  y entra el whoosh del panel).

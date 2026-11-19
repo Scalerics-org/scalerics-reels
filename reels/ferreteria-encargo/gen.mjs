@@ -34,7 +34,8 @@ T.g2 = r2(T.s1 + LEN.s1 + 0.12);
 T.p1b = r2(T.g2 + LEN.g2 + 0.06); T.arranca = r2(T.p1b + 0.05); T.g3 = r2(T.p1b + 0.12);
 T.escribe = [r2(T.p1b + 0.4), r2(T.p1b + 1.1)]; T.pega = r2(T.escribe[1] + 0.22);
 // P2 · Tito con los codos: "Seis tornillos del ocho." · el cajoncito 8 · despega el papelito sin mirar · el cucurucho
-T.p2 = r2(T.pega + 0.22); T.t4 = r2(T.p2 + 0.1); T.cajon8 = r2(T.t4 + 0.3); T.despega = r2(T.cajon8 + 0.62);
+T.p2 = r2(T.pega - 0.05);   // (r1) corta al pegar (sin el mostrador vacío)
+ T.t4 = r2(T.p2 + 0.1); T.cajon8 = r2(T.t4 + 0.3); T.despega = r2(T.cajon8 + 0.62);
 T.insCuc = [r2(T.despega + 0.25), r2(T.despega + 0.72)]; T.da = r2(T.insCuc[1] + 0.25);
 // P3 · martes: la caja del proveedor, el blíster, la caja registradora (solo la cinta), "?", el cajón ENCARGOS, el rótulo
 T.p3 = r2(T.da + 0.35); T.mira = r2(T.p3 + 0.4); T.preg = r2(T.p3 + 0.55); T.abre = r2(T.p3 + 0.95); T.mete = r2(T.p3 + 1.35); T.rot1 = r2(T.p3 + 1.45);
@@ -42,7 +43,7 @@ T.p3 = r2(T.da + 0.35); T.mira = r2(T.p3 + 0.4); T.preg = r2(T.p3 + 0.55); T.abr
 T.p4 = r2(T.p3 + 2.25); T.s5 = r2(T.p4 + 0.15); T.saca = r2(T.s5 + LEN.s5 + 0.02); T.g6 = r2(T.s5 + LEN.s5 + 0.62);
 // P5 · contraplano a Susana: "Ya lo compré." + rótulo · levanta la bolsita del flotador: "¿Me encargás este?" · P5b las
 // manos de vuelta: ya arrancando papel: "Dejame tu número."
-T.p5 = r2(T.g6 + LEN.g6 + 0.2); T.s7 = r2(T.p5 + 0.1); T.rot2 = r2(T.s7 + 0.3); T.s8 = r2(T.s7 + LEN.s7 + 0.15); T.levanta = r2(T.s8 - 0.05);
+T.p5 = r2(T.g6 + LEN.g6 + 0.2); T.s7 = r2(T.p5 + 0.4); T.rot2 = r2(T.s7 + 0.3); T.cierra = r2(T.s7 + LEN.s7 + 0.1); T.s8 = r2(T.s7 + LEN.s7 + 0.42); T.levanta = r2(T.s8 - 0.05);   // (r1) pausa antes de "Ya lo compré." y el cajón que se cierra de golpe
 T.p5b = r2(T.s8 + LEN.s8 + 0.05); T.arranca2 = r2(T.p5b + 0.02); T.g3b = r2(T.p5b + 0.15);
 const P1 = r2(T.g3b + LEN.g3 + 0.18);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.12));
@@ -60,14 +61,14 @@ T.insCucB = [r2(T.cajon8b + 0.8), r2(T.cajon8b + 1.22)]; T.daB = r2(T.insCucB[1]
 T.q3 = r2(T.daB + 0.35); T.q3t = r2(T.q3 + 0.45); T.fila = r2(T.q3t + 0.2); T.coincide = r2(T.q3t + 0.65); T.aviso = r2(T.q3t + 1.05);
 T.k = r2(T.aviso + 0.45); T.noti = r2(T.k + 0.6); T.s10 = r2(T.noti + 0.95);
 // Q4 · el panel Encargos: 9 → 0, el recordatorio
-T.q4 = r2(T.s10 + LEN.s10 + 0.15); T.baja = [r2(T.q4 + 0.35), r2(T.q4 + 1.15)]; T.record = r2(T.q4 + 1.5);
+T.q4 = r2(T.s10 + LEN.s10 + 0.15); T.baja = [r2(T.q4 + 0.35), r2(T.q4 + 1.15)]; T.record = r2(T.q4 + 1.4);
 // Q5 · miércoles: el cajón ordenado, la bolsita de Susana, "Retirado ✓", el flotador: "¿Me encargás este?" · "Dejame tu
 // número." · "Ya lo tenés." · "Nuevo encargo · Susana · Flotador ✓" · Gustavo se ríe
-T.q5 = r2(T.q4 + 2.5); T.daBolsa = r2(T.q5 + 0.55); T.retirado = r2(T.daBolsa + 0.3); T.levantaQ = r2(T.daBolsa + 0.6);
+T.q5 = r2(T.q4 + 2.25); T.daBolsa = r2(T.q5 + 0.45); T.retirado = r2(T.daBolsa + 0.3); T.levantaQ = r2(T.daBolsa + 0.6);
 T.s8b = r2(T.levantaQ + 0.15); T.g3d = r2(T.s8b + LEN.s8 + 0.15); T.s11 = r2(T.g3d + LEN.g3 + 0.15); T.nuevo = r2(T.s11 + LEN.s11 * 0.5);
 // C · Gustavo a cámara: "Comentá ENCARGO y te mando cómo funciona para tu ferretería."
-T.c = r2(T.s11 + LEN.s11 + 0.4); T.g12 = r2(T.c + 0.12); T.palabra = r2(T.g12 + 0.4);
-const DUR = Math.ceil((Math.ceil((T.g12 + LEN.g12 + 0.3) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
+T.c = r2(T.s11 + LEN.s11 + 0.5); T.g12 = r2(T.c + 0.05); T.palabra = r2(T.g12 + 0.4);
+const DUR = Math.ceil((Math.ceil((T.g12 + LEN.g12 + 0.15) * 30) / 30) * 1e4) / 1e4;   // múltiplo de un cuadro
 T.cierre = r2(DUR - 1.35);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -258,7 +259,7 @@ const carton = (t) => s("sfx/k-cloth_2.wav", t, 0, { techo: -38, dur: 0.5, fin: 
 // ambiente: el zumbido de los tubos, un murmullo de ferretería (llaves lejos)
 s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -48, lp: 700 });
 s("sfx/llaves.wav", 2.6, 0, { techo: -47, dur: 1.4, fin: 0.4, lp: 3000 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.g6 - 0.7, T.p5, 0.85]] });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.g6 - 0.7, T.p5, 0.85], [T.t4 + LEN.t4 + 0.55, T.s5 - 0.6, -2.0]] });   // (r1) la cama sube ~7 dB en el martes (sin voz)
 // P1 · la bolsita de nylon; el calibre; "Ese no me queda…"
 nylon(0.08, -38); voz("s1", T.s1, -1);
 nylon(T.agarra - 0.05, -40); s("sfx/k-metal-click.wav", T.agarra + 0.3, 0, { techo: -38 });
@@ -283,6 +284,7 @@ cajonM(T.saca - 0.05, -35); s("sfx/madera-tabla.wav", T.saca + 0.42, 0, { techo:
 voz("g6", T.g6, -1);
 // P5 · "Ya lo compré.", el rótulo, la bolsita del flotador, "¿Me encargás este?", el papel, "Dejame tu número.", stinger
 voz("s7", T.s7, -1); pop(T.rot2, -42);
+s("sfx/bsb-cajon-madera.wav", T.cierra - 0.05, 0, { techo: -33, desde: 0.5, dur: 0.5, fin: 0.12, forzar: true }); s("sfx/madera-golpe.wav", T.cierra + 0.12, 0, { techo: -31, dur: 0.4, fin: 0.1, forzar: true });
 nylon(T.levanta - 0.1, -39); voz("s8", T.s8, -1);
 rasga(T.arranca2, -36, 1); voz("g3", T.g3b, -1);
 // ---- cartel ----
@@ -293,12 +295,13 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34, duck: [[T.q3t + 0.1, T.k, -0.6], [T.q4, T.q5, -0.6]] });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34, duck: [[T.t4b + LEN.t4 + 0.55, T.s10 - 0.6, -2.0], [T.s10 + LEN.s10 + 0.55, T.s8b - 0.6, -2.0]] });   // (r1) sube ~7 dB en los tramos sin voz
 s("sfx/zumbido-largo.wav", P2, 0, { loop: true, desde: 3, dur: r2(T.k - P2), fi: 0.1, fin: 0.3, techo: -49, lp: 700 });
 s("sfx/zumbido-largo.wav", T.q4, 0, { loop: true, desde: 6, dur: r2(DUR - T.q4), fi: 0.2, fin: 0.5, techo: -49, lp: 700 });
 // Q1 · el mismo audio de Susana; el calibre; el toque en la tablet; el tipeo; "Guardar ✓"; el celular de Susana
 nylon(P2 + 0.05, -40); voz("s1", T.s1b, -1);
 nylon(T.agarraB - 0.05, -41); s("sfx/k-metal-click.wav", T.agarraB + 0.3, 0, { techo: -38 });
+tic(P2 + 0.05, -38); pop(T.q1t + 0.3, -38); pop(T.q3t + 0.4, -38); pop(T.q4 + 0.6, -38);
 toque(T.toca, -38); s("sfx/whoosh-short.mp3", T.q1t - 0.04, 0, { techo: -45 });
 voz("g3", T.g3c, -1);
 for (let i = 0; i < 8; i++) tecla(T.campos[0] + 0.05 + i * 0.13, -43);
@@ -335,14 +338,15 @@ pop(T.palabra + 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz, los SFX +6 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.p3, T.p4) || en(t0, T.insCuc[0], T.da + 0.3) || en(t0, T.q3, T.k + 0.6) || en(t0, T.q4, T.q5)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
+  if (en(t0, T.t4 + LEN.t4 + 0.45, T.s5 - 0.3) || en(t0, T.t4b + LEN.t4 + 0.45, T.s10 - 0.3) || en(t0, T.s10 + LEN.s10 + 0.45, T.s8b - 0.3)) o.techo = -31; }   // (r1) sin voz: cada efecto al techo
 // los SFX que arrancan en los 0,45 s después de que termina una voz no tapan la cola (ventana de 400 ms)
 { const fines = S.filter((x) => x[3].voz).map((x) => x[1] + LEN[x[0].includes("narrador") ? "nar" : x[0].slice(6, -4)]);
-  for (const x of S) { if (x[3].voz || x[0].startsWith("bgm/")) continue; if (fines.some((f) => x[1] >= f - 0.05 && x[1] < f + 0.45)) x[3].techo = Math.min(x[3].techo ?? TECHO, -40); } }
+  for (const x of S) { if (x[3].voz || x[0].startsWith("bgm/")) continue; if (!x[3].forzar && fines.some((f) => x[1] >= f - 0.05 && x[1] < f + 0.45)) x[3].techo = Math.min(x[3].techo ?? TECHO, -40); } }
 // la música: duck debajo de cada voz para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.4])]; }
 function en(t, a, b) { return t >= a && t < b; }
 
+for (const x of S) if (!(x[1] >= 0) || JSON.stringify(x).includes("null")) console.error("NEGATIVO", JSON.stringify(x));
 // SFX: el archivo que no existe en assets falla acá, no en el render
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);
 
