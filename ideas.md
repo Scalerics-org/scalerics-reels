@@ -272,6 +272,7 @@
 - 19-11 · `resto-reservas` · Restaurantes y parrillas · Agente de IA (toma las reservas por WhatsApp a cualquier hora con las mesas reales, pide confirmación el día antes, si no confirman libera la mesa y se la ofrece a la lista de espera; los grupos grandes se los pasa al dueño) · Línea "ANTES QUE TODO", completo con Raúl, dueño de parrilla: "¿Tenés mesa?" → "No, Walter. Esa es de Pablo." y los de las diez "siguen llegando"; cartel "Un agente de IA más tarde…"; la mesa 7 se libera sola y Walter entra: "Llegaron." · Comentá RESERVA · 40,4 s · 5 rondas de revisión · render ~40 min (SwiftShader) · [formato completo con personajes · estilo 3D parrilla navy con interfaz recreada]
 
 ## En curso
+<!-- corrida-activa: 2026-11-19T06:10 -->
 
 
 
