@@ -271,7 +271,7 @@
 - 18-11 · `taller-esta-pronto` · Talleres mecánicos · Automatización (aviso solo del estado del auto por WhatsApp: Recibido · En diagnóstico · Esperando repuesto · Pronto para retirar, con foto; el extra con foto y precio se aprueba con un botón; panel "Autos en el taller") · Línea "ANTES QUE TODO", completo con Óscar (dueño del taller, Charon), Maxi (Puck), Graciela y Daniel: "¿Está pronto?" 24 veces en dos días, el auto de Daniel clavado en el elevador; cartel "Un aviso automático más tarde…"; cierre "Comentá PRONTO" · 42,1 s, 5 rondas de revisión + QA de arte final sobre el render sin altos (medios anotados: plano casi vacío del auto en 12,8 s y cuadro 0 con Óscar acostado) · render 33 min · [formato completo con personajes · estilo 3D taller navy con interfaz recreada] · mp4 en rama reel/taller-esta-pronto
 
 ## En curso
-<!-- corrida-activa: 2026-11-19T03:10 -->
+<!-- corrida-activa: 2026-11-19T03:57 -->
 - 18-11 · `resto-reservas` · Restaurantes y parrillas · Agente de IA (toma las reservas por WhatsApp a cualquier hora con las mesas reales, confirma el día antes y libera la mesa si no confirman) · Línea "ANTES QUE TODO", completo con dueño o dueña de restaurante: "¿Tenés mesa?" · Comentá RESERVA · (corrida 07:12 UTC) · 3 rondas de revisión: sonido y guion OK; arte r3 con 1 alto (copa de Walter sobre la cara de Fabián en 'Llegaron.') en corrección ronda 4; avance en rama reel/resto-reservas
 
 
