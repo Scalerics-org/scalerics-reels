@@ -1,5 +1,5 @@
 {
- "t": 12.3,
+ "t": 13.9,
  "chica": "Tres semanas después.",
  "grande": "¿Llegó lo mío?",
  "sello": "FERRETERÍAS",
@@ -9,5 +9,6 @@
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio.png"
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "cam": "-0.62,1.7,1.95,-0.96,0.98,-0.3,50 (prev2, t 13.9, LIMPIO=1)"
 }

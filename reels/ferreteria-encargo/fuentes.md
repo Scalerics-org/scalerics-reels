@@ -51,3 +51,14 @@ Vindemiatrix (nueva para este personaje), narrador del cartel = Rasalgethi (audi
 Los que se reusan vienen de `reels/corralon-portland/assets/sfx` y `reels/resto-reservas/assets/sfx` (`birome.wav`,
 BigSoundBank CC0) con su crédito en los `fuentes.md` de esos reels. Los nuevos (papel contra la cuchilla, cinta adhesiva,
 tornillos en papel) los agrega el constructor acá: autor, sitio y licencia CC0. Nada sintetizado con ffmpeg.
+
+Nuevos en este reel (todos BigSoundBank, Joseph Sardin, licencia CC0 1.0; bajados en mp3 y recortados/pasados a .wav sin
+procesar el sonido):
+- `assets/sfx/bsb-cinta.wav` (la cinta que pega y despega el papelito; 0-0,75 s): "Adhesive tape #2" (#0298), https://bigsoundbank.com/adhesive-tape-2-s0298.html
+- `assets/sfx/bsb-rasga.wav` (el papel contra la cuchilla dentada): "Torn paper #2" (#3239), https://bigsoundbank.com/torn-paper-2-s3239.html
+- `assets/sfx/bsb-rasga2.wav` (el segundo pedazo, P5 y Q2): "Torn paper #3" (#3240), https://bigsoundbank.com/torn-paper-3-s3240.html
+- `assets/sfx/bsb-cajon-madera.wav` (el cajón ENCARGOS): "Wooden drawer opening" (#1499), https://bigsoundbank.com/wooden-drawer-opening-s1499.html
+- `assets/sfx/bsb-cajoncito.wav` (el cajoncito metálico del "8"; 0-1,15 s): "Metal drawers #1" (#0792), https://bigsoundbank.com/metal-drawers-1-s0792.html
+- `assets/sfx/bsb-clavo.wav` (los tornillos que caen; 0,72-1,95 s): "Nail falling on tiles" (#0461), https://bigsoundbank.com/clou-qui-tombe-sur-carrelage-s0461.html
+- `assets/sfx/papel.wav` (el papel que se dobla en cucurucho): "Paper slide", Kingofgamers_cz, Freesound, CC0 1.0, https://freesound.org/people/Kingofgamers_cz/sounds/352914/
+- `assets/sfx/gota.wav` (la canilla que gotea): "Drops of water #1" (#1384), BigSoundBank, CC0 1.0 (de reels/taller-presupuestos).
