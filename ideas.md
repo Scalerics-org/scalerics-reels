@@ -273,6 +273,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-19T06:10 -->
+- 19-11 · `ferreteria-encargo` · Ferreterías y corralones · Automatización + registro de encargos (cada encargo con nombre y celular; cuando entra la mercadería, aviso automático por WhatsApp "llegó lo tuyo"; panel de encargos pendientes) · "¿Llegó lo mío?": el encargo anotado en un papelito que se pierde, el cliente lo compró en otro lado y la pieza queda en el estante · Comentá ENCARGO · en curso (corrida 06:10 UTC)
+- 19-11 · `estetica-sesiones` · Centros de estética · Sistema a medida / ficha de clienta con paquetes de sesiones (cuántas le quedan, se descuentan solas, la clienta lo ve en el celular, aviso para renovar) · "¿Cuántas me quedan?": el paquete de 10 anotado en el cuaderno y la tarjetita, nadie sabe si van 7 u 8, sesiones regaladas · Comentá SESIONES · en curso (corrida 06:10 UTC)
 
 
 
