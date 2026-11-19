@@ -192,3 +192,9 @@ Ver la lista en el reporte final de abajo (sección "Pasadas").
 - Portada: vinilo de la puerta oculto en VER=portada, zoom 1,04, sello_top 250px: PARRILLAS a ~130 px de la cabeza de
   Raúl, su oreja a ~65 px del borde.
 - Duración 40,4 s (sin cambios). medir.py: mínimo voz-resto 7,4 LU. check: 0 errores.
+
+## Ronda 5 (QA final sobre el render, corrida 19-11)
+- QA independiente del MP4 final: 0 altos. Media: en Q4 (33-34,5 s) la cabeza de Fabián (de espaldas) tapaba media cara
+  de Raúl. Fabián corrido de x 0.08 a 0.4 en la parte 2: queda de perfil entre Raúl y el padre, Raúl limpio.
+- Bajas que quedan: anteojos de la abuela anchos, chicos del fondo apilados, guía de "Mesa de 8 vacía" cruza el torso de
+  Raúl, textos chicos del encabezado del chat (~32 px).

@@ -1310,7 +1310,7 @@ function poseFabian(t) {
     ]);
   } else {
     p = poseEn(t, [
-      [0, { x: 0.08, z: -1.05, giro: giroA(0.08, -1.05, RAUL0.x, RAUL0.z) + 1.5, ...aC(-0.3, 0.0), ...CARA.sonrisa, manoD: [-0.3, 0.12, 0.08], codoD: [-1, -0.3, 0], manoI: [0.29, -0.08, 0.04] }],
+      [0, { x: 0.4, z: -1.05, giro: giroA(0.4, -1.05, RAUL0.x, RAUL0.z) + 1.5, ...aC(-0.3, 0.0), ...CARA.sonrisa, manoD: [-0.3, 0.12, 0.08], codoD: [-1, -0.3, 0], manoI: [0.29, -0.08, 0.04] }],
       [T.q5, { x: F_MESA.x, z: F_MESA.z, giro: 0, inclina: 0.2, ...aC(0, 0.35), ...CARA.sonrisa, manoD: [-0.18, 0.2, 0.5], manoI: [0.22, 0.12, 0.5], codoD: [-0.8, -0.6, 0], codoI: [0.8, -0.6, 0] }, 0.01],
       [T.q5 + 0.5, { manoD: [-0.1, 0.35, 0.42], inclina: 0.1, ...aC(-0.3, 0.1) }, 0.25],
       [T.r8 + 0.2, { ...aC(-0.4, 0.05), ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.3 }, manoI: [0.18, 0.38, 0.45], codoI: [0.8, -0.6, 0] }, 0.2],
