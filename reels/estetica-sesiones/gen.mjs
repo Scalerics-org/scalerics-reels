@@ -39,19 +39,19 @@ T.extiende = [r2(T.c2 + 1.0), r2(T.c2 + 1.5)];
 // P3b · inserto de la tarjetita (7 sellos, 3 vacíos) · rótulo
 T.p3b = r2(T.c2 + LEN.c2 + 0.02); T.rotT = r2(T.p3b + 0.18);
 // P4 · la pausa muda (plano general): Lorena mira a Vale · Vale señala el post-it · rótulo · los tres rótulos juntos
-T.p4 = r2(T.p3b + 0.8); T.mira = r2(T.p4 + 0.15); T.senala = [r2(T.p4 + 0.3), r2(T.p4 + 0.6)];
+T.p4 = r2(T.p3b + 0.7);   /* (r2) -0,1 */ T.mira = r2(T.p4 + 0.15); T.senala = [r2(T.p4 + 0.3), r2(T.p4 + 0.6)];
 // (r1) P4b · el post-it de cerca (8 palitos) con su rótulo; vuelve el general con los tres rótulos
-T.p4b = r2(T.p4 + 0.62); T.rotP = r2(T.p4b + 0.15); T.p4c = r2(T.p4b + 0.75); T.tres3 = r2(T.p4c + 0.08);
+T.p4b = r2(T.p4 + 0.62); T.rotP = r2(T.p4b + 0.15); T.p4c = r2(T.p4b + 0.7); T.tres3 = r2(T.p4c + 0.08);
 // P5 · primer plano de Lorena: "Hagamos el promedio." · contraplano de Carolina: "¿Y cuánto da?" · Lorena cierra el
 // cuaderno · pausa · "Tres." · los rótulos del promedio y de la plata
-T.p5 = r2(T.p4c + 0.55); T.l3 = r2(T.p5 + 0.12);
-T.p5b = r2(T.l3 + LEN.l3 + 0.08); T.c3 = r2(T.p5b + 0.06);
+T.p5 = r2(T.p4c + 0.55); T.l3 = r2(T.p5 + 0.16);
+T.p5b = r2(T.l3 + LEN.l3 + 0.25);   /* (r2) aire antes de "¿Y cuánto da?" */ T.c3 = r2(T.p5b + 0.06);
 T.p5c = r2(T.c3 + LEN.c3 + 0.04); T.cierra = [r2(T.p5c + 0.05), r2(T.p5c + 0.4)]; T.l4 = r2(T.c3 + LEN.c3 + 0.62);
-T.rotProm = r2(T.l4 + LEN.l4 + 0.05); T.rotPlata = r2(T.rotProm + 0.3);
+T.rotProm = r2(T.l4 + LEN.l4 + 0.05); T.rotPlata = r2(T.rotProm + 0.85);   // (r2) que se lea el primero antes del de la plata
 // P6 · remate del remate: "Vale, ¿y la de Jimena?" · Vale se levanta y gira el equipo: el costado de post-its · rótulo
-T.p6 = r2(T.rotPlata + 0.7); T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];   // (r1) -0,25 s
+T.p6 = r2(T.rotPlata + 1.05); /* (r2) ~2 s en el plano después de "Tres." */ T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];   // (r1) -0,25 s
 T.gira = [r2(T.l5 + LEN.l5 - 0.15), r2(T.l5 + LEN.l5 + 0.45)]; T.rotPost = r2(T.gira[1] + 0.05);
-const P1 = r2(T.rotPost + 0.75);    // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.rotPost + 1.5);    // (r2) el rótulo de los 6 paquetes ~1,5 s    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el mismo encuadre del cuadro 0: Vale toca "Asistió" en su tablet · inserto de la ficha (el 7.º círculo, "Te quedan:
@@ -74,10 +74,10 @@ T.q3i = r2(T.q3 + 0.45); T.renovar = r2(T.q3i + 0.85); T.confirmar = r2(T.q3i + 
 T.q3b = r2(T.q3i + 2.25); T.sacaT = [r2(T.q3b + 0.0), r2(T.q3b + 0.4)]; T.c5 = r2(T.q3b + 0.35);
 T.cajon = [r2(T.c5 + LEN.c5 - 0.2), r2(T.c5 + LEN.c5 + 0.1)]; T.guarda = [r2(T.cajon[1]), r2(T.cajon[1] + 0.3)]; T.cierraCajon = [r2(T.guarda[1] + 0.02), r2(T.guarda[1] + 0.3)];
 // Q4 · la recepción: el panel "Paquetes" en la tablet del atril (las filas de a una, el 0 grande al final)
-T.q4 = r2(T.cierraCajon[1] + 0.15); T.filas = [0, 1, 2, 3].map((i) => r2(T.q4 - 0.05)); T.cero = r2(T.q4 + 1.1); /* (r1) entra con las filas ya cargando */
+T.q4 = r2(T.cierraCajon[1] + 0.15); T.filas = [0, 1, 2, 3].map((i) => r2(T.q4 - 0.05)); T.cero = r2(T.q4 + 1.0); /* (r1) entra con las filas ya cargando */
 // C · Lorena a cámara: "Comentá SESIONES…" · la tarjeta entra en "SESIONES" · la línea chica el último tramo
-T.c = r2(T.q4 + 2.25); T.l7 = r2(T.c + 0.15); T.palabra = r2(T.l7 + 0.32);
-const DUR = Math.ceil((Math.ceil((T.l7 + LEN.l7 + 0.15) * 30) / 30) * 1e4) / 1e4;   // (r1) cola corta: la tarjeta ≤ 3,2 s   // múltiplo de un cuadro
+T.c = r2(T.q4 + 2.0);   /* (r2) -0,25 */ T.l7 = r2(T.c + 0.15); T.palabra = r2(T.l7 + 0.32);
+const DUR = Math.ceil((Math.ceil((T.l7 + LEN.l7 + 0.45) * 30) / 30) * 1e4) / 1e4;   // (r2) +0,3 s de cola con la música que se apaga   // (r1) cola corta: la tarjeta ≤ 3,2 s   // múltiplo de un cuadro
 T.cierre = r2(T.palabra + 0.9);   // (r1) la línea chica llena la franja de abajo antes
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -225,7 +225,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
 // C · la tarjeta de cierre abajo de la cara de Lorena: "Comentá" / SESIONES (recuadro verde) / "y te mando cómo funciona
 // para tu centro de estética"; entra en la palabra "SESIONES" y queda hasta el final
 {
-  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra + 0.05);
+  const id = "s05-palabra", ini = T.c, dur = r2(DUR - T.c + 0.05);   // (r2) desde el primer cuadro de C
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -238,7 +238,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
     P .c { margin-top: 18px; font: 700 48px/1.2 "Lexend", sans-serif; color: ${NAVY}; letter-spacing: -0.01em; }`,
     html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>SESIONES</em></span></div><div class="c">y te mando cómo funciona<br>para tu centro de estética</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 80 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
-      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.08, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.4);`,
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.08, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(T.palabra - T.c)});`,
   });
 }
 // la línea chica final (abajo de la tarjeta, nunca sobre la cara): qué es y la web
@@ -250,7 +250,7 @@ for (const [id, ini0, fin, txt] of CHIPS) {
     P .caja { position: absolute; left: 60px; right: 60px; top: 1680px; padding: 16px 26px 20px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.2 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">La ficha de cada clienta con su</div><div class="a">paquete, que se descuenta sola</div><div class="b">scalerics.com</div></div>`,
+    html: `      <div class="caja"><div class="a">La ficha de cada clienta:</div><div class="a">cada sesión se descuenta sola</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { y: 420 }, { y: 0, duration: 0.28, ease: "back.out(1.4)", immediateRender: true }, 0.0);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: true }, 0.25);`,
   });
@@ -282,22 +282,22 @@ const amb = (f, a, b, techo, o = {}) => s(f, a, 0, { loop: true, dur: r2(b - a),
 // el zumbido del equipo láser (bajito, pasabajos) y la cama spa (el pizzicato de siempre, bajo); en la pausa muda la
 // música baja (no se corta) y queda el zumbido
 amb("sfx/zumbido-largo.wav", 0, P1 + 0.05, -46, { fi: 0.05, lp: 900 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.02), fin: 0.1, techo: -37, duck: [[T.p4 - 0.1, T.p5 + 0.1, 0.75]] });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.02), fin: 0.1, techo: -37, duck: [[T.p4 - 0.1, T.p5 + 0.1, 0.4], [T.l5 + LEN.l5, T.l5 + LEN.l5 + 1.0, 0.45]] });   // (r2) y un rato más después de "¿y la de Jimena?" (la cola de la voz)   // (r2) la pausa muda ya no cae a -30
 // P1 · los dos pips del cabezal, "Lore, ¿cuántas me quedan?", el cuaderno que se abre y las hojas, "Dejame ver."
-pip(T.pips[0], -40); pip(T.pips[1], -41);
+pip(T.pips[0], -31); pip(T.pips[1], -32);   // (r2) se oyen bajo la voz
 voz("c1", T.c1, -1);
-s("sfx/k-book_flip_2.wav", T.hojea[0], 0, { techo: -38, dur: 0.4, fin: 0.1 }); hoja(T.hojea[0] + 0.25, -39, 1); s("sfx/k-page-turn.wav", T.hojea[1] - 0.15, 0, { techo: -40, dur: 0.3, fin: 0.08 });
+s("sfx/k-book_flip_2.wav", T.hojea[0], 0, { techo: -32, dur: 0.4, fin: 0.1 }); hoja(T.hojea[0] + 0.25, -33, 1); s("sfx/k-page-turn.wav", T.hojea[1] - 0.15, 0, { techo: -33, dur: 0.3, fin: 0.08 });
 voz("l1", T.l1, -1);
 // P2 · el cuaderno: whoosh, la birome que cuenta (tic tic), el rótulo, "Según el cuaderno, una."
 whoosh(T.p2 - 0.04, -46);
-for (let i = 0; i < 4; i++) tic(T.cuenta[0] + 0.05 + i * 0.12, -45, i);
+// (r2) sin los tics de birome: en el inserto no hay birome
 pop(T.rotC, -40);
 whoosh(T.p4b - 0.03, -48); pop(T.rotP, -41); whoosh(T.p4c - 0.03, -50);
 voz("l2", T.l2, -1);
 // P3 · el cierre de la cartera, la tarjetita, "¿Una? Acá tengo siete sellos.", el inserto y su rótulo
 s("sfx/bsb-cierre.wav", T.cartera - 0.3, 0, { techo: -44, dur: 0.45, fin: 0.15 });   // (r1) antes y más bajo: tapaba "¿Una?"
 voz("c2", T.c2, -1);
-s("sfx/papel.wav", T.extiende[0], 0, { techo: -41, dur: 0.35, fin: 0.1 }); tela(T.saca[0] + 0.3, -42, 2);
+s("sfx/papel.wav", T.extiende[0], 0, { techo: -32, dur: 0.35, fin: 0.1 }); tela(T.saca[0] + 0.3, -33, 2);
 whoosh(T.p3b - 0.04, -49); pop(T.rotT + 0.05, -40);
 // P4 · la pausa muda: el zumbido del equipo, un pop chico por rótulo, nada encima
 s("sfx/zumbido.wav", T.p4, 0, { dur: r2(T.p5 - T.p4 + 0.2), fi: 0.15, fin: 0.2, techo: -41, lp: 900 });
@@ -310,10 +310,10 @@ voz("l4", T.l4, -1);
 pop(T.rotProm + 0.04, -41); pop(T.rotPlata + 0.04, -40);
 // P6 · "Vale, ¿y la de Jimena?", Vale se levanta (tela, banquito), las ruedas del equipo, los post-its que aletean, stinger
 voz("l5", T.l5, -1);
-tela(T.levanta[0], -41, 2); s("sfx/k-plastico.wav", T.levanta[1] - 0.1, 0, { techo: -44 });
-s("sfx/bsb-rueditas.wav", T.gira[0] + 0.1, 0, { desde: 7.6, dur: r2(T.gira[1] - T.gira[0]), fi: 0.08, fin: 0.15, techo: -42 });
-s("sfx/papel.wav", T.gira[1] - 0.05, 0, { techo: -40, dur: 0.45, fin: 0.12, vel: 1.2 });
-s("sfx/madera-golpe.wav", T.rotPost, 0, { techo: -36, dur: 0.4, fin: 0.1 }); pop(T.rotPost + 0.05, -42);   // (r1) el acento de la revelación
+tela(T.levanta[0], -33, 2); s("sfx/k-plastico.wav", T.levanta[1] - 0.1, 0, { techo: -32 });
+s("sfx/bsb-rueditas.wav", T.gira[0] + 0.1, 0, { desde: 7.6, dur: r2(T.gira[1] - T.gira[0]), fi: 0.08, fin: 0.15, techo: -44 });
+s("sfx/papel.wav", T.gira[1] - 0.05, 0, { techo: -43, dur: 0.45, fin: 0.12, vel: 1.2 });
+s("sfx/madera-golpe.wav", T.gira[0] + 0.42, 0, { techo: -40, dur: 0.4, fin: 0.1 }); pop(T.rotPost + 0.05, -45);   // (r2) el golpe cuando aparece el costado, no después   // (r1) el acento de la revelación
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -41, dur: 0.6, fin: 0.25 });
@@ -352,7 +352,7 @@ tic(T.q4 + 0.02, -40, 0); ding(T.cero, -35); pop(T.cero + 0.02, -40);
 // C · Lorena a cámara: el pop de SESIONES y de la línea chica
 s("sfx/whoosh-short.mp3", T.c - 0.05, 0, { techo: -45 });
 voz("l7", T.l7, -1);
-pop(T.palabra + 0.02, -39);
+pop(T.c + 0.02, -39); pop(T.palabra + 0.02, -44);
 pop(T.cierre + 0.05, -44);
 // en los tramos sin voz (la demo de la interfaz) los SFX +4 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.loop || f.startsWith("bgm/")) continue;

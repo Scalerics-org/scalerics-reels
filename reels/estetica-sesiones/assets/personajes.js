@@ -89,7 +89,7 @@ export const ELENCO = {
   // chaqueta de estética navy con franja verde); Vale, la cosmetóloga (~25, coleta alta negra, ambo verde de marca);
   // Carolina, la clienta (~32, rubia de coleta baja, campera corta crema con cuello navy); Jimena y Mariana, clientas que
   // solo salen como avatar (que no se parezcan a las otras tres).
-  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "melena", cejasColor: 0x6a3f27,   /* (r2 11:11) cerca del pelo: donde la ceja asoma por el flequillo no queda una mota oscura */ cejaFina: true,
+  lorena: { nombre: "Lorena", piel: PIEL.trigueña, pelo: 0x7a4a2e, peinado: "melena", frenteLibre: true, cejasColor: 0x6a3f27,   /* (r2 11:11) cerca del pelo: donde la ceja asoma por el flequillo no queda una mota oscura */ cejaFina: true,
     pestanas: 0x1a1414, cuelloFino: true, camisa: MARCA.navy3, mangas: "largas", cuello: null, cuelloBotones: false, franja: MARCA.g, cuelloAlto: 0.08,
     labiosPegados: true, pantalon: MARCA.navy, zapatos: MARCA.cr, panza: 1.02, nariz: 0.05, mejillas: 0xd98a7a, labios: 0xa8484f,
     aros: MARCA.cr, alto: 0.98 },
@@ -525,12 +525,14 @@ export function crearPersonaje(cfg) {
       cort.geometry.computeVertexNormals(); }
     // (r2 11:11) el casquete: el borde de adelante ya no es una recta (losa): sube un poco (deja ver las cejas) y baja en
     // puntas desparejas de flequillo; vetas de color como la cortina
-    { const cap = cabeza.children[cabeza.children.length - 2]; cap.rotation.x = -0.02; const g = cap.geometry, ps = g.attributes.position, col = [];
+    // (estetica-sesiones r2) la frente libre: el casquete inclinado hacia atrás (el borde de adelante queda por encima de
+    // las cejas, también levantadas) y las puntas del flequillo cortas; antes bajaba hasta la mitad de los ojos
+    { const cap = cabeza.children[cabeza.children.length - 2]; cap.rotation.x = c.frenteLibre ? -0.46 : -0.02; const g = cap.geometry, ps = g.attributes.position, col = [];
       for (let i = 0; i < ps.count; i++) {
         let x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i); const phi = Math.atan2(x, z), lat = Math.max(0, 1 - y);
         const k0 = 0.02 * lat, k = surco(phi + 0.3, k0);
         const frente = Math.max(0, Math.cos(phi)) ** 2, borde = Math.max(0, (0.25 - y) / 0.25);
-        if (frente > 0 && borde > 0) y -= borde * frente * 0.16 * Math.pow(0.5 + 0.5 * Math.sin(phi * 11 + 0.6 + 0.7 * Math.sin(phi * 3)), 1.5);
+        if (frente > 0 && borde > 0) y -= borde * frente * (c.frenteLibre ? 0.07 : 0.16) * Math.pow(0.5 + 0.5 * Math.sin(phi * 11 + 0.6 + 0.7 * Math.sin(phi * 3)), 1.5);
         ps.setXYZ(i, x * k, y, z * k); col.push(...veta(Math.max(k0, 0.004) * 0.8, k));
       }
       g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); cap.material = pm.clone(); cap.material.color.set(0xffffff); cap.material.vertexColors = true;
@@ -542,7 +544,7 @@ export function crearPersonaje(cfg) {
       const cola = mesh(G.esfera, pm, 0, CC + R * 0.12, -R * 1.1, 0.075, 0.15, 0.05); cola.rotation.x = -0.25; cabeza.add(cola);
     }
     // flequillo de costado (barre la frente hacia la derecha del personaje, alto: no tapa los ojos)
-    for (const [az, el, sx, sy, rz] of [[-0.45, 0.72, 0.15, 0.055, 0.5], [-0.1, 0.78, 0.17, 0.06, 0.3], [0.25, 0.76, 0.15, 0.055, 0.25], [0.6, 0.62, 0.11, 0.05, 0.6]]) { const m = mesh(G.esfera, pm, 0, 0, 0, sx, sy, 0.07); sobre(m, az, el, 1.04); m.rotation.z += rz; cabeza.add(m); }
+    for (const [az, el, sx, sy, rz] of [[-0.45, 0.72, 0.15, 0.055, 0.5], [-0.1, 0.78, 0.17, 0.06, 0.3], [0.25, 0.76, 0.15, 0.055, 0.25], [0.6, 0.62, 0.11, 0.05, 0.6]]) { const m = mesh(G.esfera, pm, 0, 0, 0, sx, sy, 0.07); sobre(m, az, el + (c.frenteLibre ? 0.12 : 0), 1.04); m.rotation.z += rz; cabeza.add(m); }
     // las puntas a los costados de la cara, delante de la oreja hasta la mandíbula
     for (const sg of [-1, 1]) { const m = mesh(G.esfera, pm, 0, 0, 0, 0.05, 0.2, 0.06); sobre(m, sg * 1.18, -0.25, 1.03); m.rotation.z += sg * 0.12; cabeza.add(m); }
   } else if (c.peinado === "jopo") {

@@ -117,3 +117,54 @@ chica 40,73; cola 0,15 s después de la voz (tarjeta 3,17 s).
 - B19 portada rehecha: fondo LIMPIO de P4c (9,9 s) más abierto (cam en portada.json): Vale, Carolina y Lorena enteras arriba;
   la coma de "JUEVES, 18:00." sobre el fondo oscuro.
 - No hecho: el "pelo tipo casquete" de Lorena (es el peinado "melena" de personajes.js, el mismo de estetica-turnos).
+
+## Ronda 2 de corrección (3 revisores, 24-11)
+**44,77 s.** Parte 1 0-19,22 · cartel 19,22-21,58 · parte 2 21,58-44,77 = 23,2 s (52 %). Beats: P2 2,90 · P3 4,72 ·
+P3b 7,28 · P4 7,98 · P4b 8,60 · P4c 9,30 · P5 9,85 · P5b 11,47 · P5c 12,47 ("Tres." 13,05; rótulo promedio 13,68; plata
+14,53) · P6 15,58 (giro 17,07-17,67; rótulo 17,72) · Q1f 22,08 · Q1b 23,33 · Q1c 25,24 · Q1d 26,54 · Q1e 27,92 · Q2 29,66 ·
+Q2i 31,42 · Q2b 32,47 · Q3 33,70 · Q3i 34,15 · Q3b 36,40 · Q4 38,82 · C 40,82 (tarjeta desde 40,82; SESIONES 41,29; línea
+chica 42,19; cola 0,45 s).
+Arreglado:
+- A-1 (la cara de Lorena): en `assets/personajes.js` (copia propia) opción nueva `frenteLibre` (solo Lorena, la única con
+  "melena"): el casquete inclinado hacia atrás (rotación x -0,46 en vez de -0,02: el borde de adelante queda por encima de
+  las cejas levantadas), las puntas del flequillo del borde más cortas (0,07 en vez de 0,16) y las mechas del flequillo
+  +0,12 rad más arriba. Frente, cejas, pestañas y ojos enteros, sin astillas de blanco ni motas en la sien; mirada de
+  frente y de 3/4 en P5, P5c, Q1e y C.
+- A-1 cierre / A-7 / A-8: en C Lorena de frente a cámara (giro π-0,05, cabeza y ojos al frente: la boca ya no se tuerce),
+  las dos manos debajo del mostrador (los dedos lo atravesaban), cámara x 0,02 fov 55 y la tablet del atril a x 0,27
+  (cara y panel enteros); Q4 recentrado en la tablet.
+- A-2: la mesita a x 30,76 y el cajón sale 0,2 (no 0,32): queda enganchado en la mesita y no cruza la pierna; la mano
+  de Carolina va encima del cajón y la tarjetita cae desde los dedos.
+- A-3: en Q2b la tablet quedó sobre el banquito; Vale de 3/4 (giro 1,15) despega el post-it con la izquierda (el equipo le
+  queda a la izquierda), hace el bollito delante del pecho (más grande, ×1,6-2,2) y lo tira al tacho que tiene adelante;
+  cámara nueva más abierta y baja (tacho, banquito y tiro en cuadro).
+- A-4: el globo de "Vale, ¿y la de Jimena?" en Q2 a y 440 (debajo del chip de la hora).
+- A-5: P4/P4c mira a x -0,36 con fov 64 (Lorena entera a la derecha); P6 termina en P6C(0,52) (Vale entera).
+- A-6: la tarjeta "Comentá SESIONES" desde el primer cuadro de C (pop de SESIONES en la palabra).
+- A-9: Q3 y Q3b más cerca y más bajos (menos piso; Carolina y la mesita llenan).
+- A-10: P1 (y Q1) mira a y 1,2 (menos piso abajo); la lámpara lupa fuera de la fusión y sin sombra (era la sombra grande).
+- A-11: P3 mira a y 1,45 (el globo queda arriba de la cabeza, sin tapar las gafas); la tarjetita más abajo en el puño.
+- A-12: la tarjetita no se dibuja en los primeros planos de Lorena (P5, P5c).
+- A-13: en P2 Lorena (no el cuaderno) va a otra capa: no asoma la manga.
+- A-14: Q1b con la cámara más baja: el reloj queda arriba de la cabeza.
+- A-15: Carolina en el living ya no arranca parpadeando (el parpadeo pasó a Q3b + 0,9).
+- A-16: el mensaje del inserto Q1c llena la pantalla (burbuja de 800 px, textos 64-124 px).
+- A-17: "6 paquetes terminados." / "Nadie les avisó." / "No renovaron." (54 px).
+- A-18: portada regenerada con el fondo limpio nuevo (ver abajo).
+- S-A1: después de "Tres." 2,0 s en el plano: rótulo del promedio (56 px) y 0,85 s después el de la plata (56 px, $ 14.400
+  a 92 px), los dos 1+ s en pantalla. S-M1: el rótulo de los 6 paquetes 1,5 s antes del cartel.
+- S-M2: pips, hojas del cuaderno, papel y tela de la tarjetita y el banquito al techo (-31 a -33): 18-28 LU debajo de la voz
+  (no se puede más sin pasar el techo de -31 por efecto). S-B4: sin los tics de birome en P2.
+- S-B1: "Ah. Tres." se revela palabra por palabra: "Tres." a c4 + 1,18 (cuando se oye).
+- S-B2: el duck de la pausa muda 0,4 (antes 0,75) y la pausa 0,15 s más corta. S-B3: +0,17 s antes de "¿Y cuánto da?".
+- S-B5: el golpe de madera en el giro (gira[0] + 0,42), cuando aparece el costado de los post-its; a -40 y el pop a -45 para
+  que la cola de "¿y la de Jimena?" no quede debajo de 6 LU. S-B6: cola de 0,45 s.
+- G1 línea chica "La ficha de cada clienta: / cada sesión se descuenta sola". G3 en descripcion.txt. G4 "Por terminar ·
+  avisadas". G6 "Con 1 sesión, le llega / el aviso para renovar". G5: Q4 0,25 s más corto (el resto de la parte 1 creció por
+  S-A1 y S-M1).
+- medir.py: mínimo +7,4 LU (l3 arranca 0,04 s después para que su ataque no caiga en el tramo de la pausa). Mezcla -14,1 LUFS,
+  pico -2,5 dBFS.
+No hecho / quedó así:
+- G5: el reel quedó en 44,8 s (+1,8): S-A1 y S-M1 pedían ~2 s más de lectura; se recortó lo que no pisa esos tiempos.
+- El respaldo de la camilla (`resp`) sigue sin agregarse a la escena (el `g.add(resp)` quedó dentro de un comentario en la
+  construcción original); nadie lo marcó y agregarlo ahora cruzaría a Carolina. Para una ronda futura.

@@ -1,6 +1,6 @@
 {
- "t": 9.9,
- "chica": "Jueves, 18:00.",
+ "t": 9.6,
+ "chica": "Jueves 18:00.",
  "grande": "¿Cuántas me quedan?",
  "sello": "ESTÉTICA",
  "acento": "#5ce611",
@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
- "cam": "LIMPIO=1, t 9,9 · cam 0.55,1.75,1.5,-0.33,0.85,-1.9,70 (FULL=1 prev.mjs)"
+ "cam": "LIMPIO=1, t 9,6 · cam 0.38,1.8,1.45,-0.52,0.62,-1.9,70 (FULL=1 prev.mjs)"
 }
