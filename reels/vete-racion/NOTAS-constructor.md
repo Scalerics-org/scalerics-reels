@@ -106,3 +106,39 @@ Duración 42,43 s (42,5 s el MP4) · parte 1 0-18,17 · cartel 18,17-20,82 · pa
 - Bajas: Toto en Q2 a la izquierda (se lee "15 kg" y TOTO), oreja de Toto echado, "Cerrado" con la hora a 60 px y sin la
   línea chica, VETERINARIAS a 120 px, sin parpadeo en "¿Me la anotás?", toque visible en "Repetir pedido" (click) y
   "Envío" se marca con el toque, ficha sin "Próximo aviso", fuentes.md con cada SFX reusado y su reel, portada nueva.
+
+## Ronda 2 (24-11) · render 6 (24,6 min, el entregado)
+- A1 sticker "VETERINARIA INÉS" arriba a la izquierda y más chico (r 50); el perro un poco a la derecha y abajo: se leen
+  cabeza, hocico y oreja en todas las bolsas de Inés y en la portada.
+- M1 `paso10.sh` = loudnorm en dos pasadas LINEAL (LRA 20: con LRA 11 y una mezcla de ~14 LU loudnorm vuelve a dinámico),
+  con el audio tomado de assets/audio/mezcla.wav. `medir-sfx.py <mp4> <stem-voz>` mide los tramos sin voz en el MP4:
+  máximo -31,5. Para eso: el refuerzo de los tramos sin voz pasó a +3 con techo -35, la cama baja en el montaje de meses
+  y en el panel, la bolsa al carro de cada mes a -36. Final: -14,0 LUFS, pico -5,9 dBFS, voz ≥ 6,3 LU sobre el resto.
+- M2 Q3: el plato se calibra contra el hocico a 3 cm del centro (antes el borde): Toto come con el hocico dentro del plato,
+  sin lengua; tres croquetas saltan con el empujón y otras tres se mueven mientras come.
+- M3 Q4 (V4Q): cámara más cerca y más baja, el cartel ENVÍOS DE HOY despegado del borde, Vero, Inés y Toto en cuadro.
+- M4 P3, P4 y P5t con el cartel de la torre entero ("RACIÓN 15 kg · $ 3.900"); P3 con menos piso.
+- M5 P5w desde arriba: el recetario a la vista, la izquierda lo sujeta, la derecha con la lapicera al costado; el tirón
+  (la hoja sube en la mano) en T.arranca - 0,35 con el rasgado (~16,2 s). En el inserto entran la manga verde y la mano.
+- M6 suspiro desde 0,4 s del archivo, 0,5 s con fundido, en T.p5t + 0,02: termina antes del cartel.
+- Bajas: Q1v con Toto entero y Vero incrédula-contenta; notificación -32,5 y el click de "Repetir" -42 (a -38 bajaba la
+  voz de "¿Cómo sabe?" a +5 LU); push-in marcado en el contraplano de Vero (14° de fov hasta la pausa). No regeneré
+  "Bueno, Toto": el STT local oye "toto" en la toma elegida. La marca SCALERICS de la portada la pone la plantilla
+  (bottom 250 px, y≈1656); no se puede mover desde portada.json.
+
+## Ronda 3 (24-11) · renders 7 y 8 (~24 min c/u; el 8 es el entregado)
+- A1 (1,5 s): la bolsa sigue dada vuelta hasta el corte al inserto del celular (1,67); Vero la suelta, saca el celular y
+  Toto levanta la cabeza DURANTE el inserto (sin verse). Después la bolsa vacía queda apoyada contra la mesada. El celular
+  3D aparece recién en P1b.
+- A2 (28,2 s): Bruno se agacha y apoya la bolsa TOTO en el umbral en 0,45 s (la bolsa baja del pecho al piso), las manos la
+  sueltan en 0,3 s y se endereza; todo antes del corte a Q3.
+- M1 P5w: las manos de Inés ya están arriba del mostrador desde 0,4 s antes del corte.
+- M2 P5w: cámara más cerca; solo la mano derecha (la izquierda quedaba como un cuerno), lapicera más larga y gruesa (navy
+  con capuchón verde, punta gris oscuro) acostada en diagonal, la hoja arrancada con el membrete de la receta.
+- M3: Toto 12 cm más lejos de Vero y con la cabeza baja hasta el inserto: la trufa no toca el puño ni la bolsa.
+- M4 Q3: hocico 4 cm pasado el centro del plato; encuadre cerrado sobre Toto y el plato; la bolsa nueva fuera de cuadro.
+- Bajas: Q1v con Vero entera; cierre con el cartel entero (cámara más atrás); portada con Vero y la bolsa más grandes,
+  el sello sin pisarle el pelo (Toto queda en parte debajo de "Domingo, 21:40.": con la cabeza baja en el plato).
+- Revisión cuadro a cuadro (30 fps, ±0,3 s) en 1,5 / 1,67 / 2,57 / 15,41 / 16,0 / 28,18 / 28,53 sobre el render 7: sin
+  saltos salvo Toto levantando la cabeza en los últimos 4 cuadros antes del inserto → corregido (la cabeza sube dentro
+  del inserto) y re-render 8.
