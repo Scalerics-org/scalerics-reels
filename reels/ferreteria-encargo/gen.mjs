@@ -22,7 +22,7 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // "Seis tornillos del ocho." (P2 y Q2) · s5 "Gustavo, ¿llegó lo mío?" · g6 "Elegí." · s7 "Ya lo compré." · s8 "¿Me
 // encargás este?" (P5 y Q5) · nar "Un sistema más tarde." · s10 "¡Llegó lo mío!" · s11 "Ya lo tenés." · g12 "Comentá
 // ENCARGO y te mando cómo funciona para tu ferretería."
-const VOCES = ["s1", "g2", "g3", "t4", "s5", "g6", "s7", "s8", "s10", "s11", "g12"];
+const VOCES = ["s1", "g2", "g3", "t4", "s5", "g6", "s7", "s8", "s10", "s11", "g12", "g13"];   // (r3) g13: la risita de Gustavo en Q5r
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
 const T = {};
 // ---- parte 1 ----
@@ -32,11 +32,11 @@ T.s1 = 0.12; T.agarra = r2(T.s1 + LEN.s1 * 0.55); T.insCal = [r2(T.s1 + LEN.s1 -
 T.g2 = r2(T.s1 + LEN.s1 + 0.12);
 // P1b · las manos: arranca el papel, "Dejame tu número.", escribe, lo pega en la caja registradora
 T.p1b = r2(T.g2 + LEN.g2 + 0.06); T.arranca = r2(T.p1b + 0.05); T.g3 = r2(T.p1b + 0.12);
-T.escribe = [r2(T.p1b + 0.4), r2(T.p1b + 1.1)]; T.pega = r2(T.escribe[1] + 0.22);
+T.escribe = [r2(T.p1b + 0.4), r2(T.p1b + 1.1)]; T.pega = r2(T.escribe[1] + 0.05);   // (r3) pegado en el corte: el primer cuadro de P2 ya lo muestra en la caja
 // P2 · Tito con los codos: "Seis tornillos del ocho." · el cajoncito 8 · despega el papelito sin mirar · el cucurucho
 T.p2 = r2(T.escribe[1] + 0.05);   // (r2) corta al terminar de escribir: el pegado se ve en P2 (en P1b quedaba una mano suelta)
  T.t4 = r2(T.p2 + 0.1); T.cajon8 = r2(T.t4 + 0.3); T.despega = r2(T.cajon8 + 0.62);
-T.insCuc = [r2(T.despega + 0.25), r2(T.despega + 0.72)]; T.da = r2(T.insCuc[1] + 0.25);
+T.insCuc = [r2(T.despega + 0.12), r2(T.despega + 0.59)]; T.da = r2(T.insCuc[1] + 0.25);   // (r3) al inserto apenas lo agarra (sin el papel flotando ni el puño cortado)
 // P3 · martes: la caja del proveedor, el blíster, la caja registradora (solo la cinta), "?", el cajón ENCARGOS, el rótulo
 T.p3 = r2(T.da + 0.35); T.mira = r2(T.p3 + 0.4); T.preg = r2(T.p3 + 0.55); T.abre = r2(T.p3 + 0.95); T.mete = r2(T.p3 + 1.35); T.rot1 = r2(T.p3 + 1.45);
 // P4 · el remate: "Gustavo, ¿llegó lo mío?" · saca el cajón inclinado · pausa · "Elegí."
@@ -61,7 +61,7 @@ T.insCucB = [r2(T.cajon8b + 0.8), r2(T.cajon8b + 1.42)]; T.daB = r2(T.insCucB[1]
 // Q3 · martes: la entrada de mercadería se cruza sola con el encargo · la cocina de Susana: la canilla gotea, le llega
 // el aviso · "¡Llegó lo mío!"
 T.q3 = r2(T.daB + 0.35); T.q3t = r2(T.q3 + 0.45); T.fila = r2(T.q3t + 0.2); T.coincide = r2(T.q3t + 0.65); T.aviso = r2(T.q3t + 1.05);
-T.k = r2(T.aviso + 0.45); T.noti = r2(T.k + 0.6); T.s10 = r2(T.noti + 0.95);
+T.k = r2(T.aviso + 0.45); T.noti = r2(T.k + 0.6); T.s10 = r2(T.noti + 1.05);   // (r3) +0,1 s
 // Q4 · el panel Encargos: 9 → 0, el recordatorio
 T.q4 = r2(T.s10 + LEN.s10 + 0.15); T.baja = [r2(T.q4 + 0.3), r2(T.q4 + 1.0)]; T.record = r2(T.q4 + 1.2);
 // Q5 · miércoles: el cajón ordenado, la bolsita de Susana, "Retirado ✓", el flotador: "¿Me encargás este?" · "Dejame tu
@@ -197,8 +197,8 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.12, duration: 0.08, ease: "power2.out" }, ${r2(dur - 0.46)});   // (r2) se va entero antes del barrido (antes el barrido lo cortaba a la mitad)
-      tl.to(q(".texto"), { scale: 0.3, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.38)});`,
+      tl.to(q(".texto"), { scale: 1.12, duration: 0.06, ease: "power2.out" }, ${r2(dur - 0.36)});   // (r3) se va justo cuando arranca el barrido (sin verde liso)
+      tl.to(q(".texto"), { scale: 0.3, opacity: 0, duration: 0.1, ease: "power2.in" }, ${r2(dur - 0.3)});`,
   });
 }
 
@@ -255,9 +255,9 @@ const ding = (t, techo = -38) => s("sfx/cero.mp3", t, 0, { techo });
 const toque = (t, techo = -36) => s("sfx/click-soft.mp3", t, 0, { techo });
 const tecla = (t, techo = -42) => s("sfx/key-press.mp3", t, 0, { techo, dur: 0.15, fin: 0.05 });
 const nylon = (t, techo = -38) => s("sfx/k-bolsa-m.wav", t, 0, { techo, pico: -12, dur: 0.45, fin: 0.15, hp: 1200 });
-const rasga = (t, techo = -35, k = 0) => s(k ? "sfx/bsb-rasga2.wav" : "sfx/bsb-rasga.wav", t, 0, { techo, dur: 0.7, fin: 0.15 });
+const rasga = (t, techo = -35, k = 0, o = {}) => s(k ? "sfx/bsb-rasga2.wav" : "sfx/bsb-rasga.wav", t, 0, { techo, dur: 0.7, fin: 0.15, ...o });   // (r3) acepta forzar
 const cinta = (t, techo = -38) => s("sfx/bsb-cinta.wav", t, 0, { techo, dur: 0.55, fin: 0.15 });
-const cajoncito = (t, techo = -37) => s("sfx/bsb-cajoncito.wav", t, 0, { techo, dur: 0.9, fin: 0.2 });
+const cajoncito = (t, techo = -37, o = {}) => s("sfx/bsb-cajoncito.wav", t, 0, { techo, dur: 0.9, fin: 0.2, ...o });
 const tornillos = (t, techo = -39) => s("sfx/bsb-clavo.wav", t, 0, { techo, dur: 0.7, fin: 0.2, hp: 600 });
 const cajonM = (t, techo = -36) => s("sfx/bsb-cajon-madera.wav", t, 0, { techo, dur: 1.0, fin: 0.2 });
 const papelDobla = (t, techo = -40) => s("sfx/papel.wav", t, 0, { techo, desde: 0.3, dur: 0.45, fin: 0.12 });
@@ -265,7 +265,7 @@ const codos = (t) => s("sfx/madera-golpe.wav", t, 0, { techo: -39, dur: 0.4, fin
 const carton = (t) => s("sfx/k-cloth_2.wav", t, 0, { techo: -38, dur: 0.5, fin: 0.12 });
 // ---- parte 1 ----
 // ambiente: el zumbido de los tubos, un murmullo de ferretería (llaves lejos)
-s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -48, lp: 700 });
+s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(P1 + 0.1), fi: 0.05, fin: 0.3, techo: -39, lp: 700 });   // (r3) tono de sala más alto: tapa los huecos del pizzicato
 s("sfx/llaves.wav", 2.6, 0, { techo: -47, dur: 1.4, fin: 0.4, lp: 3000 });
 s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.g6 - 0.7, T.p5, 0.85], [T.t4 + LEN.t4 + 0.55, T.s5 - 0.3, -2.0]] });   // (r2) la cama sube hasta más cerca de "¿llegó lo mío?" (10,3-10,55 quedaba mudo)   // (r1) la cama sube ~7 dB en el martes (sin voz)
 // P1 · la bolsita de nylon; el calibre; "Ese no me queda…"
@@ -274,12 +274,12 @@ nylon(T.agarra - 0.05, -40); s("sfx/k-metal-click.wav", T.agarra + 0.3, 0, { tec
 s("sfx/whoosh-short.mp3", T.insCal[0] - 0.04, 0, { techo: -46, vel: 1.3 }); s("sfx/k-metal-click.wav", T.insCal[0] + 0.12, 0, { techo: -33, vel: 1.15, forzar: true });   // (r2) se oye
 voz("g2", T.g2, -1);
 // P1b · el papel contra la cuchilla, "Dejame tu número.", el lápiz, la cinta
-rasga(T.arranca - 0.06, -33); voz("g3", T.g3, -1);   // (r2) rasgado más fuerte, antes de la voz
+rasga(T.arranca - 0.06, -33, 0, { forzar: true }); voz("g3", T.g3, -1);   // (r2) rasgado más fuerte, antes de la voz
 s("sfx/birome.wav", T.escribe[0], 0, { techo: -41, desde: 0.2, dur: r2(T.escribe[1] - T.escribe[0]), fi: 0.05, fin: 0.1, lp: 5000 });
 s("sfx/bsb-cinta.wav", T.pega - 0.1, 0, { techo: -34, dur: 0.55, fin: 0.15, forzar: true });
 // P2 · los codos de Tito; Tito; el cajoncito; los tornillos; el papel que se despega y se dobla
 codos(T.p2 + 0.02); voz("t4", T.t4, -1);
-cajoncito(T.cajon8 - 0.15, -35); tornillos(T.cajon8 + 0.3, -41);
+cajoncito(T.cajon8 - 0.15, -35, { forzar: true }); tornillos(T.cajon8 + 0.3, -41);
 cinta(T.despega - 0.05, -41);
 s("sfx/whoosh-short.mp3", T.insCuc[0] - 0.04, 0, { techo: -46, vel: 1.3 }); papelDobla(T.insCuc[0] + 0.05, -38); tornillos(T.insCuc[0] + 0.2, -39);
 papelDobla(T.da - 0.1, -44); pasos(T.da + 0.1, T.p3, 2, -46);
@@ -294,7 +294,7 @@ voz("g6", T.g6, -1);
 voz("s7", T.s7, -1); pop(T.rot2, -42);
 s("sfx/bsb-cajon-madera.wav", T.cierra - 0.05, 0, { techo: -33, desde: 0.5, dur: 0.5, fin: 0.12, forzar: true }); s("sfx/madera-golpe.wav", T.cierra + 0.12, 0, { techo: -31, dur: 0.4, fin: 0.1, forzar: true });
 nylon(T.levanta - 0.32, -37); voz("s8", T.s8, -1);
-rasga(T.arranca2, -36, 1); voz("g3", T.g3b, -1);
+rasga(T.arranca2, -35, 1, { forzar: true }); voz("g3", T.g3b, -1);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -31, dur: 0.6, fin: 0.25 });
@@ -303,9 +303,9 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34, duck: [[T.guardar + 0.2, T.t4b - 0.3, -2.0], [T.t4b + LEN.t4 + 0.55, T.s10 - 0.6, -2.0], [T.s10 + LEN.s10 + 0.55, T.s8b - 0.6, -2.0]] });   // (r2) también sube en el celular de Q1c (26-27,4 quedaba casi mudo)   // (r1) sube ~7 dB en los tramos sin voz
-s("sfx/zumbido-largo.wav", P2, 0, { loop: true, desde: 3, dur: r2(T.k - P2), fi: 0.1, fin: 0.3, techo: -49, lp: 700 });
-s("sfx/zumbido-largo.wav", T.q4, 0, { loop: true, desde: 6, dur: r2(DUR - T.q4), fi: 0.2, fin: 0.5, techo: -49, lp: 700 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.5, techo: -34, duck: [[T.guardar + 0.2, T.t4b - 0.3, -2.0], [T.t4b + LEN.t4 + 0.55, T.s10 - 0.95, -2.0], [T.s10 - 0.55, T.s10 + 0.35, 0.6], [T.s10 + LEN.s10 + 0.55, T.s8b - 0.6, -2.0]] });   // (r2) también sube en el celular de Q1c (26-27,4 quedaba casi mudo)   // (r1) sube ~7 dB en los tramos sin voz
+s("sfx/zumbido-largo.wav", P2, 0, { loop: true, desde: 3, dur: r2(T.k - P2), fi: 0.1, fin: 0.3, techo: -39, lp: 700 });   // (r3) tono de sala más alto: tapa los huecos del pizzicato
+s("sfx/zumbido-largo.wav", T.q4, 0, { loop: true, desde: 6, dur: r2(DUR - T.q4), fi: 0.2, fin: 0.5, techo: -39, lp: 700 });   // (r3) tono de sala más alto: tapa los huecos del pizzicato
 // Q1 · el mismo audio de Susana; el calibre; el toque en la tablet; el tipeo; "Guardar ✓"; el celular de Susana
 nylon(P2 + 0.05, -40); voz("s1", T.s1b, -1);
 nylon(T.agarraB - 0.05, -41); s("sfx/k-metal-click.wav", T.agarraB + 0.3, 0, { techo: -38 });
@@ -327,7 +327,7 @@ s("sfx/whoosh-short.mp3", T.q3t - 0.04, 0, { techo: -45 }); toque(T.q3t + 0.05, 
 pop(T.fila, -42); ding(T.coincide, -36); s("sfx/ding.mp3", T.aviso, 0, { techo: -36 });
 s("sfx/whoosh.mp3", T.k - 0.15, 0, { techo: -40 });
 s("sfx/zumbido.wav", T.k, 0, { dur: r2(T.q4 - T.k), fi: 0.1, fin: 0.2, techo: -50, lp: 500 });
-for (let t = T.k + 0.35; t < T.q4 - 0.05; t += 0.6) s("sfx/gota.wav", t, 0, { techo: -42, dur: 0.35, fin: 0.1 });
+for (let t = T.k + 0.35; t < T.q4 - 0.05; t += 0.6) s("sfx/gota.wav", t, 0, { techo: t > T.s10 - 0.8 && t < T.s10 + LEN.s10 ? -50 : -42, dur: 0.35, fin: 0.1 });   // (r3) bajo la voz, más suaves
 noti(T.noti, -36);
 voz("s10", T.s10, -1);
 // Q4 · el panel: un tic por número, el cero, el recordatorio
@@ -340,7 +340,8 @@ nylon(T.daBolsa, -40); ding(T.retirado, -38);
 nylon(T.levantaQ - 0.32, -38); voz("s8", T.s8b, -1);
 voz("g3", T.g3d, -1); voz("s11", T.s11, -1);
 for (const tq of [T.q5f, T.q5g, T.q5s, T.q5r]) s("sfx/whoosh-short.mp3", tq - 0.05, 0, { techo: -48, vel: 1.4 });
-toque(T.nuevo, -38); pop(T.nuevo + 0.03, -42);
+s("sfx/click-soft.mp3", T.nuevo, 0, { techo: -36, forzar: true }); s("sfx/pop.mp3", T.nuevo + 0.03, 0, { desde: 0.11, techo: -38, forzar: true });   // (r3) forzados (la regla de la cola los bajaba)
+voz("g13", T.risa + 0.04, -3);   // (r3) la risita de Gustavo
 // C · Gustavo, el pop de ENCARGO, la línea chica
 s("sfx/whoosh.mp3", T.c - 0.1, 0, { techo: -43 });
 voz("g12", T.g12, -1);
@@ -348,7 +349,8 @@ pop(T.palabra + 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz, los SFX +6 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.t4 + LEN.t4 + 0.45, T.s5 - 0.3) || en(t0, T.t4b + LEN.t4 + 0.45, T.s10 - 0.3) || en(t0, T.s10 + LEN.s10 + 0.45, T.s8b - 0.3)) o.techo = -31; }   // (r1) sin voz: cada efecto al techo
+  const t1 = t0 + (o.dur ?? 0.5);   // (r3) solo si termina antes de la voz siguiente (el zumbido de la cocina quedaba a -31 debajo de "¡Llegó lo mío!")
+  if ((en(t0, T.t4 + LEN.t4 + 0.45, T.s5 - 0.3) && t1 < T.s5 - 0.4) || (en(t0, T.t4b + LEN.t4 + 0.45, T.s10 - 0.3) && t1 < T.s10 - 0.4) || (en(t0, T.s10 + LEN.s10 + 0.45, T.s8b - 0.3) && t1 < T.s8b - 0.4)) o.techo = -31; }   // (r1) sin voz: cada efecto al techo
 // los SFX que arrancan en los 0,45 s después de que termina una voz no tapan la cola (ventana de 400 ms)
 { const fines = S.filter((x) => x[3].voz).map((x) => x[1] + LEN[x[0].includes("narrador") ? "nar" : x[0].slice(6, -4)]);
   for (const x of S) { if (x[3].voz || x[0].startsWith("bgm/")) continue; if (!x[3].forzar && fines.some((f) => x[1] >= f - 0.05 && x[1] < f + 0.45)) x[3].techo = Math.min(x[3].techo ?? TECHO, -40); } }

@@ -153,3 +153,26 @@ medir.py: voz ≥ +10,3 LU sobre el resto en todos los tramos. Mezcla -14,0 LUFS
 - No hecho: B17 ("¡Llegó lo mío!"): 10-susana-d ya es la toma que el STT oye bien sola; las otras son "seguro mío" o más largas.
   B16: la toma de Gemini termina justo en la "s" (no hay más audio que recuperar): queda con el fundido. B22: no se pudo acortar
   más sin perder la pausa y el contraplano pedidos (46,1 s).
+
+## Ronda 3 de corrección (3 revisores)
+**46,07 s.** Parte 1 0-18,85 · cartel 18,85-21,23 · parte 2 + cierre 21,23-46,07. P1b→P2 en 6,15 (pegado en el corte);
+inserto del cucurucho 7,29-7,76; "¡Llegó lo mío!" +0,1 s (33,0); risita de Gustavo en Q5r (42,05).
+- R1: el papelito queda quieto en el mostrador hasta el corte y P2 arranca con él ya pegado en la caja y la mano de Gustavo
+  sobre él, que después se retira.
+- R2: corte al inserto 0,12 s después de agarrarlo (antes 0,25): el papel no se despega flotando ni queda el puño cortado.
+- R3: la bolsita del flotador es apaisada (0,31 × 0,135), apoyada en la mano a la altura del pecho, centrada, nylon al 36 %, el
+  flotador a 1,35× (bolsita a 1,25×) con la bocha y la varilla enteros; se ve solo en P5c y Q5f; el contraplano apunta más abajo
+  (CF2) para que entre. Ni la bolsita del cartucho ni el cajón están en Q5f/Q5s (tapaban el flotador y confundían).
+- R4: cuando Susana habla el labio se aplana sobre la boca abierta (sonrisa → 0,04 según cuánto abre): una sola boca.
+- R5: sin los anteojos colgados (el "OC").
+- R6 bolsita SUSANA más honda (el cartucho no atraviesa la etiqueta) · R7 sin el albañil de gorro verde · R8 lápiz navy, 1,6× y la
+  mano más atrás (se ve con la punta en el papel) · R9 (ver R3) · R10 el texto del cartel se va cuando arranca el barrido · R11
+  celular de Q1c más bajo (860 px) · R12 en el cajón del miércoles solo las 3 avisadas (SUSANA, LUCÍA · LLAVE 3/4, OMAR), grandes
+  y de frente · R13 "Ya lo compré." con ojos abiertos y sonrisa leve · R14 risita de Gustavo (toma nueva Alnilam "Je, je.",
+  partes/tomas/13-gustavo-b → assets/voice/g13.wav) y el toque/pop de "Nuevo encargo" forzados · R15 rasga() y cajoncito()
+  aceptan opciones (forzar) · R16 tono de sala a -39 (los huecos del pizzicato quedan en -36/-41 en vez de -43/-46).
+- Bug de mezcla encontrado: la regla "sin voz: cada efecto al techo -31" subía también sonidos largos que seguían sonando debajo
+  de la voz siguiente (el zumbido de la cocina debajo de "¡Llegó lo mío!"): ahora solo si terminan 0,4 s antes de esa voz.
+- No hecho: R17 ("Elegí."): las tomas a y b el STT las oye "elegí" solas; queda la a.
+- Los stems de medición ya no se commitean (.gitignore del reel). medir.py: ≥ +16,1 LU; -14,0 LUFS, pico -6,2 dBFS; check 0 errores.
+- Pasada de snapshots cada 0,5 s (renders/snap/r3p) + cortes tocados (r3a): sin defectos nuevos. Portada sin cambios (su fondo es P4).

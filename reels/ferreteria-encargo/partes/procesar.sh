@@ -24,4 +24,5 @@ ffmpeg -loglevel error -y -i partes/tomas/11-susana-a.wav -af "silenceremove=sta
 D11=$(ffprobe -v error -show_entries format=duration -of csv=p=0 partes/tmp/s11.wav)
 v x s11 "afade=t=out:st=$(python3 -c "print($D11-0.08)"):d=0.08" partes/tmp/s11.wav   # Susana: "Ya lo tenés."
 v 12-gustavo-c g12 "atempo=1.09"                                # Gustavo: "Comentá ENCARGO y te mando cómo funciona para tu ferretería."
+v 13-gustavo-b g13                                              # (r3) Gustavo: la risita de Q5r (Alnilam, "Je, je.")
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

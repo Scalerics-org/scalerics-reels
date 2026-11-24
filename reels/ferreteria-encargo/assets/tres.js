@@ -363,7 +363,7 @@ const RESTO = (() => { const sh = new THREE.Shape(); sh.moveTo(-0.045, 0.012); s
 // ---- el lápiz de carpintero (en la oreja de Gustavo, y en la mano cuando escribe) ----
 function crearLapizCarp() {
   const g = new THREE.Group();
-  const cu = mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.17, 8), mat(0xe9d8a6, 0.6), 0, 0, 0); cu.scale.x = 0.7; g.add(cu);
+  const cu = mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.17, 8), M.navy3, 0, 0, 0); cu.scale.x = 0.7; g.add(cu);   // (r3) navy: contrasta con el papel kraft
   const pu = mesh(new THREE.ConeGeometry(0.0125, 0.035, 8), mat(0xd9c7a0, 0.7), 0, 0.102, 0); pu.scale.x = 0.7; g.add(pu);
   g.add(mesh(new THREE.ConeGeometry(0.005, 0.014, 6), M.navy, 0, 0.116, 0));
   return sombras(g);
@@ -463,9 +463,10 @@ const BOLSA_S = crearBolsita(crearCartucho(true)); BOLSA_S.scale.setScalar(1.25)
 const BOLSA_V = crearBolsita(null); BOLSA_V.scale.setScalar(1.25); scene.add(BOLSA_V);   // (r1) la bolsita ya vacía en el mostrador (el cartucho está en el calibre)            // la bolsita de Susana con el cartucho viejo
 // (r2) la del flotador: el nylon apenas se ve (ya no es un panel fantasma), el flotador entero adentro con el brazo hacia
 // arriba; Susana la lleva colgando del nudo (no delante de la cara)
-const NYLON_F = NYLON.clone(); NYLON_F.opacity = 0.24;
-const FLOT_F = crearFlotador(1.0); FLOT_F.rotation.z = Math.PI / 2 - 0.15;
-const BOLSA_F = crearBolsita(null, { w: 0.14, h: 0.2, d: 0.1, nylon: NYLON_F }); FLOT_F.position.set(0.065, 0.01, 0); BOLSA_F.add(FLOT_F); BOLSA_F.scale.setScalar(1.1); scene.add(BOLSA_F);
+// (r3) apaisada, delante del pecho, apoyada en la mano: la bocha y la varilla enteras y grandes; nylon más visible
+const NYLON_F = NYLON.clone(); NYLON_F.opacity = 0.36;
+const FLOT_F = crearFlotador(1.35);
+const BOLSA_F = crearBolsita(null, { w: 0.31, h: 0.135, d: 0.1, nylon: NYLON_F }); FLOT_F.position.set(-0.085, 0.004, 0); BOLSA_F.add(FLOT_F); BOLSA_F.scale.setScalar(1.25); scene.add(BOLSA_F);
 const BOLSA_F_NUDO = (0.2 + 0.035) * 1.1;   // del fondo al nudo
 const BLISTER = crearBlister(); scene.add(BLISTER);                               // el cartucho nuevo (P3, Q3)
 const CART_M = crearCartucho(true); scene.add(CART_M);                            // el viejo, en la mano de Gustavo (medido)
@@ -499,13 +500,14 @@ PIEZAS.forEach((p, i) => { const [x, z, ry] = REV_POS[i]; p.position.set(x, 0.02
 const BLIS_CAJON = V3(0.0, 0.03, 0.0);   // dónde cae el blíster (la pieza 9)
 const ETQ = [["SUSANA", "CARTUCHO 35"], ["LUCÍA", "LLAVE 3/4"], ["OMAR", "FLEXIBLE x2"], ["SOSA", "SIFÓN"], ["MÉNDEZ", "VÁLVULA"], ["LUIS", "CANILLA"], ["ANA", "CERRADURA"], ["ROSSI", "BRAZO DUCHA"], ["BETO", "TARUGOS x50"]];   // (r2) los nombres del panel (Lucía avisada, Pereira ya retiró) y sin otro flotador
 const BOLSAS_ORD = [];
-ETQ.forEach((e, i) => {
+// (r3) solo las 3 avisadas del panel (Susana, Lucía, Omar), grandes y de frente
+ETQ.slice(0, 3).forEach((e, i) => {
   const pieza = i === 0 ? crearCartucho(false) : null;
-  const b = crearBolsita(pieza, { w: 0.15, h: 0.11, d: 0.03, etiqueta: e });
-  b.rotation.x = -Math.PI / 2 + 0.25; const c = i % 3, f = Math.floor(i / 3);
-  b.position.set(-0.2 + c * 0.2, 0.03 + f * 0.012, 0.13 - f * 0.12); ORD.add(b); BOLSAS_ORD.push(b);
+  const b = crearBolsita(pieza, { w: 0.19, h: 0.13, d: 0.03, etiqueta: e });
+  b.rotation.x = -Math.PI / 2 + 0.45;
+  b.position.set([0, 0.21, -0.21][i], 0.03, 0.02); ORD.add(b); BOLSAS_ORD.push(b);   // Lucía a la derecha (no la tapa el pelo de Susana)
 });
-const BOLSA_SUSANA = crearBolsita(crearCartucho(false), { w: 0.15, h: 0.13, d: 0.03, etiqueta: ETQ[0] }); BOLSA_SUSANA.scale.setScalar(1.45); scene.add(BOLSA_SUSANA);   // la que Gustavo le da en Q5
+const BOLSA_SUSANA = crearBolsita(crearCartucho(false), { w: 0.15, h: 0.17, d: 0.08, etiqueta: ETQ[0] }); BOLSA_SUSANA.scale.setScalar(1.45); scene.add(BOLSA_SUSANA);   // la que Gustavo le da en Q5 · (r3) más honda: el cartucho ya no atraviesa la etiqueta
 // ---- la caja del proveedor (cartón con cinta y el remito pegado) ----
 const remT = lienzo(256, 320, (x, w, h) => { x.fillStyle = "#f8f7f2"; x.fillRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.font = F(900, 40); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("REMITO", 20, 40); x.fillStyle = "#8a93a3"; for (let i = 0; i < 6; i++) x.fillRect(20, 90 + i * 36, 120 + (i * 37) % 90, 12); });
 const PROV = new THREE.Group(); scene.add(PROV);
@@ -588,7 +590,7 @@ function gorro(per, color = C.navy3) {
 // el lápiz de carpintero apoyado sobre la oreja izquierda de Gustavo (se esconde mientras lo tiene en la mano)
 function lapizOreja(per) {
   const g = new THREE.Group(); g.position.set(R0 * 1.07, CC0 + 0.06, -0.05); g.rotation.set(Math.PI / 2 + 0.1, 0, 0.1); per.cabeza.add(g);   // (r1) detrás de la oreja: la punta ya no llega al ojo
-  const cu = mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.17, 8), mat(0xe9d8a6, 0.6), 0, 0, 0); cu.scale.x = 0.7; g.add(cu);
+  const cu = mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.17, 8), M.navy3, 0, 0, 0); cu.scale.x = 0.7; g.add(cu);
   const pu = mesh(new THREE.ConeGeometry(0.0125, 0.035, 8), mat(0xd9c7a0, 0.7), 0, 0.102, 0); pu.scale.x = 0.7; g.add(pu);
   g.add(mesh(new THREE.ConeGeometry(0.005, 0.014, 6), M.navy, 0, 0.116, 0));
   return sombras(g);
@@ -630,10 +632,7 @@ const susana = crearPersonaje({ nombre: "Susana", piel: PIEL.clara, pelo: 0xd2cf
   susana.cuerpo.traverse((o) => { if (o.isMesh && o.geometry.type === "LatheGeometry") { o.parent.scale.set(1.035, 1, 1.05); } });
   // los anteojos de leer colgados del cordón sobre el pecho (dos aros navy y el cordón navy)
   const an = mat(MARCA.navy, 0.4);
-  for (const s of [-1, 1]) { const a = mesh(new THREE.TorusGeometry(0.045, 0.009, 8, 22), an, s * 0.052, 0.36, 0.215); a.rotation.x = -0.25; susana.cuerpo.add(a); }
-  susana.cuerpo.add(caja(0.022, 0.008, 0.008, an, 0, 0.375, 0.218, 0.003));
-  const cord = new THREE.CatmullRomCurve3([V3(-0.1, 0.38, 0.2), V3(-0.12, 0.47, 0.12), V3(-0.07, 0.53, 0.0), V3(0.07, 0.53, 0.0), V3(0.12, 0.47, 0.12), V3(0.1, 0.38, 0.2)]);
-  susana.cuerpo.add(mesh(new THREE.TubeGeometry(cord, 24, 0.0045, 5), an));
+  // (r3) sin los anteojos colgados: de cerca se leían como "OC"
   // la cartera navy al hombro derecho (-x), la correa por arriba del hombro
   const cm = mat(MARCA.navy, 0.55);
   susana.cuerpo.add(caja(0.07, 0.2, 0.22, cm, -0.27, 0.02, -0.02, 0.03));
@@ -924,7 +923,7 @@ const INS_T = { g: new THREE.Group() }; crearFondoInserto(INS_T.g);
 const TAB = crearCelInserto(TW * 0.94, TH * 0.94, 540, 980, 36, { funda: 0x0b1220 }); INS_T.g.add(TAB.g);
 { const at = new THREE.Mesh(rbox(560 / PXK, 46 / PXK, 0.005, 16 / PXK, 2), new THREE.MeshBasicMaterial({ color: 0x2c4268 })); at.position.set(0, (960 - 1400) / PXK, -0.034); INS_T.g.add(at); }
 const INS_C = { g: new THREE.Group() }; crearFondoInserto(INS_C.g);
-const CEL = crearCelInserto(CW, CH, 540, 1010, 34, { camara: true, funda: 0x1f3254 }); INS_C.g.add(CEL.g);   // (r2) sin la "mano" (era una franja beige sin dedos)
+const CEL = crearCelInserto(CW, 860, 540, 1000, 34, { camara: true, funda: 0x1f3254 }); INS_C.g.add(CEL.g);   // (r3) más bajo en Q1c: sin la mitad de abajo vacía   // (r2) sin la "mano" (era una franja beige sin dedos)
 const INS_K = { g: new THREE.Group() }; crearFondoInserto(INS_K.g, true);
 const CELK = crearCelInserto(CW, CH, 540, 1010, 34, { camara: true, funda: 0x1f3254 }); INS_K.g.add(CELK.g);
 for (const I of [INS_T, INS_C, INS_K]) { pegarACamara(I.g, camera, 10); I.g.visible = false; }
@@ -968,7 +967,7 @@ function dibujarCelInserto(t, pa) {
     ult = sg(t, T.noti, T.noti + 0.3); if (t < T.noti) msgs = msgs.slice(0, 3);
   } else return;
   const k = pa + Math.round(ult * 8); if (k === claveCel) return; claveCel = k;
-  dibujarChat(I.tex.userData.x, CW, CH, msgs, ult); I.tex.needsUpdate = true;
+  dibujarChat(I.tex.userData.x, CW, I.IH, msgs, ult); I.tex.needsUpdate = true;
 }
 
 // =====================================================================================================
@@ -1031,7 +1030,7 @@ const CE = (k) => [lerp(0.78, 0.7, k), lerp(1.74, 1.72, k), lerp(-0.12, -0.16, k
 const CK = (k) => [KX + lerp(0.36, 0.32, k), lerp(1.24, 1.22, k), lerp(0.2, 0.14, k), KX - 0.03, lerp(1.0, 1.0, k), -0.42, lerp(46, 43, k)];   // (r1) la canilla entera, protagonista
 const CQ = (k) => [lerp(-0.6, -0.61, k), lerp(1.24, 1.22, k), lerp(0.42, 0.37, k), -0.72, 1.08, 0.06, lerp(40, 38, k)];   // inserto del cucurucho
 const CF = (k) => [lerp(-0.4, -0.42, k), lerp(1.64, 1.62, k), lerp(-0.8, -0.74, k), -1.2, 1.4, 0.85, lerp(52, 50, k)];   // contraplano a Susana
-const CF2 = (k) => [lerp(-0.5, -0.53, k), lerp(1.6, 1.6, k), lerp(-0.5, -0.44, k), -1.1, 1.3, 0.85, lerp(54, 52, k)];   // (r2) contraplano cerrado a Susana
+const CF2 = (k) => [lerp(-0.5, -0.53, k), lerp(1.6, 1.6, k), lerp(-0.5, -0.44, k), -1.1, 1.2, 0.85, lerp(54, 52, k)];   // (r3) apunta más abajo: el flotador en cuadro   // (r2) contraplano cerrado a Susana
 const CS = (k) => [lerp(-0.72, -0.74, k), 1.58, lerp(-0.5, -0.44, k), -1.2, 1.36, 0.85, lerp(52, 50, k)];   // (r2) Susana más cerca ("Ya lo tenés.")
 const CG = (k) => [lerp(-0.62, -0.64, k), lerp(1.58, 1.56, k), lerp(1.45, 1.35, k), -0.98, lerp(1.46, 1.44, k), -0.62, lerp(48, 46, k)];   // (r2) Gustavo de frente (por encima del mostrador)
 const CR5 = (k) => [lerp(-0.5, -0.52, k), lerp(1.56, 1.55, k), lerp(1.5, 1.42, k), lerp(-0.78, -0.79, k), 1.22, -0.5, lerp(48, 46, k)];   // (r2) Gustavo y la tablet
@@ -1137,11 +1136,9 @@ function poseGustavo(t) {
     const k1 = sg(t, T.p1b - 0.1, T.arranca) * (1 - sg(t, T.arranca + 0.15, T.arranca + 0.35));
     manoA(gustavo, p, BORDE_ROLLO().add(V3(0.1, 0.02, -0.04)), k1, "I");
     const kE = sg(t, T.escribe[0] - 0.2, T.escribe[0]) * (1 - sg(t, T.escribe[1], T.escribe[1] + 0.15));
-    manoA(gustavo, p, puntaMundo(t).add(V3(-0.03, 0.06, -0.12)), kE, "D");   // (r2) la mano más atrás que la punta: se ve el lápiz (antes la tapaba el puño)
+    manoA(gustavo, p, puntaMundo(t).add(V3(-0.04, 0.07, -0.17)), kE, "D");   // (r2) la mano más atrás que la punta: se ve el lápiz (antes la tapaba el puño)
     manoA(gustavo, p, PT.escribe.clone().add(V3(PAP.W / 2 + 0.05, 0.03, -0.02)), sg(t, T.arranca + 0.2, T.escribe[0]) * (1 - sg(t, T.escribe[1], T.escribe[1] + 0.1)), "I");
-    const kP = sg(t, T.escribe[1], T.pega) * (1 - sg(t, T.pega + 0.15, T.pega + 0.35));
-    manoA(gustavo, p, PAPEL_EN_CAJA().p.add(V3(-0.04, 0.0, 0.03)), kP, "I");
-    p.t = t; bocaVoz(p, t, T.g3, ENV.g3, 0.6); return p;
+    p.t = t; bocaVoz(p, t, T.g3, ENV.g3, 0.6); return p;   // (r3) el pegado pasa en el corte (P2 arranca con la mano en la caja)
   }
   if (!p2 && t < T.p3) {
     // P2: gira a la pared de cajoncitos, saca seis del 8; despega el papelito sin mirar; el cucurucho; se lo da a Tito
@@ -1154,7 +1151,8 @@ function poseGustavo(t) {
     ]);
     const kC = sg(t, T.cajon8 - 0.05, T.cajon8 + 0.15) * (1 - sg(t, T.cajon8 + 0.35, T.cajon8 + 0.5));
     if (kC > 0) { gustavo.poner(p); manoA(gustavo, p, CAJ8_P.clone().add(V3(0, 0.04, 0.12)), kC, "D"); }
-    const kD = sg(t, T.despega - 0.25, T.despega) * (1 - sg(t, T.despega + 0.1, T.despega + 0.3));
+    manoA(gustavo, p, PAPEL_EN_CAJA().p.add(V3(-0.04, 0.0, 0.03)), 1 - sg(t, T.p2 + 0.08, T.p2 + 0.35), "I");   // (r3) recién pegado: la mano se retira
+    const kD = sg(t, T.despega - 0.25, T.despega) * (1 - sg(t, T.insCuc[0] + 0.05, T.insCuc[0] + 0.25));   // (r3) lo tiene agarrado hasta el corte
     manoA(gustavo, p, PAPEL_EN_CAJA().p.add(V3(-0.04, 0, 0.03)), kD, "I");
     const suelta = 1 - sg(t, T.da + 0.1, T.da + 0.35);
     manoA(gustavo, p, cucEnMostrador().sub(CUC_OFF), sg(t, T.insCuc[1] - 0.12, T.insCuc[1] + CUC_AGARRA) * suelta, "D");   // (r2) agarra el cucurucho
@@ -1267,7 +1265,7 @@ function blisterMano(t) {
   return p;
 }
 function bolsaSusanaQ5(t) {
-  const c = poseCajon(t).p.clone().add(V3(-0.2, 0.12, 0.1));
+  const c = poseCajon(t).p.clone().add(V3(0, 0.12, 0.08));
   const dest = V3(-0.8, Y + 0.004, 0.16);   // (r2) parada en el mostrador
   return c.lerp(dest, eio(sg(t, T.daBolsa, T.daBolsa + 0.35)));
 }
@@ -1287,8 +1285,8 @@ function poseSusana(t) {
     const p = poseEn(t, [
       [0, { ...base, ...aC(0.0, 0.05), ...CARA.esperanza }],
       [T.g6 + 0.2, { ...aC(0.05, 0.15), ...CARA.neutra, ojos: { abiertos: 0.9 } }, 0.3],
-      [T.s7, { ...aC(0.08, 0.05), ...CARA.sonrisa, ojos: { abiertos: 0.9, feliz: 0.3 }, cejas: { alto: 0.1, ang: 0 }, boca: { sonrisa: 0.5, abierta: 0, ancho: 1 } }, 0.25],
-      [T.levanta, { manoD: [-0.34, 0.92, 0.36], codoD: [-1, -0.4, -0.2], ...aC(0.0, 0.0), ...CARA.sonrisa }, 0.3],   // (r2) la bolsita cuelga del nudo, al costado del pecho
+      [T.s7, { ...aC(0.04, 0.0, 0.0), ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.05, tension: 0 }, cejas: { alto: 0.35, ang: 0.15, asim: 0 }, boca: { sonrisa: 0.4, abierta: 0, ancho: 1 } }, 0.25],   // (r3) amable y práctica
+      [T.levanta, { manoD: [-0.04, 0.48, 0.48], codoD: [-1, -0.7, -0.1], ...aC(0.0, 0.0), ...CARA.sonrisa }, 0.3],   // (r2) la bolsita cuelga del nudo, al costado del pecho
       [T.p5b, { manoD: [-0.29, -0.08, 0.04], codoD: null }, 0.01],   // (r2) baja en el corte (en P5b no tapa)
     ]);
     p.t = t; bocaVoz(p, t, T.s5, ENV.s5, 0.55); bocaVoz(p, t, T.s7, ENV.s7, 0.55); bocaVoz(p, t, T.s8, ENV.s8, 0.55); return p;
@@ -1307,7 +1305,7 @@ function poseSusana(t) {
     // "Dejame tu número." y dice "Ya lo tenés." de frente, pícara, con la cabeza hacia la tablet
     const p = poseEn(t, [
       [0, { ...base, ...aC(0.0, 0.1), ...AMABLE }],
-      [T.levantaQ, { manoD: [-0.34, 0.92, 0.36], codoD: [-1, -0.4, -0.2], ...CARA.sonrisa }, 0.3],
+      [T.levantaQ, { manoD: [-0.04, 0.48, 0.48], codoD: [-1, -0.7, -0.1], ...CARA.sonrisa }, 0.3],
       [T.q5g, { manoD: [-0.29, -0.08, 0.04], codoD: null }, 0.01],
       [T.s11 - 0.05, { ...PICARA, ...aC(0.22, 0.04, 0.12) }, 0.25],
     ]);
@@ -1354,19 +1352,20 @@ function renderAt(tIn) {
   camera.updateMatrixWorld(true);
   // ---- personajes ----
   tito.poner(poseTito(t));       // (r2) Tito primero: Gustavo le apunta a su mano (antes leía la pose del cuadro anterior)
-  susana.poner(poseSusana(t));
+  { const ps = poseSusana(t); const ab = ps.boca.abierta; if (ab > 0.02) ps.boca.sonrisa = lerp(ps.boca.sonrisa, 0.04, cl(ab * 4)); susana.poner(ps); }   // (r3) al hablar el labio se aplana sobre la boca abierta (se leían dos bocas)
   gustavo.poner(poseGustavo(t));
   ALB.forEach((a, i) => a.poner(poseAlb(i, t)));
   for (const a of ALB) a.raiz.visible = ["P5", "P2", "P2i", "Q2", "Q2i"].includes(pa);
-  if (pa === "P5") { ALB[0].raiz.visible = false; ALB[1].raiz.visible = false; }   // (r2) el del casco quedaba cortado al borde
+  if (pa === "P5") ALB[0].raiz.visible = false;
+  ALB[1].raiz.visible = false;   // (r3) el del gorro verde asomaba cortado por el borde en P2/Q2   // (r2) el del casco quedaba cortado al borde
   gustavo.raiz.visible = !(pa === "Q3k" || pa === "Q3s");
   tito.raiz.visible = !(pa === "P2i" || pa === "Q2i");
   if (VER === "portada") susana.raiz.visible = false;   // (r1) el fondo de la portada sin la masa de pelo de espaldas
   // ---- el lápiz: en la oreja o en la mano (P1b) ----
   const escribiendo = !p2 && t >= T.escribe[0] - 0.15 && t < T.escribe[1] + 0.1;
   LAPIZ_OREJA.visible = !escribiendo; LAPIZ.visible = escribiendo;
-  if (escribiendo) { const m = manoMundo(gustavo, "D", new THREE.Vector3()), pt = t < T.escribe[0] ? m.clone().add(V3(0.03, -0.05, 0.11)) : puntaMundo(t); const d = pt.clone().sub(m).normalize(); LAPIZ.position.copy(pt).addScaledVector(d, -0.15); LAPIZ.quaternion.setFromUnitVectors(V3(0, 1, 0), d); }
-  LAPIZ.scale.setScalar(1.25);
+  if (escribiendo) { const m = manoMundo(gustavo, "D", new THREE.Vector3()), pt = t < T.escribe[0] ? m.clone().add(V3(0.03, -0.05, 0.11)) : puntaMundo(t); const d = pt.clone().sub(m).normalize(); LAPIZ.position.copy(pt).addScaledVector(d, -0.19); LAPIZ.quaternion.setFromUnitVectors(V3(0, 1, 0), d); }
+  LAPIZ.scale.setScalar(1.6);
   // ---- la bolsita de Susana con el cartucho (P1, Q1): en su mano; después en el mostrador ----
   const enP1 = (!p2 && t < T.p2) || (p2 && t >= P2 && t < T.q2);
   BOLSA_S.visible = enP1 && t < (p2 ? T.agarraB : T.agarra); BOLSA_V.visible = enP1 && !BOLSA_S.visible;
@@ -1390,8 +1389,9 @@ function renderAt(tIn) {
     const caja0 = PAPEL_EN_CAJA();
     if (t < T.escribe[0]) { const a = BORDE_ROLLO(), b = PT.escribe.clone(); const u = eio(sg(t, T.arranca + 0.1, T.escribe[0] - 0.05)); PAPEL.position.copy(a.lerp(b, u)); PAPEL.rotation.set(-Math.PI / 2 * u - 0.2 * (1 - u), Math.PI, 0); PAPEL.userData.enrollar(0); }
     else if (t < T.escribe[1]) { PAPEL.position.copy(PT.escribe); PAPEL.rotation.set(-Math.PI / 2, 0, Math.PI); PAPEL.rotation.set(-Math.PI / 2, 0, 0); PAPEL.rotateZ(Math.PI); PAPEL.userData.enrollar(0); }
-    else if (t < T.despega) { const u = eio(sg(t, T.escribe[1], T.pega)); const a = PT.escribe.clone().add(V3(0, 0.002, 0)), b = caja0.p.clone().add(V3(0, -0.005, 0)); PAPEL.position.copy(a.lerp(b, u)); PAPEL.quaternion.copy(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, Math.PI)).slerp(caja0.q, u)); PAPEL.userData.enrollar(0); }
-    else if (t < T.insCuc[0]) { const u = eio(sg(t, T.despega, T.insCuc[0] - 0.02)); const b = PT.cuc.clone().add(V3(0, PAP.H / 2 + 0.004, 0)); PAPEL.position.copy(caja0.p.clone().lerp(b, u)); PAPEL.quaternion.copy(caja0.q.clone().slerp(new THREE.Quaternion().setFromEuler(new THREE.Euler(0.35, Math.PI + 0.25, 0)), u)); PAPEL.userData.enrollar(0); }   // (r2) de cara a la cámara de P2 (antes se daba vuelta y se leía espejado)
+    else if (t < T.despega) { const u = t >= T.pega ? 1 : 0;   // (r3) en P1b sigue en el mostrador; en P2 ya está pegado
+      const a = PT.escribe.clone().add(V3(0, 0.002, 0)), b = caja0.p.clone().add(V3(0, -0.005, 0)); PAPEL.position.copy(a.lerp(b, u)); PAPEL.quaternion.copy(new THREE.Quaternion().setFromEuler(new THREE.Euler(-Math.PI / 2, 0, Math.PI)).slerp(caja0.q, u)); PAPEL.userData.enrollar(0); }
+    else if (t < T.insCuc[0]) { PAPEL.position.copy(caja0.p.clone().add(V3(0, -0.005, 0))); PAPEL.quaternion.copy(caja0.q); PAPEL.userData.enrollar(0); }   // (r3) queda en la caja bajo la mano hasta el corte al inserto
     else if (t < T.insCuc[1]) { PAPEL.position.copy(PT.cuc).add(V3(0, PAP.H / 2 + 0.004, 0)); PAPEL.rotation.set(-0.35, 0.25, 0); PAPEL.userData.enrollar(sg(t, T.insCuc[0] + 0.02, T.insCuc[1] - 0.05)); }
     else ponerCucurucho(PAPEL, t, T.insCuc[1], T.da);
   }
@@ -1422,17 +1422,17 @@ function renderAt(tIn) {
   if (BLISTER.visible) { BLISTER.position.copy(blisterMano(t)).add(V3(0, -0.07, 0.02)); BLISTER.rotation.set(-0.15, 0.25, 0); }
   // ---- el cajón ENCARGOS ----
   const cj = poseCajon(t);
-  CAJON.visible = cj.vis && pa !== "C"; CAJON.position.copy(cj.p); CAJON.rotation.set(cj.rx, 0, 0);
+  CAJON.visible = cj.vis && pa !== "C" && pa !== "Q5f" && pa !== "Q5s";   // (r3) no tapa el flotador en los contraplanos CAJON.position.copy(cj.p); CAJON.rotation.set(cj.rx, 0, 0);
   REV.visible = !p2; ORD.visible = p2;
   const blisDentro = !p2 && t >= T.mete;
   if (blisDentro) { BLIS_EN_CAJON.visible = true; } else BLIS_EN_CAJON.visible = false;
   BOLSAS_ORD[0].visible = !(p2 && t >= T.daBolsa);
-  BOLSA_SUSANA.visible = p2 && t >= T.daBolsa && t < T.c;
+  BOLSA_SUSANA.visible = p2 && t >= T.daBolsa && t < T.c && pa !== "Q5f" && pa !== "Q5s";   // (r3) fuera del primer plano de los contraplanos
   if (BOLSA_SUSANA.visible) { BOLSA_SUSANA.position.copy(bolsaSusanaQ5(t)); BOLSA_SUSANA.rotation.set(0, 0.3, 0); }   // (r2) Gustavo la deja en el mostrador, delante de ella
   // la bolsita del flotador (P5 y Q5) en la mano de Susana
-  const flot = (!p2 && t >= T.levanta - 0.3 && t < P1) || (p2 && t >= T.levantaQ - 0.3 && t < T.c);
+  const flot = ((!p2 && t >= T.levanta - 0.3 && t < P1) || (p2 && t >= T.levantaQ - 0.3 && t < T.c)) && (pa === "P5c" || pa === "Q5f");   // (r3) solo cuando la muestra
   BOLSA_F.visible = flot;
-  if (flot) { enManoDe(BOLSA_F, susana, "D", V3(0.0, -BOLSA_F_NUDO + 0.025, 0.01)); BOLSA_F.rotation.set(0, 0.3, 0); }   // (r2) cuelga del nudo
+  if (flot) { enManoDe(BOLSA_F, susana, "D", V3(0.0, 0.035, 0.0)); BOLSA_F.rotation.set(0, Math.PI - 0.1, 0); }   // (r3) apoyada en la mano, de frente al contraplano
   // ---- la tablet (no existe en la parte 1) ----
   TABLET.visible = p2 && !(pa === "Q3k" || pa === "Q3s" || pa === "Q2" || pa === "Q2i"); if (TABLET.visible) ponerTablet3D(t);   // (r1) en Q2 tapaba a Tito desde la cámara de al lado de Gustavo
   // ---- la gota de la canilla (cada 0,6 s) ----

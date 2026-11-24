@@ -58,8 +58,8 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 1.12, duration: 0.08, ease: "power2.out" }, 1.92);   // (r2) se va entero antes del barrido (antes el barrido lo cortaba a la mitad)
-      tl.to(q(".texto"), { scale: 0.3, opacity: 0, duration: 0.1, ease: "power2.in" }, 2);
+      tl.to(q(".texto"), { scale: 1.12, duration: 0.06, ease: "power2.out" }, 2.02);   // (r3) se va justo cuando arranca el barrido (sin verde liso)
+      tl.to(q(".texto"), { scale: 0.3, opacity: 0, duration: 0.1, ease: "power2.in" }, 2.08);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();
