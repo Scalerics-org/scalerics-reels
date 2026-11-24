@@ -199,7 +199,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
 
 // C · "Comentá RACIÓN" + "y te mando cómo funciona para tu veterinaria", debajo de la cara de Inés (y 1040-1440)
 {
-  const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra + 0.1);   // hasta el último cuadro
+  const id = "s05-palabra", ini = T.c, dur = r2(DUR - T.c + 0.1);   // (qa4) entra con el corte al cierre (antes 0,12 s de mitad navy vacía)   // hasta el último cuadro
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -212,7 +212,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; }`,
     html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>RACIÓN</em></span></div><div class="c">y te mando cómo funciona<br>para tu veterinaria</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
-      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(T.palabraR - T.palabra)});`,
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(T.palabraR - T.c)});`,
   });
 }
 // la línea chica final (abajo de la tarjeta, arriba de la zona de botones): qué es y la web
@@ -328,7 +328,7 @@ ding(T.plata, -36);
 // C · Inés a cámara: pop en RACIÓN, la línea chica
 whoosh(T.c, -46);
 voz("i2", T.i2, -1);
-pop(T.palabra + 0.02, -38); pop(T.palabraR, -40);
+pop(T.c + 0.02, -38);   // (qa4) con la tarjeta, que entra en el corte pop(T.palabraR, -40);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz (el montaje de meses, el panel, el plato lleno), los SFX +6 dB (nunca por encima
 // del techo)

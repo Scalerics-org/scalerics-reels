@@ -142,3 +142,5 @@ Duración 42,43 s (42,5 s el MP4) · parte 1 0-18,17 · cartel 18,17-20,82 · pa
 - Revisión cuadro a cuadro (30 fps, ±0,3 s) en 1,5 / 1,67 / 2,57 / 15,41 / 16,0 / 28,18 / 28,53 sobre el render 7: sin
   saltos salvo Toto levantando la cabeza en los últimos 4 cuadros antes del inserto → corregido (la cabeza sube dentro
   del inserto) y re-render 8.
+
+## Ronda 4 (24-11, noche): defectos de qa-pendiente.md (ver ahí el detalle). Q2: puerta hacia afuera con Bruno fuera del barrido (PERILLA_V, PUERTA_ANG), Toto se da vuelta a cámara (TQ2); súper con corte por mes (CORTE_MES); V4B a la altura de la cabeza; cuello alargado en personajes.js (cuelloAlto); P5w por encima del hombro (P5W); insertos con `esc`/`sinPiso`; tarjeta del cierre desde T.c; portada a 3,9 s. Falta render.

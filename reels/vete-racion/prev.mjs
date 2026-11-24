@@ -19,7 +19,7 @@ await new Promise((ok) => srv.listen(0, ok));
 const port = srv.address().port;
 const nav = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium-1243/chrome-linux64/chrome", args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] });
 const pg = await nav.newPage({ viewport: { width: 1080, height: 1920 } });
-pg.on("pageerror", (e) => console.error("ERROR página:", e.message));
+pg.on("pageerror", (e) => console.error("ERROR página:", e.message, e.stack));
 pg.on("console", (m) => { if (m.type() === "error") console.error("consola:", m.text()); });
 await pg.goto(`http://localhost:${port}/index.html`);
 await pg.waitForFunction(() => !!window.__tresRender, null, { timeout: 120000 });

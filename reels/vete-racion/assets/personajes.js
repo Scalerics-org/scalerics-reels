@@ -339,7 +339,7 @@ export function crearPersonaje(cfg) {
   }
   const CA = c.cuelloAlto || 0;
   // cuelloAlto: la cabeza sube y se ve un cuello de verdad (sin el aro de la camisa haciendo de pedestal)
-  const cuello = CA ? mesh(G.cil, M.piel, 0, 0.53 + CA * 0.5, 0, 0.056, 0.1 + CA, 0.05) : mesh(G.cil, M.piel, 0, 0.58, 0, 0.065, 0.1, 0.065); cuerpo.add(cuello);
+  const cuello = CA ? mesh(G.cil, M.piel, 0, 0.65 + CA * 0.5, 0, 0.056, 0.22 + CA, 0.05)   /* (vete-racion qa4) el cuello entra en la cabeza: sin el hueco con la tapa a la vista */ : mesh(G.cil, M.piel, 0, 0.58, 0, 0.065, 0.1, 0.065); cuerpo.add(cuello);
 
   // ---- cabeza (pivote en el cuello) ----
   const R = 0.3;
