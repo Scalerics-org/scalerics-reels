@@ -176,3 +176,16 @@ inserto del cucurucho 7,29-7,76; "¡Llegó lo mío!" +0,1 s (33,0); risita de Gu
 - No hecho: R17 ("Elegí."): las tomas a y b el STT las oye "elegí" solas; queda la a.
 - Los stems de medición ya no se commitean (.gitignore del reel). medir.py: ≥ +16,1 LU; -14,0 LUFS, pico -6,2 dBFS; check 0 errores.
 - Pasada de snapshots cada 0,5 s (renders/snap/r3p) + cortes tocados (r3a): sin defectos nuevos. Portada sin cambios (su fondo es P4).
+
+## Arreglo final (pasada del director de arte sobre el render de la ronda 3)
+- ALTA (regresión de la ronda 3): un comentario "// (r3)" había quedado en medio de la línea y comentaba
+  `CAJON.position.copy(cj.p); CAJON.rotation.set(cj.rx, 0, 0);`: el cajón ENCARGOS no aparecía en ningún plano. Arreglado;
+  revisé con un script todos los comentarios (r1/r2/r3) que tuvieran código detrás en la misma línea (ninguno más).
+- M1: Gustavo oculto en los insertos del cucurucho (P2i, Q2i): fondo limpio, sin triángulos del near plane; los tornillos
+  empiezan a caer al entrar el inserto, desde más cerca, y terminan dentro del cono.
+- B1: la bolsita del flotador más ancha (0,34) con la bocha más arriba; el contraplano apunta más abajo para que se vea entera;
+  aparece ya arriba (no cruza el borde del mostrador).
+- B2: en P5b Gustavo también escribe con el lápiz (sale de la oreja) sobre el pedazo nuevo.
+- B3: la bolsita SUSANA · CARTUCHO 35 solo está en Q5 (se la lleva en el contraplano).
+- B4: Gustavo oculto en Q5s (su hombro quedaba pegado al lente al entrar el contraplano: la línea oscura).
+- Pasada completa cada 0,5 s (renders/snap/fp): cajón en P3, P4, P5 y Q5; sin otras regresiones. check 0 errores. Audio sin cambios.

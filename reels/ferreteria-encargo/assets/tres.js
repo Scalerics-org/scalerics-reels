@@ -466,7 +466,7 @@ const BOLSA_V = crearBolsita(null); BOLSA_V.scale.setScalar(1.25); scene.add(BOL
 // (r3) apaisada, delante del pecho, apoyada en la mano: la bocha y la varilla enteras y grandes; nylon más visible
 const NYLON_F = NYLON.clone(); NYLON_F.opacity = 0.36;
 const FLOT_F = crearFlotador(1.35);
-const BOLSA_F = crearBolsita(null, { w: 0.31, h: 0.135, d: 0.1, nylon: NYLON_F }); FLOT_F.position.set(-0.085, 0.004, 0); BOLSA_F.add(FLOT_F); BOLSA_F.scale.setScalar(1.25); scene.add(BOLSA_F);
+const BOLSA_F = crearBolsita(null, { w: 0.34, h: 0.14, d: 0.1, nylon: NYLON_F }); FLOT_F.position.set(-0.095, 0.012, 0); BOLSA_F.add(FLOT_F); BOLSA_F.scale.setScalar(1.25); scene.add(BOLSA_F);
 const BOLSA_F_NUDO = (0.2 + 0.035) * 1.1;   // del fondo al nudo
 const BLISTER = crearBlister(); scene.add(BLISTER);                               // el cartucho nuevo (P3, Q3)
 const CART_M = crearCartucho(true); scene.add(CART_M);                            // el viejo, en la mano de Gustavo (medido)
@@ -1030,7 +1030,7 @@ const CE = (k) => [lerp(0.78, 0.7, k), lerp(1.74, 1.72, k), lerp(-0.12, -0.16, k
 const CK = (k) => [KX + lerp(0.36, 0.32, k), lerp(1.24, 1.22, k), lerp(0.2, 0.14, k), KX - 0.03, lerp(1.0, 1.0, k), -0.42, lerp(46, 43, k)];   // (r1) la canilla entera, protagonista
 const CQ = (k) => [lerp(-0.6, -0.61, k), lerp(1.24, 1.22, k), lerp(0.42, 0.37, k), -0.72, 1.08, 0.06, lerp(40, 38, k)];   // inserto del cucurucho
 const CF = (k) => [lerp(-0.4, -0.42, k), lerp(1.64, 1.62, k), lerp(-0.8, -0.74, k), -1.2, 1.4, 0.85, lerp(52, 50, k)];   // contraplano a Susana
-const CF2 = (k) => [lerp(-0.5, -0.53, k), lerp(1.6, 1.6, k), lerp(-0.5, -0.44, k), -1.1, 1.2, 0.85, lerp(54, 52, k)];   // (r3) apunta más abajo: el flotador en cuadro   // (r2) contraplano cerrado a Susana
+const CF2 = (k) => [lerp(-0.5, -0.53, k), lerp(1.6, 1.6, k), lerp(-0.5, -0.44, k), -1.1, 1.12, 0.85, lerp(54, 52, k)];   // (r3) apunta más abajo: el flotador en cuadro   // (r2) contraplano cerrado a Susana
 const CS = (k) => [lerp(-0.72, -0.74, k), 1.58, lerp(-0.5, -0.44, k), -1.2, 1.36, 0.85, lerp(52, 50, k)];   // (r2) Susana más cerca ("Ya lo tenés.")
 const CG = (k) => [lerp(-0.62, -0.64, k), lerp(1.58, 1.56, k), lerp(1.45, 1.35, k), -0.98, lerp(1.46, 1.44, k), -0.62, lerp(48, 46, k)];   // (r2) Gustavo de frente (por encima del mostrador)
 const CR5 = (k) => [lerp(-0.5, -0.52, k), lerp(1.56, 1.55, k), lerp(1.5, 1.42, k), lerp(-0.78, -0.79, k), 1.22, -0.5, lerp(48, 46, k)];   // (r2) Gustavo y la tablet
@@ -1186,6 +1186,7 @@ function poseGustavo(t) {
     const kA = sg(t, T.p5b - 0.1, T.arranca2) * (1 - sg(t, T.arranca2 + 0.2, T.arranca2 + 0.4));
     manoA(gustavo, p, BORDE_ROLLO().add(V3(0.1, 0.02, -0.04)), kA, "I");
     manoA(gustavo, p, PT.escribe.clone().add(V3(0.1, 0.04, -0.04)), sg(t, T.arranca2 + 0.25, T.arranca2 + 0.5), "I");
+    manoA(gustavo, p, punta2(t).add(V3(-0.04, 0.07, -0.17)), sg(t, T.arranca2 + 0.4, T.arranca2 + 0.6), "D");   // (final) en P5b también escribe con el lápiz
     p.t = t; bocaVoz(p, t, T.g6, ENV.g6, 0.5); bocaVoz(p, t, T.g3b, ENV.g3, 0.6); return p;
   }
   // ---------- parte 2 ----------
@@ -1254,6 +1255,8 @@ function poseGustavo(t) {
 }
 // (r2) con la pose fija del papelito mientras se escribe (antes leía la posición del cuadro anterior: no era función pura de t)
 const PAP_ESC = new THREE.Object3D(); PAP_ESC.position.copy(PT.escribe); PAP_ESC.rotation.set(-Math.PI / 2, 0, 0); PAP_ESC.rotateZ(Math.PI); PAP_ESC.updateMatrixWorld(true);
+// (final) P5b: la punta recorre el pedazo nuevo (PAPEL3 queda en la misma pose que el papelito de P1b)
+function punta2(t) { const n = sg(t, T.arranca2 + 0.6, P1 + 0.3) * 8; return PAP_ESC.localToWorld(puntaLocal(n)).add(V3(0, 0.004, 0)); }
 function puntaMundo(t) { const n = sg(t, T.escribe[0], T.escribe[1]) * N_PAP; return PAP_ESC.localToWorld(puntaLocal(n)).add(V3(0, 0.004, 0)); }
 // dónde está el blíster (P3/Q3): sale de la caja del proveedor, sube a la altura de la cara, baja al cajón
 function blisterMano(t) {
@@ -1358,12 +1361,14 @@ function renderAt(tIn) {
   for (const a of ALB) a.raiz.visible = ["P5", "P2", "P2i", "Q2", "Q2i"].includes(pa);
   if (pa === "P5") ALB[0].raiz.visible = false;
   ALB[1].raiz.visible = false;   // (r3) el del gorro verde asomaba cortado por el borde en P2/Q2   // (r2) el del casco quedaba cortado al borde
-  gustavo.raiz.visible = !(pa === "Q3k" || pa === "Q3s");
+  gustavo.raiz.visible = !(pa === "Q3k" || pa === "Q3s" || pa === "P2i" || pa === "Q2i" || pa === "Q5s");   // (final) insertos del cucurucho limpios; Q5s sin su hombro pegado al lente
   tito.raiz.visible = !(pa === "P2i" || pa === "Q2i");
   if (VER === "portada") susana.raiz.visible = false;   // (r1) el fondo de la portada sin la masa de pelo de espaldas
   // ---- el lápiz: en la oreja o en la mano (P1b) ----
   const escribiendo = !p2 && t >= T.escribe[0] - 0.15 && t < T.escribe[1] + 0.1;
-  LAPIZ_OREJA.visible = !escribiendo; LAPIZ.visible = escribiendo;
+  const escribe2 = !p2 && t >= T.arranca2 + 0.4 && t < P1;   // (final) P5b
+  LAPIZ_OREJA.visible = !escribiendo && !escribe2; LAPIZ.visible = escribiendo || escribe2;
+  if (escribe2) { const m = manoMundo(gustavo, "D", new THREE.Vector3()), pt = t < T.arranca2 + 0.6 ? m.clone().add(V3(0.03, -0.05, 0.11)) : punta2(t); const d = pt.clone().sub(m).normalize(); LAPIZ.position.copy(pt).addScaledVector(d, -0.19); LAPIZ.quaternion.setFromUnitVectors(V3(0, 1, 0), d); }
   if (escribiendo) { const m = manoMundo(gustavo, "D", new THREE.Vector3()), pt = t < T.escribe[0] ? m.clone().add(V3(0.03, -0.05, 0.11)) : puntaMundo(t); const d = pt.clone().sub(m).normalize(); LAPIZ.position.copy(pt).addScaledVector(d, -0.19); LAPIZ.quaternion.setFromUnitVectors(V3(0, 1, 0), d); }
   LAPIZ.scale.setScalar(1.6);
   // ---- la bolsita de Susana con el cartucho (P1, Q1): en su mano; después en el mostrador ----
@@ -1410,7 +1415,7 @@ function renderAt(tIn) {
   TORN.visible = (t >= tT + 0.2 && t < (p2 ? T.q3 : T.p3)) && (!p2 || t >= T.q2);
   if (TORN.visible) {
     if (t < tI[0]) { enManoDe(TORN, gustavo, "D", V3(0, -0.02, 0.03)); TORN.scale.setScalar(1); }
-    else { const cuc = (p2 ? PAPEL2 : PAPEL); cuc.updateMatrixWorld(true); const u = sg(t, tI[0] + 0.1, tI[1] - 0.05); const a = cuc.localToWorld(V3(0, 0.13, -0.031)), b = cuc.localToWorld(V3(0, 0.014, -0.031)); TORN.position.copy(t < tI[1] ? a.lerp(b, u * u) : b); TORN.scale.setScalar(1); }   // (r2) caen desde más cerca (se ven caer) y quedan más arriba (no atraviesan la punta)
+    else { const cuc = (p2 ? PAPEL2 : PAPEL); cuc.updateMatrixWorld(true); const u = sg(t, tI[0] + 0.02, tI[1] - 0.12); const a = cuc.localToWorld(V3(0, 0.09, -0.031)), b = cuc.localToWorld(V3(0, 0.014, -0.031)); TORN.position.copy(t < tI[1] ? a.lerp(b, u * u) : b); TORN.scale.setScalar(1); }   // (r2) caen desde más cerca (se ven caer) y quedan más arriba (no atraviesan la punta)
   }
   // el cajoncito "8" sale y vuelve
   const kC8 = Math.max(sg(t, T.cajon8 - 0.15, T.cajon8 + 0.1) * (1 - sg(t, T.cajon8 + 0.45, T.cajon8 + 0.65)), p2 ? sg(t, T.cajon8b - 0.15, T.cajon8b + 0.1) * (1 - sg(t, T.cajon8b + 0.45, T.cajon8b + 0.65)) : 0);
@@ -1422,15 +1427,15 @@ function renderAt(tIn) {
   if (BLISTER.visible) { BLISTER.position.copy(blisterMano(t)).add(V3(0, -0.07, 0.02)); BLISTER.rotation.set(-0.15, 0.25, 0); }
   // ---- el cajón ENCARGOS ----
   const cj = poseCajon(t);
-  CAJON.visible = cj.vis && pa !== "C" && pa !== "Q5f" && pa !== "Q5s";   // (r3) no tapa el flotador en los contraplanos CAJON.position.copy(cj.p); CAJON.rotation.set(cj.rx, 0, 0);
+  CAJON.visible = cj.vis && pa !== "C" && pa !== "Q5f" && pa !== "Q5s"; CAJON.position.copy(cj.p); CAJON.rotation.set(cj.rx, 0, 0);   // (r3) no tapa el flotador en los contraplanos (arreglo final: el comentario había comentado la posición)
   REV.visible = !p2; ORD.visible = p2;
   const blisDentro = !p2 && t >= T.mete;
   if (blisDentro) { BLIS_EN_CAJON.visible = true; } else BLIS_EN_CAJON.visible = false;
   BOLSAS_ORD[0].visible = !(p2 && t >= T.daBolsa);
-  BOLSA_SUSANA.visible = p2 && t >= T.daBolsa && t < T.c && pa !== "Q5f" && pa !== "Q5s";   // (r3) fuera del primer plano de los contraplanos
+  BOLSA_SUSANA.visible = p2 && t >= T.daBolsa && pa === "Q5";   // (final) se la lleva en el contraplano   // (r3) fuera del primer plano de los contraplanos
   if (BOLSA_SUSANA.visible) { BOLSA_SUSANA.position.copy(bolsaSusanaQ5(t)); BOLSA_SUSANA.rotation.set(0, 0.3, 0); }   // (r2) Gustavo la deja en el mostrador, delante de ella
   // la bolsita del flotador (P5 y Q5) en la mano de Susana
-  const flot = ((!p2 && t >= T.levanta - 0.3 && t < P1) || (p2 && t >= T.levantaQ - 0.3 && t < T.c)) && (pa === "P5c" || pa === "Q5f");   // (r3) solo cuando la muestra
+  const flot = ((!p2 && t >= T.levanta - 0.06 && t < P1) || (p2 && t >= T.levantaQ - 0.06 && t < T.c)) && (pa === "P5c" || pa === "Q5f");   // (final) aparece ya arriba (no cruza el mostrador)   // (r3) solo cuando la muestra
   BOLSA_F.visible = flot;
   if (flot) { enManoDe(BOLSA_F, susana, "D", V3(0.0, 0.035, 0.0)); BOLSA_F.rotation.set(0, Math.PI - 0.1, 0); }   // (r3) apoyada en la mano, de frente al contraplano
   // ---- la tablet (no existe en la parte 1) ----

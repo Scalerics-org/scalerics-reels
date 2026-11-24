@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "c98e4fbb-510a-490f-bb9b-df46e6a1d750",
-  "currentRevision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
+  "currentRevision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
   "pendingChanges": false,
   "files": {
     "NOTAS-constructor.md": {
-      "hash": "2eb93b86a7c3a0e8f4ad318dfe343dd45268aeeb3c94aed53940ffba42ccf6fb",
-      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/2e/2eb93b86a7c3a0e8f4ad318dfe343dd45268aeeb3c94aed53940ffba42ccf6fb"
+      "hash": "d88aa4cd3e822f54a1d9b9fc5fd900a64f7d4d72c781fd98eeeec26ef895b4c4",
+      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/d8/d88aa4cd3e822f54a1d9b9fc5fd900a64f7d4d72c781fd98eeeec26ef895b4c4"
     },
     "assets/audio/ganancia.txt": {
       "hash": "adad4f53cfeca7a03e20467f4311ab1d957b94e30c738047a43870b661314968",
@@ -353,8 +353,8 @@
       "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/10/10bd0d442cc7f55bdac29b48dd12c3413ae2276e3520a5f4f27e4e2ca3967b39"
     },
     "assets/tres.js": {
-      "hash": "2fd41af6f7dc00526cc69a5ffed8b4e6ee39291158ac74f7a04a03a1a8649e78",
-      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/2f/2fd41af6f7dc00526cc69a5ffed8b4e6ee39291158ac74f7a04a03a1a8649e78"
+      "hash": "98a711861bd164e1464fb3c7dba3003fe27d7982a53887afd65de9d992cdb925",
+      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/98/98a711861bd164e1464fb3c7dba3003fe27d7982a53887afd65de9d992cdb925"
     },
     "assets/vendor/gsap.min.js": {
       "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
@@ -1384,14 +1384,6 @@
       "hash": "5f4cfc91200f9d3e360f573c9597da714fa8ab07e456bb23eafd12d1fb34296a",
       "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/5f/5f4cfc91200f9d3e360f573c9597da714fa8ab07e456bb23eafd12d1fb34296a"
     },
-    "assets/audio/stem-resto.wav": {
-      "hash": "859df81d542b05cc739535587fb77e2d5463bf3ae6290a99fdbfce9bfde136e4",
-      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/85/859df81d542b05cc739535587fb77e2d5463bf3ae6290a99fdbfce9bfde136e4"
-    },
-    "assets/audio/stem-voz.wav": {
-      "hash": "5a5f01bd55334d4ad6f152e23ebebac71a1a39c8259276002757bd649b011e3d",
-      "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/5a/5a5f01bd55334d4ad6f152e23ebebac71a1a39c8259276002757bd649b011e3d"
-    },
     "assets/bgm/pizzicato.wav": {
       "hash": "28b240e63efa2c09ab6c684121999986c96a79ee7b99cb7d3d689ee9f579dcd3",
       "content": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/28/28b240e63efa2c09ab6c684121999986c96a79ee7b99cb7d3d689ee9f579dcd3"
@@ -1714,12 +1706,54 @@
           "after": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/2f/2fd41af6f7dc00526cc69a5ffed8b4e6ee39291158ac74f7a04a03a1a8649e78"
         }
       }
+    },
+    "79b55026-018b-4d33-b121-7e83c12a7ddb": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795499570531,
+      "endedAt": 1795499570537,
+      "files": {
+        "assets/audio/stem-resto.wav": {
+          "before": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/85/859df81d542b05cc739535587fb77e2d5463bf3ae6290a99fdbfce9bfde136e4",
+          "after": null
+        },
+        "assets/audio/stem-voz.wav": {
+          "before": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/5a/5a5f01bd55334d4ad6f152e23ebebac71a1a39c8259276002757bd649b011e3d",
+          "after": null
+        },
+        "NOTAS-constructor.md": {
+          "before": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/2e/2eb93b86a7c3a0e8f4ad318dfe343dd45268aeeb3c94aed53940ffba42ccf6fb",
+          "after": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/a9/a9eba174e5dca2d38ea114e95f87ed360430469454764dd8ea28d3ec46767bc6"
+        }
+      }
+    },
+    "0dadf6e1-e83e-451c-8b58-f4581b3b33b9": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795503424502,
+      "endedAt": 1795503424526,
+      "files": {
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/2f/2fd41af6f7dc00526cc69a5ffed8b4e6ee39291158ac74f7a04a03a1a8649e78",
+          "after": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/98/98a711861bd164e1464fb3c7dba3003fe27d7982a53887afd65de9d992cdb925"
+        },
+        "NOTAS-constructor.md": {
+          "before": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/a9/a9eba174e5dca2d38ea114e95f87ed360430469454764dd8ea28d3ec46767bc6",
+          "after": "/root/.cache/hyperframes/history/c98e4fbb-510a-490f-bb9b-df46e6a1d750/blobs/d8/d88aa4cd3e822f54a1d9b9fc5fd900a64f7d4d72c781fd98eeeec26ef895b4c4"
+        }
+      }
     }
   },
   "checks": {
     "latest": {
-      "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
-      "id": "bc3d7fd5-016e-4c67-b702-fbb98181523e"
+      "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+      "id": "d65b00e2-c7d0-4d9c-a5cf-251e4d5f849f"
     },
     "revisions": {
       "d5aa41ef-23c3-47ce-8c0b-2647e37e0407": [
@@ -1784,7 +1818,6 @@
         {
           "id": "bc3d7fd5-016e-4c67-b702-fbb98181523e",
           "scope": "project",
-          "report": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/checks/bc3d7fd5-016e-4c67-b702-fbb98181523e.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -1806,6 +1839,37 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
+        }
+      ],
+      "0dadf6e1-e83e-451c-8b58-f4581b3b33b9": [
+        {
+          "id": "d65b00e2-c7d0-4d9c-a5cf-251e4d5f849f",
+          "scope": "project",
+          "report": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/checks/d65b00e2-c7d0-4d9c-a5cf-251e4d5f849f.json",
+          "metadata": {
+            "ok": true,
+            "browserSkipped": false,
+            "options": {
+              "samples": 9,
+              "atTransitions": false,
+              "maxIssues": 80,
+              "collapseStatic": true,
+              "tolerance": 2,
+              "timeout": 3000,
+              "contrast": true,
+              "strict": false,
+              "snapshots": false,
+              "browserGpuMode": "auto"
+            }
+          },
+          "createdAt": 1795503716433,
+          "contentHash": "242d33b5276154dd751dc84e9967797b9f4177396cd99a0ec03d6b44786c07b2",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
       ]
@@ -1814,8 +1878,8 @@
   },
   "snapshots": {
     "latest": {
-      "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
-      "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-91"
+      "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+      "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-91"
     },
     "revisions": {
       "8768c307-d003-48da-bb2b-9414d3c1a14c": [
@@ -4558,7 +4622,6 @@
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-0",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-00-at-6.1s.png",
           "time": 6.1,
           "metadata": {
             "width": 1080,
@@ -4573,12 +4636,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-1",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-01-at-6.15s.png",
           "time": 6.15,
           "metadata": {
             "width": 1080,
@@ -4593,12 +4657,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-2",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-02-at-6.18s.png",
           "time": 6.18,
           "metadata": {
             "width": 1080,
@@ -4613,12 +4678,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-3",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-03-at-7.25s.png",
           "time": 7.25,
           "metadata": {
             "width": 1080,
@@ -4633,12 +4699,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-4",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-04-at-7.29s.png",
           "time": 7.29,
           "metadata": {
             "width": 1080,
@@ -4653,12 +4720,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-5",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-05-at-7.32s.png",
           "time": 7.32,
           "metadata": {
             "width": 1080,
@@ -4673,12 +4741,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-6",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-06-at-16s.png",
           "time": 16,
           "metadata": {
             "width": 1080,
@@ -4693,12 +4762,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-7",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-07-at-16.8s.png",
           "time": 16.8,
           "metadata": {
             "width": 1080,
@@ -4713,12 +4783,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-8",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-08-at-18s.png",
           "time": 18,
           "metadata": {
             "width": 1080,
@@ -4733,12 +4804,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-9",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-09-at-21s.png",
           "time": 21,
           "metadata": {
             "width": 1080,
@@ -4753,12 +4825,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-10",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-10-at-21.1s.png",
           "time": 21.1,
           "metadata": {
             "width": 1080,
@@ -4773,12 +4846,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-11",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-11-at-21.15s.png",
           "time": 21.15,
           "metadata": {
             "width": 1080,
@@ -4793,12 +4867,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-12",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-12-at-26.6s.png",
           "time": 26.6,
           "metadata": {
             "width": 1080,
@@ -4813,12 +4888,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-13",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-13-at-33.4s.png",
           "time": 33.4,
           "metadata": {
             "width": 1080,
@@ -4833,12 +4909,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-14",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-14-at-37s.png",
           "time": 37,
           "metadata": {
             "width": 1080,
@@ -4853,12 +4930,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-15",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-15-at-38.6s.png",
           "time": 38.6,
           "metadata": {
             "width": 1080,
@@ -4873,12 +4951,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-16",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-16-at-39.3s.png",
           "time": 39.3,
           "metadata": {
             "width": 1080,
@@ -4893,12 +4972,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-17",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-17-at-41.6s.png",
           "time": 41.6,
           "metadata": {
             "width": 1080,
@@ -4913,12 +4993,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-18",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-18-at-42.4s.png",
           "time": 42.4,
           "metadata": {
             "width": 1080,
@@ -4933,12 +5014,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-19",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-19-at-17.65s.png",
           "time": 17.65,
           "metadata": {
             "width": 1080,
@@ -4953,12 +5035,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-20",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-20-at-17.7s.png",
           "time": 17.7,
           "metadata": {
             "width": 1080,
@@ -4973,12 +5056,13 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "66ac1bcb-76d7-410e-8201-1a0177420f7e-21",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/966112a3-0d97-4787-bf9b-ce586c831317/frame-21-at-39.85s.png",
           "time": 39.85,
           "metadata": {
             "width": 1080,
@@ -4993,14 +5077,15 @@
           "revision": "173dc855-7be6-4589-810d-16a03f8f360f",
           "inputFingerprint": "ac72f7f34875e363faf3d98a8f5669ee93286d70644faa29f699d8002a3334e7",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         }
       ],
       "99885e5b-7733-4e7c-8a04-7649f9c84379": [
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-0",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-00-at-0.25s.png",
           "time": 0.25,
           "metadata": {
             "width": 1080,
@@ -5015,12 +5100,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-1",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-01-at-0.75s.png",
           "time": 0.75,
           "metadata": {
             "width": 1080,
@@ -5035,12 +5121,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-2",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-02-at-1.25s.png",
           "time": 1.25,
           "metadata": {
             "width": 1080,
@@ -5055,12 +5142,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-3",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-03-at-1.75s.png",
           "time": 1.75,
           "metadata": {
             "width": 1080,
@@ -5075,12 +5163,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-4",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-04-at-2.25s.png",
           "time": 2.25,
           "metadata": {
             "width": 1080,
@@ -5095,12 +5184,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-5",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-05-at-2.75s.png",
           "time": 2.75,
           "metadata": {
             "width": 1080,
@@ -5115,12 +5205,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-6",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-06-at-3.25s.png",
           "time": 3.25,
           "metadata": {
             "width": 1080,
@@ -5135,12 +5226,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-7",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-07-at-3.75s.png",
           "time": 3.75,
           "metadata": {
             "width": 1080,
@@ -5155,12 +5247,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-8",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-08-at-4.25s.png",
           "time": 4.25,
           "metadata": {
             "width": 1080,
@@ -5175,12 +5268,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-9",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-09-at-4.75s.png",
           "time": 4.75,
           "metadata": {
             "width": 1080,
@@ -5195,12 +5289,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-10",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-10-at-5.25s.png",
           "time": 5.25,
           "metadata": {
             "width": 1080,
@@ -5215,12 +5310,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-11",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-11-at-5.75s.png",
           "time": 5.75,
           "metadata": {
             "width": 1080,
@@ -5235,12 +5331,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-12",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-12-at-6.25s.png",
           "time": 6.25,
           "metadata": {
             "width": 1080,
@@ -5255,12 +5352,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-13",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-13-at-6.75s.png",
           "time": 6.75,
           "metadata": {
             "width": 1080,
@@ -5275,12 +5373,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-14",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-14-at-7.25s.png",
           "time": 7.25,
           "metadata": {
             "width": 1080,
@@ -5295,12 +5394,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-15",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-15-at-7.75s.png",
           "time": 7.75,
           "metadata": {
             "width": 1080,
@@ -5315,12 +5415,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-16",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-16-at-8.25s.png",
           "time": 8.25,
           "metadata": {
             "width": 1080,
@@ -5335,12 +5436,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-17",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-17-at-8.75s.png",
           "time": 8.75,
           "metadata": {
             "width": 1080,
@@ -5355,12 +5457,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-18",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-18-at-9.25s.png",
           "time": 9.25,
           "metadata": {
             "width": 1080,
@@ -5375,12 +5478,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-19",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-19-at-9.75s.png",
           "time": 9.75,
           "metadata": {
             "width": 1080,
@@ -5395,12 +5499,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-20",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-20-at-10.25s.png",
           "time": 10.25,
           "metadata": {
             "width": 1080,
@@ -5415,12 +5520,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-21",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-21-at-10.75s.png",
           "time": 10.75,
           "metadata": {
             "width": 1080,
@@ -5435,12 +5541,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-22",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-22-at-11.25s.png",
           "time": 11.25,
           "metadata": {
             "width": 1080,
@@ -5455,12 +5562,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-23",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-23-at-11.75s.png",
           "time": 11.75,
           "metadata": {
             "width": 1080,
@@ -5475,12 +5583,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-24",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-24-at-12.25s.png",
           "time": 12.25,
           "metadata": {
             "width": 1080,
@@ -5495,12 +5604,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-25",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-25-at-12.75s.png",
           "time": 12.75,
           "metadata": {
             "width": 1080,
@@ -5515,12 +5625,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-26",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-26-at-13.25s.png",
           "time": 13.25,
           "metadata": {
             "width": 1080,
@@ -5535,12 +5646,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-27",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-27-at-13.75s.png",
           "time": 13.75,
           "metadata": {
             "width": 1080,
@@ -5555,12 +5667,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-28",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-28-at-14.25s.png",
           "time": 14.25,
           "metadata": {
             "width": 1080,
@@ -5575,12 +5688,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-29",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-29-at-14.75s.png",
           "time": 14.75,
           "metadata": {
             "width": 1080,
@@ -5595,12 +5709,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-30",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-30-at-15.25s.png",
           "time": 15.25,
           "metadata": {
             "width": 1080,
@@ -5615,12 +5730,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-31",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-31-at-15.75s.png",
           "time": 15.75,
           "metadata": {
             "width": 1080,
@@ -5635,12 +5751,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-32",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-32-at-16.25s.png",
           "time": 16.25,
           "metadata": {
             "width": 1080,
@@ -5655,12 +5772,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-33",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-33-at-16.75s.png",
           "time": 16.75,
           "metadata": {
             "width": 1080,
@@ -5675,12 +5793,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-34",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-34-at-17.25s.png",
           "time": 17.25,
           "metadata": {
             "width": 1080,
@@ -5695,12 +5814,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-35",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-35-at-17.75s.png",
           "time": 17.75,
           "metadata": {
             "width": 1080,
@@ -5715,12 +5835,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-36",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-36-at-18.25s.png",
           "time": 18.25,
           "metadata": {
             "width": 1080,
@@ -5735,12 +5856,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-37",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-37-at-18.75s.png",
           "time": 18.75,
           "metadata": {
             "width": 1080,
@@ -5755,12 +5877,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-38",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-38-at-19.25s.png",
           "time": 19.25,
           "metadata": {
             "width": 1080,
@@ -5775,12 +5898,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-39",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-39-at-19.75s.png",
           "time": 19.75,
           "metadata": {
             "width": 1080,
@@ -5795,12 +5919,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-40",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-40-at-20.25s.png",
           "time": 20.25,
           "metadata": {
             "width": 1080,
@@ -5815,12 +5940,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-41",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-41-at-20.75s.png",
           "time": 20.75,
           "metadata": {
             "width": 1080,
@@ -5835,12 +5961,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-42",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-42-at-21.25s.png",
           "time": 21.25,
           "metadata": {
             "width": 1080,
@@ -5855,12 +5982,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-43",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-43-at-21.75s.png",
           "time": 21.75,
           "metadata": {
             "width": 1080,
@@ -5875,12 +6003,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-44",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-44-at-22.25s.png",
           "time": 22.25,
           "metadata": {
             "width": 1080,
@@ -5895,12 +6024,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-45",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-45-at-22.75s.png",
           "time": 22.75,
           "metadata": {
             "width": 1080,
@@ -5915,12 +6045,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-46",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-46-at-23.25s.png",
           "time": 23.25,
           "metadata": {
             "width": 1080,
@@ -5935,12 +6066,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-47",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-47-at-23.75s.png",
           "time": 23.75,
           "metadata": {
             "width": 1080,
@@ -5955,12 +6087,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-48",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-48-at-24.25s.png",
           "time": 24.25,
           "metadata": {
             "width": 1080,
@@ -5975,12 +6108,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-49",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-49-at-24.75s.png",
           "time": 24.75,
           "metadata": {
             "width": 1080,
@@ -5995,12 +6129,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-50",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-50-at-25.25s.png",
           "time": 25.25,
           "metadata": {
             "width": 1080,
@@ -6015,12 +6150,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-51",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-51-at-25.75s.png",
           "time": 25.75,
           "metadata": {
             "width": 1080,
@@ -6035,12 +6171,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-52",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-52-at-26.25s.png",
           "time": 26.25,
           "metadata": {
             "width": 1080,
@@ -6055,12 +6192,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-53",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-53-at-26.75s.png",
           "time": 26.75,
           "metadata": {
             "width": 1080,
@@ -6075,12 +6213,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-54",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-54-at-27.25s.png",
           "time": 27.25,
           "metadata": {
             "width": 1080,
@@ -6095,12 +6234,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-55",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-55-at-27.75s.png",
           "time": 27.75,
           "metadata": {
             "width": 1080,
@@ -6115,12 +6255,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-56",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-56-at-28.25s.png",
           "time": 28.25,
           "metadata": {
             "width": 1080,
@@ -6135,12 +6276,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-57",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-57-at-28.75s.png",
           "time": 28.75,
           "metadata": {
             "width": 1080,
@@ -6155,12 +6297,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-58",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-58-at-29.25s.png",
           "time": 29.25,
           "metadata": {
             "width": 1080,
@@ -6175,12 +6318,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-59",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-59-at-29.75s.png",
           "time": 29.75,
           "metadata": {
             "width": 1080,
@@ -6195,12 +6339,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-60",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-60-at-30.25s.png",
           "time": 30.25,
           "metadata": {
             "width": 1080,
@@ -6215,12 +6360,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-61",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-61-at-30.75s.png",
           "time": 30.75,
           "metadata": {
             "width": 1080,
@@ -6235,12 +6381,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-62",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-62-at-31.25s.png",
           "time": 31.25,
           "metadata": {
             "width": 1080,
@@ -6255,12 +6402,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-63",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-63-at-31.75s.png",
           "time": 31.75,
           "metadata": {
             "width": 1080,
@@ -6275,12 +6423,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-64",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-64-at-32.25s.png",
           "time": 32.25,
           "metadata": {
             "width": 1080,
@@ -6295,12 +6444,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-65",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-65-at-32.75s.png",
           "time": 32.75,
           "metadata": {
             "width": 1080,
@@ -6315,12 +6465,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-66",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-66-at-33.25s.png",
           "time": 33.25,
           "metadata": {
             "width": 1080,
@@ -6335,12 +6486,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-67",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-67-at-33.75s.png",
           "time": 33.75,
           "metadata": {
             "width": 1080,
@@ -6355,12 +6507,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-68",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-68-at-34.25s.png",
           "time": 34.25,
           "metadata": {
             "width": 1080,
@@ -6375,12 +6528,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-69",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-69-at-34.75s.png",
           "time": 34.75,
           "metadata": {
             "width": 1080,
@@ -6395,12 +6549,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-70",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-70-at-35.25s.png",
           "time": 35.25,
           "metadata": {
             "width": 1080,
@@ -6415,12 +6570,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-71",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-71-at-35.75s.png",
           "time": 35.75,
           "metadata": {
             "width": 1080,
@@ -6435,12 +6591,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-72",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-72-at-36.25s.png",
           "time": 36.25,
           "metadata": {
             "width": 1080,
@@ -6455,12 +6612,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-73",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-73-at-36.75s.png",
           "time": 36.75,
           "metadata": {
             "width": 1080,
@@ -6475,12 +6633,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-74",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-74-at-37.25s.png",
           "time": 37.25,
           "metadata": {
             "width": 1080,
@@ -6495,12 +6654,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-75",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-75-at-37.75s.png",
           "time": 37.75,
           "metadata": {
             "width": 1080,
@@ -6515,12 +6675,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-76",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-76-at-38.25s.png",
           "time": 38.25,
           "metadata": {
             "width": 1080,
@@ -6535,12 +6696,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-77",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-77-at-38.75s.png",
           "time": 38.75,
           "metadata": {
             "width": 1080,
@@ -6555,12 +6717,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-78",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-78-at-39.25s.png",
           "time": 39.25,
           "metadata": {
             "width": 1080,
@@ -6575,12 +6738,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-79",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-79-at-39.75s.png",
           "time": 39.75,
           "metadata": {
             "width": 1080,
@@ -6595,12 +6759,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-80",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-80-at-40.25s.png",
           "time": 40.25,
           "metadata": {
             "width": 1080,
@@ -6615,12 +6780,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-81",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-81-at-40.75s.png",
           "time": 40.75,
           "metadata": {
             "width": 1080,
@@ -6635,12 +6801,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-82",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-82-at-41.25s.png",
           "time": 41.25,
           "metadata": {
             "width": 1080,
@@ -6655,12 +6822,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-83",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-83-at-41.75s.png",
           "time": 41.75,
           "metadata": {
             "width": 1080,
@@ -6675,12 +6843,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-84",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-84-at-42.25s.png",
           "time": 42.25,
           "metadata": {
             "width": 1080,
@@ -6695,12 +6864,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-85",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-85-at-42.75s.png",
           "time": 42.75,
           "metadata": {
             "width": 1080,
@@ -6715,12 +6885,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-86",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-86-at-43.25s.png",
           "time": 43.25,
           "metadata": {
             "width": 1080,
@@ -6735,12 +6906,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-87",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-87-at-43.75s.png",
           "time": 43.75,
           "metadata": {
             "width": 1080,
@@ -6755,12 +6927,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-88",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-88-at-44.25s.png",
           "time": 44.25,
           "metadata": {
             "width": 1080,
@@ -6775,12 +6948,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-89",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-89-at-44.75s.png",
           "time": 44.75,
           "metadata": {
             "width": 1080,
@@ -6795,12 +6969,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-90",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-90-at-45.25s.png",
           "time": 45.25,
           "metadata": {
             "width": 1080,
@@ -6815,12 +6990,13 @@
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
         },
         {
           "scope": "full",
           "id": "43f16e96-5b40-47cf-950d-9a7b3c144216-91",
-          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/61494a29-5ce8-4fef-9679-e8dfb36865b7/frame-91-at-45.75s.png",
           "time": 45.75,
           "metadata": {
             "width": 1080,
@@ -6834,6 +7010,1850 @@
           "contentHash": "63fdd60d8d8832d28e9e9aa9670b9f407f0adab69a886e780cfa88d2daf54ee5",
           "revision": "99885e5b-7733-4e7c-8a04-7649f9c84379",
           "inputFingerprint": "2ce0a028a474738b680950bb1a91ca03e4fbda6c750ccc5791a155a7d343f072",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc"
+        }
+      ],
+      "0dadf6e1-e83e-451c-8b58-f4581b3b33b9": [
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-0",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-00-at-0.25s.png",
+          "time": 0.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644071,
+          "contentHash": "83cf4c6a12bfce4aaaec16dfb3d437376369108c5ccb81d8e8b5d8f24092fad6",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-1",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-01-at-0.75s.png",
+          "time": 0.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644071,
+          "contentHash": "9675cc66635193423b717b63587d1129daa8ffc02754934b05a9545cd255684d",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-2",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-02-at-1.25s.png",
+          "time": 1.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "729544d536cdb603e75157910d8b1292342e645895f0ec80a420bcaff2ff21af",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-3",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-03-at-1.75s.png",
+          "time": 1.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "9442b723effd510441d819b226f51239e9b14272cfe4cbef52a5a51010bd842e",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-4",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-04-at-2.25s.png",
+          "time": 2.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "045b4721a52bf1f7ea3b12973ee529eaea365b848d9d23db5983186b0ddf2f90",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-5",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-05-at-2.75s.png",
+          "time": 2.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "135f0a458356676be1562e3ee429a849696696d39d023d46486f0a7183cf1464",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-6",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-06-at-3.25s.png",
+          "time": 3.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "6864a1ca81054c232be0eeea1b48a5c7b71415a22a5e28ba84b386ea922e9a48",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-7",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-07-at-3.75s.png",
+          "time": 3.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "b0c4a165eef129667f2cc9d3f91964768ba2ce2a4fc2c220be9f6d0028d09883",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-8",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-08-at-4.25s.png",
+          "time": 4.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "5e7435831fbc4ac3b2816e7ab5a22a4bde63c3932af65b289e659338d3546cfc",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-9",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-09-at-4.75s.png",
+          "time": 4.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "585a50d9db8d082c8834da41e9e82b187ab351ac47c62f3a4be712a661872a07",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-10",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-10-at-5.25s.png",
+          "time": 5.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "62c611a8682da0377099347a07dadf010bdbb5e39be24357dc691c54fdcb97d5",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-11",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-11-at-5.75s.png",
+          "time": 5.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "e6d1d158bafcb3399ed112b9efb29ab3617540c4a9e1d77bcfdda18c0dc6dbba",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-12",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-12-at-6.25s.png",
+          "time": 6.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "3202edbe91ed68c1bfc1e9a2cb511d64577cca2598750a5ad371d91e3b4390f4",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-13",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-13-at-6.75s.png",
+          "time": 6.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "c41cc34c59225b6a03639a2d84bd3de6a85bcea381e1a2951ed5b89813c2a179",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-14",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-14-at-7.25s.png",
+          "time": 7.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "672457ee2f4acec7f14dce188bcc6173137b36f5e4462fd8be0ab4975ac20c38",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-15",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-15-at-7.75s.png",
+          "time": 7.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644072,
+          "contentHash": "7d31db8410a3840e925afe131625449710b48477b46d8ae0d19b510fb6a65a6c",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-16",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-16-at-8.25s.png",
+          "time": 8.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "53a0e2bad55e36d2194cec9c845dd8979702d28b5cb223a64c5f9ecdc97e714a",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-17",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-17-at-8.75s.png",
+          "time": 8.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "9d8f0c59010e29fab3509e2200f9210d4fa938cefd92770dc6926f64ae927f32",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-18",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-18-at-9.25s.png",
+          "time": 9.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "984f13adb269241440a52ddf81b36208b165aef59574d848a845d8a0f40bcaf9",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-19",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-19-at-9.75s.png",
+          "time": 9.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "e91ef4f06de034ec54f813786cb3d093d41e29bca71be63533442f8d1a9bdf58",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-20",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-20-at-10.25s.png",
+          "time": 10.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "3a0420ab583e9438469e61f3b0bf38f867e271d3d3ae093f56911c7bc9aeb16b",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-21",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-21-at-10.75s.png",
+          "time": 10.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "bde209e136a9bbe183fab3c65aad45b5e4ad6344c98260a392ebfb031935aeda",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-22",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-22-at-11.25s.png",
+          "time": 11.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "3f1b0ee6901ced58d18cbff3c0beb3905853b417a1f24d49b07c544e21fd9ae9",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-23",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-23-at-11.75s.png",
+          "time": 11.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "391426d0c21faf35400a3a097d18c345504ff290403de404d427179fcd2f9e4c",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-24",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-24-at-12.25s.png",
+          "time": 12.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "55c1c098d0a6d34fe829eeab58ed75c1106891f5b322eebbbfc6238663ca0d68",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-25",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-25-at-12.75s.png",
+          "time": 12.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "c513e46bd8e7eaa9a1463baa0b84c0e8388e067a385cfbd9ae10c1479175af8e",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-26",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-26-at-13.25s.png",
+          "time": 13.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "e2a27a410ea1e51c5361a065d3b12fda7d082abbb7ffc358b8843ff95da22ea2",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-27",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-27-at-13.75s.png",
+          "time": 13.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "b00aa9c6acf24cac21a4d6708cc6d9fef48633f1b1a7a05fd99aec1c12a2ac78",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-28",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-28-at-14.25s.png",
+          "time": 14.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "a75e92db6b7d782906a60f1fe0a3369c066e79abbc4fa96d9f51bad0169ce143",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-29",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-29-at-14.75s.png",
+          "time": 14.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644073,
+          "contentHash": "db8229f13449408e89a165a0c12ff6b67fc3e067014f3b7d7a308356403948e2",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-30",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-30-at-15.25s.png",
+          "time": 15.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "1cddc4f6b0d99213a6d0299406f480eec7a784f43972a6d09d45f9d048b6f395",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-31",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-31-at-15.75s.png",
+          "time": 15.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "b8dc2075fc65fe089c6c48a7d3cdfb6815ff45045b27c1924ff86e4b0b380b75",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-32",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-32-at-16.25s.png",
+          "time": 16.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "9d984abf72708fe6392e69aeec3ae2a807a738188b6fca7349664b373a000c68",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-33",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-33-at-16.75s.png",
+          "time": 16.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "2ae1b2a82d0eca0c3c6c63dabd2e7a164581148a1c956ad6a8edc4c7adef8b67",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-34",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-34-at-17.25s.png",
+          "time": 17.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "aecf9b220c7300d82b19249326c59af52c4b6e99f55d7349bb4aa4a3efb7cf52",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-35",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-35-at-17.75s.png",
+          "time": 17.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "4daceaa034e5b86b68614d779a7bbaeb6869c6d126a0fa921942a0eff2b4aad3",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-36",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-36-at-18.25s.png",
+          "time": 18.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "c6e104d203bbf714b8531f9c94963b0683d0bfeeeefd9e60a6201472b5442410",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-37",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-37-at-18.75s.png",
+          "time": 18.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "141a34e5900823d5a3aa5f82ef7ef3c6df6a9706c709cbb0a8637a5756675872",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-38",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-38-at-19.25s.png",
+          "time": 19.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "6a0ef8baeec692d4ec5ec36b00abb6d8e31f66e9817dfa16cc5747b6552ed33e",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-39",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-39-at-19.75s.png",
+          "time": 19.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "9db0588bf816e65be7b1d3621a827ca5d028dd85f5d2ff772453fc6d2cb61d9a",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-40",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-40-at-20.25s.png",
+          "time": 20.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "74c59d4abb7c086a8f520edd7d4114af20d6353e6a654bbc5a67c0492285ea2e",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-41",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-41-at-20.75s.png",
+          "time": 20.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644074,
+          "contentHash": "0ce96780ee4879d6755d1a8e5c84fe707a279afd35539e84cf41365165e0e782",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-42",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-42-at-21.25s.png",
+          "time": 21.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "3c232e47b0860d636eea5cd9f8d865c553d3085a3c3b02de699c973b0d796351",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-43",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-43-at-21.75s.png",
+          "time": 21.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "6ac6358a1c6b9508c4780d06173a6fbe8a0745aff802a08bd4b40b738b9c634f",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-44",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-44-at-22.25s.png",
+          "time": 22.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "e3a8922daef728931b740c8371739330ff7cf585fdc44954ec4e47b470d220ab",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-45",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-45-at-22.75s.png",
+          "time": 22.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "90967f2ca97e42d1f092a2801e922a8feaa1631bf9f55182318f5f64c0a5a038",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-46",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-46-at-23.25s.png",
+          "time": 23.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "baca2fa35582735db6a1a2022634c28e4cc9284ecee1d778777f544684113944",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-47",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-47-at-23.75s.png",
+          "time": 23.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "14310c9a47cf52dd0b79ad5dedceb6bacc1fa9eaee87bcea87e92b04a359fec3",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-48",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-48-at-24.25s.png",
+          "time": 24.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "b7403b69c4882c761029f318a9cf417a6a6c7078fcc4cf06225bffb3488230d6",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-49",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-49-at-24.75s.png",
+          "time": 24.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "f79ac31d87d8e417c4ba2422d631cb45e7d714d6132703f2ac0d4f234d0c6fdb",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-50",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-50-at-25.25s.png",
+          "time": 25.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "b371f16475fa8f60cc222eb5a123317d800f81dc21c562a34231c5bf5a4c03f3",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-51",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-51-at-25.75s.png",
+          "time": 25.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "08b0f86819cf85c4f1eedb78adb77a5905eb0b19454efb45fcf8c08be91a2088",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-52",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-52-at-26.25s.png",
+          "time": 26.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644075,
+          "contentHash": "609eaf21b872a65e898df373a1294b390ac5860028b82cd69ef58a16f1a62302",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-53",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-53-at-26.75s.png",
+          "time": 26.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "83f3d29b3cbbc72e97b17371f5ea5f0053b9ef79ed0c37318c663db26c8c8f02",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-54",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-54-at-27.25s.png",
+          "time": 27.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "ec2975eaf41a09753d56bc4b227cf7e1beb8dfea91a6a1b993fc972f7fd9eb6b",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-55",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-55-at-27.75s.png",
+          "time": 27.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "d6d5d27341160cc0de40143c6649afc0a8a94c03d147b8fb23b38544a7ebb9de",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-56",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-56-at-28.25s.png",
+          "time": 28.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "922057048c80d576cd36f6fb2dbd9af348156ed027a8b296b737afd3496fe376",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-57",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-57-at-28.75s.png",
+          "time": 28.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "10e6dc3cc978a91ebbbf646f445a91fe6a42cc1615d09072bda46ba76c245739",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-58",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-58-at-29.25s.png",
+          "time": 29.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "005b441e6e36742adddff10084fc54b72834c12286327aad8ca86c168fa9cd5f",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-59",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-59-at-29.75s.png",
+          "time": 29.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "de94ffc65e133726055efa302c926a1c716fe4df885428a63a77f51f2761e994",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-60",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-60-at-30.25s.png",
+          "time": 30.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "93a4a9ed667341f99427f947df1bb913ae56a5038211e1fa9ee55394d0ff2f70",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-61",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-61-at-30.75s.png",
+          "time": 30.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "222b678f2b6c169c7c4fa8e12099c9e1af55aef1cff45058a404946b1570e920",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-62",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-62-at-31.25s.png",
+          "time": 31.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "da855d6893b3c97fef23cbf8c00c06613eb6a6ff71db930abde02580772c3b80",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-63",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-63-at-31.75s.png",
+          "time": 31.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644076,
+          "contentHash": "1f5fd14a3493599ded8173667e97409fe48f182aeae37c6af148466ccb9f0cc8",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-64",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-64-at-32.25s.png",
+          "time": 32.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "ad77a3603b0d64b81c6ca3ef0c17dea9315a489e2774e109422eb6adefbfdeae",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-65",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-65-at-32.75s.png",
+          "time": 32.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "ffe5cbfaf40514997feb7850c9b2239041574732972e5d251ffaae54d4398bbb",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-66",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-66-at-33.25s.png",
+          "time": 33.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "cdb3d92a160b161b3e219b4afe5e4f90f1ae62275627456944c1f6a58cb8308d",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-67",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-67-at-33.75s.png",
+          "time": 33.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "859a1fea663f947d62e7034c03e132e29f46de670bfd2cfc217ee92118931c59",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-68",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-68-at-34.25s.png",
+          "time": 34.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "03f17531efb46bdfa6d1bd746d5c44aafd40eb5095f5a7f5228a812870246ae5",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-69",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-69-at-34.75s.png",
+          "time": 34.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "e29ccea54151ad18e0266d2294de3749cd982fc2c97128cfdb95ee8cd3da8e72",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-70",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-70-at-35.25s.png",
+          "time": 35.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "0f5a8bd6dccdbea68b095e5cc4dd9bfdea7bebb2b3dbcad799806dca05edf667",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-71",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-71-at-35.75s.png",
+          "time": 35.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "bd918b9fcca4d3c5eeffaa730d9bbdbc7c8d38beb7cdaa89fb149ce6d1fb2d20",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-72",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-72-at-36.25s.png",
+          "time": 36.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644077,
+          "contentHash": "bd918b9fcca4d3c5eeffaa730d9bbdbc7c8d38beb7cdaa89fb149ce6d1fb2d20",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-73",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-73-at-36.75s.png",
+          "time": 36.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "07e128235f11264fa9d5ae0d10049e79beb7ae2bc78447f12ccd1024ae33435a",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-74",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-74-at-37.25s.png",
+          "time": 37.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "98ada9b0dd5feefae7801c8b7c02e87322e2c9ab5b7a0b77a54c7dc3813fe42f",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-75",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-75-at-37.75s.png",
+          "time": 37.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "d0701f3988d375a18e25d3f1fb83f8c2160c16a0345e80fc061c9a02fc64b69f",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-76",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-76-at-38.25s.png",
+          "time": 38.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "9fb4eeff7e9309ad18d33bfb746ab24df081ee6b62f3a00ea170e635cf3b49c1",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-77",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-77-at-38.75s.png",
+          "time": 38.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "6379ff4af5c6f727f5e2d097e1dde2cd0ae7dcbb423ef96b6f8bb5f44d071cf7",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-78",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-78-at-39.25s.png",
+          "time": 39.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "6f8c8786af2cd38303631df4306480769532de41278c6120804be547066fd9c7",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-79",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-79-at-39.75s.png",
+          "time": 39.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "082f7ca86bce8e3b5c14d4a14e06cac1ac43dac7009780726948a19f3fc69861",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-80",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-80-at-40.25s.png",
+          "time": 40.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "8de3d19d697168c4e697ae6b69dad88bd267f986bb5a9b1e1975486cb5f00a2e",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-81",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-81-at-40.75s.png",
+          "time": 40.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644078,
+          "contentHash": "3b5e3fc8a9b9da120e2b8d08551d0808762ccdb3c8ef6a6513892b6d0ca48589",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-82",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-82-at-41.25s.png",
+          "time": 41.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "046163c2b73a038bf3258a4068b23a559c95eb6321131fc7404fc311ed9ad464",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-83",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-83-at-41.75s.png",
+          "time": 41.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "47ba05707d47302257944e89e8def5a2f294801c29d299fac73a564ea04a5436",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-84",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-84-at-42.25s.png",
+          "time": 42.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "8f6f61968f093c5b59bb306d314af4d8d9f0bda693ed14836a5b436b2f168cdb",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-85",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-85-at-42.75s.png",
+          "time": 42.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "99cfbb7aa1ced1f4ac231ccab261d247aa8c79a35b2970ea9ec14c8b5b2d4d22",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-86",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-86-at-43.25s.png",
+          "time": 43.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "7354197caf32ef1652af56cf0f76e1f1e27bac824f945927caa8452185d9baef",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-87",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-87-at-43.75s.png",
+          "time": 43.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "1f3bf31e3a6d61c35a05dfa766ff31863d3e906b9a19a52080c016d7c8640091",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-88",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-88-at-44.25s.png",
+          "time": 44.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644079,
+          "contentHash": "48b18dba8ea24e9d7c2f87598675e08e1aa17e3438319239282fff602c802c0a",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-89",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-89-at-44.75s.png",
+          "time": 44.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644080,
+          "contentHash": "6aaff648b964d167e1540a2e53bab402c00253c29841fdf60a5277752415f051",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-90",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-90-at-45.25s.png",
+          "time": 45.25,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644080,
+          "contentHash": "e25033b32173f5c0776dedf3a81a6018396f545146decd4535534fe3cd64e198",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
+          "inputScope": "local-project-files",
+          "attribution": "recorded-revision"
+        },
+        {
+          "scope": "full",
+          "id": "23eaa667-3c40-4a61-8d31-4a9ff34a6a7d-91",
+          "image": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/.hyperframes/artifacts/snapshots/5565c10a-1265-44bf-8ab1-da4568c6322f/frame-91-at-45.75s.png",
+          "time": 45.75,
+          "metadata": {
+            "width": 1080,
+            "height": 1920,
+            "zoomScale": 1,
+            "browserGpuMode": "auto",
+            "warnings": [],
+            "partial": false
+          },
+          "createdAt": 1795503644080,
+          "contentHash": "63fdd60d8d8832d28e9e9aa9670b9f407f0adab69a886e780cfa88d2daf54ee5",
+          "revision": "0dadf6e1-e83e-451c-8b58-f4581b3b33b9",
+          "inputFingerprint": "ab3ae3f35504553f56de6657905126cc1ca44f95013c60e71a409cde5ef6b31c",
           "inputScope": "local-project-files",
           "attribution": "recorded-revision"
         }
@@ -7504,15 +9524,15 @@
   },
   "renders": {
     "latest": {
-      "id": "74edb8cc-96f2-4f70-9930-f7a12723daa0",
-      "completedAt": 1795497323809,
+      "id": "11bfcafe-9e51-4ff2-9312-41e45e50bfcc",
+      "completedAt": 1795501686485,
       "output": "/home/user/wt-ferreteria-encargo/reels/ferreteria-encargo/renders/ferreteria-encargo.mp4",
       "status": "completed",
-      "revision": "b5d5b032-2e3c-468e-9470-18bd869384c2"
+      "revision": "79b55026-018b-4d33-b121-7e83c12a7ddb"
     },
     "retainedRevisions": [
-      "b5d5b032-2e3c-468e-9470-18bd869384c2",
-      "81a882e1-bd0e-411a-b799-737adaf3e272"
+      "79b55026-018b-4d33-b121-7e83c12a7ddb",
+      "b5d5b032-2e3c-468e-9470-18bd869384c2"
     ]
   },
   "pendingArtifactCleanup": []
