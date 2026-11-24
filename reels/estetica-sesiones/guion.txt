@@ -1,0 +1,37 @@
+[sin narrador Orus: el chiste va en burbujas, el cuaderno de paquetes, la tarjetita de cartón con sellos, el post-it de Vale y los chips de hora; la solución va en la interfaz recreada (ficha de la clienta con su paquete en la tablet, contador que baja con tilde, el WhatsApp de Carolina, el aviso de renovación con botón de pago, el panel de paquetes); voces por archivo en partes/*.txt, ver partes/voces.md · estimado: 39,4 s · parte 1 0,00-16,20 · cartel 16,20-18,60 · parte 2 + cierre 18,60-39,40 (20,8 s, 53 %)]
+[parte 1 · el problema · 0,00-16,20 s · el gabinete de "Lorena Estética" (el de estetica-turnos), jueves de tarde]
+[0,00-3,30 · cuadro 0: arriba, gigante, "CENTROS DE ESTÉTICA" y el chip "Jueves, 18:00." · Carolina sentada en la camilla, las gafas de láser verde oscuro en la frente, una toalla sobre las piernas · Vale en el banquito con el cabezal del equipo láser en la mano (el equipo prendido al lado, con un post-it pegado en el costado) · Lorena en la puerta del gabinete con el cuaderno de paquetes, tapa verde apagado, "PAQUETES" · la burbuja de Carolina ya asomando]
+CAROLINA: Lore, ¿cuántas me quedan?
+[1,80-2,50 · Lorena abre el cuaderno y hojea]
+LORENA: Dejame ver.
+[3,30-5,60 · inserto del cuaderno: "CAROLINA · LÁSER PIERNAS · PAQ. 10 · PAGÓ ✓" y nueve palitos (uno en birome verde, uno con "?" al lado, una aureola de café); rótulo "Cuaderno: queda 1"]
+LORENA: Según el cuaderno, una.
+[5,60-8,40 · Carolina, sorprendida y de buena fe, saca de la cartera la tarjetita de cartón doblada al medio · inserto: "Lorena Estética · Láser piernas · 10 sesiones", 7 sellos de hojita verde y 3 casilleros vacíos · rótulo "Tarjetita: quedan 3"]
+CAROLINA: ¿Una? Acá tengo siete sellos.
+[8,40-10,20 · pausa muda · Lorena mira a Vale · Vale, sin decir nada, señala el post-it del equipo láser: "CARO" y ocho palitos · rótulo "Post-it: quedan 2" · los tres rótulos juntos: "Cuaderno: 1 · Tarjetita: 3 · Post-it: 2" · la música baja]
+[10,20-13,60 · primer plano de Lorena, sonrisa de anfitriona, tranquila]
+LORENA: Hagamos el promedio.
+CAROLINA: ¿Y cuánto da?
+[pausa 0,5 s · Lorena cierra el cuaderno]
+LORENA: Tres.
+[rótulo chico: "El promedio daba 2." · rótulo: "Este mes: 8 sesiones regaladas por las dudas · $ 14.400" (rojo apagado)]
+[13,60-16,20 · remate del remate · Lorena, sin moverse]
+LORENA: Vale, ¿y la de Jimena?
+[Vale gira el equipo láser sobre sus ruedas: el otro costado, forrado de post-its de arriba abajo · rótulo: "6 paquetes terminados · nadie les avisó · no renovaron" (rojo apagado) · stinger]
+NARRADOR: Un sistema más tarde.
+[cartel · 16,20-18,60 · time card de dibujito, fondo verde de marca: "Un sistema" / "más tarde…" (nunca "Scalerics") · audio reusado de ya-lo-cargo]
+[parte 2 · la solución · 18,60-39,40 s · el mismo centro, sin cuaderno, sin tarjetita, sin post-its]
+[18,60-24,20 · chip "Jueves, 18:00." · el mismo encuadre del cuadro 0: Carolina en la camilla, Vale termina, toca "Asistió" en la tablet del carrito · inserto de la ficha: "Carolina · Láser piernas · Paquete 10" · "Sesión 7 ✓" · contador "Te quedan: 4 → 3" con tilde verde · vibra el celular de Carolina]
+CAROLINA: Lore, ¿cuántas me quedan?
+[inserto del celular de Carolina (chat genérico, "Lorena Estética"): "Hola, Carolina. Sesión 7 de 10 hecha ✓ Te quedan 3." · Carolina lo lee]
+CAROLINA: Ah. Tres.
+LORENA: Tres. Sin promedio.
+[rótulo: "Cada sesión se descuenta sola"]
+[24,20-27,60 · chip "Jueves, 18:30." · el mismo plano de la parte 1]
+LORENA: Vale, ¿y la de Jimena?
+[Vale gira la tablet hacia Lorena: "Jimena · Láser axilas · 5 de 10 · quedan 5" · el costado del equipo láser, limpio · Vale despega el último post-it y lo tira al tacho]
+[27,60-32,60 · chip "Dos meses después." · Carolina en su casa, en el sillón, con la cartera al lado · inserto de su celular: "Hola, Carolina. Hoy hiciste la 9 de 10: te queda 1. ¿Renovás tu paquete? 10 sesiones · $ 18.000" · botón verde "Renovar y pagar" · toca · "Pagado ✓ · Paquete nuevo: 10 sesiones" · Carolina saca de la cartera la vieja tarjetita de cartón, la mira con cariño y la guarda en el cajón de la mesita · rótulo: "Con 1 sesión, le avisa para renovar"]
+CAROLINA: Chau, tarjetita.
+[32,60-35,60 · la recepción: la tablet en su atril (≥ 70 % del cuadro), panel "Paquetes": "Activos: 42" · "Sesiones descontadas este mes: 96 ✓" · "Por terminar: 5 · aviso enviado ✓" · "Renovaron: 4" · abajo, grande y verde: "Sesiones regaladas por las dudas: 0"]
+[cierre · 35,60-39,40 · Lorena a cámara en la recepción, la tablet con el panel verde al costado, los dos cisnes de toalla de adorno en el estante · tarjeta debajo de la cara: "Comentá" / "SESIONES" (en el recuadro verde de selección) / "y te mando cómo funciona para tu centro de estética" · el último segundo, abajo: "La ficha de cada clienta con su paquete, que se descuenta sola" / "scalerics.com" en verde]
+LORENA: Comentá SESIONES y te mando cómo funciona para tu centro de estética.
