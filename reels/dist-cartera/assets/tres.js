@@ -372,7 +372,7 @@ let camioneta, puertaCam;
   for (let k = 0; k < 3; k++) for (let i = 0; i < 6; i++) MUE.add(caja(0.5, 0.36, 0.4, mat(i % 2 ? C.kraft : 0xbf9a62, 0.85), -4.1 + i * 0.6, 0.2 + k * 0.38, -3.35, 0.01));
   // el cartel de la distribuidora en la pared (crema sobre navy)
   const cT = lienzo(1400, 260, (x, w, h) => { x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h); x.strokeStyle = "#5ce611"; x.lineWidth = 12; x.strokeRect(14, 14, w - 28, h - 28); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "DISTRIBUIDORA RUBÉN", 900, 130, w - 120); x.fillText("DISTRIBUIDORA RUBÉN", w / 2, h / 2 + 6); });
-  MUE.add(plano(2.3, 0.42, cT, 0.7, 2.72, -3.03, true));
+  MUE.add(plano(2.3, 0.42, cT, 3.9, 2.72, -3.03, true));
   // la camioneta de reparto (furgón chico): caja crema con franja verde, cabina navy3, la puerta del conductor se cierra
   camioneta = new THREE.Group(); camioneta.position.set(1.7, 0, -0.6); camioneta.rotation.y = -Math.PI / 2; MUE.add(camioneta);
   const cue = mat(C.cr, 0.5), cab = M.navy3;
@@ -936,8 +936,8 @@ const RD = { x: ESC.x + 0.5, z: ESC.z + 0.85 };                       // Rubén 
 const CAM_DET = (k, abre = 0) => [RD.x + 0.08 + abre * 0.18, 1.72, lerp(-2.3, -2.2, k) - abre * 0.35, RD.x + 0.05 + abre * 0.2, 1.3, RD.z, 40 + abre * 10];   // detrás del monitor: la cara de Rubén (y Nico)
 const CAM_MAR = (k) => [MAR.x - 0.1, 1.5, lerp(0.62, 0.5, k), MAR.x + 0.05, 1.42, MAR.z, 40];
 const CAM_NIC = (k) => [60.6, 1.4, lerp(3.75, 3.6, k), 60.68, 1.45, 1.15, 40];
-const CAM_OFI = (k) => [80.25, 1.45, lerp(2.15, 2.0, k), 80.25, 1.32, -0.45, 58];
-const CAM_C = (k) => [0.03, 1.45, lerp(3.45, 3.3, k), 0.0, 1.55, 1.7, 52];
+const CAM_OFI = (k) => [80.32, 1.38, lerp(2.6, 2.45, k), 80.32, 1.42, -0.4, 54];
+const CAM_C = (k) => [0.03, 1.5, lerp(3.45, 3.3, k), 0.0, 1.3, 1.7, 50];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
@@ -952,7 +952,7 @@ const PLANOS = [
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...CAM_P1(0)], [T.q1r, ...CAM_P1(1)]]],
   ["Q1r", T.q1r, [[T.q1r, ...CAM_P2(0)], [T.q1l, ...CAM_P2(1)]]],
-  ["Q1l", T.q1l, [[T.q1l, ...CAM_P3(0)], [T.q2, ...CAM_P3(0.5)], [r2(T.q2 + 0.45), -1.7, 1.45, 1.55, -2.6, 1.15, -0.7, 44], [r2(T.q2 + 0.85), ...camMon(0.9, 44, 0, -0.03)], [T.q3, ...camMon(0.98, 44, 0, -0.02)]]],
+  ["Q1l", T.q1l, [[T.q1l, LEO0.x - 0.32, 1.42, 2.2, LEO0.x - 0.22, 1.3, LEO0.z, 44], [T.q2, LEO0.x - 0.4, 1.42, 2.1, LEO0.x - 0.3, 1.3, LEO0.z, 44], [r2(T.q2 + 0.45), -1.7, 1.45, 1.55, -2.6, 1.15, -0.7, 44], [r2(T.q2 + 0.85), ...camMon(0.9, 44, 0, -0.03)], [T.q3, ...camMon(0.98, 44, 0, -0.02)]]],
   ["Q3", T.q3, [[T.q3, ...CAM_DET(0, 1)], [T.q3m, ...CAM_DET(1, 1)]]],
   ["Q3m", T.q3m, [[T.q3m, ...camMon(0.92, 44, 0, -0.03)], [T.q3i, ...camMon(0.8, 44, 0, -0.03)]]],
   ["Q3i", T.q3i, null],                         // el celular de Nico: llegan las 38
@@ -1033,10 +1033,9 @@ function poseRuben(t, pa, cp) {
     if (pa === "Q3") { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0, y: -0.35, abiertos: 0.95, feliz: 0.25 } }); }
     if (pa === "Q3b") { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0.4, y: -0.1, abiertos: 0.95, feliz: 0.35 }, boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 } }); pr.cabeza = { giro: 0.35, asiente: 0.05, ladea: 0.04 }; bocaVoz(pr, t, T.r5, ENV.r5, 0.55); }
     // la mano derecha en el mouse (borra / pasa la cartera)
-    if (pa !== "P5") { const m = DEP.localToWorld(V3(ESC.x + 0.55, ESC_Y + 0.04, ESC.z + 0.24)); pr.manoD = aCuerpo(ruben, m); pr.codoD = [-1, -0.5, 0.0]; pr.dedoD = 0; }
   } else if (pa === "Q5") {
-    Object.assign(pr, { x: 80.72, z: 0.3, giro: -0.6, ...CARA.sonrisa, ojos: { x: -0.3, y: -0.05, abiertos: 0.92, feliz: 0.3 }, cejas: { alto: 0.15, ang: 0, asim: 0.35 }, boca: { sonrisa: 0.5, abierta: 0, ancho: 1 } });
-    pr.cabeza = { giro: haciaCam(cp, 80.72, 0.3, -0.6, 0.7), asiente: 0.03, ladea: 0.03 };
+    Object.assign(pr, { x: 80.86, z: -0.42, giro: -0.55, ...CARA.sonrisa, ojos: { x: -0.3, y: -0.05, abiertos: 0.92, feliz: 0.3 }, cejas: { alto: 0.15, ang: 0, asim: 0.35 }, boca: { sonrisa: 0.5, abierta: 0, ancho: 1 } });
+    pr.cabeza = { giro: haciaCam(cp, 80.86, -0.42, -0.55, 0.7), asiente: 0.03, ladea: 0.03 };
     pr.manoI = MANO_MATE; pr.codoI = [1, -0.6, -0.25];
     bocaVoz(pr, t, T.r6, ENV.r6, 0.55);
   }
@@ -1142,7 +1141,7 @@ function renderAt(tIn) {
       cuchilloG.visible = true; ruben.brazos[0].mano.getWorldPosition(_w);
       cuchilloG.position.copy(_w).add(V3(0, -0.01, 0)); cuchilloG.rotation.set(0, ruben.raiz.rotation.y - Math.PI / 2 + 0.25, ["P2", "Q1r"].includes(pa) ? 0.55 : -0.25);
     }
-    if (enFiesta) {
+    if (enFiesta && !(pa === "Q1l" && t > T.q2)) {
       OPS.forEach(([p], i) => { p.raiz.visible = true; p.poner(poseOp(t, i)); p.raiz.updateMatrixWorld(true); });
       const v = [vaso1, vaso2]; OPS.forEach(([p, , , , lado], i) => { v[i].visible = true; p.brazos[lado === "I" ? 0 : 1].mano.getWorldPosition(_w); v[i].position.copy(_w).add(V3(0, 0.0, 0)); });
     }
@@ -1183,7 +1182,7 @@ function renderAt(tIn) {
   if (pa === "Q3i") {
     celN.updateMatrixWorld(true);
     camPantalla(celN, V3(0, 0.0, 0.0075), V3(0, 0, 1), 0.172 * 1.2, 0.66, 38, t, 0.02 * (1 - eo(sg(t, T.q3i, T.q3i + 0.4))));
-    nico.raiz.visible = false; ruben.raiz.visible = false; manoN.visible = true; celN.updateMatrixWorld(true);
+    nico.raiz.visible = false; ruben.raiz.visible = false; manoN.visible = false; celN.updateMatrixWorld(true);
     manoN.position.copy(celN.localToWorld(V3(0.04, -0.13, -0.014))); manoN.quaternion.copy(celN.getWorldQuaternion(new THREE.Quaternion()));
     manoN.userData.pulgar.rotation.set(0, 0, 0.6); manoN.userData.pulgar.position.set(0.02, 0, 0.026);
   }
@@ -1227,7 +1226,7 @@ function renderAt(tIn) {
     if (pa === "P6b") di("r4", ruben, T.r4, P1, 1, 0, 330);
     if (pa === "Q1") di("l1b", leo, T.l1b, T.q1r, 1, -40, 250);
     if (pa === "Q1r") di("r1b", ruben, T.r1b, T.q1l, 1, 0, 250);
-    if (pa === "Q1l" && t < T.q2 + 0.25) di("l3", leo, T.l3, T.q2 + 0.25, 1, 0, 250);
+    if (pa === "Q1l" && t < T.q2) di("l3", leo, T.l3, T.q2, 1, 0, 250);
     if (pa === "Q1l") { rot("ficha", T.ficha, 1560, T.prom); rot("prom", T.prom, 1560, T.perez); rot("perez", T.perez, 1560); }
     if (pa === "Q3") di("n1b", nico, T.n1b, T.q3m, 1, 0, 250);
     if (pa === "Q3i") rot("cartera", T.llegan - 0.05, 1690);

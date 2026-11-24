@@ -1,7 +1,7 @@
 #!/bin/bash
 # paso10.sh (r2): re-codificación del paso 10 con loudnorm en DOS PASADAS lineal (mismos objetivos: -14 LUFS, TP -1,5, LRA 11)
 cd "$(dirname "$0")"
-IN=renders/dist-quien-debe.mp4; OUT=renders/dist-quien-debe-final.mp4
+IN=renders/dist-cartera.mp4; OUT=renders/dist-cartera-final.mp4
 J=$(ffmpeg -hide_banner -nostats -i $IN -vn -af loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
 v() { echo "$J" | python3 -c "import json,sys; print(json.load(sys.stdin)['$1'])"; }
 AF="loudnorm=I=-14:TP=-1.5:LRA=11:measured_I=$(v input_i):measured_TP=$(v input_tp):measured_LRA=$(v input_lra):measured_thresh=$(v input_thresh):offset=$(v target_offset):linear=true:print_format=json"
