@@ -281,14 +281,18 @@ const SUX = -40, VX = 40, PX = 80;
 M.gaz = mat(0x365f28, 0.85); M.acero = mat(0xb9bec4, 0.5, { metalness: 0.3 }); M.kraft = mat(0xc9a774, 0.85); M.verde = mat(0x365f28, 0.8);
 M.croq = mat(0x8a5a30, 0.8); M.pared2 = mat(0x16243d, 0.9); M.gris = mat(0xb9bec4, 0.85); M.grisO = mat(0x8f969f, 0.8);
 const silueta = (x, cx, cy, s, color) => {
-  // un perro sentado de perfil (silueta plana): cuerpo, cabeza con hocico, oreja, pata, cola
-  x.save(); x.translate(cx, cy); x.scale(s, s); x.fillStyle = color;
-  x.beginPath(); x.ellipse(0, 20, 46, 52, -0.25, 0, 7); x.fill();
-  x.beginPath(); x.ellipse(22, -48, 30, 28, 0, 0, 7); x.fill();
-  x.beginPath(); x.ellipse(50, -40, 22, 14, 0.15, 0, 7); x.fill();
-  x.beginPath(); x.moveTo(6, -66); x.lineTo(-6, -98); x.lineTo(22, -74); x.closePath(); x.fill();
-  x.fillRect(18, 30, 16, 46); x.beginPath(); x.ellipse(-30, 66, 36, 14, 0, 0, 7); x.fill();
-  x.lineWidth = 12; x.strokeStyle = color; x.lineCap = "round"; x.beginPath(); x.moveTo(-40, 50); x.quadraticCurveTo(-80, 40, -78, 0); x.stroke();
+  // (r1) un PERRO parado de perfil, mirando a la derecha: lomo largo, cuatro patas, cuello, cabeza con hocico largo y
+  // trufa, oreja CAÍDA, cola recta para arriba (nada de gato sentado)
+  x.save(); x.translate(cx, cy); x.scale(s, s); x.fillStyle = color; x.strokeStyle = color; x.lineCap = "round"; x.lineJoin = "round";
+  x.beginPath(); x.roundRect(-62, -14, 112, 46, 23); x.fill();                                  // lomo
+  for (const px of [-52, -30, 22, 40]) x.fillRect(px, 20, 13, 48);                               // cuatro patas
+  for (const px of [-52, -30, 22, 40]) { x.beginPath(); x.ellipse(px + 9, 68, 11, 6, 0, 0, 7); x.fill(); }   // pies
+  x.beginPath(); x.moveTo(30, 0); x.lineTo(52, -38); x.lineTo(72, -30); x.lineTo(58, 8); x.closePath(); x.fill();   // cuello
+  x.beginPath(); x.ellipse(64, -44, 20, 17, 0, 0, 7); x.fill();                                 // cráneo
+  x.beginPath(); x.roundRect(64, -50, 42, 20, 9); x.fill();                                     // hocico largo
+  x.beginPath(); x.arc(106, -44, 6, 0, 7); x.fill();                                            // trufa
+  x.beginPath(); x.ellipse(56, -30, 9, 22, 0.35, 0, 7); x.fill();                               // oreja caída
+  x.lineWidth = 11; x.beginPath(); x.moveTo(-58, -6); x.lineTo(-84, -44); x.stroke();          // cola recta
   x.restore();
 };
 // ---- la bolsa de 15 kg (EL objeto): tipo "vete" (kraft con el sticker de Veterinaria Inés), "super" (verde, sin sticker)
@@ -297,11 +301,11 @@ const frenteBolsa = {};
 function texFrente(tipo, nombre, color, kg = "15 kg") {
   const k = `${tipo}|${nombre}|${color}|${kg}`;
   if (frenteBolsa[k]) return frenteBolsa[k];
-  const fondo = tipo === "vete" ? "#c9a774" : tipo === "super" ? "#365f28" : color;
-  const tinta = tipo === "vete" ? "#0b1220" : "#efeee5";
+  const fondo = tipo === "vete" || tipo === "super" ? "#c9a774" : color;   // (r1) "super" = LA MISMA bolsa kraft, sin el sticker de la veterinaria
+  const tinta = tipo === "vete" || tipo === "super" ? "#0b1220" : "#efeee5";
   return (frenteBolsa[k] = lienzo(400, 580, (x, w, h) => {
     x.fillStyle = fondo; x.fillRect(0, 0, w, h);
-    silueta(x, w / 2 - 10, 190, 1.35, tinta);
+    silueta(x, w / 2 - 22, 190, 1.35, tinta);
     x.fillStyle = tipo === "vete" ? "#efeee5" : tipo === "super" ? "#efeee5" : "#efeee5"; x.fillRect(0, 316, w, 150);
     x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle";
     ajustar(x, "ADULTO MEDIANO", 800, 40, w - 40); x.fillText("ADULTO MEDIANO", w / 2, 346);
@@ -319,7 +323,7 @@ function texFrente(tipo, nombre, color, kg = "15 kg") {
 function crearBolsa15({ tipo = "vete", nombre = null, vacia = false, color = "#16243d", kg = "15 kg", esc = 1 } = {}) {
   const g = new THREE.Group();
   const W = 0.4, H = 0.58, D = vacia ? 0.06 : 0.15;
-  const lado = tipo === "vete" ? M.kraft : tipo === "super" ? M.verde : mat(new THREE.Color(color).getHex(), 0.8);
+  const lado = tipo === "vete" || tipo === "super" ? M.kraft : mat(new THREE.Color(color).getHex(), 0.8);
   const geo = rbox(W, H, D, 0.035, 3);
   if (vacia) {
     // arrugada: los lados hundidos y tres pliegues (función fija de la posición, sin azar)
@@ -389,7 +393,9 @@ const luzLamp = new THREE.PointLight(0xffe9c2, 0, 6, 1.4); luzLamp.position.set(
 const alfT = lienzo(512, 300, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#1f3254"; x.lineWidth = 14; x.strokeRect(14, 14, w - 28, h - 28); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "TOTO", 800, 120, w - 80); x.fillText("TOTO", w / 2, h / 2 + 6); });
 const ALF = mesh(new THREE.PlaneGeometry(0.66, 0.39), new THREE.MeshStandardMaterial({ map: alfT, roughness: 0.95 }), 0, 0.004, 0); ALF.rotation.x = -Math.PI / 2; ALF.castShadow = false; scene.add(ALF);
 const PLATO = crearPlato(); scene.add(PLATO);
-const PLATO_DX = 0.5;   // el plato respecto de Toto: el hocico (con la cabeza baja) toca el borde
+const TOTO_G = -Math.PI / 2 + 0.12;
+let HOCICO = null;   // (r1) la nariz de Toto con la cabeza baja, relativa a su raíz: el plato se pone ahí (el hocico toca el borde)
+function calibrarHocico() { toto.poner({ x: 0, y: 0, z: 0, giro: TOTO_G, sentado: 0, baja: 1, cabeza: { giro: 0, asiente: 0.45, ladea: 0 }, t: 0 }); const n = toto.nariz(new THREE.Vector3()); HOCICO = { x: n.x, z: n.z }; }
 // la taza de Vero (Q3)
 const TAZA = new THREE.Group(); { TAZA.add(mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.1, 18), M.cr, 0, 0.05, 0)); const as = mesh(new THREE.TorusGeometry(0.03, 0.009, 8, 16), M.cr, 0.05, 0.05, 0); TAZA.add(as); TAZA.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.005, 18), mat(0x5a3a26, 0.4), 0, 0.09, 0)); scene.add(sombras(TAZA)); }
 
@@ -411,7 +417,7 @@ const BOLSA_GOND = V3(SUX - 0.05, 0.72, GZ - 0.18);   // la bolsa verde de 15 kg
   for (const [x, y, t] of precios) SUP.add(plano(0.16, 0.072, precioT(t), x, y - 0.012, GZ + 0.024));
 }
 // las bolsas de la góndola (fijas): grandes abajo y al medio, chicas arriba; la verde de 15 kg se mueve aparte
-const COL_G = ["#16243d", "#c9a774", "#b9bec4", "#1f3254", "#efeee5", "#8f969f"];
+const COL_G = ["#16243d", "#365f28", "#b9bec4", "#1f3254", "#efeee5", "#8f969f"];   // (r1) ninguna kraft: la kraft "ADULTO MEDIANO" es la de Inés
 {
   let k = 0;
   for (const [y, n, esc, kg] of [[0.1, 9, 0.95, "20 kg"], [0.7, 9, 0.9, "15 kg"], [1.28, 12, 0.6, "3 kg"], [1.84, 12, 0.52, "1 kg"]]) {
@@ -578,7 +584,7 @@ const PHOJA = new THREE.Group(); PHOJA.position.set(PX + 0.49, 0, PZ + 0.05); sc
 // =====================================================================================================
 const ines = crearPersonaje({ ...ELENCO.ines, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.5), r2(T.p5 + 0.2), r2(T.q4b + 0.9), r2(T.c + 2.6)] });
 // Vero de calle (campera navy, súper y veterinaria) y Vero de entrecasa (buzo crema, jogging navy2, pantuflas crema)
-const vero = crearPersonaje({ ...ELENCO.vero, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2 + 0.4), r2(T.p5 + 0.9)] });
+const vero = crearPersonaje({ ...ELENCO.vero, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2 + 0.4)] });   // (r1) sin parpadeo en "¿Me la anotás?"
 if (vero.campera) vero.campera.traverse((o) => { if (o.isMesh && o.geometry.type === "TorusGeometry") o.visible = false; });   // (vacunas r5) el ruedo crema
 const veroC = crearPersonaje({ ...ELENCO.vero, nombre: "Vero", campera: null, pantalon: MARCA.navy2, zapatos: MARCA.cr, pantuflas: { color: MARCA.cr, borde: MARCA.navy3, suela: MARCA.navy }, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.cel + 0.5), r2(T.q1v + 0.6)] });
 const bruno = crearPersonaje({ ...ELENCO.bruno, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q2 + 0.2)] });
@@ -598,6 +604,7 @@ const LAP_BOLSILLO = [];
 }
 const toto = crearPerro({ ...PERROS.toto, escala: 0.9 }); scene.add(toto.raiz);
 toto.raiz.traverse((o) => { if (o.isMesh) o.receiveShadow = false; });
+calibrarHocico();
 // la correa de Toto (verde oscuro)
 const CORREA = [0, 1].map(() => { const m = mesh(new THREE.CylinderGeometry(1, 1, 1, 8).translate(0, 0.5, 0), mat(0x2f6b1f, 0.6)); m.castShadow = false; scene.add(m); return m; });
 function ponerCorrea(a, b, on) {
@@ -662,15 +669,14 @@ const cabecera = (x, W, titulo, sub = null, av = null) => {
 // P1 · la tarjeta del lugar: "Veterinaria Inés · Cerrado · Abre el lunes 9:00"
 function dibujarCerrado(x, W, H) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
-  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 120); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(700, 40); x.fillText("21:40", 40, 62);
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 120); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 60); x.fillText("21:40", 40, 62);
   // la foto plana del local: la vidriera navy con el cartel crema
   x.fillStyle = "#365f28"; x.fillRect(30, 160, W - 60, 380); x.fillStyle = "#0b1220"; x.fillRect(30, 160, W - 60, 120); x.fillStyle = "#efeee5"; ajustar(x, "VETERINARIA INÉS", 800, 56, W - 140); x.textAlign = "center"; x.fillText("VETERINARIA INÉS", W / 2, 222);
   x.fillStyle = "#16243d"; x.fillRect(110, 320, 300, 220); x.fillStyle = "#0b1220"; x.fillRect(470, 320, W - 560, 220);
   x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, "Veterinaria Inés", 900, 70, W - 80); x.fillText("Veterinaria Inés", 40, 612);
   x.fillStyle = "#c7655b"; x.beginPath(); x.roundRect(40, 676, 330, 104, 52); x.fill(); x.fillStyle = "#ffffff"; x.textAlign = "center"; x.font = F(900, 62); x.fillText("Cerrado", 205, 730);
   x.fillStyle = "#16243d"; x.textAlign = "left"; ajustar(x, "Abre el lunes 9:00", 800, 62, W - 80); x.fillText("Abre el lunes 9:00", 40, 856);
-  x.strokeStyle = "#b4b2a3"; x.lineWidth = 4; x.beginPath(); x.moveTo(40, 930); x.lineTo(W - 40, 930); x.stroke();
-  x.fillStyle = "#16243d"; ajustar(x, "Ración · consultas · vacunas", 700, 44, W - 80); x.fillText("Ración · consultas · vacunas", 40, 1000);
+  // (r1) sin la línea chica de abajo
 }
 // Q1 · el chat de recompra: f = 1 (llegó), 2 (toca Repetir)
 function dibujarChat(x, W, H, f) {
@@ -702,18 +708,18 @@ function dibujarFichaRec(x, W, H) {
   fila(x, W, 400, "Compra cada", "30 días"); fila(x, W, 520, "Última compra", "hace 26 días"); fila(x, W, 640, "Le quedan", "~4 días", { color: "#c7655b" });
   x.fillStyle = "#cfeebc"; x.strokeStyle = "#3fa60a"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, 776, W - 60, 130, 26); x.fill(); x.stroke();
   x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, "Aviso enviado · jueves 10:00", 800, 50, W - 200); x.fillText("Aviso enviado · jueves 10:00", 60, 842); x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(W - 80, 840, 32, 0, 7); x.fill(); tilde(x, W - 79, 841, 32, "#0b1220");
-  x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(30, 940, W - 60, 150, 30); x.fill(); x.fillStyle = "#efeee5"; x.textAlign = "center"; ajustar(x, "Próximo aviso: en 30 días", 800, 54, W - 100); x.fillText("Próximo aviso: en 30 días", W / 2, 1016);
+  // (r1) sin "Próximo aviso"
 }
 // Q1 · la tienda con el pedido armado: e = 0 (envío marcado), 1 (toca Pagar), 2 (Pagado ✓)
-function dibujarTienda(x, W, H, e) {
+function dibujarTienda(x, W, H, e, env = true) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
   cabecera(x, W, "Tienda · Veterinaria Inés", "Tu pedido");
   // la bolsa (dibujo plano) y el renglón
   x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, 222, W - 60, 250, 30); x.fill(); x.stroke();
-  x.fillStyle = "#c9a774"; x.beginPath(); x.roundRect(60, 248, 150, 200, 16); x.fill(); silueta(x, 135, 320, 0.55, "#0b1220"); x.fillStyle = "#efeee5"; x.fillRect(60, 380, 150, 40); x.fillStyle = "#0b1220"; x.font = F(900, 30); x.textAlign = "center"; x.fillText("15 kg", 135, 401);
+  x.fillStyle = "#c9a774"; x.beginPath(); x.roundRect(60, 248, 150, 200, 16); x.fill(); silueta(x, 125, 322, 0.5, "#0b1220"); x.fillStyle = "#efeee5"; x.fillRect(60, 380, 150, 40); x.fillStyle = "#0b1220"; x.font = F(900, 30); x.textAlign = "center"; x.fillText("15 kg", 135, 401);
   x.textAlign = "left"; x.fillStyle = "#0b1220"; ajustar(x, "Ración adulto mediano", 800, 46, W - 300); x.fillText("Ración adulto mediano", 240, 300); x.fillStyle = "#16243d"; x.font = F(700, 44); x.fillText("15 kg · × 1", 240, 362); x.fillStyle = "#0b1220"; x.font = F(900, 54); x.fillText("$ 3.900", 240, 428);
   const op = (y, txt, on) => { x.fillStyle = on ? "#cfeebc" : "#ffffff"; x.strokeStyle = on ? "#3fa60a" : "#b4b2a3"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, y, W - 60, 118, 26); x.fill(); x.stroke(); x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.beginPath(); x.arc(84, y + 59, 24, 0, 7); x.stroke(); if (on) { x.fillStyle = "#0b1220"; x.beginPath(); x.arc(84, y + 59, 13, 0, 7); x.fill(); } x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, txt, 800, 48, W - 170); x.fillText(txt, 130, y + 61); };
-  op(500, "Envío · viernes 18 a 20 h", true); op(636, "Retiro en la veterinaria", false);
+  op(500, "Envío · viernes 18 a 20 h", env); op(636, "Retiro en la veterinaria", false);
   x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 54); x.fillText("Total", 40, 818); x.textAlign = "right"; x.font = F(900, 66); x.fillText("$ 3.900", W - 40, 818);
   if (e < 2) { x.fillStyle = e === 1 ? "#3fa60a" : "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = 8; x.beginPath(); x.roundRect(30, 880, W - 60, 160, 80); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.font = F(900, 80); x.fillText("Pagar", W / 2, 962); if (e === 1) { x.fillStyle = "rgba(11,18,32,0.25)"; x.beginPath(); x.arc(W / 2 + 160, 960, 48, 0, 7); x.fill(); } }
   else { x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(30, 880, W - 60, 230, 40); x.fill(); x.fillStyle = "#5ce611"; x.beginPath(); x.arc(118, 995, 58, 0, 7); x.fill(); tilde(x, 120, 997, 60, "#0b1220"); x.fillStyle = "#efeee5"; x.textAlign = "left"; ajustar(x, "Pagado", 900, 70, W - 260); x.fillText("Pagado", 200, 955); x.fillStyle = "#5ce611"; ajustar(x, "Llega el viernes", 800, 54, W - 240); x.fillText("Llega el viernes", 200, 1035); }
@@ -735,10 +741,10 @@ function dibujarPanel(x, W, H, e) {
     x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(800, 46); x.fillText(n, 66, y + 39);
     if (ok) { x.fillStyle = "#16243d"; x.textAlign = "right"; x.font = F(800, 44); x.fillText(h, W - 120, y + 39); x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(W - 76, y + 37, 24, 0, 7); x.fill(); tilde(x, W - 75, y + 38, 24, "#0b1220"); }
   });
-  // "Dejaron de comprar 11 → 2": el 11 rojo gira de canto y queda el 2 verde
+  // "Compran afuera 11 → 2": el 11 rojo gira de canto y queda el 2 verde
   const yD = 762;
   x.fillStyle = "#ffffff"; x.strokeStyle = "#0b1220"; x.lineWidth = 6; x.beginPath(); x.roundRect(30, yD, W - 60, 150, 26); x.fill(); x.stroke();
-  x.fillStyle = "#16243d"; x.textAlign = "left"; ajustar(x, "Dejaron de comprar", 800, 52, W * 0.55); x.fillText("Dejaron de comprar", 60, yD + 76);
+  x.fillStyle = "#16243d"; x.textAlign = "left"; ajustar(x, "Compran afuera", 800, 56, W * 0.55); x.fillText("Compran afuera", 60, yD + 76);
   { const g = e.gira, sx = Math.abs(Math.cos(g * Math.PI)), v = g < 0.5 ? "11" : "2", col = g < 0.5 ? "#c7655b" : "#3fa60a"; x.save(); x.translate(W - 150, yD + 76); x.scale(Math.max(0.05, sx), 1); x.fillStyle = col; x.textAlign = "center"; x.font = F(900, 100); x.fillText(v, 0, 4); x.restore(); }
   if (e.plata) { x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(30, 936, W - 60, 140, 30); x.fill(); x.fillStyle = "#5ce611"; x.textAlign = "center"; ajustar(x, "$ 74.100 en ración este mes", 900, 64, W - 100); x.fillText("$ 74.100 en ración este mes", W / 2, 1008); }
 }
@@ -770,10 +776,10 @@ dibujarCerrado(INS_CERR.tex.userData.x, INS_CERR.IW, INS_CERR.IH); INS_CERR.tex.
 dibujarFichaRec(INS_FICHA.tex.userData.x, INS_FICHA.IW, INS_FICHA.IH); INS_FICHA.tex.needsUpdate = true;
 let cChat = "", cTienda = "", cPanel = "", cT3 = "";
 function dibujarInterfaz(t) {
-  const fC = t >= T.q1s - 0.05 ? 2 : 1;
+  const fC = t >= T.toca ? 2 : 1;   // (r1) se ve el toque en "Repetir pedido"
   if (`${fC}` !== cChat) { cChat = `${fC}`; dibujarChat(INS_CHAT.tex.userData.x, INS_CHAT.IW, INS_CHAT.IH, fC); INS_CHAT.tex.needsUpdate = true; }
   const eT = t >= T.pagado ? 2 : t >= T.pagar ? 1 : 0;
-  if (`${eT}` !== cTienda) { cTienda = `${eT}`; dibujarTienda(INS_TIENDA.tex.userData.x, INS_TIENDA.IW, INS_TIENDA.IH, eT); INS_TIENDA.tex.needsUpdate = true; }
+  const envT = t >= T.envio; if (`${eT}${envT}` !== cTienda) { cTienda = `${eT}${envT}`; dibujarTienda(INS_TIENDA.tex.userData.x, INS_TIENDA.IW, INS_TIENDA.IH, eT, envT); INS_TIENDA.tex.needsUpdate = true; }
   const eP = { filas: T.filas.filter((x) => t >= x).length, gira: Math.round(sg(t, T.gira, T.gira + 0.3) * 10) / 10, plata: t >= T.plata ? 1 : 0 }, kP = JSON.stringify(eP);
   if (kP !== cPanel) { cPanel = kP; dibujarPanel(INS_PANEL.tex.userData.x, INS_PANEL.IW, INS_PANEL.IH, eP); INS_PANEL.tex.needsUpdate = true; }
   // la tablet 3D del mostrador (parte 2): el panel ya resuelto
@@ -797,8 +803,8 @@ const GL = {
   rSup: crearRotulo([["15 kg · $ 3.900"], ["en el súper", "#ff9d92"]], 54),
   i1: crearGlobo(["¡Vero! ¿Qué está", "comiendo [Toto?]"], 70),
   v3: crearGlobo(["La que me recomendaste.", "La compro en el [súper.]"], 60),
-  r1: crearRotulo([["$ 3.900 por mes", "#ff9d92", 60], ["$ 46.800 al año,", "#ff9d92", 60], ["en el súper", "#ff9d92", 52]], 52),
-  r2: crearRotulo([["Clientes de bolsa", "#ff9d92"], ["que dejaron de venir: 11", "#ff9d92"]], 50),
+  r1: crearRotulo([["$ 3.900 por mes", "#ff9d92", 60], ["$ 46.800 al año", "#ff9d92", 60], ["que se van al súper", "#ff9d92", 52]], 52),
+  r2: crearRotulo([["Compran la ración", "#ff9d92"], ["afuera: 11", "#ff9d92", 64]], 54),
   v4: crearGlobo(["¿Me la anotás?", "Así no me [equivoco.]"], 68),
   rRec: crearRotulo([["Aviso antes de que se termine"]], 50),
   v5: crearGlobo(["¿Cómo [sabe?]"], 84),
@@ -822,11 +828,11 @@ const VERO_S = { x: SUX + 0.12, z: 0.02 };       // el súper
 const SENORA_S = { x: SUX - 1.45, z: -0.15 };
 const INES_M = { x: VX + 0.0, z: -1.52 };        // Inés detrás del mostrador
 const BRUNO_T = { x: VX - 0.62, z: -0.25 };      // Bruno acomodando la torre (P3)
-const BRUNO_M = { x: VX + 0.68, z: -1.58 };      // Bruno detrás del mostrador (P4 en adelante)
+const BRUNO_M = { x: VX - 0.6, z: -1.6 };   // (r1) del lado izquierdo de Inés: Vero ya no le tapa la cara; y está ahí desde P3 (continuidad)      // Bruno detrás del mostrador (P4 en adelante)
 const PUERTA_V = { x: VX + XR - 0.3, z: (PUERTA.z0 + PUERTA.z1) / 2 };
 const VERO_V = { x: VX + 0.55, z: -0.22 };        // Vero frente al mostrador
 const TOTO_T = { x: VX - 1.05, z: 0.12 };        // Toto oliendo la torre
-const TOTO_Q4 = { x: VX + 0.85, z: 0.05 };       // Q4: Toto sentado al lado de Vero (pasa de largo el estante)
+const TOTO_Q4 = { x: VX + 1.0, z: 0.5 };   // (r1) del lado de la cámara: no lo tapan las piernas de Vero       // Q4: Toto sentado al lado de Vero (pasa de largo el estante)
 const VERO_P = { x: PX - 0.42, z: -0.35 };       // la puerta de Vero
 const BRUNO_P = { x: PX + 0.08, z: PZ - 0.55 };
 
@@ -837,7 +843,7 @@ const K0 = [-0.55, 1.22, 3.3, 0.1, 1.02, 0.1, 50];   // el cuadro 0 de la cocina
 const KV = [0.45, 1.4, 2.3, -0.2, 0.85, -0.1, 50];   // Q1v: Vero y Toto más cerca
 const S0 = [SUX + 1.95, 1.62, 3.05, SUX + 0.2, 0.95, -0.5, 52];
 const V4 = [VX - 1.0, 1.7, 3.45, VX - 0.3, 1.0, -0.6, 56];
-const V4B = [VX + 1.0, 1.6, -1.75, VX + 0.5, 1.22, -0.15, 66];
+const V4B = [VX + 1.4, 1.58, -1.45, VX + 0.5, 1.3, -0.2, 48];   // (r1) fuera del mostrador: sin la losa blanca abajo
 const off = (k, d) => k.map((v, i) => v + (d[i] ?? 0));
 const PLANOS = [
   ["P1", 0, [[0, ...K0], [T.cel, ...off(K0, [-0.08, -0.03, -0.25, 0, 0, 0, 0])]]],
@@ -846,9 +852,10 @@ const PLANOS = [
   ["P2", T.p2, [[T.p2, ...S0], [T.carro, ...off(S0, [-0.1, 0, -0.15, 0.05, 0, 0, 0])], [T.p3, ...off(S0, [-0.12, 0, -0.2, 0.05, 0, 0, 0])]]],
   ["P3", T.p3, [[T.p3, VX - 0.15, 1.7, 3.7, VX - 0.55, 1.0, -0.9, 54], [T.p4, VX - 0.2, 1.68, 3.45, VX - 0.55, 1.0, -0.9, 53]]],
   ["P4", T.p4, [[T.p4, ...V4], [T.p4b, ...off(V4, [-0.05, 0, -0.2, 0, 0, 0, -1])]]],
-  ["P4b", T.p4b, [[T.p4b, ...V4B], [T.p4c, ...off(V4B, [-0.03, 0, 0.05, 0, 0, 0, -1])]]],
+  ["P4b", T.p4b, [[T.p4b, ...V4B], [T.p4c, ...off(V4B, [-0.1, 0, 0.1, 0, 0.02, 0, -6])]]],
   ["P4c", T.p4c, [[T.p4c, VX + 0.3, 1.55, 2.0, VX - 0.35, 1.15, -1.0, 54], [T.p5, VX + 0.28, 1.55, 1.9, VX - 0.35, 1.15, -1.0, 53]]],
   ["P5", T.p5, [[T.p5, VX - 0.95, 1.6, -1.7, VX + 0.45, 1.2, -0.3, 56], [T.p5i, VX - 0.9, 1.6, -1.62, VX + 0.45, 1.2, -0.3, 54]]],   // (pasada 1) otro encuadre que P4b: Vero de frente y el talonario en el mostrador
+  ["P5w", T.p5w, [[T.p5w, VX - 0.15, 1.5, 0.45, VX - 0.02, 1.28, -1.45, 44], [T.p5i, VX - 0.13, 1.49, 0.32, VX - 0.02, 1.26, -1.45, 42]]],   // (r1) Inés, seria, toma el recetario y arranca la hoja
   ["P5i", T.p5i, null],
   ["P5t", T.p5t, [[T.p5t, VX - 0.05, 0.75, 1.75, VX - 1.0, 0.5, -0.25, 50], [P1, VX - 0.1, 0.72, 1.62, VX - 1.0, 0.5, -0.25, 49]]],
   // ---- parte 2 ----
@@ -858,11 +865,11 @@ const PLANOS = [
   ["Q1t", T.q1t, null],
   ["Q1s", T.q1s, null],
   ["Q2", T.q2, [[T.q2, PX + 0.75, 1.42, 1.85, PX - 0.05, 1.15, -1.1, 50], [T.q3, PX + 0.7, 1.42, 1.7, PX - 0.05, 1.15, -1.1, 49]]],
-  ["Q3", T.q3, [[T.q3, ...K0], [T.para, ...off(K0, [-0.1, -0.08, -0.4, 0.15, -0.08, 0.1, -2])], [T.q4, ...off(K0, [-0.25, -0.18, -0.9, 0.3, -0.16, 0.2, -4])]]],
+  ["Q3", T.q3, [[T.q3, ...K0], [T.para, ...off(K0, [0.05, -0.06, -0.3, 0.2, -0.1, 0.15, -2])], [T.q4, ...off(K0, [0.1, -0.12, -0.6, 0.3, -0.2, 0.25, -4])]]],   // (r1) push-in hacia Toto con el plato adentro
   ["Q4", T.q4, [[T.q4, ...V4], [T.q4b, ...off(V4, [-0.05, 0, -0.2, 0, 0, 0, -1])]]],
-  ["Q4b", T.q4b, [[T.q4b, ...V4B], [T.q5, ...off(V4B, [-0.03, 0, 0.05, 0, 0, 0, -1])]]],
+  ["Q4b", T.q4b, [[T.q4b, ...V4B], [T.q5, ...off(V4B, [-0.1, 0, 0.1, 0, 0.02, 0, -6])]]],
   ["Q5", T.q5, null],
-  ["C", T.c, [[T.c, VX + 0.05, 1.55, 1.55, VX + 0.05, 1.1, -1.5, 42], [DUR, VX + 0.05, 1.55, 1.42, VX + 0.05, 1.11, -1.5, 41]]],
+  ["C", T.c, [[T.c, VX + 0.05, 1.62, 1.75, VX + 0.05, 1.12, -1.5, 44], [DUR, VX + 0.05, 1.62, 1.62, VX + 0.05, 1.13, -1.5, 43]]],   // (r1) Inés hasta la cintura sobre la tarjeta
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s), se saca`); PLANOS.splice(i, 1); } }
 const _m = new THREE.Vector3();
@@ -889,9 +896,11 @@ const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, 
 const SECO = { ...CARA.neutra, ojos: { abiertos: 0.88, tension: 0.2, feliz: 0 }, cejas: { alto: -0.05, ang: -0.1 }, boca: { sonrisa: 0.0, abierta: 0, ancho: 0.9 } };
 const BUENA = { ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.35 }, boca: { sonrisa: 0.75, abierta: 0, ancho: 1.1 } };
 const QUIETA = { ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.05 }, cejas: { alto: 0.25, ang: 0.1 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1.05 } };   // la sonrisa congelada de la pausa
+const ELOGIO = { ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.45 }, cejas: { alto: 0.55, ang: 0.0, asim: 0 }, boca: { sonrisa: 1, abierta: 0.12, ancho: 1.15 } };   // (r1) un elogio: sonrisa abierta, cejas arriba parejas
+const ELOGIO2 = { ...ELOGIO, ojos: { abiertos: 1, feliz: 0.6 }, cejas: { alto: 0.75, ang: 0.05, asim: 0 } };
 const FELIZ = { ...CARA.sonrisa, ojos: { abiertos: 1, feliz: 0.45 }, boca: { sonrisa: 0.95, abierta: 0.05, ancho: 1.15 } };
 const bocaVoz = (p, t, t0, env, k = 0.7) => {
-  if (t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta, cl(e * 1.1 - 0.05) * k); p.boca.sonrisa = Math.min(p.boca.sonrisa, 0.35); }   // (vacunas r2 A2) hablando, la sonrisa cerrada se achica: sin doble boca
+  if (t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta, cl(e * 1.1 - 0.05) * k); p.boca.sonrisa = Math.min(p.boca.sonrisa, 0.5); }   // (vacunas r2 A2) hablando, la sonrisa cerrada se achica: sin doble boca
   if (t >= t0 - 0.05 && t < t0 + env.length / 30 + 0.05) p.ojos.abiertos = Math.max(p.ojos.abiertos, 0.85);   // hablando, nunca con los ojos cerrados
 };
 const manoMundo = (per, lado, out = new THREE.Vector3()) => { per.raiz.updateMatrixWorld(true); return per.brazos[lado === "I" ? 0 : 1].mano.getWorldPosition(out); };
@@ -972,15 +981,18 @@ function poseVeroV(t) {
   const p2 = t >= P2;
   const t0 = p2 ? T.entra2[0] : T.entra[0], t1 = p2 ? T.entra2[1] : T.entra[1];
   const u = sg(t, t0, t1);
-  const gI = dirGiro(VERO_V.x, VERO_V.z, INES_M.x, INES_M.z);
+  const gI = dirGiro(VERO_V.x, VERO_V.z, INES_M.x, INES_M.z), gF = lerp(gI, dirGiro(VERO_V.x, VERO_V.z, V4B[0], V4B[2]), 0.6);   // (r1) en el contraplano, de 3/4 casi frontal
   const p = poseEn(t, p2 ? [
     [0, { giro: -Math.PI / 2 - 0.3, ...aC(0.1, 0.05), ...BUENA, ...BRAZOS.costado, manoI: [0.27, 0.08, 0.2], codoI: [0.8, -0.6, -0.2] }],
     [t1 - 0.2, { giro: gI, ...aC(0.0, 0.0), ...BUENA }, 0.3],
-    [T.v6 + 0.3, { ...aC(0.05, -0.02), ...FELIZ, cejas: { alto: 0.5, ang: 0.2 } }, 0.3],
+    [T.q4b - 0.05, { giro: gF, ...aC(0.12, -0.04), ...ELOGIO }, 0.2],
+    [T.v6 + 1.7, { ...aC(0.16, -0.06, 0.08), ...ELOGIO2 }, 0.3],
   ] : [
     [0, { giro: -Math.PI / 2 - 0.3, ...aC(0.1, 0.05), ...BUENA, ...BRAZOS.costado, manoI: [0.27, 0.08, 0.2], codoI: [0.8, -0.6, -0.2] }],
     [t1 - 0.2, { giro: gI, ...aC(0.0, 0.0), ...BUENA }, 0.3],
-    [T.v3, { ...aC(0.05, -0.02), ...FELIZ, cejas: { alto: 0.5, ang: 0.2 } }, 0.3],
+    [T.p4b - 0.05, { giro: gF, ...aC(0.12, -0.04), ...ELOGIO }, 0.2],
+    [T.v3 + 1.9, { ...aC(0.16, -0.06, 0.08), ...ELOGIO2 }, 0.3],
+    [T.p4c - 0.05, { giro: gI, ...aC(0.0, 0.0), ...ELOGIO }, 0.2],
     [T.v4, { ...aC(0.1, 0.05), ...CARA.esperanza }, 0.3],
     [T.arranca + 0.2, { ...aC(0.0, 0.25), ...BUENA, ojos: { abiertos: 1, y: -0.6 } }, 0.3],
   ]);
@@ -1003,11 +1015,11 @@ function poseInes(t) {
       [T.v3 + 0.6, { ...aC(0.12, 0.0), ...BUENA }, 0.3],
       [T.v3 + 1.75, { ...aC(0.08, 0.0), ...QUIETA }, 0.15],   // "La compro en el súper": la sonrisa queda quieta
       [T.p5 + 0.1, { ...aC(0.1, 0.05), ...QUIETA }, 0.3],
-      [T.arranca - 0.1, { giro: 0, ...aC(-0.05, 0.42), ...SECO, ojos: { abiertos: 0.75, y: -0.9 } }, 0.25],   // escribe, profesional, sin mirar a nadie
+      [T.p5w, { giro: 0, ...aC(-0.05, 0.42), ...SECO, ojos: { abiertos: 0.75, y: -0.9 } }, 0.2],   // escribe, profesional, sin mirar a nadie
     ]);
-    if (t >= T.arranca - 0.15 && t < T.p5t + 0.3) {
+    if (t >= T.p5w && t < T.p5t + 0.3) {
       // la derecha escribe en el talonario (la lapicera en la mano); la izquierda lo sujeta
-      const k = sg(t, T.arranca - 0.15, T.arranca + 0.15) * (1 - sg(t, T.p5t, T.p5t + 0.3));
+      const k = sg(t, T.p5w, T.p5w + 0.3) * (1 - sg(t, T.p5t, T.p5t + 0.3));
       const u = sg(t, T.escribe[0], T.escribe[1]);
       const w = TALON_P.clone().add(V3(-0.05 + 0.1 * ((u * 3) % 1), 0.05, 0.03 - 0.05 * Math.floor(u * 3) / 3));
       w.x += Math.sin(t * 40) * 0.006 * (u > 0 && u < 1 ? 1 : 0);
@@ -1026,14 +1038,7 @@ function poseInes(t) {
   p.t = t; bocaVoz(p, t, T.i1b, ENV.i1, 0.55); return p;
 }
 function poseBruno(t) {
-  if (t < T.p4) {
-    // P3: acomoda la bolsa de arriba de la torre
-    const p = poseEn(t, [[0, { x: BRUNO_T.x, z: BRUNO_T.z, giro: -Math.PI / 2 + 0.35, ...aC(0.0, 0.25), ...CARA.neutra, ...BRAZOS.costado }], [T.campana, { ...aC(0.7, 0.0), ...CARA.esperanza }, 0.3]]);
-    const top = TORRE_P.clone().add(V3(0.2, 1.5, 0.1));
-    manoA(bruno, p, "I", top.clone().add(V3(0.0, 0.1, 0.12)), 1 - sg(t, T.campana - 0.1, T.campana + 0.2), [0.8, -0.6, -0.2]); manoA(bruno, p, "D", top.clone().add(V3(0.0, 0.1, -0.12)), 1 - sg(t, T.campana - 0.1, T.campana + 0.2), [-0.8, -0.6, -0.2]);
-    p.t = t; return p;
-  }
-  if (t < P2) { const p = poseEn(t, [[0, { x: BRUNO_M.x, z: BRUNO_M.z, giro: -0.35, ...aC(0.4, 0.05), ...CARA.sonrisa, ...BRAZOS.apoyado }], [T.p4c, { ...aC(0.35, 0.1), ...CARA.incredula, ojos: { abiertos: 0.8 } }, 0.3]]); p.t = t; return p; }
+  if (t < P2) { const p = poseEn(t, [[0, { x: BRUNO_M.x, z: BRUNO_M.z, giro: 0.25, ...aC(0.4, 0.05), ...CARA.sonrisa, ...BRAZOS.apoyado }], [T.p4c, { ...aC(0.35, 0.1), ...CARA.incredula, ojos: { abiertos: 0.8 } }, 0.3]]); p.t = t; return p; }
   if (t < T.q3) {
     // Q2: en la puerta de Vero con la bolsa de 15 kg al hombro derecho (las dos manos la sujetan)
     const p = poseEn(t, [[0, { x: BRUNO_P.x, z: BRUNO_P.z, giro: 0.2, ...aC(-0.2, 0.0), ...FELIZ, ...BRAZOS.costado }], [T.b1 + LEN.b1, { ...aC(-0.1, 0.25), ...BUENA }, 0.3]]);
@@ -1042,7 +1047,7 @@ function poseBruno(t) {
     p.t = t; bocaVoz(p, t, T.b1, ENV.b1, 0.65); return p;
   }
   // Q4 en adelante: detrás del mostrador, armando envíos
-  const p = poseEn(t, [[0, { x: BRUNO_M.x, z: BRUNO_M.z, giro: -0.35, ...aC(0.4, 0.05), ...CARA.sonrisa, ...BRAZOS.apoyado }]]);
+  const p = poseEn(t, [[0, { x: BRUNO_M.x, z: BRUNO_M.z, giro: 0.25, ...aC(0.2, 0.05), ...CARA.sonrisa, ...BRAZOS.apoyado }]]);
   p.t = t; return p;
 }
 // la bolsa TOTO de Bruno: al hombro hasta T.apoya; después en el piso adentro
@@ -1064,35 +1069,33 @@ function poseToto(t) {
       const c = poseEn(t, [[0, { cab: [0.2, -0.1, 0.0], orejas: 0.5, cola: 0.2, cejas: 0.2 }], [T.v5 + 0.1, { cab: [-0.55, -0.25, 0.4], orejas: 1, cola: 0.7, cejas: 0.8 }, 0.25]]);
       return { ...B, x: TOTO_K.x + 0.1, y: 0, z: TOTO_K.z + 0.1, giro: -Math.PI / 2 + 0.5, echado: 1, cola: c.cola, orejas: c.orejas, cejas: c.cejas, cabeza: { giro: c.cab[0], asiente: c.cab[1], ladea: c.cab[2] }, t };
     }
+    // (r1) el hocico baja al plato (baja = 1) en cada empujón y al comer; el plato está calibrado contra la nariz
     const q = pa === "Q3";
-    const e1 = q ? [T.empujaQ - 0.25, T.empujaQ + 0.2] : T.empuja, e2 = q ? null : [T.empuja2, r2(T.empuja2 + 0.45)];
-    const avance = 0.07 * eio(sg(t, e1[0], e1[1])) + (e2 ? 0.07 * eio(sg(t, e2[0], e2[1])) : 0) + (q ? 0.03 : 0);
-    const P = { ...B, x: TOTO_K.x - avance, y: 0, z: TOTO_K.z, giro: -Math.PI / 2 + 0.12, sentado: 0, paso: (en(t, e1[0], e1[1]) || (e2 && en(t, e2[0], e2[1]))) ? 0.5 : 0, pasoVel: 10, t };
-    if (!q) {
-      const c = poseEn(t, [
-        [0, { cab: [0, 0.95, 0], orejas: 0.35, cola: 0.15, cejas: -0.7 }],
-        [T.croqueta + 0.35, { cab: [0.0, 1.0, 0.0], orejas: 0.5, cola: 0.3, cejas: -0.3 }, 0.2],
-        [T.croqueta + 0.9, { cab: [0.25, -0.05, 0.1], orejas: 0.3, cola: 0.1, cejas: -0.9 }, 0.3],   // mira a Vero: ¿eso es todo?
-        [T.empuja2 - 0.1, { cab: [0, 0.95, 0], orejas: 0.3, cola: 0.1, cejas: -0.8 }, 0.2],
-        [T.orejas, { cab: [0.3, -0.15, 0.12], orejas: 1, cola: 1, cejas: 0.8 }, 0.2],
-      ]);
-      Object.assign(P, { orejas: c.orejas, cola: c.cola, cejas: c.cejas, cabeza: { giro: c.cab[0], asiente: c.cab[1], ladea: c.cab[2] }, jadeo: sg(t, T.orejas, T.orejas + 0.3) * 0.7 });
-    } else {
-      const c = poseEn(t, [
-        [0, { cab: [0, 0.55, 0], orejas: 0.4, cola: 0.2, cejas: -0.2 }],
-        [T.para, { cab: [0, 0.4, 0.0], orejas: 1, cola: 0.1, cejas: 1 }, 0.2],
-        [T.mira[0], { cab: [0.95, -0.05, 0.35], orejas: 1, cola: 0.2, cejas: 1 }, 0.2],   // mira a cámara, la cabeza ladeada
-        [T.mira[1], { cab: [0, 0.6, 0], orejas: 0.8, cola: 0.9, cejas: 0.3 }, 0.25],
-      ]);
-      const come = t > T.come ? Math.sin((t - T.come) * 14) * 0.06 : 0;
-      Object.assign(P, { orejas: c.orejas, cola: c.cola, cejas: c.cejas, cabeza: { giro: c.cab[0], asiente: c.cab[1] + come, ladea: c.cab[2] }, jadeo: t > T.come ? 0.25 + Math.max(0, Math.sin((t - T.come) * 14)) * 0.3 : 0 });
-    }
+    const e1 = q ? [T.empujaQ - 0.2, T.empujaQ + 0.25] : T.empuja, e2 = q ? null : [T.empuja2, r2(T.empuja2 + 0.45)];
+    const avance = 0.07 * eio(sg(t, e1[0], e1[1])) + (e2 ? 0.07 * eio(sg(t, e2[0], e2[1])) : 0);
+    const P = { ...B, x: TOTO_K.x - avance, y: 0, z: TOTO_K.z, giro: TOTO_G, sentado: 0, paso: (en(t, e1[0], e1[1]) || (e2 && en(t, e2[0], e2[1]))) ? 0.5 : 0, pasoVel: 10, t };
+    const c = poseEn(t, q ? [
+      [0, { cab: [0, 0.3, 0], baja: 0.35, orejas: 0.5, cola: 0.4, cejas: 0.0 }],
+      [T.empujaQ - 0.12, { cab: [0, 0.45, 0], baja: 1, orejas: 0.5, cola: 0.4, cejas: 0 }, 0.18],        // el hocico contra el plato lleno
+      [T.para, { cab: [0, 0.2, 0.0], baja: 0.25, orejas: 1, cola: 0.1, cejas: 1 }, 0.2],                 // para: ¿y esto?
+      [T.mira[0], { cab: [0.95, -0.05, 0.35], baja: 0, orejas: 1, cola: 0.2, cejas: 1 }, 0.22],          // mira a cámara, ladeado
+      [T.mira[1], { cab: [0.95, -0.05, 0.35], baja: 0, orejas: 1, cola: 0.6, cejas: 0.8 }, 0.1],
+      [T.come - 0.05, { cab: [0, 0.45, 0], baja: 1, orejas: 0.8, cola: 0.9, cejas: 0.3 }, 0.25],         // come
+    ] : [
+      [0, { cab: [0, 0.45, 0], baja: 1, orejas: 0.35, cola: 0.15, cejas: -0.7 }],                        // empuja el plato vacío
+      [T.empuja[1] + 0.1, { cab: [0, 0.45, 0], baja: 1, orejas: 0.5, cola: 0.3, cejas: -0.3 }, 0.2],    // huele la única croqueta
+      [T.croqueta + 0.9, { cab: [0.25, -0.05, 0.1], baja: 0, orejas: 0.3, cola: 0.1, cejas: -0.9 }, 0.3],   // mira a Vero: ¿eso es todo?
+      [T.empuja2 - 0.05, { cab: [0, 0.45, 0], baja: 1, orejas: 0.3, cola: 0.1, cejas: -0.8 }, 0.25],    // empuja otra vez
+      [T.orejas, { cab: [0.3, -0.15, 0.12], baja: 0, orejas: 1, cola: 1, cejas: 0.8 }, 0.2],
+    ]);
+    const come = q && t > T.come ? Math.sin((t - T.come) * 14) * 0.08 : 0;
+    Object.assign(P, { orejas: c.orejas, cola: c.cola, cejas: c.cejas, baja: c.baja, cabeza: { giro: c.cab[0], asiente: c.cab[1] + come, ladea: c.cab[2] }, jadeo: q ? (t > T.come ? 0.25 + Math.max(0, Math.sin((t - T.come) * 14)) * 0.3 : 0) : sg(t, T.orejas, T.orejas + 0.3) * 0.7 });
     return P;
   }
   if (pa === "Q2") {
     // contento, parado en dos patas mirando a Bruno (sin tocar la bolsa)
     const er = sg(t, T.b1 - 0.1, T.b1 + 0.2) * (1 - sg(t, T.apoya - 0.2, T.apoya));
-    const P = { ...B, x: PX + 0.12, y: 0, z: PZ + 0.6, giro: Math.PI - 0.15, sentado: 1 - er, erguido: er * 0.7, cola: 1, orejas: 1, cejas: 0.7, jadeo: 1, cabeza: { giro: 0, asiente: -0.35, ladea: 0.1 }, t };
+    const P = { ...B, x: PX - 0.22, y: 0, z: PZ + 0.65, giro: Math.PI - 0.15, sentado: 1 - er, erguido: er * 0.7, cola: 1, orejas: 1, cejas: 0.7, jadeo: 1, cabeza: { giro: 0, asiente: -0.35, ladea: 0.1 }, t };
     return P;
   }
   // la veterinaria
@@ -1109,11 +1112,11 @@ function poseToto(t) {
     }
     // P5t: echado contra la base de la torre, con un suspiro (la respiración marcada)
     const s = t > T.suspiro ? Math.sin(sg(t, T.suspiro, T.suspiro + 0.9) * Math.PI) : 0;
-    return { ...B, x: TORRE_P.x + 0.45, y: 0, z: TORRE_P.z + 0.55, giro: Math.PI / 2 - 0.2, echado: 1, orejas: 0.15, cola: 0.05, colaAlta: 0.3, cejas: -1, ojos: { abiertos: 0.75 - 0.4 * s }, cabeza: { giro: -0.3, asiente: 0.25 + 0.1 * s, ladea: 0.1 }, t };
+    return { ...B, x: TORRE_P.x + 0.45, y: 0, z: TORRE_P.z + 0.55, giro: Math.PI / 2 - 0.2, echado: 1, orejas: 0.5, cola: 0.05, colaAlta: 0.3, cejas: -1, ojos: { abiertos: 0.75 - 0.4 * s }, cabeza: { giro: -0.3, asiente: 0.25 + 0.1 * s, ladea: 0.1 }, t };
   }
   // Q4: entra con Vero, pasa de largo el estante, se sienta al lado de ella moviendo la cola
   const u = sg(t, T.entra2[0] + 0.1, T.entra2[1]);
-  const x0 = PUERTA_V.x - 0.5, z0 = PUERTA_V.z - 0.2;
+  const x0 = PUERTA_V.x - 0.5, z0 = PUERTA_V.z + 0.35;
   const anda = u > 0.01 && u < 0.99;
   const x = lerp(x0, TOTO_Q4.x, eio(u)), z = lerp(z0, TOTO_Q4.z, eio(u));
   return { ...B, x, y: 0, z, giro: anda ? dirGiro(x0, z0, TOTO_Q4.x, TOTO_Q4.z) : -2.6, sentado: sg(t, T.entra2[1] - 0.1, T.entra2[1] + 0.2), paso: anda ? 1 : 0, pasoVel: 14, cola: 1, orejas: 0.9, cejas: 0.6, jadeo: 0.8, cabeza: { giro: -0.3, asiente: -0.2, ladea: 0.1 }, t };
@@ -1129,7 +1132,8 @@ function ponerObjetos(t) {
   PLATO.visible = cocina; ALF.visible = cocina;
   if (cocina) {
     const q = pa === "Q1" || pa === "Q1v";
-    PLATO.position.set(q ? 0.1 : toto.raiz.position.x - PLATO_DX, 0, TOTO_K.z + 0.01);
+    const bx = pa === "Q3" ? TOTO_K.x - 0.07 * eio(sg(t, T.empujaQ - 0.2, T.empujaQ + 0.25)) : TOTO_K.x - 0.07 * eio(sg(t, T.empuja[0], T.empuja[1])) - 0.07 * eio(sg(t, T.empuja2, T.empuja2 + 0.45));
+    PLATO.position.set(q ? 0.1 : bx + HOCICO.x - 0.14 * Math.cos(0.12), 0, q ? TOTO_K.z + 0.02 : TOTO_K.z + HOCICO.z - 0.14 * Math.sin(0.12) * -1);
     PLATO.userData.lleno.visible = p2;
     ALF.position.set(0.05, 0.004, TOTO_K.z);
   }
@@ -1169,7 +1173,7 @@ function ponerObjetos(t) {
   TORRE.visible = !p2; ENVIOS.visible = p2; tablet.visible = p2;
   TALON.visible = !p2; ponerReceta(sg(t, T.escribe[0], T.escribe[1]));
   // la hoja arrancada: en P5i se ve la hoja de arriba; la lapicera en la mano de Inés mientras escribe
-  LAPICERA.visible = !p2 && t >= T.arranca - 0.15 && t < T.p5t + 0.3;
+  LAPICERA.visible = !p2 && t >= T.p5w + 0.2 && t < T.p5t + 0.3;
   for (const m of LAP_BOLSILLO) m.visible = !LAPICERA.visible;
   if (LAPICERA.visible) { const m = manoMundo(ines, "D", _a); LAPICERA.position.copy(m).add(V3(0.0, -0.02, 0.02)); LAPICERA.rotation.set(0.5, 0, -0.35); }
   // la puerta de la veterinaria
@@ -1190,7 +1194,7 @@ function luces(pa, t) {
   const nocheK = pa.startsWith("P1") || pa === "Q3";
   cielo.intensity = nocheK ? 1.25 : 1.85; relleno.intensity = nocheK ? 0.5 : 0.75; sol.intensity = nocheK ? 0.8 : 1.35;
   sol.color.set(nocheK ? 0xffe6c4 : 0xf6f8ff);
-  luzLamp.intensity = nocheK ? 2.2 : 0;
+  luzLamp.intensity = nocheK ? 2.2 : 0; LAMPARA.visible = pa !== "Q3";
   VENTANA.material.color.set(nocheK ? 0x0b1220 : 0xefe6cc);
   const cx = cocina ? 0 : pa === "P2" ? SUX : pa === "Q2" ? PX : VX;
   if (cocina) { sol.position.set(-0.3, 2.6, -0.2); sol.target.position.set(0.1, 0, 0.3); } else { sol.position.set(cx + 1.2, 6.5, 1.7); sol.target.position.set(cx, 0.5, -0.5); }
@@ -1204,12 +1208,12 @@ function renderAt(tIn) {
   luces(pa, t);
   dibujarInterfaz(t);
   const cocina = pa.startsWith("P1") || pa === "Q1" || pa === "Q1v" || pa === "Q3";
-  const vet = ["P3", "P4", "P4b", "P4c", "P5", "P5i", "P5t", "Q4", "Q4b", "C"].includes(pa);
+  const vet = ["P3", "P4", "P4b", "P4c", "P5", "P5w", "P5i", "P5t", "Q4", "Q4b", "C"].includes(pa);
   const vis = {
-    veroC: cocina || pa === "Q2", vero: pa === "P2" || (vet && pa !== "P3" && pa !== "C" && pa !== "P5t" && pa !== "P5i"),
+    veroC: (cocina && pa !== "Q3") || pa === "Q2", vero: pa === "P2" || (vet && pa !== "P3" && pa !== "C" && pa !== "P5t" && pa !== "P5i"),
     ines: vet && pa !== "P5t" && pa !== "P5",   // (pasada 1) en P5 la cabeza de Inés quedaba cortada en el borde
     bruno: pa === "P3" || pa === "P4" || pa === "P4c" || pa === "Q2" || pa === "Q4",
-    toto: cocina || pa === "Q2" || (vet && pa !== "C" && pa !== "P5i" && (p2 || pa !== "P3")), senora: pa === "P2",
+    toto: cocina || pa === "Q2" || (vet && pa !== "C" && pa !== "P5i" && pa !== "P5w" && pa !== "Q4b" && (p2 || pa !== "P3")), senora: pa === "P2",
   };
   veroC.raiz.visible = vis.veroC; vero.raiz.visible = vis.vero; ines.raiz.visible = vis.ines; bruno.raiz.visible = vis.bruno; toto.raiz.visible = vis.toto; senora.raiz.visible = vis.senora;
   if (vis.toto) { toto.poner(poseToto(t)); toto.panuelo.visible = false; toto.curita.visible = false; toto.chapita(p2 ? 0x5ce611 : 0xefeee5); toto.chapitaM.visible = true; }
@@ -1263,14 +1267,15 @@ function tarjetas(t) {
   if (pa === "P3") ponerGlobo(GL.feb, 220, 200, 1, null);
   if (pa === "P4" || pa === "P4b") {
     if (pa === "P4" && t >= T.i1) hablar(GL.i1, ines, ent(T.i1), 1, 0);
-    if (pa === "P4b" && t >= T.v3) { verGlobo(GL.v3, t >= T.v3 + 1.62 ? 99 : 4); hablar(GL.v3, vero, ent(T.v3), 1, 0); }
+    if (pa === "P4b" && t >= T.v3) { verGlobo(GL.v3, t >= T.v3 + 1.98 ? 99 : 4); hablar(GL.v3, vero, ent(T.v3), 1, 0); }
   }
   if (pa === "P4c") {
-    ponerGlobo(GL.r1, 330, 330, ent(T.rot[0]), null, 1);
+    ponerGlobo(GL.r1, 340, 1180, ent(T.rot[0]), null, 1);   // (r1) abajo: ya no tapa el cartel
     const [tx, ty] = objPx(TORRE, V3(0, 1.0, 0.3));
-    const y2 = 1520; ponerGlobo(GL.r2, 600, y2, ent(T.rot[1]), null, 1); if (t >= T.rot[1]) ponerGuia(GUIAS[0], 600 - GL.r2.userData.W / 2 + 40, y2 - GL.r2.userData.H / 2, tx, ty, eo(sg(t, T.rot[1], T.rot[1] + 0.25)));
+    const y2 = 1560; ponerGlobo(GL.r2, 640, y2, ent(T.rot[1]), null, 1); if (t >= T.rot[1]) ponerGuia(GUIAS[0], 640 - GL.r2.userData.W / 2 + 40, y2 - GL.r2.userData.H / 2, tx, ty, eo(sg(t, T.rot[1], T.rot[1] + 0.25)));
   }
   if (pa === "P5" && t >= T.v4) hablar(GL.v4, vero, ent(T.v4), 1, 0);
+  if (pa === "P5w" && t < T.v4 + LEN.v4 + 0.1) ponerGlobo(GL.v4, 600, 250, 1, null, 1);   // (r1) la frase de Vero sigue arriba mientras Inés toma el recetario
   if (pa === "Q1") ponerGlobo(GL.jue, 300, 200, 1, null);
   if (pa === "Q1c") ponerGlobo(GL.rRec, 540, 190, 1, null, 1);
   if (pa === "Q1v" && t >= T.v5) hablar(GL.v5, veroC, ent(T.v5), 1, 0);
@@ -1281,7 +1286,7 @@ function tarjetas(t) {
   if (pa === "Q4" || pa === "Q4b") {
     if (pa === "Q4") ponerGlobo(GL.febQ, 220, 200, 1, null);
     if (pa === "Q4" && t >= T.i1b) hablar(GL.i1b, ines, ent(T.i1b), 1, 0);
-    if (pa === "Q4b" && t >= T.v6) { verGlobo(GL.v6, t >= T.v6 + 1.45 ? 99 : 4); hablar(GL.v6, vero, ent(T.v6), 1, 0); }
+    if (pa === "Q4b" && t >= T.v6) { verGlobo(GL.v6, t >= T.v6 + 1.7 ? 99 : 4); hablar(GL.v6, vero, ent(T.v6), 1, 0); }
   }
   if (pa === "Q5") ponerGlobo(GL.rPanel, 540, 200, 1, null, 1);
 }

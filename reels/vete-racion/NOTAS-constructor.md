@@ -66,4 +66,16 @@ de tienda-tenes-stock (arranca en P1 - 0,1: el wav trae 0,2 s de silencio).
 - **Render 1 (24,6 min, 1260 cuadros, SwiftShader):** hoja cada 0,5 s + 8 cuadros grandes. Corregido: P5 repetía el
   encuadre de P4b durante 6 s seguidos y la cabeza de Inés quedaba cortada en el borde → P5 desde el otro lado del
   mostrador (Vero de frente con el talonario), Inés oculta en ese plano.
-- **Render 2:** ver abajo.
+- **Render 2 (26 min):** al cambiar la visibilidad de Inés en P5 un comentario se tragó la línea de Bruno (`vis.bruno`
+  quedó sin definir) y Bruno quedó sin poner en sus planos. Corregido (línea propia), verificado con snapshots.
+- **Render 3 (23 min, el entregado):** hoja cada 0,5 s y cuadros grandes de 0,5 / 15,0 / 20,6 / 29,3: sin Bruno fuera de
+  lugar, P5 con Vero de frente y el talonario. Final: 42,1 s, -14,1 LUFS, pico -5,9 dBFS.
+  `renders/vete-racion-final.mp4` (y `renders/hoja.png`, `renders/qa3/hoja.png`).
+- **Portada:** fondo limpio `portada-src/fondo-limpio-portada.png` = P1 a 1,0 s con LIMPIO=1 y otra cámara (más alta y
+  abierta, ver portada.json) para que el sello "VETERINARIAS" no tape la cara de Vero; Vero con la bolsa vacía arriba,
+  Toto asoma a la derecha debajo de "Domingo, 21:40." (queda en parte bajo el texto). Tres pruebas de encuadre.
+
+## Pendiente / a mirar en la revisión
+- Toto en P1 mira la bolsa más que empujar el plato (la cabeza no baja tanto como pide el plan); el plato se mueve con él.
+- P4: Toto se ve de atrás oliendo la torre (se lee el olfateo por el sonido y el movimiento de cabeza).
+- El cartel arranca "más tarde…" a 1,0 s del cartel; el narrador ahora empieza 0,15 s antes (se ve bien en la hoja).

@@ -33,11 +33,11 @@ T.empuja2 = r2(T.celFin + 0.02); T.v2 = r2(T.celFin + 0.08); T.orejas = r2(T.v2 
 // P2 · el súper, domingo 22:05: la bolsa verde al carro · NOVIEMBRE, DICIEMBRE, ENERO (un chip grande por mes, la misma
 // bolsa al carro, el contador rojo que sube)
 T.p2 = r2(T.v2 + LEN.v2 + 0.1); T.agarra = r2(T.p2 + 0.12); T.carro = r2(T.p2 + 0.55);
-const MES = 0.6;
+const MES = 0.55;
 T.mes = [0, 1, 2].map((i) => r2(T.carro + 0.45 + i * MES));
 T.carroMes = T.mes.map((m) => r2(m + 0.3));
 // P3 · febrero en la veterinaria: la torre de bolsas sin vender, Inés con el talonario, Bruno · campanita
-T.p3 = r2(T.mes[2] + MES); T.campana = r2(T.p3 + 0.7);
+T.p3 = r2(T.mes[2] + MES); T.campana = r2(T.p3 + 0.6);
 // P4 · entran Vero y Toto; Toto tira derecho a la torre y la huele · "¡Vero! ¿Qué está comiendo Toto?"
 T.p4 = r2(T.campana + 0.15); T.entra = [T.campana, r2(T.campana + 1.0)]; T.huele = r2(T.entra[1] - 0.05);
 T.i1 = r2(T.p4 + 0.35);
@@ -47,28 +47,28 @@ T.p4b = r2(T.i1 + LEN.i1 + 0.1); T.v3 = r2(T.p4b + 0.1);
 T.p4c = r2(T.v3 + LEN.v3 + 0.06); T.rot = [r2(T.p4c + 0.08), r2(T.p4c + 0.25)];
 // P5 · remate del remate: "¿Me la anotás? Así no me equivoco." · Inés escribe en el recetario (inserto) · Toto se echa
 T.p5 = r2(T.p4c + 1.05); T.v4 = r2(T.p5 + 0.08);
-T.arranca = r2(T.v4 + LEN.v4 - 0.05); T.p5i = r2(T.arranca + 0.15); T.escribe = [r2(T.p5i + 0.1), r2(T.p5i + 0.95)];
+T.p5w = r2(T.v4 + 0.95); T.arranca = r2(T.v4 + LEN.v4 - 0.05); T.p5i = r2(T.arranca + 0.3);   T.escribe = [r2(T.p5i + 0.1), r2(T.p5i + 0.95)];   // (r1) P5w: Inés, seria, arranca la hoja del recetario
 T.p5t = r2(T.escribe[1] + 0.1); T.suspiro = r2(T.p5t + 0.2);
-const P1 = r2(T.p5t + 0.7);    // termina la parte 1 (arranca el cartel)
+const P1 = r2(T.p5t + 0.55);    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.45, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · jueves 10:00, la misma cocina de día: el aviso llega solo (inserto del chat) · "¿Cómo sabe?" · la ficha de recompra
 // en la tablet de Inés (inserto) · la tienda con el pedido armado: Pagar → Pagado ✓
 T.q1 = P2; T.ding = r2(P2 + 0.3); T.q1c = r2(P2 + 0.42);
-T.q1v = r2(T.q1c + 1.05); T.v5 = r2(T.q1v + 0.08); T.q1t = r2(T.v5 + LEN.v5 + 0.15);
-T.q1s = r2(T.q1t + 1.5); T.envio = r2(T.q1s + 0.35); T.pagar = r2(T.q1s + 0.75); T.pagado = r2(T.pagar + 0.2);
+T.toca = r2(T.q1c + 0.8); T.q1v = r2(T.q1c + 1.05); T.v5 = r2(T.q1v + 0.08); T.q1t = r2(T.v5 + LEN.v5 + 0.15);
+T.q1s = r2(T.q1t + 1.35); T.envio = r2(T.q1s + 0.35); T.pagar = r2(T.q1s + 0.75); T.pagado = r2(T.pagar + 0.2);
 // Q2 · viernes 18:40: timbre, Vero abre, Bruno con la bolsa TOTO · "¡Ración para Toto!"
-T.q2 = r2(T.pagado + 0.85); T.timbre = r2(T.q2 + 0.03); T.abre = r2(T.q2 + 0.22); T.b1 = r2(T.q2 + 0.5); T.apoya = r2(T.b1 + LEN.b1 + 0.15);
+T.q2 = r2(T.pagado + 0.7); T.timbre = r2(T.q2 + 0.03); T.abre = r2(T.q2 + 0.22); T.b1 = r2(T.q2 + 0.5); T.apoya = r2(T.b1 + LEN.b1 + 0.15);
 // Q3 · domingo 21:40 (el remate de la parte 2, sin voz): Toto va a empujar el plato y está lleno; mira a cámara y come
-T.q3 = r2(T.apoya + 0.35); T.empujaQ = r2(T.q3 + 0.3); T.para = r2(T.q3 + 0.7); T.mira = [r2(T.q3 + 1.1), r2(T.q3 + 1.6)]; T.come = r2(T.q3 + 1.8);
+T.q3 = r2(T.apoya + 0.35); T.empujaQ = r2(T.q3 + 0.3); T.para = r2(T.q3 + 0.75); T.mira = [r2(T.q3 + 1.0), r2(T.q3 + 1.55)]; T.come = r2(T.q3 + 1.8);   // (r1) empuja, mira, come; Q3 de 2,7 s
 // Q4 · febrero: el mismo "¡Vero! ¿Qué está comiendo Toto?" (mismo audio) · "La que me recomendaste. Me llega sola."
-T.q4 = r2(T.q3 + 2.3); T.campana2 = r2(T.q4 + 0.0); T.entra2 = [T.q4, r2(T.q4 + 0.9)]; T.i1b = r2(T.q4 + 0.4);
+T.q4 = r2(T.q3 + 2.7); T.campana2 = r2(T.q4 + 0.0); T.entra2 = [T.q4, r2(T.q4 + 0.7)]; T.i1b = r2(T.q4 + 0.75);   // (r1) Inés habla cuando Vero ya entró
 T.q4b = r2(T.i1b + LEN.i1 + 0.1); T.v6 = r2(T.q4b + 0.1);
 // Q5 · el panel de recompras (inserto): filas con tilde, 11 → 2, $ 74.100
 T.q5 = r2(T.v6 + LEN.v6 + 0.25); T.filas = [0.2, 0.38, 0.56, 0.74].map((d) => r2(T.q5 + d)); T.gira = r2(T.q5 + 0.85); T.plata = r2(T.q5 + 1.3);
 // C · Inés a cámara: "Comentá RACIÓN…"
-T.c = r2(T.q5 + 2.0); T.i2 = r2(T.c + 0.12); T.palabra = r2(T.i2); T.palabraR = r2(T.i2 + Number(process.env.RACION ?? 0.3));   // "RACIÓN" en la voz
-const DUR = Math.ceil((Math.ceil((T.i2 + LEN.i2 + 0.3) * 30) / 30) * 1e4) / 1e4;
+T.c = r2(T.q5 + 1.85); T.i2 = r2(T.c + 0.12); T.palabra = r2(T.i2); T.palabraR = r2(T.i2 + Number(process.env.RACION ?? 0.3));   // "RACIÓN" en la voz
+const DUR = Math.ceil((Math.ceil((T.i2 + LEN.i2 + 0.15) * 30) / 30) * 1e4) / 1e4;   // (r1) cierre ≤ 3,6 s
 T.cierre = r2(DUR - 1.0);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -130,7 +130,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 30px; right: 30px; top: 150px; padding: 30px 6px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
-    P .tx { font: 900 112px/1.06 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
+    P .tx { font: 900 128px/1.06 "Lexend", sans-serif; letter-spacing: -0.045em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 8px; }
     P .sel b { position: absolute; inset: -14px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
     P .sel em { position: relative; font-style: normal; }`,
@@ -203,7 +203,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1050px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1235px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 150px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
@@ -221,7 +221,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1480px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1675px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Tienda online con aviso de recompra</div><div class="a">por WhatsApp</div><div class="b">scalerics.com</div></div>`,
@@ -263,7 +263,7 @@ platoAcero(0.05, -36); platoAcero(T.empuja[1] - 0.05, -38);
 bolsaPapel(0.2, 0.55, -40);
 s("sfx/k-tick-2.wav", T.croqueta + 0.33, 0, { techo: -40, hp: 1500, vel: 1.4 }); s("sfx/k-tick-4.wav", T.croqueta + 0.48, 0, { techo: -46, hp: 1500, vel: 1.5 });
 voz("v1", T.v1, -1);
-s("sfx/vibra.wav", T.cel - 0.05, 0, { techo: -42, dur: 0.3, fin: 0.1 }); whoosh(T.cel, -46);
+s("sfx/vibra.wav", T.cel - 0.05, 0, { techo: -36, dur: 0.3, fin: 0.1 }); whoosh(T.cel, -40);   // (r1) +6 dB
 platoAcero(T.empuja2 + 0.25, -37);
 voz("v2", T.v2, -1);
 lad("corgi_fs630648", T.orejas + 0.25, -37);
@@ -289,8 +289,8 @@ T.rot.forEach((t) => pop(t, -44));
 voz("v4", T.v4, -1);
 s("sfx/bsb-rasga.wav", T.arranca, 0, { techo: -38, dur: 0.5, fin: 0.1 });
 whoosh(T.p5i, -46);
-s("sfx/birome.wav", T.escribe[0], 0, { techo: -38, dur: r2(T.escribe[1] - T.escribe[0]), fin: 0.1 });
-s("sfx/bsb-suspiro.wav", T.suspiro, 0, { techo: -36, dur: 1.1, fin: 0.25, lp: 3000 });
+s("sfx/birome.wav", T.escribe[0], 0, { techo: -34, dur: r2(T.escribe[1] - T.escribe[0]), fin: 0.1 });
+s("sfx/bsb-suspiro.wav", T.suspiro, 0, { techo: -32, dur: 1.1, fin: 0.25, lp: 3000 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -46 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -42, dur: 0.6, fin: 0.25 });
@@ -301,7 +301,7 @@ s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
 s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -36, duck: [[T.q3, T.q4 - 0.1, 0.45]] });
 // Q1 · el aviso: notificación; "¿Cómo sabe?"; la ficha; la tienda: envío, Pagar, Pagado ✓
-noti(T.ding + 0.08, -45); whoosh(T.q1c, -50);
+noti(T.ding + 0.08, -35); whoosh(T.q1c, -50); toque(T.toca, -36);   // (r1) la notificación audible; el toque en "Repetir pedido"
 voz("v5", T.v5, -1);
 whoosh(T.q1t, -44); ding(T.q1t + 0.7, -40);
 whoosh(T.q1s, -44); toque(T.envio, -38); toque(T.pagar, -36); ding(T.pagado, -34);
@@ -313,8 +313,8 @@ lad("golden_fs146343_1", T.b1 + LEN.b1 + 0.0, -35);
 bolsaCae(T.apoya, -34);
 // Q3 · domingo 21:40: el plato lleno (no suena el acero: las croquetas), Toto mira, come
 s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, dur: r2(T.q4 - T.q3), fi: 0.1, fin: 0.2, techo: -52, lp: 500 });
-s("sfx/bsb-cereal.wav", T.empujaQ, 0, { techo: -38, dur: 0.7, fin: 0.2 });
-s("sfx/bsb-masticar.wav", T.come, 0, { techo: -36, dur: r2(T.q4 - T.come), fin: 0.2 });
+s("sfx/bsb-cereal.wav", T.empujaQ, 0, { techo: -31, dur: 0.7, fin: 0.2 });
+s("sfx/bsb-masticar.wav", T.come, 0, { techo: -31, dur: r2(T.q4 - T.come), fin: 0.2 });
 // Q4 · campanita, pasos y uñas, el mismo "¡Vero!…", "Me llega sola."
 s("sfx/campanita.wav", T.campana2, 0, { techo: -36 });
 pasos(T.entra2[0] + 0.1, T.entra2[1], 3, -46); unas(T.entra2[0] + 0.1, T.entra2[1], 6, -46);

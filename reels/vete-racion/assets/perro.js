@@ -15,6 +15,7 @@
 //   cola                              0..1 cuánto (amplitud y frecuencia) bate la cola; colaAlta 0 metida..1 arriba
 //   orejas                            0 gachas..1 alertas (la caída sigue caída, pero se mueve)
 //   cabeza: { giro, asiente, ladea }  yaw, pitch (+ baja), roll (el ladeo de perro)
+//   baja                              0..1 la cabeza baja hasta el piso (comer, empujar el plato); vete-racion
 //   cejas                             -1 tristes (la punta de adentro arriba)..+1 sorprendidas
 //   ojos: { x, y, abiertos }          mirada -1..1, párpado 0..1
 //   pata                              0..1 levanta la pata delantera DERECHA hacia adelante (dar la pata)
@@ -186,6 +187,8 @@ export function crearPerro(cfg) {
     estado.hombro.copy(hombro);
     // la cabeza: arriba y adelante del cuello, derecha (no hereda la inclinación del torso)
     const cc = V(0, nucaB.y + 0.19 + resp, nucaB.z + 0.06 + 0.04 * p.sentado);
+    // (vete-racion r1) baja: 0..1 la cabeza baja al piso (comer del plato, empujarlo con el hocico); el cuello la sigue
+    const bj = p.baja || 0; cc.y -= 0.3 * bj; cc.z += 0.1 * bj;
     cabeza.position.copy(cc);
     cabeza.rotation.set(p.cabeza.asiente, p.cabeza.giro, p.cabeza.ladea, "YXZ");
     // el cuello: de la nuca del torso a la base de la cabeza (un cilindro grueso, el frente crema)
