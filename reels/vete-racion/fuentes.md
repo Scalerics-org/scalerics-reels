@@ -46,10 +46,22 @@ narrador del cartel = Rasalgethi, audio reusado de `reels/tienda-tenes-stock/ass
 online más tarde."). Detalle en `partes/voces.md`.
 
 ## Efectos
-Los que se reusan vienen de `reels/veterinaria-vacunas/assets/sfx` (copiados con el proyecto; sus créditos están en
-`reels/veterinaria-vacunas/fuentes.md`, incluidos los ladridos CC0 de Freesound), `bsb-rasga.wav` (de
-`reels/ferreteria-encargo`, "Torn paper #2", BigSoundBank, CC0) y `birome.wav` (de `reels/resto-reservas`, BigSoundBank
-CC0), con su crédito en los `fuentes.md` de esos reels. Nada sintetizado con ffmpeg.
+Nada sintetizado con ffmpeg. Los reusados (copiados con el proyecto de `reels/veterinaria-vacunas` o de otros reels), con
+el reel cuyo `fuentes.md` tiene el crédito:
+- `k-plato-000.wav` (el plato de acero contra el piso, P1): crédito en `reels/como-viene-el-mes/fuentes.md` (y dist-quien-debe).
+- `k-tick-1/2/4.wav` (uñas, croqueta, chips, filas del panel): Kenney, CC0, en `reels/dice-cuarenta/fuentes.md` (y taller-presupuestos).
+- `k-metal-liviano-2.wav` (el alambre del carro): `reels/corralon-portland/fuentes.md`.
+- `campanita.wav` (la puerta de la veterinaria): `reels/anotamelo/fuentes.md` (y abren-hoy-2).
+- `stinger.wav` (fin de la parte 1): `reels/abren-hoy-completo/fuentes.md`.
+- `bgm/pizzicato.wav` (la cama): `reels/abren-hoy/fuentes.md`.
+- `zumbido.wav` / `zumbido-largo.wav` (tubo del súper, heladera): `reels/anotamelo/fuentes.md` / `reels/contable-papeles/fuentes.md`.
+- `puerta-abre.wav` (la puerta de Vero): `reels/anotamelo/fuentes.md`.
+- `paso-0..4.wav` (pasos): `reels/anotamelo/fuentes.md`.
+- `whoosh-short.mp3`, `whoosh.mp3`, `vibra.wav`, `click-soft.mp3`: `reels/abren-hoy/fuentes.md`.
+- `notification.mp3`, `pop.mp3`, `cero.mp3`: `reels/anotamelo/fuentes.md`.
+- `ladrido-*.wav` (Toto): Freesound CC0, detallados en `reels/veterinaria-vacunas/fuentes.md`.
+- `birome.wav` (la lapicera): BigSoundBank CC0, `reels/resto-reservas/fuentes.md`.
+- `bsb-rasga.wav` (la hoja del recetario): "Torn paper #2", BigSoundBank CC0, `reels/ferreteria-encargo/fuentes.md`.
 
 Nuevos en este reel (todos de BigSoundBank, Joseph Sardin, licencia CC0 1.0 "public domain", verificada en la página de
 cada sonido el 24-11; bajados en mp3 a `partes/bsb/` y recortados/pasados a .wav sin procesar el sonido):
@@ -60,3 +72,9 @@ cada sonido el 24-11; bajados en mp3 a `partes/bsb/` y recortados/pasados a .wav
 - `assets/sfx/bsb-timbre.wav` (el timbre de la casa de Vero, Q2; 0-2 s): "Doorbell house #1" (#0159), https://bigsoundbank.com/doorbell-house-1-s0159.html
 - `assets/sfx/bsb-papel.wav` (la bolsa de papel vacía y la que sale de la góndola; 0,2-0,82 s): "Paper" (#0785), https://bigsoundbank.com/paper-s0785.html
 - `assets/sfx/bsb-bolsa-piso.wav` (la bolsa de 15 kg que cae al carro y al piso; 0-0,32 s): "Canvas bag on floor" (#0576), https://bigsoundbank.com/canvas-bag-on-floor-s0576.html (ya usado en contable-papeles)
+
+## Medición de la mezcla (ronda 1)
+Con los stems al día (`MEDIR=1 node gen.mjs` + `medir.py`), la voz queda ≥ 6,5 LU sobre música + SFX en todos los tramos
+de 0,5 s con voz, contando el arranque del narrador. El revisor de sonido midió 11,4 LU de margen típico sobre los stems
+de la versión anterior. Los SFX de los tramos sin voz quedaron en la meta del revisor sin pasar -31 LUFS momentáneo en el
+MP4 (cereal ~-32, masticar ~-31, birome ~-31, notificación ~-35).

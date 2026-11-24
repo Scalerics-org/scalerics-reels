@@ -130,7 +130,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   escena(id, dur, {
     css: `
     P .caja { position: absolute; left: 30px; right: 30px; top: 150px; padding: 30px 6px 30px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
-    P .tx { font: 900 128px/1.06 "Lexend", sans-serif; letter-spacing: -0.045em; color: ${NAVY}; white-space: nowrap; }
+    P .tx { font: 900 120px/1.06 "Lexend", sans-serif; letter-spacing: -0.045em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 8px; }
     P .sel b { position: absolute; inset: -14px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
     P .sel em { position: relative; font-style: normal; }`,
@@ -289,8 +289,8 @@ T.rot.forEach((t) => pop(t, -44));
 voz("v4", T.v4, -1);
 s("sfx/bsb-rasga.wav", T.arranca, 0, { techo: -38, dur: 0.5, fin: 0.1 });
 whoosh(T.p5i, -46);
-s("sfx/birome.wav", T.escribe[0], 0, { techo: -34, dur: r2(T.escribe[1] - T.escribe[0]), fin: 0.1 });
-s("sfx/bsb-suspiro.wav", T.suspiro, 0, { techo: -32, dur: 1.1, fin: 0.25, lp: 3000 });
+s("sfx/birome.wav", T.escribe[0], 0, { libre: true, pico: -8, techo: -31, dur: r2(T.escribe[1] - T.escribe[0]), fin: 0.1 });
+s("sfx/bsb-suspiro.wav", T.suspiro, 0, { libre: true, pico: -8, techo: -30, dur: 1.1, fin: 0.25, lp: 3000 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -46 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -42, dur: 0.6, fin: 0.25 });
@@ -301,7 +301,7 @@ s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
 s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -36, duck: [[T.q3, T.q4 - 0.1, 0.45]] });
 // Q1 · el aviso: notificación; "¿Cómo sabe?"; la ficha; la tienda: envío, Pagar, Pagado ✓
-noti(T.ding + 0.08, -35); whoosh(T.q1c, -50); toque(T.toca, -36);   // (r1) la notificación audible; el toque en "Repetir pedido"
+noti(T.ding + 0.08, -35); whoosh(T.q1c, -50); toque(T.toca, -44);   // (r1) la notificación audible; el toque en "Repetir pedido"
 voz("v5", T.v5, -1);
 whoosh(T.q1t, -44); ding(T.q1t + 0.7, -40);
 whoosh(T.q1s, -44); toque(T.envio, -38); toque(T.pagar, -36); ding(T.pagado, -34);
@@ -313,8 +313,8 @@ lad("golden_fs146343_1", T.b1 + LEN.b1 + 0.0, -35);
 bolsaCae(T.apoya, -34);
 // Q3 · domingo 21:40: el plato lleno (no suena el acero: las croquetas), Toto mira, come
 s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, dur: r2(T.q4 - T.q3), fi: 0.1, fin: 0.2, techo: -52, lp: 500 });
-s("sfx/bsb-cereal.wav", T.empujaQ, 0, { techo: -31, dur: 0.7, fin: 0.2 });
-s("sfx/bsb-masticar.wav", T.come, 0, { techo: -31, dur: r2(T.q4 - T.come), fin: 0.2 });
+s("sfx/bsb-cereal.wav", T.empujaQ, 0, { libre: true, pico: -6, techo: -26, dur: 0.7, fin: 0.2 });
+s("sfx/bsb-masticar.wav", T.come, 0, { libre: true, pico: -6, techo: -30.5, dur: r2(T.q4 - T.come), fin: 0.2 });
 // Q4 · campanita, pasos y uñas, el mismo "¡Vero!…", "Me llega sola."
 s("sfx/campanita.wav", T.campana2, 0, { techo: -36 });
 pasos(T.entra2[0] + 0.1, T.entra2[1], 3, -46); unas(T.entra2[0] + 0.1, T.entra2[1], 6, -46);
@@ -332,7 +332,7 @@ pop(T.palabra + 0.02, -38); pop(T.palabraR, -40);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB y, en los tramos sin voz (el montaje de meses, el panel, el plato lleno), los SFX +6 dB (nunca por encima
 // del techo)
-for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
+for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.libre) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
   if (en(t0, T.carro - 0.1, T.p3) || en(t0, T.q3, T.q4 - 0.2) || en(t0, T.q5, T.c - 0.3)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 6); }
 // la música: duck debajo de cada voz (-6 dB) para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
@@ -358,7 +358,8 @@ function lufsTramo(f, o) {
 }
 const PICO = Number(process.env.PICO ?? -19);
 // el bus suma +6 dB antes del limitador: el techo se cumple DESPUÉS del bus (por eso -6)
-const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, Math.min(o.techo ?? TECHO, TECHO) - 6 - L.M, (o.pico ?? PICO) - L.pk)); };
+// (r1) libre: el techo es la meta medida en el MP4 (la momentánea de un SFX corto queda varios LU debajo del pico del archivo)
+const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, (o.libre ? o.techo : Math.min(o.techo ?? TECHO, TECHO)) - 6 - L.M, (o.pico ?? PICO) - L.pk)); };
 function mezcla(lista, salida, dur) {
   const args = ["-y", "-loglevel", "error"];
   const filtros = [];

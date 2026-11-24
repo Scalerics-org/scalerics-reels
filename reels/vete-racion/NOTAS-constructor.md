@@ -79,3 +79,30 @@ de tienda-tenes-stock (arranca en P1 - 0,1: el wav trae 0,2 s de silencio).
 - Toto en P1 mira la bolsa más que empujar el plato (la cabeza no baja tanto como pide el plan); el plato se mueve con él.
 - P4: Toto se ve de atrás oliendo la torre (se lee el olfateo por el sonido y el movimiento de cabeza).
 - El cartel arranca "más tarde…" a 1,0 s del cartel; el narrador ahora empieza 0,15 s antes (se ve bien en la hoja).
+
+## Ronda 1 de revisión (24-11, tarde) · render 4 (24 min) + retoque de Q4 → render 5 (24 min, el entregado)
+Duración 42,43 s (42,5 s el MP4) · parte 1 0-18,17 · cartel 18,17-20,82 · parte 2 + cierre 20,82-42,43 (51 %) · cierre
+3,58 s. -14,2 LUFS, pico -3,8 dBFS; voz ≥ 6,5 LU sobre el resto en todos los tramos (medir.py).
+- A1 silueta de las bolsas: `silueta()` es ahora un perro parado de perfil (lomo, 4 patas con pies, cuello, hocico largo
+  con trufa, oreja caída, cola recta). Bolsas, góndola, tienda y portada.
+- A2 Q3 (2,7 s): perro.js tiene `baja` (la cabeza baja al piso con el cuello). El plato se calibra contra la nariz con la
+  cabeza baja (`calibrarHocico`) y se mueve con cada empujón: 29,1 hocico en el plato (cereal), 29,6-30,2 mira a cámara
+  ladeado, desde 30,6 come. Push-in hacia Toto y el plato; en Q3 no está Vero y se oculta la lámpara.
+- M1 súper: la bolsa es la misma kraft "ADULTO MEDIANO · 15 kg" sin el sticker; ninguna otra bolsa kraft en la góndola.
+- M2 contraplano (P4b, Q4b): cámara fuera del mostrador (sin la losa), Vero de 3/4 casi frontal (sin la vuelta larga del
+  giro), cara ELOGIO (sonrisa abierta, cejas parejas arriba) que crece a ELOGIO2 en el remate, push-in de 6° de fov.
+- M3 pausas: v3 y v6 partidos con 0,28 / 0,25 s de silencio (≈0,5 s entre frases, partes/procesar.sh `pausa`); la segunda
+  línea de la burbuja entra a 1,98 / 1,70 s.
+- M4 rótulos: "$ 3.900 por mes · $ 46.800 al año · que se van al súper" y "Compran la ración afuera: 11" abajo; P4c con
+  Inés al centro y el cartel entero; panel "Compran afuera 11 → 2".
+- M5 Bruno detrás del mostrador desde P3, a la izquierda de Inés (ya no salta ni lo tapa Vero).
+- M6 Q4: cámara V4Q (cartel ENVÍOS DE HOY entero, Vero en cuadro), Toto cruza por delante de Vero, Inés habla a 0,75 s
+  (Vero ya entró); Q4b sin Toto.
+- M7 plano nuevo P5w: Inés seria toma el recetario y arranca la hoja (el rasgado cae ahí); la burbuja de Vero queda abajo.
+- M8 SFX con opción `libre` (meta medida en el MP4): notificación ~-35, cereal ~-32, masticar ~-31, birome ~-31; vibra y
+  whoosh de P1c +6 dB, suspiro +4.
+- M9 cierre 3,58 s; tarjeta en y 1235 y la línea chica en y 1675 (llena la franja de abajo); cámara más abierta.
+- M10 los dos "clonc" de P1 coinciden con el hocico tocando el plato (la cabeza baja con `baja`).
+- Bajas: Toto en Q2 a la izquierda (se lee "15 kg" y TOTO), oreja de Toto echado, "Cerrado" con la hora a 60 px y sin la
+  línea chica, VETERINARIAS a 120 px, sin parpadeo en "¿Me la anotás?", toque visible en "Repetir pedido" (click) y
+  "Envío" se marca con el toque, ficha sin "Próximo aviso", fuentes.md con cada SFX reusado y su reel, portada nueva.

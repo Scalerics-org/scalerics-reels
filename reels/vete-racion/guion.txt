@@ -5,16 +5,16 @@ VERO (0,25): Uy. Se terminó.
 [1,40-2,40 · inserto del celular: "Veterinaria Inés · Cerrado · Abre el lunes 9:00" ("Cerrado" en rojo apagado) · Toto empuja el plato otra vez: clonc]
 VERO (2,65): Bueno, Toto. Al súper.
 [Toto levanta las orejas y mueve la cola]
-[3,90-6,90 · P2 · chip "Domingo, 22:05." · el pasillo del súper: Vero saca de la góndola una bolsa verde de 15 kg y la tira al carro · rótulo "15 kg · $ 3.900 · en el súper" · montaje sin voz en el mismo encuadre: NOVIEMBRE, DICIEMBRE, ENERO, la misma bolsa al carro · contador rojo apagado: "Ración que no se vendió en la veterinaria: $ 3.900 → $ 7.800 → $ 11.700 → $ 15.600"]
-[6,90-8,20 · P3 · chip "Febrero." · la recepción de Veterinaria Inés: la torre de 20 bolsas de 15 kg sin tocar al lado del mostrador, con el cartel de cartón "RACIÓN 15 kg · $ 3.900" · Inés atrás con el talonario, Bruno acomodando la torre · 7,90 campanita]
+[3,90-6,90 · P2 · chip "Domingo, 22:05." · el pasillo del súper: Vero saca de la góndola LA MISMA bolsa kraft "ADULTO MEDIANO · 15 kg" (sin el sticker de la veterinaria) y la tira al carro · rótulo "15 kg · $ 3.900 · en el súper" · montaje sin voz en el mismo encuadre: NOVIEMBRE, DICIEMBRE, ENERO, la misma bolsa al carro · contador rojo apagado: "Ración que no se vendió en la veterinaria: $ 3.900 → $ 7.800 → $ 11.700 → $ 15.600"]
+[6,90-8,20 · P3 · chip "Febrero." · la recepción de Veterinaria Inés: la torre de 20 bolsas de 15 kg sin tocar al lado del mostrador, con el cartel de cartón "RACIÓN 15 kg · $ 3.900" · Inés atrás con el talonario y Bruno a su lado, detrás del mostrador · 7,90 campanita]
 [8,20-13,20 · P4 · entran Vero (con campera) y Toto, a control · Toto tira de la correa derecho a la torre y la huele moviendo la cola]
 INES (8,14): ¡Vero! ¿Qué está comiendo Toto?
 [10,00 · contraplano: Vero de frente, contenta, la torre detrás]
 VERO (10,27): La que me recomendaste. La compro en el súper.
-[12,50-13,20 · pausa · Inés de 3/4, la sonrisa quieta · rótulos (rojo apagado): "$ 3.900 por mes · $ 46.800 al año, en el súper" y "Clientes de bolsa que dejaron de venir: 11"]
+[12,50-13,20 · pausa · Inés de 3/4, la sonrisa quieta · rótulos (rojo apagado): "$ 3.900 por mes · $ 46.800 al año que se van al súper" y "Compran la ración afuera: 11"]
 [13,20-16,60 · P5 · remate del remate · Vero, práctica y amable]
 VERO (14,43): ¿Me la anotás? Así no me equivoco.
-[15,00 · Inés, sin una palabra, arranca una hoja de su recetario y escribe · inserto: el membrete "VETERINARIA INÉS" y, en letra de doctora, "Ración adulto mediano · bolsa 15 kg": la lista del súper · 16,10 Toto se echa contra la torre con un suspiro · 16,50 stinger]
+[P5w · Inés, seria, toma el recetario · sin una palabra, arranca una hoja de su recetario y escribe · inserto: el membrete "VETERINARIA INÉS" y, en letra de doctora, "Ración adulto mediano · bolsa 15 kg": la lista del súper · 16,10 Toto se echa contra la torre con un suspiro · 16,50 stinger]
 [cartel · 16,60-19,20 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una tienda online" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/tienda-tenes-stock/assets/voice/narrador.wav]
 NARRADOR (18,04): Una tienda online más tarde.
 [parte 2 · la solución · 19,20-37,20 s]
@@ -30,6 +30,6 @@ INES (31,50): ¡Vero! ¿Qué está comiendo Toto?
 [el mismo audio de la parte 1 · 32,00 el mismo contraplano de Vero de frente]
 VERO (33,63): La que me recomendaste. Me llega sola.
 [Inés sonríe]
-[34,20-37,20 · Q5 · la tablet a pantalla (≥ 70 %), el mostrador alrededor: "Recompras de ración · febrero" · "Avisos enviados 23 ✓" · "Repitieron el pedido 19 ✓" (Envío 14 · Retiro 5) · "Dejaron de comprar 11 → 2" (el 11 gira y queda verde) · "$ 74.100 en ración este mes" · filas "Toto · Vero · Enviado ✓", "Luna · Retiro ✓", "Coco · Enviado ✓" · rótulo "Panel de recompras"]
+[34,20-37,20 · Q5 · la tablet a pantalla (≥ 70 %), el mostrador alrededor: "Recompras de ración · febrero" · "Avisos enviados 23 ✓" · "Repitieron el pedido 19 ✓" (Envío 14 · Retiro 5) · "Compran afuera 11 → 2" (el 11 gira y queda verde) · "$ 74.100 en ración este mes" · filas "Toto · Vero · Enviado ✓", "Luna · Retiro ✓", "Coco · Enviado ✓" · rótulo "Panel de recompras"]
 [cierre · 37,20-40,60 · Inés a cámara atrás del mostrador, el estante ENVÍOS DE HOY y el cartel VETERINARIA INÉS detrás, Toto asomado con las patas en el mostrador · tarjeta debajo de la cara: "Comentá" / "RACIÓN" (en el recuadro verde de selección) / "y te mando cómo funciona para tu veterinaria" · el último segundo, abajo: "Tienda online con aviso de recompra por WhatsApp" / "scalerics.com" en verde]
 INES (38,38): Comentá RACIÓN y te mando cómo funciona para tu veterinaria.

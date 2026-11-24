@@ -1,5 +1,5 @@
 {
- "t": 1.0,
+ "t": 1.6,
  "chica": "Domingo, 21:40.",
  "grande": "¿En el súper?",
  "sello": "VETERINARIAS",
@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio-portada.png",
- "nota": "Fondo limpio: el cuadro de 1,0 s (P1) con LIMPIO=1 y cámara más alta y mirando más abajo (prev.mjs FULL=1, cam -0.5,1.6,3.35 → 0.1,0.48,0.1, fov 50) para que Vero con la bolsa vacía de 15 kg y Toto con el plato queden en la mitad de arriba. Alternativa: portada-src/fondo-limpio-12.8.png (contraplano de Vero en la veterinaria), chica \"Febrero.\"."
+ "nota": "Fondo limpio: P1 a 1,6 s con LIMPIO=1 (prev.mjs FULL=1, cam -0.15,0.95,4.9 → 0.1,0.52,0.1, fov 50): Vero con la bolsa vacía de 15 kg (perro nuevo en la silueta, ronda 1) y Toto mirándola, los dos entre el sello y el texto. Alternativa: portada-src/fondo-limpio-12.8.png."
 }

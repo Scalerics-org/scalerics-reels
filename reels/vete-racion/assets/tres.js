@@ -832,7 +832,7 @@ const BRUNO_M = { x: VX - 0.6, z: -1.6 };   // (r1) del lado izquierdo de Inés:
 const PUERTA_V = { x: VX + XR - 0.3, z: (PUERTA.z0 + PUERTA.z1) / 2 };
 const VERO_V = { x: VX + 0.55, z: -0.22 };        // Vero frente al mostrador
 const TOTO_T = { x: VX - 1.05, z: 0.12 };        // Toto oliendo la torre
-const TOTO_Q4 = { x: VX + 1.0, z: 0.5 };   // (r1) del lado de la cámara: no lo tapan las piernas de Vero       // Q4: Toto sentado al lado de Vero (pasa de largo el estante)
+const TOTO_Q4 = { x: VX - 0.3, z: 0.45 };   // (r1) del lado de la cámara: no lo tapan las piernas de Vero       // Q4: Toto sentado al lado de Vero (pasa de largo el estante)
 const VERO_P = { x: PX - 0.42, z: -0.35 };       // la puerta de Vero
 const BRUNO_P = { x: PX + 0.08, z: PZ - 0.55 };
 
@@ -843,7 +843,8 @@ const K0 = [-0.55, 1.22, 3.3, 0.1, 1.02, 0.1, 50];   // el cuadro 0 de la cocina
 const KV = [0.45, 1.4, 2.3, -0.2, 0.85, -0.1, 50];   // Q1v: Vero y Toto más cerca
 const S0 = [SUX + 1.95, 1.62, 3.05, SUX + 0.2, 0.95, -0.5, 52];
 const V4 = [VX - 1.0, 1.7, 3.45, VX - 0.3, 1.0, -0.6, 56];
-const V4B = [VX + 1.4, 1.58, -1.45, VX + 0.5, 1.3, -0.2, 48];   // (r1) fuera del mostrador: sin la losa blanca abajo
+const V4Q = [VX - 1.2, 1.75, 4.7, VX - 0.5, 1.05, -0.6, 58];   // (r1) Q4: el cartel ENVÍOS DE HOY entero y Vero en cuadro cuando Inés le habla   // (r1) Q4: el cartel ENVÍOS DE HOY entero
+const V4B = [VX + 1.55, 1.58, -1.6, VX + 0.5, 1.25, -0.2, 58];   // (r1) fuera del mostrador: sin la losa blanca abajo
 const off = (k, d) => k.map((v, i) => v + (d[i] ?? 0));
 const PLANOS = [
   ["P1", 0, [[0, ...K0], [T.cel, ...off(K0, [-0.08, -0.03, -0.25, 0, 0, 0, 0])]]],
@@ -853,9 +854,9 @@ const PLANOS = [
   ["P3", T.p3, [[T.p3, VX - 0.15, 1.7, 3.7, VX - 0.55, 1.0, -0.9, 54], [T.p4, VX - 0.2, 1.68, 3.45, VX - 0.55, 1.0, -0.9, 53]]],
   ["P4", T.p4, [[T.p4, ...V4], [T.p4b, ...off(V4, [-0.05, 0, -0.2, 0, 0, 0, -1])]]],
   ["P4b", T.p4b, [[T.p4b, ...V4B], [T.p4c, ...off(V4B, [-0.1, 0, 0.1, 0, 0.02, 0, -6])]]],
-  ["P4c", T.p4c, [[T.p4c, VX + 0.3, 1.55, 2.0, VX - 0.35, 1.15, -1.0, 54], [T.p5, VX + 0.28, 1.55, 1.9, VX - 0.35, 1.15, -1.0, 53]]],
+  ["P4c", T.p4c, [[T.p4c, VX + 0.0, 1.5, 2.35, VX + 0.0, 1.38, -1.0, 50], [T.p5, VX + 0.0, 1.5, 2.2, VX + 0.0, 1.38, -1.0, 49]]],   // (r1) Inés al centro y el cartel entero   // (r1) el cartel queda arriba, fuera de cuadro
   ["P5", T.p5, [[T.p5, VX - 0.95, 1.6, -1.7, VX + 0.45, 1.2, -0.3, 56], [T.p5i, VX - 0.9, 1.6, -1.62, VX + 0.45, 1.2, -0.3, 54]]],   // (pasada 1) otro encuadre que P4b: Vero de frente y el talonario en el mostrador
-  ["P5w", T.p5w, [[T.p5w, VX - 0.15, 1.5, 0.45, VX - 0.02, 1.28, -1.45, 44], [T.p5i, VX - 0.13, 1.49, 0.32, VX - 0.02, 1.26, -1.45, 42]]],   // (r1) Inés, seria, toma el recetario y arranca la hoja
+  ["P5w", T.p5w, [[T.p5w, VX - 0.25, 1.7, 1.6, VX - 0.02, 1.2, -1.45, 40], [T.p5i, VX - 0.23, 1.69, 1.45, VX - 0.02, 1.19, -1.45, 39]]],   // (r1) Inés, seria, toma el recetario y arranca la hoja
   ["P5i", T.p5i, null],
   ["P5t", T.p5t, [[T.p5t, VX - 0.05, 0.75, 1.75, VX - 1.0, 0.5, -0.25, 50], [P1, VX - 0.1, 0.72, 1.62, VX - 1.0, 0.5, -0.25, 49]]],
   // ---- parte 2 ----
@@ -865,8 +866,8 @@ const PLANOS = [
   ["Q1t", T.q1t, null],
   ["Q1s", T.q1s, null],
   ["Q2", T.q2, [[T.q2, PX + 0.75, 1.42, 1.85, PX - 0.05, 1.15, -1.1, 50], [T.q3, PX + 0.7, 1.42, 1.7, PX - 0.05, 1.15, -1.1, 49]]],
-  ["Q3", T.q3, [[T.q3, ...K0], [T.para, ...off(K0, [0.05, -0.06, -0.3, 0.2, -0.1, 0.15, -2])], [T.q4, ...off(K0, [0.1, -0.12, -0.6, 0.3, -0.2, 0.25, -4])]]],   // (r1) push-in hacia Toto con el plato adentro
-  ["Q4", T.q4, [[T.q4, ...V4], [T.q4b, ...off(V4, [-0.05, 0, -0.2, 0, 0, 0, -1])]]],
+  ["Q3", T.q3, [[T.q3, ...K0], [T.para, ...off(K0, [-0.1, -0.06, -0.3, -0.05, -0.1, 0.15, -2])], [T.q4, ...off(K0, [-0.15, -0.12, -0.6, -0.05, -0.2, 0.25, -4])]]],   // (r1) push-in hacia Toto y el plato (el plato adentro)
+  ["Q4", T.q4, [[T.q4, ...V4Q], [T.q4b, ...off(V4Q, [-0.05, 0, -0.2, 0, 0, 0, -1])]]],
   ["Q4b", T.q4b, [[T.q4b, ...V4B], [T.q5, ...off(V4B, [-0.1, 0, 0.1, 0, 0.02, 0, -6])]]],
   ["Q5", T.q5, null],
   ["C", T.c, [[T.c, VX + 0.05, 1.62, 1.75, VX + 0.05, 1.12, -1.5, 44], [DUR, VX + 0.05, 1.62, 1.62, VX + 0.05, 1.13, -1.5, 43]]],   // (r1) Inés hasta la cintura sobre la tarjeta
@@ -981,7 +982,7 @@ function poseVeroV(t) {
   const p2 = t >= P2;
   const t0 = p2 ? T.entra2[0] : T.entra[0], t1 = p2 ? T.entra2[1] : T.entra[1];
   const u = sg(t, t0, t1);
-  const gI = dirGiro(VERO_V.x, VERO_V.z, INES_M.x, INES_M.z), gF = lerp(gI, dirGiro(VERO_V.x, VERO_V.z, V4B[0], V4B[2]), 0.6);   // (r1) en el contraplano, de 3/4 casi frontal
+  const gI = dirGiro(VERO_V.x, VERO_V.z, INES_M.x, INES_M.z), gC0 = dirGiro(VERO_V.x, VERO_V.z, V4B[0], V4B[2]), gC = gC0 - gI > Math.PI ? gC0 - 2 * Math.PI : gC0 - gI < -Math.PI ? gC0 + 2 * Math.PI : gC0, gF = lerp(gI, gC, 0.6);   // (r1) sin la vuelta larga   // (r1) en el contraplano, de 3/4 casi frontal
   const p = poseEn(t, p2 ? [
     [0, { giro: -Math.PI / 2 - 0.3, ...aC(0.1, 0.05), ...BUENA, ...BRAZOS.costado, manoI: [0.27, 0.08, 0.2], codoI: [0.8, -0.6, -0.2] }],
     [t1 - 0.2, { giro: gI, ...aC(0.0, 0.0), ...BUENA }, 0.3],
@@ -1270,12 +1271,12 @@ function tarjetas(t) {
     if (pa === "P4b" && t >= T.v3) { verGlobo(GL.v3, t >= T.v3 + 1.98 ? 99 : 4); hablar(GL.v3, vero, ent(T.v3), 1, 0); }
   }
   if (pa === "P4c") {
-    ponerGlobo(GL.r1, 340, 1180, ent(T.rot[0]), null, 1);   // (r1) abajo: ya no tapa el cartel
+    ponerGlobo(GL.r1, 340, 1330, ent(T.rot[0]), null, 1);   // (r1) abajo: ya no tapa el cartel
     const [tx, ty] = objPx(TORRE, V3(0, 1.0, 0.3));
-    const y2 = 1560; ponerGlobo(GL.r2, 640, y2, ent(T.rot[1]), null, 1); if (t >= T.rot[1]) ponerGuia(GUIAS[0], 640 - GL.r2.userData.W / 2 + 40, y2 - GL.r2.userData.H / 2, tx, ty, eo(sg(t, T.rot[1], T.rot[1] + 0.25)));
+    const y2 = 1610; ponerGlobo(GL.r2, 600, y2, ent(T.rot[1]), null, 1);
   }
   if (pa === "P5" && t >= T.v4) hablar(GL.v4, vero, ent(T.v4), 1, 0);
-  if (pa === "P5w" && t < T.v4 + LEN.v4 + 0.1) ponerGlobo(GL.v4, 600, 250, 1, null, 1);   // (r1) la frase de Vero sigue arriba mientras Inés toma el recetario
+  if (pa === "P5w" && t < T.v4 + LEN.v4 + 0.1) ponerGlobo(GL.v4, 540, 1480, 1, null, 1);   // (r1) la frase de Vero sigue abajo (arriba está el cartel) mientras Inés toma el recetario
   if (pa === "Q1") ponerGlobo(GL.jue, 300, 200, 1, null);
   if (pa === "Q1c") ponerGlobo(GL.rRec, 540, 190, 1, null, 1);
   if (pa === "Q1v" && t >= T.v5) hablar(GL.v5, veroC, ent(T.v5), 1, 0);
