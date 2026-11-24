@@ -276,7 +276,7 @@
 ## En curso
 <!-- corrida-activa: 2026-11-24T09:10 -->
 - 24-11 · `dist-cartera` · Distribuidoras · CRM (cada cliente con su ficha, historial, precios y conversaciones en el sistema de la empresa, no en el celular del vendedor; el que lo reemplaza ve todo desde el día 1) · Rubén: el vendedor se va y se lleva la cartera en su celular: "¿Y los clientes?" · Comentá CARTERA · en curso (corrida 2026-11-24T09:10 UTC)
-- 24-11 · `inmo-disponible` · Inmobiliarias · Agente de IA (contesta al instante las consultas de los portales y de WhatsApp con fotos, precio, requisitos y garantías, y agenda la visita en la agenda del corredor; lo que es para el dueño se lo pasa) · domingo, 40 "¿Sigue disponible?" sin contestar; el lunes ya alquilaron con otra inmobiliaria · Comentá DISPONIBLE · en curso (corrida 2026-11-24T09:10 UTC)
+- 24-11 · `vete-racion` · Veterinarias · Tienda online + automatización (la veterinaria vende la ración online con envío; el sistema calcula cuándo se le termina la bolsa a cada mascota y le avisa al dueño unos días antes con botón "Repetir pedido"; panel de recompras) · domingo a la noche se le terminó la ración a Toto, la veterinaria cerrada, la compra en el súper; el cliente de la bolsa de todos los meses se va sin que nadie lo note · Comentá RACIÓN · en curso (corrida 2026-11-24T09:10 UTC; reemplaza a inmo-disponible, que repetía el ángulo de dos-inmobiliarias)
 
 
 
