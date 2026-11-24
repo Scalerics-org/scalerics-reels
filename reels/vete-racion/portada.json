@@ -5,10 +5,10 @@
  "sello": "VETERINARIAS",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.0,
- "foco": "30%",
+ "zoom": 1.25,
+ "foco": "22%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio-1.0.png",
- "nota": "Fondo limpio a hacer con el render: P1 (Toto empujando el plato vacío, Vero dando vuelta la bolsa de 15 kg con el sticker de la veterinaria), sin gancho, chips, burbujas ni logo. Alternativa: P4 ~12,8 s (Inés con la sonrisa quieta, Vero y Toto oliendo la torre), chica \"Febrero.\"."
+ "nota": "Fondo limpio = cuadro de 1,0 s renderizado con LIMPIO=1 (sin chip, burbujas, rubro ni logo): Vero dando vuelta la bolsa vacía de 15 kg con el sticker de la veterinaria y Toto con el plato. Alternativa: portada-src/fondo-limpio-12.8.png (Vero en el contraplano de la veterinaria), chica \"Febrero.\"."
 }

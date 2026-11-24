@@ -1207,7 +1207,8 @@ function renderAt(tIn) {
   const vet = ["P3", "P4", "P4b", "P4c", "P5", "P5i", "P5t", "Q4", "Q4b", "C"].includes(pa);
   const vis = {
     veroC: cocina || pa === "Q2", vero: pa === "P2" || (vet && pa !== "P3" && pa !== "C" && pa !== "P5t" && pa !== "P5i"),
-    ines: vet && pa !== "P5t" && pa !== "P5",   // (pasada 1) en P5 la cabeza de Inés quedaba cortada en el borde bruno: pa === "P3" || pa === "P4" || pa === "P4c" || pa === "Q2" || pa === "Q4",
+    ines: vet && pa !== "P5t" && pa !== "P5",   // (pasada 1) en P5 la cabeza de Inés quedaba cortada en el borde
+    bruno: pa === "P3" || pa === "P4" || pa === "P4c" || pa === "Q2" || pa === "Q4",
     toto: cocina || pa === "Q2" || (vet && pa !== "C" && pa !== "P5i" && (p2 || pa !== "P3")), senora: pa === "P2",
   };
   veroC.raiz.visible = vis.veroC; vero.raiz.visible = vis.vero; ines.raiz.visible = vis.ines; bruno.raiz.visible = vis.bruno; toto.raiz.visible = vis.toto; senora.raiz.visible = vis.senora;
