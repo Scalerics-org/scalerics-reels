@@ -1,0 +1,14 @@
+{
+ "t": 1.0,
+ "chica": "Domingo, 21:40.",
+ "grande": "¿En el súper?",
+ "sello": "VETERINARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-1.0.png",
+ "nota": "Fondo limpio a hacer con el render: P1 (Toto empujando el plato vacío, Vero dando vuelta la bolsa de 15 kg con el sticker de la veterinaria), sin gancho, chips, burbujas ni logo. Alternativa: P4 ~12,8 s (Inés con la sonrisa quieta, Vero y Toto oliendo la torre), chica \"Febrero.\"."
+}
