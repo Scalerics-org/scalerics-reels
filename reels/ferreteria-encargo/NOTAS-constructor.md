@@ -120,3 +120,36 @@ semanas después.", grande "¿Llegó lo mío?", sello FERRETERÍAS.
 - Portada: fondo con VER=portada (Susana oculta).
 - No hecho: medir.py sigue marcando +0,5 en 34,5 s (cola de la ventana de 400 ms: "¡Llegó lo mío!" ya terminó en 34,18
   y entra el whoosh del panel).
+
+## Ronda 2 de corrección (3 revisores)
+**46,1 s.** Parte 1 0-18,98 · cartel 18,98-21,36 · parte 2 + cierre 21,36-46,10 = 24,7 s (54 %). Cierre (C) 42,88-46,10.
++0,6 s: Q5 partido en cinco planos y la pausa antes de "Ya lo tenés."; se recortó Q1c (-0,12), Q4 (-0,25) y P1b (-0,22).
+Q5: Q5 (cajón + bolsita, 36,29) · Q5f contraplano a Susana con el flotador (37,69) · Q5g Gustavo "Dejame tu número." (39,82)
+· Q5s Susana de frente "Ya lo tenés." (41,17, voz 41,29) · Q5r Gustavo se ríe + tablet "Nuevo encargo" (42,10) · C 42,88.
+medir.py: voz ≥ +10,3 LU sobre el resto en todos los tramos. Mezcla -14,0 LUFS, pico -6,4 dBFS. `check --json`: 0 errores.
+- A1: sin el dedo levantado. Susana dice "Ya lo tenés." en un contraplano de frente (Q5s), pícara, con la cabeza hacia la tablet.
+- A2/A3: la vuelta del inserto del cucurucho (P2 y Q2): el cucurucho espera parado en el mostrador ya de cara a la cámara (no se
+  da vuelta ni se lee espejado), la mano DERECHA de Gustavo (lejos de la cámara: ya no hay brazo pegado al lente) lo agarra y desde
+  ahí va pegado a la mano hasta la de Tito. Además Tito se posa antes que Gustavo y la punta del lápiz sale de una pose fija
+  (antes ambos leían la pose del cuadro anterior: no era función pura de t).
+- M1/M2: la bolsita del flotador cuelga del nudo con la mano a la altura del hombro (al costado de la cara, no delante), nylon
+  al 24 %, flotador entero adentro; se levanta solo en los contraplanos (P5c, Q5f) y se baja en el corte (P5b, Q5g). La bolsita
+  SUSANA · CARTUCHO 35 queda parada en el mostrador delante de Susana; el rótulo apunta a ella (ya no al pelo).
+- M3: P1b con el lápiz visible (la mano más atrás que la punta, lápiz 1,25×) y corta al terminar de escribir (el pegado se ve en
+  P2: sin la mano suelta de 6,2). P5b ya no es cenital: Gustavo de frente ya arrancando papel (CG).
+- M4: Susana con flequillo ondulado sobre el borde del casco; solapas más gruesas y saco 3,5-5 % más afuera (sin dientes blancos).
+- M5: la tablet chica muestra el formulario vacío hasta el inserto.
+- M6/M7: Q5 partido (ver arriba); 0,42 s de pausa antes de "Ya lo tenés."; Gustavo se ríe cuando ella termina (Q5r, 0,78 s).
+- B1 el papelito se despega de cara a la cámara de P2 · B2 tornillos más juntos y más arriba en el cono · B3 caen desde más cerca
+  y sin el globo de Tito en los insertos · B4 globos más arriba (s1, g2, s5, Q1) y "Elegí." con la cola al costado; P5b/Q5g con la
+  cámara más alta sobre la cabeza · B5 sin albañiles en P5 · B6 sin latas verdes en la góndola (la mota del borde) · B7 chat más
+  bajo, texto 60 px, sin la "mano", más margen para la tilde · B8 píldora más alta · B9/B18 guías a puntos de la tablet sin texto;
+  cajón con LUCÍA · LLAVE 3/4, OMAR · FLEXIBLE x2, BETO · TARUGOS x50 y panel Susana/Lucía avisadas, Pereira retirado · B10 el
+  texto del cartel se va antes del barrido · B11 tablet en reposo navy con "Encargos" y "+ Nuevo" enormes · B12 portada: fondo
+  subido 130 px (ENCARGOS arriba del texto) · B13 inserto del calibre en Q1 (Q1i) y P5 partido (P5c) · B14 click del calibre,
+  rasgado, cinta, cajoncito y cajón de "Elegí." más fuertes (forzar, fuera de la regla de la cola de la voz) · B15 la cama sube en
+  Q1c y hasta "¿llegó lo mío?" · B16 s11 desde la toma sin recortar el final + fundido de 80 ms · B19 "Recordatorio jueves ·
+  programado" con reloj · B20 "Llega: el martes" · B21 inserto Q2i +0,2 s.
+- No hecho: B17 ("¡Llegó lo mío!"): 10-susana-d ya es la toma que el STT oye bien sola; las otras son "seguro mío" o más largas.
+  B16: la toma de Gemini termina justo en la "s" (no hay más audio que recuperar): queda con el fundido. B22: no se pudo acortar
+  más sin perder la pausa y el contraplano pedidos (46,1 s).

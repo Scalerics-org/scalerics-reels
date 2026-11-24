@@ -19,6 +19,9 @@ v 07-susana-a s7                                                # Susana: "Ya lo
 pausa partes/rec/08b-susana-c.wav partes/tmp/s8.wav 1.46 1.885 0.12   # (r1) "¿Me encargás... este?": la única toma donde el STT oye "este"
 v x s8 "atempo=1.16" partes/tmp/s8.wav                          # Susana (P5 y Q5)
 v ${S10:-10-susana-d} s10 "atempo=${S10T:-1.0}"                # Susana: "¡Llegó lo mío!"
-v 11-susana-a s11                                               # Susana: "Ya lo tenés."
+# (r2) "Ya lo tenés." desde la toma sin recortar el final (la "s" se cortaba) y fundido de 80 ms
+ffmpeg -loglevel error -y -i partes/tomas/11-susana-a.wav -af "silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.03" -ar 48000 -ac 1 partes/tmp/s11.wav
+D11=$(ffprobe -v error -show_entries format=duration -of csv=p=0 partes/tmp/s11.wav)
+v x s11 "afade=t=out:st=$(python3 -c "print($D11-0.08)"):d=0.08" partes/tmp/s11.wav   # Susana: "Ya lo tenés."
 v 12-gustavo-c g12 "atempo=1.09"                                # Gustavo: "Comentá ENCARGO y te mando cómo funciona para tu ferretería."
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done
