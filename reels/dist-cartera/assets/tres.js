@@ -434,7 +434,7 @@ const FONDO = { dep: 0x34507a, caf: 0xefeee5, mue: 0xd9e6ef, ofi: 0xe7eef3 };
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2 + 0.9), r2(T.p5 + 0.5), r2(T.q1 + 1.2), r2(T.q5 + 0.05)] });
+const ruben = crearPersonaje({ ...ELENCO.ruben, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p2 + 0.02), r2(T.p5 + 0.5), r2(T.q1 + 1.2), r2(T.q5 + 0.05)] });
 const leo = crearPersonaje({ ...ELENCO.leo, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3i ?? T.ins3 + 0.4)] });
 const nico = crearPersonaje({ ...ELENCO.empleado, cortoMechas: true, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p6 + 1.0)] });
 const marta = crearPersonaje({ ...ELENCO.duena, dedos: true, parpadeoCada: 999 });
@@ -1161,7 +1161,7 @@ function renderAt(tIn) {
       }
     }
     if (pa === "C") { sofi.raiz.visible = true; sofi.poner(poseSofi(t, cp)); tablet.visible = false; }
-    topper.visible = pa !== "C";
+    topper.visible = pa !== "C" && !LIMPIO;   // (portada) sin el cartelito: su texto asomaba debajo del gancho
   }
   if (lugar === "caf") { marta.raiz.visible = true; marta.poner(poseMarta(t, pa, cp)); }
   if (lugar === "mue") {

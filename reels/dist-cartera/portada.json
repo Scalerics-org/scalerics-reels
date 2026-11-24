@@ -1,13 +1,14 @@
 {
- "t": 3.4,
+ "t": 1.6,
  "chica": "Viernes, 18:00.",
  "grande": "¿Y los clientes?",
  "sello": "DISTRIBUIDORAS",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.0,
- "foco": "30%",
+ "zoom": 1.2,
+ "foco": "88%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-3.4.png"
+ "fondo_limpio": "portada-src/fondo-limpio-1.6.png",
+ "foco_x": "42%"
 }
