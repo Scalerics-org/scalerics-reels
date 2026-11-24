@@ -272,7 +272,7 @@
 - 19-11 · `resto-reservas` · Restaurantes y parrillas · Agente de IA (toma las reservas por WhatsApp a cualquier hora con las mesas reales, pide confirmación el día antes, si no confirman libera la mesa y se la ofrece a la lista de espera; los grupos grandes se los pasa al dueño) · Línea "ANTES QUE TODO", completo con Raúl, dueño de parrilla: "¿Tenés mesa?" → "No, Walter. Esa es de Pablo." y los de las diez "siguen llegando"; cartel "Un agente de IA más tarde…"; la mesa 7 se libera sola y Walter entra: "Llegaron." · Comentá RESERVA · 40,4 s · 5 rondas de revisión · render ~40 min (SwiftShader) · [formato completo con personajes · estilo 3D parrilla navy con interfaz recreada]
 
 ## En curso
-<!-- corrida-activa: 2026-11-24T03:09 -->
+<!-- corrida-activa: 2026-11-24T04:00 -->
 - 19-11 · `ferreteria-encargo` · Ferreterías y corralones · Automatización + registro de encargos (cada encargo con nombre y celular; cuando entra la mercadería, aviso automático por WhatsApp "llegó lo tuyo"; panel de encargos pendientes) · "¿Llegó lo mío?": el encargo anotado en un papelito que se pierde, el cliente lo compró en otro lado y la pieza queda en el estante · Comentá ENCARGO · en curso (corrida 06:10 UTC)
 - 19-11 · `estetica-sesiones` · Centros de estética · Sistema a medida / ficha de clienta con paquetes de sesiones (cuántas le quedan, se descuentan solas, la clienta lo ve en el celular, aviso para renovar) · "¿Cuántas me quedan?": el paquete de 10 anotado en el cuaderno y la tarjetita, nadie sabe si van 7 u 8, sesiones regaladas · Comentá SESIONES · en curso (corrida 06:10 UTC)
 
