@@ -1,42 +1,40 @@
-[sin narrador Orus: el chiste va en burbujas, la torta de despedida, la planilla de tres filas en el monitor del escritorio de Leo, la llamada a Marta y los chips de hora; la solución va en la interfaz recreada (el sistema de clientes con la ficha de cada cliente, pasar la cartera al celular de Nico, el panel de la cartera por zona); voces por archivo en partes/*.txt, ver partes/voces.md · total 44,0 s · parte 1 0,00-17,88 · cartel 17,88-20,63 · parte 2 + cierre 20,63-44,00 (23,4 s, 53 %)]
-[parte 1 · el problema · 0,00-17,88 s · el depósito de la Distribuidora Rubén, viernes de despedida]
-[0,00-2,28 · P1 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" y el chip "Viernes, 18:00." · en primer término el pallet de mesa con la torta "¡Suerte, Leo!" y su cartelito "¡SUERTE, LEO!", vasitos y una gaseosa · guirnalda crema y verde entre los racks · Leo (el vendedor de la zona Este, mochila al hombro, el celular en el bolsillo del pecho) y Rubén abrazados de costado, Rubén con el cuchillo de la torta · dos operarios con vasitos al fondo · la burbuja ya asomando]
+[sin narrador Orus: el chiste va en burbujas (los remates en dos tiempos: la segunda mitad aparece cuando suena), la torta de despedida, la planilla de tres filas en el monitor del escritorio de Leo, la llamada a Marta y los chips de hora; la solución va en la interfaz recreada (el sistema de clientes con la ficha de cada cliente, pasar la cartera al celular de Nico, la pantalla de la cartera por zona); voces por archivo en partes/*.txt, ver partes/voces.md · total 42,47 s · parte 1 0,00-17,76 · cartel 17,76-20,24 · parte 2 + cierre 20,24-42,47 (22,2 s, 52 %)]
+[parte 1 · el problema · 0,00-17,76 s · el depósito de la Distribuidora Rubén, viernes de despedida]
+[0,00-2,28 · P1 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" y el chip "Viernes, 18:00." · en primer término el pallet de mesa con la torta y su cartelito "¡SUERTE, LEO!", vasitos · guirnalda crema y verde entre los racks · Leo (el vendedor de la zona Este, mochila al hombro, el celular en el pecho) y Rubén abrazados de costado, Rubén con el cuchillo de la torta · dos operarios con vasitos al fondo · la burbuja ya en el cuadro 0]
 LEO (0,15): Rubén, te quiero un montón. Pero me voy.
-[2,28-3,88 · P2 · primer plano de Rubén, el cuchillo quieto en el aire · el murmullo y la música se cortan]
-RUBEN (2,50): ¿Y los clientes?
-[3,88-5,59 · P3 · Leo, feliz, se palmea el bolsillo del pecho · 4,87 inserto del celular: "18:04" · "Marta: Leo, ¿pasás el martes?" / "Walter: Lo de siempre" / "+36"]
-LEO (3,96): Tranqui. Te dejé el Excel.
-[5,59-9,49 · P4 · el monitor del escritorio de Leo: "CARTERA ZONA ESTE.xlsx", tres filas: "Marta · cafetería" / "Graciela · ¿rotisería?" / "El de la camioneta roja · pide poco" (rojo apagado) · rótulos: "Zona Este: 38 clientes · $ 1.900.000 por mes" y "En el Excel: 3" (rojo apagado)]
-RUBEN (6,54): Treinta y ocho clientes. Me dejaste tres.
-[9,49-11,45 · P5 · Rubén frente al monitor (la cámara detrás del monitor), el celular en altavoz: "Cafetería Marta · Llamando…"]
-RUBEN (9,91): Marta, habla Rubén.
-[11,45-13,57 · P5m · la cafetería de Marta: detrás del mostrador, su celular en el soporte muestra un número que no tiene agendado ("099 ··· ···")]
-MARTA (11,59): ¿Qué Rubén? Yo le compro a Leo.
-[13,57-17,88 · P6 · remate del remate · Rubén frente al monitor; entra Nico con un platito de torta · "En el Excel: 3"]
-NICO (13,87): Jefe, ¿y la zona de Leo?
-[15,44 · P6i · inserto del monitor: Rubén tacha a Marta y la fila se va · "En el Excel: 3 → 2" · 16,16 · P6b · los dos otra vez]
-RUBEN (16,28): Tuya. Son dos.
-[Nico mira el monitor · 17,88 · stinger]
-NARRADOR (17,92): Un sistema de clientes más tarde.
-[cartel · 17,88-20,63 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "de clientes" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/lo-mismo-que-la-otra-vez/assets/voice/narrador.wav]
-[parte 2 · la solución · 20,63-44,00 s]
-[20,63-22,84 · Q1 · chip "Viernes, 18:00." · el mismo encuadre del cuadro 0, la torta con una porción menos · el mismo audio de Leo]
-LEO (20,77): Rubén, te quiero un montón. Pero me voy.
-[22,84-24,30 · Q1r · el mismo primer plano de Rubén, tranquilo · el mismo audio]
-RUBEN (22,96): ¿Y los clientes?
-[24,30 · Q1l · Leo señala con el pulgar su escritorio y la cámara viaja hasta el monitor]
-LEO (24,36): Donde estuvieron siempre.
-[25,50-28,00 · Q2 · el mismo monitor: "Clientes · Distribuidora Rubén · Zona Este · 38" (las 38 fichas) · se abre la ficha de Cafetería Marta: "Pide: los martes, cada semana" · "Lo de siempre: 6 aceite · 4 harina · 2 azúcar" · "Precio: lista B · paga a 30 días ✓" · "Última charla: «¿Me guardás 2 de la oferta?»" · "Prometido: 2 cajas de la oferta ✓" · rótulos: "Cada cliente, con su ficha" y "Qué compra, cada cuánto y qué le prometieron" · salta la tarjeta "Almacén Pérez · Carlos Pérez ✓ · nota: camioneta roja" · rótulo: "Hasta el de la camioneta roja"]
-[28,00-32,91 · Q3 · el mismo encuadre de P6, Nico con el celular · el mismo audio de Nico]
-NICO (28,10): Jefe, ¿y la zona de Leo?
-[29,50 · Q3m · el monitor: "Pasar cartera · Zona Este · 38 clientes · Leo → Nico" → "Pasar cartera ✓" · las 38 fichas vuelan · 30,19 · Q3i · el celular de Nico: "Tu cartera: 38 clientes ✓ · con su historial" · rótulo: "Se va el vendedor. La cartera se queda." · 30,92 · Q3b · los dos otra vez]
-RUBEN (31,00): Tuya. Son treinta y ocho.
-[32,91-35,90 · Q4 · chip "Martes, 9:00." · Nico en el muelle con el celular en altavoz: la ficha de Marta ("Lo de siempre", "Prometido: 2 cajas de la oferta")]
-NICO (33,16): Marta, ¿lo de siempre? Y las dos cajas que te guardó Leo.
-[35,90-37,58 · Q4m · la cafetería, el mismo encuadre de P5m; el celular de Marta: "Nico · Distribuidora Rubén"]
-MARTA (36,02): ¡Ay, sí! Mandame.
+[2,28-3,84 · P2 · primer plano de Rubén, el cuchillo quieto en el aire · el murmullo y la música se cortan]
+RUBEN (2,46): ¿Y los clientes?
+[3,84-5,49 · P3 · Leo, feliz, se palmea el celular del pecho · 4,83 inserto del celular: "18:04" · "Marta: Leo, ¿pasás el martes?" / "Walter: ¿Pasás el jueves?" / "+36"]
+LEO (3,92): Tranqui. Te dejé el Excel.
+[5,49-9,30 · P4 · el monitor del escritorio de Leo: "CARTERA ZONA ESTE.xlsx", tres filas: "Marta · cafetería" / "Graciela · ¿rotisería?" / "El de la camioneta roja · pide poco" (rojo apagado) · rótulos: "Zona Este: 38 clientes" y "En el Excel: 3" (rojo) · la burbuja muestra "Treinta y ocho clientes." y, cuando suena, "Me dejaste tres." con pop; "En el Excel: 3" late en rojo y entra "$ 1.900.000 por mes que se van con Leo"]
+RUBEN (6,21): Treinta y ocho clientes. Me dejaste tres.
+[9,30-11,18 · P5 · Rubén frente al monitor (la cámara detrás del monitor), el celular en altavoz con la cara de Marta]
+RUBEN (9,62): Marta, habla Rubén.
+[11,18-13,55 · P5m · la cafetería de Marta: detrás del mostrador, su celular en el soporte con un número que no tiene agendado ("099 ··· ···") · pausa de 0,42 s · la burbuja: "¿Qué Rubén?" y a 12,33 "Yo le compro a Leo."]
+MARTA (11,50): ¿Qué Rubén? Yo le compro a Leo.
+[13,55-17,76 · P6 · remate del remate · Rubén frente al monitor; entra Nico con un platito de torta · "En el Excel: 3"]
+NICO (13,80): Jefe, ¿y la zona de Leo?
+[15,37 · P6i · inserto del monitor: Rubén tacha a Marta y la fila se va · "En el Excel: 3 → 2" · 16,09 · P6b · los dos otra vez · la burbuja: "Tuya." y a 16,91 "Son dos."]
+RUBEN (16,21): Tuya. Son dos.
+[Nico mira el monitor · 17,76 · stinger]
+NARRADOR (17,80): Un sistema de clientes más tarde.
+[cartel · 17,76-20,24 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "de clientes" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/lo-mismo-que-la-otra-vez/assets/voice/narrador.wav]
+[parte 2 · la solución · 20,24-42,47 s]
+[20,24-22,02 · Q1r · chip "Viernes, 18:00." · el mismo primer plano de Rubén con el cuchillo, tranquilo · el mismo audio]
+RUBEN (20,39): ¿Y los clientes?
+[22,02-22,86 · Q1l · pausa de 0,41 s · Leo señala su escritorio]
+LEO (22,08): Donde estuvieron siempre.
+[22,86-25,11 · Q2 · corte al monitor sobre "siempre": "Clientes · Distribuidora Rubén · Zona Este · 38" (las 38 fichas) · la ficha de Cafetería Marta: "Vendedor: Leo" · "Pide: los martes" · "Lo de siempre: 6 aceite · 4 harina" · "Precio: lista B · 30 días ✓" · "Charla: «¿Me guardás 2?»" · "Prometido: 2 cajas de la oferta ✓" · rótulos: "Cada cliente, con su ficha" y "Qué compra, cada cuánto y qué le prometieron" · salta la tarjeta "Autoservicio Pérez · Carlos Pérez ✓ · Nota: camioneta roja" · rótulo: "Hasta el de la camioneta roja"]
+[25,11-29,73 · Q3 · el mismo encuadre de P6, Nico con el celular · el mismo audio de Nico]
+NICO (25,21): Jefe, ¿y la zona de Leo?
+[26,44 · Q3m · el monitor: "Pasar cartera · Zona Este · 38 clientes · Leo → Nico" → "Pasar cartera ✓" · las 38 fichas vuelan · 27,13 · Q3i · el celular de Nico a pantalla llena: "Tu cartera: 38 clientes ✓ · con su historial" · rótulo: "Se va el vendedor. La cartera se queda." · 27,81 · Q3b · los dos otra vez · la burbuja: "Tuya." y a 28,51 "Son treinta y ocho."]
+RUBEN (27,87): Tuya. Son treinta y ocho.
+[29,73-30,98 · Q4i · chip "Martes, 9:00." · inserto del celular de Nico: la ficha de Cafetería Marta ("Pide: los martes", "Prometido: 2 cajas de la oferta ✓") y el dedo que toca "Llamar" → "En llamada" · 30,98-33,10 · Q4 · Nico en el muelle con el celular en altavoz]
+NICO (30,08): Marta, ¿lo de los martes? Y las dos cajas que te guardó Leo.
+[33,10-36,54 · Q4m · la cafetería, el mismo encuadre de P5m; el celular de Marta: "Nico · Distribuidora Rubén"]
+MARTA (33,18): ¡Nico! Leo me habló de vos. Mandame.
 [rótulo: "Pedido ✓ · Cafetería Marta"]
-[37,58-40,20 · Q5 · la oficina de Rubén: el panel "Cartera · Distribuidora Rubén": "En el sistema: 108 clientes" · "Zona Este · Nico · 38 ✓" · "Zona Centro · Mauro · 41" · "Zona Oeste · Rubén · 29" · "Pedidos esta semana · Zona Este: 35 de 38" · rótulo: "Todos tus clientes, en tu empresa" · Rubén con el mate]
-RUBEN (37,93): Treinta y ocho. Con nombre y apellido.
-[cierre · 40,20-44,00 · Sofi de Scalerics a cámara en el depósito, detrás la guirnalda y la mesa · tarjeta debajo de la cara desde 40,75: "Comentá" / "CARTERA" (en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · desde 42,60, abajo: "Sistema de clientes: la cartera queda en tu empresa" / "scalerics.com" en verde]
-SOFI (40,30): Comentá CARTERA y te mando cómo funciona para tu distribuidora.
+[36,54-38,96 · Q5 · la oficina de Rubén: la pantalla grande en la pared, "Cartera · Distribuidora Rubén": "En el sistema: 108 clientes" · "Zona Este · Nico · 38 ✓" · "Zona Centro · Mauro · 41" · "Zona Oeste · Rubén · 29" · Rubén abajo, con el mate · rótulo: "Todos tus clientes, en tu empresa" · la burbuja: "Treinta y ocho." y a 37,69 "Con nombre y apellido."]
+RUBEN (36,79): Treinta y ocho. Con nombre y apellido.
+[cierre · 38,96-42,47 · Sofi de Scalerics a cámara en el depósito, la tablet bajo el brazo, detrás la guirnalda y la mesa · tarjeta debajo de la cara desde 39,42: "Comentá" / "CARTERA" (en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · desde 41,07, abajo: "Sistema de clientes: la cartera queda en tu empresa" / "scalerics.com" en verde]
+SOFI (39,00): Comentá CARTERA y te mando cómo funciona para tu distribuidora.

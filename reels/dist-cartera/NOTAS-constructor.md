@@ -27,7 +27,7 @@ Ver `partes/voces.md`. Leo = Sadachbia (nuevo), Rubén = Algenib, Nico = Fenrir,
 es el audio de `reels/lo-mismo-que-la-otra-vez` ("Un sistema de clientes más tarde.", el STT lo oye igual) con atempo
 1,08; el cartel dice "Un sistema" / "de clientes" / "más tarde…" (nota 1 del coordinador). Línea final de Rubén cambiada
 a **"Treinta y ocho. Con nombre y apellido."** (nota 2: "Y ninguna camioneta" era críptico); el callback de la camioneta
-queda en la tarjeta "Almacén Pérez · Carlos Pérez ✓ · Nota: camioneta roja" de Q2 con el rótulo "Hasta el de la
+queda en la tarjeta "Autoservicio Pérez · Carlos Pérez ✓ · Nota: camioneta roja" de Q2 con el rótulo "Hasta el de la
 camioneta roja".
 
 ## Mundo
@@ -71,7 +71,7 @@ fuentes.md. Paso 10 (paso10.sh, loudnorm en dos pasadas, lineal): -14,0 LUFS, tr
 - P6b/Q3b: el brazo de Rubén cruzaba el cuadro hasta el mouse → sin mano en el mouse (el click se ve en los insertos).
 - Q1l: el gesto de Leo (índice para arriba) se leía como un gesto feo → la mano señala de costado; burbuja de Leo solo
   hasta que la cámara se va; los operarios se esconden mientras la cámara viaja (uno llenaba el cuadro).
-- Q2: "Almacén Pérez · nota: camioneta roja" chico → tarjeta grande centrada (86/62/70 px de lienzo).
+- Q2: "Autoservicio Pérez · nota: camioneta roja" chico → tarjeta grande centrada (86/62/70 px de lienzo).
 - Q3i: una cuña negra (la silla de Leo) y la mano suelta tapaban el celular → silla movida, sin mano.
 - Q4: el cartel DISTRIBUIDORA RUBÉN del muelle quedaba cortado → fuera de cuadro.
 - Q5: Rubén cortado en el borde → cámara más abierta, Rubén al lado del panel.
@@ -82,7 +82,7 @@ fuentes.md. Paso 10 (paso10.sh, loudnorm en dos pasadas, lineal): -14,0 LUFS, tr
 
 ## Render
 Render 1: 13 min 10 s de captura (SwiftShader, --workers 2; 36 min con la espera del candado por el otro reel). Paso 10 ~50 s.
-Render 2 (parpadeo de Rubén en "¿Y los clientes?" corregido): ver abajo.
+Render 2 (parpadeo de Rubén en "¿Y los clientes?" corregido): 13 min 43 s de captura (sin espera de candado), paso 10 lineal: -14,0 LUFS, true peak -2,8 dBTP. Final: renders/dist-cartera-final.mp4, 44,01 s.
 
 ## Portada
 Fondo limpio de P1 a 1,6 s (portada-src/fondo-limpio-1.6.png, LIMPIO=1: sin capa plana, burbujas ni el cartelito de la
@@ -96,3 +96,40 @@ torta, cuyo texto asomaba debajo del gancho): Leo y Rubén en la mitad de arriba
 - Q3i: el celular de Nico flota sin mano (inserto).
 - El cuchillo de la torta se ve chico; P2 lo tiene en la mano pero casi fuera de cuadro.
 - Leo nunca se ve con el gesto de señalar dentro del cuadro con claridad (la mano sale por el borde izquierdo).
+- P2 (2,3-3,9 s) y Q1r: en la esquina de abajo a la izquierda todavía asoma un pedacito del cartelito de la torta (render 2). Arreglo: CAM_P2 más a la derecha o el cartelito oculto en esos planos.
+
+## Ronda 1 (revisión independiente: arte, sonido, guion)
+**42,47 s.** Parte 1 0-17,76 · cartel 17,76-20,24 · parte 2 + cierre 20,24-42,47 = 22,2 s (52 %). Cierre 3,51 s.
+`assets/tres.js` se edita directo desde esta ronda (las piezas del scratchpad quedaron viejas).
+- A1 Q3i: la pantalla del celular llena el cuadro (93 %), ya no se ve flotando; las fichas solo vuelan en Q3m (no tapan el
+  contador ni el encabezado).
+- A2 Q5: oficina nueva: pared alta (sin la franja clara), la cartera en una pantalla grande en la pared y Rubén parado
+  debajo, sin escritorio; la pantalla entera desde el primer cuadro (sin filas vacías); parpadeo antes de hablar.
+- A3 pausas: hueco interno de r2 0,45 s; "¿Qué Rubén?" 0,42 s después de "Marta, habla Rubén."; "Donde estuvieron
+  siempre." 0,41 s después de "¿Y los clientes?".
+- A4 remates en dos tiempos (r2, m1, r4, r5, r6): gen.mjs calcula `CORTE` (fin del silencio interno de cada toma) y tres.js
+  muestra la burbuja "a" (mismo tamaño, segunda línea vacía) y la completa con pop cuando suena. En P4 "En el Excel: 3"
+  late en rojo en "tres." y entra "$ 1.900.000 por mes / que se van con Leo".
+- M1 "Autoservicio Pérez" en todos lados. M2 líneas nuevas de Nico y Marta (voces nuevas), Walter "¿Pasás el jueves?",
+  inserto Q4i del celular de Nico con la ficha (texto ≥ 46 px de lienzo) y el dedo que toca "Llamar" → "En llamada".
+- M3 Marta: toma con "cómpro" forzado (el STT transcribe "compró" siempre; ver partes/voces.md).
+- M4 la repetición arranca en "¿Y los clientes?": la interfaz entra a 22,86 s; total 42,47 s.
+- M5 sin travelling: corte limpio de Leo al monitor sobre "siempre", whoosh largo a -38.
+- M6 TECHO -38 antes de la ganancia final (≈ +6,9 dB → ningún efecto ni la cama pasan -31 en el final); la cama ya no se
+  sube +7; duck de la cama 0,55 (~-7 dB) en P4, P6i, Q2, Q3m y 37,2-37,9; tics/toques/dings/page-turn/whoosh a -38/-40.
+  Voz ≥ +6,9 LU sobre el resto (medir.py).
+- M7 encuadres de Leo (P3, Q1l) y Marta (P5m, Q4m) más bajos y burbuja más alta.
+- M8 el cuchillo con la hoja para arriba en P2/Q1r; el cartelito de la torta solo en P1 y P3i.
+- M9 sin la gaseosa; la mano de Leo va al celular del pecho y se queda 0,45 s.
+- M10 el molinillo (el cono marrón) fuera del cuadro de Marta. M14 la pizarra fuera de cuadro; cámara de P6/Q3 más
+  abierta (Nico entero).
+- M11 Sofi sin la franja navy (el "cinturón"), tablet bajo el brazo, cierre 3,51 s.
+- M12 monitor del escritorio cuadrado (0,84 × 0,84): en los insertos llena ~53 % del alto (más que eso cortaría los
+  costados de la pantalla). M13 textos de interfaz ≥ 36 px en el cuadro (lienzo del monitor ≥ 54 px; panel ≥ 66 px;
+  celular de Rubén sin texto chico: la cara de Marta y el parlante).
+- M15 portada: fondo limpio con cámara propia (más arriba y atrás): las dos caras enteras, el cartelito "¡SUERTE, LEO!"
+  y el borde de la torta arriba del gancho; zoom 1,0, foco 30 %.
+- Bajas: baranda de la escalera navy (sin la raya verde); sin la inscripción de la torta; DISTRIBUIDORAS hasta el corte;
+  parpadeos fuera de las líneas (Rubén 1,2 · 9,36 · 22,32; Nico 13,61; Sofi ninguno); barba de Leo más visible;
+  créditos Kenney en fuentes.md; sin "bolsillo" en textos.
+Render r1: 10 min 29 s de captura (10,5 min con candado). Final 42,5 s, -14,0 LUFS, true peak -3,3 dBTP.

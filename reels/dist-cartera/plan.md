@@ -11,7 +11,7 @@ Rubén? Yo le compro a Leo."** Pausa. Remate del remate: Nico: **"Jefe, ¿y la z
 Excel (3 → 2): **"Tuya. Son dos."** Stinger. Cartel **"Un sistema de clientes más tarde…"**. Parte 2: la misma
 despedida, el mismo "¿Y los clientes?" y Leo: **"Donde estuvieron siempre."** señalando el monitor: el CRM "Clientes ·
 Zona Este · 38", la ficha de Marta (qué compra, cada cuánto, a qué precio, cómo paga, la última conversación, lo
-prometido) y hasta "Almacén Pérez · nota: camioneta roja". Nico: el mismo **"Jefe, ¿y la zona de Leo?"** / Rubén toca
+prometido) y hasta "Autoservicio Pérez · nota: camioneta roja". Nico: el mismo **"Jefe, ¿y la zona de Leo?"** / Rubén toca
 "Pasar cartera: Leo → Nico" y las 38 fichas vuelan al celular de Nico: **"Tuya. Son treinta y ocho."** Martes: Nico
 llama a Marta con la ficha en la mano: **"Marta, ¿lo de siempre? Y las dos cajas que te guardó Leo."** / **"¡Ay, sí!
 Mandame."** Pedido ✓. El panel de Rubén: la cartera entera. Rubén: **"Treinta y ocho. Con nombre y apellido."** Cierre:
@@ -23,7 +23,7 @@ Sofi a cámara en el depósito: **"Comentá CARTERA y te mando cómo funciona pa
   la ve entera desde el día 1 en su celular. Rubén ve en un **panel** a todos sus clientes por zona y por vendedor. Se ve
   funcionando en la parte 2; se nombra en el cartel ("Un sistema de clientes"), en la línea chica final y en
   `descripcion.txt`. **No es agente de IA:** no se nombra así en ningún lado. Nunca "Scalerics" en el cartel.
-- **Sin marcas:** "Distribuidora Rubén", "Cafetería Marta", "Rotisería Graciela", "Almacén Pérez" inventados. El Excel
+- **Sin marcas:** "Distribuidora Rubén", "Cafetería Marta", "Rotisería Graciela", "Autoservicio Pérez" inventados. El Excel
   es una **planilla genérica** (grilla gris, sin el verde ni el logo de ningún programa; el nombre del archivo
   ".xlsx" se puede leer como texto). Torta y gaseosa sin marca (botella navy con etiqueta crema lisa). Celulares, monitor
   y chat genéricos.
@@ -130,7 +130,7 @@ Vendedor: Leo"; contador verde **"38 clientes"**): grilla de 38 tarjetas chiquit
 Cafetería Marta**: "Pide: martes · cada semana" · "Lo de siempre: 6 cajas de aceite · 4 bolsas de harina · 2 de
 azúcar" · "Lista de precios: B" · "Paga: a 30 días ✓ al día" · "Última conversación (lunes): '¿Me guardás dos cajas de
 la oferta?'" · **"Prometido: 2 cajas de la oferta · lo guardó Leo ✓"**. Rótulos: **"Cada cliente, con su ficha"** y
-**"Qué compra, cada cuánto y qué le prometieron"**. Al final, una tarjeta salta al frente: **"Almacén Pérez · Carlos ·
+**"Qué compra, cada cuánto y qué le prometieron"**. Al final, una tarjeta salta al frente: **"Autoservicio Pérez · Carlos ·
 nota: camioneta roja"** (el callback; 0,8 s, rótulo chico "Hasta el de la camioneta roja").
 **Q3 · "Pasar cartera"** (el mismo monitor): "Zona Este · Leo → Nico" · botón verde **"Pasar cartera ✓"** · las 38
 tarjetas vuelan (en 3D, cartitas planas crema en fila, función del tiempo) al celular de Nico, que muestra "Tu cartera:
@@ -166,7 +166,7 @@ hace falta). Nunca "Scalerics".
 | t (s) | plano y cámara | qué pasa | objetos 3D | SFX |
 |---|---|---|---|---|
 | 20,00-25,60 | **Q1 · el mismo cuadro 0.** Mismo encuadre de P1 (la torta ya con una porción sacada: se ve el corte con dulce de leche), después el mismo primer plano de P2 y Leo. | Chip "Viernes, 18:00." · 20,15-22,55 · **el mismo audio de Leo** · 23,00-24,00 · **el mismo "¿Y los clientes?"** · 24,30-25,50 · **Leo: "Donde estuvieron siempre."** y señala con el pulgar el monitor de su escritorio (ahora con el CRM). | ídem P1 + monitor con el CRM | ambiente igual que P1 (el murmullo NO se corta) |
-| 25,60-29,60 | **Q2 · la ficha.** La MISMA grúa de P4 al monitor (≥ 65 %), con push-in a la ficha. | 25,8 · "Clientes · Zona Este · 38" (las 38 tarjetas con pop rápido) · 26,4 · se abre la ficha de Cafetería Marta, renglón por renglón · rótulo "Cada cliente, con su ficha" · 27,6 · "Prometido: 2 cajas de la oferta · lo guardó Leo ✓" · rótulo "Qué compra, cada cuánto y qué le prometieron" · 28,6 · salta la tarjeta "Almacén Pérez · nota: camioneta roja" · rótulo chico "Hasta el de la camioneta roja". | escritorio, monitor con CRM | whoosh 25,6 · `k-tick-1` por renglón · `ding` 27,6 · pop 28,6 |
+| 25,60-29,60 | **Q2 · la ficha.** La MISMA grúa de P4 al monitor (≥ 65 %), con push-in a la ficha. | 25,8 · "Clientes · Zona Este · 38" (las 38 tarjetas con pop rápido) · 26,4 · se abre la ficha de Cafetería Marta, renglón por renglón · rótulo "Cada cliente, con su ficha" · 27,6 · "Prometido: 2 cajas de la oferta · lo guardó Leo ✓" · rótulo "Qué compra, cada cuánto y qué le prometieron" · 28,6 · salta la tarjeta "Autoservicio Pérez · nota: camioneta roja" · rótulo chico "Hasta el de la camioneta roja". | escritorio, monitor con CRM | whoosh 25,6 · `k-tick-1` por renglón · `ding` 27,6 · pop 28,6 |
 | 29,60-33,20 | **Q3 · pasar cartera.** El MISMO encuadre de P6: Rubén y Nico frente al monitor. Las tarjetas vuelan al celular de Nico (inserto ≥ 45 %). | 29,75-31,05 · **el mismo "Jefe, ¿y la zona de Leo?"** · 31,1 · Rubén toca "Pasar cartera ✓" · 31,2-31,9 · las 38 tarjetas en fila vuelan al celular · "Tu cartera: 38 clientes ✓" · rótulo "Se va el vendedor. La cartera se queda." · 31,90-33,10 · **Rubén: "Tuya. Son treinta y ocho."** (en el lugar de "Tuya. Son dos."). | Rubén, Nico, monitor, tarjetas, celular de Nico | `click-soft` 31,1 · whoosh de cartas (barajar) 31,2 · `cero.mp3` 31,9 |
 | 33,20-37,40 | **Q4 · martes, Marta.** Chip "Martes, 9:00.". Nico en el muelle con el celular (inserto de la ficha de Marta ≥ 45 %) y corte a la cafetería, el MISMO encuadre de P5. | 33,35-36,05 · **Nico: "Marta, ¿lo de siempre? Y las dos cajas que te guardó Leo."** · 36,30-37,20 · **Marta: "¡Ay, sí! Mandame."** (`feliz`) · 37,2 · en el celular de Nico: "Pedido ✓ · Cafetería Marta". | muelle de fondo, Nico, celular; cafetería, Marta | `k-tick-1` en el chip · ring corto 33,25 · ambiente de cafetería · `ding` 37,2 |
 | 37,40-40,00 | **Q5 · el panel.** La oficina vidriada de Rubén: el monitor con el panel "Cartera" a ≥ 70 % y Rubén de 3/4 con el mate en el borde; push-in leve. | 37,6 · las filas por zona con tic · "En el sistema: 108 clientes" · rótulo "Todos tus clientes, en tu empresa" · 38,10-39,80 · **Rubén: "Treinta y ocho. Con nombre y apellido."** (seco, satisfecho). | oficina vidriada, monitor, Rubén, mate | `k-tick-1` por fila · `ding` 38,0 |
