@@ -1,12 +1,12 @@
 {
   "version": 1,
   "historyId": "e1583a18-5baa-4536-acdc-649a233bbcb5",
-  "currentRevision": "c0887d11-24cc-4cbc-be01-b871f761618a",
+  "currentRevision": "3e195aed-b633-4695-9d99-c2fff41fe24a",
   "pendingChanges": false,
   "files": {
     "NOTAS-constructor.md": {
-      "hash": "0a15332ca7a3f42ec5ebdad0a73fb954f4ee6cb245b303c4a1f9da417a84efd8",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/0a/0a15332ca7a3f42ec5ebdad0a73fb954f4ee6cb245b303c4a1f9da417a84efd8"
+      "hash": "03ee1ea32ef7bb67db7c4509674f04d18c39334f95e0afd5a32e4de4d7da4b39",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/03/03ee1ea32ef7bb67db7c4509674f04d18c39334f95e0afd5a32e4de4d7da4b39"
     },
     "assets/audio/ganancia.txt": {
       "hash": "1d44b45c2708bc17cb3cd879a83b19c64d66bf73936f91fc9ad5410cb5016e94",
@@ -45,8 +45,8 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/fe/fe84935d2e5278a96615f822cd1da118f45410e49f4c28e8623ca49e35f15574"
     },
     "assets/personajes.js": {
-      "hash": "202adf5c18350daaf813f685a22dcc5503b9ff0ea330cdcd5b830b27dacfd804",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/20/202adf5c18350daaf813f685a22dcc5503b9ff0ea330cdcd5b830b27dacfd804"
+      "hash": "8165dc6de7548100a388d9dad72d1b36984911ee1c8ece36b620d0898f23568a",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/81/8165dc6de7548100a388d9dad72d1b36984911ee1c8ece36b620d0898f23568a"
     },
     "assets/sfx/bsb-bollito.wav": {
       "hash": "4f49d0ecb609be402e40a06faa1dfbe368c6f48517fcc7c0d7ce3f0646c5d05a",
@@ -293,12 +293,12 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/c2/c2efd9d902a59bf9ec5019035d7deadd17762136896b6e3cb6dd99ea50997a30"
     },
     "assets/tiempos3d.js": {
-      "hash": "5404da724b8661b2c0e41e7301aa6bc28a8a4495b39a1e3d76edefb15b02f27a",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/54/5404da724b8661b2c0e41e7301aa6bc28a8a4495b39a1e3d76edefb15b02f27a"
+      "hash": "6aa79ccf1f63248443260b21ac50b10c2dd2caa8064486f38a968f6b537436f9",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/6a/6aa79ccf1f63248443260b21ac50b10c2dd2caa8064486f38a968f6b537436f9"
     },
     "assets/tres.js": {
-      "hash": "03f28c1769c81a158accdba46d0a9e1293b5a8cab11382bf33e51d905473081f",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/03/03f28c1769c81a158accdba46d0a9e1293b5a8cab11382bf33e51d905473081f"
+      "hash": "9f03b4f85342b871dc598489a7dad157471c75dbfda0b008ee61d840899a4d77",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9f/9f03b4f85342b871dc598489a7dad157471c75dbfda0b008ee61d840899a4d77"
     },
     "assets/vendor/gsap.min.js": {
       "hash": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
@@ -385,20 +385,20 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/61/61954ef9c183745d0a5b3dbaeac4bd4f6dbff516df044ad3ebdacb8fe2e98f59"
     },
     "compositions/s05-palabra.html": {
-      "hash": "321844aa7babef53279f0a2bc764dfa4bd7dbe795a48ae2f5eddf7c856b3206d",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/32/321844aa7babef53279f0a2bc764dfa4bd7dbe795a48ae2f5eddf7c856b3206d"
+      "hash": "f75634f49212226e168e2538c0994f197cb05570b44bf56de79b4590441d9555",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/f7/f75634f49212226e168e2538c0994f197cb05570b44bf56de79b4590441d9555"
     },
     "compositions/s09-cierre.html": {
-      "hash": "25a9ab46f1242083b685f079fd33b4520c692f685569499f035b2d3733a97b72",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/25/25a9ab46f1242083b685f079fd33b4520c692f685569499f035b2d3733a97b72"
+      "hash": "c438ecd4f079a04f5b9eb7f0e4fe458a861e3eec8c409d10900dcab03617f1fe",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/c4/c438ecd4f079a04f5b9eb7f0e4fe458a861e3eec8c409d10900dcab03617f1fe"
     },
     "compositions/s11-chip.html": {
       "hash": "699741f872565c0e53edae13a7586e3a7d06008fbf2decda495537be591751bd",
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/69/699741f872565c0e53edae13a7586e3a7d06008fbf2decda495537be591751bd"
     },
     "compositions/s12-chip.html": {
-      "hash": "014962a7a06afb988d29c5111bdc8a873b47231fb3482a170c2454a6be34e946",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/01/014962a7a06afb988d29c5111bdc8a873b47231fb3482a170c2454a6be34e946"
+      "hash": "33151d8d12aa126b2586f1768c7fb30d61432eef7a94fd07fde75a3153b39561",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/33/33151d8d12aa126b2586f1768c7fb30d61432eef7a94fd07fde75a3153b39561"
     },
     "compositions/s13-chip.html": {
       "hash": "db6410edba009262aa9f376631a6facde005776b64ab0f66b36647f1607bef0d",
@@ -417,8 +417,8 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/d5/d588bbf534aaa136e9eb8d2ed5857a182b8d9fee90567caa521fd123061d6f5f"
     },
     "gen.mjs": {
-      "hash": "3d7cf14cc754fe0bf5bbd394fe108f98e5cdf1ad7dfc2aeb98da67053f65533c",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/3d/3d7cf14cc754fe0bf5bbd394fe108f98e5cdf1ad7dfc2aeb98da67053f65533c"
+      "hash": "7ba87a87480aecc0e5c53012a8d215d481fec7ab2e8bb38e0c9e4bdd8c7e3a17",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/7b/7ba87a87480aecc0e5c53012a8d215d481fec7ab2e8bb38e0c9e4bdd8c7e3a17"
     },
     "guion.txt": {
       "hash": "696dd3f6eb9d7388c31450404e604dc66d63fc08d290b979a79559efdeffd018",
@@ -429,8 +429,8 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
     },
     "index.html": {
-      "hash": "8a2678b9b4628e13bb26b1eacd94721d8273a577fc976f3e94b4c55ecac02aa5",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/8a/8a2678b9b4628e13bb26b1eacd94721d8273a577fc976f3e94b4c55ecac02aa5"
+      "hash": "67b1caceaae511aaddbc86653050ce2bc730f2eabb3c17b56e5edcaad7f60aa2",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/67/67b1caceaae511aaddbc86653050ce2bc730f2eabb3c17b56e5edcaad7f60aa2"
     },
     "medir.py": {
       "hash": "46e6cb5136d06fb09f8fd0be757c3d56d1b52891ee6dd23bf94945eece79020e",
@@ -625,16 +625,16 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/06/062ac8538e7b14f332588a3d454cbe6984874672c6bb2e710ce2631d4804855b"
     },
     "portada-src/fondo-limpio.png": {
-      "hash": "299553b874e9a7cb99b940f59bd7f213a3de72519733ed2e882fa268843ff6f4",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/29/299553b874e9a7cb99b940f59bd7f213a3de72519733ed2e882fa268843ff6f4"
+      "hash": "ef1cb5a4c16df1074508d0272b914d273cd3ef501a4da62e8d6b0a6f2a2c6ce1",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/ef/ef1cb5a4c16df1074508d0272b914d273cd3ef501a4da62e8d6b0a6f2a2c6ce1"
     },
     "portada.json": {
-      "hash": "9d2ef0c79d1ce95fb675ed50f04d76376aabd52a80f36fd5d88362192cb63b46",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9d/9d2ef0c79d1ce95fb675ed50f04d76376aabd52a80f36fd5d88362192cb63b46"
+      "hash": "d3e571717fc61c42b4ad63237ed619b3b7a385b56aa30f8bf10263195993c804",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/d3/d3e571717fc61c42b4ad63237ed619b3b7a385b56aa30f8bf10263195993c804"
     },
     "portada.png": {
-      "hash": "9a3c685a389b4ae7f27896cd60f2cac9cde7f4c2df9ad31f496076acab523436",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9a/9a3c685a389b4ae7f27896cd60f2cac9cde7f4c2df9ad31f496076acab523436"
+      "hash": "bc1a1fe5219b08207f853e8529cfabdf60792834b6a8f631b8feff936e6d25a7",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/bc/bc1a1fe5219b08207f853e8529cfabdf60792834b6a8f631b8feff936e6d25a7"
     },
     "prev.mjs": {
       "hash": "46254ae268ceeb98378e04106291c23b9febafa38d1855740b3369d173e82e84",
@@ -645,8 +645,8 @@
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/74/74461c83fe169e8327efbc95a3885c7bfe0580ddc9eaeab626e7290ddfbe0112"
     },
     "assets/audio/mezcla.wav": {
-      "hash": "ce1c06659b4eb8fe5fd89f81aec6265892732013a1b1c31503e74d411d131ba7",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/ce/ce1c06659b4eb8fe5fd89f81aec6265892732013a1b1c31503e74d411d131ba7"
+      "hash": "b739513f72001516a6be09809e9b42d483a679c15f3abe93c5286ac6bc233caf",
+      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/b7/b739513f72001516a6be09809e9b42d483a679c15f3abe93c5286ac6bc233caf"
     },
     "assets/bgm/pizzicato.wav": {
       "hash": "28b240e63efa2c09ab6c684121999986c96a79ee7b99cb7d3d689ee9f579dcd3",
@@ -671,14 +671,6 @@
     "assets/vendor/three/three.module.js": {
       "hash": "ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb",
       "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/ce/ce1fa418de16a19495a9f72495580e3015d7745c296d3ce0485897f902ddedfb"
-    },
-    "assets/audio/stem-resto.wav": {
-      "hash": "c6b66bb712261c5cd7de91858d085b15a2e465c5d20230d680f89c399d40f2bb",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/c6/c6b66bb712261c5cd7de91858d085b15a2e465c5d20230d680f89c399d40f2bb"
-    },
-    "assets/audio/stem-voz.wav": {
-      "hash": "b41b15dd06c5ecf36595be157f77c16f8f5f9083bf1aaf052a55b876405b5d99",
-      "content": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/b4/b41b15dd06c5ecf36595be157f77c16f8f5f9083bf1aaf052a55b876405b5d99"
     }
   },
   "revisions": {
@@ -782,20 +774,136 @@
           "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9a/9a3c685a389b4ae7f27896cd60f2cac9cde7f4c2df9ad31f496076acab523436"
         }
       }
+    },
+    "433dc164-4fee-4583-a787-09486832f301": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795497749436,
+      "endedAt": 1795497749443,
+      "files": {
+        "assets/audio/stem-resto.wav": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/c6/c6b66bb712261c5cd7de91858d085b15a2e465c5d20230d680f89c399d40f2bb",
+          "after": null
+        },
+        "assets/audio/stem-voz.wav": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/b4/b41b15dd06c5ecf36595be157f77c16f8f5f9083bf1aaf052a55b876405b5d99",
+          "after": null
+        }
+      }
+    },
+    "bad4ebcd-665c-48e6-8557-7e2a9a8e16d3": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795501807810,
+      "endedAt": 1795501807907,
+      "files": {
+        "assets/audio/mezcla.wav": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/ce/ce1c06659b4eb8fe5fd89f81aec6265892732013a1b1c31503e74d411d131ba7",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/b7/b739513f72001516a6be09809e9b42d483a679c15f3abe93c5286ac6bc233caf"
+        },
+        "assets/audio/stem-resto.wav": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/23/233d1e28ad4501ca0e92f5d59cc22df70bc992f11dd451b3667d20a529b6f085"
+        },
+        "assets/audio/stem-voz.wav": {
+          "before": null,
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/04/0403da9fb23ee5e95c271eb47af1eba1ae1a66b9a47200afd6993f8ca1be0408"
+        },
+        "assets/personajes.js": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/20/202adf5c18350daaf813f685a22dcc5503b9ff0ea330cdcd5b830b27dacfd804",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/81/8165dc6de7548100a388d9dad72d1b36984911ee1c8ece36b620d0898f23568a"
+        },
+        "assets/tiempos3d.js": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/54/5404da724b8661b2c0e41e7301aa6bc28a8a4495b39a1e3d76edefb15b02f27a",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/6a/6aa79ccf1f63248443260b21ac50b10c2dd2caa8064486f38a968f6b537436f9"
+        },
+        "assets/tres.js": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/03/03f28c1769c81a158accdba46d0a9e1293b5a8cab11382bf33e51d905473081f",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9f/9f03b4f85342b871dc598489a7dad157471c75dbfda0b008ee61d840899a4d77"
+        },
+        "compositions/s05-palabra.html": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/32/321844aa7babef53279f0a2bc764dfa4bd7dbe795a48ae2f5eddf7c856b3206d",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/f7/f75634f49212226e168e2538c0994f197cb05570b44bf56de79b4590441d9555"
+        },
+        "compositions/s09-cierre.html": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/25/25a9ab46f1242083b685f079fd33b4520c692f685569499f035b2d3733a97b72",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/c4/c438ecd4f079a04f5b9eb7f0e4fe458a861e3eec8c409d10900dcab03617f1fe"
+        },
+        "compositions/s12-chip.html": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/01/014962a7a06afb988d29c5111bdc8a873b47231fb3482a170c2454a6be34e946",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/33/33151d8d12aa126b2586f1768c7fb30d61432eef7a94fd07fde75a3153b39561"
+        },
+        "gen.mjs": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/3d/3d7cf14cc754fe0bf5bbd394fe108f98e5cdf1ad7dfc2aeb98da67053f65533c",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/7b/7ba87a87480aecc0e5c53012a8d215d481fec7ab2e8bb38e0c9e4bdd8c7e3a17"
+        },
+        "index.html": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/8a/8a2678b9b4628e13bb26b1eacd94721d8273a577fc976f3e94b4c55ecac02aa5",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/67/67b1caceaae511aaddbc86653050ce2bc730f2eabb3c17b56e5edcaad7f60aa2"
+        },
+        "portada-src/fondo-limpio.png": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/29/299553b874e9a7cb99b940f59bd7f213a3de72519733ed2e882fa268843ff6f4",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/ef/ef1cb5a4c16df1074508d0272b914d273cd3ef501a4da62e8d6b0a6f2a2c6ce1"
+        },
+        "portada.json": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9d/9d2ef0c79d1ce95fb675ed50f04d76376aabd52a80f36fd5d88362192cb63b46",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/d3/d3e571717fc61c42b4ad63237ed619b3b7a385b56aa30f8bf10263195993c804"
+        },
+        "portada.png": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/9a/9a3c685a389b4ae7f27896cd60f2cac9cde7f4c2df9ad31f496076acab523436",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/bc/bc1a1fe5219b08207f853e8529cfabdf60792834b6a8f631b8feff936e6d25a7"
+        }
+      }
+    },
+    "90600c3d-e795-4c25-8838-eb2d2dd8e624": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795501868457,
+      "endedAt": 1795501868458,
+      "files": {
+        "NOTAS-constructor.md": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/0a/0a15332ca7a3f42ec5ebdad0a73fb954f4ee6cb245b303c4a1f9da417a84efd8",
+          "after": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/03/03ee1ea32ef7bb67db7c4509674f04d18c39334f95e0afd5a32e4de4d7da4b39"
+        }
+      }
+    },
+    "3e195aed-b633-4695-9d99-c2fff41fe24a": {
+      "actor": {
+        "kind": "outside",
+        "name": "Outside"
+      },
+      "label": "Changed outside the app",
+      "startedAt": 1795501918053,
+      "endedAt": 1795501918059,
+      "files": {
+        "assets/audio/stem-resto.wav": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/23/233d1e28ad4501ca0e92f5d59cc22df70bc992f11dd451b3667d20a529b6f085",
+          "after": null
+        },
+        "assets/audio/stem-voz.wav": {
+          "before": "/root/.cache/hyperframes/history/e1583a18-5baa-4536-acdc-649a233bbcb5/blobs/04/0403da9fb23ee5e95c271eb47af1eba1ae1a66b9a47200afd6993f8ca1be0408",
+          "after": null
+        }
+      }
     }
   },
   "checks": {
-    "latest": {
-      "revision": "c0887d11-24cc-4cbc-be01-b871f761618a",
-      "id": "67c19747-557a-4f01-bfb2-1d2889f6707b"
-    },
+    "latest": null,
     "revisions": {
       "a3575382-0b07-48cb-95c7-5d652a227951": [],
       "c0887d11-24cc-4cbc-be01-b871f761618a": [
         {
           "id": "183d46f9-21d2-4dea-8880-109dde14a793",
           "scope": "project",
-          "report": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/checks/183d46f9-21d2-4dea-8880-109dde14a793.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -817,12 +925,13 @@
           "revision": "c0887d11-24cc-4cbc-be01-b871f761618a",
           "inputFingerprint": "c8463944e551c59bda5c173043253b0dca5dcd4357cd7c7c2669e52c4c31110e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "id": "1b6c6bf5-840e-4487-a956-3c08aac773ba",
           "scope": "project",
-          "report": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/checks/1b6c6bf5-840e-4487-a956-3c08aac773ba.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -844,12 +953,13 @@
           "revision": "c0887d11-24cc-4cbc-be01-b871f761618a",
           "inputFingerprint": "c8463944e551c59bda5c173043253b0dca5dcd4357cd7c7c2669e52c4c31110e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "id": "67c19747-557a-4f01-bfb2-1d2889f6707b",
           "scope": "project",
-          "report": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/checks/67c19747-557a-4f01-bfb2-1d2889f6707b.json",
           "metadata": {
             "ok": true,
             "browserSkipped": false,
@@ -871,23 +981,21 @@
           "revision": "c0887d11-24cc-4cbc-be01-b871f761618a",
           "inputFingerprint": "c8463944e551c59bda5c173043253b0dca5dcd4357cd7c7c2669e52c4c31110e",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         }
       ]
     },
     "unversioned": []
   },
   "snapshots": {
-    "latest": {
-      "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
-      "id": "eedfd14c-abde-472b-854f-541f7389beb9-37"
-    },
+    "latest": null,
     "revisions": {
       "28f34095-c05f-4102-9735-a053ecf7888e": [
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-0",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-00-at-0s.png",
           "time": 0,
           "metadata": {
             "width": 1080,
@@ -902,12 +1010,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-1",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-01-at-0.5s.png",
           "time": 0.5,
           "metadata": {
             "width": 1080,
@@ -922,12 +1031,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-2",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-02-at-2.85s.png",
           "time": 2.85,
           "metadata": {
             "width": 1080,
@@ -942,12 +1052,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-3",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-03-at-2.95s.png",
           "time": 2.95,
           "metadata": {
             "width": 1080,
@@ -962,12 +1073,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-4",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-04-at-4.7s.png",
           "time": 4.7,
           "metadata": {
             "width": 1080,
@@ -982,12 +1094,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-5",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-05-at-4.75s.png",
           "time": 4.75,
           "metadata": {
             "width": 1080,
@@ -1002,12 +1115,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-6",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-06-at-6.5s.png",
           "time": 6.5,
           "metadata": {
             "width": 1080,
@@ -1022,12 +1136,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-7",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-07-at-7.25s.png",
           "time": 7.25,
           "metadata": {
             "width": 1080,
@@ -1042,12 +1157,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-8",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-08-at-7.3s.png",
           "time": 7.3,
           "metadata": {
             "width": 1080,
@@ -1062,12 +1178,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-9",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-09-at-7.95s.png",
           "time": 7.95,
           "metadata": {
             "width": 1080,
@@ -1082,12 +1199,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-10",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-10-at-8s.png",
           "time": 8,
           "metadata": {
             "width": 1080,
@@ -1102,12 +1220,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-11",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-11-at-8.55s.png",
           "time": 8.55,
           "metadata": {
             "width": 1080,
@@ -1122,12 +1241,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-12",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-12-at-8.65s.png",
           "time": 8.65,
           "metadata": {
             "width": 1080,
@@ -1142,12 +1262,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-13",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-13-at-9.25s.png",
           "time": 9.25,
           "metadata": {
             "width": 1080,
@@ -1162,12 +1283,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-14",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-14-at-9.35s.png",
           "time": 9.35,
           "metadata": {
             "width": 1080,
@@ -1182,12 +1304,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-15",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-15-at-9.8s.png",
           "time": 9.8,
           "metadata": {
             "width": 1080,
@@ -1202,12 +1325,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-16",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-16-at-9.9s.png",
           "time": 9.9,
           "metadata": {
             "width": 1080,
@@ -1222,12 +1346,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-17",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-17-at-10.5s.png",
           "time": 10.5,
           "metadata": {
             "width": 1080,
@@ -1242,12 +1367,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-18",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-18-at-11.45s.png",
           "time": 11.45,
           "metadata": {
             "width": 1080,
@@ -1262,12 +1388,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-19",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-19-at-11.5s.png",
           "time": 11.5,
           "metadata": {
             "width": 1080,
@@ -1282,12 +1409,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-20",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-20-at-12.45s.png",
           "time": 12.45,
           "metadata": {
             "width": 1080,
@@ -1302,12 +1430,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-21",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-21-at-12.5s.png",
           "time": 12.5,
           "metadata": {
             "width": 1080,
@@ -1322,12 +1451,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-22",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-22-at-13.3s.png",
           "time": 13.3,
           "metadata": {
             "width": 1080,
@@ -1342,12 +1472,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-23",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-23-at-14s.png",
           "time": 14,
           "metadata": {
             "width": 1080,
@@ -1362,12 +1493,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-24",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-24-at-15s.png",
           "time": 15,
           "metadata": {
             "width": 1080,
@@ -1382,12 +1514,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-25",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-25-at-15.55s.png",
           "time": 15.55,
           "metadata": {
             "width": 1080,
@@ -1402,12 +1535,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-26",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-26-at-15.6s.png",
           "time": 15.6,
           "metadata": {
             "width": 1080,
@@ -1422,12 +1556,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-27",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-27-at-16.5s.png",
           "time": 16.5,
           "metadata": {
             "width": 1080,
@@ -1442,12 +1577,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-28",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-28-at-17.4s.png",
           "time": 17.4,
           "metadata": {
             "width": 1080,
@@ -1462,12 +1598,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-29",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-29-at-17.8s.png",
           "time": 17.8,
           "metadata": {
             "width": 1080,
@@ -1482,12 +1619,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-30",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-30-at-18.6s.png",
           "time": 18.6,
           "metadata": {
             "width": 1080,
@@ -1502,12 +1640,13 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "e94dba79-66c6-4467-aa8e-287da0ac68d8-31",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/3ffd00d6-ce4e-4abb-bc47-364f1c87bd92/frame-31-at-19.1s.png",
           "time": 19.1,
           "metadata": {
             "width": 1080,
@@ -1522,14 +1661,15 @@
           "revision": "28f34095-c05f-4102-9735-a053ecf7888e",
           "inputFingerprint": "703e376c7154a2bdccb5ba11f6f33a001c720b5380ed15d35da408435b85ccd0",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         }
       ],
       "1cde4278-666b-402a-a468-0a9d9b9957df": [
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-0",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-00-at-21.5s.png",
           "time": 21.5,
           "metadata": {
             "width": 1080,
@@ -1544,12 +1684,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-1",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-01-at-21.7s.png",
           "time": 21.7,
           "metadata": {
             "width": 1080,
@@ -1564,12 +1705,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-2",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-02-at-22.05s.png",
           "time": 22.05,
           "metadata": {
             "width": 1080,
@@ -1584,12 +1726,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-3",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-03-at-22.1s.png",
           "time": 22.1,
           "metadata": {
             "width": 1080,
@@ -1604,12 +1747,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-4",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-04-at-23.3s.png",
           "time": 23.3,
           "metadata": {
             "width": 1080,
@@ -1624,12 +1768,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-5",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-05-at-23.4s.png",
           "time": 23.4,
           "metadata": {
             "width": 1080,
@@ -1644,12 +1789,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-6",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-06-at-25.2s.png",
           "time": 25.2,
           "metadata": {
             "width": 1080,
@@ -1664,12 +1810,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-7",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-07-at-25.3s.png",
           "time": 25.3,
           "metadata": {
             "width": 1080,
@@ -1684,12 +1831,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-8",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-08-at-26.2s.png",
           "time": 26.2,
           "metadata": {
             "width": 1080,
@@ -1704,12 +1852,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-9",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-09-at-27.4s.png",
           "time": 27.4,
           "metadata": {
             "width": 1080,
@@ -1724,12 +1873,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-10",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-10-at-26.55s.png",
           "time": 26.55,
           "metadata": {
             "width": 1080,
@@ -1744,12 +1894,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-11",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-11-at-27.9s.png",
           "time": 27.9,
           "metadata": {
             "width": 1080,
@@ -1764,12 +1915,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-12",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-12-at-28s.png",
           "time": 28,
           "metadata": {
             "width": 1080,
@@ -1784,12 +1936,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-13",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-13-at-29.6s.png",
           "time": 29.6,
           "metadata": {
             "width": 1080,
@@ -1804,12 +1957,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-14",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-14-at-29.7s.png",
           "time": 29.7,
           "metadata": {
             "width": 1080,
@@ -1824,12 +1978,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-15",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-15-at-31.4s.png",
           "time": 31.4,
           "metadata": {
             "width": 1080,
@@ -1844,12 +1999,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-16",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-16-at-31.45s.png",
           "time": 31.45,
           "metadata": {
             "width": 1080,
@@ -1864,12 +2020,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-17",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-17-at-32.45s.png",
           "time": 32.45,
           "metadata": {
             "width": 1080,
@@ -1884,12 +2041,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-18",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-18-at-32.5s.png",
           "time": 32.5,
           "metadata": {
             "width": 1080,
@@ -1904,12 +2062,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-19",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-19-at-33.2s.png",
           "time": 33.2,
           "metadata": {
             "width": 1080,
@@ -1924,12 +2083,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-20",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-20-at-33.65s.png",
           "time": 33.65,
           "metadata": {
             "width": 1080,
@@ -1944,12 +2104,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-21",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-21-at-33.75s.png",
           "time": 33.75,
           "metadata": {
             "width": 1080,
@@ -1964,12 +2125,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-22",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-22-at-34.1s.png",
           "time": 34.1,
           "metadata": {
             "width": 1080,
@@ -1984,12 +2146,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-23",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-23-at-34.2s.png",
           "time": 34.2,
           "metadata": {
             "width": 1080,
@@ -2004,12 +2167,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-24",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-24-at-35.6s.png",
           "time": 35.6,
           "metadata": {
             "width": 1080,
@@ -2024,12 +2188,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-25",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-25-at-36.35s.png",
           "time": 36.35,
           "metadata": {
             "width": 1080,
@@ -2044,12 +2209,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-26",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-26-at-36.45s.png",
           "time": 36.45,
           "metadata": {
             "width": 1080,
@@ -2064,12 +2230,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-27",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-27-at-37.9s.png",
           "time": 37.9,
           "metadata": {
             "width": 1080,
@@ -2084,12 +2251,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-28",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-28-at-38.2s.png",
           "time": 38.2,
           "metadata": {
             "width": 1080,
@@ -2104,12 +2272,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-29",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-29-at-38.8s.png",
           "time": 38.8,
           "metadata": {
             "width": 1080,
@@ -2124,12 +2293,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-30",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-30-at-38.85s.png",
           "time": 38.85,
           "metadata": {
             "width": 1080,
@@ -2144,12 +2314,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-31",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-31-at-40s.png",
           "time": 40,
           "metadata": {
             "width": 1080,
@@ -2164,12 +2335,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-32",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-32-at-40.8s.png",
           "time": 40.8,
           "metadata": {
             "width": 1080,
@@ -2184,12 +2356,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-33",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-33-at-40.85s.png",
           "time": 40.85,
           "metadata": {
             "width": 1080,
@@ -2204,12 +2377,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-34",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-34-at-41.5s.png",
           "time": 41.5,
           "metadata": {
             "width": 1080,
@@ -2224,12 +2398,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-35",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-35-at-42.3s.png",
           "time": 42.3,
           "metadata": {
             "width": 1080,
@@ -2244,12 +2419,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-36",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-36-at-43.5s.png",
           "time": 43.5,
           "metadata": {
             "width": 1080,
@@ -2264,12 +2440,13 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         },
         {
           "scope": "full",
           "id": "eedfd14c-abde-472b-854f-541f7389beb9-37",
-          "image": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/.hyperframes/artifacts/snapshots/b35ad43c-aa87-4be1-8fa5-6c422d909267/frame-37-at-44.7s.png",
           "time": 44.7,
           "metadata": {
             "width": 1080,
@@ -2284,7 +2461,9 @@
           "revision": "1cde4278-666b-402a-a468-0a9d9b9957df",
           "inputFingerprint": "826735688916bce523a39f5c4cb70ef0c9f4496a261734ef6795f468b7a8e863",
           "inputScope": "local-project-files",
-          "attribution": "recorded-revision"
+          "attribution": "recorded-revision",
+          "status": "cleaned",
+          "cleanedAfterRender": "16451f13-faab-45a0-8f35-dc6786bdf680"
         }
       ]
     },
@@ -2292,13 +2471,14 @@
   },
   "renders": {
     "latest": {
-      "id": "034107d1-11c2-4fb7-a883-1f9d7a468f1a",
-      "completedAt": 1795493288365,
+      "id": "16451f13-faab-45a0-8f35-dc6786bdf680",
+      "completedAt": 1795503272831,
       "output": "/home/user/wt-estetica-sesiones/reels/estetica-sesiones/renders/estetica-sesiones.mp4",
       "status": "completed",
-      "revision": null
+      "revision": "3e195aed-b633-4695-9d99-c2fff41fe24a"
     },
     "retainedRevisions": [
+      "3e195aed-b633-4695-9d99-c2fff41fe24a",
       "a3575382-0b07-48cb-95c7-5d652a227951"
     ]
   },
