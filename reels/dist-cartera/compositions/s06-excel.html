@@ -1,0 +1,30 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s06-excel"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s06-excel"] .r { position: absolute; padding: 12px 26px 16px; border-radius: 26px; background: #0b1220; border: 6px solid #efeee5; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); color: #efeee5; text-align: center; }
+    [data-composition-id="s06-excel"] .r .a { font: 800 44px/1.15 "Lexend", sans-serif; white-space: nowrap; }
+    [data-composition-id="s06-excel"] .r .n { font: 900 66px/1.12 "Lexend", sans-serif; color: #c7655b; letter-spacing: -0.02em; white-space: nowrap; }
+    [data-composition-id="s06-excel"] .r2 { right: 50px; top: 110px; }
+  </style>
+  <div id="root" data-composition-id="s06-excel" data-width="1080" data-height="1920" data-duration="4.29">
+    <div id="s06-excel-esc" class="esc clip" data-start="0" data-duration="4.29" data-track-index="0">
+      <div class="r r2"><div class="a">En el Excel</div><div class="n"><span class="v3">3</span><span class="v2" style="display:none">2</span></div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s06-excel";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.set(q(".v3"), { display: "none" }, 2.21); tl.set(q(".v2"), { display: "inline" }, 2.21);
+      tl.fromTo(q(".n"), { scale: 1 }, { scale: 1.25, duration: 0.1, yoyo: true, repeat: 1, transformOrigin: "50% 50%", immediateRender: false }, 2.21);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>
