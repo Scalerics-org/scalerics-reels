@@ -581,6 +581,8 @@ const PZ = -1.0, PDX = 0.0;
 fusionar(PUE);
 const PHOJA = new THREE.Group(); PHOJA.position.set(PX + 0.49, 0, PZ + 0.05); scene.add(PHOJA);
 { PHOJA.add(caja(0.96, 2.16, 0.05, M.navy3, -0.48, 1.08, 0, 0.01)); PHOJA.add(caja(0.86, 0.04, 0.06, M.cr, -0.48, 1.6, 0.0, 0.01)); PHOJA.add(mesh(new THREE.SphereGeometry(0.03, 12, 10), M.g, -0.86, 1.05, 0.05)); sombras(PHOJA); }
+// (qa4) el picaporte en el mundo (la puerta gira hacia adentro: la mano de Vero lo acompaña hasta soltarlo)
+const PERILLA_V = (t) => { PHOJA.rotation.y = 1.4 * eio(sg(t, T.abre - 0.12, T.abre + 0.45)); PHOJA.updateMatrixWorld(true); return PHOJA.localToWorld(V3(-0.86, 1.05, 0.12)); };
 // =====================================================================================================
 // LOS PERSONAJES Y TOTO
 // =====================================================================================================
@@ -949,7 +951,7 @@ function poseVeroC(t) {
       [0, { x: VERO_P.x, z: VERO_P.z, giro: dirGiro(VERO_P.x, VERO_P.z, PX + 0.1, PZ - 0.4) + 0.25, ...aC(0.2, 0.0), ...BUENA, ...BRAZOS.costado }],
       [T.b1 + 0.2, { ...aC(0.3, -0.05), ...FELIZ }, 0.3],
     ]);
-    if (t < T.abre + 0.5) { const w = V3(PX - 0.3, 1.05, PZ + 0.25); manoA(veroC, p, "D", w, sg(t, T.q2, T.abre) * (1 - sg(t, T.abre + 0.3, T.abre + 0.5)), [-0.8, -0.6, -0.2]); }
+    if (t < T.abre + 0.4) { const w = PERILLA_V(t); manoA(veroC, p, "D", w, sg(t, T.q2, T.abre - 0.1) * (1 - sg(t, T.abre + 0.1, T.abre + 0.4)), [-0.8, -0.6, -0.2]); }   // (qa4) la mano sigue el picaporte y lo suelta
     p.t = t; return p;
   }
   // Q3: al fondo, tranquila, con la taza (sentada a la mesita)
@@ -1102,7 +1104,7 @@ function poseToto(t) {
   if (pa === "Q2") {
     // contento, parado en dos patas mirando a Bruno (sin tocar la bolsa)
     const er = sg(t, T.b1 - 0.1, T.b1 + 0.2) * (1 - sg(t, T.apoya - 0.2, T.apoya));
-    const P = { ...B, x: PX - 0.22, y: 0, z: PZ + 0.65, giro: Math.PI - 0.15, sentado: 1 - er, erguido: er * 0.7, cola: 1, orejas: 1, cejas: 0.7, jadeo: 1, cabeza: { giro: 0, asiente: -0.35, ladea: 0.1 }, t };
+    const P = { ...B, x: PX + 0.0, y: 0, z: PZ + 0.62, giro: Math.PI - 0.15, sentado: 1 - er, erguido: er * 0.7, cola: 1, orejas: 1, cejas: 0.7, jadeo: 1, cabeza: { giro: 0, asiente: -0.35, ladea: 0.1 }, t };
     return P;
   }
   // la veterinaria
@@ -1193,7 +1195,7 @@ function ponerObjetos(t) {
   const uP = Math.max(sg(t, T.entra[0] - 0.1, T.entra[0] + 0.3) * (1 - sg(t, T.entra[0] + 0.9, T.entra[0] + 1.3)), sg(t, T.entra2[0] - 0.1, T.entra2[0] + 0.3) * (1 - sg(t, T.entra2[0] + 0.9, T.entra2[0] + 1.3)));
   HOJA.rotation.y = 1.25 * eio(uP);
   // la puerta de Vero (abre hacia adentro)
-  PHOJA.rotation.y = -1.45 * eio(sg(t, T.abre - 0.05, T.abre + 0.35));
+  PHOJA.rotation.y = 1.4 * eio(sg(t, T.abre - 0.12, T.abre + 0.45));   // (qa4) abre hacia adentro (antes salía hacia afuera y atravesaba a Bruno), en 0,57 s
   // la correa: de la mano izquierda de Vero al collar de Toto (veterinaria)
   const conCorrea = (pa === "P3" || pa === "P4" || pa === "P4b" || pa === "P4c" || pa === "P5" || pa === "Q4" || pa === "Q4b") && t >= (p2 ? T.entra2[0] : T.entra[0]);
   if (conCorrea && toto.raiz.visible && vero.raiz.visible) { toto.collar.updateMatrixWorld(true); const mv = manoMundo(vero, "I", _a).clone().add(V3(0, -0.05, 0)); const ml = toto.collar.worldToLocal(mv.clone()); ml.y = 0; ml.z = Math.min(ml.z, -0.02); ml.setLength(0.1); ml.y = 0.02; ponerCorrea(mv, toto.collar.localToWorld(ml), true); } else ponerCorrea(null, null, false);
