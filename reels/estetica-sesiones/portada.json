@@ -1,6 +1,6 @@
 {
  "t": 9.6,
- "chica": "Jueves 18:00.",
+ "chica": "Jueves, 18:00.",
  "grande": "¿Cuántas me quedan?",
  "sello": "ESTÉTICA",
  "acento": "#5ce611",
@@ -10,5 +10,5 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
- "cam": "LIMPIO=1, t 9,6 · cam 0.38,1.8,1.45,-0.52,0.62,-1.9,70 (FULL=1 prev.mjs)"
+ "cam": "LIMPIO=1, t 9,6 · cam 0.42,1.82,1.6,-0.45,0.5,-1.9,68 · JS='window.__dbg={lor:[0.45,-2.3,0.3]}' (FULL=1 prev.mjs)"
 }

@@ -49,7 +49,7 @@ T.p5b = r2(T.l3 + LEN.l3 + 0.25);   /* (r2) aire antes de "¿Y cuánto da?" */ T
 T.p5c = r2(T.c3 + LEN.c3 + 0.04); T.cierra = [r2(T.p5c + 0.05), r2(T.p5c + 0.4)]; T.l4 = r2(T.c3 + LEN.c3 + 0.62);
 T.rotProm = r2(T.l4 + LEN.l4 + 0.05); T.rotPlata = r2(T.rotProm + 0.85);   // (r2) que se lea el primero antes del de la plata
 // P6 · remate del remate: "Vale, ¿y la de Jimena?" · Vale se levanta y gira el equipo: el costado de post-its · rótulo
-T.p6 = r2(T.rotPlata + 1.05); /* (r2) ~2 s en el plano después de "Tres." */ T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];   // (r1) -0,25 s
+T.p6 = r2(T.rotPlata + 1.9); /* (r3) el rótulo de la plata ~2 s */ T.l5 = r2(T.p6 + 0.08); T.levanta = [r2(T.l5 + 0.25), r2(T.l5 + 0.75)];   // (r1) -0,25 s
 T.gira = [r2(T.l5 + LEN.l5 - 0.15), r2(T.l5 + LEN.l5 + 0.45)]; T.rotPost = r2(T.gira[1] + 0.05);
 const P1 = r2(T.rotPost + 1.5);    // (r2) el rótulo de los 6 paquetes ~1,5 s    // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.1));
@@ -64,7 +64,7 @@ T.c4 = r2(T.q1c + 0.85); T.q1d = r2(T.q1c + 1.3);
 T.q1e = r2(T.c4 + LEN.c4 + 0.06); T.l6 = r2(T.q1e + 0.08);
 // Q2 · el mismo plano de P6 (18:30): "Vale, ¿y la de Jimena?" (el mismo audio) · Vale gira la tablet · inserto de la ficha
 // de Jimena · Vale despega el último post-it, lo hace un bollito y lo tira al tacho
-T.q2 = r2(T.l6 + LEN.l6 + 0.12); T.l5b = r2(T.q2 + 0.1); T.giraTab = [r2(T.l5b + LEN.l5 - 0.2), r2(T.l5b + LEN.l5 + 0.15)];
+T.q2 = r2(T.l6 + LEN.l6 + 0.12); T.l5b = r2(T.q2 + 0.04); T.giraTab = [r2(T.l5b + LEN.l5 - 0.2), r2(T.l5b + LEN.l5 + 0.15)];
 T.q2i = r2(T.l5b + LEN.l5 + 0.1); T.q2b = r2(T.q2i + 1.05);
 T.despega = [r2(T.q2b + 0.05), r2(T.q2b + 0.35)]; T.bollo = [r2(T.q2b + 0.35), r2(T.q2b + 0.6)]; T.tira = [r2(T.q2b + 0.62), r2(T.q2b + 0.95)]; T.tapa = r2(T.q2b + 0.98);
 // Q3 · dos meses después, el living de Carolina: vibra · inserto del celular (te queda 1 · Renovar y pagar · Confirmar ·
@@ -286,7 +286,7 @@ s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.02), fin: 0.1, techo: 
 // P1 · los dos pips del cabezal, "Lore, ¿cuántas me quedan?", el cuaderno que se abre y las hojas, "Dejame ver."
 pip(T.pips[0], -31); pip(T.pips[1], -32);   // (r2) se oyen bajo la voz
 voz("c1", T.c1, -1);
-s("sfx/k-book_flip_2.wav", T.hojea[0], 0, { techo: -32, dur: 0.4, fin: 0.1 }); hoja(T.hojea[0] + 0.25, -33, 1); s("sfx/k-page-turn.wav", T.hojea[1] - 0.15, 0, { techo: -33, dur: 0.3, fin: 0.08 });
+s("sfx/k-book_flip_2.wav", r2(T.c1 + LEN.c1 - 0.08), 0, { techo: -32,   /* (r3) en el hueco entre "quedan?" y "Dejame ver" */ dur: 0.4, fin: 0.1 }); hoja(T.hojea[0] + 0.25, -33, 1); s("sfx/k-page-turn.wav", T.hojea[1] - 0.15, 0, { techo: -33, dur: 0.3, fin: 0.08 });
 voz("l1", T.l1, -1);
 // P2 · el cuaderno: whoosh, la birome que cuenta (tic tic), el rótulo, "Según el cuaderno, una."
 whoosh(T.p2 - 0.04, -46);
@@ -297,10 +297,10 @@ voz("l2", T.l2, -1);
 // P3 · el cierre de la cartera, la tarjetita, "¿Una? Acá tengo siete sellos.", el inserto y su rótulo
 s("sfx/bsb-cierre.wav", T.cartera - 0.3, 0, { techo: -44, dur: 0.45, fin: 0.15 });   // (r1) antes y más bajo: tapaba "¿Una?"
 voz("c2", T.c2, -1);
-s("sfx/papel.wav", T.extiende[0], 0, { techo: -32, dur: 0.35, fin: 0.1 }); tela(T.saca[0] + 0.3, -33, 2);
+s("sfx/papel.wav", r2(T.c2 + 0.5), 0, { techo: -32,   /* (r3) en la pausa después de "¿Una?" */ dur: 0.35, fin: 0.1 }); tela(T.saca[0] + 0.3, -33, 2);
 whoosh(T.p3b - 0.04, -49); pop(T.rotT + 0.05, -40);
 // P4 · la pausa muda: el zumbido del equipo, un pop chico por rótulo, nada encima
-s("sfx/zumbido.wav", T.p4, 0, { dur: r2(T.p5 - T.p4 + 0.2), fi: 0.15, fin: 0.2, techo: -41, lp: 900 });
+s("sfx/zumbido.wav", T.p4, 0, { dur: r2(T.p5 - T.p4 + 0.2), fi: 0.15, fin: 0.2, techo: -39, lp: 900 });   // (r3) +2 dB en la pausa muda
 tela(T.senala[0], -42, 1); pop(T.tres3, -41);
 // P5 · "Hagamos el promedio.", "¿Y cuánto da?", el cuaderno que se cierra, "Tres.", los rótulos
 voz("l3", T.l3, -1);
@@ -310,8 +310,8 @@ voz("l4", T.l4, -1);
 pop(T.rotProm + 0.04, -41); pop(T.rotPlata + 0.04, -40);
 // P6 · "Vale, ¿y la de Jimena?", Vale se levanta (tela, banquito), las ruedas del equipo, los post-its que aletean, stinger
 voz("l5", T.l5, -1);
-tela(T.levanta[0], -33, 2); s("sfx/k-plastico.wav", T.levanta[1] - 0.1, 0, { techo: -32 });
-s("sfx/bsb-rueditas.wav", T.gira[0] + 0.1, 0, { desde: 7.6, dur: r2(T.gira[1] - T.gira[0]), fi: 0.08, fin: 0.15, techo: -44 });
+tela(T.levanta[0], -33, 2); s("sfx/k-plastico.wav", r2(T.l5 + LEN.l5 + 0.03), 0, { techo: -32 });   // (r3) el banquito apenas termina la voz
+s("sfx/bsb-rueditas.wav", T.gira[0] + 0.1, 0, { desde: 0.5, dur: r2(T.gira[1] - T.gira[0]), fi: 0.08, fin: 0.15, techo: -44 });   // (r3) desde 7,6 entraba muda (dura 5,5 s)
 s("sfx/papel.wav", T.gira[1] - 0.05, 0, { techo: -43, dur: 0.45, fin: 0.12, vel: 1.2 });
 s("sfx/madera-golpe.wav", T.gira[0] + 0.42, 0, { techo: -40, dur: 0.4, fin: 0.1 }); pop(T.rotPost + 0.05, -45);   // (r2) el golpe cuando aparece el costado, no después   // (r1) el acento de la revelación
 // ---- cartel ----
@@ -335,7 +335,7 @@ voz("c4", T.c4, -1);
 voz("l6", T.l6, -1);
 // Q2 · el mismo "Vale…", la tablet que gira, el inserto, el post-it que se despega, el bollito, la tapa del tacho
 voz("l5", T.l5b, -1);
-whoosh(T.q2i - 0.04, -52); tic(T.q2i + 0.02, -46, 1); pop(T.q2i + 0.7, -44);
+tic(T.q2i + 0.3, -48, 1);   /* (r3) sin whoosh y el tic después: pisaban la cola de "¿y la de Jimena?" */ pop(T.q2i + 0.7, -44);
 s("sfx/papel.wav", T.despega[0], 0, { techo: -39, dur: 0.35, fin: 0.1, vel: 1.3 });
 s("sfx/bsb-bollito.wav", T.bollo[0], 0, { techo: -38, dur: 0.5, fin: 0.12 });
 s("sfx/bsb-tapa.wav", T.tapa - 0.05, 0, { techo: -37 });

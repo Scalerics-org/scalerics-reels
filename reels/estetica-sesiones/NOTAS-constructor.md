@@ -168,3 +168,28 @@ No hecho / quedó así:
 - G5: el reel quedó en 44,8 s (+1,8): S-A1 y S-M1 pedían ~2 s más de lectura; se recortó lo que no pisa esos tiempos.
 - El respaldo de la camilla (`resp`) sigue sin agregarse a la escena (el `g.add(resp)` quedó dentro de un comentario en la
   construcción original); nadie lo marcó y agregarlo ahora cruzaría a Carolina. Para una ronda futura.
+
+## Ronda 3 de corrección (24-11)
+**45,53 s.** Parte 1 0-20,07 · cartel 20,07-22,43 · parte 2 22,43-45,53 = 23,1 s (51 %). Rótulo de la plata 14,53-16,43 ·
+P6 16,43 · Q2 30,51 (l5b a q2 + 0,04) · Q2i 32,21 · C 41,61 (SESIONES 42,08; línea chica 42,98).
+Arreglado:
+- E1: los insertos del celular (Q1c y Q3i) sin la "mano" (palma + pulgar quietos que nunca tocaban): queda solo el círculo
+  del toque sobre el botón.
+- E2: P4 y P4c más abiertos (cám. 0,6/1,75/1,52 → -0,45/1,05/-1,95, fov 68): Vale y Lorena enteras cuando Vale señala.
+- E3: `T.p6 = rotPlata + 1,9`: el rótulo de la plata ~1,9 s (+0,85 s al total).
+- E4: Q2b Vale más a cámara (giro 0,88, cabeza al frente); la mano al post-it recalculada.
+- E5: la planta del gabinete al rincón (-1,72, -2,82).
+- E6: Lorena no se dibuja en Q1b (asomaba de perfil al borde).
+- E7: portada nueva: fondo LIMPIO de 9,6 s con Lorena girada a cámara (JS `__dbg.lor`), cámara más abierta; a la mitad
+  de abajo del fondo un fundido a navy (ffmpeg geq, desde y 760) para que la coma de "Jueves, 18:00." se vea. La receta
+  está en portada.json ("cam").
+- E8: "Cada sesión se descuenta sola" arriba (y 230) en Q1c y en Q1d; el globo "Ah. Tres." abajo en los dos.
+- E9: el cajón entero navy como el mueble.
+- E10: puntas de la melena menos dentadas (×0,4 con `frenteLibre`).
+- E11: rueditas `desde: 0.5` (desde 7,6 entraba muda); ahora suenan en el giro.
+- E12: hoja del cuaderno en el hueco "quedan?" / "Dejame ver"; papel de la tarjetita en la pausa tras "¿Una?"; el plástico
+  del banquito apenas termina "¿y la de Jimena?".
+- E13: zumbido de la pausa muda +2 dB.
+- Sonido: al moverse los tiempos, la cola de "¿y la de Jimena?" (Q2) caía en el tramo del whoosh del inserto Q2i: sin ese
+  whoosh, el tic a q2i + 0,3 y l5b 0,06 s antes. medir.py: mínimo +7,4 LU. Mezcla -14,1 LUFS, pico -2,5 dBFS.
+No hecho: las "costuras" de la melena en la portada (con Lorena a cámara ya no se ven); el respaldo de la camilla (ver ronda 2).

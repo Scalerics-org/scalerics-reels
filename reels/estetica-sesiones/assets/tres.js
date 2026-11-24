@@ -224,7 +224,7 @@ const vinT = lienzo(1024, 256, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillSty
       hoja.scale.set(1, 1, 0.35); hoja.rotation.set(Math.sin(a) * 0.18, a, -Math.cos(a) * 0.18); g.add(hoja);
     }
   };
-  planta(-1.62, -2.7); planta(1.55, 4.12, 0.8);
+  planta(-1.72, -2.82);   /* (r3) más al rincón: la punta se pegaba a la cintura de Vale en Q2b */ planta(1.55, 4.12, 0.8);
   const cuadroT = lienzo(256, 320, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.strokeStyle = "#3fa60a"; x.lineWidth = 10; x.lineCap = "round"; x.beginPath(); x.moveTo(w / 2, h * 0.85); x.quadraticCurveTo(w * 0.15, h * 0.5, w / 2, h * 0.15); x.quadraticCurveTo(w * 0.85, h * 0.5, w / 2, h * 0.85); x.stroke(); x.beginPath(); x.moveTo(w / 2, h * 0.85); x.lineTo(w / 2, h * 0.25); x.stroke(); });
   { const g = new THREE.Group(); g.position.set(-GX + 0.06, 1.55, -1.2); g.rotation.y = Math.PI / 2; SET.add(g); g.add(caja(0.42, 0.52, 0.03, M.navy3, 0, 0, 0, 0.01)); g.add(plano(0.34, 0.44, cuadroT, 0, 0, 0.017)); }
   // ---- la camilla: patas navy, colchoneta crema en tres tramos (respaldo levantado ~30°), sábana blanca y la toalla
@@ -778,10 +778,10 @@ const CAJON = new THREE.Group();
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) MESITA.add(caja(0.04, 0.1, 0.04, M.navy, sx * (W / 2 - 0.03), 0.05, sz * (D / 2 - 0.03), 0.008));
   // el cajón (se desliza hacia +z)
   CAJON.position.set(0, H - 0.12, 0); MESITA.add(CAJON);
-  CAJON.add(caja(W - 0.07, 0.015, D - 0.04, M.cr2, 0, -0.06, 0, 0.004));
-  for (const sx of [-1, 1]) CAJON.add(caja(0.012, 0.1, D - 0.04, M.cr2, sx * (W / 2 - 0.042), -0.015, 0, 0.004));
-  CAJON.add(caja(W - 0.07, 0.1, 0.012, M.cr2, 0, -0.015, -D / 2 + 0.03, 0.004));
-  CAJON.add(caja(W - 0.04, 0.15, 0.02, M.navy2, 0, -0.005, D / 2 - 0.005, 0.01));   // el frente
+  CAJON.add(caja(W - 0.07, 0.015, D - 0.04, M.navy3, 0, -0.06, 0, 0.004));
+  for (const sx of [-1, 1]) CAJON.add(caja(0.012, 0.1, D - 0.04, M.navy3, sx * (W / 2 - 0.042), -0.015, 0, 0.004));
+  CAJON.add(caja(W - 0.07, 0.1, 0.012, M.navy3, 0, -0.015, -D / 2 + 0.03, 0.004));
+  CAJON.add(caja(W - 0.04, 0.15, 0.02, M.navy3,   /* (r3) el cajón del mismo navy que el mueble */ 0, -0.005, D / 2 - 0.005, 0.01));   // el frente
   CAJON.add(mesh(new THREE.SphereGeometry(0.018, 12, 10), M.g, 0, -0.005, D / 2 + 0.012));
   CAJON.add(caja(0.2, 0.006, 0.14, M.cr, -0.06, -0.05, -0.02, 0.002));   // el sobre
   const b = mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.15, 8), M.navy, 0.12, -0.046, 0.0); b.rotation.x = Math.PI / 2; b.rotation.z = 0.4; CAJON.add(b);
@@ -1091,11 +1091,11 @@ const GUIAS = [crearGuia(), crearGuia(), crearGuia()];
 const INS_F = { g: new THREE.Group() }; crearFondoInserto(INS_F.g);
 const TABF = crearCelInserto(760, 1056, 540, 1060, 44, { camara: true }); INS_F.g.add(TABF.g); TABF.g.scale.setScalar(1.18); TABF.g.position.y = -0.09;
 const INS_M = { g: new THREE.Group() }; crearFondoInserto(INS_M.g);
-const CELM = crearCelInserto(740, 1240, 560, 1060, 34, { camara: true, mano: 0xdba57f }); INS_M.g.add(CELM.g); CELM.g.scale.setScalar(1.1); CELM.g.position.y = -0.06;
+const CELM = crearCelInserto(740, 1240, 560, 1060, 34, { camara: true });   /* (r3) sin el dedo quieto: queda solo el círculo del toque */ INS_M.g.add(CELM.g); CELM.g.scale.setScalar(1.1); CELM.g.position.y = -0.06;
 const INS_J = { g: new THREE.Group() }; crearFondoInserto(INS_J.g);
 const TABJ = crearCelInserto(760, 1056, 540, 1060, 44, { camara: true }); INS_J.g.add(TABJ.g); TABJ.g.scale.setScalar(1.18); TABJ.g.position.y = -0.09;
 const INS_R = { g: new THREE.Group() }; crearFondoInserto(INS_R.g);
-const CELR = crearCelInserto(740, 1240, 560, 1060, 34, { camara: true, mano: 0xdba57f }); INS_R.g.add(CELR.g); CELR.g.scale.setScalar(1.1); CELR.g.position.y = -0.06;
+const CELR = crearCelInserto(740, 1240, 560, 1060, 34, { camara: true }); INS_R.g.add(CELR.g); CELR.g.scale.setScalar(1.1); CELR.g.position.y = -0.06;
 const INSERTOS = [INS_F, INS_M, INS_J, INS_R];
 for (const I of INSERTOS) { pegarACamara(I.g, camera, 10); I.g.visible = false; }
 
@@ -1139,9 +1139,9 @@ const PLANOS = [
   ["P2", T.p2, "cuaderno"],
   ["P3", T.p3, [[T.p3, 0.38, 1.62, -0.3, -0.05, 1.45, -2.1, 46], [T.p3b, 0.36, 1.6, -0.5, -0.05, 1.45, -2.1, 43]]],   // (r2) la cara más abajo: el globo ya no le tapa la frente
   ["P3b", T.p3b, "tarjeta"],
-  ["P4", T.p4, [[T.p4, 0.66, 1.72, 1.25, -0.36, 1.08, -1.95, 64], [T.p4b, 0.65, 1.71, 1.18, -0.36, 1.08, -1.95, 64]]],
+  ["P4", T.p4, [[T.p4, 0.6, 1.75, 1.52, -0.45, 1.05, -1.95, 68], [T.p4b, 0.6, 1.75, 1.47, -0.45, 1.05, -1.95, 68]]],   // (r3) más abierto: Vale entera a la izquierda
   ["P4b", T.p4b, "postit"],
-  ["P4c", T.p4c, [[T.p4c, 0.65, 1.71, 1.18, -0.36, 1.08, -1.95, 64], [T.p5, 0.64, 1.7, 1.12, -0.36, 1.08, -1.95, 63.5]]],   // (r2) Lorena entera a la derecha
+  ["P4c", T.p4c, [[T.p4c, 0.6, 1.75, 1.47, -0.45, 1.05, -1.95, 68], [T.p5, 0.6, 1.75, 1.42, -0.45, 1.05, -1.95, 67.5]]],   // (r2) Lorena entera a la derecha
   ["P5", T.p5, [[T.p5, ...P5C(0)], [T.p5b, ...P5C(0.5)]]],
   ["P5b", T.p5b, [[T.p5b, 0.3, 1.62, -0.95, -0.15, 1.48, -2.1, 48], [T.p5c, 0.28, 1.62, -1.05, -0.15, 1.48, -2.1, 45]]],
   ["P5c", T.p5c, [[T.p5c, ...P5C(0.5)], [T.p6, ...P5C(1)]]],
@@ -1278,8 +1278,8 @@ function poseVale(t) {
     [T.giraTab[1], { giro: 0.3, ...aC(0.3, 0.05), ...CARA.sonrisa, manoI: [0.1, 0.4, 0.42] }, T.giraTab[1] - T.giraTab[0]],
     // (r2) Q2b: de 3/4, con la izquierda despega el post-it del costado del equipo (a su izquierda), lo hace un bollito
     // delante del pecho y lo tira al tacho que tiene adelante; la tablet quedó en el banquito
-    [T.q2b, { x: -1.42, z: -1.9, giro: 1.15, ...aC(0.2, 0.1), ...CARA.sonrisa, manoI: [0.2, -0.12, 0.08], codoI: [0.9, -0.5, 0], manoD: [-0.2, -0.12, 0.08], codoD: [-0.9, -0.5, 0] }, 0.01],
-    [T.despega[0] + 0.1, { manoI: [0.42, 0.1, 0.24], codoI: [1, -0.3, 0], ...aC(0.5, 0.15) }, 0.25],
+    [T.q2b, { x: -1.42, z: -1.9, giro: 0.88, ...aC(0.05, 0.1),   /* (r3) más a cámara */ ...CARA.sonrisa, manoI: [0.2, -0.12, 0.08], codoI: [0.9, -0.5, 0], manoD: [-0.2, -0.12, 0.08], codoD: [-0.9, -0.5, 0] }, 0.01],
+    [T.despega[0] + 0.1, { manoI: [0.46, 0.1, 0.12], codoI: [1, -0.3, 0], ...aC(0.35, 0.15) }, 0.25],
     [T.bollo[1], { manoI: [0.1, 0.32, 0.42], codoI: [0.8, -0.6, -0.1], manoD: [-0.08, 0.3, 0.4], codoD: [-0.8, -0.6, -0.1], ...aC(0.0, 0.35) }, 0.25],
     [T.tira[0] + 0.1, { manoI: [0.14, 0.4, 0.5], manoD: [-0.2, -0.12, 0.08], codoD: [-0.9, -0.5, 0], ...aC(0.1, 0.3) }, 0.15],
     [T.tira[1], { manoI: [0.12, 0.05, 0.42], ...aC(0.1, 0.3), ...BUENA }, 0.25],
@@ -1469,7 +1469,7 @@ function renderAt(tIn) {
   dibujarPantallas(t);
   // ---- personajes ----
   const dbg = window.__dbg || {};
-  lorena.raiz.visible = !living && planoActual !== "Q4"; /* (r1) en el panel asomaba cortada detrás de la tablet */ lorena.poner({ ...poseLorena(t), ...(dbg.lor && t < P2 ? { x: dbg.lor[0], z: dbg.lor[1], giro: dbg.lor[2] } : {}), t });
+  lorena.raiz.visible = !living && planoActual !== "Q4" && planoActual !== "Q1b";   /* (r3) en Q1b asomaba de perfil al borde */ /* (r1) en el panel asomaba cortada detrás de la tablet */ lorena.poner({ ...poseLorena(t), ...(dbg.lor && t < P2 ? { x: dbg.lor[0], z: dbg.lor[1], giro: dbg.lor[2] } : {}), t });
   vale.raiz.visible = !living && t < T.q3; vale.poner({ ...poseVale(t), t });
   carolina.raiz.visible = !living && t < T.q3; carolina.poner({ ...poseCarolina(t), t });
   carolinaCasa.raiz.visible = living; carolinaCasa.poner({ ...poseCarolinaCasa(t), t });
@@ -1527,7 +1527,7 @@ function renderAt(tIn) {
     if (pa === "Q1b") habla(GL.c1, T.c1b - 0.05, "c1", 480, 1560, bC);   // la misma burbuja y el mismo lugar que en P1
     if (pa === "Q1c") ponerGlobo(GL.rSola, 540, 230, ent(T.rotSola), null, 1);
     verGlobo(GL.c4, t < T.c4 + 1.18 ? 1 : 2);   // (r2) "Tres." cuando se oye
-    if (pa === "Q1d") { ponerGlobo(GL.rSola, 540, 1700, 1, null, 1); habla(GL.c4, T.q1d, "c4", 540, 320, bC); }
+    if (pa === "Q1d") { ponerGlobo(GL.rSola, 540, 230, 1, null, 1); habla(GL.c4, T.q1d, "c4", 540, 1700, bC); }   // (r3) el rótulo arriba y el globo abajo, como en el inserto
     if (pa === "Q1c" && t >= T.c4) { /* "Ah." arranca sobre el inserto */ ponerGlobo(GL.c4, 540, 1700, ent(T.c4), null, 2); }
     if (pa === "Q1e") habla(GL.l6, T.l6, "l6", 540, 330, bL);
     if (pa === "Q2" && t >= T.l5b) ponerGlobo(GL.l5, 720, 440, ent(T.l5b), [1300, 620]);   // (r2) debajo del chip de la hora

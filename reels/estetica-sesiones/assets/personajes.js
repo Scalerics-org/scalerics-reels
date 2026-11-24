@@ -518,7 +518,7 @@ export function crearPersonaje(cfg) {
       for (let i = 0; i < ps.count; i++) {
         const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), phi = Math.atan2(x, z), d = (y0 - y) / (y0 - y1);
         const k0 = 0.03 + 0.045 * d, k = surco(phi, k0);
-        const punta = d > 0.8 ? (d - 0.8) / 0.2 * R * (0.06 * (0.5 + 0.5 * Math.sin(phi * 9 + 2.1)) + 0.04 * (0.5 + 0.5 * Math.sin(phi * 17))) : 0;
+        const punta = d > 0.8 ? (d - 0.8) / 0.2 * R * (c.frenteLibre ? 0.4 : 1) * (0.06 * (0.5 + 0.5 * Math.sin(phi * 9 + 2.1)) + 0.04 * (0.5 + 0.5 * Math.sin(phi * 17))) : 0;
         ps.setXYZ(i, x * k, y - punta, z * k); col.push(...veta(k0 * 0.8, k));
       }
       cort.geometry.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); cort.material.color.set(0xffffff); cort.material.vertexColors = true;
