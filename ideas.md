@@ -273,7 +273,7 @@
 - 24-11 · `estetica-sesiones` · Centros de estética · Sistema a medida (ficha de clienta con su paquete de sesiones: se descuentan solas al marcar "Asistió", la clienta recibe "Te quedan 3" por WhatsApp, aviso para renovar con 1 sesión y pago, panel de paquetes) · Línea "ANTES QUE TODO", completo con Lorena (dueña), Vale (cosmetóloga) y Carolina (clienta): "¿Cuántas me quedan?": el cuaderno dice 1, la tarjetita 7 sellos, el post-it del equipo 2; "Hagamos el promedio." → "Tres."; $ 14.400 regalados en el mes y el costado del equipo forrado de post-its; cartel "Un sistema más tarde…"; "Tres. Sin promedio.", "Chau, tarjetita." · Comentá SESIONES · 45,6 s · 3 rondas de revisión + QA de arte final [formato completo 8d · estilo 3D, consultorio crema con navy y verde] · rama reel/estetica-sesiones
 
 ## En curso
-<!-- corrida-activa: 2026-11-24T07:02 -->
+<!-- corrida-activa: 2026-11-24T07:42 -->
 - 19-11 · `ferreteria-encargo` · Ferreterías y corralones · Automatización + registro de encargos (cada encargo con nombre y celular; cuando entra la mercadería, aviso automático por WhatsApp "llegó lo tuyo"; panel de encargos pendientes) · "¿Llegó lo mío?": el encargo anotado en un papelito que se pierde, el cliente lo compró en otro lado y la pieza queda en el estante · Comentá ENCARGO · en curso (corrida 06:10 UTC)
 
 
