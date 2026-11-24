@@ -274,6 +274,9 @@
 - 24-11 · `ferreteria-encargo` · Ferreterías y corralones · Automatización + registro de encargos (cada encargo con nombre y celular en la tablet; cuando entra la mercadería, coincide con el encargo y avisa solo por WhatsApp; recordatorio al que no retira; panel de encargos) · Línea "ANTES QUE TODO", completo con Gustavo (ferretero), Susana (clienta) y Tito: "¿Llegó lo mío?": el encargo anotado en un papelito que termina de cucurucho para los tornillos de Tito; tres semanas después, el cajón ENCARGOS con 9 piezas sin nombre ($ 14.300): "Elegí." → "Ya lo compré." → "¿Me encargás este?" / "Dejame tu número."; cartel "Un sistema más tarde…"; parte 2: "Ya lo tenés." · Comentá ENCARGO · 46,1 s · 3 rondas de revisión + 2 QA de arte final [formato completo 8d · estilo 3D, galpón de ferretería navy con pared de cajoncitos crema] · rama reel/ferreteria-encargo
 
 ## En curso
+<!-- corrida-activa: 2026-11-24T09:10 -->
+- 24-11 · `dist-cartera` · Distribuidoras · CRM (cada cliente con su ficha, historial, precios y conversaciones en el sistema de la empresa, no en el celular del vendedor; el que lo reemplaza ve todo desde el día 1) · Rubén: el vendedor se va y se lleva la cartera en su celular: "¿Y los clientes?" · Comentá CARTERA · en curso (corrida 2026-11-24T09:10 UTC)
+- 24-11 · `inmo-disponible` · Inmobiliarias · Agente de IA (contesta al instante las consultas de los portales y de WhatsApp con fotos, precio, requisitos y garantías, y agenda la visita en la agenda del corredor; lo que es para el dueño se lo pasa) · domingo, 40 "¿Sigue disponible?" sin contestar; el lunes ya alquilaron con otra inmobiliaria · Comentá DISPONIBLE · en curso (corrida 2026-11-24T09:10 UTC)
 
 
 
