@@ -44,3 +44,8 @@ Ya está bien (no tocar): sonido y mezcla (-14,0 LUFS, voz ≥ 6,3 LU, SFX ≤ -
 15. ✔ 16,43-16,57: ahora es el plano por encima del hombro (cabeza de Vero abajo). 38,84: la tarjeta entra con el corte al cierre (T.c), con su pop.
 16. ✗ Cierre sin tocar (largo atado a la voz de Inés; la tarjeta ocupa la mitad de abajo).
 Mezcla regenerada (pop de la tarjeta 0,12 s antes): voz-resto mínimo 6,3 LU (medir.py). check --json: ok, 0 errores.
+
+## Revisión final sobre el render de la ronda 4 (24-11, 16:20 UTC): APROBADO
+3 revisores independientes (arte, sonido, guion): 0 ALTAS. Los 15 defectos anteriores corregidos salvo 8 y 16 (bajos).
+Quedan MEDIAS/BAJAS menores: picaporte verde visible detrás del hombro de Bruno (27,9-28,5), planos generales del mostrador
+algo abiertos (6,8-9,9 y 31,2-34,0), cierre de 3,6 s, remate de la receta que se entiende mejor con sonido.
