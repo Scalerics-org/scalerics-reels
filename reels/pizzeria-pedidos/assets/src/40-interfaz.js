@@ -11,7 +11,7 @@ const cabecera = (x, W, titulo, sub = null, inicial = null, colorIni = "#5ce611"
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 170); x.fillStyle = "#5ce611"; x.fillRect(0, 170, W, 10);
   let tx = 40; if (inicial) { x.fillStyle = colorIni; x.beginPath(); x.arc(92, 85, 54, 0, 7); x.fill(); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 56); x.fillText(inicial, 92, 88); tx = 168; }
   x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; ajustar(x, titulo, 800, 54, W - tx - 30); x.fillText(titulo, tx, sub ? 64 : 88);
-  if (sub) { x.font = F(700, 38); x.fillStyle = "#cfeebc"; x.fillText(sub, tx + 2, 124); }
+  if (sub) { x.font = F(700, 44); x.fillStyle = "#cfeebc"; x.fillText(sub, tx + 2, 126); }
 };
 const onda = (x, X, Y, w, h, k, color, fondo = "#b4b2a3") => { const n = 22; for (let i = 0; i < n; i++) { const a = 0.3 + 0.7 * Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.6)); x.fillStyle = i / n < k ? color : fondo; x.fillRect(X + (i * w) / n, Y - (a * h) / 2, (w / n) * 0.6, a * h); } };
 // ---- el celular del mostrador de Tano: los mensajes que se apilan (n), el contador (cont), el micrófono (mic: 0/1) y el
@@ -44,8 +44,8 @@ function dibujarChatTano(x, W, H, { n = 0, cont = 9, mic = 0, mi = 0, seg = "0:0
     x.fillStyle = "#c7655b"; x.beginPath(); x.arc(64, yb + 85, 16, 0, 7); x.fill();
     x.fillStyle = "#efeee5"; x.textAlign = "left"; x.font = F(800, 50); x.fillText(seg, 96, yb + 88);
     onda(x, 230, yb + 85, W - 440, 70, 1, "#efeee5");
-    x.fillStyle = "#5ce611"; x.beginPath(); x.arc(W - 96, yb + 85, 66, 0, 7); x.fill();
-  } else { x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(30, yb + 40, W - 220, 90, 45); x.fill(); x.fillStyle = "#8f969f"; x.textAlign = "left"; x.font = F(700, 42); x.fillText("Mensaje", 70, yb + 88); x.fillStyle = "#5ce611"; x.beginPath(); x.arc(W - 96, yb + 85, 58, 0, 7); x.fill(); }
+    x.fillStyle = "#b9bec4"; x.beginPath(); x.arc(W - 96, yb + 85, 66, 0, 7); x.fill();
+  } else { x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(30, yb + 40, W - 220, 90, 45); x.fill(); x.fillStyle = "#8f969f"; x.textAlign = "left"; x.font = F(700, 42); x.fillText("Mensaje", 70, yb + 88); x.fillStyle = "#b9bec4"; x.beginPath(); x.arc(W - 96, yb + 85, 58, 0, 7); x.fill(); }
   // el micrófono (cápsula navy)
   x.fillStyle = "#0b1220"; x.beginPath(); x.roundRect(W - 112, yb + 52, 32, 50, 16); x.fill(); x.fillRect(W - 98, yb + 104, 4, 16); x.fillRect(W - 112, yb + 118, 32, 5);
 }
@@ -66,8 +66,8 @@ function dibujarMapa(x, X, Y, w, h, { pin = 1, ruta = 0, etiqueta = null } = {})
   x.fillStyle = "#efeee5"; const bw = w / 4.2, bh = h / 3.4;
   for (let i = -1; i < 5; i++) for (let j = -1; j < 4; j++) x.fillRect(X + i * bw + (j % 2 ? bw * 0.35 : 0) + 14, Y + j * bh + 14, bw - 28, bh - 28);
   x.fillStyle = "#cfeebc"; x.fillRect(X + bw * 2 + 14, Y + bh * 2 + 14, bw - 28, bh - 28);   // una plaza
-  const px = X + w * 0.62, py = Y + h * 0.42;
-  if (ruta > 0) { x.strokeStyle = "#16243d"; x.lineWidth = 14; x.lineCap = "round"; x.lineJoin = "round"; x.setLineDash([]); x.beginPath(); const R = [[X + w * 0.1, Y + h * 0.92], [X + w * 0.1, Y + h * 0.66], [X + w * 0.45, Y + h * 0.66], [X + w * 0.45, py + 40], [px, py + 40]]; x.moveTo(...R[0]); for (let i = 1; i < R.length; i++) x.lineTo(...R[i]); x.stroke(); x.fillStyle = "#16243d"; x.beginPath(); x.arc(X + w * 0.1, Y + h * 0.92, 20, 0, 7); x.fill(); }
+  const px = X + 2 * bw + bw / 2, py = Y + 2 * bh + bh / 2;
+  if (ruta > 0) { x.strokeStyle = "#16243d"; x.lineWidth = 14; x.lineCap = "round"; x.lineJoin = "round"; x.setLineDash([]); x.beginPath(); const R = [[X + w * 0.1, Y + h * 0.95], [X + w * 0.1, Y + h * 0.88], [X + w * 0.45, Y + h * 0.88], [X + w * 0.45, py + 40], [px, py + 40]]; x.moveTo(...R[0]); for (let i = 1; i < R.length; i++) x.lineTo(...R[i]); x.stroke(); x.fillStyle = "#16243d"; x.beginPath(); x.arc(X + w * 0.1, Y + h * 0.92, 20, 0, 7); x.fill(); }
   x.restore();
   if (pin > 0) {
     const yy = py - (1 - eo(cl(pin))) * 160, s = 1;
@@ -81,7 +81,7 @@ function dibujarMartin(x, W, H, e) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle";
   if (e.pant === "chat") {
     cabecera(x, W, "Pizzería Don Tano", "en línea", "T", "#b9bec4");
-    const burb = (y, txt, hora, mio = true, h = 0) => { x.font = F(800, 48); const ls = renglones(x, txt, W - 220); const bh = h || 60 + ls.length * 62; const bx = mio ? 110 : 30, bw = W - 140; x.fillStyle = mio ? "#cfeebc" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(bx, y, bw, bh, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ls.forEach((l, i) => x.fillText(l, bx + 30, y + 52 + i * 62)); x.fillStyle = "#16243d"; x.font = F(700, 32); x.textAlign = "right"; x.fillText(hora, bx + bw - 24, y + bh - 28); return y + bh + 26; };
+    const burb = (y, txt, hora, mio = true, h = 0) => { x.font = F(800, 48); const ls = renglones(x, txt, W - 220); const bh = h || 60 + ls.length * 62; const bx = mio ? 110 : 30, bw = W - 140; x.fillStyle = mio ? "#d9d7c9" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(bx, y, bw, bh, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ls.forEach((l, i) => x.fillText(l, bx + 30, y + 52 + i * 62)); x.fillStyle = "#16243d"; x.font = F(700, 42); x.textAlign = "right"; x.fillText(hora, bx + bw - 24, y + bh - 30); return y + bh + 26; };
     let y = 220;
     { x.font = F(800, 44); const tw = x.measureText("Llamada · 21:00").width + 60; x.fillStyle = "#d9d7c9"; x.beginPath(); x.roundRect(W / 2 - tw / 2, y, tw, 76, 38); x.fill(); x.fillStyle = "#16243d"; x.textAlign = "center"; x.fillText("Llamada · 21:00", W / 2, y + 40); y += 110; }
     y = burb(y, "¿Y mi pizza?", "22:12");
@@ -89,7 +89,7 @@ function dibujarMartin(x, W, H, e) {
     x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(30, y, W - 140, 150, 28); x.fill(); x.stroke();
     x.fillStyle = "#16243d"; x.beginPath(); x.arc(110, y + 75, 46, 0, 7); x.fill(); x.fillStyle = "#efeee5";
     if (e.audio > 0 && e.audio < 1) { x.fillRect(94, y + 52, 12, 46); x.fillRect(114, y + 52, 12, 46); } else { x.beginPath(); x.moveTo(96, y + 50); x.lineTo(132, y + 75); x.lineTo(96, y + 100); x.closePath(); x.fill(); }
-    onda(x, 180, y + 70, W - 420, 64, e.audio, "#16243d"); x.fillStyle = "#16243d"; x.font = F(800, 40); x.textAlign = "left"; x.fillText("0:01", 180, y + 128); x.textAlign = "right"; x.font = F(700, 32); x.fillText("22:15", W - 134, y + 128);
+    onda(x, 180, y + 70, W - 420, 64, e.audio, "#16243d"); x.fillStyle = "#16243d"; x.font = F(800, 40); x.textAlign = "left"; x.fillText("0:01", 180, y + 128); x.textAlign = "right"; x.font = F(700, 42); x.fillText("22:15", W - 134, y + 128);
     return;
   }
   cabecera(x, W, "Lucía Pizzas · Pedí acá", "Abierto · Envío 30-40 min", "L");
@@ -129,7 +129,7 @@ function dibujarNoti(x, W, H) {
   x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 150); x.fillText("22:54", W / 2, 230); x.font = F(700, 44); x.fillText("viernes", W / 2, 340);
   const y = 430; x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(26, y, W - 52, 330, 40); x.fill();
   x.fillStyle = "#b9bec4"; x.beginPath(); x.arc(100, y + 84, 46, 0, 7); x.fill(); x.fillStyle = "#0b1220"; x.font = F(900, 50); x.fillText("T", 100, y + 88);
-  x.textAlign = "left"; x.fillStyle = "#16243d"; ajustar(x, "Pizzería Don Tano", 800, 46, W - 240); x.fillText("Pizzería Don Tano", 166, y + 70); x.font = F(700, 34); x.fillText("ahora", 166, y + 118);
+  x.textAlign = "left"; x.fillStyle = "#16243d"; ajustar(x, "Pizzería Don Tano", 800, 46, W - 240); x.fillText("Pizzería Don Tano", 166, y + 70); x.font = F(700, 42); x.fillText("ahora", 166, y + 120);
   x.fillStyle = "#c7655b"; x.font = F(900, 60); x.fillText("Disculpá,", 56, y + 206); x.fillText("¿calle qué?", 56, y + 280);
   // la caja de pizza abierta, abajo (la foto de fondo de pantalla: la muzza)
   fotoPlato(x, W / 2, H - 230, 150, "muzza");
@@ -151,7 +151,7 @@ function dibujarPanel(x, W, H, e) {
   x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 104); x.fillStyle = "#5ce611"; x.fillRect(0, 104, W, 8);
   x.fillStyle = "#efeee5"; x.textAlign = "left"; ajustar(x, "Viernes · Lucía Pizzas", 800, 58, W - 60); x.fillText("Viernes · Lucía Pizzas", 28, 54);
   x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(20, 128, 300, 400, 28); x.fill(); x.fillStyle = "#5ce611"; x.textAlign = "center"; x.font = F(900, 150); x.fillText("64", 170, 290); x.fillStyle = "#efeee5"; x.font = F(800, 52); x.fillText("pedidos", 170, 420);
-  const filas = [["Pagados online", "64"], ["Con mapa", "64"], ["Volvieron", "0"], ["Sin contestar", "0"]];
+  const filas = [["Pagados online", "64"], ["Con mapa", "64"], ["Devueltos", "0"], ["Sin contestar", "0"]];
   filas.forEach(([a, b], i) => { const X = 340, Y = 128 + i * 102, w = W - X - 20, ok = i < e.filas; x.fillStyle = ok ? "#ecf8e2" : "#ffffff"; x.strokeStyle = ok ? "#3fa60a" : "#b4b2a3"; x.lineWidth = 5; x.beginPath(); x.roundRect(X, Y, w, 90, 18); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ajustar(x, a, 800, 50, w - 210); x.fillText(a, X + 22, Y + 47); if (ok) { x.textAlign = "right"; x.font = F(900, 60); x.fillText(b, X + w - 86, Y + 48); x.fillStyle = "#5ce611"; x.beginPath(); x.arc(X + w - 42, Y + 45, 28, 0, 7); x.fill(); tilde(x, X + w - 41, Y + 46, 28, "#0b1220"); } });
   if (e.f47) { const Y = 548; x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(20, Y, W - 40, 196, 26); x.fill(); x.fillStyle = "#5ce611"; x.textAlign = "left"; ajustar(x, "#47 · Martín · cliente nuevo ✓", 900, 60, W - 90); x.fillText("#47 · Martín · cliente nuevo ✓", 48, Y + 58); x.fillStyle = "#efeee5"; ajustar(x, "entregado 22:54", 800, 60, W - 90); x.fillText("entregado 22:54", 48, Y + 140); }
 }
@@ -173,8 +173,8 @@ function crearCelInserto(IW, IH, cx, cy, marcoR = 30, opc = {}) {
 const FONDO_TANO = [0x365f28, 0xe9e6da, 0x0b1220], FONDO_LIV = [0xe9e5d6, 0x365f28, 0xb98d5e], FONDO_LUC = [0x16243d, 0xe9e6da, 0x0b1220];
 function inserto(fondo, IW, IH, cy, marco, opc = {}) { const I = { g: new THREE.Group() }; crearFondoInserto(I.g, opc.sinPiso ? [fondo[0], fondo[1], fondo[1]] : fondo); const c = crearCelInserto(IW, IH, 540, cy, marco, opc); if (opc.esc) { c.g.scale.setScalar(opc.esc); c.g.position.set(0, -((960 - cy) / PXK) * (opc.esc - 1), 0); } if (opc.rot) c.g.rotation.z = opc.rot; I.g.add(c.g);
   I.tex = c.tex; I.IW = IW; I.IH = IH; pegarACamara(I.g, camera, 10); I.g.visible = false; return I; }
-const INS_COM = inserto(FONDO_TANO, 760, 1040, 1010, 14, { funda: 0xd9d7c9, radio: 20, rot: 0.04 });   // la comanda (P1, P3)
-const INS_CHAT = inserto(FONDO_TANO, 860, 1420, 1130, 34, { camara: true, funda: 0x365f28, esc: 0.86 });           // el celular del mostrador (P2, P4)
+const INS_COM = inserto(FONDO_TANO, 760, 1040, 1080, 14, { funda: 0xd9d7c9, radio: 20, rot: 0.04, sinPiso: true });   // la comanda (P1, P3)
+const INS_CHAT = inserto(FONDO_TANO, 860, 1420, 1130, 34, { funda: 0x365f28, esc: 0.86 });           // el celular del mostrador (P2, P4)
 const INS_MART = inserto(FONDO_LIV, 860, 1420, 1110, 34, { camara: true, funda: 0x0b1220, esc: 0.88 });            // el celular de Martín (Q2)
 const INS_NOTI = inserto(FONDO_LIV, 820, 1360, 1010, 34, { camara: true, funda: 0x0b1220 });            // la notificación (Q4)
 const INSERTOS = [INS_COM, INS_CHAT, INS_MART, INS_NOTI];
@@ -230,13 +230,13 @@ const GL = {
   rP2a: crearRotulo([["Mensajes sin", "#ff9d92"], ["contestar: 26", "#ff9d92", 58]], 50),
   rP2b: crearRotulo([["Pedidos que se", "#ff9d92"], ["van a otro lado", "#ff9d92"]], 48),
   f1: crearGlobo(["Tano.", "[Dubimioso] no existe."], 62),
-  rP3a: crearRotulo([["Pizzas que", "#ff9d92"], ["volvieron hoy: 3", "#ff9d92", 60]], 52),
+  rP3a: crearRotulo([["Pedidos que", "#ff9d92"], ["volvieron hoy: 3", "#ff9d92", 58]], 50),
   rP3b: crearRotulo([["$ 2.220", "#ff9d92", 80], ["que volvieron", "#ff9d92", 48]], 60),
   t4: crearGlobo(["[Cenamos.]"], 86),
   t5: crearGlobo(["¡Ya [sale!]"], 84),
   rQ1: crearRotulo([["Los pedidos entran"], ["solos, en orden"]], 52),
   rQ2: crearRotulo([["La dirección la pone él,"], ["con el mapa"]], 50),
-  rQ2a: crearRotulo([["Menú online: elige,"], ["pone la dirección y paga"]], 50),
+  rQ2a: crearRotulo([["Tu cliente elige, pone"], ["la dirección y paga"]], 50),
   audio: crearGloboTel(["¡Ya [sale!]"], 66),
   m2: crearGlobo(["¿Ya [está?]"], 86),
   rQ3: crearRotulo([["Pedido pago,"], ["dirección exacta"]], 54),

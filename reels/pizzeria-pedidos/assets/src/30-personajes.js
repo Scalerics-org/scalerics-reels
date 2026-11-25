@@ -17,14 +17,14 @@ for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMes
 // Lucía: el pañuelo verde de marca que envuelve el rodete y la harina en los antebrazos (puntitos claros)
 {
   const pm = mat(MARCA.g, 0.6);
-  const ban = mesh(new THREE.SphereGeometry(1, 32, 12, 0, PI * 2, 0, PI * 0.36), pm, 0, 0.276 + 0.012, -0.03); ban.scale.setScalar(0.326); ban.rotation.x = -0.85; lucia.cabeza.add(ban);
-  const nudo = mesh(new THREE.SphereGeometry(0.05, 12, 8), pm, 0, 0.276 + 0.36, -0.24); nudo.scale.set(1.3, 0.8, 0.8); lucia.cabeza.add(nudo);
-  for (const s of [-1, 1]) { const pt = mesh(new THREE.SphereGeometry(0.03, 10, 8), pm, 0.04 * s, 0.276 + 0.33, -0.3); pt.scale.set(0.8, 1.6, 0.5); pt.rotation.z = s * 0.6; lucia.cabeza.add(pt); }
+  // (r2) el casquete del rodete bajaba hasta las cejas: se reemplaza por uno con la línea del pelo alta y raya al costado
+  for (const o of lucia.cabeza.children) if (o.isMesh && o.geometry.type === "SphereGeometry" && Math.abs((o.geometry.parameters.thetaLength ?? 0) - PI * 0.45) < 0.01) { o.geometry = new THREE.SphereGeometry(1, 32, 16, 0, PI * 2, 0, PI * 0.36); o.rotation.x = -0.32; }
+  const moño = mesh(new THREE.TorusGeometry(0.075, 0.026, 8, 20), pm, 0, 0.276 + 0.24, -0.2); moño.rotation.x = 1.0; lucia.cabeza.add(moño);   // el elástico verde en la base del rodete
 }
 // Martín: la capucha del buzo (un rollo en la nuca)
 { const ca = mesh(new THREE.TorusGeometry(0.15, 0.05, 8, 20), mat(0x2c4f20, 0.9), 0, 0.52, -0.1); ca.rotation.x = PI / 2 - 0.5; ca.scale.set(1.1, 1, 0.7); martin.cuerpo.add(ca); }
 // los cascos (Facu navy3, Sabri verde apagado) y las mochilas térmicas
-const CASCO_F = crearCasco(MARCA.navy3), CASCO_S = crearCasco(0x365f28);
+const CASCO_F = crearCasco(MARCA.navy3), CASCO_S = crearCasco(0x365f28); CASCO_F.visible = false;
 scene.add(CASCO_F, CASCO_S);
 const MOCH_F = crearMochila(MARCA.navy3, MARCA.cr), MOCH_S = crearMochila(MARCA.navy2, MARCA.cr);
 facu.cuerpo.add(MOCH_F); MOCH_F.position.set(0, 0.26, -0.33); MOCH_F.scale.setScalar(0.95);

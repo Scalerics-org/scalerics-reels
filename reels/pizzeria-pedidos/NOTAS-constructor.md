@@ -138,3 +138,47 @@ Portada: `herramientas/portada.html` tiene `--marca-bottom` (por defecto 250px, 
   Facu sigue cortado a la derecha (cara de 3/4 y porción a la vista); "¡Con V corta!" roza la coronilla de Tano; el
   pañuelo de Lucía sigue leyéndose como casquete; la cola de "Cenamos." en medir.py (borde de ventana); voz "¿Ya está?"
   sigue siendo la única toma que el STT entiende (atempo 0,94); el segundo "¡Ya sale!" con la boca llena se dejó.
+
+## Ronda 2 de corrección (qa-ronda-r2.md) · render r3
+**40,4 s.** Parte 1 0-16,56 · cartel 16,56-18,91 · parte 2 18,91-37,38 · cierre 37,38-40,4 (3,0 s con 0,2 s de cola;
+línea chica 1,5 s). Simplificado en vez de parchear: sin la grúa cenital, sin casco de Facu, sin vapor, sin hilo.
+Voces (verificadas con `node partes/stt-sin-pistas.mjs`, Speech-to-Text SIN pistas de vocabulario):
+- t1 = 01-tano-a sin atempo → "una musa y dos y nada calle qué" ("¿Calle qué?" claro; "fainá" el STT nunca lo
+  reconoce: 10 tomas probadas). m2 = toma nueva 09-martin-j → "ya está". t6 = toma nueva 11-tano-i → "y esa cómo hace".
+  s1 = 10-sabri-b sin atempo → "Martín una musa ido faina". l1 atempo 1,25 → "comenta menú y te mando cómo funciona
+  para tu pizzería". Tomas nuevas con `partes/lineas-r2.tsv` (tono más lento y separado).
+Arte:
+- A1 Facu sin casco (pelo texturado, la mochila puesta): nada de casco de perfil.
+- A2 Martín al costado derecho de la consola: levanta la tapa de la esquina (el brazo no cruza la pizza); cámaras de Q4b
+  y Q4c más lejos (sin cara pegada); sin vapor.
+- A3 Q2b: cámara más baja/lejana, la burbuja arriba con la cola a la cabeza. A4 la burbuja del audio al costado del
+  celular con la cola al celular.
+- A5 / guion 4: "¡Con V corta!" en el inserto va debajo de la placa PIZZERÍAS (y 410); la placa sale con fundido.
+- A6 Lucía: el casquete del rodete reemplazado por uno con la línea del pelo alta (las cejas quedan por delante), sin
+  pañuelo/cáscara verde, sin pestañas-guión; un elástico verde en la base del rodete.
+- A7 "Una muzza…" se va cuando entra "¡Duvimioso Terra!" (más a la derecha). A8 rótulo "26" recién con el contador en
+  26; el punto negro del inserto (la cámara del celular) fuera. A9 P2b más cerca, el dedo en el celular.
+- A10 P3c más abierto, rótulos abajo (no tapan la cara ni la comanda) y solo en P3c. A13 Facu entero en P4c.
+- A14 / guion 5: Q1 = la fachada de Lucía con un cartel nuevo arriba de la vidriera "LUCÍA / PIZZAS" (en dos renglones,
+  entra entero en vertical) + toldo + vinilo "Pedí online" (más al centro), llenando el cuadro 1,15 s; el mismo cartel
+  "DON TANO / PIZZAS" en lo de Tano. A15 / guion 6: Q1b centrado: Lucía con el disco, la impresora larga dos tickets y
+  la guía llega a la impresora.
+- A16 Sabri y su caja aparecen cuando la puerta ya abrió. A17 Martín con los ojos abiertos (sin párpados a media asta).
+- A18 / guion 3: Q5b nuevo desde atrás de Tano: la fachada de Lucía iluminada y Sabri que se va en la moto por su
+  vereda (el sonido de la moto ahí); Q5c: Tano de frente "¿Y esa cómo hace?".
+- A19 Q3t y Q5: la tablet llena el cuadro (cámara más cerca). A20 inserto de la comanda sin la franja navy.
+- Bajas: tablero/panel/mapa/horas del chat ≥ 40 px en el lienzo; "Rocío"; "Pedidos devueltos" → "Devueltos 0";
+  "Pedidos que volvieron hoy: 3"; "Tu cliente elige, pone la dirección y paga"; chat sin verde tipo WhatsApp (burbuja
+  propia crema, botón del micrófono gris); pin en la manzana resaltada; tilde de MENÚ dentro del recuadro; sin lengua.
+Sonido:
+- ALTA 1: mordida con techo -27 y pico -3 (se oye); heladera del hall a -37 y la música sin duck en lo de Martín.
+- Huecos (medidos con la ganancia final, `python3 medir-huecos.py`): cama de música -35(+4), extractor -36/-37, calle
+  -38/-40, cartel -34. Quedan 7 tramos entre -33 y -34,7 (meta ~-28/-31); el resto dentro.
+- Moto: solo suena en Q5b, cuando se la ve salir (sin el arranque de Q3s). Audio "¡Ya sale!" de Q2 a -2 dB.
+- medir.py: ≥ +6 LU salvo la ventana de 14,0 s (cola de "Cenamos." a -38,7, ya terminó la voz).
+Portada: el cuadro 0 no cambió para el fondo limpio (cámara propia en portada.json); "separacion": 30 (la tilde de QUÉ).
+- **Render r3: 1718 s (28,6 min)** → `renders/pizzeria-pedidos-final.mp4` (40,4 s, -14,1 LUFS, pico -6,5 dBFS, lineal;
+  medir-sfx.py: máximo sin voz -30,7). Hoja: `renders/hoja.png`. `check --json` 0 errores. Pasada completa propia cada
+  0,5 s (renders/snap/r3) antes del render. Portada regenerada (separación 30).
+- Después del render: "¡Duvimioso Terra!" se superponía 0,1 s con "Ajá." (≈3,6 s) → ahora se va antes de que entre
+  "Ajá." (solo en el código; el mp4 r3 no lo tiene).

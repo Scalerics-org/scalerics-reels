@@ -11,5 +11,6 @@
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio-portada.png",
  "nota": "Fondo limpio: P1 a 1,95 s (\"¿Calle qué?\", cara arriba) con LIMPIO=1 y FULL=1 node prev.mjs 1.95 renders/prev/por \"0.5,1.66,-0.9,-0.02,1.08,-3.4,46\". marca_bottom 300px: 'SCALERICS' en y≈1606 (variable nueva --marca-bottom de herramientas/portada.html, por defecto 250px como antes).",
- "marca_bottom": "300px"
+ "marca_bottom": "300px",
+ "separacion": 30
 }

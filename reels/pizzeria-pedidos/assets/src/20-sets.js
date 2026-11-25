@@ -63,6 +63,9 @@ function crearLocal(tipo) {
   const fal = cartelT(2000, 220, tf, (x, w, h) => { x.fillStyle = tt; ajustar(x, esT ? "DON TANO · PIZZAS" : "LUCÍA · PIZZAS", 900, 150, w - 160); x.fillText(esT ? "DON TANO · PIZZAS" : "LUCÍA · PIZZAS", w / 2, h / 2 + 8); x.fillStyle = esT ? "#5ce611" : "#365f28"; x.fillRect(0, h - 18, w, 18); });
   const fw = L.PX1 - L.VX0 + 0.4;
   g.add(caja(fw, 0.36, 0.03, toldoM, (L.VX0 + L.PX1) / 2, 2.6, 1.27, 0.01)); g.add(plano(fw - 0.04, 0.34, fal, (L.VX0 + L.PX1) / 2, 2.6, 1.29));
+  // (r2) el cartel de arriba de la vidriera, en dos renglones (el toldo entero no entra en el cuadro vertical)
+  const car = cartelT(800, 560, esT ? "#16243d" : "#0b1220", (x, w, h) => { x.fillStyle = esT ? "#efeee5" : "#efeee5"; ajustar(x, esT ? "DON TANO" : "LUCÍA", 900, 230, w - 80); x.fillText(esT ? "DON TANO" : "LUCÍA", w / 2, 200); x.fillStyle = "#5ce611"; x.fillRect(80, 330, w - 160, 14); x.fillStyle = "#efeee5"; ajustar(x, "PIZZAS", 800, 130, w - 160); x.fillText("PIZZAS", w / 2, 450); });
+  g.add(caja(1.5, 1.05, 0.06, esT ? M.navy3 : M.navy, -0.75, 3.75, 0.03, 0.02)); g.add(plano(1.42, 0.99, car, -0.75, 3.75, 0.065, true));
   sombras(g);
   // lo que no se fusiona (transparente o que se mueve)
   const vidrio = mesh(new THREE.PlaneGeometry(L.VX1 - L.VX0, L.VY1 - L.VY0), new THREE.MeshStandardMaterial({ color: 0xb9cde0, roughness: 0.1, transparent: true, opacity: 0.14, depthWrite: false }), (L.VX0 + L.VX1) / 2, (L.VY0 + L.VY1) / 2, -0.05); vidrio.castShadow = false; vidrio.receiveShadow = false;
@@ -85,7 +88,7 @@ const vinT = lienzo(600, 600, (x, w, h) => {
   for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) { const esq = (i < 4 && j < 4) || (i > 10 && j < 4) || (i < 4 && j > 10); if (esq ? (i % 3 === 0 || j % 3 === 0 || (i % 3 === 1 && j % 3 === 1)) && !((i === 1 || i === 2 || i === 12 || i === 13) && (j === 1 || j === 2 || j === 12 || j === 13) && !(i % 3 === 1 && j % 3 === 1)) : az() > 0.5) x.fillRect(q0 + i * c, 170 + j * c, c, c); }
   x.fillStyle = "#3fa60a"; x.font = F(800, 50); x.fillText("y pagás ahí", w / 2, 530);
 });
-const VINILO = plano(0.95, 0.95, vinT, 0, 0, 0, true); VINILO.material.transparent = true; VINILO.position.copy(enL(-1.3, 1.55, 0.02)); VINILO.rotation.y = PI; scene.add(VINILO);   // mira a -z del mundo (hacia Don Tano)
+const VINILO = plano(0.95, 0.95, vinT, 0, 0, 0, true); VINILO.material.transparent = true; VINILO.position.copy(enL(-1.05, 1.55, 0.02)); VINILO.rotation.y = PI; scene.add(VINILO);   // mira a -z del mundo (hacia Don Tano)
 // ---------- la calle de noche: veredas crema, adoquines navy, el farol, vecinos a los costados ----------
 const CAL = new THREE.Group(); scene.add(CAL);
 {
