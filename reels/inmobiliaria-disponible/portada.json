@@ -1,0 +1,14 @@
+{
+ "t": 0.05,
+ "chica": "Martes, 15:00.",
+ "grande": "¿Sigue disponible?",
+ "sello": "INMOBILIARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "20%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-0.05.png",
+ "nota": "Fondo limpio: VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs y FULL=1 node prev.mjs 0.05 (r1: 0,05 s, antes de que Diego hable: boca cerrada; cámara más atrás, Silvana sin tocar el borde). Después volver a correr SINAUDIO=1 node gen.mjs."
+}
