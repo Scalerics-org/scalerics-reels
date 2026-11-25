@@ -277,7 +277,7 @@
 - 25-11 · `pizzeria-pedidos` · Restaurantes y pizzerías · Tienda online / menú de pedidos propio (el cliente elige, pone la dirección con el mapa y paga; el pedido sale impreso en la cocina; panel del viernes) · Línea "ANTES QUE TODO", Dos negocios con Tano (Pizzería Don Tano), Facu, Lucía (Lucía Pizzas, enfrente), Sabri y Martín: viernes 21:00, "¿Calle qué?" con el celular en el hombro, la dirección mal anotada, la pizza que vuelve y "Cenamos.", 26 mensajes sin contestar; cartel; enfrente los pedidos entran solos, Martín recibe y muerde; Tano: "¿Y esa cómo hace?" · Comentá MENÚ · 40,4 s · 3 rondas de revisión + corrección final + QA de arte final sin ALTA · render 33 min [formato Dos negocios + completo · estilo 3D, dos pizzerías enfrentadas en la misma calle, navy con toldos] · rama reel/pizzeria-pedidos
 
 ## En curso
-<!-- corrida-activa: 2026-11-25T13:00 -->
+<!-- corrida-activa: 2026-11-25T13:45 -->
 - 25-11 · `gym-cupo` · Gimnasios y estudios · Reserva de clases con cupo real + lista de espera automática + recordatorio · martes 19:00, la clase de spinning anotada por el grupo de WhatsApp: 22 "yo voy", vienen 9, bicis vacías y las que quedaron afuera se anotan en otro lado · Cierre "Comentá CUPO" · formato completo (parte 1 + cartel + parte 2)
 
 
