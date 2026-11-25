@@ -41,28 +41,28 @@ const CORTE = Object.fromEntries(["r1", "n2", "r3", "r4", "n3", "r6", "n5"].map(
 // ---- parte 1 ----
 // P1 · cuadro 0: la oficina vidriada, día 1, 8:00. Nico asomado a la puerta: "Jefe, ¿cuánto me toca?"
 // (r1) todo más justo: total ≤ 44 s, solución ≥ 50 %
-T.n1 = 0.12;
+T.n1 = 0.08;
 // P2 · Rubén, sin levantar la vista, se arremanga: "Fácil. Tres por ciento de lo cobrado."
-T.p2 = r2(fin("n1") + 0.08); T.r1 = r2(T.p2 + 0.1); T.arremanga = r2(T.p2 + 0.04);
+T.p2 = r2(fin("n1") + 0.06); T.r1 = r2(T.p2 + 0.08); T.arremanga = r2(T.p2 + 0.04);
 // P3 · el montaje sin voz (2,0 s): la planilla (13:00, con los dos rótulos legibles) · la escalera de noche (22:00) · el
 // calendario cae 1 → 2 · el escritorio (día 2, 19:00)
 T.p3 = r2(fin("r1") + 0.08);
 T.col = [0.08, 0.2, 0.32, 0.44].map((d) => r2(T.p3 + d)); T.rotRem = r2(T.p3 + 0.12); T.rotWal = r2(T.p3 + 0.32);
-T.p3b = r2(T.p3 + 0.8); T.p3c = r2(T.p3b + 0.36); T.cae2 = r2(T.p3c + 0.04); T.p3d = r2(T.p3c + 0.36);
+T.p3b = r2(T.p3 + 0.72); T.p3c = r2(T.p3b + 0.34); T.cae2 = r2(T.p3c + 0.03); T.p3d = r2(T.p3c + 0.36);
 // P4 · Rubén con ojeras golpea Enter: "Nico: cuarenta y dos mil."
-T.p4 = r2(T.p3d + 0.3); T.enter = r2(T.p4 + 0.08); T.r2 = r2(T.p4 + 0.22);
+T.p4 = r2(T.p3d + 0.3); T.enter = r2(T.p4 + 0.06); T.r2 = r2(T.p4 + 0.18);
 // P5 · Nico en la puerta levanta su celular (su cuenta: $ 60.000): "¿Cuarenta y dos? Súper Héctor es mío."
 T.p5 = r2(fin("r2") + 0.08); T.n2 = r2(T.p5 + 0.06); T.cel60 = r2(T.p5 + 0.03);
 // P5b · Javi se mete por detrás (pisa el final de Nico), el celular en alto ($ 39.000): "¡Héctor es mío!"
-T.p5b = r2(fin("n2") - 0.06); T.j1 = r2(T.p5b + 0.04);
+T.p5b = r2(fin("n2") + 0.02); T.j1 = r2(fin("n2") + 0.1);   // (r2) 0,12 s de aire después del "es mío" de Nico
 // P6 · el remate: las dos pilas enteras en cuadro con Rubén y los dos en la puerta; caen las cajas; pausa;
 // "Felicitaciones. Entre los dos vendieron más que la empresa."
-T.p6 = r2(fin("j1") + 0.06); T.cajas = [0.05, 0.15, 0.25, 0.35, 0.45].map((d) => r2(T.p6 + d)); T.pasa = r2(T.p6 + 0.5); T.r3 = r2(T.p6 + 0.74);
+T.p6 = r2(fin("j1") + 0.06); T.cajas = [0.05, 0.15, 0.25, 0.35, 0.45].map((d) => r2(T.p6 + d)); T.pasa = r2(T.p6 + 0.66); T.r3 = r2(T.p6 + 0.72);
 // P7 · el remate del remate: el celular de Rubén vibra (altavoz): "Rubén, te devuelvo seis cajas." (la cola ya sobre
 // P7b) · pausa · Recalculando… · 42.000 → 41.802 · el calendario cae 2 → 3 · "Te toca menos. Pasá el jueves."
-T.p7 = r2(fin("r3") + 0.06); T.vibra = r2(T.p7 + 0.02); T.g1 = r2(T.p7 + 0.08);
-T.p7b = r2(fin("g1") - 0.35); T.recalc = r2(fin("g1") - 0.05); T.cae3 = r2(fin("g1") + 0.1); T.baja = r2(fin("g1") + 0.2); T.r4 = r2(fin("g1") + 0.22);
-const P1 = r2(fin("r4") + 0.1);                               // termina la parte 1 (arranca el cartel)
+T.p7 = r2(fin("r3") + 0.06); T.vibra = r2(T.p7 + 0.02); T.g1 = r2(T.p7 + 0.05);
+T.p7b = r2(fin("g1") - 0.35); T.recalc = r2(fin("g1") - 0.05); T.cae3 = r2(fin("g1") + 0.1); T.baja = r2(fin("g1") + 0.2); T.r4 = r2(fin("g1") + 0.43);
+const P1 = r2(fin("r4") + 0.06);                               // termina la parte 1 (arranca el cartel)
 const P2 = r2(P1 + Math.max(2.15, LEN.nar + 0.05));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0 (el panel en el monitor, el termo lleno): el mismo "Jefe, ¿cuánto me toca?"
@@ -86,7 +86,7 @@ T.q4n = r2(fin("r7") + 0.1); T.notiN = r2(T.q4n - 0.02); T.n5 = r2(fin("r7") + 0
 T.c = r2(fin("n5") + 0.25); T.r8 = r2(T.c);
 const iCom = PAL.r8.findIndex((w) => /COMISIONES/i.test(w.word ?? w.w ?? w.text ?? ""));
 T.palabra = r2(T.r8 + Math.max(0.3, (PAL.r8[iCom >= 0 ? iCom : 1].start ?? PAL.r8[iCom >= 0 ? iCom : 1].a) - 0.05));
-const DUR = Math.ceil((Math.ceil((T.r8 + LEN.r8 + 0.2) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.r8 + LEN.r8 + 0.14) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.7, DUR - 1.2));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -166,7 +166,7 @@ const CHIP = `
 const CHIPS = [
   ["s01-chip", T.p3, T.p3b, "Día 1, 13:00.", ""],
   ["s02-chip", T.p3b, T.p3c, "Día 1, 22:00.", ""],
-  ["s03-chip", T.p3c, T.p5, "Día 2, 19:00.", ""],
+  ["s03-chip", T.cae2 + 0.3, T.p5, "Día 2, 19:00.", ""],
   ["s04-chip", T.cae3 + 0.12, P1, "Día 3. Comisiones: sin pagar.", "rojo"],
   ["s05-chip", T.q1 + 0.02, T.q1b, "Día 1 del mes, 8:00.", ""],
 ];
@@ -299,7 +299,7 @@ voz("n1", T.n1, -1);
 s("sfx/k-cloth_1.wav", T.arremanga, 0, { techo: -40 });
 voz("r1", T.r1, -1);
 // P3 · el montaje: la música acelera; tics por columna; la calculadora en ráfagas; el ronquido; la hoja que cae
-s("bgm/pizzicato-lleno.wav", T.p3 - 0.02, 0, { desde: 6.0, vel: 1.25, dur: r2(T.p4 - T.p3 + 0.04), fi: 0.05, fin: 0.06, techo: -44 });
+s("bgm/pizzicato-lleno.wav", T.p3 - 0.02, 0, { desde: 6.0, vel: 1.25, dur: r2(T.p4 - T.p3 + 0.04), fi: 0.05, fin: 0.06, techo: -40 });   // (r2) la cama sube en el montaje
 T.col.forEach((t) => tic(t, -46));
 s("sfx/bsb-calculadora.wav", T.p3 + 0.05, 0, { dur: 0.8, fin: 0.1, techo: -49 });
 s("sfx/bsb-ronquido.wav", T.p3b + 0.02, 0, { dur: 0.5, fin: 0.12, techo: -42 });
@@ -345,8 +345,8 @@ voz("r5", T.r5, -1);
 // Q2 · el celular de Nico: vibra, el contador, el ding al llegar
 whoosh(T.q2 - 0.05, -44);
 noti(T.vibraN + 0.05, -44);
-for (let k = 0; k < 5; k++) tic(T.cuenta + k * 0.12, -45);
-ding(T.cuentaFin, -39);
+for (let k = 0; k < 5; k++) tic(T.cuenta + k * 0.12, -48);
+ding(T.cuentaFin, -43);
 voz("n3", T.n3, -1);
 // Q3 · Javi
 s("sfx/k-cloth_2.wav", T.q3, 0, { techo: -40 });
@@ -365,7 +365,7 @@ vibra(T.vibra2, -38);
 voz("g1", T.g2, -1);
 toque(T.devol, -40); for (let k = 0; k < 3; k++) tic(T.baja2 + k * 0.1, -42);
 voz("r7", T.r7, 0, { suave: true });   // (r1) ídem "te toca menos"
-noti(T.notiN, -39);
+noti(T.notiN + 0.06, -45);
 voz("n5", T.n5, -1);
 // C · Rubén a cámara: whoosh, pop en COMISIONES, la línea chica
 whoosh(T.c - 0.08, -44);
@@ -374,7 +374,7 @@ pop(T.palabra + 0.02, -40);
 pop(T.cierre + 0.05, -44);
 // duck de la cama (~-7 dB) en los huecos sin voz donde mandan los efectos de interfaz
 const HUECOS = [[T.p6 - 0.05, T.r3], [T.q2 - 0.05, T.n3], [T.q3m, T.n4], [T.q3b, T.r6]];
-for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.6]), ...HUECOS.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [a, b, 0.5])]; }
+for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.6]), ...HUECOS.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [a, b, 0.2])]; }
 
 // SFX: el archivo que no existe en assets falla acá, no en el render
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);
@@ -410,7 +410,7 @@ function mezcla(lista, salida, dur) {
     if (o.hp) c += `,highpass=f=${o.hp}`;
     if (o.fin && o.dur) c += `,afade=t=out:st=${r2(o.dur - o.fin)}:d=${o.fin}`;
     if (o.fi) c += `,afade=t=in:st=0:d=${o.fi}`;
-    if (o.voz) c += o.suave ? ",acompressor=threshold=-24dB:ratio=2:attack=8:release=150:makeup=2.5" : ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.34:attack=1.5:release=40:level=false";
+    if (o.voz) c += (o.suave ?? true) ? ",acompressor=threshold=-24dB:ratio=2:attack=8:release=150:makeup=2.5" : ",acompressor=threshold=-28dB:ratio=5:attack=3:release=100:makeup=4,alimiter=limit=0.34:attack=1.5:release=40:level=false";
     c += `,volume=${ganancia(x)}dB`;
     for (const [a0, b0, k] of o.duck || []) { if (!k) continue; const a = r2(a0 - ini), b = r2(b0 - ini); c += `,volume='1-${k}*clip((t-${a})/0.4,0,1)*clip((${b}-t)/0.4,0,1)':eval=frame`; }
     c += `,adelay=${Math.round(ini * 1000)}|${Math.round(ini * 1000)},apad=whole_dur=${dur}[a${i}]`;
@@ -450,7 +450,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 20 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1100px";   // el iris se abre desde el centro de la oficina (Q1)
+const IRIS_C = "540px 1650px";   // (r2) el iris abre desde el frente del escritorio, no desde una cara   // el iris se abre desde el centro de la oficina (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>
