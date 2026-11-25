@@ -56,7 +56,7 @@ T.p5 = r2(fin("r2") + 0.12); T.n2 = r2(T.p5 + 0.1); T.cel60 = r2(T.p5 + 0.05);
 // P5b · Javi se mete por detrás, el celular en alto ($ 39.000): "¡Héctor es mío!"
 T.p5b = r2(fin("n2") + 0.04); T.j1 = r2(T.p5b + 0.1);
 // P6 · el remate: pausa, caen las pilas; "Felicitaciones. Entre los dos vendieron más que la empresa."
-T.p6 = r2(fin("j1") + 0.1); T.cajas = [0.08, 0.22, 0.36, 0.5, 0.64].map((d) => r2(T.p6 + d)); T.pasa = r2(T.p6 + 0.7); T.r3 = r2(T.p6 + 0.88);
+T.p6 = r2(fin("j1") + 0.1); T.cajas = [0.08, 0.22, 0.36, 0.5, 0.64].map((d) => r2(T.p6 + d)); T.pasa = r2(T.p6 + 0.72); T.r3 = r2(T.p6 + 1.3);
 // P7 · el remate del remate: el celular de Rubén vibra en el escritorio (altavoz): "Rubén, te devuelvo seis cajas." ·
 // pausa · Recalculando… · 42.000 → 41.802 · el calendario cae 2 → 3 · "Te toca menos. Pasá el jueves."
 T.p7 = r2(fin("r3") + 0.14); T.vibra = r2(T.p7 + 0.04); T.g1 = r2(T.p7 + 0.22);
@@ -76,7 +76,7 @@ T.q3 = r2(fin("n3") + 0.1); T.j2 = r2(T.q3 + 0.1);
 T.q3m = r2(fin("j2") + 0.04); T.toca = r2(T.q3m + 0.18); T.pedido = r2(T.q3m + 0.32); T.n4 = r2(T.q3m + 0.85);
 // Q3b · las mismas pilas de P6: la caja roja de Nico sale volando, la pila baja y da justo · "= ✓" · "Felicitaciones.
 // Ahora la cuenta da."
-T.q3b = r2(fin("n4") + 0.1); T.vuela = r2(T.q3b + 0.12); T.asienta = r2(T.q3b + 0.62); T.igual = r2(T.q3b + 0.78); T.r6 = r2(T.q3b + 0.85);
+T.q3b = r2(fin("n4") + 0.1); T.vuela = r2(T.q3b + 0.12); T.asienta = r2(T.q3b + 0.62); T.igual = r2(T.q3b + 0.78); T.r6 = r2(T.q3b + 1.2);
 // Q4 · la misma llamada de Graciela (= P7) · el panel descuenta solo · "Te toca menos." · Nico: "Ya sé. Me llegó."
 T.q4 = r2(fin("r6") + 0.12); T.vibra2 = r2(T.q4 + 0.04); T.g2 = r2(T.q4 + 0.28);
 T.q4b = r2(fin("g2") + 0.05); T.devol = r2(T.q4b + 0.1); T.baja2 = r2(T.q4b + 0.3); T.r7 = r2(T.q4b + 0.4);
@@ -344,8 +344,8 @@ s("sfx/sorbo.wav", T.q1b, 0, { techo: -40, dur: 0.3, fin: 0.1 });
 voz("r5", T.r5, -1);
 // Q2 · el celular de Nico: vibra, el contador, el ding al llegar
 whoosh(T.q2 - 0.05, -44);
-noti(T.vibraN + 0.05, -38);
-for (let k = 0; k < 5; k++) tic(T.cuenta + k * 0.12, -42);
+noti(T.vibraN + 0.05, -44);
+for (let k = 0; k < 5; k++) tic(T.cuenta + k * 0.12, -45);
 ding(T.cuentaFin, -39);
 voz("n3", T.n3, -1);
 // Q3 · Javi

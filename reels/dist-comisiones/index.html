@@ -19,20 +19,20 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="46" data-width="1080" data-height="1920">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="46.8" data-width="1080" data-height="1920">
       <div id="precarga">Comisiones</div><div id="precarga2">Día 1</div>
-      <div id="fondo" class="clip" data-start="0" data-duration="46" data-track-index="0"></div>
-      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="21.73" data-duration="2.36" data-track-index="22" data-track-kind="graphics"></div>
-      <div id="capa3d" class="clip" data-start="0" data-duration="46" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="fondo" class="clip" data-start="0" data-duration="46.8" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="22.15" data-duration="2.36" data-track-index="22" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="46.8" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
       <div id="el-s00-rubro" class="scene" style="z-index:3" data-composition-id="s00-rubro" data-composition-src="compositions/s00-rubro.html" data-start="0" data-duration="1.73" data-track-index="2" data-track-kind="graphics"></div>
       <div id="el-s01-chip" class="scene" style="z-index:3" data-composition-id="s01-chip" data-composition-src="compositions/s01-chip.html" data-start="4.28" data-duration="0.75" data-track-index="3" data-track-kind="graphics"></div>
       <div id="el-s02-chip" class="scene" style="z-index:3" data-composition-id="s02-chip" data-composition-src="compositions/s02-chip.html" data-start="5.03" data-duration="0.45" data-track-index="4" data-track-kind="graphics"></div>
       <div id="el-s03-chip" class="scene" style="z-index:3" data-composition-id="s03-chip" data-composition-src="compositions/s03-chip.html" data-start="5.48" data-duration="3.03" data-track-index="5" data-track-kind="graphics"></div>
-      <div id="el-s04-chip" class="scene" style="z-index:3" data-composition-id="s04-chip" data-composition-src="compositions/s04-chip.html" data-start="19.56" data-duration="2.17" data-track-index="6" data-track-kind="graphics"></div>
-      <div id="el-s05-chip" class="scene" style="z-index:3" data-composition-id="s05-chip" data-composition-src="compositions/s05-chip.html" data-start="24.11" data-duration="1.73" data-track-index="7" data-track-kind="graphics"></div>
-      <div id="el-s10-palabra" class="scene" style="z-index:3" data-composition-id="s10-palabra" data-composition-src="compositions/s10-palabra.html" data-start="42.37" data-duration="3.63" data-track-index="8" data-track-kind="graphics"></div>
-      <div id="el-s11-cierre" class="scene" style="z-index:3" data-composition-id="s11-cierre" data-composition-src="compositions/s11-cierre.html" data-start="44.7" data-duration="1.3" data-track-index="9" data-track-kind="graphics"></div>
-      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="46" data-track-index="40" data-volume="1"></audio>
+      <div id="el-s04-chip" class="scene" style="z-index:3" data-composition-id="s04-chip" data-composition-src="compositions/s04-chip.html" data-start="19.98" data-duration="2.17" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s05-chip" class="scene" style="z-index:3" data-composition-id="s05-chip" data-composition-src="compositions/s05-chip.html" data-start="24.53" data-duration="1.73" data-track-index="7" data-track-kind="graphics"></div>
+      <div id="el-s10-palabra" class="scene" style="z-index:3" data-composition-id="s10-palabra" data-composition-src="compositions/s10-palabra.html" data-start="43.14" data-duration="3.66" data-track-index="8" data-track-kind="graphics"></div>
+      <div id="el-s11-cierre" class="scene" style="z-index:3" data-composition-id="s11-cierre" data-composition-src="compositions/s11-cierre.html" data-start="45.5" data-duration="1.3" data-track-index="9" data-track-kind="graphics"></div>
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="46.8" data-track-index="40" data-volume="1"></audio>
     </div>
     <script>
       window.__hf = window.__hf || {};
@@ -43,12 +43,12 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      tl.to("#fondo", { opacity: 1, duration: 46 }, 0);
+      tl.to("#fondo", { opacity: 1, duration: 46.8 }, 0);
       // corte seco al cartel; la parte 2 entra por un iris que se abre desde la oficina
-      tl.set("#capa3d", { opacity: 0 }, 21.73);
-      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1100px)" }, 22);
-      tl.fromTo("#capa3d", { clipPath: "circle(90px at 540px 1100px)" }, { clipPath: "circle(1900px at 540px 1100px)", duration: 0.3, ease: "power1.in", immediateRender: false }, 23.79);
-      tl.set("#capa3d", { clipPath: "none" }, 24.07);
+      tl.set("#capa3d", { opacity: 0 }, 22.15);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 540px 1100px)" }, 22.42);
+      tl.fromTo("#capa3d", { clipPath: "circle(90px at 540px 1100px)" }, { clipPath: "circle(1900px at 540px 1100px)", duration: 0.3, ease: "power1.in", immediateRender: false }, 24.21);
+      tl.set("#capa3d", { clipPath: "none" }, 24.49);
       window.__timelines["main"] = tl;
     </script>
   </body>

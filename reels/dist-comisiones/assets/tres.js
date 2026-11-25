@@ -198,7 +198,7 @@ const paredM = mat(C.cr, 0.9);
   for (const x of [VID0 + 0.03, PU0, PU1, (PU1 + OF_X1) / 2, OF_X1 - 0.04]) OF.add(caja(0.07, 2.25, 0.1, M.navy, x, 1.125, PARED, 0.01));
   OF.add(caja(OF_X1 - VID0, 0.08, 0.12, M.navy, (VID0 + OF_X1) / 2, 2.25, PARED, 0.01));
   for (const [a, b] of [[VID0, PU0], [PU1, OF_X1]]) OF.add(caja(b - a, 0.1, 0.1, M.navy, (a + b) / 2, 0.05, PARED, 0.01));
-  puerta = new THREE.Group(); puerta.position.set(PU1 - 0.04, 0, PARED - 0.05); puerta.rotation.y = 1.25; OF.add(puerta);
+  puerta = new THREE.Group(); puerta.position.set(PU1 - 0.04, 0, PARED - 0.05); puerta.rotation.y = -1.3; OF.add(puerta);
   { const PW = PU1 - PU0 - 0.06; puerta.add(caja(0.06, 2.15, 0.05, M.navy, -PW + 0.03, 1.075, 0, 0.01)); puerta.add(caja(0.06, 2.15, 0.05, M.navy, -0.03, 1.075, 0, 0.01)); for (const y of [0.04, 2.12]) puerta.add(caja(PW, 0.08, 0.05, M.navy, -PW / 2, y, 0, 0.01)); const v = new THREE.Mesh(new THREE.PlaneGeometry(PW - 0.1, 2.05), M.vidrio); v.position.set(-PW / 2, 1.075, 0); v.renderOrder = 3; puerta.add(v); puerta.add(caja(0.03, 0.3, 0.05, M.gris, -PW + 0.12, 1.0, 0.04, 0.01)); }
   // un estante con biblioratos en la pared izquierda y un archivador
   OF.add(caja(0.3, 0.04, 1.4, M.navy3, OF_X0 + 0.2, 1.62, -1.3, 0.01));
@@ -907,8 +907,8 @@ const CAM_CAL = (k) => [CAL.x + 0.05, CAL.y - 0.05, lerp(-0.85, -0.95, k), CAL.x
 const CAM_DESK = (k) => [lerp(1.0, 0.95, k), 1.05, lerp(0.85, 0.75, k), 0.25, 0.7, -0.95, 52];
 const CAM_P4 = (k) => [lerp(0.35, 0.3, k), 1.34, lerp(0.5, 0.38, k), -0.2, 1.2, RUB.z, 46];
 const CAM_P5 = (k) => [1.3, 1.45, lerp(-0.05, -0.2, k), 1.3, 1.38, -2.4, 46];
-const CAM_P5B = (k) => [1.1, 1.45, lerp(0.35, 0.22, k), 1.2, 1.4, -2.5, 46];
-const CAM_PILA = (k) => [-0.56, 1.2, lerp(2.75, 2.6, k), -0.56, 1.18, 0.1, 58];
+const CAM_P5B = (k) => [1.02, 1.55, lerp(0.75, 0.6, k), 0.95, 1.45, -2.5, 46];
+const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
 const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.3, -1.5, 56];
 const CAM_P6 = (k) => CAM_GRUPO(k);
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
@@ -924,7 +924,7 @@ const PLANOS = [
   ["P4", T.p4, [[T.p4, ...CAM_P4(0)], [T.p5, ...CAM_P4(1)]]],
   ["P5", T.p5, [[T.p5, ...CAM_P5(0)], [T.p5b, ...CAM_P5(1)]]],
   ["P5b", T.p5b, [[T.p5b, ...CAM_P5B(0)], [T.p6, ...CAM_P5B(1)]]],
-  ["P6", T.p6, [[T.p6, ...CAM_PILA(0)], [T.r3 + 0.35, ...CAM_PILA(1)], [T.r3 + CORTE.r3 + 0.05, ...CAM_GRUPO(0)], [T.p7, ...CAM_GRUPO(1)]]],
+  ["P6", T.p6, [[T.p6, ...CAM_PILA(0)], [T.r3 - 0.05, ...CAM_PILA(1)], [T.r3 + 0.5, ...CAM_GRUPO(0)], [T.p7, ...CAM_GRUPO(1)]]],
   ["P7a", T.p7, [[T.p7, ...CAM_P7A(0)], [T.p7b, ...CAM_P7A(1)]]],
   ["P7b", T.p7b, [[T.p7b, ...CAM_P7B(0)], [P1, ...CAM_P7B(1)]]],
   // ---- parte 2 ----
@@ -933,7 +933,7 @@ const PLANOS = [
   ["Q2", T.q2, null],                                                                     // el celular de Nico a pantalla llena
   ["Q3", T.q3, [[T.q3, ...CAM_P5B(0)], [T.q3m, ...CAM_P5B(1)]]],
   ["Q3m", T.q3m, [[T.q3m, ...camMon(0.88, 40, 0, 0)], [T.q3b, ...camMon(0.97, 40, 0, 0)]]],
-  ["Q3b", T.q3b, [[T.q3b, ...CAM_PILA(0)], [T.r6 + 0.35, ...CAM_PILA(1)], [T.r6 + CORTE.r6 + 0.05, ...CAM_GRUPO(0)], [T.q4, ...CAM_GRUPO(1)]]],
+  ["Q3b", T.q3b, [[T.q3b, ...CAM_PILA(0)], [T.r6 - 0.05, ...CAM_PILA(1)], [T.r6 + 0.5, ...CAM_GRUPO(0)], [T.q4, ...CAM_GRUPO(1)]]],
   ["Q4", T.q4, [[T.q4, ...CAM_P7A(0)], [T.q4b, ...CAM_P7A(1)]]],
   ["Q4b", T.q4b, [[T.q4b, ...CAM_P7B(0)], [T.q4n, ...CAM_P7B(1)]]],
   ["Q4n", T.q4n, [[T.q4n, ...CAM_P5(0)], [T.c, ...CAM_P5(1)]]],
@@ -1090,6 +1090,7 @@ function renderAt(tIn) {
   mateM.position.set(0.42, DESK.y, -1.02); mateM.rotation.set(0, -0.6, 0); mateM.visible = true;
   if (pa === "P3d") { const u = eio(sg(t, T.p3d + 0.05, T.p3d + 0.3)); termo.position.set(lerp(0.68, 0.5, u), DESK.y + 0.18 * u, lerp(-1.12, -1.05, u)); termo.rotation.set(0, 0.4, lerp(0, 2.0, u)); }
   else if (dia2) { termo.position.set(0.66, DESK.y + 0.06, -1.15); termo.rotation.set(0, 0.2, Math.PI / 2); }   // acostado: vacío
+  if (["P5", "P5b", "Q3", "Q4n", "Q2"].includes(pa)) { termo.visible = false; mateM.visible = false; } else termo.visible = true;
   // el reloj
   const hr = RELOJ(t); agujaH.rotation.z = -((hr % 12) / 12) * Math.PI * 2; agujaM.rotation.z = -((hr % 1) * Math.PI * 2);
   // el calendario: 1 (parte 1 hasta cae2), cae a 2; cae a 3 en P7b; en la parte 2 siempre 1
@@ -1205,9 +1206,9 @@ function renderAt(tIn) {
     if (pa === "P5b") di("j1", javi, T.j1, T.p6, 1, 0, 250);
     if (pa === "P6" || pa === "Q3b") {
       const P6 = pa === "P6";
-      if (P6) { rot("mas", T.pasa, 240, T.r3 + 0.4, 250); if (t >= T.pasa) { cjHJ.updateMatrixWorld(true); const [gx, gy] = objPx(cjHJ, V3(-PILA.W / 2, 0, PILA.D / 2)); if (t < T.r3 + 0.4) ponerGuia(GUIAS[0], 250, 300, gx, gy, eo(sg(t, T.pasa, T.pasa + 0.2))); } }
+      if (P6) { rot("mas", T.pasa, 240, T.r3 + 0.1, 250); if (t >= T.pasa) { cjHJ.updateMatrixWorld(true); const [gx, gy] = objPx(cjHJ, V3(-PILA.W / 2, 0, PILA.D / 2)); if (t < T.r3 + 0.1) ponerGuia(GUIAS[0], 250, 300, gx, gy, eo(sg(t, T.pasa, T.pasa + 0.2))); } }
       const ti = P6 ? T.r3 : T.r6, k = P6 ? "r3" : "r6";
-      if (t >= ti - 0.04) { const [g, e] = fase(k, ti); const [mx, my] = aPx(bocaW(rubenO.raiz.visible ? rubenO : ruben)); fija(g, e, 790, 560, [mx, my]); }
+      if (t >= ti - 0.04) { const [g, e] = fase(k, ti); const [mx, my] = aPx(bocaW(rubenO.raiz.visible ? rubenO : ruben)); fija(g, e, 790, 560, t > ti + 0.4 ? [mx, my] : null); }
     }
     if (pa === "P7a" || pa === "Q4") { const ti = pa === "P7a" ? T.g1 : T.g2; if (t >= ti - 0.04) fija(GL[pa === "P7a" ? "g1" : "g2"], ent(ti - 0.04), 540, 520, objPx(celR)); }
     if (pa === "P7b") { if (t >= T.r4 - 0.04) { const [g, e] = fase("r4", T.r4); fija(g, e, 600, 560, aPx(bocaW(R))); } }
@@ -1221,7 +1222,7 @@ function renderAt(tIn) {
   }
   renderer.render(scene, camera);
 }
-const CAM_PORTADA = [0.85, 1.25, 2.35, 0.55, 1.3, -1.7, 50];
+const CAM_PORTADA = [0.62, 1.05, 1.75, 0.42, 0.95, -1.7, 54];
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
 window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cam: camera.position.toArray().map((v) => +v.toFixed(2)) }; };
