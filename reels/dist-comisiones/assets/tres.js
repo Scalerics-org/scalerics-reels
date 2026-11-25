@@ -556,7 +556,7 @@ function dibujarMon(t) {
     }
     if (rec) {
       // Recalculando…: una franja roja apagada sobre toda la hoja
-      x.fillStyle = "rgba(199,101,91,0.95)"; x.fillRect(0, 140, W, 170);
+      x.fillStyle = "#c7655b"; x.fillRect(0, 140, W, 170);
       x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(900, 120); x.fillText("Recalculando…", W / 2, 228); x.textAlign = "left";
     }
   } else {
@@ -917,7 +917,7 @@ const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
 const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.3, -1.5, 56];
 const CAM_P6 = (k) => [lerp(-0.6, -0.62, k), 1.3, lerp(2.3, 2.2, k), -0.55, 1.36, -0.8, 70];   // (r2) el remate llena la pantalla   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
-const CAM_P7B = (k) => [lerp(0.44, 0.42, k), 1.4, lerp(2.25, 2.1, k), 0.24, 1.36, -1.6, 64];   // (pulido) más cerca
+const CAM_P7B = (k) => [lerp(0.3, 0.28, k), 1.12, lerp(2.3, 2.15, k), 0.12, 1.22, -1.6, 70];   // (final) el monitor entero adentro   // (pulido) más cerca
 const CAM_C = (k) => [lerp(-0.08, -0.1, k), 1.42, lerp(1.7, 1.6, k), -0.3, 1.14, RUB.z, 56];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
@@ -1147,7 +1147,7 @@ function renderAt(tIn) {
   }
   if (javi.raiz.visible && (pa === "P5b")) {
     celJ.visible = true; const u = eo(sg(t, T.p5b + 0.1, T.p5b + 0.4));
-    celJ.scale.setScalar(lerp(1.2, 2.1, u)); celEnMano(celJ, javi, camP, V3(0.24, lerp(0.45, 0.6, u), 0.46), 0.08);   // (pulido) en la mano izquierda, entre él y Nico, a la altura del pecho
+    celJ.scale.setScalar(lerp(1.2, 2.1, u)); celEnMano(celJ, javi, camP, V3(0.24, lerp(0.4, 0.5, u), 0.46), 0.08);   // (final) más bajo: no le tapa la boca   // (pulido) en la mano izquierda, entre él y Nico, a la altura del pecho
     const pj = poseJavi(t, pa, cp); pj.manoI = aCuerpo(javi, celJ.localToWorld(V3(0, -0.1, -0.02))); pj.codoI = [1, -0.4, -0.2]; pj.codoD = [-1, -0.4, -0.2]; javi.poner(pj);
   }
   // ---- las pilas (P6, Q3b) ----

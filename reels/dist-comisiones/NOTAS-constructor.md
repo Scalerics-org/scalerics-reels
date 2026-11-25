@@ -184,3 +184,6 @@ Q4n ~38,9 · C 41,27 (los exactos en assets/tiempos3d.js).
 - Boca: bocaVoz no escribe sobre objetos compartidos (crea un objeto nuevo por cuadro); verificado con prev.mjs en orden
   9,9 → 10,5 → 11,0 → 12,0 → 13,0: el que no habla tiene la boca cerrada.
 - check: 0 errores. Snapshots: renders/snap/pul y pul2.
+- (final) P7b/Q4b: cámara más baja y abierta (fov 70): el monitor y el panel entran enteros (sin texto cortado en el borde);
+  banda "Recalculando…" opaca; P5b: el celular de Javi más bajo (no le tapa la boca, "39.000" a la vista). check 0 errores;
+  snapshots en renders/snap/fin, fin2.
