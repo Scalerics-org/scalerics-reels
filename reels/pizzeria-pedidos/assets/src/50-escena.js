@@ -37,12 +37,12 @@ const wT = (px, py, pz, mx, my, mz, fov) => [px, py, pz, mx, my, mz, fov];
 const wL = (px, py, pz, mx, my, mz, fov) => { const a = enL(px, py, pz), b = enL(mx, my, mz); return [a.x, a.y, a.z, b.x, b.y, b.z, fov]; };
 const off = (k, d) => k.map((v, i) => v + (d[i] ?? 0));
 const K_P1 = globalThis.__KP1 || [0.42, 1.66, -0.75, -0.02, 1.38, -3.4, 47];         // el cuadro 0 (local): desde el lado del cliente
-const K_P2B = [0.75, 1.75, -1.0, 0.1, 1.05, -3.1, 50];
+const K_P2B = [0.3, 1.35, -1.6, 0.18, 1.1, -3.0, 58];   // (r3) Tano y el celular llenan el cuadro
 const K_P3 = [-1.4, 1.8, -3.0, 1.0, 1.25, -2.0, 56];                                  // sobre el hombro de Tano, hacia la puerta
-const K_P3B = [-0.3, 1.45, -1.55, -0.08, 1.3, -3.4, 44];                               // contraplano: Tano de frente
+const K_P3B = [-0.3, 1.45, -1.55, -0.08, 1.3, -3.4, 52];   // (r3) más abierto: Tano entero en cuadro                               // contraplano: Tano de frente
 const K_P4 = [0.35, 1.95, -1.1, 0.1, 1.05, -3.1, 54];                                  // los dos sobre la caja
-const K_P4B = [0.4, 1.52, -2.2, 0.16, 0.9, -2.77, 46.0];                                 // la caja de cerca (desde arriba)
-const K_P4C = [0.45, 1.72, -0.45, 0.4, 1.18, -2.8, 64];
+const K_P4B = [-0.55, 1.95, -3.1, 0.2, 0.82, -2.6, 48];   // (r3) desde el lado de Tano: la mano de Facu agarra la porción de lejos                                 // la caja de cerca (desde arriba)
+const K_P4C = [0.55, 1.72, -0.4, 0.5, 1.18, -2.8, 68];   // (r3) la cabeza de Facu lejos del borde
 const K_Q3 = [-0.48, 1.2, -2.27, -0.86, 1.0, -2.81, 40.0];                                // la impresora de cerca (local de Lucía)
 const K_Q3B = [0.45, 1.52, -1.3, 0.1, 1.25, -3.25, 50.0];
 const K_Q3T = [0.79, 1.3, -2.12, 0.78, 1.0, -2.73, 40];                               // la tablet (tablero)
@@ -64,20 +64,20 @@ const PLANOS = [
   ["P4c", T.p4c, [[T.p4c, ...wT(...K_P4C)], [P1, ...wT(...off(K_P4C, [-0.05, 0, -0.12, 0, 0, 0, -2]))]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...wL(-0.78, 2.35, 4.6, -0.78, 2.55, 0, 50)], [T.q1in, ...wL(-0.78, 2.3, 3.9, -0.78, 2.5, 0, 50)]]],   // (r2) la fachada de Lucía llena el cuadro
-  ["Q1b", T.q1in, [[T.q1in, ...wL(-0.45, 1.55, -0.95, -0.45, 1.0, -2.95, 58)], [T.q2, ...wL(-0.45, 1.52, -1.1, -0.45, 1.0, -2.95, 56)]]],
+  ["Q1b", T.q1in, [[T.q1in, 0.35, 1.95, 10.55, 0.35, 1.05, 12.1, 60], [T.q2, 0.35, 1.95, 10.63, 0.35, 1.05, 12.1, 59]]],   // (r3) sobre el mostrador: Lucía entera, la impresora, sin franja vacía
   ["Q2", T.q2, [[T.q2, LX + 1.05, 1.28, 1.55, LX - 0.05, 0.92, -0.75, 46], [T.q2i, LX + 0.95, 1.26, 1.35, LX - 0.05, 0.94, -0.75, 44]]],
   ["Q2i", T.q2i, null],
   ["Q2b", T.q2b, [[T.q2b, LX + 1.1, 1.45, 2.1, LX + 0.0, 1.02, -0.75, 46], [T.q3, LX + 1.05, 1.45, 2.0, LX + 0.0, 1.03, -0.75, 44]]],
   ["Q3", T.q3, [[T.q3, ...wL(...K_Q3)], [T.q3b, ...wL(...off(K_Q3, [0.02, 0.02, 0.06, 0, 0.03, 0, 0]))]]],
-  ["Q3t", T.q3t, [[T.q3t, ...wL(...K_Q3T)], [T.q3s, ...wL(...off(K_Q3T, [0, 0, -0.05]))]]],
+  ["Q3t", T.q3t, [[T.q3t, -0.61, 1.26, 10.95, -0.76, 0.92, 11.71, 42], [T.q3s, -0.61, 1.26, 10.99, -0.76, 0.92, 11.71, 41]]],   // (r3) el tablero entero y centrado
   ["Q3s", T.q3s, [[T.q3s, ...wL(...K_Q3S)], [T.q4, ...wL(...off(K_Q3S, [0, 0, -0.1]))]]],
   ["Q4", T.q4, [[T.q4, PX2 + 0.55, 1.55, PZ2 + 2.7, PX2 - 0.05, 1.3, PZ2 - 0.6, 48], [T.q4b, PX2 + 0.52, 1.55, PZ2 + 2.55, PX2 - 0.05, 1.3, PZ2 - 0.6, 47]]],
   ["Q4b", T.q4b, [[T.q4b, MESA_M.x + 0.05, 1.8, MESA_M.z + 2.6, MESA_M.x + 0.25, 1.05, MESA_M.z, 46], [T.q4i, MESA_M.x + 0.05, 1.8, MESA_M.z + 2.45, MESA_M.x + 0.25, 1.05, MESA_M.z, 46]]],
   ["Q4i", T.q4i, null],
   ["Q4c", T.q4c, [[T.q4c, MESA_M.x - 0.15, 1.6, MESA_M.z + 2.3, MESA_M.x + 0.45, 1.3, MESA_M.z + 0.05, 44], [T.q5, MESA_M.x - 0.15, 1.6, MESA_M.z + 2.15, MESA_M.x + 0.45, 1.31, MESA_M.z + 0.05, 41]]],
-  ["Q5", T.q5, [[T.q5, ...wL(...K_Q5)], [T.q5b, ...wL(...off(K_Q5, [0, 0, 0.08]))]]],
-  ["Q5b", T.q5b, [[T.q5b, 1.95, 1.78, 0.05, 0.85, 1.9, 9.0, 40], [T.q5c, 1.9, 1.78, 0.15, 0.85, 1.9, 9.0, 36]]],
-  ["Q5c", T.q5c, [[T.q5c, 0.9, 1.5, 9.55, 1.62, 1.32, 0.9, 14], [T.c, 0.9, 1.5, 9.55, 1.63, 1.45, 0.9, 10.5]]],
+  ["Q5", T.q5, [[T.q5, -0.61, 1.26, 10.95, -0.76, 0.92, 11.71, 42], [T.q5b, -0.61, 1.26, 10.99, -0.76, 0.92, 11.71, 41]]],   // (r3) el panel entero y centrado
+  ["Q5b", T.q5b, [[T.q5b, 3.0, 1.8, 0.15, 0.0, 1.95, 9.0, 52], [T.q5c, 2.95, 1.8, 0.2, 0.0, 1.95, 9.0, 50]]],   // (r3) la fachada de Lucía entera, Tano chico a la derecha
+  ["Q5c", T.q5c, [[T.q5c, 0.9, 1.5, 9.55, 1.95, 1.62, 1.72, 18], [T.c, 0.9, 1.5, 9.55, 1.95, 1.66, 1.72, 16]]],   // (r3) se ve la puerta y el toldo de su local
   ["C", T.c, [[T.c, ...wL(...K_C)], [DUR, ...wL(...off(K_C, [0, 0, -0.12, 0, 0, 0, -2]))]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); }
@@ -154,8 +154,8 @@ const LADEA_TEL = globalThis.__LT ?? -0.38;   // la cabeza ladeada hacia el homb
 // ---- Tano ----
 function poseTano(t, pa) {
   if (t >= P2) {
-    // Q5b: en la puerta de su pizzería, del lado de la vereda, la caja vacía bajo el brazo; mira enfrente, curioso
-    const p = poseEn(t, [[0, { x: 1.62, y: 0.14, z: 0.95, giro: -0.05, ...aC(-0.05, -0.05, 0.06), ...CURIOSO, ...BRAZOS.costado, manoI: [0.3, 0.12, 0.12], codoI: [1, -0.4, -0.2] }], [T.t6 + LEN.t6, { ...aC(0.0, -0.08, 0.1), ...CURIOSO, cejas: { alto: 0.75, ang: 0.3, asim: 0.6 } }, 0.4]]);
+    // (r3) Q5b: de 3/4, sigue la moto con la cabeza · Q5b: en la puerta de su pizzería, del lado de la vereda, la caja vacía bajo el brazo; mira enfrente, curioso
+    const p = poseEn(t, [[0, { x: 1.95, y: 0.14, z: 1.72, giro: -0.15, ...aC(-0.05, -0.05, 0.06), ...CURIOSO, ...BRAZOS.costado, manoI: [0.3, 0.12, 0.12], codoI: [1, -0.4, -0.2] }], [T.q5b - 0.01, { giro: 0.8, ...aC(0.25, -0.05, 0.06) }, 0.01], [T.q5c - 0.05, { giro: 0.7, ...aC(0.2, -0.05, 0.06) }, 0.75], [T.q5c, { giro: -0.15, ...aC(-0.05, -0.05, 0.06) }, 0.04], [T.t6 + LEN.t6, { ...aC(0.0, -0.08, 0.1), ...CURIOSO, cejas: { alto: 0.75, ang: 0.3, asim: 0.6 } }, 0.4]]);
     p.t = t; bocaVoz(p, t, T.t6, ENV.t6, 0.6); return p;
   }
   const L = { x: DUENO.x, z: DUENO.z };
@@ -243,7 +243,7 @@ function cajaFacuEn(t) {
   const u = sg(t, T.entra[0], T.entra[1]), x0 = (LOC.PX0 + LOC.PX1) / 2, z0 = 0.35;
   const x = lerp(x0, FACU_M.x, eio(u)), z = lerp(z0, FACU_M.z, eio(u)), g = dirGiro(FACU_M.x, FACU_M.z, DUENO.x, DUENO.z);
   const pecho = V3(x, 1.08, z).add(V3(Math.sin(g) * 0.4, 0, Math.cos(g) * 0.4));
-  const k = sg(t, T.apoyaCaja - 0.3, T.apoyaCaja);
+  const k = sg(t, T.apoyaCaja - 0.5, T.apoyaCaja);   // (r3) más lento: sin el salto de perspectiva
   const pos = pecho.clone().lerp(CAJA_MO, eio(k)); pos.y += Math.sin(k * PI) * 0.05;
   return { pos, giro: 0.05, k: 1 - sg(t, T.apoyaCaja, T.apoyaCaja + 0.25) };
 }
@@ -288,7 +288,7 @@ function poseSabri(t, pa) {
   }
   // Q4: en la puerta de Martín con la caja en las dos manos
   const p = poseEn(t, [[0, { x: PX2 + 0.05, z: PZ2 - 0.85, giro: 0.1, ...aC(-0.1, 0.05), ...FELIZ, ...BRAZOS.costado }], [T.s1 + W2_.s1, { ...aC(-0.2, 0.15), ...BUENA }, 0.3]]);
-  const k = 1 - sg(t, T.q4b - 0.3, T.q4b);
+  const k = 1;   // (r3) las manos en la caja hasta el corte (no flota)
   const c = cajaSabriEn(t);
   CAJA_L.position.copy(c); CAJA_L.rotation.set(0, 0.1, 0); CAJA_L.updateMatrixWorld(true);
   const L = CAJA_L.userData.L;
@@ -320,16 +320,33 @@ function poseMartin(t, pa) {
     [T.mira[1] + 0.05, { ...aC(-0.12, 0.25), ...CARA.neutra, ojos: { abiertos: 1, y: -0.4, x: -0.2 }, cejas: { alto: 0.4, ang: 0, asim: 0.6 } }, 0.15],   // mira la pizza
     [T.muerde, { ...aC(0.0, 0.05), ...CARA.feliz, ojos: { abiertos: 0.95, feliz: 0.4 }, boca: { sonrisa: 0.4, abierta: 0.0, ancho: 1 } }, 0.2],
   ]);
-  if (pa === "Q4b") { CAJA_L.position.copy(MESA_M).add(V3(0, 0.002, 0)); CAJA_L.rotation.set(0, 0, 0); abrirCaja(CAJA_L, 0.85 * sg(t, T.abre2[0], T.abre2[1])); CAJA_L.updateMatrixWorld(true); const w = CAJA_L.userData.bis.localToWorld(V3(CAJA_L.userData.L * 0.42, 0.0, CAJA_L.userData.L * 0.9)); manoA(martin, p, "D", w, 1 - sg(t, T.abre2[1] - 0.05, T.abre2[1] + 0.25), [-0.8, -0.6, -0.3]); }
+  if (pa === "Q4b") { CAJA_L.position.copy(MESA_M).add(V3(0, 0.002, 0)); CAJA_L.rotation.set(0, 0, 0); abrirCaja(CAJA_L, 0.85 * sg(t, T.abre2[0], T.abre2[1])); CAJA_L.updateMatrixWorld(true); const w = CAJA_L.userData.bis.localToWorld(V3(CAJA_L.userData.L * 0.42, 0.0, CAJA_L.userData.L * 0.9)); manoA(martin, p, "D", w, 1 - sg(t, T.abre2[0] + 0.15, T.abre2[0] + 0.4), [-0.8, -0.6, -0.3]); }   // (r3) suelta la tapa antes (no sube a la cara)
+  if (pa === "Q4b" || pa === "Q4c") {
+    // (r3) el celular en la izquierda desde Q4b (lo mira); al morder baja un poco
+    const kb = eio(sg(t, T.muerde - 0.35, T.muerde - 0.05));
+    manoA(martin, p, "I", toW(martin, [0.24, lerp(0.5, 0.4, kb), lerp(0.34, 0.3, kb)]), pa === "Q4b" ? sg(t, T.abre2[0] + 0.25, T.q4i) : 1, [0.9, -0.6, -0.2]);
+  }
   if (pa === "Q4c") {
-    manoA(martin, p, "I", toW(martin, [0.24, 0.5, 0.34]), 1, [0.9, -0.6, -0.2]);
-    const boca = toW(martin, [0.0, 0.86, 0.33]), cerca = toW(martin, [-0.16, 0.6, 0.38]);
-    const k = eio(sg(t, T.muerde - 0.3, T.muerde)) * (1 - eio(sg(t, T.muerde + 0.35, T.muerde + 0.7)));
-    manoA(martin, p, "D", cerca.clone().lerp(boca.clone().add(V3(0.04, -0.16, 0.02)), k), 1, [-0.9, -0.5, -0.1]);   // (r1) la mano más abajo: la punta llega a la boca, el puño no tapa la nariz
-    if (t > T.muerde - 0.15 && t < T.muerde + 0.5) p.boca.abierta = Math.max(p.boca.abierta, 0.5 * (1 - sg(t, T.muerde - 0.02, T.muerde + 0.08)) + 0.08 * Math.abs(Math.sin((t - T.muerde) * 12)));
+    // (r3) la mordida de perfil: la porción sostenida desde el borde, la punta entra en la boca; la mano queda adelante y abajo
+    const k = eio(sg(t, T.muerde - 0.32, T.muerde - 0.02));
+    if (t > T.muerde - 0.2 && t < T.muerde + 0.5) p.boca.abierta = Math.max(p.boca.abierta, 0.55 * (1 - sg(t, T.muerde - 0.02, T.muerde + 0.1)) + 0.08 * Math.abs(Math.sin((t - T.muerde) * 12)));
+    martin.poner(p); martin.raiz.updateMatrixWorld(true);
+    const boca = martin.cabeza.localToWorld(V3(0, 0.15, 0.28));
+    const fw = V3(0, 0, 1).applyQuaternion(martin.cabeza.getWorldQuaternion(_q)); fw.y = 0; fw.normalize();
+    const reposo = toW(martin, [-0.14, 0.52, 0.42]);
+    const dirB = fw.clone().multiplyScalar(-0.75).add(V3(0, 0.66, 0)).normalize();  // mordiendo: del borde (adelante y abajo) a la boca
+    const borde = reposo.clone().lerp(boca.clone().addScaledVector(dirB, -0.215), k);
+    const dir = new THREE.Vector3();
+    // dir apunta del borde hacia la punta: en reposo la punta mira lejos del cuerpo
+    if (k < 0.001) dir.copy(fw).add(V3(0, 0.35, 0)).normalize();
+    else dir.copy(fw.clone().add(V3(0, 0.35, 0)).normalize().lerp(boca.clone().sub(borde).normalize(), k)).normalize();
+    const aCam = camera.position.clone().sub(borde).normalize(), up0 = V3(0, 1, 0).multiplyScalar(0.5).add(aCam).normalize(); const up = up0.addScaledVector(dir, -up0.dot(dir)).normalize(), zz = new THREE.Vector3().crossVectors(dir, up);
+    PORM_X.pos.copy(borde); PORM_X.q.setFromRotationMatrix(new THREE.Matrix4().makeBasis(dir, up, zz));
+    manoA(martin, p, "D", borde.clone().add(V3(0, -0.035, 0)).addScaledVector(dir, -0.02), 1, [-0.9, -0.5, -0.1]);
   }
   p.t = t; return p;
 }
+const PORM_X = { pos: new THREE.Vector3(), q: new THREE.Quaternion() };
 const PUERTA_ANG = (t) => -1.35 * eio(sg(t, T.abreP - 0.1, T.abreP + 0.45));
 const PERILLA = (t) => { PHOJA.rotation.y = PUERTA_ANG(t); PHOJA.updateMatrixWorld(true); return PHOJA.localToWorld(V3(-0.86, 1.05, 0.12)); };
 // =====================================================================================================
@@ -347,6 +364,7 @@ function ponerObjetos(t, pa) {
     const vib = (en(t, 0, 0.45) || en(t, 1.2, 1.6) || en(t, 2.6, 3.0) || en(t, T.p4i, T.p4i + 0.6)) ? Math.sin(t * 90) * 0.0025 : 0;
     if (pa === "P4c") { const m = manoMundo(tano, "D", _a); celMostr.position.copy(m).add(V3(0, 0.06, 0.02)); tano.cuerpo.getWorldQuaternion(_q); celMostr.quaternion.copy(_q); celMostr.rotateX(-0.25); celMostr.rotateY(-0.35); }
     else { celMostr.position.copy(CEL_M).add(V3(vib, 0.012, 0)); celMostr.rotation.set(-PI / 2 + 0.35, 0, 0); }
+    celMostr.scale.setScalar(pa === "P2b" ? 1.5 : 1);   // (r3) en P2b el celular se lee
   }
   BIROME.visible = pa === "P1" || pa === "P2b" || pa === "P3" || pa === "P3b" || pa === "P3c";
   if (BIROME.visible) {
@@ -384,7 +402,7 @@ function ponerObjetos(t, pa) {
   DISCO.visible = pa === "Q1b" || pa === "C";
   if (DISCO.visible) { DISCO.position.copy(discoEn(t)); DISCO.rotation.set(-0.75, 0, 0); DISCO.rotateY(t * 2.4); }   // (r1) de cara a la cámara (de canto parecía un palo)
   // los tickets que salen solos (Q1) y el #47 (Q3)
-  const uTk = pa === "Q1b" ? Math.max(sg(t, T.tks[0], T.tks[0] + 0.4) * (1 - sg(t, T.tks[0] + 0.45, T.tks[0] + 0.46)), sg(t, T.tks[1], T.tks[1] + 0.45)) : pa === "Q3" ? sg(t, T.imprime[0], T.imprime[1]) : pa === "C" ? sg(t, DUR - 0.75, DUR - 0.15) : 0;
+  const uTk = pa === "Q1b" ? Math.max(sg(t, T.tks[0], T.tks[0] + 0.4) * (1 - sg(t, T.tks[0] + 0.45, T.tks[0] + 0.46)), sg(t, T.tks[1], T.tks[1] + 0.45)) : pa === "Q3" ? sg(t, T.imprime[0], T.imprime[1]) : 0;   // (r3) sin el ticket del cierre
   sacarTicket(IMP, uTk);
   TK_MANO.visible = false;
   if (TK_MANO.visible) { TK_MANO.position.copy(ticketManoEn(t)).add(V3(0, -0.06, 0)); TK_MANO.rotation.set(0, PI + 0.2, 0.1); }
@@ -400,12 +418,12 @@ function ponerObjetos(t, pa) {
   PIZZA_L.userData.porciones.forEach((q, i) => (q.visible = !(i === 1 && pa === "Q4c")));
   // la porción de Martín y su mordida
   POR_M.visible = pa === "Q4c";
-  if (POR_M.visible) { const m = manoMundo(martin, "D", _a); POR_M.position.copy(m).add(V3(0, -0.05, 0.02)); martin.cuerpo.getWorldQuaternion(_q); POR_M.quaternion.copy(_q); POR_M.rotateY(-PI / 2 - 0.25); POR_M.rotateZ(0.55); POR_M.userData.bis.rotation.z = -0.3; POR_M.userData.bis.scale.x = t >= T.muerde ? 0.45 : 1; }
+  if (POR_M.visible) { POR_M.position.copy(PORM_X.pos); POR_M.quaternion.copy(PORM_X.q); POR_M.userData.bis.rotation.z = 0; POR_M.userData.bis.scale.x = t >= T.muerde ? 0.45 : 1; }
   HILO_M2.visible = false;
-  celMart.visible = pa === "Q2" || pa === "Q2b" || pa === "Q4c";
+  celMart.visible = pa === "Q2" || pa === "Q2b" || pa === "Q4c" || pa === "Q4b";
   if (celMart.visible) {
     martin.cuerpo.getWorldQuaternion(_q);
-    if (pa === "Q4c") { const m = manoMundo(martin, "I", _a); celMart.position.copy(m).add(V3(0, 0.07, 0)); celMart.quaternion.copy(_q); celMart.rotateX(-0.6); celMart.rotateY(0.5); }
+    if (pa === "Q4c" || pa === "Q4b") { const m = manoMundo(martin, "I", _a); celMart.position.copy(m).add(V3(0, 0.07, 0)); celMart.quaternion.copy(_q); celMart.rotateX(-0.6); celMart.rotateY(0.5); }
     else { const a = manoMundo(martin, "I", _a), b = manoMundo(martin, "D", _b); celMart.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.08, 0)); celMart.quaternion.copy(_q); celMart.rotateX(-0.75); }
   }
   // la puerta de Martín
@@ -438,7 +456,8 @@ function renderAt(tIn) {
   dibujarInterfaz(t, pa);
   // ---- quién está en cuadro ----
   const vis = {
-    tano: (enTano(pa) && !pa.endsWith("i")) || pa === "Q5b" || pa === "Q5c",
+    tano: (enTano(pa) && !pa.endsWith("i") && pa !== "P4b") ||   // (r3) en P4b la cámara está del lado de Tano
+      pa === "Q5b" || pa === "Q5c",
     facu: ["P3", "P3b", "P3c", "P4", "P4b", "P4c"].includes(pa),
     lucia: ["Q1", "Q1b", "Q3", "Q3t", "Q3s", "Q5", "C"].includes(pa),
     sabri: ["Q3s", "Q5b"].includes(pa) || (pa === "Q4" && t >= T.abreP + 0.08),   // (r2) la puerta abre primero
@@ -484,7 +503,7 @@ function tarjetas(t, pa) {
     if (t >= T.conV) globoTel(GL.conV, t, T.conV, 830, 790);
   }
   // P1i: la comanda; "¡Con V corta!" arriba y la B se escribe igual
-  if (pa === "P1i") ponerGlobo(GL.conV, 540, 410, 1, null, 1);
+  // (r3) P1i sin "¡Con V corta!" (quedaba fantasma debajo de PIZZERÍAS)
   if (pa === "P2" || pa === "P2b") {
     const y0 = pa === "P2" ? 0 : 0;
     if (t >= T.rotP2[0]) ponerGlobo(GL.rP2a, 270, 200, ent(t, T.rotP2[0]), null, 1);
@@ -494,10 +513,12 @@ function tarjetas(t, pa) {
   if (pa === "P3" || pa === "P3b") { chips(t, GL.vie2, GL.donT); }
   if (pa === "P3" && t >= T.f1) { verLineas(GL.f1, t >= T.f1 + W2_.f1 ? 2 : 1); hablar(GL.f1, facu, ent(t, T.f1), 1, 0); }
   if (pa === "P3b" && t < T.f1 + LEN.f1 + 0.05) { verGlobo(GL.f1, 99); ponerGlobo(GL.f1, 560, 320, 1, null, 1); }
-  if (pa === "P3c") {
-    CAJA_T.updateMatrixWorld(true); const [bx, by] = enPantalla(CAJA_T.localToWorld(V3(0, 0.05, 0.1)));
-    if (t >= T.rotP3[0]) { ponerGlobo(GL.rP3a, 780, 1520, ent(t, T.rotP3[0]), null, 1); ponerGuia(GUIAS[0], 780, 1520 + GL.rP3a.userData.H / 2, bx, by, eo(sg(t, T.rotP3[0], T.rotP3[0] + 0.25))); }
-    if (t >= T.rotP3[1]) ponerGlobo(GL.rP3b, 230, 1520, ent(t, T.rotP3[1]), null, 1);
+  // (r3) los rótulos de la pausa siguen sobre la caja (P4) y la pizza (P4b): ≥ 2 s en pantalla
+  if (pa === "P3c" || pa === "P4" || pa === "P4b") {
+    const yR = pa === "P3c" ? 1520 : pa === "P4" ? 1710 : 250;
+    if (t >= T.rotP3[0]) ponerGlobo(GL.rP3a, 780, yR, ent(t, T.rotP3[0]), null, 1);
+    if (pa === "P3c" && t >= T.rotP3[0]) { CAJA_T.updateMatrixWorld(true); const [bx, by] = enPantalla(CAJA_T.localToWorld(V3(0, 0.05, 0.1))); ponerGuia(GUIAS[0], 780, 1520 + GL.rP3a.userData.H / 2, bx, by, eo(sg(t, T.rotP3[0], T.rotP3[0] + 0.25))); }
+    if (t >= T.rotP3[1]) ponerGlobo(GL.rP3b, 260, yR, ent(t, T.rotP3[1]), null, 1);
   }
   if (pa === "P4" && t >= T.t4) hablar(GL.t4, tano, ent(t, T.t4), 1, 0);
   if (pa === "P4c" && t >= T.t5) hablar(GL.t5, tano, ent(t, T.t5), 1, -40);
@@ -509,7 +530,7 @@ function tarjetas(t, pa) {
   if (pa === "Q2i" && t >= T.sug) ponerGlobo(GL.rQ2, 540, 220, ent(t, T.sug), null, 1);
   if (pa === "Q2b" && t >= T.m2) hablar(GL.m2, martin, ent(t, T.m2), 1, 0);
   if (pa === "Q3" && t >= T.imprime[0] + 0.35) { IMP.updateMatrixWorld(true); const [ix, iy] = enPantalla(IMP.userData.tk.localToWorld(V3(0.035, 0.12, 0))); ponerGlobo(GL.rQ3, 760, 1620, ent(t, T.imprime[0] + 0.35), null, 1); ponerGuia(GUIAS[0], 760, 1620 - GL.rQ3.userData.H / 2, ix + 20, iy, eo(sg(t, T.imprime[0] + 0.35, T.imprime[0] + 0.6))); }
-  if (pa === "Q3s") { celSab.updateMatrixWorld(true); const [sx, sy] = enPantalla(celSab.localToWorld(V3(0, 0, 0))); ponerGlobo(MAPA_S, 290, 1380, ent(t, T.q3s + 0.1), null, 1); ponerGuia(GUIAS[0], 290 + MAPA_S.userData.W / 2 - 10, 1300, sx, sy, eo(sg(t, T.q3s + 0.1, T.q3s + 0.35))); }
+  if (pa === "Q3s") { celSab.updateMatrixWorld(true); const [sx, sy] = enPantalla(celSab.localToWorld(V3(0, 0, 0))); ponerGlobo(MAPA_S, 370, 1520, ent(t, T.q3s + 0.1), null, 1); ponerGuia(GUIAS[0], 370 + MAPA_S.userData.W / 2 - 10, 1300, sx, sy, eo(sg(t, T.q3s + 0.1, T.q3s + 0.35))); }
   if (pa === "Q4") { ponerGlobo(GL.vieQ4, 60 + GL.vieQ4.userData.W / 2, 200, 1, null); if (t >= T.s1) { verLineas(GL.s1, t >= T.s1 + W2_.s1 ? 2 : 1); hablar(GL.s1, sabri, ent(t, T.s1), 1, 0); } }
   if (pa === "Q5") ponerGlobo(GL.rQ5, 540, 200, ent(t, T.q5 + 0.05), null, 1);
   if (pa === "Q5c" && t >= T.t6) hablar(GL.t6, tano, ent(t, T.t6), 1, 0);

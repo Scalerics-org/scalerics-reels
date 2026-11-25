@@ -10,8 +10,8 @@
     [data-composition-id="s00-rubro"] .sel b { position: absolute; inset: -14px 0 -6px; background: #5ce611; border: 7px solid #0b1220; border-radius: 10px; }
     [data-composition-id="s00-rubro"] .sel em { position: relative; font-style: normal; }
   </style>
-  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="6.03">
-    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="6.03" data-track-index="0">
+  <div id="root" data-composition-id="s00-rubro" data-width="1080" data-height="1920" data-duration="5.08">
+    <div id="s00-rubro-esc" class="esc clip" data-start="0" data-duration="5.08" data-track-index="0">
       <div class="caja"><div class="tx"><span class="sel"><b></b><em>PIZZERÍAS</em></span></div></div>
     </div>
   </div>
@@ -23,7 +23,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
-      tl.to(q(".caja"), { opacity: 0, duration: 0.12, ease: "power1.in" }, 5.89);   // (r2) se va con un fundido (no se corta contra el borde)
+      tl.to(q(".caja"), { opacity: 0, duration: 0.12, ease: "power1.in" }, 4.94);   // (r2) se va con un fundido (no se corta contra el borde)
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

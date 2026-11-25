@@ -84,9 +84,9 @@ const enL = (x, y, z) => V3(-x, y, CALLE - z);
 const vinT = lienzo(600, 600, (x, w, h) => {
   x.clearRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.beginPath(); x.roundRect(10, 10, w - 20, h - 20, 40); x.fill();
   x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 88); x.fillText("Pedí online", w / 2, 92);
-  semilla = 3; const q = 300, q0 = (w - q) / 2, n = 15, c = q / n;
+  semilla = 3; const q = 285, q0 = (w - q) / 2, n = 15, c = q / n;
   for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) { const esq = (i < 4 && j < 4) || (i > 10 && j < 4) || (i < 4 && j > 10); if (esq ? (i % 3 === 0 || j % 3 === 0 || (i % 3 === 1 && j % 3 === 1)) && !((i === 1 || i === 2 || i === 12 || i === 13) && (j === 1 || j === 2 || j === 12 || j === 13) && !(i % 3 === 1 && j % 3 === 1)) : az() > 0.5) x.fillRect(q0 + i * c, 170 + j * c, c, c); }
-  x.fillStyle = "#3fa60a"; x.font = F(800, 50); x.fillText("y pagás ahí", w / 2, 530);
+  x.fillStyle = "#3fa60a"; x.font = F(900, 74); x.fillText("y pagás ahí", w / 2, 528);   // (r3) más grande
 });
 const VINILO = plano(0.95, 0.95, vinT, 0, 0, 0, true); VINILO.material.transparent = true; VINILO.position.copy(enL(-1.05, 1.55, 0.02)); VINILO.rotation.y = PI; scene.add(VINILO);   // mira a -z del mundo (hacia Don Tano)
 // ---------- la calle de noche: veredas crema, adoquines navy, el farol, vecinos a los costados ----------

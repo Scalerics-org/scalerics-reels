@@ -6,6 +6,8 @@ const lucia = crearPersonaje({ ...ELENCO.lucia, dedos: true, parpadeoCada: 999, 
 const sabri = crearPersonaje({ ...ELENCO.sabri, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const martin = crearPersonaje({ ...ELENCO.martin, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q2 + 0.3)] });
 const TODOS = [tano, facu, lucia, sabri, martin];
+// (r3) el bolsillo navy del delantal de Tano parecía un celular: fuera
+for (const m of tano.cuerpo.children) if (m.isMesh && Math.abs(m.position.y - 0.1) < 1e-4 && m.position.z > 0.15 && m.material.color.getHex() === new THREE.Color(MARCA.navy3).getHex()) { m.visible = false; m.userData.bolsillo = true; }
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // Tano: la harina en el delantal (manchas crema planas) y el repasador verde apagado al hombro derecho
 {
@@ -60,7 +62,7 @@ const PIZZA_L = crearMuzza(true); CAJA_L.add(PIZZA_L); PIZZA_L.position.y = 0.00
 const VAPOR_T = crearVapor(9); CAJA_T.add(VAPOR_T); VAPOR_T.position.set(0.02, 0.04, 0.02); VAPOR_T.scale.setScalar(0.7);
 const VAPOR_L = crearVapor(9); CAJA_L.add(VAPOR_L); VAPOR_L.position.set(0.02, 0.04, 0.02); VAPOR_L.scale.setScalar(0.7);
 // las porciones en la mano (Facu, Tano, Martín) y los hilos de queso
-const POR_F = crearPorcionMano(), POR_T = crearPorcionMano(), POR_M = crearPorcionMano();
+const POR_F = crearPorcionMano(), POR_T = crearPorcionMano(), POR_M = crearPorcionMano(); POR_M.scale.setScalar(1.25);   // (r3) la de Martín se lee en la mordida
 scene.add(POR_F, POR_T, POR_M);
 const HILO_F = crearHilo(), HILO_M2 = crearHilo(); scene.add(HILO_F, HILO_M2);
 // las motos: la de Facu (navy3, en la vereda de Don Tano) y la de Sabri (verde apagado, en la vereda de Lucía)

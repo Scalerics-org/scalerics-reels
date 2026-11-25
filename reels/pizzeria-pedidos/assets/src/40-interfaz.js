@@ -16,7 +16,7 @@ const cabecera = (x, W, titulo, sub = null, inicial = null, colorIni = "#5ce611"
 const onda = (x, X, Y, w, h, k, color, fondo = "#b4b2a3") => { const n = 22; for (let i = 0; i < n; i++) { const a = 0.3 + 0.7 * Math.abs(Math.sin(i * 1.7) * Math.cos(i * 0.6)); x.fillStyle = i / n < k ? color : fondo; x.fillRect(X + (i * w) / n, Y - (a * h) / 2, (w / n) * 0.6, a * h); } };
 // ---- el celular del mostrador de Tano: los mensajes que se apilan (n), el contador (cont), el micrófono (mic: 0/1) y el
 // de Martín arriba (mi: 0/1) ----
-const MSGS = [["C", "Caro", "¿Hacen envíos?"], ["J", "Juan P.", "¿Cuánto demora?"], ["V", "Vale", "Hola??"], ["S", "Seba", "¿Están abiertos?"], ["R", "Rocío", "¿Me pasás el menú?"]];
+const MSGS = [["C", "Caro", "¿Hacen envíos?"], ["J", "Juan P.", "¿Cuánto demora?"], ["V", "Vale", "Hola??"], ["S", "Seba", "¿Están abiertos?"], ["R", "Rocío", "¿Me pasás el menú?"], ["N", "Nico", "¿Tienen fainá?"], ["A", "Ana", "¿Siguen tomando?"]];   // (r3) 7: la pantalla llena desde el corte
 const COLS_AV = ["#b9bec4", "#cfeebc", "#d9d7c9", "#b9cde0", "#e9c9a8", "#c7655b"];
 function dibujarChatTano(x, W, H, { n = 0, cont = 9, mic = 0, mi = 0, seg = "0:01" } = {}) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H);
@@ -29,12 +29,12 @@ function dibujarChatTano(x, W, H, { n = 0, cont = 9, mic = 0, mi = 0, seg = "0:0
   if (mi) filas.push(["M", "Martín", "¿Y mi pizza?", true]);
   for (let i = n - 1; i >= 0; i--) filas.push([...MSGS[i], false]);
   filas.slice(0, 6).forEach(([ini, nom, txt, rojo], k) => {
-    const y = 206 + k * 152, h = 136;
+    const y = 206 + k * 172, h = 156;   // (r3) filas más altas: la pantalla se llena desde el corte
     x.fillStyle = rojo ? "#f6e1dd" : "#ffffff"; x.strokeStyle = rojo ? "#c7655b" : "#b4b2a3"; x.lineWidth = 5; x.beginPath(); x.roundRect(20, y, W - 40, h, 26); x.fill(); x.stroke();
     x.fillStyle = COLS_AV[(ini.charCodeAt(0) + k) % COLS_AV.length]; if (rojo) x.fillStyle = "#c7655b"; x.beginPath(); x.arc(86, y + h / 2, 46, 0, 7); x.fill();
     x.fillStyle = rojo ? "#ffffff" : "#0b1220"; x.textAlign = "center"; x.font = F(900, 46); x.fillText(ini, 86, y + h / 2 + 3);
-    x.textAlign = "left"; x.fillStyle = "#16243d"; x.font = F(800, 44); x.fillText(nom, 152, y + 40);
-    x.fillStyle = rojo ? "#c7655b" : "#0b1220"; ajustar(x, txt, 800, 54, W - 240); x.fillText(txt, 152, y + 98);
+    x.textAlign = "left"; x.fillStyle = "#16243d"; x.font = F(800, 46); x.fillText(nom, 152, y + 46);
+    x.fillStyle = rojo ? "#c7655b" : "#0b1220"; ajustar(x, txt, 800, 58, W - 240); x.fillText(txt, 152, y + 110);
     x.fillStyle = "#c7655b"; x.beginPath(); x.arc(W - 64, y + h / 2, 18, 0, 7); x.fill();
   });
   // abajo: el audio que graba (el micrófono apretado)
@@ -81,15 +81,15 @@ function dibujarMartin(x, W, H, e) {
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, W, H); x.textBaseline = "middle";
   if (e.pant === "chat") {
     cabecera(x, W, "Pizzería Don Tano", "en línea", "T", "#b9bec4");
-    const burb = (y, txt, hora, mio = true, h = 0) => { x.font = F(800, 48); const ls = renglones(x, txt, W - 220); const bh = h || 60 + ls.length * 62; const bx = mio ? 110 : 30, bw = W - 140; x.fillStyle = mio ? "#d9d7c9" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(bx, y, bw, bh, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ls.forEach((l, i) => x.fillText(l, bx + 30, y + 52 + i * 62)); x.fillStyle = "#16243d"; x.font = F(700, 42); x.textAlign = "right"; x.fillText(hora, bx + bw - 24, y + bh - 30); return y + bh + 26; };
+    const burb = (y, txt, hora, mio = true, h = 0) => { x.font = F(800, 58); const ls = renglones(x, txt, W - 220); const bh = h || 100 + ls.length * 70; const bx = mio ? 110 : 30, bw = W - 140; x.fillStyle = mio ? "#d9d7c9" : "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(bx, y, bw, bh, 28); x.fill(); x.stroke(); x.fillStyle = "#0b1220"; x.textAlign = "left"; ls.forEach((l, i) => x.fillText(l, bx + 30, y + 56 + i * 70)); x.fillStyle = "#16243d"; x.font = F(700, 48); x.textAlign = "right"; x.fillText(hora, bx + bw - 24, y + bh - 30); return y + bh + 26; };
     let y = 220;
-    { x.font = F(800, 44); const tw = x.measureText("Llamada · 21:00").width + 60; x.fillStyle = "#d9d7c9"; x.beginPath(); x.roundRect(W / 2 - tw / 2, y, tw, 76, 38); x.fill(); x.fillStyle = "#16243d"; x.textAlign = "center"; x.fillText("Llamada · 21:00", W / 2, y + 40); y += 110; }
+    { x.font = F(800, 54); const tw = x.measureText("Llamada · 21:00").width + 60; x.fillStyle = "#d9d7c9"; x.beginPath(); x.roundRect(W / 2 - tw / 2, y, tw, 90, 45); x.fill(); x.fillStyle = "#16243d"; x.textAlign = "center"; x.fillText("Llamada · 21:00", W / 2, y + 47); y += 124; }   // (r3) textos ≥ 48
     y = burb(y, "¿Y mi pizza?", "22:12");
     // el audio que llega de Don Tano
-    x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(30, y, W - 140, 150, 28); x.fill(); x.stroke();
+    x.fillStyle = "#ffffff"; x.strokeStyle = "#16243d"; x.lineWidth = 5; x.beginPath(); x.roundRect(30, y, W - 140, 172, 28); x.fill(); x.stroke();
     x.fillStyle = "#16243d"; x.beginPath(); x.arc(110, y + 75, 46, 0, 7); x.fill(); x.fillStyle = "#efeee5";
     if (e.audio > 0 && e.audio < 1) { x.fillRect(94, y + 52, 12, 46); x.fillRect(114, y + 52, 12, 46); } else { x.beginPath(); x.moveTo(96, y + 50); x.lineTo(132, y + 75); x.lineTo(96, y + 100); x.closePath(); x.fill(); }
-    onda(x, 180, y + 70, W - 420, 64, e.audio, "#16243d"); x.fillStyle = "#16243d"; x.font = F(800, 40); x.textAlign = "left"; x.fillText("0:01", 180, y + 128); x.textAlign = "right"; x.font = F(700, 42); x.fillText("22:15", W - 134, y + 128);
+    onda(x, 180, y + 70, W - 420, 64, e.audio, "#16243d"); x.fillStyle = "#16243d"; x.font = F(800, 48); x.textAlign = "left"; x.fillText("0:01", 180, y + 138); x.textAlign = "right"; x.font = F(700, 48); x.fillText("22:15", W - 134, y + 138);
     return;
   }
   cabecera(x, W, "Lucía Pizzas · Pedí acá", "Abierto · Envío 30-40 min", "L");
@@ -195,8 +195,8 @@ function dibujarInterfaz(t, pa) {
   // el chat de Tano
   const n = T.msgs.filter((m) => t >= m).length, cont = t >= T.cont[2] ? 26 : t >= T.cont[1] ? 17 : 9, mic = (t >= T.mic && t < T.p3) || t >= T.mic2 ? 1 : 0, mi = t >= T.mPizza ? 1 : 0;
   const kC = `${n}|${cont}|${mic}|${mi}`;
-  if (kC !== cChat) { cChat = kC; dibujarChatTano(INS_CHAT.tex.userData.x, INS_CHAT.IW, INS_CHAT.IH, { n: t >= T.p3 ? 5 : n, cont: mi ? 27 : cont, mic, mi }); INS_CHAT.tex.needsUpdate = true;
-    const xx = pantTano.userData.x; xx.save(); xx.scale(400 / 860, 820 / 1420); dibujarChatTano(xx, 860, 1420, { n: t >= T.p3 ? 5 : n, cont: mi ? 27 : cont, mic, mi }); xx.restore(); pantTano.needsUpdate = true; }
+  if (kC !== cChat) { cChat = kC; dibujarChatTano(INS_CHAT.tex.userData.x, INS_CHAT.IW, INS_CHAT.IH, { n: t >= T.p3 ? MSGS.length : n, cont: mi ? 27 : cont, mic, mi }); INS_CHAT.tex.needsUpdate = true;
+    const xx = pantTano.userData.x; xx.save(); xx.scale(400 / 860, 820 / 1420); dibujarChatTano(xx, 860, 1420, { n: t >= T.p3 ? MSGS.length : n, cont: mi ? 27 : cont, mic, mi }); xx.restore(); pantTano.needsUpdate = true; }
   // el celular de Martín
   const pant = t < T.menu ? "chat" : t < T.dir ? "menu" : t < T.pago ? "dir" : "pago";
   const eM = { pant, audio: Math.round(sg(t, T.audio, T.audio + LEN.t5) * 12) / 12, cant: [t >= T.mas[0] ? 1 : 0, (t >= T.mas[1] ? 1 : 0) + (t >= T.mas[2] ? 1 : 0)], tipeo: Math.round(sg(t, T.tipea[0], T.tipea[1]) * 4) / 4, sug: t >= T.sug ? 1 : 0, pin: Math.round(sg(t, T.pin, T.pin + 0.25) * 8) / 8, pago: t >= T.pagado ? 2 : t >= T.pagar ? 1 : 0 };
@@ -218,7 +218,7 @@ const chip = (txt, px = 62, fondo = "#16243d", tinta = "#efeee5") => { const med
 // el globo que sale del teléfono: mismo globo, con el borde punteado adentro
 function crearGloboTel(lineas, px) { const g = crearGlobo(lineas, px); const { W, H } = g.userData; const viejo = g.userData.dibujo; g.userData.punteado = true; redibujar(g, (x, w, h) => { viejo(x, w, h); x.strokeStyle = "#16243d"; x.lineWidth = 6; x.setLineDash([16, 12]); x.beginPath(); x.roundRect(10, 10, w - 20, h - 20, 26); x.stroke(); x.setLineDash([]); }); return g; }
 // la mapa de Sabri como tarjeta chica pegada a la cámara
-const MAPA_S = crearTarjeta(560, 560, (x, W, H) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 150); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 52); x.fillText("Pedido #47 · 8 min", 26, 50); x.fillStyle = "#cfeebc"; ajustar(x, "Duvimioso Terra 1432", 800, 44, W - 52); x.fillText("Duvimioso Terra 1432", 26, 112); dibujarMapa(x, 16, 166, W - 32, H - 182, { pin: 1, ruta: 1 }); });
+const MAPA_S = crearTarjeta(680, 640, (x, W, H) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, W, 180); x.fillStyle = "#efeee5"; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 62); x.fillText("Pedido #47 · 8 min", 28, 58); x.fillStyle = "#cfeebc"; ajustar(x, "Duvimioso Terra 1432", 800, 54, W - 56); x.fillText("Duvimioso Terra 1432", 28, 136); dibujarMapa(x, 16, 196, W - 32, H - 212, { pin: 1, ruta: 1 }); });   // (r3) textos más grandes
 const GL = {
   vie: chip("Viernes, 21:00.", 60), vie2: chip("Viernes, 22:10.", 60), vieL: chip("Viernes, 21:00.", 60), vieQ2: chip("Viernes, 22:15.", 60), vieQ4: chip("Viernes, 22:54.", 60),
   donT: chip("DON TANO", 46, "#efeee5", "#16243d"), luc: chip("LUCÍA", 46, "#5ce611", "#0b1220"),
