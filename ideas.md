@@ -278,6 +278,9 @@
 - 25-11 · `gym-cupo` · Gimnasios y estudios · Reservas de clases con cupo real + lista de espera automática + recordatorio el mismo día + panel de ocupación · Línea "ANTES QUE TODO", completo con Mauro (dueño y profe, Estudio Mauro), Majo, Sole y Graciela: martes, spinning de las 19, 14 bicis: en el grupo 22 "yo voy", "Llena, Majo. Perdoná."; a las 19:00 vinieron nueve y las bicis vacías terminaron de perchero; "Los «yo voy» no pedalean."; cartel; parte 2: Majo reserva la bici 7 en el mapa, Sole entra de la lista de espera, 14 de 14 · Comentá CUPO · 41,8 s · 3 rondas de revisión + pulido final + QA de arte final sin ALTA · render 32 min [formato completo 8d · estilo 3D, sala de spinning navy con franja crema y tira verde] · rama reel/gym-cupo
 
 ## En curso
+<!-- corrida-activa: 2026-11-25T15:12 -->
+- 25-11 · `dist-comisiones` · Distribuidoras · Sistema a medida (comisiones de cada vendedor calculadas solas con cada venta cobrada, panel por vendedor, el vendedor ve lo suyo en el celular) · completo con Rubén y Nico: "¿Cuánto me toca?" · en construcción (corrida 25-11 15:12)
+- 25-11 · `inmobiliaria-disponible` · Inmobiliarias · Agente de IA (contesta al instante las consultas de portales y WhatsApp con la ficha, requisitos y fotos, y agenda la visita en la agenda del corredor) · completo con Silvana: "¿Sigue disponible?" · en construcción (corrida 25-11 15:12)
 
 
 
