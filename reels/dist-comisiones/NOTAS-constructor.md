@@ -167,3 +167,20 @@ Q4n ~38,9 · C 41,27 (los exactos en assets/tiempos3d.js).
 - Portada regenerada (fondo nuevo sin el monitor cortado). El logo sigue en y ≈ 1644 (fijo en la herramienta compartida).
 - Snapshots cada 0,5 s: renders/snap/r2a y r2b (h1.png, h2.png).
 - (r2) Burbujas del remate (r3/r6) a 46 px, abajo a la derecha sobre el frente del escritorio, con la cola a Rubén: no tapan las cajas ni sus montos.
+
+## Pulido final (qa dist-r3) · sin render · 44,47 s (sin cambios de tiempos)
+- M2: la regla EMPRESA se va en Q3b antes de que baje la roja de Javi; la roja de Nico se achica entera (sin texto comprimido).
+- M1: Javi entra por adentro de la oficina, a la izquierda de Nico (sin el marco de la puerta en la cara), el celular en la mano
+  izquierda a la altura del pecho ($ 39.000 a la vista); cámara de P5b/Q3 un poco corrida.
+- M4: en P7b/Q4b Nico está más adentro del marco (x 1,36) con el celular pegado al pecho: no estira el brazo hacia Rubén; la
+  cámara de P7b/Q4b más cerca (M3 en esos planos). P1/Q1 sin tocar (más cerca cortaba a Nico o al monitor).
+- Sonido: el golpe de cada caja cuando asienta (+0,2 s) y un ding suave (-44) con "+ $ 500.000"; mezcla re-medida: voz ≥ +13,7
+  LU, efectos sin voz máx -31,7, -14,0 LUFS.
+- Cierre: el panel sin la fila de abajo (asomaba partida sobre la tarjeta).
+- Portada: fondo nuevo (CAM_PORTADA más atrás, VER=portada sin monitor ni calendario): la cara de Rubén despegada del borde.
+- Bajas: sin los tubos del techo en P6/Q3b; guía de "+ $ 500.000" a la esquina de arriba de la caja (no sobre el número);
+  burbujas de P2 y P4 corridas a la derecha (no tapan el calendario); P3b más abierto (la cabeza de Javi entera); mate del día 2
+  lejos del bigote; cursor oculto en el clic; Rubén señala con la bombilla en Q1b.
+- Boca: bocaVoz no escribe sobre objetos compartidos (crea un objeto nuevo por cuadro); verificado con prev.mjs en orden
+  9,9 → 10,5 → 11,0 → 12,0 → 13,0: el que no habla tiene la boca cerrada.
+- check: 0 errores. Snapshots: renders/snap/pul y pul2.

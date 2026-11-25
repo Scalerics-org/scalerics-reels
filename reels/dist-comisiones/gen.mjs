@@ -317,7 +317,8 @@ s("sfx/k-cloth_2.wav", T.p5b, 0, { techo: -40 });
 voz("j1", T.j1, 0, { suave: true });   // (r1) la cadena fuerte partía "Héc|tor"
 // P6 · la pausa; las cajas que caen (tono que sube)
 s("bgm/pizzicato-lleno.wav", T.p4 - 0.02, 0, { desde: 9.0, loop: true, dur: r2(T.p7 - T.p4 + 0.04), fi: 0.2, fin: 0.06, techo: -42 });
-T.cajas.forEach((t, i) => { caja(t + 0.08, -46); pop(t, -48 + i * 0.5); });
+T.cajas.forEach((t, i) => { caja(t + 0.2, -46); pop(t, -48 + i * 0.5); });   // (pulido) el golpe cuando asienta (0,2 s)
+ding(T.pasa + 0.02, -44);   // "+ $ 500.000" y la regla EMPRESA
 voz("r3", T.r3, -1);
 // P7 · el celular vibra en el escritorio; Graciela por altavoz; Recalculando… (glitch); la hoja; el stinger va con el cartel
 tono({ a: T.p7, b: P1 + 0.02 });

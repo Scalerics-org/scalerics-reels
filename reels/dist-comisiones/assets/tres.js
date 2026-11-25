@@ -178,6 +178,7 @@ const DEP_Y = -3.2;
 const OF = new THREE.Group(); scene.add(OF);
 const FUERA = new THREE.Group(); scene.add(FUERA);
 const pantMon = lienzo(1280, 896, () => {});
+const TUBOS = [];
 let monitor, termo, mateM, celR, calc, cinta, talon, reloj, agujaH, agujaM, hojas = [], pizza, puerta;
 const paredM = mat(C.cr, 0.9);
 {
@@ -187,7 +188,7 @@ const paredM = mat(C.cr, 0.9);
   const p = mesh(new THREE.PlaneGeometry(OF_X1 - OF_X0, OF_Z1 - PARED), new THREE.MeshStandardMaterial({ map: pisoT, roughness: 0.7 }), 0, 0, (OF_Z1 + PARED) / 2); p.rotation.x = -Math.PI / 2; p.castShadow = false; OF.add(p);
   // (r2) techo claro con dos tubos (navy3 dejaba franjas vacías arriba de los planos)
   OF.add(cajaS(OF_X1 - OF_X0 + 0.2, 0.12, OF_Z1 - PARED, mat(0xd9d7c9, 0.9), 0, ALTO + 0.06, (OF_Z1 + PARED) / 2));
-  for (const z of [-1.2, 1.0]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.14), new THREE.MeshBasicMaterial({ color: 0xf6f3e6, toneMapped: false })); f.rotation.x = Math.PI / 2; f.position.set(0, ALTO - 0.005, z); OF.add(f); }   // (r2) sin la carcasa navy: se veía como una barra flotando
+  for (const z of [-1.2, 1.0]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.14), new THREE.MeshBasicMaterial({ color: 0xf6f3e6, toneMapped: false })); f.rotation.x = Math.PI / 2; f.position.set(0, ALTO - 0.005, z); OF.add(f); TUBOS.push(f); }   // (r2) sin la carcasa navy: se veía como una barra flotando
   OF.add(cajaS(0.12, ALTO, OF_Z1 - PARED, paredM, OF_X0, ALTO / 2, (OF_Z1 + PARED) / 2));
   OF.add(cajaS(0.12, ALTO, OF_Z1 - PARED, paredM, OF_X1, ALTO / 2, (OF_Z1 + PARED) / 2));
   // la pared del fondo: crema hasta VID0; arriba del vidrio, una franja crema; zócalo navy
@@ -563,8 +564,8 @@ function dibujarMon(t) {
     const abre = t >= T.toca && t < T.q3b ? 1 : 0;
     const dev = t >= T.devol ? 1 : 0;
     const nico = dev ? Math.round(lerp(42000, 41802, cl(sg(t, T.baja2, T.baja2 + 0.35)))) : 42000;
-    const cursor = t >= T.q3m - 0.05 && t < T.toca + 0.04 ? cl(sg(t, T.q3m - 0.05, T.toca)) : -1;
-    clave = `p|${abre}|${dev}|${nico}|${Math.round(cursor * 10)}`;
+    const cursor = t >= T.q3m - 0.05 && t < T.toca ? cl(sg(t, T.q3m - 0.05, T.toca)) : -1;
+    clave = `p|${abre}|${dev}|${nico}|${Math.round(cursor * 10)}|${t >= T.c ? 1 : 0}`;
     if (clave === claveMon) return; claveMon = clave;
     const { x } = pantMon.userData;
     x.textBaseline = "middle"; x.textAlign = "left";
@@ -582,11 +583,11 @@ function dibujarMon(t) {
       x.fillStyle = "#0b1220"; x.font = F(900, 110); x.fillText(n, 220, y + 110);
       x.textAlign = "right"; x.font = F(900, 120); x.fillText(pesos(com), W - 50, y + 110); x.textAlign = "left";
     });
-    if (dev) {
+    if (dev && t < T.c) {   // (pulido) en el cierre sin la fila de abajo (asomaba partida sobre la tarjeta)
       const y = 640; x.fillStyle = "#16243d"; x.beginPath(); x.roundRect(24, y, W - 48, 210, 30); x.fill(); x.strokeStyle = "#5ce611"; x.lineWidth = 10; x.stroke();
       x.fillStyle = "#efeee5"; x.font = F(900, 90); x.fillText("Devolución", 56, y + 105);
       x.fillStyle = "#5ce611"; x.textAlign = "right"; x.font = F(900, 110); x.fillText("− $ 198", W - 56, y + 108); x.textAlign = "left";
-    } else {
+    } else if (t < T.c) {
       x.fillStyle = "#5ce611"; x.textAlign = "center"; fit(x, "Comisiones: cerradas ✓", 900, 92, W - 80); x.fillText("Comisiones: cerradas ✓", W / 2, 750); x.textAlign = "left";
     }
     if (abre) {
@@ -906,17 +907,17 @@ function camFrente(obj, centroLocal, normalLocal, alto, llena, fov, dx = 0, dy =
 const camMon = (llenaAncho, fov, dx = 0, dy = 0) => camFrente(monitor, monitor.userData.centro, V3(0, 0, 1), MON.W / (1080 / 1920), llenaAncho, fov, dx, dy);
 const CAM_P1 = (k) => [lerp(0.24, 0.22, k), 1.05, lerp(2.55, 2.35, k), 0.18, 1.3, -2.4, 64];
 const CAM_P2 = (k) => [lerp(1.15, 1.1, k), 1.42, lerp(0.85, 0.72, k), 0.1, 1.34, RUB.z, 40];
-const CAM_ESC = (k) => [1.2, lerp(0.32, 0.36, k), lerp(-7.0, -6.85, k), 1.2, -0.25, -3.7, 54];
+const CAM_ESC = (k) => [1.2, lerp(0.32, 0.36, k), lerp(-7.0, -6.85, k), 1.2, -0.25, -3.7, 60];
 const CAM_CAL = (k) => [CAL.x + 0.05, CAL.y - 0.05, lerp(-0.85, -0.95, k), CAL.x, CAL.y - 0.08, PARED, 44];
 const CAM_DESK = (k) => [lerp(1.5, 1.45, k), 0.98, lerp(1.0, 0.9, k), 0.62, 0.78, -1.0, 50];
 const CAM_P4 = (k) => [lerp(0.3, 0.28, k), 1.38, lerp(1.4, 1.3, k), -0.42, 1.22, RUB.z, 56];
 const CAM_P5 = (k) => [1.3, 1.45, lerp(-0.05, -0.2, k), 1.3, 1.38, -2.4, 46];
-const CAM_P5B = (k) => [0.9, 1.55, lerp(0.75, 0.6, k), 0.85, 1.45, -2.5, 48];
+const CAM_P5B = (k) => [0.82, 1.55, lerp(0.8, 0.65, k), 0.78, 1.45, -2.5, 50];
 const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
 const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.3, -1.5, 56];
 const CAM_P6 = (k) => [lerp(-0.6, -0.62, k), 1.3, lerp(2.3, 2.2, k), -0.55, 1.36, -0.8, 70];   // (r2) el remate llena la pantalla   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
-const CAM_P7B = (k) => [lerp(0.38, 0.36, k), 1.45, lerp(2.5, 2.35, k), 0.14, 1.42, -1.6, 64];
+const CAM_P7B = (k) => [lerp(0.44, 0.42, k), 1.4, lerp(2.25, 2.1, k), 0.24, 1.36, -1.6, 64];   // (pulido) más cerca
 const CAM_C = (k) => [lerp(-0.08, -0.1, k), 1.42, lerp(1.7, 1.6, k), -0.3, 1.14, RUB.z, 56];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
@@ -972,7 +973,7 @@ function poseRuben(per, t, pa, cp) {
       Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0.1, y: 0, abiertos: 0.95, feliz: 0.3 }, cejas: { alto: 0.25, ang: 0, asim: 0.3 }, boca: { sonrisa: 0.5, abierta: 0, ancho: 1 } });
       pr.cabeza = { giro: mira(0.7), asiente: 0.04, ladea: 0.04 };
       const u = eo(sg(t, T.r5 - 0.15, T.r5 + 0.2));
-      pr.manoI = lerpV([0.2, 0.36, 0.34], [0.32, 0.48, 0.48], u); pr.codoI = [1, -0.5, -0.2];
+      pr.manoI = lerpV([0.2, 0.36, 0.34], [0.42, 0.58, 0.52], u);   // (pulido) señala claro con la bombilla pr.codoI = [1, -0.5, -0.2];
       bocaVoz(pr, t, T.r5, ENV.r5, 0.55);
     }
   } else if (pa === "P3a" || pa === "P3d" || pa === "P4") {
@@ -1028,6 +1029,7 @@ function poseNico(t, pa, cp) {
   if (pa === "Q3") { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: -0.5, y: 0.1, abiertos: 0.95, feliz: 0.3 } }); pr.cabeza = { giro: -0.2, asiente: 0, ladea: 0.06 }; }
   if (pa === "P6") { Object.assign(pr, { ...CARA.sorpresa, ojos: { x: -0.8, y: 0.5, abiertos: 1 }, cejas: { alto: 0.7, ang: 0.4 }, boca: { sonrisa: -0.1, abierta: 0.25, ancho: 0.8 } }); pr.cabeza = { giro: -0.5, asiente: -0.25, ladea: 0.04 }; }
   if (pa === "Q3b") { Object.assign(pr, { ...CARA.feliz, ojos: { x: -0.8, y: 0.4, abiertos: 0.95, feliz: 0.35 } }); pr.cabeza = { giro: -0.5, asiente: -0.2, ladea: 0.04 }; }
+  if (pa === "P7b" || pa === "Q4b") { pr.x = 1.36; pr.giro = -0.3; }   // (pulido) más adentro del marco: no se superpone con el hombro de Rubén
   if (pa === "P7b") { Object.assign(pr, { ...CARA.incredula, ojos: { x: 0, y: -0.6, abiertos: 0.7 }, cejas: { alto: 0.3, ang: 0.6 }, boca: { sonrisa: -0.35, abierta: 0, ancho: 0.85 } }); pr.cabeza = { giro: -0.1, asiente: 0.3, ladea: 0.04 }; pr.manoI = [0.08, 0.34, 0.32]; pr.manoD = [-0.08, 0.34, 0.32]; }
   if (pa === "Q4b") { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0, y: -0.6, abiertos: 0.95, feliz: 0.25 } }); pr.cabeza = { giro: -0.1, asiente: 0.3, ladea: 0.04 }; pr.manoI = [0.08, 0.34, 0.32]; pr.manoD = [-0.08, 0.34, 0.32]; }
   if (pa === "Q4n") { Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0, y: 0, abiertos: 0.95, feliz: 0.35 }, cejas: { alto: 0.3, ang: 0, asim: 0.4 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1 } }); pr.giro = -0.1; pr.cabeza = { giro: haciaCam(cp, B.x, B.z, -0.1, 0.8), asiente: 0.02, ladea: 0.06 }; bocaVoz(pr, t, T.n5, ENV.n5, 0.7); }
@@ -1045,7 +1047,8 @@ function poseJavi(t, pa, cp) {
   if (pa === "P5b" || pa === "Q3") {
     // se mete por el costado de Nico, el celular en alto (P5b) / se asoma desconfiado (Q3)
     const u = eo(sg(t, pa === "P5b" ? T.p5b : T.q3, (pa === "P5b" ? T.p5b : T.q3) + 0.3));
-    pr.x = lerp(0.25, 0.55, u);   // (r2) más a la izquierda: Nico no le tapa la cara pr.z = lerp(PARED - 0.55, PARED - 0.15, u); pr.giro = -0.15;
+    pr.x = lerp(0.15, 0.48, u);   // (pulido) adentro de la oficina, a la izquierda de Nico: sin marco de puerta ni Nico delante de la cara
+    pr.z = PARED + 0.35; pr.giro = -0.15;
     pr.cabeza = { giro: haciaCam(cp, pr.x, pr.z, pr.giro, 0.8), asiente: 0.02, ladea: -0.08 };
     if (pa === "P5b") { Object.assign(pr, { ...CARA.fastidio, ojos: { x: 0, y: 0, abiertos: 0.95, tension: -0.2 }, cejas: { alto: 0.1, ang: -0.35 }, boca: { sonrisa: -0.1, abierta: 0, ancho: 1 } }); bocaVoz(pr, t, T.j1, ENV.j1, 0.75); }
     else { Object.assign(pr, { ...CARA.incredula, ojos: { x: 0, y: 0, abiertos: 0.85 }, cejas: { alto: 0.4, ang: 0.2, asim: -0.6 }, boca: { sonrisa: 0.1, abierta: 0, ancho: 0.9 } }); bocaVoz(pr, t, T.j2, ENV.j2, 0.75); }
@@ -1085,14 +1088,15 @@ function renderAt(tIn) {
   luzModo(pa === "P3b" ? "noche" : !parte2 && t >= T.p3c ? "tarde" : "manana");
   // ---- pantallas ----
   dibujarMon(t); dibujarN(t); dibujarJ(t); dibujarR(t);
-  monitor.userData.pant.visible = !(pa === "P6" || pa === "Q3b");   // (r2) el monitor apagado detrás de las pilas: sin astillas de texto
+  monitor.userData.pant.visible = !(pa === "P6" || pa === "Q3b");
+  for (const f of TUBOS) f.visible = !(pa === "P6" || pa === "Q3b");   // (pulido) el tubo se leía como otra línea junto a EMPRESA   // (r2) el monitor apagado detrás de las pilas: sin astillas de texto
   // ---- el escritorio según el momento ----
   const dia2 = !parte2 && t >= T.p3c;
   talon.visible = !parte2;
   ponerCinta(parte2 ? 0.035 : t < T.p3 ? 0.035 : t < T.p3d ? lerp(0.035, 0.3, sg(t, T.p3, T.p3d)) : 1);
   // el termo: parado al lado del mate; en P3d se inclina sobre el mate y no sale nada (día 2, vacío)
   termo.position.set(0.68, DESK.y, -1.12); termo.rotation.set(0, 0.4, 0);
-  mateM.position.set(0.42, DESK.y, -1.02); mateM.rotation.set(0, -0.6, 0); mateM.visible = true;
+  mateM.position.set(dia2 ? 0.52 : 0.42, DESK.y, dia2 ? -0.82 : -1.02); mateM.rotation.set(0, -0.6, 0); mateM.visible = true;
   // (r2) sin la animación que tiraba el termo contra Rubén: el día 2 está acostado (vacío), lejos de él
   if (dia2) { termo.position.set(0.72, DESK.y + 0.06, -0.85); termo.rotation.set(0, 0.5, Math.PI / 2); }   // acostado: vacío
   if (["P5", "P5b", "Q3", "Q4n", "Q2"].includes(pa)) { termo.visible = false; mateM.visible = false; } else termo.visible = true;
@@ -1136,15 +1140,15 @@ function renderAt(tIn) {
       celN.scale.setScalar(lerp(1.2, 2.0, u)); celEnMano(celN, nico, camP, V3(lerp(0.1, 0.2, u), lerp(0.4, 0.5, u), lerp(0.3, 0.48, u)), 0.08);
       const pn = poseNico(t, pa, cp); pn.manoI = aCuerpo(nico, celN.position.clone().add(V3(0.0, -0.205 * celN.scale.x / 2.0, 0))); pn.codoI = [1, -0.6, -0.2]; nico.poner(pn);
     } else {
-      celN.scale.setScalar(1.15); celEnMano(celN, nico, camP, V3(0.1, 0.38, 0.32), 0);
-      if (["P7b", "Q4b"].includes(pa)) { celN.lookAt(nico.cabeza.localToWorld(V3(0, 0.1, 0.3))); }
+      celN.scale.setScalar(1.15); celEnMano(celN, nico, camP, ["P7b", "Q4b"].includes(pa) ? V3(0.02, 0.3, 0.24) : V3(0.1, 0.38, 0.32), 0);   // (pulido) en P7b/Q4b pegado al pecho: no estira el brazo hacia Rubén
+      if (["P7b", "Q4b"].includes(pa)) { celN.lookAt(nico.cuerpo.localToWorld(V3(0.0, 1.2, 0.9))); }   // (pulido) inclinado hacia él pero se ve la pantalla
       const pn = poseNico(t, pa, cp); pn.manoI = aCuerpo(nico, celN.position.clone().add(V3(0, -0.08, 0))); nico.poner(pn);
     }
   }
   if (javi.raiz.visible && (pa === "P5b")) {
     celJ.visible = true; const u = eo(sg(t, T.p5b + 0.1, T.p5b + 0.4));
-    celJ.scale.setScalar(lerp(1.2, 2.1, u)); celEnMano(celJ, javi, camP, V3(-0.2, lerp(0.5, 0.95, u), 0.42), -0.08);
-    const pj = poseJavi(t, pa, cp); pj.manoD = aCuerpo(javi, celJ.localToWorld(V3(0, -0.1, -0.02))); pj.codoD = [-1, -0.4, -0.2]; javi.poner(pj);
+    celJ.scale.setScalar(lerp(1.2, 2.1, u)); celEnMano(celJ, javi, camP, V3(0.24, lerp(0.45, 0.6, u), 0.46), 0.08);   // (pulido) en la mano izquierda, entre él y Nico, a la altura del pecho
+    const pj = poseJavi(t, pa, cp); pj.manoI = aCuerpo(javi, celJ.localToWorld(V3(0, -0.1, -0.02))); pj.codoI = [1, -0.4, -0.2]; pj.codoD = [-1, -0.4, -0.2]; javi.poner(pj);
   }
   // ---- las pilas (P6, Q3b) ----
   for (const c of [pilaE, ...PILA_V, cjHJ2]) c.visible = false;
@@ -1167,7 +1171,7 @@ function renderAt(tIn) {
       // Javi gira sobre sí misma y, de canto, pasa a la kraft "Javi ✓" (sin cambio de golpe)
       const v = eio(sg(t, T.vuela, T.asienta));
       const hN = cjHN.userData.hU * U * (1 - v);
-      cjHN.visible = v < 0.98; cjHN.scale.set(1 + 0.08 * Math.sin(Math.PI * v), Math.max(0.02, 1 - v), 1 + 0.08 * Math.sin(Math.PI * v));
+      cjHN.visible = v < 0.98; cjHN.scale.setScalar(Math.max(0.02, 1 - v));   // (pulido) se achica entera: el texto no se comprime
       cjHN.position.y = 15 * U + hN / 2;
       cjJavi.position.y = 15 * U + hN + 4 * U; cjHJ.position.y = 15 * U + hN + 8 * U + 2.5 * U;
       const g2 = sg(t, T.asienta, T.asienta + 0.3), giro = Math.PI * eio(g2);
@@ -1176,7 +1180,7 @@ function renderAt(tIn) {
       const sz = 1 - 0.18 * Math.sin(Math.PI * g2); for (const c of [cjHJ, cjHJ2]) { c.position.set(PILA.xV, cjHJ.position.y, base); c.rotation.set(0, caraB ? giro - Math.PI : giro, 0); c.scale.set(sz, 1, sz); }
       igual.visible = t >= T.igual; if (igual.visible) { const s = bk(sg(t, T.igual, T.igual + 0.2)); igual.scale.setScalar(Math.max(0.01, s)); igual.position.set((PILA.xE + PILA.xV) / 2, 28 * U + 0.22, base + PILA.D / 2 + 0.05); }
     }
-    lineaRef.visible = pa === "P6" ? t >= T.pasa : t < T.asienta;
+    lineaRef.visible = pa === "P6" ? t >= T.pasa : t < T.vuela;   // (pulido) en Q3b se va antes de que baje la roja de Javi
   }
   // ---- cámara ----
   if (pl[2]) { ponerCam(camPre, t); camera.updateMatrixWorld(true); }
@@ -1200,6 +1204,7 @@ function renderAt(tIn) {
   if (window.__cam) ponerCam(window.__cam, t, true);
   if (VERM && VERM.startsWith("cam:")) ponerCam(VERM.slice(4).split(",").map(Number), t, true);
   if (VERM === "portada") ponerCam(CAM_PORTADA, t, true);
+  monitor.visible = hojas[0].parent.visible = VERM !== "portada";   // (pulido) la portada sin el monitor ni el calendario cortados en el borde
   camera.updateMatrixWorld(true);
   for (const p of TODOS) if (p.ojoLejano && p.raiz.visible) p.ojoLejano(camera.position);
   if (ruben.raiz.visible) bigoteSegunCamara(ruben); if (rubenO.raiz.visible) bigoteSegunCamara(rubenO);
@@ -1219,14 +1224,14 @@ function renderAt(tIn) {
     // (r1) anclada por el borde de abajo: la burbuja crece hacia arriba con el texto
     const fija = (g, e, cx, abajo, obj) => ponerGlobo(g, cx, abajo - g.userData.H / 2, e, obj && obj[0] > 40 && obj[0] < 1040 && obj[1] > 0 && obj[1] < 1900 ? obj : null, 1);
     if (pa === "P1") di("n1", nico, 0.0, T.p2, 1, 0, 470);
-    if (pa === "P2") di2("r1", ruben, T.r1, T.p3, 1, 0, 250);
+    if (pa === "P2") di2("r1", ruben, T.r1, T.p3, 1, 170, 250);   // (pulido) corrida: no tapa el calendario
     if (pa === "P3a") rot("remitos", T.rotRem, 1600, 99, 540);   // (r2) sin "Bar Walter": no llegaba a leerse
-    if (pa === "P4") di("r2", rubenO, T.r2, T.p5, 1, 0, 250);
+    if (pa === "P4") di("r2", rubenO, T.r2, T.p5, 1, 170, 250);
     if (pa === "P5") { di2("n2", nico, T.n2, T.p5b, 1, 0, 250); rot("cuenta", T.n2 + 0.5, 1740); }
     if (pa === "P5b") di("j1", javi, T.j1, T.p6, 1, 0, 250);
     if (pa === "P6" || pa === "Q3b") {
       const P6 = pa === "P6";
-      if (P6 && t >= T.pasa) { cjHJ.updateMatrixWorld(true); const [gx, gy] = objPx(cjHJ, V3(PILA.W / 2, 0, PILA.D / 2)); const [rx, ry] = MAS_POS; rot("mas", T.pasa, ry, 99, rx); ponerGuia(GUIAS[0], rx, ry + 40, gx, gy, eo(sg(t, T.pasa, T.pasa + 0.2))); }   // (r2) cuando asienta la última caja, hasta el remate
+      if (P6 && t >= T.pasa) { cjHJ.updateMatrixWorld(true); const [gx, gy] = objPx(cjHJ, V3(PILA.W / 2, cjHJ.userData.hU * U / 2, PILA.D / 2)); const [rx, ry] = MAS_POS; rot("mas", T.pasa, ry, 99, rx); ponerGuia(GUIAS[0], rx, ry + 40, gx, gy, eo(sg(t, T.pasa, T.pasa + 0.2))); }   // (r2) cuando asienta la última caja, hasta el remate
       const ti = P6 ? T.r3 : T.r6, k = P6 ? "r3" : "r6";
       if (t >= ti - 0.04) { const [g, e] = fase(k, ti); const [mx, my] = aPx(bocaW(rubenO.raiz.visible ? rubenO : ruben)); fija(g, e, BUR6[0], BUR6[1], [mx, my]); }
     }
@@ -1244,7 +1249,7 @@ function renderAt(tIn) {
 }
 const MAS_POS = [800, 225];   // (r2) "+ $ 500.000" arriba a la derecha de la pila
 const BUR6 = [830, 1600], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
-const CAM_PORTADA = [0.74, 1.08, 1.7, 0.74, 0.98, -1.7, 56];   // (r2) sin el monitor cortado
+const CAM_PORTADA = [0.66, 1.08, 1.85, 0.66, 0.98, -1.7, 58];   // (r2) sin el monitor cortado
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
 window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cam: camera.position.toArray().map((v) => +v.toFixed(2)) }; };
