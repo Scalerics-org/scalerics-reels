@@ -64,7 +64,7 @@ let html = fs.readFileSync(path.resolve("herramientas/portada.html"), "utf8")
   .replace("__CHICA__", `<span style="font-size:${tam(cfg.chica, 112)}px">${esc(cfg.chica)}</span>`)
   .replace("__GRANDE__", `<span style="font-size:${tam(cfg.grande, 190)}px${cfg.separacion ? `;display:inline-block;margin-top:${Number(cfg.separacion)}px` : ""}">${esc(cfg.grande)}</span>`)   // "separacion": px extra entre la chica y la grande (opcional; para que un acento no pise la chica)
   .replace("__EXTRAS__", extras(cfg));
-const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo], ["--foco-x", cfg.foco_x], ["--brillo-y", cfg.brillo_y], ["--sello-top", cfg.sello_top]]
+const vars = [["--acento", cfg.acento], ["--sello", cfg.sello_color], ["--zoom", cfg.zoom], ["--foco", cfg.foco], ["--velo", cfg.velo], ["--fondo", cfg.fondo], ["--foco-x", cfg.foco_x], ["--brillo-y", cfg.brillo_y], ["--sello-top", cfg.sello_top], ["--marca-bottom", cfg.marca_bottom]]
   .filter(([, v]) => v != null).map(([k, v]) => `${k}: ${v};`).join(" ");
 if (vars) html = html.replace("</style>", `:root { ${vars} }\n</style>`);
 const pagina = path.join(tmp, "portada.html");

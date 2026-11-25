@@ -91,3 +91,50 @@ muerde 36,05 (mordida 37,0) · Q5 panel 37,5 · Q5b "¿Y esa cómo hace?" 39,5 �
   (0.45, 1.72, -0.45 → 0.4, 1.18, -2.8, fov 64), que muestra a Tano y a Facu de 3/4. **El mp4 no tiene este cambio.**
 - medir.py: mínimo +6,5 LU salvo un tramo de borde en 14,5 s (cola de "Cenamos." a -38,5 contra -39,3 del resto: es la
   ventana de 400 ms que termina después de la voz, no se oye encimado).
+
+## Ronda 1 de corrección (qa-ronda-r1.md) · render r2
+**40,6 s.** Parte 1 0-16,64 · cartel 16,64-19,04 · parte 2 19,04-37,6 · cierre 37,6-40,6 (3,0 s; línea chica 1,5 s).
+Arte (por número de qa-ronda-r1.md):
+- A1/A2 la moto de Sabri sale hacia +x 1,5 s ANTES de Q5b (no entra en cuadro); Sabri no está en Q5b; la moto de Facu
+  estacionada frente a la vidriera (x -1,9), lejos de la puerta; Tano sin la caja bajo el brazo; Q5b más cerrado
+  (fov 15 → 10,5): sin el toldo cortado.
+- A3 / guion 2: el panel muestra solo lo de Lucía (64 pedidos · Pagados online 64 · Con mapa 64 · Volvieron 0 · Sin
+  contestar 0) y la fila "#47 · Martín · cliente nuevo ✓ / entregado 22:54" grande (60 px en el lienzo).
+- A4 la tarjeta del mapa abajo a la izquierda (no tapa la cara), con pop, texto grande (52/44 px) y la guía al celular
+  (1,35×).
+- A5 Q4b: Martín levanta la tapa con la derecha; la tapa abre a ~105° (sin LUCÍA espejado). La pizza es la misma muzza.
+- A6 la caja de Facu tiene orientación fija en el mundo (no gira 90° al apoyarla).
+- A7/A8 P1 sin P1b: "Ajá. ¿Con be larga?" a la izquierda y "¡Con V corta!" a la derecha, entre el chip y la cabeza
+  (cámara del cuadro 0 mirando más alto); sin el globo "Ajá." cortado arriba del inserto.
+- A9 el celular más adelante (0,36/0,14/0,12 en la cabeza), 1,6×, se ve entre oreja y hombro; la birome 1,5×.
+- A10 sin la birome dibujada en el inserto (era el garabato sobre las letras).
+- A11 mentonera más fina, visera a -0,95. A12 vapor más chico y más transparente (0,55); el hilo de queso afuera.
+- A13 / guion 4: la grúa termina en la fachada de Lucía con "LUCÍA · PIZZAS" entero y el vinilo "Pedí online"; arriba
+  Facu cruza la senda en su moto. A14 plano nuevo Q1b adentro: Lucía con el disco de frente, la impresora larga dos
+  tickets y el rótulo apunta a la impresora; el cliente esperando sentado.
+- A15 rótulo de Q3 abajo a la derecha, la guía al costado del ticket. A16 Q4 con la cámara centrada en la puerta.
+- A17 la mano de Martín más abajo al morder. A18 pañuelo de Lucía más atrás (las cejas no quedan sobre el pelo).
+- A19 / guion 1: el chat de Martín ya no tiene la dirección escrita: "Llamada · 21:00", "¿Y mi pizza?" 22:12 y el audio.
+- A20 texto ≥ 36 px: tablero rehecho (52-74 px en el lienzo), panel (50-150), remitentes del chat 44 px, mapa.
+- Bajas: panel sin filas vacías (la primera aparece en el corte); chat de Tano con el primer mensaje desde el corte; chip
+  "LUCÍA" fuera de la casa de Martín (solo la hora); Tano sin lengua en P3b; la mano suelta la tapa antes (no pasa por la
+  cara); fainá más naranja y más grueso. Q3b (Lucía cuelga el ticket) fuera por el largo.
+Sonido:
+- t1 atempo 1,08 ("¿Calle qué?" con aire), s1 1,04, m2 0,94 (más lento), l1 1,2 (cierre 3,0 s).
+- Q2: burbuja de audio "¡Ya sale!" (borde punteado, cola al celular) mientras suena.
+- Pausa antes de "Cenamos." ~1,5 s (contraplano 0,4 + comanda 0,5 + rótulos 0,4 + 0,25).
+- Cama: música -34/-33 (antes -36), extractor -39 en lo de Tano, extractor -42 en los planos de Lucía (Q1b, Q3, Q5),
+  heladera baja en lo de Martín; cartel con la música desde el primer cuadro (fi 0,05).
+- SFX nuevos: el casco que se saca (k-plastico), la porción (k-cloth_1).
+- medir.py: ≥ +8,4 LU en todos los tramos salvo la ventana de 14,0 s (la cola de "Cenamos." a -38,6 contra la cama que
+  vuelve: la voz ya terminó; es borde de ventana).
+Guion: rótulo "Menú online: elige, / pone la dirección y paga" sobre el menú (Q2i); "$ 2.220 / que volvieron"; los
+rótulos de P2 siguen en P2b (≥ 2 s) y dicen "Pedidos que se van a otro lado"; la B se escribe después de "¡Con V corta!".
+Portada: `herramientas/portada.html` tiene `--marca-bottom` (por defecto 250px, igual que antes); acá 300px.
+- **Render r2: 1516 s (25,3 min)** → `renders/pizzeria-pedidos.mp4`; `paso10.sh` → `renders/pizzeria-pedidos-final.mp4`
+  (40,6 s, -14,2 LUFS, pico -6,5 dBFS, lineal). Hoja cada 0,5 s: `renders/hoja.png`. `check --json`: 0 errores.
+- Portada nueva (el cuadro 0 cambió): fondo limpio a 1,95 s con otra cámara (ver portada.json), SCALERICS en y≈1606.
+- Sin resolver / flojo: la vista cenital de Q1 dura ~0,5 s y el casco de Facu desde arriba es una bola navy; en P4c
+  Facu sigue cortado a la derecha (cara de 3/4 y porción a la vista); "¡Con V corta!" roza la coronilla de Tano; el
+  pañuelo de Lucía sigue leyéndose como casquete; la cola de "Cenamos." en medir.py (borde de ventana); voz "¿Ya está?"
+  sigue siendo la única toma que el STT entiende (atempo 0,94); el segundo "¡Ya sale!" con la boca llena se dejó.

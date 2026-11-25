@@ -17,7 +17,7 @@ for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMes
 // Lucía: el pañuelo verde de marca que envuelve el rodete y la harina en los antebrazos (puntitos claros)
 {
   const pm = mat(MARCA.g, 0.6);
-  const ban = mesh(new THREE.SphereGeometry(1, 32, 12, 0, PI * 2, 0, PI * 0.36), pm, 0, 0.276 + 0.012, -0.03); ban.scale.setScalar(0.322); ban.rotation.x = -0.5; lucia.cabeza.add(ban);
+  const ban = mesh(new THREE.SphereGeometry(1, 32, 12, 0, PI * 2, 0, PI * 0.36), pm, 0, 0.276 + 0.012, -0.03); ban.scale.setScalar(0.326); ban.rotation.x = -0.85; lucia.cabeza.add(ban);
   const nudo = mesh(new THREE.SphereGeometry(0.05, 12, 8), pm, 0, 0.276 + 0.36, -0.24); nudo.scale.set(1.3, 0.8, 0.8); lucia.cabeza.add(nudo);
   for (const s of [-1, 1]) { const pt = mesh(new THREE.SphereGeometry(0.03, 10, 8), pm, 0.04 * s, 0.276 + 0.33, -0.3); pt.scale.set(0.8, 1.6, 0.5); pt.rotation.z = s * 0.6; lucia.cabeza.add(pt); }
 }
@@ -38,7 +38,7 @@ const pantTano = lienzo(400, 820, () => {}), pantMart = lienzo(400, 820, () => {
 const celHombro = crearCelular(lienzo(80, 160, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(w / 2, 46, 20, 0, 7); x.fill(); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 128, 16, 0, 7); x.fill(); x.fillStyle = "#5ce611"; x.fillRect(14, 80, w - 28, 8); }), 0x8f969f, 0.078, 0.16); scene.add(celHombro);
 const celMostr = crearCelular(pantTano, 0x365f28, 0.08, 0.162); scene.add(celMostr);
 const celMart = crearCelular(pantMart, MARCA.navy, 0.08, 0.162); scene.add(celMart);
-const celSab = crearCelular(pantSab, MARCA.navy2, 0.08, 0.162); scene.add(celSab);
+const celSab = crearCelular(pantSab, MARCA.navy2, 0.08, 0.162); celSab.scale.setScalar(1.35); scene.add(celSab);
 // la tablet de Lucía en el atril (tablero de pedidos / panel)
 const pantTab = lienzo(1000, 760, () => {});
 const tabletL = crearTablet(pantTab, 0.34, 0.25, 0.35); scene.add(tabletL);
@@ -46,7 +46,7 @@ const tabletL = crearTablet(pantTab, 0.34, 0.25, 0.35); scene.add(tabletL);
 const IMP = crearImpresora(); scene.add(IMP);
 const RIEL = crearRiel(5); scene.add(RIEL);
 const TALON = crearTalonario(); scene.add(TALON);
-const BIROME = crearBirome(); scene.add(BIROME);
+const BIROME = crearBirome(); BIROME.scale.setScalar(1.5); scene.add(BIROME);
 const GANCHO = crearGancho(); scene.add(GANCHO);
 const MASA = crearMasa(); scene.add(MASA);
 const DISCO = crearDisco(); scene.add(DISCO);
@@ -57,8 +57,8 @@ const CAJA_L = crearCaja("LUCÍA|PIZZAS"); scene.add(CAJA_L);
 { const tk = plano(0.09, 0.15, ticketT, 0, 0, 0); tk.rotation.x = -PI / 2; tk.position.set(0.12, 0.009, 0.1); CAJA_L.userData.bis.children[0].add(tk); }
 const PIZZA_T = crearMuzza(true); CAJA_T.add(PIZZA_T); PIZZA_T.position.y = 0.006;
 const PIZZA_L = crearMuzza(true); CAJA_L.add(PIZZA_L); PIZZA_L.position.y = 0.006;
-const VAPOR_T = crearVapor(9); CAJA_T.add(VAPOR_T); VAPOR_T.position.set(0.02, 0.04, 0.02); VAPOR_T.scale.setScalar(0.85);
-const VAPOR_L = crearVapor(9); CAJA_L.add(VAPOR_L); VAPOR_L.position.set(0.02, 0.04, 0.02); VAPOR_L.scale.setScalar(0.85);
+const VAPOR_T = crearVapor(9); CAJA_T.add(VAPOR_T); VAPOR_T.position.set(0.02, 0.04, 0.02); VAPOR_T.scale.setScalar(0.7);
+const VAPOR_L = crearVapor(9); CAJA_L.add(VAPOR_L); VAPOR_L.position.set(0.02, 0.04, 0.02); VAPOR_L.scale.setScalar(0.7);
 // las porciones en la mano (Facu, Tano, Martín) y los hilos de queso
 const POR_F = crearPorcionMano(), POR_T = crearPorcionMano(), POR_M = crearPorcionMano();
 scene.add(POR_F, POR_T, POR_M);

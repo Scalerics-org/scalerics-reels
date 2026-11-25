@@ -12,8 +12,8 @@
     [data-composition-id="s05-palabra"] .sel em { position: relative; font-style: normal; }
     [data-composition-id="s05-palabra"] .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: #0b1220; }
   </style>
-  <div id="root" data-composition-id="s05-palabra" data-width="1080" data-height="1920" data-duration="3.39">
-    <div id="s05-palabra-esc" class="esc clip" data-start="0" data-duration="3.39" data-track-index="0">
+  <div id="root" data-composition-id="s05-palabra" data-width="1080" data-height="1920" data-duration="3.1">
+    <div id="s05-palabra-esc" class="esc clip" data-start="0" data-duration="3.1" data-track-index="0">
       <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>MENÚ</em></span></div><div class="c">y te mando cómo funciona<br>para tu pizzería</div></div>
     </div>
   </div>
@@ -25,7 +25,7 @@
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
-      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.07, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.55);
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.07, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.5);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

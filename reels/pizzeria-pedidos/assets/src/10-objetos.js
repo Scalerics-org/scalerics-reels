@@ -41,12 +41,12 @@ function porcion(a0, a1, r0 = 0, r1 = 0.19, conBorde = true, sem = 1) {
 }
 // el fainá: rectángulo naranja dorado, canto liso, la superficie tostada con manchas y pimienta
 const fainaT = lienzo(256, 200, (x, w, h) => {
-  x.fillStyle = "#e3a43a"; x.fillRect(0, 0, w, h); semilla = 5;
+  x.fillStyle = "#e08a22"; x.fillRect(0, 0, w, h); semilla = 5;
   for (let i = 0; i < 26; i++) { x.fillStyle = `rgba(181,112,31,${0.35 + az() * 0.4})`; x.beginPath(); x.ellipse(az() * w, az() * h, 8 + az() * 20, 6 + az() * 12, az() * 3, 0, 7); x.fill(); }
   x.fillStyle = "#16243d"; for (let i = 0; i < 60; i++) { x.beginPath(); x.arc(az() * w, az() * h, 1.6 + az() * 1.6, 0, 7); x.fill(); }
 });
-const FAINA_C = mat(0xd89530, 0.7), FAINA_T = new THREE.MeshStandardMaterial({ map: fainaT, roughness: 0.7 });
-function crearFaina() { const m = mesh(rbox(0.12, 0.012, 0.1, 0.004, 2), [FAINA_C, FAINA_C, FAINA_T, FAINA_C, FAINA_C, FAINA_C]); return m; }
+const FAINA_C = mat(0xc9761c, 0.7), FAINA_T = new THREE.MeshStandardMaterial({ map: fainaT, roughness: 0.7 });
+function crearFaina() { const m = mesh(rbox(0.12, 0.018, 0.1, 0.004, 2), [FAINA_C, FAINA_C, FAINA_T, FAINA_C, FAINA_C, FAINA_C]); return m; }
 // la pizza entera (8 porciones) con los dos fainá a caballo; `faltan` = porciones sacadas
 function crearMuzza(conFaina = true) {
   const g = new THREE.Group(); g.userData.porciones = [];
@@ -200,14 +200,14 @@ function crearCasco(color = MARCA.navy3) {
   g.add(mesh(new THREE.SphereGeometry(R, 32, 16, 0, PI * 2, 0, PI * 0.42), cm));
   g.add(mesh(new THREE.SphereGeometry(R, 32, 12, PI / 2 + 0.85, PI * 2 - 1.7, PI * 0.42, PI * 0.38), cm));
   // la mentonera: un arco grueso adelante, por debajo de la boca
-  arcoH(R * 0.86, 0.055, 1.7, PI / 2, cm, -R * 0.62);
+  arcoH(R * 0.9, 0.036, 1.6, PI / 2, cm, -R * 0.64);
   // el borde negro de la ventana (arriba de las cejas) y la franja reflectiva crema atrás
   arcoH(R * 0.97, 0.018, 1.7, PI / 2, neg, R * Math.cos(PI * 0.42));
   arcoH(R * 1.005, 0.02, PI * 1.3, -PI / 2, fr, 0.05);
   // la visera levantada (bisagra a los costados): un casquete gris humo, semitransparente, sin brillo fuerte
   const vis = new THREE.Group(); g.add(vis);
   vis.add(mesh(new THREE.SphereGeometry(R * 1.04, 24, 10, PI / 2 - 0.95, 1.9, PI * 0.36, PI * 0.26), new THREE.MeshStandardMaterial({ color: 0x3a4250, roughness: 0.4, transparent: true, opacity: 0.6, depthWrite: false })));
-  vis.rotation.x = -1.25;   // levantada
+  vis.rotation.x = -0.95;   // levantada
   for (const s of [-1, 1]) g.add(mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.02, 14).rotateZ(PI / 2), neg, s * R * 1.0, 0.0, 0.02));
   g.userData = { vis, R };
   return sombras(g);

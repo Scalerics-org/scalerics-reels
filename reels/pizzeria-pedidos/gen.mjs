@@ -27,65 +27,65 @@ fs.writeFileSync("assets/tres.js", "// LO GENERA gen.mjs concatenando assets/src
 const VOCES = ["t1", "m1", "t2", "t3", "f1", "t4", "t5", "m2", "s1", "t6", "l1"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
 // dónde arranca la segunda frase dentro de cada voz (para revelar la burbuja por frase entera)
-const W2 = { t1: 1.42, t2: 0.68, f1: 0.72, s1: 1.03, l1: 1.17, nar: 1.29 };
+const W2 = { t1: 1.56, t2: 0.68, f1: 0.72, s1: 1.12, l1: 1.12, nar: 1.29 };
 const T = { W2 };
 // ---- parte 1: Pizzería Don Tano ----
 // P1 · cuadro 0, viernes 21:00: Tano con el celular en el hombro, la comanda y el bollo · "Una muzza y dos fainá… ¿Calle
 // qué?" · Martín por teléfono "¡Duvimioso Terra!" · inserto de la comanda: DUBIMIOSO TERA 14?? (y "Ajá." encima) · vuelve a
 // Tano en "¿Con be larga?" · la burbuja muda del teléfono "¡Con V corta!"
-T.t1 = 0.2; T.esc1 = [0.25, 1.3];
+T.t1 = 0.2; T.esc1 = [0.25, 1.3];   // el cuadro 0: la comanda ya dice 1 MUZZA · 2 FAINÁ
 T.m1 = r2(T.t1 + LEN.t1 + 0.05);
-T.p1i = r2(T.m1 + LEN.m1 - 0.08); T.esc2 = [r2(T.p1i + 0.06), r2(T.p1i + 0.85)];
-T.t2 = r2(T.p1i + 0.4); T.p1b = r2(T.t2 + W2.t2 - 0.08); T.conV = r2(T.t2 + LEN.t2 - 0.1);
+T.t2 = r2(T.m1 + LEN.m1 + 0.05); T.conV = r2(T.t2 + LEN.t2 - 0.05);   // (r1) "¿Con be larga?" / "¡Con V corta!" y recién ahí escribe la B
+T.p1i = r2(T.conV + 0.3); T.esc2 = [r2(T.p1i + 0.05), r2(T.p1i + 0.85)]; T.p1b = T.p1i;
 // P2 · el celular del mostrador: el chat que se apila y el contador 9 → 17 → 26; sube a Tano: "¡Ya sale!" con la masa cruda
-T.p2 = r2(T.conV + 0.5); T.msgs = [0.08, 0.36, 0.6, 0.82, 1.0].map((d) => r2(T.p2 + d)); T.cont = [r2(T.p2 + 0.05), r2(T.p2 + 0.6), r2(T.p2 + 1.0)];
-T.rotP2 = [r2(T.p2 + 1.1), r2(T.p2 + 1.3)];
-T.p2b = r2(T.p2 + 1.6); T.mic = r2(T.p2b + 0.2); T.t3 = r2(T.p2b + 0.3);
+T.p2 = r2(T.p1i + 1.0); T.msgs = [-0.01, 0.3, 0.55, 0.78, 0.96].map((d) => r2(T.p2 + d)); T.cont = [r2(T.p2 - 0.01), r2(T.p2 + 0.55), r2(T.p2 + 0.96)];
+T.rotP2 = [r2(T.p2 + 0.5), r2(T.p2 + 0.75)];   // (r1) los rótulos siguen en P2b: ≥ 2 s
+T.p2b = r2(T.p2 + 1.42); T.mic = r2(T.p2b + 0.2); T.t3 = r2(T.p2b + 0.3);
 // P3 · viernes 22:10: entra Facu con la caja (sobre el hombro de Tano) · "Tano. Dubimioso no existe." · contraplano · inserto
 // de la comanda con la B en el círculo · la pausa con los rótulos
 T.p3 = r2(T.t3 + LEN.t3 + 0.3); T.campana = r2(T.p3 - 0.3); T.entra = [r2(T.p3 - 0.35), r2(T.p3 + 0.6)]; T.f1 = r2(T.p3 + 0.45); T.apoyaCaja = r2(T.f1 + W2.f1 + 0.1);
 T.p3b = r2(T.f1 + LEN.f1 + 0.05);
-T.p3i = r2(T.p3b + 0.45); T.circ = [r2(T.p3i + 0.08), r2(T.p3i + 0.45)];
-T.p3c = r2(T.p3i + 0.7); T.rotP3 = [r2(T.p3c + 0.12), r2(T.p3c + 0.35)];
+T.p3i = r2(T.p3b + 0.4); T.circ = [r2(T.p3i + 0.06), r2(T.p3i + 0.4)];
+T.p3c = r2(T.p3i + 0.5); T.rotP3 = [r2(T.p3c + 0.05), r2(T.p3c + 0.2)];
 // P4 · "Cenamos." (abre la caja) · Facu se saca el casco y agarra una porción · "Martín: ¿Y mi pizza?" · "¡Ya sale!" con la
 // porción en la boca · stinger
-T.p4 = r2(T.p3c + 1.05); T.abre = [r2(T.p4 - 0.05), r2(T.p4 + 0.45)]; T.t4 = r2(T.p4 + 0.45);
+T.p4 = r2(T.p3c + 0.4); T.abre = [r2(T.p4 - 0.05), r2(T.p4 + 0.4)]; T.t4 = r2(T.p4 + 0.25);   // (r1) la pausa antes de "Cenamos." ~1,5 s
 T.p4b = r2(T.t4 + LEN.t4 + 0.2); T.levanta = [r2(T.p4b + 0.1), r2(T.p4b + 0.65)];
-T.p4i = r2(T.p4b + 0.75); T.mPizza = r2(T.p4i + 0.1);
+T.p4i = r2(T.p4b + 0.7); T.mPizza = r2(T.p4i + 0.1);
 T.p4c = r2(T.p4i + 0.62); T.mic2 = r2(T.p4c + 0.08); T.t5 = r2(T.p4c + 0.15);
-const P1 = r2(T.t5 + LEN.t5 + 0.38);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.2));
+const P1 = r2(T.t5 + LEN.t5 + 0.35);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.1));
 // ---- parte 2: Lucía Pizzas, la de enfrente ----
 // Q1 · viernes 21:00: la grúa cruza la calle y entra por la vidriera de Lucía (el MISMO encuadre de P1, en espejo) · la
 // impresora saca dos tickets solos
-T.q1 = P2; T.q1m = r2(P2 + 0.95); T.q1in = r2(P2 + 1.5); T.tks = [r2(P2 + 1.55), r2(P2 + 1.95)]; T.rotQ1 = r2(P2 + 1.62);
+T.q1 = P2; T.q1m = r2(P2 + 1.05); T.q1f = r2(P2 + 1.6); T.q1in = r2(P2 + 1.65); T.tks = [r2(P2 + 1.75), r2(P2 + 2.05)]; T.rotQ1 = r2(P2 + 1.8);   // (r1) la grúa termina en la fachada de Lucía; corte adentro
 // Q2 · viernes 22:15: Martín en el sillón; llega el audio de Tano (el mismo "¡Ya sale!" con la boca llena) · el menú de
 // Lucía: + Muzza, + Fainá × 2 · la dirección "Duvi…" → Duvimioso Terra 1432 y el pin · Pagar → Pagado ✓ · "¿Ya está?"
-T.q2 = r2(P2 + 2.25); T.audio = r2(T.q2 + 0.12); T.ceja = r2(T.audio + LEN.t5 + 0.02);
-T.q2i = r2(T.q2 + 1.18); T.menu = r2(T.q2i + 0.3); T.mas = [r2(T.q2i + 0.6), r2(T.q2i + 0.85), r2(T.q2i + 1.05)];
+T.q2 = r2(P2 + 2.42); T.audio = r2(T.q2 + 0.12); T.ceja = r2(T.audio + LEN.t5 + 0.02);
+T.q2i = r2(T.q2 + 1.1); T.menu = r2(T.q2i + 0.3); T.mas = [r2(T.q2i + 0.6), r2(T.q2i + 0.85), r2(T.q2i + 1.05)];
 T.dir = r2(T.q2i + 1.4); T.tipea = [r2(T.dir + 0.12), r2(T.dir + 0.45)]; T.sug = r2(T.dir + 0.5); T.pin = r2(T.dir + 0.65);
 T.pago = r2(T.dir + 1.2); T.pagar = r2(T.pago + 0.25); T.pagado = r2(T.pago + 0.42);
 T.q2b = r2(T.pagado + 0.45); T.m2 = r2(T.q2b + 0.12);
 // Q3 · la cocina de Lucía: sale el ticket #47 (la impresora de cerca) · Lucía lo corta y lo cuelga en el riel · el tablero
 // #47: En horno → Listo → En camino · Sabri con el recorrido en el celular, sale
 T.q3 = r2(T.m2 + LEN.m2 + 0.22); T.imprime = [r2(T.q3 + 0.05), r2(T.q3 + 0.62)];
-T.q3b = r2(T.q3 + 0.82); T.corta = r2(T.q3b + 0.12); T.cuelga = [r2(T.q3b + 0.2), r2(T.q3b + 0.62)];
-T.q3t = r2(T.q3b + 0.75); T.cols = [r2(T.q3t + 0.1), r2(T.q3t + 0.33), r2(T.q3t + 0.56)];
-T.q3s = r2(T.q3t + 0.8);
+T.q3b = r2(T.q3 + 0.82); T.corta = r2(T.q3b - 0.1); T.cuelga = [r2(T.q3b - 0.05), r2(T.q3b + 0.2)];   // (r1) sin el plano de Lucía colgando el ticket
+T.q3t = T.q3b; T.cols = [r2(T.q3t + 0.1), r2(T.q3t + 0.33), r2(T.q3t + 0.56)];
+T.q3s = r2(T.q3t + 0.75);
 // Q4 · viernes 22:54: la puerta de Martín · timbre · Sabri: "¿Martín? Una muzza y dos fainá." · abre la caja (el mismo
 // encuadre de P4) · "Pizzería Don Tano: Disculpá, ¿calle qué?" · mira el celular, mira la pizza… y muerde
-T.q4 = r2(T.q3s + 0.8); T.timbre = r2(T.q4 + 0.0); T.abreP = r2(T.q4 + 0.08); T.s1 = r2(T.q4 + 0.32);
+T.q4 = r2(T.q3s + 0.8); T.timbre = r2(T.q4 + 0.0); T.abreP = r2(T.q4 + 0.08); T.s1 = r2(T.q4 + 0.3);
 T.q4b = r2(T.s1 + LEN.s1 - 0.1); T.abre2 = [r2(T.q4b - 0.05), r2(T.q4b + 0.45)];
-T.q4i = r2(T.q4b + 0.78); T.noti = r2(T.q4i + 0.08);
-T.q4c = r2(T.q4i + 0.65); T.mira = [r2(T.q4c + 0.05), r2(T.q4c + 0.45)]; T.muerde = r2(T.q4c + 0.95);
+T.q4i = r2(T.q4b + 0.72); T.noti = r2(T.q4i + 0.08);
+T.q4c = r2(T.q4i + 0.6); T.mira = [r2(T.q4c + 0.05), r2(T.q4c + 0.45)]; T.muerde = r2(T.q4c + 0.95);
 // Q5 · el panel del viernes en la tablet (64 pedidos, 3 → 0, 26 → 0) · la vereda de enfrente: Tano en la puerta con la caja
 // vacía, la moto de Sabri que sale · "¿Y esa cómo hace?"
-T.q5 = r2(T.q4c + 1.35); T.filas = [0.12, 0.3, 0.48].map((d) => r2(T.q5 + d)); T.gira = r2(T.q5 + 0.7); T.fila47 = r2(T.q5 + 1.1);
-T.q5b = r2(T.q5 + 1.75); T.moto = r2(T.q5b - 0.1); T.t6 = r2(T.q5b + 0.45);
+T.q5 = r2(T.q4c + 1.35); T.filas = [-0.01, 0.15, 0.3, 0.45].map((d) => r2(T.q5 + d)); T.gira = r2(T.q5 + 0.6); T.fila47 = r2(T.q5 + 0.75);   // (r1) solo los números de Lucía
+T.q5b = r2(T.q5 + 1.55); T.moto = r2(T.q5b - 1.5); T.t6 = r2(T.q5b + 0.35);
 // C · Lucía a cámara: "Comentá MENÚ…"
-T.c = r2(T.t6 + LEN.t6 + 0.2); T.l1 = r2(T.c + 0.1); T.palabraR = r2(T.l1 + 0.45);
-const DUR = Math.ceil((Math.ceil((T.l1 + LEN.l1 + 0.2) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(DUR - 1.0);
+T.c = r2(T.t6 + LEN.t6 + 0.2); T.l1 = r2(T.c + 0.05); T.palabraR = r2(T.l1 + 0.45);
+const DUR = Math.ceil((Math.ceil((T.l1 + LEN.l1 + 0.05) * 30) / 30) * 1e4) / 1e4;   // (r1) cierre ≤ 3 s
+T.cierre = r2(DUR - 1.5);   // (r1) la línea chica 1,5 s
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -269,8 +269,8 @@ const birome = (a, b, techo = -38) => s("sfx/birome.wav", a, 0, { techo, dur: r2
 const impresora = (t, techo = -35, f = "bsb-impresora") => s(`sfx/${f}.wav`, t, 0, { techo, pico: -10 });
 const chip = (t) => { tic(t, -40, 0); whoosh(t, -46); };
 // ---- parte 1: la cocina de Don Tano a full (el extractor, la música que arranca con el cuadro 0) ----
-s("sfx/bsb-extractor.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fi: 0.05, fin: 0.2, techo: -42, lp: 3000 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -36, duck: [[T.p3c - 0.1, T.p4, 0.75]] });
+s("sfx/bsb-extractor.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fi: 0.05, fin: 0.2, techo: -39, lp: 3000 });   // (r1) más cama en los huecos
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -34, duck: [[T.p3c - 0.1, T.p4, 0.6]] });
 // P1 · el celular del mostrador vibra, la birome en el papel, las burbujas
 vibra(0.02, -38); vibra(1.2, -42); vibra(2.6, -42);
 birome(T.esc1[0], T.esc1[1], -40); birome(T.esc2[0], T.esc2[1], -38);
@@ -298,7 +298,7 @@ T.rotP3.forEach((t) => pop(t, -44));
 // P4 · el cartón que se abre, "Cenamos.", la porción, el celular, "¡Ya sale!" con la boca llena
 s("sfx/bsb-caja.wav", T.abre[0], 0, { techo: -36, dur: 0.8, fin: 0.2 });
 voz("t4", T.t4, -1);
-whoosh(T.p4b, -48);
+whoosh(T.p4b, -54); s("sfx/k-plastico.wav", T.p4b + 0.2, 0, { techo: -44 }); s("sfx/k-cloth_1.wav", T.levanta[0] + 0.2, 0, { techo: -44, hp: 300 });   // (r1) el casco que se saca y la porción que se levanta
 noti(T.p4i + 0.1, -38);
 toque(T.mic2, -40);
 voz("t5", T.t5, -1);
@@ -306,17 +306,21 @@ voz("t5", T.t5, -1);
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -46 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -42, dur: 0.6, fin: 0.25 });
 s("voice/narrador.wav", P1 + 0.06, -1, { voz: true, fin: 0.04 }); VOZ.push([r2(P1 - 0.3), r2(P1 + 0.06 + LEN.nar + 0.45)]);
-s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.3, fin: 0.3, techo: -46, sinDuck: true });
+s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.05, fin: 0.3, techo: -44, sinDuck: true });
 for (const d of [0.08, 0.32, W2.nar + 0.05, W2.nar + 0.3]) pop(P1 + d + 0.02, -45);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -36, duck: [[T.q4c, T.q5 - 0.1, 0.5], [T.q5, T.q5b, 0.3]] });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.5, fin: 0.6, techo: -33, duck: [[T.q4c, T.q5 - 0.1, 0.35]] });
 // Q1 · la grúa: whoosh largo, la calle de noche, un auto lejos; adentro de Lucía la cocina más baja y ordenada; la impresora
 s("sfx/whoosh.mp3", P2 + 0.05, 0, { techo: -40 });
 s("sfx/calle.wav", P2, 0, { dur: r2(T.q1in - P2 + 0.3), fi: 0.2, fin: 0.3, techo: -44 });
 s("sfx/auto-pasa.wav", P2 + 0.3, 0, { techo: -48, lp: 2000 });
 chip(T.q1in);
-s("sfx/bsb-extractor.wav", T.q1in - 0.2, 0, { dur: r2(T.q2 - T.q1in + 0.2), fi: 0.3, fin: 0.15, techo: -48, lp: 2500 });
+s("sfx/bsb-extractor.wav", T.q1in - 0.1, 0, { dur: r2(T.q2 - T.q1in + 0.1), fi: 0.15, fin: 0.15, techo: -42, lp: 2500 });
+s("sfx/bsb-extractor.wav", T.q3, 0, { dur: r2(T.q4 - T.q3), fi: 0.1, fin: 0.15, techo: -42, lp: 2500 });
+s("sfx/bsb-extractor.wav", T.q5, 0, { dur: r2(T.q5b - T.q5), fi: 0.1, fin: 0.15, techo: -42, lp: 2500 });
+s("sfx/zumbido-largo.wav", T.q2, 0, { dur: r2(T.q3 - T.q2), fi: 0.1, fin: 0.15, techo: -46, lp: 600 });
+s("sfx/zumbido-largo.wav", T.q4, 0, { dur: r2(T.q5 - T.q4), fi: 0.1, fin: 0.15, techo: -46, lp: 600 });
 T.tks.forEach((t, i) => impresora(t, -36, i ? "bsb-impresora2" : "bsb-impresora"));
 pop(T.rotQ1, -44);
 // Q2 · el living: el audio que llega y se oye por el parlante (el mismo "¡Ya sale!" con filtro de teléfono); los toques,
