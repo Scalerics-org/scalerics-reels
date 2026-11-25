@@ -22,9 +22,9 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // Agustina! Perdón la demora. Sí, sigue disponible." · a1 Agustina (nota de voz) "¡Qué bueno! Yo ya no." · al don Alberto
 // (altavoz) "Silvana, ¿cómo va? ¿Nadie preguntó por el apartamento?" (se reusa igual en Q4) · s4 "Preguntar,
 // preguntaron." · nar "Un agente de IA más tarde." · s5 "¿Y quién contesta?" · d3 "Ya contestó. Le pidió la garantía y
-// agendó." · s6 "Esos dos, para mí." · a2 "¿Sigue disponible?" · s7 "Sí." · a3 "¡Qué bueno! Yo también." · s8 "Treinta y
-// ocho. Seis visitas. Y el viernes firman." · s9 "Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria."
-const VOCES = ["d1", "s1", "d2", "s2", "s3", "a1", "al", "s4", "s5", "d3", "s6", "a2", "s7", "a3", "s8", "s9"];
+// agendó." · (sin s6: "Esos dos, para mí." se sacó en r1) · a2 "¿Sigue disponible?" · s7 "Sí." · a3 "¡Qué bueno! Yo también." · s8 "Treinta y
+// ocho. Y el viernes firman." (r1: sin "Seis visitas.") · s9 "Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria."
+const VOCES = ["d1", "s1", "d2", "s2", "s3", "a1", "al", "s4", "s5", "d3", "a2", "s7", "a3", "s8", "s9"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
 const PAL = {};
 for (const k of ["s3", "a1", "a3", "s8", "s9", "d1", "al"]) PAL[k] = JSON.parse(fs.readFileSync(`assets/voice/palabras-${k}.json`, "utf8")).map((p) => ({ w: p.text ?? p.word, a: r2(p.start ?? p.a), b: r2(p.end ?? p.b) }));
@@ -33,7 +33,7 @@ const finPal = (k, i) => PAL[k][i].b;
 const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0: el living vacío de Parque Batlle; la visita; del celular de Silvana brotan las consultas; Diego, bajito
-T.d1 = 0.25;
+T.d1 = 0.15;
 T.cons = [0, 0, 0, r2(T.d1 + 0.55), r2(T.d1 + 1.3), r2(T.d1 + 2.1)];   // las 3 primeras ya están en el cuadro 0
 T.s1 = r2(T.d1 + LEN.d1 + 0.06);
 T.d2 = r2(T.s1 + LEN.s1 + 0.06);
@@ -42,59 +42,59 @@ T.p1b = r2(T.d2 + LEN.d2 + 0.12); T.s2 = r2(T.d2 + LEN.d2 + 0.5);
 // P2 · la escalada muda: el celular sobre el escritorio de la oficina, de noche; 12 → 38; la de Agustina
 T.p2 = r2(T.s2 + LEN.s2 + 0.12);
 T.h1830 = T.p2; T.h2310 = r2(T.p2 + 0.7);
-T.cuenta = [r2(T.p2 + 0.08), r2(T.p2 + 1.05)];             // el contador corre 12 → 38
-T.agus = r2(T.p2 + 1.1);                                    // se ilumina la de Agustina (15:02)
-T.ideal = r2(T.agus + 0.3);
+T.cuenta = [r2(T.p2 + 0.08), r2(T.p2 + 0.9)];             // el contador corre 12 → 38
+T.agus = r2(T.p2 + 0.95);                                    // se ilumina la de Agustina (15:02)
+T.ideal = r2(T.agus + 0.25);
 // P3 · miércoles 9:10: Silvana con el café; inserto del chat: tipea mientras lo dice, enviado, escribiendo…, nota de voz
-T.p3 = r2(T.ideal + 0.5);
-T.p3i = r2(T.p3 + 0.55); T.s3 = r2(T.p3i + 0.05);
+T.p3 = r2(T.ideal + 0.45);
+T.p3i = r2(T.p3 + 0.45); T.s3 = r2(T.p3i + 0.05);
 T.envia = r2(T.s3 + LEN.s3 + 0.03);
-T.escribe = r2(T.envia + 0.2); T.nota = r2(T.escribe + 0.35); T.a1 = r2(T.nota + 0.1);
+T.escribe = r2(T.envia + 0.15); T.nota = r2(T.escribe + 0.3); T.a1 = r2(T.nota + 0.08);
 T.yaNo = r2(T.a1 + palabra("a1", 2) - 0.05);                // la burbuja suma "Yo ya no." cuando lo dice
 // P3b · la pausa: Silvana quieta, el café a medio camino; rótulos; la música se corta seca
 T.p3b = r2(T.a1 + LEN.a1 + 0.08);
 T.rot = [r2(T.p3b + 0.12), r2(T.p3b + 0.45)];
 // P4 · remate del remate: vibra, "Don Alberto · propietario", altavoz; Silvana mira la pantalla (38); "Preguntar, preguntaron."
-T.p4 = r2(T.p3b + 1.05); T.vibra = r2(T.p4 + 0.05); T.atiende = r2(T.p4 + 0.35); T.al = r2(T.p4 + 0.42);
+T.p4 = r2(T.p3b + 1.05); T.vibra = r2(T.p4 + 0.05); T.atiende = r2(T.p4 + 0.3); T.al = r2(T.p4 + 0.36);
 T.p4i = r2(T.al + LEN.al + 0.03);                           // inserto: "Sin contestar: 38"
 T.p4b = r2(T.p4i + 0.6); T.s4 = r2(T.p4b + 0.12);           // pausa de ~0,75 s antes del remate
 const P1 = r2(T.s4 + LEN.s4 + 0.35);
-const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.06));
+const P2 = r2(P1 + Math.max(2.25, LEN.nar + 0.06));   // (r1) el narrador con atempo 1,1
 // ---- parte 2 ----
 // Q1 · martes 15:00 otra vez, el encuadre del cuadro 0; el mismo audio de Diego (desde "El de Punta Carretas"); "¿Y
 // quién contesta?"; Diego le muestra el celular: el chat del agente (inserto)
 T.q1 = P2; T.vib2 = r2(P2 + 0.05);
-T.d1bDesde = r2(palabra("d1", 1) - 0.06); T.d1b = r2(P2 + 0.12); T.d1b0 = r2(T.d1b - T.d1bDesde);   // d1b0: donde "empezaría" la toma entera (boca)
-T.s5 = r2(T.d1b0 + LEN.d1 + 0.06);
+T.d1bDesde = r2(palabra("d1", 1) - 0.06); T.d1b = r2(P2 + 0.06); T.d1b0 = r2(T.d1b - T.d1bDesde);   // d1b0: donde "empezaría" la toma entera (boca)
+T.s5 = r2(T.d1b0 + LEN.d1 + 0.06); T.q1b = r2(T.s5 - 0.08);   // Q1b: corte a los dos más cerca (Q1 no pasa de 3 s)
 T.muestra = r2(T.s5 + LEN.s5 - 0.2);
 T.q1i = r2(T.s5 + LEN.s5 + 0.08); T.d3 = r2(T.q1i + 0.05);
 T.chat = [0, 0, r2(T.q1i + 0.3), r2(T.q1i + 0.75), r2(T.q1i + 1.2), r2(T.q1i + 1.6), r2(T.q1i + 2.05)];   // 0-1 ya están
 T.rotQ1 = r2(T.q1i + 0.4);
-// Q2 · el panel en el monitor (travelling: la lista → la agenda de Diego → "Listos para firmar: 2"); "Esos dos, para mí."
-// arranca sobre el panel y sigue en Silvana (Q2s)
+// Q2 · el panel en el monitor, solo visual (r1 del coordinador: sin "Esos dos, para mí."): la lista → la agenda de Diego →
+// "Listos para visitar y firmar: 2" resaltado; ~2,3 s
 T.q2 = r2(Math.max(T.d3 + LEN.d3, T.chat[6] + 0.45) + 0.06);
-T.filas = [0, 1, 2, 3, 4].map((i) => r2(T.q2 + 0.12 + i * 0.15));
-T.agenda = r2(T.q2 + 0.85); T.turnos = [0, 1, 2, 3, 4, 5].map((i) => r2(T.agenda + 0.12 + i * 0.09));
-T.listos = r2(T.agenda + 0.72);
-T.s6 = r2(T.listos + 0.15); T.q2s = r2(T.s6 + 0.35);
+T.filas = [0, 1, 2, 3, 4].map((i) => r2(T.q2 + 0.1 + i * 0.14));
+T.agenda = r2(T.q2 + 0.75); T.turnos = [0, 1, 2, 3, 4, 5].map((i) => r2(T.agenda + 0.12 + i * 0.08));
+T.listos = r2(T.agenda + 0.68);
 // Q3 · miércoles 10:30, el palier 3B: Agustina llega; "¿Sigue disponible?" / "Sí." (abre) / "¡Qué bueno! Yo también."
-T.q3 = r2(T.s6 + LEN.s6 + 0.08); T.a2 = r2(T.q3 + 0.45);
+T.q3 = r2(T.listos + 0.75); T.a2 = r2(T.q3 + 0.38);
 T.s7 = r2(T.a2 + LEN.a2 + 0.08); T.abre = r2(T.s7 + 0.05);
-T.q3b = r2(T.s7 + LEN.s7 + 0.4); T.a3 = r2(T.q3b + 0.05);
+T.q3b = r2(T.s7 + LEN.s7 + 0.35); T.a3 = r2(T.q3b + 0.05);
 T.tambien = r2(T.a3 + palabra("a3", 2) - 0.05);
 T.rotQ3 = r2(T.a3 + LEN.a3 + 0.02);
 // Q4 · miércoles 12:00, la oficina: vibra, el mismo audio de don Alberto (desde "¿Nadie preguntó…?"); "Treinta y ocho.
 // Seis visitas. Y el viernes firman."; la ficha ALQUILA: RESERVADO ✓
-T.q4 = r2(T.rotQ3 + 0.65); T.vib3 = r2(T.q4 + 0.04);
-T.al2Desde = r2(palabra("al", 3) - 0.06); T.al2 = r2(T.q4 + 0.3); T.al2Fin = r2(T.al2 + LEN.al - T.al2Desde);
-T.s8 = r2(T.al2Fin + 0.06);
-T.q4f = r2(T.s8 + palabra("s8", 5) - 0.1);                // en "Y el viernes firman." la cámara va a la ficha
-T.reserva = r2(T.s8 + LEN.s8 - 0.1); T.rotQ4 = [r2(T.reserva + 0.28), r2(T.reserva + 0.5)];
+T.q4 = r2(T.rotQ3 + 0.55); T.vib3 = r2(T.q4 + 0.04);
+T.al2Desde = r2(palabra("al", 3) - 0.06); T.al2 = r2(T.q4 + 0.22); T.al2Fin = r2(T.al2 + LEN.al - T.al2Desde);
+T.s8 = r2(T.al2Fin + 0.06); T.visitas = r2(T.s8 + 0.1);   // "Treinta y ocho." · el rótulo "Visitas agendadas: 6 ✓"
+T.q4f = r2(T.s8 + palabra("s8", 3) - 0.1);                // en "Y el viernes firman." la cámara va a la ficha
+T.reserva = r2(T.s8 + LEN.s8 - 0.1); T.rotQ4 = [r2(T.reserva + 0.2), r2(T.reserva + 0.38)];
 // F · el cierre: Silvana a cámara; "Comentá DISPONIBLE…"
-T.q5 = r2(T.reserva + 1.25); T.s9 = r2(T.q5 + 0.08);
-T.palabra = r2(T.s9 - 0.02);
-const DUR = Math.ceil((Math.ceil((T.s9 + LEN.s9 + 0.4) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(Math.max(T.s9 + LEN.s9 - 0.7, DUR - 1.3));
+// (r1 del coordinador) el cierre entero ≤ 3 s: el plano y la tarjeta arrancan sobre "Comentá"; la línea chica, el último ~1 s
+T.q5 = r2(T.reserva + 0.95); T.s9 = T.q5;
+T.palabra = r2(T.s9);
+const DUR = Math.ceil((Math.ceil((T.s9 + LEN.s9) * 30) / 30) * 1e4) / 1e4;
+T.cierre = r2(DUR - 1.0);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -239,7 +239,7 @@ for (const [id, a, b, txt] of CHIPS) {
       const letras = qa(".l");
       const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
-        const t0 = i < nAB ? i * 0.03 : 1.2 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
+        const t0 = i < nAB ? i * 0.03 : 1.05 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
@@ -350,7 +350,7 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -36 });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -39 });
 // Q1 · el living otra vez: el celular de Silvana vibra una vez, corto; el mismo audio de Diego; el chat del agente
 amb(P2, T.q2, 2);
 vibra(T.vib2, -44, 0.22);
@@ -365,10 +365,8 @@ s("sfx/whoosh.mp3", T.q2 - 0.1, 0, { techo: -42 });
 s("sfx/zumbido-largo.wav", T.q2, 0, { loop: true, dur: r2(T.q3 - T.q2), fi: 0.1, fin: 0.1, techo: -52, lp: 700 });
 T.filas.forEach((t, i) => tic(t, -42 + (i % 2)));
 s("sfx/whoosh-short.mp3", T.agenda - 0.08, 0, { techo: -42 });
-T.turnos.forEach((t, i) => pop(t, -42 + (i % 2)));
-ding(T.listos, -35);
-s("sfx/whoosh-short.mp3", T.q2s - 0.05, 0, { techo: -46 });
-voz("s6", T.s6, -1);
+T.turnos.forEach((t, i) => pop(t, -44 + (i % 2)));
+ding(T.listos, -38);
 // Q3 · el palier: los pasos de Agustina, las llaves, la puerta; ding con el rótulo
 s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, desde: 1, dur: r2(T.q4 - T.q3), fi: 0.1, fin: 0.1, techo: -54, lp: 500 });
 pasos(T.q3, T.a2 - 0.05, 4, -42);
@@ -384,7 +382,7 @@ s("sfx/whoosh-short.mp3", T.q4 - 0.06, 0, { techo: -44 });
 s("sfx/zumbido-largo.wav", T.q4, 0, { loop: true, desde: 2, dur: r2(DUR - T.q4), fi: 0.1, fin: 0.4, techo: -54, lp: 700 });
 vibra(T.vib3, -38, 0.22); toque(T.al2 - 0.08, -42);
 s("voice/al.wav", T.al2, -1, { voz: true, desde: T.al2Desde, fin: 0.04 }); VOZ.push([r2(T.al2 - 0.75), r2(T.al2Fin + 0.95)]);
-voz("s8", T.s8, -1);
+voz("s8", T.s8, -1); pop(T.visitas, -42);
 s("sfx/whoosh-short.mp3", T.q4f - 0.05, 0, { techo: -46 });
 s("sfx/whoosh-short.mp3", T.reserva - 0.08, 0, { techo: -40 }); pop(T.reserva + 0.08, -37); ding(T.reserva + 0.12, -38);
 T.rotQ4.forEach((t, i) => pop(t, -40 + i));

@@ -802,13 +802,12 @@ const GL = {
   d1b: crearGlobo(["El de Punta Carretas", "[explota.] Van doce."], 64),
   s5: crearGlobo(["¿Y quién [contesta?]"], 72),
   d3: crearGlobo(["[Ya contestó.] Le pidió la", "garantía y agendó."], 58),
-  s6: crearGlobo(["Esos dos, [para mí.]"], 76),
   a2: crearGlobo(["¿Sigue [disponible?]"], 76),
   s7: crearGlobo(["[Sí.]"], 96),
   a3a: crearGlobo(["¡Qué bueno!"], 92, { minW: 820 }),
   a3: crearGlobo(["¡Qué bueno!", "[Yo también.]"], 92, { minW: 820 }),
   al2: crearGlobo(["¿Nadie preguntó por", "el [apartamento?]"], 64, { cab: ALT }),
-  s8: crearGlobo(["Treinta y ocho. Seis visitas.", "Y el viernes [firman.]"], 60),
+  s8: crearGlobo(["Treinta y ocho.", "Y el viernes [firman.]"], 72),
 };
 // las consultas que brotan del celular en P1 (y en P2) y la de Agustina, grande
 const CONS = [["¿Sigue disponible?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Sigue disponible?", "camara"], ["¿Acepta mascotas?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Gastos comunes?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 44));
@@ -824,6 +823,7 @@ const ROT = {
   comision: crearRotulo([["Comisión de este alquiler:", null, 46], ["$ 30.000", "#c7655b", 70]], 46),
   q1: crearRotulo([["Contesta al instante, con", null, 46], ["los datos de la propiedad", "#5ce611", 46]], 46),
   q3: crearRotulo([["Agustina · ANDA ·", "#0b1220", 54], ["firma el viernes ✓", "#0b1220", 54]], 54, { fondo: "#5ce611", borde: C.navy }),
+  visitas: crearRotulo([["Visitas agendadas: 6 ✓", "#5ce611", 56]], 56),
   comisionOk: crearRotulo([["Comisión de este alquiler:", null, 46], ["$ 30.000 ✓", "#5ce611", 70]], 46),
 };
 const GUIAS = [crearGuia(), crearGuia()];
@@ -846,10 +846,10 @@ const PLANOS = [
   ["P4i", T.p4i, null],  // la bandeja: 38
   ["P4b", T.p4b, [[T.p4b, 0.14, 1.3, 2.05, 0.02, 1.22, 0.3, 40], [P1, 0.13, 1.3, 1.95, 0.02, 1.22, 0.3, 39]]],
   // ---- parte 2 ----
-  ["Q1", P2, [[P2, ...CAM_LIV(0)], [T.q1i, ...CAM_LIV(0.6)]]],
+  ["Q1", P2, [[P2, ...CAM_LIV(0)], [T.q1b, ...CAM_LIV(0.6)]]],
+  ["Q1b", T.q1b, [[T.q1b, BX + 0.0, 1.55, 3.4, BX + 0.0, 1.28, 0.4, 50], [T.q1i, BX + 0.0, 1.55, 3.28, BX + 0.0, 1.28, 0.4, 49]]],   // (r1) corte a los dos más cerca
   ["Q1i", T.q1i, null],  // el chat del agente en el celular de Diego
   ["Q2", T.q2, null],    // el panel en el monitor (travelling)
-  ["Q2s", T.q2s, [[T.q2s, -0.2, 1.34, 2.15, -0.25, 1.1, 0.4, 50], [T.q3, -0.2, 1.34, 2.05, -0.25, 1.1, 0.4, 49]]],
   ["Q3", T.q3, [[T.q3, ...CAM_PAL(0)], [T.q3b, ...CAM_PAL(1)]]],
   ["Q3b", T.q3b, null],  // push-in a Agustina
   ["Q4", T.q4, [[T.q4, ...CAM_OF(0)], [T.q4f, ...CAM_OF(0.7)]]],
@@ -993,13 +993,12 @@ function poseSilvanaOf(t) {
   // parte 2: tranquila, media sonrisa; Q2s mira el monitor (a su derecha, -x); Q4 atiende y mira el monitor; F a cámara
   Object.assign(pr, { ...CARA.sonrisa, ojos: { abiertos: 1, x: -0.45, y: -0.15, feliz: 0.25 }, cejas: { alto: 0.2, ang: 0 }, boca: { sonrisa: 0.55, abierta: 0, ancho: 1.05 } });
   pr.cabeza = { giro: -0.45, asiente: 0.08, ladea: 0.04 };
-  if (t >= T.q2s && t < T.q3) { pr.manoD = [-0.3, 0.42, 0.42]; pr.codoD = [-1, -0.4, -0.2]; pr.dedoD = 1; pr.cabeza = { giro: -0.4, asiente: 0.1, ladea: 0.06 }; }   // señala con el índice
   if (t >= T.q4) {
     if (t < T.al2 + 0.1) { const u = eio(sg(t, T.vib3, T.al2 - 0.1)); telS.updateMatrixWorld(true); const w = telS.userData.piv.localToWorld(V3(0, telS.userData.H * 0.2, 0.05)); pr.manoI = lerpV([0.2, 0.32, 0.36], aCuerpo(silvana, w), Math.sin(Math.PI * u)); pr.dedoI = 1; pr.cabeza = { giro: 0.3, asiente: 0.15, ladea: 0.02 }; pr.ojos = { abiertos: 1, x: 0.35, y: -0.45, feliz: 0.2 }; }
     else if (t < T.s8 - 0.2) { pr.cabeza = { giro: 0.25, asiente: 0.1, ladea: 0.02 }; pr.ojos = { abiertos: 1, x: 0.3, y: -0.35, feliz: 0.3 }; }
   }
   if (t >= T.q5) { pr.cabeza = { giro: 0.02, asiente: 0.02, ladea: 0.04 }; pr.ojos = { abiertos: 1, x: 0.0, y: 0.05, feliz: 0.3 }; pr.inclina = 0.06; pr.boca = { sonrisa: 0.7, abierta: 0, ancho: 1.08 }; pr.manoI = [0.16, 0.34, 0.4]; pr.manoD = [-0.16, 0.34, 0.4]; }
-  bocaVoz(pr, t, T.s6, ENV.s6, 0.45); bocaVoz(pr, t, T.s8, ENV.s8, 0.45); bocaVoz(pr, t, T.s9, ENV.s9, 0.45);
+  bocaVoz(pr, t, T.s8, ENV.s8, 0.45); bocaVoz(pr, t, T.s9, ENV.s9, 0.45);
   return pr;
 }
 // ---------- en el palier 3B (Q3): Silvana con la llave, Diego detrás, Agustina que llega ----------
@@ -1049,7 +1048,7 @@ function renderAt(tIn) {
   const pl = planoEn(t); planoActual = pl[0];
   let pa = planoActual;
   if (VERM === "portada") pa = "portada";
-  const lugar = ["P1", "P1b", "Q1", "Q1i", "portada"].includes(pa) ? "lv" : ["Q3", "Q3b"].includes(pa) ? "pa" : "of";
+  const lugar = ["P1", "P1b", "Q1", "Q1b", "Q1i", "portada"].includes(pa) ? "lv" : ["Q3", "Q3b"].includes(pa) ? "pa" : "of";
   const noche = pa === "P2";
   ponerLuces(lugar, noche);
   scene.background = new THREE.Color(lugar === "of" ? 0x16243d : 0xdfe9ec);
@@ -1102,7 +1101,7 @@ function renderAt(tIn) {
     const k = eio(sg(t, t0, t1)), v2 = v.slice(); for (const j of [0, 1, 2]) v2[j] += (v[j] - v[j + 3]) * 0.07 * (1 - k);
     ponerVista(v2, v2, 0, up, up);
   }
-  if (pa === "Q1") { camera.updateMatrixWorld(true); celEnManos(celD, diego, t >= T.muestra ? camera.position : V3(BX + 0.3, 1.0, -0.4), 0.08, 0.1); celD.visible = true; }
+  if (pa === "Q1" || pa === "Q1b") { camera.updateMatrixWorld(true); celEnManos(celD, diego, t >= T.muestra ? camera.position : V3(BX + 0.3, 1.0, -0.4), 0.08, 0.1); celD.visible = true; }
   if (pa === "Q1i") {
     const A = CAM_LIV(0.6); ponerCam(A, t, true); camera.updateMatrixWorld(true);
     celEnManos(celD, diego, camera.position, 0.12, 0.16); celD.visible = true;
@@ -1192,15 +1191,12 @@ function tarjetas(t, pa) {
   if (pa === "P4i") ponerContador(38, false, 540, 300, 1.2, null, 6);
   if (pa === "P4b" && t >= T.s4 - 0.04) hablar(GL.s4, silvana, ent(T.s4 - 0.04), 2, 0, 260);
   // ---- parte 2 ----
-  if (pa === "Q1") {
-    if (t >= T.d1b - 0.04 && t < T.s5 - 0.04) hablar(GL.d1b, diego, ent(T.d1b - 0.04), 2, 40, 300);
-    if (t >= T.s5 - 0.04) hablar(GL.s5, silvana, ent(T.s5 - 0.04), 3, 60, 300);
-  }
+  if (pa === "Q1" && t >= T.d1b - 0.04) hablar(GL.d1b, diego, ent(T.d1b - 0.04), 2, 40, 300);
+  if (pa === "Q1b" && t >= T.s5 - 0.04) hablar(GL.s5, silvana, ent(T.s5 - 0.04), 3, 60, 300);
   if (pa === "Q1i") {
     if (t >= T.d3 - 0.04) ponerGlobo(GL.d3, 540, 1755, ent(T.d3 - 0.04), null, 2);
     if (t >= T.rotQ1) ponerGlobo(ROT.q1, 540, 120, ent(T.rotQ1), null, 3);
   }
-  if (pa === "Q2s" && t >= T.s6 - 0.04) hablar(GL.s6, silvana, ent(T.s6 - 0.04), 2, 60, 260);
   if (pa === "Q3") {
     if (t >= T.a2 - 0.04 && t < T.s7 - 0.04) hablar(GL.a2, agustina, ent(T.a2 - 0.04), 2, 60, 300);
     if (t >= T.s7 - 0.04) hablar(GL.s7, silvana, ent(T.s7 - 0.04), 3, 0, 300);
@@ -1215,6 +1211,7 @@ function tarjetas(t, pa) {
     const tp = objPx(telS.userData.piv, V3(0, telS.userData.H * 0.9, 0.01));
     if (t >= T.al2 - 0.04 && t < T.s8 - 0.1) ponerGlobo(GL.al2, 540, 1500, ent(T.al2 - 0.04), [tp[0], tp[1]], 2);
     if (t >= T.s8 - 0.04) hablar(GL.s8, silvana, ent(T.s8 - 0.04), 2, 0, 260);
+    if (t >= T.visitas) ponerGlobo(ROT.visitas, 540, 1560, ent(T.visitas), null, 3);
   }
   if (pa === "Q4f") {
     if (t >= T.s8 - 0.04) ponerGlobo(GL.s8, 540, 330, 1, null, 2);
