@@ -16,13 +16,14 @@ function enLaBici(per, b, t, base, { fase = 1.2, inclina = 0.1, manos = true, bo
   p.t = t; return p;
 }
 const pedaleo = (t, n, desde) => (t >= desde ? FASE0(n) + 2 * Math.PI * CAD * (t - desde) : FASE0(n));
-const ESPERA = [[0, { ...aC(0, -0.05), ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05 } }]];
+const CONTENTO = { ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05, feliz: 0.15 }, cejas: { alto: 0.35, ang: 0.2, asim: 0 }, boca: { sonrisa: 0.45, abierta: 0, ancho: 1 } };
+const ESPERA = [[0, { ...aC(0, -0.05), ...CONTENTO }]];
 const pedalea = (t, n, desde, extra = {}) => { const f = pedaleo(t, n, desde), on = t >= desde; return { fase: f, inclina: on ? 0.26 : 0.1, bob: on ? Math.abs(Math.sin(f)) * 0.012 : 0, ...extra }; };
 // la entrada de los nueve (P2): de la puerta caminando (cámara rápida) hasta el costado de la bici y el salto al asiento
 const PUERTA_P = V3(XL + 0.35, 0, PUERTA.z);
 function entrando(per, n, i, t) {
   const b = biciN(n), te = T.entra[i], ts = T.sienta[i];
-  const costado = enBici(b, -0.5, 0, 0.15);   // a la derecha de la bici (mirando a la tarima)
+  const costado = enBici(b, 0, 0, -0.72);   // detrás del asiento: sube por atrás (las piernas no cruzan el cuadro)
   if (t < ts - 0.16) {
     const u = sg(t, te, ts - 0.16), pos = PUERTA_P.clone().lerp(costado, eio(u));
     const g = dirGiro(PUERTA_P.x, PUERTA_P.z, costado.x, costado.z);
@@ -44,7 +45,7 @@ function poseAlumno(per, n, i, t, pa) {
   if (!p2 && pa === "P2" && t < T.sienta[i]) return entrando(per, n, i, t);
   const desde = p2 ? T.q3 - 2 : T.musica;
   const mira = 0.12 * Math.sin(n * 1.7);
-  const base = [[0, { ...aC(mira, -0.05), ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05 } }]];
+  const base = [[0, { ...aC(mira, -0.05), ...CONTENTO }]];
   if (p2 || t >= T.musica) base.push([desde + 0.4, { ...aC(mira * 0.5, 0.05), ...CARA.sonrisa }, 0.3]);
   const p = enLaBici(per, biciN(n), t, base, pedalea(t, n, desde));
   // el que tira un perchero levanta la mano un momento
@@ -195,7 +196,7 @@ function renderAt(tIn) {
   const enSala = !INSERTOS.includes(pa) && !living;
   for (const p of TODOS) p.raiz.visible = false;
   if (enSala) {
-    if (pa !== "Q3b" && pa !== "Q3d") { mauro.raiz.visible = true; mauro.poner(poseMauro(t, pa)); }   // en Q3b/Q3d la cámara está en la tarima, al lado de Mauro
+    if (!["Q3b", "Q3d", "P2", "P3", "P5b", "Q3"].includes(pa)) { mauro.raiz.visible = true; mauro.poner(poseMauro(t, pa)); }   // en Q3b/Q3d la cámara está al lado de él; en los gran planos quedaba cortado en el borde   // en Q3b/Q3d la cámara está en la tarima, al lado de Mauro
     const lista = p2 ? EN_BICI_2 : EN_BICI_1;
     lista.forEach(([per, n], i) => {
       if (!p2 && (t < T.p2 || (pa === "P2" && t < T.entra[i]))) return;   // 18:20: la sala vacía
@@ -212,6 +213,7 @@ function renderAt(tIn) {
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
   ponerObjetos(t, pa);
+  const ancho = ["P2", "P3", "P5b", "Q3"].includes(pa); BICI_P.visible = !ancho; if (ancho) CEL_M.visible = false;   // en los gran planos la bici del profe quedaba cortada abajo
   // ---- insertos ----
   const I = { P1b: INS.P1b, P3i: INS.P3i, P5: INS.P5, Q1: INS.Q1, Q1c: INS.Q1, Q1s: INS.Q1s, Q2: INS.Q2, Q2t: INS.Q2t, Q2s: INS.Q2s, Q4: INS.Q4 }[pa];
   for (const k in INS) INS[k].g.visible = INS[k] === I;
@@ -223,7 +225,7 @@ function renderAt(tIn) {
   }
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): la sala con los nueve y las cinco bicis de perchero, todo en la mitad de arriba ----
-  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false;
@@ -274,7 +276,7 @@ function tarjetas(t, pa) {
   if (pa === "Q3" || pa === "Q3b" || pa === "Q3c" || pa === "Q3d") {
     ponerGlobo(GL.c1900, 250, 150, 1, null);
     if (pa === "Q3") ponerContador([["RESERVAS", 14, "#5ce611"], ["VINIERON", 14, "#5ce611"]], 830, 90, 1, 0);
-    if (pa === "Q3" && t >= T.m4) { verLineas(GL.m4, t >= T.m4 + T.FRASE2.m4 ? 2 : 1); hablar(GL.m4, mauro, ent(T.m4), 1, 0, 330); }
+    if (pa === "Q3" && t >= T.m4) { verLineas(GL.m4, t >= T.m4 + T.FRASE2.m4 ? 2 : 1); ponerGlobo(GL.m4, 540, 1560, ent(T.m4), null, 1); }   // por los parlantes: abajo, sin cola
     if (pa === "Q3b" && t >= T.g1) hablar(GL.g1, graciela, ent(T.g1), 1, 0, 300);
     if (pa === "Q3c" && t >= T.m5) hablar(GL.m5, mauro, ent(T.m5), 1, 0, 300);
   }

@@ -87,3 +87,16 @@ celular, 22 → 23) · P5c 17,10 (Mauro lo da vuelta) · P5b 17,95 (arrancan a p
   instante las piernas pueden cruzar el cuadro de la bici.
 - Portada: `portada.json` con t 11,2 y `portada-src/fondo-limpio-11.2.png` (VER=portada LIMPIO=1, la sala con la toalla en
   la 2 y el celular en la 7). `herramientas/portada.mjs` necesita el MP4 final en la rama: correrlo después del render.
+
+## Antes de la revisión (pedido del coordinador, 25-11)
+- Toalla al cuello (Mauro y Graciela): rollo con volumen (toro grueso por atrás del cuello) y dos puntas redondeadas
+  (cápsulas aplanadas) con la franja verde abajo; la de Graciela blanca y un poco más grande.
+- La franja de la remera de Mauro: sin el aro de personajes.js (`franja: null`); una banda verde chata solo adelante.
+- Alumnos del gran plano con cara contenta (cejas arriba, media sonrisa) en la espera y en la parte 2.
+- El salto a la bici: llegan por detrás del asiento y suben hacia adelante (las piernas pasan a los costados del poste,
+  no cruzan el cuadro).
+- Gran planos (P2, P3, P5b, Q3): cámara bajada de la tarima a z -4,35 (por encima de la bici del profe), fov 77; Mauro, su
+  bici y su celular ocultos en esos planos (quedaban cortados abajo a la derecha). "Catorce reservas. Pedalean catorce."
+  va por los parlantes: burbuja con el micrófono abajo, sin cola. Fondo de la portada regenerado con la misma regla.
+- Render de revisión 1: `renders/gym-cupo.mp4` en 1433 s (23,9 min, SwiftShader, sin espera de candado) + paso10.sh 80 s →
+  `renders/gym-cupo-final.mp4` (42,70 s, -14,0 LUFS, pico -5,2 dBFS). Hoja cada 2 s: `renders/hoja.png`.

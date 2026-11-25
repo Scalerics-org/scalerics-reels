@@ -2,11 +2,13 @@
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const mauro = crearPersonaje({ ...ELENCO.mauro, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
+const mauro = crearPersonaje({ ...ELENCO.mauro, franja: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
 // Graciela, versión gimnasio: la misma cara, rulos lila y lentes; remera crema de manga larga, calza navy, zapatillas crema
 const graciela = crearPersonaje({ ...ELENCO.clienta, camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
 const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q1b + 0.05)] });
 const sole = crearPersonaje({ ...ELENCO.sole, parpadeoCada: 999 });
+// la franja verde de marca en el pecho de Mauro: una banda chata solo adelante (no el aro de personajes.js)
+{ const f = mesh(new THREE.TorusGeometry(0.222, 0.011, 6, 40, Math.PI * 0.9), mat(MARCA.g, 0.5), 0, 0.33, 0); f.rotation.set(Math.PI / 2, 0, Math.PI * 0.05); f.scale.set(1, 0.875, 2.6); f.castShadow = false; mauro.cuerpo.add(f); }
 // la vincha de tela verde de Graciela (un aro ancho apoyado arriba de la frente, por debajo de los rulos de arriba)
 { const v = mesh(new THREE.TorusGeometry(0.29, 0.03, 10, 40), mat(MARCA.g, 0.8), 0, 0.33, -0.015); v.rotation.x = Math.PI / 2 - 0.42; v.scale.set(1.04, 1.06, 0.62); v.castShadow = false; graciela.cabeza.add(v); }
 // los alumnos de relleno (sin voz): A-H en la parte 1 (3, 5, 6, 8, 9, 10, 12, 14); I-K se suman en la parte 2 (2, 11, 13)
@@ -45,9 +47,14 @@ function crearToallaColgada() {
 }
 // la toalla al cuello (en el espacio del cuerpo): media vuelta por atrás y las dos puntas que caen sobre el pecho
 function crearToallaCuello(k = 1, blanca = false) {
+  // un rollo con volumen que rodea el cuello por atrás y dos puntas redondeadas que caen sobre el pecho, con franja verde
   const g = new THREE.Group(), m = mat(blanca ? 0xffffff : 0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const ar = mesh(new THREE.TorusGeometry(0.125, 0.032, 8, 24, Math.PI * 1.25), m, 0, 0.47, -0.005); ar.rotation.set(Math.PI / 2 - 0.15, 0, -Math.PI * 1.125 + Math.PI); g.add(ar);
-  for (const s of [-1, 1]) { const p = caja(0.09, 0.13, 0.02, m, s * 0.075, 0.41, 0.165, 0.008); p.rotation.set(-0.45, 0, s * 0.12); g.add(p); const f = caja(0.092, 0.035, 0.022, mg, s * 0.078, 0.36, 0.19, 0.004); f.rotation.x = -0.45; g.add(f); }
+  const ar = mesh(new THREE.TorusGeometry(0.135, 0.045, 12, 28, Math.PI * 1.3), m, 0, 0.5, -0.01); ar.rotation.set(Math.PI / 2 - 0.12, 0, Math.PI * 0.35 - Math.PI * 1.3 / 2 + Math.PI / 2 + Math.PI); ar.scale.set(1, 0.95, 0.7); g.add(ar);
+  for (const s of [-1, 1]) {
+    const pu = new THREE.Group(); pu.position.set(s * 0.1, 0.47, 0.15); pu.rotation.set(-0.35, 0, s * 0.1); g.add(pu);
+    const c = mesh(new THREE.CapsuleGeometry(0.042, 0.13, 6, 12), m, 0, -0.09, 0); c.scale.set(1.05, 1, 0.6); pu.add(c);
+    const f = mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.025, 14), mg, 0, -0.15, 0); f.scale.set(1.05, 1, 0.62); pu.add(f);
+  }
   g.scale.setScalar(k);
   return sombras(g);
 }

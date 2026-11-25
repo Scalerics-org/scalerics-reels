@@ -437,11 +437,13 @@ function hablar(g, per, s, orden = 1, dx = 0, minArriba = 260) {
 // =====================================================================================================
 // LOS PERSONAJES
 // =====================================================================================================
-const mauro = crearPersonaje({ ...ELENCO.mauro, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
+const mauro = crearPersonaje({ ...ELENCO.mauro, franja: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
 // Graciela, versión gimnasio: la misma cara, rulos lila y lentes; remera crema de manga larga, calza navy, zapatillas crema
 const graciela = crearPersonaje({ ...ELENCO.clienta, camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
 const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q1b + 0.05)] });
 const sole = crearPersonaje({ ...ELENCO.sole, parpadeoCada: 999 });
+// la franja verde de marca en el pecho de Mauro: una banda chata solo adelante (no el aro de personajes.js)
+{ const f = mesh(new THREE.TorusGeometry(0.222, 0.011, 6, 40, Math.PI * 0.9), mat(MARCA.g, 0.5), 0, 0.33, 0); f.rotation.set(Math.PI / 2, 0, Math.PI * 0.05); f.scale.set(1, 0.875, 2.6); f.castShadow = false; mauro.cuerpo.add(f); }
 // la vincha de tela verde de Graciela (un aro ancho apoyado arriba de la frente, por debajo de los rulos de arriba)
 { const v = mesh(new THREE.TorusGeometry(0.29, 0.03, 10, 40), mat(MARCA.g, 0.8), 0, 0.33, -0.015); v.rotation.x = Math.PI / 2 - 0.42; v.scale.set(1.04, 1.06, 0.62); v.castShadow = false; graciela.cabeza.add(v); }
 // los alumnos de relleno (sin voz): A-H en la parte 1 (3, 5, 6, 8, 9, 10, 12, 14); I-K se suman en la parte 2 (2, 11, 13)
@@ -480,9 +482,14 @@ function crearToallaColgada() {
 }
 // la toalla al cuello (en el espacio del cuerpo): media vuelta por atrás y las dos puntas que caen sobre el pecho
 function crearToallaCuello(k = 1, blanca = false) {
+  // un rollo con volumen que rodea el cuello por atrás y dos puntas redondeadas que caen sobre el pecho, con franja verde
   const g = new THREE.Group(), m = mat(blanca ? 0xffffff : 0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const ar = mesh(new THREE.TorusGeometry(0.125, 0.032, 8, 24, Math.PI * 1.25), m, 0, 0.47, -0.005); ar.rotation.set(Math.PI / 2 - 0.15, 0, -Math.PI * 1.125 + Math.PI); g.add(ar);
-  for (const s of [-1, 1]) { const p = caja(0.09, 0.13, 0.02, m, s * 0.075, 0.41, 0.165, 0.008); p.rotation.set(-0.45, 0, s * 0.12); g.add(p); const f = caja(0.092, 0.035, 0.022, mg, s * 0.078, 0.36, 0.19, 0.004); f.rotation.x = -0.45; g.add(f); }
+  const ar = mesh(new THREE.TorusGeometry(0.135, 0.045, 12, 28, Math.PI * 1.3), m, 0, 0.5, -0.01); ar.rotation.set(Math.PI / 2 - 0.12, 0, Math.PI * 0.35 - Math.PI * 1.3 / 2 + Math.PI / 2 + Math.PI); ar.scale.set(1, 0.95, 0.7); g.add(ar);
+  for (const s of [-1, 1]) {
+    const pu = new THREE.Group(); pu.position.set(s * 0.1, 0.47, 0.15); pu.rotation.set(-0.35, 0, s * 0.1); g.add(pu);
+    const c = mesh(new THREE.CapsuleGeometry(0.042, 0.13, 6, 12), m, 0, -0.09, 0); c.scale.set(1.05, 1, 0.6); pu.add(c);
+    const f = mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.025, 14), mg, 0, -0.15, 0); f.scale.set(1.05, 1, 0.62); pu.add(f);
+  }
   g.scale.setScalar(k);
   return sombras(g);
 }
@@ -901,7 +908,7 @@ function ponerLupa(t, cx, cy, s, objetivo) { const l = msgsP1(t), k = `${l.lengt
 const lerpV = (a, b, k) => a.map((v, i) => lerp(v, b[i], k));
 const CAM = {
   P1a: [-0.95, 1.62, -0.75, 0.4, 1.8, -4.3, 60], P1z: [-0.88, 1.62, -0.95, 0.38, 1.8, -4.3, 58],
-  Wa: [0.85, 3.12, -5.15, -0.05, -0.3, 0.6, 74], Wz: [0.83, 3.08, -5.02, -0.05, -0.28, 0.6, 72],
+  Wa: [0.85, 3.05, -4.35, 0.05, -0.3, 0.8, 77], Wz: [0.84, 3.03, -4.25, 0.05, -0.28, 0.8, 76],
   P4a: [1.25, 1.95, -2.35, 0.0, 1.72, -4.35, 40], P4z: [1.15, 1.93, -2.55, 0.0, 1.74, -4.35, 38],
   P5a: [-0.42, 2.22, -4.98, 0.04, 1.3, -3.7, 42], P5z: [-0.38, 2.15, -4.88, 0.04, 1.3, -3.7, 40],
   P5c: [-1.05, 1.85, -1.95, 0.0, 1.62, -4.3, 50],
@@ -915,7 +922,7 @@ const PLANOS = [
   ["P1", 0, k2(0, T.p1b, "P1a", "P1z")],
   ["P1b", T.p1b, null],
   ["P2", T.p2, k2(T.p2, T.p3, "Wa", "Wz")],
-  ["P3", T.p3, [[T.p3, ...CAM.Wz], [T.p3i, ...lerpV(CAM.Wz, [0.81, 3.05, -4.92, -0.05, -0.26, 0.6, 70], 1)]]],
+  ["P3", T.p3, [[T.p3, ...CAM.Wz], [T.p3i, ...lerpV(CAM.Wz, [0.83, 3.02, -4.18, 0.05, -0.27, 0.8, 75], 1)]]],
   ["P3i", T.p3i, null],
   ["P4", T.p4, k2(T.p4, T.p5, "P4a", "P4z")],
   ["P5", T.p5, null],
@@ -993,13 +1000,14 @@ function enLaBici(per, b, t, base, { fase = 1.2, inclina = 0.1, manos = true, bo
   p.t = t; return p;
 }
 const pedaleo = (t, n, desde) => (t >= desde ? FASE0(n) + 2 * Math.PI * CAD * (t - desde) : FASE0(n));
-const ESPERA = [[0, { ...aC(0, -0.05), ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05 } }]];
+const CONTENTO = { ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05, feliz: 0.15 }, cejas: { alto: 0.35, ang: 0.2, asim: 0 }, boca: { sonrisa: 0.45, abierta: 0, ancho: 1 } };
+const ESPERA = [[0, { ...aC(0, -0.05), ...CONTENTO }]];
 const pedalea = (t, n, desde, extra = {}) => { const f = pedaleo(t, n, desde), on = t >= desde; return { fase: f, inclina: on ? 0.26 : 0.1, bob: on ? Math.abs(Math.sin(f)) * 0.012 : 0, ...extra }; };
 // la entrada de los nueve (P2): de la puerta caminando (cámara rápida) hasta el costado de la bici y el salto al asiento
 const PUERTA_P = V3(XL + 0.35, 0, PUERTA.z);
 function entrando(per, n, i, t) {
   const b = biciN(n), te = T.entra[i], ts = T.sienta[i];
-  const costado = enBici(b, -0.5, 0, 0.15);   // a la derecha de la bici (mirando a la tarima)
+  const costado = enBici(b, 0, 0, -0.72);   // detrás del asiento: sube por atrás (las piernas no cruzan el cuadro)
   if (t < ts - 0.16) {
     const u = sg(t, te, ts - 0.16), pos = PUERTA_P.clone().lerp(costado, eio(u));
     const g = dirGiro(PUERTA_P.x, PUERTA_P.z, costado.x, costado.z);
@@ -1021,7 +1029,7 @@ function poseAlumno(per, n, i, t, pa) {
   if (!p2 && pa === "P2" && t < T.sienta[i]) return entrando(per, n, i, t);
   const desde = p2 ? T.q3 - 2 : T.musica;
   const mira = 0.12 * Math.sin(n * 1.7);
-  const base = [[0, { ...aC(mira, -0.05), ...CARA.neutra, ojos: { abiertos: 0.95, y: 0.05 } }]];
+  const base = [[0, { ...aC(mira, -0.05), ...CONTENTO }]];
   if (p2 || t >= T.musica) base.push([desde + 0.4, { ...aC(mira * 0.5, 0.05), ...CARA.sonrisa }, 0.3]);
   const p = enLaBici(per, biciN(n), t, base, pedalea(t, n, desde));
   // el que tira un perchero levanta la mano un momento
@@ -1172,7 +1180,7 @@ function renderAt(tIn) {
   const enSala = !INSERTOS.includes(pa) && !living;
   for (const p of TODOS) p.raiz.visible = false;
   if (enSala) {
-    if (pa !== "Q3b" && pa !== "Q3d") { mauro.raiz.visible = true; mauro.poner(poseMauro(t, pa)); }   // en Q3b/Q3d la cámara está en la tarima, al lado de Mauro
+    if (!["Q3b", "Q3d", "P2", "P3", "P5b", "Q3"].includes(pa)) { mauro.raiz.visible = true; mauro.poner(poseMauro(t, pa)); }   // en Q3b/Q3d la cámara está al lado de él; en los gran planos quedaba cortado en el borde   // en Q3b/Q3d la cámara está en la tarima, al lado de Mauro
     const lista = p2 ? EN_BICI_2 : EN_BICI_1;
     lista.forEach(([per, n], i) => {
       if (!p2 && (t < T.p2 || (pa === "P2" && t < T.entra[i]))) return;   // 18:20: la sala vacía
@@ -1189,6 +1197,7 @@ function renderAt(tIn) {
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
   ponerObjetos(t, pa);
+  const ancho = ["P2", "P3", "P5b", "Q3"].includes(pa); BICI_P.visible = !ancho; if (ancho) CEL_M.visible = false;   // en los gran planos la bici del profe quedaba cortada abajo
   // ---- insertos ----
   const I = { P1b: INS.P1b, P3i: INS.P3i, P5: INS.P5, Q1: INS.Q1, Q1c: INS.Q1, Q1s: INS.Q1s, Q2: INS.Q2, Q2t: INS.Q2t, Q2s: INS.Q2s, Q4: INS.Q4 }[pa];
   for (const k in INS) INS[k].g.visible = INS[k] === I;
@@ -1200,7 +1209,7 @@ function renderAt(tIn) {
   }
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): la sala con los nueve y las cinco bicis de perchero, todo en la mitad de arriba ----
-  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false;
@@ -1251,7 +1260,7 @@ function tarjetas(t, pa) {
   if (pa === "Q3" || pa === "Q3b" || pa === "Q3c" || pa === "Q3d") {
     ponerGlobo(GL.c1900, 250, 150, 1, null);
     if (pa === "Q3") ponerContador([["RESERVAS", 14, "#5ce611"], ["VINIERON", 14, "#5ce611"]], 830, 90, 1, 0);
-    if (pa === "Q3" && t >= T.m4) { verLineas(GL.m4, t >= T.m4 + T.FRASE2.m4 ? 2 : 1); hablar(GL.m4, mauro, ent(T.m4), 1, 0, 330); }
+    if (pa === "Q3" && t >= T.m4) { verLineas(GL.m4, t >= T.m4 + T.FRASE2.m4 ? 2 : 1); ponerGlobo(GL.m4, 540, 1560, ent(T.m4), null, 1); }   // por los parlantes: abajo, sin cola
     if (pa === "Q3b" && t >= T.g1) hablar(GL.g1, graciela, ent(T.g1), 1, 0, 300);
     if (pa === "Q3c" && t >= T.m5) hablar(GL.m5, mauro, ent(T.m5), 1, 0, 300);
   }
