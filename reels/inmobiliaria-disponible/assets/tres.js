@@ -908,7 +908,9 @@ const lerpV = (a, b, u) => a.map((v, i) => lerp(v, b[i], u));
 // ================= POSES =================
 const NADA = { ...CARA.neutra, ojos: { abiertos: 0.9, tension: 0.12, feliz: 0 }, cejas: { alto: 0.05, ang: 0.1 }, boca: { sonrisa: -0.1, abierta: 0, ancho: 0.95 } };
 const bocaVoz = (p, t, t0, env, k = 0.7) => {
-  if (!p.boca) p.boca = { sonrisa: 0.1, abierta: 0, ancho: 1 }; if (!p.ojos) p.ojos = { abiertos: 1 };
+  // (final) copias: antes se escribía sobre CARA.sonrisa.boca (compartida) y la boca abierta de un parlamento quedaba pegada
+  // en los cuadros siguientes del render (en un salto directo, como prev.mjs, no se veía)
+  p.boca = { ...(p.boca || { sonrisa: 0.1, abierta: 0, ancho: 1 }) }; p.ojos = { ...(p.ojos || { abiertos: 1 }) };
   if (env && t >= t0 && t < t0 + env.length / 30) { const i = Math.floor((t - t0) * 30), f = (t - t0) * 30 - i; const e = lerp(env[i] ?? 0, env[i + 1] ?? 0, f); p.boca.abierta = Math.max(p.boca.abierta ?? 0, cl(e * 1.1 - 0.05) * k); }
   { const h = sg(t, t0 - 0.12, t0) * (1 - sg(t, t0 + env.length / 30, t0 + env.length / 30 + 0.15)); if (h > 0) p.boca.sonrisa = lerp(p.boca.sonrisa ?? 0, Math.min(p.boca.sonrisa ?? 0, 0.08), h); }
   if (t >= t0 - 0.05 && t < t0 + env.length / 30 + 0.05) p.ojos.abiertos = Math.max(p.ojos.abiertos ?? 1, 0.85);
@@ -1021,6 +1023,7 @@ function poseSilvanaPal(t) {
   pr.manoD = lerpV(aCuerpo(silvana, cerr), [-0.29, -0.08, 0.04], abre); pr.codoD = [-1, -0.5, 0];
   pr.cabeza = { giro: lerp(-0.25, 0.1, sg(t, T.a2 - 0.2, T.a2 + 0.1)), asiente: 0.02, ladea: 0.04 };
   bocaVoz(pr, t, T.s7, ENV.s7, 0.5);
+  if (t >= T.s7 + LEN.s7 + 0.1) pr.boca = { sonrisa: 0.3, abierta: 0, ancho: 1 };   // (final) en Q3b, cerrada mientras habla Agustina
   return pr;
 }
 function poseAgustina(t) {
@@ -1053,7 +1056,7 @@ function celEnManos(cel, per, mira, alto = 0.07, adelante = 0.07) {
   cel.lookAt(mira);
 }
 // (r2) cada boca se mueve solo con su voz: el que no habla queda con la boca cerrada (la sonrisa muy alta se dibuja abierta)
-function callada(pr) { if (pr.boca && !((pr.boca.abierta ?? 0) > 0.02)) pr.boca = { ...pr.boca, abierta: 0, sonrisa: Math.min(pr.boca.sonrisa ?? 0, 0.6) }; return pr; }
+function callada(pr) { if (pr.boca && !((pr.boca.abierta ?? 0) > 0.02)) pr.boca = { ...pr.boca, abierta: 0, sonrisa: Math.min(pr.boca.sonrisa ?? 0, 0.6) }; else if (pr.boca) pr.boca = { ...pr.boca }; return pr; }
 function renderAt(tIn) {
   AVISOS.length = 0;
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
@@ -1065,7 +1068,7 @@ function renderAt(tIn) {
   ponerLuces(lugar, noche);
   scene.background = new THREE.Color(lugar === "of" ? 0x16243d : 0xdfe9ec);
   OF.visible = lugar === "of"; LV.visible = lugar === "lv"; PA.visible = lugar === "pa";
-  cartelNombre.visible = pa !== "Q4";   // (pulido) en Q4 el cartel quedaba debajo del chip "Miércoles, 12:00."
+  cartelNombre.visible = pa !== "Q4" && pa !== "P3b";   // (final) en P3b asomaba "SILVA" al lado del rótulo de la comisión   // (pulido) en Q4 el cartel quedaba debajo del chip "Miércoles, 12:00."
   // ---- pantallas y objetos ----
   dibujarPantS(t); dibujarMonitor(t);
   if (lugar === "lv") dibujarCelD(t);
@@ -1235,8 +1238,8 @@ function tarjetas(t, pa) {
   }
   if (pa === "Q4f") {
     if (vivo(T.s8, LEN.s8)) ponerGlobo(t < T.viernes ? GL.s8a : GL.s8, 540, 200, t < T.viernes ? 1 : ent(T.viernes), null, 2);   // sin cola: ella está fuera de cuadro; arriba de la ficha
-    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1625, ent(T.rotQ4[0]), null, 3);
-    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1795, 1, null, 4, 0.62);
+    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1598, ent(T.rotQ4[0]), null, 3);
+    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1792, 1, null, 4, 0.75);   // (final) "Sin contestar" ≥ 36 px
   }
 }
 

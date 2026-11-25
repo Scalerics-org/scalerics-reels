@@ -149,6 +149,16 @@ rótulos) · P4 14,70 (don Alberto 14,97) · P4i 17,17 (38) · P4b 17,77 ("Pregu
 "Yo también." 34,58; rótulo 35,35) · Q4 35,90 (altavoz 36,12; "Treinta y ocho." 38,00) · Q4f 38,95 ("Y el viernes firman."
 39,03; RESERVADO 40,07) · F 41,42-44,80 (tarjeta desde "Comentá" 41,42; línea chica 43,30).
 
+## Arreglo final (revisión del render de las 18:03)
+- La boca abierta y fija de Silvana en Q3b venía de un estado que se arrastraba entre cuadros: `bocaVoz` escribía sobre el
+  objeto `boca` de `CARA.sonrisa` (compartido por todas las poses), así que después de su "Sí." la boca quedaba abierta en
+  los cuadros siguientes del render secuencial (en un salto directo, como `prev.mjs` o un snapshot suelto, no se veía). Ahora
+  `bocaVoz` y `callada()` trabajan sobre copias (renderAt vuelve a ser función pura del tiempo) y en Q3b la boca de Silvana
+  queda cerrada con sonrisa 0,3. Afectaba a cualquier personaje que hablara con una cara de `CARA.*` (todos los planos).
+- P3b: el cartel "SILVANA PROPIEDADES" se oculta (asomaba "SILVA" junto al rótulo de la comisión).
+- Q4f: "Sin contestar 0" a escala 0,75 ("Sin contestar" ≈ 38 px).
+- Verificado con prev.mjs en secuencia (32,95 → 33,1 → 33,3 → 34,0 → 35,5) y con snapshot a 34,0 y 35,5.
+
 ## Pulido final (QA r3, 25-11)
 - "Yo también." entra con la voz: T.tambien = a3 + 0,79 (34,58; el STT ponía "Yo" en el arranque de la pausa).
 - "Treinta y ocho." y "Y el viernes firman." en dos tiempos (silencedetect: 1,045 s → 39,03), en Q4 y en Q4f.
