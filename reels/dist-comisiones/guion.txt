@@ -1,0 +1,42 @@
+[sin narrador Orus: el chiste va en burbujas (los remates en dos tiempos: la segunda mitad aparece cuando suena), la planilla de comisiones en el monitor de Rubén con columnas que se multiplican, el calendario de pared que pasa de 1 a 3, las pilas 3D de "lo que vendió cada uno" contra "lo que facturó la empresa" y los chips de hora; la solución va en la interfaz recreada (el celular de Nico con "Tu comisión", el panel "Comisiones · por vendedor" de Rubén, el pedido con su vendedor, la devolución que se descuenta sola); voces por archivo en partes/*.txt, ver partes/lineas.tsv · total estimado ~41,4 s · parte 1 0,00-18,40 · cartel 18,40-20,80 · parte 2 + cierre 20,80-41,40 (20,6 s, 50 %): tiempos estimados, el constructor los ajusta con las tomas]
+[parte 1 · el problema · 0,00-18,40 s · la oficina vidriada de Rubén arriba del depósito, el primer día del mes]
+[0,00-2,30 · P1 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" y el chip "Día 1 del mes, 8:00." · la oficina vidriada: Rubén en el escritorio frente al monitor con "COMISIONES OCTUBRE.xlsx" ya abierto, dos talonarios de remitos apilados, el mate, la calculadora con rollo · en el calendario de pared, el "1" de noviembre · Nico ya asomado a la puerta de vidrio con el celular; detrás, en la escalera, Javi · la burbuja ya en el cuadro 0]
+NICO: Jefe, ¿cuánto me toca?
+[2,30-4,60 · P2 · Rubén de 3/4, sin levantar la vista, se arremanga · la burbuja: "Fácil." y, cuando suena, "Tres por ciento de lo cobrado."]
+RUBEN: Fácil. Tres por ciento de lo cobrado.
+[4,60-7,00 · P3 · montaje sin voz: la planilla se abre de costado, columna por columna con pop: "VENDIDO" / "COBRADO" / "DEVOLUCIONES" / "PAGÓ LA MITAD" / "¿DE QUIÉN ES?" (las dos últimas en rojo apagado) · chips "Día 1, 13:00." → "Día 1, 22:00." → "Día 2, 19:00." · la hoja del calendario cae: 1 → 2 · el termo se vacía, la cinta de la calculadora llega al piso · en la escalera, Nico y Javi sentados, después dormidos contra la baranda, una caja de pizza · rótulos: "2 vendedores · 214 remitos" y "Bar Walter: pagó la mitad"]
+[7,00-8,60 · P4 · Rubén, ojeras, golpea Enter · en el monitor: "Nico · $ 42.000"]
+RUBEN: Nico: cuarenta y dos mil.
+[8,60-10,80 · P5 · Nico, ofendido de buena fe, muestra su celular: la calculadora con su propia cuenta "$ 60.000" · rótulo "Su cuenta: lo vendido, no lo cobrado"]
+NICO: ¿Cuarenta y dos? Súper Héctor es mío.
+[10,80-12,00 · P5b · Javi se mete por la puerta, el celular en alto: "$ 39.000"]
+JAVI: ¡Héctor es mío!
+[12,00-15,40 · P6 · remate · pausa 0,5 · al lado del escritorio cae caja por caja la pila de lo que dice cada uno, "Según Nico: $ 2.000.000" y encima "Según Javi: $ 1.300.000", que pasa de largo a la pila de al lado, "Facturó la empresa: $ 2.800.000" · la caja "SÚPER HÉCTOR $ 500.000" está dos veces en la pila de los vendedores (la de Nico y la de Javi), en rojo apagado · la burbuja: "Felicitaciones." y, cuando suena, "Entre los dos vendieron más que la empresa."]
+RUBEN: Felicitaciones. Entre los dos vendieron más que la empresa.
+[15,40-18,40 · P7 · remate del remate · suena el celular de Rubén sobre el escritorio, en altavoz: "Rotisería Graciela"]
+GRACIELA: Rubén, te devuelvo seis cajas.
+[pausa 0,4 · la planilla entera se pone en "Recalculando…" · en el monitor "Nico: $ 42.000 → $ 41.802" y el chip rojo apagado "− $ 198" · la hoja del calendario cae: 2 → 3 · chip "Día 3. Sueldos: atrasados." · la burbuja: "Te toca menos." y, cuando suena, "Pasá el jueves." · Nico se queda mirando el celular · stinger]
+RUBEN: Te toca menos. Pasá el jueves.
+NARRADOR: Un sistema más tarde.
+[cartel · 18,40-20,80 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/ya-lo-cargo/assets/voice/narrador.wav]
+[parte 2 · la solución · 20,80-41,40 s]
+[20,80-22,90 · Q1 · el mismo cuadro 0 (chip "Día 1 del mes, 8:00.", calendario en 1): Nico en la puerta, el mismo audio · Rubén con el mate, la planilla ya no está: en el monitor, el panel de comisiones]
+NICO: Jefe, ¿cuánto me toca?
+[22,90-24,10 · Q1b · Rubén, sin mirar el monitor, señala con la bombilla el celular de Nico]
+RUBEN: Mirá el celular.
+[24,10-26,80 · Q2 · inserto del celular de Nico a pantalla llena: "Tu comisión · Octubre" · "$ 42.000 ✓" grande, verde · "Cobrado: $ 1.400.000 × 3 %" · "Pendiente: Bar Walter pagó la mitad · $ 100.000 · te suma $ 3.000 cuando cobre" · rótulo "Se calcula sola con cada venta cobrada"]
+NICO: Cuarenta y dos mil. ¿Ya?
+[26,80-28,00 · Q3 · Javi se asoma por la puerta, el mismo encuadre de P5b]
+JAVI: ¿Y Súper Héctor?
+[28,00-29,60 · Q3m · Rubén toca el pedido en el panel: "Pedido 0388 · Súper Héctor · $ 500.000 · Cargó: Javi · 14/10, 10:12 ✓" · rótulo "Cada pedido, con su vendedor desde que se carga"]
+NICO: …Es de Javi.
+[29,60-32,60 · Q3b · las mismas pilas de cajas de P6, ahora "Nico: $ 1.500.000" + "Javi: $ 1.300.000" llegan justo a "Facturó la empresa: $ 2.800.000" · tilde verde "= ✓" · la burbuja de Rubén en el mismo lugar que el remate: "Felicitaciones." y, cuando suena, "Ahora la cuenta da."]
+RUBEN: Felicitaciones. Ahora la cuenta da.
+[32,60-37,60 · Q4 · suena el celular de Rubén en el escritorio, en altavoz: "Rotisería Graciela" · el mismo audio]
+GRACIELA: Rubén, te devuelvo seis cajas.
+[el panel registra "Devolución · Rotisería Graciela · 6 cajas" y la fila de Nico baja sola: "$ 42.000 → $ 41.802" · el celular de Nico vibra: "Devolución · Rotisería Graciela · − $ 198 · Tu comisión: $ 41.802" · rótulo "La devolución se descuenta sola"]
+RUBEN: Te toca menos.
+[Nico, sin levantar la vista, da vuelta el celular hacia Rubén]
+NICO: Ya sé. Me llegó.
+[cierre · 37,60-41,40 · Rubén a cámara en su oficina, el mate en la mano; detrás, el monitor con "Comisiones · Octubre · cerrado ✓ · Día 1, 8:00" y el calendario en 1 · tarjeta: "Comentá" / "COMISIONES" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "Comisiones solas: por vendedor, con cada venta cobrada" / "scalerics.com" en verde]
+RUBEN: Comentá COMISIONES y te mando cómo funciona para tu distribuidora.
