@@ -37,7 +37,7 @@ en el rubro). Calculadora, celulares, monitor, calendario y caja de pizza genér
 ## Voces
 Gemini TTS con `herramientas/voz.mjs`: Rubén = Algenib, Nico = Fenrir, Graciela = Gacrux (las de siempre del elenco),
 **Javi = Achird** (personaje nuevo), narrador del cartel = Rasalgethi (audio reusado de `reels/ya-lo-cargo`:
-"Un sistema más tarde."). Tonos en `partes/lineas.tsv`.
+"Un sistema más tarde.", con atempo 1,08). Tonos en `partes/lineas.tsv` (tomas extra: `lineas-r1.tsv`, `lineas-r2.tsv` para el cierre más corto, `lineas-r3.tsv` para "Te toca menos." articulado). "Te toca menos." (parte 1 y 2) es la toma 15-ruben-h; "Pasá el jueves." sale de 08-ruben-f.
 
 ## Música y efectos
 Música: `bgm/pizzicato-lleno.wav` y `bgm/pizzicato.wav` (de reels/tienda-tenes-stock vía dist-cartera; crédito en
@@ -45,7 +45,7 @@ Música: `bgm/pizzicato-lleno.wav` y `bgm/pizzicato.wav` (de reels/tienda-tenes-
 `fuentes.md` de origen: `reels/dist-cartera/fuentes.md`, `reels/dist-quien-debe/fuentes.md`,
 `reels/dist-cliente-grande/fuentes.md`, `reels/gym-cupo/fuentes.md`): `pop`, `whoosh`, `whoosh-short`, `notification`,
 `vibra`, `cero`, `click-soft`, `key-press`, `sorbo`, `stinger`, `zumbido` (gchase, Freesound, CC0), `elevador`,
-`bsb-palmada` (BigSoundBank "Slaps" #0597, CC0: la palmada seca de "Felicitaciones."), Kenney CC0 (`k-tick-1`,
+Kenney CC0 (`k-tick-1`,
 `k-page-turn` para la hoja del calendario, `k-book_place_1` para las cajas que caen y asientan, `k-cloth_1/2`,
 `k-metal-click` para el golpecito en el vidrio). `glitch-1.mp3` ("Recalculando…") de la biblioteca de HyperFrames del
 repo (`molde/assets/sfx`). Nada sintetizado con ffmpeg.
@@ -57,4 +57,4 @@ Nuevos en este reel (BigSoundBank, Joseph Sardin, licencia CC0 1.0; bajados en m
   ticket #1" (#3265), https://bigsoundbank.com/old-calculator-calculation-and-ticket-1-s3265.html
 - `assets/sfx/bsb-calc-impresora.wav` (la cinta que sale hasta el piso; 0-1,75 s): "Calculator printer #1" (#3553),
   https://bigsoundbank.com/calculator-printer-1-s3553.html
-No se usó aplauso de público: el "aplauso solo" es la palmada seca.
+No hay aplauso: en la ronda 1 se sacó la palmada (no tenía acción visible).

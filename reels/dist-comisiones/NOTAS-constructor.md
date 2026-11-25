@@ -96,3 +96,39 @@ Pasada 3 (cada 0,5 s, renders/snap/pasa3/h1.png y h2.png): sin defectos altos a 
   nuevos y el rótulo.
 - P3d: la cabeza de Rubén queda cortada arriba (plano del escritorio).
 - Render final no hecho (lo hace el coordinador). Medir el tiempo de SwiftShader.
+
+## Ronda 1 de corrección (qa dist-r1-arte / guion / sonido, decisiones del coordinador) · sin render
+**Duración 43,97 s** (antes 46,8). Parte 1 0-19,81 · cartel 19,81-21,97 · parte 2 + cierre 21,97-43,97 = 22,0 s (50,03 %) ·
+cierre 40,98-43,97 = 3,0 s (tarjeta desde 41,28, línea chica desde 42,77, 0,2 s de aire). check: 0 errores. Mezcla (MEDIR=1):
+voz ≥ +6,3 LU sobre el resto en todos los tramos de 0,5 s con voz; efectos sin voz máx -31,6; -14,0 LUFS.
+Planos (s): P1 0 · P2 1,50 · P3a 3,83 · P3b 4,63 · P3c 4,99 · P3d 5,35 · P4 5,65 · P5 7,63 · P5b 10,01 · P6 10,99 (remate
+11,73) · P7a 15,16 · P7b 16,79 · cartel 19,81 · Q1 21,97 · Q1b 23,50 · Q2 24,51 · Q3 27,59 · Q3m 28,65 · Q3b 30,64 (r6 32,09) ·
+Q4 34,73 · Q4b 36,36 · Q4n 38,71 · C 40,98.
+- Tiempo: atempo más alto en la parte 1 (n1 1,08, r1 1,16, n2 1,18, r3 1,16, g1 1,18), montaje 2,0 → 1,82 s, P6 con la pausa justa
+  (las cajas caen en 0,65 s, "Felicitaciones." a 0,74 s), Javi pisa el final de Nico, la línea de Graciela termina sobre P7b
+  (corte 0,35 s antes de su final) en P7 y Q4, narrador con atempo 1,08 (cartel 2,16 s). En la parte 2, momentos de lectura un
+  poco más largos (Q2 "$ 42.000 ✓" antes de "Cuarenta y dos mil.", el pedido 0388, el "= ✓", la devolución en el panel, 0,55 s
+  antes de "Ya sé.") para llegar al 50 %. Cierre: toma nueva 17-ruben-e (pedida más rápida), sin el hueco interno, atempo 1,23.
+- Nico y Javi: se quedan en la puerta en P6, P7b, Q3b y Q4b (no aparecen de golpe adentro). Javi asomado detrás de Nico.
+- Pilas: plano único P6/Q3b con las dos pilas enteras (cajas de 0,45 m), Rubén en el escritorio y los dos en la puerta; la
+  burbuja del remate arriba a la derecha, sin tapar las pilas ni la referencia. Cajas rojas "HÉCTOR · $ 500.000 · según Nico /
+  según Javi"; en Q3b "HÉCTOR · $ 500.000 · Javi ✓". La roja de Nico sale primero hacia la cámara (no atraviesa a JAVI) y
+  recién afuera sube y se va; las de arriba bajan después.
+- Burbujas: crecen con el texto (la "a" tiene solo la primera mitad, de su tamaño); las fijas se anclan por abajo. La de
+  Graciela apunta al borde de arriba del celular (no al avatar). r3/r6 a 50 px; r4/r7 en el mismo lugar.
+- Voces: "Te toca menos." (r4 y r7) = toma nueva 15-ruben-h (articulada) + "Pasá el jueves." de 08-f; j1 y r7 con cadena suave
+  (compresor 2:1, sin el limitador 0,34). STT por tramo sobre la mezcla final (partes/tmp/stt.sh): todas las líneas dan el
+  texto ("te toca menos pasa el jueves", "te toca menos", "Héctor es mío" desde el inicio de la línea, "súper Héctor" para j2:
+  el STT se come la "y" en todas las tomas). Sin la palmada (no tenía acción visible).
+- Encuadres: P1 cámara más baja (Nico entero, menos frente de escritorio); P4 y P7b/Q4b con el resultado del monitor entero,
+  el calendario 3 libre y Nico en la puerta; P3b escalera más ancha y cámara más atrás (caras separadas, la caja de pizza
+  abierta sin tapa); P3d más abierto; C más atrás (NOVIEMBRE y el panel enteros).
+- Texto: Q2 sin texto chico (pendiente en dos renglones de 54 px, una sola venta), Q4n pasa a inserto del celular a pantalla
+  llena (se da vuelta hacia Rubén), panel con "Cobrado $ …" a 56 px y "Devolución · Graciela" a 60 px; el cursor del Q3m
+  desaparece al hacer clic. Rótulo P5 "Su cuenta: lo vendido + Súper Héctor"; chip "Día 3. Comisiones: sin pagar.";
+  cartel a 136 px (dentro del 80 %); descripcion.txt dice "la planilla".
+- Snapshots: renders/snap/r1a (cada 0,5 s), r1b y r1c (alrededor de P6, P7, Q3b, Q4b, C).
+- Portada: el fondo no cambió (P1 con CAM_PORTADA); no se regeneró. El logo SCALERICS de `herramientas/portada.mjs` está fijo
+  en bottom 250 px (y ≈ 1644-1670): la herramienta no permite moverlo y no la toqué (es compartida).
+- No hecho: guion 10 (opcional). Queda: en P6 la mitad de abajo es piso; en el plano de pilas Rubén y los vendedores se ven
+  chicos (≈ 150 px de cara).

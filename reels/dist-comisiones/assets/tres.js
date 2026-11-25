@@ -849,10 +849,10 @@ const haciaCam = (cp, x, z, giro, k = 0.8, lim = 0.9) => cl((Math.atan2(cp[0] - 
 // ================= GLOBOS Y RÓTULOS =================
 const [r1a, r1g] = globo2(["Fácil.", "Tres por ciento", "[de lo cobrado.]"], 70, [1, 2]);
 const [n2a, n2g] = globo2(["¿Cuarenta y dos?", "Súper Héctor [es mío.]"], 66, [1]);
-const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 56, [1, 2, 3]);
+const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 50, [1, 2, 3]);
 const [r4a, r4g] = globo2(["Te toca menos.", "{Pasá el jueves.}"], 76, [1]);
 const [n3a, n3g] = globo2(["Cuarenta y dos mil.", "[¿Ya?]"], 70, [1]);
-const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 56, [1, 2]);
+const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 50, [1, 2]);
 const [n5a, n5g] = globo2(["Ya sé.", "[Me llegó.]"], 76, [1]);
 const CAB_G = { cv: AVATAR.graciela, nombre: "Altavoz · Rotisería Graciela" };
 const GL = {
@@ -910,10 +910,10 @@ const CAM_P5 = (k) => [1.3, 1.45, lerp(-0.05, -0.2, k), 1.3, 1.38, -2.4, 46];
 const CAM_P5B = (k) => [1.02, 1.55, lerp(0.75, 0.6, k), 0.95, 1.45, -2.5, 46];
 const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
 const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.3, -1.5, 56];
-const CAM_P6 = (k) => [lerp(-0.3, -0.32, k), 1.35, lerp(3.85, 3.7, k), -0.18, 1.2, -0.8, 62];   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
+const CAM_P6 = (k) => [lerp(-0.24, -0.26, k), 1.35, lerp(3.85, 3.7, k), -0.08, 1.2, -0.8, 62];   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
-const CAM_P7B = (k) => [lerp(0.3, 0.28, k), 1.45, lerp(2.4, 2.25, k), 0.0, 1.42, -1.6, 60];
-const CAM_C = (k) => [lerp(-0.02, -0.04, k), 1.42, lerp(1.5, 1.4, k), -0.36, 1.14, RUB.z, 56];
+const CAM_P7B = (k) => [lerp(0.38, 0.36, k), 1.45, lerp(2.5, 2.35, k), 0.14, 1.42, -1.6, 64];
+const CAM_C = (k) => [lerp(-0.08, -0.1, k), 1.42, lerp(1.7, 1.6, k), -0.3, 1.14, RUB.z, 56];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
@@ -1233,7 +1233,7 @@ function renderAt(tIn) {
   }
   renderer.render(scene, camera);
 }
-const BUR6 = [790, 1540], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
+const BUR6 = [800, 760], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
 const CAM_PORTADA = [0.62, 1.05, 1.75, 0.42, 0.95, -1.7, 54];
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
