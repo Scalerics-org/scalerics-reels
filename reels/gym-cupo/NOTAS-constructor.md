@@ -1,0 +1,194 @@
+# gym-cupo · notas del constructor (25-11)
+
+Proyecto copiado de `reels/pilates-cuota` (gen.mjs, medir.py, snap.sh, prev.mjs, partes/*.sh, personajes.js) con la escena
+3D y gen.mjs reescritos. Todo sale de `node gen.mjs` (assets/tiempos3d.js, compositions/*.html, index.html,
+assets/audio/mezcla.wav). La escena entera está en `assets/tres.js`. Se armó por partes en `partes/tmp/t/*.js`
+(`partes/tmp/t/armar.sh` las concatena en assets/tres.js); se puede seguir editando assets/tres.js directo, pero entonces
+NO volver a correr armar.sh (pisa los cambios).
+
+**Duración: 42,63 s.** Parte 1 0-18,80 · cartel 18,80-21,46 · parte 2 + cierre 21,46-42,63 = 21,17 s (49,7 %).
+Tarjeta "Comentá CUPO" desde 39,22 · línea chica desde 41,78 (0,85 s). `check --json`: ok, 0 errores (warnings de siempre:
+canvas anidado, mensajes del driver WebGL, craft "dead_stretch" que no ve la capa 3D).
+Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +9,3 LU sobre el resto en todos los tramos de 0,5 s con voz;
+-14,0 LUFS, pico -5,2 dBFS; `python3 medir-sfx.py assets/audio/mezcla.wav assets/audio/stem-voz.wav`: máximo sin voz
+-31,2 LUFS momentáneo (el paso 10 con `paso10.sh` toma el audio de assets/audio/mezcla.wav).
+
+## Comandos (desde reels/gym-cupo)
+```
+TOMAS="a b c" bash partes/reintentar.sh   # tomas (partes/lineas.tsv; LINEAS=otro.tsv para un subconjunto)
+bash partes/medir-tomas.sh                # recorta y mide "oyó:" (partes/rec/medidas.tsv)
+bash partes/procesar.sh                   # assets/voice/ desde las tomas elegidas
+node gen.mjs                              # todo; SINAUDIO=1 no rehace la mezcla; MEDIR=1 stems; LIMPIO=1 / VER=portada
+python3 medir.py                          # voz contra resto por tramos (después de MEDIR=1 node gen.mjs)
+./snap.sh "t1,t2,…" nombre                # snapshots con el candado
+flock /tmp/hyperframes.lock node prev.mjs "t1|px,py,pz,mx,my,mz,fov;t2" renders/prev/x   # solo la capa 3D
+bash paso10.sh                            # recodificación final (después del render)
+```
+OJO: después de `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs` volver a correr `SINAUDIO=1 node gen.mjs`.
+
+## Voces (partes/procesar.sh; "oyó:" en partes/rec/medidas.tsv)
+Mauro = Sadaltager, Majo = Zephyr, Graciela = Gacrux, narrador = Rasalgethi.
+m1 01-mauro-e (2,14 s, "veintidós yo voy hoy explota") · j1 02-majo-b + filtro de celular (1,86) · m2 03-mauro-f (1,35;
+"llena Majo perdona") · m3 04-mauro-a + micrófono (2,05; trae una pausa de 0,6 s antes de "no pedalean"; el STT oye
+"pedalea") · narrador 05-narrador-b atempo 1,07 (2,54) · j2 06-majo-c (1,76) · m4 07-mauro-a atempo 1,08 + micrófono
+(2,42) · g1 08-graciela-f atempo 1,06 (2,32; la única toma donde el STT oye "toalla" y "cuelgo") · m5 09-mauro-f +
+micrófono (1,31) · m6 10-mauro-c (3,11). Micrófono de vincha = highpass 120 + aecho 0.8:0.6:40:0.15.
+Las tomas salieron más largas que el plan (3,3 s más de voz): se recortó el armado en P2 (cámara rápida), P3, P5, Q1-Q4.
+
+## Mundo
+- Sala de spinning (x -3,4…3,4, z -5,2 tarima … 3,2 fondo, alto 3,2): pared de adelante y fondo navy #0b1220 con la
+  franja diagonal crema, tira verde emisiva arriba, piso grafito con juntas navy, techo navy3 con dos paneles crema;
+  cartel ESTUDIO MAURO (pared de adelante), reloj de 7 segmentos (pared del fondo, canvas: 18:20 → 18:52…19:00 → 19:01 →
+  19:04), puerta de vidrio esmerilado en la pared -x (se abre en P2), ventilador de pie (aspas giran), parlante.
+- 14 bicis (`crearBici`): base en T con tapas crema, lambda navy3, volante gris con protector, bielas y pedales que giran,
+  manubrio en cuernos con perilla verde, plaquita con el número (de los dos lados). Filas 4 · 5 · 5 (la 4 en la primera,
+  la 7 en el medio de la segunda); la del profe en la tarima, con soporte de celular. Mismo orden en el mapa de la app.
+- personajes.js: `ELENCO.mauro`, `ELENCO.majo`, `ELENCO.sole` y la pose `pies: { I: [z, y], D: [z, y] }` (IK de la pierna
+  a los pedales; la suela queda casi horizontal). Graciela = ELENCO.clienta con remera crema, calza navy y vincha verde
+  (aro en tres.js). 11 alumnos de relleno (DEFECTO, sin dedos).
+- Living de Majo en x = 40 (sofá navy2, almohadón verde apagado, lámpara, mochila, cuadro).
+- Insertos pegados a la cámara (fondos planos: sala, living, oficina, recepción con mostrador y botellas): P1b chat (audio
+  de Majo, "Llena"), P3i (19:01, Majo), P5 (pantalla de bloqueo 19:04 con Rodri, vibra), Q1/Q1c mapa de Majo, Q1s Sole
+  lista de espera, Q2 recordatorio a Lucía, Q2t tablet de la recepción, Q2s aviso a Sole, Q4 panel de noviembre.
+
+## Planos (s)
+P1 0 (Mauro desde la sala, con la "lupa" del grupo pegada a la cámara y la cola a su celular) · P1b 3,04 · P2 7,34 (gran
+plano desde la tarima, el reloj corre, entran los nueve en cámara rápida y saltan a la bici; percheros 9,53-10,53) · P3
+10,98 ("5 bicis vacías") · P3i 11,83 · P4 13,08 (pausa, "Los «yo voy» no pedalean." 13,80) · P5 16,15 (inserto del
+celular, 22 → 23) · P5c 17,10 (Mauro lo da vuelta) · P5b 17,95 (arrancan a pedalear) · cartel 18,80 · Q1 21,46 · Q1b
+22,21 · Q1c 24,19 · Q1s 25,57 · Q2 26,49 · Q2t 27,64 · Q2s 28,49 · Q3 29,69 (= P2, 14 de 14) · Q3b 32,41 · Q3c 34,91 (= P4)
+· Q3d 36,33 (toalla al cuello) · Q4 37,08 · C 39,08.
+
+## Pasadas (prev.mjs y snapshots; hojas en renders/snap/)
+- Cuadro 0: sobre el hombro de Mauro la cabeza tapaba todo (y el celular quedaba de espaldas: se dio vuelta, pantalla
+  hacia él) → plano desde la sala, Mauro de frente con ESTUDIO MAURO detrás, el grupo en una "lupa" grande (texto ≥ 40
+  px) con cola a su celular; burbuja a la izquierda; contador y chip arriba. A las 18:20 la sala vacía (los alumnos no
+  aparecían hasta P2).
+- Gran plano: tres pruebas de cámara (las cabezas de juguete llenaban todo): cámara en la tarima a 3,1 m, fov 74, Graciela
+  y las bicis 1-4, 6, 7, 12-14 a la vista; el reloj movido para que no lo tape el contador.
+- Insertos: el chat anclado abajo (como un chat real), mensajes anteriores para que no quede vacío; la transcripción del
+  audio de Majo en burbuja con cola al audio; "A dos les dijo «llena»" y el costo arriba (tapaban mensajes).
+- P4/P5c: cámaras abiertas (la cabeza llenaba el cuadro); la mano al micrófono por fuera de la cara; cara seca sin cejas
+  de enojo. P5 pasó a inserto del celular (desde atrás de Mauro no se veía nada).
+- Parte 2: Majo, Graciela (Q3b) y el cierre con cámaras más abiertas; en Q3b/Q3d Mauro oculto (la cámara está en la
+  tarima, su brazo entraba como una mancha); toalla de Graciela blanca con franjas verdes (crema sobre crema no se veía) y
+  las manos la llevan al cuello antes del panel; "Llena · 14/14" (pisaba el texto); tablet y panel con las filas enteras.
+- Mezcla: SFX de Q1, Q2, P5 y Q4 bajados 2-3 dB y la música con duck leve en el panel (pasaban -31 sin voz).
+
+## Pendiente / a mirar en la revisión
+- Render final no hecho (lo hace el coordinador). Con 15 personajes en los gran planos (P2-P3, P5b, Q3) el render por
+  SwiftShader va a ser más lento que pilates-cuota (~27 min); medirlo.
+- Cuadro 0 no es el "sobre el hombro" del plan: Mauro de frente desde la sala con la lupa del grupo (decisión de
+  encuadre); las bicis vacías se ven abajo (primer término) y en P2.
+- La toalla al cuello de Mauro (parte 2) se lee como dos tiras blancas sobre el pecho; la franja verde de su remera es un
+  aro grueso (se ve en P4/Q3c/C).
+- Los alumnos con cara "neutra" se ven algo serios (cejas) en el gran plano de la parte 1 (están esperando).
+- La entrada de los nueve es en cámara rápida (el reloj corre 18:52 → 19:00) y el salto a la bici dura 0,16 s: en ese
+  instante las piernas pueden cruzar el cuadro de la bici.
+- Portada: `portada.json` con t 11,2 y `portada-src/fondo-limpio-11.2.png` (VER=portada LIMPIO=1, la sala con la toalla en
+  la 2 y el celular en la 7). `herramientas/portada.mjs` necesita el MP4 final en la rama: correrlo después del render.
+
+## Antes de la revisión (pedido del coordinador, 25-11)
+- Toalla al cuello (Mauro y Graciela): rollo con volumen (toro grueso por atrás del cuello) y dos puntas redondeadas
+  (cápsulas aplanadas) con la franja verde abajo; la de Graciela blanca y un poco más grande.
+- La franja de la remera de Mauro: sin el aro de personajes.js (`franja: null`); una banda verde chata solo adelante.
+- Alumnos del gran plano con cara contenta (cejas arriba, media sonrisa) en la espera y en la parte 2.
+- El salto a la bici: llegan por detrás del asiento y suben hacia adelante (las piernas pasan a los costados del poste,
+  no cruzan el cuadro).
+- Gran planos (P2, P3, P5b, Q3): cámara bajada de la tarima a z -4,35 (por encima de la bici del profe), fov 77; Mauro, su
+  bici y su celular ocultos en esos planos (quedaban cortados abajo a la derecha). "Catorce reservas. Pedalean catorce."
+  va por los parlantes: burbuja con el micrófono abajo, sin cola. Fondo de la portada regenerado con la misma regla.
+- Render de revisión 1: `renders/gym-cupo.mp4` en 1433 s (23,9 min, SwiftShader, sin espera de candado) + paso10.sh 80 s →
+  `renders/gym-cupo-final.mp4` (42,70 s, -14,0 LUFS, pico -5,2 dBFS). Hoja cada 2 s: `renders/hoja.png`.
+
+## Ronda 1 de corrección (qa-ronda-r1.md) · render r2
+**Duración 39,33 s** (parte 1 0-16,57 · cartel 16,57-19,23 · parte 2 + cierre 19,23-39,33 = 20,1 s, 51 %; cierre 37,78-39,33
+con la línea chica 1,55 s). Mezcla: voz ≥ +6,2 LU en todos los tramos, -14,0 LUFS, máximo sin voz -31,2. check: 0 errores.
+Guion y datos
+- ALTA 1 / arte ALTA 2 (percheros): plano P3 nuevo, de cerca desde la tarima (push-in): la toalla de Graciela vuela de su
+  mano a la bici 2 y queda colgada grande (lomo redondo, paño con pliegues, dos franjas verdes), la botella x1,7 en la 4,
+  el celular x2,1 en la 7, campera x0,75 y mochila x1,15; rótulo "Bici 2: perchero" con guía a la toalla y "5 bicis vacías".
+- MEDIA 2: rótulo del costo más grande y 1,5 s: "Majo y Sole se anotaron en otro lado · 2 alumnas menos · $ 3.800 por mes".
+- MEDIA 3: callback en Q3 (14/14): "Majo · 7" y "Sole · 4" con guía a cada una (cámara de Q3 corrida para que entre la 4).
+- MEDIA 4: celular de Sole con "Hola, Sole" en la cabecera y funda navy claro; rótulo "Sole: 1ª en la lista de espera". El
+  de Majo dice "Hola, Majo".
+- MEDIA 5 / arte 7 (chat): salientes navy con borde verde y texto crema ("Llena" en rojo claro), sin doble tilde; la nota de
+  voz es un micrófono + "Audio" + barra (sin avatar, play ni onda); ícono del grupo crema "19". P1b arranca con los mismos
+  mensajes del final de P1 (Pato, Vicky, el pulgar, el audio 0:47 de Fede), sin repetidos.
+- MEDIA 6: el contador llega a 22 (0,05-0,6 s) antes que la burbuja (0,72); burbujas por frase entera (cajas de una línea
+  que se cambian por la de dos: m1, m3, j2, m4).
+- MEDIA 7: 42,7 → 39,3 s: entrada en cámara rápida 1,3 s, el gag 1,65 s, P1b y P5 más justos, la pausa interna de m3
+  0,6 → 0,35 s, Q1/Q2/Q3d más cortos, m6 con atempo 1,1 (cierre 1,55 s + voz).
+- BAJA 8/9: línea chica 1,55 s, 46/60 px, más ancha; "y te mando…" 54 px; remitentes 42 px y "38 participantes" 38 px.
+- BAJA 10: "Alumnos nuevos desde la lista: 3". BAJA 11: portada generada después del render (abajo). BAJA 12: fuentes.md
+  corregido (WhatsApp no se nombra).
+Sonido
+- ALTA 1: el remate faltaba en la mezcla (no se llamaba voz("m3")): agregado y medido (≥ +6 LU).
+- MEDIA 2 ("pedalean"): 3 tomas nuevas con el tono pidiendo la n final (04-mauro-g/h/i) y variantes de texto: el STT de
+  Google oye "pedalear/pedalea" en TODAS, incluso con "pedalean los que vienen" y con la palabra como pista; en una frase de
+  prueba de Sadaltager oye "pedalean" solo cuando no es final. No lo puedo comprobar de oído: queda 04-mauro-a. A revisar
+  por un humano.
+- MEDIA 3: cierre 3,45 → 3,0 s de voz (atempo 1,1) y el plano C dura 3,05 s.
+- MEDIA 4: la música de espera sube a -36 (pasabajos 1100) y solo baja en la pausa del remate; la cama de Q1-Q2 a -35; en
+  el panel casi sin duck. Entrada y percheros más bajos (pasaban -31).
+- BAJA 5-8: sin tocar (tomas).
+Arte
+- ALTA 1 (P5c): cámara de frente a Mauro y el manubrio; la mano entra por arriba del celular (no atraviesa el poste) y el
+  celular gira en el soporte (al final se ve la pantalla). La música no se ve subir (sin la perilla).
+- ALTA 3 / MEDIA 4 (Graciela Q3b): giros de cabeza chicos (0,2) y los ojos miran a los costados; queda de 3/4 casi de
+  frente. La patilla de los lentes en 3/4 sigue siendo del rig.
+- MEDIA 5: el alumno de la bici 2 ya no tiene rodete (era el que parecía Sole); Sole en la 4 con su rótulo.
+- MEDIA 6: la notificación de las 19:04 es de "Nico" (no estaba en los "yo voy"); Rodri sale del grupo (ahora "Gabi").
+- MEDIA 8: la transcripción del audio de Majo va arriba del celular, sin cola. MEDIA 9: celular de Lucía con funda navy3,
+  fondo crema y gris (sin madera), texto más grande. MEDIA 11: cartel ESTUDIO / MAURO en dos renglones, más chico y más
+  bajo. MEDIA 12: el panel solo dibuja las filas que ya entraron.
+- BAJA 13: chip "Martes, 18:55." mientras corre el reloj; 16: sin los "✓ n" chiquitos del mapa y sin la cuña verde; 17:
+  Majo sin parpadeo al hablar; 15: sin las bolitas del dock. 18-22: la toalla de Mauro sigue con el rollo nuevo; el resto
+  sin tocar.
+- Render r2: 1413 s (23,6 min, 2 s de espera de candado) + paso10.sh 51 s → `renders/gym-cupo-final.mp4` (39,37 s,
+  -14,0 LUFS, pico -5,2 dBFS). Hoja cada 1,5 s en `renders/hoja.png`.
+- Portada: `portada-src/fondo-limpio-10.0.png` (VER=portada LIMPIO=1 a 10,0 s, fin del gag: Graciela, el celular grande en
+  la 7, la botella en la 4, el reloj 19:00) y `node herramientas/portada.mjs gym-cupo` → portada.png; textos entre y ≈ 330
+  y 1600. La toalla de la 2 queda debajo de "MARTES, 19:00." y el sello "GIMNASIOS" pisa el reloj.
+
+## Ronda 2 de corrección (qa-ronda-r2.md) · render r3
+**Duración 40,4 s** (parte 1 0-16,49 · cartel 16,49-19,23 · parte 2 + cierre 21,2 s, 52 %; cierre 38,85-40,4). Las voces
+reprocesadas con la cola a -50 dB (no se truncan las nasales) suman ~0,1 s cada una y Q2s/Q3d se alargaron a pedido: no llegué
+a 38-39 s. Mezcla: voz ≥ +8,1 LU en todos los tramos, -14,0 LUFS, máximo sin voz -31,0. check: 0 errores.
+Guion
+- ALTA 1 / arte ALTA 1 (percheros): P3 es un plano ABIERTO desde la tarima (fov 84) donde se ven las 5 vacías: 2, 4, 7, 9 y
+  13 (la 9 reemplaza a la 11, que no se veía). Objetos grandes y de color: toalla de tela verde de marca con franjas crema y
+  flecos, colgada asimétrica de la barra; botella crema con tapa verde; celular de funda verde con pantalla crema; campera
+  crema; mochila verde. Cada uno vuela desde la mano del vecino (Graciela tira la toalla, se la ve entera a la izquierda).
+  "Bici 2: perchero" con guía a la toalla y "5 bicis vacías" con una guía a cada objeto.
+- ALTA 2 / arte MEDIA 4-6: las tres toallas son ahora TELA: una cinta fina ondulada (geometría propia, `crearCinta`) que sigue
+  una curva, verde con franjas crema y flecos. Graciela la lleva en la mano (cae doblada, contrasta con la remera crema), la
+  sube con las dos manos al cuello y queda con las puntas sobre el pecho; plano corto Q3d de 0,9 s con la sonrisa. Mauro no
+  tiene toalla hasta después de "En el cuello, Graciela." (Q4/C).
+- MEDIA 3 (cuadro 0): sin cartel ESTUDIO MAURO (se sacó del reel: quedaba cortado en todos los primeros planos); el número
+  de YO VOY pasa a rojo apenas supera las 14 bicis (la ironía: 22 contra 14).
+- MEDIA 4: "Bici 4 reservada ✓" 1,3 s y sin corte (texto ajustado), "Ocupada otra vez en 3 minutos" 1,25 s.
+- MEDIA 5 / arte 14 (portada): fondo nuevo (VER=portada a 10,0 s, cámara alta desde la tarima): Graciela entera, la toalla en
+  la 2, la botella en la 4, el celular en la 7, la campera en la 9 y la mochila en la 13 en la mitad de arriba; el reloj
+  queda arriba de todo (no lo pisa el sello).
+- MEDIA 6: la parte 1 bajó 0,1 s nada más (pausa antes del remate 0,5 → 0,4, P5 más corto); la parte 2 creció (Q2s y Q3d).
+- BAJA 7: etiquetas Majo/Sole lejos del borde (x 230-850). BAJA 8: el aviso a Sole con el mapa abajo (el recordatorio de
+  Lucía sigue con espacio libre abajo). BAJA 9-10: sin tocar / cartel sacado.
+Arte
+- ALTA 2 (P5c): primer plano del celular en el soporte, desde arriba: la pantalla con "Nico: ¿Ya empezó? Yo voy." y el 23;
+  la mano izquierda de Mauro agarra el borde y lo da vuelta boca abajo contra el manubrio (se ve la funda verde). El celular
+  estaba fuera de la escena (un comentario se había tragado su `scene.add`): corregido. La música no se ve subir.
+- ALTA 3 / MEDIA 4: Graciela sin lentes en este reel (el rig rompía los aros de 3/4).
+- MEDIA 7: sin cartel. MEDIA 8: etiquetas. MEDIA 9: los ciclistas más atrás en el asiento (zh -0,07): las rodillas no
+  tocan el manubrio. MEDIA 10: el celular de Mauro con funda verde (se ve en sus manos y la lupa sale de ahí). MEDIA 11:
+  la burbuja de Majo más arriba y su celular verde. MEDIA 12: ver BAJA 8. MEDIA 13: plano abierto con Graciela.
+- BAJA 15-16: reloj más abajo y sin chip mientras corre; 18: la notificación entra a 0,12 s; 17, 19, 20 sin tocar.
+Sonido
+- ALTA 1: sin empalme: el remate es la toma 04-mauro-h entera (pausa natural "voy… no pedalean", la n completa con la cola a
+  -50 dB). MEDIA 2: idem; el STT sigue oyendo "pedalear" en todas las tomas (ver ronda 1).
+- BAJA 6: stinger.wav acreditado (DanJFilms, Freesound, CC0) y zumbido-largo.wav reemplazado por zumbido.wav (gchase,
+  Freesound, CC0). BAJA 3-5 sin tocar.
+- Pasada completa cada 0,5 s (renders/snap/pasa2/hoja1.png, hoja2.png) y cuadros alrededor de cada cambio (r2c, r7).
+- Render r3: 1495 s (24,9 min, sin espera) + paso10.sh 77 s → `renders/gym-cupo-final.mp4` (40,40 s, -14,0 LUFS, pico
+  -5,2 dBFS). Portada regenerada (`portada.png`, fondo `portada-src/fondo-limpio-10.0.png`): el sello "GIMNASIOS" roza el
+  pelo de Graciela; el reloj queda libre arriba; textos entre y ≈ 1150 y 1600.
