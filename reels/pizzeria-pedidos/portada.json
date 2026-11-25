@@ -1,0 +1,14 @@
+{
+ "t": 1.6,
+ "chica": "Viernes, 21:00.",
+ "grande": "¿Calle qué?",
+ "sello": "PIZZERÍAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-portada.png",
+ "nota": "t estimado (guionista): P1, Tano con el celular en el hombro, la birome en la comanda, el bollo de masa en la otra mano, el horno pizzero abierto con la muzza y la pila de cajas detrás, todo en la mitad de arriba. Renderizar el fondo con LIMPIO=1 (sin 'PIZZERÍAS', chip, burbujas, rótulos ni logo) y ajustar t con el render. Alternativa: P4 (~13,2 s), Tano con la porción en la boca grabando el audio y Facu con la porción, grande '¿Y mi pizza?'."
+}
