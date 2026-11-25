@@ -1,5 +1,5 @@
 {
- "t": 2.0,
+ "t": 0.05,
  "chica": "Martes, 15:00.",
  "grande": "¿Sigue disponible?",
  "sello": "INMOBILIARIAS",
@@ -9,6 +9,6 @@
  "foco": "20%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-2.0.png",
- "nota": "Fondo limpio: VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs y FULL=1 node prev.mjs 2.0 (el living de Parque Batlle: Silvana con el celular, la pareja al medio, Diego con el suyo). Después volver a correr SINAUDIO=1 node gen.mjs."
+ "fondo_limpio": "portada-src/fondo-limpio-0.05.png",
+ "nota": "Fondo limpio: VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs y FULL=1 node prev.mjs 0.05 (r1: 0,05 s, antes de que Diego hable: boca cerrada; cámara más atrás, Silvana sin tocar el borde). Después volver a correr SINAUDIO=1 node gen.mjs."
 }

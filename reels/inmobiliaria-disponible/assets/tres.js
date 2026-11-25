@@ -87,8 +87,8 @@ const OFI = { x0: -2.8, x1: 2.8, z0: -0.6, z1: 5.15, alto: 3.0 };
 const MESA_Y = 0.76;
 const SIL = { x: 0, z: 0.3 };
 const DESK_S = { x0: -0.72, x1: 0.72, z0: 0.78, z1: 1.52 };
-const MON = { x: -0.72, z: 0.98, ry: 0.62, W: 0.7, H: 0.4375 };
-const pantM = lienzo(1600, 1000, () => {});       // el monitor de Silvana
+const MON = { x: -0.74, z: 0.98, ry: 0.62, W: 0.42, H: 0.672 };   // (r1) vertical: el panel entero en un cuadro vertical
+const pantM = lienzo(1000, 1600, () => {});       // el monitor de Silvana
 const pantS = lienzo(600, 1200, () => {});        // el celular de Silvana
 const pantD = lienzo(600, 1200, () => {});        // el celular de Diego
 let monitor, telS, telP, fichaPC, franjaRes, fichaPCmat, texFichaV, texFichaG, calleM, enfrenteM;
@@ -182,10 +182,10 @@ const tazaS = new THREE.Group();   // la taza de café de Silvana (navy3 con fra
 {
   OF.add(escritorio(DESK_S.x0, DESK_S.x1, DESK_S.z0, DESK_S.z1));
   monitor = new THREE.Group(); monitor.position.set(MON.x, MESA_Y, MON.z); monitor.rotation.y = MON.ry; OF.add(monitor);
-  monitor.add(caja(0.08, 0.26, 0.08, M.navy, 0, 0.13, -0.05)); monitor.add(caja(0.28, 0.02, 0.2, M.navy, 0, 0.01, -0.03));
-  monitor.add(caja(MON.W + 0.05, MON.H + 0.05, 0.045, M.navy, 0, 0.28 + MON.H / 2, 0, 0.018));
-  const pm = new THREE.Mesh(new THREE.PlaneGeometry(MON.W, MON.H), new THREE.MeshBasicMaterial({ map: pantM, toneMapped: false })); pm.position.set(0, 0.28 + MON.H / 2, 0.024); monitor.add(pm);
-  monitor.userData.centro = V3(0, 0.28 + MON.H / 2, 0.024);
+  monitor.add(caja(0.08, 0.22, 0.08, M.navy, 0, 0.11, -0.05)); monitor.add(caja(0.28, 0.02, 0.2, M.navy, 0, 0.01, -0.03));
+  monitor.add(caja(MON.W + 0.05, MON.H + 0.05, 0.045, M.navy, 0, 0.2 + MON.H / 2, 0, 0.018));
+  const pm = new THREE.Mesh(new THREE.PlaneGeometry(MON.W, MON.H), new THREE.MeshBasicMaterial({ map: pantM, toneMapped: false })); pm.position.set(0, 0.2 + MON.H / 2, 0.024); monitor.add(pm);
+  monitor.userData.centro = V3(0, 0.2 + MON.H / 2, 0.024);
   const tec = new THREE.Group(); tec.position.set(-0.12, MESA_Y, 1.12); tec.rotation.y = 0.25; OF.add(tec);
   tec.add(caja(0.42, 0.02, 0.14, M.navy3, 0, 0.01, 0, 0.008));
   for (let i = 0; i < 3; i++) for (let k = 0; k < 10; k++) tec.add(caja(0.028, 0.01, 0.028, M.cr2, -0.17 + k * 0.038, 0.024, -0.04 + i * 0.038, 0.004));
@@ -405,7 +405,7 @@ function icono(x, tipo, cx, cy, r, fondo = "#16243d", tinta = "#efeee5") {
   x.strokeStyle = tinta; x.fillStyle = tinta; x.lineWidth = r * 0.16; x.lineJoin = "round"; x.lineCap = "round";
   if (tipo === "casa") { x.beginPath(); x.moveTo(cx - r * 0.5, cy - r * 0.02); x.lineTo(cx, cy - r * 0.5); x.lineTo(cx + r * 0.5, cy - r * 0.02); x.moveTo(cx - r * 0.36, cy - r * 0.12); x.lineTo(cx - r * 0.36, cy + r * 0.45); x.lineTo(cx + r * 0.36, cy + r * 0.45); x.lineTo(cx + r * 0.36, cy - r * 0.12); x.stroke(); }
   else if (tipo === "globo") { x.beginPath(); x.ellipse(cx, cy - r * 0.06, r * 0.5, r * 0.38, 0, 0, 7); x.stroke(); x.beginPath(); x.moveTo(cx - r * 0.25, cy + r * 0.24); x.lineTo(cx - r * 0.4, cy + r * 0.5); x.lineTo(cx - r * 0.02, cy + r * 0.3); x.fill(); }
-  else { x.beginPath(); x.roundRect(cx - r * 0.48, cy - r * 0.42, r * 0.96, r * 0.84, r * 0.25); x.stroke(); x.beginPath(); x.arc(cx, cy, r * 0.2, 0, 7); x.stroke(); }
+  else { x.beginPath(); x.rect(cx - r * 0.5, cy - r * 0.34, r, r * 0.68); x.moveTo(cx - r * 0.5, cy - r * 0.34); x.lineTo(cx, cy + r * 0.08); x.lineTo(cx + r * 0.5, cy - r * 0.34); x.stroke(); }   // (r1) sobre (la cámara parecía un logo)
 }
 function parlante(x, cx, cy, r) {
   x.fillStyle = "#16243d"; x.beginPath(); x.arc(cx, cy, r, 0, 7); x.fill();
@@ -420,7 +420,7 @@ function microfono(x, cx, cy, r) {
 
 // ================= PANTALLAS =================
 // ---- la bandeja de consultas (celular de Silvana en la parte 1, celular de Diego en P1) ----
-const CONSULTAS = [["MR", "¿Sigue disponible?", "casa"], ["LC", "¿Sigue disponible?", "globo"], ["JP", "¿Acepta mascotas?", "camara"], ["SF", "¿Sigue disponible?", "casa"], ["VG", "¿Gastos comunes?", "globo"], ["RB", "¿Sigue disponible?", "casa"], ["PA", "¿Se puede visitar hoy?", "globo"], ["NM", "¿Sigue disponible?", "camara"]];
+const CONSULTAS = [["MR", "¿Sigue disponible?", "casa"], ["LC", "¿Sigue disponible?", "globo"], ["JP", "¿Acepta mascotas?", "sobre"], ["SF", "¿Sigue disponible?", "casa"], ["VG", "¿Gastos comunes?", "globo"], ["RB", "¿Sigue disponible?", "casa"], ["PA", "¿Se puede visitar hoy?", "globo"], ["NM", "¿Sigue disponible?", "sobre"]];
 function bandeja(x, w, h, n, { agus = 0, noche = false, titulo = "Consultas · Punta Carretas" } = {}) {
   x.fillStyle = noche ? "#e2e0d4" : "#efeee5"; x.fillRect(0, 0, w, h); x.textBaseline = "middle"; x.textAlign = "left";
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 168); x.fillStyle = "#c7655b"; x.fillRect(0, 168, w, 8);
@@ -457,10 +457,10 @@ function cabChat(x, w, cv, nombre, sub, verde = false) {
   x.fillStyle = verde ? "#5ce611" : "#b9cde0"; ajustar(x, sub, 700, 32, w - 160); x.fillText(sub, 140, 108);
 }
 // globo de chat en un celular: lado "in" (izq., blanco) / "out" (der., verde claro o navy), devuelve el alto
-function globoChat(x, w, y, lado, lineas, { px = 36, hora = "", tilde: tl = null, fondo = null, tinta = "#0b1220", dibujar = true, extraH = 0, extra = null, ancho = null } = {}) {
+function globoChat(x, w, y, lado, lineas, { px = 36, hora = "", tilde: tl = null, fondo = null, tinta = "#0b1220", dibujar = true, extraH = 0, extra = null, ancho = null, horaPx = 34 } = {}) {
   x.font = F(700, px);
   const anchoT = ancho ?? Math.max(...lineas.map((l) => x.measureText(l).width), hora ? x.measureText(hora).width * 0.8 + 60 : 0);
-  const bw = Math.min(w - 90, anchoT + 44), bh = lineas.length * px * 1.25 + 34 + (hora ? 34 : 0) + extraH;
+  const bw = Math.min(w - 90, anchoT + 44), bh = lineas.length * px * 1.25 + 34 + (hora ? horaPx + 6 : 0) + extraH;
   if (!dibujar) return bh;
   const bx = lado === "in" ? 22 : w - 22 - bw;
   rr(x, bx, y, bw, bh, 26, fondo ?? (lado === "in" ? "#ffffff" : "#dff5cf"), lado === "in" ? "#d9d7c9" : "#9fd27a", 4);
@@ -468,8 +468,8 @@ function globoChat(x, w, y, lado, lineas, { px = 36, hora = "", tilde: tl = null
   lineas.forEach((l, i) => x.fillText(l, bx + 22, y + 22 + px * 0.62 + i * px * 1.25));
   if (extra) extra(bx, y + 22 + lineas.length * px * 1.25, bw);
   if (hora) {
-    x.font = F(700, 28); x.textAlign = "right"; x.fillStyle = tl === "rojo" ? "#c7655b" : "#1f3254";
-    x.fillText(hora, bx + bw - (tl ? 62 : 20), y + bh - 24);
+    x.font = F(700, horaPx); x.textAlign = "right"; x.fillStyle = tl === "rojo" ? "#c7655b" : "#1f3254";
+    x.fillText(hora, bx + bw - (tl ? 66 : 20), y + bh - 26);
     if (tl === "rojo") tilde(x, bx + bw - 34, y + bh - 25, 26, "#c7655b", 6);
     if (tl === "verde") { tilde(x, bx + bw - 40, y + bh - 25, 26, "#3fa60a", 6); tilde(x, bx + bw - 28, y + bh - 25, 26, "#3fa60a", 6); }
     x.textAlign = "left";
@@ -477,37 +477,46 @@ function globoChat(x, w, y, lado, lineas, { px = 36, hora = "", tilde: tl = null
   return bh;
 }
 function chatAgustina(x, w, h, t) {
+  // (r1) como un chat de verdad: los mensajes anclados abajo, sobre la barra de escribir; arriba, la ficha de la consulta
   x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
-  cabChat(x, w, AVATAR.agustina, "Agustina", "consulta · Punta Carretas");
-  x.textBaseline = "middle"; x.textAlign = "center";
-  rr(x, w / 2 - 80, 182, 160, 50, 25, "#d9d7c9"); x.fillStyle = "#16243d"; x.font = F(700, 30); x.fillText("Ayer", w / 2, 208);
-  let y = 252;
-  const l1 = textoEnLineas(x, "¿Sigue disponible? Tengo garantía ANDA y me mudo el 1°.", w - 150, 38);
-  y += globoChat(x, w, y, "in", l1, { px: 38, hora: "15:02" }) + 18;
-  // lo que tipea Silvana (sincronizado con la voz: las palabras que ya dijo)
+  x.textBaseline = "middle"; x.textAlign = "left";
   const pal = PAL.s3, n = pal.filter((p) => t >= T.s3 + p.a).length, enviado = t >= T.envia;
   const completo = "¡Hola, Agustina! Perdón la demora. Sí, sigue disponible.";
   const tipeado = enviado ? completo : completo.split(" ").slice(0, Math.round((n / pal.length) * completo.split(" ").length)).join(" ");
-  if (enviado) {
-    rr(x, w / 2 - 110, y, 220, 50, 25, "#d9d7c9"); x.fillStyle = "#16243d"; x.font = F(700, 30); x.textAlign = "center"; x.fillText("Hoy", w / 2, y + 26); y += 68;
-    const l2 = textoEnLineas(x, completo, w - 150, 38);
-    y += globoChat(x, w, y, "out", l2, { px: 38, hora: "9:10", tilde: "rojo" }) + 18;
-    if (t >= T.escribe && t < T.nota) { rr(x, 22, y, 250, 64, 26, "#ffffff", "#d9d7c9", 4); x.fillStyle = "#1f3254"; x.font = F(700, 32); x.textAlign = "left"; x.fillText("escribiendo…", 44, y + 33); }
-    if (t >= T.nota) {
-      const bh = 104; rr(x, 22, y, 420, bh, 26, "#ffffff", "#d9d7c9", 4);
-      x.fillStyle = "#16243d"; x.beginPath(); x.arc(78, y + bh / 2, 34, 0, 7); x.fill();
-      x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(68, y + bh / 2 - 16); x.lineTo(92, y + bh / 2); x.lineTo(68, y + bh / 2 + 16); x.closePath(); x.fill();
+  const l1 = textoEnLineas(x, "¿Sigue disponible? Tengo garantía ANDA y me mudo el 1°.", w - 150, 38);
+  const l2 = textoEnLineas(x, completo, w - 150, 38);
+  const items = [["dia", "Ayer"], ["in", l1, "15:02"]];
+  if (enviado) items.push(["dia", "Hoy"], ["out", l2, "9:10"]);
+  if (enviado && t >= T.escribe && t < T.nota) items.push(["escr"]);
+  if (t >= T.nota) items.push(["nota"]);
+  const alto = (it) => (it[0] === "dia" ? 64 : it[0] === "escr" ? 76 : it[0] === "nota" ? 116 : globoChat(x, w, 0, it[0], it[1], { px: 38, hora: it[2], dibujar: false }));
+  let y = h - 190 - items.reduce((a2, it) => a2 + alto(it) + 16, 0);
+  for (const it of items) {
+    if (it[0] === "dia") { rr(x, w / 2 - 90, y, 180, 52, 26, "#d9d7c9"); x.fillStyle = "#16243d"; x.font = F(700, 34); x.textAlign = "center"; x.fillText(it[1], w / 2, y + 27); x.textAlign = "left"; }
+    else if (it[0] === "escr") { rr(x, 22, y, 270, 70, 26, "#ffffff", "#d9d7c9", 4); x.fillStyle = "#1f3254"; x.font = F(700, 36); x.fillText("escribiendo…", 44, y + 36); }
+    else if (it[0] === "nota") {
+      const bh = 110; rr(x, 22, y, 440, bh, 26, "#ffffff", "#d9d7c9", 4);
+      x.fillStyle = "#16243d"; x.beginPath(); x.arc(80, y + bh / 2, 36, 0, 7); x.fill();
+      x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(70, y + bh / 2 - 17); x.lineTo(95, y + bh / 2); x.lineTo(70, y + bh / 2 + 17); x.closePath(); x.fill();
       const prog = sg(t, T.a1, T.a1 + LEN.a1);
-      for (let i = 0; i < 18; i++) { const hh = 10 + Math.abs(Math.sin(i * 1.7)) * 34; x.fillStyle = i / 18 < prog ? "#3fa60a" : "#b4b2a3"; x.fillRect(128 + i * 15, y + bh / 2 - hh / 2, 9, hh); }
-      x.fillStyle = "#1f3254"; x.font = F(700, 30); x.textAlign = "right"; x.fillText("0:02", 430, y + bh - 20); x.textAlign = "left";
-    }
+      for (let i = 0; i < 17; i++) { const hh = 10 + Math.abs(Math.sin(i * 1.7)) * 34; x.fillStyle = i / 17 < prog ? "#3fa60a" : "#b4b2a3"; x.fillRect(132 + i * 15, y + bh / 2 - hh / 2, 9, hh); }
+      x.fillStyle = "#1f3254"; x.font = F(700, 34); x.textAlign = "right"; x.fillText("0:02", 450, y + bh - 22); x.textAlign = "left";
+    } else globoChat(x, w, y, it[0], it[1], { px: 38, hora: it[2], tilde: it[0] === "out" ? "rojo" : null, horaPx: 34 });
+    y += alto(it) + 16;
   }
+  // arriba: la cabecera y la ficha de la consulta (la propiedad)
+  cabChat(x, w, AVATAR.agustina, "Agustina", "consulta · Punta Carretas");
+  rr(x, 20, 178, w - 40, 150, 24, "#ffffff", "#3fa60a", 6);
+  x.strokeStyle = "#16243d"; x.lineWidth = 8; x.lineJoin = "round"; x.beginPath(); x.moveTo(52, 262); x.lineTo(100, 214); x.lineTo(148, 262); x.moveTo(64, 252); x.lineTo(64, 300); x.lineTo(136, 300); x.lineTo(136, 252); x.stroke();
+  x.fillStyle = "#3fa60a"; x.font = F(800, 36); x.fillText("ALQUILA", 176, 222);
+  x.fillStyle = "#0b1220"; ajustar(x, "1 dorm. · Punta Carretas", 800, 38, w - 210); x.fillText("1 dorm. · Punta Carretas", 176, 268);
+  x.font = F(900, 36); x.fillText("$ 30.000", 176, 308);
   // la barra de escribir, con lo tipeado
   x.fillStyle = "#e2e0d4"; x.fillRect(0, h - 170, w, 170);
   rr(x, 18, h - 150, w - 130, 120, 40, "#ffffff", "#d9d7c9", 4);
   x.fillStyle = "#0b1220"; x.textAlign = "left";
-  if (!enviado && tipeado) { const L = textoEnLineas(x, tipeado, w - 190, 32); const ult = L.slice(-2); ult.forEach((l, i) => { x.font = F(700, 32); x.fillText(l, 42, h - 90 - (ult.length - 1) * 20 + i * 40); }); const lw = x.measureText(ult.at(-1)).width; if (Math.floor(t * 4) % 2 === 0) { x.fillStyle = "#3fa60a"; x.fillRect(46 + lw, h - 110 + (ult.length - 1) * 20, 5, 40); } }
-  else { x.fillStyle = "#8a8f9a"; x.font = F(700, 32); x.fillText("Mensaje", 42, h - 90); }
+  if (!enviado && tipeado) { const L = textoEnLineas(x, tipeado, w - 190, 36); const ult = L.slice(-2); ult.forEach((l, i) => { x.font = F(700, 36); x.fillText(l, 42, h - 90 - (ult.length - 1) * 21 + i * 42); }); const lw = x.measureText(ult.at(-1)).width; if (Math.floor(t * 4) % 2 === 0) { x.fillStyle = "#3fa60a"; x.fillRect(46 + lw, h - 110 + (ult.length - 1) * 21, 5, 40); } }
+  else { x.fillStyle = "#8a8f9a"; x.font = F(700, 36); x.fillText("Mensaje", 42, h - 90); }
   x.fillStyle = "#3fa60a"; x.beginPath(); x.arc(w - 56, h - 90, 46, 0, 7); x.fill();
   x.fillStyle = "#efeee5"; x.beginPath(); x.moveTo(w - 76, h - 112); x.lineTo(w - 30, h - 90); x.lineTo(w - 76, h - 68); x.lineTo(w - 68, h - 90); x.closePath(); x.fill();
 }
@@ -589,7 +598,7 @@ function dibujarCelD(t) {
     const L = [["$ 30.000", 40, "#0b1220", 900], ["+ gastos comunes $ 5.000", 32, "#1f3254", 700], ["Garantías: ANDA, CGN,", 32, "#0b1220", 800], ["Porto Seguro o depósito", 32, "#0b1220", 800], ["No acepta mascotas", 32, "#c7655b", 800]];
     L.forEach(([s2, px, c, p], i) => { x.fillStyle = c; ajustar(x, s2, p, px, fw - 36); x.fillText(s2, fx + 18, y0 + 100 + i * 46 + (i ? 6 : 0)); });
     fotos(x, fx + 16, y0 + 330, 96);
-    x.fillStyle = "#16243d"; x.font = F(800, 30); x.textAlign = "right"; x.fillText("12 fotos ▸", fx + fw - 14, y0 + 330 + 90); x.textAlign = "left";
+    x.fillStyle = "#16243d"; x.font = F(800, 32); x.textAlign = "right"; x.fillText("12 fotos ▸", fx + fw - 14, y0 + 330 + 90); x.textAlign = "left";
   };
   const alto = (m) => (m.lado === "ok" ? 150 : globoChat(x, w, 0, m.lado, m.L, { px: PX, hora: m.hora, tilde: m.tl, dibujar: false, extraH: m.ficha ? FICHA_H : 0, ancho: m.ficha ? 456 : null }));
   const hs = M2.map(alto), GAP = 16, TOP = 176, BOT = h - 40;
@@ -606,50 +615,41 @@ function dibujarCelD(t) {
   cabChat(x, w, AVATAR.silvana, "Silvana Propiedades", "agente de IA · en línea", true);
   pantD.needsUpdate = true;
 }
-// ---- el monitor de Silvana: parte 1 la bandeja de consultas (en rojo) · Q2 el panel del agente · Q4/F el panel en verde ----
+// ---- el monitor de Silvana (vertical, r1): parte 1 la bandeja de consultas (en rojo) · parte 2 el panel del agente: cuatro
+// renglones grandes, lleno desde el primer cuadro ----
 let claveM = "";
 function dibujarMonitor(t) {
   const modo = t < P1 ? "bandeja" : "panel";
-  const nf = modo === "panel" ? T.filas.filter((a) => t >= a).length : 0, nt = modo === "panel" ? T.turnos.filter((a) => t >= a).length : 0, li = modo === "panel" && t >= T.listos ? 1 : 0;
-  const clave = `${modo}|${nf}|${nt}|${li}`; if (clave === claveM) return; claveM = clave;
-  const { x } = pantM.userData, w = 1600, h = 1000;
+  if (modo === claveM) return; claveM = modo;
+  const { x } = pantM.userData, w = 1000, h = 1600;
   x.textBaseline = "middle"; x.textAlign = "left";
+  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
   if (modo === "bandeja") {
-    x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
-    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150); x.fillStyle = "#efeee5"; x.font = F(800, 70); x.fillText("Consultas · Punta Carretas", 40, 78);
-    x.fillStyle = "#c7655b"; rr(x, 40, 190, w - 80, 230, 30, "#c7655b"); x.fillStyle = "#efeee5"; x.font = F(900, 130); x.textAlign = "center"; x.fillText("Sin contestar: 38", w / 2, 310); x.textAlign = "left";
-    for (let i = 0; i < 4; i++) { const y = 460 + i * 130; rr(x, 40, y, w - 80, 112, 20, "#ffffff"); avatar(x, iniCv(INI[i], i), 110, y + 56, 40); x.fillStyle = "#0b1220"; x.font = F(800, 52); x.fillText(CONSULTAS[i][1], 180, y + 58); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w - 100, y + 56, 26, 0, 7); x.fill(); }
+    x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 170); x.fillStyle = "#efeee5"; ajustar(x, "Consultas · Punta Carretas", 800, 64, w - 80); x.fillText("Consultas · Punta Carretas", 40, 88);
+    rr(x, 36, 210, w - 72, 300, 34, "#c7655b"); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.font = F(800, 76); x.fillText("Sin contestar", w / 2, 290); x.font = F(900, 170); x.fillText("38", w / 2, 420); x.textAlign = "left";
+    for (let i = 0; i < 7; i++) { const y = 550 + i * 148; rr(x, 36, y, w - 72, 128, 22, "#ffffff"); avatar(x, iniCv(INI[i], i), 110, y + 64, 44); x.fillStyle = "#0b1220"; ajustar(x, CONSULTAS[i][1], 800, 56, w - 300); x.fillText(CONSULTAS[i][1], 180, y + 66); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w - 90, y + 64, 28, 0, 7); x.fill(); }
     pantM.needsUpdate = true; return;
   }
-  // el panel del agente: izquierda la lista, derecha la agenda de Diego, abajo "Listos para visitar y firmar"
-  x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h);
-  x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 120); x.fillStyle = "#5ce611"; x.fillRect(0, 120, w, 8);
-  x.fillStyle = "#efeee5"; x.font = F(800, 56); x.fillText("Punta Carretas · hoy", 36, 62);
-  x.fillStyle = "#5ce611"; x.font = F(800, 40); x.textAlign = "right"; x.fillText("agente de IA", w - 36, 62); x.textAlign = "left";
-  const FL = [
-    [["Consultas: 38", 54, "#0b1220", 900]], [["Contestadas al", 46, "#0b1220", 800], ["instante: 38", 46, "#0b1220", 800]],
-    [["Con mascota: 5", 46, "#0b1220", 800], ["→ le ofreció 2 que aceptan", 34, "#1f3254", 700]],
-    [["Sin garantía: 9", 46, "#0b1220", 800], ["→ le mandó los requisitos", 34, "#1f3254", 700]], [["Visitas", 46, "#0b1220", 800], ["agendadas: 6", 46, "#0b1220", 800]],
-  ];
-  const OKF = [false, true, false, false, true], YF = [150, 262, 404, 546, 688];
-  for (let i = 0; i < 5; i++) {
-    const y = YF[i], hh = i === 0 ? 96 : 126, ok = i < nf;
-    rr(x, 24, y, 760, hh, 22, ok ? "#ffffff" : "#e2e0d4");
-    if (!ok) continue;
-    FL[i].forEach(([s2, px, c, p], k) => { x.fillStyle = c; x.font = F(p, px); x.fillText(s2, 50, y + (FL[i].length === 1 ? hh / 2 : 38 + k * 54)); });
-    if (OKF[i]) { x.fillStyle = "#5ce611"; x.beginPath(); x.arc(720, y + hh / 2, 40, 0, 7); x.fill(); tilde(x, 720, y + hh / 2 + 2, 44, "#0b1220"); }
-  }
-  // la agenda de Diego
-  rr(x, 810, 150, 766, 664, 26, "#16243d");
-  avatar(x, AVATAR.diego, 870, 206, 40); x.fillStyle = "#efeee5"; x.font = F(800, 46); x.fillText("Agenda de Diego", 930, 208);
-  const AG = [["Mié 10:30", "Agustina"], ["Mié 11:30", "Federico"], ["Mié 12:15", "Lucía y Juan"], ["Jue 17:00", "Paula"], ["Jue 18:00", "Martina"], ["Vie 10:00", "Andrés"]];
-  AG.forEach(([d, q], i) => { const y = 270 + i * 90; const ok = i < nt; rr(x, 830, y, 726, 78, 18, ok ? "#5ce611" : "#1f3254"); if (!ok) return; x.fillStyle = "#0b1220"; x.font = F(900, 42); x.fillText(d, 852, y + 40); x.font = F(800, 42); x.fillText(q, 1100, y + 40); });
-  // abajo: Listos para visitar y firmar
-  rr(x, 24, 838, w - 48, 144, 30, li ? "#5ce611" : "#e2e0d4", li ? "#0b1220" : null, 8);
-  if (li) { x.fillStyle = "#0b1220"; x.font = F(900, 54); x.fillText("Listos para visitar y firmar: 2", 52, 884); x.font = F(800, 40); x.fillText("Agustina · ANDA  ·  Martina · CGN  →  para vos, Silvana", 52, 944); }
+  x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 200); x.fillStyle = "#5ce611"; x.fillRect(0, 200, w, 12);
+  x.fillStyle = "#efeee5"; ajustar(x, "Punta Carretas · hoy", 800, 76, w - 80); x.fillText("Punta Carretas · hoy", 44, 80);
+  x.fillStyle = "#5ce611"; x.font = F(800, 52); x.fillText("agente de IA", 44, 152);
+  const fila = (y, hh, l1, l2, ok, fondo = "#ffffff") => {
+    rr(x, 36, y, w - 72, hh, 34, fondo);
+    x.fillStyle = "#1f3254"; ajustar(x, l1, 800, 58, w - 260); x.fillText(l1, 76, y + 74);
+    x.fillStyle = "#0b1220"; x.font = F(900, 128); x.fillText(l2, 76, y + hh - 92);
+    if (ok) { x.fillStyle = "#5ce611"; x.beginPath(); x.arc(w - 140, y + hh / 2, 70, 0, 7); x.fill(); tilde(x, w - 140, y + hh / 2 + 4, 80, "#0b1220"); }
+  };
+  fila(246, 290, "Consultas", "38", false);
+  fila(566, 290, "Contestadas al instante", "38", true);
+  fila(886, 290, "Visitas agendadas", "6", true);
+  // el renglón resaltado: los que están listos para firmar
+  rr(x, 28, 1206, w - 56, 370, 40, "#5ce611", "#0b1220", 12);
+  x.fillStyle = "#0b1220"; ajustar(x, "Listos para visitar y firmar", 800, 62, w - 140); x.fillText("Listos para visitar y firmar", 76, 1290);
+  x.font = F(900, 150); x.fillText("2", 76, 1430);
+  x.font = F(800, 58); x.fillText("→ para vos, Silvana", 200, 1436);
+  x.font = F(700, 44); x.fillText("Agustina · ANDA  ·  Martina · CGN", 76, 1530);
   pantM.needsUpdate = true;
 }
-
 // ================= TARJETAS PEGADAS A LA CÁMARA: globos, consultas, contador, rótulos, guías =================
 const PXK = 1000;
 function crearTarjeta(Wg, H, dibujo, { fondo = "#efeee5", borde = C.navy, sombraC = 0x050a14 } = {}) {
@@ -792,11 +792,11 @@ const ALT = { icono: "parlante", nombre: "Don Alberto · altavoz" };
 const NOTA = { icono: "micro", nombre: "Agustina · nota de voz" };
 const GL = {
   d1: crearGlobo(["Silvana. El de", "Punta Carretas", "[explota.] Van doce."], 62),
-  s1: crearGlobo(["Contestales [vos.]"], 74),
+  s1: crearGlobo(["Contestá [vos.]"], 76),
   d2: crearGlobo(["Estoy [mostrando.]"], 74),
   s2: crearGlobo(["Yo [también.]"], 86),
-  a1a: crearGlobo(["¡Qué bueno!"], 92, { cab: NOTA, minW: 820 }),
-  a1: crearGlobo(["¡Qué bueno!", "{Yo ya no.}"], 92, { cab: NOTA, minW: 820 }),
+  a1a: crearGlobo(["¡Qué bueno!"], 84, { cab: NOTA, minW: 780 }),
+  a1: crearGlobo(["¡Qué bueno!", "{Yo ya no.}"], 84, { cab: NOTA, minW: 780 }),
   al: crearGlobo(["Silvana, ¿cómo va? ¿Nadie", "preguntó por el [apartamento?]"], 54, { cab: ALT }),
   s4: crearGlobo(["Preguntar,", "[preguntaron.]"], 88),
   d1b: crearGlobo(["El de Punta Carretas", "[explota.] Van doce."], 64),
@@ -804,34 +804,37 @@ const GL = {
   d3: crearGlobo(["[Ya contestó.] Le pidió la", "garantía y agendó."], 58),
   a2: crearGlobo(["¿Sigue [disponible?]"], 76),
   s7: crearGlobo(["[Sí.]"], 96),
-  a3a: crearGlobo(["¡Qué bueno!"], 92, { minW: 820 }),
-  a3: crearGlobo(["¡Qué bueno!", "[Yo también.]"], 92, { minW: 820 }),
+  a3a: crearGlobo(["¡Qué bueno!"], 84, { cab: { cv: AVATAR.agustina, nombre: "Agustina" }, minW: 780 }),
+  a3: crearGlobo(["¡Qué bueno!", "[Yo también.]"], 84, { cab: { cv: AVATAR.agustina, nombre: "Agustina" }, minW: 780 }),
   al2: crearGlobo(["¿Nadie preguntó por", "el [apartamento?]"], 64, { cab: ALT }),
   s8: crearGlobo(["Treinta y ocho.", "Y el viernes [firman.]"], 72),
 };
 // las consultas que brotan del celular en P1 (y en P2) y la de Agustina, grande
-const CONS = [["¿Sigue disponible?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Sigue disponible?", "camara"], ["¿Acepta mascotas?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Gastos comunes?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 44));
-const CONS2 = [["¿Sigue disponible?", "globo"], ["¿Acepta mascotas?", "camara"], ["¿Sigue disponible?", "casa"], ["¿Gastos comunes?", "globo"], ["¿Sigue disponible?", "camara"], ["¿Sigue disponible?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 46));
-const AGUS = crearTarjeta(860, 250, (x, w) => {
+const CONS = [["¿Sigue disponible?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Sigue disponible?", "sobre"], ["¿Acepta mascotas?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Gastos comunes?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 44));
+const CONS2 = [["¿Sigue disponible?", "globo"], ["¿Acepta mascotas?", "sobre"], ["¿Sigue disponible?", "casa"], ["¿Gastos comunes?", "globo"], ["¿Sigue disponible?", "sobre"], ["¿Sigue disponible?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 46));
+const AGUS = crearTarjeta(920, 250, (x, w) => {
   avatar(x, AVATAR.agustina, 70, 70, 46); x.fillStyle = "#0b1220"; x.font = F(800, 46); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText("Agustina", 132, 58);
   x.fillStyle = "#1f3254"; x.font = F(700, 38); x.textAlign = "right"; x.fillText("15:02", w - 30, 58); x.textAlign = "left";
-  x.fillStyle = "#0b1220"; x.font = F(800, 46); x.fillText("¿Sigue disponible? Tengo garantía", 34, 142); x.fillText("ANDA y me mudo el 1°.", 34, 202);
+  x.fillStyle = "#0b1220"; x.font = F(800, 44); x.fillText("¿Sigue disponible? Tengo garantía", 34, 142); x.fillText("ANDA y me mudo el 1°.", 34, 202);
 }, { fondo: "#ffffff", borde: C.g });
 const ROT = {
   ideal: crearRotulo([["La inquilina ideal", "#5ce611", 58]], 58),
-  alquilo: crearRotulo([["Alquiló ayer 16:30", null, 52], ["en otra inmobiliaria", "#c7655b", 52]], 52),
+  alquilo: crearRotulo([["Ayer 16:30 · reservó", null, 50], ["en otra inmobiliaria", "#c7655b", 50]], 50),
   comision: crearRotulo([["Comisión de este alquiler:", null, 46], ["$ 30.000", "#c7655b", 70]], 46),
   q1: crearRotulo([["Contesta al instante, con", null, 46], ["los datos de la propiedad", "#5ce611", 46]], 46),
+  q3a: crearRotulo([["Agustina · ANDA", "#0b1220", 54]], 54, { fondo: "#5ce611", borde: C.navy }),
   q3: crearRotulo([["Agustina · ANDA ·", "#0b1220", 54], ["firma el viernes ✓", "#0b1220", 54]], 54, { fondo: "#5ce611", borde: C.navy }),
   visitas: crearRotulo([["Visitas agendadas: 6 ✓", "#5ce611", 56]], 56),
   comisionOk: crearRotulo([["Comisión de este alquiler:", null, 46], ["$ 30.000 ✓", "#5ce611", 70]], 46),
 };
 const GUIAS = [crearGuia(), crearGuia()];
+// "Yo ya no." (P3i) y "Yo también." (Q3b): el mismo lugar y el mismo tamaño de pantalla
+const Y_YA_NO = 380;
 
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
-const CAM_LIV = (k) => [BX + lerp(0.03, 0.02, k), lerp(1.47, 1.45, k), lerp(4.55, 4.3, k), BX + 0.02, 1.2, -0.4, 46];
+const CAM_LIV = (k) => [BX + lerp(0.03, 0.02, k), lerp(1.47, 1.45, k), lerp(4.7, 4.45, k), BX + 0.02, 1.2, -0.4, 48];
 const CAM_SILV = (k) => [BX - 0.22 + 0.04 * k, 1.52, lerp(2.2, 2.08, k), BX - 0.4, 1.4, 0.4, 40];
 const CAM_OF = (k) => [lerp(0.22, 0.2, k), lerp(1.44, 1.42, k), lerp(2.55, 2.4, k), 0.17, 1.22, 0.1, 54];
 const CAM_PAL = (k) => [PX + lerp(0.52, 0.56, k), 1.42, lerp(4.45, 4.25, k), PX + 0.56, 1.12, 0.4, 52];
@@ -839,7 +842,7 @@ const PLANOS = [
   ["P1", 0, [[0, ...CAM_LIV(0)], [T.p1b, ...CAM_LIV(1)]]],
   ["P1b", T.p1b, [[T.p1b, ...CAM_SILV(0)], [T.p2, ...CAM_SILV(1)]]],
   ["P2", T.p2, null],    // la escalada: el celular sobre la mesa, de arriba, bajando
-  ["P3", T.p3, [[T.p3, 0.16, 1.42, 2.45, 0.12, 1.2, 0.2, 52], [T.p3i, 0.18, 1.4, 2.3, 0.14, 1.18, 0.2, 51]]],
+  ["P3", T.p3, [[T.p3, 0.16, 1.3, 2.5, 0.12, 1.0, 0.2, 52], [T.p3i, 0.18, 1.29, 2.38, 0.14, 0.98, 0.2, 51]]],   // (r1) sin el cartel detrás del chip
   ["P3i", T.p3i, null],  // el chat con Agustina, de cerca
   ["P3b", T.p3b, [[T.p3b, 0.2, 1.44, 2.9, 0.22, 1.2, 0.1, 58], [T.p4, 0.2, 1.44, 2.8, 0.22, 1.2, 0.1, 57]]],
   ["P4", T.p4, [[T.p4, ...CAM_OF(0.2)], [T.p4i, ...CAM_OF(0.8)]]],
@@ -847,14 +850,14 @@ const PLANOS = [
   ["P4b", T.p4b, [[T.p4b, 0.14, 1.3, 2.05, 0.02, 1.22, 0.3, 40], [P1, 0.13, 1.3, 1.95, 0.02, 1.22, 0.3, 39]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...CAM_LIV(0)], [T.q1b, ...CAM_LIV(0.6)]]],
-  ["Q1b", T.q1b, [[T.q1b, BX + 0.0, 1.55, 3.4, BX + 0.0, 1.28, 0.4, 50], [T.q1i, BX + 0.0, 1.55, 3.28, BX + 0.0, 1.28, 0.4, 49]]],   // (r1) corte a los dos más cerca
+  ["Q1b", T.q1b, [[T.q1b, BX + 0.0, 1.55, 3.65, BX + 0.0, 1.28, 0.4, 50], [T.q1i, BX + 0.0, 1.55, 3.55, BX + 0.0, 1.28, 0.4, 49]]],   // (r1) corte a los dos más cerca
   ["Q1i", T.q1i, null],  // el chat del agente en el celular de Diego
   ["Q2", T.q2, null],    // el panel en el monitor (travelling)
   ["Q3", T.q3, [[T.q3, ...CAM_PAL(0)], [T.q3b, ...CAM_PAL(1)]]],
   ["Q3b", T.q3b, null],  // push-in a Agustina
   ["Q4", T.q4, [[T.q4, ...CAM_OF(0)], [T.q4f, ...CAM_OF(0.7)]]],
   ["Q4f", T.q4f, null],  // la ficha: RESERVADO
-  ["F", T.q5, [[T.q5, 0.1, 1.38, 2.75, 0.02, 1.02, 0.3, 52], [DUR, 0.1, 1.38, 2.65, 0.02, 1.02, 0.3, 51]]],
+  ["F", T.q5, [[T.q5, 0.16, 1.4, 2.55, 0.06, 1.08, 0.3, 50], [DUR, 0.16, 1.4, 2.47, 0.06, 1.08, 0.3, 49]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
 const _m = new THREE.Vector3();
@@ -907,8 +910,8 @@ function aCuerpo(per, w) { per.raiz.updateMatrixWorld(true); const v = per.cuerp
 const aC = (giro = 0, asiente = 0, ladea = 0.03) => ({ cabeza: { giro, asiente, ladea }, ojos: { x: giro * 0.6, y: 0.05 } });
 const giroA = (x, z, c) => Math.atan2(c[0] - x, c[2] - z);
 // ---------- en el living de Parque Batlle (P1, Q1): Silvana a la izquierda, Diego a la derecha, la pareja al fondo ----------
-const S_LIV = { x: BX - 0.42, z: 0.55 }, D_LIV = { x: BX + 0.44, z: 0.45 };
-const E_LIV = { x: BX - 0.1, z: -0.95 }, M_LIV = { x: BX + 0.2, z: -1.1 };
+const S_LIV = { x: BX - 0.5, z: 0.55 }, D_LIV = { x: BX + 0.5, z: 0.45 };
+const E_LIV = { x: BX - 0.14, z: -0.7 }, M_LIV = { x: BX + 0.2, z: -0.85 };
 function poseSilvanaLiv(t) {
   const p2 = t >= P2;
   const pr = { x: S_LIV.x, y: 0, z: S_LIV.z, giro: 0.55, inclina: 0.02, ...aC(-0.35, 0.05), ...CARA.sonrisa, ojos: { abiertos: 1, x: -0.4, y: 0, feliz: 0.25 }, boca: { sonrisa: 0.7, abierta: 0, ancho: 1.1 }, ...BRAZOS.celular, t };
@@ -970,7 +973,7 @@ function poseSilvanaOf(t) {
     Object.assign(pr, { ...CARA.concentrada, ojos: { abiertos: 0.9, x: 0.35, y: -0.45 }, cejas: { alto: 0.05, ang: 0.15 }, boca: { sonrisa: 0.15, abierta: 0, ancho: 0.95 } });
     pr.cabeza = { giro: 0.32, asiente: 0.16, ladea: 0.03 };
     pr.taza = 1; pr.manoD = [-0.16, 0.5, 0.34]; pr.codoD = [-1, -0.6, -0.3];
-    if (t < T.p3 + 0.6) { const u = Math.sin(Math.PI * sg(t, T.p3 + 0.05, T.p3 + 0.6)); pr.manoD = [lerp(-0.16, -0.05, u), lerp(0.5, 0.66, u), lerp(0.34, 0.3, u)]; pr.cabeza = { giro: lerp(0.32, 0.05, u), asiente: lerp(0.16, -0.05, u), ladea: 0.02 }; }   // un sorbo
+    // (r1) sin el sorbo: empieza a hablar enseguida
     // el índice izquierdo tipea en el celular parado
     if (t >= T.s3 - 0.2 && t < T.envia + 0.1) { telS.updateMatrixWorld(true); const w = telS.userData.piv.localToWorld(V3(0.0, telS.userData.H * 0.15, 0.05)); pr.manoI = aCuerpo(silvana, w); pr.codoI = [1, -0.5, -0.2]; pr.dedoI = 1; }
     if (t >= T.a1) {
@@ -1015,7 +1018,7 @@ function poseSilvanaPal(t) {
 }
 function poseAgustina(t) {
   const u = eio(sg(t, T.q3 - 0.2, T.a2 - 0.05));
-  const pr = { x: lerp(PX - 1.6, A_PAL.x, u), y: 0, z: A_PAL.z, giro: lerp(Math.PI / 2, 0.55, eio(sg(t, T.a2 - 0.35, T.a2 + 0.05))), paso: 1 - sg(t, T.a2 - 0.25, T.a2), inclina: 0.03, ...aC(0.2, 0), ...CARA.sonrisa, ojos: { abiertos: 1, x: 0.4, y: 0, feliz: 0.35 }, ...BRAZOS.costado, t };
+  const pr = { x: lerp(PX - 1.05, A_PAL.x, u), y: 0, z: A_PAL.z, giro: lerp(Math.PI / 2, 0.55, eio(sg(t, T.a2 - 0.35, T.a2 + 0.05))), paso: 1 - sg(t, T.a2 - 0.25, T.a2), inclina: 0.03, ...aC(0.2, 0), ...CARA.sonrisa, ojos: { abiertos: 1, x: 0.4, y: 0, feliz: 0.35 }, ...BRAZOS.costado, t };
   if (t >= T.a3 - 0.1) { Object.assign(pr, { ...CARA.feliz, ojos: { abiertos: 1, x: 0.3, y: 0.05, feliz: 0.45 }, cejas: { alto: 0.45, ang: 0.15 }, boca: { sonrisa: 0.85, abierta: 0, ancho: 1.15 } }); pr.cabeza = { giro: 0.25, asiente: -0.04, ladea: 0.08 }; }
   bocaVoz(pr, t, T.a2, ENV.a2, 0.5); bocaVoz(pr, t, T.a3, ENV.a3, 0.5);
   return pr;
@@ -1074,12 +1077,14 @@ function renderAt(tIn) {
   }
   if (lugar === "of") {
     silvana.raiz.visible = pa !== "P2"; sillaS.visible = true;
+    silvana.poner({ x: SIL.x, y: -0.08, z: SIL.z, giro: 0, sentado: 1, t });   // (r1) la raíz en su lugar antes de aCuerpo
     const ps = poseSilvanaOf(t); silvana.poner(ps);
     if (ps.taza && silvana.raiz.visible) { silvana.raiz.updateMatrixWorld(true); const m = silvana.brazos[1].mano.getWorldPosition(new THREE.Vector3()); tazaS.position.set(m.x + 0.075, m.y - 0.06, m.z + 0.03); tazaS.rotation.set(0, Math.PI - 0.3, 0); tazaS.visible = true; }
     else if (pa === "P2" || (t >= T.p4 && t < P1) || t >= P2) { tazaS.position.set(-0.3, MESA_Y, 1.0); tazaS.rotation.set(0, 0.4, 0); tazaS.visible = true; }
   }
   if (lugar === "pa") {
     for (const p of [silvana, diego, agustina]) p.raiz.visible = true;
+    silvana.poner({ x: S_PAL.x, y: 0, z: S_PAL.z, giro: -0.75, t });   // (r1) la raíz en su lugar antes de aCuerpo
     silvana.poner(poseSilvanaPal(t)); diego.poner(poseDiegoPal(t)); agustina.poner(poseAgustina(t));
     puerta3B.rotation.y = 1.25 * eio(sg(t, T.abre, T.abre + 0.6));
     // la llave en la cerradura (en la mano de Silvana); cuando abre, queda en la puerta
@@ -1096,7 +1101,7 @@ function renderAt(tIn) {
     const vv = [c.x + 0.003, c.y + lerp(0.5, 0.3, u), c.z + lerp(0.05, 0.02, u), c.x, c.y, c.z, 50]; ponerVista(vv, vv, 0, V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18), V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18));
   }
   if (pa === "P3i" || pa === "P4i") {
-    const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, pa === "P3i" ? 0.74 : 0.6, 40, -0.004);
+    const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, pa === "P3i" ? 0.66 : 0.7, 40, pa === "P3i" ? 0.047 : 0.0);   // (r1) P3i: el celular abajo, la burbuja arriba sin tapar; P4i más grande
     const t0 = pa === "P3i" ? T.p3i : T.p4i, t1 = pa === "P3i" ? T.p3b : T.p4b;
     const k = eio(sg(t, t0, t1)), v2 = v.slice(); for (const j of [0, 1, 2]) v2[j] += (v[j] - v[j + 3]) * 0.07 * (1 - k);
     ponerVista(v2, v2, 0, up, up);
@@ -1113,13 +1118,10 @@ function renderAt(tIn) {
   if (pa === "P3i" || pa === "P4i") { silvana.raiz.visible = false; tazaS.visible = false; }
   if (lugar === "lv" && pa !== "Q1i") { camera.updateMatrixWorld(true); if (t < P2) { celEnManos(celS, silvana, V3(BX - 0.6, 1.6, 2.2), 0.06, 0.06); celS.visible = true; celEnManos(celD, diego, V3(BX + 0.5, 1.6, 2.0), 0.06, 0.07); celD.visible = true; } }
   if (pa === "Q2") {
-    // el travelling sobre el monitor: la lista (izquierda) → la agenda (derecha) → abajo, "Listos para firmar"
-    const FOV = 40, mitad = MON.W * 0.53, d = mitad / (2 * Math.tan((FOV * D2R) / 2) * (1080 / 1920));
-    monitor.updateMatrixWorld(true);
-    const P = (dx, dy, dd) => { const c = monitor.localToWorld(monitor.userData.centro.clone().add(V3(dx, dy, 0))), n = V3(0, 0, 1).transformDirection(monitor.matrixWorld); const p = c.clone().add(n.multiplyScalar(d * dd)); return [p.x, p.y, p.z, c.x, c.y, c.z, FOV]; };
-    const A = P(-MON.W * 0.24, 0, 1.0), B = P(MON.W * 0.25, 0.01, 1.0), Cc = P(0, -MON.H * 0.32, 1.12);
-    const u1 = eio(sg(t, T.agenda - 0.15, T.agenda + 0.25)), u2 = eio(sg(t, T.listos - 0.25, T.listos + 0.1));
-    ponerCam(lerpV(lerpV(A, B, u1), Cc, u2), t, true);
+    // (r1) el panel entero en cuadro, con márgenes, quieto; un push-in mínimo
+    const { v, up } = vistaPantalla(monitor, monitor.userData.centro, V3(0, 0, 1), MON.H, 0.74, 40, 0.0);
+    const k = eio(sg(t, T.q2, T.q3)), v2 = v.slice(); for (const j of [0, 1, 2]) v2[j] += (v[j] - v[j + 3]) * 0.05 * (1 - k);
+    ponerVista(v2, v2, 0, up, up);
   }
   if (pa === "Q3b") {
     agustina.raiz.updateMatrixWorld(true); const c = agustina.cabeza.localToWorld(V3(0, 0.1, 0));
@@ -1134,7 +1136,7 @@ function renderAt(tIn) {
   if (pa === "portada") {
     // la portada: la visita en el living, la pareja, Silvana con la sonrisa fija, Diego con el celular; las consultas
     // 3D no van (fondo limpio); el plano del cuadro 0 un poco más cerrado
-    ponerCam([BX + 0.02, 1.32, 3.35, BX + 0.02, 1.02, -0.4, 50], t, true);
+    ponerCam([BX - 0.03, 1.34, 4.15, BX - 0.03, 1.05, -0.4, 50], t, true);
     camera.updateMatrixWorld(true); celEnManos(celS, silvana, V3(BX - 0.6, 1.6, 2.2), 0.06, 0.06); celS.visible = true; celEnManos(celD, diego, V3(BX + 0.5, 1.6, 2.0), 0.06, 0.07); celD.visible = true;
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
@@ -1151,6 +1153,15 @@ function renderAt(tIn) {
 }
 function tarjetas(t, pa) {
   const ent = (ti) => (t < ti ? 0 : 0.75 + 0.25 * bk(sg(t, ti, ti + 0.18)));
+  // (r1) la burbuja vive mientras dura el parlamento (+0,12 s) y se va
+  const vivo = (a, len, b = Infinity) => t >= a - 0.04 && t < Math.min(b, a + len + 0.12);
+  // la burbuja del altavoz: debajo del celular parado, con la cola hacia el celular (no lo tapa)
+  const altavoz = (g, t0) => {
+    telS.updateMatrixWorld(true);
+    const [tx, ty] = objPx(telS.userData.piv, V3(0, 0, 0.01)), [, tt] = objPx(telS.userData.piv, V3(0, telS.userData.H, 0.01));
+    const H = g.userData.H, cy = Math.min(1860 - H / 2, ty + 150 + H / 2);
+    ponerGlobo(g, Math.min(tx, 1030 - g.userData.W / 2), cy, ent(t0), [tx, ty + 40], 2); void tt;
+  };
   if (pa === "P1") {
     // las consultas brotan del celular de Silvana y se apilan abajo a la izquierda (la más nueva arriba de la pila)
     const [cx, cy] = objPx(celS, V3(0, 0.04, 0.01));
@@ -1160,63 +1171,62 @@ function tarjetas(t, pa) {
       const y = lerp(cy, 1765 - i * 112, u), x = lerp(cx, 290 + ox, u);
       ponerGlobo(CONS[i], x, y, a === 0 ? 1 : ent(a), null, 1 + i, a === 0 ? 1 : lerp(0.5, 1, u));
     });
-    ponerContador(12, false, 840, 1720, 1, [cx + 30, cy], 8, 0.7);
-    if (t >= T.d1 - 0.04 && t < T.s1 - 0.04) hablar(GL.d1, diego, ent(T.d1 - 0.04), 2, 40, 470);
-    if (t >= T.s1 - 0.04 && t < T.d2 - 0.04) hablar(GL.s1, silvana, ent(T.s1 - 0.04), 3, 60, 470);
-    if (t >= T.d2 - 0.04) hablar(GL.d2, diego, ent(T.d2 - 0.04), 3, 0, 470);
+    ponerContador(12, false, 840, 1712, 1, [cx + 30, cy], 8, 0.78);
+    if (vivo(T.d1, LEN.d1, T.s1 - 0.04)) hablar(GL.d1, diego, ent(T.d1 - 0.04), 2, 40, 470);
+    if (vivo(T.s1, LEN.s1, T.d2 - 0.04)) hablar(GL.s1, silvana, ent(T.s1 - 0.04), 3, 60, 470);
+    if (vivo(T.d2, LEN.d2)) hablar(GL.d2, diego, ent(T.d2 - 0.04), 3, 0, 470);
   }
-  if (pa === "P1b" && t >= T.s2 - 0.04) hablar(GL.s2, silvana, ent(T.s2 - 0.04), 2, 40, 300);
+  if (pa === "P1b" && vivo(T.s2, LEN.s2)) hablar(GL.s2, silvana, ent(T.s2 - 0.04), 2, 40, 300);
   if (pa === "P2") {
     const n = nCuenta(t);
     ponerContador(n, false, 540, 330, 1.25, null, 6);
-    const [px2, py2] = objPx(telP, V3(0, 0.1, 0.01));
-    // seis consultas alrededor del celular (entran de a una), y la de Agustina grande con su rótulo
-    CONS2.forEach((g, i) => { const a = T.p2 + 0.15 + i * 0.22; if (t < a || t >= T.agus) return; const pos = [[300, 640], [780, 700], [270, 1560], [800, 1500], [290, 1700], [780, 1680]][i]; ponerGlobo(g, pos[0], pos[1], ent(a), null, 2); });
-    if (t >= T.agus) { ponerGlobo(AGUS, 540, 1460, ent(T.agus), [px2, py2], 3); }
-    if (t >= T.ideal) { ponerGlobo(ROT.ideal, 540, 1700, ent(T.ideal), null, 4); }
+    // la cola de Agustina apunta a SU fila de la bandeja (la 3.ª)
+    const [px2, py2] = objPx(telP, V3(0, telP.userData.H * (0.5 - 476 / 1200), 0.01));
+    CONS2.forEach((g, i) => { const a = T.p2 + 0.15 + i * 0.2; if (t < a || t >= T.agus) return; const pos = [[300, 640], [780, 700], [270, 1560], [800, 1500], [290, 1700], [780, 1680]][i]; ponerGlobo(g, pos[0], pos[1], ent(a), null, 2); });
+    if (t >= T.agus) { ponerGlobo(AGUS, 540, 1470, ent(T.agus), [px2, py2], 3); }
+    if (t >= T.ideal) { ponerGlobo(ROT.ideal, 540, 1720, ent(T.ideal), null, 4); }
   }
-  if (pa === "P3i" && t >= T.a1 - 0.04) {
-    const [vx, vy] = objPx(telS.userData.piv, V3(-0.02, telS.userData.H * 0.3, 0.01));
+  if (pa === "P3i" && vivo(T.a1, LEN.a1)) {
+    // arriba del celular (el celular arranca más abajo): la cola baja hacia el celular, no tapa la cabecera
+    const [vx, vy] = objPx(telS.userData.piv, V3(0, telS.userData.H * 0.5, 0.01));
     const g = t < T.yaNo ? GL.a1a : GL.a1;
-    ponerGlobo(g, 540, 440, t < T.yaNo ? ent(T.a1 - 0.04) : ent(T.yaNo), [vx, vy], 2);
+    ponerGlobo(g, 540, Y_YA_NO, t < T.yaNo ? ent(T.a1 - 0.04) : ent(T.yaNo), [vx, vy], 2);
   }
   if (pa === "P3b") {
     const tp = objPx(telS.userData.piv, V3(0, telS.userData.H * 0.6, 0.01)), fp = objPx(fichaPC, V3(-0.15, -0.05, 0.01));
     if (t >= T.rot[0]) { ponerGlobo(ROT.alquilo, 330, 1560, ent(T.rot[0]), null, 3); ponerGuia(GUIAS[0], 420, 1490, tp[0] - 20, tp[1], sg(t, T.rot[0], T.rot[0] + 0.25)); }
     if (t >= T.rot[1]) { ponerGlobo(ROT.comision, 690, 330, ent(T.rot[1]), null, 4); ponerGuia(GUIAS[1], 690, 410, fp[0], fp[1], sg(t, T.rot[1], T.rot[1] + 0.25)); }
   }
-  if (pa === "P4") {
-    if (t >= T.al - 0.04) { const tp = objPx(telS.userData.piv, V3(0, telS.userData.H * 0.9, 0.01)); ponerGlobo(GL.al, 540, 1500, ent(T.al - 0.04), [tp[0], tp[1]], 2); }
-  }
-  if (pa === "P4i") ponerContador(38, false, 540, 300, 1.2, null, 6);
-  if (pa === "P4b" && t >= T.s4 - 0.04) hablar(GL.s4, silvana, ent(T.s4 - 0.04), 2, 0, 260);
+  if (pa === "P4" && vivo(T.al, LEN.al)) altavoz(GL.al, T.al - 0.04);
+  if (pa === "P4i") ponerContador(38, false, 540, 1780, 1, null, 6, 0.9);
+  if (pa === "P4b" && vivo(T.s4, LEN.s4)) { const [bx, by] = bocaPx(silvana); ponerGlobo(GL.s4, 540, 1640, ent(T.s4 - 0.04), [bx, by + 170], 2); }   // abajo, la cola sube hacia ella (no tapa la cara ni el pelo)
   // ---- parte 2 ----
-  if (pa === "Q1" && t >= T.d1b - 0.04) hablar(GL.d1b, diego, ent(T.d1b - 0.04), 2, 40, 300);
-  if (pa === "Q1b" && t >= T.s5 - 0.04) hablar(GL.s5, silvana, ent(T.s5 - 0.04), 3, 60, 300);
+  if (pa === "Q1" && vivo(T.d1b, LEN.d1 - T.d1bDesde)) hablar(GL.d1b, diego, ent(T.d1b - 0.04), 2, 40, 300);
+  if (pa === "Q1b" && vivo(T.s5, LEN.s5)) hablar(GL.s5, silvana, ent(T.s5 - 0.04), 3, 60, 300);
   if (pa === "Q1i") {
-    if (t >= T.d3 - 0.04) ponerGlobo(GL.d3, 540, 1755, ent(T.d3 - 0.04), null, 2);
-    if (t >= T.rotQ1) ponerGlobo(ROT.q1, 540, 120, ent(T.rotQ1), null, 3);
+    if (vivo(T.d3, LEN.d3)) ponerGlobo(GL.d3, 540, 1755, ent(T.d3 - 0.04), null, 2);
+    if (t >= T.rotQ1) ponerGlobo(ROT.q1, 540, 165, ent(T.rotQ1), null, 3);
   }
   if (pa === "Q3") {
-    if (t >= T.a2 - 0.04 && t < T.s7 - 0.04) hablar(GL.a2, agustina, ent(T.a2 - 0.04), 2, 60, 300);
-    if (t >= T.s7 - 0.04) hablar(GL.s7, silvana, ent(T.s7 - 0.04), 3, 0, 300);
+    if (vivo(T.a2, LEN.a2, T.s7 - 0.04)) hablar(GL.a2, agustina, ent(T.a2 - 0.04), 2, 60, 300);
+    if (vivo(T.s7, LEN.s7)) hablar(GL.s7, silvana, ent(T.s7 - 0.04), 3, 0, 300);
+    if (t >= T.agusRot) ponerGlobo(ROT.q3a, 330, 1700, ent(T.agusRot), null, 3);   // quién es: "Agustina · ANDA"
   }
   if (pa === "Q3b") {
     const [bx, by] = bocaPx(agustina);
     const g = t < T.tambien ? GL.a3a : GL.a3;
-    ponerGlobo(g, 540, 440, t < T.tambien ? ent(T.a3 - 0.04) : ent(T.tambien), [bx, by - 40], 2);
-    if (t >= T.rotQ3) ponerGlobo(ROT.q3, 540, 1580, ent(T.rotQ3), null, 3);
+    if (vivo(T.a3, LEN.a3)) ponerGlobo(g, 540, Y_YA_NO, t < T.tambien ? ent(T.a3 - 0.04) : ent(T.tambien), [bx, by - 40], 2);
+    ponerGlobo(t < T.rotQ3 ? ROT.q3a : ROT.q3, 540, 1620, t < T.rotQ3 ? 1 : ent(T.rotQ3), null, 3);
   }
   if (pa === "Q4") {
-    const tp = objPx(telS.userData.piv, V3(0, telS.userData.H * 0.9, 0.01));
-    if (t >= T.al2 - 0.04 && t < T.s8 - 0.1) ponerGlobo(GL.al2, 540, 1500, ent(T.al2 - 0.04), [tp[0], tp[1]], 2);
-    if (t >= T.s8 - 0.04) hablar(GL.s8, silvana, ent(T.s8 - 0.04), 2, 0, 260);
+    if (vivo(T.al2, T.al2Fin - T.al2, T.s8 - 0.1)) altavoz(GL.al2, T.al2 - 0.04);
+    if (vivo(T.s8, LEN.s8)) hablar(GL.s8, silvana, ent(T.s8 - 0.04), 2, 0, 260);
     if (t >= T.visitas) ponerGlobo(ROT.visitas, 540, 1560, ent(T.visitas), null, 3);
   }
   if (pa === "Q4f") {
-    if (t >= T.s8 - 0.04) ponerGlobo(GL.s8, 540, 330, 1, null, 2);
-    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1480, ent(T.rotQ4[0]), null, 3);
-    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1720, 0.85, null, 4);
+    if (vivo(T.s8, LEN.s8)) ponerGlobo(GL.s8, 540, 250, 1, null, 2);   // sin cola: ella está fuera de cuadro; arriba de la ficha
+    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1500, ent(T.rotQ4[0]), null, 3);
+    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1730, 0.85, null, 4);
   }
 }
 
