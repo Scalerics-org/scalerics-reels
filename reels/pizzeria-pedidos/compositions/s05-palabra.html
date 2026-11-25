@@ -1,0 +1,33 @@
+<template>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <style>
+    @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
+    [data-composition-id="s05-palabra"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s05-palabra"] .caja { position: absolute; left: 60px; right: 60px; top: 1150px; padding: 14px 10px 20px; border-radius: 40px; background: #efeee5; border: 9px solid #0b1220; box-shadow: 14px 16px 0 #0b1220; text-align: center; transform-origin: 50% 0%; }
+    [data-composition-id="s05-palabra"] .a { font: 800 88px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; }
+    [data-composition-id="s05-palabra"] .tx { font: 900 168px/1.08 "Lexend", sans-serif; letter-spacing: -0.03em; color: #0b1220; white-space: nowrap; }
+    [data-composition-id="s05-palabra"] .sel { position: relative; display: inline-block; padding: 0 26px; margin-top: 6px; }
+    [data-composition-id="s05-palabra"] .sel b { position: absolute; inset: -14px 0 -4px; background: #5ce611; border: 8px solid #0b1220; border-radius: 12px; }
+    [data-composition-id="s05-palabra"] .sel em { position: relative; font-style: normal; }
+    [data-composition-id="s05-palabra"] .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: #0b1220; }
+  </style>
+  <div id="root" data-composition-id="s05-palabra" data-width="1080" data-height="1920" data-duration="3.12">
+    <div id="s05-palabra-esc" class="esc clip" data-start="0" data-duration="3.12" data-track-index="0">
+      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>MENÚ</em></span></div><div class="c">y te mando cómo funciona<br>para tu pizzería</div></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const ID = "s05-palabra";
+      const root = document.querySelector('[data-composition-id="' + ID + '"]');
+      const q = (s) => root.querySelector(s);
+      const qa = (s) => Array.from(root.querySelectorAll(s));
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".caja"), { scale: 0.82, y: 40, opacity: 0 }, { scale: 1, y: 0, opacity: 1, duration: 0.22, ease: "back.out(1.6)", immediateRender: true }, 0);   // (r3) sin el cuadro chico
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.07, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.45);
+      window.__timelines = window.__timelines || {};
+      window.__timelines[ID] = tl;
+    })();
+  </script>
+</template>

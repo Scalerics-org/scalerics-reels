@@ -1,0 +1,31 @@
+[sin narrador Orus: comedia de situación en burbujas, formato "Dos negocios": dos pizzerías en la misma cuadra, el mismo viernes · voces por archivo en partes/*.txt, ver partes/voces.md · objetivo ~40,4 s: parte 1 (Pizzería Don Tano) 0,00-15,60 · cartel 15,60-17,90 · parte 2 (la de enfrente, Lucía Pizzas, con menú online) 17,90-37,00 · cierre 37,00-40,40 · solución + cierre = 22,5 s, el 56 %]
+[parte 1 · 0,00-4,20 · cuadro 0: "PIZZERÍAS" grande arriba y el chip "Viernes, 21:00." · Pizzería Don Tano: el mostrador enharinado, el horno pizzero abierto con una muzza adentro, la pila de cajas · Tano con el celular apretado entre la oreja y el hombro, la birome en la comanda y un bollo de masa en la otra mano · el otro celular, en el mostrador, vibra con el contador de mensajes]
+TANO: Una muzza y dos fainá… ¿Calle qué?
+MARTIN: ¡Duvimioso Terra!
+[Tano escribe sin mirar · inserto de la comanda: "1 MUZZA · 2 FAINÁ · DUBIMIOSO TERA 14??"]
+TANO: Ajá. ¿Con be larga?
+[burbuja muda que sale del celular: "¡Con V corta!" · Tano ya escribió la B y cuelga]
+[4,20-7,40 · el celular del mostrador: chat genérico que se apila: "¿Hacen envíos?", "¿Cuánto demora?", "Hola??", "¿Están abiertos?" · el contador 9 → 17 → 26 sin leer · rótulos rojo apagado: "Mensajes sin contestar: 26" / "Cada uno, un pedido que se fue a otro lado" · Tano aprieta el micrófono y graba un audio al de "¿Cuánto demora?", con la masa todavía cruda colgando de la otra mano]
+TANO: ¡Ya sale!
+[7,40-11,40 · chip "Viernes, 22:10." · entra Facu, el repartidor, con el casco puesto y la caja de vuelta en las manos, la mochila térmica a la espalda]
+FACU: Tano. Dubimioso no existe.
+[Tano mira la comanda · inserto: "DUBIMIOSO" · pausa · rótulos: "Pizzas que volvieron hoy: 3" / "$ 2.220 a la basura… o a la cena"]
+[11,40-15,60 · Tano abre la caja en el mostrador: la muzza con aceitunas verdes y los dos fainá, todavía humeando]
+TANO: Cenamos.
+[Facu se saca el casco y agarra una porción · el celular vibra: "Martín: ¿Y mi pizza?" · Tano, con la porción en la boca, aprieta el micrófono]
+TANO: ¡Ya sale!
+[stinger]
+[cartel · 15,60-17,90 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Mientras tanto," / "en la de enfrente…" · nunca "Scalerics"]
+NARRADOR: Mientras tanto, en la de enfrente.
+[parte 2 · Q1 17,90-20,40 · chip "Viernes, 21:00." · grúa que cruza la calle de noche: el toldo navy de "DON TANO" en primer plano, la moto de Facu, y la cámara cruza a la vereda de enfrente: el toldo crema de "LUCÍA · PIZZAS", el vinilo "Pedí online" con un QR en el vidrio · adentro, Lucía estira la masa con las dos manos (sin celular en el hombro) · la impresora de comandas del mostrador escupe un ticket, otro, otro · rótulo: "Los pedidos entran solos, en orden"]
+[Q2 20,40-26,40 · chip "Viernes, 22:15." · Martín en el sillón de su casa, con hambre · en su celular, el chat de Pizzería Don Tano: le llega el audio y se oye, con la boca llena, "¡Ya sale!" · Martín abre "Lucía Pizzas · Pedí acá" · inserto del menú: toca Muzza +1, Fainá +2 (el mismo pedido) · Dirección: escribe "Duvi" y el mapa completa "Duvimioso Terra 1432" con el pin ✓ · rótulo: "La dirección la pone él, con el mapa" · Pagar → "Pagado ✓ · Pedido #47 · Llega 22:55"]
+MARTIN: ¿Ya está?
+[Q3 26,40-29,40 · la cocina de Lucía: la impresora saca el ticket #47: "1 MUZZA · 2 FAINÁ · DUVIMIOSO TERRA 1432 · PAGADO ✓" · Lucía lo corta y lo cuelga en el riel · la tablet de pedidos pasa #47 de "En horno" a "Listo" a "En camino" · Sabri, la repartidora, con el casco, abre en su celular el recorrido hasta el pin · rótulo: "Pedido pago, dirección exacta"]
+[Q4 29,40-33,60 · chip "Viernes, 22:54." · la puerta de Martín: timbre · Sabri con la caja]
+SABRI: ¿Martín? Una muzza y dos fainá.
+[Martín abre la caja: la muzza con aceitunas verdes humeando · le vibra el celular: "Pizzería Don Tano: Disculpá, ¿calle qué?" · Martín mira el celular, mira la pizza… y muerde · sin voz]
+[Q5 33,60-37,00 · la tablet de Lucía a casi toda la pantalla: "Viernes · 64 pedidos" · "Pagados online 64 ✓" · "Dirección con mapa 64 ✓" · "Pizzas que volvieron 3 → 0" · "Sin contestar 26 → 0" · fila "#47 · Martín · cliente nuevo ✓ · entregado 22:54" · 36,00 corte a la vereda de enfrente: Tano en la puerta de su pizzería, con la caja vacía, mirando salir la moto de Sabri]
+TANO: ¿Y esa cómo hace?
+[cierre · 37,00-40,40 · Lucía a cámara en su mostrador, la impresora y el riel de tickets detrás · tarjeta grande: "Comentá MENÚ" (MENÚ en el recuadro verde)]
+LUCIA: Comentá MENÚ y te mando cómo funciona para tu pizzería.
+[39,60-40,40 · abajo, chico: "Menú online con pedidos y pago" / "scalerics.com" en verde]
