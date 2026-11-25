@@ -14,15 +14,15 @@ hueco ${N2:-04-nico-b}    n2 1.31 1.49 0.14 "atempo=1.18"     # Nico "¿Cuarenta
 tal   ${J1:-05-javi-b}    j1                                  # Javi (Achird) "¡Héctor es mío!"
 hueco ${R3:-06-ruben-b}   r3 1.30 1.61 0.38 "atempo=1.16"     # Rubén "Felicitaciones. Entre los dos vendieron más que la empresa." (≥ 0,35 s de pausa)
 tal   ${G1:-07-graciela-c} g1 "atempo=1.18,$ALT"               # Graciela (Gacrux, altavoz) "Rubén, te devuelvo seis cajas." (se reusa en Q4)
-# (r1) r4 = "Te toca menos." de 15-c (se entiende) + 0,3 s + "Pasá el jueves." de 08-f
-ffmpeg -loglevel error -y -i partes/rec/15-ruben-c.wav -i partes/rec/08-ruben-f.wav -filter_complex "[0]atempo=1.04,afade=t=out:st=0.95:d=0.03[a];anullsrc=r=48000:cl=mono,atrim=0:0.3[s];[1]atrim=1.31,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.02,atempo=1.1[b];[a][s][b]concat=n=3:v=0:a=1" -ar 48000 -ac 1 assets/voice/r4.wav
+# (r1) r4 = "Te toca menos." de 15-h (articulada: se entiende sola y en la mezcla) + 0,3 s + "Pasá el jueves." de 08-f
+ffmpeg -loglevel error -y -i partes/rec/15-ruben-h.wav -i partes/rec/08-ruben-f.wav -filter_complex "[0]atempo=1.2,afade=t=out:st=1.2:d=0.03[a];anullsrc=r=48000:cl=mono,atrim=0:0.3[s];[1]atrim=1.31,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.02,atempo=1.1[b];[a][s][b]concat=n=3:v=0:a=1" -ar 48000 -ac 1 assets/voice/r4.wav
 ffmpeg -loglevel error -y -i ../ya-lo-cargo/assets/voice/narrador.wav -af atempo=1.08 -ar 48000 -ac 1 assets/voice/narrador.wav   # Rasalgethi "Un sistema más tarde."
 tal   ${R5:-10-ruben-b}   r5                                  # Rubén "Mirá el celular."
 hueco ${N3:-11-nico-b}    n3 1.35 1.65 0.2 "atempo=1.04"     # Nico "Cuarenta y dos mil. ¿Ya?"
 tal   ${J2:-12-javi-c}    j2                                  # Javi "¿Y Súper Héctor?"
 tal   ${N4:-13-nico-c}    n4                                  # Nico "…Es de Javi."
 hueco ${R6:-14-ruben-c}   r6 1.09 1.34 0.38 "atempo=1.03"     # Rubén "Felicitaciones. Ahora la cuenta da."
-tal   ${R7:-15-ruben-c}   r7 "atempo=1.04"                                 # Rubén "Te toca menos."
+tal   ${R7:-15-ruben-h}   r7 "atempo=1.2"                                 # Rubén "Te toca menos."
 hueco ${N5:-16-nico-a}    n5 0.69 0.80 0.2                    # Nico "Ya sé. Me llegó."
 hueco ${R8:-17-ruben-e}   r8 1.12 1.19 0.0 "atempo=1.23"                    # Rubén "Comentá COMISIONES y te mando cómo funciona para tu distribuidora."
 node ../../herramientas/tiempos.mjs assets/voice/r8.wav partes/17-ruben.txt assets/voice/palabras-r8.json 2>&1 | grep -i "oyó"

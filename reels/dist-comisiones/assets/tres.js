@@ -849,10 +849,10 @@ const haciaCam = (cp, x, z, giro, k = 0.8, lim = 0.9) => cl((Math.atan2(cp[0] - 
 // ================= GLOBOS Y RÓTULOS =================
 const [r1a, r1g] = globo2(["Fácil.", "Tres por ciento", "[de lo cobrado.]"], 70, [1, 2]);
 const [n2a, n2g] = globo2(["¿Cuarenta y dos?", "Súper Héctor [es mío.]"], 66, [1]);
-const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 62, [1, 2, 3]);
+const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 56, [1, 2, 3]);
 const [r4a, r4g] = globo2(["Te toca menos.", "{Pasá el jueves.}"], 76, [1]);
 const [n3a, n3g] = globo2(["Cuarenta y dos mil.", "[¿Ya?]"], 70, [1]);
-const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 62, [1, 2]);
+const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 56, [1, 2]);
 const [n5a, n5g] = globo2(["Ya sé.", "[Me llegó.]"], 76, [1]);
 const CAB_G = { cv: AVATAR.graciela, nombre: "Altavoz · Rotisería Graciela" };
 const GL = {
@@ -900,12 +900,12 @@ function camFrente(obj, centroLocal, normalLocal, alto, llena, fov, dx = 0, dy =
 }
 // el monitor llenando el ancho del cuadro (alto equivalente: ancho / (1080/1920))
 const camMon = (llenaAncho, fov, dx = 0, dy = 0) => camFrente(monitor, monitor.userData.centro, V3(0, 0, 1), MON.W / (1080 / 1920), llenaAncho, fov, dx, dy);
-const CAM_P1 = (k) => [lerp(0.4, 0.38, k), 1.2, lerp(1.95, 1.75, k), 0.36, 1.3, -2.4, 64];
+const CAM_P1 = (k) => [lerp(0.4, 0.38, k), 1.0, lerp(1.95, 1.75, k), 0.36, 1.38, -2.4, 64];
 const CAM_P2 = (k) => [lerp(0.55, 0.5, k), 1.4, lerp(1.0, 0.85, k), 0.0, 1.38, RUB.z, 44];
-const CAM_ESC = (k) => [1.2, lerp(0.22, 0.26, k), lerp(-6.7, -6.5, k), 1.2, -0.3, -3.7, 50];
+const CAM_ESC = (k) => [1.2, lerp(0.32, 0.36, k), lerp(-7.0, -6.85, k), 1.2, -0.25, -3.7, 54];
 const CAM_CAL = (k) => [CAL.x + 0.05, CAL.y - 0.05, lerp(-0.85, -0.95, k), CAL.x, CAL.y - 0.08, PARED, 44];
 const CAM_DESK = (k) => [lerp(1.0, 0.95, k), 0.95, lerp(1.25, 1.15, k), 0.25, 0.8, -0.95, 52];
-const CAM_P4 = (k) => [lerp(0.42, 0.4, k), 1.38, lerp(1.15, 1.05, k), -0.5, 1.22, RUB.z, 52];
+const CAM_P4 = (k) => [lerp(0.42, 0.4, k), 1.38, lerp(1.25, 1.15, k), -0.4, 1.22, RUB.z, 54];
 const CAM_P5 = (k) => [1.3, 1.45, lerp(-0.05, -0.2, k), 1.3, 1.38, -2.4, 46];
 const CAM_P5B = (k) => [1.02, 1.55, lerp(0.75, 0.6, k), 0.95, 1.45, -2.5, 46];
 const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
@@ -913,7 +913,7 @@ const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.
 const CAM_P6 = (k) => [lerp(-0.3, -0.32, k), 1.35, lerp(3.85, 3.7, k), -0.18, 1.2, -0.8, 62];   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
 const CAM_P7B = (k) => [lerp(0.3, 0.28, k), 1.45, lerp(2.4, 2.25, k), 0.0, 1.42, -1.6, 60];
-const CAM_C = (k) => [lerp(0.05, 0.03, k), 1.42, lerp(1.4, 1.3, k), -0.32, 1.14, RUB.z, 52];
+const CAM_C = (k) => [lerp(-0.02, -0.04, k), 1.42, lerp(1.5, 1.4, k), -0.36, 1.14, RUB.z, 56];
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
@@ -1233,7 +1233,7 @@ function renderAt(tIn) {
   }
   renderer.render(scene, camera);
 }
-const BUR6 = [780, 700], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
+const BUR6 = [790, 1540], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
 const CAM_PORTADA = [0.62, 1.05, 1.75, 0.42, 0.95, -1.7, 54];
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));

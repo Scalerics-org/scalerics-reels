@@ -61,9 +61,9 @@ T.p6 = r2(fin("j1") + 0.06); T.cajas = [0.05, 0.15, 0.25, 0.35, 0.45].map((d) =>
 // P7 · el remate del remate: el celular de Rubén vibra (altavoz): "Rubén, te devuelvo seis cajas." (la cola ya sobre
 // P7b) · pausa · Recalculando… · 42.000 → 41.802 · el calendario cae 2 → 3 · "Te toca menos. Pasá el jueves."
 T.p7 = r2(fin("r3") + 0.06); T.vibra = r2(T.p7 + 0.02); T.g1 = r2(T.p7 + 0.08);
-T.p7b = r2(fin("g1") - 0.35); T.recalc = r2(fin("g1") - 0.05); T.cae3 = r2(fin("g1") + 0.1); T.baja = r2(fin("g1") + 0.2); T.r4 = r2(fin("g1") + 0.26);
-const P1 = r2(fin("r4") + 0.14);                               // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.15, LEN.nar + 0.08));
+T.p7b = r2(fin("g1") - 0.35); T.recalc = r2(fin("g1") - 0.05); T.cae3 = r2(fin("g1") + 0.1); T.baja = r2(fin("g1") + 0.2); T.r4 = r2(fin("g1") + 0.22);
+const P1 = r2(fin("r4") + 0.1);                               // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.15, LEN.nar + 0.05));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0 (el panel en el monitor, el termo lleno): el mismo "Jefe, ¿cuánto me toca?"
 T.q1 = P2; T.n1b = r2(P2 + 0.15);
@@ -80,7 +80,7 @@ T.q3m = r2(fin("j2") + 0.04); T.toca = r2(T.q3m + 0.15); T.pedido = r2(T.q3m + 0
 T.q3b = r2(fin("n4") + 0.08); T.vuela = r2(T.q3b + 0.08); T.asienta = r2(T.q3b + 0.62); T.igual = r2(T.q3b + 0.74); T.r6 = r2(T.q3b + 1.45);
 // Q4 · la misma llamada de Graciela (= P7) · el panel descuenta solo · "Te toca menos." · Nico: "Ya sé. Me llegó."
 T.q4 = r2(fin("r6") + 0.1); T.vibra2 = r2(T.q4 + 0.02); T.g2 = r2(T.q4 + 0.08);
-T.q4b = r2(fin("g2") - 0.35); T.devol = r2(fin("g2") - 0.2); T.baja2 = r2(fin("g2")); T.r7 = r2(fin("g2") + 0.72);
+T.q4b = r2(fin("g2") - 0.35); T.devol = r2(fin("g2") - 0.2); T.baja2 = r2(fin("g2")); T.r7 = r2(fin("g2") + 0.64);
 T.q4n = r2(fin("r7") + 0.1); T.notiN = r2(T.q4n - 0.02); T.n5 = r2(fin("r7") + 0.55);
 // C · Rubén a cámara: "Comentá COMISIONES y te mando cómo funciona para tu distribuidora." (≤ 3 s, 0,25 s de aire)
 T.c = r2(fin("n5") + 0.25); T.r8 = r2(T.c);
@@ -353,12 +353,12 @@ s("sfx/k-cloth_2.wav", T.q3, 0, { techo: -40 });
 voz("j2", T.j2, -1);
 // Q3m · el toque en el pedido y el ding de "Cargó: Javi ✓"
 whoosh(T.q3m - 0.04, -44);
-toque(T.toca, -38); ding(T.pedido + 0.05, -40);
+toque(T.toca, -42); ding(T.pedido + 0.05, -43);
 voz("n4", T.n4, -1);
 // Q3b · la caja roja sale volando (whoosh), la pila asienta (golpe de caja), "= ✓"
-s("sfx/whoosh.mp3", T.vuela, 0, { techo: -43 });
-caja(T.asienta, -42);
-ding(T.igual, -39);
+s("sfx/whoosh.mp3", T.vuela, 0, { techo: -46 });
+caja(T.asienta, -45);
+ding(T.igual, -42);
 voz("r6", T.r6, -1);
 // Q4 · la misma llamada; el panel descuenta (tic), la notificación en el celular de Nico
 vibra(T.vibra2, -38);
