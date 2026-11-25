@@ -35,7 +35,7 @@ function cascoEnCabeza(c, per) { if (c.parent !== per.cabeza) { per.cabeza.add(c
 function cascoEnMano(c, per, lado = "I") { if (c.parent !== scene) scene.add(c); const m = manoMundo(per, lado, _a); c.position.copy(m).add(V3(0, -0.2, 0.02)); per.cuerpo.getWorldQuaternion(_q); c.quaternion.copy(_q); c.rotateX(0.4); c.scale.setScalar(0.92); }
 // los celulares: el del hombro de Tano (canto navy3), el del mostrador (funda verde apagado), el de Martín y el de Sabri
 const pantTano = lienzo(400, 820, () => {}), pantMart = lienzo(400, 820, () => {}), pantSab = lienzo(400, 820, () => {});
-const celHombro = crearCelular(lienzo(40, 80, (x, w, h) => { x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h); }), 0x8f969f, 0.078, 0.16); scene.add(celHombro);
+const celHombro = crearCelular(lienzo(80, 160, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(w / 2, 46, 20, 0, 7); x.fill(); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 128, 16, 0, 7); x.fill(); x.fillStyle = "#5ce611"; x.fillRect(14, 80, w - 28, 8); }), 0x8f969f, 0.078, 0.16); scene.add(celHombro);
 const celMostr = crearCelular(pantTano, 0x365f28, 0.08, 0.162); scene.add(celMostr);
 const celMart = crearCelular(pantMart, MARCA.navy, 0.08, 0.162); scene.add(celMart);
 const celSab = crearCelular(pantSab, MARCA.navy2, 0.08, 0.162); scene.add(celSab);

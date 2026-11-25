@@ -38,52 +38,52 @@ T.m1 = r2(T.t1 + LEN.t1 + 0.05);
 T.p1i = r2(T.m1 + LEN.m1 - 0.08); T.esc2 = [r2(T.p1i + 0.06), r2(T.p1i + 0.85)];
 T.t2 = r2(T.p1i + 0.4); T.p1b = r2(T.t2 + W2.t2 - 0.08); T.conV = r2(T.t2 + LEN.t2 - 0.1);
 // P2 · el celular del mostrador: el chat que se apila y el contador 9 → 17 → 26; sube a Tano: "¡Ya sale!" con la masa cruda
-T.p2 = r2(T.conV + 0.6); T.msgs = [0.08, 0.36, 0.6, 0.82, 1.0].map((d) => r2(T.p2 + d)); T.cont = [r2(T.p2 + 0.05), r2(T.p2 + 0.6), r2(T.p2 + 1.0)];
+T.p2 = r2(T.conV + 0.5); T.msgs = [0.08, 0.36, 0.6, 0.82, 1.0].map((d) => r2(T.p2 + d)); T.cont = [r2(T.p2 + 0.05), r2(T.p2 + 0.6), r2(T.p2 + 1.0)];
 T.rotP2 = [r2(T.p2 + 1.1), r2(T.p2 + 1.3)];
-T.p2b = r2(T.p2 + 1.8); T.mic = r2(T.p2b + 0.2); T.t3 = r2(T.p2b + 0.3);
+T.p2b = r2(T.p2 + 1.6); T.mic = r2(T.p2b + 0.2); T.t3 = r2(T.p2b + 0.3);
 // P3 · viernes 22:10: entra Facu con la caja (sobre el hombro de Tano) · "Tano. Dubimioso no existe." · contraplano · inserto
 // de la comanda con la B en el círculo · la pausa con los rótulos
-T.p3 = r2(T.t3 + LEN.t3 + 0.35); T.campana = r2(T.p3 + 0.08); T.entra = [r2(T.p3 + 0.05), r2(T.p3 + 0.95)]; T.f1 = r2(T.p3 + 0.75); T.apoyaCaja = r2(T.f1 + W2.f1 + 0.1);
+T.p3 = r2(T.t3 + LEN.t3 + 0.3); T.campana = r2(T.p3 - 0.3); T.entra = [r2(T.p3 - 0.35), r2(T.p3 + 0.6)]; T.f1 = r2(T.p3 + 0.45); T.apoyaCaja = r2(T.f1 + W2.f1 + 0.1);
 T.p3b = r2(T.f1 + LEN.f1 + 0.05);
 T.p3i = r2(T.p3b + 0.45); T.circ = [r2(T.p3i + 0.08), r2(T.p3i + 0.45)];
 T.p3c = r2(T.p3i + 0.7); T.rotP3 = [r2(T.p3c + 0.12), r2(T.p3c + 0.35)];
 // P4 · "Cenamos." (abre la caja) · Facu se saca el casco y agarra una porción · "Martín: ¿Y mi pizza?" · "¡Ya sale!" con la
 // porción en la boca · stinger
 T.p4 = r2(T.p3c + 1.05); T.abre = [r2(T.p4 - 0.05), r2(T.p4 + 0.45)]; T.t4 = r2(T.p4 + 0.45);
-T.p4b = r2(T.t4 + LEN.t4 + 0.2); T.levanta = [r2(T.p4b + 0.12), r2(T.p4b + 0.7)];
-T.p4i = r2(T.p4b + 0.85); T.mPizza = r2(T.p4i + 0.1);
-T.p4c = r2(T.p4i + 0.7); T.mic2 = r2(T.p4c + 0.08); T.t5 = r2(T.p4c + 0.15);
-const P1 = r2(T.t5 + LEN.t5 + 0.42);    // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.3));
+T.p4b = r2(T.t4 + LEN.t4 + 0.2); T.levanta = [r2(T.p4b + 0.1), r2(T.p4b + 0.65)];
+T.p4i = r2(T.p4b + 0.75); T.mPizza = r2(T.p4i + 0.1);
+T.p4c = r2(T.p4i + 0.62); T.mic2 = r2(T.p4c + 0.08); T.t5 = r2(T.p4c + 0.15);
+const P1 = r2(T.t5 + LEN.t5 + 0.38);    // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.2));
 // ---- parte 2: Lucía Pizzas, la de enfrente ----
 // Q1 · viernes 21:00: la grúa cruza la calle y entra por la vidriera de Lucía (el MISMO encuadre de P1, en espejo) · la
 // impresora saca dos tickets solos
-T.q1 = P2; T.q1m = r2(P2 + 0.95); T.q1in = r2(P2 + 1.55); T.tks = [r2(P2 + 1.6), r2(P2 + 2.05)]; T.rotQ1 = r2(P2 + 1.7);
+T.q1 = P2; T.q1m = r2(P2 + 0.95); T.q1in = r2(P2 + 1.5); T.tks = [r2(P2 + 1.55), r2(P2 + 1.95)]; T.rotQ1 = r2(P2 + 1.62);
 // Q2 · viernes 22:15: Martín en el sillón; llega el audio de Tano (el mismo "¡Ya sale!" con la boca llena) · el menú de
 // Lucía: + Muzza, + Fainá × 2 · la dirección "Duvi…" → Duvimioso Terra 1432 y el pin · Pagar → Pagado ✓ · "¿Ya está?"
-T.q2 = r2(P2 + 2.45); T.audio = r2(T.q2 + 0.15); T.ceja = r2(T.audio + LEN.t5 + 0.02);
-T.q2i = r2(T.q2 + 1.3); T.menu = r2(T.q2i + 0.3); T.mas = [r2(T.q2i + 0.6), r2(T.q2i + 0.85), r2(T.q2i + 1.05)];
+T.q2 = r2(P2 + 2.25); T.audio = r2(T.q2 + 0.12); T.ceja = r2(T.audio + LEN.t5 + 0.02);
+T.q2i = r2(T.q2 + 1.18); T.menu = r2(T.q2i + 0.3); T.mas = [r2(T.q2i + 0.6), r2(T.q2i + 0.85), r2(T.q2i + 1.05)];
 T.dir = r2(T.q2i + 1.4); T.tipea = [r2(T.dir + 0.12), r2(T.dir + 0.45)]; T.sug = r2(T.dir + 0.5); T.pin = r2(T.dir + 0.65);
 T.pago = r2(T.dir + 1.2); T.pagar = r2(T.pago + 0.25); T.pagado = r2(T.pago + 0.42);
-T.q2b = r2(T.pagado + 0.55); T.m2 = r2(T.q2b + 0.12);
+T.q2b = r2(T.pagado + 0.45); T.m2 = r2(T.q2b + 0.12);
 // Q3 · la cocina de Lucía: sale el ticket #47 (la impresora de cerca) · Lucía lo corta y lo cuelga en el riel · el tablero
 // #47: En horno → Listo → En camino · Sabri con el recorrido en el celular, sale
-T.q3 = r2(T.m2 + LEN.m2 + 0.25); T.imprime = [r2(T.q3 + 0.05), r2(T.q3 + 0.7)];
-T.q3b = r2(T.q3 + 0.9); T.corta = r2(T.q3b + 0.15); T.cuelga = [r2(T.q3b + 0.25), r2(T.q3b + 0.7)];
-T.q3t = r2(T.q3b + 0.85); T.cols = [r2(T.q3t + 0.12), r2(T.q3t + 0.38), r2(T.q3t + 0.64)];
-T.q3s = r2(T.q3t + 0.9);
+T.q3 = r2(T.m2 + LEN.m2 + 0.22); T.imprime = [r2(T.q3 + 0.05), r2(T.q3 + 0.62)];
+T.q3b = r2(T.q3 + 0.82); T.corta = r2(T.q3b + 0.12); T.cuelga = [r2(T.q3b + 0.2), r2(T.q3b + 0.62)];
+T.q3t = r2(T.q3b + 0.75); T.cols = [r2(T.q3t + 0.1), r2(T.q3t + 0.33), r2(T.q3t + 0.56)];
+T.q3s = r2(T.q3t + 0.8);
 // Q4 · viernes 22:54: la puerta de Martín · timbre · Sabri: "¿Martín? Una muzza y dos fainá." · abre la caja (el mismo
 // encuadre de P4) · "Pizzería Don Tano: Disculpá, ¿calle qué?" · mira el celular, mira la pizza… y muerde
-T.q4 = r2(T.q3s + 0.85); T.timbre = r2(T.q4 + 0.0); T.abreP = r2(T.q4 + 0.15); T.s1 = r2(T.q4 + 0.4);
+T.q4 = r2(T.q3s + 0.8); T.timbre = r2(T.q4 + 0.0); T.abreP = r2(T.q4 + 0.08); T.s1 = r2(T.q4 + 0.32);
 T.q4b = r2(T.s1 + LEN.s1 - 0.1); T.abre2 = [r2(T.q4b - 0.05), r2(T.q4b + 0.45)];
-T.q4i = r2(T.q4b + 0.85); T.noti = r2(T.q4i + 0.08);
-T.q4c = r2(T.q4i + 0.7); T.mira = [r2(T.q4c + 0.05), r2(T.q4c + 0.45)]; T.muerde = r2(T.q4c + 0.95);
+T.q4i = r2(T.q4b + 0.78); T.noti = r2(T.q4i + 0.08);
+T.q4c = r2(T.q4i + 0.65); T.mira = [r2(T.q4c + 0.05), r2(T.q4c + 0.45)]; T.muerde = r2(T.q4c + 0.95);
 // Q5 · el panel del viernes en la tablet (64 pedidos, 3 → 0, 26 → 0) · la vereda de enfrente: Tano en la puerta con la caja
 // vacía, la moto de Sabri que sale · "¿Y esa cómo hace?"
-T.q5 = r2(T.q4c + 1.45); T.filas = [0.15, 0.35, 0.55].map((d) => r2(T.q5 + d)); T.gira = r2(T.q5 + 0.8); T.fila47 = r2(T.q5 + 1.25);
-T.q5b = r2(T.q5 + 2.0); T.moto = r2(T.q5b - 0.1); T.t6 = r2(T.q5b + 0.45);
+T.q5 = r2(T.q4c + 1.35); T.filas = [0.12, 0.3, 0.48].map((d) => r2(T.q5 + d)); T.gira = r2(T.q5 + 0.7); T.fila47 = r2(T.q5 + 1.1);
+T.q5b = r2(T.q5 + 1.75); T.moto = r2(T.q5b - 0.1); T.t6 = r2(T.q5b + 0.45);
 // C · Lucía a cámara: "Comentá MENÚ…"
-T.c = r2(T.t6 + LEN.t6 + 0.25); T.l1 = r2(T.c + 0.1); T.palabraR = r2(T.l1 + 0.45);
+T.c = r2(T.t6 + LEN.t6 + 0.2); T.l1 = r2(T.c + 0.1); T.palabraR = r2(T.l1 + 0.45);
 const DUR = Math.ceil((Math.ceil((T.l1 + LEN.l1 + 0.2) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(DUR - 1.0);
 

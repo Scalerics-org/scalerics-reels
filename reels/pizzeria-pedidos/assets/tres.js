@@ -340,7 +340,7 @@ function ponerHilo(m, a, b, k) {
   const key = `${a.x.toFixed(3)}${a.y.toFixed(3)}${a.z.toFixed(3)}${b.x.toFixed(3)}${b.y.toFixed(3)}${b.z.toFixed(3)}${k.toFixed(2)}`; if (key === m.userData.k) return; m.userData.k = key;
   const mid = a.clone().lerp(b, 0.5); mid.y -= 0.03 + a.distanceTo(b) * 0.25;
   const curva = new THREE.QuadraticBezierCurve3(a, mid, b);
-  m.geometry.dispose(); m.geometry = new THREE.TubeGeometry(curva, 14, 0.004 * k + 0.0015, 6, false);
+  m.geometry.dispose(); m.geometry = new THREE.TubeGeometry(curva, 14, 0.007 * k + 0.003, 8, false);
 }
 // ---------- la caja de pizza kraft (la tapa con bisagra atrás) ----------
 const tapaTex = {};
@@ -725,7 +725,7 @@ function cascoEnCabeza(c, per) { if (c.parent !== per.cabeza) { per.cabeza.add(c
 function cascoEnMano(c, per, lado = "I") { if (c.parent !== scene) scene.add(c); const m = manoMundo(per, lado, _a); c.position.copy(m).add(V3(0, -0.2, 0.02)); per.cuerpo.getWorldQuaternion(_q); c.quaternion.copy(_q); c.rotateX(0.4); c.scale.setScalar(0.92); }
 // los celulares: el del hombro de Tano (canto navy3), el del mostrador (funda verde apagado), el de Martín y el de Sabri
 const pantTano = lienzo(400, 820, () => {}), pantMart = lienzo(400, 820, () => {}), pantSab = lienzo(400, 820, () => {});
-const celHombro = crearCelular(lienzo(40, 80, (x, w, h) => { x.fillStyle = "#0b1220"; x.fillRect(0, 0, w, h); }), 0x8f969f, 0.078, 0.16); scene.add(celHombro);
+const celHombro = crearCelular(lienzo(80, 160, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.beginPath(); x.arc(w / 2, 46, 20, 0, 7); x.fill(); x.fillStyle = "#c7655b"; x.beginPath(); x.arc(w / 2, 128, 16, 0, 7); x.fill(); x.fillStyle = "#5ce611"; x.fillRect(14, 80, w - 28, 8); }), 0x8f969f, 0.078, 0.16); scene.add(celHombro);
 const celMostr = crearCelular(pantTano, 0x365f28, 0.08, 0.162); scene.add(celMostr);
 const celMart = crearCelular(pantMart, MARCA.navy, 0.08, 0.162); scene.add(celMart);
 const celSab = crearCelular(pantSab, MARCA.navy2, 0.08, 0.162); scene.add(celSab);
@@ -1031,6 +1031,9 @@ const MESA_M = V3(PX2 - 0.95, 0.9, PZ2 + 0.75);         // la consola al lado de
 const LIV_M = { x: LX + 0.05, z: -0.7 };                // Martín en el sillón
 // la consola del hall de Martín (donde abre la caja: el mismo encuadre que el mostrador de P4)
 { const g = new THREE.Group(); g.position.set(MESA_M.x, 0, MESA_M.z); g.add(caja(0.9, 0.04, 0.45, M.cr, 0, 0.88, 0, 0.01)); g.add(caja(0.86, 0.8, 0.4, M.navy2, 0, 0.44, 0, 0.012)); scene.add(sombras(g)); }
+// el cliente que espera sentado en el local de Lucía (Q1, de fondo, sin voz)
+const SILLA = new THREE.Group(); { SILLA.add(caja(0.42, 0.05, 0.42, M.cr, 0, 0.46, 0, 0.01)); for (const [a, b] of [[-0.18, -0.18], [0.18, -0.18], [-0.18, 0.18], [0.18, 0.18]]) SILLA.add(caja(0.04, 0.45, 0.04, M.navy3, a, 0.225, b, 0.006)); SILLA.position.copy(enL(-1.85, 0, -1.0)); scene.add(sombras(SILLA)); }
+const CLIENTE = crearPersonaje({ ...DEFECTO, nombre: "Cliente", piel: PIEL.media, pelo: PELO.negro, peinado: "corto", camisa: MARCA.navy3, mangas: "largas", pantalon: 0x3a3f4a, parpadeoCada: 999 }); scene.add(CLIENTE.raiz);
 // ---- poner los objetos fijos de cada local ----
 const ponerL = (o, p, ry = 0, loc = "T") => { if (loc === "T") { o.position.copy(p); o.rotation.y = ry; } else { o.position.copy(enL(p.x, p.y, p.z)); o.rotation.y = ry + PI; } };
 ponerL(TALON, COMANDA, 0.12); ponerL(GANCHO, GANCHO_P, 0);
@@ -1054,7 +1057,7 @@ const K_P3 = [-1.4, 1.8, -3.0, 1.0, 1.25, -2.0, 56];                            
 const K_P3B = [-0.3, 1.45, -1.55, -0.08, 1.3, -3.4, 44];                               // contraplano: Tano de frente
 const K_P4 = [0.35, 1.95, -1.1, 0.1, 1.05, -3.1, 54];                                  // los dos sobre la caja
 const K_P4B = [0.4, 1.52, -2.2, 0.16, 0.9, -2.77, 46.0];                                 // la caja de cerca (desde arriba)
-const K_P4C = [0.1, 1.72, -0.8, 0.22, 1.25, -3.0, 62];
+const K_P4C = [0.45, 1.72, -0.45, 0.4, 1.18, -2.8, 64];
 const K_Q3 = [-0.48, 1.2, -2.27, -0.86, 1.0, -2.81, 40.0];                                // la impresora de cerca (local de Lucía)
 const K_Q3B = [0.45, 1.52, -1.3, 0.1, 1.25, -3.25, 50.0];
 const K_Q3T = [0.8, 1.38, -1.9, 0.78, 1.0, -2.73, 44];                               // la tablet (tablero)
@@ -1067,7 +1070,7 @@ const PLANOS = [
   ["P1b", T.p1b, [[T.p1b, ...wT(...off(K_P1, [-0.18, -0.04, -0.45]))], [T.p2, ...wT(...off(K_P1, [-0.24, -0.05, -0.58]))]]],
   ["P2", T.p2, null],
   ["P2b", T.p2b, [[T.p2b, ...wT(...off(K_P2B, [0.15, 0.08, 0.2]))], [T.p3, ...wT(...K_P2B)]]],
-  ["P3", T.p3, [[T.p3, ...wT(...K_P3)], [T.p3b, ...wT(...off(K_P3, [0.05, 0, 0.12, 0, 0, 0, -3]))]]],
+  ["P3", T.p3, [[T.p3, ...wT(...off(K_P3, [0, 0, 0, 0.4, -0.05, 1.2]))], [T.f1, ...wT(...K_P3)], [T.p3b, ...wT(...off(K_P3, [0.05, 0, 0.12, 0, 0, 0, -3]))]]],
   ["P3b", T.p3b, [[T.p3b, ...wT(...K_P3B)], [T.p3i, ...wT(...off(K_P3B, [0, 0, -0.1, 0, 0, 0, -2]))]]],
   ["P3i", T.p3i, null],
   ["P3c", T.p3c, [[T.p3c, ...wT(...off(K_P3B, [0.1, 0.1, -0.1, 0, -0.12, 0, 6]))], [T.p4, ...wT(...off(K_P3B, [0.1, 0.1, -0.25, 0, -0.12, 0, 4]))]]],
@@ -1101,10 +1104,10 @@ const Q1K = (() => {
   const fin = wL(...off(K_P1, [0.0, 0.05, 0.45])), fin2 = wL(...off(K_P1, [-0.1, -0.02, -0.1]));
   const k = (t, p, m, up, fov) => ({ t, p: V3(...p), q: oriQ(V3(...p), V3(...m), V3(...up)), fov });
   return [
-    k(P2, [1.6, 1.9, 6.9], [0.0, 2.0, 0.0], [0, 1, 0], 62),
-    k(r2(P2 + 0.55), [1.4, 4.6, 4.3], [1.4, 0, 4.42], [0, 0, -1], 76),
-    k(r2(P2 + 0.8), [1.4, 4.5, 4.5], [1.4, 0, 4.5], [1, 0, 0], 76),
-    k(r2(P2 + 1.05), [1.3, 4.3, 4.7], [1.3, 0, 4.82], [0, 0, 1], 74),
+    k(P2, [0.2, 1.95, 8.2], [0.0, 2.0, 0.0], [0, 1, 0], 62),
+    k(r2(P2 + 0.55), [1.0, 3.6, 4.4], [1.0, 0, 4.5], [0, 0, -1], 72),
+    k(r2(P2 + 0.8), [1.1, 3.5, 4.5], [1.1, 0, 4.5], [1, 0, 0], 72),
+    k(r2(P2 + 1.05), [1.2, 3.4, 4.6], [1.2, 0, 4.72], [0, 0, 1], 70),
     k(T.q1m, [0.9, 2.1, 6.9], [0.7, 1.5, 9.8], [0, 1, 0], 54),
     k(T.q1in, fin.slice(0, 3), fin.slice(3, 6), [0, 1, 0], fin[6]),
     k(T.q2, fin2.slice(0, 3), fin2.slice(3, 6), [0, 1, 0], fin2[6]),
@@ -1242,7 +1245,7 @@ function poseFacu(t, pa) {
     p.t = t; bocaVoz(p, t, T.f1, ENV.f1, 0.6); return p;
   }
   // P4b/P4c: sin el casco (en la izquierda), la porción en la derecha a mitad de camino; mira a Tano
-  const p = poseEn(t, [[0, { x: FACU_M.x, z: FACU_M.z, giro: gT - 0.2, ...aC(-0.35, 0.1), ...CARA.sonrisa, ...BRAZOS.costado, manoI: [0.3, 0.1, 0.18] }], [T.t5, { ...aC(-0.45, 0.0), ...CARA.incredula, ojos: { abiertos: 0.9 }, cejas: { alto: 0.5, ang: 0.2, asim: 0.8 } }, 0.25]]);
+  const p = poseEn(t, [[0, { x: 0.88, z: MZ + 0.58, giro: -1.15, ...aC(-0.55, 0.1), ...CARA.sonrisa, ...BRAZOS.costado, manoI: [0.3, 0.1, 0.18] }], [T.t5, { ...aC(-0.65, 0.0), ...CARA.incredula, ojos: { abiertos: 0.9, x: -0.5 }, cejas: { alto: 0.5, ang: 0.2, asim: 0.8 } }, 0.25]]);
   const kl = eio(sg(t, T.levanta[0], T.levanta[1]));
   CAJA_T.updateMatrixWorld(true);
   const desde = CAJA_T.localToWorld(V3(0.04, 0.03, 0.12)), hasta = toW(facu, [-0.08, 0.5, 0.38]);
@@ -1289,7 +1292,7 @@ function ticketManoEn(t) {
 function poseSabri(t, pa) {
   if (pa === "Q3s") {
     const L = enL(SABRI_L.x, 0, SABRI_L.z);
-    const p = poseEn(t, [[0, { x: L.x, z: L.z, giro: PI - 0.9, ...aC(-0.3, 0.42), ...CARA.sonrisa, ojos: { abiertos: 0.9, y: -0.9, feliz: 0.2 }, ...BRAZOS.celular }], [T.q4 - 0.25, { giro: PI - 1.6, ...aC(0.2, 0.1) }, 0.35]]);
+    const p = poseEn(t, [[0, { x: L.x, z: L.z, giro: PI - 0.9, ...aC(-0.2, 0.12), ...CARA.sonrisa, ojos: { abiertos: 0.95, y: -1, feliz: 0.2 }, ...BRAZOS.celular, manoI: [0.075, 0.5, 0.34], manoD: [-0.075, 0.5, 0.34] }], [T.q4 - 0.25, { giro: PI - 1.6, ...aC(0.2, 0.1) }, 0.35]]);
     p.t = t; return p;
   }
   if (pa === "Q5" || pa === "Q5b") {
@@ -1351,7 +1354,7 @@ function ponerObjetos(t, pa) {
   const p1 = !(t >= P2);
   // el celular en el hombro de Tano (P1 y P1i), pegado a la cabeza: toca oreja y hombro
   celHombro.visible = pa === "P1" || pa === "P1b";
-  if (celHombro.visible) { if (celHombro.parent !== tano.cabeza) tano.cabeza.add(celHombro); celHombro.position.set(0.355, 0.12, 0.03); celHombro.scale.setScalar(1.25); celHombro.rotation.set(0, -PI / 2, 0); celHombro.rotateX(0.12); }
+  if (celHombro.visible) { if (celHombro.parent !== tano.cabeza) tano.cabeza.add(celHombro); celHombro.position.set(0.38, 0.19, 0.06); celHombro.scale.setScalar(1.6); celHombro.rotation.set(0, PI / 2 - 0.35, 0); celHombro.rotateX(0.12); }
   // el celular del mostrador (vibra), el talonario, la birome (en la derecha de Tano en P1)
   celMostr.visible = enTano(pa) || pa === "Q5b";
   if (celMostr.visible) {
@@ -1387,8 +1390,8 @@ function ponerObjetos(t, pa) {
   POR_T.visible = pa === "P4c";
   if (POR_T.visible) { const m = manoMundo(tano, "I", _a); POR_T.position.copy(m).add(V3(0.0, 0.02, 0.03)); tano.cuerpo.getWorldQuaternion(_q); POR_T.quaternion.copy(_q); POR_T.rotateY(-PI / 2); POR_T.rotateZ(0.5); POR_T.userData.bis.rotation.z = -0.5; }
   // el casco de Facu: en la cabeza (P3, P4) o en la mano (P4c)
-  CASCO_F.visible = (pa.startsWith("P3") && pa !== "P3i") || pa === "P4" || pa === "P4c";
-  if (CASCO_F.visible) { if (pa === "P4c") cascoEnMano(CASCO_F, facu, "I"); else cascoEnCabeza(CASCO_F, facu); }
+  CASCO_F.visible = (pa.startsWith("P3") && pa !== "P3i") || pa === "P4" || pa === "P4c" || (pa === "Q1" && t < T.q1m);
+  if (CASCO_F.visible) { if (pa === "Q1") cascoEnCabeza(CASCO_F, facu); else if (pa === "P4c") cascoEnMano(CASCO_F, facu, "I"); else cascoEnCabeza(CASCO_F, facu); }
   // la puerta de Don Tano (entra Facu)
   const uP = sg(t, T.entra[0] - 0.1, T.entra[0] + 0.25) * (1 - sg(t, T.entra[0] + 0.8, T.entra[0] + 1.2));
   TANO.hoja.rotation.y = -1.3 * eio(uP) * (p1 ? 1 : 0);
@@ -1423,6 +1426,8 @@ function ponerObjetos(t, pa) {
   // la puerta de Martín
   PHOJA.rotation.y = PUERTA_ANG(t);
   // la moto de Sabri (Q5b sale; antes, estacionada en su vereda)
+  if (pa === "Q1") { const u = sg(t, P2 + 0.2, P2 + 1.35); MOTO_F.position.set(lerp(-2.6, 4.4, u), 0, 4.2); MOTO_F.rotation.y = PI / 2; }
+  else { MOTO_F.position.set(1.0, 0.14, 1.55); MOTO_F.rotation.y = PI / 2 + 0.15; }
   const ms = motoSabriEn(t); MOTO_S.position.set(ms.x, 0.0, ms.z); MOTO_S.rotation.y = ms.giro; MOTO_S.userData.luzT.material.color.set(t >= T.moto ? 0xc7655b : 0x7a3a34);
   MOTO_F.visible = true;
 }
@@ -1450,14 +1455,16 @@ function renderAt(tIn) {
   // ---- quién está en cuadro ----
   const vis = {
     tano: (enTano(pa) && !pa.endsWith("i")) || pa === "Q1" && t < T.q1m || pa === "Q5b",
-    facu: ["P3", "P3b", "P3c", "P4", "P4b", "P4c"].includes(pa),
+    facu: ["P3", "P3b", "P3c", "P4", "P4b", "P4c"].includes(pa) || (pa === "Q1" && t < T.q1m),
     lucia: ["Q1", "Q3", "Q3b", "Q3t", "Q3s", "Q5", "C"].includes(pa),
     sabri: ["Q3s", "Q4", "Q5b"].includes(pa),
     martin: ["Q2", "Q2b", "Q4", "Q4b", "Q4c"].includes(pa),
   };
+  CLIENTE.raiz.visible = SILLA.visible = pa === "Q1" && t >= T.q1m;
+  if (CLIENTE.raiz.visible) CLIENTE.poner({ x: SILLA.position.x, y: -0.02, z: SILLA.position.z, giro: PI + 0.9, sentado: 1, ...aC(0.3, 0.3), ...CARA.neutra, ojos: { abiertos: 0.9, y: -0.8 }, ...BRAZOS.celular, t });
   tano.raiz.visible = vis.tano; facu.raiz.visible = vis.facu; lucia.raiz.visible = vis.lucia; sabri.raiz.visible = vis.sabri; martin.raiz.visible = vis.martin;
   if (vis.tano) tano.poner(pa === "Q1" ? poseTano(T.p1i - 0.2, "P1") : poseTano(t, pa));
-  if (vis.facu) facu.poner(poseFacu(t, pa));
+  if (vis.facu) facu.poner(pa === "Q1" ? { x: lerp(-2.6, 4.4, sg(t, P2 + 0.2, P2 + 1.35)) - 0.15, y: 0.18, z: 4.2, giro: PI / 2, sentado: 1, ...aC(0, 0.05), ...CARA.neutra, ...BRAZOS.costado, manoI: [0.28, 0.42, 0.42], manoD: [-0.28, 0.42, 0.42], codoI: [0.8, -0.5, -0.2], codoD: [-0.8, -0.5, -0.2], t } : poseFacu(t, pa));
   if (vis.lucia) lucia.poner(poseLucia(t, pa));
   if (vis.sabri) sabri.poner(poseSabri(t, pa));
   if (vis.martin) martin.poner(poseMartin(t, pa));
@@ -1515,7 +1522,7 @@ function tarjetas(t, pa) {
   if (pa === "Q2i" && t >= T.sug) ponerGlobo(GL.rQ2, 540, 230, ent(t, T.sug), null, 1);
   if (pa === "Q2b" && t >= T.m2) hablar(GL.m2, martin, ent(t, T.m2), 1, 0);
   if (pa === "Q3" && t >= T.imprime[0] + 0.35) { IMP.updateMatrixWorld(true); const [ix, iy] = enPantalla(IMP.userData.tk.localToWorld(V3(0, 0.1, 0))); ponerGlobo(GL.rQ3, 330, 1560, ent(t, T.imprime[0] + 0.35), null, 1); ponerGuia(GUIAS[0], 330 + GL.rQ3.userData.W / 2 - 20, 1560 - 40, ix - 40, iy, eo(sg(t, T.imprime[0] + 0.35, T.imprime[0] + 0.6))); }
-  if (pa === "Q3s") { celSab.updateMatrixWorld(true); const [sx, sy] = enPantalla(celSab.localToWorld(V3(0, 0, 0))); ponerGlobo(MAPA_S, 300, 700, ent(t, T.q3s + 0.1), null, 1); ponerGuia(GUIAS[0], 300 + 260, 900, sx, sy, eo(sg(t, T.q3s + 0.1, T.q3s + 0.35))); }
+  if (pa === "Q3s") { celSab.updateMatrixWorld(true); const [sx, sy] = enPantalla(celSab.localToWorld(V3(0, 0, 0))); ponerGlobo(MAPA_S, 250, 640, 0.85 * ent(t, T.q3s + 0.1), null, 1); ponerGuia(GUIAS[0], 250 + 200, 840, sx, sy, eo(sg(t, T.q3s + 0.1, T.q3s + 0.35))); }
   if (pa === "Q4") { chips(t, GL.vieQ4, GL.luc); if (t >= T.s1) { verLineas(GL.s1, t >= T.s1 + W2_.s1 ? 2 : 1); hablar(GL.s1, sabri, ent(t, T.s1), 1, 0); } }
   if (pa === "Q5") ponerGlobo(GL.rQ5, 540, 200, ent(t, T.q5 + 0.05), null, 1);
   if (pa === "Q5b" && t >= T.t6) hablar(GL.t6, tano, ent(t, T.t6), 1, 0);

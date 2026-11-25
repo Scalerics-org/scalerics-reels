@@ -72,3 +72,22 @@ muerde 36,05 (mordida 37,0) · Q5 panel 37,5 · Q5b "¿Y esa cómo hace?" 39,5 �
 - Hilo de queso de la porción de Facu: armado pero casi no se ve en P4b.
 - Sin extra en la vidriera de Lucía (el cliente esperando del plan) y sin portada (falta el fondo limpio con LIMPIO=1).
 - No hay render mp4 (lo hace el coordinador).
+
+## Ronda previa a la revisión (pedido del coordinador, 25-11)
+- **Duración 42,4 s** (P1 17,22 · cartel 17,22-19,72 · parte 2 + cierre 19,72-42,4 = 22,7 s, 53 %): beats más
+  apretados (insertos, Q1, Q3, Q4c, Q5) y s1/l1 con atempo 1,2/1,17; los remates (pausa antes de "Cenamos.", "mira el
+  celular, mira la pizza, muerde") no se tocaron.
+- Celular del hombro: 1,6×, gris claro, con la pantalla de llamada (verde/rojo) girada hacia afuera, pegado a la oreja.
+- P3: Facu ya entra por la puerta en el primer cuadro (T.entra arranca 0,35 s antes del corte; la cámara arranca mirando
+  la puerta y paneando al mostrador).
+- P4c: Facu más cerca, girado de 3/4 a cámara mirando a Tano (cara y porción a la vista; queda cortado a la derecha).
+- Q1: arranca con "DON TANO · PIZZAS" entero; en la vista cenital Facu cruza la senda en su moto (protagonista).
+- Q3s: Sabri con la cabeza más alta y el celular a la altura del pecho; el mapa más chico a la izquierda.
+- Hilo de queso más grueso. Cliente esperando sentado en el local de Lucía (Q1, al fondo).
+- Portada: fondo limpio LIMPIO=1 a 1,6 s (`portada-src/fondo-limpio-portada.png`) + `herramientas/portada.mjs`.
+- **Render de revisión: 1477 s (24,6 min)** → `renders/pizzeria-pedidos.mp4`; `bash paso10.sh` →
+  `renders/pizzeria-pedidos-final.mp4` (42,4 s, -14,15 LUFS, pico -6,4 dBFS, lineal). Hoja: `renders/hoja.png`.
+- Después del render: la cámara de P4c del render mostraba la nuca de Facu en primer plano; volví a la de la prueba
+  (0.45, 1.72, -0.45 → 0.4, 1.18, -2.8, fov 64), que muestra a Tano y a Facu de 3/4. **El mp4 no tiene este cambio.**
+- medir.py: mínimo +6,5 LU salvo un tramo de borde en 14,5 s (cola de "Cenamos." a -38,5 contra -39,3 del resto: es la
+  ventana de 400 ms que termina después de la voz, no se oye encimado).

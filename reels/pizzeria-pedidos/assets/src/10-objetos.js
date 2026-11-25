@@ -73,7 +73,7 @@ function ponerHilo(m, a, b, k) {
   const key = `${a.x.toFixed(3)}${a.y.toFixed(3)}${a.z.toFixed(3)}${b.x.toFixed(3)}${b.y.toFixed(3)}${b.z.toFixed(3)}${k.toFixed(2)}`; if (key === m.userData.k) return; m.userData.k = key;
   const mid = a.clone().lerp(b, 0.5); mid.y -= 0.03 + a.distanceTo(b) * 0.25;
   const curva = new THREE.QuadraticBezierCurve3(a, mid, b);
-  m.geometry.dispose(); m.geometry = new THREE.TubeGeometry(curva, 14, 0.004 * k + 0.0015, 6, false);
+  m.geometry.dispose(); m.geometry = new THREE.TubeGeometry(curva, 14, 0.007 * k + 0.003, 8, false);
 }
 // ---------- la caja de pizza kraft (la tapa con bisagra atrás) ----------
 const tapaTex = {};
