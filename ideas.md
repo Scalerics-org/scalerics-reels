@@ -276,6 +276,7 @@
 - 24-11 · `vete-racion` · Veterinarias · Tienda online + aviso de recompra por WhatsApp ("A Toto le quedan unos 4 días de ración. ¿Te la mandamos?", Repetir pedido y pago, ficha de recompra, panel 11 → 2) · completo con Inés, Vero, Bruno y Toto: domingo 21:40 se termina la ración, la compra en el súper; febrero: "La que me recomendaste. La compro en el súper." con la torre de bolsas sin vender · cartel "Una tienda online más tarde…" · "Me llega sola." · Comentá RACIÓN · 42,5 s · 4 rondas de revisión + revisión final sin altas [formato completo 8d · estilo 3D, cocina navy claro y recepción de veterinaria crema] · rama reel/vete-racion
 
 ## En curso
+<!-- corrida-activa: 2026-11-25T03:11 -->
 
 
 
