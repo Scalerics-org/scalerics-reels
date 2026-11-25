@@ -1,0 +1,142 @@
+function avatar(x, cv, cx, cy, r) {
+  x.save(); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.closePath(); x.clip(); x.drawImage(cv, cx - r, cy - r, 2 * r, 2 * r); x.restore();
+  x.strokeStyle = "#0b1220"; x.lineWidth = Math.max(4, r * 0.1); x.beginPath(); x.arc(cx, cy, r, 0, 7); x.stroke();
+}
+const tilde = (x, cx, cy, s, color = "#0b1220", lw = null) => { x.strokeStyle = color; x.lineWidth = lw ?? s * 0.28; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(cx - s * 0.5, cy); x.lineTo(cx - s * 0.12, cy + s * 0.38); x.lineTo(cx + s * 0.55, cy - s * 0.42); x.stroke(); };
+// texto partido en renglones que entran en `ancho`
+function renglones(x, txt, ancho) { const ws = txt.split(" "), out = []; let l = ""; for (const w of ws) { const p = l ? l + " " + w : w; if (x.measureText(p).width > ancho && l) { out.push(l); l = w; } else l = p; } if (l) out.push(l); return out; }
+// =====================================================================================================
+// TARJETAS PEGADAS A LA CÁMARA (en píxeles de pantalla): globos de diálogo, audios, chats, rótulos
+// =====================================================================================================
+const PXK = 1000;
+// una tarjeta: cuerpo con borde navy de 8 px y sombra dura; contenido en canvas (W x H px); cola opcional
+function crearTarjeta(Wg, H, dibujo, { fondo = "#efeee5", borde = C.navy, sombraC = 0x050a14 } = {}) {
+  const tex = lienzo(Wg * 2, H * 2, (x, w, h) => { x.fillStyle = fondo; x.fillRect(0, 0, w, h); x.save(); x.scale(2, 2); dibujo(x, Wg, H); x.restore(); });
+  const g = new THREE.Group();
+  const bordeM = new THREE.MeshBasicMaterial({ color: borde });
+  const cuerpoM = new THREE.MeshBasicMaterial({ color: new THREE.Color(fondo) });
+  const sombraM = new THREE.MeshBasicMaterial({ color: sombraC });
+  const w = Wg / PXK, h = H / PXK, R = Math.min(h / 2, 40 / PXK), B = 8 / PXK;
+  const sombra = new THREE.Mesh(rbox(w + 2 * B, h + 2 * B, 0.02, R + B, 4), sombraM); sombra.position.set(12 / PXK, -14 / PXK, -0.016); g.add(sombra);
+  const bord = new THREE.Mesh(rbox(w + 2 * B, h + 2 * B, 0.02, R + B, 4), bordeM); bord.position.z = -0.012; g.add(bord);
+  const caja2 = new THREE.Mesh(rbox(w, h, 0.03, R, 4), [cuerpoM, cuerpoM, cuerpoM, cuerpoM, new THREE.MeshBasicMaterial({ map: tex }), cuerpoM]); g.add(caja2);
+  const colaG = new THREE.Group(); g.add(colaG);
+  const tri = (ancho, largo) => { const s = new THREE.Shape(); s.moveTo(-ancho / 2, 0); s.lineTo(ancho / 2, 0); s.lineTo(0, -largo); s.closePath(); return new THREE.ShapeGeometry(s); };
+  const cs = new THREE.Mesh(tri(80 / PXK, 104 / PXK), sombraM); cs.position.set(12 / PXK, -8 / PXK, -0.017); colaG.add(cs);
+  const cb = new THREE.Mesh(tri(80 / PXK, 104 / PXK), bordeM); cb.position.z = -0.013; cb.position.y = 6 / PXK; colaG.add(cb);
+  const cc = new THREE.Mesh(tri(54 / PXK, 78 / PXK), cuerpoM); cc.position.z = 0.016; cc.position.y = 4 / PXK; colaG.add(cc);
+  sombra.userData.orden = 0; cs.userData.orden = 0; bord.userData.orden = 1; cb.userData.orden = 2; cc.userData.orden = 3; caja2.userData.orden = 4;
+  g.userData = { W: Wg, H, cola: colaG, tex, dibujo, fondo };
+  return pegarACamara(g, camera, 40);
+}
+function redibujar(g, dibujo) { const { tex, W, H, fondo } = g.userData; const x = tex.userData.x; x.setTransform(1, 0, 0, 1, 0, 0); x.fillStyle = fondo; x.fillRect(0, 0, W * 2, H * 2); x.save(); x.scale(2, 2); dibujo(x, W, H); x.restore(); tex.needsUpdate = true; }
+// texto con la palabra [clave] en el recuadro verde de selección
+function textoSel(x, l, cx, y, px, tinta = "#0b1220", ver = Infinity) {
+  const limpio = (s) => s.replace(/[[\]]/g, "");
+  x.font = F(800, px); x.textBaseline = "middle"; x.textAlign = "left";
+  // (r1 11:11) cada palabra es una parte, así se puede revelar el remate palabra por palabra sin mover nada
+  const partes = l.split(/(\[[^\]]+\])/).filter(Boolean).flatMap((p) => (p.startsWith("[") ? [p] : p.split(/(?<= )/)));
+  const anchos = partes.map((p) => x.measureText(limpio(p)).width + (p.startsWith("[") ? px * 0.5 : 0));
+  let xx = cx - anchos.reduce((a, b) => a + b, 0) / 2;
+  partes.forEach((p, k) => {
+    if (k >= ver) return;
+    if (p.startsWith("[")) { x.fillStyle = "#5ce611"; x.strokeStyle = "#0b1220"; x.lineWidth = px * 0.1; x.beginPath(); x.roundRect(xx + px * 0.05, y - px * 0.62, anchos[k] - px * 0.1, px * 1.24, px * 0.12); x.fill(); x.stroke(); x.fillStyle = tinta; x.fillText(limpio(p), xx + px * 0.25, y + px * 0.04); }
+    else { x.fillStyle = tinta; x.fillText(p, xx, y + px * 0.04); }
+    xx += anchos[k];
+  });
+}
+// globo de diálogo (texto grande), con cabecera opcional (avatar + nombre)
+function crearGlobo(lineas, px = 80, { cab = null } = {}) {
+  const g = crearGloboV(lineas, px, { cab });
+  g.userData.lineas = lineas; g.userData.px = px; g.userData.cab = cab; g.userData.ver = -1;
+  return g;
+}
+// cuántas palabras se ven en total (las de las líneas de arriba primero); redibuja solo si cambia
+function verGlobo(g, n) {
+  if (g.userData.ver === n) return; g.userData.ver = n;
+  const { lineas, px } = g.userData;
+  redibujar(g, (x, w, h) => { let resto = n; lineas.forEach((l, i) => { const c = l.split(/(\[[^\]]+\])/).filter(Boolean).flatMap((p) => (p.startsWith("[") ? [p] : p.split(/(?<= )/))).length; textoSel(x, l, w / 2, (h - 0) / 2 + (i - (lineas.length - 1) / 2) * px * 1.22, px, "#0b1220", resto); resto -= c; }); });
+}
+function crearGloboV(lineas, px = 80, { cab = null } = {}) {
+  const med = document.createElement("canvas").getContext("2d"); med.font = F(800, px);
+  const limpio = (l) => l.replace(/[[\]]/g, "");
+  const cabH = cab ? Math.round(px * 1.25) : 0, cabF = Math.max(Math.round(px * 0.62), 42);
+  med.font = F(700, cabF); const anchoCab = cab ? med.measureText(cab.nombre).width + px * 1.3 : 0; med.font = F(800, px);
+  const anchoT = Math.max(anchoCab, ...lineas.map((l) => med.measureText(limpio(l)).width + (l.includes("[") ? px * 0.5 : 0)));
+  const Wg = Math.round(anchoT + px * 1.2), H = Math.round(lineas.length * px * 1.22 + px * 0.75 + cabH);
+  return crearTarjeta(Wg, H, (x, w, h) => {
+    if (cab) { const r = px * 0.48, cy = px * 0.2 + r, cx = px * 0.25 + r; avatar(x, cab.cv, cx, cy, r); x.fillStyle = "#1f3254"; x.font = F(700, cabF); x.textAlign = "left"; x.textBaseline = "middle"; x.fillText(cab.nombre, cx + r + px * 0.25, cy + 2); }
+    lineas.forEach((l, i) => textoSel(x, l, w / 2, cabH + (h - cabH) / 2 + (i - (lineas.length - 1) / 2) * px * 1.22, px));
+  });
+}
+// el rótulo con línea guía: caja navy, texto crema (o rojo apagado)
+function crearRotulo(lineas, px = 50) {
+  const med = document.createElement("canvas").getContext("2d");
+  const ancho = Math.max(...lineas.map(([l, , p]) => { med.font = F(800, p ?? px); return med.measureText(l).width; }));
+  const H = Math.round(lineas.reduce((a, [, , p]) => a + (p ?? px) * 1.25, 0) + px * 0.6), Wg = Math.round(ancho + px * 1.0);
+  return crearTarjeta(Wg, H, (x, w, h) => {
+    let y = px * 0.3; x.textAlign = "center"; x.textBaseline = "middle";
+    for (const [l, color, p] of lineas) { const q = p ?? px; x.font = F(800, q); x.fillStyle = color ?? "#efeee5"; x.fillText(l, w / 2, y + q * 0.62); y += q * 1.25; }
+  }, { fondo: "#16243d", borde: C.cr });
+}
+// la línea guía (un plano fino crema con borde navy) y el punto en el objetivo
+function crearGuia() {
+  const g = new THREE.Group();
+  const b = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: C.navy })); b.userData.orden = 0; g.add(b);
+  const l = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: C.cr })); l.userData.orden = 1; l.position.z = 0.001; g.add(l);
+  const p = new THREE.Mesh(new THREE.CircleGeometry(1, 24), new THREE.MeshBasicMaterial({ color: C.cr })); p.userData.orden = 2; p.position.z = 0.002; g.add(p);
+  const pb = new THREE.Mesh(new THREE.CircleGeometry(1, 24), new THREE.MeshBasicMaterial({ color: C.navy })); pb.userData.orden = 1; pb.position.z = 0.0015; g.add(pb);
+  g.userData = { b, l, p, pb };
+  return pegarACamara(g, camera, 38);
+}
+const halfK = () => (2 * Math.tan((camera.fov * D2R) / 2)) / 1920;
+function ponerGuia(g, x0, y0, x1, y1, u = 1) {
+  g.visible = u > 0.02; if (!g.visible) return;
+  const k = halfK(), { b, l, p, pb } = g.userData;
+  const xe = lerp(x0, x1, u), ye = lerp(y0, y1, u), L = Math.hypot(xe - x0, ye - y0), a = Math.atan2(-(ye - y0), xe - x0);
+  g.position.set(0, 0, -1); g.scale.setScalar(k);
+  for (const [m, grosor] of [[b, 16], [l, 8]]) { m.position.set((x0 + xe) / 2 - 540, 960 - (y0 + ye) / 2, m.position.z); m.scale.set(L, grosor, 1); m.rotation.z = a; }
+  p.position.set(xe - 540, 960 - ye, 0.002); p.scale.setScalar(u > 0.95 ? 12 : 0.001); pb.position.set(xe - 540, 960 - ye, 0.0015); pb.scale.setScalar(u > 0.95 ? 19 : 0.001);
+  g.traverse((o) => { if (o.isMesh) o.renderOrder = 38 + (o.userData.orden || 0); });
+}
+function ponerGlobo(g, cx, cy, s, objetivo, orden = 0) {
+  g.visible = s > 0.03;
+  const op = cl(s / 0.85); s = Math.max(s, 0.85);
+  g.traverse((o) => { if (o.isMesh) [].concat(o.material).forEach((m) => (m.opacity = op)); });
+  if (!g.visible) return;
+  const k = halfK();
+  const { W: Wg, H, cola } = g.userData;
+  cx = Wg + 120 > 1080 ? 540 : cl(cx, Wg / 2 + 50, 1030 - Wg / 2);
+  cy = cl(cy, H / 2 + 60, 1860 - H / 2);
+  g.position.set((cx - 540) * k, (960 - cy) * k, -1);
+  g.scale.set(k * PXK * s, k * PXK * s, k * PXK * s);
+  g.traverse((o) => { if (o.isMesh) o.renderOrder = 40 + orden * 6 + (o.userData.orden || 0); });
+  cola.visible = !!objetivo;
+  if (!objetivo) return;
+  const [ox, oy] = objetivo;
+  const lado = cl((ox - cx) / (Wg / 2), -0.8, 0.8);
+  if (oy >= cy) {
+    cola.position.set((lado * Wg) / 2 / PXK, -H / 2 / PXK + 4 / PXK, 0);
+    cola.rotation.z = cl(Math.atan2(ox - (cx + (lado * Wg) / 2), oy - (cy + H / 2)), -1.15, 1.15);
+  } else {
+    cola.position.set((lado * Wg) / 2 / PXK, H / 2 / PXK - 4 / PXK, 0);
+    cola.rotation.z = Math.PI - cl(Math.atan2(ox - (cx + (lado * Wg) / 2), (cy - H / 2) - oy), -1.15, 1.15);
+  }
+}
+const _v = new THREE.Vector3();
+function enPantalla(v) { _v.copy(v).project(camera); return [(_v.x + 1) * 540, (1 - _v.y) * 960]; }
+const bocaPx = (per) => { per.raiz.updateMatrixWorld(true); return enPantalla(per.cabeza.localToWorld(V3(0, 0.181, 0.3))); };
+const objPx = (o, local = V3(0, 0, 0)) => { o.updateMatrixWorld(true); return enPantalla(o.localToWorld(local.clone())); };
+// (r4) REGLA DE BURBUJAS (todas): la burbuja va arriba del que habla, con su borde de abajo ~100 px sobre la coronilla
+// (≥ 40 px de aire) y la cola termina en el pelo, nunca en la cara. Si no entra (o el que habla queda cortado por el
+// borde), se anota en AVISOS (prev.mjs lo imprime): ahí hay que abrir la cámara de ese plano.
+const AVISOS = [];
+const coronillaPx = (per) => { per.raiz.updateMatrixWorld(true); return enPantalla(per.cabeza.localToWorld(V3(0, 0.6, 0))); };
+function hablar(g, per, s, orden = 1, dx = 0, minArriba = 260) {
+  const [hx, hy] = coronillaPx(per), [mx, my] = bocaPx(per);
+  const { W: Wg, H } = g.userData;
+  const cy = hy - 100 - H / 2;
+  if (cy - H / 2 < minArriba - 10) AVISOS.push(`burbuja de ${per.cfg.nombre} no entra: arriba en ${Math.round(cy - H / 2)} px`);
+  if (mx < 70 || mx > 1010 || hy < 0 || my > 1850) AVISOS.push(`${per.cfg.nombre} cortado/afuera mientras habla: boca ${Math.round(mx)},${Math.round(my)}`);
+  ponerGlobo(g, hx + dx, Math.max(cy, H / 2 + minArriba), s, [hx, hy + 6], orden);
+}

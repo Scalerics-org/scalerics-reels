@@ -44,5 +44,19 @@ al construir): `notification`, `vibra`, `pop`, `whoosh`, `whoosh-short`, `click-
 `tipeo`, `k-tick-1/2/4`, `k-cloth_1/2`, `k-plastico`, `k-metal-click`, `paso-0..4`, `puerta-abre`, `zumbido-largo`,
 `stinger` (ver `reels/vete-racion/fuentes.md`, `reels/pilates-cuota/fuentes.md`, `reels/dice-cuarenta/fuentes.md`,
 `reels/anotamelo/fuentes.md`, `reels/abren-hoy/fuentes.md`).
-Pendiente del constructor (si hace falta): **música de spinning con beat** y **pedaleo/volante de bici fija**, reales con
-licencia CC0: anotar acá autor, sitio y licencia de cada uno.
+Usados en la mezcla (gen.mjs), con su crédito:
+- **Música de spinning** `assets/bgm/spinning.mp3`: "The Room - 1 Min. EDM Loop.mp3", Cloud-10, Freesound
+  (https://freesound.org/people/Cloud-10/sounds/634684/), CC0 1.0 ("A 128-bpm EDM mini-song", tema original del autor,
+  sin referencia a ningún tema conocido). Preview HQ de Freesound. En la parte 1 suena bajita y con pasabajos (el parlante
+  de espera); arranca entera en P5b y vuelve en la parte 2.
+- **Pedaleo / volante de bici fija** `assets/sfx/fs-bici-fija.mp3`: "Stationary Bike", Eakoontz, Freesound
+  (https://freesound.org/people/Eakoontz/sounds/151732/), CC0 1.0 (tramo estable desde 12-18 s).
+- **Ventilador de pie** `assets/sfx/ventilador.wav`: "Electric fan 2" (#0079), BigSoundBank
+  (https://bigsoundbank.com/electric-fan-2-s0079.html), CC0 (de `reels/parrilla-no-vuelve`).
+- `puerta-abre.wav`: "door_open_1", Kenney, "RPG Audio", CC0 1.0 (de `reels/anotamelo`).
+- `k-plastico.wav`: "impact_generic_light_002", Kenney, "Impact Sounds", CC0 1.0 (de `reels/como-viene-el-mes`).
+- `vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound
+  (https://freesound.org/people/SpliceSound/sounds/369839/), CC0 1.0.
+- `paso-0..4.wav`, `k-tick-1/2/4.wav`, `k-cloth_1/2.wav`, `k-metal-click.wav`: Kenney (Impact Sounds / RPG Audio), CC0 1.0.
+- De la biblioteca de HyperFrames del repo: pop, whoosh, whoosh-short, notification, cero, click-soft, key-press,
+  stinger, zumbido-largo (ver `reels/veterinaria-vacunas/fuentes.md`).
