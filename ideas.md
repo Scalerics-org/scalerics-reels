@@ -279,7 +279,7 @@
 
 - 25-11 · `inmobiliaria-disponible` · Inmobiliarias · Agente de IA (contesta al instante por WhatsApp e Instagram con los datos reales de la propiedad, pregunta garantía y fecha, agenda la visita en la agenda del corredor y le pasa a la dueña los listos para firmar) · Línea "ANTES QUE TODO", completo con Silvana (Erinome), Diego (Achird), Agustina (Laomedeia) y don Alberto, el propietario (Charon): martes 15:00 mostrando un apartamento, "Van doce." / "Contestá vos." / "Estoy mostrando." / "Yo también."; 38 sin contestar a las 23:10; miércoles 9:10 Silvana le contesta a la inquilina ideal: "¡Qué bueno! Yo ya no."; el propietario: "¿Nadie preguntó?" / "Preguntar, preguntaron."; cartel "Un agente de IA más tarde…"; la misma visita, el agente ya contestó y agendó, panel 38/38, "Yo también.", "Treinta y ocho. Y el viernes firman.", RESERVADO ✓ · cierre "Comentá DISPONIBLE" [formato completo · 3D real, living vacío en Parque Batlle y oficina navy, panel vertical] (corrida 25-11 15:12; 3 rondas de revisión + revisión final; 44,8 s; render SwiftShader 11-13 min)
 ## En curso
-<!-- corrida-activa: 2026-11-25T17:39 -->
+<!-- corrida-activa: 2026-11-25T18:49 -->
 - 25-11 · `dist-comisiones` · Distribuidoras · Sistema a medida (comisiones de cada vendedor calculadas solas con cada venta cobrada, panel por vendedor, el vendedor ve lo suyo en el celular) · completo con Rubén y Nico: "¿Cuánto me toca?" · en construcción (corrida 25-11 15:12)
 
 
