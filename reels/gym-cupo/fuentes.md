@@ -1,7 +1,7 @@
 # gym-cupo · fuentes
 
 Reel de la línea "ANTES QUE TODO" (rubro + dolor + solución), comedia de situación con personajes inventados (Mauro,
-Majo, Sole, Lucía, Rodri y los alumnos; Graciela del elenco). **No afirma datos externos, estadísticas, años ni empresas
+Majo, Sole, Lucía, Nico y los alumnos; Graciela del elenco). **No afirma datos externos, estadísticas, años ni empresas
 reales: no hay nada que verificar con WebSearch.** Que los "yo voy" de un grupo no sean reservas no se presenta como
 dato ni porcentaje: es lo que le pasa a Mauro un martes.
 
@@ -41,7 +41,7 @@ Rasalgethi (frase nueva). Detalle en `partes/voces.md`.
 ## Efectos y música
 Nada sintetizado con ffmpeg. Los de siempre del repo, con el crédito en el `fuentes.md` del reel de donde vienen (anotar
 al construir): `notification`, `vibra`, `pop`, `whoosh`, `whoosh-short`, `click-soft`, `cero`, `ding`, `key-press`,
-`tipeo`, `k-tick-1/2/4`, `k-cloth_1/2`, `k-plastico`, `k-metal-click`, `paso-0..4`, `puerta-abre`, `zumbido-largo`,
+`tipeo`, `k-tick-1/2/4`, `k-cloth_1/2`, `k-plastico`, `k-metal-click`, `paso-0..4`, `puerta-abre`, `zumbido` (ver abajo),
 `stinger` (ver `reels/vete-racion/fuentes.md`, `reels/pilates-cuota/fuentes.md`, `reels/dice-cuarenta/fuentes.md`,
 `reels/anotamelo/fuentes.md`, `reels/abren-hoy/fuentes.md`).
 Usados en la mezcla (gen.mjs), con su crédito:

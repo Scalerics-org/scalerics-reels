@@ -11,7 +11,7 @@ MAURO: Llena, Majo. Perdoná.
 [10,40-12,20 · P3 · pausa · YO VOY 22 · BICIS 14 · VINIERON 9 · rótulo "5 bicis vacías" · en el celular, Majo: "Tranqui, Mauro. Me anoté en otro lado: ahí reservás la bici." · rótulo "Majo y Sole: se anotaron en otro lado · $ 3.800 por mes"]
 [12,20-14,20 · P4 · primer plano de Mauro en la tarima, se acerca el micrófono]
 MAURO (por el micrófono, a la sala): Los "yo voy" no pedalean.
-[14,20-17,00 · P5 · remate del remate · chip "19:04." · vibra el celular en el manubrio: "Rodri: ¿Ya empezó? Yo voy." · el contador YO VOY 22 → 23 · Mauro da vuelta el celular boca abajo, le sube a la música y arrancan a pedalear los nueve · stinger]
+[14,20-17,00 · P5 · remate del remate · chip "19:04." · vibra el celular en el manubrio: "Nico: ¿Ya empezó? Yo voy." · el contador YO VOY 22 → 23 · Mauro da vuelta el celular boca abajo, le sube a la música y arrancan a pedalear los nueve · stinger]
 [cartel · 17,00-19,60 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema de reservas" / "más tarde…" (nunca "Scalerics")]
 NARRADOR: Un sistema de reservas más tarde.
 [parte 2 · la solución · 19,60-37,40 s]

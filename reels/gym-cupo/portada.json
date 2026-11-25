@@ -1,5 +1,5 @@
 {
- "t": 10.0,
+ "t": 11.0,
  "chica": "Martes, 19:00.",
  "grande": "¿Hay lugar?",
  "sello": "GIMNASIOS",
@@ -9,6 +9,6 @@
  "foco": "20%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-10.0.png",
- "nota": "Fondo limpio: 10,0 s (fin del gag) con VER=portada LIMPIO=1 (la sala desde la tarima, más arriba y abierta): Graciela, las bicis 1, 2 (toalla), 6, 7 (celular), 12, el reloj 19:00. Después de generarlo, volver a correr SINAUDIO=1 node gen.mjs."
+ "fondo_limpio": "portada-src/fondo-limpio-11.0.png",
+ "nota": "Fondo limpio: 11,0 s (P3, el gag armado) con VER=portada LIMPIO=1 (r3: cámara más atrás y a la izquierda: Graciela entera, la gente debajo del sello): Graciela, la toalla en la 2, la botella en la 4, el celular en la 7, la campera en la 9, la mochila en la 13, el reloj 19:00. Después de generarlo, volver a correr SINAUDIO=1 node gen.mjs."
 }

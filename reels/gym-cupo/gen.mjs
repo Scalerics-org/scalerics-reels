@@ -33,7 +33,7 @@ T.sticker = 1.6; T.audio47 = 2.1;
 T.p1b = r2(T.m1 + LEN.m1 + 0.15);
 // P1b · inserto del celular (el mismo chat): el audio de Majo, "Llena, Majo. Perdoná.", Sole "¿Me guardás una?", "Llena, Sole."
 T.j1 = r2(T.p1b + 0.05);
-T.m2 = r2(T.j1 + LEN.j1 + 0.05); T.llenaM = r2(T.m2 + 0.05);
+T.m2 = r2(T.j1 + LEN.j1 + 0.3); T.llenaM = r2(T.m2 + 0.05);   // (r3 B1) aire antes de "Llena, Majo."
 T.sole = r2(T.m2 + 0.6); T.llenaS = r2(T.m2 + LEN.m2 + 0.02); T.rotLlena = r2(T.llenaS + 0.05);
 T.p2 = r2(T.rotLlena + 0.45);
 // P2 · 19:00: la sala desde la tarima; el reloj corre hasta 19:00 mientras entran los nueve (cámara rápida) y se sientan
@@ -45,9 +45,9 @@ T.cierra = r2(T.sienta[8] + 0.05);
 // campera a la 11 y la mochila a la 13; "Bici 2: perchero" y "5 bicis vacías"
 T.p3 = r2(T.cierra + 0.1);
 T.perchero = [0.05, 0.3, 0.45, 0.6, 0.72].map((d) => r2(T.p3 + d));   // toalla · botella · celular · campera · mochila
-T.rotPerch = r2(T.p3 + 0.38); T.rot5 = r2(T.p3 + 0.7);
+T.rotPerch = r2(T.p3 + 0.38); T.rot5 = r2(T.p3 + 0.6);
 // P3i · el mensaje de Majo (19:01) y el costo, 1,5 s en pantalla
-T.p3i = r2(T.p3 + 1.55); T.rotCosto = r2(T.p3i + 0.08);
+T.p3i = r2(T.p3 + 2.45); T.rotCosto = r2(T.p3i + 0.08);   // (r3 M3) el gag legible ~2 s
 T.p4 = r2(T.p3i + 1.6);
 // P4 · el remate: pausa, "Los «yo voy» no pedalean."
 T.m3 = r2(T.p4 + 0.4);
@@ -79,10 +79,10 @@ T.q3 = r2(T.q2s + 1.85);
 T.m4 = r2(T.q3 + 0.25);
 T.q3b = r2(T.m4 + LEN.m4 + 0.05); T.g1 = r2(T.q3b + 0.12);
 T.q3c = r2(T.g1 + LEN.g1 + 0.06); T.m5 = r2(T.q3c + 0.06);
-T.q3d = r2(T.m5 + LEN.m5 + 0.05); T.cuello = r2(T.q3d + 0.05);
-T.q4 = r2(T.q3d + 0.9);
+T.q3d = r2(T.m5 + LEN.m5 + 0.05); T.cuello = r2(T.q3d + 0.25);   // (r3 M2) las manos la suben (0,25 s) y la bajan al cuello (0,3 s)
+T.q4 = r2(T.q3d + 1.1);
 // Q4 · el panel de noviembre: filas con tilde; "Bicis vacías en el mes 20 → 1"
-T.filas = [0.12, 0.45, 0.95, 1.3].map((d) => r2(T.q4 + d)); T.gira = [r2(T.q4 + 0.5), r2(T.q4 + 0.9)];
+T.filas = [0.02, 0.17, 0.32, 0.47].map((d) => r2(T.q4 + d)); T.gira = [r2(T.q4 + 0.65), r2(T.q4 + 0.85)];   // (r3 M6/B2) las filas enseguida; el giro más corto
 T.c = r2(T.q4 + 1.75);
 // C · Mauro a cámara: "Comentá CUPO y te mando cómo funciona para tu gimnasio."
 T.m6 = r2(T.c + 0.05); T.palabra = r2(T.m6 + 0.02);
@@ -205,7 +205,8 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
       const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
         const t0 = i < nAB ? i * 0.025 : 1.25 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
-        tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.35, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none", immediateRender: true }, t0);   // (r3 B4) sin glifo suelto: aparece con opacidad, no desde un punto
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
@@ -245,7 +246,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .a { font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; letter-spacing: -0.015em; }
     P .b { margin-top: 6px; display: inline-block; padding: 2px 18px 6px; border-radius: 14px; background: ${NAVY}; font: 800 60px/1.1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Reservas con cupo real y lista de espera</div><div class="b">scalerics.com</div></div>`,
-    js: `      tl.fromTo(q(".caja"), { y: 420 }, { y: 0, duration: 0.28, ease: "back.out(1.4)", immediateRender: true }, 0.0);
+    js: `      tl.fromTo(q(".caja"), { autoAlpha: 0, scale: 0.82 }, { autoAlpha: 1, scale: 1, duration: 0.24, ease: "back.out(1.6)", immediateRender: true }, 0.0);   // (r3 M4) entra en su lugar: no asoma cortada por el borde
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: true }, 0.25);`,
   });
 }
@@ -276,7 +277,7 @@ const sala = (a, b, techo = -44) => s("sfx/ventilador.wav", a, 0, { loop: true, 
 sala(0, T.p1b + 0.05); sala(T.p2 - 0.05, T.p3i + 0.05); sala(T.p4 - 0.05, P1 + 0.02, -42);
 s("sfx/ventilador.wav", T.p1b, 0, { loop: true, desde: 3, dur: r2(T.p2 - T.p1b), fi: 0.1, fin: 0.1, techo: -50, lp: 900, sinDuck: true });
 s("sfx/ventilador.wav", T.p3i, 0, { loop: true, desde: 5, dur: r2(T.p4 - T.p3i), fi: 0.1, fin: 0.1, techo: -50, lp: 900, sinDuck: true });
-s("bgm/spinning.mp3", 0, 0, { desde: 2, dur: r2(T.p5b + 0.02), fi: 0.05, fin: 0.05, techo: -36, lp: 1100, duck: [[T.p4 - 0.25, T.p5b, 0.7]] });   // la música de espera (bajita, del parlante)
+s("bgm/spinning.mp3", 0, 0, { desde: 2, dur: r2(T.p5b + 0.02), fi: 0.05, fin: 0.05, techo: -34, lp: 1100, duck: [[T.p4 - 0.25, T.p5b, 0.7]] });   // la música de espera (bajita, del parlante)
 // P1 · los "yo voy" que entran (una notificación chica por burbuja, con altura que varía) y el tic del contador
 T.yv.forEach((m, i) => { s("sfx/notification.mp3", m, 0, { techo: -45 - (i % 3), dur: 0.22, fin: 0.08, vel: 1 + (i % 3) * 0.06 }); tic(m + 0.03, -46, i); });
 s("sfx/notification.mp3", T.sticker, 0, { techo: -45, dur: 0.22, fin: 0.08 }); s("sfx/notification.mp3", T.audio47, 0, { techo: -45, dur: 0.22, fin: 0.08, vel: 1.06 });
@@ -302,7 +303,7 @@ pop(T.rot5 + 0.02, -41); pop(T.rotPerch + 0.02, -41);
 whoosh(T.p3i, -44); noti(T.p3i + 0.08, -40); pop(T.rotCosto + 0.02, -38);
 voz("m3", T.m3, -1);   // (r1) faltaba: el remate no sonaba
 // P4 · el remate (nada encima) · P5 · vibra en el soporte, la notificación, el 23 · lo da vuelta · arranca la música
-vibra(T.vibra, -37); noti(T.rodri, -40);
+vibra(T.vibra, -39); noti(T.rodri, -40);
 s("sfx/k-tick-4.wav", T.v23, 0, { techo: -37 }); pop(T.v23 + 0.02, -39);
 s("sfx/k-metal-click.wav", T.vuelta + 0.2, 0, { techo: -36 });
 s("sfx/click-soft.mp3", T.musica - 0.12, 0, { techo: -38 });
@@ -317,7 +318,7 @@ s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
 // Q1 · el living de noche (zumbido muy bajo) · toques en el mapa · reservada · se ocupan 4 y 13 · Sole
 s("sfx/zumbido.wav", P2, 0, { loop: true, dur: r2(T.q2 - P2), fi: 0.3, fin: 0.2, techo: -50, lp: 700, sinDuck: true });
-s("bgm/spinning.mp3", P2, 0, { desde: 20, dur: r2(T.q3 - P2), fi: 0.5, fin: 0.3, techo: -35, lp: 2500 });
+s("bgm/spinning.mp3", P2, 0, { desde: 20, dur: r2(T.q3 - P2), fi: 0.5, fin: 0.3, techo: -33, lp: 2500 });   // (r3 M7) más arriba en los huecos (el duck la baja debajo de la voz)
 pop(T.q1 + 0.1, -40);
 voz("j2", T.j2, -1);
 whoosh(T.q1c, -44); toque(T.toca7, -36); toque(T.reserva7 - 0.08, -38); ding(T.reserva7, -36);
@@ -326,10 +327,10 @@ whoosh(T.q1s, -42); toque(T.tocaEspera, -36); ding(T.espera, -36);
 // Q2 · el recordatorio, "Liberar mi bici", la tablet, el aviso a Sole, "La quiero"
 whoosh(T.q2, -42); noti(T.recuerda, -36); toque(T.libera, -36);
 s("sfx/whoosh.mp3", T.q2t - 0.15, 0, { techo: -40 }); tic(T.libre4, -36, 2); pop(T.libre4 + 0.05, -40);
-s("sfx/whoosh.mp3", T.q2s - 0.15, 0, { techo: -40 }); vibra(T.aviso, -38); noti(T.aviso + 0.08, -38);
-toque(T.quiero, -36); ding(T.reserva4, -36); pop(T.otraVez + 0.02, -40);
+s("sfx/whoosh.mp3", T.q2s - 0.15, 0, { techo: -40 }); vibra(T.aviso, -40); noti(T.aviso + 0.08, -40);
+toque(T.quiero, -38); ding(T.reserva4, -38); pop(T.otraVez + 0.02, -40);
 // Q3 · la sala llena: la música de spinning (más baja debajo de las voces) y el zumbido de las bicis; la toalla al cuello
-s("bgm/spinning.mp3", T.q3, 0, { desde: 40, dur: r2(DUR - T.q3), fi: 0.05, fin: 0.6, techo: -35, duck: [[T.q4 - 0.1, T.c, 0.12]] });
+s("bgm/spinning.mp3", T.q3, 0, { desde: 40, dur: r2(DUR - T.q3), fi: 0.05, fin: 0.6, techo: -33, duck: [[T.q4 - 0.1, T.c, 0.25]] });
 s("sfx/fs-bici-fija.mp3", T.q3, 0, { desde: 14, dur: r2(T.q4 - T.q3 + 0.05), fi: 0.05, fin: 0.1, techo: -42, sinDuck: true });
 s("sfx/fs-bici-fija.mp3", T.c, 0, { desde: 18, dur: r2(DUR - T.c), fi: 0.1, fin: 0.4, techo: -48, sinDuck: true });
 voz("m4", T.m4, -1);
@@ -338,7 +339,7 @@ voz("m5", T.m5, -1);
 tela(T.cuello + 0.25, -38, 1);
 // Q4 · el panel: un tic por fila, el giro del 20 al 1, el ding de la última
 whoosh(T.q4, -46);
-T.filas.forEach((t, i) => tic(t, -38, i)); s("sfx/k-tick-4.wav", T.gira[1], 0, { techo: -38 }); ding(T.gira[1] + 0.05, -37); ding(T.filas[3] + 0.05, -38);
+T.filas.forEach((t, i) => tic(t, -38, i)); s("sfx/k-tick-4.wav", r2((T.gira[0] + T.gira[1]) / 2), 0, { techo: -38 }); ding(T.gira[1], -37);   // (r3 B2) el tic cuando cambia el número ding(T.filas[3] + 0.05, -38);
 // C · "Comentá CUPO…": el pop de la tarjeta y de la línea chica
 whoosh(T.c, -44);
 voz("m6", T.m6, -1);
@@ -347,6 +348,7 @@ pop(T.cierre + 0.05, -44);
 // la música: duck debajo de cada voz para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => b >= x[1] && a <= x[1] + (x[3].dur ?? 99)).map(([a, b]) => [a, b, 0.72])]; }
 
+for (const x of S) if (!(x[1] >= 0)) console.error("inicio negativo", x);
 // SFX: el archivo que no existe en assets falla acá, no en el render
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);
 
