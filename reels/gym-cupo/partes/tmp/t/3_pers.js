@@ -5,7 +5,7 @@
 const mauro = crearPersonaje({ ...ELENCO.mauro, franja: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
 // Graciela, versión gimnasio: la misma cara, rulos lila y lentes; remera crema de manga larga, calza navy, zapatillas crema
 const graciela = crearPersonaje({ ...ELENCO.clienta, camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
-const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q1b + 0.05)] });
+const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const sole = crearPersonaje({ ...ELENCO.sole, parpadeoCada: 999 });
 // la franja verde de marca en el pecho de Mauro: una banda chata solo adelante (no el aro de personajes.js)
 { const f = mesh(new THREE.TorusGeometry(0.222, 0.011, 6, 40, Math.PI * 0.9), mat(MARCA.g, 0.5), 0, 0.33, 0); f.rotation.set(Math.PI / 2, 0, Math.PI * 0.05); f.scale.set(1, 0.875, 2.6); f.castShadow = false; mauro.cuerpo.add(f); }
@@ -22,7 +22,7 @@ const RELLENO = [
   { nombre: "F", piel: PIEL.morena, pelo: PELO.negro, peinado: "coletaAlta", sinFlequillo: true, cejasColor: 0x1e1a18, cejaFina: true, pestanas: 0x1a1414, labiosPegados: true, labios: 0x8e3f3c, camisa: ROPA.cr, mangas: "cortas", pantalon: MARCA.navy, alto: 0.95 },
   { nombre: "G", piel: PIEL.media, pelo: PELO.castaño, peinado: "texturado", texturaAlto: 0.8, cejasColor: 0x4a3222, camisa: ROPA.verdeA, mangas: "cortas", pantalon: MARCA.navy, alto: 1.0 },
   { nombre: "H", piel: PIEL.trigueña, pelo: 0x6b4429, peinado: "melena", cejasColor: 0x4a3222, cejaFina: true, pestanas: 0x1a1414, labiosPegados: true, labios: 0xa8484f, camisa: ROPA.navyC, mangas: "cortas", pantalon: MARCA.navy2, alto: 0.95 },
-  { nombre: "I", piel: PIEL.clara, pelo: PELO.negro, peinado: "rodete", cejasColor: 0x2a2220, cejaFina: true, pestanas: 0x1a1414, labiosPegados: true, labios: 0xc25a62, camisa: ROPA.navy3, mangas: "cortas", pantalon: MARCA.navy, alto: 0.96 },
+  { nombre: "I", piel: PIEL.clara, pelo: PELO.negro, peinado: "texturado", texturaAlto: 0.4, cejasColor: 0x2a2220, camisa: ROPA.navy3, mangas: "cortas", pantalon: MARCA.navy, alto: 1.0 },   // (r1) varón: con rodete se confundía con Sole
   { nombre: "J", piel: PIEL.media, pelo: PELO.gris, peinado: "pelado", cejasColor: 0x5a5550, camisa: ROPA.cr2, mangas: "cortas", pantalon: MARCA.navy2, alto: 1.02 },
   { nombre: "K", piel: PIEL.morena, pelo: PELO.negro, peinado: "rulos", cejasColor: 0x1e1a18, cejaFina: true, pestanas: 0x1a1414, labiosPegados: true, labios: 0x8e3f3c, camisa: ROPA.verdeA, mangas: "cortas", pantalon: MARCA.navy, alto: 0.96 },
 ].map((c) => crearPersonaje({ ...DEFECTO, cuelloFino: true, cuelloBotones: false, cuelloAlto: 0.05, zapatos: MARCA.cr, nariz: 0.05, ...c, parpadeoCada: 999 }));
@@ -38,11 +38,14 @@ const VACIAS_1 = [2, 4, 7, 11, 13];
 // =====================================================================================================
 // la toalla crema con una franja verde fina: colgada del manubrio (sobre la barra transversal, en el espacio de la bici)
 function crearToallaColgada() {
-  const g = new THREE.Group(), m = mat(0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  g.add(mesh(new THREE.CylinderGeometry(0.026, 0.026, 0.3, 14, 1, false, 0, Math.PI).rotateZ(Math.PI / 2), m, 0, 0.0, 0));
-  const fr = caja(0.3, 0.26, 0.014, m, 0, -0.13, 0.027, 0.006); g.add(fr);
-  const at = caja(0.3, 0.2, 0.014, m, 0, -0.1, -0.027, 0.006); at.rotation.x = 0.06; g.add(at);
-  g.add(caja(0.305, 0.022, 0.016, mg, 0, -0.22, 0.027, 0.004));
+  // una toalla de tela grande doblada sobre la barra: el lomo redondo arriba y dos paños con pliegues que caen
+  const g = new THREE.Group(), m = mat(0xffffff, 0.95), mg = mat(MARCA.g, 0.8);
+  g.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.46, 18).rotateZ(Math.PI / 2), m, 0, 0.012, 0));
+  for (const [z, L, rx] of [[0.04, 0.42, -0.1], [-0.04, 0.34, 0.12]]) {
+    const pa = new THREE.Group(); pa.position.set(0, 0.01, z); pa.rotation.x = rx; g.add(pa);
+    pa.add(caja(0.44, L, 0.03, m, 0, -L / 2, 0, 0.012)); for (let i = 0; i < 4; i++) { const p = mesh(new THREE.CylinderGeometry(0.022, 0.03, L * 0.92, 10), m, -0.15 + i * 0.1, -L * 0.48, 0.012); p.scale.z = 0.6; pa.add(p); }
+    for (const y of [-L + 0.05, -L + 0.1]) pa.add(caja(0.46, 0.022, 0.035, mg, 0, y, 0, 0.005));
+  }
   return sombras(g);
 }
 // la toalla al cuello (en el espacio del cuerpo): media vuelta por atrás y las dos puntas que caen sobre el pecho

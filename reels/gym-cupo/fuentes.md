@@ -31,7 +31,7 @@ aprobadas; el reel no hace ninguna afirmación sobre la plataforma.
 ## Sin marcas
 "Estudio Mauro" es inventado. Bicis de spinning genéricas (sin logo ni nombre de fábrica), botellas sin etiqueta,
 parlante y celulares sin logo. Chat genérico (burbujas crema y navy, sin el verde ni el logo de WhatsApp; el sticker de
-pulgar dibujado plano, no de ninguna app); "WhatsApp" se nombra solo como canal en `descripcion.txt`. Música de
+pulgar dibujado plano, no de ninguna app); "WhatsApp" no se nombra en ningún lado (ni en el video ni en `descripcion.txt`). Música de
 spinning sin referencia a ningún tema conocido.
 
 ## Voces

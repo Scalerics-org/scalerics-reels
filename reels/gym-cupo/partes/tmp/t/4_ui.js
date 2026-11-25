@@ -7,7 +7,7 @@ const NV = "#0b1220", NV2 = "#16243d", NV3 = "#1f3254", CRm = "#efeee5", VD = "#
 const tilde = (x, cx, cy, s, color = NV, lw = null) => { x.strokeStyle = color; x.lineWidth = lw ?? s * 0.28; x.lineCap = "round"; x.lineJoin = "round"; x.beginPath(); x.moveTo(cx - s * 0.5, cy); x.lineTo(cx - s * 0.12, cy + s * 0.38); x.lineTo(cx + s * 0.55, cy - s * 0.42); x.stroke(); };
 const bola = (x, cx, cy, r, fondo, letra, tinta = CRm) => { x.fillStyle = fondo; x.beginPath(); x.arc(cx, cy, r, 0, 7); x.fill(); x.strokeStyle = NV; x.lineWidth = Math.max(3, r * 0.1); x.stroke(); x.fillStyle = tinta; x.font = F(900, r * 1.05); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(letra, cx, cy + r * 0.06); };
 function renglones(x, txt, ancho) { const ws = txt.split(" "), out = []; let l = ""; for (const w of ws) { const p = l ? l + " " + w : w; if (x.measureText(p).width > ancho && l) { out.push(l); l = w; } else l = p; } if (l) out.push(l); return out; }
-const COLOR_DE = { Caro: "#c7655b", Seba: "#1f3254", Lu: "#3fa60a", Mabel: "#8a4a8a", Nati: "#2c6a8a", Rodri: "#a0642a", Pato: "#1f3254", Vicky: "#3fa60a", Ana: "#8a4a8a", Fede: "#2c6a8a", Majo: "#8a4a2a", Sole: "#3b2a22", Mauro: "#1f3254" };
+const COLOR_DE = { Caro: "#c7655b", Seba: "#1f3254", Lu: "#3fa60a", Mabel: "#8a4a8a", Nati: "#2c6a8a", Gabi: "#a0642a", Nico: "#a0642a", Pato: "#1f3254", Vicky: "#3fa60a", Ana: "#8a4a8a", Fede: "#2c6a8a", Majo: "#8a4a2a", Sole: "#3b2a22", Mauro: "#1f3254" };
 // el pulgar plano (sticker genérico, navy sobre crema)
 function pulgar(x, cx, cy, s) {
   x.save(); x.translate(cx, cy); x.scale(s, s); x.fillStyle = NV3; x.strokeStyle = NV; x.lineWidth = 6;
@@ -21,38 +21,37 @@ function burbujaChat(x, W, y, m, k, dibujar = true) {
   x.font = F(800, px);
   const txt = m.txt ?? "";
   const ls = m.txt ? renglones(x, txt, ancho - 2 * pad) : [];
-  const cab = m.mio ? 0 : 44 * k;
+  const cab = m.mio ? 0 : 52 * k;
   let h = cab + (m.pulgar ? 170 * k : m.audio ? 120 * k : ls.length * px * 1.2) + pad * 1.5;
   let w = m.pulgar ? 230 * k : m.audio ? ancho : Math.max(...ls.map((l) => x.measureText(l).width), m.mio ? 0 : 180 * k) + 2 * pad;
   if (!dibujar) return h;
   const bx = m.mio ? W - 24 * k - w : 24 * k;
-  x.fillStyle = m.mio ? "#cfeebc" : "#ffffff"; x.strokeStyle = NV2; x.lineWidth = 5 * k; x.beginPath(); x.roundRect(bx, y, w, h, m.mio ? [30 * k, 8 * k, 30 * k, 30 * k] : [8 * k, 30 * k, 30 * k, 30 * k]); x.fill(); x.stroke();
+  x.fillStyle = m.mio ? NV2 : "#ffffff"; x.strokeStyle = m.mio ? VD : NV2; x.lineWidth = 5 * k; x.beginPath(); x.roundRect(bx, y, w, h, m.mio ? [30 * k, 8 * k, 30 * k, 30 * k] : [8 * k, 30 * k, 30 * k, 30 * k]); x.fill(); x.stroke();
   x.textBaseline = "middle"; x.textAlign = "left";
-  if (!m.mio) { x.fillStyle = COLOR_DE[m.de] ?? NV3; x.font = F(800, 36 * k); x.fillText(m.de, bx + pad, y + 32 * k); }
+  if (!m.mio) { x.fillStyle = COLOR_DE[m.de] ?? NV3; x.font = F(800, 42 * k); x.fillText(m.de, bx + pad, y + 36 * k); }
   if (m.pulgar) pulgar(x, bx + w / 2, y + cab + 90 * k, 1.05 * k);
   else if (m.audio) {
     const cy = y + cab + 60 * k;
-    if (m.avatar) bola(x, bx + pad + 40 * k, cy, 40 * k, m.avatar, m.de[0]);
-    const x0 = bx + pad + (m.avatar ? 96 * k : 0);
-    x.fillStyle = NV2; x.beginPath(); x.moveTo(x0 + 6 * k, cy - 24 * k); x.lineTo(x0 + 40 * k, cy); x.lineTo(x0 + 6 * k, cy + 24 * k); x.closePath(); x.fill();
-    const n = 22, xa = x0 + 60 * k, wa = w - (xa - bx) - pad - 70 * k;
-    for (let i = 0; i < n; i++) { const hh = (10 + 30 * Math.abs(Math.sin(i * 1.7 + 0.4))) * k; x.fillStyle = i / n < (m.prog ?? 0) ? VDO : GRIS; x.fillRect(xa + (i * wa) / n, cy - hh / 2, (wa / n) * 0.55, hh); }
-    x.fillStyle = NV3; x.font = F(700, 34 * k); x.textAlign = "right"; x.fillText(m.audio, bx + w - pad, cy);
+    const x0 = bx + pad;
+    x.fillStyle = NV2; x.beginPath(); x.roundRect(x0 + 6 * k, cy - 30 * k, 26 * k, 40 * k, 13 * k); x.fill(); x.strokeStyle = NV2; x.lineWidth = 6 * k; x.beginPath(); x.arc(x0 + 19 * k, cy - 6 * k, 22 * k, 0.15, Math.PI - 0.15); x.stroke(); x.fillRect(x0 + 16 * k, cy + 14 * k, 6 * k, 16 * k);
+    x.fillStyle = NV; x.font = F(800, 46 * k); x.textAlign = "left"; x.fillText("Audio", x0 + 56 * k, cy - 6 * k);
+    const xa = x0 + 210 * k, wa = w - (xa - bx) - pad - 110 * k;
+    x.fillStyle = GRIS; x.fillRect(xa, cy - 7 * k, wa, 10 * k); x.fillStyle = VDO; x.fillRect(xa, cy - 7 * k, wa * (m.prog ?? 0), 10 * k); x.beginPath(); x.arc(xa + wa * (m.prog ?? 0), cy - 2 * k, 13 * k, 0, 7); x.fill();
+    x.fillStyle = NV3; x.font = F(700, 40 * k); x.textAlign = "right"; x.fillText(m.audio, bx + w - pad, cy);
   } else {
     let resto = m.ver ?? Infinity;
     ls.forEach((l, i) => {
       const yy = y + cab + pad * 0.7 + px * 0.62 + i * px * 1.2; let xx = bx + pad;
-      for (const w2 of l.split(/(?<= )/)) { if (resto <= 0) break; const vis = w2.slice(0, Math.max(0, resto)); resto -= w2.length; x.font = F(800, px); x.fillStyle = m.rojo && w2.startsWith(m.rojo) ? "#b04a40" : NV; x.fillText(vis, xx, yy); xx += x.measureText(w2).width; }
+      for (const w2 of l.split(/(?<= )/)) { if (resto <= 0) break; const vis = w2.slice(0, Math.max(0, resto)); resto -= w2.length; x.font = F(800, px); x.fillStyle = m.rojo && w2.startsWith(m.rojo) ? (m.mio ? "#ff9d92" : "#b04a40") : m.mio ? CRm : NV; x.fillText(vis, xx, yy); xx += x.measureText(w2).width; }
     });
   }
-  if (m.mio && m.leido) { x.textAlign = "right"; x.fillStyle = VDO; x.font = F(900, 34 * k); x.fillText("✓✓", bx + w - 14 * k, y + h - 22 * k); }
   return h;
 }
 function cabeceraGrupo(x, W, k, sub = "38 participantes") {
   x.fillStyle = NV2; x.fillRect(0, 0, W, 150 * k); x.fillStyle = VD; x.fillRect(0, 150 * k, W, 10 * k);
-  bola(x, 70 * k, 76 * k, 46 * k, VDO, "S", NV);
+  bola(x, 70 * k, 76 * k, 46 * k, CRm, "19", NV);
   x.fillStyle = CRm; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 44 * k); x.fillText("SPINNING MARTES 19", 132 * k, 58 * k);
-  x.font = F(600, 32 * k); x.fillStyle = "#c9d2e0"; x.fillText(sub, 134 * k, 108 * k);
+  x.font = F(700, 38 * k); x.fillStyle = "#c9d2e0"; x.fillText(sub, 134 * k, 112 * k);
 }
 // el chat: lista de mensajes de arriba abajo; si no entran, sube (el último queda abajo)
 function dibujarChat(x, W, H, msgs, k, sub, kc = k) {
@@ -63,35 +62,34 @@ function dibujarChat(x, W, H, msgs, k, sub, kc = k) {
   cabeceraGrupo(x, W, kc, sub);
 }
 // P1 · el aluvión de "yo voy" en el celular de Mauro
-const MSG_YV = [{ de: "Caro", txt: "Yo voy" }, { de: "Seba", txt: "yo voooy" }, { de: "Lu", txt: "Anotame a mí y a mi prima" }, { de: "Mabel", txt: "Yo voy" }, { de: "Nati", txt: "voy pero llego 19:10" }, { de: "Rodri", txt: "Yo voy" }, { de: "Pato", txt: "Voy!!" }, { de: "Vicky", txt: "yo voy profe" }];
+const MSG_YV = [{ de: "Caro", txt: "Yo voy" }, { de: "Seba", txt: "yo voooy" }, { de: "Lu", txt: "Anotame a mí y a mi prima" }, { de: "Mabel", txt: "Yo voy" }, { de: "Nati", txt: "voy pero llego 19:10" }, { de: "Gabi", txt: "Yo voy" }, { de: "Pato", txt: "Voy!!" }, { de: "Vicky", txt: "yo voy profe" }];
 const MSG_PREV = [{ de: "Ana", txt: "Yo voy" }, { de: "Caro", txt: "profe hoy vamos!!" }, { de: "Fede", txt: "voy" }, { de: "Lu", txt: "Yo voy" }];
 function msgsP1(t) {
   const n = T.yv.filter((m) => t >= m).length;
   const l = [...MSG_PREV, ...MSG_YV.slice(0, n)];
   if (t >= T.sticker) l.push({ de: "Ana", pulgar: true });
-  if (t >= T.audio47) l.push({ de: "Fede", audio: "0:47", avatar: "#2c6a8a", prog: 0 });
+  if (t >= T.audio47) l.push({ de: "Fede", audio: "0:47", prog: 0 });
   return l;
 }
 // P1b · el audio de Majo, "Llena, Majo. Perdoná.", Sole, "Llena, Sole." · P3i · el mensaje de Majo a las 19:01
 function msgsP1b(t) {
-  const l = [...MSG_YV.slice(0, 4), { de: "Mabel", txt: "Yo voy", px: 58 }, { de: "Rodri", txt: "Yo voy", px: 58 }, { de: "Vicky", txt: "yo voy profe", px: 58 }];
-  l.push({ de: "Majo", audio: "0:02", avatar: "#8a4a2a", prog: cl((t - T.j1) / LEN.j1), px: 58 });
-  if (t >= T.llenaM) { const txt = "Llena, Majo. Perdoná."; l.push({ mio: true, txt, px: 62, rojo: "Llena", ver: Math.round(txt.length * cl((t - T.llenaM) / 0.55)), leido: t > T.llenaM + 0.6 }); }
+  const l = [...MSG_YV.slice(4).map((m) => ({ ...m, px: 58 })), { de: "Ana", pulgar: true }, { de: "Fede", audio: "0:47", prog: 0 }];
+  l.push({ de: "Majo", audio: "0:02", prog: cl((t - T.j1) / LEN.j1), px: 58 });
+  if (t >= T.llenaM) { const txt = "Llena, Majo. Perdoná."; l.push({ mio: true, txt, px: 62, rojo: "Llena", ver: Math.round(txt.length * cl((t - T.llenaM) / 0.55)) }); }
   if (t >= T.sole) l.push({ de: "Sole", txt: "¿Me guardás una?", px: 62 });
-  if (t >= T.llenaS - 0.3) { const txt = "Llena, Sole."; l.push({ mio: true, txt, px: 62, rojo: "Llena", ver: Math.round(txt.length * cl((t - T.llenaS + 0.3) / 0.3)), leido: t > T.llenaS + 0.2 }); }
+  if (t >= T.llenaS - 0.3) { const txt = "Llena, Sole."; l.push({ mio: true, txt, px: 62, rojo: "Llena", ver: Math.round(txt.length * cl((t - T.llenaS + 0.3) / 0.3)) }); }
   return l;
 }
-function msgsP3i() { return [{ de: "Sole", txt: "¿Me guardás una?", px: 58 }, { mio: true, txt: "Llena, Sole.", rojo: "Llena", leido: true, px: 58 }, { de: "Majo", txt: "Tranqui, Mauro. Me anoté en otro lado: ahí reservás la bici.", px: 64 }]; }
+function msgsP3i() { return [{ de: "Majo", audio: "0:02", prog: 1, px: 58 }, { mio: true, txt: "Llena, Majo. Perdoná.", rojo: "Llena", px: 58 }, { de: "Sole", txt: "¿Me guardás una?", px: 58 }, { mio: true, txt: "Llena, Sole.", rojo: "Llena", px: 58 }, { de: "Majo", txt: "Tranqui, Mauro. Me anoté en otro lado: ahí reservás la bici.", px: 64 }]; }
 // P5 · la pantalla de bloqueo con la notificación de Rodri (19:04)
 function dibujarBloqueo(x, W, H, k, noti) {
   x.fillStyle = NV2; x.fillRect(0, 0, W, H);
-  x.fillStyle = "#2c4268"; for (let i = 0; i < 6; i++) { x.beginPath(); x.arc(W * (0.15 + i * 0.16), H * 0.92, 60 * k + i * 6 * k, 0, 7); x.fill(); }
   x.fillStyle = CRm; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(800, 170 * k); x.fillText("19:04", W / 2, 210 * k);
   x.font = F(600, 46 * k); x.fillText("martes", W / 2, 320 * k);
   if (noti) {
     const y = 420 * k; x.fillStyle = "#ffffff"; x.strokeStyle = NV; x.lineWidth = 7 * k; x.beginPath(); x.roundRect(22 * k, y, W - 44 * k, 520 * k, 40 * k); x.fill(); x.stroke();
-    bola(x, 90 * k, y + 76 * k, 46 * k, VDO, "S", NV); x.fillStyle = NV3; x.textAlign = "left"; x.font = F(800, 42 * k); x.fillText("SPINNING MARTES 19", 152 * k, y + 76 * k);
-    x.fillStyle = NV; x.font = F(900, 84 * k); x.fillText("Rodri:", 56 * k, y + 200 * k); x.font = F(800, 80 * k); x.fillText("¿Ya empezó?", 56 * k, y + 310 * k); x.fillStyle = "#b04a40"; x.font = F(900, 84 * k); x.fillText("Yo voy.", 56 * k, y + 420 * k);
+    bola(x, 90 * k, y + 76 * k, 46 * k, CRm, "19", NV); x.fillStyle = NV3; x.textAlign = "left"; x.font = F(800, 42 * k); x.fillText("SPINNING MARTES 19", 152 * k, y + 76 * k);
+    x.fillStyle = NV; x.font = F(900, 84 * k); x.fillText("Nico:", 56 * k, y + 200 * k); x.font = F(800, 80 * k); x.fillText("¿Ya empezó?", 56 * k, y + 310 * k); x.fillStyle = "#b04a40"; x.font = F(900, 84 * k); x.fillText("Yo voy.", 56 * k, y + 420 * k);
   }
 }
 // ---- la app de reservas: cabecera, el mapa de la sala (tarima arriba, 4 · 5 · 5) ----
@@ -116,9 +114,8 @@ function dibujarMapa(x, X, Y, W, k, est, inicial = "M") {
       const e = est[n] ?? "ocu", s2 = e === "toca" ? 0.9 : 1;
       x.save(); x.translate(xx + S / 2, y + S / 2); x.scale(s2, s2);
       x.fillStyle = e === "ocu" ? GRIS : e === "mia" ? NV2 : VD; x.strokeStyle = NV; x.lineWidth = 6 * k; x.beginPath(); x.roundRect(-S / 2, -S / 2, S, S, 22 * k); x.fill(); x.stroke();
-      x.fillStyle = e === "mia" ? CRm : NV; x.font = F(900, 58 * k); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(e === "mia" ? inicial : String(n), 0, e === "ocu" ? -10 * k : 3 * k);
-      if (e === "ocu") { x.font = F(800, 26 * k); x.fillStyle = "#4b5263"; x.fillText(`✓ ${n}`, 0, 34 * k); }
-      if (e === "mia") { x.font = F(800, 26 * k); x.fillStyle = VD; x.fillText(String(n), 0, 38 * k); }
+      x.fillStyle = e === "mia" ? CRm : NV; x.font = F(900, 58 * k); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(e === "mia" ? inicial : String(n), 0, 3 * k);
+      if (e === "mia") { x.font = F(800, 30 * k); x.fillStyle = VD; x.fillText(String(n), S * 0.32, S * 0.32); }
       x.restore();
     });
   });
@@ -126,7 +123,7 @@ function dibujarMapa(x, X, Y, W, k, est, inicial = "M") {
 }
 // Q1 · celular de Majo: f.tocado (0 nada, 1 apretó la 7, 2 reservada), f.ocup (0, 1 la 4, 2 la 13 = llena)
 function dibujarReserva(x, W, H, k, f) {
-  x.fillStyle = "#e9e6da"; x.fillRect(0, 0, W, H); cabeceraApp(x, W, k);
+  x.fillStyle = "#e9e6da"; x.fillRect(0, 0, W, H); cabeceraApp(x, W, k, "Hola, Majo");
   x.fillStyle = NV; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 50 * k); x.fillText("Spinning", 40 * k, 236 * k);
   x.fillStyle = NV3; x.font = F(700, 44 * k); x.fillText("martes 19:00", 42 * k, 298 * k);
   const quedan = 3 - (f.tocado >= 2 ? 1 : 0) - f.ocup;
@@ -148,7 +145,7 @@ function dibujarReserva(x, W, H, k, f) {
 }
 // Q1s · celular de Sole: "Clase llena · 14/14" → "Anotarme en la lista de espera" → "Sos la 1ª de la lista de espera ✓"
 function dibujarEspera(x, W, H, k, f) {
-  x.fillStyle = "#e9e6da"; x.fillRect(0, 0, W, H); cabeceraApp(x, W, k);
+  x.fillStyle = "#e9e6da"; x.fillRect(0, 0, W, H); cabeceraApp(x, W, k, "Hola, Sole");
   x.fillStyle = NV; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(800, 50 * k); x.fillText("Spinning · martes 19:00", 40 * k, 240 * k);
   x.fillStyle = NV2; x.beginPath(); x.roundRect(30 * k, 300 * k, W - 60 * k, 170 * k, 34 * k); x.fill();
   x.fillStyle = CRm; x.font = F(900, 74 * k); x.textAlign = "center"; x.fillText("Clase llena", W / 2, 360 * k); x.fillStyle = VD; x.font = F(800, 50 * k); x.fillText("14 de 14 bicis", W / 2, 428 * k);
@@ -202,7 +199,7 @@ function dibujarPanelMes(x, W, H, k, e) {
   x.fillStyle = "#e9e6da"; x.fillRect(0, 0, W, H);
   x.fillStyle = NV2; x.fillRect(0, 0, W, 190 * k); x.fillStyle = VD; x.fillRect(0, 190 * k, W, 12 * k);
   x.fillStyle = CRm; x.textAlign = "left"; x.textBaseline = "middle"; x.font = F(900, 62 * k); x.fillText("Spinning martes 19:00", 40 * k, 70 * k); x.fillStyle = VD; x.font = F(800, 50 * k); x.fillText("noviembre", 42 * k, 140 * k);
-  const fila = (i, y, h, dibujo) => { const ok = e.filas > i; x.fillStyle = ok ? "#ffffff" : "#f4f2e8"; x.strokeStyle = ok ? NV : GRIS; x.lineWidth = 7 * k; x.beginPath(); x.roundRect(30 * k, y, W - 60 * k, h, 30 * k); x.fill(); x.stroke(); if (ok) dibujo(y); };
+  const fila = (i, y, h, dibujo) => { if (e.filas <= i) return; x.fillStyle = "#ffffff"; x.strokeStyle = NV; x.lineWidth = 7 * k; x.beginPath(); x.roundRect(30 * k, y, W - 60 * k, h, 30 * k); x.fill(); x.stroke(); dibujo(y); };
   const ok = (y, h) => { x.fillStyle = VDO; x.beginPath(); x.arc(W - 100 * k, y + h / 2, 40 * k, 0, 7); x.fill(); tilde(x, W - 98 * k, y + h / 2 + 2 * k, 42 * k, NV); };
   fila(0, 240 * k, 200 * k, (y) => { x.fillStyle = NV; x.textAlign = "left"; x.font = F(800, 54 * k); x.fillText("Reservaron 14", 70 * k, y + 64 * k); x.fillText("vinieron 14", 70 * k, y + 136 * k); ok(y, 200 * k); });
   fila(1, 470 * k, 300 * k, (y) => {
@@ -213,7 +210,7 @@ function dibujarPanelMes(x, W, H, k, e) {
     if (g >= 1) { x.fillStyle = GRIS; x.font = F(800, 70 * k); x.textAlign = "right"; x.fillText("20 →", cx - 70 * k, cy + 6 * k); ok(y, 300 * k); }
   });
   fila(2, 800 * k, 200 * k, (y) => { x.fillStyle = NV; x.textAlign = "left"; x.font = F(800, 50 * k); x.fillText("Lugares que llenó la", 70 * k, y + 62 * k); x.fillText("lista de espera: 6", 70 * k, y + 136 * k); ok(y, 200 * k); });
-  fila(3, 1030 * k, 200 * k, (y) => { x.fillStyle = NV; x.textAlign = "left"; x.font = F(800, 50 * k); x.fillText("Alumnas nuevas", 70 * k, y + 62 * k); x.fillText("desde la lista: 3", 70 * k, y + 136 * k); ok(y, 200 * k); });
+  fila(3, 1030 * k, 200 * k, (y) => { x.fillStyle = NV; x.textAlign = "left"; x.font = F(800, 50 * k); x.fillText("Alumnos nuevos", 70 * k, y + 62 * k); x.fillText("desde la lista: 3", 70 * k, y + 136 * k); ok(y, 200 * k); });
 }
 
 // =====================================================================================================
@@ -222,8 +219,8 @@ function dibujarPanelMes(x, W, H, k, e) {
 function crearFondoInserto(g, tipo) {
   const P = (w, h, c, x, y, z, rz = 0) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w / PXK, h / PXK), new THREE.MeshBasicMaterial({ color: c })); m.position.set(x / PXK, y / PXK, z); m.rotation.z = rz; g.add(m); return m; };
   if (tipo === "sala") { P(1400, 2400, 0x0b1220, 0, 0, -0.06); P(2600, 230, 0xefeee5, 0, 200, -0.059, 0.42); P(1400, 900, 0x3a3f4a, 0, -900, -0.058); P(1400, 26, 0x5ce611, 0, 1000, -0.057); }
-  else if (tipo === "living") { P(1400, 2400, 0xe6e1cf, 0, 0, -0.06); P(1400, 900, 0x16243d, 0, -820, -0.059); P(1400, 60, 0x1f3254, 0, -360, -0.058); P(500, 360, 0x365f28, -480, -470, -0.0575, 0.2); }
-  else if (tipo === "oficina") { P(1400, 2400, 0xd9d7c9, 0, 0, -0.06); P(1400, 900, 0xb98d5e, 0, -820, -0.059); P(1400, 40, 0x8f6a44, 0, -370, -0.058); P(300, 420, 0x16243d, 470, 520, -0.0585); }
+  else if (tipo === "living") { P(1400, 2400, 0xe6e1cf, 0, 0, -0.06); P(1400, 900, 0x16243d, 0, -820, -0.059); P(1400, 60, 0x1f3254, 0, -360, -0.058); }
+  else if (tipo === "oficina") { P(1400, 2400, 0xd9d7c9, 0, 0, -0.06); P(1400, 900, 0x3a3f4a, 0, -820, -0.059); P(1400, 40, 0x1f3254, 0, -370, -0.058); P(300, 420, 0x16243d, 470, 520, -0.0585); }
   else if (tipo === "recepcion") {
     P(1400, 2400, 0x0b1220, 0, 0, -0.06); P(2600, 230, 0xefeee5, 0, 350, -0.059, 0.42); P(1400, 26, 0x5ce611, 0, 1000, -0.057);
     P(1400, 820, 0xefeee5, 0, -860, -0.0585); P(1400, 560, 0x1f3254, 0, -1000, -0.058); P(1400, 30, 0x5ce611, 0, -720, -0.0578);
@@ -246,7 +243,7 @@ const INS = {
   P5: inserto("sala", 860, 1300, 540, 1060, 34, { camara: true, funda: 0x16243d }),      // 19:04: la notificación de Rodri
   Q1: inserto("living", 860, 1420, 540, 1050, 34, { camara: true, funda: 0x365f28 }),    // el mapa en el celular de Majo
   Q1s: inserto("living", 860, 1420, 540, 1050, 34, { camara: true, funda: 0x2c4268 }),   // el celular de Sole: lista de espera
-  Q2: inserto("oficina", 860, 1300, 540, 1060, 34, { camara: true, funda: 0x8a4a8a }),   // el recordatorio a Lucía
+  Q2: inserto("oficina", 860, 1300, 540, 1060, 34, { camara: true, funda: 0x1f3254 }),   // el recordatorio a Lucía
   Q2t: inserto("recepcion", 930, 1260, 540, 960, 20, {}),                                // la tablet de la recepción
   Q2s: inserto("living", 860, 1300, 540, 1060, 34, { camara: true, funda: 0x2c4268 }),   // el aviso a Sole
   Q4: inserto("recepcion", 940, 1300, 540, 960, 20, {}),                                 // el panel de noviembre
@@ -261,13 +258,13 @@ function dibujarInterfaz(t, pa) {
   if (pa === "P1") { const l = msgsP1(t), k = `p1-${l.length}`; if (k !== cCelM) { cCelM = k; dibujarChat(celMT.userData.x, 420, 860, l, 0.62, "38 participantes"); celMT.needsUpdate = true; } }
   else if (pa === "P5c") { const k = "p5"; if (k !== cCelM) { cCelM = k; dibujarBloqueo(celMT.userData.x, 420, 860, 0.5, true); celMT.needsUpdate = true; } }
   if (pa === "P5") { const n = t >= T.rodri - 0.05; pintar(`b${n}`, INS.P5, (x, W, H, k) => dibujarBloqueo(x, W, H, k * 1.02, n)); }
-  if (pa === "P1b") { const l = msgsP1b(t); pintar(JSON.stringify(l.map((m) => [m.ver, q(m.prog ?? 0), m.leido])), INS.P1b, (x, W, H, k) => dibujarChat(x, W, H, l, k * 1.05, "Majo, Sole, Rodri y 35 más")); }
+  if (pa === "P1b") { const l = msgsP1b(t); pintar(JSON.stringify(l.map((m) => [m.ver, q(m.prog ?? 0), m.leido])), INS.P1b, (x, W, H, k) => dibujarChat(x, W, H, l, k * 1.05, "38 participantes")); }
   if (pa === "P3i") pintar("p3i", INS.P3i, (x, W, H, k) => dibujarChat(x, W, H, msgsP3i(), k * 1.08, "19:01"));
   if (pa === "Q1" || pa === "Q1c") { const f = { tocado: t >= T.reserva7 ? 2 : t >= T.toca7 ? 1 : 0, ocup: t >= T.ocupa[1] ? 2 : t >= T.ocupa[0] ? 1 : 0 }; pintar(JSON.stringify(f), INS.Q1, (x, W, H, k) => dibujarReserva(x, W, H, k, f)); }
   if (pa === "Q1s") { const f = t >= T.espera ? 2 : t >= T.tocaEspera ? 1 : 0; pintar(`e${f}`, INS.Q1s, (x, W, H, k) => dibujarEspera(x, W, H, k, f)); }
-  if (pa === "Q2") { const f = t >= T.libera + 0.18 ? 2 : t >= T.libera ? 1 : 0; pintar(`r${f}`, INS.Q2, (x, W, H, k) => dibujarMensajeApp(x, W, H, k, { hola: "Hola, Lucía.", lineas: [["Hoy spinning 19:00"], ["Tu bici: 4", 900, 80], ["¿Venís?"]], botones: ["Voy ✓", "Liberar mi bici"], apretado: 1, f, okTxt: "Bici 4 liberada", okSub: "Gracias por avisar" })); }
+  if (pa === "Q2") { const f = t >= T.libera + 0.18 ? 2 : t >= T.libera ? 1 : 0; pintar(`r${f}`, INS.Q2, (x, W, H, k) => dibujarMensajeApp(x, W, H, k * 1.12, { hola: "Hola, Lucía.", lineas: [["Hoy spinning 19:00"], ["Tu bici: 4", 900, 80], ["¿Venís?"]], botones: ["Voy ✓", "Liberar mi bici"], apretado: 1, f, okTxt: "Bici 4 liberada", okSub: "Gracias por avisar" })); }
   if (pa === "Q2t") { const f = t >= T.libre4 ? 1 : 0; pintar(`t${f}`, INS.Q2t, (x, W, H, k) => dibujarTablet(x, W, H, k * 0.93, f)); }
-  if (pa === "Q2s") { const f = t >= T.reserva4 ? 2 : t >= T.quiero ? 1 : 0; pintar(`s${f}`, INS.Q2s, (x, W, H, k) => dibujarMensajeApp(x, W, H, k, { hola: "Hola, Sole.", lineas: [["Se liberó la bici 4"], ["hoy 19:00", 700, 56], ["¿La querés?", 900, 74]], botones: ["La quiero"], apretado: 0, f, okTxt: "Bici 4 reservada", okSub: "martes 19:00" })); }
+  if (pa === "Q2s") { const f = t >= T.reserva4 ? 2 : t >= T.quiero ? 1 : 0; pintar(`s${f}`, INS.Q2s, (x, W, H, k) => dibujarMensajeApp(x, W, H, k * 1.12, { hola: "Hola, Sole.", lineas: [["Se liberó la bici 4"], ["hoy 19:00", 700, 56], ["¿La querés?", 900, 74]], botones: ["La quiero"], apretado: 0, f, okTxt: "Bici 4 reservada", okSub: "martes 19:00" })); }
   if (pa === "Q4") { const e = { filas: T.filas.filter((f) => t >= f).length, gira: q(eio(sg(t, T.gira[0], T.gira[1]))) }; pintar(JSON.stringify(e), INS.Q4, (x, W, H, k) => dibujarPanelMes(x, W, H, k * 0.95, e)); }
   // el celular de Majo en el sofá: el mapa con "Quedan 3"
   if (pa === "Q1b" && cCelJ !== "q") { cCelJ = "q"; const x = celJT.userData.x; x.save(); x.scale(420 / 860, 860 / 1420); dibujarReserva(x, 860, 1420, 1, { tocado: 0, ocup: 0 }); x.restore(); celJT.needsUpdate = true; }

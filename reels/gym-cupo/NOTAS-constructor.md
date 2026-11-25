@@ -100,3 +100,53 @@ celular, 22 → 23) · P5c 17,10 (Mauro lo da vuelta) · P5b 17,95 (arrancan a p
   va por los parlantes: burbuja con el micrófono abajo, sin cola. Fondo de la portada regenerado con la misma regla.
 - Render de revisión 1: `renders/gym-cupo.mp4` en 1433 s (23,9 min, SwiftShader, sin espera de candado) + paso10.sh 80 s →
   `renders/gym-cupo-final.mp4` (42,70 s, -14,0 LUFS, pico -5,2 dBFS). Hoja cada 2 s: `renders/hoja.png`.
+
+## Ronda 1 de corrección (qa-ronda-r1.md) · render r2
+**Duración 39,33 s** (parte 1 0-16,57 · cartel 16,57-19,23 · parte 2 + cierre 19,23-39,33 = 20,1 s, 51 %; cierre 37,78-39,33
+con la línea chica 1,55 s). Mezcla: voz ≥ +6,2 LU en todos los tramos, -14,0 LUFS, máximo sin voz -31,2. check: 0 errores.
+Guion y datos
+- ALTA 1 / arte ALTA 2 (percheros): plano P3 nuevo, de cerca desde la tarima (push-in): la toalla de Graciela vuela de su
+  mano a la bici 2 y queda colgada grande (lomo redondo, paño con pliegues, dos franjas verdes), la botella x1,7 en la 4,
+  el celular x2,1 en la 7, campera x0,75 y mochila x1,15; rótulo "Bici 2: perchero" con guía a la toalla y "5 bicis vacías".
+- MEDIA 2: rótulo del costo más grande y 1,5 s: "Majo y Sole se anotaron en otro lado · 2 alumnas menos · $ 3.800 por mes".
+- MEDIA 3: callback en Q3 (14/14): "Majo · 7" y "Sole · 4" con guía a cada una (cámara de Q3 corrida para que entre la 4).
+- MEDIA 4: celular de Sole con "Hola, Sole" en la cabecera y funda navy claro; rótulo "Sole: 1ª en la lista de espera". El
+  de Majo dice "Hola, Majo".
+- MEDIA 5 / arte 7 (chat): salientes navy con borde verde y texto crema ("Llena" en rojo claro), sin doble tilde; la nota de
+  voz es un micrófono + "Audio" + barra (sin avatar, play ni onda); ícono del grupo crema "19". P1b arranca con los mismos
+  mensajes del final de P1 (Pato, Vicky, el pulgar, el audio 0:47 de Fede), sin repetidos.
+- MEDIA 6: el contador llega a 22 (0,05-0,6 s) antes que la burbuja (0,72); burbujas por frase entera (cajas de una línea
+  que se cambian por la de dos: m1, m3, j2, m4).
+- MEDIA 7: 42,7 → 39,3 s: entrada en cámara rápida 1,3 s, el gag 1,65 s, P1b y P5 más justos, la pausa interna de m3
+  0,6 → 0,35 s, Q1/Q2/Q3d más cortos, m6 con atempo 1,1 (cierre 1,55 s + voz).
+- BAJA 8/9: línea chica 1,55 s, 46/60 px, más ancha; "y te mando…" 54 px; remitentes 42 px y "38 participantes" 38 px.
+- BAJA 10: "Alumnos nuevos desde la lista: 3". BAJA 11: portada generada después del render (abajo). BAJA 12: fuentes.md
+  corregido (WhatsApp no se nombra).
+Sonido
+- ALTA 1: el remate faltaba en la mezcla (no se llamaba voz("m3")): agregado y medido (≥ +6 LU).
+- MEDIA 2 ("pedalean"): 3 tomas nuevas con el tono pidiendo la n final (04-mauro-g/h/i) y variantes de texto: el STT de
+  Google oye "pedalear/pedalea" en TODAS, incluso con "pedalean los que vienen" y con la palabra como pista; en una frase de
+  prueba de Sadaltager oye "pedalean" solo cuando no es final. No lo puedo comprobar de oído: queda 04-mauro-a. A revisar
+  por un humano.
+- MEDIA 3: cierre 3,45 → 3,0 s de voz (atempo 1,1) y el plano C dura 3,05 s.
+- MEDIA 4: la música de espera sube a -36 (pasabajos 1100) y solo baja en la pausa del remate; la cama de Q1-Q2 a -35; en
+  el panel casi sin duck. Entrada y percheros más bajos (pasaban -31).
+- BAJA 5-8: sin tocar (tomas).
+Arte
+- ALTA 1 (P5c): cámara de frente a Mauro y el manubrio; la mano entra por arriba del celular (no atraviesa el poste) y el
+  celular gira en el soporte (al final se ve la pantalla). La música no se ve subir (sin la perilla).
+- ALTA 3 / MEDIA 4 (Graciela Q3b): giros de cabeza chicos (0,2) y los ojos miran a los costados; queda de 3/4 casi de
+  frente. La patilla de los lentes en 3/4 sigue siendo del rig.
+- MEDIA 5: el alumno de la bici 2 ya no tiene rodete (era el que parecía Sole); Sole en la 4 con su rótulo.
+- MEDIA 6: la notificación de las 19:04 es de "Nico" (no estaba en los "yo voy"); Rodri sale del grupo (ahora "Gabi").
+- MEDIA 8: la transcripción del audio de Majo va arriba del celular, sin cola. MEDIA 9: celular de Lucía con funda navy3,
+  fondo crema y gris (sin madera), texto más grande. MEDIA 11: cartel ESTUDIO / MAURO en dos renglones, más chico y más
+  bajo. MEDIA 12: el panel solo dibuja las filas que ya entraron.
+- BAJA 13: chip "Martes, 18:55." mientras corre el reloj; 16: sin los "✓ n" chiquitos del mapa y sin la cuña verde; 17:
+  Majo sin parpadeo al hablar; 15: sin las bolitas del dock. 18-22: la toalla de Mauro sigue con el rollo nuevo; el resto
+  sin tocar.
+- Render r2: 1413 s (23,6 min, 2 s de espera de candado) + paso10.sh 51 s → `renders/gym-cupo-final.mp4` (39,37 s,
+  -14,0 LUFS, pico -5,2 dBFS). Hoja cada 1,5 s en `renders/hoja.png`.
+- Portada: `portada-src/fondo-limpio-10.0.png` (VER=portada LIMPIO=1 a 10,0 s, fin del gag: Graciela, el celular grande en
+  la 7, la botella en la 4, el reloj 19:00) y `node herramientas/portada.mjs gym-cupo` → portada.png; textos entre y ≈ 330
+  y 1600. La toalla de la 2 queda debajo de "MARTES, 19:00." y el sello "GIMNASIOS" pisa el reloj.
