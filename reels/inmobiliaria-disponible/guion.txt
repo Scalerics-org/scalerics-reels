@@ -1,0 +1,42 @@
+[sin narrador Orus: el chiste va en las burbujas "¿Sigue disponible?" que brotan del celular, en el contador "Sin contestar" y en la palabra "disponible" que se da vuelta; la solución va en la interfaz recreada (chat del agente de IA con la ficha de la propiedad, agenda del corredor, panel de consultas de Silvana) · voces por archivo en partes/*.txt (partes/lineas.tsv) · total estimado ~39 s: parte 1 0,00-16,80 · cartel 16,80-19,20 · parte 2 19,20-35,40 · cierre 35,40-39,20 (solución + cierre: 20 s, 51 %)]
+[parte 1 · el problema · 0,00-16,80 s · "Silvana Propiedades", martes]
+[0,00-4,60 · cuadro 0: arriba, gigante, "INMOBILIARIAS" y el chip "Martes, 15:00." · un living vacío en Parque Batlle, luz de tarde · Silvana (blazer navy, melena platinada) y Diego mostrándole el apartamento a una pareja · del celular en la mano de Silvana ya están brotando burbujas "¿Sigue disponible?", una arriba de otra · Diego mira el suyo, bajito]
+DIEGO: Silvana. El de Punta Carretas explota. Van doce.
+[Silvana, sin dejar de sonreírle a la pareja]
+SILVANA: Contestales vos.
+DIEGO: Estoy mostrando.
+[pausita · Silvana, sonrisa fija, la pareja entre los dos mirando a uno y a otro]
+SILVANA: Yo también.
+[4,60-7,00 · escalada muda · chips "Martes, 18:30." y "Martes, 23:10." · el celular sobre el escritorio vacío de la oficina, vibrando solo · contador "Sin contestar" 12 → 38 (rojo apagado) · burbujas "¿Sigue disponible?", "¿Acepta mascotas?", "¿Gastos comunes?" · se ilumina una: Agustina, 15:02: "¿Sigue disponible? Tengo garantía ANDA y me mudo el 1°." · rótulo con línea guía: "La inquilina ideal"]
+[7,00-11,60 · chip "Miércoles, 9:10." · la oficina, Silvana con el café, temprano, elige la de Agustina primero y escribe]
+SILVANA: ¡Hola, Agustina! Perdón la demora. Sí, sigue disponible.
+[enviado ✓ · escribiendo… · llega una nota de voz; la burbuja sale del celular]
+AGUSTINA (nota de voz): ¡Qué bueno! Yo ya no.
+[11,60-13,00 · pausa · Silvana quieta, el café a medio camino · rótulos: "Alquiló ayer 16:30 · en otra inmobiliaria" y en rojo apagado "Comisión de este alquiler: $ 30.000"]
+[13,00-16,80 · remate del remate · vibra el celular: "Don Alberto · propietario" · Silvana atiende en altavoz]
+ALBERTO (por el altavoz): Silvana, ¿cómo va? ¿Nadie preguntó por el apartamento?
+[Silvana mira la pantalla: "Sin contestar: 38" · pausa]
+SILVANA: Preguntar, preguntaron.
+[stinger]
+NARRADOR: Un agente de IA más tarde.
+[cartel · 16,80-19,20 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un agente de IA" / "más tarde…" · nunca "Scalerics" · audio reusado de abren-hoy-completo]
+[parte 2 · la solución · 19,20-35,40 s]
+[19,20-24,60 · Q1 · chip "Martes, 15:00." · el encuadre del cuadro 0: la misma visita en Parque Batlle · el celular de Silvana, quieto en el bolsillo; vibra una vez, corto · el mismo audio de Diego de la parte 1]
+DIEGO: Silvana. El de Punta Carretas explota. Van doce.
+SILVANA: ¿Y quién contesta?
+[Diego le muestra su celular, inserto ≥ 60 %: chat "Silvana Propiedades · agente de IA" · Agustina 15:02: "¿Sigue disponible?" · agente 15:02: "¡Hola, Agustina! Sí. 1 dorm. en Punta Carretas · $ 30.000 + gastos comunes $ 5.000 · Garantías: ANDA, CGN, Porto Seguro o depósito · No acepta mascotas · 12 fotos ▸" · "¿Con qué garantía y para cuándo?" · "ANDA, para el 1°." · "¿Te queda bien mañana 10:30 con Diego?" · "¡Sí!" · "Visita confirmada ✓ Mié 10:30 · Diego"]
+DIEGO: Ya contestó. Le pidió la garantía y agendó.
+[24,60-27,80 · Q2 · el panel de Silvana (monitor de la oficina), inserto ≥ 70 % · "Punta Carretas · hoy" · "Consultas: 38 · Contestadas al instante: 38 ✓" · "Con mascota: 5 → le ofreció 2 que aceptan" · "Sin garantía: 9 → le mandó los requisitos" · "Visitas agendadas: 6 ✓" (la agenda de Diego se llena: Mié 10:30 Agustina, 11:30, 12:15, Jue 17:00…) · "Listos para visitar y firmar: 2 → para vos, Silvana" · rótulo: "Contesta al instante, con los datos reales de la propiedad" · Silvana, mirando "Listos para visitar y firmar: 2"]
+SILVANA: Esos dos, para mí.
+[27,80-31,40 · Q3 · chip "Miércoles, 10:30." · la puerta del apartamento de Punta Carretas · Agustina llega, Silvana abre con la llave y Diego al lado]
+AGUSTINA: ¿Sigue disponible?
+SILVANA: Sí.
+AGUSTINA: ¡Qué bueno! Yo también.
+[rótulo verde: "Agustina · ANDA · firma el viernes ✓"]
+[31,40-35,40 · Q4 · chip "Miércoles, 12:00." · la oficina · vibra el celular: "Don Alberto · propietario" · el mismo audio de la parte 1]
+ALBERTO (por el altavoz): Silvana, ¿cómo va? ¿Nadie preguntó por el apartamento?
+[Silvana mira el monitor (38 contestadas ✓), tranquila]
+SILVANA: Treinta y ocho. Seis visitas. Y el viernes firman.
+[la ficha ALQUILA de la vidriera: cae la franja verde "RESERVADO ✓" · rótulos: "Comisión de este alquiler: $ 30.000 ✓" (verde) · "Sin contestar: 0"]
+[35,40-39,20 · cierre · Silvana a cámara en la oficina, el monitor con el panel en verde detrás · tarjeta debajo de la cara: "Comentá" / "DISPONIBLE" (en el recuadro verde de selección) / "y te mando cómo funciona para tu inmobiliaria" · el último segundo, abajo, chico: "Un agente de IA que contesta y agenda las visitas" / "scalerics.com" en verde]
+SILVANA: Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria.
