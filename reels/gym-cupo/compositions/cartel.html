@@ -54,7 +54,8 @@
       const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
         const t0 = i < nAB ? i * 0.025 : 1.25 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
-        tl.fromTo(l, { scale: 0, autoAlpha: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, autoAlpha: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.35, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.1, ease: "none", immediateRender: true }, t0);   // (r3 B4) sin glifo suelto: aparece con opacidad, no desde un punto
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);

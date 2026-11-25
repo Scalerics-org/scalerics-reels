@@ -527,7 +527,7 @@ const celMT = lienzo(420, 860, () => {});
 const CEL_M = crearCelular(celMT, MARCA.g, 0.08, 0.162); CEL_M.scale.setScalar(1.2); scene.add(CEL_M);   // (r2) funda verde: se ve en la mano
 // el celular de Majo (funda verde apagado) en el living (Q1b)
 const celJT = lienzo(420, 860, () => {});
-const CEL_J = crearCelular(celJT, MARCA.navy2, 0.08, 0.162);   // (r3 M5) funda navy: verde sobre la remera verde no se veía CEL_J.scale.setScalar(1.2); scene.add(CEL_J);
+const CEL_J = crearCelular(celJT, MARCA.navy2, 0.08, 0.162); CEL_J.scale.setScalar(1.2); scene.add(CEL_J);   // (r3 M5) funda navy: verde sobre la remera verde no se veía
 
 // =====================================================================================================
 // EL LIVING DE MAJO (Q1, set chico aparte en x = 40): pared crema lisa, sofá navy2 con almohadón verde apagado, lámpara

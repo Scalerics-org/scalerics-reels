@@ -339,7 +339,7 @@ voz("m5", T.m5, -1);
 tela(T.cuello + 0.25, -38, 1);
 // Q4 · el panel: un tic por fila, el giro del 20 al 1, el ding de la última
 whoosh(T.q4, -46);
-T.filas.forEach((t, i) => tic(t, -38, i)); s("sfx/k-tick-4.wav", r2((T.gira[0] + T.gira[1]) / 2), 0, { techo: -38 }); ding(T.gira[1], -37);   // (r3 B2) el tic cuando cambia el número ding(T.filas[3] + 0.05, -38);
+T.filas.forEach((t, i) => tic(t, -38, i)); s("sfx/k-tick-4.wav", r2((T.gira[0] + T.gira[1]) / 2), 0, { techo: -38 }); ding(T.gira[1], -37); ding(T.filas[3] + 0.05, -38);   // (r3 B2) el tic cuando cambia el número
 // C · "Comentá CUPO…": el pop de la tarjeta y de la línea chica
 whoosh(T.c, -44);
 voz("m6", T.m6, -1);
