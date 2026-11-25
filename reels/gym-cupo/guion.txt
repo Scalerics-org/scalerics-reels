@@ -1,0 +1,30 @@
+[sin narrador Orus: el chiste va en el grupo de WhatsApp que se llena de "yo voy", el contador YO VOY 22 / BICIS 14 / VINIERON 9, las cinco bicis vacías que se vuelven percheros y el 22 que pasa a 23; la solución va en la interfaz recreada (mapa de bicis con cupo real, lista de espera, recordatorio con "Liberar mi bici", aviso automático a la siguiente, panel de ocupación); voces por archivo en partes/*.txt, ver partes/voces.md · estimado: 40,8 s · parte 1 0,00-17,00 · cartel 17,00-19,60 · parte 2 + cierre 19,60-40,80 (21,2 s, 52 %)]
+[parte 1 · el problema · 0,00-17,00 s · la sala de spinning de Estudio Mauro, de noche]
+[0,00-4,00 · P1 · cuadro 0: arriba, gigante, "GIMNASIOS" y el chip "Martes, 18:20." · sobre el hombro de Mauro, dueño y profe, sentado en la bici de instructor con el micrófono de vincha: en su celular el grupo "SPINNING MARTES 19" se llena de "Yo voy", "yo voooy", un pulgar, "anotame a mí y a mi prima", un audio de 0:47 · detrás, las 14 bicis numeradas · contador: YO VOY 14 → 22 · BICIS 14]
+MAURO: Veintidós "yo voy". Hoy explota.
+[4,00-7,20 · P1b · inserto del celular: audio de Majo]
+MAJO (audio de WhatsApp): Mauro, ¿hay lugar a las siete?
+[Mauro escribe]
+MAURO: Llena, Majo. Perdoná.
+[burbuja de Sole: "¿Me guardás una?" → "Llena, Sole." · rótulo: "A dos les dijo «llena»"]
+[7,20-10,40 · P2 · chip "Martes, 19:00." · el reloj de la pared pasa a 19:00, se abre la puerta y entran, de a uno, nueve; el contador VINIERON cuenta 1 → 9 y se queda ahí · cinco bicis vacías, y en tres segundos son percheros: Graciela cuelga la toalla en la bici 2, una botella en la 4, un celular en la 7, una campera en la 11, una mochila en la 13]
+[10,40-12,20 · P3 · pausa · YO VOY 22 · BICIS 14 · VINIERON 9 · rótulo "5 bicis vacías" · en el celular, Majo: "Tranqui, Mauro. Me anoté en otro lado: ahí reservás la bici." · rótulo "Majo y Sole: se anotaron en otro lado · $ 3.800 por mes"]
+[12,20-14,20 · P4 · primer plano de Mauro en la tarima, se acerca el micrófono]
+MAURO (por el micrófono, a la sala): Los "yo voy" no pedalean.
+[14,20-17,00 · P5 · remate del remate · chip "19:04." · vibra el celular en el manubrio: "Rodri: ¿Ya empezó? Yo voy." · el contador YO VOY 22 → 23 · Mauro da vuelta el celular boca abajo, le sube a la música y arrancan a pedalear los nueve · stinger]
+[cartel · 17,00-19,60 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema de reservas" / "más tarde…" (nunca "Scalerics")]
+NARRADOR: Un sistema de reservas más tarde.
+[parte 2 · la solución · 19,60-37,40 s]
+[19,60-24,60 · Q1 · chip "Lunes, 21:30." · Majo en el sofá de su casa con el celular: "Estudio Mauro · Reservá tu bici · Spinning martes 19:00 · Quedan 3" y el mapa de la sala con las 14 bicis numeradas, las libres en verde]
+MAJO: ¿Quedan tres? ¡La siete!
+[toca la 7 → "Bici 7 reservada ✓" · rótulo "Cupo real: 14 bicis" · se ocupan las otras dos: "Clase llena · 14/14" · en el celular de Sole: "Sos la 1ª de la lista de espera ✓" · rótulo "Lista de espera"]
+[24,60-28,80 · Q2 · chip "Martes, 15:00." · el recordatorio automático a Lucía: "Hoy spinning 19:00 · Tu bici: 4 · ¿Venís?" con "Voy ✓" / "Liberar mi bici" · Lucía toca "Liberar mi bici" · en la tablet de la recepción la 4 se pone verde: "avisando a la lista de espera" · a Sole: "Se liberó la bici 4 · hoy 19:00 · ¿La querés?" → "La quiero" → "Bici 4 reservada ✓" · chip "Ocupada otra vez en 3 minutos" · rótulos "Recordatorio el mismo día" y "Se libera sola y le avisa a la siguiente"]
+[28,80-34,20 · Q3 · chip "Martes, 19:00." · el mismo encuadre de P2: las 14 bicis ocupadas, Majo en la 7, Sole en la 4 · RESERVAS 14 · VINIERON 14 · todos pedaleando]
+MAURO (por el micrófono): Catorce reservas. Pedalean catorce.
+[Graciela, en la bici 1, con la toalla en la mano, mira a un costado y al otro: ninguna bici libre]
+GRACIELA: Profe, ¿y ahora la toalla dónde la cuelgo?
+MAURO: En el cuello, Graciela.
+[ella se la pone al cuello y sonríe]
+[34,20-37,40 · Q4 · la tablet de la recepción: "Spinning martes 19:00 · noviembre" · "Reservaron 14 · vinieron 14 ✓" · "Bicis vacías en el mes 20 → 1" · "Lugares que llenó la lista de espera: 6 ✓" · "Alumnas nuevas desde la lista: 3 ✓" · rótulo "Panel de ocupación"]
+[cierre · 37,40-40,80 · Mauro a cámara en la bici de instructor, toalla al cuello, la sala llena detrás · tarjeta debajo de la cara: "Comentá" / "CUPO" (en el recuadro verde de selección) / "y te mando cómo funciona para tu gimnasio" · el último segundo, abajo: "Reservas con cupo real y lista de espera" / "scalerics.com" en verde]
+MAURO: Comentá CUPO y te mando cómo funciona para tu gimnasio.

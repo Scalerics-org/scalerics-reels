@@ -1,0 +1,14 @@
+{
+ "t": 10.6,
+ "chica": "Martes, 19:00.",
+ "grande": "¿Hay lugar?",
+ "sello": "GIMNASIOS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "0%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-10.6.png",
+ "nota": "t estimado (plan): final del gag de P2, la sala con 9 sentados y las 5 bicis vacías de perchero (toalla de Graciela en la 2, campera en la 11, mochila en la 13), Mauro en la tarima; renderizar con LIMPIO=1 (sin GIMNASIOS, chips, contador, burbujas, rótulos ni logo) y subir el cuadro para que la sala quede en la mitad de arriba. Alternativa: P4 ~13,0 s, Mauro con el micrófono y la sala medio vacía detrás, grande \"Yo voy.\". Ajustar t con el render."
+}
