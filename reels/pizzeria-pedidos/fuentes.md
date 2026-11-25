@@ -60,3 +60,8 @@ cercano de `assets/sfx` y anotarlo.
 - Reusados (créditos en `reels/vete-racion/fuentes.md` y los que cita): pop, whoosh, whoosh-short, notification, vibra,
   cero, campanita, click-soft, k-tick-*, k-book_place_1, paso-*, stinger, bsb-timbre, bsb-rasga, puerta-abre, birome,
   calle, auto-pasa, pizzicato.
+- (r3) `assets/sfx/zumbido-largo.wav` (la heladera del living y del hall de Martín, con pasabajos): banco de SFX de
+  HyperFrames, el mismo que usan `reels/abren-hoy`, `reels/ya-lo-cargo` y `reels/contable-papeles` (ver su `fuentes.md`).
+- (r3) `assets/sfx/k-plastico.wav` ya no se usa (era el casco de Facu, que se sacó en r2). Para el registro: Kenney
+  "Impact Sounds" ("impact_generic_light_002"), CC0, como en `reels/como-viene-el-mes/fuentes.md`. `bsb-rasga.wav` y el
+  ticket del cierre tampoco suenan desde r3 (no había acción visible).
