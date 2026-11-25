@@ -19,7 +19,7 @@ ffmpeg -loglevel error -y -i partes/rec/15-ruben-h.wav -i partes/rec/08-ruben-f.
 ffmpeg -loglevel error -y -i ../ya-lo-cargo/assets/voice/narrador.wav -af atempo=1.08 -ar 48000 -ac 1 assets/voice/narrador.wav   # Rasalgethi "Un sistema más tarde."
 tal   ${R5:-10-ruben-b}   r5                                  # Rubén "Mirá el celular."
 hueco ${N3:-11-nico-b}    n3 1.35 1.65 0.36 "atempo=1.04"     # Nico "Cuarenta y dos mil. ¿Ya?"
-tal   ${J2:-12-javi-c}    j2                                  # Javi "¿Y Súper Héctor?"
+tal   ${J2:-12-javi-a}    j2                                  # Javi "¿Y Súper Héctor?"
 tal   ${N4:-13-nico-c}    n4                                  # Nico "…Es de Javi."
 hueco ${R6:-14-ruben-c}   r6 1.09 1.34 0.46 "atempo=1.03"     # Rubén "Felicitaciones. Ahora la cuenta da."
 tal   ${R7:-15-ruben-h}   r7 "atempo=1.2"                                 # Rubén "Te toca menos."

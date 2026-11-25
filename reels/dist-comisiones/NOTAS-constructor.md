@@ -132,3 +132,38 @@ Q4 34,73 · Q4b 36,36 · Q4n 38,71 · C 40,98.
   en bottom 250 px (y ≈ 1644-1670): la herramienta no permite moverlo y no la toqué (es compartida).
 - No hecho: guion 10 (opcional). Queda: en P6 la mitad de abajo es piso; en el plano de pilas Rubén y los vendedores se ven
   chicos (≈ 150 px de cara).
+
+## Ronda 2 de corrección (qa dist-r2-arte / dist-r2-sonido-guion) · sin render
+**Duración 44,47 s** · parte 1 0-20,01 · cartel 20,01-22,17 · parte 2 + cierre 22,17-44,47 = 22,3 s (50,1 %) · cierre 41,27-44,47
+(3,2 s; tarjeta desde ~41,6). check: 0 errores. Mezcla (MEDIR=1): voz ≥ +13,7 LU sobre el resto en todos los tramos con voz;
+efectos sin voz máx -31,5 LUFS; -14,0 LUFS. STT por tramo sobre la mezcla (`bash partes/tmp/stt.sh`, regenerarlo con los T
+actuales): las 18 líneas dan el texto del guion ("Héctor es mío", "y Súper Héctor", "jefe cuánto me toca", "te toca menos pasa
+el jueves", "te toca menos", "comentá comisiones…").
+Planos (s): P1 0 · P2 1,44 · P3a 3,75 · P3b 4,47 · P3c 4,81 · P3d 5,17 · P4 5,47 · P5 7,41 · P5b ~9,8 · P6 ~10,8 (remate ~11,6) ·
+P7a ~15,1 · P7b ~16,7 · cartel 20,01 · Q1 22,17 · Q1b ~23,6 · Q2 ~24,6 · Q3 ~27,8 · Q3m ~28,9 · Q3b ~30,8 · Q4 ~34,9 · Q4b ~36,5 ·
+Q4n ~38,9 · C 41,27 (los exactos en assets/tiempos3d.js).
+- Plano de las pilas (P6/Q3b): pilas más altas (U 0,077: empresa 2,16 m, vendedores 2,54 m), pegadas al frente del escritorio
+  (z -0,27), cámara a 2,3 m, fov 70: las pilas llenan el alto y Rubén queda a ~215 px de cara; el monitor apagado detrás (sin
+  astillas de texto); Nico (x 1,02) y Javi en la puerta, a la derecha de Rubén.
+- La línea de la empresa: regla crema con borde navy de la pila de la empresa hasta pasar la de los vendedores, con la etiqueta
+  "EMPRESA"; "+ $ 500.000" entra cuando asienta la última caja (con su ding) y queda hasta el final del P6, con guía a la caja de
+  arriba.
+- Caja roja de Q3b: se achata en su lugar y las de arriba bajan apoyadas (sin huecos ni cajas flotando, no pasa por delante de
+  nadie); la roja de Javi gira sobre sí misma y de canto pasa a la kraft "HÉCTOR · $ 500.000 · Javi ✓".
+- Voces: todas con la cadena suave; j1 = 05-javi-g (tomas nuevas d-h), j2 = 12-javi-a, 0,1 s de aire después del "es mío" de
+  Nico; pausas de ~0,45 s antes de los remates ("Felicitaciones." → resto, Graciela → "Te toca menos.", "¿Ya?" 0,35 s); cierre a
+  atempo 1,12 (3,2 s).
+- Termo: sin la animación del P3d (le atravesaba la oreja); el día 2 está acostado lejos de Rubén.
+- Javi: en P5b/Q3 entra más a la izquierda (Nico no lo tapa, cámara corrida); está en P7b y Q4b (en la puerta, detrás de Nico).
+- Texto ≥ 36 px: panel nuevo con poco texto y grande (Nico / Javi / montos a 110-120 px, "Devolución − $ 198", "Comisiones:
+  cerradas ✓"); planilla del P7 con "Recalculando…", "Comisión de Nico" y "− $ 198" más grandes; Q2 "Cobrado: $ 1.400.000" /
+  "× 3 %" y el pendiente a 62-64 px, sin la fila de Graciela; calculadoras sin el "Mi cuenta" chico; cabecera de Graciela
+  "Altavoz · Graciela" más grande. Sin el rótulo "Bar Walter".
+- Franjas navy: techo claro con tubos (antes navy3), sin la carcasa de las lámparas. Bordes: P2/Q1b, P3d, P4 y la portada con
+  el monitor entero o fuera de cuadro.
+- Bajas: chip "Día 2, 19:00." cuando ya cayó la hoja; iris que abre desde el frente del escritorio (no desde la cara); Rubén sin
+  el parpadeo de P1; cursor del Q3m que sube por la izquierda y desaparece al hacer clic; cola de "…Es de Javi." oculta; caja
+  de pizza abierta; cama de música más arriba en el montaje y sin el duck fuerte en Q3m/Q3b; crédito de elevador.wav.
+- Portada regenerada (fondo nuevo sin el monitor cortado). El logo sigue en y ≈ 1644 (fijo en la herramienta compartida).
+- Snapshots cada 0,5 s: renders/snap/r2a y r2b (h1.png, h2.png).
+- (r2) Burbujas del remate (r3/r6) a 46 px, abajo a la derecha sobre el frente del escritorio, con la cola a Rubén: no tapan las cajas ni sus montos.

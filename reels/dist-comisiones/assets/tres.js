@@ -187,7 +187,7 @@ const paredM = mat(C.cr, 0.9);
   const p = mesh(new THREE.PlaneGeometry(OF_X1 - OF_X0, OF_Z1 - PARED), new THREE.MeshStandardMaterial({ map: pisoT, roughness: 0.7 }), 0, 0, (OF_Z1 + PARED) / 2); p.rotation.x = -Math.PI / 2; p.castShadow = false; OF.add(p);
   // (r2) techo claro con dos tubos (navy3 dejaba franjas vacías arriba de los planos)
   OF.add(cajaS(OF_X1 - OF_X0 + 0.2, 0.12, OF_Z1 - PARED, mat(0xd9d7c9, 0.9), 0, ALTO + 0.06, (OF_Z1 + PARED) / 2));
-  for (const z of [-1.2, 1.0]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.14), new THREE.MeshBasicMaterial({ color: 0xf6f3e6, toneMapped: false })); f.rotation.x = Math.PI / 2; f.position.set(0, ALTO - 0.005, z); OF.add(f); OF.add(caja(1.5, 0.04, 0.2, M.navy3, 0, ALTO - 0.02, z, 0.01)); }
+  for (const z of [-1.2, 1.0]) { const f = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.14), new THREE.MeshBasicMaterial({ color: 0xf6f3e6, toneMapped: false })); f.rotation.x = Math.PI / 2; f.position.set(0, ALTO - 0.005, z); OF.add(f); }   // (r2) sin la carcasa navy: se veía como una barra flotando
   OF.add(cajaS(0.12, ALTO, OF_Z1 - PARED, paredM, OF_X0, ALTO / 2, (OF_Z1 + PARED) / 2));
   OF.add(cajaS(0.12, ALTO, OF_Z1 - PARED, paredM, OF_X1, ALTO / 2, (OF_Z1 + PARED) / 2));
   // la pared del fondo: crema hasta VID0; arriba del vidrio, una franja crema; zócalo navy
@@ -344,8 +344,8 @@ OF.traverse((o) => { if (o.isMesh && o.material.transparent) { o.castShadow = fa
 cinta.castShadow = true;
 
 // ---- LAS DOS PILAS DE CAJAS (P6 y Q3b): 1 unidad = $ 100.000 de alto ----
-const U = 0.066;
-const PILA = { xE: -1.2, xV: -0.72, z: 0.1, W: 0.45, D: 0.38 };
+const U = 0.077;   // (r2) pilas más altas: llenan el plano del remate
+const PILA = { xE: -1.2, xV: -0.72, z: -0.27, W: 0.45, D: 0.38 };
 function frenteCaja(lineas, fondo, tinta, hU, extra) {
   const w = 560, h = Math.max(160, Math.round(hU * U * 1400));
   return lienzo(w, h, (x) => {
@@ -853,10 +853,10 @@ const haciaCam = (cp, x, z, giro, k = 0.8, lim = 0.9) => cl((Math.atan2(cp[0] - 
 // ================= GLOBOS Y RÓTULOS =================
 const [r1a, r1g] = globo2(["Fácil.", "Tres por ciento", "[de lo cobrado.]"], 70, [1, 2]);
 const [n2a, n2g] = globo2(["¿Cuarenta y dos?", "Súper Héctor [es mío.]"], 66, [1]);
-const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 50, [1, 2, 3]);
+const [r3a, r3g] = globo2(["Felicitaciones.", "Entre los dos", "vendieron [más]", "[que la empresa.]"], 46, [1, 2, 3]);
 const [r4a, r4g] = globo2(["Te toca menos.", "{Pasá el jueves.}"], 76, [1]);
 const [n3a, n3g] = globo2(["Cuarenta y dos mil.", "[¿Ya?]"], 70, [1]);
-const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 50, [1, 2]);
+const [r6a, r6full] = globo2(["Felicitaciones.", "Ahora la", "[cuenta da.]"], 46, [1, 2]);
 const [n5a, n5g] = globo2(["Ya sé.", "[Me llegó.]"], 76, [1]);
 const CAB_G = { cv: AVATAR.graciela, nombre: "Altavoz · Graciela" };
 const GL = {
@@ -908,13 +908,13 @@ const CAM_P1 = (k) => [lerp(0.24, 0.22, k), 1.05, lerp(2.55, 2.35, k), 0.18, 1.3
 const CAM_P2 = (k) => [lerp(1.15, 1.1, k), 1.42, lerp(0.85, 0.72, k), 0.1, 1.34, RUB.z, 40];
 const CAM_ESC = (k) => [1.2, lerp(0.32, 0.36, k), lerp(-7.0, -6.85, k), 1.2, -0.25, -3.7, 54];
 const CAM_CAL = (k) => [CAL.x + 0.05, CAL.y - 0.05, lerp(-0.85, -0.95, k), CAL.x, CAL.y - 0.08, PARED, 44];
-const CAM_DESK = (k) => [lerp(1.15, 1.1, k), 0.95, lerp(1.25, 1.15, k), 0.4, 0.8, -0.95, 50];
+const CAM_DESK = (k) => [lerp(1.5, 1.45, k), 0.98, lerp(1.0, 0.9, k), 0.62, 0.78, -1.0, 50];
 const CAM_P4 = (k) => [lerp(0.3, 0.28, k), 1.38, lerp(1.4, 1.3, k), -0.42, 1.22, RUB.z, 56];
 const CAM_P5 = (k) => [1.3, 1.45, lerp(-0.05, -0.2, k), 1.3, 1.38, -2.4, 46];
 const CAM_P5B = (k) => [0.9, 1.55, lerp(0.75, 0.6, k), 0.85, 1.45, -2.5, 48];
 const CAM_PILA = (k) => [-0.36, 1.3, lerp(2.8, 2.65, k), -0.32, 1.3, 0.1, 58];
 const CAM_GRUPO = (k) => [lerp(0.28, 0.24, k), 1.3, lerp(2.65, 2.5, k), 0.36, 1.3, -1.5, 56];
-const CAM_P6 = (k) => [lerp(-0.56, -0.58, k), 1.18, lerp(2.72, 2.62, k), -0.5, 1.22, -0.8, 70];   // (r2) el remate llena la pantalla   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
+const CAM_P6 = (k) => [lerp(-0.6, -0.62, k), 1.3, lerp(2.3, 2.2, k), -0.55, 1.36, -0.8, 70];   // (r2) el remate llena la pantalla   // (r1) las dos pilas enteras + Rubén + los dos en la puerta
 const CAM_P7A = (k) => [CELR0.x + 0.02, lerp(1.3, 1.25, k), CELR0.z + 0.3, CELR0.x, DESK.y, CELR0.z - 0.02, 34];
 const CAM_P7B = (k) => [lerp(0.38, 0.36, k), 1.45, lerp(2.5, 2.35, k), 0.14, 1.42, -1.6, 64];
 const CAM_C = (k) => [lerp(-0.08, -0.1, k), 1.42, lerp(1.7, 1.6, k), -0.3, 1.14, RUB.z, 56];
@@ -943,7 +943,7 @@ const PLANOS = [
   ["Q4n", T.q4n, null],                                                                   // (r1) inserto del celular de Nico
   ["C", T.c, [[T.c, ...CAM_C(0)], [DUR, ...CAM_C(1)]]],
 ];
-for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
+for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.28) { console.warn(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
 
 // ---------- Rubén, sentado detrás del escritorio (mira a +z; su derecha, -x, es el monitor) ----------
 const R_Y = -0.08;
@@ -1242,9 +1242,9 @@ function renderAt(tIn) {
   }
   renderer.render(scene, camera);
 }
-const MAS_POS = [800, 330];   // (r2) "+ $ 500.000" arriba a la derecha de la pila
-const BUR6 = [800, 760], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
-const CAM_PORTADA = [0.78, 1.05, 1.75, 0.62, 0.95, -1.7, 54];   // (r2) sin el monitor cortado
+const MAS_POS = [800, 225];   // (r2) "+ $ 500.000" arriba a la derecha de la pila
+const BUR6 = [830, 1600], BUR7 = [780, 640], BURG = 430;   // (r1) dónde van las burbujas fijas (abajo de la burbuja)
+const CAM_PORTADA = [0.74, 1.08, 1.7, 0.74, 0.98, -1.7, 56];   // (r2) sin el monitor cortado
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
 window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cam: camera.position.toArray().map((v) => +v.toFixed(2)) }; };

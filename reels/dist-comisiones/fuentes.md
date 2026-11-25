@@ -37,14 +37,14 @@ en el rubro). Calculadora, celulares, monitor, calendario y caja de pizza genér
 ## Voces
 Gemini TTS con `herramientas/voz.mjs`: Rubén = Algenib, Nico = Fenrir, Graciela = Gacrux (las de siempre del elenco),
 **Javi = Achird** (personaje nuevo), narrador del cartel = Rasalgethi (audio reusado de `reels/ya-lo-cargo`:
-"Un sistema más tarde.", con atempo 1,08). Tonos en `partes/lineas.tsv` (tomas extra: `lineas-r1.tsv`, `lineas-r2.tsv` para el cierre más corto, `lineas-r3.tsv` para "Te toca menos." articulado). "Te toca menos." (parte 1 y 2) es la toma 15-ruben-h; "Pasá el jueves." sale de 08-ruben-f.
+"Un sistema más tarde.", con atempo 1,08). Tonos en `partes/lineas.tsv` (tomas extra: `lineas-r1.tsv`, `lineas-r2.tsv` para el cierre más corto, `lineas-r3.tsv` para "Te toca menos." articulado). "Te toca menos." (parte 1 y 2) es la toma 15-ruben-h; "Pasá el jueves." sale de 08-ruben-f. Ronda 2: "¡Héctor es mío!" = 05-javi-g (tomas d-h en `lineas-r4.tsv`), "¿Y Súper Héctor?" = 12-javi-a; todas las voces con la cadena suave (compresor 2:1, sin el limitador fuerte).
 
 ## Música y efectos
 Música: `bgm/pizzicato-lleno.wav` y `bgm/pizzicato.wav` (de reels/tienda-tenes-stock vía dist-cartera; crédito en
 `reels/dist-cartera/fuentes.md`). Efectos reusados de `assets/sfx` (copiados de dist-cartera, con su crédito en los
 `fuentes.md` de origen: `reels/dist-cartera/fuentes.md`, `reels/dist-quien-debe/fuentes.md`,
 `reels/dist-cliente-grande/fuentes.md`, `reels/gym-cupo/fuentes.md`): `pop`, `whoosh`, `whoosh-short`, `notification`,
-`vibra`, `cero`, `click-soft`, `key-press`, `sorbo`, `stinger`, `zumbido` (gchase, Freesound, CC0), `elevador`,
+`vibra`, `cero`, `click-soft`, `key-press`, `sorbo`, `stinger`, `zumbido` (gchase, Freesound, CC0), `elevador` ("Elevator (3 floors)" #1711, BigSoundBank, Joseph Sardin, CC0 1.0, https://bigsoundbank.com/elevator-3-floors-s1711.html),
 Kenney CC0 (`k-tick-1`,
 `k-page-turn` para la hoja del calendario, `k-book_place_1` para las cajas que caen y asientan, `k-cloth_1/2`,
 `k-metal-click` para el golpecito en el vidrio). `glitch-1.mp3` ("Recalculando…") de la biblioteca de HyperFrames del

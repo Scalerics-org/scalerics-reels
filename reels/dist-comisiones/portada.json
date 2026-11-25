@@ -1,14 +1,15 @@
 {
- "t": 1.6,
+ "t": 1.0,
  "chica": "Día 1 del mes.",
  "grande": "¿Cuánto me toca?",
  "sello": "DISTRIBUIDORAS",
  "acento": "#5ce611",
  "sello_color": "#5ce611",
- "zoom": 1.0,
+ "zoom": 1.1,
  "foco": "30%",
  "velo": "11,18,32",
  "fondo": "#0b1220",
- "fondo_limpio": "portada-src/fondo-limpio-1.6.png",
- "nota": "Fondo limpio: 1,6 s (P1) con VER=portada LIMPIO=1 (cámara CAM_PORTADA de tres.js: Rubén, Javi detrás y Nico en la puerta, el calendario en 1). Después volver a correr SINAUDIO=1 node gen.mjs."
+ "fondo_limpio": "portada-src/fondo-limpio-1.0.png",
+ "nota": "Fondo limpio: 1,0 s (P1) con VER=portada LIMPIO=1 (CAM_PORTADA de tres.js, r2: Rubén, Javi y Nico; sin el monitor ni el calendario cortados). Después volver a correr SINAUDIO=1 node gen.mjs. El logo de la herramienta queda en y ≈ 1644 (fijo en herramientas/portada.html).",
+ "foco_x": "70%"
 }
