@@ -91,7 +91,7 @@ const MON = { x: -0.74, z: 0.98, ry: 0.62, W: 0.42, H: 0.672 };   // (r1) vertic
 const pantM = lienzo(1000, 1600, () => {});       // el monitor de Silvana
 const pantS = lienzo(600, 1200, () => {});        // el celular de Silvana
 const pantD = lienzo(600, 1200, () => {});        // el celular de Diego
-let monitor, telS, telP, fichaPC, franjaRes, fichaPCmat, texFichaV, texFichaG, calleM, enfrenteM;
+let cartelNombre, monitor, telS, telP, fichaPC, franjaRes, fichaPCmat, texFichaV, texFichaG, calleM, enfrenteM;
 const paredM = mat(0xefeee5, 0.9);
 const ladrilloT = lienzo(1024, 1024, (x, w, h) => {
   x.fillStyle = "#d9d7c9"; x.fillRect(0, 0, w, h);
@@ -112,7 +112,7 @@ ladrilloT.wrapS = ladrilloT.wrapT = THREE.RepeatWrapping; ladrilloT.repeat.set(5
   const fondo = mesh(new THREE.BoxGeometry(OW, OFI.alto, 0.12), new THREE.MeshStandardMaterial({ map: ladrilloT, roughness: 0.92 }), 0, OFI.alto / 2, OFI.z0 - 0.06); fondo.castShadow = false; OF.add(fondo);
   OF.add(caja(OW, 0.25, 0.025, M.g, 0, 1.725, OFI.z0 + 0.012, 0.004));
   const nombreT = lienzo(2048, 200, (x, w, h) => { x.clearRect(0, 0, w, h); x.fillStyle = "#0b1220"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "SILVANA PROPIEDADES", 800, 150, w - 40); x.fillText("SILVANA PROPIEDADES", w / 2, h / 2 + 6); });
-  const nm = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.107), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0.12, 2.3, OFI.z0 + 0.05); OF.add(nm);
+  const nm = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.107), new THREE.MeshStandardMaterial({ map: nombreT, transparent: true, roughness: 0.5 })); nm.position.set(0.12, 2.3, OFI.z0 + 0.05); OF.add(nm); cartelNombre = nm;
   for (const x of [OFI.x0, OFI.x1]) { const p = mesh(new THREE.BoxGeometry(0.12, OFI.alto, OD), paredM, x, OFI.alto / 2, OZ); p.castShadow = false; OF.add(p); OF.add(caja(0.03, 0.12, OD, M.navy3, x - Math.sign(x) * 0.07, 0.06, OZ)); }
   OF.add(caja(OW, 0.12, 0.03, M.navy3, 0, 0.06, OFI.z0 + 0.02));
   // la vidriera a la calle (z1), detrás de la cámara: de día clara, de noche navy
@@ -494,6 +494,7 @@ function chatAgustina(x, w, h, t) {
   const alto = (it) => (it[0] === "dia" ? 64 : it[0] === "escr" ? 76 : it[0] === "nota" ? 116 : globoChat(x, w, 0, it[0], it[1], { px: 38, hora: it[2], dibujar: false }));
   let y = h - 190 - items.reduce((a2, it) => a2 + alto(it) + 16, 0);
   for (const it of items) {
+    if (y < 482) { y += alto(it) + 16; continue; }   // (pulido) lo que ya subió detrás de la ficha no se dibuja (no queda un mensaje cortado)
     if (it[0] === "dia") { rr(x, w / 2 - 90, y, 180, 52, 26, "#d9d7c9"); x.fillStyle = "#16243d"; x.font = F(700, 34); x.textAlign = "center"; x.fillText(it[1], w / 2, y + 27); x.textAlign = "left"; }
     else if (it[0] === "escr") { rr(x, 22, y, 270, 70, 26, "#ffffff", "#d9d7c9", 4); x.fillStyle = "#1f3254"; x.font = F(700, 36); x.fillText("escribiendo…", 44, y + 36); }
     else if (it[0] === "nota") {
@@ -650,7 +651,7 @@ function dibujarMonitor(t) {
   x.fillStyle = "#0b1220"; ajustar(x, "Listos para visitar y firmar", 800, 62, w - 140); x.fillText("Listos para visitar y firmar", 76, 1290);
   x.font = F(900, 150); x.fillText("2", 76, 1430);
   x.font = F(800, 58); x.fillText("→ para vos, Silvana", 200, 1436);
-  x.font = F(700, 44); x.fillText("Agustina · ANDA  ·  Martina · CGN", 76, 1530);
+  ajustar(x, "Agustina · ANDA  ·  Martina · CGN", 700, 56, w - 130); x.fillText("Agustina · ANDA  ·  Martina · CGN", 76, 1530);   // (pulido) ≥ 36 px en pantalla
   pantM.needsUpdate = true;
 }
 // ================= TARJETAS PEGADAS A LA CÁMARA: globos, consultas, contador, rótulos, guías =================
@@ -770,10 +771,10 @@ function ponerGlobo(g, cx, cy, s, objetivo, orden = 0, esc = 1) {
   const lado = cl((ox - cx) / (Wg / 2), -0.8, 0.8);
   if (oy >= cy) {
     cola.position.set((lado * Wg0) / 2 / PXK, -H0 / 2 / PXK + 4 / PXK, 0);
-    cola.rotation.z = cl(Math.atan2(ox - (cx + (lado * Wg) / 2), oy - (cy + H / 2)), -1.15, 1.15);
+    cola.rotation.z = cl(Math.atan2(ox - (cx + (lado * Wg) / 2), oy - (cy + H / 2)), -1.15, 1.15); cola.children[0].visible = true;
   } else {
     cola.position.set((lado * Wg0) / 2 / PXK, H0 / 2 / PXK - 4 / PXK, 0);
-    cola.rotation.z = Math.PI - cl(Math.atan2(ox - (cx + (lado * Wg) / 2), (cy - H / 2) - oy), -1.15, 1.15);
+    cola.rotation.z = Math.PI - cl(Math.atan2(ox - (cx + (lado * Wg) / 2), (cy - H / 2) - oy), -1.15, 1.15); cola.children[0].visible = false;   // (pulido) la cola que sube va sin sombra (quedaba como una astilla negra)
   }
 }
 const _v = new THREE.Vector3();
@@ -811,7 +812,8 @@ const GL = {
   a3a: crearGlobo(["¡Qué bueno!"], 84, { cab: { cv: AVATAR.agustina, nombre: "Agustina" }, minW: 780 }),
   a3: crearGlobo(["¡Qué bueno!", "[Yo también.]"], 84, { cab: { cv: AVATAR.agustina, nombre: "Agustina" }, minW: 780 }),
   al2: crearGlobo(["¿Nadie preguntó por", "el [apartamento?]"], 64, { cab: ALT }),
-  s8: crearGlobo(["Treinta y ocho.", "Y el viernes [firman.]"], 72),
+  s8a: crearGlobo(["Treinta y ocho."], 72, { minW: 640 }),
+  s8: crearGlobo(["Treinta y ocho.", "Y el viernes [firman.]"], 72, { minW: 640 }),
 };
 // las consultas que brotan del celular en P1 (y en P2) y la de Agustina, grande
 const CONS = [["¿Sigue disponible?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Sigue disponible?", "sobre"], ["¿Acepta mascotas?", "casa"], ["¿Sigue disponible?", "globo"], ["¿Gastos comunes?", "casa"]].map(([t2, ic]) => crearConsulta(t2, ic, 44));
@@ -833,13 +835,14 @@ const ROT = {
 };
 const GUIAS = [crearGuia(), crearGuia()];
 // "Yo ya no." (P3i) y "Yo también." (Q3b): el mismo lugar y el mismo tamaño de pantalla
-const Y_YA_NO = 380;
+const Y_YA_NO = 350;   // (pulido) un poco más arriba: la punta no pisa la cabecera del chat
 
 // ================= CÁMARA =================
 // PLANOS: [nombre, desde, claves | null]; cada clave [t, px, py, pz, mx, my, mz, fov]. Entre planos, corte; dentro de un
 // plano, Catmull-Rom continua. Los null se arman en renderAt.
 const CAM_LIV = (k) => [BX + lerp(0.03, 0.02, k), lerp(1.47, 1.45, k), lerp(4.7, 4.45, k), BX + 0.02, 1.2, -0.4, 48];
 const CAM_SILV = (k) => [BX - 0.22 + 0.04 * k, 1.52, lerp(2.2, 2.08, k), BX - 0.4, 1.4, 0.4, 40];
+const CAM_OF2 = (k, my = 1.06) => { const v = CAM_OF(k); v[1] -= 0.06 * (1.22 - my) / 0.16; v[4] = my; return v; };   // (pulido) P4 y Q4: más lugar debajo del celular
 const CAM_OF = (k) => [lerp(0.22, 0.2, k), lerp(1.44, 1.42, k), lerp(2.55, 2.4, k), 0.17, 1.22, 0.1, 54];
 const CAM_PAL = (k) => [PX + lerp(0.52, 0.56, k), 1.42, lerp(4.45, 4.25, k), PX + 0.56, 1.12, 0.4, 52];
 const PLANOS = [
@@ -849,7 +852,7 @@ const PLANOS = [
   ["P3", T.p3, [[T.p3, 0.16, 1.26, 2.5, 0.12, 0.9, 0.2, 52], [T.p3i, 0.18, 1.25, 2.38, 0.14, 0.88, 0.2, 51]]],   // (r1) sin el cartel detrás del chip
   ["P3i", T.p3i, null],  // el chat con Agustina, de cerca
   ["P3b", T.p3b, [[T.p3b, 0.2, 1.44, 2.9, 0.22, 1.2, 0.1, 58], [T.p4, 0.2, 1.44, 2.8, 0.22, 1.2, 0.1, 57]]],
-  ["P4", T.p4, [[T.p4, ...CAM_OF(0.2)], [T.p4i, ...CAM_OF(0.8)]]],
+  ["P4", T.p4, [[T.p4, ...CAM_OF2(0.2)], [T.p4i, ...CAM_OF2(0.8)]]],
   ["P4i", T.p4i, null],  // la bandeja: 38
   ["P4b", T.p4b, [[T.p4b, 0.14, 1.3, 2.05, 0.02, 1.22, 0.3, 40], [P1, 0.13, 1.3, 1.95, 0.02, 1.22, 0.3, 39]]],
   // ---- parte 2 ----
@@ -859,7 +862,7 @@ const PLANOS = [
   ["Q2", T.q2, null],    // el panel en el monitor (travelling)
   ["Q3", T.q3, [[T.q3, ...CAM_PAL(0)], [T.q3b, ...CAM_PAL(1)]]],
   ["Q3b", T.q3b, null],  // push-in a Agustina
-  ["Q4", T.q4, [[T.q4, ...CAM_OF(0)], [T.q4f, ...CAM_OF(0.7)]]],
+  ["Q4", T.q4, [[T.q4, ...CAM_OF2(0)], [T.q4f, ...CAM_OF2(0.7)]]],
   ["Q4f", T.q4f, null],  // la ficha: RESERVADO
   ["F", T.q5, [[T.q5, 0.2, 1.36, 2.6, 0.11, 0.98, 0.3, 50], [DUR, 0.2, 1.36, 2.52, 0.11, 0.98, 0.3, 49]]],
 ];
@@ -1062,6 +1065,7 @@ function renderAt(tIn) {
   ponerLuces(lugar, noche);
   scene.background = new THREE.Color(lugar === "of" ? 0x16243d : 0xdfe9ec);
   OF.visible = lugar === "of"; LV.visible = lugar === "lv"; PA.visible = lugar === "pa";
+  cartelNombre.visible = pa !== "Q4";   // (pulido) en Q4 el cartel quedaba debajo del chip "Miércoles, 12:00."
   // ---- pantallas y objetos ----
   dibujarPantS(t); dibujarMonitor(t);
   if (lugar === "lv") dibujarCelD(t);
@@ -1104,7 +1108,7 @@ function renderAt(tIn) {
     // travelling cenital que baja hasta el celular acostado (≥ 60 % del ancho al final)
     telP.updateMatrixWorld(true); const c = telP.localToWorld(V3(0, 0, 0));
     const u = eio(sg(t, T.p2, T.agus));
-    const ar = V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18).multiplyScalar(0.03); const vv = [c.x + 0.003 + ar.x, c.y + lerp(0.38, 0.3, u), c.z + lerp(0.04, 0.02, u) + ar.z, c.x + ar.x, c.y, c.z + ar.z, 50]; ponerVista(vv, vv, 0, V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18), V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18));   // (r2) arranca más cerca; el celular más abajo (el contador no tapa la cabecera)
+    const ar = V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18).multiplyScalar(0.05); const vv = [c.x + 0.003 + ar.x, c.y + lerp(0.38, 0.3, u), c.z + lerp(0.04, 0.02, u) + ar.z, c.x + ar.x, c.y, c.z + ar.z, 50]; ponerVista(vv, vv, 0, V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18), V3(0, 0, -1).applyAxisAngle(V3(0, 1, 0), 0.18));   // (r2) arranca más cerca; el celular más abajo (el contador no tapa la cabecera)
   }
   if (pa === "P3i" || pa === "P4i") {
     const { v, up } = vistaPantalla(telS.userData.piv, telS.userData.centro, V3(0, 0, 1), telS.userData.H, pa === "P3i" ? 0.66 : 0.7, 40, pa === "P3i" ? 0.047 : 0.0);   // (r1) P3i: el celular abajo, la burbuja arriba sin tapar; P4i más grande
@@ -1226,13 +1230,13 @@ function tarjetas(t, pa) {
   }
   if (pa === "Q4") {
     if (vivo(T.al2, T.al2Fin - T.al2, T.s8 - 0.1)) altavoz(GL.al2, T.al2 - 0.04);
-    if (vivo(T.s8, LEN.s8)) hablar(GL.s8, silvana, ent(T.s8 - 0.04), 2, 0, 260);
+    if (vivo(T.s8, LEN.s8)) { const g = t < T.viernes ? GL.s8a : GL.s8; hablar(g, silvana, t < T.viernes ? ent(T.s8 - 0.04) : ent(T.viernes), 2, 0, 260); }   // (pulido) "Y el viernes firman." se suma con la voz
     if (t >= T.visitas) ponerGlobo(ROT.visitas, 540, 1560, ent(T.visitas), null, 3);
   }
   if (pa === "Q4f") {
-    if (vivo(T.s8, LEN.s8)) ponerGlobo(GL.s8, 540, 200, 1, null, 2);   // sin cola: ella está fuera de cuadro; arriba de la ficha
-    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1500, ent(T.rotQ4[0]), null, 3);
-    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1730, 0.85, null, 4);
+    if (vivo(T.s8, LEN.s8)) ponerGlobo(t < T.viernes ? GL.s8a : GL.s8, 540, 200, t < T.viernes ? 1 : ent(T.viernes), null, 2);   // sin cola: ella está fuera de cuadro; arriba de la ficha
+    if (t >= T.rotQ4[0]) ponerGlobo(ROT.comisionOk, 540, 1625, ent(T.rotQ4[0]), null, 3);
+    if (t >= T.rotQ4[1]) ponerContador(0, true, 540, 1795, 1, null, 4, 0.62);
   }
 }
 

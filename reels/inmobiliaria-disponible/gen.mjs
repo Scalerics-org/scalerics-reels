@@ -41,8 +41,9 @@ T.d2 = r2(T.s1 + LEN.s1 + 0.24);
 T.p1b = r2(T.d2 + LEN.d2 + 0.12); T.s2 = r2(T.d2 + LEN.d2 + 0.5);
 // P2 · la escalada muda: el celular sobre el escritorio de la oficina, de noche; 12 → 38; la de Agustina
 T.p2 = r2(T.s2 + LEN.s2 + 0.12);
-T.h1830 = T.p2; T.h2310 = r2(T.p2 + 0.7);
-T.cuenta = [r2(T.p2 + 0.08), r2(T.p2 + 0.75)];             // el contador corre 12 → 38
+T.h1830 = T.p2;
+T.cuenta = [r2(T.p2 + 0.08), r2(T.p2 + 0.75)];
+T.h2310 = r2(T.cuenta[0] + 0.48 * (T.cuenta[1] - T.cuenta[0]));   // (pulido) el chip pasa a 23:10 cuando el contador pasa la consulta de las 18:30 (la 24)             // el contador corre 12 → 38
 T.agus = r2(T.p2 + 0.78);                                    // se ilumina la de Agustina (15:02)
 T.ideal = r2(T.agus + 0.22);
 // P3 · miércoles 9:10: Silvana con el café; inserto del chat: tipea mientras lo dice, enviado, escribiendo…, nota de voz
@@ -80,13 +81,13 @@ T.listos = T.q2;   // (r1) el panel quieto y lleno desde el primer cuadro
 T.q3 = r2(T.q2 + 2.55); T.a2 = r2(T.q3 + 0.38); T.agusRot = r2(T.q3 + 0.3);
 T.s7 = r2(T.a2 + LEN.a2 + 0.08); T.abre = r2(T.s7 + 0.05);
 T.q3b = r2(T.s7 + LEN.s7 + 0.35); T.a3 = r2(T.q3b + 0.05);
-T.tambien = r2(T.a3 + palabra("a3", 2) - 0.05);
+T.tambien = r2(T.a3 + 0.79);   // (pulido) "Yo también." con la voz (el STT ponía "Yo" en el arranque de la pausa; de oído 34,58)
 T.rotQ3 = r2(T.a3 + LEN.a3 + 0.02);
 // Q4 · miércoles 12:00, la oficina: vibra, el mismo audio de don Alberto (desde "¿Nadie preguntó…?"); "Treinta y ocho.
 // Seis visitas. Y el viernes firman."; la ficha ALQUILA: RESERVADO ✓
 T.q4 = r2(T.rotQ3 + 0.55); T.vib3 = r2(T.q4 + 0.04);
 T.al2Desde = r2(palabra("al", 3) - 0.06); T.al2 = r2(T.q4 + 0.22); T.al2Fin = r2(T.al2 + LEN.al - T.al2Desde);
-T.s8 = r2(T.al2Fin + 0.35); T.visitas = r2(T.s8 + 0.1);   // (r1) un respiro antes del remate del callback   // "Treinta y ocho." · el rótulo "Visitas agendadas: 6 ✓"
+T.s8 = r2(T.al2Fin + 0.35); T.visitas = r2(T.s8 + 0.1); T.viernes = r2(T.s8 + 1.03);   // (pulido) "Y el viernes firman." se suma con la voz (silencedetect: 1,045 s)   // (r1) un respiro antes del remate del callback   // "Treinta y ocho." · el rótulo "Visitas agendadas: 6 ✓"
 T.q4f = r2(T.s8 + palabra("s8", 3) - 0.1);                // en "Y el viernes firman." la cámara va a la ficha
 T.reserva = r2(T.s8 + LEN.s8 - 0.1); T.rotQ4 = [r2(T.reserva + 0.15), r2(T.reserva + 0.3)];
 // F · el cierre: Silvana a cámara; "Comentá DISPONIBLE…"

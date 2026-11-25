@@ -6,7 +6,7 @@ tarjetas pegadas a la cámara); medir.py de resto-reservas. Todo sale de `node g
 compositions/*.html, index.html, assets/audio/mezcla.wav). La escena entera está en `assets/tres.js` (escrita para este
 reel; función pura del tiempo).
 
-**Duración: 44,80 s** (1344 cuadros) desde la corrección r2 (r1: 44,57). Ver "Corrección r2" abajo; los números de esta línea son de r1: Parte 1 0-20,01 · cartel 20,01-22,26 · parte 2 +
+**Duración: 44,80 s** (1344 cuadros) desde la corrección r2 (igual en el pulido final). Solución 22,54 s (50,3 %); cierre 3,38 s. Lo que sigue en este párrafo es de r1: Parte 1 0-20,01 · cartel 20,01-22,26 · parte 2 +
 cierre 22,26-44,57 = 22,31 s (50,05 %). Cierre (plano F, tarjeta "Comentá DISPONIBLE" y voz juntos) 41,33-44,57 = 3,24 s
 (voz 2,98 + 0,25 de cola); línea chica desde 43,07 (1,5 s). `check --json`: ok, 0 errores, 0 warnings.
 Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +9,1 LU sobre el resto en todos los tramos de 0,5 s con voz;
@@ -140,13 +140,31 @@ recortada (sin "Seis visitas.", 2,17) · s9 17-silvana-g ×1,1 (3,27; r2: con ×
   confirmada ✓ Mié 10:30 · Diego"; panel (r1: Consultas 38 / Contestadas al instante 38 ✓ / Visitas agendadas
   6 ✓ / "Listos para visitar y firmar 2 → para vos, Silvana · Agustina · ANDA · Martina · CGN"); pantalla "Sin contestar 0".
 
-## Planos (s) (corrección r1)
-P1 0 (cuadro 0) · P1b 5,45 ("Yo también." 5,83) · P2 6,77 (escalada, Agustina 7,55, "La inquilina ideal" 7,77) · P3 8,17
-("Miércoles, 9:10.", empieza a decirlo 8,37) · P3i 8,67 (chat; "Yo ya no." 11,86) · P3b 13,65 (la pausa, rótulos) · P4 14,70
-(don Alberto) · P4i 17,17 (38) · P4b 17,77 ("Preguntar, preguntaron." 17,89) · cartel 20,01 · Q1 22,26 · Q1b 24,90 ("¿Y quién
-contesta?") · Q1i 26,12 (chat del agente) · Q2 28,68 (panel, "Martes, 23:10.") · Q3 31,23 (palier, "Sí." 32,79) · Q3b 33,65
-("Yo también.", rótulo 35,26) · Q4 35,81 ("Treinta y ocho…" 37,91) · Q4f 38,86 (RESERVADO 39,98) · F 41,33-44,57 (línea chica
-43,07).
+## Planos (s) (tiempos reales, pulido final; 44,80 s)
+P1 0 (cuadro 0) · P1b 5,45 ("Yo también." 5,83) · P2 6,77 (escalada; chip 23:10 a las 7,17; Agustina 7,55; "La inquilina
+ideal" 7,77) · P3 8,17 (empieza a decirlo 8,37) · P3i 8,67 (chat; nota de voz 11,86; "Yo ya no." 12,98) · P3b 13,65 (la pausa,
+rótulos) · P4 14,70 (don Alberto 14,97) · P4i 17,17 (38) · P4b 17,77 ("Preguntar," 17,89 · "preguntaron." 18,71) · cartel
+20,01 · Q1 22,26 (Diego 22,38) · Q1b 24,90 ("¿Y quién contesta?" 24,98) · Q1i 26,12 (chat del agente; Diego 26,17) · Q2 28,77
+(panel, "Martes, 23:10.") · Q3 31,32 (palier; "¿Sigue disponible?" 31,70; "Sí." 32,88) · Q3b 33,74 ("¡Qué bueno!" 33,79 ·
+"Yo también." 34,58; rótulo 35,35) · Q4 35,90 (altavoz 36,12; "Treinta y ocho." 38,00) · Q4f 38,95 ("Y el viernes firman."
+39,03; RESERVADO 40,07) · F 41,42-44,80 (tarjeta desde "Comentá" 41,42; línea chica 43,30).
+
+## Pulido final (QA r3, 25-11)
+- "Yo también." entra con la voz: T.tambien = a3 + 0,79 (34,58; el STT ponía "Yo" en el arranque de la pausa).
+- "Treinta y ocho." y "Y el viernes firman." en dos tiempos (silencedetect: 1,045 s → 39,03), en Q4 y en Q4f.
+- Cola de don Alberto limpia: la cola que sube va sin la sombra (era la astilla negra escalonada); P4 y Q4 con la mirada
+  más baja (CAM_OF2) para que la burbuja quepa debajo del celular sin tapar botones ni "altavoz"; en Q4 el cartel
+  "SILVANA PROPIEDADES" se oculta (quedaba pegado debajo del chip).
+- Q4f: "Comisión… $ 30.000 ✓" a y 1625 y "Sin contestar 0" más chico abajo: no cortan el "$ 30.000" de la ficha.
+- Boca de Silvana en Q3b: verificada cerrada (callada() de r2; prev y snapshot a 34,0).
+- P2: el chip pasa a "Martes, 23:10." cuando el contador pasa la consulta 24 (las 18:30), a las 7,17; el celular un poco más
+  abajo (el contador no tapa "Carretas").
+- P3i: lo que sube detrás de la ficha fija ya no se dibuja (no queda "y me mudo el 1°." cortado); "Yo ya no." y "Yo también."
+  a y 350 (la punta no pisa la cabecera).
+- Q2: "Agustina · ANDA · Martina · CGN" a 56 px de canvas (≈ 50 en pantalla).
+- "para tu inmobiliaria": no se tocó (bajar el atempo alargaba el cierre a > 3,5 s).
+- Mezcla re-medida (solo se movió el whoosh del chip): voz ≥ +15,7 LU, -14,0 LUFS, máximo sin voz -31,7. check: 0 errores.
+- Snapshots: renders/snap/p5 (P2, P3i, P4, Q2, Q3b a 30 fps 34,533/34,567/34,6, Q4, Q4f a 30 fps 39,0/39,033/39,067), p6, p7.
 
 ## Pasadas
 - r1 (recorte): snapshots a los dos lados de cada corte nuevo (renders/snap/r1, r1b): Q1b quedaba con Silvana y Diego
@@ -177,4 +195,4 @@ celulares llenando la mitad de arriba; regenerada en r2 con las bocas cerradas).
 - La parte 1 tiene planos largos (P1 5,45 s, P3i 5,0 s): las pausas de comedia y el tipeo.
 - El narrador con atempo 1,1: el STT lo oye igual que el original ("agente de ella más tarde"), revisar de oído.
 - En P3i la burbuja "Yo ya no." tapa la cabecera del chat (queda el mensaje de Agustina y la nota de voz a la vista).
-- Render final no hecho (lo hace el coordinador); con 4-5 personajes por plano, SwiftShader ~20-25 min.
+- El render lo hace el coordinador; con 4-5 personajes por plano, SwiftShader ~20-25 min.
