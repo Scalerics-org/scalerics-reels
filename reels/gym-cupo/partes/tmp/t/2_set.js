@@ -55,7 +55,7 @@ M.tira = new THREE.MeshBasicMaterial({ color: 0x5ce611 }); M.panel = new THREE.M
   // el cartel ESTUDIO MAURO en la pared de adelante (Lexend 900 crema sobre una franja navy2 con borde verde)
   // (r1) en dos renglones y más angosto: en los primeros planos se leía "STUDIO" cortado
   const cartelT = lienzo(900, 560, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#5ce611"; x.fillRect(0, h - 26, w, 26); x.fillStyle = "#efeee5"; x.font = F(900, 210); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ESTUDIO", w / 2, 150); x.fillText("MAURO", w / 2, 370); });
-  SET.add(plano(1.1, 0.69, cartelT, 0, 2.38, ZF + 0.012, true));
+  // (r2) sin cartel: en los primeros planos quedaba cortado ("ESTUDIC") o tapado por la cabeza
   // un estante con el parlante (pared de adelante, a la derecha del cartel)
   SET.add(caja(0.7, 0.04, 0.3, M.navy3, 2.45, 1.55, ZF + 0.15, 0.01));
 }

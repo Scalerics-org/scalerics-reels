@@ -179,8 +179,13 @@ function dibujarMensajeApp(x, W, H, k, { hola, lineas, botones, apretado, f, okT
   } else {
     x.fillStyle = NV2; x.beginPath(); x.roundRect(30 * k, y, W - 60 * k, 190 * k, 34 * k); x.fill();
     x.fillStyle = VD; x.beginPath(); x.arc(104 * k, y + 95 * k, 50 * k, 0, 7); x.fill(); tilde(x, 106 * k, y + 97 * k, 52 * k, NV);
-    x.fillStyle = CRm; x.textAlign = "left"; x.font = F(900, 64 * k); x.fillText(okTxt, 180 * k, y + 66 * k); x.fillStyle = VD; x.font = F(700, 46 * k); x.fillText(okSub, 182 * k, y + 132 * k);
+    x.fillStyle = CRm; x.textAlign = "left"; ajustar(x, okTxt, 900, 64 * k, W - 230 * k); x.fillText(okTxt, 180 * k, y + 66 * k); x.fillStyle = VD; x.font = F(700, 46 * k); x.fillText(okSub, 182 * k, y + 132 * k);
+    y += 190 * k;
   }
+  // (r2) abajo, el mapa de la clase con la bici 4 marcada (no queda media pantalla vacía)
+  const est = {}; for (let n = 1; n <= 14; n++) est[n] = "ocu"; est[4] = f >= 2 && okTxt.includes("reservada") ? "mia" : "libre";
+  const ky = y + 30 * k, esc = Math.min(0.78, (H - ky - 20) / (700 * k));
+  if (esc > 0.35) { x.save(); x.translate((W - W * esc) / 2, ky); x.scale(esc, esc); dibujarMapa(x, 0, 0, W, k, est, "S"); x.restore(); }
 }
 // Q2t · la tablet de la recepción: el mapa de hoy con la 4 que se libera y el aviso a la lista de espera
 function dibujarTablet(x, W, H, k, f) {

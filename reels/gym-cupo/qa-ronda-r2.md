@@ -44,4 +44,12 @@ Cuadros en /tmp/claude-0/-home-user-scalerics-reels/492b8637-440b-5ebe-be47-1a3a
 20. 27,2-29,8: Q3 amontonamiento de cabezas; la del centro tapa la sala; Graciela cortada a la izquierda.
 
 ## Sonido y ritmo
-(pendiente: se agrega cuando llegue; arrancá por lo de arriba)
+### ALTA
+1. 12,88: el empalme de partes/procesar.sh (`aselect='not(between(t,0.64,0.88))'` sobre r-04-mauro-a) corta la "y" de "voy" (semivocal hasta 0,79): se oye "Los yo vo' no pedalean". Cortar dentro del silencio (p. ej. between(t,0.84,1.08)) o acrossfade 10-20 ms.
+### MEDIA
+2. "pedalean" (13,95-14,0): la n está pero truncada (la toma 04-mauro-a termina en seco en plena nasal; más el fundido de 40 ms). Probar 04-mauro-g o -h (nasal completa) o alargar la cola de la n.
+### BAJA
+3. 5,12-5,4: "Llena" débil; la burbuja entra 0,5 s después de la voz.
+4. 19,95-21,7: "¿Quedan tres?" el STT final lo pierde.
+5. Huecos 7,0-10,5 · 22,0-27,0 · 34,0-36,0 a -33/-35 (20 LU bajo la voz): hay margen para subir un poco.
+6. fuentes.md: stinger.wav y zumbido-largo.wav sin autor/sitio/licencia: acreditarlos o cambiarlos por uno acreditado.

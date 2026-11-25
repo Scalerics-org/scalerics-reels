@@ -175,7 +175,7 @@ M.tira = new THREE.MeshBasicMaterial({ color: 0x5ce611 }); M.panel = new THREE.M
   // el cartel ESTUDIO MAURO en la pared de adelante (Lexend 900 crema sobre una franja navy2 con borde verde)
   // (r1) en dos renglones y más angosto: en los primeros planos se leía "STUDIO" cortado
   const cartelT = lienzo(900, 560, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#5ce611"; x.fillRect(0, h - 26, w, 26); x.fillStyle = "#efeee5"; x.font = F(900, 210); x.textAlign = "center"; x.textBaseline = "middle"; x.fillText("ESTUDIO", w / 2, 150); x.fillText("MAURO", w / 2, 370); });
-  SET.add(plano(1.1, 0.69, cartelT, 0, 2.38, ZF + 0.012, true));
+  // (r2) sin cartel: en los primeros planos quedaba cortado ("ESTUDIC") o tapado por la cabeza
   // un estante con el parlante (pared de adelante, a la derecha del cartel)
   SET.add(caja(0.7, 0.04, 0.3, M.navy3, 2.45, 1.55, ZF + 0.15, 0.01));
 }
@@ -440,7 +440,8 @@ function hablar(g, per, s, orden = 1, dx = 0, minArriba = 260) {
 // =====================================================================================================
 const mauro = crearPersonaje({ ...ELENCO.mauro, franja: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
 // Graciela, versión gimnasio: la misma cara, rulos lila y lentes; remera crema de manga larga, calza navy, zapatillas crema
-const graciela = crearPersonaje({ ...ELENCO.clienta, camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
+const graciela = crearPersonaje({ ...ELENCO.clienta, lentes: null,   // (r2) sin lentes: los aros del rig se rompían de 3/4
+  camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
 const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const sole = crearPersonaje({ ...ELENCO.sole, parpadeoCada: 999 });
 // la franja verde de marca en el pecho de Mauro: una banda chata solo adelante (no el aro de personajes.js)
@@ -465,65 +466,65 @@ const RELLENO = [
 const TODOS = [mauro, graciela, majo, sole, ...RELLENO];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // quién va en qué bici: parte 1 (los nueve que vinieron) y parte 2 (las catorce)
-const EN_BICI_1 = [[graciela, 1], [RELLENO[0], 3], [RELLENO[1], 5], [RELLENO[2], 6], [RELLENO[3], 8], [RELLENO[4], 9], [RELLENO[5], 10], [RELLENO[6], 12], [RELLENO[7], 14]];
-const EN_BICI_2 = [...EN_BICI_1, [sole, 4], [majo, 7], [RELLENO[8], 2], [RELLENO[9], 11], [RELLENO[10], 13]];
-const VACIAS_1 = [2, 4, 7, 11, 13];
+const EN_BICI_1 = [[graciela, 1], [RELLENO[0], 3], [RELLENO[1], 5], [RELLENO[2], 6], [RELLENO[3], 8], [RELLENO[4], 11], [RELLENO[5], 10], [RELLENO[6], 12], [RELLENO[7], 14]];
+const EN_BICI_2 = [...EN_BICI_1, [sole, 4], [majo, 7], [RELLENO[8], 2], [RELLENO[9], 9], [RELLENO[10], 13]];
+const VACIAS_1 = [2, 4, 7, 9, 13];   // (r2) la 9 en vez de la 11: se ve en el plano abierto
 
 // =====================================================================================================
 // UTILERÍA
 // =====================================================================================================
-// la toalla crema con una franja verde fina: colgada del manubrio (sobre la barra transversal, en el espacio de la bici)
-function crearToallaColgada() {
-  // una toalla de tela grande doblada sobre la barra: el lomo redondo arriba y dos paños con pliegues que caen
-  const g = new THREE.Group(), m = mat(0xffffff, 0.95), mg = mat(MARCA.g, 0.8);
-  g.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.46, 18).rotateZ(Math.PI / 2), m, 0, 0.012, 0));
-  for (const [z, L, rx] of [[0.04, 0.42, -0.1], [-0.04, 0.34, 0.12]]) {
-    const pa = new THREE.Group(); pa.position.set(0, 0.01, z); pa.rotation.x = rx; g.add(pa);
-    pa.add(caja(0.44, L, 0.03, m, 0, -L / 2, 0, 0.012)); for (let i = 0; i < 4; i++) { const p = mesh(new THREE.CylinderGeometry(0.022, 0.03, L * 0.92, 10), m, -0.15 + i * 0.1, -L * 0.48, 0.012); p.scale.z = 0.6; pa.add(p); }
-    for (const y of [-L + 0.05, -L + 0.1]) pa.add(caja(0.46, 0.022, 0.035, mg, 0, y, 0, 0.005));
+// (r2) LAS TOALLAS DE TELA: una cinta fina y ondulada que sigue una curva (Catmull-Rom), verde de marca con dos franjas
+// crema y flecos en las puntas; doble cara. pts en el espacio del padre; dir: hacia dónde va el ancho (si no, se calcula
+// como tangente × radial, para la que rodea el cuello)
+function crearCinta(pts, ancho, { dir = null, n = 44, m = 7, onda = 0.01, franjas = [0.1, 0.9] } = {}) {
+  const cu = new THREE.CatmullRomCurve3(pts.map((p) => V3(...p)));
+  const pos = [], col = [], idx = [], cG = new THREE.Color(MARCA.g), cC = new THREE.Color(0xf3f1e8);
+  for (let i = 0; i <= n; i++) {
+    const u = i / n, P = cu.getPoint(u), Tg = cu.getTangent(u);
+    let W; if (dir) W = V3(...dir).normalize(); else { const N = V3(P.x, 0, P.z).normalize(); W = Tg.clone().cross(N).normalize(); }
+    const Nn = Tg.clone().cross(W).normalize();
+    const raya = franjas.some((f) => Math.abs(u - f) < 0.025);
+    for (let j = 0; j <= m; j++) {
+      const v = j / m - 0.5, q = P.clone().addScaledVector(W, v * ancho).addScaledVector(Nn, onda * Math.sin(v * Math.PI * 3 + u * 9));
+      pos.push(q.x, q.y, q.z); const c = raya ? cC : cG; col.push(c.r, c.g, c.b);
+    }
   }
-  return sombras(g);
+  for (let i = 0; i < n; i++) for (let j = 0; j < m; j++) { const a = i * (m + 1) + j, b = a + m + 1; idx.push(a, b, a + 1, b, b + 1, a + 1); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); geo.setIndex(idx); geo.computeVertexNormals();
+  const g = new THREE.Group(); const tela = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.95, side: THREE.DoubleSide })); tela.castShadow = true; g.add(tela);
+  // flecos crema en las dos puntas
+  const fm = mat(0xf3f1e8, 0.9);
+  for (const u of [0, 1]) { const P = cu.getPoint(u), Tg = cu.getTangent(u).multiplyScalar(u ? 1 : -1); const W = dir ? V3(...dir).normalize() : Tg.clone().cross(V3(P.x, 0, P.z).normalize()).normalize();
+    for (let j = 0; j < 6; j++) { const f = mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.03, 4), fm); f.position.copy(P).addScaledVector(W, (j / 5 - 0.5) * ancho * 0.9).addScaledVector(Tg, 0.014); f.quaternion.setFromUnitVectors(V3(0, 1, 0), Tg); g.add(f); } }
+  return g;
 }
-// la toalla al cuello (en el espacio del cuerpo): media vuelta por atrás y las dos puntas que caen sobre el pecho
-function crearToallaCuello(k = 1, blanca = false) {
-  // un rollo con volumen que rodea el cuello por atrás y dos puntas redondeadas que caen sobre el pecho, con franja verde
-  const g = new THREE.Group(), m = mat(blanca ? 0xffffff : 0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const ar = mesh(new THREE.TorusGeometry(0.135, 0.045, 12, 28, Math.PI * 1.3), m, 0, 0.5, -0.01); ar.rotation.set(Math.PI / 2 - 0.12, 0, Math.PI * 0.35 - Math.PI * 1.3 / 2 + Math.PI / 2 + Math.PI); ar.scale.set(1, 0.95, 0.7); g.add(ar);
-  for (const s of [-1, 1]) {
-    const pu = new THREE.Group(); pu.position.set(s * 0.1, 0.47, 0.15); pu.rotation.set(-0.35, 0, s * 0.1); g.add(pu);
-    const c = mesh(new THREE.CapsuleGeometry(0.042, 0.13, 6, 12), m, 0, -0.09, 0); c.scale.set(1.05, 1, 0.6); pu.add(c);
-    const f = mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.025, 14), mg, 0, -0.15, 0); f.scale.set(1.05, 1, 0.62); pu.add(f);
-  }
-  g.scale.setScalar(k);
-  return sombras(g);
-}
-// la toalla doblada en la mano (cuelga de la mano)
-function crearToallaMano() {
-  const g = new THREE.Group(), m = mat(0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const mb = mat(0xffffff, 0.9); g.add(caja(0.15, 0.34, 0.03, mb, 0, -0.15, 0, 0.012)); for (const y of [-0.06, -0.27]) g.add(caja(0.152, 0.035, 0.034, mg, 0, y, 0, 0.004));
-  return sombras(g);
-}
+// colgada del manubrio (espacio de la bici, origen en la barra): cae asimétrica, la punta de adelante más larga
+const crearToallaColgada = () => crearCinta([[0.04, -0.4, 0.06], [0.02, -0.22, 0.05], [0, -0.06, 0.04], [0, 0.03, 0.0], [0, -0.04, -0.04], [-0.03, -0.17, -0.06], [-0.06, -0.26, -0.03]], 0.4, { dir: [1, 0, 0.12], onda: 0.014 });
+// al cuello (espacio del cuerpo): las dos puntas sobre el pecho y la vuelta por atrás del cuello
+const crearToallaCuello = (k = 1) => { const g = crearCinta([[0.1, 0.26, 0.225], [0.11, 0.4, 0.2], [0.135, 0.51, 0.06], [0.07, 0.56, -0.1], [-0.07, 0.56, -0.1], [-0.135, 0.51, 0.06], [-0.11, 0.4, 0.2], [-0.095, 0.29, 0.225]], 0.11, { onda: 0.006, franjas: [0.12, 0.88] }); g.scale.setScalar(k); return g; };
+// en la mano (espacio de la mano): doblada al medio, cae
+const crearToallaMano = () => crearCinta([[0.0, -0.32, 0.03], [0.01, -0.15, 0.025], [0, 0.0, 0.0], [-0.01, -0.12, -0.03], [0.0, -0.28, -0.04]], 0.16, { dir: [1, 0, 0], onda: 0.01 });
 const TOALLA_2 = crearToallaColgada(); scene.add(TOALLA_2);          // la de Graciela en la bici 2 (parte 1)
 const TOALLA_G_MANO = crearToallaMano(); scene.add(TOALLA_G_MANO);    // Graciela en Q3
-const TOALLA_G_CUELLO = crearToallaCuello(1.12, true); graciela.cuerpo.add(TOALLA_G_CUELLO);
+const TOALLA_G_CUELLO = crearToallaCuello(1.05); graciela.cuerpo.add(TOALLA_G_CUELLO);
 const TOALLA_M_CUELLO = crearToallaCuello(1.0); mauro.cuerpo.add(TOALLA_M_CUELLO);
 // la botella de agua verde apagado (bici 4), el celular (bici 7), la campera navy2 (bici 11), la mochila (bici 13)
-const BOTELLA = new THREE.Group(); { BOTELLA.add(mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.21, 18), mat(0x4f8a35, 0.45), 0, 0.105, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.024, 0.032, 0.04, 14), M.cr, 0, 0.23, 0)); scene.add(sombras(BOTELLA)); }
-const celPerT = lienzo(200, 400, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.font = F(800, 60); x.textAlign = "center"; x.fillText("19:00", w / 2, 120); });
-const CEL_7 = crearCelular(celPerT, MARCA.cr2, 0.08, 0.162); CEL_7.scale.setScalar(1.25); scene.add(CEL_7);
-const CAMPERA = crearCamperaColgada({ color: MARCA.navy2, cuello: MARCA.cr, cierre: MARCA.g }); CAMPERA.scale.setScalar(0.62); scene.add(CAMPERA);
-const MOCHILA = crearMochila(0x365f28, MARCA.cr); scene.add(MOCHILA);
+const BOTELLA = new THREE.Group(); { BOTELLA.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.21, 18), mat(0xf3f1e8, 0.45), 0, 0.105, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.026, 0.034, 0.045, 14), M.g, 0, 0.23, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.041, 0.041, 0.05, 18), M.g, 0, 0.1, 0)); scene.add(sombras(BOTELLA)); }
+const celPerT = lienzo(200, 400, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 70); x.font = F(900, 64); x.textAlign = "center"; x.fillText("19:00", w / 2, 200); });
+const CEL_7 = crearCelular(celPerT, MARCA.g, 0.08, 0.162); CEL_7.scale.setScalar(1.25); scene.add(CEL_7);
+const CAMPERA = crearCamperaColgada({ color: MARCA.cr2, cuello: MARCA.navy3, cierre: MARCA.g }); CAMPERA.scale.setScalar(0.62); scene.add(CAMPERA);
+const MOCHILA = crearMochila(MARCA.g, MARCA.navy); scene.add(MOCHILA);
 const PERCHEROS = [TOALLA_2, BOTELLA, CEL_7, CAMPERA, MOCHILA];
 // dónde termina cada perchero, en el espacio de su bici: [bici, x, y, z, rx, ry, rz]
-const PERCH_FIN = [[2, 0, BICI.manubrio[0], BICI.manubrio[1], 0, 0, 0], [4, 0, BICI.asiento + 0.01, 0.02, 0, 0, 0], [7, 0, BICI.manubrio[0] + 0.02, BICI.manubrio[1] - 0.02, -1.25, 0, 0], [11, -0.1, BICI.manubrio[0], BICI.manubrio[1], 0, Math.PI / 2, 0], [13, 0, BICI.asiento + 0.2, -0.02, -0.12, 0, 0]];
+const PERCH_FIN = [[2, 0, BICI.manubrio[0], BICI.manubrio[1], 0, 0, 0], [4, 0, BICI.asiento + 0.01, 0.02, 0, 0, 0], [7, 0, BICI.manubrio[0] + 0.02, BICI.manubrio[1] - 0.02, -1.25, 0, 0], [9, -0.1, BICI.manubrio[0], BICI.manubrio[1], 0, Math.PI / 2, 0], [13, 0, BICI.asiento + 0.2, -0.02, -0.12, 0, 0]];
 // de quién sale cada perchero (el vecino que lo tira): [personaje, lado de la mano]
-const PERCH_DE = [[graciela, "I"], [RELLENO[0], "I"], [RELLENO[2], "D"], [RELLENO[5], "D"], [RELLENO[6], "I"]];
+const PERCH_DE = [[graciela, "I"], [RELLENO[0], "I"], [RELLENO[2], "I"], [RELLENO[3], "I"], [RELLENO[6], "I"]];
 // el celular de Mauro (funda navy2): en la mano (P1) y en el soporte del manubrio (P5); pantalla 420 x 860
 const celMT = lienzo(420, 860, () => {});
-const CEL_M = crearCelular(celMT, MARCA.navy2, 0.08, 0.162); CEL_M.scale.setScalar(1.2); scene.add(CEL_M);
+const CEL_M = crearCelular(celMT, MARCA.g, 0.08, 0.162); CEL_M.scale.setScalar(1.2); scene.add(CEL_M);   // (r2) funda verde: se ve en la mano
 // el celular de Majo (funda verde apagado) en el living (Q1b)
 const celJT = lienzo(420, 860, () => {});
-const CEL_J = crearCelular(celJT, 0x365f28, 0.08, 0.162); CEL_J.scale.setScalar(1.2); scene.add(CEL_J);
+const CEL_J = crearCelular(celJT, MARCA.g, 0.08, 0.162); CEL_J.scale.setScalar(1.2); scene.add(CEL_J);
 
 // =====================================================================================================
 // EL LIVING DE MAJO (Q1, set chico aparte en x = 40): pared crema lisa, sofá navy2 con almohadón verde apagado, lámpara
@@ -732,8 +733,13 @@ function dibujarMensajeApp(x, W, H, k, { hola, lineas, botones, apretado, f, okT
   } else {
     x.fillStyle = NV2; x.beginPath(); x.roundRect(30 * k, y, W - 60 * k, 190 * k, 34 * k); x.fill();
     x.fillStyle = VD; x.beginPath(); x.arc(104 * k, y + 95 * k, 50 * k, 0, 7); x.fill(); tilde(x, 106 * k, y + 97 * k, 52 * k, NV);
-    x.fillStyle = CRm; x.textAlign = "left"; x.font = F(900, 64 * k); x.fillText(okTxt, 180 * k, y + 66 * k); x.fillStyle = VD; x.font = F(700, 46 * k); x.fillText(okSub, 182 * k, y + 132 * k);
+    x.fillStyle = CRm; x.textAlign = "left"; ajustar(x, okTxt, 900, 64 * k, W - 230 * k); x.fillText(okTxt, 180 * k, y + 66 * k); x.fillStyle = VD; x.font = F(700, 46 * k); x.fillText(okSub, 182 * k, y + 132 * k);
+    y += 190 * k;
   }
+  // (r2) abajo, el mapa de la clase con la bici 4 marcada (no queda media pantalla vacía)
+  const est = {}; for (let n = 1; n <= 14; n++) est[n] = "ocu"; est[4] = f >= 2 && okTxt.includes("reservada") ? "mia" : "libre";
+  const ky = y + 30 * k, esc = Math.min(0.78, (H - ky - 20) / (700 * k));
+  if (esc > 0.35) { x.save(); x.translate((W - W * esc) / 2, ky); x.scale(esc, esc); dibujarMapa(x, 0, 0, W, k, est, "S"); x.restore(); }
 }
 // Q2t · la tablet de la recepción: el mapa de hoy con la 4 que se libera y el aviso a la lista de espera
 function dibujarTablet(x, W, H, k, f) {
@@ -901,6 +907,7 @@ const GL = {
   rPanel: crearRotulo([["Panel de ocupación"]], 54),
 };
 const GUIAS = [crearGuia(), crearGuia()];
+const GUIAS5 = [0, 1, 2, 3, 4, 5].map(() => crearGuia());
 // la lupa del celular de Mauro (cuadro 0): el grupo que sube, grande, con la cola hacia el celular
 const LUPA = crearTarjeta(480, 820, () => {}, { fondo: "#e9e6da" });
 let cLupa = "";
@@ -927,7 +934,7 @@ const PLANOS = [
   ["P1b", T.p1b, null],
   ["P2", T.p2, k2(T.p2, T.p3, "Wa", "Wz")],
   // (r1) P3: el gag de cerca, push-in a la primera fila (la toalla en la 2, la botella en la 4, el celular en la 7)
-  ["P3", T.p3, [[T.p3, 1.0, 1.85, -4.1, 0.2, 0.85, -1.3, 58], [T.p3i, 0.95, 1.8, -3.85, 0.2, 0.85, -1.3, 55]]],
+  ["P3", T.p3, [[T.p3, 0.45, 3.1, -4.5, -0.25, -0.5, 1.0, 84], [T.p3i, 0.43, 3.07, -4.4, -0.25, -0.48, 1.0, 82]]],   // (r2) abierto: se cuentan las 5 bicis vacías con su objeto
   ["P3i", T.p3i, null],
   ["P4", T.p4, k2(T.p4, T.p5, "P4a", "P4z")],
   ["P5", T.p5, null],
@@ -943,7 +950,7 @@ const PLANOS = [
   ["Q3", T.q3, [[T.q3, 0.45, 3.05, -4.35, -0.3, -0.3, 0.8, 77], [T.q3b, 0.44, 3.03, -4.25, -0.3, -0.28, 0.8, 76]]],
   ["Q3b", T.q3b, k2(T.q3b, T.q3c, "Q3b", "Q3bz")],
   ["Q3c", T.q3c, k2(T.q3c, T.q3d, "P4a", "P4z")],
-  ["Q3d", T.q3d, [[T.q3d, ...CAM.Q3bz], [T.q4, ...lerpV(CAM.Q3bz, [0.3, 1.8, -3.8, 1.3, 1.27, -1.8, 50], 1)]]],
+  ["Q3d", T.q3d, [[T.q3d, 0.4, 1.75, -3.7, 1.3, 1.32, -1.8, 48], [T.q4, 0.46, 1.74, -3.5, 1.3, 1.34, -1.8, 45]]],   // (r2) plano corto: se pone la toalla y sonríe
   ["Q4", T.q4, null],
   ["C", T.c, k2(T.c, DUR, "C", "Cz")],
 ];
@@ -996,7 +1003,7 @@ const CAD = 1.35;   // pedaladas por segundo (la música a 128)
 const FASE0 = (n) => 1.1 + n * 0.83;
 // sentado en la bici `b`: pies en los pedales (fase), manos al manubrio (si `manos`), el cuerpo un poco adelante
 function enLaBici(per, b, t, base, { fase = 1.2, inclina = 0.1, manos = true, bob = 0 } = {}) {
-  const al = per.cfg.alto ?? 1, ry = BICI.asiento - per.CADERA * al + 0.005, zh = -0.035;
+  const al = per.cfg.alto ?? 1, ry = BICI.asiento - per.CADERA * al + 0.005, zh = -0.07;   // (r2) más atrás: las rodillas no tocan el manubrio
   const w = enBici(b, 0, ry, zh);
   const pz = (l) => { const [z, y] = pedalEn(fase, l); return [z - zh, y - ry]; };
   const p = poseEn(t, [[0, { ...base[0][1], x: w.x, y: w.y + bob, z: w.z, giro: b.rotation.y, sentado: 1, inclina }], ...base.slice(1)]);
@@ -1094,7 +1101,7 @@ function poseMauro(t, pa) {
       [T.musica + 0.4, { ...aC(0.0, -0.02), ...CARA.sonrisa }, 0.4]];
     const p = enLaBici(mauro, b, t, base, pedalea(t, 0, T.musica));
     const u = sg(t, T.vuelta - 0.25, T.vuelta) * (1 - sg(t, T.vuelta + 0.4, T.vuelta + 0.65));
-    if (u > 0) manoA(mauro, p, "I", enBici(b, 0.03, BICI.manubrio[0] + 0.26, BICI.manubrio[1] - 0.1), u, [0.9, -0.2, -0.4]);   // (r1) por arriba del manubrio: no atraviesa el poste
+    if (u > 0) { const fl = eio(sg(t, T.vuelta, T.vuelta + 0.32)); manoA(mauro, p, "I", enBici(b, 0.13, BICI.manubrio[0] + 0.12 + 0.08 * Math.sin(fl * Math.PI), BICI.manubrio[1] - 0.05 + 0.06 * fl), u, [0.9, -0.3, -0.4]); }   // (r2) la mano agarra el borde del celular y lo da vuelta
     return p;
   }
   // parte 2: la toalla al cuello, pedalea con la clase; Q3 "Catorce reservas. Pedalean catorce."; Q3c a Graciela; C a cámara
@@ -1148,7 +1155,8 @@ function ponerObjetos(t, pa) {
       const [my, mz] = BICI.manubrio; BICI_P.updateMatrixWorld(true);
       CEL_M.position.copy(BICI_P.localToWorld(V3(0, my + 0.1, mz - 0.03))); CEL_M.quaternion.copy(BICI_P.quaternion); CEL_M.rotateY(Math.PI); CEL_M.rotateX(-0.45);
       const vib = t > T.vibra && t < T.vibra + 0.4 ? Math.sin(t * 95) * 0.006 : 0; CEL_M.position.x += vib;
-      const u = eio(sg(t, T.vuelta, T.vuelta + 0.3)); if (u > 0) { CEL_M.rotateY(Math.PI * u); CEL_M.translateY(0.02 * Math.sin(u * Math.PI)); }
+      if (pa === "P5c") { CEL_M.quaternion.copy(BICI_P.quaternion); CEL_M.rotateX(-1.05); CEL_M.translateZ(0.07); CEL_M.scale.setScalar(1.6); const u = eio(sg(t, T.vuelta, T.vuelta + 0.32)); if (u > 0) { CEL_M.translateY(0.06 * Math.sin(u * Math.PI)); CEL_M.rotateX(Math.PI * u); } }   // (r2) pantalla arriba; la da vuelta boca abajo contra el manubrio
+      else CEL_M.scale.setScalar(1.2);
     }
   }
   // Graciela: la toalla en la mano en Q3/Q3b y al cuello desde Q3d
@@ -1156,7 +1164,7 @@ function ponerObjetos(t, pa) {
   TOALLA_G_MANO.visible = p2 && (pa === "Q3" || pa === "Q3b" || pa === "Q3c" || (pa === "Q3d" && t < tc));
   if (TOALLA_G_MANO.visible) enMano(TOALLA_G_MANO, graciela, "I", 0, 0, 0, -0.02, 0.02);
   TOALLA_G_CUELLO.visible = p2 && t >= tc && (pa === "Q3d" || pa === "Q4" || pa === "C");
-  TOALLA_M_CUELLO.visible = p2;
+  TOALLA_M_CUELLO.visible = p2 && t >= T.q3d;   // (r2) Mauro se la pone recién después de "En el cuello, Graciela."
   CEL_J.visible = pa === "Q1b";
   if (CEL_J.visible) { const a = manoMundo(majo, "I", _a), b = manoMundo(majo, "D", _b); majo.cuerpo.getWorldQuaternion(_q); CEL_J.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.1, 0)); CEL_J.quaternion.copy(_q); CEL_J.rotateY(Math.PI); CEL_J.rotateX(0.6); CEL_J.translateZ(0.03); }
   // la puerta: se abre con la entrada y se cierra con el último
@@ -1198,6 +1206,11 @@ function renderAt(tIn) {
   if (living) { majo.raiz.visible = true; majo.poner(poseMajo(t, pa)); }
   // ---- cámara ----
   if (pl[2]) ponerCam(catmull(pl[2], t), t);
+  if (pa === "P5c") {   // (r2) primer plano del celular en el soporte, desde arriba: la pantalla con Nico y la mano que lo da vuelta
+    const [my, mz] = BICI.manubrio, u = eo(sg(t, T.p5c, T.p5b)); BICI_P.updateMatrixWorld(true);
+    const c = BICI_P.localToWorld(V3(-0.1, my + 0.78 - 0.06 * u, mz + 0.5 - 0.06 * u)), o = BICI_P.localToWorld(V3(0.03, my + 0.12, mz - 0.03));
+    ponerCam([c.x, c.y, c.z, o.x, o.y, o.z, 40], t);
+  }
   if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
@@ -1214,12 +1227,12 @@ function renderAt(tIn) {
   }
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): la sala con los nueve y las cinco bicis de perchero, todo en la mitad de arriba ----
-  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([0.5, 3.1, -4.65, -0.25, -2.2, 0.8, 86], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false; for (const g of GUIAS) g.visible = false;
   for (const k in CONTADORES) CONTADORES[k].visible = false;
-  for (const g of GUIAS) g.visible = false; LUPA.visible = false;
+  for (const g of GUIAS) g.visible = false; for (const g of GUIAS5) g.visible = false; LUPA.visible = false;
   if (!LIMPIO && !en(tIn, P1, P2)) tarjetas(t, pa);
   renderer.render(scene, camera);
 }
@@ -1230,7 +1243,7 @@ function tarjetas(t, pa) {
   if (pa === "P1") {
     ponerGlobo(GL.c1820, 250, 395, 1, null);
     const ult = T.yv.filter((m) => t >= m).at(-1);
-    ponerContador([["YO VOY", yv, "#5ce611"], ["BICIS", 14, "#efeee5"]], 830, 340, 1, ult !== undefined ? 1 - sg(t, ult, ult + 0.15) : 0);
+    ponerContador([["YO VOY", yv, yv > 14 ? ROJO_CLARO : "#5ce611"], ["BICIS", 14, "#efeee5"]], 830, 340, 1, ult !== undefined ? 1 - sg(t, ult, ult + 0.15) : 0);   // (r2) más "yo voy" que bicis: en rojo
     CEL_M.updateMatrixWorld(true); const [px, py] = objPx(CEL_M);
     ponerLupa(t, 800, 1330, 1, [px, py]);
     if (t >= T.m1) { const g = t >= T.m1 + T.FRASE2.m1 ? GL.m1 : GL.m1a; const [hx, hy] = coronillaPx(mauro); ponerGlobo(g, 320, 660, ent(T.m1), [hx - 20, hy + 20], 2); }
@@ -1240,14 +1253,15 @@ function tarjetas(t, pa) {
     if (t >= T.rotLlena) ponerGlobo(GL.rLlena, 540, 250, ent(T.rotLlena), null, 2);
   }
   if (pa === "P2" || pa === "P3") {
-    ponerGlobo(pa === "P2" && t < T.cierra ? GL.c1855 : GL.c1900, 250, 150, 1, null);
+    if (pa !== "P2" || t >= T.cierra) ponerGlobo(GL.c1900, 250, 150, 1, null);   // (r2) mientras corre el reloj, sin chip
     const tres = t >= T.sienta[0] - 0.05;
-    const filas = [["YO VOY", yv, "#5ce611"], ["BICIS", 14, "#efeee5"]]; if (tres) filas.push(["VINIERON", vin, ROJO_CLARO]);
+    const filas = [["YO VOY", yv, ROJO_CLARO], ["BICIS", 14, "#efeee5"]]; if (tres) filas.push(["VINIERON", vin, ROJO_CLARO]);
     const ult = T.sienta.filter((m) => t >= m).at(-1);
     ponerContador(filas, 830, 90, 1, ult !== undefined && pa === "P2" ? 1 - sg(t, ult, ult + 0.15) : 0);
     if (pa === "P3") {
-      if (t >= T.rotPerch) { const [tx, ty] = objPx(TOALLA_2, V3(0, -0.15, 0.05)); ponerGlobo(GL.rPerch, 760, 760, ent(T.rotPerch), null, 1); ponerGuia(GUIAS[0], 760, 760 + GL.rPerch.userData.H / 2, tx, ty, eo(sg(t, T.rotPerch, T.rotPerch + 0.2))); }
-      if (t >= T.rot5) ponerGlobo(GL.r5, 540, 1720, ent(T.rot5), null, 2);
+      // (r2) plano abierto: "5 bicis vacías" abajo, con una guía a cada objeto (se cuentan); "Bici 2: perchero" a la toalla
+      if (t >= T.rotPerch) { const [tx, ty] = objPx(TOALLA_2, V3(0, -0.12, 0.02)); ponerGlobo(GL.rPerch, 420, 1500, ent(T.rotPerch), null, 1); ponerGuia(GUIAS5[5], 420, 1500 - GL.rPerch.userData.H / 2, tx, ty, eo(sg(t, T.rotPerch, T.rotPerch + 0.2))); }
+      if (t >= T.rot5) { ponerGlobo(GL.r5, 540, 1740, ent(T.rot5), null, 2); PERCHEROS.forEach((o, i) => { if (i === 0) return; const [ox, oy] = objPx(o, V3(0, i === 3 ? -0.15 : i === 4 ? 0 : 0.05, 0)); ponerGuia(GUIAS5[i], 540 + (i - 2.5) * 90, 1740 - GL.r5.userData.H / 2, ox, oy, eo(sg(t, T.rot5 + i * 0.05, T.rot5 + 0.25 + i * 0.05))); }); }
     }
   }
   if (pa === "P3i") { ponerGlobo(GL.c1900, 250, 150, 1, null); ponerGlobo(GL.rCosto, 540, 560, ent(T.rotCosto), null, 2); }
@@ -1255,10 +1269,10 @@ function tarjetas(t, pa) {
   if (pa === "P5" || pa === "P5c" || pa === "P5b") {
     ponerGlobo(GL.c1904, 200, 150, 1, null);
     const v = t >= T.v23 ? 23 : 22, pop = t >= T.v23 ? 1 - sg(t, T.v23, T.v23 + 0.25) : 0;
-    ponerContador([["YO VOY", v, v === 23 ? ROJO_CLARO : "#5ce611"], ["BICIS", 14, "#efeee5"], ["VINIERON", 9, ROJO_CLARO]], 830, 90, 1, pop);
+    ponerContador([["YO VOY", v, ROJO_CLARO], ["BICIS", 14, "#efeee5"], ["VINIERON", 9, ROJO_CLARO]], 830, 90, 1, pop);
   }
   if (pa === "Q1" || pa === "Q1b" || pa === "Q1c") ponerGlobo(GL.c2130, 250, 130, 1, null);
-  if (pa === "Q1b" && t >= T.j2) hablar(t >= T.j2 + T.FRASE2.j2 ? GL.j2 : GL.j2a, majo, ent(T.j2), 1, 0, 260);
+  if (pa === "Q1b" && t >= T.j2) hablar(t >= T.j2 + T.FRASE2.j2 ? GL.j2 : GL.j2a, majo, ent(T.j2), 1, 0, 200);
   if (pa === "Q1c") ponerGlobo(GL.rCupo, 600, 1800, ent(T.reserva7 + 0.1), null, 2);
   if (pa === "Q1s") { ponerGlobo(GL.c2130, 250, 130, 1, null); ponerGlobo(GL.rEspera, 600, 1800, ent(T.q1s + 0.1), null, 2); }
   if (pa === "Q2" || pa === "Q2t" || pa === "Q2s") ponerGlobo(GL.c1500, 250, 130, 1, null);
@@ -1270,7 +1284,7 @@ function tarjetas(t, pa) {
     if (pa === "Q3") ponerContador([["RESERVAS", 14, "#5ce611"], ["VINIERON", 14, "#5ce611"]], 830, 90, 1, 0);
     if (pa === "Q3" && t >= T.m4) ponerGlobo(t >= T.m4 + T.FRASE2.m4 ? GL.m4 : GL.m4a, 540, 1600, ent(T.m4), null, 1);   // por los parlantes: abajo, sin cola
     // (r1) el callback de la plata: Majo en la 7 y Sole en la 4, las dos que en la parte 1 se fueron
-    if (pa === "Q3" && t >= T.m4 + 0.2) for (const [g, per, gi, dx] of [[GL.rMajo, majo, 0, 0], [GL.rSole, sole, 1, 60]]) { const [hx, hy] = coronillaPx(per); const ly = Math.max(470, hy - 190); ponerGlobo(g, cl(hx + dx, 160, 920), ly, ent(T.m4 + 0.2 + gi * 0.15), null, 2); ponerGuia(GUIAS[gi], cl(hx + dx, 160, 920), ly + g.userData.H / 2, hx, hy - 10, eo(sg(t, T.m4 + 0.25, T.m4 + 0.5))); }
+    if (pa === "Q3" && t >= T.m4 + 0.2) for (const [g, per, gi, dx] of [[GL.rMajo, majo, 0, 0], [GL.rSole, sole, 1, 60]]) { const [hx, hy] = coronillaPx(per); const ly = Math.max(470, hy - 190); ponerGlobo(g, cl(hx + dx, 230, 850), ly, ent(T.m4 + 0.2 + gi * 0.15), null, 2); ponerGuia(GUIAS[gi], cl(hx + dx, 230, 850), ly + g.userData.H / 2, hx, hy - 10, eo(sg(t, T.m4 + 0.25, T.m4 + 0.5))); }
     if (pa === "Q3b" && t >= T.g1) hablar(GL.g1, graciela, ent(T.g1), 1, 0, 300);
     if (pa === "Q3c" && t >= T.m5) hablar(GL.m5, mauro, ent(T.m5), 1, 0, 300);
   }
@@ -1278,6 +1292,6 @@ function tarjetas(t, pa) {
 }
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
-window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice() }; };
+window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cel: [CEL_M.visible, CEL_M.position.toArray().map((v) => +v.toFixed(2)), CEL_M.scale.x] }; };
 renderAt(window.__hfThreeTime || 0);
 if (window.__tresListo) window.__tresListo();

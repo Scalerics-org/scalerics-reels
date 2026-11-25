@@ -20,7 +20,7 @@ const PLANOS = [
   ["P1b", T.p1b, null],
   ["P2", T.p2, k2(T.p2, T.p3, "Wa", "Wz")],
   // (r1) P3: el gag de cerca, push-in a la primera fila (la toalla en la 2, la botella en la 4, el celular en la 7)
-  ["P3", T.p3, [[T.p3, 1.0, 1.85, -4.1, 0.2, 0.85, -1.3, 58], [T.p3i, 0.95, 1.8, -3.85, 0.2, 0.85, -1.3, 55]]],
+  ["P3", T.p3, [[T.p3, 0.45, 3.1, -4.5, -0.25, -0.5, 1.0, 84], [T.p3i, 0.43, 3.07, -4.4, -0.25, -0.48, 1.0, 82]]],   // (r2) abierto: se cuentan las 5 bicis vacías con su objeto
   ["P3i", T.p3i, null],
   ["P4", T.p4, k2(T.p4, T.p5, "P4a", "P4z")],
   ["P5", T.p5, null],
@@ -36,7 +36,7 @@ const PLANOS = [
   ["Q3", T.q3, [[T.q3, 0.45, 3.05, -4.35, -0.3, -0.3, 0.8, 77], [T.q3b, 0.44, 3.03, -4.25, -0.3, -0.28, 0.8, 76]]],
   ["Q3b", T.q3b, k2(T.q3b, T.q3c, "Q3b", "Q3bz")],
   ["Q3c", T.q3c, k2(T.q3c, T.q3d, "P4a", "P4z")],
-  ["Q3d", T.q3d, [[T.q3d, ...CAM.Q3bz], [T.q4, ...lerpV(CAM.Q3bz, [0.3, 1.8, -3.8, 1.3, 1.27, -1.8, 50], 1)]]],
+  ["Q3d", T.q3d, [[T.q3d, 0.4, 1.75, -3.7, 1.3, 1.32, -1.8, 48], [T.q4, 0.46, 1.74, -3.5, 1.3, 1.34, -1.8, 45]]],   // (r2) plano corto: se pone la toalla y sonríe
   ["Q4", T.q4, null],
   ["C", T.c, k2(T.c, DUR, "C", "Cz")],
 ];

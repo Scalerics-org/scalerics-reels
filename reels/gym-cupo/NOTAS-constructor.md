@@ -150,3 +150,45 @@ Arte
 - Portada: `portada-src/fondo-limpio-10.0.png` (VER=portada LIMPIO=1 a 10,0 s, fin del gag: Graciela, el celular grande en
   la 7, la botella en la 4, el reloj 19:00) y `node herramientas/portada.mjs gym-cupo` → portada.png; textos entre y ≈ 330
   y 1600. La toalla de la 2 queda debajo de "MARTES, 19:00." y el sello "GIMNASIOS" pisa el reloj.
+
+## Ronda 2 de corrección (qa-ronda-r2.md) · render r3
+**Duración 40,4 s** (parte 1 0-16,49 · cartel 16,49-19,23 · parte 2 + cierre 21,2 s, 52 %; cierre 38,85-40,4). Las voces
+reprocesadas con la cola a -50 dB (no se truncan las nasales) suman ~0,1 s cada una y Q2s/Q3d se alargaron a pedido: no llegué
+a 38-39 s. Mezcla: voz ≥ +8,1 LU en todos los tramos, -14,0 LUFS, máximo sin voz -31,0. check: 0 errores.
+Guion
+- ALTA 1 / arte ALTA 1 (percheros): P3 es un plano ABIERTO desde la tarima (fov 84) donde se ven las 5 vacías: 2, 4, 7, 9 y
+  13 (la 9 reemplaza a la 11, que no se veía). Objetos grandes y de color: toalla de tela verde de marca con franjas crema y
+  flecos, colgada asimétrica de la barra; botella crema con tapa verde; celular de funda verde con pantalla crema; campera
+  crema; mochila verde. Cada uno vuela desde la mano del vecino (Graciela tira la toalla, se la ve entera a la izquierda).
+  "Bici 2: perchero" con guía a la toalla y "5 bicis vacías" con una guía a cada objeto.
+- ALTA 2 / arte MEDIA 4-6: las tres toallas son ahora TELA: una cinta fina ondulada (geometría propia, `crearCinta`) que sigue
+  una curva, verde con franjas crema y flecos. Graciela la lleva en la mano (cae doblada, contrasta con la remera crema), la
+  sube con las dos manos al cuello y queda con las puntas sobre el pecho; plano corto Q3d de 0,9 s con la sonrisa. Mauro no
+  tiene toalla hasta después de "En el cuello, Graciela." (Q4/C).
+- MEDIA 3 (cuadro 0): sin cartel ESTUDIO MAURO (se sacó del reel: quedaba cortado en todos los primeros planos); el número
+  de YO VOY pasa a rojo apenas supera las 14 bicis (la ironía: 22 contra 14).
+- MEDIA 4: "Bici 4 reservada ✓" 1,3 s y sin corte (texto ajustado), "Ocupada otra vez en 3 minutos" 1,25 s.
+- MEDIA 5 / arte 14 (portada): fondo nuevo (VER=portada a 10,0 s, cámara alta desde la tarima): Graciela entera, la toalla en
+  la 2, la botella en la 4, el celular en la 7, la campera en la 9 y la mochila en la 13 en la mitad de arriba; el reloj
+  queda arriba de todo (no lo pisa el sello).
+- MEDIA 6: la parte 1 bajó 0,1 s nada más (pausa antes del remate 0,5 → 0,4, P5 más corto); la parte 2 creció (Q2s y Q3d).
+- BAJA 7: etiquetas Majo/Sole lejos del borde (x 230-850). BAJA 8: el aviso a Sole con el mapa abajo (el recordatorio de
+  Lucía sigue con espacio libre abajo). BAJA 9-10: sin tocar / cartel sacado.
+Arte
+- ALTA 2 (P5c): primer plano del celular en el soporte, desde arriba: la pantalla con "Nico: ¿Ya empezó? Yo voy." y el 23;
+  la mano izquierda de Mauro agarra el borde y lo da vuelta boca abajo contra el manubrio (se ve la funda verde). El celular
+  estaba fuera de la escena (un comentario se había tragado su `scene.add`): corregido. La música no se ve subir.
+- ALTA 3 / MEDIA 4: Graciela sin lentes en este reel (el rig rompía los aros de 3/4).
+- MEDIA 7: sin cartel. MEDIA 8: etiquetas. MEDIA 9: los ciclistas más atrás en el asiento (zh -0,07): las rodillas no
+  tocan el manubrio. MEDIA 10: el celular de Mauro con funda verde (se ve en sus manos y la lupa sale de ahí). MEDIA 11:
+  la burbuja de Majo más arriba y su celular verde. MEDIA 12: ver BAJA 8. MEDIA 13: plano abierto con Graciela.
+- BAJA 15-16: reloj más abajo y sin chip mientras corre; 18: la notificación entra a 0,12 s; 17, 19, 20 sin tocar.
+Sonido
+- ALTA 1: sin empalme: el remate es la toma 04-mauro-h entera (pausa natural "voy… no pedalean", la n completa con la cola a
+  -50 dB). MEDIA 2: idem; el STT sigue oyendo "pedalear" en todas las tomas (ver ronda 1).
+- BAJA 6: stinger.wav acreditado (DanJFilms, Freesound, CC0) y zumbido-largo.wav reemplazado por zumbido.wav (gchase,
+  Freesound, CC0). BAJA 3-5 sin tocar.
+- Pasada completa cada 0,5 s (renders/snap/pasa2/hoja1.png, hoja2.png) y cuadros alrededor de cada cambio (r2c, r7).
+- Render r3: 1495 s (24,9 min, sin espera) + paso10.sh 77 s → `renders/gym-cupo-final.mp4` (40,40 s, -14,0 LUFS, pico
+  -5,2 dBFS). Portada regenerada (`portada.png`, fondo `portada-src/fondo-limpio-10.0.png`): el sello "GIMNASIOS" roza el
+  pelo de Graciela; el reloj queda libre arriba; textos entre y ≈ 1150 y 1600.

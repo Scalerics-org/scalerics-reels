@@ -58,5 +58,10 @@ Usados en la mezcla (gen.mjs), con su crédito:
 - `vibra.wav`: "Cell phone vibrate, on table hard surface.wav", SpliceSound, Freesound
   (https://freesound.org/people/SpliceSound/sounds/369839/), CC0 1.0.
 - `paso-0..4.wav`, `k-tick-1/2/4.wav`, `k-cloth_1/2.wav`, `k-metal-click.wav`: Kenney (Impact Sounds / RPG Audio), CC0 1.0.
-- De la biblioteca de HyperFrames del repo: pop, whoosh, whoosh-short, notification, cero, click-soft, key-press,
-  stinger, zumbido-largo (ver `reels/veterinaria-vacunas/fuentes.md`).
+- `stinger.wav` (el corte al cartel, primeros 0,6 s): "Vibraphone Transition Music Cue", DanJFilms, Freesound
+  (https://freesound.org/people/DanJFilms/sounds/528980/), CC0 1.0.
+- `zumbido.wav` (el tono del living de Majo, con pasabajos): "Room Tone Ambience Medium Control Low Hum", gchase,
+  Freesound (https://freesound.org/people/gchase/sounds/144046/), CC0 1.0 (de `reels/anotamelo`; reemplaza a
+  zumbido-largo.wav, que no tenía origen anotado).
+- De la biblioteca de HyperFrames del repo: pop, whoosh, whoosh-short, notification, cero, click-soft, key-press
+  (ver `reels/veterinaria-vacunas/fuentes.md`).

@@ -7,7 +7,7 @@ const CAD = 1.35;   // pedaladas por segundo (la música a 128)
 const FASE0 = (n) => 1.1 + n * 0.83;
 // sentado en la bici `b`: pies en los pedales (fase), manos al manubrio (si `manos`), el cuerpo un poco adelante
 function enLaBici(per, b, t, base, { fase = 1.2, inclina = 0.1, manos = true, bob = 0 } = {}) {
-  const al = per.cfg.alto ?? 1, ry = BICI.asiento - per.CADERA * al + 0.005, zh = -0.035;
+  const al = per.cfg.alto ?? 1, ry = BICI.asiento - per.CADERA * al + 0.005, zh = -0.07;   // (r2) más atrás: las rodillas no tocan el manubrio
   const w = enBici(b, 0, ry, zh);
   const pz = (l) => { const [z, y] = pedalEn(fase, l); return [z - zh, y - ry]; };
   const p = poseEn(t, [[0, { ...base[0][1], x: w.x, y: w.y + bob, z: w.z, giro: b.rotation.y, sentado: 1, inclina }], ...base.slice(1)]);
@@ -105,7 +105,7 @@ function poseMauro(t, pa) {
       [T.musica + 0.4, { ...aC(0.0, -0.02), ...CARA.sonrisa }, 0.4]];
     const p = enLaBici(mauro, b, t, base, pedalea(t, 0, T.musica));
     const u = sg(t, T.vuelta - 0.25, T.vuelta) * (1 - sg(t, T.vuelta + 0.4, T.vuelta + 0.65));
-    if (u > 0) manoA(mauro, p, "I", enBici(b, 0.03, BICI.manubrio[0] + 0.26, BICI.manubrio[1] - 0.1), u, [0.9, -0.2, -0.4]);   // (r1) por arriba del manubrio: no atraviesa el poste
+    if (u > 0) { const fl = eio(sg(t, T.vuelta, T.vuelta + 0.32)); manoA(mauro, p, "I", enBici(b, 0.13, BICI.manubrio[0] + 0.12 + 0.08 * Math.sin(fl * Math.PI), BICI.manubrio[1] - 0.05 + 0.06 * fl), u, [0.9, -0.3, -0.4]); }   // (r2) la mano agarra el borde del celular y lo da vuelta
     return p;
   }
   // parte 2: la toalla al cuello, pedalea con la clase; Q3 "Catorce reservas. Pedalean catorce."; Q3c a Graciela; C a cámara
@@ -159,7 +159,8 @@ function ponerObjetos(t, pa) {
       const [my, mz] = BICI.manubrio; BICI_P.updateMatrixWorld(true);
       CEL_M.position.copy(BICI_P.localToWorld(V3(0, my + 0.1, mz - 0.03))); CEL_M.quaternion.copy(BICI_P.quaternion); CEL_M.rotateY(Math.PI); CEL_M.rotateX(-0.45);
       const vib = t > T.vibra && t < T.vibra + 0.4 ? Math.sin(t * 95) * 0.006 : 0; CEL_M.position.x += vib;
-      const u = eio(sg(t, T.vuelta, T.vuelta + 0.3)); if (u > 0) { CEL_M.rotateY(Math.PI * u); CEL_M.translateY(0.02 * Math.sin(u * Math.PI)); }
+      if (pa === "P5c") { CEL_M.quaternion.copy(BICI_P.quaternion); CEL_M.rotateX(-1.05); CEL_M.translateZ(0.07); CEL_M.scale.setScalar(1.6); const u = eio(sg(t, T.vuelta, T.vuelta + 0.32)); if (u > 0) { CEL_M.translateY(0.06 * Math.sin(u * Math.PI)); CEL_M.rotateX(Math.PI * u); } }   // (r2) pantalla arriba; la da vuelta boca abajo contra el manubrio
+      else CEL_M.scale.setScalar(1.2);
     }
   }
   // Graciela: la toalla en la mano en Q3/Q3b y al cuello desde Q3d
@@ -167,7 +168,7 @@ function ponerObjetos(t, pa) {
   TOALLA_G_MANO.visible = p2 && (pa === "Q3" || pa === "Q3b" || pa === "Q3c" || (pa === "Q3d" && t < tc));
   if (TOALLA_G_MANO.visible) enMano(TOALLA_G_MANO, graciela, "I", 0, 0, 0, -0.02, 0.02);
   TOALLA_G_CUELLO.visible = p2 && t >= tc && (pa === "Q3d" || pa === "Q4" || pa === "C");
-  TOALLA_M_CUELLO.visible = p2;
+  TOALLA_M_CUELLO.visible = p2 && t >= T.q3d;   // (r2) Mauro se la pone recién después de "En el cuello, Graciela."
   CEL_J.visible = pa === "Q1b";
   if (CEL_J.visible) { const a = manoMundo(majo, "I", _a), b = manoMundo(majo, "D", _b); majo.cuerpo.getWorldQuaternion(_q); CEL_J.position.copy(a).add(b).multiplyScalar(0.5).add(V3(0, 0.1, 0)); CEL_J.quaternion.copy(_q); CEL_J.rotateY(Math.PI); CEL_J.rotateX(0.6); CEL_J.translateZ(0.03); }
   // la puerta: se abre con la entrada y se cierra con el último
@@ -209,6 +210,11 @@ function renderAt(tIn) {
   if (living) { majo.raiz.visible = true; majo.poner(poseMajo(t, pa)); }
   // ---- cámara ----
   if (pl[2]) ponerCam(catmull(pl[2], t), t);
+  if (pa === "P5c") {   // (r2) primer plano del celular en el soporte, desde arriba: la pantalla con Nico y la mano que lo da vuelta
+    const [my, mz] = BICI.manubrio, u = eo(sg(t, T.p5c, T.p5b)); BICI_P.updateMatrixWorld(true);
+    const c = BICI_P.localToWorld(V3(-0.1, my + 0.78 - 0.06 * u, mz + 0.5 - 0.06 * u)), o = BICI_P.localToWorld(V3(0.03, my + 0.12, mz - 0.03));
+    ponerCam([c.x, c.y, c.z, o.x, o.y, o.z, 40], t);
+  }
   if (VER && VER.startsWith("cam:")) ponerCam(VER.slice(4).split(",").map(Number), t);
   if (window.__cam) ponerCam(window.__cam, t);
   camera.updateMatrixWorld(true);
@@ -225,12 +231,12 @@ function renderAt(tIn) {
   }
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): la sala con los nueve y las cinco bicis de perchero, todo en la mitad de arriba ----
-  if (VER === "portada") { ponerCam([0.75, 2.6, -5.1, -0.1, 0.25, 0.4, 66], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([0.5, 3.1, -4.65, -0.25, -2.2, 0.8, 86], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false; for (const g of GUIAS) g.visible = false;
   for (const k in CONTADORES) CONTADORES[k].visible = false;
-  for (const g of GUIAS) g.visible = false; LUPA.visible = false;
+  for (const g of GUIAS) g.visible = false; for (const g of GUIAS5) g.visible = false; LUPA.visible = false;
   if (!LIMPIO && !en(tIn, P1, P2)) tarjetas(t, pa);
   renderer.render(scene, camera);
 }
@@ -241,7 +247,7 @@ function tarjetas(t, pa) {
   if (pa === "P1") {
     ponerGlobo(GL.c1820, 250, 395, 1, null);
     const ult = T.yv.filter((m) => t >= m).at(-1);
-    ponerContador([["YO VOY", yv, "#5ce611"], ["BICIS", 14, "#efeee5"]], 830, 340, 1, ult !== undefined ? 1 - sg(t, ult, ult + 0.15) : 0);
+    ponerContador([["YO VOY", yv, yv > 14 ? ROJO_CLARO : "#5ce611"], ["BICIS", 14, "#efeee5"]], 830, 340, 1, ult !== undefined ? 1 - sg(t, ult, ult + 0.15) : 0);   // (r2) más "yo voy" que bicis: en rojo
     CEL_M.updateMatrixWorld(true); const [px, py] = objPx(CEL_M);
     ponerLupa(t, 800, 1330, 1, [px, py]);
     if (t >= T.m1) { const g = t >= T.m1 + T.FRASE2.m1 ? GL.m1 : GL.m1a; const [hx, hy] = coronillaPx(mauro); ponerGlobo(g, 320, 660, ent(T.m1), [hx - 20, hy + 20], 2); }
@@ -251,14 +257,15 @@ function tarjetas(t, pa) {
     if (t >= T.rotLlena) ponerGlobo(GL.rLlena, 540, 250, ent(T.rotLlena), null, 2);
   }
   if (pa === "P2" || pa === "P3") {
-    ponerGlobo(pa === "P2" && t < T.cierra ? GL.c1855 : GL.c1900, 250, 150, 1, null);
+    if (pa !== "P2" || t >= T.cierra) ponerGlobo(GL.c1900, 250, 150, 1, null);   // (r2) mientras corre el reloj, sin chip
     const tres = t >= T.sienta[0] - 0.05;
-    const filas = [["YO VOY", yv, "#5ce611"], ["BICIS", 14, "#efeee5"]]; if (tres) filas.push(["VINIERON", vin, ROJO_CLARO]);
+    const filas = [["YO VOY", yv, ROJO_CLARO], ["BICIS", 14, "#efeee5"]]; if (tres) filas.push(["VINIERON", vin, ROJO_CLARO]);
     const ult = T.sienta.filter((m) => t >= m).at(-1);
     ponerContador(filas, 830, 90, 1, ult !== undefined && pa === "P2" ? 1 - sg(t, ult, ult + 0.15) : 0);
     if (pa === "P3") {
-      if (t >= T.rotPerch) { const [tx, ty] = objPx(TOALLA_2, V3(0, -0.15, 0.05)); ponerGlobo(GL.rPerch, 760, 760, ent(T.rotPerch), null, 1); ponerGuia(GUIAS[0], 760, 760 + GL.rPerch.userData.H / 2, tx, ty, eo(sg(t, T.rotPerch, T.rotPerch + 0.2))); }
-      if (t >= T.rot5) ponerGlobo(GL.r5, 540, 1720, ent(T.rot5), null, 2);
+      // (r2) plano abierto: "5 bicis vacías" abajo, con una guía a cada objeto (se cuentan); "Bici 2: perchero" a la toalla
+      if (t >= T.rotPerch) { const [tx, ty] = objPx(TOALLA_2, V3(0, -0.12, 0.02)); ponerGlobo(GL.rPerch, 420, 1500, ent(T.rotPerch), null, 1); ponerGuia(GUIAS5[5], 420, 1500 - GL.rPerch.userData.H / 2, tx, ty, eo(sg(t, T.rotPerch, T.rotPerch + 0.2))); }
+      if (t >= T.rot5) { ponerGlobo(GL.r5, 540, 1740, ent(T.rot5), null, 2); PERCHEROS.forEach((o, i) => { if (i === 0) return; const [ox, oy] = objPx(o, V3(0, i === 3 ? -0.15 : i === 4 ? 0 : 0.05, 0)); ponerGuia(GUIAS5[i], 540 + (i - 2.5) * 90, 1740 - GL.r5.userData.H / 2, ox, oy, eo(sg(t, T.rot5 + i * 0.05, T.rot5 + 0.25 + i * 0.05))); }); }
     }
   }
   if (pa === "P3i") { ponerGlobo(GL.c1900, 250, 150, 1, null); ponerGlobo(GL.rCosto, 540, 560, ent(T.rotCosto), null, 2); }
@@ -266,10 +273,10 @@ function tarjetas(t, pa) {
   if (pa === "P5" || pa === "P5c" || pa === "P5b") {
     ponerGlobo(GL.c1904, 200, 150, 1, null);
     const v = t >= T.v23 ? 23 : 22, pop = t >= T.v23 ? 1 - sg(t, T.v23, T.v23 + 0.25) : 0;
-    ponerContador([["YO VOY", v, v === 23 ? ROJO_CLARO : "#5ce611"], ["BICIS", 14, "#efeee5"], ["VINIERON", 9, ROJO_CLARO]], 830, 90, 1, pop);
+    ponerContador([["YO VOY", v, ROJO_CLARO], ["BICIS", 14, "#efeee5"], ["VINIERON", 9, ROJO_CLARO]], 830, 90, 1, pop);
   }
   if (pa === "Q1" || pa === "Q1b" || pa === "Q1c") ponerGlobo(GL.c2130, 250, 130, 1, null);
-  if (pa === "Q1b" && t >= T.j2) hablar(t >= T.j2 + T.FRASE2.j2 ? GL.j2 : GL.j2a, majo, ent(T.j2), 1, 0, 260);
+  if (pa === "Q1b" && t >= T.j2) hablar(t >= T.j2 + T.FRASE2.j2 ? GL.j2 : GL.j2a, majo, ent(T.j2), 1, 0, 200);
   if (pa === "Q1c") ponerGlobo(GL.rCupo, 600, 1800, ent(T.reserva7 + 0.1), null, 2);
   if (pa === "Q1s") { ponerGlobo(GL.c2130, 250, 130, 1, null); ponerGlobo(GL.rEspera, 600, 1800, ent(T.q1s + 0.1), null, 2); }
   if (pa === "Q2" || pa === "Q2t" || pa === "Q2s") ponerGlobo(GL.c1500, 250, 130, 1, null);
@@ -281,7 +288,7 @@ function tarjetas(t, pa) {
     if (pa === "Q3") ponerContador([["RESERVAS", 14, "#5ce611"], ["VINIERON", 14, "#5ce611"]], 830, 90, 1, 0);
     if (pa === "Q3" && t >= T.m4) ponerGlobo(t >= T.m4 + T.FRASE2.m4 ? GL.m4 : GL.m4a, 540, 1600, ent(T.m4), null, 1);   // por los parlantes: abajo, sin cola
     // (r1) el callback de la plata: Majo en la 7 y Sole en la 4, las dos que en la parte 1 se fueron
-    if (pa === "Q3" && t >= T.m4 + 0.2) for (const [g, per, gi, dx] of [[GL.rMajo, majo, 0, 0], [GL.rSole, sole, 1, 60]]) { const [hx, hy] = coronillaPx(per); const ly = Math.max(470, hy - 190); ponerGlobo(g, cl(hx + dx, 160, 920), ly, ent(T.m4 + 0.2 + gi * 0.15), null, 2); ponerGuia(GUIAS[gi], cl(hx + dx, 160, 920), ly + g.userData.H / 2, hx, hy - 10, eo(sg(t, T.m4 + 0.25, T.m4 + 0.5))); }
+    if (pa === "Q3" && t >= T.m4 + 0.2) for (const [g, per, gi, dx] of [[GL.rMajo, majo, 0, 0], [GL.rSole, sole, 1, 60]]) { const [hx, hy] = coronillaPx(per); const ly = Math.max(470, hy - 190); ponerGlobo(g, cl(hx + dx, 230, 850), ly, ent(T.m4 + 0.2 + gi * 0.15), null, 2); ponerGuia(GUIAS[gi], cl(hx + dx, 230, 850), ly + g.userData.H / 2, hx, hy - 10, eo(sg(t, T.m4 + 0.25, T.m4 + 0.5))); }
     if (pa === "Q3b" && t >= T.g1) hablar(GL.g1, graciela, ent(T.g1), 1, 0, 300);
     if (pa === "Q3c" && t >= T.m5) hablar(GL.m5, mauro, ent(T.m5), 1, 0, 300);
   }
@@ -289,6 +296,6 @@ function tarjetas(t, pa) {
 }
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
-window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice() }; };
+window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cel: [CEL_M.visible, CEL_M.position.toArray().map((v) => +v.toFixed(2)), CEL_M.scale.x] }; };
 renderAt(window.__hfThreeTime || 0);
 if (window.__tresListo) window.__tresListo();

@@ -4,7 +4,8 @@
 // =====================================================================================================
 const mauro = crearPersonaje({ ...ELENCO.mauro, franja: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.p3 + 0.3), r2(T.p5c + 0.6)] });
 // Graciela, versión gimnasio: la misma cara, rulos lila y lentes; remera crema de manga larga, calza navy, zapatillas crema
-const graciela = crearPersonaje({ ...ELENCO.clienta, camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
+const graciela = crearPersonaje({ ...ELENCO.clienta, lentes: null,   // (r2) sin lentes: los aros del rig se rompían de 3/4
+  camisa: MARCA.cr, cuello: MARCA.cr2, cuelloFino: true, cuelloBotones: false, pollera: null, pantalon: MARCA.navy, zapatos: MARCA.cr, aros: null, dedos: true, parpadeoCada: 999, parpadeosExtra: [r2(T.q3b + 1.5)] });
 const majo = crearPersonaje({ ...ELENCO.majo, dedos: true, parpadeoCada: 999, parpadeosExtra: [] });
 const sole = crearPersonaje({ ...ELENCO.sole, parpadeoCada: 999 });
 // la franja verde de marca en el pecho de Mauro: una banda chata solo adelante (no el aro de personajes.js)
@@ -29,65 +30,65 @@ const RELLENO = [
 const TODOS = [mauro, graciela, majo, sole, ...RELLENO];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // quién va en qué bici: parte 1 (los nueve que vinieron) y parte 2 (las catorce)
-const EN_BICI_1 = [[graciela, 1], [RELLENO[0], 3], [RELLENO[1], 5], [RELLENO[2], 6], [RELLENO[3], 8], [RELLENO[4], 9], [RELLENO[5], 10], [RELLENO[6], 12], [RELLENO[7], 14]];
-const EN_BICI_2 = [...EN_BICI_1, [sole, 4], [majo, 7], [RELLENO[8], 2], [RELLENO[9], 11], [RELLENO[10], 13]];
-const VACIAS_1 = [2, 4, 7, 11, 13];
+const EN_BICI_1 = [[graciela, 1], [RELLENO[0], 3], [RELLENO[1], 5], [RELLENO[2], 6], [RELLENO[3], 8], [RELLENO[4], 11], [RELLENO[5], 10], [RELLENO[6], 12], [RELLENO[7], 14]];
+const EN_BICI_2 = [...EN_BICI_1, [sole, 4], [majo, 7], [RELLENO[8], 2], [RELLENO[9], 9], [RELLENO[10], 13]];
+const VACIAS_1 = [2, 4, 7, 9, 13];   // (r2) la 9 en vez de la 11: se ve en el plano abierto
 
 // =====================================================================================================
 // UTILERÍA
 // =====================================================================================================
-// la toalla crema con una franja verde fina: colgada del manubrio (sobre la barra transversal, en el espacio de la bici)
-function crearToallaColgada() {
-  // una toalla de tela grande doblada sobre la barra: el lomo redondo arriba y dos paños con pliegues que caen
-  const g = new THREE.Group(), m = mat(0xffffff, 0.95), mg = mat(MARCA.g, 0.8);
-  g.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.46, 18).rotateZ(Math.PI / 2), m, 0, 0.012, 0));
-  for (const [z, L, rx] of [[0.04, 0.42, -0.1], [-0.04, 0.34, 0.12]]) {
-    const pa = new THREE.Group(); pa.position.set(0, 0.01, z); pa.rotation.x = rx; g.add(pa);
-    pa.add(caja(0.44, L, 0.03, m, 0, -L / 2, 0, 0.012)); for (let i = 0; i < 4; i++) { const p = mesh(new THREE.CylinderGeometry(0.022, 0.03, L * 0.92, 10), m, -0.15 + i * 0.1, -L * 0.48, 0.012); p.scale.z = 0.6; pa.add(p); }
-    for (const y of [-L + 0.05, -L + 0.1]) pa.add(caja(0.46, 0.022, 0.035, mg, 0, y, 0, 0.005));
+// (r2) LAS TOALLAS DE TELA: una cinta fina y ondulada que sigue una curva (Catmull-Rom), verde de marca con dos franjas
+// crema y flecos en las puntas; doble cara. pts en el espacio del padre; dir: hacia dónde va el ancho (si no, se calcula
+// como tangente × radial, para la que rodea el cuello)
+function crearCinta(pts, ancho, { dir = null, n = 44, m = 7, onda = 0.01, franjas = [0.1, 0.9] } = {}) {
+  const cu = new THREE.CatmullRomCurve3(pts.map((p) => V3(...p)));
+  const pos = [], col = [], idx = [], cG = new THREE.Color(MARCA.g), cC = new THREE.Color(0xf3f1e8);
+  for (let i = 0; i <= n; i++) {
+    const u = i / n, P = cu.getPoint(u), Tg = cu.getTangent(u);
+    let W; if (dir) W = V3(...dir).normalize(); else { const N = V3(P.x, 0, P.z).normalize(); W = Tg.clone().cross(N).normalize(); }
+    const Nn = Tg.clone().cross(W).normalize();
+    const raya = franjas.some((f) => Math.abs(u - f) < 0.025);
+    for (let j = 0; j <= m; j++) {
+      const v = j / m - 0.5, q = P.clone().addScaledVector(W, v * ancho).addScaledVector(Nn, onda * Math.sin(v * Math.PI * 3 + u * 9));
+      pos.push(q.x, q.y, q.z); const c = raya ? cC : cG; col.push(c.r, c.g, c.b);
+    }
   }
-  return sombras(g);
+  for (let i = 0; i < n; i++) for (let j = 0; j < m; j++) { const a = i * (m + 1) + j, b = a + m + 1; idx.push(a, b, a + 1, b, b + 1, a + 1); }
+  const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); geo.setIndex(idx); geo.computeVertexNormals();
+  const g = new THREE.Group(); const tela = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.95, side: THREE.DoubleSide })); tela.castShadow = true; g.add(tela);
+  // flecos crema en las dos puntas
+  const fm = mat(0xf3f1e8, 0.9);
+  for (const u of [0, 1]) { const P = cu.getPoint(u), Tg = cu.getTangent(u).multiplyScalar(u ? 1 : -1); const W = dir ? V3(...dir).normalize() : Tg.clone().cross(V3(P.x, 0, P.z).normalize()).normalize();
+    for (let j = 0; j < 6; j++) { const f = mesh(new THREE.CylinderGeometry(0.004, 0.004, 0.03, 4), fm); f.position.copy(P).addScaledVector(W, (j / 5 - 0.5) * ancho * 0.9).addScaledVector(Tg, 0.014); f.quaternion.setFromUnitVectors(V3(0, 1, 0), Tg); g.add(f); } }
+  return g;
 }
-// la toalla al cuello (en el espacio del cuerpo): media vuelta por atrás y las dos puntas que caen sobre el pecho
-function crearToallaCuello(k = 1, blanca = false) {
-  // un rollo con volumen que rodea el cuello por atrás y dos puntas redondeadas que caen sobre el pecho, con franja verde
-  const g = new THREE.Group(), m = mat(blanca ? 0xffffff : 0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const ar = mesh(new THREE.TorusGeometry(0.135, 0.045, 12, 28, Math.PI * 1.3), m, 0, 0.5, -0.01); ar.rotation.set(Math.PI / 2 - 0.12, 0, Math.PI * 0.35 - Math.PI * 1.3 / 2 + Math.PI / 2 + Math.PI); ar.scale.set(1, 0.95, 0.7); g.add(ar);
-  for (const s of [-1, 1]) {
-    const pu = new THREE.Group(); pu.position.set(s * 0.1, 0.47, 0.15); pu.rotation.set(-0.35, 0, s * 0.1); g.add(pu);
-    const c = mesh(new THREE.CapsuleGeometry(0.042, 0.13, 6, 12), m, 0, -0.09, 0); c.scale.set(1.05, 1, 0.6); pu.add(c);
-    const f = mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.025, 14), mg, 0, -0.15, 0); f.scale.set(1.05, 1, 0.62); pu.add(f);
-  }
-  g.scale.setScalar(k);
-  return sombras(g);
-}
-// la toalla doblada en la mano (cuelga de la mano)
-function crearToallaMano() {
-  const g = new THREE.Group(), m = mat(0xf3f1e8, 0.95), mg = mat(MARCA.g, 0.8);
-  const mb = mat(0xffffff, 0.9); g.add(caja(0.15, 0.34, 0.03, mb, 0, -0.15, 0, 0.012)); for (const y of [-0.06, -0.27]) g.add(caja(0.152, 0.035, 0.034, mg, 0, y, 0, 0.004));
-  return sombras(g);
-}
+// colgada del manubrio (espacio de la bici, origen en la barra): cae asimétrica, la punta de adelante más larga
+const crearToallaColgada = () => crearCinta([[0.04, -0.4, 0.06], [0.02, -0.22, 0.05], [0, -0.06, 0.04], [0, 0.03, 0.0], [0, -0.04, -0.04], [-0.03, -0.17, -0.06], [-0.06, -0.26, -0.03]], 0.4, { dir: [1, 0, 0.12], onda: 0.014 });
+// al cuello (espacio del cuerpo): las dos puntas sobre el pecho y la vuelta por atrás del cuello
+const crearToallaCuello = (k = 1) => { const g = crearCinta([[0.1, 0.26, 0.225], [0.11, 0.4, 0.2], [0.135, 0.51, 0.06], [0.07, 0.56, -0.1], [-0.07, 0.56, -0.1], [-0.135, 0.51, 0.06], [-0.11, 0.4, 0.2], [-0.095, 0.29, 0.225]], 0.11, { onda: 0.006, franjas: [0.12, 0.88] }); g.scale.setScalar(k); return g; };
+// en la mano (espacio de la mano): doblada al medio, cae
+const crearToallaMano = () => crearCinta([[0.0, -0.32, 0.03], [0.01, -0.15, 0.025], [0, 0.0, 0.0], [-0.01, -0.12, -0.03], [0.0, -0.28, -0.04]], 0.16, { dir: [1, 0, 0], onda: 0.01 });
 const TOALLA_2 = crearToallaColgada(); scene.add(TOALLA_2);          // la de Graciela en la bici 2 (parte 1)
 const TOALLA_G_MANO = crearToallaMano(); scene.add(TOALLA_G_MANO);    // Graciela en Q3
-const TOALLA_G_CUELLO = crearToallaCuello(1.12, true); graciela.cuerpo.add(TOALLA_G_CUELLO);
+const TOALLA_G_CUELLO = crearToallaCuello(1.05); graciela.cuerpo.add(TOALLA_G_CUELLO);
 const TOALLA_M_CUELLO = crearToallaCuello(1.0); mauro.cuerpo.add(TOALLA_M_CUELLO);
 // la botella de agua verde apagado (bici 4), el celular (bici 7), la campera navy2 (bici 11), la mochila (bici 13)
-const BOTELLA = new THREE.Group(); { BOTELLA.add(mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.21, 18), mat(0x4f8a35, 0.45), 0, 0.105, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.024, 0.032, 0.04, 14), M.cr, 0, 0.23, 0)); scene.add(sombras(BOTELLA)); }
-const celPerT = lienzo(200, 400, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.font = F(800, 60); x.textAlign = "center"; x.fillText("19:00", w / 2, 120); });
-const CEL_7 = crearCelular(celPerT, MARCA.cr2, 0.08, 0.162); CEL_7.scale.setScalar(1.25); scene.add(CEL_7);
-const CAMPERA = crearCamperaColgada({ color: MARCA.navy2, cuello: MARCA.cr, cierre: MARCA.g }); CAMPERA.scale.setScalar(0.62); scene.add(CAMPERA);
-const MOCHILA = crearMochila(0x365f28, MARCA.cr); scene.add(MOCHILA);
+const BOTELLA = new THREE.Group(); { BOTELLA.add(mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.21, 18), mat(0xf3f1e8, 0.45), 0, 0.105, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.026, 0.034, 0.045, 14), M.g, 0, 0.23, 0)); BOTELLA.add(mesh(new THREE.CylinderGeometry(0.041, 0.041, 0.05, 18), M.g, 0, 0.1, 0)); scene.add(sombras(BOTELLA)); }
+const celPerT = lienzo(200, 400, (x, w, h) => { x.fillStyle = "#efeee5"; x.fillRect(0, 0, w, h); x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 70); x.font = F(900, 64); x.textAlign = "center"; x.fillText("19:00", w / 2, 200); });
+const CEL_7 = crearCelular(celPerT, MARCA.g, 0.08, 0.162); CEL_7.scale.setScalar(1.25); scene.add(CEL_7);
+const CAMPERA = crearCamperaColgada({ color: MARCA.cr2, cuello: MARCA.navy3, cierre: MARCA.g }); CAMPERA.scale.setScalar(0.62); scene.add(CAMPERA);
+const MOCHILA = crearMochila(MARCA.g, MARCA.navy); scene.add(MOCHILA);
 const PERCHEROS = [TOALLA_2, BOTELLA, CEL_7, CAMPERA, MOCHILA];
 // dónde termina cada perchero, en el espacio de su bici: [bici, x, y, z, rx, ry, rz]
-const PERCH_FIN = [[2, 0, BICI.manubrio[0], BICI.manubrio[1], 0, 0, 0], [4, 0, BICI.asiento + 0.01, 0.02, 0, 0, 0], [7, 0, BICI.manubrio[0] + 0.02, BICI.manubrio[1] - 0.02, -1.25, 0, 0], [11, -0.1, BICI.manubrio[0], BICI.manubrio[1], 0, Math.PI / 2, 0], [13, 0, BICI.asiento + 0.2, -0.02, -0.12, 0, 0]];
+const PERCH_FIN = [[2, 0, BICI.manubrio[0], BICI.manubrio[1], 0, 0, 0], [4, 0, BICI.asiento + 0.01, 0.02, 0, 0, 0], [7, 0, BICI.manubrio[0] + 0.02, BICI.manubrio[1] - 0.02, -1.25, 0, 0], [9, -0.1, BICI.manubrio[0], BICI.manubrio[1], 0, Math.PI / 2, 0], [13, 0, BICI.asiento + 0.2, -0.02, -0.12, 0, 0]];
 // de quién sale cada perchero (el vecino que lo tira): [personaje, lado de la mano]
-const PERCH_DE = [[graciela, "I"], [RELLENO[0], "I"], [RELLENO[2], "D"], [RELLENO[5], "D"], [RELLENO[6], "I"]];
+const PERCH_DE = [[graciela, "I"], [RELLENO[0], "I"], [RELLENO[2], "I"], [RELLENO[3], "I"], [RELLENO[6], "I"]];
 // el celular de Mauro (funda navy2): en la mano (P1) y en el soporte del manubrio (P5); pantalla 420 x 860
 const celMT = lienzo(420, 860, () => {});
-const CEL_M = crearCelular(celMT, MARCA.navy2, 0.08, 0.162); CEL_M.scale.setScalar(1.2); scene.add(CEL_M);
+const CEL_M = crearCelular(celMT, MARCA.g, 0.08, 0.162); CEL_M.scale.setScalar(1.2); scene.add(CEL_M);   // (r2) funda verde: se ve en la mano
 // el celular de Majo (funda verde apagado) en el living (Q1b)
 const celJT = lienzo(420, 860, () => {});
-const CEL_J = crearCelular(celJT, 0x365f28, 0.08, 0.162); CEL_J.scale.setScalar(1.2); scene.add(CEL_J);
+const CEL_J = crearCelular(celJT, MARCA.g, 0.08, 0.162); CEL_J.scale.setScalar(1.2); scene.add(CEL_J);
 
 // =====================================================================================================
 // EL LIVING DE MAJO (Q1, set chico aparte en x = 40): pared crema lisa, sofá navy2 con almohadón verde apagado, lámpara

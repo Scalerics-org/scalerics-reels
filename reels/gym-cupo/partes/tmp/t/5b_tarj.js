@@ -77,6 +77,7 @@ const GL = {
   rPanel: crearRotulo([["Panel de ocupación"]], 54),
 };
 const GUIAS = [crearGuia(), crearGuia()];
+const GUIAS5 = [0, 1, 2, 3, 4, 5].map(() => crearGuia());
 // la lupa del celular de Mauro (cuadro 0): el grupo que sube, grande, con la cola hacia el celular
 const LUPA = crearTarjeta(480, 820, () => {}, { fondo: "#e9e6da" });
 let cLupa = "";
