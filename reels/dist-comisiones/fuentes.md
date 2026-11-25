@@ -40,7 +40,21 @@ Gemini TTS con `herramientas/voz.mjs`: Rubén = Algenib, Nico = Fenrir, Graciela
 "Un sistema más tarde."). Tonos en `partes/lineas.tsv`.
 
 ## Música y efectos
-A completar por el constructor: de `assets/sfx` y `assets/bgm` del repo, con el crédito de los `fuentes.md` de los
-reels de donde vienen (ver `reels/dist-quien-debe/fuentes.md` y `reels/dist-cartera/fuentes.md`). Los que falten
-(ronquido, aplauso solo, calculadora con rollo), reales con licencia CC0 (BigSoundBank o Freesound CC0), con autor,
-sitio y licencia acá. Nada sintetizado con ffmpeg.
+Música: `bgm/pizzicato-lleno.wav` y `bgm/pizzicato.wav` (de reels/tienda-tenes-stock vía dist-cartera; crédito en
+`reels/dist-cartera/fuentes.md`). Efectos reusados de `assets/sfx` (copiados de dist-cartera, con su crédito en los
+`fuentes.md` de origen: `reels/dist-cartera/fuentes.md`, `reels/dist-quien-debe/fuentes.md`,
+`reels/dist-cliente-grande/fuentes.md`, `reels/gym-cupo/fuentes.md`): `pop`, `whoosh`, `whoosh-short`, `notification`,
+`vibra`, `cero`, `click-soft`, `key-press`, `sorbo`, `stinger`, `zumbido` (gchase, Freesound, CC0), `elevador`,
+`bsb-palmada` (BigSoundBank "Slaps" #0597, CC0: la palmada seca de "Felicitaciones."), Kenney CC0 (`k-tick-1`,
+`k-page-turn` para la hoja del calendario, `k-book_place_1` para las cajas que caen y asientan, `k-cloth_1/2`,
+`k-metal-click` para el golpecito en el vidrio). `glitch-1.mp3` ("Recalculando…") de la biblioteca de HyperFrames del
+repo (`molde/assets/sfx`). Nada sintetizado con ffmpeg.
+
+Nuevos en este reel (BigSoundBank, Joseph Sardin, licencia CC0 1.0; bajados en mp3 y recortados a .wav sin procesar):
+- `assets/sfx/bsb-ronquido.wav` (Nico y Javi dormidos en la escalera; 4,2-5,8 s): "Man snoring" (#0170),
+  https://bigsoundbank.com/man-snoring-s0170.html
+- `assets/sfx/bsb-calculadora.wav` (la calculadora con rollo en el montaje; 0-4,3 s): "Old calculator, calculation and
+  ticket #1" (#3265), https://bigsoundbank.com/old-calculator-calculation-and-ticket-1-s3265.html
+- `assets/sfx/bsb-calc-impresora.wav` (la cinta que sale hasta el piso; 0-1,75 s): "Calculator printer #1" (#3553),
+  https://bigsoundbank.com/calculator-printer-1-s3553.html
+No se usó aplauso de público: el "aplauso solo" es la palmada seca.
