@@ -36,5 +36,23 @@ línea chica 40,22.
 - **B4:** las letras del cartel aparecen con opacidad (0,1 s) desde escala 0,35: no queda un glifo suelto ni un punto.
 - **B5:** el rótulo del costo, más chico, va arriba del celular (sin el chip) y el chat de 19:01 ya no lleva el audio:
   se lee "Llena, Majo. Perdoná." entero.
-- **B6:** portada nueva (t 11,0, `portada-src/fondo-limpio-11.0.png`): cámara más atrás y a la izquierda, Graciela
+- **B6:** portada nueva (t 11,0, `portada-src/fondo-limpio-11.0.png`): cámara más atrás y a la izquierda, sin el reloj (el sello lo tapaba a medias), Graciela
   entera, las cabezas debajo del sello.
+
+## No arreglado / a mirar
+- P3 y Q3: abajo de todo asoma una franja crema (el borde de la tarima, la cámara está encima) de ~100 px detrás de
+  los rótulos; para sacarla habría que acercar la cámara y se volvía a cortar la bici 4.
+- El aro de la mochila (bici 13) roza el costado de la cara del alumno de atrás (bici 14) un instante.
+- El chat de 19:01 (P3i) queda con un hueco arriba (se sacó el audio para que se lea "Llena, Majo.").
+- "pedalean": sigue la toma 04-mauro-h (el STT oye "pedalear"; ver rondas anteriores), sin tocar.
+- Los avisos de `check` de siempre (canvas anidado, driver WebGL, dead_stretch/line_unread de craft: la línea chica
+  final 1,5 s). 0 errores.
+
+## Mezcla y render
+- `MEDIR=1 node gen.mjs` + `python3 medir.py`: voz ≥ +6,2 LU sobre el resto en todos los tramos de 0,5 s con voz.
+  `medir-sfx.py`: máximo sin voz -31,1 LUFS (ningún tramo pasa -31).
+- Render: 1892 s (31,5 min, SwiftShader, sin espera de candado; antes esperó ~35 min el render de otro reel) +
+  paso10.sh 46 s → `renders/gym-cupo-final.mp4`: 41,77 s, -14,0 LUFS integrado, pico -5,1 dBFS.
+- Revisión del final: cuadros cada 0,25 s (3 hojas) y a 30 fps alrededor de la toalla (35,95-36,75), la entrada de
+  la tarjeta CUPO (38,5-38,9) y la línea chica (40,1-40,5): sin saltos, sin texto cortado ni pisado.
+- Portada regenerada (`portada.png`): sello, "MARTES, 19:00." y "¿HAY LUGAR?" entre y 285 y 1635, nada encimado.

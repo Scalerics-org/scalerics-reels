@@ -1252,7 +1252,7 @@ function renderAt(tIn) {
   }
   for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position);
   // ---- portada (VER=portada): la sala con los nueve y las cinco bicis de perchero, todo en la mitad de arriba ----
-  if (VER === "portada") { ponerCam([0.7, 3.1, -4.75, 0.12, -1.0, 0.9, 82], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }
+  if (VER === "portada") { ponerCam([0.7, 3.1, -4.75, 0.12, -1.0, 0.9, 82], t); camera.updateMatrixWorld(true); ponerObjetos(t, pa); CEL_M.visible = false; BICI_P.visible = false; RELOJ.visible = false; for (const p of TODOS) if (p.raiz.visible) p.ojoLejano(camera.position); }   // (r3 B6) sin el reloj: el sello lo tapaba a medias
   // ---- tarjetas ----
   AVISOS.length = 0;
   for (const k in GL) GL[k].visible = false; for (const g of GUIAS) g.visible = false;
