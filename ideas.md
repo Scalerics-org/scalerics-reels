@@ -277,6 +277,8 @@
 
 ## En curso
 <!-- corrida-activa: 2026-11-25T03:11 -->
+- 25-11 · `gym-cupo` · Gimnasios y estudios · Reserva de clases con cupo real + lista de espera automática + recordatorio · martes 19:00, la clase de spinning anotada por el grupo de WhatsApp: 22 "yo voy", vienen 9, bicis vacías y las que quedaron afuera se anotan en otro lado · Cierre "Comentá CUPO" · formato completo (parte 1 + cartel + parte 2)
+- 25-11 · `pizzeria-pedidos` · Restaurantes y pizzerías · Tienda online / menú de pedidos propio con pago · viernes 21:00, pedidos por teléfono y WhatsApp anotados a mano en la comanda, dirección mal, la pizza equivocada vuelve y se regala · Cierre "Comentá MENÚ" · formato Dos negocios (dos pizzerías, la misma calle, el mismo viernes)
 
 
 
