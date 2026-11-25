@@ -842,7 +842,7 @@ const PLANOS = [
   ["P1", 0, [[0, ...CAM_LIV(0)], [T.p1b, ...CAM_LIV(1)]]],
   ["P1b", T.p1b, [[T.p1b, ...CAM_SILV(0)], [T.p2, ...CAM_SILV(1)]]],
   ["P2", T.p2, null],    // la escalada: el celular sobre la mesa, de arriba, bajando
-  ["P3", T.p3, [[T.p3, 0.16, 1.3, 2.5, 0.12, 1.0, 0.2, 52], [T.p3i, 0.18, 1.29, 2.38, 0.14, 0.98, 0.2, 51]]],   // (r1) sin el cartel detrás del chip
+  ["P3", T.p3, [[T.p3, 0.16, 1.26, 2.5, 0.12, 0.9, 0.2, 52], [T.p3i, 0.18, 1.25, 2.38, 0.14, 0.88, 0.2, 51]]],   // (r1) sin el cartel detrás del chip
   ["P3i", T.p3i, null],  // el chat con Agustina, de cerca
   ["P3b", T.p3b, [[T.p3b, 0.2, 1.44, 2.9, 0.22, 1.2, 0.1, 58], [T.p4, 0.2, 1.44, 2.8, 0.22, 1.2, 0.1, 57]]],
   ["P4", T.p4, [[T.p4, ...CAM_OF(0.2)], [T.p4i, ...CAM_OF(0.8)]]],
@@ -857,7 +857,7 @@ const PLANOS = [
   ["Q3b", T.q3b, null],  // push-in a Agustina
   ["Q4", T.q4, [[T.q4, ...CAM_OF(0)], [T.q4f, ...CAM_OF(0.7)]]],
   ["Q4f", T.q4f, null],  // la ficha: RESERVADO
-  ["F", T.q5, [[T.q5, 0.16, 1.4, 2.55, 0.06, 1.08, 0.3, 50], [DUR, 0.16, 1.4, 2.47, 0.06, 1.08, 0.3, 49]]],
+  ["F", T.q5, [[T.q5, 0.16, 1.36, 2.55, 0.06, 0.98, 0.3, 50], [DUR, 0.16, 1.36, 2.47, 0.06, 0.98, 0.3, 49]]],
 ];
 for (let i = PLANOS.length - 2; i >= 0; i--) { const d = PLANOS[i + 1][1] - PLANOS[i][1]; if (d < 0.3) { console.error(`plano corto: ${PLANOS[i][0]} (${d.toFixed(2)} s)`); } }
 const _m = new THREE.Vector3();
@@ -1131,7 +1131,7 @@ function renderAt(tIn) {
   if (pa === "Q4f") {
     fichaPC.updateMatrixWorld(true); const c = fichaPC.localToWorld(V3(0, -0.02, 0));
     const u = eio(sg(t, T.q4f, T.q4f + 0.35));
-    ponerCam([lerp(c.x - 0.3, c.x - 0.12, u), lerp(c.y - 0.05, c.y - 0.03, u), lerp(c.z + 1.25, c.z + 0.92, u), c.x - 0.02, c.y - 0.06, c.z, 44], t);
+    ponerCam([lerp(c.x - 0.3, c.x - 0.12, u), lerp(c.y - 0.05, c.y - 0.03, u), lerp(c.z + 1.3, c.z + 1.05, u), c.x - 0.02, c.y - 0.06, c.z, 44], t);
   }
   if (pa === "portada") {
     // la portada: la visita en el living, la pareja, Silvana con la sonrisa fija, Diego con el celular; las consultas

@@ -6,12 +6,53 @@ tarjetas pegadas a la cámara); medir.py de resto-reservas. Todo sale de `node g
 compositions/*.html, index.html, assets/audio/mezcla.wav). La escena entera está en `assets/tres.js` (escrita para este
 reel; función pura del tiempo).
 
-**Duración: 44,17 s** (1325 cuadros) desde el recorte r1 del coordinador (antes 50,17). Parte 1 0-21,27 · cartel 21,27-23,52 ·
-parte 2 + cierre 23,52-44,17 = 20,65 s (47 %). Cierre (plano F y tarjeta "Comentá DISPONIBLE") 41,17-44,17 = 3,0 s, arranca
-sobre "Comentá"; línea chica desde 43,17 (1,0 s). `check --json`: ok, 0 errores, 0 warnings.
-Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +10,9 LU sobre el resto en todos los tramos de 0,5 s con voz;
--14,0 LUFS, pico -5,5 dBFS; `python3 medir-sfx.py assets/audio/mezcla.wav assets/audio/stem-voz.wav`: máximo sin voz
--31,1 LUFS momentáneo (paso10.sh toma el audio de assets/audio/mezcla.wav).
+**Duración: 44,57 s** (1337 cuadros) desde la corrección r1 (antes 44,17). Parte 1 0-20,01 · cartel 20,01-22,26 · parte 2 +
+cierre 22,26-44,57 = 22,31 s (50,05 %). Cierre (plano F, tarjeta "Comentá DISPONIBLE" y voz juntos) 41,33-44,57 = 3,24 s
+(voz 2,98 + 0,25 de cola); línea chica desde 43,07 (1,5 s). `check --json`: ok, 0 errores, 0 warnings.
+Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +9,1 LU sobre el resto en todos los tramos de 0,5 s con voz;
+-14,0 LUFS, pico -5,7 dBFS; `python3 medir-sfx.py assets/audio/mezcla.wav assets/audio/stem-voz.wav`: máximo sin voz
+-31,6 LUFS momentáneo.
+
+## Corrección r1 (QA de arte, guion y sonido + decisiones del coordinador, 25-11)
+- Línea 02 → "Contestá vos." (partes/02-silvana.txt, lineas.tsv con el tono co-men-TÁ, burbuja, guion): 4 tomas nuevas, el
+  STT oye "contesta vos" en las 4 (no oye tildes); quedó la k (0,84 s), sin atempo.
+- Rótulo de P3b: "Ayer 16:30 · reservó / en otra inmobiliaria" (fuentes.md también).
+- Q2 rehecho: el monitor de Silvana pasa a VERTICAL (0,42 × 0,672 m, canvas 1000×1600) y el panel entra entero con márgenes:
+  "Punta Carretas · hoy · agente de IA", cuatro renglones grandes (Consultas 38 · Contestadas al instante 38 ✓ · Visitas
+  agendadas 6 ✓ · resaltado "Listos para visitar y firmar 2 → para vos, Silvana" con Agustina · ANDA · Martina · CGN), lleno
+  desde el primer cuadro, quieto 2,55 s (push-in mínimo), chip "Martes, 23:10.". Sin agenda ni filas que se llenan.
+- Solución ≥ 50 %: la parte 1 bajó 1,26 s sin tocar las pausas de comedia: Silvana empieza a decir el mensaje sobre el plano
+  del café y el inserto P3i entra a los 0,3 s (sin el sorbo); enviado → nota de voz más corto; la entrada de P4 (vibra →
+  atiende → altavoz) 0,27 s; silencios internos de d1, al y s3 acortados a 0,2 s (partes/apretar.py: -0,2, -0,55, -0,1 s);
+  escalada P2 1,4 s.
+- Colas y vida de TODAS las burbujas: cada burbuja se va 0,12 s después de su parlamento (`vivo()` en tarjetas()); el altavoz
+  de don Alberto va DEBAJO del celular parado con la cola hacia el celular (P4 y Q4, no lo tapa); "Preguntar, preguntaron."
+  abajo con la cola hacia ella (no tapa la cara ni el pelo); "Yo ya no." y "Yo también." en el mismo lugar (y 380) y tamaño
+  (84 px, 780 de ancho), arriba del celular, que en P3i arranca más abajo: la cola baja al celular sin tapar la cabecera;
+  "Treinta y ocho…" en Q4f sin cola (ella está fuera de cuadro), arriba de la ficha, y se va al terminar; Agustina en Q3b
+  con su avatar en la cabecera de la burbuja.
+- Chat P3i como un chat de verdad: los mensajes anclados abajo, sobre la barra de escribir, y arriba la ficha de la consulta
+  (ALQUILA · 1 dorm. · Punta Carretas · $ 30.000); horas, "Ayer/Hoy" y "escribiendo…" ≥ 34 px de canvas (≥ 36 en pantalla);
+  horas del chat del agente 34 (≈ 38 en pantalla).
+- P3: el chip "Miércoles, 9:10." ya no pisa el cartel (cámara más baja). P2: la tarjeta de Agustina más ancha (920) y la
+  cola a SU fila de la bandeja. Q4: el brazo de Silvana cruzado era aCuerpo con la raíz del cuadro anterior (palier) → la
+  raíz se pone en su lugar antes de calcular la pose (oficina y palier). P4i: el celular al 70 % y el contador abajo.
+- Q1: corte a Q1b más abierto (Silvana y Diego enteros). Q3: Agustina entra desde más adentro y el rótulo "Agustina · ANDA"
+  aparece a los 0,3 s del palier; en Q3b se suma "firma el viernes ✓". Cuadro 0 más abierto (Silvana y Diego a ±0,5, la
+  pareja más cerca y al medio). Rótulo del chat del agente a y 165 (no toca el borde). Contador del cuadro 0 a 0,78 (≥ 36 px).
+- Íconos de canal: la cámara (parecía un logo) pasa a un sobre. El iris del cartel arranca de 0 px (sin la mancha oscura).
+- F más cerca y más arriba (sin el cuarto inferior vacío, la boca por encima de la tarjeta). Q4f: RESERVADO y los rótulos
+  "Comisión… ✓" (a +0,15) y "Sin contestar 0" (a +0,3) quedan 1,2 s; la línea chica 1,5 s.
+- Sonido: 0,25 s entre los tres primeros parlamentos; 0,33 s narrador → Diego; 0,35 s antes de "Treinta y ocho"; cola de
+  0,25 s al final; "Comentá": 3 tomas nuevas (h, i, j) con el tono marcando la tilde: el STT oye "Comenta" en las 10 tomas (no
+  distingue la tilde) → queda la g (×1,2). Sin `pajaro.wav` ni `llaves.wav` (sin crédito): la llave del 3B con Kenney
+  (`k-metal-liviano-2`, `k-metal-click`); `zumbido-largo.wav` reemplazado por `zumbido.wav` (gchase, CC0). Créditos de todo lo
+  que suena en fuentes.md. Narrador con atempo 1,1.
+- Portada: fondo limpio a 0,05 s (Diego con la boca cerrada, antes de hablar) con la cámara más atrás y corrida: Silvana ya no
+  toca el borde (`portada-src/fondo-limpio-0.05.png`); se regeneró portada.png.
+- guion.txt, descripcion.txt ("Doce mientras… Treinta y ocho a la noche.", "WhatsApp e Instagram"), fuentes.md actualizados.
+- Snapshots: renders/snap/r2 (62 cuadros a los dos lados de cada corte y en cada cambio) y r3 (P3, Q4f, F después de los
+  últimos ajustes).
 
 ## Recorte r1 (coordinador, 25-11): de 50,17 a 44,17 s
 - Fuera "Esos dos, para mí." (12-silvana → partes/descartadas/; sin s6): Q2 es solo visual (2,18 s), termina en "Listos para
@@ -48,12 +89,11 @@ para generarla antes del render se puso un mp4 negro temporal en renders/ y se b
 ## Voces (partes/procesar.sh; "oyó:" en partes/rec/medidas.tsv)
 Silvana = Erinome, Diego = Achird, Agustina = Laomedeia, don Alberto = Charon (filtro de altavoz), narrador = Rasalgethi
 (reusado de abren-hoy-completo, atempo 1,1 desde r1). Tres tomas por línea (siete para 02, siete para 17).
-d1 01-diego-c ×1,15 · s1 02-silvana-b ×1,05 (0,90) · d2 03-diego-c ×1,05 (0,93) · s2 04-silvana-a (0,82) · s3 05-silvana-a ×1,15
+d1 01-diego-c ×1,15 + apretada (2,88) · s1 02-silvana-k "Contestá vos." (0,84) · d2 03-diego-c ×1,05 (0,93) · s2 04-silvana-a (0,82) · s3 05-silvana-a ×1,15
 · a1 06-agustina-c + filtro (1,71) · al 07-alberto-b ×1,15 + filtro · s4 08-silvana-c (1,77; la única donde oye "preguntaron")
 · s5 10-silvana-c ×1,05 · d3 11-diego-b ×1,15 · a2 13-agustina-a · s7 14-silvana-a · a3 15-agustina-a · s8 16-silvana-c ×1,1
 recortada (sin "Seis visitas.", 2,17) · s9 17-silvana-g ×1,2 (2,98). (Sin s6: "Esos dos, para mí." salió en r1.)
-**Dudoso:** "Contestales vos." (02): el STT no lo oye bien en NINGUNA de 7 tomas ("Contéstame vos", "contesta hijos",
-"contestar Y vos"); quedó la b. Y "Comentá" lo oye "Comenta" en las 7 tomas de 17 (como en otros reels). A revisar de oído.
+**Dudoso:** (r1) la 02 ahora es "Contestá vos." (toma k; el STT oye "contesta vos"). Y "Comentá" lo oye "Comenta" en las 7 tomas de 17 (como en otros reels). A revisar de oído.
 
 ## Mundo
 - **Oficina de Silvana Propiedades** (origen): la de inmobiliaria-visitas SIN el tablero de llaves ni los escritorios de
@@ -75,15 +115,13 @@ recortada (sin "Seis visitas.", 2,17) · s9 17-silvana-g ×1,2 (2,98). (Sin s6: 
   confirmada ✓ Mié 10:30 · Diego"; panel (38 / 38 ✓ / mascota 5 → 2 / sin garantía 9 → requisitos / visitas 6 ✓ / agenda de
   Diego / "Listos para visitar y firmar: 2 · Agustina · ANDA · Martina · CGN → para vos, Silvana"); pantalla "Sin contestar 0".
 
-## Planos (s) (r1)
-P1 0 (cuadro 0: INMOBILIARIAS + "Martes, 15:00.", el living, 3 consultas apiladas, contador 12) · P1b 5,30 ("Yo también." 5,68)
-· P2 6,62 (escalada cenital 12 → 38, chips 18:30/23:10, Agustina 7,57, "La inquilina ideal" 7,82) · P3 8,27 ("Miércoles,
-9:10.", el café) · P3i 8,72 (chat, tipeo, "¡Qué bueno! Yo ya no." 12,48) · P3b 14,27 (la pausa, rótulos) · P4 15,32 (don
-Alberto en altavoz) · P4i 18,43 (38) · P4b 19,03 ("Preguntar, preguntaron." 19,15) · cartel 21,27 · Q1 23,52 (mismo encuadre,
-"Martes, 15:00.") · Q1b 26,00 ("¿Y quién contesta?") · Q1i 27,22 (chat del agente) · Q2 29,78 (panel: lista → agenda → listos
-31,21) · Q3 31,96 (palier, "Miércoles, 10:30.", "Sí." 33,52 abre) · Q3b 34,38 ("¡Qué bueno! Yo también.", rótulo 35,99) · Q4
-36,54 ("Miércoles, 12:00.", "¿Nadie preguntó…?", "Treinta y ocho. Y el viernes firman." 38,15, "Visitas agendadas: 6 ✓") · Q4f
-39,10 (RESERVADO 40,22, comisión ✓, "Sin contestar 0") · F 41,17-44,17 (Silvana a cámara, tarjeta; línea chica 43,17).
+## Planos (s) (corrección r1)
+P1 0 (cuadro 0) · P1b 5,45 ("Yo también." 5,83) · P2 6,77 (escalada, Agustina 7,55, "La inquilina ideal" 7,77) · P3 8,17
+("Miércoles, 9:10.", empieza a decirlo 8,37) · P3i 8,67 (chat; "Yo ya no." 11,86) · P3b 13,65 (la pausa, rótulos) · P4 14,70
+(don Alberto) · P4i 17,17 (38) · P4b 17,77 ("Preguntar, preguntaron." 17,89) · cartel 20,01 · Q1 22,26 · Q1b 24,90 ("¿Y quién
+contesta?") · Q1i 26,12 (chat del agente) · Q2 28,68 (panel, "Martes, 23:10.") · Q3 31,23 (palier, "Sí." 32,79) · Q3b 33,65
+("Yo también.", rótulo 35,26) · Q4 35,81 ("Treinta y ocho…" 37,91) · Q4f 38,86 (RESERVADO 39,98) · F 41,33-44,57 (línea chica
+43,07).
 
 ## Pasadas
 - r1 (recorte): snapshots a los dos lados de cada corte nuevo (renders/snap/r1, r1b): Q1b quedaba con Silvana y Diego
@@ -109,8 +147,8 @@ Alberto en altavoz) · P4i 18,43 (38) · P4b 19,03 ("Preguntar, preguntaron." 19
 `portada-src/fondo-limpio-2.0.png` (VER=portada: Silvana, la pareja y Diego con los celulares llenando la mitad de arriba).
 
 ## Flojo / para los revisores
-- "Contestales vos." y "Comentá" sin confirmar de oído (STT).
-- La parte 1 tiene planos largos (P1 5,3 s, P3i 5,5 s): son las pausas de comedia y el tipeo; no se tocaron por indicación.
+- "Contestá vos." y "Comentá" sin confirmar de oído (el STT no oye tildes).
+- La parte 1 tiene planos largos (P1 5,45 s, P3i 5,0 s): las pausas de comedia y el tipeo.
 - El narrador con atempo 1,1: el STT lo oye igual que el original ("agente de ella más tarde"), revisar de oído.
 - En P3i la burbuja "Yo ya no." tapa la cabecera del chat (queda el mensaje de Agustina y la nota de voz a la vista).
 - Render final no hecho (lo hace el coordinador); con 4-5 personajes por plano, SwiftShader ~20-25 min.
