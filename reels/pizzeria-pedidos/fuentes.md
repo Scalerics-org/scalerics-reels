@@ -42,3 +42,21 @@ quizás no están en `assets/sfx`):** impresora térmica de tickets, ambiente de
 cartón de caja de pizza que se abre, moto de reparto chica que arranca y se va, morder/masticar. Solo grabaciones reales
 con licencia CC0 (anotar acá autor, sitio y licencia); nunca sintetizados con ffmpeg. Si alguno no aparece, el más
 cercano de `assets/sfx` y anotarlo.
+
+## Efectos nuevos (constructor, 25-11) · BigSoundBank, licencia CC0 (dominio público), recortados con ffmpeg
+- `assets/sfx/bsb-impresora.wav` y `bsb-impresora2.wav` (la impresora de comandas de Lucía; 0,95-1,75 s y 5,35-6,15 s):
+  "Calculator Printer #1" (#3553), https://bigsoundbank.com/calculator-printer-1-s3553.html. No apareció una impresora
+  térmica CC0 accesible: es la impresora de tickets de una calculadora, el mismo "trrrk" de papel.
+- `assets/sfx/bsb-caja.wav` (la tapa de cartón de la caja de pizza; 0,4-1,6 s): "Gift Package, Opening #1" (#3533),
+  https://bigsoundbank.com/gift-package-opening-1-s3533.html
+- `assets/sfx/bsb-moto-arranca.wav` (la moto de Sabri que arranca, Q3; 0,55-2,8 s): "Starting a Motorcycle" (#0884),
+  https://bigsoundbank.com/starting-a-motorcycle-s0884.html
+- `assets/sfx/bsb-moto-acel.wav` (la moto de Sabri que sale, Q5; 0-3,6 s): "75 cm3 Motorcycle Acceleration" (#0603),
+  https://bigsoundbank.com/75-cm3-motorcycle-acceleration-s0603.html
+- `assets/sfx/bsb-scooter.wav` (bajado, sin usar todavía): "Scooter Passage" (#0533), https://bigsoundbank.com/scooter-passage-s0533.html
+- `assets/sfx/bsb-extractor.wav` (el ambiente de cocina de las dos pizzerías; 0,2-10,9 s en loop): "Kitchen Extractor Hood"
+  (#0309), https://bigsoundbank.com/kitchen-extractor-hood-s0309.html
+- La mordida de Martín usa `bsb-masticar.wav` (BigSoundBank CC0, de `reels/vete-racion/fuentes.md`).
+- Reusados (créditos en `reels/vete-racion/fuentes.md` y los que cita): pop, whoosh, whoosh-short, notification, vibra,
+  cero, campanita, click-soft, k-tick-*, k-book_place_1, paso-*, stinger, bsb-timbre, bsb-rasga, puerta-abre, birome,
+  calle, auto-pasa, pizzicato.

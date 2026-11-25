@@ -51,3 +51,19 @@ panel, los chips y los rótulos. Se tiene que entender sin sonido.
 
 Si alguna voz no está disponible o suena mal, no usar Algenib, Iapetus, Umbriel, Gacrux, Callirrhoe ni Sulafat
 (personajes recurrentes): avisar.
+
+## Tomas elegidas (constructor, 25-11; `partes/procesar.sh`)
+| final | toma | proceso | "oyó:" del STT |
+|---|---|---|---|
+| t1 | 01-tano-a | atempo 1,2 (1,87 s) | una musa ido faina calle qué (el STT no conoce "muzza" ni "fainá") |
+| m1 | 02-martin-b | atempo 1,05 + filtro de teléfono | duvimioso Terra |
+| t2 | 03-tano-a | atempo 1,12, pausa interna 0,59 → 0,34 s | Ajá con b larga |
+| t3 | 04-tano-c | — | ya sale |
+| f1 | 05-facu-a | atempo 1,22 | Tano dubimioso no existe |
+| t4 | 06-tano-c | — | cenamos |
+| t5 | 07-tano-a | atempo 1,08 (en Q2, filtro en la mezcla) | yo sale (boca llena) |
+| narrador | 08-narrador-c | atempo 1,12 | Mientras tanto en la de enfrente |
+| m2 | 09-martin-c | — | ya está (6 tomas; las otras el STT las oía "YouTube") |
+| s1 | 10-sabri-b | atempo 1,15 | Martín una musa ido faina |
+| t6 | 11-tano-a | — | pieza Cómo hace ("y esa" → "pieza") |
+| l1 | 12-lucia-c | atempo 1,14 | comentá menú y te mando cómo funciona para tu pizzería |
