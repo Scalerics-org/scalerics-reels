@@ -1,0 +1,42 @@
+[sin narrador Orus: el chiste va en burbujas (los remates en dos tiempos: la burbuja crece cuando suena la segunda mitad), la planilla de comisiones en el monitor de Rubén con columnas que se multiplican, el calendario de pared que pasa de 1 a 3, las pilas 3D de "lo que vendió cada uno" contra "lo que facturó la empresa" y los chips de hora; la solución va en la interfaz recreada (el celular de Nico con "Tu comisión", el panel "Comisiones · Octubre" de Rubén, el pedido con su vendedor, la devolución que se descuenta sola); voces por archivo en partes/*.txt, ver partes/lineas.tsv · (r1, real) total 43,97 s · parte 1 0,00-19,81 · cartel 19,81-21,97 · parte 2 + cierre 21,97-43,97 (22,0 s, 50 %) · cierre 40,98-43,97 (3,0 s)]
+[parte 1 · el problema · 0,00-19,81 s · la oficina vidriada de Rubén arriba del depósito, el primer día del mes]
+[0,00-1,50 · P1 · cuadro 0: arriba, gigante, "DISTRIBUIDORAS" y el chip "Día 1 del mes, 8:00." · la oficina vidriada: Rubén en el escritorio frente al monitor con "COMISIONES OCTUBRE.xlsx", los talonarios, el mate, la calculadora con rollo · el calendario de pared en "1" · Nico asomado a la puerta de vidrio con el celular; detrás del vidrio, en el descanso, Javi · la burbuja ya en el cuadro 0]
+NICO: Jefe, ¿cuánto me toca?
+[1,50-3,83 · P2 · Rubén, sin levantar la vista, se arremanga · la burbuja: "Fácil." y, cuando suena, crece con "Tres por ciento de lo cobrado."]
+RUBEN: Fácil. Tres por ciento de lo cobrado.
+[3,83-5,65 · P3 · montaje sin voz: la planilla se abre: "COBRADO" / "DEVOLUCIONES" / "PAGÓ LA MITAD" / "¿DE QUIÉN ES?" (las dos últimas en rojo apagado), rótulos "2 vendedores · 214 remitos" y "Bar Walter: pagó la mitad", chip "Día 1, 13:00." · 4,63 la escalera de noche: Nico y Javi dormidos, la caja de pizza, "Día 1, 22:00." · 4,99 la hoja del calendario cae 1 → 2, "Día 2, 19:00." · 5,35 el escritorio: el termo acostado (vacío), la cinta de la calculadora hasta el piso, Rubén con ojeras]
+[5,65-7,63 · P4 · Rubén, ojeras, golpea Enter · en el monitor "Comisión de Nico · $ 42.000"]
+RUBEN: Nico: cuarenta y dos mil.
+[7,63-10,01 · P5 · Nico en la puerta, ofendido de buena fe, muestra su celular: su propia cuenta "2.000.000 × 3 % = 60.000" · rótulo "Su cuenta: lo vendido + Súper Héctor"]
+NICO: ¿Cuarenta y dos? Súper Héctor es mío.
+[10,01-10,99 · P5b · Javi se mete por la puerta (pisa el final de Nico), el celular en alto: "1.300.000 × 3 % = 39.000"]
+JAVI: ¡Héctor es mío!
+[10,99-15,16 · P6 · remate · las dos pilas enteras en cuadro, Rubén en el escritorio y Nico y Javi en la puerta · caen caja por caja: "FACTURÓ LA EMPRESA $ 2.800.000" (navy) y la de los vendedores: "NICO $ 1.500.000" + "HÉCTOR $ 500.000 según Nico" (rojo apagado) + "JAVI $ 800.000" + "HÉCTOR $ 500.000 según Javi" (rojo apagado), que pasa la línea de la empresa: "+ $ 500.000" · pausa · la burbuja: "Felicitaciones." y, cuando suena, crece con "Entre los dos vendieron más que la empresa."]
+RUBEN: Felicitaciones. Entre los dos vendieron más que la empresa.
+[15,16-16,79 · P7a · suena el celular de Rubén sobre el escritorio, en altavoz: "Altavoz · Rotisería Graciela" (la cola de la burbuja al celular)]
+GRACIELA: Rubén, te devuelvo seis cajas.
+[16,79-19,81 · P7b · (la cola de la línea de Graciela ya sobre el plano) la planilla entera en "Recalculando…" · "Comisión de Nico $ 41.802" y el chip rojo apagado "− $ 198" · la hoja del calendario cae: 2 → 3 · chip "Día 3. Comisiones: sin pagar." · Nico en la puerta mira el celular · la burbuja: "Te toca menos." y, cuando suena, crece con "Pasá el jueves." · stinger]
+RUBEN: Te toca menos. Pasá el jueves.
+NARRADOR: Un sistema más tarde.
+[cartel · 19,81-21,97 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un sistema" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/ya-lo-cargo/assets/voice/narrador.wav (atempo 1,08)]
+[parte 2 · la solución · 21,97-43,97 s]
+[21,97-23,50 · Q1 · el mismo cuadro 0 (chip "Día 1 del mes, 8:00.", calendario en 1): Nico en la puerta, el mismo audio · Rubén con el mate; en el monitor, el panel de comisiones]
+NICO: Jefe, ¿cuánto me toca?
+[23,50-24,51 · Q1b · Rubén, sin mirar el monitor, señala con la bombilla el celular de Nico]
+RUBEN: Mirá el celular.
+[24,51-27,59 · Q2 · inserto del celular de Nico a pantalla llena: "Tu comisión · Octubre" · "$ 42.000 ✓" grande, verde (contador) · "Cobrado: $ 1.400.000 × 3 %" · "Pendiente: Bar Walter: la mitad · + $ 3.000 al cobrar" · rótulo "Se calcula sola con cada venta cobrada"]
+NICO: Cuarenta y dos mil. ¿Ya?
+[27,59-28,65 · Q3 · Javi se asoma por la puerta, el mismo encuadre de P5b]
+JAVI: ¿Y Súper Héctor?
+[28,65-30,64 · Q3m · el cursor va a la fila de Javi y se abre: "Pedido 0388 · 14/10, 10:12 · Súper Héctor · $ 500.000 · Cargó: Javi ✓" · rótulo "Cada pedido, con su vendedor desde que se carga"]
+NICO: …Es de Javi.
+[30,64-34,73 · Q3b · el mismo encuadre de P6: la caja roja "HÉCTOR según Nico" sale de costado y se va; las de arriba bajan; la de Javi pasa a "HÉCTOR $ 500.000 Javi ✓"; la pila llega justo a "Facturó la empresa $ 2.800.000" · "= ✓" verde · la burbuja de Rubén en el mismo lugar que el remate: "Felicitaciones." y, cuando suena, crece con "Ahora la cuenta da."]
+RUBEN: Felicitaciones. Ahora la cuenta da.
+[34,73-36,36 · Q4 · suena el celular de Rubén en el escritorio, en altavoz: "Altavoz · Rotisería Graciela" · el mismo audio]
+GRACIELA: Rubén, te devuelvo seis cajas.
+[36,36-38,71 · Q4b · = P7b: el panel registra "Devolución · Graciela · 6 cajas · Nico · − $ 198" y la fila de Nico baja sola a $ 41.802 · rótulo "La devolución se descuenta sola" · Nico en la puerta]
+RUBEN: Te toca menos.
+[38,71-40,98 · Q4n · inserto del celular de Nico, que lo da vuelta hacia Rubén: "Devolución · Rotisería Graciela · − $ 198 · Tu comisión: $ 41.802"]
+NICO: Ya sé. Me llegó.
+[cierre · 40,98-43,97 · Rubén a cámara en su oficina, el mate en la mano; detrás, el panel "Comisiones · Octubre · Cerrado ✓" y el calendario en 1 · tarjeta desde 41,28: "Comentá" / "COMISIONES" (en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · desde 42,77, chico, "Comisiones solas: por vendedor, con cada venta cobrada" / "scalerics.com" en verde · 0,2 s de aire al final]
+RUBEN: Comentá COMISIONES y te mando cómo funciona para tu distribuidora.
