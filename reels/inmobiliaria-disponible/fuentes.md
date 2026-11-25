@@ -64,12 +64,12 @@ tomas, recortadas: 01-diego desde "El de Punta Carretas" (Q1) y 07-alberto desde
 ## Música y efectos (los que suenan, r1)
 - Música `bgm/pizzicato.wav`: "Pizzicato Intrigue", younoise, Freesound, CC0 1.0 (https://freesound.org/people/younoise/sounds/569642/).
 - `sfx/vibra.wav`: SpliceSound, Freesound (https://freesound.org/people/SpliceSound/sounds/369839/), CC0 1.0.
-- `sfx/stinger.wav`: "Vibraphone Transition Music Cue", DanJFilms, Freesound, CC0 1.0.
-- `sfx/tic-real.mp3`: recorte de "Clock ticking", olver, Freesound, CC0 1.0.
-- `sfx/zumbido.wav` (el aire de los ambientes): "Climate Control Low Hum", gchase, Freesound, CC0 (el de gym-cupo; reemplaza a
+- `sfx/stinger.wav`: "Vibraphone Transition Music Cue", DanJFilms, Freesound, CC0 1.0 (https://freesound.org/people/DanJFilms/sounds/528980/).
+- `sfx/tic-real.mp3`: recorte de "Clock ticking", olver, Freesound, CC0 1.0 (https://freesound.org/people/olver/sounds/130388/).
+- `sfx/zumbido.wav` (el aire de los ambientes): "Climate Control Low Hum", gchase, Freesound, CC0 (https://freesound.org/people/gchase/sounds/144046/; el de gym-cupo; reemplaza a
   zumbido-largo.wav, que no tenía origen claro).
 - Kenney (kenney.nl), CC0 1.0: `paso-0..4.wav` ("footstep_concrete_000..004", Impact Sounds), `puerta-abre.wav`
-  ("door_open_1", RPG Audio), `k-metal-click.wav` y `k-metal-liviano-2.wav` (la llave en la cerradura del 3B).
+  ("door_open_1", RPG Audio), `k-metal-click.wav` y `k-metal-liviano-2.wav` (la llave en la cerradura del 3B); https://kenney.nl/assets/rpg-audio y kenney.nl/assets/impact-sounds.
 - Biblioteca de HyperFrames del repo (`molde/assets/sfx`, usados en todos los reels aprobados): `whoosh.mp3`,
   `whoosh-short.mp3`, `pop.mp3`, `notification.mp3`, `key-press.mp3`, `click-soft.mp3`, `ding.mp3`.
 - No se usan `pajaro.wav` ni `llaves.wav` (sin crédito conocido) ni nada sintetizado con ffmpeg.

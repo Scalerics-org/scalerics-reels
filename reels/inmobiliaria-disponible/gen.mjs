@@ -50,14 +50,14 @@ T.p3 = r2(T.ideal + 0.4);
 T.s3 = r2(T.p3 + 0.2); T.p3i = r2(T.s3 + 0.3);   // (r1) empieza a decirlo con el café y el inserto entra enseguida
 T.envia = r2(T.s3 + LEN.s3 + 0.03);
 T.escribe = r2(T.envia + 0.1); T.nota = r2(T.escribe + 0.25); T.a1 = r2(T.nota + 0.06);
-T.yaNo = r2(T.a1 + palabra("a1", 2) - 0.05);                // la burbuja suma "Yo ya no." cuando lo dice
+T.yaNo = r2(T.a1 + 1.12);   // (r2) "Yo ya no." entra con la voz: silencedetect da el fin de la pausa en 1,147 s (el STT ponía "Yo" en 0,5)                // la burbuja suma "Yo ya no." cuando lo dice
 // P3b · la pausa: Silvana quieta, el café a medio camino; rótulos; la música se corta seca
 T.p3b = r2(T.a1 + LEN.a1 + 0.08);
 T.rot = [r2(T.p3b + 0.12), r2(T.p3b + 0.45)];
 // P4 · remate del remate: vibra, "Don Alberto · propietario", altavoz; Silvana mira la pantalla (38); "Preguntar, preguntaron."
 T.p4 = r2(T.p3b + 1.05); T.vibra = r2(T.p4 + 0.05); T.atiende = r2(T.p4 + 0.22); T.al = r2(T.p4 + 0.27);
 T.p4i = r2(T.al + LEN.al + 0.03);                           // inserto: "Sin contestar: 38"
-T.p4b = r2(T.p4i + 0.6); T.s4 = r2(T.p4b + 0.12);           // pausa de ~0,75 s antes del remate
+T.p4b = r2(T.p4i + 0.6); T.s4 = r2(T.p4b + 0.12); T.preg = r2(T.s4 + 0.82);   // (r2) "preguntaron." entra con la voz (silencedetect: 0,84 s)           // pausa de ~0,75 s antes del remate
 const P1 = r2(T.s4 + LEN.s4 + 0.35);
 const P2 = r2(P1 + Math.max(2.25, LEN.nar + 0.06));   // (r1) el narrador con atempo 1,1
 // ---- parte 2 ----
@@ -93,7 +93,7 @@ T.reserva = r2(T.s8 + LEN.s8 - 0.1); T.rotQ4 = [r2(T.reserva + 0.15), r2(T.reser
 // (r1 del coordinador) el cierre entero ≤ 3 s: el plano y la tarjeta arrancan sobre "Comentá"; la línea chica, el último ~1 s
 T.q5 = r2(T.reserva + 1.35); T.s9 = T.q5;
 T.palabra = r2(T.s9);
-const DUR = Math.ceil((Math.ceil((T.s9 + LEN.s9 + 0.25) * 30) / 30) * 1e4) / 1e4;   // (r1) 0,25 s de cola
+const DUR = Math.ceil((Math.ceil((T.s9 + LEN.s9 + 0.1) * 30) / 30) * 1e4) / 1e4;   // (r2) cola de 0,15 s (la voz ahora ×1,1)
 T.cierre = r2(DUR - 1.5);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------

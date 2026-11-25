@@ -6,7 +6,7 @@ tarjetas pegadas a la cámara); medir.py de resto-reservas. Todo sale de `node g
 compositions/*.html, index.html, assets/audio/mezcla.wav). La escena entera está en `assets/tres.js` (escrita para este
 reel; función pura del tiempo).
 
-**Duración: 44,57 s** (1337 cuadros) desde la corrección r1 (antes 44,17). Parte 1 0-20,01 · cartel 20,01-22,26 · parte 2 +
+**Duración: 44,80 s** (1344 cuadros) desde la corrección r2 (r1: 44,57). Ver "Corrección r2" abajo; los números de esta línea son de r1: Parte 1 0-20,01 · cartel 20,01-22,26 · parte 2 +
 cierre 22,26-44,57 = 22,31 s (50,05 %). Cierre (plano F, tarjeta "Comentá DISPONIBLE" y voz juntos) 41,33-44,57 = 3,24 s
 (voz 2,98 + 0,25 de cola); línea chica desde 43,07 (1,5 s). `check --json`: ok, 0 errores, 0 warnings.
 Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +9,1 LU sobre el resto en todos los tramos de 0,5 s con voz;
@@ -54,6 +54,31 @@ Mezcla (MEDIR=1 node gen.mjs; python3 medir.py): voz ≥ +9,1 LU sobre el resto 
 - Snapshots: renders/snap/r2 (62 cuadros a los dos lados de cada corte y en cada cambio) y r3 (P3, Q4f, F después de los
   últimos ajustes).
 
+## Corrección r2 (QA arte + sonido/guion, 25-11)
+- "Yo ya no." entra con la voz (12,98): el STT ponía "Yo" en 0,5 s de la toma, pero es el fin de la pausa (silencedetect:
+  1,147 s); T.yaNo = a1 + 1,12. Igual "preguntaron." (s4: silencedetect 0,84 s): la burbuja de P4b dice "Preguntar," y suma
+  "preguntaron." a las 18,71.
+- "para tu inmobiliaria": s9 con atempo 1,1 (antes 1,2, sonaba "para ti mobiliaria"); STT completo. Cierre 3,38 s (voz 3,27 +
+  0,1 de cola), dentro de los ~3,3-3,4 que autorizó el coordinador.
+- P2: la tarjeta de Agustina va pegada debajo de SU fila de la bandeja, así la cola llega a la fila resaltada; la bandeja,
+  bajada hasta Agustina (3.ª fila) cuando se ilumina. El celular arranca más cerca (no 40 %) y más abajo (el contador no tapa la
+  cabecera).
+- "ALQUILA" entero en todas las fichas: las letras se achican hasta entrar en el ancho de la ficha (texFicha). F un poco a la
+  derecha: el ✓ de RESERVADO no toca el borde. Q4f: la ficha más abajo en el cuadro y la burbuja "Treinta y ocho…" más arriba
+  (no tapa ALQUILA).
+- Bocas solo con su voz: Diego en Q1/Q1b movía la boca con el audio reusado corrido 0,64 s (usaba T.d1b en vez de T.d1b0);
+  todo el que no habla queda con la boca cerrada (`callada()`: sonrisa ≤ 0,6 sin abrir; con 0,85 el rig dibuja la boca
+  abierta: Silvana en el palier, Agustina en Q3b, la pareja).
+- Taza crema (no se pierde contra la campera). El dedo de Silvana tipea en la barra de escribir (no tapa el mensaje). P3i:
+  la ficha de la consulta con las tres fotos de la propiedad (llena el hueco de arriba). Q1b más abierto. La cola de don
+  Alberto termina debajo del celular (no pisa "altavoz").
+- Bandeja coherente: cada fila es la k-ésima consulta del día con su hora (las 12 primeras hasta las 15:00, Agustina la 13 a
+  las 15:02, la 38 a las 23:10), la más nueva arriba; la misma fila tiene la misma hora en P1, P2 y P4i.
+- Diego "Le pidió la garantía": atempo 1,08 (antes 1,15).
+- ANDA y Porto Seguro se quedan (decisión del coordinador). fuentes.md con las URL de stinger, tic-real, zumbido y Kenney.
+- Duración 44,80 s, solución 50,3 %. Mezcla: voz ≥ +15,7 LU sobre el resto en todos los tramos con voz, -14,0 LUFS, pico
+  -5,6 dBFS, máximo sin voz -31,7.
+
 ## Recorte r1 (coordinador, 25-11): de 50,17 a 44,17 s
 - Fuera "Esos dos, para mí." (12-silvana → partes/descartadas/; sin s6): Q2 es solo visual (2,18 s), termina en "Listos para
   visitar y firmar: 2" resaltado; sin el plano Q2s.
@@ -81,39 +106,39 @@ python3 medir-sfx.py assets/audio/mezcla.wav assets/audio/stem-voz.wav
 flock /tmp/hyperframes.lock node prev.mjs "t1,t2" renders/prev/x  # solo la capa 3D ("t|px,py,pz,mx,my,mz,fov;…" para probar cámaras)
 bash paso10.sh                            # recodificación final (después del render)
 ```
-Portada: `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 2.0 renders/prev/portada`
-→ `portada-src/fondo-limpio-2.0.png`; después `SINAUDIO=1 node gen.mjs` (¡volver a correrlo!) y desde la raíz
+Portada: `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 0.05 renders/prev/portada`
+→ `portada-src/fondo-limpio-0.05.png`; después `SINAUDIO=1 node gen.mjs` (¡volver a correrlo!) y desde la raíz
 `node herramientas/portada.mjs inmobiliaria-disponible` (el script exige que exista el mp4 final aunque use el fondo limpio:
-para generarla antes del render se puso un mp4 negro temporal en renders/ y se borró).
+para generarla antes del render se puso un mp4 negro temporal en renders/ y se borró; desde r1 ya está el render).
 
 ## Voces (partes/procesar.sh; "oyó:" en partes/rec/medidas.tsv)
 Silvana = Erinome, Diego = Achird, Agustina = Laomedeia, don Alberto = Charon (filtro de altavoz), narrador = Rasalgethi
 (reusado de abren-hoy-completo, atempo 1,1 desde r1). Tres tomas por línea (siete para 02, siete para 17).
 d1 01-diego-c ×1,15 + apretada (2,88) · s1 02-silvana-k "Contestá vos." (0,84) · d2 03-diego-c ×1,05 (0,93) · s2 04-silvana-a (0,82) · s3 05-silvana-a ×1,15
 · a1 06-agustina-c + filtro (1,71) · al 07-alberto-b ×1,15 + filtro · s4 08-silvana-c (1,77; la única donde oye "preguntaron")
-· s5 10-silvana-c ×1,05 · d3 11-diego-b ×1,15 · a2 13-agustina-a · s7 14-silvana-a · a3 15-agustina-a · s8 16-silvana-c ×1,1
-recortada (sin "Seis visitas.", 2,17) · s9 17-silvana-g ×1,2 (2,98). (Sin s6: "Esos dos, para mí." salió en r1.)
-**Dudoso:** (r1) la 02 ahora es "Contestá vos." (toma k; el STT oye "contesta vos"). Y "Comentá" lo oye "Comenta" en las 7 tomas de 17 (como en otros reels). A revisar de oído.
+· s5 10-silvana-c ×1,05 · d3 11-diego-b ×1,08 (r2) · a2 13-agustina-a · s7 14-silvana-a · a3 15-agustina-a · s8 16-silvana-c ×1,1
+recortada (sin "Seis visitas.", 2,17) · s9 17-silvana-g ×1,1 (3,27; r2: con ×1,2 sonaba "para ti mobiliaria"). (Sin s6: "Esos dos, para mí." salió en r1.)
+**Dudoso:** (r1) la 02 ahora es "Contestá vos." (toma k; el STT oye "contesta vos"). Y "Comentá" lo oye "Comenta" en las 10 tomas de 17 (como en otros reels). A revisar de oído.
 
 ## Mundo
 - **Oficina de Silvana Propiedades** (origen): la de inmobiliaria-visitas SIN el tablero de llaves ni los escritorios de
   Diego/Romina; el cartel "SILVANA PROPIEDADES" más chico y alto (2,3 m); el panel de fichas a la derecha del cuadro con la
   ficha protagonista ALQUILA · PUNTA CARRETAS · 1 dorm. · $ 30.000 (borde verde; gris de P3b al cartel; franja RESERVADO ✓
-  en Q4). Escritorio con monitor (canvas 1600×1000: bandeja roja "Sin contestar: 38" en la parte 1, el panel del agente en
-  la 2), celular en soporte (pantS), celular acostado para la escalada de noche (luces bajas, vidriera navy), taza navy con
-  franja verde (en la mano en P3), planta.
+  en Q4). Escritorio con monitor VERTICAL (r1; canvas 1000×1600: bandeja roja "Sin contestar: 38" en la parte 1, el panel del agente
+  de cuatro renglones en la 2), celular en soporte (pantS), celular acostado para la escalada de noche (luces bajas,
+  vidriera navy), taza crema con franja verde (r2; en la mano en P3), planta.
 - **Living vacío de Parque Batlle** (x = 60): crema, monolítico claro en placas, ventanal navy con árboles low-poly verde
   oscuro, foco pelado, escalera de pintor plegada, tarro y lona. Silvana (celular crema) y Diego (celular navy) adelante, la
   pareja (Ana tapado crema, Martín buzo verde oscuro) al medio mirando la ventana; giran la cabeza en el cruce.
 - **Palier 3B** (x = 120): puerta navy3 con paneles, mirilla, "3B" de bronce, picaporte, llave con llavero verde en la
   cerradura; felpudo, planta, aplique; adentro claro. La puerta se abre en "Sí.".
 - Agustina nueva (Laomedeia): castaño en coleta alta, campera crema abierta, remera navy3, jean, aritos verdes, mochila navy.
-- Pantallas en canvas: bandeja de consultas con avatares de iniciales e íconos genéricos de canal (casita/globo/cámara, sin
-  logos); chat con Agustina (tipeo sincronizado con las palabras de s3, "9:10" con tilde roja, escribiendo…, nota de voz
+- Pantallas en canvas: bandeja de consultas con avatares de iniciales e íconos genéricos de canal (casita/globo/sobre, sin
+  logos; r2: cada fila es una consulta fija con su hora, la más nueva arriba); chat con Agustina (tipeo sincronizado con las palabras de s3, "9:10" con tilde roja, escribiendo…, nota de voz
   0:02); llamada "Don Alberto · propietario" (DA); chat del agente "Silvana Propiedades · agente de IA" con la ficha
   ($ 30.000 + GC $ 5.000, ANDA/CGN/Porto Seguro o depósito, no acepta mascotas, 3 miniaturas, 12 fotos ▸) → "Visita
-  confirmada ✓ Mié 10:30 · Diego"; panel (38 / 38 ✓ / mascota 5 → 2 / sin garantía 9 → requisitos / visitas 6 ✓ / agenda de
-  Diego / "Listos para visitar y firmar: 2 · Agustina · ANDA · Martina · CGN → para vos, Silvana"); pantalla "Sin contestar 0".
+  confirmada ✓ Mié 10:30 · Diego"; panel (r1: Consultas 38 / Contestadas al instante 38 ✓ / Visitas agendadas
+  6 ✓ / "Listos para visitar y firmar 2 → para vos, Silvana · Agustina · ANDA · Martina · CGN"); pantalla "Sin contestar 0".
 
 ## Planos (s) (corrección r1)
 P1 0 (cuadro 0) · P1b 5,45 ("Yo también." 5,83) · P2 6,77 (escalada, Agustina 7,55, "La inquilina ideal" 7,77) · P3 8,17
@@ -144,7 +169,8 @@ contesta?") · Q1i 26,12 (chat del agente) · Q2 28,68 (panel, "Martes, 23:10.")
 
 ## Portada
 `portada.json` (formato de gym-cupo): chica "Martes, 15:00.", grande "¿Sigue disponible?", sello INMOBILIARIAS, fondo limpio
-`portada-src/fondo-limpio-2.0.png` (VER=portada: Silvana, la pareja y Diego con los celulares llenando la mitad de arriba).
+`portada-src/fondo-limpio-0.05.png` (VER=portada a 0,05 s, antes de que Diego hable: Silvana, la pareja y Diego con los
+celulares llenando la mitad de arriba; regenerada en r2 con las bocas cerradas).
 
 ## Flojo / para los revisores
 - "Contestá vos." y "Comentá" sin confirmar de oído (el STT no oye tildes).

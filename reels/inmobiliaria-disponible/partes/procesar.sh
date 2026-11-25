@@ -13,7 +13,7 @@ v 06-agustina-c  a1 "$TEL"              # Agustina (Laomedeia), nota de voz: "¡
 v 07-alberto-b   al "atempo=1.15,$TEL"              # don Alberto (Charon), altavoz: "Silvana, ¿cómo va? ¿Nadie preguntó por el apartamento?"
 v 08-silvana-c   s4                     # Silvana "Preguntar, preguntaron."
 v 10-silvana-c   s5 "atempo=1.05"                    # Silvana "¿Y quién contesta?"
-v 11-diego-b     d3 "atempo=1.15"                    # Diego "Ya contestó. Le pidió la garantía y agendó."
+v 11-diego-b     d3 "atempo=1.08"                    # Diego "Ya contestó. Le pidió la garantía y agendó."
 # (25-11, recorte del coordinador) sin s6 "Esos dos, para mí."
 rm -f assets/voice/s6.wav
 v 13-agustina-a  a2                     # Agustina "¿Sigue disponible?"
@@ -22,7 +22,7 @@ v 15-agustina-a  a3                     # Agustina "¡Qué bueno! Yo también."
 v 16-silvana-c   s8 "atempo=1.1"                    # Silvana "Treinta y ocho. (Seis visitas.) Y el viernes firman."
 # (25-11) sin "Seis visitas.": se empalma "Treinta y ocho." (0-0,95 s, con su pausa) con "Y el viernes firman." (desde 2,35 s)
 ffmpeg -loglevel error -y -i assets/voice/s8.wav -filter_complex "[0]atrim=0:0.95,afade=t=out:st=0.91:d=0.04[a];[0]atrim=start=2.35,asetpts=PTS-STARTPTS,afade=t=in:d=0.03[b];[a][b]concat=n=2:v=0:a=1" -ar 48000 -ac 1 partes/tmp/s8-corte.wav && mv partes/tmp/s8-corte.wav assets/voice/s8.wav
-v 17-silvana-g   s9 "atempo=1.2"       # Silvana a cámara "Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria."
+v 17-silvana-g   s9 "atempo=1.1"       # Silvana a cámara "Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria."
 # narrador: reels/abren-hoy-completo/assets/voice/narrador.wav (Rasalgethi, reusado) con atempo 1,1 (r1: el reel ≤ 45 s)
 ffmpeg -loglevel error -y -i ../abren-hoy-completo/assets/voice/narrador.wav -af atempo=1.1 -ar 48000 -ac 1 assets/voice/narrador.wav
 # (r1) los silencios internos largos de d1, al y s3, a 0,2 s (partes/apretar.py, con los tiempos por palabra de la toma)
