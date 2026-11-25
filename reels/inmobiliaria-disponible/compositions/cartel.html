@@ -7,14 +7,13 @@
     [data-composition-id="cartel"] .fondo { position: absolute; inset: -200px; background: #5ce611; }
     [data-composition-id="cartel"] svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     [data-composition-id="cartel"] .texto { position: absolute; left: 0; right: 0; top: 640px; text-align: center; transform: rotate(-4deg); }
-    [data-composition-id="cartel"] .linea { display: block; font: 900 120px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    [data-composition-id="cartel"] .linea.b { font-size: 120px; margin-top: 12px; }
-    [data-composition-id="cartel"] .linea.c { font-size: 146px; margin-top: 18px; }
+    [data-composition-id="cartel"] .linea { display: block; font: 900 146px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
+    [data-composition-id="cartel"] .linea.c { font-size: 150px; margin-top: 26px; }
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.3">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.3" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.44">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.44" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -35,8 +34,8 @@
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="esp"></span><span class="l">r</span><span class="l">e</span><span class="l">g</span><span class="l">i</span><span class="l">s</span><span class="l">t</span><span class="l">r</span><span class="l">o</span></span>
-        <span class="linea b"><span class="l">d</span><span class="l">e</span><span class="esp"></span><span class="l">v</span><span class="l">i</span><span class="l">s</span><span class="l">i</span><span class="l">t</span><span class="l">a</span><span class="l">s</span></span>
+        <span class="linea a"><span class="l">U</span><span class="l">n</span><span class="esp"></span><span class="l">a</span><span class="l">g</span><span class="l">e</span><span class="l">n</span><span class="l">t</span><span class="l">e</span></span>
+        <span class="linea b"><span class="l">d</span><span class="l">e</span><span class="esp"></span><span class="l">I</span><span class="l">A</span></span>
         <span class="linea c"><span class="l">m</span><span class="l">á</span><span class="l">s</span><span class="esp"></span><span class="l">t</span><span class="l">a</span><span class="l">r</span><span class="l">d</span><span class="l">e</span><span class="l">…</span></span>
       </div>
     </div>
@@ -48,19 +47,19 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.3, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.3, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.44, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.44, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
-        const t0 = i < nAB ? i * 0.03 : 0.8 + (i - nAB) * 0.03;
+        const t0 = i < nAB ? i * 0.03 : 1.2 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, 2.18);   // se va antes del iris
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, 2.08);   // se va antes del iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

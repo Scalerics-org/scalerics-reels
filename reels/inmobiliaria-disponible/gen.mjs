@@ -1,15 +1,15 @@
-// Genera todo inmobiliaria-visitas desde un solo lugar (correr desde la carpeta del reel): `node gen.mjs`
-//   - assets/tiempos3d.js: los beats (T), la duración, dónde termina la parte 1 y arranca la 2, y las envolventes de
-//     las voces (bocas)
-//   - compositions/*.html: la capa plana de arriba (INMOBILIARIAS + "Viernes, 18:00." del cuadro 0, los chips de Q2 y
-//     Q4, el cartel "Un registro de visitas más tarde…", "Comentá VISITAS" y la línea chica final); las burbujas de
-//     diálogo y los rótulos son 3D pegados a la cámara (assets/tres.js)
+// Genera todo inmobiliaria-disponible desde un solo lugar (correr desde la carpeta del reel): `node gen.mjs`
+//   - assets/tiempos3d.js: los beats (T), la duración, dónde termina la parte 1 y arranca la 2, las envolventes de las
+//     voces (bocas) y los tiempos de palabra que usa la escena
+//   - compositions/*.html: la capa plana de arriba (INMOBILIARIAS + "Martes, 15:00." del cuadro 0, los chips de día y
+//     hora, el cartel "Un agente de IA más tarde…", "Comentá DISPONIBLE" y la línea chica final); las burbujas de
+//     diálogo, las consultas, el contador y los rótulos son 3D pegados a la cámara (assets/tres.js)
 //   - index.html: fondo + cartel (debajo) + canvas 3D + escenas + una sola pista de audio premezclada
 //   - assets/audio/mezcla.wav: ambiente, música, SFX y voces mezclados con ffmpeg (techo por efecto)
-// Línea "ANTES QUE TODO" (rubro + dolor + solución + palabra), formato completo de dist-cliente-grande: parte 1 (0 a P1),
-// el cartel (P1 a P2, HTML debajo del canvas) y la parte 2 (P2 a DUR, la solución funcionando, con el cierre adentro).
-// LIMPIO=1 node gen.mjs: sin capa plana ni burbujas (fondo de la portada). MEDIR=1: además escribe stems voz / resto.
-// SINAUDIO=1: no rehace la mezcla. VER=portada: el plano de la portada.
+// Base: reels/inmobiliaria-visitas (gen.mjs) y reels/gym-cupo. Línea "ANTES QUE TODO": parte 1 (0 a P1), el cartel
+// (P1 a P2, HTML debajo del canvas) y la parte 2 (P2 a DUR, la solución funcionando, con el cierre adentro).
+// LIMPIO=1: sin capa plana ni burbujas (fondo de la portada). MEDIR=1: además stems voz / resto. SINAUDIO=1: no rehace la
+// mezcla. VER=portada: el plano de la portada.
 import fs from "node:fs";
 import { execSync, execFileSync } from "node:child_process";
 
@@ -17,60 +17,86 @@ const r2 = (n) => Math.round(n * 100) / 100;
 const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=duration -of csv=p=0 ${f}`).toString()));
 
 // ================= LOS BEATS (segundos del video final) =================
-// Voces (assets/voice, ver partes/voces.md y partes/procesar.sh): g1 Graciela por el altavoz "¿Y? ¿Hubo visitas?" (se
-// reusa igual en Q3) · s1 Silvana "¿Hubo visitas en lo de Graciela?" · d1 Diego "Un montón." · ro1 Romina "Ninguna." · s2
-// Silvana "Me dicen que varias, Graciela." · g2 Graciela en el balcón "Qué raro. La llave la tengo yo." · g3 Graciela
-// (altavoz) "Mañana paso a buscar el cartel." · d2 Diego "Ah. Era el de Malvín." · nar "Un registro de visitas más tarde."
-// · s3 Silvana "Cuatro. Y el martes vuelve una pareja." · g4 Graciela (altavoz) "Ya sé. Llamaba para chusmear." · g5
-// Graciela en el balcón, contenta "Mañana paso a buscar el cartel." · so Sofi "Comentá VISITAS y te mando…"
-const VOCES = ["g1", "s1", "d1", "ro1", "s2", "g2", "g3", "d2", "d3", "s3", "g4", "g5", "so"];
+// Voces (assets/voice, ver partes/procesar.sh): d1 Diego "Silvana. El de Punta Carretas explota. Van doce." (se reusa
+// igual en Q1) · s1 Silvana "Contestales vos." · d2 Diego "Estoy mostrando." · s2 Silvana "Yo también." · s3 Silvana "¡Hola,
+// Agustina! Perdón la demora. Sí, sigue disponible." · a1 Agustina (nota de voz) "¡Qué bueno! Yo ya no." · al don Alberto
+// (altavoz) "Silvana, ¿cómo va? ¿Nadie preguntó por el apartamento?" (se reusa igual en Q4) · s4 "Preguntar,
+// preguntaron." · nar "Un agente de IA más tarde." · s5 "¿Y quién contesta?" · d3 "Ya contestó. Le pidió la garantía y
+// agendó." · s6 "Esos dos, para mí." · a2 "¿Sigue disponible?" · s7 "Sí." · a3 "¡Qué bueno! Yo también." · s8 "Treinta y
+// ocho. Seis visitas. Y el viernes firman." · s9 "Comentá DISPONIBLE y te mando cómo funciona para tu inmobiliaria."
+const VOCES = ["d1", "s1", "d2", "s2", "s3", "a1", "al", "s4", "s5", "d3", "s6", "a2", "s7", "a3", "s8", "s9"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
-const PAL = { g2: JSON.parse(fs.readFileSync("assets/voice/palabras-g2.json", "utf8")), so: JSON.parse(fs.readFileSync("assets/voice/palabras-so.json", "utf8")) };
-const palabra = (k, i) => r2(PAL[k][i].start ?? PAL[k][i].a);
+const PAL = {};
+for (const k of ["s3", "a1", "a3", "s8", "s9", "d1", "al"]) PAL[k] = JSON.parse(fs.readFileSync(`assets/voice/palabras-${k}.json`, "utf8")).map((p) => ({ w: p.text ?? p.word, a: r2(p.start ?? p.a), b: r2(p.end ?? p.b) }));
+const palabra = (k, i) => PAL[k][i].a;
+const finPal = (k, i) => PAL[k][i].b;
 const T = {};
 // ---- parte 1 ----
-// P1 · cuadro 0: la oficina de Silvana Propiedades; del celular en altavoz: "¿Y? ¿Hubo visitas?"
-T.g1 = 0.12;
-// P2 · Silvana tapa el celular con la palma sobre la mesa y gira la silla; la cámara gira con ella hasta quedar detrás
-T.tapa = r2(T.g1 + LEN.g1 + 0.04); T.p2 = T.tapa; T.s1 = r2(T.tapa + 0.1);
-// P3 · desde atrás de Silvana: Diego "Un montón." y Romina "Ninguna." a la vez; Silvana mira a uno y a la otra
-T.p3 = r2(T.s1 + LEN.s1 + 0.04); T.d1 = r2(T.p3 + 0.12); T.ro1 = r2(T.d1 + 0.55);   // (r1) Romina 0,3 s después: se oyen las dos
-T.miraD = r2(T.d1 + 0.12); T.miraR = r2(T.ro1 + 0.05);
-// P4 · primer plano de Silvana, destapa el celular: "Me dicen que varias, Graciela."
-T.p4 = r2(T.ro1 + LEN.ro1 + 0.22); T.destapa = r2(T.p4 + 0.03); T.s2 = r2(T.p4 + 0.08);
-// P5 · el balcón de Pocitos: la grúa desde la rambla hasta Graciela; "Qué raro." · push-in a la llave POCITOS en "La llave"
-T.p5 = r2(T.s2 + LEN.s2 + 0.06); T.g2 = r2(T.p5 + 0.3);   // (r1) corte directo al balcón (sin la grúa)
-T.llave = r2(T.g2 + palabra("g2", 2) - 0.05);
-// P6 · la pausa: la oficina quieta, rótulos de la plata (fichas y el gancho vacío)
-T.p6 = r2(T.g2 + LEN.g2 + 0.08); T.rot = [r2(T.p6 + 0.08), r2(T.p6 + 0.3), r2(T.p6 + 0.52)];
-// P7 · el celular en altavoz, de cerca: "Mañana paso a buscar el cartel." · tu-tu-tu · "Llamada finalizada"
-T.g3 = r2(T.p6 + 0.8); T.p6b = r2(T.p6 + 1.5); T.p7 = r2(T.g3 + 1.4); T.cuelga = r2(T.g3 + LEN.g3 + 0.06);   // (r1) la pausa dura 1,9 s (P6 + P6b el gancho vacío); "Mañana paso…" arranca sobre la pausa
-// P8 · remate del remate: Diego mira la llave de su escritorio "Ah. Era el de Malvín." · P8b Silvana cierra los ojos
-T.p8 = r2(T.cuelga + 0.16); T.mira = r2(T.p8 + 0.05); T.d2 = r2(T.p8 + 0.3); T.d2b = r2(T.d2 + 1.04);   // (r1) la burbuja suma "Era el de Malvín." cuando lo dice
-T.p8b = r2(T.d2 + LEN.d2 + 0.06);
-const P1 = r2(T.p8b + 0.26);                            // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.08));
+// P1 · cuadro 0: el living vacío de Parque Batlle; la visita; del celular de Silvana brotan las consultas; Diego, bajito
+T.d1 = 0.25;
+T.cons = [0, 0, 0, r2(T.d1 + 0.55), r2(T.d1 + 1.3), r2(T.d1 + 2.1)];   // las 3 primeras ya están en el cuadro 0
+T.s1 = r2(T.d1 + LEN.d1 + 0.06);
+T.d2 = r2(T.s1 + LEN.s1 + 0.06);
+// la pausita antes de "Yo también." (0,5 s): corte a Silvana con la sonrisa fija
+T.p1b = r2(T.d2 + LEN.d2 + 0.12); T.s2 = r2(T.d2 + LEN.d2 + 0.5);
+// P2 · la escalada muda: el celular sobre el escritorio de la oficina, de noche; 12 → 38; la de Agustina
+T.p2 = r2(T.s2 + LEN.s2 + 0.12);
+T.h1830 = T.p2; T.h2310 = r2(T.p2 + 0.7);
+T.cuenta = [r2(T.p2 + 0.08), r2(T.p2 + 1.05)];             // el contador corre 12 → 38
+T.agus = r2(T.p2 + 1.1);                                    // se ilumina la de Agustina (15:02)
+T.ideal = r2(T.agus + 0.3);
+// P3 · miércoles 9:10: Silvana con el café; inserto del chat: tipea mientras lo dice, enviado, escribiendo…, nota de voz
+T.p3 = r2(T.ideal + 0.5);
+T.p3i = r2(T.p3 + 0.55); T.s3 = r2(T.p3i + 0.05);
+T.envia = r2(T.s3 + LEN.s3 + 0.03);
+T.escribe = r2(T.envia + 0.2); T.nota = r2(T.escribe + 0.35); T.a1 = r2(T.nota + 0.1);
+T.yaNo = r2(T.a1 + palabra("a1", 2) - 0.05);                // la burbuja suma "Yo ya no." cuando lo dice
+// P3b · la pausa: Silvana quieta, el café a medio camino; rótulos; la música se corta seca
+T.p3b = r2(T.a1 + LEN.a1 + 0.08);
+T.rot = [r2(T.p3b + 0.12), r2(T.p3b + 0.45)];
+// P4 · remate del remate: vibra, "Don Alberto · propietario", altavoz; Silvana mira la pantalla (38); "Preguntar, preguntaron."
+T.p4 = r2(T.p3b + 1.05); T.vibra = r2(T.p4 + 0.05); T.atiende = r2(T.p4 + 0.35); T.al = r2(T.p4 + 0.42);
+T.p4i = r2(T.al + LEN.al + 0.03);                           // inserto: "Sin contestar: 38"
+T.p4b = r2(T.p4i + 0.6); T.s4 = r2(T.p4b + 0.12);           // pausa de ~0,75 s antes del remate
+const P1 = r2(T.s4 + LEN.s4 + 0.35);
+const P2 = r2(P1 + Math.max(2.4, LEN.nar + 0.06));
 // ---- parte 2 ----
-// Q1 · el apartamento de Pocitos: la pareja se va saludando; Diego carga la visita en el celular (push-in ≥ 60 %)
-T.q1 = P2; T.q1i = r2(P2 + 0.55); T.filasD = [0, 1, 2, 3, 4].map((i) => r2(P2 + 0.75 + i * 0.22)); T.guarda = r2(P2 + 1.85); T.d3 = r2(T.guarda + 0.05);   // (r1) Diego: "Cargada."
-// Q2 · viernes 18:00, el balcón: a Graciela le llega solo el resumen (push-in ≥ 60 %); toca "Llamar" igual
-T.q2 = r2(T.d3 + LEN.d3 + 0.2); T.vibra = r2(T.q2 + 0.1); T.q2i = r2(T.q2 + 0.65); T.filasG = [0, 1, 2, 3].map((i) => r2(T.q2 + 0.85 + i * 0.2)); T.llamaG = r2(T.q2 + 1.8);   // (r3) Graciela 0,65 s antes del inserto
-// Q3 · el encuadre del cuadro 0, el mismo "¿Y? ¿Hubo visitas?"; Silvana mira el monitor (push-in a la ficha) "Cuatro.
-// Y el martes vuelve una pareja." · Q3c el encuadre del cuadro 0: "Ya sé. Llamaba para chusmear."
-T.q3 = r2(T.q2 + 2.2); T.g1b = r2(T.q3 + 0.06); T.mon = r2(T.g1b + LEN.g1 - 0.15);
-T.tildes = [0, 1, 2, 3].map((i) => r2(T.mon + 0.25 + i * 0.16)); T.s3 = r2(T.g1b + LEN.g1 + 0.08);
-T.q3c = r2(T.s3 + LEN.s3 + 0.02); T.g4 = r2(T.q3c + 0.08); T.q3cc = r2(T.q3c + 0.75);   // (r1) Q3c: el gancho POCITOS con su llave, después el encuadre del cuadro 0
-// Q4 · tres semanas después: la ficha (RESERVADO ✓, la comisión de rojo a verde) · Q4b el balcón: "Mañana paso a buscar
-// el cartel." (contenta) y la franja VENDIDO
-T.q4 = r2(T.g4 + LEN.g4 + 0.08); T.reserva = r2(T.q4 + 0.35); T.comision = r2(T.q4 + 0.7);
-T.q4b = r2(T.q4 + 1.55); T.g5 = r2(T.q4b + 0.1); T.vendido = r2(T.g5 + LEN.g5 + 0.04);
-// Q5 · el cierre: el monitor en verde y el celular parado con Sofi en videollamada
-T.q5 = r2(T.vendido + 0.9); T.so = r2(T.q5 + 0.08);   // (r3) la franja VENDIDO ≥ 0,8 s
-T.palabra = r2(T.so - 0.02);
-const DUR = Math.ceil((Math.ceil((T.so + LEN.so + 0.4) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(Math.max(T.palabra + 0.5, DUR - 2.05));
+// Q1 · martes 15:00 otra vez, el encuadre del cuadro 0; el mismo audio de Diego (desde "El de Punta Carretas"); "¿Y
+// quién contesta?"; Diego le muestra el celular: el chat del agente (inserto)
+T.q1 = P2; T.vib2 = r2(P2 + 0.05);
+T.d1bDesde = r2(palabra("d1", 1) - 0.06); T.d1b = r2(P2 + 0.12); T.d1b0 = r2(T.d1b - T.d1bDesde);   // d1b0: donde "empezaría" la toma entera (boca)
+T.s5 = r2(T.d1b0 + LEN.d1 + 0.06);
+T.muestra = r2(T.s5 + LEN.s5 - 0.2);
+T.q1i = r2(T.s5 + LEN.s5 + 0.08); T.d3 = r2(T.q1i + 0.05);
+T.chat = [0, 0, r2(T.q1i + 0.3), r2(T.q1i + 0.75), r2(T.q1i + 1.2), r2(T.q1i + 1.6), r2(T.q1i + 2.05)];   // 0-1 ya están
+T.rotQ1 = r2(T.q1i + 0.4);
+// Q2 · el panel en el monitor (travelling: la lista → la agenda de Diego → "Listos para firmar: 2"); "Esos dos, para mí."
+// arranca sobre el panel y sigue en Silvana (Q2s)
+T.q2 = r2(Math.max(T.d3 + LEN.d3, T.chat[6] + 0.45) + 0.06);
+T.filas = [0, 1, 2, 3, 4].map((i) => r2(T.q2 + 0.12 + i * 0.15));
+T.agenda = r2(T.q2 + 0.85); T.turnos = [0, 1, 2, 3, 4, 5].map((i) => r2(T.agenda + 0.12 + i * 0.09));
+T.listos = r2(T.agenda + 0.72);
+T.s6 = r2(T.listos + 0.15); T.q2s = r2(T.s6 + 0.35);
+// Q3 · miércoles 10:30, el palier 3B: Agustina llega; "¿Sigue disponible?" / "Sí." (abre) / "¡Qué bueno! Yo también."
+T.q3 = r2(T.s6 + LEN.s6 + 0.08); T.a2 = r2(T.q3 + 0.45);
+T.s7 = r2(T.a2 + LEN.a2 + 0.08); T.abre = r2(T.s7 + 0.05);
+T.q3b = r2(T.s7 + LEN.s7 + 0.4); T.a3 = r2(T.q3b + 0.05);
+T.tambien = r2(T.a3 + palabra("a3", 2) - 0.05);
+T.rotQ3 = r2(T.a3 + LEN.a3 + 0.02);
+// Q4 · miércoles 12:00, la oficina: vibra, el mismo audio de don Alberto (desde "¿Nadie preguntó…?"); "Treinta y ocho.
+// Seis visitas. Y el viernes firman."; la ficha ALQUILA: RESERVADO ✓
+T.q4 = r2(T.rotQ3 + 0.65); T.vib3 = r2(T.q4 + 0.04);
+T.al2Desde = r2(palabra("al", 3) - 0.06); T.al2 = r2(T.q4 + 0.3); T.al2Fin = r2(T.al2 + LEN.al - T.al2Desde);
+T.s8 = r2(T.al2Fin + 0.06);
+T.q4f = r2(T.s8 + palabra("s8", 5) - 0.1);                // en "Y el viernes firman." la cámara va a la ficha
+T.reserva = r2(T.s8 + LEN.s8 - 0.1); T.rotQ4 = [r2(T.reserva + 0.28), r2(T.reserva + 0.5)];
+// F · el cierre: Silvana a cámara; "Comentá DISPONIBLE…"
+T.q5 = r2(T.reserva + 1.25); T.s9 = r2(T.q5 + 0.08);
+T.palabra = r2(T.s9 - 0.02);
+const DUR = Math.ceil((Math.ceil((T.s9 + LEN.s9 + 0.4) * 30) / 30) * 1e4) / 1e4;
+T.cierre = r2(Math.max(T.s9 + LEN.s9 - 0.7, DUR - 1.3));
 
-// ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca y el led del altavoz) ----------
+// ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
   const pcm = execFileSync("ffmpeg", ["-loglevel", "error", "-i", archivo, "-f", "s16le", "-ac", "1", "-ar", "8000", "-"], { maxBuffer: 1e8 });
   const env = [];
@@ -83,7 +109,7 @@ function envolvente(archivo) {
   return env.map((v) => { const k = v / mx; return r2(k < 0.1 ? 0 : Math.pow(k, 0.8)); });
 }
 const ENV = Object.fromEntries(VOCES.map((v) => [v, envolvente(`assets/voice/${v}.wav`)]));
-fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const LEN = ${JSON.stringify(LEN)};\nexport const ENV = ${JSON.stringify(ENV)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin burbujas ni rótulos (fondo de la portada)\nexport const VER = ${JSON.stringify(process.env.VER || "")};\n`);
+fs.writeFileSync("assets/tiempos3d.js", `// lo genera gen.mjs\nexport const DUR = ${DUR};\nexport const P1 = ${P1};\nexport const P2 = ${P2};\nexport const T = ${JSON.stringify(T)};\nexport const LEN = ${JSON.stringify(LEN)};\nexport const PAL = ${JSON.stringify(PAL)};\nexport const ENV = ${JSON.stringify(ENV)};\nexport const LIMPIO = ${!!process.env.LIMPIO}; // sin burbujas ni rótulos (fondo de la portada)\nexport const VER = ${JSON.stringify(process.env.VER || "")};\n`);
 
 // ================= CAPA PLANA (HTML) =================
 const NAVY = "#0b1220", CR = "#efeee5", G = "#5ce611";
@@ -124,55 +150,64 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
 const CHIP = `
     P .chip { position: absolute; left: 44px; padding: 14px 30px 18px; border-radius: 22px; background: ${NAVY}; border: 6px solid ${CR}; font: 900 62px/1 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; box-shadow: 10px 12px 0 rgba(3,6,12,0.55); }`;
 
-// P1 · el rubro: "INMOBILIARIAS" enorme arriba (navy sobre crema, en el recuadro verde), entero desde el cuadro 0, y el
-// chip "Viernes, 18:00." debajo; se van cuando Silvana tapa el celular
+// P1 · el rubro: "INMOBILIARIAS" enorme arriba, entero desde el cuadro 0, y el chip "Martes, 15:00." debajo; se van antes
+// del corte a Silvana ("Yo también.")
 {
-  const id = "s00-rubro", ini = 0, dur = r2(T.s1 + 0.3);
+  const id = "s00-rubro", ini = 0, dur = r2(T.s1 + 0.2);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 30px; right: 30px; top: 110px; padding: 26px 6px 28px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
+    P .caja { position: absolute; left: 30px; right: 30px; top: 96px; padding: 26px 6px 28px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; }
     P .tx { font: 900 108px/1.06 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 20px; margin-top: 8px; }
     P .sel b { position: absolute; inset: -14px 0 -6px; background: ${G}; border: 7px solid ${NAVY}; border-radius: 10px; }
     P .sel em { position: relative; font-style: normal; }${CHIP}
-    P .chip { top: 338px; }`,
+    P .chip { top: 324px; }`,
     html: `      <div class="caja"><div class="tx"><span class="sel"><b></b><em>INMOBILIARIAS</em></span></div></div>
-      <div class="chip">Viernes, 18:00.</div>`,
+      <div class="chip">Martes, 15:00.</div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 1 }, { scale: 1.03, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.25);
       tl.to(q(".caja"), { y: -460, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});
       tl.to(q(".chip"), { x: -560, duration: 0.24, ease: "power2.in" }, ${r2(dur - 0.3)});`,
   });
 }
-// Q2 · el chip "Viernes, 18:00." (el balcón) · Q4 · "Tres semanas después."
-for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q2i - 0.02), "Viernes, 18:00."], ["s02-chip", r2(T.q4 - 0.02), r2(T.q4b - 0.02), "Tres semanas después."]]) {
-  const dur = r2(fin - ini);
+// los chips de día y hora (arriba a la izquierda)
+const CHIPS = [
+  ["s01-chip", T.h1830, T.h2310, "Martes, 18:30."],
+  ["s02-chip", T.h2310, T.p3, "Martes, 23:10."],
+  ["s03-chip", T.p3, r2(T.p3i + 1.2), "Miércoles, 9:10."],
+  ["s04-chip", P2, r2(T.s5 + 0.2), "Martes, 15:00."],
+  ["s06-chip", T.q3, r2(T.q3b - 0.02), "Miércoles, 10:30."],
+  ["s07-chip", T.q4, r2(T.s8 + 0.3), "Miércoles, 12:00."],
+];
+for (const [id, a, b, txt] of CHIPS) {
+  const ini = r2(a), dur = r2(b - a);
   ESC.push([id, ini, dur, "arriba"]);
+  const entra = id === "s02-chip" ? `tl.fromTo(q(".chip"), { rotationX: 90, transformOrigin: "50% 50%" }, { rotationX: 0, duration: 0.14, ease: "back.out(1.6)", immediateRender: true }, 0);`
+    : `tl.fromTo(q(".chip"), { scale: 0.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.0);`;
+  const sale = id === "s01-chip" ? "" : `tl.to(q(".chip"), { scale: 0.6, opacity: 0, duration: 0.14, ease: "power2.in" }, ${r2(dur - 0.16)});`;
   escena(id, dur, {
     css: `${CHIP}
     P .chip { top: 96px; }`,
     html: `      <div class="chip">${txt}</div>`,
-    js: `      tl.fromTo(q(".chip"), { scale: 0.6, opacity: 0, transformOrigin: "0% 50%" }, { scale: 1, opacity: 1, duration: 0.2, ease: "back.out(1.6)", immediateRender: true }, 0.02);
-      tl.to(q(".chip"), { scale: 0.6, opacity: 0, duration: 0.14, ease: "power2.in" }, ${r2(dur - 0.16)});`,
+    js: `      ${entra}
+      ${sale}`,
   });
 }
 
-// el cartel "Un registro de visitas más tarde…" (time card de dibujito, de marca, hecho de cero). Va DEBAJO del canvas.
-// No dice "Scalerics".
+// el cartel "Un agente de IA más tarde…" (time card de dibujito, de marca, hecho de cero; el de resto-reservas). Va
+// DEBAJO del canvas. No dice "Scalerics".
 {
   const id = "cartel", dur = r2(P2 - P1);
   ESC.push([id, P1, dur, "abajo"]);
-  const palabra = (w) => [...w].map((ch) => `<span class="l">${ch}</span>`).join("");
-  const lin = (cls, ws) => `<span class="linea ${cls}">${ws.map(palabra).join('<span class="esp"></span>')}</span>`;
-  const MAS = 0.8;   // (r2) "más tarde…" entra antes (entero en ~1,4 s)   // "más tarde…" entra cuando el narrador dice "más"
+  const palabraC = (w) => [...w].map((ch) => `<span class="l">${ch}</span>`).join("");
+  const lin = (cls, ws) => `<span class="linea ${cls}">${ws.map(palabraC).join('<span class="esp"></span>')}</span>`;
   escena(id, dur, {
     css: `
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
     P svg.manchas { position: absolute; left: -200px; top: -200px; width: 1480px; height: 2320px; }
     P .texto { position: absolute; left: 0; right: 0; top: 640px; text-align: center; transform: rotate(-4deg); }
-    P .linea { display: block; font: 900 120px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
-    P .linea.b { font-size: 120px; margin-top: 12px; }
-    P .linea.c { font-size: 146px; margin-top: 18px; }
+    P .linea { display: block; font: 900 146px/1.1 "Lexend", sans-serif; letter-spacing: -0.01em; }
+    P .linea.c { font-size: 150px; margin-top: 26px; }
     P .l { display: inline-block; position: relative; color: ${CR}; -webkit-text-stroke: 16px ${NAVY}; paint-order: stroke fill; text-shadow: 0 16px 0 ${NAVY}, 10px 16px 0 ${NAVY}; }
     P .esp { display: inline-block; width: 0.32em; }`,
     html: `      <div class="fondo"></div>
@@ -195,8 +230,8 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q2i - 0.02
         </g>
       </svg>
       <div class="texto" data-layout-allow-overlap data-layout-allow-overflow>
-        ${lin("a", ["Un", "registro"])}
-        ${lin("b", ["de", "visitas"])}
+        ${lin("a", ["Un", "agente"])}
+        ${lin("b", ["de", "IA"])}
         ${lin("c", ["más", "tarde…"])}
       </div>`,
     js: `      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: ${dur}, ease: "sine.inOut", immediateRender: true }, 0);
@@ -204,46 +239,45 @@ for (const [id, ini, fin, txt] of [["s01-chip", r2(T.q2 - 0.02), r2(T.q2i - 0.02
       const letras = qa(".l");
       const nAB = qa(".linea.a .l, .linea.b .l").length;
       letras.forEach((l, i) => {
-        const t0 = i < nAB ? i * 0.03 : ${MAS} + (i - nAB) * 0.03;
+        const t0 = i < nAB ? i * 0.03 : 1.2 + (i - nAB) * 0.03;   // "más tarde…" entra cuando el narrador dice "más"
         tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.06, ease: "power2.in" }, ${r2(dur - 0.12)});   // se va antes del iris`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, ${r2(dur - 0.36)});   // se va antes del iris`,
   });
 }
 
-
-// Q5 · "Comentá VISITAS" + "y te mando cómo funciona para tu inmobiliaria", debajo de Sofi (y 1040-1460)
+// F · "Comentá DISPONIBLE" + "y te mando cómo funciona para tu inmobiliaria", debajo de la cara de Silvana
 {
   const id = "s05-palabra", ini = T.palabra, dur = r2(DUR - T.palabra + 0.1);   // hasta el último cuadro
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1080px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
-    P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
-    P .tx { font: 900 128px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
-    P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
+    P .caja { position: absolute; left: 40px; right: 40px; top: 1020px; padding: 14px 10px 22px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .a { font: 800 84px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
+    P .tx { font: 900 116px/1.1 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
+    P .sel { position: relative; display: inline-block; padding: 0 20px; margin-top: 6px; }
     P .sel b { position: absolute; inset: 8px 0 -6px; background: ${G}; border: 8px solid ${NAVY}; border-radius: 12px; }
     P .sel em { position: relative; font-style: normal; }
     P .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; }`,
-    html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>VISITAS</em></span></div><div class="c">y te mando cómo funciona</div></div>`,
+    html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>DISPONIBLE</em></span></div><div class="c">y te mando cómo funciona<br>para tu inmobiliaria</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
-      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(palabra("so", 1) + 0.02)});`,
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(palabra("s9", 1) + 0.02)});`,
   });
 }
-// la línea chica final (arriba): qué es y la web
+// la línea chica final (abajo): qué es y la web
 {
   const id = "s09-cierre", ini = T.cierre, dur = r2(DUR - T.cierre + 0.1);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1425px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
-    P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
-    P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
-    html: `      <div class="caja"><div class="a">Visitas anotadas y resumen</div><div class="a">automático al propietario</div><div class="b">scalerics.com</div></div>`,
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1500px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .a { font: 700 44px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
+    P .b { margin-top: 8px; font: 800 62px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
+    html: `      <div class="caja"><div class="a">Un agente de IA que contesta</div><div class="a">y agenda las visitas</div><div class="b">scalerics.com</div></div>`,
     js: `      tl.fromTo(q(".caja"), { y: 420 }, { y: 0, duration: 0.3, ease: "back.out(1.4)", immediateRender: true }, 0.0);
       tl.fromTo(q(".b"), { scale: 0.8, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: true }, 0.3);`,
   });
@@ -262,47 +296,52 @@ const pop = (t, techo = -40) => s("sfx/pop.mp3", t, 0, { desde: 0.11, techo });
 const VOZ = [];
 const voz = (f, t, db = -1, pan = 0) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04, pan }); VOZ.push([r2(t - 0.75), r2(t + LEN[f] + 0.95)]); };
 const pasos = (a, b, n, techo = -46) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo, lp: 2500 }); };
-const noti = (t, techo = -36) => { s("sfx/vibra.wav", t - 0.2, 0, { techo: techo - 2, dur: 0.5, fin: 0.1 }); s("sfx/notification.mp3", t - 0.05, 0, { techo, dur: 0.35, fin: 0.12 }); };
-const tic = (t, techo = -42, k = 0) => s(["sfx/k-tick-1.wav", "sfx/k-tick-2.wav", "sfx/k-tick-4.wav"][k % 3], t, 0, { techo, hp: 900 });
-const ding = (t, techo = -38) => s("sfx/cero.mp3", t, 0, { techo });
-const toque = (t, techo = -36) => s("sfx/click-soft.mp3", t, 0, { techo });
-const tecla = (t, techo = -40) => s("sfx/key-press.mp3", t, 0, { techo, dur: 0.12, fin: 0.04 });
+const vibra = (t, techo = -38, dur = 0.5) => s("sfx/vibra.wav", t, 0, { techo, dur, fin: 0.1 });
+const noti = (t, techo = -38) => s("sfx/notification.mp3", t, 0, { techo, dur: 0.35, fin: 0.12 });
+const tic = (t, techo = -42) => s("sfx/tic-real.mp3", t, 0, { techo, dur: 0.12, fin: 0.04 });
+const ding = (t, techo = -38) => s("sfx/ding.mp3", t, 0, { techo, hp: 500 });
+const toque = (t, techo = -38) => s("sfx/click-soft.mp3", t, 0, { techo });
+const tecla = (t, techo = -42) => s("sfx/key-press.mp3", t, 0, { techo, dur: 0.12, fin: 0.04 });
 // ---- parte 1 ----
-// ambiente: la oficina (zumbido bajo de aire y la calle por la vidriera) y la música
-s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(T.p5 + 0.05), fi: 0.05, fin: 0.2, techo: -52, lp: 700 });
-s("sfx/calle.wav", 0, 0, { loop: true, dur: r2(T.p5 + 0.05), fi: 0.05, fin: 0.2, techo: -50, lp: 1400 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -36, duck: [[T.p6 - 0.1, T.cuelga + 0.3, 0.75], [T.p8 - 0.1, P1, 0.6]] });
-// P1 · Graciela por el altavoz (el filtro está en la toma)
-voz("g1", T.g1, -1);
-// P2 · Silvana tapa el celular (la palma en la mesa) y gira la silla (las rueditas)
-s("sfx/k-cloth_2.wav", T.tapa - 0.05, 0, { techo: -40, dur: 0.3, fin: 0.1 });
-s("sfx/whoosh-short.mp3", T.p2 + 0.1, 0, { techo: -42 });
-voz("s1", T.s1, -1);
-// P3 · "Un montón." y "Ninguna." a la vez (pop doble)
-pop(T.d1 - 0.02, -38); pop(T.ro1 - 0.02, -39);
-voz("d1", T.d1, -1, -0.85); voz("ro1", T.ro1, -1, 0.85);   // (r1) paneo como las burbujas
-// P4 · Silvana destapa el celular
-s("sfx/whoosh-short.mp3", T.p4 - 0.06, 0, { techo: -44 });
-s("sfx/k-cloth_1.wav", T.destapa, 0, { techo: -42, dur: 0.25, fin: 0.08 });
+// P1 · el living vacío: aire de apartamento vacío (eco bajo), pájaros del parque por la ventana, la música; una consulta
+// con vibración y notificación cada una
+const amb = (a, b, desde = 0) => {
+  s("sfx/zumbido-largo.wav", a, 0, { loop: true, desde, dur: r2(b - a), fi: 0.05, fin: 0.2, techo: -54, lp: 600 });
+  s("sfx/pajaro.wav", a + 0.3, 0, { techo: -50, hp: 1500 });
+};
+amb(0, T.p2);
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(T.p3b + 0.05), fin: 0.05, techo: -37 });
+T.cons.slice(3).forEach((t, i) => { vibra(t - 0.12, -44, 0.3); noti(t, -40 + (i % 2)); });
+voz("d1", T.d1, -1, 0.25);
+voz("s1", T.s1, -1, -0.25);
+voz("d2", T.d2, -1, 0.25);
+s("sfx/whoosh-short.mp3", T.p1b - 0.04, 0, { techo: -48 });
 voz("s2", T.s2, -1);
-// P5 · el balcón: la grúa desde la rambla (whoosh), el viento, la calle abajo, una gaviota lejana; el tintineo de la llave
-s("sfx/whoosh.mp3", T.p5 - 0.08, 0, { techo: -34 });
-s("sfx/calle.wav", T.p5, 0, { loop: true, desde: 4, dur: r2(T.p6 - T.p5 + 0.1), fi: 0.15, fin: 0.15, techo: -46, lp: 1200 });
-s("sfx/zumbido-largo.wav", T.p5, 0, { loop: true, desde: 2, dur: r2(T.p6 - T.p5 + 0.1), fi: 0.2, fin: 0.15, techo: -48, hp: 300, lp: 1500 });   // el viento del balcón (la cama de aire filtrada)
-s("sfx/gaviota.wav", T.p5 + 0.35, 0, { techo: -44 });
-voz("g2", T.g2, -1);
-s("sfx/llaves.wav", T.llave - 0.05, 0, { techo: -38, dur: 0.6, fin: 0.2 });
-// P6 · la pausa en la oficina: pop chico por rótulo
-s("sfx/zumbido-largo.wav", T.p6, 0, { loop: true, dur: r2(P1 - T.p6 + 0.05), fi: 0.1, fin: 0.3, techo: -52, lp: 700 });
-s("sfx/whoosh-short.mp3", T.p6 - 0.05, 0, { techo: -44 });
+// P2 · la escalada: el celular vibrando sobre el escritorio, un tic por número, el aire de la oficina de noche
+s("sfx/whoosh.mp3", T.p2 - 0.12, 0, { techo: -38 });
+s("sfx/zumbido-largo.wav", T.p2, 0, { loop: true, dur: r2(T.p3 - T.p2), fi: 0.05, fin: 0.1, techo: -46, lp: 900 });
+for (let k = 0; k < 6; k++) vibra(T.p2 + 0.05 + k * 0.26, -40, 0.24);
+for (let k = 0; k < 13; k++) tic(T.cuenta[0] + (k * (T.cuenta[1] - T.cuenta[0])) / 12, -42);
+s("sfx/whoosh-short.mp3", T.h2310 - 0.05, 0, { techo: -44 });
+ding(T.agus, -36); pop(T.ideal, -38);
+// P3 · la mañana: un sorbo de café, el tipeo, enviado (whoosh), la nota de voz que llega
+s("sfx/whoosh-short.mp3", T.p3 - 0.06, 0, { techo: -44 });
+s("sfx/zumbido-largo.wav", T.p3, 0, { loop: true, desde: 3, dur: r2(P1 - T.p3), fi: 0.1, fin: 0.3, techo: -52, lp: 700 });
+s("sfx/sorbo.wav", T.p3 + 0.2, 0, { techo: -40 });
+for (let k = 0; k < Math.floor((LEN.s3 - 0.2) / 0.16); k++) tecla(T.s3 + 0.1 + k * 0.16, -45 + (k % 3));
+s("sfx/whoosh-short.mp3", T.envia, 0, { techo: -38 });
+noti(T.nota, -36);
+voz("s3", T.s3, -1);
+voz("a1", T.a1, -1);
+pop(T.yaNo - 0.02, -40);
+// P3b · la pausa: la música se corta seca; dos pops por rótulo; el reloj de la oficina
 T.rot.forEach((t, i) => pop(t, -40 + i));
-// P7 · el celular de cerca: "Mañana paso a buscar el cartel." · tu-tu-tu (el tono de colgado)
-voz("g3", T.g3, -1);
-s("sfx/k-dos-tonos.wav", T.cuelga, 0, { techo: -37, lp: 2600, hp: 300 });
-// P8 · remate del remate: silencio de oficina, el reloj de pared; "Ah. Era el de Malvín."; el stinger lo da el cartel
-s("sfx/whoosh-short.mp3", T.p8 - 0.06, 0, { techo: -46 });
-for (let k = 0; k < Math.floor((P1 - T.p8) / 0.5); k++) s("sfx/tic-real.mp3", T.p8 + 0.1 + k * 0.5, 0, { techo: -44, dur: 0.15, fin: 0.04 });
-voz("d2", T.d2, -1); pop(T.d2b - 0.02, -42);
+for (let k = 0; k < 3; k++) tic(T.p3b + 0.3 + k * 0.5, -46);
+// P4 · vibra, atiende (toque), el altavoz; la pausa; "Preguntar, preguntaron."; el stinger lo da el cartel
+vibra(T.vibra, -36, 0.45); toque(T.atiende, -40);
+voz("al", T.al, -1);
+s("sfx/whoosh-short.mp3", T.p4i - 0.05, 0, { techo: -46 });
+voz("s4", T.s4, -1);
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -39 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -31, dur: 0.6, fin: 0.25 });
@@ -312,42 +351,52 @@ for (const d of [0.12, 0.4, 0.9, 1.4]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
 s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -36 });
-// Q1 · el apartamento: pasos de la pareja que se va, la puerta; tecleo suave por renglón; Guardar → ding
-pasos(P2 + 0.05, P2 + 0.9, 4, -42);
-T.filasD.forEach((t, i) => tecla(t, -40 + (i % 2)));
-toque(T.guarda - 0.05, -37); ding(T.guarda + 0.05, -37); voz("d3", T.d3, -1);
-// Q2 · el balcón: la notificación del resumen, un ding suave por renglón, el toque en "Llamar"
-s("sfx/whoosh-short.mp3", T.q2 - 0.05, 0, { techo: -42 });
-s("sfx/calle.wav", T.q2, 0, { loop: true, desde: 6, dur: r2(T.q3 - T.q2 + 0.05), fi: 0.15, fin: 0.15, techo: -48, lp: 1200 });
-noti(T.vibra + 0.1, -34);
-T.filasG.forEach((t, i) => s("sfx/ding.mp3", t, 0, { techo: -44 + (i === 3 ? 4 : 0), hp: 600 }));
-toque(T.llamaG, -36); s("sfx/k-tono.wav", T.llamaG + 0.08, 0, { techo: -40, vel: 0.85, dur: 0.3, fin: 0.06, lp: 2600, hp: 300 });
-// Q3 · la oficina: el mismo "¿Y? ¿Hubo visitas?", la ficha (ding por tilde), "Cuatro…", "Ya sé…"
-s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, dur: r2(T.q4b - T.q3), fi: 0.1, fin: 0.2, techo: -52, lp: 700 });
-voz("g1", T.g1b, -1);
-s("sfx/whoosh-short.mp3", T.mon - 0.05, 0, { techo: -42 });
-T.tildes.forEach((t, i) => ding(t, -40 + i));
-voz("s3", T.s3, -1);
-voz("g4", T.g4, -1);
-// Q4 · la ficha tres semanas después (RESERVADO ✓, la comisión gira a verde), el balcón y la franja VENDIDO
-s("sfx/whoosh-short.mp3", T.q4 - 0.05, 0, { techo: -42 });
-pop(T.reserva, -38); ding(T.reserva + 0.03, -37);
-s("sfx/whoosh-short.mp3", T.comision - 0.04, 0, { techo: -44 }); ding(T.comision + 0.06, -42);
-s("sfx/whoosh-short.mp3", T.q4b - 0.12, 0, { techo: -47 });
-s("sfx/calle.wav", T.q4b, 0, { loop: true, desde: 2, dur: r2(T.q5 - T.q4b + 0.05), fi: 0.45, fin: 0.15, techo: -48, lp: 1200 });
-s("sfx/gaviota.wav", T.q4b + 0.2, 0, { techo: -46 });
-voz("g5", T.g5, -1);
-s("sfx/whoosh-short.mp3", T.vendido - 0.08, 0, { techo: -38 }); pop(T.vendido + 0.08, -34); ding(T.vendido + 0.12, -34);
-// Q5 · el cierre: Sofi; pop en VISITAS; la línea chica
-s("sfx/whoosh-short.mp3", T.q5 - 0.06, 0, { techo: -44 });
-s("sfx/zumbido-largo.wav", T.q5, 0, { loop: true, dur: r2(DUR - T.q5), fi: 0.1, fin: 0.4, techo: -54, lp: 700 });
-voz("so", T.so, -1);
-pop(T.palabra + 0.02, -38); pop(T.so + palabra("so", 1) + 0.02, -40);
+// Q1 · el living otra vez: el celular de Silvana vibra una vez, corto; el mismo audio de Diego; el chat del agente
+amb(P2, T.q2, 2);
+vibra(T.vib2, -44, 0.22);
+s("voice/d1.wav", T.d1b, -1, { voz: true, desde: T.d1bDesde, fin: 0.04, pan: 0.25 }); VOZ.push([r2(T.d1b - 0.75), r2(T.d1b0 + LEN.d1 + 0.95)]);
+voz("s5", T.s5, -1, -0.25);
+s("sfx/whoosh-short.mp3", T.q1i - 0.06, 0, { techo: -44 });
+T.chat.slice(2).forEach((t, i) => (i === 4 ? ding(t + 0.02, -36) : noti(t, -42 + (i % 2))));
+voz("d3", T.d3, -1);
+pop(T.rotQ1, -42);
+// Q2 · el panel: tics por fila, pops por turno, ding en "Listos para firmar: 2"
+s("sfx/whoosh.mp3", T.q2 - 0.1, 0, { techo: -42 });
+s("sfx/zumbido-largo.wav", T.q2, 0, { loop: true, dur: r2(T.q3 - T.q2), fi: 0.1, fin: 0.1, techo: -52, lp: 700 });
+T.filas.forEach((t, i) => tic(t, -42 + (i % 2)));
+s("sfx/whoosh-short.mp3", T.agenda - 0.08, 0, { techo: -42 });
+T.turnos.forEach((t, i) => pop(t, -42 + (i % 2)));
+ding(T.listos, -35);
+s("sfx/whoosh-short.mp3", T.q2s - 0.05, 0, { techo: -46 });
+voz("s6", T.s6, -1);
+// Q3 · el palier: los pasos de Agustina, las llaves, la puerta; ding con el rótulo
+s("sfx/zumbido-largo.wav", T.q3, 0, { loop: true, desde: 1, dur: r2(T.q4 - T.q3), fi: 0.1, fin: 0.1, techo: -54, lp: 500 });
+pasos(T.q3, T.a2 - 0.05, 4, -42);
+s("sfx/llaves.wav", T.q3 + 0.1, 0, { techo: -40, dur: 0.6, fin: 0.2 });
+voz("a2", T.a2, -1);
+voz("s7", T.s7, -1);
+s("sfx/puerta-abre.wav", T.abre + 0.05, 0, { techo: -40 });
+s("sfx/whoosh-short.mp3", T.q3b - 0.04, 0, { techo: -48 });
+voz("a3", T.a3, -1);
+ding(T.rotQ3, -36);
+// Q4 · la oficina: vibra, atiende, el mismo audio de don Alberto; RESERVADO (whoosh + pop + ding); los rótulos
+s("sfx/whoosh-short.mp3", T.q4 - 0.06, 0, { techo: -44 });
+s("sfx/zumbido-largo.wav", T.q4, 0, { loop: true, desde: 2, dur: r2(DUR - T.q4), fi: 0.1, fin: 0.4, techo: -54, lp: 700 });
+vibra(T.vib3, -38, 0.22); toque(T.al2 - 0.08, -42);
+s("voice/al.wav", T.al2, -1, { voz: true, desde: T.al2Desde, fin: 0.04 }); VOZ.push([r2(T.al2 - 0.75), r2(T.al2Fin + 0.95)]);
+voz("s8", T.s8, -1);
+s("sfx/whoosh-short.mp3", T.q4f - 0.05, 0, { techo: -46 });
+s("sfx/whoosh-short.mp3", T.reserva - 0.08, 0, { techo: -40 }); pop(T.reserva + 0.08, -37); ding(T.reserva + 0.12, -38);
+T.rotQ4.forEach((t, i) => pop(t, -40 + i));
+// F · el cierre: Silvana a cámara; pop en la tarjeta y en DISPONIBLE; la línea chica
+s("sfx/whoosh-short.mp3", T.q5 - 0.06, 0, { techo: -46 });
+voz("s9", T.s9, -1);
+pop(T.palabra + 0.02, -40); pop(T.s9 + palabra("s9", 1) + 0.02, -42);
 pop(T.cierre + 0.05, -44);
-// la cama +3 dB; en los tramos sin voz (la grúa al balcón, la pausa, Q1, Q2, la ficha) los SFX +5 dB (nunca por encima del techo)
+// la cama +7 dB; en los tramos sin voz (la escalada, la pausa) los SFX +4 dB (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }
-  if (en(t0, T.p5 - 0.2, T.g2) || en(t0, T.p6 - 0.1, T.g3) || en(t0, P2, T.q3) || en(t0, T.q4 - 0.1, T.q4b - 0.25)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 5); }
-// la música: duck debajo de cada voz (~0,7) para que la voz quede ≥ 6 LU arriba
+  if (en(t0, T.p3b, T.al - 0.3)) o.techo = Math.min(-31, (o.techo ?? TECHO) + 4); }
+// la música: duck debajo de cada voz (~0,3) para que la voz quede ≥ 6 LU arriba; en la pausa P3b se corta seca
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.3])]; }
 function en(t, a, b) { return t >= a && t < b; }
 
@@ -420,7 +469,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 10 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.3);
-const IRIS_C = "540px 1600px";   // el iris se abre desde el celular de Diego (Q1)
+const IRIS_C = "720px 1180px";   // el iris se abre desde el celular de Silvana (Q1)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>
@@ -429,9 +478,7 @@ fs.writeFileSync("index.html", `<!doctype html>
     <script src="assets/vendor/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
-      @font-face { font-family: "Caveat"; font-weight: 400 700; font-display: block; src: url("assets/fonts/Caveat-var.woff2") format("woff2"); }
       #precarga { position: absolute; left: -9999px; font: 800 40px "Lexend"; }
-      #precarga2 { position: absolute; left: -9999px; font: 700 40px "Caveat"; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
       #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
@@ -443,7 +490,7 @@ fs.writeFileSync("index.html", `<!doctype html>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="${DUR}" data-width="1080" data-height="1920">
-      <div id="precarga">Visitas</div><div id="precarga2">Pocitos ¿6?</div>
+      <div id="precarga">Disponible</div>
       <div id="fondo" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0"></div>
 ${abajo}
       <div id="capa3d" class="clip" data-start="0" data-duration="${DUR}" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
@@ -460,7 +507,7 @@ ${arriba}
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
       tl.to("#fondo", { opacity: 1, duration: ${DUR} }, 0);
-      // corte seco al cartel; la parte 2 entra por un iris que se abre desde el celular de Diego
+      // corte seco al cartel; la parte 2 entra por un iris que se abre desde el celular de Silvana
       tl.set("#capa3d", { opacity: 0 }, ${ROT});
       tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at ${IRIS_C})" }, ${r2(ROT + 0.27)});
       tl.fromTo("#capa3d", { clipPath: "circle(90px at ${IRIS_C})" }, { clipPath: "circle(1900px at ${IRIS_C})", duration: 0.3, ease: "power1.in", immediateRender: false }, ${IRIS});

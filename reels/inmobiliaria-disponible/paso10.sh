@@ -1,7 +1,7 @@
 #!/bin/bash
 # paso10.sh (r2): re-codificación del paso 10 con loudnorm en DOS PASADAS lineal (-14 LUFS, TP -1,7; LRA 20 para que quede LINEAL: la mezcla mide ~14 LU y con LRA 11 loudnorm pasa a dinámico)
 cd "$(dirname "$0")"
-IN=renders/gym-cupo.mp4; OUT=renders/gym-cupo-final.mp4
+IN=renders/inmobiliaria-disponible.mp4; OUT=renders/inmobiliaria-disponible-final.mp4
 A=assets/audio/mezcla.wav   # el audio sale de la mezcla de gen.mjs (la misma que lleva el render; así un retoque de mezcla no pide re-render)
 J=$(ffmpeg -hide_banner -nostats -i $A -af loudnorm=I=-14:TP=-1.7:LRA=20:print_format=json -f null - 2>&1 | sed -n '/^{/,/^}/p')
 v() { echo "$J" | python3 -c "import json,sys; print(json.load(sys.stdin)['$1'])"; }
