@@ -12,8 +12,8 @@
     [data-composition-id="cartel"] .l { display: inline-block; position: relative; color: #efeee5; -webkit-text-stroke: 16px #0b1220; paint-order: stroke fill; text-shadow: 0 16px 0 #0b1220, 10px 16px 0 #0b1220; }
     [data-composition-id="cartel"] .esp { display: inline-block; width: 0.32em; }
   </style>
-  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.49">
-    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.49" data-track-index="0">
+  <div id="root" data-composition-id="cartel" data-width="1080" data-height="1920" data-duration="2.39">
+    <div id="cartel-esc" class="esc clip" data-start="0" data-duration="2.39" data-track-index="0">
       <div class="fondo"></div>
       <svg class="manchas" viewBox="0 0 1480 2320" aria-hidden="true">
         <g class="giraA" style="transform-origin: 740px 1160px">
@@ -47,8 +47,8 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
-      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.49, ease: "sine.inOut", immediateRender: true }, 0);
-      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.49, ease: "none", immediateRender: true }, 0));
+      tl.fromTo(q(".giraA"), { rotation: -6, scale: 1.1 }, { rotation: 8, scale: 1, duration: 2.39, ease: "sine.inOut", immediateRender: true }, 0);
+      qa(".bu").forEach((b, i) => tl.fromTo(b, { y: 0 }, { y: -220 - i * 30, duration: 2.39, ease: "none", immediateRender: true }, 0));
       const letras = qa(".l");
       const nA = qa(".linea.a .l").length;
       letras.forEach((l, i) => {
@@ -59,7 +59,7 @@
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, 2.07);   // se va con el iris
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, 1.97);   // se va con el iris
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

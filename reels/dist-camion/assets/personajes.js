@@ -56,8 +56,8 @@ export const ELENCO = {
   // dist-camion (26-11): el Ruso, el chofer del camión de la Distribuidora Rubén (~45): ancho, rubio casi rapado, barba
   // candado rubia, remera navy de manga corta, chaleco reflectivo verde de marca (las dos franjas crema las cuelga tres.js),
   // pantalón cargo navy2 y botines marrones. Tranquilo, de pocas palabras; que no se confunda con Nico ni con Seba.
-  ruso: { nombre: "Ruso", piel: 0xf0c4a0, pelo: 0xd8b56f, peinado: "texturado", texturaAlto: 0.12, cejasColor: 0xb8964e,
-    barba: 0xa8843f, barbaLarga: 0.4, barbaOpacidad: 1.0, barbaBigote: true, camisa: MARCA.navy, mangas: "cortas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.05,
+  ruso: { nombre: "Ruso", piel: 0xf0c4a0, pelo: 0xb88a3a, peinado: "rapado", texturaAlto: 0.12, cejasColor: 0xb8964e,
+    barba: 0xa8843f, barbaTipo: "candado", barbaLarga: 0.4, barbaOpacidad: 1.0, barbaBigote: true, camisa: MARCA.navy, mangas: "cortas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.05,
     chaleco: { color: MARCA.g, botones: MARCA.cr }, pantalon: MARCA.navy2, zapatos: 0x5a4632, panza: 1.12, nariz: 0.066, mejillas: 0xe3907a, alto: 1.05 },
   // dist-comisiones (25-11): Javi, el otro vendedor de la calle de Rubén (zona Centro, ~32): castaño corto con un jopo
   // bajo, barba de tres días, chomba verde apagado con cuello crema (sin campera: que no se confunda con Leo ni con Nico),
@@ -477,7 +477,20 @@ export function crearPersonaje(cfg) {
   }
 
   // pelo
-  if (c.peinado === "texturado") {
+  if (c.peinado === "rapado") {
+    // (dist-camion r3) casi rapado: una capa fina con el borde difuminado (sin casquete de borde recto) y patillas cortas
+    const W = 64, H = 128, cv = document.createElement("canvas"); cv.width = W; cv.height = H; const x = cv.getContext("2d");
+    const gr = x.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, "#fff"); gr.addColorStop(0.72, "#fff"); gr.addColorStop(1, "#000");
+    x.fillStyle = gr; x.fillRect(0, 0, W, H);
+    // textura de pelo al ras: el color con puntitos más oscuros (semilla fija)
+    const cw = 256, ch = 128, cc = document.createElement("canvas"); cc.width = cw; cc.height = ch; const y = cc.getContext("2d");
+    y.fillStyle = "#" + new THREE.Color(c.pelo).getHexString(); y.fillRect(0, 0, cw, ch);
+    let sd = 11; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647);
+    y.fillStyle = "#" + new THREE.Color(c.pelo).multiplyScalar(0.72).getHexString();
+    for (let i = 0; i < 1400; i++) y.fillRect(rnd() * cw, rnd() * ch, 1.5, 1.5);
+    const mp = new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(cc), roughness: 1, transparent: true, alphaMap: new THREE.CanvasTexture(cv), depthWrite: false });
+    const cap = mesh(new THREE.SphereGeometry(1, 48, 24, 0, Math.PI * 2, 0, Math.PI * 0.5), mp, 0, CC + 0.004, -0.012, R * 1.03, R * 1.03, R * 1.035); cap.rotation.x = -0.3; cap.renderOrder = 2; cabeza.add(cap);
+  } else if (c.peinado === "texturado") {
     // varón: corto con textura, un poco despeinado arriba, mechones cortos hacia adelante y costados más cortos
     const TX = c.texturaAlto ?? 1;
     const mecha = (az, el, sx, sy, sz, k = 1.0, rz = 0, rx = 0) => { const m = mesh(G.esfera, M.pelo, 0, 0, 0, sx, sy, sz); sobre(m, az, el, k); m.rotation.z += rz; m.rotation.x += rx; cabeza.add(m); return m; };
@@ -654,7 +667,15 @@ export function crearPersonaje(cfg) {
     cabeza.add(mesh(new THREE.SphereGeometry(1, 32, 16, 0, Math.PI * 2, 0, Math.PI * 0.45), M.pelo, 0, CC + 0.005, -0.008, R * 1.04, R * 1.02, R * 1.02));
     cabeza.add(mesh(G.esfera, M.pelo, 0, CC + R * 0.95, -R * 0.45, 0.13));
   }
-  if (c.barba) {
+  if (c.barba && c.barbaTipo === "candado") {
+    // (dist-camion r3) barba candado con volumen: bultos opacos que siguen el mentón y suben a la boca, bigote del mismo
+    // color; nada de cáscara que corte la cabeza en dos tonos detrás de la oreja
+    const bd = mat(c.barba, 0.92);
+    const bulto = (az, el, sx, sy, sz, k = 1.0, rz = 0) => { const m = mesh(G.esfera, bd, 0, 0, 0, sx, sy, sz); sobre(m, az, el, k); m.rotation.z += rz; cabeza.add(m); return m; };
+    for (let i = -3; i <= 3; i++) { const u = i / 3; bulto(u * 0.42, -0.5 - 0.06 * (1 - u * u), 0.075, 0.07, 0.04, 0.985); }
+    for (const sg of [-1, 1]) { bulto(sg * 0.3, -0.36, 0.05, 0.075, 0.035, 0.99, sg * 0.25); bulto(sg * 0.12, -0.255, 0.07, 0.02, 0.02, 1.0, sg * 0.12); }
+    bulto(0, -0.62, 0.1, 0.06, 0.045, 0.97);
+  } else if (c.barba) {
     // barba de pocos días: sombra translúcida sobre la piel que sigue el mentón y la mandíbula (no tapa las mejillas
     // altas ni llega a la boca) + bigote oscuro y definido arriba del labio
     const BL = c.barbaLarga ?? 0.5, OP = c.barbaOpacidad ?? 0.55;

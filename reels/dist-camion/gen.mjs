@@ -48,23 +48,26 @@ T.p3 = r2(fin("r1") + 0.04); T.ring1 = r2(T.p3 + 0.02); T.m1 = r2(T.p3 + 0.18); 
 T.c19 = r2(fin("r2") + 0.1); T.p3b = 999; T.ring2 = 999; T.h1 = 999; T.r3 = 999;   // (r1) sin la llamada de Héctor: el contador salta 7 → 19
 // P4 · el inserto del celular de Rubén: llama al Ruso (toca Llamar) · P4b · la cabina andando por la rambla: el celular
 // vibra en el portavasos ("Rubén · 14 llamadas perdidas"), el Ruso maneja con las dos manos
-T.p4b = r2(T.c19 + 0.36); T.p4 = T.p4b; T.tap = 999; T.rotCab = r2(T.p4b + 0.3);   // (r1) un solo plano de ~1 s: el celular en el portavasos
+T.p4b = r2(T.c19 + 0.36); T.p4 = T.p4b; T.tap = 999; T.rotCab = r2(T.p4b + 0.02);   // (r3) el rótulo desde el primer cuadro   // (r1) un solo plano de ~1 s: el celular en el portavasos
 // P5 · la oficina: Nico asoma por la puerta vidriada · P5b · primer plano de Rubén para el remate (deja el mate)
 T.p5 = r2(T.p4b + 0.92); T.n1 = r2(T.p5 + 0.08); T.r4 = r2(fin("n1") + 0.05); T.n2 = r2(fin("r4") + 0.08);
 T.deja = r2(fin("n2") + 0.03); T.p5b = r2(fin("n2") + 0.22); T.r5 = r2(fin("n2") + 0.45);
 // P6a · 12:10: Cafetería Marta con la persiana baja y el cartel; el Ruso golpea con la zorra al lado
 T.p6a = r2(fin("r5") + 0.18); T.golpes = [0.22, 0.45, 0.68].map((d) => r2(T.p6a + d));
 // P6b · 18:00, el muelle: el camión vuelve, se abren las puertas, bajan las 6 cajas, los rótulos; el fajo de remitos
-T.p6b = r2(T.p6a + 1.22); T.puertas = r2(T.p6b + 0.02); T.baja = r2(T.p6b + 0.15); T.rotMarta = r2(T.p6b + 0.25); T.rotViaje = r2(T.p6b + 0.62); T.rotHoras = r2(T.p6b + 0.92); T.fajo = r2(T.p6b + 1.22);
+T.p6b = r2(T.p6a + 1.1);   // (r3) -0,12
+ T.puertas = r2(T.p6b + 0.02); T.baja = r2(T.p6b + 0.15); T.rotMarta = r2(T.p6b + 0.25); T.rotViaje = r2(T.p6b + 0.62); T.rotHoras = r2(T.p6b + 0.92); T.fajo = r2(T.p6b + 1.22);
 // P6i · el inserto del remito: "¿Y esta firma?" · P6c · los dos: "Un señor." / "¿Qué señor?" / "Uno que pasaba." · suena el
 // celular de Rubén ("Súper Héctor"), Rubén cierra los ojos
-T.p6i = r2(T.p6b + 1.45); T.r6 = r2(T.p6i + 0.14);
-T.p6c = r2(fin("r6") + 0.04); T.u1 = r2(T.p6c + 0.05); T.r7 = r2(fin("u1") + 0.05); T.u2 = r2(fin("r7") + 0.5);   // (r2) pausa de comedia antes del remate
+T.p6i = r2(T.p6b + 1.35);   // (r3) -0,1
+ T.r6 = r2(T.p6i + 0.14);
+T.p6c = r2(fin("r6") + 0.04); T.u1 = r2(T.p6c + 0.05); T.r7 = r2(fin("u1") + 0.3);   // (r3) el instante de incredulidad antes de "¿Qué…"
+ T.u2 = r2(fin("r7") + 0.5);   // (r2) pausa de comedia antes del remate
 T.ring3 = r2(fin("u2") + 0.12); T.ojos = r2(T.ring3 + 0.2);
 // termina la parte 1 (arranca el cartel)
-const P1 = r2(T.ring3 + 0.5);
+const P1 = r2(T.ring3 + 0.38);   // (r3) P6d más corto
 const NAR0 = -0.12;   // (r2) el narrador arranca apenas antes del cartel: "tarde" termina antes de que el texto se vaya con el iris
-const P2 = r2(P1 + Math.max(2.05, NAR0 + LEN.nar + 0.42));
+const P2 = r2(P1 + Math.max(2.05, NAR0 + LEN.nar + 0.32));   // (r3) -0,1
 // ---- parte 2 ----
 // Q1 · la misma pantalla partida: a Graciela le llega el aviso (Q1i, el celular a pantalla: la ventana de entrega y "Sos
 // la próxima parada") · Q1g · Graciela baja el celular: "Ah. Soy la próxima."
@@ -80,12 +83,14 @@ T.gira = r2(fin("n2b") + 0.02); T.q3m = r2(fin("n2b") + 0.3); T.r8 = r2(T.q3m + 
 // celular, la firma con el dedo, la foto, "Entregado ✓" · "Vos, Héctor. Vos." · Q4p · el panel: 15 de 18
 T.q4r = r2(fin("r8") + 0.1); T.q4 = r2(T.q4r + 0.62); T.h2 = r2(T.q4 + 0.38);   // (r1) Q4r: la hoja de ruta en el soporte de la cabina
 T.q4i = r2(fin("h2") + 0.08); T.firma = r2(T.q4i + 0.15); T.u3 = r2(T.q4i + 0.1); T.foto = r2(fin("u3") + 0.03); T.entregado = r2(T.foto + 0.25);
-T.q4p = r2(T.entregado + 0.47); T.vuela = r2(T.q4p + 0.05);
+T.q4p = r2(T.entregado + 0.35);   // (r3) -0,12
+ T.vuela = r2(T.q4p + 0.05);
 // Q5 · el muelle a las 18:00 (= P6b): el camión vacío; el Ruso muestra el celular (18 de 18) · "¿Y hoy? ¿Pasó algún señor?"
 // · "Ni uno."
 T.q5 = r2(T.q4p + 0.85); T.q5i = r2(T.q5 + 0.75); T.r9 = r2(T.q5 + 0.3); T.q5d = r2(fin("r9") + 0.02); T.u4 = r2(fin("r9") + 0.1);
 // C · Rubén a cámara en el muelle con el mate: "Comentá CAMIÓN y te mando cómo funciona para tu distribuidora."
-T.c = r2(fin("u4") + 0.2); T.r10 = r2(T.c + 0.04);
+T.c = r2(fin("u4") + 0.5);   // (r3) que "Ni uno." aterrice
+ T.r10 = r2(T.c + 0.04);
 // (r1) "CAMIÓN" empieza donde termina el primer silencio de la toma (palabras-r10.json estaba interpolado)
 const SIL10 = [...execSync(`ffmpeg -hide_banner -i assets/voice/r10.wav -af silencedetect=n=-35dB:d=0.06 -f null - 2>&1`).toString().matchAll(/silence_end: ([\d.]+)/g)].map((m) => +m[1]).filter((x) => x > 0.15 && x < 1.2);
 T.palabra = r2(T.r10 + (SIL10[0] ?? 0.5) - 0.02);   // el comienzo de "CAMIÓN" (después del silencio corto que sigue a "Comentá")
@@ -186,7 +191,7 @@ const CHIP = `
 const CHIPS = [
   ["s04-chip", T.p6a, T.p6b, "12:10."],
   ["s05-chip", T.p6b, T.p6i, "18:00."],
-  ["s06-chip", T.q1, Math.max(T.q1i, T.q1 + 1.27), "Martes, 9:40."],   // (r1) ≥ 1,2 s: sigue sobre el inserto
+  ["s06-chip", r2(T.q1 - 0.3), Math.max(T.q1i, T.q1 + 1.27), "Martes, 9:40."],   // (r3) entra con el iris   // (r1) ≥ 1,2 s: sigue sobre el inserto
   ["s07-chip", T.q5, Math.max(T.q5i, T.q5 + 1.27), "18:00."],
 ];
 for (const [id, ini0, fin0, txt] of CHIPS) {
@@ -263,6 +268,7 @@ for (const [id, ini0, fin0, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
+    P .pie { position: absolute; left: 0; right: 0; top: 1320px; bottom: 0; background: ${NAVY}; border-top: 8px solid ${G}; }
     P .caja { position: absolute; left: 90px; right: 90px; top: 930px; padding: 14px 10px 22px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 84px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 132px/1.12 "Lexend", sans-serif; letter-spacing: -0.035em; color: ${NAVY}; white-space: nowrap; }
@@ -270,8 +276,9 @@ for (const [id, ini0, fin0, txt] of CHIPS) {
     P .sel b { position: absolute; inset: 6px 0 -4px; background: ${G}; border: 8px solid ${NAVY}; border-radius: 12px; }
     P .sel em { position: relative; font-style: normal; }
     P .c { margin-top: 10px; font: 700 50px/1.2 "Lexend", sans-serif; color: ${NAVY}; white-space: nowrap; } P .c + .c { margin-top: 0; }`,
-    html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>CAMIÓN</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu distribuidora</div></div>`,
-    js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
+    html: `      <div class="pie"></div><div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>CAMIÓN</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu distribuidora</div></div>`,
+    js: `      tl.fromTo(q(".pie"), { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power2.out", immediateRender: true }, 0);   // (r3) la franja de abajo: que no asomen las piernas
+      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
       tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.32);`,
   });
 }
@@ -355,12 +362,12 @@ s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -31, dur: 0.6, fin: 0.25 });
 s("voice/narrador.wav", P1 + NAR0, -1, { voz: true, fin: 0.04 }); VOZ.push([r2(P1 + NAR0 - 0.3), r2(P1 + NAR0 + LEN.nar + 0.45)]);
 s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3, techo: -40, sinDuck: true });
 for (const d of [0.12, 0.4, 1.25, 1.5]) pop(P1 + d + 0.02, -44);
-s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
+s("sfx/whoosh.mp3", P2 - 0.42, 0, { techo: -38 });   // (r3) el iris abre en P2 - 0,4
 // ---- parte 2 ----
 s("bgm/pizzicato-lleno.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(T.c - P2 + 0.1), fi: 0.4, fin: 0.1, techo: -37 });
 s("bgm/pizzicato-lleno.wav", T.c - 0.05, 0, { desde: 8.0, dur: r2(DUR - T.c + 0.05), fi: 0.1, fin: 0.6, techo: -38 });
-rotiseria(P2, T.q2); oficina(P2, T.q1i); S.filter((x) => x[0] === "sfx/chisporroteo.wav" && x[1] === r2(P2)).forEach((x) => (x[3].sinHueco = true));   // (r2) sin agujeros en el inserto del aviso
-noti(T.aviso1, -40); ding(T.aviso2, -41); pop(T.rotAviso, -44);
+rotiseria(r2(P2 - 0.4), T.q2); oficina(P2, T.q1i); S.filter((x) => x[0] === "sfx/chisporroteo.wav" && x[1] === r2(P2 - 0.4)).forEach((x) => (x[3].sinHueco = true));   // (r2) sin agujeros en el inserto del aviso
+noti(T.aviso1, -41); ding(T.aviso2, -43);   // (r3) bajo el techo de -31 en el inserto pop(T.rotAviso, -44);
 voz("g2", T.g2, -1);
 cafeteria(T.q2, T.q3); noti(T.q2 + 0.1, -44);
 voz("m2", T.m2, -1);

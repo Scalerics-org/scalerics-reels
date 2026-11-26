@@ -182,3 +182,28 @@ Snapshots: renders/snap/q1 (cada 0,5 s desde 0,25), renders/snap/cortes (3 cuadr
 desde 0,02), renders/snap/cortes2, y renders/snap/fin, fin2 (Q4/Q5 después del último ajuste).
 Quedan (bajos): en Q2i una pieza oscura del fondo asoma en la esquina superior izquierda; la pila de cajas de la zorra
 queda cortada en el borde derecho en Q4 (es utilería, el Ruso entero); la burbuja de Q2i aparece 0,25 s antes de la voz.
+
+## Ronda 3 (revision-arte-r2.md + revision-sonido-r2.md)
+
+Duración 45,93 s · parte 1 0-20,33 · cartel 20,33-22,72 · parte 2 + cierre 22,72-45,93 (23,21 s, 51 %) · cierre 42,25,
+tarjeta CAMIÓN desde 42,77 (3,16 s); la voz termina en 45,59.
+- ALTA P6a: el Ruso de tres cuartos (giro π-0,75) golpea la persiana con el brazo estirado a la altura del hombro
+  (persiana local (-0,36, -1,48)); el puño queda lejos de la cara en todo el plano.
+- Q1 a las 9:40: panel "4 de 18 ✓", Parada 4 · Almacén Rosa ✓ 9:28, Parada 5 · Rotisería Graciela · llega 10:05 (resaltada),
+  Parada 6 · Farmacia Silvia 10:20; celular del escritorio 9:41 y reloj de pared 9:40. "14 de 18" y 10:50 recién desde Q3.
+- El Ruso: barba candado con volumen (bultos opacos en mentón y bigote, `barbaTipo: "candado"`), sin la cáscara que partía la
+  cabeza; pelo "rapado": capa fina con textura de puntitos y el borde difuminado (sin casquete de borde recto).
+- Oficina P5/Q3: Nico junto al escritorio (NIC 1,0 / -1,95) y CAM_OFI de plano medio; casi sin techo ni frente vacío;
+  globos secuenciales.
+- Cierre: el mate a la altura del pecho (manoI [0,22, 0,44, 0,38]); una franja navy con filo verde entra con la tarjeta y
+  tapa las piernas.
+- Q4i: el celular delante de la pared lisa (CX + 1,25): sin la barra negra del marco.
+- Sonido: r7 +0,25 (u1 → r7 0,3 s), "Ni uno." → "Comentá" +0,3 (T.c = fin(u4) + 0,5), noti -41 / ding -43, whoosh del iris
+  a -38 en P2 - 0,42 y la rotisería desde P2 - 0,4. Compensado: P6b -0,12, P6i -0,1, P6d -0,12, cartel -0,1, Q4p -0,12.
+- Bajos: P4b más cerca (fov 30 → 26) con "llamadas perdidas" a 66 px y el rótulo desde el primer cuadro; Q4r más cerca y
+  los renglones en navy a 52 px; el globo de dos tiempos no achica la primera línea; el chip "Entregado" nace chico dentro del
+  cuadro y se funde al llegar a la fila; chip "Martes, 9:40." entra con el iris (P2 - 0,3); guía de "vuelve al depósito"
+  sobre la caja MARTA visible.
+Mezcla: voz sobre el resto mínimo 12,5 LU (mediana 22,3); máximo sin voz -31,4; integrada -14,1 LUFS; pico real -2,5 dBFS.
+`check --json` 0 errores. Snapshots: renders/snap/s1 (cada 0,5 s desde 0,25), s2 (desde 0,02), c1 y c2 (3 cuadros por corte).
+Quedan bajos: manos tipo manopla en los insertos; la cola del globo de Marta cerca del rodete.

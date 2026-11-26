@@ -4,6 +4,7 @@
     @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
     #root { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; pointer-events: none; }
     [data-composition-id="s10-palabra"] .esc { position: absolute; inset: 0; }
+    [data-composition-id="s10-palabra"] .pie { position: absolute; left: 0; right: 0; top: 1320px; bottom: 0; background: #0b1220; border-top: 8px solid #5ce611; }
     [data-composition-id="s10-palabra"] .caja { position: absolute; left: 90px; right: 90px; top: 930px; padding: 14px 10px 22px; border-radius: 40px; background: #efeee5; border: 9px solid #0b1220; box-shadow: 14px 16px 0 #0b1220; text-align: center; transform-origin: 50% 0%; }
     [data-composition-id="s10-palabra"] .a { font: 800 84px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: #0b1220; }
     [data-composition-id="s10-palabra"] .tx { font: 900 132px/1.12 "Lexend", sans-serif; letter-spacing: -0.035em; color: #0b1220; white-space: nowrap; }
@@ -12,9 +13,9 @@
     [data-composition-id="s10-palabra"] .sel em { position: relative; font-style: normal; }
     [data-composition-id="s10-palabra"] .c { margin-top: 10px; font: 700 50px/1.2 "Lexend", sans-serif; color: #0b1220; white-space: nowrap; } [data-composition-id="s10-palabra"] .c + .c { margin-top: 0; }
   </style>
-  <div id="root" data-composition-id="s10-palabra" data-width="1080" data-height="1920" data-duration="3.16">
-    <div id="s10-palabra-esc" class="esc clip" data-start="0" data-duration="3.16" data-track-index="0">
-      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>CAMIÓN</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu distribuidora</div></div>
+  <div id="root" data-composition-id="s10-palabra" data-width="1080" data-height="1920" data-duration="3.17">
+    <div id="s10-palabra-esc" class="esc clip" data-start="0" data-duration="3.17" data-track-index="0">
+      <div class="pie"></div><div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>CAMIÓN</em></span></div><div class="c">y te mando cómo funciona</div><div class="c">para tu distribuidora</div></div>
     </div>
   </div>
   <script>
@@ -24,6 +25,7 @@
       const q = (s) => root.querySelector(s);
       const qa = (s) => Array.from(root.querySelectorAll(s));
       const tl = gsap.timeline({ paused: true });
+      tl.fromTo(q(".pie"), { yPercent: 100 }, { yPercent: 0, duration: 0.24, ease: "power2.out", immediateRender: true }, 0);   // (r3) la franja de abajo: que no asomen las piernas
       tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
       tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, 0.32);
       window.__timelines = window.__timelines || {};
