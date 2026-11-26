@@ -1,0 +1,114 @@
+# contable-consultas · notas del constructor (26-11)
+
+Esqueleto de contable-papeles (mismo estudio, Adriana, Lucas, Marcelo y la panadería) con la mezcla y el CORTE de
+dist-comisiones: todo sale de `node gen.mjs` (assets/tiempos3d.js, compositions/*.html, index.html,
+assets/audio/mezcla.wav). La escena 3D está entera en `assets/tres.js` (escrita para este reel: el estudio de mañana
+con el MONITOR vertical, el patio nuevo, la panadería reusada). `assets/personajes.js` = el de dist-comisiones (el más
+completo, con el arreglo de lentes de contable-papeles) + **Jorge** nuevo en ELENCO (costados grises, barba corta gris
+0x6d6a66 opacidad 0,85, chomba crema con cuello navy, delantal navy3 con bolsillo crema, pantalón cargo, alpargatas navy,
+panza 1,15, sin bigote). Adriana, Marcelo y Lucas se arman en tres.js igual que en contable-papeles; Graciela, Walter y
+Héctor (ELENCO) solo para los avatares. Adriana es una sola: `ponerCampera(true)` en el estudio, `false` en el patio.
+
+## Comandos (desde reels/contable-consultas)
+```
+TOMAS="a b c" bash partes/reintentar.sh            # tomas (partes/lineas.tsv; sin el narrador, que se reusa)
+LINEAS=partes/lineas-extra.tsv TOMAS="d e f" bash partes/reintentar.sh   # tomas extra de 04, 10, 12, 15
+bash partes/medir-tomas.sh                         # recorta y mide "oyó:" (partes/rec/medidas.tsv)
+bash partes/procesar.sh                            # assets/voice/ desde las tomas elegidas (+ palabras-a7.json)
+node gen.mjs                                       # todo; SINAUDIO=1 no rehace la mezcla; MEDIR=1 stems; LIMPIO=1 / VER=portada
+python3 medir.py                                   # voz contra resto por tramos de 0,5 s (después de MEDIR=1 node gen.mjs)
+python3 medir-sfx.py assets/audio/mezcla.wav assets/audio/stem-voz.wav   # efectos sin voz (techo -31)
+./snap.sh "t1,t2,…" nombre                         # snapshots con el candado
+flock /tmp/hyperframes.lock node prev.mjs "t1,t2" renders/prev/x [px,py,pz,mx,my,mz,fov]   # solo la capa 3D (FULL=1 a 1080)
+bash paso10.sh                                     # paso 10 (loudnorm en dos pasadas, lineal) después del render
+```
+Portada: `VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 11.0 renders/prev/por`
+→ copiar `renders/prev/por/t-011.00.png` a `portada-src/fondo-limpio-11.0.png`; después `SINAUDIO=1 node gen.mjs` (o sin
+SINAUDIO). portada.json ya tiene `t` 11,0 y el `fondo_limpio`. Render: `npx --yes hyperframes@0.8.206 render --workers 2 -o
+renders/contable-consultas.mp4` con el candado, después `bash paso10.sh`.
+
+## Voces (partes/procesar.sh; tonos en partes/lineas.tsv)
+Adriana Autonoe · Marcelo Enceladus · Graciela Gacrux · Walter Umbriel · Jorge **Zubenelgenubi** · Lucas **Sadaltager** ·
+narrador = `reels/inmobiliaria-disponible/assets/voice/narrador.wav` (Rasalgethi, 2,18 s, sin atempo). Los audios de
+WhatsApp (m1, g1, w1, m2) con filtro de altavoz suave (200-5000 Hz + compresor).
+m1 01-c (se reusa en Q1) · a1 02-c · g1 03-c (atempo 1,05) · w1 04-c · m2 05-a · j1 06-b (hueco 0,53-0,74 → 0,14; se reusa en
+Q4) · a2 07-a · j2 08-a (pausa después de "Es Marcelo." ≈ 0,35 s) · m3 10-e (hueco 0,95-1,10 → 0,12) · a3 11-b · l1 12-b (hueco
+0,43-1,15 → 0,2) · a4 13-c · a5 14-b · j3 15-e (sin los 0,22 s del arranque, pausa 0,28 s, atempo 1,12) · a6 16-a (pausa
+0,28 s) · a7 17-c (atempo 1,08).
+"oyó:" igual al guion salvo lo de siempre: el STT escribe "23" por veintitrés y se come la palabra de arranque en algunas:
+"¡Uh," (m3 en todas las tomas), "¿Te" (w1), "Es" (j3, todas las tomas salvo 15-e suelta), "¿Ya?" (l1: todas las tomas;
+12-b la tiene antes de un silencio de 0,76 s, que se acortó). **Revisar de oído** l1, m3 y j3.
+
+## Mundo
+- Estudio (origen): el de contable-papeles de MAÑANA, sin los 60 sobres ni el piolín (una segunda estantería de biblioratos
+  en su lugar); el teclado navy delante de Adriana; la lámpara (-0,5; 0,95), la sumadora (-0,3; 1,2), el celular en el
+  soporte (0,2; 1,2, primer término) y el **monitor vertical** 0,33 × 0,53 en (0,47; 0,88) girado -0,32 (lienzo 800 × 1290:
+  el balance de Súper Héctor 3 % rojo + "Consultas de la semana" 14 → 38 → 52 → 63; en la parte 2 la barra verde 3 → 8 %,
+  "Asistente del estudio · agente de IA ✓", el toast "¡Gracias, Adri!", la bandeja con Graciela / Walter / Marcelo con ✓ y
+  "Para vos (2)" con Héctor y el camión, y el viernes "Balances · noviembre" con Súper Héctor y Bar Walter en 100 % ✓). Las
+  tazas 1 → 2 → 3 en la ráfaga. El escritorio de Lucas a la derecha (1,22). Luces: día (lunes / parte 2), noche (miércoles
+  23:40: la lámpara prendida), tarde (viernes), oscuro (Q3n: la lámpara apagada, el estudio vacío y el monitor que igual
+  recibe).
+- Patio (x = -40): piso de baldosas rojo ladrillo apagado lisas, muro crema con cornisa, pérgola y parra plana, cielo crema;
+  la parrilla de ladrillo crema (textura con juntas) con campana, chimenea, brasas planas, dos tiras con huesitos, tres
+  chorizos con nudito y rayas de la parrilla, dos morrones con huevo (yema de frente); la mesa con mantel a cuadros navy y
+  crema, canasta de pan, ensalada, jarra y vasos de vino, platos, sillas plegables navy; la tabla con el pan abierto. Jorge
+  en (-0,3; -0,55) con la pinza en la derecha (la pinza va del puño al chorizo, que se mueve: parrilla → aire (congelado) →
+  pan); el celular de Jorge (funda crema) en el bolsillo del delantal, vibra, sale a la mano izquierda en P5 / Q4j. Adriana
+  sentada en (0,55; -1,1) con el celular; en Q4 lo deja boca abajo y se levanta con el plato; en Q4a / C parada con el
+  choripán en el plato.
+- Panadería (x = 40): de contable-papeles sin bolsas, factura ni repartidor. El inserto Q2 va sobre fondo liso (el
+  mostrador tapaba la pantalla); igual P5i / Q4i (la mesa asomaba).
+
+## Duración y planos (s)
+**46,4 s.** Parte 1 0-17,02 · cartel 17,02-19,32 · parte 2 + cierre 19,32-46,4 = 27,1 s (58 %) · cierre C 42,79-46,4 (3,6 s;
+tarjeta CONSULTAS desde 43,09, línea chica desde 45,0).
+P1 0 (cuadro 0: ESTUDIOS CONTABLES + "Lunes, 9:00.", Adriana, el 3 %, el audio de Marcelo) · P2 1,63 · P3 3,31 (ráfaga, cámara
+fija, luz: lunes 11:00 / miércoles 23:40 desde 4,83 / viernes 19:00 desde 6,11; "Las mismas 3 preguntas") · P4 8,07 (el asado)
+· P4b 11,30 (Jorge congelado con el chorizo, la pausa) · P5 12,25 (vibra el bolsillo) · P5i 13,07 (su pantalla: "¿Le
+preguntás a Adri cuándo vence lo mío?") · P5j 14,36 · P5c 16,07 (Adriana cierra los ojos, chip "Balance de Súper Héctor: 3 %")
+· cartel · Q1 19,32 (= P1; contesta el asistente en el celular del soporte) · Q2 21,5 (el chat de Marcelo: "Estudio Adriana ·
+Asistente · agente de IA", la respuesta firmada "Asistente del estudio · agente de IA", la boleta, las facturas; "¡Uh, qué
+rápida!") · Q2m 24,19 ("Gracias, Adri.") · Q2b 25,34 (= P2, "De nada.") · Q3 26,19 (push-in al monitor) · Q3n 27,44
+(miércoles 23:40, a oscuras) · Q3r 28,29 (Héctor → "Para vos (2)", "Lo de fondo te lo pasa a vos") · Q3b 29,79 (viernes 18:00,
+Lucas) · Q4 33,17 (= P4) · Q4j 36,35 (= P5) · Q4i 37,02 · Q4a 38,32 (los dos: "…al toque." / "Sí. Un amor.") · C 42,79.
+
+## Mezcla (MEDIR=1 node gen.mjs)
+TECHO -38,5 antes de la ganancia final (+7,0 dB); la música se corta seca en "veintitrés" (P4) y baja (duck) en los tramos
+sin voz con efectos (Q1 → Q2, Q3, Q4j). `medir.py`: voz ≥ +21,3 LU sobre el resto en todos los tramos de 0,5 s con voz
+(ventanas pareadas; criterio viejo +20,4). `medir-sfx.py`: máximo sin voz -31,0 LUFS. mezcla.wav -14,0 LUFS, pico -2,7 dBFS.
+Sin SFX nuevos descargados (créditos en fuentes.md).
+
+## Pasadas propias
+`check --json`: 0 errores.
+Pasada 0 (prev de la capa 3D, renders/prev/a-h): los personajes del patio estaban en el estudio (faltaba sumar x = -40);
+P2/P4b/P5/P5c/Q4j/Q4a/C demasiado cerca (caras que llenaban el cuadro, burbujas que no entraban) → cámaras más atrás;
+P5 se veía la nuca de Jorge → cámara del lado al que mira; los anteojos de leer de Jorge se leían como un aro negro → sin
+anteojos; la barba de Jorge no se veía → más oscura y opaca; patio rearmado (Jorge y Adriana más juntos, la parrilla
+entra a la izquierda); P3 cortaba a Adriana y después el monitor → cámara más abierta (Adriana, el 3 % y el contador
+enteros); Q3: "Consultas: 63" y "Contestó" se pisaban → una línea; el rótulo "Lo de fondo…" tapaba a Héctor → el monitor
+más arriba en el inserto; Q2 el mostrador tapaba el celular → fondo liso; Q2m el cartel de la panadería detrás de la
+burbuja → oculto; noche más oscura.
+Pasada 1 (cada 0,5 s desde 0,02, renders/snap/p1): P3 con la cara cortada y el rótulo sobre la cabeza → cámara; P5 el
+celular de Jorge se veía de canto como un palito frente a la boca → más abajo y girado hacia la cámara; P5i/Q4i la mesa y la
+pata asomaban y el chat vacío arriba → fondo liso, historial ("¿Mañana venís al asado?" / "No llego, Jorge. ¡Disfruten!"),
+"Es Marcelo." abajo (no tapa la cabecera); Q3b Adriana cortada → cámara y Lucas más cerca; Q4a Adriana delante de Jorge y
+el celular de canto en la mano → Adriana a la derecha, el celular vuelve al bolsillo, la burbuja de Jorge también en Q4a;
+C la cara al borde → Adriana y cámara corridas (Jorge detrás a la izquierda); el choripán apuntaba a la cámara → de costado.
+Pasada 2 (cada 0,5 s desde 0,27, renders/snap/p2): Q3 Adriana desaparecía al empezar el push-in (pop) → queda visible
+(sale sola del cuadro); P5c muy cerca → más atrás; Q3b y C reencuadrados. Cuadros a ±1 cuadro de cada corte
+(renders/snap/cortes): sin saltos ni texto fantasma.
+
+## Portada
+Fondo limpio con cámara propia (VER=portada, t 11,0): Jorge congelado con el chorizo en la pinza y Adriana con el celular,
+la mitad de arriba (portada-src/fondo-limpio-11.0.png). chica "Domingo, 13:30.", grande "¿Cuándo vence?", sello ESTUDIOS
+CONTABLES. Falta correr `node herramientas/portada.mjs contable-consultas` (exige el MP4 final).
+
+## Flojo / para los revisores
+- 46,4 s (plan 43): las tomas; la parte 2 es 58 % (sobra), se puede recortar Q3 o Q4 si hace falta.
+- Las manos-puño del elenco: el agarre de la pinza y del celular de Jorge es aproximado (la pinza sale del puño).
+- Q2m: el mostrador ocupa el cuarto de abajo (liso, madera).
+- Q3n: el estudio a oscuras se ve chico y oscuro a propósito (el monitor que contesta solo); las tarjetas no se leen ahí.
+- Lucas aparece solo en Q3b (no en la parte 1).
+- La línea del Q3 pasa de la barra del balance a "Para vos" (la barra vuelve entera en 100 % en Q3b).
+- Render final no hecho (lo hace el coordinador).

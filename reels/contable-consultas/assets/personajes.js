@@ -47,12 +47,12 @@ export const ELENCO = {
     pantalon: 0x6d717a, zapatos: 0x2a2220, panza: 1.02, nariz: 0.062, mejillas: 0xc9806a, alto: 1.04 },
   // contable-consultas (26-11): Jorge, el marido de Adriana (~58): pelado arriba con costados grises cortos, sin bigote,
   // barba corta gris; chomba crema con cuello navy, delantal de asador navy3 con bolsillo (borde crema), pantalón cargo
-  // verde grisáceo y alpargatas navy. Anteojos de leer de media luna (se prenden solo cuando lee el celular). Buen tipo,
+  // verde grisáceo y alpargatas navy. Buen tipo,
   // de entrecasa: que no se parezca a Rubén (sin bigote, con barba).
   jorge: { nombre: "Jorge", mejillasBajas: true, piel: PIEL.media, pelo: PELO.gris, peinado: "costados", cejasColor: 0x6d6a66, cejaGruesa: true,
-    barba: 0x8a8580, barbaLarga: 0.3, barbaOpacidad: 0.6, camisa: MARCA.cr, mangas: "cortas", cuello: MARCA.navy2, cuelloBotones: true,
+    barba: 0x6d6a66, barbaLarga: 0.35, barbaOpacidad: 0.85, camisa: MARCA.cr, mangas: "cortas", cuello: MARCA.navy2, cuelloBotones: true,
     delantal: MARCA.navy3, delantalBorde: MARCA.cr2, pantalon: 0x5a5a4e, zapatos: MARCA.navy2, panza: 1.15, nariz: 0.064,
-    mejillas: 0xd98a78, anteojosLeer: MARCA.navy, alto: 1.02 },
+    mejillas: 0xd98a78, alto: 1.02 },
   // dist-cartera (24-11): Leo, el vendedor de la calle de la zona Este de Rubén (~30): castaño oscuro texturado corto,
   // barba de tres días, chomba crema y campera de nylon verde apagado abierta, pantalón navy. Que no se parezca a Nico.
   leo: { nombre: "Leo", piel: PIEL.clara, pelo: 0x3b2a22, peinado: "texturado", texturaAlto: 0.55, cejasColor: 0x3b2a22,

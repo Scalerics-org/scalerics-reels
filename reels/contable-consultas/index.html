@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Lexend"; font-weight: 100 900; font-display: block; src: url("assets/fonts/Lexend-var.woff2") format("woff2"); }
+      #precarga { position: absolute; left: -9999px; font: 800 40px "Lexend"; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0b1220; }
+      #fondo { position: absolute; inset: 0; background: #0b1220; z-index: 0; }
+      #capa3d { position: absolute; inset: 0; width: 1080px; height: 1920px; z-index: 2; transform-origin: 540px 960px; }
+      #tres { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; display: block; }
+      .scene { position: absolute; inset: 0; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="46.4" data-width="1080" data-height="1920">
+      <div id="precarga">Consultas</div>
+      <div id="fondo" class="clip" data-start="0" data-duration="46.4" data-track-index="0"></div>
+      <div id="el-cartel" class="scene" style="z-index:1" data-composition-id="cartel" data-composition-src="compositions/cartel.html" data-start="17.02" data-duration="2.3" data-track-index="22" data-track-kind="graphics"></div>
+      <div id="capa3d" class="clip" data-start="0" data-duration="46.4" data-track-index="1"><canvas id="tres" width="1080" height="1920"></canvas></div>
+      <div id="el-s00-rubro" class="scene" style="z-index:3" data-composition-id="s00-rubro" data-composition-src="compositions/s00-rubro.html" data-start="0" data-duration="1.65" data-track-index="2" data-track-kind="graphics"></div>
+      <div id="el-s01-chip" class="scene" style="z-index:3" data-composition-id="s01-chip" data-composition-src="compositions/s01-chip.html" data-start="3.31" data-duration="1.52" data-track-index="3" data-track-kind="graphics"></div>
+      <div id="el-s02-chip" class="scene" style="z-index:3" data-composition-id="s02-chip" data-composition-src="compositions/s02-chip.html" data-start="4.83" data-duration="1.28" data-track-index="4" data-track-kind="graphics"></div>
+      <div id="el-s03-chip" class="scene" style="z-index:3" data-composition-id="s03-chip" data-composition-src="compositions/s03-chip.html" data-start="6.11" data-duration="1.96" data-track-index="5" data-track-kind="graphics"></div>
+      <div id="el-s04-chip" class="scene" style="z-index:3" data-composition-id="s04-chip" data-composition-src="compositions/s04-chip.html" data-start="8.07" data-duration="3.23" data-track-index="6" data-track-kind="graphics"></div>
+      <div id="el-s05-chip" class="scene" style="z-index:3" data-composition-id="s05-chip" data-composition-src="compositions/s05-chip.html" data-start="19.34" data-duration="2.16" data-track-index="7" data-track-kind="graphics"></div>
+      <div id="el-s06-chip" class="scene" style="z-index:3" data-composition-id="s06-chip" data-composition-src="compositions/s06-chip.html" data-start="27.44" data-duration="0.85" data-track-index="8" data-track-kind="graphics"></div>
+      <div id="el-s07-chip" class="scene" style="z-index:3" data-composition-id="s07-chip" data-composition-src="compositions/s07-chip.html" data-start="29.79" data-duration="3.38" data-track-index="9" data-track-kind="graphics"></div>
+      <div id="el-s08-chip" class="scene" style="z-index:3" data-composition-id="s08-chip" data-composition-src="compositions/s08-chip.html" data-start="33.17" data-duration="3.18" data-track-index="10" data-track-kind="graphics"></div>
+      <div id="el-s09-balance" class="scene" style="z-index:3" data-composition-id="s09-balance" data-composition-src="compositions/s09-balance.html" data-start="16.32" data-duration="0.7" data-track-index="11" data-track-kind="graphics"></div>
+      <div id="el-s10-palabra" class="scene" style="z-index:3" data-composition-id="s10-palabra" data-composition-src="compositions/s10-palabra.html" data-start="43.09" data-duration="3.41" data-track-index="12" data-track-kind="graphics"></div>
+      <div id="el-s11-cierre" class="scene" style="z-index:3" data-composition-id="s11-cierre" data-composition-src="compositions/s11-cierre.html" data-start="45" data-duration="1.5" data-track-index="13" data-track-kind="graphics"></div>
+      <audio id="mezcla" src="assets/audio/mezcla.wav" data-start="0" data-duration="46.4" data-track-index="40" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      window.__hf.buildReady["tres"] = new Promise((ok) => { window.__tresListo = ok; });
+    </script>
+    <script type="module" src="assets/tres.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.to("#fondo", { opacity: 1, duration: 46.4 }, 0);
+      // corte seco al cartel; la parte 2 entra por un iris que se abre desde el celular del soporte
+      tl.set("#capa3d", { opacity: 0 }, 17.02);
+      tl.set("#capa3d", { scale: 1, rotation: 0, opacity: 1, clipPath: "circle(0px at 620px 1180px)" }, 17.29);
+      tl.fromTo("#capa3d", { clipPath: "circle(90px at 620px 1180px)" }, { clipPath: "circle(1900px at 620px 1180px)", duration: 0.3, ease: "power1.in", immediateRender: false }, 19.02);
+      tl.set("#capa3d", { clipPath: "none" }, 19.3);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

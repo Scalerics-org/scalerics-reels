@@ -46,6 +46,17 @@ Gacrux, Walter = Umbriel (las de siempre del elenco), **Jorge = Zubenelgenubi** 
 Sadaltager** (primera vez con voz), narrador del cartel = Rasalgethi (audio reusado de
 `reels/inmobiliaria-disponible/assets/voice/narrador.wav`, "Un agente de IA más tarde.").
 
-## Música y efectos
-A completar por el constructor (reusar los de contable-papeles con su crédito; chisporroteo de brasas y pájaros: reales
-CC0 con autor, sitio y licencia acá; nada sintetizado con ffmpeg).
+## Música y efectos (constructor, 26-11)
+Nada sintetizado con ffmpeg; ningún archivo nuevo descargado: todos vienen de otros reels del repo, con su crédito original.
+- `chisporroteo.wav` (las brasas del asado): "Frying pan 2" (#0144), Joseph Sardin · BigSoundBank · CC0 1.0, https://bigsoundbank.com/frying-pan-2-s0144.html (de reels/parrilla-no-vuelve).
+- `fuego.wav` (copiado, no usado en la mezcla): "Fireplace 2" (#0031), BigSoundBank · CC0 1.0 (de reels/parrilla-no-vuelve).
+- `pajaro.wav` (el patio y el pájaro lejano): "Bird Chirp", swiftoid · Freesound · CC0.
+- `vibra.wav` (los celulares que vibran): "Cell phone vibrate, on table hard surface", SpliceSound · Freesound · CC0.
+- `tic-real.mp3` (el reloj de la noche): "Clock ticking", olver · Freesound · CC0 1.0.
+- `calle.wav` (la calle lejana del estudio y de la panadería): "Small quiet street ambience", Oper8 · Freesound · CC0.
+- `cero.mp3` (los dings del panel y del balance terminado): "[UI Sound] Approval - High Pitched Bell Synth", GabFitzgerald · Freesound · CC0.
+- `stinger.wav` (el cartel): "Vibraphone Transition Music Cue", DanJFilms · Freesound · CC0 1.0.
+- `bgm/pizzicato.wav` (la música): "Pizzicato Intrigue", younoise · Freesound · CC0.
+- `k-pep.wav` (el "tuc" del audio de chat), `k-cloth_1.wav` (el celular que sale del bolsillo, la silla de Lucas), `k-tick-1.wav` (el contador), `k-metal-click.wav` (la pinza), `k-plato-000.wav` (el plato), `madera-tabla.wav` (el celular boca abajo en la mesa): Kenney · kenney.nl · CC0 1.0.
+- `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `ding.mp3`, `notification.mp3`, `click-soft.mp3`, `key-press.mp3`, `zumbido-largo.wav`: banco de SFX de HyperFrames (como en reels/abren-hoy, ya-lo-cargo, contable-papeles).
+- Narrador del cartel: `reels/inmobiliaria-disponible/assets/voice/narrador.wav` (Gemini Rasalgethi, "Un agente de IA más tarde.", 2,18 s), reusado sin cambios.
