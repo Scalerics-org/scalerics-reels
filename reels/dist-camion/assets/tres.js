@@ -1591,7 +1591,7 @@ function poseRuso(t, pa, cp, lugar) {
   if (pa === "P6c" || pa === "Q5d" || pa === "Q5") { pr.x = MUE_U2.x; pr.z = MUE_U2.z; pr.giro = giroA(MUE_U2.x, MUE_U2.z, MUE_R.x, MUE_R.z) - 0.4; }   // en el dos-shot se arrima (el corte del inserto lo tapa)
   if (t < P2) {
     if (t >= T.u1 - 0.1) { Object.assign(pr, { ...CARA.neutra, ojos: { x: 0, y: 0, abiertos: 0.85, feliz: 0 }, cejas: { alto: 0.35, ang: 0.2 }, boca: { sonrisa: 0.2, abierta: 0, ancho: 1 } }); }
-    if (t >= T.u2 - 0.05) { pr.cejas = { alto: 0.55, ang: 0.3, asim: 0.3 }; pr.manoI = [0.3, 0.2, 0.2]; pr.manoD = [-0.3, 0.2, 0.2]; pr.codoI = [1, -0.3, -0.2]; pr.codoD = [-1, -0.3, -0.2]; }
+    if (t >= T.u2 - 0.05) { const k = eo(sg(t, T.u2 - 0.05, T.u2 + 0.2)); pr.cejas = { alto: 0.6, ang: 0.3, asim: 0.4 }; pr.manoI = [lerp(0.29, 0.36, k), -0.1, lerp(0.04, -0.02, k)]; pr.manoD = [lerp(-0.29, -0.36, k), -0.1, lerp(0.04, -0.02, k)]; pr.codoI = [1, 0.2, -0.2]; pr.codoD = [-1, 0.2, -0.2]; pr.cabeza = { giro: 0, asiente: -0.05, ladea: 0.12 * k }; }   // (r3b) los brazos caídos a los costados, la cabeza ladeada y las cejas arriba: nada cruzado ni horizontal
     bocaVoz(pr, t, T.u1, ENV.u1, 0.6); bocaVoz(pr, t, T.u2, ENV.u2, 0.6);
   } else {
     Object.assign(pr, { ...CARA.sonrisa, ojos: { x: 0, y: 0, abiertos: 0.95, feliz: 0.3 }, cejas: { alto: 0.25, ang: 0 } });
@@ -1695,7 +1695,7 @@ function renderAt(tIn) {
       celMa.scale.setScalar(1.8); { const cam = V3(cp[0], cp[1], cp[2]); pm.manoD = celEnMano(celMa, marta, cam, V3(-0.24, 0.52, 0.56), 0); pm.codoD = [-0.8, -0.8, -0.2]; marta.poner(pm); celEnMano(celMa, marta, cam, V3(-0.24, 0.52, 0.56), 0); }
       // el cartel "Fui al banco" en la mano izquierda; lo guarda (baja) después de "a la una"
       cartelMano.visible = true;
-      const guarda = eio(sg(t, T.cajon - 0.2, T.cajon + 0.25));
+      const guarda = 0;   // (r3b) sostiene el cartel hasta el corte: no atraviesa el mostrador
       pm.manoI = [0.24, lerp(0.42, 0.05, guarda), 0.34]; pm.codoI = [1, -0.5, -0.2]; marta.poner(pm); marta.raiz.updateMatrixWorld(true);
       marta.brazos[0].mano.getWorldPosition(_w); cartelMano.position.copy(_w).add(V3(0.06, 0.14, 0.04)); cartelMano.rotation.set(-0.1, marta.raiz.rotation.y + 0.1, 0.06);
       if (guarda > 0.45) cartelMano.visible = false;   // (r1) se guarda antes de pasar por el mostrador
@@ -1752,7 +1752,7 @@ function renderAt(tIn) {
     cargaCam.forEach((c, i) => { c.visible = false; });
     if (!parte2) cajasPila.forEach((c, i) => {
       c.visible = true;
-      const u = eio(sg(t, T.baja + i * 0.17, T.baja + i * 0.17 + 0.3));
+      const u = 1;   // (r3b) la pila ya está en el piso: las cajas no cruzan delante del Ruso
       cargaCam[i].updateMatrixWorld(true); camion.updateMatrixWorld(true);
       const ori = cargaCam[i].getWorldPosition(new THREE.Vector3());
       const dest = PILA.clone().add(V3((i % 3) * 0.52 - 0.52, 0.19 + Math.floor(i / 3) * 0.39, 0));

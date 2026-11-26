@@ -207,3 +207,13 @@ tarjeta CAMIÓN desde 42,77 (3,16 s); la voz termina en 45,59.
 Mezcla: voz sobre el resto mínimo 12,5 LU (mediana 22,3); máximo sin voz -31,4; integrada -14,1 LUFS; pico real -2,5 dBFS.
 `check --json` 0 errores. Snapshots: renders/snap/s1 (cada 0,5 s desde 0,25), s2 (desde 0,02), c1 y c2 (3 cuadros por corte).
 Quedan bajos: manos tipo manopla en los insertos; la cola del globo de Marta cerca del rodete.
+
+## Arreglo puntual (revision-arte-r3.md)
+- 18,9-19,9 "Uno que pasaba.": el Ruso ya no cruza el antebrazo; deja los brazos caídos a los costados, ladea la cabeza y
+  sube las cejas (nada horizontal a la altura de la cintura). Revisados los otros planos del Ruso y del resto: los antebrazos
+  levantados sostienen siempre un objeto (celular, fajo, remito, mate).
+- P6b: la pila de cajas MARTA ya está en el piso desde el primer cuadro (no cruzan en el aire delante del Ruso) y la guía
+  apunta a la caja; se sacaron los 6 golpes de caja que acompañaban la bajada.
+- Q2: Marta sostiene el cartel hasta el corte (no lo baja a través del mostrador); se sacó el golpe del cajón.
+Mezcla: mínimo voz-resto 12,5 LU, máximo sin voz -31,4, -14,1 LUFS, pico -2,5 dBFS. `check` 0 errores. Snapshots cuadro a
+cuadro en renders/snap/fix (18,5-20,2 cada 2 cuadros, P6b 13,7-14,8 y Q2 28,5-29,1).

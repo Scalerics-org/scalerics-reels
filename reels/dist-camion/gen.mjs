@@ -349,7 +349,7 @@ s("sfx/k-chapa-pesada.wav", T.golpes[2] + 0.02, 0, { techo: -42, dur: 0.4, fin: 
 // P6b: el muelle a la tarde: el motor parado, el freno de aire, las puertas, las cajas, el papel; el celular que suena
 motorIdle(T.p6b, T.p6i, -44);
 s("sfx/k-neumatico-abre.wav", T.p6b + 0.02, 0, { techo: -40, vel: 0.85, lp: 3000 });
-for (let k = 0; k < 6; k++) cajaS(T.baja + 0.08 + k * 0.17, -42, (k % 2) + 1);
+// (r3b) sin las cajas que bajan: la pila ya está en el piso
 pop(T.rotMarta, -44); pop(T.rotViaje, -44); pop(T.rotHoras, -44);
 s("sfx/papel-fuerte.mp3", T.fajo, 0, { techo: -40, dur: 0.5, fin: 0.12 });
 s("sfx/papel.wav", T.p6i + 0.02, 0, { techo: -42, dur: 0.45, fin: 0.12 });
@@ -371,7 +371,7 @@ noti(T.aviso1, -41); ding(T.aviso2, -43);   // (r3) bajo el techo de -31 en el i
 voz("g2", T.g2, -1);
 cafeteria(T.q2, T.q3); noti(T.q2 + 0.1, -44);
 voz("m2", T.m2, -1);
-s("sfx/bsb-caja.wav", T.cajon, 0, { techo: -42, dur: 0.5, fin: 0.15 });
+// (r3b) sin el golpe del cajón: Marta sostiene el cartel hasta el corte
 oficina(T.q3, T.q4r, -46);
 // (r2) Q4r: la cabina por dentro (motor, rambla)
 s("sfx/bsb-omnibus.wav", T.q4r - 0.02, 0, { desde: 6.0, dur: r2(T.q4 - T.q4r + 0.04), fi: 0.03, fin: 0.05, techo: -42, lp: 2600 }); pop(T.q4r + 0.12, -46);
