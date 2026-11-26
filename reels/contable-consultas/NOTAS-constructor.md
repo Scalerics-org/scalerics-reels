@@ -147,3 +147,26 @@ unen y el duck es 0,25). Corte de la música en "veintitrés": -34,8 → -44,4 (
 - Quedan / dudoso: el pedido "voz 12-15 LU sobre el resto" no es compatible con el techo de -31 por efecto: la voz momentánea
   ronda -5,5 LUFS, así que 12-15 LU pondría la cama en -18/-20. Dejé la cama audible al techo (-34 sin voz) y la voz a +12,6
   mínimo / ~+30 mediana. En P4 la pinza apunta a la parrilla: el chorizo se lee contra los de la parrilla en el plano general.
+
+## Ronda 2 de corrección (26-11) · sin render
+**44,73 s.** Parte 1 0-17,2 · cartel 17,2-19,42 · parte 2 + cierre 19,42-44,73 = 25,3 s (57 %) · cierre C 41,39 (tarjeta desde
+41,83, línea chica desde 43,33). `check --json`: 0 errores. Snapshots: renders/snap/r2, r2b.
+- **El primer audio de Marcelo no sonaba** (ronda 1): el comentario `// (r1) el golpe suave del rubro` había quedado delante de
+  `tuc(...); voz("m1", ...)` en la misma línea; también el roce de la silla de Lucas. Revisé con un script todos los
+  comentarios con código detrás en gen.mjs y tres.js (y uno más que se comía el `.filter` del duck). Stem de voz en 0,2-1,6 s:
+  -17 a -14 LUFS.
+- Mezcla: sin compresor en el bus (aplastaba la cama cuando hablaba alguien; cada voz ya va comprimida) y sin duck bajo la
+  voz. Como la ganancia final pasó de +7 a -1,8 dB, todos los techos se corren OFF = 8,7 dB (los niveles relativos quedan).
+  MEDIR=1: cama -34,7 LUFS bajo la voz y -34,5 sin voz (medianas), voz -14,2 (mediana) → +20,5 LU de mediana, mínimo +9,6 (la
+  cola de "Ahora." a 35,5 s). Efectos sin voz máx -31,0. -14,0 LUFS, LRA 4,8, pico -3,7 dBFS.
+- El corte seco de la música cae sobre una nota sostenida del loop (`desde` calculado para que el corte coincida con 9,92 s
+  del archivo): -33,5 → -44 (≈ 10,5 dB).
+- Pausa antes de "Ahora." 0,65 s (igual que antes de "El veintitrés."). "Contestó el agente de IA ✓" en el chat de Q1.
+- Q3b: la barra llega a 100 % en 0,18 s y "100 % · Terminado ✓" queda ≈ 0,85 s; abajo, Bar Walter "72 % · en curso" en gris que
+  pasa a 100 % ✓ en "Y el de Walter.". Ticks + ding al llegar.
+- Todos los globos y rótulos entre y 200 y 1650 (límite en ponerGlobo). Q2: el celular más chico y más arriba (burbuja "¡Uh, qué
+  rápido!" arriba de 200, rótulo abajo de 1650). Q3/Q3r: el monitor termina en y ≈ 1490 y "Lo de fondo…" entra abajo.
+- P5/P5j/Q4j sin Adriana detrás de la cabeza de Jorge. El celular de Jorge sale por delante del delantal. Desde Q4j Jorge ya
+  no tiene la pinza (colgando parecía un bastón). Q3: la tarjeta de Marcelo entra a los 0,25 s. Q3a y Q4a con los bordes
+  libres. Lucas casi de frente (la lente ya no flota). Cierre sin la tira de Jorge y la cabeza un poco levantada (la punta de
+  la melena tocaba el hombro). P4: push-in desde más abierto (2,85 → 2,4 m), la pinza entra en cuadro.

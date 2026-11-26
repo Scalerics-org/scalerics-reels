@@ -20,7 +20,7 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // Adriana "El veintitrés, Marcelo." · g1 Graciela (audio) "Adri, ¿cuánto pago este mes?" · w1 Walter (audio) "¿Te llegó
 // lo que te mandé?" · m2 Marcelo (audio) "¿Era el veintitrés?" · j1 Jorge "Adri, ¿cuándo comemos?" (se reusa en Q4) · a2
 // Adriana "El veintitrés." · j2 Jorge "Es Marcelo. Que cuándo vence lo suyo." · nar "Un agente de IA más tarde." · m3
-// Marcelo "¡Uh, qué rápida! Gracias, Adri." · a3 Adriana "De nada." · l1 Lucas "¿Ya? ¿El de Héctor?" · a4 Adriana "Y el
+// Marcelo "¡Uh, qué rápido! Gracias, Adri." · a3 Adriana "De nada." · l1 Lucas "¿Ya? ¿El de Héctor?" · a4 Adriana "Y el
 // de Walter." · a5 Adriana "Ahora." · j3 Jorge "Es Marcelo. Que sos un amor, que le contestaste al toque." · a6 Adriana
 // "Sí. Un amor." · a7 Adriana "Comentá CONSULTAS y te mando cómo funciona para tu estudio."
 const VOCES = ["m1", "a1", "g1", "w1", "m2", "j1", "a2", "j2", "m3", "a3", "l1", "a4", "a5", "j3", "a6", "a7"];
@@ -56,28 +56,28 @@ T.p4b = r2(fin("a2") + 0.12);
 T.p5 = r2(T.p4b + 0.95); T.vibJ = r2(T.p5 + 0.1); T.p5i = r2(T.vibJ + 0.72); T.j2 = r2(T.p5i + 0.12);
 T.p5j = r2(T.j2 + CORTE.j2 - 0.06);
 T.p5c = r2(fin("j2") + 0.12);
-const P1 = r2(T.p5c + 0.85);                               // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.25, LEN.nar + 0.07));
+const P1 = r2(T.p5c + 0.75);                               // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.22, LEN.nar + 0.04));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0, el mismo audio; Adriana sigue tecleando: contesta el asistente (en el celular del soporte)
 T.q1 = P2; T.m1b = r2(P2 + 0.08);
 // Q2 · el celular de Marcelo en la panadería: escribiendo… → la respuesta con sus datos → la boleta → las facturas ·
-// "¡Uh, qué rápida!" sobre el inserto; Q2m Marcelo: "Gracias, Adri."
-T.q2 = r2(fin("m1b") + 0.75); T.resp = r2(T.q2 + 0.35); T.boleta = r2(T.q2 + 0.75); T.facturas = r2(T.q2 + 1.1);   // (r1) q2 + 0,75: "Contestó el agente de IA ✓" se lee
-T.m3 = r2(T.q2 + 1.2); T.q2m = r2(T.m3 + CORTE.m3 - 0.08);   // (r1) "¡Uh, qué rápido!" sobre el inserto; "Gracias, Adri." en Q2m
+// "¡Uh, qué rápido!" sobre el inserto; Q2m Marcelo: "Gracias, Adri."
+T.q2 = r2(fin("m1b") + 0.68); T.resp = r2(T.q2 + 0.35); T.boleta = r2(T.q2 + 0.75); T.facturas = r2(T.q2 + 1.1);   // (r1) q2 + 0,75: "Contestó el agente de IA ✓" se lee
+T.m3 = r2(T.q2 + 1.0); T.q2m = r2(T.m3 + CORTE.m3 - 0.08);   // (r1) "¡Uh, qué rápido!" sobre el inserto; "Gracias, Adri." en Q2m
 // Q2b · Adriana (el encuadre de P2), el toast en el monitor: "De nada."
 T.q2b = r2(fin("m3") + 0.06); T.a3 = r2(T.q2b + 0.1);
 // Q3 · push-in al monitor: la bandeja del asistente (Graciela, Walter) · Q3n miércoles 23:40, el estudio a oscuras: la
 // tarjeta de Marcelo entra igual · Q3r Héctor → "Para vos (2)" · la barra del balance 8 → 64
-T.q3 = r2(fin("a3") + 0.1); T.c1 = r2(T.q3 + 0.05); T.c2 = r2(T.q3 + 0.5);   // (r1) la primera tarjeta ya entra con el push-in
-T.q3n = r2(T.q3 + 0.92); T.c3 = r2(T.q3n + 0.3);
-T.q3r = r2(T.q3n + 0.7); T.c4 = r2(T.q3r + 0.1); T.cpv = r2(T.c4 + 0.38);
+T.q3 = r2(fin("a3") + 0.1); T.c1 = r2(T.q3 + 0.05); T.c2 = r2(T.q3 + 0.25);   // (r1) la primera tarjeta ya entra con el push-in
+T.q3n = r2(T.q3 + 0.85); T.c3 = r2(T.q3n + 0.3);
+T.q3r = r2(T.q3n + 0.66); T.c4 = r2(T.q3r + 0.1); T.cpv = r2(T.c4 + 0.38);
 // Q3b · viernes 18:00: el balance en 100 % · "¿Ya? ¿El de Héctor?" · "Y el de Walter."
-T.q3b = r2(T.cpv + 0.48); T.l1 = r2(T.q3b + 0.55); T.a4 = r2(fin("l1") + 0.1);   // (r1) el inserto del 100 % se lee
+T.q3b = r2(T.cpv + 0.42); T.l1 = r2(T.q3b + 0.9); T.a4 = r2(fin("l1") + 0.1);   // (r1) el inserto del 100 % se lee
 // Q4 · el mismo asado: "Adri, ¿cuándo comemos?" · deja el celular boca abajo y se levanta: "Ahora." · el chorizo al pan
 // · Q4j vibra el celular de Jorge · Q4i su pantalla · Q4a los dos: "…que le contestaste al toque." · "Sí. Un amor."
-T.q4 = r2(fin("a4") + 0.14); T.j1b = r2(T.q4 + 0.2); T.a5 = r2(fin("j1b") + 0.38);
-T.q4j = r2(fin("a5") + 0.2); T.vibJ2 = r2(T.q4j + 0.05); T.q4i = r2(T.vibJ2 + 0.45); T.j3 = r2(T.q4i + 0.06);
+T.q4 = r2(fin("a4") + 0.1); T.j1b = r2(T.q4 + 0.2); T.a5 = r2(fin("j1b") + 0.65);   // (r2) la misma pausa que antes de "El veintitrés."
+T.q4j = r2(fin("a5") + 0.15); T.vibJ2 = r2(T.q4j + 0.05); T.q4i = r2(T.vibJ2 + 0.42); T.j3 = r2(T.q4i + 0.06);
 T.q4a = r2(T.j3 + CORTE.j3 - 0.06); T.a6 = r2(fin("j3") + 0.15); T.q4c = r2(T.a6 - 0.1);   // (r1) Q4c: contraplano de Adriana en "Sí. Un amor."
 // C · el cierre: Adriana a cámara en el patio
 T.c = r2(fin("a6") + 0.08); T.a7 = r2(T.c + 0.08);
@@ -311,9 +311,11 @@ const wh = (t, techo = -46) => s("sfx/whoosh-short.mp3", t, 0, { techo });
 // ambiente del estudio (zumbido bajo, la calle lejana) y la música (cama pizzicato, se corta seca en "veintitrés")
 s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(T.p4 + 0.05), fi: 0.05, fin: 0.1, techo: -52, lp: 700 });
 s("sfx/calle.wav", 0, 0, { loop: true, dur: r2(T.p4 + 0.05), fi: 0.05, fin: 0.1, techo: -52, lp: 900 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(T.a2 + LEN.a2 - 0.05), fi: 0.3, fin: 0.03, techo: -36, hasta: r2(T.a2 - 0.05) });   // (r1) sin duck en "veintitrés": el corte seco es un escalón
+const CORTE_M = r2(T.a2 + LEN.a2 - 0.05), DESDE_M = r2((((9.92 - CORTE_M) % 12) + 12) % 12);   // (r2) el corte seco cae sobre una nota sostenida
+s("bgm/pizzicato.wav", 0, 0, { loop: true, desde: DESDE_M, dur: CORTE_M, fi: 0.3, fin: 0.03, techo: -36, hasta: r2(T.a2 - 0.05) });   // (r1) sin duck en "veintitrés": el corte seco es un escalón
 // P1 · vibra el celular, el audio de Marcelo; Adriana teclea
-vibra(0.02, -45); s("sfx/madera-tabla.wav", 0.25, 0, { techo: -48, lp: 1500 });   // (r1) el golpe suave del rubro tuc(T.m1 - 0.08, -40); voz("m1", T.m1, -1);
+vibra(0.02, -45); s("sfx/madera-tabla.wav", 0.25, 0, { techo: -48, lp: 1500 });   // (r1) el golpe suave del rubro
+tuc(T.m1 - 0.08, -40); voz("m1", T.m1, -1);
 teclas(0.1, T.p2 - 0.1, -46);
 // P2 · teclea con la derecha y graba con la izquierda; audio enviado
 toque(T.a1 - 0.12, -40); voz("a1", T.a1, -1);
@@ -324,7 +326,7 @@ for (const [r, k] of [[T.r1, "g1"], [T.r2, "w1"], [T.r3, "m2"]]) {
   for (let i = 0; i < 4; i++) tick(r + 0.12 + i * 0.09, -46 + (i % 2));
 }
 s("sfx/tic-real.mp3", T.r2 + 0.2, 0, { techo: -46, dur: 0.15, fin: 0.04 }); s("sfx/tic-real.mp3", T.r2 + 0.7, 0, { techo: -46, dur: 0.15, fin: 0.04 });   // el reloj de la noche
-pop(T.rotM, -38);
+pop(T.rotM, -42);
 s("sfx/k-plato-001.wav", T.r2 + 0.05, 0, { techo: -44 }); s("sfx/k-plato-001.wav", T.r3 + 0.05, 0, { techo: -44 });   // (r1) la loza de cada taza nueva
 // P4 · el patio: las brasas que chisporrotean, un pájaro; la música se corta seca en "veintitrés"
 s("sfx/chisporroteo.wav", T.p4, 0, { loop: true, dur: r2(P1 - T.p4 + 0.05), fi: 0.1, fin: 0.2, techo: -49.5, lp: 5000 });   // (r1) más bajo: el corte de la música es un escalón de ≥ 10 dB
@@ -347,7 +349,7 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 1.0, 1.3]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -38.5, duck: [[r2(T.q3 + 0.2), r2(T.q3b - 0.1), 0.4]] });   // (r1) duck chico en la bandeja: se oyen las tarjetas
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -38.5, duck: [[r2(T.q3 + 0.2), r2(T.q3b - 0.1), 0.55]] });   // (r1) duck chico en la bandeja: se oyen las tarjetas
 // Q1 · el estudio de mañana: vibra, el mismo audio; contesta el asistente (ding); Adriana sigue tecleando
 s("sfx/zumbido-largo.wav", P2, 0, { loop: true, dur: r2(T.q2 - P2 + 0.05), fi: 0.1, fin: 0.1, techo: -54, lp: 700 });
 vibra(P2 + 0.02, -38); tuc(T.m1b - 0.08, -40); voz("m1", T.m1b, -1);
@@ -364,10 +366,11 @@ voz("a3", T.a3, -1);
 wh(T.q3, -46);
 for (const c of [T.c1, T.c2, T.c3, T.c4]) { pop(c, -44); tick(c + 0.08, -46); }
 s("sfx/tic-real.mp3", T.q3n + 0.1, 0, { techo: -46, dur: 0.15, fin: 0.04 }); s("sfx/tic-real.mp3", T.q3n + 0.6, 0, { techo: -46, dur: 0.15, fin: 0.04 });
-ding(T.cpv, -43);
+ding(T.cpv, -45);
 // Q3b · viernes 18:00: el balance terminado (ding), la silla de Lucas, la segunda barra (pop)
 s("sfx/zumbido-largo.wav", T.q3b, 0, { loop: true, dur: r2(T.q4 - T.q3b + 0.05), fi: 0.1, fin: 0.1, techo: -54, lp: 700 });
-wh(T.q3b - 0.04, -46); for (let i = 0; i < 4; i++) tick(T.q3b + 0.06 + i * 0.09, -46); ding(T.q3b + 0.42, -40);   // (r1) la barra 64 → 100 % y el "Terminado ✓" s("sfx/k-cloth_1.wav", T.q3b + 0.1, 0, { techo: -46, dur: 0.3, fin: 0.1 });
+wh(T.q3b - 0.04, -46); for (let i = 0; i < 3; i++) tick(T.q3b + 0.02 + i * 0.06, -48); ding(T.q3b + 0.2, -42);   // (r1) la barra 64 → 100 % y el "Terminado ✓"
+s("sfx/k-cloth_1.wav", T.l1 - 0.3, 0, { techo: -46, dur: 0.3, fin: 0.1 });   // la silla de Lucas que gira
 voz("l1", T.l1, -1); voz("a4", T.a4, -1); pop(T.a4 + 0.05, -42);
 // Q4 · el mismo asado: las brasas; "¿cuándo comemos?" · el celular boca abajo (tabla) · "Ahora." · el plato · la pinza
 // · vibra el celular de Jorge · "…al toque." · "Sí. Un amor."
@@ -378,7 +381,7 @@ voz("j1", T.j1b, -1);
 s("sfx/madera-tabla.wav", T.a5 - 0.3, 0, { techo: -42 });
 voz("a5", T.a5, -1);
 s("sfx/k-plato-000.wav", T.a5 + 0.45, 0, { techo: -44 }); s("sfx/k-metal-click.wav", T.a5 + 0.7, 0, { techo: -44 });
-vibra(T.vibJ2, -43); s("sfx/k-cloth_1.wav", T.vibJ2 + 0.3, 0, { techo: -44, dur: 0.3, fin: 0.1 });
+vibra(T.vibJ2, -45); s("sfx/k-cloth_1.wav", T.vibJ2 + 0.3, 0, { techo: -46, dur: 0.3, fin: 0.1 });
 wh(T.q4i - 0.05, -48); wh(T.q4a - 0.04, -50);
 voz("j3", T.j3, -1);
 voz("a6", T.a6, -1);
@@ -390,9 +393,10 @@ pop(T.palabra + 0.02, -40); pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }
   }
 // la música: duck debajo de cada voz para que la voz quede ≥ 6 LU arriba
+// (r2) duck 0 bajo la voz: la cama queda pareja (el compresor del bus, que la aplastaba, ya no está)
 // (r1) las ventanas de voz se UNEN antes del duck (superpuestas se multiplicaban y la cama quedaba muda); duck suave 0,35
 const VOZU = VOZ.slice().sort((a, b) => a[0] - b[0]).reduce((acc, [a, b]) => { const u = acc[acc.length - 1]; if (u && a <= u[1]) u[1] = Math.max(u[1], b); else acc.push([a, b]); return acc; }, []);
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { const lim = x[3].hasta ?? 1e9; x[3].duck = [...(x[3].duck || []), ...VOZU.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [Math.max(a, x[1]), Math.min(b, lim), 0.25]).filter(([a, b]) => b - a > 0.1)]; }
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { const lim = x[3].hasta ?? 1e9; x[3].duck = [...(x[3].duck || []), ...VOZU.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [Math.max(a, x[1]), Math.min(b, lim), 0]).filter(([a, b]) => b - a > 0.1)]; }
 function en(t, a, b) { return t >= a && t < b; }
 
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);
@@ -413,7 +417,10 @@ function lufsTramo(f, o) {
 }
 const PICO = Number(process.env.PICO ?? -19);
 // el bus suma +6 dB antes del limitador: el techo se cumple DESPUÉS del bus (por eso -6)
-const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, Math.min(o.techo ?? TECHO, TECHO) - 6 - L.M, (o.pico ?? PICO) - L.pk)); };
+// (r2) sin compresor en el bus la ganancia final pasó de +7 a ~-1,7 dB: los techos se corren OFF dB para que los niveles
+// finales queden donde estaban (techo -38,5 + 8,7 = -29,8 antes de la ganancia final)
+const OFF = Number(process.env.OFF ?? 8.7);
+const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, Math.min(o.techo ?? TECHO, TECHO) + OFF - 6 - L.M, (o.pico ?? PICO) + OFF - L.pk)); };
 function mezcla(lista, salida, dur) {
   const args = ["-y", "-loglevel", "error"];
   const filtros = [];
@@ -442,7 +449,7 @@ if (!process.env.SINAUDIO) {
   fs.mkdirSync("assets/audio", { recursive: true });
   mezcla(S, "assets/audio/mezcla-cruda.wav", DUR);
   // el bus: +6 dB y compresor suave; después la ganancia a -14 LUFS y RECIÉN AHÍ el limitador (techo -4 dBFS)
-  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", "volume=6dB,acompressor=threshold=-24dB:ratio=2.5:attack=30:release=400:makeup=1", "-ar", "48000", "-c:a", "pcm_f32le", "assets/audio/mezcla-bus.wav"]);
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", "assets/audio/mezcla-cruda.wav", "-af", "volume=6dB"   /* (r2) sin compresor en el bus: aplastaba la cama cuando hablaba alguien (cada voz ya va comprimida) */, "-ar", "48000", "-c:a", "pcm_f32le", "assets/audio/mezcla-bus.wav"]);
   if (process.env.MEDIR) {
     mezcla(S.filter((x) => x[3].voz), "assets/audio/stem-voz.wav", DUR);
     mezcla(S.filter((x) => !x[3].voz), "assets/audio/stem-resto.wav", DUR);
