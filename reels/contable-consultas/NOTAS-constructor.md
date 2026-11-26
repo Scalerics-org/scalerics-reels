@@ -112,3 +112,38 @@ CONTABLES. Falta correr `node herramientas/portada.mjs contable-consultas` (exig
 - Lucas aparece solo en Q3b (no en la parte 1).
 - La línea del Q3 pasa de la barra del balance a "Para vos" (la barra vuelve entera en 100 % en Q3b).
 - Render final no hecho (lo hace el coordinador).
+
+## Ronda 1 de corrección (26-11, guion + sonido + arte) · sin render
+**44,8 s.** Parte 1 0-17,3 · cartel 17,3-19,55 · parte 2 + cierre 19,55-44,8 = 25,25 s (56 %) · cierre C 41,46-44,8 (tarjeta
+CONSULTAS desde 41,90 = 2,9 s; línea chica desde 43,4; el reel termina 0,15 s después de la voz).
+Planos (s): P4 8,10 · P4b 11,68 · P5 12,63 · P5c 16,45 · Q1 19,55 · Q2 21,82 · Q2m 24,51 · Q2b 25,48 · Q3 26,29 · Q3n 27,21 · Q3r
+27,91 · Q3b 28,87 (inserto 100 %) · Q3l 29,36 (Lucas) · Q3a 30,99 (Adriana) · Q4 32,20 · Q4j 35,34 · Q4i 35,84 · Q4a 37,10 · Q4c
+39,59 (contraplano "Sí. Un amor.") · C 41,46.
+Mezcla (MEDIR=1): voz ≥ +12,6 LU sobre el resto (pareado); efectos sin voz máx -31,0; -14,0 LUFS, pico -2,7 dBFS. Cama: mediana del
+resto -34,3 LUFS sin voz y -35,6 bajo voz (antes ~-60: los ducks superpuestos se MULTIPLICABAN; ahora las ventanas de voz se
+unen y el duck es 0,25). Corte de la música en "veintitrés": -34,8 → -44,4 (≈ 10 dB; brasas y pájaro más bajos en la pausa).
+`check --json`: 0 errores. Snapshots: renders/snap/r1f (cada 0,5 s), renders/prev/r1*.
+- Guion: "¡Uh, qué rápido! Gracias, Adri." (toma nueva 10-d, hueco 1,52-2,03, atempo 1,06): "¡Uh, qué rápido!" en el inserto
+  Q2 (burbuja arriba, el celular al 72 %), "Gracias, Adri." en Q2m. descripcion.txt "63 consultas en una semana, siempre las
+  mismas 3 preguntas". La respuesta del agente es la MISMA (RESP) en Q1 y Q2. BALANCE ANUAL. Walter: "Llegaron 12 ✓ · / falta el
+  recibo del alquiler" (tarjeta de dos renglones). Orden de las tarjetas Graciela, Marcelo y Walter (entra en Q3n, miércoles
+  23:40). "Para vos (2)" con la segunda tarjeta asomando. Contador 4 → 38 → 52 → 63. El celular de Adriana en el patio con la
+  pantalla hacia ella y sin el "Sí, Walter, llegó.". guion.txt y fuentes.md al día. Portada: el sello sigue ESTUDIOS
+  CONTABLES (contable-papeles lo usó igual); fondo nuevo t 11,4 (portada-src/fondo-limpio-11.4.png).
+- Sonido: w1 = 04-walter-f con 50 ms antes del arranque (el STT oye "te llegó"); "¿Ya?" +2,5 dB; pausas a2 = fin(j1) + 0,65 y
+  a5 = fin(j1b) + 0,38; "CONSULTAS" de la tarjeta a 0,36 s de la toma (palabras-a7.json degenerado); a7 atempo 1,12. SFX
+  nuevos (del repo): golpe suave del rubro (madera-tabla, pasabajos), loza de cada taza (k-plato-001), ticks de la barra 64 → 100
+  % y ding del "Terminado ✓". Q1/Q2, Q4j y la bandeja Q3 bajados 1-3 dB (techo).
+- Arte: Jorge con la pinza SIEMPRE a la altura del pecho del lado de la parrilla (manoD en el espacio del cuerpo, la pinza con
+  dos brazos abiertos y el chorizo entre las puntas): no barre la cara ni tapa la boca; después de "Ahora." baja y desde Q4j
+  el chorizo ya no está. El celular de Jorge apoyado delante de la palma; lo lee también en Q4a. Colas de burbuja solo hacia
+  abajo (la invertida era el zigzag). Q3b partido: inserto del monitor con 100 % · Terminado ✓ grande + Lucas (Q3l) + Adriana
+  con el monitor (Q3a). Q4a: Adriana de frente, Jorge entero leyendo; Q4c contraplano. Adriana de frente en P3, Q2b y Q3a (sin
+  "cíclope"). Q3: el push-in arranca de una vista 3/4 del monitor con la tarjeta de Graciela entrando, sin Adriana ni el
+  celular del soporte en el inserto. Q3n: el monitor ≥ 55 % y luz de pantalla sobre el escritorio. Tarjetas del cierre 90 px
+  más arriba (la línea chica termina en y ≈ 1670). Q1: rótulo "Contestó el agente de IA ✓" (0,6 s). Q2 con la panadería
+  detrás (Marcelo sostiene el celular más alto: el mostrador ya no lo tapa). C: más lejos y fov 40, Jorge fuera de cuadro.
+  P5c: el celular más arriba (las manos no se hunden en la ensaladera), la ensaladera más lejos.
+- Quedan / dudoso: el pedido "voz 12-15 LU sobre el resto" no es compatible con el techo de -31 por efecto: la voz momentánea
+  ronda -5,5 LUFS, así que 12-15 LU pondría la cama en -18/-20. Dejé la cama audible al techo (-34 sin voz) y la voz a +12,6
+  mínimo / ~+30 mediana. En P4 la pinza apunta a la parrilla: el chorizo se lee contra los de la parrilla en el plano general.

@@ -18,9 +18,9 @@ tiene su fecha y cambia. El guion NO lo explica ni da fechas reales; solo usa la
   se usa solo para el contexto, no por sus fechas): https://yo-facturo.com/blog/calendario-vencimientos-dgi-uruguay-2026/
 
 ## Números del caso (no son estadísticas ni promesas de resultado)
-- Consultas de la semana: 14 → 38 → **63**, las mismas 3 preguntas. Con el agente: **61** contestadas por el agente,
+- Consultas de la semana: 4 → 38 → 52 → **63**, las mismas 3 preguntas. Con el agente: **61** contestadas por el agente,
   **2** para Adriana.
-- Balance 2025 de Súper Héctor: **3 %** toda la parte 1; en la parte 2 llega a **100 %** el viernes.
+- Balance anual de Súper Héctor: **3 %** toda la parte 1; en la parte 2 llega a **100 %** el viernes.
 - Marcelo (panadería): vence **el 23**, paga **$ 14.300** este mes, **14** facturas de octubre recibidas.
 - Graciela (rotisería): vence **el 18**, **$ 8.900**, 9 comprobantes.
 - Walter (bar): vence el 23, $ 11.200, **12** comprobantes, falta el recibo del alquiler.

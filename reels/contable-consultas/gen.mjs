@@ -49,42 +49,43 @@ T.p3 = r2(T.envia + 0.08);
 T.r1 = T.p3; T.g1 = r2(T.r1 + 0.16); T.r2 = r2(fin("g1") + 0.08); T.w1 = r2(T.r2 + 0.14); T.r3 = r2(fin("w1") + 0.08); T.m2 = r2(T.r3 + 0.14);
 T.rotM = r2(fin("m2") + 0.02);
 // P4 · el remate: domingo 13:30, el asado: "Adri, ¿cuándo comemos?" · "El veintitrés." · P4b la pausa: Jorge congelado
-T.p4 = r2(T.rotM + 0.78); T.j1 = r2(T.p4 + 0.3); T.a2 = r2(fin("j1") + 0.3);
+T.p4 = r2(T.rotM + 0.7); T.j1 = r2(T.p4 + 0.3); T.a2 = r2(fin("j1") + 0.65);   // (r1) la pausa antes del remate
 T.p4b = r2(fin("a2") + 0.12);
 // P5 · el remate del remate: vibra el bolsillo de Jorge; lo saca y lee (P5i: su pantalla) · "Es Marcelo. Que cuándo
 // vence lo suyo." · P5c Adriana cierra los ojos (chip rojo del balance)
 T.p5 = r2(T.p4b + 0.95); T.vibJ = r2(T.p5 + 0.1); T.p5i = r2(T.vibJ + 0.72); T.j2 = r2(T.p5i + 0.12);
 T.p5j = r2(T.j2 + CORTE.j2 - 0.06);
 T.p5c = r2(fin("j2") + 0.12);
-const P1 = r2(T.p5c + 0.95);                               // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.3, LEN.nar + 0.12));
+const P1 = r2(T.p5c + 0.85);                               // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.25, LEN.nar + 0.07));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0, el mismo audio; Adriana sigue tecleando: contesta el asistente (en el celular del soporte)
-T.q1 = P2; T.m1b = r2(P2 + 0.12);
+T.q1 = P2; T.m1b = r2(P2 + 0.08);
 // Q2 · el celular de Marcelo en la panadería: escribiendo… → la respuesta con sus datos → la boleta → las facturas ·
 // "¡Uh, qué rápida!" sobre el inserto; Q2m Marcelo: "Gracias, Adri."
-T.q2 = r2(fin("m1b") + 0.62); T.boleta = r2(T.q2 + 0.95); T.facturas = r2(T.q2 + 1.35);
-T.m3 = r2(T.q2 + 1.6); T.q2m = r2(T.m3 + CORTE.m3 - 0.08);
+T.q2 = r2(fin("m1b") + 0.75); T.resp = r2(T.q2 + 0.35); T.boleta = r2(T.q2 + 0.75); T.facturas = r2(T.q2 + 1.1);   // (r1) q2 + 0,75: "Contestó el agente de IA ✓" se lee
+T.m3 = r2(T.q2 + 1.2); T.q2m = r2(T.m3 + CORTE.m3 - 0.08);   // (r1) "¡Uh, qué rápido!" sobre el inserto; "Gracias, Adri." en Q2m
 // Q2b · Adriana (el encuadre de P2), el toast en el monitor: "De nada."
-T.q2b = r2(fin("m3") + 0.06); T.a3 = r2(T.q2b + 0.14);
+T.q2b = r2(fin("m3") + 0.06); T.a3 = r2(T.q2b + 0.1);
 // Q3 · push-in al monitor: la bandeja del asistente (Graciela, Walter) · Q3n miércoles 23:40, el estudio a oscuras: la
 // tarjeta de Marcelo entra igual · Q3r Héctor → "Para vos (2)" · la barra del balance 8 → 64
-T.q3 = r2(fin("a3") + 0.1); T.c1 = r2(T.q3 + 0.38); T.c2 = r2(T.q3 + 0.8);
-T.q3n = r2(T.q3 + 1.25); T.c3 = r2(T.q3n + 0.3);
-T.q3r = r2(T.q3n + 0.85); T.c4 = r2(T.q3r + 0.1); T.cpv = r2(T.c4 + 0.45);
+T.q3 = r2(fin("a3") + 0.1); T.c1 = r2(T.q3 + 0.05); T.c2 = r2(T.q3 + 0.5);   // (r1) la primera tarjeta ya entra con el push-in
+T.q3n = r2(T.q3 + 0.92); T.c3 = r2(T.q3n + 0.3);
+T.q3r = r2(T.q3n + 0.7); T.c4 = r2(T.q3r + 0.1); T.cpv = r2(T.c4 + 0.38);
 // Q3b · viernes 18:00: el balance en 100 % · "¿Ya? ¿El de Héctor?" · "Y el de Walter."
-T.q3b = r2(T.cpv + 0.95); T.l1 = r2(T.q3b + 0.4); T.a4 = r2(fin("l1") + 0.14);
+T.q3b = r2(T.cpv + 0.48); T.l1 = r2(T.q3b + 0.55); T.a4 = r2(fin("l1") + 0.1);   // (r1) el inserto del 100 % se lee
 // Q4 · el mismo asado: "Adri, ¿cuándo comemos?" · deja el celular boca abajo y se levanta: "Ahora." · el chorizo al pan
 // · Q4j vibra el celular de Jorge · Q4i su pantalla · Q4a los dos: "…que le contestaste al toque." · "Sí. Un amor."
-T.q4 = r2(fin("a4") + 0.3); T.j1b = r2(T.q4 + 0.25); T.a5 = r2(fin("j1b") + 0.22);
-T.q4j = r2(fin("a5") + 0.35); T.vibJ2 = r2(T.q4j + 0.05); T.q4i = r2(T.vibJ2 + 0.62); T.j3 = r2(T.q4i + 0.1);
-T.q4a = r2(T.j3 + CORTE.j3 - 0.06); T.a6 = r2(fin("j3") + 0.22);
+T.q4 = r2(fin("a4") + 0.14); T.j1b = r2(T.q4 + 0.2); T.a5 = r2(fin("j1b") + 0.38);
+T.q4j = r2(fin("a5") + 0.2); T.vibJ2 = r2(T.q4j + 0.05); T.q4i = r2(T.vibJ2 + 0.45); T.j3 = r2(T.q4i + 0.06);
+T.q4a = r2(T.j3 + CORTE.j3 - 0.06); T.a6 = r2(fin("j3") + 0.15); T.q4c = r2(T.a6 - 0.1);   // (r1) Q4c: contraplano de Adriana en "Sí. Un amor."
 // C · el cierre: Adriana a cámara en el patio
-T.c = r2(fin("a6") + 0.12); T.a7 = r2(T.c + 0.1);
+T.c = r2(fin("a6") + 0.08); T.a7 = r2(T.c + 0.08);
 const iCon = PAL.a7.findIndex((w) => /CONSULTAS/i.test(w.word ?? w.w ?? w.text ?? ""));
 const pal = (i) => r2(PAL.a7[i].start ?? PAL.a7[i].a);
-T.palabra = r2(T.a7 + Math.max(0.2, pal(iCon >= 0 ? iCon : 1) - 0.06));
-const DUR = Math.ceil((Math.ceil((fin("a7") + 0.3) * 30) / 30) * 1e4) / 1e4;
+T.palabra = r2(T.a7 + 0.36);   // (r1) palabras-a7.json está degenerado: "CONSULTAS" suena en 0,41-0,83 s de la toma (÷ 1,12)
+void iCon; void pal;
+const DUR = Math.ceil((Math.ceil((fin("a7") + 0.15) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.4));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -258,7 +259,7 @@ for (const [id, ini0, fin0, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 50px; right: 50px; top: 1120px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
+    P .caja { position: absolute; left: 50px; right: 50px; top: 1030px; padding: 14px 10px 20px; border-radius: 40px; background: ${CR}; border: 9px solid ${NAVY}; box-shadow: 14px 16px 0 ${NAVY}; text-align: center; transform-origin: 50% 0%; }
     P .a { font: 800 86px/1.1 "Lexend", sans-serif; letter-spacing: -0.02em; color: ${NAVY}; }
     P .tx { font: 900 118px/1.1 "Lexend", sans-serif; letter-spacing: -0.03em; color: ${NAVY}; white-space: nowrap; }
     P .sel { position: relative; display: inline-block; padding: 0 22px; margin-top: 6px; }
@@ -276,7 +277,7 @@ for (const [id, ini0, fin0, txt] of CHIPS) {
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
-    P .caja { position: absolute; left: 60px; right: 60px; top: 1560px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
+    P .caja { position: absolute; left: 60px; right: 60px; top: 1470px; padding: 12px 22px 16px; border-radius: 30px; background: ${NAVY}; border: 5px solid ${G}; text-align: center; box-shadow: 0 10px 0 rgba(3,6,12,0.45); }
     P .a { font: 700 42px/1.22 "Lexend", sans-serif; color: ${CR}; letter-spacing: -0.01em; }
     P .b { margin-top: 8px; font: 800 60px/1 "Lexend", sans-serif; color: ${G}; letter-spacing: -0.02em; }`,
     html: `      <div class="caja"><div class="a">Un agente de IA contesta a cada</div><div class="a">cliente con sus datos</div><div class="b">scalerics.com</div></div>`,
@@ -310,9 +311,9 @@ const wh = (t, techo = -46) => s("sfx/whoosh-short.mp3", t, 0, { techo });
 // ambiente del estudio (zumbido bajo, la calle lejana) y la música (cama pizzicato, se corta seca en "veintitrés")
 s("sfx/zumbido-largo.wav", 0, 0, { loop: true, dur: r2(T.p4 + 0.05), fi: 0.05, fin: 0.1, techo: -52, lp: 700 });
 s("sfx/calle.wav", 0, 0, { loop: true, dur: r2(T.p4 + 0.05), fi: 0.05, fin: 0.1, techo: -52, lp: 900 });
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(T.a2 + LEN.a2 - 0.05), fin: 0.03, techo: -36 });
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(T.a2 + LEN.a2 - 0.05), fi: 0.3, fin: 0.03, techo: -36, hasta: r2(T.a2 - 0.05) });   // (r1) sin duck en "veintitrés": el corte seco es un escalón
 // P1 · vibra el celular, el audio de Marcelo; Adriana teclea
-vibra(0.02, -38); tuc(T.m1 - 0.08, -40); voz("m1", T.m1, -1);
+vibra(0.02, -45); s("sfx/madera-tabla.wav", 0.25, 0, { techo: -48, lp: 1500 });   // (r1) el golpe suave del rubro tuc(T.m1 - 0.08, -40); voz("m1", T.m1, -1);
 teclas(0.1, T.p2 - 0.1, -46);
 // P2 · teclea con la derecha y graba con la izquierda; audio enviado
 toque(T.a1 - 0.12, -40); voz("a1", T.a1, -1);
@@ -324,9 +325,10 @@ for (const [r, k] of [[T.r1, "g1"], [T.r2, "w1"], [T.r3, "m2"]]) {
 }
 s("sfx/tic-real.mp3", T.r2 + 0.2, 0, { techo: -46, dur: 0.15, fin: 0.04 }); s("sfx/tic-real.mp3", T.r2 + 0.7, 0, { techo: -46, dur: 0.15, fin: 0.04 });   // el reloj de la noche
 pop(T.rotM, -38);
+s("sfx/k-plato-001.wav", T.r2 + 0.05, 0, { techo: -44 }); s("sfx/k-plato-001.wav", T.r3 + 0.05, 0, { techo: -44 });   // (r1) la loza de cada taza nueva
 // P4 · el patio: las brasas que chisporrotean, un pájaro; la música se corta seca en "veintitrés"
-s("sfx/chisporroteo.wav", T.p4, 0, { loop: true, dur: r2(P1 - T.p4 + 0.05), fi: 0.1, fin: 0.2, techo: -46, lp: 5000 });
-s("sfx/pajaro.wav", T.p4 + 0.2, 0, { techo: -50, dur: 1.5, fin: 0.4 });
+s("sfx/chisporroteo.wav", T.p4, 0, { loop: true, dur: r2(P1 - T.p4 + 0.05), fi: 0.1, fin: 0.2, techo: -49.5, lp: 5000 });   // (r1) más bajo: el corte de la música es un escalón de ≥ 10 dB
+s("sfx/pajaro.wav", T.p4 + 0.2, 0, { techo: -52, dur: 1.5, fin: 0.4 });
 wh(T.p4 - 0.05, -42);
 voz("j1", T.j1, -1);
 s("sfx/k-metal-click.wav", T.j1 + 0.25, 0, { techo: -44 });   // la pinza agarra el chorizo
@@ -345,27 +347,27 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.15, fin: 0.3
 for (const d of [0.12, 0.4, 1.0, 1.3]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -36, duck: [[r2(fin("m1b") + 0.1), r2(T.q2 + 1.0), 0.45], [r2(T.q3 - 0.1), r2(T.q3b + 0.1), 0.55], [r2(T.q4j - 0.2), r2(T.q4i + 0.1), 0.45]] });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.6, fin: 0.8, techo: -38.5, duck: [[r2(T.q3 + 0.2), r2(T.q3b - 0.1), 0.4]] });   // (r1) duck chico en la bandeja: se oyen las tarjetas
 // Q1 · el estudio de mañana: vibra, el mismo audio; contesta el asistente (ding); Adriana sigue tecleando
 s("sfx/zumbido-largo.wav", P2, 0, { loop: true, dur: r2(T.q2 - P2 + 0.05), fi: 0.1, fin: 0.1, techo: -54, lp: 700 });
 vibra(P2 + 0.02, -38); tuc(T.m1b - 0.08, -40); voz("m1", T.m1b, -1);
 teclas(P2 + 0.1, T.q2 - 0.1, -46);
-noti(fin("m1b") + 0.35, -38);
+noti(fin("m1b") + 0.18, -40);
 // Q2 · la panadería: escribiendo… → la respuesta (notificación), la boleta (pop), las facturas (ding)
 s("sfx/calle.wav", T.q2, 0, { loop: true, desde: 5, dur: r2(T.q2b - T.q2 + 0.05), fi: 0.1, fin: 0.1, techo: -50, lp: 1400 });
-wh(T.q2 - 0.05, -46); noti(T.q2 + 0.5, -41); pop(T.boleta, -41); ding(T.facturas, -41);
+wh(T.q2 - 0.05, -48); noti(T.resp, -43); pop(T.boleta, -43); ding(T.facturas, -43);
 voz("m3", T.m3, 0);
 // Q2b · Adriana teclea (el toast en el monitor): "De nada."
 wh(T.q2b - 0.04, -48); pop(T.q2b + 0.02, -44); teclas(T.q2b + 0.05, T.q3 - 0.05, -46);
 voz("a3", T.a3, -1);
 // Q3 · la bandeja: pop + tick por tarjeta; Q3n el estudio a oscuras (el reloj); ding en "Para vos"
 wh(T.q3, -46);
-for (const c of [T.c1, T.c2, T.c3, T.c4]) { pop(c, -43); tick(c + 0.08, -47); }
+for (const c of [T.c1, T.c2, T.c3, T.c4]) { pop(c, -44); tick(c + 0.08, -46); }
 s("sfx/tic-real.mp3", T.q3n + 0.1, 0, { techo: -46, dur: 0.15, fin: 0.04 }); s("sfx/tic-real.mp3", T.q3n + 0.6, 0, { techo: -46, dur: 0.15, fin: 0.04 });
-ding(T.cpv, -40);
+ding(T.cpv, -43);
 // Q3b · viernes 18:00: el balance terminado (ding), la silla de Lucas, la segunda barra (pop)
 s("sfx/zumbido-largo.wav", T.q3b, 0, { loop: true, dur: r2(T.q4 - T.q3b + 0.05), fi: 0.1, fin: 0.1, techo: -54, lp: 700 });
-wh(T.q3b - 0.04, -46); ding(T.q3b + 0.1, -38); s("sfx/k-cloth_1.wav", T.q3b + 0.1, 0, { techo: -46, dur: 0.3, fin: 0.1 });
+wh(T.q3b - 0.04, -46); for (let i = 0; i < 4; i++) tick(T.q3b + 0.06 + i * 0.09, -46); ding(T.q3b + 0.42, -40);   // (r1) la barra 64 → 100 % y el "Terminado ✓" s("sfx/k-cloth_1.wav", T.q3b + 0.1, 0, { techo: -46, dur: 0.3, fin: 0.1 });
 voz("l1", T.l1, -1); voz("a4", T.a4, -1); pop(T.a4 + 0.05, -42);
 // Q4 · el mismo asado: las brasas; "¿cuándo comemos?" · el celular boca abajo (tabla) · "Ahora." · el plato · la pinza
 // · vibra el celular de Jorge · "…al toque." · "Sí. Un amor."
@@ -376,7 +378,7 @@ voz("j1", T.j1b, -1);
 s("sfx/madera-tabla.wav", T.a5 - 0.3, 0, { techo: -42 });
 voz("a5", T.a5, -1);
 s("sfx/k-plato-000.wav", T.a5 + 0.45, 0, { techo: -44 }); s("sfx/k-metal-click.wav", T.a5 + 0.7, 0, { techo: -44 });
-vibra(T.vibJ2, -39); s("sfx/k-cloth_1.wav", T.vibJ2 + 0.3, 0, { techo: -42, dur: 0.3, fin: 0.1 });
+vibra(T.vibJ2, -43); s("sfx/k-cloth_1.wav", T.vibJ2 + 0.3, 0, { techo: -44, dur: 0.3, fin: 0.1 });
 wh(T.q4i - 0.05, -48); wh(T.q4a - 0.04, -50);
 voz("j3", T.j3, -1);
 voz("a6", T.a6, -1);
@@ -388,7 +390,9 @@ pop(T.palabra + 0.02, -40); pop(T.cierre + 0.05, -44);
 for (const x of S) { const [f, t0, , o] = x; if (o.voz) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 7); continue; }
   }
 // la música: duck debajo de cada voz para que la voz quede ≥ 6 LU arriba
-for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.6])]; }
+// (r1) las ventanas de voz se UNEN antes del duck (superpuestas se multiplicaban y la cama quedaba muda); duck suave 0,35
+const VOZU = VOZ.slice().sort((a, b) => a[0] - b[0]).reduce((acc, [a, b]) => { const u = acc[acc.length - 1]; if (u && a <= u[1]) u[1] = Math.max(u[1], b); else acc.push([a, b]); return acc; }, []);
+for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { const lim = x[3].hasta ?? 1e9; x[3].duck = [...(x[3].duck || []), ...VOZU.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [Math.max(a, x[1]), Math.min(b, lim), 0.25]).filter(([a, b]) => b - a > 0.1)]; }
 function en(t, a, b) { return t >= a && t < b; }
 
 for (const x of S) if (!fs.existsSync(`assets/${x[0]}`)) throw new Error(`falta assets/${x[0]}`);

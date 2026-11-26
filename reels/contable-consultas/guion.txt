@@ -4,7 +4,7 @@
 MARCELO (audio de WhatsApp): Adri, ¿cuándo vence lo mío?
 [2,40-4,30 · P2 · Adriana teclea con una mano y graba con la otra]
 ADRIANA: El veintitrés, Marcelo.
-[4,30-8,60 · P3 · la ráfaga de la semana: chips "Lunes, 11:00." / "Miércoles, 23:40." / "Viernes, 19:00." · contador "Consultas de la semana" 14 → 38 → 63 · la barra sigue en 3 % · rótulo "Las mismas 3 preguntas"]
+[4,30-8,60 · P3 · la ráfaga de la semana: chips "Lunes, 11:00." / "Miércoles, 23:40." / "Viernes, 19:00." · contador "Consultas de la semana" 4 → 38 → 52 → 63 · la barra sigue en 3 % · rótulo "Las mismas 3 preguntas"]
 GRACIELA (audio de WhatsApp): Adri, ¿cuánto pago este mes?
 WALTER (audio de WhatsApp): ¿Te llegó lo que te mandé?
 MARCELO (audio de WhatsApp): ¿Era el veintitrés?
@@ -20,7 +20,7 @@ NARRADOR: Un agente de IA más tarde.
 [20,00-22,20 · Q1 · el mismo cuadro 0, el mismo audio · Adriana no toca el celular: "Contestó el asistente ✓"]
 MARCELO (audio de WhatsApp): Adri, ¿cuándo vence lo mío?
 [22,20-25,60 · Q2 · inserto del celular de Marcelo en la panadería: "Hola, Marcelo. Lo tuyo de octubre vence el 23. Este mes son $ 14.300." + "Boleta · octubre" + "Tus facturas de octubre ya llegaron: 14 ✓" · rótulo "Contesta con los datos de cada cliente"]
-MARCELO: ¡Uh, qué rápida! Gracias, Adri.
+MARCELO: ¡Uh, qué rápido! Gracias, Adri.
 [25,60-26,60 · Q2b · Adriana sigue con el balance; en el monitor, la notificación "Marcelo: ¡Gracias, Adri!"]
 ADRIANA: De nada.
 [26,60-30,60 · Q3 · la bandeja del agente: Graciela $ 8.900 ✓, Walter "llegaron 12 ✓ · falta el recibo del alquiler", 23:40 con el estudio a oscuras, Héctor "¿Me conviene poner el camión a nombre de la empresa?" → "Para vos (2)" · rótulo "Lo de fondo te lo pasa a vos" · 63 · Contestó el agente: 61 · la barra 8 → 100 %]
