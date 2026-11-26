@@ -1,0 +1,39 @@
+[sin narrador Orus: el chiste va en burbujas (los remates en dos tiempos), la lista de JULIO pegada en la columna, la factura proforma en USD, el pizarrón "DÓLAR" a mano, la calculadora y el contenedor 3D que no se llena (492 de 500); la solución va en la interfaz recreada (el catálogo con el precio de hoy en el celular de Seba, el panel de precios de Paola que recalcula solo, el aviso de margen mínimo que frena el descuento); voces por archivo en partes/*.txt · total 45,0 s · parte 1 0-20,94 · cartel 20,94-23,03 · parte 2 + cierre 23,03-45,0 · cierre 42,07-45,0]
+[parte 1 · el problema · el depósito de Casa Pao · Importados, lunes de mañana, entra el verano]
+[0-2,1 · P1 · cuadro 0: "IMPORTADORAS" y "Lunes, 9:00." · el portón abierto, el contenedor de 20 pies VACÍO en el patio · Seba entra con el celular en alto · Paola en la mesa de despacho, el ventilador de muestra girando]
+SEBA: ¡Pao! ¡Vendimos todo el contenedor!
+[2,1-3,8 · P2 · Paola levanta el puño]
+PAOLA: ¡Vamos! ¿A cuánto?
+[3,8-5,62 · P3 · Seba señala la lista pegada en la columna; inserto: "LISTA DE PRECIOS · JULIO · Ventilador de pie 16" · $ 1.950" se resalta]
+SEBA: A lista. Mil novecientos cincuenta.
+[5,62-7,96 · P4 · "Lunes, 9:05." · Mica entra desde la oficina con la factura proforma · corte al inserto: "FACTURA PROFORMA · Contenedor nuevo · 500 × Ventilador de pie 16" · Precio c/u USD 46 · antes USD 38 (tachado) · Total USD 23.000"]
+MICA: Pao, llegó la factura del contenedor nuevo.
+[7,96-11,51 · P5 · sin voz · el pizarrón: Paola borra "40" (y "julio") y escribe "43" ("hoy") · la calculadora: 23.000 × 43 = 989.000 · "$ 989.000 para reponer" / "$ 975.000 cobrados · 500 × $ 1.950" · el contenedor nuevo se llena y quedan 8 huecos: "492 de 500" · "Con lo que cobramos, traemos 492"]
+[11,51-12,01 · P6f · inserto: el ventilador se apaga (clic) y se frena]
+[12,01-15,08 · P6 · remate: Paola seca · "492 de 500" arriba · "− $ 14.000 para reponer" cuando termina "plata"]
+PAOLA: Vendimos todo. Y perdimos plata.
+[15,08-17,35 · P7a · Seba otra vez, el celular en la mano: "Bazar Graciela: ¡Mandame 200 más!"]
+SEBA: ¡Pao! ¡Graciela quiere doscientos más!
+[17,35-20,94 · P7b · Paola de espaldas mirando el contenedor con los huecos, levanta la mano abierta sin darse vuelta · 0,35 s de aire antes del cartel]
+PAOLA: Seba. Por favor. Dejá de vender.
+NARRADOR: Un sistema más tarde.
+[cartel · 20,94-23,03 · "Un sistema" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/ya-lo-cargo]
+[parte 2 · la solución]
+[23,03-25,22 · Q1 · el mismo cuadro 0, la tablet en la columna, el pizarrón "Lunes: despachar Bazar Graciela" · el mismo audio · al final Paola pregunta muda "¿A cuánto?" (solo la burbuja)]
+SEBA: ¡Pao! ¡Vendimos todo el contenedor!
+[25,22-27,54 · Q3 · el celular de Seba a pantalla llena, en su mano: "Casa Pao · Mayorista" · "$ 2.530" · "Precio de hoy ✓" · rótulo "El vendedor ve el precio de hoy / actualizado con la proforma nueva"]
+SEBA: Al de hoy. Dos mil quinientos treinta.
+[27,54-29,39 · Q4 · el mismo plano de P4, el mismo audio de Mica]
+MICA: Pao, llegó la factura del contenedor nuevo.
+[29,39-31,39 · Q4b · el panel de Paola: "Costo USD 46 ✓" · "Dólar 43" · "Margen 28 %" · "Precio de hoy $ 2.530 ✓" · "Techo $ 5.060 · Caloventor $ 1.670" · "Recalculado solo · 38 productos" · rótulo "Cambia el dólar o el costo: la lista se recalcula sola"]
+PAOLA: Ya está cargada.
+[31,39-34,55 · Q5 · el mismo contenedor: entran las 500 · "500 de 500 ✓" · "+ $ 276.000 después de reponer" · burbuja en el mismo lugar del remate]
+PAOLA: Vendimos todo. Y ganamos plata.
+[34,55-37,44 · Q6 · Seba con el celular en la mano; toca "−10 %"]
+SEBA: ¡Graciela quiere doscientos más! ¿Le hago un diez?
+[37,44-39,44 · Q6b · el celular: "−10 % · $ 2.277 · Debajo del margen mínimo" → "−5 % · $ 2.404 · Margen OK ✓ · Listo para enviar" · rótulo "Avisa si un precio queda debajo del margen"]
+SEBA: …Le hago un cinco.
+[39,44-42,07 · Q7 · el mismo plano de P7b: Paola levanta la mano abierta, sonriendo]
+PAOLA: Vendé, Seba. Vendé.
+[cierre · 42,07-45,0 · Paola a cámara con las manos abiertas, el contenedor lleno y el ventilador detrás · tarjeta "Comentá / PRECIOS / y te mando cómo funciona para tu importadora" · línea chica "Tu lista de precios, atada al costo en dólares · scalerics.com"]
+PAOLA: Comentá PRECIOS y te mando cómo funciona para tu importadora.
