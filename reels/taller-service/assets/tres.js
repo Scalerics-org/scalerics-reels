@@ -909,7 +909,7 @@ const CAM_Q4B = (k) => [X0 + lerp(1.55, 1.5, k), 1.52, Z0 + lerp(3.75, 3.6, k), 
 // Q5: Walter señala el parabrisas limpio; Óscar le señala el celular (desde adelante a la izquierda)
 const CAM_Q5 = (k) => [X0 + lerp(0.68, 0.72, k), 1.5, Z0 + lerp(5.25, 5.1, k), X0 + 0.78, 1.2, Z0 + 1.4, 58];   // (r2b) Walter entero dentro del cuadro
 // C: Óscar a cámara en la columna del elevador, el auto de Walter arriba
-const CAM_C = (k) => [lerp(-0.6, -0.62, k), 1.25, lerp(0.15, 0.0, k), -1.15, 1.2, -2.1, 54];   // (r2b) la cara arriba de la tarjeta
+const CAM_C = (k) => [lerp(0.45, 0.43, k), 1.25, lerp(0.45, 0.3, k), -0.35, 1.15, -1.75, 54];   // (r3b) sigue a Óscar un paso adelante   // (r2b) la cara arriba de la tarjeta
 const PLANOS = [
   ["P1", 0, [[0, ...CAM_P1(0)], [T.p2, ...CAM_P1(1)]]],
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
@@ -1043,11 +1043,11 @@ function poseOscar(t, pa, cp) {
       pr.ojos = { ...pr.ojos, abiertos: 0.85, feliz: 0.45 }; pr.cejas = { alto: 0.25, ang: 0, asim: 0.4 }; pr.boca = { sonrisa: 0.65, abierta: 0, ancho: 1.05 };
     }
   } else if (pa === "C") {
-    pr.x = COL[1] + 0.36; pr.z = LZ + 0.55; pr.giro = 0.35;
+    pr.x = COL[1] + 1.1; pr.z = LZ + 1.0; pr.giro = 0.3;   // (r3b) un paso adelante de la columna: el brazo del elevador no le toca la cabeza
     Object.assign(pr, { ...CARA.sonrisa, ojos: { abiertos: 0.95, feliz: 0.3, x: 0, y: 0.05 }, cejas: { alto: 0.4, ang: 0.2, asim: 0 }, boca: { sonrisa: 0.6, abierta: 0, ancho: 1.05 } });
     pr.cabeza = { giro: haciaCam(cp, pr.x, pr.z, pr.giro, 0.9), asiente: 0.0, ladea: 0.04 };
     oscar.poner({ ...pr }); oscar.raiz.updateMatrixWorld(true);
-    pr.manoD = aCuerpo(oscar, V3(COL[1] + 0.17, 1.3, LZ + 0.2)); pr.codoD = [-1, -0.6, -0.2]; pr.manoI = [0.29, -0.08, 0.05];
+    pr.manoD = [-0.3, -0.06, 0.08]; pr.codoD = null; pr.manoI = [0.29, -0.08, 0.05];   // (r3b) los brazos a los costados, las manos a la vista
     bocaVoz(pr, t, T.o7, ENV.o7, 0.55);
   }
   return pr;
@@ -1106,7 +1106,7 @@ function poseWalter(t, pa, cp) {
     pr.sentado = 1 - s0; pr.y = 0.3 * (1 - s0);
     pr.giro = s0 < 1 ? lerp(0, 1.4, s0) : lerp(1.4, cheat(WAL_Q.x, WAL_Q.z, OSC_Q.x, OSC_Q.z, cp, 0.6), eio(sg(u, 0.3, 1)));
     Object.assign(pr, mirar(pr.x, pr.z, pr.giro, W3(OSC_Q), 1.55, 0.8));
-    if (pa === "Q4") { Object.assign(pr, { ...CARA.feliz, ojos: { ...pr.ojos, abiertos: 1, feliz: 0.55 } }); const k = eo(sg(t, T.w5 - 0.1, T.w5 + 0.2)); pr.manoD = lerpV([-0.22, 0.3, 0.3], [-0.34, 1.12, 0.02], k); pr.codoD = [-1, 0.1, 0]; bocaVoz(pr, t, T.w5, ENV.w5, 0.75); }   // (r2) la llave arriba de la cabeza
+    if (pa === "Q4") { Object.assign(pr, { ...CARA.feliz, ojos: { ...pr.ojos, abiertos: 1, feliz: 0.55 } }); const k1 = eo(sg(t, T.w5 - 0.15, T.w5 + 0.02)), k2 = eo(sg(t, T.w5 + 0.02, T.w5 + 0.22)); pr.manoD = lerpV(lerpV([-0.22, 0.3, 0.3], [-0.5, 0.62, 0.12], k1), [-0.34, 1.12, 0.02], k2); /* (r3b) sube por el costado, no por delante de la cara */ pr.codoD = [-1, 0.1, 0]; bocaVoz(pr, t, T.w5, ENV.w5, 0.75); }   // (r2) la llave arriba de la cabeza
     else if (pa === "Q4b") { walter.poner({ ...pr }); walter.raiz.updateMatrixWorld(true); const k = eo(sg(t, T.llave - 0.25, T.llave + 0.05)); pr.manoD = lerpV([-0.34, 1.12, 0.02], aCuerpo(walter, V3(lerp(OSC_Q.x, WAL_Q.x, 0.55), 1.17, lerp(OSC_Q.z, WAL_Q.z, 0.55))), k); pr.codoD = [-1, -0.5, -0.1]; pr.boca = { sonrisa: 0.85, abierta: 0, ancho: 1.12 }; pr.ojos = { ...pr.ojos, feliz: 0.55 }; }
     else {
       // señala el parabrisas limpio (la derecha); el celular en la izquierda
@@ -1228,7 +1228,7 @@ function renderAt(tIn) {
   manoO.visible = false; mate.visible = false; rollo.visible = false; papelSuelto.visible = false; celW.visible = false; tabletO.visible = false; llave.visible = false;
   const conOscar = ["P1", "Q1", "P3", "Q3m", "Q3g", "Q3h", "P4", "P4b", "P5", "P6", "Q4", "Q4b", "Q5", "Q5b", "C"].includes(pa);
   const conWalter = ["P1", "Q1", "P4", "P4w", "P5", "P6", "Q4", "Q4b", "Q5"].includes(pa);
-  const conMaxi = ["P3", "Q3m", "Q3g", "Q3h", "P6", "Q5b"].includes(pa) && !(pa === "Q3g" && t > T.q3h - 0.45) && !(pa === "P6" && t < T.rollo - 0.85);
+  const conMaxi = ["P3", "Q3m", "Q3g", "Q3h", "P6", "Q5b"].includes(pa) && !(pa === "P6" && t < T.rollo - 0.85);
   // primero el que se mira: Walter (con una pose provisoria), después Óscar, después Walter de nuevo
   if (conWalter) { walter.raiz.visible = true; walter.poner(poseWalter(tt, pa, cp)); }
   if (conMaxi) { maxi.raiz.visible = true; maxi.poner(poseMaxi(tt, pa, cp)); }

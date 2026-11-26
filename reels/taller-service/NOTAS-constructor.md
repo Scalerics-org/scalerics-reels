@@ -183,3 +183,10 @@ Q3g 31,63 · Q3h 32,58 · Q4 34,58 · Q4b 37,24 · Q5 39,14 · Q5i 40,75 · C 43
 - Mezcla: -14,1 LUFS, pico -3,3 dBFS, mediana voz-resto 23,6 LU, mínimo +14,1 (el +2,8 de 35,5 s desapareció), huecos máx -31,0.
 - Portada: fondo limpio regenerado (misma composición, la grúa con la baliza nueva). guion.txt sin cambios (la voz es la misma).
 - Snapshots: renders/snap/r3c y r3d (cada 0,5 s con dos desfases + cortes). `check --json`: 0 errores.
+
+## Arreglo final (revision-arte-r3.md)
+- Q3g: Maxi ya no se oculta; el paneo lo saca de cuadro por el borde izquierdo (31,5-32,7 verificado a 30 fps).
+- Cierre: Óscar un paso adelante y a la derecha de la columna (COL[1]+1,1, LZ+1,0), brazos a los costados con las manos a la
+  vista; CAM_C lo sigue. El brazo del elevador ya no le toca la cabeza y la cubierta cortada de abajo salió de cuadro.
+- Q4: la llave sube por el costado (no pasa por delante del ojo).
+- Sin cambios: la doble cabeza de Maxi detrás de Walter en P6 (19,6-19,8).
