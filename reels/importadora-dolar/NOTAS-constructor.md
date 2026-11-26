@@ -189,3 +189,24 @@ Sonido/guion:
   "El vendedor ve el precio de hoy / actualizado con la proforma nueva". Pregunta muda "¿A cuánto?" de Paola los últimos 0,4 s de Q1.
   Pedido: "Ventilador de pie 16"". guion.txt reescrito con la estructura y los tiempos actuales; fuentes.md al día.
 Snapshots: renders/snap/r2a (33 cuadros), r2b-r2e; prev renders/prev/r2.
+
+## Ronda 3 de corrección (la última, sobre el render de 45,0 s) · sin render
+**45,0 s.** Parte 1 0-21,0 · cartel 21,0-23,09 · parte 2 + cierre 23,09-45,0 = 21,91 s (48,7 %) · cierre 42,08-45,0. `check --json`: 0
+errores. `python3 partes/comentarios.py gen.mjs assets/tres.js prev.mjs`: ningún comentario antes de código en la misma línea.
+Mezcla: mediana voz-resto 19,4 LU, mínimo +10,2 LU con voz, huecos sin voz máx -31,7 LUFS, -14,1 LUFS, pico -3,3 dBFS.
+Arte: marcador real (cuerpo navy, tapa crema; su origen es la punta) que sigue el trazo al borrar el 40 y al escribir el 43, con la
+mano en el cuerpo del marcador (Paola más cerca del pizarrón) · P2 con el puño entero · toda tarjeta entre y 200 y 1650 (forzado en
+ponerGlobo); en Q3/Q6b la burbuja arriba en y ≥ 205 y el celular al 64 % del alto, más abajo · burbuja del remate (P6) y del callback
+(Q5) en el mismo lugar, borde de abajo en 700, debajo de "492 de 500" / "500 de 500 ✓" · Paola seca desde el primer cuadro de P6
+(ojos entrecerrados aun hablando) · Seba en P7a/Q6 de frente (giro ≤ 35°, en Q6 solo baja los ojos), el pulgar debajo del texto
+de la notificación ("¡Mandame / 200 más!" más arriba), cámara corrida · calculadora entera · P7b/Q7 con el cartel CASA PAO entero y
+"492 de 500" debajo, la burbuja debajo de eso; sin la tablet en Q7 · P1/Q1: cámara baja mirando un poco para arriba (se ve el
+interior vacío del contenedor), la burbuja de Seba abajo sobre el piso con la cola a la boca, el ventilador más a la izquierda (el
+celular ya no se le encima) · cejas de festejo de Paola en P1/Q1 y en el cierre · Paola de 3/4 en P4/Q4 (sin la boca de perfil)
+· Q4b con la burbuja desde el primer cuadro y push-in 0,38 · P3: corte al inserto de la lista (P3i), sin barrido · ventilador: aspas
+navy y un disco de movimiento que se apaga con la velocidad; P6 con el ventilador entero · "Techo… Caloventor…" en navy.
+Sonido/texto: glitch de "Debajo del margen" desde 0,2 s (el golpe con el rojo) · acentos de "Y ganamos plata." y "Vendé." a ~-30
+con duck de 0,3 s de la música · panel "Costo USD 46" · "+ $ 276.000 / después de reponer" · chapa de los huecos -43 · el patio baja
+~4 dB desde el corte de la música en "Dejá de vender." hasta el cartel · "23.000 × 43" 0,52 s antes del 989.000 (el pizarrón un
+poco más rápido; el par $ 989.000 / $ 975.000 sigue 1,32 s) · pop en la pregunta muda "¿A cuánto?".
+Snapshots: renders/snap/r3a, r3b, r3c; prev renders/prev/r3 y p1x.

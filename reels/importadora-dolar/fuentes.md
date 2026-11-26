@@ -20,14 +20,15 @@ fuente, y no pretende ser la cotización de ningún día.
 - Graciela pide **200 más** a lista de julio: 200 × $ 1.950 = $ 390.000 contra $ 395.600 de reponerlos (− $ 5.600, si
   se muestra).
 - **Parte 2, con el sistema:** costo USD 46 × 43 = $ 1.978, margen 28 % → $ 2.531,84 → **$ 2.530** (redondeado a la
-  decena). 500 × $ 2.530 = $ 1.265.000; − $ 989.000 = **+ $ 276.000** ("500 de 500 ✓").
+  decena). 500 × $ 2.530 = $ 1.265.000; − $ 989.000 = **+ $ 276.000** después de reponer ("500 de 500 ✓").
 - **Margen mínimo 18 %:** $ 1.978 × 1,18 = $ 2.334,04. Descuento −10 %: $ 2.530 × 0,90 = **$ 2.277** (debajo del
   mínimo, rojo). Descuento −5 %: $ 2.530 × 0,95 = $ 2.403,50 → **$ 2.404** (arriba del mínimo, ✓).
 - Las otras filas del panel (mismo margen 28 %, redondeo a la decena): **ventilador de techo** $ 3.900 (julio) → **$ 5.060**;
   **caloventor** $ 1.290 (julio) → **$ 1.670**. (Al nuevo costo en dólares del caso; son ejemplos de la lista recalculada, sin
   proforma propia en pantalla.)
 - En la factura proforma (del proveedor): "Precio c/u **USD 46**" y "antes USD 38" tachado (el precio con el que se armó la lista de
-  julio). "Costo puesto" aparece solo en el panel de Paola (el costo que carga el sistema).
+  julio). El panel de Paola dice "Costo USD 46" (el precio del proveedor que carga el sistema; no "costo puesto", que en el rubro
+  incluye flete y aduana y el reel no los muestra).
 - "Recalculado solo · **38 productos**": la cantidad de artículos de Casa Pao en la ficción.
 
 ## Lo que se dice del producto (que sea realista)

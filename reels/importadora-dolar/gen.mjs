@@ -7,7 +7,7 @@
 //   - assets/audio/mezcla.wav: ambiente, música, SFX y voces mezclados con ffmpeg (techo por efecto)
 // Esqueleto de reels/dist-comisiones (la mezcla: bus → ganancia a -14 LUFS → recién ahí el limitador).
 // LIMPIO=1: sin capa plana ni burbujas (fondo de la portada). MEDIR=1: además stems voz / resto. SINAUDIO=1: no rehace
-// la mezcla. VER=cam:px,py,pz,mx,my,mz,fov: una cámara fija; VER=portada: la cámara del fondo de la portada.
+// la mezcla. VER=cam:px,py,pz,mx,my,mz,fov: una cámara fija · VER=portada: la cámara del fondo de la portada.
 import fs from "node:fs";
 import { execSync, execFileSync } from "node:child_process";
 
@@ -57,17 +57,18 @@ T.p4 = r2(fin("s2") + 0.05); T.mi1 = r2(T.p4 + 0.06); T.usd = r2(fin("mi1") - 0.
 // P5 · el montaje sin voz (cámara continua): el pizarrón (borra el 40, escribe 43) → la calculadora (989.000) → el
 // contenedor nuevo que se llena y deja 8 huecos (492 de 500)
 T.p5 = r2(fin("mi1") + 0.06);
-T.borra = r2(T.p5 + 0.08); T.escribe = r2(T.p5 + 0.38); T.escribeFin = r2(T.p5 + 0.72);
-T.calc = r2(T.p5 + 0.8); T.teclas = [0.84, 0.9, 0.96, 1.02, 1.08].map((d) => r2(T.p5 + d)); T.igualC = r2(T.p5 + 1.12); T.cobramos = r2(T.p5 + 1.2);
-T.viaja = r2(T.p5 + 2.42); T.llena = r2(T.p5 + 2.6); T.llenaFin = r2(T.p5 + 3.08); T.huecos = r2(T.p5 + 3.0); T.trae = r2(T.p5 + 3.12);
+T.borra = r2(T.p5 + 0.06); T.escribe = r2(T.p5 + 0.32); T.escribeFin = r2(T.p5 + 0.6);
+T.calc = r2(T.p5 + 0.65); T.teclas = [0.66, 0.69, 0.72, 0.75, 0.78].map((d) => r2(T.p5 + d)); T.igualC = r2(T.p5 + 1.3); T.cobramos = r2(T.p5 + 1.35);
+T.viaja = r2(T.p5 + 2.62); T.llena = r2(T.p5 + 2.8); T.llenaFin = r2(T.p5 + 3.28); T.huecos = r2(T.p5 + 3.2); T.trae = r2(T.p5 + 3.32);
 // P6 · el remate: plano medio de Paola, seca; el ventilador se frena solo; "Vendimos todo. Y perdimos plata." · − $ 14.000
 // (r2) P6f: inserto del ventilador que se frena (0,5 s) y recién ahí P6 (Paola)
-T.p6f = r2(T.p5 + 3.55); T.frena = r2(T.p6f + 0.02); T.p6 = r2(T.p6f + 0.5); T.pa2 = r2(T.p6 + 0.06); T.menos = r2(T.pa2 + LEN.pa2 + 0.05);
+T.p6f = r2(T.p5 + 3.75); T.frena = r2(T.p6f + 0.02); T.p6 = r2(T.p6f + 0.45); T.pa2 = r2(T.p6 + 0.06); T.menos = r2(T.pa2 + LEN.pa2 + 0.05);
 // P7a · Seba otra vez en el portón, feliz, el celular en alto (Bazar Graciela: ¡Mandame 200 más!)
-T.p7 = r2(fin("pa2") + 0.45); T.noti = r2(T.p7 + 0.02); T.s3 = r2(T.p7 + 0.08);
+T.p7 = r2(fin("pa2") + 0.4); T.noti = r2(T.p7 + 0.02); T.s3 = r2(T.p7 + 0.08);
 // P7b · el remate del remate: Paola de 3/4 de espaldas, mirando el contenedor; levanta la mano sin darse vuelta
 T.p7b = r2(fin("s3") + 0.05); T.mano = r2(T.p7b + 0.28); T.pa3 = r2(T.p7b + 0.4);
-const P1 = r2(fin("pa3") + 0.38);   // (r2) 0,35 s de aire (solo el patio) antes del whoosh del cartel                               // termina la parte 1 (arranca el cartel)
+// termina la parte 1 (arranca el cartel); (r2) 0,3 s de aire, solo el patio, antes del whoosh del cartel
+const P1 = r2(fin("pa3") + 0.34);
 const P2 = r2(P1 + Math.max(2.08, LEN.nar + 0.02));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0 (la tablet en la columna, el pizarrón con el despacho): el mismo "¡Pao! ¡Vendimos todo el contenedor!"
@@ -80,7 +81,7 @@ T.q4 = r2(fin("s4") + 0.12); T.mi1b = r2(T.q4 + 0.08);
 // Q4b · la tablet de Paola: "Ya está cargada." · el panel recalcula solo
 T.q4b = r2(fin("mi1b") - 0.45); T.pa4 = r2(T.q4b + 0.32); T.cargada = r2(T.q4b + 0.08); T.filas = [0.5, 0.64, 0.78].map((d) => r2(T.q4b + d)); T.banda = r2(T.q4b + 0.95); T.rotQ4 = r2(T.q4b + 1.05);
 // Q5 · el mismo contenedor de P5: entran las 500 · "500 de 500 ✓" · "+ $ 276.000" · "Vendimos todo. Y ganamos plata."
-T.q5 = r2(T.q4b + 2.0); T.llena2 = r2(T.q5 + 0.05); T.llena2Fin = r2(T.q5 + 0.85); T.ok500 = r2(T.q5 + 0.9); T.mas = r2(T.q5 + 1.02); T.pa5 = r2(T.q5 + 0.28);
+T.q5 = r2(T.q4b + 1.95); T.llena2 = r2(T.q5 + 0.05); T.llena2Fin = r2(T.q5 + 0.85); T.ok500 = r2(T.q5 + 0.9); T.mas = r2(T.q5 + 1.02); T.pa5 = r2(T.q5 + 0.28);
 // Q6 · el mismo encuadre de P7a: "¡Graciela quiere doscientos más! ¿Le hago un diez?" · toca −10 %
 T.q6 = r2(fin("pa5") + 0.16); T.noti2 = r2(T.q6 + 0.02); T.s5 = r2(T.q6 + 0.12); T.toca10 = r2(T.s5 + CORTE.s5 + 0.25);
 // Q6b · el celular: −10 % · $ 2.277 · Debajo del margen mínimo → −5 % · $ 2.404 ✓ · "Le hago un cinco."
@@ -317,10 +318,12 @@ s("sfx/bsb-marcador.wav", T.escribe, 0, { desde: 1.2, dur: 0.36, fin: 0.06, tech
 T.teclas.forEach((t) => s("sfx/key-press.mp3", t, 0, { techo: -45 }));
 ding(T.igualC, -39);
 whoosh(T.viaja, -44);
-for (let k = 0; k < 6; k++) pop(T.llena + k * 0.08, -44 + k * 0.5);
-s("sfx/k-chapa-pesada.wav", T.huecos, 0, { techo: -42, dur: 0.6, fin: 0.2 });
+for (let k = 0; k < 6; k++) pop(T.llena + k * 0.08, -46 + k * 0.5);
+s("sfx/k-chapa-pesada.wav", T.huecos, 0, { techo: -43, dur: 0.6, fin: 0.2 });
 // P6 · el ventilador que se frena; la música baja
 patio(T.p6f, P1 + 0.02, -46);
+// (r3) el patio baja ~4 dB desde el corte de la música en "Dejá de vender." hasta el cartel
+S.filter((x) => x[0] === "sfx/calle-tramo.wav" && x[1] === r2(T.p6f)).forEach((x) => { x[3].duck = [[T.pa3 + CORTE.pa3 - 0.2, P1 + 0.5, 0.37, 0.15]]; x[3].sinHueco = true; });
 // (r1) el ventilador se apaga: el clic en T.frena y la bajada de velocidad (tramos de la grabación real con asetrate decreciente,
 // ventilador-baja.wav); 0,3 s solos antes de "Vendimos todo."
 s("sfx/ventilador.wav", T.p6f - 0.02, 0, { desde: 1.0, dur: r2(T.frena - T.p6f + 0.06), fi: 0.02, fin: 0.04, techo: -49, lp: 2400 });
@@ -369,13 +372,16 @@ whoosh(T.q5 - 0.05, -48);
 for (let k = 0; k < 6; k++) pop(T.llena2 + k * 0.14, -50 + k * 0.6);
 ding(T.ok500, -41);
 voz("pa5", T.pa5, -1);
-ding(T.pa5 + CORTE.pa5 + 0.05, -34); s("sfx/cero.mp3", T.pa5 + CORTE.pa5 + 0.05, 0, { vel: 0.6, techo: -35 });   // (r1) acento grave en "Y ganamos plata."
+// (r3) acento de "Y ganamos plata.": arriba de la música (techo ~-30) y con un duck corto de la cama
+s("sfx/cero.mp3", T.pa5 + CORTE.pa5 + 0.05, 0, { techo: -38, extra: 8 }); s("sfx/cero.mp3", T.pa5 + CORTE.pa5 + 0.05, 0, { vel: 0.6, techo: -38, extra: 7 });
+const ACENTOS = [T.pa5 + CORTE.pa5 + 0.05, T.pa6 + CORTE.pa6 + 0.04];
 // Q6 · la notificación, el toque en −10 %
 noti(T.noti2, -42);
 voz("s5", T.s5, -1);
 toque(T.toca10, -42);
 // Q6b · el aviso rojo (glitch corto), el pulgar a −5 %, ding en ✓
-s("sfx/glitch-1.mp3", T.rojo, 0, { techo: -33, dur: 0.3, fin: 0.06 });   // (r2) el error, audible sobre la cama
+// (r3) el error con el golpe del archivo justo cuando aparece el rojo
+s("sfx/glitch-1.mp3", T.rojo, 0, { desde: 0.2, techo: -33, dur: 0.33, fin: 0.06 });
 toque(T.baja5, -42);
 ding(T.ok5, -41);
 voz("s6", T.s6, -1);
@@ -383,7 +389,7 @@ voz("s6", T.s6, -1);
 s("sfx/k-cloth_2.wav", T.mano2, 0, { techo: -42 });
 voz("pa6", T.pa6, -1);
 // (r1) "Vendé." final: ding grave y la música vuelve arriba hasta el cierre
-s("sfx/cero.mp3", T.pa6 + CORTE.pa6 + 0.04, 0, { vel: 0.6, techo: -34 });
+s("sfx/cero.mp3", T.pa6 + CORTE.pa6 + 0.04, 0, { vel: 0.6, techo: -38, extra: 8 });
 s("bgm/pizzicato-lleno.wav", T.pa6 + CORTE.pa6, 0, { desde: 4.0, dur: r2(T.c - T.pa6 - CORTE.pa6 + 0.05), fi: 0.05, fin: 0.1, techo: -36, sinDuck: true });
 // C · Paola a cámara: whoosh, pop en PRECIOS, la línea chica
 whoosh(T.c - 0.08, -44);
@@ -391,9 +397,10 @@ voz("pa7", T.pa7, -1);
 pop(T.palabra + 0.02, -40);
 pop(T.cierre + 0.05, -44);
 // (r1) pop suave en la entrada de cada burbuja (y de la segunda mitad de los remates)
-for (const t of [T.pa1, T.s2, T.s2 + CORTE.s2, T.mi1, T.pa2, T.pa2 + CORTE.pa2, T.s3, T.pa3, T.pa3 + CORTE.pa3a, T.pa3 + CORTE.pa3, T.s1b, T.s4, T.mi1b, T.pa4, T.pa5, T.pa5 + CORTE.pa5, T.s5, T.s5 + CORTE.s5, T.s6, T.pa6, T.pa6 + CORTE.pa6]) pop(t - 0.04, -41);
+for (const t of [T.pa1, T.s2, T.s2 + CORTE.s2, T.mi1, T.pa2, T.pa2 + CORTE.pa2, T.s3, T.pa3, T.pa3 + CORTE.pa3a, T.pa3 + CORTE.pa3, T.s1b, T.s4, T.mi1b, T.pa4, T.pa5, T.pa5 + CORTE.pa5, T.s5, T.s5 + CORTE.s5, T.s6, T.pa6, T.pa6 + CORTE.pa6, T.q3 - 0.4]) pop(t - 0.04, -41);
 // duck de la cama (~-7 dB) en los huecos sin voz donde mandan los efectos de interfaz
 const HUECOS = [[T.q3 - 0.05, T.s4], [T.q5, T.pa5]];
+for (const x of S) if (x[0].startsWith("bgm/") && x[1] < Math.max(...ACENTOS) && x[1] + (x[3].dur ?? 99) > Math.min(...ACENTOS)) x[3].duck = [...(x[3].duck || []), ...ACENTOS.map((a) => [a - 0.05, a + 0.3, 0.6, 0.06])];
 for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.2]), ...HUECOS.filter(([a, b]) => b > x[1] && a < x[1] + x[3].dur).map(([a, b]) => [a, b, 0.2])]; }
 
 // (r1) la cama más arriba (CAMA) y, en los tramos SIN voz, más abajo (k = HUECO_K): se oye bajo la voz y los huecos quedan
@@ -427,7 +434,7 @@ const PICO = Number(process.env.PICO ?? -19);
 // (r1) CAMA: la música, el patio y el ventilador suben CAMA dB sobre su techo (se oyen bajo la voz); los huecos sin voz se
 // verifican con medir-sfx.py (≤ -31)
 const CAMA = Number(process.env.CAMA ?? 11);
-const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, Math.min(o.techo ?? TECHO, TECHO) - 6 - L.M, (o.pico ?? PICO) - L.pk) + (esCama(f) ? CAMA : 0)); };
+const ganancia = ([f, , db, o]) => { if (o.voz) return db; const L = lufsTramo(f, o); return r2(Math.min(db, Math.min(o.techo ?? TECHO, TECHO) - 6 - L.M, (o.pico ?? PICO) - L.pk) + (esCama(f) ? CAMA : 0) + (o.extra ?? 0)); };
 function mezcla(lista, salida, dur) {
   const args = ["-y", "-loglevel", "error"];
   const filtros = [];

@@ -25,9 +25,9 @@ SEBA: ¡Pao! ¡Vendimos todo el contenedor!
 SEBA: Al de hoy. Dos mil quinientos treinta.
 [27,54-29,39 · Q4 · el mismo plano de P4, el mismo audio de Mica]
 MICA: Pao, llegó la factura del contenedor nuevo.
-[29,39-31,39 · Q4b · el panel de Paola: "Costo puesto USD 46 ✓" · "Dólar 43" · "Margen 28 %" · "Precio de hoy $ 2.530 ✓" · "Techo $ 5.060 · Caloventor $ 1.670" · "Recalculado solo · 38 productos" · rótulo "Cambia el dólar o el costo: la lista se recalcula sola"]
+[29,39-31,39 · Q4b · el panel de Paola: "Costo USD 46 ✓" · "Dólar 43" · "Margen 28 %" · "Precio de hoy $ 2.530 ✓" · "Techo $ 5.060 · Caloventor $ 1.670" · "Recalculado solo · 38 productos" · rótulo "Cambia el dólar o el costo: la lista se recalcula sola"]
 PAOLA: Ya está cargada.
-[31,39-34,55 · Q5 · el mismo contenedor: entran las 500 · "500 de 500 ✓" · "+ $ 276.000" · burbuja en el mismo lugar del remate]
+[31,39-34,55 · Q5 · el mismo contenedor: entran las 500 · "500 de 500 ✓" · "+ $ 276.000 después de reponer" · burbuja en el mismo lugar del remate]
 PAOLA: Vendimos todo. Y ganamos plata.
 [34,55-37,44 · Q6 · Seba con el celular en la mano; toca "−10 %"]
 SEBA: ¡Graciela quiere doscientos más! ¿Le hago un diez?
