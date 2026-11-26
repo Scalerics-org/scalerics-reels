@@ -193,3 +193,10 @@ Snapshots: renders/snap/r3 (cada 0,5 s), r3b; renders/prev/r3, r3b.
   burbuja vieja. Q3a/Q4a/C sin cortes en los bordes. Portada: fondo nuevo t 11,6 (portada-src/fondo-limpio-11.6.png).
 - Queda: en Q2 el fondo alrededor del celular es el torso de Marcelo y el azulejo (el estante de panes casi no asoma);
   hojas de la pérgola pueden verse sueltas en encuadres donde la viga sale de cuadro (portada arriba).
+
+## Revisión final (coordinador, 26-11)
+QA de arte final sobre el render de 44,97 s (render 19 min, SwiftShader): sin defectos altos. Quedan como medios, para una
+eventual pasada: hojas de la parra que se ven sin viga en Q4c y el cierre; un salto de un cuadro del celular de Adriana en
+Q1 (20,93 s); la lengua de Jorge asomando con la boca cerrada en P4/P4b; título del cuadro 0 y chips de día con el borde
+superior en y≈100 (arriba de 192). Bajos: chorizo cruzando la mano en P5/P5i, celular de canto en P5c, chorizo sin mano
+en Q4b, fondo liso en los insertos del celular de Jorge.
