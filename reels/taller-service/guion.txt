@@ -4,7 +4,7 @@
 ÓSCAR: Listo, Walter. Volvé a los diez mil kilómetros.
 WALTER: ¡Obvio! Vos sos mi mecánico.
 [Walter arranca y sale por el portón; Óscar lo saluda con el trapo]
-[4,4-7,2 · P2 · montaje sin voz, el mismo plano cerrado del parabrisas desde adentro del auto: el papelito y el cuentakilómetros abajo · chips de mes que pasan: "Mayo." 91.000 · "Julio." 95.000 (el papelito ya pálido, el "95" se lee apenas) · "Septiembre." 108.000 (el sol se comió el número; arriba asoma el ticket del estacionamiento) · "Noviembre." 125.000 · el papelito, en blanco · un tic del cuentakilómetros por chip]
+[4,4-7,2 · P2 · montaje sin voz, el mismo plano cerrado del parabrisas desde adentro del auto: el papelito y el cuentakilómetros abajo · chips de mes que pasan: "Mayo." 91.000 · "Julio." 95.000 (el papelito ya pálido, el "95" se lee apenas) · "Setiembre." 108.000 (el sol se comió el número; arriba asoma el ticket del estacionamiento) · "Noviembre." 125.000 · el papelito, en blanco · un tic del cuentakilómetros por chip]
 [7,2-10,4 · P3 · "Martes, 9:00." · plano general del taller: el elevador VACÍO con los brazos abiertos · Maxi sentado en la pila de cubiertas con el mate, Óscar en el banco ordenando llaves · rótulos con línea guía (1,3 s cada uno): al elevador "Martes: 0 turnos" y abajo "Services que no volvieron este año: 38 · $ 247.000"]
 MAXI: Jefe, ¿hoy no viene nadie?
 ÓSCAR: Ya vuelven. Tienen el papelito.
@@ -22,9 +22,8 @@ NARRADOR: Una ficha por auto más tarde.
 [21,3-24,8 · Q1 · el mismo encuadre del cuadro 0, chip "Marzo, 18:00." · el parabrisas limpio, sin papelito · Óscar, en vez de pegar el papelito, toca la tablet: la ficha del auto · inserto ≥ 60 % del cuadro: "SBC 4127 · Walter · Hatchback blanco · Service: 12/03 · 85.000 km · Próximo: 95.000 km o en 6 meses · Aviso por WhatsApp ✓" · los mismos audios de P1]
 ÓSCAR: Listo, Walter. Volvé a los diez mil kilómetros.
 WALTER: ¡Obvio! Vos sos mi mecánico.
-[24,8-28,4 · Q2 · chip "Agosto." · el celular de Walter en su mano, a pantalla llena: "Mecánica Óscar · Hola, Walter. A tu auto le toca el service (SBC 4127, unos 95.000 km). ¿Te reservo el jueves 9:00?" · botones "Reservar jueves 9:00" / "Elegir otro día" · Walter toca: "Turno reservado ✓ · Jueves 9:00" · rótulo "Le avisa solo cuando le toca, con el turno"]
-WALTER: ¡Uh! Justo me estaba olvidando.
-[28,4-32,2 · Q3 · push-in a la tablet del banco: el panel "Les toca este mes · 41" con las filas Walter "Reservó · Jue 9:00 ✓", Graciela ✓, Daniel ✓, Sergio "Aviso enviado", y abajo "Reservaron: 33 de 41" que sube en verde · rótulo "Quién reservó y a quién le falta, en un panel"]
+[24,8-28,4 · Q2 · chip "Julio." · el celular de Walter en su mano, a pantalla llena: "Mecánica Óscar · Hola, Walter. A tu auto le toca el service (SBC 4127, unos 95.000 km). ¿Te reservo el jueves 9:00?" · botones "Reservar jueves 9:00" / "Elegir otro día" · Walter toca: "Turno reservado ✓ · Jueves 9:00" · rótulo "Le avisa solo cuando le toca, con el turno"]
+[28,4-32,2 · Q3 · push-in a la tablet del banco: el panel "Les toca este mes · 12" con las filas Walter "Reservó · Jue 9:00 ✓", Graciela ✓, Daniel ✓, Sergio "Aviso enviado", y abajo "Reservaron: 10 de 12" que sube en verde · rótulo "Quién reservó y a quién le falta, en un panel"]
 MAXI: Jefe, ¿hoy no viene nadie?
 [el mismo audio de P3 · la cámara gira al portón: el elevador ocupado y tres autos esperando en la vereda · rótulo "Martes: 4 de 4 turnos ✓"]
 ÓSCAR: Ya vinieron. Tenían el aviso.

@@ -96,3 +96,36 @@ chico y más abajo (el encabezado ya no queda debajo de la burbuja). `check --js
 - P1: en el cuadro 0 Óscar está de perfil pegando el papelito (se da vuelta a los 0,5-0,95 s) y el inserto del papelito tapa
   su cintura; Walter un poco de espaldas.
 - No se miró a 30 fps cuadro por cuadro ni se renderizó el mp4; las voces no se escucharon.
+
+## Ronda 1 de corrección (revision-guion-r1.md + pendientes propios) · sin render
+**46,0 s.** Parte 1 0-20,21 · cartel 20,21-22,58 · parte 2 + cierre 22,58-46,0 = 23,42 s (51 %) · cierre C 42,89-46,0 (SERVICE
+desde 43,25, línea chica desde 44,17). `check --json`: 0 errores.
+Planos (s): P1 0 · P2 4,07 · P3 6,37 · P4 10,01 · P4b 13,03 · P4c 13,65 · P5 14,7 · P6 18,04 · cartel 20,21 · Q1 22,58 · Q1i
+24,92 · Q2 26,51 · Q3 28,45 · Q3m 29,95 · Q3g 31,78 · Q3h 32,73 · Q4 34,73 · Q4b 37,39 · Q5 39,29 · Q5i 40,9 · C 42,89.
+- **A1 "Volvé":** 8 tomas nuevas (01-oscar d-g con el tono vol-VÉ; 01b-oscar d-g "Volvé vos…"). El STT no sirve: escribe
+  "volví"/"vuelve" en todas y "volvemos" en las de "volvé vos" (descartadas). Se verificó por formantes (LPC, /tmp no; el
+  script está descripto acá): en 01-oscar-e la vocal de "volv_" tiene F1 ≈ 350-380 Hz y F2 ≈ 1.720-1.800 Hz, igual que la
+  /e/ de "diez" en la misma toma (F1 340-390, F2 1.880-1.950) y lejos de la /i/ de "mil" (F1 ≈ 290, F2 ≈ 2.200): dice
+  "volvé". o1 = 01-oscar-e (pausa 0,18, atempo 1,2), en P1 y Q1. Las tomas viejas a-c en partes/tomas-r1/. Igual conviene
+  escucharla.
+- **Duración:** sin la voz w4 (Q2 solo con el chat, 1,9 s); sin Q5b (Maxi y el cajón: el código queda pero no hay plano);
+  sin el inserto Q4i; cola de P6 0,32 s (el rollo de Maxi entra durante "así no me olvido"); P3 más justo (rótulo de los 38
+  1,0 s); Walter dice "Óscar, no entiendo…" mientras entra caminando; atempo de las voces subido (1,08-1,2). Intactos: el
+  montaje P2 (2,3 s), la pareja "¿hoy no viene nadie?" / "Ya vinieron", la pausa de 0,46 s antes de "Cuatro veces.".
+- **M2:** chip de Q2 "Julio." (cuentakilómetros 94.800); "Setiembre."; sin el segundo "Noviembre." (s06 fuera).
+- **M3:** P4c dura 1,05 s y "Último service: 85.000 km" sigue arriba con el 125.000 abajo (juntos 1,05 s, más 0,6 s antes).
+- **M4:** panel "Les toca este mes · 12", contador 8 → 10 de 12.
+- **B6/Q3:** Q3m nuevo: Maxi de cerca, desde arriba, mirando el mate, pregunta sin que se vea el elevador (el auto del
+  elevador no se dibuja en Q3m); recién en Q3g la cámara revela el elevador ocupado y los autos de la vereda; Q3h Óscar.
+- **B8:** descripcion.txt: "vuelve cuarenta mil kilómetros después, en grúa. Y mientras, el elevador queda vacío los martes."
+- **Pendientes propios:** Q2 el celular más chico y centrado, el rótulo ya no lo toca; humo de P4 más bajo (no tapa el
+  cartel); Walter llega a P4 más de frente (cheat 0,88); Q5 cámara nueva con el parabrisas a la vista; cierre: Óscar más cerca
+  de la columna (la mano apoyada); cuadro 0: Óscar ya de 3/4 con la cara a la vista y el inserto del papelito abajo a la
+  derecha (no lo tapa).
+- Bug encontrado y corregido en la pasada: Q4 quedaba en blanco (la clave de cámara usaba T.q4i, que ya no existe).
+- Mezcla (`MEDIR=1 node gen.mjs`): mediana voz-resto 23,7 LU, mínimo +8,4 LU con voz; huecos sin voz máx -32,3 LUFS; -14,1
+  LUFS, pico -3,3 dBFS.
+- Portada: fondo limpio regenerado (Walter ya llegó y se rasca la cabeza, Óscar, la grúa con humo), `t` 12,83.
+Snapshots: renders/snap/r1a, r1b (cada 0,5 s), r1c (alrededor de cada corte), r1d (cada 0,5 s desde 0,25).
+Quedan: Q5 Óscar fuera de cuadro mientras Walter señala; Q2 primer cuadro con el celular chico subiendo delante del
+tablero (es el push-in); no se escuchó ninguna voz.

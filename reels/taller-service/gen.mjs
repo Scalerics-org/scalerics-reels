@@ -24,7 +24,7 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 //   Justo me estaba olvidando." · o4 Óscar "Ya vinieron. Tenían el aviso." · w5 Walter "¡Óscar! ¡Volví a los diez mil!" ·
 //   o5 Óscar "Una vez. Así me gusta." · w6 Walter "¿No me ponés el papelito?" · o6 Óscar "El papelito ahora te escribe." ·
 //   o7 Óscar "Comentá SERVICE y te mando cómo funciona para tu taller."
-const VOCES = ["o1", "w1", "m1", "o2", "w2", "o3", "w3", "w4", "o4", "w5", "o5", "w6", "o6", "o7"];
+const VOCES = ["o1", "w1", "m1", "o2", "w2", "o3", "w3", "o4", "w5", "o5", "w6", "o6", "o7"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
 const PAL = { o7: JSON.parse(fs.readFileSync("assets/voice/palabras-o7.json", "utf8")) };
 const T = {};
@@ -44,61 +44,61 @@ const corteVoz = (k, cual = "largo") => {
   const s = cual === "ultimo" ? L[L.length - 1] : cual === "primero" ? L[0] : L.reduce((m, x) => (x[1] - x[0] > m[1] - m[0] ? x : m));
   return r2(s[1] - 0.02);
 };
-const CORTE = { o1: corteVoz("o1", "primero"), o2: corteVoz("o2"), w2: corteVoz("w2"), o3: corteVoz("o3"), o4: corteVoz("o4"), o5: corteVoz("o5"), w5: corteVoz("w5", "primero"), w4: corteVoz("w4", "primero") };
+const CORTE = { o1: corteVoz("o1", "primero"), o2: corteVoz("o2"), w2: corteVoz("w2"), o3: corteVoz("o3"), o4: corteVoz("o4"), o5: corteVoz("o5"), w5: corteVoz("w5", "primero") };
 // ---- parte 1 ----
 // P1 · cuadro 0, Marzo 18:00: el hatchback blanco de Walter recién bajado del elevador; Óscar termina de pegar el papelito
 // en el parabrisas: "Listo, Walter. Volvé a los diez mil kilómetros." / Walter, con la llave: "¡Obvio! Vos sos mi mecánico."
-T.o1 = 0.12;
-T.w1 = r2(fin("o1") + 0.06);
+T.o1 = 0.08;
+T.w1 = r2(fin("o1") + 0.04);
 // Walter se sube (la puerta se cierra), el auto sale marcha atrás por el portón; Óscar lo saluda con el trapo
 T.sube = r2(fin("w1") + 0.0);
-T.p2 = r2(T.sube + 0.6);
+T.p2 = r2(T.sube + 0.3);
 // P2 · el montaje sin voz desde el asiento: el papelito se destiñe y el cuentakilómetros sube (un tic por mes)
 T.meses = [0, 0.56, 1.12, 1.68].map((d) => r2(T.p2 + d));
 T.p3 = r2(T.p2 + 2.3);
 // P3 · Martes 9:00, el elevador vacío: Maxi en las cubiertas con el mate "Jefe, ¿hoy no viene nadie?" / Óscar en el banco
 // "Ya vuelven. Tienen el papelito." · rótulos "Martes: 0 turnos" y "38 services que no volvieron · $ 247.000"
-T.rot0 = r2(T.p3 + 0.1); T.m1 = r2(T.p3 + 0.22); T.o2 = r2(fin("m1") + 0.1);
-T.rot38 = r2(Math.max(T.rot0 + 1.25, fin("o2") - 0.95));
-T.p4 = r2(Math.max(fin("o2") + 0.15, T.rot38 + 1.25));
+T.rot0 = r2(T.p3 + 0.08); T.m1 = r2(T.p3 + 0.12); T.o2 = r2(fin("m1") + 0.06);
+T.rot38 = r2(Math.max(T.rot0 + 0.95, fin("o2") - 1.2));
+T.p4 = r2(Math.max(fin("o2") + 0.08, T.rot38 + 1.0));
 // P4 · Noviembre: la grúa entra de culata con el auto humeando; la plancha se inclina; Walter entra caminando, se rasca la
 // cabeza: "Óscar, no entiendo. Si le hice el service hace poquito."
 T.gPara = r2(T.p4 + 1.15); T.tilt = r2(T.p4 + 1.25); T.tiltFin = r2(T.p4 + 1.9);
-T.w2 = r2(T.p4 + 1.05);
+T.w2 = r2(T.p4 + 0.55);
 // P4b · la pausa: Óscar se asoma al parabrisas, el papelito en blanco; lo despega · P4c inserto del tablero: 125.000 km
-T.p4b = r2(fin("w2") + 0.1); T.despega = r2(T.p4b + 0.35);
-T.p4c = r2(T.p4b + 0.8); T.p5 = r2(T.p4c + 0.55);
+T.p4b = r2(fin("w2") + 0.08); T.despega = r2(T.p4b + 0.3);
+T.p4c = r2(T.p4b + 0.62); T.p5 = r2(T.p4c + 1.05);
 // P5 · el remate: primer plano de Óscar, seco: "Volviste a los diez mil, Walter. Cuatro veces."
-T.o3 = r2(T.p5 + 0.1);
+T.o3 = r2(T.p5 + 0.05);
 // P6 · el remate del remate: Walter señala el parabrisas "Ponele otro papelito, así no me olvido." · Óscar mira el papelito
 // en blanco en su dedo · Maxi le acerca el rollo de papelitos sin decir nada
-T.p6 = r2(fin("o3") + 0.15); T.w3 = r2(T.p6 + 0.08); T.rollo = r2(fin("w3") + 0.0);
-const P1 = r2(fin("w3") + 0.62);
+T.p6 = r2(fin("o3") + 0.05); T.w3 = r2(T.p6 + 0.06); T.rollo = r2(fin("w3") - 0.3);
+const P1 = r2(fin("w3") + 0.32);
 const P2 = r2(P1 + Math.max(2.08, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0, sin papelito: Óscar con la tablet; el mismo "Listo, Walter…" · Q1i inserto de la ficha: "¡Obvio!…"
 T.q1 = P2; T.o1b = r2(P2 + 0.12);
 T.q1i = r2(fin("o1b") + 0.02); T.w1b = r2(T.q1i + 0.06); T.guarda = r2(T.q1i + 0.75);
 // Q2 · Agosto: en el auto, el WhatsApp a Walter con el turno: "¡Uh! Justo me estaba olvidando." · toca "Reservar"
-T.q2 = r2(fin("w1b") + 0.1); T.msj = r2(T.q2 + 0.25); T.w4 = r2(T.q2 + 0.6);
-T.toca = r2(fin("w4") + 0.04); T.reservado = r2(T.toca + 0.14); T.rotQ2 = r2(T.q2 + 0.9);
+T.q2 = r2(fin("w1b") + 0.08); T.msj = r2(T.q2 + 0.2);
+T.toca = r2(T.q2 + 1.1); T.reservado = r2(T.toca + 0.14); T.rotQ2 = r2(T.q2 + 0.45);
 // Q3 · la tablet del banco: el panel "Les toca este mes" (el contador sube a 33 de 41) · Q3g el mismo plano general de P3: el
 // mismo "Jefe, ¿hoy no viene nadie?" y la cámara gira: el elevador ocupado, tres autos en la vereda: "Ya vinieron. Tenían el aviso."
-T.q3 = r2(Math.max(T.reservado + 0.85, fin("w4") + 0.45)); T.filas = [0.1, 0.22, 0.34, 0.46].map((d) => r2(T.q3 + d)); T.cuenta = r2(T.q3 + 0.5); T.cuentaFin = r2(T.q3 + 1.05); T.rotQ3 = r2(T.q3 + 0.25);
-T.q3g = r2(T.q3 + 1.5); T.m1b = r2(T.q3g + 0.12); T.gira = r2(fin("m1b") - 0.15); T.rot44 = r2(T.gira + 0.45); T.q3h = r2(T.gira + 1.1); T.o4 = r2(T.q3h + 0.08);
+T.q3 = r2(T.reservado + 0.7); T.filas = [0.1, 0.22, 0.34, 0.46].map((d) => r2(T.q3 + d)); T.cuenta = r2(T.q3 + 0.5); T.cuentaFin = r2(T.q3 + 1.05); T.rotQ3 = r2(T.q3 + 0.25);
+T.q3m = r2(T.q3 + 1.5); T.q3g = T.q3m; T.m1b = r2(T.q3m + 0.08); T.gira = r2(fin("m1b") + 0.04); T.rot44 = r2(T.gira + 0.35); T.q3h = r2(T.gira + 0.95); T.o4 = r2(T.q3h + 0.06);
 // Q4 · Jueves 9:00: Walter entra manejando su auto, entero; baja con la llave en alto: "¡Óscar! ¡Volví a los diez mil!" · Q4i
 // inserto del tablero 95.300 km en verde · Q4b Óscar recibe la llave: "Una vez. Así me gusta."
 T.q4 = r2(fin("o4") + 0.2); T.frena = r2(T.q4 + 0.75); T.abre = r2(T.q4 + 0.8); T.baja = r2(T.q4 + 0.85); T.w5 = r2(T.q4 + 1.05);
-T.q4i = r2(fin("w5") + 0.03); T.q4b = r2(T.q4i + 0.52); T.llave = r2(T.q4b + 0.05); T.o5 = r2(T.q4b + 0.2);
+T.q4b = r2(fin("w5") + 0.05); T.llave = r2(T.q4b + 0.05); T.o5 = r2(T.q4b + 0.2);
 // Q5 · Walter señala el parabrisas: "¿No me ponés el papelito?" · Óscar le señala el celular, que vibra · Q5i inserto: "Service
 // hecho ✓" · "El papelito ahora te escribe." · Q5b: Maxi tira el rollo al cajón y lo cierra
 T.q5 = r2(fin("o5") + 0.15); T.w6 = r2(T.q5 + 0.08); T.senala = r2(fin("w6") + 0.02); T.vibra = r2(T.senala + 0.12);
-T.q5i = r2(T.vibra + 0.12); T.o6 = r2(T.q5i + 0.12); T.q5b = r2(fin("o6") + 0.06); T.tira = r2(T.q5b + 0.05); T.cajon = r2(T.q5b + 0.55);
+T.q5i = r2(T.vibra + 0.12); T.o6 = r2(T.q5i + 0.12);
 // C · Óscar a cámara, apoyado en la columna del elevador con el auto de Walter arriba: "Comentá SERVICE…"
-T.c = r2(T.q5b + 0.72); T.o7 = r2(T.c + 0.06);
+T.c = r2(fin("o6") + 0.15); T.o7 = r2(T.c + 0.06);
 const iCom = PAL.o7.findIndex((w) => /S[EÉ]RVI/i.test(w.word ?? w.w ?? w.text ?? ""));
 T.palabra = r2(T.o7 + Math.max(0.3, (PAL.o7[iCom >= 0 ? iCom : 1].start ?? PAL.o7[iCom >= 0 ? iCom : 1].a) - 0.05));
-const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.15) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.3) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.9));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -180,12 +180,11 @@ const CHIP = `
 const CHIPS = [
   ["s01-chip", T.meses[0], T.meses[1], "Mayo.", ""],
   ["s02-chip", T.meses[1], T.meses[2], "Julio.", ""],
-  ["s03-chip", T.meses[2], T.meses[3], "Septiembre.", ""],
+  ["s03-chip", T.meses[2], T.meses[3], "Setiembre.", ""],
   ["s04-chip", T.meses[3], T.p3, "Noviembre.", "rojo"],
   ["s05-chip", T.p3, r2(T.p3 + 1.4), "Martes, 9:00.", ""],
-  ["s06-chip", T.p4, r2(T.w2), "Noviembre.", ""],
   ["s07-chip", r2(T.q1 + 0.02), T.q1i, "Marzo, 18:00.", ""],
-  ["s08-chip", T.q2, r2(T.w4), "Agosto.", ""],
+  ["s08-chip", T.q2, r2(T.reservado), "Julio.", ""],
   ["s09-chip", T.q4, r2(T.w5), "Jueves, 9:00.", "verde"],
 ];
 for (const [id, ini0, fin0, txt, cls] of CHIPS) {
@@ -365,7 +364,6 @@ toque(T.guarda, -40); ding(T.guarda + 0.08, -43);
 // Q2 · el aviso en el celular de Walter, el toque en Reservar, el ding
 s("sfx/auto-pasa.wav", T.q2, 0, { desde: 1.6, dur: r2(T.q3 - T.q2), fi: 0.15, fin: 0.2, techo: -48, lp: 1200 });
 noti(T.msj, -39);
-voz("w4", T.w4, -1);
 toque(T.toca, -39); ding(T.reservado + 0.02, -40);
 // Q3 · el panel: un tic por fila, el contador, el ding; el plano general
 whoosh(T.q3 - 0.05, -46);
@@ -382,7 +380,6 @@ s("sfx/auto-entra.wav", T.q4 - 0.3, 0, { desde: 3.0, dur: 1.6, fi: 0.2, fin: 0.3
 s("sfx/puerta-auto.wav", T.abre, 0, { techo: -39 });
 voz("w5", T.w5, -1);
 s("sfx/llaves.wav", T.w5 + 0.1, 0, { techo: -44, dur: 0.6, fin: 0.15 });
-s("sfx/k-tick-1.wav", T.q4i + 0.04, 0, { techo: -41 }); ding(T.q4i + 0.12, -41);
 s("sfx/llaves.wav", T.llave, 0, { techo: -42, dur: 0.6, fin: 0.15 });
 voz("o5", T.o5, -1);
 s("sfx/cero.mp3", T.o5 + CORTE.o5 + 0.02, 0, { techo: -40 });
@@ -390,14 +387,13 @@ s("sfx/cero.mp3", T.o5 + CORTE.o5 + 0.02, 0, { techo: -40 });
 voz("w6", T.w6, -1);
 noti(T.vibra + 0.05, -39);
 voz("o6", T.o6, -1);
-s("sfx/k-cloth_1.wav", T.tira, 0, { techo: -44 }); s("sfx/bsb-cajon-cierra.wav", T.cajon, 0, { techo: -39, dur: 0.6, fin: 0.15 });
 // C · Óscar a cámara: el elevador ya arriba, pop en SERVICE, la línea chica
 whoosh(T.c - 0.08, -44);
 voz("o7", T.o7, -1);
 pop(T.palabra + 0.02, -40);
 pop(T.cierre + 0.05, -44);
 // pop suave en la entrada de cada burbuja (y de la segunda mitad de los remates)
-for (const t of [T.o1, T.w1, T.m1, T.o2, T.w2, T.o3, T.o3 + CORTE.o3, T.w3, T.o1b, T.w1b, T.w4, T.m1b, T.o4, T.w5, T.o5, T.o5 + CORTE.o5, T.w6, T.o6]) pop(t - 0.04, -42);
+for (const t of [T.o1, T.w1, T.m1, T.o2, T.w2, T.o3, T.o3 + CORTE.o3, T.w3, T.o1b, T.w1b, T.m1b, T.o4, T.w5, T.o5, T.o5 + CORTE.o5, T.w6, T.o6]) pop(t - 0.04, -42);
 // duck de la cama (~-7 dB) mientras habla alguien
 for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => b >= x[1] && a <= x[1] + (x[3].dur ?? 99)).map(([a, b]) => [a, b, 0.2])]; }
 // en los tramos SIN voz la cama baja (HUECO_K): los huecos quedan ≤ -31 LUFS con los efectos adelante
