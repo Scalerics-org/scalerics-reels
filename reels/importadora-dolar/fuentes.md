@@ -44,6 +44,28 @@ Gemini TTS con `herramientas/voz.mjs`: Paola = **Aoede** (la de `tienda-tenes-st
 narrador del cartel = Rasalgethi (audio reusado de `reels/ya-lo-cargo/assets/voice/narrador.wav`, "Un sistema más
 tarde."). Graciela no habla (solo su nombre en el chat).
 
-## Música y efectos
-A completar por el constructor (reusados de `assets/sfx` con su crédito de origen; lo nuevo, CC0 con autor, sitio y
-licencia acá; nada sintetizado con ffmpeg).
+## Música y efectos (todos reales, ninguno sintetizado con ffmpeg)
+Reusados del repo, con el crédito de su origen (ver `reels/tienda-tenes-stock/fuentes.md`, `reels/dist-comisiones/fuentes.md`,
+`reels/gym-cupo/fuentes.md`, `reels/ferreteria-encargo/fuentes.md`):
+- Música `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado con eco): "Pizzicato Intrigue", younoise, Freesound, CC0 1.0
+  (https://freesound.org/people/younoise/sounds/569642/). En el montaje P5, el mismo tema acelerado (asetrate 1,2).
+- Ambiente del patio `sfx/calle.wav`: "Small quiet street ambience", Oper8, Freesound, CC0 (https://freesound.org/people/Oper8/sounds/241135/);
+  `sfx/pajaro.wav` (pájaros de la mañana): "Bird Chirp", swiftoid, Freesound, CC0 (viene de hacen-envios).
+- `sfx/ventilador.wav` (el ventilador de pie, en loop; en P6 se apaga con un fundido de 1,25 s): "Electric fan 2" (#0079),
+  BigSoundBank, Joseph Sardin, CC0 1.0 (https://bigsoundbank.com/electric-fan-2-s0079.html).
+- Las teclas de la calculadora son `key-press.mp3` (crédito en
+  `reels/dist-comisiones/fuentes.md`).
+- Kenney (kenney.nl), CC0 1.0: `paso-0..4.wav` (los pasos de Seba), `madera-golpe.wav` (la palma en la mesa), `k-chapa-pesada.wav`
+  (el golpe sordo de los 8 huecos), `k-tick-1.wav`, `k-page-turn.wav`, `k-book_place_1.wav`, `k-cloth_1/2.wav`.
+- `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `notification.mp3`, `glitch-1.mp3`, `vibra.wav`, `cero.mp3`,
+  `stinger.wav`, `papel.wav`: los de siempre del repo (crédito en `reels/tienda-tenes-stock/fuentes.md`).
+
+**Nuevo (CC0):**
+- `sfx/bsb-marcador.wav` (el marcador en el pizarrón: borra el 40, escribe el 43): dos tramos (0,65-1,2 s y 4,15-4,8 s) de
+  "Whiteboard marker" (#0807), BigSoundBank, Joseph Sardin, CC0 1.0 (https://bigsoundbank.com/search?q=marker; archivo
+  https://bigsoundbank.com/UPLOAD/mp3/0807.mp3), con fundidos de 20-50 ms.
+
+## Voces
+Gemini TTS (`herramientas/voz.mjs`): Paola = **Aoede**, Mica = **Zephyr**, Seba = **Umbriel** (nuevo). Narrador del cartel =
+Rasalgethi, audio REUSADO de `reels/ya-lo-cargo/assets/voice/narrador.wav` ("Un sistema más tarde.", atempo 1,1). Graciela no
+habla. Tomas elegidas y cortes en `partes/procesar.sh` y `NOTAS-constructor.md`.
