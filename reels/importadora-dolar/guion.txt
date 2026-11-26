@@ -36,5 +36,5 @@ SEBA: ¡Graciela quiere doscientos más! ¿Le hago un diez?
 SEBA: …Le hago un cinco.
 [35,8-37,4 · Q7 · el mismo plano de P7b: Paola, sin darse vuelta, levanta la mano · burbuja en el mismo lugar que "Dejá de vender."]
 PAOLA: Vendé, Seba. Vendé.
-[cierre · 37,4-41,4 · Paola a cámara en el depósito, el ventilador de muestra girando detrás y el contenedor lleno en el patio (nunca pared lisa) · tarjeta sobre "DÓLAR": "Comentá" / "DÓLAR" (en el recuadro verde de selección) / "y te mando cómo funciona para tu importadora" · últimos 0,8 s, chico: "Tu lista de precios, atada al costo en dólares" / "scalerics.com" en verde]
-PAOLA: Comentá DÓLAR y te mando cómo funciona para tu importadora.
+[cierre · 37,4-41,4 · Paola a cámara en el depósito, el ventilador de muestra girando detrás y el contenedor lleno en el patio (nunca pared lisa) · tarjeta sobre "PRECIOS": "Comentá" / "PRECIOS" (en el recuadro verde de selección) / "y te mando cómo funciona para tu importadora" · últimos 0,8 s, chico: "Tu lista de precios, atada al costo en dólares" / "scalerics.com" en verde]
+PAOLA: Comentá PRECIOS y te mando cómo funciona para tu importadora.

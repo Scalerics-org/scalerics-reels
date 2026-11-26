@@ -1,4 +1,4 @@
-Comentá DÓLAR y te mando cómo funciona para tu importadora.
+Comentá PRECIOS y te mando cómo funciona para tu importadora.
 "¡Pao! ¡Vendimos todo el contenedor!" A lista de julio. Llegó la proforma del contenedor nuevo, el dólar ya no era el del pizarrón y con lo que cobró, Paola trae 492 de 500.
 Armamos el sistema de precios de tu importadora: cada producto con su costo en dólares y su margen; cambia el dólar o cargás la proforma de un contenedor y la lista en pesos se recalcula sola. Tus vendedores y el catálogo de tus clientes ven siempre el precio de hoy, y te avisa si un precio o un descuento queda por debajo del margen mínimo.
 

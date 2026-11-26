@@ -14,7 +14,7 @@ hoy. Dos mil quinientos treinta."** (el catálogo en el celular de Seba con "Pre
 **"Ya está cargada."** (el panel: costo USD 46, dólar 43, margen 28 %, "Recalculado solo"); el contenedor se llena entero:
 **"Vendimos todo. Y ganamos plata."**; Seba: **"¡Graciela quiere doscientos más! ¿Le hago un diez?"**, el celular marca
 "−10 %: debajo del margen mínimo" en rojo, lo baja a −5 % ✓: **"…Le hago un cinco."** / Paola: **"Vendé, Seba. Vendé."**
-Cierre: Paola a cámara: **"Comentá DÓLAR y te mando cómo funciona para tu importadora."**
+Cierre: Paola a cámara: **"Comentá PRECIOS y te mando cómo funciona para tu importadora."**
 
 - **Producto: sistema a medida de lista de precios atada al costo en dólares.** Cada producto con su costo en USD (el de
   la proforma) y su margen; cambia el dólar o se carga la proforma de un contenedor y los precios en pesos se recalculan
@@ -33,11 +33,10 @@ Cierre: Paola a cámara: **"Comentá DÓLAR y te mando cómo funciona para tu im
   tienda-tenes-stock.
 - **Cartel:** el time card de siempre: **"Un sistema" / "más tarde…"**. Audio REUSADO de
   `reels/ya-lo-cargo/assets/voice/narrador.wav` ("Un sistema más tarde."), atempo si pasa de 2,4 s.
-- **Quién dice "Comentá DÓLAR": Paola**, a cámara (de dueña a dueño, "te mando" en singular). En tienda-tenes-stock
+- **Quién dice "Comentá PRECIOS": Paola**, a cámara (de dueña a dueño, "te mando" en singular). En tienda-tenes-stock
   cerró en modo historia; acá a cámara directa, sin celular, para no repetir.
-- **La palabra: DÓLAR** (una, mayúsculas, con tilde). Es la que un importador escribe sin pensar y la que le duele;
-  alternativa si el coordinador la ve ambigua (que alguien comente "dólar" por la cotización): **PRECIOS**. En pantalla,
-  en la voz y en la primera línea de `descripcion.txt`.
+- **La palabra: PRECIOS** (decisión del coordinador, 26-11: DÓLAR era ambigua, alguien podía comentar por la cotización).
+  En pantalla, en la voz y en la primera línea de `descripcion.txt`.
 - **Nadie queda mal parado:** Seba vende de buena fe con la lista que le dieron (y en la parte 2 el celular le frena el
   descuento sin que nadie lo rete); Graciela compra al precio que le pasaron; Paola se ríe de sí misma ("Dejá de
   vender" es lo que todo importador pensó el día que saltó el dólar). El chiste es contra la lista en papel que no se
@@ -61,7 +60,7 @@ vendió todo) con dos o tres cajas sueltas.
 - **Rojo apagado `#c7655b` SOLO para el problema:** "LISTA · JULIO" (la palabra JULIO), el "40" tachado del pizarrón, los
   8 huecos del contenedor, "492 de 500", "− $ 14.000", "−10 % · Debajo del margen mínimo". **Verde `#5ce611` para lo
   resuelto:** "Precio de hoy ✓", "Recalculado solo ✓", "500 de 500 ✓", "+ $ 276.000", "−5 % · $ 2.404 ✓", la tarjeta
-  DÓLAR, el recuadro de selección de los subtítulos.
+  PRECIOS, el recuadro de selección de los subtítulos.
 - **Burbujas de diálogo:** crema `#efeee5` con borde navy de 8 px y sombra dura, Lexend 800 navy ≥ 48 px, cola hacia
   quien habla. "Vendimos todo. Y ganamos plata." en el MISMO lugar y tamaño que "Vendimos todo. Y perdimos plata."; y
   "Vendé, Seba. Vendé." en el mismo lugar que "Seba. Por favor. Dejá de vender." (que se lea el callback).
@@ -173,7 +172,7 @@ tarde…"**. Audio de `reels/ya-lo-cargo/assets/voice/narrador.wav` (Rasalgethi)
 ## CIERRE (37,4-41,4 s)
 | t (s) | plano y cámara | qué pasa | SFX |
 |---|---|---|---|
-| 37,4-41,4 | **C · Paola a cámara.** Primer plano en el depósito, de frente; detrás, el ventilador girando y por el portón el contenedor lleno (nunca pared lisa). Push-in suave. | 37,6-40,9 · **Paola: "Comentá DÓLAR y te mando cómo funciona para tu importadora."** · sobre "DÓLAR" entra la tarjeta abajo de la cara: "Comentá" / **"DÓLAR"** (recuadro verde de selección) / "y te mando cómo funciona para tu importadora"; en los últimos 0,8 s, chico: "Tu lista de precios, atada al costo en dólares" / "scalerics.com" en verde. | pop en "DÓLAR" · cama que cierra con un acorde |
+| 37,4-41,4 | **C · Paola a cámara.** Primer plano en el depósito, de frente; detrás, el ventilador girando y por el portón el contenedor lleno (nunca pared lisa). Push-in suave. | 37,6-40,9 · **Paola: "Comentá PRECIOS y te mando cómo funciona para tu importadora."** · sobre "PRECIOS" entra la tarjeta abajo de la cara: "Comentá" / **"PRECIOS"** (recuadro verde de selección) / "y te mando cómo funciona para tu importadora"; en los últimos 0,8 s, chico: "Tu lista de precios, atada al costo en dólares" / "scalerics.com" en verde. | pop en "PRECIOS" · cama que cierra con un acorde |
 
 ## Parlamentos (voces Gemini; un .txt por parlamento en `partes/`)
 | # | personaje | voz | texto | tono sugerido |
@@ -194,7 +193,7 @@ tarde…"**. Audio de `reels/ya-lo-cargo/assets/voice/narrador.wav` (Rasalgethi)
 | 15 | Seba | Umbriel | ¡Graciela quiere doscientos más! ¿Le hago un diez? | eufórico y después dudando |
 | 16 | Seba | Umbriel | …Le hago un cinco. | se corrige solo, mirando el celular |
 | 17 | Paola | Aoede | Vendé, Seba. Vendé. | relajada, sonriendo, mismo ritmo que 07 |
-| 18 | Paola | Aoede | Comentá DÓLAR y te mando cómo funciona para tu importadora. | a cámara, cálida, de colega |
+| 18 | Paola | Aoede | Comentá PRECIOS y te mando cómo funciona para tu importadora. | a cámara, cálida, de colega |
 95 palabras habladas (sin contar las repetidas como audio reusado: 79 grabadas).
 Pronunciación: "Seba" (no "Ceba"), "dólar" con acento en la o, "quinientos treinta" claro (que en el "oyó:" salga
 "2530" o "dos mil quinientos treinta").
