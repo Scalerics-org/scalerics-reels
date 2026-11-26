@@ -129,3 +129,33 @@ Planos (s): P1 0 · P2 4,07 · P3 6,37 · P4 10,01 · P4b 13,03 · P4c 13,65 · 
 Snapshots: renders/snap/r1a, r1b (cada 0,5 s), r1c (alrededor de cada corte), r1d (cada 0,5 s desde 0,25).
 Quedan: Q5 Óscar fuera de cuadro mientras Walter señala; Q2 primer cuadro con el celular chico subiendo delante del
 tablero (es el push-in); no se escuchó ninguna voz.
+
+## Ronda 2 (revision-arte-r1.md + revision-sonido-r1.md)
+Duración 46,07 s · P1 0-20,27 · cartel 20,27-22,64 · parte 2 22,64-42,95 · cierre 42,95-46,07 (3,12 s) · parte 2 + cierre 51 %.
+Planos: P2 3,99 · P3 6,29 · P4 9,93 · P4w 10,63 · P4b 13,15 · P4c 13,77 · P5 14,82 · P6 18,16 · Q1 22,64 · Q1i 24,98 · Q2 26,57 ·
+Q3 28,51 · Q3m 30,01 · Q3g 31,84 · Q3h 32,79 · Q4 34,79 (baja 35,64) · Q4b 37,45 · Q5 39,35 · Q5i 40,96 · C 42,95.
+Arte, altos:
+- A1 Q4 (pop de Walter): entra manejando (se lo ve por el parabrisas), frena, abre la puerta, baja y camina con la llave.
+- A2 Q5 (mano suelta): Óscar de espaldas en primer plano a la izquierda, el brazo entero señala; Walter entero a la derecha.
+- A3 P4b: cámara más abierta y desde abajo: techo navy, parante, vidrio con el volante detrás, papelito (~30 % del ancho), capó y
+  limpiaparabrisas; la mano de Óscar con su brazo desde el primer cuadro; rótulo "Último service" desde el corte.
+- A4 P4: grúa de auxilio con cabina (faros, parabrisas, baliza, puerta, estribo), plancha y el auto de Walter arriba; plano 3/4
+  desde la calle, la grúa llena el ancho, el cartel entero arriba, humo bajo. Walter va adentro de la cabina (no se ve) y en
+  P4w ya bajó al lado de la puerta abierta (corte en la acción, sin pop) y queda de frente, grande.
+Arte, medios: Walter en P4 ya no aparece de golpe (5); Q3g termina sobre los autos de la vereda, que llenan el ancho (6);
+cuadro 0 con el papelito visible y Walter de 3/4 (7, r1); P4c sin papelito y con la pared del taller detrás (8); P6 plano más
+cerrado y bajo, los dos junto al auto, brazo de Walter afuera, sin piso vacío (9); Q4 llave arriba de la cabeza (10); Maxi con
+el mate en la falda mientras habla (11); Q5i celular corrido, la burbuja no tapa el encabezado (12); Q1i ficha vertical a
+~60 % del alto, textos ≥ 36 px, botón con el ✓ adentro, sin las manos (eran conos) (13); Q2 el cuentakilómetros se apaga
+detrás del celular, sin "00" (14); guía de P3 anclada al elevador, sin puntito ni cruce de burbujas, columnas crema (15);
+cartel "MECÁNICA ÓSCAR" oculto en los planos donde quedaba cortado (P1, Q1, P6, Q3g, Q5) (16). Los carteles se sacaron del
+`fusionar(SET)` para poder ocultarlos por plano.
+Bajos: letras del cartel nacen con escala 0,35 (17); Óscar con `mejillasBajas` (el rubor ya no pasa por el ojo) y P5 casi de
+frente (18; el pelo texturado queda); Q3 panel con aire (19); cierre: cámara más baja, la cara arriba de la tarjeta (20).
+Sonido: HUECO_K 0,42 (cama en huecos); montaje P2 con música a -44; diésel en ralentí hasta "Volviste" + calle de fondo en la
+pausa; puerta y motor de P2 corridos a 4,0+ (en off); tics del panel solo en 8→9→10; puerta de la cabina, ropa y pasos de
+Walter en P4w; puerta de Q4 -49, llaves -46/-48, auto-entra más corto.
+Mezcla: -14,1 LUFS, pico -3,3 dBFS, mediana voz-resto 23,7 LU, huecos sin voz máx -31,0. El único tramo < 6 LU (35,5 s, +2,8)
+es el arranque de "¡Volví…" (la ventana tiene 60 ms de voz); con la voz hablando (36,1 s) es -11,8 contra -30,9 (+19).
+Portada: fondo limpio nuevo (Walter de frente rascándose la cabeza en la vereda, la grúa con su auto y el cartel), `t` 10,95.
+Snapshots: renders/snap/r2c y r2d (cada 0,5 s con dos desfases + ±1 cuadro en cada corte). `check --json`: 0 errores.

@@ -52,7 +52,7 @@ T.o1 = 0.08;
 T.w1 = r2(fin("o1") + 0.04);
 // Walter se sube (la puerta se cierra), el auto sale marcha atrás por el portón; Óscar lo saluda con el trapo
 T.sube = r2(fin("w1") + 0.0);
-T.p2 = r2(T.sube + 0.3);
+T.p2 = r2(T.sube + 0.22);
 // P2 · el montaje sin voz desde el asiento: el papelito se destiñe y el cuentakilómetros sube (un tic por mes)
 T.meses = [0, 0.56, 1.12, 1.68].map((d) => r2(T.p2 + d));
 T.p3 = r2(T.p2 + 2.3);
@@ -63,8 +63,8 @@ T.rot38 = r2(Math.max(T.rot0 + 0.95, fin("o2") - 1.2));
 T.p4 = r2(Math.max(fin("o2") + 0.08, T.rot38 + 1.0));
 // P4 · Noviembre: la grúa entra de culata con el auto humeando; la plancha se inclina; Walter entra caminando, se rasca la
 // cabeza: "Óscar, no entiendo. Si le hice el service hace poquito."
-T.gPara = r2(T.p4 + 1.15); T.tilt = r2(T.p4 + 1.25); T.tiltFin = r2(T.p4 + 1.9);
-T.w2 = r2(T.p4 + 0.55);
+T.gPara = r2(T.p4 + 0.22); T.tilt = r2(T.p4 + 0.4); T.tiltFin = r2(T.p4 + 1.0);
+T.p4w = r2(T.p4 + 0.7); T.w2 = r2(T.p4 + 0.75);
 // P4b · la pausa: Óscar se asoma al parabrisas, el papelito en blanco; lo despega · P4c inserto del tablero: 125.000 km
 T.p4b = r2(fin("w2") + 0.08); T.despega = r2(T.p4b + 0.3);
 T.p4c = r2(T.p4b + 0.62); T.p5 = r2(T.p4c + 1.05);
@@ -73,7 +73,7 @@ T.o3 = r2(T.p5 + 0.05);
 // P6 · el remate del remate: Walter señala el parabrisas "Ponele otro papelito, así no me olvido." · Óscar mira el papelito
 // en blanco en su dedo · Maxi le acerca el rollo de papelitos sin decir nada
 T.p6 = r2(fin("o3") + 0.05); T.w3 = r2(T.p6 + 0.06); T.rollo = r2(fin("w3") - 0.3);
-const P1 = r2(fin("w3") + 0.32);
+const P1 = r2(fin("w3") + 0.26);
 const P2 = r2(P1 + Math.max(2.08, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0, sin papelito: Óscar con la tablet; el mismo "Listo, Walter…" · Q1i inserto de la ficha: "¡Obvio!…"
@@ -244,7 +244,7 @@ for (const [id, ini0, fin0, txt, cls] of CHIPS) {
       const nA = qa(".linea.a .l").length, nB = qa(".linea.b .l").length;
       qa(".l").forEach((l, i) => {
         const t0 = i < nA ? i * 0.03 : i < nA + nB ? 0.42 + (i - nA) * 0.03 : ${MAS} + (i - nA - nB) * 0.03;
-        tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.35, opacity: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, opacity: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);   // (r2) sin la mota del arranque
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
@@ -316,12 +316,12 @@ s("sfx/llaves.wav", T.w1 - 0.1, 0, { techo: -44, dur: 0.6, fin: 0.15 });
 voz("w1", T.w1, -1);
 s("sfx/k-cloth_2.wav", T.sube + 0.12, 0, { techo: -44 });   // el trapo
 pasos(T.sube + 0.15, T.p2, -46, 0.28);
-s("sfx/puerta-auto.wav", T.p2 - 0.22, 0, { techo: -42 });
-s("sfx/motor.mp3", T.p2 - 0.05, 0, { techo: -40, dur: 1.0, fin: 0.3 });
+s("sfx/puerta-auto.wav", T.p2 + 0.02, 0, { techo: -44 });   // (r2) en off, ya en el auto
+s("sfx/motor.mp3", T.p2 + 0.14, 0, { techo: -41.5, dur: 1.0, fin: 0.3 });
 // P2 · el montaje: un tic grueso por mes, el auto andando de fondo, la música acelerada
 whoosh(T.p2 - 0.06, -44);
 s("sfx/auto-pasa.wav", T.p2, 0, { desde: 1.6, dur: r2(T.p3 - T.p2 + 0.05), fi: 0.15, fin: 0.2, techo: -47, lp: 1200, sinHueco: true });
-s("bgm/pizzicato-lleno.wav", T.p2 - 0.02, 0, { desde: 4.0, vel: 1.15, dur: r2(T.p3 - T.p2 + 0.04), fi: 0.05, fin: 0.08, techo: -47, sinHueco: true });
+s("bgm/pizzicato-lleno.wav", T.p2 - 0.02, 0, { desde: 4.0, vel: 1.15, dur: r2(T.p3 - T.p2 + 0.04), fi: 0.05, fin: 0.08, techo: -44, sinHueco: true });   // (r2) el montaje se oye
 T.meses.forEach((t, i) => { s("sfx/k-tick-1.wav", t + 0.05, 0, { techo: -40 + i * 0.5 }); s("sfx/k-metal-click.wav", t + 0.08, 0, { techo: -45 }); });
 // P3 · el martes vacío: calle, el sorbo de mate, el rótulo de los 38
 calle(T.p3, T.p4 + 0.02, -45);
@@ -332,11 +332,13 @@ voz("o2", T.o2, -1);
 pop(T.rot0, -42); s("sfx/glitch-1.mp3", T.rot38, 0, { desde: 0.2, techo: -38, dur: 0.3, fin: 0.06 });
 // P4 · la grúa: bip-bip de marcha atrás, el motor diésel, el siseo del humo; la baliza
 s("sfx/bsb-marcha-atras.wav", T.p4, 0, { dur: r2(T.gPara - T.p4 + 0.15), fin: 0.05, techo: -38, sinHueco: true });
-s("sfx/bsb-camion.wav", T.p4, 0, { dur: r2(T.p4c - T.p4), fi: 0.15, fin: 0.3, techo: -41, lp: 3000, sinHueco: true });
+s("sfx/bsb-camion.wav", T.p4, 0, { dur: r2(T.o3 - T.p4 + 0.15), fi: 0.15, fin: 0.6, techo: -41, lp: 3000, sinHueco: true });   // (r2) el diésel en ralentí sostiene la pausa
 s("sfx/bsb-siseo.wav", T.p4 + 0.3, 0, { techo: -42, sinHueco: true });
 s("sfx/bsb-neumatica.wav", T.tilt, 0, { desde: 0.25, dur: 0.6, fin: 0.15, techo: -44, vel: 0.7 });
 calle(T.p4, P1 + 0.02, -46);
-pasos(T.p4 + 0.75, T.w2 + 0.3, -44, 0.3);
+s("sfx/calle-tramo.wav", T.p4b, 0, { desde: 3.0, dur: r2(T.o3 + 0.4 - T.p4b), fi: 0.1, fin: 0.25, techo: -46.5, lp: 2400, sinHueco: true, sinDuck: true });   // (r2) el lugar se oye en la pausa
+s("sfx/puerta-auto.wav", T.p4w - 0.08, 0, { techo: -42, vel: 0.85 });   // (r2) la puerta de la cabina
+s("sfx/k-cloth_1.wav", T.p4w + 0.02, 0, { techo: -44 }); pasos(T.p4w + 0.08, T.p4w + 0.65, -43, 0.22);   // baja y camina
 voz("w2", T.w2, -1);
 // P4b/P4c · la pausa: la música se fue; el papel que se despega; el tic del tablero
 s("sfx/bsb-cinta.wav", T.despega, 0, { techo: -40, vel: 0.9 });
@@ -363,24 +365,24 @@ voz("w1", T.w1b, -1);
 toque(T.guarda, -40); ding(T.guarda + 0.08, -43);
 // Q2 · el aviso en el celular de Walter, el toque en Reservar, el ding
 s("sfx/auto-pasa.wav", T.q2, 0, { desde: 1.6, dur: r2(T.q3 - T.q2), fi: 0.15, fin: 0.2, techo: -48, lp: 1200 });
-noti(T.msj, -39);
+noti(T.msj, -41.5);
 toque(T.toca, -39); ding(T.reservado + 0.02, -40);
 // Q3 · el panel: un tic por fila, el contador, el ding; el plano general
 whoosh(T.q3 - 0.05, -46);
-T.filas.forEach((t) => tic(t, -45));
-for (let k = 0; k < 5; k++) tic(T.cuenta + k * 0.11, -47);
+// (r2) un tic por cada número que cambia (8 → 9 → 10), sin tics de filas
+for (const f of [0.5, 0.66]) tic(r2(T.cuenta + (T.cuentaFin - T.cuenta) * f), -44);
 ding(T.cuentaFin, -41);
 s("sfx/sorbo.wav", T.q3g + 0.0, 0, { techo: -44 });
 voz("m1", T.m1b, -1);
 whoosh(T.gira, -46);
 voz("o4", T.o4, -1);
-ding(T.rot44 + 0.05, -42);
+ding(T.rot44 + 0.05, -44.5);
 // Q4 · Walter entra manejando, frena, la puerta, la llave
-s("sfx/auto-entra.wav", T.q4 - 0.3, 0, { desde: 3.0, dur: 1.6, fi: 0.2, fin: 0.3, techo: -40 });
-s("sfx/puerta-auto.wav", T.abre, 0, { techo: -39 });
+s("sfx/auto-entra.wav", T.q4 - 0.3, 0, { desde: 3.0, dur: 1.15, fi: 0.2, fin: 0.4, techo: -44 });
+s("sfx/puerta-auto.wav", T.abre, 0, { techo: -49 });
 voz("w5", T.w5, -1);
-s("sfx/llaves.wav", T.w5 + 0.1, 0, { techo: -44, dur: 0.6, fin: 0.15 });
-s("sfx/llaves.wav", T.llave, 0, { techo: -42, dur: 0.6, fin: 0.15 });
+s("sfx/llaves.wav", T.w5 + 0.1, 0, { techo: -46, dur: 0.6, fin: 0.15 });
+s("sfx/llaves.wav", T.llave, 0, { techo: -48, dur: 0.6, fin: 0.15 });
 voz("o5", T.o5, -1);
 s("sfx/cero.mp3", T.o5 + CORTE.o5 + 0.02, 0, { techo: -40 });
 // Q5 · el celular vibra; el cajón
@@ -397,7 +399,7 @@ for (const t of [T.o1, T.w1, T.m1, T.o2, T.w2, T.o3, T.o3 + CORTE.o3, T.w3, T.o1
 // duck de la cama (~-7 dB) mientras habla alguien
 for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => b >= x[1] && a <= x[1] + (x[3].dur ?? 99)).map(([a, b]) => [a, b, 0.2])]; }
 // en los tramos SIN voz la cama baja (HUECO_K): los huecos quedan ≤ -31 LUFS con los efectos adelante
-const HUECO_K = Number(process.env.HUECO_K ?? 0.6);
+const HUECO_K = Number(process.env.HUECO_K ?? 0.42);   // (r2) los huecos sin voz no quedan muertos
 {
   const V = VOZ.slice().sort((a, b) => a[0] - b[0]); const libres = []; let c = 0;
   for (const [a0, b0] of V) { const a = a0 + 0.2, b = b0 - 0.25; if (a > c + 0.25) libres.push([c, a]); c = Math.max(c, b); } if (DUR > c + 0.25) libres.push([c, DUR]);

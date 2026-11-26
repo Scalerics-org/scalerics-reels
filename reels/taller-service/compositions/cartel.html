@@ -52,7 +52,7 @@
       const nA = qa(".linea.a .l").length, nB = qa(".linea.b .l").length;
       qa(".l").forEach((l, i) => {
         const t0 = i < nA ? i * 0.03 : i < nA + nB ? 0.42 + (i - nA) * 0.03 : 1.05 + (i - nA - nB) * 0.03;
-        tl.fromTo(l, { scale: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);
+        tl.fromTo(l, { scale: 0.35, opacity: 0, y: 80, rotation: (i % 2 ? 1 : -1) * 25 }, { scale: 1, opacity: 1, y: 0, rotation: 0, duration: 0.32, ease: "back.out(2.6)", immediateRender: true }, t0);   // (r2) sin la mota del arranque
         for (let k = 0; k < 6; k++) {
           const s = k % 2 ? 1 : -1;
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);

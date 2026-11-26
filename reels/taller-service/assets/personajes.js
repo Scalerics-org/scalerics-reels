@@ -139,7 +139,7 @@ export const ELENCO = {
   // mameluco navy con la franja verde de marca); Maxi, el ayudante (~22, jopo negro, mameluco verde oscuro con franja
   // navy); Sergio, el cliente del embrague (~40, castaño corto, camisa crema y campera navy abierta). El trapo, la grasa
   // y la llave con el llavero verde se agregan en el tres.js del reel.
-  oscar: { nombre: "Óscar", piel: PIEL.trigueña, pelo: PELO.gris, peinado: "texturado", texturaAlto: 0.4, cejasColor: 0x5a5550, cejaGruesa: true,
+  oscar: { nombre: "Óscar", mejillasBajas: true, piel: PIEL.trigueña, pelo: PELO.gris, peinado: "texturado", texturaAlto: 0.4, cejasColor: 0x5a5550, cejaGruesa: true,
     barba: 0x6d6a66, barbaLarga: 0.55, barbaOpacidad: 0.75, barbaBigote: true, bigoteColor: 0x5f5c58,
     camisa: MARCA.navy2, mangas: "largas", cuello: MARCA.navy3, cuelloBotones: false, cuelloAlto: 0.07, franja: MARCA.g,
     pantalon: MARCA.navy2, zapatos: 0x2a2220, panza: 1.12, nariz: 0.064, mejillas: 0xc9785e, alto: 1.02 },
