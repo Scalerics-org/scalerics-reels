@@ -23,6 +23,10 @@ fuente, y no pretende ser la cotización de ningún día.
   decena). 500 × $ 2.530 = $ 1.265.000; − $ 989.000 = **+ $ 276.000** ("500 de 500 ✓").
 - **Margen mínimo 18 %:** $ 1.978 × 1,18 = $ 2.334,04. Descuento −10 %: $ 2.530 × 0,90 = **$ 2.277** (debajo del
   mínimo, rojo). Descuento −5 %: $ 2.530 × 0,95 = $ 2.403,50 → **$ 2.404** (arriba del mínimo, ✓).
+- Las otras filas del panel (mismo margen 28 %, redondeo a la decena): **ventilador de techo** $ 3.900 (julio) → **$ 5.060**;
+  **caloventor** $ 1.290 (julio) → **$ 1.670**. (Al nuevo costo en dólares del caso; son ejemplos de la lista recalculada, sin
+  proforma propia en pantalla.)
+- En la proforma: "Costo puesto c/u **USD 46**" y "antes USD 38" tachado (el costo con el que se armó la lista de julio).
 - "Recalculado solo · **38 productos**": la cantidad de artículos de Casa Pao en la ficción.
 
 ## Lo que se dice del producto (que sea realista)
@@ -59,6 +63,10 @@ Reusados del repo, con el crédito de su origen (ver `reels/tienda-tenes-stock/f
   (el golpe sordo de los 8 huecos), `k-tick-1.wav`, `k-page-turn.wav`, `k-book_place_1.wav`, `k-cloth_1/2.wav`.
 - `pop.mp3`, `whoosh.mp3`, `whoosh-short.mp3`, `click-soft.mp3`, `notification.mp3`, `glitch-1.mp3`, `vibra.wav`, `cero.mp3`,
   `stinger.wav`, `papel.wav`: los de siempre del repo (crédito en `reels/tienda-tenes-stock/fuentes.md`).
+
+- `sfx/interruptor.wav` (el clic del ventilador que se apaga en P6): "switch_002", Kenney (kenney.nl), CC0 1.0 (de reels/tienda-tenes-stock).
+- `sfx/ventilador-baja.wav` (el ventilador que se frena): DERIVADO de `ventilador.wav` ("Electric fan 2", BigSoundBank, CC0), seis tramos
+  de 0,24 s con asetrate 0,95 → 0,36 y volumen que baja, en fila; no es sintetizado.
 
 **Nuevo (CC0):**
 - `sfx/bsb-marcador.wav` (el marcador en el pizarrón: borra el 40, escribe el 43): dos tramos (0,65-1,2 s y 4,15-4,8 s) de

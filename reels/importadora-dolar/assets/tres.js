@@ -108,7 +108,7 @@ const PZ = -3.0, PX0 = -0.2, PX1 = 2.6, PH = 3.3, ALTO = 4.4;
 const MESA = { x: -0.65, z: -1.45, w: 1.3, d: 0.62, y: 0.86 };
 const PAO = { x: -0.62, z: -2.05 };                          // Paola detrás de la mesa de despacho, de frente
 const FAN = { x: 0.3, z: -2.45 };                          // el ventilador de pie de muestra, a la derecha de Paola
-const PIZ = { x: -2.35, y: 1.78, W: 1.1, H: 0.74 };         // el pizarrón en la pared del portón
+const PIZ = { x: -3.05, y: 1.78, W: 1.1, H: 0.74 };         // el pizarrón en la pared del portón
 const COL = { x: 2.9, z: -1.7, w: 0.32 };                 // la columna de hormigón con la lista (parte 1) / la tablet (parte 2)
 const CONT = { x: 1.2, z: -6.0, y: 1.25, W: 2.44, H: 2.59, L: 6.06 };   // el contenedor: el frente de las puertas en z, el piso en y
 const DEP = new THREE.Group(); scene.add(DEP);
@@ -161,13 +161,15 @@ const XL = -4.2, XR = 4.6;
   // zócalo navy a lo largo de la pared del portón
   for (const [a, b] of [[XL, PX0 - 0.2], [PX1 + 0.2, XR]]) DEP.add(caja(b - a, 0.12, 0.03, M.navy3, (a + b) / 2, 0.06, PZ + 0.015, 0.005));
   // la puerta de la oficina en la pared del portón, a la izquierda (abierta hacia adentro de la oficina: un vano oscuro con luz)
-  const PU = { x: -3.35, w: 0.95, h: 2.15 };
-  DEP.add(mesh(new THREE.PlaneGeometry(PU.w, PU.h), mat(0xc9c3a8, 0.9), PU.x, PU.h / 2, PZ + 0.004));
-  for (const s of [-1, 1]) DEP.add(caja(0.08, PU.h + 0.06, 0.08, M.navy, PU.x + s * (PU.w / 2 + 0.03), (PU.h + 0.06) / 2, PZ + 0.03, 0.01));
-  DEP.add(caja(PU.w + 0.22, 0.08, 0.08, M.navy, PU.x, PU.h + 0.06, PZ + 0.03, 0.01));
-  const hoja = caja(0.05, PU.h, PU.w, M.navy3, PU.x - PU.w / 2 - 0.02, PU.h / 2, PZ + PU.w / 2 + 0.04, 0.01); hoja.rotation.y = 0.15; DEP.add(hoja);
+  // (r1) la puerta de la oficina en la pared de la IZQUIERDA (x = XL), para que el pizarrón quede fuera del plano de P4
+  const PU = { w: 0.95, h: 2.15 };
+  const pg = new THREE.Group(); pg.position.set(XL + 0.004, 0, -1.35); pg.rotation.y = Math.PI / 2; DEP.add(pg);
+  pg.add(mesh(new THREE.PlaneGeometry(PU.w, PU.h), mat(0xc9c3a8, 0.9), 0, PU.h / 2, 0));
+  for (const s2 of [-1, 1]) pg.add(caja(0.08, PU.h + 0.06, 0.08, M.navy, s2 * (PU.w / 2 + 0.03), (PU.h + 0.06) / 2, 0.03, 0.01));
+  pg.add(caja(PU.w + 0.22, 0.08, 0.08, M.navy, 0, PU.h + 0.06, 0.03, 0.01));
+  const hoja = caja(0.05, PU.h, PU.w, M.navy3, -PU.w / 2 - 0.02, PU.h / 2, PU.w / 2 + 0.04, 0.01); hoja.rotation.y = 0.15; pg.add(hoja);
   const cartelOf = lienzo(512, 140, (x, w, h) => { x.fillStyle = "#16243d"; x.fillRect(0, 0, w, h); x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "OFICINA", 900, 90, w - 60); x.fillText("OFICINA", w / 2, h / 2 + 4); });
-  DEP.add(plano(0.55, 0.15, cartelOf, PU.x, PU.h + 0.24, PZ + 0.01));
+  pg.add(plano(0.55, 0.15, cartelOf, 0, PU.h + 0.24, 0.01));
 }
 // ---- la estantería de ángulo ranurado navy3 contra la pared, a la derecha del portón: casi vacía ----
 function estanteria(x, z, ry, cajasEn) {
@@ -231,7 +233,7 @@ function corrugado(ancho, alto, paso = 0.26, prof = 0.05) {
   return g;
 }
 const CONTG = new THREE.Group(); CONTG.position.set(CONT.x, 0, CONT.z); PAT.add(CONTG);
-const contM = mat(C.navy2, 0.5), contM2 = mat(0x1b2c4a, 0.5), contIn = mat(0x3d5378, 0.8);
+const contM = mat(C.navy2, 0.5), contM2 = mat(0x1b2c4a, 0.5), contIn = mat(0x4a6290, 0.8);
 let puertas = [], cajasCont, huecosG, numCont;
 {
   const { W, H, L, y } = CONT;
@@ -243,7 +245,7 @@ let puertas = [], cajasCont, huecosG, numCont;
   // adentro: las paredes lisas más claras y el piso de tablas de madera
   for (const s of [-1, 1]) { const p = mesh(new THREE.PlaneGeometry(L - 0.1, H - 0.2), contIn, s * (W / 2 - 0.07), y + H / 2, -L / 2); p.rotation.y = -s * Math.PI / 2; g.add(p); }
   g.add(mesh(new THREE.PlaneGeometry(W - 0.12, H - 0.2), contIn, 0, y + H / 2, -L + 0.08));
-  { const t = mesh(new THREE.PlaneGeometry(W - 0.12, L - 0.1), mat(0x1a2944, 0.8), 0, y + H - 0.08, -L / 2); t.rotation.x = Math.PI / 2; g.add(t); }
+  { const t = mesh(new THREE.PlaneGeometry(W - 0.12, L - 0.1), mat(0x5a6f96, 0.85), 0, y + H - 0.08, -L / 2); t.rotation.x = Math.PI / 2; g.add(t); }   // (r1) techo del interior más claro
   const tablas = lienzo(256, 1024, (x, w, h) => { for (let i = 0; i < 8; i++) { x.fillStyle = i % 2 ? "#a0784e" : "#b08a5e"; x.fillRect(i * 32, 0, 32, h); } x.strokeStyle = "rgba(60,40,20,0.5)"; x.lineWidth = 3; for (let i = 0; i <= 8; i++) { x.beginPath(); x.moveTo(i * 32, 0); x.lineTo(i * 32, h); x.stroke(); } for (let k = 0; k < 10; k++) { x.beginPath(); x.moveTo((k * 37) % w, (k * 211) % h); x.lineTo((k * 37) % w + 32, (k * 211) % h); x.stroke(); } });
   const piso = plano(W - 0.12, L - 0.1, tablas, 0, y + 0.07, -L / 2); piso.rotation.x = -Math.PI / 2; g.add(piso);
   // el marco del frente (postes y travesaños navy, más oscuros) y las esquineras
@@ -375,7 +377,7 @@ function dibujarPiz(t) {
     x.font = CAV(110); x.fillText("despachar", 70, 370); x.fillText("Bazar Graciela", 70, 520);
     x.strokeStyle = "#16243d"; x.lineWidth = 10; x.lineCap = "round"; x.beginPath(); x.moveTo(70, 560); x.lineTo(800, 560); x.stroke();
   } else {
-    x.fillStyle = "#16243d"; x.font = F(900, 150); x.fillText("DÓLAR:", 60, 300);
+    x.fillStyle = "#16243d"; x.font = F(900, 140); x.fillText("DÓLAR:", 100, 300);
     // el 40: se borra de izquierda a derecha (queda una mancha gris); el 43 aparece trazo por trazo
     if (b < 1) { x.save(); x.beginPath(); x.rect(60 + 700 * b, 330, w, 360); x.clip(); x.fillStyle = "#16243d"; x.font = F(900, 300); x.fillText("40", 300, 640); x.restore(); }
     if (b > 0) { x.save(); x.beginPath(); x.rect(250, 330, 700 * b, 360); x.clip(); x.fillStyle = "rgba(120,130,145,0.2)"; for (let i = 0; i < 6; i++) { x.beginPath(); x.ellipse(430 + i * 50, 520 + (i % 2) * 30, 160, 70, 0.2, 0, 7); x.fill(); } x.restore(); }
@@ -383,7 +385,8 @@ function dibujarPiz(t) {
       x.save(); x.beginPath(); x.rect(250, 330, 80 + 560 * e, 360); x.clip();
       x.fillStyle = "#c7655b"; x.font = F(900, 300); x.fillText("43", 300, 640); x.restore();
     }
-    x.fillStyle = "rgba(22,36,61,0.75)"; x.font = CAV(80); x.fillText("julio", 860, 680);
+    if (b < 0.6) { x.fillStyle = "rgba(22,36,61,0.75)"; x.font = CAV(80); x.fillText("julio", 860, 680); }   // (r1) "julio" se va con el 40
+    if (e > 0.6) { x.fillStyle = "rgba(199,101,91,0.95)"; x.font = CAV(96); x.fillText("hoy", 870, 680); }
   }
   pizT.needsUpdate = true;
 }
@@ -397,7 +400,7 @@ const tabColT = pantColT;
   lista = new THREE.Group(); lista.position.set(0, 1.5, COL.w / 2 + 0.004); g.add(lista);
   const hojaL = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.416), new THREE.MeshStandardMaterial({ map: listaT, roughness: 0.85 })); hojaL.rotation.z = -0.03; lista.add(hojaL);
   const cintaM = new THREE.MeshStandardMaterial({ color: 0xd8b98a, roughness: 0.4, transparent: true, opacity: 0.85 });
-  for (const s of [-1, 1]) { const c = new THREE.Mesh(new THREE.PlaneGeometry(0.12, 0.04), cintaM); c.position.set(s * 0.12, 0.2, 0.002); c.rotation.z = s * 0.5; lista.add(c); }
+  for (const s of [-1, 1]) { const c = new THREE.Mesh(new THREE.PlaneGeometry(0.08, 0.032), cintaM); c.position.set(s * 0.15, 0.212, 0.002); c.rotation.z = s * 0.78; lista.add(c); }   // (r1) en las esquinas: no tapan el título
   tabletCol = crearTablet(tabColT, 0.3, 0.2, 0.0); tabletCol.rotation.x = Math.PI / 2 - 0.0; tabletCol.position.set(0, 1.4, COL.w / 2 + 0.012); g.add(tabletCol);
   tabletCol.rotation.set(0, 0, 0); tabletCol.userData.pivote.rotation.x = 0;
   sombras(g);
@@ -409,7 +412,7 @@ function dibujarLista(t) {
   const { x } = listaT.userData, w = 620, h = 860;
   x.fillStyle = "#f7f5ec"; x.fillRect(0, 0, w, h);
   x.textBaseline = "middle"; x.textAlign = "center";
-  x.fillStyle = "#16243d"; ajustar(x, "LISTA DE PRECIOS", 900, 64, w - 60); x.fillText("LISTA DE PRECIOS", w / 2, 90);
+  x.fillStyle = "#16243d"; ajustar(x, "LISTA DE PRECIOS", 900, 60, w - 170); x.fillText("LISTA DE PRECIOS", w / 2, 96);
   x.fillStyle = "#c7655b"; x.font = F(900, 96); x.fillText("JULIO", w / 2, 190);
   x.fillStyle = "#16243d"; x.fillRect(40, 254, w - 80, 8);
   const FIL = [["Ventilador", "de pie 16\"", "$ 1.950"], ["Ventilador", "de techo", "$ 3.900"], ["Caloventor", "", "$ 1.290"]];
@@ -469,16 +472,26 @@ const seba = crearPersonaje({ ...ELENCO.seba, dedos: true, parpadeoCada: 999, pa
   semilla = 17;
   const cab = seba.cabeza;
   for (let i = 0; i < 34; i++) {
-    const a = (az() - 0.5) * 1.7, e = 0.08 + az() * 0.42;
+    const a = (az() - 0.5) * 1.6, e = 0.05 + az() * 0.3;
     const R0 = 0.29, y0 = 0.27;
     const m = mesh(rulo, pm, Math.sin(a) * Math.sin(e) * R0, y0 + Math.cos(e) * R0 + 0.035, Math.cos(a) * Math.sin(e) * R0 * 0.95 - 0.02);
-    m.scale.setScalar(0.028 + az() * 0.012); cab.add(m);
+    m.scale.setScalar(0.022 + az() * 0.01); cab.add(m);
   }
   const ri = new THREE.Group(); seba.cuerpo.add(ri);
   ri.add(caja(0.22, 0.11, 0.08, M.navy, -0.1, 0.2, 0.2, 0.035)); ri.add(caja(0.16, 0.012, 0.01, M.cr3, -0.1, 0.235, 0.242, 0.003));
   const corr = mesh(new THREE.TorusGeometry(0.3, 0.016, 6, 30, Math.PI * 0.62), M.navy, 0.02, 0.42, 0.0); corr.rotation.set(0, 0, -2.0); corr.scale.set(1, 1.15, 0.78); ri.add(corr);
   sombras(ri);
 }
+// (r1) la mano abierta de Paola (P7b/Q7: "pará" sin darse vuelta): cuatro dedos estirados y el pulgar abierto; esconde los
+// nudillos del puño
+const manoAbierta = (() => {
+  const b = paola.brazos[1], g = new THREE.Group(); b.mano.add(g);
+  const pm = mat(ELENCO.paola.piel, 0.55);
+  for (let i = 0; i < 4; i++) { const x = -0.039 + i * 0.026, L = i === 0 || i === 3 ? 0.075 : 0.09; const d = mesh(new THREE.CapsuleGeometry(0.0125, L, 4, 8), pm, x, -0.1 - L / 2, 0.006); d.rotation.z = (i - 1.5) * 0.08; g.add(d); }
+  const pu = mesh(new THREE.CapsuleGeometry(0.013, 0.05, 4, 8), pm, 0.06, -0.06, 0.012); pu.rotation.z = -0.9; g.add(pu);
+  const nud = b.mano.children.slice(-5, -1); g.visible = false;
+  return (on) => { g.visible = on; for (const n of nud) n.visible = !on; };
+})();
 const TODOS = [paola, mica, seba];
 for (const p of TODOS) { scene.add(p.raiz); p.raiz.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = false; } }); }
 // los celulares: el de Seba (funda verde de marca) y la proforma de Mica (hoja A4 en un sobre navy)
@@ -486,7 +499,7 @@ const pantS = lienzo(600, 1215, () => {});
 const celS = crearCelular(pantS, MARCA.navy3, 0.085, 0.172); scene.add(celS);
 const proformaT = lienzo(620, 860, () => {});
 const proforma = new THREE.Group(); scene.add(proforma);
-{ const h = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.416, 6, 1), new THREE.MeshStandardMaterial({ map: proformaT, roughness: 0.85, side: THREE.DoubleSide })); const pos = h.geometry.attributes.position; for (let i = 0; i < pos.count; i++) pos.setZ(i, -0.012 * Math.cos((pos.getX(i) / 0.15) * Math.PI / 2)); h.geometry.computeVertexNormals(); proforma.add(h); const s = caja(0.32, 0.12, 0.006, M.navy3, 0, -0.18, -0.008, 0.004); proforma.add(s); proforma.userData.hoja = h; sombras(proforma); }
+{ const h = new THREE.Mesh(new THREE.PlaneGeometry(0.3, 0.416, 6, 1), new THREE.MeshStandardMaterial({ map: proformaT, roughness: 0.85, side: THREE.DoubleSide })); const pos = h.geometry.attributes.position; for (let i = 0; i < pos.count; i++) pos.setZ(i, -0.012 * Math.cos((pos.getX(i) / 0.15) * Math.PI / 2)); h.geometry.computeVertexNormals(); proforma.add(h); proforma.userData.hoja = h; sombras(proforma); }
 
 // ---- avatares (la cara del personaje 3D renderizada chica en un círculo) ----
 const AVATAR = {};
@@ -585,7 +598,7 @@ function dibujarCelS(t, pa) {
     x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "Ventilador de pie 16\"", 900, 54, w - 90); x.fillText("Ventilador de pie 16\"", w / 2, 664);
     x.font = F(900, 150); x.fillText(pesos(precio), w / 2, 810);
     if (hoy) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(60, 900, w - 120, 120, 60); x.fill(); x.fillStyle = "#0b1220"; ajustar(x, "Precio de hoy ✓", 900, 64, w - 170); x.fillText("Precio de hoy ✓", w / 2, 962); }
-    x.fillStyle = "#1f3254"; ajustar(x, "Actualizado hoy, 9:00", 800, 40, w - 90); x.fillText("Actualizado hoy, 9:00", w / 2, 1080);
+    x.fillStyle = "#1f3254"; ajustar(x, "Actualizado con la proforma nueva", 800, 46, w - 70); x.fillText("Actualizado con la proforma nueva", w / 2, 1080);
     x.textAlign = "left";
   } else {
     // el pedido de Bazar Graciela con el control de descuento
@@ -632,15 +645,19 @@ function dibujarProforma(t) {
   const m = (t >= T.usd && t < P1) || t >= T.mi1b + LEN.mi1 - 0.25 ? 1 : 0;
   const clave = `${m}`; if (clave === claveProf) return; claveProf = clave;
   const { x } = proformaT.userData, w = 620, h = 860;
+  // (r1) "FACTURA PROFORMA", "Costo puesto", "antes USD 38" tachado, el total a la vista (las manos van a los costados)
   x.fillStyle = "#f7f5ec"; x.fillRect(0, 0, w, h);
   x.fillStyle = "#16243d"; x.fillRect(0, 0, w, 150);
-  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 84); x.fillText("PROFORMA", w / 2, 78);
-  x.fillStyle = "#1f3254"; ajustar(x, "Contenedor nuevo", 800, 50, w - 60); x.fillText("Contenedor nuevo", w / 2, 210);
-  x.textAlign = "left"; x.fillStyle = "#0b1220"; x.font = F(900, 58); x.fillText("500 ×", 40, 320); ajustar(x, "Ventilador de pie 16\"", 800, 46, w - 80); x.fillText("Ventilador de pie 16\"", 40, 390);
-  if (m) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(26, 448, w - 52, 150, 22); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 7; x.stroke(); }
-  x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "USD 46 c/u", 900, 104, w - 90); x.fillText("USD 46 c/u", w / 2, 526);
-  x.fillStyle = "#16243d"; x.fillRect(40, 640, w - 80, 6);
-  x.font = F(900, 64); x.fillText("Total USD 23.000", w / 2, 730); x.textAlign = "left";
+  x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "FACTURA PROFORMA", 900, 66, w - 50); x.fillText("FACTURA PROFORMA", w / 2, 78);
+  x.fillStyle = "#1f3254"; ajustar(x, "Contenedor nuevo", 800, 48, w - 60); x.fillText("Contenedor nuevo", w / 2, 196);
+  x.fillStyle = "#0b1220"; ajustar(x, "500 × Ventilador de pie 16\"", 800, 44, w - 60); x.fillText("500 × Ventilador de pie 16\"", w / 2, 262);
+  x.fillStyle = "#1f3254"; x.font = F(800, 46); x.fillText("Costo puesto c/u", w / 2, 336);
+  if (m) { x.fillStyle = "#5ce611"; x.beginPath(); x.roundRect(40, 372, w - 80, 132, 22); x.fill(); x.strokeStyle = "#0b1220"; x.lineWidth = 7; x.stroke(); }
+  x.fillStyle = "#0b1220"; x.font = F(900, 112); x.fillText("USD 46", w / 2, 442);
+  x.fillStyle = "#c7655b"; x.font = F(800, 54); x.fillText("antes USD 38", w / 2, 566);
+  const aw = x.measureText("antes USD 38").width; x.strokeStyle = "#c7655b"; x.lineWidth = 9; x.beginPath(); x.moveTo(w / 2 - aw / 2 - 8, 568); x.lineTo(w / 2 + aw / 2 + 8, 560); x.stroke();
+  x.fillStyle = "#16243d"; x.fillRect(40, 636, w - 80, 6);
+  x.fillStyle = "#0b1220"; ajustar(x, "Total USD 23.000", 900, 66, w - 70); x.fillText("Total USD 23.000", w / 2, 712); x.textAlign = "left";
   proformaT.needsUpdate = true;
 }
 // ---- la tablet de Paola (parte 2): el panel de precios que recalcula solo ----
@@ -654,16 +671,16 @@ function dibujarTab(t) {
   x.fillStyle = "#efeee5"; x.font = F(900, 76); x.fillText("Precios · Casa Pao", 40, 68);
   // (pasada 1) poco texto y grande: la fila del ventilador (costo de la proforma, dólar, margen) y el precio de hoy
   x.fillStyle = "#0b1220"; ajustar(x, "Ventilador de pie 16\"", 900, 78, w - 80); x.fillText("Ventilador de pie 16\"", 40, 196);
-  const celda = (bx, by, bw, l, v, verde) => { x.fillStyle = verde ? "#5ce611" : "#ffffff"; x.beginPath(); x.roundRect(bx, by, bw, 190, 28); x.fill(); x.fillStyle = "#1f3254"; x.font = F(800, 54); x.fillText(l, bx + 26, by + 50); x.fillStyle = "#0b1220"; ajustar(x, v, 900, 92, bw - 40); x.fillText(v, bx + 26, by + 132); };
-  celda(24, 250, 500, "Costo", ok ? "USD 46 ✓" : "USD 46", ok);
+  const celda = (bx, by, bw, l, v, verde) => { x.fillStyle = verde ? "#5ce611" : "#ffffff"; x.beginPath(); x.roundRect(bx, by, bw, 190, 28); x.fill(); x.fillStyle = "#1f3254"; x.font = F(800, 62); x.fillText(l, bx + 26, by + 50); x.fillStyle = "#0b1220"; ajustar(x, v, 900, 92, bw - 40); x.fillText(v, bx + 26, by + 132); };
+  celda(24, 250, 500, "Costo puesto", ok ? "USD 46 ✓" : "USD 46", ok);
   celda(544, 250, 340, "Dólar", "43", false);
   celda(904, 250, 352, "Margen", "28 %", false);
   x.fillStyle = f >= 1 ? "#5ce611" : "#ffffff"; x.beginPath(); x.roundRect(24, 462, w - 48, 200, 28); x.fill();
-  x.fillStyle = "#1f3254"; x.font = F(800, 56); x.fillText("Precio de hoy", 52, 516);
+  x.fillStyle = "#1f3254"; x.font = F(800, 64); x.fillText("Precio de hoy", 52, 516);
   x.fillStyle = "#0b1220"; x.textAlign = "right"; x.font = F(900, 120); x.fillText(f >= 1 ? "$ 2.530 ✓" : "$ 2.530", w - 52, 590); x.textAlign = "left";
-  const otros = f >= 3 ? "Techo $ 5.060 ✓ · Calo $ 1.670 ✓" : f >= 2 ? "Techo $ 5.060 ✓ · Calo $ 1.670" : "Techo $ 5.060 · Calo $ 1.670";
-  x.fillStyle = f >= 2 ? "#3fa60a" : "#0b1220"; ajustar(x, otros, 800, 58, w - 80); x.fillText(otros, 40, 724);
-  if (banda) { x.fillStyle = "#5ce611"; x.fillRect(0, h - 96, w, 96); x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "Recalculado solo · 38 productos", 900, 66, w - 60); x.fillText("Recalculado solo · 38 productos", w / 2, h - 46); x.textAlign = "left"; }
+  const otros = f >= 3 ? "Techo $ 5.060 ✓ · Caloventor $ 1.670 ✓" : f >= 2 ? "Techo $ 5.060 ✓ · Caloventor $ 1.670" : "Techo $ 5.060 · Caloventor $ 1.670";
+  x.fillStyle = f >= 2 ? "#3fa60a" : "#0b1220"; ajustar(x, otros, 800, 64, w - 60); x.fillText(otros, 30, 716);
+  if (banda) { x.fillStyle = "#5ce611"; x.fillRect(0, h - 104, w, 104); x.fillStyle = "#0b1220"; x.textAlign = "center"; ajustar(x, "Recalculado solo · 38 productos", 900, 80, w - 50); x.fillText("Recalculado solo · 38 productos", w / 2, h - 50); x.textAlign = "left"; }
   pantTabT.needsUpdate = true;
 }
 // la tablet de la columna (parte 2): el catálogo con el precio de hoy
@@ -753,7 +770,7 @@ function ponerGlobo(g, cx, cy, s, objetivo, orden = 0) {
   const k = halfK();
   const { W: Wg, H, cola } = g.userData;
   cx = Wg + 120 > 1080 ? 540 : cl(cx, Wg / 2 + 50, 1030 - Wg / 2);
-  cy = cl(cy, H / 2 + 60, 1860 - H / 2);
+  cy = cl(cy, H / 2 + 60, 1650 - H / 2);   // (r1) zona segura: el borde de abajo de toda tarjeta en y ≤ 1650
   g.position.set((cx - 540) * k, (960 - cy) * k, -1);
   g.scale.set(k * PXK * s, k * PXK * s, k * PXK * s);
   g.traverse((o) => { if (o.isMesh) o.renderOrder = 40 + orden * 6 + (o.userData.orden || 0); });
@@ -814,11 +831,11 @@ const GL = {
   pa6: pa6g, pa6a,
 };
 const ROT_ = {
-  cobramos: crearRotulo([["Cobramos:", null, 50], ["500 × 1.950 = 975.000", "#efeee5", 56]], 50),
-  reponer: crearRotulo([["Reponer:", null, 50], ["989.000", "#c7655b", 64]], 50),
+  cobramos: crearRotulo([["$ 975.000 cobrados", "#efeee5", 64], ["500 × $ 1.950", null, 48]], 48),
+  reponer: crearRotulo([["$ 989.000", "#c7655b", 72], ["para reponer", null, 52]], 52),
   n492: crearRotulo([["492 de 500", "#c7655b", 96]], 96),
   trae: crearRotulo([["Con lo que cobramos,", null, 52], ["traemos 492", "#c7655b", 64]], 52),
-  menos: crearRotulo([["− $ 14.000", "#c7655b", 84]], 84),
+  menos: crearRotulo([["− $ 14.000", "#c7655b", 80], ["para reponer", null, 50]], 50),
   q3: crearRotulo([["El vendedor ve", null, 54], ["el precio de hoy", "#5ce611", 64]], 54),
   q4: crearRotulo([["Cambia el dólar o el costo:", null, 46], ["la lista se recalcula sola", "#5ce611", 56]], 46),
   n500: crearRotulo([["500 de 500 ✓", "#5ce611", 96]], 96),
@@ -864,14 +881,14 @@ function camPantalla(obj, centroLocal, normalLocal, alto, llena, fov, t, extra =
 const CAM_P1 = (k) => [lerp(0.08, 0.12, k), 1.66, lerp(2.75, 2.45, k), 0.32, 1.25, -2.6, 58];
 const CAM_P2 = (k) => [lerp(-0.42, -0.45, k), 1.5, lerp(0.6, 0.45, k), -0.38, 1.4, PAO.z, 46];
 const CAM_P3 = (k) => [lerp(2.35, 2.9, k), lerp(1.5, 1.42, k), lerp(1.2, -0.72, k), lerp(2.45, 2.9, k), lerp(1.4, 1.42, k), COL.z, lerp(54, 44, k)];
-const CAM_P4 = (k) => [lerp(-1.55, -1.62, k), 1.52, lerp(0.9, 0.7, k), -1.62, 1.35, -1.85, 50];
+const CAM_P4 = (k) => [lerp(-1.3, -1.32, k), 1.52, lerp(0.95, 0.75, k), -1.2, 1.35, -1.85, 50];
 const CAM_P6 = (k) => [lerp(-0.4, -0.42, k), 1.5, lerp(0.3, 0.12, k), -0.36, 1.42, PAO.z, 44];
 const CAM_P7A = (k) => [lerp(1.0, 0.98, k), 1.5, lerp(0.5, 0.3, k), 1.02, 1.4, -2.6, 54];
 const CAM_P7B = (k) => [lerp(0.0, 0.02, k), 1.78, lerp(1.55, 1.4, k), 0.9, 1.5, -4.0, 60];
-const CAM_C = (k) => [lerp(1.02, 1.0, k), 1.5, lerp(0.62, 0.5, k), 0.97, 1.24, -1.3, 52];
+const CAM_C = (k) => [lerp(1.02, 1.0, k), 1.42, lerp(0.66, 0.54, k), 0.97, 1.1, -1.3, 52];
 // P5/Q5: el contenedor de frente, a la altura de su centro (llena el ancho)
 const CAM_CONT = (k) => [CONT.x, CONT.y + CONT.H / 2 + 0.15, lerp(-1.9, -2.2, k), CONT.x, CONT.y + CONT.H / 2 - 0.05, CONT.z - 1, 52];
-const CAM_PIZ = (k) => [lerp(-2.05, -2.08, k), 1.72, lerp(-0.55, -0.7, k), PIZ.x - 0.14, PIZ.y - 0.1, PZ, 50];
+const CAM_PIZ = (k) => [lerp(-2.55, -2.6, k), 1.74, lerp(-0.45, -0.6, k), PIZ.x + 0.08, PIZ.y - 0.1, PZ, 52];
 const CAM_CALC2 = [MESA.x - 0.44, 1.46, -1.0, MESA.x - 0.47, MESA.y + 0.1, MESA.z - 0.1, 50];
 const CAM_CALC = [MESA.x - 0.44, 1.52, -0.95, MESA.x - 0.47, MESA.y + 0.1, MESA.z - 0.1, 50];
 const PLANOS = [
@@ -879,14 +896,15 @@ const PLANOS = [
   ["P2", T.p2, [[T.p2, ...CAM_P2(0)], [T.p3, ...CAM_P2(1)]]],
   ["P3", T.p3, [[T.p3, ...CAM_P3(0)], [T.resalta - 0.1, ...CAM_P3(0.08)], [T.resalta + 0.35, ...CAM_P3(0.92)], [T.p4, ...CAM_P3(1)]]],
   ["P4", T.p4, null],   // Mica con la proforma; push-in a la hoja
-  ["P5", T.p5, [[T.p5, ...CAM_PIZ(0)], [T.calc - 0.08, ...CAM_PIZ(1)], [T.calc + 0.12, ...CAM_CALC], [T.viaja, ...CAM_CALC2]]],
-  ["P5c", T.viaja, [[T.viaja, ...CAM_CALC2], [T.viaja + 0.14, 0.6, 1.9, -1.25, 1.1, 2.1, -6.0, 52], [T.llena - 0.02, ...CAM_CONT(0)], [T.p6, ...CAM_CONT(1)]]],
+  // (r1) cortes secos en vez de paneos que cruzaban la pared lisa: el pizarrón · la calculadora · el contenedor
+  ["P5", T.p5, [[T.p5, ...CAM_PIZ(0)], [T.calc, ...CAM_PIZ(1)]]],
+  ["P5b", T.calc, [[T.calc, ...CAM_CALC], [T.viaja, ...CAM_CALC2]]],
+  ["P5c", T.viaja, [[T.viaja, CONT.x, CONT.y + CONT.H / 2 + 0.25, -0.9, CONT.x, CONT.y + CONT.H / 2, CONT.z - 1, 52], [T.llena - 0.02, ...CAM_CONT(0)], [T.p6, ...CAM_CONT(1)]]],
   ["P6", T.p6, [[T.p6, ...CAM_P6(0)], [T.p7, ...CAM_P6(1)]]],
   ["P7a", T.p7, [[T.p7, ...CAM_P7A(0)], [T.p7b, ...CAM_P7A(1)]]],
   ["P7b", T.p7b, [[T.p7b, ...CAM_P7B(0)], [P1, ...CAM_P7B(1)]]],
   // ---- parte 2 ----
-  ["Q1", T.q1, [[T.q1, ...CAM_P1(0)], [T.q2, ...CAM_P1(1)]]],
-  ["Q2", T.q2, [[T.q2, ...CAM_P2(0)], [T.q3, ...CAM_P2(1)]]],
+  ["Q1", T.q1, [[T.q1, ...CAM_P1(0)], [T.q3, ...CAM_P1(1)]]],
   ["Q3", T.q3, null],    // el celular de Seba a pantalla llena
   ["Q4", T.q4, null],    // = P4
   ["Q4b", T.q4b, null],  // la tablet de Paola
@@ -944,7 +962,7 @@ function posePaola(t, pa, cp) {
     if (t >= T.usd && pa === "P4") { pr.cejas = { alto: 0.55, ang: 0.4 }; pr.boca = { sonrisa: -0.05, abierta: 0, ancho: 0.9 }; pr.ojos.feliz = 0; }
   } else if (pa === "P5") {
     // en el pizarrón: de costado, el brazo derecho al número (borra con el canto de la mano, escribe con el marcador)
-    pr.x = -2.88; pr.z = PZ + 0.5; pr.giro = 2.85;
+    pr.x = PIZ.x - 0.68; pr.z = PZ + 0.5; pr.giro = 2.75;
     Object.assign(pr, SECO, { ojos: { x: 0.2, y: 0.2, abiertos: 0.85, tension: 0.1 } });
     pr.cabeza = { giro: 0.25, asiente: -0.05, ladea: 0.02 };
   } else if (pa === "P6") {
@@ -1024,12 +1042,12 @@ function poseSeba(t, pa, cp) {
   return pr;
 }
 // ---------- Mica ----------
-const MIC_A = { x: -3.35, z: -2.75 }, MIC_B = { x: -1.7, z: -1.6 };
+const MIC_A = { x: -3.9, z: -1.35 }, MIC_B = { x: -1.7, z: -1.6 };
 function poseMica(t, pa, cp) {
   const t0 = pa === "P4" ? T.p4 : T.q4;
   const u = eo(sg(t, t0 - 0.5, t0 + 0.35));
   const pr = { x: lerp(MIC_A.x, MIC_B.x, u), y: 0, z: lerp(MIC_A.z, MIC_B.z, u), giro: 0, inclina: 0.03, cabeza: { giro: 0, asiente: 0.04, ladea: 0.02 }, ...CARA.neutra, ojos: { x: 0, y: 0, abiertos: 0.95, feliz: 0 }, cejas: { alto: 0.15, ang: 0.15 }, boca: { sonrisa: 0.05, abierta: 0, ancho: 0.95 }, manoI: [0.12, 0.42, 0.36], manoD: [-0.12, 0.42, 0.36], codoI: [1, -0.6, -0.2], codoD: [-1, -0.6, -0.2], dedoI: 0, dedoD: 0, paso: u < 0.97 ? 1 : 0, t };
-  pr.giro = lerp(Math.atan2(MIC_B.x - MIC_A.x, MIC_B.z - MIC_A.z), 0.55, eio(sg(u, 0.6, 1)));
+  pr.giro = lerp(Math.atan2(MIC_B.x - MIC_A.x, MIC_B.z - MIC_A.z), 0.35, eio(sg(u, 0.6, 1)));
   const m = mirar(pr.x, pr.z, pr.giro, V3(PAO.x, 1.5, PAO.z), 1.45);
   pr.cabeza = { giro: m.cabeza.giro * 0.5 + haciaCam(cp, pr.x, pr.z, pr.giro, 0.4), asiente: 0.02, ladea: 0.02 }; pr.ojos.x = m.ojos.x * 0.6;
   if (pa === "Q4") { pr.boca = { sonrisa: 0.35, abierta: 0, ancho: 1 }; pr.ojos.feliz = 0.2; }
@@ -1071,8 +1089,9 @@ function renderAt(tIn) {
   // ---- personajes ----
   for (const p of TODOS) p.raiz.visible = false;
   celS.visible = false; proforma.visible = false; marcador.visible = false;
-  const conPao = !["P3", "Q3", "Q6b", "P7a", "Q6"].includes(pa) && !((pa === "P5" && t >= T.calc + 0.2) || pa === "P5c");
+  const conPao = !["P3", "Q3", "Q6b", "P7a", "Q6"].includes(pa) && !(pa === "P5b" || pa === "P5c");
   if (conPao) { paola.raiz.visible = true; paola.poner(posePaola(tt, pa, cp)); }
+  manoAbierta(pa === "P7b" || pa === "Q7");
   const conSeba = ["P1", "Q1", "P2", "Q2", "P3", "P7a", "Q6", "P7b", "Q7"].includes(pa);
   if (conSeba) { seba.raiz.visible = true; seba.poner(poseSeba(tt, pa, cp)); seba.raiz.updateMatrixWorld(true); }
   if (conPao && (pa === "P1" || pa === "Q1")) paola.poner(posePaola(tt, pa, cp));   // (mira a Seba ya ubicado)
@@ -1087,10 +1106,10 @@ function renderAt(tIn) {
       const ti = pa === "P7a" ? T.p7 : T.q6, u = eo(sg(t, ti + 0.25, ti + 0.6));
       celS.scale.setScalar(lerp(1.3, 3.3, u));
       celEnMano(celS, seba, camP, V3(lerp(-0.26, -0.1, u), lerp(0.66, 0.44, u), lerp(0.3, 0.5, u)), -0.04);
-      ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0, -0.07, -0.01))); ps.codoD = [-1, -0.5, -0.2]; seba.poner(ps);
+      ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0.012, -0.1, -0.012))); ps.codoD = [-1, -0.5, -0.2]; seba.poner(ps);   // (r1) la mano agarra el borde de abajo, no tapa la pantalla
     } else if (pa === "P3" || pa === "P7b" || pa === "Q7") {
       celS.scale.setScalar(1.15); celEnMano(celS, seba, camP, V3(-0.1, 0.4, 0.3), 0);
-      ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0, -0.07, -0.01))); seba.poner(ps);
+      ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0.0, -0.1, -0.012))); seba.poner(ps);
     } else {
       celS.scale.setScalar(1.3); celEnMano(celS, seba, camP, V3(-0.52, 0.96, 0.08), -0.2);
       ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0, -0.075, -0.01))); ps.codoD = [-1, -0.3, -0.1]; seba.poner(ps);
@@ -1104,7 +1123,7 @@ function renderAt(tIn) {
     const p = mica.cuerpo.localToWorld(V3(0.0, 0.5, 0.36));
     proforma.position.copy(p); proforma.lookAt(camP); proforma.rotateX(-0.12);
     proforma.updateMatrixWorld(true);
-    pm.manoI = aCuerpo(mica, proforma.localToWorld(V3(0.17, -0.19, -0.015))); pm.manoD = aCuerpo(mica, proforma.localToWorld(V3(-0.17, -0.19, -0.015)));
+    pm.manoI = aCuerpo(mica, proforma.localToWorld(V3(0.12, -0.235, -0.02))); pm.manoD = aCuerpo(mica, proforma.localToWorld(V3(-0.12, -0.235, -0.02)));   // (r1) las manos a los costados: el total queda a la vista
     mica.poner(pm);
   }
   // Paola en el pizarrón (P5): la mano derecha borra (canto de la mano) y escribe con el marcador
@@ -1141,7 +1160,7 @@ function renderAt(tIn) {
     celS.visible = true; celS.scale.setScalar(1.2); celEnMano(celS, seba, V3(1.3, 1.5, 0.6), V3(-0.08, 0.42, 0.34), 0);
     celS.updateMatrixWorld(true);
     const ti = pa === "Q3" ? T.q3 : T.q6b;
-    camPantalla(celS, V3(0, 0.0, 0.0075), V3(0, 0, 1), 0.172 * 1.2, 0.68, 38, t, 0.03 * (1 - eo(sg(t, ti, ti + 0.4))));
+    camPantalla(celS, V3(0, 0.0, 0.0075), V3(0, 0, 1), 0.172 * 1.2, 0.52, 38, t, 0.03 * (1 - eo(sg(t, ti, ti + 0.4))));
     ps.manoD = aCuerpo(seba, celS.localToWorld(V3(0.02, -0.075, -0.01))); seba.poner(ps);
     seba.raiz.visible = false;
   }
@@ -1149,7 +1168,7 @@ function renderAt(tIn) {
     // la tablet de Paola en la mesa, de frente; Paola detrás sin levantar la vista
     tabletMesa.updateMatrixWorld(true);
     const piv = tabletMesa.userData.pivote, [W, H] = tabletMesa.userData.tam;
-    camPantalla(piv, V3(0, H / 2 - 0.01, 0.0065), V3(0, 0, 1), H, 0.33, 40, t, 0.06 * (1 - eo(sg(t, T.q4b, T.q4b + 0.5))));
+    camPantalla(piv, V3(0, H / 2 - 0.01, 0.0065), V3(0, 0, 1), H, 0.36, 40, t, 0.06 * (1 - eo(sg(t, T.q4b, T.q4b + 0.5))));
     void W; paola.raiz.visible = false;
   }
   if (window.__cam) ponerCam(window.__cam, t, true);
@@ -1174,38 +1193,39 @@ function renderAt(tIn) {
     if (pa === "Q1") di("s1b", seba, T.s1b, T.q2, 1, 0, 250);
     if (pa === "P2") di("pa1", paola, T.pa1, T.p3, 1, 60, 250);
     if (pa === "Q2") di("pa1b", paola, T.pa1b, T.q3, 1, 60, 250);
-    if (pa === "P3" && t >= T.s2 - 0.04) { const [g, e] = fase("s2", T.s2); const [bx] = enPantalla(bocaW(seba)); if (bx > 80 && t < T.resalta) hablar(g, seba, e, 1, 60, 250); else fija(g, e, 540, 1800, null); }
-    if (pa === "P4") { const k = sg(t, T.mi1, T.mi1 + LEN.mi1 * 0.45); if (k < 1) di("mi1", mica, T.mi1, T.p5, 1, 80, 250); else fija(GL.mi1, 1, 540, 1860, null); }
+    if (pa === "P3" && t >= T.s2 - 0.04) { const [g, e] = fase("s2", T.s2); const [bx] = enPantalla(bocaW(seba)); if (bx > 80 && t < T.resalta) hablar(g, seba, e, 1, 60, 250); else fija(g, e, 540, 1650, null); }
+    if (pa === "P4") { const k = sg(t, T.mi1, T.mi1 + LEN.mi1 * 0.45); if (k < 1) di("mi1", mica, T.mi1, T.p5, 1, 80, 250); else fija(GL.mi1, 1, 540, 1650, null); }
     if (pa === "Q4") di("mi1b", mica, T.mi1b, T.q4b, 1, 80, 250);
-    if (pa === "P5" || pa === "P5c") {
-      if (t >= T.cobramos && t < T.viaja + 0.1) { rot("reponer", T.igualC + 0.02, 330, 99, 540); rot("cobramos", T.cobramos, 1640); }
+    if (pa === "P5" || pa === "P5b" || pa === "P5c") {
+      if (t >= T.igualC && t < T.viaja) { rot("reponer", T.igualC + 0.02, 330, 99, 540); rot("cobramos", T.cobramos, 1650); }
       if (t >= T.huecos) rot("n492", T.huecos, 300);
-      if (t >= T.trae) rot("trae", T.trae, 1660);
+      if (t >= T.trae) rot("trae", T.trae, 1650);
     }
     if (pa === "P6") {
       if (t >= T.pa2 - 0.04) { const [g, e] = fase("pa2", T.pa2); fija(g, e, 540, BUR6, enPantalla(bocaW(paola))); }
-      rot("menos", T.menos, 1700);
+      rot("menos", T.menos, 1650); ponerGlobo(ROT_.n492, 540, 300, 1, null, 3);   // (r1) "492 de 500" sigue en P6
     }
     if (pa === "P7a") di("s3", seba, T.s3, T.p7b, 1, 0, 250);
+    if (pa === "P7b") ponerGlobo(ROT_.n492, 540, 270, 1, null, 3);   // (r1) el contenedor sigue con los huecos
     if (pa === "P7b" && t >= T.pa3 - 0.04) {
       const c1 = T.pa3 + CORTE.pa3a, c2 = T.pa3 + CORTE.pa3;
       const g = t < c1 ? GL.pa3x : t < c2 ? GL.pa3a : GL.pa3, e = t < c1 ? ent(T.pa3 - 0.04) : t < c2 ? 0.75 + 0.25 * bk(sg(t, c1, c1 + 0.18)) : 0.75 + 0.25 * bk(sg(t, c2, c2 + 0.18));
       fija(g, e, BUR7[0], BUR7[1], enPantalla(bocaW(paola)));
     }
-    if (pa === "Q3") { if (t >= T.s4 - 0.04) ponerGlobo(GL.s4, 540, 120 + GL.s4.userData.H / 2 + 30, ent(T.s4 - 0.04), null, 1); rot("q3", T.rotQ3, 1770); }
-    if (pa === "Q4b") { if (t >= T.pa4 - 0.04) ponerGlobo(GL.pa4, 540, 330, ent(T.pa4 - 0.04), null, 1); rot("q4", T.rotQ4, 1700); }
+    if (pa === "Q3") { if (t >= T.s4 - 0.04) ponerGlobo(GL.s4, 540, 120 + GL.s4.userData.H / 2 + 30, ent(T.s4 - 0.04), null, 1); rot("q3", T.rotQ3, 1650); }
+    if (pa === "Q4b") { if (t >= T.pa4 - 0.04) ponerGlobo(GL.pa4, 540, 330, ent(T.pa4 - 0.04), null, 1); rot("q4", T.rotQ4, 1650); }
     if (pa === "Q5") {
       if (t >= T.pa5 - 0.04) { const [g, e] = fase("pa5", T.pa5); fija(g, e, 540, BUR6, null); }
       if (t >= T.ok5 - 99 && t >= T.ok500) rot("n500", T.ok500, 300);
-      if (t >= T.mas) rot("mas", T.mas, 1700);
+      if (t >= T.mas) rot("mas", T.mas, 1650);
     }
     if (pa === "Q6") di2("s5", seba, T.s5, T.q6b, 1, 0, 250);
-    if (pa === "Q6b") { if (t >= T.s6 - 0.04) ponerGlobo(GL.s6, 540, 120 + GL.s6.userData.H / 2 + 30, ent(T.s6 - 0.04), null, 1); rot("q6", T.rotQ6, 1770); }
+    if (pa === "Q6b") { if (t >= T.s6 - 0.04) ponerGlobo(GL.s6, 540, 120 + GL.s6.userData.H / 2 + 30, ent(T.s6 - 0.04), null, 1); rot("q6", T.rotQ6, 1650); }
     if (pa === "Q7" && t >= T.pa6 - 0.04) { const [g, e] = fase("pa6", T.pa6); fija(g, e, BUR7[0], BUR7[1], enPantalla(bocaW(paola))); }
   }
   renderer.render(scene, camera);
 }
-const BUR6 = 640, BUR7 = [560, 600];   // dónde van las burbujas fijas (el borde de abajo)
+const BUR6 = 640, BUR7 = [560, 660];   // dónde van las burbujas fijas (el borde de abajo)
 window.__tresRender = renderAt;
 window.addEventListener("hf-seek", (e) => renderAt(e.detail.time));
 window.__tresDbg = (t) => { renderAt(t); return { plano: planoActual, avisos: AVISOS.slice(), cam: camera.position.toArray().map((v) => +v.toFixed(2)) }; };

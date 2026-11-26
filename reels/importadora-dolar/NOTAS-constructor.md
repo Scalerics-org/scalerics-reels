@@ -113,3 +113,47 @@ asomaba la boca de Mica y la burbuja tapaba "PROFORMA" → la cámara mira más 
 - P6: el ventilador que se frena se ve chico a la derecha de Paola; el gesto de la cabeza que baja es sutil.
 - Los puños de Mica en el inserto de la proforma (las manos del módulo son puños).
 - Render final no hecho (lo hace el coordinador con paso10.sh).
+
+## Ronda 1 de corrección (revisores de guion, sonido y arte) · sin render
+**44,83 s.** Parte 1 0-20,5 · cartel 20,5-22,59 · parte 2 + cierre 22,59-44,83 = 22,24 s (49,6 %) · cierre C 41,83-44,83 (tarjeta
+PRECIOS desde 42,18, línea chica desde 42,93 = 1,9 s). `check --json`: 0 errores.
+Planos (s): P1 0 · P2 2,1 · P3 3,8 · P4 5,62 · P5 7,96 (pizarrón) · P5b 8,76 (calculadora) · P5c 10,38 (contenedor) · P6 11,72 ·
+P7a 14,94 · P7b 17,21 · cartel 20,5 · Q1 22,59 · Q3 24,78 · Q4 27,23 · Q4b 29,08 · Q5 31,08 · Q6 34,31 · Q6b 37,2 · Q7 39,2 · C 41,83.
+Mezcla (`MEDIR=1 node gen.mjs`): mediana voz-resto **19,8 LU** (medir.py ahora la imprime), mínimo +15,2 LU en tramos con voz;
+huecos sin voz máx **-31,4 LUFS** (medir-sfx.py); -14,0 LUFS, pico -3,3 dBFS. La mezcla con MEDIR se ancla con anullsrc (amix
+sin entrada en t = 0 daba silencio); `STEMS=1` además separa cama y efectos.
+
+Guion:
+- Montaje P5 alargado (3,0 → 3,76 s) y con CORTES secos (P5 pizarrón · P5b calculadora · P5c contenedor) en vez de paneos por la
+  pared: "$ 989.000 para reponer" arriba y "$ 975.000 cobrados / 500 × $ 1.950" abajo, juntos 1,62 s (8,76-10,38).
+- El contenedor queda con las 492 y los 8 huecos: "492 de 500" sigue arriba en P6 (con "− $ 14.000 / para reponer") y en P7b.
+- Proforma: "FACTURA PROFORMA", "Costo puesto c/u USD 46", "antes USD 38" tachado en rojo apagado, "Total USD 23.000" a la vista
+  (Mica la agarra del borde de abajo; sin el sobre navy). Panel: "Costo puesto", "Caloventor $ 1.670".
+- Pizarrón: "julio" se borra con el 40 y con el 43 aparece "hoy" en rojo apagado. Celular de Q3: "Actualizado con la proforma
+  nueva". fuentes.md: techo 3.900 → 5.060 y caloventor 1.290 → 1.670; costo puesto y "antes USD 38".
+- Sin Q2 (la repetición de "¡Vamos! ¿A cuánto?"): Q1 corta directo al celular ("Al de hoy."). Q4b entra durante "contenedor nuevo".
+Sonido:
+- Cama: CAMA = +11 dB sobre su techo para música, patio y ventilador, duck de voz 0,2 (era 0,6), compresor del bus ratio 1,5, y en
+  los tramos SIN voz la cama baja (HUECO_K 0,7, rampa 0,12 s) para que los huecos queden ≤ -31 con los efectos adelante.
+- "Debajo del margen mínimo": glitch grave (asetrate 0,7) a -36; "− $ 14.000": glitch grave a -38 cuando termina "plata" (el rótulo
+  entra ahí y P7a arranca 0,3 s después); pop de "USD 46" a -37; ding/chapa/pops del montaje +4 dB.
+- Voces: pa4 = 13-paola-c; mi1 con adeclip (pico -2 dBFS, sin clipping); pausa de pa2 y pa5 0,52 s; s2/s3/s4/mi1/pa7 algo más
+  rápidas; pausas de pa3 0,30/0,33 s. (Opcional 22, la coma de pa6: no; la toma 17-f no tiene silencio entre "Vendé" y "Seba".)
+- Música alegre de vuelta en P7a hasta "Dejá de vender." (corte seco, después el stinger); acentos graves (cero.mp3 a 0,6) en "Y
+  ganamos plata." y en el "Vendé." final, y la música sube hasta el cierre.
+- El ventilador: clic (interruptor.wav, Kenney) en T.frena y la bajada de velocidad (ventilador-baja.wav, derivado de la grabación
+  real), 0,34 s solos antes de "Vendimos todo.".
+- Pop suave (-41) en la entrada de cada burbuja y de la segunda mitad de los remates.
+Arte:
+- Zona segura: toda tarjeta (rótulos y burbujas fijas) con el borde de abajo en y ≤ 1650 (ponerGlobo lo fuerza). Cierre: tarjeta
+  PRECIOS desde y 940 y la línea chica desde y 1450 (su borde de abajo ≈ 1656); la cara de Paola arriba de la tarjeta.
+- Q3/Q6b: el celular al 52 % del alto (la burbuja de arriba ya no tapa el encabezado; el rótulo de abajo no lo pisa).
+- Lista: cintas chicas en las esquinas, título más angosto. Q4b: fuentes del panel ≥ 62 px de lienzo, "Recalculado solo · 38
+  productos" a 80, push-in 0,33 → 0,36.
+- La puerta de la oficina pasó a la pared izquierda y el pizarrón más a la izquierda (x -3,05): P4 ya no lo corta; Mica gira más a
+  cámara (se le ven los dos ojos). P5: el pizarrón entero ("DÓLAR:" con margen), Paola a su izquierda sin tapar el 40.
+- Interior del contenedor más claro (paredes 0x4a6290, techo 0x5a6f96).
+- Paola levanta la mano ABIERTA en P7b/Q7 (dedos y pulgar abiertos, sin los nudillos del puño). La mano de Seba agarra el borde de
+  abajo del celular (no tapa la pantalla). Rulitos de Seba más chicos y solo arriba.
+- Cartel: el texto se va con el iris (sin cuadros verdes vacíos) y el iris abre antes (0,4 s) sobre Seba (660, 1000).
+Snapshots: renders/snap/r1a (31 cuadros de cada tramo tocado), r1b (proforma, pizarrón, P7b, Q6b, cierre); prev en renders/prev/r1.

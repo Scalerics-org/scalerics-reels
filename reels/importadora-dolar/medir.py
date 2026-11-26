@@ -8,15 +8,15 @@ def mom(f):
     return [(float(a), float(b)) for a, b in re.findall(r"t:\s*([\d.]+)\s+TARGET.*?M:\s*(-?[\d.]+)", out)]
 V, R = mom("assets/audio/stem-voz.wav"), mom("assets/audio/stem-resto.wav")
 Rd = dict((round(t, 1), m) for t, m in R)
-peor = 99; malos = []; peor2 = 99
+peor = 99; malos = []; peor2 = 99; ds = []
 t = 0.0
 while t < V[-1][0]:
     xs = [(m, tt) for tt, m in V if t <= tt < t + 0.5]
     if xs:
         v, tv = max(xs)
         if v > -30:   # (r2) voz hablando (las colas de -35 a -40 LUFS no son habla)
-            r = Rd.get(round(tv, 1), -99); d = v - r; peor = min(peor, d)
+            r = Rd.get(round(tv, 1), -99); d = v - r; peor = min(peor, d); ds.append(d)
             if d < 6: malos.append(f"{t:.1f}s voz {v:.1f} resto {r:.1f} ({d:+.1f})")
             r2 = max([m for tt, m in R if t <= tt < t + 0.5] or [-99]); peor2 = min(peor2, v - r2)
     t += 0.5
-print("mínimo voz-resto (ventanas pareadas) en tramos con voz:", round(peor, 1), "· criterio viejo (máximos del tramo):", round(peor2, 1)); print("\n".join(malos))
+import statistics; print("mediana voz-resto:", round(statistics.median(ds), 1)); print("mínimo voz-resto (ventanas pareadas) en tramos con voz:", round(peor, 1), "· criterio viejo (máximos del tramo):", round(peor2, 1)); print("\n".join(malos))
