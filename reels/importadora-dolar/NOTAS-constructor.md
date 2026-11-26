@@ -157,3 +157,35 @@ Arte:
   abajo del celular (no tapa la pantalla). Rulitos de Seba más chicos y solo arriba.
 - Cartel: el texto se va con el iris (sin cuadros verdes vacíos) y el iris abre antes (0,4 s) sobre Seba (660, 1000).
 Snapshots: renders/snap/r1a (31 cuadros de cada tramo tocado), r1b (proforma, pizarrón, P7b, Q6b, cierre); prev en renders/prev/r1.
+
+## Ronda 2 de corrección (revisores sobre el render de 44,9 s) · sin render
+**45,0 s.** Parte 1 0-20,94 · cartel 20,94-23,03 · parte 2 + cierre 23,03-45,0 = 21,97 s (48,8 %) · cierre 42,07-45,0 (PRECIOS
+desde 42,42, línea chica desde 43,1). `check --json`: 0 errores. Mezcla: mediana voz-resto 19,7 LU, mínimo +11,1 LU con voz,
+huecos sin voz máx -31,0 LUFS (montaje -32 a -35), -14,1 LUFS, pico -3,3 dBFS.
+Planos (s): P1 0 · P2 2,1 · P3 3,8 · P4 5,62 · P4i (inserto proforma, corte) ~6,7 · P5 7,96 · P5b 8,76 · P5c 10,38 · P6f 11,51 (inserto
+del ventilador) · P6 12,01 · P7a 15,08 · P7b 17,35 · cartel 20,94 · Q1 23,03 · Q3 25,22 · Q4 27,54 · Q4b 29,39 · Q5 31,39 · Q6 34,55 ·
+Q6b 37,44 · Q7 39,44 · C 42,07.
+Arte:
+- Contenedor: la cámara más lejos (la capa del frente entra entera, sin 6.ª columna), los huecos aparecen mientras se llena la capa
+  del frente (n ≥ 476): general y primer plano con la misma geometría.
+- El celular de Seba va SIEMPRE en su mano (primero la mano en un punto alcanzable, después el celular arriba de ella), en P1/Q1, P3,
+  P7a/Q6 (a la altura del pecho, no le tapa la cara) y P7b/Q7. En los insertos (Q3, Q6b) el celular llena ~63-66 % del ancho, con
+  la mano de Seba (dedos en el borde, pulgar, antebrazo) y sin las cajas del fondo.
+- Último cuadro: renderAt no pasa de DUR - 1 cuadro y las composiciones del cierre duran hasta DUR redondeado para arriba.
+- P4: corte seco al inserto de la proforma (P4i) en vez del empuje por la cara; burbuja fija abajo; chip "Lunes, 9:05." se va con el
+  corte; plano a dos más abierto (Mica y Paola enteras). Manos de Mica en las esquinas de abajo, afuera del papel.
+- Q6: la cabeza de Seba a 3/4 (no perfil). Rulitos: 20, más grandes y pegados arriba (masa suave).
+- P1/Q1: Seba de 3/4 hacia Paola/cámara, el brazo con el celular alto y afuera de la cara; cámara más baja y cerca; Paola sonriente.
+- Montaje: pizarrón más chico (0,92 × 0,62) con Paola y el marcador en la mano; la calculadora entera (sin empuje). P6f: inserto de
+  0,5 s del ventilador que se apaga y se frena ("492 de 500" y "Con lo que cobramos, traemos 492" siguen).
+- Cierre: tarjeta y línea chica con márgenes de 100 px, textos 46-60 px; Paola con las dos manos abiertas.
+- P7b/Q7: cámara corrida (cartel y Seba enteros). Chat de la parte 1 sin verde ("500 / 500").
+Sonido/guion:
+- Montaje sin el duck de huecos, música y SFX arriba (~-32/-35). "− $ 14.000": glitch + golpe a -33/-37 después de "plata" (el rótulo
+  entra ahí y sigue en P7a); P7a 0,45 s después. 0,35 s de patio solo antes del whoosh del cartel. Loop del patio sobre
+  calle-tramo.wav (2,0-15,4 s: sin el retumbe del principio). Error de "Debajo del margen" a -33 sin bajar el tono. pa4 0,2 s más
+  tarde. Acentos de "Y ganamos plata." y "Vendé." +4 dB.
+- Proforma: "Precio c/u USD 46" / "antes USD 38" ("Costo puesto" solo en el panel). Q3: burbuja en dos tiempos (fase s4) y el rótulo
+  "El vendedor ve el precio de hoy / actualizado con la proforma nueva". Pregunta muda "¿A cuánto?" de Paola los últimos 0,4 s de Q1.
+  Pedido: "Ventilador de pie 16"". guion.txt reescrito con la estructura y los tiempos actuales; fuentes.md al día.
+Snapshots: renders/snap/r2a (33 cuadros), r2b-r2e; prev renders/prev/r2.

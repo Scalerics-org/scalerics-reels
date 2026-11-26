@@ -26,7 +26,8 @@ fuente, y no pretende ser la cotización de ningún día.
 - Las otras filas del panel (mismo margen 28 %, redondeo a la decena): **ventilador de techo** $ 3.900 (julio) → **$ 5.060**;
   **caloventor** $ 1.290 (julio) → **$ 1.670**. (Al nuevo costo en dólares del caso; son ejemplos de la lista recalculada, sin
   proforma propia en pantalla.)
-- En la proforma: "Costo puesto c/u **USD 46**" y "antes USD 38" tachado (el costo con el que se armó la lista de julio).
+- En la factura proforma (del proveedor): "Precio c/u **USD 46**" y "antes USD 38" tachado (el precio con el que se armó la lista de
+  julio). "Costo puesto" aparece solo en el panel de Paola (el costo que carga el sistema).
 - "Recalculado solo · **38 productos**": la cantidad de artículos de Casa Pao en la ficción.
 
 ## Lo que se dice del producto (que sea realista)
@@ -53,7 +54,7 @@ Reusados del repo, con el crédito de su origen (ver `reels/tienda-tenes-stock/f
 `reels/gym-cupo/fuentes.md`, `reels/ferreteria-encargo/fuentes.md`):
 - Música `bgm/pizzicato.wav` y `bgm/pizzicato-lleno.wav` (derivado con eco): "Pizzicato Intrigue", younoise, Freesound, CC0 1.0
   (https://freesound.org/people/younoise/sounds/569642/). En el montaje P5, el mismo tema acelerado (asetrate 1,2).
-- Ambiente del patio `sfx/calle.wav`: "Small quiet street ambience", Oper8, Freesound, CC0 (https://freesound.org/people/Oper8/sounds/241135/);
+- Ambiente del patio `sfx/calle-tramo.wav` (calle.wav recortado a 2,0-15,4 s para que el loop no vuelva al retumbe del principio): "Small quiet street ambience", Oper8, Freesound, CC0 (https://freesound.org/people/Oper8/sounds/241135/);
   `sfx/pajaro.wav` (pájaros de la mañana): "Bird Chirp", swiftoid, Freesound, CC0 (viene de hacen-envios).
 - `sfx/ventilador.wav` (el ventilador de pie, en loop; en P6 se apaga con un fundido de 1,25 s): "Electric fan 2" (#0079),
   BigSoundBank, Joseph Sardin, CC0 1.0 (https://bigsoundbank.com/electric-fan-2-s0079.html).
