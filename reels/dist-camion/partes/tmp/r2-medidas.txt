@@ -1,0 +1,8 @@
+13-ruben-d	0.61	oyó: qué senior
+13-ruben-e	0.71	oyó: señor
+13-ruben-f	0.80	oyó: sí señor
+13-ruben-g	0.72	oyó: Sí señora
+23b-ruso-d	1.61	oyó: vos no señor
+23b-ruso-e	2.15	oyó: vos no señor
+23b-ruso-f	2.02	oyó: vos no señor
+23b-ruso-g	1.57	oyó: vos no señor
