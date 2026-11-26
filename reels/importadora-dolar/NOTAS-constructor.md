@@ -210,3 +210,11 @@ con duck de 0,3 s de la música · panel "Costo USD 46" · "+ $ 276.000 / despu�
 ~4 dB desde el corte de la música en "Dejá de vender." hasta el cartel · "23.000 × 43" 0,52 s antes del 989.000 (el pizarrón un
 poco más rápido; el par $ 989.000 / $ 975.000 sigue 1,32 s) · pop en la pregunta muda "¿A cuánto?".
 Snapshots: renders/snap/r3a, r3b, r3c; prev renders/prev/r3 y p1x.
+
+## Revisión final (coordinador, 26-11)
+QA de arte final sobre el render de 45,0 s (render 22,5 min, SwiftShader): sin defectos altos. Quedan como medios, para una
+eventual pasada: el rótulo "− $ 14.000 / para reponer" sigue ~0,35 s después del corte P6 → P7a; en P1/Q1 el chip
+IMPORTADORAS queda en y≈90-200 y los personajes chicos (Paola cortada por el borde izquierdo). Bajos: franja "PAO · IMPORT"
+de 2 cuadros en el travelling 10,9 s, rótulos del contenedor sobre el inserto del ventilador, media pantalla blanca 0,3 s en
+Q3, etiquetas del panel de Q4b de 30-36 px, rótulo pegado a "Listo para enviar" en Q6b, ventilador asomando en el cierre.
+Portada con fondo limpio regenerado (cámara propia `VER=cam:0.3,1.35,2.5,0.4,0.55,-2.6,58`, poses de t 1,6).
