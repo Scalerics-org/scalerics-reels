@@ -1,0 +1,15 @@
+{
+ "t": 10.95,
+ "chica": "Volvió en grúa.",
+ "grande": "¿Hace poquito?",
+ "sello": "TALLERES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "nota": "Fondo limpio: VER=portada LIMPIO=1 (P4w: Walter de frente en la vereda rascándose la cabeza, la grúa con su auto y el cartel MECÁNICA ÓSCAR atrás; cámara CAM_PORTADA en tres.js). Regenerar: VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 1.0 renders/prev/por && cp renders/prev/por/t-001.00.png portada-src/fondo-limpio.png && SINAUDIO=1 node gen.mjs",
+ "sello_top": "600px"
+}
