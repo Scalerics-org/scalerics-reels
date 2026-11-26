@@ -1,0 +1,37 @@
+[sin narrador Orus: el chiste va en burbujas y burbujas de audio de chat; la solución va en la interfaz recreada (chat del agente con la boleta, bandeja de consultas, "Para vos", la barra del balance); voces por archivo en partes/*.txt · (plan) total ~43,0 s · parte 1 0,00-17,60 · cartel 17,60-20,00 · parte 2 + cierre 20,00-43,00 (23,0 s, 53 %) · cierre 39,40-43,00]
+[parte 1 · el problema · 0,00-17,60 s · Estudio Adriana de mañana y el patio de su casa el domingo]
+[0,00-2,40 · P1 · cuadro 0: "ESTUDIOS CONTABLES" gigante y chip "Lunes, 9:00." · Adriana frente al monitor con "BALANCE 2025 · SÚPER HÉCTOR · 3 %" · el celular vibra con la burbuja de audio de Marcelo]
+MARCELO (audio de WhatsApp): Adri, ¿cuándo vence lo mío?
+[2,40-4,30 · P2 · Adriana teclea con una mano y graba con la otra]
+ADRIANA: El veintitrés, Marcelo.
+[4,30-8,60 · P3 · la ráfaga de la semana: chips "Lunes, 11:00." / "Miércoles, 23:40." / "Viernes, 19:00." · contador "Consultas de la semana" 14 → 38 → 63 · la barra sigue en 3 % · rótulo "Las mismas 3 preguntas"]
+GRACIELA (audio de WhatsApp): Adri, ¿cuánto pago este mes?
+WALTER (audio de WhatsApp): ¿Te llegó lo que te mandé?
+MARCELO (audio de WhatsApp): ¿Era el veintitrés?
+[8,60-13,00 · P4 · remate · chip "Domingo, 13:30." · el patio: Jorge en la parrilla con la pinza y un chorizo, Adriana a la mesa con el celular]
+JORGE: Adri, ¿cuándo comemos?
+ADRIANA: El veintitrés.
+[pausa 1,2 · Jorge congelado con el chorizo en la pinza; la música se corta]
+[13,00-17,60 · P5 · remate del remate · vibra el celular de Jorge en el bolsillo del delantal; lo lee · Adriana cierra los ojos · chip rojo apagado "Balance de Súper Héctor: 3 %" · stinger]
+JORGE: Es Marcelo. Que cuándo vence lo suyo.
+NARRADOR: Un agente de IA más tarde.
+[cartel · 17,60-20,00 · time card verde: "Un agente de IA" / "más tarde…" (nunca "Scalerics") · audio reusado de reels/inmobiliaria-disponible/assets/voice/narrador.wav]
+[parte 2 · la solución · 20,00-39,40 s]
+[20,00-22,20 · Q1 · el mismo cuadro 0, el mismo audio · Adriana no toca el celular: "Contestó el asistente ✓"]
+MARCELO (audio de WhatsApp): Adri, ¿cuándo vence lo mío?
+[22,20-25,60 · Q2 · inserto del celular de Marcelo en la panadería: "Hola, Marcelo. Lo tuyo de octubre vence el 23. Este mes son $ 14.300." + "Boleta · octubre" + "Tus facturas de octubre ya llegaron: 14 ✓" · rótulo "Contesta con los datos de cada cliente"]
+MARCELO: ¡Uh, qué rápida! Gracias, Adri.
+[25,60-26,60 · Q2b · Adriana sigue con el balance; en el monitor, la notificación "Marcelo: ¡Gracias, Adri!"]
+ADRIANA: De nada.
+[26,60-30,60 · Q3 · la bandeja del agente: Graciela $ 8.900 ✓, Walter "llegaron 12 ✓ · falta el recibo del alquiler", 23:40 con el estudio a oscuras, Héctor "¿Me conviene poner el camión a nombre de la empresa?" → "Para vos (2)" · rótulo "Lo de fondo te lo pasa a vos" · 63 · Contestó el agente: 61 · la barra 8 → 100 %]
+[30,60-33,00 · Q3b · chip "Viernes, 18:00." · "BALANCE · SÚPER HÉCTOR · 100 % · Terminado ✓"]
+LUCAS: ¿Ya? ¿El de Héctor?
+ADRIANA: Y el de Walter.
+[33,00-39,40 · Q4 · el mismo asado, el mismo audio de Jorge · Adriana deja el celular boca abajo y se levanta con el plato]
+JORGE: Adri, ¿cuándo comemos?
+ADRIANA: Ahora.
+[vibra el celular de Jorge: "Decile a Adri que es un amor, me contestó al toque"]
+JORGE: Es Marcelo. Que sos un amor, que le contestaste al toque.
+ADRIANA: Sí. Un amor.
+[cierre · 39,40-43,00 · Adriana a cámara en el patio, la parrilla y Jorge desenfocados detrás · tarjeta desde "CONSULTAS": "Comentá" / "CONSULTAS" (recuadro verde) / "y te mando cómo funciona para tu estudio" · al final, chico, "Un agente de IA contesta a cada cliente con sus datos" / "scalerics.com" en verde]
+ADRIANA: Comentá CONSULTAS y te mando cómo funciona para tu estudio.

@@ -1,0 +1,14 @@
+{
+ "t": 10.6,
+ "chica": "Domingo, 13:30.",
+ "grande": "¿Cuándo vence?",
+ "sello": "ESTUDIOS CONTABLES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio-10.6.png",
+ "nota": "(propuesta) Fondo limpio de P4: Jorge en la parrilla con el chorizo congelado en la pinza y Adriana a la mesa con el celular, llenando la mitad de arriba. Ajustar t al cuadro real. Si ESTUDIOS CONTABLES no entra en el sello, usar CONTADORES o sello_top como en contable-papeles."
+}
