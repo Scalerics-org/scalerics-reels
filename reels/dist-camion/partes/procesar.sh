@@ -15,10 +15,10 @@ tal   06-ruben-c    r3                                   # Rubén "Llegando." (m
 tal   07-nico-a     n1 "atempo=1.04"                     # Nico (Fenrir) "Jefe, ¿dónde está el camión?" (se reusa en Q3)
 tal   08-ruben-a    r4                                   # Rubén "Llegando." (automático; se reusa en Q3)
 tal   09-nico-b     n2                                   # Nico "¿Adónde?" (se reusa en Q3)
-hueco 10-ruben-b    r5 1.75 1.91 0.34 "atempo=1.1"      # Rubén "Es un camión, Nico. … A algún lado llega."
+hueco 10-ruben-b    r5 1.75 1.91 0.5 "atempo=1.1"      # Rubén "Es un camión, Nico. … A algún lado llega."
 tal   11-ruben-c    r6 "atempo=1.06"                     # Rubén "¿Y esta firma?"
 tal   12-ruso-a     u1                                   # Ruso (Zubenelgenubi) "Un señor."
-hueco 13-ruben-i    r7 0.36 0.8 0.07                     # Rubén "¿Qué… señor?" (r1: toma i, separada; la a sonaba "sénior")
+hueco 13-ruben-i    r7 0.36 0.8 0.21                     # Rubén "¿Qué… señor?" (r1: toma i, separada; la a sonaba "sénior")
 tal   14-ruso-a     u2                                   # Ruso "Uno que pasaba."
 tal   15-narrador-a narrador "atempo=1.14"               # narrador (Rasalgethi) "Una hoja de ruta más tarde."
 hueco 16-graciela-a g2 0.54 0.99 0.32 "atempo=1.05"      # Graciela "Ah. … Soy la próxima."
@@ -28,6 +28,6 @@ tal   22-hector-a   h2                                   # Héctor "¿Firmo yo?"
 hueco 23b-ruso-d   u3 0.37 0.89 0.28                   # Ruso "Vos. … No un señor." (r1)
 hueco 24-ruben-b    r9 0.47 1.12 0.32 "atempo=1.05"      # Rubén "¿Y hoy? … ¿Pasó algún señor?"
 tal   25-ruso-b     u4                                   # Ruso "Ni uno."
-tal   26-ruben-b    r10 "atempo=1.08"                    # Rubén "Comentá CAMIÓN y te mando cómo funciona para tu distribuidora."
+tal   26-ruben-b    r10 "atempo=1.12"                    # Rubén "Comentá CAMIÓN y te mando cómo funciona para tu distribuidora."
 node ../../herramientas/tiempos.mjs assets/voice/r10.wav partes/26-ruben.txt assets/voice/palabras-r10.json 2>&1 | grep -i "oyó"
 for f in assets/voice/*.wav; do printf "%s %s\n" $(basename $f .wav) $(ffprobe -v error -show_entries format=duration -of csv=p=0 $f); done

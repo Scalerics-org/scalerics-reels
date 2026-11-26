@@ -148,3 +148,37 @@ Snapshots: renders/snap/r1a (los tramos tocados), r1p1 (cada 0,5 s desde 0,25), 
 (cada 0,5 s desde 0,02).
 Quedan: la toma de "¿Qué… señor?" y el "un" de "No un señor." para escuchar; los valores 999 de T.p3b/h1/r3/ring2/tap en
 tiempos3d.js son centinelas de lo que se sacó (no se usan).
+
+## Ronda 2 (revision-arte-r1.md + revision-sonido-r1.md)
+
+Duración 45,93 s · parte 1 0-20,42 · cartel 20,42-22,91 · parte 2 + cierre 22,91-45,93 (23,02 s, 50 %) · cierre
+42,26-45,93, tarjeta CAMIÓN desde 42,78 (3,15 s); la voz termina en 45,60 (0,34 s de aire).
+
+Altos de arte:
+- Puerta del camión que atravesaba la cabeza del Ruso (~13,8 s): las puertas de P6b arrancan ya abiertas (`abre = 1`), sin
+  el barrido que lo cruzaba.
+- Burbujas encimadas en la oficina (P5/Q3): ahora son secuenciales (n1 se va 0,05 s antes de r4, r4 antes de n2).
+- Cuadro 0: la burbuja de Graciela en 3 líneas a 50 px en (250, 600), a la izquierda de su cara; el sello no le pisa el pelo.
+Planos chicos / piso vacío / cortados: CAM_OFI más abierta (Rubén y Nico enteros), SPLIT_OFI abierta (el monitor del panel
+entero en P1 y Q1), CAM_MA más atrás (el cartel de Marta entero), CAM_DOS recentrada y el Ruso arrimado a MUE_U2 en
+P6c/Q5/Q5d (los dos enteros; el corte del inserto tapa el cambio), Q5 con cámara propia (CAM_Q5, plano medio de los dos),
+CAM_SUP abierta (Héctor y el Ruso enteros), P6a con el letrero entero, P4b con el celular en el soporte del tablero y la
+rambla de fondo (sin negro), cierre C que se abre cuando entra la tarjeta (Rubén con el mate y el torso arriba de la tarjeta).
+El Ruso: barba opaca y prolija (0xa8843f, larga 0,4, opacidad 1), las bandas del chaleco siguen la forma del chaleco (Lathe,
+sin las puntas), sin dedos sueltos, el celular de Q5 mira entre Rubén y cámara.
+Medios: la línea guía de "vuelve al depósito" termina en la pila de cajas; las manos del remito no tapan el "¿?"; aviso de
+Marta a pantalla en un inserto propio (Q2i); "Marta 12 a 13 h" con ajustar(); reloj y teléfono del escritorio en 10:50
+en la parte 2; las horas del aviso dentro del recuadro verde; P6d sin la mano del Ruso como mancha (oculto en ese plano);
+los celulares de Q2i/Q4i/Q5i más abajo para que la burbuja no les pise el encabezado; la mano de Marta en Q2i sin la uña
+clara.
+Sonido: 0,5 s antes de "Uno que pasaba." (u2 = fin(r7) + 0,5); "¿Qué… señor?" con hueco de 0,21 s; 0,5 s antes de "A algún
+lado llega." (hueco en la toma r5); voz del cierre a atempo 1,12 y final = fin + 0,3; narrador del cartel arranca 0,12 s
+antes del texto; ambiente de cabina en Q4r; sin el sorbo de mate sin mate; firma (birome) de 1,0 s; ambiente de rotisería
+sin huecos; pop en el rótulo de Marta.
+Mezcla (MEDIR=1): voz sobre el resto mínimo 12,3 LU (mediana 22,9); máximo sin voz -31,0 LUFS; integrada -14,1 LUFS; pico
+real -2,5 dBFS.
+`check --json` 0 errores. Portada regenerada desde el fondo limpio nuevo (t 1,2).
+Snapshots: renders/snap/q1 (cada 0,5 s desde 0,25), renders/snap/cortes (3 cuadros por corte), renders/snap/q2 (cada 0,5 s
+desde 0,02), renders/snap/cortes2, y renders/snap/fin, fin2 (Q4/Q5 después del último ajuste).
+Quedan (bajos): en Q2i una pieza oscura del fondo asoma en la esquina superior izquierda; la pila de cajas de la zorra
+queda cortada en el borde derecho en Q4 (es utilería, el Ruso entero); la burbuja de Q2i aparece 0,25 s antes de la voz.

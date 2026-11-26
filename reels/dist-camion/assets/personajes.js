@@ -57,7 +57,7 @@ export const ELENCO = {
   // candado rubia, remera navy de manga corta, chaleco reflectivo verde de marca (las dos franjas crema las cuelga tres.js),
   // pantalón cargo navy2 y botines marrones. Tranquilo, de pocas palabras; que no se confunda con Nico ni con Seba.
   ruso: { nombre: "Ruso", piel: 0xf0c4a0, pelo: 0xd8b56f, peinado: "texturado", texturaAlto: 0.12, cejasColor: 0xb8964e,
-    barba: 0xc9a55e, barbaLarga: 0.5, barbaOpacidad: 0.85, barbaBigote: true, camisa: MARCA.navy, mangas: "cortas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.05,
+    barba: 0xa8843f, barbaLarga: 0.4, barbaOpacidad: 1.0, barbaBigote: true, camisa: MARCA.navy, mangas: "cortas", cuello: MARCA.navy, cuelloBotones: false, cuelloAlto: 0.05,
     chaleco: { color: MARCA.g, botones: MARCA.cr }, pantalon: MARCA.navy2, zapatos: 0x5a4632, panza: 1.12, nariz: 0.066, mejillas: 0xe3907a, alto: 1.05 },
   // dist-comisiones (25-11): Javi, el otro vendedor de la calle de Rubén (zona Centro, ~32): castaño corto con un jopo
   // bajo, barba de tres días, chomba verde apagado con cuello crema (sin campera: que no se confunda con Leo ni con Nico),
