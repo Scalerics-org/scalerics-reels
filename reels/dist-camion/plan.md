@@ -1,4 +1,6 @@
-# dist-camion · plan · DISTRIBUIDORAS, dolor + solución (3D real), ~45 s
+# dist-camion · plan · DISTRIBUIDORAS, dolor + solución (3D real), 44,97 s
+
+> **Ronda 1 (26-11), lo construido:** 44,97 s · parte 1 0-19,78 · cartel 19,78-22,03 · parte 2 + cierre 22,03-44,97 (22,94 s, 51 %) · tarjeta CAMIÓN 3,0 s. Cambios contra este plan: sin la llamada de Héctor en el montaje (el contador salta 7 → 19), la cabina es un solo plano del celular en el portavasos (sin el inserto de "Llamar" ni el Ruso manejando), "¿Qué… señor?" separado, en Q4 el Ruso dice "Vos. No un señor." y hay un plano de la hoja de ruta en el soporte de la cabina antes de la vereda. Ver guion.txt y NOTAS-constructor.md.
 
 **De qué trata.** Martes 9:40. El camión de la Distribuidora Rubén salió a las 7 con 18 entregas. Pantalla partida:
 Graciela en la rotisería: **"Rubén, ¿por dónde viene el camión?"** / Rubén, con el mate: **"Está llegando."** Montaje de

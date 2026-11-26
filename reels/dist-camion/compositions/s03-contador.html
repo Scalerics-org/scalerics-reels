@@ -9,8 +9,8 @@
     [data-composition-id="s03-contador"] .n { position: relative; width: 150px; height: 112px; }
     [data-composition-id="s03-contador"] .n span { position: absolute; inset: 0; font: 900 112px/1 "Lexend", sans-serif; color: #c7655b; text-align: center; letter-spacing: -0.03em; }
   </style>
-  <div id="root" data-composition-id="s03-contador" data-width="1080" data-height="1920" data-duration="4.76">
-    <div id="s03-contador-esc" class="esc clip" data-start="0" data-duration="4.76" data-track-index="0">
+  <div id="root" data-composition-id="s03-contador" data-width="1080" data-height="1920" data-duration="2.2">
+    <div id="s03-contador-esc" class="esc clip" data-start="0" data-duration="2.2" data-track-index="0">
       <div class="cont"><div class="et">Llamadas:<br>¿y el camión?</div><div class="n"><span class="n7">7</span><span class="n12">12</span><span class="n19">19</span></div></div>
     </div>
   </div>
@@ -23,10 +23,8 @@
       const tl = gsap.timeline({ paused: true });
       tl.fromTo(q(".cont"), { scale: 0.6 }, { scale: 1, duration: 0.2, ease: "back.out(1.8)", immediateRender: true }, 0);
       tl.set(q(".n12"), { opacity: 0 }, 0); tl.set(q(".n19"), { opacity: 0 }, 0);
-      tl.set(q(".n7"), { opacity: 0 }, 1.87); tl.set(q(".n12"), { opacity: 1 }, 1.87);
-      tl.fromTo(q(".n12"), { scale: 1.5 }, { scale: 1, duration: 0.2, ease: "back.out(2)", immediateRender: false }, 1.87);
-      tl.set(q(".n12"), { opacity: 0 }, 4.44); tl.set(q(".n19"), { opacity: 1 }, 4.44);
-      tl.fromTo(q(".n19"), { scale: 1.6 }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: false }, 4.44);
+      tl.set(q(".n7"), { opacity: 0 }, 1.84); tl.set(q(".n19"), { opacity: 1 }, 1.84);
+      tl.fromTo(q(".n19"), { scale: 1.6 }, { scale: 1, duration: 0.22, ease: "back.out(2)", immediateRender: false }, 1.84);
       window.__timelines = window.__timelines || {};
       window.__timelines[ID] = tl;
     })();

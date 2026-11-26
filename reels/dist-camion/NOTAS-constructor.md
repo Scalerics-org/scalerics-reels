@@ -105,3 +105,46 @@ freno de aire, puertas, cajas, papel, ring final, stinger + narrador, notificaci
 - Q4: el celular que el Ruso le extiende a Héctor casi no se ve en el plano general (se ve en el inserto que sigue).
 - No hay plano de la hoja de ruta en el soporte de la cabina (Q4): la hoja de ruta aparece solo en el celular del Ruso.
 - Render final no hecho (lo hace el coordinador con `npx … render` + `bash paso10.sh`).
+
+## Ronda 1 de corrección (revision-guion-r1.md + decisiones del coordinador) · sin render
+**44,97 s.** Parte 1 0-19,78 · cartel 19,78-22,03 · parte 2 + cierre 22,03-44,97 = 22,94 s (51 %) · cierre C 41,43-44,97 ·
+tarjeta CAMIÓN 41,97-44,97 (3,0 s, entra en el comienzo real de "CAMIÓN": T.palabra sale del silencio corto que sigue a
+"Comentá" en la toma, medido con silencedetect -35 dB / 0,06 s; palabras-r10.json estaba interpolado) · línea chica desde 43,07.
+Planos (s): P1 0 · P2 1,75 · P3 2,85 (solo Marta; el contador salta 7 → 19 en 4,69) · P4b 5,05 (un solo plano de 0,92 s: el
+celular del Ruso en el portavasos, "9:42 · Rubén · 14 llamadas perdidas", rótulo "Maneja. No atiende." abajo, motor + rambla) ·
+P5 5,97 · P5b 8,88 · P6a 12,41 · P6b 13,63 · P6i 15,13 · P6c 16,26 · P6d 19,17 · cartel · Q1 22,03 · Q1i 22,73 · Q1g 24,48 · Q2
+26,43 · Q3 28,40 · Q3m 31,46 · **Q4r 33,55** (nuevo: la hoja de ruta en el soporte del tablero de la cabina, "Parada 15 de 18 ·
+Súper Héctor") · Q4 34,17 · Q4i 35,27 · Q4p 37,49 · Q5 38,34 · Q5i 39,09 · Q5d 40,50 · C 41,43.
+Corregido:
+- Duración y proporción: fuera la llamada de Héctor (h1/r3) y el inserto de "Llamar" + el plano del Ruso manejando; pausas de
+  la parte 1 recortadas (no los remates: la pausa antes de "A algún lado llega." y el silencio de "Es un camión, Nico." siguen);
+  narrador atempo 1,14 (cartel 2,25 s).
+- "¿Qué señor?": las tomas 13-a y 13-d sonaban "qué senior" (STT); 4 tomas con "se-ÑOR" marcado dieron "señor" sin el
+  "qué"; quedó la **13-i**, que dice "¿Qué?" y "¿señor?" separados (0-0,36 / 0,8-1,53), con el hueco a 0,07 s: "¿Qué… señor?"
+  (el STT oye "señor": el "qué" está en la forma de onda, -13 dB RMS). Revisar de oído.
+- Q4: "Vos. No un señor." (toma 23b-d, Zubenelgenubi, pausa 0,28 s; el STT oye "vos no señor": las 4 tomas igual; el "un"
+  es corto, revisar de oído) · globo "Vos. / No un {señor.}" en dos tiempos.
+- Hoja de ruta en orden (13 Bar Walter ✓, 14 Panadería Nelly ✓, 16, 17); el celular del Ruso a las 9:42; el celular de
+  Rubén en el escritorio ya no muestra 18:02 a la mañana (y en P6d muestra "Súper Héctor llamando…": antes quedaba
+  "Cafetería Marta" por el corte del montaje); remito de papel con 3 renglones legibles que suman $ 86.400 (Aceite 1,5 L · 12
+  cajas 38.400 · Harina 25 kg · 10 bolsas 30.000 · Yerba 1 kg · 6 fardos 18.000); globo de Graciela "Rubén, / ¿por dónde
+  viene / el camión?".
+- Chips de hora ≥ 1,2 s (los de Q1 y Q5 siguen sobre el inserto, 1,27 s) y sin el cuadro de retraso en cada corte.
+- "Ah." de Graciela: medido en g2, los primeros 0,5 s a -16 dB RMS (se oye); el globo en dos tiempos lo acompaña.
+- P5b: medí la cabeza de Rubén (posición y rotación) cuadro a cuadro: está quieta; el "balanceo" que se veía era el ajuste
+  de la mano izquierda al dejar el mate (IK al escritorio) → la mano queda baja sin IK y el mate en la mesa.
+- P6a: cámara de costado; el Ruso de perfil golpea la persiana con la izquierda (se ve el puño contra las lamas) y el cartel
+  se lee entero.
+- Graciela en P1: el celular en la oreja izquierda (a la derecha del cuadro, lejos del globo).
+- Manos de los insertos (Q1i, Q4i, Q5i): ahora sostienen el celular de costado (el pulgar parado sobre el borde, la palma
+  abajo, casi fuera del cuadro): ya no hay un pulgar acostado sobre la pantalla.
+- Q4: el celular que el Ruso le extiende a Héctor más grande (×1,5) y girado a medio camino entre Héctor y la cámara.
+- Q2: el cartel se guarda antes de pasar por el mostrador.
+- Mezcla: la cola de "señor." (u3) con fundido de 0,16 s y la música agachada hasta Q4p; la calle de Q4 -2,5 dB; el obturador
+  después de la voz. `MEDIR=1 node gen.mjs`: mediana voz-resto 22,2 LU, mínimo +7,6 LU (pareado) en tramos con voz; huecos sin
+  voz máx -31,5 LUFS; -14,1 LUFS, pico -2,5 dBFS.
+- `check --json` 0 errores. Fondo de la portada regenerado (portada-src/fondo-limpio-1.2.png).
+Snapshots: renders/snap/r1a (los tramos tocados), r1p1 (cada 0,5 s desde 0,25), r1cortes (tres cuadros en cada corte), r1p2
+(cada 0,5 s desde 0,02).
+Quedan: la toma de "¿Qué… señor?" y el "un" de "No un señor." para escuchar; los valores 999 de T.p3b/h1/r3/ring2/tap en
+tiempos3d.js son centinelas de lo que se sacó (no se usan).

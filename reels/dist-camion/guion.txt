@@ -1,46 +1,48 @@
-[sin narrador Orus: el chiste va en burbujas (la escalada "Está llegando." → "Llegando.", el "¿Adónde?" de Nico y el remito firmado por "un señor"), el contador de llamadas, el celular vibrando en la cabina, la persiana baja de Cafetería Marta y el fajo de remitos arrugados; la solución va en la interfaz recreada (el aviso automático con la ventana de entrega y "Sos la próxima parada" en el celular de Graciela y de Marta, la hoja de ruta en el celular del Ruso, el remito digital con firma y foto, el panel de entregas del día de Rubén); voces por archivo en partes/*.txt · total ~45,0 s (tiempos estimados: los fija el constructor con la voz) · parte 1 0-20,2 · cartel 20,2-22,2 · parte 2 + cierre 22,2-45,0 (22,8 s, 51 %) · cierre 41,6-45,0]
+[sin narrador Orus: el chiste va en burbujas, el contador de llamadas, el celular vibrando en la cabina, la persiana baja de Cafetería Marta y el remito firmado por "un señor"; la solución va en la interfaz recreada (aviso con la ventana de entrega y "Sos la próxima parada", hoja de ruta, remito con firma y foto, panel de entregas) · voces por archivo en partes/*.txt · total 44,97 s (tiempos reales, ronda 1) · parte 1 0-19,78 · cartel 19,78-22,03 · parte 2 + cierre 22,03-44,97 (22,94 s, 51 %) · cierre 41,43-44,97 (tarjeta CAMIÓN 41,97-44,97 = 3,0 s)]
 [parte 1 · el problema · la Distribuidora Rubén, martes de mañana: el camión salió a las 7 con 18 entregas]
-[0-2,3 · P1 · cuadro 0: "DISTRIBUIDORAS" gigante y el chip "Martes, 9:40." · pantalla partida: arriba la rotisería de Graciela (el spiedo girando, el mostrador vacío), ella con el celular en la oreja; abajo la oficina vidriada de Rubén arriba del depósito, el mate en la mano, el celular en altavoz sobre el escritorio · rótulo chico "Rotisería Graciela · pidió para las 10"]
+[0-1,75 · P1 · cuadro 0: "DISTRIBUIDORAS" + "Martes, 9:40." · pantalla partida: Graciela en la rotisería con el celular en la oreja / Rubén con el mate y el celular en altavoz · rótulo "Rotisería Graciela · pidió para las 10"]
 GRACIELA: Rubén, ¿por dónde viene el camión?
-[2,3-3,6 · P2 · primer plano de Rubén, seguro, sin mirar nada]
+[1,75-2,85 · P2 · primer plano de Rubén]
 RUBEN: Está llegando.
-[3,6-8,0 · P3 · montaje: cuelga y vuelve a sonar; la mitad de arriba cambia cada ~1,1 s: Cafetería Marta (la máquina de café), Súper Héctor (la góndola, Héctor de guardapolvo) · arriba, contador "Llamadas: ¿y el camión?" 7 → 12 → 19 en rojo apagado · Rubén contesta cada vez más corto y más cansado, la cabeza más abajo]
+[2,85-5,05 · P3 · partida: Marta en su cafetería con el celular · contador "Llamadas: ¿y el camión?" 7 → 19 · Rubén más hundido]
 MARTA: ¿Por dónde viene?
 RUBEN: Llegando.
-HECTOR: Rubén, ¿y el camión?
-RUBEN: Llegando.
-[8,0-9,8 · P4 · sin voz · Rubén toca "Llamar · RUSO · CHOFER" · corte a la cabina del camión de la distribuidora andando por la rambla: el celular vibra en el portavasos, "Rubén · 14 llamadas perdidas", el Ruso con las dos manos en el volante mirando la calle · rótulo "Maneja. No atiende." · SFX vibración + motor]
-[9,8-15,4 · P5 · la oficina: Nico asoma por la puerta vidriada con la carpeta de pedidos]
+[5,05-5,97 · P4b · sin voz · el celular del Ruso vibra en el portavasos de la cabina: "9:42 · Rubén · 14 llamadas perdidas" · rótulo "Maneja. No atiende." · motor + rambla]
+[5,97-8,88 · P5 · la oficina: Nico asoma por la puerta vidriada]
 NICO: Jefe, ¿dónde está el camión?
 RUBEN: Llegando.
 NICO: ¿Adónde?
-[pausa 0,6 · Rubén deja el mate en el escritorio, lo mira]
+[pausa · Rubén deja el mate · 8,88 P5b primer plano]
 RUBEN: Es un camión, Nico. A algún lado llega.
-[15,4-16,6 · P6a · sin voz · chip "12:10." · Cafetería Marta con la persiana baja y un cartel a mano: "Fui al banco. ¡No sabía a qué hora venían!" · el camión estacionado enfrente, el Ruso golpea la persiana con las cajas en la zorra]
-[16,6-19,6 · P6b · chip "18:00." · el muelle del depósito: el camión vuelve, el Ruso baja 6 cajas (rótulo "Cafetería Marta · vuelve al depósito") · rótulos "Viaje perdido · flete $ 4.200" / "3 horas de teléfono" · le da a Rubén un fajo de remitos arrugados; Rubén despliega uno: mancha de grasa y un garabato · inserto "REMITO · Súper Héctor · $ 86.400 · Recibió: ¿?" (el "¿?" en rojo apagado)]
+[12,41-13,63 · P6a · sin voz · "12:10." · Cafetería Marta con la persiana baja y el cartel "Fui al banco. ¡No sabía a qué hora venían!", el Ruso golpea]
+[13,63-15,13 · P6b · "18:00." · el muelle: las puertas, bajan las 6 cajas, rótulos "Cafetería Marta · vuelve al depósito", "Viaje perdido · flete $ 4.200", "3 horas de teléfono" · el fajo de remitos]
+[15,13 · P6i · inserto del remito: Súper Héctor · $ 86.400 · Recibió: ¿?]
 RUBEN: ¿Y esta firma?
+[16,26 · P6c · los dos]
 RUSO: Un señor.
-RUBEN: ¿Qué señor?
+RUBEN: ¿Qué… señor?
 RUSO: Uno que pasaba.
-[19,6-20,2 · en el bolsillo de Rubén suena el celular: "Súper Héctor" · Rubén cierra los ojos · stinger]
+[19,22 · P6d · suena el celular: "Súper Héctor llamando…" · Rubén cierra los ojos]
 NARRADOR: Una hoja de ruta más tarde.
-[cartel · 20,2-22,2 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Una hoja de ruta" / "más tarde…" (nunca "Scalerics") · voz Rasalgethi]
-[parte 2 · la solución · 22,2-45,0]
-[22,2-24,8 · Q1 · chip "Martes, 9:40." · la misma pantalla partida de P1 · Graciela va a apretar "Rubén" y le entra el aviso: "Distribuidora Rubén · Tu pedido llega hoy entre 10:00 y 11:00 ✓" y enseguida "En camino · Sos la próxima parada" con el mini mapa y el camioncito verde · rótulo "Aviso automático a cada cliente" · Graciela baja el celular]
+[cartel · 19,78-22,03 · time card verde de marca "Una hoja de ruta más tarde…" · voz Rasalgethi]
+[parte 2 · la solución · 22,03-44,97]
+[22,03 · Q1 · la misma pantalla partida, "Martes, 9:40." · 22,73 Q1i el aviso: "Tu pedido llega hoy entre 10:00 y 11:00 ✓" → "En camino · Sos la próxima parada" con el mapa · rótulo "Aviso automático a cada cliente" · 24,48 Q1g]
 GRACIELA: Ah. Soy la próxima.
-[24,8-27,2 · Q2 · Cafetería Marta abierta, el mismo cartel "Fui al banco" en la mano de Marta · su celular: "Tu pedido llega entre 12:00 y 13:00" · Marta guarda el cartel en el cajón]
+[26,43 · Q2 · Marta con el cartel en la mano y el aviso 12:00 y 13:00; lo guarda]
 MARTA: Al banco voy a la una.
-[27,2-32,6 · Q3 · la oficina, el mismo encuadre de P5; el monitor de Rubén es el panel "Entregas de hoy": "14 de 18 ✓" grande en verde · "En camino 1 · Pendientes 3" · el mapa con la ruta y el camión · el celular de Rubén quieto · Nico asoma igual que en P5 (los mismos tres audios)]
+[28,40 · Q3 · la oficina, el mismo encuadre; el panel en el monitor (los mismos tres audios)]
 NICO: Jefe, ¿dónde está el camión?
 RUBEN: Llegando.
 NICO: ¿Adónde?
-[Rubén gira el monitor sin soltar el mate; en el panel se ilumina "Parada 15 · Súper Héctor · llega 10:52"]
+[31,46 · Q3m · Rubén gira el monitor: "Parada 15 · Súper Héctor · llega 10:52" · rótulo "Todo el reparto en una pantalla"]
 RUBEN: A lo de Héctor. En dos minutos.
-[32,6-36,8 · Q4 · la vereda del Súper Héctor · el camión estaciona, el Ruso baja las cajas; en el soporte de la cabina la hoja de ruta: "Parada 15 de 18 · Súper Héctor" · el Ruso le extiende el celular a Héctor: "Remito · Súper Héctor · $ 86.400 · Firmá acá" · Héctor firma con el dedo · foto de las cajas · "Entregado ✓ 10:52 · Recibió: Héctor · foto ✓" · el ✓ vuela al panel: 15 de 18]
+[33,55 · Q4r · la hoja de ruta en el soporte de la cabina: "Parada 15 de 18 · Súper Héctor" · 34,17 Q4 la vereda del súper]
 HECTOR: ¿Firmo yo?
-RUSO: Vos, Héctor. Vos.
-[36,8-41,6 · Q5 · chip "18:00." · el muelle, el mismo encuadre de P6b: el camión vuelve vacío · el Ruso le muestra el celular a Rubén: "18 de 18 ✓ · 18 remitos con firma y foto · 0 cajas de vuelta" · el celular de Rubén en el bolsillo, quieto]
+[35,27 · Q4i · el remito en el celular: Héctor firma con el dedo, foto, "Entregado ✓ 10:52" · rótulo "Firma y foto en el celular"]
+RUSO: Vos. No un señor.
+[37,49 · Q4p · el ✓ vuela al panel: 15 de 18 · 38,34 Q5 "18:00." el muelle, el camión vacío · 39,09 Q5i "18 de 18 · 18 remitos con firma y foto · 0 cajas de vuelta"]
 RUBEN: ¿Y hoy? ¿Pasó algún señor?
+[40,50 · Q5d]
 RUSO: Ni uno.
-[cierre · 41,6-45,0 · Rubén a cámara en el muelle con el mate, el camión atrás con las puertas abiertas y vacío · tarjeta "Comentá" / "CAMIÓN" (enorme, en el recuadro verde de selección) / "y te mando cómo funciona para tu distribuidora" · abajo, chico, "Aviso de entrega, hoja de ruta y remito firmado en el celular" / "scalerics.com" en verde]
+[cierre · 41,43-44,97 · Rubén a cámara en el muelle con el mate · tarjeta "Comentá / CAMIÓN / y te mando cómo funciona para tu distribuidora" desde 41,97 · línea chica "Aviso de entrega, hoja de ruta y remito firmado en el celular · scalerics.com" desde 43,07]
 RUBEN: Comentá CAMIÓN y te mando cómo funciona para tu distribuidora.
