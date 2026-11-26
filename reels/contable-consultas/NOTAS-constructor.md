@@ -170,3 +170,26 @@ unen y el duck es 0,25). Corte de la música en "veintitrés": -34,8 → -44,4 (
   no tiene la pinza (colgando parecía un bastón). Q3: la tarjeta de Marcelo entra a los 0,25 s. Q3a y Q4a con los bordes
   libres. Lucas casi de frente (la lente ya no flota). Cierre sin la tira de Jorge y la cabeza un poco levantada (la punta de
   la melena tocaba el hombro). P4: push-in desde más abierto (2,85 → 2,4 m), la pinza entra en cuadro.
+
+## Ronda 3 de corrección (26-11) · sin render
+**44,93 s.** Parte 1 0-17,2 · cartel 17,2-19,27 · parte 2 + cierre 19,27-44,93 (57 %) · cierre C 41,61. `check --json`: 0
+errores. Script de comentarios con código detrás: limpio (el de la ronda 2 dejaba Bar Walter en 72 %: corregido).
+Snapshots: renders/snap/r3 (cada 0,5 s), r3b; renders/prev/r3, r3b.
+- Mezcla (MEDIR=1): cama 1,5 dB más arriba (tope propio de la música); duck chico en Q1→Q2 y en la bandeja; -14,0 LUFS, LRA
+  4,9, pico -3,7; voz ≥ +13,6 LU (mediana +19,5); efectos sin voz máx -31,6; voz presente en 0,2-1,6 s; corte de la música
+  -32 → -44 dB. Narrador atempo 1,08 (cartel 2,07 s), j2 atempo 1,06, m3 atempo 1,1. Pop en el chip rojo del balance.
+  Borrado el bucle muerto de "+7 / +5 dB".
+- Tiempos: "Terminado ✓" ≈ 1,0 s (Q3b 1,15 s); "Para vos (2)" + "Lo de fondo…" 1,2 s; "Las mismas 3 preguntas" ≈ 1 s; Q3 y
+  Q3n más cortos; corte a Adriana en "Ahora." (Q4b).
+- Jorge: la pinza delante del delantal con el chorizo hacia la mesa (se lee el "congelado" en P4/P4b); después de "Ahora."
+  deja el chorizo en el pan de la tabla y la pinza apoyada (se ve en Q4b y queda en la mesa); camisa navy (sin el triángulo
+  blanco), boca más chica al hablar; Jorge fuera del cierre.
+- Lucas: lentes finos sin patillas (el puente quedaba dentro del lente derecho). Adriana de frente en Q4c. Celular de
+  Adriana visible en el patio; en Q4 lo deja boca abajo (animado). Mantel más largo (tapa las patas). Hojas de la parra
+  colgadas de las vigas. Q1 = encuadre de P1 con el monitor entero. Q2: el celular al ~65 % del ancho sostenido con la mano,
+  el torso de Marcelo detrás (sin cabeza en el inserto), estante de panes; la burbuja arriba (≥ 200) y el rótulo abajo
+  (≤ 1650, con borde). Q2m: una mano con el celular y bandeja de bizcochos en primer plano. Q3n más cerca, sin la taza;
+  Walter "Llegaron 12 ✓ / falta el recibo del alquiler". Cartel: el texto se va con el iris. P5j sin el cuadro de la
+  burbuja vieja. Q3a/Q4a/C sin cortes en los bordes. Portada: fondo nuevo t 11,6 (portada-src/fondo-limpio-11.6.png).
+- Queda: en Q2 el fondo alrededor del celular es el torso de Marcelo y el azulejo (el estante de panes casi no asoma);
+  hojas de la pérgola pueden verse sueltas en encuadres donde la viga sale de cuadro (portada arriba).

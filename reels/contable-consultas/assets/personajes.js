@@ -50,7 +50,7 @@ export const ELENCO = {
   // verde grisáceo y alpargatas navy. Buen tipo,
   // de entrecasa: que no se parezca a Rubén (sin bigote, con barba).
   jorge: { nombre: "Jorge", mejillasBajas: true, piel: PIEL.media, pelo: PELO.gris, peinado: "costados", cejasColor: 0x6d6a66, cejaGruesa: true,
-    barba: 0x6d6a66, barbaLarga: 0.35, barbaOpacidad: 0.85, camisa: MARCA.cr, mangas: "cortas", cuello: MARCA.navy2, cuelloBotones: true,
+    barba: 0x6d6a66, barbaLarga: 0.35, barbaOpacidad: 0.85, camisa: MARCA.navy2, mangas: "cortas", cuello: MARCA.cr2, cuelloBotones: true,
     delantal: MARCA.navy3, delantalBorde: MARCA.cr2, pantalon: 0x5a5a4e, zapatos: MARCA.navy2, panza: 1.15, nariz: 0.064,
     mejillas: 0xd98a78, alto: 1.02 },
   // dist-cartera (24-11): Leo, el vendedor de la calle de la zona Este de Rubén (~30): castaño oscuro texturado corto,

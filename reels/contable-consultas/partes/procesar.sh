@@ -14,9 +14,9 @@ tal   ${W1:-04-walter-f2}  w1 "$ALT"                                   # (r1) 04
 tal   ${M2:-05-marcelo-a}  m2 "$ALT"                                   # Marcelo (audio) "¿Era el veintitrés?"
 hueco ${J1:-06-jorge-b}    j1 0.53 0.74 0.14                           # Jorge (Zubenelgenubi) "Adri, ¿cuándo comemos?" (se reusa en Q4)
 tal   ${A2:-07-adriana-a}  a2                                          # Adriana "El veintitrés." (el automático)
-hueco ${J2:-08-jorge-a}    j2 0.9 1.4 0.3                          # Jorge "Es Marcelo. Que cuándo vence lo suyo." (pausa ≥ 0,3 s)
-ffmpeg -loglevel error -y -i ../inmobiliaria-disponible/assets/voice/narrador.wav -ar 48000 -ac 1 assets/voice/narrador.wav   # Rasalgethi "Un agente de IA más tarde." (reusado)
-hueco ${M3:-10-marcelo-d}  m3 1.52 2.03 0.12 "atempo=1.06"                        # (r1) "¡Uh, qué rápido! Gracias, Adri." (toma nueva)             # Marcelo "¡Uh, qué rápida! Gracias, Adri."
+hueco ${J2:-08-jorge-a}    j2 0.9 1.4 0.3 "atempo=1.06"                         # Jorge "Es Marcelo. Que cuándo vence lo suyo." (pausa ≥ 0,3 s)
+ffmpeg -loglevel error -y -i ../inmobiliaria-disponible/assets/voice/narrador.wav -af atempo=1.08 -ar 48000 -ac 1 assets/voice/narrador.wav   # Rasalgethi "Un agente de IA más tarde." (reusado)
+hueco ${M3:-10-marcelo-d}  m3 1.52 2.03 0.12 "atempo=1.1"                        # (r1) "¡Uh, qué rápido! Gracias, Adri." (toma nueva)             # Marcelo "¡Uh, qué rápida! Gracias, Adri."
 tal   ${A3:-11-adriana-b}  a3                                          # Adriana "De nada."
 ffmpeg -loglevel error -y -i partes/rec/${L1:-12-lucas-b}.wav -filter_complex "[0]atrim=0:0.43,volume=2.5dB,afade=t=out:st=0.40:d=0.03,asetpts=PTS-STARTPTS[a];[0]atrim=1.15,afade=t=in:st=0:d=0.02,asetpts=PTS-STARTPTS[b];anullsrc=r=48000:cl=mono,atrim=0:0.2[s];[a][s][b]concat=n=3:v=0:a=1" -ar 48000 -ac 1 assets/voice/l1.wav   # (r1) "¿Ya?" +2,5 dB                                        # Lucas (Sadaltager) "¿Ya? ¿El de Héctor?"
 tal   ${A4:-13-adriana-c}  a4                                          # Adriana "Y el de Walter."
