@@ -159,3 +159,27 @@ Mezcla: -14,1 LUFS, pico -3,3 dBFS, mediana voz-resto 23,7 LU, huecos sin voz m�
 es el arranque de "¡Volví…" (la ventana tiene 60 ms de voz); con la voz hablando (36,1 s) es -11,8 contra -30,9 (+19).
 Portada: fondo limpio nuevo (Walter de frente rascándose la cabeza en la vereda, la grúa con su auto y el cartel), `t` 10,95.
 Snapshots: renders/snap/r2c y r2d (cada 0,5 s con dos desfases + ±1 cuadro en cada corte). `check --json`: 0 errores.
+
+## Ronda 3 (revision-arte-r2.md + revision-sonido-r2.md)
+Duración 46,0 s · P1 0-20,61 · cartel 20,61-22,98 · parte 2 22,98-43,01 · cierre 43,01-46,0 (2,99 s) · parte 2 + cierre 50 %.
+Planos: P4 9,93 · P4w 10,63 · P4b 13,15 · P4c 13,77 · P5 14,72 · P6 18,56 · Q1 22,98 · Q1i 25,32 · Q2 26,91 · Q3 28,45 · Q3m 29,8 ·
+Q3g 31,63 · Q3h 32,58 · Q4 34,58 · Q4b 37,24 · Q5 39,14 · Q5i 40,75 · C 43,01.
+- ALTA (cabeza por el techo en Q4): Q4 arranca con el auto ya frenado, la puerta abierta y Walter recién bajado; camina, cierra la
+  puerta (sonido en +0,42) y levanta la llave. No se ve a nadie dentro de un auto en ningún plano (en P4 Walter va en la cabina
+  de la grúa, con escala 0,8 y oculto por la carrocería; baja en el corte a P4w).
+- P6: Maxi aparece fuera de cuadro y entra caminando 0,95 s por detrás de Walter (entre él y el auto), sin taparle la cara.
+- P4: grúa de 3/4 desde adelante y arriba: trompa con chapa "AUXILIO", parabrisas, faros, baliza más grande, la plancha con el auto
+  de Walter atrás; recula de culata durante el plano (frena en +0,62); humo en bocanadas que suben más; casi sin asfalto vacío.
+- Q3g: los tres autos en fila, de trompa al portón, enteros; el paneo termina de frente a ellos, cámara baja; rótulo abajo; Maxi
+  sale de cuadro sin astilla. P4b: la guía sigue al papelito despegado hasta el corte. Q2: chat escrito desde el primer cuadro y el
+  display se apaga a +0,15 (sin "00"). P4c: cámara más cerrada, el 125.000 al centro. P1: inserto "PRÓXIMO SERVICE" 460x310 (~36 px)
+  y Walter casi de frente (cheat 0,95). Q4: cámara más abierta, Walter entero.
+- Sonido/ritmo: P5 sostiene 0,5 s la cara seca después de "Cuatro veces." (P6 +0,5); compensado con Q2 (-0,15 s en el toque),
+  Q3 (-0,25 s y -0,15 s), P4c (-0,1 s), la cola de P6 y la cola final. 0,42 s entre "El papelito ahora te escribe." y "Comentá"
+  (antes 0,15). Llaves de Q4b fuera. Toque/ding de Q2 y auto-pasa más bajos para el techo.
+- Bajos: el texto del cartel sale 0,14 s antes (antes del iris); la burbuja de "Cuatro veces." crece desde 0,94 (sin el paso
+  chico); P6 el brazo de Walter hacia el parabrisas; el trapo del bolsillo de Óscar fuera en la parte 2 (era lo "blanco y rojo");
+  encabezado de Q5i 74/50 px en el lienzo (≥ 36 en pantalla). Pelo de Óscar sin cambios.
+- Mezcla: -14,1 LUFS, pico -3,3 dBFS, mediana voz-resto 23,6 LU, mínimo +14,1 (el +2,8 de 35,5 s desapareció), huecos máx -31,0.
+- Portada: fondo limpio regenerado (misma composición, la grúa con la baliza nueva). guion.txt sin cambios (la voz es la misma).
+- Snapshots: renders/snap/r3c y r3d (cada 0,5 s con dos desfases + cortes). `check --json`: 0 errores.

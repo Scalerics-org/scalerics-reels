@@ -63,42 +63,42 @@ T.rot38 = r2(Math.max(T.rot0 + 0.95, fin("o2") - 1.2));
 T.p4 = r2(Math.max(fin("o2") + 0.08, T.rot38 + 1.0));
 // P4 · Noviembre: la grúa entra de culata con el auto humeando; la plancha se inclina; Walter entra caminando, se rasca la
 // cabeza: "Óscar, no entiendo. Si le hice el service hace poquito."
-T.gPara = r2(T.p4 + 0.22); T.tilt = r2(T.p4 + 0.4); T.tiltFin = r2(T.p4 + 1.0);
+T.gPara = r2(T.p4 + 0.62); T.tilt = r2(T.p4 + 0.4); T.tiltFin = r2(T.p4 + 1.0);   // (r3) la grúa termina de recular dentro de P4
 T.p4w = r2(T.p4 + 0.7); T.w2 = r2(T.p4 + 0.75);
 // P4b · la pausa: Óscar se asoma al parabrisas, el papelito en blanco; lo despega · P4c inserto del tablero: 125.000 km
 T.p4b = r2(fin("w2") + 0.08); T.despega = r2(T.p4b + 0.3);
-T.p4c = r2(T.p4b + 0.62); T.p5 = r2(T.p4c + 1.05);
+T.p4c = r2(T.p4b + 0.62); T.p5 = r2(T.p4c + 0.95);
 // P5 · el remate: primer plano de Óscar, seco: "Volviste a los diez mil, Walter. Cuatro veces."
 T.o3 = r2(T.p5 + 0.05);
 // P6 · el remate del remate: Walter señala el parabrisas "Ponele otro papelito, así no me olvido." · Óscar mira el papelito
 // en blanco en su dedo · Maxi le acerca el rollo de papelitos sin decir nada
-T.p6 = r2(fin("o3") + 0.05); T.w3 = r2(T.p6 + 0.06); T.rollo = r2(fin("w3") - 0.3);
-const P1 = r2(fin("w3") + 0.26);
+T.p6 = r2(fin("o3") + 0.55); T.w3 = r2(T.p6 + 0.06); T.rollo = r2(fin("w3") - 0.3);   // (r3) la cara seca de Óscar sostiene 0,5 s antes del remate del remate
+const P1 = r2(fin("w3") + 0.2);
 const P2 = r2(P1 + Math.max(2.08, LEN.nar + 0.1));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0, sin papelito: Óscar con la tablet; el mismo "Listo, Walter…" · Q1i inserto de la ficha: "¡Obvio!…"
 T.q1 = P2; T.o1b = r2(P2 + 0.12);
 T.q1i = r2(fin("o1b") + 0.02); T.w1b = r2(T.q1i + 0.06); T.guarda = r2(T.q1i + 0.75);
 // Q2 · Agosto: en el auto, el WhatsApp a Walter con el turno: "¡Uh! Justo me estaba olvidando." · toca "Reservar"
-T.q2 = r2(fin("w1b") + 0.08); T.msj = r2(T.q2 + 0.2);
-T.toca = r2(T.q2 + 1.1); T.reservado = r2(T.toca + 0.14); T.rotQ2 = r2(T.q2 + 0.45);
+T.q2 = r2(fin("w1b") + 0.08); T.msj = T.q2;   // (r3) el chat ya escrito desde que entra el celular
+T.toca = r2(T.q2 + 0.95); T.reservado = r2(T.toca + 0.14); T.rotQ2 = r2(T.q2 + 0.45);
 // Q3 · la tablet del banco: el panel "Les toca este mes" (el contador sube a 33 de 41) · Q3g el mismo plano general de P3: el
 // mismo "Jefe, ¿hoy no viene nadie?" y la cámara gira: el elevador ocupado, tres autos en la vereda: "Ya vinieron. Tenían el aviso."
-T.q3 = r2(T.reservado + 0.7); T.filas = [0.1, 0.22, 0.34, 0.46].map((d) => r2(T.q3 + d)); T.cuenta = r2(T.q3 + 0.5); T.cuentaFin = r2(T.q3 + 1.05); T.rotQ3 = r2(T.q3 + 0.25);
-T.q3m = r2(T.q3 + 1.5); T.q3g = T.q3m; T.m1b = r2(T.q3m + 0.08); T.gira = r2(fin("m1b") + 0.04); T.rot44 = r2(T.gira + 0.35); T.q3h = r2(T.gira + 0.95); T.o4 = r2(T.q3h + 0.06);
+T.q3 = r2(T.reservado + 0.45); T.filas = [0.1, 0.22, 0.34, 0.46].map((d) => r2(T.q3 + d)); T.cuenta = r2(T.q3 + 0.5); T.cuentaFin = r2(T.q3 + 1.05); T.rotQ3 = r2(T.q3 + 0.25);
+T.q3m = r2(T.q3 + 1.35); T.q3g = T.q3m; T.m1b = r2(T.q3m + 0.08); T.gira = r2(fin("m1b") + 0.04); T.rot44 = r2(T.gira + 0.35); T.q3h = r2(T.gira + 0.95); T.o4 = r2(T.q3h + 0.06);
 // Q4 · Jueves 9:00: Walter entra manejando su auto, entero; baja con la llave en alto: "¡Óscar! ¡Volví a los diez mil!" · Q4i
 // inserto del tablero 95.300 km en verde · Q4b Óscar recibe la llave: "Una vez. Así me gusta."
-T.q4 = r2(fin("o4") + 0.2); T.frena = r2(T.q4 + 0.75); T.abre = r2(T.q4 + 0.8); T.baja = r2(T.q4 + 0.85); T.w5 = r2(T.q4 + 1.05);
+T.q4 = r2(fin("o4") + 0.2); T.frena = r2(T.q4 - 0.6); T.abre = r2(T.q4 - 0.55); T.baja = r2(T.q4 - 0.5); T.w5 = r2(T.q4 + 1.05);   // (r3) Q4 arranca con el auto ya frenado y Walter recién bajado
 T.q4b = r2(fin("w5") + 0.05); T.llave = r2(T.q4b + 0.05); T.o5 = r2(T.q4b + 0.2);
 // Q5 · Walter señala el parabrisas: "¿No me ponés el papelito?" · Óscar le señala el celular, que vibra · Q5i inserto: "Service
 // hecho ✓" · "El papelito ahora te escribe." · Q5b: Maxi tira el rollo al cajón y lo cierra
 T.q5 = r2(fin("o5") + 0.15); T.w6 = r2(T.q5 + 0.08); T.senala = r2(fin("w6") + 0.02); T.vibra = r2(T.senala + 0.12);
 T.q5i = r2(T.vibra + 0.12); T.o6 = r2(T.q5i + 0.12);
 // C · Óscar a cámara, apoyado en la columna del elevador con el auto de Walter arriba: "Comentá SERVICE…"
-T.c = r2(fin("o6") + 0.15); T.o7 = r2(T.c + 0.06);
+T.c = r2(fin("o6") + 0.42); T.o7 = r2(T.c + 0.06);   // (r3) respiración después de "El papelito ahora te escribe."
 const iCom = PAL.o7.findIndex((w) => /S[EÉ]RVI/i.test(w.word ?? w.w ?? w.text ?? ""));
 T.palabra = r2(T.o7 + Math.max(0.3, (PAL.o7[iCom >= 0 ? iCom : 1].start ?? PAL.o7[iCom >= 0 ? iCom : 1].a) - 0.05));
-const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.3) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.o7 + LEN.o7 + 0.18) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.9));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -250,7 +250,7 @@ for (const [id, ini0, fin0, txt, cls] of CHIPS) {
           tl.to(l, { y: s * (8 + (i % 3) * 3), rotation: s * (i % 2 ? 4 : -4), duration: 0.17 + (i % 4) * 0.02, ease: "sine.inOut" }, t0 + 0.34 + k * 0.2);
         }
       });
-      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, ${r2(dur - 0.42)});   // se va con el iris (sin cuadros verdes vacíos)`,
+      tl.to(q(".texto"), { scale: 0.5, opacity: 0, duration: 0.08, ease: "power2.in" }, ${r2(dur - 0.56)});   // se va con el iris (sin cuadros verdes vacíos)`,
   });
 }
 
@@ -364,9 +364,9 @@ whoosh(T.q1i - 0.05, -46);
 voz("w1", T.w1b, -1);
 toque(T.guarda, -40); ding(T.guarda + 0.08, -43);
 // Q2 · el aviso en el celular de Walter, el toque en Reservar, el ding
-s("sfx/auto-pasa.wav", T.q2, 0, { desde: 1.6, dur: r2(T.q3 - T.q2), fi: 0.15, fin: 0.2, techo: -48, lp: 1200 });
+s("sfx/auto-pasa.wav", T.q2, 0, { desde: 1.6, dur: r2(T.q3 - T.q2), fi: 0.15, fin: 0.2, techo: -49.5, lp: 1200 });
 noti(T.msj, -41.5);
-toque(T.toca, -39); ding(T.reservado + 0.02, -40);
+toque(T.toca, -41); ding(T.reservado + 0.02, -43.5);   // (r3) Q2 más corto: un poco más bajos para no pasar el techo
 // Q3 · el panel: un tic por fila, el contador, el ding; el plano general
 whoosh(T.q3 - 0.05, -46);
 // (r2) un tic por cada número que cambia (8 → 9 → 10), sin tics de filas
@@ -378,11 +378,10 @@ whoosh(T.gira, -46);
 voz("o4", T.o4, -1);
 ding(T.rot44 + 0.05, -44.5);
 // Q4 · Walter entra manejando, frena, la puerta, la llave
-s("sfx/auto-entra.wav", T.q4 - 0.3, 0, { desde: 3.0, dur: 1.15, fi: 0.2, fin: 0.4, techo: -44 });
-s("sfx/puerta-auto.wav", T.abre, 0, { techo: -49 });
+s("sfx/puerta-auto.wav", T.q4 + 0.42, 0, { techo: -46 });   // (r3) Walter cierra la puerta al alejarse
+pasos(T.q4 + 0.02, T.q4 + 0.5, -45, 0.22);
 voz("w5", T.w5, -1);
 s("sfx/llaves.wav", T.w5 + 0.1, 0, { techo: -46, dur: 0.6, fin: 0.15 });
-s("sfx/llaves.wav", T.llave, 0, { techo: -48, dur: 0.6, fin: 0.15 });
 voz("o5", T.o5, -1);
 s("sfx/cero.mp3", T.o5 + CORTE.o5 + 0.02, 0, { techo: -40 });
 // Q5 · el celular vibra; el cajón
