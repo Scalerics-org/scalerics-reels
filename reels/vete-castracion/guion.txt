@@ -1,0 +1,44 @@
+[sin narrador Orus: el chiste va en las burbujas (las de teléfono con su iconito), en el teléfono de mostrador que no para, en Bruno cada vez más hundido y en Toto dormido con el collar que ronca al teléfono; la solución va en la interfaz recreada (avisos automáticos con foto en cada etapa en el celular de Vero, panel "Pacientes de hoy" en la tablet); voces por archivo en partes/*.txt (voz y tono en partes/lineas.tsv) · total estimado ~44,2 s · parte 1 0-19,0 · cartel 19,0-21,5 · parte 2 21,5-41,2 · cierre 41,2-44,2 (parte 2 + cierre = 22,7 s, 51 %)]
+[parte 1 · el problema · la recepción de "Veterinaria Inés" (la de veterinaria-vacunas y vete-racion) · jueves de cirugías]
+[0-4,4 · P1 · cuadro 0: "VETERINARIAS" gigante arriba y el chip "Jueves, 9:02. Cirugías." · el teléfono de mostrador YA sonando (la base titila, arcos de ring) · Bruno lo atiende con la correa de Toto en la otra mano; Toto sentado en el mostrador · atrás, la pizarra "CIRUGÍAS · JUEVES": TOTO, COCO, PANCHO, SIMÓN, NEGRO, MORA · por la vidriera, en la vereda, Vero recién salida, con el celular en la oreja (burbuja de teléfono)]
+VERO: ¿Cómo está Toto?
+[Bruno gira la cabeza y la mira por el vidrio]
+BRUNO: Vero. Te estoy viendo.
+[Vero, desde la vereda, lo saluda con la mano libre, sin colgar · Toto mueve la cola]
+[4,4-8,6 · P2 · montaje en el mismo encuadre, un ring por chip · "10:30." pantallita "VERO" · "12:00." "VERO" · "14:00." "VERO" · Bruno cada vez más hundido · rótulo rojo apagado al teléfono "Llamadas hoy: 2 → 13 → 27" · a las 14:00 la señora de la transportadora de Luna se cansa de esperar y se va (campanita)]
+BRUNO: Está dormido.
+BRUNO: Sigue dormido.
+BRUNO: Sí. Dormido. Todavía.
+[8,6-13,3 · P3 · "15:30." · whoosh a la sala de recuperación: Toto dormido de costado sobre la manta con el collar isabelino, Coco dormido en la camilla de al lado · Inés con gorro, barbijo bajo y guantes, inclinada sobre Toto · al fondo la puerta "QUIRÓFANO" · Bruno se asoma por la otra puerta con el inalámbrico]
+BRUNO: Doctora. Vero quiere hablar con él.
+[contraplano de Inés, guantes en alto]
+INES: Está anestesiado.
+BRUNO: Dice que no importa.
+[13,3-16,2 · P4 · remate · pausa (0,6 s): Inés mira a Bruno · rótulos rojo apagado: "34 llamadas · 2 horas de teléfono" y "3 consultas que se fueron · $ 4.500" · la música baja · Inés, sin una palabra, toma el inalámbrico y se lo apoya en la oreja a Toto · primer plano: Toto RONCA (el hocico se infla, la oreja tiembla) · del teléfono, finito (burbuja de teléfono)]
+VERO: ¡Ay, mi amor!
+[16,2-19,0 · P5 · remate del remate · el teléfono vuelve a sonar en la mano de Inés · inserto de la pantallita: "PAPÁ DE COCO" · Bruno la lee]
+BRUNO: Ahora el de Coco.
+[Inés gira la cabeza hacia Coco, que ronca en la camilla de al lado con su collar · stinger]
+NARRADOR: Unos avisos automáticos más tarde.
+[cartel · 19,0-21,5 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Unos avisos" / "automáticos" / "más tarde…" (nunca "Scalerics") · toma nueva de Rasalgethi]
+[parte 2 · la solución · el mismo jueves]
+[21,5-24,8 · Q1 · el mismo encuadre del cuadro 0, chip "Jueves, 9:02." · la pizarra ya no está: la tablet en su atril · el teléfono de mostrador quieto · Bruno le saca una foto a Toto con la tablet y toca · en la vereda vibra el celular de Vero · inserto ≥ 60 %: "Veterinaria Inés · [foto de Toto en el mostrador] · Toto ingresó ✓ 9:05 · Lo opera la Dra. Inés. Te avisamos en cada paso." · rótulo "Un aviso con foto en cada etapa"]
+VERO: ¡Ay, mirá! ¡Ya entró!
+[Vero le muestra el celular a Bruno por el vidrio; Bruno levanta el pulgar · ella se va]
+[24,8-28,4 · Q2 · "11:00." · push-in a la tablet: "Pacientes de hoy · 6" con las etapas Ingresó · En cirugía · Despertando · Listo · Bruno toca "En cirugía" en la fila de Toto → "Aviso enviado ✓" · rótulo "Un toque y le llega al dueño" · al fondo Inés entra al quirófano con los guantes en alto, tranquila]
+[28,4-32,2 · Q3 · "15:30." · la sala de recuperación, el mismo encuadre de P3: Toto despierta con el collar y Bruno lo filma con la tablet, toca "Despertando" · corte a la cocina de Vero (la de vete-racion), de día: vibra el celular · inserto: "Toto está despertando ✓ 15:30" con el video (▶) · del celular sale el ronquido · Vero se derrite]
+VERO: ¡Ay, mi amor!
+[el mismo audio de la parte 1, ahora en altavoz]
+[32,2-36,6 · Q4 · la recepción · Bruno, en la tablet, toca "Despertando" en la fila de Coco]
+BRUNO: Ahora el de Coco.
+[el mismo audio de la parte 1, ahora mandando el aviso: "Aviso enviado ✓" · Bruno atiende a la señora de la transportadora de Luna · Inés sale del quirófano sacándose un guante]
+INES: Bruno, ¿llamó alguien?
+BRUNO: Nadie.
+[inserto del panel: "Llamadas hoy: 34 → 3" (el 34 gira y queda verde) · "Consultas atendidas ✓"]
+[36,6-41,2 · Q5 · "17:00." · inserto del celular de Vero: "Toto está listo para retirar ✓ · Hoy 17:00 · Indicaciones de la Dra. Inés: Collar puesto · Reposo hoy · Control: lunes 10:00" · campanita: entra Vero a las 17:00 en punto, y de costumbre]
+VERO: ¿Cómo está Toto?
+[el mismo audio de P1, ahora en persona · Bruno, con media sonrisa, señala la puerta de adentro]
+BRUNO: Preguntale a él.
+[Toto entra trotando con el collar, se sienta delante de Vero y le contesta con un ladrido contento · Vero se ríe]
+[cierre · 41,2-44,2 · Inés a cámara en la recepción, sin gorro, la tablet con el panel en verde al lado y Toto con el collar asomado al mostrador · tarjeta "Comentá" / "AVISOS" (en el recuadro verde) / "y te mando cómo funciona para tu veterinaria" · línea chica "Avisos automáticos con foto en cada etapa · scalerics.com"]
+INES: Comentá AVISOS y te mando cómo funciona para tu veterinaria.

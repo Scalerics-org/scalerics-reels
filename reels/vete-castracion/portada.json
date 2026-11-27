@@ -1,0 +1,15 @@
+{
+ "t": 0,
+ "chica": "Llamada número 34.",
+ "grande": "¿Cómo está Toto?",
+ "sello": "VETERINARIAS",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "nota": "Fondo limpio pendiente: P4 (sala de recuperación) con LIMPIO=1: Inés con gorro y barbijo bajo sosteniendo el teléfono inalámbrico en la oreja de Toto dormido con el collar isabelino sobre la manta, Coco dormido atrás; los dos llenando la mitad de arriba, entre el sello y el texto. Afinar t, zoom y foco con la hoja de cuadros.",
+ "sello_top": "600px"
+}
