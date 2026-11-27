@@ -31,61 +31,61 @@ const T = {};
 // "¿Cómo está Toto?" (por teléfono) · Bruno se da vuelta: Vero está en la vereda, del otro lado de la vidriera · "Vero. Te
 // estoy viendo." · P1b: Vero saluda con la mano libre, sin colgar
 T.ring0 = 0.0; T.atiende = 0.3; T.v1 = 0.55;
-T.gira = r2(T.v1 + LEN.v1 + 0.05); T.b2 = r2(T.v1 + LEN.v1 + 0.3);
+T.gira = r2(T.v1 + LEN.v1 + 0.0); T.b2 = r2(T.v1 + LEN.v1 + 0.2);
 T.p1b = r2(T.b2 + LEN.b2 - 0.2); T.saluda = r2(T.p1b + 0.05);
 // P2 · el montaje en el mismo encuadre, un ring por chip: 10:30 · 12:00 · 14:00 (la señora de Luna se va)
-const CHIP = (t0, len) => ({ ini: t0, ring: r2(t0 + 0.02), atiende: r2(t0 + 0.14), voz: r2(t0 + 0.28), fin: r2(t0 + 0.28 + len + 0.12) });
-T.p2a = r2(T.p1b + 0.8); const A = CHIP(T.p2a, LEN.b3); T.p2b = A.fin; const B = CHIP(T.p2b, LEN.b4); T.p2c = B.fin; const Cc = CHIP(T.p2c, LEN.b5);
+const CHIP = (t0, len) => ({ ini: t0, ring: r2(t0 + 0.02), atiende: r2(t0 + 0.12), voz: r2(t0 + 0.24), fin: r2(t0 + 0.24 + len + 0.1) });
+T.p2a = r2(T.p1b + 0.62); const A = CHIP(T.p2a, LEN.b3); T.p2b = A.fin; const B = CHIP(T.p2b, LEN.b4); T.p2c = B.fin; const Cc = CHIP(T.p2c, LEN.b5);
 T.mont = [A, B, Cc]; T.b3 = A.voz; T.b4 = B.voz; T.b5 = Cc.voz;
 T.seVa = r2(T.p2c + 0.25); T.campana = r2(T.p2c + 1.35);
 // P3 · 15:30, la sala de recuperación: Toto dormido con el collar, Coco al lado, Inés de cirugía; Bruno se asoma ·
 // "Doctora. Vero quiere hablar con él." · P3b contraplano de Inés: "Está anestesiado." · P3c Bruno: "Dice que no importa."
-T.p3 = Cc.fin; T.b6 = r2(T.p3 + 0.45);
-T.p3b = r2(T.b6 + LEN.b6 + 0.08); T.i7 = r2(T.p3b + 0.12);
-T.p3c = r2(T.i7 + LEN.i7 + 0.1); T.b8 = r2(T.p3c + 0.1);
+T.p3 = Cc.fin; T.b6 = r2(T.p3 + 0.3);
+T.p3b = r2(T.b6 + LEN.b6 + 0.05); T.i7 = r2(T.p3b + 0.08);
+T.p3c = r2(T.i7 + LEN.i7 + 0.08); T.b8 = r2(T.p3c + 0.06);
 // P4 · la pausa (Inés mira a Bruno; los rótulos del costo) · toma el inalámbrico y se lo apoya en la oreja a Toto · P4b
 // primer plano: Toto RONCA · del teléfono, finito: "¡Ay, mi amor!"
-T.p4 = r2(T.b8 + LEN.b8 + 0.12); T.rot = [r2(T.p4 + 0.15), r2(T.p4 + 0.4)];
-T.toma = r2(T.p4 + 1.25); T.oreja = r2(T.toma + 0.55);
-T.p4b = r2(T.oreja - 0.15); T.ronca = r2(T.oreja + 0.25); T.v9 = r2(T.ronca + 0.75);
+T.p4 = r2(T.b8 + LEN.b8 + 0.1); T.rot = [r2(T.p4 + 0.15), r2(T.p4 + 0.4)];
+T.toma = r2(T.p4 + 0.98); T.oreja = r2(T.toma + 0.45);
+T.p4b = r2(T.oreja - 0.15); T.ronca = r2(T.oreja + 0.25); T.v9 = r2(T.ronca + 0.72);
 // P5 · el remate del remate: el teléfono vuelve a sonar en la mano de Inés · inserto de la pantallita "PAPÁ DE COCO" · P5b
 // Bruno: "Ahora el de Coco." · Inés mira a Coco, que ronca también · stinger
-T.ring5 = r2(T.v9 + LEN.v9 + 0.25); T.p5 = r2(T.ring5 - 0.05); T.p5i = r2(T.ring5 + 0.3);
-T.p5b = r2(T.p5i + 0.75); T.b10 = r2(T.p5b + 0.08); T.miraCoco = r2(T.b10 + LEN.b10 + 0.05); T.roncaCoco = r2(T.miraCoco + 0.25);
-const P1 = r2(T.roncaCoco + 0.85);   // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.45, LEN.nar + 0.15));
+T.ring5 = r2(T.v9 + LEN.v9 + 0.2); T.p5 = r2(T.ring5 - 0.05); T.p5i = r2(T.ring5 + 0.25);
+T.p5b = r2(T.p5i + 0.6); T.b10 = r2(T.p5b + 0.08); T.miraCoco = r2(T.b10 + LEN.b10 + 0.05); T.roncaCoco = r2(T.miraCoco + 0.2);
+const P1 = r2(T.roncaCoco + 0.72);   // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.35, LEN.nar + 0.06));
 // ---- parte 2 ----
 // Q1 · el mismo jueves 9:02, el mismo encuadre: el teléfono quieto · Bruno le saca una foto a Toto con la tablet y la manda
 // · en la vereda vibra el celular de Vero · Q1i el aviso "Toto ingresó ✓" · Q1b "¡Ay, mirá! ¡Ya entró!", le muestra el
 // celular por el vidrio, Bruno levanta el pulgar
-T.q1 = P2; T.foto = r2(P2 + 0.45); T.envia = r2(P2 + 0.85); T.vibra1 = r2(P2 + 1.05);
-T.q1i = r2(P2 + 1.25); T.q1b = r2(T.q1i + 1.4); T.v12 = r2(T.q1b + 0.08); T.pulgar = r2(T.v12 + LEN.v12 - 0.4);
+T.q1 = P2; T.foto = r2(P2 + 0.35); T.envia = r2(P2 + 0.68); T.vibra1 = r2(P2 + 0.85);
+T.q1i = r2(P2 + 1.02); T.q1b = r2(T.q1i + 1.18); T.v12 = r2(T.q1b + 0.08); T.pulgar = r2(T.v12 + LEN.v12 - 0.4);
 // Q2 · 11:00: Inés entra al quirófano con los guantes en alto · Q2i el panel "Pacientes de hoy": Bruno toca "En cirugía"
 // en la fila de Toto → "Aviso enviado ✓"
-T.q2 = r2(T.v12 + LEN.v12 + 0.2); T.q2i = r2(T.q2 + 0.85); T.tocaCir = r2(T.q2i + 0.5); T.enviadoCir = r2(T.tocaCir + 0.2);
+T.q2 = r2(T.v12 + LEN.v12 + 0.15); T.q2i = T.q2; T.tocaCir = r2(T.q2i + 0.5); T.enviadoCir = r2(T.tocaCir + 0.2);
 // Q3 · 15:30, la sala de recuperación (el encuadre de P3): Toto se despierta, Bruno lo filma con la tablet y toca
 // "Despertando" · Q3k la cocina de Vero: vibra el celular · Q3i el aviso con el video (del celular sale el ronquido) · Q3v
 // "¡Ay, mi amor!" (el mismo audio, en altavoz)
-T.q3 = r2(T.enviadoCir + 0.95); T.despierta = r2(T.q3 + 0.2); T.tocaDesp = r2(T.q3 + 0.95);
-T.q3k = r2(T.q3 + 1.25); T.vibra3 = r2(T.q3k + 0.12);
-T.q3i = r2(T.q3k + 0.5); T.play = r2(T.q3i + 0.2); T.roncaCel = r2(T.q3i + 0.3);
-T.q3v = r2(T.roncaCel + 0.95); T.v9b = r2(T.q3v + 0.06);
+T.q3 = r2(T.enviadoCir + 0.8); T.despierta = r2(T.q3 + 0.15); T.tocaDesp = r2(T.q3 + 0.85);
+T.q3k = r2(T.q3 + 1.0); T.vibra3 = r2(T.q3k + 0.05);
+T.q3i = T.q3k; T.play = r2(T.q3i + 0.2); T.roncaCel = r2(T.q3i + 0.3);
+T.q3v = r2(T.roncaCel + 0.9); T.v9b = r2(T.q3v + 0.06);
 // Q4 · la recepción: Bruno toca "Despertando" en la fila de Coco: "Ahora el de Coco." (el mismo audio) · atiende a la
 // señora de Luna · Q4b Inés sale del quirófano sacándose un guante: "Bruno, ¿llamó alguien?" · Q4c "Nadie." · Q4i el panel:
 // "Llamadas hoy: 34 → 3", "Consultas atendidas ✓"
-T.q4 = r2(T.v9b + LEN.v9 + 0.2); T.b10b = r2(T.q4 + 0.25); T.tocaCoco = r2(T.b10b + LEN.b10 + 0.02); T.enviadoCoco = r2(T.tocaCoco + 0.2);
-T.q4b = r2(T.enviadoCoco + 0.55); T.abreQ = r2(T.q4b + 0.0); T.guante = r2(T.q4b + 0.45); T.i13 = r2(T.q4b + 0.3);
-T.q4c = r2(T.i13 + LEN.i13 + 0.05); T.b14 = r2(T.q4c + 0.15);
-T.q4i = r2(T.b14 + LEN.b14 + 0.25); T.giraN = r2(T.q4i + 0.45); T.atendidas = r2(T.q4i + 0.85);
+T.q4 = r2(T.v9b + LEN.v9 + 0.15); T.b10b = r2(T.q4 + 0.15); T.tocaCoco = r2(T.b10b + LEN.b10 + 0.02); T.enviadoCoco = r2(T.tocaCoco + 0.2);
+T.q4b = r2(T.enviadoCoco + 0.35); T.abreQ = r2(T.q4b + 0.0); T.guante = r2(T.q4b + 0.45); T.i13 = r2(T.q4b + 0.3);
+T.q4c = r2(T.i13 + LEN.i13 + 0.05); T.b14 = r2(T.i13 + LEN.i13 + 0.12);
+T.q4i = r2(T.b14 + LEN.b14 + 0.05); T.giraN = r2(T.q4i + 0.25); T.atendidas = r2(T.q4i + 0.6);
 // Q5 · 17:00: el aviso "Listo para retirar ✓" (inserto) · campanita: entra Vero: "¿Cómo está Toto?" (el mismo audio, en
 // persona) · Bruno señala la puerta del quirófano: "Preguntale a él." · Toto entra trotando con el collar y ladra contento
-T.q5i = r2(T.atendidas + 0.6); T.listo = r2(T.q5i + 0.3);
-T.q5 = r2(T.q5i + 1.35); T.campana2 = r2(T.q5 + 0.0); T.entraV = [T.q5, r2(T.q5 + 0.75)]; T.v1b = r2(T.q5 + 0.8);
-T.b15 = r2(T.v1b + LEN.v1 + 0.15); T.trota = [r2(T.b15 + 0.3), r2(T.b15 + 1.25)]; T.ladra = r2(T.trota[1] + 0.12);
+T.q5i = r2(T.atendidas + 0.45); T.listo = r2(T.q5i + 0.2);
+T.q5 = r2(T.q5i + 0.98); T.campana2 = r2(T.q5 + 0.0); T.entraV = [T.q5, r2(T.q5 + 0.75)]; T.v1b = r2(T.q5 + 0.7);
+T.b15 = r2(T.v1b + LEN.v1 + 0.1); T.trota = [r2(T.b15 + 0.3), r2(T.b15 + 1.25)]; T.ladra = r2(T.trota[1] + 0.12);
 // C · Inés a cámara (sin gorro): "Comentá AVISOS…"
-T.c = r2(T.ladra + 0.6); T.i16 = r2(T.c + 0.12); T.palabraR = r2(T.i16 + 0.66);
-const DUR = Math.ceil((Math.ceil((T.i16 + LEN.i16 + 0.2) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(DUR - 1.1);
+T.c = r2(T.ladra + 0.5); T.i16 = r2(T.c + 0.08); T.palabraR = r2(T.i16 + 0.6);
+const DUR = Math.ceil((Math.ceil((T.i16 + LEN.i16 + 0.1) * 30) / 30) * 1e4) / 1e4;
+T.cierre = r2(DUR - 1.05);
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -164,7 +164,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
   ESC.push([id, P1, dur, "abajo"]);
   const palabra = (w) => [...w].map((ch) => `<span class="l">${ch}</span>`).join("");
   const lin = (cls, ws) => `<span class="linea ${cls}">${ws.map(palabra).join('<span class="esp"></span>')}</span>`;
-  const MAS = Number(process.env.MAS ?? 1.45);   // "más" en la voz del narrador (desde P1 - 0,05)
+  const MAS = Number(process.env.MAS ?? 1.38);   // "más" en la voz del narrador (desde P1 - 0,05)
   escena(id, dur, {
     css: `
     P .fondo { position: absolute; inset: -200px; background: ${G}; }
@@ -217,7 +217,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
 
 // C · "Comentá AVISOS" + "y te mando cómo funciona para tu veterinaria", debajo de la cara de Inés
 {
-  const id = "s05-palabra", ini = T.c, dur = r2(DUR - T.c + 0.1);
+  const id = "s05-palabra", ini = r2(T.palabraR - 0.04), dur = r2(DUR - ini + 0.1);
   ESC.push([id, ini, dur, "arriba"]);
   escena(id, dur, {
     css: `
@@ -230,7 +230,7 @@ const ESC = [];     // [id, inicio, duración, capa]  capa: "arriba" (sobre el c
     P .c { margin-top: 14px; font: 700 46px/1.2 "Lexend", sans-serif; color: ${NAVY}; }`,
     html: `      <div class="caja"><div class="a">Comentá</div><div class="tx"><span class="sel"><b></b><em>AVISOS</em></span></div><div class="c">y te mando cómo funciona<br>para tu veterinaria</div></div>`,
     js: `      tl.fromTo(q(".caja"), { scale: 0.4, y: 60 }, { scale: 1, y: 0, duration: 0.3, ease: "back.out(1.8)", immediateRender: true }, 0);
-      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(T.palabraR - T.c)});`,
+      tl.fromTo(q(".sel"), { scale: 1 }, { scale: 1.06, duration: 0.14, ease: "sine.inOut", yoyo: true, repeat: 1, immediateRender: false }, ${r2(0.3)});`,
   });
 }
 // la línea chica final (abajo de la tarjeta): qué es y la web
@@ -319,7 +319,7 @@ whoosh(T.q1i, -48); ding(T.q1i + 0.35, -40);
 voz("v12", T.v12, -1);
 s("sfx/calle.wav", T.q1b, 0, { dur: r2(T.q2 - T.q1b), fi: 0.05, fin: 0.1, techo: -46, lp: 1800 });
 // Q2 · 11:00: el chip, la puerta de vaivén, el panel, el toque, el aviso enviado
-chipS(T.q2); s("sfx/k-creak.wav", T.q2 + 0.55, 0, { techo: -44 });
+chipS(T.q2);
 whoosh(T.q2i, -46); toque(T.tocaCir, -36); ding(T.enviadoCir, -36);
 // Q3 · 15:30: el chip, la tablet (toque), la cocina: vibra, el aviso, el video: el ronquido por el altavoz, "¡Ay, mi amor!"
 chipS(T.q3); toque(T.tocaDesp, -40);
@@ -345,7 +345,7 @@ s("sfx/ladrido-golden_fs146343_1.wav", T.ladra, 0, { techo: -34, pico: -10 });
 // C · Inés a cámara: pop con la tarjeta y la línea chica
 whoosh(T.c, -46);
 voz("i16", T.i16, -1);
-pop(T.c + 0.02, -38);
+pop(T.palabraR - 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB; en los tramos sin voz (el montaje, los insertos), los SFX +3 (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.libre) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }

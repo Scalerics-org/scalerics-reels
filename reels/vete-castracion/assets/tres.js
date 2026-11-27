@@ -556,20 +556,29 @@ for (const per of [ines, inesQ]) {
 // bajado al cuello (tela celeste muy pálida con las tiras) y los guantes de látex crema
 const GORRO = new THREE.Group();
 {
+  // gorro de TELA (no casco): un casquete bajo y blando, más largo atrás (tapa la nuca), con arrugas, la tira elástica
+  // fina y el lazo atado atrás con las dos puntas que cuelgan
   const R = 0.3, CC = R * 0.92;
-  GORRO.position.set(0, CC + R * 0.18, -0.025); GORRO.rotation.x = -0.18; inesQ.cabeza.add(GORRO);
+  GORRO.position.set(0, CC + R * 0.3, -0.035); GORRO.rotation.x = -0.26; inesQ.cabeza.add(GORRO);
   inesQ.cabeza.traverse((o) => { if (o.isMesh && o.material && o.material.color && o.material.color.getHex() === ELENCO.ines.pelo) o.visible = false; });   // el pelo queda adentro del gorro
-  const cas = mesh(new THREE.SphereGeometry(1, 36, 18, 0, Math.PI * 2, 0, Math.PI * 0.5), M.gorro, 0, 0, 0, R * 1.03, R * 0.82, R * 1.04); GORRO.add(cas);
-  const vin = mesh(new THREE.TorusGeometry(1, 0.06, 10, 40), mat(0x2f5523, 0.9), 0, 0.0, 0, R * 1.09, R * 1.1, R * 1.0); vin.rotation.x = Math.PI / 2; vin.scale.set(R * 1.04, R * 1.05, R * 0.7); GORRO.add(vin);
-  // el moño de atrás
-  for (const s of [-1, 1]) { const m = mesh(new THREE.SphereGeometry(1, 10, 8), mat(0x2f5523, 0.9), s * 0.04, 0.02, -R * 1.08, 0.035, 0.022, 0.012); m.rotation.z = s * 0.5; GORRO.add(m); }
+  const geo = new THREE.SphereGeometry(1, 40, 20, 0, Math.PI * 2, 0, Math.PI * 0.56);
+  { const p = geo.attributes.position; for (let k = 0; k < p.count; k++) { const x = p.getX(k), y = p.getY(k), z = p.getZ(k); const a = Math.atan2(z, x); const w = 1 + 0.035 * Math.sin(a * 7 + y * 3) * (1 - y); p.setXYZ(k, x * w, y, z * w); } geo.computeVertexNormals(); }
+  const cas = mesh(geo, M.gorro, 0, 0, 0, R * 1.06, R * 0.86, R * 1.1); GORRO.add(cas);
+  const tela2 = mat(0x2f5523, 0.95);
+  const vin = mesh(new THREE.TorusGeometry(1, 0.022, 8, 48), tela2, 0, -R * 0.7 * Math.cos(Math.PI * 0.56) * -1, 0); vin.rotation.x = Math.PI / 2; vin.scale.set(R * 1.06 * Math.sin(Math.PI * 0.56), R * 1.1 * Math.sin(Math.PI * 0.56), R * 1.0); vin.position.y = R * 0.86 * Math.cos(Math.PI * 0.56); GORRO.add(vin);
+  // el lazo atrás: el nudo y las dos puntas colgando
+  const yb = R * 0.86 * Math.cos(Math.PI * 0.56), zb = -R * 1.1 * Math.sin(Math.PI * 0.56);
+  GORRO.add(mesh(new THREE.SphereGeometry(1, 10, 8), tela2, 0, yb + 0.01, zb - 0.005, 0.03, 0.022, 0.02));
+  for (const s2 of [-1, 1]) { const tira = mesh(rbox(0.032, 0.13, 0.008, 0.004, 1), tela2, s2 * 0.025, yb - 0.06, zb - 0.01); tira.rotation.set(0.25, 0, s2 * 0.25); GORRO.add(tira); }
 }
 const BARBIJO = new THREE.Group();
 {
-  BARBIJO.position.set(0, 0.665 + 0.06, 0.012); inesQ.cuerpo.add(BARBIJO);
-  const geo = new THREE.CylinderGeometry(0.105, 0.1, 0.095, 24, 1, true, -1.25, 2.5); const b = mesh(geo, new THREE.MeshStandardMaterial({ color: 0xdde8ea, roughness: 0.9, side: THREE.DoubleSide })); BARBIJO.add(b);
-  for (let i = 0; i < 3; i++) BARBIJO.add(mesh(new THREE.CylinderGeometry(0.1065, 0.1015, 0.006, 24, 1, true, -1.2, 2.4), new THREE.MeshStandardMaterial({ color: 0xbfcfd3, roughness: 0.9, side: THREE.DoubleSide }), 0, -0.03 + i * 0.028, 0));
-  for (const s of [-1, 1]) { const t = mesh(new THREE.TorusGeometry(0.1, 0.005, 6, 24, 1.6), mat(0xdde8ea, 0.9), 0, 0.0, 0); t.rotation.set(Math.PI / 2, 0, s > 0 ? 0.4 : Math.PI - 0.4 - 1.6 + 1.6); BARBIJO.add(t); }
+  // el barbijo bajado al cuello: celeste pálido, con los pliegues y las tiras (debajo del mentón, sobre el cuello del ambo)
+  BARBIJO.position.set(0, 0.6, 0.035); BARBIJO.rotation.x = 0.2; inesQ.cuerpo.add(BARBIJO);
+  const bm = new THREE.MeshStandardMaterial({ color: 0xcfe2e8, roughness: 0.9, side: THREE.DoubleSide });
+  BARBIJO.add(mesh(new THREE.CylinderGeometry(0.125, 0.115, 0.1, 28, 1, true, -1.15, 2.3), bm));
+  for (let k = 0; k < 3; k++) BARBIJO.add(mesh(new THREE.CylinderGeometry(0.1265, 0.1165, 0.007, 28, 1, true, -1.1, 2.2), new THREE.MeshStandardMaterial({ color: 0xa9c4cc, roughness: 0.9, side: THREE.DoubleSide }), 0, -0.03 + k * 0.03, 0));
+  for (const s2 of [-1, 1]) { const t = mesh(new THREE.TorusGeometry(0.12, 0.006, 6, 20, 1.9), mat(0xcfe2e8, 0.9)); t.rotation.set(Math.PI / 2, 0, s2 > 0 ? -0.15 : Math.PI + 0.15 - 1.9); t.position.y = 0.03; BARBIJO.add(t); }
 }
 const GUANTES = [];
 function ponerGuante(per, lado, on) { const b = per.brazos[lado === "I" ? 0 : 1]; b.mano.traverse((o) => { if (o.isMesh) { if (!o.userData.piel) o.userData.piel = o.material; o.material = on ? M.latex : o.userData.piel; } }); }
@@ -960,7 +969,7 @@ const COCO_R = { x: RX + CAM2.x - 0.0 + 0.0, y: CAM2.alto + 0.05, z: CAM2.z + 0.
 const QPUERTA = { x: VX + XL + 0.35, z: -1.05 };     // delante de la puerta del quirófano (recepción)
 const PCALLE_V = { x: VX + 2.07, z: ZF - 0.3 };      // la puerta de calle (afuera)
 const VERO_Q5 = { x: VX + 0.75, z: -0.25 };           // Vero adentro, frente al mostrador
-const TOTO_Q5 = { x: VX + 0.2, z: 0.15 };             // Toto sentado delante de Vero
+const TOTO_Q5 = { x: VX + 0.25, z: -0.1 };             // Toto sentado delante de Vero
 const VERO_K = { x: -0.3, z: -0.12 };                 // la cocina
 
 // =====================================================================================================
@@ -975,7 +984,7 @@ const KRB = CK.KRB || [RX + 0.25, 1.6, 1.45, RX - 0.95, 1.38, -0.6, 48];        
 const KR4 = CK.KR4 || [RX - 0.55, 1.95, 2.1, RX - 0.62, 1.15, -0.8, 55];            // la pausa: Inés, Bruno y Toto
 const KTO = CK.KTO || [RX + 1.4, 1.45, -0.2, RX + 0.12, 1.08, -0.45, 46];         // primer plano de Toto con el teléfono
 const KQ4 = CK.KQ4 || [VX - 1.2, 1.6, 2.3, VX + 0.05, 1.2, -1.0, 52];               // Bruno con la tablet y la señora (Q4)
-const KQ4B = CK.KQ4B || [VX + 0.8, 1.5, 1.2, VX - 1.9, 1.25, -0.95, 50];           // la puerta del quirófano: Inés sale
+const KQ4B = CK.KQ4B || [VX + 0.1, 1.65, 3.0, VX - 1.05, 1.25, -1.2, 62];   // la puerta del quirófano y Bruno detrás del mostrador en el mismo plano           // la puerta del quirófano: Inés sale
 const KQ5 = CK.KQ5 || [VX - 1.2, 1.62, 2.15, VX + 0.32, 1.15, -0.8, 58];              // Vero entra; Toto trota
 const KK = CK.KK || [0.75, 1.5, 2.4, -0.3, 1.2, -0.3, 44];                        // la cocina: Vero con el celular
 const KC = CK.KC || [VX - 0.15, 1.5, 1.45, VX - 0.12, 1.36, -1.6, 46];                // el cierre
@@ -991,22 +1000,18 @@ const PLANOS = [
   ["P3c", T.p3c, [[T.p3c, ...KRB], [T.p4, ...off(KRB, [0, 0, -0.06, 0, 0, 0, -1])]]],
   ["P4", T.p4, [[T.p4, ...KR4], [T.p4b, ...off(KR4, [0, -0.03, -0.25, 0, 0, 0, -2])]]],
   ["P4b", T.p4b, [[T.p4b, ...KTO], [T.p5, ...off(KTO, [-0.05, 0, -0.08, 0, 0, 0, -3])]]],
-  ["P5", T.p5, [[T.p5, ...off(KTO, [0.15, 0.15, 0.4, 0, 0.1, 0, 4])], [T.p5i, ...off(KTO, [0.15, 0.15, 0.35, 0, 0.1, 0, 4])]]],
   ["P5i", T.p5i, null],
   ["P5b", T.p5b, [[T.p5b, RX - 0.15, 2.15, 3.0, RX + 0.0, 1.05, -1.0, 62], [T.miraCoco, RX - 0.12, 2.12, 2.9, RX + 0.02, 1.05, -1.0, 61], [r2(T.roncaCoco + 0.1), RX + 0.75, 1.6, 0.7, RX + 1.2, 1.0, -1.3, 48], [P1, RX + 0.78, 1.58, 0.6, RX + 1.2, 1.0, -1.3, 46]]],
   // ---- parte 2 ----
   ["Q1", P2, [[P2, ...K0], [T.q1i, ...off(K0, [0, 0, -0.15, 0, 0, 0, 0])]]],
   ["Q1i", T.q1i, null],
   ["Q1b", T.q1b, [[T.q1b, ...off(K0, [0.05, 0, -0.35, 0.05, 0, 0, -2])], [T.q2, ...off(K0, [0.05, 0, -0.45, 0.05, 0, 0, -2])]]],
-  ["Q2", T.q2, [[T.q2, VX - 0.2, 1.65, 3.0, VX - 0.8, 1.2, -1.0, 56], [T.q2i, VX - 0.25, 1.65, 2.85, VX - 0.85, 1.2, -1.0, 56]]],
   ["Q2i", T.q2i, null],
   ["Q3", T.q3, [[T.q3, RX + 0.25, 2.0, 2.6, RX + 0.25, 1.1, -0.6, 56], [T.q3k, RX + 0.25, 1.98, 2.4, RX + 0.25, 1.1, -0.6, 55]]],
-  ["Q3k", T.q3k, [[T.q3k, ...KK], [T.q3i, ...off(KK, [0, 0, -0.05, 0, 0, 0, 0])]]],
   ["Q3i", T.q3i, null],
   ["Q3v", T.q3v, [[T.q3v, ...off(KK, [0, 0, -0.1, 0, 0, 0, -2])], [T.q4, ...off(KK, [0, 0, -0.2, 0, 0, 0, -4])]]],
   ["Q4", T.q4, [[T.q4, ...KQ4], [T.q4b, ...off(KQ4, [0, 0, -0.15, 0, 0, 0, 0])]]],
-  ["Q4b", T.q4b, [[T.q4b, ...KQ4B], [T.q4c, ...off(KQ4B, [0, 0, -0.1, 0, 0, 0, -1])]]],
-  ["Q4c", T.q4c, [[T.q4c, VX - 0.9, 1.6, 0.6, VX - 0.05, 1.5, -1.6, 42], [T.q4i, VX - 0.88, 1.6, 0.5, VX - 0.05, 1.5, -1.6, 41]]],
+  ["Q4b", T.q4b, [[T.q4b, ...KQ4B], [T.q4i, ...off(KQ4B, [0, 0, -0.15, 0, 0, 0, -1])]]],
   ["Q4i", T.q4i, null],
   ["Q5i", T.q5i, null],
   ["Q5", T.q5, [[T.q5, ...KQ5], [T.c, ...off(KQ5, [0, 0, -0.25, 0, 0, 0, 0])]]],
@@ -1051,7 +1056,7 @@ function chipActual(t) { for (let i = 0; i < 3; i++) if (t >= T.mont[i].ini && t
 function poseBruno(t) {
   const pa = planoActual;
   if (t < T.p2a) {
-    const g = sg(t, T.gira, T.gira + 0.35) * (1 - sg(t, T.b2 + LEN.b2 + 0.1, T.b2 + LEN.b2 + 0.5));
+    const g = sg(t, T.gira, T.gira + 0.35);
     const p = poseEn(t, [
       [0, { x: BRUNO_M.x, z: BRUNO_M.z, giro: 0.15, ...aC(0.35, 0.12), ...CARA.neutra, ...BRAZOS.apoyado }],
       [T.v1 + 0.2, { ...aC(0.15, 0.05), ...BUENA }, 0.25],
@@ -1133,7 +1138,7 @@ function poseInesQ(t) {
       [T.p3c, { ...aC(gB2 * 0.6, 0.05), ...SECO }, 0.3],
       [T.b8 + LEN.b8, { ...aC(gB2 * 0.6, 0.05), ...SECO, ojos: { abiertos: 0.85, tension: 0.1 }, cejas: { alto: 0.1, ang: -0.05 } }, 0.15],
       [T.toma, { inclina: 0.22, ...aC(0.45, 0.3), ...SECO }, 0.4],
-      [T.oreja + 0.35, { inclina: 0.18, ...aC(-0.1, 0.02), ...SECO, ojos: { abiertos: 0.8, tension: 0.1 }, cejas: { alto: 0.05, ang: -0.05 } }, 0.35],
+      [T.oreja + 0.35, { inclina: 0.18, ...aC(0.75, 0.05), ...SECO, ojos: { abiertos: 0.8, tension: 0.1 }, cejas: { alto: 0.05, ang: -0.05 } }, 0.35],
       [T.ring5 + 0.1, { ...aC(0.05, 0.35), ...SECO, cejas: { alto: 0.3, ang: 0.1 } }, 0.2],
       [T.miraCoco + 0.15, { ...aC(0.75, 0.2), ...SECO, cejas: { alto: 0.55, ang: 0.0 } }, 0.3],
     ]);
@@ -1264,7 +1269,7 @@ function renderAt(tIn) {
     bruno: (recep && pa !== "P1b" && pa !== "C") || (sala && pa !== "P3b" && pa !== "P4b"),
     vero: (t < P1 && (pa === "P1" || pa === "P1b")) || pa === "Q1" || pa === "Q1b" || pa === "Q5",
     veroC: cocina, inesQ: (sala && pa !== "P3c" && pa !== "Q3") || pa === "Q2" || pa === "Q4b" || pa === "Q4c", ines: pa === "C",
-    senora: (pa === "P2a" || pa === "P2b" || pa === "P2c") || pa === "Q4" || pa === "Q4c",
+    senora: (pa === "P2a" || pa === "P2b" || pa === "P2c") || pa === "Q4",
     toto: pa === "P1" || pa === "P1b" || sala || pa === "Q1" || pa === "Q1b" || (pa === "Q5" && t >= T.trota[0] - 0.05) || pa === "C",
     coco: sala,
   };
@@ -1301,7 +1306,7 @@ function renderAt(tIn) {
   const lb = sonando(t) && t < P1 ? 0.5 + 0.5 * Math.sin(t * 20) : 0; luzBaseM.emissiveIntensity = lb * 1.2;
   // la puerta de vaivén de la recepción (Q2 entra Inés, Q4b sale, Q5 sale Toto) y la de la calle (la señora, Vero)
   const uQ = Math.max(sg(t, T.q2i - 0.35, T.q2i - 0.1) * (1 - sg(t, T.q2i, T.q2i + 0.2)), sg(t, T.abreQ - 0.3, T.abreQ - 0.02) * (1 - sg(t, T.abreQ + 0.85, T.abreQ + 1.2)), sg(t, T.trota[0] - 0.2, T.trota[0]) * (1 - sg(t, T.trota[0] + 0.35, T.trota[0] + 0.6)));
-  QHOJA.rotation.y = Math.PI / 2 + 1.25 * eio(uQ);   // abre hacia el quirófano (no barre a quien sale)
+  QHOJA.rotation.y = Math.PI / 2 + 1.25 * eio(uQ); QHOJA.visible = uQ < 0.5;   // abre hacia el quirófano (no barre a quien sale)
   const uC = Math.max(sg(t, T.campana - 0.3, T.campana) * (1 - sg(t, T.campana + 0.4, T.campana + 0.8)), sg(t, T.entraV[0] - 0.25, T.entraV[0] + 0.05) * (1 - sg(t, T.entraV[0] + 0.5, T.entraV[0] + 0.9)));
   PCALLE.rotation.y = 1.2 * eio(uC);
   // el guante que se sacó, en la mano derecha (Q4b)
@@ -1349,7 +1354,7 @@ function tarjetas(t) {
   const telPx = () => objPx(TEL, V3(0, 0.05, 0));
   if (pa === "P1") {
     ponerGlobo(GL.jue, 330, 470, 1, null);
-    if (t >= T.v1 && t < T.v1 + LEN.v1 + 0.35) { const [x, y] = telPx(); ponerGlobo(GL.v1, 700, 640, ent(T.v1), [x, y], 2); }
+    if (t >= T.v1 && t < T.b2 - 0.02) { const [x, y] = telPx(); ponerGlobo(GL.v1, 700, 640, ent(T.v1), [x, y], 2); }
     if (t >= T.b2) { verGlobo(GL.b2, t >= T.b2 + 0.75 ? 99 : 1); hablar(GL.b2, bruno, ent(T.b2), 1, 60); }
   }
   if (pa === "P1b") ponerGlobo(GL.jue, 330, 200, 1, null);
@@ -1365,18 +1370,18 @@ function tarjetas(t) {
   if (pa === "P3c" && t >= T.b8) hablar(GL.b8, bruno, ent(T.b8), 1, 0);
   if (pa === "P4") { ponerGlobo(GL.r1, 330, 1450, ent(T.rot[0]), null, 1); ponerGlobo(GL.r2, 690, 1690, ent(T.rot[1]), null, 1); }
   if (pa === "P4b" && t >= T.v9) { const [x, y] = telPx(); ponerGlobo(GL.v9, 560, 560, ent(T.v9), [x, y], 2); }
-  if (pa === "P5b" && t >= T.b10 && t < T.b10 + LEN.b10 + 0.2) hablar(GL.b10, bruno, ent(T.b10), 1, 0);
+  if (pa === "P5b" && t >= T.b10 && t < T.miraCoco) hablar(GL.b10, bruno, ent(T.b10), 1, 0);
   if (pa === "Q1") ponerGlobo(GL.jue2, 280, 220, 1, null);
   if (pa === "Q1i") ponerGlobo(GL.rAv1, 540, 220, 1, null, 1);
   if (pa === "Q1b" && t >= T.v12) hablar(GL.v12, vero, ent(T.v12), 1, 0);
   if (pa === "Q2") ponerGlobo(GL.h1100, 220, 220, 1, null, 1);
-  if (pa === "Q2i") ponerGlobo(GL.rPanel, 540, 230, 1, null, 1);
+  if (pa === "Q2i") { ponerGlobo(GL.h1100, 220, 160, 1, null, 1); ponerGlobo(GL.rPanel, 540, 320, 1, null, 2); }
   if (pa === "Q3") ponerGlobo(GL.h1530b, 220, 220, 1, null, 1);
   if (pa === "Q3i") ponerGlobo(GL.rAv3, 540, 220, 1, null, 1);
   if (pa === "Q3v" && t >= T.v9b) { const [x, y] = objPx(celuV, V3(0, 0.05, 0)); ponerGlobo(GL.v9b, 560, 560, ent(T.v9b), [x, y], 2); }
   if (pa === "Q4" && t >= T.b10b) hablar(GL.b10b, bruno, ent(T.b10b), 1, 0);
-  if (pa === "Q4b" && t >= T.i13) hablar(GL.i13, inesQ, ent(T.i13), 1, 0);
-  if (pa === "Q4c" && t >= T.b14) hablar(GL.b14, bruno, ent(T.b14), 1, 0);
+  if (pa === "Q4b" && t >= T.i13 && t < T.b14 - 0.02) hablar(GL.i13, inesQ, ent(T.i13), 1, 0);
+  if (pa === "Q4b" && t >= T.b14) hablar(GL.b14, bruno, ent(T.b14), 1, 0);
   if (pa === "Q4i") ponerGlobo(GL.rLlam, 540, 230, 1, null, 1);
   if (pa === "Q5i") { ponerGlobo(GL.h1700, 220, 220, 1, null, 1); ponerGlobo(GL.rAv5, 640, 330, 1, null, 2); }
   if (pa === "Q5") { if (t >= T.v1b && t < T.b15 - 0.05) hablar(GL.v1b, vero, ent(T.v1b), 1, 0); if (t >= T.b15) hablar(GL.b15, bruno, ent(T.b15), 1, 0); }
