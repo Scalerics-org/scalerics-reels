@@ -24,36 +24,36 @@ const durWav = (f) => r2(Number(execSync(`ffprobe -v error -show_entries format=
 // "Nadie." · b15 "Preguntale a él." · i16 "Comentá AVISOS y te mando cómo funciona para tu veterinaria."
 const VOCES = ["v1", "b2", "b3", "b4", "b5", "b6", "i7", "b8", "v9", "b10", "v12", "i13", "b14", "b15", "i16"];
 const LEN = Object.fromEntries([...VOCES, "nar"].map((v) => [v, durWav(`assets/voice/${v === "nar" ? "narrador" : v}.wav`)]));
-const RONQ = durWav("assets/sfx/ronquido.wav");
+const RONQ = durWav("assets/sfx/ronquido.wav"), RONQ2 = r2(durWav("assets/sfx/ronquido2.wav") / 1.19);
 const T = {};
 // ---- parte 1 ----
 // P1 · cuadro 0, jueves 9:02: el teléfono del mostrador YA suena; Bruno atiende con la correa de Toto en la otra mano ·
 // "¿Cómo está Toto?" (por teléfono) · Bruno se da vuelta: Vero está en la vereda, del otro lado de la vidriera · "Vero. Te
 // estoy viendo." · P1b: Vero saluda con la mano libre, sin colgar
 T.ring0 = 0.0; T.atiende = 0.3; T.v1 = 0.55;
-T.gira = r2(T.v1 + LEN.v1 + 0.0); T.b2 = r2(T.v1 + LEN.v1 + 0.2);
+T.gira = r2(T.v1 + LEN.v1 - 0.05); T.b2 = r2(T.v1 + LEN.v1 + 0.15);
 T.p1b = r2(T.b2 + LEN.b2 - 0.2); T.saluda = r2(T.p1b + 0.05);
 // P2 · el montaje en el mismo encuadre, un ring por chip: 10:30 · 12:00 · 14:00 (la señora de Luna se va)
-const CHIP = (t0, len) => ({ ini: t0, ring: r2(t0 + 0.02), atiende: r2(t0 + 0.12), voz: r2(t0 + 0.24), fin: r2(t0 + 0.24 + len + 0.1) });
-T.p2a = r2(T.p1b + 0.62); const A = CHIP(T.p2a, LEN.b3); T.p2b = A.fin; const B = CHIP(T.p2b, LEN.b4); T.p2c = B.fin; const Cc = CHIP(T.p2c, LEN.b5);
+const CHIP = (t0, len) => ({ ini: t0, ring: r2(t0 + 0.0), atiende: r2(t0 + 0.2), voz: r2(t0 + 0.3), fin: r2(t0 + 0.34 + len + 0.1) });
+T.p2a = r2(T.p1b + 0.52); const A = CHIP(T.p2a, LEN.b3); T.p2b = A.fin; const B = CHIP(T.p2b, LEN.b4); T.p2c = B.fin; const Cc = CHIP(T.p2c, LEN.b5);
 T.mont = [A, B, Cc]; T.b3 = A.voz; T.b4 = B.voz; T.b5 = Cc.voz;
 T.seVa = r2(T.p2c + 0.25); T.campana = r2(T.p2c + 1.35);
 // P3 · 15:30, la sala de recuperación: Toto dormido con el collar, Coco al lado, Inés de cirugía; Bruno se asoma ·
 // "Doctora. Vero quiere hablar con él." · P3b contraplano de Inés: "Está anestesiado." · P3c Bruno: "Dice que no importa."
-T.p3 = Cc.fin; T.b6 = r2(T.p3 + 0.3);
+T.p3 = Cc.fin; T.b6 = r2(T.p3 + 0.25);
 T.p3b = r2(T.b6 + LEN.b6 + 0.05); T.i7 = r2(T.p3b + 0.08);
 T.p3c = r2(T.i7 + LEN.i7 + 0.08); T.b8 = r2(T.p3c + 0.06);
 // P4 · la pausa (Inés mira a Bruno; los rótulos del costo) · toma el inalámbrico y se lo apoya en la oreja a Toto · P4b
 // primer plano: Toto RONCA · del teléfono, finito: "¡Ay, mi amor!"
-T.p4 = r2(T.b8 + LEN.b8 + 0.1); T.rot = [r2(T.p4 + 0.15), r2(T.p4 + 0.4)];
-T.toma = r2(T.p4 + 0.98); T.oreja = r2(T.toma + 0.45);
-T.p4b = r2(T.oreja - 0.15); T.ronca = r2(T.oreja + 0.25); T.v9 = r2(T.ronca + 0.72);
+T.p4 = r2(T.b8 + LEN.b8 + 0.05); T.rot = [r2(T.p4 + 0.15), r2(T.p4 + 0.4)];
+T.toma = r2(T.p4 + 0.86); T.oreja = r2(T.toma + 0.4);
+T.p4b = r2(T.oreja - 0.15); T.ronca = r2(T.oreja + 0.25); T.v9 = r2(T.ronca + RONQ + 0.05);   // (r1) el ronquido entero y solo antes de "¡Ay, mi amor!"
 // P5 · el remate del remate: el teléfono vuelve a sonar en la mano de Inés · inserto de la pantallita "PAPÁ DE COCO" · P5b
 // Bruno: "Ahora el de Coco." · Inés mira a Coco, que ronca también · stinger
-T.ring5 = r2(T.v9 + LEN.v9 + 0.2); T.p5 = r2(T.ring5 - 0.05); T.p5i = r2(T.ring5 + 0.25);
-T.p5b = r2(T.p5i + 0.6); T.b10 = r2(T.p5b + 0.08); T.miraCoco = r2(T.b10 + LEN.b10 + 0.05); T.roncaCoco = r2(T.miraCoco + 0.2);
-const P1 = r2(T.roncaCoco + 0.72);   // termina la parte 1 (arranca el cartel)
-const P2 = r2(P1 + Math.max(2.35, LEN.nar + 0.06));
+T.ring5 = r2(T.v9 + LEN.v9 + 0.15); T.p5 = r2(T.ring5 - 0.05); T.p5i = r2(T.ring5 + 0.25);
+T.p5b = r2(T.p5i + 0.52); T.b10 = r2(T.p5b + 0.08); T.miraCoco = r2(T.b10 + LEN.b10 - 0.1); T.roncaCoco = r2(T.miraCoco + 0.05);
+const P1 = r2(T.roncaCoco + RONQ2 + 0.05);   // (r1) el ronquido de Coco termina antes del stinger   // termina la parte 1 (arranca el cartel)
+const P2 = r2(P1 + Math.max(2.32, LEN.nar + 0.03));
 // ---- parte 2 ----
 // Q1 · el mismo jueves 9:02, el mismo encuadre: el teléfono quieto · Bruno le saca una foto a Toto con la tablet y la manda
 // · en la vereda vibra el celular de Vero · Q1i el aviso "Toto ingresó ✓" · Q1b "¡Ay, mirá! ¡Ya entró!", le muestra el
@@ -76,16 +76,16 @@ T.q3v = r2(T.roncaCel + 0.9); T.v9b = r2(T.q3v + 0.06);
 T.q4 = r2(T.v9b + LEN.v9 + 0.15); T.b10b = r2(T.q4 + 0.15); T.tocaCoco = r2(T.b10b + LEN.b10 + 0.02); T.enviadoCoco = r2(T.tocaCoco + 0.2);
 T.q4b = r2(T.enviadoCoco + 0.35); T.abreQ = r2(T.q4b + 0.0); T.guante = r2(T.q4b + 0.45); T.i13 = r2(T.q4b + 0.3);
 T.q4c = r2(T.i13 + LEN.i13 + 0.05); T.b14 = r2(T.i13 + LEN.i13 + 0.12);
-T.q4i = r2(T.b14 + LEN.b14 + 0.05); T.giraN = r2(T.q4i + 0.25); T.atendidas = r2(T.q4i + 0.6);
+T.giraN = r2(T.b14 + LEN.b14 + 0.12); T.atendidas = r2(T.giraN + 0.4);   // (r1) sin el inserto Q4i: el rótulo "Llamadas preguntando 34 → 0" va en el plano de "Nadie."
 // Q5 · 17:00: el aviso "Listo para retirar ✓" (inserto) · campanita: entra Vero: "¿Cómo está Toto?" (el mismo audio, en
 // persona) · Bruno señala la puerta del quirófano: "Preguntale a él." · Toto entra trotando con el collar y ladra contento
-T.q5i = r2(T.atendidas + 0.45); T.listo = r2(T.q5i + 0.2);
+T.q5i = r2(T.atendidas + 0.5); T.listo = r2(T.q5i + 0.2);
 T.q5 = r2(T.q5i + 0.98); T.campana2 = r2(T.q5 + 0.0); T.entraV = [T.q5, r2(T.q5 + 0.75)]; T.v1b = r2(T.q5 + 0.7);
 T.b15 = r2(T.v1b + LEN.v1 + 0.1); T.trota = [r2(T.b15 + 0.3), r2(T.b15 + 1.25)]; T.ladra = r2(T.trota[1] + 0.12);
 // C · Inés a cámara (sin gorro): "Comentá AVISOS…"
 T.c = r2(T.ladra + 0.5); T.i16 = r2(T.c + 0.08); T.palabraR = r2(T.i16 + 0.6);
 const DUR = Math.ceil((Math.ceil((T.i16 + LEN.i16 + 0.1) * 30) / 30) * 1e4) / 1e4;
-T.cierre = r2(DUR - 1.05);
+T.cierre = r2(T.palabraR + 0.35);   // (r1) la línea chica entra con la tarjeta (~2,5 s)
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
 function envolvente(archivo) {
@@ -262,29 +262,30 @@ const VOZ = [];
 // tel: por teléfono (banda 300-3400 Hz, más baja); alt: altavoz del celular (más suave)
 const voz = (f, t, db = -1, o = {}) => { s(`voice/${f}.wav`, t, db, { voz: true, fin: 0.04, ...o }); VOZ.push([r2(t - 0.75), r2(t + LEN[f] + 0.95)]); };
 const TELF = { hp: 320, lp: 3300 }, ALT = { hp: 220, lp: 5200 };
-const pasos = (a, b, n, techo = -46) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo, lp: 2500 }); };
+const pasos = (a, b, n, techo = -41) => { for (let i = 0; i < n; i++) s(`sfx/paso-${i % 5}.wav`, a + ((b - a) * i) / n, 0, { techo, lp: 2500 }); };
 const noti = (t, techo = -38) => { s("sfx/vibra.wav", t - 0.2, 0, { techo: techo - 2, dur: 0.4, fin: 0.1 }); s("sfx/notification.mp3", t - 0.05, 0, { techo, dur: 0.35, fin: 0.12 }); };
 const tic = (t, techo = -42, k = 0) => s(["sfx/k-tick-1.wav", "sfx/k-tick-2.wav", "sfx/k-tick-4.wav"][k % 3], t, 0, { techo, hp: 900 });
-const ding = (t, techo = -38) => s("sfx/cero.mp3", t, 0, { techo });
-const toque = (t, techo = -36) => s("sfx/click-soft.mp3", t, 0, { techo });
+const ding = (t, techo = -35) => s("sfx/cero.mp3", t, 0, { techo });
+const toque = (t, techo = -33) => s("sfx/click-soft.mp3", t, 0, { techo });
 const whoosh = (t, techo = -44) => s("sfx/whoosh-short.mp3", t - 0.06, 0, { techo });
 const unas = (a, b, n, techo = -44) => { for (let i = 0; i < n; i++) s(["sfx/k-tick-1.wav", "sfx/k-tick-2.wav", "sfx/k-tick-4.wav"][i % 3], a + ((b - a) * i) / n, 0, { techo, hp: 2500, vel: 1.35 }); };
 // el ring del teléfono de mostrador: dos tonos cortos (k-dos-tonos) dos veces; el bip de atender (k-tono, cortito)
-const ring = (t, techo = -35, n = 2) => { for (let i = 0; i < n; i++) s("sfx/k-dos-tonos.wav", t + i * 0.42, 0, { techo, hp: 500 }); };
+const ring = (t, techo = -35, d = 0.6) => s("sfx/bsb-ring.wav", t, 0, { techo, dur: d, fin: 0.08 });   // (r1) un ring de teléfono de verdad ("Phone Ring #5", BigSoundBank CC0)
 const atender = (t, techo = -42) => s("sfx/k-tono.wav", t, 0, { techo, dur: 0.12, fin: 0.04, vel: 1.3 });
 const ronquido = (f, t, techo = -33, o = {}) => s(`sfx/${f}.wav`, t, 0, { libre: true, techo, pico: -8, ...o });
-const chipS = (t) => { tic(t, -40, 0); whoosh(t, -46); };
+const chipS = (t) => { tic(t, -37, 0); whoosh(t, -44); };
 // ---- parte 1 ----
 s("sfx/zumbido.wav", 0, 0, { dur: r2(T.p3), fi: 0.05, fin: 0.2, techo: -52, lp: 900 });   // el tubo de la recepción, muy bajo
-s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -36, duck: [[T.p4 - 0.1, T.ring5, 0.85], [T.p2a, T.p3, 0.3]] });   // la música baja en la pausa y vuelve con el ring
+s("bgm/pizzicato.wav", 0, 0, { loop: true, dur: r2(P1 + 0.05), fin: 0.3, techo: -36, duck: [[T.p4 - 0.1, T.ring5, 0.5], [T.p2a, T.p3, 0.3]] });
+s("sfx/zumbido.wav", T.p3, 0, { dur: r2(P1 - T.p3), fi: 0.1, fin: 0.2, techo: -47, lp: 700 });   // (r1) el piso de la sala: la pausa no queda en silencio digital   // la música baja en la pausa y vuelve con el ring
 // P1 · el ring, atender, la voz por teléfono, "Vero. Te estoy viendo.", Toto mueve la cola, Vero saluda
-ring(T.ring0, -34, 1); atender(T.atiende);
+ring(T.ring0, -33, 0.42); atender(T.atiende);
 voz("v1", T.v1, -5, TELF);
 voz("b2", T.b2, -1);
 whoosh(T.p1b, -48);
 s("sfx/calle.wav", T.p1b, 0, { dur: r2(T.p2a - T.p1b), fi: 0.05, fin: 0.1, techo: -44, lp: 1800 });
 // P2 · el montaje: chip con tic y whoosh, ring, atender, la voz; la señora se va (pasos y campanita)
-T.mont.forEach((m, i) => { chipS(m.ini); ring(m.ring, -35, 1); atender(m.atiende); pop(m.ini + 0.12, -44); });
+T.mont.forEach((m, i) => { chipS(m.ini); ring(m.ring, -34, r2(m.atiende - m.ring + 0.06)); atender(m.atiende); pop(m.ini + 0.12, -44); });
 voz("b3", T.b3, -1); voz("b4", T.b4, -1); voz("b5", T.b5, -1);
 pasos(T.seVa, T.campana - 0.1, 4, -46);
 s("sfx/campanita.wav", T.campana, 0, { techo: -38 });
@@ -296,12 +297,12 @@ voz("b8", T.b8, -1);
 // P4 · la pausa: pop por rótulo; el guante que toma el teléfono; el ronquido; "¡Ay, mi amor!" por teléfono
 T.rot.forEach((t) => pop(t, -44));
 s("sfx/k-cloth_1.wav", T.toma - 0.05, 0, { techo: -42, dur: 0.35, fin: 0.1 });
-ronquido("ronquido", T.ronca, -31.5);
+ronquido("ronquido", T.ronca, -30.5);
 voz("v9", T.v9, -5, TELF);
 // P5 · el ring en la mano de Inés, el inserto, "Ahora el de Coco.", Coco ronca (el mismo más agudo y más bajo), stinger
-ring(T.ring5, -33, 2); whoosh(T.p5i, -46);
+ring(T.ring5, -32, 1.0); whoosh(T.p5i, -46);
 voz("b10", T.b10, -1);
-ronquido("ronquido2", T.roncaCoco, -35, { vel: 1.19 });
+ronquido("ronquido2", T.roncaCoco, -32, { vel: 1.19 });
 // ---- cartel ----
 s("sfx/whoosh.mp3", P1 - 0.04, 0, { techo: -46 });
 s("sfx/stinger.wav", P1 + 0.03, 0, { techo: -42, dur: 0.6, fin: 0.25 });
@@ -310,10 +311,10 @@ s("bgm/pizzicato.wav", P1, 0, { desde: 4.0, dur: r2(P2 - P1), fi: 0.3, fin: 0.3,
 for (const d of [0.12, 0.4, 0.75, 1.0]) pop(P1 + d + 0.02, -44);
 s("sfx/whoosh.mp3", P2 - 0.2, 0, { techo: -42 });
 // ---- parte 2 ----
-s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -36, duck: [[T.q2i, T.q3, 0.35], [T.q4i, T.q5, 0.35]] });
+s("bgm/pizzicato.wav", P2, 0, { loop: true, desde: 1.0, dur: r2(DUR - P2), fi: 0.9, fin: 0.8, techo: -36, duck: [[T.q2i, T.q3, 0.35], [T.giraN, T.q5, 0.35]] });
 s("sfx/zumbido.wav", P2, 0, { dur: r2(T.q3 - P2), fi: 0.1, fin: 0.2, techo: -52, lp: 900 });
 // Q1 · la foto (obturador), el envío, el celular de Vero, el aviso, "¡Ay, mirá!…", el pulgar
-s("sfx/k-switch-3.wav", T.foto, 0, { techo: -40 }); toque(T.envia, -42); s("sfx/whoosh-short.mp3", T.envia + 0.05, 0, { techo: -48, vel: 1.3 });
+s("sfx/k-switch-3.wav", T.foto, 0, { techo: -35 }); toque(T.envia, -36); s("sfx/whoosh-short.mp3", T.envia + 0.05, 0, { techo: -48, vel: 1.3 });
 noti(T.vibra1 + 0.15, -36.5);
 whoosh(T.q1i, -48); ding(T.q1i + 0.35, -40);
 voz("v12", T.v12, -1);
@@ -326,7 +327,7 @@ chipS(T.q3); toque(T.tocaDesp, -40);
 whoosh(T.q3k, -48); noti(T.vibra3 + 0.15, -34);
 whoosh(T.q3i, -48); toque(T.play, -42);
 ronquido("ronquido", T.roncaCel, -34, { hp: 300, lp: 4500 });
-voz("v9", T.v9b, -3, ALT);
+voz("v9", T.v9b, -1);   // (r1) en persona (la burbuja es normal)
 // Q4 · "Ahora el de Coco." (el mismo audio), el toque, el aviso; la puerta del quirófano, el guante, "¿llamó alguien?",
 // "Nadie.", el panel: 34 → 3
 voz("b10", T.b10b, -1);
@@ -334,11 +335,11 @@ toque(T.tocaCoco, -38); ding(T.enviadoCoco, -38);
 s("sfx/k-creak.wav", T.abreQ, 0, { techo: -44 }); s("sfx/k-cloth_2.wav", T.guante, 0, { techo: -40, dur: 0.4, fin: 0.1 });
 voz("i13", T.i13, -1);
 voz("b14", T.b14, -1);
-whoosh(T.q4i, -46); s("sfx/whoosh-short.mp3", T.giraN - 0.05, 0, { techo: -44, vel: 1.4 }); ding(T.giraN + 0.25, -36); ding(T.atendidas, -38);
+s("sfx/whoosh-short.mp3", T.giraN - 0.05, 0, { techo: -44, vel: 1.4 }); ding(T.giraN + 0.25, -36); ding(T.atendidas, -38);
 // Q5 · 17:00: el aviso Listo, la campanita, pasos, "¿Cómo está Toto?" en persona, "Preguntale a él.", Toto trota y ladra
 whoosh(T.q5i, -46); noti(T.q5i + 0.1, -38); ding(T.listo + 0.3, -38);
 s("sfx/campanita.wav", T.campana2, 0, { techo: -36 }); pasos(T.entraV[0] + 0.1, T.entraV[1], 3, -46);
-voz("v1", T.v1b, -1);
+voz("v1", T.v1b, -1, { hp: 150, lp: 7000 });   // (r1) pasabanda suave: se entiende "Toto"
 voz("b15", T.b15, -1);
 s("sfx/k-creak.wav", T.trota[0] - 0.1, 0, { techo: -46 }); unas(T.trota[0], T.trota[1], 9, -42);
 s("sfx/ladrido-golden_fs146343_1.wav", T.ladra, 0, { techo: -34, pico: -10 });
@@ -349,7 +350,7 @@ pop(T.palabraR - 0.02, -38);
 pop(T.cierre + 0.05, -44);
 // la cama +4 dB; en los tramos sin voz (el montaje, los insertos), los SFX +3 (nunca por encima del techo)
 for (const x of S) { const [f, t0, , o] = x; if (o.voz || o.libre) continue; if (f.startsWith("bgm/")) { o.techo = Math.min(TECHO, (o.techo ?? TECHO) + 4); continue; }
-  if (en(t0, T.q2i, T.q3) || en(t0, T.q4i, T.q5)) o.techo = Math.min(-35, (o.techo ?? TECHO) + 3); }
+  if (en(t0, T.q2i, T.q3) || en(t0, T.giraN, T.q5)) o.techo = Math.min(-35, (o.techo ?? TECHO) + 3); }
 // la música: duck debajo de cada voz para que la voz quede ≥ 6 LU arriba
 for (const x of S) if (x[0] === "bgm/pizzicato.wav" && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => a >= x[1] - 0.5 && b <= x[1] + x[3].dur + 0.5).map(([a, b]) => [a, b, 0.5])]; }
 function en(t, a, b) { return t >= a && t < b; }

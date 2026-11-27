@@ -128,3 +128,54 @@ Parte 1 0-21,08 · cartel 21,08-23,43 · parte 2 + cierre 23,43-46,97 = 23,5 s (
   renders/vete-castracion-final.mp4: 47,0 s, -14,1 LUFS, pico -5,6 dBFS (loudnorm lineal). Hoja: renders/hoja.png.
 - Portada regenerada: fondo limpio a 16,4 s (P4b con la cámara de la portada): Toto dormido con el collar y el
   auricular en la oreja, el guante, Inés con gorro y barbijo mirando a cámara, seca.
+
+## Ronda 1 de corrección (revision-arte-r1, revision-sonido-r1, revision-guion-r1) · 46,87 s
+Parte 1 0-21,08 · cartel 21,08-23,40 · parte 2 + cierre 23,40-46,87 (50,1 %) · tarjeta desde 43,86 (sobre "AVISOS"),
+3,0 s · línea chica desde 44,25 (2,6 s). check: ok, 0 errores. Mezcla: -14,0 LUFS, voz ≥ +9,2 LU, huecos ≤ -31,6.
+Arte:
+- A1 (ALTA) remate final: Toto se sienta de 3/4 a cámara (cuerpo hacia la cámara, cabeza hacia Vero, jadeo/ladrido,
+  cola); Vero con cejas arriba (BUENA → FELIZ → CARA.feliz, sin "esperanza"); cámara KQ5 nueva, Vero entera.
+- A2 (ALTA) el auricular: la cabeza de Toto ladeada (0,9) deja la oreja con el teléfono arriba y a la vista; Inés lo
+  agarra con la mano IZQUIERDA (la del lado de la cabeza), el puño sobre el auricular (IK a un punto del cuerpo del
+  teléfono, no al costado). P4b nuevo: 3/4 alto, se ven Toto, el teléfono con el guante y la cara de Inés.
+- A3 (ALTA) "¡Ay, mi amor!" arriba (y ~250), cola corta al auricular: no tapa caras.
+- M4 cuadro 0: cámara más baja y cerca (personajes en el centro), Vero más afuera (1,5 m detrás del vidrio), un
+  parante de la vidriera entre Toto y Vero, vidrio más visible, la base del teléfono adelante en el mostrador.
+- M5 pizarra entera (más chica, más adentro) y el cartel VETERINARIA INÉS arriba de la vidriera (entero).
+- M6 el auricular de Bruno con la pantalla hacia afuera-adelante; mentón sin hundirse en 12:00.
+- M7 14:00: push-in lento hacia la derecha y las sillas más adentro: la señora se levanta y se va en cuadro.
+- M8 sala: cámara general más baja y cerca; P5b viaja a Coco desde la mitad de "Ahora el de Coco." (Coco grande al
+  final), el vinilo QUIRÓFANO entero.
+- M9 Inés de cirugía: ojos hacia Bruno sin bizquear, gorro más arriba (se ve la frente), barbijo una banda plana
+  (sin los anillos).
+- M10 continuidad de Toto: el primer plano P4b mantiene la pose y el lado del plano general.
+- M11 Coco echado de costado, la cabeza apoyada mirando a cámara (antes parecía sentado).
+- M12 Q1b: Vero más a la derecha y afuera, el celular a la altura del pecho.
+- M13 cocina: cejas arriba (DERRETIDA sin ceño) y burbuja normal (lo dice ella en persona; el audio sin filtro).
+- M14 "Ahora el de Coco." (Q4) ahora va sobre el inserto del panel: se ve el toque en la fila de Coco y "Aviso a Julio
+  enviado ✓"; rótulo "Bruno, en la tablet".
+- M15 Q4b: sin los aros del estante (el rojo en la boca de Inés), plano más cerrado con Inés y Bruno enteros; el
+  rótulo de llamadas y "Consultas atendidas ✓" van en este plano (sin el inserto Q4i).
+- M16 Q5 Vero entera en cuadro.
+- M17 Inés del cierre con la coleta al costado (volumen, no casquete).
+- M18 portada nueva (ver abajo).
+- B19 el chip "Jueves, 9:02." se va cuando habla Bruno · B20 Coco oculto en Q3 · B21 insertos más cortos (panel 1120,
+  Listo 1140), horas de los avisos a 42 px, dueños del panel a 44 px · B23 tarjeta 3,0 s. Sin tocar: B22 (Toto pasa del
+  piso al mostrador en el cierre), B24 (aro de Vero).
+Sonido:
+- D1 (ALTA) ronquido.wav recortado de nuevo desde el ronquido (sin los 0,6 s mudos), ENV.ronq recalculado, "¡Ay, mi
+  amor!" entra cuando termina (T.v9 = ronca + dur + 0,05), techo -30,5.
+- D2 Coco: ronquido2 recortado, P1 = fin del ronquido + 0,05 (antes del stinger), techo -32.
+- D3 b5 sin atempo, silencios internos a 0,3 s ("sí dormido todavía"); D4 b6 sin atempo ("quiere").
+- D5 ring: bsb-ring.wav ("Phone Ring #5", BigSoundBank CC0, de taller-esta-pronto) en cada llamada.
+- D6 pausa: zumbido de la sala de fondo (-47) y la música baja a la mitad (antes 85 %).
+- D7 "¿Cómo está Toto?" en persona con pasabanda suave (150-7000 Hz) · D8 toques, foto, pasos, dings y chips +3/+5 dB.
+Guion:
+- G1 el rótulo dice "Llamadas preguntando 34 → 0" (no contradice "Nadie.") · G2 pizarra entera · G3 collar opaco
+  crema (de 3/4 se lee el embudo) · G5 línea chica con la tarjeta (2,6 s) · G6 descripcion.txt ("Treinta y cuatro
+  llamadas preguntando cómo está cada uno. Hasta que Vero quiere hablar con Toto.") · G7 = M10 · G8 = M5 · G9 portada.
+Duración: Q4i afuera, chips y pausas apretados para compensar b5/b6 sin atempo y los ronquidos enteros.
+- Render r1: 36,4 min (1406 cuadros, --workers 2); paso10 → renders/vete-castracion-final.mp4: 46,87 s, -14,1 LUFS, pico
+  -6,6 dBTP. Snapshots cada 0,5 s: renders/snap/pasa5; cortes tocados: renders/snap/r1a, r1b, r1c.
+- Portada r1: fondo limpio a 16,9 s con cámara propia alta (ver portada.json): Inés con gorro mirando a cámara, el
+  guante que sostiene el auricular en la oreja de Toto, el collar de 3/4; sello a 230 px (sobre el gorro).

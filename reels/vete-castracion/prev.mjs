@@ -22,6 +22,7 @@ const pg = await nav.newPage({ viewport: { width: 1080, height: 1920 } });
 pg.on("pageerror", (e) => console.error("ERROR página:", e.message, e.stack));
 pg.on("console", (m) => { if (m.type() === "error") console.error("consola:", m.text()); });
 await pg.goto(`http://localhost:${port}/index.html`);
+if (process.env.LAD) await pg.evaluate((v) => { const [a, b] = v.split(":").map(Number); window.__LAD = a; window.__GIR = b; }, process.env.LAD);
 await pg.waitForFunction(() => !!window.__tresRender, null, { timeout: 120000 });
 fs.mkdirSync(out, { recursive: true });
 for (const f of fs.readdirSync(out)) if (f.endsWith(".png")) fs.unlinkSync(path.join(out, f));

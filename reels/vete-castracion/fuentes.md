@@ -17,3 +17,8 @@ Reusados (ya acreditados): `k-dos-tonos.wav` (el ring), `k-tono.wav` (atender), 
 `ladrido-golden_fs146343_1.wav` (reels/veterinaria-vacunas/fuentes.md); `vibra.wav`, `notification.mp3`, `pop.mp3`,
 `cero.mp3`, `click-soft.mp3`, `whoosh*.mp3`, `stinger.wav`, `zumbido.wav`, `paso-*.wav`, `bgm/pizzicato.wav`
 (reels/vete-racion/fuentes.md).
+- (r1) `assets/sfx/bsb-ring.wav` (el ring del inalámbrico de mostrador, cortado a 0,3-1,0 s por llamada): "Phone Ring #5"
+  (#0375), BigSoundBank, Joseph Sardin, CC0 1.0, https://bigsoundbank.com/phone-ring-5-s0375.html (ya usado y acreditado
+  en reels/taller-esta-pronto/fuentes.md). Reemplaza a `k-dos-tonos.wav`, que sonaba a bip.
+- (r1) `ronquido.wav` y `ronquido2.wav` recortados de nuevo desde el mismo archivo de Freesound (0,68-1,43 s y 5,1-5,95 s)
+  para que arranquen en el ronquido (antes tenían 0,6 s casi mudos al principio).

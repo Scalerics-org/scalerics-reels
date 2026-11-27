@@ -10,8 +10,8 @@ cp partes/rec/01-vero-b.wav assets/voice/v1.wav   # Vero "¿Cómo está Toto?" (
 v 02-bruno-b     b2  "atempo=1.12"     # Bruno "Vero. Te estoy viendo."
 v 03-bruno-c     b3                    # Bruno "Está dormido."
 v 04-bruno-a     b4                    # Bruno "Sigue dormido."
-v 05-bruno-b     b5  "atempo=1.3"      # Bruno "Sí. Dormido. Todavía."
-v 06-bruno-a     b6  "atempo=1.12"     # Bruno "Doctora. Vero quiere hablar con él."
+ffmpeg -loglevel error -y -i partes/rec/05-bruno-b.wav -af "silenceremove=stop_periods=-1:stop_duration=0.15:stop_threshold=-42dB:stop_silence=0.3" -ar 48000 -ac 1 assets/voice/b5.wav   # (r1) Bruno "Sí. Dormido. Todavía." sin atempo (1,3 rompía el "Sí"), silencios internos a 0,3 s
+ffmpeg -loglevel error -y -i partes/rec/06-bruno-a.wav -af "silenceremove=stop_periods=-1:stop_duration=0.15:stop_threshold=-42dB:stop_silence=0.3" -ar 48000 -ac 1 assets/voice/b6.wav   # (r1) Bruno "Doctora. Vero quiere hablar con él." sin atempo (con 1,12 se oía "quiero")
 v 07-ines-a      i7                    # Inés "Está anestesiado."
 v 08-bruno-a     b8                    # Bruno "Dice que no importa."
 v 09-vero-a      v9                    # Vero "¡Ay, mi amor!" (P4 teléfono, Q3 altavoz)
