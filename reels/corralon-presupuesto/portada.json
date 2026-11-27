@@ -1,5 +1,5 @@
 {
- "t": 0,
+ "t": 2.2,
  "chica": "Toda la casa.",
  "grande": "¿Me pasás presupuesto?",
  "sello": "CORRALONES",
@@ -10,6 +10,6 @@
  "velo": "11,18,32",
  "fondo": "#0b1220",
  "fondo_limpio": "portada-src/fondo-limpio.png",
- "nota": "Fondo limpio a definir (sugerido: P1, Mónica desenrollando la lista que cae del mostrador hasta el piso y Gustavo mirándola, sin gancho ni burbujas). Alternativa: P4, el camión gris descargando enfrente con grande \"¡Un pesado!\" y chica \"Tres semanas después.\".",
- "sello_top": "600px"
+ "nota": "Fondo limpio: P1 a 2,2 s, VER=portada LIMPIO=1 (Gustavo mira la lista que no termina, Mónica de 3/4 con la mano en la lista, la lista colgando del mostrador; cámara de VER=portada en assets/tres.js). Regenerar: VER=portada LIMPIO=1 SINAUDIO=1 node gen.mjs && FULL=1 flock /tmp/hyperframes.lock node prev.mjs 2.2 renders/prev/por && cp renders/prev/por/t-002.20.png portada-src/fondo-limpio.png && SINAUDIO=1 node gen.mjs. portada.mjs pide un mp4 aunque use el fondo limpio.",
+ "sello_top": "330px"
 }
