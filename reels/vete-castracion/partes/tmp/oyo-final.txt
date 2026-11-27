@@ -1,0 +1,16 @@
+v1 oyó: cómo está todo
+b2 oyó: Vero te estoy viendo
+b3 oyó: está dormido
+b4 oyó: sigue dormido
+b5 oyó: sí dormido todavía
+b6 oyó: doctora Vero Quiero hablar con él
+i7 oyó: anestesiado
+b8 oyó: dice que no importa
+v9 oyó: Ay mi amor
+b10 oyó: oral de coco
+narrador oyó: unos avisos automáticos más tarde
+v12 oyó: Ay mira yo entro
+i13 oyó: Bruno llamo alguien
+b14 oyó: nadie
+b15 oyó: preguntale a él
+i16 oyó: Comenta avisos y te mando cómo funciona para tu veterinaria
