@@ -1,0 +1,43 @@
+[sin narrador Orus: el chiste va en burbujas (remate en dos tiempos: "Por lo menos yo no fui pesado." y "Se lo pasé a él."), la lista de materiales que cae del mostrador hasta el piso, la cinta de la calculadora que crece el domingo a la noche (4 horas, $ 1.260.000) y el camión del otro corralón descargando en la obra de enfrente; la solución va en la interfaz recreada (el presupuesto en la tablet con cliente, obra y monto; el presupuesto que le llega a Mónica con el botón "Aceptar"; el aviso de seguimiento a los 2 días con el mensaje listo; el panel "Presupuestos abiertos" con lo ganado y lo perdido); voces por archivo en partes/*.txt · total estimado ~43,4 s · parte 1 0-19,1 · cartel 19,1-21,4 · parte 2 21,4-40,4 · cierre 40,4-43,4 (parte 2 + cierre = 22,0 s, 51 %)]
+[parte 1 · el problema · "Materiales Gustavo" (el corralón de corralon-portland y ferreteria-encargo) · sábado de mañana]
+[0-4,3 · P1 · cuadro 0: "CORRALONES" gigante arriba y el chip "Sábado, 10:00." · Gustavo atrás del mostrador (chaleco acolchado navy, lápiz de carpintero en la oreja) · Mónica (~40, campera crema, carpeta de obra) ya desenrollando sobre el mostrador la lista "LISTA DE MATERIALES · CASA": el rollo cae por el frente del mostrador hasta el piso y sigue rodando · por el portón, al fondo, la calle]
+MÓNICA: Gustavo, ¿me pasás presupuesto? Es toda la casa.
+[Gustavo mira el rollo que no termina de caer]
+GUSTAVO: Te lo armo para el lunes.
+[4,3-7,3 · P2 · montaje sin voz · el corralón cerrado, el portón bajado, una sola lámpara sobre el mostrador · Gustavo con la lista, el mate y la calculadora de rollo · chips: "Domingo, 19:10." · "21:30." (la cinta ya cuelga del mostrador) · "23:20." (la cinta enrulada en el piso; push-in al display "1.260.000") · rótulo "4 horas armándolo" (rojo apagado) · inserto del celular: "Presupuesto · Casa Mónica · $ 1.260.000" → "Enviado 23:22" → "Visto ✓✓" · un traqueteo de la calculadora por chip]
+[7,3-10,2 · P3 · chip "Jueves." · el mostrador de día · Tito con los codos en el mostrador · Gustavo enrolla la cinta de la calculadora]
+TITO: Gustavo, ¿la de la casa te compró?
+GUSTAVO: Yo no ando persiguiendo a nadie.
+[10,2-14,6 · P4 · chip "Tres semanas después." · bip-bip de marcha atrás · desde el portón: enfrente, en la obra de Mónica, un camión gris sin nombre descarga ladrillos y bolsas · Mónica cruza la calle con el casco en la mano, feliz]
+MÓNICA: ¡Gustavo! ¡Arrancamos la casa!
+[Gustavo mira el camión]
+MÓNICA: El de la otra cuadra me escribió todos los días. ¡Un pesado!
+[14,6-15,1 · pausa · plano de los dos en el portón con el camión gris descargando atrás · la música baja, solo los ladrillos · rótulos: "Presupuesto: 4 horas · $ 1.260.000: con otro" (guía al camión) y "Seguimientos: 0"]
+[15,1-16,8 · P5 · remate · primer plano de Gustavo, seco, sin levantar la voz]
+GUSTAVO: Por lo menos yo no fui pesado.
+[16,8-19,1 · P6 · remate del remate · Mónica, agradecida de verdad]
+MÓNICA: ¡Y gracias por tu presupuesto! Se lo pasé a él.
+[inserto del tablero del camión gris: la hoja "MATERIALES GUSTAVO · PRESUPUESTO · Casa Mónica" con los totales tachados en birome · Gustavo mira la hoja, después la calle · stinger]
+NARRADOR: Un seguimiento más tarde.
+[cartel · 19,1-21,4 · time card de dibujito, fondo verde de marca con manchas y burbujas, letras que rebotan: "Un seguimiento" / "más tarde…" (nunca "Scalerics") · toma nueva de Rasalgethi]
+[parte 2 · la solución · el mismo corralón]
+[21,4-24,9 · Q1 · el mismo encuadre del cuadro 0, chip "Sábado, 10:00." · Mónica desenrolla la misma lista (el mismo audio) · en el mostrador, la tablet en su atril]
+MÓNICA: Gustavo, ¿me pasás presupuesto? Es toda la casa.
+[Gustavo, en vez de mirar el rollo, toca la tablet]
+GUSTAVO: Te lo armo ahora.
+[inserto de la tablet (≥ 60 % del cuadro): "Nuevo presupuesto · Cliente: Mónica · Obra: casa · obra gris" · los renglones se llenan solos desde la lista de precios · "Total $ 1.260.000" · chip "Sábado, 10:25." · rótulo "Con tu lista de precios"]
+[24,9-27,6 · Q2 · Gustavo toca "Enviar por WhatsApp" · el celular de Mónica a pantalla llena: "Materiales Gustavo · Presupuesto · Casa Mónica · Obra gris · $ 1.260.000 · Válido 10 días" · botones "Aceptar" / "Tengo una duda" · en la tablet la tarjeta pasa de ENVIADO a VISTO · rótulo "Lo acepta con un botón"]
+[27,6-31,4 · Q3 · chip "Lunes · 2 días después." · el celular de Gustavo: "Mónica no respondió · Hoy toca seguimiento" con el mensaje listo: "Hola, Mónica. ¿Pudiste ver el presupuesto de la casa? Si querés, lo dividimos por etapas." · Gustavo toca "Enviar ✓" · rótulo "A los 2 días te avisa: toca seguimiento" · corte: Mónica en su terreno, con el casco en la mano, lee el mensaje]
+MÓNICA: ¡Ay, qué atentos!
+[toca "Aceptar" · "Aceptado ✓ · Primera entrega: lunes 8:00"]
+[31,4-35,4 · Q4 · el mostrador · Tito con los codos en el mostrador (el mismo audio de P3)]
+TITO: Gustavo, ¿la de la casa te compró?
+[Gustavo le gira la tablet: el panel "Presupuestos abiertos": "Casa Mónica · $ 1.260.000 · Aceptado ✓" · "Ganados: 4 · $ 2.135.000" (verde, el contador sube) · "Abiertos: 5 · $ 690.000 · Seguimiento hoy: 2" · "Perdidos: 1 · Motivo: precio" (gris) · rótulo "Lo ganado, lo abierto y lo perdido"]
+GUSTAVO: Compró. Con un botón.
+[35,4-40,4 · Q5 · chip "Tres semanas después." · el encuadre de P4: enfrente, ahora el camión navy de "MATERIALES GUSTAVO" descarga los ladrillos; en su tablero, la hoja con "Aceptado ✓" en verde · Mónica cruza con el casco en la mano (el mismo audio de P4)]
+MÓNICA: ¡Gustavo! ¡Arrancamos la casa!
+[Gustavo, en el portón, media sonrisa]
+GUSTAVO: Ya sé. Es mi camión.
+[al fondo, en el mostrador, Tito enrolla la cinta de la calculadora y la mete en un cajón · el cajón se cierra]
+[cierre · 40,4-43,4 · Gustavo a cámara en el portón, con su camión descargando enfrente · tarjeta "Comentá" / "PRESUPUESTO" / "y te mando cómo funciona para tu corralón" · línea chica "Presupuestos con seguimiento · scalerics.com"]
+GUSTAVO: Comentá PRESUPUESTO y te mando cómo funciona para tu corralón.

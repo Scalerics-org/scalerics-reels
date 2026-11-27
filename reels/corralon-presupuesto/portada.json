@@ -1,0 +1,15 @@
+{
+ "t": 0,
+ "chica": "Toda la casa.",
+ "grande": "¿Me pasás presupuesto?",
+ "sello": "CORRALONES",
+ "acento": "#5ce611",
+ "sello_color": "#5ce611",
+ "zoom": 1.0,
+ "foco": "30%",
+ "velo": "11,18,32",
+ "fondo": "#0b1220",
+ "fondo_limpio": "portada-src/fondo-limpio.png",
+ "nota": "Fondo limpio a definir (sugerido: P1, Mónica desenrollando la lista que cae del mostrador hasta el piso y Gustavo mirándola, sin gancho ni burbujas). Alternativa: P4, el camión gris descargando enfrente con grande \"¡Un pesado!\" y chica \"Tres semanas después.\".",
+ "sello_top": "600px"
+}
