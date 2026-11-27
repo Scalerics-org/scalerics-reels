@@ -29,61 +29,63 @@ const T = {};
 const ALIAS = { m1b: "m1", t3b: "t3", m5b: "m5" };
 const fin = (k) => r2(T[k] + LEN[ALIAS[k] ?? k]);
 // dónde arranca la segunda mitad de las líneas en dos tiempos (medido con silencedetect sobre assets/voice, ver NOTAS)
-const CORTE = { m1: 1.55, m5: 0.87, m6: 2.13, m8: 1.72, g12: 0.68, g13: 0.88 };
+const CORTE = { m1: 1.55, m5: 0.87, m6: 2.08, m8: 1.72, g12: 0.67, g13: 0.86 };
 // ---- parte 1 ----
 // P1 · cuadro 0, sábado 10:00: Mónica ya desenrolla la lista de materiales sobre el mostrador; el rollo cae por el frente
 // hasta el piso y sigue rodando: "Gustavo, ¿me pasás presupuesto? Es toda la casa." · P1g Gustavo mira el rollo que no
 // termina: "Te lo armo para el lunes."
-T.m1 = 0.1;
-T.p1g = r2(fin("m1") + 0.06); T.g2 = r2(T.p1g + 0.12);
-// P2 · el montaje del domingo a la noche (sin voz): 19:10 · 21:30 (la cinta ya cuelga) · 23:20 (enrulada en el piso; push-in
-// al display "1.260.000") · el inserto del celular: Enviado 23:22 → Visto
-T.p2 = r2(fin("g2") + 0.22);
-T.n1 = T.p2; T.n2 = r2(T.p2 + 0.72); T.n3 = r2(T.p2 + 1.44); T.rot4h = r2(T.n3 + 0.2);
-T.p2c = r2(T.p2 + 2.1); T.enviado = r2(T.p2c + 0.02); T.visto = r2(T.p2c + 0.6);
+T.m1 = 0.05;
+T.p1g = r2(fin("m1") - 0.04); T.g2 = r2(fin("m1") + 0.08);   // (r1) corta sobre la risita de "Es toda la casa"
+// P2 · el montaje del domingo a la noche (sin voz, ~2,4 s): 19:10 · 21:30 (la cinta ya cuelga) · 23:20 (enrulada en el
+// piso; push-in al display "1.260.000") · el inserto del celular: Enviado 23:22 → Visto
+T.p2 = r2(fin("g2") + 0.12);
+T.n1 = T.p2; T.n2 = r2(T.p2 + 0.52); T.n3 = r2(T.p2 + 1.04); T.rot4h = r2(T.n3 + 0.12);
+T.p2c = r2(T.p2 + 1.52); T.enviado = r2(T.p2c - 0.05); T.visto = r2(T.p2c + 0.42);
 // P3 · jueves: el mostrador de día, Tito con los codos; Gustavo enrolla la cinta: "Gustavo, ¿la de la casa te compró?" /
 // "Yo no ando persiguiendo a nadie."
-T.p3 = r2(T.p2c + 0.95); T.t3 = r2(T.p3 + 0.15); T.g4 = r2(fin("t3") + 0.12);
-// P4 · tres semanas después, desde el portón: el camión gris recula y descarga enfrente; Mónica cruza con el casco:
+T.p3 = r2(T.p2c + 0.78); T.t3 = r2(T.p3 + 0.08); T.g4 = r2(fin("t3") + 0.06);
+// P4 · tres semanas después, desde el portón: el camión gris descarga en la obra; Mónica cruza con el casco:
 // "¡Gustavo! ¡Arrancamos la casa!" · P4m: "El de la otra cuadra me escribió todos los días. ¡Un pesado!"
-T.p4 = r2(fin("g4") + 0.25); T.m5 = r2(T.p4 + 0.45);
-T.p4m = r2(fin("m5") + 0.02); T.m6 = r2(T.p4m + 0.06);
+T.p4 = r2(fin("g4") + 0.1); T.m5 = r2(T.p4 + 0.3);
+T.p4m = r2(fin("m5") + 0.02); T.m6 = r2(T.p4m + 0.05);
 // la pausa: los dos en el portón con el camión descargando atrás; rótulos
-T.p4p = r2(fin("m6") + 0.05); T.rotP = r2(T.p4p + 0.1); T.rotS = r2(T.p4p + 0.5);
+T.p4p = r2(fin("m6") + 0.04); T.rotP = r2(T.p4p + 0.08); T.rotS = r2(T.p4p + 0.38);
 // P5 · primer plano de Gustavo, seco: "Por lo menos yo no fui pesado."
-T.p5 = r2(T.p4p + 0.95); T.g7 = r2(T.p5 + 0.28);
+T.p5 = r2(T.p4p + 0.7); T.g7 = r2(T.p5 + 0.24);
 // P6 · Mónica, agradecida: "¡Y gracias por tu presupuesto! Se lo pasé a él." · P6i el tablero del camión gris: la hoja tachada
-T.p6 = r2(fin("g7") + 0.38); T.m8 = r2(T.p6 + 0.1);
+T.p6 = r2(fin("g7") + 0.25); T.m8 = r2(T.p6 + 0.06);
 T.p6i = r2(T.m8 + CORTE.m8 - 0.02);   // el inserto entra con "Se lo pasé a él."
-const P1 = r2(Math.max(fin("m8") + 0.7, T.p6i + 1.4));
-const P2 = r2(P1 + Math.max(2.25, LEN.nar + 0.2));
+const P1 = r2(Math.max(fin("m8") + 0.32, T.p6i + 1.0));
+const P2 = r2(P1 + Math.max(2.0, LEN.nar + 0.08));
 // ---- parte 2 ----
 // Q1 · el mismo cuadro 0 (la tablet en el atril): el mismo audio de Mónica · Q1g Gustavo toca la tablet: "Te lo armo
 // ahora." · Q1t el presupuesto se arma con la lista de precios; "Enviar por WhatsApp"
-T.q1 = P2; T.m1b = r2(P2 + 0.1);
-T.q1g = r2(fin("m1b") + 0.06); T.g10 = r2(T.q1g + 0.1); T.toca = r2(T.q1g + 0.15);
-T.q1t = r2(fin("g10") + 0.1); T.filas = [0.15, 0.33, 0.51, 0.69].map((d) => r2(T.q1t + d)); T.total = r2(T.q1t + 0.9); T.enviar = r2(T.q1t + 1.4);
+T.q1 = P2; T.m1b = r2(P2 + 0.06);
+T.q1g = r2(fin("m1b") - 0.04); T.g10 = r2(fin("m1b") + 0.06); T.toca = r2(T.q1g + 0.15);
+T.q1t = r2(fin("g10") + 0.08); T.filas = [0.12, 0.27, 0.42, 0.57].map((d) => r2(T.q1t + d)); T.total = r2(T.q1t + 0.75); T.enviar = r2(T.q1t + 1.25);
 // Q2 · el celular de Mónica: el presupuesto con "Aceptar" / "Tengo una duda"
-T.q2 = r2(T.enviar + 0.25); T.llega = r2(T.q2 + 0.15); T.rotQ2 = r2(T.q2 + 0.45);
+T.q2 = r2(T.enviar + 0.2); T.llega = r2(T.q2 - 0.05); T.rotQ2 = r2(T.q2 + 0.35);
 // Q3 · lunes, 2 días después: el celular de Gustavo: "Mónica no respondió · Hoy toca seguimiento" con el mensaje listo;
 // toca "Enviar" · Q3m Mónica en su terreno lee: "¡Ay, qué atentos!" · Q3a su celular: Aceptar → "Aceptado ✓"
-T.q3 = r2(T.q2 + 1.4); T.rotQ3 = r2(T.q3 + 0.3); T.seg = r2(T.q3 + 1.08); T.segOk = r2(T.seg + 0.12);
-T.q3m = r2(T.seg + 0.42); T.noti3 = r2(T.q3m + 0.12); T.m11 = r2(T.q3m + 0.35);
-T.q3a = r2(fin("m11") + 0.08); T.acepta = r2(T.q3a + 0.4); T.aceptado = r2(T.acepta + 0.12);
+T.q3 = r2(T.q2 + 1.15); T.rotQ3 = r2(T.q3 + 0.25); T.seg = r2(T.q3 + 1.05); T.segOk = r2(T.seg + 0.1);
+T.q3m = r2(T.seg + 0.32); T.noti3 = r2(T.q3m + 0.06); T.m11 = r2(T.q3m + 0.25);
+T.q3a = r2(fin("m11") + 0.06); T.acepta = r2(T.q3a + 0.3); T.aceptado = r2(T.acepta + 0.1);
 // Q4 · el mostrador: Tito (el mismo audio) · Q4t el panel "Presupuestos abiertos" (Ganados 3 → 4) · Q4b "Compró. Con un botón."
-T.q4 = r2(T.q3a + 1.15); T.t3b = r2(T.q4 + 0.12); T.gira = r2(fin("t3b") - 0.3);
-T.q4t = r2(fin("t3b") + 0.08); T.gana = r2(T.q4t + 0.35); T.rotQ4 = r2(T.q4t + 0.3);
-T.q4b = r2(T.q4t + 1.15); T.g12 = r2(T.q4b + 0.08);
-// Q5 · tres semanas después, el mismo encuadre de P4: el camión navy de MATERIALES GUSTAVO descarga enfrente; el mismo
-// "¡Gustavo! ¡Arrancamos la casa!" · Q5g "Ya sé. Es mi camión." · Q5b Tito enrolla la cinta y la guarda en el cajón
-T.q5 = r2(fin("g12") + 0.22); T.m5b = r2(T.q5 + 0.4);
-T.q5g = r2(fin("m5b") + 0.1); T.g13 = r2(T.q5g + 0.12);
-T.q5b = r2(fin("g13") + 0.1); T.guarda = r2(T.q5b + 0.4); T.cierra = r2(T.q5b + 0.62);
+T.q4 = r2(T.q3a + 0.92); T.t3b = r2(T.q4 + 0.08); T.gira = r2(fin("t3b") - 0.3);
+T.q4t = r2(fin("t3b") + 0.06); T.gana = r2(T.q4t + 0.3); T.rotQ4 = r2(T.q4t + 0.25);
+T.q4b = r2(T.q4t + 0.98); T.g12 = r2(T.q4b + 0.06);
+// Q5 · tres semanas después, el mismo encuadre de P4: el camión navy de MATERIALES GUSTAVO descarga en la obra; el mismo
+// "¡Gustavo! ¡Arrancamos la casa!" · Q5g "Ya sé. Es mi camión." · Q5i el tablero del camión navy: la hoja "Aceptado ✓" ·
+// Q5b Tito enrolla la cinta y la guarda en el cajón
+T.q5 = r2(fin("g12") + 0.15); T.m5b = r2(T.q5 + 0.35);
+T.q5g = r2(fin("m5b") + 0.04); T.g13 = r2(T.q5g + 0.08);
+T.q5i = r2(fin("g13") + 0.04);
+T.q5b = r2(T.q5i + 0.85); T.guarda = r2(T.q5b + 0.3); T.cierra = r2(T.q5b + 0.48);   // (r1) Q5b fuera de montaje (sin plano): el código queda
 // C · Gustavo a cámara en el portón, su camión descargando enfrente: "Comentá PRESUPUESTO…"
-T.c = r2(T.q5b + 0.85); T.g14 = r2(T.c + 0.1);
+T.c = T.q5b; T.g14 = r2(T.c + 0.06);
 const iCom = PAL.g14.findIndex((w) => /PRESUP/i.test(w.text ?? w.word ?? ""));
 T.palabra = r2(T.g14 + Math.max(0.3, (PAL.g14[iCom >= 0 ? iCom : 1].start ?? 0.4) - 0.05));
-const DUR = Math.ceil((Math.ceil((T.g14 + LEN.g14 + 0.2) * 30) / 30) * 1e4) / 1e4;
+const DUR = Math.ceil((Math.ceil((T.g14 + LEN.g14 + 0.1) * 30) / 30) * 1e4) / 1e4;
 T.cierre = r2(Math.max(T.palabra + 0.6, DUR - 1.9));
 
 // ---------- envolventes de las voces a 30 cuadros por segundo (para mover la boca) ----------
@@ -166,11 +168,11 @@ const CHIPS = [
   ["s02-chip", T.n2, T.n3, "Domingo, 21:30.", ""],
   ["s03-chip", T.n3, T.p2c, "Domingo, 23:20.", "rojo"],
   ["s04-chip", T.p3, r2(T.p3 + 1.5), "Jueves.", ""],
-  ["s05-chip", T.p4, r2(T.p4 + 1.7), "Tres semanas después.", ""],
+  ["s05-chip", T.p4, r2(Math.min(T.p4 + 1.7, T.p4m)), "Tres semanas después.", ""],
   ["s06-chip", r2(T.q1 + 0.02), T.q1g, "Sábado, 10:00.", ""],
   ["s07-chip", T.q1t, T.q2, "Sábado, 10:25.", "verde"],
-  ["s08-chip", T.q3, r2(T.q3 + 1.6), "Lunes · 2 días después.", ""],
-  ["s09-chip", T.q5, r2(T.q5 + 1.6), "Tres semanas después.", "verde"],
+  ["s08-chip", T.q3, T.q3m, "Lunes · 2 días después.", ""],
+  ["s09-chip", T.q5, r2(Math.min(T.q5 + 1.6, T.q5g)), "Tres semanas después.", "verde"],
 ];
 for (const [id, ini0, fin0, txt, cls] of CHIPS) {
   const ini = r2(ini0), dur = r2(fin0 - ini0);
@@ -353,8 +355,8 @@ papel(P2 + 0.02, -40, 1.4); s("sfx/madera-golpe.wav", P2 + 1.05, 0, { techo: -46
 voz("m1", T.m1b, -1);
 whoosh(T.q1g - 0.05, -48);
 voz("g10", T.g10, -1); toque(T.toca + 0.2, -40);
-whoosh(T.q1t - 0.04, -46);
-for (const t of T.filas) { tecla(t, -42); tic(t + 0.05, -43); }   // cada renglón que entra desde la lista de precios
+whoosh(T.q1t - 0.04, -49);
+for (const t of T.filas) { tecla(t, t === T.filas[0] ? -47 : -43); tic(t + 0.05, t === T.filas[0] ? -47 : -44); }   // cada renglón que entra desde la lista de precios
 ding(T.total, -40);
 toque(T.enviar, -38); s("sfx/whoosh.mp3", T.enviar + 0.05, 0, { techo: -44, vel: 1.5, dur: 0.4, fin: 0.1 });
 // Q2 · el celular de Mónica: la notificación, el rótulo
@@ -381,7 +383,7 @@ pasos(T.q5 + 0.2, T.q5g, -46, 0.3);
 voz("m5", T.m5b, -1);
 whoosh(T.q5g - 0.05, -48);
 voz("g13", T.g13, -1);
-whoosh(T.q5b - 0.04, -46); papel(T.q5b + 0.05, -42, 0.5); s("sfx/bsb-cajon-madera.wav", T.cierra - 0.1, 0, { techo: -38, dur: 0.6, fin: 0.15 }); s("sfx/madera-golpe.wav", T.cierra + 0.08, 0, { techo: -40, dur: 0.3, fin: 0.08 });
+whoosh(T.q5i - 0.04, -46); s("sfx/papel.wav", T.q5i + 0.08, 0, { techo: -44, dur: 0.4, fin: 0.1 }); ding(T.q5i + 0.3, -41);   // (r1) el inserto del tablero navy: "Aceptado ✓"
 // C · Gustavo a cámara: el camión descargando atrás, pop en PRESUPUESTO, la línea chica
 for (let t = T.q5 + 0.9 + 0.62 * Math.ceil((T.c - T.q5 - 0.9) / 0.62), k = 0; t < DUR - 0.3; t += 0.62, k++) ladrillo(t, -50, k);
 whoosh(T.c - 0.08, -46);
@@ -393,7 +395,7 @@ for (const t of [T.m1, T.m1 + CORTE.m1, T.g2, T.t3, T.g4, T.m5, T.m5 + CORTE.m5,
 // duck de la cama (~-7 dB) mientras habla alguien
 for (const x of S) if (x[0].startsWith("bgm/") && !x[3].sinDuck) { x[3].duck = [...(x[3].duck || []), ...VOZ.filter(([a, b]) => b >= x[1] && a <= x[1] + (x[3].dur ?? 99)).map(([a, b]) => [a, b, 0.2])]; }
 // en los tramos SIN voz la cama baja (HUECO_K): los huecos quedan ≤ -31 LUFS con los efectos adelante
-const HUECO_K = Number(process.env.HUECO_K ?? 0.42);
+const HUECO_K = Number(process.env.HUECO_K ?? 0.58);   // (r1) los huecos sin voz un pelo más abajo del techo
 {
   const V = VOZ.slice().sort((a, b) => a[0] - b[0]); const libres = []; let c = 0;
   for (const [a0, b0] of V) { const a = a0 + 0.2, b = b0 - 0.25; if (a > c + 0.25) libres.push([c, a]); c = Math.max(c, b); } if (DUR > c + 0.25) libres.push([c, DUR]);
@@ -477,7 +479,7 @@ const host = ([id, a, d], i, z) => `      <div id="el-${id}" class="scene" style
 const abajo = ESC.filter((e) => e[3] === "abajo").map((e, i) => host(e, 20 + i, 1)).join("\n"); // el cartel va siempre
 const arriba = capa("arriba").map((e, i) => host(e, i, 3)).join("\n");
 const ROT = r2(P1), IRIS = r2(P2 - 0.4);
-const IRIS_C = "540px 1300px";   // el iris abre sobre el mostrador (no desde una cara)
+const IRIS_C = "330px 1700px";   // el iris abre sobre la lista y el piso crema (no desde una cara ni desde el navy)
 fs.writeFileSync("index.html", `<!doctype html>
 <html lang="es">
   <head>

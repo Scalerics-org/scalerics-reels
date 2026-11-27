@@ -108,3 +108,36 @@ que se cierra de golpe, pops de burbujas y rótulos. Sin el sorbo de mate (no ha
 - P1/Q1: la burbuja de "¿me pasás presupuesto? / Es toda la casa." roza el pelo de Mónica arriba.
 - Los parpadeos programados de Gustavo pueden caer en algún cuadro de los snapshots (C a 49,45 s).
 - No se miró a 30 fps alrededor de los cortes ni se renderizó el mp4.
+
+## Ronda de ajuste (pedido del coordinador, antes de la revisión) · ≤ 47 s
+**46,8 s.** Parte 1 0-21,37 · cartel 21,37-23,4 · parte 2 + cierre 23,4-46,8 = 23,4 s (50 %) · cierre C 43,37-46,8
+(tarjeta PRESUPUESTO 43,73-46,8 = 3,07 s; línea chica desde ~44,9). Diálogo sin cambios de texto.
+Planos (s): P1g 2,86 · P2 4,34 (montaje 2,3 s) · P2c 5,86 · P3 6,64 · P4 10,18 · P4m 12,54 · P4p 15,41 · P5 16,11 · P6 18,46 ·
+P6i 20,22 · Q1 23,4 · Q1g 26,27 · Q1t 27,23 · Q2c 28,68 · Q3c 29,83 · Q3m 31,2 · Q3a 32,77 · Q4 33,69 · Q4t 35,72 · Q4b 36,7 ·
+Q5 38,38 · Q5g 40,81 · Q5i 42,52 · C 43,37.
+- Tiempos: silencios entre líneas y cortes más justos (el corte a Gustavo entra sobre la risita de "Es toda la casa"),
+  montaje del domingo 2,3 s, pausa antes de "Por lo menos…" 0,94 s (antes 1,23), cola de P6i 1,15 s, cartel 2,03 s,
+  insertos 0,1-0,2 s más cortos. atempo moderado: g2 1,08, t3 1,13, g4 1,05, m6 1,17, m11 1,05, g12/g13 1,07, g14 1,18,
+  narrador 1,05 (todas con "oyó:" igual que antes). CORTE nuevo: m6 2,08 · g12 0,67 · g13 0,86.
+- **Q5b fuera** (Tito guardando la cinta en el cajón: era el plano más flojo y no entraba con Q5i): el código queda sin
+  plano. **Q5i nuevo** (0,85 s): el tablero del camión navy (tablero navy) con la hoja "MATERIALES GUSTAVO · PRESUPUESTO"
+  y el sello verde "Aceptado ✓ · Primera entrega: lunes 8:00", callback de la hoja tachada de P6i.
+- P4/Q5: cámara alta desde la vereda (encima de Gustavo): el camión con la cabina, el peón y la carga, y la obra
+  (hiladas, arena, andamio) detrás; el camión corrido para que entre; Mónica aparece por delante de la trompa y cruza por
+  el medio del cuadro a paso parejo en dos tramos (en el corte está entera en cuadro; termina de llegar en P4m/Q5g, ya
+  hablando). La pila de ladrillos en la vereda de la obra, detrás de la culata.
+- P1/Q1: cámara más cerca (Gustavo más grande) y la burbuja de Mónica abajo, sobre la lista (no roza ninguna cara).
+- P5/Q5g: adentro del portón, detrás de Gustavo, un cartel MATERIALES GUSTAVO y una pila de portland; cámara un poco
+  desde abajo.
+- Parpadeos: fuera los de P1, P6, Q1, Q3m y C; quedan solo en planos de paso (arranque del cruce, insertos, P2a, P3, P4m, Q4).
+- Rótulos más grandes (56-66 px); chips que ya no pisan el plano siguiente ("Lunes · 2 días después." salía sobre Q3m;
+  "Tres semanas después." corta con el contraplano); P2c y Q2c con la tarjeta desde el primer cuadro; el iris de la parte 2
+  abre desde la lista y el piso crema (no desde el navy); el sello "Aceptado ✓" de Q5i ya no pisa los renglones.
+- Pasadas: renders/snap/r1a (cada 0,5 s) y renders/snap/r1c (cuadro anterior, el del corte y el siguiente a 30 fps en los
+  28 cortes); prev n para el cruce y Q5i después del último arreglo. `check --json`: 0 errores.
+- Mezcla: HUECO_K 0,58; primer renglón de Q1t más bajo (pisaba la cola de "Te lo armo ahora."). -14,1 LUFS, pico -3,4
+  dBFS, mínimo voz-resto +6,5 LU (27,5 s, cola de g10), huecos sin voz máx -32,0 LUFS.
+- Render (con el candado, `--workers 2`, SwiftShader): **46 min 29 s** para 46,8 s (1.404 cuadros); paso10.sh: 1 min 7 s.
+  renders/corralon-presupuesto-final.mp4: 46,8 s, -14,0 LUFS integrado, pico -3,0 dBFS (true peak -3,2), ~4,5 Mbps.
+  Hoja del final: renders/hoja.png (coincide con los snapshots). La portada no cambió (el fondo limpio usa la cámara de
+  VER=portada, que no se tocó).

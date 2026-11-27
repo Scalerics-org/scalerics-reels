@@ -1,0 +1,990 @@
+[hyperframes] browserGpuMode probe → software (WebGL unavailable)
+
+   ⚠ Runtime did not become render-ready within 3000ms — checking the current page state
+
+   ⚠ Runtime did not become render-ready within 3000ms — checking the current page state
+[hyperframes] check: samples 1/9
+[hyperframes] check: samples 2/9
+[hyperframes] check: samples 3/9
+[hyperframes] check: samples 4/9
+[hyperframes] check: samples 5/9
+[hyperframes] check: samples 6/9
+[hyperframes] check: samples 7/9
+[hyperframes] check: samples 8/9
+[hyperframes] check: samples 9/9
+[hyperframes] check: craft 1/375
+[hyperframes] check: craft 2/375
+[hyperframes] check: craft 3/375
+[hyperframes] check: craft 4/375
+[hyperframes] check: craft 5/375
+[hyperframes] check: craft 6/375
+[hyperframes] check: craft 7/375
+[hyperframes] check: craft 8/375
+[hyperframes] check: craft 9/375
+[hyperframes] check: craft 10/375
+[hyperframes] check: craft 11/375
+[hyperframes] check: craft 12/375
+[hyperframes] check: craft 13/375
+[hyperframes] check: craft 14/375
+[hyperframes] check: craft 15/375
+[hyperframes] check: craft 16/375
+[hyperframes] check: craft 17/375
+[hyperframes] check: craft 18/375
+[hyperframes] check: craft 19/375
+[hyperframes] check: craft 20/375
+[hyperframes] check: craft 21/375
+[hyperframes] check: craft 22/375
+[hyperframes] check: craft 23/375
+[hyperframes] check: craft 24/375
+[hyperframes] check: craft 25/375
+[hyperframes] check: craft 26/375
+[hyperframes] check: craft 27/375
+[hyperframes] check: craft 28/375
+[hyperframes] check: craft 29/375
+[hyperframes] check: craft 30/375
+[hyperframes] check: craft 31/375
+[hyperframes] check: craft 32/375
+[hyperframes] check: craft 33/375
+[hyperframes] check: craft 34/375
+[hyperframes] check: craft 35/375
+[hyperframes] check: craft 36/375
+[hyperframes] check: craft 37/375
+[hyperframes] check: craft 38/375
+[hyperframes] check: craft 39/375
+[hyperframes] check: craft 40/375
+[hyperframes] check: craft 41/375
+[hyperframes] check: craft 42/375
+[hyperframes] check: craft 43/375
+[hyperframes] check: craft 44/375
+[hyperframes] check: craft 45/375
+[hyperframes] check: craft 46/375
+[hyperframes] check: craft 47/375
+[hyperframes] check: craft 48/375
+[hyperframes] check: craft 49/375
+[hyperframes] check: craft 50/375
+[hyperframes] check: craft 51/375
+[hyperframes] check: craft 52/375
+[hyperframes] check: craft 53/375
+[hyperframes] check: craft 54/375
+[hyperframes] check: craft 55/375
+[hyperframes] check: craft 56/375
+[hyperframes] check: craft 57/375
+[hyperframes] check: craft 58/375
+[hyperframes] check: craft 59/375
+[hyperframes] check: craft 60/375
+[hyperframes] check: craft 61/375
+[hyperframes] check: craft 62/375
+[hyperframes] check: craft 63/375
+[hyperframes] check: craft 64/375
+[hyperframes] check: craft 65/375
+[hyperframes] check: craft 66/375
+[hyperframes] check: craft 67/375
+[hyperframes] check: craft 68/375
+[hyperframes] check: craft 69/375
+[hyperframes] check: craft 70/375
+[hyperframes] check: craft 71/375
+[hyperframes] check: craft 72/375
+[hyperframes] check: craft 73/375
+[hyperframes] check: craft 74/375
+[hyperframes] check: craft 75/375
+[hyperframes] check: craft 76/375
+[hyperframes] check: craft 77/375
+[hyperframes] check: craft 78/375
+[hyperframes] check: craft 79/375
+[hyperframes] check: craft 80/375
+[hyperframes] check: craft 81/375
+[hyperframes] check: craft 82/375
+[hyperframes] check: craft 83/375
+[hyperframes] check: craft 84/375
+[hyperframes] check: craft 85/375
+[hyperframes] check: craft 86/375
+[hyperframes] check: craft 87/375
+[hyperframes] check: craft 88/375
+[hyperframes] check: craft 89/375
+[hyperframes] check: craft 90/375
+[hyperframes] check: craft 91/375
+[hyperframes] check: craft 92/375
+[hyperframes] check: craft 93/375
+[hyperframes] check: craft 94/375
+[hyperframes] check: craft 95/375
+[hyperframes] check: craft 96/375
+[hyperframes] check: craft 97/375
+[hyperframes] check: craft 98/375
+[hyperframes] check: craft 99/375
+[hyperframes] check: craft 100/375
+[hyperframes] check: craft 101/375
+[hyperframes] check: craft 102/375
+[hyperframes] check: craft 103/375
+[hyperframes] check: craft 104/375
+[hyperframes] check: craft 105/375
+[hyperframes] check: craft 106/375
+[hyperframes] check: craft 107/375
+[hyperframes] check: craft 108/375
+[hyperframes] check: craft 109/375
+[hyperframes] check: craft 110/375
+[hyperframes] check: craft 111/375
+[hyperframes] check: craft 112/375
+[hyperframes] check: craft 113/375
+[hyperframes] check: craft 114/375
+[hyperframes] check: craft 115/375
+[hyperframes] check: craft 116/375
+[hyperframes] check: craft 117/375
+[hyperframes] check: craft 118/375
+[hyperframes] check: craft 119/375
+[hyperframes] check: craft 120/375
+[hyperframes] check: craft 121/375
+[hyperframes] check: craft 122/375
+[hyperframes] check: craft 123/375
+[hyperframes] check: craft 124/375
+[hyperframes] check: craft 125/375
+[hyperframes] check: craft 126/375
+[hyperframes] check: craft 127/375
+[hyperframes] check: craft 128/375
+[hyperframes] check: craft 129/375
+[hyperframes] check: craft 130/375
+[hyperframes] check: craft 131/375
+[hyperframes] check: craft 132/375
+[hyperframes] check: craft 133/375
+[hyperframes] check: craft 134/375
+[hyperframes] check: craft 135/375
+[hyperframes] check: craft 136/375
+[hyperframes] check: craft 137/375
+[hyperframes] check: craft 138/375
+[hyperframes] check: craft 139/375
+[hyperframes] check: craft 140/375
+[hyperframes] check: craft 141/375
+[hyperframes] check: craft 142/375
+[hyperframes] check: craft 143/375
+[hyperframes] check: craft 144/375
+[hyperframes] check: craft 145/375
+[hyperframes] check: craft 146/375
+[hyperframes] check: craft 147/375
+[hyperframes] check: craft 148/375
+[hyperframes] check: craft 149/375
+[hyperframes] check: craft 150/375
+[hyperframes] check: craft 151/375
+[hyperframes] check: craft 152/375
+[hyperframes] check: craft 153/375
+[hyperframes] check: craft 154/375
+[hyperframes] check: craft 155/375
+[hyperframes] check: craft 156/375
+[hyperframes] check: craft 157/375
+[hyperframes] check: craft 158/375
+[hyperframes] check: craft 159/375
+[hyperframes] check: craft 160/375
+[hyperframes] check: craft 161/375
+[hyperframes] check: craft 162/375
+[hyperframes] check: craft 163/375
+[hyperframes] check: craft 164/375
+[hyperframes] check: craft 165/375
+[hyperframes] check: craft 166/375
+[hyperframes] check: craft 167/375
+[hyperframes] check: craft 168/375
+[hyperframes] check: craft 169/375
+[hyperframes] check: craft 170/375
+[hyperframes] check: craft 171/375
+[hyperframes] check: craft 172/375
+[hyperframes] check: craft 173/375
+[hyperframes] check: craft 174/375
+[hyperframes] check: craft 175/375
+[hyperframes] check: craft 176/375
+[hyperframes] check: craft 177/375
+[hyperframes] check: craft 178/375
+[hyperframes] check: craft 179/375
+[hyperframes] check: craft 180/375
+[hyperframes] check: craft 181/375
+[hyperframes] check: craft 182/375
+[hyperframes] check: craft 183/375
+[hyperframes] check: craft 184/375
+[hyperframes] check: craft 185/375
+[hyperframes] check: craft 186/375
+[hyperframes] check: craft 187/375
+[hyperframes] check: craft 188/375
+[hyperframes] check: craft 189/375
+[hyperframes] check: craft 190/375
+[hyperframes] check: craft 191/375
+[hyperframes] check: craft 192/375
+[hyperframes] check: craft 193/375
+[hyperframes] check: craft 194/375
+[hyperframes] check: craft 195/375
+[hyperframes] check: craft 196/375
+[hyperframes] check: craft 197/375
+[hyperframes] check: craft 198/375
+[hyperframes] check: craft 199/375
+[hyperframes] check: craft 200/375
+[hyperframes] check: craft 201/375
+[hyperframes] check: craft 202/375
+[hyperframes] check: craft 203/375
+[hyperframes] check: craft 204/375
+[hyperframes] check: craft 205/375
+[hyperframes] check: craft 206/375
+[hyperframes] check: craft 207/375
+[hyperframes] check: craft 208/375
+[hyperframes] check: craft 209/375
+[hyperframes] check: craft 210/375
+[hyperframes] check: craft 211/375
+[hyperframes] check: craft 212/375
+[hyperframes] check: craft 213/375
+[hyperframes] check: craft 214/375
+[hyperframes] check: craft 215/375
+[hyperframes] check: craft 216/375
+[hyperframes] check: craft 217/375
+[hyperframes] check: craft 218/375
+[hyperframes] check: craft 219/375
+[hyperframes] check: craft 220/375
+[hyperframes] check: craft 221/375
+[hyperframes] check: craft 222/375
+[hyperframes] check: craft 223/375
+[hyperframes] check: craft 224/375
+[hyperframes] check: craft 225/375
+[hyperframes] check: craft 226/375
+[hyperframes] check: craft 227/375
+[hyperframes] check: craft 228/375
+[hyperframes] check: craft 229/375
+[hyperframes] check: craft 230/375
+[hyperframes] check: craft 231/375
+[hyperframes] check: craft 232/375
+[hyperframes] check: craft 233/375
+[hyperframes] check: craft 234/375
+[hyperframes] check: craft 235/375
+[hyperframes] check: craft 236/375
+[hyperframes] check: craft 237/375
+[hyperframes] check: craft 238/375
+[hyperframes] check: craft 239/375
+[hyperframes] check: craft 240/375
+[hyperframes] check: craft 241/375
+[hyperframes] check: craft 242/375
+[hyperframes] check: craft 243/375
+[hyperframes] check: craft 244/375
+[hyperframes] check: craft 245/375
+[hyperframes] check: craft 246/375
+[hyperframes] check: craft 247/375
+[hyperframes] check: craft 248/375
+[hyperframes] check: craft 249/375
+[hyperframes] check: craft 250/375
+[hyperframes] check: craft 251/375
+[hyperframes] check: craft 252/375
+[hyperframes] check: craft 253/375
+[hyperframes] check: craft 254/375
+[hyperframes] check: craft 255/375
+[hyperframes] check: craft 256/375
+[hyperframes] check: craft 257/375
+[hyperframes] check: craft 258/375
+[hyperframes] check: craft 259/375
+[hyperframes] check: craft 260/375
+[hyperframes] check: craft 261/375
+[hyperframes] check: craft 262/375
+[hyperframes] check: craft 263/375
+[hyperframes] check: craft 264/375
+[hyperframes] check: craft 265/375
+[hyperframes] check: craft 266/375
+[hyperframes] check: craft 267/375
+[hyperframes] check: craft 268/375
+[hyperframes] check: craft 269/375
+[hyperframes] check: craft 270/375
+[hyperframes] check: craft 271/375
+[hyperframes] check: craft 272/375
+[hyperframes] check: craft 273/375
+[hyperframes] check: craft 274/375
+[hyperframes] check: craft 275/375
+[hyperframes] check: craft 276/375
+[hyperframes] check: craft 277/375
+[hyperframes] check: craft 278/375
+[hyperframes] check: craft 279/375
+[hyperframes] check: craft 280/375
+[hyperframes] check: craft 281/375
+[hyperframes] check: craft 282/375
+[hyperframes] check: craft 283/375
+[hyperframes] check: craft 284/375
+[hyperframes] check: craft 285/375
+[hyperframes] check: craft 286/375
+[hyperframes] check: craft 287/375
+[hyperframes] check: craft 288/375
+[hyperframes] check: craft 289/375
+[hyperframes] check: craft 290/375
+[hyperframes] check: craft 291/375
+[hyperframes] check: craft 292/375
+[hyperframes] check: craft 293/375
+[hyperframes] check: craft 294/375
+[hyperframes] check: craft 295/375
+[hyperframes] check: craft 296/375
+[hyperframes] check: craft 297/375
+[hyperframes] check: craft 298/375
+[hyperframes] check: craft 299/375
+[hyperframes] check: craft 300/375
+[hyperframes] check: craft 301/375
+[hyperframes] check: craft 302/375
+[hyperframes] check: craft 303/375
+[hyperframes] check: craft 304/375
+[hyperframes] check: craft 305/375
+[hyperframes] check: craft 306/375
+[hyperframes] check: craft 307/375
+[hyperframes] check: craft 308/375
+[hyperframes] check: craft 309/375
+[hyperframes] check: craft 310/375
+[hyperframes] check: craft 311/375
+[hyperframes] check: craft 312/375
+[hyperframes] check: craft 313/375
+[hyperframes] check: craft 314/375
+[hyperframes] check: craft 315/375
+[hyperframes] check: craft 316/375
+[hyperframes] check: craft 317/375
+[hyperframes] check: craft 318/375
+[hyperframes] check: craft 319/375
+[hyperframes] check: craft 320/375
+[hyperframes] check: craft 321/375
+[hyperframes] check: craft 322/375
+[hyperframes] check: craft 323/375
+[hyperframes] check: craft 324/375
+[hyperframes] check: craft 325/375
+[hyperframes] check: craft 326/375
+[hyperframes] check: craft 327/375
+[hyperframes] check: craft 328/375
+[hyperframes] check: craft 329/375
+[hyperframes] check: craft 330/375
+[hyperframes] check: craft 331/375
+[hyperframes] check: craft 332/375
+[hyperframes] check: craft 333/375
+[hyperframes] check: craft 334/375
+[hyperframes] check: craft 335/375
+[hyperframes] check: craft 336/375
+[hyperframes] check: craft 337/375
+[hyperframes] check: craft 338/375
+[hyperframes] check: craft 339/375
+[hyperframes] check: craft 340/375
+[hyperframes] check: craft 341/375
+[hyperframes] check: craft 342/375
+[hyperframes] check: craft 343/375
+[hyperframes] check: craft 344/375
+[hyperframes] check: craft 345/375
+[hyperframes] check: craft 346/375
+[hyperframes] check: craft 347/375
+[hyperframes] check: craft 348/375
+[hyperframes] check: craft 349/375
+[hyperframes] check: craft 350/375
+[hyperframes] check: craft 351/375
+[hyperframes] check: craft 352/375
+[hyperframes] check: craft 353/375
+[hyperframes] check: craft 354/375
+[hyperframes] check: craft 355/375
+[hyperframes] check: craft 356/375
+[hyperframes] check: craft 357/375
+[hyperframes] check: craft 358/375
+[hyperframes] check: craft 359/375
+[hyperframes] check: craft 360/375
+[hyperframes] check: craft 361/375
+[hyperframes] check: craft 362/375
+[hyperframes] check: craft 363/375
+[hyperframes] check: craft 364/375
+[hyperframes] check: craft 365/375
+[hyperframes] check: craft 366/375
+[hyperframes] check: craft 367/375
+[hyperframes] check: craft 368/375
+[hyperframes] check: craft 369/375
+[hyperframes] check: craft 370/375
+[hyperframes] check: craft 371/375
+[hyperframes] check: craft 372/375
+[hyperframes] check: craft 373/375
+[hyperframes] check: craft 374/375
+[hyperframes] check: craft 375/375
+[hyperframes] check: overlap 1/23
+[hyperframes] check: overlap 2/23
+[hyperframes] check: overlap 3/23
+[hyperframes] check: overlap 4/23
+[hyperframes] check: overlap 5/23
+[hyperframes] check: overlap 6/23
+[hyperframes] check: overlap 7/23
+[hyperframes] check: overlap 8/23
+[hyperframes] check: overlap 9/23
+[hyperframes] check: overlap 10/23
+[hyperframes] check: overlap 11/23
+[hyperframes] check: overlap 12/23
+[hyperframes] check: overlap 13/23
+[hyperframes] check: overlap 14/23
+[hyperframes] check: overlap 15/23
+[hyperframes] check: overlap 16/23
+[hyperframes] check: overlap 17/23
+[hyperframes] check: overlap 18/23
+[hyperframes] check: overlap 19/23
+[hyperframes] check: overlap 20/23
+[hyperframes] check: overlap 21/23
+[hyperframes] check: overlap 22/23
+[hyperframes] check: overlap 23/23
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"capa3d\"> is a timeline element that contains nested <canvas id=\"tres\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#capa3d",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/scalerics-reels/reels/corralon-presupuesto/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"capa3d\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 14
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 5,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x16bc00179c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "46.8",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:38389/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x16bc00179c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "46.8",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:38389/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x16bc00179c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "46.8",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:38389/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x16bc00179c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "46.8",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 2.6,
+        "url": "http://127.0.0.1:38389/"
+      },
+      {
+        "code": "console_warning",
+        "severity": "warning",
+        "message": "[.WebGL-0x1524001b1c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "46.8",
+          "data-width": "1080",
+          "data-height": "1920"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "time": 7.8,
+        "url": "http://127.0.0.1:38389/"
+      }
+    ]
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "canvas_content_at_edge",
+        "severity": "warning",
+        "time": 2.6,
+        "selector": "#tres",
+        "message": "Canvas content touches the frame edge (left, right).",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "containerSelector": "#root",
+        "fixHint": "Keep drawn text inside the visible part of the canvas, or mark intentional full-bleed art with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "dataAttributes": {
+          "data-engine": "three.js r170"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "firstSeen": 2.6,
+        "lastSeen": 44.2,
+        "occurrences": 8,
+        "heldMs": 0,
+        "times": [
+          2.6,
+          7.8,
+          13,
+          18.2,
+          23.4,
+          33.8,
+          39,
+          44.2
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.6,
+        "selector": "#precarga",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9712.75,
+          "bottom": 50,
+          "width": 286.25,
+          "height": 50
+        },
+        "containerSelector": "#root",
+        "text": "CORRALONES",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 286.25,
+          "height": 50
+        },
+        "firstSeen": 2.6,
+        "lastSeen": 44.2,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.6,
+          7.8,
+          13,
+          18.2,
+          23.4,
+          28.6,
+          33.8,
+          39,
+          44.2
+        ]
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 2.6,
+        "selector": "#precarga2",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": -9999,
+          "top": 0,
+          "right": -9857.8,
+          "bottom": 50,
+          "width": 141.2,
+          "height": 50
+        },
+        "containerSelector": "#root",
+        "text": "1.215.000",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1080,
+          "bottom": 1920,
+          "width": 1080,
+          "height": 1920
+        },
+        "overflow": {
+          "left": 9999
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -9999,
+          "y": 0,
+          "width": 141.2,
+          "height": 50
+        },
+        "firstSeen": 2.6,
+        "lastSeen": 44.2,
+        "occurrences": 9,
+        "heldMs": 0,
+        "times": [
+          2.6,
+          7.8,
+          13,
+          18.2,
+          23.4,
+          28.6,
+          33.8,
+          39,
+          44.2
+        ]
+      }
+    ],
+    "duration": 46.8,
+    "samples": [
+      2.6,
+      7.8,
+      13,
+      18.2,
+      23.4,
+      28.6,
+      33.8,
+      39,
+      44.2
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.6,
+      13,
+      23.4,
+      33.8,
+      44.2
+    ],
+    "checked": 6,
+    "passed": 6
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 10,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Domingo, 19:10.\" (3 words) is on screen 0.50 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Domingo, 19:10.",
+        "selector": "#s01-chip-esc > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s01-chip.html",
+        "bbox": {
+          "x": 78.81,
+          "y": 109.36,
+          "width": 503.2699999999999,
+          "height": 75.42
+        },
+        "time": 4.368,
+        "words": 3,
+        "seconds": 0.499,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Domingo, 21:30.\" (3 words) is on screen 0.54 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Domingo, 21:30.",
+        "selector": "#s02-chip-esc > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s02-chip.html",
+        "bbox": {
+          "x": 77.14,
+          "y": 111.26,
+          "width": 478.08000000000004,
+          "height": 71.8
+        },
+        "time": 4.867,
+        "words": 3,
+        "seconds": 0.538,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"Domingo, 23:20.\" (3 words) is on screen 0.47 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+        "text": "Domingo, 23:20.",
+        "selector": "div.chip.rojo",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s03-chip.html",
+        "bbox": {
+          "x": 80.32,
+          "y": 107.64,
+          "width": 520.25,
+          "height": 78.68999999999998
+        },
+        "time": 5.405,
+        "words": 3,
+        "seconds": 0.469,
+        "floorSeconds": 1.05
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 9.36 s (11.98–21.34 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 11.981,
+        "seconds": 9.36,
+        "floorSeconds": 3,
+        "until": 21.341
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"s e g u i m i e n t o\" (11 words) is on screen 1.53 s (±0.01 s), under its 2.85 s floor: hold it about 0.5 s + 0.3 s a word (3.80 s here) before it leaves or changes; see references/motion.md.",
+        "text": "s e g u i m i e n t o",
+        "selector": "span.linea.b",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 135.23,
+          "y": 763.36,
+          "width": 305.69000000000005,
+          "height": 182.94999999999993
+        },
+        "time": 21.606,
+        "words": 11,
+        "seconds": 1.529,
+        "floorSeconds": 2.85
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "\"m á s t a r d e …\" (8 words) is on screen 0.93 s (±0.01 s), under its 2.17 s floor: hold it about 0.5 s + 0.3 s a word (2.90 s here) before it leaves or changes; see references/motion.md.",
+        "text": "m á s t a r d e …",
+        "selector": "span.linea.c",
+        "dataAttributes": {},
+        "sourceFile": "compositions/cartel.html",
+        "bbox": {
+          "x": 178.52,
+          "y": 979.61,
+          "width": 107.53,
+          "height": 133.88
+        },
+        "time": 22.206,
+        "words": 8,
+        "seconds": 0.929,
+        "floorSeconds": 2.175
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 7.11 s (31.20–38.31 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 31.2,
+        "seconds": 7.114,
+        "floorSeconds": 3,
+        "until": 38.314
+      },
+      {
+        "code": "dead_stretch",
+        "severity": "warning",
+        "message": "Nothing on screen changes for 3.62 s (40.06–43.68 s): start the next move within 3 s, or put data-hold on the element whose stillness is deliberate; see references/motion.md.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 40.061,
+        "seconds": 3.619,
+        "floorSeconds": 3,
+        "until": 43.68
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"Presupuestos con seguimiento\" (3 words) is on screen 1.87 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "Presupuestos con seguimiento",
+        "selector": "#s11-cierre-esc > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s11-cierre.html",
+        "bbox": {
+          "x": 205.88,
+          "y": 1502.25,
+          "width": 668.24,
+          "height": 55.67000000000007
+        },
+        "time": 44.936,
+        "words": 3,
+        "seconds": 1.868,
+        "floorSeconds": 2
+      },
+      {
+        "code": "line_unread",
+        "severity": "warning",
+        "message": "The film's last line \"scalerics.com\" (2 words) is on screen 1.87 s (±0.01 s), under the 2.00 s a closing line needs: hold it about 0.5 s + 0.3 s a word and at least 2 s before the film ends; see references/motion.md.",
+        "text": "scalerics.com",
+        "selector": "div.b",
+        "dataAttributes": {},
+        "sourceFile": "compositions/s11-cierre.html",
+        "bbox": {
+          "x": 388.36,
+          "y": 1563.79,
+          "width": 303.28,
+          "height": 56.680000000000064
+        },
+        "time": 44.936,
+        "words": 2,
+        "seconds": 1.868,
+        "floorSeconds": 2
+      }
+    ],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 375
+  },
+  "audio": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "saved": {
+    "id": "ea6a3d33-656a-48cf-9dd7-fb6a29cb9a99",
+    "revision": null,
+    "report": "/home/user/scalerics-reels/reels/corralon-presupuesto/.hyperframes/artifacts/checks/ea6a3d33-656a-48cf-9dd7-fb6a29cb9a99.json",
+    "attribution": "inputs-changed"
+  },
+  "_meta": {
+    "version": "0.8.206",
+    "latestVersion": "0.9.102",
+    "updateAvailable": true
+  }
+}

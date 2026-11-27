@@ -422,6 +422,9 @@ const ZV = 2.4, ZE = 9.0, ZO = 11.0;   // fin de la vereda propia, la vereda de 
   g.add(mesh(new THREE.PlaneGeometry(3.4, 3.2), new THREE.MeshBasicMaterial({ color: 0x16243d }), 0, 1.6, -2.9));
   for (const s of [-1, 1]) { const p = mesh(new THREE.PlaneGeometry(3, 3.2), new THREE.MeshBasicMaterial({ color: 0x1f3254, side: THREE.DoubleSide }), s * 1.6, 1.6, -1.5); p.rotation.y = Math.PI / 2; g.add(p); }
   { const pl = crearPalletLadrillos(5, 4, 6); pl.position.set(-0.9, 0, -2.2); g.add(pl); }
+  // (r1) adentro, detrás de Gustavo: el cartel MATERIALES GUSTAVO en el fondo y una pila de portland (P5, Q5g)
+  g.add(caja(2.5, 0.48, 0.05, M.navy, -0.35, 2.15, -2.84, 0.02)); g.add(plano(2.4, 0.44, cartelT, -0.35, 2.15, -2.81));
+  { const pb = new THREE.Group(); pb.position.set(0.55, 0, -2.35); g.add(pb); for (let k = 0; k < 7; k++) for (const x of [-0.3, 0.3]) { const b = crearBolsaPortland(); b.position.set(x, 0.07 + k * BOL.h * 0.97, 0); b.rotation.y = Math.PI / 2 * (k % 2) * 0 + (k % 2 ? 0.04 : -0.03); pb.add(b); } }
   // la vereda propia, el cordón, la calle, la vereda de enfrente
   const v1 = mesh(new THREE.PlaneGeometry(60, ZV), M.vereda, 0, 0.12, ZV / 2); v1.rotation.x = -Math.PI / 2; g.add(v1);
   g.add(caja(60, 0.13, 0.14, M.cr3, 0, 0.06, ZV, 0.01));
@@ -492,7 +495,7 @@ function crearCamion(color, conNombre) {
 }
 const CAM_GRIS = crearCamion(0x8a8f98, false); scene.add(CAM_GRIS);
 const CAM_NAVY = crearCamion(0x1f3254, true); scene.add(CAM_NAVY);
-const CAM_POS = { x: XC + 0.6, z: 7.6 };   // estacionado contra el cordón de enfrente, la trompa hacia +x
+const CAM_POS = { x: XC - 0.2, z: 7.6 };   // estacionado contra el cordón de enfrente, la trompa hacia +x
 function ponerCamion(cam, t, t0, reculando = true) {
   const u = reculando ? eo(sg(t, t0, t0 + 1.0)) : 1;
   cam.position.set(CAM_POS.x + (1 - u) * 3.2, 0, CAM_POS.z); cam.rotation.y = 0;
@@ -502,9 +505,10 @@ function ponerCamion(cam, t, t0, reculando = true) {
 // EL TABLERO del camión (x = XT): el parabrisas, el volante, la hoja apoyada (P6i) y su par navy (Q5i)
 // =====================================================================================================
 const XT = 120;
+const TABLERO_M = mat(0x5c616b, 0.75);   // gris en el camión del otro (P6i), navy en el de Gustavo (Q5i)
 const TAB_C = new THREE.Group(); TAB_C.position.set(XT, 0, 0); scene.add(TAB_C);
 {
-  const g = TAB_C, gris = mat(0x5c616b, 0.75);
+  const g = TAB_C, gris = TABLERO_M;
   g.add(caja(1.8, 0.32, 0.55, gris, 0, 1.0, -0.25, 0.06));                       // el tablero
   g.add(caja(1.8, 0.05, 0.3, mat(0x4a4f58, 0.8), 0, 1.18, -0.42, 0.02));          // la repisa contra el parabrisas
   for (const s of [-1, 1]) { const p = caja(0.09, 1.0, 0.09, M.navy3, s * 0.9, 1.65, -0.5, 0.02); p.rotation.x = 0.25; g.add(p); }
@@ -526,7 +530,7 @@ function dibujarHoja(x, w, h, tachada) {
   x.fillStyle = "#efeee5"; x.textAlign = "center"; x.textBaseline = "middle"; ajustar(x, "MATERIALES GUSTAVO", 900, 64, w - 60); x.fillText("MATERIALES GUSTAVO", w / 2, 66);
   x.font = F(800, 44); x.fillText("PRESUPUESTO", w / 2, 132);
   x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 58); x.fillText("Casa Mónica", 44, 250); x.fillStyle = "#3a4256"; x.font = F(700, 38); x.fillText("Obra gris · 86 renglones", 46, 312);
-  const filas = [["Ladrillo de campo", "228.000"], ["Portland 25 kg", "62.400"], ["Hierro del 8", "34.200"], ["Arena gruesa", "43.200"], ["…", ""]];
+  const filas = tachada ? [["Ladrillo de campo", "228.000"], ["Portland 25 kg", "62.400"], ["Hierro del 8", "34.200"], ["Arena gruesa", "43.200"], ["…", ""]] : [["Ladrillo de campo", "228.000"], ["Portland 25 kg", "62.400"], ["Hierro del 8", "34.200"]];
   filas.forEach(([a, b], i) => { const y = 400 + i * 92; x.fillStyle = "#0b1220"; x.font = F(700, 42); x.textAlign = "left"; x.fillText(a, 44, y); x.textAlign = "right"; x.fillText(b, w - 44, y); x.fillStyle = "#c9c6bb"; x.fillRect(44, y + 38, w - 88, 3); });
   x.fillStyle = "#0b1220"; x.textAlign = "left"; x.font = F(900, 54); x.fillText("TOTAL", 44, 920); x.textAlign = "right"; x.font = F(900, 70); x.fillText("$ 1.260.000", w - 44, 920);
   if (tachada) {
@@ -537,7 +541,7 @@ function dibujarHoja(x, w, h, tachada) {
     x.fillStyle = "#c7655b"; x.textAlign = "right"; x.font = CAV(110); x.fillText("1.215.000", w - 50, 1030);
     x.save(); x.translate(250, 1030); x.rotate(-0.08); x.font = CAV(80); x.textAlign = "center"; x.fillText("−45 mil", 0, 0); x.restore();
   } else {
-    x.save(); x.translate(w / 2, 690); x.rotate(-0.1); x.strokeStyle = "#3fa60a"; x.lineWidth = 14; x.fillStyle = "rgba(92,230,17,0.18)"; x.beginPath(); x.roundRect(-300, -95, 600, 190, 30); x.fill(); x.stroke();
+    x.save(); x.translate(w / 2, 790); x.rotate(-0.06); x.scale(0.8, 0.8); x.strokeStyle = "#3fa60a"; x.lineWidth = 14; x.fillStyle = "rgba(92,230,17,0.18)"; x.beginPath(); x.roundRect(-300, -95, 600, 190, 30); x.fill(); x.stroke();
     x.fillStyle = "#3fa60a"; x.textAlign = "center"; x.textBaseline = "middle"; x.font = F(900, 104); x.fillText("Aceptado", -40, 6); tilde(x, 230, 6, 92, "#3fa60a", 20); x.restore();
     x.fillStyle = "#3fa60a"; x.textAlign = "left"; x.font = F(800, 44); x.fillText("Primera entrega: lunes 8:00", 44, 1030);
   }
@@ -590,7 +594,7 @@ const gustavo = crearPersonaje({ nombre: "Gustavo", piel: PIEL.media, pelo: 0x3a
   barba: 0x3a3330, barbaLarga: 0.35, barbaOpacidad: 0.35, barbaBigote: false, mejillasBajas: true,
   camisa: MARCA.cr, mangas: "largas", cuello: MARCA.cr, cuelloBotones: false, cuelloAlto: 0.06, chaleco: { color: MARCA.navy2, botones: MARCA.g },
   pantalon: 0x3a3f4a, zapatos: 0x3b2a20, panza: 1.08, nariz: 0.062, mejillas: 0xd08a72, alto: 1.03,
-  dedos: true, parpadeoCada: 999, parpadeosExtra: parp(1.6, T.p2 + 0.5, T.n3 + 0.3, T.p3 + 1.2, T.p4m + 1.6, T.p6 + 1.2, T.q1 + 1.4, T.q4 + 1.0, T.q5 + 1.1, T.g14 + 1.45) });
+  dedos: true, parpadeoCada: 999, parpadeosExtra: parp(T.p2 + 0.5, T.p3 + 1.2, T.p4m + 1.6, T.q4 + 1.0, T.q5 + 1.1) });
 lapizOreja(gustavo);
 { const pm = mat(0x3a3330, 0.9); const nuca = mesh(new THREE.SphereGeometry(R0 * 1.035, 36, 16, Math.PI * 1.5 - 1.42, 2.84, Math.PI * 0.2, Math.PI * 0.46), pm, 0, CC0 + 0.01, -0.012); nuca.scale.set(1, 0.98, 0.97); gustavo.cabeza.add(nuca);
   semilla = 41; for (let i = 0; i < 17; i++) { const a = Math.PI * 1.5 - 1.35 + (i / 16) * 2.7, e = -0.38 + az() * 0.08, r = R0 * 1.03; const m = mesh(new THREE.SphereGeometry(1, 10, 8), pm, r * -Math.cos(a) * Math.cos(e), CC0 + 0.01 + R0 * 0.97 * Math.sin(e), r * Math.sin(a) * Math.cos(e) * 0.97 - 0.012); m.scale.set(0.05, 0.045 + az() * 0.02, 0.022); m.lookAt(m.position.clone().multiplyScalar(2).setY(m.position.y)); m.scale.set(0.05, 0.045, 0.022); gustavo.cabeza.add(m); } }
@@ -603,7 +607,7 @@ const tito = crearPersonaje({ nombre: "Tito", piel: PIEL.morena, pelo: 0xb9b6b0,
 gorro(tito, C.navy3);
 { const mp = mat(0xc9c6bd, 0.95); for (const [x, y, z, s] of [[0.11, 0.24, 0.225, 0.05], [-0.07, 0.1, 0.245, 0.04], [0.05, -0.02, 0.25, 0.035], [-0.15, 0.3, 0.18, 0.03]]) { const d = mesh(new THREE.SphereGeometry(1, 12, 8), mp, x, y, z); d.scale.set(s, s * 0.75, 0.012); d.lookAt(d.position.clone().multiplyScalar(3)); d.scale.set(s, s * 0.75, 0.012); tito.cuerpo.add(d); } }
 // Mónica (nueva, ELENCO.monica en assets/personajes.js): ~40, castaño oscuro en coleta alta, campera crema con cuello navy
-const monica = crearPersonaje({ ...ELENCO.monica, dedos: true, parpadeoCada: 999, parpadeosExtra: parp(1.3, T.p4 + 1.2, T.p4p + 0.5, T.p6i + 0.3, T.q1 + 1.6, T.q3m + 0.2, T.q5g + 0.9) });
+const monica = crearPersonaje({ ...ELENCO.monica, dedos: true, parpadeoCada: 999, parpadeosExtra: parp(T.p4 + 0.15, T.p6i + 0.3, T.q5 + 0.15) });
 // la carpeta de obra (navy con elástico verde) bajo el brazo derecho (P1, Q1) y el casco blanco en la mano (calle)
 const CARPETA = new THREE.Group(); scene.add(CARPETA);
 { CARPETA.add(caja(0.26, 0.34, 0.025, M.navy3, 0, 0, 0, 0.008)); CARPETA.add(caja(0.27, 0.02, 0.03, M.g, 0, 0.08, 0, 0.004)); CARPETA.add(caja(0.25, 0.32, 0.01, M.cr, 0.0, 0.0, 0.006, 0.003)); sombras(CARPETA); }
@@ -986,13 +990,13 @@ const GL = {
   g12: crearGlobo(["Compró.", "Con un [botón.]"], 72),
   g13a: crearGlobo(["Ya sé."], 72),
   g13: crearGlobo(["Ya sé.", "Es mi [camión.]"], 72),
-  rot4h: crearRotulo([["4 horas armándolo", "#efeee5", 56]], 56, ROJO),
-  rotP: crearRotulo([["Presupuesto: 4 horas", "#efeee5", 50], ["$ 1.260.000: con otro", "#efeee5", 50]], 50, ROJO),
-  rotS: crearRotulo([["Seguimientos: 0", "#efeee5", 52]], 52, ROJO),
-  rotQ1: crearRotulo([["Con tu [lista de precios]"]], 52),
-  rotQ2: crearRotulo([["Lo acepta con un [botón]"]], 52),
-  rotQ3: crearRotulo([["A los 2 días te avisa:"], ["toca [seguimiento]"]], 52),
-  rotQ4: crearRotulo([["Lo ganado, lo abierto"], ["y lo [perdido]"]], 52),
+  rot4h: crearRotulo([["4 horas armándolo", "#efeee5", 66]], 66, ROJO),
+  rotP: crearRotulo([["Presupuesto: 4 horas", "#efeee5", 60], ["$ 1.260.000: con otro", "#efeee5", 60]], 60, ROJO),
+  rotS: crearRotulo([["Seguimientos: 0", "#efeee5", 62]], 62, ROJO),
+  rotQ1: crearRotulo([["Con tu [lista de precios]", null, 58]], 58),
+  rotQ2: crearRotulo([["Lo acepta con un [botón]", null, 58]], 58),
+  rotQ3: crearRotulo([["A los 2 días te avisa:", null, 56], ["toca [seguimiento]", null, 56]], 56),
+  rotQ4: crearRotulo([["Lo ganado, lo abierto", null, 56], ["y lo [perdido]", null, 56]], 56),
 };
 const GUIAS = [crearGuia(), crearGuia()];
 
@@ -1021,7 +1025,7 @@ function ponerCam(v, t) {
 function planoEn(t) { let pi = 0; while (pi + 1 < PLANOS.length && PLANOS[pi + 1][1] <= t) pi++; return PLANOS[pi]; }
 const L2 = (a, b, k) => a.map((v, i) => lerp(v, b[i], k));
 // encuadres (px, py, pz, mx, my, mz, fov) · k: 0 → 1 a lo largo del plano (push-in suave)
-const CA = (k) => L2([-0.62, 1.72, 3.45, -0.38, 1.08, 0.2, 50], [-0.6, 1.7, 3.3, -0.38, 1.1, 0.2, 49], k);   // el cuadro 0 (P1, Q1)
+const CA = (k) => L2([-0.58, 1.68, 3.1, -0.4, 1.12, 0.15, 50], [-0.56, 1.66, 2.96, -0.4, 1.14, 0.15, 49], k);   // (r1) más cerca: Gustavo más grande   // el cuadro 0 (P1, Q1)
 const CG = (k) => L2([-0.42, 1.5, 1.62, -0.95, 1.38, -0.6, 44], [-0.46, 1.5, 1.5, -0.95, 1.4, -0.6, 42], k);   // Gustavo (P1g, Q1g)
 const CN1 = (k) => L2([0.35, 1.52, 1.75, -1.0, 1.12, -0.25, 42], [0.3, 1.5, 1.6, -1.0, 1.12, -0.25, 41], k);   // 19:10
 const CN2 = (k) => L2([0.55, 0.95, 1.7, -0.9, 0.85, 0.2, 54], [0.48, 0.92, 1.6, -0.9, 0.85, 0.2, 52], k);   // 21:30: la cinta cuelga
@@ -1029,10 +1033,10 @@ const CN3 = (k) => L2([-0.98, 1.6, -0.76, -1.05, 1.11, -0.07, 44], [-1.04, 1.45,
 const CT = (k) => L2([-0.5, 1.62, -1.0, -0.6, 1.28, 0.72, 50], [-0.5, 1.6, -0.9, -0.6, 1.28, 0.72, 48], k);   // Tito con los codos, desde el lado de Gustavo (P3, Q4)
 const CGu = (k) => L2([0.8, 1.72, 1.4, -0.95, 1.45, -0.6, 44], [0.74, 1.72, 1.3, -0.95, 1.46, -0.6, 42], k);   // Gustavo, por encima del hombro de Tito (P3g, Q4b)
 const CQ5b = (k) => L2([-3.4, 2.05, 0.75, -1.6, 0.98, -0.72, 42], [-3.3, 2.02, 0.66, -1.6, 0.98, -0.72, 41], k);   // desde la punta del mostrador: Tito de 3/4 y el cajón   // Tito y el cajón
-const CP4 = (k) => L2([XC + 0.1, 1.95, -0.7, XC - 0.2, 1.25, 8.0, 42], [XC + 0.1, 1.93, -0.55, XC - 0.2, 1.25, 8.0, 41], k);   // desde el portón
+const CP4 = (k) => L2([XC + 0.05, 3.2, 0.15, XC + 0.0, 0.6, 8.2, 52], [XC + 0.05, 3.12, 0.3, XC + 0.0, 0.6, 8.2, 51], k);   // (r1) grúa alta: el camión entero descargando EN la obra   // desde el portón
 const CP4m = (k) => L2([XC + 0.18, 1.68, -0.75, XC + 0.25, 1.42, 1.95, 38], [XC + 0.18, 1.67, -0.62, XC + 0.25, 1.42, 1.95, 37], k);   // Mónica (por encima del hombro de Gustavo)
 const CP4p = (k) => L2([XC - 0.1, 1.3, -1.6, XC + 0.0, 1.5, 5.0, 46], [XC - 0.1, 1.3, -1.5, XC + 0.0, 1.5, 5.0, 45], k);   // la pausa: los dos y el camión
-const CP5 = (k) => L2([XC - 0.25, 1.62, 3.6, XC - 0.45, 1.62, 0.9, 30], [XC - 0.27, 1.62, 3.4, XC - 0.45, 1.62, 0.9, 29], k);   // Gustavo de cerca
+const CP5 = (k) => L2([XC - 0.42, 1.52, 3.5, XC - 0.47, 1.76, 0.9, 32], [XC - 0.43, 1.52, 3.32, XC - 0.47, 1.76, 0.9, 31], k);   // (r1) un poco desde abajo: el cartel MATERIALES GUSTAVO de adentro detrás de la cabeza   // Gustavo de cerca
 const CP6 = (k) => L2([XC + 0.15, 1.66, -0.35, XC + 0.25, 1.48, 1.95, 34], [XC + 0.15, 1.66, -0.25, XC + 0.25, 1.48, 1.95, 33], k);   // Mónica de cerca
 const CP6i = (k) => L2([XT + 0.02, 1.78, 1.2, XT + 0.16, 1.48, -0.44, 34], [XT + 0.08, 1.7, 0.98, XT + 0.17, 1.49, -0.44, 33], eo(k));   // el tablero
 const MT = { x: XC + 0.6, z: 12.0 };   // Mónica en su terreno (Q3m)
@@ -1052,7 +1056,7 @@ function armarPlanos() {
   PLANOS.push(["Q1t", T.q1t, null]); PLANOS.push(["Q2c", T.q2, null]); PLANOS.push(["Q3c", T.q3, null]);
   P("Q3m", T.q3m, T.q3a, CQ3m); PLANOS.push(["Q3a", T.q3a, null]);
   P("Q4", T.q4, T.q4t, CT); PLANOS.push(["Q4t", T.q4t, null]); P("Q4b", T.q4b, T.q5, CGu);
-  P("Q5", T.q5, T.q5g, CP4); P("Q5g", T.q5g, T.q5b, CP5); P("Q5b", T.q5b, T.c, CQ5b);
+  P("Q5", T.q5, T.q5g, CP4); P("Q5g", T.q5g, T.q5i, CP5); P("Q5i", T.q5i, T.c, CP6i);   // (r1) Q5b (Tito y el cajón) fuera: el inserto del tablero navy con "Aceptado ✓"
   P("C", T.c, DUR, CC);
 }
 armarPlanos();
@@ -1079,7 +1083,7 @@ const giroHacia = (de, a) => Math.atan2(a.x - de.x, a.z - de.z);
 const MON0 = { x: 0.08, z: 0.78 }, TITO0 = { x: -0.6, z: 0.72, giro: Math.PI - 0.55 };
 const GC = { x: XC - 0.45, z: 0.9 };            // Gustavo en el portón (la calle)
 const MC = { x: XC + 0.28, z: 1.95 };           // Mónica frente a Gustavo, en la vereda
-const MC0 = { x: XC - 2.15, z: 8.2 };            // de donde sale Mónica (detrás del camión)
+const MC0 = { x: XC - 0.55, z: 6.25 };   // (r1) aparece por delante de la trompa, en el medio del cuadro            // de donde sale Mónica (detrás del camión)
 const LEJOS = { x: 12, z: 6 };
 const TECLAS = () => { CALC_G.updateMatrixWorld(true); return CALC_G.localToWorld(V3(0, 0.06, 0.06)); };
 function poseGustavo(t) {
@@ -1187,9 +1191,13 @@ function poseMonica(t) {
   // la calle: cruza con el casco en la mano y llega frente a Gustavo (P4, Q5)
   const enCalle = (!p2 && t >= T.p4 && t < P1) || (p2 && t >= T.q5 && t < T.q5b);
   if (enCalle) {
-    const tc = p2 ? T.q5 : T.p4, tl = p2 ? T.q5g - 0.1 : T.p4m - 0.1, tv = p2 ? T.m5b : T.m5;
-    const u = sg(t, tc, tl), e = eio(u);
-    const x = lerp(MC0.x, MC.x, e), z = lerp(MC0.z, MC.z, e);
+    // (r1) dos tramos a paso parejo: hasta el corte llega a MID (todavía entera en el plano alto); en el contraplano termina
+    // de llegar frente a Gustavo mientras empieza a hablar
+    const tc = p2 ? T.q5 : T.p4, tcut = p2 ? T.q5g : T.p4m, tl = tcut + 1.0, tv = p2 ? T.m5b : T.m5;
+    const MID = { x: XC + 0.12, z: 3.9 };
+    const u = sg(t, tc, tl);
+    const x = t < tcut ? lerp(MC0.x, MID.x, sg(t, tc, tcut)) : lerp(MID.x, MC.x, eo(sg(t, tcut, tl)));
+    const z = t < tcut ? lerp(MC0.z, MID.z, sg(t, tc, tcut)) : lerp(MID.z, MC.z, eo(sg(t, tcut, tl)));
     const hG = giroHacia(MC, GC);
     const dir = Math.atan2(MC.x - MC0.x, MC.z - MC0.z);
     const p = poseEn(t, [
@@ -1277,7 +1285,7 @@ function luces(lugar) {
   Object.assign(sol.shadow.camera, { left: -4, right: 4, top: 4, bottom: -4 }); sol.shadow.camera.updateProjectionMatrix();
   const cx = lugar === "tablero" ? XT : -0.8; sol.position.set(cx + 4, 6.5, 5); sol.target.position.set(cx, 0.6, 0); sol.target.updateMatrixWorld();
 }
-const LUGAR = { P2a: "noche", P2b: "noche", P2d: "noche", P2c: "noche", P4: "calle", P4m: "calle", P4p: "calle", P5: "calle", P6: "calle", Q3m: "calle", Q5: "calle", Q5g: "calle", C: "calle", P6i: "tablero" };
+const LUGAR = { Q5i: "tablero", P2a: "noche", P2b: "noche", P2d: "noche", P2c: "noche", P4: "calle", P4m: "calle", P4p: "calle", P5: "calle", P6: "calle", Q3m: "calle", Q5: "calle", Q5g: "calle", C: "calle", P6i: "tablero" };
 function renderAt(tIn) {
   const t = en(tIn, P1, P2) ? (tIn < (P1 + P2) / 2 ? P1 - 0.001 : P2) : tIn;
   const p2 = t >= P2;
@@ -1332,7 +1340,7 @@ function renderAt(tIn) {
   const camAct = calleGris ? CAM_GRIS : CAM_NAVY, t0c = calleGris ? T.p4 : T.q5;
   PILA_V.visible = LAD_MANO.visible = PEON.raiz.visible = calleGris || calleNavy;
   if (PILA_V.visible) {
-    PILA_V.position.set(CAM_POS.x - 3.0, 0, CAM_POS.z - 0.75);
+    PILA_V.position.set(CAM_POS.x - 2.85, 0.12, CAM_POS.z + 1.45);   // (r1) en la vereda de la obra, detrás de la culata
     const n = cl(Math.floor((t - t0c - 0.9) / CICLO), 0, 30) + 6;
     PILA_V.children.forEach((b, i) => (b.visible = i < n));
     const f = ((t - t0c - 0.9) / CICLO) % 1, fase = f < 0 ? f + 1 : f;
@@ -1341,7 +1349,7 @@ function renderAt(tIn) {
     LAD_MANO.visible = t >= t0c + 0.9;
   }
   // la hoja del tablero
-  HOJA.visible = pa === "P6i";
+  HOJA.visible = pa === "P6i" || pa === "Q5i"; HOJA_PL.material.map = pa === "Q5i" ? hojaNavyT : hojaGrisT; TABLERO_M.color.set(pa === "Q5i" ? 0x1f3254 : 0x5c616b);
   // ---- personajes ----
   tito.poner(poseTito(t));
   { const ps = poseMonica(t); const ab = ps.boca.abierta; if (ab > 0.02) ps.boca.sonrisa = lerp(ps.boca.sonrisa, 0.1, cl(ab * 4)); monica.poner(ps); }
@@ -1377,7 +1385,7 @@ function renderAt(tIn) {
     const boca = (per) => bocaPx(per);
     // globo en dos tiempos: la "a" hasta CORTE, después la entera (crece sin achicarse)
     const dos = (k, ti, cx, cy, obj, orden = 1, kc = k) => { if (t < ti - 0.04) return; const tc = ti + CORTE[kc]; if (t < tc) ponerGlobo(GL[k + "a"], cx, cy, ent(ti - 0.04), obj, orden); else ponerGlobo(GL[k], cx, cy, 0.94 + 0.06 * bk(sg(t, tc, tc + 0.18)), obj, orden); };
-    if (pa === "P1" || pa === "Q1") dos("m1", pa === "P1" ? T.m1 : T.m1b, 720, 560, boca(monica), 1);
+    if (pa === "P1" || pa === "Q1") dos("m1", pa === "P1" ? T.m1 : T.m1b, 700, 1240, boca(monica), 1);   // (r1) abajo, sobre la lista: no pisa las caras
     if (pa === "P1g" && t >= T.g2) ponerGlobo(GL.g2, 560, 420, ent(T.g2), boca(gustavo), 1);
     if (pa === "P2d" && t >= T.rot4h) ponerGlobo(GL.rot4h, 540, 1700, ent(T.rot4h), null, 1);
     if (pa === "P3" || pa === "Q4") { const t1 = pa === "P3" ? T.t3 : T.t3b; if (t >= t1 - 0.04 && t < t1 + LEN.t3 + 0.25) ponerGlobo(GL.t3, 380, 470, ent(t1 - 0.04), boca(tito), 1); }
